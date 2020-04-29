@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: Enkelsidig webbapp med Entitetssökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Den här självstudien visar hur du använder API:et för Bing-entitetssökning i ett ensidigt webbprogram.
+description: I den här självstudien visas hur du använder API för entitetsökning i Bing i ett webb program med en enda sida.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943125"
 ---
 # <a name="tutorial-single-page-web-app"></a>Självstudie: Enkelsidig webbapp
@@ -58,7 +58,7 @@ I den här självstudien diskuterar vi endast vissa delar av källkoden. Den ful
 
 ## <a name="prerequisites"></a>Krav
 
-För att följa med i självstudien behöver du prenumerationsnycklar för API:et för Bing-sökning och API:et för Bing Maps. Om du inte har dem kan du använda en [testversionsnyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) och en [grundläggande Bing Maps-nyckel](https://www.microsoft.com/maps/create-a-bing-maps-key).
+Om du vill följa med i själv studie kursen behöver du prenumerations nycklar för API: et för Bing-sökning och Bing Maps. Om du inte har dem kan du använda en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) och en [enkel Bing Maps-nyckel](https://www.microsoft.com/maps/create-a-bing-maps-key).
 
 ## <a name="app-components"></a>Appkomponenter
 
@@ -90,7 +90,7 @@ HTML-koden innehåller också avdelningar (HTML `<div>`-taggar) där sökresulta
 
 För att undvika att lägga till prenumerationsnycklarna för API:et för Bing Search och API:et för Bing Maps i koden använder vi webbläsarens beständiga lagring för att lagra dem. Om någon av nycklarna inte har lagrats frågar vi efter den lagrar den för senare användning. Om nyckeln senare avvisas av API:et ogiltigförklarar vi den lagrade nyckeln så att användaren tillfrågas om den vid nästa sökning.
 
-Vi definierar funktionerna `storeValue` och `retrieveValue` som använder antingen objektet `localStorage` (om webbläsaren stöder det) eller en cookie. Vår `getSubscriptionKey()`-funktion använder dessa funktioner för att lagra och hämta användarens nyckel. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
+Vi definierar funktionerna `storeValue` och `retrieveValue` som använder antingen objektet `localStorage` (om webbläsaren stöder det) eller en cookie. Vår `getSubscriptionKey()`-funktion använder dessa funktioner för att lagra och hämta användarens nyckel. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
 ```javascript
 // cookie names for data we store
@@ -167,7 +167,7 @@ Fältet `mapquery` hanteras inte i `bingSearchOptions()` eftersom det används f
 
 ## <a name="obtaining-a-location"></a>Hämta en plats
 
-Api:et för [ `locationQuery` ](//msdn.microsoft.com/library/ff701711.aspx)Bing Maps erbjuder en metod som vi använder för att hitta latitud och longitud för den plats som användaren anger. Dessa koordinater skickas till API:et för entitetsökning i Bing med användarens begäran. Sökresultaten prioritera entiteter och platser som är nära den angivna platsen.
+Bing Maps-API: et erbjuder en [ `locationQuery` Metod](//msdn.microsoft.com/library/ff701711.aspx)som vi använder för att hitta latitud och longitud för den plats som användaren anger. Dessa koordinater skickas till API:et för entitetsökning i Bing med användarens begäran. Sökresultaten prioritera entiteter och platser som är nära den angivna platsen.
 
 Vi kan inte komma åt API:et för Bing Maps med hjälp av en vanlig `XMLHttpRequest`-fråga i en webbapp eftersom tjänsten inte har stöd för frågor med olika ursprung. Som tur är stöder den JSONP (”P” står för ”padded”, dvs. utfylld). Ett JSONP-svar är ett vanligt JSON-svar som är omslutet i ett funktionsanrop. Begäran görs genom att en `<script>`-tagg infogas i dokumentet. (Inläsning av skript omfattas inte av säkerhetsprinciper för webbläsare.)
 

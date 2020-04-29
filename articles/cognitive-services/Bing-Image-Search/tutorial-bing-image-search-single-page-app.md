@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: 9227417d28eb09a322dd4757033ee62fee97d91c
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943890"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Självstudier: Skapa en ensidesapp med hjälp av API för bildsökning i Bing
@@ -40,7 +40,7 @@ Den fullständiga källkoden till det här exemplet finns på [GitHub](https://g
 
 ## <a name="manage-and-store-user-subscription-keys"></a>Hantera och lagra användarens prenumerationsnycklar
 
-Det här programmet använder webbläsarens beständiga lagring för att lagra prenumerationsnycklar för API:et. Om ingen nyckel lagras frågar webbsidan användaren om nyckeln och lagrar den för senare användning. Om nyckeln senare avvisas av API appen tas den bort från lagringen. I det här exemplet används den globala slutpunkten. Du kan också använda den [anpassade underdomänslutpunkten](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
+Det här programmet använder webbläsarens beständiga lagring för att lagra prenumerationsnycklar för API:et. Om ingen nyckel lagras frågar webbsidan användaren om nyckeln och lagrar den för senare användning. Om nyckeln senare avvisas av API appen tas den bort från lagringen. I det här exemplet används den globala slut punkten. Du kan också använda den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
 
 Vi definierar funktionerna `storeValue` och `retrieveValue`, antingen med objektet `localStorage` (inte i alla webbläsare) eller en cookie.
@@ -386,7 +386,7 @@ Säkerhetsprinciper för webbläsaren (CORS) kan hindra att `X-MSEdge-ClientID`-
 > [!NOTE]
 > Du bör utföra begäran på serversidan i ett produktionsklart webbprogram ändå. I annat fall måste API-nyckeln för Bing-sökning inkluderas i webbsidan där den är tillgänglig för alla som visar källan. Du debiteras för all användning under din API-prenumerationsnyckel, även begäranden som görs av obehöriga personer, så det är viktigt att inte exponera nyckeln.
 
-I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan `Access-Control-Expose-Headers` proxy har ett huvud som tillåter svarsrubriker och gör dem tillgängliga för JavaScript.
+I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers` huvud som tillåter svarshuvuden och gör dem tillgängliga för Java Script.
 
 Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando i ett kommandofönster:
 

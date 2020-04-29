@@ -1,6 +1,6 @@
 ---
-title: Övervakning av Azure Machine Learning | Microsoft-dokument
-description: Lär dig hur du använder Azure Monitor för att visa, analysera och skapa aviseringar om mått från Azure Machine Learning.
+title: Övervaknings Azure Machine Learning | Microsoft Docs
+description: Lär dig hur du använder Azure Monitor för att visa, analysera och skapa aviseringar för mått från Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,112 +10,112 @@ ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.openlocfilehash: eb4f46322bec57fb4412d3ddebb345640556ca5c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78399102"
 ---
-# <a name="monitoring-azure-machine-learning"></a>Övervaka Azure Machine Learning
+# <a name="monitoring-azure-machine-learning"></a>Övervaknings Azure Machine Learning
 
-I den här artikeln beskrivs övervakningsdata som genereras av Azure Machine Learning. Den beskriver också hur du kan använda Azure Monitor för att analysera dina data och definiera aviseringar.
+I den här artikeln beskrivs övervaknings data som genereras av Azure Machine Learning. Det beskriver också hur du kan använda Azure Monitor för att analysera dina data och definiera aviseringar.
 
 > [!TIP]
-> Informationen i det här dokumentet är främst för administratörer, eftersom den beskriver övervakning för Azure Machine Learning. Om du är datavetare eller utvecklare och vill övervaka information som är specifik för dina modellutbildningskörningar läser du följande dokument:
+> Informationen i det här dokumentet är främst avsedd för administratörer, som beskriver övervakningen av Azure Machine Learning. Om du är data expert eller utvecklare och vill övervaka information som är unik för din modell utbildning, se följande dokument:
 >
-> * [Starta, övervaka och avbryta utbildningskörningar](how-to-manage-runs.md)
+> * [Starta, övervaka och avbryta inlärnings körningar](how-to-manage-runs.md)
 > * [Loggmått för träningskörningar](how-to-track-experiments.md)
 > * [Spåra experiment med MLflow](how-to-use-mlflow.md)
 > * [Visualisera körningar med TensorBoard](how-to-monitor-tensorboard.md)
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-Azure Machine Learning loggar övervakningsdata med Azure Monitor, som är en fullständig stackövervakningstjänst i Azure. Azure Monitor innehåller en komplett uppsättning funktioner för att övervaka dina Azure-resurser. Den kan också övervaka resurser i andra moln och lokalt.
+Azure Machine Learning loggar övervakning av data med hjälp av Azure Monitor, som är en fullständig stack övervaknings tjänst i Azure. Azure Monitor innehåller en fullständig uppsättning funktioner för att övervaka dina Azure-resurser. Den kan också övervaka resurser i andra moln och lokalt.
 
-Börja med artikeln [Azure Monitor översikt](/azure/azure-monitor/overview), som ger en översikt över övervakningsfunktionerna. Följande avsnitt bygger på den här informationen genom att tillhandahålla detaljer om hur du använder Azure Monitor med Azure Machine Learning.
+Börja med artikeln [Azure Monitor översikt](/azure/azure-monitor/overview), som ger en översikt över övervakningsfunktionerna. Följande avsnitt bygger på den här informationen genom att tillhandahålla information om hur du använder Azure Monitor med Azure Machine Learning.
 
-Information om hur du förstår kostnader som är associerade med Azure Monitor finns [i Användning och uppskattade kostnader](/azure/azure-monitor/platform/usage-estimated-costs). Information om hur mycket tid det tar för dina data att visas i Azure Monitor finns [i Logga inmatningstid](/azure/azure-monitor/platform/data-ingestion-time).
+För att förstå kostnader som är kopplade till Azure Monitor, se [användning och beräknade kostnader](/azure/azure-monitor/platform/usage-estimated-costs). För att förstå hur lång tid det tar för dina data att visas i Azure Monitor, se [logg data](/azure/azure-monitor/platform/data-ingestion-time)Inhämtnings tid.
 
-## <a name="monitoring-data-from-azure-machine-learning"></a>Övervaka data från Azure Machine Learning
+## <a name="monitoring-data-from-azure-machine-learning"></a>Övervaknings data från Azure Machine Learning
 
-Azure Machine Learning samlar in samma typer av övervakningsdata som andra Azure-resurser, som beskrivs i [Övervakningsdata från Azure-resurser](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data). Se [Azure Machine Learning övervakningsdatareferens](monitor-resource-reference.md) för en detaljerad referens av loggar och mått som skapats av Azure Machine Learning.
+Azure Machine Learning samlar in samma typer av övervaknings data som andra Azure-resurser, som beskrivs i [övervaka data från Azure-resurser](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data). Se [Azure Machine Learning övervaknings data referens](monitor-resource-reference.md) för en detaljerad referens för de loggar och mått som skapats av Azure Machine Learning.
 
-## <a name="analyzing-metric-data"></a>Analysera måttdata
+## <a name="analyzing-metric-data"></a>Analysera mått data
 
-Du kan analysera mått för Azure Machine Learning genom att öppna **mått** från **Azure Monitor-menyn.** Mer information om hur du använder det här verktyget finns [i Komma igång med Azure Metrics Explorer.](/azure/azure-monitor/platform/metrics-getting-started)
+Du kan analysera måtten för Azure Machine Learning genom att öppna **mått** från **Azure Monitor** -menyn. Mer information om hur du använder det här verktyget finns i [komma igång med Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) .
 
-Alla mått för Azure Machine Learning finns i namnområdet **Machine Learning Service Workspace**.
+Alla mått för Azure Machine Learning finns i namn området **Machine Learning service Workspace**.
 
-![Statistikutforskaren med Machine Learning Service Workspace markerat](./media/monitor-azure-machine-learning/metrics.png)
+![Metrics Explorer med Machine Learning tjänst arbets ytan har valts](./media/monitor-azure-machine-learning/metrics.png)
 
 ### <a name="filtering-and-splitting"></a>Filtrering och delning
 
-För mått som stöder dimensioner kan du använda filter med hjälp av ett dimensionsvärde. Filtrering av `cpu-cluster` **aktiva kärnor** för ett **klusternamn** på . 
+För mått som stöder dimensioner kan du använda filter med hjälp av ett dimensions värde. Filtrera exempelvis **aktiva kärnor** för ett **kluster namn** `cpu-cluster`. 
 
-Du kan också dela ett mått efter dimension för att visualisera hur olika segment i måttet jämförs med varandra. Dela till exempel upp **pipelinestegstypen** för att se antalet typer av steg som används i pipelinen.
+Du kan också dela upp ett mått per dimension för att visualisera hur olika segment i måttet jämförs med varandra. Du kan till exempel dela upp **steg typen pipeline** för att se ett antal typer av steg som används i pipelinen.
 
-Mer information om filtrering och delning finns i [Avancerade funktioner i Azure Monitor](/azure/azure-monitor/platform/metrics-charts).
+Mer information om filtrering och delning finns i [avancerade funktioner i Azure Monitor](/azure/azure-monitor/platform/metrics-charts).
 
 ## <a name="alerts"></a>Aviseringar
 
-Du kan komma åt aviseringar för Azure Machine Learning genom att öppna **aviseringar** från **Azure Monitor-menyn.** Se [Skapa, visa och hantera måttaviseringar med Hjälp av Azure Monitor](/azure/azure-monitor/platform/alerts-metric) för information om hur du skapar aviseringar.
+Du kan få åtkomst till aviseringar för Azure Machine Learning genom att öppna **aviseringar** från **Azure Monitor** -menyn. Se [skapa, Visa och hantera mått aviseringar med hjälp av Azure Monitor](/azure/azure-monitor/platform/alerts-metric) för information om hur du skapar aviseringar.
 
-I följande tabell visas vanliga och rekommenderade måttaviseringsregler för Azure Machine Learning:
+I följande tabell visas vanliga och rekommenderade mått för varnings regler för Azure Machine Learning:
 
 | Aviseringstyp | Villkor | Beskrivning |
 |:---|:---|:---|
-| Det gick inte att distribuera modeller | Aggregeringstyp: Totalt, Operator: Större än, Tröskelvärde: 0 | När en eller flera modelldistributioner har misslyckats |
-| Procent av kvotutnyttjande | Aggregeringstyp: Medelvärde, Operator: Större än, Tröskelvärde: 90| När kvotutnyttjandeprocenten är större än 90 % |
-| Oersättliga noder | Aggregeringstyp: Totalt, Operator: Större än, Tröskelvärde: 0 | När det finns en eller flera oersättliga noder |
+| Modelldistribution misslyckades | Sammansättnings typ: Total, operator: större än, tröskelvärde: 0 | När en eller flera modell distributioner har misslyckats |
+| Kvot användning i procent | Sammansättnings typ: genomsnitt, operator: större än, tröskelvärde: 90| När kvot användnings procenten är större än 90% |
+| Oanvändbara noder | Sammansättnings typ: Total, operator: större än, tröskelvärde: 0 | När det finns en eller flera oanvändbara noder |
 
 ## <a name="configuration"></a>Konfiguration
 
 > [!IMPORTANT]
 > __Mått för Azure Machine Learning behöver inte konfigureras__, de samlas in automatiskt och är tillgängliga i Metrics Explorer för övervakning och avisering.
 
-Du kan lägga till en diagnostikinställning för att konfigurera följande funktioner:
+Du kan lägga till en diagnostisk inställning för att konfigurera följande funktioner:
 
-* Arkivera logg- och måttinformation till ett Azure-lagringskonto.
-* Strömma logg- och måttinformation till en Azure Event Hub.
-* Skicka logg- och måttinformation till Azure Monitor Log Analytics.
+* Arkivera logg-och mått information till ett Azure Storage-konto.
+* Strömma logg-och mått information till en Azure Event Hub.
+* Skicka logg-och mått information till Azure Monitor Log Analytics.
 
-För att aktivera dessa inställningar krävs ytterligare Azure-tjänster (lagringskonto, händelsehubb eller Logganalys), vilket kan öka din kostnad. Om du vill beräkna en uppskattad kostnad besöker du [Azure-priskalkylatorn](https://azure.microsoft.com/pricing/calculator).
+Att aktivera de här inställningarna kräver ytterligare Azure-tjänster (lagrings konto, händelsehubben eller Log Analytics), vilket kan öka din kostnad. Om du vill beräkna en uppskattad kostnad går du till [pris Kalkylatorn för Azure](https://azure.microsoft.com/pricing/calculator).
 
-Mer information om hur du skapar en diagnostikinställning finns i [Skapa diagnostikinställning för att samla in plattformsloggar och mått i Azure](/azure/azure-monitor/platform/diagnostic-settings).
+Mer information om hur du skapar en diagnostisk inställning finns i [skapa diagnostisk inställning för att samla in plattforms loggar och mått i Azure](/azure/azure-monitor/platform/diagnostic-settings).
 
 Du kan konfigurera följande loggar för Azure Machine Learning:
 
 | Kategori | Beskrivning |
 |:---|:---|
-| AmlComputeClusterEvent | Händelser från Azure Machine Learning-beräkningskluster. |
-| AmlComputeClusterNodeEvent | Händelser från noder i ett Azure Machine Learning-beräkningskluster. |
-| AmlComputeJobEvent | Händelser från jobb som körs på Azure Machine Learning-beräkning. |
+| AmlComputeClusterEvent | Händelser från Azure Machine Learning beräknings kluster. |
+| AmlComputeClusterNodeEvent | Händelser från noder i ett Azure Machine Learning beräknings kluster. |
+| AmlComputeJobEvent | Händelser från jobb som körs på Azure Machine Learning Compute. |
 
 > [!NOTE]
-> När du aktiverar mått i en diagnostikinställning inkluderas dimensionsinformation för närvarande inte som en del av informationen som skickas till ett lagringskonto, händelsenav eller logganalys.
+> När du aktiverar mått i en diagnostisk inställning ingår dimensions information för närvarande inte som en del av informationen som skickas till ett lagrings konto, en Event Hub-eller Log Analytics.
 
 ## <a name="analyzing-log-data"></a>Analysera loggdata
 
-Med Hjälp av Azure Monitor Log Analytics måste du skapa en diagnostikkonfiguration och aktivera __Skicka information till Log Analytics__. Mer information finns i avsnittet [Konfiguration.](#configuration)
+Om du använder Azure Monitor Log Analytics måste du skapa en diagnostisk konfiguration och aktivera __skicka information till Log Analytics__. Mer information finns i avsnittet [konfiguration](#configuration) .
 
-Data i Azure Monitor Logs lagras i tabeller, där varje tabell har sin egen uppsättning unika egenskaper. Azure Machine Learning lagrar data i följande tabeller:
+Data i Azure Monitor loggar lagras i tabeller, där varje tabell har en egen uppsättning unika egenskaper. Azure Machine Learning lagrar data i följande tabeller:
 
 | Tabell | Beskrivning |
 |:---|:---|
-| AmlComputeClusterEvent | Händelser från Azure Machine Learning-beräkningskluster. |
-| AmlComputeClusterNodeEvent | Händelser från noder i ett Azure Machine Learning-beräkningskluster. |
-| AmlComputeJobEvent | Händelser från jobb som körs på Azure Machine Learning-beräkning. |
+| AmlComputeClusterEvent | Händelser från Azure Machine Learning beräknings kluster. |
+| AmlComputeClusterNodeEvent | Händelser från noder i ett Azure Machine Learning beräknings kluster. |
+| AmlComputeJobEvent | Händelser från jobb som körs på Azure Machine Learning Compute. |
 
 > [!IMPORTANT]
-> När du väljer **Loggar** på Azure Machine Learning-menyn öppnas Log Analytics med frågeomfattningen inställd på den aktuella arbetsytan. Det innebär att loggfrågor endast innehåller data från den resursen. Om du vill köra en fråga som innehåller data från andra databaser eller data från andra Azure-tjänster väljer du **Loggar** på **Azure Monitor-menyn.** Mer information finns [i Loggfrågeomfattning och tidsintervall i Azure Monitor Log Analytics.](/azure/azure-monitor/log-query/scope/)
+> När du väljer **loggar** från Azure Machine Learning-menyn öppnas Log Analytics med fråge omfånget som är inställt på den aktuella arbets ytan. Det innebär att logg frågor bara innehåller data från den resursen. Om du vill köra en fråga som innehåller data från andra databaser eller data från andra Azure-tjänster väljer du **loggar** på **Azure Monitor** -menyn. Mer information finns i [logg frågans omfång och tidsintervall i Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) .
 
-En detaljerad referens för loggar och mått finns i [Azure Machine Learning övervakningsdatareferens](monitor-resource-reference.md).
+En detaljerad referens för loggar och mått finns i [Azure Machine Learning övervaknings data referens](monitor-resource-reference.md).
 
 ### <a name="sample-queries"></a>Exempelfrågor
 
-Här följer frågor som du kan använda för att hjälpa dig att övervaka dina Azure Machine Learning-resurser: 
+Följande är frågor som du kan använda för att övervaka dina Azure Machine Learning-resurser: 
 
-+ Få misslyckade jobb under de senaste fem dagarna:
++ Hämta misslyckade jobb de senaste fem dagarna:
 
     ```Kusto
     AmlComputeJobEvent
@@ -123,7 +123,7 @@ Här följer frågor som du kan använda för att hjälpa dig att övervaka dina
     | project  TimeGenerated , ClusterId , EventType , ExecutionState , ToolType
     ```
 
-+ Hämta poster för ett visst jobbnamn:
++ Hämta poster för ett angivet jobb namn:
 
     ```Kusto
     AmlComputeJobEvent
@@ -131,7 +131,7 @@ Här följer frågor som du kan använda för att hjälpa dig att övervaka dina
     | project  TimeGenerated , ClusterId , EventType , ExecutionState , ToolType
     ```
 
-+ Hämta klusterhändelser under de senaste fem dagarna för kluster där vm-storleken är Standard_D1_V2:
++ Hämta kluster händelser under de senaste fem dagarna för kluster där storleken på den virtuella datorn är Standard_D1_V2:
 
     ```Kusto
     AmlComputeClusterEvent
@@ -139,7 +139,7 @@ Här följer frågor som du kan använda för att hjälpa dig att övervaka dina
     | project  ClusterName , InitialNodeCount , MaximumNodeCount , QuotaAllocated , QuotaUtilized
     ```
 
-+ Få noder som tilldelats under de senaste åtta dagarna:
++ Hämta noder som tilldelats de senaste åtta dagarna:
 
     ```Kusto
     AmlComputeClusterNodeEvent
@@ -149,6 +149,6 @@ Här följer frågor som du kan använda för att hjälpa dig att övervaka dina
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En referens för loggar och mått finns i [Azure Machine Learning övervakningsdatareferens](monitor-resource-reference.md).
-- Information om hur du arbetar med kvoter relaterade till Azure Machine Learning finns i [Hantera och begära kvoter för Azure-resurser](how-to-manage-quotas.md).
-- Mer information om hur du övervakar Azure-resurser finns i [Övervaka Azure-resurser med Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource).
+- En referens för loggar och mått finns i [Azure Machine Learning övervaknings data referens](monitor-resource-reference.md).
+- Information om hur du arbetar med kvoter som är relaterade till Azure Machine Learning finns i [Hantera och begära kvoter för Azure-resurser](how-to-manage-quotas.md).
+- Mer information om övervakning av Azure-resurser finns i [övervaka Azure-resurser med Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource).

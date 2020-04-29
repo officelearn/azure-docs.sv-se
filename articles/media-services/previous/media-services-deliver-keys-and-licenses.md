@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Media Services för att leverera DRM-licenser eller AES-nycklar | Microsoft-dokument
-description: I den här artikeln beskrivs hur du kan använda Azure Media Services för att leverera PlayReady- och/eller Widevine-licenser och AES-nycklar, men gör resten (koda, kryptera, strömma) med hjälp av lokala servrar.
+title: Använd Azure Media Services för att leverera DRM-licenser eller AES-nycklar | Microsoft Docs
+description: Den här artikeln beskriver hur du kan använda Azure Media Services för att leverera PlayReady-och/eller Widevine-licenser och AES-nycklar, men göra resten (koda, kryptera, strömma) med hjälp av dina lokala servrar.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,32 +15,32 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b1f8b158c511919a72e72629d72b0e5ff73ff7db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78268120"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Använda Media Services för att leverera DRM-licenser eller AES-nycklar 
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledning från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
-Med Azure Media Services kan du inta, koda, lägga till innehållsskydd och strömma ditt innehåll. Mer information finns i [Använda PlayReady och/eller Widevine dynamisk gemensam kryptering](media-services-protect-with-playready-widevine.md). Vissa kunder vill bara använda Media Services för att leverera licenser och/eller nycklar och koda, kryptera och strömma med hjälp av sina lokala servrar. I den här artikeln beskrivs hur du kan använda Media Services för att leverera PlayReady- och/eller Widevine-licenser, men gör resten med dina lokala servrar. 
+Med Azure Media Services kan du mata in, koda, lägga till innehålls skydd och strömma ditt innehåll. Mer information finns i [använda PlayReady och/eller Widevine Dynamic common Encryption](media-services-protect-with-playready-widevine.md). Vissa kunder vill bara använda Media Services för att leverera licenser och/eller nycklar och koda, kryptera och strömma med hjälp av sina lokala servrar. Den här artikeln beskriver hur du kan använda Media Services för att leverera PlayReady-och/eller Widevine-licenser, men gör resten av dina lokala servrar. 
 
 Du behöver ett Azure-konto för att genomföra kursen. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="overview"></a>Översikt
-Media Services tillhandahåller en tjänst för att leverera DRM-licenser (PlayReady och Widevine Digital Rights Management) och AES-128-nycklar. Media Services innehåller också API:er som gör att du kan konfigurera de rättigheter och begränsningar som du vill för drm-körningen att tillämpa när en användare spelar upp drm-skyddat innehåll. När en användare begär det skyddade innehållet begär spelarprogrammet en licens från licenstjänsten för Media Services. Om licensen är auktoriserad utfärdar licenstjänsten Media Services licensen till spelaren. PlayReady- och Widevine-licenserna innehåller dekrypteringsnyckeln som klientspelaren kan använda för att dekryptera och strömma innehållet.
+Media Services tillhandahåller en tjänst för att leverera PlayReady-och Widevine Digital Rights Management-licenser (DRM) och AES-128-nycklar. Media Services tillhandahåller också API: er som gör att du kan konfigurera de rättigheter och begränsningar som du vill att DRM-körningen ska verkställa när en användare spelar upp DRM-skyddat innehåll. När en användare begär det skyddade innehållet begär Player en licens från Media Services licens tjänsten. Om licensen är auktoriserad, utfärdar Media Services licens tjänsten licensen till spelaren. PlayReady-och Widevine-licenserna innehåller den krypterings nyckel som kan användas av klient spelaren för att dekryptera och strömma innehållet.
 
-Media Services stöder flera sätt att auktorisera användare som gör licens- eller nyckelbegäranden. Du kan konfigurera innehållsnyckelns auktoriseringsprincip. Principen kan ha en eller flera begränsningar. Alternativen är öppna eller tokenbegränsning. Den tokenbegränsade principen måste åtföljas av en token utfärdad av en säker tokentjänst (Secure Token Service – STS). Media Services stöder token i det enkla webbtokenformatet (SWT) och JWT-formatet (JSON Web Token).
+Media Services stöder flera olika sätt att auktorisera användare som gör licens-eller nyckel begär Anden. Du konfigurerar innehålls nyckelns auktoriseringsprincip. Principen kan ha en eller flera begränsningar. Alternativen är Open eller token-begränsning. Den tokenbegränsade principen måste åtföljas av en token utfärdad av en säker tokentjänst (Secure Token Service – STS). Media Services stöder tokens i formatet simple web token (SWT) och JSON Web Token (JWT).
 
-I följande diagram visas de viktigaste stegen du behöver vidta för att använda Media Services för att leverera PlayReady- och/eller Widevine-licenser, men gör resten med dina lokala servrar:
+Följande diagram visar de viktigaste stegen som du måste vidta för att kunna använda Media Services för att leverera PlayReady-och/eller Widevine-licenser, men gör resten av dina lokala servrar:
 
 ![Skydda med PlayReady](./media/media-services-deliver-keys-and-licenses/media-services-diagram1.png)
 
 ## <a name="download-sample"></a>Hämta exempel
-Information om hur du hämtar exemplet som beskrivs i den här artikeln finns i [Använda Azure Media Services för att leverera PlayReady- och/eller Widevine-licenser med .NET](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).
+Om du vill hämta exemplet som beskrivs i den här artikeln läser du [använda Azure Media Services för att leverera PlayReady-och/eller Widevine-licenser med .net](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
@@ -54,7 +54,7 @@ Information om hur du hämtar exemplet som beskrivs i den här artikeln finns i 
     ```
  
 ## <a name="net-code-example"></a>Exempel på .NET-kod
-I följande kodexempel visas hur du skapar en gemensam innehållsnyckel och hämtar PlayReady- eller Widevine-licensförvärvadresser. Om du vill konfigurera den lokala servern behöver du en innehållsnyckel, nyckel-ID och url för licensinsamling. När du har konfigurerat den lokala servern kan du strömma från din egen strömningsserver. Eftersom den krypterade strömmen pekar på en Licensserver för Media Services begär spelaren en licens från Media Services. Om du väljer tokenautentisering validerar Licensservern för Media Services token som du skickade via HTTPS. Om token är giltig levererar licensservern licensen tillbaka till din spelare. Följande kodexempel visar bara hur du skapar en gemensam innehållsnyckel och hämtar PlayReady- eller Widevine-licensförvärvadresser. Om du vill leverera AES-128 nycklar måste du skapa en kuvertinnehållsnyckel och få en url för nyckelförvärv. Mer information finns i [Använda AES-128 dynamisk kryptering och nyckelleveranstjänst](media-services-protect-with-aes128.md).
+I följande kod exempel visas hur du skapar en gemensam innehålls nyckel och hämtar PlayReady-och Widevine licens hämtnings-URL: er. Om du vill konfigurera den lokala servern behöver du en innehålls nyckel, nyckel-ID och URL för licens hämtning. När du har konfigurerat den lokala servern kan du strömma från din egen strömnings Server. Eftersom den krypterade data strömmen pekar på en Media Services licens server begär spelaren en licens från Media Services. Om du väljer token-autentisering, verifierar Media Services licens servern den token som du skickade via HTTPS. Om token är giltig levererar licens servern licensen tillbaka till spelaren. I följande kod exempel visas bara hur du skapar en gemensam innehålls nyckel och hämtar PlayReady-och Widevine-URL: er för licens hämtning. Om du vill leverera AES-128-nycklar måste du skapa en kuvert innehålls nyckel och hämta en URL för nyckel hämtning. Mer information finns i [använda AES-128 dynamisk kryptering och nyckel leverans tjänst](media-services-protect-with-aes128.md).
 
 ```csharp
 using System;
@@ -347,7 +347,7 @@ namespace DeliverDRMLicenses
 
 ## <a name="additional-notes"></a>Ytterligare information
 
-* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av användarvillkoren och sekretesspolicyn för Google, Inc.
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -357,4 +357,4 @@ namespace DeliverDRMLicenses
 
 ## <a name="see-also"></a>Se även
 * [Använda PlayReady och/eller Widevine Dynamic Common Encryption](media-services-protect-with-playready-widevine.md)
-* [Använd dynamisk AES-128-kryptering och nyckelleveranstjänsten](media-services-protect-with-aes128.md)
+* [Använd AES-128 dynamisk kryptering och Key Delivery Service](media-services-protect-with-aes128.md)

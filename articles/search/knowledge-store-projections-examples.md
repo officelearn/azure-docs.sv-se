@@ -1,7 +1,7 @@
 ---
-title: Definiera projektioner i en kunskapsbutik
+title: Definiera projektioner i ett kunskaps lager
 titleSuffix: Azure Cognitive Search
-description: Exempel på vanliga mönster för hur du projicerar utökade dokument i kunskapsarkivet för användning med Power BI eller Azure ML.
+description: Exempel på vanliga mönster för att projicera dokument i kunskaps lagret för användning med Power BI eller Azure ML.
 manager: eladz
 author: vkurpad
 ms.author: vikurpad
@@ -9,39 +9,39 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.openlocfilehash: 23c370289669c2dde4f8969a2921018cd0abc08c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943670"
 ---
-# <a name="knowledge-store-projections-how-to-shape-and-export-enrichments"></a>Kunskapslagerprojektioner: Hur man formar och exporterar anrikningar
+# <a name="knowledge-store-projections-how-to-shape-and-export-enrichments"></a>Prognoser för kunskaps lager: så här gör du för att forma och exportera
 
 > [!IMPORTANT] 
-> Knowledge Store är för närvarande i offentlig förhandsversion. Förhandsversionsfunktionen tillhandahålls utan ett servicenivåavtal och rekommenderas inte för produktionsarbetsbelastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API-versionen 2019-05-06-Preview](search-api-preview.md) innehåller förhandsgranskningsfunktioner. Det finns för närvarande begränsat portalstöd och inget .NET SDK-stöd.
+> Kunskaps lagret är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [REST API version 2019-05-06-Preview](search-api-preview.md) innehåller för hands versions funktioner. Det finns för närvarande begränsad Portal support och inget stöd för .NET SDK.
 
-Projektioner är det fysiska uttrycket för berikade dokument i ett kunskapslager. Effektiv användning av dina berikade dokument kräver struktur. I den här artikeln ska du utforska både struktur och relationer, lära dig hur du bygger ut projektionsegenskaper samt hur du relaterar data mellan projektionstyper som du skapar. 
+Projektioner är det fysiska uttrycket för berikade dokument i ett kunskaps lager. Effektiv användning av dina berikade dokument kräver struktur. I den här artikeln får du utforska både struktur och relationer, lära dig hur du skapar projektions egenskaper samt hur du relaterar data mellan de typer av projektioner som du skapar. 
 
-Om du vill skapa en projektion måste du forma data med hjälp av antingen en [Shaper-färdighet](cognitive-search-skill-shaper.md) för att skapa ett anpassat objekt eller använda syntaxen för infogad formning i en projektionsdefinition. 
+Om du vill skapa en projektion måste du forma data med antingen en [formaren-färdighet](cognitive-search-skill-shaper.md) för att skapa ett anpassat objekt eller använda den infogade utformningen i en projektions definition. 
 
-En dataform innehåller alla data som du tänker projicera och som har skapats som en hierarki med noder. Den här artikeln visar flera tekniker för att forma data så att den kan projiceras i fysiska strukturer som bidrar till rapportering, analys eller nedströmsbearbetning. 
+En data-form innehåller alla data som du planerar att projicera, utformad som en hierarki med noder. Den här artikeln visar flera tekniker för att forma data så att de kan projiceras i fysiska strukturer som bidrar till rapportering, analys eller underordnad bearbetning. 
 
-Exemplen som presenteras i den här artikeln finns i det här [REST API-exemplet](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/projections/Projections%20Docs.postman_collection.json), som du kan hämta och köra i en HTTP-klient.
+Exemplen som presenteras i den här artikeln finns i det här [REST API exemplet](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/projections/Projections%20Docs.postman_collection.json), som du kan hämta och köra i en http-klient.
 
 ## <a name="introduction-to-the-examples"></a>Introduktion till exemplen
 
-Om du är bekant med [projektioner](knowledge-store-projection-overview.md)kommer du ihåg att det finns tre typer:
+Om du är bekant med [projektioner](knowledge-store-projection-overview.md)kan du återkalla att det finns tre typer:
 
 + Tabeller
 + Objekt
 + Filer
 
-Tabellprojektioner lagras i Azure Table storage. Objekt- och filprojektioner skrivs till blob-lagring, där objektprojektioner sparas som JSON-filer, och kan innehålla innehåll från källdokumentet samt eventuella färdighetsutdata eller berikanden. Anrikningspipelinen kan också extrahera binärfiler som bilder, dessa binärfiler projiceras som filprojektioner. När ett binärt objekt projiceras som en objektprojektion sparas endast de metadata som är associerade med det som en JSON-blob. 
+Tabell projektioner lagras i Azure Table Storage. Objekt-och fil projektioner skrivs till Blob Storage, där objekt projektioner sparas som JSON-filer och kan innehålla innehåll från käll dokumentet samt eventuella kunskaps utmatningar eller berikningar. Pipelinen kan också extrahera binärfiler som bilder, dessa binärfiler projiceras som fil prognoser. När ett binärt objekt projiceras som en objekt projektion, sparas bara de metadata som är kopplade till den som en JSON-blob. 
 
-För att förstå skärningspunkten mellan dataformning och projektioner använder vi följande kompetens som grund för att utforska olika konfigurationer. Den här kompetensuppsättningen bearbetar rå bild- och textinnehåll. Prognoser kommer att definieras från innehållet i dokumentet och resultaten av kompetensen, för de scenarier som vi vill stödja.
+För att förstå skärningen mellan data utformning och projektioner använder vi följande färdigheter som grund för att utforska olika konfigurationer. Den här färdigheter bearbetar RAW-avbildning och text innehåll. Projektioner definieras utifrån dokumentets innehåll och utmatningarna i färdigheterna för de scenarier vi vill ha stöd för.
 
 > [!IMPORTANT] 
-> När du experimenterar med prognoser är det användbart att [ange egenskapen indexerarcache](search-howto-incremental-index.md) för att säkerställa kostnadskontroll. Redigeringsprognoser leder till att hela dokumentet berikas igen om indexerarens cache inte är inställd. När cacheminnet har angetts och endast projektionerna uppdateras resulterar inte kompetenskörningar för tidigare berikade dokument i några nya Cognitive Services-avgifter.
+> När du experimenterar med projektioner är det praktiskt att [ange egenskapen indexerare cache](search-howto-incremental-index.md) för att se till att kostnads kontrollen är inställd. Genom att redigera projektioner leder du till hela dokumentet som berikas igen om indexeraren cache inte har angetts. När cachen har angetts och endast projektionerna har uppdaterats, resulterar färdigheter-körningar för tidigare berikade dokument inte till några nya Cognitive Services avgifter.
 
 ```json
 {
@@ -200,27 +200,27 @@ För att förstå skärningspunkten mellan dataformning och projektioner använd
 }
 ```
 
-Med hjälp av den `knowledgeStore` här kompetensuppsättningen, med dess `knowledgeStore` null som grund, fyller vårt första exempel i objektet, konfigurerat med projektioner som skapar tabelldatastrukturer som vi kan använda i andra scenarier. 
+Med hjälp av den här färdigheter, `knowledgeStore` med sitt null som grund, fyller vårt första exempel `knowledgeStore` i objektet, konfigurerat med projektioner som skapar tabell data strukturer som vi kan använda i andra scenarier. 
 
 ## <a name="projecting-to-tables"></a>Projicera till tabeller
 
-Att projicera till tabeller i Azure Storage är användbart för rapportering och analys med hjälp av verktyg som Power BI. Power BI kan läsa från tabeller och identifiera relationer baserat på de nycklar som genereras under projektionen. Om du försöker skapa en instrumentpanel förenklas uppgiften om du har relaterade data. 
+Att projicera till tabeller i Azure Storage är användbart för rapportering och analys med hjälp av verktyg som Power BI. Power BI kan läsa från tabeller och identifiera relationer baserat på de nycklar som genereras under projektionen. Om du försöker bygga en instrument panel kan du förenkla den aktiviteten genom att ha relaterade data. 
 
-Anta att vi försöker skapa en instrumentpanel där vi kan visualisera nyckelfraserna som extraherats från dokument som ett ordmoln. För att skapa rätt datastruktur kan vi lägga till en Shaper-färdighet i kompetensen för att skapa en anpassad form som har de dokumentspecifika detaljerna och nyckelfraserna. Den anpassade formen `pbiShape` anropas `document` på rotnoden.
+Vi antar att vi försöker bygga en instrument panel där vi kan visualisera viktiga fraser som extraherats från dokument som ett Word-moln. Om du vill skapa en rätt data struktur kan vi lägga till en formaren-färdighet till färdigheter för att skapa en anpassad form som innehåller dokument information och viktiga fraser. Den anpassade figuren kommer att `pbiShape` anropas `document` på rotnoden.
 
 > [!NOTE] 
-> Tabellprojektioner är Azure Storage-tabeller som styrs av de lagringsgränser som azure storage medför. Mer information finns i [begränsningar för tabelllagring](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). Det är användbart att veta att entitetens storlek inte får överstiga 1 MB och en enskild egenskap får inte vara större än 64 KB. Dessa begränsningar gör tabeller till en bra lösning för att lagra ett stort antal små entiteter.
+> Tabell projektioner är Azure Storage tabeller som styrs av de lagrings gränser som Azure Storage. Mer information finns i [tabell lagrings gränser](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). Det är praktiskt att veta att enhetens storlek inte kan överstiga 1 MB och att en enskild egenskap inte får vara större än 64 KB. Dessa begränsningar gör tabeller till en lämplig lösning för att lagra ett stort antal små entiteter.
 
-### <a name="using-a-shaper-skill-to-create-a-custom-shape"></a>Använda en Shaper-färdighet för att skapa en anpassad form
+### <a name="using-a-shaper-skill-to-create-a-custom-shape"></a>Använda en formaren-färdighet för att skapa en anpassad form
 
-Skapa en anpassad form som du kan projicera i tabelllagring. Utan en anpassad form kan en projektion bara referera till en enda nod (en projektion per utdata). Genom att skapa en anpassad form kan du sammanställa olika element till en ny logisk helhet som kan projiceras som en enda tabell, eller segmenteras och fördelas över en samling tabeller. 
+Skapa en anpassad form som du kan projicera i Table Storage. Utan en anpassad form kan en projektion bara referera till en enda nod (en projektion per utdata). Genom att skapa en anpassad form kan du aggregera olika element i en ny logisk helhet som kan projiceras som en enskild tabell, eller segmenteras och distribueras i en samling tabeller. 
 
-I det här exemplet kombinerar den anpassade formen metadata och identifierade entiteter och nyckelfraser. Objektet anropas `pbiShape` och är `/document`överordnat under . 
+I det här exemplet kombinerar den anpassade formen metadata och identifierade entiteter och nyckel fraser. Objektet anropas `pbiShape` och är överordnat under `/document`. 
 
 > [!IMPORTANT] 
-> Ett syfte med att forma är att se till att alla anrikningsnoder uttrycks i välformade JSON, vilket krävs för att projicera i kunskapslager. Detta gäller särskilt när ett anrikningsträd innehåller noder som inte är välformade JSON (till exempel när en berikning är överordnad till en primitiv som en sträng).
+> Ett avsikt att forma är att se till att alla anriknings noder uttrycks i välformulerad JSON, vilket krävs för att projicera i kunskaps lagret. Detta gäller särskilt när ett anriknings träd innehåller noder som inte är välformulerade JSON (till exempel när en anrikning är överordnad till en primitiv som en sträng).
 >
-> Lägg märke till de `KeyPhrases` `Entities`två sista noderna och . Dessa är insvepta i ett giltigt `sourceContext`JSON-objekt med . Detta krävs `keyphrases` och `entities` är berikande på primitiver och måste konverteras till giltiga JSON innan de kan projiceras.
+> Lägg märke till de sista två `KeyPhrases` noderna och `Entities`. Dessa omsluts till ett giltigt JSON-objekt `sourceContext`med. Detta krävs som `keyphrases` och `entities` är berikade med primitiver och måste konverteras till giltig JSON innan de kan projiceras.
 >
 
 
@@ -289,7 +289,7 @@ I det här exemplet kombinerar den anpassade formen metadata och identifierade e
 }
 ```
 
-Lägg till ovanstående Shaper-färdighet i kompetensen. 
+Lägg till formaren-kompetensen ovan i färdigheter. 
 
 ```json
     "name": "azureblob-skillset",
@@ -304,7 +304,7 @@ Lägg till ovanstående Shaper-färdighet i kompetensen.
 }  
 ```
 
-Nu när vi har alla data som behövs för att projicera till tabeller, uppdatera knowledgeStore-objektet med tabelldefinitionerna. I det här exemplet har vi tre `tableName` `source` tabeller, definierade genom att ange och `generatedKeyName` egenskaper.
+Nu när vi har alla data som behövs för att projicera till tabeller, uppdaterar du knowledgeStore-objektet med tabell definitionerna. I det här exemplet har vi tre tabeller som definieras genom att `tableName`ange egenskaperna `source` , `generatedKeyName` och.
 
 ```json
 "knowledgeStore" : {
@@ -337,39 +337,39 @@ Nu när vi har alla data som behövs för att projicera till tabeller, uppdatera
 
 Du kan bearbeta ditt arbete genom att följa dessa steg:
 
-1. Ange ```storageConnectionString``` egenskapen till en giltig V2-anslutningssträng för allmänt lagringskonto.  
+1. Ange egenskapen ```storageConnectionString``` till en giltig anslutnings sträng för lagrings kontot för generell användning i v2.  
 
-1. Uppdatera kompetensen genom att utfärda PUT-begäran.
+1. Uppdatera färdigheter genom att utfärda begäran om placering.
 
-1. När du har uppdaterat kompetensen kör du indexeraren. 
+1. När du har uppdaterat färdigheter kör du indexeraren. 
 
-Du har nu en fungerande projektion med tre tabeller. Om du importerar dessa tabeller till Power BI bör power bi identifieras relationerna automatiskt.
+Nu har du en arbets projektion med tre tabeller. Om du importerar dessa tabeller till Power BI bör Power BI identifiera relationerna automatiskt.
 
-Innan du går vidare med nästa exempel, kan se över aspekter av tabellen projektion för att förstå mekaniken i skivning och relaterade data.
+Innan du går vidare till nästa exempel, kan du gå tillbaka till aspekter av tabell projektionen för att förstå Mechanics av segmentering och relaterade data.
 
-### <a name="slicing"></a>Skivning 
+### <a name="slicing"></a>Slicing 
 
-Skivning är en teknik som delar upp en hel konsoliderad form i beståndsdelar. Resultatet består av separata men relaterade tabeller som du kan arbeta med individuellt.
+Segmentering är en teknik som delar upp en helt sammanslagen form i komponent delar. Resultatet består av separata men relaterade tabeller som du kan arbeta med individuellt.
 
-I exemplet `pbiShape` är den konsoliderade formen (eller berikningsnoden). I projektionsdefinitionen `pbiShape` segmentas du i ytterligare tabeller, vilket gör att ```keyPhrases``` ```Entities```du kan dra ut delar av formen och . I Power BI är detta användbart eftersom flera entiteter och nyckelfraser är associerade med varje dokument, och du får fler insikter om du kan se entiteter och nyckelfraser som kategoriserade data.
+I exemplet `pbiShape` är den konsoliderade figuren (eller beriknings-noden). I definitions definitionen för projektion `pbiShape` är det segmenterat i ytterligare tabeller, vilket gör att du kan hämta delar av formen ```keyPhrases``` och. ```Entities``` I Power BI är detta användbart eftersom flera entiteter och-fraser är associerade med varje dokument och du får fler insikter om du kan se entiteter och diskussions fraser som kategoriserade data.
 
-Skivning genererar implicit en relation mellan de överordnade och ```generatedKeyName``` underordnade tabellerna, med hjälp av den överordnade tabellen i den överordnade tabellen för att skapa en kolumn med samma namn i den underordnade tabellen. 
+Segmentering genererar implicit en relation mellan överordnade och underordnade tabeller med hjälp av ```generatedKeyName``` i den överordnade tabellen för att skapa en kolumn med samma namn i den underordnade tabellen. 
 
 ### <a name="naming-relationships"></a>Namnge relationer
 
-Egenskaperna ```generatedKeyName``` ```referenceKeyName``` och används för att relatera data mellan tabeller eller till och med mellan projektionstyper. Varje rad i den underordnade tabellen/projektionen har en egenskap som pekar tillbaka till den överordnade. Namnet på kolumnen eller egenskapen i ```referenceKeyName``` det underordnade barnet är det från den överordnade. När ```referenceKeyName``` den inte tillhandahålls, tjänsten standard ```generatedKeyName``` det till från den överordnade. 
+Egenskaperna ```generatedKeyName``` och ```referenceKeyName``` används för att relatera data över tabeller eller till och med mellan olika typer av projektioner. Varje rad i den underordnade tabellen/projektionen har en egenskap som pekar tillbaka till överordnad. Namnet på kolumnen eller egenskapen i det underordnade objektet är ```referenceKeyName``` från överordnad. När inte ```referenceKeyName``` har angetts, använder tjänsten den ```generatedKeyName``` från överordnad som standard. 
 
-Power BI förlitar sig på dessa genererade nycklar för att identifiera relationer i tabellerna. Om du behöver kolumnen i den underordnade ```referenceKeyName``` tabellen med namnet annorlunda anger du egenskapen i den överordnade tabellen. Ett exempel skulle vara ```generatedKeyName``` att ange som ID i tabellen ```referenceKeyName``` pbiDocument och som DocumentID. Detta skulle resultera i kolumnen i tabellerna pbiEntities och pbiKeyPhrases som innehåller dokument-ID med namnet DocumentID.
+Power BI använder dessa genererade nycklar för att identifiera relationer i tabellerna. Om du behöver kolumnen i den underordnade tabellen med namnet annorlunda, anger du ```referenceKeyName``` egenskapen för den överordnade tabellen. Ett exempel är att ställa in ```generatedKeyName``` as-ID: t i pbiDocument-tabellen ```referenceKeyName``` och som DocumentID. Detta resulterar i kolumnen i tabellerna pbiEntities och pbiKeyPhrases som innehåller dokument-ID: t som heter DocumentID.
 
 ## <a name="projecting-to-objects"></a>Projicera till objekt
 
-Objektprojektioner har inte samma begränsningar som tabellprojektioner och är bättre lämpade för att projicera stora dokument. I det här exemplet projicerar vi hela dokumentet till en objektprojektion. Objektprojektioner är begränsade till en enskild projektion i en behållare och kan inte segmenteras.
+Objekt projektioner har inte samma begränsningar som tabell projektioner och passar bättre för att projicera stora dokument. I det här exemplet projicerar vi hela dokumentet till en objekt projektion. Objekt projektioner är begränsade till en enda projektion i en behållare och kan inte segmenteras.
 
-För att definiera en objektprojektion ```objects``` använder vi matrisen i projektionerna. Du kan skapa en ny form med shaper-färdigheten eller använda infogad formning av objektprojektionen. Medan tabellexemplet visade metoden att skapa en form och skivning, visar det här exemplet användningen av infogad formning. 
+För att definiera en objekt projektion använder vi ```objects``` matrisen i projektionerna. Du kan skapa en ny form med formaren-kompetensen eller använda infogad form av objekt projektion. Medan tabell exemplet demonstrerade metoden för att skapa en form och segmentering visar det här exemplet användningen av infogad form. 
 
-Infogad formning är förmågan att skapa en ny form i definitionen av indata till en projektion. Infogad formning skapar ett anonymt objekt som är identiskt med `pbiShape`vad en Shaper-färdighet skulle ge (i vårt fall). Infogad formning är användbar om du definierar en form som du inte planerar att återanvända.
+Inline Forming är möjligheten att skapa en ny form i definitionen av indata till en projektion. Infogad Forming skapar ett anonymt objekt som är identiskt med det som en formaren-färdighet skulle producera `pbiShape`(i vårt fall). Infogad utformning är användbart om du definierar en form som du inte planerar att återanvända.
 
-Egenskapen projektioner är en matris. I det här exemplet lägger vi till en ny projektionsförekomst i matrisen, där knowledgeStore-definitionen innehåller infogade projektioner. När du använder infogade projektioner kan du utelämna Shaper-färdigheten.
+Projektions-egenskapen är en matris. I det här exemplet lägger vi till en ny projektions-instans i matrisen där knowledgeStore-definitionen innehåller infogade projektioner. När du använder infogade projektioner kan du utelämna formaren-kompetensen.
 
 ```json
 "knowledgeStore" : {
@@ -424,9 +424,9 @@ Egenskapen projektioner är en matris. I det här exemplet lägger vi till en ny
 
 ## <a name="projecting-to-file"></a>Projicera till fil
 
-Filprojektioner är bilder som antingen extraheras från källdokumentet eller utdata av anrikning som kan projiceras ur anrikningsprocessen. Filprojektioner, som liknar objektprojektioner, implementeras som blobbar i Azure Storage och innehåller avbildningen. 
+Filprojektioner är bilder som antingen extraheras från käll dokumentet eller utmatningar av berikning som kan projiceras från beriknings processen. Fil projektioner, som liknar objekt projektioner, implementeras som blobbar i Azure Storage och innehåller avbildningen. 
 
-För att generera en filprojektion använder vi matrisen `files` i projektionsobjektet. I det här exemplet projiceras alla bilder `samplefile`som extraherats från dokumentet till en behållare som kallas .
+För att generera en filprojektion använder vi `files` matrisen i objektet projektion. I det här exemplet projekterar vi alla avbildningar som extraherats `samplefile`från dokumentet till en behållare som kallas.
 
 ```json
 "knowledgeStore" : {
@@ -448,22 +448,22 @@ För att generera en filprojektion använder vi matrisen `files` i projektionsob
 
 ## <a name="projecting-to-multiple-types"></a>Projicera till flera typer
 
-Ett mer komplext scenario kan kräva att du projicerar innehåll över projektionstyper. Om du till exempel behöver projicera vissa data som nyckelfraser och entiteter i tabeller sparar du OCR-resultaten av text och layouttext som objekt och projicerar sedan bilderna som filer. 
+Ett mer komplext scenario kan kräva att du projicerar innehåll mellan olika typer av projektioner. Om du till exempel behöver projicera vissa data som nyckel fraser och entiteter till tabeller, sparar du OCR-resultatet av text-och layout-text som objekt och sedan projicerar du bilderna som filer. 
 
-I det här exemplet innehåller uppdateringar av kompetensen följande ändringar:
+I det här exemplet inkluderar uppdateringar av färdigheter följande ändringar:
 
 1. Skapa en tabell med en rad för varje dokument.
-1. Skapa en tabell som är relaterad till dokumenttabellen med varje nyckelfras identifierad som en rad i den här tabellen.
-1. Skapa en tabell som är relaterad till dokumenttabellen med varje entitet identifierad som en rad i den här tabellen.
-1. Skapa en objektprojektion med layouttexten för varje bild.
-1. Skapa en filprojektion som projicerar varje extraherad bild.
-1. Skapa en korsreferenstabell som innehåller referenser till dokumenttabellen, objektprojektion med layouttexten och filprojektionen.
+1. Skapa en tabell som är relaterad till dokument tabellen med varje nyckel fras som identifieras som en rad i den här tabellen.
+1. Skapa en tabell som är relaterad till dokument tabellen med varje entitet som identifieras som en rad i den här tabellen.
+1. Skapa en objekt projektion med layout texten för varje bild.
+1. Skapa en filprojektion och projicera varje extraherad avbildning.
+1. Skapa en kors referens tabell som innehåller referenser till dokument tabellen, projektion av objekt med layout-text och filprojektion.
 
-Dessa ändringar återspeglas i knowledgeStore-definitionen längre ner. 
+De här ändringarna återspeglas i knowledgeStore-definitionen. 
 
-### <a name="shape-data-for-cross-projection"></a>Formdata för korsprojektion
+### <a name="shape-data-for-cross-projection"></a>Formdata för kors projektion
 
-För att få de former vi behöver för dessa prognoser, börja med att `crossProjection`lägga till en ny Shaper skicklighet som skapar ett format objekt som heter . 
+Börja med att lägga till en ny formaren-färdighet som skapar ett formad objekt som kallas `crossProjection`för att få de former vi behöver för dessa projektioner. 
 
 ```json
 {
@@ -532,9 +532,9 @@ För att få de former vi behöver för dessa prognoser, börja med att `crossPr
 }
 ```
 
-### <a name="define-table-object-and-file-projections"></a>Definiera tabell-, objekt- och filprojektioner
+### <a name="define-table-object-and-file-projections"></a>Definiera tabell-, objekt-och fil projektioner
 
-Från det konsoliderade crossProjection-objektet kan vi segmentera objektet i flera tabeller, fånga OCR-utdata som blobbar och sedan spara bilden som filer (även i Blob-lagring).
+Från det konsoliderade crossProjection-objektet kan vi dela upp objektet i flera tabeller, fånga OCR-utdata som blobar och sedan spara bilden som filer (även i Blob Storage).
 
 ```json
 "knowledgeStore" : {
@@ -591,17 +591,17 @@ Från det konsoliderade crossProjection-objektet kan vi segmentera objektet i fl
     }
 ```
 
-Objektprojektioner kräver ett behållarnamn för varje projektion, objektprojektioner eller filprojektioner som inte kan dela en behållare. 
+Objekt projektioner kräver ett behållar namn för varje projektion, objekt projektioner eller filprojektioner kan inte dela en behållare. 
 
-### <a name="relationships-among-table-object-and-file-projections"></a>Relationer mellan tabell-, objekt- och filprojektioner
+### <a name="relationships-among-table-object-and-file-projections"></a>Relationer mellan tabell-, objekt-och fil projektioner
 
-I det här exemplet framhålls också en annan funktion i projektionerna. Genom att definiera flera typer av projektioner inom samma projektionsobjekt finns det en relation som uttrycks inom och mellan de olika typerna (tabeller, objekt, filer), så att du kan börja med en tabellrad för ett dokument och hitta all OCR-text för bilderna i dokumentet i objektprojektionen. 
+I det här exemplet markeras även en annan funktion i projektioner. Genom att definiera flera typer av projektioner inom samma projekt objekt, finns det en relation som uttrycks i och över olika typer (tabeller, objekt, filer), så att du kan börja med en tabell rad för ett dokument och söka efter all OCR-text för bilderna i dokumentet i objektet projektion. 
 
-Om du inte vill att data ska vara relaterade definierar du projektionerna i olika projektionsobjekt. Följande kodavsnitt resulterar till exempel i att tabellerna är relaterade, men utan relationer mellan tabellerna och objektprojektionerna (OCR-text). 
+Om du inte vill att data ska vara relaterade definierar du projektionerna i olika projektions objekt. Följande fragment resulterar till exempel i tabellerna som är relaterade, men utan relationer mellan tabellerna och objektet (OCR-text). 
 
-Projektionsgrupper är användbara när du vill projicera samma data i olika former för olika behov. Till exempel en projektionsgrupp för Power BI-instrumentpanelen och en annan projektionsgrupp för att samla in data som används för att träna en maskininlärningsmodell insvept i en anpassad färdighet.
+Projektions grupper är användbara när du vill projicera samma data i olika former för olika behov. Till exempel en projektions grupp för Power BI instrument panelen och en annan projektions grupp för att samla in data som används för att träna en maskin inlärnings modell som omsluts i en anpassad färdighet.
 
-När du skapar projektioner av olika typer genereras fil- och objektprojektioner först och banorna läggs till i tabellerna.
+När du skapar projektioner av olika typer genereras fil-och objekt projektioner först och Sök vägarna läggs till i tabellerna.
 
 ```json
 "knowledgeStore" : {
@@ -659,25 +659,25 @@ När du skapar projektioner av olika typer genereras fil- och objektprojektioner
 
 ## <a name="common-issues"></a>Vanliga problem
 
-När du definierar en projektion finns det några vanliga problem som kan orsaka oförutsedda resultat. Sök efter dessa problem om utdata i knowledge store inte är vad du förväntar dig.
+När du definierar en projektion finns det några vanliga problem som kan orsaka oväntade resultat. Sök efter de här problemen om utdata i kunskaps lagret inte är det du förväntar dig.
 
-+ Inte forma sträng anrikningar till giltiga JSON. När strängar berikas, till `merged_content` exempel berikas med nyckelfraser, representeras den `merged_content` berikade egenskapen som underordnad inom anrikningsträdet. Standardrepresentationen är inte välformulerad JSON. Så vid projektion tid, se till att omvandla anrikningen till ett giltigt JSON-objekt med ett namn och ett värde.
++ Det går inte att forma sträng berikade i giltig JSON. När strängar är berikade, till exempel `merged_content` omfattande med viktiga fraser, representeras den här egenskapen som en underordnad `merged_content` i berikande trädet. Standard representationen är inte giltig JSON. Vid projektions tiden ser du till att transformera anrikningen till ett giltigt JSON-objekt med ett namn och ett värde.
 
-+ Utelämnar ```/*``` i slutet av en källsökväg. Om källan till en `/document/pbiShape/keyPhrases`projektion är projiceras nyckelfrasarrayen som ett enda objekt/en rad. Ange i stället källsökvägen så att `/document/pbiShape/keyPhrases/*` en enda rad eller ett objekt ska ges för var och en av nyckelfraserna.
++ ```/*``` Utelämna i slutet av en käll Sök väg. Om källan för en projektion är `/document/pbiShape/keyPhrases`, projiceras nyckel fraserna som ett enda objekt/rad. Ange i stället käll Sök vägen till `/document/pbiShape/keyPhrases/*` för att ge en enskild rad eller ett objekt för var och en av de viktigaste fraserna.
 
-+ Syntaxfel för sökväg. Sökvägsväljare är skiftlägeskänsliga och kan leda till saknade inmatningsvarningar om du inte använder det exakta skiftarfallet för väljaren.
++ Syntaxfel för sökväg. Sök vägs väljare är Skift läges känsliga och kan leda till saknade indatatyper om du inte använder det exakta fallet för väljaren.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Exemplen i den här artikeln visar vanliga mönster för hur du skapar projektioner. Nu när du har en god förståelse för begreppen, är du bättre rustad att bygga prognoser för ditt specifika scenario.
+I exemplen i den här artikeln demonstreras vanliga mönster för hur du skapar projektioner. Nu när du har en god förståelse för koncepten är du bättre utrustad med att bygga projektioner för ditt specifika scenario.
 
-När du utforskar nya funktioner bör du betrakta inkrementell berikning som nästa steg. Inkrementell berikning baseras på cachelagring, vilket gör att du kan återanvända alla enrichments som inte annars påverkas av en kompetensändring. Detta är särskilt användbart för pipelines som innehåller OCR och bildanalys.
-
-> [!div class="nextstepaction"]
-> [Introduktion till inkrementell berikning och cachelagring](cognitive-search-incremental-indexing-conceptual.md)
-
-Om du vill ha en översikt över projektioner kan du läsa mer om funktioner som grupper och skivning och hur du [definierar dem i en kompetens](knowledge-store-projection-overview.md)
+När du utforskar nya funktioner bör du överväga stegvisa berikande åtgärder som nästa steg. Stegvis anrikning baseras på cachelagring, som gör att du kan återanvända alla berikande som inte på annat sätt påverkas av en färdigheter modifiering. Detta är särskilt användbart för pipelines som inkluderar OCR-och bild analys.
 
 > [!div class="nextstepaction"]
-> [Projektioner i en kunskapsbutik](knowledge-store-projection-overview.md)
+> [Introduktion till stegvis anrikning och cachelagring](cognitive-search-incremental-indexing-conceptual.md)
+
+För en översikt över projektioner, lär dig mer om funktioner som grupper och segmentering och hur du [definierar dem i en färdigheter](knowledge-store-projection-overview.md)
+
+> [!div class="nextstepaction"]
+> [Projektioner i ett kunskaps lager](knowledge-store-projection-overview.md)
 

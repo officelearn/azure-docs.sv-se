@@ -1,5 +1,5 @@
 ---
-title: Bing Image Search C# klientbibliotek snabbstart
+title: Snabb start för Bildsökning i Bing C#-klient bibliotek
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,21 +9,21 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: aahi
 ms.openlocfilehash: 9e74742858c5de2abf56b80ea4e4f275bc2c9b23
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78899575"
 ---
-Använd den här snabbstarten för att göra din första bildsökning med hjälp av Bing Image Search-klientbiblioteket, som är ett omslag för API:et och innehåller samma funktioner. Den här enkla C#-appen skickar en bildsökningsfråga, parsar JSON-svaret och visar webbadressen till den första bild som returneras.
+Använd den här snabb starten för att göra din första avbildnings sökning med hjälp av Bildsökning i Bing klient biblioteket, som är en omslutning för API: et och innehåller samma funktioner. Den här enkla C#-appen skickar en bildsökningsfråga, parsar JSON-svaret och visar webbadressen till den första bild som returneras.
 
-Källkoden för det här exemplet är tillgänglig [på GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) med ytterligare felhantering och anteckningar.
+Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) med ytterligare fel hantering och anteckningar.
 
 ## <a name="prerequisites"></a>Krav
-* Alla utgåvor av [Visual Studio 2017 eller senare](https://visualstudio.microsoft.com/vs/whatsnew/).
+* En version av [Visual Studio 2017 eller senare](https://visualstudio.microsoft.com/vs/whatsnew/).
 * [Cognitive Image Search NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/).
 
-Om du vill installera klientbiblioteket Bing Image Search i Visual Studio använder du alternativet **Hantera NuGet-paket** från **Solution Explorer**.
+Om du vill installera Bildsökning i Bing klient bibliotek i Visual Studio använder du alternativet **Hantera NuGet-paket** från **Solution Explorer**.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](~/includes/cognitive-services-bing-image-search-signup-requirements.md)]
 

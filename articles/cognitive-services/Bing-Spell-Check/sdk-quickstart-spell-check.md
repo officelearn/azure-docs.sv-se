@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Kontrollera stavning med Bing Spell Check SDK för C #'
+title: 'Snabb start: kontrol lera stavningen med Stavningskontroll i Bing SDK för C #'
 titleSuffix: Azure Cognitive Services
 description: Kom igång med REST API för stavningskontroll i Bing för att kontrollera stavning och grammatik.
 services: cognitive-services
@@ -11,22 +11,22 @@ ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
 ms.openlocfilehash: 1cda7032d5bfe58e9f8bcbdb8b18dd597a691441
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78273530"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Snabbstart: Kontrollera stavning med Bing Spell Check SDK för C #
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing SDK för C #
 
 Använd den här snabbstarten för att börja kontrollera stavning med SDK för stavningskontroll i Bing för C#. Även om Stavningskontroll i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/SpellCheck).
 
 ## <a name="application-dependencies"></a>Programberoenden
 
-* Alla utgåvor av [Visual Studio 2017 eller senare](https://visualstudio.microsoft.com/downloads/).
+* En version av [Visual Studio 2017 eller senare](https://visualstudio.microsoft.com/downloads/).
 * [NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck) för Stavningskontroll i Bing
 
-Om du vill lägga till SDK-kontrollen Bing i projektet väljer du **Hantera NuGet-paket** från **Solution Explorer** i Visual Studio. Lägg till paketet `Microsoft.Azure.CognitiveServices.Language.SpellCheck`. Paketet installerar även följande beroenden:
+Om du vill lägga till Stavningskontroll i Bing SDK i projektet väljer du **Hantera NuGet-paket** från **Solution Explorer** i Visual Studio. Lägg till paketet `Microsoft.Azure.CognitiveServices.Language.SpellCheck`. Paketet installerar även följande beroenden:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
@@ -81,7 +81,7 @@ Om du vill lägga till SDK-kontrollen Bing i projektet väljer du **Hantera NuGe
     }
     ```
 
-3. Få den första föreslagna korrigeringen, om det finns en. Skriv ut förslagspoängen och det föreslagna ordet. 
+3. Hämta den första föreslagna korrigeringen, om det finns en sådan. Skriv ut förslags poängen och det föreslagna ordet. 
 
     ```csharp
     var suggestions = firstspellCheckResult.Suggestions;
@@ -96,12 +96,12 @@ Om du vill lägga till SDK-kontrollen Bing i projektet väljer du **Hantera NuGe
 
 ## <a name="run-the-application"></a>Köra appen
 
-Bygg och kör ditt projekt. Om du använder Visual Studio trycker du på **F5** för att felsöka filen.
+Skapa och kör ditt projekt. Om du använder Visual Studio trycker du på **F5** för att felsöka filen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [Skapa en webbapp med en sida](tutorials/spellcheck.md)
 
-- [Vad är API:et för stavningskontroll i Bing?](overview.md)
-- [Bing Stavningskontroll C# SDK referensguide](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)
+- [Vad är API för stavningskontroll i Bing?](overview.md)
+- [Referens guide för Stavningskontroll i Bing C# SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)

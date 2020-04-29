@@ -1,5 +1,5 @@
 ---
-title: Snabbstart för JavaScript-klientbibliotek för Webbsökning
+title: Snabb start för Webbsökning i Bing Java Script Client library
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,20 +9,20 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: 0380dc8d2ff34cf9eecaad063a305491a357ca29
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78924994"
 ---
-Bing Web Search-klientbiblioteket gör det enkelt att integrera Bing Web Search i node.js-programmet. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
+Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i Node. js-programmet. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
 
-Vill du se koden på en gång? Exempel för [Bing Search-klientbiblioteken för JavaScript](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples) finns på GitHub.
+Vill du se koden på en gång? Exempel på [Bing-sökning klient bibliotek för Java Script](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples) finns på GitHub.
 
 ## <a name="prerequisites"></a>Krav
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
-* [Nod.js 6](https://nodejs.org/en/download/) eller senare
+* [Node. js 6](https://nodejs.org/en/download/) eller senare
 * En prenumerationsnyckel  
 
 [!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]

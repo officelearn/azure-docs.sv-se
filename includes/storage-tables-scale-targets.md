@@ -5,26 +5,26 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: tamram
 ms.openlocfilehash: 27617da97ced9ac775beae71e4c25202944b2aba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78942061"
 ---
-I följande tabell beskrivs kapacitet, skalbarhet och prestandamål för tabelllagring.
+I följande tabell beskrivs kapacitets-, skalbarhets-och prestanda mål för Table Storage.
 
 | Resurs | Mål |
 |----------|---------------|
-| Antal tabeller i ett Azure-lagringskonto | Begränsas endast av lagringskontots kapacitet |
-| Antal partitioner i en tabell | Begränsas endast av lagringskontots kapacitet |
-| Antal entiteter i en partition | Begränsas endast av lagringskontots kapacitet |
-| Maximal storlek för en enskild tabell | 500 TiB (09) |
-| Maximal storlek för en enskild entitet, inklusive alla egenskapsvärden | 1 MiB (1 MiB) |
-| Maximalt antal egenskaper i en tabellentitet | 255 (inklusive de tre systemegenskaperna, **PartitionKey,** **RowKey**och **Timestamp)** |
-| Maximal total storlek för en enskild egenskap i en entitet | Varierar beroende på egenskapstyp. Mer information finns i **Egenskapstyper** i [Förstå tabelltjänstdatamodellen](/rest/api/storageservices/understanding-the-table-service-data-model). |
-| **Partitionsnyckelns** storlek | En sträng upp till 1 KiB i storlek |
-| **Radnyckelns** storlek | En sträng upp till 1 KiB i storlek |
-| Storleken på en entitetsgruppstransaktion | En transaktion kan omfatta högst 100 enheter och nyttolasten måste vara mindre än 4 MiB i storlek. En entitetsgruppstransaktion kan endast innehålla en uppdatering till en entitet en gång. |
-| Maximalt antal principer för lagrad åtkomst per tabell | 5 |
-| Maximal begärandegrad per lagringskonto | 20 000 transaktioner per sekund, vilket förutsätter en enhetsstorlek på 1 KiB |
-| Måldataflöde för en enda tabellpartition (1 KiB-entiteter) | Upp till 2 000 enheter per sekund |
+| Antal tabeller i ett Azure Storage-konto | Begränsas bara av lagrings kontots kapacitet |
+| Antal partitioner i en tabell | Begränsas bara av lagrings kontots kapacitet |
+| Antal entiteter i en partition | Begränsas bara av lagrings kontots kapacitet |
+| Maximal storlek för en enskild tabell | 500 TiB |
+| Maximal storlek för en enskild entitet, inklusive alla egenskaps värden | 1 MiB |
+| Maximalt antal egenskaper i en tabell enhet | 255 (inklusive de tre system egenskaperna, **PartitionKey**, **RowKey**och **timestamp**) |
+| Maximal total storlek för en enskild egenskap i en entitet | Varierar beroende på egenskaps typ. Mer information finns i **egenskaps typer** i [förstå tabell tjänstens data modell](/rest/api/storageservices/understanding-the-table-service-data-model). |
+| Storlek på **PartitionKey** | En sträng med upp till 1 KiB storlek |
+| Storlek på **RowKey** | En sträng med upp till 1 KiB storlek |
+| Storlek på en enhets grupps transaktion | En transaktion kan innehålla högst 100 entiteter och nytto lasten måste vara mindre än 4 MiB i storlek. En enhets grupp transaktion kan bara omfatta en uppdatering av en entitet en gång. |
+| Maximalt antal lagrade åtkomst principer per tabell | 5 |
+| Högsta begär ande frekvens per lagrings konto | 20 000 transaktioner per sekund, vilket förutsätter en 1-KiB enhets storlek |
+| Mål data flöde för en enskild Table-partition (1 KiB-entiteter) | Upp till 2 000 enheter per sekund |

@@ -1,6 +1,6 @@
 ---
-title: Azure Relay-mått i Azure Monitor | Microsoft-dokument
-description: Den här artikeln innehåller information om hur du kan använda Azure Monitor för att övervaka till tillståndet för Azure Relay.
+title: Azure Relay mått i Azure Monitor | Microsoft Docs
+description: Den här artikeln innehåller information om hur du kan använda Azure Monitor för att övervaka till Azure Relays tillstånd.
 services: service-bus-relay
 documentationcenter: .NET
 author: spelluru
@@ -15,81 +15,81 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 159249e2c997e4c414127992b08a83b488281e46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78273121"
 ---
-# <a name="azure-relay-metrics-in-azure-monitor"></a>Azure Relay-mått i Azure Monitor 
-Azure Relay-mått ger dig tillståndet för resurser i din Azure-prenumeration. Med en omfattande uppsättning måttdata kan du bedöma den övergripande hälsan för relay-resurser, inte bara på namnområdesnivå utan även på entitetsnivå. Den här statistiken kan vara viktig eftersom de hjälper dig att övervaka tillståndet för Azure Relay. Mått kan också hjälpa till att felsöka problem med rotorsaken utan att behöva kontakta Azure-supporten.
+# <a name="azure-relay-metrics-in-azure-monitor"></a>Azure Relay mått i Azure Monitor 
+Azure Relay mått ger dig tillstånd för resurser i din Azure-prenumeration. Med en omfattande uppsättning Mät data kan du utvärdera övergripande hälso tillstånd för dina relä resurser, inte bara på namn områdes nivå, utan även på enhets nivå. Den här statistiken kan vara viktig när de hjälper dig att övervaka status för Azure Relay. Mått kan också hjälpa till att felsöka rotor Saks problem utan att behöva kontakta Azure-supporten.
 
-Azure Monitor tillhandahåller enhetliga användargränssnitt för övervakning av olika Azure-tjänster. Mer information finns [i Övervakning i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) och hämta Azure [Monitor-mått med .NET-exempel](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) på GitHub.
+Azure Monitor tillhandahåller enhetliga användar gränssnitt för övervakning i olika Azure-tjänster. Mer information finns i [övervakning i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) och [Hämta Azure Monitor mått med .net](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) -exempel på GitHub.
 
 > [!IMPORTANT]
-> Den här artikeln gäller endast hybridanslutningsfunktionen i Azure Relay, inte wcf-reläet. 
+> Den här artikeln gäller bara för den Hybridanslutningar funktionen i Azure Relay, inte på WCF Relay. 
 
-## <a name="access-metrics"></a>Åtkomstmått
+## <a name="access-metrics"></a>Åtkomst mått
 
-Azure Monitor innehåller flera sätt att komma åt mått. Du kan antingen komma åt mått via [Azure-portalen](https://portal.azure.com)eller använda AZURE Monitor API:er (REST och .NET) och analyslösningar som Operation Management Suite och Event Hubs. Mer information finns i [Övervaka data som samlas in av Azure Monitor](../azure-monitor/platform/data-platform.md).
+Azure Monitor ger till gång till mått på flera sätt. Du kan antingen komma åt mått via [Azure Portal](https://portal.azure.com)eller använda Azure Monitor-API: er (rest och .net) och analys lösningar som operation Management Suite och Event Hubs. Mer information finns i [övervaka data som samlas in av Azure Monitor](../azure-monitor/platform/data-platform.md).
 
-Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarnas data. Om du behöver behålla data under en längre tid kan du arkivera måttdata till ett Azure Storage-konto. Detta är konfigurerat i [diagnostikinställningar](../azure-monitor/platform/diagnostic-settings.md) i Azure Monitor.
+Mått är aktiverade som standard och du kan komma åt de senaste 30 dagarna med data. Om du behöver spara data under en längre tids period kan du arkivera mått data till ett Azure Storage konto. Detta konfigureras i [diagnostikinställningar](../azure-monitor/platform/diagnostic-settings.md) i Azure Monitor.
 
-## <a name="access-metrics-in-the-portal"></a>Åtkomstmått i portalen
+## <a name="access-metrics-in-the-portal"></a>Åtkomst mått i portalen
 
-Du kan övervaka mått över tid i [Azure-portalen](https://portal.azure.com). I följande exempel visas hur du visar lyckade begäranden och inkommande begäranden på kontonivå:
+Du kan övervaka mått över tid i [Azure Portal](https://portal.azure.com). I följande exempel visas hur du visar lyckade förfrågningar och inkommande begär Anden på konto nivå:
 
 ![][1]
 
-Du kan också komma åt mått direkt via namnområdet. Om du vill göra det markerar du ditt namnområde och klickar sedan på **Mått **. 
+Du kan också komma åt mått direkt via namn området. Om du vill göra det väljer du namn området och klickar sedan på * * mått * *. 
 
-För mått som stöder dimensioner måste du filtrera med önskat dimensionsvärde.
+För mått som stöder dimensioner måste du filtrera med det önskade dimension svärdet.
 
 ## <a name="billing"></a>Fakturering
 
-Att använda mått i Azure Monitor är för närvarande gratis i förhandsversion. Men om du använder ytterligare lösningar som ger svarmetridata kan du faktureras av dessa lösningar. Du debiteras till exempel av Azure Storage om du arkiverar måttdata till ett Azure Storage-konto. Du faktureras också av Azure Monitor-loggar om du strömmar måttdata till Azure Monitor-loggar för avancerad analys.
+Användning av mått i Azure Monitor är för närvarande kostnads fritt i för hands versionen. Men om du använder ytterligare lösningar som inhämtar mått data kan du debiteras av dessa lösningar. Till exempel debiteras du per Azure Storage om du arkiverar mått data till ett Azure Storage konto. Du debiteras också med Azure Monitor loggar om du strömmar mått data till Azure Monitor loggar för avancerad analys.
 
-Följande mått ger dig en översikt över hälsotillståndet för din tjänst. 
+Följande mått ger en översikt över hälso tillståndet för din tjänst. 
 
 > [!NOTE]
-> Vi inaktuella flera mått när de flyttas under ett annat namn. Detta kan kräva att du uppdaterar dina referenser. Mått som markerats med nyckelordet "föråldrad" stöds inte framöver.
+> Vi har föråldrat flera mått när de flyttas under ett annat namn. Detta kan kräva att du uppdaterar dina referenser. Mått som har marker ATS med nyckelordet "inaktuell" kommer inte att stödjas framåt.
 
-Alla måttvärden skickas till Azure Monitor varje minut. Tidsgranulariteten definierar det tidsintervall för vilket måttvärden presenteras. Tidsintervallet som stöds för alla Azure Relay-mått är 1 minut.
+Alla mått värden skickas till Azure Monitor varje minut. Tids kornig het definierar tidsintervallet för vilka mått värden presenteras. Det tidsintervall som stöds för alla Azure Relay mått är 1 minut.
 
-## <a name="connection-metrics"></a>Anslutningsmått
+## <a name="connection-metrics"></a>Anslutnings mått
 
-| Måttnamn | Beskrivning |
+| Mått namn | Beskrivning |
 | ------------------- | ----------------- |
-| ListenerConnections-Framgång  | Antalet lyckade lyssnaranslutningar som gjorts till Azure Relay under en angiven period. <br/><br/> Enhet: Antal <br/> Aggregeringstyp: Totalt <br/> Dimension: EntityName|
-|ListenerConnections-ClientError |Antalet klientfel på lyssnaranslutningar under en angiven period.<br/><br/> Enhet: Antal <br/> Aggregeringstyp: Totalt <br/> Dimension: EntityName|
-|ListenerConnections-ServerError |Antalet serverfel på lyssnaranslutningarna under en angiven period.<br/><br/> Enhet: Antal <br/> Aggregeringstyp: Totalt <br/> Dimension: EntityName|
-|SenderConnections-Framgång |Antalet lyckade avsändnad anslutningar som gjorts under en angiven period.<br/><br/> Enhet: Antal <br/> Aggregeringstyp: Totalt <br/> Dimension: EntityName|
-|SenderConnections-ClientError |Antalet klientfel på avsändareanslutningar under en angiven period.<br/><br/> Enhet: Antal <br/> Aggregeringstyp: Totalt <br/> Dimension: EntityName|
-|SenderConnections-ServerError |Antalet serverfel på avsändareanslutningar under en angiven period.<br/><br/> Enhet: Antal <br/> Aggregeringstyp: Totalt <br/> Dimension: EntityName|
-|LyssnarenAnslutningar-TotaltRequests |Det totala antalet lyssnaranslutningar under en angiven period.<br/><br/> Enhet: Antal <br/> Aggregeringstyp: Totalt <br/> Dimension: EntityName|
-|SenderConnections-TotalRequests |Anslutningsbegäranden som gjorts av avsändarna under en angiven period.<br/><br/> Enhet: Antal <br/> Aggregeringstyp: Totalt <br/> Dimension: EntityName|
-|ActiveConnections (Aktiva Anslutning) |Antalet aktiva anslutningar. Det här värdet är ett punkt-i-tid-värde.<br/><br/> Enhet: Antal <br/> Aggregeringstyp: Totalt <br/> Dimension: EntityName|
-|ActiveListeners |Antalet aktiva lyssnare. Det här värdet är ett punkt-i-tid-värde.<br/><br/> Enhet: Antal <br/> Aggregeringstyp: Totalt <br/> Dimension: EntityName|
-|LyssnareAnsluter |Antalet frånkopplade lyssnare under en angiven period.<br/><br/> Enhet: Byte <br/> Aggregeringstyp: Totalt <br/> Dimension: EntityName|
-|SenderDisconnects |Antalet frånkopplade avsändare under en angiven period.<br/><br/> Enhet: Byte <br/> Aggregeringstyp: Totalt <br/> Dimension: EntityName|
+| ListenerConnections – lyckad  | Antalet lyckade lyssnar anslutningar som har gjorts till Azure Relay under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
+|ListenerConnections – ClientError |Antalet klient fel i lyssnar anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
+|ListenerConnections – ServerError |Antalet Server fel på lyssnar anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
+|SenderConnections – lyckad |Antalet lyckade avsändare som gjorts under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
+|SenderConnections – ClientError |Antalet klient fel på avsändarens anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
+|SenderConnections – ServerError |Antalet Server fel på avsändarens anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
+|ListenerConnections – TotalRequests |Det totala antalet lyssnar anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
+|SenderConnections – TotalRequests |Anslutnings förfrågningar som skickats av avsändarna under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
+|ActiveConnections |Antalet aktiva anslutningar. Det här värdet är ett värde för tidpunkt.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
+|ActiveListeners |Antalet aktiva lyssnare. Det här värdet är ett värde för tidpunkt.<br/><br/> Enhet: antal <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
+|ListenerDisconnects |Antalet frånkopplade lyssnare under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
+|SenderDisconnects |Antalet frånkopplade avsändare under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
 
-## <a name="memory-usage-metrics"></a>Mått för minnesanvändning
+## <a name="memory-usage-metrics"></a>Minnes användnings mått
 
-| Måttnamn | Beskrivning |
+| Mått namn | Beskrivning |
 | ------------------- | ----------------- |
-|ByteÖverläst |Antalet byte som överförts under en angiven period.<br/><br/> Enhet: Byte <br/> Aggregeringstyp: Totalt <br/> Dimension: EntityName|
+|BytesTransferred |Antalet byte som överförts under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättnings typ: totalt <br/> Dimension: EntityName|
 
-## <a name="metrics-dimensions"></a>Måttdimensioner
+## <a name="metrics-dimensions"></a>Mått dimensioner
 
-Azure Relay stöder följande dimensioner för mått i Azure Monitor. Det är valfritt att lägga till dimensioner i måtten. Om du inte lägger till dimensioner anges mått på namnområdesnivå. 
+Azure Relay stöder följande dimensioner för mått i Azure Monitor. Det är valfritt att lägga till dimensioner i måtten. Om du inte lägger till dimensioner anges måtten på namn områdes nivå. 
 
-|Dimensionsnamn|Beskrivning|
+|Dimensions namn|Beskrivning|
 | ------------------- | ----------------- |
-|Entityname| Azure Relay stöder meddelandeenheter under namnområdet.|
+|Entitetsnamnet| Azure Relay stöder meddelande enheter under namn området.|
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [översikten över Azure-övervakning](../monitoring-and-diagnostics/monitoring-overview.md).
+Se [Översikt över Azure Monitoring](../monitoring-and-diagnostics/monitoring-overview.md).
 
 [1]: ./media/relay-metrics-azure-monitor/relay-monitor1.png
 

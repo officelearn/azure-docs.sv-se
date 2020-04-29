@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Översätt tal-till-tal, Python - Taltjänst'
+title: 'Snabb start: Översätt tal till tal, python-tal-tjänsten'
 description: TBD
 services: cognitive-services
 author: chlandsi
@@ -10,19 +10,19 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: chlandsi
 ms.openlocfilehash: e869a6581ac29ac234c075d258b59dbd45045ee2
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78925939"
 ---
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar måste du:
+Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
-> * [Skapa en Azure-talresurs](../../../../get-started.md)
-> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=python)
+> * [Skapa en Azure tal-resurs](../../../../get-started.md)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=python)
 
 ## <a name="add-sample-code"></a>Lägg till exempelkod
 
@@ -78,17 +78,17 @@ Innan du börjar måste du:
 
 1. Ersätt strängen `YourServiceRegion` med den [region](../../../../regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
-1. Spara ändringarna som du `quickstart.py`har gjort i .
+1. Spara ändringarna som du har gjort i `quickstart.py`.
 
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 
-1. Kör exemplet från konsolen eller i din IDE:
+1. Kör exemplet från-konsolen eller i IDE:
 
    ```
    python quickstart.py
    ```
 
-2. Säg en engelsk fras eller en mening. Programmet överför ditt tal till taltjänsten, som översätter och transkriberar till text (i det här fallet till tyska). Taltjänsten skickar sedan tillbaka texten till programmet för visning.
+2. Säg en engelsk fras eller en mening. Programmet skickar ditt tal till tal tjänsten som översätter och omvandlar till text (i det här fallet till tyska). Tal tjänsten skickar sedan tillbaka texten till programmet för visning.
 
    ````
    Say something...

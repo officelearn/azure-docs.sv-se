@@ -1,154 +1,154 @@
 ---
-title: Kompatibilitetsnivåer för Azure Stream Analytics
-description: Lär dig hur du anger en kompatibilitetsnivå för ett Azure Stream Analytics-jobb och större ändringar på den senaste kompatibilitetsnivån
+title: Azure Stream Analytics kompatibilitetsnivå
+description: Lär dig hur du ställer in en kompatibilitetsnivå för ett Azure Stream Analytics jobb och större ändringar på den senaste kompatibilitetsnivån
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 8f22b1ff97826dc318794aca58973b1276e74209
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79087863"
 ---
-# <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivå för Azure Stream Analytics-jobb
+# <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivå för Azure Stream Analytics jobb
 
-I den här artikeln beskrivs alternativet kompatibilitetsnivå i Azure Stream Analytics. Stream Analytics är en hanterad tjänst med regelbundna funktionsuppdateringar och prestandaförbättringar. De flesta av tjänstens runtimes-uppdateringar görs automatiskt tillgängliga för slutanvändare. 
+I den här artikeln beskrivs alternativet kompatibilitetsnivå i Azure Stream Analytics. Stream Analytics är en hanterad tjänst, med regelbundna funktions uppdateringar och prestanda förbättringar. De flesta av tjänstens körnings uppdateringar görs automatiskt tillgängliga för slutanvändare. 
 
-Vissa nya funktioner i tjänsten kan dock innebära en större förändring, till exempel en ändring i beteendet för ett befintligt jobb eller en ändring av hur data förbrukas i jobb som körs. Du kan hålla dina befintliga Stream Analytics-jobb igång utan större ändringar genom att låta inställningen för kompatibilitetsnivå sänkas. När du är redo för de senaste körningsbeteendena kan du anmäla dig genom att höja kompatibilitetsnivån. 
+Vissa nya funktioner i tjänsten kan dock medföra en större förändring, till exempel en ändring av beteendet för ett befintligt jobb eller en ändring i hur data förbrukas i jobb som körs. Du kan behålla dina befintliga Stream Analytics-jobb som körs utan större ändringar genom att lämna inställningen för kompatibilitetsnivå lägre. När du är redo för de senaste körnings funktionerna kan du välja att öka kompatibilitetsnivån. 
 
 ## <a name="choose-a-compatibility-level"></a>Välj en kompatibilitetsnivå
 
-Kompatibilitetsnivå styr körningsbeteendet för ett dataflödesanalysjobb. 
+Kompatibilitetsnivå styr körnings beteendet för ett Stream Analytics-jobb. 
 
-Azure Stream Analytics stöder för närvarande tre kompatibilitetsnivåer:
+Azure Stream Analytics stöder för närvarande tre kompatibilitetsnivå:
 
-* 1.0 - Original kompatibilitetsnivå, som introducerades under allmän tillgänglighet för Azure Stream Analytics för flera år sedan.
-* 1.1 - Föregående uppförande
-* 1.2 - Nyaste beteende med de senaste förbättringarna
+* 1,0 – ursprunglig kompatibilitetsnivå, som introducerades under allmän tillgänglighet för Azure Stream Analytics flera år sedan.
+* 1,1-tidigare beteende
+* 1,2-senaste beteende med de senaste förbättringarna
 
-När du skapar ett nytt Stream Analytics-jobb är det bäst att skapa det med hjälp av den senaste kompatibilitetsnivån. Starta jobbdesignen för att förlita dig på de senaste beteendena, för att undvika ytterligare förändringar och komplexitet senare.
+När du skapar ett nytt Stream Analytics jobb är det en bra idé att skapa det med den senaste kompatibilitetsnivån. Starta din jobb design som förlitar sig på de senaste beteendena, för att undvika ökad förändring och komplexitet senare.
 
 ## <a name="set-the-compatibility-level"></a>Ange kompatibilitetsnivå
 
-Du kan ange kompatibilitetsnivån för ett Stream Analytics-jobb i Azure-portalen eller genom att använda [problemets REST API-anrop](/rest/api/streamanalytics/stream-analytics-job).
+Du kan ange kompatibilitetsnivån för ett Stream Analytics jobb i Azure Portal eller med hjälp av [anropet skapa jobb REST API](/rest/api/streamanalytics/stream-analytics-job).
 
-Så här uppdaterar du kompatibilitetsnivån för jobbet i Azure-portalen:
+Så här uppdaterar du kompatibilitetsnivån för jobbet i Azure Portal:
 
-1. Använd [Azure-portalen](https://portal.azure.com) för att hitta till ditt Stream Analytics-jobb.
-2. **Stoppa** jobbet innan du uppdaterar kompatibilitetsnivån. Du kan inte uppdatera kompatibilitetsnivån om jobbet körs.
-3. Välj **Kompatibilitetsnivå under**rubriken **Konfigurera** .
-4. Välj önskat kompatibilitetsnivåvärde.
+1. Använd [Azure Portal](https://portal.azure.com) för att leta upp Stream Analytics jobb.
+2. **Stoppa** jobbet innan du uppdaterar kompatibilitetsnivån. Du kan inte uppdatera kompatibilitetsnivån om jobbet är i ett körnings läge.
+3. Under **Konfigurera** rubrik väljer du **kompatibilitetsnivå**.
+4. Välj det värde för kompatibilitetsnivå som du vill använda.
 5. Välj **Spara** längst ned på sidan.
 
-![Stream Analytics-kompatibilitetsnivå i Azure-portalen](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
+![Stream Analytics kompatibilitetsnivå i Azure Portal](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
 
-När du uppdaterar kompatibilitetsnivån validerar T-kompilatorn jobbet med den syntax som motsvarar den valda kompatibilitetsnivån.
+När du uppdaterar kompatibilitetsnivån verifierar T-kompilatorn jobbet med den syntax som motsvarar den valda kompatibilitetsnivån.
 
-## <a name="compatibility-level-12"></a>Kompatibilitetsnivå 1.2
+## <a name="compatibility-level-12"></a>Kompatibilitetsnivå 1,2
 
-Följande större ändringar införs på kompatibilitetsnivå 1.2:
+Följande större ändringar introduceras i kompatibilitetsnivån 1,2:
 
-###  <a name="amqp-messaging-protocol"></a>AMQP-meddelandeprotokoll
+###  <a name="amqp-messaging-protocol"></a>AMQP meddelande protokoll
 
-**1.2-nivå:** Azure Stream Analytics använder [AMQP-meddelandeprotokoll (Advanced Message Queueing Protocol)](../service-bus-messaging/service-bus-amqp-overview.md) för att skriva till servicebussköer och informationsavsnitt. MED AMQP kan du skapa hybridprogram som inte är plattformarna och hybridprogram med ett öppet standardprotokoll.
+**1,2 nivå**: Azure Stream Analytics använder meddelande protokollet [Advanced Message Queueing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) för att skriva till Service Bus köer och ämnen. Med AMQP kan du skapa hybrid program mellan plattformar med ett öppet standard protokoll.
 
 ### <a name="geospatial-functions"></a>Geospatiala funktioner
 
-**Tidigare nivåer:** Azure Stream Analytics använde geografiberäkningar.
+**Tidigare nivåer:** Azure Stream Analytics använda geografi beräkningar.
 
-**1.2 nivå:** Med Azure Stream Analytics kan du beräkna geometriska projicerade geokoordinater. Det finns ingen förändring i signaturen för geospatiala funktioner. Men deras semantik är något annorlunda, vilket möjliggör mer exakt beräkning än tidigare.
+**1,2-nivå:** Med Azure Stream Analytics kan du beräkna geometriska projekterade geo-koordinater. Signaturen för geospatiala funktioner ändras inte. Deras semantik är dock något annorlunda, vilket ger mer exakt beräkning än tidigare.
 
-Azure Stream Analytics stöder geospatial referensdataindexering. Referensdata som innehåller geospatiala element kan indexeras för en snabbare kopplingsberäkning.
+Azure Stream Analytics stöder Geospatial referens data indexering. Referens data som innehåller geospatiala element kan indexeras för en snabbare kopplings beräkning.
 
-De uppdaterade geospatiala funktionerna ger full uttrycksfullhet av välkänt textformat (WKT). Du kan ange andra geospatiala komponenter som inte tidigare stöds med GeoJson.
+De uppdaterade geospatiala funktionerna använder geospatialt Expressiveness (well) geospatialt format. Du kan ange andra geospatiala komponenter som inte tidigare har stöd för interjson.
 
-Mer information finns [i Uppdateringar av geospatiala funktioner i Azure Stream Analytics – Cloud och IoT Edge](https://azure.microsoft.com/blog/updates-to-geospatial-functions-in-azure-stream-analytics-cloud-and-iot-edge/).
+Mer information finns i [uppdateringar av geospatiala funktioner i Azure Stream Analytics – molnet och IoT Edge](https://azure.microsoft.com/blog/updates-to-geospatial-functions-in-azure-stream-analytics-cloud-and-iot-edge/).
 
-### <a name="parallel-query-execution-for-input-sources-with-multiple-partitions"></a>Parallell frågekörning för indatakällor med flera partitioner
+### <a name="parallel-query-execution-for-input-sources-with-multiple-partitions"></a>Parallell frågekörning för inmatade källor med flera partitioner
 
-**Tidigare nivåer:** Azure Stream Analytics-frågor krävde användning av PARTITION BY-satsen för att parallellisera frågebearbetning över indatakällpartitioner.
+**Tidigare nivåer:** Azure Stream Analytics frågor krävde att PARTITIONER BY-satsen ska användas för att parallellisera frågor över partitioner för indatakälla.
 
-**1.2 nivå:** Om frågelogiken kan parallelliseras mellan indatakällpartitioner skapar Azure Stream Analytics separata frågeinstanser och kör beräkningar parallellt.
+**1,2-nivå:** Om frågans logik kan vara parallellt över partitioner med indatakälla skapar Azure Stream Analytics separata instanser och kör beräkningar parallellt.
 
-### <a name="native-bulk-api-integration-with-cosmosdb-output"></a>Inbyggd Mass-API-integrering med CosmosDB-utdata
+### <a name="native-bulk-api-integration-with-cosmosdb-output"></a>Intern Mass-API-integrering med CosmosDB-utdata
 
-**Tidigare nivåer:** Det senaste beteendet var *infoga eller slå samman*.
+**Tidigare nivåer:** Upsert beteendet *infogades eller sammanfogades*.
 
-**1.2 nivå:** Native Bulk API-integrering med CosmosDB-utdata maximerar dataflödet och hanterar effektivt begränsningsbegäranden. Mer information finns [på sidan Azure Stream Analytics-utdata till Azure Cosmos DB](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
+**1,2-nivå:** Intern Mass-API-integrering med CosmosDB-utdata maximerar data flödet och hanterar begränsnings begär Anden effektivt. Mer information finns [på sidan Azure Stream Analytics utdata till Azure Cosmos DB](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
 
-Det senaste beteendet *infogas eller ersätts*.
+Upsert beteende är *Infoga eller Ersätt*.
 
-### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset när du skriver till SQL-utdata
+### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset vid skrivning till SQL-utdata
 
-**Tidigare nivåer:** [DateTimeOffset-typerna](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) justerades till UTC.
+**Tidigare nivåer:** [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) -typerna justerades till UTC.
 
-**1.2 nivå:** DateTimeOffset justeras inte längre.
+**1,2-nivå:** DateTimeOffset är inte längre justerad.
 
-### <a name="long-when-writing-to-sql-output"></a>Lång när du skriver till SQL-utdata
+### <a name="long-when-writing-to-sql-output"></a>Långt vid skrivning till SQL-utdata
 
 **Tidigare nivåer:** Värdena trunkerades baserat på måltypen.
 
-**1.2 nivå:** Värden som inte passar in i måltypen hanteras enligt principen för utdatafel.
+**1,2-nivå:** Värden som inte passar i måltypen hanteras enligt principen för utgående fel.
 
-### <a name="record-and-array-serialization-when-writing-to-sql-output"></a>Post- och matrisseriering när du skriver till SQL-utdata
+### <a name="record-and-array-serialization-when-writing-to-sql-output"></a>Post-och mat ris serialisering vid skrivning till SQL-utdata
 
-**Tidigare nivåer:** Poster skrevs som "Post" och matriser skrevs som "Array".
+**Tidigare nivåer:** Poster skrevs som "Record" och matriser skrevs som "matris".
 
-**1.2 nivå:** Poster och matriser serialiseras i JSON-format.
+**1,2-nivå:** Poster och matriser serialiseras i JSON-format.
 
-### <a name="strict-validation-of-prefix-of-functions"></a>Strikt validering av prefix av funktioner
+### <a name="strict-validation-of-prefix-of-functions"></a>Strikt validering av prefix för functions
 
-**Tidigare nivåer:** Det fanns ingen strikt validering av funktionsprefix.
+**Tidigare nivåer:** Det finns ingen strikt verifiering av funktions prefix.
 
-**1.2 nivå:** Azure Stream Analytics har en strikt validering av funktionsprefix. Om du lägger till ett prefix i en inbyggd funktion uppstår ett fel. Stöds till`myprefix.ABS(…)` exempel inte.
+**1,2-nivå:** Azure Stream Analytics har en strikt validering av funktions prefix. Om du lägger till ett prefix i en inbyggd funktion uppstår ett fel. Stöds till exempel`myprefix.ABS(…)` inte.
 
-Om du lägger till ett prefix i inbyggda aggregat uppstår också ett fel. Stöds till `myprefix.SUM(…)` exempel inte.
+Att lägga till ett prefix i inbyggda mängder resulterar också i fel. Stöds till exempel `myprefix.SUM(…)` inte.
 
-Om du använder prefixet "system" för användardefinierade funktioner uppstår fel.
+Om du använder prefixet "system" för användardefinierade funktioner resulterar det i fel.
 
-### <a name="disallow-array-and-object-as-key-properties-in-cosmos-db-output-adapter"></a>Tillåt inte matris och objekt som nyckelegenskaper i Cosmos DB-utdatakort
+### <a name="disallow-array-and-object-as-key-properties-in-cosmos-db-output-adapter"></a>Tillåt inte matris och objekt som nyckel egenskaper i Cosmos DB output adapter
 
-**Tidigare nivåer:** Matris- och objekttyper stöddes som nyckelegenskap.
+**Tidigare nivåer:** Matris-och objekt typer stöds som en nyckel egenskap.
 
-**1.2 nivå:** Matris- och objekttyper stöds inte längre som nyckelegenskap.
+**1,2-nivå:** Matris-och objekt typer stöds inte längre som en nyckel egenskap.
 
-## <a name="compatibility-level-11"></a>Kompatibilitetsnivå 1.1
+## <a name="compatibility-level-11"></a>Kompatibilitetsnivå 1,1
 
-Följande större ändringar införs på kompatibilitetsnivå 1.1:
+Följande större ändringar introduceras i kompatibilitetsnivån 1,1:
 
-### <a name="service-bus-xml-format"></a>XML-format för servicebuss
+### <a name="service-bus-xml-format"></a>Service Bus XML-format
 
-**1,0 nivå:** Azure Stream Analytics använde DataContractSerializer, så meddelandeinnehållet inkluderade XML-taggar. Ett exempel:
+**1,0-nivå:** Azure Stream Analytics använda DataContractSerializer, så att meddelande innehållet innehöll XML-taggar. Ett exempel:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
-**1.1 nivå:** Meddelandeinnehållet innehåller strömmen direkt utan ytterligare taggar. Exempel: `{ "SensorId":"1", "Temperature":64}`
+**1,1-nivå:** Meddelande innehållet innehåller data strömmen direkt utan ytterligare taggar. Exempelvis: `{ "SensorId":"1", "Temperature":64}`
 
-### <a name="persisting-case-sensitivity-for-field-names"></a>Beständig fallkänslighet för fältnamn
+### <a name="persisting-case-sensitivity-for-field-names"></a>Bevara Skift läges känslighet för fält namn
 
-**1,0 nivå:** Fältnamn ändrades till gemener när de bearbetades av Azure Stream Analytics-motorn.
+**1,0-nivå:** Fält namn ändrades till gemener när de bearbetas av Azure Stream Analytics-motorn.
 
-**1.1-nivå:** skiftlägeskänslighet sparas för fältnamn när de bearbetas av Azure Stream Analytics-motorn.
+**1,1 nivå:** Skift läges känslighet är bestående för fält namn när de bearbetas av Azure Stream Analyticss motorn.
 
 > [!NOTE]
-> Beständig fallkänslighet är ännu inte tillgänglig för Stream Analytic-jobb som finns med hjälp av Edge-miljön. Därför konverteras alla fältnamn till gemener om jobbet finns på Edge.
+> Kvarhållning av Skift läge – känslighet är inte tillgängligt ännu för Stream-analys jobb som hanteras med hjälp av gräns miljön. Detta innebär att alla fält namn konverteras till gemener om jobbet finns på gränsen.
 
 ### <a name="floatnandeserializationdisabled"></a>FloatNaNDeserializationDisabled
 
-**1,0 nivå:** KOMMANDOT CREATE TABLE filtrerade inte händelser med NaN (Not-a-Number. Oändlighet, -Infinity) i kolumntypen FLOAT eftersom de inte har det dokumenterade intervallet för dessa nummer.
+**1,0-nivå:** CREATE TABLE kommandot filtrerade inte händelser med NaN (inte ett tal. Till exempel oändligt, oändlighet) i en flytt ALS kolumn typ eftersom de ligger utanför det dokumenterade intervallet för dessa tal.
 
-**1.1 nivå:** SKAPA TABELL kan du ange ett starkt schema. Stream Analytics-motorn verifierar att data överensstämmer med det här schemat. Med den här modellen kan kommandot filtrera händelser med NaN-värden.
+**1,1-nivå:** Med CREATE TABLE kan du ange ett starkt schema. Stream Analyticss motorn verifierar att data överensstämmer med det här schemat. Med den här modellen kan kommandot filtrera händelser med NaN-värden.
 
-### <a name="disable-automatic-upcast-for-datetime-strings-in-json"></a>Inaktivera automatisk uppdatering för datetime-strängar i JSON
+### <a name="disable-automatic-upcast-for-datetime-strings-in-json"></a>Inaktivera automatisk uppsändning för datetime-strängar i JSON
 
-**1,0 nivå:** JSON-tolken skulle automatiskt uppdat strängvärden med datum-/tid/zoninformation till DateTime-typ och konvertera den sedan till UTC. Detta resulterade i att tidszonsinformationen förlorades.
+**1,0-nivå:** JSON-parsern omvandlar automatiskt sträng värden med datum-/tids-/zon information till DateTime-typ och konverterar den sedan till UTC. Det här beteendet resulterade i förlust av tids zons informationen.
 
-**1.1 nivå:** Strängvärdena uppdateras inte mer automatiskt med datum-/tids-/zoninformation till DateTime-typen. Som ett resultat sparas tidszonsinformation.
+**1,1-nivå:** Det går inte att automatiskt omvandla sträng värden automatiskt med datum-/tids-/zon information till DateTime-typen. Därför behålls timezone-informationen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Felsöka Azure Stream Analytics-indata](stream-analytics-troubleshoot-input.md)
-* [Hälsa för Resurs för Stream Analytics](stream-analytics-resource-health.md)
+* [Stream Analytics resurs hälsa](stream-analytics-resource-health.md)

@@ -1,6 +1,6 @@
 ---
-title: Apache Hive Loggar fylla upp diskutrymme - Azure HDInsight
-description: Apache Hive-loggarna fyller diskutrymmet på huvudnoderna i Azure HDInsight.
+title: Apache Hive loggar som fyller disk utrymme – Azure HDInsight
+description: Apache Hive loggar fyller upp disk utrymmet på huvudnoderna i Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: nisgoel
@@ -8,24 +8,24 @@ ms.author: nisgoel
 ms.reviewer: jasonh
 ms.date: 03/05/2020
 ms.openlocfilehash: d843b942702d335065a5f3798572e34c71b4cd0e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943971"
 ---
-# <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Scenario: Apache Hive-loggar fyller upp diskutrymmet på head-noderna i Azure HDInsight
+# <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Scenario: Apache Hive loggar fyller upp disk utrymmet på Head-noderna i Azure HDInsight
 
-I den här artikeln beskrivs felsökningssteg och möjliga lösningar för problem som inte är relaterade till tillräckligt med diskutrymme på huvudnoderna i Azure HDInsight-kluster.
+Den här artikeln beskriver fel söknings steg och möjliga lösningar på problem som rör inte tillräckligt med disk utrymme på huvudnoderna i Azure HDInsight-kluster.
 
 ## <a name="issue"></a>Problem
 
-På ett Apache Hive/LLAP-kluster tar oönskade loggar upp hela diskutrymmet på huvudnoderna. På grund av vilka, följande frågor kunde ses.
+I ett Apache Hive/LLAP-kluster tar oönskade loggar upp hela disk utrymmet på huvudnoderna. På grund av vilken kan följande problem visas.
 
-1. SSH-åtkomst misslyckas på grund av att inget utrymme finns kvar på huvudnoden.
-2. Ambari ger *HTTP-fel: 503 Tjänsten är inte tillgänglig*.
+1. SSH-åtkomsten Miss lyckas på grund av att det inte finns utrymme kvar på Head-noden.
+2. Ambari ger *http-fel: tjänsten 503 är inte tillgänglig*.
 
-Loggarna `ambari-agent` visar följande när problemet inträffar.
+`ambari-agent` Loggarna visar följande när problemet uppstår.
 ```
 ambari_agent - Controller.py - [54697] - Controller - ERROR - Error:[Errno 28] No space left on device
 ```
@@ -35,17 +35,17 @@ ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckR
 
 ## <a name="cause"></a>Orsak
 
-I avancerade Hive-log4j-konfigurationer utelämnas parametern *log4j.appender.RFA.MaxBackupIndex.* Det orsakar oändlig generering av loggfiler.
+I avancerade Hive-log4j konfigurationer utelämnas parametern *log4j. appendor. rfa. MaxBackupIndex* . Det orsakar en oändlig generering av loggfiler.
 
 ## <a name="resolution"></a>Lösning
 
-1. Navigera till Hive-komponentsammanfattningen på `Configs` Ambari-portalen och klicka på fliken .
+1. Gå till sammanfattning av Hive-komponent på Ambari-portalen och `Configs` Klicka på fliken.
 
-2. Gå till `Advanced hive-log4j` avsnittet i Avancerade inställningar.
+2. Gå till `Advanced hive-log4j` avsnittet i avancerade inställningar.
 
-3. Ange `log4j.appender.RFA` parameter som RollingFileAppender. 
+3. Ange `log4j.appender.RFA` parametern som RollingFileAppender. 
 
-4. Ställ `log4j.appender.RFA.MaxFileSize` `log4j.appender.RFA.MaxBackupIndex` in och enligt följande.
+4. Ange `log4j.appender.RFA.MaxFileSize` och `log4j.appender.RFA.MaxBackupIndex` enligt följande.
 
 ```
 log4jhive.log.maxfilesize=1024MB
@@ -58,7 +58,7 @@ log4j.appender.RFA.MaxBackupIndex=${log4jhive.log.maxbackupindex}
 log4j.appender.RFA.layout=org.apache.log4j.PatternLayout
 log4j.appender.RFA.layout.ConversionPattern=%d{ISO8601} %-5p [%t] %c{2}: %m%n
 ```
-5. Ställ `hive.root.logger` `INFO,RFA` in på följande. Standardinställningen är DEBUG, vilket gör att loggar blir mycket stora.
+5. Ange `hive.root.logger` `INFO,RFA` enligt följande. Standardinställningen är DEBUG, vilket gör att loggar blir mycket stora.
 
 ```
 # Define some default values that can be overridden by system properties
@@ -72,10 +72,10 @@ hive.log.file=hive.log
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte såg problemet eller inte kan lösa problemet besöker du någon av följande kanaler för mer support:
+Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
 
-* Få svar från Azure-experter via [Azure Community Support](https://azure.microsoft.com/support/community/).
+* Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
 
-* Anslut [@AzureSupport](https://twitter.com/azuresupport) med – det officiella Microsoft Azure-kontot för att förbättra kundupplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
+* Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en supportbegäran från [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **Stöd** i menyraden eller öppna **supporthubben Hjälp +.** Mer detaljerad information finns i Så här skapar du [en Azure-supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerationshantering och faktureringssupport ingår i din Microsoft Azure-prenumeration och teknisk support tillhandahålls via en av [Azure-supportplanerna](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

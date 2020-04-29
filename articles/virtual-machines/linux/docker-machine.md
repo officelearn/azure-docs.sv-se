@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: c3165410809d98fd0ac4eeb515fbf30578633ef3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78968808"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Så här använder du Docker Machine för att skapa värdar i Azure
-I den här artikeln beskrivs hur du använder [Docker Machine](https://docs.docker.com/machine/) för att skapa värdar i Azure. Kommandot `docker-machine` skapar en virtuell Linux-dator (VM) i Azure och installerar sedan Docker. Du kan sedan hantera dina Docker-värdar i Azure med samma lokala verktyg och arbetsflöden. Om du vill använda docker-maskin i Windows 10 måste du använda Linux bash.
+Den här artikeln beskriver hur du använder [Docker Machine](https://docs.docker.com/machine/) för att skapa värdar i Azure. `docker-machine` Kommandot skapar en virtuell Linux-dator (VM) i Azure och installerar Docker. Du kan sedan hantera dina Docker-värdar i Azure med hjälp av samma lokala verktyg och arbets flöden. Om du vill använda Docker-datorn i Windows 10 måste du använda Linux-bash.
 
 ## <a name="create-vms-with-docker-machine"></a>Skapa virtuella datorer med Docker Machine
-Skaffa först ditt Azure-prenumerations-ID med [az-kontoprogram](/cli/azure/account) enligt följande:
+Börja med att hämta ditt Azure-prenumerations-ID med [AZ-kontot Visa](/cli/azure/account) enligt följande:
 
 ```azurecli
 sub=$(az account show --query "id" -o tsv)
 ```
 
-Du skapar Docker-värd virtuella `docker-machine create` datorer i Azure med genom att ange *azure* som drivrutin. Mer information finns i Dokumentationen till [Docker Azure Driver](https://docs.docker.com/machine/drivers/azure/)
+Du skapar Docker-värdar för virtuella datorer `docker-machine create` i Azure med genom att ange *Azure* som driv rutin. Mer information finns i dokumentationen för [Docker Azure-drivrutinen](https://docs.docker.com/machine/drivers/azure/)
 
-I följande exempel skapas en virtuell dator med namnet *myVM*, baserat på "Standard D2 v2"-plan, skapar ett användarkonto med namnet *azureuser*och öppnar port *80* på värddatorn. Följ alla uppmaningar om att logga in på ditt Azure-konto och bevilja Docker Machine-behörigheter för att skapa och hantera resurser.
+I följande exempel skapas en virtuell dator med namnet *myVM*, som baseras på planen "standard D2 v2", skapar ett användar konto med namnet *azureuser*och öppnar port *80* på den virtuella värddatorn. Följ eventuella anvisningar för att logga in på ditt Azure-konto och ge Docker dator behörighet att skapa och hantera resurser.
 
 ```bash
 docker-machine create -d azure \
@@ -37,7 +37,7 @@ docker-machine create -d azure \
     myvm
 ```
 
-Utdata liknar följande exempel:
+Utdata ser ut ungefär som i följande exempel:
 
 ```bash
 Creating CA: /Users/user/.docker/machine/certs/ca.pem
@@ -70,8 +70,8 @@ Docker is up and running!
 To see how to connect your Docker Client to the Docker Engine running on this virtual machine, run: docker-machine env myvm
 ```
 
-## <a name="configure-your-docker-shell"></a>Konfigurera dockerskalet
-Om du vill ansluta till Docker-värden i Azure definierar du lämpliga anslutningsinställningar. Som anges i slutet av utdata kan du visa anslutningsinformationen för Docker-värden på följande sätt: 
+## <a name="configure-your-docker-shell"></a>Konfigurera Docker Shell
+Definiera lämpliga anslutnings inställningar för att ansluta till Docker-värden i Azure. Som anges i slutet av utdata visar du anslutnings informationen för Docker-värden på följande sätt: 
 
 ```bash
 docker-machine env myvm
@@ -88,10 +88,10 @@ export DOCKER_MACHINE_NAME="machine"
 # eval $(docker-machine env myvm)
 ```
 
-Om du vill definiera anslutningsinställningarna kan`eval $(docker-machine env myvm)`du antingen köra det föreslagna konfigurationskommandot ( ) eller ange miljövariabler manuellt. 
+Om du vill definiera anslutnings inställningarna kan du antingen köra det föreslagna konfigurations kommandot`eval $(docker-machine env myvm)`(), eller så kan du ställa in miljövariablerna manuellt. 
 
 ## <a name="run-a-container"></a>Köra en behållare
-Om du vill visa en behållare i åtgärd kan du köra en grundläggande NGINX-webbserver. Skapa en `docker run` behållare med och exponera port 80 för webbtrafik enligt följande:
+Om du vill se en behållare i praktiken kan du köra en grundläggande NGINX-webbserver. Skapa en behållare med `docker run` och exponera port 80 för webb trafik på följande sätt:
 
 ```bash
 docker run -d -p 80:80 --restart=always nginx
@@ -110,7 +110,7 @@ Status: Downloaded newer image for nginx:latest
 675e6056cb81167fe38ab98bf397164b01b998346d24e567f9eb7a7e94fba14a
 ```
 
-Visa löpande `docker ps`behållare med . Följande exempelutdata visar NGINX-behållaren som körs med port 80 exponerad:
+Visa behållare som körs `docker ps`med. Följande exempel på utdata visar NGINX-behållaren som körs med port 80 exponerad:
 
 ```bash
 CONTAINER ID    IMAGE    COMMAND                   CREATED          STATUS          PORTS                          NAMES
@@ -125,9 +125,9 @@ Hämta den offentliga IP-adressen för Docker-värden enligt följande:
 docker-machine ip myvm
 ```
 
-Om du vill se behållaren i aktion öppnar du en webbläsare och anger den offentliga IP-adress som anges i utdata från föregående kommando:
+Om du vill se hur behållaren fungerar öppnar du en webbläsare och anger den offentliga IP-adressen som anges i utdata från föregående kommando:
 
-![Köra ngnix-behållare](./media/docker-machine/nginx.png)
+![Kör ngnix-behållare](./media/docker-machine/nginx.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Exempel på hur du använder Docker Compose finns [i Komma igång med Docker och Compose i Azure](docker-compose-quickstart.md).
+Exempel på hur du använder Docker Compose finns i [komma igång med Docker och skapa i Azure](docker-compose-quickstart.md).

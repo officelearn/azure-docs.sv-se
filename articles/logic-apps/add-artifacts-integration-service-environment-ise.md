@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: 58d2efd0c61045739930ce36ba317b1aa6a40ce8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79164883"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Lägg till resurser i integrerings tjänst miljön (ISE) i Azure Logic Apps
@@ -47,7 +47,7 @@ Följ dessa steg om du vill skapa Logi Kap par som körs i integrerings tjänst 
    | **Namn** | Ja | Namnet på den Logic app som ska skapas |
    | **Prenumeration** | Ja | Namnet på den Azure-prenumeration som ska användas |
    | **Resursgrupp** | Ja | Namnet på Azure-resurs gruppen (ny eller befintlig) som ska användas |
-   | **Location** | Ja | Under **integrerings tjänst miljöer**väljer du den ISE som ska användas, om det inte redan har valts. <p><p> **Viktigt**: om du vill använda dina Logi Kap par med ett integrations konto måste båda använda samma ISE. |
+   | **Position** | Ja | Under **integrerings tjänst miljöer**väljer du den ISE som ska användas, om det inte redan har valts. <p><p> **Viktigt**: om du vill använda dina Logi Kap par med ett integrations konto måste båda använda samma ISE. |
    ||||
 
 1. När du är klar väljer du **Skapa**.
@@ -80,7 +80,7 @@ Följ dessa steg om du vill skapa ett integrations konto som använder en ISE:
    | **Prenumeration** | Ja | Namnet på den Azure-prenumeration som du vill använda |
    | **Resursgrupp** | Ja | Namnet på Azure-resurs gruppen (ny eller befintlig) som ska användas |
    | **Pris nivå** | Ja | Den pris nivå som ska användas för integrations kontot |
-   | **Location** | Ja | Under **integrerings tjänst miljöer**väljer du samma ISE som dina Logi Kap par använder, om de inte redan har valts. <p><p> **Viktigt**: om du vill använda ditt integrations konto med Logic Apps måste båda använda samma ISE. |
+   | **Position** | Ja | Under **integrerings tjänst miljöer**väljer du samma ISE som dina Logi Kap par använder, om de inte redan har valts. <p><p> **Viktigt**: om du vill använda ditt integrations konto med Logic Apps måste båda använda samma ISE. |
    ||||
 
 1. När du är klar väljer du **Skapa**.

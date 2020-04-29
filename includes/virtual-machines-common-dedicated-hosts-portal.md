@@ -9,61 +9,61 @@ ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 427117fe47294a1db1fa8d3fa1e46ee1efb91b4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79128622"
 ---
 ## <a name="limitations"></a>Begränsningar
 
-- Skalningsuppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
-- Storleken och maskinvarutyperna som är tillgängliga för dedikerade värdar varierar mellan olika regioner. Läs [värdprissidan](https://aka.ms/ADHPricing) om du vill veta mer.
+- Skalnings uppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
+- De storlekar och maskin varu typer som är tillgängliga för dedikerade värdar varierar beroende på region. Mer information hittar du på [prissättnings sidan](https://aka.ms/ADHPricing) för värden.
 
-## <a name="create-a-host-group"></a>Skapa en värdgrupp
+## <a name="create-a-host-group"></a>Skapa en värd grupp
 
-En **värdgrupp** är en ny resurs som representerar en samling dedikerade värdar. Du skapar en värdgrupp i en region och en tillgänglighetszon och lägger till värdar i den. När du planerar för hög tillgänglighet finns det ytterligare alternativ. Du kan använda ett eller båda av följande alternativ med dina dedikerade värdar: 
-- Sträcker sig över flera tillgänglighetszoner. I det här fallet måste du ha en värdgrupp i var och en av de zoner som du vill använda.
-- Span över flera feldomäner som mappas till fysiska rack. 
+En **värd grupp** är en ny resurs som representerar en samling dedikerade värdar. Du skapar en värd grupp i en region och en tillgänglighets zon och lägger till värdar i den. När du planerar för hög tillgänglighet finns det ytterligare alternativ. Du kan använda ett eller båda av följande alternativ med dina dedikerade värdar: 
+- Sträck över flera tillgänglighets zoner. I så fall måste du ha en värd grupp i var och en av de zoner som du vill använda.
+- Sträck över flera fel domäner som är mappade till fysiska rack. 
  
-I båda fallen måste du ange antalet feldomäner för värdgruppen. Om du inte vill spänna över feldomäner i gruppen använder du ett antal feldomäner på 1. 
+I båda fallen måste du ange antalet fel domäner för värd gruppen. Om du inte vill spänna över fel domäner i gruppen använder du antalet fel domäner 1. 
 
-Du kan också välja att använda både tillgänglighetszoner och feldomäner. 
+Du kan också välja att använda både tillgänglighets zoner och fel domäner. 
 
-I det här exemplet skapar vi en värdgrupp med 1 tillgänglighetszon och 2 feldomäner. 
+I det här exemplet ska vi skapa en värd grupp med hjälp av 1 tillgänglighets zon och 2 fel domäner. 
 
 
-1. Öppna [Azure-portalen](https://portal.azure.com).
-1. Välj **Skapa en resurs** i det övre vänstra hörnet.
-1. Sök efter **värdgrupp** och välj sedan **Värdgrupper** från resultaten.
-1. På sidan **Värdgrupper** väljer du **Skapa**.
-1. Välj den prenumeration som du vill använda och välj sedan **Skapa ny** för att skapa en ny resursgrupp.
+1. Öppna Azure [Portal](https://portal.azure.com).
+1. Välj **skapa en resurs** i det övre vänstra hörnet.
+1. Sök efter **värd grupp** och välj sedan **värd grupper** från resultaten.
+1. På sidan **värd grupper** väljer du **skapa**.
+1. Välj den prenumeration som du vill använda och välj sedan **Skapa ny** för att skapa en ny resurs grupp.
 1. Skriv *myDedicatedHostsRG* som **namn** och välj sedan **OK**.
-1. Skriv *myHostGroup*för **värdgruppsnamn**.
-1. För **Plats**väljer du **Östra USA**.
-1. För **tillgänglighetszon**väljer du **1**.
-1. För **antal feldomäner**väljer du **2**.
-1. Välj **Granska + skapa** och vänta sedan på validering.
-1. När du ser **meddelandet Validering har du** valt **Skapa** för att skapa värdgruppen.
+1. För **värd grupp namn**skriver du *myHostGroup*.
+1. För **plats**väljer du **östra USA**.
+1. För **tillgänglighets zon**väljer du **1**.
+1. För **antal fel domäner**väljer du **2**.
+1. Välj **Granska + skapa** och vänta sedan på verifiering.
+1. När du ser meddelandet **valideringen som skickats** väljer du **skapa** för att skapa värd gruppen.
 
-Det bör bara ta en stund att skapa värdgruppen.
+Det bör bara ta en stund att skapa värd gruppen.
 
 ## <a name="create-a-dedicated-host"></a>Skapa en dedikerad värd
 
-Skapa nu en dedikerad värd i värdgruppen. Förutom ett namn för värden måste du ange SKU för värden. Host SKU fångar den VM-serien som stöds samt maskinvarugenereringen för din dedikerade värd.
+Skapa nu en dedikerad värd i värd gruppen. Förutom ett namn för värden måste du ange SKU för värden. Värd-SKU: n samlar in de VM-serier som stöds samt maskin varu generering för den dedikerade värden.
 
-Mer information om värdsskrona och priser finns i [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
+Mer information om värd-SKU: er och priser finns i [prissättning för Azure-dedikerad värd](https://aka.ms/ADHPricing).
 
-Om du anger ett antal feldomäner för värdgruppen blir du ombedd att ange feldomänen för värden.  
+Om du anger ett fel domän antal för värd gruppen uppmanas du att ange fel domänen för värden.  
 
-1. Välj **Skapa en resurs** i det övre vänstra hörnet.
-1. Sök efter **dedikerad värd** och välj sedan **Dedikerade värdar** från resultaten.
-1. På sidan **Dedikerade värdar** väljer du **Skapa**.
+1. Välj **skapa en resurs** i det övre vänstra hörnet.
+1. Sök efter **dedikerad värd** och välj sedan **dedikerade värdar** från resultaten.
+1. På sidan **dedikerade värdar** väljer du **skapa**.
 1. Välj den prenumeration som du vill använda.
-1. Välj *myDedicatedHostsRG* som **resursgrupp**.
-1. I **Instansinformation**skriver du *myHost* för **namnet** och väljer *östra USA* för platsen.
-1. I **maskinvaruprofil**väljer du *Standard Es3 - Typ 1* för **storleksfamiljen,** väljer *myHostGroup* för **värdgruppen** och väljer sedan *1* för **feldomänen**. Lämna standardvärdena för resten av fälten.
-1. När du är klar väljer du **Granska + skapa** och väntar på validering.
-1. När du ser **meddelandet Validering har du** valt **Skapa** för att skapa värden.
+1. Välj *myDedicatedHostsRG* som **resurs grupp**.
+1. I **instans information**skriver du in *värd* för **namnet** och väljer *östra USA* för platsen.
+1. I **maskin varu profil**väljer du *standard Es3 Family – typ 1* för **storleks familjen**, väljer *myHostGroup* för **värd gruppen** och väljer sedan *1* för **fel domänen**. Lämna standardvärdena för resten av fälten.
+1. När du är färdig väljer du **Granska + skapa** och väntar på verifiering.
+1. När du ser meddelandet **valideringen som skickats** väljer du **skapa** för att skapa värden.
 
 

@@ -1,6 +1,6 @@
 ---
-title: SQUARE i Azure Cosmos DB-frågespråk
-description: Lär dig mer om SQL-systemfunktionen SQUARE i Azure Cosmos DB.
+title: KVADRAT i Azure Cosmos DB frågespråk
+description: Lär dig mer om SQL system-funktionen i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: a22c4daaf9df889f2256bc78f2175c966d4841f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78303451"
 ---
-# <a name="square-azure-cosmos-db"></a>SQUARE (Azure Cosmos DB)
+# <a name="square-azure-cosmos-db"></a>KVADRAT (Azure Cosmos DB)
  Returnerar kvadraten för det angivna numeriska värdet.  
   
 ## <a name="syntax"></a>Syntax
@@ -28,13 +28,13 @@ SQUARE(<numeric_expr>)
 *numeric_expr*  
    Är ett numeriskt uttryck.  
   
-## <a name="return-types"></a>Returtyper
+## <a name="return-types"></a>Retur typer
   
   Returnerar ett numeriskt uttryck.  
   
 ## <a name="examples"></a>Exempel
   
-  I följande exempel returneras kvadraterna med tal 1-3.  
+  I följande exempel returneras kvadraterna av talen 1-3.  
   
 ```sql
 SELECT SQUARE(1) AS s1, SQUARE(2.0) AS s2, SQUARE(3) AS s3  
@@ -48,10 +48,10 @@ SELECT SQUARE(1) AS s1, SQUARE(2.0) AS s2, SQUARE(3) AS s3
 
 ## <a name="remarks"></a>Anmärkningar
 
-Den här systemfunktionen kommer inte att använda indexet.
+Den här system funktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Matematiska funktioner Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Systemfunktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)

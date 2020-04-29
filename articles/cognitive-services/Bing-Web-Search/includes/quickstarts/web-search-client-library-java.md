@@ -1,5 +1,5 @@
 ---
-title: Snabbstart för Java-klientbibliotek för Bing Web Search
+title: Snabb start för Java-klient bibliotek Webbsökning i Bing
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,15 +9,15 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: c204f8482d46d6586d490cb2bd3dd1a4cddac682
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78925092"
 ---
-Bing Web Search-klientbiblioteket gör det enkelt att integrera Bing Web Search i java-programmet. I den här snabbstarten lär du dig att skicka en begäran, ta emot ett JSON-svar och filtrera och parsa resultaten.
+Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i Java-programmet. I den här snabbstarten lär du dig att skicka en begäran, ta emot ett JSON-svar och filtrera och parsa resultaten.
 
-Vill du se koden på en gång? Exempel för [Bing Search-klientbiblioteken för Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search) finns på GitHub.
+Vill du se koden på en gång? Exempel för [Bing-sökning klient bibliotek för Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search) finns på GitHub.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -29,9 +29,9 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 [!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="create-a-project-and-set-up-your-pom-file"></a>Skapa ett projekt och konfigurera DIN POM-fil
+## <a name="create-a-project-and-set-up-your-pom-file"></a>Skapa ett projekt och konfigurera din POM-fil
 
-Skapa ett nytt Java-projekt med hjälp av Maven eller valfritt verktyg för versionsautomatisering. Om du antar att du använder Maven lägger du till följande rader i [DIN POM-fil (Project Object Model).](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) Ersätt alla förekomster av `mainClass` med ditt program.
+Skapa ett nytt Java-projekt med hjälp av Maven eller valfritt verktyg för versionsautomatisering. Under förutsättning att du använder maven lägger du till följande rader i [Pom-filen (Project Object Model)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) . Ersätt alla förekomster av `mainClass` med ditt program.
 
 ```xml
 <build>

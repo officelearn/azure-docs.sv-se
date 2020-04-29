@@ -1,7 +1,7 @@
 ---
-title: Distribuera en modell för slutledning med GPU
+title: Distribuera en modell för härledning med GPU
 titleSuffix: Azure Machine Learning
-description: I den här artikeln får du lära dig hur du använder Azure Machine Learning för att distribuera en GPU-aktiverad Tensorflow deep learning-modell som en webbtjänst.service och poänginferensbegäranden.
+description: Den här artikeln lär dig hur du använder Azure Machine Learning för att distribuera en GPU-aktiverad Tensorflow djup inlärnings modell som en webb tjänst. tjänst-och Poäng härlednings begär Anden.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,48 +11,48 @@ author: csteegz
 ms.reviewer: larryfr
 ms.date: 03/05/2020
 ms.openlocfilehash: b0fd537d1930e7c9d5f7a33f56ec5d00b1556562
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78398340"
 ---
-# <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuera en deep learning-modell för slutledning med GPU
+# <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuera en djup inlärnings modell för en härledning med GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du använder Azure Machine Learning för att distribuera en GPU-aktiverad modell som en webbtjänst. Informationen i den här artikeln baseras på distribution av en modell på Azure Kubernetes Service (AKS). AKS-klustret tillhandahåller en GPU-resurs som används av modellen för slutledning.
+Den här artikeln lär dig hur du använder Azure Machine Learning för att distribuera en GPU-aktiverad modell som en webb tjänst. Informationen i den här artikeln baseras på distribution av en modell på Azure Kubernetes service (AKS). AKS-klustret tillhandahåller en GPU-resurs som används av modellen för härledning.
 
-Inferens, eller modellbedömning, är den fas där den distribuerade modellen används för att göra förutsägelser. Att använda GPU:er i stället för processorer ger prestandafördelar vid mycket parallelliserbar beräkning.
+Härlednings-eller modell poängsättning är den fas där den distribuerade modellen används för att skapa förutsägelser. Att använda GPU: er i stället för processorer ger prestanda för delar med mycket kan göras parallella beräkning.
 
 > [!IMPORTANT]
-> För webbtjänstdistributioner stöds GPU-inferens endast på Azure Kubernetes Service. För inferens med hjälp av en pipeline för __maskininlärning__stöds GPU:er endast på Azure Machine Learning Compute. Mer information om hur du använder ML-pipelines finns i [Kör batchförutsägelser](how-to-use-parallel-run-step.md). 
+> För webb tjänst distributioner stöds endast GPU-härledning i Azure Kubernetes-tjänsten. För en härledning med en __Machine Learning-pipeline__stöds endast GPU: er i Azure Machine Learning Compute. Mer information om hur du använder ML-pipelines finns i [köra batch-förutsägelser](how-to-use-parallel-run-step.md). 
 
 > [!TIP]
-> Även om kodavsnitten i den här artikeln använder en TensorFlow-modell kan du använda informationen på alla maskininlärningsramverk som stöder GPU:er.
+> Även om kodfragmenten i den här artikeln använder en TensorFlow-modell kan du använda informationen för alla Machine Learning-ramverk som stöder GPU: er.
 
 > [!NOTE]
-> Informationen i den här artikeln bygger på informationen i artikeln [Hur du distribuerar till Azure Kubernetes Service.](how-to-deploy-azure-kubernetes-service.md) Om artikeln vanligtvis täcker distribution till AKS täcker den här artikeln GPU-specifik distribution.
+> Informationen i den här artikeln bygger på informationen i artikeln [distribuera till Azure Kubernetes service](how-to-deploy-azure-kubernetes-service.md) . Där artikeln i allmänhet täcker distribution till AKS, behandlar den här artikeln GPU-bestämd distribution.
 
 ## <a name="prerequisites"></a>Krav
 
-* En Azure Machine Learning-arbetsyta. Mer information finns i [Skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
+* En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
-* En Python-utvecklingsmiljö med Azure Machine Learning SDK installerad. Mer information finns i [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
+* En python-utvecklings miljö med Azure Machine Learning SDK installerat. Mer information finns i [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
 * En registrerad modell som använder en GPU.
 
-    * Mer information om hur du registrerar modeller finns i [Distribuera modeller](how-to-deploy-and-where.md#registermodel).
+    * Information om hur du registrerar modeller finns i [Distribuera modeller](how-to-deploy-and-where.md#registermodel).
 
-    * Om du vill skapa och registrera Tensorflow-modellen som används för att skapa det här dokumentet finns i Så här tränar du [en TensorFlow-modell](how-to-train-tensorflow.md).
+    * Information om hur du skapar och registrerar Tensorflow-modellen som används för att skapa det här dokumentet finns i [så här tränar du en Tensorflow modell](how-to-train-tensorflow.md).
 
 * En allmän förståelse för [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
 
 ## <a name="connect-to-your-workspace"></a>Anslut till arbetsytan
 
-Om du vill ansluta till en befintlig arbetsyta använder du följande kod:
+Använd följande kod för att ansluta till en befintlig arbets yta:
 
 > [!IMPORTANT]
-> Det här kodavsnittet förväntar sig att arbetsytans konfiguration ska sparas i den aktuella katalogen eller dess överordnade katalog. Mer information om hur du skapar en arbetsyta finns i [Skapa och hantera Azure Machine Learning-arbetsytor](how-to-manage-workspace.md).   Mer information om hur du sparar konfigurationen i filen finns i [Skapa en konfigurationsfil för arbetsytan](how-to-configure-environment.md#workspace).
+> Det här kodfragmentet förväntar sig att arbets ytans konfiguration sparas i den aktuella katalogen eller dess överordnade. Mer information om hur du skapar en arbets yta finns i [skapa och hantera Azure Machine Learning arbets ytor](how-to-manage-workspace.md).   Mer information om hur du sparar konfigurationen till filen finns i [skapa en konfigurations fil för arbets ytor](how-to-configure-environment.md#workspace).
 
 ```python
 from azureml.core import Workspace
@@ -61,11 +61,11 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-## <a name="create-a-kubernetes-cluster-with-gpus"></a>Skapa ett Kubernetes-kluster med GPU:er
+## <a name="create-a-kubernetes-cluster-with-gpus"></a>Skapa ett Kubernetes-kluster med GPU: er
 
-Azure Kubernetes Service innehåller många olika GPU-alternativ. Du kan använda någon av dem för modell inferens. Se [listan över virtuella datorer i N-serien](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) för en fullständig uppdelning av funktioner och kostnader.
+Azure Kubernetes-tjänsten erbjuder många olika GPU-alternativ. Du kan använda dem för modellens härledning. Se [listan över virtuella datorer i N-serien](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) för en fullständig analys av funktioner och kostnader.
 
-Följande kod visar hur du skapar ett nytt AKS-kluster för din arbetsyta:
+Följande kod visar hur du skapar ett nytt AKS-kluster för din arbets yta:
 
 ```python
 from azureml.core.compute import ComputeTarget, AksCompute
@@ -92,16 +92,16 @@ except ComputeTargetException:
 ```
 
 > [!IMPORTANT]
-> Azure fakturerar dig så länge AKS-klustret finns. Se till att ta bort AKS-klustret när du är klar med det.
+> Azure kommer att debiteras så länge AKS-klustret finns. Se till att ta bort ditt AKS-kluster när du är klar.
 
-Mer information om hur du använder AKS med Azure Machine Learning finns i [Så här distribuerar du till Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
+Mer information om hur du använder AKS med Azure Machine Learning finns i [distribuera till Azure Kubernetes service](how-to-deploy-azure-kubernetes-service.md).
 
-## <a name="write-the-entry-script"></a>Skriv postskriptet
+## <a name="write-the-entry-script"></a>Skriv start skriptet
 
-Inmatningsskriptet tar emot data som skickas till webbtjänsten, skickar det till modellen och returnerar poängresultaten. Följande skript läser in Tensorflow-modellen vid start och använder sedan modellen för att poängsätta data.
+Inmatnings skriptet tar emot data som skickats till webb tjänsten, skickar dem till modellen och returnerar poängsättnings resultatet. Följande skript läser in Tensorflow-modellen vid start och använder sedan modellen för att räkna data.
 
 > [!TIP]
-> Startskriptet är specifikt för din modell. Skriptet måste till exempel känna till ramverket för att använda med din modell, dataformat etc.
+> Startskriptet är specifikt för din modell. Skriptet måste till exempel känna till ramverket som ska användas med din modell, data format osv.
 
 ```python
 import json
@@ -135,11 +135,11 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-Den här `score.py`filen heter . Mer information om inmatningsskript finns i [Hur och var du ska distribuera](how-to-deploy-and-where.md).
+Den här filen heter `score.py`. Mer information om Entry-skript finns i [hur och var du ska distribuera](how-to-deploy-and-where.md).
 
-## <a name="define-the-conda-environment"></a>Definiera conda-miljön
+## <a name="define-the-conda-environment"></a>Definiera Conda-miljön
 
-Conda-miljöfilen anger beroenden för tjänsten. Den innehåller beroenden som krävs av både modellen och inmatningsskriptet. Observera att du måste ange azureml-defaults med verion >= 1.0.45 som ett pipberoende, eftersom det innehåller de funktioner som behövs för att vara värd för modellen som en webbtjänst. Följande YAML definierar miljön för en Tensorflow-modell. Den anger `tensorflow-gpu`, som kommer att använda sig av GPU som används i den här distributionen:
+Miljö filen Conda anger beroenden för tjänsten. Den innehåller beroenden som krävs av både modellen och Entry-skriptet. Observera att du måste ange azureml-defaults med version >= 1.0.45 som ett pip-beroende, eftersom det innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst. I följande YAML definieras miljön för en Tensorflow-modell. Den anger `tensorflow-gpu`, som använder den GPU som används i den här distributionen:
 
 ```yaml
 name: project_environment
@@ -159,9 +159,9 @@ channels:
 
 I det här exemplet sparas filen som `myenv.yml`.
 
-## <a name="define-the-deployment-configuration"></a>Definiera distributionskonfigurationen
+## <a name="define-the-deployment-configuration"></a>Definiera distributions konfigurationen
 
-Distributionskonfigurationen definierar azure Kubernetes Service-miljön som används för att köra webbtjänsten:
+Distributions konfigurationen definierar den Azure Kubernetes service-miljö som används för att köra webb tjänsten:
 
 ```python
 from azureml.core.webservice import AksWebservice
@@ -172,11 +172,11 @@ gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
                                                     memory_gb=4)
 ```
 
-Mer information finns i referensdokumentationen för [AksService.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-).
+Mer information finns i referens dokumentationen för [AksService. deploy_configuration](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none--compute-target-name-none-).
 
-## <a name="define-the-inference-configuration"></a>Definiera inferenskonfigurationen
+## <a name="define-the-inference-configuration"></a>Definiera konfigurationen för konfigurations störningar
 
-Inferenskonfigurationen pekar på inmatningsskriptet och ett miljöobjekt, som använder en dockeravbildning med GPU-stöd. Observera att YAML-filen som används för miljödefinition måste innehålla azureml-standardvärden med version >= 1.0.45 som pipberoende, eftersom den innehåller de funktioner som behövs för att vara värd för modellen som en webbtjänst.
+Konfigurationen pekar på Start-och miljö objekt, som använder en Docker-avbildning med GPU-stöd. Observera att YAML-filen som används för miljö definitionen måste visa azureml-default med version >= 1.0.45 som ett pip-beroende, eftersom den innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst.
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -187,12 +187,12 @@ myenv.docker.base_image = DEFAULT_GPU_IMAGE
 inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 ```
 
-Mer information om miljöer finns i [Skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md).
-Mer information finns i referensdokumentationen för [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py).
+Mer information om miljöer finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md).
+Mer information finns i referens dokumentationen för [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py).
 
 ## <a name="deploy-the-model"></a>Distribuera modellen
 
-Distribuera modellen till AKS-klustret och vänta på att den ska skapa din tjänst.
+Distribuera modellen till ditt AKS-kluster och vänta tills den har skapat din tjänst.
 
 ```python
 from azureml.core.model import Model
@@ -214,13 +214,13 @@ print(aks_service.state)
 ```
 
 > [!NOTE]
-> Om `InferenceConfig` objektet `enable_gpu=True`har måste `deployment_target` parametern referera till ett kluster som tillhandahåller en GPU. Annars misslyckas distributionen.
+> Om `InferenceConfig` objektet har `enable_gpu=True`, måste `deployment_target` parametern referera till ett kluster som tillhandahåller en GPU. Annars Miss kommer distributionen.
 
-Mer information finns i referensdokumentationen för [Modell](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+Mer information finns i referens dokumentationen för- [modellen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-## <a name="issue-a-sample-query-to-your-service"></a>Utfärda en exempelfråga till tjänsten
+## <a name="issue-a-sample-query-to-your-service"></a>Skicka en exempel fråga till din tjänst
 
-Skicka en testfråga till den distribuerade modellen. När du skickar en jpeg-bild till modellen får den bilden att göra. Följande kodexempel hämtar testdata och väljer sedan en slumpmässig testavbildning som ska skickas till tjänsten.
+Skicka en test fråga till den distribuerade modellen. När du skickar en JPEG-bild till modellen, visas bilden. Följande kod exempel hämtar test data och väljer sedan en slumpmässig test avbildning som ska skickas till tjänsten.
 
 ```python
 # Used to test your webservice
@@ -273,14 +273,14 @@ print("label:", y_test[random_index])
 print("prediction:", resp.text)
 ```
 
-Mer information om hur du skapar ett klientprogram finns i [Skapa klient för att använda distribuerad webbtjänst](how-to-consume-web-service.md).
+Mer information om hur du skapar ett klient program finns i [skapa klient för att använda distribuerad webb tjänst](how-to-consume-web-service.md).
 
 ## <a name="clean-up-the-resources"></a>Rensa resurserna
 
 Om du har skapat AKS-klustret specifikt för det här exemplet tar du bort dina resurser när du är klar.
 
 > [!IMPORTANT]
-> Azure fakturerar dig baserat på hur länge AKS-klustret distribueras. Se till att städa upp när du är klar med det.
+> Azure-räkningar baseras på hur länge AKS-klustret distribueras. Se till att rensa upp den när du är klar.
 
 ```python
 aks_service.delete()
@@ -291,4 +291,4 @@ aks_target.delete()
 
 * [Distribuera modell på FPGA](how-to-deploy-fpga-web-service.md)
 * [Distribuera modell med ONNX](concept-onnx.md#deploy-onnx-models-in-azure)
-* [Train Tensorflow DNN Modeller](how-to-train-tensorflow.md)
+* [Träna Tensorflow DNN-modeller](how-to-train-tensorflow.md)

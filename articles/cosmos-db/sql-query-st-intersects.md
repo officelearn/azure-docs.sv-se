@@ -1,6 +1,6 @@
 ---
-title: ST_INTERSECTS i Azure Cosmos DB-frågespråk
-description: Lär dig mer om SQL-systemfunktion ST_INTERSECTS i Azure Cosmos DB.
+title: ST_INTERSECTS i Azure Cosmos DB frågespråk
+description: Lär dig mer om SQL system-funktionen ST_INTERSECTS i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: f3c3878956b90ffb45556ed819046af9eb7618f1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78303145"
 ---
 # <a name="st_intersects-azure-cosmos-db"></a>ST_INTERSECTS (Azure Cosmos DB)
- Returnerar ett booleskt uttryck som anger om det GeoJSON-objekt (Punkt, Polygon eller LineString) som anges i det första argumentet skär geojson (punkt, polygon eller radsträng) i det andra argumentet.  
+ Returnerar ett booleskt uttryck som anger om det interjson-objekt (punkt, polygon eller lin Est ring) som anges i det första argumentet korsar interjson (punkt, polygon eller lin Est ring) i det andra argumentet.  
   
 ## <a name="syntax"></a>Syntax
   
@@ -26,15 +26,15 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
 ## <a name="arguments"></a>Argument
   
 *spatial_expr*  
-   Är ett GeoJSON-punkt-, polygon- eller linestring-objektuttryck.  
+   Är ett uttryck för en interjson-punkt, polygon eller lin Est ring-objekt.  
   
-## <a name="return-types"></a>Returtyper
+## <a name="return-types"></a>Retur typer
   
   Returnerar ett booleskt värde.  
   
 ## <a name="examples"></a>Exempel
   
-  I följande exempel visas hur du hittar alla områden som korsar den angivna polygonen.  
+  I följande exempel visas hur du hittar alla områden som överlappar med den aktuella polygonen.  
   
 ```sql
 SELECT a.id
@@ -53,10 +53,10 @@ WHERE ST_INTERSECTS(a.location, {
 
 ## <a name="remarks"></a>Anmärkningar
 
-Denna systemfunktion kommer att dra nytta av ett [geospatialt index](index-policy.md#spatial-indexes).
+Den här systemfunktionen kommer att ha nytta av ett [geospatialt index](index-policy.md#spatial-indexes).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Rumsliga funktioner Azure Cosmos DB](sql-query-spatial-functions.md)
-- [Systemfunktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [Spatiala funktioner Azure Cosmos DB](sql-query-spatial-functions.md)
+- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)

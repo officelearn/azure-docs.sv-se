@@ -8,17 +8,17 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 6274e24bae2e2a6eade0122fe244652eb29cacf9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78399217"
 ---
 # <a name="deprecated-deploy-a-dcos-cluster"></a>(INAKTUELL) Distribuera ett DC/OS-kluster
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-DC/OS tillhandahåller en distribuerad plattform för att köra moderna och containerbaserade program. Med Azure Container Service går det snabbt och enkelt att etablera ett produktionsklart DC/OS-kluster. Den här snabbstarten beskriver de grundläggande stegen som krävs för att distribuera ett DC/OS-kluster och köra grundläggande arbetsbelastning.
+DC/OS tillhandahåller en distribuerad plattform för att köra moderna och containerbaserade program. Med Azure Container Service går det snabbt och enkelt att etablera ett produktionsklart DC/OS-kluster. Den här snabb starten beskriver de grundläggande stegen som krävs för att distribuera ett DC/OS-kluster och köra grundläggande arbets belastning.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
@@ -165,7 +165,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du distribuerat ett DC/OS-kluster och kört en enkel Docker-behållare i klustret. Om du vill veta mer om Azure Container Service kan du fortsätta till självstudiekurserna om ACS.
+I den här snabb starten har du distribuerat ett DC/OS-kluster och har kört en enkel Docker-behållare i klustret. Om du vill veta mer om Azure Container Service kan du fortsätta till självstudiekurserna om ACS.
 
 > [!div class="nextstepaction"]
 > [Hantera ett ACS DC/OS-kluster](container-service-dcos-manage-tutorial.md)

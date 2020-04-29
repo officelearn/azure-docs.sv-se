@@ -1,6 +1,6 @@
 ---
-title: SUBSTRING i Azure Cosmos DB-frågespråk
-description: Lär dig mer om SQL-systemfunktion SUBSTRING i Azure Cosmos DB.
+title: Under sträng i Azure Cosmos DB frågespråk
+description: Lär dig mer om SQL system Function-understräng i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: d4462fc407093b23510bddfae4d9f55d68f8c0fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78303706"
 ---
-# <a name="substring-azure-cosmos-db"></a>DELSTRÄNG (Azure Cosmos DB)
- Returnerar en del av ett stränguttryck som börjar vid den angivna teckenfria positionen och fortsätter till den angivna längden eller till strängens.  
+# <a name="substring-azure-cosmos-db"></a>Under sträng (Azure Cosmos DB)
+ Returnerar en del av ett sträng uttryck som börjar vid den angivna tecken noll-baserade positionen och fortsätter till den angivna längden, eller till slutet av strängen.  
   
 ## <a name="syntax"></a>Syntax
   
@@ -26,21 +26,21 @@ SUBSTRING(<str_expr>, <num_expr1>, <num_expr2>)
 ## <a name="arguments"></a>Argument
   
 *str_expr*  
-   Är ett stränguttryck.
+   Är ett sträng uttryck.
   
 *num_expr1*  
-   Är ett numeriskt uttryck som anger starttecknet. Värdet 0 är det första tecknet *i str_expr*.
+   Är ett numeriskt uttryck som anger start tecken. Värdet 0 är det första *str_exprets*första bokstav.
   
 *num_expr2*  
-   Är ett numeriskt uttryck som anger det maximala antalet tecken *str_expr* som ska returneras. Värdet 0 eller mindre resulterar i tom sträng.
+   Är ett numeriskt uttryck som anger det maximala antalet tecken i *str_expr* som ska returneras. Värdet 0 eller mindre resulterar i en tom sträng.
 
-## <a name="return-types"></a>Returtyper
+## <a name="return-types"></a>Retur typer
   
-  Returnerar ett stränguttryck.  
+  Returnerar ett sträng uttryck.  
   
 ## <a name="examples"></a>Exempel
   
-  I följande exempel returneras delsträngen för "abc" från 1 och för en längd på 1 tecken.  
+  I följande exempel returneras del strängen "ABC" från 1 till och med en längd på 1 tecken.  
   
 ```sql
 SELECT SUBSTRING("abc", 1, 1) AS substring  
@@ -54,10 +54,10 @@ SELECT SUBSTRING("abc", 1, 1) AS substring
 
 ## <a name="remarks"></a>Anmärkningar
 
-Den här systemfunktionen kommer att dra nytta `0`av ett [intervallindex](index-policy.md#includeexclude-strategy) om utgångsläget är .
+Den här systemfunktionen kommer att ha nytta av ett [intervall index](index-policy.md#includeexclude-strategy) om `0`start positionen är.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Strängfunktioner Azure Cosmos DB](sql-query-string-functions.md)
-- [Systemfunktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [Sträng funktioner Azure Cosmos DB](sql-query-string-functions.md)
+- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)

@@ -1,47 +1,47 @@
 ---
-title: Installera konsul i Azure Kubernetes Service (AKS)
-description: Lär dig hur du installerar och använder Consul för att skapa ett tjänstnät i ett AKS-kluster (Azure Kubernetes Service)
+title: Installera konsulär i Azure Kubernetes service (AKS)
+description: Lär dig hur du installerar och använder konsulär för att skapa ett service nät i ett Azure Kubernetes service-kluster (AKS)
 author: dstrebel
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: 1601ab6d81b888fd2247e95f22c58e1fc91df698
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78273727"
 ---
-# <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Installera och använda konsul i Azure Kubernetes Service (AKS)
+# <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Installera och använda konsulär i Azure Kubernetes service (AKS)
 
-[Consul][consul-github] är ett servicenät med öppen källkod som tillhandahåller en nyckeluppsättning funktioner över mikrotjänsterna i ett Kubernetes-kluster. Dessa funktioner omfattar tjänstidentifiering, hälsokontroll, segmentering av tjänster och observerbarhet. Mer information om konsul finns i den officiella dokumentationen [Vad är konsul.][consul-docs-concepts]
+[Konsulär][consul-github] är ett nät med öppen källkod som ger en nyckel uppsättning över mikrotjänster i ett Kubernetes-kluster. Dessa funktioner omfattar tjänst identifiering, hälso kontroll, service segmentering och att det går att observera. Mer information om konsulär finns i den officiella artikeln [Vad är konsulär?][consul-docs-concepts] dokumentation.
 
-Den här artikeln visar hur du installerar konsul. Consul-komponenterna installeras i ett Kubernetes-kluster på AKS.
+Den här artikeln visar hur du installerar konsulär. Konsulära komponenter installeras i ett Kubernetes-kluster på AKS.
 
 > [!NOTE]
-> Dessa instruktioner refererar `1.6.0`till Consul-versionen `2.14.2`och använder åtminstone Helm-versionen .
+> Dessa instruktioner hänvisar till konsulär `1.6.0`version och använder minst Helm version `2.14.2`.
 >
-> Consul-utgåvorna `1.6.x` kan köras mot `1.13+`Kubernetes-versioner . Du hittar ytterligare konsulversioner på [GitHub - Consul Releases][consul-github-releases] och information om var och en av utgåvorna på [Consul- Release Notes][consul-release-notes].
+> Konsulära `1.6.x` versioner kan köras mot Kubernetes-versioner `1.13+`. Du hittar ytterligare konsulära versioner på [GitHub-uppdateringar][consul-github-releases] och information om var och en av de versioner som finns i [konsulära versions anteckningar][consul-release-notes].
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Installera consul-komponenterna på AKS
-> * Validera konsulinstallationen
-> * Avinstallera konsul från AKS
+> * Installera konsulära komponenter på AKS
+> * Verifiera den konsulära installationen
+> * Avinstallera konsulär från AKS
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Stegen som beskrivs i den här artikeln förutsätter att du `1.13` har skapat ett AKS-kluster (Kubernetes och högre, med RBAC aktiverat) och har upprättat en `kubectl` anslutning till klustret. Om du behöver hjälp med något av dessa objekt, sedan se [AKS snabbstart][aks-quickstart]. Kontrollera att klustret har minst 3 noder i Linux-nodpoolen.
+De steg som beskrivs i den här artikeln förutsätter att du har skapat ett AKS `1.13` -kluster (Kubernetes och senare, med RBAC aktiverat) `kubectl` och har upprättat en anslutning till klustret. Om du behöver hjälp med något av dessa objekt kan du se snabb starten för [AKS][aks-quickstart]. Se till att klustret har minst 3 noder i Linux-noden.
 
-Du behöver [Helm][helm] för att följa dessa instruktioner och installera konsuln. Vi rekommenderar att du har den senaste stabila versionen korrekt installerad och konfigurerad i klustret. Om du behöver hjälp med att installera Helm, se [AKS Helm installationsvägledning][helm-install]. Alla konsulkapslar måste också schemaläggas för att köras på Linux-noder.
+Du behöver [Helm][helm] för att följa dessa anvisningar och installera konsulär. Vi rekommenderar att du har den senaste säkra versionen som är korrekt installerad och konfigurerad i klustret. Om du behöver hjälp med att installera Helm kan du läsa mer i [installations vägledningen för AKS Helm][helm-install]. Alla konsulära poddar måste också vara schemalagda att köras på Linux-noder.
 
-Den här artikeln separerar konsulinstallationsvägledningen i flera diskreta steg. Slutresultatet är detsamma i struktur som den officiella konsulinstallation [vägledning][consul-install-k8].
+Den här artikeln separerar den konsulära installations vägledningen i flera diskreta steg. Slut resultatet är detsamma i strukturen som den officiella konsulära installations [vägledningen][consul-install-k8].
 
-### <a name="install-the-consul-components-on-aks"></a>Installera consul-komponenterna på AKS
+### <a name="install-the-consul-components-on-aks"></a>Installera konsulära komponenter på AKS
 
-Vi börjar med att `v0.10.0` ladda ner versionen av konsul helm-listan. Den här versionen av diagrammet `1.6.0`innehåller Consul version .
+Vi börjar med att hämta version `v0.10.0` av konsulär Helm-diagrammet. Den här versionen av diagrammet innehåller konsulär version `1.6.0`.
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -61,20 +61,20 @@ Vi börjar med att `v0.10.0` ladda ner versionen av konsul helm-listan. Den här
 
 ::: zone-end
 
-Använd Helm och `consul-helm` det nedladdade diagrammet för `consul` att installera consul-komponenterna i namnområdet i AKS-klustret. 
+Använd Helm och det nedladdade `consul-helm` diagrammet för att installera konsulära `consul` komponenter i namn området i ditt AKS-kluster. 
 
 > [!NOTE]
 > **Installationsalternativ**
 > 
-> Vi använder följande alternativ som en del av vår installation:
-> - `connectInject.enabled=true`- göra det möjligt att injicera proxyservrar i skida
-> - `client.enabled=true`- göra det möjligt för konsulklienter att köras på varje nod
-> - `client.grpc=true`- aktivera gRPC-lyssnare för connectInject
-> - `syncCatalog.enabled=true`- synkronisera Kubernetes och konsultjänster
+> Vi använder följande alternativ som en del av installationen:
+> - `connectInject.enabled=true`-Aktivera att proxyservrar matas in i poddar
+> - `client.enabled=true`– gör det möjligt för konsulära kunder att köras på varje nod
+> - `client.grpc=true`-Aktivera gRPC-lyssnare för connectInject
+> - `syncCatalog.enabled=true`-Sync-Kubernetes och konsulära tjänster
 >
-> **Nodväljare**
+> **Node-väljare**
 >
-> Konsuln måste för närvarande schemaläggas för att köras på Linux-noder. Om du har Windows Server-noder i klustret måste du se till att konsulpodderna endast är schemalagda att köras på Linux-noder. Vi använder [nodväljare][kubernetes-node-selectors] för att se till att poddar är schemalagda till rätt noder.
+> Konsulär måste för närvarande vara schemalagd för att köras på Linux-noder. Om du har Windows Server-noder i klustret måste du se till att konsulär poddar endast är schemalagda att köras på Linux-noder. Vi använder [Node-väljare][kubernetes-node-selectors] för att kontrol lera att poddar är schemalagda till rätt noder.
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -94,20 +94,20 @@ Använd Helm och `consul-helm` det nedladdade diagrammet för `consul` att insta
 
 ::: zone-end
 
-`Consul` Helm-diagrammet distribuerar ett antal objekt. Du kan se listan från `helm install` utdata från kommandot ovan. Distributionen av consul-komponenterna kan ta cirka 3 minuter att slutföra, beroende på klustermiljön.
+`Consul` Helm-diagrammet distribuerar ett antal objekt. Du kan se listan från utdata från `helm install` kommandot ovan. Det kan ta ungefär tre minuter att slutföra distributionen av konsulära komponenter, beroende på din kluster miljö.
 
-Nu har du distribuerat konsuln till AKS-klustret. För att säkerställa att vi har en lyckad distribution av konsuln, låt oss gå vidare till nästa avsnitt för att validera consul installationen.
+Nu har du distribuerat konsulär till ditt AKS-kluster. För att säkerställa att vi har en lyckad distribution av konsulär kan vi gå vidare till nästa avsnitt för att verifiera den konsulära installationen.
 
-## <a name="validate-the-consul-installation"></a>Validera konsulinstallationen
+## <a name="validate-the-consul-installation"></a>Verifiera den konsulära installationen
 
-Bekräfta att resurserna har skapats. Använd [kubectl get svc][kubectl-get] och [kubectl get][kubectl-get] `consul` pod-kommandon för att fråga namnområdet, där consul-komponenterna `helm install` installerades av kommandot:
+Bekräfta att resurserna har skapats. Använd [kubectl get SVC][kubectl-get] och [kubectl get Pod][kubectl-get] för att fråga efter `consul` namn området där konsulära komponenter installerades med `helm install` kommandot:
 
 ```console
 kubectl get svc --namespace consul --output wide
 kubectl get pod --namespace consul --output wide
 ```
 
-Följande exempelutdata visar de tjänster och poddar (schemalagda på Linux-noder) som nu ska köras:
+Följande exempel på utdata visar tjänsterna och poddar (schemalagda på Linux-noder) som nu ska köras:
 
 ```output
 NAME                                 TYPE           CLUSTER-IP    EXTERNAL-IP             PORT(S)                                                                   AGE     SELECTOR
@@ -128,28 +128,28 @@ consul-consul-sync-catalog-d846b79c-8ssr8                         1/1     Runnin
 consul-consul-tz2t5                                               1/1     Running   0          3m9s   10.240.0.12   aks-linux-92468653-vmss000000   <none>           <none>
 ```
 
-Alla poddar ska visa statusen `Running`. Om dina poddar inte har dessa statusar, vänta en minut eller två tills de gör det. Om några poddar rapporterar ett problem använder du kommandot [kubectl describe pod][kubectl-describe] för att granska deras utdata och status.
+Alla poddar bör visa status för `Running`. Om din poddar inte har dessa status värden väntar du en minut eller två tills de gör det. Om en poddar rapporterar ett problem använder du kommandot [kubectl beskriver Pod][kubectl-describe] för att granska deras utdata och status.
 
-## <a name="accessing-the-consul-ui"></a>Komma åt konsulgränssnittet
+## <a name="accessing-the-consul-ui"></a>Åtkomst till konsulärt användar gränssnitt
 
-Consul UI installerades i vår installation ovan och ger UI-baserad konfiguration för consul. Användargränssnittet för konsuln exponeras inte offentligt via en extern IP-adress. Använd kommandot [kubectl port-forward][kubectl-port-forward] för att komma åt consul-användargränssnittet. Det här kommandot skapar en säker anslutning mellan klientdatorn och den relevanta podden i AKS-klustret.
+Konsulärt användar gränssnitt installerades i vår installation ovan och ger UI-baserad konfiguration för konsulär. Användar gränssnittet för konsulär visas inte offentligt via en extern IP-adress. Använd kommandot [kubectl Port-Forward][kubectl-port-forward] för att komma åt användar gränssnittet i konsulär. Det här kommandot skapar en säker anslutning mellan klient datorn och relevanta Pod i ditt AKS-kluster.
 
 ```console
 kubectl port-forward -n consul svc/consul-consul-ui 8080:80
 ```
 
-Du kan nu öppna en `http://localhost:8080/ui` webbläsare och peka på den för att öppna konsulgränssnittet. Du bör se följande när du öppnar användargränssnittet:
+Nu kan du öppna en webbläsare och peka den för `http://localhost:8080/ui` att öppna det konsulära användar gränssnittet. Du bör se följande när du öppnar användar gränssnittet:
 
-![Consul UI](./media/servicemesh/consul/consul-ui.png)
+![Konsulärt användar gränssnitt](./media/servicemesh/consul/consul-ui.png)
 
-## <a name="uninstall-consul-from-aks"></a>Avinstallera konsul från AKS
+## <a name="uninstall-consul-from-aks"></a>Avinstallera konsulär från AKS
 
 > [!WARNING]
-> Om du tar bort konsuln från ett system som körs kan det leda till trafikrelaterade problem mellan dina tjänster. Se till att du har gjort avsättningar för ditt system att fortfarande fungera korrekt utan konsul innan du fortsätter.
+> Om du tar bort konsulär från ett system som körs kan trafik problem uppstå mellan dina tjänster. Se till att du har gjort att systemet fortfarande fungerar korrekt utan konsulär innan du fortsätter.
 
-### <a name="remove-consul-components-and-namespace"></a>Ta bort consul-komponenter och namnområde
+### <a name="remove-consul-components-and-namespace"></a>Ta bort konsulära komponenter och namnrymd
 
-Om du vill ta bort konsuln från AKS-klustret använder du följande kommandon. Kommandona `helm delete` tar bort `consul` diagrammet och `kubectl delete namespace` kommandot tar `consul` bort namnområdet.
+Om du vill ta bort konsulär från AKS-klustret använder du följande kommandon. De `helm delete` här kommandona tar `consul` bort diagrammet och `kubectl delete namespace` tar bort `consul` namn området.
 
 ```console
 helm delete --purge consul
@@ -158,14 +158,14 @@ kubectl delete namespace consul
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du vill utforska fler installations- och konfigurationsalternativ för konsul finns i följande officiella konsulartiklar:
+För att utforska fler installations-och konfigurations alternativ för konsulär, se följande officiella konsulära artiklar:
 
-- [Konsul - Helm installationsguide][consul-install-k8]
-- [Installationsalternativ för konsul - Helm][consul-install-helm-options]
+- [Konsulär-Helm installations guide][consul-install-k8]
+- [Konsulär – Helm installations alternativ][consul-install-helm-options]
 
-Du kan också följa ytterligare scenarier med hjälp av:
+Du kan också följa ytterligare scenarier som använder:
 
-- [Exempelprogram för konsul][consul-app-example]
+- [Konsulär exempel program][consul-app-example]
 
 <!-- LINKS - external -->
 [Hashicorp]: https://hashicorp.com

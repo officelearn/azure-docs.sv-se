@@ -9,60 +9,60 @@ ms.date: 04/12/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 33d058f028b7032f296ffcf82f0e5fe2c993e6fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79127915"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Windows Virtual Desktop-miljö
 
-Windows Virtual Desktop är en tjänst som ger användarna enkel och säker åtkomst till sina virtualiserade skrivbord och RemoteApps. Det här avsnittet berättar lite mer om den allmänna strukturen i Windows Virtual Desktop-miljön.
+Windows Virtual Desktop är en tjänst som ger användare enkel och säker åtkomst till sina virtualiserade skriv bord och RemoteApp-datorer. I det här avsnittet får du veta mer om den allmänna strukturen i Windows Virtual Desktop-miljön.
 
 ## <a name="tenants"></a>Klientorganisationer
 
-Windows Virtual Desktop-klienten är det primära gränssnittet för hantering av din Windows Virtual Desktop-miljö. Varje Windows Virtual Desktop-klient måste associeras med Azure Active Directory som innehåller de användare som loggar in på miljön. Från Windows Virtual Desktop-klienten kan du börja skapa värdpooler för att köra användarnas arbetsbelastningar.
+Windows Virtual Desktop-klienten är det primära gränssnittet för att hantera din Windows-miljö för virtuella datorer. Varje Windows-klient för virtuella skriv bord måste vara kopplad till Azure Active Directory som innehåller de användare som ska logga in på miljön. Från Windows-klienten för virtuella skriv bord kan du börja skapa värdar för att köra användarnas arbets belastningar.
 
-## <a name="host-pools"></a>Värdpooler
+## <a name="host-pools"></a>Värdar för pooler
 
-En värdpool är en samling virtuella Azure-datorer som registrerar sig på Windows Virtual Desktop som sessionsvärdar när du kör Windows Virtual Desktop-agenten. Alla virtuella datorer för sessionsvärden i en värdpool ska hämtas från samma avbildning för en konsekvent användarupplevelse.
+En adresspool är en samling virtuella Azure-datorer som registreras på Windows Virtual Desktop som värdar för Windows Virtual Desktop-agenten. Alla virtuella datorer i en värdstat i en adresspool måste ha en konsekvent användar upplevelse från samma avbildning.
 
-En värdpool kan vara en av två typer:
+En värdbaserad pool kan vara en av två typer:
 
-- Personlig, där varje sessionsvärd tilldelas enskilda användare.
-- Poolad, där sessionsvärdar kan acceptera anslutningar från alla användare som har behörighet till en appgrupp i värdpoolen.
+- Personligt, där varje sessions värd tilldelas enskilda användare.
+- I pooler, där sessions-värdar kan acceptera anslutningar från alla användare som har behörighet till en app-grupp i poolen värd.
 
-Du kan ange ytterligare egenskaper i värdpoolen för att ändra dess belastningsutjämningsbeteende, hur många sessioner varje sessionsvärd kan ta och vad användaren kan göra för att sessionsvärdar i värdpoolen när de är inloggade på sina Windows Virtual Desktop-sessioner. Du styr de resurser som publiceras för användare via appgrupper.
+Du kan ange ytterligare egenskaper för poolen för att ändra dess belastnings Utjämnings beteende, hur många sessioner varje sessions värd kan ta och vad användaren kan göra för att agera värdar i värddatorn när de loggat in på sina Windows-sessioner med virtuella skriv bord. Du styr vilka resurser som publiceras till användare via app-grupper.
 
 ## <a name="app-groups"></a>Appgrupper
 
-En appgrupp är en logisk gruppering av program som är installerade på sessionsvärdar i värdpoolen. En appgrupp kan vara en av två typer:
+En app-grupp är en logisk gruppering av program som är installerade på värdarna i värd gruppen. En app-grupp kan vara en av två typer:
 
-- RemoteApp, där användare kommer åt remoteapps som du väljer och publicerar för appgruppen individuellt
-- Skrivbordet, där användarna kommer åt hela skrivbordet
+- RemoteApp, där användarna får åtkomst till de RemoteAppar du individuellt väljer och publicerar i app-gruppen
+- Skriv bord, där användare kommer åt hela Skriv bordet
 
-Som standard skapas en skrivbordsappgrupp (med namnet "Desktop Application Group") automatiskt när du skapar en värdpool. Du kan ta bort den här appgruppen när som helst. Du kan dock inte skapa en annan skrivbordsappgrupp i värdpoolen medan det finns en skrivbordsappgrupp. Om du vill publicera RemoteApps måste du skapa en RemoteApp-appgrupp. Du kan skapa flera RemoteApp-appgrupper för att hantera olika arbetsscenarier. Olika RemoteApp-appgrupper kan också innehålla överlappande RemoteApps.
+Som standard skapas en Skriv bords grupp (med namnet "Skriv bords program grupp") automatiskt när du skapar en adresspool. Du kan när som helst ta bort den här program gruppen. Du kan dock inte skapa en annan grupp för Skriv bords appar i poolen värd när en grupp app-grupp finns. Om du vill publicera RemoteApp-program måste du skapa en RemoteApp-gruppgrupp. Du kan skapa flera RemoteApp-appar för att hantera olika arbets scenarier. Olika RemoteApp-app-grupper kan också innehålla överlappande RemoteApp-program.
 
-Om du vill publicera resurser till användare måste du tilldela dem till appgrupper. När du tilldelar användare till appgrupper bör du tänka på följande:
+Om du vill publicera resurser till användare måste du tilldela dem till app-grupper. Tänk på följande när du tilldelar användare till app-grupper:
 
-- En användare kan inte tilldelas både en skrivbordsappgrupp och en RemoteApp-appgrupp i samma värdpool.
-- En användare kan tilldelas flera appgrupper i samma värdpool och deras flöde är en ackumulering av båda appgrupperna.
+- En användare kan inte tilldelas både en Skriv bords grupp och en RemoteApp-app i samma adresspool.
+- En användare kan tilldelas flera app-grupper inom samma adresspool och deras flöde är en ackumulering av båda app-grupperna.
 
-## <a name="tenant-groups"></a>Klientgrupper
+## <a name="tenant-groups"></a>Klient grupper
 
-I Windows Virtual Desktop är Windows Virtual Desktop-klienten där de flesta av installationerna och konfigurationen sker. Windows Virtual Desktop-klienten innehåller värdpooler, appgrupper och appgruppanvändartilldelningar. Det kan dock finnas vissa situationer där du måste hantera flera Windows Virtual Desktop-klienter samtidigt, särskilt om du är en CSP (Cloud Service Provider) eller en värdpartner. I dessa situationer kan du använda en anpassad Windows Virtual Desktop-klientgrupp för att placera var och en av kundernas Windows Virtual Desktop-klienter och centralt hantera åtkomst. Men om du bara hanterar en enda Windows Virtual Desktop-klientorganisation gäller inte klientgruppskonceptet och du kan fortsätta att driva och hantera din klientorganisation som finns i standardklientgruppen.
+I Windows Virtual Desktop är den virtuella Windows-klienten där det mesta av konfigurationen och konfigurationen sker. Windows-klienten för virtuella skriv bord innehåller värd grupper, app-grupper och användar tilldelningar för app Group. Det kan dock finnas vissa situationer där du behöver hantera flera virtuella Windows-klienter samtidigt, särskilt om du är en moln tjänst leverantör (CSP) eller en värd partner. I dessa fall kan du använda en anpassad Windows-grupp för virtuella skriv bord för att placera var och en av de kundernas Windows virtuella Skriv bords klienter och hantera åtkomsten centralt. Men om du bara hanterar en enda Windows-klient för virtuella datorer, gäller inte klient grupps konceptet och du kan fortsätta att använda och hantera din klient som finns i standard klient gruppen.
 
 ## <a name="end-users"></a>Slutanvändare
 
-När du har tilldelat användare till deras appgrupper kan de ansluta till en Windows Virtual Desktop-distribution med någon av Windows Virtual Desktop-klienter.
+När du har tilldelat användare till sina app-grupper kan de ansluta till en Windows-distribution med virtuella skriv bord med någon av de virtuella Windows-klienterna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om delegerad åtkomst och hur du tilldelar roller till användare på [Delegerad åtkomst i Windows Virtual Desktop](delegated-access-virtual-desktop.md).
+Lär dig mer om delegerad åtkomst och hur du tilldelar roller till användare i [delegerad åtkomst i Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
-Mer information om hur du konfigurerar windows virtual desktop-klienten finns [i Skapa en klient i Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+Information om hur du konfigurerar en Windows Virtual Desktop-klient finns i [skapa en klient i Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
 
-Mer information om hur du ansluter till Windows Virtual Desktop finns i någon av följande artiklar:
+Information om hur du ansluter till virtuella Windows-datorer finns i någon av följande artiklar:
 
 - [Ansluta från Windows 10 eller Windows 7](connect-windows-7-and-10.md)
 - [Ansluta från en webbläsare](connect-web.md)

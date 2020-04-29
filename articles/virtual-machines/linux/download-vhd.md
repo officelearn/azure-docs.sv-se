@@ -1,31 +1,31 @@
 ---
-title: Ladda ned en Virtuell Linux-hårddisk från Azure
-description: Ladda ned en Virtuell Linux-hårddisk med Azure CLI och Azure-portalen.
+title: Ladda ned en Linux-VHD från Azure
+description: Ladda ned en Linux-VHD med Azure CLI och Azure Portal.
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: cynthn
 ms.openlocfilehash: 02c3ee483e6a31960fd5123070a49f568ac4c690
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78968785"
 ---
-# <a name="download-a-linux-vhd-from-azure"></a>Ladda ned en Virtuell Linux-hårddisk från Azure
+# <a name="download-a-linux-vhd-from-azure"></a>Ladda ned en Linux-VHD från Azure
 
-I den här artikeln får du lära dig hur du hämtar en VIRTUELLD -fil (Linux Virtual Hard Disk) från Azure med Azure CLI- och Azure-portalen. 
+I den här artikeln får du lära dig hur du laddar ned en virtuell hård disk fil (VHD) från Azure med hjälp av Azure CLI och Azure Portal. 
 
-Om du inte redan har gjort det installerar du [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2)om du inte redan gjort det.
 
 ## <a name="stop-the-vm"></a>Stoppa den virtuella datorn
 
-En virtuell hårddisk kan inte hämtas från Azure om den är kopplad till en virtuell dator som körs. Du måste stoppa den virtuella datorn för att hämta en virtuell hårddisk. Om du vill använda en virtuell hårddisk som en [avbildning](tutorial-custom-images.md) för att skapa andra virtuella datorer med nya diskar måste du avetablera och generalisera operativsystemet som finns i filen och stoppa den virtuella datorn. Om du vill använda den virtuella hårddisken som en disk för en ny instans av en befintlig virtuell dator eller datadisk behöver du bara stoppa och frigöra den virtuella datorn.
+En virtuell hård disk kan inte laddas ned från Azure om den är ansluten till en virtuell dator som körs. Du måste stoppa den virtuella datorn för att kunna ladda ned en virtuell hård disk. Om du vill använda en virtuell hård disk som en [avbildning](tutorial-custom-images.md) för att skapa andra virtuella datorer med nya diskar måste du avetablera och generalisera operativ systemet som finns i filen och stoppa den virtuella datorn. Om du vill använda den virtuella hård disken som en disk för en ny instans av en befintlig virtuell dator eller data disk, behöver du bara stoppa och frigöra den virtuella datorn.
 
-Så här använder du den virtuella hårddisken som en avbildning för att skapa andra virtuella datorer:
+Slutför följande steg för att använda den virtuella hård disken som en avbildning för att skapa andra virtuella datorer:
 
-1. Använd SSH, kontonamnet och den offentliga IP-adressen för den virtuella datorn för att ansluta till den och avetablera den. Du kan hitta den offentliga [IP-adressen med az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show). Parametern +user tar också bort det senast etablerade användarkontot. Om du bakar kontoautentiseringsuppgifter till den virtuella datorn utelämnar du den här +användarparametern. I följande exempel tas det senast etablerade användarkontot bort:
+1. Använd SSH, konto namnet och den offentliga IP-adressen för den virtuella datorn för att ansluta till den och avetablera den. Du kan hitta den offentliga IP-adressen med [AZ Network Public-IP show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show). Parametern + User tar också bort det senast etablerade användar kontot. Om du arbetar med inloggnings uppgifter för den virtuella datorn lämnar du denna + User-parameter. I följande exempel tar vi bort det senast etablerade användar kontot:
 
     ```bash
     ssh azureuser@<publicIpAddress>
@@ -33,7 +33,7 @@ Så här använder du den virtuella hårddisken som en avbildning för att skapa
     exit 
     ```
 
-2. Logga in på ditt Azure-konto med [az-inloggning](https://docs.microsoft.com/cli/azure/reference-index).
+2. Logga in på ditt Azure-konto med [AZ-inloggning](https://docs.microsoft.com/cli/azure/reference-index).
 3. Stoppa och frigör den virtuella datorn.
 
     ```azurecli
@@ -46,37 +46,37 @@ Så här använder du den virtuella hårddisken som en avbildning för att skapa
     az vm generalize --resource-group myResourceGroup --name myVM
     ``` 
 
-Så här använder du den virtuella hårddisken som en disk för en ny instans av en befintlig virtuell dator eller datadisk:
+Slutför följande steg för att använda den virtuella hård disken som en disk för en ny instans av en befintlig virtuell dator eller data disk:
 
 1.  Logga in på [Azure-portalen](https://portal.azure.com/).
-2.  Välj **Virtuella datorer**på menyn till vänster .
+2.  På den vänstra menyn väljer du **Virtual Machines**.
 3.  Välj den virtuella datorn i listan.
-4.  På sidan för den virtuella datorn väljer du **Stoppa**.
+4.  På sidan för den virtuella datorn väljer du **stoppa**.
 
     ![Stoppa virtuell dator](./media/download-vhd/export-stop.png)
 
-## <a name="generate-sas-url"></a>Generera SAS-URL
+## <a name="generate-sas-url"></a>Skapa SAS-URL
 
-Om du vill hämta VHD-filen måste du skapa en [SAS-URL (Shared Access Signature).](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) När URL:en genereras tilldelas url:en förfallotid en förfallotid till webbadressen.
+Om du vill hämta VHD-filen måste du generera en URL för [signatur för delad åtkomst (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . När URL: en genereras tilldelas URL: en förfallo tid.
 
-1.  Välj **Diskar**på menyn på sidan för den virtuella datorn.
-2.  Välj operativsystemdisken för den virtuella datorn och välj sedan **Diskexport**.
-3.  Välj **Generera URL**.
+1.  På menyn på sidan för den virtuella datorn väljer du **diskar**.
+2.  Välj operativ system disk för den virtuella datorn och välj sedan **disk export**.
+3.  Välj **skapa URL**.
 
     ![Generera URL](./media/download-vhd/export-generate.png)
 
-## <a name="download-vhd"></a>Ladda ner VHD
+## <a name="download-vhd"></a>Hämta VHD
 
-1.  Under url:en som genererades väljer du **Hämta VHD-filen**.
+1.  Under den URL som genererades väljer du **Hämta VHD-filen**.
 **
-    ![Ladda ner VHD](./media/download-vhd/export-download.png)
+    ![Hämta VHD](./media/download-vhd/export-download.png)
 
-2.  Du kan behöva välja **Spara** i webbläsaren för att starta hämtningen. Standardnamnet för VHD-filen är *abcd*.
+2.  Du kan behöva välja **Spara** i webbläsaren för att starta nedladdningen. Standard namnet för VHD-filen är *ABCD*.
 
     ![Välj Spara i webbläsaren](./media/download-vhd/export-save.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [laddar upp och skapar en Virtuell Linux-dator från anpassad disk med Azure CLI](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+- Lär dig hur du [laddar upp och skapar en virtuell Linux-dator från en anpassad disk med Azure CLI](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 - [Hantera Azure-diskar i Azure CLI](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

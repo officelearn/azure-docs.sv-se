@@ -1,55 +1,55 @@
 ---
-title: Använda Azure Cosmos DB Explorer för att hantera dina data
-description: Azure Cosmos DB explorer är ett fristående webbaserat gränssnitt som gör att du kan visa och hantera data som lagras i Azure Cosmos DB.
+title: Använd Azure Cosmos DB Explorer för att hantera dina data
+description: Azure Cosmos DB Explorer är ett fristående webbaserat gränssnitt som gör att du kan visa och hantera de data som lagras i Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dech
 ms.openlocfilehash: 57ba647ade45928f03cd7fb2b037642d5e4d52cc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79096812"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Arbeta med data med hjälp av Azure Cosmos Explorer 
 
-Azure Cosmos DB explorer är ett fristående webbaserat gränssnitt som gör att du kan visa och hantera data som lagras i Azure Cosmos DB. Azure Cosmos DB explorer motsvarar den befintliga **fliken Data Explorer** som är tillgänglig i Azure-portalen när du skapar ett Azure Cosmos DB-konto. De viktigaste fördelarna med Azure Cosmos DB explorer jämfört med den befintliga datautforskaren är:
+Azure Cosmos DB Explorer är ett fristående webbaserat gränssnitt som gör att du kan visa och hantera de data som lagras i Azure Cosmos DB. Azure Cosmos DB Explorer motsvarar fliken befintlig **datautforskaren** som är tillgänglig i Azure Portal när du skapar ett Azure Cosmos DB-konto. De främsta fördelarna med Azure Cosmos DB Explorer över befintliga data Utforskaren är:
 
-* Du har en helskärmsfastighet för att visa dina data, köra frågor, lagrade procedurer, utlösare och visa deras resultat.  
+* Du har en hel skärms fastighet för att visa dina data, köra frågor, lagrade procedurer, utlösare och visa resultatet.  
 
-* Du kan ge tillfällig eller permanent läs- eller lässkrivningsåtkomst till ditt databaskonto och dess samlingar till andra användare som inte har åtkomst till Azure-portalen eller prenumerationen.  
+* Du kan tillhandahålla temporär eller permanent Läs-eller Läs-och Skriv behörighet till ditt databas konto och dess samlingar till andra användare som inte har åtkomst till Azure Portal eller prenumerationen.  
 
-* Du kan dela frågeresultaten med andra användare som inte har åtkomst till Azure-portal eller prenumeration.  
+* Du kan dela frågeresultaten med andra användare som inte har till gång till Azure Portal eller prenumerationen.  
 
-## <a name="access-azure-cosmos-db-explorer"></a>Få tillgång till Azure Cosmos DB-utforskare
+## <a name="access-azure-cosmos-db-explorer"></a>Åtkomst till Azure Cosmos DB Explorer
 
-1. Logga in på [Azure Portal](https://portal.azure.com/). 
+1. Logga in på [Azure-portalen](https://portal.azure.com/). 
 
-2. Från **Alla resurser**kan du söka efter och navigera till ditt Azure Cosmos DB-konto, välja Nycklar och kopiera den primära **anslutningssträngen**.  
+2. Från **alla resurser**, leta upp och navigera till ditt Azure Cosmos DB konto, Välj nycklar och kopiera den **primära anslutnings strängen**.  
 
-3. Gå https://cosmos.azure.com/till , klistra in anslutningssträngen och välj **Anslut**. Med hjälp av anslutningssträngen kan du komma åt Azure Cosmos DB explorer utan några tidsgränser.  
+3. Gå till https://cosmos.azure.com/, klistra in anslutnings strängen och välj **Anslut**. Genom att använda anslutnings strängen kan du komma åt Azure Cosmos DB Explorer utan några tids gränser.  
 
-   Om du vill ge andra användare tillfällig åtkomst till ditt Azure Cosmos DB-konto kan du göra det med hjälp av read-write och read access-URL:er. 
+   Om du vill ge andra användare tillfällig åtkomst till ditt Azure Cosmos DB-konto kan du göra det med URL: erna Läs-och Läs behörighet. 
 
-4. Öppna **bladet Data Explorer,** välj **Öppna helskärm**. I popup-dialogrutan kan du visa två åtkomstadresser – **Läs-skriv** och **läsa**. Med dessa webbadresser kan du tillfälligt dela ditt Azure Cosmos DB-konto med andra användare. Åtkomsten till kontot upphör att gälla inom 24 timmar varefter du kan återansluta med hjälp av en ny åtkomst-URL eller anslutningssträngen. 
+4. Öppna bladet **datautforskaren** och välj **Öppna hel skärms läge**. I popup-dialogrutan kan du Visa två åtkomst webb adresser – **Läs-och skriv-** och **Läs**behörighet. Med dessa URL: er kan du dela ditt Azure Cosmos DB-konto tillfälligt med andra användare. Åtkomst till kontot upphör att gälla om 24 timmar efter vilken du kan återansluta med hjälp av en ny åtkomst-URL eller anslutnings strängen. 
 
-   **Läs-skriv** – När du delar read-write-URL:en med andra användare kan de visa och ändra databaser, samlingar, frågor och andra resurser som är associerade med det specifika kontot.
+   **Read-Write** – när du delar URL: en med Läs-och Skriv behörighet till andra användare kan de Visa och ändra databaser, samlingar, frågor och andra resurser som är kopplade till det aktuella kontot.
 
-   **Läs** - När du delar den skrivskyddade webbadressen med andra användare kan de visa databaser, samlingar, frågor och andra resurser som är kopplade till det specifika kontot. Om du till exempel vill dela resultaten av en fråga med dina lagkamrater som inte har åtkomst till Azure-portalen eller ditt Azure Cosmos DB-konto kan du ange den här URL:en.
+   **Läs** – när du delar den skrivskyddade URL: en med andra användare kan de se databaser, samlingar, frågor och andra resurser som är kopplade till det aktuella kontot. Om du till exempel vill dela resultatet av en fråga med dina grupp medlemmar som inte har åtkomst till Azure Portal eller ditt Azure Cosmos DB-konto kan du ange dem med denna URL.
 
-   Välj den typ av åtkomst som du vill öppna kontot med och klicka på **Öppna**. När du har öppnat utforskaren är upplevelsen densamma som du hade med fliken Data Explorer i Azure-portalen.   
+   Välj den typ av åtkomst du vill öppna kontot med och klicka på **Öppna**. När du har öppnat Utforskaren är det samma sak som du hade med fliken Datautforskaren i Azure Portal.   
 
-   ![Öppna Azure Cosmos DB explorer](./media/data-explorer/open-data-explorer-with-access-url.png)
+   ![Öppna Azure Cosmos DB Explorer](./media/data-explorer/open-data-explorer-with-access-url.png)
 
 ## <a name="known-issues"></a>Kända problem
 
-För närvarande stöds inte den **öppna helskärmsfunktionen** som gör att du kan dela tillfällig läs- eller läsåtkomst för Azure Cosmos DB Gremlin- och Table API-konton. Du kan fortfarande visa dina Gremlin- och Table API-konton genom att skicka anslutningssträngen till Azure Cosmos DB Explorer. 
+För närvarande är den **Öppna hel skärms** upplevelsen som gör att du kan dela temporär Läs-och Läs behörighet ännu inte stöd för Azure Cosmos DB Gremlin-och tabell-API-konton. Du kan fortfarande visa dina Gremlin och Tabell-API-konton genom att skicka anslutnings strängen till Azure Cosmos DB Explorer. 
 
-För närvarande stöds inte visning av dokument som innehåller ett UUID i Data Explorer. Detta påverkar inte inläsning av samlingar, bara visa enskilda dokument eller frågor som innehåller dessa dokument. Om du vill visa och hantera dessa dokument bör användarna fortsätta att använda verktyget som ursprungligen användes för att skapa dessa dokument.
+För närvarande stöds inte visning av dokument som innehåller ett UUID i Datautforskaren. Detta påverkar inte inläsning av samlingar, endast enskilda dokument eller frågor som innehåller dessa dokument. För att kunna visa och hantera dessa dokument bör användarna fortsätta att använda verktyget som ursprungligen användes för att skapa dessa dokument.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har lärt dig hur du kommer igång med Azure Cosmos DB explorer för att hantera dina data, kan du nästa du:
+Nu när du har lärt dig hur du kommer igång med Azure Cosmos DB Explorer för att hantera dina data, kan du göra följande:
 
-* Börja definiera [frågor](sql-api-query-reference.md) med SQL-syntax och utför [programmering på serversidan](stored-procedures-triggers-udfs.md) med hjälp av lagrade procedurer, UDF-utlösare. 
+* Börja definiera [frågor](sql-api-query-reference.md) med SQL-syntax och utför [Server sidans programmering](stored-procedures-triggers-udfs.md) genom att använda lagrade procedurer, UDF: er, utlösare. 

@@ -1,5 +1,5 @@
 ---
-title: Riskarisk inloggningsrapport i portal | Microsoft-dokument
+title: Rapport över riskfyllda inloggningar i portalen | Microsoft Docs
 description: Lär dig mer om rapporten över riskfyllda inloggningar i Azure Active Directory-portalen
 services: active-directory
 author: MarkusVi
@@ -16,19 +16,19 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b77486064139895799ac5a48327377154f75da6d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78273842"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Rapporten över riskfyllda inloggningar i Azure Active Directory-portalen
 
-Azure Active Directory (Azure AD) identifierar misstänkta åtgärder som är relaterade till dina användarkonton. För varje identifierad åtgärd skapas en post som kallas **riskidentifiering.** Mer information finns i [Azure AD-riskidentifieringar](concept-risk-events.md). 
+Azure Active Directory (Azure AD) identifierar misstänkta åtgärder som är relaterade till dina användar konton. För varje identifierad åtgärd skapas en post som kallas **identifiering av risker** . Mer information finns i [identifieringar av Azure AD-risker](concept-risk-events.md). 
 
 Du kan komma åt säkerhetsrapporterna via [Azure-portalen](https://portal.azure.com) genom att välja bladet **Azure Active Directory** och sedan navigera till avsnittet **Säkerhet**. 
 
-Det finns två olika säkerhetsrapporter som beräknas baserat på riskidentifieringarna:
+Det finns två olika säkerhets rapporter som beräknas utifrån risk identifiering:
 
 - **Riskfyllda inloggningar** – En riskfylld inloggning indikerar ett potentiellt inloggningsförsök av någon annan än användarkontots ägare.
 
@@ -36,41 +36,41 @@ Det finns två olika säkerhetsrapporter som beräknas baserat på riskidentifie
 
 ![Riskfyllda inloggningar](./media/concept-risky-sign-ins/10.png)
 
-Mer information om hur du konfigurerar principer som utlöser dessa riskidentifieringar finns i [Så här konfigurerar du användarriskprincipen](../identity-protection/howto-user-risk-policy.md).  
+Information om hur du konfigurerar principerna som utlöser dessa risk identifieringar finns i [så här konfigurerar du principen för användar risk](../identity-protection/howto-user-risk-policy.md).  
 
-## <a name="who-can-access-the-risky-sign-ins-report"></a>Vem kan komma åt rapporten för riskfyllda inloggningar?
+## <a name="who-can-access-the-risky-sign-ins-report"></a>Vem har åtkomst till rapporten över riskfyllda inloggningar?
 
-De riskfyllda inloggningsrapporterna är tillgängliga för användare i följande roller:
+De riskfyllda inloggnings rapporterna är tillgängliga för användare i följande roller:
 
 - Säkerhetsadministratör
 - Global administratör
 - Säkerhetsläsare
 
-Mer information om hur du tilldelar administrativa roller till en användare i Azure Active Directory finns [i Visa och tilldela administratörsroller i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
+Information om hur du tilldelar administrativa roller till en användare i Azure Active Directory finns i [Visa och tilldela administratörs roller i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
 
 ## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Vilken Azure AD-licens behöver du för att komma åt en säkerhetsrapport?  
 
-Alla versioner av Azure AD ger dig riskfyllda inloggningsrapporter. Nivån av rapportens detaljrikedom varierar dock mellan versionerna: 
+Alla utgåvor av Azure AD tillhandahåller rapporter om riskfyllda inloggningar. Nivån av rapportens detaljrikedom varierar dock mellan versionerna: 
 
-- I **Azure Active Directory Free Edition**får du en lista över riskfyllda inloggningar. 
+- I **Azure Active Directory frees versionen**får du en lista över riskfyllda inloggningar. 
 
-- Dessutom kan **Azure Active Directory Premium 1-utgåvan** undersöka några av de underliggande riskidentifieringar som har identifierats för varje rapport. 
+- Dessutom kan du med **Azure Active Directory Premium 1** -versionen granska några av de underliggande risk identifieringarna som har identifierats för varje rapport. 
 
-- **Azure Active Directory Premium 2-versionen** ger dig den mest detaljerade informationen om alla underliggande riskidentifieringar och det gör att du också kan konfigurera säkerhetsprinciper som automatiskt svarar på konfigurerade risknivåer.
+- **Azure Active Directory Premium 2** -versionen ger den mest detaljerade informationen om alla underliggande risk identifieringar och du kan också konfigurera säkerhets principer som automatiskt svarar på konfigurerade risk nivåer.
 
-## <a name="risky-sign-ins-report-for-azure-ad-free-edition"></a>Riskarisk inloggningsrapport för Azure AD-friutgåva
+## <a name="risky-sign-ins-report-for-azure-ad-free-edition"></a>Rapport över riskfyllda inloggningar för Azure AD kostnads fri utgåva
 
-Azure AD free edition ger dig en lista över riskfyllda inloggningar som har upptäckts för dina användare. Varje post innehåller följande attribut:
+Den kostnads fria versionen av Azure AD tillhandahåller en lista över riskfyllda inloggningar som har identifierats för dina användare. Varje post innehåller följande attribut:
 
-- **Användare** - Namnet på den användare som användes under inloggningen.
-- **IP** - IP-adressen för den enhet som användes för att ansluta till Azure Active Directory.
-- **Plats** - Den plats som används för att ansluta till Azure Active Directory. Detta är en bästa ansträngning tillnärmning baserat på spår, registerdata, omvänd look ups och annan information.
+- **Användare** – namnet på den användare som användes vid inloggnings åtgärden.
+- **IP** – IP-adressen för enheten som användes för att ansluta till Azure Active Directory.
+- **Plats** – platsen som används för att ansluta till Azure Active Directory. Detta är en ungefärlig bästa prestanda som baseras på spår, register data, omvänd sökning och annan information.
 - **Inloggningstid** – Tidpunkten för inloggningen.
 - **Status** – Inloggningens status.
 
 ![Riskfyllda inloggningar](./media/concept-risky-sign-ins/01.png)
 
-Baserat på din undersökning av den riskfyllda inloggningen kan du ge feedback till Azure AD genom att vidta följande åtgärder:
+Utifrån din undersökning av riskfyllda inloggningar kan du ge feedback till Azure AD genom att utföra följande åtgärder:
 
 - Lös
 - Markera som falskt positivt resultat
@@ -79,37 +79,37 @@ Baserat på din undersökning av den riskfyllda inloggningen kan du ge feedback 
 
 ![Riskfyllda inloggningar](./media/concept-risky-sign-ins/21.png)
 
-Den här rapporten ger dig också möjlighet att:
+Den här rapporten innehåller också ett alternativ för att:
 
 - Sök efter resurser
 - Ladda ned rapportdata
 
 ![Riskfyllda inloggningar](./media/concept-risky-sign-ins/93.png)
 
-## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Riskabile en rapport om inloggningar för Azure AD premium-utgåvor
+## <a name="risky-sign-ins-report-for-azure-ad-premium-editions"></a>Rapport över riskfyllda inloggningar för Azure AD Premium-versioner
 
-Rapporten riskfyllda inloggningar i Azure AD premium-utgåvorna ger dig:
+I rapporten riskfyllda inloggningar i Azure AD Premium-utgåvorna får du:
 
-- Aggregerad information om de [riskidentifieringstyper](concept-risk-events.md) som har upptäckts. Med **Azure AD Premium P1-utgåvan**visas identifieringar som inte omfattas av din licens som riskidentifieringsavkännings **inloggning med ytterligare riskidentifiering.** Med **Azure AD Premium P2-utgåvan**får du den mest detaljerade informationen om alla underliggande identifieringar.
+- Sammanställd information om de [typer av risk identifiering](concept-risk-events.md) som har identifierats. Med **Azure AD Premium P1-versionen**visas identifieringar som inte täcks av din licens som inloggning med risk identifiering **med ytterligare risk upptäckt**. Med **Azure AD Premium P2-versionen**får du den mest detaljerade informationen om alla underliggande identifieringar.
 
 - Ett alternativ för att ladda ned rapporten
 
 ![Riskfyllda inloggningar](./media/concept-risky-sign-ins/456.png)
 
-När du väljer en riskidentifiering får du en detaljerad rapportvy för den här riskidentifieringen som gör att du kan:
+När du väljer en risk identifiering får du en detaljerad rapportvy för den här identifieringen av risker som gör att du kan:
 
 - Ett alternativ för att konfigurera en [princip för att åtgärda användarrisker](../identity-protection/howto-user-risk-policy.md)  
 
-- Granska identifieringstidslinjen för riskidentifiering  
+- Granska identifierings tids linjen för identifiering av risker  
 
-- Granska en lista över användare för vilka den här riskidentifieringen har upptäckts
+- Granska en lista med användare för vilka den här risk identifieringen har upptäckts
 
-- Stäng riskidentifiering manuellt. 
+- Manuellt stänga risk identifieringar. 
 
 ![Riskfyllda inloggningar](./media/concept-risky-sign-ins/457.png)
 
 > [!IMPORTANT]
-> Ibland kan du hitta en riskidentifiering utan motsvarande [inloggningspost i inloggningsrapporten](concept-sign-ins.md). Detta beror på att Identity Protection utvärderar risken för både **interaktiva** och **icke-interaktiva** inloggningar, medan inloggningsrapporten bara visar interaktiva inloggningar.
+> Ibland kan du hitta en risk identifiering utan motsvarande inloggnings post i [inloggnings rapporten](concept-sign-ins.md). Detta beror på att identitets skyddet utvärderar risker för både **interaktiva** och **icke-interaktiva** inloggningar, medan inloggnings rapporten endast visar interaktiva inloggningar.
 
 När du väljer en användare får du en detaljerad rapportvy för den här användaren som du kan använda för att göra följande:
 
@@ -119,12 +119,12 @@ När du väljer en användare får du en detaljerad rapportvy för den här anv�
 
 - Ignorera alla händelser
 
-- Undersök rapporterade riskidentifieringar för användaren. 
+- Undersök rapporterade risk identifieringar för användaren. 
 
 ![Riskfyllda inloggningar](./media/concept-risky-sign-ins/324.png)
 
-Om du vill undersöka en riskidentifiering väljer du en i listan.  
-Detta öppnar **bladet Detaljer** för den här riskdetekteringen. På **bladet Detaljer** har du möjlighet att antingen manuellt stänga en riskdetektering eller återaktivera en manuellt sluten riskdetektering. 
+Om du vill undersöka en risk identifiering väljer du en i listan.  
+Då öppnas **informations** bladet för den här identifieringen av risker. På bladet **information** har du möjlighet att antingen manuellt stänga en risk identifiering eller återaktivera en manuellt stängd risk identifiering. 
 
 ![Riskfyllda inloggningar](./media/concept-risky-sign-ins/325.png)
 
@@ -132,4 +132,4 @@ Detta öppnar **bladet Detaljer** för den här riskdetekteringen. På **bladet 
 
 - [Konfigurera riskprincipen för användare](../identity-protection/howto-user-risk-policy.md)
 - [Konfigurera riskåtgärdsprincipen](../identity-protection/howto-user-risk-policy.md)
-- [Typer av riskidentifiering](concept-risk-events.md)
+- [Typer av risk identifiering](concept-risk-events.md)

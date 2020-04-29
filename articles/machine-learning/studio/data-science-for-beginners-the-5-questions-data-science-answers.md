@@ -1,7 +1,7 @@
 ---
 title: Datavetenskap för nybörjare
 titleSuffix: ML Studio (classic) - Azure
-description: Data Science for Beginners lär grundläggande begrepp i 5 korta videor, som börjar med De 5 frågor Data Science Answers. Från Azure Machine Learning.
+description: Data vetenskap för nybörjare är en genom gång av grundläggande begrepp i 5 korta videor, från och med 5 frågor data vetenskaps svar. Från Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,129 +11,129 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: af0611e121228a587e159bd4e6529c807132d16d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79204451"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Datavetenskap för nybörjare, video 1: Fem frågor och svar om datavetenskap
-Få en snabb introduktion till datavetenskap från *Data Science for Beginners* i fem korta videor från en toppdatavetare. Dessa videor är grundläggande men användbara, oavsett om du är intresserad av att göra datavetenskap eller om du arbetar med datavetar.
+Få en snabb introduktion till data vetenskap från *data vetenskap för nybörjare* i fem korta videor från en topp data expert. Dessa videor är grundläggande men användbara, oavsett om du är intresse rad av data vetenskap eller om du arbetar med data experter.
 
-Denna första video handlar om vilka typer av frågor som datavetenskap kan besvara. För att få ut det mesta av serien, titta på dem alla. [Gå till listan med videoklipp](#other-videos-in-this-series)
+Den första videon är ungefär så många frågor som data vetenskap kan svara. För att få ut det mesta av serien, se alla. [Gå till listan med videor](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/8/player]
 >
 >
 
-## <a name="other-videos-in-this-series"></a>Andra videor i denna serie
-*Data Science för nybörjare* är en snabb introduktion till datavetenskap tar ca 25 minuter totalt. Kolla in alla fem videor:
+## <a name="other-videos-in-this-series"></a>Andra videor i den här serien
+*Data vetenskap för nybörjare* är en snabb introduktion till data vetenskap med en total summa på 25 minuter. Kolla ut alla fem videor:
 
-* Video 1: De 5 frågorna datavetenskap svar
-* Video 2: [Är dina data redo för datavetenskap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sek)*
-* Video 3: [Ställ en fråga som du kan svara på med data](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sek)*
-* Video 4: [Förutsäg ett svar med en enkel modell](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sek)*
-* Video 5: [Kopiera andras arbete för att göra datavetenskap](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sek)*
+* Video 1:5 frågor data vetenskaps svar
+* Video 2: [är dina data klara för data vetenskap?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 SEK)*
+* Video 3: [Ställ en fråga som du kan besvara med data](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 SEK)*
+* Video 4: [förutsäga ett svar med en enkel modell](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 SEK)*
+* Video 5: [Kopiera andras arbete för att göra data vetenskap](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 SEK)*
 
-## <a name="transcript-the-5-questions-data-science-answers"></a>Avskrift: De 5 frågor datavetenskap svar
-Hej! Välkommen till videoserien *Data Science for Beginners.*
+## <a name="transcript-the-5-questions-data-science-answers"></a>Avskrift: 5 frågor data vetenskaps svar
+Hej! Välkommen till video seriens *data vetenskap för nybörjare*.
 
-Data Science kan vara skrämmande, så jag ska presentera grunderna här utan ekvationer eller datorprogrammering jargong.
+Data vetenskap kan vara skrämma, så jag lär dig grunderna här utan några formler eller dator programmerings jargong.
 
-I den här första videon kommer vi att prata om "De 5 frågorna datavetenskap svar."
+I den första videon pratar vi om "de 5 frågorna om data vetenskaps svar".
 
-Data science använder siffror och namn (kallas även kategorier eller etiketter) för att förutsäga svar på frågor.
+Data vetenskap använder siffror och namn (kallas även kategorier eller etiketter) för att förutse svar på frågor.
 
-Det kan överraska dig, men *det finns bara fem frågor som datavetenskap svar:*
+Det kan bli överrasknings, men *det finns bara fem frågor som data vetenskaps svar*:
 
-* Är det A eller B?
-* Är det här konstigt?
-* Hur mycket – eller – Hur många?
-* Hur är det här organiserat?
+* Är det här en eller B?
+* Är det här underligt?
+* Hur mycket – eller – hur många?
+* Hur organiseras detta?
 * Vad bör jag göra då?
 
-Var och en av dessa frågor besvaras av en separat familj av maskininlärningsmetoder, så kallade algoritmer.
+Var och en av dessa frågor besvaras av en separat familj av Machine Learning-metoder som kallas algoritmer.
 
-Det är bra att tänka på en algoritm som ett recept och dina data som ingredienser. En algoritm berättar hur man kombinerar och blandar data för att få ett svar. Datorer är som en mixer. De gör det mesta av det hårda arbetet i algoritmen för dig och de gör det ganska snabbt.
+Det är bra att tänka på en algoritm som ett recept och dina data som ingredienser. En algoritm visar hur du kombinerar och blandar data för att få ett svar. Datorer är som en över gång. De gör det mesta av algoritmens hårda arbete och de gör det ganska snabbt.
 
-## <a name="question-1-is-this-a-or-b-uses-classification-algorithms"></a>Fråga 1: Är detta A eller B? använder klassificeringsalgoritmer
-Låt oss börja med frågan: Är detta A eller B?
+## <a name="question-1-is-this-a-or-b-uses-classification-algorithms"></a>Fråga 1: är detta A eller B? använder klassificerings-algoritmer
+Vi börjar med frågan: är den här A eller B?
 
-![Klassificeringsalgoritmer: Är detta A eller B?](./media/data-science-for-beginners-the-5-questions-data-science-answers/classification-algorithms.png)
+![Klassificerings algoritmer: är detta A eller B?](./media/data-science-for-beginners-the-5-questions-data-science-answers/classification-algorithms.png)
 
-Denna familj av algoritmer kallas tvåklass klassificering.
+Den här serien med algoritmer kallas klassificering med två klasser.
 
 Det är användbart för alla frågor som bara har två möjliga svar.
 
 Ett exempel:
 
-* Kommer detta däck misslyckas i nästa 1000 miles: Ja eller nej?
-* Vilket ger fler kunder: en $ 5 kupong eller en 25% rabatt?
+* Kommer den här Tire att Miss 1 000 i nästa km: Ja eller Nej?
+* Vilken går i fler kunder: a $5 kupong eller 25% rabatt?
 
-Denna fråga kan också omformuleras för att inkludera mer än två alternativ: Är detta A eller B eller C eller D, etc.?  Detta kallas multiclass klassificering och det är användbart när du har flera - eller flera tusen - möjliga svar. Multiclass-klassificering väljer den mest sannolika.
+Den här frågan kan också omformuleras för att inkludera fler än två alternativ: är detta A eller B eller C eller D osv.?  Detta kallas klassificering av multiklasser och det är användbart när du har flera, eller flera tusen, möjliga svar. Klassificering av flera klasser väljer det mest sannolika.
 
-## <a name="question-2-is-this-weird-uses-anomaly-detection-algorithms"></a>Fråga 2: Är detta konstigt? använder avvikelseidentifieringsalgoritmer
-Nästa fråga datavetenskap kan svara är: Är detta konstigt? Den här frågan besvaras av en familj av algoritmer som kallas avvikelseidentifiering.
+## <a name="question-2-is-this-weird-uses-anomaly-detection-algorithms"></a>Fråga 2: är det här underligt? använder algoritmer för avvikelse identifiering
+Nästa frågans data vetenskap kan svara: är den här underligt? Den här frågan besvaras av en familj med algoritmer som kallas avvikelse identifiering.
 
-![Anomali upptäckt algoritmer: Är detta konstigt?](./media/data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
+![Algoritmer för avvikelse identifiering: är den här underligt?](./media/data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
 
-Om du har ett kreditkort har du redan dragit nytta av avvikelseidentifiering. Ditt kreditkortsföretag analyserar dina köpmönster, så att de kan varna dig för eventuella bedrägerier. Avgifter som är "konstiga" kan vara ett köp i en butik där du normalt inte handlar eller köper en ovanligt dyr objekt.
+Om du har ett kredit kort har du redan fått till gång till avvikelse identifiering. Ditt kredit korts företag analyserar dina inköps mönster så att de kan meddela dig om eventuella bedrägerier. Avgifter som är "underligt" kan vara ett köp i en butik där du normalt inte köper eller köper ett ovanligt pris objekt.
 
-Denna fråga kan vara användbar på många sätt. Till exempel:
+Den här frågan kan vara användbar på många olika sätt. Till exempel:
 
-* Om du har en bil med tryckmätare, kanske du vill veta: Är denna tryckmätare läsning normal?
-* Om du övervakar Internet, skulle du vilja veta: Är detta meddelande från Internet typiskt?
+* Om du har en bil med tryck mätare kanske du vill veta: är den här tryck mätaren att läsa normal?
+* Om du övervakar Internet vill du veta: är det här meddelandet från Internet som standard?
 
-Avvikelseidentifiering flaggar oväntade eller ovanliga händelser eller beteenden. Det ger ledtrådar var man ska leta efter problem.
+Avvikelse identifiering flaggar oväntade eller ovanliga händelser eller beteenden. Det ger LED trådar där du kan söka efter problem.
 
-## <a name="question-3-how-much-or-how-many-uses-regression-algorithms"></a>Fråga 3: Hur mycket? eller Hur många? använder regressionsalgoritmer
-Maskininlärning kan också förutsäga svaret på Hur mycket? eller Hur många? Algoritmfamiljen som besvarar den här frågan kallas regression.
+## <a name="question-3-how-much-or-how-many-uses-regression-algorithms"></a>Fråga 3: hur mycket? eller hur många? använder Regressions algoritmer
+Machine Learning kan också förutsäga svaret på hur mycket? eller hur många? Den algoritms familj som svarar på den här frågan kallas regression.
 
-![Regressionsalgoritmer: Hur mycket? eller Hur många?](./media/data-science-for-beginners-the-5-questions-data-science-answers/regression-algorithms.png)
+![Regressions algoritmer: hur mycket? eller hur många?](./media/data-science-for-beginners-the-5-questions-data-science-answers/regression-algorithms.png)
 
-Regressionsalgoritmer gör numeriska förutsägelser, till exempel:
+Regressions algoritmer gör numeriska förutsägelser, till exempel:
 
-* Hur blir temperaturen nästa tisdag?  
-* Vad blir min försäljning för fjärde kvartalet?
+* Vad kommer temperaturen att vara nästa tisdag?  
+* Vad kommer mitt fjärde kvartals försäljning?
 
-De hjälper till att svara på alla frågor som ber om ett nummer.
+De hjälper dig att besvara frågor som ber om ett tal.
 
-## <a name="question-4-how-is-this-organized-uses-clustering-algorithms"></a>Fråga 4: Hur är detta organiserat? använder klusteralgoritmer
-Nu de två sista frågorna är lite mer avancerade.
+## <a name="question-4-how-is-this-organized-uses-clustering-algorithms"></a>Fråga 4: Hur organiseras detta? använder kluster algoritmer
+Nu är de två sista frågorna lite mer avancerade.
 
-Ibland vill du förstå strukturen för en datauppsättning - Hur är detta organiserat? För den här frågan har du inte exempel som du redan vet resultat för.
+Ibland vill du förstå strukturen i en data uppsättning – hur är detta ordnat? I den här frågan har du inte några exempel på att du redan känner till resultat för.
 
-Det finns många sätt att reta ut strukturen på data. En metod är klustring. Det separerar data till naturliga "klumpar", för enklare tolkning. Med klustring finns det inget rätt svar.
+Det finns många sätt att tease data strukturen. En metod är klustring. Den separerar data till naturliga "Clumps" för enklare tolkning. Det finns inte något rätt svar med klustring.
 
-![Klusteralgoritmer: Hur är detta organiserat?](./media/data-science-for-beginners-the-5-questions-data-science-answers/clustering-algorithms.png)
+![Klustra algoritmer: Hur organiseras detta?](./media/data-science-for-beginners-the-5-questions-data-science-answers/clustering-algorithms.png)
 
-Vanliga exempel på klusterfrågor är:
+Vanliga exempel på kluster frågor är:
 
-* Vilka tittare gillar samma typer av filmer?
-* Vilka skrivarmodeller misslyckas på samma sätt?
+* Vilka visnings program gillar samma typer av filmer?
+* Vilka skrivar modeller fungerar på samma sätt?
 
-Genom att förstå hur data är organiserat kan du bättre förstå - och förutsäga - beteenden och händelser.  
+Genom att förstå hur data organiseras kan du bättre förstå och förutsäga beteenden och händelser.  
 
-## <a name="question-5-what-should-i-do-now-uses-reinforcement-learning-algorithms"></a>Fråga 5: Vad ska jag göra nu? använder förstärkningsinlärningsalgoritmer
-Den sista frågan - Vad ska jag göra nu? – använder en familj av algoritmer som kallas förstärkningsinlärning.
+## <a name="question-5-what-should-i-do-now-uses-reinforcement-learning-algorithms"></a>Fråga 5: Vad ska jag göra nu? använder förstärkta inlärnings algoritmer
+Den senaste frågan – vad ska jag göra nu? – använder en familj med algoritmer som heter förstärknings undervisning.
 
-Förstärkning lärande var inspirerad av hur hjärnan hos råttor och människor reagera på straff och belöningar. Dessa algoritmer lär sig av resultat och bestämmer dig för nästa åtgärd.
+Förstärka inlärningen inspireras av hur hjärna av rats och människor svarar på Punishment och förmåner. Dessa algoritmer lär sig från resultat och bestämmer nästa åtgärd.
 
-Vanligtvis är förstärkning lärande en bra passform för automatiserade system som måste göra massor av små beslut utan mänsklig vägledning.
+Normalt är förstärknings inlärning en bra anpassning för automatiska system som måste göra många små beslut utan mänsklig vägledning.
 
-![Reinforcement Learning algoritmer: Vad ska jag göra härnäst?](./media/data-science-for-beginners-the-5-questions-data-science-answers/reinforcement-learning-algorithms.png)
+![Algoritmer för förstärkt inlärning: Vad ska jag göra härnäst?](./media/data-science-for-beginners-the-5-questions-data-science-answers/reinforcement-learning-algorithms.png)
 
-Frågor den besvarar handlar alltid om vilka åtgärder som ska vidtas - vanligtvis av en maskin eller en robot. Några exempel:
+Frågor IT-svar är alltid om vilken åtgärd som ska vidtas – vanligt vis av en dator eller en robot. Några exempel:
 
-* Om jag är ett temperaturkontrollsystem för ett hus: Justera temperaturen eller lämna den där den är?  
-* Om jag är en självkörande bil: Vid ett gult ljus, bromsa eller accelerera?  
-* För en robot vakuum: Fortsätt dammsuga, eller gå tillbaka till laddningsstationen?
+* Om jag är en temperatur kontroll system för ett hus: justera temperaturen eller lämna den där?  
+* Om jag är en självdrivande bil: på en gul lampa, broms eller accelerera?  
+* För ett robot vakuum: Behåll vakuumning eller gå tillbaka till laddnings stationen?
 
-Förstärkningsalgoritmer samlar in data när de går, lära av trial and error.
+Algoritmer för att förstärka inlärning samlar in data när de går, lära från utvärderings version och fel.
 
-Så det är det - De 5 frågor datavetenskap kan svara på.
+Så det är det – de 5 frågorna data science kan svara.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Prova ett första datavetenskapsexperiment med Machine Learning Studio (klassiskt)](create-experiment.md)
-* [Få en introduktion till Maskininlärning på Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)
+* [Testa ett första data vetenskaps experiment med Machine Learning Studio (klassisk)](create-experiment.md)
+* [Få en introduktion till Machine Learning på Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: Visa resultat från stavningskontrollen med hjälp av API:et för stavningskontroll i Bing'
 titleSuffix: Azure Cognitive Services
-description: Använd den här självstudien om du vill skapa en webbsida som skickar frågor till API:et för stavningskontroll i Bing och visar resultaten.
+description: Använd den här självstudien för att bygga en webb sida som skickar frågor till API för stavningskontroll i Bing och visar resultatet.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: fa10ab5a4b1c69b359936edf91da767da08d2f98
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943098"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Självstudie: Skapa en klient för en webbsida med stavningskontroll
 
-I den här självstudien ska vi skapa en webbsida där användarna kan fråga API:et för stavningskontroll i Bing. Källkoden för det här programmet är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
+I den här självstudien ska vi skapa en webbsida där användarna kan fråga API:et för stavningskontroll i Bing. Käll koden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
 I den här självstudiekursen lär du dig att:
 
@@ -29,7 +29,7 @@ I den här självstudiekursen lär du dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-För att kunna följa med i självstudiekursen behöver du en prenumerationsnyckel för API:et för stavningskontroll i Bing. Om du inte har någon, [Skapa en Bing Stavningskontroll resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7) i Azure-portalen. Du kan också använda en [utvärderingsnyckel](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
+För att kunna följa med i självstudiekursen behöver du en prenumerationsnyckel för API:et för stavningskontroll i Bing. Om du inte har ett kan du [skapa en stavningskontroll i Bing resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7) i Azure Portal. Du kan också använda en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 
 ## <a name="create-a-new-web-page"></a>Skapa en ny webbsida
 
@@ -322,4 +322,4 @@ Spara filen.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Användnings- och visningskrav](../UseAndDisplayRequirements.md)
+> [Använda och visa krav](../UseAndDisplayRequirements.md)

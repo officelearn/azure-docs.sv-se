@@ -1,6 +1,6 @@
 ---
-title: ROUND i Azure Cosmos DB frågespråk
-description: Lär dig mer om SQL-systemfunktionen ROUND i Azure Cosmos DB.
+title: Avrunda i Azure Cosmos DB frågespråk
+description: Lär dig mer om SQL system Function ROUND i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: b6aac5a963d0f58a3b21b9fb0958793169a3d444
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78302125"
 ---
-# <a name="round-azure-cosmos-db"></a>RUNDA (Azure Cosmos DB)
+# <a name="round-azure-cosmos-db"></a>Avrunda (Azure Cosmos DB)
  Returnerar ett numeriskt värde avrundat till närmaste heltal.  
   
 ## <a name="syntax"></a>Syntax
@@ -28,20 +28,20 @@ ROUND(<numeric_expr>)
 *numeric_expr*  
    Är ett numeriskt uttryck.  
   
-## <a name="return-types"></a>Returtyper
+## <a name="return-types"></a>Retur typer
   
   Returnerar ett numeriskt uttryck.  
   
 ## <a name="remarks"></a>Anmärkningar
   
-  Den avrundningsåtgärd som utförs följer mittpunktsavrundning bort från noll. Om indata är ett numeriskt uttryck som faller exakt mellan två heltal blir resultatet det närmaste heltalsvärdet bort från noll.  
+  Avrundnings åtgärden som utförs följer följande mitt punkts avrundning bort från noll. Om indatatypen är ett numeriskt uttryck som är exakt mellan två heltal blir resultatet det närmaste heltal svärdet bort från noll.  
   
-  |<numeric_expr>|Rundade|
+  |<numeric_expr>|Rektangel|
   |-|-|
-  |-6.5000|-7|
-  |-0.5|-1|
+  |– 6,5000|-7|
+  |– 0,5|-1|
   |0,5|1|
-  |6.5000|7||
+  |6,5000|7||
   
 ## <a name="examples"></a>Exempel
   
@@ -59,10 +59,10 @@ SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, 
 
 ## <a name="remarks"></a>Anmärkningar
 
-Denna systemfunktion kommer att dra nytta av ett [intervallindex](index-policy.md#includeexclude-strategy).
+Den här systemfunktionen kommer att ha nytta av ett [intervall index](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Matematiska funktioner Azure Cosmos DB](sql-query-mathematical-functions.md)
-- [Systemfunktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)

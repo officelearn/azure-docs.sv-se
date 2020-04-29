@@ -1,5 +1,5 @@
 ---
-title: NVv4-serien – virtuella Azure-datorer
+title: NVv4-serien – Azure Virtual Machines
 description: Specifikationer för virtuella datorer i NVv4-serien.
 services: virtual-machines
 author: vikancha
@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 0295ed7d44d64fcc1aeb68e1beaa37987b177edb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78273853"
 ---
 # <a name="nvv4-series"></a>NVv4-serien 
 
-De virtuella datorerna i NVv4-serien drivs av [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) GPU:er och AMD EPYC 7V12-processorer(Rom). Med NVv4-serien introducerar Azure virtuella datorer med partiella GPU:er. Välj rätt storlek virtuell maskin för GPU accelererade grafikprogram och virtuella skrivbord börjar på 1/8th av en GPU med 2 GiB ram buffert till en full GPU med 16 GiB ram buffert. Virtuella NVv4-datorer stöder för närvarande endast Windows gästoperativsystem.
+De virtuella datorerna i NVv4-serien drivs av [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) GPU-processorer och AMD EPYC 7V12 (Rom). Med NVv4-serien Azure introducerar virtuella datorer med delar av GPU: er. Välj den högra virtuella datorn för GPU-accelererade grafik program och virtuella skriv bord som börjar på 1/8 av en GPU med 2 GiB-bildruta-buffert till en fullständig GPU med 16 GiB-bildruteproportioner. Virtuella NVv4-datorer stöder för närvarande endast Windows gäst operativ system.
 
 <br>
 
-Premium-lagring: Stöds
+Premium Storage: stöds
 
-Cachelagring av premiumlagring: Stöds
+Premium Storage caching: stöds
 
-Live Migration: Stöds inte
+Direktmigrering: stöds inte
 
-Minneskonering av uppdateringar: Stöds inte
+Minnes bebetjänings uppdateringar: stöds inte
 
 | Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Maximalt antal datadiskar | Maximalt antal nätverkskort |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -35,15 +35,15 @@ Minneskonering av uppdateringar: Stöds inte
 | Standard_NV16as_v4 |16 |56 |352 | 1/2 | 8 | 16 | 8 |
 | Standard_NV32as_v4 |32 |112 |704 | 1 | 16 | 32 | 8 |
 
-<sup>1</sup> NVv4-serien virtuella datorer har AMD samtidig multithreading Technology
+<sup>1</sup> virtuella datorer i NVv4-serien använder AMD samtidiga multitråds teknik
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="supported-operating-systems-and-drivers"></a>Operativsystem och drivrutiner som stöds
 
-För att kunna dra nytta av GPU-funktionerna i virtuella azure NVv4-serie virtuella datorer som kör Windows måste AMD GPU-drivrutiner installeras.
+För att kunna dra nytta av GPU-funktionerna i virtuella datorer med Azure NVv4-serien som kör Windows måste du installera AMD GPU-drivrutinerna.
 
-Information om hur du installerar AMD GPU-drivrutiner manuellt finns i [AMD GPU-drivrutinsinställningar i N-serien för Windows](./windows/n-series-amd-driver-setup.md) för operativsystem, drivrutiner, installations- och verifieringssteg.
+Om du vill installera AMD GPU-drivrutiner manuellt, se [N-seriens installation av AMD GPU-drivrutiner för Windows](./windows/n-series-amd-driver-setup.md) för operativ system, driv rutiner, installation och verifierings steg som stöds.
 
 ## <a name="other-sizes"></a>Andra storlekar
 
@@ -56,4 +56,4 @@ Information om hur du installerar AMD GPU-drivrutiner manuellt finns i [AMD GPU-
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hur [Azure compute units (ACU)](acu.md) kan hjälpa dig att jämföra beräkningsprestanda över Azure SKU:er.
+Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.

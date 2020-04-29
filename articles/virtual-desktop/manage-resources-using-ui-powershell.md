@@ -1,6 +1,6 @@
 ---
-title: Distribuera ett hanteringsverktyg för Windows Virtual Desktop med tjänstens huvudnamn - Azure
-description: Distribuera hanteringsverktyget för Windows Virtual Desktop med PowerShell.
+title: Distribuera ett hanterings verktyg för virtuella Windows-datorer med tjänstens huvud namn – Azure
+description: Distribuera hanterings verktyget för virtuella Windows-datorer med hjälp av PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,67 +9,67 @@ ms.date: 01/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 0838edb03c4868548f3d09f14d71ec7016e670a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79127790"
 ---
-# <a name="deploy-a-management-tool-with-powershell"></a>Distribuera ett hanteringsverktyg med PowerShell
+# <a name="deploy-a-management-tool-with-powershell"></a>Distribuera ett hanterings verktyg med PowerShell
 
-Den här artikeln visar hur du distribuerar hanteringsverktyget med PowerShell.
+I den här artikeln visas hur du distribuerar hanterings verktyget med PowerShell.
 
 ## <a name="important-considerations"></a>Att tänka på
 
-Varje Azure Active Directory (Azure AD) klientens prenumeration behöver en egen separat distribution av hanteringsverktyget. Det här verktyget stöder inte Azure AD Business-to-Business (B2B) scenarier. 
+Varje Azure Active Directory (Azure AD)-klient organisations prenumeration måste ha en egen separat distribution av hanterings verktyget. Det här verktyget har inte stöd för Azure AD-scenarier för Business-to-Business (B2B). 
 
-Det här hanteringsverktyget är ett exempel. Microsoft kommer att tillhandahålla viktiga säkerhets- och kvalitetsuppdateringar. [Källkoden är tillgänglig i GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Oavsett om du är kund eller partner rekommenderar vi att du anpassar verktyget för att tillgodose dina affärsbehov.
+Det här hanterings verktyget är ett exempel. Microsoft kommer att tillhandahålla viktiga säkerhets-och kvalitets uppdateringar. [Käll koden finns i GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Oavsett om du är kund eller partner rekommenderar vi att du anpassar verktyget för att uppfylla dina affärs behov.
 
-Följande webbläsare är kompatibla med hanteringsverktyget:
+Följande webbläsare är kompatibla med hanterings verktyget:
 
 - Google Chrome 68 eller senare
-- Microsoft Edge 40.15063 eller senare
-- Mozilla Firefox 52.0 eller senare
+- Microsoft Edge 40,15063 eller senare
+- Mozilla Firefox 52,0 eller senare
 - Safari 10 eller senare (endast macOS)
 
-## <a name="what-you-need-to-deploy-the-management-tool"></a>Vad du behöver för att distribuera hanteringsverktyget
+## <a name="what-you-need-to-deploy-the-management-tool"></a>Vad du behöver för att distribuera hanterings verktyget
 
-Innan du distribuerar hanteringsverktyget behöver du en Azure Active Directory-användare (Azure AD) för att skapa en appregistrering och distribuera hanteringsgränssnittet. Den här användaren måste:
+Innan du distribuerar hanterings verktyget behöver du en Azure Active Directory (Azure AD)-användare för att skapa en app-registrering och distribuera hanterings gränssnittet. Den här användaren måste:
 
-- Ha behörighet att skapa resurser i din Azure-prenumeration
-- Har behörighet att skapa ett Azure AD-program. Följ dessa steg för att kontrollera om användaren har de behörigheter som krävs genom att följa instruktionerna i [Obligatoriska behörigheter](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Har behörighet att skapa resurser i din Azure-prenumeration
+- Har behörighet att skapa ett Azure AD-program. Följ de här stegen för att kontrol lera om användaren har de behörigheter som krävs genom att följa instruktionerna i de [behörigheter som krävs](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
-För att kunna distribuera och konfigurera hanteringsverktyget måste du först hämta följande PowerShell-skript från [GitHub-repo-repo-mallarna för FJÄRRSKRIVBORDS-mallar](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) och spara dem i samma mapp på den lokala datorn.
+För att kunna distribuera och konfigurera hanterings verktyget måste du först ladda ned följande PowerShell-skript från [GitHub-lagrings platsen för RDS-mallar](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) och spara dem i samma mapp på den lokala datorn.
 
-  - skapaWvdMgmtUxAppRegistration.ps1
-  - updateWvdMgmtUxApiUrl.ps1
+  - createWvdMgmtUxAppRegistration. ps1
+  - updateWvdMgmtUxApiUrl. ps1
 
-När du har distribuerat och konfigurerat hanteringsverktyget rekommenderar vi att du ber en användare att starta hanteringsgränssnittet för att se till att allt fungerar. Användaren som startar hanteringsgränssnittet måste ha en rolltilldelning som gör att de kan visa eller redigera Windows Virtual Desktop-klienten.
+När du har distribuerat och konfigurerat hanterings verktyget rekommenderar vi att du ber användaren att starta användar gränssnittet för hantering för att se till att allt fungerar. Användaren som startar hanterings gränssnittet måste ha en roll tilldelning som gör det möjligt för dem att visa eller redigera Windows-klienten för virtuella skriv bord.
 
 ## <a name="set-up-powershell"></a>Konfigurera PowerShell
 
-Kom igång genom att logga in på både Az- och Azure AD PowerShell-modulerna. Så här loggar du in:
+Kom igång genom att logga in på både AZ-och Azure AD PowerShell-modulerna. Så här loggar du in:
 
-1. Öppna PowerShell som administratör och navigera till katalogen där du sparade PowerShell-skripten.
-2. Logga in på Azure med ett konto som har behörigheter för ägare eller deltagare för den Azure-prenumeration som du planerar att använda för att skapa hanteringsverktyget genom att köra följande cmdlet:
+1. Öppna PowerShell som administratör och navigera till den katalog där du sparade PowerShell-skripten.
+2. Logga in på Azure med ett konto som har ägar-eller deltagar behörighet för den Azure-prenumeration som du planerar att använda för att skapa hanterings verktyget genom att köra följande cmdlet:
 
     ```powershell
     Login-AzAccount
     ```
 
-3. Kör följande cmdlet för att logga in på Azure AD med samma konto som du använde för Az PowerShell-modulen:
+3. Kör följande cmdlet för att logga in på Azure AD med samma konto som du använde för AZ PowerShell-modulen:
 
     ```powershell
     Connect-AzureAD
     ```
 
-4. Därefter navigerar du till mappen där du sparade de två PowerShell-skripten från GitHub-repo-repo-repoen för RDS-mallar.
+4. Efter det navigerar du till mappen där du sparade de två PowerShell-skripten från GitHub-lagrings platsen för RDS-mallar.
 
-Håll det PowerShell-fönster som du använde för att logga in öppet för att köra ytterligare PowerShell-cmdletar när du är inloggad.
+Behåll PowerShell-fönstret som du använde för att logga in öppna för att köra ytterligare PowerShell-cmdletar när du är inloggad.
 
-## <a name="create-an-azure-active-directory-app-registration"></a>Skapa en registrering av Active Directory-program i Azure
+## <a name="create-an-azure-active-directory-app-registration"></a>Skapa en Azure Active Directory app-registrering
 
-Kör följande kommandon för att skapa appregistreringen med nödvändiga API-behörigheter:
+Kör följande kommandon för att skapa appens registrering med nödvändiga API-behörigheter:
 
 ```powershell
 $appName = Read-Host -Prompt "Enter a unique name for the management tool's app registration. The name can't contain spaces or special characters."
@@ -78,11 +78,11 @@ $subscriptionId = Read-Host -Prompt "Enter the Azure subscription ID where you w
 .\createWvdMgmtUxAppRegistration.ps1 -AppName $appName -SubscriptionId $subscriptionId
 ```
 
-Nu när du har slutfört registreringen av Azure AD-appen kan du distribuera hanteringsverktyget.
+Nu när du har slutfört registreringen av Azure AD-appen kan du distribuera hanterings verktyget.
 
 ## <a name="deploy-the-management-tool"></a>Distribuera hanteringsverktyget
 
-Kör följande PowerShell-kommandon för att distribuera hanteringsverktyget och associera det med det huvudnamn för tjänsten som du just skapade:
+Kör följande PowerShell-kommandon för att distribuera hanterings verktyget och koppla det till tjänstens huvud namn som du nyss skapade:
      
 ```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -105,7 +105,7 @@ När du har skapat webbappen måste du lägga till en omdirigerings-URI till Azu
 
 ## <a name="set-the-redirect-uri"></a>Ange omdirigerings-URI
 
-Kör följande PowerShell-kommandon för att hämta webbapp-URL:en och ange den som autentiseringsomdirigerings-URI (kallas även svars-URL):
+Kör följande PowerShell-kommandon för att hämta webbappens URL och ange den som omdirigerings-URI för autentisering (kallas även en svars-URL):
 
 ```powershell
 $webApp = Get-AzWebApp -ResourceGroupName $resourceGroupName -Name $appName
@@ -113,55 +113,55 @@ $redirectUri = "https://" + $webApp.DefaultHostName + "/"
 Get-AzureADApplication -All $true | where { $_.AppId -match $servicePrincipalCredentials.UserName } | Set-AzureADApplication -ReplyUrls $redirectUri  
 ```
 
-Nu när du har lagt till en omdirigera URI måste du uppdatera API-URL:en så att hanteringsverktyget kan interagera med API-serverdelstjänsten.
+Nu när du har lagt till en omdirigerings-URI måste du uppdatera API-URL: en så att hanterings verktyget kan interagera med API-backend-tjänsten.
 
-## <a name="update-the-api-url-for-the-web-application"></a>Uppdatera API-URL:en för webbprogrammet
+## <a name="update-the-api-url-for-the-web-application"></a>Uppdatera API-URL: en för webb programmet
 
-Kör följande skript för att uppdatera API-URL-konfigurationen i webbprogrammets klientdel:
+Kör följande skript för att uppdatera API-URL-konfigurationen i webb program klient delen:
 
 ```powershell
 .\updateWvdMgmtUxApiUrl.ps1 -AppName $appName -SubscriptionId $subscriptionId
 ```
 
-Nu när du har konfigurerat webbappen för hanteringsverktyg är det dags att verifiera Azure AD-programmet och ge medgivande.
+Nu när du har konfigurerat webbappen för hanterings verktyget är det dags att verifiera Azure AD-programmet och ge ditt medgivande.
 
 ## <a name="verify-the-azure-ad-application-and-provide-consent"></a>Verifiera Azure AD-programmet och ge medgivande
 
-Så här verifierar du konfigurationen av Azure AD-program och ger medgivande:
+Så här kontrollerar du Azure AD-programkonfigurationen och ger godkännande:
 
-1. Öppna din webbläsare och logga in på [Azure-portalen](https://portal.azure.com/) med ditt administrativa konto.
-2. Sök efter **appregistreringar** i sökfältet högst upp i Azure-portalen och välj objektet under **Tjänster**.
-3. Välj **Alla program** och sök efter det unika appnamnet som du angav för PowerShell-skriptet i Skapa en Azure Active [Directory-appregistrering](#create-an-azure-active-directory-app-registration).
-4. På panelen till vänster i webbläsaren väljer du **Autentisering** och kontrollerar att omdirigerings-URI:n är samma som webbapp-URL:en för hanteringsverktyget, som visas i följande bild.
+1. Öppna din webbläsare och logga in på [Azure Portal](https://portal.azure.com/) med ditt administratörs konto.
+2. Från Sök fältet överst i Azure Portal söker du efter **Appregistreringar** och väljer objektet under **tjänster**.
+3. Välj **alla program** och Sök efter det unika app-namn som du angav för PowerShell-skriptet i [skapa en Azure Active Directory app-registrering](#create-an-azure-active-directory-app-registration).
+4. I panelen till vänster i webbläsaren väljer du **autentisering** och kontrollerar att omdirigerings-URI: n är samma som webbappens URL för hanterings verktyget, som du ser i följande bild.
    
-   [![Autentiseringssidan med den angivna](media/management-ui-redirect-uri-inline.png) omdirigerings-URI:n](media/management-ui-redirect-uri-expanded.png#lightbox)
+   [![Sidan autentisering med angiven omdirigerings-](media/management-ui-redirect-uri-inline.png) URI](media/management-ui-redirect-uri-expanded.png#lightbox)
 
-5. På den vänstra panelen väljer du **API-behörigheter** för att bekräfta att behörigheter har lagts till. Om du är global administratör väljer du **knappen Bevilja `tenantname` administratörsmedgivande för** och följer dialogruppen för att ge administratörsmedgivande för din organisation.
+5. I den vänstra panelen väljer du **API-behörigheter** för att bekräfta att behörigheterna har lagts till. Om du är global administratör väljer du knappen **bevilja administratörs medgivande för `tenantname` ** och följer dialog rutorna för att ge din organisation ett administrativt medgivande.
     
     [![Sidan](media/management-ui-permissions-inline.png) API-behörigheter](media/management-ui-permissions-expanded.png#lightbox)
 
-Nu kan du börja använda hanteringsverktyget.
+Nu kan du börja använda hanterings verktyget.
 
-## <a name="use-the-management-tool"></a>Använda hanteringsverktyget
+## <a name="use-the-management-tool"></a>Använd hanterings verktyget
 
-Nu när du har konfigurerat hanteringsverktyget när som helst kan du starta det när som helst, var som helst. Så här startar du verktyget:
+Nu när du har konfigurerat hanterings verktyget kan du när som helst starta det när som helst, var som helst. Så här startar du verktyget:
 
-1. Öppna webbadressen till webbappen i en webbläsare. Om du inte kommer ihåg webbadressen kan du logga in på Azure, hitta apptjänsten som du har distribuerat för hanteringsverktyget och sedan välja URL:en.
-2. Logga in med autentiseringsuppgifterna för Windows Virtual Desktop.
+1. Öppna URL-adressen för webbappen i en webbläsare. Om du inte kommer ihåg URL: en kan du logga in på Azure, hitta den app service som du har distribuerat för hanterings verktyget och sedan välja URL: en.
+2. Logga in med dina Windows-autentiseringsuppgifter för virtuella skriv bord.
    
    > [!NOTE]
-   > Om du inte gav administratörsmedgivande när du konfigurerade hanteringsverktyget måste varje användare som loggar in ge sitt eget användarmedgivande för att kunna använda verktyget.
+   > Om du inte beviljade administrativt medgivande när du konfigurerade hanterings verktyget måste varje användare som loggar in ange sitt eget användar medgivande för att kunna använda verktyget.
 
-3. När du uppmanas att välja en klientgrupp väljer du **Standardklientgrupp** i listrutan.
-4. När du väljer **Standardklientgrupp**ska en meny visas till vänster i fönstret. På den här menyn hittar du namnet på din klientgrupp och väljer det.
+3. När du uppmanas att välja en klient grupp väljer du **standard grupp för klient organisation** i list rutan.
+4. När du väljer **standard klient grupp**visas en meny på vänster sida i fönstret. I den här menyn letar du reda på namnet på din klient grupp och väljer den.
    
    > [!NOTE]
-   > Om du har en anpassad klientgrupp anger du namnet manuellt i stället för att välja från listrutan.
+   > Om du har en anpassad klient grupp anger du namnet manuellt i stället för att välja i list rutan.
 
 ## <a name="report-issues"></a>Rapportera problem
 
-Om du stöter på problem med hanteringsverktyget eller andra Windows Virtual Desktop-verktyg följer du anvisningarna i [Azure Resource Manager-mallar för Fjärrskrivbordstjänster för](https://github.com/Azure/RDS-Templates/blob/master/README.md) att rapportera dem på GitHub.
+Om du stöter på problem med hanterings verktyget eller andra Windows-verktyg för virtuella skriv bord, följer du anvisningarna i [Azure Resource Manager mallar för Fjärrskrivbordstjänster](https://github.com/Azure/RDS-Templates/blob/master/README.md) för att rapportera dem på GitHub.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du distribuerar och ansluter till hanteringsverktyget kan du lära dig hur du använder Azure Service Health för att övervaka serviceproblem och hälsorekommendationer. Mer information finns i [vår uppsättning tjänst varningar handledning](./set-up-service-alerts.md).
+Nu när du har lärt dig hur du distribuerar och ansluter till hanterings verktyget kan du lära dig hur du använder Azure Service Health för att övervaka tjänst problem och hälso rekommendationer. Mer information finns i [själv studie kursen konfigurera service Alerts](./set-up-service-alerts.md).

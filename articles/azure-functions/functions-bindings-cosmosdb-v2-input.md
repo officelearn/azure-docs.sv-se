@@ -1,41 +1,41 @@
 ---
-title: Azure Cosmos DB-indatabindning för funktioner 2.x
-description: Lär dig att använda Azure Cosmos DB-indatabindningen i Azure Functions.
+title: Azure Cosmos DB binding för functions 2. x
+description: Lär dig hur du använder Azure Cosmos DB binding i Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.openlocfilehash: eabcf40e28927919215979ccc46fa029d19adbfe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943425"
 ---
-# <a name="azure-cosmos-db-input-binding-for-azure-functions-2x"></a>Azure Cosmos DB-indatabindning för Azure Functions 2.x
+# <a name="azure-cosmos-db-input-binding-for-azure-functions-2x"></a>Azure Cosmos DB bindning för Azure Functions 2. x
 
 Azure Cosmos DB-indatabindningen använder SQL API för att hämta en eller flera Azure Cosmos DB-dokument och skickar dem till indataparametern för funktionen. Dokument-ID:t och frågeparametrarna kan fastställas baserat på den utlösare som anropar funktionen.
 
-Information om inställnings- och konfigurationsinformation finns i [översikten](./functions-bindings-cosmosdb-v2.md).
+Information om konfiguration och konfigurations information finns i [översikten](./functions-bindings-cosmosdb-v2.md).
 
 > [!NOTE]
-> Om samlingen är [partitionerad](../cosmos-db/partition-data.md#logical-partitions)måste uppslagsåtgärder också ange värdet för partitionsnyckeln.
+> Om samlingen är [partitionerad](../cosmos-db/partition-data.md#logical-partitions)måste Sök åtgärder också ange värdet för partitionsnyckel.
 >
 
 <a id="example" name="example"></a>
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 Det här avsnittet innehåller följande exempel:
 
-* [Köutlösare, slå upp ID från JSON](#queue-trigger-look-up-id-from-json-c)
-* [HTTP-utlösare, slå upp ID från frågesträngen](#http-trigger-look-up-id-from-query-string-c)
-* [HTTP-utlösare, slå upp ID från vägdata](#http-trigger-look-up-id-from-route-data-c)
-* [HTTP-utlösare, slå upp ID från vägdata med SqlQuery](#http-trigger-look-up-id-from-route-data-using-sqlquery-c)
+* [Köa utlösare, slå upp ID från JSON](#queue-trigger-look-up-id-from-json-c)
+* [HTTP-utlösare, leta upp ID från frågesträng](#http-trigger-look-up-id-from-query-string-c)
+* [HTTP-utlösare, slå upp ID från flödes data](#http-trigger-look-up-id-from-route-data-c)
+* [HTTP-utlösare, slå upp ID från routa data med SqlQuery](#http-trigger-look-up-id-from-route-data-using-sqlquery-c)
 * [HTTP-utlösare, hämta flera dokument med SqlQuery](#http-trigger-get-multiple-docs-using-sqlquery-c)
 * [HTTP-utlösare, hämta flera dokument med DocumentClient](#http-trigger-get-multiple-docs-using-documentclient-c)
 
-Exemplen refererar `ToDoItem` till en enkel typ:
+Exemplen refererar till en enkel `ToDoItem` typ:
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -51,9 +51,9 @@ namespace CosmosDBSamplesV2
 
 <a id="queue-trigger-look-up-id-from-json-c"></a>
 
-### <a name="queue-trigger-look-up-id-from-json"></a>Köutlösare, slå upp ID från JSON 
+### <a name="queue-trigger-look-up-id-from-json"></a>Köa utlösare, slå upp ID från JSON 
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar ett enda dokument. Funktionen utlöses av ett kömeddelande som innehåller ett JSON-objekt. Köutlösaren tolkar JSON till ett `ToDoItemLookup`objekt av typen , som innehåller ID- och partitionsnyckelvärdet för att slå upp. Värdet för ID och partitionsnyckel `ToDoItem` används för att hämta ett dokument från den angivna databasen och samlingen.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar ett enskilt dokument. Funktionen utlöses av ett Queue-meddelande som innehåller ett JSON-objekt. Queue-utlösaren parsar JSON till ett objekt av `ToDoItemLookup`typen, som innehåller det ID och det partitionsnyckel som ska sökas upp. Detta ID och partitionerings nyckel värde används för att hämta ett `ToDoItem` dokument från den angivna databasen och samlingen.
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -104,12 +104,12 @@ namespace CosmosDBSamplesV2
 
 <a id="http-trigger-look-up-id-from-query-string-c"></a>
 
-### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP-utlösare, slå upp ID från frågesträngen
+### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP-utlösare, leta upp ID från frågesträng
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange ID- och partitionsnyckelvärdet för att slå upp. Värdet för ID och partitionsnyckel `ToDoItem` används för att hämta ett dokument från den angivna databasen och samlingen.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange det ID och det partitionsnyckel som ska sökas upp. Detta ID och partitionerings nyckel värde används för att hämta ett `ToDoItem` dokument från den angivna databasen och samlingen.
 
 >[!NOTE]
->PARAMETERN HTTP-frågesträng är skiftlägeskänslig.
+>Parametern HTTP-frågesträng är Skift läges känslig.
 >
 
 ```cs
@@ -154,9 +154,9 @@ namespace CosmosDBSamplesV2
 
 <a id="http-trigger-look-up-id-from-route-data-c"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP-utlösare, slå upp ID från vägdata
+### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP-utlösare, slå upp ID från flödes data
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder vägdata för att ange ID- och partitionsnyckelvärdet för att slå upp. Värdet för ID och partitionsnyckel `ToDoItem` används för att hämta ett dokument från den angivna databasen och samlingen.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder flödes data för att ange det ID och det partitionsnyckel som ska sökas upp. Detta ID och partitionerings nyckel värde används för att hämta ett `ToDoItem` dokument från den angivna databasen och samlingen.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -200,14 +200,14 @@ namespace CosmosDBSamplesV2
 
 <a id="http-trigger-look-up-id-from-route-data-using-sqlquery-c"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery"></a>HTTP-utlösare, slå upp ID från vägdata med SqlQuery
+### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery"></a>HTTP-utlösare, slå upp ID från routa data med SqlQuery
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder vägdata för att ange id för att slå upp. Det ID:t används `ToDoItem` för att hämta ett dokument från den angivna databasen och samlingen.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder flödes data för att ange det ID som ska sökas upp. Detta ID används för att hämta ett `ToDoItem` dokument från den angivna databasen och samlingen.
 
-Exemplet visar hur du använder ett `SqlQuery` bindningsuttryck i parametern. Du kan skicka flödesdata till parametern `SqlQuery` som visas, men för närvarande kan du inte skicka [frågesträngvärden](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
+Exemplet visar hur du använder ett bindnings uttryck i `SqlQuery` parametern. Du kan skicka flödes data till `SqlQuery` parametern som visas, men för närvarande kan [du inte skicka frågesträngs värden](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
 
 > [!NOTE]
-> Om du behöver fråga efter bara ID, rekommenderas att använda en slå upp, som [de tidigare exemplen](#http-trigger-look-up-id-from-query-string-c), eftersom det kommer att förbruka mindre [begäranheter](../cosmos-db/request-units.md). Punktläsningsåtgärder (GET) är [effektivare](../cosmos-db/optimize-cost-queries.md) än frågor efter ID.
+> Om du bara behöver fråga efter ID: t rekommenderar vi att du använder ett uppslag, precis som i [föregående exempel](#http-trigger-look-up-id-from-query-string-c), eftersom det förbrukar mindre [enheter för programbegäran](../cosmos-db/request-units.md). Punkt läsnings åtgärder (GET) är [mer effektiva](../cosmos-db/optimize-cost-queries.md) än frågor efter ID.
 >
 
 ```cs
@@ -249,7 +249,7 @@ namespace CosmosDBSamplesV2
 
 ### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>HTTP-utlösare, hämta flera dokument med SqlQuery
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. Frågan anges i attributegenskapen. `SqlQuery`
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. Frågan anges i egenskapen `SqlQuery` Attribute.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -292,10 +292,10 @@ namespace CosmosDBSamplesV2
 
 ### <a name="http-trigger-get-multiple-docs-using-documentclient"></a>HTTP-utlösare, hämta flera dokument med DocumentClient
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. Koden använder `DocumentClient` en instans som tillhandahålls av Azure Cosmos DB-bindningen för att läsa en lista över dokument. Instansen `DocumentClient` kan också användas för skrivåtgärder.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. I koden används en `DocumentClient` instans som tillhandahålls av Azure Cosmos DB bindningen för att läsa en lista över dokument. `DocumentClient` Instansen kan också användas för Skriv åtgärder.
 
 > [!NOTE]
-> Du kan också använda [Gränssnittet IDocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) för att göra testningen enklare.
+> Du kan också använda [IDocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) -gränssnittet för att göra testningen enklare.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -353,18 +353,18 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
+# <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
 Det här avsnittet innehåller följande exempel:
 
-* [Köutlösare, slå upp ID från sträng](#queue-trigger-look-up-id-from-string-c-script)
-* [Köutlösare, hämta flera dokument med SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-c-script)
-* [HTTP-utlösare, slå upp ID från frågesträngen](#http-trigger-look-up-id-from-query-string-c-script)
-* [HTTP-utlösare, slå upp ID från vägdata](#http-trigger-look-up-id-from-route-data-c-script)
+* [Köa utlösare, leta upp ID från sträng](#queue-trigger-look-up-id-from-string-c-script)
+* [Köa utlösare, hämta flera dokument med SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-c-script)
+* [HTTP-utlösare, leta upp ID från frågesträng](#http-trigger-look-up-id-from-query-string-c-script)
+* [HTTP-utlösare, slå upp ID från flödes data](#http-trigger-look-up-id-from-route-data-c-script)
 * [HTTP-utlösare, hämta flera dokument med SqlQuery](#http-trigger-get-multiple-docs-using-sqlquery-c-script)
 * [HTTP-utlösare, hämta flera dokument med DocumentClient](#http-trigger-get-multiple-docs-using-documentclient-c-script)
 
-HTTP-utlösarexemplen refererar `ToDoItem` till en enkel typ:
+Exempel på HTTP-utlösare hänvisar `ToDoItem` till en enkel typ:
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -379,11 +379,11 @@ namespace CosmosDBSamplesV2
 
 <a id="queue-trigger-look-up-id-from-string-c-script"></a>
 
-### <a name="queue-trigger-look-up-id-from-string"></a>Köutlösare, slå upp ID från sträng
+### <a name="queue-trigger-look-up-id-from-string"></a>Köa utlösare, leta upp ID från sträng
 
-I följande exempel visas en Cosmos DB-indatabindning i en *function.json-fil* och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen läser ett enda dokument och uppdaterar dokumentets textvärde.
+I följande exempel visas en Cosmos DB-bindning i en *Function. JSON* -fil och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen läser ett enda dokument och uppdaterar dokumentets text värde.
 
-Här är bindningsdata i *filen function.json:*
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -397,9 +397,9 @@ Här är bindningsdata i *filen function.json:*
     "direction": "in"
 }
 ```
-[Konfigurationsavsnittet](#configuration) förklarar dessa egenskaper.
+I [konfigurations](#configuration) avsnittet förklaras dessa egenskaper.
 
-Här är C# skriptkoden:
+Här är C#-skript koden:
 
 ```cs
     using System;
@@ -413,13 +413,13 @@ Här är C# skriptkoden:
 
 <a id="queue-trigger-get-multiple-docs-using-sqlquery-c-script"></a>
 
-### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Köutlösare, hämta flera dokument med SqlQuery
+### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Köa utlösare, hämta flera dokument med SqlQuery
 
-I följande exempel visas en Azure Cosmos DB-indatabindning i en *function.json-fil* och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen hämtar flera dokument som anges av en SQL-fråga med hjälp av en köutlösare för att anpassa frågeparametrarna.
+I följande exempel visas en Azure Cosmos DB-bindning i en *Function. JSON* -fil och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen hämtar flera dokument som anges av en SQL-fråga med hjälp av en Queue-utlösare för att anpassa frågeparametrar.
 
-Köutlösaren tillhandahåller `departmentId`en parameter . Ett kömeddelande `{ "departmentId" : "Finance" }` om returnerar alla poster för ekonomiavdelningen.
+Utlösaren för kön innehåller `departmentId`en parameter. Ett Queue-meddelande `{ "departmentId" : "Finance" }` i returnerar alla poster för ekonomi avdelningen.
 
-Här är bindningsdata i *filen function.json:*
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -433,9 +433,9 @@ Här är bindningsdata i *filen function.json:*
 }
 ```
 
-[Konfigurationsavsnittet](#configuration) förklarar dessa egenskaper.
+I [konfigurations](#configuration) avsnittet förklaras dessa egenskaper.
 
-Här är C# skriptkoden:
+Här är C#-skript koden:
 
 ```csharp
     public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
@@ -454,11 +454,11 @@ Här är C# skriptkoden:
 
 <a id="http-trigger-look-up-id-from-query-string-c-script"></a>
 
-### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP-utlösare, slå upp ID från frågesträngen
+### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP-utlösare, leta upp ID från frågesträng
 
-I följande exempel visas en [C#-skriptfunktion](functions-reference-csharp.md) som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange ID- och partitionsnyckelvärdet för att slå upp. Värdet för ID och partitionsnyckel `ToDoItem` används för att hämta ett dokument från den angivna databasen och samlingen.
+I följande exempel visas en [C#-skript funktion](functions-reference-csharp.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange det ID och det partitionsnyckel som ska sökas upp. Detta ID och partitionerings nyckel värde används för att hämta ett `ToDoItem` dokument från den angivna databasen och samlingen.
 
-Här är *filen function.json:*
+Här är *Function. JSON* -filen:
 
 ```json
 {
@@ -493,7 +493,7 @@ Här är *filen function.json:*
 }
 ```
 
-Här är C# skriptkoden:
+Här är C#-skript koden:
 
 ```cs
 using System.Net;
@@ -517,11 +517,11 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 <a id="http-trigger-look-up-id-from-route-data-c-script"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP-utlösare, slå upp ID från vägdata
+### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP-utlösare, slå upp ID från flödes data
 
-I följande exempel visas en [C#-skriptfunktion](functions-reference-csharp.md) som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder vägdata för att ange ID- och partitionsnyckelvärdet för att slå upp. Värdet för ID och partitionsnyckel `ToDoItem` används för att hämta ett dokument från den angivna databasen och samlingen.
+I följande exempel visas en [C#-skript funktion](functions-reference-csharp.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder flödes data för att ange det ID och det partitionsnyckel som ska sökas upp. Detta ID och partitionerings nyckel värde används för att hämta ett `ToDoItem` dokument från den angivna databasen och samlingen.
 
-Här är *filen function.json:*
+Här är *Function. JSON* -filen:
 
 ```json
 {
@@ -557,7 +557,7 @@ Här är *filen function.json:*
 }
 ```
 
-Här är C# skriptkoden:
+Här är C#-skript koden:
 
 ```cs
 using System.Net;
@@ -583,9 +583,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 ### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>HTTP-utlösare, hämta flera dokument med SqlQuery
 
-I följande exempel visas en [C#-skriptfunktion](functions-reference-csharp.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. Frågan anges i attributegenskapen. `SqlQuery`
+I följande exempel visas en [C#-skript funktion](functions-reference-csharp.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. Frågan anges i egenskapen `SqlQuery` Attribute.
 
-Här är *filen function.json:*
+Här är *Function. JSON* -filen:
 
 ```json
 {
@@ -619,7 +619,7 @@ Här är *filen function.json:*
 }
 ```
 
-Här är C# skriptkoden:
+Här är C#-skript koden:
 
 ```cs
 using System.Net;
@@ -641,9 +641,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoIt
 
 ### <a name="http-trigger-get-multiple-docs-using-documentclient"></a>HTTP-utlösare, hämta flera dokument med DocumentClient
 
-I följande exempel visas en [C#-skriptfunktion](functions-reference-csharp.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. Koden använder `DocumentClient` en instans som tillhandahålls av Azure Cosmos DB-bindningen för att läsa en lista över dokument. Instansen `DocumentClient` kan också användas för skrivåtgärder.
+I följande exempel visas en [C#-skript funktion](functions-reference-csharp.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. I koden används en `DocumentClient` instans som tillhandahålls av Azure Cosmos DB bindningen för att läsa en lista över dokument. `DocumentClient` Instansen kan också användas för Skriv åtgärder.
 
-Här är *filen function.json:*
+Här är *Function. JSON* -filen:
 
 ```json
 {
@@ -676,7 +676,7 @@ Här är *filen function.json:*
 }
 ```
 
-Här är C# skriptkoden:
+Här är C#-skript koden:
 
 ```cs
 #r "Microsoft.Azure.Documents.Client"
@@ -716,22 +716,22 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Det här avsnittet innehåller följande exempel som läser ett enda dokument genom att ange ett ID-värde från olika källor:
 
-* [Köutlösare, slå upp ID från JSON](#queue-trigger-look-up-id-from-json-javascript)
-* [HTTP-utlösare, slå upp ID från frågesträngen](#http-trigger-look-up-id-from-query-string-javascript)
-* [HTTP-utlösare, slå upp ID från vägdata](#http-trigger-look-up-id-from-route-data-javascript)
-* [Köutlösare, hämta flera dokument med SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
+* [Köa utlösare, slå upp ID från JSON](#queue-trigger-look-up-id-from-json-javascript)
+* [HTTP-utlösare, leta upp ID från frågesträng](#http-trigger-look-up-id-from-query-string-javascript)
+* [HTTP-utlösare, slå upp ID från flödes data](#http-trigger-look-up-id-from-route-data-javascript)
+* [Köa utlösare, hämta flera dokument med SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
 
 <a id="queue-trigger-look-up-id-from-json-javascript"></a>
 
-### <a name="queue-trigger-look-up-id-from-json"></a>Köutlösare, slå upp ID från JSON
+### <a name="queue-trigger-look-up-id-from-json"></a>Köa utlösare, slå upp ID från JSON
 
-I följande exempel visas en Cosmos DB-indatabindning i en *function.json-fil* och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen läser ett enda dokument och uppdaterar dokumentets textvärde.
+I följande exempel visas en Cosmos DB-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen läser ett enda dokument och uppdaterar dokumentets text värde.
 
-Här är bindningsdata i *filen function.json:*
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -756,7 +756,7 @@ Här är bindningsdata i *filen function.json:*
 }
 ```
 
-[Konfigurationsavsnittet](#configuration) förklarar dessa egenskaper.
+I [konfigurations](#configuration) avsnittet förklaras dessa egenskaper.
 
 Här är JavaScript-koden:
 
@@ -771,11 +771,11 @@ Här är JavaScript-koden:
 
 <a id="http-trigger-look-up-id-from-query-string-javascript"></a>
 
-### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP-utlösare, slå upp ID från frågesträngen
+### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP-utlösare, leta upp ID från frågesträng
 
-I följande exempel visas en [JavaScript-funktion](functions-reference-node.md) som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange ID- och partitionsnyckelvärdet för att slå upp. Värdet för ID och partitionsnyckel `ToDoItem` används för att hämta ett dokument från den angivna databasen och samlingen.
+I följande exempel visas en [JavaScript-funktion](functions-reference-node.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange det ID och det partitionsnyckel som ska sökas upp. Detta ID och partitionerings nyckel värde används för att hämta ett `ToDoItem` dokument från den angivna databasen och samlingen.
 
-Här är *filen function.json:*
+Här är *Function. JSON* -filen:
 
 ```json
 {
@@ -830,11 +830,11 @@ module.exports = function (context, req, toDoItem) {
 
 <a id="http-trigger-look-up-id-from-route-data-javascript"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP-utlösare, slå upp ID från vägdata
+### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP-utlösare, slå upp ID från flödes data
 
-I följande exempel visas en [JavaScript-funktion](functions-reference-node.md) som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder vägdata för att ange ID- och partitionsnyckelvärdet för att slå upp. Värdet för ID och partitionsnyckel `ToDoItem` används för att hämta ett dokument från den angivna databasen och samlingen.
+I följande exempel visas en [JavaScript-funktion](functions-reference-node.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder flödes data för att ange det ID och det partitionsnyckel som ska sökas upp. Detta ID och partitionerings nyckel värde används för att hämta ett `ToDoItem` dokument från den angivna databasen och samlingen.
 
-Här är *filen function.json:*
+Här är *Function. JSON* -filen:
 
 ```json
 {
@@ -890,13 +890,13 @@ module.exports = function (context, req, toDoItem) {
 
 <a id="queue-trigger-get-multiple-docs-using-sqlquery-javascript"></a>
 
-### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Köutlösare, hämta flera dokument med SqlQuery
+### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Köa utlösare, hämta flera dokument med SqlQuery
 
-I följande exempel visas en Azure Cosmos DB-indatabindning i en *function.json-fil* och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen hämtar flera dokument som anges av en SQL-fråga med hjälp av en köutlösare för att anpassa frågeparametrarna.
+I följande exempel visas en Azure Cosmos DB-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen hämtar flera dokument som anges av en SQL-fråga med hjälp av en Queue-utlösare för att anpassa frågeparametrar.
 
-Köutlösaren tillhandahåller `departmentId`en parameter . Ett kömeddelande `{ "departmentId" : "Finance" }` om returnerar alla poster för ekonomiavdelningen.
+Utlösaren för kön innehåller `departmentId`en parameter. Ett Queue-meddelande `{ "departmentId" : "Finance" }` i returnerar alla poster för ekonomi avdelningen.
 
-Här är bindningsdata i *filen function.json:*
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -910,7 +910,7 @@ Här är bindningsdata i *filen function.json:*
 }
 ```
 
-[Konfigurationsavsnittet](#configuration) förklarar dessa egenskaper.
+I [konfigurations](#configuration) avsnittet förklaras dessa egenskaper.
 
 Här är JavaScript-koden:
 
@@ -929,18 +929,18 @@ Här är JavaScript-koden:
 
 Det här avsnittet innehåller följande exempel som läser ett enda dokument genom att ange ett ID-värde från olika källor:
 
-* [Köutlösare, slå upp ID från JSON](#queue-trigger-look-up-id-from-json-python)
-* [HTTP-utlösare, slå upp ID från frågesträngen](#http-trigger-look-up-id-from-query-string-python)
-* [HTTP-utlösare, slå upp ID från vägdata](#http-trigger-look-up-id-from-route-data-python)
-* [Köutlösare, hämta flera dokument med SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-python)
+* [Köa utlösare, slå upp ID från JSON](#queue-trigger-look-up-id-from-json-python)
+* [HTTP-utlösare, leta upp ID från frågesträng](#http-trigger-look-up-id-from-query-string-python)
+* [HTTP-utlösare, slå upp ID från flödes data](#http-trigger-look-up-id-from-route-data-python)
+* [Köa utlösare, hämta flera dokument med SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-python)
 
 <a id="queue-trigger-look-up-id-from-json-python"></a>
 
-### <a name="queue-trigger-look-up-id-from-json"></a>Köutlösare, slå upp ID från JSON
+### <a name="queue-trigger-look-up-id-from-json"></a>Köa utlösare, slå upp ID från JSON
 
-I följande exempel visas en Cosmos DB-indatabindning i en *function.json-fil* och en [Python-funktion](functions-reference-python.md) som använder bindningen. Funktionen läser ett enda dokument och uppdaterar dokumentets textvärde.
+I följande exempel visas en Cosmos DB-bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen. Funktionen läser ett enda dokument och uppdaterar dokumentets text värde.
 
-Här är bindningsdata i *filen function.json:*
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -965,9 +965,9 @@ Här är bindningsdata i *filen function.json:*
 }
 ```
 
-[Konfigurationsavsnittet](#configuration) förklarar dessa egenskaper.
+I [konfigurations](#configuration) avsnittet förklaras dessa egenskaper.
 
-Här är Python-koden:
+Här är python-koden:
 
 ```python
 import azure.functions as func
@@ -982,11 +982,11 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Docu
 
 <a id="http-trigger-look-up-id-from-query-string-python"></a>
 
-### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP-utlösare, slå upp ID från frågesträngen
+### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP-utlösare, leta upp ID från frågesträng
 
-I följande exempel visas en [Python-funktion](functions-reference-python.md) som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange ID- och partitionsnyckelvärdet för att slå upp. Värdet för ID och partitionsnyckel `ToDoItem` används för att hämta ett dokument från den angivna databasen och samlingen.
+I följande exempel visas en [python-funktion](functions-reference-python.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange det ID och det partitionsnyckel som ska sökas upp. Detta ID och partitionerings nyckel värde används för att hämta ett `ToDoItem` dokument från den angivna databasen och samlingen.
 
-Här är *filen function.json:*
+Här är *Function. JSON* -filen:
 
 ```json
 {
@@ -1022,7 +1022,7 @@ Här är *filen function.json:*
 }
 ```
 
-Här är Python-koden:
+Här är python-koden:
 
 ```python
 import logging
@@ -1041,11 +1041,11 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 <a id="http-trigger-look-up-id-from-route-data-python"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP-utlösare, slå upp ID från vägdata
+### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP-utlösare, slå upp ID från flödes data
 
-I följande exempel visas en [Python-funktion](functions-reference-python.md) som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder vägdata för att ange ID- och partitionsnyckelvärdet för att slå upp. Värdet för ID och partitionsnyckel `ToDoItem` används för att hämta ett dokument från den angivna databasen och samlingen.
+I följande exempel visas en [python-funktion](functions-reference-python.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder flödes data för att ange det ID och det partitionsnyckel som ska sökas upp. Detta ID och partitionerings nyckel värde används för att hämta ett `ToDoItem` dokument från den angivna databasen och samlingen.
 
-Här är *filen function.json:*
+Här är *Function. JSON* -filen:
 
 ```json
 {
@@ -1082,7 +1082,7 @@ Här är *filen function.json:*
 }
 ```
 
-Här är Python-koden:
+Här är python-koden:
 
 ```python
 import logging
@@ -1100,13 +1100,13 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 <a id="queue-trigger-get-multiple-docs-using-sqlquery-python"></a>
 
-### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Köutlösare, hämta flera dokument med SqlQuery
+### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Köa utlösare, hämta flera dokument med SqlQuery
 
-I följande exempel visas en Azure Cosmos DB-indatabindning i en *function.json-fil* och en [Python-funktion](functions-reference-python.md) som använder bindningen. Funktionen hämtar flera dokument som anges av en SQL-fråga med hjälp av en köutlösare för att anpassa frågeparametrarna.
+I följande exempel visas en Azure Cosmos DB-bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen. Funktionen hämtar flera dokument som anges av en SQL-fråga med hjälp av en Queue-utlösare för att anpassa frågeparametrar.
 
-Köutlösaren tillhandahåller `departmentId`en parameter . Ett kömeddelande `{ "departmentId" : "Finance" }` om returnerar alla poster för ekonomiavdelningen.
+Utlösaren för kön innehåller `departmentId`en parameter. Ett Queue-meddelande `{ "departmentId" : "Finance" }` i returnerar alla poster för ekonomi avdelningen.
 
-Här är bindningsdata i *filen function.json:*
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -1120,9 +1120,9 @@ Här är bindningsdata i *filen function.json:*
 }
 ```
 
-[Konfigurationsavsnittet](#configuration) förklarar dessa egenskaper.
+I [konfigurations](#configuration) avsnittet förklaras dessa egenskaper.
 
-Här är Python-koden:
+Här är python-koden:
 
 ```python
 import azure.functions as func
@@ -1136,13 +1136,13 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList):
 
 Det här avsnittet innehåller följande exempel:
 
-* [HTTP-utlösare, slå upp ID från frågesträngen - Strängparameter](#http-trigger-look-up-id-from-query-string---string-parameter-java)
-* [HTTP-utlösare, slå upp ID från frågesträngen - POJO-parameter](#http-trigger-look-up-id-from-query-string---pojo-parameter-java)
-* [HTTP-utlösare, slå upp ID från vägdata](#http-trigger-look-up-id-from-route-data-java)
-* [HTTP-utlösare, slå upp ID från vägdata med SqlQuery](#http-trigger-look-up-id-from-route-data-using-sqlquery-java)
-* [HTTP-utlösare, hämta flera dokument från vägdata med SqlQuery](#http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java)
+* [HTTP-utlösare, leta upp ID från frågesträngparametern-String-parameter](#http-trigger-look-up-id-from-query-string---string-parameter-java)
+* [HTTP-utlösare, leta upp ID från frågesträng-POJO-parameter](#http-trigger-look-up-id-from-query-string---pojo-parameter-java)
+* [HTTP-utlösare, slå upp ID från flödes data](#http-trigger-look-up-id-from-route-data-java)
+* [HTTP-utlösare, slå upp ID från routa data med SqlQuery](#http-trigger-look-up-id-from-route-data-using-sqlquery-java)
+* [HTTP-utlösare, hämta flera dokument från väg data med SqlQuery](#http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java)
 
-Exemplen refererar `ToDoItem` till en enkel typ:
+Exemplen refererar till en enkel `ToDoItem` typ:
 
 ```java
 public class ToDoItem {
@@ -1167,9 +1167,9 @@ public class ToDoItem {
 
 <a id="http-trigger-look-up-id-from-query-string---string-parameter-java"></a>
 
-### <a name="http-trigger-look-up-id-from-query-string---string-parameter"></a>HTTP-utlösare, slå upp ID från frågesträngen - Strängparameter
+### <a name="http-trigger-look-up-id-from-query-string---string-parameter"></a>HTTP-utlösare, leta upp ID från frågesträngparametern-String-parameter
 
-I följande exempel visas en Java-funktion som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange ID- och partitionsnyckelvärdet för att slå upp. Värdet för ID och partitionsnyckel används för att hämta ett dokument från den angivna databasen och samlingen i strängformulär.
+I följande exempel visas en Java-funktion som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange det ID och det partitionsnyckel som ska sökas upp. Detta ID och nyckel värde används för att hämta ett dokument från den angivna databasen och samlingen i sträng format.
 
 ```java
 public class DocByIdFromQueryString {
@@ -1211,13 +1211,13 @@ public class DocByIdFromQueryString {
 }
  ```
 
-I [Java-funktionernas körningsbibliotek](/java/api/overview/azure/functions/runtime)använder du anteckningen `@CosmosDBInput` om funktionsparametrar vars värde skulle komma från Cosmos DB.  Den här anteckningen kan användas med inbyggda Java-typer, `Optional<T>`POJOs eller nullable värden med .
+I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du `@CosmosDBInput` anteckningen för funktions parametrar vars värde kommer från Cosmos dB.  Den här anteckningen kan användas med inbyggda Java-typer, Pojo eller null-värden `Optional<T>`med hjälp av.
 
 <a id="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>
 
-### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter"></a>HTTP-utlösare, slå upp ID från frågesträngen - POJO-parameter
+### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter"></a>HTTP-utlösare, leta upp ID från frågesträng-POJO-parameter
 
-I följande exempel visas en Java-funktion som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange ID- och partitionsnyckelvärdet för att slå upp. Det ID- och partitionsnyckelvärdet som används för att hämta ett dokument från den angivna databasen och samlingen. Dokumentet konverteras sedan till en ```ToDoItem``` instans av POJO som tidigare skapats och skickas som ett argument till funktionen.
+I följande exempel visas en Java-funktion som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange det ID och det partitionsnyckel som ska sökas upp. Det ID-och partitionsnyckel som används för att hämta ett dokument från den angivna databasen och samlingen. Dokumentet konverteras sedan till en instans av ```ToDoItem``` POJO som tidigare skapats och skickades som ett argument till funktionen.
 
 ```java
 public class DocByIdFromQueryStringPojo {
@@ -1259,9 +1259,9 @@ public class DocByIdFromQueryStringPojo {
 
 <a id="http-trigger-look-up-id-from-route-data-java"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP-utlösare, slå upp ID från vägdata
+### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP-utlösare, slå upp ID från flödes data
 
-I följande exempel visas en Java-funktion som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder en vägparameter för att ange ID- och partitionsnyckelvärdet för att slå upp. Värdet för ID och partitionsnyckel används för att hämta ett dokument från ```Optional<String>```den angivna databasen och samlingen och returnera det som en .
+I följande exempel visas en Java-funktion som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en Route-parameter för att ange det ID och det partitionsnyckel som ska sökas upp. Detta ID och nyckel värde används för att hämta ett dokument från den angivna databasen och samlingen, och returnerar det som en ```Optional<String>```.
 
 ```java
 public class DocByIdFromRoute {
@@ -1306,12 +1306,12 @@ public class DocByIdFromRoute {
 
  <a id="http-trigger-look-up-id-from-route-data-using-sqlquery-java"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery"></a>HTTP-utlösare, slå upp ID från vägdata med SqlQuery
+### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery"></a>HTTP-utlösare, slå upp ID från routa data med SqlQuery
 
-I följande exempel visas en Java-funktion som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder en vägparameter för att ange id för att slå upp. Det ID:et används för att hämta ett dokument från den ```ToDoItem[]```angivna databasen och samlingen, vilket konverterar resultatuppsättningen till en , eftersom många dokument kan returneras, beroende på frågevillkoren.
+I följande exempel visas en Java-funktion som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en väg parameter för att ange det ID som ska sökas upp. Detta ID används för att hämta ett dokument från den angivna databasen och samlingen, vilket konverterar resultat uppsättningen till ett ```ToDoItem[]```, eftersom många dokument kan returneras, beroende på frågevillkor.
 
 > [!NOTE]
-> Om du behöver fråga efter bara ID, rekommenderas att använda en slå upp, som [de tidigare exemplen](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), eftersom det kommer att förbruka mindre [begäranheter](../cosmos-db/request-units.md). Punktläsningsåtgärder (GET) är [effektivare](../cosmos-db/optimize-cost-queries.md) än frågor efter ID.
+> Om du bara behöver fråga efter ID: t rekommenderar vi att du använder ett uppslag, precis som i [föregående exempel](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), eftersom det förbrukar mindre [enheter för programbegäran](../cosmos-db/request-units.md). Punkt läsnings åtgärder (GET) är [mer effektiva](../cosmos-db/optimize-cost-queries.md) än frågor efter ID.
 >
 
 ```java
@@ -1354,9 +1354,9 @@ public class DocByIdFromRouteSqlQuery {
 
  <a id="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>
 
-### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery"></a>HTTP-utlösare, hämta flera dokument från vägdata med SqlQuery
+### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery"></a>HTTP-utlösare, hämta flera dokument från väg data med SqlQuery
 
-I följande exempel visas en Java-funktion som hämtar flera dokument. Funktionen utlöses av en HTTP-begäran som ```desc``` använder en vägparameter ```description``` för att ange vilken sträng som ska sökas efter i fältet . Söktermen används för att hämta en samling dokument från den angivna databasen ```ToDoItem[]``` och samlingen, konvertera resultatuppsättningen till a och skicka den som ett argument till funktionen.
+I följande exempel visas en Java-funktion som hämtar flera dokument. Funktionen utlöses av en HTTP-begäran som använder en Route-parameter ```desc``` för att ange strängen som ska sökas efter ```description``` i fältet. Sök termen används för att hämta en samling dokument från den angivna databasen och samlingen, vilket konverterar resultat uppsättningen till en ```ToDoItem[]``` och skickar den som ett argument till funktionen.
 
 ```java
 public class DocsFromRouteSqlQuery {
@@ -1400,74 +1400,74 @@ public class DocsFromRouteSqlQuery {
 
 ## <a name="attributes-and-annotations"></a>Attribut och anteckningar
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-I [klassbibliotek för C#](functions-dotnet-class-library.md)använder du attributet [CosmosDB.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs)
+Använd attributet [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) i [C#-klass bibliotek](functions-dotnet-class-library.md).
 
-Attributets konstruktor tar databasnamnet och samlingsnamnet. Information om dessa inställningar och andra egenskaper som du kan konfigurera finns [i följande konfigurationsavsnitt](#configuration).
+Attributets konstruktor tar databasens namn och samlings namn. Information om de inställningar och andra egenskaper som du kan konfigurera finns i [följande konfigurations avsnitt](#configuration).
 
-# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
+# <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-Attribut stöds inte av C# Script.
+Attribut stöds inte av C#-skript.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Attribut stöds inte av JavaScript.
+Attribut stöds inte av Java Script.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Attribut stöds inte av Python.
+Attribut stöds inte av python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Använd anteckningen på parametrar som `@CosmosDBOutput` skriver till Cosmos DB från [Java-funktionernas körningsbibliotek.](https://docs.microsoft.com/java/api/overview/azure/functions/runtime) Parametertypen anteckning bör `OutputBinding<T>`vara `T` , där är antingen en inbyggd Java-typ eller en POJO.
+I [Java Functions runtime-biblioteket](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)använder du `@CosmosDBOutput` anteckningen för parametrar som skriver till Cosmos dB. Kommentar parameter typen bör vara `OutputBinding<T>`, där `T` är antingen en ursprunglig Java-typ eller en POJO.
 
 ---
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell beskrivs de bindningskonfigurationsegenskaper som `CosmosDB` du anger i *filen function.json* och attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `CosmosDB` attributet.
 
-|egenskapen function.json | Egenskapen Attribute |Beskrivning|
+|function. JSON-egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**Typ**     | Saknas | Måste ställas `cosmosDB`in på .        |
-|**riktning**     | Saknas | Måste ställas `in`in på .         |
-|**Namn**     | Saknas | Namn på den bindningsparameter som representerar dokumentet i funktionen.  |
-|**Databasename** |**DatabaseName** |Databasen som innehåller dokumentet.        |
-|**collectionName (samlingsnamn)** |**CollectionName** | Namnet på samlingen som innehåller dokumentet. |
-|**Id**    | **Id** | ID:et för det dokument som ska hämtas. Den här egenskapen stöder [bindningsuttryck](./functions-bindings-expressions-patterns.md). Ange inte både `id` egenskaperna för och **sqlQuery.** Om du inte anger någon av dem hämtas hela samlingen. |
-|**sqlQuery (sqlQuery)**  |**SqlQuery (SqlQuery)**  | En Azure Cosmos DB SQL-fråga som används för att hämta flera dokument. Egenskapen stöder körningsbindningar, som `SELECT * FROM c where c.departmentId = {departmentId}`i det här exemplet: . Ange inte både `id` egenskaper `sqlQuery` och egenskaper. Om du inte anger någon av dem hämtas hela samlingen.|
-|**anslutningStringInställning**     |**ConnectionStringSetting**|Namnet på appinställningen som innehåller din Azure Cosmos DB-anslutningssträng. |
-|**partitionKey (partitionKey)**|**PartitionKey**|Anger partitionsnyckelvärdet för sökningen. Kan innehålla bindande parametrar. Det krävs för uppslag i [partitionerade](../cosmos-db/partition-data.md#logical-partitions) samlingar.|
-|**preferredLocations**| **PreferredLocations**| (Valfritt) Definierar önskade platser (regioner) för geo-replikerade databaskonton i Azure Cosmos DB-tjänsten. Värdena ska kommaavskiljas. Till exempel "Östra USA, Södra centrala USA,Nordeuropa". |
+|**bastyp**     | saknas | Måste anges till `cosmosDB`.        |
+|**riktning**     | saknas | Måste anges till `in`.         |
+|**Namn**     | saknas | Namnet på den bindnings parameter som representerar dokumentet i funktionen.  |
+|**Databas** |**DatabaseName** |Databasen som innehåller dokumentet.        |
+|**Samling** |**CollectionName** | Namnet på den samling som innehåller dokumentet. |
+|**identitet**    | **Identitet** | ID för det dokument som ska hämtas. Den här egenskapen stöder [bindnings uttryck](./functions-bindings-expressions-patterns.md). Ange inte både egenskaperna `id` och **sqlQuery** . Om du inte anger någon, hämtas hela samlingen. |
+|**sqlQuery**  |**SqlQuery**  | En Azure Cosmos DB SQL-fråga som används för att hämta flera dokument. Egenskapen stöder runtime-bindningar, som i det här exemplet `SELECT * FROM c where c.departmentId = {departmentId}`:. Ange inte både egenskaperna `id` och `sqlQuery` . Om du inte anger någon, hämtas hela samlingen.|
+|**connectionStringSetting**     |**ConnectionStringSetting**|Namnet på den app-inställning som innehåller Azure Cosmos DB anslutnings strängen. |
+|**partitionKey**|**PartitionKey**|Anger partitionens nyckel värde för sökningen. Kan innehålla bindnings parametrar. Det krävs för uppslag i [partitionerade](../cosmos-db/partition-data.md#logical-partitions) samlingar.|
+|**preferredLocations**| **PreferredLocations**| Valfritt Definierar önskade platser (regioner) för geo-replikerade databas konton i Azure Cosmos DBs tjänsten. Värdena ska vara kommaavgränsade. Till exempel "östra USA, södra centrala USA, norra Europa". |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Användning
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-När funktionen avslutas sparas alla ändringar som görs i indatadokumentet via namngivna indataparametrar automatiskt.
+När funktionen avslutas sparas alla ändringar som gjorts i indatamängds dokumentet via namngivna indataparametrar automatiskt.
 
-# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
+# <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-När funktionen avslutas sparas alla ändringar som görs i indatadokumentet via namngivna indataparametrar automatiskt.
+När funktionen avslutas sparas alla ändringar som gjorts i indatamängds dokumentet via namngivna indataparametrar automatiskt.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Uppdateringar görs inte automatiskt vid funktionsavgång. Använd `context.bindings.<documentName>In` och `context.bindings.<documentName>Out` göra uppdateringar i stället. Se JavaScript-exemplet.
+Uppdateringar görs inte automatiskt när funktionen avslutas. Använd `context.bindings.<documentName>In` och `context.bindings.<documentName>Out` för att göra uppdateringar i stället. Se JavaScript-exemplet.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Data görs tillgängliga för funktionen `DocumentList` via en parameter. Ändringar som görs i dokumentet sparas inte automatiskt.
+Data görs tillgängliga för funktionen via en `DocumentList` parameter. Ändringar som görs i dokumentet sparas inte automatiskt.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Från [Java-funktionernas körningsbibliotek](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)exponerar anteckningen [@CosmosDBInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) Cosmos DB-data för funktionen. Den här anteckningen kan användas med inbyggda Java-typer, `Optional<T>`POJOs eller nullable värden med .
+I [Java Functions runtime-biblioteket](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)visar [@CosmosDBInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) anteckningen Cosmos db data till funktionen. Den här anteckningen kan användas med inbyggda Java-typer, Pojo eller null-värden `Optional<T>`med hjälp av.
 
 ---
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Kör en funktion när ett Azure Cosmos DB-dokument skapas eller ändras (utlösare)](./functions-bindings-cosmosdb-v2-trigger.md)
-- [Spara ändringar i ett Azure Cosmos DB-dokument (utdatabindning)](./functions-bindings-cosmosdb-v2-output.md)
+- [Köra en funktion när ett Azure Cosmos DB-dokument skapas eller ändras (utlösare)](./functions-bindings-cosmosdb-v2-trigger.md)
+- [Spara ändringar i ett Azure Cosmos DB dokument (utgående bindning)](./functions-bindings-cosmosdb-v2-output.md)

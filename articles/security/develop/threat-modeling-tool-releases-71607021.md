@@ -1,7 +1,7 @@
 ---
-title: Microsoft Threat Modeling Tool release 2019-07-02
+title: Microsoft Threat Modeling Tool version 7/2/2019
 titleSuffix: Azure
-description: Dokumentera viktig information för verktyget för hotmodellering
+description: Dokumentera viktig information för verktyget Threat Modeling
 author: jegeib
 ms.author: jegeib
 ms.service: security
@@ -9,41 +9,41 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: d4a97a10b8055af4401dbe163723b1fb38a5d12f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78269677"
 ---
-# <a name="threat-modeling-tool-update-release-71607021---722019"></a>Hot Modeling Tool uppdatering release 7.1.60702.1 - 7/2/2019
+# <a name="threat-modeling-tool-update-release-71607021---722019"></a>Threat Modeling Tool uppdaterings version 7.1.60702.1 – 7/2/2019
 
-Version 7.1.60702.1 av Microsoft Threat Modeling Tool (TMT) släpptes den 2 juli 2019 och innehåller följande ändringar:
+Version 7.1.60702.1 av Microsoft Threat Modeling Tool (TMT) lanserades den 2 2019 juli och innehåller följande ändringar:
 
 - Förbättrad användbarhet
 - Felkorrigeringar
-- Införande av en öppen källkod gemenskap som stencil uppsättning
+- Att inkludera en community med öppen källkod har angetts
 
-## <a name="feature-changes"></a>Funktionsändringar
+## <a name="feature-changes"></a>Funktions ändringar
 
-### <a name="a-new-medical-devices-stencil-set-provided-by-the-open-source-community-is-available"></a>En ny stencil för medicintekniska produkter som tillhandahålls av communityn med öppen källkod finns tillgänglig
+### <a name="a-new-medical-devices-stencil-set-provided-by-the-open-source-community-is-available"></a>En ny stencil för medicinska enheter som tillhandahålls av communityn med öppen källkod är tillgänglig
 
-En stenciluppsättning för modellering av medicintekniska produkter har bidragit med öppen källkod. När du har uppdaterat visas den nya stenciluppsättningen på den nedrullningsliga listrutan för mallval. Information om hur du bidrar med stenciler eller innehåll till mallar finns på informationen på projektets [GitHub-sida](https://github.com/Microsoft/threat-modeling-templates).
+En stencil som är inställd för att utforma medicinska enheter har bidragit till communityn med öppen källkod. När du har uppdaterat visas den nya stencilen i den nedrullningsbara menyn för val av mall. Information om hur du bidrar med stenciler eller innehåll till mallar hittar du i informationen på projektets [GitHub-sida](https://github.com/Microsoft/threat-modeling-templates).
 
-![Alternativ för modellvalidering](./media/threat-modeling-tool-releases-71607021/tmt-template-selection.png)
+![Modell validerings alternativ](./media/threat-modeling-tool-releases-71607021/tmt-template-selection.png)
 
 ## <a name="system-requirements"></a>Systemkrav
 
 - Operativsystem som stöds
-  - [Microsoft Windows 10 Anniversary Update](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) eller senare
+  - [Uppdatering av Microsoft Windows 10-årsdag](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) eller senare
 - .NET-version krävs
-  - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) eller senare
+  - [.NET-4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) eller senare
 - Ytterligare krav
-  - En Internetanslutning krävs för att ta emot uppdateringar av verktyget och mallar.
+  - En Internet anslutning krävs för att ta emot uppdateringar av verktyget och mallar.
 
 ## <a name="documentation-and-feedback"></a>Dokumentation och feedback
 
-- Dokumentation för hotmodelleringsverktyget finns på [docs.microsoft.com](threat-modeling-tool.md)och innehåller information [om hur du använder verktyget](threat-modeling-tool-getting-started.md).
+- Dokumentationen för Threat Modeling Tool finns på [docs.Microsoft.com](threat-modeling-tool.md)och innehåller information [om hur du använder verktyget](threat-modeling-tool-getting-started.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Hämta den senaste versionen av [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).
+Ladda ned den senaste versionen av [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).

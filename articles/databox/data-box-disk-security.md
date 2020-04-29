@@ -1,6 +1,6 @@
 ---
-title: Säkerhetsfunktioner för Microsoft Azure Data Box Disk | Microsoft Dokument i data
-description: Beskriver säkerhetsfunktioner som implementerats för Azure Data Box Disk, en molnlösning som gör att du kan överföra stora mängder data till Azure
+title: Microsoft Azure Data Box Disk säkerhetsfunktioner | Microsoft Docs i data
+description: Beskriver säkerhetsfunktioner som implementeras för Azure Data Box Disk, en moln lösning som gör att du kan överföra stora mängder data till Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: alkohli
 ms.openlocfilehash: 59cce6d89bc863ad489a8ed37c7f284d3085c775
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79117291"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Säkerhet och dataskydd i Azure Data Box Disk

@@ -1,54 +1,54 @@
 ---
-title: Använda AZURE Blockchain Workbench REST API:er
-description: Scenarier för hur du använder REST-APIN för förhandsversionen av Azure Blockchain Workbench
+title: 'Använda Azure blockchain Workbench REST API: er'
+description: Scenarier för hur du använder för hands versionen av Azure blockchain Workbench REST API
 ms.date: 03/05/2020
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 3084fcf343bc42fe01bf352b6791916d62f63540
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78672737"
 ---
-# <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Använda REST-APIN för förhandsversionen av Azure Blockchain Workbench
+# <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Använda Azure blockchain Workbench Preview REST API
 
-Azure Blockchain Workbench Preview REST API ger utvecklare och informationsarbetare ett sätt att skapa omfattande integrationer till blockchain-program. I den här artikeln beskrivs flera scenarier med hur du använder REST-API:et för Workbench. Anta till exempel att du vill skapa en anpassad blockchain-klient som gör att inloggade användare kan visa och interagera med sina tilldelade blockchain-program. Klienten kan använda Blockchain Workbench-API:et för att visa kontraktsinstanser och vidta åtgärder för smarta kontrakt.
+Azure blockchain Workbench Preview REST API ger utvecklare och informations anställda ett sätt att bygga omfattande integreringar för blockchain-program. I den här artikeln beskrivs flera olika scenarier för hur du använder Workbench REST API. Anta till exempel att du vill skapa en anpassad blockchain-klient som tillåter att inloggade användare kan visa och interagera med sina tilldelade blockchain-program. Klienten kan använda blockchain Workbench API för att visa kontrakt instanser och vidta åtgärder för smarta kontrakt.
 
-## <a name="blockchain-workbench-api-endpoint"></a>Slutpunkt för Blockchain Workbench API
+## <a name="blockchain-workbench-api-endpoint"></a>Blockchain Workbench API-slutpunkt
 
-Blockchain Workbench API:er nås via en slutpunkt för distributionen. Så här hämtar du API-slutpunkts-URL:en för distributionen:
+Blockchain Workbench-API: er nås via en slut punkt för din distribution. Hämta API-slutpunktens URL för din distribution:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj **Resursgrupper**i det vänstra navigeringsfönstret .
-1. Välj det resursgruppnamn som din distribuerade Blockchain Workbench.
-1. Markera kolumnrubriken **TYP** om du vill sortera listan i alfabetisk ordning efter typ.
-1. Det finns två resurser med typen **App Service**. Välj resurs av typen **App Service** *med* suffixet "-api".
-1. Kopiera **URL-värdet** i **apptjänstöversikten,** som representerar API-slutpunkts-URL:en till din distribuerade Blockchain Workbench.
+1. I det vänstra navigerings fönstret väljer du **resurs grupper**.
+1. Välj resurs gruppens namn din distribuerade blockchain Workbench.
+1. Välj kolumn rubriken **typ** för att sortera listan alfabetiskt efter typ.
+1. Det finns två resurser av typen **App Service**. Välj resurs av typen **App Service** *med* suffixet "-API".
+1. I App Service **Översikt**kopierar du **URL** -värdet, som representerar API-slutpunktens URL till din distribuerade blockchain Workbench.
 
-    ![URL till slutpunkt för App-tjänst-API](media/use-api/app-service-api.png)
+    ![URL för App Service API-slutpunkt](media/use-api/app-service-api.png)
 
 ## <a name="authentication"></a>Autentisering
 
-Begäranden till REST-API:et för Blockchain Workbench skyddas med Azure Active Directory (Azure AD).
+Begär anden till blockchain Workbench REST API skyddas med Azure Active Directory (Azure AD).
 
-För att göra en autentiserat begäran till REST-API:erna kräver klientkoden autentisering med giltiga autentiseringsuppgifter innan du kan anropa API:et. Autentisering samordnas mellan de olika aktörerna av Azure AD och ger din klient en [åtkomsttoken](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#access-token) som bevis på autentiseringen. Token skickas sedan i HTTP-auktoriseringshuvudet för REST API-begäranden. Mer information om Azure AD-autentisering finns i [Azure Active Directory för utvecklare](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+Om du vill göra en autentiserad begäran till REST-API: erna kräver klient koden autentisering med giltiga autentiseringsuppgifter innan du kan anropa API: et. Autentiseringen koordineras mellan de olika aktörerna av Azure AD och ger klienten en [åtkomsttoken](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#access-token) som bevis på autentiseringen. Token skickas sedan i HTTP-Authorization-huvudet för REST API begär Anden. Mer information om Azure AD-autentisering finns i [Azure Active Directory för utvecklare](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
-Se [REST API-exempel](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/rest-api-samples) för exempel på hur du autentiserar.
+Exempel på hur du autentiserar finns i [REST API exempel](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/rest-api-samples) .
 
 ## <a name="using-postman"></a>Använda Postman
 
-Om du vill testa eller experimentera med Api:er för Arbetsbänk kan du använda [Postman](https://www.postman.com) för att ringa API-anrop till distributionen. [Hämta en exempelsamling för Postman med Api-begäranden för Workbench](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/rest-api-samples/postman) från GitHub. Mer information om hur du ktticiserar och använder exempel-API-begäranden finns i README-filen.
+Om du vill testa eller experimentera med Workbench-API: er kan du använda [Postman](https://www.postman.com) för att skapa API-anrop till din distribution. [Hämta en exempel Postman-samling av Workbench API-begäranden](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/rest-api-samples/postman) från GitHub. I README-filen finns mer information om hur du autentiserar och använder exempel-API-begäranden.
 
 ## <a name="create-an-application"></a>Skapa ett program
 
-Du använder två API-anrop för att skapa ett Blockchain Workbench-program. Den här metoden kan bara utföras av användare som är Workbench-administratörer.
+Du kan använda två API-anrop för att skapa ett blockchain Workbench-program. Den här metoden kan endast utföras av användare som är Workbench-administratörer.
 
-Använd [programmet POST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationspost) för att ladda upp programmets JSON-fil och få ett program-ID.
+Använd [program post-API: et](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationspost) för att ladda upp programmets JSON-fil och hämta ett program-ID.
 
-### <a name="applications-post-request"></a>Begäran om ansökan POST
+### <a name="applications-post-request"></a>Ansökan om program POST
 
-Använd **parametern appFile** för att skicka konfigurationsfilen som en del av begärandetexten.
+Använd parametern **appFile** för att skicka konfigurations filen som en del av begär ande texten.
 
 ``` http
 POST /api/v1/applications
@@ -58,9 +58,9 @@ Content-Disposition: form-data; name="appFile"; filename="/C:/smart-contract-sam
 Content-Type: application/json
 ```
 
-### <a name="applications-post-response"></a>Svar på programpost
+### <a name="applications-post-response"></a>Program efter svar
 
-Det skapade program-ID:t returneras i svaret. Du behöver program-ID för att associera konfigurationsfilen med kodfilen när du anropar nästa API.
+Det skapade program-ID: t returneras i svaret. Du behöver program-ID: t för att associera konfigurations filen med kod filen när du anropar nästa API.
 
 ``` http
 HTTP/1.1 200 OK
@@ -68,16 +68,16 @@ Content-Type: "application/json"
 1
 ```
 
-### <a name="contract-code-post-request"></a>Begäran om post för kontraktskod
+### <a name="contract-code-post-request"></a>Kontrakt kod POST förfrågan
 
-Använd [post-API:et för programkontraktskod](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/contractcodepost) genom att skicka program-ID:et för att överföra programmets soliditetskodfil. Nyttolasten kan vara en enda Solidity-fil eller en zippad fil som innehåller Soliditetsfiler.
+Använd [program kontrakt koden post-API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/contractcodepost) genom att skicka program-ID: t för att ladda upp programmets solide Code-fil. Nytto lasten kan vara en enda Solidity-fil eller en zippad fil som innehåller täckande filer.
 
 Ersätt följande värden:
 
 | Parameter | Värde |
 |-----------|-------|
-| {applicationId} | Returnera värde från programmen POST API. |
-| {ledgerId} | Indexet för redovisningen. Värdet är vanligtvis 1. Du kan också kontrollera [redovisningstabellen](data-sql-management-studio.md) för värdet. |
+| ApplicationId | Returnera värdet från program POST-API: et. |
+| {ledgerId} | Index för redovisningen. Värdet är vanligt vis 1. Du kan också kontrol lera [redovisnings tabellen](data-sql-management-studio.md) för värdet. |
 
 ``` http
 POST /api/v1/applications/{applicationId}/contractCode?ledgerId={ledgerId}
@@ -86,9 +86,9 @@ Authorization : Bearer {access token}
 Content-Disposition: form-data; name="contractFile"; filename="/C:/smart-contract-samples/HelloWorld.sol"
 ```
 
-### <a name="contract-code-post-response"></a>POST-svar för kontraktskod
+### <a name="contract-code-post-response"></a>Svar på kontrakts kod POST
 
-Om det lyckas innehåller svaret det skapade kontraktskod-ID:et från [tabellen ContractCode](data-sql-management-studio.md).
+Om det lyckas innehåller svaret det skapade kontrakt kod-ID: t från [tabellen ContractCode](data-sql-management-studio.md).
 
 ``` http
 HTTP/1.1 200 OK
@@ -98,17 +98,17 @@ Content-Type: "application/json"
 
 ## <a name="assign-roles-to-users"></a>Tilldela roller till användare
 
-Använd [rolltilldelningarna för programPOST GENOM](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/roleassignmentspost) att skicka program-ID, användar-ID och programroll-ID för att skapa en mappning mellan användare och roll i det angivna blockchain-programmet. Den här metoden kan bara utföras av användare som är Workbench-administratörer.
+Använd [program roll tilldelningarna post-API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/roleassignmentspost) genom att skicka in program-ID, användar-ID och program roll-ID för att skapa en mappning mellan användare och roll i det angivna blockchain-programmet. Den här metoden kan endast utföras av användare som är Workbench-administratörer.
 
-### <a name="role-assignments-post-request"></a>Rolltilldelningar POST-begäran
+### <a name="role-assignments-post-request"></a>POST-begäran för roll tilldelningar
 
 Ersätt följande värden:
 
 | Parameter | Värde |
 |-----------|-------|
-| {applicationId} | Returnera värde från PROGRAMMET POST API. |
-| {userId} | Användar-ID-värde från [tabellen Användare](data-sql-management-studio.md). |
-| {applicationRoleId} | Programroll-ID-värde som är associerat till program-ID från [tabellen ApplicationRole](data-sql-management-studio.md). |
+| ApplicationId | Returnera värdet från program POST-API: et. |
+| UserID | Användar-ID-värde från [tabellen användare](data-sql-management-studio.md). |
+| {applicationRoleId} | ID-värde för program roll kopplat till program-ID från [tabellen ApplicationRole](data-sql-management-studio.md). |
 
 ``` http
 POST /api/v1/applications/{applicationId}/roleAssignments
@@ -121,9 +121,9 @@ Authorization : Bearer {access token}
 }
 ```
 
-### <a name="role-assignments-post-response"></a>Rolltilldelningar POST-svar
+### <a name="role-assignments-post-response"></a>Roll tilldelningar efter svar
 
-Om det lyckas innehåller svaret det skapade rolltilldelnings-ID:et från [rollatilldelningstabellen](data-sql-management-studio.md).
+Om det lyckas innehåller svaret det skapade roll tilldelnings-ID: t från [tabellen RoleAssignment](data-sql-management-studio.md).
 
 ``` http
 HTTP/1.1 200
@@ -132,21 +132,21 @@ HTTP/1.1 200
 
 ## <a name="list-applications"></a>Lista program
 
-Använd [programmet GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget) för att hämta alla Blockchain Workbench-program för användaren. I det här exemplet har den inloggade användaren åtkomst till två program:
+Använd [programmen Hämta API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget) för att hämta alla blockchain Workbench-program för användaren. I det här exemplet har den inloggade användaren åtkomst till två program:
 
-- [Överföring av tillgångar](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
+- [Till gångs överföring](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
 - [Kyld transport](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
 
-### <a name="applications-get-request"></a>Ansökningar GET-begäran
+### <a name="applications-get-request"></a>Begäran om hämtning av program
 
 ``` http
 GET /api/v1/applications
 Authorization : Bearer {access token}
 ```
 
-### <a name="applications-get-response"></a>Program GET svar
+### <a name="applications-get-response"></a>Svar för hämtning av program
 
-Svaret listar alla blockchain-program som en användare har åtkomst till i Blockchain Workbench. Blockchain Workbench-administratörer får alla blockchain-program. Icke-Workbench-administratörer får alla blockchain-program för vilka de har minst en associerad programroll eller en associerad smart kontraktsinstansroll.
+Svaret visar en lista över alla blockchain-program som en användare har åtkomst till i blockchain Workbench. Blockchain Workbench-administratörer får alla blockchain-program. Icke-Workbench-administratörer får alla blockchain-program som de har minst en associerad program roll eller en tillhör ande roll för smart kontrakt instans.
 
 ``` http
 HTTP/1.1 200 OK
@@ -180,18 +180,18 @@ Content-type: application/json
 
 ## <a name="list-workflows-for-an-application"></a>Lista arbetsflöden för ett program
 
-Använd [programarbetsflöden FÅ API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget) för att lista alla arbetsflöden för ett angivet blockchain-program som en användare har åtkomst till i Blockchain Workbench. Alla blockkedjeprogram har ett eller flera arbetsflöden och varje arbetsflöde har noll eller fler instanser för smarta kontrakt. För ett blockchain-klientprogram som bara har ett arbetsflöde rekommenderar vi att du hoppar över användarupplevelseflödet som gör att användare kan välja lämpligt arbetsflöde.
+Använd [program arbets flöden Hämta API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget) för att visa en lista över alla arbets flöden för ett angivet blockchain-program som en användare har åtkomst till i blockchain Workbench. Alla blockkedjeprogram har ett eller flera arbetsflöden och varje arbetsflöde har noll eller fler instanser för smarta kontrakt. För ett blockchain-klientprogram som bara har ett arbets flöde rekommenderar vi att du hoppar över användar upplevelsen som gör att användarna kan välja lämpligt arbets flöde.
 
-### <a name="application-workflows-request"></a>Begäran om programarbetsflöden
+### <a name="application-workflows-request"></a>Begäran om program arbets flöden
 
 ``` http
 GET /api/v1/applications/{applicationId}/workflows
 Authorization: Bearer {access token}
 ```
 
-### <a name="application-workflows-response"></a>Svar på programarbetsflöden
+### <a name="application-workflows-response"></a>Svar på program arbets flöden
 
-Blockchain Workbench-administratörer får varje blockchain-arbetsflöde. Icke-Workbench-administratörer får alla arbetsflöden för vilka de har minst en associerad programroll eller är associerade med en smart kontraktsinstansroll.
+Blockchain Workbench-administratörer får alla blockchain-arbetsflöden. Icke-Workbench-administratörer får alla arbets flöden för vilka de har minst en associerad program roll eller associerats med en roll för en smart kontrakt instans.
 
 ``` http
 HTTP/1.1 200 OK
@@ -212,29 +212,29 @@ Content-type: application/json
 }
 ```
 
-## <a name="create-a-contract-instance"></a>Skapa en kontraktsinstans
+## <a name="create-a-contract-instance"></a>Skapa en kontrakt instans
 
-Använd [Contracts V2 POST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contractsv2/contractpost) för att skapa en ny smart kontraktsinstans för ett arbetsflöde. Användare kan bara skapa en ny smart kontraktsinstans om användaren är associerad med en programroll, som kan initiera en smart kontraktsinstans för arbetsflödet.
+Använd [kontrakt v2 post-API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contractsv2/contractpost) för att skapa en ny smart kontrakts instans för ett arbets flöde. Användare kan bara skapa en ny smart kontrakts instans om användaren är associerad med en program roll, vilket kan initiera en smart kontrakts instans för arbets flödet.
 
 > [!NOTE]
-> I det här exemplet används version 2 av API:et. Api:er för kontrakt till version 2 ger mer detaljerad information för de associerade etableringsstatusfälten.
+> I det här exemplet används version 2 av API: t. Version 2 kontrakts-API: er ger mer detaljerad information om de associerade ProvisioningStatus-fälten.
 
-### <a name="contracts-post-request"></a>Begäran om post i avtal
+### <a name="contracts-post-request"></a>Kontrakt POST förfrågan
 
 Ersätt följande värden:
 
 | Parameter | Värde |
 |-----------|-------|
-| {workflowId} | Arbetsflödes-ID-värde är kontraktets KonstruktorID från [tabellen Arbetsflöde](data-sql-management-studio.md). |
-| {contractCodeId} | Kontraktskod-ID-värde från [tabellen ContractCode](data-sql-management-studio.md). Korrelera program-ID och redovisnings-ID för den kontraktsinstans som du vill skapa. |
-| {connectionId} | Anslutnings-ID-värde från [tabellen Anslutning](data-sql-management-studio.md). |
+| WorkflowId | Värdet för arbets flödes-ID är kontraktets ConstructorID från [arbets flödes tabellen](data-sql-management-studio.md). |
+| {contractCodeId} | Kontrakts kod-ID-värde från [tabellen ContractCode](data-sql-management-studio.md). Korrelera program-ID och ID för den avtals instans som du vill skapa. |
+| ConnectionId | Anslutnings-ID-värde från [anslutnings tabellen](data-sql-management-studio.md). |
 
-Ange värden med hjälp av följande information för begäran:
+Ange värden med följande information för begär ande texten:
 
 | Parameter | Värde |
 |-----------|-------|
-| arbetsflödeFunktionID | ID från [tabellen Arbetsflödesfunktion](data-sql-management-studio.md). |
-| arbetsflödeÅtgärderParametrar | Namnvärdespar av parametrar som skickas till konstruktorn. För varje parameter använder du arbetsflödetFunctionParameterID-värdet från tabellen [Arbetsflödesfunktionsparameter.](data-sql-management-studio.md) |
+| workflowFunctionID | ID från [tabellen WorkflowFunction](data-sql-management-studio.md). |
+| workflowActionParameters | Namn värde par för parametrar som skickas till konstruktorn. Använd värdet workflowFunctionParameterID från tabellen [WorkflowFunctionParameter](data-sql-management-studio.md) för varje parameter. |
 
 ``` http
 POST /api/v2/contracts?workflowId={workflowId}&contractCodeId={contractCodeId}&connectionId={connectionId}
@@ -253,9 +253,9 @@ Authorization : Bearer {access token}
 }
 ```
 
-### <a name="contracts-post-response"></a>Svar på kontrakt POST
+### <a name="contracts-post-response"></a>Kontrakt efter svar
 
-Om det lyckas returnerar api:et för rolltilldelningar ContractActionID från [tabellen ContractActionParameter](data-sql-management-studio.md).
+Om det lyckas returnerar roll tilldelnings-API: et ContractActionID från [tabellen ContractActionParameter](data-sql-management-studio.md).
 
 ``` http
 HTTP/1.1 200 OK
@@ -264,9 +264,9 @@ HTTP/1.1 200 OK
 
 ## <a name="list-smart-contract-instances-for-a-workflow"></a>Lista smarta kontrakt-instanser för ett arbetsflöde
 
-Använd [Contracts GET API](/rest/api/azure-blockchain-workbench/contractsv2/contractsget) för att visa alla smarta kontraktsinstanser för ett arbetsflöde. Eller så kan du tillåta användare att djupdykning i någon av de visade smarta kontrakt instanser.
+Använd [kontrakt Hämta API](/rest/api/azure-blockchain-workbench/contractsv2/contractsget) för att visa alla smarta kontrakt instanser för ett arbets flöde. Eller så kan du ge användarna en djup inblick i alla visade smarta kontrakt instanser.
 
-### <a name="contracts-request"></a>Begäran om kontrakt
+### <a name="contracts-request"></a>Kontrakts förfrågan
 
 Ta till exempel i det här fallet en användare som vill interagera med någon av instanserna för det smarta kontrakt som ska utföras.
 
@@ -275,9 +275,9 @@ GET api/v1/contracts?workflowId={workflowId}
 Authorization: Bearer {access token}
 ```
 
-### <a name="contracts-response"></a>Svar på kontrakt
+### <a name="contracts-response"></a>Kontrakts svar
 
-Svaret visar alla smarta kontraktsinstanser i det angivna arbetsflödet. Workbench-administratörer får alla smarta kontraktsinstanser. Icke-Workbench-administratörer får varje smart kontraktsinstans för vilken de har minst en associerad programroll eller associeras med en smart kontraktsinstansroll.
+Svaret visar alla smarta kontrakt instanser för det angivna arbets flödet. Workbench-administratörer får alla smarta kontrakt instanser. Icke-Workbench-administratörer får varje smart kontrakts instans för vilken de har minst en associerad program roll eller associeras med en roll för en smart kontrakt instans.
 
 ``` http
 HTTP/1.1 200 OK
@@ -367,9 +367,9 @@ Content-type: application/json
 
 ## <a name="list-available-actions-for-a-contract"></a>Lista tillgängliga åtgärder för ett kontrakt
 
-Använd [API för kontraktsåtgärd GET](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget) för att visa tillgängliga användaråtgärder med tanke på kontraktets tillstånd. 
+Använd [kontrakt åtgärd Hämta API](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget) för att visa tillgängliga användar åtgärder enligt kontraktets status. 
 
-### <a name="contract-action-request"></a>Begäran om kontraktsåtgärd
+### <a name="contract-action-request"></a>Kontrakts åtgärds förfrågan
 
 I det här exemplet tittar användaren på alla tillgängliga åtgärder för ett nytt smart kontrakt som de har skapat.
 
@@ -378,12 +378,12 @@ GET /api/v1/contracts/{contractId}/actions
 Authorization: Bearer {access token}
 ```
 
-### <a name="contract-action-response"></a>Svar på kontraktsåtgärder
+### <a name="contract-action-response"></a>Kontrakt åtgärds svar
 
 Svaret visar alla åtgärder som en användare kan utföra utifrån det aktuella tillståndet för den angivna instansen för det smarta kontraktet.
 
 * Ändra: Låter användaren ändra beskrivning och pris för en tillgång.
-* Avsluta: Tillåter användaren att avsluta kontraktet för tillgången.
+* Avsluta: tillåter att användaren avslutar kontraktet för till gången.
 
 Användarna får alla tillämpliga åtgärder om användaren har en associerad programroll eller är associerad med en smart kontrakt-instansroll för det aktuella tillståndet för den angivna smarta kontrakt-instansen.
 
@@ -440,11 +440,11 @@ Content-type: application/json
 
 ## <a name="execute-an-action-for-a-contract"></a>Utföra en åtgärd för ett kontrakt
 
-Använd [API:et för kontraktsåtgärd POST](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost) för att vidta åtgärder för den angivna smarta kontraktsinstansen.
+Använd [kontrakt åtgärd post-API](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost) för att vidta åtgärder för den angivna smarta kontrakts instansen.
 
-### <a name="contract-action-post-request"></a>Begäran om kontraktsåtgärd POST
+### <a name="contract-action-post-request"></a>POST förfrågan för kontrakt åtgärd
 
-I det här fallet bör du tänka på det scenario där en användare vill ändra beskrivningen och priset för en tillgång.
+I det här fallet bör du tänka på scenariot där en användare vill ändra en till gångs beskrivning och pris.
 
 ``` http
 POST /api/v1/contracts/{contractId}/actions
@@ -466,7 +466,7 @@ actionInformation: {
 
 Användare kan bara utföra åtgärden utifrån det aktuella tillståndet för de specificerade smarta instanserna för det smarta kontraktet och användarens associerade programroll eller rollen för instansen för det smarta kontraktet.
 
-### <a name="contract-action-post-response"></a>Post-svar för kontraktsåtgärd
+### <a name="contract-action-post-response"></a>Kontrakt åtgärd efter svar
 
 Om posten lyckas, returneras ett HTTP 200 OK-svar utan svarstext.
 
@@ -477,4 +477,4 @@ Content-type: application/json
 
 ## <a name="next-steps"></a>Nästa steg
 
-Referensinformation om Blockchain Workbench-API:er finns i [AZURE Blockchain Workbench REST API-referensen](https://docs.microsoft.com/rest/api/azure-blockchain-workbench).
+Referensinformation om blockchain Workbench-API: er finns i [referens för Azure blockchain workbench REST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench).

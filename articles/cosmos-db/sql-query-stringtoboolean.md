@@ -1,6 +1,6 @@
 ---
-title: StringToBoolean i Azure Cosmos DB-frågespråk
-description: Lär dig mer om SQL-systemfunktionen StringToBoolean i Azure Cosmos DB.
+title: StringToBoolean i Azure Cosmos DB frågespråk
+description: Lär dig mer om SQL system Function StringToBoolean i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: ce11db91eff51e669f0917fbf34b1d560d0e9f07
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78296549"
 ---
 # <a name="stringtoboolean-azure-cosmos-db"></a>StringToBoolean (Azure Cosmos DB)
- Returnerar uttryck översatt till en boolesk. Om uttrycket inte kan översättas returnerar det odefinierade.  
+ Returnerar uttryck som har översatts till ett booleskt värde. Om uttrycket inte kan översättas returneras undefined.  
   
 ## <a name="syntax"></a>Syntax
   
@@ -26,19 +26,19 @@ StringToBoolean(<str_expr>)
 ## <a name="arguments"></a>Argument
   
 *str_expr*  
-   Är ett stränguttryck som ska tolkas som ett booleskt uttryck.  
+   Är ett sträng uttryck som ska tolkas som ett booleskt uttryck.  
   
-## <a name="return-types"></a>Returtyper
+## <a name="return-types"></a>Retur typer
   
   Returnerar ett booleskt uttryck eller odefinierat.  
   
 ## <a name="examples"></a>Exempel
   
-  I följande exempel `StringToBoolean` visas hur det fungerar mellan olika typer. 
+  I följande exempel visas hur `StringToBoolean` beter sig mellan olika typer. 
  
- Följande är exempel med giltig indata.
+ Följande är exempel på giltiga indatatyper.
 
-Blanktecken är tillåtet endast före eller efter "sant"/"falskt".
+Blank steg tillåts bara före eller efter "true"/"false".
 
 ```sql
 SELECT 
@@ -53,9 +53,9 @@ SELECT
 [{"b1": true, "b2": false, "b3": false}]
 ```  
 
-Följande är exempel med ogiltig indata.
+Följande är exempel på ogiltiga indatatyper.
 
- Booles är skiftlägeskänsliga och måste skrivas med alla gemener, dvs "sant" och "falskt".
+ Booleska värden är Skift läges känsliga och måste skrivas med små bokstäver, d.v.s. "sant" och "falskt".
 
 ```sql
 SELECT 
@@ -69,7 +69,7 @@ Här är resultatuppsättningen.
 [{}]
 ``` 
 
-Uttrycket som skickas tolkas som ett booleskt uttryck. Dessa indata utvärderar inte att skriva Boolean och därmed returnera odefinierad.
+Det överförda uttrycket kommer att parsas som ett booleskt uttryck. de här inmatningarna utvärderas inte till typen Boolean och returneras därför inte.
 
 ```sql
 SELECT 
@@ -88,10 +88,10 @@ Här är resultatuppsättningen.
 
 ## <a name="remarks"></a>Anmärkningar
 
-Den här systemfunktionen kommer inte att använda indexet.
+Den här system funktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Strängfunktioner Azure Cosmos DB](sql-query-string-functions.md)
-- [Systemfunktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [Sträng funktioner Azure Cosmos DB](sql-query-string-functions.md)
+- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)

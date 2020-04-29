@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: Skapa en webbsida för anpassad sökning – Anpassad sökning i Bing'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du konfigurerar en anpassad Bing-sökinstans och integrerar den på en webbsida med den här självstudien.
+description: Lär dig hur du konfigurerar en anpassad söknings instans i Bing och integrerar den på en webb sida med den här självstudien.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
 ms.openlocfilehash: c7b41f77f8eb57c39489f1e5a69b0ac1c3c9c7d4
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943917"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Självstudie: Skapa en webbsida för anpassad sökning
@@ -34,8 +34,8 @@ Här är några av uppgifterna:
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du vill följa självstudiekursen behöver du en prenumerationsnyckel för API för anpassad Bing-sökning.  Skapa [en anpassad sökresurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) för Bing i Azure-portalen för att hämta en nyckel. Du kan också använda en [testnyckel](https://azure.microsoft.com/try/cognitive-services).
-- Om du inte redan har Installerat Visual Studio 2017 eller senare kan du ladda ned och använda den **kostnadsfria** [Visual Studio 2019 Community Edition.](https://www.visualstudio.com/downloads/)
+- Om du vill följa självstudiekursen behöver du en prenumerationsnyckel för API för anpassad Bing-sökning.  Om du vill hämta en nyckel [skapar du en anpassad sökning i Bing resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) i Azure Portal. Du kan också använda en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services).
+- Om du inte redan har installerat Visual Studio 2017 eller senare kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-custom-search-instance"></a>Skapa en anpassad sökinstans
 
@@ -45,9 +45,9 @@ Så här skapar du en instans för anpassad sökning i Bing:
   
 2. Navigera till den anpassade sökningens [portal](https://customsearch.ai).  
   
-3. Logga in på portalen med ett Microsoft-konto (MSA). Om du inte har någon MSA klickar du på **Skapa ett Microsoft-konto**. Om det är första gången du använder portalen ber den om behörighet att komma åt dina data. Klicka på **Ja**.  
+3. Logga in på portalen med ett Microsoft-konto (MSA). Om du inte har en MSA klickar du på **skapa en Microsoft-konto**. Om det är första gången du använder portalen uppmanas du att ha behörighet att komma åt dina data. Klicka på **Ja**.  
   
-4. När du har loggat in klickar du på **Ny anpassad sökning**. I fönstret **Skapa en ny anpassad sökinstans** anger du ett namn som är meningsfullt och beskriver vilken typ av innehåll sökningen returnerar. Du kan ändra namnet när som helst.  
+4. När du har loggat in klickar du på **Ny anpassad sökning**. I fönstret **skapa en ny anpassad Sök instans** anger du ett namn som är meningsfullt och beskriver vilken typ av innehåll sökningen returnerar. Du kan ändra namnet när som helst.  
   
    ![Skärmbild för rutan Skapa en ny anpassad sökinstans](../media/newCustomSrch.png)  
   
@@ -79,7 +79,7 @@ Om du vill utesluta resultat från vissa webbplatser eller webbadresser kan du l
 
 ## <a name="add-pinned-entries"></a>Lägga till fästa poster
 
-Om du vill fästa en viss webbsida högst upp i sökresultaten lägger du till webbsidan och frågetermen på fliken **Fäst.** Fliken **Fäst** innehåller en lista över webbsida- och frågetermpar som anger webbsidan som visas som det bästa resultatet för en viss fråga. Webbsidan fästs endast om användarens frågesträng matchar stiftets frågesträng baserat på pinns matchningsvillkor. Endast indexerade webbplatser visas i sökningar. Mer information finns i avsnittet om att [definierar en anpassad vy](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
+Lägg till webb sidan och fråge termen till den **fästa** fliken om du vill fästa en speciell webb sida överst i Sök resultaten. Den **fästa** fliken innehåller en lista över webb sidor och frågetermer som anger den webb sida som visas som det främsta resultatet för en speciell fråga. Webb sidan är endast fixerad om användarens frågesträng matchar PIN-kodens frågesträng baserat på PIN-koden match. Endast indexerade webbplatser visas i sökningar. Mer information finns i avsnittet om att [definierar en anpassad vy](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
 
 1. På sidan **Konfiguration** klickar du på den **fästa** fliken och anger webbsidan och frågetermen för den webbsida som du vill ska returneras som ett översta resultat.  
   

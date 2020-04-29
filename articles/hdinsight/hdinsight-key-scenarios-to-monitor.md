@@ -1,6 +1,6 @@
 ---
-title: Övervaka klusterprestanda – Azure HDInsight
-description: Så här övervakar du hälso- och prestanda för Apache Hadoop-kluster i Azure HDInsight.
+title: Övervaka kluster prestanda – Azure HDInsight
+description: Övervaka hälso tillstånd och prestanda för Apache Hadoop kluster i Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,123 +9,123 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
 ms.openlocfilehash: 75ac5a7fc352f877573d79a004d8da761c6f1cef
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79082888"
 ---
-# <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Övervaka klusterprestanda i Azure HDInsight
+# <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Övervaka kluster prestanda i Azure HDInsight
 
-Övervakning av hälsa och prestanda för ett HDInsight-kluster är viktigt för att upprätthålla optimal prestanda och resursutnyttjande. Övervakning kan också hjälpa dig att identifiera och åtgärda klusterkonfigurationsfel och problem med användarkod.
+Övervakning av hälso tillstånd och prestanda för ett HDInsight-kluster är viktigt för att upprätthålla optimal prestanda och resursutnyttjande. Övervakningen kan också hjälpa dig att identifiera och lösa kluster konfigurations fel och användar kod problem.
 
-I följande avsnitt beskrivs hur du övervakar och optimerar belastningen på dina kluster, Apache Hadoop YARN-köer och identifierar problem med lagringsbegränsning.
+I följande avsnitt beskrivs hur du övervakar och optimerar belastningen på dina kluster, Apache Hadoop garn köer och identifiera problem med lagrings begränsning.
 
-## <a name="monitor-cluster-load"></a>Belastning på kluster för övervakare
+## <a name="monitor-cluster-load"></a>Övervaka kluster belastning
 
-Hadoop-kluster kan leverera den mest optimala prestandan när belastningen på klustret är jämnt fördelad över alla noder. Detta gör att bearbetningsaktiviteterna kan köras utan att begränsas av RAM-, CPU- eller diskresurser på enskilda noder.
+Hadoop-kluster kan ge optimala prestanda när belastningen på klustret är jämnt fördelad på alla noder. Detta gör att bearbetnings aktiviteter kan köras utan att begränsas av RAM-, processor-eller disk resurser på enskilda noder.
 
-Om du vill få en hög nivå titta på noderna i klustret och deras inläsning, logga in på [Ambari Web UI](hdinsight-hadoop-manage-ambari.md)och välj sedan fliken **Värdar.** Dina värdar listas med deras fullständigt kvalificerade domännamn. Varje värdens driftstatus visas med en färgad hälsoindikator:
+För att få en överblick på noderna i klustret och deras inläsningar loggar du in på [Ambari-WEBBgränssnittet](hdinsight-hadoop-manage-ambari.md)och väljer sedan fliken **värdar** . Dina värdar visas i listan med sina fullständigt kvalificerade domän namn. Varje värds drift status visas med en färgad hälso indikator:
 
-| Color | Beskrivning |
+| Färg | Beskrivning |
 | --- | --- |
-| Röd | Minst en huvudkomponent på värden är nere. Hovra för att se ett verktygstips som visar berörda komponenter. |
-| Orange | Minst en sekundär komponent på värden är nere. Hovra för att se ett verktygstips som visar berörda komponenter. |
-| Gul | Ambari Server har inte fått ett hjärtslag från värden i mer än 3 minuter. |
-| Grön | Normalt körtillstånd. |
+| Röd | Minst en huvud komponent på värden är inte tillgänglig. Hovra för att se en knapp beskrivning som visar påverkade komponenter. |
+| Orange | Minst en sekundär komponent på värden är avstängd. Hovra för att se en knapp beskrivning som visar påverkade komponenter. |
+| Gul | Ambari-servern har inte tagit emot något pulsslag från värden i mer än 3 minuter. |
+| Grön | Normalt kör tillstånd. |
 
-Du ser också kolumner som visar antalet kärnor och mängden RAM-minne för varje värd och diskanvändning och inläsningsgenomsnitt.
+Du ser också kolumner som visar antalet kärnor och mängden RAM-minne för varje värd, samt disk användning och belastnings medelvärde.
 
-![Apache Ambari värdar flik översikt](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
+![Fliken Apache Ambari-värdar – översikt](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
 
-Välj något av värdnamnen för en detaljerad titt på komponenter som körs på den värden och deras mått. Måtten visas som en valbar tidslinje för CPU-användning, belastning, diskanvändning, minnesanvändning, nätverksanvändning och antal processer.
+Välj något av värd namnen för en detaljerad titt på komponenter som körs på värden och deras mått. Måtten visas som en valbar tids linje för processor användning, belastning, disk användning, minnes användning, nätverks användning och antal processer.
 
-![Apache Ambari värdinformation översikt](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
+![Översikt över Apache Ambari-värd information](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
 
-Se [Hantera HDInsight-kluster med hjälp av webbgränssnittet i Apache Ambari](hdinsight-hadoop-manage-ambari.md) för mer information om hur du ställer in aviseringar och visningsmått.
+Se [Hantera HDInsight-kluster med hjälp av Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) för information om att ställa in aviseringar och visa mått.
 
-## <a name="yarn-queue-configuration"></a>GARN-kökonfiguration
+## <a name="yarn-queue-configuration"></a>Konfiguration av garn kön
 
-Hadoop har olika tjänster som körs över sin distribuerade plattform. YARN (Yet Another Resource Negotiator) samordnar dessa tjänster och allokerar klusterresurser för att säkerställa att all belastning fördelas jämnt över klustret.
+Hadoop har olika tjänster som körs över sin distribuerade plattform. GARN (ännu en annan resurs Negotiator) samordnar dessa tjänster och allokerar kluster resurser för att säkerställa att all belastning är jämnt fördelad i klustret.
 
-YARN delar upp de två ansvarsområdena för JobTracker, resurshantering och finplanering/övervakning, i två daemons: en global Resource Manager och en ApplicationMaster (AM) per program.
+GARN delar upp de två ansvars områdena för JobTracker, resurs hantering och schemaläggning av jobb i två daemoner: en global Resource Manager och en ApplicationMaster per program (AM).
 
-Resurshanteraren är en *ren schemaläggare*och avlar endast tillgängliga resurser mellan alla konkurrerande program. Resurshanteraren ser till att alla resurser alltid används, optimera för olika konstanter som SLA, kapacitetsgarantier och så vidare. ApplicationMaster förhandlar om resurser från Resurshanteraren och arbetar med NodeManager(s) för att köra och övervaka behållarna och deras resursförbrukning.
+Resource Manager är en *ren Scheduler*och endast arbitrates tillgängliga resurser mellan alla konkurrerande program. Resource Manager säkerställer att alla resurser alltid används, optimerar för olika konstanter, till exempel service avtal, kapacitets garantier och så vidare. ApplicationMaster förhandlar resurser från Resource Manager och fungerar med NodeManager (s) för att köra och övervaka behållarna och deras resursförbrukning.
 
-När flera klienter delar ett stort kluster finns det konkurrens om klustrets resurser. CapacityScheduler är en pluggbar schemaläggare som hjälper till med resursdelning genom att köa begäranden. CapacityScheduler stöder också *hierarkiska köer* för att säkerställa att resurser delas mellan underköerna i en organisation, innan andra program köer tillåts använda lediga resurser.
+När flera klienter delar ett stort kluster finns det konkurrens för klustrets resurser. CapacityScheduler är en anslutnings plan som hjälper till resurs delning genom att köa begär Anden. CapacityScheduler stöder också *hierarkiska köer* för att säkerställa att resurserna delas mellan under köerna i en organisation, innan köer för andra program tillåts använda kostnads fria resurser.
 
-YARN tillåter oss att allokera resurser till dessa köer och visar dig om alla dina tillgängliga resurser har tilldelats. Om du vill visa information om dina köer loggar du in på webbgränssnittet i Ambari och väljer sedan **YARN Queue Manager** på den övre menyn.
+GARN gör att vi kan allokera resurser till dessa köer och visar om alla dina tillgängliga resurser har tilldelats. Om du vill visa information om dina köer loggar du in på Ambari-webbgränssnittet och väljer sedan **garn Queue Manager** på den översta menyn.
 
-![Apache Ambari GARN Köhanterare](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
+![Apache Ambari garn Queue Manager](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
 
-Sidan YARN Queue Manager visar en lista över dina köer till vänster, tillsammans med den procentandel av kapaciteten som tilldelats var och en.
+Sidan garn Queue Manager visar en lista över dina köer till vänster, tillsammans med den procent andel av kapaciteten som tilldelats var och en.
 
-![Informationssida för YARN Queue Manager](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
+![Informations sida för garn Queue Manager](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
 
-För en mer detaljerad titt på dina köer, från Ambari-instrumentpanelen, välj **YARN-tjänsten** från listan till vänster. Välj sedan **Ui för Resurshanteraren** under den aktiva noden under den rullgardinsmenyn **Snabblänkar.**
+Om du vill ha en mer detaljerad titt på dina köer går du till Ambari-instrumentpanelen och väljer **garn** tjänsten i listan till vänster. Sedan väljer du **Resource Manager-gränssnitt** under den aktiva noden under List menyn **snabb länkar** .
 
-![Gränssnittsmenylänkar för Resurshanteraren](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
+![Länkar till Resource Manager-webbgränssnitt](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
 
-Välj **Scheduler** på menyn Resurshanteraren. Du ser en lista över dina köer under *Programköer*. Här kan du se kapaciteten som används för var och en av dina köer, hur väl jobben fördelas mellan dem och om några jobb är resursbegränsade.
+I Resource Manager-ANVÄNDARGRÄNSSNITTET väljer du **Scheduler** på menyn till vänster. Du ser en lista över dina köer under *program köer*. Här kan du se kapaciteten som används för var och en av dina köer, hur väl jobben distribueras mellan dem och om några jobb är resurs begränsningar.
 
-![Menyn Apache HAdoop Resource Manager-gränssnitt](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Användar gränssnitts menyn Apache HAdoop Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
-## <a name="storage-throttling"></a>Begränsning av lagring
+## <a name="storage-throttling"></a>Lagrings begränsning
 
-Ett klusters flaskhals kan inträffa på lagringsnivå. Den här typen av flaskhals beror oftast på *att blockera* IO-åtgärder (Input/Output), vilket inträffar när dina pågående uppgifter skickar mer IO än vad lagringstjänsten kan hantera. Den här blockeringen skapar en kö med IO-begäranden som väntar på att bearbetas tills aktuella IOs har bearbetats. Blocken är på grund av *lagringsbegränsning*, vilket inte är en fysisk gräns, utan snarare en gräns som läggs ut av lagringstjänsten av ett servicenivåavtal (SLA). Den här gränsen säkerställer att ingen enskild klient eller klient kan monopolisera tjänsten. SLA begränsar antalet IOs per sekund (IOPS) för Azure Storage - för mer information, se [Skalbarhet och prestandamål för standardlagringskonton](../storage/common/scalability-targets-standard-account.md).
+Ett klusters prestanda Flask hals kan ske på lagrings nivå. Den här typen av flask hals är oftast på grund av *spärrning* av indata/utdata (i/o)-åtgärder, vilket sker när dina pågående aktiviteter skickar mer i/o än lagrings tjänsten kan hantera. Den här blockeringen skapar en kö med IO-begäranden som väntar på att bearbetas tills aktuell IOs har bearbetats. Blocken är på grund av *lagrings begränsning*, som inte är en fysisk gräns, utan i stället en gräns som har angetts av lagrings tjänsten med ett service avtal (SLA). Den här gränsen säkerställer att ingen enskild klient eller klient organisation kan monopolisera tjänsten. SLA begränsar antalet IOs per sekund (IOPS) för Azure Storage – mer information finns i [skalbarhets-och prestanda mål för standard lagrings konton](../storage/common/scalability-targets-standard-account.md).
 
-Om du använder Azure Storage finns information om hur du övervakar lagringsrelaterade problem, inklusive begränsning, [övervakar, diagnostiserar och felsöker Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
+Om du använder Azure Storage, för information om övervakning av lagrings problem, inklusive begränsning, se [övervaka, diagnostisera och felsök Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
 
-Om klustrets säkerhetskopieringslager är Azure Data Lake Storage (ADLS) beror begränsningen troligen på bandbreddsbegränsningar. Begränsning i det här fallet kan identifieras genom att observera begränsningsfel i aktivitetsloggar. För ADLS finns i begränsningsavsnittet för rätt tjänst i följande artiklar:
+Om klustrets lagrings plats är Azure Data Lake Storage (ADLS) är din begränsning förmodligen förmodligen på grund av bandbredds gränserna. Du kan identifiera begränsningen i det här fallet genom att iaktta begränsnings fel i aktivitets loggarna. Information om ADLS finns i avsnittet begränsning för lämplig tjänst i de här artiklarna:
 
-* [Vägledning för prestandajustering för Apache Hive på HDInsight och Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-hive.md)
-* [Vägledning för prestandajustering för MapReduce på HDInsight och Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
-* [Vägledning för prestandajustering för Apache Storm på HDInsight och Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-storm.md)
+* [Vägledning för prestanda justering för Apache Hive på HDInsight och Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-hive.md)
+* [Vägledning för prestanda justering för MapReduce på HDInsight och Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
+* [Vägledning för prestanda justering för Apache Storm på HDInsight och Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
-## <a name="troubleshoot-sluggish-node-performance"></a>Felsöka prestanda för trög nod
+## <a name="troubleshoot-sluggish-node-performance"></a>Felsöka långsamt-Nodens prestanda
 
-I vissa fall kan tröghet uppstå på grund av lågt diskutrymme i klustret. Undersök med följande steg:
+I vissa fall kan sluggishness uppstå på grund av för lite disk utrymme på klustret. Undersök med följande steg:
 
-1. Använd [kommandot ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) för att ansluta till var och en av noderna.
+1. Använd [SSH-kommandot](./hdinsight-hadoop-linux-use-ssh-unix.md) för att ansluta till var och en av noderna.
 
-1. Kontrollera diskanvändningen genom att köra något av följande kommandon:
+1. Kontrol lera disk användningen genom att köra något av följande kommandon:
 
     ```bash
     df -h
     du -h --max-depth=1 / | sort -h
     ```
 
-1. Granska utdata och kontrollera om det finns `mnt` några stora filer i mappen eller andra mappar. Mapparna `usercache`, `appcache` och (mnt/resource/hadoop/yarn/local/usercache/hive/appcache/) innehåller vanligtvis stora filer.
+1. Granska utdata och Sök efter eventuella stora filer i `mnt` mappen eller andra mappar. `usercache`Normalt innehåller mapparna och `appcache` (mnt/Resource/Hadoop/garn/Local/usercache/Hive/APPCACHE/) stora filer.
 
-1. Om det finns stora filer orsakar antingen ett aktuellt jobb filtillväxten eller så kan ett misslyckat tidigare jobb ha bidragit till problemet. Om du vill kontrollera om det här beteendet orsakas av ett aktuellt jobb kör du följande kommando:
+1. Om det finns stora filer, orsakar antingen ett aktuellt jobb att fil tillväxten eller ett misslyckat tidigare jobb har bidragit till det här problemet. Om du vill kontrol lera om det här beteendet orsakas av ett aktuellt jobb kör du följande kommando:
 
     ```bash
     sudo du -h --max-depth=1 /mnt/resource/hadoop/yarn/local/usercache/hive/appcache/
     ```
 
-1. Om det här kommandot anger ett visst jobb kan du välja att avsluta jobbet med hjälp av ett kommando som liknar följande:
+1. Om det här kommandot indikerar ett jobb kan du välja att avsluta jobbet genom att använda ett kommando som liknar följande:
 
     ```bash
     yarn application -kill -applicationId <application_id>
     ```
 
-    Ersätt `application_id` med program-ID: et. Om inga specifika jobb anges går du till nästa steg.
+    Ersätt `application_id` med program-ID: t. Om inga angivna jobb anges går du till nästa steg.
 
-1. När kommandot ovan är klart, eller om inga specifika jobb anges, tar du bort de stora filer som du har identifierat genom att köra ett kommando som liknar följande:
+1. När kommandot ovan har slutförts, eller om det inte finns några angivna jobb, tar du bort de stora filerna som du identifierade genom att köra ett kommando som liknar följande:
 
     ```bash
     rm -rf filecache usercache
     ```
 
-Mer information om problem med diskutrymme finns i [Slut på diskutrymme](./hadoop/hdinsight-troubleshoot-out-disk-space.md).
+Mer information om problem med disk utrymme finns i [slut på disk utrymme](./hadoop/hdinsight-troubleshoot-out-disk-space.md).
 
 > [!NOTE]  
-> Om du har stora filer som du vill behålla men bidrar till problemet med det låga diskutrymmet måste du skala upp HDInsight-klustret och starta om tjänsterna. När du har slutfört den här proceduren och vänta några minuter kommer du att märka att lagringen frigörs och nodens vanliga prestanda återställs.
+> Om du har stora filer som du vill behålla men bidrar till problem med låg disk utrymme måste du skala upp ditt HDInsight-kluster och starta om tjänsterna. När du har slutfört den här proceduren och väntat några minuter, ser du att lagrings utrymmet frigörs och att nodens normala prestanda återställs.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Besök följande länkar om du vill ha mer information om felsökning och övervakning av kluster:
+Besök följande länkar om du vill ha mer information om hur du felsöker och övervakar dina kluster:
 
 * [Analysera HDInsight-loggar](hdinsight-debug-jobs.md)
-* [Felsöka appar med Apache Hadoop YARN-loggar](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Aktivera heap dumpar för Apache Hadoop tjänster på Linux-baserade HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Felsöka appar med Apache Hadoop garn loggar](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Aktivera heap-dum par för Apache Hadoop tjänster på Linux-baserade HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

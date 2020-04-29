@@ -1,6 +1,6 @@
 ---
-title: Flytta resurser som är associerade med en underhållskonfiguration till en annan region
-description: Lär dig hur du flyttar resurser som är associerade med en vm-underhållskonfiguration till en annan Azure-region
+title: Flytta resurser som är associerade med en underhålls konfiguration till en annan region
+description: Lär dig hur du flyttar resurser som är associerade med en konfiguration för underhåll av virtuella datorer till en annan Azure-region
 services: virtual-machines
 author: shants123
 ms.service: virtual-machines
@@ -9,49 +9,49 @@ ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
 ms.author: shants
 ms.openlocfilehash: 3e271e2467b495e79a93ce5eab5edee36e65e619
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78304451"
 ---
-# <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>Flytta resurser i en underhållskontrollkonfiguration till en annan region
+# <a name="move-resources-in-a-maintenance-control-configuration-to-another-region"></a>Flytta resurser i en underhålls kontroll konfiguration till en annan region
 
-Följ den här artikeln om du vill flytta resurser som är associerade med en underhållskontrollkonfiguration till en annan Azure-region. Du kanske vill flytta en konfiguration av flera skäl. Om du till exempel vill dra nytta av en ny region, distribuera funktioner eller tjänster som är tillgängliga i en viss region, för att uppfylla interna princip- och styrningskrav eller som svar på kapacitetsplanering.
+Följ den här artikeln för att flytta resurser som är associerade med en underhålls kontroll konfiguration till en annan Azure-region. Du kanske vill flytta en konfiguration av flera skäl. Till exempel för att dra nytta av en ny region, för att distribuera funktioner eller tjänster som är tillgängliga i en bestämd region, för att uppfylla interna principer och styrnings krav, eller som svar på kapacitets planeringen.
 
-Med underhållskontroll, med anpassade underhållskonfigurationer, kan du styra hur plattformsuppdateringar tillämpas på [virtuella Datorer](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) för Windows och [Linux](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Flinux%2Fbreadcrumb%2Ftoc.json&view=azure-java-stable) och på Azure Dedicated Hosts. Det finns ett par scenarier för att flytta underhållskontroll över regioner:
+Med underhålls kontroll, med anpassade underhålls konfigurationer, kan du styra hur plattforms uppdateringar tillämpas på virtuella [Windows](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) -och [Linux](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Flinux%2Fbreadcrumb%2Ftoc.json&view=azure-java-stable) -datorer och till Azure-dedikerade värdar. Det finns ett par scenarier för att flytta underhålls kontroll över flera regioner:
 
-- Om du vill flytta de resurser som är associerade med en underhållskonfiguration, men inte själva konfigurationen, följer du den här artikeln.
-- Om du vill flytta konfigurationen för underhållskontroll, men inte de resurser som är associerade med konfigurationen, följer du [dessa instruktioner](move-region-maintenance-configuration.md).
-- Om du vill flytta både underhållskonfigurationen och de resurser som är associerade med den följer du först [dessa instruktioner](move-region-maintenance-configuration.md). Följ sedan instruktionerna i den här artikeln.
+- Om du vill flytta resurserna som är kopplade till en underhålls konfiguration, men inte själva konfigurationen, följer du den här artikeln.
+- Följ [dessa instruktioner](move-region-maintenance-configuration.md)om du vill flytta din konfiguration för underhålls kontroll, men inte de resurser som är associerade med konfigurationen.
+- Följ [dessa instruktioner](move-region-maintenance-configuration.md)för att flytta både underhålls konfigurationen och de resurser som är kopplade till den. Följ sedan instruktionerna i den här artikeln.
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar flytta de resurser som är associerade med en underhållskontrollkonfiguration:
+Innan du börjar flytta resurserna som är associerade med en underhålls kontroll konfiguration:
 
-- Kontrollera att de resurser du flyttar finns i den nya regionen innan du börjar.
-- Verifiera underhållskontrollkonfigurationerna som är associerade med virtuella Azure-datorer och Azure-dedikerade värdar som du vill flytta. Kontrollera varje resurs individuellt. Det finns för närvarande inget sätt att hämta konfigurationer för flera resurser.
+- Kontrol lera att de resurser du flyttar finns i den nya regionen innan du börjar.
+- Verifiera de konfigurationer för underhålls kontroll som är kopplade till de virtuella Azure-datorer och Azure-dedikerade värdar som du vill flytta. Kontrol lera varje resurs individuellt. Det finns för närvarande inget sätt att hämta konfigurationer för flera resurser.
 - När du hämtar konfigurationer för en resurs:
-    - Se till att du använder prenumerations-ID för kontot, inte ett Azure Dedicated Host ID.
-    - CLI: Parametern --output-tabell används endast för läsbarhet och kan tas bort eller ändras.
-    - PowerShell: Parametern Format-Table Name används endast för läsbarhet och kan tas bort eller ändras.
-    - Om du använder PowerShell får du ett felmeddelande om du försöker lista konfigurationer för en resurs som inte har några associerade konfigurationer. Felet kommer att likna: "Åtgärden misslyckades med status: 'Hittades inte'. Detaljer: 404 Klientfel: Hittades inte för url".
+    - Se till att du använder prenumerations-ID för kontot, inte ett dedikerat värd-ID för Azure.
+    - CLI: tabell parametern--output används endast för läsbarhet och kan tas bort eller ändras.
+    - PowerShell: formatet-tabellens namn parameter används endast för läsbarhet och kan tas bort eller ändras.
+    - Om du använder PowerShell får du ett fel meddelande om du försöker visa konfigurationer för en resurs som inte har några associerade konfigurationer. Felet ser ut ungefär så här: "åtgärden misslyckades med status:" hittades inte ". Information: 404-klient fel: hittades inte för URL: en.
 
     
-## <a name="prepare-to-move"></a>Förbered att flytta
+## <a name="prepare-to-move"></a>Förbered för att flytta
 
-1. Innan du börjar definierar du dessa variabler. Vi har föregått med gott exempel för var och en.
+1. Definiera dessa variabler innan du börjar. Vi har angett ett exempel för var och en.
 
-    **Variabel** | **Detaljer** | **Exempel**
+    **Variabel** | **Information** | **Exempel**
     --- | ---
-    $subId | ID för prenumeration som innehåller underhållskonfigurationer | "vårt prenumerations-ID"
-    $rsrcGroupName | Namn på resursgrupp (Azure VM) | "VMResourceGroup"
-    $vmName | VM-resursnamn |  "myVM"
-    $adhRsrcGroupName |  Resursgrupp (dedikerade värdar) | "HostResourceGroup"
-    $adh | Dedikerat värdnamn | "myHost"
-    $adhParentName | Överordnat resursnamn | "Värdgrupp"
+    $subId | ID för prenumerationen som innehåller underhålls konfigurationerna | "vår-Subscription-ID"
+    $rsrcGroupName | Resurs grupps namn (virtuell Azure-dator) | "VMResourceGroup"
+    $vmName | Namn på virtuell dator resurs |  MyVM
+    $adhRsrcGroupName |  Resurs grupp (dedikerade värdar) | "HostResourceGroup"
+    $adh | Dedikerat värdnamn | "värd"
+    $adhParentName | Överordnat resurs namn | HostGroup
     
-2. Så här hämtar du underhållskonfigurationerna med kommandot PowerShell [Get-AZConfigurationAssignment:](https://docs.microsoft.com/powershell/module/az.maintenance/Get-AzConfigurationAssignment?view=azps-3.5.0)
+2. Hämta underhålls konfigurationerna med PowerShell [Get-AZConfigurationAssignment](https://docs.microsoft.com/powershell/module/az.maintenance/Get-AzConfigurationAssignment?view=azps-3.5.0) -kommandot:
 
     - För Azure-dedikerade värdar kör du:
         ```
@@ -63,7 +63,7 @@ Innan du börjar flytta de resurser som är associerade med en underhållskontro
         ```
         Get-AzConfigurationAssignment -ResourceGroupName $rgName -ResourceName $vmName -ProviderName Microsoft.Compute -ResourceType virtualMachines | Format-Table Name
         ```
-3. Så här hämtar du underhållskonfigurationerna med kommandot CLI [az maintenance assignment:](https://docs.microsoft.com/cli/azure/ext/maintenance/maintenance/assignment?view=azure-cli-latest)
+3. Hämta underhålls konfigurationerna med kommandot CLI- [AZ underhålls tilldelning](https://docs.microsoft.com/cli/azure/ext/maintenance/maintenance/assignment?view=azure-cli-latest) :
 
     - För Azure-dedikerade värdar:
 
@@ -80,19 +80,19 @@ Innan du börjar flytta de resurser som är associerade med en underhållskontro
 
 ## <a name="move"></a>Flytta 
 
-1. [Följ dessa instruktioner](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) för att flytta virtuella Azure-datorer till den nya regionen.
-2. När resurserna har flyttats, tillämpa underhållskonfigurationer på nytt till resurserna i den nya regionen efter behov, beroende på om du har flyttat underhållskonfigurationerna. Du kan använda en underhållskonfiguration på en resurs med [PowerShell](../virtual-machines/maintenance-control-powershell.md) eller [CLI](../virtual-machines/maintenance-control-cli.md).
+1. [Följ de här anvisningarna](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) för att flytta de virtuella Azure-datorerna till den nya regionen.
+2. När resurserna har flyttats tillämpar du underhålls konfigurationerna på resurserna i den nya regionen efter behov, beroende på om du flyttade underhålls konfigurationerna. Du kan använda en underhålls konfiguration för en resurs med hjälp av [PowerShell](../virtual-machines/maintenance-control-powershell.md) eller [CLI](../virtual-machines/maintenance-control-cli.md).
 
 
 ## <a name="verify-the-move"></a>Verifiera flytten
 
-Verifiera resurser i den nya regionen och verifiera associerade konfigurationer för resurserna i den nya regionen. 
+Verifiera resurserna i den nya regionen och kontrol lera de associerade konfigurationerna för resurserna i den nya regionen. 
 
-## <a name="clean-up-source-resources"></a>Rensa källresurser
+## <a name="clean-up-source-resources"></a>Rensa käll resurser
 
-Efter flytten bör du överväga att ta bort de flyttade resurserna i källregionen.
+Överväg att ta bort de flyttade resurserna i käll regionen efter flytten.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följ [dessa instruktioner](move-region-maintenance-configuration.md) om du behöver flytta underhållskonfigurationer. 
+Följ [dessa anvisningar](move-region-maintenance-configuration.md) om du behöver flytta underhålls konfigurationerna. 

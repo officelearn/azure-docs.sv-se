@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Skapa en ensidig webbapp med API:et för sökning av Bing-nyheter'
+title: 'Självstudie: skapa en webbapp på en sida med hjälp av API för nyhetssökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Använd den här självstudien för att skapa ett enkelsidigt program som kan skicka sökfrågor till API:et för nyhetssökning i Bing och visa resultaten på webbsidan.
 services: cognitive-services
@@ -12,15 +12,15 @@ ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 801bfcf02174c5dd98d4c7231c674299ef411aff
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78943122"
 ---
-# <a name="tutorial-create-a-single-page-web-app"></a>Självstudiekurs: Skapa en ensidig webbapp
+# <a name="tutorial-create-a-single-page-web-app"></a>Självstudie: skapa en webbapp med en sida
 
-Med API för nyhetssökning i Bing kan du söka på webben och få resultat av nyhetstyp som är relevanta för en sökfråga. I den här självstudien skapar vi ett enkelsidigt program som använder API för nyhetssökning i Bing för att visa sökresultat på sidan. Programmet innehåller komponenterna HTML, CSS och JavaScript. Källkoden för det här exemplet är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html).
+Med API för nyhetssökning i Bing kan du söka på webben och få resultat av nyhetstyp som är relevanta för en sökfråga. I den här självstudien skapar vi ett enkelsidigt program som använder API för nyhetssökning i Bing för att visa sökresultat på sidan. Programmet innehåller komponenterna HTML, CSS och JavaScript. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingNewsSearchApp.html).
 
 <!-- Remove until we can replace it with sanitized copy
 ![Single-page Bing News Search app](media/news-search-singlepage.png)
@@ -43,7 +43,7 @@ Självstudiesidan är helt självständigt. Den använder inte några externa ra
 
 ## <a name="prerequisites"></a>Krav
 
-För att följa med i självstudien behöver du prenumerationsnycklar för API:et för Bing-sökning. Om du inte har dem kan du använda en [testversionsnyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) och en [grundläggande Bing Maps-nyckel](https://www.microsoft.com/maps/create-a-bing-maps-key).
+Om du vill följa med i själv studie kursen behöver du prenumerations nycklar för Bing-sökning-API: et. Om du inte har dem kan du använda en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) och en [enkel Bing Maps-nyckel](https://www.microsoft.com/maps/create-a-bing-maps-key).
 
 
 ## <a name="app-components"></a>Appkomponenter
@@ -67,7 +67,7 @@ HTML-koden innehåller också avdelningar (HTML `<div>`-taggar) där sökresulta
 
 För att undvika att lägga till prenumerationsnyckeln för API:et för Bing-sökning i koden använder vi webbläsarens beständiga lagring för att lagra nyckeln. Innan nyckeln lagras efterfrågar vi användarens nyckel. Om nyckeln senare avvisas av API:et ogiltigförklarar vi den lagrade nyckeln så att användaren tillfrågas igen.
 
-Vi definierar funktionerna `storeValue` och `retrieveValue` med antingen objektet `localStorage` (inte i alla webbläsare) eller en cookie. Funktionen `getSubscriptionKey()` använder dessa funktioner för att lagra och hämta användarens nyckel. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
+Vi definierar funktionerna `storeValue` och `retrieveValue` med antingen objektet `localStorage` (inte i alla webbläsare) eller en cookie. Funktionen `getSubscriptionKey()` använder dessa funktioner för att lagra och hämta användarens nyckel. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
 ``` javascript
 // Cookie names for data we store
@@ -403,7 +403,7 @@ Säkerhetsprinciper för webbläsaren (CORS) kan hindra att `X-MSEdge-ClientID`-
 > [!NOTE]
 > Du bör utföra begäran på serversidan i ett produktionsklart webbprogram. I annat fall måste API-nyckeln för Bing-sökning inkluderas i webbsidan där den är tillgänglig för alla som visar källan. Du debiteras för all användning under din API-prenumerationsnyckel, även begäranden som görs av obehöriga personer, så det är viktigt att inte exponera nyckeln.
 
-I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan `Access-Control-Expose-Headers` proxy har ett huvud som tillåter svarsrubriker och gör dem tillgängliga för JavaScript.
+I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers` huvud som tillåter svarshuvuden och gör dem tillgängliga för Java Script.
 
 Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando i ett kommandofönster:
 

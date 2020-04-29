@@ -1,6 +1,6 @@
 ---
-title: Windows 7 virtuella datorer Windows Virtual Desktop - Azure
-description: Så här löser du problem för virtuella Datorer med Windows 7 (VMs) i en Windows Virtual Desktop-miljö.
+title: Windows 7 Virtual Machines Windows Virtual Desktop – Azure
+description: Så här löser du problem med virtuella Windows 7-datorer (VM) i en Windows Virtual Desktop-miljö.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,41 +9,41 @@ ms.date: 09/23/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a2ff3f6fa9896e45ecd6ab40d40d46a046edf1cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79127388"
 ---
 # <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Felsöka en virtuell Windows 7-dator i Windows Virtual Desktop
 
-Använd den här artikeln för att felsöka problem som du har när du konfigurerar Windows Virtual Desktop-sessionen är värd för virtuella datorer .
+Använd den här artikeln för att felsöka problem som du har med när du konfigurerar virtuella Windows-sessioner för fjärrskrivbordssessioner värd för virtuella datorer (VM).
 
 ## <a name="known-issues"></a>Kända problem
 
-Windows 7 på virtuella skrivbord i Windows stöder inte följande funktioner:
+Windows 7 på virtuella Windows-datorer har inte stöd för följande funktioner:
 
-- Virtualiserade program (RemoteApps)
+- Virtualiserade program (RemoteAppar)
 - Omdirigering av tidszon
 - Automatisk DPI-skalning
 
-Windows Virtual Desktop kan bara virtualisera fullständiga skrivbord för Windows 7.
+Virtuella Windows-datorer kan bara virtualisera fullständiga skriv bord för Windows 7.
 
-Automatisk DPI-skalning stöds inte, men du kan manuellt ändra upplösningen på den virtuella datorn genom att högerklicka på ikonen i klienten för fjärrskrivbord och välja **Upplösning**.
+Även om automatisk DPI-skalning inte stöds, kan du manuellt ändra lösning på den virtuella datorn genom att högerklicka på ikonen i fjärr skrivbords klienten och välja **lösning**.
 
-## <a name="error-cant-access-the-remote-desktop-user-group"></a>Fel: Det går inte att komma åt användargruppen för fjärrskrivbord
+## <a name="error-cant-access-the-remote-desktop-user-group"></a>Fel: det går inte att komma åt användar gruppen fjärr skrivbord
 
-Om Windows Virtual Desktop inte hittar dig eller användarnas autentiseringsuppgifter i gruppen Fjärrskrivbordsanvändare kan något av följande felmeddelanden visas:
+Om det inte går att hitta dig eller dina användares autentiseringsuppgifter i det virtuella Windows-skrivbordet kan du se något av följande fel meddelanden:
 
-- "Den här användaren är inte medlem i gruppen Fjärrskrivbordsanvändare"
-- "Du måste ha behörighet att logga in via Fjärrskrivbordstjänster"
+- "Den här användaren är inte medlem i användar gruppen fjärr skrivbord"
+- "Du måste beviljas behörighet att logga in via Fjärrskrivbordstjänster"
 
-Lös det här felet genom att lägga till användaren i gruppen Användare av fjärrskrivbord:
+Du kan åtgärda det här felet genom att lägga till användaren i användar gruppen fjärr skrivbord:
 
 1. Öppna Azure Portal.
-2. Välj den virtuella datorn som du såg felmeddelandet på.
-3. Välj **Kör ett kommando**.
-4. Kör följande kommando `<username>` med namnet på den användare som du vill lägga till:
+2. Välj den virtuella dator som du såg fel meddelandet på.
+3. Välj **kör ett kommando**.
+4. Kör följande kommando och `<username>` Ersätt med namnet på den användare som du vill lägga till:
    
    ```cmd
    net localgroup "Remote Desktop Users" <username> /add

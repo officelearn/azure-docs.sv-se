@@ -1,140 +1,140 @@
 ---
 title: Översikt över ACR-uppgifter
-description: En introduktion till ACR-uppgifter, en uppsättning funktioner i Azure Container Registry som tillhandahåller säker, automatiserad containeravbildningsversion, hantering och korrigering i molnet.
+description: En introduktion till ACR-aktiviteter, en uppsättning funktioner i Azure Container Registry som tillhandahåller säker, automatiserad version av behållar avbildning, hantering och korrigeringar i molnet.
 ms.topic: article
 ms.date: 01/22/2020
 ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79087286"
 ---
-# <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatisera behållaravbildningsversioner och underhåll med ACR-uppgifter
+# <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatisera behållar avbildnings versioner och underhåll med ACR-uppgifter
 
-Behållare ger nya nivåer av virtualisering, isolera program- och utvecklarberoenden från infrastruktur- och driftskrav. Det som återstår är dock behovet av att ta itu med hur den här programvirtualiseringen hanteras och korrigeras över behållarens livscykel.
+Behållare tillhandahåller nya nivåer av virtualisering, isolera program-och utvecklings beroenden från infrastruktur och drifts krav. Vad som är kvar är dock behovet av att adressera hur den här programvirtualiseringen hanteras och korrigeras över livs cykeln för behållare.
 
 ## <a name="what-is-acr-tasks"></a>Vad är ACR-uppgifter?
 
-**ACR-uppgifter** är en uppsättning funktioner i Azure Container Registry. Det ger molnbaserad containeravbildningsuppbyggnad för [plattformar](#image-platforms) som Linux, Windows och ARM, och kan automatisera [OS och ramkorrigering](#automate-os-and-framework-patching) för dina Docker-behållare. ACR-uppgifter utökar inte bara din "inre loop" utvecklingscykel till molnet med behållarens avbildningsversioner på begäran, utan möjliggör också automatiserade versioner som utlöses av källkodsuppdateringar, uppdateringar av en behållares basavbildning eller timers. Med basavbildningsuppdateringsutlösare kan du till exempel automatisera arbetsflödet för os- och programramskorrigering, underhålla säkra miljöer samtidigt som du följer principerna för oföränderliga behållare.
+**ACR-aktiviteter** är en uppsättning funktioner i Azure Container Registry. Den innehåller molnbaserad behållar avbildnings avbildning för [plattformar](#image-platforms) , inklusive Linux, Windows och arm, och kan automatisera [uppdatering av operativ system och ramverk](#automate-os-and-framework-patching) för dina Docker-behållare. ACR-aktiviteter utökar inte bara din "inre loop"-utvecklings cykel till molnet med behållar avbildnings avbildningar på begäran, men aktiverar även automatiserade versioner som utlöses av käll kods uppdateringar, uppdateringar till en behållares bas avbildning eller timers. Med bas avbildnings uppdatering utlösare kan du till exempel automatisera arbets flödet för operativ system-och program ramverk, upprätthålla säkra miljöer samtidigt som principerna för ej skyddade behållare används.
 
-## <a name="task-scenarios"></a>Aktivitetsscenarier
+## <a name="task-scenarios"></a>Uppgifts scenarier
 
-ACR-uppgifter stöder flera scenarier för att skapa och underhålla behållaravbildningar och andra artefakter. Mer information finns i följande avsnitt i den här artikeln.
+ACR-aktiviteter stöder flera scenarier för att bygga och underhålla behållar avbildningar och andra artefakter. Mer information finns i följande avsnitt i den här artikeln.
 
-* **[Snabb uppgift](#quick-task)** - Skapa och skicka en enda behållaravbildning till ett behållarregister på begäran, i Azure, utan att behöva en lokal Docker Engine-installation. Tänk `docker build` `docker push` , i molnet.
-* **Automatiskt utlösta uppgifter** - Aktivera en eller flera *utlösare* för att skapa en avbildning:
-  * **[Utlösare vid uppdatering av källkod](#trigger-task-on-source-code-update)** 
-  * **[Utlösare vid basavbildningsuppdatering](#automate-os-and-framework-patching)** 
-  * **[Utlösare enligt ett schema](#schedule-a-task)** 
-* **[Flerstegsuppgift](#multi-step-tasks)** - Utöka acr-uppgifternas enhets- och push-kapacitet med flera steg, flera behållarbaserade arbetsflöden. 
+* **[Snabb uppgift](#quick-task)** – bygga och skicka en enda behållar avbildning till ett behållar register på begäran, i Azure, utan att behöva en lokal Docker-motor installation. Tänk `docker build`, `docker push` i molnet.
+* **Automatiskt utlöst uppgift** – aktivera en eller flera *utlösare* för att skapa en avbildning:
+  * **[Utlös vid uppdatering av käll kod](#trigger-task-on-source-code-update)** 
+  * **[Utlös vid uppdatering av bas avbildning](#automate-os-and-framework-patching)** 
+  * **[Utlös enligt ett schema](#schedule-a-task)** 
+* **[Aktivitet med flera steg](#multi-step-tasks)** – utöka funktionerna för att bygga och skicka ACR med flera steg, flera behållare baserade arbets flöden. 
 
-Varje ACR-aktivitet har en associerad [källkodskontext](#context-locations) - platsen för en uppsättning källfiler som används för att skapa en behållaravbildning eller annan artefakt. Exempel på kontexter är en Git-databas eller ett lokalt filsystem.
+Varje ACR-aktivitet har en associerad [käll kods kontext](#context-locations) – platsen för en uppsättning källfiler som används för att skapa en behållar avbildning eller en annan artefakt. Exempel på kontexter innehåller en git-lagringsplats eller ett lokalt fil system.
 
-Aktiviteter kan också dra nytta av [körningsvariabler](container-registry-tasks-reference-yaml.md#run-variables), så att du kan återanvända aktivitetsdefinitioner och standardisera taggar för bilder och artefakter.
+Aktiviteter kan också dra nytta av att [köra variabler](container-registry-tasks-reference-yaml.md#run-variables), så att du kan återanvända aktivitets definitioner och standardisera taggar för bilder och artefakter.
 
 ## <a name="quick-task"></a>Snabb uppgift
 
-Den inre kretsloppet utvecklingscykel, den iterativ processen att skriva kod, bygga och testa ditt program innan de bestämmer sig för källkontroll, är verkligen början på behållarens livscykelhantering.
+Utvecklings cykeln för inre slingor, den iterativa processen med att skriva kod, skapa och testa ditt program innan du börjar använda käll kontroll, är verkligen början av livs cykel hantering av behållare.
 
-Innan du genomför din första kodrad kan ACR-uppgifters [snabbuppgiftsfunktion](container-registry-tutorial-quick-task.md) ge en integrerad utvecklingsupplevelse genom att avlasta behållaravbildningsversionerna till Azure. Med snabba uppgifter kan du verifiera dina automatiska byggdefinitioner och fånga upp potentiella problem innan du bestämmer koden.
+Innan du genomför din första kodrad kan ACR-aktiviteternas [snabb uppgift](container-registry-tutorial-quick-task.md) tillhandahålla en integrerad utvecklings upplevelse genom att avlasta dina behållar avbildningar till Azure. Med snabb uppgifter kan du verifiera dina automatiserade versions definitioner och fånga eventuella problem innan du genomför din kod.
 
-Med hjälp `docker build` av det välbekanta formatet tar kommandot [az acr build][az-acr-build] i Azure CLI en [kontext](#context-locations) (uppsättningen filer att skapa), skickar den ACR-uppgifter och skickar som standard den inbyggda avbildningen till registret när den är klar.
+Med det välkända `docker build` formatet tar [AZ ACR build][az-acr-build] -kommandot i Azure CLI en [kontext](#context-locations) (uppsättningen filer som ska skapas), skickar ACR uppgifter och skickar som standard den inbyggda avbildningen till registret när den har slutförts.
 
-En introduktion finns i snabbstarten för att [skapa och köra en behållaravbildning](container-registry-quickstart-task-cli.md) i Azure Container Registry.  
+En introduktion finns i snabb starten för att [skapa och köra en behållar avbildning](container-registry-quickstart-task-cli.md) i Azure Container Registry.  
 
-ACR-uppgifter är utformade som en primitiv behållarelivscykel. Integrera till exempel ACR-uppgifter i ci/cd-lösningen. Genom att köra [az inloggning][az-login] med en [tjänst huvudnamn,][az-login-service-principal]din CI / CD-lösning kan sedan utfärda [az acr bygga][az-acr-build] kommandon för att sparka igång bild bygger.
+ACR-uppgifter är utformade som en primitiv container-livs cykel. Du kan till exempel integrera ACR-uppgifter i din CI/CD-lösning. Genom att köra [AZ-inloggning][az-login] med ett [huvud namn för tjänsten][az-login-service-principal]kan din CI/CD-lösning utfärda [AZ ACR build][az-acr-build] -kommandon för att starta avbildnings byggen.
 
-Lär dig hur du använder snabbuppgifter i den första acr-uppgiftsstudien, [Skapa behållaravbildningar i molnet med Azure Container Registry Tasks](container-registry-tutorial-quick-task.md).
+Lär dig hur du använder snabb uppgifter i den första självstudien för ACR-aktiviteter, [Bygg behållar avbildningar i molnet med Azure Container Registry uppgifter](container-registry-tutorial-quick-task.md).
 
 > [!TIP]
-> Om du vill skapa och skicka en avbildning direkt från källkoden, utan en Dockerfile, tillhandahåller Azure Container Registry kommandot [az acr pack build][az-acr-pack-build] (förhandsversion). Det här verktyget skapar och skickar en avbildning från programmets källkod med [Cloud Native Buildpacks](https://buildpacks.io/).
+> Om du vill bygga och skicka en avbildning direkt från käll koden utan en Dockerfile tillhandahåller Azure Container Registry [AZ ACR Pack build][az-acr-pack-build] -kommandot (för hands version). Verktyget skapar och skickar en avbildning från program käll koden med hjälp av [inbyggda Cloud-Buildpacks](https://buildpacks.io/).
 
-## <a name="trigger-task-on-source-code-update"></a>Utlösaruppgift för uppdatering av källkod
+## <a name="trigger-task-on-source-code-update"></a>Utlös aktivitet för uppdatering av käll kod
 
-Utlösa en behållaravbildningsversion eller flerstegsuppgift när koden har bekräftats, eller en pull-begäran görs eller uppdateras, till en offentlig eller privat Git-databas i GitHub eller Azure DevOps. Konfigurera till exempel en bygguppgift med Azure CLI-kommandot [az acr-uppgift skapa][az-acr-task-create] genom att ange en Git-databas och eventuellt en gren och Dockerfile. När gruppen uppdaterar koden i databasen utlöser en ACR-aktivitetsskapad webhook en version av behållaravbildningen som definierats i reporäntan. 
+Utlös en behållar avbildnings version eller flera stegs aktivitet när koden har genomförts eller en pull-begäran görs eller uppdateras till en offentlig eller privat git-lagringsplats i GitHub eller Azure DevOps. Du kan till exempel konfigurera en build-aktivitet med Azure CLI-kommandot [AZ ACR Task Create][az-acr-task-create] genom att ange en git-lagringsplats och eventuellt en gren och Dockerfile. När ditt team uppdaterar kod i databasen, utlöser en ACR webhook en version av behållar avbildningen som definieras i lagrings platsen. 
 
-ACR-uppgifter stöder följande utlösare när du anger en Git-repo som aktivitetens kontext:
+ACR-aktiviteter stöder följande utlösare när du anger en git-lagrings platsen som aktivitetens kontext:
 
 | Utlösare | Aktiverat som standard |
 | ------- | ------------------ |
 | Checka in | Ja |
-| Pull-begäran | Inga |
+| Pull-begäran | Nej |
 
-Om du vill konfigurera en utlösare för källkodsuppdatering måste du ange uppgiften en personlig åtkomsttoken (PAT) för att ange webhooken i den offentliga eller privata GitHub- eller Azure DevOps-repoen.
+Om du vill konfigurera en uppdaterings utlösare för käll koden måste du ange uppgiften en personlig åtkomsttoken (PAT) för att ställa in webhooken i den offentliga eller privata GitHub eller Azure DevOps lagrings platsen.
 
 > [!NOTE]
-> För närvarande stöder ACR-uppgifter inte utlösare för commit eller pull-begäran i GitHub Enterprise-repos.
+> För närvarande stöder ACR-aktiviteter inte utlösare för commit eller pull-begäranden i GitHub Enterprise databaser.
 
-Lär dig hur du utlöser versioner av källkodsförsetagande i den andra acr-uppgiftsstudien, [Automatisera behållaravbildningsversioner med Azure Container Registry Tasks](container-registry-tutorial-build-task.md).
+Lär dig hur du utlöser versioner av käll kods bekräftelse i självstudien för andra ACR uppgifter, [automatiserar behållar avbildnings avbildningar med Azure Container Registry uppgifter](container-registry-tutorial-build-task.md).
 
-## <a name="automate-os-and-framework-patching"></a>Automatisera os- och ramkorrigering
+## <a name="automate-os-and-framework-patching"></a>Automatisera korrigering av OS och ramverk
 
-Kraften i ACR-uppgifter för att verkligen förbättra din behållare bygga arbetsflöde kommer från dess förmåga att upptäcka en uppdatering till en *bas avbildning*. En funktion i de flesta behållaravbildningar, en basavbildning är en överordnad bild som en eller flera programavbildningar baseras på. Basavbildningar innehåller vanligtvis operativsystemet och ibland programramverk. 
+Kraften i ACR-aktiviteter för att verkligen förbättra arbets flödet för behållar bygget kommer från möjligheten att identifiera en uppdatering av en *bas avbildning*. En funktion i de flesta behållar avbildningar är en bas avbildning som är en överordnad avbildning som en eller flera program avbildningar baseras på. Bas avbildningar innehåller vanligt vis operativ systemet och ibland program ramverk. 
 
-Du kan ställa in en ACR-aktivitet för att spåra ett samband på en basavbildning när den skapar en programavbildning. När den uppdaterade basavbildningen flyttas till registret, eller om en basavbildning uppdateras i en offentlig repa, till exempel i Docker Hub, kan ACR-uppgifter automatiskt skapa programavbildningar baserat på den.
-Med den här automatiska identifieringen och ombyggnaden sparar ACR-uppgifter den tid och ansträngning som normalt krävs för att manuellt spåra och uppdatera varje programavbildning som refererar till den uppdaterade basavbildningen.
+Du kan ställa in en ACR-uppgift för att spåra ett beroende på en bas avbildning när den skapar en program avbildning. När den uppdaterade bas avbildningen skickas till ditt register, eller om en bas avbildning uppdateras i en offentlig lagrings platsen, t. ex. i Docker Hub, kan ACR-aktiviteter automatiskt bygga program avbildningar baserat på den.
+Med den här automatiska identifieringen och återuppbyggnaden sparar ACR-uppgifter den tid och ansträngning som normalt krävs för att manuellt spåra och uppdatera varje program avbildning som refererar till den uppdaterade bas avbildningen.
 
-Läs mer om utlösare för [basavbildningsuppdatering](container-registry-tasks-base-images.md) för ACR-uppgifter. Och lär dig hur du utlöser en avbildningsversion när en basavbildning skjuts till ett behållarregister i självstudien [Automatisera behållaravbildningsversioner när en basavbildning uppdateras i ett Azure-behållarregister](container-registry-tutorial-base-image-update.md)
+Lär dig mer om [uppdaterings utlösare för bas avbildningar](container-registry-tasks-base-images.md) för ACR-uppgifter. Och lär dig hur du utlöser en avbildnings version när en bas avbildning skickas till ett behållar register i guiden [Automatisera behållar avbildning som skapas när en bas avbildning uppdateras i ett Azure Container Registry](container-registry-tutorial-base-image-update.md)
 
 ## <a name="schedule-a-task"></a>Schemalägga en aktivitet
 
-Du kan också schemalägga en aktivitet genom att ställa in en eller flera *timerutlösare* när du skapar eller uppdaterar aktiviteten. Schemaläggning av en aktivitet är användbart för att köra behållararbetsbelastningar enligt ett definierat schema, eller köra underhållsåtgärder eller tester på avbildningar som regelbundet skjuts till registret. Mer information finns i [Köra en ACR-aktivitet enligt ett definierat schema](container-registry-tasks-scheduled.md).
+Du kan också schemalägga en aktivitet genom att ställa in en eller flera *timer-utlösare* när du skapar eller uppdaterar aktiviteten. Schemaläggning av en aktivitet är användbart för att köra arbets belastningar för behållare enligt ett definierat schema, eller köra underhålls åtgärder eller tester på avbildningar som skickas regelbundet till registret. Mer information finns i [köra en ACR-aktivitet enligt ett definierat schema](container-registry-tasks-scheduled.md).
 
 ## <a name="multi-step-tasks"></a>Uppgifter i flera steg
 
-Multistegsuppgifter ger stegbaserad uppgiftsdefinition och körning för att skapa, testa och korrigera behållaravbildningar i molnet. Aktivitetssteg som definierats i en [YAML-fil](container-registry-tasks-reference-yaml.md) anger enskilda bygg- och push-åtgärder för behållaravbildningar eller andra artefakter. De kan också definiera körningen av en eller flera container så varje steg använder containern som sin körningsmiljö.
+Aktiviteter med flera steg innehåller stegvisa aktivitets definitioner och körning för att skapa, testa och korrigera behållar avbildningar i molnet. Uppgifts steg som definieras i en [yaml-fil](container-registry-tasks-reference-yaml.md) anger enskilda bygg-och push-åtgärder för behållar avbildningar eller andra artefakter. De kan också definiera körningen av en eller flera container så varje steg använder containern som sin körningsmiljö.
 
-Du kan till exempel skapa en aktivitet i flera steg som automatiserar följande:
+Du kan till exempel skapa en aktivitet med flera steg som automatiserar följande:
 
-1. Skapa en avbildning av webbprogram
-1. Kör behållaren för webbprogram
-1. Skapa en testavbildning för webbprogram
-1. Kör testbehållaren för webbprogram, som utför tester mot programbehållaren som körs
-1. Om testerna går igenom, bygga ett Helm-diagramarkivpaket
-1. Utföra `helm upgrade` ett med det nya Helm-diagramarkivpaketet
+1. Bygg en webb program avbildning
+1. Kör behållaren för webb program
+1. Bygg en test avbildning av webb program
+1. Kör test behållaren för webb program, som utför tester mot den program behållare som körs
+1. Om testerna passerar skapar du ett Helm-diagram Arkiv paket
+1. Utföra en `helm upgrade` användning med det nya Helm-diagrammets Arkiv paket
 
-Med flera steg kan du dela upp byggnaden, löpningen och testningen av en avbildning i mer komposterbara steg med beroendestöd mellan steg. Med flerstegsuppgifter i ACR-uppgifter har du mer detaljerad kontroll över arbetsflöden för bilduppbyggnad, testning och operativsystem och ramkorrigering.
+Med aktiviteter med flera steg kan du dela upp, köra och testa en bild i mer sammanställnings bara steg, med stöd för flera steg beroende. Med aktiviteter med flera steg i ACR-aktiviteter får du mer detaljerad kontroll över image bygge, testning och operativ system och ramverk för uppdatering av arbets flöden.
 
-Lär dig mer om flerstegsaktiviteter i [Kör flerstegs-, test- och korrigeringsuppgifter i ACR-uppgifter](container-registry-tasks-multi-step.md).
+Lär dig mer om aktiviteter i flera steg i [köra åtgärder för att skapa, testa och korrigera flera steg i ACR uppgifter](container-registry-tasks-multi-step.md).
 
-## <a name="context-locations"></a>Sammanhangsplatser
+## <a name="context-locations"></a>Kontext platser
 
-I följande tabell visas några exempel på kontextplatser som stöds för ACR-uppgifter:
+I följande tabell visas några exempel på kontext platser som stöds för ACR-aktiviteter:
 
-| Kontextplats | Beskrivning | Exempel |
+| Kontext plats | Beskrivning | Exempel |
 | ---------------- | ----------- | ------- |
-| Lokalt filsystem | Filer i en katalog i det lokala filsystemet. | `/home/user/projects/myapp` |
-| GitHub-huvudgren | Filer i huvudgrenen (eller någon annan standard)-gren i en offentlig eller privat GitHub-databas.  | `https://github.com/gituser/myapp-repo.git` |
-| GitHub-gren | Specifik gren av en offentlig eller privat GitHub-repo.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| Undermappen GitHub | Filer i en undermapp i en offentlig eller privat GitHub-repo. Exempel visar en kombination av en specifikation för gren och undermappar. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
-| GitHub-commit | Specifikt åtagande i en offentlig eller privat GitHub-repo. Exempel visar en kombination av en commit-hash -specifikation (SHA) och undermapp. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
-| Undermapp för Azure DevOps | Filer i en undermapp i en offentlig eller privat Azure-repo. Exempel visar en kombination av specifikation av gren och undermapp. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
-| Avlägsna tarball | Filer i ett komprimerat arkiv på en fjärrwebbserver. | `http://remoteserver/myapp.tar.gz` |
+| Lokalt fil system | Filer i en katalog i det lokala fil systemet. | `/home/user/projects/myapp` |
+| GitHub huvud gren | Filer i huvud gruppen (eller andra standard) i en offentlig eller privat GitHub-lagringsplats.  | `https://github.com/gituser/myapp-repo.git` |
+| GitHub-gren | En speciell gren av en offentlig eller privat GitHub-lagrings platsen.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| GitHub-undermapp | Filer i en undermapp i en offentlig eller privat GitHub-lagrings platsen. Exempel på en kombination av en gren och undermappar specifikation. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| GitHub incheckning | Särskilt genomförande i en offentlig eller privat GitHub-lagrings platsen. Exempel på en kombination av en commit hash (SHA) och undermappens specifikation. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
+| Azure dataDevOpss-undermapp | Filer i en undermapp i en offentlig eller privat Azure-lagrings platsen. Exempel på en kombination av förgrening och undermappar specifikation. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
+| Fjärran tarball | Filer i ett komprimerat Arkiv på en fjärran sluten Server. | `http://remoteserver/myapp.tar.gz` |
 
 > [!NOTE]
-> När du använder en privat Git-repo som en kontext för en uppgift måste du ange en personlig åtkomsttoken (PAT).
+> När du använder en privat git-lagrings platsen som en kontext för en aktivitet måste du ange en personlig åtkomsttoken (PAT).
 
-## <a name="image-platforms"></a>Bildplattformar
+## <a name="image-platforms"></a>Avbildnings plattformar
 
-Som standard bygger ACR-uppgifter bilder för Linux OS och amd64-arkitekturen. Ange `--platform` taggen för att skapa Windows-avbildningar eller Linux-avbildningar för andra arkitekturer. Ange operativsystemet och eventuellt en arkitektur som stöds i `--platform Linux/arm`OS/arkitekturformat (till exempel ). För ARM-arkitekturer anger du eventuellt en variant i OS/arkitektur/variantformat (till `--platform Linux/arm64/v8`exempel):
+Som standard skapar ACR-uppgifter avbildningar för Linux OS och amd64-arkitekturen. Ange `--platform` taggen för att bygga Windows-avbildningar eller Linux-avbildningar för andra arkitekturer. Ange operativ systemet och eventuellt en arkitektur som stöds i OS/Architecture-format (till exempel `--platform Linux/arm`). För ARM-arkitekturer kan du välja att ange en variant i formatet OS/Architecture/variant (till `--platform Linux/arm64/v8`exempel):
 
 | Operativsystem | Arkitektur|
 | --- | ------- | 
-| Linux | amd64 (på ett sätt som är upp till<br/>arm<br/>arm64<br/>386 |
-| Windows | amd64 (på ett sätt som är upp till |
+| Linux | amd64<br/>arm<br/>arm64<br/>386 |
+| Windows | amd64 |
 
 ## <a name="view-task-output"></a>Visa aktivitetens utdata
 
-Varje aktivitetskörning genererar loggutdata som du kan granska för att avgöra om aktivitetsstegen kördes. När du utlöser en aktivitet manuellt strömmas loggutdata för aktivitetskörningen till konsolen och lagras även för senare hämtning. När en aktivitet utlöses automatiskt, till exempel genom en källkodsavstämpling eller en basavbildningsuppdatering, lagras aktivitetsloggar bara. Visa körningsloggarna i Azure-portalen eller använd kommandot [az acr task logs.](/cli/azure/acr/task#az-acr-task-logs)
+Varje aktivitets körning genererar logg utdata som du kan kontrol lera för att avgöra om aktivitets stegen har körts. När du utlöser en uppgift manuellt strömmas loggen för aktivitets körningen till-konsolen och lagras även för senare hämtning. När en aktivitet aktive ras automatiskt, till exempel genom en käll kods bekräftelse eller en bas avbildnings uppdatering, lagras endast aktivitets loggar. Visa körnings loggarna i Azure Portal eller Använd kommandot [AZ ACR Task logs](/cli/azure/acr/task#az-acr-task-logs) .
 
-Läs mer om [hur du visar och hanterar uppgiftsloggar](container-registry-tasks-logs.md).
+Läs mer om att [Visa och hantera aktivitets loggar](container-registry-tasks-logs.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du är redo att automatisera behållaravbildningsversioner och underhåll i molnet kan du kolla in [självstudieserien ACR-uppgifter](container-registry-tutorial-quick-task.md).
+När du är redo att automatisera behållar avbildnings versioner och underhåll i molnet kan du ta en titt på [själv studie serien med ACR tasks](container-registry-tutorial-quick-task.md).
 
-Installera eventuellt [Docker-tillägget för Visual Studio-kod](https://code.visualstudio.com/docs/azure/docker) och [Azure-kontotillägget](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) för att arbeta med dina Azure-behållarregister. Hämta och skicka avbildningar till ett Azure-behållarregister eller kör ACR-uppgifter, allt i Visual Studio Code.
+Du kan också installera [Docker-tillägget för Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) och tillägget [Azure-konto](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) för att arbeta med dina Azure Container register. Hämta och push-avbildningar till ett Azure Container Registry, eller kör ACR-aktiviteter, allt i Visual Studio Code.
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

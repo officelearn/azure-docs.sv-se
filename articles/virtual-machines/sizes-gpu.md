@@ -1,6 +1,6 @@
 ---
-title: Azure VM storlekar - GPU | Microsoft-dokument
-description: Visar en lista över de olika GPU-optimerade storlekar som är tillgängliga för virtuella datorer i Azure. Visar information om antalet virtuella processorer, datadiskar och nätverkskort samt lagringsdataflöde och nätverksbandbredd för storlekar i den här serien.
+title: Storlekar för virtuella Azure-datorer – GPU | Microsoft Docs
+description: Visar en lista över de olika GPU-optimerade storlekar som är tillgängliga för virtuella datorer i Azure. Visar information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för storlekar i den här serien.
 services: virtual-machines
 documentationcenter: ''
 author: vikancha
@@ -15,43 +15,43 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
 ms.openlocfilehash: 7e1e0d488844a94bd0be2b91398678e620295729
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77913590"
 ---
-# <a name="gpu-optimized-virtual-machine-sizes"></a>GPU optimerade storlekar för virtuella datorer
+# <a name="gpu-optimized-virtual-machine-sizes"></a>GPU-optimerade storlekar på virtuella datorer
 
-GPU optimerade VM storlekar är specialiserade virtuella maskiner som finns med enstaka eller flera NVIDIA GPU: er. Dessa storlekar är utformade för beräkningsintensiva, grafikintensiva och visualiseringsarbetsbelastningar. Den här artikeln innehåller information om antalet och typen av GPU:er, virtuella processorer, datadiskar och nätverkskort. Lagringsdataflöde och nätverksbandbredd ingår också för varje storlek i den här gruppningen.
+GPU-optimerade VM-storlekar är specialiserade virtuella datorer som är tillgängliga med enkla eller flera NVIDIA GPU: er. De här storlekarna är utformade för beräknings intensiva, grafik intensiva och visualiserings arbets belastningar. Den här artikeln innehåller information om antalet och typen av GPU, virtuella processorer, data diskar och nätverkskort. Lagrings data flöde och nätverks bandbredd ingår också för varje storlek i grupperingen.
 
-- [NC-serien](nc-series.md), [NCv2-serien](ncv2-series.md), [NCv3-serien](ncv3-series.md) storlekar är optimerade för beräkningsintensiva och nätverksintensiva program och algoritmer. Några exempel är CUDA och OpenCL-baserade program och simuleringar, AI och Deep Learning. NCv3-serien fokuserar på högpresterande datorarbetsbelastningar med NVIDIA:s Tesla V100 GPU. NC-serien använder Intel Xeon E5-2690 v3 2.60GHz v3 (Haswell) processor, och NCv2-serien och NCv3-serien virtuella datorer använder Intel Xeon E5-2690 v4 (Broadwell) processor.
+- [NC-serien](nc-series.md), [NCv2-serien](ncv2-series.md), [NCv3-](ncv3-series.md) seriens storlek är optimerade för beräknings intensiva och nätverks intensiva program och algoritmer. Några exempel är CUDA-och OpenCL-baserade program och simuleringar, AI och djup inlärning. NCv3-serien fokuserar på högpresterande data behandlings arbets belastningar med NVIDIA: s Tesla V100-GPU. NC-serien använder Intel Xeon E5-2690 v3 2.60 GHz v3-processorn, och de virtuella datorerna i NCv2-serien och NCv3-serien använder Intel Xeon E5-2690 v4-processorn (Broadwell).
 
-- [Storlekar i ND-serien](nd-series.md)och [NDv2-serien](ndv2-series.md) är inriktade på tränings- och inferensscenarier för djupinlärning. De använder NVIDIA Tesla P40 GPU och Intel Xeon E5-2690 v4 (Broadwell) processor. NDv2-serien använder Intel Xeon Platinum 8168 (Skylake) processor.
+- [Nd-seriens](nd-series.md)och [NDv2-seriens](ndv2-series.md) storlekar fokuserar på utbildning och härlednings scenarier för djup inlärning. De använder NVIDIA Tesla P40-GPU och Intel Xeon E5-2690 v4-processorn (Broadwell). NDv2-serien använder Intel Xeon platina 8168-processorn (Skylake).
 
-- [NV-seriens](nv-series.md) och [NVv3-seriens](nvv3-series.md) storlekar är optimerade och utformade för fjärrvisualisering, streaming, spel, kodning och VDI-scenarier med ramverk som OpenGL och DirectX. Dessa virtuella datorer backas upp av NVIDIA Tesla M60 GPU.
+- Storlekarna på [NV-](nv-series.md) och [NVv3-serien](nvv3-series.md) är optimerade och utformade för fjärrvisualiseringar, strömnings-, spel-, kodnings-och VDI-scenarier med ramverk som OpenGL och DirectX. De här virtuella datorerna backas upp av NVIDIA Tesla M60-GPU: n.
 
-- [NVv4-serien](nvv4-series.md) VM-storlekar optimerade och utformade för VDI och fjärrvisualisering. Med partitionerade GPU:er erbjuder NVv4 rätt storlek för arbetsbelastningar som kräver mindre GPU-resurser. Dessa virtuella datorer backas upp av AMD Radeon Instinct MI25 GPU. Virtuella NVv4-datorer stöder för närvarande endast Windows gästoperativsystem.
+- [NVv4-serien](nvv4-series.md) VM-storlekar som är optimerade för VDI och fjärrvisualisering. Med partitionerade GPU: er ger NVv4 rätt storlek för arbets belastningar som kräver mindre GPU-resurser. De här virtuella datorerna backas upp av AMD Radeon Instinct MI25-GPU: n. Virtuella NVv4-datorer stöder för närvarande endast Windows gäst operativ system.
 
 ## <a name="supported-operating-systems-and-drivers"></a>Operativsystem och drivrutiner som stöds
 
-För att kunna dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien måste NVIDIA GPU-drivrutiner installeras.
+För att kunna dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien måste du installera NVIDIA GPU-drivrutiner.
 
-[NVIDIA GPU Driver Extension](/azure/virtual-machines/extensions/hpccompute-gpu-windows) installerar lämpliga NVIDIA CUDA- eller GRID-drivrutiner på en virtuell dator i N-serien. Installera eller hantera tillägget med hjälp av Azure-portalen eller verktyg som Azure PowerShell- eller Azure Resource Manager-mallar. Se [dokumentationen](/azure/virtual-machines/extensions/hpccompute-gpu-windows) för NVIDIA GPU Driver Extension för operativsystem och driftsättningssteg som stöds. Allmän information om vm-tillägg finns i [Azure-tillägg och funktioner för virtuella datorer](/azure/virtual-machines/extensions/overview).
+[NVidia GPU-drivrutinen](/azure/virtual-machines/extensions/hpccompute-gpu-windows) installerar lämpliga NVIDIA-CUDA eller rutnäts driv rutiner på en virtuell dator i N-serien. Installera eller hantera tillägget med hjälp av Azure Portal eller verktyg som Azure PowerShell eller Azure Resource Manager mallar. Mer information om vilka operativ system och distributions steg som stöds finns i [dokumentationen för NVIDIA GPU-drivrutins tillägget](/azure/virtual-machines/extensions/hpccompute-gpu-windows) . Allmän information om VM-tillägg finns i [tillägg och funktioner för virtuella Azure-datorer](/azure/virtual-machines/extensions/overview).
 
-Om du väljer att installera NVIDIA GPU-drivrutiner manuellt läser du [GPU-drivrutinsinställningarna i N-serien för](/azure/virtual-machines/windows/n-series-driver-setup) [GPU-drivrutinsinställningar i](/azure/virtual-machines/linux/n-series-driver-setup) Windows eller N-serien för Linux för operativsystem, drivrutiner, installations- och verifieringssteg.
+Om du väljer att installera NVIDIA GPU-drivrutiner manuellt, se [N-seriens installations program för GPU-drivrutiner för Windows](/azure/virtual-machines/windows/n-series-driver-setup) eller [N-serien GPU-drivrutin installation för Linux](/azure/virtual-machines/linux/n-series-driver-setup) för operativ system, driv rutiner, installation och verifierings steg som stöds.
 
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 
-- För tillgänglighet för virtuella datorer i N-serien finns i [Produkter som är tillgängliga efter region](https://azure.microsoft.com/regions/services/).
+- Tillgänglighet för virtuella datorer i N-serien finns i [produkt tillgänglighet per region](https://azure.microsoft.com/regions/services/).
 
-- Virtuella datorer i N-serien kan bara distribueras i resurshanterarens distributionsmodell.
+- Virtuella datorer i N-serien kan bara distribueras i distributions modellen för Resource Manager.
 
-- Virtuella datorer i N-serien skiljer sig åt i vilken typ av Azure Storage de stöder för sina diskar. NC och NV virtuella datorer stöder endast VM-diskar som backas upp av HDD (Standard Disk Storage). Virtuella datorer med NCv2, NCv3, ND, NDv2 och NVv2 stöder endast virtuella datorer som backas upp av Premium Disk Storage (SSD).
+- Virtuella datorer i N-serien skiljer sig åt i den typ av Azure Storage de stöder för diskarna. NC och NV-virtuella datorer stöder bara virtuella hård diskar som backas upp av standard Disklagring (HDD). NCv2-, NCv3-, ND-, NDv2-och NVv2-VM: ar stöder bara virtuella hård diskar som backas upp av Premium Disklagring (SSD).
 
-- Om du vill distribuera fler än några virtuella datorer i N-serien bör du överväga en prenumeration med användningsbaserad betalning eller andra köpalternativ. Om du använder ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) kan du bara använda ett begränsat antal Azure Compute-kärnor.
+- Om du vill distribuera fler än några få virtuella datorer i N-serien bör du överväga att betala per användning-prenumeration eller andra köp alternativ. Om du använder ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) kan du bara använda ett begränsat antal Azure Compute-kärnor.
 
-- Du kan behöva öka kärnkvoten (per region) i din Azure-prenumeration och öka den separata kvoten för NC-, NCv2-, NCv3-, ND-, NDv2-, NV- eller NVv2-kärnor. Om du vill begära en kvotökning [öppnar du en kundsupportbegäran online](../azure-portal/supportability/how-to-create-azure-support-request.md) utan kostnad. Standardgränserna kan variera beroende på din prenumerationskategori.
+- Du kan behöva öka processor kvoten (per region) i din Azure-prenumeration och öka den separata kvoten för NC-, NCv2-, NCv3-, ND-, NDv2-, NV-eller NVv2-kärnor. Om du vill begära en kvot ökning [öppnar du en support förfrågan online](../azure-portal/supportability/how-to-create-azure-support-request.md) utan kostnad. Standard gränserna kan variera beroende på din prenumerations kategori.
 
 ## <a name="other-sizes"></a>Andra storlekar
 
@@ -64,4 +64,4 @@ Om du väljer att installera NVIDIA GPU-drivrutiner manuellt läser du [GPU-driv
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hur [Azure compute units (ACU)](acu.md) kan hjälpa dig att jämföra beräkningsprestanda över Azure SKU:er.
+Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.

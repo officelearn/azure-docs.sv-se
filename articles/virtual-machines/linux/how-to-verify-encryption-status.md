@@ -1,6 +1,6 @@
 ---
-title: Så här verifierar du krypteringsstatus för Linux
-description: Den här artikeln innehåller instruktioner om hur du verifierar krypteringsstatusen från plattforms- och OS-nivå.
+title: Så här verifierar du krypterings status för Linux
+description: Den här artikeln innehåller instruktioner för att verifiera krypterings statusen från Platform-och OS-nivån.
 author: kailashmsft
 ms.service: security
 ms.topic: article
@@ -8,16 +8,16 @@ ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18
 ms.openlocfilehash: 0aaa32c46d915eafffcfac9d95cfdd3a24d4086d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80123426"
 ---
-# <a name="how-to-verify-encryption-status-for-linux"></a>Så här verifierar du krypteringsstatus för Linux 
+# <a name="how-to-verify-encryption-status-for-linux"></a>Så här verifierar du krypterings status för Linux 
 
-**Det här scenariot gäller för ADE dual-pass och single-pass-tillägg.**  
-Det här dokumentomfånget är att validera krypteringsstatus för en virtuell dator med hjälp av olika metoder.
+**Det här scenariot gäller för ADE-tillägg med dubbla pass och ett enda pass.**  
+Det här dokument omfånget är att verifiera krypterings statusen för en virtuell dator med hjälp av olika metoder.
 
 ### <a name="environment"></a>Miljö
 
@@ -25,65 +25,65 @@ Det här dokumentomfånget är att validera krypteringsstatus för en virtuell d
 
 ### <a name="procedure"></a>Procedur
 
-En virtuell dator har krypterats med dubbla pass eller single-pass.
+En virtuell dator har krypterats med dubbla pass eller enstaka pass.
 
-Krypteringsstatusen kan valideras under eller efter krypteringen med hjälp av olika metoder.
+Krypterings statusen kan verifieras under eller efter krypteringen med hjälp av olika metoder.
 
 >[!NOTE] 
->Vi använder variabler i hela dokumentet, ersätter värdena därefter.
+>Vi använder variabler i hela dokumentet och ersätter värdena enligt detta.
 
 ### <a name="verification"></a>Verifiering
 
-Verifieringen kan göras från portalen, PowerShell, AZ CLI och, eller från VM OS-sidan. 
+Verifieringen kan göras från portalen, PowerShell, AZ CLI och eller från den virtuella datorns OS-sida. 
 
-Den här verifieringen kan göras genom att kontrollera diskarna som är anslutna till en viss virtuell dator. 
+Du kan utföra den här verifieringen genom att kontrol lera diskarna som är anslutna till en viss virtuell dator. 
 
-Eller genom att fråga krypteringsinställningarna på varje enskild disk om disken är ansluten eller obunden.
+Eller genom att fråga krypterings inställningarna på varje enskild disk om disken är ansluten eller inte ansluten.
 
-Nedan nedan för de olika valideringsmetoderna:
+Under de olika validerings metoderna:
 
 ## <a name="using-the-portal"></a>Använda portalen
 
-Verifiera krypteringsstatusen genom att kontrollera tilläggsavsnittet på Azure-portalen.
+Verifiera krypterings statusen genom att kontrol lera avsnittet tillägg på Azure Portal.
 
-I avsnittet **Tillägg** visas ADE-tillägget i listan. 
+I avsnittet **tillägg** ser du det ade-tillägg som visas. 
 
-Klicka på den och ta en titt på **statusmeddelandet**, det kommer att ange den aktuella krypteringsstatus:
+Klicka på den och ta en titt på **status meddelandet**, visar den aktuella krypterings statusen:
 
-![Portalkontroll nummer 1](./media/disk-encryption/verify-encryption-linux/portal-check-001.png)
+![Portal kontroll nummer 1](./media/disk-encryption/verify-encryption-linux/portal-check-001.png)
 
-I listan över tillägg visas motsvarande ADE-tilläggsversion. Version 0.x motsvarar ADE Dual-Pass och version 1.x motsvarar ADE Single-pass.
+I listan över tillägg visas motsvarande version av ADE-tillägget. Version 0. x motsvarar ADE Dual-pass och version 1. x motsvarar ADE-ett-pass.
 
-Du kan få mer information klicka på tillägget och sedan på *Visa detaljerad status*.
+Du kan få mer information om hur du klickar på tillägget och sedan på *Visa detaljerad status*.
 
-Du ser en mer detaljerad status för krypteringsprocessen i json-format:
+Du ser en mer detaljerad status för krypterings processen i JSON-format:
 
-![Portalkontroll nummer 2](./media/disk-encryption/verify-encryption-linux/portal-check-002.png)
+![Portal kontroll nummer 2](./media/disk-encryption/verify-encryption-linux/portal-check-002.png)
 
-![Portalkontroll nummer 3](./media/disk-encryption/verify-encryption-linux/portal-check-003.png)
+![Portal kontroll nummer 3](./media/disk-encryption/verify-encryption-linux/portal-check-003.png)
 
-Ett annat sätt att validera krypteringsstatus är att ta en titt på **disksektionen.**
+Ett annat sätt att verifiera krypterings statusen är att ta en titt på avsnittet **diskar** .
 
-![Portalkontroll nummer 4](./media/disk-encryption/verify-encryption-linux/portal-check-004.png)
+![Portal kontroll nummer 4](./media/disk-encryption/verify-encryption-linux/portal-check-004.png)
 
 >[!NOTE] 
-> Den här statusen innebär att diskarna har krypteringsinställningar stämplade men inte att de faktiskt krypterades på OS-nivå. Avsiktligt stämplas diskarna först och krypteras senare. Om krypteringsprocessen misslyckas kan diskarna bli stämplade men inte krypterade. För att bekräfta om diskarna verkligen är krypterade kan du dubbelkolla krypteringen av varje disk på OS-nivå.
+> Denna status innebär att diskarna har krypterings inställningarna stämplade men inte att de faktiskt har krypterats på operativ system nivå. Som design kommer diskarna att stämplas först och krypteras senare. Om krypterings processen Miss lyckas kan diskarna tillföras stämplade men inte krypterade. Du kan kontrol lera om diskarna verkligen är krypterade genom att dubbelklicka på krypteringen för varje disk på operativ system nivå.
 
 ## <a name="using-powershell"></a>Använda PowerShell
 
-Du kan validera den **allmänna** krypteringsstatusen för en krypterad virtuell dator med följande PowerShell-kommandon:
+Du kan verifiera den **allmänna** krypterings statusen för en krypterad virtuell dator med hjälp av följande PowerShell-kommandon:
 
 ```azurepowershell
    $VMNAME="VMNAME"
    $RGNAME="RGNAME"
    Get-AzVmDiskEncryptionStatus -ResourceGroupName  ${RGNAME} -VMName ${VMNAME}
 ```
-![kontrollera PowerShell 1](./media/disk-encryption/verify-encryption-linux/verify-status-ps-01.png)
+![kontrol lera PowerShell 1](./media/disk-encryption/verify-encryption-linux/verify-status-ps-01.png)
 
-Du kan samla in krypteringsinställningarna från varje enskild disk med följande PowerShell-kommandon:
+Du kan avbilda krypterings inställningarna från varje enskild disk med hjälp av följande PowerShell-kommandon:
 
-### <a name="single-pass"></a>Enkelpass
-Om enkelpass är krypteringsinställningarna stämpel på var och en av diskarna (OS och data) kan du fånga in os-diskkrypteringsinställningarna i ett enda pass enligt följande:
+### <a name="single-pass"></a>Enstaka pass
+Om ett enskilt pass, krypterings inställningarna är stämplade på varje disk (OS och data), kan du avbilda disk krypterings inställningarna för operativ systemet i Single pass på följande sätt:
 
 ``` powershell
 $RGNAME = "RGNAME"
@@ -101,13 +101,13 @@ $VM = Get-AzVM -Name ${VMNAME} -ResourceGroupName ${RGNAME}
  Write-Host "Key URL:" $Sourcedisk.EncryptionSettingsCollection.EncryptionSettings.KeyEncryptionKey.KeyUrl
  Write-Host "============================================================================================================================================================="
 ```
-![Verifiera OS Single pass 01](./media/disk-encryption/verify-encryption-linux/verify-os-single-ps-001.png)
+![Verifiera OS-ett steg 01](./media/disk-encryption/verify-encryption-linux/verify-os-single-ps-001.png)
 
-Om disken inte har stämplade krypteringsinställningarna är utdata tom enligt nedan:
+Om det inte finns några tidsbegränsade krypterings inställningar på disken så är utdatan tomma som visas nedan:
 
-![Inställningar för OS-kryptering 2](./media/disk-encryption/verify-encryption-linux/os-encryption-settings-2.png)
+![Inställningar för operativ system kryptering 2](./media/disk-encryption/verify-encryption-linux/os-encryption-settings-2.png)
 
-Krypteringsinställningar för insamling av datadiskar:
+Avbilda data disk (s) krypterings inställningar:
 
 ```azurepowershell
 $RGNAME = "RGNAME"
@@ -128,12 +128,12 @@ $VM = Get-AzVM -Name ${VMNAME} -ResourceGroupName ${RGNAME}
  Write-Host "============================================================================================================================================================="
  }
 ```
-![Verifiera data enkel ps 001](./media/disk-encryption/verify-encryption-linux/verify-data-single-ps-001.png)
+![Verifiera data enkel PS 001](./media/disk-encryption/verify-encryption-linux/verify-data-single-ps-001.png)
 
 ### <a name="dual-pass"></a>Dubbla pass
-I Dual Pass stämplas krypteringsinställningarna i vm-modellen och inte på varje enskild disk.
+I dubbelt pass stämplas krypterings inställningarna i den virtuella dator modellen och inte på varje enskild disk.
 
-Om du vill kontrollera att krypteringsinställningarna har stämplats med dubbla pass kan du använda följande kommandon:
+Du kan kontrol lera att krypterings inställningarna har stämplats i dubbla pass genom att använda följande kommandon:
 
 ```azurepowershell
 $RGNAME = "RGNAME"
@@ -152,11 +152,11 @@ Write-Host "Secret URL:" $Sourcedisk.EncryptionSettingsCollection.EncryptionSett
 Write-Host "Key URL:" $Sourcedisk.EncryptionSettingsCollection.EncryptionSettings.KeyEncryptionKey.KeyUrl
 Write-Host "============================================================================================================================================================="
 ```
-![Verifiera PowerShell 1 med dubbla pass](./media/disk-encryption/verify-encryption-linux/verify-dual-ps-001.png)
+![Verifiera dubbel pass PowerShell 1](./media/disk-encryption/verify-encryption-linux/verify-dual-ps-001.png)
 
-### <a name="unattached-disks"></a>Obundna diskar
+### <a name="unattached-disks"></a>Ej anslutna diskar
 
-Kontrollera krypteringsinställningarna för diskar som inte är anslutna till en virtuell dator.
+Kontrol lera krypterings inställningarna för diskar som inte är kopplade till en virtuell dator.
 
 ### <a name="managed-disks"></a>Hanterade diskar
 ```powershell
@@ -173,26 +173,26 @@ Write-Host "====================================================================
 ```
 ## <a name="using-az-cli"></a>Använda AZ CLI
 
-Du kan validera den **allmänna** krypteringsstatusen för en krypterad virtuell dator med hjälp av följande AZ CLI-kommandon:
+Du kan verifiera den **allmänna** krypterings statusen för en krypterad virtuell dator med följande AZ CLI-kommandon:
 
 ```bash
 VMNAME="VMNAME"
 RGNAME="RGNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
 ```
-![Verifiera allmänt med CLI ](./media/disk-encryption/verify-encryption-linux/verify-gen-cli.png)
+![Verifiera allmän användning av CLI ](./media/disk-encryption/verify-encryption-linux/verify-gen-cli.png)
 
-### <a name="single-pass"></a>Enkelt pass
-Du kan validera krypteringsinställningarna från varje enskild disk med hjälp av följande AZ CLI-kommandon:
+### <a name="single-pass"></a>Enda steg
+Du kan verifiera krypterings inställningarna från varje enskild disk med följande AZ CLI-kommandon:
 
 ```bash
 az vm encryption show -g ${RGNAME} -n ${VMNAME} --query "disks[*].[name, statuses[*].displayStatus]"  -o table
 ```
 
-![Inställningar för datakryptering](./media/disk-encryption/verify-encryption-linux/data-encryption-settings-2.png)
+![Inställningar för data kryptering](./media/disk-encryption/verify-encryption-linux/data-encryption-settings-2.png)
 
 >[!IMPORTANT]
-> Om disken inte har krypteringsinställningar stämplade visas den som "Disken är inte krypterad"
+> Om det inte finns några tidsbegränsade krypterings inställningar på disken visas den som "disken är inte krypterad"
 
 Detaljerade inställningar för status och kryptering:
 
@@ -216,7 +216,7 @@ done
 
 ![OSSingleCLI](./media/disk-encryption/verify-encryption-linux/os-single-cli.png)
 
-Datadiskar:
+Data diskar:
 
 ```bash
 RGNAME="RGNAME"
@@ -234,15 +234,15 @@ echo "==========================================================================
 done
 ```
 
-![Data enda CLI ](./media/disk-encryption/verify-encryption-linux/data-single-cli.png)
+![Data-Single CLI ](./media/disk-encryption/verify-encryption-linux/data-single-cli.png)
 
-### <a name="dual-pass"></a>Dubbla pass
+### <a name="dual-pass"></a>Dubbelt pass
 
 ``` bash
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} -o table
 ```
 
-![Verifiera allmän dubbel ](./media/disk-encryption/verify-encryption-linux/verify-gen-dual-cli.png) med CLI Du kan också kontrollera krypteringsinställningarna på VM-modelllagringsprofilen för OS-disken:
+![Verifiera allmän dubbel användning av ](./media/disk-encryption/verify-encryption-linux/verify-gen-dual-cli.png) CLI du kan också kontrol lera krypterings inställningarna för VM-modellens lagrings profil på OS-disken:
 
 ```bash
 disk=`az vm show -g ${RGNAME} -n ${VMNAME} --query storageProfile.osDisk.name -o tsv`
@@ -257,11 +257,11 @@ echo "==========================================================================
 done
 ```
 
-![Verifiera vm-profil dubbel med CLI ](./media/disk-encryption/verify-encryption-linux/verify-vm-profile-dual-cli.png)
+![Verifiera VM-profil Dual med CLI ](./media/disk-encryption/verify-encryption-linux/verify-vm-profile-dual-cli.png)
 
-### <a name="unattached-disks"></a>Obundna diskar
+### <a name="unattached-disks"></a>Ej anslutna diskar
 
-Kontrollera krypteringsinställningarna för diskar som inte är anslutna till en virtuell dator.
+Kontrol lera krypterings inställningarna för diskar som inte är kopplade till en virtuell dator.
 
 ### <a name="managed-disks"></a>Hanterade diskar
 
@@ -278,87 +278,87 @@ echo "==========================================================================
 ```
 ### <a name="unmanaged-disks"></a>Ohanterade diskar
 
-Ohanterat diskar är VHD-filer som lagras som sidblobar i Azure-lagringskonton.
+Ohanterade diskar är VHD-filer som lagras som Page blobbar i Azure Storage-konton.
 
-Om du vill få information om en viss disk måste du ange:
+För att få information om en speciell disk måste du ange:
 
-ID:et för lagringskontot som innehåller disken.
-En anslutningssträng för just det lagringskontot.
+ID för det lagrings konto som innehåller disken.
+En anslutnings sträng för just det lagrings kontot.
 Namnet på behållaren som lagrar disken.
-Disknamnet.
+Disk namnet.
 
-Det här kommandot visar alla ID:er för alla dina lagringskonton:
+Det här kommandot visar alla ID: n för alla dina lagrings konton:
 
 ```bash
 az storage account list --query [].[id] -o tsv
 ```
-Lagringskonto-ID:erna visas i följande formulär:
+Lagrings kontots ID: n visas i följande format:
 
-/subscriptions/subscription\<id>/resourceGroups/resource\<group name>/providers/Microsoft.Storage/storageAccounts/storage\<account name>
+/Subscriptions/\<prenumerations-ID\<>/resourcegroups/resurs grupp namn\<>/providers/Microsoft.Storage/storageaccounts/lagrings konto namn>
 
 Välj lämpligt ID och lagra det på en variabel:
 ```bash
 id="/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>"
 ```
-Anslutningssträngen.
+Anslutnings strängen.
 
-Det här kommandot hämtar anslutningssträngen för ett visst lagringskonto och lagrar det på en variabel:
+Det här kommandot hämtar anslutnings strängen för ett visst lagrings konto och lagrar det på en variabel:
 
 ```bash
 ConnectionString=$(az storage account show-connection-string --ids $id --query connectionString -o tsv)
 ```
 
-Behållarnamnet.
+Behållarens namn.
 
-Följande kommando visar alla behållare under ett lagringskonto:
+Följande kommando visar alla behållare under ett lagrings konto:
 ```bash
 az storage container list --connection-string $ConnectionString --query [].[name] -o tsv
 ```
-Behållaren som används för diskar kallas normalt "vhds"
+Den behållare som används för diskar kallas vanligt vis "VHD"
 
-Lagra behållarnamnet på en variabel 
+Lagra behållar namnet på en variabel 
 ```bash
 ContainerName="name of the container"
 ```
 
-Disknamnet.
+Disk namnet.
 
-Använd det här kommandot om du vill visa alla blobbar på en viss behållare
+Använd det här kommandot för att visa en lista över alla blobbar i en viss behållare
 ```bash 
 az storage blob list -c ${ContainerName} --connection-string $ConnectionString --query [].[name] -o tsv
 ```
-Välj den disk som du vill fråga och lagra dess namn på en variabel.
+Välj den disk som du vill fråga efter och lagra namnet på en variabel.
 ```bash
 DiskName="diskname.vhd"
 ```
-Fråga diskkrypteringsinställningarna
+Fråga om disk krypterings inställningarna
 ```bash
 az storage blob show -c ${ContainerName} --connection-string ${ConnectionString} -n ${DiskName} --query metadata.DiskEncryptionSettings
 ```
 
-## <a name="from-the-os"></a>Från operativsystemet
-Verifiera om datadiskpartitionerna är krypterade (och os-disken inte är det)
+## <a name="from-the-os"></a>Från operativ systemet
+Verifiera om datadiskpartitionerna är krypterade (och OS-disken inte)
 
-När en partition/disk krypteras visas den som **krypttyp,** när den inte är krypterad visas den som **del-/disktyp**
+När en partition/disk krypteras visas den som **krypterings** typ, om den inte är krypterad visas den som **en del/disk** -typ
 
 ``` bash
 lsblk
 ```
 
-![Os Crypt lager ](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer.png)
+![Operativ system krypterings skikt ](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer.png)
 
-Du kan få ytterligare information med hjälp av följande "lsblk" variant. 
+Du kan få mer information med hjälp av följande "lsblk"-variant. 
 
-Du ser ett **krypttypslag** som är monterat av tillägget.
+Du ser ett **krypterings** typ lager som är monterat av tillägget.
 
-I följande exempel visas logiska volymer och normala diskar med en "**krypto-LUKS\_FSTYPE**".
+I följande exempel visas logiska volymer och normala diskar med "**\_krypto LUKS FSTYPE**".
 
 ```bash
 lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,RO,MOUNTPOINT
 ```
-![Os Crypt lager 2](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer-2.png)
+![OS-kryptografi skikt 2](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer-2.png)
 
-Som ett extra steg kan du också validera om datadisken har några nycklar inlästa
+Som ett extra steg kan du också kontrol lera om data disken har lästa nycklar
 
 ``` bash
 cryptsetup luksDump /dev/VGNAME/LVNAME
@@ -368,12 +368,12 @@ cryptsetup luksDump /dev/VGNAME/LVNAME
 cryptsetup luksDump /dev/sdd1
 ```
 
-Och vilka dm-enheter som anges som kryptan
+Och vilka DM-enheter som listas som kryptering
 
 ```bash
 dmsetup ls --target crypt
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Felsökning för Azure Disk Encryption](disk-encryption-troubleshooting.md)

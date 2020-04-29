@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: ed57003c7a9a5a1a9d87aa2e8934af8c48b1d819
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80063335"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Skapa och hantera Läs repliker i Azure Database for MySQL med hjälp av Azure CLI och REST API
@@ -38,10 +38,10 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 
 `az mysql server replica create` Kommandot kräver följande parametrar:
 
-| Inställning | Exempelvärde | Beskrivning  |
+| Inställningen | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
-| namn | mydemoreplicaserver | Namnet på den nya replik servern som skapas. |
+| name | mydemoreplicaserver | Namnet på den nya replik servern som skapas. |
 | source-server | mydemoserver | Namnet eller ID: t för den befintliga huvud server som ska replikeras från. |
 
 Använd parametern om du vill skapa en skrivskyddad replik `--location` av en kors region. CLI-exemplet nedan skapar repliken i USA, västra.
@@ -67,7 +67,7 @@ az mysql server replica list --server-name mydemoserver --resource-group myresou
 
 `az mysql server replica list` Kommandot kräver följande parametrar:
 
-| Inställning | Exempelvärde | Beskrivning  |
+| Inställningen | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
 | server-name | mydemoserver | Namn eller ID för huvud servern. |
@@ -85,10 +85,10 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 
 `az mysql server replica stop` Kommandot kräver följande parametrar:
 
-| Inställning | Exempelvärde | Beskrivning  |
+| Inställningen | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resurs gruppen där replik servern finns.  |
-| namn | mydemoreplicaserver | Namnet på replik servern där replikeringen ska stoppas. |
+| name | mydemoreplicaserver | Namnet på replik servern där replikeringen ska stoppas. |
 
 ### <a name="delete-a-replica-server"></a>Ta bort en replik Server
 

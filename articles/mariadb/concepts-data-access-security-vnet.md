@@ -1,42 +1,42 @@
 ---
-title: Slutpunkter för VNet-tjänst – Azure Database för MariaDB
-description: Beskriver hur slutpunkter för VNet-tjänst fungerar för din Azure-databas för MariaDB-server.
+title: Slut punkter för VNet-tjänst – Azure Database for MariaDB
+description: Beskriver hur VNet-tjänstens slut punkter fungerar för din Azure Database for MariaDB-Server.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 54379c65850fa210e5523b53a64fe89705ed1f15
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79532118"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Använda tjänstslutpunkter för virtuellt nätverk och regler för Azure Database for MariaDB
 
-*Virtuella nätverksregler* är en brandväggssäkerhetsfunktion som styr om din Azure Database for MariaDB-server accepterar kommunikation som skickas från vissa undernät i virtuella nätverk. I den här artikeln förklarar vi varför den virtuella nätverksregelfunktionen ibland är det bästa alternativet för att på ett säkert sätt tillåta kommunikation till din Azure-databas för MariaDB-server.
+*Regler för virtuella nätverk* är en brand Väggs säkerhetsfunktion som styr om din Azure Database for MariaDB Server accepterar kommunikation som skickas från vissa undernät i virtuella nätverk. I den här artikeln förklaras varför funktionen för regel för virtuella nätverk ibland det bästa alternativet för att på ett säkert sätt tillåta kommunikation till din Azure Database for MariaDB-Server.
 
-Om du vill skapa en virtuell nätverksregel måste det först finnas ett [virtuellt nätverk][vm-virtual-network-overview] (VNet) och en slutpunkt för [virtuella nätverkstjänster][vm-virtual-network-service-endpoints-overview-649d] som regeln ska referera till. Följande bild illustrerar hur en slutpunkt för tjänsten För virtuellt nätverk fungerar med Azure Database för MariaDB:
+Om du vill skapa en regel för virtuellt nätverk måste du först vara ett [virtuellt nätverk][vm-virtual-network-overview] (VNet) och en [tjänst slut punkt för virtuellt nätverk][vm-virtual-network-service-endpoints-overview-649d] för regeln som ska refereras. Följande bild illustrerar hur en Virtual Network tjänst slut punkt fungerar med Azure Database for MariaDB:
 
-![Exempel på hur en slutpunkt för VNet-tjänst fungerar](media/concepts-data-access-security-vnet/vnet-concept.png)
+![Exempel på hur en VNet-tjänst slut punkt fungerar](media/concepts-data-access-security-vnet/vnet-concept.png)
 
 > [!NOTE]
-> Den här funktionen är tillgänglig i alla regioner i Azure där Azure Database för MariaDB distribueras för servrar med allmänt ändamål och minne.
+> Den här funktionen är tillgänglig i alla regioner i Azure där Azure Database for MariaDB distribueras för Generell användning och minnesoptimerade servrar.
 
 <a name="anch-terminology-and-description-82f" />
 
 ## <a name="terminology-and-description"></a>Terminologi och beskrivning
 
-**Virtuellt nätverk:** Du kan ha virtuella nätverk som är associerade med din Azure-prenumeration.
+**Virtuellt nätverk:** Du kan ha virtuella nätverk kopplade till din Azure-prenumeration.
 
-**Undernät:** Ett virtuellt nätverk innehåller **undernät**. Alla virtuella Azure-datorer (VIRTUELLA datorer) som du har tilldelats undernät. Ett undernät kan innehålla flera virtuella datorer eller andra beräkningsnoder. Beräkningsnoder som finns utanför det virtuella nätverket kan inte komma åt det virtuella nätverket om du inte konfigurerar säkerheten så att åtkomst tillåts.
+**Undernät:** Ett virtuellt nätverk innehåller **undernät**. Alla virtuella datorer i Azure (VM) som du har tilldelats till undernät. Ett undernät kan innehålla flera virtuella datorer eller andra Compute-noder. Compute-noder utanför det virtuella nätverket kan inte komma åt ditt virtuella nätverk om du inte konfigurerar din säkerhet att tillåta åtkomst.
 
-**Slutpunkt för tjänsten Virtuellt nätverk:** Slutpunkten [för tjänsten Virtuellt nätverk][vm-virtual-network-service-endpoints-overview-649d] är ett undernät vars egenskapsvärden innehåller ett eller flera formella Azure-tjänsttypsnamn. I den här artikeln är vi intresserade av typnamnet för **Microsoft.Sql**, som refererar till Azure-tjänsten SOM heter SQL Database. Det här tjänstmärket gäller även för Azure-databasen för MariaDB-, MySQL- och PostgreSQL-tjänster. Det är viktigt att notera när du använder **Microsoft.Sql-tjänsttaggen** på en VNet-tjänstslutpunkt konfigurerar tjänstslutpunktstrafik för alla Azure SQL Database, Azure Database för MariaDB, Azure Database for MySQL och Azure Database for PostgreSQL-servrar i undernätet.
+**Virtual Network tjänst slut punkt:** En [Virtual Network tjänst slut punkt][vm-virtual-network-service-endpoints-overview-649d] är ett undernät vars egenskaps värden innehåller ett eller flera formella namn för Azure-tjänst typ. I den här artikeln är vi intresserade av typ namnet **Microsoft. SQL**, som refererar till Azure-tjänsten med namnet SQL Database. Den här tjänst tag gen gäller även för Azure Database for MariaDB-, MySQL-och PostgreSQL-tjänster. Det är viktigt att du noterar när du använder service tag-koden för **Microsoft. SQL** på en slut punkt för VNet-tjänsten som konfigurerar tjänst slut punkts trafik för alla Azure SQL Database, Azure Database for MariaDB, Azure Database for MySQL och Azure Database for PostgreSQL servrar i under nätet.
 
-**Regel för virtuellt nätverk:** En virtuell nätverksregel för din Azure Database för MariaDB-server är ett undernät som visas i åtkomstkontrollistan (ACL) på din Azure Database för MariaDB-server. Om du vill vara med i ACL för din Azure-databas för MariaDB-server måste undernätet innehålla typnamnet **för Microsoft.Sql.**
+**Regel för virtuellt nätverk:** En regel för virtuella nätverk för din Azure Database for MariaDB-Server är ett undernät som listas i åtkomst kontrol listan (ACL) för din Azure Database for MariaDB-Server. För att finnas i ACL: en för din Azure Database for MariaDB-Server måste under nätet innehålla namnet **Microsoft. SQL** -typ.
 
-En virtuell nätverksregel talar om för din Azure-databas för MariaDB-server att acceptera kommunikation från varje nod som finns i undernätet.
+En regel för virtuella nätverk instruerar Azure Database for MariaDB servern att acceptera kommunikation från varje nod som finns på under nätet.
 
 
 
@@ -46,94 +46,94 @@ En virtuell nätverksregel talar om för din Azure-databas för MariaDB-server a
 
 <a name="anch-benefits-of-a-vnet-rule-68b" />
 
-## <a name="benefits-of-a-virtual-network-rule"></a>Fördelar med en regel för virtuellt nätverk
+## <a name="benefits-of-a-virtual-network-rule"></a>Fördelar med en virtuell nätverks regel
 
-Tills du vidtar åtgärder kan de virtuella datorerna i dina undernät inte kommunicera med din Azure-databas för MariaDB-server. En åtgärd som upprättar kommunikationen är att skapa en regel för virtuellt nätverk. Grunden för att välja VNet-regelmetoden kräver en diskussion om jämförelse och kontrast som involverar de konkurrerande säkerhetsalternativ som brandväggen erbjuder.
+De virtuella datorerna i under näten kan inte kommunicera med din Azure Database for MariaDB-Server förrän du vidtar åtgärder. En åtgärd som upprättar kommunikationen är att skapa en regel för virtuella nätverk. Anledningen till att du väljer regel metoden för VNet kräver en jämförelse-och-kontrast-diskussion som involverar de konkurrerande säkerhets alternativ som erbjuds av brand väggen.
 
 ### <a name="a-allow-access-to-azure-services"></a>A. Tillåt åtkomst till Azure-tjänster
 
-Säkerhetsfönstret Anslutning har en **ON/OFF-knapp** med etiketten **Tillåt åtkomst till Azure-tjänster**. **ON-inställningen** tillåter kommunikation från alla Azure IP-adresser och alla Azure-undernät. Dessa Azure-IPs eller undernät kanske inte ägs av dig. Den här **ON-inställningen** är förmodligen mer öppen än du vill att din Azure-databas för MariaDB-databas ska vara. Den virtuella nätverksregelfunktionen erbjuder mycket finare detaljerad kontroll.
+Fönstret anslutnings säkerhet har en **på/av-** knapp med etiketten **Tillåt åtkomst till Azure-tjänster**. Inställningen **on** tillåter kommunikation från alla Azure IP-adresser och alla Azure-undernät. Dessa Azure IP-adresser eller undernät kanske inte ägs av dig. Den **här** inställningen är förmodligen mer öppen än du vill att din Azure Database for MariaDB-databas ska vara. Funktionen för regel för virtuella nätverk ger en mycket noggrannare detaljerad kontroll.
 
 ### <a name="b-ip-rules"></a>B. IP-regler
 
-Med brandväggen för Azure-databasen för MariaDB kan du ange IP-adressintervall från vilka kommunikation accepteras i Azure Database för MariaDB-servern. Den här metoden är bra för stabila IP-adresser som ligger utanför Azure privata nätverk. Men många noder i Azure privata nätverk är konfigurerade med *dynamiska* IP-adresser. Dynamiska IP-adresser kan ändras, till exempel när den virtuella datorn startas om. Det skulle vara dårskap att ange en dynamisk IP-adress i en brandväggsregel, i en produktionsmiljö.
+Med Azure Database for MariaDB brand väggen kan du ange IP-adressintervall från vilka kommunikationen godkänns i Azure Database for MariaDB-servern. Den här metoden är bra för stabila IP-adresser som ligger utanför Azures privata nätverk. Men många noder i det privata Azure-nätverket har kon figurer ATS med *dynamiska* IP-adresser. Dynamiska IP-adresser kan ändras, till exempel när den virtuella datorn startas om. Det skulle vara Folly att ange en dynamisk IP-adress i en brand Väggs regel i en produktions miljö.
 
-Du kan rädda IP-alternativet genom att skaffa en *statisk* IP-adress för den virtuella datorn. Mer information finns i [Konfigurera privata IP-adresser för en virtuell dator med hjälp av Azure-portalen][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
+Du kan hämta IP-alternativet genom att skaffa en *statisk* IP-adress för den virtuella datorn. Mer information finns i [Konfigurera privata IP-adresser för en virtuell dator med hjälp av Azure Portal][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
 
-Den statiska IP-metoden kan dock bli svår att hantera, och den är kostsam när den görs i stor skala. Virtuella nätverksregler är enklare att upprätta och hantera.
+Den statiska IP-metoden kan dock bli svår att hantera, och den är kostsam när den görs i stor skala. Det är enklare att upprätta och hantera virtuella nätverks regler.
 
-### <a name="c-cannot-yet-have-azure-database-for-mariadb-on-a-subnet-without-defining-a-service-endpoint"></a>C. Det går ännu inte att ha Azure Database för MariaDB i ett undernät utan att definiera en tjänstslutpunkt
+### <a name="c-cannot-yet-have-azure-database-for-mariadb-on-a-subnet-without-defining-a-service-endpoint"></a>C. Det går inte att ha Azure Database for MariaDB i ett undernät ännu utan att definiera en tjänst slut punkt
 
-Om **Microsoft.Sql-servern** var en nod i ett undernät i det virtuella nätverket kunde alla noder i det virtuella nätverket kommunicera med din Azure Database för MariaDB-server. I det här fallet kan dina virtuella datorer kommunicera med Azure Database för MariaDB utan att behöva några virtuella nätverksregler eller IP-regler.
+Om din **Microsoft. SQL** -Server var en nod i ett undernät i det virtuella nätverket kan alla noder i det virtuella nätverket kommunicera med din Azure Database for MariaDB-Server. I det här fallet kan de virtuella datorerna kommunicera med Azure Database for MariaDB utan att behöva några regler för virtuella nätverk eller IP-regler.
 
-Från och med augusti 2018 är dock Azure Database for MariaDB-tjänsten ännu inte bland de tjänster som kan tilldelas direkt till ett undernät.
+Men från och med augusti 2018 är Azure Database for MariaDB tjänsten ännu inte bland de tjänster som kan tilldelas direkt till ett undernät.
 
 <a name="anch-details-about-vnet-rules-38q" />
 
 ## <a name="details-about-virtual-network-rules"></a>Information om regler för virtuella nätverk
 
-I det här avsnittet beskrivs flera detaljer om virtuella nätverksregler.
+I det här avsnittet beskrivs flera Detaljer om regler för virtuella nätverk.
 
 ### <a name="only-one-geographic-region"></a>Endast en geografisk region
 
-Varje slutpunkt för tjänsten För virtuellt nätverk gäller endast en Azure-region. Slutpunkten gör det inte möjligt för andra regioner att acceptera kommunikation från undernätet.
+Varje Virtual Network tjänst slut punkt gäller endast en Azure-region. Slut punkten tillåter inte att andra regioner accepterar kommunikation från under nätet.
 
-Alla virtuella nätverksregel är begränsade till den region som den underliggande slutpunkten gäller för.
+Alla virtuella nätverks regler är begränsade till den region som den underliggande slut punkten gäller för.
 
-### <a name="server-level-not-database-level"></a>Servernivå, inte databasnivå
+### <a name="server-level-not-database-level"></a>Server nivå, inte databas nivå
 
-Varje virtuell nätverksregel gäller för hela Azure Database för MariaDB-server, inte bara för en viss databas på servern. Med andra ord gäller regeln för virtuellt nätverk på servernivå, inte på databasnivå.
+Varje virtuell nätverks regel gäller hela Azure Database for MariaDB-servern, inte bara till en viss databas på servern. Med andra ord gäller regel för virtuella nätverk på server nivå, inte på databas nivå.
 
-### <a name="security-administration-roles"></a>Roller för säkerhetsadministration
+### <a name="security-administration-roles"></a>Säkerhets administrations roller
 
-Det finns en separation av säkerhetsroller i administrationen av slutpunkter för tjänsten Virtuellt nätverk. Åtgärder krävs från var och en av följande roller:
+Det finns en separation av säkerhets roller i administration av Virtual Network tjänstens slut punkter. Åtgärd krävs från var och en av följande roller:
 
-- **Nätverksadministratör:** &nbsp; Aktivera slutpunkten.
-- **Databasadministratör:** &nbsp; Uppdatera åtkomstkontrollistan (ACL) för att lägga till det angivna undernätet i Azure Database för MariaDB-servern.
+- **Nätverks administratör:** &nbsp; aktivera slut punkten.
+- **Databas administratör:** &nbsp; uppdatera åtkomst kontrol listan (ACL) för att lägga till angivet undernät till Azure Database for MariaDB servern.
 
-*RBAC alternativ:*
+*RBAC-alternativ:*
 
-Rollerna för nätverksadministratör och databasadministratör har fler funktioner än vad som behövs för att hantera virtuella nätverksregler. Endast en delmängd av deras kapacitet behövs.
+Rollerna för nätverks administratör och databas administratörer har fler funktioner än vad som krävs för att hantera virtuella nätverks regler. Endast en delmängd av deras funktioner krävs.
 
-Du har möjlighet att använda [rollbaserad åtkomstkontroll (RBAC)][rbac-what-is-813s] i Azure för att skapa en enda anpassad roll som bara har den nödvändiga delmängden av funktioner. Den anpassade rollen kan användas i stället för att involvera nätverksadministratören eller databasadministratören. Ytan på säkerhetsexponeringen är lägre om du lägger till en användare i en anpassad roll, jämfört med att lägga till användaren i de andra två stora administratörsrollerna.
+Du kan välja att använda [rollbaserad åtkomst kontroll (RBAC)][rbac-what-is-813s] i Azure för att skapa en enskild anpassad roll som bara har de funktioner som krävs. Den anpassade rollen kan användas i stället för att involvera antingen nätverks administratören eller databas administratören. Arean av din säkerhets exponering är lägre om du lägger till en användare i en anpassad roll och lägger till användaren till de andra två större administratörs rollerna.
 
 > [!NOTE]
-> I vissa fall finns Azure-databasen för MariaDB och VNet-undernätet i olika prenumerationer. I dessa fall måste du se till att följande konfigurationer:
-> - Båda prenumerationerna måste finnas i samma Azure Active Directory-klientorganisation.
-> - Användaren har de behörigheter som krävs för att initiera åtgärder, till exempel aktivera tjänstslutpunkter och lägga till ett VNet-undernät till den angivna servern.
-> - Kontrollera att båda prenumerationerna har **Microsoft.Sql-resursprovidern** registrerad. Mer information finns i [resurs-manager-registrering][resource-manager-portal]
+> I vissa fall finns Azure Database for MariaDB och VNet-under nätet i olika prenumerationer. I dessa fall måste du se till att följande konfigurationer:
+> - Båda prenumerationerna måste vara i samma Azure Active Directory-klient.
+> - Användaren har de behörigheter som krävs för att initiera åtgärder, till exempel aktivera tjänst slut punkter och lägga till ett VNet-undernät till den aktuella servern.
+> - Se till att båda prenumerationerna har **Microsoft. SQL** -lagringsprovidern registrerad. Mer information hittar du i [Resource Manager-Registration][resource-manager-portal]
 
 ## <a name="limitations"></a>Begränsningar
 
-För Azure Database för MariaDB har funktionen för virtuella nätverksregler följande begränsningar:
+För Azure Database for MariaDB har funktionen regler för virtuellt nätverk följande begränsningar:
 
-- En webbapp kan mappas till en privat IP i ett virtuella nätverk/undernät. Även om tjänstslutpunkter är aktiverade från det angivna virtuella nätverket/undernätet, kommer anslutningar från Webbappen till servern att ha en offentlig Azure-IP-källa, inte en VNet/undernätskälla. Om du vill aktivera anslutning från en webbapp till en server med VNet-brandväggsregler måste du tillåta Azure-tjänster att komma åt servern på servern.
+- En webbapp kan mappas till en privat IP-adress i ett VNet/undernät. Även om tjänstens slut punkter är påslagna från det virtuella nätverket/under nätet kommer anslutningar från webbappen till-servern att ha en offentlig Azure-IP-källa, inte en källa för VNet/undernät. Om du vill aktivera anslutning från en webbapp till en server som har VNet brand Väggs regler måste du ge Azure-tjänster åtkomst till servern på servern.
 
-- I brandväggen för din Azure-databas för MariaDB refererar varje virtuell nätverksregel till ett undernät. Alla dessa refererade undernät måste vara värd i samma geografiska region som är värd för Azure-databasen för MariaDB.
+- I brand väggen för din Azure Database for MariaDB refererar varje virtuell nätverks regel till ett undernät. Alla dessa refererade undernät måste ligga inom samma geografiska region som är värd för Azure Database for MariaDB.
 
-- Varje Azure-databas för MariaDB-server kan ha upp till 128 ACL-poster för ett visst virtuellt nätverk.
+- Varje Azure Database for MariaDB Server kan ha upp till 128 ACL-poster för ett angivet virtuellt nätverk.
 
-- Virtuella nätverksregler gäller endast för virtuella Azure Resource Manager-nätverk. och inte till [klassiska distributionsmodellnätverk.][resource-manager-deployment-model-568f]
+- Regler för virtuella nätverk gäller endast för Azure Resource Manager virtuella nätverk; och inte till [klassiska nätverk för distributions modeller][resource-manager-deployment-model-568f] .
 
-- Om du aktiverar slutpunkter för virtuella nätverkstjänster till Azure Database för MariaDB med hjälp av **microsoft.Sql-tjänsttaggen** kan slutpunkterna för alla Azure Database-tjänster: Azure Database for MariaDB, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database och Azure SQL Data Warehouse.
+- När du aktiverar tjänst slut punkter för virtuella nätverk för att Azure Database for MariaDB med hjälp av service tag gen för **Microsoft. SQL** kan du också aktivera slut punkter för alla Azure Database-tjänster: Azure Database for MariaDB, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database och Azure SQL Data Warehouse.
 
-- Stöd för slutpunkter för VNet-tjänst är endast för servrar med allmänt syfte och minnesoptimerade.
+- Stöd för VNet-tjänstens slut punkter är bara för Generell användning och minnesoptimerade servrar.
 
-- I brandväggen gäller IP-adressintervall för följande nätverksobjekt, men regler för virtuella nätverk gäller inte:
-    - [Virtuellt privat nätverk (Plats till plats) (VPN)][vpn-gateway-indexmd-608y]
+- I brand väggen gäller IP-adressintervall för följande nätverks objekt, men regler för virtuella nätverk gör inte följande:
+    - [Virtuellt privat nätverk (VPN) för plats-till-plats (S2S)][vpn-gateway-indexmd-608y]
     - Lokalt via [ExpressRoute][expressroute-indexmd-744v]
 
 ## <a name="expressroute"></a>ExpressRoute
 
-Om nätverket är anslutet till Azure-nätverket med hjälp av [ExpressRoute][expressroute-indexmd-744v]konfigureras varje krets med två offentliga IP-adresser på Microsoft Edge. De två IP-adresserna används för att ansluta till Microsoft Services, till exempel till Azure Storage, med hjälp av Azure Public Peering.
+Om nätverket är anslutet till Azure-nätverket med hjälp av [ExpressRoute][expressroute-indexmd-744v]konfigureras varje krets med två offentliga IP-adresser på Microsoft Edge. De två IP-adresserna används för att ansluta till Microsoft-tjänster, till exempel för att Azure Storage med hjälp av Azures offentliga peering.
 
-Om du vill tillåta kommunikation från din krets till Azure Database för MariaDB måste du skapa IP-nätverksregler för de offentliga IP-adresserna för dina kretsar. Öppna en supportbiljett med ExpressRoute med Hjälp av Azure-portalen för att hitta de offentliga IP-adresserna för din ExpressRoute-krets.
+Om du vill tillåta kommunikation från din krets till Azure Database for MariaDB måste du skapa IP-nätverksnummer för dina kretsars offentliga IP-adresser. För att hitta den offentliga IP-adressen för din ExpressRoute-krets öppnar du ett support ärende med ExpressRoute med hjälp av Azure Portal.
 
-## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Lägga till en VNET-brandväggsregel på servern utan att aktivera VNET-tjänstslutpunkter
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Lägga till en brand Väggs regel för VNET på servern utan att aktivera VNET-tjänstens slut punkter
 
-Att bara ange en brandväggsregel hjälper inte till att skydda servern till det virtuella nätverket. Du måste också aktivera slutpunkter **för** VNet-tjänsten för att säkerheten ska börja gälla. När du aktiverar tjänstslutpunkter **på**upplever ditt VNet-undernät driftstopp tills övergången är klar från **Av** till **På**. Detta gäller särskilt i samband med stora virtuella nätverk. Du kan använda flaggan **IgnoreMissingServiceEndpoint** för att minska eller eliminera stilleståndstiden under övergången.
+Att bara ange en brand Väggs regel skyddar inte servern mot VNet. Du måste också aktivera VNet-tjänstens slut **punkter för att** säkerheten ska börja gälla. När du aktiverar tjänstens slut punkter **aktive**ras stillestånds tiden för VNet-undernät tills den slutför över **gången från till** **på**. Detta gäller särskilt i samband med stora virtuella nätverk. Du kan använda flaggan **IgnoreMissingServiceEndpoint** för att minska eller eliminera stillestånds tiden under över gången.
 
-Du kan ange flaggan **IgnoreMissingServiceEndpoint** med hjälp av Azure CLI eller portalen.
+Du kan ställa in flaggan **IgnoreMissingServiceEndpoint** med hjälp av Azure CLI eller portalen.
 
 ## <a name="related-articles"></a>Relaterade artiklar
 - [Virtuella Azure-nätverk][vm-virtual-network-overview]
@@ -141,7 +141,7 @@ Du kan ange flaggan **IgnoreMissingServiceEndpoint** med hjälp av Azure CLI ell
 
 ## <a name="next-steps"></a>Nästa steg
 Artiklar om hur du skapar VNet-regler finns i:
-- [Skapa och hantera Azure Database för MariaDB VNet-regler med Hjälp av Azure-portalen](howto-manage-vnet-portal.md)
+- [Skapa och hantera Azure Database for MariaDB VNet-regler med hjälp av Azure Portal](howto-manage-vnet-portal.md)
  
 <!--
 - [Create and manage Azure Database for MariaDB VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)

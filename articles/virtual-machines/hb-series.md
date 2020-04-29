@@ -1,5 +1,5 @@
 ---
-title: HB-serien – virtuella Azure-datorer
+title: HB-serien – Azure Virtual Machines
 description: Specifikationer för virtuella datorer i HB-serien.
 services: virtual-machines
 author: jonbeck7
@@ -8,27 +8,27 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 600f10e81742e9bb66c800b747fd7b2dc062754d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78164839"
 ---
 # <a name="hb-series"></a>HB-serien
 
-HB-serien virtuella datorer är optimerade för program som drivs av minnesbandbredd, till exempel vätskedynamik, explicit finit elementanalys och vädermodellering. HB virtuella datorer har 60 AMD EPYC 7551 processorkärnor, 4 GB RAM per CPU-kärna, och ingen samtidig multithreading. En virtuell HB-dator ger upp till 260 GB/sek minnesbandbredd.
+Virtuella datorer i HB-serien är optimerade för program som drivs av minnes bandbredd, till exempel flytande dynamik, explicit ändliga element analyser och väder modellering. HB VM Feature 60 AMD EPYC 7551 processor kärnor, 4 GB RAM per CPU-kärna och ingen samtidig multitrådning. En virtuell HB-dator ger upp till 260 GB/s minnes bandbredd.
 
 ACU: 199-216
 
-Premium-lagring: Stöds
+Premium Storage: stöds
 
-Cachelagring för premiumlagring: Stöds
+Premium Storage caching: stöds
 
-Live Migration: Stöds inte
+Direktmigrering: stöds inte
 
-Minneskonering av uppdateringar: Stöds inte
+Minnes bebetjänings uppdateringar: stöds inte
 
-| Storlek | Virtuell processor | Processor | Minne (GB) | Minnesbandbredd GB/s | Bas-CPU-frekvens (GHz) | All-cores frekvens (GHz, topp) | Enkärnfrekvens (GHz, topp) | RDMA-prestanda (Gb/s) | MPI-stöd | Temp-lagring (GB) | Maximalt antal datadiskar | Max Ethernet-nätverkskort |
+| Storlek | Virtuell processor | Processor | Minne (GB) | Minnes bandbredd GB/s | Bas processor frekvens (GHz) | Frekvens för alla kärnor (GHz, högsta) | Frekvens för enkla kärnor (GHz, hög) | RDMA-prestanda (GB/s) | MPI-stöd | Temp-lagring (GB) | Maximalt antal datadiskar | Högsta Ethernet-nätverkskort |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_HB60rs | 60 | AMD EPYC 7551 | 240 | 263 | 2.0 | 2.55 | 2.55 | 100 | Alla | 700 | 4 | 1 |
 
@@ -45,4 +45,4 @@ Minneskonering av uppdateringar: Stöds inte
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hur [Azure compute units (ACU)](acu.md) kan hjälpa dig att jämföra beräkningsprestanda över Azure SKU:er.
+Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.

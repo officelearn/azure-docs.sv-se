@@ -1,48 +1,48 @@
 ---
-title: Hantera lagrade procedurer - Azure Database för MariaDB
-description: Lär dig vilka lagrade procedurer i Azure Database för MariaDB som är användbara för att hjälpa dig att konfigurera data-in-replikering, ange tidszon och döda frågor.
+title: Lagrade procedurer för hantering – Azure Database for MariaDB
+description: Lär dig vilka lagrade procedurer i Azure Database for MariaDB är användbara för att hjälpa dig att konfigurera datareplikering, ställa in timezone-och Kill-frågor.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 2f6d1e20db64cb0c2a64771ea26b971b22031fd9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79529998"
 ---
-# <a name="azure-database-for-mariadb-management-stored-procedures"></a>Azure Database för MariaDB-hanterings lagrade procedurer
+# <a name="azure-database-for-mariadb-management-stored-procedures"></a>Lagrade procedurer för Azure Database for MariaDB hantering
 
-Lagrade procedurer är tillgängliga på Azure Database för MariaDB-servrar för att hantera din MariaDB-server. Detta inkluderar hantering av serverns anslutningar, frågor och inställning av data-in Replication.  
+Lagrade procedurer finns på Azure Database for MariaDB-servrar för att hantera din MariaDB-Server. Detta omfattar hantering av serverns anslutningar, frågor och konfiguration av Datareplikering.  
 
-## <a name="data-in-replication-stored-procedures"></a>Lagrade datainsamlingsbaserade procedurer
+## <a name="data-in-replication-stored-procedures"></a>Datareplikering lagrade procedurer
 
 Med datareplikering kan du synkronisera data från en MariaDB-server som körs lokalt, på virtuella datorer eller i databastjänster som hanteras av andra molnleverantörer i tjänsten Azure Database for MariaDB-tjänsten.
 
-Följande lagrade procedurer används för att ställa in eller ta bort data-in Replication mellan en huvud- och replik.
+Följande lagrade procedurer används för att ställa in eller ta bort Datareplikering mellan en huvud server och replik.
 
-|**Namn på lagrad procedur**|**Indataparametrar**|**Utdataparametrar**|**Anm.-**|
+|**Namn på lagrad procedur**|**Indataparametrar**|**Utdataparametrar**|**Användnings notering**|
 |-----|-----|-----|-----|
-|*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|Ej tillämpligt|Om du vill överföra data med SSL-läge skickar du in ca-certifikatets kontext till parametern master_ssl_ca. </br><br>Om du vill överföra data utan SSL skickar du in en tom sträng till parametern master_ssl_ca.|
-|*mysql.az_replication _start*|Ej tillämpligt|Ej tillämpligt|Startar replikeringen.|
-|*mysql.az_replication _stop*|Ej tillämpligt|Ej tillämpligt|Stoppar replikeringen.|
-|*mysql.az_replication _remove_master*|Ej tillämpligt|Ej tillämpligt|Tar bort replikeringsrelationen mellan huvud- och repliken.|
-|*mysql.az_replication_skip_counter*|Ej tillämpligt|Ej tillämpligt|Hoppar över ett replikeringsfel.|
+|*MySQL. az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|Ej tillämpligt|Överför data med SSL-läge genom att skicka certifikat utfärdarens certifikats kontext till master_ssl_ca-parametern. </br><br>Om du vill överföra data utan SSL skickar du en tom sträng till master_ssl_ca-parametern.|
+|*MySQL. az_replication _start*|Ej tillämpligt|Ej tillämpligt|Startar replikering.|
+|*MySQL. az_replication _stop*|Ej tillämpligt|Ej tillämpligt|Stoppar replikering.|
+|*MySQL. az_replication _remove_master*|Ej tillämpligt|Ej tillämpligt|Tar bort replikeringsrelationen mellan huvud servern och repliken.|
+|*MySQL. az_replication_skip_counter*|Ej tillämpligt|Ej tillämpligt|Hoppar över ett replikeringsfel.|
 
-Information om hur du konfigurerar data-in Replication mellan en huvudhanterare och en replik i Azure Database för MariaDB finns [i hur du konfigurerar data-in Replication](howto-data-in-replication.md).
+Information om hur du konfigurerar Datareplikering mellan en huvud server och en replik i Azure Database for MariaDB finns i så här [konfigurerar du datareplikering](howto-data-in-replication.md).
 
 ## <a name="other-stored-procedures"></a>Andra lagrade procedurer
 
-Följande lagrade procedurer är tillgängliga i Azure Database för MariaDB för att hantera servern.
+Följande lagrade procedurer är tillgängliga i Azure Database for MariaDB att hantera servern.
 
-|**Namn på lagrad procedur**|**Indataparametrar**|**Utdataparametrar**|**Anm.-**|
+|**Namn på lagrad procedur**|**Indataparametrar**|**Utdataparametrar**|**Användnings notering**|
 |-----|-----|-----|-----|
-|*mysql.az_kill*|processlist_id|Ej tillämpligt|Motsvarar [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) kommandot. Kommer att avsluta anslutningen som är associerad med den medföljande processlist_id efter att ha avslutat ett uttalande som anslutningen utför.|
-|*mysql.az_kill_query*|processlist_id|Ej tillämpligt|Motsvarar [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) kommandot. Kommer att avsluta satsen anslutningen körs för närvarande. Lämnar själva anslutningen vid liv.|
-|*mysql.az_load_timezone*|Ej tillämpligt|Ej tillämpligt|Läser in tidszonstabeller så att parametern `time_zone` kan ställas in på namngivna värden (t.ex. "USA/Stilla havet").|
+|*MySQL. az_kill*|processlist_id|Ej tillämpligt|Motsvarande [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) kommando. Avslutar anslutningen som är associerad med den angivna processlist_id när du har avslutat en instruktion som anslutningen körs.|
+|*MySQL. az_kill_query*|processlist_id|Ej tillämpligt|Motsvarande [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) kommando. Avslutar instruktionen som anslutningen körs för tillfället. Lämnar själva anslutningen.|
+|*MySQL. az_load_timezone*|Ej tillämpligt|Ej tillämpligt|Läser in tids zons tabeller så att `time_zone` parametern kan anges till namngivna värden (t. ex. "USA/Stilla havs området").|
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig hur du konfigurerar [data-in Replication](howto-data-in-replication.md)
-- Läs om hur du använder [tidszonstabellerna](howto-server-parameters.md#working-with-the-time-zone-parameter)
+- Lär dig hur du konfigurerar [datareplikering](howto-data-in-replication.md)
+- Lär dig hur du använder [tids zons tabellerna](howto-server-parameters.md#working-with-the-time-zone-parameter)

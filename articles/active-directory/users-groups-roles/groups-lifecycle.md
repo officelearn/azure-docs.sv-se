@@ -1,6 +1,6 @@
 ---
-title: Ange förfallodatum för Office 365-grupper – Azure Active Directory | Microsoft-dokument
-description: Konfigurera förfallodatum för Office 365-grupper i Azure Active Directory
+title: Ange förfallo datum för Office 365-grupper – Azure Active Directory | Microsoft Docs
+description: Så här konfigurerar du förfallo datum för Office 365-grupper i Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -16,135 +16,135 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 562b551bc8a46a45135bf6a9a8e328b4b0e74f98
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80048250"
 ---
-# <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurera förfalloprincipen för Office 365-grupper
+# <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurera princip för förfallo datum för Office 365-grupper
 
-I den här artikeln beskrivs hur du hanterar livscykeln för Office 365-grupper genom att ange en förfalloprincip för dem. Du kan bara ange förfalloprincip för Office 365-grupper i Azure Active Directory (Azure AD).
+Den här artikeln beskriver hur du hanterar livs cykeln för Office 365-grupper genom att ange en förfallo princip för dem. Du kan bara ange förfallo princip för Office 365-grupper i Azure Active Directory (Azure AD).
 
-När du har angett att en grupp ska upphöra att gälla:
+När du har angett att en grupp upphör att gälla:
 
-- Grupper med användaraktiviteter förnyas automatiskt när förfallodatumet närmar sig.
-- Ägare av gruppen meddelas att förnya gruppen, om gruppen inte förnyas automatiskt.
+- Grupper med användar aktiviteter förnyas automatiskt när de upphör snart.
+- Ägare av gruppen meddelas om att förnya gruppen om gruppen inte förnyas automatiskt.
 - Alla grupper som inte förnyas tas bort.
-- Alla Office 365-grupper som tas bort kan återställas inom 30 dagar av gruppägarna eller administratören.
+- Alla Office 365-grupper som tas bort kan återställas inom 30 dagar av gruppen ägare eller administratören.
 
-För närvarande kan endast en förfalloprincip konfigureras för alla Office 365-grupper i en Azure AD-organisation.
+För närvarande kan endast en princip för förfallo datum konfigureras för alla Office 365-grupper i en Azure AD-organisation.
 
 > [!NOTE]
-> Konfigurera och använda principen för förfallodatum för Office 365-grupper kräver att du har men inte nödvändigtvis tilldela Azure AD Premium-licenser för medlemmarna i alla grupper som principen för förfallodatum tillämpas på.
+> Genom att konfigurera och använda principen för utgångs princip för Office 365-grupper måste du ha, men inte nödvändigt vis tilldela Azure AD Premium licenser för medlemmarna i alla grupper som utgångs principen tillämpas på.
 
-Information om hur du hämtar och installerar Azure AD PowerShell-cmdletar finns i [Azure Active Directory PowerShell för Diagram 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
+Information om hur du hämtar och installerar Azure AD PowerShell-cmdlets finns i [Azure Active Directory PowerShell för Graph 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
 ## <a name="activity-based-automatic-renewal"></a>Aktivitet baserad på automatisk förnyelse
 
-Med Azure AD-intelligens förnyas grupper nu automatiskt baserat på om de nyligen har använts. Den här funktionen eliminerar behovet av manuella åtgärder från gruppägare, eftersom den baseras på användaraktivitet i grupper i Office 365-tjänster som Outlook, SharePoint eller Teams. Om till exempel en ägare eller gruppmedlem gör något som att ladda upp ett dokument i SharePoint, besöka en Teams-kanal eller skicka ett e-postmeddelande till gruppen i Outlook, förnyas gruppen automatiskt och ägaren får inga förnyelsemeddelanden.
+Med Azure AD Intelligence förnyas nu grupper automatiskt utifrån om de har använts nyligen. Den här funktionen eliminerar behovet av manuell åtgärd av grupp ägare, eftersom den baseras på användar aktivitet i grupper i Office 365-tjänster som Outlook, SharePoint eller teams. Om till exempel en ägare eller en grupp medlem gör något som t. ex. att ladda upp ett dokument i SharePoint kan du gå till en Team kanal eller skicka ett e-postmeddelande till gruppen i Outlook. gruppen förnyas automatiskt och ägaren får inga förnyelse meddelanden.
 
-### <a name="activities-that-automatically-renew-group-expiration"></a>Aktiviteter som automatiskt förnyar gruppens förfallodatum
+### <a name="activities-that-automatically-renew-group-expiration"></a>Aktiviteter som automatiskt förnyar grupp förfallo datum
 
-Följande användaråtgärder orsakar automatisk gruppförnyelse:
+Följande användar åtgärder orsakar automatisk grupp förnyelse:
 
 - SharePoint: Visa, redigera, ladda ned, flytta, dela eller ladda upp filer
-- Outlook: Gå med i grupp, läs-/skrivgruppmeddelande från grupputrymme, Gilla ett meddelande (i Outlook Web Access)
-- Lag: Besök en Teams-kanal
+- Outlook: Anslut till grupp, läsa/skriva grupp meddelande från grupp utrymme, som ett meddelande (i Outlook Web Access)
+- Team: besök en Team-kanal
 
-### <a name="auditing-and-reporting"></a>Revision och rapportering
+### <a name="auditing-and-reporting"></a>Granskning och rapportering
 
-Administratörer kan få en lista över automatiskt förnyade grupper från aktivitetsgranskningsloggarna i Azure AD.
+Administratörer kan hämta en lista över automatiskt förnyade grupper från aktivitets gransknings loggarna i Azure AD.
 
 ![Automatisk förnyelse av grupper baserat på aktivitet](./media/groups-lifecycle/audit-logs-autorenew-group.png)
 
 ## <a name="roles-and-permissions"></a>Roller och behörigheter
 
-Följande är roller som kan konfigurera och använda förfallodatum för Office 365-grupper i Azure AD.
+Följande är roller som kan konfigurera och använda förfallo datum för Office 365-grupper i Azure AD.
 
 Roll | Behörigheter
 -------- | --------
-Global administratör, gruppadministratör eller användaradministratör | Kan skapa, läsa, uppdatera eller ta bort principinställningarna för office 365-grupper<br>Kan förnya en Office 365-grupp
-Användare | Kan förnya en Office 365-grupp som de äger<br>Kan återställa en Office 365-grupp som de äger<br>Kan läsa inställningarna för förfalloprincipen
+Global administratör, grupp administratör eller användar administratör | Kan skapa, läsa, uppdatera eller ta bort princip inställningarna för utgångs princip i Office 365-grupper<br>Kan förnya valfri Office 365-grupp
+Användare | Kan förnya en Office 365-grupp som de äger<br>Kan återställa en Office 365-grupp som de äger<br>Kan läsa princip inställningarna för förfallo datum
 
-Mer information om behörigheter för att återställa en borttagen grupp finns i [Återställa en borttagen Office 365-grupp i Azure Active Directory](groups-restore-deleted.md).
+Mer information om behörigheter för att återställa en borttagen grupp finns i [återställa en borttagen Office 365-grupp i Azure Active Directory](groups-restore-deleted.md).
 
 ## <a name="set-group-expiration"></a>Ange gruppförfallotid
 
-1. Öppna [Azure AD-administrationscentret](https://aad.portal.azure.com) med ett konto som är en global administratör i din Azure AD-organisation.
+1. Öppna [administrations centret för Azure AD](https://aad.portal.azure.com) med ett konto som är en global administratör i din Azure AD-organisation.
 
-2. Välj **Grupper**och välj sedan **Förfallodatum** för att öppna förfalloinställningarna.
+2. Välj **grupper**och välj sedan **förfallo datum** för att öppna inställningarna för förfallo datum.
   
-   ![Inställningar för förfallodatum för grupper](./media/groups-lifecycle/expiration-settings.png)
+   ![Förfallo inställningar för grupper](./media/groups-lifecycle/expiration-settings.png)
 
-3. På sidan **Förfallodatum** kan du:
+3. På sidan **förfallo datum** kan du:
 
-    - Ange gruppens livstid i dagar. Du kan välja ett av de förinställda värdena eller ett anpassat värde (bör vara 31 dagar eller mer).
-    - Ange en e-postadress där förnyelse- och förfallodatummeddelanden ska skickas när en grupp inte har någon ägare.
-    - Välj vilka Office 365-grupper som upphör att gälla. Du kan ange förfallodatum för:
+    - Ange gruppens livs längd i dagar. Du kan välja ett av de förinställda värdena eller ett anpassat värde (bör vara 31 dagar eller mer).
+    - Ange en e-postadress där förnyelse-och förfallo meddelanden ska skickas när en grupp saknar ägare.
+    - Välj vilka Office 365-grupper som upphör att gälla. Du kan ange förfallo datum för:
       - **Alla** Office 365-grupper
-      - En lista över **markerade** Office 365-grupper
-      - **Ingen** för att begränsa förfallodatum för alla grupper
+      - En lista med **valda** Office 365-grupper
+      - **Ingen** för att begränsa förfallo datum för alla grupper
     - Spara inställningarna när du är klar genom att välja **Spara**.
 
 > [!NOTE]
-> - När du först ställer in förfallodatumet anges alla grupper som är äldre än utgångsdatumet till 35 dagar fram till förfallodatumet om inte gruppen förnyas automatiskt eller ägaren förnyar det.
-> - När en dynamisk grupp tas bort och återställs ses den som en ny grupp och fylls i igen enligt regeln. Den här processen kan ta upp till 24 timmar.
-> - Förfallodatum för grupper som används i Teams visas i flödet Teams Owners.
+> - När du först konfigurerar förfallo datum är alla grupper som är äldre än utgångs intervallet inställt på 35 dagar tills det upphör att gälla, om inte gruppen förnyas automatiskt eller om ägaren förnyar den.
+> - När en dynamisk grupp tas bort och återställs, visas den som en ny grupp och fylls i igen enligt regeln. Den här processen kan ta upp till 24 timmar.
+> - Meddelanden om förfallo datum för grupper som används i team visas i team ägarens feed.
 
 ## <a name="email-notifications"></a>E-postmeddelanden
 
-Om grupper inte förnyas automatiskt skickas e-postmeddelanden som den här till Office 365-gruppägarna 30 dagar, 15 dagar och 1 dag före gruppens utgång. Språket i e-postmeddelandet bestäms av gruppägarens önskade språk eller Azure AD-språkinställning. Om gruppägaren har definierat ett önskat språk, eller om flera ägare har samma önskade språk, används det språket. För alla andra fall används Azure AD-språkinställningen.
+Om grupper inte förnyas automatiskt, skickas e-postaviseringar, till exempel den här, till Office 365-grupp ägare 30 dagar, 15 dagar och 1 dag innan gruppen upphör att gälla. E-postmeddelandets språk bestäms av grupp ägarens önskade språk eller språk inställning för Azure AD. Om grupp ägaren har definierat ett önskat språk, eller om flera ägare har samma föredragna språk, används det språket. I alla andra fall används språk inställningen för Azure AD.
 
-![E-postmeddelanden om förfallodatum](./media/groups-lifecycle/expiration-notification.png)
+![E-postmeddelanden för förfallo datum](./media/groups-lifecycle/expiration-notification.png)
 
-I e-postmeddelandet **förnya gruppmeddelande** kan gruppägare komma direkt åt gruppinformationssidan på [åtkomstpanelen](https://account.activedirectory.windowsazure.com/r#/applications). Där kan användarna få mer information om gruppen, till exempel dess beskrivning, när den senast förnyades, när den upphör att gälla och även möjligheten att förnya gruppen. Gruppinformationssidan innehåller nu även länkar till Office 365-gruppresurserna, så att gruppägaren enkelt kan visa innehållet och aktiviteten i sin grupp.
+Från e-postmeddelandet **förnya grupp** kan grupp ägare direkt komma åt grupp informations sidan på [åtkomst panelen](https://account.activedirectory.windowsazure.com/r#/applications). Användarna kan få mer information om gruppen, till exempel en beskrivning, när den senast förnyades, när den upphör att gälla och även möjligheten att förnya gruppen. På sidan grupp information finns nu även länkar till grupp resurserna för Office 365, så att grupp ägaren enkelt kan se innehållet och aktiviteten i gruppen.
 
-När en grupp upphör att gälla tas gruppen bort en dag efter utgångsdatumet. Ett e-postmeddelande som det här skickas till Office 365-gruppägarna och informerar dem om att office 365-gruppen upphör att gälla och att de tas bort efter det.
+När en grupp upphör att gälla tas gruppen bort en dag efter förfallo datumet. Ett e-postmeddelande, till exempel detta, skickas till grupp ägarna i Office 365 som informerar dem om förfallo datum och efterföljande borttagning av sin Office 365-grupp.
 
-![Gruppborttagning av e-postmeddelanden](./media/groups-lifecycle/deletion-notification.png)
+![E-postmeddelanden för grupp borttagning](./media/groups-lifecycle/deletion-notification.png)
 
-Gruppen kan återställas inom 30 dagar efter borttagningen genom att välja **Återställningsgrupp** eller med PowerShell-cmdletar, enligt beskrivningen i [Återställ en borttagen Office 365-grupp i Azure Active Directory](groups-restore-deleted.md). Observera att 30-dagars grupprestaureringsperioden inte är anpassningsbar.
+Gruppen kan återställas inom 30 dagar från dess borttagning genom att välja **återställnings grupp** eller med hjälp av PowerShell-cmdletar, enligt beskrivningen i [återställa en borttagen Office 365-grupp i Azure Active Directory](groups-restore-deleted.md). Observera att återställnings perioden på 30 dagar inte kan anpassas.
 
-Om gruppen som du återställer innehåller dokument, SharePoint-webbplatser eller andra beständiga objekt kan det ta upp till 24 timmar innan gruppen och dess innehåll återställs helt.
+Om gruppen som du återställer innehåller dokument, SharePoint-webbplatser eller andra beständiga objekt kan det ta upp till 24 timmar att helt återställa gruppen och dess innehåll.
 
-## <a name="how-to-retrieve-office-365-group-expiration-date"></a>Hämta utgångsdatum för Office 365-gruppen
+## <a name="how-to-retrieve-office-365-group-expiration-date"></a>Hämta utgångs datum för Office 365-gruppen
 
-Förutom Åtkomstpanelen där användare kan visa gruppinformation, inklusive utgångsdatum och senaste förnyelsedatum, kan utgångsdatum för en Office 365-grupp hämtas från Microsoft Graph REST API Beta. expirationDateTime som gruppegenskap har aktiverats i Microsoft Graph Beta. Den kan hämtas med en GET-begäran. Mer information finns i [det här exemplet](https://docs.microsoft.com/graph/api/group-get?view=graph-rest-beta#example).
+Förutom åtkomst panelen där användare kan visa grupp information, inklusive förfallo datum och senaste förnyelse datum, kan utgångs datumet för en Office 365-grupp hämtas från Microsoft Graph REST API beta. expirationDateTime som en grupp egenskap har Aktiver ATS i Microsoft Graph beta. Den kan hämtas med en GET-begäran. Mer information finns i [det här exemplet](https://docs.microsoft.com/graph/api/group-get?view=graph-rest-beta#example).
 
 > [!NOTE]
-> För att hantera gruppmedlemskap på åtkomstpanelen måste "Begränsa åtkomst till grupper i åtkomstpanelen" anges till "Nej" i allmän inställning för Azure Active Directory-grupper.
+> För att kunna hantera grupp medlemskap på åtkomst panelen måste "begränsa åtkomst till grupper i åtkomst panelen" anges till "nej" i Azure Active Directory grupper generell inställning.
 
-## <a name="how-office-365-group-expiration-works-with-a-mailbox-on-legal-hold"></a>Så här fungerar office 365-gruppens förfallodatum med en postlåda vid juridisk spärr
+## <a name="how-office-365-group-expiration-works-with-a-mailbox-on-legal-hold"></a>Hur Office 365-gruppen upphör att fungera med en post låda för juridiskt bevarande
 
-När en grupp upphör att gälla och tas bort, behålls gruppens data från appar som Planner, Sites eller Teams permanent, men grupppostlådan som är juridisk spärra behåll behålls och tas inte bort permanent. Administratören kan använda Exchange-cmdletar för att återställa postlådan för att hämta data.
+När en grupp upphör att gälla och tas bort, kommer 30 dagar efter att gruppens data har tagits bort från appar som planerar, webbplatser eller team tas bort permanent, men grupp post lådan som är i juridiskt bevarande behålls och tas inte bort permanent. Administratören kan använda Exchange-cmdletar för att återställa post lådan för att hämta data.
 
-## <a name="how-office-365-group-expiration-works-with-retention-policy"></a>Så här fungerar office 365-gruppens förfallodatum med bevarandeprincip
+## <a name="how-office-365-group-expiration-works-with-retention-policy"></a>Hur Office 365-gruppen upphör att fungera med bevarande principer
 
-Bevarandeprincipen konfigureras via Säkerhets- och efterlevnadscenter. Om du har skapat en bevarandeprincip för Office 365-grupper, när en grupp upphör att gälla och tas bort, behålls gruppkonversationerna i grupppostlådan och filerna på gruppplatsen i kvarhållningsbehållaren för det specifika antal dagar som definierats i bevarandet Politik. Användarna ser inte gruppen eller dess innehåll efter utgångsdatum, men kan återställa webbplats- och postlådedata via e-identifiering.
+Bevarande principen konfigureras med hjälp av Security and Compliance Center. Om du har skapat en bevarande princip för Office 365-grupper, när en grupp upphör att gälla och tas bort, behålls gruppens konversationer i gruppens post låda och filer på grupp webbplatsen i kvarhållning-behållaren för det angivna antalet dagar definierade i bevarande principen. Användare ser inte gruppen eller dess innehåll efter förfallo datum, men kan återställa plats-och Mailbox-data via e-identifiering.
 
 ## <a name="powershell-examples"></a>PowerShell-exempel
 
-Här är några exempel på hur du kan använda PowerShell-cmdletar för att konfigurera förfalloinställningarna för Office 365-grupper i din Azure AD-organisation:
+Här följer några exempel på hur du kan använda PowerShell-cmdlets för att konfigurera förfallo inställningarna för Office 365-grupper i din Azure AD-organisation:
 
-1. Installera PowerShell v2.0-modulen och logga in vid PowerShell-prompten:
+1. Installera PowerShell v 2.0-modulen och logga in i PowerShell-prompten:
 
    ``` PowerShell
    Install-Module -Name AzureAD
    Connect-AzureAD
    ```
 
-1. Konfigurera förfallodatuminställningarna Använd cmdleten New-AzureADMSGroupLifecyclePolicy för att ange livstid för alla Office 365-grupper i Azure AD-organisationen till 365 dagar. Förnyelsemeddelanden för Office 365-grupper utanemailaddress@contoso.comägare skickas till ' '
+1. Konfigurera förfallo inställningarna Använd cmdleten New-AzureADMSGroupLifecyclePolicy för att ange livs längden för alla Office 365-grupper i Azure AD-organisationen till 365 dagar. Förnyelse meddelanden för Office 365-grupper utan att ägare skickas tillemailaddress@contoso.com
   
    ``` PowerShell
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
    ```
 
-1. Hämta den befintliga principen Get-AzureADMSGroupLifecyclePolicy: Den här cmdlet hämtar de aktuella office 365-gruppinställningarna som har konfigurerats. I det här exemplet kan du se:
+1. Hämta den befintliga principen get-AzureADMSGroupLifecyclePolicy: den här cmdleten hämtar den aktuella Office 365-gruppens förfallo inställningar som har kon figurer ATS. I det här exemplet kan du se:
 
-   - Princip-ID:et
-   - Livslängden för alla Office 365-grupper i Azure AD-organisationen är satt till 365 dagar
-   - Förnyelsemeddelanden för Office 365-grupper utanemailaddress@contoso.comägare skickas till '.'
+   - Princip-ID
+   - Livs längden för alla Office 365-grupper i Azure AD-organisationen är inställd på 365 dagar
+   - Förnyelse meddelanden för Office 365-grupper utan ägare skickas till "emailaddress@contoso.com."
   
    ```powershell
    Get-AzureADMSGroupLifecyclePolicy
@@ -154,39 +154,39 @@ Här är några exempel på hur du kan använda PowerShell-cmdletar för att kon
    26fcc232-d1c3-4375-b68d-15c296f1f077  365                 All               emailaddress@contoso.com
    ```
 
-1. Uppdatera den befintliga principen Set-AzureADMSGroupLifecyclePolicy: Den här cmdleten används för att uppdatera en befintlig princip. I exemplet nedan ändras gruppens livstid i den befintliga principen från 365 dagar till 180 dagar.
+1. Uppdatera den befintliga princip uppsättningen-AzureADMSGroupLifecyclePolicy: den här cmdleten används för att uppdatera en befintlig princip. I exemplet nedan ändras gruppens livs längd i den befintliga principen från 365 dagar till 180 dagar.
   
    ```powershell
    Set-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
    ```
   
-1. Lägg till specifika grupper i principtillägget-AzureADMSLifecyclePolicyGroup: Den här cmdleten lägger till en grupp i livscykelprincipen. Som exempel:
+1. Lägga till vissa grupper i principen Add-AzureADMSLifecyclePolicyGroup: den här cmdleten lägger till en grupp i livs cykel principen. Som exempel:
   
    ```powershell
    Add-AzureADMSLifecyclePolicyGroup -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
    ```
   
-1. Ta bort befintliga principborttagning-AzureADMSGroupLifecyclePolicy: Den här cmdleten tar bort office 365-gruppens förfallodatuminställningar men kräver princip-ID. Den här cmdleten inaktiverar förfallodatum för Office 365-grupper.
+1. Ta bort den befintliga principen Remove-AzureADMSGroupLifecyclePolicy: den här cmdleten tar bort Office 365-gruppens förfallo inställningar men kräver princip-ID. Den här cmdleten inaktiverar förfallo datum för Office 365-grupper.
   
    ```powershell
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
    ```
   
-Följande cmdlets kan användas för att konfigurera principen mer i detalj. Mer information finns i [PowerShell-dokumentation](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).
+Följande cmdletar kan användas för att konfigurera principen i mer detalj. Mer information finns i [PowerShell-dokumentationen](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).
 
-- Hämta-AzureADMSGroupLifecyclePolicy
-- Ny-AzureADMSGroupLifecyclePolicy
-- Hämta-AzureADMSGroupLifecyclePolicy
-- Ange-AzureADMSGroupLifecyclePolicy
-- Ta bort AzureADMSGroupLifecyclePolicy
-- Lägg till AzureADMSLifecyclePolicyGroup
-- Ta bort AzureADMSLifecyclePolicyGroup
+- Get-AzureADMSGroupLifecyclePolicy
+- New-AzureADMSGroupLifecyclePolicy
+- Get-AzureADMSGroupLifecyclePolicy
+- Set-AzureADMSGroupLifecyclePolicy
+- Remove-AzureADMSGroupLifecyclePolicy
+- Add-AzureADMSLifecyclePolicyGroup
+- Remove-AzureADMSLifecyclePolicyGroup
 - Återställ-AzureADMSLifeCycleGroup
-- Hämta AzureADMSLifecyclePolicyGroup
+- Get-AzureADMSLifecyclePolicyGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-Dessa artiklar innehåller ytterligare information om Azure AD-grupper.
+De här artiklarna innehåller ytterligare information om Azure AD-grupper.
 
 - [Se befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Hantera inställningar för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)

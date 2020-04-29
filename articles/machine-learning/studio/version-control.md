@@ -1,7 +1,7 @@
 ---
 title: Application Lifecycle Management
 titleSuffix: ML Studio (classic) - Azure
-description: Använd metodtips för hantering av programlivscykeln i Azure Machine Learning Studio (klassisk)
+description: Använd metod tips för program livs cykel hantering i Azure Machine Learning Studio (klassisk)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,93 +10,93 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/27/2016
 ms.openlocfilehash: 3f22ce3b1fb750e33e35d35ee1fe5ad1893abcfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79204144"
 ---
-# <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Livscykelhantering för program i Azure Machine Learning Studio (klassisk)
+# <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Hantering av program livs cykel i Azure Machine Learning Studio (klassisk)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Azure Machine Learning Studio (klassisk) är ett verktyg för att utveckla maskininlärningsexperiment som är funktionsdugliga i Azure-molnplattformen. Det är som visual studio IDE och skalbar molntjänst samman till en enda plattform. Du kan infoga standardpraxis för ALM -standardprogramlivscykelhantering (ALM) från att ta bort olika resurser till automatisk körning och distribution i Azure Machine Learning Studio (klassisk). I den här artikeln beskrivs några av alternativen och tillvägagångssätten.
+Azure Machine Learning Studio (klassisk) är ett verktyg för att utveckla maskin inlärnings experiment som används i Azure Cloud Platform. Det är precis som Visual Studio IDE och skalbar moln tjänst som är kopplad till en enda plattform. Du kan införliva ALM-metoder (standard Application Lifecycle Management) från versioner av olika till gångar till automatiserad körning och distribution i Azure Machine Learning Studio (klassisk). I den här artikeln beskrivs några av alternativen och metoderna.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="versioning-experiment"></a>Experiment för versionshantering
-Det finns två rekommenderade sätt att göra en version av experimenten. Du kan antingen förlita dig på den inbyggda körningshistoriken eller exportera experimentet i ett JSON-format för att hantera det externt. Varje tillvägagångssätt kommer med sina för-och nackdelar.
+## <a name="versioning-experiment"></a>Versions experiment
+Det finns två rekommenderade sätt att version av experiment. Du kan antingen förlita dig på den inbyggda körnings historiken eller exportera experimentet i ett JSON-format så att det externt hanteras. Varje metod levereras med dess-och nack delar.
 
-### <a name="experiment-snapshots-using-run-history"></a>Experimentera ögonblicksbilder med körhistorik
-I körningsmodellen för det klassiska inlärningsexpertrationen för Azure Machine Learning Studio (klassisk) skickas en oföränderlig ögonblicksbild av experimentet till jobbschemaläggaren när du klickar på **Kör** i experimentredigeraren. Om du vill visa den här listan med ögonblicksbilder klickar du på **Kör historik** i kommandofältet i experimentredigerarvyn.
+### <a name="experiment-snapshots-using-run-history"></a>Experiment-ögonblicksbilder med körnings historik
+I körnings modellen för det Azure Machine Learning Studio (klassiska) inlärnings experimentet skickas en oföränderlig ögonblicks bild av experimentet till jobbschemat när du klickar på **Kör** i experiment redigeraren. Om du vill visa listan över ögonblicks bilder klickar du på **Kör historik** i kommando fältet i vyn experiment redigeraren.
 
 ![Knappen Kör historik](./media/version-control/runhistory.png)
 
-Du kan sedan öppna ögonblicksbilden i låst läge genom att klicka på namnet på experimentet när experimentet skickades för att köras och ögonblicksbilden togs. Observera att endast det första objektet i listan, som representerar det aktuella experimentet, är i redigerbart tillstånd. Observera också att varje ögonblicksbild kan vara i olika statuslägen också, inklusive Färdig (partiell körning), Misslyckades, Misslyckades (partiell körning) eller Utkast.
+Du kan sedan öppna ögonblicks bilden i låst läge genom att klicka på namnet på experimentet vid den tidpunkt då experimentet skickades för att köra och ögonblicks bilden togs. Observera att endast det första objektet i listan, som representerar det aktuella experimentet, är i ett redigerbart tillstånd. Observera också att varje ögonblicks bild också kan ha olika status tillstånd, inklusive avslutad (delvis körning), misslyckades, misslyckades (partiell körning) eller utkast.
 
-![Kör historiklista](./media/version-control/runhistorylist.png)
+![Kör historik lista](./media/version-control/runhistorylist.png)
 
-När det har öppnats kan du spara ögonblicksbildexperimentet som ett nytt experiment och sedan ändra det. Om experimentögonblicksbilden innehåller resurser som tränade modeller, transformeringar eller datauppsättningar som har uppdaterade versioner, behåller ögonblicksbilden referenserna till den ursprungliga versionen när ögonblicksbilden togs. Om du sparar den låsta ögonblicksbilden som ett nytt experiment identifierar Azure Machine Learning Studio (klassisk) förekomsten av en nyare version av dessa tillgångar och uppdaterar dem automatiskt i det nya experimentet.
+När den har öppnats kan du spara ögonblicks bild experimentet som ett nytt experiment och sedan ändra det. Om din experiment-ögonblicksbild innehåller till gångar, till exempel utbildade modeller, transformeringar eller data uppsättningar som har uppdaterade versioner, behåller ögonblicks bilden referenser till den ursprungliga versionen när ögonblicks bilden togs. Om du sparar den låsta ögonblicks bilden som ett nytt experiment identifierar Azure Machine Learning Studio (klassisk) förekomsten av en nyare version av dessa till gångar och uppdaterar dem automatiskt i det nya experimentet.
 
-Om du tar bort experimentet tas alla ögonblicksbilder av experimentet bort.
+Om du tar bort experimentet raderas alla ögonblicks bilder av experimentet.
 
-### <a name="exportimport-experiment-in-json-format"></a>Export-/importexperiment i JSON-format
-Ögonblicksbilderna av körningshistoriken behåller en oföränderlig version av experimentet i Azure Machine Learning Studio (klassisk) varje gång den skickas för att köras. Du kan också spara en lokal kopia av experimentet och checka in det i ditt favoritstyrningssystem, till exempel Team Foundation Server, och senare återskapa ett experiment från den lokala filen. Du kan använda [Azure Machine Learning PowerShell-kommandona](https://aka.ms/amlps) [*Export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph) och [*Import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph) för att åstadkomma detta.
+### <a name="exportimport-experiment-in-json-format"></a>Exportera/importera experiment i JSON-format
+Ögonblicks bilder av körnings historik behåller en oföränderlig version av experimentet i Azure Machine Learning Studio (klassisk) varje gång den skickas för körning. Du kan också spara en lokal kopia av experimentet och kontrol lera det i ditt favorit system för käll kontroll, till exempel Team Foundation Server, och senare när du återskapar ett experiment från den lokala filen. Du kan använda [Azure Machine Learning PowerShell](https://aka.ms/amlps) -cmdletarna [*export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph) och [*import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph) för att åstadkomma detta.
 
-JSON-filen är en textrepresentation av experimentdiagrammet, som kan innehålla en referens till tillgångar på arbetsytan, till exempel en datauppsättning eller en tränad modell. Den innehåller inte en serialiserad version av tillgången. Om du försöker importera JSON-dokumentet tillbaka till arbetsytan måste de refererade tillgångarna redan finnas med samma tillgångs-ID som refereras i experimentet. Annars kan du inte komma åt det importerade experimentet.
+JSON-filen är en text representation av experiment grafen, som kan innehålla en referens till till gångar i arbets ytan, till exempel en data uppsättning eller en utbildad modell. Den innehåller inte en serialiserad version av till gången. Om du försöker importera JSON-dokumentet tillbaka till arbets ytan måste refererade till gångar redan finnas med samma till gångs-ID: n som refereras till i experimentet. Annars kan du inte komma åt det importerade experimentet.
 
-## <a name="versioning-trained-model"></a>Versionsutbildad modell
-En tränad modell i Azure Machine Learning Studio (klassisk) serialiseras till`.iLearner`ett format som kallas en iLearner-fil ( ) och lagras i Azure Blob-lagringskontot som är associerat med arbetsytan. Ett sätt att få en kopia av iLearner filen är genom omskolning API. [I](/azure/machine-learning/studio/retrain-machine-learning-model) den här artikeln beskrivs hur omskolnings-API:et fungerar. Stegen på hög nivå:
+## <a name="versioning-trained-model"></a>Version av tränad modell
+En utbildad modell i Azure Machine Learning Studio (klassisk) serialiseras i ett format som kallas en iLearner-fil (`.iLearner`) och lagras i Azure Blob Storage-kontot som är kopplat till arbets ytan. Ett sätt att hämta en kopia av iLearner-filen är genom omtränings-API: et. I [den här artikeln](/azure/machine-learning/studio/retrain-machine-learning-model) förklaras hur du arbetar med retraining-API. Steg på hög nivå:
 
-1. Ställ in ditt träningsexperiment.
-2. Lägg till en webbtjänstutdataport i modulen Tågmodell eller modulen som producerar den tränade modellen, till exempel Tune Model Hyperparameter eller Create R Model.
-3. Kör ditt träningsexperiment och distribuera det sedan som en webbtjänst för modellutbildning.
-4. Anropa BES-slutpunkten för utbildningswebbtjänsten och ange önskat iLearner-filnamn och Blob-lagringskontoplats där den ska lagras.
-5. Skörda den producerade iLearner-filen när BES-anropet är klart.
+1. Konfigurera ditt utbildnings experiment.
+2. Lägg till en utgående port för webb tjänst i modulen träna modell, eller den modul som skapar den tränade modellen, till exempel en fin modell för att finjustera modell eller skapa R-modell.
+3. Kör ditt utbildnings experiment och distribuera det som en modell utbildnings webb tjänst.
+4. Anropa BES-slutpunkten för utbildnings webb tjänsten och ange önskat iLearner-filnamn och platsen för Blob Storage-kontot där det ska lagras.
+5. Skörda den producerade iLearner-filen när BES-anropet har slutförts.
 
-Ett annat sätt att hämta iLearner-filen är via PowerShell-kommandolet [*Download-AmlExperimentNodeOutput*](https://github.com/hning86/azuremlps#download-amlexperimentnodeoutput). Detta kan vara lättare om du bara vill få en kopia av iLearner filen utan att behöva omskola modellen programmässigt.
+Ett annat sätt att hämta iLearner-filen är via PowerShell [*-kommandot Download-AmlExperimentNodeOutput*](https://github.com/hning86/azuremlps#download-amlexperimentnodeoutput). Detta kan vara enklare om du bara vill hämta en kopia av iLearner-filen utan att behöva träna modellen program mässigt.
 
-När du har iLearner-filen som innehåller den tränade modellen kan du sedan använda din egen versionsstrategi. Strategin kan vara så enkel som att tillämpa en pre / postfix som en namngivningskonvention och bara lämna iLearner filen i Blob lagring, eller kopiera / importera den till din version styrsystem.
+När du har iLearner-filen som innehåller den tränade modellen kan du sedan använda din egen versions strategi. Strategin kan vara så enkelt som att tillämpa en för-/postfix som en namngivnings konvention och bara lämna iLearner-filen i Blob Storage eller kopiera/importera den till versions kontroll systemet.
 
-Den sparade iLearner-filen kan sedan användas för bedömning via distribuerade webbtjänster.
+Den sparade iLearner-filen kan sedan användas för att välja poäng genom distribuerade webb tjänster.
 
-## <a name="versioning-web-service"></a>Webbtjänst för versionshantering
-Du kan distribuera två typer av webbtjänster från ett klassiskt experiment i Azure Machine Learning Studio. Den klassiska webbtjänsten är tätt kopplad till experimentet och arbetsytan. Den nya webbtjänsten använder Azure Resource Manager-ramverket och det är inte längre kopplat till det ursprungliga experimentet eller arbetsytan.
+## <a name="versioning-web-service"></a>Webb tjänst för versions hantering
+Du kan distribuera två typer av webb tjänster från ett Azure Machine Learning Studio (klassisk) experiment. Den klassiska webb tjänsten är nära kopplad till experimentet och arbets ytan. Den nya webb tjänsten använder Azure Resource Manager Framework och är inte längre kopplad till det ursprungliga experimentet eller arbets ytan.
 
-### <a name="classic-web-service"></a>Klassisk webbtjänst
-Om du vill skapa en klassisk webbtjänst kan du dra nytta av slutpunktskonstruktionen för webbtjänsten. Här är ett typiskt flöde:
+### <a name="classic-web-service"></a>Klassisk webb tjänst
+Om du vill ha en klassisk webb tjänst version kan du dra nytta av webb tjänstens slut punkts konstruktion. Här är ett typiskt flöde:
 
-1. Från det förutsägelseexperiment som du använder distribuerar du en ny klassisk webbtjänst som innehåller en standardslutpunkt.
-2. Du skapar en ny slutpunkt med namnet ep2, som exponerar den aktuella versionen av experiment/tränad modell.
-3. Du går tillbaka och uppdaterar ditt förutsägelseexperiment och tränade modell.
-4. Du distribuerar om förutsägelseexperimentet, som sedan uppdaterar standardslutpunkten. Men detta kommer inte att förändra ep2.
-5. Du skapar ytterligare en slutpunkt med namnet ep3, som exponerar den nya versionen av experimentet och den tränade modellen.
+1. Från ditt förutsägelse experiment distribuerar du en ny klassisk webb tjänst som innehåller en standard slut punkt.
+2. Du skapar en ny slut punkt med namnet EP2, som visar den aktuella versionen av experimentet/den tränade modellen.
+3. Du går tillbaka och uppdaterar ditt förutsägelse experiment och den tränade modellen.
+4. Du omdistribuerar det förutsägelse experiment som sedan uppdaterar standard slut punkten. Men detta kommer inte att förändra EP2.
+5. Du skapar ytterligare en slut punkt med namnet EP3, som visar den nya versionen av experimentet och den tränade modellen.
 6. Gå tillbaka till steg 3 om det behövs.
 
-Med tiden kan du ha många slutpunkter som skapats i samma webbtjänst. Varje slutpunkt representerar en punkt-i-tid-kopia av experimentet som innehåller point-in-time-versionen av den tränade modellen. Du kan sedan använda extern logik för att avgöra vilken slutpunkt som ska anropas, vilket i praktiken innebär att välja en version av den tränade modellen för bedömningskörningen.
+Med tiden kan du ha många slut punkter som skapats i samma webb tjänst. Varje slut punkt representerar en tidpunkts kopia av experimentet som innehåller den tränade modellens tidpunkts version. Du kan sedan använda extern logik för att avgöra vilken slut punkt som ska anropas, vilket innebär att du väljer en version av den tränade modellen för poängsättnings körningen.
 
-Du kan också skapa många identiska webbtjänstslutpunkter och sedan korrigera olika versioner av iLearner-filen till slutpunkten för att uppnå liknande effekt. [I den här artikeln](create-models-and-endpoints-with-powershell.md) förklaras mer i detalj hur du utför det.
+Du kan också skapa många identiska slut punkter för webb tjänster och sedan korrigera olika versioner av iLearner-filen till slut punkten för att uppnå liknande påverkan. I [den här artikeln](create-models-and-endpoints-with-powershell.md) beskrivs mer information hur du utför det.
 
-### <a name="new-web-service"></a>Ny webbtjänst
-Om du skapar en ny Azure Resource Manager-baserad webbtjänst är slutpunktskonstruktionen inte längre tillgänglig. I stället kan du generera WSD-filer (Web Service Definition) i JSON-format från ditt förutsägelseexperiment med hjälp av [kommandoleten Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell eller genom att använda kommandoleten [*Export-AzMlWebservice*](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) PowerShell från en distribuerad Resource Manager-baserad webbtjänst.
+### <a name="new-web-service"></a>Ny webb tjänst
+Om du skapar en ny Azure Resource Manager-baserad webb tjänst är slut punkts konstruktionen inte längre tillgänglig. I stället kan du generera WSD-filer (Web Service definition) i JSON-format från ditt förutsägande experiment genom att använda [AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell-kommandot, eller genom att använda [*export-AzMlWebservice*](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) PowerShell-kommandot från en distribuerad Resource Manager-baserad webb tjänst.
 
-När du har den exporterade WSD-filen och versionen kontrollera den kan du också distribuera WSD som en ny webbtjänst i en annan webbtjänstplan i en annan Azure-region. Se bara till att du anger rätt konfiguration av lagringskonto samt det nya webbtjänstplan-ID:et. Om du vill korrigera i olika iLearner-filer kan du ändra WSD-filen och uppdatera platsreferensen för den tränade modellen och distribuera den som en ny webbtjänst.
+När du har exporterat WSD-filen och-versionen kan du även distribuera WSD som en ny webb tjänst i en annan webb tjänst plan i en annan Azure-region. Se bara till att du anger rätt lagrings konto konfiguration och det nya ID: t för webb tjänst planen. Om du vill korrigera i olika iLearner-filer kan du ändra WSD-filen och uppdatera plats referensen för den tränade modellen och distribuera den som en ny webb tjänst.
 
-## <a name="automate-experiment-execution-and-deployment"></a>Automatisera körning och distribution av experiment
-En viktig aspekt av ALM är att kunna automatisera körnings- och distributionsprocessen för programmet. I Azure Machine Learning Studio (klassisk) kan du åstadkomma detta med hjälp av [PowerShell-modulen](https://aka.ms/amlps). Här är ett exempel på steg från slutna till slutna steg som är relevanta för en vanlig ALM-automatiserad körning/distributionsprocess med hjälp av [Azure Machine Learning Studio (klassisk) PowerShell-modul](https://aka.ms/amlps). Varje steg är länkat till en eller flera PowerShell-kommando som du kan använda för att utföra det steget.
+## <a name="automate-experiment-execution-and-deployment"></a>Automatisera experiment körning och distribution
+En viktig aspekt av ALM är att kunna automatisera programmets körnings-och distributions process. I Azure Machine Learning Studio (klassisk) kan du göra detta med hjälp av [PowerShell-modulen](https://aka.ms/amlps). Här är ett exempel på åtgärder från slut punkt till slut punkt som är relevanta för en standard process för automatisk ALM-körning/distribution med hjälp av [PowerShell-modulen Azure Machine Learning Studio (klassisk)](https://aka.ms/amlps). Varje steg är länkat till en eller flera PowerShell-cmdletarna som du kan använda för att utföra det steget.
 
-1. [Ladda upp en datauppsättning](https://github.com/hning86/azuremlps#upload-amldataset).
-2. Kopiera ett utbildningsexperiment till arbetsytan från en [arbetsyta](https://github.com/hning86/azuremlps#copy-amlexperiment) eller från [Galleri](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery)eller [importera](https://github.com/hning86/azuremlps#import-amlexperimentgraph) ett [exporterat](https://github.com/hning86/azuremlps#export-amlexperimentgraph) experiment från lokal disk.
-3. [Uppdatera datauppsättningen](https://github.com/hning86/azuremlps#update-amlexperimentuserasset) i utbildningsexperimentet.
-4. [Kör träningsexperimentet](https://github.com/hning86/azuremlps#start-amlexperiment).
-5. [Främja den tränade modellen](https://github.com/hning86/azuremlps#promote-amltrainedmodel).
-6. [Kopiera ett förutsägelseexperiment](https://github.com/hning86/azuremlps#copy-amlexperiment) till arbetsytan.
-7. [Uppdatera den tränade modellen](https://github.com/hning86/azuremlps#update-amlexperimentuserasset) i det prediktiva experimentet.
-8. [Kör det prediktiva experimentet](https://github.com/hning86/azuremlps#start-amlexperiment).
-9. [Distribuera en webbtjänst](https://github.com/hning86/azuremlps#new-amlwebservice) från förutsägelseexperimentet.
-10. Testa webbtjänsten [RRS](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) eller [BES-slutpunkten.](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint)
+1. [Ladda upp en data uppsättning](https://github.com/hning86/azuremlps#upload-amldataset).
+2. Kopiera ett utbildnings experiment till arbets ytan från en [arbets yta](https://github.com/hning86/azuremlps#copy-amlexperiment) eller från [galleriet](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery)eller [Importera](https://github.com/hning86/azuremlps#import-amlexperimentgraph) ett [exporterat](https://github.com/hning86/azuremlps#export-amlexperimentgraph) experiment från den lokala disken.
+3. [Uppdatera data uppsättningen](https://github.com/hning86/azuremlps#update-amlexperimentuserasset) i övnings experimentet.
+4. [Kör övnings experimentet](https://github.com/hning86/azuremlps#start-amlexperiment).
+5. [Höj upp den tränade modellen](https://github.com/hning86/azuremlps#promote-amltrainedmodel).
+6. [Kopiera ett förutsägelse experiment](https://github.com/hning86/azuremlps#copy-amlexperiment) till arbets ytan.
+7. [Uppdatera den tränade modellen](https://github.com/hning86/azuremlps#update-amlexperimentuserasset) i förutsägande experimentet.
+8. [Kör förutsägelse experimentet](https://github.com/hning86/azuremlps#start-amlexperiment).
+9. [Distribuera en webb tjänst](https://github.com/hning86/azuremlps#new-amlwebservice) från förutsägelse experimentet.
+10. Testa webb tjänst [resurs posterna](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) eller [bes](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint) -slutpunkten.
 
 ## <a name="next-steps"></a>Nästa steg
-* Ladda ned [Azure Machine Learning Studio (klassisk) PowerShell-modul](https://aka.ms/amlps) och börja automatisera dina ALM-uppgifter.
-* Lär dig hur du [skapar och hanterar ett stort antal ML-modeller med bara ett enda experiment](create-models-and-endpoints-with-powershell.md) via PowerShell och omskolning API.
-* Läs mer om [hur du distribuerar Azure Machine Learning-webbtjänster](deploy-a-machine-learning-web-service.md).
+* Hämta [PowerShell-modulen Azure Machine Learning Studio (klassisk)](https://aka.ms/amlps) och börja automatisera dina Alm-uppgifter.
+* Lär dig hur du [skapar och hanterar ett stort antal ml-modeller genom att bara använda ett enda experiment](create-models-and-endpoints-with-powershell.md) via PowerShell-och retraining-API.
+* Lär dig mer om att [distribuera Azure Machine Learning-webbtjänster](deploy-a-machine-learning-web-service.md).

@@ -1,6 +1,6 @@
 ---
-title: Skapa ett blockbloloblagringskonto – Azure Storage | Microsoft-dokument
-description: Visar hur du skapar ett Azure BlockBlobStorage-konto med prestandaegenskaper för premium.
+title: Skapa ett Block Blob Storage-konto – Azure Storage | Microsoft Docs
+description: Visar hur du skapar ett Azure BlockBlobStorage-konto med förstklassiga prestanda egenskaper.
 author: tamram
 services: storage
 ms.service: storage
@@ -9,64 +9,64 @@ ms.date: 03/23/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 6303644ada5c6f093611dba94daf8006f8cc5819
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79536912"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Skapa ett BlockBlobStorage-konto
 
-Med typen BlockBlobStorage-konto kan du skapa blockblobar med premiumprestandaegenskaper. Den här typen av lagringskonto är optimerat för arbetsbelastningar med hög transaktionsfrekvens eller som kräver mycket snabba åtkomsttider. Den här artikeln visar hur du skapar ett BlockBlobStorage-konto med hjälp av Azure-portalen, Azure CLI eller Azure PowerShell.
+Med BlockBlobStorage-kontots typ kan du skapa block-blobbar med förstklassiga prestanda egenskaper. Den här typen av lagrings konto är optimerad för arbets belastningar med höga transaktions priser eller som kräver mycket snabba åtkomst tider. Den här artikeln visar hur du skapar ett BlockBlobStorage-konto med hjälp av Azure Portal, Azure CLI eller Azure PowerShell.
 
 [!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
-Mer information om BlockBlobStorage-konton finns i [Översikt över Azure storage-konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+Mer information om BlockBlobStorage-konton finns i [Översikt över Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
 ## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
 Inga.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Den här how-to-artikeln kräver Azure PowerShell-modulen Az version 1.2.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta din nuvarande version. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
+Den här instruktions artikeln kräver Azure PowerShell module AZ version 1.2.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta din nuvarande version. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Du kan logga in på Azure och köra Azure CLI-kommandon på ett av två sätt:
 
-- Du kan köra CLI-kommandon från Azure-portalen i Azure Cloud Shell.
-- Du kan installera CLI och köra CLI-kommandon lokalt.
+- Du kan köra CLI-kommandon inifrån Azure Portal i Azure Cloud Shell.
+- Du kan installera CLI-och kör CLI-kommandona lokalt.
 
 ### <a name="use-azure-cloud-shell"></a>Använda Azure Cloud Shell
 
-Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure Portal. Azure CLI är förinstallerat och konfigurerat för användning med ditt konto. Klicka på knappen **Cloud Shell** på menyn i den övre högra delen av Azure-portalen:
+Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure Portal. Azure CLI är förinstallerat och konfigurerat för användning med ditt konto. Klicka på knappen **Cloud Shell** på menyn i det övre högra avsnittet av Azure Portal:
 
-[![Moln skal](../common/media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
+[![Cloud Shell](../common/media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
-Knappen startar ett interaktivt skal som du kan använda för att köra stegen i den här artikeln:
+Knappen startar ett interaktivt gränssnitt som du kan använda för att köra stegen som beskrivs i den här instruktions artikeln:
 
-[![Skärmbild som visar cloud shell-fönstret i portalen](../common/media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
+[![Skärm bild som visar Cloud Shell-fönstret i portalen](../common/media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
 ### <a name="install-the-cli-locally"></a>Installera CLI lokalt
 
-Du kan även installera och använda Azure CLI lokalt. Den här how-to-artikeln kräver att du kör Azure CLI version 2.0.46 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
+Du kan även installera och använda Azure CLI lokalt. Den här instruktions artikeln kräver att du kör Azure CLI-version 2.0.46 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
 
 ---
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
 Logga in på [Azure-portalen](https://portal.azure.com).
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Logga in på din `Connect-AzAccount` Azure-prenumeration med kommandot och följ anvisningarna på skärmen för att autentisera.
+Logga in på din Azure-prenumeration med `Connect-AzAccount` kommandot och följ anvisningarna på skärmen för att autentisera.
 
 ```powershell
 Connect-AzAccount
@@ -74,9 +74,9 @@ Connect-AzAccount
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill starta Azure Cloud Shell loggar du in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com)för att starta Azure Cloud Shell.
 
-Om du vill logga in på din lokala installation av CLI kör du kommandot [az login:](/cli/azure/reference-index#az-login)
+Logga in på den lokala installationen av CLI genom att köra kommandot [AZ login](/cli/azure/reference-index#az-login) :
 
 ```azurecli
 az login
@@ -86,24 +86,24 @@ az login
 
 ## <a name="create-a-blockblobstorage-account"></a>Skapa ett BlockBlobStorage-konto
 
-## <a name="portal"></a>[Portal](#tab/azure-portal)
-Så här skapar du ett BlockBlobStorage-konto i Azure-portalen:
+## <a name="portal"></a>[Portalen](#tab/azure-portal)
+Följ dessa steg om du vill skapa ett BlockBlobStorage-konto i Azure Portal:
 
-1. I Azure-portalen väljer du **Alla tjänster** > kategorin **Lagring** > **Lagringskonton**.
+1. I Azure Portal väljer du **alla tjänster** > **lagrings** kategorin > **lagrings konton**.
 
-1. Under **Lagringskonton**väljer du **Lägg till**.
+1. Under **lagrings konton**väljer du **Lägg till**.
 
-1. I fältet **Prenumeration** väljer du den prenumeration som lagringskontot ska skapas i.
+1. I fältet **prenumeration** väljer du den prenumeration där du vill skapa lagrings kontot.
 
-1. I **fältet Resursgrupp** väljer du en befintlig resursgrupp eller väljer **Skapa ny**och anger ett namn för den nya resursgruppen.
+1. I fältet **resurs grupp** väljer du en befintlig resurs grupp eller väljer **Skapa ny**, och anger ett namn för den nya resurs gruppen.
 
-1. Ange ett namn för kontot i fältet **Lagringskontonamn.** Observera följande riktlinjer:
+1. I fältet **namn på lagrings konto** anger du ett namn för kontot. Observera följande rikt linjer:
 
    - Namnet måste vara unikt i Azure.
-   - Namnet måste vara mellan tre och 24 tecken långt.
-   - Namnet kan bara innehålla siffror och gemener.
+   - Namnet måste innehålla mellan tre och 24 tecken.
+   - Namnet får bara innehålla siffror och gemena bokstäver.
 
-1. Välj en plats för lagringskontot i fältet **Plats** eller använd standardplatsen.
+1. I fältet **plats** väljer du en plats för lagrings kontot eller använder standard platsen.
 
 1. Konfigurera följande för resten av inställningarna:
 
@@ -111,21 +111,21 @@ Så här skapar du ett BlockBlobStorage-konto i Azure-portalen:
    |---------|---------|
    |**Prestanda**    |  Välj **Premium**.   |
    |**Typ av konto**    | Välj **BlockBlobStorage**.      |
-   |**Replikering**    |  Lämna standardinställningen **för Lokalt redundant lagring (LRS)**.      |
+   |**Replikering**    |  Lämna standardinställningen för **Lokalt Redundant lagring (LRS)**.      |
 
-   ![Visar portalgränssnittet för att skapa ett blockblobblagringskonto](media/storage-blob-create-account-block-blob/create-block-blob-storage-account.png)
+   ![Visar Portal gränssnittet för att skapa ett Block Blob Storage-konto](media/storage-blob-create-account-block-blob/create-block-blob-storage-account.png)
 
-1. Välj **Granska + skapa** om du vill granska inställningarna för lagringskontot.
+1. Välj **Granska + skapa** för att granska inställningarna för lagrings kontot.
 
 1. Välj **Skapa**.
 
-## <a name="azure-powershell"></a>[Azure Powershell](#tab/azure-powershell)
+## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-1. Öppna en förhöjd Windows PowerShell-session (Kör som administratör).
+1. Öppna en upphöjd Windows PowerShell-session (kör som administratör).
 
-1. Kör följande kommando för att kontrollera `Az` att den senaste versionen av PowerShell-modulen är installerad.
+1. Kör följande kommando för att kontrol lera att den senaste versionen av `Az` PowerShell-modulen är installerad.
 
    ```powershell
    Install-Module -Name Az -AllowClobber
@@ -137,7 +137,7 @@ Så här skapar du ett BlockBlobStorage-konto i Azure-portalen:
    Connect-AzAccount -SubscriptionId <SubscriptionID>
    ```
 
-1. Skapa en ny resursgrupp om det behövs. Ersätt värdena i offerter och kör följande kommando.
+1. Om det behövs skapar du en ny resurs grupp. Ersätt värdena i citat tecken och kör följande kommando.
 
    ```powershell
    $resourcegroup = "new_resource_group_name"
@@ -145,7 +145,7 @@ Så här skapar du ett BlockBlobStorage-konto i Azure-portalen:
    New-AzResourceGroup -Name $resourceGroup -Location $location
    ```
 
-1. Skapa Kontot BlockBlobStorage. Ersätt värdena i offerter och kör följande kommando.
+1. Skapa BlockBlobStorage-kontot. Ersätt värdena i citat tecken och kör följande kommando.
 
    ```powershell
    $resourcegroup = "resource_group_name"
@@ -157,7 +157,7 @@ Så här skapar du ett BlockBlobStorage-konto i Azure-portalen:
 
 ## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill skapa ett blockblolobkonto med hjälp av Azure CLI måste du först installera Azure CLI v. 2.0.46 eller en senare version. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du vill skapa ett block-BLOB-konto med hjälp av Azure CLI måste du först installera Azure CLI v. 2.0.46 eller en senare version. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 1. Logga in på din Azure-prenumeration.
 
@@ -165,7 +165,7 @@ Om du vill skapa ett blockblolobkonto med hjälp av Azure CLI måste du först i
    az login
    ```
 
-1. Skapa en ny resursgrupp om det behövs. Ersätt värdena inom parentes (inklusive hakparenteserna) och kör följande kommando.
+1. Om det behövs skapar du en ny resurs grupp. Ersätt värdena inom hakparenteser (inklusive hakparenteser) och kör följande kommando.
 
    ```azurecli
    az group create \
@@ -173,7 +173,7 @@ Om du vill skapa ett blockblolobkonto med hjälp av Azure CLI måste du först i
     --location "<location>"
    ```
 
-1. Skapa Kontot BlockBlobStorage. Ersätt värdena inom parentes (inklusive hakparenteserna) och kör följande kommando.
+1. Skapa BlockBlobStorage-kontot. Ersätt värdena inom hakparenteser (inklusive hakparenteser) och kör följande kommando.
 
    ```azurecli
    az storage account create \
@@ -188,6 +188,6 @@ Om du vill skapa ett blockblolobkonto med hjälp av Azure CLI måste du först i
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om lagringskonton finns i [Översikt över Azure storage-konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+- Mer information om lagrings konton finns i [Översikt över Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
-- Mer information om resursgrupper finns i [översikt över Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+- Mer information om resurs grupper finns i [Azure Resource Manager översikt](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).

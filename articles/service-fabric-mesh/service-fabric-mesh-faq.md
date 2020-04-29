@@ -1,48 +1,48 @@
 ---
-title: Vanliga frågor för Azure Service Fabric Mesh
-description: Läs mer om vanliga frågor och svar för Azure Service Fabric Mesh.
+title: Vanliga frågor för Azure Service Fabric-nät
+description: Läs om vanliga frågor och svar om Azure Service Fabric nät.
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 2a5c2ea63d162eb6fb78ab702e0519f8ac25dcc7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78252496"
 ---
-# <a name="commonly-asked-service-fabric-mesh-questions"></a>Vanliga service fabric mesh-frågor
+# <a name="commonly-asked-service-fabric-mesh-questions"></a>Vanliga frågor och svar om Service Fabric nät
 
-Azure Service Fabric Mesh är en fullständigt hanterad tjänst som gör att utvecklare kan distribuera mikrotjänstprogram utan att hantera virtuella datorer, lagring eller nätverk. Den här artikeln har svar på vanliga frågor.
+Azure Service Fabric Mesh är en fullständigt hanterad tjänst som gör att utvecklare kan distribuera mikrotjänstprogram utan att hantera virtuella datorer, lagring eller nätverk. Den här artikeln innehåller svar på vanliga frågor.
 
-## <a name="how-do-i-report-an-issue-or-ask-a-question"></a>Hur anmäler jag ett problem eller ställer en fråga?
+## <a name="how-do-i-report-an-issue-or-ask-a-question"></a>Hur gör jag för att rapportera ett problem eller Ställ en fråga?
 
-Ställ frågor, få svar från Microsoft-tekniker och rapportera problem i [GitHub-repo-repoen för service-fabric-fabric-mesh-förhandsversionen](https://aka.ms/sfmeshissues).
+Ställ frågor, få svar från Microsofts tekniker och rapportera problem i [Service-Fabric-nät-för hands version GitHub lagrings platsen](https://aka.ms/sfmeshissues).
 
 ## <a name="quota-and-cost"></a>Kvot och kostnad
 
-### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Vad kostar det att delta i förhandsversionen?
+### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Vad är kostnaden för att delta i förhands granskningen?
 
-Det finns för närvarande inga avgifter för att distribuera program eller behållare till förhandsversionen av Mesh. Håll utkik efter uppdateringar i maj för aktivering för fakturering. Vi rekommenderar dock att du tar bort de resurser du distribuerar och inte låter dem fungera om du inte aktivt testar dem.
+Det finns för närvarande inga avgifter för att distribuera program eller behållare till nät för hands versionen. Se efter om det finns uppdateringar i maj för fakturering. Vi rekommenderar dock att du tar bort de resurser du distribuerar och inte låter dem köras, såvida du inte testar dem aktivt.
 
-### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>Finns det en kvotgräns för antalet kärnor och RAM?
+### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>Finns det en kvot gräns för antalet kärnor och RAM-minne?
 
 Ja. Kvoterna för varje prenumeration är:
 
-- Antal ansökningar: 5
-- Kärnor per applikation: 12
-- Totalt RAM per program: 48 GB
-- Nätverks- och ingångsslutpunkter: 5
-- Azure-volymer som du kan bifoga: 10
-- Antal tjänstrepliker: 3
-- Den största behållaren du kan distribuera är begränsad till 4 kärnor och 16 GB RAM.
-- Du kan allokera partiella kärnor till dina behållare i steg om 0,5 kärnor, upp till maximalt 6 kärnor.
+- Antal program: 5
+- Kärnor per program: 12
+- Totalt RAM-minne per program: 48 GB
+- Nätverks-och ingångs slut punkter: 5
+- Azure-volymer som du kan koppla: 10
+- Antal tjänst repliker: 3
+- Den största behållaren som du kan distribuera är begränsad till 4 kärnor och 16 GB RAM-minne.
+- Du kan allokera delar av kärnor till dina behållare i steg om 0,5 kärnor, upp till högst 6 kärnor.
 
-### <a name="how-long-can-i-leave-my-application-deployed"></a>Hur länge kan jag lämna mitt program distribuerat?
+### <a name="how-long-can-i-leave-my-application-deployed"></a>Hur länge kan jag låta mitt program distribueras?
 
-Vi har för närvarande begränsat livslängden för en ansökan till två dagar. Detta för att maximera användningen av de fria kärnor som tilldelats förhandsgranskningen. Därför får du bara köra en viss distribution kontinuerligt i 48 timmar, varefter den stängs av.
+Vi har för närvarande begränsat livs längden för ett program till två dagar. Detta är för att maximera användningen av de kostnads fria kärnor som allokerats till för hands versionen. Det innebär att du bara får köra en specifik distribution kontinuerligt i 48 timmar, efter vilken tid den stängs.
 
-Om du ser detta hända kan du verifiera att `az mesh app show` systemet stänger av det genom att köra kommandot i Azure CLI. Kontrollera om den returneras`"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+Om detta inträffar kan du kontrol lera att systemet stängs av genom att köra `az mesh app show` kommandot i Azure CLI. Kontrol lera om den returnerar`"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
 Ett exempel: 
 
@@ -73,18 +73,18 @@ az mesh app show --resource-group myResourceGroup --name helloWorldApp
 }
 ```
 
-Om du vill ta `az group delete <nameOfResourceGroup>` bort resursgruppen använder du kommandot.
+Om du vill ta bort resurs gruppen använder `az group delete <nameOfResourceGroup>` du kommandot.
 
 ## <a name="deployments"></a>Distributioner
 
-### <a name="what-container-images-are-supported"></a>Vilka behållaravbildningar stöds?
+### <a name="what-container-images-are-supported"></a>Vilka behållar avbildningar stöds?
 
-Om du utvecklar på en Windows Fall Creators Update (version 1709) maskin, kan du bara använda Windows version 1709 docker avbildningar.
+Om du utvecklar på en Windows-dator som har Creators Update (version 1709) kan du bara använda Windows-version 1709 Docker-avbildningar.
 
-Om du utvecklar på en Windows 10 April 2018 uppdatering (version 1803) maskin, Du kan använda antingen Windows version 1709 eller Windows version 1803 docker avbildningar.
+Om du utvecklar på en Windows 10 april 2018 uppdaterings dator (version 1803) kan du använda antingen Windows version 1709 eller Windows version 1803 Docker-avbildningar.
 
-Följande systemavbildningar för behållaren kan användas för att distribuera tjänster:
-- Windows - windowsservercore och nanoserver
+Följande behållar-OS-avbildningar kan användas för att distribuera tjänster:
+- Windows-windowsservercore och nanoserver
     - Windows Server 1709
     - Windows Server 1803
     - Windows Server 1809
@@ -93,67 +93,67 @@ Följande systemavbildningar för behållaren kan användas för att distribuera
     - Inga kända begränsningar
 
 > [!NOTE]
-> Visual Studio-verktyg för Mesh har ännu inte stöd för distribution i Windows Server 2019- och 1809-behållare.
+> Visual Studio-verktyg för nät stöder ännu inte distribution till Windows Server 2019 och 1809 behållare.
 
 ### <a name="what-types-of-applications-can-i-deploy"></a>Vilka typer av program kan jag distribuera? 
 
-Du kan distribuera allt som körs i behållare som passar inom de begränsningar som placeras på en programresurs (se ovan för mer information om kvoter). Om vi upptäcker att du använder Mesh för att köra olagliga arbetsbelastningar eller missbruka systemet (dvs. gruvdrift), förbehåller vi oss rätten att avsluta dina distributioner och blockera din prenumeration från att köras på tjänsten. Kontakta oss om du har några frågor om hur du kör en viss arbetsbelastning. 
+Du kan distribuera allt som körs i behållare som passar inom de begränsningar som har lagts till i en program resurs (se ovan för mer information om kvoter). Om vi upptäcker att du använder nät för att köra illegala arbets belastningar eller grovt system (t. ex. utvinning), förbehåller vi oss rätten att avsluta dina distributioner och blockeringslistan din prenumeration från att köras på tjänsten. Kontakta oss om du har frågor om att köra en speciell arbets belastning. 
 
-## <a name="developer-experience-issues"></a>Problem med utvecklares upplevelse
+## <a name="developer-experience-issues"></a>Problem med utvecklare
 
-### <a name="dns-resolution-from-a-container-doesnt-work"></a>DNS-upplösning från en behållare fungerar inte
+### <a name="dns-resolution-from-a-container-doesnt-work"></a>DNS-matchning från en behållare fungerar inte
 
-Utgående DNS-frågor från en behållare till TJÄNSTEN Fabric DNS-tjänsten kan misslyckas under vissa omständigheter. Detta utreds. Så här minskar du:
+Utgående DNS-frågor från en behållare till Service Fabric DNS-tjänsten kan Miss lyckas under vissa omständigheter. Detta unders öks. Minimera:
 
-- Använd Uppdateringen av Windows Fall Creators (version 1709) eller senare som basbehållarevseende.
-- Om enbart tjänstnamnet inte fungerar provar du det fullständigt kvalificerade namnet: ServiceName.ApplicationName.
-- Lägg till `EXPOSE <port>` var porten är den port som du exponerar tjänsten på i Docker-filen för tjänsten. Ett exempel:
+- Använd Windows är Creators Update (version 1709) eller högre som din bas behållar avbildning.
+- Om enbart tjänst namnet inte fungerar, försök med det fullständiga namnet: ServiceName. ApplicationName.
+- I Docker-filen för din tjänst lägger du `EXPOSE <port>` till var porten är porten som du exponerar din tjänst på. Ett exempel:
 
 ```Dockerfile
 EXPOSE 80
 ```
 
-### <a name="dns-does-not-work-the-same-as-it-does-for-service-fabric-development-clusters-and-in-mesh"></a>DNS fungerar inte på samma sätt som för utvecklingskluster för serviceinfrastruktur och i Mesh
+### <a name="dns-does-not-work-the-same-as-it-does-for-service-fabric-development-clusters-and-in-mesh"></a>DNS fungerar inte på samma sätt som för Service Fabric utvecklings kluster och i ett nät
 
-Du kan behöva referera till tjänster på ett annat sätt i ditt lokala utvecklingskluster än i Azure Mesh.
+Du kan behöva referera till tjänster på ett annat sätt i ditt lokala utvecklings kluster än i Azure-nät.
 
-Använd i `{serviceName}.{applicationName}`det lokala utvecklingsklustret . Använd `{servicename}`i Azure Service Fabric Mesh . 
+Använd `{serviceName}.{applicationName}`i det lokala utvecklings klustret. I Azure Service Fabric nät använder `{servicename}`du. 
 
-Azure Mesh stöder för närvarande inte DNS-lösning mellan program.
+Azure-nät stöder för närvarande inte DNS-matchning mellan program.
 
-Andra kända DNS-problem med att köra ett utvecklingskluster för tjänstinfrastruktur i Windows 10 finns i: [Felsöka Windows-behållare](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) och [kända DNS-problem](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
+För andra kända DNS-problem med att köra ett Service Fabric utvecklings kluster i Windows 10, se: [Felsöka Windows-behållare](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) och [kända DNS-problem](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
 
 ### <a name="networking"></a>Nätverk
 
-ServiceFabric-nätverket NAT kan försvinna när du använder appen på din lokala dator. Om du vill diagnostisera om detta har hänt kör du följande från en kommandotolk:
+ServiceFabric Network NAT kan försvinna när du använder appen som körs på den lokala datorn. Du kan diagnostisera om detta har hänt genom att köra följande från en kommando tolk:
 
-`docker network ls`och notera `servicefabric_nat` om listan visas.  Om inte, kör du följande kommando:`docker network create -d=nat --subnet 10.128.0.0/24 --gateway 10.128.0.1 servicefabric_nat`
+`docker network ls`och observera om `servicefabric_nat` visas i listan.  Annars kör du följande kommando:`docker network create -d=nat --subnet 10.128.0.0/24 --gateway 10.128.0.1 servicefabric_nat`
 
-Detta åtgärdar problemet även om appen redan har distribuerats lokalt och i ett feltillstånd.
+Detta löser problemet även om appen redan har distribuerats lokalt och är i ett ohälsosamt tillstånd.
 
-### <a name="issues-running-multiple-apps"></a>Problem med att köra flera appar
+### <a name="issues-running-multiple-apps"></a>Problem som kör flera appar
 
-Du kan stöta på CPU-tillgänglighet och begränsningar som fastställs i alla program. Så här minskar du:
+Du kan stöta på CPU-tillgänglighet och begränsningar som är fasta för alla program. Minimera:
 - Skapa ett kluster med fem noder.
-- Minska CPU-användningen i tjänster i appen som distribueras. I tjänstens service.yaml-fil kan du `cpu: 1.0` till exempel ändra till`cpu: 0.5`
+- Minska CPU-användningen i tjänster över den distribuerade appen. Till exempel, i tjänstens tjänst. yaml-fil, ändra `cpu: 1.0` till`cpu: 0.5`
 
-Flera program kan inte distribueras till ett ennodskluster. Så här minskar du:
-- Använd ett fem nodkluster när du distribuerar flera appar till ett lokalt kluster.
-- Ta bort appar som du inte testar för tillfället.
+Det går inte att distribuera flera program till ett kluster med en nod. Minimera:
+- Använd ett kluster med fem noder när du distribuerar flera appar till ett lokalt kluster.
+- Ta bort appar som du inte testar för närvarande.
 
-### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>VS Tooling har begränsat stöd för Windows-behållare
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>VS-verktyg har begränsat stöd för Windows-behållare
 
-Visual Studio-verktyget stöder endast distribution av Windows-behållare med en bas-OS-version av Windows Server 1709 och 1803 idag. 
+Visual Studio-verktyget stöder bara distribution av Windows-behållare med en grundläggande OS-version av Windows Server 1709 och 1803 idag. 
 
-## <a name="feature-gaps-and-other-known-issues"></a>Funktionsluckor och andra kända problem
+## <a name="feature-gaps-and-other-known-issues"></a>Funktions luckor och andra kända problem
 
-### <a name="after-deploying-my-application-the-network-resource-associated-with-it-does-not-have-an-ip-address"></a>När du har distribuerat mitt program har nätverksresursen som är associerad med det ingen IP-adress
+### <a name="after-deploying-my-application-the-network-resource-associated-with-it-does-not-have-an-ip-address"></a>När du har distribuerat mitt program har nätverks resursen som är kopplad till den ingen IP-adress
 
-Det finns ett känt problem där IP-adressen inte blir tillgänglig omedelbart. Kontrollera nätverksresursens status på några minuter för att se den associerade IP-adressen.
+Det finns ett känt problem där IP-adressen inte blir tillgänglig direkt. Kontrol lera nätverks resursens status om några minuter för att se den associerade IP-adressen.
 
-### <a name="my-application-fails-to-access-the-right-networkvolume-resource"></a>Det går inte att komma åt rätt nätverks-/volymresurs
+### <a name="my-application-fails-to-access-the-right-networkvolume-resource"></a>Mitt program har inte åtkomst till rätt nätverks-/volym resurs
 
-I programmodellen använder du det fullständiga resurs-ID:t för nätverk och volymer för att kunna komma åt den associerade resursen. Här är ett exempel från snabbstartsexemplet:
+I din program modell använder du det fullständiga resurs-ID: t för nätverk och volymer för att kunna komma åt den associerade resursen. Här är ett exempel från snabb starts exemplet:
 
 ```json
 "networkRefs": [
@@ -163,10 +163,10 @@ I programmodellen använder du det fullständiga resurs-ID:t för nätverk och v
 ]
 ```
 
-### <a name="when-i-scale-out-all-of-my-containers-are-affected-including-running-ones"></a>När jag skalar ut påverkas alla mina behållare, inklusive att köra dem
+### <a name="when-i-scale-out-all-of-my-containers-are-affected-including-running-ones"></a>När jag skalar ut påverkas alla mina behållare, inklusive de som körs
 
-Detta är en bugg och en fix håller på att implementeras.
+Detta är ett fel och en korrigering implementeras.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Service Fabric Mesh finns i [översikten](service-fabric-mesh-overview.md).
+Läs mer om att Service Fabric nät i [översikten](service-fabric-mesh-overview.md).

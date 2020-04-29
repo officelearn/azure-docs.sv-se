@@ -1,69 +1,69 @@
 ---
-title: Använda datainsamlare-API för att skapa en datapipeline
-description: Du kan använda AZURE Monitor HTTP Data Collector API för att lägga till POST JSON-data i Log Analytics-arbetsytan från alla klienter som kan anropa REST API. I den här artikeln beskrivs hur du laddar upp data som lagras i filer på ett automatiserat sätt.
+title: Använd API för data insamling för att skapa en datapipeline
+description: 'Du kan använda API: et Azure Monitor HTTP-datainsamling för att lägga till POST-JSON-data till arbets ytan Log Analytics från vilken klient som helst som kan anropa REST API. Den här artikeln beskriver hur du överför data som lagras i filer på ett automatiserat sätt.'
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/09/2018
 ms.openlocfilehash: 96c64f6a0167b678f14bf0199069ecd6b4c8d57a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80055118"
 ---
-# <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Skapa en datapipeline med DATA Collector API
+# <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Skapa en datapipeline med data insamlings-API: et
 
-[Azure Monitor Data Collector API](data-collector-api.md) kan du importera alla anpassade loggdata till en Log Analytics-arbetsyta i Azure Monitor. De enda kraven är att data ska JSON-formateras och delas upp i 30 MB eller mindre segment. Detta är en helt flexibel mekanism som kan anslutas till på många sätt: från data som skickas direkt från din ansökan, till enstaka adhoc uppladdningar. Den här artikeln kommer att beskriva några startpunkter för ett gemensamt scenario: behovet av att ladda upp data som lagras i filer på en regelbunden, automatiserad basis. Även om rörledningen som presenteras här inte kommer att vara den mest högpresterande eller på annat sätt optimerad, är den avsedd att fungera som en utgångspunkt för att bygga en egen produktionspipeline.
+Med [API: et för Azure Monitor data insamling](data-collector-api.md) kan du importera alla anpassade loggdata till en Log Analytics arbets yta i Azure Monitor. De enda kraven är att data är JSON-formaterade och delas upp i 30 MB eller färre segment. Det här är en helt flexibel mekanism som kan anslutas till på många sätt: från data som skickas direkt från ditt program till en-av adhoc-uppladdningar. Den här artikeln beskriver några start punkter för ett vanligt scenario: behovet att ladda upp data som lagras i filer regelbundet. Även om den pipeline som visas här inte är den mest utförda eller på annat sätt optimerat, är den avsedd att fungera som en utgångs punkt för att skapa en produktions pipeline på egen hand.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="example-problem"></a>Exempel på problem
-För resten av den här artikeln kommer vi att granska sidvisningsdata i Application Insights. I vårt hypotetiska scenario vill vi korrelera geografisk information som samlas in som standard av Application Insights SDK till anpassade data som innehåller befolkningen i varje land/region i världen, med målet att identifiera var vi ska spendera mest marknadsföringsdollar. 
+## <a name="example-problem"></a>Exempel problem
+I resten av den här artikeln kommer vi att undersöka sid visnings data i Application Insights. I vårt hypotetiska scenario vill vi korrelera geografisk information som samlas in som standard av Application Insights SDK för att anpassa data som innehåller populationen för varje land/region i världen, med målet att identifiera var vi bör spendera de flesta marknads dollar. 
 
-Vi använder en offentlig datakälla som [FN:s världsbefolkningsutsikter](https://esa.un.org/unpd/wpp/) för detta ändamål. Data kommer att ha följande enkla schema:
+Vi använder en offentlig data källa, till exempel de kunder som inte är [världs befolkning](https://esa.un.org/unpd/wpp/) för detta ändamål. Data kommer att ha följande enkla schema:
 
 ![Exempel på enkelt schema](./media/create-pipeline-datacollector-api/example-simple-schema-01.png)
 
-I vårt exempel förutsätter vi att vi kommer att ladda upp en ny fil med det senaste årets data så snart den blir tillgänglig.
+I vårt exempel antar vi att vi kommer att ladda upp en ny fil med de senaste årets data så snart den blir tillgänglig.
 
 ## <a name="general-design"></a>Allmän design
 Vi använder en klassisk ETL-typ logik för att utforma vår pipeline. Arkitekturen kommer att se ut så här:
 
-![Pipelinearkitektur för datainsamling](./media/create-pipeline-datacollector-api/data-pipeline-dataflow-architecture.png)
+![Pipeline-arkitektur för data insamling](./media/create-pipeline-datacollector-api/data-pipeline-dataflow-architecture.png)
 
-Den här artikeln täcker inte hur du skapar data eller [överför dem till ett Azure Blob Storage-konto](../../storage/blobs/storage-upload-process-images.md). Snarare tar vi upp flödet så fort en ny fil laddas upp till blob. Härifrån:
+Den här artikeln beskriver inte hur du skapar data eller [laddar upp det till ett Azure Blob Storage-konto](../../storage/blobs/storage-upload-process-images.md). I stället väljer vi flödet upp så fort en ny fil överförs till blobben. Härifrån:
 
-1. En process identifierar att nya data har överförts.  I vårt exempel används en [Azure Logic App](../../logic-apps/logic-apps-overview.md), som har en tillgänglig utlösare för att identifiera nya data som överförs till en blob.
+1. En process identifierar att nya data har laddats upp.  I vårt exempel används en [Azure Logic-app](../../logic-apps/logic-apps-overview.md)som har en utlösare för att identifiera nya data som överförs till en blob.
 
-2. En processor läser dessa nya data och konverterar dem till JSON, det format som krävs av Azure Monitor I det här exemplet använder vi en [Azure-funktion](../../azure-functions/functions-overview.md) som ett lätt och kostnadseffektivt sätt att köra vår bearbetningskod. Funktionen sparkas av samma Logic App som vi använde för att identifiera en ny data.
+2. En processor läser in nya data och konverterar den till JSON, det format som krävs av Azure Monitor i det här exemplet använder vi en [Azure-funktion](../../azure-functions/functions-overview.md) som ett lätt och kostnads effektivt sätt att köra vår bearbetnings kod. Funktionen startas av samma Logic-app som vi använde för att identifiera nya data.
 
-3. Slutligen, när JSON-objektet är tillgängligt, skickas det till Azure Monitor. Samma Logic App skickar data till Azure Monitor med hjälp av den inbyggda logganalysdatainsamlareaktiviteten.
+3. Slutligen när JSON-objektet är tillgängligt skickas det till Azure Monitor. Samma Logic-App skickar data till Azure Monitor med hjälp av den inbyggda aktiviteten Log Analytics data insamlare.
 
-Även om den detaljerade inställningen för blob-lagring, Logic App eller Azure-funktion inte beskrivs i den här artikeln, finns detaljerade instruktioner tillgängliga på de specifika produkternas sidor.
+Även om den detaljerade konfigurationen av blob-lagringen, Logic app eller Azure-funktionen inte beskrivs i den här artikeln finns detaljerade instruktioner på sidan specifika produkter.
 
-För att övervaka den här pipelinen använder vi Application Insights för att övervaka vår Azure-funktionsinformation [här](../../azure-functions/functions-monitoring.md)och Azure Monitor för att övervaka våra [Logic App-detaljer här](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md). 
+För att övervaka den här pipelinen använder vi Application Insights för att övervaka vår Azure Function- [information](../../azure-functions/functions-monitoring.md)och Azure Monitor för att övervaka vår [information om](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)Logic Apps här. 
 
-## <a name="setting-up-the-pipeline"></a>Ställa in pipelinen
-Om du vill ange pipelinen kontrollerar du först att du har skapat och konfigurerat blob-behållaren. Se också till att arbetsytan Log Analytics där du vill skicka data till skapas.
+## <a name="setting-up-the-pipeline"></a>Konfigurera pipelinen
+Om du vill ställa in pipelinen ska du först kontrol lera att din BLOB-behållare har skapats och kon figurer ATS. Kontrol lera också att Log Analytics arbets ytan där du vill skicka data till skapas.
 
-## <a name="ingesting-json-data"></a>Intag av JSON-data
-Intag av JSON-data är trivialt med Logic Apps, och eftersom ingen omvandling behöver ske kan vi innesluta hela pipelinen i en enda Logic App. När både blob-behållaren och log analytics-arbetsytan har konfigurerats skapar du en ny Logikapp och konfigurerar den på följande sätt:
+## <a name="ingesting-json-data"></a>Inmatning av JSON-data
+Inmatning av JSON-data är trivial med Logic Apps och eftersom ingen omvandling behöver utföras, kan vi ställa hela pipelinen i en enda Logic-app. När både BLOB-behållaren och Log Analytics arbets ytan har kon figurer ATS, skapar du en ny Logic app och konfigurerar den på följande sätt:
 
-![Exempel på arbetsflöde för logikappar](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-01.png)
+![Exempel på Logic Apps-arbetsflöde](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-01.png)
 
-Spara logikappen och fortsätt med att testa den.
+Spara din Logic app och fortsätt att testa den.
 
-## <a name="ingesting-xml-csv-or-other-formats-of-data"></a>Intag av XML, CSV eller andra dataformat
-Logic Apps idag har inte inbyggda funktioner för att enkelt omvandla XML, CSV eller andra typer till JSON-format. Därför måste vi använda ett annat sätt för att slutföra denna omvandling. I den här artikeln använder vi de serverlösa beräkningsfunktionerna i Azure Functions som ett mycket lätt och kostnadseffektivt sätt att göra det. 
+## <a name="ingesting-xml-csv-or-other-formats-of-data"></a>Mata in XML, CSV eller andra data format
+Logic Apps idag har inte inbyggda funktioner för att enkelt transformera XML, CSV eller andra typer till JSON-format. Därför måste vi använda ett annat sätt för att slutföra den här omvandlingen. I den här artikeln använder vi Server lös beräknings funktioner i Azure Functions som ett mycket lätt och kostnads effektivt sätt att göra det. 
 
-I det här exemplet tolkar vi en CSV-fil, men alla andra filtyper kan bearbetas på samma sätt. Ändra helt enkelt den avserialiserande delen av Azure-funktionen för att återspegla rätt logik för din specifika datatyp.
+I det här exemplet parsar vi en CSV-fil, men alla andra filtyper kan bearbetas på samma sätt. Ändra bara avserialiserings delen av Azure-funktionen för att visa rätt logik för din särskilda datatyp.
 
-1.  Skapa en ny Azure-funktion med hjälp av funktionskörningen v1 och förbrukningsbaserad när du uppmanas.  Välj **http-utlösarmallen** som är inriktad på C# som en utgångspunkt som konfigurerar dina bindningar som vi behöver. 
-2.  På fliken **Visa filer** i den högra rutan skapar du en ny fil som heter **project.json** och klistrar in följande kod från NuGet-paket som vi använder:
+1.  Skapa en ny Azure-funktion med funktionen runtime v1 och förbruknings baserad när du uppmanas till det.  Välj den **http-utlösare** som är riktad mot C# som en start punkt som konfigurerar dina bindningar som vi behöver. 
+2.  Från fliken **Visa filer** i den högra rutan skapar du en ny fil med namnet **Project. JSON** och klistrar in följande kod från NuGet-paket som vi använder:
 
-    ![Exempelprojekt för Azure Functions](./media/create-pipeline-datacollector-api/functions-example-project-01.png)
+    ![Azure Functions exempel projekt](./media/create-pipeline-datacollector-api/functions-example-project-01.png)
     
     ``` JSON
     {
@@ -78,10 +78,10 @@ I det här exemplet tolkar vi en CSV-fil, men alla andra filtyper kan bearbetas 
      }  
     ```
 
-3. Växla till **run.csx** från den högra rutan och ersätt standardkoden med följande. 
+3. Växla till **Kör. CSX** från den högra rutan och ersätt standard koden med följande. 
 
     >[!NOTE]
-    >För projektet måste du ersätta postmodellen (klassen "PopulationRecord" med ditt eget dataschema.
+    >För ditt projekt måste du ersätta post modellen (klassen "PopulationRecord") med ditt eget data schema.
     >
 
     ```   
@@ -122,23 +122,23 @@ I det här exemplet tolkar vi en CSV-fil, men alla andra filtyper kan bearbetas 
     ```
 
 4. Spara din funktion.
-5. Testa funktionen för att kontrollera att koden fungerar som den ska. Växla till fliken **Testa** i den högra rutan och konfigurera testet på följande sätt. Placera en länk till en blob med exempeldata i **brödtextrutan Begäran.** När du har klickat på **Kör**bör du se JSON-utdata i rutan **Utdata:**
+5. Testa funktionen för att kontrol lera att koden fungerar som den ska. Växla till fliken **test** i den högra rutan och konfigurera testet enligt följande. Placera en länk till en blob med exempel data i text rutan för text i **begäran** . När du har klickat på **Kör**bör du se JSON-utdata i rutan **utdata** :
 
-    ![Testkod för funktionsappar](./media/create-pipeline-datacollector-api/functions-test-01.png)
+    ![Test kod för Function Apps](./media/create-pipeline-datacollector-api/functions-test-01.png)
 
-Nu måste vi gå tillbaka och ändra Logic App vi började bygga tidigare för att inkludera de data som intas och konverteras till JSON-format.  Konfigurera enligt följande med View Designer och spara logikappen:
+Nu måste vi gå tillbaka och ändra den Logic-app som vi började skapa tidigare för att inkludera data som matas in och konverteras till JSON-format.  Använd View Designer, konfigurera enligt följande och spara sedan din Logic app:
 
-![Exempel på slutfört arbetsflöde för Logic Apps-arbetsflöde](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-02.png)
+![Logic Apps arbets flöde slutfört exempel](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-02.png)
 
-## <a name="testing-the-pipeline"></a>Testa rörledningen
-Nu kan du ladda upp en ny fil till bloben som konfigurerats tidigare och få den övervakad av din Logic App. Snart bör du se en ny instans av Logic App kick off, ropa till din Azure-funktion och sedan skicka data till Azure Monitor. 
+## <a name="testing-the-pipeline"></a>Testa pipelinen
+Nu kan du ladda upp en ny fil till den konfigurerade bloben tidigare och låta den övervakas av din Logic app. Snart bör du se att en ny instans av logi Kap par är inaktive rad, anropar din Azure-funktion och sedan skicka data till Azure Monitor. 
 
 >[!NOTE]
 >Det kan ta upp till 30 minuter innan data visas i Azure Monitor första gången du skickar en ny datatyp.
 
 
-## <a name="correlating-with-other-data-in-log-analytics-and-application-insights"></a>Korrelera med andra data i Logganalys och Application Insights
-Om du vill slutföra vårt mål att korrelera sidvydata för Application Insights med de populationsdata som vi har intagit från vår anpassade datakälla kör du följande fråga från antingen fönstret Application Insights Analytics eller Log Analytics-arbetsytan:
+## <a name="correlating-with-other-data-in-log-analytics-and-application-insights"></a>Korrelera med andra data i Log Analytics och Application Insights
+För att slutföra vårt mål att korrelera Application Insights sid visning av data med populations data som vi har matat in från vår anpassade data källa, kör du följande fråga från antingen Application Insights Analytics-fönstret eller Log Analytics arbets ytan:
 
 ``` KQL
 app("fabrikamprod").pageViews
@@ -149,21 +149,21 @@ app("fabrikamprod").pageViews
 | project client_CountryOrRegion, numUsers, Population_d
 ```
 
-Utdata ska visa de två datakällor som nu är anslutna.  
+Utdata ska visa de två data källorna som nu är anslutna.  
 
-![Korrelera osammanhängande data i ett sökresultatexempel](./media/create-pipeline-datacollector-api/correlating-disjoined-data-example-01.png)
+![Korrelera kopplade data i ett Sök Resultat exempel](./media/create-pipeline-datacollector-api/correlating-disjoined-data-example-01.png)
 
-## <a name="suggested-improvements-for-a-production-pipeline"></a>Föreslagna förbättringar för en produktionspipeline
-Denna artikel presenterade en fungerande prototyp, logiken bakom som kan tillämpas mot en sann produktion-kvalitet lösning. För en sådan lösning av produktionskvalitet rekommenderas följande förbättringar:
+## <a name="suggested-improvements-for-a-production-pipeline"></a>Föreslagna förbättringar för en produktions pipeline
+Den här artikeln presenterade en fungerande prototyp, logiken bakom som kan tillämpas mot en verklig lösning för produktions kvalitet. För en sådan lösning för produktions kvalitet rekommenderas följande förbättringar:
 
-* Lägg till logikhantering och återförsökslogik i logikappen och funktionen.
-* Lägg till logik för att säkerställa att 30 MB/enkel inloggnings-API-anfallsgräns inte överskrids. Dela upp data i mindre segment om det behövs.
-* Konfigurera en rensningsprincip för blob-lagringen. När du har skickat till log analytics-arbetsytan, om du inte vill hålla rådata tillgängliga för arkivering, finns det ingen anledning att fortsätta lagra den. 
-* Kontrollera att övervakning är aktiverad över hela pipelinen, lägga till spårningspunkter och varningar efter behov.
-* Utnyttja källkontrollen för att hantera koden för din funktion och Logic App.
-* Kontrollera att en korrekt ändringshanteringsprincip följs, så att om schemat ändras ändras funktionen och Logic Apps i enlighet med detta.
-* Om du laddar upp flera olika datatyper, segregera dem i enskilda mappar i blob-behållaren och skapa logik för att fläkta ut logiken baserat på datatypen. 
+* Lägg till fel hantering och försök att använda logik i din Logic app och funktion.
+* Lägg till logik för att säkerställa att 30MB/Single Log Analytics-inmatnings-API-anropet inte överskrids. Dela upp data i mindre segment om det behövs.
+* Konfigurera en rensnings princip för Blob Storage. När du har skickat till Log Analytics arbets ytan, såvida du inte vill behålla rå data tillgängliga för arkivering, finns det ingen anledning att fortsätta att lagra den. 
+* Kontrol lera att övervakning är aktiverat i hela pipeline och Lägg till spårnings punkter och aviseringar efter behov.
+* Utnyttjar käll kontroll för att hantera koden för din funktion och din Logic app.
+* Se till att en korrekt ändrings hanterings princip följs, så att om schemat ändras ändras funktionen och Logic Apps i enlighet med detta.
+* Om du överför flera olika data typer, åtskiljer du dem i enskilda mappar i BLOB-behållaren och skapar logik för att utnyttja logiken utifrån data typen. 
 
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [datainsamlare-API:et](data-collector-api.md) för att skriva data till Log Analytics-arbetsytan från alla REST API-klienter.
+Läs mer om [API: et för data insamling](data-collector-api.md) för att skriva Data till Log Analytics arbets ytan från valfri REST API-klient.

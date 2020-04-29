@@ -1,7 +1,7 @@
 ---
-title: Anpassa en varumärkesmodell med API för videoindexerare
+title: Anpassa en modell med Video Indexer-API
 titleSuffix: Azure Media Services
-description: Läs om hur du anpassar en Brands-modell med API:et för videoindexerare.
+description: Lär dig hur du anpassar en modell med Video Indexer-API.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -11,35 +11,35 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: anzaman
 ms.openlocfilehash: 79c3a7934e9152a4908f895c20ee6fbdc0f360cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80128000"
 ---
-# <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Anpassa en brands-modell med API:et för videoindexerare
+# <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Anpassa en modell med ett varumärke med Video Indexer-API
 
-Video Indexer stöder varumärkesidentifiering från tal- och visuell text vid indexering och omindexering av video- och ljudinnehåll. Varumärkesidentifieringsfunktionen identifierar omnämnanden av produkter, tjänster och företag som föreslås av Bings varumärkesdatabas. Om Microsoft till exempel nämns i video- eller ljudinnehåll eller om det visas i visuell text i en video, identifierar Video Indexer det som ett varumärke i innehållet. Med en anpassad Brands-modell kan du utesluta vissa varumärken från att identifieras och inkludera varumärken som ska ingå i din modell som kanske inte finns i Bings varumärkesdatabas.
+Video Indexer stöder varumärkes identifiering från tal-och visuell text vid indexering och Omindexering av video-och ljud innehåll. Funktionen varumärkes identifiering identifierar omnämnanden av produkter, tjänster och företag som föreslås av Bing-databasens varumärken. Om Microsoft till exempel nämns i video-eller ljud innehåll, eller om det visas i visuell text i en video, identifierar Video Indexer det som ett varumärke i innehållet. Med en modell med anpassade varumärken kan du undanta vissa varumärken från att identifieras och innehålla varumärken som ska ingå i din modell som kanske inte finns i Bing-databasen.
 
 En detaljerad översikt finns i [Översikt](customize-brands-model-overview.md).
 
-Du kan använda API:erna för videoindexer för att skapa, använda och redigera anpassade varumärken som identifieras i en video, enligt beskrivningen i det här avsnittet. Du kan också använda webbplatsen Video Indexer enligt beskrivningen i [modellen Anpassa varumärken med hjälp av webbplatsen Video Indexer](customize-brands-model-with-api.md).
+Du kan använda Video Indexer API: er för att skapa, använda och redigera anpassade varumärke modeller som identifieras i en video, enligt beskrivningen i det här avsnittet. Du kan också använda Video Indexer webbplats som beskrivs i [Anpassa varumärkes-modellen med hjälp av video Indexer webbplats](customize-brands-model-with-api.md).
 
 ## <a name="create-a-brand"></a>Skapa ett varumärke
 
-[Skapa ett varumärke](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand) API skapar ett nytt anpassat varumärke och lägger till den anpassade Brands-modellen för det angivna kontot.
+[Skapa ett varumärke](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Brand) -API skapar ett nytt anpassat varumärke och lägger till det i den anpassade varumärkes-modellen för det angivna kontot.
 
 > [!NOTE]
-> Om `enabled` du ställer in (i brödtexten) för true placeras varumärket i listan *Inkludera* för Video Indexer att identifiera. Om `enabled` du vill false placeras varumärket i listan *Uteslut,* så att videoindexeraren inte identifierar det.
+> Inställningen `enabled` (i bröd texten) till True placerar varumärket i listan *ta med* för video Indexer att identifiera. Om `enabled` du anger false placeras varumärket i *uteslutnings* listan, så video Indexer inte att identifiera det.
 
-Några andra parametrar som du kan ställa in i kroppen:
+Några andra parametrar som du kan ange i texten:
 
-* Värdet `referenceUrl` kan vara alla referenswebbplatser för varumärket, till exempel en länk till wikipediasidan.
-* Värdet `tags` är en lista med taggar för varumärket. Den här taggen visas i fältet *Kategori för* varumärket på webbplatsen Video Indexer. Varumärket "Azure" kan till exempel taggas eller kategoriseras som "Cloud".
+* `referenceUrl` Värdet kan vara alla referens webbplatser för varumärket, till exempel en länk till en wikipedia-sida.
+* `tags` Värdet är en lista med taggar för varumärket. Den här taggen visas i fältet för märkets *kategori* på video Indexer webbplats. Till exempel kan märket "Azure" märkas eller kategoriseras som "moln".
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller information om det varumärke som du just skapade i formatet för exemplet nedan.
+Svaret innehåller information om det varumärke som du nyss skapade enligt formatet i exemplet nedan.
 
 ```json
 {
@@ -61,19 +61,19 @@ Svaret innehåller information om det varumärke som du just skapade i formatet 
 
 ## <a name="delete-a-brand"></a>Ta bort ett varumärke
 
-Ta [bort ett varumärke](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?) API tar bort ett varumärke från den anpassade Brands-modellen för det angivna kontot. Kontot anges i parametern. `accountId` När varumärket har anropats har det inte längre finns i listorna *Inkludera* eller *Exkludera* varumärken.
+[Ta bort ett varumärke](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Brand?) -API tar bort ett varumärke från anpassade varumärkes-modellen för det angivna kontot. Kontot anges i `accountId` parametern. När det har anropats kommer varumärket inte längre att finnas i listorna *Inkludera* eller *exkludera* varumärken.
 
 ### <a name="response"></a>Svar
 
-Det finns inget returnerat innehåll när varumärket tas bort.
+Det finns inget returnerat innehåll när varumärket har tagits bort.
 
-## <a name="get-a-specific-brand"></a>Skaffa ett specifikt varumärke
+## <a name="get-a-specific-brand"></a>Skaffa ett speciellt varumärke
 
-Med [skaffa ett varumärkes-API](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?) kan du söka efter information om ett varumärke i den anpassade Brands-modellen för det angivna kontot med hjälp av varumärkes-ID.
+Med [Hämta ett varumärke](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brand?) -API kan du söka efter information om ett varumärke i anpassade varumärkes-modellen för det angivna kontot med hjälp av märkes-ID.
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller information om det varumärke som du sökte (med varumärkes-ID) i formatet för exemplet nedan.
+Svaret innehåller information om det märke som du sökte efter (med varumärkes-ID) enligt exemplet nedan.
 
 ```json
 {
@@ -94,15 +94,15 @@ Svaret innehåller information om det varumärke som du sökte (med varumärkes-
 ```
 
 > [!NOTE]
-> `enabled`att vara `true` inställd på att betyda att varumärket är i *include-listan* för Video Indexer att upptäcka, och `enabled` att vara falsk betyder att varumärket finns i listan *Uteslut,* så videoindexerare kommer inte att upptäcka det.
+> `enabled`anges till `true` visar att varumärket är i listan *inkludering* för video Indexer att identifiera och `enabled` att det är falskt betyder att varumärket är i *uteslutnings* listan, så video Indexer inte identifierar det.
 
-## <a name="update-a-specific-brand"></a>Uppdatera ett visst varumärke
+## <a name="update-a-specific-brand"></a>Uppdatera ett speciellt varumärke
 
-Med uppdateringen av [ett varumärkes-API](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?) kan du söka efter information om ett varumärke i den anpassade brands-modellen för det angivna kontot med hjälp av varumärkes-ID.
+Med [Uppdatera en varumärkes](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brand?) -API kan du söka efter information om ett varumärke i anpassade varumärkes-modellen för det angivna kontot med hjälp av varumärkes-ID.
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller den uppdaterade informationen om varumärket som du uppdaterade i formatet för exemplet nedan.
+Svaret innehåller den uppdaterade informationen om det varumärke som du uppdaterade efter formatet i exemplet nedan.
 
 ```json
 {
@@ -122,13 +122,13 @@ Svaret innehåller den uppdaterade informationen om varumärket som du uppdatera
 }
 ```
 
-## <a name="get-all-of-the-brands"></a>Få alla varumärken
+## <a name="get-all-of-the-brands"></a>Hämta alla varumärken
 
-[Api:et för att få alla varumärken](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?) returnerar alla varumärken i den anpassade brands-modellen för det angivna kontot oavsett om varumärket är avsett att finnas i listan *Inkludera* eller *Exkludera* varumärken.
+API: t [Hämta alla varumärken](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands?) returnerar alla varumärken i den anpassade varumärkes-modellen för det angivna kontot, oavsett om varumärket är avsett att finnas i listan *Inkludera* eller *exkludera* varumärken.
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller en lista över alla varumärken i ditt konto och var och en av deras uppgifter enligt formatet i exemplet nedan.
+Svaret innehåller en lista över alla varumärken i ditt konto och var och en av sina uppgifter efter formatet i exemplet nedan.
 
 ```json
 [
@@ -160,15 +160,15 @@ Svaret innehåller en lista över alla varumärken i ditt konto och var och en a
 ```
 
 > [!NOTE]
-> Varumärket *Exempel* finns i listan *Inkludera* för Videoindexer att identifiera och varumärket *Example2* finns i listan *Uteslut,* så videoindexeraren identifieras inte.
+> Varumärket *varumärke är i* listan *Inkludera* för video Indexer för att identifiera och varumärket med namnet *Example2* finns i *uteslutnings* listan så video Indexer inte att identifiera det.
 
-## <a name="get-brands-model-settings"></a>Hämta modellinställningar för Varumärken
+## <a name="get-brands-model-settings"></a>Hämta inställningar för varumärkes modell
 
-[API:et för get brands-inställningar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands) returnerar modellinställningarna för Varumärken i det angivna kontot. Modellinställningarna för Varumärken representerar om identifiering från Bing-märkesdatabasen är aktiverad eller inte. Om Bing-varumärken inte är aktiverade identifierar Video Indexer bara varumärken från den anpassade brands-modellen för det angivna kontot.
+Med API: erna för [Get-inställningar](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Brands) returneras modell inställningarna för varumärke i det angivna kontot. Modell inställningarna för varumärken representerar om identifiering från Bing-databasen är aktive rad eller inte. Om Bing-varumärken inte är aktiverade, kommer Video Indexer bara identifiera varumärken från den anpassade varumärke modellen för det angivna kontot.
 
 ### <a name="response"></a>Svar
 
-Svaret visar om Bing-varumärken är aktiverade enligt formatet i exemplet nedan.
+Svaret visar om Bing-varumärken är aktiverade efter formatet i exemplet nedan.
 
 ```json
 {
@@ -178,18 +178,18 @@ Svaret visar om Bing-varumärken är aktiverade enligt formatet i exemplet nedan
 ```
 
 > [!NOTE]
-> `useBuiltIn`är inställda på true representerar att Bing-varumärken är aktiverade. Om `useBuiltin` är falskt inaktiveras Bing-varumärken. Värdet `state` kan ignoreras eftersom det har inaktuellt.
+> `useBuiltIn`anges till sant anger att Bing-varumärken är aktiverade. Om `useBuiltin` är falskt inaktive ras Bing-varumärken. `state` Värdet kan ignoreras eftersom det är inaktuellt.
 
-## <a name="update-brands-model-settings"></a>Modellera inställningar för Update Brands
+## <a name="update-brands-model-settings"></a>Uppdatera modell inställningar för varumärke
 
-[Api:et för uppdateringsvarumärken](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?) uppdaterar modellinställningarna för Varumärken i det angivna kontot. Modellinställningarna för Varumärken representerar om identifiering från Bing-märkesdatabasen är aktiverad eller inte. Om Bing-varumärken inte är aktiverade identifierar Video Indexer bara varumärken från den anpassade brands-modellen för det angivna kontot.
+[Uppdateringen varumärkes](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Brands-Model-Settings?) -API uppdaterar modell inställningarna för varumärkena i det angivna kontot. Modell inställningarna för varumärken representerar om identifiering från Bing-databasen är aktive rad eller inte. Om Bing-varumärken inte är aktiverade, kommer Video Indexer bara identifiera varumärken från den anpassade varumärke modellen för det angivna kontot.
 
-Flaggan `useBuiltIn` inställd på true innebär att Bing-varumärken är aktiverade. Om `useBuiltin` är falskt inaktiveras Bing-varumärken.
+`useBuiltIn` Flaggan som anges till True innebär att Bing-varumärken är aktiverade. Om `useBuiltin` är falskt inaktive ras Bing-varumärken.
 
 ### <a name="response"></a>Svar
 
-Det finns inget returnerat innehåll när modellinställningen Brands uppdateras.
+Det finns inget returnerat innehåll när modell inställningen för varumärken har uppdaterats.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Anpassa brands-modellen med hjälp av webbplats](customize-brands-model-with-website.md)
+[Anpassa varumärkes-modellen med hjälp av webbplats](customize-brands-model-with-website.md)

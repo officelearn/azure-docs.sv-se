@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Machine Scale-uppsättningar kopplade datadiskar
-description: Lär dig hur du använder kopplade datadiskar med skaluppsättningar för virtuella datorer genom konturer av specifika användningsfall.
+title: Azure Virtual Machine Scale Sets anslutna data diskar
+description: Lär dig hur du använder anslutna data diskar med skalnings uppsättningar för virtuella datorer genom att ange specifika användnings fall.
 author: avirishuv
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/25/2017
 ms.author: avverma
 ms.openlocfilehash: 6e39a8ffb24b0cca720890e3d00a55d1e58fadc2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80123366"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Anslutna datadiskar med skaluppsättningar för virtuella Azure-datorer
@@ -86,12 +86,12 @@ Förbered datadiskarna i ett Linux-kluster automatiskt genom att lägga till fö
 
 
 ## <a name="adding-pre-populated-data-disks-to-an-existing-scale-set"></a>Lägga till redan fyllda datadiskar i en befintlig skalningsuppsättning
-Datadiskar som definieras i skalningsuppsättningsmodellen är alltid tomma. Du kan dock ansluta en befintlig datadisk till en specifik virtuell dator i en skalningsuppsättning. Om du vill sprida data över alla virtuella datorer i skalningsuppsättningen kan du duplicera datadisken och bifoga den till varje virtuell dator i skalningsuppsättningen, eller skapa en anpassad avbildning som innehåller data och etablera skalningsuppsättningen från den här anpassade avbildningen , eller så kan du använda Azure-filer eller ett liknande datalagringserbjudande.
+Datadiskar som definieras i skalningsuppsättningsmodellen är alltid tomma. Du kan dock ansluta en befintlig datadisk till en specifik virtuell dator i en skalningsuppsättning. Om du vill sprida data över alla virtuella datorer i skalnings uppsättningen kan du duplicera din datadisk och koppla den till varje virtuell dator i skalnings uppsättningen, eller skapa en anpassad avbildning som innehåller data och etablera skalnings uppsättningen från den här anpassade avbildningen, eller så kan du använda Azure Files eller ett liknande data lagrings erbjudande.
 
 
 ## <a name="additional-notes"></a>Ytterligare information
 Stöd för Azure Managed Disks och anslutna datadiskar för skalningsuppsättningar finns i [_förhandversionen 2016-04-30-_](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/compute/resource-manager/Microsoft.Compute/preview/2016-04-30-preview/compute.json) av Microsoft.Compute-API:t eller senare versioner.
 
-Azure portal stöd för bifogade datadiskar i skalningsuppsättningar är begränsad. Beroende på dina behov kan du använda Azure-mallar, CLI, PowerShell, SDK:er och REST API för att hantera anslutna diskar.
+Azure Portal stöd för anslutna data diskar i skalnings uppsättningar är begränsat. Beroende på dina behov kan du använda Azure-mallar, CLI, PowerShell, SDK:er och REST API för att hantera anslutna diskar.
 
 

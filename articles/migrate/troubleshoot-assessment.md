@@ -1,6 +1,6 @@
 ---
-title: Felsöka utvärdering och beroendevisualisering i Azure Migrate
-description: Få hjälp med felsökningsutvärdering och beroendevisualisering i Azure Migrate.
+title: Felsök utvärderings-och beroende visualisering i Azure Migrate
+description: Få hjälp med fel sökning av utvärdering och beroende visualisering i Azure Migrate.
 ms.service: azure-migrate
 ms.topic: troubleshooting
 author: musa-57
@@ -8,164 +8,164 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
 ms.openlocfilehash: 205b52201edb849abab02809b58ff9dc77a32a29
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80127666"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Felsöka utvärdering/beroendevisualisering
 
-Den här artikeln hjälper dig att felsöka problem med utvärdering och beroendevisualisering med [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool).
+Den här artikeln hjälper dig att felsöka problem med utvärderings-och beroende visualisering med [Azure Migrate: Server utvärdering](migrate-services-overview.md#azure-migrate-server-assessment-tool).
 
 
-## <a name="assessment-readiness-issues"></a>Frågor om bedömningsberedskap
+## <a name="assessment-readiness-issues"></a>Problem med utvärderings beredskap
 
-Åtgärda problem med bedömningsberedskap enligt följande:
+Åtgärda problem med utvärderings beredskap enligt följande:
 
 **Problem** | **Snabbkorrigering**
 --- | ---
-Starttyp som inte stöds | Azure stöder inte virtuella datorer med efi-starttyp. Vi rekommenderar att du konverterar starttypen till BIOS innan du kör en migrering. <br/><br/>Du kan använda Azure Migrera servermigrering för att hantera migreringen av sådana virtuella datorer. Den konverterar starttypen för den virtuella datorn till BIOS under migreringen.
-Villkorslöst windows-operativsystem som stöds | Operativsystemet har passerat supportdatumet och behöver ett CSA (Custom Support Agreement) för [support i Azure](https://aka.ms/WSosstatement). Överväg att uppgradera innan du migrerar till Azure.
+Start typen stöds inte | Azure har inte stöd för virtuella datorer med en EFI-starttyp. Vi rekommenderar att du konverterar start typen till BIOS innan du kör en migrering. <br/><br/>Du kan använda migrering av Azure Migrate Server för att hantera migrering av sådana virtuella datorer. Den kommer att konvertera start typen för den virtuella datorn till BIOS under migreringen.
+Villkorligt Windows-operativsystem som stöds | Operativ systemet har passerat sitt slutdatum och måste ha ett anpassat support avtal (CSA) för [support i Azure](https://aka.ms/WSosstatement). Överväg att uppgradera innan du migrerar till Azure.
 Windows-operativsystem som inte stöds | Azure stöder endast [valda Windows OS-versioner](https://aka.ms/WSosstatement). Överväg att uppgradera datorn innan du migrerar till Azure.
-Villkorligt godkände Linux OS | Azure stöder endast [valda Linux OS-versioner](../virtual-machines/linux/endorsed-distros.md). Överväg att uppgradera datorn innan du migrerar till Azure.
-Ogenomtämjda Linux OS | Datorn kan starta i Azure, men Azure tillhandahåller inget operativsystemstöd. Överväg att uppgradera till en [godkänd Linux-version](../virtual-machines/linux/endorsed-distros.md) innan du migrerar till Azure.
-Okänt operativsystem | Operativsystemet för den virtuella datorn angavs som "Övrigt" i vCenter Server. Det här beteendet blockerar Azure Migrate från att verifiera Azure-beredskapen för den virtuella datorn. Kontrollera att operativsystemet [stöds](https://aka.ms/azureoslist) av Azure innan du migrerar datorn.
-Bitversion som inte stöds | Virtuella datorer med 32-bitars operativsystem kan starta i Azure, men vi rekommenderar att du uppgraderar till 64-bitars innan du migrerar till Azure.
-Kräver en Microsoft Visual Studio-prenumeration | Datorn kör ett Windows-klientoperativsystem, som endast stöds genom en Visual Studio-prenumeration.
-Det gick inte att hitta den virtuella datorn för den nödvändiga lagringsprestandan | Lagringsprestanda (in-/utdataåtgärder per sekund [IOPS] och dataflöde) som krävs för datorn överskrider Azure VM-stöd. Minska lagringskraven för maskinen före migreringen.
-Det gick inte att hitta den virtuella datorn för den nödvändiga nätverksprestandan | Nätverksprestanda (in/ut) som krävs för datorn överskrider Azure VM-stöd. Minska nätverkskraven för maskinen.
-Det gick inte att hitta den virtuella datorn på den angivna platsen | Använd en annan målplats före migreringen.
-En eller flera olämpliga diskar | En eller flera diskar som är anslutna till den virtuella datorn uppfyller inte Azure-kraven. A<br/><br/> Azure Migrate: Server Assessment stöder för närvarande inte Ultra SSD-diskar och bedömer diskarna baserat på diskgränserna för premiumhanterade diskar (32 TB).<br/><br/> För varje disk som är ansluten till den virtuella datorn kontrollerar du att diskens storlek är < 64 TB (stöds av Ultra SSD-diskar).<br/><br/> Om den inte är det minskar du diskstorleken innan du migrerar till Azure, eller använder flera diskar i Azure och [tar dem samman](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) för att få högre lagringsgränser. Kontrollera att prestandan (IOPS och dataflöde) som behövs av varje disk stöds av [Azure-hanterade virtuella datordiskar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#storage-limits).
-Ett eller flera olämpliga nätverkskort. | Ta bort oanvända nätverkskort från datorn före migreringen.
-Antalet diskar överskrider gränsen | Ta bort oanvända diskar från datorn före migreringen.
-Diskstorleken överskrider gränsen | Azure Migrate: Server Assessment stöder för närvarande inte Ultra SSD-diskar och bedömer diskarna baserat på premiumdiskgränser (32 TB).<br/><br/> Azure stöder dock diskar med upp till 64 TB -storlek (stöds av Ultra SSD-diskar). Förminska diskar till mindre än 64 TB före migreringen, eller använd flera diskar i Azure och [dra ihop dem](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) för att få högre lagringsgränser.
-Disken är inte tillgänglig på den angivna platsen | Kontrollera att disken är på din målplats innan du migrerar.
-Disken är inte tillgänglig för den angivna redundansen | Disken ska använda den redundanslagringstyp som definieras i bedömningsinställningarna (LRS som standard).
-Det gick inte att fastställa diskens lämplighet på grund av ett internt fel | Prova att skapa en ny bedömning för gruppen.
-Den virtuella datorn med nödvändiga kärnor och minne hittades inte | Azure kunde inte hitta en lämplig VM-typ. Minska minnet och antalet kärnor på den lokala datorn innan du migrerar.
-Det gick inte att avgöra den virtuella datorns lämplighet på grund av ett internt fel | Prova att skapa en ny bedömning för gruppen.
-Det gick inte att avgöra lämpligheten för en eller flera diskar på grund av ett internt fel | Prova att skapa en ny bedömning för gruppen.
-Det gick inte att avgöra lämpligheten för ett eller flera nätverkskort på grund av ett internt fel | Prova att skapa en ny bedömning för gruppen.
+Villkorligt godkänt Linux OS | Azure har endast godkänt [valda Linux OS-versioner](../virtual-machines/linux/endorsed-distros.md). Överväg att uppgradera datorn innan du migrerar till Azure.
+Avsignerat Linux OS | Datorn kan starta i Azure, men Azure tillhandahåller inget stöd för operativ system. Överväg att uppgradera till en [godkänd Linux-version](../virtual-machines/linux/endorsed-distros.md) innan du migrerar till Azure.
+Okänt operativ system | Operativ systemet för den virtuella datorn angavs som "Övrigt" i vCenter Server. Det här beteendet blockerar Azure Migrate från att verifiera den virtuella datorns Azure-beredskap. Kontrol lera att operativ systemet [stöds](https://aka.ms/azureoslist) av Azure innan du migrerar datorn.
+Bit versionen stöds inte | Virtuella datorer med ett 32-bitars operativ system kan starta i Azure, men vi rekommenderar att du uppgraderar till 64-bit innan du migrerar till Azure.
+Kräver en Microsoft Visual Studio-prenumeration | Datorn kör ett Windows-klient operativ system som bara stöds via en Visual Studio-prenumeration.
+Den virtuella datorn hittades inte för lagrings prestanda som krävs | Lagrings prestandan (indata/utdata per sekund [IOPS] och data flöde) som krävs för datorn överskrider stöd för virtuella Azure-datorer. Minska lagrings kraven för datorn innan du migrerar.
+Det gick inte att hitta den virtuella datorn för den nödvändiga nätverks prestandan | Nätverks prestandan (in/ut) som krävs för datorn överskrider stöd för virtuella Azure-datorer. Minska nätverks kraven för datorn.
+Den virtuella datorn hittades inte på den angivna platsen | Använd en annan målplats innan migreringen.
+En eller flera olämpliga diskar | En eller flera diskar som är anslutna till den virtuella datorn uppfyller inte kraven för Azure. En<br/><br/> Azure Migrate: Server utvärderingen stöder för närvarande inte Ultra SSD diskar och utvärderar diskarna baserat på disk gränserna för Premium Managed disks (32 TB).<br/><br/> För varje disk som är ansluten till den virtuella datorn ser du till att storleken på disken är < 64 TB (stöds av Ultra SSD diskar).<br/><br/> Om den inte är det kan du minska disk storleken innan du migrerar till Azure, eller använda flera diskar i Azure och [Stripa dem](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) för att få högre lagrings gränser. Kontrol lera att prestandan (IOPS och data flödet) som krävs för varje disk stöds av Azure- [hanterade virtuella dator diskar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#storage-limits).
+Ett eller flera olämpliga nätverkskort. | Ta bort oanvända nätverkskort från datorn innan migreringen.
+Antalet diskar överskrider gränsen | Ta bort oanvända diskar från datorn innan migreringen.
+Disk storleken överskrider gränsen | Azure Migrate: Server utvärderingen stöder för närvarande inte Ultra SSD diskar och utvärderar diskarna baserat på Premium disk gränser (32 TB).<br/><br/> Azure stöder dock diskar med upp till 64 TB-storlek (stöds av Ultra SSD diskar). Minska diskar till mindre än 64 TB innan migrering, eller Använd flera diskar i Azure och dela upp [dem](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) för att få högre lagrings gränser.
+Disken är inte tillgänglig på den angivna platsen | Kontrol lera att disken finns på mål platsen innan du migrerar.
+Disken är inte tillgänglig för den angivna redundansen | Disken bör använda den redundans lagrings typ som definierats i utvärderings inställningarna (LRS som standard).
+Det gick inte att fastställa diskens lämplighet på grund av ett internt fel | Försök att skapa en ny utvärdering för gruppen.
+Det gick inte att hitta den virtuella datorn med nödvändiga kärnor och minne | Azure kunde inte hitta en lämplig VM-typ. Minska minnet och antalet kärnor för den lokala datorn innan du migrerar.
+Det gick inte att fastställa VM-lämplighet på grund av ett internt fel | Försök att skapa en ny utvärdering för gruppen.
+Det gick inte att fastställa lämplighet för en eller flera diskar på grund av ett internt fel | Försök att skapa en ny utvärdering för gruppen.
+Det gick inte att fastställa lämplighet för ett eller flera nätverkskort på grund av ett internt fel | Försök att skapa en ny utvärdering för gruppen.
 
-## <a name="linux-vms-are-conditionally-ready"></a>Virtuella Linux-datorer är "villkorligt klara"
+## <a name="linux-vms-are-conditionally-ready"></a>Virtuella Linux-datorer är "villkorligt redo"
 
-Serverutvärdering markerar virtuella Linux-datorer som "villkorligt redo" på grund av ett känt mellanrum i Serverutvärdering.
+Server utvärderingen markerar virtuella Linux-datorer som "villkorligt redo" på grund av ett känt avstånd i Server utvärderingen.
 
-- Gapet hindrar den från att identifiera den mindre versionen av Linux OS som är installerat på de lokala virtuella datorerna.
-- För RHEL 6.10 identifierar serverutvärdering för närvarande endast RHEL 6 som OS-version.
--  Eftersom Azure endast stöder specifika versioner av Linux markeras virtuella Linux-datorer för närvarande som villkorligt klara i Serverutvärdering.
-- Du kan avgöra om Linux OS som körs på den lokala virtuella datorn är godkänt i Azure genom att granska [Azure Linux-stöd](https://aka.ms/migrate/selfhost/azureendorseddistros).
+- Luckan förhindrar att den lägre versionen av Linux OS som är installerad på lokala virtuella datorer identifieras.
+- För RHEL 6,10 identifieras till exempel bara RHEL 6 som operativ system version för för närvarande.
+-  Eftersom Azure bara godkänner vissa versioner av Linux är de virtuella Linux-datorerna för närvarande markerade som villkorligt klara i Server utvärderingen.
+- Du kan avgöra om Linux-operativsystemet som körs på den lokala virtuella datorn har godkänts i Azure genom att granska [Azure Linux-supporten](https://aka.ms/migrate/selfhost/azureendorseddistros).
 -  När du har verifierat den godkända distributionen kan du ignorera den här varningen.
 
-## <a name="azure-skus-bigger-than-on-premises"></a>Azure SKU:er som är större än lokala
+## <a name="azure-skus-bigger-than-on-premises"></a>Azure-SKU: er större än lokalt
 
-Azure Migrate Server Assessment kan rekommendera Azure VM SKU:er med fler kärnor och minne än aktuell lokal allokering baserat på typen av utvärdering:
-
-
-- Vm SKU-rekommendationen beror på bedömningsegenskaperna.
-- Detta påverkas av vilken typ av bedömning du utför i Serverbedömning: *Prestandabaserad*eller *Som lokal*.
-- För prestandabaserade utvärderingar tar Server Assessment hänsyn till användningsdata för lokala virtuella datorer (CPU, minne, disk och nätverksanvändning) för att bestämma rätt mål-VM SKU för lokala virtuella datorer. Det ger också en komfortfaktor vid fastställandet av effektivt utnyttjande.
-- För lokal storlek beaktas inte prestandadata och mål-SKU rekommenderas baserat på lokal allokering.
-
-Om du vill visa hur detta kan påverka rekommendationerna ska vi ta ett exempel:
-
-Vi har en lokal virtuell dator med fyra kärnor och åtta GB minne, med 50% CPU-användning och 50% minnesanvändning, och en specificerad komfortfaktor på 1,3.
-
--  Om utvärderingen är **Som lokalt**rekommenderas en Azure VM SKU med fyra kärnor och 8 GB minne.
-- Om bedömningen är prestandabaserad, baserad på effektiv CPU- och minnesanvändning (50 % av 4 kärnor * 1,3 = 2,6 kärnor och 50 % av 8 GB minne * 1,3 = 5,3 GB minne), är den billigaste VM SKU med fyra kärnor (närmaste kärnantal) och åtta GB minne (närmaste stöds minnesstorlek) rekommenderas.
-- [Läs mer](concepts-assessment-calculation.md#types-of-assessments) om bedömningsstorlek.
-
-## <a name="azure-disk-skus-bigger-than-on-premises"></a>Azure disk SKU:er som är större än lokala
-
-Azure Migrate Server Assessment kan rekommendera en större disk baserat på typen av bedömning.
-- Diskstorleken i Serverutvärdering beror på två bedömningsegenskaper: storlekskriterier och lagringstyp.
-- Om storlekskriterierna är **prestandabaserade**och lagringstypen är inställd **på Automatisk,** beaktas IOPS- och dataflödesvärdena för disken när måldisktypen (standard-hårddisk, standard-SSD eller Premium) identifierars. En disk SKU från disktypen rekommenderas sedan och rekommendationen tar hänsyn till storlekskraven för den lokala disken.
-- Om storlekskriterierna är **prestandabaserade**och lagringstypen är **Premium**rekommenderas en premiumdisk SKU i Azure baserat på IOPS-, dataflödes- och storlekskraven för den lokala disken. Samma logik används för att utföra diskstorlek när storlekskriterierna är **Som lokalt** och lagringstypen är **Standard HDD,** **Standard SSD**eller **Premium**.
-
-Om du till exempel har en lokal disk med 32 GB minne, men den aggregerade läsa och skriva IOPS för disken är 800 IOPS, rekommenderar Server Assessment en premiumdisk (på grund av de högre IOPS-kraven) och rekommenderar sedan en disk SKU som kan stödja krävs IOPS och storlek. Den bästa matchningen i det här exemplet är P15 (256 GB, 1100 IOPS). Även om storleken som krävs av den lokala disken var 32 GB, rekommenderar Server Assessment en större disk på grund av det höga IOPS-kravet på den lokala disken.
-
-## <a name="utilized-corememory-percentage-missing"></a>Använd kärn-/minnesprocent saknas
-
-Serverutvärderingsrapporter "PercentageOfCoresUtilizedMissing" eller "PercentageOfMemoryUtilizedMissing" när Azure Migrate-enheten inte kan samla in prestandadata för relevanta lokala virtuella datorer.
-
-- Detta kan inträffa om de virtuella datorerna är avstängda under utvärderingstiden. Installationen kan inte samla in prestandadata för en virtuell dator när den är avstängd.
-- Om bara minnesräknare saknas och du försöker bedöma virtuella hyper-virtuella datorer kontrollerar du om du har aktiverat dynamiskt minne på dessa virtuella datorer. Det finns ett känt problem endast för virtuella hyper-virtuella datorer, där en Azure Migrate-enhet inte kan samla in minnesanvändningsdata för virtuella datorer som inte har dynamiskt minne aktiverat.
-- Om någon av prestandaräknarna saknas faller Azure Migrate Server Assessment tillbaka till de allokerade kärnorna och minnet och rekommenderar en motsvarande vm-storlek.
-- Om alla prestandaräknare saknas, se till att kraven för portåtkomst för bedömning är uppfyllda. Läs mer om portåtkomstkraven för [VMware,](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access) [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) och [fysisk](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access) serverutvärdering.
-
-## <a name="is-the-operating-system-license-included"></a>Ingår operativsystemets licens?
-
-Azure Migrate Server Assessment tar för närvarande hänsyn till licenskostnaden för operativsystemet endast för Windows-datorer. Licenskostnader för Linux-datorer beaktas för närvarande inte.
-
-## <a name="how-does-performance-based-sizing-work"></a>Hur fungerar prestationsbaserad storlek?
-
-Server Assessment samlar kontinuerligt in prestandadata för lokala datorer och använder dem för att rekommendera VM-SKU:n och disk-SKU:n i Azure. [Läs om hur](concepts-assessment-calculation.md#calculate-sizing-performance-based) prestandabaserade data samlas in.
+Azure Migrate Server utvärderingen kan rekommendera Azure VM SKU: er med fler kärnor och minne än den aktuella lokala allokeringen baserat på typen av utvärdering:
 
 
-## <a name="dependency-visualization-in-azure-government"></a>Beroendevisualisering i Azure Government
+- Den virtuella datorns SKU-rekommendation beror på utvärderings egenskaperna.
+- Detta påverkas av den typ av utvärdering som du utför i Server utvärderingen: *prestanda-baserad*eller *lokalt*.
+- För prestandabaserade utvärderingar beaktar Server utvärderingen användnings data för de lokala virtuella datorerna (CPU, minne, disk och nätverks användning) för att fastställa rätt mål-SKU för virtuella datorer för dina lokala virtuella datorer. Den lägger också till en bekvämlighets faktor när du fastställer effektiv användning.
+- För lokal storleks sortering beaktas inte prestanda data och SKU: n rekommenderas för lokal allokering.
 
-Azure Migrate är beroende av servicemappning för funktionen för beroendevisualisering. Eftersom tjänstöversikten för närvarande inte är tillgänglig i Azure Government är den här funktionen inte tillgänglig i Azure Government.
+För att visa hur detta kan påverka rekommendationerna, tar vi ett exempel:
 
-## <a name="dependencies-dont-show-after-agent-install"></a>Beroenden visas inte efter agentinstallation
+Vi har en lokal virtuell dator med fyra kärnor och åtta GB minne, med 50% processor användning och 50% minnes användning och en angiven bekvämlighets faktor på 1,3.
 
-När du har installerat beroendevisualiseringsagenter på lokala virtuella datorer tar Azure Migrate vanligtvis 15-30 minuter att visa beroenden i portalen. Om du har väntat i mer än 30 minuter kontrollerar du att Microsoft Monitoring Agent (MMA) kan ansluta till Log Analytics-arbetsytan.
+-  Om utvärderingen är **lokalt**, rekommenderas en Azure VM-SKU med fyra kärnor och 8 GB minne.
+- Om utvärderingen är prestanda beroende av, baserat på effektiv processor-och minnes användning (50% av 4 kärnor * 1,3 = 2,6 kärnor och 50% av 8 GB minne * 1,3 = 5,3-GB minne), rekommenderas billigaste VM-SKU: n för fyra kärnor (närmaste antal kärnor som stöds) och åtta GB minne (närmaste minnes storlek som stöds) rekommenderas.
+- [Läs mer](concepts-assessment-calculation.md#types-of-assessments) om utvärderings storlek.
+
+## <a name="azure-disk-skus-bigger-than-on-premises"></a>Azure disk-SKU: er större än lokalt
+
+Azure Migrate Server-utvärderingen kan rekommendera en större disk baserat på typen av utvärdering.
+- Disk storlek i Server utvärderingen är beroende av två bedömnings egenskaper: storleks kriterier och lagrings typ.
+- Om storleks kriteriet är **prestanda baserat**och lagrings typen är inställd på **Automatisk**, beaktas IOPS-och data flödes värden för disken när mål disk typen identifieras (standard HDD, standard SSD eller Premium). En disk-SKU från disk typen rekommenderas och rekommendationen tar hänsyn till storleks kraven för den lokala disken.
+- Om storleks kriteriet är **prestanda baserat**och lagrings typen är **Premium**rekommenderas en SKU för Premium-diskar i Azure baserat på IOPS, data flöde och storleks krav för den lokala disken. Samma logik används för att utföra disk storlek när storleks kriteriet är **lokalt** och lagrings typen är **standard HDD**, **standard SSD**eller **Premium**.
+
+Om du till exempel har en lokal disk med 32 GB minne, men den aggregerade läsnings-och skriv-IOPS för disken är 800 IOPS, rekommenderar Server utvärderingen en Premium disk (på grund av de högre IOPS-kraven) och rekommenderar sedan en disk-SKU som stöder den nödvändiga IOPS och storleken. Den bästa matchningen i det här exemplet är P15 (256 GB, 1100 IOPS). Även om den storlek som krävs av den lokala disken var 32 GB, rekommenderar Server utvärderingen en större disk på grund av det höga IOPS-kravet för den lokala disken.
+
+## <a name="utilized-corememory-percentage-missing"></a>Använd kärn-/minnes procent saknas
+
+Server utvärderings rapporter "PercentageOfCoresUtilizedMissing" eller "PercentageOfMemoryUtilizedMissing" när Azure Migrate-enheten inte kan samla in prestanda data för de relevanta lokala virtuella datorerna.
+
+- Detta kan inträffa om de virtuella datorerna är avstängda under utvärderings tiden. Enheten kan inte samla in prestanda data för en virtuell dator när den är avstängd.
+- Om endast minnes räknarna saknas och du försöker utvärdera virtuella Hyper-V-datorer, kontrollerar du om du har dynamiskt minne aktiverat på de här virtuella datorerna. Det finns ett känt problem för virtuella Hyper-V-datorer, där en Azure Migrate-apparat inte kan samla in minnes användnings data för virtuella datorer som inte har dynamiskt minne aktiverat.
+- Om någon av prestanda räknarna saknas går Azure Migrate Server utvärderingen tillbaka till allokerade kärnor och minne, och det rekommenderar en motsvarande VM-storlek.
+- Om alla prestanda räknare saknas kontrollerar du att port åtkomst kraven för utvärdering är uppfyllda. Läs mer om Port åtkomst krav för [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access), [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) och utvärderingen av [fysiska](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access) servrar.
+
+## <a name="is-the-operating-system-license-included"></a>Ingår licensen för operativ systemet?
+
+Azure Migrate Server utvärderingen betraktar för närvarande endast operativ Systems licens kostnaden för Windows-datorer. Licens kostnader för Linux-datorer anses inte för närvarande.
+
+## <a name="how-does-performance-based-sizing-work"></a>Hur fungerar prestandabaserade storleks ändringar?
+
+Server Assessment samlar kontinuerligt in prestandadata för lokala datorer och använder dem för att rekommendera VM-SKU:n och disk-SKU:n i Azure. [Lär dig hur](concepts-assessment-calculation.md#calculate-sizing-performance-based) prestandabaserade data samlas in.
+
+
+## <a name="dependency-visualization-in-azure-government"></a>Beroende visualisering i Azure Government
+
+Azure Migrate är beroende av Tjänstkarta för funktionerna för beroende visualisering. Eftersom Tjänstkarta för närvarande inte är tillgängligt i Azure Government är den här funktionen inte tillgänglig i Azure Government.
+
+## <a name="dependencies-dont-show-after-agent-install"></a>Beroenden visas inte efter agent installation
+
+När du har installerat beroende visualiserings agenter på lokala virtuella datorer tar Azure Migrate vanligt vis 15-30 minuter att Visa beroenden i portalen. Om du har väntat i mer än 30 minuter ser du till att Microsoft Monitoring Agent (MMA) kan ansluta till Log Analytics-arbetsytan.
 
 För virtuella Windows-datorer:
-1. Starta MMA på Kontrollpanelen.
-2. I **Microsoft Monitoring Agent-egenskaperna** > **Azure Log Analytics (OMS)** kontrollerar du att **statusen** för arbetsytan är grön.
-3. Om statusen inte är grön kan du prova att ta bort arbetsytan och lägga till den igen i MMA.
+1. Starta MMA på kontroll panelen.
+2. I >  **egenskaperna för Microsoft Monitoring Agent****Azure Log Analytics (OMS)** kontrollerar du att arbets ytans **status** är grön.
+3. Om statusen inte är grön kan du försöka ta bort arbets ytan och lägga till den igen till MMA.
 
-    ![MMA-status](./media/troubleshoot-assessment/mma-properties.png)
+    ![Status för MMA](./media/troubleshoot-assessment/mma-properties.png)
 
-För virtuella Linux-datorer kontrollerar du att installationskommandona för MMA och beroendeagenten lyckades.
+För virtuella Linux-datorer måste du kontrol lera att installations kommandona för MMA och beroende agenten lyckades.
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-- **MMS-agent:** Granska operativsystemen [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems)och [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) som stöds.
-- **Beroendeagent:** de [windows- och Linux-operativsystem](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) som stöds.
+- **MMS-agent**: granska de [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems)-och [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) -operativsystem som stöds.
+- **Beroende agent**: de Windows- [och Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) -operativsystem som stöds.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualisera beroenden för > timme
 
-Även om Azure Migrate låter dig gå tillbaka till ett visst datum under den senaste månaden, är den maximala varaktigheten för vilken du kan visualisera beroenden en timme.
+Även om Azure Migrate ger dig möjlighet att gå tillbaka till ett visst datum under den senaste månaden, är den längsta varaktigheten som du kan visualisera beroenden en timme.
 
-Du kan till exempel använda tidslängdsfunktionen i beroendekartan för att visa beroenden för igår, men du kan bara visa dem under en timme.
+Du kan t. ex. använda funktionen tids varaktighet i beroende kartan för att Visa beroenden för igår, men du kan bara visa dem under en timmes period.
 
-Du kan dock använda Azure Monitor-loggar för att [fråga beroendedata](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) över en längre varaktighet.
+Du kan dock använda Azure Monitor loggar för att [fråga beroende data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) över en längre varaktighet.
 
-## <a name="visualized-dependencies-for--10-machines"></a>Visualiserade beroenden för > 10 maskiner
+## <a name="visualized-dependencies-for--10-machines"></a>Visualiserings beroenden för > 10-datorer
 
-I Azure Migrate Server Assessment kan du [visualisera beroenden för grupper](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) med upp till 10 virtuella datorer. För större grupper rekommenderar vi att du delar upp de virtuella datorerna i mindre grupper för att visualisera beroenden.
+I Azure Migrate Server utvärdering kan du [visualisera beroenden för grupper](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) med upp till 10 virtuella datorer. För större grupper rekommenderar vi att du delar upp de virtuella datorerna i mindre grupper för att visualisera beroenden.
 
-## <a name="machines-show-install-agent"></a>Maskiner visar "Installera agent"
+## <a name="machines-show-install-agent"></a>Datorer visar "installera agent"
 
-När du migrerar datorer med beroendevisualisering aktiverad till Azure kan datorer visa åtgärden "Installera agent" i stället för "Visa beroenden" på grund av följande beteende:
-
-
-- Efter migreringen till Azure inaktiveras lokala datorer och motsvarande virtuella datorer snurras upp i Azure. Dessa maskiner skaffar en annan MAC-adress.
-- Datorer kan också ha en annan IP-adress, baserat på om du har behållit den lokala IP-adressen eller inte.
-- Om både MAC- och IP-adresser skiljer sig från lokala, associerar Azure Migrate inte de lokala datorerna med några tjänstmappberoendedata. I det här fallet visas alternativet att installera agenten i stället för att visa beroenden.
-- Efter en testmigrering till Azure förblir lokala datorer aktiverade som förväntat. Motsvarande datorer som snurrats upp i Azure hämtar olika MAC-adresser och kan hämta olika IP-adresser. Om du inte blockerar utgående Azure Monitor-loggtrafik från dessa datorer associerar Azure Migrate inte de lokala datorerna med några tjänstmappberoendedata och visar därför alternativet att installera agenter i stället för att visa beroenden.
+När du har migrerat datorer med beroende visualisering aktive rad till Azure kan datorerna Visa åtgärden "installera agent" i stället för "Visa beroenden" på följande sätt:
 
 
-## <a name="capture-network-traffic"></a>Fånga nätverkstrafik
+- När migreringen till Azure är inaktive rad stängs lokala datorer av och motsvarande virtuella datorer är i Azure. De här datorerna hämtar en annan MAC-adress.
+- Datorerna kan också ha en annan IP-adress, baserat på om du har bevarat den lokala IP-adressen eller inte.
+- Om både MAC-och IP-adresser skiljer sig från lokala datorer associerar Azure Migrate inte lokala datorer med Tjänstkarta beroende data. I det här fallet visas alternativet för att installera agenten i stället för att Visa beroenden.
+- Efter en testmigrering till Azure förblir lokala datorer aktiverade som förväntat. Likvärdiga datorer som är förändrade i Azure får en annan MAC-adress och kan förvärva olika IP-adresser. Om du inte blockerar utgående Azure Monitor logg trafik från dessa datorer, kommer Azure Migrate inte att associera de lokala datorerna med några Tjänstkarta beroende data, och därför visar alternativet att installera agenter i stället för att Visa beroenden.
 
-Samla in nätverkstrafikloggar enligt följande:
+
+## <a name="capture-network-traffic"></a>Avbilda nätverks trafik
+
+Samla in nätverks trafik loggar enligt följande:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Tryck på F12 för att starta utvecklarverktyg. Om det behövs avmarkerar du inställningen **Rensa poster i navigering.**
-3. Välj fliken **Nätverk** och börja samla in nätverkstrafik:
-   - I Chrome väljer du **Bevara logg**. Inspelningen ska starta automatiskt. En röd cirkel indikerar att trafiken fångas. Om den röda cirkeln inte visas markerar du den svarta cirkeln för att starta.
-   - I Microsoft Edge och Internet Explorer ska inspelningen startas automatiskt. Om den inte gör det väljer du den gröna uppspelningsknappen.
-4. Försök återskapa felet.
-5. När du har stött på felet under inspelningen stoppar du inspelningen och sparar en kopia av den inspelade aktiviteten:
-   - Högerklicka och välj Spara **som har med innehåll i**Chrome . Den här åtgärden komprimerar och exporterar loggarna som en .har-fil.
-   - I Microsoft Edge eller Internet Explorer väljer du alternativet **Exportera infångad trafik.** Den här åtgärden komprimerar och exporterar loggen.
-6. Välj fliken **Konsol** för att kontrollera om det finns varningar eller fel. Så här sparar du konsolloggen:
-   - Högerklicka var som helst i konsolloggen i Chrome. Välj **Spara som**, om du vill exportera och zip loggen.
-   - Högerklicka på felen i Microsoft Edge eller Internet Explorer och välj **Kopiera alla**.
-7. Stäng utvecklarverktyg.
+2. Tryck på F12 för att starta Utvecklarverktyg. Om det behövs avmarkerar du **navigerings inställningen rensa poster** .
+3. Välj fliken **nätverk** och börja samla in nätverks trafik:
+   - I Chrome väljer du **bevara logg**. Inspelningen bör starta automatiskt. En röd cirkel visar att trafiken fångas. Om den röda cirkeln inte visas väljer du den svarta cirkeln för att starta.
+   - I Microsoft Edge och Internet Explorer ska inspelningen starta automatiskt. Om den inte är det väljer du den gröna uppspelnings knappen.
+4. Försök att återskapa felet.
+5. När du har påträffat felet under inspelningen, stoppa inspelningen och spara en kopia av den inspelade aktiviteten:
+   - I Chrome högerklickar du på och väljer **Spara som har innehåll**. Den här åtgärden komprimerar och exporterar loggarna som en. har-fil.
+   - I Microsoft Edge eller Internet Explorer väljer du alternativet **Exportera insamlad trafik** . Den här åtgärden komprimerar och exporterar loggen.
+6. Välj fliken **konsol** för att kontrol lera om det finns varningar eller fel. Så här sparar du konsol loggen:
+   - I Chrome högerklickar du på valfri plats i konsol loggen. Välj **Spara som**, för att exportera och zippa loggen.
+   - I Microsoft Edge eller Internet Explorer högerklickar du på felen och väljer **Kopiera alla**.
+7. Stäng Utvecklarverktyg.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa](how-to-create-assessment.md) eller [anpassa](how-to-modify-assessment.md) en utvärdering.
+[Skapa](how-to-create-assessment.md) eller [Anpassa](how-to-modify-assessment.md) en utvärdering.

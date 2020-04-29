@@ -1,41 +1,41 @@
 ---
-title: Skapa webbapp för Service Management Connector
-description: Skapa en Service Manager-webbapp med ett automatiserat skript för att ansluta till IT Service Management Connector i Azure och övervaka och hantera ITSM-arbetsobjekten centralt.
+title: Skapa Web App för Service Management Connector
+description: Skapa en Service Manager webbapp med ett automatiserat skript som du kan använda för att ansluta till Anslutningsprogram för hantering av IT-tjänster (ITSM) i Azure, och centralt övervaka och hantera arbets objekt i ITSM.
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
 ms.openlocfilehash: decb674c2b55b93a81169c540ee04713bdf2799e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80054861"
 ---
-# <a name="create-service-manager-web-app-using-the-automated-script"></a>Skapa Service Manager-webbapp med det automatiska skriptet
+# <a name="create-service-manager-web-app-using-the-automated-script"></a>Skapa Service Manager-webbapp med det automatiserade skriptet
 
-Använd följande skript för att skapa webbappen för Service Manager-instansen. Mer information om Service Manager-anslutningen finns här: [Webbapp för Service Manager](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Använd följande skript för att skapa webbappen för din Service Manager-instans. Mer information om Service Manager-anslutning finns här: [Service Manager webbappen](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
-Kör skriptet genom att ange följande information:
+Kör skriptet genom att ange följande obligatoriska information:
 
 - Information om Azure-prenumeration
 - Namn på resursgrupp
-- Location
-- Serverinformation för Service Manager (servernamn, domän, användarnamn och lösenord)
-- Prefix för webbplatsnamn för webbappen
-- Namespace för ServiceBus.
+- Plats
+- Service Manager Server information (Server namn, domän, användar namn och lösen ord)
+- Prefix för webbplats namn för din webbapp
+- Service Bus-namnrymd.
 
-Skriptet skapar webbappen med det namn som du angav (tillsammans med några ytterligare strängar för att göra den unik). Den genererar **webbapp-URL:** **en, klient-ID**och **klienthemlighet**.
+Skriptet skapar webbappen med det namn som du har angett (tillsammans med några ytterligare strängar för att göra den unik). Den genererar **webbappens webb adress**, **klient-ID**och **klient hemlighet**.
 
-Spara dessa värden, behöver du dessa värden när du skapar en anslutning med IT Service Management Connector.
+Spara dessa värden. du behöver dessa värden när du skapar en anslutning med Anslutningsprogram för hantering av IT-tjänster (ITSM).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Krav
 
- Windows Management Framework 5.0 eller senare.
-Windows 10 har 5.1 som standard. Du kan ladda ner ramen [härifrån:](https://www.microsoft.com/download/details.aspx?id=50395)
+ Windows Management Framework 5,0 eller senare.
+Windows 10 har 5,1 som standard. Du kan ladda ned ramverket [här](https://www.microsoft.com/download/details.aspx?id=50395):
 
 Använd följande skript:
 

@@ -1,5 +1,5 @@
 ---
-title: Hantera åtkomst till appar med Azure AD | Microsoft-dokument
+title: Hantera åtkomst till appar med hjälp av Azure AD | Microsoft Docs
 description: Beskriver hur Azure Active Directory gör det möjligt för organisationer att ange de appar som varje användare har åtkomst till.
 services: active-directory
 documentationcenter: ''
@@ -15,87 +15,87 @@ ms.date: 05/16/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 489b15423add03d69070bc32057af97396a85309
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79409074"
 ---
 # <a name="managing-access-to-apps"></a>Hantera åtkomst till appar
 
-Löpande åtkomsthantering, användningsutvärdering och rapportering fortsätter att vara en utmaning när en app har integrerats i organisationens identitetssystem. I många fall måste IT-administratörer eller helpdesk ta en kontinuerlig aktiv roll i hanteringen av åtkomsten till dina appar. Ibland utförs uppdraget av ett allmänt eller divisionellt IT-team. Ofta är tilldelningsbeslutet avsett att delegeras till beslutsfattaren, vilket kräver deras godkännande innan IT gör uppdraget.  Andra organisationer investerar i integration med ett befintligt automatiserat identitets- och åtkomsthanteringssystem, till exempel Roll-Based Access Control (RBAC) eller Attribute-Based Access Control (ABAC). Både integration och regelutveckling tenderar att vara specialiserade och dyra. Övervakning eller rapportering om antingen förvaltningsstrategi är dess egen separata, kostsamma och komplexa investeringar.
+Pågående åtkomst hantering, användnings utvärdering och rapportering fortsätter att vara en utmaning när en app har integrerats i din organisations identitets system. I många fall måste IT-administratörer eller supportavdelningen ta en pågående aktiv roll vid hantering av åtkomst till dina appar. Ibland utförs tilldelningen av ett allmänt eller divisions IT-team. Ofta är tilldelnings beslutet avsett att delegeras till affärs besluts fattaren, vilket kräver godkännande innan tilldelningen görs.  Andra organisationer investerar i integrering med ett befintligt automatiserat identitets-och åtkomst hanterings system, som rollbaserad Access Control (RBAC) eller Attribute-based Access Control (ABAC). Både integrerings-och regel utvecklingen tenderar att vara specialiserade och dyra. Övervakning eller rapportering av antingen hanterings metoden är en egen separat, kostsam och komplex investering.
 
-## <a name="how-does-azure-active-directory-help"></a>Hur hjälper Azure Active Directory till?
+## <a name="how-does-azure-active-directory-help"></a>Hur hjälper Azure Active Directory?
 
-Azure AD stöder omfattande åtkomsthantering för konfigurerade program, vilket gör det möjligt för organisationer att enkelt uppnå rätt åtkomstprinciper som sträcker sig från automatiska, attributbaserade tilldelningar (ABAC- eller RBAC-scenarier) via delegering och inklusive delegering och inklusive delegering administratörshantering. Med Azure AD kan du enkelt uppnå komplexa principer, kombinera flera hanteringsmodeller för ett enda program och även återanvända hanteringsregler över program med samma målgrupper.
+Azure AD har stöd för omfattande åtkomst hantering för konfigurerade program, vilket gör det möjligt för organisationer att enkelt uppnå rätt åtkomst principer som sträcker sig från automatisk, filbaserad tilldelning (ABAC eller RBAC-scenarier) genom delegering och inklusive administratörs hantering. Med Azure AD kan du enkelt få komplexa principer, kombinera flera hanterings modeller för ett enda program och kan till och med återanvända hanterings regler i alla program med samma mål grupper.
 
-Med Azure AD är användnings- och tilldelningsrapportering helt integrerad, vilket gör det möjligt för administratörer att enkelt rapportera om tilldelningstillstånd, tilldelningsfel och till och med användning.
+Med Azure AD är rapportering av användning och tilldelning helt integrerat, vilket gör det möjligt för administratörer att enkelt rapportera om tilldelnings status, tilldelnings fel och till och med användning.
 
 ### <a name="assigning-users-and-groups-to-an-app"></a>Tilldela användare och grupper till en app
 
-Azure AD:s programtilldelning fokuserar på två primära tilldelningslägen:
+Program tilldelningen i Azure AD fokuserar på två primära tilldelnings lägen:
 
-* **Individuellt uppdrag** En IT-administratör med global administratörsbehörighet för katalog kan välja enskilda användarkonton och ge dem åtkomst till programmet.
+* **Enskild tilldelning** En IT-administratör med global administratörs behörighet för katalog kan välja enskilda användar konton och ge dem åtkomst till programmet.
 
-* **Gruppbaserad tilldelning (kräver Azure AD Premium P1 eller P2)** En IT-administratör med global administratörsbehörighet för katalog kan tilldela en grupp till programmet. Specifika användares åtkomst bestäms av om de är medlemmar i gruppen när de försöker komma åt programmet. Med andra ord kan en administratör effektivt skapa en tilldelningsregel som anger "alla aktuella medlemmar i den tilldelade gruppen har åtkomst till programmet". Med det här tilldelningsalternativet kan administratörer dra nytta av något av Azure AD-grupphanteringsalternativ, inklusive [attributbaserade dynamiska grupper,](../fundamentals/active-directory-groups-create-azure-portal.md)externa systemgrupper (till exempel lokala Active Directory eller Workday) eller administratörshanterade eller självbetjäningshanterade grupper. En enskild grupp kan enkelt tilldelas flera appar och se till att program med tilldelningstillhörighet kan dela tilldelningsregler, vilket minskar den övergripande hanteringskomplexiteten. Observera att kapslade gruppmedlemskap inte stöds för gruppbaserad tilldelning till program just nu.
+* **Gruppbaserad tilldelning (kräver Azure AD Premium P1 eller P2)** En IT-administratör med katalogens globala administratörs behörighet kan tilldela en grupp till programmet. Specifika användares åtkomst bestäms av huruvida de är medlemmar i gruppen vid den tidpunkt då de försöker få åtkomst till programmet. Med andra ord kan en administratör effektivt skapa en tilldelnings regel som anger "alla aktuella medlemmar i den tilldelade gruppen har åtkomst till programmet". Med det här tilldelnings alternativet kan administratörer ha nytta av något av alternativen för Azure AD-grupphantering, inklusive [attributbaserade dynamiska grupper](../fundamentals/active-directory-groups-create-azure-portal.md), externa system grupper (t. ex. lokala Active Directory eller arbets dagar) eller grupper som hanteras av en administratör eller självbetjänings grupp. En enda grupp kan enkelt tilldelas till flera appar, och se till att program med tilldelnings tillhörighet kan dela tilldelnings regler, vilket minskar den övergripande hanterings komplexiteten. Observera att kapslade grupp medlemskap inte stöds för gruppbaserad tilldelning till program för tillfället.
 
-Med hjälp av dessa två tilldelningslägen kan administratörer uppnå alla önskvärda tilldelningshanteringsmetoder.
+Med de här två tilldelnings lägena kan administratörer uppnå lämplig metod för tilldelnings hantering.
 
-### <a name="requiring-user-assignment-for-an-app"></a>Kräver användartilldelning för en app
+### <a name="requiring-user-assignment-for-an-app"></a>Kräva användar tilldelning för en app
 
-Med vissa typer av program har du möjlighet [att kräva att användare ska tilldelas programmet](assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment). På så sätt hindrar du alla från att logga in förutom de användare som du uttryckligen tilldelar programmet. Följande typer av program stöder det här alternativet:
+Med vissa typer av program kan du välja att kräva att [användarna ska tilldelas till programmet](assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment). På så sätt förhindrar du att alla loggar in förutom de användare som du uttryckligen tilldelar programmet. Följande typer av program stöder det här alternativet:
 
-* Program som konfigurerats för federerad enkel inloggning (SSO) med SAML-baserad autentisering
-* Programproxyprogram som använder Azure Active Directory före autentisering
-* Program som bygger på Azure AD-programplattformen som använder OAuth 2.0 / OpenID Connect-autentisering efter att en användare eller administratör har samtyckt till det programmet. Vissa företagsprogram ger ytterligare kontroll över vem som får logga in.
+* Program som kon figurer ATS för federerad enkel inloggning (SSO) med SAML-baserad autentisering
+* Program för programproxy som använder Azure Active Directory förautentisering
+* Program som bygger på Azure AD-programplattformen som använder OAuth 2,0/OpenID Connect-autentisering när en användare eller administratör har samtyckt till det programmet. Vissa företags program ger ytterligare kontroll över vem som tillåts att logga in.
 
-När användartilldelning *inte krävs*visas inte appen på åtkomstpanelen Mina appar, men de kan fortfarande logga in på själva programmet (kallas även SP-initierad inloggning) eller så kan de använda **url:en** för användaråtkomst på programmets **egenskapssida** (kallas även IDP-initierad inloggning).
+När användar tilldelning *inte krävs*visas inte appen på åtkomst panelen för Mina appar, men de kan fortfarande logga in på själva programmet (även kallat SP-initierad inloggning) eller använda **URL: en för användar åtkomst** på programmets **egenskaps** sida (kallas även IDP inloggning).
 
-För vissa program är alternativet att kräva användartilldelning inte tillgängligt i programmets egenskaper. I dessa fall kan du använda PowerShell för att ange egenskapen appRoleAssignmentRequired på tjänstens huvudnamn.
+För vissa program är alternativet för att kräva användar tilldelning inte tillgängligt i programmets egenskaper. I dessa fall kan du använda PowerShell för att ange egenskapen appRoleAssignmentRequired för tjänstens huvud namn.
 
-### <a name="determining-the-user-experience-for-accessing-apps"></a>Bestämma användarupplevelsen för åtkomst till appar
+### <a name="determining-the-user-experience-for-accessing-apps"></a>Bestämma användar upplevelsen för åtkomst till appar
 
-Azure AD innehåller [flera anpassningsbara sätt att distribuera program](end-user-experiences.md) till slutanvändare i organisationen:
+Azure AD tillhandahåller [flera anpassningsbara sätt att distribuera program](end-user-experiences.md) till slutanvändare i din organisation:
 
-* Åtkomstpanelen för Azure AD My Apps
-* Startprogram för Office 365
-* Direkt inloggning till federerade appar (service-pr)
+* Åtkomst panel för Azure AD Mina appar
+* Office 365-program start
+* Direkt inloggning till federerade appar (service – PR)
 * Djuplänkar till federerade, lösenordsbaserade eller befintliga appar
 
-Du kan avgöra om användare som tilldelats ett företagsapp kan se det i åtkomstpanelen och Programstartprogrammet för Office 365.
+Du kan avgöra om användare som är tilldelade till en företags app kan se det i åtkomst panelen och Office 365 Application start.
 
-## <a name="example-complex-application-assignment-with-azure-ad"></a>Exempel: Komplex programtilldelning med Azure AD
-Överväg ett program som Salesforce. I många organisationer används Salesforce främst av marknadsförings- och säljteamen. Ofta har medlemmar i marknadsföringsteamet mycket privilegierad åtkomst till Salesforce, medan medlemmar i säljteamet har begränsad åtkomst. I många fall har en bred population av informationsarbetare begränsat tillgången till programmet. Undantag från dessa regler komplicerar saken. Det är ofta förmånen för marknadsföring eller försäljning ledningsgrupper att ge en användare tillgång eller ändra sina roller oberoende av dessa generiska regler.
+## <a name="example-complex-application-assignment-with-azure-ad"></a>Exempel: komplex program tilldelning med Azure AD
+Överväg ett program som Salesforce. I många organisationer används Salesforce främst av marknadsförings-och Sälj teamen. Ofta har medlemmar i marknadsförings teamet hög privilegie rad åtkomst till Salesforce, medan medlemmar i Sälj teamet har begränsad åtkomst. I många fall har en bred population av informations anställda begränsad åtkomst till programmet. Undantag till de här reglerna är att det är en komplicerad angelägenhet. Det är ofta förmåns gruppen för marknads organisations-eller Sälj organisations team för att ge en användare åtkomst eller ändra sina roller oberoende av dessa allmänna regler.
 
-Med Azure AD kan program som Salesforce förkonfigureras för enkel inloggning (SSO) och automatisk etablering. När programmet har konfigurerats kan en administratör vidta en engångsåtgärd för att skapa och tilldela lämpliga grupper. I det här exemplet kan en administratör utföra följande tilldelningar:
+Med Azure AD kan program som Salesforce vara förkonfigurerade för enkel inloggning (SSO) och automatisk etablering. När programmet har kon figurer ATS kan en administratör vidta en engångs åtgärd för att skapa och tilldela lämpliga grupper. I det här exemplet kan en administratör köra följande tilldelningar:
 
-* [Dynamiska grupper](../fundamentals/active-directory-groups-create-azure-portal.md) kan definieras för att automatiskt representera alla medlemmar i marknadsförings- och säljteamen med hjälp av attribut som avdelning eller roll:
+* [Dynamiska grupper](../fundamentals/active-directory-groups-create-azure-portal.md) kan definieras för att automatiskt representera alla medlemmar i marknadsförings-och försäljnings teamen med attribut som avdelning eller roll:
   
-  * Alla medlemmar i marknadsföringsgrupper skulle tilldelas rollen "marknadsföring" i Salesforce
-  * Alla medlemmar i säljteamgrupper skulle tilldelas rollen "försäljning" i Salesforce. En ytterligare förfining kan använda flera grupper som representerar regionala säljteam som tilldelats olika Salesforce-roller.
+  * Alla medlemmar i marknadsförings grupper tilldelas rollen "marknadsföring" i Salesforce
+  * Alla medlemmar i Sälj grupps grupper tilldelas rollen "försäljning" i Salesforce. En ytterligare förfining kan använda flera grupper som representerar regionala försäljnings team som tilldelats till olika Salesforce-roller.
 
-* För att aktivera undantagsmekanismen kan en självbetjäningsgrupp skapas för varje roll. Gruppen "Salesforce marketing exception" kan till exempel skapas som en självbetjäningsgrupp. Gruppen kan tilldelas salesforce-marknadsföringsrollen och marknadsledarteamet kan göras ägare. Medlemmar i marknadsföringsledarteamet kan lägga till eller ta bort användare, ange en anslutningspolicy eller till och med godkänna eller neka enskilda användares begäranden om att gå med. Den här mekanismen stöds genom en lämplig informationsarbetare som inte kräver specialiserad utbildning för ägare eller medlemmar.
+* Om du vill aktivera undantags funktionen kan en självbetjänings grupp skapas för varje roll. Till exempel kan gruppen "Salesforce Marketing Exception" skapas som en självbetjänings grupp. Gruppen kan tilldelas till Salesforce-marknadsförings rollen och marknads ledande laget kan göras ägare. Medlemmar i marknads ledningen kan lägga till eller ta bort användare, ange en kopplings princip eller till och med godkänna eller neka enskilda användares begär Anden att ansluta. Den här mekanismen stöds via en informations anställds lämpligaste upplevelse som inte kräver särskild utbildning för ägare eller medlemmar.
 
-I det här fallet etableras alla tilldelade användare automatiskt till Salesforce, eftersom de läggs till i olika grupper som deras rolltilldelning uppdateras i Salesforce. Användare kan upptäcka och komma åt Salesforce via Åtkomstpanelen för Microsoft-program, Office-webbklienter eller till och med genom att navigera till sin organisationsinloggningssida för Salesforce. Administratörer kan enkelt visa användnings- och tilldelningsstatus med Hjälp av Azure AD-rapportering.
+I det här fallet är alla tilldelade användare automatiskt etablerade i Salesforce, eftersom de läggs till i olika grupper. roll tilldelningen uppdateras i Salesforce. Användare skulle kunna identifiera och komma åt Salesforce via Microsoft-programmets åtkomst panel, Office-webbklienter eller till och med genom att gå till deras organisations inloggnings sida för Salesforce. Administratörer kan enkelt Visa användnings-och tilldelnings status med hjälp av Azure AD repor ting.
 
-Administratörer kan använda [Azure AD-villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) för att ange åtkomstprinciper för specifika roller. Dessa principer kan omfatta om åtkomst tillåts utanför företagsmiljön och till och med multifaktorautentisering eller enhetskrav för att uppnå åtkomst i olika fall.
+Administratörer kan använda [villkorlig Azure AD-åtkomst](../active-directory-conditional-access-azure-portal.md) för att ange åtkomst principer för särskilda roller. Dessa principer kan omfatta om åtkomst tillåts utanför företags miljön och till och med Multi-Factor Authentication-eller enhets krav för att få åtkomst i olika fall.
 
-## <a name="access-to-microsoft-applications"></a>Tillgång till Microsoft-program
+## <a name="access-to-microsoft-applications"></a>Åtkomst till Microsoft-program
 
-Microsoft-program (som Office 365 Exchange, SharePoint, Yammer, etc.) tilldelas och hanteras lite annorlunda än SaaS-program från tredje part eller andra program som du integrerar med Azure AD för enkel inloggning.
+Microsoft-program (t. ex. Office 365 Exchange, SharePoint, Yammer osv.) tilldelas och hanteras lite annorlunda än SaaS-program från tredje part eller andra program som du integrerar med Azure AD för enkel inloggning.
 
-Det finns tre huvudsakliga sätt att en användare kan få tillgång till ett Microsoft-publicerat program.
+En användare kan få till gång till ett Microsoft-publicerat program på tre sätt.
 
-- För program i Office 365 eller andra betalda sviter beviljas användare åtkomst via **licenstilldelning** antingen direkt till sitt användarkonto eller via en grupp med hjälp av vår gruppbaserade licenstilldelningsfunktion.
-- För program som Microsoft eller en tredje part publicerar fritt för vem som helst att använda, kan användare beviljas åtkomst via [användarens medgivande](configure-user-consent.md). Det innebär att de loggar in på programmet med sitt Azure AD Work- eller School-konto och tillåter att de har åtkomst till vissa begränsade data för sitt konto.
-- För program som Microsoft eller en tredje part publicerar fritt för alla att använda, kan användare också beviljas åtkomst via [administratörsmedgivande](manage-consent-requests.md). Det innebär att en administratör har fastställt att programmet kan användas av alla i organisationen, så att de loggar in på programmet med ett globalt administratörskonto och ger åtkomst till alla i organisationen.
+- För program i Office 365 eller andra betalda paket beviljas användare åtkomst via **licens tilldelning** antingen direkt till sitt användar konto eller via en grupp som använder vår gruppbaserade licens tilldelnings funktion.
+- För program som Microsoft eller en tredje part publicerar fritt för alla som ska användas kan användare beviljas åtkomst genom [användar medgivande](configure-user-consent.md). Det innebär att de loggar in på programmet med sitt Azure AD-arbets-eller skol konto och ger åtkomst till viss begränsad uppsättning data på sitt konto.
+- För program som Microsoft eller en tredje part publicerar fritt för alla som ska användas kan användare även beviljas åtkomst genom [Administratörs medgivande](manage-consent-requests.md). Det innebär att en administratör har fastställt att programmet kan användas av alla i organisationen, så att de loggar in på programmet med ett globalt administratörs konto och ger åtkomst till alla i organisationen.
 
-Vissa program kombinerar dessa metoder. Vissa Microsoft-program ingår till exempel i en Office 365-prenumeration, men kräver fortfarande medgivande.
+Vissa program kombinerar dessa metoder. Vissa Microsoft-program ingår exempelvis i en Office 365-prenumeration, men kräver fortfarande medgivande.
 
-Användare kan komma åt Office 365-program via sina Office 365-portaler. Du kan också visa eller dölja Office 365-program på åtkomstpanelen Mina program med [synligheten för Office 365](hide-application-from-user-portal.md) i katalogens **användarinställningar**. 
+Användare har åtkomst till Office 365-program via deras Office 365-portaler. Du kan också visa eller dölja Office 365-program i åtkomst panelen för Mina appar med [office 365-synlighet växla](hide-application-from-user-portal.md) i din katalogs **användar inställningar**. 
 
-Precis som med företagsappar kan du [tilldela användare](assign-user-or-group-access-portal.md) till vissa Microsoft-program via Azure-portalen eller, om portalalternativet inte är tillgängligt, med hjälp av PowerShell.
+Precis som med företags program kan du [tilldela användare](assign-user-or-group-access-portal.md) till vissa Microsoft-program via Azure Portal eller, om Portal alternativet inte är tillgängligt, med hjälp av PowerShell.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Skydda appar med villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md)
-* [Gruppledning för självbetjäning/SSAA](../users-groups-roles/groups-self-service-management.md)
+* [Grupp hantering för självbetjäning/SSAA](../users-groups-roles/groups-self-service-management.md)

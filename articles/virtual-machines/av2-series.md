@@ -1,6 +1,6 @@
 ---
-title: Av2-serien – virtuella Azure-datorer
-description: Specifikationer för virtuella datorer i Av2-serien.
+title: AV2-serien – Azure Virtual Machines
+description: Specifikationer för virtuella datorer i AV2-serien.
 services: virtual-machines
 author: migerdes
 ms.service: virtual-machines
@@ -8,27 +8,27 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: fe27a1cc78d1f37d535f364c03803a5196090a3a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78163955"
 ---
 # <a name="av2-series"></a>Av2-serien
 
-Virtuella datorer i Av2-serien kan distribueras på en mängd olika maskinvarutyper och processorer. Virtuella datorer i Av2-serien har processorprestanda och minneskonfigurationer som är bäst lämpade för arbetsbelastningar på ingångsnivå som utveckling och test. Storleken begränsas för att erbjuda konsekvent processorprestanda för den löpinstansen, oavsett vilken maskinvara den distribueras på. Du kan kontrollera vilken fysisk maskinvara som storleken har distribuerats på genom att köra en fråga mot den virtuella maskinvaran från den virtuella datorn. Några exempel på användningsfall är utvecklings- och testservrar, webbservrar med låg trafik, små till medelstora databaser, konceptbevis och koddatabaser.
+De virtuella datorerna i AV2-serien kan distribueras på olika typer av maskin vara och processorer. De virtuella datorerna i AV2-serien har CPU-prestanda och minnes konfiguration som passar bäst för arbets belastningar som utveckling och testning på Start nivå. Storleken begränsas till att erbjuda konsekvent processor prestanda för den aktiva instansen, oavsett vilken maskin vara den är distribuerad på. Du kan kontrollera vilken fysisk maskinvara som storleken har distribuerats på genom att köra en fråga mot den virtuella maskinvaran från den virtuella datorn. Exempel på användnings områden är utvecklings-och test servrar, webb servrar med låg trafik, små till medel stora databaser, koncept koncept och kod databaser.
 
 ACU: 100
 
-Premium-lagring: Stöds inte
+Premium Storage: stöds inte
 
-Cachelagring av premiumlagring: Stöds inte
+Premium Storage caching: stöds inte
 
-Live Migration: Stöds
+Direktmigrering: stöds
 
-Minneskonering av uppdateringar: Stöds
+Minnes bebetjänings uppdateringar: stöds
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Max temp lagringsdataflöde: IOPS/Läs MBps/Write MBps | Max datadiskar/dataflöde: IOPS | Max nätverkskort/förväntad nätverksbandbredd (Mbps) |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt data flöde för temporär lagring: IOPS/Read Mbit/s/Write Mbit/s | Maximalt antal data diskar/data flöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|
 | Standard_A1_v2  | 1 | 2  | 10 | 1000/20/10  | 2/2x500   | 2/250  |
 | Standard_A2_v2  | 2 | 4  | 20 | 2000/40/20  | 4/4x500   | 2/500  |
@@ -51,4 +51,4 @@ Minneskonering av uppdateringar: Stöds
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hur [Azure compute units (ACU)](acu.md) kan hjälpa dig att jämföra beräkningsprestanda över Azure SKU:er.
+Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.

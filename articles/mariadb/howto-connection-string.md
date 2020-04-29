@@ -1,31 +1,31 @@
 ---
-title: Anslutningssträngar - Azure Database för MariaDB
-description: I det här dokumentet visas de anslutningssträngar som för närvarande stöds för program för att ansluta till Azure Database för MariaDB, inklusive ADO.NET (C#), JDBC, Node.js, ODBC, PHP, Python och Ruby.
+title: Anslutnings strängar – Azure Database for MariaDB
+description: I det här dokumentet visas de anslutnings strängar som för närvarande stöds för program att ansluta till Azure Database for MariaDB, inklusive ADO.NET (C#), JDBC, Node. js, ODBC, PHP, python och Ruby.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 74574fb905ae4ebd2552ef97cd0b5430eea6363a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79530231"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Så här ansluter du program till Azure Database for MariaDB
-I det här avsnittet visas de anslutningssträngtyper som stöds av Azure Database för MariaDB, tillsammans med mallar och exempel. Du kan ha olika parametrar och inställningar i anslutningssträngen.
+I det här avsnittet visas de typer av anslutnings strängar som stöds av Azure Database for MariaDB, tillsammans med mallar och exempel. Du kan ha olika parametrar och inställningar i anslutnings strängen.
 
-- Information om hur du hämtar certifikatet finns i [Så här konfigurerar du SSL](./howto-configure-ssl.md).
-- {your_host} = [servernamn].mariadb.database.azure.com
-- {your_user}@{servername} = userID-format för korrekt autentisering.  Om du bara använder userID misslyckas autentiseringen.
+- Information om hur du skaffar certifikatet finns i [så här konfigurerar du SSL](./howto-configure-ssl.md).
+- {your_host} = [SERVERNAME]. MariaDB. Database. Azure. com
+- {your_user} @ {servername} = userID-format för autentisering på rätt sätt.  Autentiseringen fungerar inte om du bara använder userID.
 
 ## <a name="adonet"></a>ADO.NET
 ```csharp
 Server={your_host}; Port=3306; Database={your_database}; Uid={username@servername}; Pwd={your_password}; SslMode=Preferred;
 ```
 
-I det här exemplet `mydemoserver`är servernamnet `wpdb`, databasnamnet `WPAdmin`är , användarnamnet är och lösenordet är `mypassword!2`. Därför bör anslutningssträngen vara:
+I det `mydemoserver`här exemplet är Server namnet, databas namnet `wpdb`, användar namnet `WPAdmin`och lösen ordet. `mypassword!2` Därför bör anslutnings strängen vara:
 
 ```csharp
 Server= "mydemoserver.mariadb.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@mydemoserver"; Pwd="mypassword!2"; SslMode=Required;
@@ -61,10 +61,10 @@ cnx = mysql.connector.connect(user="{username@servername}", password={your_passw
 client = Mysql2::Client.new(username: "{username@servername}", password: {your_password}, database: {your_database}, host: "{your_host}", port: 3306, sslca:{ca-cert filename}, sslverify:false, sslcipher:'AES256-SHA')
 ```
 
-## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Hämta information om anslutningssträngen från Azure-portalen
-I [Azure-portalen](https://portal.azure.com)går du till din Azure-databas för MariaDB-server och klickar ![sedan på **Anslutningssträngar** för att hämta stränglistan för din instans: fönstret Anslutningssträngar i Azure-portalen](./media/howto-connection-strings/connection-strings-on-portal.png)
+## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Hämta information om anslutnings strängen från Azure Portal
+Gå till Azure Database for MariaDB-servern i [Azure Portal](https://portal.azure.com)och klicka sedan på **anslutnings strängar** för att hämta sträng listan för din instans: ![fönstret anslutnings strängar i Azure Portal](./media/howto-connection-strings/connection-strings-on-portal.png)
 
-Strängen innehåller information som drivrutin, server och andra databasanslutningsparametrar. Ändra de här exemplen om du vill använda egna parametrar, till exempel databasnamn, lösenord och så vidare. Du kan sedan använda den här strängen för att ansluta till servern från din kod och dina program.
+Strängen innehåller information som driv rutin, server och andra databas anslutnings parametrar. Ändra de här exemplen om du vill använda egna parametrar, till exempel databas namn, lösen ord och så vidare. Du kan sedan använda den här strängen för att ansluta till servern från din kod och dina program.
 
 <!-- 
 ## Next steps

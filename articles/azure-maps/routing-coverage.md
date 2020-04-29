@@ -1,6 +1,6 @@
 ---
-title: Routningstäckning | Microsoft Azure Maps
-description: I den här artikeln får du lära dig mer om regioner med routningstäckning för Microsoft Azure Maps.
+title: Routnings täckning | Microsoft Azure Maps
+description: I den här artikeln får du lära dig om regioner med cirkulations täckning för Microsoft Azure Maps.
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 04/04/2019
@@ -9,37 +9,37 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: b59816abf0cd03450c9fc4ebb8417c62df7e3288
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79529399"
 ---
-# <a name="azure-maps-routing-coverage"></a>Routning av Azure Maps
+# <a name="azure-maps-routing-coverage"></a>Azure Maps routnings täckning
 
-Den här artikeln innehåller täckningsinformation för Azure Maps-routning. När en sökfråga returnerar Azure Maps en optimal väg från plats A till plats B. Du får korrekta restider, liveuppdateringar av reseinformation och ruttinstruktioner. Du kan också lägga till ytterligare sökparametrar som aktuell trafik, fordonstyp och villkor att undvika. Optimeringen av rutten beror på regionen. Det beror på att Azure Maps har olika nivåer av information och noggrannhet för olika regioner. I följande tabell visas regionerna och vilken typ av information du kan begära för dem.
+Den här artikeln innehåller information om disponering för Azure Maps routning. Vid en Sök fråga returnerar Azure Maps en optimal väg från plats A till plats B. Du får korrekta rese tider, direktsända uppdateringar av rese information och väg instruktioner. Du kan också lägga till ytterligare Sök parametrar som aktuell trafik, fordons typ och villkor för att undvika. Optimeringen av vägen är beroende av regionen. Det beror på att Azure Maps har olika nivåer av information och precision för olika regioner. I följande tabell visas de regioner och vilken typ av information som du kan begära för dem.
  
-Kolla in täckning för [**Geocoding**](geocoding-coverage.md).       
-Kolla in täckning för [**trafik**](traffic-coverage.md).  
-Kolla in täckning för [**Render**](render-coverage.md).
+Ta en titt på täckning för [**kodning**](geocoding-coverage.md).       
+Ta en titt på täckning för [**trafik**](traffic-coverage.md).  
+Kolla ut täckning för [**rendering**](render-coverage.md).
 <br>  
-**Legend**
+**Mönstret**
 
 | Symbol             | Betydelse                                |
 |--------------------|----------------------------------------|
-| ✓                  | Land/region som tillhandahålls med detaljerade uppgifter.   |
-| Ø                  | Land/region försedd med förenklade uppgifter. |
-| Landet saknas | Lands-/regiondata tillhandahålls inte.          |
+| ✓                  | Land/region som tillhandahålls med detaljerade data.   |
+| Ø                  | Land/region som tillhandahålls med förenklade data. |
+| Land saknas | Lands-/regions data har inte angetts.          |
 
 <br>  
 
-Följande tabell innehåller täckningsinformation för Azure Maps-routning.
+Följande tabell innehåller information om disponering för Azure Maps routning.
 <br>  
 
 
 ## <a name="africa"></a>Afrika
 
-| Land/region                 | Routning         | Routning med trafik | Körning av lastbil |
+| Land/region                 | Routning         | Routning med trafik | Truck-routning |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Algeriet                        |        ✓       |                       |             |
 | Angola                         |        ✓       |                       |             |
@@ -49,9 +49,9 @@ Följande tabell innehåller täckningsinformation för Azure Maps-routning.
 | Burundi                        |        ✓       |                       |             |
 | Kamerun                       |        ✓       |                       |             |
 | Cabo Verde                     |        ✓       |                       |             |
-| Kongo- Brazzaville Kinshasa    |        ✓       |                       |             |
-| Kongo- Kinshasa                |        ✓       |                       |             |
-| Elfenbenskusten                  |        ✓       |                       |             |
+| Republiken Kongo-Brazzaville kongolesiska    |        ✓       |                       |             |
+| Republiken Kongo-kongolesiska                |        ✓       |                       |             |
+| Côte d' Ivoire                  |        ✓       |                       |             |
 | Egypten                          |        ✓       |         ✓            |             |
 | Gabon                          |        ✓       |                       |             |
 | Gambia                         |        ✓       |                       |             |
@@ -82,7 +82,7 @@ Följande tabell innehåller täckningsinformation för Azure Maps-routning.
 
 ## <a name="americas"></a>Nord- och Sydamerika
 
-| Land/region                 | Routning         | Routning med trafik | Körning av lastbil |
+| Land/region                 | Routning         | Routning med trafik | Truck-routning |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Argentina                      |        ✓       |         ✓            |     ✓       |
 | Antigua och Barbuda            |        ✓       |                      |             |
@@ -111,26 +111,26 @@ Följande tabell innehåller täckningsinformation för Azure Maps-routning.
 | Panama                         |        ✓       |                      |             |
 | Paraguay                       |        ✓       |                      |             |
 | Peru                           |        ✓       |         ✓            |             |
-| St Kitts och Nevis            |        ✓       |                      |             |
-| S:t Lucia                      |        ✓       |                      |             |
-| St Vincent & Grenadinerna       |        ✓       |                      |             |
+| Saint Kitts och Nevis            |        ✓       |                      |             |
+| Saint Lucia                      |        ✓       |                      |             |
+| Saint Vincent & grenadin       |        ✓       |                      |             |
 | Surinam                       |        ✓       |                      |             |
 | Trinidad & Tobago              |        ✓       |                      |             |
 | USA                  |        ✓       |         ✓            |     ✓      | 
-| +Amerikanska Samoa                |        ✓       |                      |             |
-| +Nordmarianerna      |        ✓       |                      |             |
-| +Puerto Rico                   |        ✓       |                      |             |
-| +Amerikanska Jungfruöarna           |        ✓       |                      |             |
+| + Amerikanska Samoa                |        ✓       |                      |             |
+| + Nordmarianerna      |        ✓       |                      |             |
+| + Puerto Rico                   |        ✓       |                      |             |
+| + Amerikanska jungfru öarna           |        ✓       |                      |             |
 | Uruguay                        |        ✓       |         ✓            |     ✓      | 
 | Venezuela                      |        ✓       |                      |             |
 
 
 ## <a name="asia-pacific"></a>Asien och stillahavsområdet
 
-| Land/region                 | Routning         | Routning med trafik | Körning av lastbil |
+| Land/region                 | Routning         | Routning med trafik | Truck-routning |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Australien                      |        ✓       |         ✓            |     ✓       |
-| +Julön              |        ✓       |                      |             |
+| + Julön              |        ✓       |                      |             |
 | Brunei                         |        ✓       |         ✓            |             |
 | Kambodja                       |        ✓       |                      |             |
 | Fiji                           |        ✓       |                      |             |
@@ -154,7 +154,7 @@ Följande tabell innehåller täckningsinformation för Azure Maps-routning.
 
 ## <a name="europe"></a>Europa
 
-| Land/region                 | Routning         | Routning med trafik | Körning av lastbil |
+| Land/region                 | Routning         | Routning med trafik | Truck-routning |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Albanien                        |        ✓       |                      |             |
 | Andorra                        |        ✓       |         ✓            |             |
@@ -168,15 +168,15 @@ Följande tabell innehåller täckningsinformation för Azure Maps-routning.
 | Cypern                         |        ✓       |                      |             |
 | Tjeckien                 |        ✓       |         ✓            |     ✓      |
 | Danmark                        |        ✓       |         ✓            |     ✓      |
-| +Färöarna                 |        ✓       |                      |             |
+| + Färöarna                 |        ✓       |                      |             |
 | Estland                        |        ✓       |         ✓            |     ✓      |
 | Finland                        |        ✓       |         ✓            |     ✓      |
 | Frankrike                         |        ✓       |         ✓            |     ✓      | 
-| +Guadeloupe                    |        ✓       |                      |             |
-| +Martinique                    |        ✓       |                      |             |
-| +St. Barthélemy                |        ✓       |                      |             |
-| +St. Martin                    |        ✓       |                      |             |
-| +St Pierre & Miquelon         |        ✓       |                      |             |
+| + Guadeloupe                    |        ✓       |                      |             |
+| + Martinique                    |        ✓       |                      |             |
+| + St. Barthélemy                |        ✓       |                      |             |
+| + St. Martin                    |        ✓       |                      |             |
+| + Saint Pierre & Miquelon         |        ✓       |                      |             |
 | Georgien                        |        ✓       |                      |             |
 | Tyskland                        |        ✓       |         ✓            |     ✓      | 
 | Grekland                         |        ✓       |         ✓            |     ✓      |  
@@ -196,10 +196,10 @@ Följande tabell innehåller täckningsinformation för Azure Maps-routning.
 | Monaco                         |        ✓       |         ✓            |             |
 | Montenegro                     |        ✓       |                      |     ✓      | 
 | Nederländerna                    |        ✓       |         ✓            |     ✓      | 
-| +Aruba                         |        ✓       |                      |             | 
-| +Karibien Nederländerna         |        ✓       |                      |             |
-| +Curaçao                       |        ✓       |                      |             |
-| +Sint Maarten                  |        ✓       |                      |             |
+| + Aruba                         |        ✓       |                      |             | 
+| + Karibien Nederländerna         |        ✓       |                      |             |
+| + Curaçao                       |        ✓       |                      |             |
+| + Sint Maarten                  |        ✓       |                      |             |
 | Norge                         |        ✓       |         ✓            |     ✓      | 
 | Polen                         |        ✓       |         ✓            |     ✓      | 
 | Portugal                       |        ✓       |         ✓            |     ✓      |  
@@ -215,20 +215,20 @@ Följande tabell innehåller täckningsinformation för Azure Maps-routning.
 | Turkiet                         |        ✓       |         ✓            |     ✓      | 
 | Ukraina                        |        ✓       |         ✓            |             | 
 | Storbritannien                 |        ✓       |         ✓            |     ✓      | 
-| +Anguilla                      |        ✓       |                      |             |
-| +Bermuda                       |        ✓       |                      |             |
-| +Brittiska Jungfruöarna        |        ✓       |                      |             |
-| +Caymanöarna                |        ✓       |                      |             |
-| +Gibraltar                     |        ✓       |         ✓            |             | 
-| +Montserrat                    |        ✓       |                      |             |
-| +Turks- och Caicosöarna      |        ✓       |                      |             |
+| + Anguilla                      |        ✓       |                      |             |
+| + Snygg                       |        ✓       |                      |             |
+| + Brittiska Jungfru öarna        |        ✓       |                      |             |
+| + Cayman öarna                |        ✓       |                      |             |
+| + Gibraltar                     |        ✓       |         ✓            |             | 
+| + Montserrat                    |        ✓       |                      |             |
+| + Turks-och Caicos-öarna      |        ✓       |                      |             |
 | Vatikanstaten                   |        ✓       |         ✓            |             |
 | Isle of Man                    |        ✓       |                      |             |
 
 
 ## <a name="middle-east"></a>Mellanöstern
 
-| Land/region                 | Routning         | Routning med trafik | Körning av lastbil |
+| Land/region                 | Routning         | Routning med trafik | Truck-routning |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Bahrain                        |        ✓       |         ✓            |             |
 | Irak                           |        ✓       |                      |             |
@@ -245,4 +245,4 @@ Följande tabell innehåller täckningsinformation för Azure Maps-routning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Maps-routning finns på referenssidorna [för routning.](https://docs.microsoft.com/rest/api/maps/route)
+Mer information om Azure Maps routning finns i referens sidorna för [routning](https://docs.microsoft.com/rest/api/maps/route) .

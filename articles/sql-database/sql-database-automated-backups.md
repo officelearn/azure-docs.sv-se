@@ -13,10 +13,10 @@ ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
 ms.openlocfilehash: 9ac6927df63d51830a58773e32ad0968920c0867
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80061767"
 ---
 # <a name="automated-backups"></a>Automatiserade säkerhetskopieringar

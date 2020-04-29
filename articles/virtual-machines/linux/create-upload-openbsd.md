@@ -1,32 +1,32 @@
 ---
-title: Skapa och ladda upp en OpenBSD-bild
-description: Lär dig hur du skapar och laddar upp en virtuell hårddisk (VHD) som innehåller OpenBSD-operativsystemet för att skapa en virtuell Azure-dator via Azure CLI
+title: Skapa och ladda upp en OpenBSD-avbildning
+description: Lär dig hur du skapar och laddar upp en virtuell hård disk (VHD) som innehåller operativ systemet OpenBSD för att skapa en virtuell Azure-dator via Azure CLI
 author: gbowerman
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: guybo
 ms.openlocfilehash: 1ad1a66d67be7aefe4d9a7acae993e8788cbb193
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066746"
 ---
-# <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Skapa och ladda upp en OpenBSD-diskavbildning till Azure
-Den här artikeln visar hur du skapar och laddar upp en virtuell hårddisk (VHD) som innehåller OpenBSD-operativsystemet. När du har laddat upp den kan du använda den som din egen avbildning för att skapa en virtuell dator (VM) i Azure via Azure CLI.
+# <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Skapa och ladda upp en OpenBSD disk avbildning till Azure
+Den här artikeln visar hur du skapar och laddar upp en virtuell hård disk (VHD) som innehåller operativ systemet OpenBSD. När du har laddat upp det kan du använda det som en egen avbildning för att skapa en virtuell dator (VM) i Azure via Azure CLI.
 
 
 ## <a name="prerequisites"></a>Krav
 Den här artikeln förutsätter att du har följande objekt:
 
-* **En Azure-prenumeration** – Om du inte har ett konto kan du skapa en på bara några minuter. Om du har en MSDN-prenumeration läser du [Månatlig Azure-kredit för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Annars kan du läsa om hur du [skapar ett kostnadsfritt utvärderingskonto](https://azure.microsoft.com/pricing/free-trial/).  
-* **Azure CLI** - Se till att du har den senaste [Azure CLI](/cli/azure/install-azure-cli) installerad och inloggad på ditt Azure-konto med [az-inloggning](/cli/azure/reference-index).
-* **OpenBSD operativsystem installerat i en VHD-fil** - En stöds OpenBSD operativsystem[(6,6 version AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.6/amd64/)) måste installeras på en virtuell hårddisk. Det finns flera verktyg för att skapa VHD-filer. Du kan till exempel använda en virtualiseringslösning som Hyper-V för att skapa VHD-filen och installera operativsystemet. Instruktioner om hur du installerar och använder Hyper-V finns i [Installera Hyper-V och skapa en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
+* **En Azure-prenumeration** – om du inte har något konto kan du skapa ett på bara några minuter. Om du har en MSDN-prenumeration kan du se [månatlig Azure-kredit för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Annars kan du lära dig hur du [skapar ett kostnads fritt utvärderings konto](https://azure.microsoft.com/pricing/free-trial/).  
+* **Azure CLI** – kontrol lera att du har det senaste [Azure CLI](/cli/azure/install-azure-cli) installerat och inloggat på ditt Azure-konto med [AZ-inloggning](/cli/azure/reference-index).
+* **OpenBSD operativ system installerat i en VHD-fil** – ett OpenBSD-operativsystem som stöds ([6,6 version amd64](https://ftp.openbsd.org/pub/OpenBSD/6.6/amd64/)) måste installeras på en virtuell hård disk. Det finns flera verktyg för att skapa. VHD-filer. Du kan till exempel använda en virtualiseringslösning som Hyper-V för att skapa VHD-filen och installera operativ systemet. Anvisningar om hur du installerar och använder Hyper-V finns i [Installera Hyper-v och skapa en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
 
 
 ## <a name="prepare-openbsd-image-for-azure"></a>Förbereda OpenBSD-avbildning för Azure
-På den virtuella datorn där du installerade OpenBSD-operativsystemet 6.1, som lade till Hyper-V-stöd, slutför du följande procedurer:
+På den virtuella datorn där du installerade operativ systemet OpenBSD 6,1, som har lagt till Hyper-V-stöd, slutför du följande procedurer:
 
 1. Om DHCP inte är aktiverat under installationen aktiverar du tjänsten på följande sätt:
 
@@ -34,22 +34,22 @@ På den virtuella datorn där du installerade OpenBSD-operativsystemet 6.1, som 
     echo dhcp > /etc/hostname.hvn0
     ```
 
-2. Konfigurera en seriell konsol enligt följande:
+2. Konfigurera en serie konsol enligt följande:
 
     ```sh
     echo "stty com0 115200" >> /etc/boot.conf
     echo "set tty com0" >> /etc/boot.conf
     ```
 
-3. Konfigurera paketinstallation enligt följande:
+3. Konfigurera paket installationen enligt följande:
 
     ```sh
     echo "https://ftp.openbsd.org/pub/OpenBSD" > /etc/installurl
     ```
    
-4. Som standard `root` är användaren inaktiverad på virtuella datorer i Azure. Användare kan köra kommandon med förhöjda `doas` privilegier med kommandot på OpenBSD VM. Doas är aktiverat som standard. Mer information finns i [doas.conf](https://man.openbsd.org/doas.conf.5). 
+4. Som standard är `root` användaren inaktive rad på virtuella datorer i Azure. Användare kan köra kommandon med utökade privilegier genom att `doas` använda kommandot på OpenBSD VM. DOAS är aktiverat som standard. Mer information finns i [DOAS. conf](https://man.openbsd.org/doas.conf.5). 
 
-5. Installera och konfigurera förutsättningar för Azure-agenten enligt följande:
+5. Installera och konfigurera krav för Azure-agenten på följande sätt:
 
     ```sh
     pkg_add py-setuptools openssl git
@@ -59,7 +59,7 @@ På den virtuella datorn där du installerade OpenBSD-operativsystemet 6.1, som 
     ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
     ```
 
-6. Den senaste versionen av Azure-agenten finns alltid på [GitHub](https://github.com/Azure/WALinuxAgent/releases). Så här installerar du agenten:
+6. Den senaste versionen av Azure-agenten kan alltid hittas på [GitHub](https://github.com/Azure/WALinuxAgent/releases). Så här installerar du agenten:
 
     ```sh
     git clone https://github.com/Azure/WALinuxAgent 
@@ -69,7 +69,7 @@ På den virtuella datorn där du installerade OpenBSD-operativsystemet 6.1, som 
     ```
 
     > [!IMPORTANT]
-    > När du har installerat Azure Agent kan det vara bra att kontrollera att den körs på följande sätt:
+    > När du har installerat Azure agent är det en bra idé att kontrol lera att den körs enligt följande:
     >
     > ```bash
     > ps auxw | grep waagent
@@ -77,7 +77,7 @@ På den virtuella datorn där du installerade OpenBSD-operativsystemet 6.1, som 
     > cat /var/log/waagent.log
     > ```
 
-7. Avetablera systemet för att rengöra det och göra det lämpligt för ometablering. Följande kommando tar också bort det senast etablerade användarkontot och tillhörande data:
+7. Avetablera systemet för att rensa det och göra det lämpligt för att etablera. Följande kommando tar också bort det senast etablerade användar kontot och tillhör ande data:
 
     ```sh
     waagent -deprovision+user -force
@@ -86,21 +86,21 @@ På den virtuella datorn där du installerade OpenBSD-operativsystemet 6.1, som 
 Nu kan du stänga av den virtuella datorn.
 
 
-## <a name="prepare-the-vhd"></a>Förbered den virtuella hårddisken
-VHDX-formatet stöds inte i Azure, endast **fast virtuell hårddisk**. Du kan konvertera disken till fast VIRTUELLD-format med Hyper-V-hanteraren eller Powershell [convert-vhd](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/convert-vhd) cmdlet. Ett exempel är följande.
+## <a name="prepare-the-vhd"></a>Förbered den virtuella hård disken
+VHDX-formatet stöds inte i Azure, endast **fast virtuell hård disk**. Du kan konvertera disken till fast VHD-format med Hyper-V Manager eller PowerShell-cmdleten [Convert-VHD](https://technet.microsoft.com/itpro/powershell/windows/hyper-v/convert-vhd) . Ett exempel är följande.
 
 ```powershell
 Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
-## <a name="create-storage-resources-and-upload"></a>Skapa lagringsresurser och ladda upp
-Skapa först en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på *eastus-platsen:*
+## <a name="create-storage-resources-and-upload"></a>Skapa lagrings resurser och ladda upp
+Skapa först en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på platsen för *öster* :
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Om du vill ladda upp din virtuella hårddisk skapar du ett lagringskonto med [az storage-konto skapa](/cli/azure/storage/account). Namn på lagringskonto måste vara unika, så ange ditt eget namn. I följande exempel skapas ett lagringskonto med namnet *mystorageaccount:*
+Om du vill ladda upp en virtuell hård disk skapar du ett lagrings konto med [AZ lagrings konto Create](/cli/azure/storage/account). Lagrings konto namn måste vara unika, så ange ditt eget namn. I följande exempel skapas ett lagrings konto med namnet *mystorageaccount*:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup \
@@ -109,7 +109,7 @@ az storage account create --resource-group myResourceGroup \
     --sku Premium_LRS
 ```
 
-Om du vill styra åtkomsten till lagringskontot hämtar du lagringsnyckeln med [listan över az-lagringskontonycklar](/cli/azure/storage/account/keys) enligt följande:
+Du styr åtkomsten till lagrings kontot genom att hämta lagrings nyckeln med [AZ lagrings konto nycklar](/cli/azure/storage/account/keys) på följande sätt:
 
 ```azurecli
 STORAGE_KEY=$(az storage account keys list \
@@ -118,7 +118,7 @@ STORAGE_KEY=$(az storage account keys list \
     --query "[?keyName=='key1']  | [0].value" -o tsv)
 ```
 
-Om du logiskt vill separera de virtuella hårddiskar du laddar upp skapar du en behållare i lagringskontot med [az-lagringsbehållare skapa:](/cli/azure/storage/container)
+För att logiskt separera de virtuella hård diskar som du överför, skapar du en behållare i lagrings kontot med [AZ Storage container Create](/cli/azure/storage/container):
 
 ```azurecli
 az storage container create \
@@ -127,7 +127,7 @@ az storage container create \
     --account-key ${STORAGE_KEY}
 ```
 
-Slutligen, ladda upp din virtuella hårddisk med [az lagring blob ladda upp](/cli/azure/storage/blob) enligt följande:
+Ladda slutligen upp den virtuella hård disken med [AZ Storage BLOB upload](/cli/azure/storage/blob) enligt följande:
 
 ```azurecli
 az storage blob upload \
@@ -139,8 +139,8 @@ az storage blob upload \
 ```
 
 
-## <a name="create-vm-from-your-vhd"></a>Skapa virtuell dator från din virtuella dator
-Du kan skapa en virtuell dator med ett [exempelskript](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) eller direkt med [az vm create](/cli/azure/vm). Om du vill ange den openbsd-hårddisk som du har laddat upp använder du parametern `--image` på följande sätt:
+## <a name="create-vm-from-your-vhd"></a>Skapa en virtuell dator från din virtuella hård disk
+Du kan skapa en virtuell dator med ett [exempel skript](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) eller direkt med [AZ VM Create](/cli/azure/vm). Om du vill ange OpenBSD-VHD: n som `--image` du överför använder du parametern på följande sätt:
 
 ```azurecli
 az vm create \
@@ -152,13 +152,13 @@ az vm create \
     --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-Hämta IP-adressen för din OpenBSD VM med [az vm list-ip-adresser](/cli/azure/vm) enligt följande:
+Hämta IP-adressen för din virtuella OpenBSD-dator med [AZ VM List-IP-adresser](/cli/azure/vm) enligt följande:
 
 ```azurecli
 az vm list-ip-addresses --resource-group myResourceGroup --name myOpenBSD61
 ```
 
-Nu kan du SSH till din OpenBSD VM som vanligt:
+Nu kan du använda SSH till din virtuella OpenBSD-dator som normalt:
         
 ```bash
 ssh azureuser@<ip address>
@@ -166,6 +166,6 @@ ssh azureuser@<ip address>
 
 
 ## <a name="next-steps"></a>Nästa steg
-Om du vill veta mer om Hyper-V-stöd på OpenBSD6.1 läser du [OpenBSD 6.1](https://www.openbsd.org/61.html) och [hyperv.4](https://man.openbsd.org/hyperv.4).
+Om du vill veta mer om Hyper-V-stöd på OpenBSD 6.1 läser du [OpenBSD 6,1](https://www.openbsd.org/61.html) och [HyperV. 4](https://man.openbsd.org/hyperv.4).
 
-Om du vill skapa en virtuell dator från hanterad disk läser du [az disk](/cli/azure/disk). 
+Om du vill skapa en virtuell dator från den hanterade disken läser du [AZ disk](/cli/azure/disk). 

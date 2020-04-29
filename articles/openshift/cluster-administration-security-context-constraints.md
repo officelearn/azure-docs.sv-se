@@ -1,6 +1,6 @@
 ---
-title: Hantera säkerhetskontextbegränsningar i Azure Red Hat OpenShift | Microsoft-dokument
-description: Säkerhetskontextbegränsningar för Azure Red Hat OpenShift-klusteradministratörer
+title: Hantera säkerhets kontext begränsningar i Azure Red Hat OpenShift | Microsoft Docs
+description: Begränsningar för säkerhets kontext för kluster administratörer med OpenShift i Azure Red Hat
 services: container-service
 author: troy0820
 ms.author: b-trconn
@@ -8,19 +8,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
 ms.openlocfilehash: 24163adcec889e9eedc2362ff1f01f00257a98f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80063181"
 ---
-# <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Hantera begränsningar för säkerhetskontexter i Azure Red Hat OpenShift 
+# <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Hantera säkerhets kontext begränsningar i Azure Red Hat OpenShift 
 
-Med säkerhetskontextbegränsningar (SPC: er) kan klusteradministratörer styra behörigheter för poddar. Mer information om den här API-typen finns i [arkitekturdokumentationen för SPC: er](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). Du kan hantera SPC:er i din instans som vanliga API-objekt med hjälp av CLI.
+Begränsningar för säkerhets kontexter (SCCs) gör det möjligt för kluster administratörer att kontrol lera behörigheter för poddar. Mer information om den här API-typen finns i [arkitektur dokumentationen för SCCs](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). Du kan hantera SCCs i din instans som vanliga API-objekt med hjälp av CLI.
 
-## <a name="list-security-context-constraints"></a>Ange begränsningar för säkerhetskontext
+## <a name="list-security-context-constraints"></a>Lista säkerhets kontext begränsningar
 
-Om du vill få en aktuell lista över SPC:er använder du det här kommandot: 
+Använd följande kommando för att hämta en aktuell lista över SCCs: 
 
 ```bash
 $ oc get scc
@@ -35,9 +35,9 @@ privileged         true      [*]       RunAsAny    RunAsAny           RunAsAny  
 restricted         false     []        MustRunAs   MustRunAsRange     MustRunAs   RunAsAny    <none>     false            [configMap downwardAPI emptyDir persistentVolumeClaim secret]
 ```
 
-## <a name="examine-an-object-for-security-context-constraints"></a>Undersöka ett objekt efter säkerhetskontextbegränsningar
+## <a name="examine-an-object-for-security-context-constraints"></a>Granska ett objekt för säkerhets kontext begränsningar
 
-Om du vill undersöka `oc get`en `oc describe`viss `oc edit`SCC använder du , eller .  Om du till exempel vill undersöka den **begränsade** SCC använder du det här kommandot:
+Om du vill undersöka en viss SCC `oc get`använder `oc describe`du, `oc edit`, eller.  Om du till exempel vill undersöka den **begränsade** SCC använder du följande kommando:
 ```bash
 $ oc describe scc restricted
 Name:                    restricted

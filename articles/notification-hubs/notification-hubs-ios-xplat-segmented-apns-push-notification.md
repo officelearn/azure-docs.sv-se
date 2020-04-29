@@ -1,6 +1,6 @@
 ---
-title: Skicka push-meddelanden till specifika iOS-enheter med Azure Notification Hubs | Microsoft-dokument
-description: I den här självstudien får du lära dig hur du använder Azure Notification Hubs för att skicka push-meddelanden till specifika iOS-enheter.
+title: Skicka push-meddelanden till vissa iOS-enheter med Azure Notification Hubs | Microsoft Docs
+description: I den här självstudien får du lära dig hur du använder Azure Notification Hubs för att skicka push-meddelanden till vissa iOS-enheter.
 services: notification-hubs
 documentationcenter: ios
 author: sethmanheim
@@ -17,52 +17,52 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
 ms.openlocfilehash: a775963f1b0fa19cd687c839f527f4a078c76864
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80127001"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Självstudiekurs: Skicka push-meddelanden till specifika iOS-enheter med Azure Notification Hubs
+# <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till vissa iOS-enheter med Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## <a name="overview"></a>Översikt
 
-Den här självstudien visar hur du använder Azure Notification Hubs för att sända senaste nyhetsaviseringar till en iOS-app. När du är klar kan du registrera dig för senaste nyhetskategorier som du är intresserad av och får endast push-meddelanden för dessa kategorier. Det här scenariot är ett vanligt mönster för många appar där meddelanden måste skickas till olika grupper av användare som tidigare har deklarerat intresse för dem, t.ex. RSS-läsare, appar för musiklyssnare osv.
+Den här självstudien visar hur du använder Azure Notification Hubs för att skicka meddelanden om att skicka meddelanden till en iOS-app. När du är klar kan du registrera dig för att dela upp nyheter-kategorier som du är intresse rad av och endast ta emot push-meddelanden för dessa kategorier. Det här scenariot är ett vanligt mönster för många appar där meddelanden måste skickas till olika grupper av användare som tidigare har deklarerat intresse för dem, t.ex. RSS-läsare, appar för musiklyssnare osv.
 
-Du aktiverar sändningsscenarier genom att inkludera en eller flera *taggar* när du skapar en registrering i meddelandehubben. När meddelanden skickas till en tagg får enheter som har registrerats för taggen meddelandet. Eftersom taggar bara är strängar behöver de inte etableras i förväg. Mer information om taggar finns i [Notification Hubs-routning och tagguttryck](notification-hubs-tags-segment-push-message.md).
+Du aktiverar sändningsscenarier genom att inkludera en eller flera *taggar* när du skapar en registrering i meddelandehubben. När meddelanden skickas till en tagg får de enheter som har registrerats för taggen ett meddelande. Eftersom taggar bara är strängar behöver de inte etableras i förväg. Mer information om taggar finns i [Notification Hubs-routning och tagguttryck](notification-hubs-tags-segment-push-message.md).
 
 I den här självstudien gör du följande:
 
 > [!div class="checklist"]
-> * Lägga till ett kategorival i appen
+> * Lägg till ett kategori val i appen
 > * Skicka taggade meddelanden
 > * Skicka meddelanden från enheten
 > * Kör appen och generera meddelanden
 
 ## <a name="prerequisites"></a>Krav
 
-Det här avsnittet bygger på appen som du skapade i [Självstudiekurs: Push-meddelanden till iOS-appar med Azure Notification Hubs][get-started]. Innan du startar den här självstudien måste du redan ha slutfört [självstudiekursen: Push-meddelanden till iOS-appar med Azure Notification Hubs][get-started].
+Det här avsnittet bygger på den app som du skapade i [Självstudier: push-meddelanden till iOS-appar med hjälp av Azure Notification Hubs][get-started]. Innan du börjar den här självstudien måste du ha slutfört [Självstudier: push-meddelanden till iOS-appar med hjälp av Azure Notification Hubs][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Lägga till kategorival till appen
 
-Det första steget är att lägga till gränssnittselementen i din befintliga storyboard som gör det möjligt för användaren att välja kategorier att registrera. De kategorier som valts av en användare lagras på enheten. När appen startar skapas en enhetsregistrering i din meddelandehubb med de valda kategorierna som taggar.
+Det första steget är att lägga till GRÄNSSNITTs elementen i din befintliga storyboard som gör det möjligt för användaren att välja kategorier som ska registreras. De kategorier som valts av en användare lagras på enheten. När appen startar skapas en enhetsregistrering i din meddelandehubb med de valda kategorierna som taggar.
 
-1. Lägg till följande komponenter från objektbiblioteket **i MainStoryboard_iPhone.storyboard:**
+1. I **MainStoryboard_iPhone. storyboard** lägger du till följande komponenter från objekt biblioteket:
 
-   * En etikett med "Breaking News"-text,
-   * Etiketter med kategoritexterna "World", "Politics", "Business", "Technology", "Science", "Sports",
-   * Sex växlar, en per kategori, ställer in varje **switch-tillstånd** som **av** som standard.
+   * En etikett med texten "bryta nyheter"
+   * Etiketter med kategori texter "världen", "politiken", "Business", "Technology", "vetenskap", "idrotts",
+   * Sex växlar, en per kategori, anger att varje växel **tillstånd** ska vara **inaktiverat** som standard.
    * En knapp med etiketten "Prenumerera"
 
-     Din storyboard ska se ut så här:
+     Din storyboard bör se ut så här:
 
-     ![Xcode-gränssnittsbyggare][3]
+     ![Xcode Interface Builder][3]
 
-2. I biträdande redaktör, skapa försäljningsställen för alla växlar och kalla dem "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
+2. I assistent redigeraren skapar du Utskicks alternativ för alla växlar och anropar dem "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
 
-3. Skapa en åtgärd för `subscribe`din knapp som heter ; du `ViewController.h` ska innehålla följande kod:
+3. Skapa en åtgärd för knappen som heter `subscribe`; du `ViewController.h` bör ha följande kod:
 
     ```objc
     @property (weak, nonatomic) IBOutlet UISwitch *WorldSwitch;
@@ -75,7 +75,7 @@ Det första steget är att lägga till gränssnittselementen i din befintliga st
     - (IBAction)subscribe:(id)sender;
     ```
 
-4. Skapa en ny **Cocoa Touch-klass** som heter `Notifications`. Kopiera följande kod i gränssnittsavsnittet i filen Notifications.h:
+4. Skapa en ny **kakao touch** -klass `Notifications`med namnet. Kopiera följande kod i avsnittet Interface i filen Notifications. h:
 
     ```objc
     @property NSData* deviceToken;
@@ -90,13 +90,13 @@ Det första steget är att lägga till gränssnittselementen i din befintliga st
     - (void)subscribeWithCategories:(NSSet*)categories completion:(void (^)(NSError *))completion;
     ```
 
-5. Lägg till följande importdirektiv i Notifications.m:
+5. Lägg till följande import direktiv i meddelanden. m:
 
     ```objc
     #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
     ```
 
-6. Kopiera följande kod i implementeringsavsnittet i filen Notifications.m.
+6. Kopiera följande kod i avsnittet implementering i filen Notifications. m.
 
     ```objc
     SBNotificationHub* hub;
@@ -136,9 +136,9 @@ Det första steget är att lägga till gränssnittselementen i din befintliga st
     }
     ```
 
-    Den här klassen använder lokal lagring för att lagra och hämta de kategorier av nyheter som den här enheten tar emot. Den innehåller också en metod för att registrera sig för dessa kategorier med hjälp av en [mallregistrering.](notification-hubs-templates-cross-platform-push-messages.md)
+    Den här klassen använder lokal lagring för att lagra och hämta de kategorier av nyheter som enheten tar emot. Det innehåller också en metod för att registrera för dessa kategorier med hjälp av en [mall](notification-hubs-templates-cross-platform-push-messages.md) registrering.
 
-7. Lägg `AppDelegate.h` till en importsats `Notifications.h` för och lägger till `Notifications` en egenskap för en förekomst av klassen i filen:
+7. I filen `AppDelegate.h` lägger du till en import-sats `Notifications.h` för och lägger till en egenskap för en instans `Notifications` av klassen:
 
     ```objc
     #import "Notifications.h"
@@ -146,8 +146,8 @@ Det första steget är att lägga till gränssnittselementen i din befintliga st
     @property (nonatomic) Notifications* notifications;
     ```
 
-8. I `didFinishLaunchingWithOptions` metoden `AppDelegate.m`i lägger du till koden för att initiera meddelandeinstansen i början av metoden.  
-    `HUBNAME`och `HUBLISTENACCESS` `hubinfo.h`(definierad i) `<hub name>` bör `<connection string with listen access>` redan ha och platshållarna ersatta med ditt meddelandehubbnamn och anslutningssträngen för *DefaultListenSharedAccessSignature* som du fick tidigare
+8. I- `didFinishLaunchingWithOptions` metoden i `AppDelegate.m`lägger du till koden för att initiera meddelande instansen i början av metoden.  
+    `HUBNAME`och `HUBLISTENACCESS` (definieras i `hubinfo.h`) ska redan ha plats `<hub name>` hållarna och `<connection string with listen access>` har ersatts med namnet på Notification Hub och anslutnings strängen för *DefaultListenSharedAccessSignature* som du hämtade tidigare
 
     ```objc
     self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
@@ -156,10 +156,10 @@ Det första steget är att lägga till gränssnittselementen i din befintliga st
     > [!NOTE]
     > Eftersom autentiseringsuppgifterna som distribueras med ett klientprogram vanligtvis inte är säkra bör du bara distribuera nyckeln för lyssningsåtkomst med din klientapp. Lyssningsåtkomst gör det möjligt för din app att registrera sig för meddelanden, men befintliga registreringar kan inte ändras och meddelanden kan inte skickas. Nyckeln för fullständig åtkomst används i en skyddad serverdelstjänst för att skicka meddelanden och ändra befintliga registreringar.
 
-9. I `didRegisterForRemoteNotificationsWithDeviceToken` metoden `AppDelegate.m`i ersätter du koden i metoden med följande kod `notifications` för att skicka enhetstoken till klassen. Klassen `notifications` utför registreringen för meddelanden med kategorierna. Om användaren ändrar kategorival `subscribeWithCategories` anropar du metoden som svar på **knappen Prenumerera för** att uppdatera dem.
+9. I- `didRegisterForRemoteNotificationsWithDeviceToken` metoden i `AppDelegate.m`ersätter du koden i-metoden med följande kod för att skicka enhetens token till- `notifications` klassen. - `notifications` Klassen utför registreringen för meddelanden med kategorier. Om användaren ändrar kategori val, anropar du `subscribeWithCategories` metoden som svar på knappen **Prenumerera** för att uppdatera dem.
 
     > [!NOTE]
-    > Eftersom enhetstoken som tilldelats av Apple Push Notification Service (APNS) kan ändras när som helst, bör du registrera dig för meddelanden ofta för att undvika meddelandefel. Det här exemplet registrerar för meddelande varje gång som appen startas. För appar som körs ofta, mer än en gång om dagen, kan du förmodligen hoppa över registreringen och spara bandbredd om mindre än en dag har gått sedan den tidigare registreringen.
+    > Eftersom den enhets-token som tilldelats av Apple Push Notification Service (APN) kan ändras när som helst, bör du registrera dig för meddelanden ofta för att undvika aviserings problem. Det här exemplet registrerar för meddelande varje gång som appen startas. För appar som körs ofta, mer än en gång om dagen, kan du förmodligen hoppa över registreringen och spara bandbredd om mindre än en dag har gått sedan den tidigare registreringen.
 
     ```objc
     self.notifications.deviceToken = deviceToken;
@@ -175,9 +175,9 @@ Det första steget är att lägga till gränssnittselementen i din befintliga st
     }];
     ```
 
-    Vid denna punkt bör det inte `didRegisterForRemoteNotificationsWithDeviceToken` finnas någon annan kod i metoden.
+    I det här läget ska det inte finnas någon annan kod i `didRegisterForRemoteNotificationsWithDeviceToken` metoden.
 
-10. Följande metoder bör redan `AppDelegate.m` finnas i från att slutföra guiden [Kom igång med Notification Hubs.][get-started] Om inte, lägg till dem.
+10. Följande metoder bör redan finnas i `AppDelegate.m` att slutföra självstudierna [kom igång med Notification Hubs][get-started] . Om inte, lägger du till dem.
 
     ```objc
     - (void)MessageBox:(NSString *)title message:(NSString *)messageText
@@ -195,9 +195,9 @@ Det första steget är att lägga till gränssnittselementen i din befintliga st
      }
     ```
 
-    Den här metoden hanterar meddelanden som tas emot när appen körs genom att visa ett enkelt **UIAlert**.
+    Den här metoden hanterar meddelanden som tas emot när appen körs genom att visa en enkel **UIAlert**.
 
-11. I `ViewController.m`lägger `import` du `AppDelegate.h` till en sats för och `subscribe` kopierar följande kod till den XCode-genererade metoden. Den här koden uppdaterar meddelanderegistreringen så att den nya kategoritaggarna som användaren har valt i användargränssnittet används.
+11. I `ViewController.m`lägger du till `import` en instruktion `AppDelegate.h` för och kopierar följande kod till den Xcode-genererade `subscribe` metoden. Den här koden uppdaterar meddelande registreringen så att den använder de nya kategori koder som användaren har valt i användar gränssnittet.
 
     ```objc
     #import "Notifications.h"
@@ -224,9 +224,9 @@ Det första steget är att lägga till gränssnittselementen i din befintliga st
     }];
     ```
 
-    Den här metoden `NSMutableArray` skapar en `Notifications` av kategorierna och använder klassen för att lagra listan i det lokala lagringsutrymmet och registrerar motsvarande taggar med meddelandehubben. När kategorier ändras återskapas registreringen med de nya kategorierna.
+    Den här metoden skapar `NSMutableArray` en av kategorierna och använder `Notifications` klassen för att lagra listan i den lokala lagrings platsen och registrerar motsvarande Taggar i Notification Hub. När kategorier ändras återskapas registreringen med de nya kategorierna.
 
-12. I `ViewController.m`lägger du till `viewDidLoad` följande kod i metoden för att ange användargränssnittet baserat på de tidigare sparade kategorierna.
+12. I `ViewController.m`lägger du till följande kod i- `viewDidLoad` metoden för att ange användar gränssnittet baserat på de tidigare sparade kategorierna.
 
     ```objc
     // This updates the UI on startup based on the status of previously saved categories.
@@ -243,19 +243,19 @@ Det första steget är att lägga till gränssnittselementen i din befintliga st
     if ([categories containsObject:@"Sports"]) self.SportsSwitch.on = true;
     ```
 
-Appen kan nu lagra en uppsättning kategorier i enhetens lokala lagring som används för att registrera sig med meddelandehubben när appen startar. Användaren kan ändra valet av kategorier vid `subscribe` körning och klicka på metoden för att uppdatera registreringen för enheten. Därefter uppdaterar du appen för att skicka de senaste nyheterna direkt i själva appen.
+Appen kan nu lagra en uppsättning kategorier i enhetens lokala lagrings utrymme som används för att registrera dig hos Notification Hub när appen startar. Användaren kan ändra urvalet av kategorier vid körning och klicka på `subscribe` metoden för att uppdatera registreringen för enheten. Sedan uppdaterar du appen för att skicka de nya aviseringarna direkt i själva appen.
 
-## <a name="optional-send-tagged-notifications"></a>(valfritt) Skicka taggade meddelanden
+## <a name="optional-send-tagged-notifications"></a>valfritt Skicka taggade meddelanden
 
-Om du inte har tillgång till Visual Studio kan du gå vidare till nästa avsnitt och skicka meddelanden från själva appen. Du kan också skicka rätt mallmeddelande från [Azure-portalen] med hjälp av felsökningsfliken för meddelandehubben.
+Om du inte har åtkomst till Visual Studio kan du gå vidare till nästa avsnitt och skicka meddelanden från själva appen. Du kan också skicka rätt mall-meddelande från [Azure Portal] med hjälp av fliken Felsök för Notification Hub.
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-## <a name="optional-send-notifications-from-the-device"></a>(valfritt) Skicka meddelanden från enheten
+## <a name="optional-send-notifications-from-the-device"></a>valfritt Skicka meddelanden från enheten
 
-Normalt skickas meddelanden av en servergrupp, men du kan skicka meddelanden om nyheter direkt från appen. För att göra det `SendNotificationRESTAPI` uppdaterar du den metod som du definierade i självstudien [Kom igång med meddelandehubbar.][get-started]
+Vanliga aviseringar skickas av en server dels tjänst men du kan skicka meddelanden om att skicka meddelanden direkt från appen. Det gör du genom att uppdatera den `SendNotificationRESTAPI` metod som du definierade i själv studie kursen [komma igång med Notification Hubs][get-started] .
 
-1. I `ViewController.m`uppdaterar `SendNotificationRESTAPI` du metoden enligt följande så att den accepterar en parameter för kategoritaggen och skickar rätt [mallmeddelande.](notification-hubs-templates-cross-platform-push-messages.md)
+1. I `ViewController.m`uppdaterar du `SendNotificationRESTAPI` metoden enligt följande så att den accepterar en parameter för kategori tag gen och skickar rätt [mall](notification-hubs-templates-cross-platform-push-messages.md) -meddelande.
 
     ```objc
     - (void)SendNotificationRESTAPI:(NSString*)categoryTag
@@ -316,7 +316,7 @@ Normalt skickas meddelanden av en servergrupp, men du kan skicka meddelanden om 
     }
     ```
 
-2. I `ViewController.m`uppdaterar `Send Notification` du åtgärden enligt koden som följer. Så att den skickar meddelanden med varje tagg individuellt och skickar till flera plattformar.
+2. I `ViewController.m`uppdaterar du `Send Notification` åtgärden som visas i den kod som följer. Så att den skickar meddelanden med varje tagg individuellt och skickar dem till flera plattformar.
 
     ```objc
     - (IBAction)SendNotificationMessage:(id)sender
@@ -335,25 +335,25 @@ Normalt skickas meddelanden av en servergrupp, men du kan skicka meddelanden om 
     }
     ```
 
-3. Återskapa projektet och se till att du inte har några byggfel.
+3. Återskapa projektet och se till att du inte har några build-fel.
 
 ## <a name="run-the-app-and-generate-notifications"></a>Kör appen och generera meddelanden
 
-1. Tryck på Run (Kör) för att skapa projektet och starta appen. Välj några senaste nyhetsalternativ att prenumerera på och tryck sedan på **knappen Prenumerera.** Du bör se en dialogruta som anger att meddelandena har prenumererats på.
+1. Tryck på Run (Kör) för att skapa projektet och starta appen. Välj några olika nyhets alternativ att prenumerera på och tryck sedan på knappen **Prenumerera** . Du bör se en dialog ruta som visar att aviseringarna har prenumererat på.
 
-    ![Exempel på meddelande på iOS][1]
+    ![Exempel meddelande på iOS][1]
 
-    När du väljer **Prenumerera**konverterar appen de valda kategorierna till taggar och begär en ny enhetsregistrering för de valda taggarna från meddelandehubben.
+    När du väljer **Prenumerera**konverterar appen de valda kategorierna till taggar och begär en ny enhets registrering för de valda taggarna från Notification Hub.
 
-2. Ange ett meddelande som ska skickas som senaste nytt och tryck sedan på knappen **Skicka meddelande.** Du kan också köra .NET-konsolappen för att generera meddelanden.
+2. Ange ett meddelande som ska skickas som avbryter nyheter och tryck sedan på knappen **Skicka meddelande** . Du kan också köra .NET-konsol programmet för att generera meddelanden.
 
-    ![Ändra meddelandeinställningar i iOS][2]
+    ![Ändra aviserings inställningar i iOS][2]
 
-3. Varje enhet som prenumererar på nyheter får de senaste nyheterna meddelanden du just skickat.
+3. Varje enhet som prenumererar på nyheter tar emot de nya meddelanden som du nyss skickat.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien skickade du broadcast-meddelanden till specifika iOS-enheter som har registrerats för kategorierna. Om du vill veta hur du skickar lokaliserade meddelanden går du vidare till följande självstudiekurs:
+I den här självstudien skickade du broadcast-meddelanden till vissa iOS-enheter som har registrerats för kategorierna. Om du vill lära dig mer om push-meddelanden kan du gå vidare till följande självstudie:
 
 > [!div class="nextstepaction"]
 >[Skicka lokaliserade meddelanden](notification-hubs-ios-xplat-localized-apns-push-notification.md)
@@ -371,4 +371,4 @@ I den här självstudien skickade du broadcast-meddelanden till specifika iOS-en
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
-[Azure-portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

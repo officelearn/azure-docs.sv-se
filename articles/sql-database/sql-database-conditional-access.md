@@ -1,6 +1,6 @@
 ---
 title: Villkorlig åtkomst
-description: Lär dig hur du konfigurerar villkorlig åtkomst för Azure SQL Database och Azure Synapse.
+description: Lär dig hur du konfigurerar villkorlig åtkomst för Azure SQL Database och Azure-Synapse.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,47 +12,47 @@ ms.custom: sql-data-warehouse
 ms.date: 02/06/2020
 tag: azure-synpase
 ms.openlocfilehash: cd56ccf2e6a4ceb0d81c25b5b9e795176be66b77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80124895"
 ---
-# <a name="conditional-access-mfa-with-azure-sql-database-and-azure-synapse-analytics"></a>Villkorad åtkomst (MFA) med Azure SQL Database och Azure Synapse Analytics
+# <a name="conditional-access-mfa-with-azure-sql-database-and-azure-synapse-analytics"></a>Villkorlig åtkomst (MFA) med Azure SQL Database-och Azure Synapse-analys
 
-Azure [SQL Database,](sql-database-technical-overview.md) [Managed Instance](sql-database-managed-instance.md)och Azure [Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) stöder Microsoft Conditional Access. 
+Azure [SQL Database](sql-database-technical-overview.md), [hanterad instans](sql-database-managed-instance.md)och [Azure Synapse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) stöder villkorlig åtkomst från Microsoft. 
 
 > [!NOTE]
-> Det här avsnittet gäller Azure SQL-server och både SQL Database och Azure Synapse som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när du refererar till både SQL Database och Azure Synapse.
+> Det här avsnittet gäller för Azure SQL Server och för både SQL Database och Azure-Synapse som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när du refererar till både SQL Database och Azure-Synapse.
 
-Följande steg visar hur du konfigurerar SQL Database för att framtvinga en princip för villkorlig åtkomst.  
+Följande steg visar hur du konfigurerar SQL Database att tillämpa en princip för villkorlig åtkomst.  
 
 ## <a name="prerequisites"></a>Krav  
-- Du måste konfigurera din SQL-databas eller SQL-pool i Azure Synapse för att stödja Azure Active Directory-autentisering. Specifika steg finns i [Konfigurera och hantera Azure Active Directory-autentisering med SQL Database eller Azure Synapse](sql-database-aad-authentication-configure.md).  
-- När multifaktorautentisering är aktiverat måste du ansluta till verktyget som stöds, till exempel den senaste SSMS. Mer information finns i [Konfigurera multifaktorautentisering i Azure SQL Database för SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
+- Du måste konfigurera SQL Database eller SQL-poolen i Azure-Synapse för att stödja Azure Active Directory autentisering. Detaljerade anvisningar finns i [Konfigurera och hantera Azure Active Directory autentisering med SQL Database eller Azure Synapse](sql-database-aad-authentication-configure.md).  
+- När Multi-Factor Authentication har Aktiver ATS måste du ansluta till ett verktyg som stöds, till exempel den senaste SSMS. Mer information finns i [konfigurera Azure SQL Database Multi-Factor Authentication för SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
 
-## <a name="configure-ca-for-azure-sql-dbdw"></a>Konfigurera certifikatutfärdar för Azure SQL DB/DW  
-1. Logga in på portalen, välj **Azure Active Directory**och välj sedan Villkorlig **åtkomst**. Mer information finns i [teknisk referens för Azure Active Directory Villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
-   ![Bladet Villkorlig åtkomst](./media/sql-database-conditional-access/conditional-access-blade.png) 
+## <a name="configure-ca-for-azure-sql-dbdw"></a>Konfigurera CA för Azure SQL DB/DW  
+1. Logga in på portalen, Välj **Azure Active Directory**och välj sedan **villkorlig åtkomst**. Mer information finns i [teknisk referens för Azure Active Directory villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
+   ![Bladet för villkorlig åtkomst](./media/sql-database-conditional-access/conditional-access-blade.png) 
      
-2. I bladet **Principer för villkorlig åtkomst** klickar du på Ny **princip,** anger ett namn och klickar sedan på **Konfigurera regler**.  
-3. Under **Tilldelningar**väljer du **Användare och grupper**, markerar Välj användare och **grupper**och väljer sedan användaren eller gruppen för villkorlig åtkomst. Klicka på **Markera**och sedan på **Klar** för att acceptera ditt val.  
-   ![välja användare och grupper](./media/sql-database-conditional-access/select-users-and-groups.png)  
+2. I bladet **villkorlig åtkomst – principer** , klickar du på **ny princip**, anger ett namn och klickar sedan på **Konfigurera regler**.  
+3. Under **tilldelningar**väljer **du användare och grupper**, markerar **Välj användare och grupper**och väljer sedan användaren eller gruppen för villkorlig åtkomst. Klicka på **Välj**och sedan på **Slutför** för att godkänna ditt val.  
+   ![Välj användare och grupper](./media/sql-database-conditional-access/select-users-and-groups.png)  
 
-4. Välj **Molnappar**och klicka på **Välj appar**. Du ser alla appar som är tillgängliga för villkorlig åtkomst. Välj **Azure SQL Database**, längst ned klickar du på **Markera**och sedan på **Klar**.  
-   ![välj SQL-databas](./media/sql-database-conditional-access/select-sql-database.png)  
-   Om du inte hittar **Azure SQL Database** i följande tredje skärmbild gör du följande:   
-   - Logga in på din Azure SQL DB/DW-instans med SSMS med ett AAD-administratörskonto.  
+4. Välj **molnappar**och klicka på **Välj appar**. Du ser alla appar som är tillgängliga för villkorlig åtkomst. Välj **Azure SQL Database**, klicka på **Välj**längst ned på sidan och klicka sedan på **färdig**.  
+   ![Välj SQL Database](./media/sql-database-conditional-access/select-sql-database.png)  
+   Om du inte hittar **Azure SQL Database** som anges i följande tredje skärm bild, utför du följande steg:   
+   - Logga in på din Azure SQL DB/DW-instans med hjälp av SSMS med ett AAD-administratörskonto.  
    - Kör `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
-   - Logga in på AAD och kontrollera att Azure SQL Database och Azure Synapse visas i programmen i din AAD.  
+   - Logga in på AAD och kontrol lera att Azure SQL Database och Azure-Synapse visas i programmen i din AAD.  
 
-5. Välj **Access-kontroller,** välj **Bevilja**och kontrollera sedan den princip som du vill tillämpa. I det här exemplet väljer vi **Kräv multifaktorautentisering**.  
-   ![välj bidragsåtkomst](./media/sql-database-conditional-access/grant-access.png)  
+5. Välj **åtkomst kontroller**, Välj **bevilja**och kontrol lera den princip som du vill använda. I det här exemplet väljer vi **Kräv Multi-Factor Authentication**.  
+   ![Välj bevilja åtkomst](./media/sql-database-conditional-access/grant-access.png)  
 
 ## <a name="summary"></a>Sammanfattning  
-Det valda programmet (Azure SQL Database) som gör det möjligt att ansluta till Azure SQL DB/DW med Azure AD Premium, tillämpar nu den valda principen för villkorlig åtkomst, **krävs multifaktorautentisering.**  
-Om du vill ha frågor om Azure SQL Database och MFAforSQLDB@microsoft.comAzure Synapse om multifaktorautentisering kontaktar du .  
+Det valda programmet (Azure SQL Database) som gör det möjligt att ansluta till Azure SQL DB/DW med hjälp av Azure AD Premium, tillämpar nu den valda principen för villkorlig åtkomst, **krävs Multi-Factor Authentication.**  
+Kontakta MFAforSQLDB@microsoft.comom du har frågor om Azure SQL Database och Azure Synapse om multifaktorautentisering.  
 
 ## <a name="next-steps"></a>Nästa steg  
 
-En självstudiekurs finns i [Skydda din Azure SQL-databas](sql-database-security-tutorial.md).
+En själv studie kurs finns i [skydda din Azure SQL Database](sql-database-security-tutorial.md).

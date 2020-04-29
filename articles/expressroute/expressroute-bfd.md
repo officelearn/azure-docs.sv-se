@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/1/2018
 ms.author: rambala
 ms.openlocfilehash: 378b639e89ffd46f6b32d7004f934104dd4b5407
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80064845"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Konfigurera BFD över ExpressRoute
@@ -66,7 +66,7 @@ Mellan BFD-peer-datorer fastställer överföringshastigheten för de två peer-
 >Om du har konfigurerat geo-redundanta ExpressRoute-kretsar eller använda VPN-anslutning från plats till plats som säkerhets kopiering, aktivering av BFD skulle hjälpa till att växla snabbare efter ett ExpressRoute anslutnings fel. 
 >
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Mer information eller hjälp finns i följande länkar:
 

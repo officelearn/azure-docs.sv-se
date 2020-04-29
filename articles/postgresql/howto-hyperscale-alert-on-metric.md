@@ -1,112 +1,112 @@
 ---
-title: Konfigurera aviseringar – hyperskala (Citus) - Azure-databas för PostgreSQL
-description: I den här artikeln beskrivs hur du konfigurerar och kommer åt måttaviseringar för Azure Database for PostgreSQL - Hyperscale (Citus)
+title: Konfigurera aviseringar – storskalig (citus) – Azure Database for PostgreSQL
+description: Den här artikeln beskriver hur du konfigurerar och får åtkomst till mått aviseringar för Azure Database for PostgreSQL-storskalig (citus)
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 3/16/2020
 ms.openlocfilehash: 80c061f72ce827df8f8354a5881c032c6f874fe1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80063148"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Använd Azure-portalen för att ställa in aviseringar om mått för Azure Database för PostgreSQL - Hyperscale (Citus)
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Använd Azure Portal för att ställa in aviseringar för mått för Azure Database for PostgreSQL-storskalig skalning (citus)
 
-Den här artikeln visar hur du konfigurerar Azure Database för PostgreSQL-aviseringar med Azure-portalen. Du kan få en avisering baserat på [övervakningsmått](concepts-hyperscale-monitoring.md) för dina Azure-tjänster.
+Den här artikeln visar hur du konfigurerar Azure Database for PostgreSQL aviseringar med hjälp av Azure Portal. Du kan få en avisering utifrån [övervaknings måtten](concepts-hyperscale-monitoring.md) för dina Azure-tjänster.
 
-Vi ställer in en avisering för att utlösa när värdet för ett angivet mått överskrider ett tröskelvärde. Aviseringen utlöses när villkoret först uppfylls och fortsätter att utlösas efteråt.
+Vi ställer in en avisering som ska utlösas när värdet för ett angivet mått överskrider ett tröskelvärde. Aviseringen utlöses när villkoret först uppfylls och fortsätter att utlösa efteråt.
 
-Du kan konfigurera en avisering så att du utför följande åtgärder när den utlöses:
-* Skicka e-postmeddelanden till tjänstadministratören och coadministratorerna.
+Du kan konfigurera en avisering för att utföra följande åtgärder när den utlöser:
+* Skicka e-postaviseringar till tjänst administratör och-administratörer.
 * Skicka e-post till ytterligare e-postmeddelanden som du anger.
-* Ring en webhook.
+* Anropa en webhook.
 
-Du kan konfigurera och få information om varningsregler med hjälp av:
-* [Azure-portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+Du kan konfigurera och hämta information om aviserings regler med hjälp av:
+* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [REST-API:et för Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
-## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Skapa en aviseringsregel för ett mått från Azure-portalen
-1. I [Azure-portalen](https://portal.azure.com/)väljer du den Azure-databas för PostgreSQL-server som du vill övervaka.
+## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Skapa en varnings regel för ett mått från Azure Portal
+1. I [Azure Portal](https://portal.azure.com/)väljer du den Azure Database for PostgreSQLs server som du vill övervaka.
 
-2. Under **avsnittet Övervakning** i sidofältet väljer du **Aviseringar** som visas:
+2. Under avsnittet **övervakning** på sid panelen väljer du **aviseringar** som visas:
 
-   ![Välj varningsregler](./media/howto-hyperscale-alert-on-metric/2-alert-rules.png)
+   ![Välj aviserings regler](./media/howto-hyperscale-alert-on-metric/2-alert-rules.png)
 
-3. Välj **Ny varningsregel** (+ ikon).
+3. Välj **ny varnings regel** (+ ikon).
 
-4. Sidan **Skapa regel** öppnas enligt nedan. Fyll i den information som krävs:
+4. Sidan **Skapa regel** öppnas som visas nedan. Fyll i den information som krävs:
 
-   ![Lägg till måttaviseringsformulär](./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png)
+   ![Lägg till mått aviserings formulär](./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png)
 
-5. Välj **Lägg till**i avsnittet **Villkor** .
+5. I avsnittet **villkor** väljer du **Lägg till**.
 
-6. Välj ett mått i listan med signaler som ska aviseras. I det här exemplet väljer du "Lagringsprocent".
+6. Välj ett mått i listan över signaler att bli aviserad om. I det här exemplet väljer du "lagrings procent".
    
    ![Välj mått](./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png)
 
-7. Konfigurera varningslogiken:
+7. Konfigurera aviserings logiken:
 
-    * **Operatör** (ex. "Större än")
-    * **Tröskelvärde** (t.ex. 85 procent)
-    * **Aggregeringsgranularitetsmängden** för måttregeln måste uppfyllas innan aviseringen utlöser (t.ex. "Under de senaste 30 minuterna")
-    * och **utvärderingsfrekvens** (t.ex. "1 minut")
+    * **Operator** (t. ex. "Större än")
+    * **Tröskel värde** (t. ex. 85 procent)
+    * Sammanställnings **kornig het** som mått regeln måste uppfyllas innan aviserings utlösare (t. ex. "Under de senaste 30 minuterna")
+    * **utvärderings frekvens** (t. ex. "1 minut")
    
-   Välj **Klar** när du är klar.
+   Välj **klar** när du är klar.
 
    ![Välj mått](./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png)
 
-8. I avsnittet **Åtgärdsgrupper** väljer du **Skapa ny** om du vill skapa en ny grupp för att ta emot aviseringar i aviseringen.
+8. I avsnittet **Åtgärds grupper** väljer du **Skapa nytt** för att skapa en ny grupp för att ta emot meddelanden på aviseringen.
 
-9. Fyll i formuläret "Lägg till åtgärdsgrupp" med namn, kortnamn, prenumeration och resursgrupp.
+9. Fyll i formuläret "Lägg till åtgärds grupp" med ett namn, ett kort namn, en prenumeration och en resurs grupp.
 
     ![Åtgärdsgrupp](./media/howto-hyperscale-alert-on-metric/9-add-action-group.png)
 
-10. Konfigurera en åtgärdstyp **för e-post/SMS/Push/Voice.**
+10. Konfigurera en **e-post/SMS/push/röst** -åtgärds typ.
     
-    Välj "E-post azure Resource Manager-roll" om du vill skicka meddelanden till prenumerationsägare, deltagare och läsare.
+    Välj "e-Azure Resource Manager roll" om du vill skicka meddelanden till prenumerations ägare, deltagare och läsare.
    
     Välj **OK** när du är klar.
 
     ![Åtgärdsgrupp](./media/howto-hyperscale-alert-on-metric/10-action-group-type.png)
 
-11. Ange ett aviseringsregelnamn, beskrivning och allvarlighetsgrad.
+11. Ange ett namn, en beskrivning och en allvarlighets grad för varnings regeln.
 
     ![Åtgärdsgrupp](./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png) 
 
-12. Välj **Skapa aviseringsregel** om du vill skapa aviseringen.
+12. Välj **skapa aviserings regel** för att skapa aviseringen.
 
-    Inom några minuter är aviseringen aktiv och utlöser som tidigare beskrivits.
+    Inom några minuter är aviseringen aktiv och utlösare enligt beskrivningen ovan.
 
 ### <a name="managing-alerts"></a>Hantera aviseringar
 
-När du har skapat en avisering kan du markera den och göra följande:
+När du har skapat en avisering kan du välja den och utföra följande åtgärder:
 
-* Visa ett diagram som visar tröskelvärdet för mått och de faktiska värdena från föregående dag som är relevanta för den här aviseringen.
-* **Redigera** eller **ta bort** varningsregeln.
-* **Inaktivera** eller **Aktivera** aviseringen om du tillfälligt vill stoppa eller återuppta mottagningsmeddelanden.
+* Visa ett diagram som visar mått tröskelvärdet och de faktiska värdena från föregående dag som är relevanta för den här aviseringen.
+* **Redigera** eller **ta bort** varnings regeln.
+* **Inaktivera** eller **Aktivera** aviseringen om du tillfälligt vill stoppa eller återuppta mottagning av meddelanden.
 
 ## <a name="suggested-alerts"></a>Föreslagna aviseringar
 
 ### <a name="disk-space"></a>Diskutrymme
 
-Övervakning och avisering är viktigt för varje distribution Hyperscale (Citus) servergrupp. Den underliggande PostgreSQL-databasen kräver ledigt diskutrymme för att fungera korrekt. Om disken blir full kopplas databasservernoden från och vägrar att starta förrän det finns ledigt. Då krävs en Microsoft-supportbegäran för att åtgärda situationen.
+Övervakning och avisering är viktigt för varje citus-servergrupp (productal Scale). Den underliggande PostgreSQL-databasen kräver ledigt disk utrymme för att fungera korrekt. Om disken blir full kopplas databasens servernod till offline och vägrar att starta tills utrymmet är tillgängligt. Vid detta tillfälle kräver det en support förfrågan från Microsoft för att åtgärda situationen.
 
-Vi rekommenderar att du ställer in diskutrymmesaviseringar på varje nod i varje servergrupp, även för icke-produktionsanvändning. Diskutrymmesanvändningsvarningar ger den förvarning som behövs för att ingripa och hålla noder felfria. Bäst resultat får du om du provar en serie aviseringar med 75 %, 85 % och 95 % användning. Hur många procent som ska väljas beror på datainmatningshastigheten, eftersom snabbt datainmatning fyller upp disken snabbare.
+Vi rekommenderar att du ställer in disk utrymmes aviseringar på varje nod i varje server grupp, även för användning utan produktion. Aviseringar om disk utrymmes användning ger den förvarning som krävs för att gå över och hålla noderna felfria. För bästa resultat kan du prova en serie aviseringar på 75%, 85% och 95% användning. Procent andelen som ska väljas beror på data inmatnings hastigheten, eftersom snabb data inmatning fyller upp disken snabbare.
 
-När disken närmar sig sin utrymmesgräns kan du prova dessa tekniker för att få mer ledigt utrymme:
+När disken närmar sig utrymmes gränsen kan du prova dessa tekniker för att få mer ledigt utrymme:
 
-* Granska datalagringsprincipen. Flytta äldre data till kyllagring om möjligt.
-* Överväg att lägga till [noder](howto-hyperscale-scaling.md#add-worker-nodes) i servergruppen och balansera om shards. Ombalansering distribuerar data över fler datorer.
-* Överväg [att öka kapaciteten för](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) arbetsnoder. Varje arbetare kan ha upp till 2 TiB lagringsutrymme. Men att lägga till noder bör göras innan du ändrar storlek på noder eftersom lägger till noder slutförs snabbare.
+* Granska princip för data bevarande. Flytta äldre data till kall lagring om det är möjligt.
+* Överväg att [lägga till noder](howto-hyperscale-scaling.md#add-worker-nodes) i Server gruppen och balansera om Shards. Ombalansering distribuerar data mellan flera datorer.
+* Överväg att [växa kapaciteten](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) för arbetsnoder. Varje arbets tagare kan ha upp till 2 TiB lagrings utrymme. Du bör dock försöka lägga till noder innan du ändrar storlek på noder eftersom det är snabbare att lägga till noder.
 
 ### <a name="cpu-usage"></a>CPU-användning
 
-Övervakning av CPU-användning är användbart för att upprätta en baslinje för prestanda. Du kanske till exempel märker att CPU-användningen vanligtvis är runt 40-60%. Om CPU-användningen plötsligt börjar sväva runt 95%, kan du känna igen en anomali. CPU-användningen kan återspegla organisk tillväxt, men det kan också avslöja en förlupen fråga. När du skapar en CPU-avisering ställer du in en lång aggregeringsgranularitet för att fånga långvariga ökningar och ignorera tillfälliga spikar.
+Övervakning av processor användning är användbart för att upprätta en bas linje för prestanda. Du kanske till exempel märker att CPU-användningen vanligt vis är cirka 40-60%. Om CPU-användningen plötsligt börjar Hovra runt 95% kan du identifiera en avvikelse. CPU-användningen kan återspegla ekologisk tillväxt, men kan också visa en lösa fråga. När du skapar en CPU-avisering kan du ange en lång agg regerings kornig het för att fånga långvariga ökningar och ignorera tillfälliga toppar.
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [hur du konfigurerar webhooks i aviseringar](../azure-monitor/platform/alerts-webhooks.md).
-* Få en [översikt över statistiksamlingen](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) för att se till att din tjänst är tillgänglig och svarar.
+* Läs mer om hur du [konfigurerar Webhooks i aviseringar](../azure-monitor/platform/alerts-webhooks.md).
+* Få en [Översikt över mått samlingen](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) för att se till att tjänsten är tillgänglig och svarar.

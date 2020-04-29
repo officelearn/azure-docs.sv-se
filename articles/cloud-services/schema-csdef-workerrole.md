@@ -1,6 +1,6 @@
 ---
-title: Def. WorkerRole-schema för Azure Cloud Services | Microsoft-dokument
-description: Azure-arbetarrollen används för allmän utveckling och kan utföra bakgrundsbearbetning för en webbroll. Lär dig mer om Azure-arbetsrollschemat.
+title: Azure Cloud Services Def. WorkerRole-schema | Microsoft Docs
+description: Azure Worker-rollen används för allmän utveckling och kan utföra bakgrunds bearbetning för en webbroll. Lär dig mer om Azure Worker Role-schemat.
 services: cloud-services
 ms.custom: ''
 ms.date: 04/14/2015
@@ -14,19 +14,19 @@ caps.latest.revision: 55
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: 26225442c72fb209bb1ac4cd2bf4777fb39542fb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79534379"
 ---
-# <a name="azure-cloud-services-definition-workerrole-schema"></a>Definition av Azure Cloud Services-schema för arbetsroll
-Azure-arbetarrollen är en roll som är användbar för allmän utveckling och som kan utföra bakgrundsbearbetning för en webbroll.
+# <a name="azure-cloud-services-definition-workerrole-schema"></a>WorkerRole-schema för Azure Cloud Services-definition
+Azure Worker-rollen är en roll som är användbar för generaliserad utveckling och som kan utföra bakgrunds bearbetning för en webbroll.
 
-Standardtillägget för tjänstdefinitionsfilen är .csdef.
+Standard tillägget för tjänst definitions filen är. csdef.
 
-## <a name="basic-service-definition-schema-for-a-worker-role"></a>Grundläggande tjänstdefinitionsschema för en arbetsroll.
-Det grundläggande formatet för tjänstdefinitionsfilen som innehåller en arbetarroll är följande.
+## <a name="basic-service-definition-schema-for-a-worker-role"></a>Grundläggande tjänst definitions schema för en arbets roll.
+Det grundläggande formatet för tjänst definitions filen som innehåller en arbets roll är följande.
 
 ```xml
 <ServiceDefinition …>
@@ -85,38 +85,38 @@ Det grundläggande formatet för tjänstdefinitionsfilen som innehåller en arbe
 </ServiceDefinition>
 ```
 
-## <a name="schema-elements"></a>Schemaelement
-Tjänstdefinitionsfilen innehåller dessa element, som beskrivs i detalj i efterföljande avsnitt i det här avsnittet:
+## <a name="schema-elements"></a>Schema element
+Tjänst definitions filen innehåller dessa element, som beskrivs i detalj i följande avsnitt i det här avsnittet:
 
-[WorkerRole (Arbetarrolle)](#WorkerRole)
+[WorkerRole](#WorkerRole)
 
-[Konfigurationsinställningar](#ConfigurationSettings)
+[ConfigurationSettings](#ConfigurationSettings)
 
 [Inställning](#Setting)
 
-[Lokala resurser](#LocalResources)
+[LocalResources](#LocalResources)
 
-[Localstorage](#LocalStorage)
+[LocalStorage](#LocalStorage)
 
 [Slutpunkter](#Endpoints)
 
 [InputEndpoint](#InputEndpoint)
 
-[InternEndpoint](#InternalEndpoint)
+[InternalEndpoint](#InternalEndpoint)
 
 [InstanceInputEndpoint](#InstanceInputEndpoint)
 
-[AllokeraPublicPortFrom](#AllocatePublicPortFrom)
+[AllocatePublicPortFrom](#AllocatePublicPortFrom)
 
-[FixedPort (fastport)](#FixedPort)
+[FixedPort](#FixedPort)
 
-[FixedPortRange (FastPortRange)](#FixedPortRange)
+[FixedPortRange](#FixedPortRange)
 
 [Certifikat](#Certificates)
 
-[Certifikat](#Certificate)
+[Certifikatmallens](#Certificate)
 
-[Import](#Imports)
+[Kina](#Imports)
 
 [Importera](#Import)
 
@@ -124,7 +124,7 @@ Tjänstdefinitionsfilen innehåller dessa element, som beskrivs i detalj i efter
 
 [Miljö](#Environment)
 
-[EntryPoint (På)](#EntryPoint)
+[EntryPoint](#EntryPoint)
 
 [NetFxEntryPoint](#NetFxEntryPoint)
 
@@ -132,292 +132,292 @@ Tjänstdefinitionsfilen innehåller dessa element, som beskrivs i detalj i efter
 
 [Variabel](#Variable)
 
-[RollInstanceVärde](#RoleInstanceValue)
+[RoleInstanceValue](#RoleInstanceValue)
 
 [Start](#Startup)
 
-[Aktivitet](#Task)
+[Uppgift](#Task)
 
 [Innehåll](#Contents)
 
 [Innehåll](#Content)
 
-[KällaKatalog](#SourceDirectory)
+[SourceDirectory](#SourceDirectory)
 
-##  <a name="workerrole"></a><a name="WorkerRole"></a>WorkerRole (Arbetarrolle)
-Elementet `WorkerRole` beskriver en roll som är användbar för allmän utveckling och kan utföra bakgrundsbearbetning för en webbroll. En tjänst kan innehålla noll eller fler arbetarroller.
+##  <a name="workerrole"></a><a name="WorkerRole"></a>WorkerRole
+- `WorkerRole` Elementet beskriver en roll som är användbar för generaliserad utveckling och kan utföra bakgrunds bearbetning för en webbroll. En tjänst kan innehålla noll eller flera arbets roller.
 
-I följande tabell beskrivs elementets `WorkerRole` attribut.
+I följande tabell beskrivs attributen för- `WorkerRole` elementet.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|namn|sträng|Krävs. Namnet på arbetarrollen. Rollens namn måste vara unikt.|
-|enableNativeCodeExecution enableNativeCodeExecution enableNativeCodeExecution enableN|boolean|Valfri. Standardvärdet är `true`; inbyggt kodkörning och fullständigt förtroende är aktiverade som standard. Ange det `false` här attributet för att inaktivera körning av inbyggd kod för arbetarrollen och använd Azure partiellt förtroende i stället.|
-|vmsize vmsize vmsize vms|sträng|Valfri. Ange det här värdet om du vill ändra storleken på den virtuella datorn som tilldelas den här rollen. Standardvärdet är `Small`. En lista över möjliga storlekar för virtuella datorer och deras attribut finns i [Storlekar för virtuella datorer för molntjänster](cloud-services-sizes-specs.md).|
+|name|sträng|Krävs. Namnet på arbets rollen. Rollens namn måste vara unikt.|
+|enableNativeCodeExecution|boolean|Valfritt. Standardvärdet är `true`; inbyggd kod körning och fullständigt förtroende är aktiverat som standard. Ange det här attributet `false` till om du vill inaktivera intern kod körning för arbets rollen och använda Azure partiellt förtroende i stället.|
+|vmsize|sträng|Valfritt. Ange det här värdet om du vill ändra storleken på den virtuella dator som har tilldelats den här rollen. Standardvärdet är `Small`. En lista över möjliga storlekar för virtuella datorer och deras attribut finns i [storlekar för virtuella datorer för Cloud Services](cloud-services-sizes-specs.md).|
 
-##  <a name="configurationsettings"></a><a name="ConfigurationSettings"></a>Konfigurationsinställningar
-Elementet `ConfigurationSettings` beskriver samlingen av konfigurationsinställningar för en arbetsroll. Det här elementet `Setting` är överordnat elementet.
+##  <a name="configurationsettings"></a><a name="ConfigurationSettings"></a>ConfigurationSettings
+- `ConfigurationSettings` Elementet beskriver samlingen av konfigurations inställningar för en arbets roll. Det här elementet är överordnat `Setting` elementet.
 
 ##  <a name="setting"></a><a name="Setting"></a>Inställningen
-Elementet `Setting` beskriver ett namn och värdepar som anger en konfigurationsinställning för en förekomst av en roll.
+`Setting` Elementet beskriver ett namn och ett värde-par som anger en konfigurations inställning för en instans av en roll.
 
-I följande tabell beskrivs elementets `Setting` attribut.
-
-| Attribut | Typ | Beskrivning |
-| --------- | ---- | ----------- |
-|namn|sträng|Krävs. Ett unikt namn för konfigurationsinställningen.|
-
-Konfigurationsinställningarna för en roll är namn- och värdepar som deklareras i tjänstdefinitionsfilen och som anges i tjänstkonfigurationsfilen.
-
-##  <a name="localresources"></a><a name="LocalResources"></a>Lokala resurser
-Elementet `LocalResources` beskriver insamlingen av lokala lagringsresurser för en arbetarroll. Det här elementet `LocalStorage` är överordnat elementet.
-
-##  <a name="localstorage"></a><a name="LocalStorage"></a>Localstorage
-Elementet `LocalStorage` identifierar en lokal lagringsresurs som tillhandahåller filsystemutrymme för tjänsten vid körning. En roll kan definiera noll eller fler lokala lagringsresurser.
-
-> [!NOTE]
->  Elementet `LocalStorage` kan visas som `WorkerRole` ett underordnat element för att stödja kompatibilitet med tidigare versioner av Azure SDK.
-
-I följande tabell beskrivs elementets `LocalStorage` attribut.
+I följande tabell beskrivs attributen för- `Setting` elementet.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|namn|sträng|Krävs. Ett unikt namn för den lokala butiken.|
-|cleanOnRoleRecycle|boolean|Valfri. Anger om det lokala arkivet ska rensas när rollen startas om. Standardvärdet `true`är .|
-|sizeInMb|int|Valfri. Den önskade mängden lagringsutrymme att allokera för det lokala arkivet, i MB. Om inget anges är standardlagringsutrymmet 100 MB. Den minsta mängden lagringsutrymme som kan tilldelas är 1 MB.<br /><br /> Den maximala storleken på de lokala resurserna beror på storleken på den virtuella datorn. Mer information finns i [Storlekar för virtuella datorer för molntjänster](cloud-services-sizes-specs.md).|
+|name|sträng|Krävs. Ett unikt namn för konfigurations inställningen.|
 
-Namnet på den katalog som allokerats till den lokala lagringsresursen motsvarar värdet som anges för namnattributet.
+Konfigurations inställningarna för en roll är namn-och värdepar som deklareras i tjänst definitions filen och anges i tjänst konfigurations filen.
 
-##  <a name="endpoints"></a><a name="Endpoints"></a>Slutpunkter
-Elementet `Endpoints` beskriver insamlingen av indata (externa), interna och instansindataslutpunkter för en roll. Det här elementet `InputEndpoint`är `InternalEndpoint`överordnat elementen , och `InstanceInputEndpoint` elementen.
+##  <a name="localresources"></a><a name="LocalResources"></a>LocalResources
+- `LocalResources` Elementet beskriver samlingen av lokala lagrings resurser för en arbets roll. Det här elementet är överordnat `LocalStorage` elementet.
 
-Indata och interna slutpunkter fördelas separat. En tjänst kan ha totalt 25 indata-, intern- och instansingslutpunkter som kan allokeras mellan de 25 roller som tillåts i en tjänst. Om du till exempel har 5 roller kan du allokera 5 indataslutpunkter per roll eller så kan du allokera 25 indataslutpunkter till en enda roll eller så kan du allokera 1 ingångsslutpunkt vardera till 25 roller.
+##  <a name="localstorage"></a><a name="LocalStorage"></a>LocalStorage
+`LocalStorage` Elementet identifierar en lokal lagrings resurs som tillhandahåller fil system utrymme för tjänsten vid körning. En roll kan definiera noll eller flera lokala lagrings resurser.
 
 > [!NOTE]
->  Varje distribuerad roll kräver en instans per roll. Standardetablering för en prenumeration är begränsad till 20 kärnor och är därför begränsad till 20 instanser av en roll. Om ditt program kräver fler instanser än vad som anges av standardetablering se [Fakturering, Prenumerationshantering och kvotstöd](https://azure.microsoft.com/support/options/) för mer information om hur du ökar din kvot.
+>  `LocalStorage` Elementet kan visas som underordnat `WorkerRole` elementet för att stödja kompatibilitet med tidigare versioner av Azure SDK.
+
+I följande tabell beskrivs attributen för- `LocalStorage` elementet.
+
+| Attribut | Typ | Beskrivning |
+| --------- | ---- | ----------- |
+|name|sträng|Krävs. Ett unikt namn för det lokala arkivet.|
+|cleanOnRoleRecycle|boolean|Valfritt. Anger om det lokala arkivet ska rensas när rollen startas om. Standardvärdet `true`är.|
+|Att sizeinmb|int|Valfritt. Den önskade mängden lagrings utrymme som ska allokeras för det lokala arkivet, i MB. Om inget värde anges är det allokerade standard lagrings utrymmet 100 MB. Den minsta mängd lagrings utrymme som kan allokeras är 1 MB.<br /><br /> Den maximala storleken på de lokala resurserna är beroende av storleken på den virtuella datorn. Mer information finns i [storlekar för virtuella datorer för Cloud Services](cloud-services-sizes-specs.md).|
+
+Namnet på den katalog som allokeras till den lokala lagrings resursen motsvarar det värde som anges för attributet name.
+
+##  <a name="endpoints"></a><a name="Endpoints"></a>Slut punkter
+- `Endpoints` Elementet beskriver insamlingen av indatamängds slut punkter (externt), interna och instans-ingångar för en roll. Det här elementet är överordnat `InputEndpoint`elementen `InternalEndpoint`, `InstanceInputEndpoint` och.
+
+Inmatade och interna slut punkter tilldelas separat. En tjänst kan ha totalt 25 slut punkter för indatatyper, interna och instans ingångar som kan allokeras mellan de 25 roller som tillåts i en tjänst. Om du till exempel har 5 roller kan du allokera 5 ingångs slut punkter per roll, eller så kan du allokera 25 ingångs slut punkter till en enda roll, eller så kan du allokera 1-ingångs slut punkt till 25 roller.
+
+> [!NOTE]
+>  Varje roll som distribueras kräver en instans per roll. Standard etableringen för en prenumeration är begränsad till 20 kärnor och är därför begränsad till 20 instanser av en roll. Om ditt program kräver fler instanser än vad som tillhandahålls av standard etableringen [, se fakturering, prenumerations hantering och kvot stöd](https://azure.microsoft.com/support/options/) för mer information om hur du ökar din kvot.
 
 ##  <a name="inputendpoint"></a><a name="InputEndpoint"></a>InputEndpoint
-Elementet `InputEndpoint` beskriver en extern slutpunkt till en arbetarroll.
+`InputEndpoint` Elementet beskriver en extern slut punkt för en arbets roll.
 
-Du kan definiera flera slutpunkter som är en kombination av HTTP-, HTTPS-, UDP- och TCP-slutpunkter. Du kan ange valfritt portnummer som du väljer för en indataslutpunkt, men portnumren som anges för varje roll i tjänsten måste vara unika. Om du till exempel anger att en roll använder port 80 för HTTP och port 443 för HTTPS kan du ange att en andra roll använder port 8080 för HTTP och port 8043 för HTTPS.
+Du kan definiera flera slut punkter som är en kombination av HTTP-, HTTPS-, UDP-och TCP-slutpunkter. Du kan ange vilket port nummer du väljer för en ingångs slut punkt, men port numren som anges för varje roll i tjänsten måste vara unika. Om du till exempel anger att en roll använder port 80 för HTTP och port 443 för HTTPS, kan du ange att en andra roll använder port 8080 för HTTP och port 8043 för HTTPS.
 
-I följande tabell beskrivs elementets `InputEndpoint` attribut.
-
-| Attribut | Typ | Beskrivning |
-| --------- | ---- | ----------- |
-|namn|sträng|Krävs. Ett unikt namn för den externa slutpunkten.|
-|Protokollet|sträng|Krävs. Transportprotokollet för den externa slutpunkten. För en arbetarroll är `HTTP` `HTTPS`möjliga `UDP`värden `TCP`, , eller .|
-|port|int|Krävs. Porten för den externa slutpunkten. Du kan ange valfritt portnummer som du väljer, men de portnummer som anges för varje roll i tjänsten måste vara unika.<br /><br /> Möjliga värden varierar mellan 1 och 65535, inklusive (Azure SDK version 1.7 eller senare).|
-|certifikat|sträng|Krävs för en HTTPS-slutpunkt. Namnet på ett certifikat `Certificate` som definieras av ett element.|
-|lokalPort|int|Valfri. Anger en port som används för interna anslutningar på slutpunkten. Attributet `localPort` mappar den externa porten på slutpunkten till en intern port på en roll. Detta är användbart i scenarier där en roll måste kommunicera med en intern komponent på en port som skiljer sig från den som exponeras externt.<br /><br /> Om inget anges `localPort` är värdet för samma `port` värde som attributet. Ange värdet `localPort` för att "*" för att automatiskt tilldela en oallokerad port som kan identifieras med hjälp av körnings-API:et.<br /><br /> Möjliga värden varierar mellan 1 och 65535, inklusive (Azure SDK version 1.7 eller senare).<br /><br /> Attributet `localPort` är endast tillgängligt med Azure SDK version 1.3 eller senare.|
-|ignoreraRoleInstanceStatus|boolean|Valfri. När värdet för det här `true`attributet är inställt på ignoreras statusen för en tjänst och slutpunkten tas inte bort av belastningsutjämnaren. Ange det `true` här värdet för felsökning av upptagna instanser av en tjänst. Standardvärdet är `false`. **Anm.:** En slutpunkt kan fortfarande ta emot trafik även när rollen inte är i ett färdigt tillstånd.|
-|loadBalancerProbe|sträng|Valfri. Namnet på belastningsutjämnaren som är associerad med ingångsslutpunkten. Mer information finns i [LoadBalancerProbe Schema](schema-csdef-loadbalancerprobe.md).|
-
-##  <a name="internalendpoint"></a><a name="InternalEndpoint"></a>InternEndpoint
-Elementet `InternalEndpoint` beskriver en intern slutpunkt till en arbetarroll. En intern slutpunkt är endast tillgänglig för andra rollinstanser som körs inom tjänsten. Den är inte tillgänglig för kunder utanför tjänsten. En arbetarroll kan ha upp till fem interna slutpunkter för HTTP, UDP eller TCP.
-
-I följande tabell beskrivs elementets `InternalEndpoint` attribut.
+I följande tabell beskrivs attributen för- `InputEndpoint` elementet.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|namn|sträng|Krävs. Ett unikt namn för den interna slutpunkten.|
-|Protokollet|sträng|Krävs. Transportprotokollet för den interna slutpunkten. Möjliga värden `HTTP` `TCP`är `UDP`, `ANY`, eller .<br /><br /> Ett värde `ANY` av anger att alla protokoll, alla portar tillåts.|
-|port|int|Valfri. Porten som används för interna belastningsbalanserade anslutningar på slutpunkten. En belastningsbalanserad slutpunkt använder två portar. Porten som används för den offentliga IP-adressen och porten som används på den privata IP-adressen. Vanligtvis är dessa är de inställda på samma, men du kan välja att använda olika portar.<br /><br /> Möjliga värden varierar mellan 1 och 65535, inklusive (Azure SDK version 1.7 eller senare).<br /><br /> Attributet `Port` är endast tillgängligt med Azure SDK version 1.3 eller senare.|
+|name|sträng|Krävs. Ett unikt namn för den externa slut punkten.|
+|protokollhanterare|sträng|Krävs. Transport protokollet för den externa slut punkten. `HTTP`För en arbets roll är möjliga värden, `HTTPS` `UDP`, eller. `TCP`|
+|port|int|Krävs. Porten för den externa slut punkten. Du kan ange vilket port nummer du vill, men port numren som anges för varje roll i tjänsten måste vara unika.<br /><br /> Möjliga värden är mellan 1 och 65535, inklusive (Azure SDK version 1,7 eller högre).|
+|certifikat|sträng|Krävs för en HTTPS-slutpunkt. Namnet på ett certifikat som definieras av ett `Certificate` -element.|
+|localPort|int|Valfritt. Anger en port som används för interna anslutningar på slut punkten. `localPort` Attributet mappar den externa porten på slut punkten till en intern port för en roll. Detta är användbart i scenarier där en roll måste kommunicera med en intern komponent på en annan port än den som exponeras externt.<br /><br /> Om detta inte anges är värdet för `localPort` samma som `port` attributet. Ange värdet `localPort` till "*" för att automatiskt tilldela en ej tilldelad port som kan upptäckas med körnings-API: et.<br /><br /> Möjliga värden är mellan 1 och 65535, inklusive (Azure SDK version 1,7 eller högre).<br /><br /> `localPort` Attributet är bara tillgängligt med Azure SDK version 1,3 eller senare.|
+|ignoreRoleInstanceStatus|boolean|Valfritt. När värdet för det här attributet är inställt på `true`, ignoreras statusen för en tjänst och slut punkten tas inte bort av belastningsutjämnaren. Ange det här värdet `true` som användbart för fel sökning av upptagna instanser av en tjänst. Standardvärdet är `false`. **Obs:** En slut punkt kan fortfarande ta emot trafik även när rollen inte är i ett klart tillstånd.|
+|loadBalancerProbe|sträng|Valfritt. Namnet på belastnings Utjämnings avsökningen som är associerad med slut punkten för indatakälla. Mer information finns i [LoadBalancerProbe-schema](schema-csdef-loadbalancerprobe.md).|
+
+##  <a name="internalendpoint"></a><a name="InternalEndpoint"></a>InternalEndpoint
+`InternalEndpoint` Elementet beskriver en intern slut punkt för en arbets roll. En intern slut punkt är endast tillgänglig för andra roll instanser som körs i tjänsten. den är inte tillgänglig för klienter utanför tjänsten. En arbets roll kan ha upp till fem interna HTTP-, UDP-eller TCP-slutpunkter.
+
+I följande tabell beskrivs attributen för- `InternalEndpoint` elementet.
+
+| Attribut | Typ | Beskrivning |
+| --------- | ---- | ----------- |
+|name|sträng|Krävs. Ett unikt namn för den interna slut punkten.|
+|protokollhanterare|sträng|Krävs. Transport protokollet för den interna slut punkten. Möjliga värden är `HTTP`, `TCP` `UDP`, eller `ANY`.<br /><br /> Värdet `ANY` anger att alla protokoll, vilken port som helst tillåts.|
+|port|int|Valfritt. Den port som används för interna belastningsutjämnade anslutningar på slut punkten. En belastningsutjämnad slut punkt använder två portar. Den port som används för den offentliga IP-adressen och porten som används på den privata IP-adressen. Dessa är vanligt vis inställda på samma, men du kan välja att använda olika portar.<br /><br /> Möjliga värden är mellan 1 och 65535, inklusive (Azure SDK version 1,7 eller högre).<br /><br /> `Port` Attributet är bara tillgängligt med Azure SDK version 1,3 eller senare.|
 
 ##  <a name="instanceinputendpoint"></a><a name="InstanceInputEndpoint"></a>InstanceInputEndpoint
-Elementet `InstanceInputEndpoint` beskriver en instansinmatningsslutpunkt till en arbetsroll. En instansinmatningsslutpunkt associeras med en specifik rollinstans med hjälp av portbefordring i belastningsutjämnaren. Varje instansindataslutpunkt mappas till en specifik port från en rad möjliga portar. Det här elementet `AllocatePublicPortFrom` är överordnat elementet.
+`InstanceInputEndpoint` Elementet beskriver en slut punkt för instans ineffekt till en arbets roll. En instans av indatamängden är associerad med en speciell roll instans med hjälp av vidarebefordran av port i belastningsutjämnaren. Varje instans av ingångs slut punkt mappas till en speciell port från ett antal möjliga portar. Det här elementet är överordnat `AllocatePublicPortFrom` elementet.
 
-Elementet `InstanceInputEndpoint` är endast tillgängligt med Azure SDK version 1.7 eller senare.
+`InstanceInputEndpoint` Elementet är bara tillgängligt med Azure SDK version 1,7 eller senare.
 
-I följande tabell beskrivs elementets `InstanceInputEndpoint` attribut.
-
-| Attribut | Typ | Beskrivning |
-| --------- | ---- | ----------- |
-|namn|sträng|Krävs. Ett unikt namn för slutpunkten.|
-|lokalPort|int|Krävs. Anger den interna port som alla rollinstanser ska lyssna på för att ta emot inkommande trafik som vidarebefordras från belastningsutjämnaren. Möjliga värden varierar mellan 1 och 65535, inklusive.|
-|Protokollet|sträng|Krävs. Transportprotokollet för den interna slutpunkten. Möjliga värden är `udp` eller `tcp`. Används `tcp` för http/https-baserad trafik.|
-
-##  <a name="allocatepublicportfrom"></a><a name="AllocatePublicPortFrom"></a>AllokeraPublicPortFrom
-Elementet `AllocatePublicPortFrom` beskriver det offentliga portintervall som kan användas av externa kunder för att komma åt varje instansinmatningsslutpunkt. Det offentliga (VIP)portnumret allokeras från det här intervallet och tilldelas varje enskild rollinstansslutpunkt under klientdistribution och uppdatering. Det här elementet `FixedPortRange` är överordnat elementet.
-
-Elementet `AllocatePublicPortFrom` är endast tillgängligt med Azure SDK version 1.7 eller senare.
-
-##  <a name="fixedport"></a><a name="FixedPort"></a>FixedPort (fastport)
-Elementet `FixedPort` anger porten för den interna slutpunkten, vilket möjliggör belastningsbalanserade anslutningar på slutpunkten.
-
-Elementet `FixedPort` är endast tillgängligt med Azure SDK version 1.3 eller senare.
-
-I följande tabell beskrivs elementets `FixedPort` attribut.
+I följande tabell beskrivs attributen för- `InstanceInputEndpoint` elementet.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|port|int|Krävs. Porten för den interna slutpunkten. Detta har samma effekt `FixedPortRange` som att ställa in min och max till samma port.<br /><br /> Möjliga värden varierar mellan 1 och 65535, inklusive (Azure SDK version 1.7 eller senare).|
+|name|sträng|Krävs. Ett unikt namn för slut punkten.|
+|localPort|int|Krävs. Anger den interna port som alla roll instanser kommer att lyssna på för att ta emot inkommande trafik som vidarebefordras från belastningsutjämnaren. Möjliga värden ligger mellan 1 och 65535.|
+|protokollhanterare|sträng|Krävs. Transport protokollet för den interna slut punkten. Möjliga värden är `udp` eller `tcp`. Används `tcp` för http/https-baserad trafik.|
 
-##  <a name="fixedportrange"></a><a name="FixedPortRange"></a>FixedPortRange (FastPortRange)
-`FixedPortRange` Elementet anger det portintervall som tilldelas den interna slutpunkten eller instansinmatningsslutpunkten och anger porten som används för belastningsbalanserade anslutningar på slutpunkten.
+##  <a name="allocatepublicportfrom"></a><a name="AllocatePublicPortFrom"></a>AllocatePublicPortFrom
+I `AllocatePublicPortFrom` elementet beskrivs det offentliga port intervall som kan användas av externa kunder för att få åtkomst till varje instans slut punkt för indatamängden. Det offentliga (VIP) port numret tilldelas från det här intervallet och tilldelas till varje enskild roll instans slut punkt under klient distribution och uppdatering. Det här elementet är överordnat `FixedPortRange` elementet.
+
+`AllocatePublicPortFrom` Elementet är bara tillgängligt med Azure SDK version 1,7 eller senare.
+
+##  <a name="fixedport"></a><a name="FixedPort"></a>FixedPort
+`FixedPort` Elementet anger porten för den interna slut punkten som aktiverar belastningsutjämnade anslutningar på slut punkten.
+
+`FixedPort` Elementet är bara tillgängligt med Azure SDK version 1,3 eller senare.
+
+I följande tabell beskrivs attributen för- `FixedPort` elementet.
+
+| Attribut | Typ | Beskrivning |
+| --------- | ---- | ----------- |
+|port|int|Krävs. Porten för den interna slut punkten. Detta har samma resultat som när du `FixedPortRange` ställer in min och Max på samma port.<br /><br /> Möjliga värden är mellan 1 och 65535, inklusive (Azure SDK version 1,7 eller högre).|
+
+##  <a name="fixedportrange"></a><a name="FixedPortRange"></a>FixedPortRange
+`FixedPortRange` Elementet anger det port intervall som är kopplat till den interna slut punkten eller instansens ingångs slut punkt och anger den port som används för belastningsutjämnade anslutningar på slut punkten.
 
 > [!NOTE]
->  Elementet `FixedPortRange` fungerar olika beroende på vilket element det finns. När `FixedPortRange` elementet finns `InternalEndpoint` i elementet öppnas alla portar på belastningsutjämnaren inom intervallet för attributen min och max för alla virtuella datorer som rollen körs på. När `FixedPortRange` elementet finns `InstanceInputEndpoint` i elementet öppnas bara en port inom intervallet för attributen min och max på varje virtuell dator som kör rollen.
+>  `FixedPortRange` Elementet fungerar på olika sätt beroende på vilket element det finns i. När `FixedPortRange` elementet är i `InternalEndpoint` elementet öppnas alla portar i belastningsutjämnaren inom intervallet för de minsta och högsta attributen för alla virtuella datorer som rollen körs på. När `FixedPortRange` elementet är i `InstanceInputEndpoint` elementet, öppnar det bara en port inom intervallet för de minsta och högsta attributen på varje virtuell dator som kör rollen.
 
-Elementet `FixedPortRange` är endast tillgängligt med Azure SDK version 1.3 eller senare.
+`FixedPortRange` Elementet är bara tillgängligt med Azure SDK version 1,3 eller senare.
 
-I följande tabell beskrivs elementets `FixedPortRange` attribut.
-
-| Attribut | Typ | Beskrivning |
-| --------- | ---- | ----------- |
-|min|int|Krävs. Minsta port i intervallet. Möjliga värden varierar mellan 1 och 65535, inklusive (Azure SDK version 1.7 eller senare).|
-|Max|sträng|Krävs. Den maximala porten i intervallet. Möjliga värden varierar mellan 1 och 65535, inklusive (Azure SDK version 1.7 eller senare).|
-
-##  <a name="certificates"></a><a name="Certificates"></a>Certifikat
-Elementet `Certificates` beskriver insamlingen av certifikat för en arbetarroll. Det här elementet `Certificate` är överordnat elementet. En roll kan ha valfritt antal associerade certifikat. Mer information om hur du använder certifikatelementet finns i [Ändra servicedefinitionsfilen med ett certifikat](cloud-services-configure-ssl-certificate-portal.md#step-2-modify-the-service-definition-and-configuration-files).
-
-##  <a name="certificate"></a><a name="Certificate"></a>Certifikat
-Elementet `Certificate` beskriver ett certifikat som är associerat med en arbetsroll.
-
-I följande tabell beskrivs elementets `Certificate` attribut.
+I följande tabell beskrivs attributen för- `FixedPortRange` elementet.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|namn|sträng|Krävs. Ett namn på det här certifikatet som används för att `InputEndpoint` referera till det när det är associerat med ett HTTPS-element.|
-|storeLocation|sträng|Krävs. Platsen för certifikatarkivet där certifikatet finns på den lokala datorn. Möjliga värden `CurrentUser` `LocalMachine`är och .|
-|storeName (storeName)|sträng|Krävs. Namnet på certifikatarkivet där certifikatet finns på den lokala datorn. Möjliga värden är de inbyggda `Root` `CA`butiksnamnen `TrustedPeople` `My` `TrustedPublisher`, `AuthRoot` `AddressBook`, `Trust`, `Disallowed`, , , , , , eller ett anpassat butiksnamn. Om ett anpassat butiksnamn anges skapas arkivet automatiskt.|
-|behörighetNivå|sträng|Valfri. Anger de åtkomstbehörigheter som ges till rollprocesserna. Om du bara vill att förhöjda processer ska `elevated` kunna komma åt den privata nyckeln anger du behörighet. `limitedOrElevated`behörigheten gör att alla rollprocesser kan komma åt den privata nyckeln. Möjliga värden är `limitedOrElevated` eller `elevated`. Standardvärdet är `limitedOrElevated`.|
+|min|int|Krävs. Den minsta porten i intervallet. Möjliga värden är mellan 1 och 65535, inklusive (Azure SDK version 1,7 eller högre).|
+|bekräftat|sträng|Krävs. Den maximala porten i intervallet. Möjliga värden är mellan 1 och 65535, inklusive (Azure SDK version 1,7 eller högre).|
 
-##  <a name="imports"></a><a name="Imports"></a>Import
-Elementet `Imports` beskriver en samling importmoduler för en arbetarroll som lägger till komponenter i gästoperativsystemet. Det här elementet `Import` är överordnat elementet. Det här elementet är valfritt och en roll kan bara ha ett körningsblock.
+##  <a name="certificates"></a><a name="Certificates"></a>Intyg
+- `Certificates` Elementet beskriver samlingen av certifikat för en arbets roll. Det här elementet är överordnat `Certificate` elementet. En roll kan ha valfritt antal associerade certifikat. Mer information om hur du använder certifikat elementet finns i [ändra tjänst definitions filen med ett certifikat](cloud-services-configure-ssl-certificate-portal.md#step-2-modify-the-service-definition-and-configuration-files).
 
-Elementet `Imports` är endast tillgängligt med Azure SDK version 1.3 eller senare.
+##  <a name="certificate"></a><a name="Certificate"></a>Certifikatmallens
+`Certificate` Elementet beskriver ett certifikat som är associerat med en arbets roll.
 
-##  <a name="import"></a><a name="Import"></a>Importera
-Elementet `Import` anger en modul som ska läggas till i gästoperativsystemet.
-
-Elementet `Import` är endast tillgängligt med Azure SDK version 1.3 eller senare.
-
-I följande tabell beskrivs elementets `Import` attribut.
+I följande tabell beskrivs attributen för- `Certificate` elementet.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|moduleName (modulNamn)|sträng|Krävs. Namnet på modulen som ska importeras. Giltiga importmoduler är:<br /><br /> - Fjärråtkomst<br />- RemoteForwarder<br />- Diagnostik<br /><br /> Med modulerna RemoteAccess och RemoteForwarder kan du konfigurera din rollinstans för fjärrskrivbordsanslutningar. Mer information finns i [Aktivera anslutning till fjärrskrivbord](cloud-services-role-enable-remote-desktop-new-portal.md).<br /><br /> Med diagnostikmodulen kan du samla in diagnostikdata för en rollinstans|
+|name|sträng|Krävs. Ett namn för det här certifikatet, som används för att referera till det när det är associerat med `InputEndpoint` ett https-element.|
+|storeLocation|sträng|Krävs. Platsen för det certifikat arkiv där det här certifikatet finns på den lokala datorn. Möjliga värden är `CurrentUser` och `LocalMachine`.|
+|storeName|sträng|Krävs. Namnet på det certifikat arkiv där det här certifikatet finns på den lokala datorn. Möjliga värden är de inbyggda lagrings `My`namnen, `Root` `CA` `Trust` `Disallowed` `TrustedPeople` `TrustedPublisher` `AuthRoot` `AddressBook`,,,,,,, eller namnet på ett anpassat arkiv. Om du anger ett namn på en anpassad butik skapas butiken automatiskt.|
+|permissionLevel|sträng|Valfritt. Anger de åtkomst behörigheter som tilldelas roll processerna. Om du bara vill att utökade processer ska kunna komma åt den privata nyckeln anger `elevated` du behörighet. `limitedOrElevated`behörighet tillåter alla roll processer att komma åt den privata nyckeln. Möjliga värden är `limitedOrElevated` eller `elevated`. Standardvärdet är `limitedOrElevated`.|
 
-##  <a name="runtime"></a><a name="Runtime"></a>Runtime
-Elementet `Runtime` beskriver en samling inställningar för miljövariabel för en arbetsroll som styr körningsmiljön för Azure-värdprocessen. Det här elementet `Environment` är överordnat elementet. Det här elementet är valfritt och en roll kan bara ha ett körningsblock.
+##  <a name="imports"></a><a name="Imports"></a>Kina
+`Imports` Elementet beskriver en samling importera moduler för en arbets roll som lägger till komponenter i gäst operativ systemet. Det här elementet är överordnat `Import` elementet. Det här elementet är valfritt och en roll kan bara ha ett körnings block.
 
-Elementet `Runtime` är endast tillgängligt med Azure SDK version 1.3 eller senare.
+`Imports` Elementet är bara tillgängligt med Azure SDK version 1,3 eller senare.
 
-I följande tabell beskrivs elementets `Runtime` attribut:
+##  <a name="import"></a><a name="Import"></a>Export
+`Import` Elementet anger en modul som ska läggas till i gäst operativ systemet.
+
+`Import` Elementet är bara tillgängligt med Azure SDK version 1,3 eller senare.
+
+I följande tabell beskrivs attributen för- `Import` elementet.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|körningKontext|sträng|Valfri. Anger i vilken kontext rollprocessen startas. Standardkontexten `limited`är .<br /><br /> -   `limited`– Processen startas utan administratörsbehörighet.<br />-   `elevated`– Processen startas med administratörsbehörighet.|
+|moduleName|sträng|Krävs. Namnet på den modul som ska importeras. Giltiga import moduler är:<br /><br /> -RemoteAccess<br />- RemoteForwarder<br />– Diagnostik<br /><br /> Med RemoteAccess-och RemoteForwarder-modulerna kan du konfigurera roll instansen för fjärr skrivbords anslutningar. Mer information finns i [aktivera anslutning till fjärrskrivbord](cloud-services-role-enable-remote-desktop-new-portal.md).<br /><br /> Med modulen diagnostik kan du samla in diagnostikdata för en roll instans|
+
+##  <a name="runtime"></a><a name="Runtime"></a>Flöde
+`Runtime` Elementet beskriver en samling miljö variabel inställningar för en arbets roll som styr körnings miljön för Azure-värd processen. Det här elementet är överordnat `Environment` elementet. Det här elementet är valfritt och en roll kan bara ha ett körnings block.
+
+`Runtime` Elementet är bara tillgängligt med Azure SDK version 1,3 eller senare.
+
+I följande tabell beskrivs attributen för- `Runtime` elementet:
+
+| Attribut | Typ | Beskrivning |
+| --------- | ---- | ----------- |
+|executionContext|sträng|Valfritt. Anger kontexten där roll processen startas. Standard kontexten är `limited`.<br /><br /> -   `limited`– Processen startas utan administratörs behörighet.<br />-   `elevated`– Processen startas med administratörs behörighet.|
 
 ##  <a name="environment"></a><a name="Environment"></a>Miljö
-Elementet `Environment` beskriver en samling inställningar för miljövariabel för en arbetsroll. Det här elementet `Variable` är överordnat elementet. En roll kan ha valfritt antal miljövariabler inställda.
+`Environment` Elementet beskriver en samling miljö variabel inställningar för en arbets roll. Det här elementet är överordnat `Variable` elementet. En roll kan ha valfritt antal miljövariabler inställda.
 
 ##  <a name="variable"></a><a name="Variable"></a>Variabel
-Elementet `Variable` anger en miljövariabel som ska anges i gästens verksamhet.
+`Variable` Elementet anger en miljö variabel som ska anges i gäst operativ systemet.
 
-Elementet `Variable` är endast tillgängligt med Azure SDK version 1.3 eller senare.
+`Variable` Elementet är bara tillgängligt med Azure SDK version 1,3 eller senare.
 
-I följande tabell beskrivs elementets `Variable` attribut:
-
-| Attribut | Typ | Beskrivning |
-| --------- | ---- | ----------- |
-|namn|sträng|Krävs. Namnet på den miljövariabel som ska anges.|
-|värde|sträng|Valfri. Det värde som ska anges för miljövariabeln. Du måste inkludera antingen ett `RoleInstanceValue` värdeattribut eller ett element.|
-
-##  <a name="roleinstancevalue"></a><a name="RoleInstanceValue"></a>RollInstanceVärde
-Elementet `RoleInstanceValue` anger den xPath som variabeln ska hämtas från.
-
-I följande tabell beskrivs elementets `RoleInstanceValue` attribut.
+I följande tabell beskrivs attributen för- `Variable` elementet:
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|Xpath|sträng|Valfri. Platssökväg för distributionsinställningar för instansen. Mer information finns i [Konfigurationsvariabler med XPath](cloud-services-role-config-xpath.md).<br /><br /> Du måste inkludera antingen ett `RoleInstanceValue` värdeattribut eller ett element.|
+|name|sträng|Krävs. Namnet på den miljö variabel som ska anges.|
+|värde|sträng|Valfritt. Värdet som ska anges för miljö variabeln. Du måste inkludera antingen ett Value-attribut eller `RoleInstanceValue` ett-element.|
 
-##  <a name="entrypoint"></a><a name="EntryPoint"></a>EntryPoint (På)
-Elementet `EntryPoint` anger startpunkten för en roll. Det här elementet `NetFxEntryPoint` är överordnat elementen. Med dessa element kan du ange ett annat program än standardinställningarna för WaWorkerHost.exe för att fungera som rollstartpunkt.
+##  <a name="roleinstancevalue"></a><a name="RoleInstanceValue"></a>RoleInstanceValue
+`RoleInstanceValue` Elementet anger den xPath som värdet för variabeln hämtas från.
 
-Elementet `EntryPoint` är endast tillgängligt med Azure SDK version 1.5 eller senare.
+I följande tabell beskrivs attributen för- `RoleInstanceValue` elementet.
+
+| Attribut | Typ | Beskrivning |
+| --------- | ---- | ----------- |
+|XPath|sträng|Valfritt. Sökväg för distributions inställningar för instansen. Mer information finns i [konfigurations variabler med XPath](cloud-services-role-config-xpath.md).<br /><br /> Du måste inkludera antingen ett Value-attribut eller `RoleInstanceValue` ett-element.|
+
+##  <a name="entrypoint"></a><a name="EntryPoint"></a>EntryPoint
+`EntryPoint` Elementet anger en Rolls start punkt. Det här elementet är överordnat `NetFxEntryPoint` elementen. Med dessa element kan du ange ett annat program än standard-WaWorkerHost. exe som ska fungera som roll start punkt.
+
+`EntryPoint` Elementet är bara tillgängligt med Azure SDK version 1,5 eller senare.
 
 ##  <a name="netfxentrypoint"></a><a name="NetFxEntryPoint"></a>NetFxEntryPoint
-Elementet `NetFxEntryPoint` anger vilket program som ska köras för en roll.
+`NetFxEntryPoint` Elementet anger vilket program som ska köras för en roll.
 
 > [!NOTE]
->  Elementet `NetFxEntryPoint` är endast tillgängligt med Azure SDK version 1.5 eller senare.
+>  `NetFxEntryPoint` Elementet är bara tillgängligt med Azure SDK version 1,5 eller senare.
 
-I följande tabell beskrivs elementets `NetFxEntryPoint` attribut.
+I följande tabell beskrivs attributen för- `NetFxEntryPoint` elementet.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|assemblyName (sammansättningsnamn)|sträng|Krävs. Sökvägen och filnamnet på sammansättningen som innehåller startpunkten. Sökvägen är relativ till mappen `commandLine` ** \\%ROLEROOT%\Approot** (ange ** \\inte %ROLEROOT%\Approot** i , antas det). **%ROLEROOT%** är en miljövariabel som underhålls av Azure och den representerar rotmappens plats för din roll. Mappen ** \\%ROLEROOT%\Approot** representerar programmappen för din roll.|
-|targetFrameworkVersion|sträng|Krävs. Den version av .NET-ramverket som sammansättningen byggdes på. Till exempel `targetFrameworkVersion="v4.0"`.|
+|assemblyName|sträng|Krävs. Sökväg och fil namn för sammansättningen som innehåller start punkten. Sökvägen är relativ i mappen ** \\%ROLEROOT%\Approot** (ange ** \\inte%ROLEROOT%\Approot** i `commandLine`, den antas). **% ROLEROOT%** är en miljö variabel som underhålls av Azure och den representerar rot katalogen för din roll. Mappen ** \\%ROLEROOT%\Approot** representerar programmappen för din roll.|
+|targetFrameworkVersion|sträng|Krävs. Den version av .NET Framework som sammansättningen skapats på. Till exempel `targetFrameworkVersion="v4.0"`.|
 
 ##  <a name="programentrypoint"></a><a name="ProgramEntryPoint"></a>ProgramEntryPoint
-Elementet `ProgramEntryPoint` anger vilket program som ska köras för en roll. Med `ProgramEntryPoint` elementet kan du ange en programstartpunkt som inte baseras på en .NET-sammansättning.
+`ProgramEntryPoint` Elementet anger vilket program som ska köras för en roll. Med `ProgramEntryPoint` -elementet kan du ange en program start punkt som inte baseras på en .net-sammansättning.
 
 > [!NOTE]
->  Elementet `ProgramEntryPoint` är endast tillgängligt med Azure SDK version 1.5 eller senare.
+>  `ProgramEntryPoint` Elementet är bara tillgängligt med Azure SDK version 1,5 eller senare.
 
-I följande tabell beskrivs elementets `ProgramEntryPoint` attribut.
+I följande tabell beskrivs attributen för- `ProgramEntryPoint` elementet.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|Kommandorad|sträng|Krävs. Sökvägen, filnamnet och eventuella kommandoradsargument i programmet som ska köras. Sökvägen är relativ till mappen **%ROLEROOT%\Approt** (ange inte **%ROLEROOT%\Approot** i commandLine antas det). **%ROLEROOT%** är en miljövariabel som underhålls av Azure och den representerar rotmappens plats för din roll. Mappen **%ROLEROOT%\Approot** representerar programmappen för din roll.<br /><br /> Om programmet avslutas återvinns rollen, så i allmänhet ställa in programmet att fortsätta att köras, i stället för att vara ett program som bara startar upp och kör en begränsad uppgift.|
-|setReadyOnProcessStart|boolean|Krävs. Anger om rollinstansen väntar på att kommandoradsprogrammet ska signalera att det startas. Det här värdet `true` måste anges till just nu. Ange värdet `false` till är reserverat för framtida bruk.|
+|Raden|sträng|Krävs. Sökvägen, fil namnet och alla kommando rads argument för programmet som ska köras. Sökvägen är relativ till mappen **%ROLEROOT%\Approot** (ange inte **%ROLEROOT%\Approot** i kommando raden, men den antas). **% ROLEROOT%** är en miljö variabel som underhålls av Azure och den representerar rot katalogen för din roll. Mappen **%ROLEROOT%\Approot** representerar programmappen för din roll.<br /><br /> Om programmet avslutas återvinns rollen, så normalt anger du att programmet ska fortsätta att köras, i stället för ett program som bara startar och kör en begränsad uppgift.|
+|setReadyOnProcessStart|boolean|Krävs. Anger om roll instansen ska vänta på kommando rads programmet för att signalera att den har startats. Värdet måste anges till för `true` tillfället. Att ställa in värdet `false` på är reserverat för framtida användning.|
 
-##  <a name="startup"></a><a name="Startup"></a>Start
-Elementet `Startup` beskriver en samling aktiviteter som körs när rollen startas. Det här elementet kan `Variable` vara överordnat elementet. Mer information om hur du använder rollstartuppgifterna finns i [Så här konfigurerar du startuppgifter](cloud-services-startup-tasks.md). Det här elementet är valfritt och en roll kan bara ha ett startblock.
+##  <a name="startup"></a><a name="Startup"></a>Startade
+`Startup` Elementet beskriver en samling uppgifter som körs när rollen startas. Det här elementet kan vara överordnat `Variable` elementet. Mer information om hur du använder roll start åtgärder finns i [så här konfigurerar du Start åtgärder](cloud-services-startup-tasks.md). Det här elementet är valfritt och en roll kan bara ha ett start block.
 
-I följande tabell beskrivs `Startup` elementets attribut.
+I följande tabell beskrivs attribut för- `Startup` elementet.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
 |prioritet|int|Endast för internt bruk.|
 
 ##  <a name="task"></a><a name="Task"></a>Uppgift
-Elementet `Task` anger startaktivitet som äger rum när rollen startar. Startuppgifter kan användas för att utföra uppgifter som förbereder rollen för att köra sådana installationsprogramkomponenter eller köra andra program. Uppgifter körs i den ordning de `Startup` visas i elementblocket.
+`Task` Elementet anger start aktivitet som äger rum när rollen startas. Start uppgifter kan användas för att utföra uppgifter som förbereder rollen för att köra sådana installations program komponenter eller köra andra program. Aktiviteter körs i den ordning som de visas i `Startup` element blocket.
 
-Elementet `Task` är endast tillgängligt med Azure SDK version 1.3 eller senare.
+`Task` Elementet är bara tillgängligt med Azure SDK version 1,3 eller senare.
 
-I följande tabell beskrivs elementets `Task` attribut.
+I följande tabell beskrivs attributen för- `Task` elementet.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|Kommandorad|sträng|Krävs. Ett skript, till exempel en CMD-fil, som innehåller de kommandon som ska köras. Startkommandot och batchfilerna måste sparas i ANSI-format. Filformat som anger en byte-order markör i början av filen kommer inte att bearbetas korrekt.|
-|körningKontext|sträng|Anger i vilken kontext skriptet körs.<br /><br /> -   `limited`[Standard] – Kör med samma privilegier som rollen som värd för processen.<br />-   `elevated`– Kör med administratörsbehörighet.|
-|taskType (aktivitetstyp)|sträng|Anger kommandots körningsbeteende.<br /><br /> -   `simple`[Standard] – Systemet väntar på att aktiviteten ska avslutas innan andra aktiviteter startas.<br />-   `background`– Systemet väntar inte på att aktiviteten ska avslutas.<br />-   `foreground`– Liknar bakgrunden, förutom att rollen inte startas om förrän alla förgrundsuppgifter har avslutats.|
+|Raden|sträng|Krävs. Ett skript, till exempel en CMD-fil, som innehåller de kommandon som ska köras. Start kommando och kommandofiler måste sparas i ANSI-format. Fil format som anger en byte-ordning markör vid början av filen kommer inte att bearbetas korrekt.|
+|executionContext|sträng|Anger kontexten som skriptet körs i.<br /><br /> -   `limited`[Standard] – kör med samma behörigheter som den roll som är värd för processen.<br />-   `elevated`– Kör med administratörs behörighet.|
+|taskType|sträng|Anger kommandots körnings beteende.<br /><br /> -   `simple`[Standard] – systemet väntar på att aktiviteten avslutas innan andra aktiviteter startas.<br />-   `background`– Systemet väntar inte på att aktiviteten ska avslutas.<br />-   `foreground`– Påminner om bakgrunden, förutom att rollen inte startas om förrän alla förgrunds uppgifter avslutas.|
 
-##  <a name="contents"></a><a name="Contents"></a>Innehållet
-Elementet `Contents` beskriver insamlingen av innehåll för en arbetarroll. Det här elementet `Content` är överordnat elementet.
+##  <a name="contents"></a><a name="Contents"></a>Innehåller
+`Contents` Elementet beskriver samlingen av innehåll för en arbets roll. Det här elementet är överordnat `Content` elementet.
 
-Elementet `Contents` är endast tillgängligt med Azure SDK version 1.5 eller senare.
+`Contents` Elementet är bara tillgängligt med Azure SDK version 1,5 eller senare.
 
 ##  <a name="content"></a><a name="Content"></a>Innehåll
-Elementet `Content` definierar källplatsen för innehåll som ska kopieras till den virtuella Azure-datorn och målsökvägen som den kopieras till.
+`Content` Elementet definierar käll platsen för det innehåll som ska kopieras till den virtuella Azure-datorn och mål Sök vägen som den kopieras till.
 
-Elementet `Content` är endast tillgängligt med Azure SDK version 1.5 eller senare.
+`Content` Elementet är bara tillgängligt med Azure SDK version 1,5 eller senare.
 
-I följande tabell beskrivs elementets `Content` attribut.
+I följande tabell beskrivs attributen för- `Content` elementet.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|mål|sträng|Krävs. Plats på den virtuella Azure-datorn som innehållet är placerat på. Den här platsen är relativ till mappen **%ROLEROOT%\Approot**.|
+|mål|sträng|Krävs. Plats på den virtuella Azure-dator som innehållet placeras på. Den här platsen är relativ till mappen **%ROLEROOT%\Approot**.|
 
 Det här elementet är `SourceDirectory` elementets överordnade element.
 
-##  <a name="sourcedirectory"></a><a name="SourceDirectory"></a>KällaKatalog
-Elementet `SourceDirectory` definierar den lokala katalog från vilken innehåll kopieras. Använd det här elementet för att ange det lokala innehållet som ska kopieras till den virtuella Azure-datorn.
+##  <a name="sourcedirectory"></a><a name="SourceDirectory"></a>SourceDirectory
+`SourceDirectory` Elementet definierar den lokala katalogen som innehållet kopieras från. Använd det här elementet för att ange det lokala innehåll som ska kopieras till den virtuella Azure-datorn.
 
-Elementet `SourceDirectory` är endast tillgängligt med Azure SDK version 1.5 eller senare.
+`SourceDirectory` Elementet är bara tillgängligt med Azure SDK version 1,5 eller senare.
 
-I följande tabell beskrivs elementets `SourceDirectory` attribut.
+I följande tabell beskrivs attributen för- `SourceDirectory` elementet.
 
 | Attribut | Typ | Beskrivning |
 | --------- | ---- | ----------- |
-|path|sträng|Krävs. Relativ eller absolut sökväg till en lokal katalog vars innehåll kommer att kopieras till den virtuella Azure-datorn. Det stöds expansion av miljövariabler i katalogsökvägen.|
+|path|sträng|Krävs. Relativ eller absolut sökväg till en lokal katalog vars innehåll ska kopieras till den virtuella Azure-datorn. Det finns stöd för att utöka miljövariabler i katalog Sök vägen.|
 
 ## <a name="see-also"></a>Se även
-[Molntjänst (klassiskt) definitionsschema](schema-csdef-file.md)
+[Definitions schema för moln tjänst (klassisk)](schema-csdef-file.md)
 
 
 

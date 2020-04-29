@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Media Video Thumbnails för att skapa en videoupptummering | Microsoft-dokument
-description: Videosummering kan hjälpa dig att skapa sammanfattningar av långa videor genom att automatiskt välja intressanta utdrag från källvideon. Detta är användbart när du vill ge en snabb översikt över vad som väntar i en lång video.
+title: Använd Azure Media Video Thumbnails för att skapa en video Sammanfattning | Microsoft Docs
+description: Video sammanfattningen kan hjälpa dig att skapa sammanfattningar av långa videor genom att automatiskt välja intressanta kodfragment från käll videon. Detta är användbart när du vill ge en snabb översikt över vad som förväntas i en lång video.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -16,40 +16,40 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
 ms.openlocfilehash: a79e718c04f81b1552d63ab98b6dcd6bb428fb50
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77918345"
 ---
-# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Använda Azure Media Video Thumbnails för att skapa en videoupptummering  
+# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Använd Azure Media Video Thumbnails för att skapa en video Sammanfattning  
 
 > [!NOTE]
-> Medieprocessorn för **Azure Media Video Thumbnails** dras tillbaka. För återgivningsdatumet finns i avsnittet [äldre komponenter.](legacy-components.md)
+> **Azure Media Video thumbnails** medie processorn kommer att dras tillbaka. Information om återställnings datumet finns i avsnittet [äldre komponenter](legacy-components.md) .
 
 ## <a name="overview"></a>Översikt
 
-**Med Media Video-processorn (MP)** kan du skapa en sammanfattning av en video som är användbar för kunder som bara vill förhandsgranska en sammanfattning av en lång video. Kunderna kanske till exempel vill se en kort "sammanfattningsvideo" när de hovrar över en miniatyrbild. Genom att justera parametrarna för **Azure Media Video Thumbnails** genom en konfigurationsförinställning kan du använda MP:s kraftfulla bildidentifierings- och sammanfogningsteknik för att algoritmiskt generera ett beskrivande underflöde.  
+Med **Azure Media Video thumbnails** Media processor (MP) kan du skapa en sammanfattning av en video som är användbar för kunder som bara vill förhandsgranska en sammanfattning av en lång video. Kunder kan till exempel vilja se en kort "sammanfattnings video" när de hovrar över en miniatyr bild. Genom att ändra parametrarna för **Azure Media Video thumbnails** via en konfigurations för inställning kan du använda MP: s kraftfulla bild identifierings-och kombinations teknik för att algorithmically generera ett beskrivande under klipp.  
 
-**Azure Media Video Thumbnail** MP är för närvarande i förhandsversion.
+**Azure Media Video thumbnail** MP är för närvarande en för hands version.
 
-Den här artikeln innehåller information om **Azure Media Video Thumbnail** och visar hur du använder den med Media Services SDK för .NET.
+Den här artikeln innehåller information om **miniatyr av Azure Media Video** och visar hur du använder den med Media Services SDK för .net.
 
 ## <a name="limitations"></a>Begränsningar
 
-I vissa fall, om din video inte består av olika scener, kommer utdata bara vara en enda bild.
+I vissa fall, om videon inte består av olika scener, kommer utdata bara att vara en enda bild.
 
-## <a name="video-summary-example"></a>Exempel på videosammanfattning
-Här är några exempel på vad medieprocessorn för Azure Media Video Thumbnails kan göra:
+## <a name="video-summary-example"></a>Video sammanfattnings exempel
+Här följer några exempel på vad Azure Media Video Thumbnails medie processorn kan göra:
 
 ### <a name="original-video"></a>Original video
 [Original video](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
 
-### <a name="video-thumbnail-result"></a>Resultat av miniatyrer av video
-[Resultat av miniatyrer av video](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+### <a name="video-thumbnail-result"></a>Video miniatyr resultat
+[Video miniatyr resultat](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
-## <a name="task-configuration-preset"></a>Aktivitetskonfiguration (förinställd)
-När du skapar en videominiatyruppgift med **Azure Media Video Thumbnails**måste du ange en konfigurationsförinställning. Miniatyrexemplet ovan skapades med följande grundläggande JSON-konfiguration:
+## <a name="task-configuration-preset"></a>Uppgifts konfiguration (förval)
+När du skapar en video miniatyr uppgift med **Azure Media Video thumbnails**måste du ange en konfigurations för inställning. Ovanstående miniatyr exempel skapades med följande grundläggande JSON-konfiguration:
 
 ```json
     {
@@ -61,16 +61,16 @@ För närvarande kan du ändra följande parametrar:
 
 | Param | Beskrivning |
 | --- | --- |
-| outputAudio |Anger om den resulterande videon innehåller ljud eller inte. <br/>Tillåtna värden är: Sant eller Falskt. Standard är Sant. |
-| fadeInFadeOut |Anger om toningsövergångar används mellan de separata rörelseminiatyrerna eller inte.  <br/>Tillåtna värden är: Sant eller Falskt.  Standard är Sant. |
-| maxMotionThumbnailDurationInSecs |Heltal som anger hur länge hela den resulterande videon ska vara.  Standard beror på den ursprungliga videons längd. |
+| outputAudio |Anger om den resulterande videon innehåller ett ljud. <br/>Tillåtna värden är: true eller false. Standardvärdet är true. |
+| fadeInFadeOut |Anger om över gångar ska användas mellan de separata rörelse miniatyrerna.  <br/>Tillåtna värden är: true eller false.  Standardvärdet är true. |
+| maxMotionThumbnailDurationInSecs |Heltal som anger hur länge hela den resulterande videon ska vara.  Standardvärdet beror på ursprunglig video varaktighet. |
 
-I följande tabell beskrivs standardvaraktigheten när **maxMotionThumbnailInSecs** inte används.
+I följande tabell beskrivs standard varaktigheten när **maxMotionThumbnailInSecs** inte används.
 
 |  |  |  |
 | --- | --- | --- |
-| Videons längd |d < 3 min |3 min < d < 15 min |
-| Miniatyrens längd |15 sek (2-3 scener) |30 sek (3-5 scener) |
+| Video varaktighet |d < 3 min |3 min < d < 15 min |
+| Miniatyrens varaktighet |15 SEK (2-3 scener) |30 sekunder (3-5 scener) |
 
 Följande JSON anger tillgängliga parametrar.
 
@@ -85,12 +85,12 @@ Följande JSON anger tillgängliga parametrar.
     }
 ```
 
-## <a name="net-sample-code"></a>EXEMPELkod för .NET
+## <a name="net-sample-code"></a>.NET-exempel kod
 
 Följande program visar hur du:
 
-1. Skapa en tillgång och ladda upp en mediefil till tillgången.
-2. Skapar ett jobb med en videominiatyruppgift baserat på en konfigurationsfil som innehåller följande json-förinställning: 
+1. Skapa en till gång och överför en mediefil till till gången.
+2. Skapar ett jobb med en video miniatyr uppgift som baseras på en konfigurations fil som innehåller följande JSON-förval: 
     
     ```json
             {                
@@ -103,11 +103,11 @@ Följande program visar hur du:
             }
     ```
 
-3. Hämtar utdatafilerna. 
+3. Laddar ned utdatafilerna. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
-Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation enligt beskrivningen i [Media Services-utvecklingen med .NET](media-services-dotnet-how-to-use.md). 
+Konfigurera utvecklings miljön och fyll i filen app. config med anslutnings information, enligt beskrivningen i [Media Services utveckling med .net](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exempel
 
@@ -281,8 +281,8 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
     }
 ```
 
-### <a name="video-thumbnail-output"></a>Utdata för videominiatyrer
-[Utdata för videominiatyrer](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+### <a name="video-thumbnail-output"></a>Video miniatyrer, utdata
+[Video miniatyrer, utdata](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -293,5 +293,5 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 ## <a name="related-links"></a>Relaterade länkar
 [Översikt över Azure Media Services Analytics](media-services-analytics-overview.md)
 
-[Demos för Azure Media Analytics](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure-medieanalys demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

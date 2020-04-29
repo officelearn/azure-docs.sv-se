@@ -1,7 +1,7 @@
 ---
-title: Anpassa en personmodell med API för videoindexerare
+title: Anpassa en person modell med Video Indexer API
 titleSuffix: Azure Media Services
-description: Läs om hur du anpassar en personmodell med API:et för videoindexerare.
+description: Lär dig hur du anpassar en person modell med Video Indexer API.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -11,33 +11,33 @@ ms.topic: article
 ms.date: 01/14/2020
 ms.author: anzaman
 ms.openlocfilehash: fa41fca7f8ad96cf507aa6f04059b1254c8c3961
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80127896"
 ---
-# <a name="customize-a-person-model-with-the-video-indexer-api"></a>Anpassa en personmodell med API:et för videoindexerare
+# <a name="customize-a-person-model-with-the-video-indexer-api"></a>Anpassa en person modell med Video Indexer API
 
-Video Indexer stöder ansiktsigenkänning och kändisigenkänning för videoinnehåll. Funktionen kändisigenkänning täcker cirka en miljon ansikten baserat på vanliga datakällor som IMDB, Wikipedia och de främsta LinkedIn-influencers. Ansikten som inte känns igen av funktionen kändisigenkänning identifieras men lämnas namnlösa. När du har laddat upp videon till Video Indexer och fått resultat tillbaka kan du gå tillbaka och namnge ansiktena som inte kändes igen. När du har märkt ett ansikte med ett namn läggs ansiktet och namnet till i kontots personmodell. Video Indexer kommer då att känna igen detta ansikte i dina framtida videor och tidigare videor.
+Video Indexer stöder ansikts igenkänning och kändis igenkänning för video innehåll. Kändis igenkännings funktionen täcker cirka 1 000 000 ansikten baserat på den begärda data källan, till exempel IMDB-, Wikipedia-och Top LinkedIn-påverkan. Ansikten som inte känns igen av kändis igenkännings funktionen har identifierats men lämnats utan namn. När du har laddat upp videon till Video Indexer och fått tillbaka resultatet kan du gå tillbaka och namnge de ansikten som inte kändes igen. När du har namngett ett ansikte med ett namn läggs ansikte och namn till i kontots person modell. Video Indexer kommer sedan att identifiera den här ytan i dina kommande videor och tidigare videor.
 
-Du kan använda API:et för videoindexer för att redigera ansikten som har identifierats i en video, enligt beskrivningen i det här avsnittet. Du kan också använda webbplatsen Video Indexer, enligt beskrivningen i [Modellen Anpassa person med hjälp av webbplatsen Video Indexer](customize-person-model-with-api.md).
+Du kan använda Video Indexer API för att redigera ansikten som upptäcktes i en video, enligt beskrivningen i det här avsnittet. Du kan också använda Video Indexer webbplats, som beskrivs i [Anpassa person modellen med hjälp av video Indexer webbplats](customize-person-model-with-api.md).
 
-## <a name="managing-multiple-person-models"></a>Hantera modeller med flera personer
+## <a name="managing-multiple-person-models"></a>Hantera flera person modeller
 
-Video Indexer stöder flera personmodeller per konto. Den här funktionen är för närvarande endast tillgänglig via videoindexerings-API:erna.
+Video Indexer stöder flera person modeller per konto. Den här funktionen är för närvarande endast tillgänglig via Video Indexer API: er.
 
-Om ditt konto tillgodoser olika användningsfallsscenarier kanske du vill skapa flera personmodeller per konto. Om ditt innehåll till exempel är relaterat till sport kan du skapa en separat personmodell för varje sport (fotboll, basket, fotboll och så vidare).
+Om ditt konto tillgodoser olika användnings fall kan du vilja skapa flera person modeller per konto. Om ditt innehåll till exempel är relaterat till idrotts kan du skapa en separat person modell för varje sport (fotboll, basket boll, fotboll osv.).
 
-När en modell har skapats kan du använda den genom att ange modell-ID för en viss personmodell när du laddar upp/indexerar eller indexerar om en video. Utbildning ett nytt ansikte för en video uppdaterar den specifika anpassade modellen som videon var associerad med.
+När en modell har skapats kan du använda den genom att ange modell-ID: t för en speciell person modell vid överföring/indexering eller Omindexering av en video. Träna en ny ansikte för en video uppdaterar den speciella anpassade modell som videon var kopplad till.
 
-Varje konto har en gräns på 50 personmodeller. Om du inte behöver stöd för modellen med flera personer ska du inte tilldela ett personmodell-ID till videon när du laddar upp/indexerar eller indexerar om. I det här fallet använder Video Indexer standardmodellen för anpassad person i ditt konto.
+Varje konto har en gräns på 50 person modeller. Om du inte behöver stöd för flera person modeller ska du inte tilldela ett ID för person modeller till videon vid överföring/indexering eller Omindexering. I det här fallet använder Video Indexer standard modellen för anpassade personer i ditt konto.
 
-## <a name="create-a-new-person-model"></a>Skapa en ny personmodell
+## <a name="create-a-new-person-model"></a>Skapa en ny person modell
 
-Om du vill skapa en ny personmodell i det angivna kontot använder du API:et [för att skapa en personmodell.](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?)
+Om du vill skapa en ny person modell i det angivna kontot använder du [skapa en person modell](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?) -API.
 
-Svaret innehåller namnet och genererat modell-ID för den personmodell som du just skapade efter formatet i exemplet nedan.
+Svaret innehåller namnet och det genererade modell-ID: t för den person modell som du nyss skapade enligt formatet i exemplet nedan.
 
 ```json
 {
@@ -46,21 +46,21 @@ Svaret innehåller namnet och genererat modell-ID för den personmodell som du j
 }
 ```
 
-Du använder sedan **id-värdet** för parametern **personModelId** när [du laddar upp en video för att indexera](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) eller [indexera om en video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+Du använder sedan **ID-** värdet för parametern **personModelId** när du [laddar upp en video för att indexera](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) eller [Indexera om en video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
 
-## <a name="delete-a-person-model"></a>Ta bort en personmodell
+## <a name="delete-a-person-model"></a>Ta bort en person modell
 
-Om du vill ta bort en anpassad personmodell från det angivna kontot använder du [api:et för en personmodell.](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?)
+Om du vill ta bort en anpassad person modell från det angivna kontot använder du [ta bort en person modell](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?) -API.
 
-När personmodellen har tagits bort kommer indexet för dina aktuella videor som använde den borttagna modellen att vara oförändrat tills du indexerar om dem. När du indexerar om identifieras inte ansiktena som har namngetts i den borttagna modellen av Video Indexer i dina aktuella videor som indexerades med den modellen, men ansiktena identifieras fortfarande. Dina aktuella videor som indexerades med den borttagna modellen använder nu kontots standardmodell person. Om ansikten från den borttagna modellen också namnges i kontots standardmodell fortsätter dessa ansikten att kännas igen i videorna.
+När person modellen har tagits bort förblir indexet för dina aktuella videor som använde den borttagna modellen oförändrade tills du indexerar om dem. Vid Omindexering identifieras inte de ansikten som beskrevs i den borttagna modellen av Video Indexer i dina aktuella videor som indexerats med modellen, men ansikten kommer fortfarande att identifieras. Dina aktuella videor som indexeras med den borttagna modellen använder nu ditt kontos standard person modell. Om ansikten från den borttagna modellen också är namngivna i ditt kontos standard modell, kommer dessa ansikten att fortsätta att kännas igen i videor.
 
-Det finns inget returnerat innehåll när personmodellen tas bort.
+Det finns inget returnerat innehåll när person modellen har tagits bort.
 
-## <a name="get-all-person-models"></a>Hämta alla Person-modeller
+## <a name="get-all-person-models"></a>Hämta alla person modeller
 
-Om du vill hämta alla personmodeller i det angivna kontot använder du api:et [för att hämta en personmodell.](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?)
+Om du vill hämta alla person modeller på det angivna kontot använder du [Hämta en person modell](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?) -API.
 
-Svaret innehåller en lista över alla personmodeller i ditt konto (inklusive standardmodellen person i det angivna kontot) och var och en av deras namn och ID:er som följer formatet för exemplet nedan.
+Svaret innehåller en lista över alla person modeller i ditt konto (inklusive standard person modellen i det angivna kontot) och var och en av deras namn och ID: n efter formatet i exemplet nedan.
 
 ```json
 [
@@ -75,20 +75,20 @@ Svaret innehåller en lista över alla personmodeller i ditt konto (inklusive st
 ]
 ```
 
-Du kan välja vilken modell du vill använda `id` för en video `personModelId` genom att använda värdet för personmodellen för parametern när [du laddar upp en video för att indexera](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) eller [indexera om en video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+Du kan välja vilken modell du vill använda för en video `id` genom att använda värdet för person modellen för `personModelId` parametern när [du laddar upp en video för att indexera](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) eller indexera om [en video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
 
 ## <a name="update-a-face"></a>Uppdatera ett ansikte
 
-Med det här kommandot kan du uppdatera ett ansikte i videon med ett namn med hjälp av ID:n för videon och id:t i ansiktet. Den här åtgärden uppdaterar sedan personmodellen som videon var kopplad till vid uppladdning/indexering eller omindexering. Om ingen personmodell har tilldelats uppdateras kontots standardmodell person.
+Med det här kommandot kan du uppdatera en ansikte i videon med ett namn med ID: t för videon och ID: t för FACET. Den här åtgärden uppdaterar sedan den person modell som videon var kopplad till vid uppladdning/indexering eller Omindexering. Om ingen person modell har tilldelats, uppdaterar den kontots standard person modell.
 
-Systemet känner sedan igen förekomsterna av samma ansikte i dina andra aktuella videor som delar samma personmodell. Det kan ta lite tid att få effekt när det här är en batchprocess.
+Systemet identifierar sedan förekomsterna av samma ansikte i dina andra aktuella videor som delar samma person modell. Det kan ta lite tid att identifiera ansikte i dina andra aktuella videor eftersom det är en batch-process.
 
-Du kan uppdatera ett ansikte som Video Indexer känns igen som en kändis med ett nytt namn. Det nya namnet som du ger kommer att ha företräde framför den inbyggda kändis erkännande.
+Du kan uppdatera en ansikte som Video Indexer identifieras som en kändis med ett nytt namn. Det nya namnet som du ger företräde framför den inbyggda kändis-igenkänningen.
 
-Om du vill uppdatera ansiktet använder du [uppdateringen av ett videoface API.](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?)
+Om du vill uppdatera FACET använder du [Uppdatera ett video ansikts](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?) -API.
 
-Namn är unika för personmodeller, så om du ger två `name` olika ansikten i samma personmodell samma parametervärde, visar Video Indexer ansiktena som samma person och konvergerar dem när du indexerar om videon.
+Namnen är unika för person modeller, så om du ger två olika ansikten i samma person modell samma `name` parameter värde video Indexer Visa ansikten som samma person och konvergerar dem när du har indexerat om videon.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Anpassa personmodell med videoindexerarens webbplats](customize-person-model-with-website.md)
+[Anpassa person modellen med hjälp av Video Indexer webbplats](customize-person-model-with-website.md)

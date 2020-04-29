@@ -1,21 +1,21 @@
 ---
-title: Azure Stream Analytics JobConfig.json fält
-description: I den här artikeln visas de fält som stöds för filen Azure Stream Analytics JobConfig.json som används för att skapa jobb i Visual Studio-kod.
+title: Azure Stream Analytics JobConfig. JSON-fält
+description: Den här artikeln innehåller de fält som stöds för den Azure Stream Analytics JobConfig. JSON-fil som används för att skapa jobb i Visual Studio Code.
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/14/2020
 ms.openlocfilehash: 27ed553035ce9d7abf57ffe93078df9c17b8408c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617962"
 ---
-# <a name="azure-stream-analytics-jobconfigjson-fields"></a>Azure Stream Analytics JobConfig.json fält
+# <a name="azure-stream-analytics-jobconfigjson-fields"></a>Azure Stream Analytics JobConfig. JSON-fält
 
-Följande fält stöds i filen *JobConfig.json* som används för att [skapa ett Azure Stream Analytics-jobb med Visual Studio Code](quick-create-vs-code.md).
+Följande fält stöds i filen *JobConfig. JSON* som används för att [skapa ett Azure Stream Analytics jobb med Visual Studio Code](quick-create-vs-code.md).
 
 ```json
 {
@@ -37,25 +37,25 @@ Följande fält stöds i filen *JobConfig.json* som används för att [skapa ett
 }
 ```
 
-|Namn|Typ|Krävs|Värde|
+|Name|Typ|Krävs|Värde|
 |----|----|--------|-----|
-|DataLocale (datalocale)|sträng|Inga|Datalokalen för dataanalysjobbet. Värde ska vara namnet på ett stöds. Standardvärdet är "en-US" om ingen har angetts.|
-|OutputErrorPolicy|sträng|Inga|Anger vilken princip som ska tillämpas på händelser som kommer fram till utdata och inte kan skrivas till den externa lagringen på grund av att den är felaktig (saknade kolumnvärden, kolumnvärden av fel typ eller storlek). - Stoppa eller släpp|
-|HändelserLateArrivalMaxDelayInSeconds|heltal|Inga|Den maximala acceptabla fördröjningen i sekunder där händelser som kommer för sent kan inkluderas. Intervallet stöds är -1 till 1814399 (20.23:59:59 dagar) och -1 används för att ange vänta på obestämd tid. Om egenskapen är frånvarande tolkas den ha värdet -1.|
-|HändelserOutOfOrderMaxDelayInSeconds|heltal|Inga|Den maximala acceptabla fördröjningen i sekunder där händelser utanför ordningen kan justeras för att vara tillbaka i ordning.|
-|HändelserOutOfOrderPolicy|sträng|Inga|Anger vilken princip som ska tillämpas på händelser som kommer i oordning i indatahändelseströmmen. - Justera eller släpp|
-|StreamingUnits|heltal|Ja|Anger antalet strömningsenheter som direktuppspelningsjobbet använder.|
-|KompatibilitetNivå|sträng|Inga|Styr vissa körningsbeteenden för direktuppspelningsjobbet. - Godtagbara värden är "1,0", "1,1", "1,2"|
-|UseSystemAssigneradidentitet|boolean|Inga|Ange true så att det här jobbet kan kommunicera med andra Azure-tjänster som sig själv med hjälp av en hanterad Azure Active Directory-identitet.|
-|GlobalStorage.AccountName|sträng|Inga|Globalt lagringskonto används för att lagra innehåll som är relaterat till ditt dataflödesanalysjobb, till exempel ögonblicksbilder av SQL-referensdata.|
-|GlobalStorage.AccountKey|sträng|Inga|Motsvarande nyckel för globalt lagringskonto.|
-|DataSourceCredentialDomain|sträng|Inga|Reserverad egenskap för lokal lagring av autentiseringsuppgifter.|
-|Skripttyp|sträng|Ja|Reserverad egenskap för att ange typen av den här källfilen. Godtagbart värde är "JobConfig" för JobConfig.json.|
-|Taggar|JSON nyckel-värde par|Inga|Taggar är namn-/värdepar som gör att du kan kategorisera resurser och visa samlad fakturering genom att använda samma tagg på flera resurser och resursgrupper. Taggnamn är skiftlägesokänsliga och taggvärden är skiftlägeskänsliga.|
+|DataLocale|sträng|Nej|Data språket för Stream Analytics-jobbet. Värdet ska vara namnet på ett stödda. Standardvärdet är "en-US" om inget anges.|
+|OutputErrorPolicy|sträng|Nej|Anger den princip som ska tillämpas på händelser som kommer till utdata och som inte kan skrivas till den externa lagringen på grund av att de inte är felformaterade (kolumn värden som saknas, kolumn värden av fel typ eller storlek). -Stoppa eller släpp|
+|EventsLateArrivalMaxDelayInSeconds|heltal|Nej|Den maximala tillåtna fördröjningen i sekunder där händelser som kommer sent kan tas med. Intervallet som stöds är-1 till 1814399 (20.23:59:59 dagar) och-1 används för att ange vänte tid. Om egenskapen saknas tolkas den som att ha värdet-1.|
+|EventsOutOfOrderMaxDelayInSeconds|heltal|Nej|Högsta tillåtna fördröjning i sekunder där händelser som ligger utanför ordningen kan justeras så att de är i ordning.|
+|EventsOutOfOrderPolicy|sträng|Nej|Anger den princip som ska användas för händelser som anländer i indata-händelsens data ström. -Justera eller släpp|
+|StreamingUnits|heltal|Ja|Anger antalet enheter för strömning som används av direkt uppspelnings jobbet.|
+|CompatibilityLevel|sträng|Nej|Kontrollerar vissa körnings beteenden i direkt uppspelnings jobbet. -Acceptabla värden är "1,0", "1,1", "1,2"|
+|UseSystemAssignedIdentity|boolean|Nej|Ange sant om du vill att det här jobbet ska kommunicera med andra Azure-tjänster som en hanterad Azure Active Directory identitet.|
+|GlobalStorage. AccountName|sträng|Nej|Globalt lagrings konto används för att lagra innehåll som är relaterat till Stream Analytics-jobbet, till exempel ögonblicks bilder av SQL-Datadata.|
+|GlobalStorage. AccountKey|sträng|Nej|Motsvarande nyckel för globalt lagrings konto.|
+|DataSourceCredentialDomain|sträng|Nej|Reserverad egenskap för lokal lagring för autentiseringsuppgifter.|
+|ScriptType|sträng|Ja|Reserverad egenskap som anges som typ för den här käll filen. Acceptabelt värde är "JobConfig" för JobConfig. JSON.|
+|Taggar|JSON-nyckel/värde-par|Nej|Taggar är namn/värde-par som låter dig kategorisera resurser och Visa konsol IDE rad fakturering genom att tillämpa samma tagg på flera resurser och resurs grupper. Taggnamn är Skift läges känsliga och märkes värden är Skift läges känsliga.|
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa ett Azure Stream Analytics-jobb i Visual Studio-kod](quick-create-vs-code.md)
-* [Testa Stream Analytics-frågor lokalt med exempeldata med Visual Studio-kod](visual-studio-code-local-run.md)
-* [Test Stream Analytics-frågor lokalt mot livestreamindata med hjälp av Visual Studio-kod](visual-studio-code-local-run-live-input.md)
-*[Distribuera ett Azure Stream Analytics-jobb med CI/CD npm-paketet](setup-cicd-vs-code.md)
+* [Skapa ett Azure Stream Analytics jobb i Visual Studio Code](quick-create-vs-code.md)
+* [Testa Stream Analytics frågor lokalt med exempel data med Visual Studio Code](visual-studio-code-local-run.md)
+* [Testa Stream Analytics frågor lokalt mot Real tids indata med hjälp av Visual Studio Code](visual-studio-code-local-run-live-input.md)
+*[distribuera ett Azure Stream Analytics jobb med CI/CD NPM-paket](setup-cicd-vs-code.md)

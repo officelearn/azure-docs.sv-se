@@ -8,10 +8,10 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: bb94d3596fde541f16edd1b7012f57b89ebf52eb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77670873"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analysera trender i Visual Studio
@@ -52,16 +52,16 @@ Application Insights Trends skapar en tidsserievisualisering från din apps tele
 
 Använd kontrollerna längst upp i fönstret för att välja vilka telemetrityper som visas. Börja med att välja de telemetrityper som du är intresserad av:
 
-* **Telemetrityp** - Serverbegäranden, undantag, beroenden eller anpassade händelser
+* **Typ av telemetri** – server begär Anden, undantag, beroenden eller anpassade händelser
 * **Tidsintervall** – Allt från de senaste 30 minuterna till de senaste 3 dagarna
 * **Gruppera efter** – Undantagstyp, problem-ID, land/region och mer.
 
-Klicka sedan på **Analysera telemetri för** att köra frågan.
+Klicka sedan på **analysera telemetri** för att köra frågan.
 
 Så här navigerar du mellan bubblor i visualiseringen:
 
 * Klicka för att välja en bubbla. När du gör det uppdateras filtren längst ned i fönstret och en sammanfattning över bara de händelser som inträffat under en viss tidsperiod visas.
-* Dubbelklicka på en bubbla för att navigera till sökverktyget och se alla enskilda telemetrihändelser som inträffade under den tidsperioden
+* Dubbelklicka på en bubbla för att navigera till sökverktyget och se alla enskilda telemetri händelser som inträffat under den tids perioden
 * Tryck på Ctrl och klicka på en bubbla om du vill avmarkera den i visualiseringen.
 
 > [!TIP]
@@ -70,7 +70,7 @@ Så här navigerar du mellan bubblor i visualiseringen:
 > 
 
 ## <a name="filter"></a>Filter
-Identifiera mer specifika trender med filterkontrollerna längst ned i fönstret. Om du vill använda ett filter klickar du på filtrets namn. Du kan snabbt växla mellan olika filter för att identifiera trender som kan vara dolda i en viss dimension av telemetrin. Om du använder ett filter i en dimension, till exempel Undantagstyp, förblir filter i andra dimensioner klickbara även om de ser nedtonade ut. Om du vill ta bort ett filter klickar du på det igen. Tryck på Ctrl och klicka för att markera flera filter i samma dimension.
+Identifiera mer specifika trender med filterkontrollerna längst ned i fönstret. Om du vill använda ett filter klickar du på filtrets namn. Du kan snabbt växla mellan olika filter för att identifiera trender som kan vara dolda i en viss dimension av telemetrin. Om du använder ett filter i en dimension, t. ex. undantags typ, så förblir filter i andra dimensioner klickata även om de visas som nedtonade. Om du vill ta bort ett filter klickar du på det igen. Tryck på Ctrl och klicka för att markera flera filter i samma dimension.
 
 ![Filter för trender](./media/visual-studio-trends/TrendsFiltering-750.png)
 
@@ -86,7 +86,7 @@ Om du vill ta bort filtren klickar du på knappen **Remove selected filters and 
 ![Flera filter](./media/visual-studio-trends/TrendsFiltering2-750.png)
 
 ## <a name="find-anomalies"></a>Identifiera avvikelser
-Verktyget Trends kan märka ut bubblor med händelser som avviker från andra bubblor i samma tidsserie. Välj **Antal i tidsenhet (markera avvikelser** eller **Procent i tidsenhet (markera avvikelser)**. Röda bubblor representerar avvikelser. Avvikelser definieras som bubblor med antal/procentsatser som överstiger 2,1 gånger standardavvikelsen för de antal/procent som inträffade under de senaste två tidsperioderna (48 timmar om du visar de senaste 24 timmarna osv.).
+Verktyget Trends kan märka ut bubblor med händelser som avviker från andra bubblor i samma tidsserie. Välj **Antal i tidsenhet (markera avvikelser** eller **Procent i tidsenhet (markera avvikelser)**. Röda bubblor representerar avvikelser. Avvikelser definieras som bubblor med antal/procent som överstiger 2,1 gånger standard avvikelsen för antal/procent som inträffat under de senaste två tids perioderna (48 timmar om du visar de senaste 24 timmarna osv.).
 
 ![Färgade punkter representerar avvikelser](./media/visual-studio-trends/TrendsAnomalies-750.png)
 

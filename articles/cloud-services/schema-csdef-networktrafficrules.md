@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Services Def. NetworkTrafficRules Schema | Microsoft-dokument
-description: Lär dig mer om NetworkTrafficRules, som begränsar de roller som kan komma åt de interna slutpunkterna för en roll. Den kombineras med roller i en tjänstdefinitionsfil.
+title: Azure Cloud Services Def. NetworkTrafficRules-schema | Microsoft Docs
+description: Lär dig mer om NetworkTrafficRules, som begränsar vilka roller som kan komma åt de interna slut punkterna för en roll. Den kombineras med roller i en tjänst definitions fil.
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -14,22 +14,22 @@ caps.latest.revision: 17
 author: tgore03
 ms.author: tagore
 ms.openlocfilehash: e53c10395ec3168e656633cc43fb2d01902209fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79534736"
 ---
-# <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Definition av Azure Cloud Services-nätverksnätverkTrafficRules-schema
-Noden `NetworkTrafficRules` är ett valfritt element i tjänstdefinitionsfilen som anger hur roller kommunicerar med varandra. Det begränsar vilka roller som kan komma åt de interna slutpunkterna för den specifika rollen. Det `NetworkTrafficRules` är inte ett fristående element; Det kombineras med två eller flera roller i en tjänstdefinitionsfil.
+# <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>NetworkTrafficRules-schema för Azure Cloud Services-definition
+`NetworkTrafficRules` Noden är ett valfritt element i tjänst definitions filen som anger hur roller kommunicerar med varandra. Den begränsar vilka roller som har åtkomst till de interna slut punkterna för den aktuella rollen. `NetworkTrafficRules` Är inte ett fristående element. den kombineras med två eller flera roller i en tjänst definitions fil.
 
-Standardtillägget för tjänstdefinitionsfilen är .csdef.
+Standard tillägget för tjänst definitions filen är. csdef.
 
 > [!NOTE]
->  Noden `NetworkTrafficRules` är endast tillgänglig med Azure SDK version 1.3 eller senare.
+>  `NetworkTrafficRules` Noden är bara tillgänglig med Azure SDK version 1,3 eller senare.
 
-## <a name="basic-service-definition-schema-for-the-network-traffic-rules"></a>Grundläggande tjänstdefinitionsschema för nätverkstrafikreglerna
-Det grundläggande formatet för en tjänstdefinitionsfil som innehåller definitioner av nätverkstrafik är följande.
+## <a name="basic-service-definition-schema-for-the-network-traffic-rules"></a>Grundläggande tjänst definitions schema för nätverks trafik regler
+Det grundläggande formatet för en tjänst definitions fil som innehåller definitioner av nätverks trafik är följande.
 
 ```xml
 <ServiceDefinition …>
@@ -47,59 +47,59 @@ Det grundläggande formatet för en tjänstdefinitionsfil som innehåller defini
 </ServiceDefinition>
 ```
 
-## <a name="schema-elements"></a>Schemaelement
-Noden `NetworkTrafficRules` i tjänstdefinitionsfilen innehåller dessa element, som beskrivs i detalj i efterföljande avsnitt i det här avsnittet:
+## <a name="schema-elements"></a>Schema element
+`NetworkTrafficRules` Noden för tjänst definitions filen innehåller dessa element, som beskrivs i detalj i följande avsnitt i det här avsnittet:
 
-[NetworkTrafficRules Element](#NetworkTrafficRules)
+[NetworkTrafficRules-element](#NetworkTrafficRules)
 
-[EndastAllowTrafficTo Element](#OnlyAllowTrafficTo)
+[OnlyAllowTrafficTo-element](#OnlyAllowTrafficTo)
 
-[Element för destinationer](#Destinations)
+[Mål element](#Destinations)
 
-[RollEndpoint-element](#RoleEndpoint)
+[RoleEndpoint-element](#RoleEndpoint)
 
-AllowAllTraffic Element
+AllowAllTraffic-element
 
-[Närkälla element](#WhenSource)
+[WhenSource-element](#WhenSource)
 
-[FromRole Element](#FromRole)
+[FromRole-element](#FromRole)
 
-##  <a name="networktrafficrules-element"></a><a name="NetworkTrafficRules"></a>NetworkTrafficRules Element
-Elementet `NetworkTrafficRules` anger vilka roller som kan kommunicera med vilken slutpunkt på en annan roll. En tjänst kan `NetworkTrafficRules` innehålla en definition.
+##  <a name="networktrafficrules-element"></a><a name="NetworkTrafficRules"></a>NetworkTrafficRules-element
+`NetworkTrafficRules` Elementet anger vilka roller som kan kommunicera med vilken slut punkt på en annan roll. En tjänst kan innehålla en `NetworkTrafficRules` definition.
 
-##  <a name="onlyallowtrafficto-element"></a><a name="OnlyAllowTrafficTo"></a>EndastAllowTrafficTo Element
-Elementet `OnlyAllowTrafficTo` beskriver en samling målslutpunkter och de roller som kan kommunicera med dem. Du kan `OnlyAllowTrafficTo` ange flera noder.
+##  <a name="onlyallowtrafficto-element"></a><a name="OnlyAllowTrafficTo"></a>OnlyAllowTrafficTo-element
+`OnlyAllowTrafficTo` Elementet beskriver en samling mål slut punkter och de roller som kan kommunicera med dem. Du kan ange flera `OnlyAllowTrafficTo` noder.
 
-##  <a name="destinations-element"></a><a name="Destinations"></a>Element för destinationer
-Elementet `Destinations` beskriver en samling RoleEndpoints än vad som kan kommuniceras med.
+##  <a name="destinations-element"></a><a name="Destinations"></a>Mål element
+`Destinations` Elementet beskriver en samling RoleEndpoints än vad som kan kommunicera med.
 
-##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a>RollEndpoint-element
-Elementet `RoleEndpoint` beskriver en slutpunkt på en roll som kommunikationen kan tillåtas. Du kan `RoleEndpoint` ange flera element om det finns mer än en slutpunkt på rollen.
+##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a>RoleEndpoint-element
+`RoleEndpoint` Elementet beskriver en slut punkt för en roll för att tillåta kommunikation med. Du kan ange flera `RoleEndpoint` element om det finns fler än en slut punkt på rollen.
 
 | Attribut      | Typ     | Beskrivning |
 | -------------- | -------- | ----------- |
-| `endpointName` | `string` | Krävs. Namnet på slutpunkten som trafik kan tillåtas.|
-| `roleName`     | `string` | Krävs. Namnet på webbrollen som du vill tillåta kommunikation.|
+| `endpointName` | `string` | Krävs. Namnet på slut punkten som tillåter trafik till.|
+| `roleName`     | `string` | Krävs. Namnet på webb rollen som tillåter kommunikation till.|
 
-## <a name="allowalltraffic-element"></a>AllowAllTraffic Element
-Elementet `AllowAllTraffic` är en regel som gör att alla roller `Destinations` kan kommunicera med slutpunkterna som definierats i noden.
+## <a name="allowalltraffic-element"></a>AllowAllTraffic-element
+`AllowAllTraffic` Elementet är en regel som tillåter att alla roller kommunicerar med de slut punkter som definierats `Destinations` i noden.
 
-##  <a name="whensource-element"></a><a name="WhenSource"></a>Närkälla element
-Elementet `WhenSource` beskriver en samling roller än vad som kan `Destinations` kommunicera med slutpunkterna som definierats i noden.
+##  <a name="whensource-element"></a><a name="WhenSource"></a>WhenSource-element
+`WhenSource` Elementet beskriver en samling roller än vad som kan kommunicera med de slut punkter som definierats `Destinations` i noden.
 
 | Attribut | Typ     | Beskrivning |
 | --------- | -------- | ----------- |
-| `matches` | `string` | Krävs. Anger vilken regel som ska tillämpas när kommunikation tillåts. Det enda giltiga `AnyRule`värdet är för närvarande .|
+| `matches` | `string` | Krävs. Anger den regel som ska användas när kommunikation tillåts. Det enda giltiga värdet är för `AnyRule`närvarande.|
   
-##  <a name="fromrole-element"></a><a name="FromRole"></a>FromRole Element
-Elementet `FromRole` anger de roller som kan kommunicera med `Destinations` slutpunkterna som definierats i noden. Du kan `FromRole` ange flera element om det finns fler än en roll som kan kommunicera med slutpunkterna.
+##  <a name="fromrole-element"></a><a name="FromRole"></a>FromRole-element
+`FromRole` Elementet anger de roller som kan kommunicera med de slut punkter som definierats i `Destinations` noden. Du kan ange flera `FromRole` element om det finns mer än en roll som kan kommunicera med slut punkterna.
 
 | Attribut  | Typ     | Beskrivning |
 | ---------- | -------- | ----------- |
-| `roleName` | `string` | Krävs. Namnet på rollen som kommunikation ska tillåtas.|
+| `roleName` | `string` | Krävs. Namnet på den roll som kommunikation ska tillåtas från.|
 
 ## <a name="see-also"></a>Se även
-[Molntjänst (klassiskt) definitionsschema](schema-csdef-file.md)
+[Definitions schema för moln tjänst (klassisk)](schema-csdef-file.md)
 
 
 

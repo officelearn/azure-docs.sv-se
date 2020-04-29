@@ -1,6 +1,6 @@
 ---
-title: Konfigurera privata IP-adresser för virtuella datorer - Azure CLI
-description: Lär dig hur du konfigurerar privata IP-adresser för virtuella datorer med hjälp av Azure command-line interface (CLI).
+title: Konfigurera privata IP-adresser för virtuella datorer – Azure CLI
+description: Lär dig hur du konfigurerar privata IP-adresser för virtuella datorer med hjälp av Azures kommando rads gränssnitt (CLI).
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: kumud
 ms.openlocfilehash: f4643aae0b28861f4ddb99d8dace749e62f930b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78199486"
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Konfigurera privata IP-adresser för en virtuell dator med Hjälp av Azure CLI
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Konfigurera privata IP-adresser för en virtuell dator med hjälp av Azure CLI
 
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -30,18 +30,18 @@ ms.locfileid: "78199486"
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> Följande exempel på Azure CLI-kommandon förväntar sig en befintlig enkel miljö. Om du vill köra kommandona när de visas i det här dokumentet skapar du först testmiljön som beskrivs i [skapa ett vnet](quick-create-cli.md).
+> Följande exempel på Azure CLI-kommandon förväntar sig en befintlig enkel miljö. Om du vill köra kommandona som de visas i det här dokumentet skapar du först test miljön som beskrivs i [skapa ett VNet](quick-create-cli.md).
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>Ange en statisk privat IP-adress när du skapar en virtuell dator
 
-Så här skapar du en virtuell dator med namnet *DNS01* i *FrontEnd-undernätet* i ett virtuellt nätverk med namnet *TestVNet* med en statisk privat IP på *192.168.1.101:*
+Utför följande steg för att skapa en virtuell dator med namnet *DNS01* i *klient delens* undernät med namnet *TestVNet* med en statisk privat IP-adress för *192.168.1.101*:
 
-1. Om du inte har gjort det ännu installerar och konfigurerar du den senaste [Azure CLI](/cli/azure/install-azure-cli) och loggar in på ett Azure-konto med [az-inloggning](/cli/azure/reference-index).
+1. Om du inte redan har gjort det kan du installera och konfigurera den senaste [Azure CLI](/cli/azure/install-azure-cli) och logga in på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index).
 
-2. Skapa en offentlig IP för den virtuella datorn med kommandot [az network public-ip create.](/cli/azure/network/public-ip) Listan som visas efter utdatan beskriver de parametrar som används.
+2. Skapa en offentlig IP-adress för den virtuella datorn med kommandot [AZ Network Public-IP Create](/cli/azure/network/public-ip) . Listan som visas efter utdatan beskriver de parametrar som används.
 
     > [!NOTE]
-    > Du kanske vill eller behöver använda olika värden för dina argument i det här och efterföljande steget, beroende på din miljö.
+    > Du kanske vill eller behöver använda olika värden för dina argument i detta och efterföljande steg, beroende på din miljö.
 
     ```azurecli
     az network public-ip create \
@@ -65,11 +65,11 @@ Så här skapar du en virtuell dator med namnet *DNS01* i *FrontEnd-undernätet*
     }
     ```
 
-   * `--resource-group`: Namn på den resursgrupp där den offentliga IP-adressen ska skapas.
-   * `--name`: Namnet på den offentliga IP.
-   * `--location`: Azure-region där du kan skapa den offentliga IP-adressen.
+   * `--resource-group`: Namnet på den resurs grupp där du vill skapa den offentliga IP-adressen.
+   * `--name`: Namnet på den offentliga IP-adressen.
+   * `--location`: Azure-region där du vill skapa den offentliga IP-adressen.
 
-3. Kör kommandot [az network nic create](/cli/azure/network/nic) för att skapa ett nätverkskort med en statisk privat IP. Listan som visas efter utdatan beskriver de parametrar som används. 
+3. Kör kommandot [AZ Network NIC Create](/cli/azure/network/nic) för att skapa ett nätverkskort med en statisk privat IP-adress. Listan som visas efter utdatan beskriver de parametrar som används. 
    
     ```azurecli
     az network nic create \
@@ -117,11 +117,11 @@ Så här skapar du en virtuell dator med namnet *DNS01* i *FrontEnd-undernätet*
     
     Parametrar:
 
-    * `--private-ip-address`: Statisk privat IP-adress för nätverkskortet.
-    * `--vnet-name`: Namn på det virtuella nätverk som nätverkskortet ska skapas på.
-    * `--subnet`: Namnet på det undernät där nätverkskortet ska skapas.
+    * `--private-ip-address`: NÄTVERKSKORTets statiska privata IP-adress.
+    * `--vnet-name`: Namnet på det VNet som NÄTVERKSKORTet ska skapas i.
+    * `--subnet`: Namnet på det undernät som NÄTVERKSKORTet ska skapas i.
 
-4. Kör kommandot [azure vm create](/cli/azure/vm/nic) för att skapa den virtuella datorn med den offentliga IP- och nätverkskortet som skapats tidigare. Listan som visas efter utdatan beskriver de parametrar som används.
+4. Kör kommandot [Azure VM Create](/cli/azure/vm/nic) för att skapa den virtuella datorn med hjälp av den offentliga IP-adressen och NIC som skapades tidigare. Listan som visas efter utdatan beskriver de parametrar som används.
    
     ```azurecli
     az vm create \
@@ -149,15 +149,15 @@ Så här skapar du en virtuell dator med namnet *DNS01* i *FrontEnd-undernätet*
     }
     ```
    
-   Andra parametrar än den grundläggande [az vm skapa](/cli/azure/vm) parametrar.
+   Andra parametrar än de grundläggande [AZ](/cli/azure/vm) -parametrarna för VM-skapande.
 
-   * `--nics`: Namn på det nätverkskort som den virtuella datorn är kopplad till.
+   * `--nics`: Namnet på det nätverkskort som den virtuella datorn är kopplad till.
    
-Vi rekommenderar att du inte statiskt tilldelar den privata IP som tilldelats den virtuella Azure-datorn i operativsystemet för en virtuell dator, om det inte behövs, till exempel när [du tilldelar flera IP-adresser till en Windows VM](virtual-network-multiple-ip-addresses-cli.md). Om du manuellt anger den privata IP-adressen i operativsystemet, se till att det är samma adress som den privata IP-adressen som tilldelats [Azure-nätverksgränssnittet](virtual-network-network-interface-addresses.md#change-ip-address-settings)eller så kan du förlora anslutningen till den virtuella datorn. Läs mer om [privata IP-adressinställningar.](virtual-network-network-interface-addresses.md#private)
+Vi rekommenderar att du inte statiskt tilldelar den privata IP-adress som tilldelats den virtuella Azure-datorn i operativ systemet på en virtuell dator, om det inte behövs, t. ex. När [du tilldelar flera IP-adresser till en virtuell Windows-dator](virtual-network-multiple-ip-addresses-cli.md). Om du manuellt ställer in den privata IP-adressen i operativ systemet måste du se till att den är samma adress som den privata IP-adress som tilldelats Azure- [nätverks gränssnittet](virtual-network-network-interface-addresses.md#change-ip-address-settings), eller så kan du förlora anslutningen till den virtuella datorn. Läs mer om inställningar för [privata IP-adresser](virtual-network-network-interface-addresses.md#private) .
 
-## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>Hämta statisk privat IP-adressinformation för en virtuell dator
+## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>Hämta information om statisk privat IP-adress för en virtuell dator
 
-Kör följande Azure CLI-kommando för att observera värdena för *private IP alloc-metod* och *Private IP-adress:*
+Kör följande Azure CLI-kommando för att kontrol lera värdena för *privat IP-allokering-metod* och *privat IP-adress*:
 
 ```azurecli
 az vm show -g TestRG -n DNS01 --show-details --query 'privateIps'
@@ -169,7 +169,7 @@ Förväntad utdata:
 "192.168.1.101"
 ```
 
-Om du vill visa den specifika IP-informationen för nätverkskortet för den virtuella datorn frågar du nätverkskortet specifikt:
+Om du vill visa den specifika IP-informationen för NÄTVERKSKORTet för den virtuella datorn frågar du NÄTVERKSKORTet specifikt:
 
 ```azurecli
 az network nic show \
@@ -192,13 +192,13 @@ Resultatet ser ut ungefär så här:
 
 ## <a name="remove-a-static-private-ip-address-from-a-vm"></a>Ta bort en statisk privat IP-adress från en virtuell dator
 
-Du kan inte ta bort en statisk privat IP-adress från ett nätverkskort i Azure CLI för Azure Resource Manager-distributioner. Du måste:
-- Skapa ett nytt nätverkskort som använder en dynamisk IP
-- Ange nätverkskortet på den virtuella datorn gör det nyskapade nätverkskortet. 
+Du kan inte ta bort en statisk privat IP-adress från ett nätverkskort i Azure CLI för Azure Resource Manager distributioner. Du måste:
+- Skapa ett nytt nätverkskort som använder en dynamisk IP-adress
+- Ange NÄTVERKSKORTet på den virtuella datorn med det nyligen skapade NÄTVERKSKORTet. 
 
-Så här ändrar du nätverkskortet för den virtuella datorn som används i föregående kommandon:
+Utför följande steg för att ändra NÄTVERKSKORTet för den virtuella datorn som används i föregående kommandon:
 
-1. Kör kommandot **Azure Network nic create** för att skapa ett nytt nätverkskort med dynamisk IP-allokering med en ny IP-adress. Eftersom ingen IP-adress har angetts är allokeringsmetoden **Dynamisk**.
+1. Kör kommandot **Azure Network NIC Create** för att skapa ett nytt nätverkskort med dynamisk IP-allokering med en ny IP-adress. Eftersom ingen IP-adress har angetts är tilldelnings metoden **dynamisk**.
 
     ```azurecli
     az network nic create     \
@@ -243,7 +243,7 @@ Så här ändrar du nätverkskortet för den virtuella datorn som används i fö
     }
     ```
 
-2. Kör kommandot **azure vm set** för att ändra nätverkskortet som används av den virtuella datorn.
+2. Kör kommandot **Azure VM set** för att ändra nätverkskortet som används av den virtuella datorn.
    
     ```azurecli
    az vm nic set --resource-group TestRG --vm-name DNS01 --nics TestNIC2
@@ -262,8 +262,8 @@ Så här ändrar du nätverkskortet för den virtuella datorn som används i fö
     ```
 
     > [!NOTE]
-    > Om den virtuella datorn är tillräckligt stor för att ha mer än ett nätverkskort kör du kommandot **azure network nic delete** för att ta bort det gamla nätverkskortet.
+    > Om den virtuella datorn är tillräckligt stor för att ha mer än ett nätverkskort kör du kommandot **Azure Network NIC Delete** för att ta bort det gamla nätverkskortet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hur du hanterar [IP-adressinställningar](virtual-network-network-interface-addresses.md).
+Lär dig mer om att hantera [Inställningar för IP-adresser](virtual-network-network-interface-addresses.md).

@@ -1,5 +1,5 @@
 ---
-title: Säkerhet - Azure-databas för MySQL
+title: Säkerhet – Azure Database for MySQL
 description: En översikt över säkerhetsfunktionerna i Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,50 +7,50 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: aac2641913331095550c0e19cc587257a996fcce
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79537031"
 ---
 # <a name="security-in-azure-database-for-mysql"></a>Säkerhet i Azure Database for MySQL
 
-Det finns flera säkerhetslager som är tillgängliga för att skydda data på din Azure-databas för MySQL-server. I den här artikeln beskrivs dessa säkerhetsalternativ.
+Det finns flera säkerhets lager som är tillgängliga för att skydda data på din Azure Database for MySQL-server. Den här artikeln beskriver de här säkerhets alternativen.
 
-## <a name="information-protection-and-encryption"></a>Informationsskydd och kryptering
+## <a name="information-protection-and-encryption"></a>Informations skydd och kryptering
 
-### <a name="in-transit"></a>Under transitering
+### <a name="in-transit"></a>Under överföring
 Azure Database for MySQL skyddar dina data genom att kryptera data under överföring med Transport Layer Security. Kryptering (SSL/TLS) tillämpas som standard.
 
 ### <a name="at-rest"></a>I vila
-Azure Database for MySQL-tjänsten använder FIPS 140-2-validerad kryptografisk modul för lagringskryptering av data i vila. Data, inklusive säkerhetskopior, krypteras på disk, med undantag för temporära filer som skapas när frågor körs. Tjänsten använder AES 256-bitars chiffer som ingår i Azure-lagringskryptering och nycklarna hanteras. Lagringskrypteringen är alltid igång och kan inte inaktiveras.
+Tjänsten Azure Database for MySQL använder FIPS 140-2-validerade kryptografisk modul för lagrings kryptering av data i vila. Data, inklusive säkerhets kopior, krypteras på disk, med undantag för tillfälliga filer som skapas vid körning av frågor. Tjänsten använder AES 256-bit-chiffer som ingår i Azure Storage-kryptering och nycklarna hanteras av systemet. Lagringskrypteringen är alltid igång och kan inte inaktiveras.
 
 
 ## <a name="network-security"></a>Nätverkssäkerhet
-Anslutningar till en Azure-databas för MySQL-server dirigeras först via en regional gateway. Gatewayen har en allmänt tillgänglig IP, medan serverns IP-adresser är skyddade. Mer information om gatewayen finns i [artikeln för anslutningsarkitektur](concepts-connectivity-architecture.md).  
+Anslutningar till en Azure Database for MySQL-server dirigeras först via en regional Gateway. Gatewayen har en offentligt tillgänglig IP-adress, medan serverns IP-adresser är skyddade. Mer information om gatewayen finns i artikeln om [anslutnings arkitektur](concepts-connectivity-architecture.md).  
 
-En nyligen skapad Azure Database för MySQL-server har en brandvägg som blockerar alla externa anslutningar. Även om de når gatewayen, är de inte tillåtet att ansluta till servern. 
+En nyligen skapad Azure Database for MySQL-server har en brand vägg som blockerar alla externa anslutningar. Även om de når gatewayen, tillåts de inte ansluta till servern. 
 
-### <a name="ip-firewall-rules"></a>REGLER för IP-brandväggen
-IP-brandväggsregler ger åtkomst till servrar baserat på den ursprungliga IP-adressen för varje begäran. Mer information finns i översikten över [brandväggsregler.](concepts-firewall-rules.md)
+### <a name="ip-firewall-rules"></a>Regler för IP-brandvägg
+Regler för IP-brandvägg ger åtkomst till servrar baserat på den ursprungliga IP-adressen för varje begäran. Mer information finns i [Översikt över brand Väggs regler](concepts-firewall-rules.md) .
 
 ### <a name="virtual-network-firewall-rules"></a>Brandväggsregler för virtuella nätverk
-Slutpunkter för virtuella nätverkstjänster utökar din virtuella nätverksanslutning över Azure-stamnätet. Med hjälp av virtuella nätverksregler kan du aktivera din Azure Database för MySQL-server för att tillåta anslutningar från valda undernät i ett virtuellt nätverk. Mer information finns i [slutpunktsöversikten för den virtuella nätverkstjänsten](concepts-data-access-and-security-vnet.md).
+Tjänst slut punkter i virtuella nätverk utökar din virtuella nätverks anslutning via Azure-stamnätet. Med hjälp av regler för virtuella nätverk kan du aktivera Azure Database for MySQL servern för att tillåta anslutningar från valda undernät i ett virtuellt nätverk. Mer information finns i [Översikt över Virtual Network Service-slutpunkt](concepts-data-access-and-security-vnet.md).
 
 ### <a name="private-ip"></a>Privat IP
-Med Private Link kan du ansluta till din Azure-databas för MySQL i Azure via en privat slutpunkt. Azure Private Link ger i huvudsak Azure-tjänster i ditt privata virtuella nätverk (VNet). PaaS-resurserna kan nås med hjälp av den privata IP-adressen precis som alla andra resurser i det virtuella nätverket. Mer information finns i [översikten över den privata länken](concepts-data-access-security-private-link.md)
+Med privat länk kan du ansluta till din Azure Database for MySQL i Azure via en privat slut punkt. Azures privata länk placerar Azure-tjänster i ditt privata Virtual Network (VNet). PaaS-resurser kan nås med hjälp av den privata IP-adressen precis som vilken annan resurs som helst i VNet. Mer information finns i [Översikt över privata länkar](concepts-data-access-security-private-link.md)
 
 ## <a name="access-management"></a>Åtkomsthantering
 
-När du skapar Azure Database for MySQL-servern anger du autentiseringsuppgifter för en administratörsanvändare. Den här administratören kan användas för att skapa ytterligare MySQL-användare.
+När du skapar Azure Database for MySQL-servern anger du autentiseringsuppgifter för en administratörs användare. Den här administratören kan användas för att skapa ytterligare MySQL-användare.
 
 
-## <a name="threat-protection"></a>Hotskydd
+## <a name="threat-protection"></a>Skydd mot hot
 
-Du kan välja [advanced threat protection](concepts-data-access-and-security-threat-protection.md) som identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja servrar.
+Du kan välja att använda [Avancerat skydd](concepts-data-access-and-security-threat-protection.md) som identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja servrar.
 
-[Granskningsloggning](concepts-audit-logs.md) är tillgängligt för att spåra aktivitet i dina databaser. 
+[Gransknings loggning](concepts-audit-logs.md) är tillgängligt för att spåra aktiviteter i dina databaser. 
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Aktivera brandväggsregler för [IP-adresser](concepts-firewall-rules.md) eller [virtuella nätverk](concepts-data-access-and-security-vnet.md)
+- Aktivera brand Väggs regler för [IP-adresser](concepts-firewall-rules.md) eller [virtuella nätverk](concepts-data-access-and-security-vnet.md)

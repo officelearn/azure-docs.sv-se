@@ -1,7 +1,7 @@
 ---
-title: Linux-prestandaverktyg
+title: Prestandaverktyg för Linux
 titleSuffix: Azure Kubernetes Service
-description: Lär dig hur du felsöker och löser vanliga problem när du använder Azure Kubernetes Service (AKS)
+description: Lär dig hur du felsöker och löser vanliga problem när du använder Azure Kubernetes service (AKS)
 services: container-service
 author: alexeldeib
 ms.service: container-service
@@ -9,58 +9,58 @@ ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: aleldeib
 ms.openlocfilehash: eb6b126b4d1794adf0380432040190b91a17a675
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77925610"
 ---
-# <a name="linux-performance-troubleshooting"></a>Felsökning av Linux-prestanda
+# <a name="linux-performance-troubleshooting"></a>Fel sökning av Linux-prestanda
 
-Resursutmattning på Linux-maskiner är ett vanligt problem och kan manifesteras genom en mängd olika symptom. Det här dokumentet ger en översikt på hög nivå över de verktyg som finns tillgängliga för att diagnostisera sådana problem.
+Resurs överbelastning på Linux-datorer är ett vanligt problem och kan identifieras genom en mängd olika symtom. Det här dokumentet innehåller en översikt över de verktyg som är tillgängliga för att diagnosticera sådana problem.
 
-Många av dessa verktyg accepterar ett intervall för att producera rullande utgång. Detta utdataformat gör vanligtvis spotting mönster mycket lättare. Om det godkänns kommer exemplet `[interval]`på åkallan att innehålla .
+Många av dessa verktyg accepterar ett intervall som du kan använda för att skapa rullande utdata. Det här utdataformatet gör vanligt vis att upptäcka mönster blir mycket enklare. Vid godkänd kommer exempel anrop att innehålla `[interval]`.
 
-Många av dessa verktyg har en omfattande historia och en bred uppsättning konfigurationsalternativ. Den här sidan innehåller bara en enkel delmängd av anrop för att belysa vanliga problem. Den kanoniska informationskällan är alltid referensdokumentationen för varje enskilt verktyg. Denna dokumentation kommer att vara mycket mer grundlig än vad som tillhandahålls här.
+Många av dessa verktyg har en omfattande historik och en stor uppsättning konfigurations alternativ. Den här sidan innehåller bara en enkel delmängd av anrop för att markera vanliga problem. Den kanoniska informations källan är alltid referens dokumentationen för varje särskilt verktyg. Dokumentationen är mycket mer grundlig än vad som finns här.
 
 ## <a name="guidance"></a>Riktlinjer
 
-Var systematisk i din inställning till att undersöka prestandaproblem. Två vanliga metoder är ANVÄNDNING (användning, mättnad, fel) och RED (hastighet, fel, varaktighet). RED används vanligtvis i samband med tjänster för begäran-baserad övervakning. ANVÄNDNING används vanligtvis för att övervaka resurser: för varje resurs i en dator, övervaka användning, mättnad och fel. De fyra huvudsakliga typerna av resurser på alla datorer är cpu, minne, disk och nätverk. Hög användning, mättnad eller felfrekvens för någon av dessa resurser indikerar ett möjligt problem med systemet. När det finns ett problem undersöker du orsaken: varför är disk-I/O-svarstiden hög? Är diskarna eller den virtuella datorn SKU begränsade? Vilka processer skriver till enheterna och till vilka filer?
+Var systematisk i ditt tillvägagångs sätt för att undersöka prestanda problem. Två vanliga metoder är användning (användning, mättnad, fel) och rött (Rate, Errors, duration). RED används vanligt vis i samband med tjänster för begäran-baserad övervakning. Använd används vanligt vis för att övervaka resurser: för varje resurs på en dator, övervaka användning, mättnad och fel. De fyra huvudsakliga typerna av resurser på en dator är CPU, minne, disk och nätverk. Hög användning, mättnad eller fel frekvens för någon av dessa resurser tyder på ett möjligt problem med systemet. Undersök orsaken till att det finns ett problem: Varför är diskens IO-latens högt? Är diskarna eller SKU: n för virtuella datorer begränsade? Vilka processer skriver till enheterna och vilka filer?
 
 Några exempel på vanliga problem och indikatorer för att diagnostisera dem:
-- IOPS-begränsning: använd iostat för att mäta IOPS per enhet. Se till att ingen enskild disk är över gränsen och summan för alla diskar är mindre än gränsen för den virtuella datorn.
-- Bandbreddsbegränsning: använd iostat som för IOPS, men mäta läs-/skrivdataflöde. Se till att både per enhet och aggregerat dataflöde ligger under bandbreddsgränserna.
-- SNAT utmattning: detta kan manifesteras som hög aktiva (utgående) anslutningar i SAR. 
-- Paketförlust: Detta kan mätas genom proxy via TCP återtransmit antal i förhållande till skickade / mottagna räknas. Båda `sar` `netstat` och kan visa den här informationen.
+- IOPS-begränsning: Använd iostat för att mäta IOPS per enhet. Se till att ingen enskild disk överskrider gränsen och summan för alla diskar är mindre än gränsen för den virtuella datorn.
+- Bandbredds begränsning: Använd iostat som för IOPS, men mätning av Läs-och Skriv data flöde. Se till att både per enhet och mängd data flöde är lägre än bandbredds gränserna.
+- SNAT-belastning: Detta kan manifesta som hög aktiva (utgående) anslutningar i SAR. 
+- Paket förlust: Detta kan mätas via proxy via antal TCP-omsändningar i förhållande till antal skickade/mottagna. Både `sar` och `netstat` kan visa den här informationen.
 
 ## <a name="general"></a>Allmänt
 
-Dessa verktyg är allmänna ändamål och omfattar grundläggande systeminformation. De är en bra utgångspunkt för vidare utredning.
+Dessa verktyg är generella och beskriver grundläggande system information. De är en väl utgångs punkt för ytterligare undersökning.
 
-### <a name="uptime"></a>Upptid
+### <a name="uptime"></a>drift tid
 
 ```
 $ uptime
  19:32:33 up 17 days, 12:36,  0 users,  load average: 0.21, 0.77, 0.69
 ```
 
-upptid ger system drifttid och 1, 5 och 15-minuters belastning genomsnitt. Dessa belastning genomsnitt ungefär motsvarar trådar gör arbete eller väntar på avbrottsfri arbete för att slutföra. I absoluta tal kan dessa siffror vara svåra att tolka, men mätt med tiden kan de berätta användbar information:
+drift tid ger system drift tid och 1, 5 och 15 minuters belastnings genomsnitt. Dessa belastnings medelvärden motsvarar ungefär trådar som utför arbete eller väntar på att ett avbrotts klart arbete ska slutföras. I absoluta tal kan de vara svåra att tolka, men mäts över tiden som de kan berätta för oss användbar information:
 
-- 1-minuters genomsnittlig > 5-minuters genomsnitt innebär belastningen ökar.
-- 1-minuters genomsnittlig < 5-minuters genomsnitt innebär belastningen minskar.
+- 1 minuters genomsnitt > 5-minuters genomsnitts belastning ökar.
+- 1 minuters genomsnitt < 5-minuters genomsnitts belastning minskar.
 
-drifttid kan också belysa varför information inte är tillgänglig: problemet kan ha lösts på egen hand eller genom en omstart innan användaren kan komma åt datorn.
+drift tiden kan också belysa varför informationen inte är tillgänglig: problemet kan ha lösts manuellt eller efter en omstart innan användaren kan komma åt datorn.
 
-Inläsningsgenomsnitt som är högre än antalet tillgängliga CPU-trådar kan tyda på ett prestandaproblem med en viss arbetsbelastning.
+Belastnings medelvärden som är högre än antalet tillgängliga processor trådar kan tyda på ett prestanda problem med en angiven arbets belastning.
 
-### <a name="dmesg"></a>Dmesg
+### <a name="dmesg"></a>dmesg
 
 ```
 $ dmesg | tail 
 $ dmesg --level=err | tail
 ```
 
-dmesg dumpar kärnbufferten. Händelser som OOMKill lägger till en post i kärnbufferten. Att hitta en OOMKill eller andra meddelanden resursutmattning i dmesg loggar är en stark indikator på ett problem.
+dmesg dumpar kernel-bufferten. Händelser som OOMKill lägger till en post i kernel-bufferten. Att hitta en OOMKill eller andra resurs överbelastnings meddelanden i dmesg-loggar är en stark indikator på ett problem.
 
 ### <a name="top"></a>överst
 
@@ -78,19 +78,19 @@ KiB Swap:        0 total,        0 free,        0 used. 62739060 avail Mem
      ...
 ```
 
-`top`ger en bred översikt över det aktuella systemtillståndet. Rubrikerna ger användbar mängdinformation:
+`top`ger en omfattande översikt över det aktuella system läget. Rubrikerna ger viss användbar sammanställd information:
 
-- uppgifter: löpning, sömn, stoppad.
-- CPU-användning, i det här fallet mest visar inaktiv tid.
-- totalt, fritt och använt systemminne.
+- tillstånd för uppgifter: köra, vilande, stoppad.
+- PROCESSOR användningen, i det här fallet visar inaktiv tid.
+- Totalt, ledigt och använt system minne.
 
-`top`kan missa kortlivade processer; alternativ `htop` som `atop` och tillhandahålla liknande gränssnitt samtidigt som några av dessa brister åtgärdas.
+`top`kan missa processer för kortvariga processer; alternativ som `htop` och `atop` tillhandahålla liknande gränssnitt när du åtgärdar några av dessa brister.
 
 ## <a name="cpu"></a>Processor
 
-Dessa verktyg ger information om cpu-användning. Detta är särskilt användbart med rullande utgång, där mönster blir lätta att upptäcka.
+Dessa verktyg tillhandahåller processor användnings information. Detta är särskilt användbart med rullande utdata, där mönstren blir enkla att upptäcka.
 
-### <a name="mpstat"></a>mpstat (mpstat)
+### <a name="mpstat"></a>mpstat
 
 ```
 $ mpstat -P ALL [interval]
@@ -108,9 +108,9 @@ Linux 4.15.0-1064-azure (aks-main-10212767-vmss000001)  02/10/20        _x86_64_
 19:49:04       7    1.98    0.00    0.99    0.00    0.00    0.00    0.00    0.00    0.00   97.03
 ```
 
-`mpstat`skriver ut liknande CPU-information till toppen, men bryts ned efter CPU-tråd. Att se alla kärnor på en gång kan vara användbart för att upptäcka mycket obalanserad CPU-användning, till exempel när ett enda gängat program använder en kärna på 100% utnyttjande. Det här problemet kan vara svårare att upptäcka när aggregeras över alla processorer i systemet.
+`mpstat`skriver ut liknande CPU-information överst, men uppdelad efter CPU-tråd. Att se alla kärnor på en gång kan vara användbart för att upptäcka hög obalanserad processor användning, till exempel när ett enda trådat program använder en kärna med 100% belastning. Det här problemet kan vara svårare att upptäcka när det sammanställs över alla processorer i systemet.
 
-### <a name="vmstat"></a>vmstat (vmstat)
+### <a name="vmstat"></a>vmstat
 
 ```
 $ vmstat [interval]
@@ -119,13 +119,13 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  2  0      0 43300372 545716 19691456    0    0     3    50    3    3  2  1 95  1  0
 ```
 
-`vmstat`ger liknande `mpstat` `top`information och räknar upp antalet processer som väntar på CPU (r-kolumn), minnesstatistik och procent av CPU-tid som spenderas i varje arbetstillstånd.
+`vmstat`innehåller liknande information `mpstat` och `top`räknar upp antalet processer som väntar på CPU (r-kolumnen), minnes statistik och procent andel CPU-tid som tillbringas i varje arbets tillstånd.
 
 ## <a name="memory"></a>Minne
 
-Minnet är en mycket viktig, och tack och lov lätt, resurs att spåra. Vissa verktyg kan rapportera både `vmstat`CPU och minne, till exempel . Men verktyg `free` som kan fortfarande vara användbara för snabb felsökning.
+Minnet är mycket viktigt och Thankfully enkelt att spåra. Vissa verktyg kan rapportera både processor och minne, t `vmstat`. ex.. Men verktyg som `free` kan ändå vara användbara för snabb fel sökning.
 
-### <a name="free"></a>Gratis
+### <a name="free"></a>kostnads fria
 
 ```
 $ free -m
@@ -134,11 +134,11 @@ Mem:          64403        2338       42485           1       19579       61223
 Swap:             0           0           0
 ```
 
-`free`presenterar grundläggande information om det totala minnet samt använt och ledigt minne. `vmstat`kan vara mer användbart även för grundläggande minnesanalys på grund av dess förmåga att ge rullande utgång.
+`free`visar grundläggande information om totalt minne samt använt och ledigt minne. `vmstat`kan vara mer användbart även för grundläggande minnes analyser på grund av dess förmåga att tillhandahålla rullande utdata.
 
 ## <a name="disk"></a>Disk
 
-Dessa verktyg mäter disk IOPS, väntköer och totalt dataflöde. 
+Dessa verktyg mäter disk-IOPS, Waiting-köer och totalt genomflöde. 
 
 ### <a name="iostat"></a>iostat
 
@@ -157,31 +157,31 @@ sda               0.00    56.00    0.00   65.00     0.00   504.00    15.51     0
 scd0              0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00
 ```
 
-`iostat`ger djup inblick i diskanvändning. Denna åkallan `-x` passerar för utökad statistik, `-y` att hoppa över den `1 1` första utdata utskriftssystem genomsnitt sedan uppstart, och att ange vi vill ha 1-sekunders intervall, slutar efter ett block av utdata. 
+`iostat`ger djupgående insikter om disk användning. Det här anropet `-x` skickas för utökad statistik `-y` , för att hoppa över medelvärden för det inledande utskriften av `1 1` utskrifter sedan start, och för att ange att vi ska ha 1-sekunders intervall, slutar efter ett block med utdata. 
 
 `iostat`exponerar många användbara statistik:
 
-- `r/s`och `w/s` läses per sekund och skriver per sekund. Summan av dessa värden är IOPS.
-- `rkB/s`och `wkB/s` är kilobyte läsa / skriftliga per sekund. Summan av dessa värden är dataflöde.
-- `await`är den genomsnittliga iowaittiden i millisekunder för köade begäranden.
-- `avgqu-sz`är den genomsnittliga köstorleken över det angivna intervallet.
+- `r/s`och `w/s` läsningar per sekund och skrivningar per sekund. Summan av dessa värden är IOPS.
+- `rkB/s`och `wkB/s` är kilobyte Läs/skrivna per sekund. Summan av dessa värden är data flöde.
+- `await`är den genomsnittliga iowait tiden i millisekunder för begär anden i kö.
+- `avgqu-sz`är den genomsnittliga kös Tor lek under det angivna intervallet.
 
 På en virtuell Azure-dator:
 
-- summan av `r/s` `w/s` och för en enskild blockenhet får inte överskrida diskens SKU-gränser.
-- summan av `rkB/s` `wkB/s` och för en enskild blockenhet får inte överskrida diskens SKU-gränser
-- summan av `r/s` `w/s` och för alla blockenheter får inte överskrida gränserna för VM SKU.
-- Summan av `rkB/s` och wkB/s för alla blockenheter får inte överskrida gränserna för VM SKU.
+- summan av `r/s` och `w/s` för en enskild block enhet får inte överstiga diskens SKU-gränser.
+- summan av `rkB/s` och `wkB/s` för en enskild block enhet får inte överstiga diskens SKU-gränser
+- summan av `r/s` och `w/s` för alla block enheter får inte ÖVERSKRIDa gränserna för VM-SKU: n.
+- summan av `rkB/s` och ' wkB/s för alla block enheter får inte överskrida gränserna för VM SKU: n.
 
-Observera att OS-disken räknas som en hanterad disk med den minsta SKU som motsvarar dess kapacitet. En 1024 GB OS-disk motsvarar till exempel en P30-disk. Efemära OS-diskar och tillfälliga diskar har inga individuella diskgränser. De begränsas endast av de fullständiga vm-gränserna.
+Observera att OS-disken räknas som en hanterad disk av den minsta SKU: n som motsvarar dess kapacitet. Till exempel motsvarar en 1024GB OS-disk en P30-disk. Tillfälliga OS-diskar och temporära diskar har inte enskilda disk gränser. de begränsas endast av de fullständiga gränserna för virtuella datorer.
 
-Icke-noll värden för att vänta eller avgqu-sz är också bra indikatorer på IO påstående.
+Värden som inte är noll för await eller avgqu-sz är också effektiva indikatorer för IO-konkurrens.
 
 ## <a name="network"></a>Nätverk
 
-Dessa verktyg mäter nätverksstatistik som dataflöde, överföringsfel och användning. Djupare analys kan exponera finkornig TCP-statistik om överbelastning och ignorerade paket.
+Dessa verktyg mäter nätverks statistik som data flöde, överförings problem och användning. Djupare analyser kan exponera detaljerad TCP-statistik om överbelastning och avbrutna paket.
 
-### <a name="sar"></a>Sar
+### <a name="sar"></a>SAR
 
 ```
 $ sar -n DEV [interval]
@@ -199,10 +199,10 @@ $ sar -n DEV [interval]
 22:36:58    azvdbf16b0b2fc      9.00     19.00      3.36      1.18      0.00      0.00      0.00      0.00
 ```
 
-`sar`är ett kraftfullt verktyg för ett brett spektrum av analyser. Även om det här exemplet använder sin förmåga att mäta nätverksstatistik, är det lika kraftfullt för att mäta CPU och minnesförbrukning. I det `sar` här `-n` exemplet anropas med flagga för att ange nyckelordet `DEV` (nätverksenhet) som visar nätverksdataflödet per enhet.
+`sar`är ett kraftfullt verktyg för en mängd olika analyser. Även om det här exemplet använder sin möjlighet att mäta nätverks statistik, är det lika kraftfullt att mäta processor-och minnes förbrukning. I det här exemplet `sar` anropas med `-n` flagga för `DEV` att ange nyckelordet (nätverks enhet), som visar nätverks data flöde per enhet.
 
-- Summan av `rxKb/s` `txKb/s` och är totalt dataflöde för en viss enhet. När det här värdet överskrider gränsen för det etablerade Azure NIC-nätverket, kommer arbetsbelastningar på datorn att uppleva ökad nätverksfördröjning.
-- `%ifutil`mäter användningen för en viss enhet. När det här värdet närmar sig 100 % får arbetsbelastningarna ökad nätverksfördröjning.
+- Summan av `rxKb/s` och `txKb/s` är det totala data flödet för en specifik enhet. När det här värdet överskrider gränsen för det etablerade Azure-NÄTVERKSKORTet kommer arbets belastningarna på datorn att uppleva ökad nätverks fördröjning.
+- `%ifutil`mäter användning för en specifik enhet. Eftersom det här värdet närmar sig 100% kommer arbets belastningarna att uppleva ökad nätverks fördröjning.
 
 ```
 $ sar -n TCP,ETCP [interval]
@@ -221,9 +221,9 @@ Average:     atmptf/s  estres/s retrans/s isegerr/s   orsts/s
 Average:         0.00      0.00      0.00      0.00      0.00
 ```
 
-Den här anrop av `sar` använder nyckelorden `TCP,ETCP` för att undersöka TCP-anslutningar. Den tredje kolumnen i den sista raden, "återsändning", är antalet TCP-återsändningar per sekund. Höga värden för det här fältet anger en opålitlig nätverksanslutning. I Den första och tredje raden betyder "aktiv" en anslutning som kommer från den lokala enheten, medan "fjärr" indikerar en inkommande anslutning.  Ett vanligt problem på Azure är SNAT-portutmattning, vilket `sar` kan hjälpa till att identifiera. SNAT-portutmattning skulle manifesteras som höga "aktiva" värden, eftersom problemet beror på en hög frekvens av utgående, lokalt initierade TCP-anslutningar.
+Detta anrop av `sar` använder `TCP,ETCP` nyckelorden för att undersöka TCP-anslutningar. Den tredje kolumnen i den sista raden, "retrans", är antalet TCP-återsändningar per sekund. Höga värden för det här fältet indikerar en opålitlig nätverks anslutning. I den första och tredje raden betyder "aktiv" en anslutning från den lokala enheten, medan "Remote" indikerar en inkommande anslutning.  Ett vanligt problem i Azure är SNAT-portens belastning, `sar` vilket kan hjälpa dig att identifiera. SNAT-portens överbelastning skulle manifesta som höga "aktiva"-värden, eftersom problemet beror på en hög frekvens av utgående, lokalt initierade TCP-anslutningar.
 
-Som `sar` tar ett intervall, skrivs rullande utdata och sedan skriver ut sista rader av utdata som innehåller de genomsnittliga resultaten från åkallan.
+Det `sar` tar ett intervall att skriva ut och sedan skriva ut slutliga rader med utdata som innehåller genomsnitts resultatet från anropet.
 
 ### <a name="netstat"></a>Netstat
 
@@ -323,4 +323,4 @@ IpExt:
     InECT0Pkts: 14
 ```
 
-`netstat`kan introspect en mängd olika nätverk statistik, här åberopas med sammanfattning utgång. Det finns många användbara fält här beroende på problemet. Ett användbart fält i avsnittet TCP är "misslyckade anslutningsförsök". Detta kan vara en indikation på SNAT-portutmattning eller andra problem med att göra utgående anslutningar. En hög frekvens av återsända segment (även under avsnittet TCP) kan tyda på problem med paketleverans. 
+`netstat`kan Introspect en mängd olika nätverks statistik, som här anropas med sammanfattning av utdata. Det finns många användbara fält här beroende på problemet. Ett användbart fält i avsnittet TCP är "misslyckade anslutnings försök". Detta kan vara en indikation på antalet SNAT-portar eller andra problem som gör utgående anslutningar. En hög hastighet för återsända segment (även under avsnittet TCP) kan tyda på problem med paket leverans. 

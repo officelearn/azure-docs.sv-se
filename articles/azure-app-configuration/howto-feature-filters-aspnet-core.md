@@ -1,35 +1,35 @@
 ---
-title: Använda funktionsfilter för att aktivera en funktion för en delmängd av användare
+title: Använd funktions filter för att aktivera en funktion för en delmängd av användare
 titleSuffix: Azure App Configuration
-description: Lär dig hur du använder funktionsfilter för att aktivera en funktion för en delmängd av användare
+description: Lär dig hur du använder funktions filter för att aktivera en funktion för en delmängd av användare
 ms.service: azure-app-configuration
 author: lisaguthrie
 ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
 ms.openlocfilehash: 181c97615985283011834dcf9145810b1563fb4a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80057006"
 ---
-# <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>Använda funktionsfilter för att aktivera en funktion för en delmängd av användare
+# <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>Använd funktions filter för att aktivera en funktion för en delmängd av användare
 
-Med funktionsflaggor kan du aktivera eller inaktivera funktioner i programmet. En enkel funktionsflagga är antingen på eller av. Programmet fungerar alltid på samma sätt. Du kan till exempel distribuera en ny funktion bakom en funktionsflagga. När funktionsflagga är aktiverad ser alla användare den nya funktionen. Om du inaktiverar funktionsflaggan döljs den nya funktionen.
+Med funktions flaggor kan du aktivera eller inaktivera funktioner i ditt program. En enkel funktions flagga är antingen på eller av. Programmet fungerar alltid på samma sätt. Du kan till exempel distribuera en ny funktion bakom en funktions flagga. När funktions flaggan är aktive rad ser alla användare den nya funktionen. Om du inaktiverar funktions flaggan döljs den nya funktionen.
 
-Med en _villkorsstyrd funktionsflagga_ kan däremot funktionsflaggan aktiveras eller inaktiveras dynamiskt. Programmet kan fungera annorlunda beroende på funktionsflaggas villkor. Anta att du vill visa den nya funktionen för en liten delmängd av användarna först. Med en villkorsstyrd funktionsflagga kan du aktivera funktionsflaggan för vissa användare när du inaktiverar den för andra. _Funktionsfilter_ bestämmer läget för funktionsflaggan varje gång den utvärderas.
+En _villkorlig funktions flagga_ gör det möjligt att aktivera eller inaktivera funktions flagga dynamiskt. Programmet kan beter sig på olika sätt beroende på funktions flagg kriterier. Anta att du vill visa din nya funktion till en liten delmängd av användarna först. Med en villkorlig funktions flagga kan du aktivera funktions flaggan för vissa användare medan du inaktiverar den för andra. _Funktions filter_ bestämmer funktions flaggans status varje gången den utvärderas.
 
-Biblioteket `Microsoft.FeatureManagement` innehåller två funktionsfilter:
+`Microsoft.FeatureManagement` Biblioteket innehåller två funktions filter:
 
-- `PercentageFilter`aktiverar funktionsflaggan baserat på en procentsats.
-- `TimeWindowFilter`aktiverar funktionsflaggan under en angiven tidsperiod.
+- `PercentageFilter`aktiverar funktions flagga baserat på en procents ATS.
+- `TimeWindowFilter`aktiverar funktions flagga under en angiven tids period.
 
-Du kan också skapa ett eget funktionsfilter som implementerar [gränssnittet Microsoft.FeatureManagement.IFeatureFilter](/dotnet/api/microsoft.featuremanagement.ifeaturefilter).
+Du kan också skapa ett eget funktions filter som implementerar [gränssnittet Microsoft. FeatureManagement. IFeatureFilter](/dotnet/api/microsoft.featuremanagement.ifeaturefilter).
 
-## <a name="registering-a-feature-filter"></a>Registrera ett funktionsfilter
+## <a name="registering-a-feature-filter"></a>Registrera ett funktions filter
 
-Du registrerar ett funktionsfilter genom att anropa `AddFeatureFilter` metoden och ange namnet på funktionsfiltret. Följande kod registrerar till `PercentageFilter`exempel:
+Du registrerar ett funktions filter genom att anropa `AddFeatureFilter` -metoden och ange namnet på funktions filtret. Till exempel registreras `PercentageFilter`följande kod:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -39,53 +39,53 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## <a name="configuring-a-feature-filter-in-azure-app-configuration"></a>Konfigurera ett funktionsfilter i Azure App-konfiguration
+## <a name="configuring-a-feature-filter-in-azure-app-configuration"></a>Konfigurera ett funktions filter i Azure App konfiguration
 
-Vissa funktionsfilter har ytterligare inställningar. Aktiverar till `PercentageFilter` exempel en funktion baserat på en procentsats. Den har en inställning som definierar den procentsats som ska användas.
+Vissa funktions filter har ytterligare inställningar. `PercentageFilter` Aktiverar till exempel en funktion som baseras på en procent andel. Den har en inställning som definierar procent andelen som ska användas.
 
-Du kan konfigurera dessa inställningar för funktionsflaggor som definierats i Azure App-konfiguration. Gör du till exempel `PercentageFilter` så här om du vill använda funktionen för 50 % av begäranden till en webbapp:
+Du kan konfigurera de här inställningarna för funktions flaggor som definierats i Azure App-konfigurationen. Följ till exempel de här stegen för `PercentageFilter` att aktivera funktions flagga för 50% av begär anden till en webbapp:
 
-1. Följ instruktionerna i [Snabbstart: Lägg till funktionsflaggor i en ASP.NET Core-app](./quickstart-feature-flag-aspnet-core.md) för att skapa en webbapp med en funktionsflagga.
+1. Följ anvisningarna i [snabb start: Lägg till funktions flaggor i en ASP.net Core app](./quickstart-feature-flag-aspnet-core.md) för att skapa en webbapp med en funktions flagga.
 
-1. Gå till konfigurationsarkivet i Azure-portalen och klicka på **Funktionshanteraren**.
+1. Gå till konfigurations arkivet i Azure Portal och klicka på **funktions hanteraren**.
 
-1. Klicka på snabbmenyn *Beta* för betafunktionens flagga som du skapade i snabbstarten. Klicka på **Redigera**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Flagga för funktionen Redigera beta](./media/edit-beta-feature-flag.png)
-
-1. Välj knappen **På** **på** redigera om den inte redan är markerad. Klicka sedan på knappen **Lägg till filter.** (På-knappens etikett ändras till **villkorligt**.) **On**
-
-1. Ange *Microsoft.Percentage*i fältet **Nyckel** .
+1. Klicka på snabb menyn för den *beta* funktions flagga som du skapade i snabb starten. Klicka på **Redigera**.
 
     > [!div class="mx-imgBorder"]
-    > ![Lägg till funktionsfilter](./media/feature-flag-add-filter.png)
+    > ![Redigera beta funktions flagga](./media/edit-beta-feature-flag.png)
 
-1. Klicka på snabbmenyn bredvid funktionsfilternyckeln. Klicka på **Redigera parametrar**.
+1. På **redigerings** skärmen väljer du knappen **vid** alternativ om den inte redan är markerad. Klicka sedan på knappen **Lägg till filter** . ( **På** alternativ knappens etikett ändras till läsa **villkorligt**.)
 
-    > [!div class="mx-imgBorder"]
-    > ![Redigera funktionsfilterparametrar](./media/feature-flag-edit-filter-parameters.png)
-
-1. Hovra under **namnhuvudet** så att textrutor visas i rutnätet. Ange ett *värdenamn* och **värdet** 50. **Name** Fältet **Värde** anger hur många procent av begäranden som funktionsfiltret ska aktiveras för.
+1. I fältet **nyckel** anger du *Microsoft. procent*.
 
     > [!div class="mx-imgBorder"]
-    > ![Ange funktionsfilterparametrar](./media/feature-flag-set-filter-parameters.png)
+    > ![Lägg till funktions filter](./media/feature-flag-add-filter.png)
 
-1. Klicka på **Använd** om du vill gå tillbaka till **flaggan Redigera.** Klicka sedan på **Använd** igen om du vill spara inställningarna för funktionens flagga.
+1. Klicka på snabb menyn bredvid funktions filter nyckeln. Klicka på **Redigera parametrar**.
 
-1. **Tillståndet för** funktionsflaggan visas nu som *villkorlig .* Det här tillståndet anger att funktionsflaggan aktiveras eller inaktiveras per begäran, baserat på de kriterier som tillämpas av funktionsfiltret.
+    > [!div class="mx-imgBorder"]
+    > ![Redigera funktions filter parametrar](./media/feature-flag-edit-filter-parameters.png)
+
+1. Hovra under **namn** rubriken så att text rutor visas i rutnätet. Ange ett **namn** på ett *värde* och ett **värde** på 50. Fältet **värde** anger procent andelen begär Anden som du vill aktivera funktions filtret för.
+
+    > [!div class="mx-imgBorder"]
+    > ![Ange funktions filter parametrar](./media/feature-flag-set-filter-parameters.png)
+
+1. Klicka på **Använd** för att återgå till skärmen **Redigera funktions flagga** . Klicka sedan på **tillämpa** igen för att spara inställningarna för funktions flagga.
+
+1. Funktions flaggans **tillstånd** visas nu som *villkor*. Det här läget anger att funktions flaggan kommer att aktive ras eller inaktive ras för varje begäran, baserat på de kriterier som tillämpas av funktions filtret.
 
     > [!div class="mx-imgBorder"]
     > ![Flagga för villkorlig funktion](./media/feature-flag-filter-enabled.png)
 
-## <a name="feature-filters-in-action"></a>Funktionsfilter i aktion
+## <a name="feature-filters-in-action"></a>Funktions filter i åtgärd
 
-Om du vill se effekterna av den här funktionsflaggan startar du programmet och trycker på **knappen Uppdatera** i webbläsaren flera gånger. Du ser att *betaobjektet* visas i verktygsfältet ungefär 50 % av tiden. Det döljs resten av tiden, `PercentageFilter` eftersom *betafunktionen* inaktiveras för en delmängd av begäranden. Följande video visar detta beteende i aktion.
+Om du vill se effekterna av den här funktions flaggan startar du programmet och klickar på **Uppdatera** i webbläsaren flera gånger. Du ser att *beta* -objektet visas i verktygsfältet om 50% av tiden. Den är dold resten av tiden, eftersom `PercentageFilter` inaktiverar *beta* funktionen för en delmängd begär Anden. Följande video visar hur det fungerar i praktiken.
 
 > [!div class="mx-imgBorder"]
-> ![Procentfilter i åtgärd](./media/feature-flags-percentagefilter.gif)
+> ![PercentageFilter i praktiken](./media/feature-flags-percentagefilter.gif)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Översikt över funktionshantering](./concept-feature-management.md)
+> [Översikt över funktions hantering](./concept-feature-management.md)

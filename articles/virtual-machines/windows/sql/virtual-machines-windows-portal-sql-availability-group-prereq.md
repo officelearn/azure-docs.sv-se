@@ -16,10 +16,10 @@ ms.date: 03/29/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: c80a4c07e0649612b4c024cac79833c4b730f55e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80060173"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Krav för att skapa Always on-tillgänglighetsgrupper på SQL Server på virtuella Azure-datorer
@@ -88,7 +88,7 @@ Så här skapar du det virtuella nätverket:
    | **Adress intervall för under nätet** |10.33.0.0/29 |
    | **Prenumeration** |Ange den prenumeration som du vill använda. **Prenumerationen** är tom om du bara har en prenumeration. |
    | **Resursgrupp** |Välj **Använd befintlig** och välj namnet på resurs gruppen. |
-   | **Location** |Ange Azure-platsen. |
+   | **Position** |Ange Azure-platsen. |
 
    Adress utrymmet och under nätets adress intervall kan skilja sig från tabellen. Beroende på din prenumeration föreslår portalen ett tillgängligt adress utrymme och motsvarande adress intervall för under nätet. Om det inte finns tillräckligt med adress utrymme använder du en annan prenumeration.
 
@@ -130,7 +130,7 @@ Följande tabell sammanfattar inställningarna för nätverks konfiguration:
 | **Adress intervall för under nätet** |Det här värdet beror på tillgängliga adress intervall i din prenumeration. Ett typiskt värde är 10.0.1.0/24. |
 | **Prenumeration** |Ange den prenumeration som du vill använda. |
 | **Resurs grupp** |**SQL-HA-RG** |
-| **Location** |Ange samma plats som du valde för resurs gruppen. |
+| **Position** |Ange samma plats som du valde för resurs gruppen. |
 
 ## <a name="create-availability-sets"></a>Skapa tillgänglighetsuppsättningar
 
@@ -181,7 +181,7 @@ I följande tabell visas inställningarna för dessa två datorer:
 | **Lösenord** |Contoso! 0000 |
 | **Prenumeration** |*Din prenumeration* |
 | **Resursgrupp** |SQL-HA-RG |
-| **Location** |*Din plats* |
+| **Position** |*Din plats* |
 | **Storlek** |DS1_V2 |
 | **Storage** | **Använd Managed disks** - **Ja** |
 | **Virtuellt nätverk** |autoHAVNET |
@@ -229,7 +229,7 @@ I följande steg konfigurerar du den **AD-primära DC-** datorn som en domänkon
 12. I kolumnen **åtgärd** i dialog rutan **all information om Server aktivitet** klickar **du på befordra den här servern till en**domänkontrollant.
 13. I **konfigurations guiden för Active Directory Domain Services**använder du följande värden:
 
-    | **Sida** | Inställning |
+    | **Sida** | Inställningen |
     | --- | --- |
     | **Distributionskonfiguration** |**Lägg till en ny skog**<br/> **Rot domän namn** = Corp.contoso.com |
     | **Alternativ för domänkontrollant** |**DSRM-lösenord** = contoso! 0000<br/>**Bekräfta lösen ord** = contoso! 0000 |

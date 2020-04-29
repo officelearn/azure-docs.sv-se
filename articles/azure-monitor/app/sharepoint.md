@@ -4,10 +4,10 @@ description: Börja övervaka ett nytt program med en ny instrumentationsnyckel
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.openlocfilehash: 395e8d667985318f4a084428c6fd4c395ee8b956
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671451"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Övervaka en SharePoint-webbplats med Application Insights
@@ -39,7 +39,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 </script>
 ```
 
-Infoga skriptet precis &lt;före&gt; /head-taggen för varje sida som du vill spåra. Om din webbplats har en huvudsida kan du placera skriptet där. Till exempel, i ett ASP.NET MVC-projekt, placerar du det i View\Shared\_Layout.cshtml
+Infoga skriptet precis före &lt;/Head&gt; -taggen på varje sida som du vill spåra. Om din webbplats har en huvud sida kan du Spara skriptet där. Till exempel, i ett ASP.NET MVC-projekt, placerar du det i View\Shared\_Layout.cshtml
 
 Skriptet innehåller instrumenteringsnyckeln som dirigerar telemetri till din Application Insights-resurs.
 
@@ -132,7 +132,7 @@ function onRequestFail(sender, args) {
 
 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 * [Webbtest](../../azure-monitor/app/monitor-web-app-availability.md) för att övervaka tillgängligheten för webbplatsen.
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md) för andra typer av appar.
 

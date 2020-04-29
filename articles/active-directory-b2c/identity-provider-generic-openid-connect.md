@@ -1,7 +1,7 @@
 ---
 title: Konfigurera registrering och inloggning med OpenID Connect
 titleSuffix: Azure AD B2C
-description: Konfigurera registrering och inloggning med valfri OpenID Connect-identitetsprovider (IdP) i Azure Active Directory B2C.
+description: Konfigurera registrering och inloggning med valfri OpenID Connect Identity Provider (IdP) i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,62 +12,62 @@ ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c72abf79f0a420309ebe229673be9439fd99b74c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78188264"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med OpenID Connect med Azure Active Directory B2C
 
-[OpenID Connect](openid-connect.md) är ett autentiseringsprotokoll som bygger på OAuth 2.0 och som kan användas för säker användarloggning. De flesta identitetsleverantörer som använder det här protokollet stöds i Azure AD B2C. I den här artikeln beskrivs hur du kan lägga till anpassade OpenID Connect-identitetsleverantörer i dina användarflöden.
+[OpenID Connect](openid-connect.md) är ett autentiseringsprotokoll som byggts ovanpå OAuth 2,0 och som kan användas för säker inloggning av användare. De flesta identitets leverantörer som använder det här protokollet stöds i Azure AD B2C. Den här artikeln förklarar hur du kan lägga till anpassade OpenID ansluta identitets leverantörer till dina användar flöden.
 
-## <a name="add-the-identity-provider"></a>Lägg till identitetsprovidern
+## <a name="add-the-identity-provider"></a>Lägg till identitets leverantören
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD B2C-klientorganisationen.
-1. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient genom att klicka på **katalog + prenumerationsfiltret** i den övre menyn och välja den katalog som innehåller din klient.
+1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att klicka på filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
-1. Välj **Identitetsleverantörer**och välj sedan **Ny OpenID Connect-provider**.
+1. Välj **identitets leverantörer**och välj sedan **ny OpenID Connect-Provider**.
 
-## <a name="configure-the-identity-provider"></a>Konfigurera identitetsprovidern
+## <a name="configure-the-identity-provider"></a>Konfigurera identitets leverantören
 
-Varje OpenID Connect-identitetsprovider beskriver ett metadatadokument som innehåller det mesta av den information som krävs för att utföra inloggning. Detta inkluderar information som webbadresser som ska användas och platsen för tjänstens offentliga signeringsnycklar. Metadatadokumentet OpenID Connect finns alltid vid en `.well-known\openid-configuration`slutpunkt som slutar i . För den OpenID Connect-identitetsprovider som du vill lägga till anger du dess metadata-URL.
+Varje OpenID Connect Identity Provider beskriver ett Metadatadokumentet som innehåller merparten av den information som krävs för att utföra inloggning. Detta omfattar information som webb adresserna som ska användas och platsen för tjänstens offentliga signerings nycklar. OpenID Connect-Metadatadokumentet finns alltid i en slut punkt som slutar med `.well-known\openid-configuration`. För den OpenID Connect Identity-Provider som du vill lägga till anger du dess URL för metadata.
 
 ## <a name="client-id-and-secret"></a>Klient-ID och hemlighet
 
-För att tillåta användare att logga in kräver identitetsprovidern utvecklare att registrera ett program i sin tjänst. Det här programmet har ett ID som kallas **klient-ID** och en **klienthemlighet**. Kopiera dessa värden från identitetsprovidern och ange dem i motsvarande fält.
+För att användarna ska kunna logga in kräver identitets leverantören utvecklare att registrera ett program i sin tjänst. Det här programmet har ett ID som kallas **klient-ID** och en **klient hemlighet**. Kopiera de här värdena från identitets leverantören och ange dem i motsvarande fält.
 
 > [!NOTE]
-> Klienthemligheten är valfri. Du måste dock ange en klienthemlighet om du vill använda [auktoriseringskodflödet](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), som använder hemligheten för att byta ut koden mot token.
+> Klient hemligheten är valfri. Du måste dock ange en klient hemlighet om du vill använda ett [auktoriseringskod](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)som använder hemligheten för att byta kod för token.
 
 ## <a name="scope"></a>Omfång
 
-Scope definierar den information och de behörigheter som du vill samla in från din anpassade identitetsleverantör. OpenID Connect-begäranden `openid` måste innehålla scopevärdet för att kunna ta emot ID-token från identitetsprovidern. Utan ID-token kan användare inte logga in på Azure AD B2C med hjälp av den anpassade identitetsprovidern. Andra scope kan läggas till avgränsade med blanksteg. Se den anpassade identitetsproviderns dokumentation för att se vilka andra scope som kan vara tillgängliga.
+Omfattning definierar den information och de behörigheter som du vill samla in från den anpassade identitets leverantören. OpenID Connect-begäranden måste innehålla `openid` omfattnings värde för att ta emot ID-token från identitets leverantören. Utan ID-token kan användarna inte logga in på Azure AD B2C med hjälp av den anpassade identitets leverantören. Andra omfattningar kan läggas till åtskilda med blank steg. Se den anpassade identitets leverantörens dokumentation för att se vilka andra omfattningar som kan vara tillgängliga.
 
-## <a name="response-type"></a>Typ av svar
+## <a name="response-type"></a>Svarstyp
 
-Svarstypen beskriver vilken typ av information som skickas `authorization_endpoint` tillbaka i det första anropet till den anpassade identitetsprovidern. Följande svarstyper kan användas:
+Svars typen beskriver vilken typ av information som skickas tillbaka i det första anropet till `authorization_endpoint` den anpassade identitets leverantören. Följande svars typer kan användas:
 
-* `code`: Enligt [auktoriseringskodflödet](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)returneras en kod tillbaka till Azure AD B2C. Azure AD B2C fortsätter `token_endpoint` att anropa att byta koden för token.
-* `id_token`: En ID-token returneras tillbaka till Azure AD B2C från den anpassade identitetsprovidern.
+* `code`: Enligt [flödets auktoriseringskod](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)returneras en kod tillbaka till Azure AD B2C. Azure AD B2C fortsätter att anropa för `token_endpoint` att skicka koden för token.
+* `id_token`: En ID-token returneras tillbaka till Azure AD B2C från den anpassade identitets leverantören.
 
-## <a name="response-mode"></a>Svarsläge
+## <a name="response-mode"></a>Svars läge
 
-Svarsläget definierar den metod som ska användas för att skicka tillbaka data från den anpassade identitetsprovidern till Azure AD B2C. Följande svarslägen kan användas:
+Svars läget definierar metoden som ska användas för att skicka tillbaka data från den anpassade identitets leverantören till Azure AD B2C. Följande svars lägen kan användas:
 
-* `form_post`: Det här svarsläget rekommenderas för bästa säkerhet. Svaret överförs via HTTP-metoden, `POST` där koden eller token kodas `application/x-www-form-urlencoded` i brödtexten med formatet.
+* `form_post`: Det här svars läget rekommenderas för bästa säkerhet. Svaret överförs via HTTP- `POST` metoden, med koden eller token som kodas i texten med `application/x-www-form-urlencoded` formatet.
 * `query`: Koden eller token returneras som en frågeparameter.
 
-## <a name="domain-hint"></a>Tips för domän
+## <a name="domain-hint"></a>Domän tips
 
-Domäntipset kan användas för att hoppa direkt till inloggningssidan för den angivna identitetsleverantören, i stället för att låta användaren göra ett val bland listan över tillgängliga identitetsleverantörer. Om du vill tillåta den här typen av beteende anger du ett värde för domäntipset. Om du vill hoppa till den `domain_hint=<domain hint value>` anpassade identitetsprovidern lägger du till parametern i slutet av din begäran när du anropar Azure AD B2C för inloggning.
+Du kan använda domän tipset för att hoppa direkt till inloggnings sidan för den angivna identitets leverantören, i stället för att låta användaren göra ett val bland listan över tillgängliga identitets leverantörer. Ange ett värde för domän tipset för att tillåta den här typen av beteende. Om du vill gå till den anpassade identitets leverantören lägger du `domain_hint=<domain hint value>` till parametern i slutet av din begäran när du anropar Azure AD B2C för inloggning.
 
-## <a name="claims-mapping"></a>Mappning av anspråk
+## <a name="claims-mapping"></a>Anspråks mappning
 
-När den anpassade identitetsprovidern skickar tillbaka en ID-token till Azure AD B2C måste Azure AD B2C kunna mappa anspråk från den mottagna token till de anspråk som Azure AD B2C känner igen och använder. För var och en av följande mappningar läser du dokumentationen av den anpassade identitetsprovidern för att förstå de anspråk som returneras tillbaka i identitetsproviderns token:
+När den anpassade identitets leverantören skickar tillbaka en ID-token till Azure AD B2C måste Azure AD B2C kunna mappa anspråk från den mottagna token till anspråk som Azure AD B2C känner igen och använder. För var och en av följande mappningar läser du dokumentationen för den anpassade identitets leverantören för att förstå de anspråk som returneras tillbaka i identitets leverantörens token:
 
-* **Användar-ID:** Ange anspråket som tillhandahåller den *unika identifieraren* för den inloggade användaren.
-* **Visningsnamn**: Ange det anspråk som ger *användarens visningsnamn* eller *fullständiga namn.*
-* **Förnamn**: Ange det anspråk som ger *användarens förnamn.*
-* **Efternamn**: Ange det anspråk som ger användarens *efternamn.*
-* **E-post**: Ange anspråket som ger *användarens e-postadress.*
+* **Användar-ID**: Ange anspråket som tillhandahåller den *unika identifieraren* för den inloggade användaren.
+* **Visnings namn**: Ange det anspråk som innehåller *visnings namnet* eller det *fullständiga namnet* för användaren.
+* **Tilldelat namn**: Ange det anspråk som innehåller användarens *förnamn* .
+* Efter **Namn: Ange**det anspråk som innehåller användarens *efter namn* .
+* **E-post**: Ange det anspråk som tillhandahåller användarens *e-postadress* .

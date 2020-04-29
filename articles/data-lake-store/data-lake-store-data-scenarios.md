@@ -1,6 +1,6 @@
 ---
-title: Datascenarier som involverar Data Lake Storage Gen1 | Microsoft-dokument
-description: Förstå de olika scenarier och verktyg som använder vilka data som kan intas, bearbetas, laddas ned och visualiseras i Data Lake Storage Gen1 (tidigare känt som Azure Data Lake Store)
+title: Data scenarier som involverar Data Lake Storage Gen1 | Microsoft Docs
+description: Förstå de olika scenarier och verktyg som använder vilka data som kan matas in, bearbetas, hämtas och visualiseras i Data Lake Storage Gen1 (tidigare kallat Azure Data Lake Store)
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -11,94 +11,94 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: a8f9b66bf9a301888f2371fb1c58a4845c2232b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79536164"
 ---
-# <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Använda Azure Data Lake Storage Gen1 för stordatakrav
+# <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Använda Azure Data Lake Storage Gen1 för Big data-krav
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
-Det finns fyra viktiga steg i stordatabehandling:
+Det finns fyra viktiga steg i stor data bearbetning:
 
-* Intag av stora mängder data i ett datalager, i realtid eller i omgångar
-* Behandling av data
-* Ladda ner data
+* Mata in stora mängder data i ett data lager i real tid eller i batchar
+* Bearbetar data
+* Hämtar data
 * Visualisera data
 
-I den här artikeln tittar vi på dessa steg med avseende på Azure Data Lake Storage Gen1 för att förstå de alternativ och verktyg som är tillgängliga för att uppfylla dina stordatabehov.
+I den här artikeln tittar vi på de här stegen för Azure Data Lake Storage Gen1 för att förstå de alternativ och verktyg som är tillgängliga för att uppfylla dina Big data behov.
 
-## <a name="ingest-data-into-data-lake-storage-gen1"></a>Inta data i Data Lake Storage Gen1
-I det här avsnittet beskrivs de olika datakällorna och de olika sätt på vilka dessa data kan förtäras till ett Data Lake Storage Gen1-konto.
+## <a name="ingest-data-into-data-lake-storage-gen1"></a>Mata in data i Data Lake Storage Gen1
+I det här avsnittet beskrivs de olika data källorna och de olika sätt som data kan matas in i ett Data Lake Storage Gen1-konto.
 
-![Inta data i Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/ingest-data.png "Inta data i Data Lake Storage Gen1")
+![Mata in data i Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/ingest-data.png "Mata in data i Data Lake Storage Gen1")
 
 ### <a name="ad-hoc-data"></a>Ad hoc-data
-Detta representerar mindre datauppsättningar som används för att prototypera ett stordataprogram. Det finns olika sätt att inta ad hoc-data beroende på datakällan.
+Detta representerar mindre data uppsättningar som används för prototypering av stor data program. Det finns olika sätt att mata in ad hoc-data beroende på data källan.
 
-| Datakälla | Inta den med |
+| Datakälla | Mata in den med |
 | --- | --- |
-| Lokal dator |<ul> <li>[Azure Portal](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure CLI](data-lake-store-get-started-cli-2.0.md)</li> <li>[Använda datasjöverktyg för Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
-| Azure Storage Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy-verktyget](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp körs på HDInsight-kluster](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
+| Lokal dator |<ul> <li>[Azure Portal](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure CLI](data-lake-store-get-started-cli-2.0.md)</li> <li>[Använda Data Lake verktyg för Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| Azure Storage Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy-verktyg](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp som körs på HDInsight-kluster](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Strömmade data
-Detta representerar data som kan genereras av olika källor såsom applikationer, enheter, sensorer, etc. Dessa data kan intas i Data Lake Storage Gen1 med en mängd olika verktyg. Dessa verktyg samlar vanligtvis in och bearbetar data händelse för händelse i realtid och skriver sedan händelserna i batchar i Data Lake Storage Gen1 så att de kan bearbetas ytterligare.
+Detta representerar data som kan genereras av olika källor, till exempel program, enheter, sensorer osv. Dessa data kan matas in i Data Lake Storage Gen1 av flera olika verktyg. Dessa verktyg samlar vanligt vis in och bearbetar data baserat på händelse i real tid och skriver sedan händelserna i batchar till Data Lake Storage Gen1 så att de kan bearbetas ytterligare.
 
 Följande är verktyg som du kan använda:
 
-* [Azure Stream Analytics](../stream-analytics/stream-analytics-data-lake-output.md) - Händelser som matas in i eventhubbar kan skrivas till Azure Data Lake Storage Gen1 med hjälp av en Azure Data Lake Storage Gen1-utdata.
-* [Azure HDInsight Storm](../hdinsight/storm/apache-storm-write-data-lake-store.md) – Du kan skriva data direkt till Data Lake Storage Gen1 från Storm-klustret.
-* [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) – Du kan ta emot händelser från eventhubbar och sedan skriva den till Data Lake Storage Gen1 med [datasjölagringgengen1 .NET SDK](data-lake-store-get-started-net-sdk.md).
+* [Azure Stream Analytics](../stream-analytics/stream-analytics-data-lake-output.md) -händelser som matas in i Event Hubs kan skrivas till Azure Data Lake Storage gen1 med hjälp av en Azure Data Lake Storage gen1 utdata.
+* [Azure HDInsight Storm](../hdinsight/storm/apache-storm-write-data-lake-store.md) – du kan skriva data direkt till data Lake Storage gen1 från Storm-klustret.
+* [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) – du kan ta emot händelser från Event Hubs och sedan skriva den till data Lake Storage gen1 med hjälp av [data Lake Storage gen1 .NET SDK](data-lake-store-get-started-net-sdk.md).
 
 ### <a name="relational-data"></a>Relationsdata
-Du kan också hämta data från relationsdatabaser. Under en viss tidsperiod samlar relationsdatabaser in enorma mängder data som kan ge viktiga insikter om de bearbetas via en stordatapipeline. Du kan använda följande verktyg för att flytta sådana data till Data Lake Storage Gen1.
+Du kan också källdata från Relations databaser. Under en viss tids period samlar Relations databaser in enorma data mängder som kan tillhandahålla viktiga insikter om de bearbetas via en stor datapipeline. Du kan använda följande verktyg för att flytta sådana data till Data Lake Storage Gen1.
 
 * [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
 
-### <a name="web-server-log-data-upload-using-custom-applications"></a>Webbserverloggdata (ladda upp med anpassade program)
-Den här typen av datauppsättning anropas specifikt eftersom analys av webbserverloggdata är ett vanligt användningsfall för stordataprogram och kräver stora volymer loggfiler som ska överföras till Data Lake Storage Gen1. Du kan använda något av följande verktyg för att skriva egna skript eller program för att ladda upp sådana data.
+### <a name="web-server-log-data-upload-using-custom-applications"></a>Logg data för webb server (Ladda upp med anpassade program)
+Den här typen av data uppsättning kallas särskilt för att analysera webb serverns loggdata är ett vanligt användnings fall för stora data program och kräver att stora mängder loggfiler laddas upp till Data Lake Storage Gen1. Du kan använda något av följande verktyg för att skriva egna skript eller program för att överföra sådana data.
 
 * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [Azure Data Lake Storage Gen1 .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
 
-För att ladda upp webbserverloggdata, och även för att ladda upp andra typer av data (t.ex. sociala sentimentdata), är det en bra metod för att skriva egna anpassade skript /program eftersom det ger dig flexibiliteten att inkludera din datauppladdning komponent som en del av din större big data-program. I vissa fall kan den här koden ha formen av ett skript eller ett enkelt kommandoradsverktyg. I andra fall kan koden användas för att integrera stordatabehandling i ett affärsprogram eller en lösning.
+För att överföra data från webb server loggar och även för överföring av andra typer av data (t. ex. sociala sentiment-data), är det en lämplig metod för att skriva egna anpassade skript/program eftersom det ger dig flexibiliteten att inkludera data överförings komponenten som en del av ditt större stora data program. I vissa fall kan den här koden ha formen av ett skript eller ett enkelt kommando rads verktyg. I andra fall kan koden användas för att integrera stor data bearbetning i ett affärs program eller en lösning.
 
 ### <a name="data-associated-with-azure-hdinsight-clusters"></a>Data som är associerade med Azure HDInsight-kluster
-De flesta HDInsight-klustertyper (Hadoop, HBase, Storm) stöder Data Lake Storage Gen1 som en datalagringslagringsplats. HDInsight-kluster får åtkomst till data från Azure Storage Blobbar (WASB). För bättre prestanda kan du kopiera data från WASB till ett Data Lake Storage Gen1-konto som är associerat med klustret. Du kan använda följande verktyg för att kopiera data.
+De flesta typer av HDInsight-kluster (Hadoop, HBase, Storm) stöder Data Lake Storage Gen1 som lagrings plats för data lagring. HDInsight-kluster får åtkomst till data från Azure Storage blobbar (WASB). För bättre prestanda kan du kopiera data från WASB till ett Data Lake Storage Gen1-konto som är kopplat till klustret. Du kan använda följande verktyg för att kopiera data.
 
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 * [AdlCopy-tjänst](data-lake-store-copy-data-azure-storage-blob.md)
 * [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 
-### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Data som lagras i lokala kluster eller IaaS Hadoop-kluster
-Stora mängder data kan lagras i befintliga Hadoop-kluster, lokalt på datorer som använder HDFS. Hadoop-klustren kan finnas i en lokal distribution eller vara i ett IaaS-kluster på Azure. Det kan finnas krav på att kopiera sådana data till Azure Data Lake Storage Gen1 för en engångsmetod eller på ett återkommande sätt. Det finns olika alternativ som du kan använda för att uppnå detta. Nedan finns en lista över alternativ och tillhörande kompromisser.
+### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Data som lagras i lokala eller IaaS Hadoop-kluster
+Stora mängder data kan lagras i befintliga Hadoop-kluster, lokalt på datorer som använder HDFS. Hadoop-klustren kan finnas i en lokal distribution eller vara i ett IaaS-kluster på Azure. Det kan finnas krav på att kopiera sådana data till Azure Data Lake Storage Gen1 för ett engångs sätt eller på ett återkommande sätt. Det finns olika alternativ som du kan använda för att åstadkomma detta. Nedan visas en lista med alternativ och tillhör ande kompromisser.
 
 | Metod | Information | Fördelar | Överväganden |
 | --- | --- | --- | --- |
-| Använda Azure Data Factory (ADF) för att kopiera data direkt från Hadoop-kluster till Azure Data Lake Storage Gen1 |[ADF stöder HDFS som datakälla](../data-factory/connector-hdfs.md) |ADF ger direkt stöd för HDFS och förstklassig hantering och övervakning av slutkund |Kräver att datahanteringsgateway distribueras lokalt eller i IaaS-klustret |
-| Exportera data från Hadoop som filer. Kopiera sedan filerna till Azure Data Lake Storage Gen1 med lämplig mekanism. |Du kan kopiera filer till Azure Data Lake Storage Gen1 med: <ul><li>[Azure PowerShell för Windows OS](data-lake-store-get-started-powershell.md)</li><li>[Azure CLI](data-lake-store-get-started-cli-2.0.md)</li><li>Anpassad app med datasjölagring Gen1 SDK</li></ul> |Snabbt att komma igång. Kan göra anpassade uppladdningar |Flerstegsprocess som involverar flera tekniker. Förvaltning och övervakning kommer att växa till en utmaning över tiden med tanke på de anpassade verktygens |
-| Använd Distcp för att kopiera data från Hadoop till Azure Storage. Kopiera sedan data från Azure Storage till Data Lake Storage Gen1 med lämplig mekanism. |Du kan kopiera data från Azure Storage till Data Lake Storage Gen1 med: <ul><li>[Azure Data Factory](../data-factory/copy-activity-overview.md)</li><li>[AdlCopy-verktyget](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Apache DistCp körs på HDInsight kluster](data-lake-store-copy-data-wasb-distcp.md)</li></ul> |Du kan använda verktyg med öppen källkod. |Flerstegsprocess som involverar flera tekniker |
+| Använd Azure Data Factory (ADF) för att kopiera data direkt från Hadoop-kluster till Azure Data Lake Storage Gen1 |[ADF stöder HDFS som en data Källa](../data-factory/connector-hdfs.md) |ADF tillhandahåller direkt support för HDFS och den första klassens slut punkt till slut punkt-hantering och övervakning |Kräver att Data Management Gateway distribueras lokalt eller i IaaS-klustret |
+| Exportera data från Hadoop som filer. Kopiera sedan filerna till Azure Data Lake Storage Gen1 med lämplig mekanism. |Du kan kopiera filer till Azure Data Lake Storage Gen1 med: <ul><li>[Azure PowerShell för Windows OS](data-lake-store-get-started-powershell.md)</li><li>[Azure CLI](data-lake-store-get-started-cli-2.0.md)</li><li>Anpassad app med valfri Data Lake Storage Gen1-SDK</li></ul> |Kom igång snabbt. Kan göra anpassade uppladdningar |Multi-Step-process som omfattar flera tekniker. Hantering och övervakning kommer att växa för att bli en utmaning över tiden med hänsyn till verktygets anpassade karaktär |
+| Använd Distcp för att kopiera data från Hadoop till Azure Storage. Kopiera sedan data från Azure Storage till Data Lake Storage Gen1 med lämplig mekanism. |Du kan kopiera data från Azure Storage till Data Lake Storage Gen1 med: <ul><li>[Azure Data Factory](../data-factory/copy-activity-overview.md)</li><li>[AdlCopy-verktyg](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Apache-DistCp som körs på HDInsight-kluster](data-lake-store-copy-data-wasb-distcp.md)</li></ul> |Du kan använda verktyg med öppen källkod. |Multi-Step-process som omfattar flera tekniker |
 
-### <a name="really-large-datasets"></a>Riktigt stora datamängder
-För att ladda upp datauppsättningar som sträcker sig i flera terabyte kan det ibland vara långsamt och dyrt att använda de metoder som beskrivs ovan. I sådana fall kan du använda alternativen nedan.
+### <a name="really-large-datasets"></a>Faktiskt stora data uppsättningar
+För att ladda upp data uppsättningar som sträcker sig över flera terabyte, kan det ibland vara långsamt och kostsamt att använda de metoder som beskrivs ovan. I sådana fall kan du använda alternativen nedan.
 
-* **Använda Azure ExpressRoute**. Med Azure ExpressRoute kan du skapa privata anslutningar mellan Azure-datacenter och infrastruktur i dina lokaler. Detta ger ett tillförlitligt alternativ för att överföra stora mängder data. Mer information finns i [Azure ExpressRoute-dokumentation](../expressroute/expressroute-introduction.md).
-* **"Offline" överföring av data**. Om det inte är möjligt att använda Azure ExpressRoute av någon anledning kan du använda [Azure Import/Export-tjänsten](../storage/common/storage-import-export-service.md) för att leverera hårddiskar med dina data till ett Azure-datacenter. Dina data överförs först till Azure Storage Blobbar. Du kan sedan använda [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) eller [AdlCopy-verktyget](data-lake-store-copy-data-azure-storage-blob.md) för att kopiera data från Azure Storage Blobbar till Data Lake Storage Gen1.
+* **Använda Azure-ExpressRoute**. Med Azure ExpressRoute kan du skapa privata anslutningar mellan Azure-datacenter och infrastrukturen i dina lokaler. Detta ger ett tillförlitligt alternativ för överföring av stora mängder data. Mer information finns i [dokumentationen om Azure ExpressRoute](../expressroute/expressroute-introduction.md).
+* **"Frånkopplad" överföring av data**. Om du inte är genomförbart att använda Azure-ExpressRoute kan du använda [Azure import/export-tjänsten](../storage/common/storage-import-export-service.md) för att leverera hård diskar med dina data till ett Azure-datacenter. Dina data laddas först upp till Azure Storage blobbar. Du kan sedan använda [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) -eller [AdlCopy-verktyget](data-lake-store-copy-data-azure-storage-blob.md) för att kopiera data från Azure Storage blobbar till data Lake Storage gen1.
 
   > [!NOTE]
-  > När du använder tjänsten Importera/exportera bör filstorlekarna på diskarna som du levererar till Azure-datacenter inte vara större än 195 GB.
+  > När du använder import/export-tjänsten bör fil storlekarna på diskarna som du levererar till Azure Data Center inte vara större än 195 GB.
   >
   >
 
-## <a name="process-data-stored-in-data-lake-storage-gen1"></a>Bearbeta data som lagras i Gen1 för lagring av datasjö
-När data är tillgängliga i Data Lake Storage Gen1 kan du köra analyser på dessa data med hjälp av de big data-program som stöds. För närvarande kan du använda Azure HDInsight och Azure Data Lake Analytics för att köra dataanalysjobb på data som lagras i Gen1 för datasjölagring.
+## <a name="process-data-stored-in-data-lake-storage-gen1"></a>Bearbeta data som lagras i Data Lake Storage Gen1
+När data är tillgängliga i Data Lake Storage Gen1 kan du köra analyser av dessa data med hjälp av Big data-program som stöds. För närvarande kan du använda Azure HDInsight och Azure Data Lake Analytics för att köra data analys jobb på data som lagras i Data Lake Storage Gen1.
 
-![Analysera data i DataSjölagring Gen1](./media/data-lake-store-data-scenarios/analyze-data.png "Analysera data i DataSjölagring Gen1")
+![Analysera data i Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/analyze-data.png "Analysera data i Data Lake Storage Gen1")
 
 Du kan titta på följande exempel.
 
@@ -108,8 +108,8 @@ Du kan titta på följande exempel.
 ## <a name="download-data-from-data-lake-storage-gen1"></a>Hämta data från Data Lake Storage Gen1
 Du kanske också vill hämta eller flytta data från Azure Data Lake Storage Gen1 för scenarier som:
 
-* Flytta data till andra databaser för att samverka med dina befintliga databehandlingspipelier. Du kanske till exempel vill flytta data från Data Lake Storage Gen1 till Azure SQL Database eller lokal SQL Server.
-* Hämta data till din lokala dator för bearbetning i IDE-miljöer medan du skapar programprototyper.
+* Flytta data till andra databaser till gränssnitt med dina befintliga pipeliner för data bearbetning. Du kanske till exempel vill flytta data från Data Lake Storage Gen1 till Azure SQL Database eller lokalt SQL Server.
+* Ladda ned data till den lokala datorn för bearbetning i IDE-miljöer när du skapar program prototyper.
 
 ![Utgående data från Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/egress-data.png "Utgående data från Data Lake Storage Gen1")
 
@@ -119,16 +119,16 @@ I sådana fall kan du använda något av följande alternativ:
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 
-Du kan också använda följande metoder för att skriva ditt eget skript / program för att hämta data från Data Lake Storage Gen1.
+Du kan också använda följande metoder för att skriva ett eget skript/program för att hämta data från Data Lake Storage Gen1.
 
 * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [Azure Data Lake Storage Gen1 .NET SDK](data-lake-store-get-started-net-sdk.md)
 
-## <a name="visualize-data-in-data-lake-storage-gen1"></a>Visualisera data i Gen1 för lagring av datasjö
+## <a name="visualize-data-in-data-lake-storage-gen1"></a>Visualisera data i Data Lake Storage Gen1
 Du kan använda en blandning av tjänster för att skapa visuella representationer av data som lagras i Data Lake Storage Gen1.
 
-![Visualisera data i Gen1 för lagring av datasjö](./media/data-lake-store-data-scenarios/visualize-data.png "Visualisera data i Gen1 för lagring av datasjö")
+![Visualisera data i Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/visualize-data.png "Visualisera data i Data Lake Storage Gen1")
 
-* Du kan börja med att använda [Azure Data Factory för att flytta data från Data Lake Storage Gen1 till Azure SQL Data Warehouse](../data-factory/copy-activity-overview.md)
+* Du kan börja med att använda [Azure Data Factory för att flytta data från data Lake Storage gen1 till Azure SQL Data Warehouse](../data-factory/copy-activity-overview.md)
 * Därefter kan du [integrera Power BI med Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) för att skapa visuell representation av data.

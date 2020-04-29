@@ -1,33 +1,33 @@
 ---
-title: Azure Application Insights Undantag Telemetri Data modell
-description: Program insights-datamodell för undantagstelemetri
+title: Data modell för Azure Application Insights-undantag
+description: Application Insights data modell för telemetri för undantag
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: fa9bc4efd9549cbcb1d50439989c5dea79d9d60c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671944"
 ---
-# <a name="exception-telemetry-application-insights-data-model"></a>Datamodell för undantagstelemetri: Datamodell för Application Insights
+# <a name="exception-telemetry-application-insights-data-model"></a>Telemetri för undantag: Application Insights data modell
 
-I [Application Insights](../../azure-monitor/app/app-insights-overview.md)representerar en instans av Undantag ett hanterat eller ohanterat undantag som inträffade under körningen av det övervakade programmet.
+I [Application Insights](../../azure-monitor/app/app-insights-overview.md)representerar en instans av undantag ett hanterat eller ohanterat undantag som uppstod under körningen av det övervakade programmet.
 
 ## <a name="problem-id"></a>Problem-ID
 
-Identifierare för var undantaget har kastats i kod. Används för undantagsgruppering. Vanligtvis en kombination av undantagstyp och en funktion från anropsstacken.
+Identifierare för var undantaget utlöstes i koden. Används för gruppering av undantag. Vanligt vis en kombination av undantags typ och en funktion från anrops stacken.
 
-Max längd: 1024 tecken
+Maxlängd: 1024 tecken
 
 ## <a name="severity-level"></a>Allvarlighetsgrad
 
-Spåra allvarlighetsgrad. Värdet kan `Verbose` `Information`vara `Warning` `Error`, `Critical`, , , .
+Allvarlighets grad för spårning. Värdet kan vara `Verbose`, `Information` `Warning`,, `Error`, `Critical`.
 
 ## <a name="exception-details"></a>Undantagsinformation
 
-(Förlängd)
+(Ska utökas)
 
 ## <a name="custom-properties"></a>Anpassade egenskaper
 
@@ -39,6 +39,6 @@ Spåra allvarlighetsgrad. Värdet kan `Verbose` `Information`vara `Warning` `Err
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [datamodell](data-model.md) för programinsiktstyper och datamodell.
-- Läs om hur du [diagnostiserar undantag i webbapparna med Application Insights](../../azure-monitor/app/asp-net-exceptions.md).
-- Kolla in [plattformar](../../azure-monitor/app/platforms.md) som stöds av Application Insights.
+- Se [data modell](data-model.md) för Application Insights typer och data modell.
+- Lär dig hur du [diagnostiserar undantag i dina webbappar med Application Insights](../../azure-monitor/app/asp-net-exceptions.md).
+- Kolla ut [plattformar](../../azure-monitor/app/platforms.md) som stöds av Application Insights.

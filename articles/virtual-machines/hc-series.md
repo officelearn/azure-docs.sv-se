@@ -1,5 +1,5 @@
 ---
-title: HC-serien – virtuella Azure-datorer
+title: HC-serien – Azure Virtual Machines
 description: Specifikationer för virtuella datorer i HC-serien.
 services: virtual-machines
 author: jonbeck7
@@ -8,29 +8,29 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: cc25fb9b21d535ef07bcfae673be48216427b370
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78164788"
 ---
 # <a name="hc-series"></a>HC-serien
 
-Virtuella datorer i HC-serien är optimerade för applikationer som drivs av tät beräkning, till exempel implicit finita elementanalys, molekylär dynamik och beräkningskemi. HC VMs har 44 Intel Xeon Platinum 8168 processorkärnor, 8 GB RAM per CPU-kärna, och ingen hyperthreading. Intel Xeon Platinum-plattformen stöder Intels rika ekosystem av programvaruverktyg som Intel Math Kernel Library.
+Virtuella datorer i HC-serien är optimerade för program som drivs av kompakt beräkning, till exempel implicit ändlig analys av element, molekyl Dynamics och beräknings kemi. Virtuella HC-funktioner 44 Intel Xeon platina 8168 processor kärnor, 8 GB RAM-minne per CPU-kärna och ingen hyperthreading. Intel Xeon platina-plattformen stöder Intels omfattande eko system med program varu verktyg som Intel Math kernel-biblioteket.
 
 ACU: 297-315
 
-Premium-lagring: Stöds
+Premium Storage: stöds
 
-Cachelagring för premiumlagring: Stöds
+Premium Storage caching: stöds
 
-Live Migration: Stöds inte
+Direktmigrering: stöds inte
 
-Minneskonering av uppdateringar: Stöds inte
+Minnes bebetjänings uppdateringar: stöds inte
 
-| Storlek | Virtuell processor | Processor | Minne (GB) | Minnesbandbredd GB/s | Bas-CPU-frekvens (GHz) | All-cores frekvens (GHz, topp) | Enkärnfrekvens (GHz, topp) | RDMA-prestanda (Gb/s) | MPI-stöd | Temp-lagring (GB) | Maximalt antal datadiskar | Max Ethernet-nätverkskort |
+| Storlek | Virtuell processor | Processor | Minne (GB) | Minnes bandbredd GB/s | Bas processor frekvens (GHz) | Frekvens för alla kärnor (GHz, högsta) | Frekvens för enkla kärnor (GHz, hög) | RDMA-prestanda (GB/s) | MPI-stöd | Temp-lagring (GB) | Maximalt antal datadiskar | Högsta Ethernet-nätverkskort |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_HC44rs | 44 | Intel Xeon Platina 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | Alla | 700 | 4 | 1 |
+| Standard_HC44rs | 44 | Intel Xeon platina 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | Alla | 700 | 4 | 1 |
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
@@ -45,4 +45,4 @@ Minneskonering av uppdateringar: Stöds inte
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hur [Azure compute units (ACU)](acu.md) kan hjälpa dig att jämföra beräkningsprestanda över Azure SKU:er.
+Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.

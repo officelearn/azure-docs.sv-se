@@ -14,58 +14,58 @@ ms.workload: na
 ms.date: 03/16/2020
 ms.author: memildin
 ms.openlocfilehash: 152168bbadd5815659bc5f70c91bd2a28f5e049d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481967"
 ---
 # <a name="monitor-identity-and-access"></a>Övervaka identitet och åtkomst
 
 > [!TIP]
-> Från och med mars 2020 ingår Azure Security Centers identitets- och åtkomstrekommendationer i alla prenumerationer på den kostnadsfria prisnivån. Om du har prenumerationer på den kostnadsfria nivån påverkas deras Secure Score eftersom de inte tidigare bedömts för sin identitets- och åtkomstsäkerhet. 
+> Från mars 2020 ingår Azure Security Centers identitets-och åtkomst rekommendationer i alla prenumerationer på den kostnads fria pris nivån. Om du har prenumerationer på den kostnads fria nivån kommer deras säkra poäng att påverkas eftersom de inte tidigare har utvärderats för identitets-och åtkomst säkerhet. 
 
-När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som hjälper dig att konfigurera de kontroller som behövs för att härda och skydda dina resurser.
+När Security Center identifierar potentiella säkerhets risker skapar den rekommendationer som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna för att skärp och skydda dina resurser.
 
-Säkerhetsområdet har utvecklats från en nätverksperimeter till en identitetsperimeter. Säkerheten blir mindre om att försvara ditt nätverk och mer om att försvara dina data, samt hantera säkerheten för dina appar och användare. Nuförtiden, då mer data och fler appar flyttas till molnet, blir identiteten den nya perimetern.
+Säkerhetsperimetern har utvecklats från en nätverks gräns till en identitets perimeter. Säkerheten blir mindre säker på skyddet av ditt nätverk och mer om att skydda dina data, samt att hantera säkerheten för dina appar och användare. Nuförtiden, då mer data och fler appar flyttas till molnet, blir identiteten den nya perimetern.
 
-Genom att övervaka identitetsaktiviteter kan du vidta proaktiva åtgärder innan en incident intar eller reaktiva åtgärder för att stoppa ett attackförsök. Säkerhetscenter kan till exempel flagga föråldrade konton (konton som inte längre behövs och blockeras från att logga in av Azure Active Directory) för borttagning. 
+Genom att övervaka identitets aktiviteter kan du vidta proaktiva åtgärder innan en incident inträffar eller åtgärder som aktive ras för att stoppa ett angrepps försök. Security Center kan till exempel flagga föråldrade konton (konton som inte längre behövs och som blockeras från att logga in med Azure Active Directory) för borttagning. 
 
-Exempel på rekommendationer som kan visas i avsnittet **Identitets- och åtkomstresurssäkerhet** i Azure Security Center är:
+Exempel på rekommendationer som du kan se i avsnittet **identitets-och åtkomst** resurs säkerhet i Azure Security Center:
 
-- MFA ska aktiveras på konton med ägarbehörighet för din prenumeration
-- Högst 3 ägare bör utses för din prenumeration
-- Externa konton med läsbehörighet bör tas bort från din prenumeration
-- Inaktuella konton ska tas bort från din prenumeration
+- MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
+- Högst 3 ägare bör anges för din prenumeration
+- Externa konton med Läs behörighet bör tas bort från din prenumeration
+- Föråldrade konton bör tas bort från din prenumeration
 
-Mer information om dessa rekommendationer samt en fullständig lista över de rekommendationer som du kan se här finns i [rekommendationer om identitet och åtkomst](recommendations-reference.md#recs-identity).
+Mer information om dessa rekommendationer och en fullständig lista över rekommendationer som du kan se här finns i [rekommendationer för identitet och åtkomst](recommendations-reference.md#recs-identity).
 
 > [!NOTE]
-> Om din prenumeration har fler än 600 konton kan Security Center inte köra identitetsrekommendationerna mot din prenumeration. Rekommendationer som inte körs visas under "ej tillgängliga utvärderingar" nedan.
-Security Center kan inte köra identitetsrekommendationerna mot en CSP-partners administratörsagenter (Cloud Solution Provider).
+> Om din prenumeration har fler än 600 konton kan Security Center inte köra identitets rekommendationerna mot din prenumeration. Rekommendationer som inte körs visas under "otillgängliga utvärderingar" nedan.
+Security Center kan inte köra identitets rekommendationer mot en CSP-partners (Cloud Solution Provider) administratörs agenter.
 >
 
 
-Alla identitets- och åtkomstrekommendationer finns i två säkerhetskontroller på sidan **Rekommendationer:**
+Alla rekommendationer för identitet och åtkomst finns i två säkerhets kontroller på sidan **rekommendationer** :
 
 - Hantera åtkomst och behörigheter 
 - Aktivera MFA
 
-![De två säkerhetskontrollerna med rekommendationer om identitet och åtkomst](media/security-center-identity-access/two-security-controls-for-identity-and-access.png)
+![De två säkerhets kontrollerna med rekommendationerna för identitet och åtkomst](media/security-center-identity-access/two-security-controls-for-identity-and-access.png)
 
 
-## <a name="enable-multi-factor-authentication-mfa"></a>Aktivera MFA (Multifaktorautentisering)
+## <a name="enable-multi-factor-authentication-mfa"></a>Aktivera Multi-Factor Authentication (MFA)
 
-Om du aktiverar MFA krävs [Azure Active Directory (AD) klientbehörigheter](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
+För att aktivera MFA krävs [Azure Active Directory (AD) klient behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
 
-- Om du har en premiumutgåva av AD aktiverar du MFA med [villkorad åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+- Om du har en Premium-version av AD aktiverar du MFA med [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 
-- Användare av AD free edition kan aktivera **standardvärden** för säkerhet i Azure Active Directory enligt beskrivningen i [AD-dokumentationen,](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) men Rekommendationen Security Center för att aktivera MFA visas fortfarande.
+- Användare av den kostnads fria versionen av AD kan aktivera **säkerhets inställningar** i Azure Active Directory enligt beskrivningen i [AD-dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults) , men Security Center rekommendationer för att aktivera MFA kommer fortfarande att visas.
 
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om rekommendationer som gäller för andra Azure-resurstyper finns i följande artiklar:
+Mer information om rekommendationer som gäller för andra typer av Azure-resurser finns i följande artiklar:
 
 - [Skydda datorer och program i Azure Security Center](security-center-virtual-machine-protection.md)
 - [Skydda nätverket i Azure Security Center](security-center-network-recommendations.md)
-- [Skydda din Azure SQL-tjänst och dina Azure-data i Azure Security Center](security-center-sql-service-recommendations.md)
+- [Skydda din Azure SQL-tjänst och data i Azure Security Center](security-center-sql-service-recommendations.md)

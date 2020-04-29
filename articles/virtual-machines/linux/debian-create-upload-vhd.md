@@ -1,31 +1,31 @@
 ---
-title: Förbered en Debian Linux VHD
-description: Lär dig hur du skapar Debians VHD-avbildningar för VM-distributioner i Azure.
+title: Förbered en virtuell Debian Linux-hårddisk
+description: Lär dig hur du skapar Debian VHD-avbildningar för distributioner av virtuella datorer i Azure.
 author: gbowerman
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: guybo
 ms.openlocfilehash: d54f7a11d929c31fee29a788eb3a2ae2cc8f2703
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80066715"
 ---
-# <a name="prepare-a-debian-vhd-for-azure"></a>Förbereda en Debian-VIRTUELLD för Azure
+# <a name="prepare-a-debian-vhd-for-azure"></a>Förbered en virtuell Debian-VHD för Azure
 ## <a name="prerequisites"></a>Krav
-Det här avsnittet förutsätter att du redan har installerat ett Debian Linux-operativsystem från en ISO-fil som laddats ner från [Debians webbplats](https://www.debian.org/distrib/) till en virtuell hårddisk. Det finns flera verktyg för att skapa VHD-filer. Hyper-V är bara ett exempel. Instruktioner om hur du använder Hyper-V finns [i Installera Hyper-V-rollen och Konfigurera en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
+Det här avsnittet förutsätter att du redan har installerat ett Debian Linux-operativsystem från en. ISO-fil som hämtats från [Debian-webbplatsen](https://www.debian.org/distrib/) till en virtuell hård disk. Det finns flera verktyg för att skapa. VHD-filer; Hyper-V är bara ett exempel. Instruktioner för hur du använder Hyper-V finns i [Installera Hyper-v-rollen och konfigurera en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
 
-## <a name="installation-notes"></a>Installationsanteckningar
-* Se även [Allmänna Linux-installationsanteckningar](create-upload-generic.md#general-linux-installation-notes) för fler tips om hur du förbereder Linux för Azure.
-* Det nyare VHDX-formatet stöds inte i Azure. Du kan konvertera disken till VHD-format med Hyper-V-hanteraren eller cmdleten **konvertera-vhd.**
-* När du installerar Linux-systemet rekommenderas att du använder standardpartitioner i stället för LVM (ofta standard för många installationer). Detta kommer att undvika LVM namnkonflikter med klonade virtuella datorer, särskilt om en OS-disk någonsin måste kopplas till en annan virtuell dator för felsökning. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kan användas på datadiskar om så önskas.
-* Konfigurera inte en växlingspartition på OS-disken. Azure Linux-agenten kan konfigureras för att skapa en växlingsfil på den temporära resursdisken. Mer information finns i stegen nedan.
-* Alla virtuella hårddiskar på Azure måste ha en virtuell storlek justerad till 1 MB. När du konverterar från en rådisk till virtuell hårddisk måste du se till att rådiskstorleken är en multipel av 1 MB före konvertering. Mer information finns i [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes).
+## <a name="installation-notes"></a>Installations information
+* Se även [allmänna Linux-Installationsinstruktioner](create-upload-generic.md#general-linux-installation-notes) för mer information om hur du förbereder Linux för Azure.
+* Det nya VHDX-formatet stöds inte i Azure. Du kan konvertera disken till VHD-format med hjälp av Hyper-V Manager eller cmdleten **Convert-VHD** .
+* När du installerar Linux-systemet rekommenderar vi att du använder standardpartitioner snarare än LVM (vanligt vis som standard för många installationer). På så sätt undviker du LVM namn konflikter med klonade virtuella datorer, särskilt om en OS-disk någonsin måste kopplas till en annan virtuell dator för fel sökning. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kan användas på data diskar om det är lämpligt.
+* Konfigurera inte en swap-partition på OS-disken. Azure Linux-agenten kan konfigureras för att skapa en växlings fil på den tillfälliga resurs disken. Mer information hittar du i stegen nedan.
+* Alla virtuella hård diskar på Azure måste ha en virtuell storlek som är justerad till 1 MB. När du konverterar från en RAW-disk till en virtuell hård disk måste du se till att den råa disk storleken är en multipel av 1 MB före konverteringen. Mer information finns i [installations information för Linux](create-upload-generic.md#general-linux-installation-notes).
 
-## <a name="use-azure-manage-to-create-debian-vhds"></a>Använd Azure-Manage för att skapa Debians virtuella hårddiskar
-Det finns verktyg för att generera Debian-virtuella hårddiskar för Azure, till exempel [azure-manage-skript](https://github.com/credativ/azure-manage) från [Credativ](https://www.credativ.com/). Detta är den rekommenderade metoden jämfört med att skapa en bild från grunden. Om du till exempel vill skapa en Virtuell Debian 8-hårddisk kör du följande kommandon för att hämta `azure-manage` verktyget (och beroenden) och köra skriptet: `azure_build_image`
+## <a name="use-azure-manage-to-create-debian-vhds"></a>Använd Azure-Manage för att skapa Debian-VHD: er
+Det finns verktyg som är tillgängliga för att skapa Debian-VHD: er för Azure, till exempel [Azure-hantera](https://github.com/credativ/azure-manage) skript från [credativ](https://www.credativ.com/). Detta är den rekommenderade metoden jämfört med att skapa en avbildning från grunden. Om du till exempel vill skapa en Debian 8-VHD kör du följande kommandon för `azure-manage` att ladda ned verktyget (och beroenden `azure_build_image` ) och köra skriptet:
 
     # sudo apt-get update
     # sudo apt-get install git qemu-utils mbr kpartx debootstrap
@@ -39,22 +39,22 @@ Det finns verktyg för att generera Debian-virtuella hårddiskar för Azure, til
     # sudo azure_build_image --option release=jessie --option image_size_gb=30 --option image_prefix=debian-jessie-azure section
 
 
-## <a name="manually-prepare-a-debian-vhd"></a>Förbereda en Debian-VHD manuellt
+## <a name="manually-prepare-a-debian-vhd"></a>Förbered en virtuell Debian-VHD manuellt
 1. Välj den virtuella datorn i Hyper-V Manager.
-2. Klicka på **Anslut** om du vill öppna ett konsolfönster för den virtuella datorn.
-3. Om du har installerat operativsystemet med en ISO,`deb cdrom`kommentera `/etc/apt/source.list`ut någon rad som rör " " i .
+2. Klicka på **Anslut** för att öppna ett konsol fönster för den virtuella datorn.
+3. Om du har installerat operativ systemet med hjälp av ISO kan du kommentera ut vilken rad som`deb cdrom`helst som `/etc/apt/source.list`relaterar till "" i.
 
-4. Redigera `/etc/default/grub` filen och ändra **parametern GRUB_CMDLINE_LINUX** enligt följande för att inkludera ytterligare kärnparametrar för Azure.
+4. Redigera `/etc/default/grub` filen och ändra **GRUB_CMDLINE_LINUX** -parametern enligt följande om du vill inkludera ytterligare kernel-parametrar för Azure.
    
         GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200n8 earlyprintk=ttyS0,115200"
 
-5. Bygg om grub och kör:
+5. Återskapa grub och kör:
 
         # sudo update-grub
 
-6. Lägg till Debians Azure-databaser i /etc/apt/sources.list för antingen Debian 8 eller 9:
+6. Lägg till Debian Azure-databaser till/etc/apt/sources.list för antingen Debian 8 eller 9:
 
-    **Debian 8.x "Jessie"**
+    **Debian 8. x "Jessie"**
 
         deb http://debian-archive.trafficmanager.net/debian jessie main
         deb-src http://debian-archive.trafficmanager.net/debian jessie main
@@ -65,7 +65,7 @@ Det finns verktyg för att generera Debian-virtuella hårddiskar för Azure, til
         deb http://debian-archive.trafficmanager.net/debian jessie-backports main
         deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main
 
-    **Debian 9.x "Stretch"**
+    **Debian 9. x "sträckning"**
 
         deb http://debian-archive.trafficmanager.net/debian stretch main
         deb-src http://debian-archive.trafficmanager.net/debian stretch main
@@ -82,22 +82,22 @@ Det finns verktyg för att generera Debian-virtuella hårddiskar för Azure, til
         # sudo apt-get update
         # sudo apt-get install waagent
 
-8. För Debian 9+ rekommenderas att använda den nya Debian Cloud-kärnan för användning med virtuella datorer i Azure. För att installera denna nya kärna, först skapa en fil som heter /etc/apt/preferences.d/linux.pref med följande innehåll:
+8. För Debian 9 + rekommenderar vi att du använder den nya Debian Cloud-kärnan för användning med virtuella datorer i Azure. Om du vill installera den nya kerneln måste du först skapa en fil med namnet/etc/apt/preferences.d/Linux.PREF med följande innehåll:
    
         Package: linux-* initramfs-tools
         Pin: release n=stretch-backports
         Pin-Priority: 500
    
-    Kör sedan "sudo apt-get install linux-image-cloud-amd64" för att installera den nya Debian Cloud-kärnan.
+    Kör sedan "sudo apt-get install linux-image-Cloud-amd64" för att installera den nya Debian Cloud-kärnan.
 
-9. Avetablera den virtuella datorn och förbered den för etablering på Azure och kör:
+9. Avetablera den virtuella datorn och Förbered den för etablering på Azure och kör:
    
         # sudo waagent –force -deprovision
         # export HISTSIZE=0
         # logout
 
-10. Klicka på **Åtgärd** -> stäng av i Hyper-V-hanteraren. Din virtuella Linux-hårddisk är nu klar att överföras till Azure.
+10. Klicka på **åtgärd** -> stänga av i Hyper-V Manager. Din Linux-VHD är nu redo att laddas upp till Azure.
 
 ## <a name="next-steps"></a>Nästa steg
-Du är nu redo att använda din virtuella Debian-hårddisk för att skapa nya virtuella datorer i Azure. Om det är första gången du överför VHD-filen till Azure läser du [Skapa en virtuell Linux-dator från en anpassad disk](upload-vhd.md#option-1-upload-a-vhd).
+Du är nu redo att använda din virtuella Debian-hård disk för att skapa nya virtuella datorer i Azure. Om det är första gången du laddar upp VHD-filen till Azure, se [skapa en virtuell Linux-dator från en anpassad disk](upload-vhd.md#option-1-upload-a-vhd).
 

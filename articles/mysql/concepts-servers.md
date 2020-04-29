@@ -1,57 +1,57 @@
 ---
-title: Serverkoncept - Azure Database för MySQL
-description: Det här avsnittet innehåller överväganden och riktlinjer för att arbeta med Azure Database för MySQL-servrar.
+title: Server koncept – Azure Database for MySQL
+description: Det här avsnittet innehåller överväganden och rikt linjer för att arbeta med Azure Database for MySQL-servrar.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 300470b2e8fb10fda7cfc59517cef00c07bf0632
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79537014"
 ---
-# <a name="server-concepts-in-azure-database-for-mysql"></a>Serverbegrepp i Azure Database för MySQL
+# <a name="server-concepts-in-azure-database-for-mysql"></a>Server koncept i Azure Database for MySQL
 
-Den här artikeln innehåller överväganden och riktlinjer för att arbeta med Azure Database för MySQL-servrar.
+Den här artikeln innehåller överväganden och rikt linjer för att arbeta med Azure Database for MySQL-servrar.
 
-## <a name="what-is-an-azure-database-for-mysql-server"></a>Vad är en Azure-databas för MySQL-server?
+## <a name="what-is-an-azure-database-for-mysql-server"></a>Vad är en Azure Database for MySQL-Server?
 
-En Azure-databas för MySQL-server är en central administrativ punkt för flera databaser. Det är samma MySQL server konstruktion som du kanske är bekant med i den lokala världen. Azure Database for MySQL-tjänsten hanteras, ger prestandagarantier och exponerar åtkomst och funktioner på servernivå.
+En Azure Database for MySQL-server är en central administrativ punkt för flera databaser. Det är samma server konstruktion för MySQL som du kanske är van vid i den lokala världen. Mer specifikt är Azure Database for MySQLs tjänsten hanterad, ger prestanda garantier och visar åtkomst och funktioner på server nivå.
 
-En Azure-databas för MySQL-server:
+En Azure Database for MySQL server:
 
 - Skapas i en Azure-prenumeration.
-- Är den överordnade resursen för databaser.
-- Innehåller ett namnområde för databaser.
-- Är en behållare med stark livstidssemantik - ta bort en server och den tar bort de inneslutna databaserna.
-- Samlokaliseringar av resurser i en region.
-- Tillhandahåller en anslutningsslutpunkt för server- och databasåtkomst.
-- Innehåller utrymme för hanteringsprinciper som gäller för dess databaser: inloggning, brandvägg, användare, roller, konfigurationer osv.
-- Finns i flera versioner. Mer information finns i [Azure Database for MySQL-databasversioner som stöds](./concepts-supported-versions.md).
+- Är överordnad resurs för databaser.
+- Innehåller ett namn område för databaser.
+- Är en behållare med stark livs längd – ta bort en server och tar bort de inneslutna databaserna.
+- Samlar resurser i en region.
+- Tillhandahåller en anslutnings slut punkt för Server-och databas åtkomst.
+- Tillhandahåller omfattning för hanterings principer som gäller för databaserna: inloggning, brand vägg, användare, roller, konfigurationer osv.
+- Är tillgänglig i flera versioner. Mer information finns i [Azure Database for MySQL databas versioner som stöds](./concepts-supported-versions.md).
 
-Du kan skapa en eller flera databaser på en Azure Database för MySQL-server. Du kan välja att skapa en enda databas per server för att använda alla resurser eller för att skapa flera databaser för att dela resurserna. Prissättningen är strukturerad per server, baserat på konfigurationen av prisnivå, virtuella kärnor och lagring (GB). Mer information finns i [Prisnivåer](./concepts-service-tiers.md).
+Du kan skapa en eller flera databaser på en Azure Database för MySQL-server. Du kan välja att skapa en enskild databas per server för att använda alla resurser eller för att skapa flera databaser för att dela resurserna. Priserna är strukturerad per server, baserat på konfigurationen av pris nivån, virtuella kärnor och lagring (GB). Mer information finns i [pris nivåer](./concepts-service-tiers.md).
 
-## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Hur ansluter och autentiserar jag till en Azure-databas för MySQL-server?
+## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Hur gör jag för att ansluta och autentisera till en Azure Database for MySQL-Server?
 
-Följande element hjälper till att säkerställa säker åtkomst till databasen.
+Följande element hjälper till att säkerställa säker åtkomst till din databas.
 
 |     |     |
 | :-- | :-- |
-| **Autentisering och auktorisering** | Azure Database för MySQL-server stöder inbyggd MySQL-autentisering. Du kan ansluta och autentisera till en server med serverns administratörsinloggning. |
-| **Protokollet** | Tjänsten stöder ett meddelandebaserat protokoll som används av MySQL. |
-| **TCP/IP** | Protokollet stöds via TCP/IP och över Unix-domänuttag. |
-| **Brandvägg** | För att skydda dina data förhindrar en brandväggsregel all åtkomst till databasservern tills du anger vilka datorer som har behörighet. Se [Azure Database for MySQL Server-brandväggsregler](./concepts-firewall-rules.md). |
-| **SSL** | Tjänsten stöder att tvinga fram SSL-anslutningar mellan dina program och databasservern.  Se [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (Konfigurera SSL-anslutning i ditt program för att säkert ansluta till Azure Database för MySQL). |
+| **Autentisering och auktorisering** | Azure Database for MySQL Server stöder inbyggd MySQL-autentisering. Du kan ansluta och autentisera till en server med serverns Administratörs inloggning. |
+| **Protokollhanterare** | Tjänsten har stöd för ett Message-baserat protokoll som används av MySQL. |
+| **TCP/IP** | Protokollet stöds över TCP/IP och över UNIX-domänsuffix. |
+| **Vägg** | För att skydda dina data förhindrar en brand Väggs regel all åtkomst till din databas server tills du anger vilka datorer som har behörighet. Se [Azure Database for MySQL server brand Väggs regler](./concepts-firewall-rules.md). |
+| **SSL** | Tjänsten har stöd för att tvinga SSL-anslutningar mellan dina program och databas servern.  Se [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](./howto-configure-ssl.md) (Konfigurera SSL-anslutning i ditt program för att säkert ansluta till Azure Database för MySQL). |
 
-## <a name="how-do-i-manage-a-server"></a>Hur hanterar jag en server?
+## <a name="how-do-i-manage-a-server"></a>Hur gör jag för att hantera en server?
 
-Du kan hantera Azure Database för MySQL-servrar med hjälp av Azure-portalen eller Azure CLI.
+Du kan hantera Azure Database for MySQL-servrar med hjälp av Azure Portal eller Azure CLI.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt över tjänsten finns i [Översikt över Azure Database for MySQL](./overview.md)
-- Information om specifika resurskvoter och begränsningar baserat på **tjänstnivån**finns i [Tjänstnivåer](./concepts-service-tiers.md)
-- Information om hur du ansluter till tjänsten finns i [Anslutningsbibliotek för Azure Database för MySQL](./concepts-connection-libraries.md).
+- En översikt över tjänsten finns i [Azure Database for MySQL översikt](./overview.md)
+- Information om vilka resurs kvoter och begränsningar som baseras på **tjänst nivån**finns i [tjänst nivåer](./concepts-service-tiers.md)
+- Information om hur du ansluter till tjänsten finns i [anslutnings bibliotek för Azure Database for MySQL](./concepts-connection-libraries.md).

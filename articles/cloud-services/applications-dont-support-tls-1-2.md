@@ -1,6 +1,6 @@
 ---
-title: Felsöka problem som orsakas av program som inte stöder TLS 1.2 | Microsoft-dokument
-description: Felsöka problem som orsakas av program som inte stöder TLS 1.2
+title: Fel söknings problem som orsakas av program som inte stöder TLS 1,2 | Microsoft Docs
+description: Fel söknings problem som orsakas av program som inte stöder TLS 1,2
 services: cloud-services
 documentationcenter: ''
 author: mimckitt
@@ -15,30 +15,30 @@ ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
 ms.openlocfilehash: 6153b9d5e8ef11412b0dd53a15c565becfa1c8a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80053758"
 ---
-# <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Felsöka program som inte stöder TLS 1.2
-I den hÃ¤r artikeln beskrivs hur du aktiverar de äldre TLS-protokollen (TLS 1.0 och 1.1) samt tillämpar äldre chiffersviter fÃ¶r att stödja tilläggsprotokollen fÃ¶r molntjänstwebb- och arbetarrollerna fÃ¶r Windows Server 2019. 
+# <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Felsöka program som inte stöder TLS 1,2
+I den här artikeln beskrivs hur du aktiverar de äldre TLS-protokollen (TLS 1,0 och 1,1) samt tillämpar äldre chiffersviter för att stödja ytterligare protokoll i webb-och arbets roller för Windows Server 2019 Cloud service. 
 
-Vi förstår att medan vi vidtar åtgärder för att föråldrat TLS 1.0 och TLS 1.1, kan våra kunder behöva stödja äldre protokoll och chiffersviter tills de kan planera för deras utfasning.  Vi rekommenderar inte att dessa äldre värden återaktiverars, men vi ger vägledning för att hjälpa kunderna. Vi uppmuntrar kunderna att utvärdera risken för regression innan de genomför ändringarna som beskrivs i den här artikeln. 
+Vi är införstådd med att vi vidtar åtgärder för att föråldra TLS 1,0 och TLS 1,1, men våra kunder kan behöva stödja de äldre protokollen och chiffersviter för att kunna planera för deras utfasning.  Vi rekommenderar att du inte aktiverar de här äldre värdena igen, men vi ger vägledning för att hjälpa kunderna. Vi uppmuntrar kunderna att utvärdera risken för regression innan du implementerar de ändringar som beskrivs i den här artikeln. 
 
 > [!NOTE]
-> Gäst OS Family 6-versionen tillämpar TLS 1.2 genom att uttryckligen inaktivera TLS 1.0 och 1.1 och definiera en specifik uppsättning chiffersviter. För mer information om Gäst OS familjer se [Gäst OS release nyheter](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases)
+> Gäst operativ system familj 6 version 6 aktiverar TLS 1,2 genom att uttryckligen inaktivera TLS 1,0 och 1,1 och definiera en specifik uppsättning chiffersviter. Mer information om gäst operativ system familjer finns i [gäst operativ system version nyheter](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases)
 
 
-## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Släppa stöd för TLS 1.0, TLS 1.1 och äldre chiffersviter 
-Till stöd för vårt åtagande att använda förstklassig kryptering tillkännagav Microsoft planer på att starta migreringen från TLS 1.0 och 1.1 i juni 2017.   Sedan det första meddelandet tillkännagav Microsoft vår avsikt att inaktivera Transport Layer Security (TLS) 1.0 och 1.1 som standard i versioner av Microsoft Edge och Internet Explorer 11 under första halvåret 2020.  Liknande meddelanden från Apple, Google och Mozilla visar i vilken riktning branschen är på väg.   
+## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Släpper stöd för TLS 1,0, TLS 1,1 och äldre chiffersviter 
+Som ett stöd för vårt åtagande att använda den bästa krypteringen kan Microsoft lansera sina planer på att starta migreringen från TLS 1,0 och 1,1 i juni 2017.   Eftersom det första meddelandet tillkännagede Microsoft oss att inaktivera Transport Layer Security (TLS) 1,0 och 1,1 som standard i versioner av Microsoft Edge och Internet Explorer 11 som stöds i första hälften av 2020.  Liknande meddelanden från Apple, Google och Mozilla visar i vilken riktning branschen är påslagen.   
 
-Mer information finns i [Förbereda för TLS 1.2 i Microsoft Azure](https://azure.microsoft.com/updates/azuretls12/)
+Mer information finns i [förbereda för TLS 1,2 i Microsoft Azure](https://azure.microsoft.com/updates/azuretls12/)
 
 ## <a name="tls-configuration"></a>TLS-konfiguration  
-Molnserveravbildningen för Windows Server 2019 är konfigurerad med TLS 1.0 och TLS 1.1 inaktiverade på registernivå. Det innebär att program som distribueras till den här versionen av Windows OCH som använder Windows-stacken för TLS-förhandling inte tillåter TLS 1.0- och TLS 1.1-kommunikation.   
+Windows Server 2019 Cloud Server-avbildningen har kon figurer ATS med TLS 1,0 och TLS 1,1 inaktiverat på register nivå. Det innebär att program som distribueras till den här versionen av Windows och använder Windows stack för TLS-förhandling inte tillåter TLS 1,0 och TLS 1,1-kommunikation.   
 
-Servern levereras också med en begränsad uppsättning chiffer sviter: 
+Servern levereras också med en begränsad uppsättning chiffersviter: 
 
 ```
     TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 
@@ -51,9 +51,9 @@ Servern levereras också med en begränsad uppsättning chiffer sviter:
     TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 
 ```
 
-## <a name="step-1-create-the-powershell-script-to-enable-tls-10-and-tls-11"></a>Steg 1: Skapa PowerShell-skriptet för att aktivera TLS 1.0 och TLS 1.1 
+## <a name="step-1-create-the-powershell-script-to-enable-tls-10-and-tls-11"></a>Steg 1: skapa PowerShell-skriptet för att aktivera TLS 1,0 och TLS 1,1 
 
-Använd följande kod som ett exempel för att skapa ett skript som aktiverar äldre protokoll och chiffersviter. I den här dokumentationen kommer det här skriptet att heta: **TLSsettings.ps1**. Lagra det här skriptet på det lokala skrivbordet för enkel åtkomst i senare steg. 
+Använd följande kod som exempel för att skapa ett skript som aktiverar de äldre protokollen och chiffersviter. I den här dokumentationen får skriptet namnet: **TLSsettings. ps1**. Lagra skriptet på ditt lokala skriv bord för enkel åtkomst i senare steg. 
 
 
 ```Powershell
@@ -273,9 +273,9 @@ If ($reboot) {
 }
 ```
 
-## <a name="step-2-create-a-command-file"></a>Steg 2: Skapa en kommandofil 
+## <a name="step-2-create-a-command-file"></a>Steg 2: skapa en kommando fil 
 
-Skapa en CMD-fil med namnet **RunTLSSettings.cmd** med hjälp av nedanstående. Lagra det här skriptet på det lokala skrivbordet för enkel åtkomst i senare steg. 
+Skapa en CMD-fil med namnet **RunTLSSettings. cmd** med hjälp av nedan. Lagra skriptet på ditt lokala skriv bord för enkel åtkomst i senare steg. 
 
 ```cmd
 SET LOG_FILE="%TEMP%\StartupLog.txt"
@@ -300,9 +300,9 @@ EXIT /B %ERRORLEVEL%
 
 ```
 
-## <a name="step-3-add-the-startup-task-to-the-roles-service-definition-csdef"></a>Steg 3: Lägg till startuppgiften i rollens tjänstdefinition (csdef) 
+## <a name="step-3-add-the-startup-task-to-the-roles-service-definition-csdef"></a>Steg 3: Lägg till Start uppgiften i rollens tjänst definition (csdef) 
 
-Lägg till följande kodavsnitt i den befintliga tjänstdefinitionsfilen. 
+Lägg till följande kodfragment i den befintliga tjänst definitions filen. 
 
 ```
     <Startup> 
@@ -311,7 +311,7 @@ Lägg till följande kodavsnitt i den befintliga tjänstdefinitionsfilen.
     </Startup> 
 ```
 
-Här är ett exempel som visar både arbetarrollen och webbrollen. 
+Här är ett exempel som visar både arbets rollen och webb rollen. 
 
 ```
 <?xmlversion="1.0"encoding="utf-8"?> 
@@ -341,27 +341,27 @@ Här är ett exempel som visar både arbetarrollen och webbrollen.
 </ServiceDefinition> 
 ```
 
-## <a name="step-4-add-the-scripts-to-your-cloud-service"></a>Steg 4: Lägg till skripten i molntjänsten 
+## <a name="step-4-add-the-scripts-to-your-cloud-service"></a>Steg 4: Lägg till skripten i moln tjänsten 
 
-1) Högerklicka på din WebRole eller WorkerRole i Visual Studio
+1) I Visual Studio högerklickar du på din webrole eller WorkerRole
 2) Välj **Lägg till**
 3) Välj **befintligt objekt**
-4) I utforskaren navigerar du till skrivbordet där du har lagrat **filerna TLSsettings.ps1** och **RunTLSSettings.cmd** 
-5) Markera de två filer som ska läggas till i cloud services-projektet
+4) I Utforskaren navigerar du till Skriv bordet där du sparade filerna **TLSsettings. ps1** och **RunTLSSettings. cmd** 
+5) Markera de två filerna för att lägga till dem i ditt Cloud Services-projekt
 
-## <a name="step-5-enable-copy-to-output-directory"></a>Steg 5: Aktivera kopia till utdatakatalog
+## <a name="step-5-enable-copy-to-output-directory"></a>Steg 5: Aktivera kopiera till utdatakatalogen
 
-För att säkerställa att skripten laddas upp med varje uppdatering som skickas från Visual Studio måste inställningen *Kopiera till utdatakatalogen* ställas in på *Kopiera alltid*
+För att se till att skripten laddas upp med varje uppdatering som skickas från Visual Studio måste inställningen *Kopiera till utdata* vara inställd på *Kopiera alltid*
 
-1) Högerklicka på RunTLSSettings.cmd under din WebRole eller WorkerRole.
-2) Välj **egenskaper**
-3) På fliken Egenskaper ändrar du *Kopiera till utdatakatalogen* till *Kopiera alltid"*
-4) Upprepa stegen för **TLSsettings.ps1**
+1) Under din webrole eller WorkerRole högerklickar du på RunTLSSettings. cmd
+2) Välj **Egenskaper**
+3) På fliken Egenskaper ändrar du *Kopiera till utmatnings katalog* till *Kopiera alltid "*
+4) Upprepa stegen för **TLSsettings. ps1**
 
-## <a name="step-6-publish--validate"></a>Steg 6: Publicera & validera
+## <a name="step-6-publish--validate"></a>Steg 6: publicera & verifiera
 
-Nu när ovanstående steg har slutförts publicerar du uppdateringen till din befintliga molntjänst. 
+Nu när du har slutfört ovanstående steg kan du publicera uppdateringen till din befintliga moln tjänst. 
 
-Du kan använda [SSLLabs](https://www.ssllabs.com/) för att verifiera TLS-statusen för dina slutpunkter 
+Du kan använda [SSLLabs](https://www.ssllabs.com/) för att validera TLS-statusen för dina slut punkter 
 
  

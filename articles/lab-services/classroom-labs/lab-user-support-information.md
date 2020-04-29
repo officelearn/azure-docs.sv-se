@@ -1,44 +1,44 @@
 ---
-title: Azure Lab Services – visa supportinformation (labbanvändare)
-description: I den här artikeln beskrivs hur en labbanvändare eller lärare kan visa supportinformation som han/hon kan använda för att få hjälp.
+title: Azure Lab Services – Visa supportinformation (labb användare)
+description: Den här artikeln förklarar hur en labb användare eller lärare kan visa supportinformation som han/hon kan använda för att få hjälp.
 author: spelluru
 ms.author: spelluru
 ms.date: 02/14/2020
 ms.topic: how-to
 ms.service: lab-services
 ms.openlocfilehash: bd92d53e09774183edadff0f949820f8feec6180
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80109256"
 ---
-# <a name="view-support-information-lab-user-in-azure-lab-services"></a>Visa supportinformation (labbanvändare i Azure Lab Services)
-I den här artikeln beskrivs hur du (som labbanvändare) kan visa följande supportinformation:
+# <a name="view-support-information-lab-user-in-azure-lab-services"></a>Visa supportinformation (labb användare i Azure Lab Services)
+Den här artikeln förklarar hur du (som en labb användare) kan visa följande supportinformation:
 
 - URL
 - E-post
 - Telefon
 - Ytterligare instruktioner
 
-Du kan använda den här informationen för att få hjälp när du stöter på tekniska problem när du använder ett labb i ett labbkonto.
+Du kan använda den här informationen för att få hjälp när du stöter på tekniska problem när du använder ett labb i ett labb konto.
 
  
 ## <a name="view-support-information"></a>Visa supportinformation
-1. Logga in på [Azure Lab Services-portalen](https://labs.azure.com).
-2. Välj **det labb eller den virtuella dator** som du behöver hjälp för och **välj?** längst upp till höger på sidan. 
-3. Bekräfta att du ser länkar till **webbplatsen för visningssupport,** **e-postsupport**och **supporttelefonnummer**.
+1. Logga in på [Azure Lab Services Portal](https://labs.azure.com).
+2. Välj **labb eller virtuell dator** för vilken du behöver hjälp och välj **?** i det övre högra hörnet på sidan. 
+3. Bekräfta att du ser länkar till webbplatsen för att **Visa support**, **e-postsupport**och **Support telefonnummer**.
 
     ![Visa supportinformation](../media/lab-user-support-information/support-information.png)
-4. Du kan visa supportkontaktinformation för ett annat labb genom att byta till labbet i listrutan. 
+4. Du kan visa support kontakt information för ett annat labb genom att växla till det labbet i den nedrullningsbara listan. 
 
     ![Växla till ett annat labb](../media/lab-user-support-information/switch-another-lab.png)
-5. Nu ser du supportkontaktinformationen för det andra labbet. 
+5. Nu kan du se support kontakt information för andra labb. 
 
-    ![Andra labs supportinformation](../media/lab-user-support-information/second-lab-support-information.png)
+    ![Support information om andra labb](../media/lab-user-support-information/second-lab-support-information.png)
 
 ## <a name="next-steps"></a>Nästa steg
-I följande artikel finns information om hur en labbanvändare visar supportkontaktinformationen:
+I följande artikel finns mer information om hur en labb användare visar support kontakt information:
 
-- [Så här kan en labbkontoägare ange supportkontaktinformation](lab-account-owner-support-information.md)
-- [Så här kan en labbskapare visa supportkontaktinformation](lab-creator-support-information.md)
+- [Så här kan en labb konto ägare ange support kontakt information](lab-account-owner-support-information.md)
+- [Hur en labb skapare kan visa support kontakt information](lab-creator-support-information.md)

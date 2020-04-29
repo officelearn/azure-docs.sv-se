@@ -1,47 +1,47 @@
 ---
-title: Avancerat skydd mot hot – Azure-databas för MySQL
-description: Lär dig begrepp om avancerat skydd mot hot, som identifierar avvikande databasaktiviteter som indikerar potentiella säkerhetshot mot databasen.
+title: Avancerat skydd – Azure Database for MySQL
+description: Lär dig begrepp om Avancerat skydd, som identifierar avvikande databas aktiviteter som indikerar potentiella säkerhetshot mot databasen.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: 01ac6ccbc2789d2052bab07e2da51630b6dbf581
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79537167"
 ---
-# <a name="azure-database-for-mysql-advanced-threat-protection"></a>Azure-databas för mysQL avancerat hotskydd
+# <a name="azure-database-for-mysql-advanced-threat-protection"></a>Azure Database for MySQL Avancerat skydd
 
 Advanced Threat Protection för Azure Database for MySQL identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser.
 
 > [!NOTE]
-> Avancerat skydd mot hot finns i offentlig förhandsversion.
+> Avancerat skydd är i offentlig för hands version.
 
-Avancerat skydd mot hot är en del av erbjudandet om avancerad datasäkerhet, som är ett enhetligt paket för avancerade säkerhetsfunktioner. Avancerat skydd mot hot kan nås och hanteras via [Azure-portalen](https://portal.azure.com) eller med [REST API](/rest/api/mysql/serversecurityalertpolicies). Funktionen är tillgänglig för servrar som är allmänt avsedda och minnesoptimerade.
+Avancerat skydd är en del av det avancerade data säkerhets erbjudandet, som är ett enhetligt paket för avancerade säkerhetsfunktioner. Avancerat skydd kan nås och hanteras via [Azure Portal](https://portal.azure.com) eller med [REST API](/rest/api/mysql/serversecurityalertpolicies). Funktionen är tillgänglig för Generell användning och minnesoptimerade servrar.
 
 > [!NOTE]
-> Funktionen Avancerat skydd mot hot är **inte** tillgänglig i följande Azure-myndigheter och suveräna molnregioner: US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD East, US DoD Central, Germany Central, Germany North, China East, China East 2. Besök [produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/) för allmän produkttillgänglighet.
+> Funktionen för avancerat skydd är **inte** tillgänglig i följande Azure-myndigheter och suveräna moln regioner: US Gov, Texas, US Gov, Arizona, US gov, IOWA, US, Gov Virginia, US DoD, östra, US DoD, centrala, Tyskland Central, Tyskland, norra, Kina, östra, Kina, östra 2. Besök [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/) om du vill ha allmän produkt tillgänglighet.
 
 
-## <a name="what-is-advanced-threat-protection"></a>Vad är avancerat skydd mot hot?
+## <a name="what-is-advanced-threat-protection"></a>Vad är Avancerat skydd?
 
-Avancerat skydd mot azure-databas för MySQL ger ett nytt säkerhetslager som gör det möjligt för kunder att identifiera och svara på potentiella hot när de uppstår genom att tillhandahålla säkerhetsaviseringar om avvikande aktiviteter. Användare får en avisering om misstänkta databasaktiviteter och potentiella sårbarheter, samt avvikande databasåtkomst och frågorsmönster. Avancerat skydd mot hot för Azure Database för MySQL integrerar aviseringar med [Azure Security Center](https://azure.microsoft.com/services/security-center/), som innehåller information om misstänkt aktivitet och rekommenderar åtgärder för hur du undersöker och minskar hotet. Avancerat skydd mot azure-databas för MySQL gör det enkelt att hantera potentiella hot mot databasen utan att behöva vara säkerhetsexpert eller hantera avancerade säkerhetsövervakningssystem. 
+Avancerat skydd för Azure Database for MySQL ger ett nytt säkerhets lager som gör det möjligt för kunder att identifiera och svara på potentiella hot när de inträffar genom att tillhandahålla säkerhets aviseringar om avvikande aktiviteter. Användare får en avisering om misstänkt databas aktiviteter och potentiella sårbarheter, samt mönster för avvikande databas åtkomst och frågor. Avancerat skydd för Azure Database for MySQL integrerar aviseringar med [Azure Security Center](https://azure.microsoft.com/services/security-center/), som innehåller information om misstänkt aktivitet och rekommenderar åtgärder för att undersöka och minimera hotet. Avancerat skydd för Azure Database for MySQL gör det enkelt att hantera potentiella hot mot databasen utan att behöva vara säkerhets expert eller hantera avancerade säkerhets övervaknings system. 
 
-![Avancerat hotskyddskoncept](media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png)
+![Koncept för avancerat skydd](media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png)
 
-## <a name="advanced-threat-protection-alerts"></a>Varningar för avancerat skydd mot hot 
-Avancerat skydd mot hot för Azure Database för MySQL identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser och kan utlösa följande aviseringar:
-- **Åtkomst från ovanlig plats**: Den här aviseringen utlöses när åtkomstmönstret ändras till Azure Database för MySQL-servern, där någon har loggat in på Azure Database for MySQL-servern från en ovanlig geografisk plats. I vissa fall identifierar aviseringen en giltig åtgärd (ett nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
-- **Åtkomst från ovanliga Azure-datacenter:** Den här aviseringen utlöses när åtkomstmönstret ändras till Azure Database for MySQL-servern, där någon har loggat in på servern från ett ovanligt Azure-datacenter som sågs på den här servern under den senaste perioden. I vissa fall identifierar aviseringen en legitim åtgärd (ditt nya program i Azure, Power BI, Azure Database for MySQL Query Editor). I andra fall identifierar aviseringen en skadlig åtgärd från en Azure-resurs/-tjänst (tidigare anställd, extern angripare).
-- **Åtkomst från okänt huvudnamn**: Den här aviseringen utlöses när åtkomstmönstret ändras till Azure Database for MySQL-servern, där någon har loggat in på servern med ett ovanligt huvudnamn (Azure Database for MySQL-användare). I vissa fall identifierar aviseringen en giltig åtgärd (nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
+## <a name="advanced-threat-protection-alerts"></a>Aviseringar för avancerat skydd 
+Avancerat skydd för Azure Database for MySQL identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser och kan utlösa följande aviseringar:
+- **Åtkomst från ovanlig plats**: den här aviseringen utlöses när åtkomst mönstret ändras till Azure Database for MySQL-servern, där någon har loggat in på Azure Database for MySQL servern från en ovanlig geografisk plats. I vissa fall identifierar aviseringen en giltig åtgärd (ett nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
+- **Åtkomst från ovanliga Azure-datacenter**: den här aviseringen utlöses när åtkomst mönstret ändras till Azure Database for MySQL-servern, där någon har loggat in på servern från ett ovanligt Azure-datacenter som setts på den här servern under den senaste perioden. I vissa fall identifierar aviseringen en legitim åtgärd (ditt nya program i Azure, Power BI Azure Database for MySQL Frågeredigeraren). I andra fall identifierar aviseringen en skadlig åtgärd från en Azure-resurs/-tjänst (tidigare anställd, extern angripare).
+- **Åtkomst från okända huvud objekt**: den här aviseringen utlöses när åtkomst mönstret ändras till Azure Database for MySQL-servern, där någon har loggat in på servern med en ovanlig huvud server (Azure Database for MySQL användare). I vissa fall identifierar aviseringen en giltig åtgärd (nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
 - **Access from a potentially harmful application** (Åtkomst från ett potentiellt skadligt program): Den här aviseringen utlöses när ett potentiellt skadligt program används för att få åtkomst till databasen. I vissa fall identifierar aviseringen pågående intrångstestning. I andra fall identifierar aviseringen en attack med vanliga angreppsverktyg.
-- **Brute force Azure Database for MySQL-autentiseringsuppgifter:** Den här aviseringen utlöses när det finns ett onormalt stort antal misslyckade inloggningar med olika autentiseringsuppgifter. I vissa fall identifierar aviseringen pågående intrångstestning. I andra fall identifierar aviseringen ett nyckelsökningsangrepp.
+- **Brute force Azure Database for MySQL autentiseringsuppgifter**: den här aviseringen utlöses när det finns ett onormalt stort antal misslyckade inloggningar med andra autentiseringsuppgifter. I vissa fall identifierar aviseringen pågående intrångstestning. I andra fall identifierar aviseringen ett nyckelsökningsangrepp.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Mer information om priser finns på [sidan Azure Database for MySQL Pricing](https://azure.microsoft.com/pricing/details/mysql/) 
-* Konfigurera [Azure-databas för mySQL-avancerat skydd mot hot](howto-database-threat-protection-portal.md) med Hjälp av Azure-portalen  
+* Mer information om priser finns på sidan med [Azure Database for MySQL priser](https://azure.microsoft.com/pricing/details/mysql/) 
+* Konfigurera [Azure Database for MySQL Avancerat skydd](howto-database-threat-protection-portal.md) med hjälp av Azure Portal  

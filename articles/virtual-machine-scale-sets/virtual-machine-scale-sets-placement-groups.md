@@ -1,6 +1,6 @@
 ---
-title: Arbeta med stora Azure Virtual Machine Scale Set
-description: Vad du behöver veta om stora Azure virtuella dator skalning uppsättningar för att använda dem i ditt program.
+title: Arbeta med stora Azure-Virtual Machine Scale Sets
+description: Vad du behöver veta om stora skalnings uppsättningar för virtuella Azure-datorer för att kunna använda dem i ditt program.
 author: cynthn
 ms.author: cynthn
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 11/9/2017
 ms.openlocfilehash: 6a872e749bae6bd29dbf73d4946e631af1660a39
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79531047"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Arbeta med stora skalningsuppsättningar för virtuella datorer
@@ -35,7 +35,7 @@ Beakta följande krav för att lista ut om programmet effektivt kan använda sto
 - Layer-4-lastbalansering med skalningsuppsättningar som består av flera placeringsgrupper kräver [Azure Load Balancers standard-SKU](../load-balancer/load-balancer-standard-overview.md). Load Balancers standard-SKU ger ytterligare fördelar, till exempel möjligheten att utföra lastbalanseringar mellan flera olika skalningsuppsättningar. En standard-SKU kräver också en skalningsuppsättning som har en nätverkssäkerhetsgrupp kopplad till den, annars fungerar inte NAT-poolerna som de ska. Kontrollera att skalningsuppsättningen är konfigurerad för att använda standardinställningen att bara använda en enda placeringsgrupp om du behöver använda Azure Load Balancers grundläggande SKU.
 - Layer-7-belastningsutjämning med Azure Application Gateway stöds för alla skalningsuppsättningar.
 - En skalningsuppsättning definieras med ett enda undernät – kontrollera att ditt undernät har ett adressutrymme som är tillräckligt stort för alla de virtuella datorerna du behöver. Som standard överetablerar skalningsuppsättningar (skapar extra virtuella datorer vid tidpunkten för distribution eller vid utskalning, som du inte debiteras för) för att förbättra distributionstillförlitlighet och prestanda. Tillåt ett adressutrymme 20% större än antalet virtuella datorer som du planerar att skala till.
-- Feldomäner och uppgraderingsdomäner är endast konsekventa i en placeringsgrupp. Den här arkitekturen ändrar inte den övergripande tillgängligheten för en skalningsuppsättning eftersom virtuella datorer är jämnt distribuerade över distinkt fysisk maskinvara. Men det innebär att om du behöver garantera att två virtuella datorer finns på olika maskinvara så måste du se till att de finns i olika feldomäner i samma placeringsgrupp. Se den här länken [Tillgänglighetsalternativ](/azure/virtual-machines/windows/availability). 
+- Feldomäner och uppgraderingsdomäner är endast konsekventa i en placeringsgrupp. Den här arkitekturen ändrar inte den övergripande tillgängligheten för en skalningsuppsättning eftersom virtuella datorer är jämnt distribuerade över distinkt fysisk maskinvara. Men det innebär att om du behöver garantera att två virtuella datorer finns på olika maskinvara så måste du se till att de finns i olika feldomäner i samma placeringsgrupp. Se de här alternativen för länk [tillgänglighet](/azure/virtual-machines/windows/availability). 
 - Feldomän och placeringsgrupp-ID som visas i _instansvyn_ för en virtuell dator i en skalningsuppsättning. Du kan se instansvyn för en virtuell dator i en skalningsuppsättning i [Resursutforskaren i Azure](https://resources.azure.com/).
 
 ## <a name="creating-a-large-scale-set"></a>Skapa en stor skalningsuppsättning
@@ -75,7 +75,7 @@ Kontrollera att mallen skapar en skalningsuppsättning som baseras på Azure Man
     }
 ```
 
-Ett fullständigt exempel på en storskalig uppsättningsmall finns i [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
+Ett fullständigt exempel på en mall för stor skalnings uppsättning finns i [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
 
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>Konvertera en befintlig skalningsuppsättning som sträcker sig över flera placeringsgrupper
 Om du vill göra det möjligt för en befintlig skalningsuppsättning för virtuella datorer att skalas till mer än 100 virtuella datorer så måste du ändra egenskapen _singplePlacementGroup_ till _falskt_ i skalningsuppsättningsmodellen. Du kan ändra den här egenskapen med [Resursutforskaren i Azure](https://resources.azure.com/). Hitta en befintlig skalningsuppsättning, välj _Redigera_ och ändra egenskapen _singlePlacementGroup_. Om du inte ser den här egenskapen kanske du tittar på en skalningsuppsättning med en äldre version av Microsoft.Compute-API.

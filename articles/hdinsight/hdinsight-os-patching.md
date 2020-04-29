@@ -1,6 +1,6 @@
 ---
-title: Konfigurera korrigeringsschema för operativsystemet för Azure HDInsight-kluster
-description: Lär dig hur du konfigurerar os-korrigeringsschema för Linux-baserade HDInsight-kluster.
+title: Konfigurera operativ systemets uppdaterings schema för Azure HDInsight-kluster
+description: Lär dig hur du konfigurerar operativ systemets uppdaterings schema för Linux-baserade HDInsight-kluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,65 +9,65 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
 ms.openlocfilehash: f8e694f658d6e9de04c92001214ecd5c32ff7753
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78206868"
 ---
-# <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Konfigurera os-korrigeringsschemat för Linux-baserade HDInsight-kluster
+# <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Konfigurera operativ systemets uppdaterings schema för Linux-baserade HDInsight-kluster
 
 > [!IMPORTANT]
-> Ubuntu-avbildningar blir tillgängliga för nya Azure HDInsight-kluster som skapas inom tre månader efter att de publicerats. Från och med januari 2019 är kluster som körs inte automatiskt korrigerade. Kunder måste använda skriptåtgärder eller andra mekanismer för att korrigera ett kluster som körs. Nyskapade kluster kommer alltid att ha de senaste tillgängliga uppdateringarna, inklusive de senaste säkerhetskorrigeringarna.
+> Ubuntu-avbildningar blir tillgängliga för nya Azure HDInsight-kluster inom tre månader efter att de har publicerats. Från och med januari 2019 installeras inte kluster som körs automatiskt. Kunder måste använda skript åtgärder eller andra mekanismer för att korrigera ett kluster som körs. Nya kluster kommer alltid att ha de senaste tillgängliga uppdateringarna, inklusive de senaste säkerhets korrigeringarna.
 
-HDInsight ger stöd för dig att utföra vanliga uppgifter i klustret, till exempel installera OS-korrigeringar, säkerhetsuppdateringar och starta om noder. Dessa uppgifter utförs med hjälp av följande två skript som kan köras som [skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md)och konfigureras med parametrar:
+HDInsight ger stöd för att utföra vanliga uppgifter i klustret, till exempel att installera OS-korrigeringsfiler, säkerhets uppdateringar och starta om noder. Dessa uppgifter utförs med hjälp av följande två skript som kan köras som [skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md)och som kon figurer ATS med parametrar:
 
-- `schedule-reboots.sh`- Gör en omedelbar omstart eller schemalägg en omstart på klusternoderna.
-- `install-updates-schedule-reboots.sh`- Installera alla uppdateringar, endast kernel + säkerhetsuppdateringar, eller endast kärnuppdateringar.
+- `schedule-reboots.sh`-Gör en omedelbar omstart eller Schemalägg en omstart på klusternoderna.
+- `install-updates-schedule-reboots.sh`-Installera alla uppdateringar, endast kernel + säkerhets uppdateringar eller bara kernel-uppdateringar.
 
 > [!NOTE]  
-> Skriptåtgärder tillämpas inte automatiskt för alla framtida uppdateringscykler. Kör skripten varje gång nya uppdateringar måste tillämpas för att installera uppdateringarna och starta sedan om den virtuella datorn.
+> Skript åtgärder tillämpar inte automatiskt uppdateringar för alla framtida uppdaterings cykler. Kör skripten varje gången nya uppdateringar måste tillämpas för att installera uppdateringarna och starta sedan om den virtuella datorn.
 
 ## <a name="preparation"></a>Förberedelse
 
-Korrigering på en representativ icke-produktionsmiljö innan du distribuerar till produktion. Utveckla en plan för att korrekt testa ditt system innan din faktiska korrigering.
+Korrigering på en representativ icke-produktions miljö innan du distribuerar till produktion. Utveckla en plan för att testa systemet på ett bra sätt innan du korrigerar den faktiska korrigeringen.
 
-Från tid till annan, från en ssh-session med klustret, kan du få ett meddelande om att en uppgradering är tillgänglig. Meddelandet kan se ut ungefär som:
+Från tid till gång, från en SSH-session med klustret, kan du få ett meddelande om att en uppgradering är tillgänglig. Meddelandet kan se ut ungefär så här:
 
 ```
 New release '18.04.3 LTS' available.
 Run 'do-release-upgrade' to upgrade it
 ```
 
-Korrigering är valfri och efter eget gottfinnande.
+Uppdatering är valfri och du behöver.
 
 ## <a name="restart-nodes"></a>Starta om noder
   
-Skriptet [schema-omstarter](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh), anger vilken typ av omstart som ska utföras på datorerna i klustret. När du skickar skriptåtgärden anger du att den ska tillämpas på alla tre nodtyperna: huvudnod, arbetsnod och zookeeper. Om skriptet inte tillämpas på en nodtyp uppdateras eller startas inte de virtuella datorerna för den nodtypen.
+Skript [schema – omstarter](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh)anger den typ av omstart som ska utföras på datorerna i klustret. När du skickar skript åtgärden ställer du in den så att den gäller för alla tre nodtyper: Head Node, Worker-nod och Zookeeper. Om skriptet inte tillämpas på en nodtyp, kommer de virtuella datorerna för den nodtypen inte att uppdateras eller startas om.
 
-Accepterar `schedule-reboots script` en numerisk parameter:
+`schedule-reboots script` Accepterar en numerisk parameter:
 
 | Parameter | Godkända värden | Definition |
 | --- | --- | --- |
-| Typ av omstart som ska utföras | 1 eller 2 | Värdet 1 aktiverar omstart av schemat (schemalagt inom 12-24 timmar). Värdet 2 gör det möjligt att omedelbart starta om (på 5 minuter). Om ingen parameter anges är standardvärdet 1. |  
+| Typ av omstart att utföra | 1 eller 2 | Värdet 1 möjliggör omstart av schemat (schemalagt i 12-24 timmar). Värdet 2 aktiverar omedelbar omstart (om 5 minuter). Om ingen parameter anges är standardvärdet 1. |  
 
 ## <a name="install-updates-and-restart-nodes"></a>Installera uppdateringar och starta om noder
 
-Skriptet [install-updates-schedule-reboots.sh](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh) innehåller alternativ för att installera olika typer av uppdateringar och starta om den virtuella datorn.
+Skriptet [install-updates-Schedule-reboots.sh](https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh) innehåller alternativ för att installera olika typer av uppdateringar och starta om den virtuella datorn.
 
-Skriptet `install-updates-schedule-reboots` accepterar två numeriska parametrar enligt beskrivningen i följande tabell:
+`install-updates-schedule-reboots` Skriptet accepterar två numeriska parametrar, enligt beskrivningen i följande tabell:
 
 | Parameter | Godkända värden | Definition |
 | --- | --- | --- |
-| Typ av uppdateringar som ska installeras | 0, 1 eller 2 | Värdet 0 installerar endast kernel-uppdateringar. Värdet 1 installerar alla uppdateringar och 2 installerar endast kernel + säkerhetsuppdateringar. Om ingen parameter anges är standardvärdet 0. |
-| Typ av omstart som ska utföras | 0, 1 eller 2 | Värdet 0 inaktiverar omstart. Värdet 1 aktiverar omstart av schemat och 2 möjliggör omedelbar omstart. Om ingen parameter anges är standardvärdet 0. Användaren måste ändra indataparameter 1 till indataparameter 2. |
+| Typ av uppdateringar som ska installeras | 0, 1 eller 2 | Värdet 0 installerar endast kernel-uppdateringar. Värdet 1 installerar alla uppdateringar och 2 installerar endast kernel + säkerhets uppdateringar. Om ingen parameter anges är standardvärdet 0. |
+| Typ av omstart att utföra | 0, 1 eller 2 | Värdet 0 inaktiverar omstart. Värdet 1 möjliggör omstart av schemat och 2 aktiverar omedelbar omstart. Om ingen parameter anges är standardvärdet 0. Användaren måste ändra Indataparametern 1 till indataparameter 2. |
 
 > [!NOTE]
-> Du måste markera ett skript som behärsat när du har tillämpat det på ett befintligt kluster. Annars använder alla nya noder som skapas genom skalningsåtgärder standardkorrigeringsschemat. Om du använder skriptet som en del av processen för att skapa kluster sparas det automatiskt.
+> Du måste markera ett skript som beständigt när du har tillämpat det på ett befintligt kluster. Annars kommer alla nya noder som skapats med skalnings åtgärder att använda standard uppdaterings schemat. Om du använder skriptet som en del av processen för att skapa kluster sparas det automatiskt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Specifika steg för hur du använder skriptåtgärder finns i följande avsnitt i [Anpassa Linux-baserade HDInsight-kluster med hjälp av skriptåtgärd:](hdinsight-hadoop-customize-cluster-linux.md)
+Mer information om hur du använder skript åtgärder finns i följande avsnitt i [Anpassa Linux-baserade HDInsight-kluster med skript åtgärd](hdinsight-hadoop-customize-cluster-linux.md):
 
-- [Använda en skriptåtgärd när klustret skapas](hdinsight-hadoop-customize-cluster-linux.md#script-action-during-cluster-creation)
-- [Använda en skriptåtgärd på ett kluster som körs](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster)
+- [Använd en skript åtgärd när klustret skapas](hdinsight-hadoop-customize-cluster-linux.md#script-action-during-cluster-creation)
+- [Tillämpa en skript åtgärd på ett kluster som körs](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster)

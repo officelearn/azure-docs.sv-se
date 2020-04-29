@@ -1,7 +1,7 @@
 ---
-title: Microsoft Threat Modeling Tool release 2018-09-12
+title: Microsoft Threat Modeling Tool version 9/12/2018
 titleSuffix: Azure
-description: Dokumentera viktig information för verktyget för hotmodellering
+description: Dokumentera viktig information för verktyget Threat Modeling
 author: jegeib
 ms.author: jegeib
 ms.service: security
@@ -9,89 +9,89 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
 ms.openlocfilehash: a921310f14f0d48922165a46d750366e170ee374
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78269918"
 ---
-# <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Hot modelleringsverktyg GA release 7.1.50911.2 - 2018-09-12
+# <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Threat Modeling Tool GA Release 7.1.50911.2 – 9/12/2018
 
-Vi är glada att kunna meddela att Microsoft Threat Modeling Tool nu finns att ladda ner som en allmänt tillgänglig (GA) som stöds. Den här versionen innehåller viktiga sekretess- och säkerhetsuppdateringar samt buggfixar, funktionsuppdateringar och stabilitetsförbättringar. Befintliga användare av 2017 års förhandsversion uppmanas att uppdatera till den senaste versionen via ClickOnce-tekniken när klienten öppnas. För nya användare av verktyget kan du [hämta klienten](https://aka.ms/threatmodelingtool).
+Vi är glada över att kunna meddela att Microsoft Threat Modeling Tool nu är tillgängligt att ladda ned som en allmänt tillgänglig (GA) version som stöds. Den här versionen innehåller viktiga sekretess-och säkerhets uppdateringar, samt fel korrigeringar, funktions uppdateringar och stabilitets förbättringar. Befintliga användare av 2017 Preview-versionen uppmanas att uppdatera till den senaste versionen via ClickOnce-tekniken när klienten öppnas. För nya användare av verktyget kan du hämta- [klienten](https://aka.ms/threatmodelingtool).
 
-Med den här versionen avslutar vi stödet för 2017 års förhandsversion och rekommenderar alla användare av förhandsversionen till GA-versionen. Den 15 oktober 2018 eller senare ställer vi in den minsta clickonce-versionen för threat modeling tool, och alla förhandsversionsklienter måste uppgraderas.
+I den här versionen har vi slut på support för för hands versionen av 2017 och rekommenderar alla användare av förhands gransknings uppdateringen till GA-versionen. Från och med oktober 15 2018 kommer vi att ange minimi kravet för ClickOnce-versionen för Threat Modeling Tool och alla för hands versions klienter måste uppgraderas.
 
-Microsoft Threat Modeling Tool 2016, som är tillgängligt från [Microsoft Download Center,](https://www.microsoft.com/en-us/download/details.aspx?id=49168)stöds fortfarande fram till den 1 oktober 2019 endast för kritiska säkerhetskorrigeringar.
+Microsoft Threat Modeling Tool 2016, som är tillgänglig från [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=49168), finns kvar fram till den 1 2019 oktober för kritiska säkerhets korrigeringar.
 
-## <a name="feature-changes"></a>Funktionsändringar
+## <a name="feature-changes"></a>Funktions ändringar
 
-### <a name="azure-stencil-updates"></a>Azure-stenciluppdateringar
+### <a name="azure-stencil-updates"></a>Uppdateringar av Azure-stencil
 
-Ytterligare Azure-stenciler och tillhörande hot och mildrande åtgärder har lagts till i stenciluppsättningen som levereras med den här versionen. Betydande ändringar har gjorts i fokusområdena "Azure App Services", "Azure Database Offerings" och "Azure Storage".
+Ytterligare Azure-stenciler och tillhör ande hot och lösningar har lagts till i stencil uppsättningen som levereras med den här versionen. Betydande ändringar har gjorts i fokus områdena i "Azure App Services", "Azure Database-erbjudanden" och "Azure Storage".
 
-![Azure Stencil Uppdateringar](./media/threat-modeling-tool-releases-71509112/tmt_azure_stencil_update-300x70.png)
+![Uppdateringar av Azure-stencil](./media/threat-modeling-tool-releases-71509112/tmt_azure_stencil_update-300x70.png)
 
-### <a name="onedrive-integration-feature-removed"></a>OneDrive-integrationsfunktionen har tagits bort
+### <a name="onedrive-integration-feature-removed"></a>OneDrive-integrerings funktionen har tagits bort
 
-Funktionerna "Spara på OneDrive", "Öppna från OneDrive" och "Dela en länk" i förhandsversionen har tagits bort. Användare av OneDrive uppmanas att använda Microsofts [OneDrive för Windows-klient](https://onedrive.live.com/about/en-us/download/) för att komma åt sina filer som lagras på OneDrive via standarddialogerna för filsparing och öppna.
+Funktionerna "Spara till OneDrive", "öppna från OneDrive" och "dela en länk" i förhands granskningen har tagits bort. Användare av OneDrive uppmuntras att använda Microsofts [OneDrive för Windows](https://onedrive.live.com/about/en-us/download/) -klient för att komma åt sina filer som lagras på OneDrive via standard dialog rutorna Spara och öppna.
 
-## <a name="notable-fixed-bugs-reported-by-customers"></a>Anmärkningsvärda fasta fel som rapporterats av kunder
+## <a name="notable-fixed-bugs-reported-by-customers"></a>Viktiga fasta buggar som rapporter ATS av kunder
 
-### <a name="in-tmt-preview-the-tool-crashes-when-using-the-standard-template"></a>I förhandsversionen av TMT kraschar verktyget när standardmallen används
+### <a name="in-tmt-preview-the-tool-crashes-when-using-the-standard-template"></a>I TMT Preview kraschar verktyget när du använder standard mal len
 
-- När en generisk stencil (till exempel "Allmänt dataflöde") läggs till på ritningsytan och genererar hot kan verktyget krascha. Det här problemet har åtgärdats.
+- När en allmän stencil (till exempel "generiskt data flöde") läggs till i arbets ytan och genererar hot, kan verktyget krascha. Det här problemet har åtgärd ATS.
 
-### <a name="in-tmt-preview-when-i-save-a-report-or-copy-the-threats-the-risk-levels-are-incorrect"></a>I förhandsversionen av TMT, när jag sparar en rapport eller kopierar hoten, är risknivåerna felaktiga
+### <a name="in-tmt-preview-when-i-save-a-report-or-copy-the-threats-the-risk-levels-are-incorrect"></a>I TMT för hands version, när jag sparar en rapport eller kopierar hoten, är risk nivåerna felaktiga
 
-- Om en användare ändrar risknivån för specifika hot och sedan sparar en rapport eller kopierar riskerna, kan risknivån återgå till "Hög". Det här problemet har åtgärdats.
+- Om en användare ändrar risk nivån för vissa hot och sedan sparar en rapport eller kopierar riskerna, kan risk nivån återgå till "hög". Det här problemet har åtgärd ATS.
 
-## <a name="known-issues-and-faq"></a>Kända problem och vanliga frågor
+## <a name="known-issues-and-faq"></a>Kända problem och vanliga frågor och svar
 
-### <a name="users-of-high-resolution-screens-may-experience-small-text-in-the-threat-properties"></a>Användare av högupplösta skärmar kan uppleva liten text i hotegenskaperna
+### <a name="users-of-high-resolution-screens-may-experience-small-text-in-the-threat-properties"></a>Användare av högupplösta skärmar kan uppleva liten text i Hot egenskaperna
 
 #### <a name="issue"></a>Problem
 
-Om användaren har en skärm med hög upplösning som som standard är inställd för att förstora för läsbarhet i Windows i analysvyn kan avsnittet "Möjlig begränsning" i ett hot visas med liten text.
+I analys visningen av verktyget, om användaren har en skärm med hög upplösning som är inställd på förstora för läsbarhet i Windows, kan avsnittet "möjliga minsknings åtgärder" i ett hot visas med liten text.
 
-![Kända problem med högupplösta skärmar](./media/threat-modeling-tool-releases-71509112/tmt_screen_resolution-300x153.png)
+![Känt problem med skärmar med hög upplösning](./media/threat-modeling-tool-releases-71509112/tmt_screen_resolution-300x153.png)
 
 #### <a name="workaround"></a>Lösning
 
-Användaren kan klicka på begränsningstexten och använda den vanliga Windows zoomkontrollen (Crtl-Mouse Wheel Up) för att öka förstoringen av det avsnittet.
+Användaren kan klicka på minsknings texten och använda Windows-standardkontrollen för zoomning (Crtl) för att öka förstoringen av avsnittet.
 
-### <a name="files-in-the-recently-opened-models-section-of-the-main-window-may-fail-to-open"></a>Filer i avsnittet "Nyligen öppnade modeller" i huvudfönstret kan inte öppna
+### <a name="files-in-the-recently-opened-models-section-of-the-main-window-may-fail-to-open"></a>Filer i avsnittet "nyligen öppnade modeller" i huvud fönstret kan inte öppnas
 
 #### <a name="issue"></a>Problem
 
-Funktionen "Öppna från OneDrive" i förhandsversionen har tagits bort. Användare med "Nyligen öppnade modeller" som sparades på OneDrive får följande felmeddelande.
+Funktionen "öppna från OneDrive" i för hands versionen har tagits bort. Användare med nyligen öppnade modeller som sparats på OneDrive får följande fel meddelande.
 
 ![OneDrive-funktionen har tagits bort](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
 
 #### <a name="workaround"></a>Lösning
 
-Användare av OneDrive uppmanas att använda Microsofts [OneDrive för Windows-klient](https://onedrive.live.com/about/en-us/download/) för att komma åt sina filer som lagras på OneDrive via standard- och "Öppna en modell"-dialogruta.
+Användare av OneDrive uppmuntras att använda Microsofts [OneDrive för Windows](https://onedrive.live.com/about/en-us/download/) -klient för att komma åt sina filer som lagras på OneDrive via dialog rutan standard och "öppna en modell".
 
 ![OneDrive-funktionen har tagits bort](./media/threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
 
-### <a name="my-organization-uses-the-2016-version-of-the-tool-can-i-use-the-azure-stencil-set"></a>Min organisation använder 2016-versionen av verktyget, kan jag använda Azure-stenciluppsättningen?
+### <a name="my-organization-uses-the-2016-version-of-the-tool-can-i-use-the-azure-stencil-set"></a>Min organisation använder 2016-versionen av verktyget, kan jag använda Azures stencil uppsättning?
 
-Ja, det kan du! [Azure-stenciluppsättningen är tillgänglig på GitHub](https://github.com/Microsoft/threat-modeling-templates/)och kan läsas in i 2016-versionen av verktyget. Om du vill skapa en ny modell med Azure-stenciluppsättningen använder du dialogrutan "Mall för nya modeller" på huvudmenyskärmen. TMT 2016 kan inte återge länkarna som finns i fälten "Möjliga mildranden" i Azure-stenciluppsättningen, därför kan du se länkar som visas som HTML-taggar.
+Ja, du kan! [Azures stencil uppsättning är tillgänglig på GitHub](https://github.com/Microsoft/threat-modeling-templates/)och kan läsas in i 2016-versionen av verktyget. Om du vill skapa en ny modell med Azures stencil uppsättning använder du dialog rutan "mall för nya modeller" på huvud meny skärmen. TMT 2016 kan inte återge länkar som finns i fälten "möjliga åtgärder" i Azures stencil uppsättning. därför kan du se länkar som visas som HTML-taggar.
 
-![Azure Stencil Uppdateringar i 2016-klienten](./media/threat-modeling-tool-releases-71509112/tmt_azure_stencils-300x212.png)
+![Azure stencil-uppdateringar i 2016-klienten](./media/threat-modeling-tool-releases-71509112/tmt_azure_stencils-300x212.png)
 
 ## <a name="system-requirements"></a>Systemkrav
 
 - Operativsystem som stöds
   - Microsoft Windows 10
 - .NET-version krävs
-  - .NET 3.5.2
+  - .NET-3.5.2
 - Ytterligare krav
-  - En Internetanslutning krävs för att ta emot uppdateringar av verktyget och mallar.
+  - En Internet anslutning krävs för att ta emot uppdateringar av verktyget och mallar.
 
 ## <a name="documentation-and-feedback"></a>Dokumentation och feedback
 
-- Dokumentation för hotmodelleringsverktyget finns på [docs.microsoft.com](threat-modeling-tool.md)och innehåller information [om hur du använder verktyget](threat-modeling-tool-getting-started.md).
+- Dokumentationen för Threat Modeling Tool finns på [docs.Microsoft.com](threat-modeling-tool.md)och innehåller information [om hur du använder verktyget](threat-modeling-tool-getting-started.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Hämta den senaste versionen av [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).
+Ladda ned den senaste versionen av [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).

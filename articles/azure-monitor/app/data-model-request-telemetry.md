@@ -1,67 +1,67 @@
 ---
-title: Datamodell för begäran telemetri - Azure Application Insights
-description: Program Insights datamodell för begäran telemetri
+title: Data modell för telemetri om begär Anden – Azure Application insikter
+description: Application Insights data modell för telemetri för begäran
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: d8a28063bf6780c3cace4ead81e289779b95eb9a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77671910"
 ---
-# <a name="request-telemetry-application-insights-data-model"></a>Begär telemetri: Datamodell för Application Insights
+# <a name="request-telemetry-application-insights-data-model"></a>Begär telemetri: Application Insights data modell
 
-Ett begärandetelemetriobjekt (i [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representerar den logiska körningssekvensen som utlöses av en extern begäran till ditt program. Varje körning av begäran `ID` `url` identifieras av unika och innehåller alla körningsparametrar. Du kan gruppera `name` begäranden `source` efter logisk och definiera begäran. Kodkörning kan `success` resultera `fail` i eller `duration`och har en viss . Både framgång och fel avrättningar kan `resultCode`grupperas ytterligare av . Starttid för den begärandetelemetri som definierats på kuvertnivå.
+Ett objekt för telemetri (i [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representerar den logiska sekvensen för körning som utlöses av en extern begäran till ditt program. Varje begär ande körning identifieras av unika `ID` och `url` innehåller alla körnings parametrar. Du kan gruppera begär Anden efter `name` logiska och definiera `source` för denna begäran. Kod körning kan resultera i `success` eller `fail` och har en viss `duration`. Både lyckade och misslyckade körningar kan grupperas ytterligare `resultCode`av. Start tid för den begärda Telemetrin som definierats på kuvert nivån.
 
-Begär telemetri stöder standardutökningsmodellen med `properties` hjälp `measurements`av anpassade och .
+Telemetri för begär ande stöder standard utöknings `properties` modellen `measurements`med hjälp av anpassade och.
 
-## <a name="name"></a>Namn
+## <a name="name"></a>Name
 
-Namnet på begäran representerar kodsökvägen som tagits för att bearbeta begäran. Lågt kardinalitetsvärde för att möjliggöra bättre gruppering av begäranden. För HTTP-begäranden representerar den HTTP-metoden och URL-sökvägsmallen som `GET /values/{id}` utan det faktiska `id` värdet.
+Namnet på begäran representerar kod Sök vägen som krävs för att bearbeta begäran. Lågt kardinalitet för att tillåta en bättre gruppering av begär Anden. För HTTP-begäranden representerar den HTTP-metod och URL-sökväg `GET /values/{id}` som saknar det `id` faktiska värdet.
 
-Application Insights web SDK skickar begäran namn "som det är" när det gäller brevfall. Gruppering på användargränssnittet är `GET /Home/Index` skiftlägeskänslig så räknas separat från `GET /home/INDEX` även om de ofta resulterar i samma styrenhet och åtgärdskörning. Anledningen till detta är att webbadresser i allmänhet är [skiftlägeskänsliga](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Du kanske vill se `404` om allt hände för webbadresserna som skrivits i versaler. Du kan läsa mer om begäran namn samling av ASP.NET Web SDK i [blogginlägget](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Application Insights Web SDK skickar namn för begäran "i befintligt skick" med avseende på brev fall. Gruppering i UI är Skift läges känsligt, så `GET /Home/Index` räknas separat `GET /home/INDEX` från även om det ofta resulterar i samma styrenhet och åtgärds körning. Orsaken till detta är att webb adresser i allmänhet är [SKIFT läges känsliga](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Du kanske vill se om alla `404` har hänt för URL: er skrivna med versaler. Du kan läsa mer om namn samling för begäran genom ASP.NET Web SDK i [blogg inlägget](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
 
-Max längd: 1024 tecken
+Maxlängd: 1024 tecken
 
 ## <a name="id"></a>ID
 
-Identifierare för en begäran samtalsinstans. Används för korrelation mellan begäran och andra telemetriobjekt. ID ska vara globalt unikt. Mer information finns på [korrelationssidan.](../../azure-monitor/app/correlation.md)
+Identifierare för en begär ande anrops instans. Används för korrelation mellan begäran och andra telemetri-objekt. ID måste vara globalt unikt. Mer information finns på sidan [korrelation](../../azure-monitor/app/correlation.md) .
 
-Max längd: 128 tecken
+Maxlängd: 128 tecken
 
 ## <a name="url"></a>URL
 
-Begär URL med alla frågesträngparametrar.
+Begär URL med alla parametrar för frågesträng.
 
-Max längd: 2048 tecken
+Maxlängd: 2048 tecken
 
 ## <a name="source"></a>Källa
 
-Källa till begäran. Exempel är instrumenteringsnyckeln för den som ringer eller ip-adressen för den som ringer. Mer information finns på [korrelationssidan.](../../azure-monitor/app/correlation.md)
+Källa för begäran. Exempel är Instrumentation-nyckeln för anroparen eller IP-adressen för anroparen. Mer information finns på sidan [korrelation](../../azure-monitor/app/correlation.md) .
 
-Max längd: 1024 tecken
+Maxlängd: 1024 tecken
 
 ## <a name="duration"></a>Varaktighet
 
-Begäran varaktighet i `DD.HH:MM:SS.MMMMMM`format: . Måste vara positivt `1000` och mindre än dagar. Det här fältet krävs eftersom begäran telemetri representerar operationen med början och slutet.
+Varaktighet för begäran i formatet `DD.HH:MM:SS.MMMMMM`:. Måste vara positivt och mindre än `1000` dagar. Det här fältet är obligatoriskt som telemetri för begäran representerar åtgärden med början och slutet.
 
 ## <a name="response-code"></a>Svarskod
 
-Resultatet av en begäran utförande. HTTP-statuskod för HTTP-begäranden. Det kan `HRESULT` vara värde- eller undantagstyp för andra typer av begäranden.
+Resultat av en begär ande körning. HTTP-statuskod för HTTP-begäranden. Det kan vara `HRESULT` ett värde eller en undantags typ för andra typer av begär Anden.
 
-Max längd: 1024 tecken
+Maxlängd: 1024 tecken
 
-## <a name="success"></a>Lyckades
+## <a name="success"></a>Klart
 
-Uppgift om lyckat eller misslyckat samtal. Det här fältet är obligatoriskt. När den inte `false` uttryckligen anges till - en begäran anses vara framgångsrik. Ange det `false` här värdet till om åtgärden avbröts av undantag eller returnerad felresultatkod.
+Indikering för lyckat eller misslyckat anrop. Det här fältet är obligatoriskt. Om det inte anges explicit `false` till-en begäran anses vara lyckad. Ange det här värdet `false` till om åtgärden avbröts av undantag eller returnerade fel resultat kod.
 
-För webbprogrammen definierar Application Insights en begäran som lyckad när svarskoden är mindre än `400` eller lika med `401`. Det finns dock fall när den här standardmappningen inte matchar programmets semantiska. Svarskoden `404` kan indikera "inga poster", som kan vara en del av det vanliga flödet. Det kan också tyda på en bruten länk. För de brutna länkarna kan du till och med implementera mer avancerad logik. Du kan markera brutna länkar som fel endast när dessa länkar finns på samma plats genom att analysera url referrer. Eller markera dem som fel när de nås från företagets mobilapplikation. På `301` samma `302` sätt och indikerar fel när den används från klienten som inte stöder omdirigering.
+Application Insights definiera en begäran som slutförd när svars koden är mindre än `400` eller lika med för webb programmen. `401` Det finns dock fall då den här standard mappningen inte matchar programmets semantik. Svars `404` koden kan indikera "inga poster", som kan vara en del av ett vanligt flöde. Det kan också indikera en bruten länk. För brutna länkar kan du till och med implementera mer avancerad logik. Du kan bara markera brutna länkar som ett avbrott när dessa länkar finns på samma plats genom att analysera URL-referenten. Eller markera dem som felaktiga vid åtkomst från företagets mobil program. På samma `301` sätt `302` och indikerar att det inte går att komma åt från klienten som inte stöder omdirigering.
 
-Delvis accepterat `206` innehåll kan tyda på ett fel på en övergripande begäran. Till exempel tar Application Insights-slutpunkten emot en batch med telemetriartiklar som en enda begäran. Den `206` returnerar när vissa artiklar i batchen inte har bearbetats. Ökande `206` hastighet indikerar ett problem som måste undersökas. Liknande logik `207` gäller för multistatus där framgången kan vara den värsta av separata svarskoder.
+Delvis accepterat `206` innehåll kan tyda på ett problem med en övergripande begäran. Application Insights slut punkten tar till exempel emot en batch med telemetri-objekt som en enskild begäran. Den returnerar `206` när vissa objekt i gruppen inte bearbetades korrekt. Öknings takten för `206` indikerar ett problem som behöver undersökas. Liknande logik gäller för `207` flera status, där det kan vara sämsta separata svars koder.
 
-Du kan läsa mer om begäran resultatkod och statuskod i [blogginlägget](https://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
+Du kan läsa mer om resultat kod och status kod för begäran i [blogg inlägget](https://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
 
 ## <a name="custom-properties"></a>Anpassade egenskaper
 
@@ -73,7 +73,7 @@ Du kan läsa mer om begäran resultatkod och statuskod i [blogginlägget](https:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skriv anpassad begäran telemetri](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
-- Se [datamodell](data-model.md) för programinsiktstyper och datamodell.
-- Lär dig hur du [konfigurerar ASP.NET Core-program](../../azure-monitor/app/asp-net.md) med Application Insights.
-- Kolla in [plattformar](../../azure-monitor/app/platforms.md) som stöds av Application Insights.
+- [Skriv telemetri för anpassad begäran](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
+- Se [data modell](data-model.md) för Application Insights typer och data modell.
+- Lär dig hur du [konfigurerar ASP.net Core](../../azure-monitor/app/asp-net.md) program med Application Insights.
+- Kolla ut [plattformar](../../azure-monitor/app/platforms.md) som stöds av Application Insights.

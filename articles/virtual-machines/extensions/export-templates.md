@@ -1,5 +1,5 @@
 ---
-title: Exportera Azure Resource Groups som innehåller VM-tillägg
+title: Exportera Azure-resurs grupper som innehåller VM-tillägg
 description: Exportera Resource Manager-mallar som innehåller tillägg för virtuella datorer.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,57 +15,57 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
 ms.openlocfilehash: 79991dad96742109817d579b951082d1a30e3951
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79253915"
 ---
-# <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportera resursgrupper som innehåller vm-tillägg
+# <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportera resurs grupper som innehåller VM-tillägg
 
-Azure Resource Groups kan exporteras till en ny Resource Manager-mall som sedan kan distribueras om. Exportprocessen tolkar befintliga resurser och skapar en Resource Manager-mall som när distribueras resulterar i en liknande resursgrupp. När du använder alternativet Exportera resursgrupp mot en resursgrupp som innehåller tillägg för virtuella datorer måste flera objekt betraktas som tilläggskompatibilitet och skyddade inställningar.
+Azures resurs grupper kan exporteras till en ny Resource Manager-mall som sedan kan distribueras om. Export processen tolkar befintliga resurser och skapar en Resource Manager-mall som när de distribuerade resultaten i en liknande resurs grupp. När du använder export alternativet resurs grupp mot en resurs grupp som innehåller tillägg för virtuella datorer, måste flera objekt beaktas, till exempel tilläggets kompatibilitet och skyddade inställningar.
 
-I det här dokumentet beskrivs hur exportprocessen för resursgruppen fungerar när det gäller tillägg för virtuella datorer, inklusive en lista över tillägg som stöds, och information om hur du hanterar skyddade data.
+Det här dokumentet beskriver hur export processen för resurs grupper fungerar för tillägg till virtuella datorer, inklusive en lista över tillägg som stöds och information om hur du hanterar skyddade data.
 
 ## <a name="supported-virtual-machine-extensions"></a>Tillägg för virtuella datorer som stöds
 
-Många tillägg för virtuella datorer är tillgängliga. Alla tillägg kan inte exporteras till en Resource Manager-mall med hjälp av funktionen "Automation Script". Om ett tillägg till den virtuella datorn inte stöds måste det placeras manuellt tillbaka i den exporterade mallen.
+Många tillägg för virtuella datorer är tillgängliga. Det går inte att exportera alla tillägg till en Resource Manager-mall med hjälp av funktionen "Automation-skript". Om ett tillägg för virtuell dator inte stöds måste det placeras manuellt i den exporterade mallen.
 
-Följande tillägg kan exporteras med funktionen för automatiseringsskript.
+Följande tillägg kan exporteras med Automation-skript funktionen.
 
 | Anknytning ||||
 |---|---|---|---|
-| Acronis Backup | Windows-agent för Datadog | OS Patching för Linux | VM Snapshot Linux
-| Acronis Backup Linux | Docker-tillägg | Marionett agent |
-| Bg Info | DSC-tillägg | Webbplats 24x7 Apm Insight |
-| BMC CTM Agent Linux | Dynatrace Linux | Plats 24x7 Linux Server |
-| BMC CTM Agent Windows | Dynatrace Windows | Plats 24x7 Windows Server |
-| Chef Kund | HPE-säkerhetsprogram försvarare | Trend Micro DSA |
-| Anpassat skript | IaaS Antimalware | Trend Micro DSA Linux |
-| Anpassat skripttillägg | IaaS Diagnostik | VM-åtkomst för Linux |
-| Anpassat skript för Linux | Linux Chef-klient | VM-åtkomst för Linux |
-| Datadog Linux-agent | Linux-diagnostik | VM-ögonblicksbild |
+| Acronis-säkerhetskopiering | Datadog Windows-agent | OS-uppdatering för Linux | Linux för VM-ögonblicksbild
+| Acronis Backup Linux | Docker-tillägg | Puppet-agent |
+| BG-information | DSC-tillägg | Insikter om webbplats dygnet runt |
+| BMC CTM-agent Linux | DynaTrace Linux | Plats 24 Linux-Server |
+| BMC CTM agent Windows | DynaTrace Windows | Plats dygnet runt Windows Server |
+| Chefs klient | HPE Security Application Defender | Trend Micro DSA |
+| Anpassat skript | IaaS mot skadlig kod | Trend Micro DSA Linux |
+| Anpassat skripttillägg | IaaS-diagnostik | VM-åtkomst för Linux |
+| Anpassat skript för Linux | Linux chef-klient | VM-åtkomst för Linux |
+| Datadog Linux-Agent | Linux-diagnostik | VM-ögonblicksbild |
 
-## <a name="export-the-resource-group"></a>Exportera resursgruppen
+## <a name="export-the-resource-group"></a>Exportera resurs gruppen
 
-Så här exporterar du en resursgrupp till en återanvändningsbar mall:
+Utför följande steg för att exportera en resurs grupp till en återanvändbar mall:
 
 1. Logga in på Azure Portal
-2. Klicka på Resursgrupper på Hub-menyn
-3. Välj målresursgruppen i listan
-4. Klicka på Automatiseringsskript i bladet Resursgrupp
+2. Klicka på resurs grupper på menyn hubb
+3. Välj mål resurs grupp i listan
+4. I bladet resurs grupp klickar du på Automation-skript
 
-![Mallexport](./media/export-templates/template-export.png)
+![Exportera mall](./media/export-templates/template-export.png)
 
-Azure Resource Manager automations-skriptet producerar en Resource Manager-mall, en parameterfil och flera exempeldistributionsskript som PowerShell och Azure CLI. Nu kan den exporterade mallen hämtas med hjälp av hämtningsknappen, läggas till som en ny mall i mallbiblioteket eller distribueras om med hjälp av distributionsknappen.
+Skriptet Azure Resource Manager automations skapar en Resource Manager-mall, en parameter fil och flera exempel på distributions skript som PowerShell och Azure CLI. Den exporterade mallen kan nu hämtas med hjälp av knappen Ladda ned, som läggs till som en ny mall i biblioteket eller omdistribueras med hjälp av knappen distribuera.
 
 ## <a name="configure-protected-settings"></a>Konfigurera skyddade inställningar
 
-Många Azure-tillägg för virtuella datorer innehåller en konfiguration av skyddade inställningar som krypterar känsliga data som autentiseringsuppgifter och konfigurationssträngar. Skyddade inställningar exporteras inte med automatiseringsskriptet. Om det behövs måste skyddade inställningar återinföras i den exporterade mallen.
+Många Azure Virtual Machine-tillägg innehåller en konfiguration för skyddade inställningar som krypterar känsliga data, till exempel autentiseringsuppgifter och konfigurations strängar. Skyddade inställningar exporteras inte med Automation-skriptet. Om det behövs måste de skyddade inställningarna läggas till i den exporterade mallen igen.
 
-### <a name="step-1---remove-template-parameter"></a>Steg 1 - Ta bort mallparameter
+### <a name="step-1---remove-template-parameter"></a>Steg 1 – ta bort mallparameter
 
-När resursgruppen exporteras skapas en enda mallparameter för att ge ett värde till de exporterade skyddade inställningarna. Den här parametern kan tas bort. Om du vill ta bort parametern tittar du igenom parameterlistan och tar bort parametern som liknar det här JSON-exemplet.
+När resurs gruppen har exporter ATS skapas en enskild mallparameter för att tillhandahålla ett värde för de exporterade skyddade inställningarna. Den här parametern kan tas bort. Ta bort parametern genom att titta igenom parameter listan och ta bort den parameter som liknar det här JSON-exemplet.
 
 ```json
 "extensions_extensionname_protectedSettings": {
@@ -74,11 +74,11 @@ När resursgruppen exporteras skapas en enda mallparameter för att ge ett värd
 }
 ```
 
-### <a name="step-2---get-protected-settings-properties"></a>Steg 2 - Få egenskaper för skyddade inställningar
+### <a name="step-2---get-protected-settings-properties"></a>Steg 2 – Hämta egenskaper för skyddat alternativ
 
-Eftersom varje skyddad inställning har en uppsättning obligatoriska egenskaper måste en lista över dessa egenskaper samlas in. Varje parameter för konfigurationen av skyddade inställningar finns i [Azure Resource Manager-schemat på GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json). Det här schemat innehåller endast parameteruppsättningarna för tilläggen i översiktsavsnittet i det här dokumentet. 
+Eftersom varje skyddad inställning har en uppsättning obligatoriska egenskaper måste en lista över dessa egenskaper samlas in. Varje parameter i konfigurationen för skyddade inställningar finns i [Azure Resource Manager schema på GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json). Det här schemat innehåller bara parameter uppsättningar för de tillägg som anges i översikts avsnittet i det här dokumentet. 
 
-Sök efter önskat tillägg i schemaarkivet i `IaaSDiagnostics`schemaarkivet. När tilläggsobjektet har hittats `protectedSettings` bör du notera varje parameter. I exemplet med `IaasDiagnostic` tillägget är `storageAccountName`krävparametrarna , `storageAccountKey`och `storageAccountEndPoint`.
+I lagrings platsen för schemat söker du efter det önskade tillägget, i det `IaaSDiagnostics`här exemplet. När objektet Extensions `protectedSettings` har hittats noterar du varje parameter. `IaasDiagnostic` I exemplet på tillägget `storageAccountName`är Kräv parametrar, `storageAccountKey`och. `storageAccountEndPoint`
 
 ```json
 "protectedSettings": {
@@ -102,11 +102,11 @@ Sök efter önskat tillägg i schemaarkivet i `IaaSDiagnostics`schemaarkivet. N�
 }
 ```
 
-### <a name="step-3---re-create-the-protected-configuration"></a>Steg 3 - Återskapa den skyddade konfigurationen
+### <a name="step-3---re-create-the-protected-configuration"></a>Steg 3 – återskapa den skyddade konfigurationen
 
-Sök efter `protectedSettings` och ersätt det exporterade skyddade inställningsobjektet med ett nytt som innehåller de nödvändiga tilläggsparametrarna och ett värde för var och en i den exporterade skyddade inställningsobjektet med ett nytt som innehåller de nödvändiga tilläggsparametrarna och ett värde för var och en.
+I den exporterade mallen söker du `protectedSettings` efter och ersätter objektet exporterat skyddat objekt med en ny som innehåller nödvändiga tilläggs parametrar och ett värde för var och en.
 
-I exemplet med `IaasDiagnostic` tillägget skulle den nya skyddade inställningskonfigurationen se ut som följande exempel:
+I exemplet på `IaasDiagnostic` tillägget skulle den nya skyddade inställnings konfigurationen se ut som i följande exempel:
 
 ```json
 "protectedSettings": {
@@ -116,7 +116,7 @@ I exemplet med `IaasDiagnostic` tillägget skulle den nya skyddade inställnings
 }
 ```
 
-Den slutliga tilläggsresursen liknar följande JSON-exempel:
+Den sista tilläggs resursen ser ut ungefär som följande JSON-exempel:
 
 ```json
 {
@@ -148,9 +148,9 @@ Den slutliga tilläggsresursen liknar följande JSON-exempel:
 }
 ```
 
-Om du använder mallparametrar för att ange egenskapsvärden måste dessa skapas. När du skapar mallparametrar för skyddade `SecureString` inställningsvärden ska du se till att använda parametertypen så att känsliga värden skyddas. Mer information om hur du använder parametrar finns i [Skapa Azure Resource Manager-mallar](../../resource-group-authoring-templates.md).
+Om du använder mallparametrar för att ange egenskaps värden måste du skapa dem. När du skapar mallparametrar för skyddade inställnings värden ska du se till att `SecureString` använda parameter typen så att känsliga värden skyddas. Mer information om hur du använder parametrar finns i [redigera Azure Resource Manager mallar](../../resource-group-authoring-templates.md).
 
-I exemplet `IaasDiagnostic` med tillägget skapas följande parametrar i avsnittet parametrar i resurshanterarens mall.
+I exemplet för `IaasDiagnostic` tillägget skapas följande parametrar i avsnittet parametrar i Resource Manager-mallen.
 
 ```json
 "storageAccountName": {
@@ -163,4 +163,4 @@ I exemplet `IaasDiagnostic` med tillägget skapas följande parametrar i avsnitt
 }
 ```
 
-Nu kan mallen distribueras med valfri malldistributionsmetod.
+I det här läget kan mallen distribueras med hjälp av en metod för distribution av mallar.

@@ -1,58 +1,58 @@
 ---
-title: Översikt över azure service fabric-aktörens livscykel
-description: Förklarar livscykeln för en tillförlitlig aktör för serviceinfrastruktur, skräpinsamling och manuellt ta bort aktörer och deras tillstånd
+title: Översikt över Azure Service Fabric aktörens livs cykel
+description: Förklarar Service Fabric pålitliga aktörs livs cykel, skräp insamling och manuellt ta bort aktörer och deras status
 author: amanbha
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: b05da78091260297d94062c06cba100d01ce7e2e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258322"
 ---
-# <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Skådespelarens livscykel, automatisk skräpinsamling och manuell borttagning
-En aktör aktiveras första gången ett samtal görs till någon av dess metoder. En aktör inaktiveras (skräp som samlas in av Actors-körningen) om den inte används för en konfigurerbar tidsperiod. En aktör och dess tillstånd kan också tas bort manuellt när som helst.
+# <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Aktörs livs cykel, automatisk skräp insamling och manuell borttagning
+En aktör aktive ras första gången ett anrop görs till någon av dess metoder. En aktör inaktive ras (skräp insamlad av aktörernas körningar) om den inte används under en konfigurerbar tids period. En aktör och dess tillstånd kan också tas bort manuellt när som helst.
 
-## <a name="actor-activation"></a>Aktivering av skådespelare
-När en aktör aktiveras inträffar följande:
+## <a name="actor-activation"></a>Aktörs aktivering
+När en aktör aktive ras inträffar följande:
 
-* När ett samtal kommer för en skådespelare och en inte redan är aktiv skapas en ny aktör.
-* Aktörens tillstånd läses in om det upprätthåller tillståndet.
-* Metoden `OnActivateAsync` (C#) `onActivateAsync` eller (Java) (som kan åsidosättas i aktörsimplementeringen) anropas.
-* Skådespelaren anses nu vara aktiv.
+* När ett samtal skickas till en aktör och det inte redan är aktivt skapas en ny aktör.
+* Aktörens tillstånd läses in om det är i underhålls läge.
+* `OnActivateAsync` (C#) eller `onActivateAsync` (Java) metoden (som kan åsidosättas i aktörs implementeringen) anropas.
+* Aktören anses nu vara aktiv.
 
-## <a name="actor-deactivation"></a>Avaktivering av aktör
-När en aktör inaktiveras inträffar följande:
+## <a name="actor-deactivation"></a>Aktörs inaktive ring
+När en aktör är inaktive rad inträffar följande:
 
-* När en aktör inte används under en viss tid tas den bort från tabellen Aktiva aktörer.
-* Metoden `OnDeactivateAsync` (C#) `onDeactivateAsync` eller (Java) (som kan åsidosättas i aktörsimplementeringen) anropas. Detta rensar alla timers för skådespelaren. Aktörsåtgärder som tillståndsändringar bör inte anropas från den här metoden.
+* När en aktör inte används under en viss tids period, tas den bort från tabellen med aktiva aktörer.
+* `OnDeactivateAsync` (C#) eller `onDeactivateAsync` (Java) metoden (som kan åsidosättas i aktörs implementeringen) anropas. Detta rensar alla timers för aktören. Aktörs åtgärder som tillstånds ändringar ska inte anropas från den här metoden.
 
 > [!TIP]
-> Fabric Actors runtime avger vissa [händelser relaterade till aktivering och avaktivering](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters)av aktören . De är användbara i diagnostik och prestandaövervakning.
+> Infrastrukturen för Fabric-aktörer genererar vissa [händelser som rör aktörs aktivering och inaktive](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters)ring. De är användbara i diagnostik-och prestanda övervakning.
 >
 >
 
-### <a name="actor-garbage-collection"></a>Skådespelare sophämtning
-När en aktör inaktiveras släpps referenser till aktörsobjektet och det kan vara skräp som samlas in normalt av den vanliga språkkörningen (CLR) eller java-sophämtaren (Virtual Machine). Skräpsamling rensar bara aktörsobjektet. Det tar **inte** bort tillstånd som lagras i aktörens state manager. Nästa gång aktören aktiveras skapas ett nytt aktörsobjekt och dess tillstånd återställs.
+### <a name="actor-garbage-collection"></a>Skräp insamling för aktör
+När en aktör är inaktive rad släpps referenser till aktörs objekt och kan samlas in normalt av skräp insamlaren Common Language Runtime (CLR) eller Java Virtual Machine (JVM). Skräp insamling rensar bara aktörs objekt. Det tar **inte** bort tillstånd som lagras i aktörens tillstånds hanterare. Nästa gången aktören aktive ras skapas ett nytt aktörs objekt och dess tillstånd återställs.
 
-Vad räknas som "används" för avaktivering och sophämtning?
+Vad räknas som "används" för inaktive ring och skräp insamling?
 
-* Ta emot ett samtal
-* `IRemindable.ReceiveReminderAsync`anropas (gäller endast om aktören använder påminnelser)
+* Tar emot ett samtal
+* `IRemindable.ReceiveReminderAsync`anropad metod (gäller endast om aktören använder påminnelser)
 
 > [!NOTE]
-> Om aktören använder timers och dess timer motringning anropas, räknas det **inte** som "används".
+> om aktören använder timers och dess timer-återanrop anropas, räknas den **inte** som "används".
 >
 >
 
-Innan vi går in på detaljer om avaktivering är det viktigt att definiera följande termer:
+Innan vi går in på Detaljer om inaktive ring är det viktigt att definiera följande villkor:
 
-* *Skanningsintervall*. Det här är det intervall med vilket skådespelarna genomsöker tabellen Aktiva aktörer för aktörer som kan inaktiveras och skräp samlas in. Standardvärdet för detta är 1 minut.
-* *Tidsgränsen för inaktiv.* Detta är den tid som en aktör måste förbli oanvänd (inaktiv) innan den kan inaktiveras och skräp samlas in. Standardvärdet för detta är 60 minuter.
+* *Genomsöknings intervall*. Detta är det intervall med vilket aktörernas körning skannar sin aktiva skådespelare tabell för aktörer som kan inaktive ras och skräp insamlas. Standardvärdet för detta är 1 minut.
+* *Tids gräns för inaktivitet*. Detta är den tid som en aktör måste fortsätta att vara oanvänd (inaktiv) innan den kan inaktive ras och skräp insamlas. Standardvärdet för detta är 60 minuter.
 
-Vanligtvis behöver du inte ändra dessa standardvärden. Om det behövs kan dessa intervall `ActorServiceSettings` dock ändras när du registrerar din [aktörstjänst:](service-fabric-reliable-actors-platform.md)
+Normalt behöver du inte ändra dessa standardinställningar. Om det behövs kan du dock ändra dessa intervall `ActorServiceSettings` när du registrerar din [aktörs tjänst](service-fabric-reliable-actors-platform.md):
 
 ```csharp
 public class Program
@@ -85,36 +85,36 @@ public class Program
     }
 }
 ```
-För varje aktiv aktör håller aktörens körning reda på hur lång tid den har varit inaktiv (dvs. inte används). Aktören runtime kontrollerar var `ScanIntervalInSeconds` och en av aktörerna var för att se om `IdleTimeoutInSeconds`det kan vara skräp samlas in och markerar det om det har varit inaktiv för .
+För varje aktiv aktör håller aktörs körningen reda på hur lång tid det har varit inaktivt (dvs. inte används). Aktörens körning kontrollerar var och en av aktörerna var `ScanIntervalInSeconds` för att se om den kan vara skräp insamlad och markerar den om den `IdleTimeoutInSeconds`har varit inaktiv.
 
-När en aktör används återställs dess inaktiva tid till 0. Efter detta kan aktören sopor samlas in endast `IdleTimeoutInSeconds`om det återigen förblir inaktiv för . Kom ihåg att en aktör anses ha använts om antingen en aktörsgränssnittsmetod eller en aktörs påminnelse motringning körs. En aktör anses **inte** ha använts om dess timeradback körs.
+När en aktör används återställs tiden till 0. Efter detta kan aktören bara samlas in om den är inaktiv för `IdleTimeoutInSeconds`. Kom ihåg att en aktör anses ha använts om antingen en aktörs gränssnitts metod eller en påminnelse om åter kallelse av aktör körs. En aktör anses **inte** ha använts om dess timer-motanrop körs.
 
-Följande diagram visar livscykeln för en enskild aktör för att illustrera dessa begrepp.
+Följande diagram visar livs cykeln för en enskild aktör för att illustrera dessa begrepp.
 
 ![Exempel på inaktiv tid][1]
 
-Exemplet visar effekten av aktörsmetodanrop, påminnelser och timers på den här aktörens livstid. Följande punkter om exemplet är värda att nämna:
+Exemplet visar effekten av aktörs metod anrop, påminnelser och timers för den här aktörens livs längd. Följande punkter om exemplet är värda att nämna:
 
-* ScanInterval och IdleTimeout är inställda på 5 respektive 10. (Enheter spelar ingen roll här, eftersom vårt syfte är bara att illustrera konceptet.)
-* Genomsökningen för aktörer som ska sopor samlas in sker på T = 0,5,10,15,20,25, enligt definitionen av skanningsintervallet 5.
-* En periodisk timer avfyras vid T=4,8,12,16,20,24 och dess motringning körs. Det påverkar inte inaktiv tid för skådespelaren.
-* Ett aktörsmetodanrop på T=7 återställer inaktiv tid till 0 och fördröjer aktörens skräpsamling.
-* En aktör påminnelse motringning körs på T = 14 och ytterligare förseningar sopor insamling av aktören.
-* Under sophämtningen på T=25 överskrider aktörens inaktiva tid slutligen den inaktiva tidsgränsen på 10 och skådespelaren är skräp som samlas in.
+* ScanInterval och IdleTimeout har angetts till 5 respektive 10. (Enheter spelar ingen roll här eftersom vårt syfte bara är att illustrera begreppet.)
+* Genomsökningen av aktörer som ska vara skräp insamlad sker i T = 0, 5, 10, 15, 20, 25, som definieras av genomsöknings intervallet 5.
+* En periodisk timer utlöses vid T = 4, 8, 12, 16, 20, 24 och återanropet körs. Den påverkar inte inaktiv tid för aktören.
+* Ett aktörs metod anrop vid T = 7 återställer tiden för inaktivitet till 0 och skjuter upp skräp insamling i aktören.
+* En påminnelse om aktör återanrop körs vid T = 14 och förskjuter din aktörs skräp insamling ytterligare.
+* Under skräp insamlings skanningen vid T = 25, överskrider aktörens inaktivitet för inaktivitet på 10, och aktören har skräpinsamlats.
 
-En aktör kommer aldrig att sopor samlas in medan den utför en av sina metoder, oavsett hur mycket tid som spenderas på att köra den metoden. Som tidigare nämnts förhindrar körningen av aktörsgränssnittsmetoder och påminnelseåterkallelser skräpinsamling genom att återställa aktörens inaktiva tid till 0. Körningen av timeradring återställs inte inaktiv tid till 0. Men skräpsamlingen för aktören skjuts upp tills timeradrering har slutfört körningen.
+En aktör kommer aldrig att vara skräp insamlad när den kör någon av dess metoder, oavsett hur lång tid det tar att köra metoden. Som tidigare nämnts förhindrar körningen av aktörens gränssnitts metoder och återställnings-återanrop skräp insamling genom att återställa aktörens inaktivitet till 0. Körningen av timer-återanrop återställs inte inaktivitet till 0. Skräp insamlingen av aktören skjuts upp tills det timer-motanrop som slutförts har körts.
 
-## <a name="manually-deleting-actors-and-their-state"></a>Manuellt ta bort aktörer och deras tillstånd
-Skräpsamling av inaktiverade aktörer rensar bara aktörsobjektet, men data som lagras i en aktörs tillståndshanterare tas inte bort. När en aktör återaktiveras görs dess data återigen tillgängliga för den via tillståndshanteraren. I de fall där aktörer lagrar data i State Manager och inaktiveras men aldrig återaktiveras kan det vara nödvändigt att rensa sina data.  Exempel på hur du tar bort aktörer läser du [ta bort aktörer och deras tillstånd](service-fabric-reliable-actors-delete-actors.md).
+## <a name="manually-deleting-actors-and-their-state"></a>Ta bort aktörer och deras status manuellt
+Skräp insamling av inaktiverade aktörer rensar bara aktörs objekt, men tar inte bort data som lagras i en aktörs tillstånds hanterare. När en aktör återaktiveras, blir dess data återigen tillgängliga för den via tillstånds hanteraren. I de fall där aktörer lagrar data i tillstånds hanteraren och inaktive ras men aldrig aktive ras på nytt, kan det vara nödvändigt att rensa data.  Exempel på hur du tar bort aktörer finns i [ta bort aktörer och deras tillstånd](service-fabric-reliable-actors-delete-actors.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Aktörs timers och påminnelser](service-fabric-reliable-actors-timers-reminders.md)
-* [Skådespelare händelser](service-fabric-reliable-actors-events.md)
-* [Skådespelare reentrancy](service-fabric-reliable-actors-reentrancy.md)
-* [Skådespelare diagnostik och prestandaövervakning](service-fabric-reliable-actors-diagnostics.md)
-* [Dokumentation för aktörs-API-referens](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# Exempelkod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java-exempelkod](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Timers för aktör och påminnelser](service-fabric-reliable-actors-timers-reminders.md)
+* [Aktörs händelser](service-fabric-reliable-actors-events.md)
+* [Aktör återinträde](service-fabric-reliable-actors-reentrancy.md)
+* [Aktörens diagnostik och prestanda övervakning](service-fabric-reliable-actors-diagnostics.md)
+* [Dokumentation om aktörs-API-referens](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Exempel kod för C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Java-exempel kod](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

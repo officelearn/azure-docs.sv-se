@@ -14,52 +14,52 @@ ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: 2c7d312910c6d38c54b291da34bfb827246c7dad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79504296"
 ---
 ## <a name="prepare-for-akv-integration"></a>Förbered för AKV-integrering
-Om du vill använda Azure Key Vault-integrering för att konfigurera din VIRTUELLA SQL Server finns det flera förutsättningar: 
+För att kunna använda Azure Key Vault-integrering för att konfigurera SQL Server VM finns det flera krav: 
 
-1. [Installera Azure Powershell](#install)
-2. [Skapa en Active Directory i Azure](#register)
-3. [Skapa ett nyckelvalv](#createkeyvault)
+1. [Installera Azure PowerShell](#install)
+2. [Skapa en Azure Active Directory](#register)
+3. [Skapa ett nyckel valv](#createkeyvault)
 
-I följande avsnitt beskrivs dessa förutsättningar och den information du behöver samla in för att senare köra PowerShell-cmdletar.
+I följande avsnitt beskrivs dessa krav och den information som du behöver samla in för att köra PowerShell-cmdletar senare.
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ### <a name="install-azure-powershell"></a><a id="install"></a>Installera Azure PowerShell
-Kontrollera att du har installerat den senaste Azure PowerShell-modulen. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
+Kontrol lera att du har installerat den senaste Azure PowerShell-modulen. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
 
-### <a name="register-an-application-in-your-azure-active-directory"></a><a id="register"></a>Registrera ett program i Din Azure Active Directory
+### <a name="register-an-application-in-your-azure-active-directory"></a><a id="register"></a>Registrera ett program i Azure Active Directory
 
-Först måste du ha en [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) i din prenumeration. Bland många fördelar, Detta gör att du kan bevilja behörighet till din nyckel valv för vissa användare och program.
+Först måste du ha en [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) i din prenumeration. På så sätt kan du med många fördelar ge dig behörighet till ditt nyckel valv för vissa användare och program.
 
-Registrera sedan en ansökan hos AAD. Detta ger dig ett tjänsthuvudnamnskonto som har åtkomst till ditt nyckelvalv, som din virtuella dator behöver. I azure key vault-artikeln hittar du de här stegen i avsnittet [Registrera ett program med Azure Active Directory,](../articles/key-vault/key-vault-manage-with-cli2.md#registering-an-application-with-azure-active-directory) eller så kan du se stegen med skärmbilder i avsnittet Hämta en identitet för **programavsnittet** i det [här blogginlägget](https://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Innan du slutför de här stegen måste du samla in följande information under den här registreringen som behövs senare när du aktiverar Azure Key Vault-integrering på din SQL VM.
+Registrera sedan ett program med AAD. Detta ger dig ett tjänst huvud konto som har åtkomst till ditt nyckel valv, som den virtuella datorn kommer att behöva. I Azure Key Vault artikeln kan du hitta de här stegen i avsnittet [Registrera ett program med Azure Active Directory](../articles/key-vault/key-vault-manage-with-cli2.md#registering-an-application-with-azure-active-directory) , eller så kan du se stegen med skärm bilder i **avsnittet hämta en identitet för programmet** i [det här blogg inlägget](https://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Innan du slutför de här stegen måste du samla in följande information under registreringen som behövs senare när du aktiverar Azure Key Vault-integrering på den virtuella SQL-datorn.
 
-* När programmet har lagts till hittar du **program-ID:t** (kallas även AAD ClientID eller AppID) på bladet **Registrerad app.**
-    Program-ID:t tilldelas senare till parametern **$spName** (Tjänsthuvudnamn) i PowerShell-skriptet för att aktivera Azure Key Vault-integrering.
+* När programmet har lagts till hittar du **program-ID: t** (även kallat AAD-ClientID eller AppID) på bladet **registrerad app** .
+    Program-ID: t tilldelas senare till **$spName** -parametern (tjänstens huvud namn) i PowerShell-skriptet för att aktivera Azure Key Vault-integrering.
 
    ![Program-ID:t](./media/virtual-machines-sql-server-akv-prepare/aad-application-id.png)
 
-* Under de här stegen när du skapar nyckeln kopierar du hemligheten för nyckeln som visas i följande skärmbild. Den här nyckelhemligheten tilldelas senare till parametern **$spSecret** (Service Principal secret) i PowerShell-skriptet.
+* Under de här stegen när du skapar din nyckel kopierar du hemligheten för nyckeln som visas i följande skärm bild. Den här nyckel hemligheten tilldelas senare till den **$spSecret** -parametern (tjänstens huvud namns hemlighet) i PowerShell-skriptet.
 
-   ![AAD hemlighet](./media/virtual-machines-sql-server-akv-prepare/aad-sp-secret.png)
+   ![AAD-hemlighet](./media/virtual-machines-sql-server-akv-prepare/aad-sp-secret.png)
 
-* Program-ID och hemligheten kommer också att användas för att skapa en autentiseringsidentiella i SQL Server.
+* Program-ID: t och hemligheten kommer också att användas för att skapa en autentiseringsuppgift i SQL Server.
 
-* Du måste auktorisera det nya program-ID:t (eller klient-ID) för att ha följande åtkomstbehörigheter: **get**, **wrapKey**, **unwrapKey**. Detta görs med cmdleten [Set-AzKeyVaultAccessPolicy.](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) Mer information finns i [översikt över Azure Key Vault](../articles/key-vault/key-vault-overview.md).
+* Du måste godkänna att det här nya program-ID: t (eller klient-ID: t) har följande åtkomst behörigheter: **Get**, **wrapKey**, **unwrapKey**. Detta görs med cmdleten [set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) . Mer information finns i [Azure Key Vault översikt](../articles/key-vault/key-vault-overview.md).
 
-### <a name="create-a-key-vault"></a><a id="createkeyvault"></a>Skapa ett nyckelvalv
-För att kunna använda Azure Key Vault för att lagra nycklarna som du använder för kryptering i den virtuella datorn behöver du åtkomst till ett nyckelvalv. Om du inte redan har konfigurerat nyckelvalvet skapar du ett genom att följa stegen i artikeln [Komma igång med Azure Key Vault.](../articles/key-vault/key-vault-overview.md) Innan du slutför de här stegen finns det en del information som du behöver samla in under den här installationen som behövs senare när du aktiverar Azure Key Vault-integrering på din SQL VM.
+### <a name="create-a-key-vault"></a><a id="createkeyvault"></a>Skapa ett nyckel valv
+För att kunna använda Azure Key Vault för att lagra de nycklar som ska användas för kryptering i din virtuella dator måste du ha åtkomst till ett nyckel valv. Om du inte redan har konfigurerat nyckel valvet skapar du ett genom att följa stegen i artikeln [komma igång med Azure Key Vault](../articles/key-vault/key-vault-overview.md) . Innan du utför de här stegen finns det information som du behöver samla in under den här konfigurationen som behövs senare när du aktiverar Azure Key Vault-integrering på den virtuella SQL-datorn.
 
     New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
 
-När du kommer till steget Skapa ett nyckelvalv noterar du egenskapen returnerade **vaultUri,** som är url:en för nyckelvalvet. I exemplet i det steget, som visas nedan, är nyckelvalvets namn ContosoKeyVault, därför skulle nyckelvalvets URL vara https://contosokeyvault.vault.azure.net/.
+När du kommer till steget Skapa ett nyckel valv noterar du den returnerade **vaultUri** -egenskapen, som är Key Vault-URL: en. I exemplet i det steget, som visas nedan, är nyckel valvets namn ContosoKeyVault, och därför skulle nyckel valvets URL vara https://contosokeyvault.vault.azure.net/.
 
-Nyckeln valvets URL tilldelas senare till **den $akvURL** parametern i PowerShell-skriptet för att aktivera Azure Key Vault-integrering.
+Nyckel valvets URL tilldelas senare till **$akvURL** -parametern i PowerShell-skriptet för att aktivera Azure Key Vault-integrering.
 
-När nyckelvalvet har skapats måste vi lägga till en nyckel till nyckelvalvet, den här nyckeln refereras när vi skapar en asymmetrisk nyckel skapa i SQL Server senare.
+När nyckel valvet har skapats måste vi lägga till en nyckel till nyckel valvet. den här nyckeln kommer att hänvisas till när vi skapar en asymmetrisk nyckel skapa i SQL Server senare.

@@ -1,7 +1,7 @@
 ---
-title: Felsöka Storm med hjälp av Azure HDInsight
-description: Få svar på vanliga frågor om hur du använder Apache Storm med Azure HDInsight.
-keywords: Azure HDInsight, Storm, Vanliga frågor och svar, felsökningsguide, vanliga problem
+title: Felsöka Storm med Azure HDInsight
+description: Få svar på vanliga frågor om att använda Apache Storm med Azure HDInsight.
+keywords: Azure HDInsight, Storm, FAQ, fel söknings guide, vanliga problem
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,96 +10,96 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271933"
 ---
-# <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Felsöka Apache Storm med hjälp av Azure HDInsight
+# <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Felsöka Apache Storm med Azure HDInsight
 
-Lär dig mer om de viktigaste problemen och deras lösningar för att arbeta med [Apache Storm](https://storm.apache.org/) nyttolaster i [Apache Ambari](https://ambari.apache.org/).
+Lär dig mer om de vanligaste problemen och deras resolutioner om hur du arbetar med [Apache Storm](https://storm.apache.org/) nytto laster i [Apache Ambari](https://ambari.apache.org/).
 
-## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Hur kommer jag åt stormgränssnittet i ett kluster?
+## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Hur gör jag för att åtkomst till storm-ANVÄNDARGRÄNSSNITTET i ett kluster?
 
-Du har två alternativ för att komma åt stormgränssnittet från en webbläsare:
+Du har två alternativ för att komma åt Storm-ANVÄNDARGRÄNSSNITTET från en webbläsare:
 
-### <a name="apache-ambari-ui"></a>Apache Ambari UI
+### <a name="apache-ambari-ui"></a>Apache Ambari-användargränssnitt
 
 1. Gå till Ambari-instrumentpanelen.
-2. Välj **Storm**i listan över tjänster .
-3. Välj **Stormgränssnitt**på **snabblänksmenyn** .
+2. I listan över tjänster väljer du **Storm**.
+3. I menyn **snabb länkar** väljer du **Storm UI**.
 
 ### <a name="direct-link"></a>Direkt länk
 
-Du kan komma åt användargränssnittet Storm på följande WEBBADRESS:
+Du kan komma åt Storm-ANVÄNDARGRÄNSSNITTET på följande URL:
 
 `https://<cluster DNS name>/stormui`
 
 Exempel: `https://stormcluster.azurehdinsight.net/stormui`
 
-## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Hur överför jag information om stormhändelsehubbens pipkontrollpunkt från en topologi till en annan?
+## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Hur gör jag för att överföring av storm Event Hub-kanalen från en topologi till en annan?
 
-När du utvecklar topologier som läses från Azure Event Hubs med hjälp av HDInsight Storm-händelsehubbens pip.jar-fil, måste du distribuera en topologi som har samma namn i ett nytt kluster. Du måste dock behålla kontrollpunktsdata som har åtagits [apache zookeeper](https://zookeeper.apache.org/) på det gamla klustret.
+När du utvecklar topologier som läses från Azure Event Hubs med hjälp av HDInsight Storm Event Hub kanalen. jar-filen måste du distribuera en topologi som har samma namn i ett nytt kluster. Du måste dock behålla kontroll punkts data som har allokerats för att [Apache ZooKeeper](https://zookeeper.apache.org/) i det gamla klustret.
 
-### <a name="where-checkpoint-data-is-stored"></a>Var kontrollpunktsdata lagras
+### <a name="where-checkpoint-data-is-stored"></a>Var kontroll punkts data lagras
 
-Kontrollpunktsdata för förskjutningar lagras av händelsehubbutloppet i ZooKeeper i två rotsökvägar:
+Kontroll punkts data för förskjutningar lagras av Event Hub-kanalen i ZooKeeper i två rot Sök vägar:
 
-- Kontrollpunkter för icke-transaktionell pip `/eventhubspout`lagras i .
+- Kanalen-kontrollpunkter lagras i `/eventhubspout`.
 
-- Transaktionspipkontrollpunktsdata lagras `/transactional`i .
+- Transaktions kontroll punkts data för kanalen lagras `/transactional`i.
 
 ### <a name="how-to-restore"></a>Så här återställer du
 
-Information om hur du hämtar skript och bibliotek som du använder för att exportera data från ZooKeeper och sedan importerar data tillbaka till ZooKeeper med ett nytt namn finns i [EXEMPEL på HDInsight Storm](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/tools/zkdatatool-1.0).
+Om du vill hämta de skript och bibliotek som du använder för att exportera data från ZooKeeper och sedan importera data tillbaka till ZooKeeper med ett nytt namn, se [HDInsight Storm-exempel](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/tools/zkdatatool-1.0).
 
-Lib-mappen har .jar-filer som innehåller implementeringen för export-/importåtgärden. Bash-mappen har ett exempelskript som visar hur du exporterar data från ZooKeeper-servern i det gamla klustret och sedan importerar tillbaka den till ZooKeeper-servern i det nya klustret.
+Lib-mappen har. jar-filer som innehåller implementeringen för export/import-åtgärden. Mappen bash innehåller ett exempel skript som visar hur du exporterar data från ZooKeeper-servern på det gamla klustret och sedan importerar tillbaka den till ZooKeeper-servern på det nya klustret.
 
-Kör [stormmeta.sh](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) skriptet från ZooKeeper-noderna för att exportera och importera sedan data. Uppdatera skriptet till rätt Hortonworks Data Platform (HDP) version. (Vi arbetar på att göra dessa skript generiska i HDInsight. Allmänna skript kan köras från valfri nod i klustret utan ändringar av användaren.)
+Kör [stormmeta.sh](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) -skriptet från ZooKeeper-noderna för att exportera och sedan importera data. Uppdatera skriptet till rätt version av Hortonworks Data Platform (HDP). (Vi arbetar med att göra dessa skript generiska i HDInsight. Allmänna skript kan köras från alla noder i klustret utan ändringar av användaren.)
 
-Exportkommandot skriver metadata till en HDFS-sökväg (Apache Hadoop Distributed File System) (i Azure Blob Storage eller Azure Data Lake Storage) på en plats som du anger.
+Export kommandot skriver metadata till en Apache Hadoop Distributed File System-sökväg (HDFS) (i Azure Blob Storage eller Azure Data Lake Storage) på en plats som du anger.
 
 ### <a name="examples"></a>Exempel
 
-#### <a name="export-offset-metadata"></a>Exportera offsetmetadata
+#### <a name="export-offset-metadata"></a>Exportera metadata för förskjutning
 
-1. Använd SSH för att gå till ZooKeeper-klustret i klustret som kontrollpunktsförskjutningen måste exporteras från.
-2. Kör följande kommando (när du har uppdaterat HDP-versionssträngen) `/stormmetadta/zkdata` för att exportera ZooKeeper-förskjutningsdata till HDFS-sökvägen:
+1. Använd SSH för att gå till ZooKeeper-klustret i det kluster som kontroll punktens förskjutning ska exporteras från.
+2. Kör följande kommando (när du har uppdaterat HDP-versions strängen) för att exportera ZooKeeper förskjutnings `/stormmetadta/zkdata` data till HDFS-sökvägen:
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter export /eventhubspout /stormmetadata/zkdata
     ```
 
-#### <a name="import-offset-metadata"></a>Importera offsetmetadata
+#### <a name="import-offset-metadata"></a>Importera förskjutna metadata
 
-1. Använd SSH för att gå till ZooKeeper-klustret i klustret som kontrollpunktsförskjutningen måste importeras från.
-2. Kör följande kommando (när du har uppdaterat HDP-versionssträngen) för `/stormmetadata/zkdata` att importera ZooKeeper-förskjutningsdata från HDFS-sökvägen till ZooKeeper-servern i målklustret:
+1. Använd SSH för att gå till ZooKeeper-klustret i det kluster som kontroll punktens förskjutning ska importeras från.
+2. Kör följande kommando (när du har uppdaterat HDP-versions strängen) för att importera ZooKeeper förskjutnings data från `/stormmetadata/zkdata` HDFS-sökvägen till ZooKeeper-servern i mål klustret:
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter import /eventhubspout /home/sshadmin/zkdata
     ```
 
-#### <a name="delete-offset-metadata-so-that-topologies-can-start-processing-data-from-the-beginning-or-from-a-timestamp-that-the-user-chooses"></a>Ta bort offsetmetadata så att topologier kan börja bearbeta data från början, eller från en tidsstämpel som användaren väljer
+#### <a name="delete-offset-metadata-so-that-topologies-can-start-processing-data-from-the-beginning-or-from-a-timestamp-that-the-user-chooses"></a>Ta bort förskjutna metadata så att topologier kan börja bearbeta data från början eller från en tidsstämpel som användaren väljer
 
-1. Använd SSH för att gå till ZooKeeper-klustret i klustret där kontrollpunktsförskjutningen måste tas bort.
-2. Kör följande kommando (när du har uppdaterat HDP-versionssträngen) om du vill ta bort alla ZooKeeper-förskjutningsdata i det aktuella klustret:
+1. Använd SSH för att gå till ZooKeeper-klustret i det kluster som kontroll punktens förskjutning måste tas bort från.
+2. Kör följande kommando (när du har uppdaterat HDP-versions strängen) för att ta bort alla ZooKeeper offset-data i det aktuella klustret:
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter delete /eventhubspout
     ```
 
-## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Hur hittar jag Storm-binärfiler i ett kluster?
+## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Hur gör jag för att hittar du Storm-binärfiler i ett kluster?
 
-Stormbinärer för den aktuella `/usr/hdp/current/storm-client`HDP-stacken finns i . Platsen är densamma både för huvudnoder och för arbetsnoder.
+Storm-binärfiler för den aktuella HDP-stacken finns i `/usr/hdp/current/storm-client`. Platsen är samma både för huvudnoder och för arbetsnoder.
 
-Det kan finnas flera binärfiler för specifika HDP-versioner i `/usr/hdp/2.5.0.1233/storm`/usr/hdp (till exempel). Mappen `/usr/hdp/current/storm-client` är symlinked till den senaste versionen som körs på klustret.
+Det kan finnas flera binärfiler för vissa HDP-versioner i/usr/HDP (till exempel `/usr/hdp/2.5.0.1233/storm`). `/usr/hdp/current/storm-client` Mappen är symlinked till den senaste versionen som körs i klustret.
 
-Mer information finns i [Anslut till ett HDInsight-kluster med hjälp av SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) och [Apache Storm](https://storm.apache.org/).
+Mer information finns i [ansluta till ett HDInsight-kluster med hjälp av SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) och [Apache Storm](https://storm.apache.org/).
 
-## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Hur avgör jag distributionstopologin för ett Storm-kluster?
+## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Hur gör jag för att du bestämma distributions sto pol Ogin för ett Storm-kluster?
 
-Identifiera först alla komponenter som är installerade med HDInsight Storm. Ett Storm-kluster består av fyra nodkategorier:
+Börja med att identifiera alla komponenter som är installerade med HDInsight storm. Ett Storm-kluster består av fyra Node-kategorier:
 
 * Gateway-noder
 * Huvudnoder
@@ -108,82 +108,82 @@ Identifiera först alla komponenter som är installerade med HDInsight Storm. Et
 
 ### <a name="gateway-nodes"></a>Gateway-noder
 
-En gateway-nod är en gateway- och reverse proxytjänst som möjliggör offentlig åtkomst till en aktiv Ambari-hanteringstjänst. Det hanterar också Ambari ledare val.
+En gateway-nod är en gateway-och omvänd proxy-tjänst som möjliggör offentlig åtkomst till en aktiv hanterings tjänst för Ambari. Den hanterar också Ambari-ledar val.
 
 ### <a name="head-nodes"></a>Huvudnoder
 
-Stormhuvudnoder kör följande tjänster:
+Storm Head-noder kör följande tjänster:
 * Nimbus
-* Ambari server
-* Ambari Metrics server
-* Ambari Statistik Collector
+* Ambari-Server
+* Ambari mått Server
+* Ambari mått insamlare
  
 ### <a name="zookeeper-nodes"></a>ZooKeeper-noder
 
-HDInsight levereras med en tre-nod ZooKeeper kvorum. Kvorumstorleken är fast och kan inte konfigureras om.
+HDInsight innehåller ett ZooKeeper-kvorum med tre noder. Kvorumresursens storlek är fast och kan inte konfigureras om.
 
-Stormtjänster i klustret är konfigurerade för att automatiskt använda ZooKeeper-kvorumet.
+Storm-tjänster i klustret är konfigurerade för att automatiskt använda ZooKeeper-kvorumet.
 
 ### <a name="worker-nodes"></a>Arbetsnoder
 
-Stormarbetarenoder kör följande tjänster:
+Storm Worker-noder kör följande tjänster:
 * Chef
-* Virtuella arbetsdatorer för Arbetare java (JVMs), för att köra topologier
-* Ambari agent
+* Worker Java Virtual Machines (JVMs) för topologier som körs
+* Ambari-agent
 
-## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>Hur hittar jag Storm-händelsehubbpip-binärer för utveckling?
+## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>Hur gör jag för att du hitta binärfiler för Storm Event Hub-kanalen för utveckling?
 
-Mer information om hur du använder Storm-händelsehubbens pip.jar-filer med topologin finns i följande resurser.
+Mer information om hur du använder Storm Event Hub kanalen. jar-filer med din topologi finns i följande resurser.
 
 ### <a name="java-based-topology"></a>Java-baserad topologi
 
 [Bearbeta händelser från Azure Event Hubs med Apache Storm på HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)
 
-### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>C#-baserad topologi (Mono på HDInsight 3,4+ Linux Storm-kluster)
+### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>C#-baserad topologi (mono på HDInsight 3.4 + Linux Storm-kluster)
 
 [Bearbeta händelser från Azure Event Hubs med Apache Storm på HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
 
-### <a name="latest-apache-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Senaste Apache Storm händelse nav pip binärer för HDInsight 3,5 + Linux Storm kluster
+### <a name="latest-apache-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Senaste Apache Storm-binärfiler för Event Hub för HDInsight 3.5 + Linux Storm-kluster
 
-Mer information om hur du använder den senaste Storm-händelsehubben som fungerar med HDInsight 3.5+ Linux Storm-kluster finns i [filen mvn-repo readme](https://github.com/hdinsight/mvn-repo/blob/master/README.md).
+Information om hur du använder den senaste Storm Event Hub-kanalen som fungerar med HDInsight 3.5 + Linux Storm-kluster finns i [Readme-filen mvn-lagrings platsen](https://github.com/hdinsight/mvn-repo/blob/master/README.md).
 
-### <a name="source-code-examples"></a>Exempel på källkod
+### <a name="source-code-examples"></a>Käll kod exempel
 
-Se [exempel på](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) hur du läser och skriver från Azure Event Hub med hjälp av en Apache Storm-topologi (skriven i Java) på ett Azure HDInsight-kluster.
+Se [exempel](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) på hur du läser och skriver från Azure Event Hub med en Apache Storm-topologi (skrivet i Java) i ett Azure HDInsight-kluster.
 
-## <a name="how-do-i-locate-storm-log4j-2-configuration-files-on-clusters"></a>Hur hittar jag Storm Log4J 2-konfigurationsfiler i kluster?
+## <a name="how-do-i-locate-storm-log4j-2-configuration-files-on-clusters"></a>Hur gör jag för att hittar du Storm Log4J 2-konfigurationsfiler i kluster?
 
-Så här identifierar du konfigurationsfiler för [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) för Storm-tjänster.
+För att identifiera [Apache log4j 2](https://logging.apache.org/log4j/2.x/) -konfigurationsfiler för Storm-tjänster.
 
-### <a name="on-head-nodes"></a>På huvudnoder
+### <a name="on-head-nodes"></a>På Head-noder
 
-Nimbus Log4J-konfigurationen `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`läss från .
+Nimbus Log4J-konfigurationen läses från `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`.
 
 ### <a name="on-worker-nodes"></a>På arbetsnoder
 
-Administratören Log4J-konfigurationen `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`läss från .
+Konfigurationen av den överordnade Log4J läses från `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`.
 
-Konfigurationsfilen för worker Log4J läss från `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`.
+Konfigurations filen för Worker-Log4J `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`läses från.
 
-Exempel:`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
+Fler`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 `/usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml`
 
 ---
 
-## <a name="not-a-leader-exception"></a>Inte ett ledareundantag
+## <a name="not-a-leader-exception"></a>Inget ledar undantag
 
-När du skickar en topologi kan användaren få `Topology submission exception, cause not a leader, the current leader is NimbusInfo`ett felmeddelande som liknar: .
+När du skickar en topologi kan användaren få ett fel meddelande som liknar: `Topology submission exception, cause not a leader, the current leader is NimbusInfo`.
 
-För att lösa kan användaren behöva lämna in en biljett för att få noderna startas om/startas om. Mer information finns [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)i .
+För att lösa problemet kan användaren behöva File a Ticket för att noderna ska starta om/starta om. Mer information finns i [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html).
 
 ---
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte såg problemet eller inte kan lösa problemet besöker du någon av följande kanaler för mer support:
+Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
 
-- Få svar från Azure-experter via [Azure Community Support](https://azure.microsoft.com/support/community/).
+- Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
 
-- Anslut [@AzureSupport](https://twitter.com/azuresupport) med – det officiella Microsoft Azure-kontot för att förbättra kundupplevelsen. Ansluta Azure-communityn till rätt resurser: svar, support och experter.
+- Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-- Om du behöver mer hjälp kan du skicka en supportbegäran från [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **Stöd** i menyraden eller öppna **supporthubben Hjälp +.** Mer detaljerad information finns i [Så här skapar du en Azure-supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerationshantering och faktureringssupport ingår i din Microsoft Azure-prenumeration och teknisk support tillhandahålls via en av [Azure-supportplanerna](https://azure.microsoft.com/support/plans/).
+- Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

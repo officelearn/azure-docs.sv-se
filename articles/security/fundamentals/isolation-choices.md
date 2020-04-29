@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
 ms.openlocfilehash: c6e74e7992326d2a4b8fe24510742422b005c2e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79280318"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
@@ -321,7 +321,7 @@ Azure-distributionen har flera lager av nätverks isolering. Följande diagram v
 
 [Undernät](../../virtual-network/virtual-networks-overview.md) erbjuder ett extra isolerings lager med i virtuellt nätverk baserat på IP-intervall. IP-adresser i det virtuella nätverket kan du dela upp ett virtuellt nätverk i flera undernät för organisation och säkerhet. VM:ar och PaaS-rollinstanser som distribuerats till undernät (samma eller olika) inom ett VNet, kan kommunicera med varandra utan övrig konfiguration. Du kan också konfigurera [nätverks säkerhets gruppen (NSG: er)](../../virtual-network/virtual-networks-overview.md) för att tillåta eller neka nätverks trafik till en virtuell dator instans baserat på regler som kon figurer ATS i åtkomst kontrol listan (ACL) för NSG. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [alternativ för nätverks isolering för datorer i virtuella Windows Azure-nätverk](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Detta omfattar det klassiska klient-och Server dels scenariot där datorer i ett visst Server dels nätverk eller under nätverk bara kan tillåta att vissa klienter eller andra datorer ansluter till en viss slut punkt baserat på en lista över tillåtna IP-adresser.
 

@@ -1,5 +1,5 @@
 ---
-title: Felsöka driftsättningsproblem i StorSimple 8000-serien | Microsoft-dokument
+title: Felsök distributions problem i StorSimple 8000-serien | Microsoft Docs
 description: Beskriver hur du diagnostiserar och åtgärdar fel som uppstår när du först distribuerar StorSimple.
 services: storsimple
 documentationcenter: NA
@@ -15,198 +15,198 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: f2b454e812db1eea686f82e92841163f1129b6c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267630"
 ---
-# <a name="troubleshoot-storsimple-device-deployment-issues"></a>Felsöka problem med distribution av StorSimple-enheter
+# <a name="troubleshoot-storsimple-device-deployment-issues"></a>Felsök problem med distribution av StorSimple-enheter
 ## <a name="overview"></a>Översikt
-Den här artikeln innehåller användbar felsökningsvägledning för din Microsoft Azure StorSimple-distribution. Den beskriver vanliga problem, möjliga orsaker och rekommenderade steg som hjälper dig att lösa problem som kan uppstå när du konfigurerar StorSimple. 
+Den här artikeln innehåller användbara fel söknings anvisningar för din Microsoft Azure StorSimple-distribution. Det beskriver vanliga problem, möjliga orsaker och rekommenderade steg som hjälper dig att lösa problem som kan uppstå när du konfigurerar StorSimple. 
 
-Den här informationen gäller både Den fysiska enheten i StorSimple 8000-serien och StorSimple Cloud Appliance.
+Den här informationen gäller både fysisk enhet i StorSimple 8000-serien och StorSimple Cloud Appliance.
 
 > [!NOTE]
-> Enhetskonfigurationsrelaterade problem som du kan ställas inför kan uppstå när du distribuerar enheten för första gången, eller så kan de uppstå senare när enheten är i drift. Den här artikeln fokuserar på felsökning av första gången distributionsproblem. Om du vill felsöka en fungerande enhet går du till [Använd diagnostikverktyget för att felsöka en fungerande enhet](storsimple-8000-diagnostics.md).
+> Enhets konfiguration – problem som kan uppstå när du distribuerar enheten för första gången, eller som kan ske senare, när enheten fungerar. Den här artikeln fokuserar på fel sökning av distributions problem vid första tidpunkten. Om du vill felsöka en fungerande enhet går du till [Använd diagnostikverktyget för att felsöka en fungerande enhet](storsimple-8000-diagnostics.md).
 
-I den här artikeln beskrivs också verktygen för felsökning av StorSimple-distributioner och ett steg-för-steg-felsökningsexempel.
+Den här artikeln beskriver också verktyg för fel sökning av StorSimple-distributioner och innehåller ett exempel på steg-för-steg-fel sökning.
 
-## <a name="first-time-deployment-issues"></a>Problem med första gångens distribution
+## <a name="first-time-deployment-issues"></a>Distributions problem vid första tidpunkten
 Om du stöter på ett problem när du distribuerar enheten för första gången bör du tänka på följande:
 
-* Om du felsöker en fysisk enhet kontrollerar du att maskinvaran har installerats och konfigurerats enligt beskrivningen i [Installera din StorSimple 8100-enhet](storsimple-8100-hardware-installation.md) eller [Installera din StorSimple 8600-enhet](storsimple-8600-hardware-installation.md).
-* Kontrollera förutsättningarna för distribution. Kontrollera att du har all information som beskrivs i [checklistan för distributionskonfiguration](storsimple-8000-deployment-walkthrough-u2.md#deployment-configuration-checklist).
-* Granska StorSimple-viktig information för att se om problemet beskrivs. Viktig information innehåller lösningar för kända installationsproblem. 
+* Om du felsöker en fysisk enhet måste du kontrol lera att maskin varan har installerats och kon figurer ATS enligt beskrivningen i [installera din StorSimple 8100-enhet](storsimple-8100-hardware-installation.md) eller [installera din StorSimple 8600-enhet](storsimple-8600-hardware-installation.md).
+* Kontrol lera krav för distribution. Se till att du har all information som beskrivs i [Check lista för distributions konfiguration](storsimple-8000-deployment-walkthrough-u2.md#deployment-configuration-checklist).
+* Läs igenom StorSimple-versionen för att se om problemet beskrivs. Viktig information innehåller lösningar för kända installations problem. 
 
-Under enhetsdistributionen uppstår de vanligaste problemen som användarna ställs inför när de kör installationsguiden och när de registrerar enheten via Windows PowerShell för StorSimple. (Du använder Windows PowerShell för StorSimple för att registrera och konfigurera StorSimple-enheten. Mer information om enhetsregistrering finns i [Steg 3: Konfigurera och registrera enheten via Windows PowerShell för StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)).
+Under enhets distributionen inträffar de vanligaste problemen som användarna möter när de kör installations guiden och när de registrerar enheten via Windows PowerShell för StorSimple. (Du använder Windows PowerShell för StorSimple för att registrera och konfigurera din StorSimple-enhet. Mer information om enhets registrering finns i [steg 3: Konfigurera och registrera din enhet via Windows PowerShell för StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)).
 
-Följande avsnitt kan hjälpa dig att lösa problem som uppstår när du konfigurerar StorSimple-enheten för första gången.
+I följande avsnitt får du hjälp att lösa problem som du stöter på när du konfigurerar StorSimple-enheten för första gången.
 
-## <a name="first-time-setup-wizard-process"></a>Första gången installationsguiden process
-I följande steg sammanfattas installationsguiden. Detaljerad inställningsinformation finns i [Distribuera din lokala StorSimple-enhet](storsimple-8000-deployment-walkthrough-u2.md).
+## <a name="first-time-setup-wizard-process"></a>Installations guiden för första gången
+I följande steg sammanfattas processen för installations guiden. Detaljerad installations information finns i [distribuera din lokala StorSimple-enhet](storsimple-8000-deployment-walkthrough-u2.md).
 
-1. Kör [cmdleten Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) för att starta installationsguiden som guidar dig genom de återstående stegen. 
-2. Konfigurera nätverket: Med installationsguiden kan du konfigurera nätverksinställningar för DATA 0-nätverksgränssnittet på StorSimple-enheten. Dessa inställningar omfattar följande:
-   * Virtuell IP (VIP), nätmask och gateway – [Cmdlet Set-HcsNetInterface](https://technet.microsoft.com/library/dn688161.aspx) körs i bakgrunden. Den konfigurerar IP-adressen, nätmasken och gatewayen för DATA 0-nätverksgränssnittet på Din StorSimple-enhet.
-   * Primär [DNS-server – Cmdlet Set-HcsDnsClientServerAddress](https://technet.microsoft.com/library/dn688172.aspx) körs i bakgrunden. Dns-inställningarna för storsimple-lösningen konfigureras.
-   * NTP-server – [Cmdlet Set-HcsNtpClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) körs i bakgrunden. Ntp-serverinställningarna konfigureras för StorSimple-lösningen.
-   * Valfri webbproxy – [Cmdlet Set-HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) körs i bakgrunden. Den ställer in och aktiverar webbproxykonfigurationen för din StorSimple-lösning.
-3. Konfigurera lösenordet: nästa steg är att konfigurera lösenordet för enhetsadministratören.
-   Enhetsadministratörens lösenord används för att logga in på enheten. Enheten standardlösenord är **Password1**.
+1. Kör cmdleten [Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) för att starta installations guiden som hjälper dig att utföra de återstående stegen. 
+2. Konfigurera nätverket: med installations guiden kan du konfigurera nätverks inställningar för nätverks gränssnittet DATA 0 på din StorSimple-enhet. Inställningarna omfattar följande:
+   * Virtuell IP-adress (VIP), nätmask och gateway – cmdleten [set-HcsNetInterface](https://technet.microsoft.com/library/dn688161.aspx) körs i bakgrunden. Den konfigurerar IP-adressen, nät masken och gatewayen för nätverks gränssnittet DATA 0 på din StorSimple-enhet.
+   * Primär DNS-Server – cmdleten [set-HcsDnsClientServerAddress](https://technet.microsoft.com/library/dn688172.aspx) körs i bakgrunden. Den konfigurerar DNS-inställningarna för din StorSimple-lösning.
+   * NTP-server – cmdleten [set-HcsNtpClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) körs i bakgrunden. Den konfigurerar NTP-serverinställningar för din StorSimple-lösning.
+   * Valfri webbproxy – cmdleten [set-HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) körs i bakgrunden. Den anger och aktiverar webbproxy-konfigurationen för din StorSimple-lösning.
+3. Konfigurera lösen ordet: nästa steg är att konfigurera enhetens administratörs lösen ord.
+   Enhetens administratörs lösen ord används för att logga in på enheten. Enheten standardlösenord är **Password1**.
         
      > [!IMPORTANT]
-     > Lösenord samlas in före registreringen, men tillämpas först när du har registrerat enheten. Om ett lösenord inte har tillämpats uppmanas du att ange lösenordet igen tills de lösenord som krävs (som uppfyller komplexitetskraven) har samlats in.
+     > Lösen ord samlas in före registreringen, men tillämpas först när enheten har registrerats. Om det uppstår ett problem med att använda ett lösen ord uppmanas du att ange lösen ordet igen tills lösen orden som krävs (som uppfyller komplexitets kraven) samlas in.
      
-4. Registrera enheten: det sista steget är att registrera enheten med StorSimple Device Manager-tjänsten som körs i Microsoft Azure. Registreringen kräver att du [hämtar tjänstregistreringsnyckeln](storsimple-8000-manage-service.md#get-the-service-registration-key) från Azure-portalen och anger den i installationsguiden. **När enheten har registrerats tillhandahålls du en krypteringsnyckel för tjänstdata. Var noga med att hålla den här krypteringsnyckeln på en säker plats eftersom det kommer att krävas för att registrera alla efterföljande enheter med tjänsten.**
+4. Registrera enheten: det sista steget är att registrera enheten med StorSimple Enhetshanteraren-tjänsten som körs i Microsoft Azure. Registreringen kräver att du [hämtar tjänst registrerings nyckeln](storsimple-8000-manage-service.md#get-the-service-registration-key) från Azure Portal och anger den i installations guiden. **När enheten har registrerats får du en krypterings nyckel för tjänst data. Se till att behålla krypterings nyckeln på en säker plats eftersom det krävs för att registrera alla efterföljande enheter med tjänsten.**
 
-## <a name="common-errors-during-device-deployment"></a>Vanliga fel under enhetsdistribution
-I följande tabeller visas de vanliga fel som kan uppstå när du:
+## <a name="common-errors-during-device-deployment"></a>Vanliga fel vid enhets distribution
+I följande tabeller visas de vanliga fel som du kan stöta på när du:
 
-* Konfigurera de nätverksinställningar som krävs.
-* Konfigurera valfria webbproxyinställningar.
-* Konfigurera lösenordet för enhetsadministratören.
+* Konfigurera de nätverks inställningar som krävs.
+* Konfigurera de valfria webbproxy-inställningarna.
+* Konfigurera enhetens administratörs lösen ord.
 * Registrera enheten.
 
-## <a name="errors-during-the-required-network-settings"></a>Fel under de nödvändiga nätverksinställningarna
+## <a name="errors-during-the-required-network-settings"></a>Fel under de nödvändiga nätverks inställningarna
 | Nej. | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 | --- | --- | --- | --- |
-| 1 |Invoke-HcsSetupWizard: Det här kommandot kan bara köras på den aktiva styrenheten. |Konfigurationen utfördes på den passiva styrenheten. |Kör det här kommandot från den aktiva styrenheten. Mer information finns i [Identifiera en aktiv handkontroll på enheten](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
-| 2 |Invoke-HcsSetupWizard: Enheten är inte klar. |Det finns problem med nätverksanslutningen på DATA 0. |Kontrollera den fysiska nätverksanslutningen på DATA 0. |
-| 3 |Invoke-HcsSetupWizard: Det finns en IP-adresskonflikt med ett annat system i nätverket (Undantag från HRESULT: 0x80070263). |Den IP som angavs för DATA 0 användes redan av ett annat system. |Ange en ny IP som inte används. |
-| 4 |Invoke-HcsSetupWizard: En klusterresurs misslyckades. (Undantag från HRESULT: 0x800713AE). |Duplicera VIP. Den angivna IP-adressen används redan. |Ange en ny IP som inte används. |
-| 5 |Invoke-HcsSetupWizard: Ogiltig IPv4-adress. |IP-adressen anges i ett felaktigt format. |Kontrollera formatet och ange din IP-adress igen. Mer information finns i [Ipv4-adressering][1]. |
-| 6 |Invoke-HcsSetupWizard: Ogiltig IPv6-adress. |IP-adressen anges i ett felaktigt format. |Kontrollera formatet och ange din IP-adress igen. Mer information finns i [Ipv6-adressering][2]. |
-| 7 |Invoke-HcsSetupWizard: Det finns inga fler slutpunkter tillgängliga från slutpunktsmapparen. (Undantag från HRESULT: 0x800706D9) |Klusterfunktionen fungerar inte. |[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för nästa steg. |
+| 1 |Invoke-HcsSetupWizard: det här kommandot kan endast köras på den aktiva styrenheten. |Konfigurationen utfördes på den passiva styrenheten. |Kör det här kommandot från den aktiva styrenheten. Mer information finns i [identifiera en aktiv kontrollant på enheten](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
+| 2 |Invoke-HcsSetupWizard: enheten är inte klar. |Det finns problem med nätverks anslutningen på DATA 0. |Kontrol lera den fysiska nätverks anslutningen på DATA 0. |
+| 3 |Invoke-HcsSetupWizard: det finns en IP-adresskonflikt med ett annat system i nätverket (undantag från HRESULT: 0x80070263). |Den angivna IP-adressen för DATA 0 används redan av ett annat system. |Ange en ny IP-adress som inte används. |
+| 4 |Invoke-HcsSetupWizard: en kluster resurs misslyckades. (Undantag från HRESULT: 0x800713AE). |Dubblett av VIP. Den angivna IP-adressen används redan. |Ange en ny IP-adress som inte används. |
+| 5 |Invoke-HcsSetupWizard: ogiltig IPv4-adress. |IP-adressen har ett felaktigt format. |Kontrol lera formatet och ange din IP-adress igen. Mer information finns i [IPv4-adressering][1]. |
+| 6 |Invoke-HcsSetupWizard: ogiltig IPv6-adress. |IP-adressen har ett felaktigt format. |Kontrol lera formatet och ange din IP-adress igen. Mer information finns i [IPv6-adressering][2]. |
+| 7 |Invoke-HcsSetupWizard: det finns inga fler slut punkter tillgängliga från slut punkts mappningen. (Undantag från HRESULT: 0x800706D9) |Kluster funktionen fungerar inte. |[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för nästa steg. |
 
-## <a name="errors-during-the-optional-web-proxy-settings"></a>Fel under de valfria webbproxyinställningarna
+## <a name="errors-during-the-optional-web-proxy-settings"></a>Fel under de valfria webbproxy-inställningarna
 | Nej. | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 | --- | --- | --- | --- |
-| 1 |Invoke-HcsSetupWizard: Ogiltig parameter (Undantag från HRESULT: 0x80070057) |En av parametrarna för proxyinställningarna är ogiltig. |URI:n finns inte i rätt format. Använd följande format: http://*\<IP-adress eller FQDN för webbproxyservern>: **\<TCP-portnummer>* |
-| 2 |Invoke-HcsSetupWizard: RPC-server är inte tillgänglig (Undantag från HRESULT: 0x800706ba) |Grundorsaken är något av följande:<ol><li>Klustret är inte uppe.</li><li>Den passiva styrenheten kan inte kommunicera med den aktiva styrenheten och kommandot körs från passiv styrenhet.</li></ol> |Beroende på grundorsaken:<ol><li>[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för att se till att klustret är uppe.</li><li>Kör kommandot från den aktiva styrenheten. Om du vill köra kommandot från den passiva styrenheten måste du se till att den passiva styrenheten kan kommunicera med den aktiva styrenheten. Du måste [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) om anslutningen är bruten.</li></ol> |
-| 3 |Invoke-HcsSetupWizard: RPC-anropet misslyckades (Undantag från HRESULT: 0x800706be) |Klustret är nere. |[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för att se till att klustret är uppe. |
-| 4 |Invoke-HcsSetupWizard: Klusterresurs hittades inte (Undantag från HRESULT: 0x8007138f) |Det gick inte att hitta klusterresursen. Detta kan inträffa när installationen inte var korrekt. |Du kan behöva återställa enheten till fabriksinställningarna. [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för att skapa en klusterresurs. |
-| 5 |Invoke-HcsSetupWizard: Klusterresurs är inte online (Undantag från HRESULT: 0x8007138c) |Klusterresurser är inte online. |[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för nästa steg. |
+| 1 |Invoke-HcsSetupWizard: ogiltig parameter (undantag från HRESULT: 0x80070057) |En av de parametrar som angavs för proxyinställningarna är inte giltig. |URI: n har inte angetts i rätt format. Använd följande format: http://*\<IP-adress eller FQDN för webbproxyservern>*:*\<TCP-portnummer>* |
+| 2 |Invoke-HcsSetupWizard: RPC-servern är inte tillgänglig (undantag från HRESULT: 0x800706ba) |Rotor saken är något av följande:<ol><li>Klustret är inte igång.</li><li>Den passiva styrenheten kan inte kommunicera med den aktiva styrenheten och kommandot körs från passiv styrenhet.</li></ol> |Beroende på rotor saken:<ol><li>[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för att se till att klustret är igång.</li><li>Kör kommandot från den aktiva kontroll enheten. Om du vill köra kommandot från den passiva styrenheten måste du se till att den passiva styrenheten kan kommunicera med den aktiva styrenheten. Du måste [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) om anslutningen är bruten.</li></ol> |
+| 3 |Invoke-HcsSetupWizard: RPC-anrop misslyckades (undantag från HRESULT: 0x800706be) |Klustret är nere. |[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för att se till att klustret är igång. |
+| 4 |Invoke-HcsSetupWizard: kluster resursen hittades inte (undantag från HRESULT: 0x8007138f) |Det gick inte att hitta kluster resursen. Detta kan inträffa när installationen inte var korrekt. |Du kan behöva återställa enheten till fabriks inställningarna. [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för att skapa en kluster resurs. |
+| 5 |Invoke-HcsSetupWizard: kluster resursen är inte online (undantag från HRESULT: 0x8007138c) |Kluster resurserna är inte online. |[Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för nästa steg. |
 
-## <a name="errors-related-to-device-administrator-password"></a>Fel relaterade till enhetsadministratörens lösenord
-Standardlösenordet för enhetsadministratören är **Password1**. Det här lösenordet upphör att gälla efter den första inloggningen. Därför måste du använda installationsguiden för att ändra den. Du måste ange ett nytt lösenord för enhetsadministratören när du registrerar enheten för första gången. 
+## <a name="errors-related-to-device-administrator-password"></a>Fel som rör enhetens administratörs lösen ord
+Standard lösen ordet för enhets administratören är **Password1**. Lösen ordet upphör att gälla efter den första inloggningen. Därför måste du använda installations guiden för att ändra den. Du måste ange ett nytt enhets administratörs lösen ord när du registrerar enheten för första gången. 
 
-Se till att dina lösenord uppfyller följande krav:
+Kontrol lera att lösen orden uppfyller följande krav:
 
-* Lösenordet för enhetsadministratören bör vara mellan 8 och 15 tecken långt.
-* Lösenord bör innehålla 3 av följande 4 teckentyper: gemener, versaler, numeriska och speciella. 
-* Ditt lösenord kan inte vara detsamma som de senaste 24 lösenorden.
+* Enhetens administratörs lösen ord ska vara mellan 8 och 15 tecken långt.
+* Lösen orden måste innehålla 3 av följande 4 tecken typer: gemener, versaler, siffror och Special. 
+* Ditt lösen ord får inte vara detsamma som de senaste 24 lösen orden.
 
-Tänk dessutom på att lösenorden upphör att gälla varje år och kan ändras först när du har registrerat enheten. Om registreringen misslyckas av någon anledning ändras inte lösenorden.
+Tänk också på att lösen ord upphör att gälla varje år och bara kan ändras efter att enheten har registrerats. Om registreringen Miss lyckas av någon anledning ändras inte lösen orden.
 
-Mer information om lösenord för enhetsadministratör finns i [Använda Tjänsten StorSimple Device Manager för att ändra ditt StorSimple-lösenord](storsimple-8000-change-passwords.md).
+Om du vill ha mer information om enhets administratörs lösen ord går du till [Använd tjänsten StorSimple Enhetshanteraren för att ändra StorSimple-lösenordet](storsimple-8000-change-passwords.md).
 
-Du kan stöta på ett eller flera av följande fel när du konfigurerar lösenorden för enhetsadministratören och StorSimple Snapshot Manager.
+Ett eller flera av följande fel kan uppstå när du konfigurerar enhets administratören och StorSimple Snapshot Manager lösen ord.
 
 | Nej. | Felmeddelande | Rekommenderad åtgärd |
 | --- | --- | --- |
-| 1 |Lösenordet överskrider den maximala längden. |Lösenordet för enhetsadministratören måste vara mellan 8 och 15 tecken långt. |
-| 2 |Lösenordet uppfyller inte önskad längd. |Lösenordet för enhetsadministratören måste vara mellan 8 och 15 tecken långt.|
-| 3 |Lösenordet måste innehålla gemener. |Lösenord måste innehålla 3 av följande 4 teckentyper: gemener, versaler, numeriska och speciella. Se till att ditt lösenord uppfyller dessa krav. |
-| 4 |Lösenordet måste innehålla numeriska tecken. |Lösenord måste innehålla 3 av följande 4 teckentyper: gemener, versaler, numeriska och speciella. Se till att ditt lösenord uppfyller dessa krav. |
-| 5 |Lösenordet måste innehålla specialtecken. |Lösenord måste innehålla 3 av följande 4 teckentyper: gemener, versaler, numeriska och speciella. Se till att ditt lösenord uppfyller dessa krav. |
-| 6 |Lösenordet måste innehålla 3 av följande 4 teckentyper: versaler, gemener, numeriska och speciella. |Ditt lösenord innehåller inte de teckentyper som krävs. Se till att ditt lösenord uppfyller dessa krav. |
-| 7 |Parametern matchar inte bekräftelse. |Se till att ditt lösenord uppfyller alla krav och att du har angett det korrekt. |
-| 8 |Ditt lösenord kan inte matcha standardinställningen. |Standardlösenordet är *Password1*. Du måste ändra det här lösenordet när du har loggat in för första gången. |
-| 9 |Det angivna lösenordet matchar inte enhetslösenordet. Skriv lösenordet igen. |Kontrollera lösenordet och skriv det igen. |
+| 1 |Lösen ordet överskrider den maximala längden. |Enhetens administratörs lösen ord måste vara mellan 8 och 15 tecken långt. |
+| 2 |Lösen ordet uppfyller inte den begärda längden. |Enhetens administratörs lösen ord måste vara mellan 8 och 15 tecken långt.|
+| 3 |Lösen ordet måste innehålla gemena tecken. |Lösen ord måste innehålla 3 av följande 4 tecken typer: gemener, versaler, siffror och Special. Se till att ditt lösen ord uppfyller dessa krav. |
+| 4 |Lösen ordet måste innehålla numeriska tecken. |Lösen ord måste innehålla 3 av följande 4 tecken typer: gemener, versaler, siffror och Special. Se till att ditt lösen ord uppfyller dessa krav. |
+| 5 |Lösen ordet måste innehålla specialtecken. |Lösen ord måste innehålla 3 av följande 4 tecken typer: gemener, versaler, siffror och Special. Se till att ditt lösen ord uppfyller dessa krav. |
+| 6 |Lösen ordet måste innehålla 3 av följande 4 tecken typer: versaler, gemener, siffror och Special. |Lösen ordet innehåller inte de tecken typer som krävs. Se till att ditt lösen ord uppfyller dessa krav. |
+| 7 |Parametern matchar inte bekräftelsen. |Kontrol lera att ditt lösen ord uppfyller alla krav och att du har angett rätt. |
+| 8 |Lösen ordet kan inte matcha standardvärdet. |Standard lösen ordet är *Password1*. Du måste ändra det här lösen ordet när du har loggat in för första gången. |
+| 9 |Det angivna lösen ordet matchar inte enhetens lösen ord. Skriv in lösen ordet igen. |Kontrol lera lösen ordet och ange det igen. |
 
-Lösenord samlas in innan enheten registreras, men tillämpas endast efter lyckad registrering. Arbetsflödet för återställning av lösenord kräver att enheten registreras.
+Lösen ord samlas in innan enheten registreras, men används endast efter lyckad registrering. Arbets flödet för lösen ords återställning kräver att enheten registreras.
 
 > [!IMPORTANT]
-> I allmänhet, om ett försök att tillämpa ett lösenord misslyckas, försöker programvaran upprepade gånger att samla in lösenordet tills det lyckas. I sällsynta fall kan lösenordet inte tillämpas. I det här fallet kan du registrera enheten och fortsätta, men lösenorden kommer inte att ändras. Du kan ändra lösenordet för enhetsadministratören efter registreringen från Azure-portalen.
+> I allmänhet försöker programmet upprepade gånger att samla in lösen ordet tills det lyckas om ett försök att använda ett lösen ord Miss lyckas. I sällsynta fall kan inte lösen ordet tillämpas. I så fall kan du registrera enheten och fortsätta, men lösen orden kommer inte att ändras. Du kan ändra enhetens administratörs lösen ord efter registreringen från Azure Portal.
 
 
-Du kan återställa lösenordet i Azure-portalen via StorSimple Device Manager-tjänsten. Mer information finns i [Ändra enhetsadministratörens lösenord](storsimple-8000-change-passwords.md#change-the-device-administrator-password).
+Du kan återställa lösen ordet i Azure Portal via tjänsten StorSimple Enhetshanteraren. Mer information finns i [Ändra enhetens administratörs lösen ord](storsimple-8000-change-passwords.md#change-the-device-administrator-password).
 
 ## <a name="errors-during-device-registration"></a>Fel under enhetsregistreringen
-Du använder Tjänsten StorSimple Device Manager som körs i Microsoft Azure för att registrera enheten. Du kan stöta på ett eller flera av följande problem under enhetsregistreringen.
+Du kan använda tjänsten StorSimple Enhetshanteraren som körs i Microsoft Azure för att registrera enheten. Ett eller flera av följande problem kan uppstå under enhets registreringen.
 
 | Nej. | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 | --- | --- | --- | --- |
-| 1 |Fel 350027: Det gick inte att registrera enheten hos StorSimple-enhetshanteraren. | |Vänta några minuter och försök sedan igen. Om problemet kvarstår [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md). |
-| 2 |Fel 350013: Ett fel har uppstått när enheten registrerades. Detta kan bero på felaktig tjänstregistreringsnyckel. | |Registrera enheten igen med rätt serviceregistreringsnyckel. Mer information finns i [Hämta tjänstregistreringsnyckeln.](storsimple-8000-manage-service.md#get-the-service-registration-key) |
-| 3 |Fel 350063: Autentisering till StorSimple Enhetshanteraren-tjänsten gick men registreringen misslyckades. Försök igen efter en tid. |Det här felet indikerar att autentisering med ACS har skickats men att registeranropet som gjordes till tjänsten har misslyckats. Detta kan vara ett resultat av ett sporadiskt nätverk glitch. |Om problemet kvarstår kontaktar du [Microsoft Support](storsimple-8000-contact-microsoft-support.md). |
-| 4 |Fel 350049: Tjänsten kunde inte nås under registreringen. |När samtalet görs till tjänsten tas ett webbundantag emot. I vissa fall kan detta åtgärdas genom att försöka igen åtgärden senare. |Kontrollera din IP-adress och DNS-namn och försök sedan igen. Om problemet kvarstår [kontaktar du Microsoft Support.](storsimple-8000-contact-microsoft-support.md) |
-| 5 |Fel 350031: Enheten har redan registrerats. | |Inga åtgärder behövs. |
-| 6 |Fel 350016: Enhetsregistrering misslyckades. | |Kontrollera att registreringsnyckeln är korrekt. |
-| 7 |Invoke-HcsSetupWizard: Ett fel uppstod när enheten registrerades. Detta kan bero på felaktig IP-adress eller DNS-namn. Kontrollera nätverksinställningarna och försök igen. Om problemet kvarstår [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md). (Fel 350050) |Se till att enheten kan pinga det externa nätverket. Om du inte har anslutning till externt nätverk kan registreringen misslyckas med det här felet. Det här felet kan vara en kombination av ett eller flera av följande:<ul><li>Felaktig IP</li><li>Felaktigt undernät</li><li>Felaktig gateway</li><li>Felaktiga DNS-inställningar</li></ul> |Se stegen i [exemplet med felsökning steg för steg](#step-by-step-storsimple-troubleshooting-example). |
-| 8 |Invoke-HcsSetupWizard: Den aktuella åtgärden misslyckades på grund av ett internt tjänstfel [0x1FBE2]. Försök igen efter någon gång. Om problemet kvarstår kontaktar du Microsoft Support. |Detta är ett allmänt fel som genereras för alla användare osynliga fel från tjänst eller agent. Den vanligaste orsaken kan vara att ACS-autentiseringen har misslyckats. En möjlig orsak till felet är att det finns problem med NTP-serverns konfiguration och att tiden på enheten inte är korrekt inställd. |Korrigera tiden (om det finns problem) och försök sedan igen registreringsåtgärden. Om du använder kommandot Set-HcsSystem -Timezone för att justera tidszonen aktiveras varje ord med versaler i tidszonen (till exempel "Stillahavsstandardtid").  Om problemet kvarstår [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md) för nästa steg. |
-| 9 |Varning: Det gick inte att aktivera enheten. Lösenorden för enhetsadministratören och StorSimple Snapshot Manager har inte ändrats. |Om registreringen misslyckas ändras inte enhetsadministratören och StorSimple Snapshot Manager-lösenorden. | |
+| 1 |Fel 350027: det gick inte att registrera enheten med StorSimple-Enhetshanteraren. | |Vänta några minuter och försök sedan igen. [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md)om problemet kvarstår. |
+| 2 |Fel 350013: ett fel uppstod när enheten registrerades. Detta kan bero på en felaktig tjänst registrerings nyckel. | |Registrera enheten igen med rätt tjänst registrerings nyckel. Mer information finns i [Hämta tjänst registrerings nyckeln.](storsimple-8000-manage-service.md#get-the-service-registration-key) |
+| 3 |Fel 350063: autentiseringen till StorSimple Enhetshanteraren tjänsten skickades men registreringen misslyckades. Försök igen om en stund. |Det här felet anger att autentiseringen med ACS har slutförts men att registrerings anropet till tjänsten misslyckades. Detta kan vara ett resultat av ett sporadiskt nätverks fel. |Om problemet kvarstår [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md). |
+| 4 |Fel 350049: det gick inte att nå tjänsten under registreringen. |När anropet görs till tjänsten tas ett webb undantag emot. I vissa fall kan detta åtgärdas genom att försöka igen senare. |Kontrol lera IP-adressen och DNS-namnet och försök sedan igen. [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) om problemet kvarstår. |
+| 5 |Fel 350031: enheten har redan registrerats. | |Ingen åtgärd krävs. |
+| 6 |Fel 350016: enhets registrering misslyckades. | |Kontrol lera att registrerings nyckeln är korrekt. |
+| 7 |Invoke-HcsSetupWizard: ett fel uppstod när enheten registrerades. Detta kan bero på felaktig IP-adress eller DNS-namn. Kontrol lera dina nätverks inställningar och försök igen. [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md)om problemet kvarstår. (Fel 350050) |Kontrol lera att enheten kan pinga utanför nätverket. Om du inte har någon anslutning till nätverket utanför nätverket kan registreringen Miss lyckas med det här felet. Det här felet kan vara en kombination av ett eller flera av följande:<ul><li>Felaktig IP</li><li>Felaktigt undernät</li><li>Felaktig gateway</li><li>Felaktiga DNS-inställningar</li></ul> |Se stegen i [fel söknings exempel för steg-för-steg](#step-by-step-storsimple-troubleshooting-example). |
+| 8 |Invoke-HcsSetupWizard: den aktuella åtgärden misslyckades på grund av ett internt tjänst fel [0x1FBE2]. Försök igen om en stund. Om problemet kvarstår kontaktar du Microsoft Support. |Detta är ett allmänt fel som har utlösts för alla användares osynliga fel från tjänst eller agent. Den vanligaste orsaken kan vara att ACS-autentiseringen har misslyckats. En möjlig orsak till felet är att det finns problem med att NTP-serverkonfigurationen och tiden på enheten inte är korrekt inställda. |Korrigera tiden (om det finns problem) och försök sedan att registrera igen. Om du använder kommandot Set-HcsSystem-timezone för att justera tids zonen skriver du varje ord i tids zonen (till exempel "Pacific Standard Time").  Om problemet kvarstår [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md) för nästa steg. |
+| 9 |Varning: det gick inte att aktivera enheten. Enhets administratören och StorSimple Snapshot Manager lösen ord har inte ändrats. |Om registreringen Miss lyckas ändras inte enhets administratörs-och StorSimple Snapshot Manager lösen ord. | |
 
 ## <a name="tools-for-troubleshooting-storsimple-deployments"></a>Verktyg för felsökning av StorSimple-distributioner
 StorSimple innehåller flera verktyg som du kan använda för att felsöka din StorSimple-lösning. Exempel på dessa är:
 
-* Stödpaket och enhetsloggar.
-* Cmdlets speciellt utformade för felsökning.
+* Support paket och enhets loggar.
+* Cmdletar som är särskilt utformade för fel sökning.
 
-## <a name="support-packages-and-device-logs-available-for-troubleshooting"></a>Supportpaket och enhetsloggar tillgängliga för felsökning
-Ett supportpaket innehåller alla relevanta loggar som kan hjälpa Microsoft Support-teamet med felsökningsenhetsproblem. Du kan använda Windows PowerShell för StorSimple för att generera ett krypterat supportpaket som du sedan kan dela med supportpersonal.
+## <a name="support-packages-and-device-logs-available-for-troubleshooting"></a>Support paket och enhets loggar som är tillgängliga för fel sökning
+Ett support paket innehåller alla relevanta loggar som kan hjälpa Microsoft Supports teamet med fel sökning av enhets problem. Du kan använda Windows PowerShell för StorSimple för att generera ett krypterat support paket som du sedan kan dela med support personal.
 
-### <a name="to-view-the-logs-or-the-contents-of-the-support-package"></a>Så här visar du loggarna eller innehållet i supportpaketet
-1. Använd Windows PowerShell för StorSimple för att generera ett supportpaket enligt beskrivningen i [Skapa och hantera ett supportpaket](storsimple-8000-create-manage-support-package.md).
-2. Hämta [dekrypteringsskriptet](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) lokalt på klientdatorn.
-3. Använd den här [steg-för-steg-proceduren](storsimple-8000-create-manage-support-package.md#edit-a-support-package) för att öppna och dekryptera supportpaketet.
-4. De dekrypterade supportpaketloggarna är i etw/etvx-format. Du kan utföra följande steg för att visa dessa filer i Windows Loggboken:
+### <a name="to-view-the-logs-or-the-contents-of-the-support-package"></a>Visa loggarna eller innehållet i support paketet
+1. Använd Windows PowerShell för StorSimple för att generera ett support paket enligt beskrivningen i [skapa och hantera ett support paket](storsimple-8000-create-manage-support-package.md).
+2. Ladda ned [krypterings skriptet](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) lokalt på klient datorn.
+3. Använd den här [steg-för-steg-proceduren](storsimple-8000-create-manage-support-package.md#edit-a-support-package) för att öppna och dekryptera support paketet.
+4. De dekrypterade support paket loggarna är i ETW/etvx-format. Du kan utföra följande steg för att visa de här filerna i Windows Loggboken:
    
-   1. Kör **kommandot eventvwr** på Din Windows-klient. Då startar Loggboken.
-   2. Klicka på Öppna **sparad logg** i **åtgärdsfönstret** och peka på loggfilerna i etvx/etw-format (supportpaketet). Nu kan du visa filen. När du har öppnat filen kan du högerklicka och spara filen som text.
+   1. Kör kommandot **eventvwr** på din Windows-klient. Det här startar Loggboken.
+   2. I rutan **åtgärder** klickar du på **Öppna Sparad logg** och pekar på loggfilerna i etvx/ETW-format (support paketet). Nu kan du Visa filen. När du har öppnat filen kan du högerklicka på den och spara filen som text.
       
       > [!IMPORTANT]
-      > Du kan också använda cmdleten **Get-WinEvent** för att öppna dessa filer i Windows PowerShell. Mer information finns i [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) i referensdokumentationen för Windows PowerShell-cmdlet.
+      > Du kan också använda cmdleten **Get-WinEvent** för att öppna dessa filer i Windows PowerShell. Mer information finns i [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) i referens dokumentationen för Windows PowerShell-cmdleten.
      
-5. När loggarna öppnas i Loggboken letar du efter följande loggar som innehåller problem relaterade till enhetskonfigurationen:
+5. När loggarna öppnas i Loggboken letar du efter följande loggar som innehåller problem som rör enhets konfigurationen:
    
-   * hcs_pfconfig/driftslogg
-   * hcs_pfconfig/Config
-6. Sök efter strängar relaterade till de cmdletar som anropas av installationsguiden i loggfilerna. Se [Första gången installationsguiden process](#first-time-setup-wizard-process) för en lista över dessa cmdlets.
-7. Om du inte kan ta reda på orsaken till problemet kan du [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för nästa steg. Följ stegen i [Skapa en supportbegäran](storsimple-8000-contact-microsoft-support.md#create-a-support-request) när du kontaktar Microsoft Support för att få hjälp.
+   * hcs_pfconfig/Operational-logg
+   * hcs_pfconfig/config
+6. I loggfilerna söker du efter strängar som är relaterade till de cmdletar som anropas av installations guiden. Se [installations guiden för första gången](#first-time-setup-wizard-process) för att få en lista över dessa cmdlets.
+7. Om du inte kan räkna ut orsaken till problemet kan du [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för nästa steg. Följ stegen i [skapa en support förfrågan](storsimple-8000-contact-microsoft-support.md#create-a-support-request) när du kontaktar Microsoft Support för att få hjälp.
 
-## <a name="cmdlets-available-for-troubleshooting"></a>Cmdlets tillgängliga för felsökning
-Använd följande Windows PowerShell-cmdlets för att identifiera anslutningsfel.
+## <a name="cmdlets-available-for-troubleshooting"></a>Cmdlets som är tillgängliga för fel sökning
+Använd följande Windows PowerShell-cmdlets för att identifiera anslutnings fel.
 
-* `Get-NetAdapter`: Använd den här cmdleten för att upptäcka hälsotillståndet för nätverksgränssnitt.
-* `Test-Connection`: Använd den här cmdleten för att kontrollera nätverksanslutningen i och utanför nätverket.
-* `Test-HcsmConnection`: Använd den här cmdleten för att kontrollera anslutningen till en enhet som har registrerats.
-* `Sync-HcsTime`: Använd den här cmdleten för att visa enhetens tid och tvinga fram en tidssynkronisering med NTP-servern.
-* `Enable-HcsPing`och `Disable-HcsPing`: Använd dessa cmdlets för att låta värdarna pinga nätverksgränssnitten på din StorSimple-enhet. Som standard svarar inte StorSimple-nätverksgränssnitten på ping-begäranden.
-* `Trace-HcsRoute`: Använd den här cmdleten som ett ruttspårningsverktyg. Den skickar paket till varje router på väg till ett slutmål under en tidsperiod och beräknar sedan resultat baserat på de paket som returneras från varje hopp. Eftersom `Trace-HcsRoute` visar graden av paketförlust på en viss router eller länk kan du precisera vilka routrar eller länkar som kan orsaka nätverksproblem.
+* `Get-NetAdapter`: Använd denna cmdlet för att identifiera hälso tillståndet för nätverks gränssnitt.
+* `Test-Connection`: Använd denna cmdlet för att kontrol lera nätverks anslutningen i och utanför nätverket.
+* `Test-HcsmConnection`: Använd denna cmdlet för att kontrol lera anslutningen till en korrekt registrerad enhet.
+* `Sync-HcsTime`: Använd den här cmdleten för att Visa enhets tiden och framtvinga en tidssynkronisering med NTP-servern.
+* `Enable-HcsPing`och `Disable-HcsPing`: Använd dessa cmdlets för att tillåta att värdarna pingar nätverks gränssnitten på din StorSimple-enhet. Som standard svarar inte StorSimple-nätverks gränssnitten på ping-begäranden.
+* `Trace-HcsRoute`: Använd denna cmdlet som väg spårnings verktyg. Den skickar paket till varje router på vägen till ett slutgiltigt mål under en viss tids period och beräknar sedan resultatet baserat på de paket som returneras från varje hopp. Eftersom `Trace-HcsRoute` visar graden av paket förlust vid en viss router eller länk, kan du hitta vilka routrar eller länkar som kan orsaka nätverks problem.
 * `Get-HcsRoutingTable`: Använd den här cmdleten för att visa den lokala IP-routningstabellen.
 
-## <a name="troubleshoot-with-the-get-netadapter-cmdlet"></a>Felsöka med Cmdlet Get-NetAdapter
-När du konfigurerar nätverksgränssnitt för en första gången enhetsdistribution är maskinvarustatusen inte tillgänglig i tjänstgränssnittet för StorSimple Enhetshanteraren eftersom enheten ännu inte är registrerad hos tjänsten. Dessutom kanske **maskinvaruhälsobladet** inte alltid återspeglar enhetens tillstånd, särskilt inte om det finns problem som påverkar synkroniseringen av tjänsten. I dessa situationer kan `Get-NetAdapter` du använda cmdlet för att fastställa hälsotillstånd och status för nätverksgränssnitten.
+## <a name="troubleshoot-with-the-get-netadapter-cmdlet"></a>Felsöka med cmdleten Get-netadapter
+När du konfigurerar nätverks gränssnitt för en första enhets distribution är maskin varu statusen inte tillgänglig i StorSimple-Enhetshanteraren tjänstens användar gränssnitt eftersom enheten ännu inte har registrerats med tjänsten. **Maskin varu hälso** bladet kanske inte alltid alltid motsvarar enhetens status, särskilt om det finns problem som påverkar synkroniseringen av tjänsten. I dessa fall kan du använda `Get-NetAdapter` cmdleten för att fastställa hälso tillstånd och status för nätverks gränssnitten.
 
-### <a name="to-see-a-list-of-all-the-network-adapters-on-your-device"></a>Så här visar du en lista över alla nätverkskort på enheten
-1. Starta Windows PowerShell för StorSimple `Get-NetAdapter`och skriv sedan . 
-2. Använd cmdletens `Get-NetAdapter` utdata och följande riktlinjer för att förstå nätverksgränssnittets status.
+### <a name="to-see-a-list-of-all-the-network-adapters-on-your-device"></a>Visa en lista över alla nätverkskort på enheten
+1. Starta Windows PowerShell för StorSimple och skriv `Get-NetAdapter`sedan. 
+2. Använd utdata från `Get-NetAdapter` cmdleten och följande rikt linjer för att förstå nätverks gränssnittets status.
    
-   * Om gränssnittet är felfritt och aktiverat visas **ifIndex-statusen** som **Upp**.
-   * Om gränssnittet är felfritt men inte är fysiskt anslutet (via en nätverkskabel) visas **ifIndex** som **Inaktiverat**.
-   * Om gränssnittet är felfritt men inte aktiverat visas **ifIndex-statusen** **som NotPresent**.
-   * Om gränssnittet inte finns visas det inte i den här listan. Tjänstgränssnittet i StorSimple Device Manager visar fortfarande gränssnittet i ett misslyckat tillstånd.
+   * Om gränssnittet är felfritt och aktiverat visas **status för** **ifIndex** .
+   * Om gränssnittet är felfritt men inte är fysiskt anslutet (av en nätverks kabel), visas **ifIndex** som **inaktive rad**.
+   * Om gränssnittet är felfritt men inte aktiverat visas **ifIndex** status som **NotPresent**.
+   * Om gränssnittet inte finns visas det inte i listan. Användar gränssnittet för StorSimple Enhetshanteraren-tjänsten kommer fortfarande att visa det här gränssnittet i ett felaktigt tillstånd.
 
-Mer information om hur du använder den här cmdleten finns i [Get-NetAdapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps) i cmdletreferensen för Windows PowerShell.
+Mer information om hur du använder den här cmdleten finns i [Get-netadapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps) i Windows PowerShell-cmdlet-referensen.
 
-Följande avsnitt visar exempel på `Get-NetAdapter` utdata från cmdleten.
+I följande avsnitt visas exempel på utdata från `Get-NetAdapter` cmdleten.
 
- I dessa prover var styrenheten 0 den passiva styrenheten och konfigurerades på följande sätt:
+ I de här exemplen var Controller 0 den passiva styrenheten och konfigurerades på följande sätt:
 
-* Data 0, DATA 1, DATA 2 och DATA 3 nätverksgränssnitt fanns på enheten.
-* Nätverkskorten DATA 4 och DATA 5 fanns inte med. Därför är de inte listade i produktionen.
-* DATA 0 aktiverades.
+* DATA 0, DATA 1, DATA 2 och DATA 3 nätverks gränssnitt fanns på enheten.
+* Det finns inga nätverks gränssnitts kort för DATA 4 och DATA 5. de visas därför inte i utdata.
+* DATA 0 har Aktiver ATS.
 
-Controller 1 var den aktiva styrenheten och konfigurerades på följande sätt:
+Kontroll enhet 1 var den aktiva kontrollanten och konfigurerades enligt följande:
 
-* Data 0, DATA 1, DATA 2, DATA 3, DATA 4 och DATA 5 nätverksgränssnitt fanns på enheten.
-* DATA 0 aktiverades.
+* DATA 0, DATA 1, DATA 2, DATA 3, DATA 4 och DATA 5 nätverks gränssnitt fanns på enheten.
+* DATA 0 har Aktiver ATS.
 
-**Exempel på utdata – styrenhet 0**
+**Exempel utdata – kontrollant 0**
 
-Följande är utgången från styrenheten 0 (den passiva styrenheten). DATA 1, DATA 2 och DATA 3 är inte anslutna. DATA 4 och DATA 5 visas inte eftersom de inte finns på enheten.
+Följande är utdata från Controller 0 (den passiva styrenheten). DATA 1, DATA 2 och DATA 3 är inte anslutna. DATA 4 och DATA 5 visas inte eftersom de inte finns på enheten.
 
      Controller0>Get-NetAdapter
      Name                 InterfaceDescription                        ifIndex  Status
@@ -218,9 +218,9 @@ Följande är utgången från styrenheten 0 (den passiva styrenheten). DATA 1, D
      DATA0                Intel(R) 82574L Gigabit Network Conn...     15       Up
 
 
-**Exempel på utgång – styrenhet 1**
+**Exempel utdata – kontrollant 1**
 
-Följande är utgången från styrenheten 1 (den aktiva styrenheten). Endast data 0-nätverksgränssnittet på enheten är konfigurerat och fungerar.
+Följande är utdata från styrenhet 1 (den aktiva styrenheten). Endast nätverks gränssnittet för DATA 0 på enheten är konfigurerat och fungerar.
 
      Controller1>Get-NetAdapter
      Name                 InterfaceDescription                        ifIndex  Status
@@ -234,19 +234,19 @@ Följande är utgången från styrenheten 1 (den aktiva styrenheten). Endast dat
      DATA4                Intel(R) Gigabit ET Dual Port Serv...#2     17       NotPresent
 
 
-## <a name="troubleshoot-with-the-test-connection-cmdlet"></a>Felsöka med cmdlet för testanslutning
-Du kan `Test-Connection` använda cmdleten för att avgöra om Din StorSimple-enhet kan ansluta till det externa nätverket. Om alla nätverksparametrar, inklusive DNS, är korrekt konfigurerade i installationsguiden kan du använda cmdleten `Test-Connection` för att pinga en känd adress utanför nätverket, till exempel outlook.com.
+## <a name="troubleshoot-with-the-test-connection-cmdlet"></a>Felsöka med cmdleten Test-Connection
+Du kan använda `Test-Connection` cmdleten för att avgöra om din StorSimple-enhet kan ansluta till nätverket utanför nätverket. Om alla nätverks parametrar, inklusive DNS, är korrekt konfigurerade i installations guiden, kan du använda `Test-Connection` cmdleten för att pinga en känd adress utanför nätverket, till exempel Outlook.com.
 
-Du bör aktivera ping för att felsöka anslutningsproblem med den här cmdleten om ping är inaktiverad.
+Du bör aktivera ping för att felsöka anslutnings problem med den här cmdleten om ping är inaktiverat.
 
-Se följande exempel på `Test-Connection` utdata från cmdleten.
+Se följande exempel på utdata från `Test-Connection` cmdleten.
 
 > [!NOTE]
-> I det första exemplet konfigureras enheten med en felaktig DNS. I det andra exemplet är DNS korrekt.
+> I det första exemplet är enheten konfigurerad med en felaktig DNS. I det andra exemplet är DNS rätt.
 
 **Exempel på utdata – felaktig DNS**
 
-I följande exempel finns det ingen utdata för IPV4- och IPV6-adresserna, vilket indikerar att DNS-et inte är löst. Detta innebär att det inte finns någon anslutning till det externa nätverket och en korrekt DNS måste levereras.
+I följande exempel finns inga utdata för IPV4-och IPV6-adresser, vilket indikerar att DNS inte är löst. Det innebär att det inte finns någon anslutning till nätverket utanför nätverket och att rätt DNS måste anges.
 
      Source        Destination     IPV4Address      IPV6Address
      ------        -----------     -----------      -----------
@@ -255,9 +255,9 @@ I följande exempel finns det ingen utdata för IPV4- och IPV6-adresserna, vilke
      HCSNODE0      outlook.com
      HCSNODE0      outlook.com
 
-**Exempel på utdata – korrekt DNS**
+**Exempel på utdata – rätt DNS**
 
-I följande exempel returnerar DNS IPV4-adressen, vilket anger att DNS:n är korrekt konfigurerad. Detta bekräftar att det finns anslutning till det externa nätverket.
+I följande exempel returnerar DNS IPV4-adressen som anger att DNS är korrekt konfigurerat. Detta bekräftar att det finns en anslutning till nätverket utanför nätverket.
 
      Source        Destination     IPV4Address      IPV6Address
      ------        -----------     -----------      -----------
@@ -266,48 +266,48 @@ I följande exempel returnerar DNS IPV4-adressen, vilket anger att DNS:n är kor
      HCSNODE0      outlook.com     132.245.92.194
      HCSNODE0      outlook.com     132.245.92.194
 
-## <a name="troubleshoot-with-the-test-hcsmconnection-cmdlet"></a>Felsöka med test-hcsmconnection-cmdlet
-Använd `Test-HcsmConnection` cmdlet för en enhet som redan är ansluten till och registrerad med tjänsten StorSimple Device Manager. Den här cmdleten hjälper dig att verifiera anslutningen mellan en registrerad enhet och motsvarande StorSimple Enhetshanteraren-tjänst. Du kan köra det här kommandot i Windows PowerShell för StorSimple.
+## <a name="troubleshoot-with-the-test-hcsmconnection-cmdlet"></a>Felsöka med cmdleten test-HcsmConnection
+Använd `Test-HcsmConnection` cmdleten för en enhet som redan är ansluten till och registrerad med din StorSimple Enhetshanteraren-tjänst. Med den här cmdleten kan du kontrol lera anslutningen mellan en registrerad enhet och motsvarande StorSimple Enhetshanteraren-tjänst. Du kan köra det här kommandot på Windows PowerShell för StorSimple.
 
-### <a name="to-run-the-test-hcsmconnection-cmdlet"></a>Så här kör du test-hcsmconnection-cmdlet
-1. Kontrollera att enheten är registrerad.
-2. Kontrollera enhetens status. Om enheten är inaktiverad, i underhållsläge eller offline kan något av följande fel visas:
+### <a name="to-run-the-test-hcsmconnection-cmdlet"></a>Köra cmdleten test-HcsmConnection
+1. Kontrol lera att enheten är registrerad.
+2. Kontrol lera enhetens status. Om enheten är inaktive rad, i underhålls läge eller offline kan du se något av följande fel:
    
-   * ErrorCode.CiSDeviceDecommissioned – detta indikerar att enheten är inaktiverad.
-   * ErrorCode.DeviceNotReady – detta indikerar att enheten är i underhållsläge.
-   * ErrorCode.DeviceNotReady – detta indikerar att enheten inte är online.
-3. Kontrollera att Tjänsten StorSimple Device Manager körs (använd cmdleten [Get-ClusterResource).](https://technet.microsoft.com/library/ee461004.aspx) Om tjänsten inte körs kan följande fel visas:
+   * ErrorCode. CiSDeviceDecommissioned – Detta anger att enheten är inaktive rad.
+   * ErrorCode. DeviceNotReady – Detta anger att enheten är i underhålls läge.
+   * ErrorCode. DeviceNotReady – det betyder att enheten inte är online.
+3. Verifiera att tjänsten StorSimple Enhetshanteraren körs (Använd cmdleten [Get-ClusterResource](https://technet.microsoft.com/library/ee461004.aspx) ). Om tjänsten inte körs kan du se följande fel:
    
-   * ErrorCode.ciSApplianceAgentNotOnline
-   * ErrorCode.CisPowershellScriptHcsError – detta indikerar att det fanns ett undantag när du körde Get-ClusterResource.
-4. Kontrollera ACS-token (Access Control Service). Om ett webbundantag genereras kan det bero på ett gatewayproblem, en proxyautentisering som saknas, en felaktig DNS eller ett autentiseringsfel. Följande fel kan visas:
+   * ErrorCode. CiSApplianceAgentNotOnline
+   * ErrorCode. CisPowershellScriptHcsError – detta tyder på att det uppstod ett undantag när du körde Get-ClusterResource.
+4. Kontrol lera Access Control Service (ACS)-token. Om det ger upphov till ett webb undantag kan det bero på ett Gateway-problem, att en proxy-autentisering saknas, att en felaktig DNS eller ett autentiseringsfel uppstår. Följande fel kan visas:
    
-   * ErrorCode.CiSApplianceGateway – detta indikerar ett HttpStatusCode.BadGateway-undantag: namnmatchningstjänsten kunde inte matcha värdnamnet.
-   * ErrorCode.CiSApplianceProxy – detta indikerar ett undantag från HttpStatusCode.ProxyAuthenticationRequired (HTTP-statuskod 407): klienten kunde inte autentisera med proxyservern.
-   * ErrorCode.CiSApplianceDNSError – detta indikerar ett WebExceptionStatus.NameResolutionFailure-undantag: namnmatchningstjänsten kunde inte matcha värdnamnet.
-   * ErrorCode.CiSApplianceACSError – detta indikerar att tjänsten returnerade ett autentiseringsfel, men det finns anslutning.
+   * ErrorCode. CiSApplianceGateway – Detta anger ett HttpStatusCode. BadGateway-undantag: tjänsten namn matchning kunde inte matcha värd namnet.
+   * ErrorCode. CiSApplianceProxy – Detta anger ett HttpStatusCode. ProxyAuthenticationRequired-undantag (HTTP-status kod 407): klienten kunde inte autentiseras med proxyservern.
+   * ErrorCode. CiSApplianceDNSError – Detta anger ett WebExceptionStatus. NameResolutionFailure-undantag: tjänsten namn matchning kunde inte matcha värd namnet.
+   * ErrorCode. CiSApplianceACSError – det betyder att tjänsten returnerade ett autentiseringsfel, men det finns en anslutning.
      
-     Om det inte genererar ett webbundantag kontrollerar du om det finns felkod.ciSApplianceFailure. Detta indikerar att apparaten misslyckades.
-5. Kontrollera molntjänstanslutningen. Om tjänsten genererar ett webbundantag kan följande fel visas:
+     Om den inte genererar ett webb undantag söker du efter ErrorCode. CiSApplianceFailure. Detta indikerar att installationen misslyckades.
+5. Kontrol lera anslutningen till moln tjänsten. Om tjänsten genererar ett webb undantag kan följande fel meddelande visas:
    
-   * ErrorCode.CiSApplianceGateway – detta indikerar ett HttpStatusCode.BadGateway-undantag: en mellanliggande proxyserver fick en felaktig begäran från en annan proxy eller från den ursprungliga servern.
-   * ErrorCode.CiSApplianceProxy – detta indikerar ett undantag från HttpStatusCode.ProxyAuthenticationRequired (HTTP-statuskod 407): klienten kunde inte autentisera med proxyservern.
-   * ErrorCode.CiSApplianceDNSError – detta indikerar ett WebExceptionStatus.NameResolutionFailure-undantag: namnmatchningstjänsten kunde inte matcha värdnamnet.
-   * ErrorCode.CiSApplianceACSError – detta indikerar att tjänsten returnerade ett autentiseringsfel, men det finns anslutning.
+   * ErrorCode. CiSApplianceGateway – Detta anger ett HttpStatusCode. BadGateway-undantag: en mellanliggande proxyserver tog emot en felaktig begäran från en annan proxy eller från den ursprungliga servern.
+   * ErrorCode. CiSApplianceProxy – Detta anger ett HttpStatusCode. ProxyAuthenticationRequired-undantag (HTTP-status kod 407): klienten kunde inte autentiseras med proxyservern.
+   * ErrorCode. CiSApplianceDNSError – Detta anger ett WebExceptionStatus. NameResolutionFailure-undantag: tjänsten namn matchning kunde inte matcha värd namnet.
+   * ErrorCode. CiSApplianceACSError – det betyder att tjänsten returnerade ett autentiseringsfel, men det finns en anslutning.
      
-     Om det inte genererar ett webbundantag kontrollerar du om det finns felkod.CiSApplianceSaasServiceError. Detta indikerar ett problem med Tjänsten StorSimple Device Manager.
-6. Kontrollera Azure Service Bus-anslutningen. ErrorCode.CiSApplianceServiceBusError anger att enheten inte kan ansluta till servicebussen.
+     Om den inte genererar ett webb undantag söker du efter ErrorCode. CiSApplianceSaasServiceError. Detta indikerar ett problem med tjänsten StorSimple Enhetshanteraren.
+6. Kontrol lera Azure Service Bus anslutningen. ErrorCode. CiSApplianceServiceBusError anger att enheten inte kan ansluta till Service Bus.
 
-Loggfilerna CiSCommandletLog0Curr.errlog och CiSAgentsvc0Curr.errlog kommer att ha mer information, till exempel undantagsinformation.
+Loggfilerna CiSCommandletLog0Curr. errlog och CiSAgentsvc0Curr. errlog innehåller mer information, till exempel information om undantag.
 
-Mer information om hur du använder cmdleten finns i [Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx) i windows PowerShell-referensdokumentationen.
+Mer information om hur du använder cmdleten finns i [test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx) i referens dokumentationen för Windows PowerShell.
 
 > [!IMPORTANT]
-> Du kan köra den här cmdleten för både den aktiva och den passiva styrenheten.
+> Du kan köra denna cmdlet för både den aktiva och den passiva styrenheten.
 
-Se följande exempel på `Test-HcsmConnection` utdata från cmdleten.
+Se följande exempel på utdata från `Test-HcsmConnection` cmdleten.
 
-**Exempelutdata – har registrerat enhet som kör StorSimple Update 3**
+**Exempel på utdata – enheten har registrerats med StorSimple Update 3**
 
       Controller1>Test-HcsmConnection
 
@@ -337,23 +337,23 @@ Se följande exempel på `Test-HcsmConnection` utdata från cmdleten.
       Checking connectivity to Microsoft Update servers  ... Success
       Controller1>
 
-**Exempel på utdata – offlineenhet** 
+**Exempel på utdata – offline-enhet** 
 
-Det här exemplet kommer från en enhet som har **statusen Offline** i Azure-portalen.
+Det här exemplet är från en enhet som har statusen **offline** i Azure Portal.
 
      Checking device registrationstate: Success
      Device is registered successfully
      Checking connectivity from device to SaaS.. Failure
 
-Det gick inte att ansluta enheten med den aktuella webbproxykonfigurationen. Detta kan vara ett problem med webbproxykonfigurationen eller ett problem med nätverksanslutningen. I det här fallet bör du se till att webbproxyinställningarna är korrekta och att webbproxyservrarna är online och kan nås.
+Enheten kunde inte ansluta med den aktuella webbproxy-konfigurationen. Detta kan vara ett problem med webbproxy-konfigurationen eller ett problem med nätverks anslutningen. I det här fallet bör du kontrol lera att webbproxyinställningarna är korrekta och att webbproxyservrarna är online och går att komma åt.
 
 ## <a name="troubleshoot-with-the-sync-hcstime-cmdlet"></a>Felsöka med cmdleten Sync-HcsTime
-Använd den här cmdleten för att visa enhetens tid. Om enhetstiden har en förskjutning med NTP-servern kan du sedan använda den här cmdleten för att tvinga synkronisera tiden med NTP-servern.
+Använd den här cmdleten för att Visa enhets tiden. Om enhetens tid har en förskjutning med NTP-servern kan du använda denna cmdlet för att tvinga fram en synkronisering av tiden med NTP-servern.
 - Om förskjutningen mellan enheten och NTP-servern är större än 5 minuter visas en varning. 
-- Om förskjutningen överstiger 15 minuter kopplas enheten från. Du kan fortfarande använda den här cmdleten för att tvinga fram en tidssynkronisering. 
-- Men om förskjutningen överstiger 15 timmar, kommer du inte att kunna tvinga-synkronisera tiden och ett felmeddelande kommer att visas.
+- Om förskjutningen överskrider 15 minuter kopplas enheten från. Du kan fortfarande använda denna cmdlet för att tvinga fram en tidssynkronisering. 
+- Men om förskjutningen överskrider 15 timmar kommer du inte att kunna Framtvinga synkroniseringen av tiden och ett fel meddelande visas.
 
-**Exempel på utdata – synkronisering av påtvingad tid med Sync-HcsTime**
+**Exempel utdata – Tvingad tidssynkronisering med Sync-HcsTime**
 
      Controller0>Sync-HcsTime
      The current device time is 4/24/2015 4:05:40 PM UTC.
@@ -362,10 +362,10 @@ Använd den här cmdleten för att visa enhetens tid. Om enhetstiden har en för
      [Y] Yes [N] No (Default is "Y"): Y
      Controller0>
 
-## <a name="troubleshoot-with-the-enable-hcsping-and-disable-hcsping-cmdlets"></a>Felsöka med cmdletsen Enable-HcsPing och Disable-HcsPing
-Använd dessa cmdlets för att säkerställa att nätverksgränssnitten på enheten svarar på ICMP-ping-begäranden. Som standard svarar inte StorSimple-nätverksgränssnitten på ping-begäranden. Att använda den här cmdleten är det enklaste sättet att veta om enheten är online och kan nås.
+## <a name="troubleshoot-with-the-enable-hcsping-and-disable-hcsping-cmdlets"></a>Felsöka med cmdletarna Enable-HcsPing och Disable-HcsPing
+Använd dessa cmdlets för att säkerställa att nätverks gränssnitten på enheten svarar på ICMP-ping-begäranden. Som standard svarar inte StorSimple-nätverks gränssnitten på ping-begäranden. Att använda denna cmdlet är det enklaste sättet att veta om din enhet är online och kan kontaktas.
 
-**Exempelutdata – Aktivera-HcsPing och inaktivera-HcsPing**
+**Exempel på utdata – Enable-HcsPing och Disable-HcsPing**
 
      Controller0>
      Controller0>Enable-HcsPing
@@ -376,10 +376,10 @@ Använd dessa cmdlets för att säkerställa att nätverksgränssnitten på enhe
      Successfully disabled ping.
      Controller0>
 
-## <a name="troubleshoot-with-the-trace-hcsroute-cmdlet"></a>Felsöka med Trace-HcsRoute cmdlet
-Använd den här cmdleten som ett ruttspårningsverktyg. Den skickar paket till varje router på väg till ett slutmål under en tidsperiod och beräknar sedan resultat baserat på de paket som returneras från varje hopp. Eftersom cmdleten visar graden av paketförlust på en viss router eller länk kan du precisera vilka routrar eller länkar som kan orsaka nätverksproblem.
+## <a name="troubleshoot-with-the-trace-hcsroute-cmdlet"></a>Felsöka med cmdleten trace-HcsRoute
+Använd denna cmdlet som väg spårnings verktyg. Den skickar paket till varje router på vägen till ett slutgiltigt mål under en viss tids period och beräknar sedan resultatet baserat på de paket som returneras från varje hopp. Eftersom cmdleten visar graden av paket förlust vid en viss router eller länk, kan du hitta vilka routrar eller länkar som kan orsaka nätverks problem.
 
-**Exempelutdata som visar hur du spårar flödet för ett paket med Trace-HcsRoute**
+**Exempel på utdata som visar hur du spårar vägen för ett paket med trace-HcsRoute**
 
      Controller0>Trace-HcsRoute -Target 10.126.174.25
 
@@ -399,15 +399,15 @@ Använd den här cmdleten som ett ruttspårningsverktyg. Den skickar paket till 
      Trace complete.
 
 ## <a name="troubleshoot-with-the-get-hcsroutingtable-cmdlet"></a>Felsöka med cmdleten Get-HcsRoutingTable
-Använd den här cmdleten för att visa routningstabellen för StorSimple-enheten. En routningstabell är en uppsättning regler som kan hjälpa dig att avgöra var datapaket som reser över ett IP-nätverk (Internet Protocol) ska dirigeras.
+Använd den här cmdleten för att Visa routningstabellen för din StorSimple-enhet. En routningstabell är en uppsättning regler som kan hjälpa dig att avgöra var data paket som reser över ett Internet Protocol (IP) nätverk kommer att dirigeras om.
 
-Routningstabellen visar gränssnitten och gatewayen som dirigerar data till de angivna nätverken. Det ger också routningsmåttet som är beslutsfattaren för den väg som tas för att nå en viss destination. Ju lägre routningsmått, desto högre prioritet.
+Routningstabellen visar gränssnitten och gatewayen som dirigerar data till de angivna nätverken. Det ger också ett flödes mått som är besluts fattare för den sökväg som används för att uppnå ett visst mål. Ju lägre vägens mått, desto högre prioritet.
 
-Om du till exempel har två nätverksgränssnitt, DATA 2 och DATA 3, anslutna till Internet. Om routningsmåtten för DATA 2 och DATA 3 är 15 respektive 261, är DATA 2 med det lägre routningsmåttet det gränssnitt som föredras för att nå Internet.
+Om du till exempel har två nätverks gränssnitt, DATA 2 och DATA 3, anslutna till Internet. Om routing-måtten för DATA 2 och DATA 3 är 15 respektive 261 är DATA 2 med det lägre måttet routning det önskade gränssnittet som används för att ansluta till Internet.
 
-Om du kör Uppdatering 1 på Din StorSimple-enhet har ditt DATA 0-nätverksgränssnitt den högsta inställningen för molntrafiken. Detta innebär att även om det finns andra molnaktiverade gränssnitt, skulle molntrafiken dirigeras via DATA 0.
+Om du kör uppdatering 1 på din StorSimple-enhet har nätverks gränssnittet för DATA 0 högsta prioritet för moln trafiken. Det innebär att även om det finns andra molnbaserade gränssnitt dirigeras moln trafiken genom DATA 0.
 
-Om du `Get-HcsRoutingTable` kör cmdlet utan att ange några parametrar (som följande exempel visar), kommer cmdlet ut både IPv4 och IPv6 routning tabeller. Du kan också `Get-HcsRoutingTable -IPv4` ange `Get-HcsRoutingTable -IPv6` eller hämta en relevant routningstabell.
+Om du kör `Get-HcsRoutingTable` cmdleten utan att ange några parametrar (som följande exempel visar), kommer cmdleten att mata in både IPv4-och IPv6-vägvals tabeller. Du kan också ange `Get-HcsRoutingTable -IPv4` eller `Get-HcsRoutingTable -IPv6` för att hämta en relevant routningstabell.
 
       Controller0>
       Controller0>Get-HcsRoutingTable
@@ -473,61 +473,61 @@ Om du `Get-HcsRoutingTable` kör cmdlet utan att ange några parametrar (som fö
 
       Controller0>
 
-## <a name="step-by-step-storsimple-troubleshooting-example"></a>Exempel på felsökning steg för steg
-I följande exempel visas stegvis felsökning av en StorSimple-distribution. I exempelscenariot misslyckas enhetsregistreringen med ett felmeddelande om att nätverksinställningarna eller DNS-namnet är felaktiga.
+## <a name="step-by-step-storsimple-troubleshooting-example"></a>Steg-för-steg-StorSimple fel söknings exempel
+I följande exempel visas steg-för-steg-felsökning av en StorSimple-distribution. I exempel scenariot Miss lyckas enhets registreringen med ett fel meddelande som anger att nätverks inställningarna eller DNS-namnet är felaktigt.
 
-Felmeddelandet som returneras är:
+Det fel meddelande som returnerades är:
 
      Invoke-HcsSetupWizard: An error has occurred while registering the device. This could be due to incorrect IP address or DNS name. Please check your network settings and try again. If the problems persist, contact Microsoft Support.
      +CategoryInfo: Not specified
      +FullyQualifiedErrorID: CiSClientCommunicationErros, Microsoft.HCS.Management.PowerShell.Cmdlets.InvokeHcsSetupWizardCommand
 
-Felet kan orsakas av något av följande:
+Felet kan bero på något av följande:
 
-* Felaktig maskinvaruinstallation
-* Felaktiga nätverksgränssnitt
-* Felaktig IP-adress, nätmask, gateway, primär DNS-server eller webbproxy
-* Felaktig registreringsnyckel
-* Felaktiga brandväggsinställningar
+* Felaktig maskin varu installation
+* Fel nätverks gränssnitt (n)
+* Felaktig IP-adress, nätmask, Gateway, primär DNS-server eller webbproxy
+* Felaktig registrerings nyckel
+* Felaktiga brand Väggs inställningar
 
-### <a name="to-locate-and-fix-the-device-registration-problem"></a>Så här hittar och åtgärdar du enhetsregistreringsproblemet
-1. Kontrollera enhetens konfiguration: kör `Invoke-HcsSetupWizard`den aktiva handkontrollen på den aktiva handkontrollen .
+### <a name="to-locate-and-fix-the-device-registration-problem"></a>Hitta och åtgärda problem med enhets registrering
+1. Kontrol lera enhets konfigurationen: på den aktiva styrenheten `Invoke-HcsSetupWizard`kör du.
    
    > [!NOTE]
-   > Installationsguiden måste köras på den aktiva styrenheten. Om du vill kontrollera att du är ansluten till den aktiva handkontrollen tittar du på banderollen som visas i seriekonsolen. Banderollen anger om du är ansluten till styrenheten 0 eller styrenhet 1 och om handkontrollen är aktiv eller passiv. Mer information finns i [Identifiera en aktiv handkontroll på enheten](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).
+   > Installations guiden måste köras på den aktiva kontroll enheten. Kontrol lera att du är ansluten till den aktiva kontrollanten genom att titta på banderollen som visas i serie konsolen. Banderollen visar om du är ansluten till kontroll enhet 0 eller styrenhet 1 och om styrenheten är aktiv eller passiv. Mer information finns i [identifiera en aktiv kontrollant på enheten](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).
    
-2. Kontrollera att enheten är korrekt kabelansluten: kontrollera nätverkskablarna på enhetens baksida. Kablaget är specifikt för enhetsmodellen. Mer information finns i [Installera din StorSimple 8100-enhet](storsimple-8100-hardware-installation.md) eller [Installera din StorSimple 8600-enhet](storsimple-8600-hardware-installation.md).
+2. Kontrol lera att enheten är ordentligt kabelansluten: kontrol lera nätverks kablarna på enhetens bak plan. Kablaget är speciellt för enhets modellen. Mer information finns i [installera din StorSimple 8100-enhet](storsimple-8100-hardware-installation.md) eller [installera din StorSimple 8600-enhet](storsimple-8600-hardware-installation.md).
    
    > [!NOTE]
-   > Om du använder 10 GbE-nätverksportar måste du använda de medföljande QSFP-SFP-korten och SFP-kablarna. Mer information finns i [listan över kablar, växlar och sändtagare som rekommenderas för de 10 GbE-portarna](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
+   > Om du använder 10 GbE-nätverksanslutningar måste du använda de tillhandahållna QSFP-SFP-korten och SFP-kablar. Mer information finns i [listan över kablar, växlar och Sänd tagare som rekommenderas för 10 GbE-portar](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
   
-3. Kontrollera nätverksgränssnittets hälsa:
+3. Verifiera nätverks gränssnittets hälso tillstånd:
    
-   * Använd cmdleten Get-NetAdapter för att upptäcka hälsotillståndet för nätverksgränssnitten för DATA 0. 
-   * Om länken inte fungerar anger **ifindex-statusen** att gränssnittet är nere. Du måste då kontrollera nätverksanslutningen av porten till apparaten och till växeln. Du måste också utesluta dåliga kablar. 
-   * Om du misstänker att DATA 0-porten på den aktiva styrenheten har misslyckats kan du bekräfta detta genom att ansluta till DATA 0-porten på styrenhet 1. För att bekräfta detta kopplar du bort nätverkskabeln från enhetens baksida från styrenheten 0, ansluter kabeln till styrenheten 1 och kör sedan Get-NetAdapter-cmdleten igen.
-     Om DATA 0-porten på en styrenhet misslyckas [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md) för nästa steg. Du kan behöva byta ut handkontrollen på datorn.
-4. Verifiera anslutningen till växeln:
+   * Använd cmdleten Get-netadapter för att identifiera hälso tillståndet för nätverks gränssnitten för DATA 0. 
+   * Om länken inte fungerar indikerar **IfIndex** -status att gränssnittet är nere. Du måste sedan kontrol lera nätverks anslutningen till porten och till-växeln. Du kommer också att behöva utesluta Felaktiga kablar. 
+   * Om du misstänker att porten DATA 0 på den aktiva styrenheten har misslyckats kan du bekräfta detta genom att ansluta till DATA 0-porten på styrenhet 1. Du kan bekräfta detta genom att koppla bort nätverks kabeln från enhetens bak enhet från styrenheten 0, ansluta kabeln till styrenhet 1 och sedan köra cmdleten Get-netadapter igen.
+     Om porten DATA 0 på en styrenhet inte fungerar [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md) för nästa steg. Du kan behöva ersätta kontroll enheten i systemet.
+4. Kontrol lera anslutningen till växeln:
    
-   * Kontrollera att DATA 0-nätverksgränssnitt på styrenheten 0 och styrenheten 1 i din primära hölje finns i samma undernät. 
-   * Kontrollera navet eller routern. Vanligtvis bör du ansluta båda styrenheterna till samma nav eller router. 
-   * Se till att de växlar du använder för anslutningen har DATA 0 för båda styrenheterna i samma vLAN.
-5. Eliminera eventuella användarfel:
+   * Kontrol lera att DATA 0 nätverks gränssnitt på styrenhet 0 och styrenhet 1 i den primära inne slutningen finns i samma undernät. 
+   * Kontrol lera hubben eller routern. Normalt bör du ansluta båda styrenheterna till samma hubb eller router. 
+   * Kontrol lera att de växlar som du använder för anslutningen har DATA 0 för båda styrenheterna i samma vLAN.
+5. Eliminera eventuella användar fel:
    
-   * Kör installationsguiden igen (kör **Invoke-HcsSetupWizard**) och ange värdena igen för att se till att det inte finns några fel. 
-   * Kontrollera vilken registreringsnyckel som används. Samma registreringsnyckel kan användas för att ansluta flera enheter till en StorSimple Enhetshanteraren-tjänst. Använd proceduren i [Hämta tjänstregistreringsnyckeln](storsimple-8000-manage-service.md#get-the-service-registration-key) för att se till att du använder rätt registreringsnyckel.
+   * Kör installations guiden igen (kör **Invoke-HcsSetupWizard**) och ange värdena igen för att se till att det inte finns några fel. 
+   * Verifiera den registrerings nyckel som används. Samma registrerings nyckel kan användas för att ansluta flera enheter till en StorSimple Enhetshanteraren-tjänst. Använd proceduren i [Hämta tjänst registrerings nyckeln](storsimple-8000-manage-service.md#get-the-service-registration-key) för att kontrol lera att du använder rätt registrerings nyckel.
      
      > [!IMPORTANT]
-     > Om du har flera tjänster igång måste du se till att registreringsnyckeln för rätt tjänst används för att registrera enheten. Om du har registrerat en enhet med fel StorSimple Enhetshanteraren-tjänst måste du [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för nästa steg. Du kan behöva utföra en fabriksåterställning av enheten (vilket kan resultera i dataförlust) för att sedan ansluta den till den avsedda tjänsten.
+     > Om du har flera tjänster som kör måste du kontrol lera att registrerings nyckeln för lämplig tjänst används för att registrera enheten. Om du har registrerat en enhet med fel StorSimple Enhetshanteraren tjänst måste du [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för att få nästa steg. Du kanske måste utföra en fabriks återställning av enheten (vilket kan leda till data förlust) för att sedan ansluta den till den avsedda tjänsten.
      > 
      > 
-6. Använd cmdleten Test-Anslutning för att kontrollera att du har anslutning till det externa nätverket. Mer information finns i [Felsöka med cmdleten Test-Anslutning](#troubleshoot-with-the-test-connection-cmdlet).
-7. Kontrollera om det finns brandväggsstörningar. Om du har verifierat att de virtuella IP-inställningarna (VIP), undernät, gateway och DNS är korrekta och du fortfarande ser anslutningsproblem, är det möjligt att brandväggen blockerar kommunikationen mellan enheten och det externa nätverket. Du måste se till att portarna 80 och 443 är tillgängliga på din StorSimple-enhet för utgående kommunikation. Mer information finns i [Nätverkskrav för Din StorSimple-enhet](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
-8. Titta på stockarna. Gå till [Supportpaket och enhetsloggar som är tillgängliga för felsökning](#support-packages-and-device-logs-available-for-troubleshooting).
-9. Om föregående steg inte löser problemet [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md) för att få hjälp.
+6. Använd cmdleten Test-Connection för att kontrol lera att du har anslutning till nätverket utanför nätverket. Mer information finns i [Felsöka med cmdleten Test-Connection](#troubleshoot-with-the-test-connection-cmdlet).
+7. Kontrol lera brand Väggs störningar. Om du har verifierat att den virtuella IP-adressen (VIP), undernät, gateway och DNS-inställningar är korrekta och du fortfarande ser anslutnings problem, så är det möjligt att brand väggen blockerar kommunikationen mellan enheten och det externa nätverket. Du måste se till att portarna 80 och 443 är tillgängliga på din StorSimple-enhet för utgående kommunikation. Mer information finns i [nätverks krav för din StorSimple-enhet](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
+8. Titta på loggarna. Gå till [support paket och enhets loggar som är tillgängliga för fel sökning](#support-packages-and-device-logs-available-for-troubleshooting).
+9. Om föregående steg inte löser problemet kan du [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för att få hjälp.
 
 ## <a name="next-steps"></a>Nästa steg
-[Lär dig hur du använder diagnostikverktyget för att felsöka en StorSimple-enhet](storsimple-8000-diagnostics.md).
+[Lär dig hur du använder Diagnostic-verktyget för att felsöka en StorSimple-enhet](storsimple-8000-diagnostics.md).
 
 <!--Link references-->
 

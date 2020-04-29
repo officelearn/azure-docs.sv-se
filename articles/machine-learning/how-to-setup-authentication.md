@@ -1,7 +1,7 @@
 ---
 title: Konfigurera autentisering
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du konfigurerar och konfigurerar autentisering för olika resurser och arbetsflöden i Azure Machine Learning. Det finns flera sätt att konfigurera och använda autentisering inom tjänsten, allt från enkel UI-baserad auth för utvecklings- eller testningsändamål, till fullständig Azure Active Directory-tjänsthuvudbefogning.
+description: Lär dig hur du konfigurerar och konfigurerar autentisering för olika resurser och arbets flöden i Azure Machine Learning. Det finns flera sätt att konfigurera och använda autentisering i tjänsten, från enkel UI-baserad autentisering i utvecklings-eller testnings syfte, för att få fullständig Azure Active Directory autentisering av tjänstens huvud namn.
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -11,44 +11,44 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: fcaa7a0c44851d6b48b40b01af4c8ec992c330b8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79283542"
 ---
-# <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurera autentisering för Azure Machine Learning-resurser och arbetsflöden
+# <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du konfigurerar och konfigurerar autentisering för olika resurser och arbetsflöden i Azure Machine Learning. Det finns flera sätt att autentisera till tjänsten, allt från enkel UI-baserad auth för utvecklings- eller testningsändamål till fullständig Azure Active Directory-tjänsthuvudbefogning. I den här artikeln beskrivs också skillnaderna i hur webbtjänstautentisering fungerar, samt hur du autentiserar till AZURE Machine Learning REST API.
+I den här artikeln får du lära dig hur du konfigurerar och konfigurerar autentisering för olika resurser och arbets flöden i Azure Machine Learning. Det finns flera olika sätt att autentisera till tjänsten, allt från enkel UI-baserad autentisering för utvecklings-eller testnings syfte till fullständig Azure Active Directory tjänstens huvud namn. I den här artikeln förklaras också skillnaderna i hur autentisering av webb tjänst fungerar, samt hur du autentiserar till den Azure Machine Learning REST API.
 
-Den här uppgiften visar hur du utför följande uppgifter:
+Den här instruktionen visar hur du gör följande uppgifter:
 
-* Använda interaktiv gränssnittsautentisering för testning/utveckling
-* Konfigurera autentisering av tjänstens huvudnamn
-* Autentisera till din arbetsyta
-* Hämta OAuth2.0-innehavartypstoken för AZURE Machine Learning REST API
-* Förstå webbtjänstautentisering
+* Använd Interactive UI-autentisering för testning/utveckling
+* Konfigurera tjänstens huvud namns autentisering
+* Autentisera till din arbets yta
+* Hämta OAuth 2.0 Bearer-typ-token för Azure Machine Learning REST API
+* Förstå webb tjänst autentisering
 
-Se [konceptartikeln](concept-enterprise-security.md) för en allmän översikt över säkerhet och autentisering i Azure Machine Learning.
+I [artikeln begrepp](concept-enterprise-security.md) finns en allmän översikt över säkerhet och autentisering inom Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Krav
 
 * Skapa en [Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
-* [Konfigurera din utvecklingsmiljö](how-to-configure-environment.md) för att installera Azure Machine Learning SDK eller använd en [virtuell virtuell azure machine learning-anteckningsbok](concept-azure-machine-learning-architecture.md#compute-instance) med SDK redan installerat.
+* [Konfigurera utvecklings miljön](how-to-configure-environment.md) för att installera Azure Machine Learning SDK eller använd en [Azure Machine Learning Notebook VM](concept-azure-machine-learning-architecture.md#compute-instance) med SDK redan installerad.
 
 ## <a name="interactive-authentication"></a>Interaktiv autentisering
 
-De flesta exempel i dokumentationen för den här tjänsten använder interaktiv autentisering i Jupyter-anteckningsböcker som en enkel metod för testning och demonstration. Detta är ett lätt sätt att testa vad du bygger. Det finns två funktionsanrop som automatiskt kommer att uppmana dig med ett gränssnittsbaserat autentiseringsflöde.
+De flesta exempel i dokumentationen för den här tjänsten använder interaktiv autentisering i Jupyter notebook-datorer som en enkel metod för testning och demonstration. Detta är ett lätt sätt att testa det du skapar. Det finns två funktions anrop som automatiskt kommer att fråga dig om ett UI-baserat autentiseringspaket.
 
-När `from_config()` du anropar funktionen uppstår prompten.
+Anrop till `from_config()` funktionen kommer att utfärda prompten.
 
 ```python
 from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-Funktionen `from_config()` söker efter en JSON-fil som innehåller anslutningsinformationen för arbetsytan. Du kan också ange anslutningsinformation `Workspace` uttryckligen med hjälp av konstruktorn, som också kommer att fråga efter interaktiv autentisering. Båda samtalen är likvärdiga.
+`from_config()` Funktionen söker efter en JSON-fil som innehåller din anslutnings information för arbets ytan. Du kan också ange anslutnings informationen explicit med hjälp av `Workspace` konstruktorn, som även kommer att uppmanas att använda interaktiv autentisering. Båda anropen är likvärdiga.
 
 ```python
 ws = Workspace(subscription_id="your-sub-id",
@@ -57,37 +57,37 @@ ws = Workspace(subscription_id="your-sub-id",
               )
 ```
 
-Om du har åtkomst till flera klienter kan du behöva importera klassen och uttryckligen definiera vilken klient du riktar in dig på. Ringa konstruktören för `InteractiveLoginAuthentication` kommer också att uppmana dig att logga in liknar samtalen ovan.
+Om du har åtkomst till flera klienter kan du behöva importera-klassen och uttryckligen definiera vilken klient som du är mål för. Genom att anropa konstruktorn för `InteractiveLoginAuthentication` kan du också uppmanas att logga in på liknande sätt som anropen ovan.
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication
 interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
 ```
 
-Interaktiv autentisering hjälper dig inte att skapa automatiserade eller huvudlösa arbetsflöden, även om du är användbar för testning och inlärning. Att konfigurera tjänsthuvudhuvudautentisering är den bästa metoden för automatiserade processer som använder SDK.
+Även om det är användbart för testning och inlärning hjälper interaktiva autentisering inte att hjälpa dig att skapa automatiserade eller automatiserade arbets flöden. Att konfigurera tjänstens huvud namns autentisering är den bästa metoden för automatiserade processer som använder SDK: n.
 
-## <a name="set-up-service-principal-authentication"></a>Konfigurera autentisering av tjänstens huvudnamn
+## <a name="set-up-service-principal-authentication"></a>Konfigurera tjänstens huvud namns autentisering
 
-Den här processen är nödvändig för att aktivera autentisering som är frikopplad från en viss användarinloggning, vilket gör att du kan autentisera till Azure Machine Learning Python SDK i automatiserade arbetsflöden. Med tjänstens huvudautentisering kan du också [autentisera till REST API.](#azure-machine-learning-rest-api-auth)
+Den här processen är nödvändig för att aktivera autentisering som är frikopplad från en speciell användar inloggning, vilket gör att du kan autentisera till Azure Machine Learning python SDK i automatiserade arbets flöden. Med autentisering av tjänstens huvud namn kan du också [autentisera till REST API](#azure-machine-learning-rest-api-auth).
 
-Om du vill konfigurera autentisering av tjänstens huvudnamn skapar du först en appregistrering i Azure Active Directory och beviljar sedan appen rollbaserad åtkomst till din ML-arbetsyta. Det enklaste sättet att slutföra den här installationen är via [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) i Azure-portalen. När du har loggat `>_` in på portalen klickar du på ikonen längst upp till höger på sidan nära ditt namn för att öppna skalet.
+Om du vill konfigurera autentisering av tjänstens huvud namn skapar du först en app-registrering i Azure Active Directory och ger sedan din app-rollbaserad åtkomst till din ML-arbetsyta. Det enklaste sättet att slutföra installationen är genom [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) i Azure Portal. När du har loggat in på portalen klickar `>_` du på ikonen längst upp till höger på sidan för att öppna gränssnittet.
 
-Om du inte har använt molnskalet tidigare i ditt Azure-konto måste du skapa en lagringskontoresurs för att lagra filer som skrivs. I allmänhet kommer detta lagringskonto att medföra en försumbar månadskostnad. Installera dessutom maskininlärningstillägget om du inte har använt det tidigare med följande kommando.
+Om du inte har använt Cloud Shell tidigare på ditt Azure-konto måste du skapa en lagrings konto resurs för lagring av filer som skrivs. I allmänhet kommer det här lagrings kontot att innebära en försumbar månatlig kostnad. Installera dessutom Machine Learning-tillägget om du inte har använt det tidigare med följande kommando.
 
 ```azurecli-interactive
 az extension add -n azure-cli-ml
 ```
 
 > [!NOTE]
-> Du måste vara administratör för prenumerationen för att kunna utföra följande steg.
+> Du måste vara administratör för prenumerationen för att utföra följande steg.
 
-Kör sedan följande kommando för att skapa tjänstens huvudnamn. Ge det ett namn, i detta fall **ml-auth**.
+Kör sedan följande kommando för att skapa tjänstens huvud namn. Ge den ett namn, i det här fallet **ml-autentisering**.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --sdk-auth --name ml-auth
 ```
 
-Utdata kommer att vara en JSON som liknar följande. Anteckna `clientId`fälten `clientSecret`, `tenantId` och eftersom du behöver dem för andra steg i den här artikeln.
+Utdata är en JSON som liknar följande. Anteckna fälten `clientId`, `clientSecret`och `tenantId` eftersom du behöver dem för andra steg i den här artikeln.
 
 ```json
 {
@@ -104,13 +104,13 @@ Utdata kommer att vara en JSON som liknar följande. Anteckna `clientId`fälten 
 }
 ```
 
-Kör sedan följande kommando för att få information om tjänstens `clientId` huvudnamn som du `--id` just skapade, med värdet ovanifrån som indata till parametern.
+Kör sedan följande kommando för att hämta information om tjänstens huvud namn som du nyss skapade genom att använda `clientId` värdet från ovanstående som indata till `--id` parametern.
 
 ```azurecli-interactive
 az ad sp show --id your-client-id
 ```
 
-Följande är ett förenklat exempel på JSON-utdata från kommandot. Notera fältet, `objectId` eftersom du behöver dess värde för nästa steg.
+Följande är ett förenklat exempel på JSON-utdata från kommandot. Anteckna `objectId` fältet, eftersom du kommer att behöva värdet för nästa steg.
 
 ```json
 {
@@ -125,17 +125,17 @@ Följande är ett förenklat exempel på JSON-utdata från kommandot. Notera fä
 }
 ```
 
-Använd sedan följande kommando för att tilldela tjänstens huvudåtkomst till din maskininlärningsarbetsyta. Du behöver ditt arbetsytenamn och dess `-w` resursgruppsnamn för parametrarna respektive. `-g` Använd `--user` `objectId` värdet från föregående steg för parametern. Med `--role` parametern kan du ange åtkomstrollen för tjänstens huvudnamn, och i allmänhet använder du antingen **ägare** eller **deltagare**. Båda har skrivbehörighet till befintliga resurser som beräkningskluster och datalager, men endast **ägaren** kan etablera dessa resurser. 
+Använd sedan följande kommando för att tilldela tjänstens huvud namn åtkomst till din Machine Learning-arbetsyta. Du behöver namnet på din arbets yta och dess resurs grupps namn för `-w` `-g` parametrarna respektive. För `--user` parametern använder du `objectId` värdet från föregående steg. `--role` Parametern låter dig ange åtkomst rollen för tjänstens huvud namn, och i allmänhet kommer du att använda antingen **ägare** eller **deltagare**. Båda har skriv åtkomst till befintliga resurser som beräknings kluster och data lager, men endast **ägare** kan etablera dessa resurser. 
 
 ```azurecli-interactive
 az ml workspace share -w your-workspace-name -g your-resource-group-name --user your-sp-object-id --role owner
 ```
 
-Det här anropet ger inga utdata, men du har nu konfigurerad autentisering av tjänstens huvudnamn för arbetsytan.
+Det här anropet genererar inga utdata, men du har nu konfigurerat autentisering av tjänstens huvud namn för din arbets yta.
 
-## <a name="authenticate-to-your-workspace"></a>Autentisera till din arbetsyta
+## <a name="authenticate-to-your-workspace"></a>Autentisera till din arbets yta
 
-Nu när du har aktiverat tjänstens huvudansvariga kan du autentisera till arbetsytan i SDK utan att fysiskt logga in som användare. Använd `ServicePrincipalAuthentication` klasskonstruktorn och använd de värden du fick från föregående steg som parametrar. Parametern `tenant_id` mappar `tenantId` till `service_principal_id` ovanifrån, `service_principal_password` mappar `clientSecret`till `clientId`och mappar till .
+Nu när du har aktiverat tjänstens huvud namn kan du autentisera till din arbets yta i SDK utan att logga in som en användare fysiskt. Använd konstruktorn `ServicePrincipalAuthentication` Class och Använd värdena som du fick från föregående steg som parametrar. `tenant_id` Parametern mappar till `tenantId` `service_principal_id` från ovan, mappar till `clientId`och `service_principal_password` mappar till. `clientSecret`
 
 ```python
 from azureml.core.authentication import ServicePrincipalAuthentication
@@ -145,7 +145,7 @@ sp = ServicePrincipalAuthentication(tenant_id="your-tenant-id", # tenantID
                                     service_principal_password="your-client-secret") # clientSecret
 ```
 
-Variabeln `sp` innehåller nu ett autentiseringsobjekt som du använder direkt i SDK. I allmänhet är det en bra idé att lagra ids / hemligheter som används ovan i miljövariabler som visas i följande kod.
+`sp` Variabeln innehåller nu ett autentiseringscertifikat som du använder direkt i SDK. I allmänhet är det en bra idé att lagra de ID/hemligheter som används ovan i miljövariabler som du ser i följande kod.
 
 ```python
 import os 
@@ -155,7 +155,7 @@ sp = ServicePrincipalAuthentication(tenant_id=os.environ['AML_TENANT_ID'],
                                     service_principal_password=os.environ['AML_PRINCIPAL_PASS'])
 ```
 
-För automatiserade arbetsflöden som körs i Python och i första hand använda SDK kan du använda det här objektet som i de flesta fall för din autentisering. Följande kod autentiserar till arbetsytan med det auth-objekt som du just skapade.
+För automatiserade arbets flöden som körs i python och använder SDK: n främst kan du använda det här objektet som det är i de flesta fall för autentisering. Följande kod autentiserar till din arbets yta med det auth-objekt som du nyss skapade.
 
 ```python
 from azureml.core import Workspace
@@ -166,16 +166,16 @@ ws = Workspace.get(name="ml-example",
 ws.get_details()
 ```
 
-## <a name="azure-machine-learning-rest-api-auth"></a>AZURE Machine Learning REST API-autentisering
+## <a name="azure-machine-learning-rest-api-auth"></a>Azure Machine Learning REST API auth
 
-Tjänsthuvudhuvudnamnet som skapas i stegen ovan kan också användas för att autentisera till AZURE Machine Learning [REST API](https://docs.microsoft.com/rest/api/azureml/). Du använder Azure Active [Directory-klientautentiseringsuppgifter bevilja flöde](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow), som tillåter service-to-service-samtal för huvudlös autentisering i automatiserade arbetsflöden. Exemplen implementeras med [ADAL-biblioteket](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) i både Python och Node.js, men du kan också använda alla bibliotek med öppen källkod som stöder OpenID Connect 1.0. 
+Tjänstens huvud namn som skapades i stegen ovan kan också användas för att autentisera till Azure Machine Learning [REST API](https://docs.microsoft.com/rest/api/azureml/). Du använder den Azure Active Directory [tilldelningen av autentiseringsuppgifter för klient](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow), som tillåter tjänst-till-tjänst-anrop för konsol lös autentisering i automatiserade arbets flöden. Exemplen implementeras med [ADAL-biblioteket](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) i både python och Node. js, men du kan också använda alla bibliotek med öppen källkod som stöder OpenID Connect 1,0. 
 
 > [!NOTE]
-> MSAL.js är ett nyare bibliotek än ADAL, men du kan inte göra autentisering mellan tjänst och tjänst med klientautentisering med MSAL.js, eftersom det i första hand är ett bibliotek på klientsidan som är avsett för interaktiv/gränssnittsautentisering som är knuten till en viss användare. Vi rekommenderar att du använder ADAL enligt nedan för att skapa automatiserade arbetsflöden med REST API.
+> MSAL. js är ett nyare bibliotek än ADAL, men du kan inte utföra tjänst-till-tjänst-autentisering med hjälp av klientautentiseringsuppgifter med MSAL. js, eftersom det i huvudsak är ett bibliotek på klient sidan som är avsett för interaktivt/UI-autentisering som är kopplat till en speciell användare. Vi rekommenderar att du använder ADAL så som visas nedan för att bygga automatiserade arbets flöden med REST API.
 
 ### <a name="nodejs"></a>Node.js
 
-Följ följande steg för att generera en auth-token med Node.js. Kör i din `npm install adal-node`miljö . Använd sedan `tenantId`ditt `clientId`, `clientSecret` och från tjänstens huvudnamn som du skapade i stegen ovan som värden för de matchande variablerna i följande skript.
+Använd följande steg för att generera en auth-token med Node. js. Kör `npm install adal-node`i din miljö. Använd `tenantId` `clientId`sedan, och `clientSecret` från tjänstens huvud namn som du skapade i stegen ovan som värden för de matchande variablerna i följande skript.
 
 ```javascript
 const adal = require('adal-node').AuthenticationContext;
@@ -203,7 +203,7 @@ context.acquireTokenWithClientCredentials(
 );
 ```
 
-Variabeln `tokenResponse` är ett objekt som innehåller token och associerade metadata, till exempel förfallotid. Token är giltiga i 1 timme och kan uppdateras genom att köra samma anrop igen för att hämta en ny token. Följande är ett exempelsvar.
+Variabeln `tokenResponse` är ett objekt som inkluderar token och associerade metadata som till exempel förfallo tid. Token är giltiga i 1 timme och kan uppdateras genom att köra samma anrop igen för att hämta en ny token. Följande är ett exempel svar.
 
 ```javascript
 { 
@@ -218,11 +218,11 @@ Variabeln `tokenResponse` är ett objekt som innehåller token och associerade m
 }
 ```
 
-Använd `accessToken` egenskapen för att hämta auth-token. Mer om hur du använder token för att ringa API-anrop finns i [REST API-dokumentationen.](https://github.com/microsoft/MLOps/tree/master/examples/AzureML-REST-API)
+Använd `accessToken` egenskapen för att hämta auth-token. I [REST API-dokumentationen](https://github.com/microsoft/MLOps/tree/master/examples/AzureML-REST-API) hittar du exempel på hur du använder token för att göra API-anrop.
 
 ### <a name="python"></a>Python 
 
-Följ följande steg för att generera en auth-token med Python. Kör i din `pip install adal`miljö . Använd sedan `tenantId`ditt `clientId`, `clientSecret` och från tjänstens huvudnamn som du skapade i stegen ovan som värden för lämpliga variabler i följande skript.
+Använd följande steg för att generera en auth-token med python. Kör `pip install adal`i din miljö. Använd `tenantId` `clientId`sedan, och `clientSecret` från tjänstens huvud namn som du skapade i stegen ovan som värden för lämpliga variabler i följande skript.
 
 ```python
 from adal import AuthenticationContext
@@ -238,7 +238,7 @@ token_response = auth_context.acquire_token_with_client_credentials("https://man
 print(token_response)
 ```
 
-Variabeln `token_response` är en ordlista som innehåller token och associerade metadata, till exempel förfallotid. Token är giltiga i 1 timme och kan uppdateras genom att köra samma anrop igen för att hämta en ny token. Följande är ett exempelsvar.
+Variabeln `token_response` är en ord lista som inkluderar token och associerade metadata som till exempel förfallo tid. Token är giltiga i 1 timme och kan uppdateras genom att köra samma anrop igen för att hämta en ny token. Följande är ett exempel svar.
 
 ```python
 {
@@ -253,13 +253,13 @@ Variabeln `token_response` är en ordlista som innehåller token och associerade
 }
 ```
 
-Används `token_response["accessToken"]` för att hämta auth-token. Mer om hur du använder token för att ringa API-anrop finns i [REST API-dokumentationen.](https://github.com/microsoft/MLOps/tree/master/examples/AzureML-REST-API)
+Används `token_response["accessToken"]` för att hämta auth-token. I [REST API-dokumentationen](https://github.com/microsoft/MLOps/tree/master/examples/AzureML-REST-API) hittar du exempel på hur du använder token för att göra API-anrop.
 
-## <a name="web-service-authentication"></a>Webbtjänstautentisering
+## <a name="web-service-authentication"></a>Autentisering för webb tjänst
 
-Webbtjänster i Azure Machine Learning använder ett annat autentiseringsmönster än vad som beskrivs ovan. Det enklaste sättet att autentisera till distribuerade webbtjänster är att använda **nyckelbaserad autentisering**, som genererar autentiseringsnycklar av statisk bäraretyp som inte behöver uppdateras. Om du bara behöver autentisera till en distribuerad webbtjänst behöver du inte konfigurera autentisering av tjänstprinciper enligt ovan.
+Webb tjänster i Azure Machine Learning använda ett annat autentiseringsschema än det som beskrivs ovan. Det enklaste sättet att autentisera till distribuerade webb tjänster är att använda **nyckelbaserad autentisering**, vilket genererar statiska nycklar för en statisk Bearer-typ som inte behöver uppdateras. Om du bara behöver autentisera till en distribuerad webb tjänst behöver du inte konfigurera service princip-autentisering som visas ovan.
 
-Webbtjänster som distribueras på Azure Kubernetes-tjänsten har nyckelbaserad autentisering *aktiverad* som standard. Azure Container Instances distribuerade tjänster har nyckelbaserad auth *inaktiverad* `auth_enabled=True`som standard, men du kan aktivera den genom att ange när du skapar ACI-webbtjänsten. Följande är ett exempel på att skapa en ACI-distributionskonfiguration med nyckelbaserad auth aktiverad.
+Webb tjänster som distribueras i Azure Kubernetes-tjänsten har nyckelbaserad autentisering *aktiverat* som standard. Azure Container Instances distribuerade tjänster har nyckelbaserad autentisering *inaktive rad* som standard, men du kan aktivera den genom `auth_enabled=True`att ställa in när du skapar ACI-webbtjänsten. Följande är ett exempel på hur du skapar en distributions konfiguration för ACI med nyckelbaserad autentisering aktive rad.
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -269,7 +269,7 @@ aci_config = AciWebservice.deploy_configuration(cpu_cores = 1,
                                                 auth_enabled=True)
 ```
 
-Sedan kan du använda den anpassade ACI-konfigurationen i distributionen `Model` med klassen.
+Sedan kan du använda den anpassade ACI-konfigurationen i distributionen med `Model` hjälp av-klassen.
 
 ```python
 from azureml.core.model import Model, InferenceConfig
@@ -285,7 +285,7 @@ aci_service = Model.deploy(workspace=ws,
 aci_service.wait_for_deployment(True)
 ```
 
-Om du vill hämta `aci_service.get_keys()`auth-tangenterna använder du . Om du vill återskapa `regen_key()` en nyckel använder du funktionen och skickar antingen **Primär** eller **Sekundär**.
+Använd `aci_service.get_keys()`för att hämta auth-nycklarna. Om du vill återskapa en nyckel använder du `regen_key()` funktionen och skickar antingen **primär** eller **sekundär**.
 
 ```python
 aci_service.regen_key("Primary")
@@ -293,18 +293,18 @@ aci_service.regen_key("Primary")
 aci_service.regen_key("Secondary")
 ```
 
-Webbtjänster stöder också tokenbaserad autentisering, men endast för Azure Kubernetes-tjänstdistributioner. Mer information om hur du autentisering finns i [hur du](how-to-consume-web-service.md) kan använda webbtjänster.
+Webb tjänster har även stöd för tokenbaserad autentisering, men endast för Azure Kubernetes service-distributioner. Se [instruktionen för att använda](how-to-consume-web-service.md) webb tjänster för att få mer information om autentisering.
 
-### <a name="token-based-web-service-authentication"></a>Tokenbaserad webbtjänstautentisering
+### <a name="token-based-web-service-authentication"></a>Tokenbaserad autentisering av webb tjänst
 
-När du aktiverar tokenautentisering för en webbtjänst måste användare presentera en Azure Machine Learning JSON-webbtoken för webbtjänsten för att komma åt den. Token upphör att gälla efter en angiven tidsram och måste uppdateras för att fortsätta ringa samtal.
+När du aktiverar token-autentisering för en webb tjänst måste användarna presentera en Azure Machine Learning JSON Web Token till webb tjänsten för att komma åt den. Token upphör att gälla efter en angiven tids period och måste uppdateras för att du ska kunna fortsätta att ringa.
 
-* Tokenautentisering **inaktiveras som standard** när du distribuerar till Azure Kubernetes Service.
-* Tokenautentisering **stöds inte** när du distribuerar till Azure Container Instances.
+* Token-autentisering **inaktive ras som standard** när du distribuerar till Azure Kubernetes-tjänsten.
+* Token-autentisering **stöds inte** när du distribuerar till Azure Container instances.
 
-Om du vill styra `token_auth_enabled` tokenautentisering använder du parametern när du skapar eller uppdaterar en distribution.
+Om du vill kontrol lera token `token_auth_enabled` -autentisering använder du parametern när du skapar eller uppdaterar en distribution.
 
-Om tokenautentisering är aktiverat kan `get_token` du använda metoden för att hämta en JWT (JWT) (JSON Web Token) och den tokens förfallotid:
+Om token-autentisering har Aktiver ATS kan `get_token` du använda metoden för att hämta en JSON Web token (JWT) och den tokens förfallo tid:
 
 ```python
 token, refresh_by = service.get_token()
@@ -312,15 +312,15 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Du måste begära en ny token efter `refresh_by` tokens tid. Om du behöver uppdatera token utanför Python SDK är ett alternativ att använda REST API med `service.get_token()` tjänsthuvudvillkorsautentisering för att regelbundet ringa samtalet, som diskuterats tidigare.
+> Du måste begära en ny token efter det att token `refresh_by` har uppnåtts. Om du behöver uppdatera token utanför python SDK är ett alternativ att använda REST API med tjänstens huvudsakliga autentisering för att regelbundet `service.get_token()` anropa anropet, enligt beskrivningen ovan.
 >
-> Vi rekommenderar starkt att du skapar din Azure Machine Learning-arbetsyta i samma region som ditt Azure Kubernetes Service-kluster. 
+> Vi rekommenderar starkt att du skapar din Azure Machine Learning arbets yta i samma region som ditt Azure Kubernetes service-kluster. 
 >
-> Om du vill autentisera med en token ringer webbtjänsten ett anrop till den region där arbetsytan Azure Machine Learning skapas. Om arbetsytans region inte är tillgänglig kan du inte hämta en token för webbtjänsten, även om klustret ligger i en annan region än arbetsytan. Resultatet är att Azure AD-autentisering inte är tillgänglig förrän arbetsytans region är tillgänglig igen. 
+> För att autentisera med en token kommer webb tjänsten att ringa till den region där din Azure Machine Learning arbets yta skapas. Om arbets ytans region inte är tillgänglig kan du inte hämta en token för din webb tjänst, även om klustret finns i en annan region än din arbets yta. Resultatet är att Azure AD-autentisering inte är tillgängligt förrän arbets ytans region är tillgänglig igen. 
 >
-> Ju större avstånd det tar mellan klustrets region och arbetsytans region, desto längre tid tar det att hämta en token.
+> Dessutom ökar avståndet mellan klustrets region och arbets ytans region, desto längre tid tar det att hämta en token.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Träna och distribuera en bildklassificeringsmodell](tutorial-train-models-with-aml.md).
-* [Använda en Azure Machine Learning-modell som distribueras som en webbtjänst](how-to-consume-web-service.md).
+* [Träna och distribuera en bild klassificerings modell](tutorial-train-models-with-aml.md).
+* [Använda en Azure Machine Learning modell som distribueras som en webb tjänst](how-to-consume-web-service.md).

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257386"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
@@ -26,7 +26,7 @@ Du distribuerar en lokal konfigurations server när du använder [Azure Site Rec
 
 Konfigurations servern måste konfigureras som en virtuell VMware-dator med hög tillgänglighet och vissa minimi krav för maskin vara och storlek. För bekväm och enkel distribution tillhandahåller Site Recovery en hämtnings bar mall för öppen Virtualization-program (ägg) för att konfigurera konfigurations servern som uppfyller alla krav som anges här.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 De minsta maskin varu kraven för en konfigurations Server sammanfattas i följande avsnitt.
 
@@ -42,7 +42,7 @@ Du måste ha en användare med någon av följande behörigheter i Azure Active 
     - Verifiera att rollen programutvecklare är tilldelad till användaren. Om inte, använder du en användare med den här behörigheten eller kontaktar en [administratör för att aktivera behörigheten](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
     
 2. Om rollen programutvecklare inte kan tilldelas kontrollerar du att flaggan **användare kan registrera program** är inställd på **Sant** för att användaren ska kunna skapa en identitet. Så här aktiverar du följande behörigheter:
-    - Logga in på Azure Portal.
+    - Logga in på Azure-portalen.
     - Gå till **Azure Active Directory** > **användar inställningar**.
     - Under **Appregistreringar** **kan användare registrera program**, välja **Ja**.
 
@@ -53,7 +53,7 @@ Du måste ha en användare med någon av följande behörigheter i Azure Active 
 
 ## <a name="download-the-template"></a>Ladda ned mallen
 
-1. I valvet går du till **Förbereda infrastrukturen** > **Källa**.
+1. I valvet går du till **förbereda infrastruktur** > **källa**.
 2. I **Förbered källa** väljer du **+Konfigurationsserver**.
 3. I **Lägg till server** kontrollerar du att **Konfigurationsserver för VMware** visas i **Servertyp**.
 4. Hämta embryo-mallen för konfigurations servern.
@@ -78,7 +78,7 @@ Du måste ha en användare med någon av följande behörigheter i Azure Active 
 7. Acceptera standardinställningarna på resten av sidorna i guiden.
 8. I **Klart att slutföras**:
 
-    * Om du vill konfigurera den virtuella datorn med standardinställningarna väljer du **Power on after deployment** (Slå på strömmen efter distributionen) > **Slutför**.
+    * Om du vill konfigurera den virtuella datorn med standardinställningarna väljer du **ström när distributionen** > är**klar**.
     * Om du vill lägga till ytterligare ett nätverks gränssnitt avmarkerar du **Energis par efter distributionen**och väljer sedan **Slutför**. Konfigurationsservermallen distribueras som standard med ett enda nätverkskort. Du kan lägga till ytterligare nätverkskort efter distributionen.
 
 > [!IMPORTANT]
@@ -92,9 +92,9 @@ Du måste ha en användare med någon av följande behörigheter i Azure Active 
 Om du vill lägga till ett extra nätverkskort i konfigurations servern lägger du till det innan du registrerar servern i valvet. Det går inte att lägga till fler adaptrar efter registreringen.
 
 1. I vSphere-klientlagret högerklickar du på den virtuella datorn och väljer **Redigera inställningar**.
-2. I **Maskinvara** väljer du **Lägg till** > **Ethernet-kort**. Välj sedan **Nästa**.
+2. I **Maskinvara** väljer du **Lägg till** > **Ethernet-kort**. Välj **Nästa**.
 3. Välj en adaptertyp och ett nätverk.
-4. Om du vill ansluta det virtuella NÄTVERKSKORTet när den virtuella datorn är aktive rad väljer du **Anslut vid start**. Välj **nästa** > **Slutför** > **OK**.
+4. Om du vill ansluta det virtuella NÄTVERKSKORTet när den virtuella datorn är aktive rad väljer du **Anslut vid start**. Välj sedan **Nästa** > **Slutför** > **OK**.
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Registrera konfigurations servern med Azure Site Recovery Services
 
@@ -102,8 +102,8 @@ Om du vill lägga till ett extra nätverkskort i konfigurations servern lägger 
 2. Den virtuella datorn startas med en Windows Server 2016-installation. Godkänn licensavtalet och ange ett administratörslösenord.
 3. När installationen är klar loggar du in på den virtuella datorn som administratör.
 4. Första gången du loggar in, inom några sekunder startas konfigurations verktyget för Azure Site Recovery.
-5. Ange det namn som ska användas för att registrera konfigurationsservern med Site Recovery. Välj sedan **Nästa**.
-6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats väljer du **Logga in** för att logga in på din Azure-prenumeration.</br>
+5. Ange det namn som ska användas för att registrera konfigurationsservern med Site Recovery. Välj **Nästa**.
+6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats väljer du **Logga in** för att logga in i din Azure-prenumeration.</br>
     a. Autentiseringsuppgifterna måste ha åtkomst till det valv där du vill registrera konfigurationsservern.</br>
     b. Se till att det valda användar kontot har behörighet att skapa ett program i Azure. Om du vill aktivera de behörigheter som krävs följer du rikt linjerna i avsnittet [Azure Active Directory behörighets krav](#azure-active-directory-permission-requirements).
 7. Verktyget utför vissa konfigurationsåtgärder och startar sedan om datorn.
@@ -132,7 +132,7 @@ Om du vill lägga till ett extra nätverkskort i konfigurations servern lägger 
 7. Ange de autentiseringsuppgifter som ska användas av konfigurationsservern för att ansluta till VMware-servern. Site Recovery använder dessa autentiseringsuppgifter för att automatiskt identifiera virtuella VMware-datorer som är tillgängliga för replikering. Välj **Lägg till** > **Fortsätt**. De autentiseringsuppgifter som anges här sparas lokalt.
 8. På **Konfigurera autentiseringsuppgifter för virtuell dator**anger du användar namn och lösen ord för virtuella datorer för att automatiskt installera mobilitets tjänsten under replikeringen. För **Windows** -datorer måste kontot ha lokal administratörs behörighet på de datorer som du vill replikera. För **Linux**anger du information om rot kontot.
 9. Välj **Slutför konfigurationen** för att slutföra registreringen.
-10. När registreringen är klar öppnar du Azure Portal och kontrollerar att konfigurations servern och VMware-servern finns i **Recovery Services valv** > **Hantera** > **Site Recovery infrastruktur** > **konfigurations servrar**.
+10. När registreringen är klar öppnar du Azure Portal och kontrollerar att konfigurations servern och VMware-servern visas på **Recovery Services valv** > **Hantera** > **Site Recovery infrastruktur** > **konfigurations servrar**.
 
 ## <a name="upgrade-the-configuration-server"></a>Uppgradera konfigurations servern
 

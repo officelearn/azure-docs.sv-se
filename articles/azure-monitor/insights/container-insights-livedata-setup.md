@@ -1,70 +1,70 @@
 ---
-title: Konfigurera Azure Monitor för behållare Live Data (förhandsversion) | Microsoft-dokument
-description: I den här artikeln beskrivs hur du ställer in realtidsvyn för behållarloggar (stdout/stderr) och händelser utan att använda kubectl med Azure Monitor för behållare.
+title: Konfigurera Azure Monitor för behållare Live-data (för hands version) | Microsoft Docs
+description: Den här artikeln beskriver hur du konfigurerar real tids visningen av behållar loggar (STDOUT/STDERR) och händelser utan att använda kubectl med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.openlocfilehash: f19071ca642cd229cbd7d49b4eab90c970672eee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79275378"
 ---
-# <a name="how-to-set-up-the-live-data-preview-feature"></a>Konfigurera funktionen Live Data (preview)
+# <a name="how-to-set-up-the-live-data-preview-feature"></a>Så här ställer du in funktionen Live data (för hands version)
 
-Om du vill visa Live Data (förhandsversion) med Azure Monitor för behållare från AKS-kluster (Azure Kubernetes Service) måste du konfigurera autentisering för att bevilja behörighet att komma åt dina Kubernetes-data. Den här säkerhetskonfigurationen ger realtidsåtkomst till dina data via Kubernetes API direkt i Azure-portalen.
+Om du vill visa real tids data (för hands version) med Azure Monitor för behållare från Azure Kubernetes service (AKS)-kluster, måste du konfigurera autentisering för att ge åtkomst till dina Kubernetes-data. Med den här säkerhets konfigurationen får du åtkomst till dina data i real tid via Kubernetes-API: et direkt i Azure Portal.
 
-Den här funktionen stöder följande metoder för att styra åtkomsten till loggar, händelser och mått:
+Den här funktionen stöder följande metoder för att kontrol lera åtkomsten till loggar, händelser och mått:
 
-- AKS utan Kubernetes RBAC-auktorisering aktiverad
-- AKS aktiverat med Kubernetes RBAC-auktorisering
-    - AKS konfigurerat med **klusterrollbindningsklustretÖvervakaeAnvändare [clusterMonitoringUser](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
+- AKS utan Kubernetes RBAC-auktorisering aktiverat
+- AKS aktive rad med Kubernetes RBAC-auktorisering
+    - AKS som kon figurer ATS med kluster rollen binding ** [clusterMonitoringUser](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
 - AKS aktiverat med Azure Active Directory (AD) SAML-baserad enkel inloggning
 
-Dessa instruktioner kräver både administrativ åtkomst till kubernetes-klustret och om du konfigurerar för att använda Azure Active Directory (AD) för användarautentisering, administrativ åtkomst till Azure AD.  
+Dessa instruktioner kräver både administrativ åtkomst till ditt Kubernetes-kluster och om du konfigurerar att använda Azure Active Directory (AD) för användarautentisering, administrativ åtkomst till Azure AD.  
 
-I den här artikeln beskrivs hur du konfigurerar autentisering för att styra åtkomsten till livedatafunktionen (förhandsversion) från klustret:
+Den här artikeln förklarar hur du konfigurerar autentisering för att kontrol lera åtkomsten till funktionen Live data (för hands version) från klustret:
 
-- Rollbaserad åtkomstkontroll (RBAC) aktiverat AKS-kluster
-- Azure Active Directory-integrerat AKS-kluster. 
-
->[!NOTE]
->AKS-kluster som aktiveras som [privata kluster](https://azure.microsoft.com/updates/aks-private-cluster/) stöds inte med den här funktionen. Den här funktionen är beroende av direkt åtkomst till Kubernetes API via en proxyserver från din webbläsare. Om du aktiverar nätverkssäkerhet för att blockera Kubernetes-API:et från den här proxyn blockeras den här trafiken. 
+- Rollbaserad åtkomst kontroll (RBAC) aktiverat AKS-kluster
+- Azure Active Directory integrerat AKS-kluster. 
 
 >[!NOTE]
->Den här funktionen är tillgänglig i alla Azure-regioner, inklusive Azure China. Den är för närvarande inte tillgänglig i Azure US Government.
+>AKS-kluster som är aktiverade som [privata kluster](https://azure.microsoft.com/updates/aks-private-cluster/) stöds inte med den här funktionen. Den här funktionen använder direkt åtkomst till Kubernetes-API: et via en proxyserver från din webbläsare. Om du aktiverar nätverks säkerhet för att blockera Kubernetes-API: et från den här proxyn blockeras trafiken. 
+
+>[!NOTE]
+>Den här funktionen är tillgänglig i alla Azure-regioner, inklusive Azure Kina. Den är för närvarande inte tillgänglig i Azure amerikanska myndigheter.
 
 ## <a name="authentication-model"></a>Autentiseringsmodell
 
-Funktionerna Live Data (förhandsversion) använder Kubernetes `kubectl` API, identiskt med kommandoradsverktyget. Kubernetes API-slutpunkter använder ett självsignerat certifikat som din webbläsare inte kan validera. Den här funktionen använder en intern proxy för att validera certifikatet med AKS-tjänsten, vilket säkerställer att trafiken är betrodd.
+Funktionerna för Live data (för hands version) använder Kubernetes-API: et, `kubectl` som är identiskt med kommando rads verktyget. Kubernetes API-slutpunkter använder ett självsignerat certifikat som webbläsaren inte kan verifiera. Den här funktionen använder en intern proxy för att validera certifikatet med AKS-tjänsten, vilket säkerställer att trafiken är betrodd.
 
-Azure-portalen uppmanar dig att validera dina inloggningsuppgifter för ett Azure Active Directory-kluster och omdirigera dig till klientregistreringskonfigurationen under klusterskapande (och konfigureras om i den här artikeln). Det här problemet liknar den `kubectl`autentiseringsprocess som krävs av . 
+Azure Portal uppmanas du att verifiera dina inloggnings uppgifter för ett Azure Active Directory kluster och omdirigera dig till klient registrerings konfigurationen när klustret skapas (och omkonfigureras i den här artikeln). Detta fungerar på samma sätt som den verifierings process `kubectl`som krävs av. 
 
 >[!NOTE]
->Auktorisering till klustret hanteras av Kubernetes och den säkerhetsmodell som den är konfigurerad med. Användare som använder den här funktionen kräver behörighet att hämta Kubernetes-konfigurationen *(kubeconfig),* som liknar körning `az aks get-credentials -n {your cluster name} -g {your resource group}`. Den här konfigurationsfilen innehåller auktoriserings- och autentiseringstoken för **Azure Kubernetes Service Cluster User Role**, när det gäller Azure RBAC-aktiverade och AKS-kluster utan RBAC-auktorisering aktiverad. Den innehåller information om Azure AD och klientregistreringsinformation när AKS är aktiverat med Azure Active Directory (AD) SAML-baserad en inloggning.
+>Auktorisering till klustret hanteras av Kubernetes och säkerhets modellen som den har kon figurer ATS med. Användare som har åtkomst till den här funktionen kräver behörighet att ladda ned Kubernetes-konfigurationen (*kubeconfig*) `az aks get-credentials -n {your cluster name} -g {your resource group}`, ungefär som att köras. Den här konfigurations filen innehåller auktoriserings-och autentiseringstoken för **användar rollen Azure Kubernetes service-kluster**, om Azure RBAC-aktiverade och AKS-kluster utan RBAC-auktorisering har Aktiver ATS. Den innehåller information om Azure AD-och klient registrerings information när AKS har Aktiver ATS med Azure Active Directory (AD) SAML-baserad enkel inloggning.
 
 >[!IMPORTANT]
->Användare av de här funktionerna kräver [Azure Kubernetes Cluster User Role](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) till klustret för att hämta och använda den `kubeconfig` här funktionen. Användare kräver **inte** deltagare åtkomst till klustret för att använda den här funktionen. 
+>Användare av de här funktionerna kräver [användar rollen Azure Kubernetes-kluster](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) i klustret för att kunna hämta `kubeconfig` och använda den här funktionen. Användare behöver **inte** deltagar åtkomst till klustret för att använda den här funktionen. 
 
 ## <a name="using-clustermonitoringuser-with-rbac-enabled-clusters"></a>Använda clusterMonitoringUser med RBAC-aktiverade kluster
 
-För att eliminera behovet av att tillämpa ytterligare konfigurationsändringar för att ge Kubernetes **användarrollbindningskluster** åtkomst till funktionen Live Data (förhandsversion) efter att rbac-auktorisering [aktiverats,](#configure-kubernetes-rbac-authorization) har AKS lagt till en ny Kubernetes-klusterrollbindning som kallas **clusterMonitoringUser**. Den här klusterrollbindningen har alla nödvändiga behörigheter direkt för att komma åt Kubernetes API och slutpunkterna för att använda funktionen Live Data (förhandsversion).
+För att eliminera behovet av att tillämpa ytterligare konfigurations ändringar för att tillåta Kubernetes- **clusterUser** åtkomst till funktionen Live data (för hands version) när du har [aktiverat RBAC](#configure-kubernetes-rbac-authorization) -auktorisering har AKS lagt till en ny Kubernetes kluster roll bindning som kallas **clusterMonitoringUser**. Den här kluster roll bindningen har alla nödvändiga behörigheter som är färdiga att komma åt Kubernetes-API: et och slut punkterna för att använda funktionen Live data (för hands version).
 
-För att kunna använda funktionen Live Data (förhandsversion) med den här nya användaren måste du vara medlem i [rollen Deltagare](../../role-based-access-control/built-in-roles.md#contributor) på AKS-klusterresursen. Azure Monitor för behållare, när det är aktiverat, är konfigurerat för att autentisera med den här användaren som standard. Om rollbindningen clusterMonitoringUser inte finns i ett kluster används **clusterUser** för autentisering i stället.
+För att kunna använda funktionen Live data (för hands version) med den nya användaren måste du vara medlem i rollen [deltagare](../../role-based-access-control/built-in-roles.md#contributor) i AKS-klusterresursen. Azure Monitor för behållare konfigureras för att autentisera med den här användaren som standard när den är aktive rad. Om clusterMonitoringUser-rolltjänsten inte finns i ett kluster används **clusterUser** för autentisering i stället.
 
-AKS släppte den nya rollbindningen i januari 2020, så kluster som skapats före januari 2020 har den inte. Om du har ett kluster som skapades före januari 2020 kan det nya **clusterMonitoringUser** läggas till i ett befintligt kluster genom att utföra en PUT-åtgärd i klustret eller utföra någon annan åtgärd i klustret tha utför en PUT-åtgärd på klustret, till exempel uppdatera klusterversionen.
+AKS frigjorde den här nya roll bindningen i januari 2020, vilket innebär att kluster som skapats före januari 2020 inte har den. Om du har ett kluster som har skapats före januari 2020, kan nya **clusterMonitoringUser** läggas till i ett befintligt kluster genom att utföra en åtgärds åtgärd i klustret eller utföra andra åtgärder på klustret Tha utför en åtgärd i klustret, till exempel uppdatering av kluster versionen.
 
-## <a name="kubernetes-cluster-without-rbac-enabled"></a>Kubernetes kluster utan RBAC aktiverat
+## <a name="kubernetes-cluster-without-rbac-enabled"></a>Kubernetes-kluster utan RBAC-aktiverat
 
-Om du har ett Kubernetes-kluster som inte är konfigurerat med Kubernetes RBAC-auktorisering eller integrerat med Azure AD-enkel inloggning, behöver du inte följa dessa steg. Detta beror på att du har administratörsbehörighet som standard i en icke-RBAC-konfiguration.
+Om du har ett Kubernetes-kluster som inte har kon figurer ATS med Kubernetes RBAC-auktorisering eller integrerat med Azure AD enkel inloggning, behöver du inte följa dessa steg. Detta beror på att du har administratörs behörighet som standard i en icke-RBAC-konfiguration.
 
 ## <a name="configure-kubernetes-rbac-authorization"></a>Konfigurera Kubernetes RBAC-auktorisering
 
-När du aktiverar Kubernetes RBAC-auktorisering används två användare: **clusterUser** och **clusterAdmin** för att komma åt Kubernetes API. Detta liknar att `az aks get-credentials -n {cluster_name} -g {rg_name}` köra utan det administrativa alternativet. Det innebär att **clusterUser** måste beviljas åtkomst till slutpunkterna i Kubernetes API.
+När du aktiverar Kubernetes RBAC-auktorisering används två användare: **clusterUser** och **clusterAdmin** för att få åtkomst till Kubernetes-API: et. Detta påminner om att köra `az aks get-credentials -n {cluster_name} -g {rg_name}` utan alternativet administration. Det innebär att **clusterUser** måste beviljas åtkomst till slut punkterna i Kubernetes-API: et.
 
-Följande exempelsteg visar hur du konfigurerar klusterrollbindning från den här yaml-konfigurationsmallen.
+Följande exempel visar hur du konfigurerar kluster roll bindning från den här yaml-konfigurations mal len.
 
-1. Kopiera och klistra in yaml-filen och spara den som LogReaderRBAC.yaml.  
+1. Kopiera och klistra in yaml-filen och spara den som LogReaderRBAC. yaml.  
 
     ```
     apiVersion: rbac.authorization.k8s.io/v1 
@@ -96,50 +96,50 @@ Följande exempelsteg visar hur du konfigurerar klusterrollbindning från den h�
       apiGroup: rbac.authorization.k8s.io 
     ```
 
-2. Om du vill uppdatera konfigurationen `kubectl apply -f LogReaderRBAC.yaml`kör du följande kommando: .
+2. Kör följande kommando för att uppdatera konfigurationen: `kubectl apply -f LogReaderRBAC.yaml`.
 
 >[!NOTE] 
-> Om du har använt en `LogReaderRBAC.yaml` tidigare version av filen i klustret uppdaterar du den genom att kopiera och klistra in den nya koden som visas i steg 1 ovan och kör sedan kommandot som visas i steg 2 för att tillämpa den på klustret.
+> Om du har tillämpat en tidigare version av `LogReaderRBAC.yaml` filen på klustret uppdaterar du den genom att kopiera och klistra in den nya koden som visas i steg 1 ovan. kör sedan kommandot som visas i steg 2 för att tillämpa det på klustret.
 
 ## <a name="configure-ad-integrated-authentication"></a>Konfigurera AD-integrerad autentisering 
 
-Ett AKS-kluster som konfigurerats för att använda Azure Active Directory (AD) för användarautentisering använder inloggningsuppgifterna för den person som använder den här funktionen. I den här konfigurationen kan du logga in på ett AKS-kluster med hjälp av din Azure AD-autentiseringstoken.
+Ett AKS-kluster som kon figurer ATS för att använda Azure Active Directory (AD) för användarautentisering använder inloggnings uppgifterna för den person som har åtkomst till den här funktionen. I den här konfigurationen kan du logga in på ett AKS-kluster med hjälp av din Azure AD-autentiseringstoken.
 
-Azure AD-klientregistrering måste konfigureras om så att Azure-portalen kan omdirigera auktoriseringssidor som en betrodd omdirigerings-URL. Användare från Azure AD beviljas sedan åtkomst direkt till samma Kubernetes API-slutpunkter via **ClusterRoles** och **ClusterRoleBindings**. 
+Azure AD client Registration måste konfigureras på nytt för att tillåta att Azure Portal omdirigerar behörighets sidor som en betrodd omdirigerings-URL. Användare från Azure AD beviljas sedan åtkomst direkt till samma Kubernetes API-slutpunkter via **ClusterRoles** och **ClusterRoleBindings**. 
 
-Mer information om avancerade säkerhetsinställningar i Kubernetes finns i [Kubernetes dokumentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). 
+Mer information om avancerade säkerhets inställningar i Kubernetes finns i Kubernetes- [dokumentationen](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). 
 
 >[!NOTE]
->Om du skapar ett nytt RBAC-aktiverat kluster läser du [Integrera Azure Active Directory med Azure Kubernetes Service](../../aks/azure-ad-integration.md) och följer stegen för att konfigurera Azure AD-autentisering. Under stegen för att skapa klientprogrammet belyser en anteckning i det avsnittet de två omdirigeringsadresser som du behöver skapa för Azure Monitor för behållare som matchar dem som anges i steg 3 nedan.
+>Om du skapar ett nytt RBAC-aktiverat kluster går du till [integrera Azure Active Directory med Azure Kubernetes-tjänsten](../../aks/azure-ad-integration.md) och följer stegen för att konfigurera Azure AD-autentisering. Under stegen för att skapa klient programmet visar en anteckning i avsnittet de två omdirigerings-URL: er som du måste skapa för att Azure Monitor för behållare som matchar de som anges i steg 3 nedan.
 
-### <a name="client-registration-reconfiguration"></a>Omkonfigurering av klientregistrering
+### <a name="client-registration-reconfiguration"></a>Omkonfiguration av klient registrering
 
-1. Leta reda på klientregistreringen för kubernetes-klustret i Azure AD under **Azure Active Directory > Appregistreringar** i Azure-portalen.
+1. Leta upp klient registreringen för ditt Kubernetes-kluster i Azure AD under **Azure Active Directory > Appregistreringar** i Azure Portal.
 
-2. Välj **Autentisering** i den vänstra rutan. 
+2. Välj **autentisering** i det vänstra fönstret. 
 
-3. Lägg till två omdirigeringsadresser i den här listan som **webbprogramtyper.** Det första bas-URL-värdet ska vara `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` och `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`det andra bas-URL-värdet ska vara .
+3. Lägg till två omdirigerings-URL: er till den här listan som **webb** program typer. Det första grundläggande URL-värdet ska `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` vara och det andra bas-URL- `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`värdet ska vara.
 
     >[!NOTE]
-    >Om du använder den här funktionen i Azure Kina `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` ska det första bas-URL-värdet vara och det andra bas-URL-värdet ska vara `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`. 
+    >Om du använder den här funktionen i Azure Kina bör det första bas-URL-värdet `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` vara och det andra bas-URL- `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`värdet ska vara. 
     
-4. När du har registrerat omdirigeringsadresserna väljer du alternativen **Access-token** och **ID-token** under **Implicit beviljande**och sparar sedan ändringarna.
+4. När du har registrerat URL: erna för omdirigering väljer du alternativet **åtkomsttoken** och **ID-token** under **implicit tilldelning**och sparar sedan ändringarna.
 
 >[!NOTE]
->Konfigurera autentisering med Azure Active Directory för enkel inloggning kan endast utföras under den första distributionen av ett nytt AKS-kluster. Du kan inte konfigurera enkel inloggning för ett AKS-kluster som redan har distribuerats.
+>Att konfigurera autentisering med Azure Active Directory för enkel inloggning kan bara utföras under den första distributionen av ett nytt AKS-kluster. Det går inte att konfigurera enkel inloggning för ett AKS-kluster som redan har distribuerats.
   
 >[!IMPORTANT]
->Om du konfigurerade om Azure AD för användarautentisering med den uppdaterade URI:n rensar du webbläsarens cacheminne för att säkerställa att den uppdaterade autentiseringstoken hämtas och tillämpas.
+>Om du har konfigurerat om Azure AD för användarautentisering med hjälp av den uppdaterade URI: n rensar du webbläsarens cacheminne för att se till att den uppdaterade autentiseringstoken hämtas och tillämpas.
 
 ## <a name="grant-permission"></a>Bevilja behörighet
 
-Varje Azure AD-konto måste beviljas behörighet till lämpliga API:er i Kubernetes för att komma åt livedata (förhandsversion). Stegen för att bevilja Azure Active Directory-kontot liknar stegen som beskrivs i avsnittet [Kubernetes RBAC-autentisering.](#configure-kubernetes-rbac-authorization) Innan du använder yaml-konfigurationsmallen på klustret ersätter du **clusterUser** under **ClusterRoleBinding** med önskad användare. 
+Varje Azure AD-konto måste beviljas behörighet till lämpliga API: er i Kubernetes för att få åtkomst till funktionen Live data (för hands version). Stegen för att bevilja Azure Active Directory-kontot liknar de steg som beskrivs i avsnittet [KUBERNETES RBAC-autentisering](#configure-kubernetes-rbac-authorization) . Innan du tillämpar yaml på klustret ersätter du **clusterUser** under **ClusterRoleBinding** med önskad användare. 
 
 >[!IMPORTANT]
->Om användaren som du beviljar RBAC-bindningen för finns i samma Azure AD-klient, tilldela behörigheter baserat på userPrincipalName. Om användaren finns i en annan Azure AD-klient frågar du efter och använder egenskapen objectId.
+>Om användaren som du beviljar RBAC-bindningen för finns i samma Azure AD-klient tilldelar du behörigheter baserat på userPrincipalName. Om användaren finns i en annan Azure AD-klient frågar du efter och använder egenskapen objectId.
 
-Mer information om hur du konfigurerar **AKS-klusterklusteretRoleBinding**finns i [Skapa RBAC-bindning](../../aks/azure-ad-integration-cli.md#create-rbac-binding).
+Mer hjälp om hur du konfigurerar AKS- **ClusterRoleBinding**finns i [skapa RBAC-bindning](../../aks/azure-ad-integration-cli.md#create-rbac-binding).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har konfigurerad autentisering kan du visa [mått,](container-insights-livedata-metrics.md) [distributioner](container-insights-livedata-deployments.md)och [händelser och loggar](container-insights-livedata-overview.md) i realtid från klustret.
+Nu när du har konfigurerat autentisering kan du Visa [mått](container-insights-livedata-metrics.md), [distributioner](container-insights-livedata-deployments.md)och [händelser och loggar](container-insights-livedata-overview.md) i real tid från klustret.

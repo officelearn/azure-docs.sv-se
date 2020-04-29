@@ -19,14 +19,14 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bbd1ad6178e0120bf8414fc424b79254e306d2c2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261572"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Övervaka AD FS med Azure AD Connect Health
-Följande dokumentation gäller specifikt för övervakningen av AD FS-infrastrukturen med Azure AD Connect Health. Information om hur du övervakar Azure AD Connect (Sync) med Azure AD Connect Health finns i [Använda Azure AD Connect Health for Sync](how-to-connect-health-sync.md). Mer information om hur du övervakar Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect-hälsotillstånd med AD DS](how-to-connect-health-adds.md).
+Följande dokumentation gäller specifikt för övervakningen av AD FS-infrastrukturen med Azure AD Connect Health. Information om övervakning Azure AD Connect (Sync) med Azure AD Connect Health finns i [använda Azure AD Connect Health för synkronisering](how-to-connect-health-sync.md). Information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns dessutom i [använda Azure AD Connect Health med AD DS](how-to-connect-health-adds.md).
 
 ## <a name="alerts-for-ad-fs"></a>AD FS-aviseringar
 Avsnittet om Azure AD Connect Health-aviseringar innehåller en lista över aktiva aviseringar. För varje avisering finns relevant information, lösningssteg och länkar till relaterad dokumentation.
@@ -121,5 +121,5 @@ Rapporten innehåller följande information:
 ## <a name="related-links"></a>Relaterade länkar
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Installation av Azure AD Connect Health Agent](how-to-connect-health-agent-install.md)
-* [Riskabel IP-rapport](how-to-connect-health-adfs-risky-ip.md)
+* [Riskfylld IP-rapport](how-to-connect-health-adfs-risky-ip.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Säkra B2B-meddelanden med certifikat
-description: Lägga till certifikat som hjälper till att skydda B2B-meddelanden i Azure Logic Apps med Enterprise Integration Pack
+title: Skydda B2B-meddelanden med certifikat
+description: Lägg till certifikat för att skydda B2B-meddelanden i Azure Logic Apps med Enterprise-integrationspaket
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,93 +9,93 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
 ms.openlocfilehash: 19a1883685193e80da5f1365ec2a30db0b8754f6
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81450164"
 ---
 # <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Förbättra säkerheten för B2B-meddelanden med hjälp av certifikat
 
-När du behöver hålla B2B-kommunikationen konfidentiell kan du öka säkerheten för B2B-kommunikation i dina företagsintegrationsappar, särskilt logikappar, genom att lägga till certifikat i ditt integrationskonto. Certifikat är digitala dokument som kontrollerar identiteterna för deltagarna i elektronisk kommunikation och hjälper dig att säkra kommunikationen på följande sätt:
+När du behöver hålla B2B-kommunikation konfidentiellt kan du öka säkerheten för B2B-kommunikation i dina företags integrerings program, särskilt Logic Apps, genom att lägga till certifikat till ditt integrations konto. Certifikat är digitala dokument som kontrollerar identiteter för deltagarna i elektronisk kommunikation och hjälper dig att säkra kommunikationen på följande sätt:
 
-* Kryptera meddelandeinnehåll.
+* Kryptera meddelande innehåll.
 * Signera meddelanden digitalt.
 
-Du kan använda dessa certifikat i företagets integrationsappar:
+Du kan använda dessa certifikat i dina företags integrerings appar:
 
-* [Offentliga certifikat](https://en.wikipedia.org/wiki/Public_key_certificate), som du måste köpa från en offentlig [internetcertifikatutfärdare (CA)](https://en.wikipedia.org/wiki/Certificate_authority) men inte kräver några nycklar. 
+* [Offentliga certifikat](https://en.wikipedia.org/wiki/Public_key_certificate), som du måste köpa från en offentlig Internet [certifikat utfärdare (ca)](https://en.wikipedia.org/wiki/Certificate_authority) , men som inte kräver några nycklar. 
 
-* Privata certifikat eller [*självsignerade certifikat*](https://en.wikipedia.org/wiki/Self-signed_certificate), som du skapar och utfärdar själv men också kräver privata nycklar. 
+* Privata certifikat eller [*självsignerade certifikat*](https://en.wikipedia.org/wiki/Self-signed_certificate), som du skapar och utfärdar själv, men som även kräver privata nycklar. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="upload-a-public-certificate"></a>Ladda upp ett offentligt certifikat
 
-Om du vill använda ett *offentligt certifikat* i logikappar som har B2B-funktioner måste du först överföra certifikatet till ditt integrationskonto. När du har definierat egenskaperna i de [avtal](logic-apps-enterprise-integration-agreements.md) som du skapar är certifikatet tillgängligt för att skydda dina B2B-meddelanden.
+Om du vill använda ett *offentligt certifikat* i Logi Kap par som har B2B-funktioner måste du först ladda upp certifikatet till ditt integrations konto. När du har definierat egenskaperna i de [avtal](logic-apps-enterprise-integration-agreements.md) som du skapar är certifikatet tillgängligt för att hjälpa dig att skydda dina B2B-meddelanden.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). På huvudmenyn i Azure väljer du **Alla resurser**. I sökrutan anger du namnet på ditt integrationskonto och väljer sedan önskat integrationskonto.
+1. Logga in på [Azure-portalen](https://portal.azure.com). På huvud menyn i Azure väljer du **alla resurser**. I sökrutan anger du integrations kontots namn och väljer sedan det integrations konto som du vill använda.
 
-   ![Hitta och välj ditt integrationskonto](media/logic-apps-enterprise-integration-certificates/select-integration-account.png)  
+   ![Hitta och välj ditt integrations konto](media/logic-apps-enterprise-integration-certificates/select-integration-account.png)  
 
-2. Under **Komponenter**väljer du panelen **Certifikat.**
+2. Under **komponenter**väljer du panelen **certifikat** .
 
-   ![Välj "Certifikat"](media/logic-apps-enterprise-integration-certificates/add-certificates.png)
+   ![Välj certifikat](media/logic-apps-enterprise-integration-certificates/add-certificates.png)
 
-3. Under **Certifikat**väljer du **Lägg till**. Ange dessa uppgifter för certifikatet under **Lägg till certifikat.** När du är klar väljer du **OK**.
+3. Under **certifikat**väljer du **Lägg till**. Under **Lägg till certifikat**, ange den här informationen för ditt certifikat. När du är klar väljer du **OK**.
 
    | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------|
-   | **Namn** | <*certifikatnamn*> | Certifikatets namn, som är "publicCert" i det här exemplet | 
-   | **Typ av certifikat** | Offentlig | Certifikatets typ |
-   | **Certifikat** | <*namn på certifikat-fil*> | Om du vill söka efter och markera den certifikatfil som du vill överföra väljer du mappikonen bredvid rutan **Certifikat.** |
+   | **Namn** | <*certifikat-namn*> | Certifikatets namn, som är "publicCert" i det här exemplet | 
+   | **Certifikat typ** | Offentlig | Ditt certifikats typ |
+   | **Certifikatmallens** | <*certifikat-fil namn*> | Om du vill söka efter och välja den certifikat fil som du vill överföra väljer du mappikonen bredvid rutan **certifikat** . |
    ||||
 
-   ![Välj "Lägg till", ange certifikatinformation](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
+   ![Välj "Lägg till", ange certifikat information](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
 
-   När Azure har validerat ditt val laddar Azure upp ditt certifikat.
+   När Azure har verifierat ditt val laddar Azure upp ditt certifikat.
 
    ![Azure visar nytt certifikat](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
 
 ## <a name="upload-a-private-certificate"></a>Ladda upp ett privat certifikat
 
-Om du vill använda ett *privat certifikat* i logikappar som har B2B-funktioner måste du först överföra certifikatet till ditt integrationskonto. Du måste också ha en privat nyckel som du först lägger till i [Azure Key Vault](../key-vault/key-vault-get-started.md). 
+Om du vill använda ett *privat certifikat* i Logi Kap par som har B2B-funktioner måste du först ladda upp certifikatet till ditt integrations konto. Du måste också ha en privat nyckel som du först lägger till i [Azure Key Vault](../key-vault/key-vault-get-started.md). 
 
-När du har definierat egenskaperna i de [avtal](logic-apps-enterprise-integration-agreements.md) som du skapar är certifikatet tillgängligt för att skydda dina B2B-meddelanden.
+När du har definierat egenskaperna i de [avtal](logic-apps-enterprise-integration-agreements.md) som du skapar är certifikatet tillgängligt för att hjälpa dig att skydda dina B2B-meddelanden.
 
 > [!NOTE]
-> För privata certifikat kontrollerar du att du lägger till ett motsvarande offentligt certifikat som visas i [AS2-avtalets](logic-apps-enterprise-integration-as2.md) inställningar för **skicka och ta emot** för signering och kryptering av meddelanden.
+> För privata certifikat, se till att du lägger till ett motsvarande offentligt certifikat som visas i [AS2-avtalets](logic-apps-enterprise-integration-as2.md) inställningar för **skicka och ta emot** för signering och kryptering av meddelanden.
 
-1. [Lägg till din privata nyckel i Azure Key Vault](../key-vault/certificates/certificate-scenarios.md#import-a-certificate) och ange ett **nyckelnamn**.
+1. [Lägg till din privata nyckel i Azure Key Vault](../key-vault/certificates/certificate-scenarios.md#import-a-certificate) och ange ett **nyckel namn**.
    
-2. Auktorisera Azure Logic Apps för att utföra åtgärder på Azure Key Vault. Om du vill bevilja åtkomst till logic apps-tjänstens huvudnamn använder du kommandot PowerShell, [Set-AzKeyVaultAccessPolicy,](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy)till exempel:
+2. Auktorisera Azure Logic Apps att utföra åtgärder på Azure Key Vault. Om du vill bevilja åtkomst till Logic Apps tjänstens huvud namn använder du PowerShell [-kommandot Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), till exempel:
 
    `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
-3. Logga in på [Azure-portalen](https://portal.azure.com). På huvudmenyn i Azure väljer du **Alla resurser**. I sökrutan anger du namnet på ditt integrationskonto och väljer sedan önskat integrationskonto.
+3. Logga in på [Azure-portalen](https://portal.azure.com). På huvud menyn i Azure väljer du **alla resurser**. I sökrutan anger du integrations kontots namn och väljer sedan det integrations konto som du vill använda.
 
-   ![Hitta ditt integrationskonto](media/logic-apps-enterprise-integration-certificates/select-integration-account.png) 
+   ![Hitta ditt integrations konto](media/logic-apps-enterprise-integration-certificates/select-integration-account.png) 
 
-4. Under **Komponenter**väljer du panelen **Certifikat.**  
+4. Under **komponenter**väljer du panelen **certifikat** .  
 
-   ![Välj panelen Certifikat](media/logic-apps-enterprise-integration-certificates/add-certificates.png)
+   ![Välj panelen certifikat](media/logic-apps-enterprise-integration-certificates/add-certificates.png)
 
-5. Under **Certifikat**väljer du **Lägg till**. Ange dessa uppgifter för certifikatet under **Lägg till certifikat.** När du är klar väljer du **OK**.
+5. Under **certifikat**väljer du **Lägg till**. Under **Lägg till certifikat**, ange den här informationen för ditt certifikat. När du är klar väljer du **OK**.
 
    | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------|
-   | **Namn** | <*certifikatnamn*> | Ditt certifikats namn, som är "privateCert" i det här exemplet | 
-   | **Typ av certifikat** | Privat | Certifikatets typ |
-   | **Certifikat** | <*namn på certifikat-fil*> | Om du vill söka efter och markera den certifikatfil som du vill överföra väljer du mappikonen bredvid rutan **Certifikat.** När du använder ett nyckelvalv för den privata nyckeln blir den uppladdade filen det offentliga certifikatet. | 
-   | **Resursgrupp** | <*integration-konto-resurs-grupp*> | Ditt integrationskontos resursgrupp, som är "MyResourceGroup" i det här exemplet | 
-   | **Key Vault** | <*nyckel-valv-namn*> | Namnet på Ditt Azure-nyckelvalv |
-   | **Nyckelnamn** | <*nyckelnamn*> | Nyckelns namn |
+   | **Namn** | <*certifikat-namn*> | Certifikatets namn, som är "privateCert" i det här exemplet | 
+   | **Certifikat typ** | Privat | Ditt certifikats typ |
+   | **Certifikatmallens** | <*certifikat-fil namn*> | Om du vill söka efter och välja den certifikat fil som du vill överföra väljer du mappikonen bredvid rutan **certifikat** . När du använder ett nyckel valv för den privata nyckeln är den överförda filen det offentliga certifikatet. | 
+   | **Resurs grupp** | <*integrering – konto – resurs grupp*> | Integrations kontots resurs grupp, som är "MyResourceGroup" i det här exemplet | 
+   | **Key Vault** | <*Key-valv-namn*> | Ditt Azure Key Vault-namn |
+   | **Nyckelnamn** | <*nyckel namn*> | Nyckelns namn |
    ||||
 
-   ![Välj "Lägg till", ange certifikatinformation](media/logic-apps-enterprise-integration-certificates/private-certificate-details.png)
+   ![Välj "Lägg till", ange certifikat information](media/logic-apps-enterprise-integration-certificates/private-certificate-details.png)
 
-   När Azure har validerat ditt val laddar Azure upp ditt certifikat.
+   När Azure har verifierat ditt val laddar Azure upp ditt certifikat.
 
    ![Azure visar nytt certifikat](media/logic-apps-enterprise-integration-certificates/new-private-certificate.png) 
 

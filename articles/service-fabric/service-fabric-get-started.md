@@ -1,15 +1,15 @@
 ---
-title: Konfigurera en Windows-utvecklingsmiljö
+title: Konfigurera en Windows-utvecklings miljö
 description: Installera runtime, SDK och verktyg och skapa ett lokalt utvecklingskluster. När du har slutfört den här installationen är du redo att börja bygga program i Windows.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.custom: sfrev
 ms.openlocfilehash: 1b43c838537e46ffbaf6c4adcfb117f6718bd046
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81731759"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Förbereda utvecklingsmiljön i Windows
@@ -21,7 +21,7 @@ ms.locfileid: "81731759"
 >
 >
 
-För att kunna skapa och köra [Azure Service Fabric-program][1] på en Windows-utvecklingsdator måste du installera Service Fabric-körmiljön, SDK och verktyg. Du måste också [aktivera körning av Windows PowerShell-skript](#enable-powershell-script-execution) som ingår i SDK.
+För att kunna skapa och köra [Azure Service Fabric-program][1] på en Windows-utvecklingsdator måste du installera Service Fabric-körmiljön, SDK och verktyg. Du måste också [Aktivera körning av Windows PowerShell-skript](#enable-powershell-script-execution) som ingår i SDK: n.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -37,19 +37,19 @@ Följande operativsystemversioner stöds för utveckling:
 
 > [!NOTE]
 > Windows 7-support:
-> - Windows 7 innehåller bara Windows PowerShell 2.0 som standard. Service Fabric PowerShell-cmdletar kräver PowerShell 3.0 eller senare. Du kan [hämta Windows PowerShell 5.1][powershell5-download] från Microsoft Download Center.
+> - Windows 7 innehåller bara Windows PowerShell 2.0 som standard. Service Fabric PowerShell-cmdletar kräver PowerShell 3.0 eller senare. Du kan [Hämta Windows PowerShell 5,1][powershell5-download] från Microsoft Download Center.
 > - Service Fabric Reverse Proxy är inte tillgänglig på Windows 7.
 
 ## <a name="install-the-sdk-and-tools"></a>Installera SDK och verktyg
 
-WebPi (Web Platform Installer) är det rekommenderade sättet att installera SDK och verktyg. Om du får körningsfel med WebPI kan du även hitta direkta länkar till installationsapparna i viktig information för en viss Service Fabric-version. Den viktig information kan hittas i de olika release meddelanden på [Service Fabric team blogg](https://blogs.msdn.microsoft.com/azureservicefabric/).
+Installations programmet för webb plattformen (WebPI) är det rekommenderade sättet att installera SDK och verktyg. Om du får körnings fel med hjälp av WebPI kan du också hitta direkt länkar till installations programmet i viktig information för en viss Service Fabric-version. Viktig information finns i de olika versions meddelandena på [Service Fabric teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric/).
 
 > [!NOTE]
-> Uppgraderingar av lokal tjänst fabric-utvecklingskluster stöds inte.
+> Uppgraderingar av lokala Service Fabric utvecklings kluster stöds inte.
 
-### <a name="to-use-visual-studio-2017-or-2019"></a>Så här använder du Visual Studio 2017 eller 2019
+### <a name="to-use-visual-studio-2017-or-2019"></a>Använda Visual Studio 2017 eller 2019
 
-Service Fabric Tools är en del av Azure Development-arbetsbelastningen i Visual Studio 2017 och 2019. Aktivera den här arbetsbelastningen som en del av Visual Studio-installationen.
+Service Fabrics verktygen är en del av arbets belastningen Azure Development i Visual Studio 2017 och 2019. Aktivera den här arbetsbelastningen som en del av Visual Studio-installationen.
 Du måste också installera Microsoft Azure Service Fabric SDK:n och körmiljön med hjälp av installationsprogrammet för webbplattform.
 
 * [Installera Microsoft Azure Service Fabric SDK][core-sdk]
@@ -58,7 +58,7 @@ Du måste också installera Microsoft Azure Service Fabric SDK:n och körmiljön
 
 För Visual Studio 2015 installeras Service Fabric-verktygen tillsammans med SDK:n och körmiljön med hjälp av installationsprogrammet för webbplattform:
 
-* [Installera Microsoft Azure Service Fabric SDK och Verktyg][full-bundle-vs2015]
+* [Installera Microsoft Azure Service Fabric SDK och verktyg][full-bundle-vs2015]
 
 ### <a name="sdk-installation-only"></a>SDK-installation endast
 
@@ -69,12 +69,12 @@ Om du bara behöver SDK kan du installera det här paketet:
 De aktuella versionerna är:
 
 * Service Fabric SDK och verktyg 4.1.409
-* Service Fabric körtid 7.1.409
+* Service Fabric runtime-7.1.409
 
-En lista över versioner som stöds finns i [Service Fabric-versioner](service-fabric-versions.md)
+En lista över versioner som stöds finns i [Service Fabric versioner](service-fabric-versions.md)
 
 > [!NOTE]
-> OneBox (Single Machine Clusters) stöds inte för uppgraderingar av program eller kluster. ta bort OneBox-klustret och återskapa det om du behöver utföra en klusteruppgradering eller har några problem med att utföra en programuppgradering. 
+> Ett enda dator kluster (Onebox behållaravbildningen) stöds inte för program-eller kluster uppgraderingar. ta bort Onebox behållaravbildningen-klustret och återskapa det om du behöver göra en kluster uppgradering eller om du har problem med att utföra en program uppgradering. 
 
 ## <a name="enable-powershell-script-execution"></a>Aktivera körning av PowerShell-skript
 
@@ -86,7 +86,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 
 ## <a name="install-docker-optional"></a>Installera Docker (valfritt)
 
-[Service Fabric är en behållare orchestrator](service-fabric-containers-overview.md) för distribution av mikrotjänster över ett kluster av datorer. Om du vill köra Windows-behållarprogram i det lokala utvecklingsklustret måste du först installera Docker för Windows. Skaffa [Docker CE för Windows (stabil)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Efter installationen startar du Docker, högerklickar på ikonen för fack och väljer **Switch to Windows containers** (Växla till Windows-behållare). Detta steg krävs för att köra Docker-avbildningar baserade på Windows.
+[Service Fabric är en behållar Orchestrator](service-fabric-containers-overview.md) för att distribuera mikrotjänster i ett kluster med datorer. Om du vill köra Windows-behållar program i ditt lokala utvecklings kluster måste du först installera Docker för Windows. Hämta [Docker CE för Windows (stabilt)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Efter installationen startar du Docker, högerklickar på ikonen för fack och väljer **Switch to Windows containers** (Växla till Windows-behållare). Detta steg krävs för att köra Docker-avbildningar baserade på Windows.
 
 ## <a name="next-steps"></a>Nästa steg
 

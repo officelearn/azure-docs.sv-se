@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 81ee07eb41df6d8d663510913572b829feffd995
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133787"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introduktion till Core Azure Storage Services
@@ -22,7 +22,7 @@ Azure Storages plattformen är Microsofts moln lagrings lösning för moderna da
 - **Pålitlig och mycket tillgänglig.** Redundans garanterar att dina data är säkra i händelse av tillfälliga maskinvarufel. Du kan också välja att replikera data i datacenter eller geografiska regioner för ytterligare skydd mot lokala allvarliga händelser eller naturkatastrofer. Data som replikeras på det här sättet förblir mycket tillgängliga vid ett oväntat avbrott.
 - **Skydda.** Alla data som skrivs till ett Azure Storage-konto krypteras av tjänsten. Med Azure Storage får du detaljerad kontroll över vem som har tillgång till dina data.
 - **Scalable.** Azure Storage är utformat för att vara mycket skalbart för att uppfylla krav på datalagring och prestanda för dagens program.
-- **Hanterad.** Azure hanterar maskin varu underhåll, uppdateringar och kritiska problem åt dig.
+- **Leda.** Azure hanterar maskin varu underhåll, uppdateringar och kritiska problem åt dig.
 - **Åtkomlig.** Data i Azure Storage är åtkomlig från hela världen via HTTP eller HTTPS varifrån som helst. Microsoft tillhandahåller klient bibliotek för Azure Storage på flera olika språk, inklusive .NET, Java, Node. js, python, PHP, ruby, go, och en vuxen REST API. Azure Storage stöder skriptning i Azure PowerShell eller Azure CLI. Azure-portalen och Azure Storage Explorer erbjuder även enkla visuella lösningar för att arbeta med dina data.  
 
 ## <a name="core-storage-services"></a>Kärn lagrings tjänster

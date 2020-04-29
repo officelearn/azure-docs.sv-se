@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: babanisa
 ms.openlocfilehash: 7c45b8f634868024a84f9f3b75bb23031c09b40c
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82114011"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid händelse schema
@@ -87,7 +87,7 @@ Alla händelser har samma följande toppnivå data:
 | Händelsetyp | sträng | Ja | En av de registrerade händelsetyperna för den här händelsekällan. |
 | Händelsetid | sträng | Ja | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | id | sträng | Ja | Unikt ID för händelsen. |
-| data | objekt | Inga | Händelse data som är speciella för resurs leverantören. |
+| data | objekt | Nej | Händelse data som är speciella för resurs leverantören. |
 | Dataversion | sträng | Nej, men kommer att stämplas med ett tomt värde. | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
 | Metadataversion | sträng | Krävs inte, men om det ingår måste det matcha Event Grid schema `metadataVersion` exakt (endast `1`för närvarande). Om den inte ingår stämplas Event Grid in på händelsen. | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
@@ -95,7 +95,7 @@ Information om egenskaperna i data-objektet finns i händelse källan:
 
 * [Azure-prenumerationer (hanterings åtgärder)](event-schema-subscriptions.md)
 * [Container Registry](event-schema-container-registry.md)
-* [Blob-lagring](event-schema-blob-storage.md)
+* [Blob Storage](event-schema-blob-storage.md)
 * [Event Hubs](event-schema-event-hubs.md)
 * [IoT Hub](event-schema-iot-hub.md)
 * [Media Services](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)

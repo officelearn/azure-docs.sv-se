@@ -1,6 +1,6 @@
 ---
-title: Lägga till ett linjelager på en karta | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du lägger till ett linjelager på en karta med Hjälp av Microsoft Azure Maps Web SDK.
+title: Lägg till ett linje lager i en karta | Microsoft Azure Maps
+description: I den här artikeln får du lära dig hur du lägger till ett linje lager till en karta med hjälp av Microsoft Azure Maps-webbsdk.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -10,20 +10,20 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: c473be25907eb3a761fbccd598bb9b732e5be5b9
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80802356"
 ---
-# <a name="add-a-line-layer-to-the-map"></a>Lägga till ett linjelager på kartan
+# <a name="add-a-line-layer-to-the-map"></a>Lägg till ett linje skikt i kartan
 
-Ett linjelager kan användas `LineString` `MultiLineString` för att återge och funktioner som banor eller rutter på kartan. Ett linjelager kan också användas för `Polygon` `MultiPolygon` att återge konturen av och funktioner. En datakälla är ansluten till ett linjelager för att förse den med data att återge. 
+Ett linje lager kan användas för att återge `LineString` och `MultiLineString` funktioner som sökvägar eller vägar på kartan. Ett linje lager kan också användas för att återge konturen för `Polygon` och `MultiPolygon` funktionerna. En data källa är ansluten till ett linje lager för att ge den data som ska återges. 
 
 > [!TIP]
-> Linjelager som standard återger koordinaterna för polygoner samt rader i en datakälla. Om du vill begränsa lagret så att det `filter` bara återger `['==', ['geometry-type'], 'LineString']` LineString-funktioner anger egenskapen för lagret till eller `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` om du också vill inkludera MultiLineString-funktioner.
+> Linje lager som standard återger koordinaterna för polygoner och linjer i en data källa. För att begränsa lagret så att det bara återger lin Est ring-funktioner, `filter` anger du egenskapen för lagret `['==', ['geometry-type'], 'LineString']` till `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` eller om du även vill inkludera MultiLineString-funktioner.
 
-Följande kod visar hur du skapar en rad. Lägg till raden i en datakälla och återge den sedan med ett linjelager med klassen [LineLayer.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest)
+Följande kod visar hur du skapar en rad. Lägg till raden i en data källa och återge den sedan med ett linje lager med klassen [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) .
 
 ```javascript
 //Create a data source and add it to the map.
@@ -40,47 +40,47 @@ map.layers.add(new atlas.layer.LineLayer(dataSource, null, {
 }));
 ```
 
-Nedan visas det fullständiga kodexemplet för ovanstående funktioner.
+Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Lägga till en linje på en karta' src='//codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/qomaKv/'>Lägg till en rad på en karta</a> med Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Lägga till en rad i en karta' src='//codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/qomaKv/'>Lägg till en linje till en karta</a> efter Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Linjelager kan formateras med [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest) och [Använda datadrivna formatuttryck](data-driven-style-expressions-web-sdk.md).
+Linje lager kan skrivas med [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest) och [använda uttryck för data drivna format](data-driven-style-expressions-web-sdk.md).
 
-## <a name="add-symbols-along-a-line"></a>Lägga till symboler längs en linje
+## <a name="add-symbols-along-a-line"></a>Lägg till symboler längs en linje
 
-Det här exemplet visar hur du lägger till pilikoner längs en linje på kartan. När du använder ett symbollager ställer du in alternativet "placering" på "linje". Det här alternativet återger symbolerna längs linjen och roterar ikonerna (0 grader = höger).
+Det här exemplet visar hur du lägger till pil-ikoner längs en linje på kartan. När du använder ett symbol lager ställer du in alternativet "placering" på "linje". Med det här alternativet återges symbolerna längs linjen och ikonerna roteras (0 grader = höger).
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Visa pil längs linje" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se <a href='https://codepen.io/azuremaps/pen/drBJwX/'>pilen</a> Pen Show längs<a href='https://codepen.io/azuremaps'>@azuremaps</a>linjen med Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
+Se pilen för Penn <a href='https://codepen.io/azuremaps/pen/drBJwX/'>Visa utmed rad</a> efter Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
-> Azure Maps web SDK innehåller flera anpassningsbara avbildningsmallar som du kan använda med symbollagret. Mer information finns i dokumentet [Så här använder du bildmallar.](how-to-use-image-templates-web-sdk.md)
+> Azure Maps Web SDK innehåller flera anpassningsbara bildmallar som du kan använda med symbol lagret. Mer information finns i dokumentet om [att använda bildmallar](how-to-use-image-templates-web-sdk.md) .
 
 <a name="line-stroke-gradient"></a>
 
-## <a name="add-a-stroke-gradient-to-a-line"></a>Lägga till en linjeövertoning på en linje
+## <a name="add-a-stroke-gradient-to-a-line"></a>Lägg till en linje toning till en linje
 
-Du kan använda en enda linjefärg på en linje. Du kan också fylla en linje med en övertoning av färger för att visa övergången från ett linjesegment till nästa radsegment. Linjeövertoningar kan till exempel användas för att representera ändringar över tid och avstånd, eller olika temperaturer över en ansluten linje med objekt. För att kunna använda den här funktionen på `lineMetrics` en rad måste datakällan ha alternativet inställt `strokeColor` på true och sedan kan ett färgtoningsuttryck skickas till alternativet för raden. Penntoninguttrycket måste `['line-progress']` referera till datauttrycket som exponerar de beräknade radmåtten för uttrycket.
+Du kan använda en enda linje färg för en linje. Du kan också fylla en linje med en toning av färger för att visa över gången från ett linje segment till nästa rad segment. Till exempel kan rad övertoningar användas för att representera ändringar över tid och avstånd, eller olika temperaturer över en ansluten linje med objekt. För att kunna använda den här funktionen på en rad måste data källan ha `lineMetrics` alternativet inställt på sant och ett färg tonings uttryck kan skickas till `strokeColor` alternativet på raden. Uttrycket linje toning måste referera till det `['line-progress']` data uttryck som visar de beräknade linje måtten för uttrycket.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Linje med linjeövertoning" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>pennlinjen med linjeövertoning</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Linje med Penseldrags toning" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se Penn <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>linjen med penseldrags toning</a> efter Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="customize-a-line-layer"></a>Anpassa ett linjelager
+## <a name="customize-a-line-layer"></a>Anpassa ett linje lager
 
-Linjelagret har flera formateringsalternativ. Här är ett verktyg för att prova dem.
+Linje skiktet har flera format alternativ. Här är ett verktyg för att testa dem.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Alternativ för linjelager' src='//codepen.io/azuremaps/embed/GwLrgb/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se alternativen för <a href='https://codepen.io/azuremaps/pen/GwLrgb/'>pennlinjelager</a> <a href='https://codepen.io/azuremaps'>@azuremaps</a>av Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Alternativ för linje skikt' src='//codepen.io/azuremaps/embed/GwLrgb/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se alternativen för Penn <a href='https://codepen.io/azuremaps/pen/GwLrgb/'>linje skiktet</a> efter Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Nästa steg
@@ -88,12 +88,12 @@ Linjelagret har flera formateringsalternativ. Här är ett verktyg för att prov
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [LineLayer (på andra)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) 
+> [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) 
 
 > [!div class="nextstepaction"]
 > [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)
 
-Se följande artiklar för fler kodexempel att lägga till i dina kartor:
+Se följande artiklar för fler kod exempel som du kan lägga till i dina kartor:
 
 > [!div class="nextstepaction"]
 > [Skapa en datakälla](create-data-source-web-sdk.md)

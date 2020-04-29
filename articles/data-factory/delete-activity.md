@@ -1,6 +1,6 @@
 ---
 title: Ta bort i Azure Data Factory
-description: Lär dig hur du tar bort filer i olika filarkiv med borttagningsaktiviteten i Azure Data Factory.
+description: Lär dig hur du tar bort filer i olika fil lager med aktiviteten Ta bort i Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -13,41 +13,41 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: d90f38f83bd4d2d5311f277fcc928e442d7ea793
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416381"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Ta bort i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
-Du kan använda Borttagningsaktiviteten i Azure Data Factory för att ta bort filer eller mappar från lokala lagringslager eller molnlagringslager. Använd den här aktiviteten för att rensa eller arkivera filer när de inte längre behövs.
+Du kan använda borttagnings aktiviteten i Azure Data Factory om du vill ta bort filer eller mappar från lokala lagrings lager eller lagrings lager i molnet. Använd den här aktiviteten för att rensa eller arkivera filer när de inte längre behövs.
 
 > [!WARNING]
-> Det går inte att återställa borttagna filer eller mappar (såvida inte lagringen har aktiverat för mjuk borttagning). Var försiktig när du använder aktiviteten Ta bort till att ta bort filer och mappar.
+> Borttagna filer eller mappar kan inte återställas (om inte lagringen har mjuk borttagning aktive rad). Var försiktig när du använder aktiviteten Ta bort till att ta bort filer och mappar.
 
 ## <a name="best-practices"></a>Bästa praxis
 
-Här är några rekommendationer för hur du använder borttagningsaktiviteten:
+Här följer några rekommendationer för att använda borttagnings aktiviteten:
 
--   Säkerhetskopiera dina filer innan du tar bort dem med aktiviteten Ta bort om du behöver återställa dem i framtiden.
+-   Säkerhetskopiera filerna innan du tar bort dem med aktiviteten Ta bort om du behöver återställa dem i framtiden.
 
--   Kontrollera att Data Factory har skrivbehörighet för att ta bort mappar eller filer från lagringsarkivet.
+-   Kontrol lera att Data Factory har Skriv behörighet för att ta bort mappar eller filer från lagrings platsen.
 
--   Kontrollera att du inte tar bort filer som skrivs samtidigt. 
+-   Se till att du inte tar bort filer som skrivs på samma gång. 
 
--   Om du vill ta bort filer eller mappar från ett lokalt system kontrollerar du att du använder en självvärderad integrationskörning med en version som är större än 3.14.
+-   Om du vill ta bort filer eller mappar från ett lokalt system kontrollerar du att du använder en lokal integration runtime med en version som är större än 3,14.
 
 ## <a name="supported-data-stores"></a>Datalager som stöds
 
--   [Azure Blob-lagring](connector-azure-blob-storage.md)
+-   [Azure Blob Storage](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 -   [Azure File Storage](connector-azure-file-storage.md)
 
-### <a name="file-system-data-stores"></a>Datalager för filsystem
+### <a name="file-system-data-stores"></a>Fil system data lager
 
 -   [Filsystem](connector-file-system.md)
 -   [FTP](connector-ftp.md)
@@ -80,25 +80,25 @@ Här är några rekommendationer för hur du använder borttagningsaktiviteten:
 }
 ```
 
-## <a name="type-properties"></a>Egenskaper för typ
+## <a name="type-properties"></a>Typ egenskaper
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| Datamängd | Anger datauppsättningsreferensen för att avgöra vilka filer eller vilken mapp som ska tas bort | Ja |
-| Rekursiv | Anger om filerna tas bort rekursivt från undermapparna eller bara från den angivna mappen.  | Nej. Standardvärdet är `false`. |
-| maxConcurrentAnslutningar | Antalet anslutningar som ska anslutas till lagringsarkivet samtidigt för att ta bort mapp eller filer.   |  Nej. Standardvärdet är `1`. |
-| aktivera loggning | Anger om du behöver registrera mappen eller filnamnen som har tagits bort. Om värdet är true måste du ytterligare ange ett lagringskonto för att spara loggfilen, så att du kan spåra beteendet för borttagningsaktiviteten genom att läsa loggfilen. | Inga |
-| logStorageSettings | Gäller endast när enablelogging = sant.<br/><br/>En grupp lagringsegenskaper som kan anges där du vill spara loggfilen som innehåller mapp- eller filnamnen som har tagits bort av aktiviteten Ta bort. | Inga |
-| linkedServiceName | Gäller endast när enablelogging = sant.<br/><br/>Den länkade tjänsten [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), Azure Data Lake [Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties)eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra loggfilen som innehåller mapp- eller filnamn som har tagits bort av borttagningsaktiviteten. Tänk på att den måste konfigureras med samma typ av integrationskörning från den som används av borttagningsaktiviteten för att ta bort filer. | Inga |
-| path | Gäller endast när enablelogging = sant.<br/><br/>Sökvägen för att spara loggfilen i ditt lagringskonto. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Inga |
+| data uppsättning | Tillhandahåller data uppsättnings referensen för att avgöra vilka filer eller mappar som ska tas bort | Ja |
+| rekursiva | Anger om filerna tas bort rekursivt från undermapparna eller bara från den angivna mappen.  | Nej. Standardvärdet är `false`. |
+| maxConcurrentConnections | Antalet anslutningar som ska anslutas till lagrings lagret samtidigt för att ta bort mappar eller filer.   |  Nej. Standardvärdet är `1`. |
+| enablelogging | Anger om du behöver registrera mappen eller fil namnen som har tagits bort. Om det här värdet är sant måste du ytterligare ange ett lagrings konto för att spara logg filen, så att du kan spåra beteendet för borttagnings aktiviteten genom att läsa logg filen. | Nej |
+| logStorageSettings | Endast tillämpligt när EnableLogging = True.<br/><br/>En grupp med lagrings egenskaper som kan anges där du vill spara logg filen som innehåller mappen eller fil namnen som har tagits bort av aktiviteten Ta bort. | Nej |
+| linkedServiceName | Endast tillämpligt när EnableLogging = True.<br/><br/>Den länkade tjänsten [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage gen1](connector-azure-data-lake-store.md#linked-service-properties)eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra logg filen som innehåller mappen eller fil namnen som har tagits bort av aktiviteten Ta bort. Tänk på att det måste konfigureras med samma typ av Integration Runtime från den som används av Delete-aktiviteten för att ta bort filer. | Nej |
+| path | Endast tillämpligt när EnableLogging = True.<br/><br/>Sökvägen för att spara logg filen i ditt lagrings konto. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Nej |
 
 ## <a name="monitoring"></a>Övervakning
 
-Det finns två platser där du kan se och övervaka resultatet av borttagningsaktiviteten: 
--   Från utdata för aktiviteten Ta bort.
--   Från loggfilen.
+Det finns två platser där du kan se och övervaka resultaten av aktiviteten Ta bort: 
+-   Från utdata från aktiviteten Ta bort.
+-   Från logg filen.
 
-### <a name="sample-output-of-the-delete-activity"></a>Exempel på utdata för aktiviteten Ta bort
+### <a name="sample-output-of-the-delete-activity"></a>Exempel på utdata från borttagnings aktiviteten
 
 ```json
 { 
@@ -116,35 +116,35 @@ Det finns två platser där du kan se och övervaka resultatet av borttagningsak
 }
 ```
 
-### <a name="sample-log-file-of-the-delete-activity"></a>Exempel på loggfil för aktiviteten Ta bort
+### <a name="sample-log-file-of-the-delete-activity"></a>Exempel logg fil för borttagnings aktiviteten
 
-| Namn | Kategori | Status | Fel |
+| Name | Kategori | Status | Fel |
 |:--- |:--- |:--- |:--- |
-| test1/yyy.json | Fil | Borttagen |  |
-| test2/hello789.txt | Fil | Borttagen |  |
-| test2/test3/hello000.txt | Fil | Borttagen |  |
-| test2/test3/zzz.json | Fil | Borttagen |  |
+| TEST1/yyy. JSON | Fil | Borttagen |  |
+| TEST2/hello789. txt | Fil | Borttagen |  |
+| TEST2/test3/hello000. txt | Fil | Borttagen |  |
+| TEST2/test3/zzz. JSON | Fil | Borttagen |  |
 
-## <a name="examples-of-using-the-delete-activity"></a>Exempel på hur du använder aktiviteten Ta bort
+## <a name="examples-of-using-the-delete-activity"></a>Exempel på hur du använder borttagnings aktiviteten
 
-### <a name="delete-specific-folders-or-files"></a>Ta bort specifika mappar eller filer
+### <a name="delete-specific-folders-or-files"></a>Ta bort vissa mappar eller filer
 
-Arkivet har följande mappstruktur:
+Butiken har följande mappstruktur:
 
-Rot/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt (2.txt)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv 3.csv 3.csv 3<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.txt (4.txt)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv (5.csv)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt (6.txt)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv (7.csv)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt (8.txt)
+Skogen<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. txt
 
-Nu använder du aktiviteten Ta bort för att ta bort mapp eller filer genom en kombination av ett annat egenskapsvärde än datauppsättningen och aktiviteten Ta bort:
+Nu använder du borttagnings aktiviteten för att ta bort mappar eller filer genom att kombinera olika egenskaps värden från data uppsättningen och borttagnings aktiviteten:
 
-| folderPath (från datauppsättning) | fileName (från datauppsättning) | rekursiv (från aktiviteten Ta bort) | Resultat |
+| folderPath (från data uppsättning) | Fil namn (från data uppsättning) | rekursiv (från borttagnings aktiviteten) | Resultat |
 |:--- |:--- |:--- |:--- |
-| Rot/ Folder_A_2 | NULL | False | Rot/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt (2.txt)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv 3.csv 3.csv 3<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt (4.txt)</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv (5.csv)</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt (6.txt)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv (7.csv)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt (8.txt) |
-| Rot/ Folder_A_2 | NULL | True | Rot/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt (2.txt)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv 3.csv 3.csv 3<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_A_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt (4.txt)</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv (5.csv)</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_1/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6.txt (6.txt)</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>7.csv (7.csv)</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8.txt (8.txt)</strike> |
-| Rot/ Folder_A_2 | *.txt | False | Rot/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt (2.txt)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv 3.csv 3.csv 3<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt (4.txt)</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv (5.csv)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt (6.txt)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv (7.csv)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt (8.txt) |
-| Rot/ Folder_A_2 | *.txt | True | Rot/<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt (2.txt)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv 3.csv 3.csv 3<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt (4.txt)</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.csv (5.csv)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6.txt (6.txt)</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv (7.csv)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8.txt (8.txt)</strike> |
+| Rot-/Folder_A_2 | NULL | Falskt | Skogen<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4. txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5. csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. txt |
+| Rot-/Folder_A_2 | NULL | Sant | Skogen<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_A_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4. txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5. csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_1/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6. txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>7. csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8. txt</strike> |
+| Rot-/Folder_A_2 | *. txt | Falskt | Skogen<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4. txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8. txt |
+| Rot-/Folder_A_2 | *. txt | Sant | Skogen<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4. txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6. txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8. txt</strike> |
 
-### <a name="periodically-clean-up-the-time-partitioned-folder-or-files"></a>Rensa regelbundet den tidspartilade mappen eller filerna
+### <a name="periodically-clean-up-the-time-partitioned-folder-or-files"></a>Rensa den tidspartitionade mappen eller filerna regelbundet
 
-Du kan skapa en pipeline för att regelbundet rensa tidspartiat mapp eller filer.  Mappstrukturen liknar till exempel: `/mycontainer/2018/12/14/*.csv`.  Du kan utnyttja ADF-systemvariabeln från schemautlösaren för att identifiera vilken mapp eller vilka filer som ska tas bort i varje pipeline-körning. 
+Du kan skapa en pipeline för att regelbundet rensa tidspartitionens mapp eller filer.  Till exempel liknar mappstrukturen: `/mycontainer/2018/12/14/*.csv`.  Du kan utnyttja ADF-systemvariabeln från schema utlösaren för att identifiera vilken mapp eller vilka filer som ska tas bort i varje pipeline-körning. 
 
 #### <a name="sample-pipeline"></a>Exempel på pipeline
 
@@ -196,7 +196,7 @@ Du kan skapa en pipeline för att regelbundet rensa tidspartiat mapp eller filer
 }
 ```
 
-#### <a name="sample-dataset"></a>Exempel på datauppsättning
+#### <a name="sample-dataset"></a>Exempel data uppsättning
 
 ```json
 {
@@ -223,7 +223,7 @@ Du kan skapa en pipeline för att regelbundet rensa tidspartiat mapp eller filer
 }
 ```
 
-#### <a name="sample-trigger"></a>Exempelutlösare
+#### <a name="sample-trigger"></a>Exempel utlösare
 
 ```json
 {
@@ -262,9 +262,9 @@ Du kan skapa en pipeline för att regelbundet rensa tidspartiat mapp eller filer
 }
 ```
 
-### <a name="clean-up-the-expired-files-that-were-last-modified-before-201811"></a>Rensa de utgångna filer som senast ändrades före 2018.1.1
+### <a name="clean-up-the-expired-files-that-were-last-modified-before-201811"></a>Rensa de utgångna filerna som senast ändrades före 2018.1.1
 
-Du kan skapa en pipeline för att rensa de gamla eller utgångna filerna genom att utnyttja filattributfiltret: "LastModified" i datauppsättningen.  
+Du kan skapa en pipeline för att rensa gamla eller utgångna filer genom att använda filattribut filter: "LastModified" i data uppsättningen.  
 
 #### <a name="sample-pipeline"></a>Exempel på pipeline
 
@@ -304,7 +304,7 @@ Du kan skapa en pipeline för att rensa de gamla eller utgångna filerna genom a
 }
 ```
 
-#### <a name="sample-dataset"></a>Exempel på datauppsättning
+#### <a name="sample-dataset"></a>Exempel data uppsättning
 
 ```json
 {
@@ -324,12 +324,12 @@ Du kan skapa en pipeline för att rensa de gamla eller utgångna filerna genom a
 }
 ```
 
-### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>Flytta filer genom att länka kopieringsaktiviteten och ta bort aktiviteten
+### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>Flytta filer genom att länka kopierings aktiviteten och ta bort aktiviteten
 
-Du kan flytta en fil med hjälp av en kopieringsaktivitet för att kopiera en fil och sedan en borttagningsaktivitet för att ta bort en fil i en pipeline.  När du vill flytta flera filer kan du använda aktiviteten GetMetadata + Filteraktivitet + Foreach-aktivitet + Kopiera aktivitet + Ta bort aktivitet som i följande exempel:
+Du kan flytta en fil genom att använda en kopierings aktivitet för att kopiera en fil och sedan en borttagnings aktivitet för att ta bort en fil i en pipeline.  När du vill flytta flera filer kan du använda GetMetadata aktivitet + filter aktivitet + aktiviteter för aktiviteter + kopiera aktivitet + ta bort aktivitet som i följande exempel:
 
 > [!NOTE]
-> Om du vill flytta hela mappen genom att definiera en datauppsättning som endast innehåller en mappsökväg och sedan använda en kopieringsaktivitet och en borttagningsaktivitet för att referera till samma datauppsättning som representerar en mapp, måste du vara mycket försiktig. Det beror på att du måste se till att det inte kommer nya filer som kommer in i mappen mellan kopiering och borttagning.  Om det finns nya filer som anländer till mappen vid den tidpunkt då kopieringsaktiviteten just slutfört kopieringsjobbet men aktiviteten Ta bort inte har stirrats, är det möjligt att ta bort aktiviteten Ta bort den nya ankommande filen som INTE har kopierats till målet ännu genom att ta bort hela mappen. 
+> Om du vill flytta hela mappen genom att definiera en data uppsättning som innehåller en mappsökväg, och sedan använda en kopierings aktivitet och en borttagnings aktivitet för att referera till samma data uppsättning som representerar en mapp, måste du vara mycket försiktig. Det beror på att du måste se till att det inte finns nya filer som kommer in i mappen mellan kopierings åtgärden och borttagnings åtgärden.  Om det finns nya filer som anländer till mappen när kopierings aktiviteten precis har slutfört kopieringen men borttagnings aktiviteten inte har varit avslutad, är det möjligt att borttagnings aktiviteten tar bort den nya inkommande filen som inte har kopierats till målet ännu genom att ta bort hela mappen. 
 
 #### <a name="sample-pipeline"></a>Exempel på pipeline
 
@@ -488,7 +488,7 @@ Du kan flytta en fil med hjälp av en kopieringsaktivitet för att kopiera en fi
 
 #### <a name="sample-datasets"></a>Exempeldatauppsättningar
 
-Datauppsättning som används av GetMetadata-aktivitet för att räkna upp fillistan.
+Data uppsättning som används av GetMetadata-aktiviteten för att räkna upp fil listan.
 
 ```json
 {
@@ -507,7 +507,7 @@ Datauppsättning som används av GetMetadata-aktivitet för att räkna upp filli
 }
 ```
 
-Datauppsättning för datakälla som används av kopieringsaktivitet och borttagningsaktiviteten.
+Data uppsättning för den data källa som används av kopierings aktiviteten och aktiviteten Ta bort.
 
 ```json
 {
@@ -540,7 +540,7 @@ Datauppsättning för datakälla som används av kopieringsaktivitet och borttag
 }
 ```
 
-Datauppsättning för datamål som används av kopieringsaktivitet.
+Data uppsättning för data mål som används av kopierings aktiviteten.
 
 ```json
 {
@@ -567,16 +567,16 @@ Datauppsättning för datamål som används av kopieringsaktivitet.
 }
 ```
 
-Du kan också få mallen att flytta filer [härifrån](solution-template-move-files.md).
+Du kan också få mallen att flytta filer [härifrån.](solution-template-move-files.md)
 
 ## <a name="known-limitation"></a>Känd begränsning
 
--   Ta bort aktivitet stöder inte att ta bort en lista över mappar som beskrivs av jokertecken.
+-   Borttagnings aktiviteten stöder inte borttagning av lista över mappar som beskrivs med jokertecken.
 
--   När du använder filattributsfilter: modifiedDatetimeStart och modifiedDatetimeEnd för att välja filer som ska tas bort, se till att ange "fileName": "*" i datauppsättningen.
+-   När du använder filter för filattribut: modifiedDatetimeStart och modifiedDatetimeEnd för att välja vilka filer som ska tas bort, se till att ange "fileName": "*" i data uppsättningen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hur du flyttar filer i Azure Data Factory.
+Lär dig mer om att flytta filer i Azure Data Factory.
 
 -   [Verktyget Kopiera data i Azure Data Factory](copy-data-tool.md)

@@ -1,6 +1,6 @@
 ---
-title: Koppla bort en datadisk från en Virtuell Windows- Azure
-description: Koppla från en datadisk från en virtuell dator i Azure med hjälp av Distributionsmodellen för Resource Manager.
+title: Koppla från en datadisk från en virtuell Windows-dator – Azure
+description: Koppla från en datadisk från en virtuell dator i Azure med hjälp av distributions modellen Resource Manager.
 author: cynthn
 ms.service: virtual-machines-windows
 ms.subservice: disks
@@ -9,28 +9,28 @@ ms.topic: article
 ms.date: 01/08/2020
 ms.author: cynthn
 ms.openlocfilehash: c93bb5fd3e92c6a947fe997b58207b87b2717fd5
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82082772"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Så här kopplar du bort en datadisk från en virtuell Windows-dator
 
-När du inte längre behöver en datadisk som är ansluten till en virtuell dator kan du enkelt koppla bort den. Detta tar bort disken från den virtuella datorn, men tar inte bort den från lagring.
+När du inte längre behöver en datadisk som är ansluten till en virtuell dator kan du enkelt koppla bort den. Disken tas bort från den virtuella datorn, men den tas inte bort från lagrings platsen.
 
 > [!WARNING]
-> Om du kopplar från en disk tas den inte bort automatiskt. Om du prenumererar på Premium-lagring fortsätter du att debiteras lagringsavgifter för disken. Mer information finns i [Priser och fakturering när du använder Premium Storage](disks-types.md#billing).
+> Om du kopplar från en disk tas den inte bort automatiskt. Om du prenumererar på Premium Storage kommer du att fortsätta att betala lagrings avgifter för disken. Mer information finns i [priser och fakturering när du använder Premium Storage](disks-types.md#billing).
 
 Om du vill använda befintliga data på disken igen kan du ansluta den igen till samma virtuella dator, eller till en annan.
 
  
 
-## <a name="detach-a-data-disk-using-powershell"></a>Koppla bort en datadisk med PowerShell
+## <a name="detach-a-data-disk-using-powershell"></a>Koppla från en datadisk med PowerShell
 
-Du kan *ta* bort en datadisk med PowerShell, men se till att inget aktivt använder disken innan du kopplar från den från den virtuella datorn.
+Du kan *ta* bort en datadisk med PowerShell, men se till att inget aktivt använder disken innan du kopplar bort den från den virtuella datorn.
 
-I det här exemplet tar vi bort disken med namnet **myDisk** från VM **myVM** i resursgruppen **myResourceGroup.** Först tar du bort disken med cmdleten [Remove-AzVMDataDisk.](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdatadisk) Sedan uppdaterar du tillståndet för den virtuella datorn, med hjälp av [cmdleten Update-AzVM,](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) för att slutföra processen med att ta bort datadisken.
+I det här exemplet tar vi bort disken med namnet min **disk** från VM- **myVM** i resurs gruppen **myResourceGroup** . Först tar du bort disken med cmdleten [Remove-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdatadisk) . Sedan uppdaterar du statusen för den virtuella datorn med hjälp av cmdleten [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) för att slutföra processen att ta bort data disken.
 
 ```azurepowershell-interactive
 $VirtualMachine = Get-AzVM `
@@ -44,21 +44,21 @@ Update-AzVM `
    -VM $VirtualMachine
 ```
 
-Disken lagras men är inte längre ansluten till en virtuell dator.
+Disken finns kvar i lagrings utrymmet men är inte längre kopplad till en virtuell dator.
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Koppla ifrån en datadisk med hjälp av portalen
 
-Du kan ta bort en datadisk för *att* ta bort en datadisk, men se till att inget aktivt använder disken innan du kopplar från den från den virtuella datorn.
+Du kan ta bort en datadisk med *snabb* borttagning, men se till att inget aktivt använder disken innan du kopplar bort den från den virtuella datorn.
 
-1. Välj **Virtuella datorer**på den vänstra menyn .
-1. Välj den virtuella dator som har den datadisk som du vill koppla från.
+1. På den vänstra menyn väljer du **Virtual Machines**.
+1. Välj den virtuella dator som innehåller den datadisk som du vill koppla från.
 1. Välj **Diskar** under **Inställningar**.
-1. Välj **Redigera**högst upp i fönstret **Diskar** .
-1. Välj Koppla från till höger på den datadisk som du vill koppla från längst till höger på den datadisk som du vill koppla från i **fönstret** **Diskar**.
-1. Välj **Spara** högst upp på sidan för att spara ändringarna.
+1. Överst i fönstret **diskar** väljer du **Redigera**.
+1. I rutan **diskar** längst till höger på den datadisk som du vill koppla från väljer du **Koppla från**.
+1. Spara ändringarna genom att välja **Spara** längst upp på sidan.
 
-Disken lagras men är inte längre ansluten till en virtuell dator.
+Disken finns kvar i lagrings utrymmet men är inte längre kopplad till en virtuell dator.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill återanvända datadisken kan du bara [koppla den till en annan virtuell dator](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+Om du vill återanvända data disken kan du bara [ansluta den till en annan virtuell dator](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

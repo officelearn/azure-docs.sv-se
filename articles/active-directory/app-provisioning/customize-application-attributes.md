@@ -15,10 +15,10 @@ ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 11eddf0e5f9f950373e222a8007cabf7aa0720bb
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82142269"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attribut för användar etablering för SaaS-program i Azure Active Directory
@@ -129,7 +129,7 @@ När du redigerar listan över attribut som stöds anges följande egenskaper:
   - *Reference* -Attribute innehåller ett ID som refererar till ett värde som lagras i en annan tabell i mål programmet.
   - *String* -Attribute innehåller en text sträng.
 - **Primär nyckel?** – Anger om attributet definieras som ett primär nyckel fält i målobjektets schema.
-- **Kunna?** – Anger om attributet måste fyllas i mål programmet eller systemet.
+- **Obligatoriskt?** – Anger om attributet måste fyllas i mål programmet eller systemet.
 - **Flera värden?** – Anger om attributet stöder flera värden.
 - **Exakt fall?** – Om attributvärdena utvärderas på ett skift läges känsligt sätt.
 - **API-uttryck** – Använd inte, om det inte instrueras att göra det i dokumentationen för en speciell etablerings anslutning (till exempel Workday).
@@ -310,7 +310,7 @@ Om du väljer det här alternativet tvingas en omsynkronisering av alla använda
 > [!IMPORTANT]
 > Vi rekommenderar starkt att **etablerings status** är **inaktive rad** innan du anropar det här alternativet.
 
-## <a name="what-you-should-know"></a>Det här bör du känna till
+## <a name="what-you-should-know"></a>Det här bör du veta
 
 - Microsoft Azure AD ger en effektiv implementering av en synkroniseringsprocess. I en initierad miljö bearbetas endast objekt som kräver uppdateringar under en synkroniseringsprocess.
 - Om du uppdaterar attribut-mappningar påverkas prestandan för en synkroniseringsprocess. En uppdatering av konfigurationen för attribut-mappning kräver att alla hanterade objekt utvärderas igen.

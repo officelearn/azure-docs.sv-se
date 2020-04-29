@@ -1,103 +1,103 @@
 ---
 title: Montera en Azure HPC-cache
-description: Ansluta klienter till en Azure HPC-cachetjänst
+description: Ansluta klienter till en Azure HPC cache-tjänst
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: v-erkel
 ms.openlocfilehash: a44232f06b455e20530271723e816c2117b339a0
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81458417"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Montera Azure HPC-cachen
 
-NFS-klienter kan komma åt den med `mount` ett enkelt kommando när cacheminnet har skapats. Kommandot ansluter en specifik sökväg för lagringsmål på Azure HPC-cachen till en lokal katalog på klientdatorn.
+När cachen har skapats kan NFS-klienter komma åt den med ett `mount` enkelt kommando. Kommandot ansluter en speciell lagrings mål Sök väg på Azure HPC-cachen till en lokal katalog på klient datorn.
 
-Kommandot montera består av följande element:
+Monterings kommandot består av följande element:
 
-* En av cachens monteringsadresser (listad på cacheöversiktssidan)
-* Den virtuella namnområdessökvägen som du angav när du skapade lagringsmålet
-* Den lokala sökvägen som ska användas på klienten
-* Kommandoparametrar som optimerar framgången för den här typen av NFS-fäste
+* Ett av cachens monterings adresser (visas på sidan cache-översikt)
+* Den virtuella namn områdes Sök vägen som du angav när du skapade lagrings målet
+* Den lokala sökväg som ska användas på klienten
+* Kommando parametrar som optimerar framgången för den här typen av NFS-montering
 
-Sidan **Montera instruktioner** för cacheminnet samlar in information och rekommenderade alternativ för dig och skapar ett prototypfästekommando som du kan kopiera. Läs verktyget För instruktioner för [montering finns](#use-the-mount-instructions-utility) i Mer information.
+Sidan **monterings instruktioner** för din cache samlar in informationen och de rekommenderade alternativen åt dig, och skapar ett prototyp monterings kommando som du kan kopiera. Läs [Använd verktyget Mount-instruktioner](#use-the-mount-instructions-utility) för mer information.
 
 ## <a name="prepare-clients"></a>Förbereda klienter
 
-Kontrollera att dina klienter kan montera Azure HPC-cachen genom att följa riktlinjerna i det här avsnittet.
+Se till att dina klienter kan montera Azure HPC-cachen genom att följa rikt linjerna i det här avsnittet.
 
-### <a name="provide-network-access"></a>Ge nätverksåtkomst
+### <a name="provide-network-access"></a>Ge nätverks åtkomst
 
-Klientdatorerna måste ha nätverksåtkomst till cachens virtuella nätverk och privata undernät.
+Klient datorerna måste ha nätverks åtkomst till cachens virtuella nätverk och privata undernät.
 
-Skapa till exempel virtuella klientdator i samma virtuella nätverk eller använd en slutpunkt, gateway eller annan lösning i det virtuella nätverket för åtkomst utifrån. (Kom ihåg att inget annat än själva cachen ska finnas i cachens undernät.)
+Du kan till exempel skapa virtuella klient datorer i samma virtuella nätverk eller använda en slut punkt, gateway eller annan lösning i det virtuella nätverket för åtkomst från utanför. (Kom ihåg att inget annat än själva cachen ska finnas i cachens undernät.)
 
 ### <a name="install-utilities"></a>Installera verktyg
 
-Installera lämplig Linux-verktygsprogramvara för att stödja NFS-monteringskommandot:
+Installera rätt Linux-verktyg för att stödja NFS-monterings kommandot:
 
 * För Red Hat Enterprise Linux eller SuSE:`sudo yum install -y nfs-utils`
 * För Ubuntu eller Debian:`sudo apt-get install nfs-common`
 
 ### <a name="create-a-local-path"></a>Skapa en lokal sökväg
 
-Skapa en lokal katalogsökväg på varje klient för att ansluta till cachen. Skapa en sökväg för varje namnområdessökväg som du vill montera.
+Skapa en lokal katalog Sök väg på varje klient för att ansluta till cacheminnet. Skapa en sökväg för varje namn områdes Sök väg som du vill montera.
 
 Exempel: `sudo mkdir -p /mnt/hpc-cache-1/target3`
 
-Sidan [Montera instruktioner](#use-the-mount-instructions-utility) i Azure-portalen innehåller ett prototypkommando som du kan kopiera.
+Sidan [monterings instruktioner](#use-the-mount-instructions-utility) i Azure Portal innehåller ett prototyp kommando som du kan kopiera.
 
-När du ansluter klientdatorn till cacheminnet associerar du sökvägen med en virtuell namnområdessökväg som representerar en lagringsmålexport. Skapa kataloger för var och en av de virtuella namnområdessökvägar som klienten ska använda.
+När du ansluter klient datorn till cacheminnet associeras sökvägen med en sökväg till en virtuell namn rymd som representerar en export av lagrings målet. Skapa kataloger för var och en av de sökvägar för virtuella namn områden som klienten ska använda.
 
-## <a name="use-the-mount-instructions-utility"></a>Använd monteringsinstruktionsverktyget
+## <a name="use-the-mount-instructions-utility"></a>Använd verktyget monterings instruktioner
 
-Du kan använda sidan **Montera instruktioner** i Azure-portalen för att skapa ett kopieringsbart monteringskommando. Öppna sidan från avsnittet **Konfigurera** i cachevyn i portalen.
+Du kan använda sidan **monterings instruktioner** i Azure Portal för att skapa ett kopierings Bart monterings kommando. Öppna sidan från avsnittet **Konfigurera** i vyn cache i portalen.
 
-Innan du använder kommandot på en klient, se till att klienten uppfyller `mount` förutsättningarna och har den programvara som behövs för att använda NFS-kommandot enligt beskrivningen ovan i [Prepare-klienter](#prepare-clients).
+Innan du använder kommandot på en klient kontrollerar du att klienten uppfyller kraven och att den program vara som krävs för att använda NFS `mount` -kommandot enligt beskrivningen ovan i [förbereda klienter](#prepare-clients).
 
-![skärmbild av en Azure HPC-cacheinstans i portalen, med sidan Konfigurera > montera instruktioner inläst](media/mount-instructions.png)
+![skärm bild av en Azure HPC cache-instans i portalen med sidan Konfigurera > monterings instruktioner inläst](media/mount-instructions.png)
 
-Följ den här proceduren för att skapa kommandot montera.
+Följ den här proceduren för att skapa monterings kommandot.
 
-1. Anpassa **sökvägsfältet För klient.** Det här fältet ger ett exempelkommando som du kan använda för att skapa en lokal sökväg på klienten. Klienten kommer åt innehållet från Azure HPC-cachen lokalt i den här katalogen.
+1. Anpassa fältet för **klient Sök vägen** . Det här fältet innehåller ett exempel kommando som du kan använda för att skapa en lokal sökväg på klienten. Klienten får åtkomst till innehållet från Azure HPC cache lokalt i den här katalogen.
 
-   Klicka på fältet och redigera kommandot så att det innehåller önskat katalognamn. Namnet visas i slutet av strängen efter`sudo mkdir -p`
+   Klicka på fältet och redigera kommandot så att det innehåller det katalog namn som du vill använda. Namnet visas i slutet av strängen efter`sudo mkdir -p`
 
-   ![skärmbild av klientsökvägsfältet med markören placerad i slutet](media/mount-edit-client.png)
+   ![skärm bild av fältet för klient Sök vägen med markören placerad i slutet](media/mount-edit-client.png)
 
-   När du har redigerat fältet uppdateras kommandot Montera längst ned på sidan med den nya klientsökvägen.
+   När du har redigerat det här fältet uppdateras monterings kommandot längst ned på sidan med den nya klient Sök vägen.
 
-1. Välj **cachemonterad adress** i listan. Den här menyn listar alla [cachens klientmonteringspunkter](#find-mount-command-components).
+1. Välj **cache-nätadressen** i listan. I den här menyn visas alla [klient monterings punkter](#find-mount-command-components)för cacheminnet.
 
-   Balansera klientbelastningen över alla tillgängliga monteringsadresser för bättre cacheprestanda.
+   Utjämna klient belastningen över alla tillgängliga monterings adresser för bättre prestanda för cachelagring.
 
-   ![skärmbild av cachemontera adressfältet, med väljare som visar tre IP-adresser att välja mellan](media/mount-select-ip.png)
+   ![skärm bild av fältet cache-Mount-adress med väljaren som visar tre IP-adresser att välja mellan](media/mount-select-ip.png)
 
-1. Välj den **virtuella namnområdessökväg** som ska användas för klienten. Dessa sökvägar länkar till export på backend-lagringssystemet.
+1. Välj den **virtuella namn rymds-sökväg** som ska användas för klienten. Dessa sökvägar länkar till exporter i Server dels lagrings systemet.
 
-   ![skärmbild av fältet namnområdessökvägar, med väljaren öppen](media/mount-select-target.png)
+   ![skärm bild av fältet namn områdes Sök vägar med Selector Open](media/mount-select-target.png)
 
-   Du kan visa och ändra virtuella namnområdessökvägar på portalsidan Lagringsmål. Läs [Lägg till lagringsmål](hpc-cache-add-storage.md) för att se hur.
+   Du kan visa och ändra sökvägar för virtuella namn områden på Portal sidan lagrings mål. Läs [Lägg till lagrings mål](hpc-cache-add-storage.md) för att se hur.
 
-   Mer information om Azure HPC-cachens aggregerade namnområdesfunktion läser [du Planera det aggregerade namnområdet](hpc-cache-namespace.md).
+   Om du vill veta mer om Azure HPC Caches funktioner för aggregerad namnrymd kan du läsa [planera den sammanställda namn rymden](hpc-cache-namespace.md).
 
-1. **Kommandofältet Montera** i steg tre fylls automatiskt i med ett anpassat monteringskommando som använder monteringsadressen, den virtuella namnområdessökvägen och klientsökvägen som du anger i föregående fält.
+1. **Monterings kommando** fältet i steg tre fylls i automatiskt med ett anpassat monterings kommando som använder monterings adress, sökväg för virtuellt namn område och klient Sök väg som du angett i föregående fält.
 
-   Klicka på kopieringssymbolen till höger i fältet om du vill kopiera den automatiskt till Urklipp.
+   Klicka på Kopiera symbolen till höger om fältet för att automatiskt kopiera den till Urklipp.
 
-   ![skärmbild av fältet namnområdessökvägar, med väljaren öppen](media/mount-command-copy.png)
+   ![skärm bild av fältet namn områdes Sök vägar med Selector Open](media/mount-command-copy.png)
 
-1. Använd kommandot kopierad montering på klientdatorn för att ansluta det till Azure HPC-cachen. Du kan utfärda kommandot direkt från klientkommandoraden eller inkludera kommandot Mount i ett klientinstallationsskript eller en mall.
+1. Använd det kopierade monterings kommandot på klient datorn för att ansluta det till Azure HPC-cachen. Du kan skicka kommandot direkt från klientens kommando rad eller inkludera kommandot Mount i ett skript eller en mall för klient installationen.
 
-## <a name="understand-mount-command-syntax"></a>Förstå kommandot syntax för fästning
+## <a name="understand-mount-command-syntax"></a>Förstå kommandoradssyntax för montering
 
-Kommandot Montera har följande formulär:
+Monterings kommandot har följande format:
 
-> sudo montera {*alternativ*} *cache_mount_address*:/*namespace_path* *local_path*
+> sudo montering {*alternativ*} *cache_mount_address*:/*namespace_path* *local_path*
 
 Exempel:
 
@@ -107,34 +107,34 @@ root@test-client:/tmp# sudo mount -o hard,proto=tcp,mountproto=tcp,retry=30 10.0
 root@test-client:/tmp#
 ```
 
-När det här kommandot lyckas visas innehållet i lagringsexporten i katalogen ``hpccache`` på klienten.
+När det här kommandot har slutförts visas innehållet i lagrings exporten i ``hpccache`` katalogen på klienten.
 
-### <a name="mount-command-options"></a>Kommandoalternativ för Montera
+### <a name="mount-command-options"></a>Monterings kommando alternativ
 
-För ett robust klientfäste skickar du dessa inställningar och argument i monteringskommandot:
+För en robust klient montering ska du överföra dessa inställningar och argument i monterings kommandot:
 
-> montera -o hård,proto=tcp,mountproto=tcp,retry=30 ${CACHE_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}
+> montering-o hård, proto = TCP, mountproto = TCP, retry = 30 $ {CACHE_IP_ADDRESS}:/$ {NAMESPACE_PATH} $ {LOCAL_FILESYSTEM_MOUNT_POINT}
 
-| Rekommenderade inställningar för monteringskommando | |
+| Rekommenderade monterings kommando inställningar | |
 --- | ---
-``hard`` | Mjuka fästen till Azure HPC-cache är associerade med programfel och eventuell dataförlust.
-``proto=tcp`` | Det här alternativet stöder lämplig hantering av NFS-nätverksfel.
-``mountproto=tcp`` | Det här alternativet stöder lämplig hantering av nätverksfel för monteringsåtgärder.
-``retry=<value>`` | Ställ ``retry=30`` in för att undvika tillfälliga monteringsfel. (Ett annat värde rekommenderas i förgrundsfästen.)
+``hard`` | Mjuka monteringar till Azure HPC cache är kopplade till program haverier och eventuell data förlust.
+``proto=tcp`` | Det här alternativet stöder lämplig hantering av NFS-nätverks fel.
+``mountproto=tcp`` | Det här alternativet stöder lämplig hantering av nätverks fel för monterings åtgärder.
+``retry=<value>`` | Ange ``retry=30`` för att undvika tillfälliga monterings problem. (Ett annat värde rekommenderas i förgrunds monteringar.)
 
-### <a name="find-mount-command-components"></a>Hitta monteringskommandokomponenter
+### <a name="find-mount-command-components"></a>Hitta monterings kommando komponenter
 
-Om du vill skapa ett **monteringskommando** utan att använda sidan Montera instruktioner kan du hitta monteringsadresserna på **sidan** Översikt över cacheminnet och sökvägarna för det virtuella namnområdet på **målsidan För lagring.**
+Om du vill skapa ett monterings kommando utan att använda sidan **monterings instruktioner** kan du hitta monterings adresserna på sidan cache- **Översikt** och Sök vägarna för virtuella namn områden på sidan **lagrings mål** .
 
-![skärmbild av översiktssidan för Azure HPC-cacheinstansen, med en markeringsruta runt listan montera adresser längst ned till höger](media/hpc-cache-mount-addresses.png)
+![skärm bild av översikts sidan för Azure HPC-instansen med en markerings ruta runt monterings adress listan längst ned till höger](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE]
-> Cachefästeadresserna motsvarar nätverksgränssnitt i cachens undernät. I en resursgrupp visas dessa nätverkskort med `-cluster-nic-` namn som slutar och ett tal. Ändra eller ta inte bort dessa gränssnitt, för eftersom cachen blir otillgänglig.
+> Cachens cache-adresser motsvarar nätverks gränssnitten i cachens undernät. I en resurs grupp visas dessa nätverkskort med namn som slutar med `-cluster-nic-` och ett tal. Ändra inte eller ta bort dessa gränssnitt, annars blir cachen otillgänglig.
 
-Sökvägarna för det virtuella namnområdet visas på informationssidan för varje lagringsmål. Klicka på ett enskilt målnamn för lagring om du vill visa dess information, inklusive aggregerade namnområdessökvägar som är associerade med det.
+De virtuella namn Rymdernas sökvägar visas på sidan information om lagrings målet. Klicka på ett enskilt lagrings mål namn om du vill se information om den, inklusive sammansatta namn rymds sökvägar.
 
-![skärmbild av ett informationsblad för ett lagringsmål (rubriken "Uppdatera lagringsmål"). Det finns en markeringsruta runt en post i kolumnen Virtuellt namnområde i tabellen](media/hpc-cache-view-namespace-paths.png)
+![skärm bild av informations sidan för lagrings målet (sidhuvud "uppdatera lagrings mål"). Det finns en markerings ruta runt en post i kolumnen för den virtuella namn områdets sökväg i tabellen](media/hpc-cache-view-namespace-paths.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill flytta data till cachens lagringsmål läser [du Fyll i ny Azure Blob-lagring](hpc-cache-ingest.md).
+* Om du vill flytta data till cachens lagrings mål läser du [fylla i ny Azure Blob Storage](hpc-cache-ingest.md).

@@ -564,14 +564,14 @@
             - name: Förbered en befintlig virtuell dator för cloud-init
               href: cloudinit-prepare-custom-image.md
         - name: Jenkins
-          href: ../../jenkins/overview.md
+          href: /azure/developer/jenkins/overview.md
           items:
             - name: Skapa en Jenkins-server
-              href: ../../jenkins/install-jenkins-solution-template.md
+              href: /azure/developer/jenkins/configure-on-linux-vm.md
             - name: Skala med VM-agenter
-              href: ../../jenkins/jenkins-azure-vm-agents.md
+              href: /azure/developer/jenkins/scale-deployments-using-vm-agents.md
             - name: Publicera artefakter till Storage
-              href: ../../jenkins/storage-java-jenkins-continuous-integration-solution.md
+              href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository.md
             - name: Säker Jenkins
               href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
     - name: Köra containrar

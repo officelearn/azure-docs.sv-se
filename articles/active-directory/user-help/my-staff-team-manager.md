@@ -1,6 +1,6 @@
 ---
-title: Hantera lösenord och telefonnummer med Min personal (förhandsversion) – Azure AD | Microsoft-dokument
-description: Hantera lösenord och telefonnummer för dina användare med Min personal
+title: Hantera lösen ord och telefonnummer med min personal (för hands version) – Azure AD | Microsoft Docs
+description: Hantera lösen ord och telefonnummer för dina användare med min personal
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,103 +14,103 @@ ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: 29c27c876e90bce6a38226f68adf44a26465cfea
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81770859"
 ---
-# <a name="delegate-user-management-with-my-staff-preview"></a>Delegera användarhantering med Min personal (förhandsgranskning)
+# <a name="delegate-user-management-with-my-staff-preview"></a>Delegera användar hantering med min personal (förhands granskning)
 
-Din organisation kan använda **Min personal** för att delegera användarhanteringsuppgifter till auktoritetssiffror, till exempel en butikschef eller gruppledare, för att hjälpa sina anställda att komma åt de program som de behöver. Om gruppmedlemmen inte kan komma åt ett program på grund av att de glömmer ett lösenord går produktiviteten förlorad. Detta driver också upp supportkostnader och orsakar en flaskhals i dina administrativa processer.  Med Min personal kan en gruppmedlem som inte kan komma åt sitt konto få åtkomst igen med bara ett par klick, utan administratörshjälp krävs.
+Din organisation kan använda **min personal** för att delegera användar hanterings uppgifter till delar av myndigheter, till exempel en butiks chef eller grupp ledare, som hjälper deras personal att komma åt de program som de behöver. Om din grupp medlem inte kan komma åt ett program eftersom de glömmer ett lösen ord går produktiviteten förlorade. Detta ger även support kostnader och orsakar Flask halsar i de administrativa processerna.  Med min personal kan en grupp medlem som inte har åtkomst till sitt konto få åtkomst på bara några klick, utan Administratörs hjälp krävs.
 
-## <a name="manage-your-staff-in-my-staff"></a>Hantera din personal i Min personal
+## <a name="manage-your-staff-in-my-staff"></a>Hantera personalen i min personal
 
-Det är enkelt att hantera dina medarbetare i Min personal. Börja med [att gå till Min personal,](https://aka.ms/mystaff)välja ett team eller en plats och välj sedan en användare. Platser och gruppmedlemmarna på en plats bestäms av IT-administratören och du kan inte ändra dem.
+Att hantera dina team medlemmar i min personal är enkelt. Starta genom [att gå till min personal](https://aka.ms/mystaff), Välj ett team eller en plats och välj en användare. Platser och grupp medlemmar på en plats bestäms av IT-administratören och du kan inte ändra dem.
 
-Om du hanterar mer än en plats måste du när du går till Min personal välja en plats för att se den gruppmedlem som är tilldelad platsen.
+Om du hanterar mer än en plats måste du välja en plats för att se den grupp medlem som är tilldelad platsen när du går till min personal.
 
-Om du ännu inte har tillräcklig behörighet för att komma åt Min personal visas följande meddelande "Oj, du verkar inte ha behörighet att se Min personal just nu. Kontakta din administratör för mer information."
+Om du ännu inte har tillräcklig behörighet för att komma åt min personal, ser du följande meddelande "Hoppsan, verkar du inte har behörighet att se min personal för tillfället. Kontakta administratören om du vill ha mer information. "
 
-### <a name="find-a-staff-member-in-my-staff"></a>Hitta en anställd i Min personal
+### <a name="find-a-staff-member-in-my-staff"></a>Hitta en personal medlem i min personal
 
-Du måste öppna profilen för en anställd innan du kan börja hantera dem.
+Du måste öppna profilen för en personal medlem innan du kan börja hantera dem.
 
-1. [Öppna Min personal](https://aka.ms/mystaff) och välj vid behov en plats.
+1. [Öppna min personal](https://aka.ms/mystaff) och välj en plats, om det behövs.
 
-    ![Välj en plats för en gruppmedlem i Min personal](media/my-staff-team-manager/allaus.png)
+    ![Välj en plats för en grupp medlem i min personal](media/my-staff-team-manager/allaus.png)
 
-1. Öppna en gruppmedlems profil.
+1. Öppna en grupp medlems profil.
 
-    ![Välj en av användarna på en plats i Min personal](media/my-staff-team-manager/aupage.png)
+    ![Välj en av användarna på en plats i min personal](media/my-staff-team-manager/aupage.png)
 
 ## <a name="reset-a-user-password"></a>Återställa ett användarlösenord
 
-Om din organisation har gett dig behörighet kan du återställa lösenord för dina anställda.
+Om din organisation har gett dig behörighet kan du återställa lösen orden för dina personal medlemmar.
 
-1. [Öppna min personal.](https://aka.ms/mystaff)
-1. Öppna en anställds profil.
-1. Välj **Återställ lösenord**.
+1. [Öppna min personal](https://aka.ms/mystaff).
+1. Öppna en personal medlems profil.
+1. Välj **Återställ lösen ord**.
 
-    ![Återställa ett användarlösenord i Min personal](media/my-staff-team-manager/resetpassword1.png)
+    ![Återställa ett användar lösen ord i min personal](media/my-staff-team-manager/resetpassword1.png)
 
-1. Generera eller ange det nya lösenordet. Du kan visas ett automatiskt genererat tillfälligt lösenord eller så kan du bli ombedd att ange ett tillfälligt lösenord för användaren.
+1. Generera eller ange det nya lösen ordet. Du kanske visar ett automatiskt genererat temporärt lösen ord, eller så kan du uppmanas att ange ett tillfälligt lösen ord för användaren.
 
-    ![Kopiera det tillfälliga användarlösenordet efter en återställning i Min personal](media/my-staff-team-manager/resetpassword2.png)
+    ![Kopiera det tillfälliga användar lösen ordet efter en återställning i min personal](media/my-staff-team-manager/resetpassword2.png)
 
-När du har återställt användarens lösenord ger du användaren det tillfälliga lösenordet. När användaren loggar in med sitt tillfälliga lösenord måste de ändra det.
+När du har återställt användarens lösen ord ger du användaren det tillfälliga lösen ordet. När användaren loggar in med det tillfälliga lösen ordet måste de ändra det.
 
 ## <a name="manage-a-users-phone-number"></a>Hantera en användares telefonnummer
 
-Om din organisation har gett dig behörighet kan du hantera telefonnummer för dina anställda.
+Om din organisation har gett dig behörighet kan du hantera telefonnummer för dina personal medlemmar.
 
-### <a name="add-a-phone-number"></a>Lägga till ett telefonnummer
+### <a name="add-a-phone-number"></a>Lägg till ett telefonnummer
 
-1. [Öppna min personal.](https://aka.ms/mystaff)
-1. Öppna en anställds profil.
+1. [Öppna min personal](https://aka.ms/mystaff).
+1. Öppna en personal medlems profil.
 1. Välj **Lägg till telefonnummer**.
 
-    ![Lägga till ett telefonnummer för användare i Min personal](media/my-staff-team-manager/addphone1.png)
+    ![Lägg till ett telefonnummer för användare i min personal](media/my-staff-team-manager/addphone1.png)
 
 1. Lägg till telefonnumret och välj **Spara**.
 
-    ![Spara det tillagda användartelefonnumret i Min personal](media/my-staff-team-manager/addphone2.png)
+    ![Spara det tillagda användar telefonnumret i min personal](media/my-staff-team-manager/addphone2.png)
 
-När du har registrerat ett telefonnummer för en användare kan de använda det för att logga in med SMS, utföra tvåstegsverifiering eller återställa sitt lösenord på egen hand, beroende på organisationens inställningar.
+När du har registrerat ett telefonnummer för en användare kan de använda det för att logga in med SMS, utföra tvåstegsverifiering eller återställa sina lösen ord på egen hand, beroende på din organisations inställningar.
 
-![Nytt telefonnummer registrerat hos Min personal](media/my-staff-team-manager/addphone3.png)
+![Nytt telefonnummer registrerat i min personal](media/my-staff-team-manager/addphone3.png)
 
 ### <a name="edit-a-phone-number"></a>Redigera ett telefonnummer
 
-1. [Öppna min personal.](https://aka.ms/mystaff)
-1. Öppna en anställds profil.
-1. Välj **Redigera telefonnummer**.
+1. [Öppna min personal](https://aka.ms/mystaff).
+1. Öppna en personal medlems profil.
+1. Välj **redigera telefonnummer**.
 
-    ![Välj Redigera från användarprofilen i Min personal](media/my-staff-team-manager/editphone2.png)
+    ![Välj Redigera från användar profilen i min personal](media/my-staff-team-manager/editphone2.png)
 
 1. Ange det nya telefonnumret och välj **Spara**.
 
-    ![Redigera ett telefonnummer till en anställd i Min personal](media/my-staff-team-manager/editphone1.png)
+    ![Redigera ett telefonnummer för personal medlem i min personal](media/my-staff-team-manager/editphone1.png)
 
-### <a name="enable-phone-number-sign-in-for-a-user"></a>Aktivera inloggning av telefonnummer för en användare
+### <a name="enable-phone-number-sign-in-for-a-user"></a>Aktivera telefonnummer inloggning för en användare
 
-Om inloggning med ett telefonnummer som användarnamn (SMS-inloggning) är aktiverat i organisationen kan du lägga till den här autentiseringen i ett befintligt användartelefonnummer.
+Om inloggningen använder ett telefonnummer som användar namn (SMS-inloggning) har Aktiver ATS i din organisation kan du lägga till den här autentiseringen till ett befintligt telefonnummer för användare.
 
-1. [Öppna min personal.](https://aka.ms/mystaff)
-1. Öppna en anställds profil.
-1. Om det finns ett meddelande längst ned på skärmen där det står att det är tillgängligt att logga in med ditt telefonnummer som användarnamn väljer du **Aktivera** för att påbörja processen. Det här meddelandet visas om användaren har aktiverats för att logga in med sitt telefonnummer.
+1. [Öppna min personal](https://aka.ms/mystaff).
+1. Öppna en personal medlems profil.
+1. Om det finns ett meddelande längst ned på skärmen som säger att du loggar in med ditt telefonnummer som ett användar namn är tillgängligt för dig väljer du **Aktivera** för att starta processen. Det här meddelandet visas om användaren har Aktiver ATS för inloggning med sitt telefonnummer.
 
-    ![Visa meddelandet när telefon inloggning stöds på en plats i Min personal](media/my-staff-team-manager/enableforms1.png)
+    ![Se meddelandet när telefonin loggning stöds på en plats i min personal](media/my-staff-team-manager/enableforms1.png)
 
 1. Välj **OK** när du är klar.
 
-    ![Ta bort ett telefonnummer till en anställd i Min personal](media/my-staff-team-manager/enableforms2.png)
+    ![Ta bort ett telefonnummer för personal medlem i min personal](media/my-staff-team-manager/enableforms2.png)
 
 ### <a name="remove-a-phone-number"></a>Ta bort ett telefonnummer
 
-1. [Öppna min personal.](https://aka.ms/mystaff)
-1. Öppna en anställds profil.
-1. Välj **Ta bort telefonnummer**.
-1. Välj **Ta bort** när du är klar.
+1. [Öppna min personal](https://aka.ms/mystaff).
+1. Öppna en personal medlems profil.
+1. Välj **ta bort telefonnummer**.
+1. Välj **ta bort** när du är klar.
 
-    ![Ta bort ett telefonnummer till en anställd i Min personal](media/my-staff-team-manager/deletephone1.png)
+    ![Ta bort ett telefonnummer för personal medlem i min personal](media/my-staff-team-manager/deletephone1.png)

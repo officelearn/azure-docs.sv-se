@@ -1,6 +1,6 @@
 ---
-title: Utforska data i ett Hadoop-kluster - Team Data Science Process
-description: Använda Team Data Science Process för ett heltäckande scenario, med hjälp av ett HDInsight Hadoop-kluster för att skapa och distribuera en modell.
+title: Utforska data i ett Hadoop-kluster – team data science process
+description: Använd Team data science-processen för ett scenario från slut punkt till slut punkt som använder ett HDInsight Hadoop-kluster för att bygga och distribuera en modell.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,23 +12,23 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: bf69786f56f52874bd9358ae44a6b88b466e77f4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81677463"
 ---
-# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Teamdatascience-processen i aktion: Använd Azure HDInsight Hadoop-kluster
-I den här genomgången använder vi [Team Data Science Process (TDSP)](overview.md) i ett end-to-end-scenario. Vi använder ett [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) för att lagra, utforska och funktionstekniska data från den allmänt tillgängliga [NYC Taxi Trips-datauppsättningen](https://www.andresmh.com/nyctaxitrips/) och för att lägga ned urvalet av data. För att hantera binära och multiklassklassificerings- och regressionsfördiktiva uppgifter skapar vi modeller av data med Azure Machine Learning. 
+# <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team data science-processen i praktiken: Använd Azure HDInsight Hadoop kluster
+I den här genom gången använder vi [team data science-processen (TDSP)](overview.md) i ett scenario från slut punkt till slut punkt. Vi använder ett [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) för att lagra, utforska och tillhandahålla data från den allmänt tillgängliga [NYC taxi TRIPs](https://www.andresmh.com/nyctaxitrips/) -datauppsättningen och för att få fram exempel på data. För att hantera binära och Regressions aktiviteter med multiklasser, bygger vi modeller av data med Azure Machine Learning. 
 
-En genomgång som visar hur du hanterar en större datauppsättning finns i [Team Data Science Process – Använda Azure HDInsight Hadoop-kluster på en datauppsättning med 1 TB](hive-criteo-walkthrough.md).
+En genom gång som visar hur du hanterar en större data uppsättning finns i [team data science process-använda Azure HDInsight Hadoop kluster på en data uppsättning på 1 TB](hive-criteo-walkthrough.md).
 
-Du kan också använda en IPython-anteckningsbok för att utföra de uppgifter som visas i genomgången som använder datauppsättningen 1 TB. Mer information finns i [Criteo-genomgången med en Hive ODBC-anslutning](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
+Du kan också använda en IPython Notebook för att utföra de uppgifter som visas i genom gången som använder data uppsättningen 1 – TB. Mer information finns i [Criteo-genom gång med en Hive ODBC-anslutning](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
-## <a name="nyc-taxi-trips-dataset-description"></a><a name="dataset"></a>NYC Taxi Trips datauppsättning beskrivning
-Den NYC Taxi Trip data är ca 20 GB komprimerade kommaavgränsade värden (CSV) filer (~ 48 GB okomprimerad). Den har mer än 173 miljoner individuella resor, och inkluderar de priser som betalas för varje resa. Varje resepost innehåller upphämtning och avlämningsplats och tid, anonymiserat hack (körkort) och medaljongnummer (taxins unika ID). Uppgifterna omfattar alla resor år 2013 och finns i följande två datamängder för varje månad:
+## <a name="nyc-taxi-trips-dataset-description"></a><a name="dataset"></a>Beskrivning av NYC taxi TRIPs-datauppsättning
+NYC taxi-resan är ungefär 20 GB komprimerade kommaavgränsade värden (CSV) (~ 48 GB okomprimerat). Det har fler än 173 000 000 enskilda resor och omfattar de priser som betalas för varje resa. Varje rese post omfattar hämtnings-och DropOff plats och tid, anonymiserats Hack (driv rutins licens nummer) och Medallion nummer (Taxins unika ID). Data omfattar alla resor under året 2013 och tillhandahålls i följande två data uppsättningar för varje månad:
 
-- De trip_data CSV-filerna innehåller reseinformation: antalet passagerare, hämtnings- och avlämningspunkter, resans varaktighet och resans längd. Här är några exempelposter:
+- Trip_data CSV-filer innehåller information om resan: antalet passagerare, hämtning och DropOff punkter, varaktighet för resan och rese längd. Här följer några exempel poster:
    
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -36,7 +36,7 @@ Den NYC Taxi Trip data är ca 20 GB komprimerade kommaavgränsade värden (CSV) 
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
-- De trip_fare CSV-filerna innehåller information om det pris som betalats för varje resa: betalningstyp, biljettprisbelopp, tilläggsavgift och skatter, tips och vägtullar samt det totala belopp som betalats. Här är några exempelposter:
+- Trip_fare CSV-filer innehåller information om avgiften som betalas för varje resa: betalnings typ, avgifts belopp, tilläggs avgift, tips och avgifter och totalt betalat belopp. Här följer några exempel poster:
    
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -45,119 +45,119 @@ Den NYC Taxi Trip data är ca 20 GB komprimerade kommaavgränsade värden (CSV) 
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-Den unika nyckeln\_för att\_gå med resa data och resa\_biljettpris består\_av fälten: medaljong, hacka licens och pickup datetime. För att få alla detaljer som är relevanta för en viss resa, är det tillräckligt att gå med dessa tre nycklar.
+Den unika nyckeln för att ansluta\_till rese data\_och rese pris består av fälten: Medallion, Hack\_License och upphämtnings\_datum. För att få all information som är relevant för en viss resa räcker det att ansluta till dessa tre nycklar.
 
-## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Exempel på förutsägelseuppgifter
-Bestäm vilken typ av förutsägelser du vill göra baserat på dataanalys för att klargöra de nödvändiga processuppgifterna. Här är tre exempel på förutsägelse problem som vi tar itu med i denna genomgång, alla baserat på *\_tips belopp:*
+## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Exempel på förutsägelse aktiviteter
+Bestäm vilken typ av förutsägelser du vill göra baserat på data analys för att klargör nödvändiga process uppgifter. Här följer tre exempel på förutsägelse problem som vi åtgärdar i den här genom gången, allt baserat på *tips\_mängden*:
 
-- **Binär klassificering**: Förutsäg om ett tips har betalats för en resa. Det vill än ett *tips\_belopp* som är större än $ 0 är ett positivt exempel, medan ett tips *\_belopp* på $ 0 är ett negativt exempel.
+- **Binära klassificering**: förutsäga huruvida ett tips har betalats för en resa. Det vill säga ett *Tip\_-belopp* som är större än $0 är ett positivt exempel, medan *ett\_tips* på $0 är ett negativt exempel.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0
-- **Multiklassklassificering**: Förutsäg intervallet för tipsbelopp som betalats för resan. Vi delar *\_upp tipsbeloppet* i fem klasser:
+- **Klassificering**av flera klasser: förutsäga antalet Tip-mängder som betalas för resan. Vi delar upp *tipset\_* i fem klasser:
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0 and tip_amount <= $5
         Class 2: tip_amount > $5 and tip_amount <= $10
         Class 3: tip_amount > $10 and tip_amount <= $20
         Class 4: tip_amount > $20
-- **Regressionsuppgift**: Förutsäg hur mycket tips som betalats för en resa.  
+- **Regressions uppgift**: förutsäga hur mycket av tipset som betalats för en resa.  
 
 ## <a name="set-up-an-hdinsight-hadoop-cluster-for-advanced-analytics"></a><a name="setup"></a>Konfigurera ett HDInsight Hadoop-kluster för avancerad analys
 > [!NOTE]
-> Detta är vanligtvis en administratörsuppgift.
+> Detta är vanligt vis en administratörs uppgift.
 > 
 > 
 
 Du kan konfigurera en Azure-miljö för avancerad analys som använder ett HDInsight-kluster i tre steg:
 
-1. [Skapa ett lagringskonto](../../storage/common/storage-account-create.md): Det här lagringskontot används för att lagra data i Azure Blob-lagring. De data som används i HDInsight-kluster finns också här.
-2. [Anpassa Azure HDInsight Hadoop-kluster för avancerad analysprocess och teknik](customize-hadoop-cluster.md). Det här steget skapar ett HDInsight Hadoop-kluster med 64-bitars Anaconda Python 2.7 installerat på alla noder. Det finns två viktiga steg att komma ihåg när du anpassar HDInsight-klustret.
+1. [Skapa ett lagrings konto](../../storage/common/storage-account-create.md): det här lagrings kontot används för att lagra data i Azure Blob Storage. Data som används i HDInsight-kluster finns också här.
+2. [Anpassa Azure HDInsight Hadoop kluster för avancerad analys process och teknik](customize-hadoop-cluster.md). Det här steget skapar ett HDInsight Hadoop-kluster med 64-bitars Anaconda python 2,7 installerat på alla noder. Det finns två viktiga steg att komma ihåg när du anpassar ditt HDInsight-kluster.
    
-   * Kom ihåg att länka lagringskontot som skapats i steg 1 med ditt HDInsight-kluster när du skapar det. Det här lagringskontot kommer åt data som bearbetas i klustret.
-   * När du har skapat klustret aktiverar du Fjärråtkomst till huvudnoden för klustret. Bläddra till fliken **Konfiguration** och välj **Aktivera fjärr .** Det här steget anger de användaruppgifter som används för fjärrinloggning.
-3. [Skapa en Azure Machine Learning-arbetsyta:](../studio/create-workspace.md)Du använder den här arbetsytan för att skapa maskininlärningsmodeller. Den här uppgiften åtgärdas efter att ha slutfört en inledande datautforskning och nedsampling med hjälp av HDInsight-klustret.
+   * Kom ihåg att länka lagrings kontot som skapades i steg 1 med ditt HDInsight-kluster när du skapar det. Det här lagrings kontot har åtkomst till data som bearbetas i klustret.
+   * När du har skapat klustret aktiverar du fjärråtkomst till Head-noden i klustret. Bläddra till fliken **konfiguration** och välj **Aktivera fjärran sluten**. Det här steget anger de användarautentiseringsuppgifter som används för fjärrinloggning.
+3. [Skapa en Azure Machine Learning arbets yta](../studio/create-workspace.md): du använder den här arbets ytan för att skapa maskin inlärnings modeller. Den här uppgiften åtgärdas när du har slutfört en första data utforskning och-sampling, med hjälp av HDInsight-klustret.
 
 ## <a name="get-the-data-from-a-public-source"></a><a name="getdata"></a>Hämta data från en offentlig källa
 > [!NOTE]
-> Detta är vanligtvis en administratörsuppgift.
+> Detta är vanligt vis en administratörs uppgift.
 > 
 > 
 
-Om du vill kopiera [NYC Taxi Trips-datauppsättningen](https://www.andresmh.com/nyctaxitrips/) till datorn från dess offentliga plats använder du någon av de metoder som beskrivs i [Flytta data till och från Azure Blob-lagring](move-azure-blob.md).
+Om du vill kopiera data uppsättningen [NYC taxi TRIPs](https://www.andresmh.com/nyctaxitrips/) till din dator från dess offentliga plats använder du någon av de metoder som beskrivs i [Flytta data till och från Azure Blob Storage](move-azure-blob.md).
 
-Här beskriver vi hur du använder AzCopy för att överföra filer som innehåller data. Om du vill hämta och installera AzCopy följer du instruktionerna på [Komma igång med kommandoradsverktyget AzCopy](../../storage/common/storage-use-azcopy.md).
+Här beskrivs hur du använder AzCopy för att överföra filer som innehåller data. Hämta och installera AzCopy genom att följa anvisningarna i [komma igång med kommando rads verktyget AzCopy](../../storage/common/storage-use-azcopy.md).
 
-1. Kör följande AzCopy-kommandon i ett kommandotolksfönster och ersätter * \<path_to_data_folder>* med önskat mål:
+1. Kör följande AzCopy-kommandon i kommando tolken och Ersätt * \<path_to_data_folder>* med önskad destination:
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. När kopian är klar ser du totalt 24 zippade filer i den valda datamappen. Packa upp de nedladdade filerna till samma katalog på den lokala datorn. Anteckna mappen där de okomprimerade filerna finns. Den här mappen kallas * \<\_sökvägen\_till unzipped_data\_\> filer* i det följande.
+1. När kopieringen är klar visas totalt 24 zippade filer i mappen data som valts. Zippa upp de hämtade filerna till samma katalog på den lokala datorn. Anteckna mappen där de okomprimerade filerna finns. Den här mappen kallas * \<sökvägen\_för\_att unzipped_data\_filer\> * på det sätt som följer.
 
-## <a name="upload-the-data-to-the-default-container-of-the-hdinsight-hadoop-cluster"></a><a name="upload"></a>Ladda upp data till standardbehållaren för HDInsight Hadoop-klustret
+## <a name="upload-the-data-to-the-default-container-of-the-hdinsight-hadoop-cluster"></a><a name="upload"></a>Ladda upp data till standard behållaren för HDInsight Hadoop-klustret
 > [!NOTE]
-> Detta är vanligtvis en administratörsuppgift.
+> Detta är vanligt vis en administratörs uppgift.
 > 
 > 
 
-I följande AzCopy-kommandon ersätter du följande parametrar med de faktiska värden som du angav när du skapade Hadoop-klustret och packar upp datafilerna.
+I följande AzCopy-kommandon ersätter du följande parametrar med de faktiska värden som du angav när du skapade Hadoop-klustret och avzippar datafilerna.
 
-* *** \<path_to_data_folder>*** Katalogen (tillsammans med sökvägen) på datorn som innehåller de uppackade datafilerna.  
-* ***lagringskontonamnet för Hadoop-kluster>\<*** Lagringskontot som är kopplat till ditt HDInsight-kluster.
-* ***standardbehållare för Hadoop-kluster>\<*** Standardbehållaren som används av klustret. Namnet på standardbehållaren är vanligtvis samma namn som själva klustret. Om klustret till exempel kallas "abc123.azurehdinsight.net" är standardbehållaren abc123.
-* ***nyckeln för lagringskonto>\<*** Nyckeln för lagringskontot som används av klustret.
+* *** \<path_to_data_folder>*** Katalogen (tillsammans med sökvägen) på datorn som innehåller de zippade datafilerna.  
+* ***lagrings konto namn för Hadoop-kluster>\<*** Det lagrings konto som är associerat med ditt HDInsight-kluster.
+* ***standard behållare för Hadoop-kluster>\<*** Standard behållaren som används av klustret. Namnet på standard behållaren är vanligt vis samma namn som själva klustret. Om klustret till exempel kallas "abc123.azurehdinsight.net" är standard behållaren vi abc123.
+* lagrings konto nyckel>*** \<*** Nyckeln för det lagrings konto som används av klustret.
 
-Kör följande två AzCopy-kommandon från en kommandotolk eller ett PowerShell-fönster.
+Kör följande två AzCopy-kommandon från en kommando tolk eller ett Windows PowerShell-fönster.
 
-Det här kommandot överför resedata till ***katalogen nyctaxitripraw*** i standardbehållaren för Hadoop-klustret.
+Det här kommandot överför rese data till ***nyctaxitripraw*** -katalogen i standard behållaren för Hadoop-klustret.
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data_*.csv
 
-Det här kommandot överför biljettprisdata till ***katalogen nyctaxifareraw*** i standardbehållaren för Hadoop-klustret.
+Det här kommandot överför pris data till ***nyctaxifareraw*** -katalogen i standard behållaren för Hadoop-klustret.
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
 
-Data bör nu vara i Blob-lagring och redo att förbrukas i HDInsight-klustret.
+Data bör nu finnas i Blob Storage och vara redo att användas i HDInsight-klustret.
 
-## <a name="sign-in-to-the-head-node-of-hadoop-cluster-and-prepare-for-exploratory-data-analysis"></a><a name="#download-hql-files"></a>Logga in på huvudnoden i Hadoop-klustret och förbered dig för dataanalys
+## <a name="sign-in-to-the-head-node-of-hadoop-cluster-and-prepare-for-exploratory-data-analysis"></a><a name="#download-hql-files"></a>Logga in på Head-noden i Hadoop-kluster och Förbered för analys av undersöknings data
 > [!NOTE]
-> Detta är vanligtvis en administratörsuppgift.
+> Detta är vanligt vis en administratörs uppgift.
 > 
 > 
 
-Om du vill komma åt huvudnoden i klustret för dataanalys och nedsprovtagning av data följer du proceduren som beskrivs i [Access huvudnoden för Hadoop Cluster](customize-hadoop-cluster.md).
+Om du vill få åtkomst till Head-noden i klustret för analys av exempel data och data insamlingen följer du proceduren som beskrivs i [åtkomst till Head-noden i Hadoop-kluster](customize-hadoop-cluster.md).
 
-I den här genomgången använder vi främst frågor skrivna i [Hive](https://hive.apache.org/), ett SQL-liknande frågespråk, för att utföra preliminära datautforskningar. Hive-frågorna lagras i ".hql"-filer. Vi ned-prover sedan dessa data som ska användas inom Machine Learning för att bygga modeller.
+I den här genom gången använder vi i första hand frågor som skrivits i [Hive](https://hive.apache.org/), ett SQL-liknande frågespråk, för att utföra preliminära data utforskningar. Hive-frågorna lagras i ". HQL"-filer. Vi kan sedan stänga av data som ska användas i Machine Learning för att skapa modeller.
 
-Om du vill förbereda klustret för dataanalys laddar du ned filerna ".hql" som innehåller relevanta Hive-skript från [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) till en lokal katalog (C:\temp) på huvudnoden. Öppna kommandotolken inifrån huvudnoden i klustret och kör följande två kommandon:
+För att förbereda klustret för analys av exempel data kan du hämta filerna ". HQL" som innehåller relevanta Hive-skript från [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) till en lokal katalog (C:\Temp) på Head-noden. Öppna kommando tolken inifrån noden Head i klustret och kör följande två kommandon:
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/DataScienceProcess/DataScienceScripts/Download_DataScience_Scripts.ps1'
 
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Dessa två kommandon ladda ner alla '.hql' filer som behövs i denna genomgång till den lokala katalogen ***C: \ temp&#92;*** i huvudet noden.
+De här två kommandona laddar ned alla '. HQL '-filer som behövs i den här genom gången till den lokala katalogen ***C:\temp&#92;*** i head-noden.
 
 ## <a name="create-hive-database-and-tables-partitioned-by-month"></a><a name="#hive-db-tables"></a>Skapa Hive-databas och tabeller partitionerade efter månad
 > [!NOTE]
-> Den här uppgiften är vanligtvis för en administratör.
+> Den här uppgiften är normalt för en administratör.
 > 
 > 
 
-Du är nu redo att skapa Hive-tabeller för NYC taxi datauppsättning.
-Öppna kommandoraden Hadoop på skrivbordet för huvudnoden i Hadoop-klustret. Ange Hive-katalogen genom att köra följande kommando:
+Du är nu redo att skapa Hive-tabeller för NYC taxi-datauppsättningen.
+I noden Head i Hadoop-klustret öppnar du kommando raden för Hadoop på Skriv bordet för Head-noden. Ange Hive-katalogen genom att köra följande kommando:
 
     cd %hive_home%\bin
 
 > [!NOTE]
-> Kör alla Hive-kommandon i den här genomgången från Hive-bin/katalogprompten. Detta hanterar alla sökvägsproblem automatiskt. Vi använder termerna "Hive directory prompt", "Hive bin/ directory prompt" och "Hadoop command line" omväxlande i den här genomgången.
+> Kör alla Hive-kommandon i den här genom gången från registrerings data filen för Hive bin/katalog. Detta hanterar eventuella Sök vägs problem automatiskt. Vi använder termerna "Hive-katalog fråga", "Hive-bin/katalog fråga" och "Hadoop-kommandoraden" i den här genom gången.
 > 
 > 
 
-Kör följande kommando på kommandoraden Hadoop på huvudnoden som skapar Hive-databasen och tabellerna i Hive-katalogen:
+Från Hive-katalogen, kör du följande kommando på Hadoop-kommandoraden i head-noden som skapar Hive-databasen och-tabellerna:
 
     hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 
-Här är innehållet i **\_C:\temp\sample\_\_hive create\_db and\_tables.hql-filen** som skapar Hive-databasen **nyctaxidb**och tabellerna **resa** och **biljettpris**.
+Här är innehållet i **Hive\_\_-C:\temp\sample skapa\_DB\_-och\_tables. HQL** -fil som skapar Hive-databasen **nyctaxidb**och tabellerna **resa** och **pris**.
 
     create database if not exists nyctaxidb;
 
@@ -200,35 +200,35 @@ Här är innehållet i **\_C:\temp\sample\_\_hive create\_db and\_tables.hql-fil
 
 Detta Hive-skript skapar två tabeller:
 
-* **Resetabellen** innehåller reseinformation om varje resa (förarinformation, hämtningstid, ressträcka och tider).
-* **Pristabellen** innehåller biljettuppgifter (biljettprisbelopp, dricksbelopp, vägtullar och tilläggsavgifter).
+* **Rese** tabellen innehåller information om resan för varje åsidosättning (driv rutins information, hämtnings tid, rese avstånd och tider).
+* **Avgifts** tabellen innehåller information om biljetten (pris belopp, Tip-belopp, avgifter och tillägg).
 
-Om du behöver ytterligare hjälp med dessa procedurer, eller om du vill undersöka alternativa, läser du avsnittet [Skicka Hive-frågor direkt från Hadoop-kommandoraden](move-hive-tables.md#submit).
+Om du behöver ytterligare hjälp med dessa procedurer, eller om du vill undersöka alternativ, kan du läsa avsnittet [Skicka Hive-frågor direkt från Hadoop-kommandoraden](move-hive-tables.md#submit).
 
-## <a name="load-data-to-hive-tables-by-partitions"></a><a name="#load-data"></a>Läsa in data till Hive-tabeller efter partitioner
+## <a name="load-data-to-hive-tables-by-partitions"></a><a name="#load-data"></a>Läs in data till Hive-tabeller efter partitioner
 > [!NOTE]
-> Den här uppgiften är vanligtvis för en administratör.
+> Den här uppgiften är normalt för en administratör.
 > 
 > 
 
-NYC taxi datauppsättning har en naturlig partitionering per månad, som vi använder för att möjliggöra snabbare bearbetning och frågetider. Följande PowerShell-kommandon (som utfärdas från Hive-katalogen med hjälp av Kommandoraden Hadoop) läser in data till tabellen resa och biljettpris, partitionerade efter månad.
+NYC taxi-datauppsättningen har en naturlig partitionering efter månad, som vi använder för att aktivera snabbare bearbetning och fråge tider. Följande PowerShell-kommandon (som utfärdats från Hive-katalogen med hjälp av Hadoop-kommandoraden) läser in data till Hive-tabellerna för rese-och registrerings nivå, partitionerade efter månad.
 
     for /L %i IN (1,1,12) DO (hive -hiveconf MONTH=%i -f "C:\temp\sample_hive_load_data_by_partitions.hql")
 
-**\_Exempelinläsningsdata\_\_för\_\_inläsningsdata av partitions.hql-filen** innehåller följande **LOAD-kommandon:**
+**\_Registrerings\_\_data filen för exempel data\_by partitions. HQL innehåller följande inläsnings kommandon:\_** **LOAD**
 
     LOAD DATA INPATH 'wasb:///nyctaxitripraw/trip_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.trip PARTITION (month=${hiveconf:MONTH});
     LOAD DATA INPATH 'wasb:///nyctaxifareraw/trip_fare_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.fare PARTITION (month=${hiveconf:MONTH});
 
-Ett antal av Hive frågor som används här i prospekteringsprocessen innebär att titta på endast en eller två partitioner. Men dessa frågor kan köras över hela datauppsättningen.
+Ett antal Hive-frågor som används här i utforsknings processen innebär bara att titta på en eller två partitioner. Men dessa frågor kan köras över hela data uppsättningen.
 
 ### <a name="show-databases-in-the-hdinsight-hadoop-cluster"></a><a name="#show-db"></a>Visa databaser i HDInsight Hadoop-klustret
-Om du vill visa de databaser som har skapats i HDInsight Hadoop-klustret i kommandoradsfönstret i Hadoop kör du följande kommando på kommandoraden Hadoop:
+Om du vill visa databaserna som skapats i HDInsight Hadoop-kluster i kommando rads fönstret Hadoop kör du följande kommando i Hadoop-kommando raden:
 
     hive -e "show databases;"
 
-### <a name="show-the-hive-tables-in-the-nyctaxidb-database"></a><a name="#show-tables"></a>Visa Hive-tabellerna i **nyctaxidb-databasen**
-Om du vill visa tabellerna i **nyctaxidb-databasen** kör du följande kommando på kommandoraden Hadoop:
+### <a name="show-the-hive-tables-in-the-nyctaxidb-database"></a><a name="#show-tables"></a>Visa Hive-tabellerna i **nyctaxidb** -databasen
+Om du vill visa tabellerna i **nyctaxidb** -databasen kör du följande kommando i Hadoop-kommando raden:
 
     hive -e "show tables in nyctaxidb;"
 
@@ -236,7 +236,7 @@ Vi kan bekräfta att tabellerna är partitionerade genom att köra följande kom
 
     hive -e "show partitions nyctaxidb.trip;"
 
-Här är den förväntade produktionen:
+Här är förväntad utdata:
 
     month=1
     month=10
@@ -252,11 +252,11 @@ Här är den förväntade produktionen:
     month=9
     Time taken: 2.075 seconds, Fetched: 12 row(s)
 
-På samma sätt kan vi se till att pristabellen partitioneras genom att köra följande kommando:
+På samma sätt kan vi se till att tabellen avgift är partitionerad genom att köra följande kommando:
 
     hive -e "show partitions nyctaxidb.fare;"
 
-Här är den förväntade produktionen:
+Här är förväntad utdata:
 
     month=1
     month=10
@@ -272,33 +272,33 @@ Här är den förväntade produktionen:
     month=9
     Time taken: 1.887 seconds, Fetched: 12 row(s)
 
-## <a name="data-exploration-and-feature-engineering-in-hive"></a><a name="#explore-hive"></a>Datautforskning och funktionsteknik i Hive
+## <a name="data-exploration-and-feature-engineering-in-hive"></a><a name="#explore-hive"></a>Data utforskning och funktions teknik i Hive
 > [!NOTE]
-> Detta är vanligtvis en datavetare uppgift.
+> Detta är vanligt vis en data expert-uppgift.
 > 
 > 
 
-Du kan använda Hive-frågor för att utföra datautforskning och funktionsteknik för data som läses in i Hive-tabellerna. Här är exempel på sådana uppgifter:
+Du kan använda Hive-frågor för att utföra data utforsknings-och funktions teknik uppgifter för data som läses in i Hive-tabellerna. Här följer några exempel på sådana uppgifter:
 
-* Visa de 10 bästa posterna i båda tabellerna.
-* Utforska datadistributioner av några fält i olika tidsfönster.
-* Undersök datakvaliteten för fälten longitud och latitud.
-* Generera binära och multiklassklassificeringsetiketter baserat på tipsmängden.
-* Generera funktioner genom att beräkna direkt resa avstånd.
+* Visa de 10 viktigaste posterna i båda tabellerna.
+* Utforska data distributioner av några fält i varierande tidsfönster.
+* Undersök data kvaliteten på fälten longitud och Latitude.
+* Generera binära och multiklassens klassificerings etiketter baserat på tips mängden.
+* Generera funktioner genom att beräkna avstånd för direkt resan.
 
-### <a name="exploration-view-the-top-10-records-in-table-trip"></a>Utforskning: Visa de 10 bästa posterna i bordsresa
+### <a name="exploration-view-the-top-10-records-in-table-trip"></a>Utforskning: Visa de 10 översta posterna i tabell resan
 > [!NOTE]
-> Detta är vanligtvis en datavetare uppgift.
+> Detta är vanligt vis en data expert-uppgift.
 > 
 > 
 
-Om du vill se hur data ser ut undersöker du 10 poster från varje tabell. Om du vill granska posterna kör du följande två frågor separat från Hive-katalogprompten i kommandoradskonsolen Hadoop.
+Granska 10 poster från varje tabell för att se vilka data som ser ut. Om du vill granska posterna kör du följande två frågor separat från Hive-katalogen i kommando rads konsolen för Hadoop.
 
-Så här får du de 10 bästa posterna i resetabellen från den första månaden:
+För att hämta de 10 viktigaste posterna i rese tabellen från den första månaden:
 
     hive -e "select * from nyctaxidb.trip where month=1 limit 10;"
 
-Så här får du de 10 bästa posterna i pristabellen från den första månaden:
+För att hämta de 10 viktigaste posterna i tabellen avgift från den första månaden:
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;"
 
@@ -306,13 +306,13 @@ Du kan spara posterna i en fil för bekväm visning med en liten ändring av fö
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;" > C:\temp\testoutput
 
-### <a name="exploration-view-the-number-of-records-in-each-of-the-12-partitions"></a>Utforskning: Visa antalet poster i var och en av de 12 partitionerna
+### <a name="exploration-view-the-number-of-records-in-each-of-the-12-partitions"></a>Undersökning: Visa antalet poster i var och en av de 12 partitionerna
 > [!NOTE]
-> Detta är vanligtvis en datavetare uppgift.
+> Detta är vanligt vis en data expert-uppgift.
 > 
 > 
 
-Av intresse är hur antalet resor varierar under kalenderåret. Gruppering per månad visar fördelningen av resor.
+Intresse rad är hur antalet resor varierar under kalender året. Gruppering per månad visar distributionen av resor.
 
     hive -e "select month, count(*) from nyctaxidb.trip group by month;"
 
@@ -334,7 +334,7 @@ Det här kommandot ger följande utdata:
 
 Här är den första kolumnen månaden, och den andra är antalet resor för den månaden.
 
-Vi kan också räkna det totala antalet poster i vår resa datauppsättning genom att köra följande kommando på Hive katalogprompten:
+Vi kan också räkna antalet poster i vår rese data uppsättning genom att köra följande kommando i Hive-katalogens kommando tolk:
 
     hive -e "select count(*) from nyctaxidb.trip;"
 
@@ -343,11 +343,11 @@ Det här kommandot ger:
     173179759
     Time taken: 284.017 seconds, Fetched: 1 row(s)
 
-Med kommandon som liknar de som visas för resedatauppsättningen kan vi utfärda Hive-frågor från Hive-katalogens fråga om biljettprisdatauppsättningen för att validera antalet poster.
+Genom att använda kommandon som liknar dem som visas för rese data uppsättningen kan vi utfärda Hive-frågor från Hive-katalogen fråga efter pris data uppsättningen för att verifiera antalet poster.
 
     hive -e "select month, count(*) from nyctaxidb.fare group by month;"
 
-Det här kommandot ger den här utdata:
+Det här kommandot genererar följande utdata:
 
     1       14776615
     2       13990176
@@ -363,9 +363,9 @@ Det här kommandot ger den här utdata:
     12      13971118
     Time taken: 253.955 seconds, Fetched: 12 row(s)
 
-Exakt samma antal resor per månad returneras för båda datauppsättningarna, vilket ger den första valideringen att data har lästs in korrekt.
+Exakt samma antal resor per månad returneras för båda data uppsättningarna, vilket ger den första verifieringen att data har lästs in på rätt sätt.
 
-Du kan räkna det totala antalet poster i biljettprisdatauppsättningen med hjälp av följande kommando från Hive-katalogprompten:
+Du kan räkna det totala antalet poster i pris data uppsättningen genom att använda följande kommando från Hive-katalogens kommando tolk:
 
     hive -e "select count(*) from nyctaxidb.fare;"
 
@@ -374,19 +374,19 @@ Det här kommandot ger:
     173179759
     Time taken: 186.683 seconds, Fetched: 1 row(s)
 
-Det totala antalet poster i båda tabellerna är också detsamma, vilket ger en andra validering som data har lästs in korrekt.
+Det totala antalet poster i båda tabellerna är också detsamma, vilket ger en andra verifiering att data har lästs in på rätt sätt.
 
-### <a name="exploration-trip-distribution-by-medallion"></a>Utforskning: Trip distribution av medaljong
+### <a name="exploration-trip-distribution-by-medallion"></a>Undersökning: rese distribution per Medallion
 > [!NOTE]
-> Den här analysen är vanligtvis en datavetareuppgift.
+> Den här analysen är vanligt vis en data expert-uppgift.
 > 
 > 
 
-Det här exemplet identifierar medaljongerna (taxinummer) med fler än 100 resor inom en viss tidsperiod. Frågan drar nytta av den partitionerade tabellåtkomsten eftersom **month**den är beroende av partitionsvariabelmånaden . Frågeresultaten skrivs till en lokal fil, **queryoutput.tsv**, i `C:\temp` på huvudnoden.
+I det här exemplet identifieras medallions (taxi-nummer) med fler än 100 resor inom en viss tids period. Frågan fördelar från den partitionerade tabell åtkomsten, eftersom den är ett villkor för en partitions variabel **månad**. Frågeresultatet skrivs till en lokal fil, **queryoutput. tsv**, i `C:\temp` på Head-noden.
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
-Här är innehållet i **\_provet\_\_hive\_\_resa räkna med medallion.hql** fil för inspektion.
+Här följer innehållet i **exemplet\_på Hive\_-\_antal\_med\_Medallion. HQL** -filen för granskning.
 
     SELECT medallion, COUNT(*) as med_count
     FROM nyctaxidb.fare
@@ -395,9 +395,9 @@ Här är innehållet i **\_provet\_\_hive\_\_resa räkna med medallion.hql** fil
     HAVING med_count > 100
     ORDER BY med_count desc;
 
-Medaljongen i NYC taxi dataset identifierar en unik hytt. Du kan identifiera vilka hytter som är jämförelsevis upptagna genom att fråga vilka som gjort mer än ett visst antal resor under en viss tidsperiod. I följande exempel identifieras hytter som gjort mer än hundra resor under de första tre månaderna och frågeresultatet sparas i en lokal fil, **C:\temp\queryoutput.tsv**.
+Medallion i NYC taxi-datauppsättningen identifierar en unik cab. Du kan identifiera vilka hytter som är parallellt med varandra genom att fråga vilka som har gjort fler än ett visst antal resor under en viss tids period. I följande exempel identifieras hytter som gjorde mer än hundratals resor under de första tre månaderna och sparar frågeresultaten till en lokal fil, **C:\temp\queryoutput.tsv**.
 
-Här är innehållet i **\_provet\_\_hive\_\_resa räkna med medallion.hql** fil för inspektion.
+Här följer innehållet i **exemplet\_på Hive\_-\_antal\_med\_Medallion. HQL** -filen för granskning.
 
     SELECT medallion, COUNT(*) as med_count
     FROM nyctaxidb.fare
@@ -406,19 +406,19 @@ Här är innehållet i **\_provet\_\_hive\_\_resa räkna med medallion.hql** fil
     HAVING med_count > 100
     ORDER BY med_count desc;
 
-Kör följande kommando i hive-katalogprompten:
+Kör följande kommando från Hive-katalogens prompt:
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
-### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Exploration: Trip distribution av medaljong och hacka licens
+### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Undersökning: rese distribution av Medallion och hacka licens
 > [!NOTE]
-> Den här uppgiften är vanligtvis för en datavetare.
+> Den här uppgiften är normalt för en data expert.
 > 
 > 
 
-När vi utforskar en datauppsättning vill vi ofta undersöka fördelningen av grupper av värden. Det här avsnittet innehåller ett exempel på hur du gör denna analys för hytter och förare.
+När du utforskar en data uppsättning vill vi ofta undersöka distributionerna av grupper med värden. Det här avsnittet innehåller ett exempel på hur du utför den här analysen för hytter och driv rutiner.
 
-Exempel **\_hive-antalet\_\_resor\_\_av\_medallion license.hql-filen** grupperar biljettprisdatauppsättningen på **medaljong** och **hack_license**och returnerar antalet av varje kombination. Här är dess innehåll:
+**Exempel\_på registrerings\_data\_för\_Hive\_per\_Medallion License. HQL** -fil grupperar pris data uppsättningen på **Medallion** och **hack_license**och returnerar antalet av varje kombination. Här följer dess innehåll:
 
     SELECT medallion, hack_license, COUNT(*) as trip_count
     FROM nyctaxidb.fare
@@ -427,23 +427,23 @@ Exempel **\_hive-antalet\_\_resor\_\_av\_medallion license.hql-filen** grupperar
     HAVING trip_count > 100
     ORDER BY trip_count desc;
 
-Den här frågan returnerar kombinationer av hytt och förare, ordnade efter fallande antal resor.
+Den här frågan returnerar kombinationer av CAB och driv rutiner, sorterade efter fallande antal resor.
 
-Kör från hive-katalogprompten:
+Kör följande från Hive-katalogens prompt:
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion_license.hql" > C:\temp\queryoutput.tsv
 
 Frågeresultatet skrivs till en lokal fil, **C:\temp\queryoutput.tsv**.
 
-### <a name="exploration-assessing-data-quality-by-checking-for-invalid-longitude-or-latitude-records"></a>Utforskning: Bedöma datakvalitet genom att söka efter ogiltiga longitud- eller latitudposter
+### <a name="exploration-assessing-data-quality-by-checking-for-invalid-longitude-or-latitude-records"></a>Undersökning: utvärdera data kvalitet genom att söka efter ogiltiga longitud-eller Latitude-poster
 > [!NOTE]
-> Detta är vanligtvis en datavetare uppgift.
+> Detta är vanligt vis en data expert-uppgift.
 > 
 > 
 
-Ett gemensamt mål för utforskande dataanalys är att såra ut ogiltiga eller dåliga poster. Exemplet i det här avsnittet avgör om fälten longitud eller latitud innehåller ett värde långt utanför NYC-området. Eftersom det är troligt att sådana poster har ett felaktigt longitud-latitudvärde, vill vi eliminera dem från alla data som ska användas för modellering.
+Ett gemensamt syfte att analysera undersöknings data är att ta bort felaktiga eller dåliga poster. Exemplet i det här avsnittet avgör om fälten longitud eller latitud innehåller ett värde som ligger utanför området NYC. Eftersom det är troligt att sådana poster har ett felaktigt longitud-latitud-värde vill vi ta bort dem från data som ska användas för modellering.
 
-Här är innehållet i **provet\_hive\_kvalitet\_assessment.hql** fil för inspektion.
+Här är innehållet i **exempel\_filen Hive\_Quality\_Assessment. HQL** för granskning.
 
         SELECT COUNT(*) FROM nyctaxidb.trip
         WHERE month=1
@@ -453,24 +453,24 @@ Här är innehållet i **provet\_hive\_kvalitet\_assessment.hql** fil för inspe
         OR    CAST(dropoff_latitude AS float) NOT BETWEEN 30 AND 90);
 
 
-Kör från hive-katalogprompten:
+Kör följande från Hive-katalogens prompt:
 
     hive -S -f "C:\temp\sample_hive_quality_assessment.hql"
 
-*Argumentet -S* som ingår i det här kommandot undertrycker statusskärmsutskriften för hive-kartan/minska jobben. Det här kommandot är användbart eftersom det gör screenutskriften för Hive-frågeutdata mer läsbar.
+Argumentet *-S-* argumentet som ingår i det här kommandot undertrycker status raster utskriften av Hive-avbildningen/minska jobben. Det här kommandot är användbart eftersom det gör att skärmen skrivs ut i Hive-frågans utdata kan läsas.
 
-### <a name="exploration-binary-class-distributions-of-trip-tips"></a>Utforskning: Binära klassfördelningar av resetips
+### <a name="exploration-binary-class-distributions-of-trip-tips"></a>Undersökning: binära klass distributioner av rese tips
 > [!NOTE]
-> Detta är vanligtvis en datavetare uppgift.
+> Detta är vanligt vis en data expert-uppgift.
 > 
 > 
 
-För det binära klassificeringsproblemet som beskrivs i avsnittet [Exempel på förutsägelseaktiviteter](hive-walkthrough.md#mltasks) är det bra att veta om ett tips gavs eller inte. Denna distribution av tips är binär:
+För det binära klassificerings problemet som beskrivs i avsnittet [exempel på förutsägelse aktiviteter](hive-walkthrough.md#mltasks) , är det användbart att veta om ett tips har angetts eller inte. Den här fördelningen av tips är binär:
 
-* tips ges (klass 1, tips\_belopp > $ 0)  
-* inget tips (klass 0, tipsbelopp\_= $0)
+* Tips angivet (klass 1, Tip\_-belopp > $0)  
+* inget tips (klass 0, Tip\_-belopp = $0)
 
-Följande **exempel\_hive\_\_tippade frequencies.hql** fil visar kommandot för att köra:
+Följande **exempel\_på den\_lutade\_filen frekvenss. HQL** visar det kommando som ska köras:
 
     SELECT tipped, COUNT(*) AS tip_freq
     FROM
@@ -480,18 +480,18 @@ Följande **exempel\_hive\_\_tippade frequencies.hql** fil visar kommandot för 
     )tc
     GROUP BY tipped;
 
-Kör från hive-katalogprompten:
+Kör följande från Hive-katalogens prompt:
 
     hive -f "C:\temp\sample_hive_tipped_frequencies.hql"
 
 
-### <a name="exploration-class-distributions-in-the-multiclass-setting"></a>Utforskning: Klassfördelningar i flerklassinställningen
+### <a name="exploration-class-distributions-in-the-multiclass-setting"></a>Undersökning: klass distributioner i inställningen multiklass
 > [!NOTE]
-> Detta är vanligtvis en datavetare uppgift.
+> Detta är vanligt vis en data expert-uppgift.
 > 
 > 
 
-För multiklassklassificeringsproblemet som beskrivs i avsnittet [Exempel på förutsägelseuppgifter](hive-walkthrough.md#mltasks) lämpar sig den här datauppsättningen också för en naturlig klassificering för att förutsäga mängden tips som ges. Vi kan använda lagerplatser för att definiera tipsintervall i frågan. Om du vill hämta klassfördelningarna för de olika tipsintervallen använder du **exempelfilen\_för hive-tipsintervallet.\_\_\_** Här är dess innehåll.
+För klassificerings problemet med flera klasser som beskrivs i avsnittet [exempel på förutsägelse aktiviteter](hive-walkthrough.md#mltasks) , lånar den här data uppsättningen också sig själv till en naturlig klassificering för att förutsäga hur mycket av tipsen som ges. Vi kan använda lager platser för att definiera Tip-intervall i frågan. Om du vill hämta klass distributioner för de olika Tip-intervallen **använder\_du\_exempel\_filen\_frekvenser för Hive-tipset HQL** . Här är dess innehåll.
 
     SELECT tip_class, COUNT(*) AS tip_freq
     FROM
@@ -504,19 +504,19 @@ För multiklassklassificeringsproblemet som beskrivs i avsnittet [Exempel på f�
     )tc
     GROUP BY tip_class;
 
-Kör följande kommando från kommandoradskonsolen Hadoop:
+Kör följande kommando från kommando rads konsolen för Hadoop:
 
     hive -f "C:\temp\sample_hive_tip_range_frequencies.hql"
 
-### <a name="exploration-compute-the-direct-distance-between-two-longitude-latitude-locations"></a>Utforskning: Beräkna det direkta avståndet mellan två longitud-latitudplatser
+### <a name="exploration-compute-the-direct-distance-between-two-longitude-latitude-locations"></a>Utforskning: beräkna det direkta avståndet mellan två longitud-latitud-platser
 > [!NOTE]
-> Detta är vanligtvis en datavetare uppgift.
+> Detta är vanligt vis en data expert-uppgift.
 > 
 > 
 
-Du kanske vill veta om det finns en skillnad mellan det direkta avståndet mellan två platser och den faktiska resan avstånd av taxi. En passagerare kan vara mindre benägna att tippa om de räkna ut att föraren avsiktligt har tagit dem med en längre rutt.
+Du kanske vill veta om det finns en skillnad mellan två platser och det faktiska rese avståndet för taxin. En passagerare kan vara mindre sannolik för att få tips om att driv rutinen har avsiktligt tagit dem genom en längre väg.
 
-För att se jämförelsen mellan faktiska resa avstånd och [Haversine avstånd](https://en.wikipedia.org/wiki/Haversine_formula) mellan två longitud-latitud punkter (den "stora cirkeln" avstånd), kan du använda trigonometriska funktioner som finns inom Hive:
+Om du vill se jämförelsen mellan det faktiska rese avståndet och [Haversine avståndet](https://en.wikipedia.org/wiki/Haversine_formula) mellan två longitud-latitud-platser ("fantastiska cirkel"-avståndet) kan du använda de trigonometriska funktionerna i Hive:
 
     set R=3959;
     set pi=radians(180);
@@ -537,57 +537,57 @@ För att se jämförelsen mellan faktiska resa avstånd och [Haversine avstånd]
     and dropoff_longitude between -90 and -30
     and dropoff_latitude between 30 and 90;
 
-I föregående fråga är R jordens radie i miles och pi konverteras till radianer. Longitud-latitudpunkter filtreras för att ta bort värden som ligger långt från NYC-området.
+I föregående fråga är R radien för jorden i miles och PI konverteras till radianer. Punkterna longitud-latitud filtreras för att ta bort värden som är långt från NYC-ytan.
 
-I det här fallet skriver vi resultaten till en katalog som kallas **queryoutputdir**. Sekvensen för följande kommandon skapar först den här utdatakatalogen och kör sedan hive-kommandot.
+I det här fallet skriver vi resultaten till en katalog med namnet **queryoutputdir**. Sekvensen av följande kommandon skapar först denna utdataparameter och kör sedan Hive-kommandot.
 
-Kör från hive-katalogprompten:
+Kör följande från Hive-katalogens prompt:
 
     hdfs dfs -mkdir wasb:///queryoutputdir
 
     hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
 
 
-Frågeresultaten skrivs till nio Azure-blobbar (**queryoutputdir/000000\_0** till **queryoutputdir/000008\_0**), under standardbehållaren för Hadoop-klustret.
+Frågeresultatet skrivs till nio Azure-blobbar (**queryoutputdir/000000\_0** till **queryoutputdir/\_000008 0**) under standard behållaren för Hadoop-klustret.
 
-Om du vill se storleken på de enskilda blobbar kör du följande kommando från Hive-katalogprompten:
+Om du vill se storleken på de enskilda Blobbarna kör du följande kommando från Hive-katalogens kommando tolk:
 
     hdfs dfs -ls wasb:///queryoutputdir
 
-Om du vill se innehållet i en viss fil, säg **\_000000 0**, använd Hadoops `copyToLocal` kommando.
+Om du vill se innehållet i en specifik fil, t. ex. **000000\_0**, använder du Hadoop- `copyToLocal` kommandot.
 
     hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
 
 > [!WARNING]
-> `copyToLocal`kan vara mycket långsam för stora filer, och rekommenderas inte för användning med dem.  
+> `copyToLocal`kan vara mycket långsamt för stora filer och rekommenderas inte för användning med dem.  
 > 
 > 
 
-En viktig fördel med att ha dessa data finns i en Azure-blob är att vi kan utforska data i Machine Learning, med hjälp av [modulen Importera data.][import-data]
+En viktig fördel med att ha dessa data finns i en Azure-Blob är att vi kan utforska data i Machine Learning med hjälp av modulen [Importera data][import-data] .
 
-## <a name="down-sample-data-and-build-models-in-machine-learning"></a><a name="#downsample"></a>Ned-exempel data och bygga modeller i Machine Learning
+## <a name="down-sample-data-and-build-models-in-machine-learning"></a><a name="#downsample"></a>Nedåt – sampla data och bygg modeller i Machine Learning
 > [!NOTE]
-> Detta är vanligtvis en datavetare uppgift.
+> Detta är vanligt vis en data expert-uppgift.
 > 
 > 
 
-Efter den undersökande dataanalysfasen är vi nu redo att ned-prov data för att bygga modeller i Machine Learning. I det här avsnittet visar vi hur du använder en Hive-fråga för att nedextpensera data. Machine Learning kommer sedan åt den från modulen [Importera data.][import-data]
+Efter analys fasen för analys av undersöknings data är vi nu redo att stänga av data för att skapa modeller i Machine Learning. I det här avsnittet visar vi hur du använder en Hive-fråga för att visa exempel på data. Machine Learning öppnas sedan från modulen [Importera data][import-data] .
 
-### <a name="down-sampling-the-data"></a>Nedsampling av data
-Det finns två steg i den här proceduren. Först går vi med i **nyctaxidb.trip** och **nyctaxidb.fare** tabeller på tre nycklar som finns i alla poster: **medaljong,** **hacka\_licens,** och **pickup\_datetime**. Vi genererar sedan en binär klassificeringsetikett, **tippade**, och en multiclass klassificering etikett, **tips\_klass**.
+### <a name="down-sampling-the-data"></a>Nedåt – sampling av data
+Det finns två steg i den här proceduren. Först ansluter vi tabellerna **nyctaxidb. rese** och **nyctaxidb. pris** på tre nycklar som finns i alla poster: **Medallion**, **Hack\_License**och **upphämtnings\_datum**. Sedan genererar vi en binära klassificerings etikett, **lutad**och en klassificerings etikett för multiklass, **Tip\_-klass**.
 
-Om du vill kunna använda data med nedstursa data direkt från modulen [Importera data][import-data] i Machine Learning bör du lagra resultaten av föregående fråga i en intern Hive-tabell. I det följande skapar vi en intern Hive-tabell och fyller dess innehåll med de sammanfogade och nedsmakade data.
+Om du vill kunna använda de nedsamplade data direkt från modulen [Importera data][import-data] i Machine Learning bör du lagra resultatet från föregående fråga till en intern Hive-tabell. I det här exemplet skapar vi en intern Hive-tabell och fyller i dess innehåll med de kopplade och indata.
 
-Frågan tillämpar standard hive-funktioner direkt för att generera följande tidsparametrar från **fältet\_upphämtningsdatumtid:**
+Frågan använder vanliga Hive-funktioner direkt för att generera följande tids parametrar från fältet **upphämtnings\_datum/** tid:
 - timme på dagen
-- vecka på året
-- veckodag ('1' står för måndag, och '7' står för söndag)
+- vecka på år
+- veckodag (1 står för måndag och 7 står för söndag)
 
-Frågan genererar också det direkta avståndet mellan hämtnings- och avlämningsplatserna. En fullständig lista över sådana funktioner finns i [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF).
+Frågan genererar också det direkta avståndet mellan plocknings-och DropOff-platserna. En fullständig lista över sådana funktioner finns i [LANGUAGEMANUAL UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF).
 
-Frågan ned-prover sedan data så att frågeresultaten kan passa in i Azure Machine Learning Studio. Endast cirka 1 procent av den ursprungliga datauppsättningen importeras till studion.
+Frågan sedan nedåt – samplar data så att frågeresultaten får plats i Azure Machine Learning Studio. Bara cirka 1 procent av den ursprungliga data uppsättningen importeras till Studio.
 
-Här är innehållet i **\_exempel\_\_hive\_\_förbereda för aml full.hql** fil som förbereder data för modell byggnad i Machine Learning:
+Här följer innehållet i **exempel\_registrerings data\_filen\_Förbered\_for\_aml full. HQL** som förbereder data för modell utveckling i Machine Learning:
 
         set R = 3959;
         set pi=radians(180);
@@ -710,121 +710,121 @@ Här är innehållet i **\_exempel\_\_hive\_\_förbereda för aml full.hql** fil
         on t.medallion=f.medallion and t.hack_license=f.hack_license and t.pickup_datetime=f.pickup_datetime
         where t.sample_key<=0.01
 
-Så här kör du den här frågan från Hive-katalogprompten:
+Så här kör du den här frågan från Hive-katalogen:
 
     hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
-Vi har nu en intern tabell, **nyctaxidb.nyctaxi_downsampled_dataset**, som kan nås med hjälp av [modulen Importera data][import-data] från Machine Learning. Dessutom kan vi använda den här datauppsättningen för att skapa Machine Learning-modeller.  
+Nu har vi en intern tabell, **nyctaxidb. nyctaxi_downsampled_dataset**, som kan nås med modulen [importera data][import-data] från Machine Learning. Dessutom kan vi använda den här data uppsättningen för att skapa Machine Learning modeller.  
 
-### <a name="use-the-import-data-module-in-machine-learning-to-access-the-down-sampled-data"></a>Använd modulen Importera data i Machine Learning för att komma åt nedkomstdata
-Om du vill utfärda Hive-frågor i modulen [Importera data][import-data] i Machine Learning behöver du åtkomst till en machine learning-arbetsyta. Du behöver också åtkomst till autentiseringsuppgifterna för klustret och dess associerade lagringskonto.
+### <a name="use-the-import-data-module-in-machine-learning-to-access-the-down-sampled-data"></a>Använd modulen importera data i Machine Learning för att få åtkomst till de nedsamplade data
+Om du vill utfärda Hive-frågor i modulen [Importera data][import-data] i Machine Learning måste du ha åtkomst till en Machine Learning arbets yta. Du måste också ha åtkomst till klustrets autentiseringsuppgifter och det associerade lagrings kontot.
 
-Här är några detaljer om [modulen Importera data][import-data] och parametrarna för inmatning:
+Här följer information om modulen [Importera data][import-data] och parametrarna för indata:
 
-**HCatalog server URI**: Om klusternamnet är **abc123**, använd sedan: https:\//abc123.azurehdinsight.net.
+**HCatalog Server-URI**: om kluster namnet är **vi abc123**använder du: https:\//abc123.azurehdinsight.net.
 
-**Hadoop-användarkontonamn**: Användarnamnet som valts för klustret (inte fjärråtkomstanvändarnamnet).
+**Hadoop-användar konto namn**: det användar namn som valts för klustret (inte användar namnet för fjärråtkomst).
 
-**Hadoop användarkonto lösenord:** Det lösenord som valts för klustret (inte fjärråtkomst lösenord).
+**Konto lösen ord för Hadoop-användare**: lösen ordet som valts för klustret (inte lösen ordet för fjärråtkomst).
 
-**Plats för utdata:** Valt att vara Azure.
+**Plats för utgående data**: väljs som Azure.
 
-**Azure Storage-kontonamn**: Namn på standardlagringskontot som är associerat med klustret.
+**Azure Storage konto namn**: namnet på det standard lagrings konto som är associerat med klustret.
 
-**Azure-behållarnamn:** Standardbehållarenamnet för klustret och är vanligtvis samma som klusternamnet. För ett kluster som heter **abc123**är namnet abc123.
+**Namn på Azure-behållare**: standard behållar namnet för klustret och är vanligt vis samma som kluster namnet. För ett kluster med namnet **vi abc123**är namnet vi abc123.
 
 > [!IMPORTANT]
 > Alla tabeller som vi vill fråga med hjälp av modulen [Importera data][import-data] i Machine Learning måste vara en intern tabell.
 > 
 > 
 
-Så här tar du reda på om en tabell **T** i en databas **D.db** är en intern tabell. Kör följande kommando i hive-katalogprompten:
+Så här avgör du om en tabell **T** i en databas **D. db** är en intern tabell. Kör följande kommando från Hive-katalogens prompt:
 
     hdfs dfs -ls wasb:///D.db/T
 
-Om tabellen är en intern tabell och den är ifylld måste innehållet visas här.
+Om tabellen är en intern tabell och den är ifylld måste dess innehåll visas här.
 
-Ett annat sätt att avgöra om en tabell är en intern tabell är att använda Azure Storage Explorer. Använd den för att navigera till standardbehållarens namn på klustret och filtrera sedan efter tabellnamnet. Om tabellen och dess innehåll visas bekräftar detta att det är en intern tabell.
+Ett annat sätt att avgöra om en tabell är en intern tabell är att använda Azure Storage Explorer. Använd den för att navigera till standard behållar namnet för klustret och filtrera sedan efter tabell namnet. Om tabellen och dess innehåll visas, bekräftar detta att det är en intern tabell.
 
-Här är en skärmdump av Hive-frågan och [modulen Importera data:][import-data]
+Här är en skärm bild av Hive-frågan och modulen [Importera data][import-data] :
 
-![Skärmbild av Hive-fråga för modulen Importera data](./media/hive-walkthrough/1eTYf52.png)
+![Skärm bild av Hive-fråga för modulen importera data](./media/hive-walkthrough/1eTYf52.png)
 
-Eftersom våra nedstursa data finns i standardbehållaren är den resulterande Hive-frågan från Machine Learning enkel. Det är bara en **välj * från nyctaxidb.nyctaxi\_downsampled\_data**.
+Eftersom våra insamplade data finns i standard behållaren är den resulterande Hive-frågan från Machine Learning enkel. Det är bara ett **Select *-nyctaxidb. nyctaxi\_nedsamplade\_data**.
 
-Datauppsättningen kan nu användas som utgångspunkt för att skapa Machine Learning-modeller.
+Data uppsättningen kan nu användas som start punkt för att skapa Machine Learning modeller.
 
-### <a name="build-models-in-machine-learning"></a><a name="mlmodel"></a>Skapa modeller i Maskininlärning
-Du kan nu gå vidare till modellbygge och modelldistribution i [Machine Learning](https://studio.azureml.net). Uppgifterna är redo för oss att använda för att ta itu med förutsägelse problem som identifierats tidigare:
+### <a name="build-models-in-machine-learning"></a><a name="mlmodel"></a>Bygg modeller i Machine Learning
+Nu kan du fortsätta med modell skapande och modell distribution i [Machine Learning](https://studio.azureml.net). Data är redo för oss att använda för att hantera de förutsägelse problem som identifierats tidigare:
 
-- **Binär klassificering**: Att förutsäga om ett tips betalades för en resa.
+- **Binära klassificering**: för att förutsäga om ett tips har betalats för en resa.
 
-  **Elev används:** Tvåklassad logistisk regression
+  **Elev som används:** Logistik regression med två klasser
 
-  a. För det här problemet **tippas**måletiketten (eller klassen) . Den ursprungliga datauppsättningen med nedstursta prov har några kolumner som är målläckor för det här klassificeringsexperimentet. I synnerhet **\_visar tipsklass,** **\_tipsbelopp**och **totalt\_belopp** information om måletiketten som inte är tillgänglig vid testtillfället. Vi tar bort dessa kolumner från övervägande med hjälp av modulen [Välj kolumner i datauppsättning.][select-columns]
+  a. För det här problemet **lutas**mål-eller klass etiketten. Den ursprungliga data uppsättningen i det här exemplet har några kolumner som är mål läckor för det här klassificerings experimentet. I synnerhet **\_Tip-klass**, **Tip\_-belopp**och **total\_mängd** för att visa information om mål etiketten som inte är tillgänglig vid test tillfället. Vi tar bort dessa kolumner från överväganden med hjälp av modulen [Välj kolumner i data uppsättning][select-columns] .
 
-  Följande diagram visar vårt experiment för att förutsäga om ett tips betalades för en viss resa:
+  I följande diagram visas vårt experiment för att förutse om ett tips har betalats för en bestämd resa:
 
-  ![Diagram över experiment för att förutsäga om dricks betalades](./media/hive-walkthrough/QGxRz5A.png)
+  ![Diagram över experiment för att förutse om Tip betalades](./media/hive-walkthrough/QGxRz5A.png)
 
-  b. För detta experiment var våra måletikettfördelningar ungefär 1:1.
+  b. I det här experimentet var våra mål etikett fördelningar ungefär 1:1.
 
-   Följande diagram visar fördelningen av toppklassetiketter för binärklassificeringsproblemet:
+   Följande diagram visar fördelningen av tips klass etiketter för problem med den binära klassificeringen:
 
-  ![Diagram över fördelning av toppklassetiketter](./media/hive-walkthrough/9mM4jlD.png)
+  ![Diagram över fördelningen av tips klass etiketter](./media/hive-walkthrough/9mM4jlD.png)
 
-    Som ett resultat får vi ett område under kurvan (AUC) på 0,987, som visas i följande figur:
+    Därför får vi ett utrymme under kurvan (AUC) av 0,987, som du ser i följande figur:
 
   ![Diagram över AUC-värde](./media/hive-walkthrough/8JDT0F8.png)
 
-- **Multiklassklassificering:** För att förutsäga intervallet för tipsbelopp som betalats för resan, genom att använda de tidigare definierade klasserna.
+- **Klassificering**av flera klasser: för att förutsäga antalet Tip-mängder som betalas för resan, genom att använda de tidigare definierade klasserna.
 
-  **Elev används:** Multiklass logistisk regression
+  **Elev som används:** Logistik regression med multiklass
 
-  a. För detta problem är vår måletikett (eller klass) **spetsklass\_**, som kan ta ett av fem värden (0,1,2,3,4). Som i binärklassificeringsfallet har vi några kolumner som är målläckor för det här experimentet. I synnerhet **tippade,** **\_tips belopp**och totalt **\_belopp** avslöjar information om målet etiketten som inte är tillgänglig vid testtillfället. Vi tar bort dessa kolumner med hjälp av modulen [Välj kolumner i datauppsättning.][select-columns]
+  a. För det här problemet är vår mål sättnings etikett (eller klass) en **Tip\_-klass**, som kan ha ett av fem värden (0, 1, 2, 3, 4). Som i det binära klassificerings fallet har vi några kolumner som är mål läckor för det här experimentet. I synnerhet överliggande, **Tip\_** **-** belopp och **total\_mängd** visar information om mål etiketten som inte är tillgänglig vid testnings tillfället. Vi tar bort de här kolumnerna med hjälp av modulen [Välj kolumner i data uppsättning][select-columns] .
 
-  Följande diagram visar experimentet för att förutsäga i vilken lagerplats ett tips sannolikt kommer att falla. Facken är: Klass 0: tips = $ 0, klass 1: tips > $ 0 och tips <= $ 5, klass 2: tips > $ 5 och tips <= $ 10, klass 3: tips > $ 10 och tips <= $ 20, och klass 4: tips > $ 20.
+  I följande diagram visas experimentet för att förutsäga på vilken lager plats ett tips sannolikt kommer att falla. Lager platserna är: klass 0: tips = $0, klass 1: tips > $0 och tips <= $5, klass 2: tips > $5 och tips <= $10, klass 3: Tip > $10 och Tip <= $20 och klass 4: Tip > $20.
 
-  ![Diagram över experiment för att förutsäga bin för spets](./media/hive-walkthrough/5ztv0n0.png)
+  ![Diagram över experiment till förutse binge för tips](./media/hive-walkthrough/5ztv0n0.png)
 
-  Vi visar nu hur den faktiska testklassfördelningen ser ut. Klass 0 och klass 1 är vanliga, och de andra klasserna är sällsynta.
+  Nu visar vi hur den faktiska test klass fördelningen ser ut. Klass 0 och klass 1 är vanliga och de andra klasserna är ovanliga.
 
-  ![Diagram över testklassfördelning](./media/hive-walkthrough/Vy1FUKa.png)
+  ![Diagram över distribution av test klass](./media/hive-walkthrough/Vy1FUKa.png)
 
-  b. För det här experimentet använder vi en förvirringsmatris för att titta på förutsägelsenoggrannheterna som visas här:
+  b. För det här experimentet använder vi en Förväxlings mat ris för att titta på de förutsägelser som visas här:
 
-  ![Matris för förvirring](./media/hive-walkthrough/cxFmErM.png)
+  ![Förvirring mat ris](./media/hive-walkthrough/cxFmErM.png)
 
-  Även om klassen noggrannhet på de förhärskande klasserna är bra, gör modellen inte ett bra jobb med att "lära" på de ovanligare klasserna.
+  Även om klassen visar att de vanligaste klasserna är effektiva, gör modellen inte något lämpligt jobb av "inlärning" i rarer-klasserna.
 
-- **Regressionsuppgift**: För att förutsäga hur mycket tips som betalats för en resa.
+- **Regressions uppgift**: för att förutsäga hur mycket tips du betalar för en resa.
 
-  **Elev används:** Förstärkt beslutsträd
+  **Elev som används:** Utökat besluts träd
 
-  a. För det här problemet är måletiketten (eller klassen) **dricksmängd\_**. Målet läcker i detta fall är: **tippade,** **\_spets klass**, och **totalt\_belopp**. Alla dessa variabler visar information om tipsbeloppet som vanligtvis inte är tillgängligt vid testtillfället. Vi tar bort dessa kolumner med hjälp av modulen [Välj kolumner i datauppsättning.][select-columns]
+  a. För det här problemet är mål etiketten (eller klassen) **Tip\_-storlek**. Mål läckor i det här fallet är: **nedlutad**, **Tip\_-klass**och **total\_mängd**. Alla dessa variabler visar information om det tips belopp som normalt inte är tillgängligt vid test tillfället. Vi tar bort de här kolumnerna med hjälp av modulen [Välj kolumner i data uppsättning][select-columns] .
 
-  Följande diagram visar experimentet för att förutsäga mängden av den angivna spetsen:
+  I följande diagram visas experimentet för att förutsäga det aktuella tipset:
 
-  ![Diagram över experiment för att förutsäga mängden spets](./media/hive-walkthrough/11TZWgV.png)
+  ![Diagram över experiment för att förutsäga mängden tips](./media/hive-walkthrough/11TZWgV.png)
 
-  b. För regressionsproblem mäter vi precisionen i förutsägelsen genom att titta på det fyrkantiga felet i förutsägelserna och bestämningskoefficienten:
+  b. För Regressions problem mäter vi resultatet av förutsägelsen genom att titta på fel meddelandet i förutsägelserna och koefficienten för bestämningen:
 
-  ![Skärmbild av förutsägelsestatistik](./media/hive-walkthrough/Jat9mrz.png)
+  ![Skärm bild av förutsägelse statistik](./media/hive-walkthrough/Jat9mrz.png)
 
-  Här är bestämningskoefficienten 0,709, vilket innebär att cirka 71 procent av variansen förklaras av modellkoefficienterna.
+  Här är koefficienten för bestämningen 0,709, vilket innebär att cirka 71 procent av avvikelsen förklaras av modellens koefficienter.
 
 > [!IMPORTANT]
-> Mer information om maskininlärning och hur du kommer åt och använder den finns i [Vad är maskininlärning](../studio/what-is-machine-learning.md). Dessutom täcker [Azure AI Gallery](https://gallery.cortanaintelligence.com/) ett urval av experiment och ger en grundlig introduktion till de olika funktionerna i Machine Learning.
+> Mer information om Machine Learning och hur du kommer åt och använder den finns i [Machine Learning](../studio/what-is-machine-learning.md). Dessutom täcker [Azure AI Gallery](https://gallery.cortanaintelligence.com/) en omfattning av experiment och ger en grundlig introduktion till de olika funktionerna i Machine Learning.
 > 
 > 
 
-## <a name="license-information"></a>Licensinformation
-Det här exemplet genomgång och dess medföljande skript delas av Microsoft under MIT-licensen. Mer information finns i **filen LICENSE.txt** i katalogen för exempelkoden på GitHub.
+## <a name="license-information"></a>Licens information
+Den här exempel genom gången och dess tillhör ande skript delas av Microsoft under MIT-licensen. Mer information finns i filen **License. txt** i katalogen i exempel koden på GitHub.
 
 ## <a name="references"></a>Referenser
-• [Andrés Monroy NYC Taxi Trips Ladda ner sida](https://www.andresmh.com/nyctaxitrips/)  
-• [FOILing NYC:s taxiresa data av Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [NYC Taxi och Limousine kommissionens forskning och statistik](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+• [Andrés MONROY NYC taxi TRIPs Download Page](https://www.andresmh.com/nyctaxitrips/)  
+• [Folier av NYCs taxi uppgifter från Christer Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [NYC taxi och limousine kommissionens forskning och statistik](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
 [11]: ./media/hive-walkthrough/hive-reader-properties.png

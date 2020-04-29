@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub kommunikationsprotokoll och portar | Microsoft-dokument
-description: Utvecklarguide – beskriver de kommunikationsprotokoll som stöds för kommunikation mellan enheter och kommunikation mellan molnet och från molnet till enheten och portnumren som måste vara öppna.
+title: Azure IoT Hub kommunikations protokoll och portar | Microsoft Docs
+description: Guide för utvecklare – beskriver de kommunikations protokoll som stöds för kommunikation mellan enhet och moln och kommunikation mellan enheter och port nummer som måste vara öppna.
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -12,13 +12,13 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 3e7f31371a0582a6f4941efbfa0087119278d2d1
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81729120"
 ---
-# <a name="reference---choose-a-communication-protocol"></a>Referens - välj ett kommunikationsprotokoll
+# <a name="reference---choose-a-communication-protocol"></a>Referens – Välj ett kommunikations protokoll
 
 Med IoT Hub kan enheter använda följande protokoll för kommunikation på enhetssidan:
 
@@ -28,34 +28,34 @@ Med IoT Hub kan enheter använda följande protokoll för kommunikation på enhe
 * AMQP över WebSockets
 * HTTPS
 
-Information om hur dessa protokoll stöder specifika IoT [Hub-funktioner](iot-hub-devguide-d2c-guidance.md) finns i riktlinjer för kommunikation mellan enheter och [kommunikation från molnet till enhet](iot-hub-devguide-c2d-guidance.md).
+Information om hur dessa protokoll stöder vissa IoT Hub funktioner finns i avsnittet [om kommunikations vägledning för enhet till moln](iot-hub-devguide-d2c-guidance.md) och [kommunikation från moln till enhet](iot-hub-devguide-c2d-guidance.md).
 
-Följande tabell innehåller rekommendationer på hög nivå för ditt val av protokoll:
+I följande tabell finns rekommendationer på hög nivå för ditt val av protokoll:
 
-| Protokoll | När du ska välja det här protokollet |
+| Protokoll | När du bör välja det här protokollet |
 | --- | --- |
-| MQTT <br> MQTT över WebSocket |Använd på alla enheter som inte kräver att ansluta flera enheter (var och en med sina egna autentiseringsuppgifter per enhet) via samma TLS-anslutning. |
-| AMQP <br> AMQP över WebSocket |Använd på fält- och molngateways för att dra nytta av anslutningsmultspling på olika enheter. |
-| HTTPS |Används för enheter som inte stöder andra protokoll. |
+| MQTT <br> MQTT över WebSocket |Använd på alla enheter som inte behöver ansluta flera enheter (var och en med sina egna autentiseringsuppgifter per enhet) över samma TLS-anslutning. |
+| AMQP <br> AMQP över WebSocket |Använd på fält-och moln-gatewayer för att dra nytta av kopplings-multiplexering mellan enheter. |
+| HTTPS |Används för enheter som inte har stöd för andra protokoll. |
 
-Tänk på följande när du väljer ditt protokoll för kommunikation på enhetssidan:
+Tänk på följande när du väljer protokoll för kommunikation på enhets sidan:
 
-* **Moln-till-enhet mönster**. HTTPS har inget effektivt sätt att implementera servertryck. När du använder HTTPS avsöker enheter därför IoT Hub för meddelanden från molnet till enheten. Den här metoden är ineffektiv för både enheten och IoT Hub. Enligt gällande HTTPS-riktlinjer bör varje enhet söka efter meddelanden var 25:e minut eller mer. MQTT och AMQP stöder server push när du tar emot meddelanden från molnet till enheten. De möjliggör omedelbara pushes av meddelanden från IoT Hub till enheten. Om leveransfördröjning är ett problem är MQTT eller AMQP de bästa protokollen att använda. För sällan anslutna enheter fungerar HTTPS också.
+* **Mönster för moln till enhet**. HTTPS har inget effektivt sätt att implementera Server-push. När du använder HTTPS avsöker enhets IoT Hub efter meddelanden från molnet till enheten. Den här metoden är ineffektiv för både enhets-och IoT Hub. Under aktuella HTTPS-rikt linjer ska varje enhet söka efter meddelanden var 25: e minut eller mer. MQTT och AMQP har stöd för Server-push när du tar emot meddelanden från molnet till enheten. De aktiverar direkt push-meddelanden från IoT Hub till enheten. Om leverans fördröjning är ett problem är MQTT eller AMQP de bästa protokollen som ska användas. För sällan anslutna enheter fungerar HTTPS också.
 
-* **Fältgateways**. MQTT och HTTPS stöder endast en enhetsidentitet (enhets-ID plus autentiseringsuppgifter) per TLS-anslutning. Därför stöds inte dessa protokoll för [fältgatewayscenarier](iot-hub-devguide-endpoints.md#field-gateways) som kräver multiplexeringsmeddelanden med flera enhetsidentiteter över en enda eller en pool med uppströmsanslutningar till IoT Hub. Sådana gateways kan använda ett protokoll som stöder flera enhetsidentiteter per anslutning, till exempel AMQP, för sin uppströmstrafik.
+* **Fält-gatewayer**. MQTT och HTTPS stöder endast en enhets identitet (enhets-ID plus autentiseringsuppgifter) per TLS-anslutning. Därför stöds inte dessa protokoll för fält-Gateway- [scenarier](iot-hub-devguide-endpoints.md#field-gateways) som kräver multiplexering av meddelanden med hjälp av flera enhets identiteter i en enda eller pool av överordnade anslutningar till IoT Hub. Sådana gatewayer kan använda ett protokoll som stöder flera enhets identiteter per anslutning, till exempel AMQP, för den överordnade trafiken.
 
-* **Enheter med låg resurs**. MQTT- och HTTPS-biblioteken har ett mindre fotavtryck än AMQP-biblioteken. Om enheten har begränsade resurser (till exempel mindre än 1 MB RAM) kan dessa protokoll vara den enda tillgängliga protokollimplementeringen.
+* **Låg resurs enheter**. MQTT-och HTTPS-biblioteken har en mindre storlek än AMQP-biblioteken. Om enheten till exempel har begränsade resurser (till exempel mindre än 1 MB RAM-minne) kan dessa protokoll vara den enda protokoll implementering som är tillgänglig.
 
-* **Nätverk traversal**. Standard-AMQP-protokollet använder port 5671 och MQTT lyssnar på port 8883. USe av dessa portar kan orsaka problem i nätverk som är stängda för icke-HTTPS-protokoll. Använd MQTT över WebSockets, AMQP över WebSockets eller HTTPS i det här scenariot.
+* **Nätverks Traversal**. Standard-AMQP-protokollet använder port 5671 och MQTT lyssnar på port 8883. Användningen av dessa portar kan orsaka problem i nätverk som är stängda till icke-HTTPS-protokoll. Använd MQTT över WebSockets, AMQP över WebSockets eller HTTPS i det här scenariot.
 
-* **Nyttolaststorlek**. MQTT och AMQP är binära protokoll, vilket resulterar i mer kompakta nyttolaster än HTTPS.
+* **Nytto Last storlek**. MQTT och AMQP är binära protokoll, vilket resulterar i mer kompakta nytto laster än HTTPS.
 
 > [!WARNING]
-> När du använder HTTPS bör varje enhet söka efter meddelanden från molnet till enheten högst en gång var 25:e minut. Under utveckling kan varje enhet avsöka oftare, om så önskas.
+> När du använder HTTPS ska varje enhet söka efter meddelanden från molnet till enheten högst en gång var 25: e minut. Varje enhet kan under utveckling söka oftare, om så önskas.
 
-## <a name="port-numbers"></a>Portnummer
+## <a name="port-numbers"></a>Port nummer
 
-Enheter kan kommunicera med IoT Hub i Azure med hjälp av olika protokoll. Vanligtvis drivs valet av protokoll av lösningens specifika krav. I följande tabell visas de utgående portar som måste vara öppna för att en enhet ska kunna använda ett visst protokoll:
+Enheter kan kommunicera med IoT Hub i Azure med olika protokoll. Valet av protokoll styrs vanligt vis av de särskilda kraven för lösningen. I följande tabell visas de utgående portar som måste vara öppna för att en enhet ska kunna använda ett speciellt protokoll:
 
 | Protokoll | Port |
 | --- | --- |
@@ -65,8 +65,8 @@ Enheter kan kommunicera med IoT Hub i Azure med hjälp av olika protokoll. Vanli
 | AMQP över WebSockets |443 |
 | HTTPS |443 |
 
-När du har skapat en IoT-hubb i en Azure-region behåller IoT-hubben samma IP-adress under den livslängden för IoT-hubben. Men om Microsoft flyttar IoT-hubben till en annan skalningsenhet för att upprätthålla kvaliteten på tjänsten, tilldelas den en ny IP-adress.
+När du har skapat en IoT-hubb i en Azure-region behåller IoT Hub samma IP-adress som IoT-hubbens livs längd. Men om Microsoft flyttar IoT-hubben till en annan skalnings enhet för att underhålla tjänst kvalitet, tilldelas den en ny IP-adress.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur IoT Hub implementerar MQTT-protokollet finns i [Kommunicera med din IoT-hubb med MQTT-protokollet](iot-hub-mqtt-support.md).
+Mer information om hur IoT Hub implementerar MQTT-protokollet finns i [kommunicera med IoT Hub med hjälp av MQTT-protokollet](iot-hub-mqtt-support.md).

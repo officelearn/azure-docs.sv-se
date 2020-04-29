@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/22/2020
 ms.author: spelluru
 ms.openlocfilehash: d2f5d6b6b9500ccd90630e8920c09340658fb76f
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82100200"
 ---
 # <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Använd PowerShell för att lägga till en Marketplace-avbildning i ett labb i Azure DevTest Labs
@@ -38,7 +38,7 @@ Det här exemplet på PowerShell-skript lägger till en Marketplace-avbildning i
 
 I det här skriptet används följande kommandon: 
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | Find-AzResource | Söker efter resurser baserat på angivna parametrar. |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Hämtar resurser. |

@@ -1,5 +1,5 @@
 ---
-title: Komma igång med Azure IoT Hub-modulidentitet & modultvilling (.NET)
+title: Kom igång med Azure IoT Hub module Identity & modul, dubbla (.NET)
 description: Lär dig att skapa modulidentitet och uppdatera modultvillingar med IoT SDK:er för .NET.
 author: chrissie926
 ms.service: iot-hub
@@ -10,24 +10,24 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: amqp
 ms.openlocfilehash: 919d1e37e6066c78e83d58be4fe4667ec67e45ad
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733380"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Komma igång med IoT Hub-modulidentitet och modultvilling (.NET)
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-net"></a>Kom igång med IoT Hub modulens identitet och modul, dubbla (.NET)
 
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
-> [Modulidentiteter och modultvillingar](iot-hub-devguide-module-twins.md) liknar enhetsidentitet och enhetstvilling i Azure IoT Hub, men har en större detaljnivå. Medan Azure IoT Hub-enhetsidentitet och enhetstvilling gör det möjligt för backend-programmet att konfigurera en enhet och ge synlighet på enhetens villkor, tillhandahåller en modulidentitet och modultvilling dessa funktioner för enskilda komponenter på en enhet. På kompatibla enheter med flera komponenter, till exempel operativsystembaserade enheter eller enheter för inbyggd programvara, möjliggör modulidentiteter och modultvillingar isolerad konfiguration och villkor för varje komponent.
+> [Modulidentiteter och modultvillingar](iot-hub-devguide-module-twins.md) liknar enhetsidentitet och enhetstvilling i Azure IoT Hub, men har en större detaljnivå. Även om Azure IoT Hub enhets identitet och enhet dubbla aktiverar Server dels programmet för att konfigurera en enhet och ger insyn på enhetens villkor, ger modulens identitet och modul dubbla dessa funktioner för enskilda komponenter i en enhet. På enheter med flera komponenter, t. ex. operativ systembaserade enheter eller inbyggd program vara, är modulens identiteter och modulerna dubbla för att isolera konfiguration och villkor för varje komponent.
 
 I slutet av den här självstudiekursen har du två .NET-konsolappar:
 
-* **CreateId entiteter**. Den här appen skapar en enhetsidentitet, en modulidentitet och tillhörande säkerhetsnyckel för att ansluta enheten och modulklienter.
+* **CreateIdentities**. Den här appen skapar en enhets identitet, en modul identitet och en associerad säkerhets nyckel för att ansluta dina enhets-och modul klienter.
 
-* **UpdateModuleTwinReportedProperties**. Den här appen skickar uppdaterade modultvillingrapporterade egenskaper till din IoT-hubb.
+* **UpdateModuleTwinReportedProperties**. Den här appen skickar den uppdaterade modulen dubbla rapporterade egenskaper till din IoT-hubb.
 
 > [!NOTE]
 > Artikeln om [Azure IoT SDK:er](iot-hub-devguide-sdks.md) innehåller information om Azure IoT SDK:er som du kan använda för att skapa båda programmen så att de kan köras på enheter och på lösningens backend-server.
@@ -42,7 +42,7 @@ I slutet av den här självstudiekursen har du två .NET-konsolappar:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutningssträngen för IoT-hubb
+## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
 
 [!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
 
@@ -54,25 +54,25 @@ I slutet av den här självstudiekursen har du två .NET-konsolappar:
 
 I det här avsnittet skapar du en .NET-konsolapp på din simulerade enhet som uppdaterar modultvillingens rapporterade egenskaper.
 
-Innan du börjar hämtar du modulanslutningssträngen. Logga in på [Azure-portalen](https://portal.azure.com/). Navigera till din hubb och välj **IoT-enheter**. Hitta **myFirstDevice**. Välj **myFirstDevice** för att öppna den och välj sedan **myFirstModule** för att öppna den. Kopiera **anslutningssträngen (primärnyckeln)** i **Modulidentitetsinformation**när det behövs i följande procedur.
+Innan du börjar ska du hämta anslutnings strängen för din modul. Logga in på [Azure-portalen](https://portal.azure.com/). Navigera till din hubb och välj **IoT-enheter**. Hitta **t myfirstdevice**. Välj **t myfirstdevice** för att öppna den och välj sedan **myFirstModule** för att öppna den. I **modulens identitets information**kopierar du **anslutnings strängen (primär nyckel)** vid behov i följande procedur.
 
    ![Information om Azure-portalmodulen](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-identity-detail.png)
 
-1. Lägg till ett nytt projekt i din lösning i Visual Studio genom att välja **Arkiv** > **nytt** > **projekt**. I Skapa ett nytt projekt väljer du **Console App (.NET Framework)** och väljer **Nästa**.
+1. I Visual Studio lägger du till ett nytt projekt i lösningen genom att välja **Arkiv** > **nytt** > **projekt**. I skapa ett nytt projekt väljer du **konsol program (.NET Framework)** och väljer **Nästa**.
 
-1. Ge projektet namnet *UpdateModuleTwinReportedProperties*. För **Lösning**väljer du **Lägg till i lösning**. Kontrollera att .NET Framework-versionen är 4.6.1 eller senare.
+1. Ge projektet namnet *UpdateModuleTwinReportedProperties*. För **lösning**väljer **du Lägg till i lösning**. Kontrollera att .NET Framework-versionen är 4.6.1 eller senare.
 
     ![Skapa ett Visual Studio-projekt](./media/iot-hub-csharp-csharp-module-twin-getstarted/configure-update-twins-csharp1.png)
 
-1. Välj **Skapa** för att skapa projektet.
+1. Välj **skapa** för att skapa ditt projekt.
 
-1. Öppna **Tools** > **NuGet Package Manager** > **Hantera NuGet-paket för lösning**i Visual Studio. Välj fliken **Bläddra**.
+1. I Visual Studio öppnar du **verktyg** > **NuGet Package Manager** > **Hantera NuGet-paket för lösningen**. Välj fliken **Bläddra**.
 
-1. Sök efter och välj **Microsoft.Azure.Devices.Client**och välj sedan **Installera**.
+1. Sök efter och välj **Microsoft. Azure. devices. client**och välj sedan **Installera**.
 
-    ![Installera azure IoT Hub .NET-tjänst SDK-aktuell version](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
+    ![Installera den aktuella versionen av Azure IoT Hub .NET service SDK](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
 
-1. Lägg till `using` följande satser högst upp i **Program.cs-filen:**
+1. Lägg till följande `using` -instruktioner överst i **program.cs** -filen:
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
@@ -112,7 +112,7 @@ Innan du börjar hämtar du modulanslutningssträngen. Logga in på [Azure-porta
         }
     ```
 
-1. Lägg till följande **Main** rader i huvudmetoden:
+1. Lägg till följande rader i **main** -metoden:
 
     ```csharp
     static void Main(string[] args)
@@ -152,7 +152,7 @@ Innan du börjar hämtar du modulanslutningssträngen. Logga in på [Azure-porta
 
     Det är kodexemplet visar hur du hämtar modultvillingen och uppdaterar rapporterade egenskaper med AMQP-protokollet. I offentlig förhandsversion stöder vi endast AMQP för modultvillingåtgärder.
 
-1. Du kan också lägga till dessa satser i **huvudmetoden** för att skicka en händelse till IoT Hub från modulen. Placera dessa rader `try catch` under blocket.
+1. Alternativt kan du lägga till dessa instruktioner i **huvud** metoden för att skicka en händelse till IoT Hub från modulen. Placera raderna under `try catch` blocket.
 
     ```csharp
     Byte[] bytes = new Byte[2];
@@ -165,13 +165,13 @@ Innan du börjar hämtar du modulanslutningssträngen. Logga in på [Azure-porta
 
 ## <a name="run-the-apps"></a>Kör apparna
 
-Du kan nu köra apparna.
+Nu kan du köra apparna.
 
-1. Högerklicka på lösningen i Solution Explorer i **Visual Studio**och välj sedan Konfigurera **StartUp-projekt**.
+1. Högerklicka på din lösning i **Solution Explorer**i Visual Studio och välj sedan **Ange start projekt**.
 
-1. Under **Vanliga egenskaper**väljer du **Startprojekt.**
+1. Under **gemensamma egenskaper**väljer du **Start projekt.**
 
-1. Välj **Flera startprojekt**och välj sedan **Start** som åtgärd för apparna och **OK** för att acceptera ändringarna.
+1. Välj **flera start projekt**och välj sedan **Starta** som åtgärd för apparna och **OK** för att acceptera ändringarna.
 
 1. Tryck på **F5** för att starta apparna.
 

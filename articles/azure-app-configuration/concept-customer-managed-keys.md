@@ -1,84 +1,84 @@
 ---
-title: Använda kundhanterade nycklar för att kryptera dina konfigurationsdata
-description: Kryptera dina konfigurationsdata med kundhanterade nycklar
+title: Använd Kundhanterade nycklar för att kryptera dina konfigurations data
+description: Kryptera dina konfigurations data med Kundhanterade nycklar
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
 ms.openlocfilehash: ace34cf4a72b871ba6646b279007b8ce21c03e9b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81457441"
 ---
-# <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Använda kundhanterade nycklar för att kryptera appkonfigurationsdata
-Azure App-konfiguration [krypterar känslig information i vila](../security/fundamentals/encryption-atrest.md). Användningen av kundhanterade nycklar ger förbättrat dataskydd genom att du kan hantera dina krypteringsnycklar.  När kryptering av hanterade nycklar används krypteras all känslig information i appkonfiguration med en Azure Key Vault-nyckel som tillhandahålls av användaren.  Detta ger möjlighet att rotera krypteringsnyckeln på begäran.  Det ger också möjlighet att återkalla Azure App-konfigurationens åtkomst till känslig information genom att återkalla appkonfigurationsinstansens åtkomst till nyckeln.
+# <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Använd Kundhanterade nycklar för att kryptera dina konfigurations data för appar
+Azure App konfiguration [krypterar känslig information i vila](../security/fundamentals/encryption-atrest.md). Användningen av Kundhanterade nycklar ger förbättrat data skydd genom att låta dig hantera dina krypterings nycklar.  När hanterad nyckel kryptering används krypteras all känslig information i appens konfiguration med en Azure Key Vault nyckel för användare som anges.  Detta ger möjlighet att rotera krypterings nyckeln på begäran.  Det ger också möjlighet att återkalla Azure App konfigurationens åtkomst till känslig information genom att återkalla appens konfigurations instans åtkomst till nyckeln.
 
 ## <a name="overview"></a>Översikt 
-Azure App Configuration krypterar känslig information i vila med hjälp av en 256-bitars AES-krypteringsnyckel som tillhandahålls av Microsoft. Varje AppKonfigurationsinstans har sin egen krypteringsnyckel som hanteras av tjänsten och används för att kryptera känslig information. Känslig information innehåller värden som finns i nyckelvärdespar.  När kundhanterad nyckelfunktion är aktiverad använder Appkonfiguration en hanterad identitet som tilldelats appkonfigurationsinstansen för att autentisera med Azure Active Directory. Den hanterade identiteten anropar sedan Azure Key Vault och radbryts i appkonfigurationsinstansens krypteringsnyckel. Den raderade krypteringsnyckeln lagras sedan och den oförpackade krypteringsnyckeln cachelagras i Appkonfiguration i en timme. Appkonfiguration uppdaterar den oförpackade versionen av appkonfigurationsinstansens krypteringsnyckel varje timme. Detta säkerställer tillgänglighet under normala driftsförhållanden. 
+Azure App konfiguration krypterar känslig information i vila med hjälp av en 256-bitars AES-krypterings nyckel från Microsoft. Varje konfigurations instans för appar har en egen krypterings nyckel som hanteras av tjänsten och används för att kryptera känslig information. Känslig information omfattar de värden som finns i nyckel/värde-par.  När kundhanterad nyckel funktion är aktive rad använder app-konfigurationen en hanterad identitet som tilldelats appens konfigurations instans för att autentisera med Azure Active Directory. Den hanterade identiteten anropar sedan Azure Key Vault och omsluter appens konfigurations instansens krypterings nyckel. Den omslutna krypterings nyckeln lagras sedan och den icke-omslutna krypterings nyckeln cachelagras i appens konfiguration i en timme. Med appens konfiguration uppdateras den icke-omslutna versionen av krypterings nyckeln för program konfigurations instansen varje timme. Detta garanterar tillgänglighet under normala drifts förhållanden. 
 
 >[!IMPORTANT]
-> Om den identitet som tilldelats appkonfigurationsinstansen inte längre har behörighet att packa upp instansens krypteringsnyckel, eller om den hanterade nyckeln tas bort permanent, går det inte längre att dekryptera känslig information som lagras i appkonfigurationsinstansen. Om du använder Azure Key Vaults [mjuka borttagningsfunktion](../key-vault/general/overview-soft-delete.md) minskar risken för att krypteringsnyckeln tas bort av misstag.
+> Om den identitet som är tilldelad till konfigurations instansen inte längre har behörighet att packa upp instansens krypterings nyckel, eller om den hanterade nyckeln tas bort permanent, kommer den inte längre att kunna dekryptera känslig information som lagras i appens konfigurations instans. Med hjälp av Azure Key Vault funktionen för [mjuk borttagning](../key-vault/general/overview-soft-delete.md) minimerar du risken för att oavsiktligt ta bort krypterings nyckeln.
 
-När användare aktiverar kundens hanterade nyckelfunktioner i sin Azure App Configuration-instans styr de tjänstens förmåga att komma åt känslig information. Den hanterade nyckeln fungerar som en rotkrypteringsnyckel. En användare kan återkalla åtkomsten till sin appkonfigurationsinstans till sin hanterade nyckel genom att ändra sin princip för nyckelvalvsåtkomst. När den här åtkomsten återkallas förlorar appkonfigurationen möjligheten att dekryptera användardata inom en timme. Nu förbjuder appkonfigurationsinstansen alla åtkomstförsök. Denna situation kan återställas genom att tjänsten beviljas åtkomst till den hanterade nyckeln igen.  Inom en timme kommer App Configuration att kunna dekryptera användardata och fungera under normala förhållanden.
+När användarna aktiverar kundens hanterade nyckel funktioner på sin Azure App konfigurations instans kontrollerar de tjänstens möjlighet att komma åt känslig information. Den hanterade nyckeln fungerar som en rot krypterings nyckel. En användare kan återkalla sin konfigurations instanss åtkomst till deras hanterade nyckel genom att ändra åtkomst principen för nyckel valvet. När den här åtkomsten har återkallats förlorar app-konfigurationen möjligheten att dekryptera användar data inom en timme. I det här läget kommer program konfigurations instansen att förbjuda alla åtkomst försök. Den här situationen kan återkrävas genom att beviljar tjänsten åtkomst till den hanterade nyckeln en gång till.  Inom en timme kommer app-konfigurationen att kunna dekryptera användar data och fungera under normala förhållanden.
 
 >[!NOTE]
->Alla Azure App-konfigurationsdata lagras i upp till 24 timmar i en isolerad säkerhetskopia. Detta inkluderar den oförpackade krypteringsnyckeln. Dessa data är inte omedelbart tillgängliga för tjänsten eller serviceteamet. I händelse av en nödåterställning återkallas Azure App-konfigurationen igen från de hanterade nyckeldata.
+>Alla Azure App konfigurations data lagras i upp till 24 timmar i en isolerad säkerhets kopiering. Detta inkluderar den icke-omslutna krypterings nyckeln. Dessa data är inte omedelbart tillgängliga för tjänsten eller tjänst teamet. I händelse av en nöd återställning återkallar Azure App-konfigurationen sig själv från de hanterade nyckel data.
 
 ## <a name="requirements"></a>Krav
-Följande komponenter krävs för att kunna aktivera den kundhanterade nyckelfunktionen för Azure App-konfiguration:
-- Konfigurationsinstans på standardnivå
-- Azure Key Vault med funktioner för mjuk borttagning och rensningsskydd aktiverat
-- En RSA- eller RSA-HSM-nyckel i nyckelvalvet
-    - Nyckeln får inte ha upphört att gälla, den måste vara aktiverad och den måste ha både in- och uppbrytarfunktioner aktiverade
+Följande komponenter krävs för att kunna aktivera kundhanterad nyckel funktion för Azure App konfiguration:
+- Konfigurations instans för standard-nivå Azure App
+- Azure Key Vault med funktioner för mjuk borttagning och rensnings skydd aktiverade
+- En RSA-eller RSA-HSM-nyckel i Key Vault
+    - Nyckeln får inte ha upphört att gälla, den måste vara aktive rad och den måste ha både figursatta och diswrap-funktioner aktiverade
 
-När dessa resurser har konfigurerats återstår två steg för att låta Azure App-konfigurationen använda key vault-nyckeln:
-1. Tilldela en hanterad identitet till Azure App Configuration-instansen
-2. Bevilja `GET`identiteten `WRAP`, `UNWRAP` och behörigheterna i målnyckelvalvets åtkomstprincip.
+När dessa resurser har kon figurer ATS fortsätter två steg att tillåta Azure App konfiguration att använda Key Vault nyckel:
+1. Tilldela en hanterad identitet till Azure App konfigurations instans
+2. Bevilja identiteten `GET`, `WRAP`och `UNWRAP` behörigheterna i mål Key Vaults åtkomst princip.
 
-## <a name="enable-customer-managed-key-encryption-for-your-azure-app-configuration-instance"></a>Aktivera kundhanterad nyckelkryptering för din Azure App-konfigurationsinstans
-Till att börja med behöver du en korrekt konfigurerad Azure App Configuration-instans. Om du ännu inte har en appkonfigurationsinstans tillgänglig följer du en av dessa snabbstarter för att ställa in en:
+## <a name="enable-customer-managed-key-encryption-for-your-azure-app-configuration-instance"></a>Aktivera kundhanterad nyckel kryptering för Azure App konfigurations instans
+För att du ska kunna starta måste du ha en korrekt konfigurerad Azure App konfigurations instans. Om du inte har en instans av en app-konfiguration som är tillgänglig, följer du någon av följande snabb starter för att konfigurera en:
 - [Skapa en ASP.NET Core-app med Azure App Configuration](quickstart-aspnet-core-app.md)
-- [Skapa en .NET Core-app med Azure App-konfiguration](quickstart-dotnet-core-app.md)
+- [Skapa en .NET Core-app med Azure App konfiguration](quickstart-dotnet-core-app.md)
 - [Skapa en .NET Framework-app med Azure App Configuration](quickstart-dotnet-app.md)
-- [Skapa en Java Spring-app med Azure App-konfiguration](quickstart-java-spring-app.md)
+- [Skapa en Java våren-app med Azure App konfiguration](quickstart-java-spring-app.md)
 
 >[!TIP]
-> Azure Cloud Shell är ett kostnadsfritt interaktivt skal som du kan använda för att köra kommandoradsinstruktionerna i den här artikeln.  Den har vanliga Azure-verktyg förinstallerade, inklusive .NET Core SDK. Om du är inloggad på din Azure-prenumeration startar du ditt [Azure Cloud Shell](https://shell.azure.com) från shell.azure.com.  Du kan läsa mer om Azure Cloud Shell genom [att läsa vår dokumentation](../cloud-shell/overview.md)
+> Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt som du kan använda för att köra kommando rads instruktionerna i den här artikeln.  Den har vanliga Azure-verktyg förinstallerade, inklusive .NET Core SDK. Om du är inloggad på din Azure-prenumeration startar du [Azure Cloud Shell](https://shell.azure.com) från Shell.Azure.com.  Du kan lära dig mer om Azure Cloud Shell genom att [läsa vår dokumentation](../cloud-shell/overview.md)
 
-### <a name="create-and-configure-an-azure-key-vault"></a>Skapa och konfigurera ett Azure Key Vault
-1. Skapa ett Azure Key Vault med Azure CLI.  Observera att `vault-name` `resource-group-name` båda och tillhandahålls av användaren och måste vara unika.  Vi `contoso-vault` använder `contoso-resource-group` och i dessa exempel.
+### <a name="create-and-configure-an-azure-key-vault"></a>Skapa och konfigurera en Azure Key Vault
+1. Skapa en Azure Key Vault med hjälp av Azure CLI.  Observera att både `vault-name` och `resource-group-name` är användardefinierade och måste vara unika.  Vi använder `contoso-vault` och `contoso-resource-group` i de här exemplen.
 
     ```azurecli
     az keyvault create --name contoso-vault --resource-group contoso-resource-group
     ```
     
-1. Aktivera mjuk-borttagning och rensningsskydd för Key Vault. Ersätt namnen på nyckelvalvet (`contoso-vault`)`contoso-resource-group`och resursgruppen ( ) som skapats i steg 1.
+1. Aktivera mjuk borttagning och tömning av skydd för Key Vault. Ersätt namnen på de Key Vault (`contoso-vault`) och resurs gruppen (`contoso-resource-group`) som skapades i steg 1.
 
     ```azurecli
     az keyvault update --name contoso-vault --resource-group contoso-resource-group --enable-purge-protection --enable-soft-delete
     ```
     
-1. Skapa en Key Vault-nyckel. Ange en `key-name` unik för den här nyckeln och`contoso-vault`ersätt namnen på key vault ( ) som skapats i steg 1. Ange om `RSA` du `RSA-HSM` vill eller kryptera.
+1. Skapa en Key Vault nyckel. Ange ett unikt `key-name` namn för den här nyckeln och ersätt namnen på de Key Vault (`contoso-vault`) som skapades i steg 1. Ange om du föredrar `RSA` eller `RSA-HSM` kryptering.
 
     ```azurecli
     az keyvault key create --name key-name --kty {RSA or RSA-HSM} --vault-name contoso-vault
     ```
     
-    Utdata från det här kommandot visar nyckel-ID ("kid") för den genererade nyckeln.  Anteckna nyckel-ID:et som ska användas senare i den här övningen.  Nyckel-ID:et `https://{my key vault}.vault.azure.net/keys/{key-name}/{Key version}`har formen: .  Nyckel-ID:et har tre viktiga komponenter:
-    1. Key Vault URI: https://{my key vault}.vault.azure.net
-    1. Nyckelvalvets nyckelnamn: {Nyckelnamn}
-    1. Nyckelvalvs nyckelversion: {Nyckelversion}
+    Utdata från det här kommandot visar nyckel-ID ("barn") för den genererade nyckeln.  Anteckna nyckel-ID: t som du kan använda senare i den här övningen.  Nyckel-ID: t har formatet `https://{my key vault}.vault.azure.net/keys/{key-name}/{Key version}`:.  Nyckel-ID: t har tre viktiga komponenter:
+    1. Key Vault-URI: https://{My Key Vault}. valv. Azure. net
+    1. Key Vault nyckel namn: {Key Name}
+    1. Key Vault nyckel version: {Key version}
 
-1. Skapa en systemtilldelad hanterad identitet med Hjälp av Azure CLI och ersätter namnet på din AppKonfigurationsinstans och resursgrupp som användes i föregående steg. Den hanterade identiteten används för att komma åt den hanterade nyckeln. Vi `contoso-app-config` använder för att illustrera namnet på en App Configuration-instans:
+1. Skapa en systemtilldelad hanterad identitet med Azure CLI och ersätt namnet på din app Configuration-instans och resurs grupp som användes i föregående steg. Den hanterade identiteten kommer att användas för att få åtkomst till den hanterade nyckeln. Vi använder `contoso-app-config` för att illustrera namnet på en app Configuration-instans:
     
     ```azurecli
     az appconfig identity assign --na1. me contoso-app-config --group contoso-resource-group --identities [system]
     ```
     
-    Utdata för det här kommandot innehåller huvud-ID ("principalId") och klient-ID ("tenandId") för den tilldelade datorn.  Detta kommer att användas för att bevilja identitetsåtkomst till den hanterade nyckeln.
+    Utdata från det här kommandot omfattar huvud-ID: t ("principalId") och klient-ID ("tenandId") för den tilldelade identiteten.  Detta kommer att användas för att ge identitets åtkomst till den hanterade nyckeln.
 
     ```json
     {
@@ -89,19 +89,19 @@ Till att börja med behöver du en korrekt konfigurerad Azure App Configuration-
     }
     ```
 
-1. Den hanterade identiteten för Azure App Configuration-instansen behöver åtkomst till nyckeln för att utföra nyckelvalidering, kryptering och dekryptering. Den specifika uppsättning åtgärder som den `GET`behöver `WRAP`åtkomst `UNWRAP` till innehåller: , och för nycklar.  För att bevilja åtkomsten krävs huvud-ID för appkonfigurationsinstansens hanterade identitet. Det här värdet erhölls i föregående steg. Det visas nedan `contoso-principalId`som . Bevilja behörighet till den hanterade nyckeln med kommandoraden:
+1. Den hanterade identiteten för Azure App konfigurations instansen behöver åtkomst till nyckeln för att utföra nyckel verifiering, kryptering och dekryptering. Den speciella uppsättning åtgärder som den behöver åtkomst till innehåller: `GET`, `WRAP`och `UNWRAP` för nycklar.  Att bevilja åtkomst kräver ägar-ID: t för den hanterade identiteten för appens konfigurations instans. Det här värdet hämtades i föregående steg. Den visas nedan som `contoso-principalId`. Bevilja behörighet till den hanterade nyckeln med hjälp av kommando raden:
 
     ```azurecli
     az keyvault set-policy -n contoso-vault --object-id contoso-principalId --key-permissions get wrapKey unwrapKey
     ```
 
-1. När Azure App Configuration-instansen kan komma åt den hanterade nyckeln kan vi aktivera den kundhanterade nyckelfunktionen i tjänsten med Hjälp av Azure CLI. Återkalla följande egenskaper som registrerats `key name` `key vault URI`under stegen för att skapa nyckeln: .
+1. När Azure App konfigurations instansen har åtkomst till den hanterade nyckeln kan vi aktivera kundhanterad nyckel funktion i tjänsten med hjälp av Azure CLI. Återkalla följande egenskaper som registrerats när du skapade nyckeln: `key name` `key vault URI`.
 
     ```azurecli
     az appconfig update -g contoso-resource-group -n contoso-app-config --encryption-key-name key-name --encryption-key-version key-version --encryption-key-vault key-vault-Uri
     ```
 
-Azure App Configuration-instansen är nu konfigurerad för att använda en kundhanterad nyckel som lagras i Azure Key Vault.
+Din Azure App konfigurations instans har nu kon figurer ATS för att använda en kundhanterad nyckel som lagras i Azure Key Vault.
 
-## <a name="next-steps"></a>Efterföljande moment
-I den här artikeln har du konfigurerat din Azure App Configuration-instans för att använda en kundhanterad nyckel för kryptering.  Lär dig hur du [integrerar din tjänst med Azure Managed Identities](howto-integrate-azure-managed-service-identity.md).
+## <a name="next-steps"></a>Nästa steg
+I den här artikeln konfigurerade du Azure App konfigurations instansen så att den använder en kundhanterad nyckel för kryptering.  Lär dig hur du [integrerar din tjänst med Azure Managed Identities](howto-integrate-azure-managed-service-identity.md).

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.openlocfilehash: 732c405cad20aef3485b521fa245cb504a809c40
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82129067"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Skala automatiskt ett kluster så att det uppfyller program kraven i Azure Kubernetes service (AKS)
@@ -107,7 +107,7 @@ Exemplet ovan uppdaterar kluster autoskalning på den enskild Node-poolen i *myA
 
 Du kan också konfigurera mer detaljerad information om klustrets autoskalning genom att ändra standardvärdena i den globala profilen för autoskalning i klustret. Till exempel inträffar en händelsen skala ned efter att noderna har utnyttjats efter 10 minuter. Om du har arbets belastningar som kördes var 15: e minut kanske du vill ändra profilen för autoskalning för att skala ned under använda noder efter 15 eller 20 minuter. När du aktiverar klustret autoskalning används en standard profil om du inte anger andra inställningar. Klustrets profil för autoskalning har följande inställningar som du kan uppdatera:
 
-| Inställning                          | Beskrivning                                                                              | Standardvärde |
+| Inställningen                          | Beskrivning                                                                              | Standardvärde |
 |----------------------------------|------------------------------------------------------------------------------------------|---------------|
 | genomsökning – intervall                    | Hur ofta klustret utvärderas för att skala upp eller ned                                    | 10 sekunder    |
 | skala ned-fördröjning – efter-tillägg       | Hur lång tid det tar att skala ned utvärderingen återupptas                               | 10 minuter    |
@@ -117,7 +117,7 @@ Du kan också konfigurera mer detaljerad information om klustrets autoskalning g
 | skalar ned-oläst, tid          | Hur länge en oläsbar nod ska vara onödiga innan den kan skalas ned         | 20 minuter    |
 | skalning – användning – tröskel | Nodens användnings nivå, definieras som summan av de begärda resurserna dividerat med kapaciteten, under vilken en nod kan övervägas för skalning nedåt | 0,5 |
 | Max--Termination-s     | Maximalt antal sekunder som klustrets automatiska skalning väntar på att Pod avslutas vid försök att skala ned en nod. | 600 sekunder   |
-| balans-liknande-Node-Groups | Identifiera liknande noder och utjämna antalet noder mellan dem | false |
+| balans-liknande-Node-Groups | Identifiera liknande noder och utjämna antalet noder mellan dem | falskt |
 
 > [!IMPORTANT]
 > Klustrets profil för autoskalning påverkar alla resurspooler som använder klustrets autoskalning. Det går inte att ange en autoskalning-profil per Node-pool.

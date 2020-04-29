@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: f5b0aeec851c8f514492e32792f48e955597ced5
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82096579"
 ---
 # <a name="database-advisor-performance-recommendations-for-single-and-pooled-databases"></a>Database Advisor prestanda rekommendationer för databaser med enkel och pool
@@ -39,10 +39,10 @@ Alternativ för prestanda rekommendation som är tillgängliga för enskilda dat
 
 | Prestanda rekommendation | Stöd för enkel databas och poolad databas | Stöd för instans databas |
 | :----------------------------- | ----- | ----- |
-| **Skapa index rekommendationer** – rekommenderar att du skapar index som kan förbättra arbets Belastningens prestanda. | Ja | Inga |
-| **Ta bort index rekommendationer** – rekommenderar borttagning av redundanta och dubbla index dagligen, förutom unika index och index som inte har använts under en längre tid (>90 dagar). Observera att det här alternativet inte är kompatibelt med program som använder partitions växlings-och index tips. Det går inte att släppa oanvända index för Premium-och Affärskritisk tjänst nivåer. | Ja | Inga |
-| **Parameterisera frågor rekommendationer (för hands version)** – rekommenderar tvingande Parameterisering i fall när du har en eller flera frågor som ständigt kompileras om, men som slutar med samma frågans körnings plan. | Ja | Inga |
-| **Åtgärda rekommendationer för schema problem (för hands version)** – rekommendationer för schema korrigering visas när SQL Database tjänsten meddelar en avvikelse i antalet SCHEMAbaserade SQL-fel som inträffar i SQL-databasen. Microsoft är för närvarande inaktuellt "Fix schema Issue"-rekommendationer. | Ja | Inga |
+| **Skapa index rekommendationer** – rekommenderar att du skapar index som kan förbättra arbets Belastningens prestanda. | Ja | Nej |
+| **Ta bort index rekommendationer** – rekommenderar borttagning av redundanta och dubbla index dagligen, förutom unika index och index som inte har använts under en längre tid (>90 dagar). Observera att det här alternativet inte är kompatibelt med program som använder partitions växlings-och index tips. Det går inte att släppa oanvända index för Premium-och Affärskritisk tjänst nivåer. | Ja | Nej |
+| **Parameterisera frågor rekommendationer (för hands version)** – rekommenderar tvingande Parameterisering i fall när du har en eller flera frågor som ständigt kompileras om, men som slutar med samma frågans körnings plan. | Ja | Nej |
+| **Åtgärda rekommendationer för schema problem (för hands version)** – rekommendationer för schema korrigering visas när SQL Database tjänsten meddelar en avvikelse i antalet SCHEMAbaserade SQL-fel som inträffar i SQL-databasen. Microsoft är för närvarande inaktuellt "Fix schema Issue"-rekommendationer. | Ja | Nej |
 
 ![Prestanda rekommendationer för Azure SQL Database](./media/sql-database-performance/performance-recommendations-annotated.png)
 

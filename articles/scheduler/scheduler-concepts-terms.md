@@ -10,18 +10,18 @@ ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878399"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Begrepp, terminologi och entiteter i Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som [dras tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du har konfigurerat i Scheduler [migrerar](../scheduler/migrate-from-scheduler-to-logic-apps.md) du till Azure Logic Apps så snart som möjligt. 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt. 
 >
-> Scheduler är inte längre tillgängligt i Azure-portalen, men [REST API-](/rest/api/scheduler) och [Azure Scheduler PowerShell-cmdlets](scheduler-powershell-reference.md) förblir tillgängliga just nu så att du kan hantera dina jobb och jobbsamlingar.
+> Scheduler är inte längre tillgänglig i Azure Portal, men [PowerShell-cmdletarna](scheduler-powershell-reference.md) [REST API](/rest/api/scheduler) och Azure Scheduler är tillgängliga just nu så att du kan hantera jobb och jobb samlingar.
 
 ## <a name="entity-hierarchy"></a>Entitetshierarki
 
@@ -40,7 +40,7 @@ Vid en hög nivå exponerar Scheduler REST API de här åtgärderna för hanteri
 
 ### <a name="job-management"></a>Jobbhantering
 
-Stöder åtgärder för att skapa och redigera jobb. Alla jobb måste tillhöra en befintlig jobbsamling. Ingen implicit generering utförs. Mer information finns i [Scheduler REST API – jobb](https://docs.microsoft.com/rest/api/scheduler/jobs). Här är URI-adressen för dessa åtgärder:
+Stöder åtgärder för att skapa och redigera jobb. Alla jobb måste tillhöra en befintlig jobbsamling. Ingen implicit generering utförs. Mer information finns i [Scheduler REST API – jobb](https://docs.microsoft.com/rest/api/scheduler/jobs). Här är URI-adressen för de här åtgärderna:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
@@ -48,7 +48,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-collection-management"></a>Hantering av jobbsamlingar
 
-Stöder åtgärder för att skapa och redigera jobb och jobbsamlingar, som mappar till kvoter och delade inställningar. Till exempel kvoter som anger maximalt antal jobb och minsta upprepningsintervall. Mer information finns i [Scheduler REST API – jobbsamlingar](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Här är URI-adressen för dessa åtgärder:
+Stöder åtgärder för att skapa och redigera jobb och jobbsamlingar, som mappar till kvoter och delade inställningar. Till exempel kvoter som anger maximalt antal jobb och minsta upprepningsintervall. Mer information finns i [Scheduler REST API – jobbsamlingar](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Här är URI-adressen för de här åtgärderna:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
@@ -66,7 +66,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 Azure Scheduler stöder flera jobbtyper: 
 
-* HTTP-jobb, inklusive HTTPS-jobb som stöder TLS, för när du har slutpunkten för en befintlig tjänst eller arbetsbelastning
+* HTTP-jobb, inklusive HTTPS-jobb som stöder TLS, för när du har slut punkten för en befintlig tjänst eller arbets belastning
 * Storage-köjobb för arbetsbelastningar som använder Storage-köer, som att publicera meddelanden till Storage-köer
 * Service Bus-köjobb för arbetsbelastningar som använder Service Bus-köer
 * Service Bus-ämnesjobb för arbetsbelastningar som använder Service Bus-ämnen
@@ -84,13 +84,13 @@ Jobbet innehåller även systemangivna data, till exempel jobbets nästa schemal
 
 | Element | Krävs | Beskrivning | 
 |---------|----------|-------------| 
-| [**Starttime**](#start-time) | Inga | Starttid för jobbet med en tidszonsförskjutning i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) | 
-| [**Åtgärder**](#action) | Ja | Information om den primära åtgärden, vilket kan inkludera ett **errorAction**-objekt | 
-| [**errorAction**](#error-action) | Inga | Information om den sekundära åtgärd som körs om den primära åtgärden misslyckas |
-| [**Återkommande**](#recurrence) | Inga | Information som frekvens och intervall för ett återkommande jobb | 
-| [**återförsökPolicy**](#retry-policy) | Inga | Information om hur ofta en åtgärd ska göras om | 
-| [**Statligt**](#state) | Ja | Information om jobbets aktuella tillstånd |
-| [**Status**](#status) | Ja | Information om jobbets aktuella status som kontrolleras av tjänsten |
+| [**/St**](#start-time) | Nej | Starttid för jobbet med en tidszonsförskjutning i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) | 
+| [**tgärd**](#action) | Ja | Information om den primära åtgärden, vilket kan inkludera ett **errorAction**-objekt | 
+| [**errorAction**](#error-action) | Nej | Information om den sekundära åtgärd som körs om den primära åtgärden misslyckas |
+| [**mönster**](#recurrence) | Nej | Information som frekvens och intervall för ett återkommande jobb | 
+| [**retryPolicy**](#retry-policy) | Nej | Information om hur ofta en åtgärd ska göras om | 
+| [**låst**](#state) | Ja | Information om jobbets aktuella tillstånd |
+| [**statusfältet**](#status) | Ja | Information om jobbets aktuella status som kontrolleras av tjänsten |
 ||||
 
 Här är ett exempel som visar en heltäckande jobbdefinition för en HTTP-åtgärd med mer fullständig elementinformation som beskrivs i senare avsnitt: 
@@ -248,16 +248,16 @@ Ett jobb återkommer om jobbets JSON-definition innehåller objektet **upprepnin
 
 | Egenskap | Krävs | Värde | Beskrivning | 
 |----------|----------|-------|-------------| 
-| **Frekvens** | Ja, när **upprepning** används | Minut, timme, dag, vecka, månad, år | Tidsenheten mellan förekomster | 
-| **Intervall** | Inga | 1 till och med 1 000 | Ett positivt heltal som anger antalet tidsenheter mellan varje förekomst utifrån **frekvens** | 
-| **Schema** | Inga | Varierar | Information för mer komplicerade och avancerade scheman. Se **timmar**, **minuter**, **weekDays**, **månader** och **monthDays** | 
-| **hours** | Inga | 1 till 24 | En matris med timmesmarkeringarrna för när jobbet ska köras | 
-| **minutes** | Inga | 0 till 59 | En matris med minutmarkeringarrna för när jobbet ska köras | 
-| **månader** | Inga | 1 till 12 | En matris med månaderna då jobbet ska köras | 
-| **monthDays** | Inga | Varierar | En matris med dagarna i månaden då jobbet ska köras | 
-| **weekDays** | Inga | Måndag, tisdag, onsdag, torsdag, fredag, lördag och söndag | En matris med veckodagarna när jobbet ska köras | 
-| **antal** | Inga | <*Ingen*> | Antal upprepningar. Standardvärdet är oändlig upprepning. Du kan inte använda både **antal** och **endTime** men regeln som slutar först gäller. | 
-| **endTime** | Inga | <*Ingen*> | Datum och tid när du vill stoppa upprepningen. Standardvärdet är oändlig upprepning. Du kan inte använda både **antal** och **endTime** men regeln som slutar först gäller. | 
+| **frekvens** | Ja, när **upprepning** används | Minut, timme, dag, vecka, månad, år | Tidsenheten mellan förekomster | 
+| **intervall** | Nej | 1 till och med 1 000 | Ett positivt heltal som anger antalet tidsenheter mellan varje förekomst utifrån **frekvens** | 
+| **Ange** | Nej | Varierar | Information för mer komplicerade och avancerade scheman. Se **timmar**, **minuter**, **weekDays**, **månader** och **monthDays** | 
+| **timmarna** | Nej | 1 till 24 | En matris med timmesmarkeringarrna för när jobbet ska köras | 
+| **fördröjning** | Nej | 0 till 59 | En matris med minutmarkeringarrna för när jobbet ska köras | 
+| **månader** | Nej | 1 till 12 | En matris med månaderna då jobbet ska köras | 
+| **monthDays** | Nej | Varierar | En matris med dagarna i månaden då jobbet ska köras | 
+| **weekDays** | Nej | Måndag, tisdag, onsdag, torsdag, fredag, lördag och söndag | En matris med veckodagarna när jobbet ska köras | 
+| **reparationer** | Nej | <*alternativet*> | Antal upprepningar. Standardvärdet är oändlig upprepning. Du kan inte använda både **antal** och **endTime** men regeln som slutar först gäller. | 
+| **endTime** | Nej | <*alternativet*> | Datum och tid när du vill stoppa upprepningen. Standardvärdet är oändlig upprepning. Du kan inte använda både **antal** och **endTime** men regeln som slutar först gäller. | 
 ||||
 
 Mer information om dessa element finns i [Skapa komplexa scheman och avancerad upprepningar](../scheduler/scheduler-advanced-complexity.md).
@@ -279,8 +279,8 @@ För fallet när ett Scheduler-jobb misslyckas, kan du ställa in en återförs�
 | Egenskap | Krävs | Värde | Beskrivning | 
 |----------|----------|-------|-------------| 
 | **retryType** | Ja | **Fast**, **Ingen** | Avgör om du anger en återförsöksprincip (**fast**) eller inte (**ingen**). | 
-| **retryInterval** | Inga | PT30S | Anger intervall och frekvens mellan omförsök i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Minimivärdet är 15 sekunder medan det högsta värdet är 18 månader. | 
-| **retryCount** | Inga | 4 | Anger antalet återförsök. Maxvärdet är 20. | 
+| **retryInterval** | Nej | PT30S | Anger intervall och frekvens mellan omförsök i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Minimivärdet är 15 sekunder medan det högsta värdet är 18 månader. | 
+| **retryCount** | Nej | 4 | Anger antalet återförsök. Maxvärdet är 20. | 
 ||||
 
 Mer information finns i [Hög tillgänglighet och tillförlitlighet](../scheduler/scheduler-high-availability-reliability.md).

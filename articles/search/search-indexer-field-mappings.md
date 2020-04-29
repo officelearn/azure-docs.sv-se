@@ -10,10 +10,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 17a96479b80410cbfcb2a6061904491f95c45f10
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116272"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Fält mappningar och transformeringar med Azure Kognitiv sökning indexerare
@@ -188,7 +188,7 @@ I följande tabell jämförs olika base64-kodningar för `00>00?00`strängen. Om
 | Base64 med utfyllnad | `MDA+MDA/MDA=` | Använd URL-säkra tecken och ta bort utfyllnad | Använd standard base64-tecken och Lägg till utfyllnad |
 | Base64 utan utfyllnad | `MDA+MDA/MDA` | Använd URL-säkra tecken | Använd standard base64-tecken |
 | URL – säker base64 med utfyllnad | `MDA-MDA_MDA=` | Ta bort utfyllnad | Lägg till utfyllnad |
-| URL – säker base64 utan utfyllnad | `MDA-MDA_MDA` | Ingen | Ingen |
+| URL – säker base64 utan utfyllnad | `MDA-MDA_MDA` | Inga | Inga |
 
 <a name="extractTokenAtPositionFunction"></a>
 

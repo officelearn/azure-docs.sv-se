@@ -11,10 +11,10 @@ ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.openlocfilehash: 724c250b56107cb68da387bdd531602e8d239e1c
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82127533"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Konfigurera Avancerat skydd för Azure Storage
@@ -84,7 +84,7 @@ Använd en Azure Policy för att aktivera avancerat skydd mellan lagrings konton
 
     ![Sidan princip definitioner](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="rest-api"></a>[REST-API](#tab/rest-api)
+### <a name="rest-api"></a>[REST API](#tab/rest-api)
 
 Använd REST API-kommandon för att skapa, uppdatera eller Hämta inställningen för avancerat skydd för ett angivet lagrings konto.
 

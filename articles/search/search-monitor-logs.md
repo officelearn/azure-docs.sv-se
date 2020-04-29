@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: 192591dedb0b5519fdcecde8c8683be87237c828
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82127816"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Samla in och analysera loggdata för Azure Kognitiv sökning
@@ -99,7 +99,7 @@ För Blob Storage har varje BLOB ett rot objekt som kallas **poster** som inneh�
 
 Följande tabell är en del av listan över fält som är vanliga för resurs loggning.
 
-| Namn | Typ | Exempel | Anteckningar |
+| Name | Typ | Exempel | Obs! |
 | --- | --- | --- | --- |
 | timeGenerated |datetime |"2018-12-07T00:00:43.6872559 Z" |Tidsstämpel för åtgärden |
 | resourceId |sträng |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/STANDARD/PROVIDERS/<br/> Utforskaren. SEARCH/SEARCHSERVICES/SEARCHSERVICE " |Din ResourceId |
@@ -115,7 +115,7 @@ Följande tabell är en del av listan över fält som är vanliga för resurs lo
 
 Egenskaperna nedan är bara för Azure-Kognitiv sökning.
 
-| Namn | Typ | Exempel | Anteckningar |
+| Name | Typ | Exempel | Obs! |
 | --- | --- | --- | --- |
 | Description_s |sträng |"Hämta/Indexes (' Content ')/docs" |Åtgärdens slut punkt |
 | Documents_d |int |42 |Antal bearbetade dokument |
@@ -126,7 +126,7 @@ Egenskaperna nedan är bara för Azure-Kognitiv sökning.
 
 Måtten fångas för fråge förfrågningar och mäts inom en minut. Varje mått visar de lägsta, högsta och genomsnittliga värdena per minut. Mer information finns i [övervaka fråge förfrågningar](search-monitor-queries.md).
 
-| Namn | Typ | Exempel | Anteckningar |
+| Name | Typ | Exempel | Obs! |
 | --- | --- | --- | --- |
 | resourceId |sträng |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/STANDARD/PROVIDERS/<br/>Utforskaren. SEARCH/SEARCHSERVICES/SEARCHSERVICE " |resurs-ID |
 | metricName |sträng |Svars tid |namnet på måttet |

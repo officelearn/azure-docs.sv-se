@@ -1,26 +1,26 @@
 ---
-title: Azure Frontend API:er för autentisering
-description: Förklarar hur du använder C#-klientdels-API:et för autentisering
+title: 'Azure frontend-API: er för autentisering'
+description: Förklarar hur du använder C#-klient delens API för autentisering
 author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
 ms.openlocfilehash: 04296a3dab61fdb569126abc1bc1f975d69e226d
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681355"
 ---
-# <a name="use-the-azure-frontend-apis-for-authentication"></a>Använda Azure Frontend API:er för autentisering
+# <a name="use-the-azure-frontend-apis-for-authentication"></a>Använda Azure Frontend-API:er för autentisering
 
 I det här avsnittet beskriver vi hur du använder C# API för autentisering.
 
 ## <a name="azurefrontendaccountinfo"></a>AzureFrontendAccountInfo
 
-AzureFrontendAccountInfo används för att ställa in ```AzureFrontend``` autentiseringsinformation för en instans i SDK.
+AzureFrontendAccountInfo används för att ställa in Autentiseringsinformationen för en ```AzureFrontend``` instans i SDK.
 
-De viktiga områdena är:
+De viktiga fälten är:
 
 ```cs
 
@@ -41,29 +41,29 @@ De viktiga områdena är:
 
 ```
 
-Använd en [region nära dig](../reference/regions.md)för _regiondelen_ i domänen .
+Använd en [region nära dig](../reference/regions.md)för _region_ delen i domänen.
 
-Kontoinformationen kan erhållas från portalen enligt beskrivningen i [återhämtningskontoinformationsstycket.](create-an-account.md#retrieve-the-account-information)
+Konto informationen kan hämtas från portalen enligt beskrivningen i stycket [Hämta konto information](create-an-account.md#retrieve-the-account-information) .
 
-## <a name="azure-frontend"></a>Azure Frontend
+## <a name="azure-frontend"></a>Azure-frontend
 
-De relevanta ```AzureFrontend``` klasserna är och ```AzureSession```. ```AzureFrontend```används för kontohantering och kontonivå, vilket inkluderar: tillgångskonvertering och skapande av återgivningssessioner. ```AzureSession```används för sessionsnivåfunktioner och den innehåller: sessionsuppdatering, frågor, förnyelse och avveckling.
+Relevanta klasser är ```AzureFrontend``` och ```AzureSession```. ```AzureFrontend```används för konto hanterings-och konto nivå funktioner, bland annat: till gångs konvertering och åter givnings skapande av session. ```AzureSession```används för funktioner på sidnivå och innehåller: uppdatering av sessionen, frågor, förnyande och inaktive ring.
 
-Varje öppnas/skapas ```AzureSession``` behåller en referens till klientdelen som har skapat den. För att stängas av på ett rent sätt måste alla sessioner hanteras innan frontenden kommer att deallocated.
+Alla öppna/skapade ```AzureSession``` behåller en referens till den klient som skapade den. För att stänga av datorn måste alla sessioner frigöras innan klient delen frigörs.
 
-Att frigöra en session stoppar inte den `AzureSession.StopAsync` virtuella datorn på Azure, måste uttryckligen anropas.
+Om du avallokerar en session stoppas inte den virtuella `AzureSession.StopAsync` datorn på Azure, måste uttryckligen anropas.
 
-När en session har skapats och dess tillstånd har markerats som `AzureSession.ConnectToRuntime`klar kan den ansluta till fjärrrenderingskörningen med .
+När en session har skapats och dess status har marker ATS som klar, kan den ansluta till körnings miljön för fjärrrendering med `AzureSession.ConnectToRuntime`.
 
 ### <a name="threading"></a>Threading
 
-Alla AzureSession- och AzureFrontend-asynkronanrop har slutförts i en bakgrundstråd, inte huvudprogramtråden.
+Alla asynkrona anrop för AzureSession och AzureFrontend har slutförts i en bakgrunds tråd, inte huvud program tråden.
 
-### <a name="conversion-apis"></a>Api:er för konvertering
+### <a name="conversion-apis"></a>API: er för konvertering
 
-Mer information om konverteringstjänsten finns [i REST API för modellkonvertering](conversion/conversion-rest-api.md).
+Mer information om konverterings tjänsten finns i [modell konverterings REST API](conversion/conversion-rest-api.md).
 
-#### <a name="start-asset-conversion"></a>Starta konvertering av tillgångar
+#### <a name="start-asset-conversion"></a>Starta till gångs konvertering
 
 ``` cs
 private StartConversionAsync _pendingAsync = null;
@@ -89,7 +89,7 @@ void StartAssetConversion(AzureFrontend frontend, string modelName, string model
 }
 ```
 
-#### <a name="get-conversion-status"></a>Hämta konverteringsstatus
+#### <a name="get-conversion-status"></a>Hämta konverterings status
 
 ``` cs
 private ConversionStatusAsync _pendingAsync = null
@@ -113,13 +113,13 @@ void GetConversionStatus(AzureFrontend frontend, string assetId)
 }
 ```
 
-### <a name="rendering-apis"></a>Api:er för rendering
+### <a name="rendering-apis"></a>API för rendering
 
-Mer information om [sessionshanterings-REST API finns i REST-API:et för sessionshantering.](session-rest-api.md)
+Mer information om sessionshantering finns i [REST API för hantering av sessioner](session-rest-api.md) .
 
-En återgivningssession kan antingen skapas dynamiskt på tjänsten eller så kan ett redan befintligt sessions-ID "öppnas" till ett AzureSession-objekt.
+En rendering-session kan antingen skapas dynamiskt på tjänsten eller också kan ett redan befintligt sessions-ID öppnas i ett AzureSession-objekt.
 
-#### <a name="create-rendering-session"></a>Skapa återgivningssession
+#### <a name="create-rendering-session"></a>Skapa åter givnings session
 
 ``` cs
 private CreateSessionAsync _pendingAsync = null;
@@ -144,7 +144,7 @@ void CreateRenderingSession(AzureFrontend frontend, RenderingSessionVmSize vmSiz
 }
 ```
 
-#### <a name="open-an-existing-rendering-session"></a>Öppna en befintlig återgivningssession
+#### <a name="open-an-existing-rendering-session"></a>Öppna en befintlig åter givnings session
 
 Att öppna en befintlig session är ett synkront anrop.
 
@@ -156,7 +156,7 @@ void CreateRenderingSession(AzureFrontend frontend, string sessionId)
 }
 ```
 
-#### <a name="get-current-rendering-sessions"></a>Hämta aktuella renderingssessioner
+#### <a name="get-current-rendering-sessions"></a>Hämta aktuella åter givnings sessioner
 
 ``` cs
 private SessionPropertiesArrayAsync _pendingAsync = null;
@@ -179,9 +179,9 @@ void GetCurrentRenderingSessions(AzureFrontend frontend)
 }
 ```
 
-### <a name="session-apis"></a>Api:er för session
+### <a name="session-apis"></a>Sessioners-API: er
 
-#### <a name="get-rendering-session-properties"></a>Hämta egenskaper för renderingssession
+#### <a name="get-rendering-session-properties"></a>Hämta egenskaper för åter givnings session
 
 ``` cs
 private SessionPropertiesAsync _pendingAsync = null;
@@ -204,7 +204,7 @@ void GetRenderingSessionProperties(AzureSession session)
 }
 ```
 
-#### <a name="update-rendering-session"></a>Uppdatera renderingssession
+#### <a name="update-rendering-session"></a>Uppdatera åter givnings session
 
 ``` cs
 private SessionAsync _pendingAsync;
@@ -228,7 +228,7 @@ void UpdateRenderingSession(AzureSession session, ARRTimeSpan updatedLease)
 }
 ```
 
-#### <a name="stop-rendering-session"></a>Stoppa renderingssession
+#### <a name="stop-rendering-session"></a>Stoppa åter givning av session
 
 ``` cs
 private SessionAsync _pendingAsync;
@@ -251,7 +251,7 @@ void StopRenderingSession(AzureSession session)
 }
 ```
 
-#### <a name="connect-to-arr-inspector"></a>Anslut till ARR-inspektör
+#### <a name="connect-to-arr-inspector"></a>Anslut till ARR-kontrollant
 
 ``` cs
 private ArrInspectorAsync _pendingAsync = null;
@@ -289,4 +289,4 @@ void ConnectToArrInspector(AzureSession session, string hostname)
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa ett konto](create-an-account.md)
-* [Exempel på PowerShell-skript](../samples/powershell-example-scripts.md)
+* [PowerShell-exempelskript](../samples/powershell-example-scripts.md)

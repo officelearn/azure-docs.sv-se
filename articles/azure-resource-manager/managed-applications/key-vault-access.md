@@ -1,58 +1,58 @@
 ---
-title: Använda Key Vault vid distribution av hanterad app
-description: Visar hur du använder åtkomsthemligheter i Azure Key Vault när du distribuerar hanterade program
+title: Använd Key Vault när du distribuerar den hanterade appen
+description: Visar hur du använder åtkomst hemligheter i Azure Key Vault när du distribuerar hanterade program
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 5dc219747b9cc74b6c6aac8ab190ebfbe5ae9b32
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81458291"
 ---
-# <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Åtkomst till nyckelvalv hemlighet vid distribution av Azure Managed Applications
+# <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Åtkomst Key Vault hemlighet när du distribuerar Azure Managed Applications
 
-När du behöver skicka ett säkert värde (som ett lösenord) som en parameter under distributionen kan du hämta värdet från ett [Azure Key Vault](../../key-vault/general/overview.md). Om du vill komma åt Nyckelvalvet när du distribuerar hanterade program måste du bevilja åtkomst till tjänsten **Resursproviderns** huvudnamn för Resursprovidern. Tjänsten Hanterade program använder den här identiteten för att köra åtgärder. Om du vill hämta ett värde från ett Nyckelvalv under distributionen måste tjänstens huvudnamn kunna komma åt Nyckelvalvet.
+När du behöver skicka ett säkert värde (till exempel ett lösen ord) som en parameter under distributionen kan du hämta värdet från en [Azure Key Vault](../../key-vault/general/overview.md). Om du vill komma åt Key Vault när du distribuerar hanterade program måste du bevilja åtkomst till tjänstens huvud namn för enhets **resursen** . Tjänsten Managed Applications använder den här identiteten för att köra åtgärder. För att kunna hämta ett värde från en Key Vault under distributionen måste tjänstens huvud namn kunna komma åt Key Vault.
 
-I den här artikeln beskrivs hur du konfigurerar Nyckelvalvet så att det fungerar med hanterade program.
+I den här artikeln beskrivs hur du konfigurerar Key Vault att arbeta med hanterade program.
 
-## <a name="enable-template-deployment"></a>Aktivera malldistribution
+## <a name="enable-template-deployment"></a>Aktivera mall distribution
 
-1. Välj ditt Nyckelvalv i portalen.
+1. I portalen väljer du din Key Vault.
 
 1. Välj **Åtkomstprinciper**.   
 
-   ![Välj åtkomstprinciper](./media/key-vault-access/select-access-policies.png)
+   ![Välj åtkomst principer](./media/key-vault-access/select-access-policies.png)
 
 1. Välj **Click to show advanced access policies** (Klicka för att visa avancerade åtkomstprinciper).
 
-   ![Visa avancerade åtkomstprinciper](./media/key-vault-access/advanced.png)
+   ![Visa avancerade åtkomst principer](./media/key-vault-access/advanced.png)
 
-1. Välj **Aktivera åtkomst till Azure Resource Manager för malldistribution**. Välj sedan **Spara**.
+1. Välj **Aktivera åtkomst till Azure Resource Manager för mall distribution**. Välj sedan **Spara**.
 
-   ![Aktivera malldistribution](./media/key-vault-access/enable-template.png)
+   ![Aktivera mall distribution](./media/key-vault-access/enable-template.png)
 
 ## <a name="add-service-as-contributor"></a>Lägg till tjänst som deltagare
 
-1. Välj **Åtkomstkontroll (IAM)**.
+1. Välj **åtkomst kontroll (IAM)**.
 
-   ![Välj åtkomstkontroll](./media/key-vault-access/access-control.png)
+   ![Välj åtkomst kontroll](./media/key-vault-access/access-control.png)
 
 1. Välj **Lägg till rolltilldelning**.
 
    ![Välj Lägg till](./media/key-vault-access/add-access-control.png)
 
-1. Välj **Deltagare** för rollen. Sök efter Resursleverantör för **apparat** och välj den bland de tillgängliga alternativen.
+1. Välj **deltagare** för rollen. Sök efter installations **resurs leverantören** och välj den från de tillgängliga alternativen.
 
-   ![Sök efter leverantör](./media/key-vault-access/search-provider.png)
+   ![Sök efter Provider](./media/key-vault-access/search-provider.png)
 
 1. Välj **Spara**.
 
-## <a name="reference-key-vault-secret"></a>Referensnyckelvalv hemlighet
+## <a name="reference-key-vault-secret"></a>Referens Key Vault hemlighet
 
-Om du vill skicka en hemlighet från ett Nyckelvalv till en mall i det hanterade programmet måste du använda en [länkad eller kapslad mall](../templates/linked-templates.md) och referera till Nyckelvalvet i parametrarna för den länkade eller kapslade mallen. Ange resurs-ID för Key Vault och namnet på hemligheten.
+Om du vill skicka en hemlighet från en Key Vault till en mall i det hanterade programmet måste du använda en [länkad eller kapslad mall](../templates/linked-templates.md) och referera till Key Vault i parametrarna för den länkade eller kapslade mallen. Ange resurs-ID för Key Vault och namnet på hemligheten.
 
 ```json
 {
@@ -164,8 +164,8 @@ Om du vill skicka en hemlighet från ett Nyckelvalv till en mall i det hanterade
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har konfigurerat nyckelvalvet så att det blir tillgängligt under distributionen av ett hanterat program.
+Du har konfigurerat dina Key Vault så att de är tillgängliga under distributionen av ett hanterat program.
 
-* Information om hur du skickar ett värde från ett Nyckelvalv som mallparameter finns i [Använda Azure Key Vault för att skicka säkert parametervärde under distributionen](../templates/key-vault-parameter.md).
-* Exempel på hanterade program finns i [Exempel på projekt för Azure-hanterade program](sample-projects.md).
+* Information om hur du skickar ett värde från en Key Vault som en mallparameter finns i [använda Azure Key Vault för att skicka ett säkert parameter värde under distributionen](../templates/key-vault-parameter.md).
+* Exempel på hanterade program finns i [exempel projekt för Azure-hanterade program](sample-projects.md).
 * Se [Kom igång med CreateUiDefinition](create-uidefinition-overview.md) för att lära dig om hur du skapar en UI-definitionsfil för ett hanterat program.

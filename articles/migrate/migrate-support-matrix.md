@@ -1,123 +1,123 @@
 ---
-title: Supportmatris för Azure Migrate
-description: Innehåller en sammanfattning av supportinställningar och begränsningar för Azure Migrate-tjänsten.
+title: Azure Migrate support mat ris
+description: Innehåller en översikt över support inställningar och begränsningar för tjänsten Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/19/2020
 ms.author: raynew
 ms.openlocfilehash: 44a971894f53a3f31c068b3c3ed4912bc7e00dab
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81680698"
 ---
-# <a name="azure-migrate-support-matrix"></a>Supportmatris för Azure Migrate
+# <a name="azure-migrate-support-matrix"></a>Azure Migrate support mat ris
 
-Du kan använda [Azure Migrate-tjänsten](migrate-overview.md) för att bedöma och migrera datorer till Microsoft Azure-molnet. Den här artikeln sammanfattar allmänna supportinställningar och begränsningar för Azure Migrate-scenarier och distributioner.
+Du kan använda [tjänsten Azure Migrate](migrate-overview.md) för att utvärdera och migrera datorer till Microsoft Azure molnet. I den här artikeln sammanfattas allmänna support inställningar och begränsningar för Azure Migrate scenarier och distributioner.
 
-## <a name="supported-assessmentmigration-scenarios"></a>Scenarier för utvärdering/migrering som stöds
+## <a name="supported-assessmentmigration-scenarios"></a>Scenarier för bedömning/migrering som stöds
 
 Tabellen sammanfattar scenarier för identifiering, utvärdering och migrering som stöds.
 
-**Distribution** | **Detaljer** 
+**Distribution** | **Information** 
 --- | --- 
-**Appspecifik identifiering** | Du kan identifiera appar, roller och funktioner som körs på virtuella datorer med VMware. För närvarande är den här funktionen endast begränsad till identifiering. Bedömningen sker för närvarande på maskinnivå. Vi erbjuder ännu inte app-, roll- eller funktionsspecifik bedömning. 
-**Lokal bedömning** | Utvärdera lokala arbetsbelastningar och data som körs på virtuella datorer med VMware, virtuella datorer med hyper-vm och fysiska servrar. Utvärdera med Hjälp av Azure Migrate Server Assessment och Microsoft Data Migration Assistant (DMA), samt andra verktyg och ISV-erbjudanden.
-**Lokal migrering till Azure** | Migrera arbetsbelastningar och data som körs på fysiska servrar, virtuella VMware-datorer, virtuella datorer med hyper-v. fysiska servrar och molnbaserade VMS till Azure. Migrera med Azure Migrate Server Assessment och Azure Database Migration Service (DMS) och andra verktyg och ISV-erbjudanden.
+**App-Specific Discovery** | Du kan identifiera appar, roller och funktioner som körs på virtuella VMware-datorer. För närvarande är den här funktionen begränsad till enbart identifiering. Utvärderingen är för närvarande på dator nivå. Vi erbjuder ännu inte app-, roll-eller funktions-/regionsspecifika bedömning. 
+**Lokal utvärdering** | Utvärdera lokala arbets belastningar och data som körs på virtuella VMware-datorer, virtuella Hyper-V-datorer och fysiska servrar. Utvärdera med hjälp av Azure Migrate Server utvärdering och Microsoft Data Migration Assistant (DMA), samt andra verktyg och ISV-erbjudanden.
+**Lokal migrering till Azure** | Migrera arbets belastningar och data som körs på fysiska servrar, virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar och molnbaserade virtuella datorer till Azure. Migrera med hjälp av Azure Migrate Server Assessment and Azure Database Migration Service (DMS) och även andra verktyg och ISV-erbjudanden.
 
 > [!NOTE]
-> Isv-verktyg kan för närvarande inte skicka data till Azure Migrate i Azure Government. Du kan använda integrerade Microsoft-verktyg eller använda partnerverktyg oberoende av annat.
+> ISV-verktyg kan för närvarande inte skicka data till Azure Migrate i Azure Government. Du kan använda integrerade Microsoft-verktyg eller använda partner verktyg oberoende av varandra.
 
 ## <a name="supported-tools"></a>Verktyg som stöds
 
-Särskilt verktygsstöd sammanfattas i tabellen.
+Stöd för särskilt verktyg sammanfattas i tabellen.
 
-**Verktyg** | **Bedöma** | **Migrera** 
+**Verktyg** | **Beräknas** | **Migrera** 
 --- | --- | ---
-Utvärdering av Azure Migrate Server | Utvärdera [virtuella datorer för VMware,](tutorial-prepare-vmware.md)virtuella datorer med [hyper-v och](tutorial-prepare-hyper-v.md)fysiska [servrar](tutorial-prepare-physical.md). |  Inte tillgängligt (NA)
-Azure Migrate-servermigrering | Ej tillämpligt | Migrera virtuella datorer för [VMware,](tutorial-migrate-vmware.md) [virtuella hyper-virtuella datorer](tutorial-migrate-hyper-v.md)och fysiska [servrar](tutorial-migrate-physical-virtual-machines.md).
-[Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | Ej tillämpligt | Migrera virtuella datorer med VMware, virtuella hyper-virtuella datorer, fysiska servrar, offentliga molnarbetsbelastningar. 
-[Cloudamize](https://www.cloudamize.com/platform#tab-0)| Utvärdera virtuella datorer med VMware, virtuella hyper-virtuella datorer, fysiska servrar, offentliga molnarbetsbelastningar. | Ej tillämpligt
-[Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Utvärdera och migrera virtuella virtuella datorer, virtuella hyper-virtuella datorer, fysiska servrar, offentliga molnarbetsbelastningar. |  Migrera virtuella datorer med VMware, virtuella hyper-virtuella datorer, fysiska servrar, offentliga molnarbetsbelastningar.
-[Enhet 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Utvärdera virtuella datorer med VMware, virtuella hyper-virtuella datorer, fysiska servrar, offentliga molnarbetsbelastningar.| Ej tillämpligt
-[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Utvärdera lokala SQL Server-databaser. | Ej tillämpligt
+Utvärdering av Azure Migrate Server | Utvärdera virtuella [VMware-datorer](tutorial-prepare-vmware.md), [virtuella Hyper-V-datorer](tutorial-prepare-hyper-v.md)och [fysiska servrar](tutorial-prepare-physical.md). |  Inte tillgängligt (NA)
+Azure Migrate-servermigrering | Ej tillämpligt | Migrera [virtuella VMware-datorer](tutorial-migrate-vmware.md), [virtuella Hyper-V-datorer](tutorial-migrate-hyper-v.md)och [fysiska servrar](tutorial-migrate-physical-virtual-machines.md).
+[Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | Ej tillämpligt | Migrera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, offentliga moln arbets belastningar. 
+[Cloudamize](https://www.cloudamize.com/platform#tab-0)| Utvärdera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, offentliga moln arbets belastningar. | Ej tillämpligt
+[Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Utvärdera och migrera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, offentliga moln arbets belastningar. |  Migrera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, offentliga moln arbets belastningar.
+[Enhet 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Utvärdera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, offentliga moln arbets belastningar.| Ej tillämpligt
+[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Utvärdera lokala SQL Server databaser. | Ej tillämpligt
 [DMS](https://docs.microsoft.com/azure/dms/dms-overview) | Ej tillämpligt | Migrera SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
-[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Utvärdera virtuell skrivbordsinfrastruktur (VDI) | Ej tillämpligt
-[Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | Utvärdera VMWare-virtuella datorer, virtuella hyper-virtuella datorer, Xen-virtuella datorer, fysiska datorer, arbetsstationer (inklusive VDI), offentliga molnarbetsbelastningar | Ej tillämpligt
-[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | Ej tillämpligt | Migrera VMWare virtuella datorer, virtuella hyper-virtuella datorer, Xen virtuella datorer, virtuella KVM-datorer, fysiska datorer, offentliga molnarbetsbelastningar 
-[Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Utvärdera virtuella datorer med VMware, virtuella hyper-virtuella datorer, fysiska servrar, offentliga molnarbetsbelastningar. | Ej tillämpligt
-[UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Utvärdera virtuella datorer med VMware, virtuella hyper-v-datorer, fysiska servrar, offentliga molnarbetsbelastningar och SQL Server-databaser. | Ej tillämpligt
-[Migreringsassistent för webbapp](https://appmigration.microsoft.com/) | Utvärdera webbappar | Migrera webbappar.
+[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Utvärdera VDI (Virtual Desktop Infrastructure) | Ej tillämpligt
+[Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | Utvärdera virtuella VMWare-datorer, virtuella Hyper-V-datorer, virtuella Xen-datorer, fysiska datorer, arbets stationer (inklusive VDI), offentliga moln arbets belastningar | Ej tillämpligt
+[Rack](https://go.microsoft.com/fwlink/?linkid=2102735) | Ej tillämpligt | Migrera virtuella VMWare-datorer, virtuella Hyper-V-datorer, virtuella Xen-datorer, KVM-VM, fysiska datorer, offentliga moln arbets belastningar 
+[Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Utvärdera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, offentliga moln arbets belastningar. | Ej tillämpligt
+[UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Utvärdera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, offentliga moln arbets belastningar och SQL Server databaser. | Ej tillämpligt
+[Webapp-Migration Assistant](https://appmigration.microsoft.com/) | Utvärdera webbappar | Migrera webbappar.
 
 
-## <a name="azure-migrate-projects"></a>Azure Migrera projekt
+## <a name="azure-migrate-projects"></a>Azure Migrate projekt
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
-Prenumeration | Du kan ha flera Azure Migrate-projekt i en prenumeration.
-Azure-behörigheter | Du behöver behörigheter för deltagare eller ägare i prenumerationen för att skapa ett Azure Migrate-projekt.
-VMwares virtuella datorer  | Utvärdera upp till 35 000 virtuella datorer i ett enda projekt.
-Hyper-V:s virtuella datorer    | Utvärdera upp till 35 000 virtuella hyper-virtuella datorer i ett enda projekt.
+Prenumeration | Du kan ha flera Azure Migrate projekt i en prenumeration.
+Azure-behörigheter | Du måste ha deltagar-eller ägar behörigheter i prenumerationen för att kunna skapa ett Azure Migrate-projekt.
+VMwares virtuella datorer  | Utvärdera upp till 35 000 virtuella VMware-datorer i ett enda projekt.
+Hyper-V:s virtuella datorer    | Utvärdera upp till 35 000 virtuella Hyper-V-datorer i ett enda projekt.
 
-Ett projekt kan omfatta både virtuella datorer och virtuella datorer med hyper-v, upp till bedömningsgränserna.
+Ett projekt kan innehålla både virtuella VMware-datorer och virtuella Hyper-V-datorer, upp till utvärderings gränserna.
 
 ## <a name="azure-permissions"></a>Azure-behörigheter
 
 För att Azure Migrate ska fungera med Azure behöver du dessa behörigheter innan du börjar utvärdera och migrera datorer.
 
-**Aktivitet** | **Behörigheter** | **Detaljer**
+**Uppgift** | **Åtkomst** | **Information**
 --- | --- | ---
-Skapa ett Azure Migrate-projekt | Ditt Azure-konto behöver behörigheter för att skapa ett projekt. | Konfigurera för [VMware,](tutorial-prepare-vmware.md#assign-permissions-to-create-project) [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project)eller [fysiska servrar](tutorial-prepare-physical.md#assign-permissions-to-create-project).
-Registrera Azure Migrate-enheten| Azure Migrate använder en lätt [Azure Migrate-installation](migrate-appliance.md) för att bedöma datorer med Azure Migrate Server Assessment och för att köra [agentlös migrering](server-migrate-overview.md) av virtuella VMware-datorer med Azure Migrate Server Migration. Den här installationen identifierar datorer och skickar metadata och prestandadata till Azure Migrate.<br/><br/> Under registreringen registreras registerleverantörer (Microsoft.OffAzure, Microsoft.Migrate och Microsoft.KeyVault) med den prenumeration som valts i installationen, så att prenumerationen fungerar med resursleverantören. För att registrera dig behöver du åtkomst till Deltagare eller Ägare i prenumerationen.<br/><br/> **VMware**-Under introduktion skapar Azure Migrate två Azure Active Directory-appar (Azure AD). Den första appen kommunicerar mellan apparatagenterna och Azure Migrate-tjänsten. Appen har inte behörighet att ringa Azure-resurshanteringsanrop eller ha RBAC-åtkomst för resurser. Den andra appen har åtkomst till ett Azure Key Vault som skapats i användarprenumerationen för endast agentlös VMware-migrering. I agentlös migrering skapar Azure Migrate ett nyckelvalv för att hantera åtkomstnycklar till replikeringslagringskontot i din prenumeration. Den har RBAC-åtkomst på Azure Key Vault (i kundens klientorganisation) när identifiering initieras från installationen.<br/><br/> **Hyper-V**-Under introduktion. Azure Migrate skapar en Azure AD-app. Appen kommunicerar mellan apparatagenterna och Azure Migrate-tjänsten. Appen har inte behörighet att ringa Azure-resurshanteringsanrop eller ha RBAC-åtkomst för resurser. | Konfigurera för [VMware,](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance) [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance)eller [fysiska servrar](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
-Skapa ett nyckelvalv för VMware agentless migrering | Om du vill migrera virtuella virtuella datorer med VMware med agentlös Azure Migrate Server-migrering skapar Azure Migrate ett nyckelvalv för att hantera åtkomstnycklar till replikeringslagringskontot i din prenumeration. Om du vill skapa valvet anger du behörigheter (ägare eller deltagare och administratör för användaråtkomst) i resursgruppen där Azure Migrate-projektet finns. | [Ställ in](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) behörigheter.
+Skapa ett Azure Migrate-projekt | Ditt Azure-konto måste ha behörighet att skapa ett projekt. | Konfigurera för [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-project), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project)eller [fysiska servrar](tutorial-prepare-physical.md#assign-permissions-to-create-project).
+Registrera Azure Migrates apparaten| Azure Migrate använder en förenklad [Azure Migrate-apparat](migrate-appliance.md) för att utvärdera datorer med Azure Migrate Server utvärdering och för att köra en [agent lös migrering](server-migrate-overview.md) av virtuella VMware-datorer med Azure Migrate Server-migrering. Den här enheten identifierar datorer och skickar metadata-och prestanda data till Azure Migrate.<br/><br/> Under registreringen registreras leverantörer (Microsoft. OffAzure, Microsoft. Migrate och Microsoft. nyckel valv) med den prenumeration som valts i installationen, så att prenumerationen fungerar med resurs leverantören. För att registrera dig måste du ha deltagar-eller ägar åtkomst till prenumerationen.<br/><br/> **VMware**– under onboarding skapar Azure Migrate två Azure Active Directory-appar (Azure AD). Den första appen kommunicerar mellan installations agenter och tjänsten Azure Migrate. Appen har inte behörighet att göra Azure Resource Management-anrop eller ha RBAC-åtkomst för resurser. Den andra appen får åtkomst till en Azure Key Vault som skapats i användar prenumerationen endast för en agent utan enbart VMware-migrering. Vid en icke-migrering skapar Azure Migrate en Key Vault för att hantera åtkomst nycklar till lagrings kontot för replikering i din prenumeration. Den har RBAC-åtkomst på Azure Key Vault (i kund klienten) när identifieringen initieras från enheten.<br/><br/> **Hyper-V**– under onboarding. Azure Migrate skapar en Azure AD-App. Appen kommunicerar mellan installations agenter och tjänsten Azure Migrate. Appen har inte behörighet att göra Azure Resource Management-anrop eller ha RBAC-åtkomst för resurser. | Konfigurera för [VMware](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance)eller [fysiska servrar](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
+Skapa ett nyckel valv för migrering av VMware-agent | För att migrera virtuella VMware-datorer med agent lös Azure Migrate Server migrering skapar Azure Migrate en Key Vault för att hantera åtkomst nycklar till replikeringens lagrings konto i din prenumeration. Om du vill skapa valvet ställer du in behörigheter (ägare eller deltagare och administratör för användar åtkomst) på resurs gruppen där Azure Migrate-projektet finns. | [Konfigurera](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) behörigheter.
 
 ## <a name="supported-geographies-public-cloud"></a>Geografiska områden som stöds (offentligt moln)
 
-Du kan skapa ett Azure Migrate-projekt i ett antal geografiska områden i det offentliga molnet. Även om du bara kan skapa projekt i dessa geografiska områden kan du bedöma eller migrera datorer för andra målplatser. Projektets geografi används endast för att lagra de identifierade metadata.
+Du kan skapa ett Azure Migrate-projekt i ett antal geografiska områden i det offentliga molnet. Även om du bara kan skapa projekt i dessa geografiska områden kan du utvärdera eller migrera datorer för andra mål platser. Projektets geografi används bara för att lagra identifierade metadata.
 
-**Geografi** | **Lagringsplats för metadata**
+**Placering** | **Lagrings plats för metadata**
 --- | ---
-Asien och stillahavsområdet | Östasien eller Sydostasien
-Australien | Östra Australien eller Sydöstra Australien
+Asien och stillahavsområdet | Asien, östra eller Sydostasien
+Australien | Östra Australien eller Australien, sydöstra
 Brasilien | Brasilien, södra
-Kanada | Kanada Central eller Kanada Öst
+Kanada | Kanada, centrala eller Kanada, öst
 Europa | Europa, norra eller Europa, västra
 Frankrike | Frankrike, centrala
 Indien | Centrala Indien eller södra Indien
-Japan |  Japan Öst eller Västra Japan
-Korea | Korea Central eller Korea Syd
-Storbritannien | Storbritannien Syd- eller Storbritannien Väst
-USA | Centrala USA eller västra USA 2
+Japan |  Japan, östra eller Japan, väst
+Korea | Korea, centrala eller Korea, södra
+Storbritannien | Storbritannien, södra eller Storbritannien, västra
+USA | USA, centrala eller västra USA 2
 
 
 ## <a name="supported-geographies-azure-government"></a>Geografiska områden som stöds (Azure Government)
 
-**Aktivitet** | **Geografi** | **Detaljer**
+**Uppgift** | **Placering** | **Information**
 --- | --- | ---
-Skapa projekt | USA | Metadata lagras i US Gov Arizona, US Gov Virginia
-Målbedömning | USA | Målregioner: US Gov Arizona, US Gov Virginia, US Gov Texas
-Målreplikering | USA | Målregioner: US DoD Central, US DoD East, US Gov Arizona, US Gov Iowa, US Gov Texas, US Gov Virginia
+Skapa projekt | USA | Metadata lagras i US Gov, Arizona US Gov, Virginia
+Mål utvärdering | USA | Mål regioner: US Gov, Arizona, US Gov, Virginia, US Gov, Texas
+Rikta replikering | USA | Mål regioner: US DoD, centrala, US DoD, östra, US Gov, Arizona, US Gov, Iowa, US Gov, Texas, US Gov, Virginia
 
 
-## <a name="vmware-assessment-and-migration"></a>VMware bedömning och migrering
+## <a name="vmware-assessment-and-migration"></a>VMware-bedömning och migrering
 
-[Granska](migrate-support-matrix-vmware.md) supportmatrisen för utvärdering av Azure Migrate Server Assessment och Server Migration för virtuella datorer med VMware.
+[Granska](migrate-support-matrix-vmware.md) support matrisen för Azure Migrate Server utvärdering och Server migration för virtuella VMware-datorer.
 
 ## <a name="hyper-v-assessment-and-migration"></a>Utvärdering och migrering av Hyper-V
 
-[Granska](migrate-support-matrix-hyper-v.md) supportmatrisen för utvärdering av Azure Migrate Server och Server Migration för virtuella datorer med hyper-V.
+[Granska](migrate-support-matrix-hyper-v.md) den Azure Migrate Server utvärderingen och stöd matrisen för Server migration för virtuella Hyper-V-datorer.
 
 
 
-## <a name="azure-migrate-versions"></a>Azure Migrera versioner
+## <a name="azure-migrate-versions"></a>Azure Migrate versioner
 
-Det finns två versioner av Azure Migrate-tjänsten:
+Det finns två versioner av tjänsten Azure Migrate:
 
-- **Aktuell version**: Med den här versionen kan du skapa nya Azure Migrate-projekt, upptäcka lokala utvärderingar och dirigera utvärderingar och migreringar. [Läs mer](whats-new.md).
-- **Tidigare version**: För kunder som använder den tidigare versionen av Azure Migrate (endast bedömning av lokala virtuella virtuella datorer med vmware stöddes) bör du nu använda den aktuella versionen. I den tidigare versionen kan du inte skapa nya Azure Migrate-projekt eller utföra nya identifieringar.
+- **Aktuell version**: om du använder den här versionen kan du skapa nya Azure Migrate projekt, identifiera lokala utvärderingar och dirigera utvärderingar och migreringar. [Läs mer](whats-new.md).
+- **Tidigare version**: för kund som använder den tidigare versionen av Azure Migrate (endast utvärdering av lokala virtuella VMware-datorer stöddes) bör du nu använda den aktuella versionen. I den tidigare versionen kan du inte skapa nya Azure Migrate projekt eller utföra nya identifieringar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Utvärdera virtuella datorer med [VMware](tutorial-assess-vmware.md) för migrering.
-- [Utvärdera virtuella virtuella hyper-v-datorer](tutorial-assess-hyper-v.md) för migrering.
+- [Utvärdera virtuella VMware-datorer](tutorial-assess-vmware.md) för migrering.
+- [Utvärdera virtuella Hyper-V-datorer](tutorial-assess-hyper-v.md) för migrering.
 

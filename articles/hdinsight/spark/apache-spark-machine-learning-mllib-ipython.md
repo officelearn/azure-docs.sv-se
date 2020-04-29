@@ -1,6 +1,6 @@
 ---
-title: Exempel på maskininlärning med Spark MLlib på HDInsight - Azure
-description: Lär dig hur du använder Spark MLlib för att skapa en maskininlärningsapp som analyserar en datauppsättning med hjälp av klassificering genom logistisk regression.
+title: Maskin inlärnings exempel med Spark MLlib i HDInsight – Azure
+description: Lär dig hur du använder Spark-MLlib för att skapa en app Learning-app som analyserar en data uppsättning med hjälp av en klassificering via logistik regression.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,40 +9,40 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
 ms.openlocfilehash: 26695df299ba5d0f50c8f271b5da99284a8d6764
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81531141"
 ---
-# <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Använd Apache Spark MLlib för att skapa ett maskininlärningsprogram och analysera en datauppsättning
+# <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Använd Apache Spark MLlib för att bygga ett Machine Learning-program och analysera en data uppsättning
 
-Lär dig hur du använder Apache Spark [MLlib](https://spark.apache.org/mllib/) för att skapa ett maskininlärningsprogram. Programmet kommer att göra prediktiv analys på en öppen datauppsättning. Från Sparks inbyggda maskininlärningsbibliotek används *klassificering* genom logistisk regression i det här exemplet.
+Lär dig hur du använder Apache Spark [MLlib](https://spark.apache.org/mllib/) för att skapa ett Machine Learning-program. Programmet kommer att utföra förutsägelse analyser på en öppen data uppsättning. Från Spark: s inbyggda Machine Learning-bibliotek använder det här exemplet *klassificering* via logistik regression.
 
-MLlib är ett spark-huvudbibliotek som tillhandahåller många verktyg som är användbara för maskininlärningsuppgifter, till exempel:
+MLlib är ett Core Spark-bibliotek som ger många verktyg som är användbara för Machine Learning-uppgifter, till exempel:
 
 * Klassificering
 * Regression
 * Klustring
 * Modellering
-* Singularvärdesdekomposit (SVD) och huvudkomponentanalys (PCA)
-* Hypotestning och beräkning av exempelstatistik
+* Sammanställning av sammansatta värden (SVD) och huvud komponent analys (PCA)
+* Hypotes testning och beräkning av exempel statistik
 
-## <a name="understand-classification-and-logistic-regression"></a>Förstå klassificering och logistisk regression
+## <a name="understand-classification-and-logistic-regression"></a>Förstå klassificering och logistik regression
 
-*Klassificering*, en populär maskininlärningsuppgift, är processen att sortera indata i kategorier. Det är jobbet för en klassificeringsalgoritm för att ta reda på hur du tilldelar "etiketter" till indata som du tillhandahåller. Du kan till exempel tänka på en maskininlärningsalgoritm som accepterar lagerinformation som indata. Sedan delar beståndet i två kategorier: lager som du bör sälja och lager som du bör hålla.
+*Klassificering*, en populär maskin inlärnings uppgift, är processen att sortera indata i kategorier. Det är ett jobb för en klassificerings algoritm som visar hur du tilldelar "etiketter" för indata som du anger. Du kan till exempel tänka på en Machine Learning-algoritm som tar emot aktie information som indata. Delar sedan upp lagret i två kategorier: aktier som du bör sälja och de bestånd som du bör behålla.
 
-Logistisk regression är den algoritm som du använder för klassificering. Sparks logistiska regressions-API är användbart för *binär klassificering*eller klassificering av indata i en av två grupper. Mer information om logistiska regressioner finns i [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
+Logistisk regression är den algoritm som du använder för klassificering. Spark: s logistik Regressions-API är användbart för *binär klassificering*eller klassificerar indata till en av två grupper. Mer information om logistiska regressioner finns i [Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression).
 
-Sammanfattningsvis ger processen för logistisk regression en *logistisk funktion*. Använd funktionen för att förutsäga sannolikheten för att en indatavektor hör hemma i en eller annan grupp.  
+I sammanfattning skapar processen för Logistisk regression en *logistik funktion*. Använd funktionen för att förutsäga sannolikheten att en inmatad Vector tillhör en grupp eller en annan.  
 
-## <a name="predictive-analysis-example-on-food-inspection-data"></a>Exempel på prediktiv analys av uppgifter om livsmedelsinspektion
+## <a name="predictive-analysis-example-on-food-inspection-data"></a>Exempel på förutsägelse analys av inspektions data för livsmedel
 
-I det här exemplet använder du Spark för att göra en del prediktiv analys av livsmedelsinspektionsdata (**Food_Inspections1.csv**). Data som erhållits via [city of Chicago dataportal](https://data.cityofchicago.org/). Denna datauppsättning innehåller information om inspektioner av livsmedelsanläggning som genomfördes i Chicago. Inklusive information om varje anläggning, de överträdelser som hittats (om någon) och resultaten av inspektionen. CSV-datafilen är redan tillgänglig i lagringskontot som är associerat med **klustret på /HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
+I det här exemplet använder du Spark för att göra en förutsägelse analys av inspektions data för livsmedel (**Food_Inspections1. csv**). Data som hämtats via [data portalen City i Chicago](https://data.cityofchicago.org/). Den här data uppsättningen innehåller information om inspektioner för livsmedels etablering som genomfördes i Chicago. Inklusive information om varje anläggning, identifierade överträdelser (om sådana finns) och resultatet av kontrollen. CSV-datafilen finns redan i det lagrings konto som är associerat med klustret på **/hdisamples/hdisamples/foodinspectiondata/Food_Inspections1. csv**.
 
-I stegen nedan utvecklar du en modell för att se vad som krävs för att passera eller misslyckas med en livsmedelsinspektion.
+I stegen nedan utvecklar du en modell för att se vad som krävs för att kunna skicka eller underkänna en livsmedels inspektion.
 
-## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Skapa en Apache Spark MLlib-maskininlärningsapp
+## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Skapa en Apache Spark MLlib Machine Learning-appen
 
 1. Skapa en Jupyter-anteckningsbok med PySpark-kerneln. Instruktioner finns i [Skapa en Jupyter-anteckningsbok](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
@@ -57,13 +57,13 @@ I stegen nedan utvecklar du en modell för att se vad som krävs för att passer
     from pyspark.sql.types import *
     ```
 
-    På grund av PySpark-kärnan behöver du inte skapa några sammanhang uttryckligen. Kontexterna Spark och Hive skapas automatiskt när du kör den första kodcellen.
+    På grund av PySpark-kärnan behöver du inte skapa några kontexter explicit. Spark-och Hive-kontexterna skapas automatiskt när du kör den första kod cellen.
 
-## <a name="construct-the-input-dataframe"></a>Konstruera indataramen
+## <a name="construct-the-input-dataframe"></a>Konstruera dataframe för indatamängd
 
-Använd Spark-kontexten för att dra in rådata csv-data i minnet som ostrukturerad text. Använd sedan Pythons CSV-bibliotek för att tolka varje rad av data.
+Använd Spark-kontexten för att hämta rå CSV-data till minnet som ostrukturerad text. Använd sedan python: s CSV-bibliotek för att parsa varje rad med data.
 
-1. Kör följande rader för att skapa en RDD (Resilient Distributed Dataset) genom att importera och tolka indata.
+1. Kör följande rader för att skapa en elastisk distribuerad data uppsättning (RDD) genom att importera och parsa indata.
 
     ```PySpark
     def csvParse(s):
@@ -78,7 +78,7 @@ Använd Spark-kontexten för att dra in rådata csv-data i minnet som ostrukture
                     .map(csvParse)
     ```
 
-2. Kör följande kod för att hämta en rad från FJÄRRSKRIVBORDSD:
+2. Kör följande kod för att hämta en rad från RDD, så att du kan ta en titt på data schemat:
 
     ```PySpark
     inspections.take(1)
@@ -106,9 +106,9 @@ Använd Spark-kontexten för att dra in rådata csv-data i minnet som ostrukture
         '(41.97583445690982, -87.7107455232781)']]
     ```
 
-    Utdata ger dig en uppfattning om schemat för indatafilen. Den innehåller namnet på varje anläggning, och vilken typ av anläggning. Dessutom adressen, uppgifterna om inspektionerna, och platsen, bland annat.
+    Utdata ger dig en uppfattning om schemat för indatafilen. Den innehåller namnet på varje företag och typ av verksamhet. Dessutom är adressen, data för kontrollerna och platsen, bland annat.
 
-3. Kör följande kod för att skapa en dataram (*df*) och en tillfällig tabell (*CountResults*) med några kolumner som är användbara för den prediktiva analysen. `sqlContext`används för att göra omvandlingar på strukturerade data.
+3. Kör följande kod för att skapa en dataframe (*DF*) och en temporär tabell (*CountResults*) med några kolumner som är användbara för förutsägelse analys. `sqlContext`används för att utföra omvandlingar på strukturerade data.
 
     ```PySpark
     schema = StructType([
@@ -121,9 +121,9 @@ Använd Spark-kontexten för att dra in rådata csv-data i minnet som ostrukture
     df.registerTempTable('CountResults')
     ```
 
-    De fyra kolumnerna av intresse för dataramen är **ID,** **namn,** **resultat**och **överträdelser**.
+    De fyra intresse kolumnerna i dataframe är **ID**, **namn**, **resultat**och **överträdelser**.
 
-4. Kör följande kod för att få ett litet urval av data:
+4. Kör följande kod för att få ett litet exempel på data:
 
     ```PySpark
     df.show(5)
@@ -145,9 +145,9 @@ Använd Spark-kontexten för att dra in rådata csv-data i minnet som ostrukture
 
 ## <a name="understand-the-data"></a>Förstå data
 
-Låt oss börja få en känsla för vad datauppsättningen innehåller. 
+Vi börjar med att få en uppfattning om vad data uppsättningen innehåller. 
 
-1. Kör följande kod för att visa de distinkta värdena i **resultatkolumnen:**
+1. Kör följande kod för att visa de distinkta värdena i kolumnen **Results** :
 
     ```PySpark
     df.select('results').distinct().show()
@@ -167,20 +167,20 @@ Låt oss börja få en känsla för vad datauppsättningen innehåller.
     +--------------------+
     ```
 
-2. Kör följande kod för att visualisera fördelningen av dessa resultat:
+2. Kör följande kod för att visualisera distributionen av dessa resultat:
 
     ```PySpark
     %%sql -o countResultsdf
     SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
-    Magin `%%sql` följt `-o countResultsdf` av säkerställer att utdata för frågan sparas lokalt på Jupyter-servern (vanligtvis huvudnoden för klustret). Utdata sparas som en [Pandas-dataram](https://pandas.pydata.org/) med det angivna namnet **countResultsdf**. Mer information om `%%sql` magin och andra magier som finns med PySpark-kärnan finns i [Kärnor som finns tillgängliga på Jupyter-anteckningsböcker med Apache Spark HDInsight-kluster](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+    `%%sql` Magic följt av `-o countResultsdf` ser till att utdata från frågan sparas lokalt på Jupyter-servern (vanligt vis huvudnoden i klustret). Utdata sparas som en [Pandas](https://pandas.pydata.org/) -dataframe med det angivna namnet **countResultsdf**. Mer information om `%%sql` Magic och andra MAGICS som är tillgängliga med PySpark-kärnan finns i [kernels som är tillgängliga på Jupyter-anteckningsböcker med Apache Spark HDInsight-kluster](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
     Utdata ser ut så här:
 
-    ![SQL-frågeutdata](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "SQL-frågeutdata")
+    ![SQL-frågans utdata](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "SQL-frågans utdata")
 
-3. Du kan också använda [Matplotlib](https://en.wikipedia.org/wiki/Matplotlib), ett bibliotek som används för att konstruera visualisering av data, för att skapa en ritplan. Eftersom diagrammet måste skapas från den lokalt beständiga **dataramen countResultsdf** måste `%%local` kodavsnittet börja med magin. Den här åtgärden säkerställer att koden körs lokalt på Jupyter-servern.
+3. Du kan också använda [matplotlib](https://en.wikipedia.org/wiki/Matplotlib), ett bibliotek som används för att konstruera visualisering av data, för att skapa en rityta. Eftersom området måste skapas från det lokalt sparade **countResultsdf** -dataframe måste kodfragmentet börja med `%%local` Magic. Den här åtgärden säkerställer att koden körs lokalt på Jupyter-servern.
 
     ```PySpark
     %%local
@@ -194,20 +194,20 @@ Låt oss börja få en känsla för vad datauppsättningen innehåller.
     plt.axis('equal')
     ```
 
-    För att förutsäga ett resultat livsmedelsinspektion måste du utveckla en modell baserad på kränkningarna. Eftersom logistisk regression är en binär klassificeringsmetod är det vettigt att gruppera resultatdata i två kategorier: **Misslyckas** och **Godkänd:**
+    Om du vill förutsäga resultatet av en livsmedels inspektion måste du utveckla en modell utifrån överträdelserna. Eftersom Logistisk regression är en binär klassificerings metod är det klokt att gruppera resultat data i två kategorier: **misslyckande** och **pass**:
 
-   - Passera
-       - Passera
-       - Passera med villkor
+   - Pass
+       - Pass
+       - Pass w/villkor
    - Underkänn
        - Underkänn
    - Ignorera
-       - Företag som inte finns
-       - I konkurs
+       - Företaget finns inte
+       - Utanför företaget
 
-     Data med andra resultat ("Business Not Located" eller "Out of Business") är inte användbara, och de utgör en liten andel av resultaten ändå.
+     Data med de andra resultaten ("verksamhet saknas" eller "utanför verksamheten") är inte användbara och de utgör en liten del av resultaten ändå.
 
-4. Kör följande kod för att konvertera`df`den befintliga dataramen( ) till en ny dataram där varje inspektion representeras som ett etikettfelspar. I det här fallet `0.0` representerar en etikett `1.0` av ett fel, `-1.0` en etikett av representerar en framgång och en etikett av representerar vissa resultat förutom dessa två resultat.
+4. Kör följande kod för att konvertera befintliga dataframe (`df`) till en ny dataframe där varje granskning representeras som ett par med etikett-överträdelser. I det här fallet representerar en etikett `0.0` för ett haveri, en etikett på `1.0` visar ett lyckat resultat och en etikett `-1.0` i representerar vissa resultat utöver dessa två resultat.
 
     ```PySpark
     def labelForResults(s):
@@ -221,7 +221,7 @@ Låt oss börja få en känsla för vad datauppsättningen innehåller.
     labeledData = df.select(label(df.results).alias('label'), df.violations).where('label >= 0')
     ```
 
-5. Kör följande kod om du vill visa en rad med de märkta data:
+5. Kör följande kod för att visa en rad med märkta data:
 
     ```PySpark
     labeledData.take(1)
@@ -233,13 +233,13 @@ Låt oss börja få en känsla för vad datauppsättningen innehåller.
     [Row(label=0.0, violations=u"41. PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED - Comments: All parts of the food establishment and all parts of the property used in connection with the operation of the establishment shall be kept neat and clean and should not produce any offensive odors.  REMOVE MATTRESS FROM SMALL DUMPSTER. | 35. WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS - Comments: The walls and ceilings shall be in good repair and easily cleaned.  REPAIR MISALIGNED DOORS AND DOOR NEAR ELEVATOR.  DETAIL CLEAN BLACK MOLD LIKE SUBSTANCE FROM WALLS BY BOTH DISH MACHINES.  REPAIR OR REMOVE BASEBOARD UNDER DISH MACHINE (LEFT REAR KITCHEN). SEAL ALL GAPS.  REPLACE MILK CRATES USED IN WALK IN COOLERS AND STORAGE AREAS WITH PROPER SHELVING AT LEAST 6' OFF THE FLOOR.  | 38. VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED - Comments: The flow of air discharged from kitchen fans shall always be through a duct to a point above the roofline.  REPAIR BROKEN VENTILATION IN MEN'S AND WOMEN'S WASHROOMS NEXT TO DINING AREA. | 32. FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED - Comments: All food and non-food contact equipment and utensils shall be smooth, easily cleanable, and durable, and shall be in good repair.  REPAIR DAMAGED PLUG ON LEFT SIDE OF 2 COMPARTMENT SINK.  REPAIR SELF CLOSER ON BOTTOM LEFT DOOR OF 4 DOOR PREP UNIT NEXT TO OFFICE.")]
     ```
 
-## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>Skapa en logistisk regressionsmodell från indataramen
+## <a name="create-a-logistic-regression-model-from-the-input-dataframe"></a>Skapa en logistik Regressions modell från indataframe
 
-Den sista uppgiften är att konvertera de märkta data. Konvertera data till ett format som kan analyseras genom logistisk regression. Indata till en logistisk regressionsalgoritm behöver en uppsättning *etikett-funktionen vektorpar*. Där "funktionen vektor" är en vektor av siffror som representerar indatapunkten. Därför måste du konvertera kolumnen "överträdelser", som är halvstrukturerad och innehåller många kommentarer i fritext. Konvertera kolumnen till en matris med verkliga tal som en maskin lätt kan förstå.
+Den sista uppgiften är att konvertera etiketterade data. Konvertera data till ett format som kan analyseras av Logistisk regression. Indatamängden till en logistik Regressions algoritm behöver en uppsättning *etikett funktions vektor par*. Där "funktions vektor" är en Vector med tal som representerar ingångs punkten. Så du måste konvertera kolumnen "överträdelser", som är delvis strukturerad och innehåller många kommentarer i fritext. Konvertera kolumnen till en matris med reella tal som en dator lätt kan förstå.
 
-En standard machine learning-metod för bearbetning av naturligt språk är att tilldela varje distinkt ord ett "index". Skicka sedan en vektor till maskininlärningsalgoritmen. Så att varje index värde innehåller den relativa frekvensen för ordet i textsträngen.
+En standard metod för Machine Learning för bearbetning av naturligt språk är att tilldela varje distinkt ord till "index". Skicka sedan en Vector till Machine Learning-algoritmen. Så att varje indexs värde innehåller den relativa frekvensen av ordet i text strängen.
 
-MLlib är ett enkelt sätt att göra den här åtgärden. Först "tokenize" varje överträdelser sträng för att få de enskilda orden i varje sträng. Använd sedan `HashingTF` en för att konvertera varje uppsättning token till en funktionsvektor som sedan kan skickas till den logistiska regressionsalgoritmen för att konstruera en modell. Du utför alla dessa steg i följd med hjälp av en "pipeline".
+MLlib är ett enkelt sätt att utföra den här åtgärden. Först, "Tokenize" varje överträdelse sträng för att hämta de enskilda orden i varje sträng. Använd sedan en `HashingTF` för att konvertera varje uppsättning token till en funktions vektor som sedan kan skickas till logistik Regressions algoritmen för att skapa en modell. Du utför alla stegen i följd med en "Pipeline".
 
 ```PySpark
 tokenizer = Tokenizer(inputCol="violations", outputCol="words")
@@ -250,11 +250,11 @@ pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
 model = pipeline.fit(labeledData)
 ```
 
-## <a name="evaluate-the-model-using-another-dataset"></a>Utvärdera modellen med en annan datauppsättning
+## <a name="evaluate-the-model-using-another-dataset"></a>Utvärdera modellen med en annan data uppsättning
 
-Du kan använda modellen som du skapade tidigare för att *förutsäga* vad resultatet av nya inspektioner kommer att bli. Förutsägelserna är baserade på de överträdelser som observerades. Du har tränat den här modellen på datauppsättningen **Food_Inspections1.csv**. Du kan använda en andra datauppsättning, **Food_Inspections2.csv**, för att *utvärdera* styrkan i den här modellen på de nya data. Den andra datauppsättningen (**Food_Inspections2.csv**) finns i standardlagringsbehållaren som är associerad med klustret.
+Du kan använda modellen som du skapade tidigare för att *förutsäga* vad resultaten av nya kontroller kommer att vara. Förutsägelserna baseras på de överträdelser som har observerats. Du har tränat den här modellen på data uppsättningen **Food_Inspections1. csv**. Du kan använda en andra data uppsättning, **Food_Inspections2. csv**, för att *utvärdera* den här modellens styrka på nya data. Den andra data uppsättningen (**Food_Inspections2. csv**) finns i standard lagrings behållaren som är kopplad till klustret.
 
-1. Kör följande kod för att skapa en ny dataram, **förutsägelserDf** som innehåller förutsägelsen som genereras av modellen. Kodavsnittet skapar också en tillfällig tabell med **namnet Förutsägelser** baserat på dataramen.
+1. Kör följande kod för att skapa en ny dataframe, **predictionsDf** som innehåller den förutsägelse som genereras av modellen. Kodfragmentet skapar också en temporär tabell med namnet **förutsägelser** baserat på dataframe.
 
     ```PySpark
     testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
@@ -266,7 +266,7 @@ Du kan använda modellen som du skapade tidigare för att *förutsäga* vad resu
     predictionsDf.columns
     ```
 
-    Du bör se en utdata som följande text:
+    Du bör se utdata som följande text:
 
     ```
     ['id',
@@ -280,15 +280,15 @@ Du kan använda modellen som du skapade tidigare för att *förutsäga* vad resu
         'prediction']
     ```
 
-1. Titta på en av förutsägelserna. Kör det här kodavsnittet:
+1. Titta på en av förutsägelserna. Kör det här kodfragmentet:
 
     ```PySpark
     predictionsDf.take(1)
     ```
 
-   Det finns en förutsägelse för den första posten i testdatauppsättningen.
+   Det finns en förutsägelse för den första posten i test data uppsättningen.
 
-1. Metoden `model.transform()` tillämpar samma omvandling på alla nya data med samma schema och kommer fram till en förutsägelse om hur data ska klassificeras. Du kan göra lite statistik för att få en känsla av hur förutsägelserna var:
+1. `model.transform()` Metoden använder samma omvandling till alla nya data med samma schema och kommer till en förutsägelse av hur data klassificeras. Du kan använda viss statistik för att få en uppfattning om hur förutsägelserna var:
 
     ```PySpark
     numSuccesses = predictionsDf.where("""(prediction = 0 AND results = 'Fail') OR
@@ -307,13 +307,13 @@ Du kan använda modellen som du skapade tidigare för att *förutsäga* vad resu
     This is a 86.8169618894% success rate
     ```
 
-    Genom att använda logistisk regression med Spark får du en modell av relationen mellan beskrivningar av överträdelser på engelska. Och om ett visst företag skulle passera eller misslyckas en livsmedelsinspektion.
+    Med hjälp av Logistisk regression med Spark får du en modell av förhållandet mellan överträdelser på engelska. Och om en specifik verksamhet skulle leda eller underkänna en livsmedels inspektion.
 
 ## <a name="create-a-visual-representation-of-the-prediction"></a>Skapa en visuell representation av förutsägelsen
 
-Du kan nu skapa en slutlig visualisering som hjälper dig att resonera om resultatet av det här testet.
+Nu kan du skapa en slutgiltig visualisering som hjälper dig att få en anledning till resultatet av testet.
 
-1. Du börjar med att extrahera de olika förutsägelserna och resultaten från den **temporära** tabellen Förutsägelser som skapats tidigare. Följande frågor separerar utdata som *true_positive*, *false_positive*, *true_negative*och *false_negative*. I frågorna nedan inaktiverar du visualisering `-q` genom att använda och `-o`sparar även utdata (med hjälp `%%local` av) som dataramar som sedan kan användas med magin.
+1. Du börjar genom att extrahera olika förutsägelser och resultat från den temporära **förutsägelse** tabellen som skapades tidigare. I följande frågor separeras utdata som *true_positive*, *false_positive*, *true_negative*och *false_negative*. I frågorna nedan stänger du av visualiseringen genom att använda `-q` och sparar även utdata (med hjälp `-o`av) som dataframes som kan användas med `%%local` Magic.
 
     ```PySpark
     %%sql -q -o true_positive
@@ -335,7 +335,7 @@ Du kan nu skapa en slutlig visualisering som hjälper dig att resonera om result
     SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
     ```
 
-1. Slutligen använder du följande utdrag för att generera diagrammet med **Matplotlib**.
+1. Använd slutligen följande kodfragment för att generera ritningen med **matplotlib**.
 
     ```PySpark
     %%local
@@ -351,13 +351,13 @@ Du kan nu skapa en slutlig visualisering som hjälper dig att resonera om result
 
     Du bör se följande utdata:
 
-    ![Spark machine learning-programutdata - cirkeldiagramprocent av misslyckade livsmedelsinspektioner.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Resultatutdata för sparkmaskininlärning")
+    ![Spark Machine Learning Application utdata-cirkel diagram procent av misslyckade kost-kontroller.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Spark Machine Learning resultat utdata")
 
-    I det här diagrammet avser ett "positivt" resultat den misslyckade livsmedelsinspektionen, medan ett negativt resultat avser en godkänd inspektion.
+    I det här diagrammet refererar ett "positivt" resultat till undersökningen om misslyckad livsmedel, medan ett negativt resultat refererar till en klar inspektion.
 
-## <a name="shut-down-the-notebook"></a>Stänga av anteckningsboken
+## <a name="shut-down-the-notebook"></a>Stäng av antecknings boken
 
-När du har kört programmet bör du stänga av anteckningsboken för att frigöra resurserna. Du gör det genom att välja **Stäng och stoppa** i anteckningsbokens **Fil**-meny. Åtgärden stänger anteckningsboken.
+När du har kört programmet stänger du antecknings boken för att frigöra resurserna. Du gör det genom att välja **Stäng och stoppa** i anteckningsbokens **Fil**-meny. Åtgärden stänger anteckningsboken.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -365,9 +365,9 @@ När du har kört programmet bör du stänga av anteckningsboken för att frigö
 
 ### <a name="scenarios"></a>Scenarier
 
-* [Apache Spark med BI: Interaktiv dataanalys med Spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Apache Spark med maskininlärning: Använd Spark i HDInsight för att analysera byggnadstemperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
-* [Webbplatslogganalys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark med BI: interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
+* [Apache Spark med Machine Learning: använda spark i HDInsight för analys av byggnads temperatur med HVAC-data](apache-spark-ipython-notebook-machine-learning.md)
+* [Webbplats logg analys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Skapa och köra program
 
@@ -377,9 +377,9 @@ När du har kört programmet bör du stänga av anteckningsboken för att frigö
 ### <a name="tools-and-extensions"></a>Verktyg och tillägg
 
 * [Använda HDInsight Tools-plugin för IntelliJ IDEA till att skapa och skicka Spark Scala-appar](apache-spark-intellij-tool-plugin.md)
-* [Använd HDInsight Tools Plugin för IntelliJ IDEA för att felsöka Apache Spark-program på distans](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Använda Apache Zeppelin-anteckningsböcker med ett Apache Spark-kluster på HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kärnor tillgängliga för Jupyter-anteckningsbok i Apache Spark-kluster för HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Använd HDInsight tools-plugin för IntelliJ-idé för att felsöka Apache Spark program via fjärr anslutning](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Använda Apache Zeppelin-anteckningsböcker med ett Apache Spark-kluster i HDInsight](apache-spark-zeppelin-notebook.md)
+* [Kernels tillgängliga för Jupyter Notebook i Apache Spark kluster för HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Använda externa paket med Jupyter-anteckningsböcker](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Installera Jupyter på datorn och ansluta till ett HDInsight Spark-kluster](apache-spark-jupyter-notebook-install-locally.md)
 

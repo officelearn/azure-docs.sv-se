@@ -1,6 +1,6 @@
 ---
-title: Uppgradera från grundläggande intern till standard intern - Azure Load Balancer
-description: Den här artikeln visar hur du uppgraderar Azure Internal Load Balancer från Basic SKU till Standard SKU
+title: Uppgradera från Basic Internal till standard Internal-Azure Load Balancer
+description: 'Den här artikeln visar hur du uppgraderar interna Azure-Load Balancer från Basic SKU till standard-SKU: n'
 services: load-balancer
 author: irenehua
 ms.service: load-balancer
@@ -8,71 +8,71 @@ ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
 ms.openlocfilehash: 239dc0f3133a5adf59a23d333131c91d3a655597
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81770377"
 ---
-# <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Uppgradera Azure Intern belastningsutjämning- ingen utgående anslutning krävs
-[Azure Standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet via zonredundans. Mer information om belastningsutjämnare SKU finns i [jämförelsetabellen](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
+# <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Uppgradera Azure Internal Load Balancer – ingen utgående anslutning krävs
+[Azure standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet genom zon redundans. Mer information om Load Balancer SKU finns i [jämförelse tabell](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
 
-Den här artikeln introducerar ett PowerShell-skript som skapar en standardbelastningsjämningsfaktor med samma konfiguration som den grundläggande belastningsutjämnaren tillsammans med migrerande trafik från grundläggande belastningsutjämnare till standardbelastningsutjämning.
+Den här artikeln introducerar ett PowerShell-skript som skapar en Standard Load Balancer med samma konfiguration som den grundläggande Load Balancer tillsammans med migrering av trafik från Basic Load Balancer till Standard Load Balancer.
 
 ## <a name="upgrade-overview"></a>Översikt över uppgradering
 
-Ett Azure PowerShell-skript är tillgängligt som gör följande:
+Det finns ett Azure PowerShell-skript tillgängligt som gör följande:
 
-* Skapar en intern SKU-belastningsutjämning för standard på den plats som du anger. Observera att ingen [utgående anslutning](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) inte kommer att tillhandahållas av standardintern belastningsutjämnare.
-* Kopierar sömlöst konfigurationerna för den grundläggande SKU-belastningsutjämnaren till den nyligen skapade standardbelastningsutjämningsapparaten.
-* Flytta de privata IPs-adresserna sömlöst från grundläggande belastningsutjämning till den nyligen skapade standardbelastningsutjämningsapparaten.
-* Flytta de virtuella datorerna sömlöst från backend-poolen i den grundläggande belastningsutjämnaren till backend-poolen på standardbelastningsutjämningsapparaten
+* Skapar ett internt standard-SKU-Load Balancer på den plats som du anger. Observera att ingen [utgående anslutning](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) kommer att tillhandahållas av interna standard Load Balancer.
+* Kopierar sömlöst konfigurationerna av Basic SKU-Load Balancer till den nyligen skapade Standard Load Balancer.
+* Flytta enkelt de privata IP-adresserna från Basic-Load Balancer till den nyligen skapade Standard Load Balancer.
+* Flytta sömlöst de virtuella datorerna från backend-poolen av Basic-Load Balancer till backend-poolen för Standard Load Balancer
 
-### <a name="caveatslimitations"></a>Varningar\Begränsningar
+### <a name="caveatslimitations"></a>Caveats\Limitations
 
-* Skriptet stöder endast intern belastningsutjämningsuppgradering där ingen utgående anslutning krävs. Om du behöver [utgående anslutning](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) för några av dina virtuella datorer läser du den här [sidan](upgrade-InternalBasic-To-PublicStandard.md) för instruktioner. 
-* Om standardbelastningsutjämkaren skapas i en annan region kan du inte associera de virtuella datorerna som finns i den gamla regionen till den nyligen skapade standardbelastningsutjämningsapparaten. Du kan komma runt den här begränsningen och se till att skapa en ny virtuell dator i den nya regionen.
-* Om din belastningsutjämnare inte har någon ip-konfiguration eller serverdelspool i frontend kommer du troligen att orsaka ett fel som kör skriptet. Se till att de inte är tomma.
+* Skript stöder endast intern Load Balancer uppgradering där ingen utgående anslutning krävs. Om du behöver [utgående anslutning](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) för några av dina virtuella datorer kan du gå till den här [sidan](upgrade-InternalBasic-To-PublicStandard.md) för instruktioner. 
+* Om standard belastnings utjämning skapas i en annan region kan du inte associera de virtuella datorerna i den gamla regionen med den nya Standard Load Balancer. Du kan undvika den här begränsningen genom att skapa en ny virtuell dator i den nya regionen.
+* Om din Load Balancer inte har någon IP-konfiguration för klient delen eller en backend-pool, kommer du förmodligen att träffa ett fel som kör skriptet. Se till att de inte är tomma.
 
-## <a name="download-the-script"></a>Ladda ner skriptet
+## <a name="download-the-script"></a>Hämta skriptet
 
-Hämta migreringsskriptet från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureILBUpgrade/2.0).
-## <a name="use-the-script"></a>Använda skriptet
+Hämta migrerings skriptet från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureILBUpgrade/2.0).
+## <a name="use-the-script"></a>Använd skriptet
 
-Det finns två alternativ för dig beroende på din lokala PowerShell-miljö inställning och inställningar:
+Det finns två alternativ för dig, beroende på din lokala PowerShell-Miljös konfiguration och inställningar:
 
-* Om du inte har Azure Az-modulerna installerade, eller inte har något emot att avinstallera Azure `Install-Script` Az-modulerna, är det bästa alternativet att använda alternativet för att köra skriptet.
-* Om du behöver behålla Azure Az-modulerna är det bäst att ladda ned skriptet och köra det direkt.
+* Om du inte har installerat Azure AZ-moduler, eller om du inte vill avinstallera Azure AZ-modulerna, är det bästa alternativet att använda `Install-Script` alternativet för att köra skriptet.
+* Om du behöver behålla Azure AZ-modulerna är det bästa valet att ladda ned skriptet och köra det direkt.
 
-Ta reda på om du har Azure `Get-InstalledModule -Name az`Az-modulerna installerade kör du . Om du inte ser några installerade Az-moduler kan `Install-Script` du använda metoden.
+Du kan ta reda på om du har installerat Azure AZ- `Get-InstalledModule -Name az`moduler genom att köra. Om du inte ser några installerade AZ-moduler kan du använda- `Install-Script` metoden.
 
-### <a name="install-using-the-install-script-method"></a>Installera med metoden Install-Script
+### <a name="install-using-the-install-script-method"></a>Installera med metoden install-script
 
-Om du vill använda det här alternativet får du inte ha Azure Az-modulerna installerade på datorn. Om de är installerade visas ett fel i följande kommando. Du kan antingen avinstallera Azure Az-modulerna eller använda det andra alternativet för att hämta skriptet manuellt och köra det.
+Om du vill använda det här alternativet behöver du inte ha de Azure AZ-moduler som är installerade på datorn. Om de är installerade visar följande kommando ett fel. Du kan antingen avinstallera Azure AZ-moduler eller använda det andra alternativet för att ladda ned skriptet manuellt och köra det.
   
 Kör skriptet med följande kommando:
 
 `Install-Script -Name AzureILBUpgrade`
 
-Det här kommandot installerar också de Az-moduler som krävs.  
+Det här kommandot installerar även de AZ-moduler som krävs.  
 
-### <a name="install-using-the-script-directly"></a>Installera med skriptet direkt
+### <a name="install-using-the-script-directly"></a>Installera med hjälp av skriptet direkt
 
-Om du har några Azure Az-moduler installerade och inte kan avinstallera dem (eller inte vill avinstallera dem) kan du hämta skriptet manuellt med hjälp av fliken **Manuell hämtning** i länken för hämtning av skript. Skriptet hämtas som en rå nupkg-fil. Information om hur du installerar skriptet från den här nupkg-filen finns i [Hämta manuellt paket](/powershell/scripting/gallery/how-to/working-with-packages/manual-download).
+Om du har några Azure AZ-moduler installerade och inte kan avinstallera dem (eller inte vill avinstallera dem) kan du hämta skriptet manuellt med hjälp av fliken **manuell hämtning** i länken för hämtning av skript. Skriptet laddas ned som en RAW nupkg-fil. Om du vill installera skriptet från den här nupkg-filen, se [manuell paket hämtning](/powershell/scripting/gallery/how-to/working-with-packages/manual-download).
 
 Kör skriptet så här:
 
-1. Används `Connect-AzAccount` för att ansluta till Azure.
+1. Använd `Connect-AzAccount` för att ansluta till Azure.
 
-1. Används `Import-Module Az` för att importera Az-modulerna.
+1. Används `Import-Module Az` för att importera AZ-modulerna.
 
-1. Undersök de parametrar som krävs:
+1. Granska de nödvändiga parametrarna:
 
-   * **rgName: [String]: Obligatoriskt** – Det här är resursgruppen för din befintliga grundläggande belastningsutjämnare och ny standardbelastningsutjämning. Om du vill hitta det här strängvärdet navigerar du till Azure-portalen, väljer din grundläggande belastningsutjämnarekälla och klickar på **Översikt** för belastningsutjämnaren. Resursgruppen finns på den sidan.
-   * **oldLBName: [String]: Obligatoriskt** – Det här är namnet på din befintliga Basic Balancer som du vill uppgradera. 
-   * **newlocation: [String]: Obligatoriskt** – Det här är den plats där standardbelastningsutjämnaren ska skapas. Vi rekommenderar att du ärver samma plats för den valda grundläggande belastningsutjämningsutjämningen till standardbelastningsutjämningstagaren för bättre association med andra befintliga resurser.
-   * **newLBName: [String]: Obligatoriskt** – Det här är namnet på standardbelastningsutjämningen som ska skapas.
-1. Kör skriptet med lämpliga parametrar. Det kan ta fem till sju minuter att avsluta.
+   * **rgName: [sträng]: krävs** – det här är resurs gruppen för din befintliga grundläggande Load Balancer och nya standard Load Balancer. Om du vill hitta strängvärdet navigerar du till Azure Portal, väljer din grundläggande Load Balancer källa och klickar på **översikten** för belastningsutjämnaren. Resurs gruppen finns på sidan.
+   * **oldLBName: [sträng]: krävs** – det här är namnet på den befintliga Basic-saldo som du vill uppgradera. 
+   * **newlocation: [sträng]: krävs** – det här är den plats där standard Load Balancer skapas. Vi rekommenderar att du ärver samma plats för de valda Basic-Load Balancer till Standard Load Balancer för bättre Association med andra befintliga resurser.
+   * **newLBName: [sträng]: obligatorisk** – det här är namnet på den standard Load Balancer som ska skapas.
+1. Kör skriptet med lämpliga parametrar. Det kan ta fem till sju minuter att slutföra.
 
     **Exempel**
 
@@ -86,14 +86,14 @@ Kör skriptet så här:
 
 Ja. Se [varningar/begränsningar](#caveatslimitations).
 
-### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>Växlar Azure PowerShell-skriptet också över trafiken från min grundläggande belastningsutjämnare till den nyligen skapade standardbelastningsutjämningen?
+### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>Växlar Azure PowerShell-skriptet också över trafiken från min grundläggande Load Balancer till den nyligen skapade Standard Load Balancer?
 
-Ja det migrerar trafik. Om du vill migrera trafik personligen använder du [det här skriptet](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0) som inte flyttar virtuella datorer åt dig.
+Ja, det migrerar trafik. Om du vill migrera trafiken personligen använder du [det här skriptet](https://www.powershellgallery.com/packages/AzureILBUpgrade/1.0) som inte flyttar virtuella datorer åt dig.
 
-### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Jag stötte på några problem med att använda detta skript. Hur kan jag få hjälp?
+### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Jag har stött på problem med att använda det här skriptet. Hur kan jag få hjälp?
   
-Du kan skicka slbupgradesupport@microsoft.comett e-postmeddelande till , öppna ett supportärende med Azure Support eller göra båda.
+Du kan skicka ett e- slbupgradesupport@microsoft.compostmeddelande till, öppna ett support ärende med Azure-supporten eller göra båda.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Läs mer om standardbelastningsjämningsapparaten](load-balancer-overview.md)
+[Läs mer om Standard Load Balancer](load-balancer-overview.md)

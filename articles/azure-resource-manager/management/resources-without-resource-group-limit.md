@@ -1,124 +1,124 @@
 ---
-title: Resurser utan 800 räknegräns
-description: Visar en lista över azure-resurstyper som kan ha fler än 800 instanser i en resursgrupp.
+title: Resurser utan gräns för 800
+description: Visar en lista över de Azure-resurs typer som kan ha fler än 800 instanser i en resurs grupp.
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 8644bec1a68acebff18cf83d17acb014784dc964
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80804783"
 ---
-# <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Resurser som inte är begränsade till 800 instanser per resursgrupp
+# <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Resurser som inte är begränsade till 800 instanser per resurs grupp
 
-Som standard kan du distribuera upp till 800 instanser av en resurstyp i varje resursgrupp. Vissa resurstyper är dock undantagna från 800-instansgränsen. I den här artikeln visas de Azure-resurstyper som kan ha fler än 800 instanser i en resursgrupp. Alla andra resurstyper är begränsade till 800 instanser.
+Som standard kan du distribuera upp till 800 instanser av en resurs typ i varje resurs grupp. Vissa resurs typer är dock undantagna från gränsen på 800-instanser. Den här artikeln innehåller en lista över de Azure-resurs typer som kan ha fler än 800 instanser i en resurs grupp. Alla andra resurs typer är begränsade till 800 instanser.
 
-För vissa resurstyper måste du kontakta supporten för att få 800-instansgränsen borttagen. Dessa resurstyper noteras i den här artikeln.
+För vissa resurs typer måste du kontakta supporten om du vill ta bort instans gränsen på 800. Dessa resurs typer anges i den här artikeln.
 
 
-## <a name="microsoftautomation"></a>Microsoft.Automation
+## <a name="microsoftautomation"></a>Microsoft. Automation
 
-* automationKonton
+* automationAccounts
 
-## <a name="microsoftazurestack"></a>Microsoft.AzureStack
+## <a name="microsoftazurestack"></a>Microsoft. AzureStack
 
-* Registreringar
-* registreringar/kundAbonnemang
+* registreringar
+* registreringar/customerSubscriptions
 * registreringar/produkter
 
-## <a name="microsoftbotservice"></a>Microsoft.BotService
+## <a name="microsoftbotservice"></a>Microsoft. BotService
 
-* botServices - Som standard begränsad till 800 instanser. Den gränsen kan höjas genom att kontakta supporten.
+* botServices – som standard är begränsad till 800 instanser. Du kan öka gränsen genom att kontakta supporten.
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
-* Diskar
-* Gallerier
+* disk
+* gallerier
 * gallerier/bilder
-* gallerier/bilder/versioner
+* gallerier/avbildningar/versioner
 * images
 * snapshots
-* virtuellaMaskiner
+* virtualMachines
 
-## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
+## <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
 * containerGroups
 
-## <a name="microsoftcontainerregistry"></a>Microsoft.Container-registret
+## <a name="microsoftcontainerregistry"></a>Microsoft. ContainerRegistry
 
 * register/buildTasks
 * register/buildTasks/listSourceRepositoryProperties
-* register/buildTasks/steps
-* register/buildTasks/steps/listBuildArguments
+* register/buildTasks/steg
+* register/buildTasks/steg/listBuildArguments
 * register/eventGridFilters
 * register/replikeringar
 * register/uppgifter
-* register/webhooks
+* register/Webhooks
 
-## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
+## <a name="microsoftdbformariadb"></a>Microsoft. DBforMariaDB
 
-* Servrar
+* brygghuvudservrar
 
-## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
+## <a name="microsoftdbformysql"></a>Microsoft. DBforMySQL
 
-* Servrar
+* brygghuvudservrar
 
-## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
+## <a name="microsoftdbforpostgresql"></a>Microsoft. DBforPostgreSQL
 
-* serverGrupper
-* Servrar
-* servrarv2
+* serverGroups
+* brygghuvudservrar
+* serversv2
 * singleServers
 
-## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
+## <a name="microsoftdevtestlab"></a>Microsoft. DevTestLab
 
-* scheman - Som standard begränsad till 800 instanser. Den gränsen kan höjas genom att kontakta supporten.
+* scheman – som standard är begränsad till 800 instanser. Du kan öka gränsen genom att kontakta supporten.
 
-## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
+## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft. EnterpriseKnowledgeGraph
 
 * services
 
-## <a name="microsofteventhub"></a>Microsoft.EventHub
+## <a name="microsofteventhub"></a>Microsoft. EventHub
 
-* Kluster
-* Namnområden
+* kluster
+* namn områden
 
-## <a name="microsoftexperimentation"></a>Microsoft.Experiment
+## <a name="microsoftexperimentation"></a>Microsoft. experimentering
 
-* experimentArbetsytor
+* experimentWorkspaces
 
-## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
+## <a name="microsoftguestconfiguration"></a>Microsoft. GuestConfiguration
 
 * autoManagedVmConfigurationProfiles
-* konfigurationProfileAstilldelningar
-* gästKonfigurationTilldelningar
-* Programvara
+* configurationProfileAssignments
+* guestConfigurationAssignments
+* IntelliPoint
 * softwareUpdateProfile
-* programvaraUppdater
+* softwareUpdates
 
-## <a name="microsoftinsights"></a>microsoft.insights microsoft.insights microsoft.insights microsoft.
+## <a name="microsoftinsights"></a>Microsoft. Insights
 
-* metricalerter
+* metricalerts
 
-## <a name="microsoftlogic"></a>Microsoft.Logic
+## <a name="microsoftlogic"></a>Microsoft. Logic
 
-* integrationKonton
-* Arbetsflöden
+* integrationAccounts
+* arbetsflöden
 
-## <a name="microsoftnetapp"></a>Microsoft.NetApp
+## <a name="microsoftnetapp"></a>Microsoft. NetApp
 
-* netAppAccounts (netAppAccounts)
+* netAppAccounts
 * netAppAccounts/capacityPools
-* netAppAccounts/capacityPools/volymer
-* netAppAccounts/capacityPools/volymer/mountTargets
-* netAppAccounts/capacityPools/volymer/ögonblicksbilder
+* netAppAccounts/capacityPools/Volumes
+* netAppAccounts/capacityPools/Volumes/mountTargets
+* netAppAccounts/capacityPools/volym/ögonblicks bilder
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
-* ansökanGatewayWebApplicationFirewallPolicies
+* applicationGatewayWebApplicationFirewallPolicies
 * applicationSecurityGroups
-* bastionHosts (bastionHosts)
+* bastionHosts
 * ddosProtectionPlans
 * dnszones
 * dnszones/A
@@ -132,10 +132,10 @@ För vissa resurstyper måste du kontakta supporten för att få 800-instansgrä
 * dnszones/SRV
 * dnszones/TXT
 * dnszones/alla
-* dnszones/recordset
-* nätverkIntentPolicies
-* nätverkGränssnitt
-* privatDnsZones
+* dnszones/Recordset
+* networkIntentPolicies
+* networkInterfaces
+* privateDnsZones
 * privateDnsZones/A
 * privateDnsZones/AAAA
 * privateDnsZones/CNAME
@@ -148,49 +148,49 @@ För vissa resurstyper måste du kontakta supporten för att få 800-instansgrä
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses - Som standard begränsad till 800 instanser. Den gränsen kan höjas genom att kontakta supporten.
+* publicIPAddresses – som standard är begränsad till 800 instanser. Du kan öka gränsen genom att kontakta supporten.
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
 
-## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
+## <a name="microsoftportalsdk"></a>Microsoft. PortalSdk
 
 * rootResources
 
-## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
+## <a name="microsoftpowerbi"></a>Microsoft. PowerBI
 
-* workspaceCollections - Som standard begränsad till 800 instanser. Den gränsen kan höjas genom att kontakta supporten.
+* workspaceCollections – som standard är begränsad till 800 instanser. Du kan öka gränsen genom att kontakta supporten.
 
-## <a name="microsoftrelay"></a>Microsoft.Relay
+## <a name="microsoftrelay"></a>Microsoft. Relay
 
-* Namnområden
+* namn områden
 
-## <a name="microsoftscheduler"></a>Microsoft.Scheduler
+## <a name="microsoftscheduler"></a>Microsoft. Scheduler
 
-* jobbsamlingar
+* förfrågningsåtgärder
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
-* Namnområden
+* namn områden
 
-## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
+## <a name="microsoftservicefabricmesh"></a>Microsoft. ServiceFabricMesh
 
 * program
 * containerGroups
-* Gateways
-* Nätverk
+* gatewayer
+* nätet
 * secrets
 * volumes
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
-* lagringKonton
+* storageAccounts
 
-## <a name="microsoftweb"></a>Microsoft.Web
+## <a name="microsoftweb"></a>Microsoft. Web
 
-* apiManagementKonton/api:er
+* apiManagementAccounts/API: er
 * webbplatser
 
 ## <a name="next-steps"></a>Nästa steg
 
-En fullständig lista över kvoter och begränsningar finns i [Azure-prenumerations- och tjänstbegränsningar, kvoter och begränsningar](azure-subscription-service-limits.md).
+En fullständig lista över kvoter och begränsningar finns i [Azure-prenumerationer, tjänst gränser, kvoter och begränsningar](azure-subscription-service-limits.md).

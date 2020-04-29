@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: allensu
-ms.openlocfilehash: 46ecf1bf2f5bd7900677cd115f8571ec3551a874
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 477a5ffa971120d1a98c09ac4ae8ebda1c82b770
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82134278"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209034"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>DNS-konfiguration för privat slutpunkt i Azure
 
@@ -55,7 +55,7 @@ För Azure-tjänster använder du de rekommenderade zon namnen enligt beskrivnin
 |Azure Database for MySQL (Microsoft. DBforMySQL/servers)|mysqlServer|privatelink.mysql.database.azure.com|
 |Azure Database for MariaDB (Microsoft. DBforMariaDB/servers)|mariadbServer|privatelink.mariadb.database.azure.com|
 |Azure Key Vault (Microsoft. nyckel valv/-valv)|valv|privatelink.vaultcore.azure.net|
-|Azure Kubernetes service – Kubernetes-API (Microsoft. container service/managedClusters)    | managedCluster | {GUID}. privatelink. <region>. azmk8s.io|
+|Azure Kubernetes service – Kubernetes-API (Microsoft. container service/managedClusters)    | managedCluster | {GUID}. privatelink. {region}. azmk8s. io|
 |Azure Search (Microsoft. search/searchServices)|searchService|privatelink.search.windows.net|   
 |Azure Container Registry (Microsoft. ContainerRegistry/register) | registry | privatelink.azurecr.io |
 |Azure App konfiguration (Microsoft. Appconfiguration/configurationStores)| configurationStore | privatelink.azconfig.io|

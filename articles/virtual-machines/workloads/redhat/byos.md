@@ -1,6 +1,6 @@
 ---
-title: Red Hat Enterprise Linux ta med-din-egen-prenumeration Azure avbildningar | Microsoft-dokument
-description: Lär dig mer om ta med egna prenumerationsavbildningar för Red Hat Enterprise Linux på Azure.
+title: Red Hat Enterprise Linux Azure-avbildningar med egen prenumeration | Microsoft Docs
+description: Lär dig mer om att överföra prenumerations avbildningar för Red Hat Enterprise Linux på Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -15,78 +15,78 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
 ms.openlocfilehash: 9ab578b4b688c02c9150dfb23fce53fbb82df405
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81273179"
 ---
-# <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux bring-your-own-prenumeration Gold Images i Azure
+# <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux guld-avbildningar för prenumerationer i Azure
 
-Red Hat Enterprise Linux (RHEL) avbildningar är tillgängliga i Azure via en pay-as-you-go eller bring-your-own-subscription (BYOS) (Red Hat Gold Image) modell. Den här artikeln innehåller en översikt över Red Hat Gold-avbildningarna i Azure.
-
->[!NOTE]
-> RHEL BYOS Gold Images är tillgängliga i Azure Public (kommersiella) och Azure Government moln. De är inte tillgängliga i Azure Kina eller Azure Blackforest-moln.
-
-## <a name="important-points-to-consider"></a>Viktiga punkter att ta hänsyn till
-
-- Red Hat Gold-avbildningarna i det här programmet är produktionsklara RHEL-avbildningar som liknar RHEL-avbildningar som du använder i Azure Marketplace.
-- Avbildningarna följer de aktuella principerna som beskrivs i [Red Hat Enterprise Linux-avbildningar på Azure](./redhat-images.md).
-- Standardstödprinciper gäller för virtuella datorer som skapats från dessa avbildningar.
-- De virtuella datorer som etablerats från Red Hat Gold Images har inte RHEL-avgifter som är kopplade till RHEL-pay-as-you-go-bilder.
-- Bilderna är oentiterade. Du måste använda Red Hat Subscription-Manager för att registrera och prenumerera på de virtuella datorerna för att få uppdateringar från Red Hat direkt.
-- Det är för närvarande inte möjligt att dynamiskt växla mellan BYOS och pay-as-you-go faktureringsmodeller för Linux-avbildningar. Om du vill växla faktureringsmodellen måste du distribuera om den virtuella datorn från respektive avbildning.
+Red Hat Enterprise Linux-avbildningar (RHEL) är tillgängliga i Azure via en "betala per användning"-eller "BYOS (Red Hat Gold image)-modell. Den här artikeln innehåller en översikt över de Red Hat Gold-avbildningarna i Azure.
 
 >[!NOTE]
-> Generation 2 RHEL BYOS-avbildningar är för närvarande inte tillgängliga via marketplace-erbjudandet. Om du behöver en Generation 2 RHEL BYOS-avbildning besöker du cloud access-instrumentpanelen i Red Hat-prenumerationshantering. Mer information finns i [Red Hat-dokumentationen](https://access.redhat.com/articles/4847681).
+> RHEL BYOS guld-avbildningar är tillgängliga i Azures offentliga (kommersiella) och Azure Government moln. De är inte tillgängliga i Azure Kina-eller Azure Blackforest-moln.
 
-## <a name="requirements-and-conditions-to-access-the-red-hat-gold-images"></a>Krav och villkor för åtkomst till Red Hat Gold Images
+## <a name="important-points-to-consider"></a>Viktiga saker att tänka på
 
-1. Bekanta dig med villkoren för [Programmet Red Hat Cloud Access.](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) Aktivera dina Red Hat-prenumerationer för Cloud Access på [Red Hat Subscription-Manager](https://access.redhat.com/management/cloud). Du måste ha azure-prenumerationer som ska registreras för Cloud Access.
-
-1. Om Red Hat-prenumerationerna som du har aktiverat för Cloud Access uppfyller kvalificeringskraven aktiveras dina Azure-prenumerationer automatiskt för åtkomst till Guldavbildning.
-
-### <a name="expected-time-for-image-access"></a>Förväntad tid för bildåtkomst
-
-När du är klar med aktiveringsstegen för Molnåtkomst validerar Red Hat din behörighet för Red Hat Gold Images. Om valideringen lyckas får du åtkomst till Guldbilderna inom tre timmar.
-
-## <a name="use-the-red-hat-gold-images-from-the-azure-portal"></a>Använda Red Hat Gold-avbildningar från Azure-portalen
-
-1. När din Azure-prenumeration har fått åtkomst till Red Hat Gold Images kan du hitta dem i [Azure-portalen](https://portal.azure.com). Gå till **Skapa en resurs** > **Se alla**.
-
-1. Högst upp på sidan ser du att du har privata erbjudanden.
-
-    ![Marknadsplats privata erbjudanden](./media/rhel-byos-privateoffers.png)
-
-1. Markera den lila länken eller rulla ned till sidans nederkant för att se dina privata erbjudanden.
-
-1. Resten av etableringen i användargränssnittet skiljer sig inte från någon annan befintlig Red Hat-avbildning. Välj din RHEL-version och följ anvisningarna för att etablera den virtuella datorn. Med den här processen kan du också acceptera villkoren för bilden i det sista steget.
+- De guld-avbildningar i Red Hat som tillhandahålls i det här programmet är produktions klara RHEL-avbildningar som liknar de RHEL som du betalar per användning i Azure Marketplace.
+- Bilderna följer de aktuella principerna som beskrivs i [Red Hat Enterprise Linux avbildningar på Azure](./redhat-images.md).
+- Standard Support policys gäller för virtuella datorer som skapats från de här avbildningarna.
+- De virtuella datorer som tillhandahålls från Red Hat Gold-avbildningar har inte RHEL-avgifter som är kopplade till RHEL-avbildningar enligt principen betala per användning.
+- Bilderna är inte berättigade. Du måste använda Red Hat-prenumerationen-Manager för att registrera och prenumerera på de virtuella datorerna för att få uppdateringar från Red Hat direkt.
+- Det går för närvarande inte att dynamiskt växla mellan BYOS och fakturerings modeller enligt principen betala per användning för Linux-avbildningar. Om du vill byta fakturerings modell måste du distribuera om den virtuella datorn från respektive avbildning.
 
 >[!NOTE]
->De här stegen hittills aktiverar inte red hat-guldavbildningen för programmatisk distribution. Ytterligare ett steg krävs enligt beskrivningen i avsnittet "Ytterligare information".
+> Generation 2 RHEL BYOS-avbildningar är inte tillgängliga via Marketplace-erbjudandet. Om du behöver en generation 2 RHEL BYOS-avbildning kan du gå till instrument panelen för moln åtkomst i Red Hat-prenumerations hantering. Mer information finns i [Red Hat-dokumentationen](https://access.redhat.com/articles/4847681).
 
-Resten av det här dokumentet fokuserar på CLI-metoden för att etablera och acceptera villkor på bilden. Användargränssnittet och CLI är helt utbytbara när det gäller slutresultatet (en etablerad RHEL Gold Image VM) berörs.
+## <a name="requirements-and-conditions-to-access-the-red-hat-gold-images"></a>Krav och villkor för åtkomst till Red Hat Gold-avbildningar
 
-## <a name="use-the-red-hat-gold-images-from-the-azure-cli"></a>Använda Red Hat Gold-avbildningar från Azure CLI
+1. Bekanta dig med villkoren för [program med Red Hat Cloud Access-program](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) . Aktivera Red Hat-prenumerationer för moln åtkomst i [Red Hat-prenumeration – chef](https://access.redhat.com/management/cloud). Du måste ha i hand de Azure-prenumerationer som ska registreras för moln åtkomst.
 
-Följande instruktioner går igenom den första distributionsprocessen för en virtuell RHEL-dator med hjälp av Azure CLI. Dessa instruktioner förutsätter att du har [Azure CLI installerat](https://docs.microsoft.com/cli/azure/install-azure-cli).
+1. Om de Red Hat-prenumerationer som du har aktiverat för moln åtkomst uppfyller behörighets kraven är dina Azure-prenumerationer automatiskt aktiverade för åtkomst till Gold-avbildning.
+
+### <a name="expected-time-for-image-access"></a>Förväntad tid för bild åtkomst
+
+När du har slutfört stegen för att aktivera moln åtkomst, validerar Red Hat din behörighet för de röda hat Gold-avbildningarna. Om verifieringen lyckas får du åtkomst till guld avbildningarna inom tre timmar.
+
+## <a name="use-the-red-hat-gold-images-from-the-azure-portal"></a>Använd Red Hat Gold-avbildningarna från Azure Portal
+
+1. När din Azure-prenumeration får åtkomst till de röda guld-avbildningarna kan du hitta dem i [Azure Portal](https://portal.azure.com). Gå till **skapa en resurs** > **Se alla**.
+
+1. Längst upp på sidan ser du att du har privata erbjudanden.
+
+    ![Privata erbjudanden för Marketplace](./media/rhel-byos-privateoffers.png)
+
+1. Välj den lila länken eller bläddra längst ned på sidan för att se dina privata erbjudanden.
+
+1. Resten av etableringen i användar gränssnittet är ingen annan befintlig Red Hat-bild. Välj din RHEL-version och följ anvisningarna för att etablera den virtuella datorn. Med den här processen kan du också acceptera villkoren för avbildningen i det sista steget.
+
+>[!NOTE]
+>Med de här stegen kan du inte aktivera Red Hat guld-avbildningen för programmerings distribution. Ett ytterligare steg krävs enligt beskrivningen i avsnittet "Ytterligare information".
+
+Resten av det här dokumentet fokuserar på CLI-metoden för att etablera och godkänna villkoren på avbildningen. Användar gränssnittet och CLI är helt utbytbara så långt som det slutliga resultatet (en etablerad virtuell RHEL Gold image VM) berörs.
+
+## <a name="use-the-red-hat-gold-images-from-the-azure-cli"></a>Använd Red Hat Gold-avbildningar från Azure CLI
+
+Följande instruktioner vägleder dig genom den första distributions processen för en virtuell RHEL-dator med hjälp av Azure CLI. Dessa instruktioner förutsätter att du har [installerat Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 >[!IMPORTANT]
->Se till att du använder alla gemener i utgivar-, erbjudande-, abonnemangs- och bildreferenserna för alla följande kommandon.
+>Se till att du använder alla små bokstäver i referenserna utgivare, erbjudande, plan och bild för alla följande kommandon.
 
-1. Kontrollera att du finns med i önskad prenumeration.
+1. Kontrol lera att du har den önskade prenumerationen.
 
     ```azurecli
     az account show -o=json
     ```
 
-1. Skapa en resursgrupp för din virtuella röda hattguldavbildning.
+1. Skapa en resurs grupp för din Red Hat Gold-avbildning av virtuella datorer.
 
     ```azurecli
     az group create --name <name> --location <location>
     ```
 
-1. Acceptera bildvillkoren.
+1. Godkänn avbildnings villkoren.
 
     ```azurecli
     az vm image terms accept --publisher redhat --offer rhel-byos --plan <SKU value here> -o=jsonc
@@ -100,9 +100,9 @@ Följande instruktioner går igenom den första distributionsprocessen för en v
     ```
 
     >[!NOTE]
-    >Dessa villkor måste accepteras *en gång per Azure-prenumeration, per avbildning SKU*.
+    >Dessa villkor måste godkännas *en gång per Azure-prenumeration, per avbildnings-SKU*.
 
-1. (Valfritt) Validera vm-distributionen med följande kommando:
+1. Valfritt Verifiera distributionen av virtuella datorer med följande kommando:
 
     ```azurecli
     az vm create -n <VM name> -g <resource group name> --image <image urn> --validate
@@ -111,20 +111,20 @@ Följande instruktioner går igenom den första distributionsprocessen för en v
     az vm create -n rhel-byos-vm -g rhel-byos-group --image RedHat:rhel-byos:rhel-lvm75:7.5.20190620
     ```
 
-1. Etablera den virtuella datorn genom att köra samma `--validate` kommando som visas i föregående exempel utan argumentet.
+1. Etablera den virtuella datorn genom att köra samma kommando som visas i föregående exempel utan `--validate` argumentet.
 
     ```azurecli
     az vm create -n <VM name> -g <resource group name> --image <image urn> --validate
     ```
 
-1. SSH i din virtuella dator och kontrollera att du har en oenigen avbildning. Kör om du `sudo yum repolist`vill göra det här steget . För RHEL 8 `sudo dnf repolist`använder du . Utdata ber dig att använda Prenumerationshanteraren för att registrera den virtuella datorn med Red Hat.
+1. SSH till den virtuella datorn och kontrol lera att du har en berättigad avbildning. Om du vill göra det här `sudo yum repolist`steget kör du. För RHEL 8 använder `sudo dnf repolist`du. Utdata uppmanar dig att använda prenumerations hanteraren för att registrera den virtuella datorn med Red Hat.
 
 >[!NOTE]
->På RHEL 8, `dnf` och `yum` är utbytbara. Mer information finns i [administrationsguiden för RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/packaging_and_distributing_software/index).
+>På RHEL 8 `dnf` och `yum` är utbytbara. Mer information finns i [Administratörs hand boken för RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/packaging_and_distributing_software/index).
 
-## <a name="use-the-red-hat-gold-images-from-powershell"></a>Använda Red Hat Gold-bilder från PowerShell
+## <a name="use-the-red-hat-gold-images-from-powershell"></a>Använd Red Hat Gold-avbildningar från PowerShell
 
-Följande skript är ett exempel. Ersätt resursgruppen, platsen, VM-namnet, inloggningsinformationen och andra variabler med valfri konfiguration. Information om utgivare och abonnemang måste vara gemener.
+Följande skript är ett exempel. Ersätt resurs gruppen, platsen, det virtuella dator namnet, inloggnings informationen och andra variabler med valfri konfiguration. Information om utgivare och plan måste vara gemener.
 
 ```powershell-interactive
     # Variables for common values
@@ -179,25 +179,25 @@ Följande skript är ett exempel. Ersätt resursgruppen, platsen, VM-namnet, inl
     New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-## <a name="encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images"></a>Kryptera Red Hat Enterprise Linux bring-your-own-prenumeration Gold Images
+## <a name="encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images"></a>Kryptera Red Hat Enterprise Linux Hämta guld bilder i din egen prenumeration
 
-Red Hat Enterprise Linux BYOS Gold Images kan skyddas med hjälp av [Azure Disk Encryption](../../linux/disk-encryption-overview.md). Prenumerationen *måste* registreras innan du kan aktivera kryptering. Mer information om hur du registrerar en RHEL BYOS Gold Image finns i [Så här registrerar du dig och prenumererar på ett system på Red Hat Kundportal med Red Hat Subscription-Manager](https://access.redhat.com/solutions/253273). Om du har en aktiv Red Hat-prenumeration kan du även läsa [Skapa Red Hat Customer Portal Activation Keys](https://access.redhat.com/articles/1378093).
+Red Hat Enterprise Linux guld bilder i BYOS kan säkras genom användning av [Azure Disk Encryption](../../linux/disk-encryption-overview.md). Prenumerationen *måste* registreras innan du kan aktivera kryptering. Mer information om hur du registrerar en RHEL BYOS Gold-avbildning finns i [så här registrerar och prenumererar du på ett system till Red Hat-kundportalen med Red Hat-prenumeration-Manager](https://access.redhat.com/solutions/253273). Om du har en aktiv Red Hat-prenumeration kan du också läsa [skapa Red Hat kund Portal aktiverings nycklar](https://access.redhat.com/articles/1378093).
 
-Azure Disk Encryption stöds inte på [anpassade avbildningar](../../linux/redhat-create-upload-vhd.md)i Red Hat . Ytterligare krav och förutsättningar för Azure Disk-kryptering dokumenteras i [Azure Disk Encryption för virtuella Linux-datorer](../../linux/disk-encryption-overview.md#additional-vm-requirements).
+Azure Disk Encryption stöds inte för [anpassade Red Hat-bilder](../../linux/redhat-create-upload-vhd.md). Ytterligare Azure Disk Encryption krav och nödvändiga komponenter finns dokumenterade i [Azure Disk Encryption för virtuella Linux-datorer](../../linux/disk-encryption-overview.md#additional-vm-requirements).
 
-Steg för att tillämpa Azure Disk Encryption finns i [Azure Disk Encryption-scenarier på virtuella Linux-datorer](../../linux/disk-encryption-linux.md) och relaterade artiklar.
+Anvisningar för hur du använder Azure Disk Encryption finns [Azure Disk Encryption scenarier för virtuella Linux-datorer](../../linux/disk-encryption-linux.md) och relaterade artiklar.
 
 ## <a name="additional-information"></a>Ytterligare information
 
-- Om du försöker etablera en virtuell dator på en prenumeration som inte är aktiverad för det här erbjudandet visas följande meddelande:
+- Om du försöker etablera en virtuell dator för en prenumeration som inte är aktive rad för det här erbjudandet får du följande meddelande:
 
     ```
     "Offer with PublisherId: redhat, OfferId: rhel-byos, PlanId: rhel-lvm75 is private and can not be purchased by subscriptionId: GUID"
     ```
 
-    I så fall kontaktar du Microsoft eller Red Hat för att aktivera din prenumeration.
+    I det här fallet kontaktar du Microsoft eller Red Hat för att aktivera din prenumeration.
 
-- Om du ändrar en ögonblicksbild från en RHEL BYOS-avbildning och försöker publicera den anpassade avbildningen i [det delade bildgalleriet](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries)måste du ange planinformation som matchar den ursprungliga källan till ögonblicksbilden. Kommandot kan till exempel se ut så här:
+- Om du ändrar en ögonblicks bild från en RHEL BYOS-avbildning och försöker publicera den anpassade avbildningen i det [delade bild galleriet](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries)måste du ange plan information som matchar den ursprungliga källan till ögonblicks bilden. Kommandot kan till exempel se ut så här:
 
     ```azurecli
     az vm create –image \
@@ -206,17 +206,17 @@ Steg för att tillämpa Azure Disk Encryption finns i [Azure Disk Encryption-sce
     --plan-publisher redhat --plan-product rhel-byos --plan-name rhel-lvm75
     ```
 
-    Notera planparametrarna på den sista raden.
+    Observera plan parametrarna på den sista raden.
 
-    [Azure Disk Encryption](#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images) stöds inte på anpassade avbildningar.
+    [Azure Disk Encryption](#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images) stöds inte för anpassade avbildningar.
 
-- Om du använder automatisering för att etablera virtuella datorer från RHEL BYOS-avbildningarna måste du ange planparametrar som liknar de som visades i exempelkommandona. Om du till exempel använder Terraform anger du planinformationen i ett [planblock](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan).
+- Om du använder Automation för att etablera virtuella datorer från RHEL BYOS-avbildningar måste du ange plan parametrar som liknar vad som visas i exempel kommandona. Om du till exempel använder terraform anger du plan informationen i ett [plan block](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om Red Hat Cloud Access finns i [Red Hats offentliga molndokumentation](https://access.redhat.com/public-cloud)
-- Stegvisa guider och programinformation för Cloud Access finns i [Red Hat Cloud Access-dokumentationen](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index).
-- Mer information om Red Hat Update Infrastructure finns i [Azure Red Hat Update Infrastructure](./redhat-rhui.md).
-- Mer information om alla Red Hat-avbildningar i Azure finns på [dokumentationssidan](./redhat-images.md).
-- Information om Supportpolicyer för Red Hat för alla versioner av RHEL finns på life [cycle-sidan för Red Hat Enterprise Linux.](https://access.redhat.com/support/policy/updates/errata)
-- Mer information om RHEL Gold-bilder finns i [Red Hat-dokumentationen](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure).
+- Mer information om Red Hat Cloud Access finns i dokumentationen för det [offentliga molnet i Red Hat](https://access.redhat.com/public-cloud)
+- Steg-för-steg-guider och program information för moln åtkomst finns i [dokumentationen till moln åtkomst för Red Hat](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index).
+- Mer information om Red Hats uppdaterings infrastruktur finns i [Azure Red Hat-uppdaterings infrastruktur](./redhat-rhui.md).
+- Mer information om de Red Hat-avbildningarna i Azure finns på [dokumentations sidan](./redhat-images.md).
+- Information om Red Hat support-principer för alla versioner av RHEL finns på sidan [Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata) .
+- Mer dokumentation om RHEL Gold-avbildningar finns i [Red Hat-dokumentationen](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure).

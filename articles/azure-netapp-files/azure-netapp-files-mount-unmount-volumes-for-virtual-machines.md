@@ -1,6 +1,6 @@
 ---
-title: Mount Azure NetApp-filvolymer för virtuella datorer
-description: Lär dig hur du monterar eller avmonterar en volym för virtuella Windows-datorer eller virtuella Linux-datorer i Azure.
+title: Montera Azure NetApp Files volymer för virtuella datorer
+description: Lär dig hur du monterar eller demonterar en volym för virtuella Windows-datorer eller virtuella Linux-datorer i Azure.
 author: b-juche
 ms.author: b-juche
 ms.service: azure-netapp-files
@@ -8,41 +8,41 @@ ms.workload: storage
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.openlocfilehash: c439ff8df95d759e96d2fc82356bda8551507e8d
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82084948"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montera eller demontera en volym för virtuella Windows- eller Linux-datorer 
 
-Du kan montera eller avmontera en volym för virtuella Windows- eller Linux-datorer efter behov.  Monteringsinstruktionerna för virtuella Linux-datorer är tillgängliga på Azure NetApp-filer.  
+Du kan montera eller demontera en volym för virtuella Windows-eller Linux-datorer om det behövs.  Monterings anvisningarna för virtuella Linux-datorer finns på Azure NetApp Files.  
 
-1. Klicka på bladet **Volymer** och välj sedan den volym som du vill montera. 
-2. Klicka på **Montera instruktioner** från den valda volymen och följ sedan instruktionerna för att montera volymen. 
+1. Klicka på bladet **volymer** och välj sedan den volym som du vill montera. 
+2. Klicka på **monterings instruktioner** från den valda volymen och följ sedan anvisningarna för att montera volymen. 
 
-    ![Montera instruktioner NFS](../media/azure-netapp-files/azure-netapp-files-mount-instructions-nfs.png)
+    ![Monterings instruktioner NFS](../media/azure-netapp-files/azure-netapp-files-mount-instructions-nfs.png)
 
-    ![Montera instruktioner SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)
+    ![Monterings instruktioner SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)
     
-    Om du använder NFSv4.1 använder du följande kommando för att montera filsystemet:`sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+    Om du använder NFSv 4.1 använder du följande kommando för att montera fil systemet:`sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
 
-3. Om du vill att en NFS-volym ska monteras automatiskt när en Virtuell `/etc/fstab` Azure-dator startas eller startas om lägger du till en post i filen på värden. 
+3. Om du vill att en NFS-volym ska monteras automatiskt när en virtuell Azure-dator startas eller startas om, lägger du till `/etc/fstab` en post i filen på värden. 
 
     Exempelvis:  `$ANFIP:/$FILEPATH        /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
 
-    * `$ANFIP`är IP-adressen för Azure NetApp Files-volymen som finns i volymegenskaperna.
-    * `$FILEPATH`är exportsökvägen för Azure NetApp Files-volymen.
-    * `$MOUNTPOINT`är den katalog som skapats på Linux-värden som används för att montera NFS-exporten.
+    * `$ANFIP`är IP-adressen för den Azure NetApp Files volym som finns på bladet volym egenskaper.
+    * `$FILEPATH`är export Sök vägen för Azure NetApp Files volym.
+    * `$MOUNTPOINT`är katalogen som skapas på den Linux-värd som används för att montera NFS-exporten.
 
-4. Om du vill montera volymen i Windows med NFS:
+4. Om du vill montera volymen till Windows med NFS:
 
-    a. Montera volymen på en Unix eller Linux VM först.  
-    b. Kör `chmod 777` ett `chmod 775` eller ett kommando mot volymen.  
+    a. Montera volymen på en virtuell UNIX-eller Linux-dator först.  
+    b. Kör ett `chmod 777` eller `chmod 775` -kommando mot volymen.  
     c. Montera volymen via NFS-klienten i Windows.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Konfigurera NFSv4.1-standarddomän för Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
-* [Vanliga frågor och frågor om NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)
-* [Översikt över nätverksfilsystemet](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview)
+* [Vanliga frågor och svar om NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)
+* [Översikt över Network File System](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview)

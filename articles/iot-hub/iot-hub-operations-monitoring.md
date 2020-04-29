@@ -1,6 +1,6 @@
 ---
-title: Övervakning av Azure IoT Hub-åtgärder (inaktuell) | Microsoft-dokument
-description: Så här använder du Övervakning av Azure IoT Hub-åtgärder för att övervaka status för åtgärder på din IoT-hubb i realtid.
+title: Azure IoT Hub Operations Monitoring (inaktuell) | Microsoft Docs
+description: Så här använder du Azure IoT Hub Operations Monitoring för att övervaka status för åtgärder i IoT Hub i real tid.
 author: nberdy
 manager: briz
 ms.service: iot-hub
@@ -10,53 +10,53 @@ ms.date: 03/11/2019
 ms.author: nberdy
 ms.custom: amqp
 ms.openlocfilehash: edbc3431c860794c7cd1dd8e5011c0d7d11d692d
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732224"
 ---
-# <a name="iot-hub-operations-monitoring-deprecated"></a>Övervakning av IoT Hub-operationer (föråldrad)
+# <a name="iot-hub-operations-monitoring-deprecated"></a>IoT Hub Operations Monitoring (inaktuell)
 
-Med övervakning av IoT Hub-åtgärder kan du övervaka statusen för åtgärder på din IoT-hubb i realtid. IoT Hub spårar händelser över flera kategorier av åtgärder. Du kan välja att skicka händelser från en eller flera kategorier till en slutpunkt i din IoT-hubb för bearbetning. Du kan övervaka data för fel eller ställa in mer komplex bearbetning baserat på datamönster.
+Med IoT Hub åtgärds övervakning kan du övervaka statusen för åtgärder i IoT Hub i real tid. IoT Hub spårar händelser i flera kategorier av åtgärder. Du kan välja att skicka händelser från en eller flera kategorier till en slut punkt i IoT Hub för bearbetning. Du kan övervaka data för fel eller ställa in mer komplex bearbetning baserat på data mönster.
 
 >[!NOTE]
->Övervakningen av IoT **Hub-operationer är föråldrad och har tagits bort från IoT Hub den 10 mars 2019**. Information om hur du övervakar IoT Hubs åtgärder och hälsotillstånd finns snabbt [i Övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem](iot-hub-monitor-resource-health.md). Mer information om tidslinjen för utfasning finns i [Övervaka dina Azure IoT-lösningar med Azure Monitor och Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
+>IoT Hub **drifts övervakning är föråldrad och har tagits bort från IoT Hub den 10 mars 2019**. Information om hur du övervakar drift och hälsa för IoT Hub finns i [övervaka hälsan för Azure IoT Hub och diagnostisera problem snabbt](iot-hub-monitor-resource-health.md). Mer information om tids linjen för tids linjen finns i [övervaka dina Azure IoT-lösningar med Azure Monitor och Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 IoT Hub övervakar sex kategorier av händelser:
 
-* Åtgärder för enhetsidentitet
-* Enhetstelemetri
-* Meddelanden från molnet till enheten
+* Enhets identitets åtgärder
+* Telemetri för enhet
+* Meddelanden från moln till enhet
 * Anslutningar
-* Filuppladdningar
+* Fil överföringar
 * Meddelanderoutning
 
 > [!IMPORTANT]
-> Övervakning av IoT Hub-operationer garanterar inte tillförlitlig eller ordnad leverans av händelser. Beroende på IoT Hub-underliggande infrastruktur kan vissa händelser gå förlorade eller levereras i oordning. Använd åtgärder övervakning för att generera aviseringar baserat på felsignaler såsom misslyckade anslutningsförsök, eller högfrekventa frånkopplingar för specifika enheter. Du bör inte förlita dig på åtgärder som övervakar händelser för att skapa ett konsekvent arkiv för enhetstillstånd, t.ex. 
+> IoT Hub Operations Monitoring garanterar inte tillförlitlig eller ordnad leverans av händelser. Beroende på IoT Hub underliggande infrastrukturen kan vissa händelser gå förlorade eller levereras i rätt ordning. Använd Operations Monitoring för att generera aviseringar baserat på fel signaler, till exempel misslyckade anslutnings försök eller anslutnings försök med hög frekvens för vissa enheter. Du bör inte förlita dig på åtgärder för övervakning av händelser för att skapa en konsekvent lagring för enhets tillstånd, t. ex. en lagrad eller frånkopplad status för en enhet. 
 
-## <a name="how-to-enable-operations-monitoring"></a>Så här aktiverar du övervakning av operationer
+## <a name="how-to-enable-operations-monitoring"></a>Aktivera drift övervakning
 
-1. Skapa en IoT-hubb. Du hittar instruktioner om hur du skapar en IoT-hubb i [guiden Kom igång.](quickstart-send-telemetry-dotnet.md)
+1. Skapa en IoT-hubb. Du hittar anvisningar om hur du skapar en IoT Hub i guiden [Kom igång](quickstart-send-telemetry-dotnet.md) .
 
-2. Öppna bladet på din IoT-hubb. Därifrån klickar du på **Operationsövervakning**.
+2. Öppna bladet med din IoT Hub. Därifrån klickar du på **Åtgärds övervakning**.
 
-    ![Konfiguration av åtkomståtgärder övervakning i portalen](./media/iot-hub-operations-monitoring/enable-OM-1.png)
+    ![Åtkomst till övervaknings konfiguration i portalen](./media/iot-hub-operations-monitoring/enable-OM-1.png)
 
-3. Välj de övervakningskategorier som du vill övervaka och klicka sedan på **Spara**. Händelserna är tillgängliga för läsning från den eventnavet-kompatibla slutpunkt som anges i **övervakningsinställningarna**. Slutpunkten för IoT `messages/operationsmonitoringevents`Hub kallas .
+3. Välj de övervaknings kategorier som du vill övervaka och klicka sedan på **Spara**. Händelserna är tillgängliga för läsning från den Event Hub-kompatibla slut punkten som visas i **övervaknings inställningarna**. IoT Hub slut punkten anropas `messages/operationsmonitoringevents`.
 
-    ![Konfigurera verksamhetsövervakning på din IoT-hubb](./media/iot-hub-operations-monitoring/enable-OM-2.png)
+    ![Konfigurera drift övervakning på din IoT Hub](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 
 > [!NOTE]
-> Om du väljer **Utförlig** övervakning för kategorin **Anslutningar** kan IoT Hub generera ytterligare diagnostikmeddelanden. För alla andra kategorier ändrar inställningen **Utförlig** mängd mängden information som IoT Hub innehåller i varje felmeddelande.
+> Om du väljer **utförlig** övervakning för kategorin **anslutningar** kan IoT Hub generera ytterligare diagnostiska meddelanden. För alla andra kategorier ändrar **utförlig** inställning mängden information IoT Hub innehåller i varje fel meddelande.
 
-## <a name="event-categories-and-how-to-use-them"></a>Händelsekategorier och hur du använder dem
+## <a name="event-categories-and-how-to-use-them"></a>Händelse kategorier och hur de används
 
-Varje operationsövervakningskategori spårar en annan typ av interaktion med IoT Hub, och varje övervakningskategori har ett schema som definierar hur händelser i den kategorin är strukturerade.
+Varje kategori för åtgärds övervakning spårar en annan typ av interaktion med IoT Hub, och varje övervaknings kategori har ett schema som definierar hur händelser i den kategorin är strukturerade.
 
-### <a name="device-identity-operations"></a>Åtgärder för enhetsidentitet
+### <a name="device-identity-operations"></a>Enhets identitets åtgärder
 
-Kategorin enhetsidentitetsåtgärder spårar fel som uppstår när du försöker skapa, uppdatera eller ta bort en post i IoT-hubbens identitetsregister. Det är användbart att spåra den här kategorin för etablering av scenarier.
+Kategorin enhets identitets åtgärder spårar fel som inträffar när du försöker skapa, uppdatera eller ta bort en post i din IoT Hubs identitets register. Att spåra den här kategorin är användbart för etablerings scenarier.
 
 ```json
 {
@@ -73,9 +73,9 @@ Kategorin enhetsidentitetsåtgärder spårar fel som uppstår när du försöker
 }
 ```
 
-### <a name="device-telemetry"></a>Enhetstelemetri
+### <a name="device-telemetry"></a>Telemetri för enhet
 
-Enhetstelemetrikategorin spårar fel som uppstår vid IoT-hubben och är relaterade till telemetripipelinen. Den här kategorin innehåller fel som uppstår när telemetrihändelser skickas (t.ex. begränsning) och mottagning av telemetrihändelser (till exempel obehörig läsare). Den här kategorin kan inte fånga fel som orsakas av kod som körs på själva enheten.
+Kategorin hets telemetri spårar fel som inträffar på IoT-hubben och är relaterade till pipelinen för telemetri. Den här kategorin innehåller fel som uppstår när du skickar telemetri-händelser (till exempel begränsning) och tar emot telemetri-händelser (till exempel obehörig läsare). Den här kategorin kan inte fånga fel som orsakas av kod som körs på själva enheten.
 
 ```json
 {
@@ -97,9 +97,9 @@ Enhetstelemetrikategorin spårar fel som uppstår vid IoT-hubben och är relater
 }
 ```
 
-### <a name="cloud-to-device-commands"></a>Kommandon mellan molnet och enheten
+### <a name="cloud-to-device-commands"></a>Kommandon från moln till enhet
 
-Kategorin moln-till-enhet-kommandon spårar fel som uppstår vid IoT-hubben och är relaterade till meddelandepipelinen mellan molnet och enheten. Den här kategorin innehåller fel som uppstår när meddelanden från molnet till enheten skickas från molnet till enheten (till exempel obehörig avsändare), ta emot meddelanden från molnet till enheten (t.ex. överskridet leveransantal) och ta emot feedback från molnet till enheten (till exempel feedback som har upphört att gälla). Den här kategorin fångar inte fel från en enhet som felaktigt hanterar ett meddelande från molnet till enheten om meddelandet från molnet till enheten levererades.
+Kommando kategorin för moln-till-enhet spårar fel som uppstår på IoT-hubben och är relaterade till pipeline för meddelande från moln till enhet. Den här kategorin innehåller fel som uppstår när meddelanden skickas från molnet till enheten (t. ex. obehörig avsändare), mottagning av meddelanden från moln till enhet (t. ex. leverans antal har överskridits) och mottagning av meddelanden från moln till enhet (till exempel feedback upphör). Den här kategorin fångar inte upp fel från en enhet som felaktigt hanterar ett meddelande från molnet till enheten om meddelandet från molnet till enheten levererades utan problem.
 
 ```json
 {
@@ -123,7 +123,7 @@ Kategorin moln-till-enhet-kommandon spårar fel som uppstår vid IoT-hubben och 
 
 ### <a name="connections"></a>Anslutningar
 
-Kategorin Anslutningar spårar fel som uppstår när enheter ansluter eller kopplar från en IoT-hubb. Det är användbart att spåra den här kategorin för att identifiera obehöriga anslutningsförsök och för att spåra när en anslutning går förlorad för enheter i områden med dålig anslutning.
+Kategorin anslutningar spårar fel som inträffar när enheter ansluter eller kopplar från en IoT-hubb. Spårning av den här kategorin är användbar för att identifiera otillåtna anslutnings försök och för att spåra när en anslutning förloras för enheter i områden med dålig anslutning.
 
 ```json
 {
@@ -141,17 +141,17 @@ Kategorin Anslutningar spårar fel som uppstår när enheter ansluter eller kopp
 }
 ```
 
-### <a name="file-uploads"></a>Filuppladdningar
+### <a name="file-uploads"></a>Fil överföringar
 
-Filöverföringskategorin spårar fel som uppstår vid IoT-hubben och är relaterade till filöverföringsfunktioner. Denna kategori omfattar:
+Kategorin fil uppladdning spårar fel som uppstår på IoT-hubben och är relaterade till fil uppladdnings funktionen. Den här kategorin omfattar:
 
-* Fel som uppstår med SAS URI, till exempel när den upphör att gälla innan en enhet meddelar navet för en slutförd överföring.
+* Fel som uppstår med SAS-URI: n, till exempel när den upphör att gälla innan en enhet meddelar navet om en slutförd uppladdning.
 
-* Misslyckade uppladdningar som rapporterats av enheten.
+* Misslyckade uppladdningar som rapporter ATS av enheten.
 
-* Fel som uppstår när en fil inte hittas i lagring under ioT Hub meddelande meddelande skapas.
+* Fel som inträffar när det inte går att hitta en fil i lagringen under IoT Hub meddelande om att meddelanden skapas.
 
-Den här kategorin kan inte fånga fel som uppstår direkt när enheten överför en fil till lagring.
+Den här kategorin kan inte fånga fel som sker direkt när enheten laddar upp en fil till lagringen.
 
 ```json
 {
@@ -172,7 +172,7 @@ Den här kategorin kan inte fånga fel som uppstår direkt när enheten överfö
 
 ### <a name="message-routing"></a>Meddelanderoutning
 
-Meddelanderoutningskategorin spårar fel som uppstår under utvärdering av meddelandevägar och slutpunktshälsa som uppfattas av IoT Hub. Den här kategorin innehåller händelser som när en regel utvärderas till "odefinierad", när IoT Hub markerar en slutpunkt som död och andra fel som tas emot från en slutpunkt. Den här kategorin innehåller inte specifika fel om själva meddelandena (till exempel enhetsbegränsningsfel), som rapporteras under kategorin "enhetstelemetri".
+Kategorin meddelande cirkulation spårar fel som inträffar under utvärderingen av meddelande vägar och slut punkts hälsa som uppfattas av IoT Hub. Den här kategorin innehåller händelser, till exempel när en regel utvärderas till "odefinierad", när IoT Hub markerar en slut punkt som död och andra fel som tas emot från en slut punkt. Den här kategorin innehåller inga fel meddelanden om själva meddelandena (till exempel enhets begränsnings fel), som rapporteras i kategorin "enhets telemetri".
 
 ```json
 {
@@ -189,31 +189,31 @@ Meddelanderoutningskategorin spårar fel som uppstår under utvärdering av medd
 }
 ```
 
-## <a name="connect-to-the-monitoring-endpoint"></a>Anslut till övervakningsslutpunkten
+## <a name="connect-to-the-monitoring-endpoint"></a>Anslut till övervaknings slut punkten
 
-Övervakningsslutpunkten på din IoT-hubb är en slutpunkt som är kompatibel med händelsehubben. Du kan använda alla mekanismer som fungerar med händelsehubbar för att läsa övervakningsmeddelanden från den här slutpunkten. I följande exempel skapas en grundläggande läsare som inte är lämplig för en distribution med högt dataflöde. Mer information om hur du bearbetar meddelanden från Event Hubs finns i självstudiekursen [Komma igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
+Övervaknings slut punkten på din IoT Hub är en Event Hub-kompatibel slut punkt. Du kan använda valfri mekanism som fungerar med Event Hubs för att läsa övervaknings meddelanden från den här slut punkten. Följande exempel skapar en grundläggande läsare som inte lämpar sig för en hög data flödes distribution. Mer information om hur du bearbetar meddelanden från Event Hubs finns i självstudiekursen [Komma igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
 
-Om du vill ansluta till övervakningsslutpunkten behöver du en anslutningssträng och slutpunktsnamnet. Följande steg visar hur du hittar de nödvändiga värdena i portalen:
+Om du vill ansluta till övervaknings slut punkten behöver du en anslutnings sträng och slut punkts namnet. Följande steg visar hur du hittar de värden som krävs i portalen:
 
-1. Navigera till resursbladet för IoT Hub i portalen.
+1. I portalen navigerar du till ditt IoT Hub resurs blad.
 
-2. Välj **Operationsövervakning**och anteckna de **händelsehubbkompatibla** **slutpunktsvärdena:**
+2. Välj **Åtgärds övervakning**och anteckna det **Event Hub-kompatibla namn** -och **Event Hub-kompatibla slut punkts** värden:
 
-    ![Slutpunktsvärden för händelsehubb](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
+    ![Event Hub-kompatibla slut punkts värden](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-3. Välj **Principer för delad åtkomst**och välj sedan **tjänst**. Anteckna värdet **för primärnyckeln:**
+3. Välj **principer för delad åtkomst**och välj sedan **tjänst**. Anteckna värdet för **primär nyckel** :
 
-    ![Primärnyckel för tjänstens princip för delad åtkomst](./media/iot-hub-operations-monitoring/service-key.png)
+    ![Princip primär nyckel för tjänst för delad åtkomst](./media/iot-hub-operations-monitoring/service-key.png)
 
-Följande C#-kodexempel hämtas från en Visual Studio **Windows Classic Desktop** C#-konsolapp. Projektet har **WindowsAzure.ServiceBus** NuGet paketet installerat.
+Följande C#-kod exempel tas från en Visual Studio **Windows klassisk Desktop** C#-konsol app. Projektet har NuGet-paketet **windowsazure. Service Bus** installerat.
 
-* Ersätt platshållaren för anslutningssträngen med en anslutningssträng som använder den **händelsehubbkompatibla slutpunkt** och tjänsten **Primärnyckelvärden** som du tidigare har noterat enligt följande exempel:
+* Ersätt plats hållaren för anslutnings strängen med en anslutnings sträng som använder den **Event Hub-kompatibla slut punkten** och tjänstens **primära nyckel** värden som du antecknade tidigare, enligt följande exempel:
 
     ```csharp
     "Endpoint={your Event Hub-compatible endpoint};SharedAccessKeyName=service;SharedAccessKey={your service primary key value}"
     ```
 
-* Ersätt platshållaren för övervakningsslutpunktsnamn med det **namnvärde som är kompatibelt med Händelsehubben** som du noterade tidigare.
+* Ersätt plats hållaren för övervakningens slut punkt med det **Event Hub-kompatibla namn** som du antecknade tidigare.
 
 ```csharp
 class Program
@@ -267,8 +267,8 @@ class Program
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du utforskar funktionerna i IoT Hub finns i:
+För att ytterligare utforska funktionerna i IoT Hub, se:
 
-* [Utvecklarhandledning för IoT Hub](iot-hub-devguide.md)
+* [Guide för IoT Hub utvecklare](iot-hub-devguide.md)
 
 * [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

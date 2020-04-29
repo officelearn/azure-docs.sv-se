@@ -1,6 +1,6 @@
 ---
-title: Kontroller för nätverksåtkomst
-description: Översikt över nätverksåtkomstkontroller för Azure SQL Database och Data Warehouse för att hantera åtkomst och konfigurera en enda eller poolad databas.
+title: Nätverks åtkomst kontroller
+description: Översikt över nätverks åtkomst kontroller för Azure SQL Database och informations lager för att hantera åtkomst och konfigurera en databas med en eller flera databaser.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -13,59 +13,59 @@ ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
 ms.openlocfilehash: 8b4ee679b21d904f997f727f5f26275c86acc9c5
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414416"
 ---
-# <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Azure SQL Database- och Data Warehouse-nätverksåtkomstkontroller
+# <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Kontroll av nätverks åtkomst för Azure SQL Database och informations lager
 
 > [!NOTE]
-> Den här artikeln gäller Azure SQL-server och både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
+> Den här artikeln gäller för Azure SQL Server och för både SQL Database och SQL Data Warehouse databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
 
 > [!IMPORTANT]
-> Den här artikeln gäller *inte* **för Azure SQL Database Managed Instance**. Mer information om nätverkskonfigurationen finns i [ansluta till en hanterad instans](sql-database-managed-instance-connect-app.md) .
+> Den här artikeln gäller *inte* för **Azure SQL Database Hanterad instans**. Mer information om nätverks konfigurationen finns i [ansluta till en hanterad instans](sql-database-managed-instance-connect-app.md) .
 
-När du skapar en ny Azure SQL Server från [Azure-portalen](sql-database-single-database-get-started.md)är resultatet en offentlig slutpunkt i *formatet, yourservername.database.windows.net*.
+När du skapar en ny Azure-SQL Server från [Azure Portal](sql-database-single-database-get-started.md), är resultatet en offentlig slut punkt i formatet *yourservername.Database.Windows.net*.
 
-Du kan använda följande nätverksåtkomstkontroller för att selektivt tillåta åtkomst till SQL-databasen via den offentliga slutpunkten:
-- Tillåt Azure-tjänster: När de är inställda på ON kan andra resurser inom Azure-gränsen, till exempel en virtuell Azure-dator, komma åt SQL Database
+Du kan använda följande kontroller för nätverks åtkomst för att selektivt tillåta åtkomst till SQL Database via den offentliga slut punkten:
+- Tillåt Azure-tjänster: när det är inställt på på, kan andra resurser inom Azure-gränser, till exempel en virtuell Azure-dator, komma åt SQL Database
 
-- IP-brandväggsregler: Använd den här funktionen för att uttryckligen tillåta anslutningar från en viss IP-adress, till exempel från lokala datorer
+- IP-brandväggs regler: Använd den här funktionen för att uttryckligen tillåta anslutningar från en specifik IP-adress, till exempel från lokala datorer
 
-Du kan också tillåta privat åtkomst till SQL-databasen från [virtuella nätverk](../virtual-network/virtual-networks-overview.md) via:
-- Regler för brandvägg för virtuellt nätverk: Använd den här funktionen för att tillåta trafik från ett visst virtuellt nätverk inom Azure-gränsen
+Du kan också tillåta privat åtkomst till SQL Database från [virtuella nätverk](../virtual-network/virtual-networks-overview.md) via:
+- Virtual Network brand Väggs regler: Använd den här funktionen för att tillåta trafik från en speciell Virtual Network inom Azure-gränsen
 
-- Privat länk: Använd den här funktionen för att skapa en privat slutpunkt för Azure SQL Server i ett visst virtuellt nätverk
+- Privat länk: Använd den här funktionen för att skapa en privat slut punkt för Azure SQL Server inom en angiven Virtual Network
 
 
 
-Se videon nedan för en förklaring på hög nivå av dessa åtkomstkontroller och vad de gör:
+Se videon nedan om du vill ha en övergripande förklaring av dessa åtkomst kontroller och vad de gör:
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--SQL-Database-Connectivity-Explained/player?WT.mc_id=dataexposed-c9-niner]
 
 
 ## <a name="allow-azure-services"></a>Tillåt Azure-tjänster 
-När du skapar en ny Azure SQL Server [från Azure-portalen](sql-database-single-database-get-started.md)lämnas den här inställningen avmarkerad.
+När du skapar en ny Azure-SQL Server [från Azure Portal](sql-database-single-database-get-started.md)lämnas den här inställningen omarkerad.
 
 
 
-Du kan också ändra den här inställningen via brandväggsfönstret när Azure SQL Server har skapats på följande sätt.
+Du kan också ändra den här inställningen via brand Väggs fönstret när Azure-SQL Server har skapats på följande sätt.
   
- ![Skärmbild av hantera serverbrandväggen][2]
+ ![Skärm bild av hantera Server brand vägg][2]
 
-När den är inställd **på ON** Azure SQL Server tillåts kommunikation från alla resurser inom Azure-gränsen, som kanske eller kanske inte är en del av din prenumeration.
+När det är inställt **på på** Azure SQL Server tillåta kommunikation från alla resurser inom Azure-gränser, som kan vara en del av din prenumeration.
 
-I många fall är **ON-inställningen** mer tillåtande än vad de flesta kunder vill ha. De kanske vill ställa in den här inställningen till **AV** och ersätta den med mer restriktiva IP-brandväggsregler eller brandväggsregler för virtuellt nätverk. Detta påverkar följande funktioner som körs på virtuella datorer i Azure som inte ingår i ditt virtuella nätverk och därmed ansluter till Sql Database via en Azure IP-adress.
+I många fall är inställningen **för** att vara mer beviljad än vad kunderna vill ha. De kanske vill ställa in den här inställningen på **av** och ersätta den med mer restriktiva regler för IP-brandvägg eller Virtual Network brand Väggs regler. Detta påverkar följande funktioner som körs på virtuella datorer i Azure som inte ingår i ditt VNet och därmed ansluter till SQL Database via en Azure IP-adress.
 
-### <a name="import-export-service"></a>Importera exporttjänst
-Importexporttjänsten fungerar inte när **Tillåt åtkomst till Azure-tjänster** är inställt **på OFF**. Du kan dock komma runt problemet [genom att manuellt köra sqlpackage.exe från en Virtuell Azure eller utföra exporten](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) direkt i koden med hjälp av DACFx API.
+### <a name="import-export-service"></a>Importera export tjänst
+Import-/exportguiden fungerar inte när **Tillåt åtkomst till Azure-tjänster** är inställt på **av**. Du kan dock lösa problemet genom att [manuellt köra sqlpackage. exe från en virtuell Azure-dator eller utföra exporten](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) direkt i din kod med hjälp av DACFx-API: et.
 
 ### <a name="data-sync"></a>Datasynkronisering
-Om du vill använda funktionen Datasynkronisering med **Tillåt åtkomst till Azure-tjänster** **inställda**på OFF måste du skapa enskilda brandväggsregelposter för att lägga till [IP-adresser](sql-database-server-level-firewall-rule.md) från **Sql-tjänsttaggen** för regionen som är värd för **Hub-databasen.**
-Lägg till dessa brandväggsregler på servernivå till de logiska servrarna som är värdar för både **Hub-** och **Member-databaser** (som kan finnas i olika regioner)
+Om du vill använda funktionen för datasynkronisering med **Tillåt åtkomst till Azure-tjänster** som är inställd på **av**, måste du skapa enskilda brand Väggs regel poster för att [lägga till IP-adresser](sql-database-server-level-firewall-rule.md) från **SQL-tjänstetaggen** för den region som är värd för **nav** databasen.
+Lägg till dessa brand Väggs regler på server nivå på de logiska servrar som är värdar för både **nav** -och **medlems** databaser (som kan finnas i olika regioner)
 
-Använd följande PowerShell-skript för att generera IP-adresser som motsvarar Sql-tjänsttaggen för region Västra USA
+Använd följande PowerShell-skript för att skapa IP-adresserna som motsvarar SQL Service-taggen för regionen Västra USA
 ```powershell
 PS C:\>  $serviceTags = Get-AzNetworkServiceTag -Location eastus2
 PS C:\>  $sql = $serviceTags.Values | Where-Object { $_.Name -eq "Sql.WestUS" }
@@ -81,9 +81,9 @@ PS C:\> $sql.Properties.AddressPrefixes
 ```
 
 > [!TIP]
-> Get-AzNetworkServiceTag returnerar det globala intervallet för Sql Service Tag trots att parametern Plats anges. Var noga med att filtrera den till den region som är värd för Hub-databasen som används av din synkroniseringsgrupp
+> Get-AzNetworkServiceTag returnerar det globala intervallet för SQL Service-taggen trots att du anger plats parametern. Se till att du filtrerar den till den region som är värd för NAV databasen som används av din Sync-grupp
 
-Observera att utdata för PowerShell-skriptet är i klasslös CIDR-notation (Inter-Domain Routing) och att detta måste konverteras till ett format med Start- och slut-IP-adress med [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) så här
+Observera att resultatet av PowerShell-skriptet är i CIDR-notation (Classless Inter-Domain routing) och att det måste konverteras till ett format av start-och slut-IP-adress med hjälp av [Get-IPrangeStartEnd. ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) som detta
 ```powershell
 PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26                                                                   
 start        end
@@ -91,7 +91,7 @@ start        end
 52.229.17.64 52.229.17.127
 ```
 
-Gör följande ytterligare steg för att konvertera alla IP-adresser från CIDR till Start och End IP-adressformat.
+Utför följande ytterligare steg för att konvertera alla IP-adresser från CIDR till start-och slut-IP-adress.
 
 ```powershell
 PS C:\>foreach( $i in $sql.Properties.AddressPrefixes) {$ip,$cidr= $i.split('/') ; Get-IPrangeStartEnd -ip $ip -cidr $cidr;}                                                                                                                
@@ -101,59 +101,59 @@ start          end
 13.86.216.128  13.86.216.191
 13.86.216.192  13.86.216.223
 ```
-Du kan nu lägga till dessa som olika brandväggsregler och sedan ange **Tillåt Azure-tjänster för att komma åt servern** till OFF.
+Nu kan du lägga till dessa som särskilda brand Väggs regler och sedan ange **Tillåt att Azure-tjänster får åtkomst till servern** .
 
 
-## <a name="ip-firewall-rules"></a>REGLER för IP-brandväggen
-IP-baserad brandvägg är en funktion i Azure SQL Server som förhindrar all åtkomst till databasservern tills du uttryckligen [lägger till IP-adresser](sql-database-server-level-firewall-rule.md) för klientdatorerna.
+## <a name="ip-firewall-rules"></a>Regler för IP-brandvägg
+IP-baserad brand vägg är en funktion i Azure SQL Server som förhindrar all åtkomst till din databas server tills du uttryckligen [lägger till IP-adresser](sql-database-server-level-firewall-rule.md) för klient datorerna.
 
 
-## <a name="virtual-network-firewall-rules"></a>Regler för brandvägg för virtuellt nätverk
+## <a name="virtual-network-firewall-rules"></a>Virtual Network brand Väggs regler
 
-Förutom IP-regler kan du med Azure SQL Server-brandväggen definiera *virtuella nätverksregler*.  
-Mer information finns i [slutpunkter och regler för tjänsten Virtuellt nätverk för Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md) eller titta på den här videon:
+Förutom IP-regler kan du med Azure SQL Server-brandväggen definiera regler för *virtuella nätverk*.  
+Läs mer i [Virtual Network tjänst slut punkter och regler för Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md) eller titta på den här videon:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
 
- ### <a name="azure-networking-terminology"></a>Terminologi för Azure Networking  
-Tänk på följande Villkor för Azure Networking när du utforskar brandväggsregler för virtuellt nätverk
+ ### <a name="azure-networking-terminology"></a>Terminologi för Azure-nätverk  
+Observera följande villkor för Azure-nätverk när du utforskar Virtual Network brand Väggs regler
 
-**Virtuellt nätverk:** Du kan ha virtuella nätverk som är associerade med din Azure-prenumeration 
+**Virtuellt nätverk:** Du kan ha virtuella nätverk kopplade till din Azure-prenumeration 
 
-**Undernät:** Ett virtuellt nätverk innehåller **undernät**. Alla virtuella Azure-datorer (VIRTUELLA datorer) som du har tilldelats undernät. Ett undernät kan innehålla flera virtuella datorer eller andra beräkningsnoder. Beräkningsnoder som finns utanför det virtuella nätverket kan inte komma åt det virtuella nätverket om du inte konfigurerar säkerheten så att åtkomst tillåts.
+**Undernät:** Ett virtuellt nätverk innehåller **undernät**. Alla virtuella datorer i Azure (VM) som du har tilldelats till undernät. Ett undernät kan innehålla flera virtuella datorer eller andra Compute-noder. Compute-noder utanför det virtuella nätverket kan inte komma åt ditt virtuella nätverk om du inte konfigurerar din säkerhet att tillåta åtkomst.
 
-**Slutpunkt för tjänsten Virtuellt nätverk:** Slutpunkten [för tjänsten Virtuellt nätverk](../virtual-network/virtual-network-service-endpoints-overview.md) är ett undernät vars egenskapsvärden innehåller ett eller flera formella Azure-tjänsttypsnamn. I den här artikeln är vi intresserade av typnamnet för **Microsoft.Sql**, som refererar till Azure-tjänsten SOM heter SQL Database.
+**Virtual Network tjänst slut punkt:** En [Virtual Network tjänst slut punkt](../virtual-network/virtual-network-service-endpoints-overview.md) är ett undernät vars egenskaps värden innehåller ett eller flera formella namn för Azure-tjänst typ. I den här artikeln är vi intresserade av typ namnet **Microsoft. SQL**, som refererar till Azure-tjänsten med namnet SQL Database.
 
-**Regel för virtuellt nätverk:** En virtuell nätverksregel för SQL Database-servern är ett undernät som visas i åtkomstkontrollistan (ACL) på SQL Database-servern. Om du vill vara i åtkomstkontrollistan för SQL-databasen måste undernätet innehålla namnet på **typen Microsoft.Sql.** En virtuell nätverksregel talar om för SQL Database-servern att acceptera kommunikation från alla noder som finns i undernätet.
+**Regel för virtuellt nätverk:** En regel för virtuella nätverk för din SQL Database-Server är ett undernät som listas i åtkomst kontrol listan (ACL) för din SQL Database-Server. För att det ska finnas i ACL: en för din SQL Database måste under nätet innehålla namnet **Microsoft. SQL** -typ. En regel för virtuella nätverk instruerar SQL Database servern att acceptera kommunikation från varje nod som finns på under nätet.
 
 
-## <a name="ip-vs-virtual-network-firewall-rules"></a>IP vs. Regler för brandvägg för virtuella nätverk
+## <a name="ip-vs-virtual-network-firewall-rules"></a>IP vs. Virtual Network brand Väggs regler
 
-Med Azure SQL Server-brandväggen kan du ange IP-adressintervall från vilka kommunikation accepteras i SQL Database. Den här metoden är bra för stabila IP-adresser som ligger utanför Azure privata nätverk. Virtuella datorer (VMs) i Det privata Azure-nätverket konfigureras dock med *dynamiska* IP-adresser. Dynamiska IP-adresser kan ändras när den virtuella datorn startas om och i sin tur ogiltigförklara den IP-baserade brandväggsregeln. Det skulle vara dårskap att ange en dynamisk IP-adress i en brandväggsregel, i en produktionsmiljö.
+Med Azure SQL Server-brandväggen kan du ange IP-adressintervall från vilka kommunikationen godkänns i SQL Database. Den här metoden är bra för stabila IP-adresser som ligger utanför Azures privata nätverk. Virtuella datorer (VM) i Azures privata nätverk konfigureras dock med *dynamiska* IP-adresser. Dynamiska IP-adresser kan ändras när den virtuella datorn startas om och den IP-baserade brand Väggs regeln i tur är ogiltig. Det skulle vara Folly att ange en dynamisk IP-adress i en brand Väggs regel i en produktions miljö.
 
-Du kan kringgå den här begränsningen genom att skaffa en *statisk* IP-adress för den virtuella datorn. Mer information finns i [Konfigurera privata IP-adresser för en virtuell dator med hjälp av Azure-portalen](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). Den statiska IP-metoden kan dock bli svår att hantera, och den är kostsam när den görs i stor skala. 
+Du kan undvika den här begränsningen genom att skaffa en *statisk* IP-adress för den virtuella datorn. Mer information finns i [Konfigurera privata IP-adresser för en virtuell dator med hjälp av Azure Portal](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). Den statiska IP-metoden kan dock bli svår att hantera, och den är kostsam när den görs i stor skala. 
 
-Virtuella nätverksregler är enklare att upprätta och hantera åtkomst från ett visst undernät som innehåller dina virtuella datorer.
+Regler för virtuella nätverk är enklare att upprätta och hantera åtkomst från ett särskilt undernät som innehåller dina virtuella datorer.
 
 > [!NOTE]
-> Du kan ännu inte ha SQL Database i ett undernät. Om din Azure SQL Database-server var en nod i ett undernät i det virtuella nätverket kan alla noder i det virtuella nätverket kommunicera med din SQL-databas. I det här fallet kan dina virtuella datorer kommunicera med SQL Database utan att behöva några virtuella nätverksregler eller IP-regler.
+> Du kan inte ha SQL Database i ett undernät än. Om din Azure SQL Database-Server var en nod i ett undernät i det virtuella nätverket kan alla noder i det virtuella nätverket kommunicera med din SQL Database. I det här fallet kan de virtuella datorerna kommunicera med SQL Database utan att behöva några regler för virtuella nätverk eller IP-regler.
 
 ## <a name="private-link"></a>Private Link 
-Med Private Link kan du ansluta till Azure SQL Server via en **privat slutpunkt**. En privat slutpunkt är en privat IP-adress i ett visst [virtuellt nätverk](../virtual-network/virtual-networks-overview.md) och undernät.
+Med privat länk kan du ansluta till Azure SQL Server via en **privat slut punkt**. En privat slut punkt är en privat IP-adress inom en speciell [Virtual Network](../virtual-network/virtual-networks-overview.md) och ett undernät.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En snabbstart för att skapa en IP-brandväggsregel på servernivå finns i [Skapa en Azure SQL-databas](sql-database-single-database-get-started.md).
+- En snabb start för att skapa en regel för IP-brandvägg på server nivå finns i [skapa en Azure SQL-databas](sql-database-single-database-get-started.md).
 
-- En snabbstart för att skapa en Vnet-brandväggsregel på servernivå finns i [slutpunkter och regler för tjänsten Virtuellt nätverk för Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
+- En snabb start för att skapa en brand Väggs regel på server nivå finns i [Virtual Network tjänst slut punkter och regler för Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
 
-- Mer information om hur du ansluter till en Azure SQL-databas från program med öppen källkod eller från tredje part finns i [snabbstartskodexempel för klient till SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+- För hjälp med att ansluta till en Azure SQL-databas från öppna käll-eller tredjepartsprogram, se [kod exempel för klient snabb start för att SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 
-- Information om ytterligare portar som du kan behöva öppna finns i **avsnittet SQL Database: Outside vs inside** of Ports beyond [1433 för ADO.NET 4.5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
+- Mer information om ytterligare portar som du kan behöva öppna finns i avsnittet **SQL Database: utanför vs i** [portar utöver 1433 för ADO.NET 4,5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
 
-- En översikt över Azure SQL Database Connectivity finns i [Azure SQL Connectivity Architecture](sql-database-connectivity-architecture.md)
+- En översikt över Azure SQL Database-anslutningar finns i [arkitektur för Azure SQL-anslutning](sql-database-connectivity-architecture.md)
 
-- En översikt över Azure SQL Database-säkerhet finns i [Skydda databasen](sql-database-security-overview.md)
+- En översikt över Azure SQL Database säkerhet finns i [skydda databasen](sql-database-security-overview.md)
 
 <!--Image references-->
 [1]: ./media/sql-database-get-started-portal/new-server2.png

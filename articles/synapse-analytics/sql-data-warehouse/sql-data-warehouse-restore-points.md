@@ -1,6 +1,6 @@
 ---
-title: Användardefinierade återställningspunkter
-description: Så här skapar du en återställningspunkt för SQL-pool.
+title: Användardefinierade återställnings punkter
+description: Så här skapar du en återställnings punkt för SQL-poolen.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -12,25 +12,25 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 5c9b7eb1b03b6b6e3721c13f9ebf7da25dd2e376
-ms.sourcegitcommit: bd5fee5c56f2cbe74aa8569a1a5bce12a3b3efa6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80745070"
 ---
-# <a name="user-defined-restore-points"></a>Användardefinierade återställningspunkter
+# <a name="user-defined-restore-points"></a>Användardefinierade återställnings punkter
 
-I den här artikeln får du lära dig att skapa en ny användardefinierad återställningspunkt för en SQL-pool i Azure Synapse Analytics med Hjälp av PowerShell och Azure-portalen.
+I den här artikeln får du lära dig att skapa en ny användardefinierad återställnings punkt för en SQL-pool i Azure Synapse Analytics med hjälp av PowerShell och Azure Portal.
 
-## <a name="create-user-defined-restore-points-through-powershell"></a>Skapa användardefinierade återställningspunkter via PowerShell
+## <a name="create-user-defined-restore-points-through-powershell"></a>Skapa användardefinierade återställnings punkter via PowerShell
 
-Om du vill skapa en användardefinierad återställningspunkt använder du cmdleten [New-AzSqlDatabaseRestorePoint](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell.
+Om du vill skapa en användardefinierad återställnings punkt använder du PowerShell-cmdleten [New-AzSqlDatabaseRestorePoint](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
-1. Innan du börjar, se till att [installera Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+1. Innan du börjar ska du se till att [installera Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Öppna PowerShell.
 3. Anslut till ditt Azure-konto och lista alla prenumerationer som är kopplade till ditt konto.
-4. Välj den prenumeration som innehåller databasen som ska återställas.
-5. Skapa en återställningspunkt för en omedelbar kopia av ditt informationslager.
+4. Välj den prenumeration som innehåller den databas som ska återställas.
+5. Skapa en återställnings punkt för en omedelbar kopia av ditt informations lager.
 
 ```Powershell
 
@@ -49,32 +49,32 @@ New-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName 
 
 ```
 
-6. Se listan över alla befintliga återställningspunkter.
+6. Se listan över alla befintliga återställnings punkter.
 
 ```Powershell
 # List all restore points
 Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 ```
 
-## <a name="create-user-defined-restore-points-through-the-azure-portal"></a>Skapa användardefinierade återställningspunkter via Azure-portalen
+## <a name="create-user-defined-restore-points-through-the-azure-portal"></a>Skapa användardefinierade återställnings punkter via Azure Portal
 
-Användardefinierade återställningspunkter kan också skapas via Azure-portalen.
+Användardefinierade återställnings punkter kan också skapas via Azure Portal.
 
-1. Logga in på ditt [Azure-portalkonto.](https://portal.azure.com/)
+1. Logga in på ditt [Azure Portal](https://portal.azure.com/) -konto.
 
-2. Navigera till den SQL-pool som du vill skapa en återställningspunkt för.
+2. Gå till den SQL-pool som du vill skapa en återställnings punkt för.
 
-3. Välj **Översikt** i den vänstra rutan, välj **+ Ny återställningspunkt**. Om knappen Ny återställningspunkt inte är aktiverad kontrollerar du att SQL-poolen inte pausas.
+3. Välj **Översikt** i den vänstra rutan och välj **+ ny återställnings punkt**. Om knappen Ny återställnings punkt inte är aktive rad kontrollerar du att SQL-poolen inte är pausad.
 
-    ![Ny återställningspunkt](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
+    ![Ny återställnings punkt](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
-4. Ange ett namn för den användardefinierade återställningspunkten och klicka på **Använd**. Användardefinierade återställningspunkter har en standardkvarhållningsperiod på sju dagar.
+4. Ange ett namn för den användardefinierade återställnings punkten och klicka på **Använd**. Användardefinierade återställnings punkter har en standard kvarhållningsperiod på sju dagar.
 
-    ![Namn på återställningspunkt](./media/sql-data-warehouse-restore-points/creating-restore-point-11.png)
+    ![Namn på återställnings punkt](./media/sql-data-warehouse-restore-points/creating-restore-point-11.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Återställa en befintlig SQL-pool](sql-data-warehouse-restore-active-paused-dw.md)
 - [Återställa en borttagen SQL-pool](sql-data-warehouse-restore-deleted-dw.md)
-- [Återställa från en SQL-pool med geo säkerhetskopiering](sql-data-warehouse-restore-from-geo-backup.md)
+- [Återställa från en geo-backup SQL-pool](sql-data-warehouse-restore-from-geo-backup.md)
 

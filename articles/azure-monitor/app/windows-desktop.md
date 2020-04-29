@@ -4,10 +4,10 @@ description: Analysera användning och prestanda för Windows-program med Applic
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.openlocfilehash: eb9e0fc480098478a3a68265ac85e0d5450e27fe
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537397"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Övervaka användning och prestanda för klassiska Windows-appar
@@ -28,7 +28,7 @@ Program som finns lokalt, i Azure och i andra moln kan dra nytta av Application 
    
     Om du använder ApplicationInsights.config, kontrollera att egenskaperna i Solution Explorer är inställda på **Byggåtgärd = Innehåll, Kopiera till utdatakatalog = Kopiera**.
 5. [Använda API](../../azure-monitor/app/api-custom-events-metrics.md) att skicka telemetri.
-6. Kör din app och se telemetrin i resursen som du skapade i Azure-portalen.
+6. Kör din app och se Telemetrin i resursen som du skapade i Azure Portal.
 
 ## <a name="example-code"></a><a name="telemetry"></a>Exempelkod
 ```csharp
@@ -68,11 +68,11 @@ using Microsoft.ApplicationInsights;
 
 ```
 
-## <a name="override-storage-of-computer-name"></a>Åsidosätt lagring av datornamn
+## <a name="override-storage-of-computer-name"></a>Åsidosätt lagring av dator namn
 
-Som standard samlar denna SDK in och lagrar datornamnet på det system som avger telemetri. För att åsidosätta samlingen måste du använda en telemetriinitierare:
+Som standard samlar denna SDK upp och lagrar dator namnet för telemetri för system som du avger. Om du vill åsidosätta samlingen måste du använda en telemetri-initierare:
 
-**Skriv anpassad TelemetryInitializer enligt nedan.**
+**Skriv anpassade TelemetryInitializer enligt nedan.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -93,7 +93,7 @@ namespace CustomInitializer.Telemetry
     }
 }
 ```
-Instansiera initializern `Program.cs` `Main()` i metoden nedan och ange instrumenteringsnyckeln:
+Instansiera initieraren i `Program.cs` `Main()` metoden nedan ange Instrumentation-nyckeln:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -108,7 +108,7 @@ Instansiera initializern `Program.cs` `Main()` i metoden nedan och ange instrume
 
 ## <a name="next-steps"></a>Nästa steg
 * [Skapa en instrumentpanel](../../azure-monitor/app/overview-dashboard.md)
-* [Diagnostiksökning](../../azure-monitor/app/diagnostic-search.md)
+* [Diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md)
 * [Utforska mått](../../azure-monitor/platform/metrics-charts.md)
 * [Skriv analysfrågor](../../azure-monitor/app/analytics.md)
 

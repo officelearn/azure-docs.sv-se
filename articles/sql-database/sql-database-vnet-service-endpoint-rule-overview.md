@@ -1,6 +1,6 @@
 ---
-title: VNet-slutpunkter och regler för enskilda och poolade databaser
-description: Markera ett undernät som en slutpunkt för tjänsten Virtuellt nätverk. Sedan slutpunkten som en virtuell nätverksregel till ACL din Azure SQL Database. Du SQL Database accepterar sedan kommunikation från alla virtuella datorer och andra noder i undernätet.
+title: VNet-slutpunkter och regler för databaser med enkel och pool
+description: 'Markera ett undernät som en Virtual Network tjänst slut punkt. Sedan kan slut punkten som en virtuell nätverks regel till ACL: en Azure SQL Database. Du SQL Database acceptera sedan kommunikation från alla virtuella datorer och andra noder i under nätet.'
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,117 +12,117 @@ ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
 ms.openlocfilehash: 7032f9e8f57ea9400bf6a92f89b13fa1866f8fc1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81414396"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Använda slutpunkter och regler för virtuella nätverkstjänster för databasservrar
+# <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Använd tjänst slut punkter och regler för virtuella nätverk för databas servrar
 
-*Virtuella nätverksregler* är en brandväggssäkerhetsfunktion som styr om databasservern för dina enskilda databaser och elastiskpool i Azure [SQL Database](sql-database-technical-overview.md) eller för dina databaser i SQL [Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepterar kommunikation som skickas från vissa undernät i virtuella nätverk. Den här artikeln förklarar varför den virtuella nätverksregelfunktionen ibland är det bästa alternativet för att på ett säkert sätt tillåta kommunikation till din Azure SQL Database och SQL Data Warehouse.
+*Regler för virtuella nätverk* är en brand Väggs säkerhetsfunktion som styr om databas servern för dina enskilda databaser och elastiska pooler i Azure [SQL Database](sql-database-technical-overview.md) eller för dina databaser i [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepterar kommunikation som skickas från vissa undernät i virtuella nätverk. I den här artikeln förklaras varför funktionen för regel för virtuella nätverk ibland det bästa alternativet för att på ett säkert sätt tillåta kommunikation till din Azure SQL Database och SQL Data Warehouse.
 
 > [!IMPORTANT]
-> Den här artikeln gäller Azure SQL-server och både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse. Den här artikeln gäller *inte* för en **hanterad instansdistribution** i Azure SQL Database eftersom den inte har en tjänstslutpunkt associerad med den.
+> Den här artikeln gäller för Azure SQL Server och för både SQL Database och SQL Data Warehouse databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse. Den här artikeln gäller *inte* för distribution av **hanterade instanser** i Azure SQL Database eftersom den inte har någon associerad tjänst slut punkt.
 
-Om du vill skapa en regel för virtuellt nätverk måste det först finnas en slutpunkt för [en virtuell nätverkstjänst][vm-virtual-network-service-endpoints-overview-649d] som regeln ska referera till.
+Om du vill skapa en regel för virtuellt nätverk måste du först vara en [tjänst slut punkt för virtuella nätverk][vm-virtual-network-service-endpoints-overview-649d] för att regeln ska referera till.
 
-## <a name="how-to-create-a-virtual-network-rule"></a>Så här skapar du en regel för virtuellt nätverk
+## <a name="how-to-create-a-virtual-network-rule"></a>Så här skapar du en regel för virtuella nätverk
 
-Om du bara skapar en regel för virtuellt nätverk kan du gå vidare till stegen och förklaringen [senare i den här artikeln](#anchor-how-to-by-using-firewall-portal-59j).
+Om du bara skapar en regel för virtuella nätverk kan du gå vidare till stegen och förklaringen [längre fram i den här artikeln](#anchor-how-to-by-using-firewall-portal-59j).
 
 <!--<a name="anch-details-about-vnet-rules-38q"/> -->
 
 ## <a name="details-about-virtual-network-rules"></a>Information om regler för virtuella nätverk
 
-I det här avsnittet beskrivs flera detaljer om virtuella nätverksregler.
+I det här avsnittet beskrivs flera Detaljer om regler för virtuella nätverk.
 
 ### <a name="only-one-geographic-region"></a>Endast en geografisk region
 
-Varje slutpunkt för tjänsten För virtuellt nätverk gäller endast en Azure-region. Slutpunkten gör det inte möjligt för andra regioner att acceptera kommunikation från undernätet.
+Varje Virtual Network tjänst slut punkt gäller endast en Azure-region. Slut punkten tillåter inte att andra regioner accepterar kommunikation från under nätet.
 
-Alla virtuella nätverksregel är begränsade till den region som den underliggande slutpunkten gäller för.
+Alla virtuella nätverks regler är begränsade till den region som den underliggande slut punkten gäller för.
 
-### <a name="server-level-not-database-level"></a>Servernivå, inte databasnivå
+### <a name="server-level-not-database-level"></a>Server nivå, inte databas nivå
 
-Varje virtuell nätverksregel gäller för hela Azure SQL Database-servern, inte bara för en viss databas på servern. Med andra ord gäller regeln för virtuellt nätverk på servernivå, inte på databasnivå.
+Varje virtuell nätverks regel gäller hela Azure SQL Database-servern, inte bara till en viss databas på servern. Med andra ord gäller regel för virtuella nätverk på server nivå, inte på databas nivå.
 
-- Däremot kan IP-regler gälla på båda nivåer.
+- Dessutom kan IP-regler tillämpas på någon av nivåerna.
 
-### <a name="security-administration-roles"></a>Roller för säkerhetsadministration
+### <a name="security-administration-roles"></a>Säkerhets administrations roller
 
-Det finns en separation av säkerhetsroller i administrationen av slutpunkter för tjänsten Virtuellt nätverk. Åtgärder krävs från var och en av följande roller:
+Det finns en separation av säkerhets roller i administration av Virtual Network tjänstens slut punkter. Åtgärd krävs från var och en av följande roller:
 
-- **Nätverksadministratör:** &nbsp; Aktivera slutpunkten.
-- **Databasadministratör:** &nbsp; Uppdatera åtkomstkontrollistan (ACL) för att lägga till det angivna undernätet på SQL Database-servern.
+- **Nätverks administratör:** &nbsp; aktivera slut punkten.
+- **Databas administratör:** &nbsp; uppdatera åtkomst kontrol listan (ACL) för att lägga till angivet undernät till SQL Database servern.
 
-*RBAC alternativ:*
+*RBAC-alternativ:*
 
-Rollerna för nätverksadministratör och databasadministratör har fler funktioner än vad som behövs för att hantera virtuella nätverksregler. Endast en delmängd av deras kapacitet behövs.
+Rollerna för nätverks administratör och databas administratörer har fler funktioner än vad som krävs för att hantera virtuella nätverks regler. Endast en delmängd av deras funktioner krävs.
 
-Du har möjlighet att använda [rollbaserad åtkomstkontroll (RBAC)][rbac-what-is-813s] i Azure för att skapa en enda anpassad roll som bara har den nödvändiga delmängden av funktioner. Den anpassade rollen kan användas i stället för att involvera nätverksadministratören eller databasadministratören. Ytan på säkerhetsexponeringen är lägre om du lägger till en användare i en anpassad roll, jämfört med att lägga till användaren i de andra två stora administratörsrollerna.
+Du kan välja att använda [rollbaserad åtkomst kontroll (RBAC)][rbac-what-is-813s] i Azure för att skapa en enskild anpassad roll som bara har de funktioner som krävs. Den anpassade rollen kan användas i stället för att involvera antingen nätverks administratören eller databas administratören. Arean av din säkerhets exponering är lägre om du lägger till en användare i en anpassad roll och lägger till användaren till de andra två större administratörs rollerna.
 
 > [!NOTE]
-> I vissa fall finns Azure SQL Database och VNet-undernätet i olika prenumerationer. I dessa fall måste du se till att följande konfigurationer:
+> I vissa fall finns Azure SQL Database och VNet-under nätet i olika prenumerationer. I dessa fall måste du se till att följande konfigurationer:
 >
-> - Båda prenumerationerna måste finnas i samma Azure Active Directory-klientorganisation.
-> - Användaren har de behörigheter som krävs för att initiera åtgärder, till exempel aktivera tjänstslutpunkter och lägga till ett VNet-undernät till den angivna servern.
-> - Båda prenumerationerna måste ha Microsoft.Sql-providern registrerad.
+> - Båda prenumerationerna måste vara i samma Azure Active Directory-klient.
+> - Användaren har de behörigheter som krävs för att initiera åtgärder, till exempel aktivera tjänst slut punkter och lägga till ett VNet-undernät till den aktuella servern.
+> - Båda prenumerationerna måste ha Microsoft. SQL-providern registrerad.
 
 ## <a name="limitations"></a>Begränsningar
 
-För Azure SQL Database har funktionen för virtuella nätverksregler följande begränsningar:
+För Azure SQL Database har funktionen regler för virtuellt nätverk följande begränsningar:
 
-- I brandväggen för SQL-databasen refererar varje virtuell nätverksregel till ett undernät. Alla dessa refererade undernät måste vara värd i samma geografiska region som är värd för SQL-databasen.
+- I brand väggen för din SQL Database refererar varje virtuell nätverks regel till ett undernät. Alla dessa refererade undernät måste ligga inom samma geografiska region som är värd för SQL Database.
 
-- Varje Azure SQL Database-server kan ha upp till 128 ACL-poster för ett visst virtuellt nätverk.
+- Varje Azure SQL Database Server kan ha upp till 128 ACL-poster för ett angivet virtuellt nätverk.
 
-- Virtuella nätverksregler gäller endast för virtuella Azure Resource Manager-nätverk. och inte till [klassiska distributionsmodellnätverk.][arm-deployment-model-568f]
+- Regler för virtuella nätverk gäller endast för Azure Resource Manager virtuella nätverk; och inte till [klassiska nätverk för distributions modeller][arm-deployment-model-568f] .
 
-- Om du aktiverar slutpunkter för virtuella nätverkstjänster till Azure SQL Database kan slutpunkterna för MySQL- och PostgreSQL Azure-tjänsterna aktiveras. Men med slutpunkter PÅ kan försök att ansluta från slutpunkterna till dina MySQL- eller PostgreSQL-instanser misslyckas.
-  - Den underliggande orsaken är att MySQL och PostgreSQL sannolikt inte har en virtuell nätverksregel konfigurerad. Du måste konfigurera en virtuell nätverksregel för Azure Database for MySQL och PostgreSQL och anslutningen kommer att lyckas.
+- Att aktivera tjänst slut punkter för virtuella nätverk till Azure SQL Database också aktivera slut punkter för de MySQL-och PostgreSQL Azure-tjänsterna. Men med slut punkter på kan försök att ansluta från slut punkterna till MySQL-eller PostgreSQL-instanserna Miss lyckas.
+  - Den bakomliggande orsaken är att MySQL och PostgreSQL troligen inte har någon konfigurerad regel för virtuella nätverk. Du måste konfigurera en regel för virtuella nätverk för Azure Database for MySQL och PostgreSQL och anslutningen kommer att lyckas.
 
-- I brandväggen gäller IP-adressintervall för följande nätverksobjekt, men regler för virtuella nätverk gäller inte:
-  - [Virtuellt privat nätverk (Plats till plats) (VPN)][vpn-gateway-indexmd-608y]
+- I brand väggen gäller IP-adressintervall för följande nätverks objekt, men regler för virtuella nätverk gör inte följande:
+  - [Virtuellt privat nätverk (VPN) för plats-till-plats (S2S)][vpn-gateway-indexmd-608y]
   - Lokalt via [ExpressRoute][expressroute-indexmd-744v]
 
-### <a name="considerations-when-using-service-endpoints"></a>Överväganden vid användning av tjänstslutpunkter
+### <a name="considerations-when-using-service-endpoints"></a>Att tänka på när du använder tjänstens slut punkter
 
-När du använder tjänstslutpunkter för Azure SQL Database läser du följande överväganden:
+När du använder tjänst slut punkter för Azure SQL Database bör du gå igenom följande överväganden:
 
-- **Utgående till offentliga IPs för Azure SQL-databas krävs:** NSG (Network Security Groups) måste öppnas till Azure SQL Database IPs för att tillåta anslutning. Du kan göra detta genom att använda [NSG-tjänsttaggar](../virtual-network/security-overview.md#service-tags) för Azure SQL Database.
+- **Utgående till Azure SQL Database offentliga IP-adresser krävs**: nätverks säkerhets grupper (NSG: er) måste öppnas för att Azure SQL Database IP-adresser för att tillåta anslutning. Du kan göra detta med hjälp av NSG [service-Taggar](../virtual-network/security-overview.md#service-tags) för Azure SQL Database.
 
 ### <a name="expressroute"></a>ExpressRoute
 
 Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lokalt för offentlig peering eller Microsoft-peering, måste du identifiera de NAT IP-adresser som används. För offentlig peering, använder varje ExpressRoute-krets som standard två NAT IP-adresser, som används för Azure-tjänsttrafik när trafiken kommer till Microsoft Azure-stamnätverket. För Microsoft-peering är de NAT IP-adresser som används antingen tillhandahållna av kunden eller av tjänsteleverantören. Om du vill tillåta åtkomst till dina tjänstresurser måste du tillåta dessa offentliga IP-adresser i resursens IP-brandväggsinställning. För att kunna hitta ExpressRoute-kretsens IP-adresser för offentlig peering [öppnar du en supportbegäran hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure-portalen. Lär dig mer om [NAT för ExpressRoute offentliga peering och Microsoft-peering.](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
   
-Om du vill tillåta kommunikation från din krets till Azure SQL Database måste du skapa IP-nätverksregler för de offentliga IP-adresserna för din NAT.
+Om du vill tillåta kommunikation från din krets till Azure SQL Database måste du skapa IP-nätverksnummer för de offentliga IP-adresserna för din NAT.
 
 <!--
 FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deployment model'.
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
-## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Effekten av att använda slutpunkter för VNet-tjänst med Azure-lagring
+## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Effekt av att använda virtuella nätverks slut punkter med Azure Storage
 
-Azure Storage har implementerat samma funktion som gör att du kan begränsa anslutningen till ditt Azure Storage-konto. Om du väljer att använda den här funktionen med ett Azure Storage-konto som används av Azure SQL Server kan du stöta på problem. Nästa är en lista och diskussion om Azure SQL Database och Azure SQL Data Warehouse funktioner som påverkas av detta.
+Azure Storage har implementerat samma funktion som gör det möjligt att begränsa anslutningen till ditt Azure Storage-konto. Om du väljer att använda den här funktionen med ett Azure Storage-konto som används av Azure SQL Server kan du stöta på problem. Härnäst är en lista och en diskussion om Azure SQL Database och Azure SQL Data Warehouse funktioner som påverkas av detta.
 
-### <a name="azure-sql-data-warehouse-polybase"></a>Polybas i Azure SQL Data Warehouse
+### <a name="azure-sql-data-warehouse-polybase"></a>Azure SQL Data Warehouse PolyBase
 
-PolyBase används ofta för att läsa in data i Azure SQL Data Warehouse från Azure Storage-konton. Om Azure Storage-kontot som du läser in data från begränsar åtkomsten endast till en uppsättning virtuella nätnät bryts anslutningen från PolyBase till kontot. För att aktivera både PolyBase import och export scenarier med Azure SQL Data Warehouse ansluter till Azure Storage som är säkrad till VNet, följ stegen nedan:
+PolyBase används ofta för att läsa in data i Azure SQL Data Warehouse från Azure Storage-konton. Om Azure Storage konto som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät, kommer anslutningen från PolyBase till kontot att avbrytas. Följ stegen nedan för att aktivera både polybases import-och export scenarier med Azure SQL Data Warehouse ansluter till Azure Storage som skyddas av VNet:
 
 #### <a name="prerequisites"></a>Krav
 
-- Installera Azure PowerShell med den här [guiden](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Om du har ett allmänt v1- eller blob-lagringskonto måste du först uppgradera till allmänt v2 med den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-- Du måste tillåta **betrodda Microsoft-tjänster för att komma åt det här lagringskontot** aktiverat under Azure Storage-kontobrand brandväggar och inställningar **för virtuella nätverk.** Se den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) för mer information.
+- Installera Azure PowerShell med hjälp av den här [guiden](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- Om du har ett allmänt v1-eller Blob Storage-konto måste du först uppgradera till General-Purpose v2 med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+- Du måste ha **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** under Azure Storage konto **brand väggar och inställningar för virtuella nätverk** . Mer information hittar du i den här [hand boken](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) .
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling är för Az.Sql-modulen. AzureRM-modulen fortsätter att ta emot buggfixar fram till åtminstone december 2020.  Argumenten för kommandona i Az-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](/powershell/azure/new-azureps-module-az).
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. AzureRM-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020.  Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).
 
 #### <a name="steps"></a>Steg
 
-1. I PowerShell **registrerar du din Azure SQL Server** som är värd för din Azure SQL Data Warehouse-instans med Azure Active Directory (AAD):
+1. I PowerShell **registrerar du Azure-SQL Server** som är värd för Azure SQL Data Warehouse-instansen med Azure Active Directory (AAD):
 
    ```powershell
    Connect-AzAccount
@@ -130,160 +130,160 @@ PolyBase används ofta för att läsa in data i Azure SQL Data Warehouse från A
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-SQL-servername -AssignIdentity
    ```
 
-1. Skapa ett **allmänt v2-lagringskonto** med den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+1. Skapa ett **Allmänt-syfte v2-lagrings konto** med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
    > [!NOTE]
-   > - Om du har ett allmänt v1- eller blob-lagringskonto måste du **först uppgradera till v2** med den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-   > - Information om kända problem med Azure Data Lake Storage Gen2 finns i den här [guiden](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
+   > - Om du har ett allmänt v1-eller Blob Storage-konto måste du **först uppgradera till v2** med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+   > - Information om kända problem med Azure Data Lake Storage Gen2 finns i den här [hand boken](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
 
-1. Under ditt lagringskonto navigerar du till **Åtkomstkontroll (IAM)** och klickar på **Lägg till rolltilldelning**. Tilldela RBAC-rollen **för storage blob data contributor** till din Azure SQL Server som är värd för ditt Azure SQL Data Warehouse som du har registrerat med Azure Active Directory (AAD) som i steg#1.
+1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och klickar på **Lägg till roll tilldelning**. Tilldela RBAC-rollen **Storage BLOB data Contributor** till Azure SQL Server som är värd för din Azure SQL Data Warehouse som du har registrerat med Azure Active Directory (AAD) som i steg 1.
 
    > [!NOTE]
-   > Endast medlemmar med ägarbehörighet kan utföra det här steget. För olika inbyggda roller för Azure-resurser finns i den här [guiden](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Endast medlemmar med ägar behörighet kan utföra det här steget. De olika inbyggda rollerna för Azure-resurser finns i den här [guiden](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
-1. **Polybase-anslutning till Azure Storage-kontot:**
+1. **PolyBase-anslutning till Azure Storage kontot:**
 
-   1. Skapa en **[databashuvudnyckel](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)** om du inte har skapat någon tidigare:
+   1. Skapa en **[huvud nyckel](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)** för databasen om du inte har skapat en tidigare version:
 
        ```sql
        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
        ```
 
-   1. Skapa databasscoped-autentiseringsuppgifter med **IDENTITY = "Managed Service Identity":**
+   1. Skapa databasens begränsade autentiseringsuppgifter med **Identity = hanterad tjänstidentitet**:
 
        ```sql
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
        ```
 
        > [!NOTE]
-       > - Det finns ingen anledning att ange SECRET med Azure Storage-åtkomstnyckel eftersom den här mekanismen använder [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under omfattar.
-       > - IDENTITETSNAMNET ska vara **"Managed Service Identity"** för PolyBase-anslutning för att fungera med Azure Storage-konto som är skyddat till VNet.
+       > - Du behöver inte ange hemlighet med Azure Storage åtkomst nyckel eftersom den här mekanismen använder [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under försättsblad.
+       > - IDENTITETS namnet måste vara **hanterad tjänstidentitet** för PolyBase-anslutningen för att fungera med Azure Storage konto som skyddas av VNet.
 
-   1. Skapa extern datakälla med `abfss://` schema för anslutning till ditt virtuella lagringskonto för allmänt ändamål med PolyBase:
+   1. Skapa en extern data källa `abfss://` med schema för att ansluta till ditt General-Purpose v2-lagrings konto med PolyBase:
 
        ```SQL
        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
        ```
 
        > [!NOTE]
-       > - Om du redan har externa tabeller som är associerade med det allmänna v1- eller bloblagringskontot bör du först släppa dessa externa tabeller och sedan släppa motsvarande externa datakälla. Skapa sedan extern `abfss://` datakälla med schema som ansluter till allmänt v2-lagringskonto enligt ovan och återskapa alla externa tabeller med den här nya externa datakällan. Du kan använda [guiden Generera och publicera skript](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) för att skapa skapa skript för alla externa tabeller för enkelhetens skull.
-       > - Mer information `abfss://` om schemat finns i den här [guiden](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
-       > - Mer information om SKAPA EXTERN DATAKÄLLA finns i den här [guiden](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+       > - Om du redan har externa tabeller kopplade till allmänna v1-eller Blob Storage-konton bör du först ta bort de externa tabellerna och sedan släppa motsvarande externa data källa. Skapa sedan en extern data källa `abfss://` med schema som ansluter till det allmänna lagrings kontot för generell användning som ovan och återskapa alla externa tabeller med den här nya externa data källan. Du kan använda [guiden skapa och publicera skript](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) för att skapa skapa skript för alla externa tabeller för att under lätta.
+       > - Mer information om `abfss://` schema finns i den här [hand boken](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+       > - Mer information om att skapa en extern DATA källa finns i den här [guiden](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
 
-   1. Fråga som vanligt med hjälp av [externa tabeller](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+   1. Fråga som normal med hjälp av [externa tabeller](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
-### <a name="azure-sql-database-blob-auditing"></a>Azure SQL Database Blob Granskning
+### <a name="azure-sql-database-blob-auditing"></a>Azure SQL Database-BLOB-granskning
 
-Blob-granskning skickar granskningsloggar till ditt eget lagringskonto. Om det här lagringskontot använder slutpunktsfunktionen för VNet-tjänst bryts anslutningen från Azure SQL Database till lagringskontot.
+Med BLOB-granskning skickas gransknings loggar till ditt eget lagrings konto. Om det här lagrings kontot använder funktionen för VNet-tjänstens slut punkter kommer anslutningen från Azure SQL Database till lagrings kontot att brytas.
 
-## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Lägga till en VNet-brandväggsregel på servern utan att aktivera VNet-tjänstslutpunkter
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Lägga till en brand Väggs regel för VNet på servern utan att aktivera VNet-tjänstens slut punkter
 
-För länge sedan, innan den här funktionen förbättrades, var du tvungen att aktivera VNet-tjänstslutpunkter innan du kunde implementera en live VNet-regel i brandväggen. Slutpunkterna relaterade ett visst VNet-undernät till en Azure SQL-databas. Men nu från och med januari 2018 kan du kringgå det här kravet genom att ange flaggan **IgnoreMissingVNetServiceEndpoint.**
+Innan den här funktionen har förbättrats tidigare var du tvungen att inaktivera VNet-tjänstens slut punkter innan du kunde implementera en VNet-regel i brand väggen. Slut punkterna som relaterar ett angivet VNet-undernät till en Azure SQL Database. Men nu i januari 2018 kan du kringgå det här kravet genom att ange flaggan **IgnoreMissingVNetServiceEndpoint** .
 
-Att bara ange en brandväggsregel hjälper inte till att skydda servern. Du måste också aktivera slutpunkter för VNet-tjänsten för att säkerheten ska börja gälla. När du aktiverar tjänstslutpunkter visas i ditt virtuella nätverks undernätsstopp tills övergången är klar till På. Detta gäller särskilt i samband med stora virtuella nätverk. Du kan använda flaggan **IgnoreMissingVNetServiceEndpoint** för att minska eller eliminera stilleståndstiden under övergången.
+Att bara ange en brand Väggs regel skyddar inte servern. Du måste också aktivera VNet-tjänstens slut punkter för att säkerheten ska börja gälla. När du aktiverar tjänstens slut punkter aktive ras stillestånds tiden för VNet-undernät tills den slutför över gången från till på. Detta gäller särskilt i samband med stora virtuella nätverk. Du kan använda flaggan **IgnoreMissingVNetServiceEndpoint** för att minska eller eliminera stillestånds tiden under över gången.
 
-Du kan ange flaggan **IgnoreMissingVNetServiceEndpoint** med hjälp av PowerShell. Mer information finns i [PowerShell för att skapa en slutpunkt för tjänsten Virtuellt nätverk och regel för Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+Du kan ställa in flaggan **IgnoreMissingVNetServiceEndpoint** med hjälp av PowerShell. Mer information finns i [PowerShell för att skapa en Virtual Network tjänst slut punkt och regel för Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## <a name="errors-40914-and-40615"></a>Fel 40914 och 40615
 
-Anslutningsfel 40914 avser *virtuella nätverksregler*, enligt vad som anges i brandväggsfönstret i Azure-portalen. Fel 40615 är liknande, förutom att det gäller *IP-adressregler* på brandväggen.
+Anslutnings fel 40914 relaterar till *virtuella nätverks regler*, enligt vad som anges i brand Väggs fönstret i Azure Portal. Fel 40615 liknar varandra, förutom att det relaterar till *IP-adressens regler* i brand väggen.
 
 ### <a name="error-40914"></a>Fel 40914
 
-*Meddelandetext:* Det går inte att öppna servern '*[servernamn]*' som begärs av inloggningen. Klienten har inte åtkomst till servern.
+*Meddelande text:* Det går inte att öppna servern *[Server Name]* som begärdes av inloggningen. Klienten har inte behörighet att komma åt servern.
 
-*Felbeskrivning:* Klienten finns i ett undernät som har slutpunkter för virtuella nätverksserver. Azure SQL Database-servern har däremot ingen regel för det virtuella nätverket som ger undernätet behörighet att kommunicera med SQL-databasen.
+*Fel Beskrivning:* Klienten finns i ett undernät som har Server slut punkter för virtuella nätverk. Azure SQL Database-servern har däremot ingen regel för det virtuella nätverket som ger undernätet behörighet att kommunicera med SQL-databasen.
 
-*Felmatchning:* I brandväggsfönstret i Azure-portalen använder du den virtuella nätverksreglerskontrollen för att lägga till [en virtuell nätverksregel](#anchor-how-to-by-using-firewall-portal-59j) för undernätet.
+*Fel matchning:* I fönstret brand vägg i Azure Portal använder du kontrollen regler för virtuellt nätverk för att [lägga till en virtuell nätverks regel](#anchor-how-to-by-using-firewall-portal-59j) för under nätet.
 
 ### <a name="error-40615"></a>Fel 40615
 
-*Meddelandetext:* Det går{0}inte att öppna servern ' ' som begärs av inloggningen. Klient med IP-adress '{1}' har inte åtkomst till servern.
+*Meddelande text:* Det går inte att{0}öppna servern som begärdes av inloggningen. Klienten med IP-adressen{1}är inte tillåten för att komma åt servern.
 
-*Felbeskrivning:* Klienten försöker ansluta från en IP-adress som inte har behörighet att ansluta till Azure SQL Database-servern. Serverbrandväggen har ingen IP-adressregel som gör att en klient kan kommunicera från den givna IP-adressen till SQL-databasen.
+*Fel Beskrivning:* Klienten försöker ansluta från en IP-adress som inte har behörighet att ansluta till den Azure SQL Database servern. Serverbrandväggen har ingen IP-adressregel som gör att en klient kan kommunicera från den givna IP-adressen till SQL-databasen.
 
-*Felmatchning:* Ange klientens IP-adress som en IP-regel. Gör det här i brandväggsfönstret i Azure-portalen.
+*Fel matchning:* Ange klientens IP-adress som en IP-regel. Gör det här i brandväggsfönstret i Azure-portalen.
 
 <a name="anchor-how-to-by-using-firewall-portal-59j" />
 
 ## <a name="portal-can-create-a-virtual-network-rule"></a>Portalen kan skapa en regel för virtuellt nätverk
 
-Det här avsnittet illustrerar hur du kan använda [Azure-portalen][http-azure-portal-link-ref-477t] för att skapa en *virtuell nätverksregel* i din Azure SQL-databas. Regeln talar om för SQL-databasen att acceptera kommunikation från ett visst undernät som har taggats som en *slutpunkt för tjänsten Virtuellt nätverk*.
+I det här avsnittet beskrivs hur du kan använda [Azure Portal][http-azure-portal-link-ref-477t] för att skapa en *regel för virtuella nätverk* i Azure SQL Database. Regeln instruerar din SQL Database att acceptera kommunikation från ett visst undernät som har taggats som en *Virtual Network tjänst slut punkt*.
 
 > [!NOTE]
-> Om du tänker lägga till en tjänstslutpunkt i VNet-brandväggsreglerna för din Azure SQL Database-server, kontrollera först att tjänstslutpunkter är aktiverade för undernätet.
+> Om du vill lägga till en tjänst slut punkt i brand Väggs reglerna för VNet i Azure SQL Database-servern ska du först se till att tjänstens slut punkter är aktiverade för under nätet.
 >
-> Om tjänstslutpunkter inte är aktiverade för undernätet ber portalen dig att aktivera dem. Klicka på knappen **Aktivera** på samma blad som du lägger till regeln på.
+> Om tjänst slut punkter inte är aktiverade för under nätet ber portalen dig att aktivera dem. Klicka på knappen **Aktivera** på samma blad där du lägger till regeln.
 
-## <a name="powershell-alternative"></a>PowerShell alternativ
+## <a name="powershell-alternative"></a>PowerShell-alternativ
 
-Ett skript kan också skapa virtuella nätverksregler med PowerShell cmdlet **New-AzSqlServerVirtualNetworkRule** eller [az-nätverksvnät skapa](/cli/azure/network/vnet#az-network-vnet-create). Om du är intresserad läser du [PowerShell för att skapa en slutpunkt för tjänsten Virtuellt nätverk och regel för Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+Ett skript kan också skapa virtuella nätverks regler med PowerShell **-cmdlet New-AzSqlServerVirtualNetworkRule** eller [AZ Network VNet Create](/cli/azure/network/vnet#az-network-vnet-create). Om det intresserar sig, se [PowerShell för att skapa en Virtual Network tjänst slut punkt och regel för Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
-## <a name="rest-api-alternative"></a>ALTERNATIV FÖR REST API
+## <a name="rest-api-alternative"></a>REST API alternativ
 
-Internt anropar PowerShell-cmdlets för SQL VNet-åtgärder REST API:er. Du kan ringa REST-API:erna direkt.
+Internt anropar PowerShell-cmdletar för SQL VNet-åtgärder REST-API: er. Du kan anropa REST-API: erna direkt.
 
-- [Regler för virtuella nätverk: Åtgärder][rest-api-virtual-network-rules-operations-862r]
+- [Virtual Network regler: åtgärder][rest-api-virtual-network-rules-operations-862r]
 
 ## <a name="prerequisites"></a>Krav
 
-Du måste redan ha ett undernät som är taggat med det specifika *slutpunktstypnamnet för* tjänsten För virtuellt nätverk som är relevant för Azure SQL Database.
+Du måste redan ha ett undernät som är taggat med det specifika Virtual Network tjänst slut punkts *typ namn* som är relevant för Azure SQL Database.
 
-- Det relevanta namn på slutpunktstypen är **Microsoft.Sql**.
-- Om undernätet kanske inte är taggat med typnamnet läser [du Kontrollera att undernätet är en slutpunkt][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
+- Det relevanta namnet på slut punkts typen är **Microsoft. SQL**.
+- Om ditt undernät kanske inte är taggat med typ namnet, se [Verifiera att ditt undernät är en slut punkt][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
 
 <a name="a-portal-steps-for-vnet-rule-200" />
 
-## <a name="azure-portal-steps"></a>Azure-portalens steg
+## <a name="azure-portal-steps"></a>Azure Portal steg
 
 1. Logga in på [Azure-portalen][http-azure-portal-link-ref-477t].
 
-2. Sök efter och välj **SQL-servrar**och välj sedan servern. Under **Säkerhet**väljer du **Brandväggar och virtuella nätverk**.
+2. Sök efter och välj **SQL-servrar**och välj sedan din server. Under **säkerhet**väljer du **brand väggar och virtuella nätverk**.
 
-3. Ange kontrollen **Tillåt åtkomst till Azure-tjänster** till OFF.
+3. Ange alternativet **Tillåt åtkomst till Azure-tjänster** till av.
 
     > [!IMPORTANT]
-    > Om du lämnar kontrolluppsättningen till ON accepterar din Azure SQL Database-server kommunikation från alla undernät inom Azure-gränsen, d.v.s. som kommer från en av IP-adresserna som känns igen som de inom intervall som definierats för Azure-datacenter. Att lämna kontrollen inställd på PÅ kan vara överdriven åtkomst från säkerhetssynpunkt. Slutpunktsfunktionen för Tjänsten Microsoft Azure Virtual Network, i samordning med den virtuella nätverksregelfunktionen i SQL Database, kan tillsammans minska din säkerhetsyta.
+    > Om du lämnar kontrollen inställt på på, godkänner Azure SQL Database servern kommunikation från ett undernät inom Azure-gränser, d.v.s. från en av de IP-adresser som identifieras som de inom intervall som definierats för Azure Data Center. Om du lämnar kontrollen till på aktive rad kan det vara för hög åtkomst från en säkerhets punkt. Den Microsoft Azure Virtual Network tjänstens slut punkts funktion, i samordning med funktionen för regel för virtuella nätverk i SQL Database, kan minska området för säkerhets ytan.
 
-4. Klicka på **+ Lägg till befintlig** kontroll i avsnittet Virtuella **nätverk.**
+4. Klicka på **+ Lägg till befintlig** kontroll i avsnittet **virtuella nätverk** .
 
-    ![Klicka på Lägg till befintlig (undernätslutpunkt, som en SQL-regel).][image-portal-firewall-vnet-add-existing-10-png]
+    ![Klicka på Lägg till befintlig (under näts slut punkt som en SQL-regel).][image-portal-firewall-vnet-add-existing-10-png]
 
-5. I det nya fönstret **Skapa/uppdatera** fyller du i kontrollerna med namnen på dina Azure-resurser.
+5. I fönstret nytt **Skapa/uppdatera** fyller du i kontrollerna med namnen på dina Azure-resurser.
 
     > [!TIP]
-    > Du måste inkludera rätt **adressprefix** för ditt undernät. Du hittar värdet i portalen.
-    > Navigera **alla resurser** &gt; **Alla typer** &gt; **virtuella nätverk**. Filtret visar dina virtuella nätverk. Klicka på det virtuella nätverket och sedan på **Undernät**. Kolumnen **ADRESSINTERVALL** har det adressprefix du behöver.
+    > Du måste inkludera rätt **adressprefix** för ditt undernät. Du kan hitta värdet i portalen.
+    > Navigera **alla resurser** &gt; **alla typer** &gt; av **virtuella nätverk**. Filtret visar dina virtuella nätverk. Klicka på det virtuella nätverket och klicka sedan på **undernät**. I kolumnen **adress intervall** finns det adressprefix du behöver.
 
     ![Fyll i fält för ny regel.][image-portal-firewall-create-update-vnet-rule-20-png]
 
-6. Klicka **på** OK-knappen längst ned i fönstret.
+6. Klicka på **OK** längst ned i fönstret.
 
-7. Se den resulterande regeln för virtuella nätverk i brandväggsfönstret.
+7. Se den resulterande virtuella nätverks regeln i brand Väggs fönstret.
 
-    ![Se den nya regeln i brandväggsfönstret.][image-portal-firewall-vnet-result-rule-30-png]
+    ![Se den nya regeln i brand Väggs fönstret.][image-portal-firewall-vnet-result-rule-30-png]
 
 > [!NOTE]
 > Följande status eller tillstånd gäller för reglerna:
 >
-> - **Redo:** Anger att åtgärden som du initierade har slutförts.
-> - **Det gick inte att:** Anger att åtgärden som du initierade har misslyckats.
-> - **Utgår:** Gäller endast för åtgärden Ta bort och anger att regeln har tagits bort och inte längre gäller.
-> - **InProgress:** Anger att åtgärden pågår. Den gamla regeln gäller när åtgärden är i det här tillståndet.
+> - **Klart:** Anger att åtgärden som du initierade har slutförts.
+> - **Misslyckades:** Anger att åtgärden som du initierade har misslyckats.
+> - **Borttagen:** Gäller endast borttagnings åtgärden och anger att regeln har tagits bort och inte längre gäller.
+> - **Förlopp:** Anger att åtgärden pågår. Den gamla regeln gäller när åtgärden är i det här läget.
 
 <a name="anchor-how-to-links-60h" />
 
 ## <a name="related-articles"></a>Relaterade artiklar
 
 - [Tjänstslutpunkter för virtuellt nätverk i Azure][vm-virtual-network-service-endpoints-overview-649d]
-- [Brandväggsregler på Azure SQL Database-servernivå och brandvägg på databasnivå][sql-db-firewall-rules-config-715d]
+- [Azure SQL Database brand Väggs regler på server nivå och databas nivå][sql-db-firewall-rules-config-715d]
 
-Den virtuella nätverksregelfunktionen för Azure SQL Database blev tillgänglig i slutet av september 2017.
+Funktionen för regel för virtuella nätverk för Azure SQL Database blev tillgänglig i slutet av den 2017 september.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Använd PowerShell för att skapa en slutpunkt för virtuella nätverkstjänster och sedan en virtuell nätverksregel för Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
-- [Regler för virtuella nätverk: Åtgärder][rest-api-virtual-network-rules-operations-862r] med REST-API:er
+- [Använd PowerShell för att skapa en tjänst slut punkt för virtuellt nätverk och sedan en regel för virtuella nätverk för Azure SQL Database.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Virtual Network regler: åtgärder][rest-api-virtual-network-rules-operations-862r] med REST API: er
 
 <!-- Link references, to images. -->
 [image-portal-firewall-vnet-add-existing-10-png]: media/sql-database-vnet-service-endpoint-rule-overview/portal-firewall-vnet-add-existing-10.png

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: 8cf6d59d93a1b26d79911fc9fa9251ea3d0689ac
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82098449"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Vanliga PowerShell-kommandon för virtuella Azure-nätverk
@@ -27,7 +27,7 @@ Vissa variabler kan vara användbara för dig om du kör fler än ett av kommand
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser
 
-| Aktivitet | Kommando |
+| Uppgift | Kommando |
 | ---- | ------- |
 | Skapa undernätskonfigurationer |$subnet 1 = [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) -Name "mySubnet1"-AddressPrefix xx. X. X. X/XX<BR>$subnet 2 = New-AzVirtualNetworkSubnetConfig-Name "mySubnet2"-AddressPrefix XX. X. X. X/XX<BR><BR>Ett vanligt nätverk kan ha ett undernät för en [belastningsutjämnare mot Internet](../../load-balancer/load-balancer-internet-overview.md) och ett separat undernät för en [intern belastningsutjämnare](../../load-balancer/load-balancer-internal-overview.md). |
 | Skapa ett virtuellt nätverk |$vnet = [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) -Name "myVNet"-ResourceGroupName $MyResourceGroup-location $location-AddressPrefix xx. X. X. X/XX-undernät $subnet 1, $subnet 2 |
@@ -43,7 +43,7 @@ Vissa variabler kan vara användbara för dig om du kör fler än ett av kommand
 
 ## <a name="get-information-about-network-resources"></a>Hämta information om nätverks resurser
 
-| Aktivitet | Kommando |
+| Uppgift | Kommando |
 | ---- | ------- |
 | Lista virtuella nätverk |[Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) -ResourceGroupName $myResourceGroup<BR><BR>Visar en lista över alla virtuella nätverk i resurs gruppen. |
 | Hämta information om ett virtuellt nätverk |Get-AzVirtualNetwork-Name "myVNet"-ResourceGroupName $myResourceGroup |
@@ -57,7 +57,7 @@ Vissa variabler kan vara användbara för dig om du kör fler än ett av kommand
 
 ## <a name="manage-network-resources"></a>Hantera nätverksresurser
 
-| Aktivitet | Kommando |
+| Uppgift | Kommando |
 | ---- | ------- |
 | Lägga till ett undernät i ett virtuellt nätverk |[Add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/add-azvirtualnetworksubnetconfig) -AddressPrefix xx. X. X. X/XX-Name "mySubnet1"-VirtualNetwork $vnet<BR><BR>Lägger till ett undernät i ett befintligt virtuellt nätverk. $Vnet-värdet representerar det objekt som returneras av Get-AzVirtualNetwork. |
 | Ta bort ett virtuellt nätverk |[Remove-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetwork) -Name "myVNet"-ResourceGroupName $myResourceGroup<BR><BR>Tar bort det angivna virtuella nätverket från resurs gruppen. |
@@ -65,7 +65,7 @@ Vissa variabler kan vara användbara för dig om du kör fler än ett av kommand
 | Ta bort en lastbalanserare |[Remove-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/remove-azloadbalancer) -Name "myLoadBalancer"-ResourceGroupName $myResourceGroup<BR><BR>Tar bort den angivna belastningsutjämnaren från resurs gruppen. |
 | Ta bort en offentlig IP-adress |[Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress)-Name "unipaddress"-ResourceGroupName $myResourceGroup<BR><BR>Tar bort den angivna offentliga IP-adressen från resurs gruppen. |
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Använd det nätverks gränssnitt som du nyss skapade när du [skapar en virtuell dator](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

@@ -1,7 +1,7 @@
 ---
-title: Använd MSAL i en nationell molnapp | Azure
+title: Använda MSAL i en nationell molnbaserad app | Azure
 titleSuffix: Microsoft identity platform
-description: Med MSAL (Microsoft Authentication Library) kan programutvecklare hämta token för att anropa skyddade webb-API:er. Dessa webb-API:er kan vara Microsoft Graph, andra Microsoft-API:er, partnerwebb-API:er eller ditt eget webb-API. MSAL stöder flera programarkitekturer och plattformar.
+description: 'Microsoft Authentication Library (MSAL) gör det möjligt för programutvecklare att förvärva tokens för att anropa säkra webb-API: er. Dessa webb-API: er kan vara Microsoft Graph, andra Microsoft API: er, partner webb-API: er eller ditt eget webb-API. MSAL stöder flera program arkitekturer och plattformar.'
 services: active-directory
 author: negoe
 manager: CelesteDG
@@ -14,94 +14,94 @@ ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: f3bb4dd1c564e5f6c4a8ee1bb5bf7424a74a339e
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81533997"
 ---
-# <a name="use-msal-in-a-national-cloud-environment"></a>Använda MSAL i en nationell molnmiljö
+# <a name="use-msal-in-a-national-cloud-environment"></a>Använda MSAL i en nationell moln miljö
 
-[Nationella moln](authentication-national-cloud.md), även känd som Suveräna moln, är fysiskt isolerade instanser av Azure. Dessa regioner i Azure hjälper till att se till att datahemvist, suveränitet och efterlevnadskrav uppfylls inom geografiska gränser.
+[Nationella moln](authentication-national-cloud.md), även kallade suveräna moln, är fysiskt isolerade instanser av Azure. Dessa regioner i Azure bidrar till att se till att kraven på data placering, suveränitet och efterlevnad är uppfyllda inom geografiska gränser.
 
-Förutom Microsofts världsomspännande moln gör Microsoft Authentication Library (MSAL) det möjligt för programutvecklare i nationella moln att skaffa token för att autentisera och anropa skyddade webb-API:er. Dessa webb-API:er kan vara Microsoft Graph eller andra Microsoft-API:er.
+Förutom Microsofts världs omspännande moln, gör Microsoft Authentication Library (MSAL) det möjligt för programutvecklare i nationella moln att förvärva tokens för att autentisera och anropa säkra webb-API: er. Dessa webb-API: er kan vara Microsoft Graph eller andra Microsoft API: er.
 
-Inklusive det globala molnet distribueras Azure Active Directory (Azure AD) i följande nationella moln:  
+Med det globala molnet distribueras Azure Active Directory (Azure AD) i följande nationella moln:  
 
 - Azure Government
 - Azure Kina 21Vianet
 - Azure Tyskland
 
-Den här guiden visar hur du loggar in på arbets- och skolkonton, hämtar en åtkomsttoken och anropar Microsoft Graph API i Molnmiljön för [Azure Government.](https://azure.microsoft.com/global-infrastructure/government/)
+Den här guiden visar hur du loggar in på arbets-och skol konton, hämtar en åtkomsttoken och anropar Microsoft Graph API i [Azure Government moln](https://azure.microsoft.com/global-infrastructure/government/) miljö.
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar, se till att du uppfyller dessa förutsättningar.
+Innan du börjar ska du kontrol lera att du uppfyller dessa krav.
 
 ### <a name="choose-the-appropriate-identities"></a>Välj lämpliga identiteter
 
-[Azure Government-program](https://docs.microsoft.com/azure/azure-government/) kan använda Azure AD Government-identiteter och Azure AD Public-identiteter för att autentisera användare. Eftersom du kan använda någon av dessa identiteter måste du bestämma vilken myndighetsslutpunkt du ska välja för ditt scenario:
+[Azure Government](https://docs.microsoft.com/azure/azure-government/) program kan använda Azure AD myndighets identiteter och offentliga Azure AD-identiteter för att autentisera användare. Eftersom du kan använda någon av dessa identiteter måste du bestämma vilken auktoritets slut punkt du ska välja för ditt scenario:
 
-- Azure AD Public: Används ofta om din organisation redan har en Azure AD Public-klient för att stödja Office 365 (Public eller GCC) eller ett annat program.
-- Azure AD-myndighet: Används ofta om din organisation redan har en Azure AD-klientorganisation för att stödja Office 365 (GCC High eller DoD) eller skapar en ny klientorganisation i Azure AD-myndigheter.
+- Azure AD Public: används ofta om din organisation redan har en offentlig Azure AD-klient som stöder Office 365 (offentlig eller GCC) eller något annat program.
+- Azure AD myndigheter: används ofta om din organisation redan har en Azure AD myndighets-klient som stöder Office 365 (GCC High eller DoD) eller skapar en ny klient i Azure AD myndigheter.
 
-När du har bestämt dig är en särskild faktor var du utför din appregistrering. Om du väljer Azure AD Public-identiteter för ditt Azure Government-program måste du registrera programmet i din Azure AD Public-klientorganisation.
+När du har bestämt dig är det viktigt att du utför registreringen av appen. Om du väljer Azure AD-offentliga identiteter för ditt Azure Government-program måste du registrera programmet i din offentliga Azure AD-klient.
 
-### <a name="get-an-azure-government-subscription"></a>Skaffa en Azure Government-prenumeration
+### <a name="get-an-azure-government-subscription"></a>Hämta en Azure Government-prenumeration
 
-Information om hur du skaffar en Azure Government-prenumeration finns i [Hantera och ansluta till din prenumeration i Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-subscriptions).
+Information om hur du hämtar en Azure Government-prenumeration finns [i hantera och ansluta till din prenumeration i Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-subscriptions).
 
-Om du inte har en Azure Government-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/global-infrastructure/government/request/) innan du börjar.
+Om du inte har en Azure Government prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/global-infrastructure/government/request/) innan du börjar.
 
-Om du vill ha information om hur du använder ett nationellt moln med ett visst programmeringsspråk väljer du fliken som matchar ditt språk:
+Om du vill ha mer information om hur du använder ett nationellt moln med ett visst programmeringsspråk väljer du den flik som matchar ditt språk:
 
 ## <a name="net"></a>[.NET](#tab/donet)
 
-Du kan använda MSAL.NET för att logga in användare, hämta token och anropa Microsoft Graph API i nationella moln.
+Du kan använda MSAL.NET för att logga in användare, Hämta token och anropa Microsoft Graph API i nationella moln.
 
-Följande självstudier visar hur du skapar en .NET Core 2.2 MVC Web app. Appen använder OpenID Connect för att logga in användare med ett arbets- och skolkonto i en organisation som tillhör ett nationellt moln.
+Följande självstudier visar hur du skapar en .NET Core 2,2 MVC-webbapp. Appen använder OpenID Connect för att logga in användare med ett arbets-och skol konto i en organisation som tillhör ett nationellt moln.
 
-- Om du vill logga in användare och hämta token följer du den här självstudien: [Skapa en ASP.NET Core Web App-inloggade användare i suveräna moln med Microsofts identitetsplattform](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-4-Sovereign#build-an-aspnet-core-web-app-signing-in-users-in-sovereign-clouds-with-the-microsoft-identity-platform).
-- Så här anropar du Microsoft Graph API: [Använda Microsoft identity-plattformen för att anropa Microsoft Graph API från en ASP.NET Core 2.x-webbapp, på uppdrag av en användare som loggar in med hjälp av sitt arbets- och skolkonto i Microsoft National Cloud](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud).
+- Om du vill logga in användare och hämta tokens följer du den här självstudien: [Bygg en ASP.net Core webbappens inloggnings användare i suveräna moln med Microsoft Identity Platform](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-4-Sovereign#build-an-aspnet-core-web-app-signing-in-users-in-sovereign-clouds-with-the-microsoft-identity-platform).
+- Om du vill anropa API: et för Microsoft Graph följer du den här självstudien: [använda Microsoft Identity Platform för att anropa API: et för Microsoft Graph från en ASP.net Core 2. x-webbapp, för en användar inloggning med sitt arbets-och skol konto i Microsofts nationella moln](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud).
 
 ## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Så här aktiverar du din MSAL.js-applikation för suveräna moln:
+Så här aktiverar du ditt MSAL. js-program för suveräna moln:
 
 ### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 
 1. Logga in på [Azure-portalen](https://portal.azure.us/).
 
-   Information om hur du hittar Azure-portalslutpunkter för andra nationella moln finns i slutpunkter för [appregistrering](authentication-national-cloud.md#app-registration-endpoints).
+   Information om hur du hittar Azure Portal slut punkter för andra nationella moln finns i [slut punkter för registrering av appar](authentication-national-cloud.md#app-registration-endpoints).
 
-1. Om ditt konto ger dig åtkomst till mer än en klient väljer du ditt konto i det övre högra hörnet och anger din portalsession till önskad Azure AD-klientorganisation.
-1. Gå till sidan Appregistreringar på Microsofts [identitetsplattform](https://aka.ms/ra/ff) för utvecklare.
+1. Om ditt konto ger dig åtkomst till fler än en klient väljer du ditt konto i det övre högra hörnet och ställer in din portal-session till önskad Azure AD-klient.
+1. Gå till sidan [Appregistreringar](https://aka.ms/ra/ff) på Microsoft Identity Platform för utvecklare.
 1. När sidan **Registrera ett program** visas anger du ett namn för programmet.
-1. Under **Kontotyper som stöds**väljer du Konton i valfri **organisationskatalog**.
-1. I avsnittet **Omdirigera URI** väljer du **webbplattformen** och anger värdet till programmets URL baserat på webbservern. Se nästa avsnitt för instruktioner om hur du ställer in och hämtar url:en för omdirigering i Visual Studio och Node.
+1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog**.
+1. I avsnittet **omdirigerings-URI** väljer du **webb** plattform och anger värdet till programmets URL-adress baserat på din webb server. I nästa avsnitt finns anvisningar om hur du ställer in och hämtar omdirigerings-URL: en i Visual Studio och Node.
 1. Välj **Registrera**.
 1. På appens sida **Översikt** antecknar du värdet för **Application (client) ID** (Program-ID (klient)).
-1. Den här självstudien kräver att du aktiverar det [implicita bidragsflödet](v2-oauth2-implicit-grant-flow.md). Välj **Autentisering**i den vänstra rutan i det registrerade programmet .
-1. I **Avancerade inställningar**under Implicit **beviljande**markerar du **kryssrutorna ID-token** och **Access-token.** ID-token och åtkomsttoken krävs eftersom den här appen måste logga in användare och anropa ett API.
+1. I den här självstudien krävs att du aktiverar det [implicita tilldelnings flödet](v2-oauth2-implicit-grant-flow.md). I det vänstra fönstret i det registrerade programmet väljer du **autentisering**.
+1. I **Avancerade inställningar**, under **implicit tilldelning**, markerar du kryss rutorna **ID-token** och **åtkomst-token** . ID-token och åtkomsttoken krävs eftersom den här appen måste logga in användare och anropa ett API.
 1. Välj **Spara**.
 
-### <a name="step-2--set-up-your-web-server-or-project"></a>Steg 2: Konfigurera webbservern eller webbprojektet
+### <a name="step-2--set-up-your-web-server-or-project"></a>Steg 2: Konfigurera din webb server eller ditt projekt
 
-- [Hämta projektfilerna](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) för en lokal webbserver, till exempel Nod.
+- [Hämta projektfiler](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) för en lokal webb server, till exempel Node.
 
   eller
 
-- [Ladda ner Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip).
+- [Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip).
 
-Hoppa sedan till [Konfigurera ditt JavaScript SPA](#step-4-configure-your-javascript-spa) för att konfigurera kodexemplet innan du kör det.
+Gå sedan vidare till [Konfigurera ditt Java Script-Spa](#step-4-configure-your-javascript-spa) för att konfigurera kod exemplet innan du kör det.
 
-### <a name="step-3-use-the-microsoft-authentication-library-to-sign-in-the-user"></a>Steg 3: Använda Microsoft Authentication Library för att logga in användaren
+### <a name="step-3-use-the-microsoft-authentication-library-to-sign-in-the-user"></a>Steg 3: Använd Microsoft Authentication Library för att logga in användaren
 
-Följ stegen i [JavaScript-självstudien](tutorial-v2-javascript-spa.md#create-your-project) för att skapa ditt projekt och integrera med MSAL för att logga in användaren.
+Följ stegen i [guiden JavaScript-självstudie](tutorial-v2-javascript-spa.md#create-your-project) för att skapa projektet och integrera med MSAL för att logga in användaren.
 
-### <a name="step-4-configure-your-javascript-spa"></a>Steg 4: Konfigurera ditt JavaScript SPA
+### <a name="step-4-configure-your-javascript-spa"></a>Steg 4: Konfigurera ditt Java Script SPA
 
-Lägg `index.html` till programregistreringsinformationen i filen som skapades under projektinställningarna. Lägg till följande kod högst `<script></script>` upp i taggarna i filens `index.html` brödtext:
+Lägg till `index.html` program registrerings informationen i filen som skapades under projekt installationen. Lägg till följande kod högst upp i `<script></script>` taggarna i bröd texten i `index.html` filen:
 
 ```javascript
 const msalConfig = {
@@ -122,37 +122,37 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 
 I den koden:
 
-- `Enter_the_Application_Id_here`är **värdet för program -(klient)ID** för det program som du registrerade.
-- `Enter_the_Tenant_Info_Here`är inställd på något av följande alternativ:
-    - Om ditt program stöder **konton i den här organisationskatalogen**ersätter du det här värdet med klient-ID: n eller klientnamnet (till exempel contoso.microsoft.com).
-    - Om programmet stöder **konton i en organisationskatalog** `organizations`ersätter du det här värdet med .
+- `Enter_the_Application_Id_here`är **programmets (klient) ID-** värdet för det program som du har registrerat.
+- `Enter_the_Tenant_Info_Here`är inställt på något av följande alternativ:
+    - Om ditt program har stöd **för konton i den här organisations katalogen**ersätter du värdet med klient-ID eller klient namn (till exempel contoso.Microsoft.com).
+    - Om ditt program har stöd **för konton i en organisations katalog**ersätter du värdet `organizations`med.
 
-    Information om hur du hittar autentiseringsslutpunkter för alla nationella moln finns i slutpunkter för [Azure AD-autentisering](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+    För att hitta autentiserings slut punkter för alla nationella moln, se [Azure AD-autentiseringens slut punkter](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
 
     > [!NOTE]
     > Personliga Microsoft-konton stöds inte i nationella moln.
 
-- `graphEndpoint`är Microsoft Graph-slutpunkten för Microsoft-molnet för amerikanska myndigheter.
+- `graphEndpoint`är Microsoft Graph slut punkten för Microsoft-molnet för amerikanska myndigheter.
 
-   Information om hur du hittar Microsoft Graph-slutpunkter för alla nationella moln finns [i Microsoft Graph-slutpunkter i nationella moln](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+   Information om hur du hittar Microsoft Graph slut punkter för alla nationella moln finns i [Microsoft Graph slut punkter i nationella moln](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 ## <a name="python"></a>[Python](#tab/python)
 
-Så här aktiverar du ditt MSAL Python-program för suveräna moln:
+Så här aktiverar du din MSAL python-app för suveräna moln:
 
-- Registrera ditt program i en viss portal, beroende på molnet. Mer information om hur du väljer portalen finns slutpunkter för [appregistrering](authentication-national-cloud.md#app-registration-endpoints)
-- Använd något av [exemplen](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) från repo med några ändringar i konfigurationen, beroende på molnet, som nämns härnäst.
-- Använd en specifik behörighet, beroende på vilket moln du registrerade programmet i. Mer information om myndigheter för olika moln finns i Slutpunkter för [Azure AD-autentisering](authentication-national-cloud.md#azure-ad-authentication-endpoints).
+- Registrera ditt program på en specifik Portal, beroende på molnet. Mer information om hur du väljer Portal se [slut punkter för program registrering](authentication-national-cloud.md#app-registration-endpoints)
+- Använd något av [exemplen](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) från lagrings platsen med några ändringar i konfigurationen, beroende på molnet, som nämns härnäst.
+- Använd en specifik auktoritet, beroende på vilket moln du registrerade programmet i. För mer information om myndigheter för olika moln, se [Azure AD-autentiseringens slut punkter](authentication-national-cloud.md#azure-ad-authentication-endpoints).
 
-    Här är ett exempel myndighet:
+    Här är en exempel utfärdare:
 
     ```json
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- För att anropa Microsoft graph krävs en specifik graph-url som beror på vilket moln du använder. Information om hur du hittar Microsoft Graph-slutpunkter för alla nationella moln finns i [microsoft graph- och graph explorer-tjänstrotslutpunkter](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- För att anropa Microsoft Graph krävs en viss URL för diagrammets slut punkt som är beroende av vilket moln du använder. Information om hur du hittar Microsoft Graph slut punkter för alla nationella moln finns i [Microsoft Graph-och diagram Explorers tjänst rot slut punkter](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-    Här är ett exempel på en diagramslutpunkt, med omfattning:
+    Här är ett exempel på en diagram slut punkt med omfattningen:
 
     ```json
     "endpoint" : "https://graph.microsoft.us/v1.0/me"
@@ -161,21 +161,21 @@ Så här aktiverar du ditt MSAL Python-program för suveräna moln:
 
 ## <a name="java"></a>[Java](#tab/java)
 
-Så här aktiverar du din MSAL för Java-program för suveräna moln:
+Så här aktiverar du MSAL för Java-program för suveräna moln:
 
-- Registrera ditt program i en viss portal, beroende på molnet. Mer information om hur du väljer portalen finns slutpunkter för [appregistrering](authentication-national-cloud.md#app-registration-endpoints)
-- Använd något av [exemplen](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) från repo med några ändringar i konfigurationen, beroende på molnet, som nämns härnäst.
-- Använd en specifik behörighet, beroende på vilket moln du registrerade programmet i. Mer information om myndigheter för olika moln finns i Slutpunkter för [Azure AD-autentisering](authentication-national-cloud.md#azure-ad-authentication-endpoints).
+- Registrera ditt program på en specifik Portal, beroende på molnet. Mer information om hur du väljer Portal se [slut punkter för program registrering](authentication-national-cloud.md#app-registration-endpoints)
+- Använd något av [exemplen](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) från lagrings platsen med några ändringar i konfigurationen, beroende på molnet, som nämns härnäst.
+- Använd en specifik auktoritet, beroende på vilket moln du registrerade programmet i. För mer information om myndigheter för olika moln, se [Azure AD-autentiseringens slut punkter](authentication-national-cloud.md#azure-ad-authentication-endpoints).
 
-Här är ett exempel myndighet:
+Här är en exempel utfärdare:
 
 ```json
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- För att anropa Microsoft graph krävs en specifik graph-url som beror på vilket moln du använder. Information om hur du hittar Microsoft Graph-slutpunkter för alla nationella moln finns i [microsoft graph- och graph explorer-tjänstrotslutpunkter](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- För att anropa Microsoft Graph krävs en viss URL för diagrammets slut punkt som är beroende av vilket moln du använder. Information om hur du hittar Microsoft Graph slut punkter för alla nationella moln finns i [Microsoft Graph-och diagram Explorers tjänst rot slut punkter](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-Här är ett exempel på en diagramslutpunkt, med omfattning:
+Här är ett exempel på en diagram slut punkt med omfattningen:
 
 ```json
 "endpoint" : "https://graph.microsoft.us/v1.0/me"
@@ -184,9 +184,9 @@ Här är ett exempel på en diagramslutpunkt, med omfattning:
 
 ## <a name="objective-c"></a>[Objective-C](#tab/objc)
 
-MSAL för iOS och macOS kan användas för att hämta token i `MSALPublicClientApplication`nationella moln, men det kräver ytterligare konfiguration när du skapar .
+MSAL för iOS och macOS kan användas för att hämta tokens i nationella moln, men det krävs ytterligare konfiguration när du skapar `MSALPublicClientApplication`.
 
-Om du till exempel vill att ditt program ska vara ett program med flera innehavare i ett nationellt moln (här us government) kan du skriva:
+Om du till exempel vill att ditt program ska vara ett program med flera innehavare i ett nationellt moln (här, amerikanska myndigheter) kan du skriva:
 
 ```objc
 MSALAADAuthority *aadAuthority =
@@ -207,9 +207,9 @@ MSALPublicClientApplication *application =
 
 ## <a name="swift"></a>[Swift](#tab/swift)
 
-MSAL för iOS och macOS kan användas för att hämta token i `MSALPublicClientApplication`nationella moln, men det kräver ytterligare konfiguration när du skapar .
+MSAL för iOS och macOS kan användas för att hämta tokens i nationella moln, men det krävs ytterligare konfiguration när du skapar `MSALPublicClientApplication`.
 
-Om du till exempel vill att ditt program ska vara ett program med flera innehavare i ett nationellt moln (här us government) kan du skriva:
+Om du till exempel vill att ditt program ska vara ett program med flera innehavare i ett nationellt moln (här, amerikanska myndigheter) kan du skriva:
 
 ```swift
 let authority = try? MSALAADAuthority(cloudInstance: .usGovernmentCloudInstance, audienceType: .azureADMultipleOrgsAudience, rawTenant: nil)

@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
 ms.openlocfilehash: 1af0161edb0f833cdd14d8157e6edd9644e21467
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82100285"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server instans migrering till Azure SQL Database Hanterad instans
@@ -143,7 +143,7 @@ En snabb start som visar hur du återställer en databas säkerhets kopia till e
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 
-## <a name="monitor-applications"></a>Övervaka program
+## <a name="monitor-applications"></a>Övervakning av program
 
 När du har slutfört migreringen till en hanterad instans bör du spåra programmets beteende och prestanda för din arbets belastning. Den här processen omfattar följande aktiviteter:
 - [Jämför prestanda för arbets belastningen som körs på den hanterade instansen](#compare-performance-with-the-baseline) med den [prestanda bas linje som du skapade på käll SQL Server](#create-performance-baseline).

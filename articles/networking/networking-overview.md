@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
 ms.openlocfilehash: 42d3360b7defaab2ff0a62dc125a213860b13a6a
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133594"
 ---
 # <a name="azure-networking-services-overview"></a>Översikt över Azure Networking Services
@@ -93,18 +93,18 @@ I det här avsnittet beskrivs nätverks tjänster i Azure som hjälper dig att s
 |Tjänst|Varför ska jag använda?|Scenario|
 |---|---|---|
 |[DDoS skydd](#ddosprotection) |Hög tillgänglighet för dina program med skydd mot överskott IP-trafikkostnader|[Hantera Azure DDoS Protection](../virtual-network/manage-ddos-protection.md)|
-|[Brand vägg för webbaserade program](#waf)|<p>[Azure WAF med Application Gateway](../web-application-firewall/ag/ag-overview.md) ger regional skydd till entiteter i offentligt och privat adress utrymme</p><p>[Med Azure-WAF med front dörren](../web-application-firewall/afds/afds-overview.md) får du skydd på nätverks kanten till offentliga slut punkter.</p>|<p>[Konfigurera skydds regler för bot](../frontdoor/waf-front-door-policy-configure-bot-protection.md)</p> <p>[Konfigurera anpassad svarskod](../frontdoor/waf-front-door-configure-custom-response-code.md)</p> <p>[Konfigurera regler för IP-begränsning](../frontdoor/waf-front-door-configure-ip-restriction.md)</p> <p>[Konfigurera regel för hastighets begränsning](../frontdoor/waf-front-door-rate-limit-powershell.md)</p> |
+|[Brandvägg för webbaserade program](#waf)|<p>[Azure WAF med Application Gateway](../web-application-firewall/ag/ag-overview.md) ger regional skydd till entiteter i offentligt och privat adress utrymme</p><p>[Med Azure-WAF med front dörren](../web-application-firewall/afds/afds-overview.md) får du skydd på nätverks kanten till offentliga slut punkter.</p>|<p>[Konfigurera skydds regler för bot](../frontdoor/waf-front-door-policy-configure-bot-protection.md)</p> <p>[Konfigurera anpassad svarskod](../frontdoor/waf-front-door-configure-custom-response-code.md)</p> <p>[Konfigurera regler för IP-begränsning](../frontdoor/waf-front-door-configure-ip-restriction.md)</p> <p>[Konfigurera regel för hastighets begränsning](../frontdoor/waf-front-door-rate-limit-powershell.md)</p> |
 |[Azure Firewall](#firewall)|Azure Firewall är en hanterad, molnbaserad tjänst för nätverkssäkerhet som skyddar dina Azure Virtual Network-resurser. Det är en fullständigt tillståndskänslig tjänst med inbyggd hög tillgänglighet och obegränsad molnskalbarhet.|<p>[Distribuera en Azure-brandvägg i ett VNet](../firewall/tutorial-firewall-deploy-portal.md)</p> <p>[– Distribuera en Azure-brandvägg i ett hybrid nätverk](../firewall/tutorial-hybrid-ps.md)</p> <p>[Filtrera inkommande trafik med Azure Firewall DNAT](../firewall/tutorial-firewall-dnat.md)</p>|
 |[Nätverkssäkerhetsgrupper](#nsg)|Fullständig detaljerad, distribuerad end Node-kontroll på VM/undernät för alla nätverks trafik flöden|[Filtrera nätverkstrafik med hjälp av nätverkssäkerhetsgrupper](../virtual-network/tutorial-filter-network-traffic.md)|
 |[Tjänstslutpunkter för virtuellt nätverk](#serviceendpoints)|Ger dig möjlighet att begränsa nätverks åtkomsten till vissa Azure-tjänsteresurser till ett virtuellt nätverks under nät|[Begränsa nätverksåtkomst till PaaS-resurser](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md)|
-[Private Link](#privatelink)|Ger dig åtkomst till Azure PaaS Services (till exempel Azure Storage och SQL Database) och Azure-värdbaserade kund tjänster/partner tjänster över en privat slut punkt i det virtuella nätverket.|<p>[Skapa en privat slutpunkt](../private-link/create-private-endpoint-portal.md)</p><p>[Skapa en Private Link-tjänst](../private-link/create-private-link-service-portal.md)</p>|
+[Private Link](#privatelink)|Ger dig åtkomst till Azure PaaS Services (till exempel Azure Storage och SQL Database) och Azure-värdbaserade kund tjänster/partner tjänster över en privat slut punkt i det virtuella nätverket.|<p>[Skapa en privat slut punkt](../private-link/create-private-endpoint-portal.md)</p><p>[Skapa en Private Link-tjänst](../private-link/create-private-link-service-portal.md)</p>|
 |||
 ### <a name="ddos-protection"></a><a name="ddosprotection"></a>DDoS Protection 
 [Azure DDoS Protection](../virtual-network/manage-ddos-protection.md) tillhandahåller motåtgärder mot de mest sofistikerade DDoS-hoten. Tjänsten tillhandahåller förbättrade funktioner för DDoS-minskning för ditt program och resurser som distribueras i dina virtuella nätverk. Dessutom kan kunder som använder Azure DDoS Protection ha till gång till DDoS Rapid Response-support för att engagera DDoS-experter under ett aktivt angrepp.
 
 ![DDoS Protection](./media/networking-overview/ddos-protection.png)
 
-### <a name="web-application-firewall"></a><a name="waf"></a>Brand vägg för webbaserade program
+### <a name="web-application-firewall"></a><a name="waf"></a>Brandvägg för webbaserade program
 
 [Azure brand vägg](../web-application-firewall/overview.md) för webbaserade program (WAF) ger skydd för dina webb program från vanliga webbutnyttjande och sårbarheter som SQL-inmatning och Cross Site Scripting. Azure WAF tillhandahåller direkt skydd från OWASP de 10 viktigaste säkerhets problemen via hanterade regler. Dessutom kan kunderna också konfigurera anpassade regler, som är kund hanterade regler för att ge ytterligare skydd baserat på käll-IP-intervall och begära attribut, till exempel huvuden, cookies, formulär data fält eller frågesträngs parametrar.
 

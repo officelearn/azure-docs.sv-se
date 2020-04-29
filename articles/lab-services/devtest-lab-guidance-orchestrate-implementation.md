@@ -1,6 +1,6 @@
 ---
-title: Orkestrera implementering av Azure DevTest Labs
-description: Den här artikeln innehåller vägledning för att samordna implementeringen av Azure DevTest Labs i din organisation.
+title: Samordna implementeringen av Azure DevTest Labs
+description: Den här artikeln innehåller rikt linjer för att dirigera implementering av Azure DevTest Labs i din organisation.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,51 +14,51 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: fc6cbbd0aa9cb0750e497c7cc7edbd42f21bda55
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82025007"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Dirigera implementeringen av Azure DevTest Labs
-Den här artikeln innehåller en rekommenderad metod för snabb distribution och implementering av Azure DevTest Labs. Följande bild betonar den övergripande processen som normativ vägledning samtidigt som flexibiliteten iakttas för att stödja olika branschkrav och scenarier.
+Den här artikeln innehåller en rekommenderad metod för snabb distribution och implementering av Azure DevTest Labs. Följande bild betonar den övergripande processen som vägledning och ger flexibilitet för att stödja olika bransch krav och scenarier.
 
 ![Steg för att implementera Azure DevTest Labs](./media/devtest-lab-guidance-orchestrate-implementation/implementation-steps.png)
 
 ## <a name="assumptions"></a>Antaganden
 Den här artikeln förutsätter att du har följande objekt på plats innan du implementerar en DevTest Labs-pilot:
 
-- **Azure-prenumeration:** Pilotteamet har åtkomst till distribution av resurser till en Azure-prenumeration. Om arbetsbelastningarna bara är utveckling och testning rekommenderar vi att du väljer Enterprise DevTest-erbjudandet för ytterligare tillgängliga avbildningar och lägre priser på virtuella Windows-datorer.
-- **Lokal åtkomst**: Vid behov har lokal åtkomst redan konfigurerats. Den lokala åtkomsten kan ske via en VPN-anslutning från plats till plats eller via Express Route. Anslutning via Express Route kan vanligtvis ta många veckor att upprätta, det rekommenderas att ha Express Route på plats innan du startar projektet.
-- **Pilotteam:** De inledande utvecklingsprojektteamen som använder DevTest Labs har identifierats tillsammans med tillämpliga utvecklings- eller testaktiviteter och fastställer krav/mål/mål för dessa team.
+- **Azure-prenumeration**: pilot teamet har åtkomst till att distribuera resurser till en Azure-prenumeration. Om arbets belastningarna endast är utveckling och testning rekommenderar vi att du väljer Enterprise DevTest-erbjudandet för ytterligare tillgängliga avbildningar och lägre priser på virtuella Windows-datorer.
+- **Lokal åtkomst**: vid behov har lokal åtkomst redan kon figurer ATS. Den lokala åtkomsten kan utföras via en VPN-anslutning från plats till plats eller via Express Route. Anslutning via Express Route kan vanligt vis ta många veckor att upprätta, vi rekommenderar att du har en Express-väg på plats innan du startar projektet.
+- **Pilot team**: de första utvecklings projekt teamet som använder DevTest Labs har identifierats tillsammans med lämpliga utvecklings-eller testnings aktiviteter och upprättar krav/mål/mål för dessa team.
 
-## <a name="milestone-1-establish-initial-network-topology-and-design"></a>Milstolpe 1: Upprätta inledande nätverkstopologi och design
-Det första fokusområdet när du distribuerar en Azure DevTest Labs-lösning är att upprätta den planerade anslutningen för de virtuella datorerna. I följande steg beskrivs de nödvändiga förfarandena:
+## <a name="milestone-1-establish-initial-network-topology-and-design"></a>Mil stolpe 1: upprätta inledande nätverkstopologi och design
+Det första avsnittet i fokus när du distribuerar en Azure DevTest Labs-lösning är att upprätta den planerade anslutningen för de virtuella datorerna. Följande steg beskriver de nödvändiga procedurerna:
 
-1. Definiera **inledande IP-adressintervall** som har tilldelats DevTest Labs-prenumerationen i Azure. Det här steget kräver att du prognostisera den förväntade användningen i antal virtuella datorer så att du kan tillhandahålla ett tillräckligt stort block för framtida expansion.
-2. Identifiera metoder för **önskad åtkomst** till DevTest Labs (till exempel extern/ intern åtkomst). En viktig punkt i det här steget är att avgöra om virtuella datorer har offentliga IP-adresser (det vill ha direkt tillgängligt från Internet).
-3. Identifiera och upprätta **metoder för anslutning** med resten av Azure-molnmiljön och lokala. Om den påtvingade routningen med Express Route är aktiverad är det troligt att de virtuella datorerna behöver lämpliga proxykonfigurationer för att gå igenom företagets brandvägg.
-4. Om virtuella datorer ska **domänanslutas**bestämmer du om de ansluter till en molnbaserad domän (AAD Directory Services till exempel) eller en lokal domän. För lokala, bestämma vilken organisationsenhet (OU) inom active directory som de virtuella datorerna ansluter. Bekräfta dessutom att användare har åtkomst till att gå med (eller upprätta ett tjänstkonto som har möjlighet att skapa maskinposter i domänen)
+1. Definiera **första IP-adressintervall** som har tilldelats DevTest Labs-prenumerationen i Azure. Det här steget kräver en prognos av förväntad användning i antal virtuella datorer så att du kan tillhandahålla ett tillräckligt stort block för framtida expansion.
+2. Identifiera **metoder för önskad åtkomst** i DevTest Labs (till exempel extern/intern åtkomst). En viktig punkt i det här steget är att fastställa om virtuella datorer har offentliga IP-adresser (som är tillgängliga direkt från Internet).
+3. Identifiera och upprätta **anslutnings metoder** med resten av moln miljön i Azure och lokalt. Om den tvingade routningen med Express Route är aktive rad, är det troligt att de virtuella datorerna behöver rätt proxykonfiguration för att passera företags brand väggen.
+4. Om de virtuella datorerna **ska vara domänanslutna, avgör**du om de ansluter till en molnbaserad domän (t. ex. katalog tjänster av AAD) eller en lokal domän. För lokal, Bestäm vilken organisationsenhet (OU) i Active Directory som de virtuella datorerna ansluter till. Bekräfta dessutom att användarna har åtkomst till (eller upprätta ett tjänst konto som har möjlighet att skapa dator poster i domänen)
 
-## <a name="milestone-2-deploy-the-pilot-lab"></a>Milstolpe 2: Distribuera pilotlabbet
-När nätverkstopologin är på plats kan det första/pilotlabbet skapas genom att vidta följande åtgärder:
+## <a name="milestone-2-deploy-the-pilot-lab"></a>Mil stolpe 2: Distribuera pilot labbet
+När nätverk sto pol Ogin är på plats kan du skapa det första/pilot labbet genom att vidta följande steg:
 
 1. Skapa en första DevTest Labs-miljö.
-2. Bestäm tillåtna VM-avbildningar och storlekar för användning med labb. Bestäm om anpassade avbildningar kan överföras till Azure för användning med DevTest Labs.
-3. Säker åtkomst till labbet genom att skapa inledande rollbasåtkomstkontroller (RBAC) för labbet (labbägare och labbanvändare). Vi rekommenderar att du använder synkroniserade active directory-konton med Azure Active Directory för identitet med DevTest Labs.
-4. Konfigurera DevTest Labs så att principer som scheman, kostnadshantering, anspråksbara virtuella datorer, anpassade avbildningar eller formler används.
-5. Upprätta en onlinedatabas som Azure Repos/Git.
-6. Besluta om användningen av offentliga eller privata förråd eller kombination av båda. Organisera JSON-mallar för distributioner och långsiktig underhåll.
+2. Bestäm vilka tillåtna VM-avbildningar och storlekar som ska användas med labb. Bestäm om anpassade avbildningar kan överföras till Azure för användning med DevTest Labs.
+3. Skydda åtkomsten till labbet genom att skapa den inledande rollen grundläggande åtkomst kontroll (RBAC) för labbet (labb ägare och labb användare). Vi rekommenderar att du använder synkroniserade Active Directory-konton med Azure Active Directory för identitet med DevTest Labs.
+4. Konfigurera DevTest Labs för att använda principer som scheman, kostnads hantering, virtuella datorer som kan krävas, anpassade bilder eller formler.
+5. Upprätta en online-lagringsplats, till exempel Azure databaser/git.
+6. Bestäm om du vill använda offentliga eller privata databaser eller kombinationen av båda. Organisera JSON-mallar för distributioner och långsiktigt skydd.
 7. Skapa anpassade artefakter om det behövs. Det här steget är valfritt. 
 
-## <a name="milestone-3-documentation-support-learn-and-improve"></a>Milstolpe 3: Dokumentation, support, lära och förbättra
-De första pilotteamen kan behöva ingående stöd för att komma igång. Använd deras upplevelser för att säkerställa att rätt dokumentation och support finns på plats för fortsatt distribution av Azure DevTest Labs.
+## <a name="milestone-3-documentation-support-learn-and-improve"></a>Mil stolpe 3: dokumentation, support, lära och förbättra
+De ursprungliga pilot teamen kan kräva djupgående support för att komma igång. Använd deras upplevelser för att se till att rätt dokumentation och support är på plats för fortsatt distribution av Azure DevTest Labs.
 
-1. Introducera pilotteamen till deras nya DevTest Labs-resurser (demos, dokumentation)
-2. Baserat på pilotteamens erfarenheter, planera och leverera dokumentation efter behov
-3. Formalisera processen för introduktion av nya team (skapa och konfigurera labb, ge åtkomst, etc)Formalize process for onboarding new teams (creating and configuring labs, providing access, etc)
-4. Baserat på det första upptaget, kontrollera ursprungliga prognosen för IP-adressutrymme är fortfarande rimligt och korrekt
-5. Se till att lämpliga efterlevnads- och säkerhetsgranskningar har slutförts
+1. Presentera pilot teamen för de nya DevTest Labs-resurserna (demonstrationer, dokumentation)
+2. Utifrån pilot Teams erfarenheter, planera och leverera dokumentation efter behov
+3. Formalisera process för att registrera nya team (skapa och konfigurera labb, ge åtkomst osv.)
+4. Under den första upptagningen verifierar du att den ursprungliga prognosen för IP-adressutrymmet fortfarande är rimlig och korrekt
+5. Se till att lämpliga efterlevnads-och säkerhets granskningar har slutförts
 
 ## <a name="next-steps"></a>Nästa steg
-Se nästa artikel i den här serien: [Styrning av Azure DevTest Labs-infrastruktur](devtest-lab-guidance-governance-resources.md)
+Se nästa artikel i den här serien: [styrning av Azure DevTest Labs infrastruktur](devtest-lab-guidance-governance-resources.md)

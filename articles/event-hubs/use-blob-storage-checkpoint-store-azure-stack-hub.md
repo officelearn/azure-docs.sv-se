@@ -1,6 +1,6 @@
 ---
-title: Använda Blob Storage som kontrollpunktsarkiv på Azure Stack Hub (förhandsversion)
-description: I den här artikeln beskrivs hur du använder Blob Storage som en kontrollpunktsbutik i eventhubbar på Azure Stack Hub (förhandsversion).
+title: Använd Blob Storage som kontroll punkts Arkiv på Azure Stack Hub (för hands version)
+description: Den här artikeln beskriver hur du använder Blob Storage som en kontroll punkts lagring i Event Hubs på Azure Stack hubben (för hands version).
 services: event-hubs
 documentationcenter: na
 author: spelluru
@@ -9,32 +9,32 @@ ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: spelluru
 ms.openlocfilehash: 2938099383c32eac493e4b4bb620f03c76ca5c44
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82023674"
 ---
-# <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Använd Blob Storage som kontrollpunktsarkiv – eventhubbar på Azure Stack Hub (förhandsversion)
-Om du använder Azure Blob Storage som kontrollpunktsarkiv i en miljö som stöder en annan version av Storage Blob SDK än de som vanligtvis är tillgängliga på Azure, måste du använda koden för att ändra API-versionen för lagringstjänsten till den specifika versionen som stöds av den miljön. Om du till exempel kör [Event Hubs på en Azure Stack Hub version 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)är den högsta tillgängliga versionen för lagringstjänsten version 2017-11-09. I det här fallet måste du använda kod för att rikta api-versionen för lagringstjänsten till 2017-11-09. Ett exempel på hur du inriktar dig på en specifik Storage API-version finns i dessa exempel på GitHub: 
+# <a name="use-blob-storage-as-checkpoint-store---event-hubs-on-azure-stack-hub-preview"></a>Använd Blob Storage som kontroll punkts lager-Event Hubs på Azure Stack hubben (för hands version)
+Om du använder Azure Blob Storage som kontroll punkts Arkiv i en miljö som har stöd för en annan version av Storage BLOB SDK än de som vanligt vis är tillgängliga på Azure, måste du använda kod för att ändra Storage Service API-versionen till den version som stöds av den aktuella miljön. Om du till exempel kör [Event Hubs på en Azure Stack hubb version 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)är den högsta tillgängliga versionen för lagrings tjänsten version 2017-11-09. I så fall måste du använda kod för att rikta Storage Service API-versionen till 2017-11-09. Ett exempel på hur du riktar in en speciell Storage API-version finns i följande exempel på GitHub: 
 
 - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs)
 - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithCustomStorageVersion.java). 
-- [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) eller [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) 
-- Python - [Synkron](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [Asynkron](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
+- [Java Script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) eller [typescript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) 
+- Python – [synkron](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py), [asynkron](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py)
 
 > [!IMPORTANT]
-> Event Hubs på Azure Stack Hub är för närvarande i [förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) och är gratis. 
+> Event Hubs på Azure Stack Hub är för närvarande en för [hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) och är kostnads fri. 
 
-Om du kör Mottagare av Event Hubs som använder Blob Storage som kontrollpunktsarkiv utan att inrikta dig på den version som Azure Stack Hub stöder visas följande felmeddelande:
+Om du kör Event Hubs mottagare som använder Blob Storage som kontroll punkts arkiv utan att behöva rikta den version som Azure Stack Hub har stöd för, får du följande fel meddelande:
 
 ```
 The value for one of the HTTP headers is not in the correct format
 ```
 
 
-## <a name="sample-error-message-in-python"></a>Exempel på felmeddelande i Python
-För Python skickas `azure.core.exceptions.HttpResponseError` ett fel i `on_error(partition_context, error)` felhanteraren `EventHubConsumerClient.receive()`för . Men metoden `receive()` tar inte upp ett undantag. `print(error)`kommer att skriva ut följande undantagsinformation:
+## <a name="sample-error-message-in-python"></a>Exempel fel meddelande i python
+För python skickas ett fel `azure.core.exceptions.HttpResponseError` till fel hanteraren `on_error(partition_context, error)` för. `EventHubConsumerClient.receive()` Men metoden `receive()` utlöser inte ett undantag. `print(error)`följande undantags information skrivs ut:
 
 ```bash
 The value for one of the HTTP headers is not in the correct format.
@@ -47,7 +47,7 @@ HeaderName:x-ms-version
 HeaderValue:2019-07-07
 ```
 
-Loggern loggar två varningar som följande:
+Loggaren kommer att logga två varningar som följande:
 
 ```bash
 WARNING:azure.eventhub.extensions.checkpointstoreblobaio._blobstoragecsaio: 
@@ -64,4 +64,4 @@ The exception is HttpResponseError('The value for one of the HTTP headers is not
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande artikel lär dig mer om partitionering och kontrollpunkter: [Balansera partitionsbelastning över flera instanser av ditt program](event-processor-balance-partition-load.md)
+Mer information om partitionering och kontroll punkter finns i följande artikel: [utjämna partition belastning över flera instanser av programmet](event-processor-balance-partition-load.md)

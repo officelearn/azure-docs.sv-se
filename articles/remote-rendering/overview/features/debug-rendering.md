@@ -1,30 +1,30 @@
 ---
 title: Rendering av felsökning
-description: Översikt över felsökningsrenderingar på serversidan
+description: Översikt över åter givnings effekter på Server Sidan
 author: jumeder
 ms.author: jumeder
 ms.date: 04/09/2020
 ms.topic: article
 ms.openlocfilehash: f10c736cad9322752d5d552d29ef0c63635628a5
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81868163"
 ---
 # <a name="debug-rendering"></a>Rendering av felsökning
 
-Felsökningsrenden API:et innehåller en rad globala alternativ för att ändra återgivning på serversidan med olika felsökningseffekter.
+API för fel söknings åter givning innehåller en uppsättning globala alternativ för att ändra åter givning på Server sidan med olika fel söknings effekter.
 
-## <a name="available-debug-rendering-effects"></a>Tillgängliga felsökningsrenderingseffekter
+## <a name="available-debug-rendering-effects"></a>Tillgängliga fel söknings åter givnings effekter
 
-|Inställning                          | Verkan                               |
+|Inställningen                          | Verkan                               |
 |---------------------------------|:-------------------------------------|
-|Ramräknare                    | Återger ett textöverlägg i ramens övre vänstra hörn. Texten visar det aktuella ram-ID:t på serversidan, som kontinuerligt ökas när renderingen fortsätter. |
-|Antal polygoner                    | Återger ett textöverlägg i ramens övre vänstra hörn. Texten visar den återgivningsmängd som för närvarande återges, samma värde som efterfrågas av [prestandafrågor på serversidan](performance-queries.md)| 
-|Trådram                        | Om det är aktiverat återges alla objektgeometri som läses in på servern i wireframe-läge. Endast kanterna på polygoner rastreras i det här läget. |
+|Bild Rute räknare                    | Återger ett text överlägg i det övre vänstra hörnet av ramen. Texten visar det aktuella ram-ID: t för Server sidan, som kontinuerligt ökar när åter givningen fortsätter. |
+|Antal polygoner                    | Återger ett text överlägg i det övre vänstra hörnet av ramen. Texten visar den aktuella åter givnings mängden av polygoner, samma värde som efter frågas av [prestanda frågor på Server sidan](performance-queries.md)| 
+|Tråd block                        | Om aktive rad kommer all objekt geometri som läses in på servern att återges i tråd Rams läge. Endast kanterna på polygoner rastreras i det här läget. |
 
-Följande kod möjliggör dessa felsökningseffekter:
+Följande kod aktiverar dessa fel söknings effekter:
 
 ``` cs
 void EnableDebugRenderingEffects(AzureSession session, bool highlight)
@@ -42,21 +42,21 @@ void EnableDebugRenderingEffects(AzureSession session, bool highlight)
 }
 ```
 
-![Felsökningsrendering](./media/debug-rendering.png)
+![Fel söknings åter givning](./media/debug-rendering.png)
 
 > [!NOTE]
-> Alla felsökningsrenderingseffekter är globala inställningar som påverkar hela ramen.
+> Alla effekter för fel söknings åter givning är globala inställningar som påverkar hela ramen.
 
 ## <a name="use-cases"></a>Användningsfall
 
-Felsökningsrende API:et är avsett för enkla felsökningsuppgifter, som att verifiera att tjänstanslutningen faktiskt är igång korrekt. Textåtergivningsalternativen påverkar direkt de nedströms videobildrutorna. Om du aktiverar dem verifieras om nya bildrutor tas emot och videoavkodas korrekt.
+API för fel söknings åter givning är avsett för enkla fel söknings åtgärder, som att verifiera att tjänst anslutningen faktiskt är igång och körs korrekt. Alternativen för text åter givning påverkar de nedströms video bild rutorna direkt. Om du aktiverar dem verifieras om nya ramar tas emot och video-avkodas korrekt.
 
-De angivna effekterna ger dock inte någon detaljerad introspektion i tjänsten hälsa. [Prestandafrågor på serversidan](performance-queries.md) rekommenderas för det här användningsfallet.
+De tillhandahållna effekterna ger dock ingen detaljerad introspektionsfunktionerna till tjänstens hälsa. [Prestanda frågorna på Server sidan](performance-queries.md) rekommenderas för det här användnings fallet.
 
 ## <a name="performance-considerations"></a>Saker att tänka på gällande prestanda
 
-* Om du aktiverar textöverläggen uppstår inte mycket eller ingen prestanda.
-* Aktivera wireframe-läget medför en icke-trivial prestanda overhead, men det kan variera beroende på scenen. För komplexa scener kan det här läget leda till att bildhastigheten sjunker under 60-Hz-målet.
+* Att aktivera text överlägg innebär lite till ingen prestanda.
+* Aktivering av tråd Rams läge medför en icke-trivial prestanda, men det kan variera beroende på scenen. För komplexa scener kan det här läget orsaka att bild frekvensen släpps under 60-Hz-målet.
 
 ## <a name="next-steps"></a>Nästa steg
 

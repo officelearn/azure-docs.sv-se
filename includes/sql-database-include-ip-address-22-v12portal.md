@@ -1,7 +1,7 @@
 ---
 title: Brandväggsregler på servernivå
 description: Brandväggsregler på servernivå
-keywords: sql-anslutning,anslutningssträng
+keywords: SQL-anslutning, anslutnings sträng
 services: sql-database
 author: dalechen
 manager: craigg
@@ -11,33 +11,33 @@ ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
 ms.openlocfilehash: 8d0f9899dbb7599340b8d15ca010a0157011fb9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67187422"
 ---
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-2. Välj **Alla tjänster**i listan till vänster .
+2. I listan till vänster väljer du **alla tjänster**.
 
 3. Bläddra och välj **SQL-servrar**.
 
-    ![Hitta din Azure SQL Database-server i portalen][b21-FindServerInPortal]
-5. Börja skriva namnet på servern i textrutan för filtret. Din rad visas.
+    ![Hitta din Azure SQL Database-Server i portalen][b21-FindServerInPortal]
+5. I text rutan Filter börjar du skriva namnet på servern. Raden visas.
 
-6. Markera raden för servern. Ett blad för servern visas.
+6. Välj raden för servern. Ett blad för servern visas.
 
-7. Välj **Inställningar**på serverbladet .
+7. Välj **Inställningar**på Server bladet.
 
-8. Välj **Brandvägg**.
+8. Välj **brand vägg**.
 
-    ![Välj inställningar > brandvägg][b31-SettingsFirewallNavig]
-9. Välj **Lägg till klient-IP**. Skriv ett namn på den nya regeln i den första textrutan.
+    ![Välj inställningar > brand vägg][b31-SettingsFirewallNavig]
+9. Välj **Lägg till klient-IP**. Ange ett namn för den nya regeln i den första text rutan.
 
-10. Skriv in de låga och höga IP-adressvärdena för det intervall som du vill aktivera.
+10. Ange de låga och höga IP-värdena för det intervall som du vill aktivera.
 
-    * Det kan vara praktiskt att ha det låga värdet med **0,0** och det höga värdet med **0,255**.
+    * Det kan vara praktiskt att ha ett lågt värde för **DPM\DPM\ProtectionAgents\RA\3.0.** och det höga värdet slutar med **. 255**.
 
 11. Välj **Spara**.
 

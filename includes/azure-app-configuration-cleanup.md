@@ -9,23 +9,23 @@ ms.date: 1/31/2020
 ms.author: lcozzens
 ms.custom: include file
 ms.openlocfilehash: 3eb77799b1845112e9f7e5ca0b65d790625fd529
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76961519"
 ---
-Om du planerar att fortsätta till nästa självstudiekurs behåller du de resurser som du skapade i den här snabbstarten för att du kan återanvända dem.
+Om du planerar att fortsätta till nästa självstudie ska du behålla de resurser du skapade i den här snabb starten för att du ska kunna återanvända dem.
 
-Om du är klar med snabbstartsextmplingsprogrammet tar du bort De Azure-resurser som du skapade i den här snabbstarten för att undvika avgifter.
+Om du är klar med exempel programmet för snabb start tar du bort de Azure-resurser som du skapade i den här snabb starten för att undvika avgifter.
 
 > [!IMPORTANT]
-> Att ta bort en resursgrupp kan inte ångras. Resursgruppen och alla resurser i den tas bort permanent. Var noga så att du inte tar bort fel resursgrupp eller resurser av misstag. Om du har skapat resurserna för att vara värd för det här exemplet i en resursgrupp som innehåller resurser som du vill behålla, tar du bort varje resurs individuellt från respektive fönster i stället för att ta bort resursgruppen.
+> Att ta bort en resursgrupp kan inte ångras. Resurs gruppen och alla resurser i den tas bort permanent. Var noga så att du inte tar bort fel resursgrupp eller resurser av misstag. Om du har skapat resurserna för att vara värd för det här exemplet i en resurs grupp som innehåller resurser som du vill behålla, tar du bort varje resurs separat från dess respektive fönster i stället för att ta bort resurs gruppen.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com)och välj **Resursgrupper**.
-1. Ange namnet på resursgruppen i rutan Filtrera efter **namn.** 
-1. I resultatlistan markerar du resursgruppen och högerklickar antingen på raden eller använder **ellipsen** (**...**) för att öppna snabbmenyn.
+1. Logga in på [Azure Portal](https://portal.azure.com)och välj **resurs grupper**.
+1. I rutan **Filtrera efter namn** anger du namnet på din resurs grupp. 
+1. I resultat listan väljer du resurs gruppen och antingen högerklickar du på raden eller använder knappen med **tre punkter** (**...**) för att öppna snabb menyn.
 1. Välj **Ta bort resursgrupp**.
-1. Du blir ombedd att bekräfta borttagningen av resursgruppen. Ange namnet på resursgruppen som du vill bekräfta och välj **Ta bort**.
+1. Du blir ombedd att bekräfta borttagningen av resursgruppen. Ange namnet på resurs gruppen som ska bekräftas och välj **ta bort**.
 
-Efter en stund tas resursgruppen och alla dess resurser bort.
+Efter en liten stund tas resurs gruppen och alla dess resurser bort.

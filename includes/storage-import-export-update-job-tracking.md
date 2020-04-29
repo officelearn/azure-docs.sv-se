@@ -9,21 +9,21 @@ ms.date: 07/17/2018
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: 5aa64671cddf2542972ac753c0132a5abebaebfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67187557"
 ---
-När du har har exporterat diskarna går du tillbaka till sidan **Importera/exportera** på Azure-portalen. 
+När du har levererat diskarna går du tillbaka till sidan **Importera/exportera** på Azure Portal. 
 
 > [!IMPORTANT] 
-> Om spårningsnumret inte uppdateras inom 2 veckor efter att jobbet skapats upphör jobbet att gälla. 
+> Om spårnings numret inte uppdateras inom 2 veckor från det att jobbet har skapats, förfaller jobbet. 
 
-Så här uppdaterar du spårningsnumret:
+Utför följande steg för att uppdatera spårnings numret.
  
-1. Markera och klicka på jobbet.
-2. Klicka på **Uppdatera jobbstatus och spårningsinformation när enheterna har levererats**. 
-3. Markera kryssrutan mot **Markera som levererad**.
-4. Ange **transport-** och **spårningsnummer**.
-5. Spåra jobbstatusen på portalinstrumentpanelen. En beskrivning av varje jobbtillstånd finns i [Visa jobbstatus](../articles/storage/common/storage-import-export-view-drive-status.md).
+1. Välj och klicka på jobbet.
+2. Klicka på **Uppdatera jobb status och spårnings information när enheterna har levererats**. 
+3. Markera kryss rutan mot **Markera som levererad**.
+4. Ange **operatörs** -och **spårnings numret**.
+5. Spåra jobb förloppet på portalens instrument panel. Om du vill ha en beskrivning av varje jobb tillstånd går du till [Visa jobb status](../articles/storage/common/storage-import-export-view-drive-status.md).

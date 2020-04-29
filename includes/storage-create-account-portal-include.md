@@ -9,10 +9,10 @@ ms.date: 05/06/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: ea8ed75bf91850abb95ebe983923989375c0fcf5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76759864"
 ---
 Följ de här stegen för att skapa ett GPv2-konto för generell användning i Azure Portal:
@@ -36,8 +36,8 @@ Följ de här stegen för att skapa ett GPv2-konto för generell användning i A
    |Replikering     |Geo-redundant lagring med läsbehörighet (RA-GRS)         |
    |Åtkomstnivå     |Frekvent         |
 
-8. Om du planerar att använda [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)väljer du fliken **Avancerat** och anger sedan **hierarkiskt namnområde** till **Aktiverad**.
+8. Om du planerar att använda [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)väljer du fliken **Avancerat** och sedan ange **hierarkiskt namn område** till **aktive rad**.
 9. Välj **Granska + skapa** för att granska inställningarna för ditt lagringskonto och skapa kontot.
 10. Välj **Skapa**.
 
-Mer information om typer av lagringskonton och andra inställningar för lagringskonto finns i [översikten över Azure-lagringskonton](https://docs.microsoft.com/azure/storage/common/storage-account-overview). Mer information om resursgrupper finns i [översikt över Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). 
+Mer information om typer av lagringskonton och andra inställningar för lagringskonto finns i [översikten över Azure-lagringskonton](https://docs.microsoft.com/azure/storage/common/storage-account-overview). Mer information om resurs grupper finns i [Azure Resource Manager översikt](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). 

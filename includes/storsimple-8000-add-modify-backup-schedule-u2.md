@@ -5,25 +5,25 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 2ab3b089ce65c9f27457fd1cfb360d6776ed6244
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67187532"
 ---
-#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Så här lägger du till eller ändrar ett StorSimple-schema för säkerhetskopiering
+#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Lägga till eller ändra ett schema för StorSimple säkerhets kopiering
 
 1. Gå till din StorSimple-enhet och klicka på **Säkerhetskopieringspolicy**.
 
-2. Markera och klicka på den princip som du vill ändra i tabelllistan för principerna. Högerklicka om du vill anropa snabbmenyn och välj sedan **Lägg till schema**.
+2. I tabell listan över principer väljer du och klickar på den princip som du vill ändra. Högerklicka för att anropa snabb menyn och välj sedan **Lägg till schema**.
 
     ![hantera scheman](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule1.png)
 
-3. I bladet **Lägg till schema** ändrar du ögonblicksbildtyp, säkerhetskopieringsfrekvens, kvarhållning och startdatum och starttid. Klicka på **Lägg till**.
+3. Ändra ögonblicks bilds typ, säkerhets kopierings frekvens, kvarhållning och start datum och tid i bladet **Lägg till schema** . Klicka på **Lägg till**.
 
     ![hantera scheman](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
 
-4. Du får ett meddelande när skapandet av säkerhetskopieringsprincipen är klar. Listan för principer för säkerhetskopiering uppdateras också.
+4. Du får ett meddelande när säkerhets kopierings principen har skapats. Listan över säkerhets kopierings principer uppdateras också.
 
     ![hantera scheman](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule4.png)
 

@@ -9,33 +9,33 @@ ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: a5c1ddd085ae65b9920d73f50f993f4646785a69
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68883727"
 ---
 ## <a name="create-a-module-identity"></a>Skapa en modulidentitet
 
-I det här avsnittet skapar du en .NET-konsolapp som skapar en enhetsidentitet och en modulidentitet i identitetsregistret i hubben. En enhet eller modul kan inte ansluta till hubben om den inte har en post i identitetsregistret. Mer information finns i avsnittet om [identitetsregistret i utvecklarhandboken för IoT Hub](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
+I det här avsnittet skapar du en .NET-konsol app som skapar en enhets identitet och en modul identitet i identitets registret i din hubb. En enhet eller modul kan inte ansluta till hubben om den inte har en post i identitets registret. Mer information finns i avsnittet om [identitetsregistret i utvecklarhandboken för IoT Hub](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
 
-När du kör den här konsolappen, genereras ett unikt ID och en unik nyckel för både enheten och modulen. Enheten och modulen använder dessa värden för att identifiera sig när de skickar meddelanden från enhet till moln till IoT Hub. ID:n är skiftlägeskänsliga.
+När du kör den här konsolappen, genereras ett unikt ID och en unik nyckel för både enheten och modulen. Enheten och modulen använder dessa värden för att identifiera sig själva när de skickar enhets-till-moln-meddelanden till IoT Hub. ID:n är skiftlägeskänsliga.
 
-1. Öppna Visual Studio och välj **Skapa ett nytt projekt**.
+1. Öppna Visual Studio och välj **skapa ett nytt projekt**.
 
-1. Välj **Console App (.NET Framework) i**Skapa ett nytt **projekt**.
+1. I **skapa ett nytt projekt**väljer du **konsol program (.NET Framework)**.
 
-1. Välj **Nästa** om du vill öppna **Konfigurera det nya projektet**. Ge projektet namnet *CreateIdentities* och lösningen namnet *IoTHubGetStarted*. Kontrollera att .NET Framework-versionen är 4.6.1 eller senare.
+1. Välj **Nästa** för att öppna **Konfigurera det nya projektet**. Ge projektet namnet *CreateIdentities* och lösningen namnet *IoTHubGetStarted*. Kontrollera att .NET Framework-versionen är 4.6.1 eller senare.
 
-    ![Ange namn och ramverk för visual studio-lösningen](./media/iot-hub-get-started-create-module-identity-csharp/configure-createidentities-project.png)
+    ![Ange namn och ramverk för din Visual Studio-lösning](./media/iot-hub-get-started-create-module-identity-csharp/configure-createidentities-project.png)
 
-1. Öppna **Tools** > **NuGet Package Manager** > **Hantera NuGet-paket för lösning**i Visual Studio. Välj fliken **Bläddra**.
+1. I Visual Studio öppnar du **verktyg** > **NuGet Package Manager** > **Hantera NuGet-paket för lösningen**. Välj fliken **Bläddra**.
 
-1. Sök efter **Microsoft.Azure.Devices**. Markera den och välj sedan **Installera**.
+1. Sök efter **Microsoft. Azure. Devices**. Markera den och välj sedan **Installera**.
 
-    ![Installera azure IoT Hub .NET-tjänst SDK-aktuell version](./media/iot-hub-get-started-create-module-identity-csharp/install-service-sdk.png)
+    ![Installera den aktuella versionen av Azure IoT Hub .NET service SDK](./media/iot-hub-get-started-create-module-identity-csharp/install-service-sdk.png)
 
-1. Lägg till `using` följande satser högst upp i **Program.cs-filen:**
+1. Lägg till följande `using` -instruktioner överst i **program.cs** -filen:
 
    ```csharp
    using Microsoft.Azure.Devices;
@@ -50,7 +50,7 @@ När du kör den här konsolappen, genereras ett unikt ID och en unik nyckel fö
    const string moduleID = "myFirstModule";
    ```
 
-1. Lägg till följande kod i klassen **Huvud.**
+1. Lägg till följande kod i **huvud** klassen.
 
    ```csharp
    static void Main(string[] args)
@@ -102,13 +102,13 @@ När du kör den här konsolappen, genereras ett unikt ID och en unik nyckel fö
     }
     ```
 
-    Metoden `AddDeviceAsync` skapar en enhetsidentitet med ID **myFirstDevice**. Om det redan finns enhets-ID i identitetsregistret hämtar koden helt enkelt den befintliga enhetsinformationen. Appen visar sedan den primära nyckeln för den identiteten. Du använder den här nyckeln i den simulerade enhetsappen för att ansluta till navet.
+    `AddDeviceAsync` Metoden skapar en enhets identitet med ID **t myfirstdevice**. Om enhets-ID: t redan finns i identitets registret hämtar koden bara den befintliga enhets informationen. Appen visar sedan den primära nyckeln för den identiteten. Du använder den här nyckeln i den simulerade Device-appen för att ansluta till din hubb.
 
-    Metoden `AddModuleAsync` skapar en modul identitet med ID **myFirstModule** under enheten **myFirstDevice**. Om det finns ett modul-ID redan i identitetsregistret hämtar koden helt enkelt den befintliga modulinformationen. Appen visar sedan den primära nyckeln för den identiteten. Du använder den här nyckeln i den simulerade modulappen för att ansluta till din hubb.
+    `AddModuleAsync` Metoden skapar en modul identitet med ID **myFirstModule** under enhets **t myfirstdevice**. Om detta modul-ID redan finns i identitets registret hämtar koden bara den befintliga informationen om modulen. Appen visar sedan den primära nyckeln för den identiteten. Du använder den här nyckeln i appen för simulerad modul för att ansluta till din hubb.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-1. Kör den här appen och anteckna enhetsnyckeln och modulnyckeln.
+1. Kör den här appen och anteckna enhets nyckeln och modulens nyckel.
 
 > [!NOTE]
-> IoT Hub-identitetsregistret lagrar bara enhets- och modulidentiteter för att möjliggöra säker åtkomst till navet. Enhets-ID:n och nycklar lagras i identitetsregistret och används som autentiseringsuppgifter. I identitetsregistret lagras också en aktiverad/inaktiverad-flagga för varje enhet som du kan använda till att inaktivera enhetens åtkomst. Om din app behöver lagra andra enhetsspecifika metadata bör den använda en programspecifik butik. Det finns ingen aktiverad/inaktiverad flagga för modulidentiteter. Mer information finns i [utvecklarhandboken för IoT Hub](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
+> Registret IoT Hub identitet lagrar endast enhets-och modulens identiteter för att möjliggöra säker åtkomst till hubben. Enhets-ID:n och nycklar lagras i identitetsregistret och används som autentiseringsuppgifter. I identitetsregistret lagras också en aktiverad/inaktiverad-flagga för varje enhet som du kan använda till att inaktivera enhetens åtkomst. Om appen behöver lagra andra enhetsspecifika metadata bör den använda ett programspecifikt arkiv. Det finns ingen aktiverad/inaktiverad flagga för modulidentiteter. Mer information finns i [utvecklarhandboken för IoT Hub](../articles/iot-hub/iot-hub-devguide-identity-registry.md).

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/20/2018
 ms.author: glenga
 ms.openlocfilehash: 82d122ed236dc72ced7ebafe2301ef5f1143897f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76963671"
 ---
-För att maximera prestanda, använd ett separat lagringskonto för varje funktionsapp. Detta är särskilt viktigt när du har funktioner med varaktiga funktioner eller händelsenav som utlöses, som båda genererar en stor mängd lagringstransaktioner. När din programlogik interagerar med Azure Storage, antingen direkt (med lagringSDK) eller via någon av lagringsbindningarna, bör du använda ett dedikerat lagringskonto. Om du till exempel har en eventnavet-utlöst funktion som skriver vissa&mdash;data till blob-lagring använder du två lagringskonton ett för funktionsappen och ett annat för de blobbar som lagras av funktionen.
+Använd ett separat lagrings konto för varje Function-app för att maximera prestanda. Detta är särskilt viktigt när du har inaktiverat funktioner i Durable Functions eller Event Hub, som båda genererar en stor mängd lagrings transaktioner. När din program logik interagerar med Azure Storage, antingen direkt (med Storage SDK) eller genom en av lagrings bindningarna, bör du använda ett dedikerat lagrings konto. Om du till exempel har en Event Hub-utlöst funktion som skriver vissa data till Blob Storage, använder du två lagrings&mdash;konton en för Function-appen och en annan för de blobbar som lagras av funktionen.

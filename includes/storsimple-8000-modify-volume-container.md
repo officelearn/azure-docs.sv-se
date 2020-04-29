@@ -5,39 +5,39 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 4cffbb1aaa438bac08ec77f576b32a901abacabd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67187389"
 ---
 > [!NOTE] 
-> Du kan inte ändra krypteringsinställningarna och autentiseringsuppgifterna för lagringskontot som är associerade med en volymbehållare när den har skapats.
+> Du kan inte ändra krypterings inställningarna och autentiseringsuppgifterna för lagrings kontot som är associerat med en volym behållare när den har skapats.
 
-#### <a name="to-modify-a-volume-container"></a>Så här ändrar du en volymbehållare
+#### <a name="to-modify-a-volume-container"></a>Ändra en volym behållare
 
-1. Gå till tjänsten StorSimple Device Manager och navigera sedan till **hantering > volymbehållare**.
+1. Gå till StorSimple Enhetshanteraren-tjänsten och navigera sedan till **hanterings > volym behållare**.
 
-2. Markera den volymbehållare som du vill ändra i listan över volymbehållare. Markera enheten på sidan **Enheter,** dubbelklicka på den och klicka sedan på fliken **Volymbehållare.**
+2. Välj den volym behållare som du vill ändra i tabell listan över volym behållare. På sidan **enheter** väljer du enheten, dubbelklickar på den och klickar sedan på fliken **volym behållare** .
 
-2. Markera den volymbehållare som du vill ändra i tabelllistan över volymbehållarna. Klicka på **Ändra** från kommandofältet i bladet som öppnas.
+2. I Tabellista för volym containrar väljer du den volym behållare som du vill ändra. På bladet som öppnas klickar du på **ändra** i kommando fältet.
 
-    ![Ändra volymbehållare](./media/storsimple-8000-modify-volume-container/modify-vol-container1.png)
+    ![Ändra volym container](./media/storsimple-8000-modify-volume-container/modify-vol-container1.png)
 
-3. Gör följande i **behållarbladet Ändra volym:**
+3. Utför följande steg på bladet **ändra volym behållare** :
    
-   1. Det går inte att ändra namn, krypteringsnyckel och lagringskonto som är associerat med volymbehållaren när de har angetts. Ändra den tillhörande bandbreddsinställningen.
+   1. Namn, krypterings nyckel och lagrings konto som är kopplat till volym containern kan inte ändras efter att de har angetts. Ändra den associerade bandbredds inställningen.
       
-       ![Ändra bandbreddsinställning](./media/storsimple-8000-modify-volume-container/modify-vol-container2.png)
+       ![Ändra bandbredds inställning](./media/storsimple-8000-modify-volume-container/modify-vol-container2.png)
 
    2.  Klicka på **OK**.
-4. På nästa sida i dialogrutan **Ändra volymbehållare:**
+4. På nästa sida i dialog rutan **ändra volym behållare** :
    
-   1. Välj en befintlig bandbreddsmall i listrutan.
-   2. Granska schemainställningarna för den angivna bandbreddsmallen.
+   1. Välj en befintlig bandbredds mal len i list rutan.
+   2. Granska schema inställningarna för den angivna bandbredds mal len.
    3. Klicka på **Spara** och bekräfta ändringarna.
       
        ![Bekräfta ändringar](./media/storsimple-8000-modify-volume-container/modify-vol-container3.png)
 
-   3. **Bladet Volymbehållare** uppdateras för att återspegla ändringarna.
+   3. Bladet **volym behållare** uppdateras för att avspegla ändringarna.
 

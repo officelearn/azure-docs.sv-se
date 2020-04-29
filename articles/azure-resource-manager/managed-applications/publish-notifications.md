@@ -1,42 +1,42 @@
 ---
-title: Hanterade appar med aviseringar
-description: Konfigurera hanterade program med webhook-slutpunkter för att ta emot meddelanden om skapar, uppdateringar, borttagningar och fel i hanterade programinstanser.
+title: Hanterade appar med meddelanden
+description: Konfigurera hanterade program med webhook-slutpunkter för att ta emot meddelanden om att skapa, uppdatera, ta bort och fel i de hanterade program instanserna.
 ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
 ms.openlocfilehash: ff058d7b51bd2e5efd80db69e5928d58fc5a7725
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76715683"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Azure-hanterade program med meddelanden
 
-Azure-hanterade programmeddelanden gör det möjligt för utgivare att automatisera åtgärder baserat på livscykelhändelser för hanterade programinstanser. Utgivare kan ange anpassade webhook-slutpunkter för att ta emot händelsemeddelanden om nya och befintliga hanterade programinstanser. Utgivare kan konfigurera anpassade arbetsflöden vid tidpunkten för programetablering, uppdateringar och borttagning.
+Azure-hanterade program meddelanden låter utgivare automatisera åtgärder baserat på livs cykel händelser för de hanterade program instanserna. Utgivare kan ange anpassade meddelande-webhook-slutpunkter för att ta emot händelse meddelanden om nya och befintliga hanterade program instanser. Utgivare kan konfigurera anpassade arbets flöden vid tidpunkten för program etablering, uppdateringar och borttagning.
 
 ## <a name="getting-started"></a>Komma igång
-Om du vill börja ta emot hanterade program startar du en offentlig HTTPS-slutpunkt och anger den när du publicerar programdefinitionen för tjänstkatalogen eller Azure Marketplace-erbjudandet.
+Börja ta emot hanterade program genom att sätta upp en offentlig HTTPS-slutpunkt och ange den när du publicerar tjänst katalogens program definition eller Azure Marketplace-erbjudande.
 
 Här är de rekommenderade stegen för att komma igång snabbt:
-1. Skapa en offentlig HTTPS-slutpunkt som loggar inkommande `200 OK`POST-begäranden och returnerar .
-2. Lägg till slutpunkten i programdefinitionen för tjänstkatalogen eller Azure Marketplace-erbjudandet som förklaras senare i den här artikeln.
-3. Skapa en hanterad programinstans som refererar till programdefinitionen eller Azure Marketplace-erbjudandet.
+1. Skapa en offentlig HTTPS-slutpunkt som loggar in inkommande POST-begäranden och `200 OK`returnerar.
+2. Lägg till slut punkten i program definitionen för tjänst katalogen eller Azure Marketplace-erbjudandet enligt beskrivningen längre fram i den här artikeln.
+3. Skapa en hanterad program instans som hänvisar till program definitionen eller Azure Marketplace-erbjudandet.
 4. Verifiera att meddelandena tas emot.
-5. Aktivera auktorisering enligt beskrivningen i avsnittet **Slutpunktsautentisering** i den här artikeln.
-6. Följ instruktionerna i avsnittet **Meddelandeschema** i den här artikeln för att tolka meddelandebegäranden och implementera din affärslogik baserat på meddelandet.
+5. Aktivera auktorisering enligt beskrivningen i avsnittet **Endpoint Authentication** i den här artikeln.
+6. Följ anvisningarna i avsnittet **meddelande schema** i den här artikeln för att analysera aviserings förfrågningar och implementera affärs logik baserat på meddelandet.
 
-## <a name="add-service-catalog-application-definition-notifications"></a>Lägga till programdefinitionsmeddelanden för tjänstkatalog
+## <a name="add-service-catalog-application-definition-notifications"></a>Lägg till program definitions meddelanden för tjänst katalog
 #### <a name="azure-portal"></a>Azure Portal
-Information om hur du kommer igång finns i [Publicera ett tjänstkatalogprogram via Azure Portal](./publish-portal.md).
+Information om hur du kommer igång finns i [publicera ett tjänst katalog program via Azure Portal](./publish-portal.md).
 
-![Definition av tjänstkatalogprogram i Azure-portalen](./media/publish-notifications/service-catalog-notifications.png)
+![Aviseringar för program definition i tjänst katalogen i Azure Portal](./media/publish-notifications/service-catalog-notifications.png)
 
-#### <a name="rest-api"></a>REST API
+#### <a name="rest-api"></a>REST-API
 
 > [!NOTE]
-> För närvarande kan du bara ange `notificationEndpoints` en slutpunkt i egenskaperna för programdefinitionen.
+> För närvarande kan du bara ange en slut punkt i `notificationEndpoints` egenskaperna för program definitionen.
 
 ``` JSON
     {
@@ -60,27 +60,27 @@ Information om hur du kommer igång finns i [Publicera ett tjänstkatalogprogram
         ...
 
 ```
-## <a name="add-azure-marketplace-managed-application-notifications"></a>Lägga till hanterade programmeddelanden för Azure Marketplace
-Mer information finns i [Skapa ett Azure-programerbjudande](../../marketplace/cloud-partner-portal/azure-applications/cpp-create-offer.md).
+## <a name="add-azure-marketplace-managed-application-notifications"></a>Lägg till aviseringar för hanterade program i Azure Marketplace
+Mer information finns i [skapa ett erbjudande för Azure-program](../../marketplace/cloud-partner-portal/azure-applications/cpp-create-offer.md).
 
-![Hanterade programmeddelanden i Azure Marketplace i Azure-portalen](./media/publish-notifications/marketplace-notifications.png)
+![Azure Marketplace-hanterade program meddelanden i Azure Portal](./media/publish-notifications/marketplace-notifications.png)
 ## <a name="event-triggers"></a>Händelseutlösare
 I följande tabell beskrivs alla möjliga kombinationer av EventType och ProvisioningState och deras utlösare:
 
-Eventtype | EtableringStat | Utlösare för meddelande
+Typ | ProvisioningState | Utlösare för avisering
 ---|---|---
-PUT | Accepterad | Hanterad resursgrupp har skapats och projicerats efter att programmet PUT (innan distributionen i den hanterade resursgruppen startas).
-PUT | Lyckades | Fullständig etablering av det hanterade programmet lyckades efter en PUT.
-PUT | Misslyckades | Fel i PUT av ansökan instans etablering vid något tillfälle.
-Patch | Lyckades | Efter en lyckad PATCH på den hanterade programinstansen för att uppdatera taggar, JIT-åtkomstprincip eller hanterad identitet.
-DELETE | Ta bort | Så snart användaren initierar en DELETE av en hanterad appinstans.
-DELETE | Borttagen | Efter fullständig och lyckad borttagning av det hanterade programmet.
-DELETE | Misslyckades | Efter eventuella fel under avetableringsprocessen som blockerar borttagningen.
-## <a name="notification-schema"></a>Schema för meddelanden
-När du vrider upp webhook-slutpunkten för att hantera aviseringar måste du tolka nyttolasten för att få viktiga egenskaper att sedan agera på aviseringen. Tjänstkatalog och Azure Marketplace-hanterade programmeddelanden innehåller många av samma egenskaper. Två små skillnader beskrivs i tabellen som följer proverna.
+PUT | Accepterad | En hanterad resurs grupp har skapats och projicerats efter att program har lagts till (innan distributionen i den hanterade resurs gruppen har startats).
+PUT | Lyckades | Fullständig etablering av det hanterade programmet lyckades efter en placering.
+PUT | Misslyckades | Det gick inte att ställa in program instansens etablerings plats.
+9.0a | Lyckades | Efter en lyckad korrigering på den hanterade program instansen för att uppdatera taggar, JIT-åtkomstkontroll eller hanterad identitet.
+DELETE | Rader | Så snart användaren initierar en borttagning av en hanterad App-instans.
+DELETE | Borttagen | Efter en fullständig och lyckad borttagning av det hanterade programmet.
+DELETE | Misslyckades | Efter ett fel under avetablerings processen som blockerar borttagningen.
+## <a name="notification-schema"></a>Meddelande schema
+När du skapar en webhook-slutpunkt för att hantera meddelanden måste du parsa nytto lasten för att få viktiga egenskaper för att sedan agera på aviseringen. Tjänst katalogen och hanterade program meddelanden i Azure Marketplace innehåller många av samma egenskaper. Två små skillnader beskrivs i tabellen som följer exemplen.
 
-#### <a name="service-catalog-application-notification-schema"></a>Meddelandeschema för tjänstkatalogprogram
-Här är ett exempel tjänst katalog meddelande efter den lyckade etableringen av en hanterad programinstans:
+#### <a name="service-catalog-application-notification-schema"></a>Tjänst katalog program aviserings schema
+Här är ett exempel på en tjänst katalog meddelande efter lyckad etablering av en hanterad program instans:
 ``` HTTP
 POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_parameter_value} HTTP/1.1
 
@@ -94,7 +94,7 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
 
 ```
 
-Om etableringen misslyckas skickas ett meddelande med felinformationen till den angivna slutpunkten.
+Om etableringen Miss lyckas skickas ett meddelande med fel information till den angivna slut punkten.
 
 ``` HTTP
 POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_parameter_value} HTTP/1.1
@@ -119,9 +119,9 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
 
 ```
 
-#### <a name="azure-marketplace-application-notification-schema"></a>Azure Marketplace-programmeddelandeschema
+#### <a name="azure-marketplace-application-notification-schema"></a>Aviserings schema för Azure Marketplace-program
 
-Här är ett exempel tjänst katalog meddelande efter den lyckade etableringen av en hanterad programinstans:
+Här är ett exempel på en tjänst katalog meddelande efter lyckad etablering av en hanterad program instans:
 ``` HTTP
 POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_parameter_value} HTTP/1.1
 
@@ -143,7 +143,7 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
 
 ```
 
-Om etableringen misslyckas skickas ett meddelande med felinformationen till den angivna slutpunkten.
+Om etableringen Miss lyckas skickas ett meddelande med fel information till den angivna slut punkten.
 
 ``` HTTP
 POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_parameter_value} HTTP/1.1
@@ -178,20 +178,20 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
 
 Parameter | Beskrivning
 ---|---
-Händelsetyp | Den typ av händelse som utlöste meddelandet. (TILL exempel PUT, PATCH, DELETE.)
-applicationId | Den fullständigt kvalificerade resursidentifieraren för det hanterade programmet som meddelandet utlöstes för.
-Händelsetid | Tidsstämpeln för händelsen som utlöste meddelandet. (Datum och tid i UTC ISO 8601-format.)
-etableringStaten | Etableringstillståndet för den hanterade programinstansen. (Till exempel Lyckades, Misslyckades, Ta bort, Bort.)
-fel | *Anges endast när etableringstaten misslyckades*. Innehåller felkoden, meddelandet och information om problemet som orsakade felet.
-ansökanDefinitionId | *Angiven endast för hanterade program i tjänstkatalogen*. Representerar den fullständigt kvalificerade resursidentifieraren för den programdefinition som den hanterade programinstansen har etablerats för.
-planera | *Angiven endast för Azure Marketplace-hanterade program*. Representerar utgivaren, erbjudandet, SKU och versionen av den hanterade programinstansen.
-billingDetails | *Angiven endast för Azure Marketplace-hanterade program.* Faktureringsinformationen för den hanterade programinstansen. Innehåller den resursUsageId som du kan använda för att fråga Azure Marketplace för användningsinformation.
+Händelsetyp | Typ av händelse som utlöste meddelandet. (Till exempel, skicka, korrigera, ta bort.)
+applicationId | Det fullständigt kvalificerade resurs-ID: t för det hanterade program som meddelandet utlöstes för.
+Händelsetid | Tidsstämpeln för händelsen som utlöste meddelandet. (Datum och tid i formatet UTC-ISO 8601.)
+provisioningState | Etablerings statusen för den hanterade program instansen. (Till exempel lyckad, misslyckad, borttagning, borttagen.)
+fel | *Anges bara när ProvisioningState misslyckades*. Innehåller felkod, meddelande och information om problemet som orsakade felet.
+applicationDefinitionId | *Anges endast för hanterade program i tjänst katalog*. Representerar det fullständigt kvalificerade resurs-ID: t för den program definition som den hanterade program instansen etablerades för.
+planera | *Anges endast för hanterade program i Azure Marketplace*. Representerar utgivare, erbjudande, SKU och version för den hanterade program instansen.
+billingDetails | *Anges endast för hanterade program i Azure Marketplace.* Fakturerings information för den hanterade program instansen. Innehåller resourceUsageId som du kan använda för att söka efter användnings information i Azure Marketplace.
 
-## <a name="endpoint-authentication"></a>Autentisering av slutpunkt
-Så här säkrar du webhook-slutpunkten och säkerställer meddelandets äkthet:
-1. Ange en frågeparameter ovanpå webhook-URI:n, så här: https\://your-endpoint.com?sig=Guid. Kontrollera att frågeparametern `sig` har det `Guid`förväntade värdet med varje meddelande .
-2. Utfärda en GET på den hanterade programinstansen med hjälp av applicationId. Verifiera att etableringstaten matchar etableringstaten av meddelandet för att säkerställa konsekvens.
+## <a name="endpoint-authentication"></a>Endpoint Authentication
+För att skydda webhook-slutpunkten och se till att aviseringen är äkta:
+1. Ange en frågeparameter ovanpå webhook-URI: n, så här: https\://Your-Endpoint.com? sig = GUID. Kontrol lera att Frågeparametern `sig` har det förväntade värdet `Guid`för varje meddelande.
+2. Utfärda en GET på den hanterade program instansen med hjälp av applicationId. Kontrol lera att provisioningState matchar provisioningState för meddelandet för att säkerställa konsekvens.
 
-## <a name="notification-retries"></a>Återförsök i anmälan
+## <a name="notification-retries"></a>Aviserings försök
 
-Tjänsten Meddelande om hanterat program förväntar sig ett `200 OK` svar från webhook-slutpunkten till meddelandet. Meddelandetjänsten försöker igen om webhook-slutpunkten returnerar en HTTP-felkod som är större än eller lika med 500, om den returnerar en felkod på 429 eller om slutpunkten tillfälligt inte kan nås. Om webhook-slutpunkten inte blir tillgänglig inom 10 timmar kommer meddelandemeddelandet att tas bort och försöken stoppas.
+I meddelande tjänsten för hanterade program förväntas ett `200 OK` svar från webhook-slutpunkten till meddelandet. Meddelande tjänsten kommer att försöka igen om webhook-slutpunkten returnerar en HTTP-felkod som är större än eller lika med 500, om den returnerar felkoden 429 eller om slut punkten är tillfälligt otillgänglig. Om webhook-slutpunkten inte blir tillgänglig inom 10 timmar tas aviserings meddelandet bort och Återförsöken stoppas.

@@ -5,29 +5,29 @@ ms.topic: include
 ms.date: 06/07/2019
 ms.author: rogarana
 ms.openlocfilehash: b28427b3ede0cfaeb9e08d3c73b15ea7f2961f1b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "71180076"
 ---
-#### <a name="additional-premium-file-share-level-limits"></a>Ytterligare begränsningar för delningsnivå för premiumfiler
+#### <a name="additional-premium-file-share-level-limits"></a>Ytterligare begränsningar för Premium fil resurs nivå
 
 |Område  |Mål  |
 |---------|---------|
-|Minsta storlek öka /minska    |1 GiB (gib)      |
-|Baslinje IOPS    |1 IOPS per GiB, upp till 100 000|
-|IOPS spricker    |3x IOPS per GiB, upp till 100 000|
-|Utgående ränta         |60 MiB/s + 0,06 * avsedd GiB        |
-|Inträngningshastighet| 40 MiB/s + 0,04 * avsedd GiB |
+|Minsta storlek för ökning/minskning    |1 GiB      |
+|Bas linje IOPS    |1 IOPS per GiB, upp till 100 000|
+|IOPS-burst    |3x IOPS per GiB, upp till 100 000|
+|Utgående hastighet         |60 MiB/s + 0,06 * etablerad GiB        |
+|Ingress-pris| 40 MiB/s + 0,04 * etablerad GiB |
 
-#### <a name="file-level-limits"></a>Begränsningar för filnivå
+#### <a name="file-level-limits"></a>Fil nivå begränsningar
 
-|Område  |Premium-fil  |Standardfil |
+|Område  |Premium-fil  |Standard fil |
 |---------|---------|---------|
 |Storlek                  |1 TiB         |1 TiB|
 |Max IOPS per fil     |5 000         |1,000|
-|Samtidiga handtag    |2 000         |2 000|
-|Utgående  |300 MiB/sek|      Visa standardvärden för fildataflöde|
-|Ingress  |200 MiB/sek| Visa standardvärden för fildataflöde|
-|Dataflöde| Se värden för ingående/utgående premiumfiler| Upp till 60 MiB/sek|
+|Samtidiga referenser    |2 000         |2 000|
+|Utgående  |300 MiB/SEK|      Se standard fil data flödes värden|
+|Ingress  |200 MiB/SEK| Se standard fil data flödes värden|
+|Dataflöde| Se ingångs-/utgående värden för Premium filen| Upp till 60 MiB/s|

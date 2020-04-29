@@ -5,10 +5,10 @@ ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: v-umha
 ms.openlocfilehash: 6f2a91a8ffce67d3c4008a7587f2787f6446c341
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76293257"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Övervaka Azure blockchain-tjänsten via Azure Monitor  
@@ -167,6 +167,6 @@ I följande tabell visas de prestanda mått som samlas in för varje nod i Azure
 |Lagrings användning      | GB   | Medel  | Den GB lagrings utrymme som används i genomsnitt för alla noder.       |
 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Läs mer om [Blockchain Data Manager](https://docs.microsoft.com/azure/blockchain/service/data-manager) för att avbilda och transformera blockchain-Data till Azure Event Grid.

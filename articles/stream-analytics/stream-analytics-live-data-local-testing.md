@@ -1,6 +1,6 @@
 ---
-title: Testa livedata med Azure Stream Analytics för Visual Studio
-description: Lär dig hur du testar ditt Azure Stream Analytics-jobb lokalt med hjälp av direktuppspelningsdata.
+title: Testa Live-data med Azure Stream Analytics för Visual Studio
+description: Lär dig hur du testar ditt Azure Stream Analytics jobb lokalt med Live streaming-data.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,60 +9,60 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: f2876ea32bdcd900a454ae6b7ac58c11b8ec67c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76840493"
 ---
-# <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Testa live-data lokalt med Hjälp av Azure Stream Analytics-verktyg för Visual Studio (förhandsversion)
+# <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Testa Live data lokalt med Azure Stream Analytics verktyg för Visual Studio (för hands version)
 
-Med Azure Stream Analytics-verktyg för Visual Studio kan du testa jobb lokalt från IDE med hjälp av livehändelseströmmar från Azure Event Hub, IoT Hub och Blob Storage. Lokala tester av livedata kan inte ersätta de [prestanda- och skalbarhetstester](stream-analytics-streaming-unit-consumption.md) som du kan utföra i molnet, men du kan spara tid under funktionstestning genom att inte behöva skicka till molnet varje gång du vill testa ditt Stream Analytics-jobb. Den här funktionen är i förhandsversion och bör inte användas för produktionsarbetsbelastningar.
+Med Azure Stream Analytics verktyg för Visual Studio kan du testa jobb lokalt från IDE med hjälp av live event Streams från Azure Event Hub, IoT Hub och Blob Storage. Data lokal testning i real tid kan inte ersätta [prestanda-och skalbarhets testning](stream-analytics-streaming-unit-consumption.md) som du kan utföra i molnet, men du kan spara tid under funktionell testning genom att inte behöva skicka till molnet varje gången du vill testa ditt Stream Analytics jobb. Den här funktionen är i för hands version och bör inte användas för produktions arbets belastningar.
 
-## <a name="testing-options"></a>Testa alternativ
+## <a name="testing-options"></a>Test alternativ
 
-Följande lokala testalternativ stöds:
+Följande lokala test alternativ stöds:
 
-|**Input**  |**Produktionen**  |**Jobbtyp**  |
+|**Indata**  |**Resultat**  |**Jobbtyp**  |
 |---------|---------|---------|
 |Lokala statiska data   |  Lokala statiska data   |   Moln/kant |
-|Live-indata   |  Lokala statiska data   |   Molnet |
-|Live-indata   |  Data för liveutdata   |   Molnet |
+|Direktsända indata   |  Lokala statiska data   |   Molnet |
+|Direktsända indata   |  Live output-data   |   Molnet |
 
-## <a name="local-testing-with-live-data"></a>Lokal testning med livedata
+## <a name="local-testing-with-live-data"></a>Lokal testning med real tids data
 
-1. När du har skapat ett [Azure Stream Analytics-molnprojekt i Visual Studio](stream-analytics-quick-create-vs.md)öppnar du **script.asaql**. Den lokala testningen använder lokala indata och lokala utdata som standard.
+1. När du har skapat ett [Azure Stream Analytics Cloud-projekt i Visual Studio](stream-analytics-quick-create-vs.md)öppnar du **script. asaql**. Den lokala testningen använder som standard lokala indata och lokala utdata.
 
    ![Azure Stream Analytics Visual Studio lokal indata och lokal utdata](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-local-input-output.png)
 
-2. Om du vill testa realtidsdata väljer du **Använd molnindata** i listrutan.
+2. Om du vill testa Live-data väljer du **Använd indata från molnet** i list rutan.
 
-   ![Azure Stream Analytics Visual Studio live molnindata](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input.png)
+   ![Azure Stream Analytics Visual Studio Live Cloud-ingången](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input.png)
 
-3. Ange **starttid** för att definiera när jobbet ska börja bearbeta indata. Jobbet kan behöva läsa indata i förväg för att säkerställa korrekta resultat. Standardtiden är inställd på 30 minuter före den aktuella tiden.
+3. Ange **Start tid** för att definiera när jobbet ska börja bearbeta indata. Jobbet kan behöva läsa indata i förväg för att säkerställa korrekta resultat. Standard tiden är inställt på 30 minuter före den aktuella tiden.
 
-   ![Starttid för Azure Stream Analytics Visual Studio live data](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-start-time.png)
+   ![Start tid för Azure Stream Analytics Visual Studio Live data](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-start-time.png)
 
-4. Klicka på **Kör lokalt**. Ett konsolfönster visas med statusvärden för körning och jobb. Om du vill stoppa processen kan du göra det manuellt. 
+4. Klicka på **Kör lokalt**. Ett konsol fönster visas med pågående förlopp och jobb mått. Om du vill stoppa processen kan du göra det manuellt. 
 
-   ![Fönstret Azure Stream Analytics Visual Studio live data process fönster](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-process-window.png)
+   ![Azure Stream Analytics Visual Studio Live data process-fönstret](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-process-window.png)
 
-   Utdataresultaten uppdateras var tredje sekund med de första 500 utdataraderna i det lokala körningsresultatfönstret och utdatafilerna placeras i projektsökvägen **ASALocalRun-mappen.** Du kan också öppna utdatafilerna genom att klicka på Knappen **Öppna resultatmapp** i det lokala resultatfönstret.
+   Resultatet av utdata uppdateras var tredje sekund med de första 500 utmatnings raderna i fönstret för det lokala körnings resultatet och utdatafilerna placeras i mappen **ASALocalRun** för projekt Sök väg. Du kan också öppna utdatafilerna genom att klicka på knappen **Öppna resultat** i fönstret lokala körnings resultat.
 
-   ![Azure Stream Analytics Visual Studio live data öppna resultat mapp](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-open-results-folder.png)
+   ![Azure Stream Analytics mapp för öppna resultat i Visual Studio Live data](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input-open-results-folder.png)
 
-5. Om du vill mata ut resultaten till dina molnutdatamottagare väljer du **Utdata till molnet** från den andra listrutan. Power BI och Azure Data Lake Storage stöds inte utdatamottagare.
+5. Om du vill spara resultatet i dina moln mottagare väljer du **utdata till molnet** i den andra List rutan. Power BI och Azure Data Lake Storage stöds inte av utgående mottagare.
 
-   ![Azure Stream Analytics Visual Studio live datautdata till molnet](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-output.png)
+   ![Azure Stream Analytics Visual Studio Live data output till molnet](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-output.png)
  
 ## <a name="limitations"></a>Begränsningar
 
-* Power BI och Azure Data Lake Storage stöds inte utdatamottagare på grund av begränsningar för autentiseringsmodell.
+* Power BI och Azure Data Lake Storage stöds inte utgående mottagare på grund av begränsningar för autentiserings modell.
 
-* Endast molnindataalternativ har stöd för [tidsprinciper,](stream-analytics-out-of-order-and-late-events.md) medan lokala inmatningsalternativ inte gör det.
+* Endast moln indatatyper har stöd för [tids principer](stream-analytics-out-of-order-and-late-events.md) , medan alternativ för lokal indatamängd inte gör det.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa ett Stream Analytics-jobb med hjälp av Azure Stream Analytics-verktygen för Visual Studio](stream-analytics-quick-create-vs.md)
-* [Testa Stream Analytics-frågor lokalt med Visual Studio](stream-analytics-vs-tools-local-run.md)
+* [Testa Stream Analytics frågor lokalt med Visual Studio](stream-analytics-vs-tools-local-run.md)
 * [Använda Visual Studio för att visa Azure Stream Analytics-jobb](stream-analytics-vs-tools.md)

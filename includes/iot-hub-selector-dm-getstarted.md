@@ -5,10 +5,10 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 239ea2eb4d5bc8d326d5ca503a18b149252dc1be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69558734"
 ---
 > [!div class="op_single_selector"]
@@ -17,19 +17,19 @@ ms.locfileid: "69558734"
 > * [Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
 > * [Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
 
-Backend-appar kan använda Azure IoT Hub-primitiver, till exempel [enhetstvilling][lnk-devtwin] och [direkta metoder][lnk-c2dmethod], för att fjärrstarta och övervaka enhetshanteringsåtgärder på enheter. Den här självstudien visar hur en backend-app och en enhetsapp kan arbeta tillsammans för att initiera och övervaka en omstart av en fjärrenhet med IoT Hub.
+Backend-appar kan använda Azure IoT Hub primitiver, till exempel [enhets dubbla][lnk-devtwin] och [direkta metoder][lnk-c2dmethod], för att fjärrstarta och övervaka enhets hanterings åtgärder på enheter. Den här självstudien visar hur en backend-app och en app-app kan arbeta tillsammans för att initiera och övervaka en fjärromstart av enheten med hjälp av IoT Hub.
 
 [!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 
-Använd en direkt metod för att initiera enhetshanteringsåtgärder (till exempel omstart, fabriksåterställning och uppdatering av inbyggd programvara) från en backend-app i molnet. Enheten ansvarar för:
+Använd en direkt metod för att initiera enhets hanterings åtgärder (t. ex. omstart, fabriks återställning och uppdatering av inbyggd program vara) från en backend-app i molnet. Enheten ansvarar för:
 
-* Hantera metodbegäran som skickas från IoT Hub.
+* Hantering av metoden Request som skickas från IoT Hub.
 
-* Initiera motsvarande enhetsspecifika åtgärd på enheten.
+* Initierar motsvarande enhetsspecifika åtgärd på enheten.
 
-* Tillhandahålla statusuppdateringar via *rapporterade egenskaper* till IoT Hub.
+* Tillhandahålla status uppdateringar via *rapporterade egenskaper* till IoT Hub.
 
-Du kan använda en backend-app i molnet för att köra enhetstvillingfrågor för att rapportera om hur dina enhetshanteringsåtgärder fortskrider.
+Du kan använda en backend-app i molnet för att köra enhets dubbla frågor för att rapportera om förloppet för enhets hanterings åtgärderna.
 
 [lnk-devtwin]: ../articles/iot-hub/iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md

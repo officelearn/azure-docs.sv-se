@@ -9,12 +9,12 @@ ms.date: 07/17/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 79dfa1d0cd4286b430d6c6e23ecb0335f37bed3e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68403243"
 ---
 <!-- This contains intro text for the "Get an IoT hub connection string" section in the iot-hub-lang-lang-device-management-get-started.md files-->
 
-I den här artikeln skapar du en backend-tjänst som anropar en direkt metod på en enhet. Om du vill anropa en direkt metod på en enhet via IoT Hub behöver tjänsten behörigheten **för tjänsten.** Som standard skapas varje IoT-hubb med en princip med namnet delad åtkomst med namnet **tjänst** som ger den här behörigheten.
+I den här artikeln skapar du en backend-tjänst som anropar en direkt metod på en enhet. För att anropa en direkt metod på en enhet via IoT Hub måste tjänsten ha behörighet för **tjänst anslutning** . Som standard skapas varje IoT Hub med en delad åtkomst princip med namnet **tjänst** som ger den här behörigheten.

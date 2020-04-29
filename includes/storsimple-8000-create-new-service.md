@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 980cbe17e982edb3aa72c3b58908f13a3d63a639
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76021075"
 ---
 #### <a name="to-create-a-new-service"></a>Skapa en ny tjänst
@@ -19,7 +19,7 @@ ms.locfileid: "76021075"
 
     ![Skapa StorSimple Device Manager](./media/storsimple-8000-create-new-service/createssdevman1.png)
 
-    Sök efter _StorSimple Physical_. Markera och klicka på **StorSimple Physical Device Series** och sedan på **Skapa**. Du kan också klicka **+** på StorSimple Physical Device Series i Azure-portalen och klicka sedan på **StorSimple Physical Device Series**under **Lagring**.
+    Sök efter _StorSimple Physical_. Markera och klicka på **StorSimple Physical Device Series** och sedan på **Skapa**. Alternativt klickar du på **+** **StorSimple fysisk enhets serie**under **lagring**på Azure Portal.
 
     ![Skapa StorSimple Device Manager](./media/storsimple-8000-create-new-service/createssdevman11.png)
 

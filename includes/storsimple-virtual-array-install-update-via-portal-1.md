@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: b4c3fcb86fb098263840accc561785a40b767952
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67187531"
 ---
 #### <a name="to-install-updates-via-the-azure-portal"></a>Installera uppdateringar via Azure Portal
@@ -21,11 +21,11 @@ ms.locfileid: "67187531"
 
     ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate2m.png)  
 
-3. Du ser ett meddelande om programuppdateringar är tillgängliga. Du kan också klicka på **Scan** (Sök). Anteckna den programvaruversion du kör. 
+3. Du ser ett meddelande om programuppdateringar är tillgängliga. Du kan också klicka på **Scan** (Sök). Anteckna den program varu version som du kör. 
 
     ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate3m1.png)
 
-    Du meddelas när genomsökningen startar och slutförs.
+    Du får ett meddelande när genomsökningen startar och slutförs.
 
     ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate5m.png)
 
@@ -33,7 +33,7 @@ ms.locfileid: "67187531"
 
     ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate6m.png)
 
-5. Granska viktig information i bladet **Nya uppdateringar.** Observera också att när uppdateringarna har hämtats måste du bekräfta installationen. Klicka på **OK**.
+5. På bladet **nya uppdateringar** granskar du viktig information. Observera också att när uppdateringarna har hämtats måste du bekräfta installationen. Klicka på **OK**.
 
     ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate7m.png)
 
@@ -57,11 +57,11 @@ ms.locfileid: "67187531"
 
     ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate15m1.png)
 
-    Den här åtgärden tar dig till bladet **Installera uppdateringar.** Du kan visa detaljerad information om jobbet här.
+    Den här åtgärden tar dig till bladet **Installera uppdateringar** . Du kan visa detaljerad information om jobbet här.
 
     ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate16m1.png)
 
-9. Om du började med en virtuell matris som kör programversionen Update 0.6 (10.0.10293.0) kör du nu uppdatering 1 och är klar. Du kan hoppa över de återstående stegen. Om du började med en virtuell matris som kör en programvaruversion före uppdatering 0.6 (10.0.10293.0) uppdateras du nu till uppdatering 0.6. Du ser ett annat meddelande som anger att uppdateringar är tillgängliga. Upprepa steg 4-8 för att installera uppdatering 1.
+9. Om du startade med en virtuell matris som kör program varu versionen uppdatering 0,6 (10.0.10293.0) kör du nu uppdatering 1 och är färdig. Du kan hoppa över de återstående stegen. Om du startade med en virtuell matris som kör en program varu version före uppdateringen 0,6 (10.0.10293.0) har du nu uppdaterat uppdateringen 0,6. Ett annat meddelande visas som anger att uppdateringar är tillgängliga. Upprepa steg 4-8 för att installera uppdatering 1.
 
     ![uppdatera enhet](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate17.png)
 

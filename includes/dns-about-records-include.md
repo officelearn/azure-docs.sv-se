@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
 ms.openlocfilehash: 261ae22348cd82b129727261c619727917e19c96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "73832058"
 ---
 ### <a name="record-names"></a>Registrera namn
 
-DNS-poster i Azure anges med relativa namn. Ett *fullständigt kvalificerat* domännamn (FQDN), inkluderar zonnamnet, medan ett *relativt* namn inte gör det. Det relativa postnamnet `www` i zonen `contoso.com` ger till exempel `www.contoso.com`det fullständigt kvalificerade postnamnet .
+DNS-poster i Azure anges med relativa namn. Ett *fullständigt kvalificerat* domännamn (FQDN), inkluderar zonnamnet, medan ett *relativt* namn inte gör det. Det relativa post namnet `www` i zonen `contoso.com` ger till exempel det fullständigt kvalificerade post namnet. `www.contoso.com`
 
-En *topp*post är en DNS-post vid roten (eller *toppen*) av en DNS-zon. I DNS-zonen `contoso.com`har till exempel en apex-post `contoso.com` också det fullständigt kvalificerade namnet (detta kallas ibland för en *naken* domän).  Av konvention används det\@relativa namnet ' ' för att representera apex-poster.
+En *topp*post är en DNS-post vid roten (eller *toppen*) av en DNS-zon. I DNS-zonen `contoso.com`har exempelvis en Apex-post också det fullständigt kvalificerade namnet `contoso.com` (Detta kallas ibland en *blott* -domän).  I konvention används det relativa namnet\@för att representera Apex-poster.
 
 ### <a name="record-types"></a>Typer av poster
 

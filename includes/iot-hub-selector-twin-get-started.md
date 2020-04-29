@@ -5,10 +5,10 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 08/20/2019
 ms.openlocfilehash: c412f7f3e20e4d04083e457bfb245b850b65e126
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70050465"
 ---
 > [!div class="op_single_selector"]
@@ -17,42 +17,42 @@ ms.locfileid: "70050465"
 > * [Java](../articles/iot-hub/iot-hub-java-java-twin-getstarted.md)
 > * [Python](../articles/iot-hub/iot-hub-python-twin-getstarted.md)
 
-Enhetstvillingar är JSON-dokument som lagrar information om enhetstillstånd, som metadata, konfigurationer och villkor. IoT Hub beständiga en enhetstvilling för varje enhet som ansluter till den.
+Enhetstvillingar är JSON-dokument som lagrar information om enhetstillstånd, som metadata, konfigurationer och villkor. IoT Hub sparar en enhet för varje enhet som ansluter till den.
 
 [!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 
-Använd enhetstvillingar för att:
+Använd enheten:
 
-* Lagra enhetens metadata från lösningens baksida.
+* Lagra metadata för enheten från Server delen av lösningen.
 
-* Rapportera aktuell tillståndsinformation, till exempel tillgängliga funktioner och villkor, till exempel den anslutningsmetod som används, från enhetsappen.
+* Rapportera aktuell statusinformation, till exempel tillgängliga funktioner och villkor, till exempel den anslutnings metod som används, från din enhets app.
 
-* Synkronisera tillståndet för tidskrävande arbetsflöden, till exempel uppdateringar av inbyggd programvara och konfiguration, mellan en enhetsapp och en backend-app.
+* Synkronisera tillstånd för långvariga arbets flöden, till exempel inbyggd program vara och konfigurations uppdateringar, mellan en enhets app och en backend-app.
 
-* Fråga enhetens metadata, konfiguration eller tillstånd.
+* Fråga om metadata, konfiguration eller tillstånd för enheten.
 
-Enhetstvillingar är utformade för synkronisering och för att fråga enhetskonfigurationer och villkor. Mer information om när enhetstvillingar ska användas finns i [Förstå enhetstvillingar](../articles/iot-hub/iot-hub-devguide-device-twins.md).
+Enhets grupper är utformade för synkronisering och för att ställa frågor om enhets konfiguration och villkor. Mer information om när du ska använda enhets uppdelade enheter finns i [förstå enhets dubbla](../articles/iot-hub/iot-hub-devguide-device-twins.md).
 
-Enhetstvillingar lagras i en IoT-hubb och innehåller följande element:
+Enhetens dubbla objekt lagras i en IoT-hubb och innehåller följande element:
 
-* **Taggar**. Enhetsmetadata som endast är tillgängliga för lösningens baksida.
+* **Taggar**. Enhetens metadata är bara tillgängliga från Server delen av lösningen.
 
-* **Önskade egenskaper**. JSON-objekt kan ändras med lösningens baksida och kan observeras av enhetsappen.
+* **Önskade egenskaper**. JSON-objekt ändras av lösningens Server del och styrs av Device-appen.
 
-* **Rapporterade egenskaper**. JSON-objekt kan ändras av enhetsappen och kan läsas av lösningens baksida.
+* **Rapporterade egenskaper**. JSON-objekt som ändras av Device-appen och som är läsbara av lösningens Server del.
 
 Taggar och egenskaper får inte innehålla matriser, men objekt kan kapslas.
 
-Följande bild visar enhetstvillingorganisation:
+Följande bild visar enhetens dubbla organisation:
 
-![Enhetstvillingbild som visar funktioner](./media/iot-hub-selector-twin-get-started/twin.png)
+![Enhetens dubbla bild som visar funktioner](./media/iot-hub-selector-twin-get-started/twin.png)
 
-Dessutom kan lösningens baksida fråga enhetstvillingar baserat på alla ovanstående data.
-Mer information om enhetstvillingar finns i [Förstå enhetstvillingar](../articles/iot-hub/iot-hub-devguide-device-twins.md). Mer information om frågor finns i [IoT Hub-frågespråk](../articles/iot-hub/iot-hub-devguide-query-language.md).
+Lösningens Server del kan dessutom fråga enheten med varandra baserat på alla dessa data.
+Mer information om enhets uppflätade enheter finns i [förstå enhets dubbla](../articles/iot-hub/iot-hub-devguide-device-twins.md). Mer information om frågor finns i [IoT Hub frågespråk](../articles/iot-hub/iot-hub-devguide-query-language.md).
 
 
 I den här självstudiekursen lär du dig att:
 
-* Skapa en backend-app som lägger till taggar i en enhetstvilling och en simulerad enhetsapp som rapporterar dess anslutningskanal som en rapporterad egenskap på enhetstvillingen.
+* Skapa en backend-app som lägger till taggar till en enhet och en simulerad enhets app som rapporterar anslutnings kanalen som en rapporterad egenskap på enheten.
 
-* Fråga enheter från backend-appen med hjälp av filter på taggar och egenskaper som tidigare skapats.
+* Fråga enheter från din backend-app med hjälp av filter på de taggar och egenskaper som skapats tidigare.

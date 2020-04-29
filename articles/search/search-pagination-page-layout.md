@@ -1,7 +1,7 @@
 ---
-title: Så här arbetar du med sökresultat
+title: Så här arbetar du med Sök Resultat
 titleSuffix: Azure Cognitive Search
-description: Strukturera och sortera sökresultat, få ett antal dokument och lägg till innehållsnavigering i sökresultaten i Azure Cognitive Search.
+description: Strukturera och sortera Sök resultat, hämta ett dokument antal och Lägg till innehålls navigering till Sök resultat i Azure Kognitiv sökning.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,23 +9,23 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 0f815003449f0600bce1cb8927b92b85b51b09a1
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81641611"
 ---
-# <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Så här arbetar du med sökresultat i Azure Cognitive Search
+# <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Så här arbetar du med Sök resultat i Azure Kognitiv sökning
 
-I den här artikeln beskrivs hur du får ett frågesvar som kommer tillbaka med ett totalt antal matchande dokument, sidnumrerade resultat, sorterade resultat och träffmarkerade termer.
+I den här artikeln förklaras hur du får ett svar på frågan som kommer tillbaka med ett totalt antal matchande dokument, rad brytnings resultat, sorterade resultat och träff markerade termer.
 
-Strukturen för ett svar bestäms av parametrar i frågan: [Sökdokument](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) i REST API, eller [DocumentSearchResult-klassen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) i .NET SDK.
+Strukturen för ett svar bestäms av parametrarna i frågan: [Sök dokument](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) i REST API-eller [DocumentSearchResult-klassen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) i .NET SDK.
 
-## <a name="result-composition"></a>Resultatsammansättning
+## <a name="result-composition"></a>Resultat sammansättning
 
-Ett sökdokument kan bestå av ett stort antal fält, men vanligtvis behövs bara ett fåtal för att representera varje dokument i resultatuppsättningen. Lägg `$select=<field list>` till i en frågebegäran för att ange vilka fält som ska visas i svaret. Ett fält måste tillskrivas som **hämtningsbart** i indexet för att inkluderas i ett resultat. 
+Ett sökdokument kan bestå av ett stort antal fält, vanligt vis krävs det bara några få för att representera varje dokument i resultat uppsättningen. I en fråge förfrågan lägger `$select=<field list>` du till för att ange vilka fält som ska visas i svaret. Ett fält måste ha attributet kan **hämtas** i indexet för att inkluderas i ett resultat. 
 
-Fält som fungerar bäst inkluderar de som kontrasterar och skiljer mellan dokument, vilket ger tillräckligt med information för att bjuda in ett klicksvar från användarens sida. På en e-handelsplats kan det vara ett produktnamn, beskrivning, varumärke, färg, storlek, pris och betyg. För det inbyggda exemplet på hotell-sample-index kan det vara fält i följande exempel:
+Fält som fungerar bäst är sådana som kontrasterar och skiljer sig mellan dokument, och ger tillräckligt med information för att kunna bjuda in svars tid för en del av användaren. På en e-handelsplats kan det vara ett produkt namn, beskrivning, varumärke, färg, storlek, pris och klassificering. För det inbyggda exempel indexet Hotels-Sample, kan det vara fält i följande exempel:
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06 
@@ -37,21 +37,21 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06
 ```
 
 > [!NOTE]
-> Om du vill inkludera bildfiler i ett resultat, till exempel ett produktfoto eller en logotyp, lagrar du dem utanför Azure Cognitive Search, men inkluderar ett fält i indexet för att referera till bild-URL:en i sökdokumentet. Exempel index som stöder bilder i resultaten inkluderar **realestate-sample-us** demo, med i denna [snabbstart,](search-create-app-portal.md)och [New York City Jobs demo app](https://aka.ms/azjobsdemo).
+> Om du vill ta med bildfiler i ett resultat, t. ex. ett produkt foto eller en logo typ, kan du lagra dem utanför Azure Kognitiv sökning, men inkludera ett fält i indexet för att referera till bild-URL: en i Sök dokumentet. Exempel index som har stöd för bilder i resultatet inkluderar **realestate-exempel-se-** demonstrationen, som finns i den här [snabb](search-create-app-portal.md)starten och i [New York City-appen](https://aka.ms/azjobsdemo).
 
 ## <a name="paging-results"></a>Växla resultat
 
-Som standard returnerar sökmotorn upp till de första 50 matchningarna, vilket bestäms av sökpoängen om frågan är fulltextsökning eller i en godtycklig ordning för exakta matchningsfrågor.
+Som standard returnerar sökmotorn upp till de första 50 matchningarna, vilket bestäms av Sök poängen om frågan är full texts ökning eller i en godtycklig ordning för exakta matchnings frågor.
 
-Om du vill returnera ett `$top` annat `$skip` antal matchande dokument lägger du till och parametrar i frågebegäran. I följande lista förklaras logiken.
+Om du vill returnera ett annat antal matchande dokument lägger `$top` du `$skip` till och parametrar i förfrågan. I följande lista beskrivs logiken.
 
-+ Lägg `$count=true` till för att få ett antal matchande dokument i ett index.
++ Lägg `$count=true` till för att få en räkning av det totala antalet matchande dokument i ett index.
 
-+ Returnera den första uppsättningen med 15 matchande dokument plus ett antal totalt antal matchningar:`GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
++ Returnera den första uppsättningen av 15 matchande dokument plus totalt antal matchningar:`GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
 
-+ Returnera den andra uppsättningen, hoppa över de första 15 `$top=15&$skip=15`för att få nästa 15: . Gör samma sak för den tredje uppsättningen av 15:`$top=15&$skip=30`
++ Returnera den andra uppsättningen, hoppa över de första 15 för att få nästa 15: `$top=15&$skip=15`. Gör samma sak för den tredje uppsättningen 15:`$top=15&$skip=30`
 
-Resultaten av sidnumrerade frågor är inte garanterade att vara stabila om det underliggande indexet ändras. Växlingen ändrar `$skip` värdet för varje sida, men varje fråga är oberoende och fungerar på den aktuella vyn av data som den finns i indexet vid frågetid (med andra ord finns det ingen cachelagring eller ögonblicksbild av resultat, till exempel de som finns i en databas för allmänt ändamål).
+Resultatet av sid brytnings frågor är inte garanterat stabilt om det underliggande indexet ändras. Växling ändrar värdet för `$skip` för varje sida, men varje fråga är oberoende och fungerar på den aktuella vyn av data som finns i indexet vid tidpunkten (med andra ord finns det ingen cachelagring eller ögonblicks bild av resultat, till exempel de som finns i en databas för generell användning).
  
 Följande är ett exempel på hur du kan få dubbletter. Anta ett index med fyra dokument:
 
@@ -60,41 +60,41 @@ Följande är ett exempel på hur du kan få dubbletter. Anta ett index med fyra
     { "id": "3", "rating": 2 }
     { "id": "4", "rating": 1 }
  
-Anta nu att du vill att resultaten ska returneras två åt gången, sorterade efter betyg. Du skulle köra den här frågan för `$top=2&$skip=0&$orderby=rating desc`att få den första sidan med resultat: , producera följande resultat:
+Anta nu att du vill att resultat returnerades två i taget, sorterade efter klassificering. Du kör den här frågan för att få den första sidan med resultat `$top=2&$skip=0&$orderby=rating desc`:, som producerar följande resultat:
 
     { "id": "1", "rating": 5 }
     { "id": "2", "rating": 3 }
  
-Anta att ett femte dokument läggs till i indexet `{ "id": "5", "rating": 4 }`mellan frågeanrop: .  Kort därefter kör du en fråga för att `$top=2&$skip=2&$orderby=rating desc`hämta den andra sidan: och få dessa resultat:
+I tjänsten antar vi att ett femte dokument läggs till i indexet i mellan fråga-anrop `{ "id": "5", "rating": 4 }`:.  Strax därefter kör du en fråga för att hämta den andra sidan: `$top=2&$skip=2&$orderby=rating desc`och får följande resultat:
 
     { "id": "2", "rating": 3 }
     { "id": "3", "rating": 2 }
  
-Observera att dokument 2 hämtas två gånger. Detta beror på att det nya dokumentet 5 har ett större värde för klassificering, så det sorteras före dokument 2 och landar på första sidan. Även om det här beteendet kan vara oväntat är det typiskt för hur en sökmotor beter sig.
+Observera att dokument 2 hämtas två gånger. Detta beror på att det nya dokumentet 5 har ett större värde för klassificering, så det sorteras före dokument 2 och på den första sidan. Även om det här beteendet kan vara oväntat, är det vanligt av hur en sökmotor beter sig.
 
 ## <a name="ordering-results"></a>Ordna resultaten
 
-För fulltextsökningsfrågor rangordnas resultaten automatiskt efter ett sökresultat, beräknat baserat på termfrekvens och närhet i ett dokument, med högre poäng som går till dokument som har fler eller starkare matchningar på en sökterm. 
+För fullständiga texts öknings frågor rangordnas resultaten automatiskt efter en Sök poäng, beräknad baserat på term frekvens och närhet i ett dokument, med högre resultat till dokument som har fler eller starkare matchningar på en Sök term. 
 
-Sökpoäng förmedlar allmän känsla av relevans, vilket återspeglar styrkan i matchen jämfört med andra dokument i samma resultatuppsättning. Poängen är inte alltid konsekventa från en fråga till en annan, så när du arbetar med frågor kan du märka små avvikelser i hur sökdokument ordnas. Det finns flera förklaringar till varför detta kan inträffa.
+Sök Poäng förmedla allmän känsla av relevans, vilket återspeglar styrkan hos matchning jämfört med andra dokument i samma resultat uppsättning. Poängen är inte alltid konsekventa från en fråga till nästa, så när du arbetar med frågor kan du lägga märke till små skillnader i hur Sök dokumenten beställs. Det finns flera förklaringar till varför detta kan inträffa.
 
 | Orsak | Beskrivning |
 |-----------|-------------|
-| Datavolatilitet | Indexinnehållet varierar när du lägger till, ändrar eller tar bort dokument. Termfrekvenser ändras när indexuppdateringar bearbetas med tiden, vilket påverkar sökpoängen för matchande dokument. |
-| Flera repliker | För tjänster som använder flera repliker utfärdas frågor mot varje replik parallellt. Indexstatistiken som används för att beräkna en sökresultat beräknas per replik, med resultat kopplade och ordnade i frågesvaret. Repliker är mestadels speglar av varandra, men statistiken kan variera på grund av små skillnader i tillstånd. En replik kan till exempel ha tagit bort dokument som bidrar till deras statistik, som slogs samman från andra repliker. Vanligtvis är skillnader i statistik per replik mer märkbara i mindre index. |
-| Identiska poäng | Om flera dokument har samma poäng kan någon av dem visas först.  |
+| Data flyktiga | Index innehållet varierar när du lägger till, ändrar eller tar bort dokument. Termen frekvens kommer att ändras när index uppdateringar bearbetas över tid, vilket påverkar Sök resultaten för matchande dokument. |
+| Flera repliker | För tjänster som använder flera repliker utfärdas frågor till varje replik parallellt. Index statistiken som används för att beräkna ett Sök Resultat beräknas per replik, med resultat som sammanfogas och beställs i fråge svaret. Repliker är oftast speglar varandra, men statistik kan skilja sig på grund av små skillnader i tillstånd. En replik kan till exempel ha borttagna dokument som bidrar till sin statistik, som sammanfogades från andra repliker. Normalt sett är skillnader i statistik per replik mer märkbart i mindre index. |
+| Identiska Poäng | Om flera dokument har samma resultat kan något av dem visas först.  |
 
-### <a name="consistent-ordering"></a>Konsekvent beställning
+### <a name="consistent-ordering"></a>Konsekvent sortering
 
-Med tanke på flex i resultatordning, kanske du vill utforska andra alternativ om konsekvens är ett programkrav. Den enklaste metoden är att sortera efter ett fältvärde, till exempel betyg eller datum. För scenarier där du vill sortera efter ett visst fält, till exempel [ `$orderby` ](query-odata-filter-orderby-syntax.md)en klassificering eller ett datum, kan du uttryckligen definiera ett uttryck som kan tillämpas på alla fält som är indexerade som **sorterbara**.
+Med hänsyn till Flex i resultat ordningen kanske du vill utforska andra alternativ om konsekvens är ett program krav. Den enklaste metoden är att sortera efter ett fält värde, t. ex. klassificering eller datum. För scenarier där du vill sortera efter ett visst fält, till exempel en klassificering eller ett datum, kan du uttryckligen definiera ett [ `$orderby` uttryck](query-odata-filter-orderby-syntax.md)som kan användas för alla fält som är indexerade som **sorterbara**.
 
-Ett annat alternativ är att använda en [anpassad bedömningsprofil](index-add-scoring-profiles.md). Poängsättningsprofiler ger dig större kontroll över rangordningen av objekt i sökresultaten, med möjlighet att öka matchningar som finns i specifika fält. Den ytterligare poängsättningslogiken kan hjälpa till att åsidosätta mindre skillnader mellan repliker eftersom sökpoängen för varje dokument är längre ifrån varandra. Vi rekommenderar [rankningsalgoritmen](index-ranking-similarity.md) för den här metoden.
+Ett annat alternativ är att använda en [anpassad bedömnings profil](index-add-scoring-profiles.md). Med bedömnings profiler får du mer kontroll över rankningen av objekt i Sök resultaten, med möjligheten att öka matchningar som finns i vissa fält. Den ytterligare bedömnings logiken kan hjälpa till att åsidosätta mindre skillnader mellan repliker eftersom Sök poängen för varje dokument ligger längre ifrån varandra. Vi rekommenderar [rangordnings algoritmen](index-ranking-similarity.md) för den här metoden.
 
 ## <a name="hit-highlighting"></a>Träffmarkering
 
-Med träffmarkering avses textformatering (till exempel fet eller gul markering) som används för att matcha termen i ett resultat, vilket gör det enkelt att upptäcka matchen. Instruktioner för träffmarkering finns på [frågebegäran](https://docs.microsoft.com/rest/api/searchservice/search-documents). Sökmotorn omsluter den matchande termen `highlightPreTag` i `highlightPostTag`taggar och , och koden hanterar svaret (till exempel med hjälp av ett fetstilt teckensnitt).
+Träff markering syftar på textformatering (till exempel fetstil eller gula högdagrar) som tillämpas på matchande term i ett resultat, vilket gör det lätt att hitta matchningen. Träff markerings instruktioner finns i [förfrågan](https://docs.microsoft.com/rest/api/searchservice/search-documents). Sökmotorn omsluter den matchande termen i taggar, `highlightPreTag` `highlightPostTag`och koden hanterar svaret (till exempel genom att använda ett fetstilt teckensnitt).
 
-Formatering tillämpas på hela termfrågor. I följande exempel är termerna "sandy", "sand", "stränder", "beach" som finns i fältet Beskrivning märkta för markering. Frågor som utlöser frågeexpansion i motorn, till exempel fuzzy och jokertecken sökning, har begränsat stöd för träffmarkering.
+Formatering tillämpas på frågor på hela termen. I följande exempel är begreppen "sandbrun", "sand", "stränder", "strand" som påträffas i beskrivnings fältet taggas för markering. Frågor som utlöser frågor om expandering i motorn, till exempel Fuzzy-och jokertecken, har begränsat stöd för träff markering.
 
 ```http
 GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 
@@ -110,26 +110,26 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06
 
 ### <a name="new-behavior-starting-july-15"></a>Nytt beteende (från 15 juli)
 
-Tjänster som skapas efter den 15 juli 2020 kommer att ge en annan belysningsupplevelse. Tjänster som skapats före det datumet ändras inte i markeringsbeteendet. 
+Tjänster som skapats efter den 15 juli 2020 får en annan markerings upplevelse. Tjänster som skapats före detta datum ändras inte i markerings beteendet. 
 
 Med det nya beteendet:
 
-* Endast fraser som matchar hela frasfrågan returneras. Frågan "Super Bowl" kommer tillbaka höjdpunkter så här:
+* Endast fraser som matchar den fullständiga fras frågan kommer att returneras. Frågan "Super Bowl" kommer att returnera högdagrar som detta:
 
     ```html
     '<em>super bowl</em> is super awesome with a bowl of chips'
     ```
-  Observera att termen *skål med marker* inte har någon markering eftersom det inte matchar hela frasen.
+  Observera att termen *Bowl av chips* inte har någon markering eftersom den inte matchar den fullständiga frasen.
   
-* Det kommer att vara möjligt att ange den fragmentstorlek som returneras för högdager. Fragmentstorlek anges som antal tecken (högst 1 000 tecken).
+* Det går att ange den fragment storlek som returneras för markeringen. Fragmentering av fragment anges som antal tecken (högst 1000 tecken).
 
-När du skriver klientkod som implementerar träffmarkering bör du vara medveten om den här ändringen. Observera att detta inte påverkar dig om du inte skapar en helt ny söktjänst.
+När du skriver klient kod som implementerar träff markering, bör du vara medveten om den här ändringen. Observera att detta inte påverkar dig om du inte skapar en helt ny Sök tjänst.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du snabbt vill skapa en söksida för klienten bör du tänka på följande alternativ:
+Om du snabbt vill skapa en Sök sida för klienten bör du tänka på följande alternativ:
 
-+ [Application Generator](search-create-app-portal.md), i portalen, skapar en HTML-sida med ett sökfält, fasterad navigering och resultatområde som innehåller bilder.
-+ [Skapa din första app i C#](tutorial-csharp-create-first-app.md) är en handledning som bygger en funktionell klient. Exempelkod visar sidnumrerade frågor, tryckmarkering och sortering.
++ [Application Generator](search-create-app-portal.md), i portalen, skapar en HTML-sida med ett sökfält, en fasett med en navigering och ett resultat område som innehåller bilder.
++ [Skapa din första app i C#](tutorial-csharp-create-first-app.md) är en självstudie som skapar en fungerande klient. Exempel kod visar sid brytnings frågor, träff markering och sortering.
 
-Flera kodexempel inkluderar ett webbside-gränssnitt, som du hittar här: [New York City Jobs demoapp,](https://aka.ms/azjobsdemo) [JavaScript-exempelkod med en live demo-webbplats](https://github.com/liamca/azure-search-javascript-samples)och [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Flera kod exempel innehåller ett klient dels gränssnitt som du hittar här: [New York-jobb demonstrations app](https://aka.ms/azjobsdemo), [JavaScript-exempel kod med en Live Demo webbplats](https://github.com/liamca/azure-search-javascript-samples)och [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).

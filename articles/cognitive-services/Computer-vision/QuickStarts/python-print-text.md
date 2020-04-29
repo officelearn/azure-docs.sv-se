@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Extrahera tryckt text - REST, Python'
+title: 'Snabb start: extrahera utskriven text – REST, python'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten ska du extrahera tryckt text från en bild med hjälp av API för visuellt innehåll med Python.
 services: cognitive-services
@@ -12,29 +12,29 @@ ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 7daa630c47fc677f6659fa51cca6583a0b583865
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81404385"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-python"></a>Snabbstart: Extrahera tryckt text (OCR) med hjälp av REST API FÖR visuellt innehåll och Python
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-python"></a>Snabb start: extrahera utskriven text (OCR) med hjälp av Visuellt innehåll REST API och python
 
 > [!NOTE]
-> Om du extraherar engelskspråkig text kan du överväga att använda den nya [läsåtgärden](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). En [Python-snabbstart](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/python-hand-text) är tillgänglig. 
+> Om du extraherar engelsk språk text bör du överväga att använda den nya [Läs åtgärden](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). En [python-snabb start](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/python-hand-text) är tillgänglig. 
 
-I den här snabbstarten extraherar du utskriven text med optisk teckenigenkänning (OCR) från en bild med REST-APIN för visuellt innehåll. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras i en teckenström som kan användas på en dator.
+I den här snabb starten ska du extrahera utskriven text med optisk tecken igenkänning (OCR) från en bild med hjälp av Visuellt innehåll REST API. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras i en teckenström som kan användas på en dator.
 
 Du kan köra den här snabbstarten steg för steg med hjälp av en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Starta Binder med den här knappen:
 
-[![Pärm](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/try/cognitive-services/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 - Du måste ha [Python](https://www.python.org/downloads/) installerat om du vill köra exemplet lokalt.
-- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri testversionsnyckel från [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Du kan också följa instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Datorseende och få din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel- och `COMPUTER_VISION_SUBSCRIPTION_KEY` tjänstslutpunktssträngen, med namnet respektive `COMPUTER_VISION_ENDPOINT`.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, `COMPUTER_VISION_SUBSCRIPTION_KEY` med `COMPUTER_VISION_ENDPOINT`namnet respektive.
 
 ## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
@@ -106,9 +106,9 @@ plt.show()
 plt.axis("off")
 ```
 
-## <a name="upload-image-from-local-storage"></a>Ladda upp bild från lokal lagring
+## <a name="upload-image-from-local-storage"></a>Ladda upp avbildning från lokal lagring
 
-Om du vill analysera en lokal avbildning ställer du in content-type-huvudet på program/oktettström och anger begärandetexten till en bytematris i stället för JSON-data.
+Om du vill analysera en lokal avbildning ställer du in Content-Type-huvudet på Application/oktett-Stream och ställer in begär ande texten till en byte-matris i stället för JSON-data.
 
 ```python
 image_path = "<path-to-local-image-file>"
@@ -226,7 +226,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelwebbsidan t
 
 ## <a name="next-steps"></a>Nästa steg
 
-Därefter utforska ett Python-program som använder datorseende för att utföra optisk teckenigenkänning (OCR); skapa smartbeskurna miniatyrer. identifiera, kategorisera, tagga och beskriva visuella funktioner i bilder.
+Nu ska du utforska ett python-program som använder Visuellt innehåll för att utföra optisk tecken igenkänning (OCR). Skapa Smart-beskurna miniatyrer; identifiera, kategorisera, tagga och beskriv visuella funktioner i bilder.
 
 > [!div class="nextstepaction"]
 > [Självstudie: API för visuellt innehåll med Python](../Tutorials/PythonTutorial.md)

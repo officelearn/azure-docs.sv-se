@@ -1,6 +1,6 @@
 ---
-title: Översikt över direktuppspelning med Azure Media Services | Microsoft-dokument
-description: Den här artikeln innehåller en översikt över livestreaming med Microsoft Azure Media Services.
+title: Översikt över direkt uppspelning med Azure Media Services | Microsoft Docs
+description: Den här artikeln ger en översikt över direkt uppspelning med Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f875b4a5c4f1322f4a992dc3738ab1ce6431149d
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81641130"
 ---
-# <a name="overview-of-live-streaming-using-media-services"></a>Översikt över direktuppspelning med hjälp av Media Services
+# <a name="overview-of-live-streaming-using-media-services"></a>Översikt över direkt uppspelning med Media Services
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledning från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>Översikt
 
-När du levererar livestreaminghändelser med Azure Media Services är följande komponenter ofta involverade:
+När du levererar direkt uppspelnings händelser med Azure Media Services följande komponenter ofta inblandade:
 
 * En kamera som används för att sända en händelse.
 * En live-videokodare som konverterar signaler från kameran till dataströmmar som skickas till en tjänst för liveuppspelning.
@@ -44,47 +44,47 @@ När du levererar livestreaminghändelser med Azure Media Services är följande
 
 **Microsoft Azure Media Services** (AMS) ger möjligheten att infoga, koda, förhandsgranska, lagra och leverera liveströmmat innehåll.
 
-Med Media Services kan du dra nytta av [dynamiska förpackningar](media-services-dynamic-packaging-overview.md), som gör att du kan sända dina livestreams i MPEG DASH, HLS och Smooth Streaming format från bidragsflödet som skickas till tjänsten. Dina tittare kan spela upp livestreamen med alla HLS-, DASH- eller Smooth Streaming-kompatibla spelare. Du kan använda Azure Media Player i dina webb- eller mobilappar för att leverera din ström i något av dessa protokoll.
+Med Media Services kan du dra nytta av [dynamisk paketering](media-services-dynamic-packaging-overview.md), vilket gör att du kan skicka in dina Live-STRÖMMAR i MPEG-streck, HLS och Smooth Streaming format från det bidrags flöde som skickas till tjänsten. Dina användare kan spela upp direktsänd ström med alla HLS-, tank-eller Smooth Streaming-kompatibla spelare. Du kan använda Azure Media Player i dina webb-eller mobil program för att leverera data strömmen i något av dessa protokoll.
 
 > [!NOTE]
-> Från och med den 12 maj 2018 stöder livekanalerna inte längre rtp/MPEG-2-transportströmmens introllningsprotokoll. Migrera från RTP/MPEG-2 till RTMP eller fragmenterade MP4-protokoll (Smooth Streaming).
+> Med början den 12 maj 2018 kommer Live Channels inte längre att ha stöd för RTP/MPEG-2 Transport Stream-inmatnings protokoll. Migrera från RTP/MPEG-2 till RTMP eller fragmented MP4 (Smooth Streaming) insugnings protokoll.
 
-## <a name="streaming-endpoints-channels-programs"></a>Slutpunkter för direktuppspelning, kanaler, program
+## <a name="streaming-endpoints-channels-programs"></a>Slut punkter för direkt uppspelning, kanaler, program
 
 I Azure Media Services hanterar **kanaler**, **program** och **strömningsslutpunkter** alla funktioner för liveuppspelning, inklusive infogande, formatering, DVR, säkerhet, skalbarhet och redundans.
 
 En **kanal** representerar en pipeline för bearbetning av liveuppspelningsinnehåll. En kanal kan ta emot en live-indataström på följande sätt:
 
-* En lokal livekodare skickar **RTMP** eller **Smooth Streaming** med flera bithastigheter (fragmenterad MP4) till den kanal som är konfigurerad för **direkt** leverans. Den **direkta** leveransen är när de infogade strömmarna passerar genom **kanalerna** utan vidare bearbetning. Du kan använda följande live-kodare som matar ut multibitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco och Elemental. Följande live-kodare matar ut RTMP: Telestream Wirecast, Haivision, Teradek-omkodare.  En livekodare kan även skicka en ström med en enda bithastighet till en kanal som inte har aktiverats för Live Encoding, men det rekommenderas inte. På begäran levererar Media Services strömmen till kunder.
+* En lokal livekodare skickar **RTMP** eller **Smooth Streaming** med flera bithastigheter (fragmenterad MP4) till den kanal som är konfigurerad för **direkt** leverans. Den **direkta** leveransen är när de infogade strömmarna passerar genom **kanalerna** utan vidare bearbetning. Du kan använda följande Live-kodare som utvärderar multi-bitrs Smooth Streaming: MediaExcel, Ateme, Föreställing Communications, Envivio, Cisco och grundämne. Följande Live-kodare utdata RTMP: multistream Wirecast, Haivision, Teradek Encoder.  En livekodare kan även skicka en ström med en enda bithastighet till en kanal som inte har aktiverats för Live Encoding, men det rekommenderas inte. På begäran levererar Media Services strömmen till kunder.
 
   > [!NOTE]
   > Genomströmningsmetoden är det mest ekonomiska sättet för liveuppspelning när du utför flera händelser under en längre tid och du redan har investerat i lokala kodare. Se [prisuppgifter](https://azure.microsoft.com/pricing/details/media-services/).
   > 
   > 
-* En lokal live-kodare skickar en enbitrate-ström till kanalen som är aktiverad för att utföra live-kodning med Media Services i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4). Följande live-kodare med RTMP-utgång är kända för att fungera med kanaler av den här typen: Telestream Wirecast. Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
+* En lokal Live-kodare skickar en data ström med en bit hastighet till den kanal som är aktive rad för att utföra direktsänd kodning med Media Services i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4). Följande Live-kodare med RTMP-utdata är kända för att fungera med kanaler av den här typen: Wirecast för strömning. Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
 
-Från och med mediatjänsterna 2.10-versionen kan du när du skapar en kanal ange på vilket sätt du vill att kanalen ska ta emot indataströmmen och om du vill att kanalen ska utföra livekodning av din ström eller inte. Du kan välja mellan två alternativ:
+Från och med Media Services 2,10-versionen när du skapar en kanal, kan du ange i vilket sätt du vill att din kanal ska ta emot indataströmmen och om du vill att kanalen ska kunna använda direktsänd kodning av data strömmen. Du kan välja mellan två alternativ:
 
-* **Ingen** (genomströmning) – Ange det här värdet om du planerar att använda en lokal live-kodare som ska mata ut flerbitrateström (en direktström). I det här fallet gick den inkommande strömmen vidare till utdata utan kodning. Detta är beteendet hos en kanal innan 2.10 släpps.  
-* **Standard** – Välj det här värdet om du planerar att använda Media Services för att koda din enda bithastighetsstream till flerbitrateström. Den här metoden är mer ekonomisk för att snabbt skala upp för ovanliga händelser. Tänk på att det finns en faktureringseffekt för live-kodning och du bör komma ihåg att om du lämnar en direkt kodningskanal i tillståndet "Kör" medför faktureringsavgifter.  Vi rekommenderar att du omedelbart stoppar dina kanaler som körs när ditt livestreamingevenemang är klart för att undvika extra timkostnader.
+* **Ingen** (genom strömning) – Ange det här värdet, om du planerar att använda en lokal Live-kodare som ska mata ut data strömmar med flera bit hastigheter (en direkt uppspelning). I det här fallet skickas inkommande data ström till utdata utan kodning. Detta är beteendet för en kanal före 2,10-versionen.  
+* **Standard** – Välj det här värdet om du planerar att använda Media Services för att koda en Live-dataström med en bit hastighet till en data ström med flera bit hastigheter. Den här metoden är mer ekonomisk för att skala upp snabbt för infrekventa händelser. Tänk på att det finns en fakturerings påverkan för Live encoding och kom ihåg att om du lämnar en Live encoding-kanal i läget "körs" debiteras fakturerings avgifter.  Vi rekommenderar att du omedelbart stoppar dina kanaler som körs när din Live streaming-händelse är klar för att undvika extra Tim debiteringar.
 
-## <a name="comparison-of-channel-types"></a>Jämförelse av kanaltyper
+## <a name="comparison-of-channel-types"></a>Jämförelse av kanal typer
 
-Följande tabell innehåller en guide för att jämföra de två kanaltyper som stöds i Media Services
+Följande tabell innehåller en guide för att jämföra de två kanal typer som stöds i Media Services
 
-| Funktion | Genomgående kanal | Standardkanal |
+| Funktion | Direkt kanal | Standard kanal |
 | --- | --- | --- |
-| En bithastighetsindata kodas till flera bithastigheter i molnet |Inga |Ja |
-| Maximal upplösning, antal lager |1080p, 8 lager, 60+ fps |720p, 6 lager, 30 fps |
-| Indataprotokoll |RTMP, Smidig streaming |RTMP, Smidig streaming |
-| Pris |Se [prissidan](https://azure.microsoft.com/pricing/details/media-services/) och klicka på fliken "Live Video" |Se [prissidan](https://azure.microsoft.com/pricing/details/media-services/) |
-| Maximal körtid |24x7 |8 timmar |
-| Stöd för att infoga skiffer |Inga |Ja |
-| Stöd för annonssignalering |Inga |Ja |
-| Genomgång CEA 608/708 bildtexter |Ja |Ja |
-| Stöd för icke-enhetliga ingående gops |Ja |Nej – indata måste vara fasta 2sec GOPs |
-| Stöd för indata för variabel bildhastighet |Ja |Nej – indata måste vara fast bildrutehastighet.<br/>Mindre variationer tolereras, till exempel under hög rörelse scener. Men kodaren kan inte sjunka till 10 bildrutor/sek. |
-| Automatisk avstängning av kanaler när inmatningsflödet går förlorat |Inga |Efter 12 timmar, om det inte finns något program som körs |
+| Inmatade enstaka bit hastighet kodas till flera bit hastigheter i molnet |Nej |Ja |
+| Högsta upplösning, antal lager |1080p, 8 lager, 60 + fps |720p, 6 lager, 30 fps |
+| Protokoll för indataport |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
+| Pris |Se [sidan med priser](https://azure.microsoft.com/pricing/details/media-services/) och klicka på fliken "live video" |Se [sidan med priser](https://azure.microsoft.com/pricing/details/media-services/) |
+| Maximal kör tid |runt |8 timmar |
+| Stöd för att infoga mellanliggande |Nej |Ja |
+| Stöd för AD-signalering |Nej |Ja |
+| Pass-through CEA 608/708-textning |Ja |Ja |
+| Stöd för icke-uniform GOPs |Ja |Nej – indatamängden måste vara fast 2sec GOPs |
+| Stöd för variabla bild Rute frekvens inmatade |Ja |Nej – indatatyper måste vara fasta bild hastigheter.<br/>Mindre variationer tolereras, till exempel vid hög rörelse i bakgrunden. Men kodare kan inte släppa till 10 bild rutor/SEK. |
+| Shutoff av kanaler när inmatnings flöde förloras |Nej |Efter 12 timmar, om inget program körs |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare (genomströmning)
 
@@ -106,54 +106,54 @@ Mer information finns i [Arbeta med kanaler som är aktiverade för att utföra 
 
 ### <a name="channel"></a>Kanal
 
-I Media Services ansvarar [Channel](https://docs.microsoft.com/rest/api/media/operations/channel)s för att bearbeta livestreaminginnehåll. En kanal innehåller en ingångsslutpunkt (inmatnings-URL) som du sedan tillhandahåller en direktomkodare. Kanalen tar emot live-indataströmmar från live-omkodaren och gör den tillgänglig för direktuppspelning via en eller flera StreamingEndpoints. Kanalerna tillhandahåller också en förhandsgranskningsslutpunkt (förhandsgransknings-URL) som du använder för att förhandsgranska och validera flödet innan du bearbetar och levererar vidare.
+I Media Services är [kanal](https://docs.microsoft.com/rest/api/media/operations/channel)s ansvarig för bearbetning av direktsänd strömmande innehåll. En kanal tillhandahåller en inmatnings slut punkt (inmatnings-URL) som du sedan anger till en Live-kodare. Kanalen tar emot direktsända indata strömmar från direktsänd kodare och gör den tillgänglig för strömning via en eller flera strömnings slut punkter. Kanaler tillhandahåller också en förhands gransknings slut punkt (för hands version) som du använder för att förhandsgranska och validera data strömmen innan ytterligare bearbetning och leverans.
 
-Du kan hämta den intbeteringsadressen och förhandsgranskningsadressen när du skapar kanalen. För att få dessa webbadresser behöver kanalen inte vara i startat tillstånd. När du är redo att börja skicka data från en live-omkodare till kanalen måste kanalen startas. När den aktiva omkodaren börjar inta data kan du förhandsgranska din ström.
+Du kan hämta inmatnings-URL: en och URL: en för för hands versionen när du skapar kanalen. För att hämta dessa URL: er behöver kanalen inte vara i Start läge. När du är redo att börja skicka data från en Live-kodare till kanalen måste du starta kanalen. När Live-kodaren börjar mata in data kan du förhandsgranska data strömmen.
 
-Varje Media Services-konto kan innehålla flera kanaler, flera program och flera StreamingEndpoints. Beroende på bandbredd och säkerhetsbehov kan StreamingEndpoint-tjänster desdiceras till en eller flera kanaler. Alla StreamingEndpoint kan hämta från vilken kanal som helst.
+Varje Media Services konto kan innehålla flera kanaler, flera program och flera strömnings slut punkter. Beroende på bandbredds-och säkerhets behoven kan StreamingEndpoint-tjänster vara dedikerade till en eller flera kanaler. Alla StreamingEndpoint kan hämta från vilken kanal som helst.
 
-När du skapar en kanal kan du ange tillåtna IP-adresser i något av följande format: IPV4-adress med 4 nummer, CIDR-adressintervall.
+När du skapar en kanal kan du ange tillåtna IP-adresser i något av följande format: IpV4-adress med 4 nummer, CIDR-adressintervall.
 
 ### <a name="program"></a>Program
-Med [ett program](https://docs.microsoft.com/rest/api/media/operations/program) kan du styra publicering och lagring av segment i en livestream. Kanaler hanterar program. Relationen mellan kanal och program liknar den för traditionella media där en kanal har en konstant ström av innehåll och ett program är begränsat till en viss tidsinställd händelse på kanalen.
-Du kan ange hur många timmar du vill behålla det inspelade innehållet för programmet genom att ange egenskapen **ArchiveWindowLength.** Det här värdet kan anges från minst 5 minuter till högst 25 timmar.
+Ett [program](https://docs.microsoft.com/rest/api/media/operations/program) gör att du kan styra publicering och lagring av segment i en Live-dataström. Kanaler hanterar program. Relationen mellan kanal och program liknar den för traditionella media där en kanal har en konstant ström av innehåll och ett program är begränsat till en viss tidsinställd händelse på kanalen.
+Du kan ange hur många timmar du vill behålla det inspelade innehållet för programmet genom att ange egenskapen **ArchiveWindowLength** . Det här värdet kan anges från minst 5 minuter till högst 25 timmar.
 
-ArkivWindowLength dikterar också den maximala tid klienter kan söka tillbaka i tiden från den aktuella live-positionen. Program kan köras under den angivna tidsperioden men innehåll som understiger fönsterlängden ignoreras kontinuerligt. Värdet för den här egenskapen avgör också hur länge klientmanifesten kan växa.
+ArchiveWindowLength anger också den maximala tid som klienter kan söka bakåt i tiden från den nuvarande aktiva positionen. Program kan köras under den angivna tidsperioden men innehåll som understiger fönsterlängden ignoreras kontinuerligt. Värdet för den här egenskapen avgör också hur länge klient manifesten kan växa.
 
-Varje program är associerat med en tillgång. Om du vill publicera programmet måste du skapa en positionerare för den associerade tillgången. Med den här lokaliseraren kan du skapa en strömnings-URL som du kan tillhandahålla till dina klienter.
+Varje program är associerat med en tillgång. För att publicera programmet måste du skapa en positionerare för den associerade till gången. Med den här lokaliseraren kan du skapa en strömnings-URL som du kan tillhandahålla till dina klienter.
 
 En kanal har stöd för upp till tre program som körs samtidigt så du kan skapa flera arkiv för samma inkommande dataström. På så sätt kan du publicera och arkivera olika delar av en händelse efter behov. Ditt verksamhetsbehov kan till exempel vara att arkivera 6 timmar av ett program, men bara sända 10 minuter. För att åstadkomma detta måste du skapa två program som körs samtidigt. Ett program ställs in för att arkivera 6 timmar av händelsen, men programmet publiceras inte. Det andra programmet ställs in för att arkivera i 10 minuter och det här programmet publiceras.
 
-## <a name="billing-implications"></a>Konsekvenser för fakturering
-En kanal börjar faktureras så fort det är tillståndsövergångar till "Körs" via API:et.  
+## <a name="billing-implications"></a>Debiterings konsekvenser
+En kanal börjar fakturera så fort dess tillstånds över gångar till "körs" via API: et.  
 
-Följande tabell visar hur kanaltillstånd mappas till faktureringstillstånd i API- och Azure-portalen. Observera att tillstånden skiljer sig något mellan API och Portal UX. Så snart en kanal är i tillståndet "Kör" via API:et, eller i tillståndet "Klar" eller "Streaming" i Azure-portalen, är faktureringen aktiv.
+Följande tabell visar hur kanal tillstånd mappas till fakturerings tillstånd i API och Azure Portal. Observera att tillstånden skiljer sig något från API: et och portalens gränssnitt. När en kanal är i läget "körs" via API eller i läget "Ready" eller "streaming" i Azure Portal, kommer faktureringen att aktive ras.
 
-Om du vill stoppa kanalen från att fakturera dig vidare måste du stoppa kanalen via API:et eller i Azure-portalen.
-Du är ansvarig för att stoppa dina kanaler när du är klar med kanalen. Om du inte stoppar kanalen kommer det att leda till fortsatt fakturering.
+Om du vill stoppa kanalen från faktureringen måste du stoppa kanalen via API: et eller i Azure Portal.
+Du ansvarar för att stoppa kanalerna när du är färdig med kanalen. Om du inte stoppar kanalen leder det till fortsatt fakturering.
 
 > [!NOTE]
-> När du arbetar med standardkanaler stängs AMS automatiskt av alla kanaler som fortfarande är i "Kör" läge 12 timmar efter att inmatningsflödet har förlorats och det inte finns några program som körs. Du kommer dock fortfarande att faktureras för den tid kanalen var i "Kör" tillstånd.
+> När du arbetar med standard kanaler kommer AMS automatiskt att shutoff alla kanaler som fortfarande befinner sig i "kör" tillstånd 12 timmar efter att inmatnings flödet förloras och det inte finns några program som körs. Men du kommer fortfarande att faktureras för den tidpunkt då kanalen kördes.
 >
 >
 
-### <a name="channel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>Kanallägen och hur de mappas till faktureringsläget
-Det aktuella tillståndet för en kanal. Möjliga värden inkluderar:
+### <a name="channel-states-and-how-they-map-to-the-billing-mode"></a><a id="states"></a>Kanal tillstånd och hur de mappas till fakturerings läget
+Aktuell status för en kanal. Möjliga värden är:
 
-* **Stoppad**. Det här är kanalens ursprungliga tillstånd efter att den har skapats (såvida inte autostart har valts i portalen.) Ingen fakturering sker i det här tillståndet. I det här läget kan kanalegenskaperna uppdateras men direktuppspelning är inte tillåtet.
-* **Start**. Kanalen startas. Ingen fakturering sker i det här tillståndet. Inga uppdateringar eller direktuppspelning tillåts under det här tillståndet. Om ett fel inträffar återgår kanalen till tillståndet Stoppad.
-* **Kör**. Kanalen kan bearbeta livestreamar. Det är nu faktureringsanvändning. Du måste stoppa kanalen för att förhindra ytterligare fakturering.
-* **Stoppa**. Kanalen stoppas. Ingen fakturering sker i det här tillfälliga tillståndet. Inga uppdateringar eller direktuppspelning tillåts under det här tillståndet.
-* **Ta bort**. Kanalen tas bort. Ingen fakturering sker i det här tillfälliga tillståndet. Inga uppdateringar eller direktuppspelning tillåts under det här tillståndet.
+* **Stoppades**. Det här är den ursprungliga statusen för kanalen när den har skapats (om Autostart har marker ATS i portalen). Ingen fakturering sker i det här läget. I det här läget kan kanal egenskaperna uppdateras, men strömning är inte tillåtet.
+* **Startar**. Kanalen startas. Ingen fakturering sker i det här läget. Inga uppdateringar eller strömmande tillåts under det här läget. Om ett fel inträffar återgår kanalen till stoppat tillstånd.
+* **Körs**. Kanalen kan bearbeta Live-strömmar. Nu faktureras användning. Du måste stoppa kanalen för att förhindra ytterligare fakturering.
+* **Stoppar**. Kanalen stoppas. Ingen fakturering sker i det här tillfälliga läget. Inga uppdateringar eller strömmande tillåts under det här läget.
+* **Tar bort**. Kanalen tas bort. Ingen fakturering sker i det här tillfälliga läget. Inga uppdateringar eller strömmande tillåts under det här läget.
 
-Följande tabell visar hur kanaltillstånd mappas till faktureringsläget.
+Följande tabell visar hur kanal tillstånd mappas till fakturerings läget.
 
-| Kanaltillstånd | Indikatorer för portalgränssnitt | Är det fakturering? |
+| Kanal tillstånd | Portal GRÄNSSNITTs indikatorer | Faktureras det? |
 | --- | --- | --- |
 | Startar |Startar |Nej (tillfälligt tillstånd) |
-| Körs |Klar (inga program som körs)<br/>eller<br/>Streaming (minst ett program som körs) |JA |
+| Körs |Redo (inga program som körs)<br/>eller<br/>Strömning (minst ett program som körs) |JA |
 | Stoppas |Stoppas |Nej (tillfälligt tillstånd) |
-| Stoppad |Stoppad |Inga |
+| Stoppad |Stoppad |Nej |
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -162,12 +162,12 @@ Följande tabell visar hur kanaltillstånd mappas till faktureringsläget.
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Relaterade ämnen
-[Fragmenterad MP4 Live-specifikation för Azure Media Services](../media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services-specifikation för fragmenterad MP4 Live](../media-services-fmp4-live-ingest-overview.md)
 
-[Arbeta med kanaler som är aktiverade för att utföra livekodning med Azure Media Services](media-services-manage-live-encoder-enabled-channels.md)
+[Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services](media-services-manage-live-encoder-enabled-channels.md)
 
 [Arbeta med kanaler som tar emot liveuppspelningar med flera bithastigheter från lokala kodare](media-services-live-streaming-with-onprem-encoders.md)
 
 [Kvoter och begränsningar](media-services-quotas-and-limitations.md).  
 
-[Begrepp för medietjänster](media-services-concepts.md)
+[Media Services begrepp](media-services-concepts.md)

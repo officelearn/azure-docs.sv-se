@@ -1,63 +1,63 @@
 ---
-title: Skapa en ny Azure Application Insights-resurs | Microsoft-dokument
-description: Konfigurera application insights-övervakning manuellt för ett nytt live-program.
+title: Skapa en ny Azure Application Insights-resurs | Microsoft Docs
+description: Konfigurera Application Insights övervakning manuellt för ett nytt Live-program.
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 0c8b9ccaa70a2fd1bf46c6f4537f54d702ecc48f
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537584"
 ---
 # <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
 
-Azure Application Insights visar data om ditt program i en Microsoft *Azure-resurs*. Att skapa en ny resurs är därför en del av [att konfigurera Application Insights för att övervaka ett nytt program][start]. När du har skapat den nya resursen kan du hämta dess instrumenteringsnyckel och använda den för att konfigurera Application Insights SDK. Instrumenteringsnyckeln länkar telemetrin till resursen.
+Azure Application Insights visar data om ditt program i en Microsoft Azure *resurs*. Att skapa en ny resurs är därför en del av [att konfigurera Application Insights för att övervaka ett nytt program][start]. När du har skapat din nya resurs kan du hämta dess instrument nyckel och använda den för att konfigurera Application Insights SDK. Instrumentation-nyckeln länkar din telemetri till resursen.
 
 ## <a name="sign-in-to-microsoft-azure"></a>Logga in på Microsoft Azure
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
 
-Logga in på [Azure-portalen](https://portal.azure.com)och skapa en application insights-resurs:
+Logga in på [Azure Portal](https://portal.azure.com)och skapa en Application Insights resurs:
 
-![Klicka på +-tecknet i det övre vänstra hörnet. Välj utvecklarverktyg följt av Application Insights](./media/create-new-resource/new-app-insights.png)
+![Klicka på tecknet "+" i det övre vänstra hörnet. Välj Utvecklarverktyg följt av Application Insights](./media/create-new-resource/new-app-insights.png)
 
    | Inställningar        |  Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
-   | **Namn**      | Unikt värde | Namn som identifierar appen du övervakar. |
-   | **Resursgrupp**     | myResourceGroup      | Namn på den nya eller befintliga resursgruppen som ska vara värd för App Insights-data. |
-   | **Location** | USA, östra | Välj en plats nära dig eller i närheten av den plats där appen finns. |
+   | **Namn**      | Unikt värde | Namn som identifierar den app som du övervakar. |
+   | **Resurs grupp**     | myResourceGroup      | Namnet på den nya eller befintliga resurs gruppen som värd för App Insights-data. |
+   | **Position** | USA, östra | Välj en plats nära dig eller nära den plats där din app finns. |
 
 > [!NOTE]
-> Du kan använda samma resursnamn i olika resursgrupper, men det kan vara fördelaktigt att använda ett globalt unikt namn. Detta kan vara användbart om du planerar att [utföra korsresursfrågor](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) eftersom det förenklar den syntax som krävs.
+> Även om du kan använda samma resurs namn i olika resurs grupper kan det vara bra att använda ett globalt unikt namn. Detta kan vara användbart om du planerar att [utföra kors resurs frågor](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) eftersom det underlättar den nödvändiga syntaxen.
 
 Ange lämpliga värden i de obligatoriska fälten och välj sedan **Granska + skapa**.
 
 ![Ange värden i obligatoriska fält och välj sedan "granska + skapa".](./media/create-new-resource/review-create.png)
 
-När appen har skapats öppnas en ny ruta. I den här rutan visas prestanda- och användningsdata om ditt övervakade program. 
+När din app har skapats öppnas ett nytt fönster. I det här fönstret visas prestanda-och användnings data om det övervakade programmet. 
 
-## <a name="copy-the-instrumentation-key"></a>Kopiera instrumenteringsnyckeln
+## <a name="copy-the-instrumentation-key"></a>Kopiera Instrumentation-nyckeln
 
-Instrumenteringsnyckeln identifierar den resurs som du vill associera telemetridata med. Du måste kopiera instrumenteringsnyckeln och lägga till den i programmets kod.
+Instrumentation-nyckeln identifierar den resurs som du vill associera dina telemetridata med. Du måste kopiera Instrumentation-nyckeln och lägga till den i programmets kod.
 
-![Klicka och kopiera instrumenteringsnyckeln](./media/create-new-resource/instrumentation-key.png)
+![Klicka och kopiera Instrumentation-tangenten](./media/create-new-resource/instrumentation-key.png)
 
-## <a name="install-the-sdk-in-your-app"></a>Installera SDK i appen
+## <a name="install-the-sdk-in-your-app"></a>Installera SDK i din app
 
-Installera SDK för programinsikter i appen. Det här steget beror mycket på vilken typ av program du har.
+Installera Application Insights SDK i din app. Det här steget beror på typen av program.
 
-Använd instrumenteringsnyckeln för att konfigurera [SDK som du installerar i programmet][start].
+Använd Instrumentation-tangenten för att konfigurera [SDK: n som du installerar i ditt program][start].
 
-SDK innehåller standardmoduler som skickar telemetri utan att du behöver skriva någon ytterligare kod. Om du vill spåra användaråtgärder eller diagnostisera problem mer i detalj [använder du API:et][api] för att skicka din egen telemetri.
+SDK inkluderar standardmoduler som skickar telemetri utan att du behöver skriva någon ytterligare kod. [Använd API: et][api] för att skicka din egen telemetri för att spåra användar åtgärder eller diagnostisera problem i detalj.
 
 ## <a name="creating-a-resource-automatically"></a>Skapa en resurs automatiskt
 
 ### <a name="powershell"></a>PowerShell
 
-Skapa en ny application insights-resurs
+Skapa en ny Application Insights resurs
 
 ```powershell
 New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Location] <String> [-Kind <String>]
@@ -92,17 +92,17 @@ SamplingPercentage :
 TenantId           : {subid}
 ```
 
-Den fullständiga PowerShell-dokumentationen för den här cmdleten och hur du hämtar instrumenteringsnyckeln finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
+Den fullständiga PowerShell-dokumentationen för denna cmdlet och lär dig hur du hämtar Instrumentation-nyckeln finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
 
-### <a name="azure-cli-preview"></a>Azure CLI (förhandsversion)
+### <a name="azure-cli-preview"></a>Azure CLI (för hands version)
 
-För att komma åt förhandsversionen av Azure CLI-kommandon för förhandsgranskningen måste du först köra:
+För att få åtkomst till för hands versionen Application Insights Azure CLI-kommandon som du först måste köra:
 
 ```azurecli
  az extension add -n application-insights
 ```
 
-Om du inte kör `az extension add` kommandot visas ett felmeddelande som lyder:`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+Om du inte kör `az extension add` kommandot visas ett fel meddelande som säger:`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 Nu kan du köra följande för att skapa din Application Insights-resurs:
 
@@ -149,10 +149,10 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 }
 ```
 
-För den fullständiga Azure CLI-dokumentationen för det här kommandot och för att lära dig hur du hämtar instrumenteringsnyckeln finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+Den fullständiga Azure CLI-dokumentationen för det här kommandot och lär dig hur du hämtar Instrumentation-nyckeln finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Diagnostiksökning](../../azure-monitor/app/diagnostic-search.md)
+* [Diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md)
 * [Utforska mått](../../azure-monitor/platform/metrics-charts.md)
 * [Skriv analysfrågor](../../azure-monitor/app/analytics.md)
 

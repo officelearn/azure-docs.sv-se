@@ -1,5 +1,5 @@
 ---
-title: 'Skaffa modell med REST-samtal i C #'
+title: 'Hämta modell med REST-anrop i C #'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -9,34 +9,34 @@ ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
 ms.openlocfilehash: 96129b9141b4759fd61b539fa08354f02af3af7b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80151290"
 ---
 ## <a name="prerequisites"></a>Krav
 
-* Azure Language Understanding - Författare resurs 32 teckennyckel och redigering slutpunkt URL. Skapa med [Azure-portalen](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) eller [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
-* Importera [TravelAgent-appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) från GitHub-databasen för kognitiva tjänster-språkförståelse.
+* Azure Language Understanding-redigering av resurs 32-tangenten och URL: en för redigering av slut punkter. Skapa med [Azure Portal](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) eller [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
+* Importera [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) -appen från kognitiva-tjänsterna – språkförståelseing GitHub-lagringsplatsen.
 * App-id:t i LUIS för den importerade TravelAgent-appen. Program-ID visas på programmets instrumentpanel.
 * Den versions-ID i programmet som tar emot yttrandena. Standard-id:t är ”0.1”.
-* [.NET-kärna 3.1](https://dotnet.microsoft.com/download)
-* [Visual Studio-kod](https://code.visualstudio.com/)
+* [.NET Core 3,1](https://dotnet.microsoft.com/download)
+* [Visual Studio-koden](https://code.visualstudio.com/)
 
 ## <a name="example-utterances-json-file"></a>JSON-fil med exempelyttranden
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
-## <a name="change-model-programmatically"></a>Ändra modell programmässigt
+## <a name="change-model-programmatically"></a>Ändra modell program mässigt
 
-1. Skapa ett nytt konsolprogram som är inriktat på `model-with-rest`C#-språket med ett projekt- och mappnamn på .
+1. Skapa ett nytt konsol program som riktar sig mot språket C#, med ett projekt-och `model-with-rest`mappnamn för.
 
     ```console
     dotnet new console -lang C# -n model-with-rest
     ```
 
-1. Installera obligatoriska beroenden med följande dotnet CLI-kommandon.
+1. Installera nödvändiga beroenden med följande dotNet CLI-kommandon.
 
     ```console
     dotnet add package System.Net.Http
@@ -164,15 +164,15 @@ ms.locfileid: "80151290"
     }
     ```
 
-1. Ersätt de värden `YOUR-` som börjar med dina egna värden.
+1. Ersätt värdena som börjar med `YOUR-` med dina egna värden.
 
     |Information|Syfte|
     |--|--|
-    |`YOUR-KEY`|Din 32 tecken författande nyckel.|
-    |`YOUR-ENDPOINT`| Slutpunkten för redigerings-URL. Till exempel `replace-with-your-resource-name.api.cognitive.microsoft.com`. Du anger resursnamnet när du skapade resursen.|
-    |`YOUR-APP-ID`| Ditt LUIS-app-ID. |
+    |`YOUR-KEY`|Din redigerings nyckel för 32-tecknen.|
+    |`YOUR-ENDPOINT`| URL-slutpunkten för redigering. Till exempel `replace-with-your-resource-name.api.cognitive.microsoft.com`. Du anger resurs namnet när du skapade resursen.|
+    |`YOUR-APP-ID`| Ditt LUIS app-ID. |
 
-    Tilldelade nycklar och resurser visas i LUIS-portalen i avsnittet Hantera på sidan **Azure-resurser.** App-ID:et är tillgängligt i samma avsnittet Hantera på sidan **Programinställningar.**
+    Tilldelade nycklar och resurser visas i LUIS-portalen i avsnittet hantera på sidan **Azure-resurser** . App-ID: t är tillgängligt i samma hantera-avsnitt på sidan **program inställningar** .
 
 1. Skapa konsolprogrammet.
 
@@ -180,7 +180,7 @@ ms.locfileid: "80151290"
     dotnet build
     ```
 
-1. Kör konsolprogrammet. Konsolutgången visar samma JSON som du såg tidigare i webbläsarfönstret.
+1. Kör konsolprogrammet. Konsolens utdata visar samma JSON som du såg tidigare i webbläsarfönstret.
 
     ```console
     dotnet run
@@ -188,9 +188,9 @@ ms.locfileid: "80151290"
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med den här snabbstarten tar du bort filen från filsystemet.
+När du är färdig med den här snabb starten tar du bort filen från fil systemet.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Metodtips för en app](../luis-concept-best-practices.md)
+> [Metod tips för en app](../luis-concept-best-practices.md)

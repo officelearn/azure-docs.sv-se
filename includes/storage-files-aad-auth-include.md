@@ -9,10 +9,10 @@ ms.date: 07/30/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 167d50e5c7f3049f46fd8540630e47044240809f
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536597"
 ---
 [Azure Files](../articles/storage/files/storage-files-introduction.md) stöder identitets-baserad autentisering över Server Message Block (SMB) via [lokala Active Directory Domain Services (AD DS) (för](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) hands version) och [Azure Active Directory Domain Services (Azure AD DS)](../articles/active-directory-domain-services/overview.md). Den här artikeln fokuserar på hur Azure-filresurser kan använda domän tjänster, antingen lokalt eller i Azure, för att ge stöd för identitets-baserad åtkomst till Azure-filresurser över SMB. Genom att aktivera identitets åtkomst för dina Azure-filresurser kan du ersätta befintliga fil servrar med Azure-filresurser utan att ersätta den befintliga katalog tjänsten och upprätthålla sömlös användar åtkomst till resurser. 

@@ -1,20 +1,20 @@
 ---
-title: Övervaka Java-program var som helst – Azure Monitor Application Insights
-description: Kodlös programprestandaövervakning för Java-program som körs i alla miljöer utan att instrumentera appen. Hitta orsaken till problemen d med distribuerad spårning och programmappning.
+title: Övervaka Java-program var som helst Azure Monitor Application Insights
+description: Kod för program prestanda övervakning för Java-program som körs i en miljö utan att du instrumenterar appen. Hitta rotor saken till problemen d med hjälp av Distributed tracing och program karta.
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.openlocfilehash: 5d930d349a2ab1efbd7a61904874bf6bdb411889
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81641893"
 ---
-# <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Konfigurationsalternativ - Java-fristående agent för Azure Monitor Application Insights
+# <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Konfigurations alternativ – Java fristående agent för Azure Monitor Application Insights
 
 
 
-## <a name="connection-string-and-role-name"></a>Anslutningssträng och rollnamn
+## <a name="connection-string-and-role-name"></a>Anslutnings sträng och rollnamn
 
 ```json
 {
@@ -27,34 +27,34 @@ ms.locfileid: "81641893"
 }
 ```
 
-Anslutningssträngen krävs och rollnamnet är viktigt när du skickar data från olika program till samma Application Insights-resurs.
+Anslutnings strängen krävs och roll namnet är viktigt när du skickar data från olika program till samma Application Insights-resurs.
 
-Du hittar mer information och ytterligare konfigurationsalternativ nedan för mer information.
+Du hittar mer information och ytterligare konfigurations alternativ nedan för mer information.
 
-## <a name="configuration-file-path"></a>Sökväg till konfigurationsfil
+## <a name="configuration-file-path"></a>Sökväg till konfigurations fil
 
-Som standard förväntar sig Application Insights Java 3.0 `ApplicationInsights.json`Preview att konfigurationsfilen ska `applicationinsights-agent-3.0.0-PREVIEW.jar`namnges och finnas i samma katalog som .
+Application Insights Java 3,0 Preview förväntar sig som standard konfigurations filen som ska `ApplicationInsights.json`namnges och placeras i samma katalog som `applicationinsights-agent-3.0.0-PREVIEW.jar`.
 
-Du kan ange en egen sökväg till konfigurationsfilen med antingen
+Du kan ange en egen sökväg för konfigurations filen med antingen
 
-* `APPLICATIONINSIGHTS_CONFIGURATION_FILE`miljövariabeln, eller
-* `applicationinsights.configurationFile`Egenskapen Java-system
+* `APPLICATIONINSIGHTS_CONFIGURATION_FILE`miljö variabel eller
+* `applicationinsights.configurationFile`Java system egenskap
 
-Om du anger en relativ sökväg matchas `applicationinsights-agent-3.0.0-PREVIEW.jar` den i förhållande till katalogen där den finns.
+Om du anger en relativ sökväg kommer den att matchas i förhållande till den katalog `applicationinsights-agent-3.0.0-PREVIEW.jar` där finns.
 
 ## <a name="connection-string"></a>Anslutningssträng
 
-Detta krävs. Du hittar din anslutningssträng i din Application Insights-resurs:
+Detta är obligatoriskt. Du kan hitta din anslutnings sträng i Application Insights-resursen:
 
-:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Anslutningssträng för programinsikter":::
+:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights anslutnings sträng":::
 
-Du kan också ställa in anslutningssträngen med hjälp av miljövariabeln `APPLICATIONINSIGHTS_CONNECTION_STRING`.
+Du kan också ange anslutnings strängen med hjälp av miljövariabeln `APPLICATIONINSIGHTS_CONNECTION_STRING`.
 
-## <a name="cloud-role-name"></a>Namn på molnroll
+## <a name="cloud-role-name"></a>Namn på moln roll
 
-Cloud-rollnamn används för att märka komponenten på programmappningen.
+Namnet på moln rollen används för att märka komponenten på program kartan.
 
-Om du vill ange molnet rollnamn:
+Om du vill ange namnet på moln rollen:
 
 ```json
 {
@@ -66,15 +66,15 @@ Om du vill ange molnet rollnamn:
 }
 ```
 
-Om molnrollnamnet inte har angetts används application insights-resursens namn för att märka komponenten på programmappningen.
+Om du inte anger namnet på moln rollen används Application Insights resursens namn för att märka komponenten på program kartan.
 
-Du kan också ange molnet rollnamnet `APPLICATIONINSIGHTS_ROLE_NAME`med hjälp av miljövariabeln .
+Du kan också ange namnet på moln rollen med hjälp av miljövariabeln `APPLICATIONINSIGHTS_ROLE_NAME`.
 
-## <a name="cloud-role-instance"></a>Molnrollinstans
+## <a name="cloud-role-instance"></a>Moln roll instans
 
-Molnrollinstansen är som standard datornamnet.
+Moln roll instansen har som standard dator namnet.
 
-Om du vill ställa in molnrollförekomsten till något annat än datornamnet:
+Om du vill ställa in en annan moln roll instans i stället för namnet på datorn:
 
 ```json
 {
@@ -86,15 +86,15 @@ Om du vill ställa in molnrollförekomsten till något annat än datornamnet:
 }
 ```
 
-Du kan också ange molnrollinstansen med hjälp av miljövariabeln `APPLICATIONINSIGHTS_ROLE_INSTANCE`.
+Du kan också ställa in moln Rolls instansen med `APPLICATIONINSIGHTS_ROLE_INSTANCE`hjälp av miljövariabeln.
 
-## <a name="application-log-capture"></a>Insamling av programlogg
+## <a name="application-log-capture"></a>Samla in program logg
 
-Application Insights Java 3.0 Preview fångar automatiskt programloggning via Log4j, Logback och java.util.logging.
+Application Insights Java 3,0 Preview samlar automatiskt in program loggning via log4j, logback och Java. util. logging.
 
-Som standard kommer det att fånga `WARN` all loggning som utförs på nivå eller högre.
+Som standard kommer den att fånga all loggning som `WARN` utförs på nivån eller över.
 
-Om du vill ändra det här tröskelvärdet:
+Om du vill ändra detta tröskelvärde:
 
 ```json
 {
@@ -110,24 +110,24 @@ Om du vill ändra det här tröskelvärdet:
 }
 ```
 
-Det här `threshold` är de giltiga värden `ApplicationInsights.json` som du kan ange i filen och hur de motsvarar loggningsnivåer över olika loggningsramverk:
+Dessa är giltiga `threshold` värden som du kan ange i `ApplicationInsights.json` filen och hur de motsvarar loggnings nivåer över olika loggnings ramverk:
 
-| `threshold`  | Log4j (på andra sätt)  | Logga tillbaka | Jul     |
+| `threshold`  | Log4j  | Logback | Jul     |
 |--------------|--------|---------|---------|
 | OFF          | OFF    | OFF     | OFF     |
-| Dödlig        | Dödlig  | FEL   | SEVERE  |
+| DÖDS        | DÖDS  | FEL   | SEVERE  |
 | FEL/ALLVARLIGT | FEL  | FEL   | SEVERE  |
-| VARNA/VARNING | Varna   | Varna    | WARNING |
+| VARNING/VARNING | Varna   | Varna    | WARNING |
 | INFO         | INFO   | INFO    | INFO    |
 | CONFIG       | FELSÖK  | FELSÖK   | CONFIG  |
-| FELSÖKA/FIN   | FELSÖK  | FELSÖK   | FINE    |
+| FELSÖK/FINJUSTERA   | FELSÖK  | FELSÖK   | FINE    |
 | FINER        | FELSÖK  | FELSÖK   | FINER   |
-| SPÅR/FINASTE | Spåra  | Spåra   | FINEST  |
+| SPÅRNING/FINEST | Rita  | Rita   | FINEST  |
 | ALL          | ALL    | ALL     | ALL     |
 
-## <a name="jmx-metrics"></a>JMX-mått
+## <a name="jmx-metrics"></a>JMX mått
 
-Om du har några JMX-mått som du är intresserad av att fånga:
+Om du har några JMX-mått som du är intresse rad av att fånga:
 
 ```json
 {
@@ -152,7 +152,7 @@ Om du har några JMX-mått som du är intresserad av att fånga:
 
 ## <a name="micrometer"></a>Micrometer
 
-Som standard, om ditt program använder [Micrometer](https://micrometer.io), Application Insights 3.0 (börjar med Preview.2) lägger nu till Micrometer globala registret och fångar Micrometer mått.
+Om ditt program använder [Micrometer](https://micrometer.io)Application Insights 3,0 (från och med för hands version. 2) nu till micrometer globala register och samlar in micrometer mått.
 
 Om du vill inaktivera den här funktionen:
 
@@ -172,7 +172,7 @@ Om du vill inaktivera den här funktionen:
 
 ## <a name="heartbeat"></a>Pulsslag
 
-Som standard skickar Application Insights Java 3.0 Preview ett pulsslagsmått en gång var 15:e minut. Om du använder pulsslagsmåttet för att utlösa aviseringar kan du öka frekvensen för det här pulsslaget:
+Som standard skickar Application Insights Java 3,0 för hands version ett pulsslags mått var 15: e minut. Om du använder pulsslags måttet för att utlösa aviseringar kan du öka frekvensen för detta pulsslag:
 
 ```json
 {
@@ -187,16 +187,16 @@ Som standard skickar Application Insights Java 3.0 Preview ett pulsslagsmått en
 ```
 
 > [!NOTE]
-> Du kan inte minska frekvensen för dessa pulsslag, eftersom pulsslagsdata också används för att spåra användning av Application Insights.
+> Du kan inte minska frekvensen för det här pulsslaget eftersom pulsslags data också används för att spåra Application Insights användning.
 
 ## <a name="sampling"></a>Samling
 
 Sampling är användbart om du behöver minska kostnaderna.
-Sampling utförs som en funktion på operations-ID (kallas även spår-ID), så att samma operations-ID alltid resulterar i samma provtagningsbeslut. Detta säkerställer att du inte får delar av en distribuerad transaktion som samplas i medan andra delar av den samplas ut.
+Sampling utförs som en funktion i åtgärds-ID (även kallat spårnings-ID), så att samma åtgärds-ID alltid kommer att resultera i samma samplings beslut. På så sätt kan du inte hämta delar av en distribuerad transaktion, medan andra delar av det samplas ut.
 
-Om du till exempel anger sampling till 10 % ser du bara 10 % av dina transaktioner, men var och en av dessa 10 % har fullständig transaktionsinformation från slutna till slutna dagar.
+Om du till exempel ställer in sampling till 10% visas bara 10% av dina transaktioner, men var och en av de 10% har fullständig transaktions information från slut punkt till slut punkt.
 
-Här är ett exempel på hur du ställer in samplingen till **10% av alla transaktioner** - se till att du ställer in samplingsfrekvensen som är korrekt för ditt användningsfall:
+Här är ett exempel på hur du ställer in samplingen på **10% av alla transaktioner** . kontrol lera att du ställer in den samplings frekvens som är korrekt för ditt användnings fall:
 
 ```json
 {
@@ -214,7 +214,7 @@ Här är ett exempel på hur du ställer in samplingen till **10% av alla transa
 
 ## <a name="http-proxy"></a>HTTP-proxy
 
-Om ditt program ligger bakom en brandvägg och inte kan ansluta direkt till Application Insights (se [IP-adresser som används av Application Insights)](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)kan du konfigurera Application Insights Java 3.0 Preview för att använda en HTTP-proxy:
+Om ditt program ligger bakom en brand vägg och inte kan ansluta direkt till Application Insights (se [IP-adresser som används av Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)) kan du konfigurera Application Insights Java 3,0 Preview för att använda en http-proxy:
 
 ```json
 {
@@ -229,13 +229,13 @@ Om ditt program ligger bakom en brandvägg och inte kan ansluta direkt till Appl
 }
 ```
 
-## <a name="self-diagnostics"></a>Självdiagnostik
+## <a name="self-diagnostics"></a>Själv diagnostik
 
-"Självdiagnostik" avser intern loggning från Application Insights Java 3.0 Preview.
+"Självdiagnostik" syftar på intern loggning från Application Insights Java 3,0 Preview.
 
-Detta kan vara till hjälp för att upptäcka och diagnostisera problem med Application Insights själv.
+Detta kan vara användbart för att upptäcka och diagnostisera problem med Application Insights sig själv.
 
-Som standard loggas den till `warn`konsol med nivå , vilket motsvarar den här konfigurationen:
+Som standard loggar den till-konsolen med nivån `warn`, som motsvarar den här konfigurationen:
 
 ```json
 {
@@ -250,9 +250,9 @@ Som standard loggas den till `warn`konsol med nivå , vilket motsvarar den här 
 }
 ```
 
-Giltiga nivåer `OFF` `ERROR`är `WARN` `INFO`, `DEBUG`, `TRACE`, , och .
+Giltiga nivåer är `OFF`, `ERROR` `WARN` `INFO` `DEBUG`,,, och `TRACE`.
 
-Om du vill logga till en fil i stället för att logga till konsolen:
+Om du vill logga till en fil i stället för att logga in på konsolen:
 
 ```json
 {
@@ -269,4 +269,4 @@ Om du vill logga till en fil i stället för att logga till konsolen:
 }
 ```
 
-När du använder filloggning, `maxSizeMB`när filen träffar , kommer det att rulla över, hålla bara den senast avslutade loggfilen utöver den aktuella loggfilen.
+När fil träffar `maxSizeMB`används när fil loggen används, kommer den att förnyas så att bara den senast slutförda logg filen visas, utöver den aktuella logg filen.

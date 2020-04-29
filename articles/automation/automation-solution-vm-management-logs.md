@@ -1,20 +1,20 @@
 ---
-title: Så här frågar du efter loggar från start-/stopp-virtuella datorer
-description: I den här artikeln beskrivs hur du frågar loggdata som genereras av start/stop-virtuella datorer-lösningen från Azure Monitor.
+title: Så här frågar du efter loggar från lösningen starta/stoppa virtuella datorer
+description: 'Den här artikeln beskriver hur du frågar logg data som genererats av lösningen starta/stoppa VM: ar från Azure Monitor.'
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: 472f3762ca18f71ba95053576daf025d8477fee9
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81604729"
 ---
-# <a name="how-to-query-logs-from-startstop-vms-solution"></a>Så här frågar du efter loggar från start-/stopp-virtuella datorer
+# <a name="how-to-query-logs-from-startstop-vms-solution"></a>Så här frågar du efter loggar från lösningen starta/stoppa virtuella datorer
 
-Azure Automation vidarebefordrar två typer av poster till den länkade Log Analytics-arbetsytan: jobbloggar och jobbströmmar. Dessa data är tillgängliga för [frågor](../azure-monitor/log-query/log-query-overview.md) i Azure Monitor.
+Azure Automation vidarebefordrar två typer av poster till den länkade Log Analytics arbets ytan: jobb loggar och jobb strömmar. Dessa data är tillgängliga för [fråga](../azure-monitor/log-query/log-query-overview.md) i Azure Monitor.
 
 ## <a name="job-logs"></a>Jobbloggar
 
@@ -22,9 +22,9 @@ Azure Automation vidarebefordrar två typer av poster till den länkade Log Anal
 |----------|----------|
 |Anropare |  Den som initierade åtgärden. Möjliga värden är antingen en e-postadress eller ett system för schemalagda jobb.|
 |Kategori | Klassificering av typ av data. För Automation är värdet JobLogs.|
-|CorrelationId | GUID som är korrelations-ID för runbook-jobbet.|
-|JobId | GUID som är ID för runbook-jobbet.|
-|operationName | Anger åtgärdstypen i Azure. För Automation är värdet Jobb.|
+|CorrelationId | GUID som är korrelations-ID för Runbook-jobbet.|
+|JobId | GUID som är ID för Runbook-jobbet.|
+|operationName | Anger åtgärdstypen i Azure. För Automation är värdet jobb.|
 |resourceId | Anger resurstypen i Azure. För Automation är värdet Automation-kontot som är kopplat till runbook.|
 |ResourceGroup | Anger resursgruppens namn på runbook-jobbet.|
 |ResourceProvider | Anger den Azure-tjänst som tillhandahåller de resurser som du kan distribuera och hantera. För Automation är värdet Azure Automation.|
@@ -43,8 +43,8 @@ Azure Automation vidarebefordrar två typer av poster till den länkade Log Anal
 |----------|----------|
 |Anropare |  Den som initierade åtgärden. Möjliga värden är antingen en e-postadress eller ett system för schemalagda jobb.|
 |Kategori | Klassificering av typ av data. För Automation är värdet JobStreams.|
-|JobId | GUID som är ID för runbook-jobbet.|
-|operationName | Anger åtgärdstypen i Azure. För Automation är värdet Jobb.|
+|JobId | GUID som är ID för Runbook-jobbet.|
+|operationName | Anger åtgärdstypen i Azure. För Automation är värdet jobb.|
 |ResourceGroup | Anger resursgruppens namn på runbook-jobbet.|
 |resourceId | Anger resurs-ID i Azure. För Automation är värdet Automation-kontot som är kopplat till runbook.|
 |ResourceProvider | Anger den Azure-tjänst som tillhandahåller de resurser som du kan distribuera och hantera. För Automation är värdet Azure Automation.|
@@ -53,10 +53,10 @@ Azure Automation vidarebefordrar två typer av poster till den länkade Log Anal
 |resultDescription | Innehåller utdataströmmen från runbook.|
 |RunbookName | Anger namnet på runbooken.|
 |SourceSystem | Anger källsystemet för data som skickats. För Automation är värdet OpsManager.|
-|StreamType | Typ av jobbström. Möjliga värden:<br>- Framsteg<br>- Utdata<br>- Varning<br>- Fel<br>- Felsökning<br>- Verbose|
+|StreamType | Typ av jobbström. Möjliga värden:<br>– Förlopp<br>- Utdata<br>- Varning<br>- Fel<br>- Felsökning<br>- Verbose|
 |Tid | Datum och tid då runbook-jobbet körs.|
 
-När du utför en loggsökning som returnerar kategoriposter för **JobLogs** eller **JobStreams**kan du välja vyn **JobLogs** eller **JobStreams,** som visar en uppsättning paneler som sammanfattar uppdateringarna som returneras av sökningen.
+När du utför en loggs ökning som returnerar kategori poster för **JobLogs** eller **JobStreams**kan du välja vyn **JobLogs** eller **JobStreams** , som visar en uppsättning paneler som sammanfattar de uppdateringar som returneras av sökningen.
 
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
 
@@ -64,11 +64,11 @@ Följande tabell innehåller exempel på sökningar i loggen för jobbposter som
 
 |Söka i data | Beskrivning|
 |----------|----------|
-|Hitta jobb för runbook ScheduledStartStop_Parent som har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
-|Hitta jobb för runbook ScheduledStartStop_Parent som inte har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Failed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
-|Hitta jobb för runbook SequencedStartStop_Parent som har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
-|Hitta jobb för runbook SequencedStartStop_Parent som inte har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Failed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Hitta jobb för Runbook ScheduledStartStop_Parent som har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Hitta jobb för Runbook-ScheduledStartStop_Parent som inte har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Failed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Hitta jobb för Runbook SequencedStartStop_Parent som har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Hitta jobb för Runbook-SequencedStartStop_Parent som inte har slutförts | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Failed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 
 ## <a name="next-steps"></a>Nästa steg
 
-**Start/Stop virtuella datorer under off-hours-lösningen** innehåller inte en fördefinierad uppsättning aviseringar. Granska [Create-loggaviseringarna](../azure-monitor/platform/alerts-log.md) med Azure Monitor för att lära dig hur du skapar misslyckade aviseringar för jobb för att stödja dina DevOps eller operativa processer och procedurer.
+Den **Starta/stoppa virtuella datorer när de inte används** lösningen innehåller ingen fördefinierad uppsättning aviseringar. Granska [aviseringarna skapa logg](../azure-monitor/platform/alerts-log.md) med Azure Monitor för att lära dig hur du skapar misslyckade jobb aviseringar som stöder dina DevOps eller operativa processer och procedurer.

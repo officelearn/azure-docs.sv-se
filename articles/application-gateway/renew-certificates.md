@@ -1,6 +1,6 @@
 ---
-title: Förnya ett Azure Application Gateway-certifikat
-description: Lär dig hur du förnyar ett certifikat som är associerat med en programgatewaylyssnare.
+title: Förnya ett Azure Application-Gateway-certifikat
+description: Lär dig hur du förnyar ett certifikat som är associerat med en Application Gateway-lyssnare.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 8/15/2018
 ms.author: victorh
 ms.openlocfilehash: 4c0c0ab84e60335f58ac075459b95cfabb9135ac
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81311950"
 ---
-# <a name="renew-application-gateway-certificates"></a>Förnya certifikat för programgateway
+# <a name="renew-application-gateway-certificates"></a>Förnya Application Gateway certifikat
 
-Vid något tillfälle måste du förnya dina certifikat om du har konfigurerat programgatewayen för TLS/SSL-kryptering.
+Vid något tillfälle måste du förnya dina certifikat om du har konfigurerat din Application Gateway för TLS/SSL-kryptering.
 
-Du kan förnya ett certifikat som är associerat med en lyssnare med antingen Azure-portalen, Azure PowerShell eller Azure CLI:
+Du kan förnya ett certifikat som är associerat med en lyssnare med antingen Azure Portal, Azure PowerShell eller Azure CLI:
 
 ## <a name="azure-portal"></a>Azure Portal
 
-Om du vill förnya ett lyssnarcertifikat från portalen navigerar du till programgatewaylyssnare. Klicka på lyssnaren som har ett certifikat som behöver förnyas och klicka sedan på **Förnya eller redigera det markerade certifikatet**.
+Om du vill förnya ett lyssnar certifikat från portalen navigerar du till dina Application Gateway-lyssnare. Klicka på den lyssnare som har ett certifikat som behöver förnyas och klicka sedan på **förnya eller redigera det valda certifikatet**.
 
 ![Förnya certifikat](media/renew-certificate/ssl-cert.png)
 
-Ladda upp ditt nya PFX-certifikat, ge det ett namn, skriv lösenordet och klicka sedan på **Spara**.
+Överför ditt nya PFX-certifikat, ge det ett namn, ange lösen ordet och klicka sedan på **Spara**.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -62,4 +62,4 @@ az network application-gateway ssl-cert update \
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du konfigurerar TLS-avlastning med Azure Application Gateway finns i [Konfigurera TLS-avlastning](application-gateway-ssl-portal.md)
+Information om hur du konfigurerar TLS-avlastning med Azure Application Gateway finns i [Konfigurera TLS-avläsning](application-gateway-ssl-portal.md)

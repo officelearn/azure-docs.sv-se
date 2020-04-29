@@ -1,6 +1,6 @@
 ---
-title: Använda Azure IoT Tools för VSCode för att belägga IT Hub-meddelanden
-description: Lär dig hur du använder Azure IoT Tools for Visual Studio Code för att övervaka enhet till molnmeddelanden och skicka moln till enhetsmeddelanden i Azure IoT Hub.
+title: Använda Azure IoT-verktyg för VSCode till chef för IT-hubb
+description: Lär dig hur du använder Azure IoT-verktyg för Visual Studio Code för att övervaka enheten till moln meddelanden och skicka molnet till enhets meddelanden i Azure IoT Hub.
 author: formulahendry
 ms.service: iot-hub
 services: iot-hub
@@ -9,29 +9,29 @@ ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
 ms.openlocfilehash: 31a5d55d1067b9dd946c1667118d0bde5ee3d59e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81682501"
 ---
-# <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Använda Azure IoT Tools for Visual Studio Code för att skicka och ta emot meddelanden mellan enheten och IoT Hub
+# <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Använd Azure IoT-verktyg för Visual Studio Code för att skicka och ta emot meddelanden mellan enheten och IoT Hub
 
-![Diagram från på sluten tid](./media/iot-hub-vscode-iot-toolkit-cloud-device-messaging/e-to-e-diagram.png)
+![Diagram från slut punkt till slut punkt](./media/iot-hub-vscode-iot-toolkit-cloud-device-messaging/e-to-e-diagram.png)
 
-[Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) är ett användbart Visual Studio-kodtillägg som gör IoT Hub-hantering och IoT-programutveckling enklare. Den här artikeln fokuserar på hur du använder Azure IoT Tools for Visual Studio Code för att skicka och ta emot meddelanden mellan enheten och din IoT-hubb.
+[Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) är ett användbart kod tillägg för Visual Studio som gör det enklare att utveckla IoT Hub-hantering och IoT-program. Den här artikeln fokuserar på hur du använder Azure IoT-verktyg för Visual Studio Code för att skicka och ta emot meddelanden mellan din enhet och IoT Hub.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="what-you-will-learn"></a>Vad du kommer att lära dig
+## <a name="what-you-will-learn"></a>Det här får du lära dig
 
-Du lär dig hur du använder Azure IoT Tools för Visual Studio-kod för att övervaka meddelanden från enhet till moln och skicka meddelanden från molnet till enheten. Meddelanden från enhet till moln kan vara sensordata som enheten samlar in och sedan skickar till din IoT-hubb. Meddelanden från molnet till enheten kan vara kommandon som din IoT-hubb skickar till enheten för att blinka en lysdiod som är ansluten till enheten.
+Du lär dig hur du använder Azure IoT-verktyg för Visual Studio Code för att övervaka meddelanden från enheten till molnet och skicka meddelanden från molnet till enheten. Meddelanden från enheten till molnet kan vara sensor data som samlas in av enheten och sedan skickas till IoT-hubben. Meddelanden från moln till enhet kan vara kommandon som din IoT Hub skickar till enheten för att blinka med en indikator som är ansluten till din enhet.
 
 ## <a name="what-you-will-do"></a>Vad du ska göra
 
-* Använd Azure IoT Tools for Visual Studio Code för att övervaka meddelanden från enhet till moln.
+* Använd Azure IoT-verktyg för Visual Studio Code för att övervaka meddelanden från enheten till molnet.
 
-* Använd Azure IoT Tools for Visual Studio Code för att skicka meddelanden från molnet till enheten.
+* Använd Azure IoT-verktyg för Visual Studio Code för att skicka meddelanden från molnet till enheten.
 
 ## <a name="what-you-need"></a>Vad du behöver
 
@@ -41,45 +41,45 @@ Du lär dig hur du använder Azure IoT Tools för Visual Studio-kod för att öv
 
 * [Visual Studio-koden](https://code.visualstudio.com/)
 
-* [Azure IoT Tools for VS-kod](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) eller kopiera och klistra in den här URL:en i ett webbläsarfönster:`vscode:extension/vsciot-vscode.azure-iot-tools`
+* [Azure IoT-verktyg för vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) eller kopiera och klistra in denna URL i ett webbläsarfönster:`vscode:extension/vsciot-vscode.azure-iot-tools`
 
-## <a name="sign-in-to-access-your-iot-hub"></a>Logga in för att komma åt din IoT-hubb
+## <a name="sign-in-to-access-your-iot-hub"></a>Logga in för att få åtkomst till din IoT Hub
 
-1. Expandera avsnittet **Azure IoT Hub Devices** i det nedre vänstra hörnet i **Utforskarvyn** för VS-kod.
+1. I **trädvyn med** vs Code expanderar du avsnittet **Azure IoT Hub-enheter** i det nedre vänstra hörnet.
 
-2. Klicka på **Välj IoT Hub** på snabbmenyn.
+2. Klicka på **välj IoT Hub** i snabb menyn.
 
 3. Ett popup-fönster visas i det nedre högra hörnet så att du kan logga in på Azure för första gången.
 
-4. När du har loggat in visas din Azure-prenumerationslista och väljer sedan Azure-prenumeration och IoT Hub.
+4. När du har loggat in visas din Azure-prenumeration och välj sedan Azure-prenumeration och IoT Hub.
 
-5. Enhetslistan visas på fliken **Azure IoT Hub Devices** inom några sekunder.
+5. Enhets listan visas på fliken **Azure IoT Hub Devices** på några sekunder.
 
    > [!Note]
-   > Du kan också slutföra konfigurationen genom att välja **Set IoT Hub Connection String** (Ange IoT Hub-anslutningssträng). Ange **iothubowner-principanslutningssträngen** för IoT-hubben som IoT-enheten ansluter till i popup-fönstret.
+   > Du kan också slutföra konfigurationen genom att välja **Set IoT Hub Connection String** (Ange IoT Hub-anslutningssträng). Ange anslutnings strängen för **iothubowner** -principen för den IoT-hubb som din IoT-enhet ansluter till i popup-fönstret.
 
-## <a name="monitor-device-to-cloud-messages"></a>Övervaka meddelanden från enhet till moln
+## <a name="monitor-device-to-cloud-messages"></a>Övervaka meddelanden från enheten till molnet
 
-Så här övervakar du meddelanden som skickas från enheten till IoT-hubben:
+Följ dessa steg om du vill övervaka meddelanden som skickas från enheten till din IoT Hub:
 
-1. Högerklicka på enheten och välj **Starta övervakning inbyggd händelseslutpunkt**.
+1. Högerklicka på enheten och välj **starta övervakning inbyggd händelse slut punkt**.
 
-2. De övervakade meddelandena visas i **UTDATA** > **Azure IoT** Hub-vyn.
+2. De övervakade meddelandena visas i vyn**Azure IoT Hub** **utdata** > .
 
-3. Om du vill sluta övervaka högerklickar du på **utdatavyn** och väljer **Sluta övervaka inbyggt händelseslutpunkt**.
+3. Om du vill stoppa övervakningen högerklickar du på vyn **utdata** och väljer **stoppa övervakning inbyggd händelse slut punkt**.
 
 ## <a name="send-cloud-to-device-messages"></a>Skicka meddelanden från moln till enhet
 
-Så här skickar du ett meddelande från IoT-hubben till enheten:
+Följ dessa steg om du vill skicka ett meddelande från din IoT-hubb till din enhet:
 
 1. Högerklicka på enheten och välj **Skicka C2D-meddelande till enhet**.
 
-2. Ange meddelandet i inmatningsrutan.
+2. Ange meddelandet i rutan indatamängd.
 
-3. Resultaten visas i **OUTPUT** > **Azure IoT** Hub-vyn.
+3. Resultaten visas i vyn **utdata** > i**Azure IoT Hub** .
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har lärt dig hur du övervakar meddelanden från enhet till moln och skickar meddelanden från molnet till enheten mellan din IoT-enhet och Azure IoT Hub.
+Du har lärt dig hur du övervakar meddelanden från enheten till molnet och skickar meddelanden från molnet till enheten mellan din IoT-enhet och Azure IoT Hub.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

@@ -9,16 +9,16 @@ ms.date: 04/16/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 32f972b177e004612856db91e790c5c2781a2b44
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81536458"
 ---
-Följande gränser gäller endast när du utför hanteringsåtgärder med hjälp av Azure Resource Manager med Azure Storage.
+Följande begränsningar gäller endast när du utför hanterings åtgärder med hjälp av Azure Resource Manager med Azure Storage.
 
 | Resurs | Gräns |
 | --- | --- |
-| Hantering av lagringskonto (läs) |800 per 5 minuter |
-| Hantering av lagringskonto (skriv) |10 per sekund / 1200 per timme |
-| Hanteringsåtgärder för lagringskonto (lista) |100 per 5 minuter |
+| Lagrings konto hanterings åtgärder (läsa) |800 per 5 minuter |
+| Lagrings konto hanterings åtgärder (skriva) |10 per sekund/1200 per timme |
+| Lagrings konto hanterings åtgärder (lista) |100 per 5 minuter |

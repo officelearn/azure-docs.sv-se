@@ -1,13 +1,13 @@
 ---
-title: 'Snabbstart: skapa app - LUIS'
-description: Den här snabbstarten visar hur du skapar en `HomeAutomation` LUIS-app som använder den fördefinierade domänen för att tända och stänga av lampor och apparater. Den fördefinierade domänen ger dig avsikter, entiteter och exempelyttranden. När du är klar har du en LUIS-slutpunkt som körs i molnet.
+title: 'Snabb start: skapa app-LUIS'
+description: Den här snabb starten visar hur du skapar en LUIS-app som använder den `HomeAutomation` färdiga domänen för att aktivera och inaktivera lampor och apparater. Den fördefinierade domänen ger dig avsikter, entiteter och exempelyttranden. När du är klar har du en LUIS-slutpunkt som körs i molnet.
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.openlocfilehash: de6cf5e95ee63fc9500cf1b5edab78597bdb18af
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80287806"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Snabbstart: Använda en färdig hemautomatiseringsapp
@@ -21,30 +21,30 @@ I den här snabbstarten skapar du en LUIS-app som använder den fördefinierade 
 ## <a name="create-a-new-app"></a>Skapa en ny app
 Du kan skapa och hantera dina appar på **Mina appar**.
 
-1. I listan Mina appar väljer du **+ Ny app för konversation**.
+1. I listan Mina appar väljer du **+ ny app för konversation**.
 
-1. Namnge programmet `Home Automation`i dialogrutan . Välj **engelska** som kultur. Beskrivningen är valfri och används inte för redigering eller förutsägelse. Förutsägelseresursen är också valfri när du skapar en LUIS-app. Välj **Done** (Klar).
+1. I dialog rutan namnger du ditt program `Home Automation`. Välj **engelska** som kultur. Beskrivningen är valfri och används inte för redigering eller förutsägelse. Förutsägelse resursen är också valfri när du skapar en LUIS-app. Välj **Klar**.
 
-    LUIS skapar appen. När du publicerar appen i produktion bör du tilldela en förutsägelseresurs så att appen kan hantera många begäranden.
+    LUIS skapar appen. När du publicerar din app till produktion bör du tilldela en förutsägelse resurs så att din app kan hantera många begär Anden.
 
-    ![I dialogrutan namnger du programmet "Home Automation"](./media/create-new-app-details.png)
+    ![I dialog rutan namnger du appens hem automatisering](./media/create-new-app-details.png)
 
     >[!NOTE]
     >Kulturen kan inte ändras när appen har skapats.
 
 ## <a name="add-prebuilt-domain"></a>Lägga till fördefinierad domän
 
-Välj **Fördefinierade domäner** och sök sedan efter **HomeAutomation**. Välj **Lägg till domän** på HomeAutomation-kortet.
+Välj **förinställda domäner** och Sök sedan efter **HomeAutomation**. Välj **Lägg till domän** på HomeAutomation-kortet.
 
-![Välj "Fördefinierade domäner" och sök sedan efter "HomeAutomation". Välj Lägg till domän på HomeAutomation-kortet.](media/luis-quickstart-new-app/home-automation.png)
+![Välj "förinställda domäner" och Sök efter "HomeAutomation". Välj Lägg till domän på HomeAutomation-kortet.](media/luis-quickstart-new-app/home-automation.png)
 
 När domänen har lagts till visar rutan för den fördefinierade domänen knappen **Remove domain** (Ta bort domän).
 
 ## <a name="intents-and-entities"></a>Avsikter och entiteter
 
-Välj **Avsikter om** du vill granska avsikter med HomeAutomation-domänen. De fördefinierade domänavsikterna har exempelyttranden.
+Välj **avsikter** för att granska HomeAutomation domän avsikter. De fördefinierade domän exemplen har ett exempel på yttranden.
 
-![Skärmbild av listan över avsikter i HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Skärmbild av listan över avsikter i HomeAutomation")
+![Skärm bild av listan med HomeAutomation-intentor](media/luis-quickstart-new-app/home-automation-intents.png "Skärm bild av listan med HomeAutomation-intentor")
 
 > [!NOTE]
 > **None** (Ingen) är en avsikt som tillhandahålls av alla LUIS-appar. Du kan använda den till att hantera yttranden som inte motsvarar funktioner som finns i din app.
@@ -60,7 +60,7 @@ Välj avsikten **HomeAutomation.TurnOff** (stänga av). Du kan se att avsikten i
 ## <a name="test-your-app"></a>Testa din app
 När du har tränat appen kan du testa den.
 
-1. Välj **Testa** i navigeringen längst upp till höger. 1. Skriv ett testuttryck som `Turn off the lights` i den interaktiva testfönstret och tryck på Retur.
+1. Välj **test** i det övre högra navigerings fönstret. 1. Skriv ett test-uttryck `Turn off the lights` som i det interaktiva test fönstret och tryck på RETUR.
 
     ```
     Turn off the lights
@@ -68,15 +68,15 @@ När du har tränat appen kan du testa den.
 
     Kontrollera att avsikten med högst poäng motsvarar den avsikt du förväntade dig för varje testyttrande.
 
-    I det `Turn off the lights` här exemplet identifieras den högsta poängmetoden för **HomeAutomation.TurnOff**.
+    I det här exemplet `Turn off the lights` identifieras korrekt som det främsta bedömnings syftet för **HomeAutomation. TurnOff**.
 
     ![Skärmbild av testpanel med yttranden markerade](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
-1. Välj **Granska** om du vill granska mer information om förutsägelsen.
+1. Välj **Granska** för att granska mer information om förutsägelsen.
 
-    ![Skärmbild av testpanelen med inspektionsinformation](media/luis-quickstart-new-app/test.png)
+    ![Skärm bild av test panelen med gransknings information](media/luis-quickstart-new-app/test.png)
 
-1. Stäng testfönstret.
+1. Stäng test fönstret.
 
 <a name="publish-your-app"></a>
 
@@ -86,18 +86,18 @@ När du har tränat appen kan du testa den.
 
 <a name="query-the-v2-api-prediction-endpoint"></a>
 
-## <a name="query-the-v3-api-prediction-endpoint"></a>Fråga slutpunkten för V3 API-förutsägelse
+## <a name="query-the-v3-api-prediction-endpoint"></a>Fråga v3 API förutsägelse-slutpunkten
 
 [!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)]
 
-2. Kontrollera att följande namn och värdestaplar finns i URL:en i url:en i webbläsarens adressfält. Om de inte finns i frågesträngen lägger du till dem:
+2. I adress fältet i webbläsaren kontrollerar du att följande namn och värde fält finns i URL: en för frågesträngen. Om de inte finns i frågesträngen lägger du till dem:
 
-    |Namn/värdepar|
+    |Namn/värde-par|
     |--|
     |`verbose=true`|
     |`show-all-intents=true`|
 
-3. Gå till slutet av URL:en i webbläsarens adressfält och ange `turn off the living room light` _frågevärdet_ och tryck sedan på Retur.
+3. I webbläsarens Adress fält går du till slutet av URL: en och anger `turn off the living room light` värdet för _fråga_ och trycker på RETUR.
 
     ```json
     {
@@ -188,7 +188,7 @@ När du har tränat appen kan du testa den.
     }
     ```
 
-    Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+    Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

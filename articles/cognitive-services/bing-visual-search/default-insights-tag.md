@@ -1,7 +1,7 @@
 ---
-title: Taggen Standardinsikter – Visuell Bing-sökning
+title: Standard insikts tagg-Visuell sökning i Bing
 titleSuffix: Azure Cognitive Services
-description: Innehåller information om standardinsikterna som Bing Visual Search returnerar om en bild.
+description: Innehåller information om standard insikter som Visuell sökning i Bing returnerar en bild.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: scottwhi
 ms.openlocfilehash: b6bc323f4e8deaf975c292f92d862b1fbe0e2714
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60510130"
 ---
-# <a name="default-insights-tag"></a>Tagg för standardinsikter
+# <a name="default-insights-tag"></a>Standard insikts-tagg
 
-Standardtaggen insikter är den `displayName` med fältet inställt på en tom sträng. I följande exempel visas en möjlig lista över standardinsikter (åtgärder). Listan över åtgärder som svaret innehåller beror på bilden. Och för varje åtgärd kan listan över egenskaper variera beroende på bild, så kontrollera om egenskapen finns innan du försöker använda den.
+Standard insikts tag gen är den som har `displayName` fältet inställt på en tom sträng. I följande exempel visas en lista med standard insikter (åtgärder). Listan med åtgärder som svaret innehåller beror på avbildningen. Och för varje åtgärd kan listan över egenskaper variera beroende på bild, så kontrol lera om egenskapen finns innan du försöker använda den.
 
 ```json
 {
@@ -98,9 +98,9 @@ Standardtaggen insikter är den `displayName` med fältet inställt på en tom s
 }
 ```
 
-## <a name="pagesincluding-insight"></a>SidorInkluderande insikt
+## <a name="pagesincluding-insight"></a>PagesIncluding Insight
 
-Den PagesIncluding insikt ger en lista över webbsidor som innehåller den här bilden. Det är faktiskt en `Image` lista med `hostPageUrl` objekt och fältet innehåller url:en till webbsidan som innehåller bilden. Till exempel användning, se [SidorInkludera insiktsexempel](./bing-insights-usage.md#pagesincluding-insight-example).
+PagesIncluding Insight innehåller en lista över webb sidor som innehåller den här avbildningen. Det är egentligen en lista över `Image` objekt, och `hostPageUrl` fältet innehåller webb adressen till webb sidan som innehåller bilden. Exempel på användning finns i [PagesIncluding Insight-exempel](./bing-insights-usage.md#pagesincluding-insight-example).
 
 ```json
       {
@@ -137,9 +137,9 @@ Den PagesIncluding insikt ger en lista över webbsidor som innehåller den här 
       }
 ```
 
-## <a name="shoppingsources-insight"></a>ShoppingSources insikt
+## <a name="shoppingsources-insight"></a>ShoppingSources Insight
 
-ShoppingSources-insikten innehåller en lista över webbplatser där användaren kan köpa objektet som visas i bilden. Listan över erbjudanden innehåller webbadressen till webbsidan där användaren kan köpa objektet, priset på objektet och klassificering eller granskningsinformation. Till exempel användning, se [Exemplet På ShoppingSources](./bing-insights-usage.md#shoppingsources-insight-example).
+ShoppingSources Insight innehåller en lista över webbplatser där användaren kan köpa det objekt som visas i avbildningen. Listan med erbjudanden innehåller webb adressen till webb sidan där användaren kan köpa objektet, priset för objektet och klassificeringen eller gransknings information. Exempel på användning finns i [ShoppingSources-exempel](./bing-insights-usage.md#shoppingsources-insight-example).
 
 ```json
       {
@@ -166,9 +166,9 @@ ShoppingSources-insikten innehåller en lista över webbplatser där användaren
       }
 ```
 
-## <a name="moresizes-insight"></a>MoreSizes insikt
+## <a name="moresizes-insight"></a>MoreSizes Insight
 
-Insight MoreSizes identifierar antalet storlekar (större eller mindre) av bilden som Bing `availableSizesCount` hittade på Internet (se fältet):
+MoreSizes Insight identifierar antalet storlekar (större eller mindre) av bilden som Bing hittades på Internet (se `availableSizesCount` fältet):
 
 ```json
       {
@@ -201,9 +201,9 @@ Insight MoreSizes identifierar antalet storlekar (större eller mindre) av bilde
       },
 ```
 
-## <a name="visualsearch-insight"></a>VisualSearch insikt
+## <a name="visualsearch-insight"></a>VisualSearch Insight
 
-VisualSearch-insikten innehåller en lista över bilder som är visuellt lika den ursprungliga bilden (innehåller innehåll som liknar innehållet som visas i den ursprungliga bilden). Till exempel användning, se [VisualSearch insikt exempel](./bing-insights-usage.md#visualsearch-insight-example).
+VisualSearch Insight innehåller en lista över bilder som liknar den ursprungliga bilden (innehåller innehåll som liknar det innehåll som visas i den ursprungliga bilden). Exempel på användning finns i [VisualSearch Insight-exempel](./bing-insights-usage.md#visualsearch-insight-example).
 
 ```json
       {
@@ -241,9 +241,9 @@ VisualSearch-insikten innehåller en lista över bilder som är visuellt lika de
       }
 ```
 
-## <a name="recipes-insight"></a>Recept insikt
+## <a name="recipes-insight"></a>Recept insikter
 
-Receptinsikten innehåller en lista över webbsidor som innehåller ett recept för att göra maten som visas i bilden. Till exempel användning, se [Recept insikt exempel](./bing-insights-usage.md#recipes-insight-example).
+Recept insikter innehåller en lista över webb sidor som innehåller ett recept för att göra livsmedlet som visas i bilden. Exempel på användning finns i [exempel på recept insikter](./bing-insights-usage.md#recipes-insight-example).
 
 ```json
       {
@@ -276,9 +276,9 @@ Receptinsikten innehåller en lista över webbsidor som innehåller ett recept f
 ```
 
 
-## <a name="imagebyid-insight"></a>ImageById insikt
+## <a name="imagebyid-insight"></a>ImageById Insight
 
-Insight ImageById är `Image` ett objekt för den bild som du har begärt insikter för:
+ImageById Insight tillhandahåller ett `Image` objekt av den avbildning som du har begärt insikter om:
 
 ```json
       {
@@ -311,9 +311,9 @@ Insight ImageById är `Image` ett objekt för den bild som du har begärt insikt
       },
 ```
 
-## <a name="productvisualsearch-insight"></a>ProduktVisualSearch insikt
+## <a name="productvisualsearch-insight"></a>ProductVisualSearch Insight
 
-Insight ProductVisualSearch innehåller en lista över bilder av produkter som är visuellt lika produkter som visas i den ursprungliga bilden. Fältet `insightsMetadata` kan innehålla information om erbjudanden där du kan köpa produkten och priset på produkten.
+ProductVisualSearch Insight innehåller en lista över bilder av produkter som liknar produkter som visas i den ursprungliga avbildningen. `insightsMetadata` Fältet kan innehålla information om erbjudanden där du kan köpa produkten och produkt priset.
 
 ```json
       {
@@ -375,9 +375,9 @@ Insight ProductVisualSearch innehåller en lista över bilder av produkter som �
       }
 ```
 
-## <a name="relatedsearches-insight"></a>RelatedSearches insikt
+## <a name="relatedsearches-insight"></a>RelatedSearches Insight
 
-RelatedSearches-insikten innehåller en lista över relaterade sökningar som gjorts av andra (baserat på andra användares söktermer). Till exempel användning, se [RelatedSearches insiktsexempel](./bing-insights-usage.md#relatedsearches-insight-example).
+RelatedSearches Insight innehåller en lista över relaterade sökningar som andra har gjort (baserat på andra användares Sök villkor). Exempel på användning finns i [RelatedSearches Insight-exempel](./bing-insights-usage.md#relatedsearches-insight-example).
 
 ```json
       {
@@ -398,9 +398,9 @@ RelatedSearches-insikten innehåller en lista över relaterade sökningar som gj
       }
 ```
 
-## <a name="documentlevelsuggestions-insight"></a>Insikt om dokumentnivåspelsspelestions
+## <a name="documentlevelsuggestions-insight"></a>DocumentLevelSuggestions Insight
 
-Insikten DocumentLevelSuggestions innehåller en lista över föreslagna söktermer baserat på bildens innehåll:
+DocumentLevelSuggestions Insight innehåller en lista över föreslagna Sök villkor baserat på innehållet i avbildningen:
 
 ```json
       {
@@ -423,6 +423,6 @@ Insikten DocumentLevelSuggestions innehåller en lista över föreslagna sökter
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kolla in [Exempel på Bing-statistikanvändning](bing-insights-usage.md) för att se hur Bing kan visa de visuella insikterna.
+Kolla in [exempel på Bing Insights-användning](bing-insights-usage.md) för att se hur Bing kan visa de visuella insikterna.
 
-Information om hur du kommer igång snabbt med din första begäran finns i snabbstarterna: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+För att komma igång snabbt med din första förfrågan, se snabb starter: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node. js](quickstarts/nodejs.md) | [python](quickstarts/python.md).

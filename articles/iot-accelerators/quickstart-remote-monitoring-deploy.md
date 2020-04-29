@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/25/2019
 ms.author: dobett
 ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60890168"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Snabbstart: Testa en molnbaserad fjärrövervakningslösning
@@ -22,7 +22,7 @@ Den här snabbstarten visar hur du distribuerar Azure IoT-acceleratorn Fjärröv
 
 I den initiala distributionen konfigureras lösningsacceleratorn för ett företag med namnet Contoso. Som operatör på Contoso hanterar du olika enheter, till exempel kylaggregat, som distribuerats i olika fysiska miljöer. Ett kylaggregat skickar telemetri om temperatur, luftfuktighet och tryck till acceleratorn för fjärrövervakningslösningen.
 
-Den här snabbstarten distribuerar en **basic-version** av lösningsacceleratorn för test- och demonstrationsändamål som minimerar kostnaderna. Mer information om de olika versioner som du kan distribuera finns i [Grundläggande distributioner och standarddistributioner](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments).
+Den här snabb starten distribuerar en **grundläggande** version av Solution Accelerator för test-och demonstrations syfte som minimerar kostnaderna. Mer information om de olika versioner som du kan distribuera finns i [Basic-och standard-distributioner](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments).
 
 Du behöver en aktiv Azure-prenumeration för att kunna utföra den här snabbstarten.
 
@@ -38,7 +38,7 @@ Klicka på panelen **Fjärrövervakning**. Klicka på **Testa nu** på sidan **F
 
 ![Välj Fjärrövervakning](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
-Välj **C# Microservices** som **distributionsalternativ**. Java- och C#-implementeringarna har samma funktioner.
+Välj **C# mikrotjänster** som **distributions alternativ**. Java-och C#-implementeringarna har samma funktioner.
 
 Ange ett unikt **lösningsnamn** för acceleratorn för fjärrövervakningslösningen. I den här snabbstarten kallar vi den för **contoso-rm**.
 
@@ -87,13 +87,13 @@ Som operatör på Contoso kan du övervaka dina enheter via lösningens instrume
 
 På sidan **Instrumentpanel**, på panelen **Aviseringar** ser du att aviseringen **Chiller pressure too high** (Trycket i kylaggregatet är för högt). Kylaggregatet har en röd nål på kartan (du kanske måste panorera och zooma på kartan):
 
-[![Instrumentpanelen visar tryckvarning och enhet på kartan](./media/quickstart-remote-monitoring-deploy/dashboardalarm-inline.png)](./media/quickstart-remote-monitoring-deploy/dashboardalarm-expanded.png#lightbox)
+[![Instrument panelen visar tryck avisering och enhet på kartan](./media/quickstart-remote-monitoring-deploy/dashboardalarm-inline.png)](./media/quickstart-remote-monitoring-deploy/dashboardalarm-expanded.png#lightbox)
 
 På panelen **Aviseringar** klickar du på **...** i kolumnen **Utforska** bredvid regeln **Chiller pressure too high** (Trycket i kylaggregatet är för högt). Den här åtgärden tar dig till sidan **Underhåll** där du kan visa informationen för regeln som utlöste aviseringen.
 
 Underhållssidan för **Chiller pressure too high** (Trycket i kylaggregatet är för högt) visar information om regeln som utlöste aviseringarna. På sidan listas även när aviseringarna förekom och vilken enhet som utlöste dem:
 
-[![Underhållssidan visar en lista över aviseringar som har utlösts](./media/quickstart-remote-monitoring-deploy/maintenancealarmlist-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancealarmlist-expanded.png#lightbox)
+[![Underhålls sidan visar en lista över aviseringar som har utlösts](./media/quickstart-remote-monitoring-deploy/maintenancealarmlist-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancealarmlist-expanded.png#lightbox)
 
 Nu har du identifierat problemet som utlöste aviseringen och på vilken enhet som problemet finns. Som operatör är nästa steg att bekräfta aviseringen och åtgärda problemet.
 
@@ -107,23 +107,23 @@ Värdet i statuskolumnen ändras till **Bekräftad**.
 
 Åtgärda kylaggregat genom att rulla ned till **Relaterad information**, välja kylaggregatet i listan **Enheter med aviseringar** och välj sedan **Jobb**:
 
-[![Markera enheten och schemalägga en åtgärd](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
+[![Välj enheten och Schemalägg en åtgärd](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
 
 På panelen **Jobb** väljer du **Kör metod** och sedan metoden **EmergencyValveRelease**. Lägg till Jobbnamnet **ChillerPressureRelease** och klicka på **Använd**. Inställningarna skapar ett jobb åt dig som körs direkt.
 
-Om du vill se jobbstatusen går du tillbaka till sidan **Underhåll** och visar listan över jobb i vyn **Jobb**. Du kan behöva vänta några sekunder innan du kan se att jobbet har körts:
+Om du vill se jobbstatusen går du tillbaka till sidan **Underhåll** och visar listan över jobb i vyn **Jobb**. Du kan behöva vänta några sekunder innan du kan se jobbet har körts:
 
-[![Status för jobben i vyn Jobb](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-expanded.png#lightbox)
+[![Status för jobben i jobbvy](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-expanded.png#lightbox)
 
 ### <a name="check-the-pressure-is-back-to-normal"></a>Kontrollera att trycket är normalt igen
 
 Om du vill visa trycktelemetrin för kylaggregatet går du till sidan **Instrumentpanel**, väljer **Pressure** (Tryck) i telemetripanelen och bekräftar att trycket för **chiller-02.0** är normalt igen:
 
-[![Tryck tillbaka till det normala](./media/quickstart-remote-monitoring-deploy/pressurenormal-inline.png)](./media/quickstart-remote-monitoring-deploy/pressurenormal-expanded.png#lightbox)
+[![Tryck tillbaka till normal](./media/quickstart-remote-monitoring-deploy/pressurenormal-inline.png)](./media/quickstart-remote-monitoring-deploy/pressurenormal-expanded.png#lightbox)
 
 Stäng incidenten genom att gå till sidan **Underhåll**, välj aviseringen och sätt statusen till **Stängd**:
 
-[![Markera och stänga aviseringen](./media/quickstart-remote-monitoring-deploy/maintenanceclose-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceclose-expanded.png#lightbox)
+[![Markera och Stäng aviseringen](./media/quickstart-remote-monitoring-deploy/maintenanceclose-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceclose-expanded.png#lightbox)
 
 Värdet i statuskolumnen ändras till **Stängd**.
 
@@ -131,7 +131,7 @@ Värdet i statuskolumnen ändras till **Stängd**.
 
 Om du planerar att gå vidare till självstudierna låter du acceleratorn för fjärrövervakningslösningen vara distribuerad.
 
-Om du inte längre behöver lösningsacceleratorn tar du bort den från sidan [Etablerade lösningar](https://www.azureiotsolutions.com/Accelerators#dashboard) genom att markera den och sedan klicka på **Ta bort lösning:**
+Om du inte längre behöver Solution Accelerator tar du bort den från sidan [etablerade lösningar](https://www.azureiotsolutions.com/Accelerators#dashboard) genom att markera den och sedan klicka på **ta bort lösning**:
 
 ![Ta bort lösningen](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 

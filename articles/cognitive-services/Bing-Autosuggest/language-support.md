@@ -1,7 +1,7 @@
 ---
-title: Språkstöd - API för automatiska förslag på Bing
+title: Språk stöd – API för automatiska förslag i Bing
 titleSuffix: Azure Cognitive Services
-description: En lista över språk och regioner som stöds för API:et för automatiska förslag på Bing.
+description: En lista över språk och regioner som stöds för API för automatiska förslag i Bing.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fe2e78501024983544b399762fb936d86e5c9d5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60547344"
 ---
-# <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Språk- och regionstöd för API:et för automatiska förslag på Bing
+# <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Språk-och region stöd för API för automatiska förslag i Bing
 
-Följande listar de språk som stöds av API för automatiska förslag på Bing.
+I följande lista visas de språk som stöds av API för automatiska förslag i Bing.
 
 | Språk    | Språkkod |
 |:----------- |:-------------:|
@@ -60,11 +60,11 @@ Följande listar de språk som stöds av API för automatiska förslag på Bing.
 | Spanska (Chile)     | `es-CL`          |
 | Spanska (Mexiko)    | `es-MX`          |
 | Spanska (Spanien)    | `es-ES`          |
-| Spanska (Förenta staterna)    | `es-US`          |
+| Spanska (USA)    | `es-US`          |
 | Svenska     | `sv`          |
 | Turkiska     | `tr`          |
 
 ## <a name="see-also"></a>Se även
 
-- [Dokumentationssida för Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
-- [Produktsida för Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
+- [Sidan Azure Cognitive Services-dokumentation](https://docs.microsoft.com/azure/cognitive-services/)
+- [Sidan Azure Cognitive Services Product](https://azure.microsoft.com/services/cognitive-services/)

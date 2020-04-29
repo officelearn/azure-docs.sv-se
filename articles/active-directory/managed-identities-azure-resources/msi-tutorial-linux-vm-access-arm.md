@@ -17,10 +17,10 @@ ms.author: markvi
 ROBOTS: NOINDEX,NOFOLLOW
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57b68ebb21c0c10c3fbe3fd77d11785d16a10053
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60443474"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Självstudier: Använda en användartilldelad hanterad identitet på en virtuell Linux-dator för att få åtkomst till Azure Resource Manager
@@ -29,7 +29,7 @@ ms.locfileid: "60443474"
 
 Den här självstudien beskriver hur du skapar en användartilldelad hanterad identitet, hur du tilldelar den till en virtuell Linux-dator (VM) och hur du sedan använder identiteten för att få åtkomst till Azure Resource Manager-API:et. Hanterade identiteter för Azure-resurser hanteras automatiskt av Azure. Det gör det möjligt att autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver bädda in autentiseringsuppgifter i din kod. 
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en användartilldelad hanterad identitet
@@ -124,7 +124,7 @@ Under resten av självstudiekursen arbetar vi från den virtuella datorn som vi 
 
 För att slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på Azure- [portalen](https://portal.azure.com).
 2. Gå till **Virtuella datorer** på portalen, gå till den virtuella Linux-datorn och klicka sedan på **Anslut** under **Översikt**. Kopiera strängen för anslutning till din virtuella dator.
 3. Anslut till den virtuella datorn med valfri SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows i Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
 4. Gör ett anrop i terminalfönstret med hjälp av CURL till IMDS-identitetsslutpunkten (Azure Instance Metadata Service) för att hämta en åtkomsttoken för Azure Resource Manager.  

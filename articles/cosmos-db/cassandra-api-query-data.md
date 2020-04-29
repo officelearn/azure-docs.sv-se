@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 Customer intent: As a developer, I want to build a Java application to query data stored in a Cassandra API account of Azure Cosmos DB so that customers can manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
 ms.openlocfilehash: 69a9bc912f2cd52e52ca6403187f993413539ecd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "60899907"
 ---
 # <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Självstudie: Fråga efter data från ett konto för Cassandra-API:t i Azure Cosmos DB
@@ -26,11 +26,11 @@ Den här självstudien omfattar följande uppgifter:
 > * Fråga efter data från en Cassandra-tabell
 > * Kör appen
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-* Den här artikeln tillhör en självstudiekursen i flera delar. Innan du börjar måste du slutföra föregående steg för att skapa Cassandra API-kontot, nyckelutrymmet, tabellen och [inläsningen av exempeldata i tabellen](cassandra-api-load-data.md). 
+* Den här artikeln tillhör en självstudiekursen i flera delar. Innan du börjar ska du se till att slutföra de föregående stegen för att skapa API för Cassandra konto, tecken utrymme, tabell och [läsa in exempel data i tabellen](cassandra-api-load-data.md). 
 
 ## <a name="query-data"></a>Söka i data
 

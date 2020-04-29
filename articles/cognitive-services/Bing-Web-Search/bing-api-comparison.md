@@ -1,7 +1,7 @@
 ---
-title: Vilka är Bing Search API:er?
+title: Vad är API:er för Bing-sökresultat?
 titleSuffix: Azure Cognitive Services
-description: Använd den här artikeln om du vill veta mer om API:erna för Bing-sökning och hur du kan aktivera kognitiva internetsökningar i dina appar och tjänster.
+description: Använd den här artikeln om du vill veta mer om API:er för Bing-sökresultat och hur du kan aktivera kognitiva Internets ökningar i dina appar och tjänster.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,49 +11,49 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: aahi
 ms.openlocfilehash: 82b1f13562a49284059c25bcbd39a33daf949dcc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74775548"
 ---
-# <a name="what-are-the-bing-search-apis"></a>Vilka är Bing Search API:er?
+# <a name="what-are-the-bing-search-apis"></a>Vad är API:er för Bing-sökresultat?
 
-Med API:er för Bing-sökning kan du skapa webbanslutna appar och tjänster som söker efter webbsidor, bilder, nyheter, platser med mera, utan annonser. Genom att skicka sökförfrågningar med hjälp av API:er för Bing Search REST eller SDK:er kan du få relevant information och innehåll för webbsökningar. Använd den här artikeln om du vill veta mer om de olika API:erna för Bing-sökning och hur du kan integrera kognitiva sökningar i dina program och tjänster. Pris- och prisgränser kan variera mellan API:er.
+Med API:er för Bing-sökning kan du skapa webbanslutna appar och tjänster som söker efter webbsidor, bilder, nyheter, platser med mera, utan annonser. Genom att skicka Sök begär Anden med Bing-sökning REST-API: er eller SDK: er kan du hämta relevant information och innehåll för Webbs ökningar. Använd den här artikeln om du vill veta mer om de olika API: erna för Bing search och hur du kan integrera kognitiva sökningar i dina program och tjänster. Priser och hastighets begränsningar kan variera mellan API: er.
 
-## <a name="the-bing-web-search-api"></a>API:et för webbsökning i Bing
+## <a name="the-bing-web-search-api"></a>API för webbsökning i Bing
 
-[Api:et för webbsökning](../Bing-Web-Search/overview.md) på Bing returnerar webbsidor, bilder, video, nyheter med mera. Du kan filtrera sökfrågorna som skickas till det här API:et för att inkludera eller utesluta vissa innehållstyper.
+[API för webbsökning i Bing](../Bing-Web-Search/overview.md) returnerar webb sidor, bilder, video, nyheter med mera. Du kan filtrera Sök frågorna som skickas till detta API för att inkludera eller exkludera vissa innehålls typer.
 
-Överväg att använda API:et för webbsökning på Bing i program som kan behöva söka efter alla typer av relevant webbinnehåll. Om ditt program söker efter en viss typ av onlineinnehåll bör du tänka på något av sök-API:erna nedan:
+Överväg att använda API för webbsökning i Bing i program som kan behöva söka efter alla typer av relevant webb innehåll. Om programmet söker efter en specifik typ av onlineinnehåll, bör du överväga något av Sök-API: erna nedan:
 
-## <a name="content-specific-bing-search-apis"></a>Innehållsspecifika API:er för Bing-sökning
+## <a name="content-specific-bing-search-apis"></a>API: er för innehålls bestämd Bing-sökning
 
-Följande Bing-sök-API:er returnerar specifikt innehåll från webben som bilder, nyheter, lokala företag och videor.
+Följande API: er för Bing-sökning returnerar särskilt innehåll från webben som bilder, nyheter, lokala företag och videor.
 
 | Bing-API | Beskrivning |
 | -- | -- |
-| [Entitetssökning](../Bing-Entities-Search/overview.md) | API:et för sökning av Bing-enhet returnerar sökresultat som innehåller entiteter, som kan vara personer, platser eller saker. Beroende på frågan returnerar API:et en eller flera entiteter som uppfyller sökfrågan. Sökfrågan kan innehålla anmärkningsvärda personer, lokala företag, landmärken, destinationer med mera. |
-| [Bildsökning](../Bing-Image-Search/overview.md) | Med API:et för bildsökning på Bing kan du söka efter och hitta statiska och animerade bilder av hög kvalitet som [liknar Bing.com/images](https://www.Bing.com/images). Du kan förfina sökningar för att inkludera eller utesluta bilder efter attribut, inklusive storlek, färg, licens och färskhet. Du kan också söka efter populära bilder, ladda upp bilder för att få insikter om dem och visa miniatyrförhandsvisningar. |
-| [Nyhetssökning](../Bing-News-Search/search-the-web.md) | Med API:et för nyhetssökning på Bing kan du hitta nyhetsartiklar som liknar [Bing.com/news](https://www.Bing.com/news). API:et returnerar nyhetsartiklar från antingen flera källor eller specifika domäner. Du kan söka i olika kategorier för att få populära artiklar, toppartiklar och rubriker. |
-| [Videosökning](../Bing-Video-Search/overview.md) | Med API:et för videosökning på Bing kan du hitta videor på webben. Få populära videor, relaterat innehåll och miniatyrförhandsgranskningar. |
-| [Visuell sökning](../Bing-visual-search/overview.md) | Ladda upp en bild eller använd en webbadress för att få insiktsfull information om den, till exempel visuellt liknande produkter, bilder och relaterade sökningar. |
- [Sökning i lokalt företag](../bing-local-business-search/overview.md) | Med API:et för lokal företagssökning i Bing kan dina program hitta kontakt- och platsinformation om lokala företag baserat på sökfrågor. |
+| [Entitetssökning](../Bing-Entities-Search/overview.md) | API för entitetsökning i Bing returnerar Sök resultat som innehåller entiteter, som kan vara personer, platser eller saker. Beroende på frågan returnerar API: n en eller flera entiteter som uppfyller Sök frågan. Sök frågan kan innehålla viktiga individer, lokala företag, landmärken, destinationer och mycket annat. |
+| [Bildsökning](../Bing-Image-Search/overview.md) | Med API för bildsökning i Bing kan du söka efter och hitta statiska och animerade bilder med hög kvalitet som liknar [Bing.com/images](https://www.Bing.com/images). Du kan förfina sökningar för att inkludera eller exkludera bilder efter attribut, inklusive storlek, färg, licens och aktualitet. Du kan också söka efter trender för bilder, ladda upp bilder för att få insikter om dem och Visa miniatyr bilder. |
+| [Nyhetssökning](../Bing-News-Search/search-the-web.md) | I API för nyhetssökning i Bing kan du hitta nyhets berättelser som liknar [Bing.com/news](https://www.Bing.com/news). API: n returnerar nyhets artiklar från antingen flera källor eller vissa domäner. Du kan söka bland kategorier för att få trender för artiklar, huvud berättelser och rubriker. |
+| [Videosökning](../Bing-Video-Search/overview.md) | Med API för videosökning i Bing kan du hitta videor på webben. Få trender i videor, relaterat innehåll och miniatyr bilder. |
+| [Visuell sökning](../Bing-visual-search/overview.md) | Ladda upp en bild eller Använd en URL för att få detaljerad information om den, t. ex. visuella liknande produkter, bilder och relaterade sökningar. |
+ [Lokal företags sökning](../bing-local-business-search/overview.md) | Med API: t för lokal sökning i Bing kan dina program hitta kontakt-och plats information om lokala företag baserat på Sök frågor. |
 
-## <a name="the-bing-custom-search-api"></a>Api:et för anpassad sökning i Bing
+## <a name="the-bing-custom-search-api"></a>API för anpassad Bing-sökning
 
-Genom att skapa en anpassad sökinstans med API:et för anpassad sökning på [Bing](../Bing-Custom-Search/overview.md) kan du skapa en sökupplevelse som bara fokuserar på innehåll och ämnen som du bryr dig om. När du till exempel har angett de domäner, webbplatser och specifika webbsidor som Bing ska söka på, anpassar Bing Custom Search resultaten till det specifika innehållet. Du kan infoga API:erna för anpassade autosuggest, bild och videosökning för att ytterligare anpassa sökupplevelsen.
+Genom att skapa en anpassad Sök instans med [Anpassad sökning i Bing](../Bing-Custom-Search/overview.md) API kan du skapa en Sök upplevelse som bara fokuserar på innehåll och ämnen som du bryr dig om. När du till exempel har angett domäner, webbplatser och vissa webb sidor som Bing söker, kommer Anpassad sökning i Bing att skräddarsy resultaten till det aktuella innehållet. Du kan lägga till anpassade automatiska förslag, bilder och Videosökning-API: er i Bing för att ytterligare anpassa din Sök upplevelse.
 
-## <a name="additional-bing-search-apis"></a>Ytterligare API:er för Bing-sökning
+## <a name="additional-bing-search-apis"></a>Ytterligare API:er för Bing-sökresultat
 
-Med följande Bing Search API:er kan du förbättra din sökupplevelse genom att kombinera dem med andra Bing-sök-API:er.
+I följande API:er för Bing-sökresultat kan du förbättra din Sök upplevelse genom att kombinera dem med andra Bing Search-API: er.
 
 | API | Beskrivning |
 | -- | -- |
-| [Automatiska förslag i Bing](../Bing-Autosuggest/get-suggested-search-terms.md) | Förbättra programmets sökupplevelse med API:et för automatiska förslag på Bing genom att returnera föreslagna sökningar i realtid.  |
-| [Bing Statistik](bing-web-stats.md) | Bing Statistics tillhandahåller analyser för Bing Search API:er som ditt program använder. Några av de tillgängliga analyserna inkluderar samtalsvolym, de vanligaste frågesträngarna och geografisk distribution. |
+| [Automatiska förslag i Bing](../Bing-Autosuggest/get-suggested-search-terms.md) | Förbättra programmets Sök upplevelse med API för automatiska förslag i Bing genom att returnera föreslagna sökningar i real tid.  |
+| [Bing-statistik](bing-web-stats.md) | Bing-statistik ger analyser för de API:er för Bing-sökresultat som används i programmet. Några av de tillgängliga analyserna är anrops volym, topp frågesträngar och geografisk distribution. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Prisinformation för](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) Bing Search API
+* [Information om](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) Bing-sökning-API-pris
 * I [användnings- och visningskraven för Bing](./use-display-requirements.md) specificeras godtagbar användning för det innehåll och den information du får via API:erna för Bing-sökning.

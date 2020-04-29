@@ -1,7 +1,7 @@
 ---
-title: Slutpunkt för webbsökning
+title: Slut punkt för Webbs ökning
 titleSuffix: Azure Cognitive Services
-description: Om du vill hämta `GET` sökresultat på webben skickar du en begäran till följande slutpunkt. Rubrikerna och URL-parametrarna definierar ytterligare specifikationer.
+description: Skicka en `GET` begäran till följande slut punkt för att få webb Sök resultat. Rubrik-och URL-parametrarna definierar ytterligare specifikationer.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,35 +11,35 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: aahi
 ms.openlocfilehash: 2edc6a4cf4d4fb174c1b2067d8b3fb3b6f31859f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74111331"
 ---
-# <a name="web-search-endpoint"></a>Slutpunkt för webbsökning
+# <a name="web-search-endpoint"></a>Webbsökning slut punkt
 
-**Api:et för webbsökning** returnerar webbsidor, nyheter, bilder, videor och [entiteter](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web). Entiteter har sammanfattande information om en person, plats eller ett ämne.
+**Webbsökning-API: et** returnerar webb sidor, nyheter, bilder, videor och [entiteter](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web). Entiteter har sammanfattnings information om en person, plats eller ämne.
 
 ## <a name="endpoint"></a>Slutpunkt
 
-Om du vill hämta webbsökresultat med `GET` hjälp av Bing API skickar du en begäran till följande slutpunkt. Rubrikerna och URL-parametrarna definierar ytterligare specifikationer.
+Skicka en `GET` begäran till följande slut punkt om du vill få webb Sök resultat med Bing-API: et. Rubrik-och URL-parametrarna definierar ytterligare specifikationer.
 
-**Slutpunkt**: Returnerar webbresultat som är relevanta för `?q=""`användarens sökfråga som definieras av .
+**Slut punkt**: returnerar webb resultat som är relevanta för användarens Sök fråga som definieras `?q=""`av.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/search
 ```
 
-Slutpunkt: Mer information om rubriker, parametrar, marknadskoder, svarsobjekt, fel med mera finns i [Bing Web API v7-referensen.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
+Slut punkt: Mer information om sidhuvuden, parametrar, marknads koder, svars objekt, fel och mer finns i [Bing Web API v7-](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) referensen.
 
-## <a name="response-json"></a>Svar JSON
+## <a name="response-json"></a>Svars-JSON
 
-Svaret på en webbsökningsbegäran innehåller alla resultat som JSON-objekt. Tolkning av resultatet kräver procedurer som hanterar elementen för varje typ. Mer om självstudie och källkod finns i [självstudien](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/tutorial-bing-web-search-single-page-app) och [källkoden.](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search)
+Svaret på en Webbs öknings förfrågan innehåller alla resultat som JSON-objekt. Parsning av resultatet kräver procedurer som hanterar elementen i varje typ. Se [självstudien](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/tutorial-bing-web-search-single-page-app) och [käll koden](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) för exempel.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Bing-API:erna stöder sökåtgärder som returnerar resultat efter typ. **Bing**Alla sökslutpunkter returnerar resultat som JSON-svarsobjekt. Alla slutpunkter stöder frågor som returnerar ett visst språk och en viss plats efter longitud, latitud och sökradie.
+API: erna för **Bing** stöder Sök åtgärder som returnerar resultat enligt deras typ.Alla Sök slut punkter returnerar resultat som JSON-svars objekt. Alla slut punkter har stöd för frågor som returnerar ett särskilt språk och en specifik plats efter longitud, latitud och Sök-radie.
 
-Fullständig information om de parametrar som stöds av varje slutpunkt finns i referenssidorna för varje typ.
-Exempel på grundläggande begäranden med webbsök-API finns [i Söka efter snabbstarter på webben](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/search-the-web).
+Fullständig information om de parametrar som stöds av varje slut punkt finns i referens sidorna för varje typ.
+Exempel på grundläggande förfrågningar som använder API: et för Webbs ökning finns i [söka på webben snabb starter](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/search-the-web).

@@ -1,7 +1,7 @@
 ---
-title: Konfigurera inställningar för granskningsverktyg - Innehållsmoderator
+title: Konfigurera inställningar för gransknings verktyget – Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Använd granskningsverktyget för att konfigurera eller hämta ditt team, taggar, kopplingar, arbetsflöden och autentiseringsuppgifter för Innehållsmoderator.
+description: Använd gransknings verktyget för att konfigurera eller hämta team, taggar, kopplingar, arbets flöden och autentiseringsuppgifter för Content Moderator.
 services: cognitive-services
 author: PatrickFarley
 manager: mikemcca
@@ -11,133 +11,133 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
 ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220131"
 ---
 # <a name="configure-the-review-tool"></a>Konfigurera granskningsverktyget
 
-[Granskningsverktyget](https://contentmoderator.cognitive.microsoft.com) har flera viktiga funktioner som du kan komma åt via **menyn Inställningar** på instrumentpanelen.
+[Gransknings verktyget](https://contentmoderator.cognitive.microsoft.com) har flera viktiga funktioner som du kan komma åt via menyn **Inställningar** på instrument panelen.
 
-![Menyn Innehållsmoderatorgranskning har också inställningsmenyn](images/settings-1.png)
+![Menyn Content Moderator granska för inställningar](images/settings-1.png)
 
-## <a name="manage-team-and-subteams"></a>Hantera team och undergrupper
+## <a name="manage-team-and-subteams"></a>Hantera team och under grupper
 
-På fliken **Team** kan du hantera&mdash;dina team- och underteamsgrupper av användare som kan meddelas när vissa [mänskliga granskningar](../review-api.md#reviews) startas. Du kan bara ha ett team (som du skapar när du registrerar dig med granskningsverktyget), men du kan skapa flera undergrupper. Gruppadministratören kan bjuda in medlemmar, ange sina behörigheter och tilldela dem till olika underteam.
+På fliken **team** kan du hantera ditt team och under&mdash;grupper av användare som kan få ett meddelande när vissa [mänsklig granskningar](../review-api.md#reviews) startas. Du kan bara ha ett team (som du skapar när du registrerar dig med gransknings verktyget), men du kan skapa flera under grupper. Team administratören kan bjuda in medlemmar, ange sina behörigheter och tilldela dem till olika under grupper.
 
-![Granska inställningar för verktygsteam](images/settings-2-team.png)
+![Granska team inställningar för verktyget](images/settings-2-team.png)
 
-Underteam är användbara för att skapa eskaleringsteam eller team som är dedikerade till att granska specifika kategorier av innehåll. Du kan till exempel skicka barnförbjudet innehåll till ett separat team för vidare granskning.
+Under grupper är användbara för att skapa eskalerade team eller team som är avsedda att granska särskilda innehålls kategorier. Du kan till exempel skicka vuxen innehåll till ett separat team för ytterligare granskning.
 
-I det här avsnittet beskrivs hur du skapar underteam och snabbt tilldelar recensioner i farten. Du kan dock använda arbetsflöden för att tilldela [granskningar](workflows.md) baserat på specifika kriterier.
+I det här avsnittet beskrivs hur du skapar under grupper och snabbt tilldelar recensioner i farten. Du kan dock använda [arbets flöden](workflows.md) för att tilldela granskningar baserat på vissa kriterier.
 
-### <a name="create-a-subteam"></a>Skapa ett underteam
+### <a name="create-a-subteam"></a>Skapa ett under team
 
-Gå till avsnittet **Undergrupper** och klicka på **Lägg till underteam**. Ange undergruppsnamnet i dialogrutan och klicka på **Spara**.
+Gå till avsnittet under **grupper** och klicka på **Lägg till under team**. Ange ditt under grupp namn i dialog rutan och klicka på **Spara**.
 
-![Namn på underteam](images/1-Teams-2.PNG)
+![Namn på under grupp](images/1-Teams-2.PNG)
 
-#### <a name="invite-teammates"></a>Bjud in lagkamrater
+#### <a name="invite-teammates"></a>Bjud in grupp medlemmar
 
-Du kan inte tilldela någon till ett underteam om de inte redan är medlemmar i standardteamet, så du måste lägga till granskare i standardteamet först. Klicka på **Bjud in** på fliken **Team.**
+Du kan inte tilldela någon till ett under team om de inte redan är medlemmar i standard teamet, så du måste lägga till granskare till standard teamet först. Klicka på **Bjud in** på fliken **team** .
 
 ![Bjuda in användare](images/invite-users.png)
 
-#### <a name="assign-teammates-to-subteam"></a>Tilldela lagkamrater till underteam
+#### <a name="assign-teammates-to-subteam"></a>Tilldela medarbetare till under grupper
 
-Klicka på knappen **Lägg till medlem** om du vill tilldela medlemmar från standardteamet till ett eller flera underlag. Du kan bara lägga till befintliga användare i ett underteam. Om du vill lägga till nya användare som inte finns med i granskningsverktyget kan du bjuda in dem genom att använda knappen Bjud in på sidan Gruppinställningar.
+Klicka på knappen **Lägg till medlem** för att tilldela medlemmar från standard teamet till en eller flera under grupper. Du kan bara lägga till befintliga användare i ett under team. Om du vill lägga till nya användare som inte finns i gransknings verktyget bjuder du in dem genom att använda knappen Bjud in på sidan team inställningar.
 
-![Tilldela undergruppsmedlemmar](images/1-Teams-3.PNG)
+![Tilldela medlemmar i under grupp](images/1-Teams-3.PNG)
 
-### <a name="assign-reviews-to-subteams"></a>Tilldela granskningar till underteam
+### <a name="assign-reviews-to-subteams"></a>Tilldela granskningar till under grupper
 
-När du har skapat dina undergrupper och tilldelat medlemmar kan du börja tilldela [innehållsgranskningar](../review-api.md#reviews) till dessa undergrupper. Detta görs från fliken **Granska** på webbplatsen.
-Om du vill tilldela innehåll till ett underteam klickar du på ellipsen i det övre högra hörnet, väljer **Flytta till**och väljer ett underteam.
+När du har skapat dina under grupper och tilldelade medlemmar kan du börja tilldela innehålls [granskningar](../review-api.md#reviews) till dessa under grupper. Detta görs från fliken **Granska** på webbplatsen.
+Om du vill tilldela innehåll till ett under team klickar du på ellipsen i det övre högra hörnet, väljer **Flytta till**och väljer ett under team.
 
-![Tilldela bildgranskning till underteam](images/3-review-image-subteam-1.png)
+![Tilldela bild granskning till under grupp](images/3-review-image-subteam-1.png)
 
-### <a name="switch-between-subteams"></a>Växla mellan undergrupper
+### <a name="switch-between-subteams"></a>Växla mellan under grupper
 
-Om du är medlem i mer än ett underteam kan du växla mellan dessa undergrupper för att ändra vilka innehållsgranskningar som visas åt dig. På fliken **Granska** väljer du den nedrullningsbara menyn **Standard** och väljer **Välj undergrupp**. Du kan visa innehållsrecensioner för olika underlag, men bara de som du är medlem i.
+Om du är medlem i fler än ett under team kan du växla mellan dessa under grupper för att ändra vilka innehålls granskningar som visas för dig. På fliken **Granska** väljer du den nedrullningsbara menyn med etiketten **standard** och väljer **Välj under team**. Du kan visa innehålls granskningarna för olika under grupper, men bara de som är medlemmar.
 
-![Växla mellan undergrupper](images/3-review-image-subteam-2.png)
+![Växla mellan under grupper](images/3-review-image-subteam-2.png)
 
 ## <a name="tags"></a>Taggar
 
-På fliken **Taggar** kan du definiera anpassade modereringstaggar utöver de två&mdash;standardtaggarna för moderering**ärförst** **(a)** och **isracy** (**r**). När du skapar en anpassad tagg blir den tillgänglig i recensioner tillsammans med standardtaggarna. Du kan ändra vilka taggar som visas i recensioner genom att ändra deras synlighetsinställningar.
+På fliken **taggar** kan du definiera anpassade moderatorer utöver de två standard redigerings taggarna&mdash;**isadult** (**a**) och **isracy** (**r**). När du skapar en anpassad tagg blir den tillgänglig i granskningar tillsammans med Standardtaggarna. Du kan ändra vilka taggar som ska visas i granskningarna genom att växla deras Synlighets inställningar.
 
-![Taggar vy, inklusive kryssrutan "Är synlig"](images/tags-4-disable.png)
+![Vyn taggar, inklusive kryss rutorna "är synliga"](images/tags-4-disable.png)
 
 ### <a name="create-custom-tags"></a>Skapa anpassade taggar
 
 Om du vill skapa en ny tagg måste du ange en kort kod, ett namn och en beskrivning i respektive fält.
 
-- **Kort kod:** Ange en kod med två bokstäver för taggen. Exempel: **cb**
-- **Namn**: Ange ett kort och beskrivande taggnamn i gemener utan blanksteg. Exempel: **isbullying**.
-- **Beskrivning**: (valfritt) Ange en beskrivning av vilken typ av innehåll som taggen riktar sig till. Exempel: **Skildringar eller förekomster av cybermobbning**.
+- **Kort kod**: Ange en kod med två bokstäver för taggen. Exempel: **CB**
+- **Namn**: Ange ett kort och beskrivande taggnamn i gemener utan blank steg. Exempel: **isbullying**.
+- **Beskrivning**: (valfritt) ange en beskrivning av den typ av innehåll som taggen riktas mot. Exempel: **skildringar eller instanser av cyberhot bullying**.
 
-Klicka på **Lägg till** om du vill lägga till en tagg och klicka på **Spara** när du har skapat taggar.
+Klicka på **Lägg** till för att lägga till en tagg och klicka på **Spara** när du är klar med att skapa taggar.
 
-![Granskningsverktyg skapa en ny taggdialogruta](images/settings-3-tags.png)
+![Dialog rutan för att granska verktyg skapa ny tagg](images/settings-3-tags.png)
 
 ### <a name="delete-tags"></a>Ta bort taggar
 
-Du kan ta bort anpassade taggar genom att välja papperskorgen bredvid deras poster i listan Taggar, men du kan inte ta bort standardtaggarna.
+Du kan ta bort anpassade taggar genom att välja pappers korgs ikonen bredvid posterna i listan Taggar, men du kan inte ta bort Standardtaggarna.
 
 ## <a name="connectors"></a>Anslutningar
 
-På fliken **Anslutningsappar** kan du hantera dina anslutningsappar, som är tjänstspecifika insticksprogram som kan bearbeta innehåll på olika sätt som en del av [innehållsarbetsflödena](../review-api.md#workflows).
+På fliken **anslutningar** kan du hantera dina anslutningar, som är tjänstespecific plugin-program som kan bearbeta innehåll på olika sätt som en del av innehålls [arbets flöden](../review-api.md#workflows).
 
-Standardkopplingen när du skapar ett arbetsflöde är content moderator-kopplingen, som kan markera innehåll som **vuxet** eller **krant**, hitta svordomar och så vidare. Du kan dock använda andra kopplingar, listade här, så länge du har autentiseringsuppgifter för deras respektive tjänster [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview) (om du till exempel vill använda Face-kopplingen måste du skaffa en Face-prenumerationsnyckel).
+Standard anslutnings programmet när du skapar ett arbets flöde är Content Moderator koppling, som kan markera innehåll som **vuxen** eller **vågat**, hitta svordomar och så vidare. Du kan dock använda andra anslutningar som visas här, så länge du har autentiseringsuppgifter för sina respektive tjänster (för att använda ansikts kopplingen, till exempel måste du hämta en [ansikts](https://docs.microsoft.com/azure/cognitive-services/face/overview) prenumerations nyckel).
 
-[Granskningsverktyget](./human-in-the-loop.md) innehåller följande kopplingar:
+[Gransknings verktyget](./human-in-the-loop.md) innehåller följande kopplingar:
 
 - Känsla
 - Ansikte
-- PhotoDNA molntjänst
+- PhotoDNA moln tjänst
 - Textanalys
 
-### <a name="add-a-connector"></a>Lägga till en koppling
+### <a name="add-a-connector"></a>Lägg till en anslutning
 
-Om du vill lägga till en kopplingsapp (och göra den tillgänglig för användning i [innehållsarbetsflöden)](../review-api.md#workflows)väljer du lämplig **Connect-knapp.** I nästa dialogruta anger du din prenumerationsnyckel för den tjänsten. När du är klar ska den nya kopplingen visas högst upp på sidan.
+Om du vill lägga till en anslutning (och göra den tillgänglig för användning i innehålls [arbets flöden](../review-api.md#workflows)) väljer du lämplig **Connect** -knapp. I nästa dialog ruta anger du din prenumerations nyckel för den tjänsten. När du är färdig ska den nya anslutningen visas överst på sidan.
 
-![Inställningar för innehållsmoderatoranslutningar](images/settings-4-connectors.png)
+![Inställningar för Content Moderator anslutningar](images/settings-4-connectors.png)
 
 ## <a name="workflows"></a>Arbetsflöden
 
-På **fliken arbetsflöden** kan du hantera [dina arbetsflöden](../review-api.md#workflows). Arbetsflöden är molnbaserade filter för innehåll och de arbetar med kopplingar för att sortera innehåll på olika sätt och vidta lämpliga åtgärder. Här kan du definiera, redigera och testa dina arbetsflöden. Se [Definiera och använda arbetsflöden](Workflows.md) för vägledning om hur du gör detta.
+På fliken **arbets flöden** kan du hantera dina [arbets flöden](../review-api.md#workflows). Arbets flöden är molnbaserade filter för innehåll och de fungerar med kopplingar för att sortera innehåll på olika sätt och vidta lämpliga åtgärder. Här kan du definiera, redigera och testa dina arbets flöden. Se [definiera och använda arbets flöden](Workflows.md) för att få vägledning om hur du gör detta.
 
-![Arbetsflödesinställningar för innehållsmoderator](images/settings-5-workflows.png)
+![Content Moderator arbets flödes inställningar](images/settings-5-workflows.png)
 
 ## <a name="credentials"></a>Autentiseringsuppgifter
 
-Fliken **Autentiseringsuppgifter** ger snabb åtkomst till din Content Moderator-prenumerationsnyckel, som du måste komma åt någon av modereringstjänsterna från ett REST-samtal eller klient-SDK.
+Fliken **autentiseringsuppgifter** ger snabb åtkomst till din Content moderator prenumerations nyckel, som du behöver för att få åtkomst till alla redigerings tjänster från ett rest-anrop eller klient-SDK.
 
-![Autentiseringsuppgifter för innehållsmodererator](images/settings-6-credentials.png)
+![Content Moderator autentiseringsuppgifter](images/settings-6-credentials.png)
 
-### <a name="use-external-credentials-for-workflows"></a>Använda externa autentiseringsuppgifter för arbetsflöden
+### <a name="use-external-credentials-for-workflows"></a>Använd externa autentiseringsuppgifter för arbets flöden
 
-[Granskningsverktyget](https://contentmoderator.cognitive.microsoft.com) genererar en kostnadsfri utvärderingsversion för Azure Content Moderator-tjänster när du registrerar dig, men du kan också konfigurera den för att använda en befintlig nyckel från ditt Azure-konto. Detta rekommenderas för storskaliga scenarier, eftersom kostnadsfria utvärderingsnycklar har strikta[användningsgränser](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/)( Prissättning och gränser ).
+[Gransknings verktyget](https://contentmoderator.cognitive.microsoft.com) genererar en kostnads fri utvärderings nyckel för Azure Content moderator Services när du registrerar dig, men du kan också konfigurera den så att den använder en befintlig nyckel från ditt Azure-konto. Detta rekommenderas för storskaliga scenarier, eftersom kostnads fria utvärderings nycklar har strikta användnings gränser ([priser och gränser](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/)).
 
-Om du har skapat en [Content Moderator-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) i Azure navigerar du till den i Azure-portalen och väljer **bladet Nycklar.** Kopiera en av dina nycklar.
+Om du har skapat en [Content moderator-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) i Azure navigerar du till den i Azure Portal och väljer bladet **nycklar** . Kopiera en av dina nycklar.
 
-![Innehållsmoderatornycklar i Azure-portalen](images/credentials-azure-portal-keys.PNG)
+![Content Moderator nycklar i Azure Portal](images/credentials-azure-portal-keys.PNG)
 
-Gå till fönstret **Arbetsflödesinställningar** på fliken **Autentiseringsuppgifter** för granskningsverktyget, välj **Redigera**och klistra in nyckeln i fältet **Ocp-Apim-Subscription-Key.** [Review tool](https://contentmoderator.cognitive.microsoft.com) Nu använder arbetsflöden som anropar modererings-API:erna din Azure-autentiseringsuppgifter.
+På fliken **autentiseringsuppgifter** för [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com)går du till fönstret **arbets flödes inställningar** , väljer **Redigera**och klistrar in nyckeln i fältet **OCP-APIM-Subscription-Key** . Nu använder arbets flöden som anropar redigerings-API: er dina Azure-autentiseringsuppgifter.
 
 > [!NOTE]
-> De andra två fälten i fönstret **Arbetsflödesinställningar** är för anpassade term- och bildlistor. Läs anpassade [termer](../try-terms-list-api.md) eller [anpassade avbildningsguider](../try-image-list-api.md) om du vill veta mer om dessa.
+> De andra två fälten i fönstret **arbets flödes inställningar** är för anpassade term-och bild listor. Mer information om dessa finns i guiderna [anpassade termer](../try-terms-list-api.md) eller [anpassade bilder](../try-image-list-api.md) .
 
-### <a name="use-your-azure-account-with-the-review-apis"></a>Använda ditt Azure-konto med gransknings-API:erna
+### <a name="use-your-azure-account-with-the-review-apis"></a>Använd ditt Azure-konto med gransknings-API: erna
 
-Om du vill använda din Azure-nyckel med gransknings-API:erna måste du hämta ditt resurs-ID. Gå till din Content Moderator-resurs i Azure-portalen och välj bladet **Egenskaper.** Kopiera resurs-ID-värdet och klistra in det i fältet **Vitlistade resurs-ID(er)** på fliken **Autentiseringsuppgifter för** granskningsverktyget.
+Om du vill använda din Azure-nyckel med gransknings-API: erna måste du hämta ditt resurs-ID. Gå till din Content Moderator-resurs i Azure Portal och välj bladet **Egenskaper** . Kopiera resurs-ID-värdet och klistra in det i fältet **vit listas resurs-ID (n)** på fliken **autentiseringsuppgifter** för gransknings verktyget.
 
-![Resurs-ID för innehållsmoderator i Azure-portalen](images/credentials-azure-portal-resourceid.PNG)
+![Content Moderator resurs-ID i Azure Portal](images/credentials-azure-portal-resourceid.PNG)
 
-Om du har angett din prenumerationsnyckel på båda ställena används inte utvärderingsnyckeln som medföljer ditt granskningsverktygskonto utan förblir tillgänglig.
+Om du har angett din prenumerations nyckel på båda platserna, används inte den utvärderings nyckel som medföljer kontot granska verktyg, men den är fortfarande tillgänglig.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följ [snabbstarten för granskningsverktyget](../quick-start.md) för att börja använda granskningsverktyget i scenarier för innehållsmoderering.
+Följ snabb starten för [gransknings verktyget](../quick-start.md) för att börja använda gransknings verktyget i scenarier för innehålls redigering.

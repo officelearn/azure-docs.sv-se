@@ -1,7 +1,7 @@
 ---
-title: Anpassa knappen Immersive Reader
+title: Anpassa knappen för avancerad läsare
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln visar hur du anpassar knappen som startar Immersive Reader.
+description: I den här artikeln visas hur du anpassar knappen som startar den fördjupade läsaren.
 services: cognitive-services
 author: metanMSFT
 manager: guillasi
@@ -11,61 +11,61 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metan
 ms.openlocfilehash: 6461cc60a237cf834226b07db5e1ea6fbbea7a92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75946214"
 ---
-# <a name="how-to-customize-the-immersive-reader-button"></a>Så här anpassar du knappen Uppslukande läsare
+# <a name="how-to-customize-the-immersive-reader-button"></a>Anpassa knappen för avancerad läsare
 
-Den här artikeln visar hur du anpassar knappen som startar Immersive Reader för att passa behoven i ditt program.
+Den här artikeln visar hur du anpassar knappen som startar den fördjupade läsaren så att den passar dina programs behov.
 
-## <a name="add-the-immersive-reader-button"></a>Lägg till knappen Uppslukande läsare
+## <a name="add-the-immersive-reader-button"></a>Lägg till knappen för avancerad läsare
 
-Den uppslukande Reader SDK ger standard styling för knappen som startar Immersive Reader. Använd `immersive-reader-button` klassattributet för att aktivera den här formateringen.
+SDK för avancerad läsare tillhandahåller standardformat för knappen som startar den fördjupade läsaren. Använd `immersive-reader-button` Class-attributet för att aktivera det här formatet.
 
 ```html
 <div class='immersive-reader-button'></div>
 ```
 
-## <a name="customize-the-button-style"></a>Anpassa knappformatet
+## <a name="customize-the-button-style"></a>Anpassa knapp formatet
 
-Använd `data-button-style` attributet för att ange knappens format. De tillåtna `icon` `text`värdena `iconAndText`är , och . Standardvärdet är `icon`.
+Använd `data-button-style` attributet för att ange formatet för knappen. De tillåtna värdena är `icon`, `text`och `iconAndText`. Standardvärdet är `icon`.
 
-### <a name="icon-button"></a>Knappen Ikon
+### <a name="icon-button"></a>Ikon knapp
 
 ```html
 <div class='immersive-reader-button' data-button-style='icon'></div>
 ```
 
-Detta gör följande:
+Detta återger följande:
 
-![Knappen Ikon](./media/button-icon.png)
+![Ikon knapp](./media/button-icon.png)
 
-### <a name="text-button"></a>Knappen Text
+### <a name="text-button"></a>Text knapp
 
 ```html
 <div class='immersive-reader-button' data-button-style='text'></div>
 ```
 
-Detta gör följande:
+Detta återger följande:
 
-![Knappen Ikon](./media/button-text.png)
+![Ikon knapp](./media/button-text.png)
 
-### <a name="icon-and-text-button"></a>Knappen Ikon och text
+### <a name="icon-and-text-button"></a>Knapp för ikon och text
 
 ```html
 <div class='immersive-reader-button' data-button-style='iconAndText'></div>
 ```
 
-Detta gör följande:
+Detta återger följande:
 
-![Knappen Ikon](./media/button-icon-and-text.png)
+![Ikon knapp](./media/button-icon-and-text.png)
 
-## <a name="customize-the-button-text"></a>Anpassa knapptexten
+## <a name="customize-the-button-text"></a>Anpassa knapp texten
 
-Konfigurera språket och alternativtexten för `data-locale` knappen med hjälp av attributet. Standardspråk är engelska.
+Konfigurera språket och alternativ texten för knappen med hjälp av- `data-locale` attributet. Standardspråk är engelska.
 
 ```html
 <div class='immersive-reader-button' data-locale='fr-FR'></div>
@@ -73,7 +73,7 @@ Konfigurera språket och alternativtexten för `data-locale` knappen med hjälp 
 
 ## <a name="customize-the-size-of-the-icon"></a>Anpassa ikonens storlek
 
-Storleken på ikonen Immersive Reader kan konfigureras med `data-icon-px-size` attributet. Detta anger ikonens storlek i pixlar. Standardstorleken är 20px.
+Storleken på ikonen för avancerad läsare kan konfigureras med hjälp av `data-icon-px-size` -attributet. Detta anger storleken på ikonen i bild punkter. Standard storleken är 20px.
 
 ```html
 <div class='immersive-reader-button' data-icon-px-size='50'></div>
@@ -81,4 +81,4 @@ Storleken på ikonen Immersive Reader kan konfigureras med `data-icon-px-size` a
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska [den uppslukande läsar-SDK-referensen](./reference.md)
+* Utforska [SDK-referensen för avancerad läsare](./reference.md)

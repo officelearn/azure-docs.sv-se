@@ -1,5 +1,5 @@
 ---
-title: Skicka sökförfrågningar till API:et för videosökning i Bing
+title: Skicka Sök begär anden till API för videosökning i Bing
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln beskrivs parametrarna och attributen för begäranden som skickas till API:et för videosökning i Bing samt det JSON-svarsobjekt som det returnerar.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: aahi
 ms.openlocfilehash: b27aa1409d543c157069d2701c49ef54a097e552
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220296"
 ---
 # <a name="sending-search-requests-to-the-bing-video-search-api"></a>Skicka sökbegäranden till API:et för videosökning i Bing

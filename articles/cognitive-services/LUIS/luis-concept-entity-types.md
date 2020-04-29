@@ -1,7 +1,7 @@
 ---
-title: Entitetstyper - LUIS
+title: Entitetstyper – LUIS
 titleSuffix: Azure Cognitive Services
-description: 'Entiteter extraherar data från uttrycket. Entitetstyper ger dig förutsägbar extrahering av data. Det finns två typer av entiteter: maskininlärd och icke-maskinlärd. Det är viktigt att veta vilken typ av entitet du arbetar med i yttranden.'
+description: 'Entiteter extraherar data från uttryck. Entitetstyper ger dig förutsägbar data extrahering. Det finns två typer av entiteter: maskin-och icke-maskin-inlärd. Det är viktigt att veta vilken typ av entitet du arbetar med i yttranden.'
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,72 +12,72 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
 ms.openlocfilehash: 6ee156efb5512c92d86ba05513b6a2b91df4eae8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79221033"
 ---
-# <a name="entities-and-their-purpose-in-luis"></a>Enheter och deras syfte i LUIS
+# <a name="entities-and-their-purpose-in-luis"></a>Entiteter och deras syfte i LUIS
 
-Det primära syftet med entiteter är att ge klientprogrammet förutsägbar extrahering av data. Ett _valfritt,_ sekundärt syfte är att öka förutsägelsen av avsikten eller andra entiteter med deskriptorer.
+Det primära syftet med entiteter är att ge klient programmet förutsägbar data extrahering. Ett _valfritt_, sekundärt syfte är att öka förutsägelsen för avsikten eller andra enheter med beskrivningar.
 
-Det finns två typer av enheter:
+Det finns två typer av entiteter:
 
-* maskinlärd - från kontext
-* icke-maskininlärd - för exakta textmatchningar, mönstermatchningar eller identifiering av fördefinierade enheter
+* känd dator – från kontext
+* icke-identifierad för exakta text matchningar, mönster matchningar eller identifiering efter färdiga entiteter
 
-Maskininlärda entiteter ger det bredaste utbudet av datautvinningsalternativ. Icke-maskininlärda entiteter fungerar efter textmatchning och kan användas oberoende av eller som en [begränsning](#design-entities-for-decomposition) för en datorinlärd entitet.
+Enheter som har registrerats av enheten ger det bredaste urvalet av data extraherings alternativ. Enheter som inte är baserade på enheten fungerar med text matchning och kan användas oberoende av varandra eller som en [begränsning](#design-entities-for-decomposition) på en enhet som har lärts ur enheten.
 
 ## <a name="entities-represent-data"></a>Entiteter representerar data
 
-Entiteter är data som du vill hämta från uttrycket, till exempel namn, datum, produktnamn eller någon betydande grupp av ord. Ett uttryck kan innehålla många entiteter eller inga alls. Ett klientprogram _kan_ behöva data för att utföra sin uppgift.
+Entiteter är data som du vill hämta från uttryck, till exempel namn, datum, produkt namn eller viktiga ord grupper. En uttryck kan innehålla flera entiteter eller ingen alls. Ett klient program _kan_ behöva data för att utföra dess uppgift.
 
-Entiteter måste märkas konsekvent över alla utbildningsyttranden för varje avsikt i en modell.
+Entiteter måste märkas konsekvent i alla utbildnings-yttranden för varje avsikt i en modell.
 
- Du kan definiera dina egna entiteter eller använda fördefinierade entiteter för att spara tid för vanliga begrepp som [datetimeV2,](luis-reference-prebuilt-datetimev2.md) [ordinal,](luis-reference-prebuilt-ordinal.md) [e-post](luis-reference-prebuilt-email.md)och [telefonnummer](luis-reference-prebuilt-phonenumber.md).
+ Du kan definiera egna entiteter eller använda fördefinierade entiteter för att spara tid för vanliga koncept som [datetimeV2](luis-reference-prebuilt-datetimev2.md), [ordnings](luis-reference-prebuilt-ordinal.md)tal, [e-post](luis-reference-prebuilt-email.md)och [telefonnummer](luis-reference-prebuilt-phonenumber.md).
 
 |Yttrande|Entitet|Data|
 |--|--|--|
-|Köp 3 biljetter till New York|Fördefinierat tal<br>Plats.Destination|3<br>New York|
-|Köp en biljett från New York till London den 5 mars|Plats.Ursprung<br>Plats.Destination<br>Fördefinierad datetimeV2|New York<br>London<br>den 5 mars 2018|
+|Köp 3 biljetter till New York|Fördefinierat nummer<br>Plats. mål|3<br>New York|
+|Köp ett ärende från New York till London den 5 mars|Plats. ORIGIN<br>Plats. mål<br>Färdiga datetimeV2|New York<br>London<br>5 mars 2018|
 
 ### <a name="entities-are-optional"></a>Entiteter är valfria
 
-Även om avsikter krävs är entiteter valfria. Du behöver inte skapa entiteter för alla koncept i appen, utan bara för de som krävs för att klientprogrammet ska kunna vidta åtgärder.
+När avsikter krävs är entiteter valfria. Du behöver inte skapa entiteter för varje koncept i appen, men endast för de som krävs för att klient programmet ska vidta åtgärder.
 
-Om dina yttranden inte har data som klientprogrammet kräver behöver du inte lägga till entiteter. När ditt program utvecklas och ett nytt behov av data identifieras kan du lägga till lämpliga entiteter i LUIS-modellen senare.
+Om din yttranden inte har data som krävs av klient programmet behöver du inte lägga till entiteter. När ditt program utvecklar och ett nytt behov av data identifieras kan du lägga till lämpliga entiteter i LUIS-modellen senare.
 
 ## <a name="entity-compared-to-intent"></a>Entitet jämfört med avsikt
 
-Entiteten representerar ett datakoncept i det uttryck som du vill extrahera.
+Entiteten representerar ett data koncept i uttryck som du vill extrahera.
 
-Ett uttryck kan eventuellt innehålla entiteter. Som jämförelse _krävs_ förutsägelsen av avsikten för ett yttrande och representerar hela uttrycket. LUIS kräver exempel yttranden finns i en avsikt.
+En uttryck kan eventuellt innehålla entiteter. Vid jämförelse _krävs_ en förutsägelse av avsikten för en uttryck och representerar hela uttryck. LUIS kräver att exempel yttranden finns i ett avsikts syfte.
 
 Tänk på följande 4 yttranden:
 
-|Yttrande|Avsikt förutsagd|Enheter som extraherats|Förklaring|
+|Yttrande|Förväntad avsikt|Extraherade enheter|Förklaring|
 |--|--|--|--|
 |Hjälp|Hjälp|-|Inget att extrahera.|
-|Skicka något|skickaNågonting|-|Inget att extrahera. Modellen har inte tränats `something` att extrahera i detta sammanhang, och det finns ingen mottagare heller.|
-|Skicka Bob en present|skickaNågonting|`Bob`, `present`|Modellen har tränats med den fördefinierade entiteten [personName,](luis-reference-prebuilt-person.md) som har extraherat namnet `Bob`. En maskininlärd entitet `present`har använts för att extrahera .|
-|Skicka Bob en låda choklad|skickaNågonting|`Bob`, `box of chocolates`|De två viktiga `Bob` databitarna `box of chocolates`och , har extraherats av entiteter.|
+|Skicka något|sendSomething|-|Inget att extrahera. Modellen har inte tränats att extrahera `something` i den här kontexten och det finns ingen mottagare.|
+|Skicka Bob a present|sendSomething|`Bob`, `present`|Modellen har tränats med en [personName](luis-reference-prebuilt-person.md) -fördefinierad entitet som har extraherat namnet `Bob`. En enhet som har registrerats av enheten har använts `present`för att extrahera.|
+|Skicka Bob en ruta med choklad|sendSomething|`Bob`, `box of chocolates`|De två viktiga data delarna `Bob` och `box of chocolates`har extraherats av entiteter.|
 
-## <a name="design-entities-for-decomposition"></a>Designentiteter för nedbrytning
+## <a name="design-entities-for-decomposition"></a>Utforma entiteter för dekomposition
 
-Det är bra entitetsdesign för att göra din entitet på den högsta nivån till en dator som lärs in på entiteten. Detta gör det möjligt för ändringar i entitetsdesignen över tid och användning av underkomponenter (underordnade **entiteter),** eventuellt med **begränsningar** och **deskriptorer,** för att bryta ned entiteten på den översta nivån i de delar som klientprogrammet behöver.
+Det är en bra enhets design för att göra din enhet på högsta nivå till en enhet som har lärts av enheten. Detta möjliggör ändringar i din enhets design över tid och användningen av **del komponenter** (underordnade entiteter), eventuellt med **begränsningar** **och beskrivare**, för att dela upp entiteten på den översta nivån i de delar som krävs av klient programmet.
 
-Genom att designa för nedbrytning kan LUIS returnera en djup grad av entitetsmatchning till klientprogrammet. På så sätt kan klientprogrammet fokusera på affärsregler och lämna datamatchning till LUIS.
+Genom att utforma för dekomposition kan LUIS returnera en djup grad av enhets matchning till klient programmet. Detta gör att klient programmet kan fokusera på affärs regler och lämna data upplösning till LUIS.
 
-### <a name="machine-learned-entities-are-primary-data-collections"></a>Maskininlärda entiteter är primära datainsamlingar
+### <a name="machine-learned-entities-are-primary-data-collections"></a>Enheter som har lärts från enheten är primära data samlingar
 
-[**Maskininlärda entiteter**](tutorial-machine-learned-entity.md) är den översta dataenheten. Underkomponenter är underordnade entiteter för datorinlärda entiteter.
+Enhets [**inlärda entiteter**](tutorial-machine-learned-entity.md) är den översta data enheten. Del komponenter är underordnade entiteter till enheter som har lärts ur enheten.
 
-En datorinlärd entitet utlöser baserat på det sammanhang som lärs ut genom utbildningsyttranden. **Begränsningar** är valfria regler som tillämpas på en datorinlärd entitet som ytterligare begränsar utlösande baseras på den exakta textmatchningsdefinitionen för en enhet som inte har lärt sig utan maskin, till exempel en [lista](reference-entity-list.md) eller [Regex](reference-entity-regular-expression.md). En dator `size` som lärt sig en dator kan `sizeList` till exempel ha `size` ett villkor för en listentitet som begränsar entiteten till att utlösa endast när värden som finns i entiteten `sizeList` påträffas.
+En dator som har lärt enhets utlösare baserat på den kontext som lärts genom utbildning yttranden. **Begränsningar** är valfria regler som tillämpas på en enhet som har registrerats av enheten och som ytterligare begränsar utlösare baserat på exakt text matchnings definitionen för en icke-känd entitet, till exempel en [lista](reference-entity-list.md) eller ett [regex](reference-entity-regular-expression.md). En `size` enhet som har lärts in kan till exempel ha en begränsning för `sizeList` en List-entitet som begränsar entiteten så att den `size` bara utlöses när värden `sizeList` som finns i entiteten påträffas.
 
-[**Deskriptorer**](luis-concept-feature.md) är funktioner som används för att öka relevansen av ord eller fraser för förutsägelse. De kallas *deskriptorer* eftersom de används för att *beskriva* en avsikt eller entitet. Deskriptorer beskriver särskiljande egenskaper eller attribut för data, till exempel viktiga ord eller fraser som LUIS observerar och lär sig igenom.
+[**Beskrivningar**](luis-concept-feature.md) är funktioner som används för att förbättra relevansen hos ord eller fraser för förutsägelsen. De kallas *beskrivningar* eftersom de används för att *beskriva* ett avsikts-eller enhets namn. Beskrivningar beskriver särskiljande kännetecken eller dataattribut, t. ex. viktiga ord eller fraser som LUIS studerar och lär sig genom.
 
-När du skapar en fraslistefunktion i LUIS-appen aktiveras den globalt som standard och gäller jämnt i alla avsikter och entiteter. Men om du använder fraslistan som en deskriptor (funktion) för en maskininlärd entitet (eller *modell)* minskar dess omfattning till att endast gälla för den modellen och används inte längre med alla andra modeller. Om du använder en fraslista som en deskriptor till en modell kan nedbrytningen avstämd genom att hjälpa till med noggrannheten för den modell den tillämpas på.
+När du skapar en Frass List funktion i LUIS-appen aktive ras den globalt som standard och tillämpas jämnt över alla syften och entiteter. Men om du använder fras listan som en beskrivning (funktion) för en enhet som har registrerats av enheten (eller *modellen*), så minskar dess omfattning så att den endast gäller för den modellen och inte längre används med alla andra modeller. Genom att använda en fras lista som en beskrivning av en modell får du en nedbrytning genom att hjälpa till med precisionen för den modell som den tillämpas på.
 
 <a name="composite-entity"></a>
 <a name="list-entity"></a>
@@ -88,57 +88,57 @@ När du skapar en fraslistefunktion i LUIS-appen aktiveras den globalt som stand
 
 ## <a name="types-of-entities"></a>Entitetstyper
 
-Välj entiteten baserat på hur data ska extraheras och hur de ska representeras när de har extraherats.
+Välj entiteten baserat på hur data ska extraheras och hur de ska representeras när den har extraherats.
 
 |Entitetstyp|Syfte|
 |--|--|
-|[**Maskinlärd**](tutorial-machine-learned-entity.md)|Maskininlärda entiteter lär sig av kontexten i uttrycket. Överordnad gruppering av entiteter, oavsett entitetstyp. Detta gör variation av placering i exempel yttranden betydande. |
-|[**Lista**](reference-entity-list.md)|Lista över objekt och deras synonymer som extraherats med **exakt textmatchning**.|
-|[**Pattern.any**](reference-entity-pattern-any.md)|Entitet där slutet av entiteten är svår att fastställa. |
-|[**Färdiga**](luis-reference-prebuilt-entities.md)|Redan utbildad för att extrahera specifika typer av data som URL eller e-post. Vissa av dessa fördefinierade entiteter definieras i projektet [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) med öppen källkod. Om din specifika kultur eller entitet för närvarande inte stöds bidrar du till projektet.|
-|[**Reguljärt uttryck**](reference-entity-regular-expression.md)|Använder reguljärt uttryck för **exakt textmatchning**.|
+|[**Datorn – lärt sig**](tutorial-machine-learned-entity.md)|Enheter som lärts från enheten lär sig från kontexten i uttryck. Överordnad gruppering av entiteter, oavsett typ av enhet. På så sätt blir variationen av placering i exemplet yttranden stor. |
+|[**Lista**](reference-entity-list.md)|Lista över objekt och deras synonymer som extraheras med **exakt text matchning**.|
+|[**Mönster. alla**](reference-entity-pattern-any.md)|Entiteten där slutet av entiteten är svårt att fastställa. |
+|[**Fördefinierade**](luis-reference-prebuilt-entities.md)|Redan utbildad för att extrahera viss typ av data, till exempel URL eller e-post. Några av dessa fördefinierade entiteter definieras i ett [text](https://github.com/Microsoft/Recognizers-Text) projekt med öppen källkod. Om din kultur eller entitet inte stöds för närvarande, bidrar du till projektet.|
+|[**Reguljärt uttryck**](reference-entity-regular-expression.md)|Använder reguljärt uttryck för **exakt text matchning**.|
 
-## <a name="extracting-contextually-related-data"></a>Extrahera kontextuellt relaterade data
+## <a name="extracting-contextually-related-data"></a>Extrahera sammanhangsbaserade relaterade data
 
-Ett uttryck kan innehålla två eller flera förekomster av en entitet där datas innebörd baseras på kontexten i uttrycket. Ett exempel är ett uttryck för att boka en flygning som har två platser, ursprung och destination.
+En uttryck kan innehålla två eller flera förekomster av en entitet där innebörden av data baseras på kontexten i uttryck. Ett exempel är en uttryck för att boka en flygning som har två platser, ursprung och mål.
 
 `Book a flight from Seattle to Cairo`
 
-De två exemplen på en entitet `location` måste extraheras. Klientprogrammet måste känna till vilken typ av plats var och en för att slutföra biljettköpet.
+De två exemplen för `location` en entitet måste extraheras. Klient programmet måste känna till typen av plats för var och en för att kunna slutföra biljett köpet.
 
-Det finns två tekniker för att extrahera kontextuellt relaterade data:
+Det finns två metoder för att extrahera sammanhangsbaserade data:
 
- * Entiteten `location` är en maskininlärd entitet och använder två `origin` `destination` delkomponententiteter för att samla in och (föredras)
- * Entiteten `location` använder `origin` två **roller** och`destination`
+ * `location` Entiteten är en enhet som har lärts ur enheten och använder två del komponent enheter `origin` för `destination` att avbilda och (föredra)
+ * `location` Entiteten använder två **roller** av `origin` och`destination`
 
-Flera entiteter kan finnas i ett uttryck och kan extraheras utan att använda nedbrytning eller roller om den kontext där de används inte har någon betydelse. Om uttrycket till exempel innehåller en `I want to travel to Seattle, Cairo, and London.`lista över platser är det här en lista där varje objekt inte har en ytterligare betydelse.
+Flera entiteter kan finnas i en uttryck och kan extraheras utan att använda dekomposition eller roller om kontexten där de används inte har någon betydelse. Om uttryck till exempel innehåller en lista över platser `I want to travel to Seattle, Cairo, and London.`, är det här en lista där varje objekt inte har någon ytterligare innebörd.
 
-### <a name="using-subcomponent-entities-of-a-machine-learned-entity-to-define-context"></a>Använda underkomponentenheter i en maskininlärd entitet för att definiera kontext
+### <a name="using-subcomponent-entities-of-a-machine-learned-entity-to-define-context"></a>Använda del komponent enheter för en enhet som har lärts in en enhet för att definiera kontext
 
-Du kan använda en [**maskininlärd entitet**](tutorial-machine-learned-entity.md) för att extrahera data som beskriver åtgärden att boka en flygning och sedan dela upp entiteten på den översta nivån i de separata delar som behövs av klientprogrammet.
+Du kan använda en [**enhet som har registrerats**](tutorial-machine-learned-entity.md) av enheten för att extrahera data som beskriver åtgärden att boka en flygning och sedan dela upp entiteten på den översta nivån i de separata delar som krävs av klient programmet.
 
-I det `Book a flight from Seattle to Cairo`här exemplet kan den `travelAction` översta entiteten `flight from Seattle to Cairo`vara och märkas för att extrahera . Sedan skapas två underkomponententiteter, anropade `origin` och `destination`, båda med `geographyV2` ett villkor som tillämpas av den fördefinierade entiteten. I utbildningsyttrandena `origin` `destination` är och märkta på rätt sätt.
+I det här exemplet `Book a flight from Seattle to Cairo`kan entiteten på den översta nivån vara `travelAction` och etiketteras att extrahera `flight from Seattle to Cairo`. Sedan skapas två del komponent enheter, som kallas `origin` och `destination`, både med en begränsning som tillämpas på den fördefinierade `geographyV2` entiteten. I yttranden för utbildning etiketteras `origin` och `destination` märks på rätt sätt.
 
-### <a name="using-entity-role-to-define-context"></a>Använda entitetsroll för att definiera kontext
+### <a name="using-entity-role-to-define-context"></a>Använd Entity-rollen för att definiera kontext
 
-En roll är ett namngivet alias för en entitet baserat på kontext i uttryck. En roll kan användas med valfri fördefinierad eller anpassad entitetstyp och användas i både exempelyttranden och mönster. I det här `location` exemplet behöver `origin` entiteten två roller och `destination` och båda måste markeras i exempelyttrandena.
+En roll är ett namngivet alias för en entitet baserat på en kontext i uttryck. En roll kan användas med en fördefinierad eller anpassad entitetstyp och används i båda exemplen yttranden och Patterns. I det här exemplet behöver `location` entiteten två roller av `origin` och `destination` och båda måste markeras i exemplet yttranden.
 
-Om LUIS `location` hittar men inte kan bestämma rollen returneras platseniteten fortfarande. Klientprogrammet skulle behöva följa upp med en fråga för att avgöra vilken typ av plats användaren menade.
+Om LUIS hittar `location` men inte kan avgöra rollen, returneras fortfarande plats enheten. Klient programmet måste följa upp med en fråga för att avgöra vilken typ av plats som användaren avsåg.
 
 
-## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Om du behöver mer än det maximala antalet enheter
+## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Om du behöver fler än det högsta antalet entiteter
 
-Om du behöver mer än gränsen kontaktar du supporten. För att göra det, samla in detaljerad information om ditt system, gå till [LUIS](luis-reference-regions.md#luis-website) webbplats och välj sedan **Support**. Om din Azure-prenumeration innehåller supporttjänster kontaktar du [Azures tekniska support](https://azure.microsoft.com/support/options/).
+Kontakta supporten om du behöver mer än gränsen. Det gör du genom att samla in detaljerad information om systemet, gå till [Luis](luis-reference-regions.md#luis-website) -webbplatsen och sedan välja **support**. Om din Azure-prenumeration innehåller support tjänster kontaktar du [teknisk support för Azure](https://azure.microsoft.com/support/options/).
 
-## <a name="entity-prediction-status"></a>Status för förutsägelse av entitet
+## <a name="entity-prediction-status"></a>Status för enhets förutsägelse
 
-LUIS-portalen visar när entiteten, i ett exempel yttrande, har en annan entitet förutsägelse än den entitet du valt. Denna annorlunda poäng baseras på den aktuella tränade modellen.
+LUIS-portalen visar när entiteten, i ett exempel-uttryck, har en annan enhets förutsägelse än den entitet som du har valt. Den här olika poängen baseras på den aktuella tränade modellen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig begrepp om bra [yttranden](luis-concept-utterance.md).
+Lär dig begrepp om utmärkt [yttranden](luis-concept-utterance.md).
 
-Se [Lägga till entiteter](luis-how-to-add-entities.md) om du vill veta mer om hur du lägger till entiteter i LUIS-appen.
+Se [Lägg till entiteter](luis-how-to-add-entities.md) för att lära dig mer om hur du lägger till entiteter i Luis-appen.
 
-Se [Självstudiekurs: Extrahera strukturerade data från användarutseende med datorinlärda entiteter i Språkförståelse (LUIS)](tutorial-machine-learned-entity.md) om du vill lära dig hur du extraherar strukturerade data från ett uttryck med hjälp av den maskininlärda entiteten.
+Se [självstudie: extrahera strukturerade data från användare uttryck med enhets identifierade entiteter i language Understanding (Luis)](tutorial-machine-learned-entity.md) om du vill lära dig hur du extraherar strukturerade data från en uttryck med hjälp av den dator som har lärts.
  

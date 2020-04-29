@@ -1,7 +1,7 @@
 ---
-title: Felsöka tjänsten Talenheter SDK – Tal
+title: Fel sökning av tal enheter SDK-Speech service
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller information som hjälper dig att lösa problem som kan uppstå när du använder SDK för talenheter.
+description: Den här artikeln innehåller information som hjälper dig att lösa problem som kan uppstå när du använder tal enheter SDK.
 services: cognitive-services
 author: mswellsi
 manager: nitinme
@@ -11,30 +11,30 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wellsi
 ms.openlocfilehash: c590e0972de289a36890a75b220eddbded701ea8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74815574"
 ---
 # <a name="troubleshoot-the-speech-devices-sdk"></a>Felsöka Speech Devices SDK
 
-Den här artikeln innehåller information som hjälper dig att lösa problem som kan uppstå när du använder SDK för talenheter.
+Den här artikeln innehåller information som hjälper dig att lösa problem som kan uppstå när du använder tal enheter SDK.
 
-## <a name="certificate-failures"></a>Certifikatfel
+## <a name="certificate-failures"></a>Certifikat haverier
 
-Om du får certifikatfel när du använder taltjänsten kontrollerar du att enheten har rätt datum och tid:
+Om du får certifikat fel när du använder tal tjänsten kontrollerar du att enheten har rätt datum och tid:
 
-1. Gå till **Inställningar**. Under **System**väljer du **Datum & tid**.
+1. Gå till **Inställningar**. Under **system**väljer du **datum & tid**.
 
-    ![Under Inställningar väljer du Datum & tid](media/speech-devices-sdk/qsg-12.png)
+    ![Under Inställningar väljer du datum & tid](media/speech-devices-sdk/qsg-12.png)
 
-1. Behåll alternativet **Automatiskt datum & tid** markerat. Under **Välj tidszon**väljer du din aktuella tidszon.
+1. Låt alternativet **automatiskt datum &s tid** vara markerat. Under **Välj**tidszon väljer du aktuell tidszon.
 
     ![Välj alternativ för datum och tidszon](media/speech-devices-sdk/qsg-13.png)
 
-    När du ser att dev kit tid matchar tiden på datorn, dev kit är ansluten till Internet.
+    När du ser att dev kit-tiden matchar tiden på din dator är dev-paketet anslutet till Internet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Granska viktig information](devices-sdk-release-notes.md)
+* [Läs viktig information](devices-sdk-release-notes.md)

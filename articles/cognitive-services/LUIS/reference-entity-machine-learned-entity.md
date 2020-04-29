@@ -1,7 +1,7 @@
 ---
-title: Maskininlärd entitetstyp - LUIS
+title: Enhets typ som har registrerats av enheten – LUIS
 titleSuffix: Azure Cognitive Services
-description: Den datorinlärda entiteten är den föredragna entiteten för att skapa LUIS-program.
+description: Den enhet som har lärts är den önskade entiteten för att skapa LUIS-program.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: reference
 ms.date: 12/30/2019
 ms.author: diberry
 ms.openlocfilehash: aac4ba3ec63d425cac782f5db65bba923d24ed71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75552006"
 ---
 # <a name="machine-learned-entity"></a>Maskininlärd enhet
 
-Den datorinlärda entiteten är den föredragna entiteten för att skapa LUIS-program.
+Den enhet som har lärts är den önskade entiteten för att skapa LUIS-program.
 
 
-## <a name="example-json"></a>Exempel på JSON
+## <a name="example-json"></a>Exempel-JSON
 
-Anta att appen tar pizzaorder, till exempel [den förmultnbara entitetshandledningen](tutorial-machine-learned-entity.md). Varje beställning kan innehålla flera olika pizzor, inklusive olika storlekar.
+Anta att appen tar pizza-beställningar, till exempel [själv studie kursen för desammansättnings bara entiteter](tutorial-machine-learned-entity.md). Varje ordning kan innehålla flera olika pizzor, inklusive olika storlekar.
 
 Här är några exempelyttranden:
 
-|Exempel på yttranden för pizzaapp|
+|Exempel på yttranden för pizza-appen|
 |--|
 |`Can I get a pepperoni pizza and a can of coke please`|
 |`can I get a small pizza with onions peppers and olives`|
@@ -36,15 +36,15 @@ Här är några exempelyttranden:
 
 
 
-#### <a name="v3-prediction-endpoint-response"></a>[V3-effektslutpunktssvar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
-Eftersom en datorinlärd entitet kan ha många delkomponenter med begränsningar och beskrivningar är detta bara ett exempel. Det bör betraktas som en guide för vad din enhet kommer tillbaka.
+Eftersom en enhet som kan identifieras av enheten kan ha många del komponenter med begränsningar och beskrivningar, är detta bara ett exempel. Den bör betraktas som en vägledning för vad din entitet kommer att returnera.
 
-Tänk på frågan:
+Överväg frågan:
 
 `deliver 1 large cheese pizza on thin crust and 2 medium pepperoni pizzas on deep dish crust`
 
-Detta är JSON `verbose=false` om anges i frågesträngen:
+Detta är JSON om `verbose=false` anges i frågesträngen:
 
 ```json
 "entities": {
@@ -102,7 +102,7 @@ Detta är JSON `verbose=false` om anges i frågesträngen:
 
 ```
 
-Detta är JSON `verbose=true` om anges i frågesträngen:
+Detta är JSON om `verbose=true` anges i frågesträngen:
 
 ```json
 "entities": {
@@ -341,13 +341,13 @@ Detta är JSON `verbose=true` om anges i frågesträngen:
     }
 }
 ```
-#### <a name="v2-prediction-endpoint-response"></a>[V2-effektpunktssvar för förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
-Den här entiteten är inte tillgänglig i V2-förutsägelsekörningen.
+Den här entiteten är inte tillgänglig i körnings miljön för v2-förutsägelse.
 * * *
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om den maskininlärda entiteten, inklusive en [självstudiekurs,](tutorial-machine-learned-entity.md) [begrepp](luis-concept-entity-types.md#design-entities-for-decomposition)och [hur du guidar](luis-how-to-add-entities.md#create-a-machine-learned-entity).
+Lär dig mer om den enhets information som datorn har lärt dig, inklusive en [själv studie kurs](tutorial-machine-learned-entity.md), [koncept](luis-concept-entity-types.md#design-entities-for-decomposition)och [instruktions guide](luis-how-to-add-entities.md#create-a-machine-learned-entity).
 
-Lär dig [list](reference-entity-list.md) mer om listentiteten och [entiteten för reguljära uttryck.](reference-entity-regular-expression.md)
+Lär dig mer om entiteten [lista](reference-entity-list.md) och [reguljära uttryck](reference-entity-regular-expression.md) .

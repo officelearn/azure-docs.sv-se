@@ -1,7 +1,7 @@
 ---
-title: Tågapp - LUIS
+title: Träna app-LUIS
 titleSuffix: Azure Cognitive Services
-description: Utbildning är processen att lära din språk understanding (LUIS) appversion för att förbättra dess naturliga språk förståelse. Träna LUIS-appen efter uppdateringar av modellen, till exempel lägga till, redigera, etikettera eller ta bort entiteter, avsikter eller yttranden.
+description: Träning är en process för att lära sig din Language Understanding (LUIS)-app-version för att förbättra sin naturliga språk förståelse. Träna din LUIS-app efter uppdateringar av modellen, till exempel lägga till, redigera, märka eller ta bort entiteter, avsikter eller yttranden.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,51 +12,51 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: diberry
 ms.openlocfilehash: 1da8ab3015730c6b3e1962301a34b1ad43b1aad6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219867"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Träna din aktiva version av LUIS-appen 
 
-Utbildning är processen att lära din språk understanding (LUIS) app för att förbättra dess naturliga språk förståelse. Träna LUIS-appen efter uppdateringar av modellen, till exempel lägga till, redigera, etikettera eller ta bort entiteter, avsikter eller yttranden. 
+Träning är en process för att lära sig din Language Understanding-app (LUIS) för att förbättra sin naturliga språk förståelse. Träna din LUIS-app efter uppdateringar av modellen, till exempel lägga till, redigera, märka eller ta bort entiteter, avsikter eller yttranden. 
 
-Utbildning och [testning av](luis-concept-test.md) en app är en iterativ process. När du har tränat LUIS-appen testar du den med exempelyttranden för att se om avsikter och entiteter känns igen korrekt. Om de inte är det gör du uppdateringar av LUIS-appen, tränar och testar igen. 
+Utbildning och [testning](luis-concept-test.md) av en app är en iterativ process. När du har tränat din LUIS-app testar du den med exempel yttranden för att se om intentarna och entiteterna identifieras korrekt. Om de inte är det kan du göra uppdateringar till LUIS-appen, träna och testa igen. 
 
-Utbildning tillämpas på den aktiva versionen i LUIS-portalen. 
+Träning tillämpas på den aktiva versionen i LUIS-portalen. 
 
-## <a name="how-to-train-interactively"></a>Hur man tränar interaktivt
+## <a name="how-to-train-interactively"></a>Så här tränar du interaktivt
 
-Om du vill starta iterativ processen i [LUIS-portalen](https://www.luis.ai)måste du först träna LUIS-appen minst en gång. Se till att varje avsikt har minst ett uttryck innan träningen.
+För att starta den iterativa processen i [Luis-portalen](https://www.luis.ai)måste du först träna din Luis-app minst en gång. Se till att varje avsikt har minst en uttryck innan träning.
 
-1. Öppna appen genom att välja dess namn på sidan **Mina appar.** 
+1. Öppna din app genom att välja namnet på sidan **Mina appar** . 
 
-1. Välj **Träna** i den övre panelen i appen. 
+1. I din app väljer du **träna** på den övre panelen. 
 
-1. När utbildningen är klar visas ett meddelande högst upp i webbläsaren.
+1. När inlärningen är klar visas ett meddelande längst upp i webbläsaren.
 
 ## <a name="training-date-and-time"></a>Datum och tid för utbildning
 
-Träningsdatum och -tid är GMT + 2. 
+Datum och tid för utbildning är GMT + 2. 
 
 ## <a name="train-with-all-data"></a>Träna med alla data
 
-Utbildning använder en liten andel av negativa provtagning. Om du vill använda alla data i stället för det lilla negativa kommplet använder du [API:et](#version-settings-api-use-of-usealltrainingdata).
+Träning använder en liten procent andel av negativ sampling. Om du vill använda alla data i stället för den små negativa insamlingen använder du [API: et](#version-settings-api-use-of-usealltrainingdata).
 
-### <a name="version-settings-api-use-of-usealltrainingdata"></a>Api-användning av AnvändningAllTrainingData
+### <a name="version-settings-api-use-of-usealltrainingdata"></a>Versions inställningar API-användning av UseAllTrainingData
 
-Använd [API:et för versionsinställningar](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) med `UseAllTrainingData` den inställda på true för att inaktivera den här funktionen. 
+Använd [API för versions inställningar](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) med `UseAllTrainingData` värdet true för att inaktivera den här funktionen. 
 
 ## <a name="unnecessary-training"></a>Onödig utbildning
 
-Du behöver inte träna efter varje enskild förändring. Utbildning bör göras när en grupp av ändringar tillämpas på modellen, och nästa steg du vill göra är att testa eller publicera. Om du inte behöver testa eller publicera är utbildning inte nödvändig. 
+Du behöver inte träna efter varje enskild ändring. Träningen bör utföras efter att en grupp av ändringar har tillämpats på modellen och nästa steg du vill göra är att testa eller publicera. Om du inte behöver testa eller publicera behövs ingen utbildning. 
 
-## <a name="training-with-the-rest-apis"></a>Utbildning med REST API:er
+## <a name="training-with-the-rest-apis"></a>Utbildning med REST API: er
 
-Utbildning i LUIS-portalen är ett enda steg för att trycka på **tågknappen.** Utbildning med REST API:er är en tvåstegsprocess. Den första är att [begära utbildning](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) med HTTP POST. Begär sedan [träningsstatus](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) med HTTP Get. 
+Utbildning i LUIS-portalen är ett enda steg där man trycker på knappen **träna** . Utbildning med REST API: er är en två stegs process. Det första är att [begära utbildning](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) med http post. Begär sedan [utbildnings status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) med http get. 
 
-För att veta när utbildningen är klar måste du avsöka statusen tills alla modeller har tränats. 
+För att veta när inlärningen är klar måste du avsöka statusen tills alla modeller har tränats. 
 
 ## <a name="next-steps"></a>Nästa steg
 

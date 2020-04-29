@@ -1,7 +1,7 @@
 ---
-title: Dela din anpassade sökning - Anpassad Bing-sökning
+title: Dela din anpassade sökning Anpassad sökning i Bing
 titleSuffix: Azure Cognitive Services
-description: Tillåt enkelt gemensam redigering och testning av din instans genom att dela den med medlemmar i ditt team.
+description: Gör det enkelt att samar beta med att redigera och testa din instans genom att dela den med medlemmar i ditt team.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,29 +11,29 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 5a08ee7f5ea3d5e8c393ea4c1a64c353e24777e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74072702"
 ---
-# <a name="share-your-custom-search-instance"></a>Dela din anpassade sökinstans
+# <a name="share-your-custom-search-instance"></a>Dela din anpassade Sök instans
 
-Du kan möjliggöra samarbetsbaserad redigering och testning av din instans genom att helt enkelt dela den med medlemmar i ditt team. Du kan dela din instans med vem som helst med bara deras e-postadress. Så här delar du en instans:
+Du kan möjliggöra samarbetsbaserad redigering och testning av din instans genom att helt enkelt dela den med medlemmar i ditt team. Du kan dela din instans med någon som bara använder sin e-postadress. Så här delar du en instans:
 
-- Logga in [på anpassad sökning](https://customsearch.ai)
-- Välj en anpassad sökinstans
-- Klicka på inställningsikonen (visas som en växel). 
-- Under **Dela din instans**anger du den persons e-postadress som personen ska dela din instans med och klickar på **Dela**. 
+- Logga in på [Anpassad sökning](https://customsearch.ai)
+- Välj en anpassad Sök instans
+- Klicka på inställnings ikonen (visas som ett kugg hjul). 
+- Under **dela din instans**anger du e-postadressen till den person som du vill dela din instans med och klickar på **dela**. 
 
-När du har lagt till e-postadressen läggs den till i **listan Instans som delas med.** Upprepa processen för varje person som du vill dela din instans med. 
+När du har lagt till e-postadressen läggs den till i den **instans som delas med** -listan. Upprepa processen för varje person som du vill dela din instans med. 
 
-Om du vill lägga till någons e-post i listan är det inte nödvändigt för dem att ha ett anpassat sökkonto. De måste registrera sig för anpassad sökning innan de gör konfigurationsändringar ändå. När du har delit en instans med någon visas den i listan över anpassade sökinstanser. Endast en person kan ändra en instans åt gången. Om du försöker ändra en instans som någon annan redigerar visas en varning. En instans kan delas med högst 10 användare.
+Om du vill lägga till någons e-post i listan behöver du inte ha ett anpassat Sök konto. De måste registrera sig för anpassad sökning innan de kan göra konfigurations ändringar. När du har delat en instans med någon visas den i listan med anpassade Sök instanser. Endast en person kan ändra en instans i taget. Om du försöker ändra en instans som någon annan redigerar visas en varning. En instans kan delas med högst 10 användare.
 
 ## <a name="stop-sharing"></a>Sluta dela
 
-Om du vill sluta dela en instans med någon använder du ikonen ta bort den för att ta bort deras e-postadress från listan. Detta tar också bort instansen från deras lista över instanser.
+Om du vill sluta dela en instans med någon använder du ikonen Ta bort för att ta bort deras e-postadress från listan. Detta tar även bort instansen från sin lista över instanser.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera din anpassade autosuggest-upplevelse](define-custom-suggestions.md)
+- [Konfigurera din anpassade automatiska förslags upplevelse](define-custom-suggestions.md)

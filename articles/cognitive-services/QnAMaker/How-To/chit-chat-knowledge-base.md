@@ -1,7 +1,7 @@
 ---
-title: Lägga till småprat i en QnA Maker-kunskapsbas
+title: Lägga till en CHI2TEST-chatt till en QnA Maker kunskaps bas
 titleSuffix: Azure Cognitive Services
-description: Genom att lägga till personlig småprat i din robot blir det mer konversations- och engagerande när du skapar en KB. Med QnA Maker kan du enkelt lägga till en förifylld uppsättning av den översta chit-chatten i din KB.
+description: Om du lägger till en personlig CHI2TEST i din robot blir det mer samtal och engagerande när du skapar en KB. Med QnA Maker kan du enkelt lägga till en i förväg ifylld uppsättning av den främsta CHI2TEST i din KB.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,36 +12,36 @@ ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: a9a14056e6be62fc1c1b5e542c1a3acceb738eac
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220714"
 ---
-# <a name="add-chit-chat-to-a-knowledge-base"></a>Lägg till Chit-chat i en kunskapsbas
+# <a name="add-chit-chat-to-a-knowledge-base"></a>Lägga till en Chi2test-chatt i en kunskaps bas
 
-Genom att lägga till småprat i din robot blir det mer konversera och engagerande. Chit-chat-funktionen i QnA maker gör att du enkelt kan lägga till en förifylld uppsättning av den översta chit-chat, i din kunskapsbas (KB). Detta kan vara en utgångspunkt för din bot personlighet, och det kommer att spara tid och kostnad för att skriva dem från grunden.  
+Att lägga till en CHI2TEST i din robot gör det mer samtal och engagerande. Med funktionen CHI2TEST i QnA Maker kan du enkelt lägga till en i förväg ifylld uppsättning av den främsta CHI2TEST i din kunskaps bas (KB). Detta kan vara en utgångs punkt för din robots personlighet, och det sparar tid och kostnad för att skriva dem från grunden.  
 
-Denna datauppsättning har cirka 100 scenarier för chit-chat i rösten av flera personas, som Professional, Friendly och Witty. Välj den persona som närmast liknar din bot röst. Med tanke på en användarfråga försöker QnA Maker matcha den med närmaste kända chit-chat QnA.  
+Den här data uppsättningen har cirka 100 scenarier med CHI2TEST i en röst av flera personer, som professionella, användarvänliga och witty. Välj den person som bäst liknar din robots röst. Med en användar fråga försöker QnA Maker matcha den med den närmast kända QnA i CHI2TEST.  
 
-Några exempel på de olika personligheterna finns nedan. Du kan se alla [personlighetsdatauppsättningar](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) tillsammans med detaljer om personligheterna.
+Några exempel på olika personliga uppgifter finns nedan. Du kan se alla personliga [data uppsättningar](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) tillsammans med information om dina personliga uppgifter.
 
-För användarfrågan `When is your birthday?`för har varje personlighet ett formaterat svar:
+För användar frågan för `When is your birthday?`, har varje personlighet ett formaterat svar:
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
 |Personlighet|Exempel|
 |--|--|
-|Professionell|Ålder gäller inte mig.|
-|Vänlig|Jag har ingen ålder.|
-|Kvick|Jag är åldersfri.|
-|Omtänksam|Jag har ingen ålder.|
-|Entusiastiska|Jag är en bot, så jag har inte en ålder.|
+|Professionell|Åldern gäller egentligen inte för mig.|
+|Eget|Jag har verkligen ingen ålder.|
+|Witty|Jag är ålders fri.|
+|Caring|Jag har ingen ålder.|
+|Entusiastisk|Jag är en bot, så jag har ingen ålder.|
 ||
 
 
 ## <a name="language-support"></a>Stöd för språk
 
-Datauppsättningar för Chit-chat stöds på följande språk:
+Data uppsättningar för CHI2TEST-chatt stöds på följande språk:
 
 |Språk|
 |--|
@@ -56,35 +56,35 @@ Datauppsättningar för Chit-chat stöds på följande språk:
 |Spanska|
 
 
-## <a name="add-chit-chat-during-kb-creation"></a>Lägg till små chatt under KB-skapande
-När kunskapsbasen har skapats finns det ett alternativ för att lägga till småchatt efter att du har lagt till källadresser och filer. Välj den personlighet som du vill ha som din chit-chat bas. Om du inte vill lägga till småprat, eller om du redan har stöd för småchatt i dina datakällor, väljer du **Ingen**. 
+## <a name="add-chit-chat-during-kb-creation"></a>Lägga till en CHI2TEST-chatt när KB skapas
+När du har lagt till käll-URL: er och filer i kunskaps basen finns det ett alternativ för att lägga till en CHI2TEST. Välj den personlighet som du vill använda som din databas för CHI2TEST. Om du inte vill lägga till en CHI2TEST, eller om du redan har stöd för CHI2TEST i dina data källor, väljer du **ingen**. 
 
-## <a name="add-chit-chat-to-an-existing-kb"></a>Lägga till Chit-chat i en befintlig KB
-Välj KB och navigera till sidan **Inställningar.** Det finns en länk till alla små chattdatauppsättningar i lämpligt **TSV-format.** Ladda ner den personlighet du vill ha och ladda sedan upp den som en filkälla. Se till att inte redigera formatet eller metadata när du hämtar och laddar upp filen. 
+## <a name="add-chit-chat-to-an-existing-kb"></a>Lägga till en Chi2test i en befintlig KB
+Välj din KB och gå till sidan **Inställningar** . Det finns en länk till alla data uppsättningar för CHI2TEST i lämpligt **. tsv** -format. Ladda ned den personlighet som du vill ha och ladda sedan upp den som en fil källa. Se till att du inte redigerar formatet eller metadata när du laddar ned och laddar upp filen. 
   
-![Lägga till små chatt i befintlig KB](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset.png)
+![Lägg till en CHI2TEST till befintlig KB](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset.png)
 
-## <a name="edit-your-chit-chat-questions-and-answers"></a>Redigera dina frågor och svar om chit-chat
-När du redigerar kb:n visas en ny källa för småprat, baserat på den personlighet du valt. Du kan nu lägga till ändrade frågor eller redigera svaren, precis som med alla andra källor. 
+## <a name="edit-your-chit-chat-questions-and-answers"></a>Redigera frågor och svar om CHI2TEST
+När du redigerar din KB visas en ny källa för CHI2TEST, baserat på den personlighet du har valt. Du kan nu lägga till ändrade frågor eller redigera svaren, precis som med andra källor. 
 
-![Redigera chit-chat QnAs](../media/qnamaker-how-to-chit-chat/edit-chit-chat.png)
+![Redigera kring för CHI2TEST](../media/qnamaker-how-to-chit-chat/edit-chit-chat.png)
 
-Om du vill visa metadata väljer du **Visa alternativ** i verktygsfältet och väljer sedan **Visa metadata**.
+Om du vill visa metadata väljer du **visnings alternativ** i verktygsfältet och väljer sedan **Visa metadata**.
 
-## <a name="add-additional-chit-chat-questions-and-answers"></a>Lägg till ytterligare frågor och svar i små chatten
-Du kan lägga till nya chit-chat QnA som inte finns i den fördefinierade uppsättningen. Se till att du inte duplicerar ett QnA-par som redan omfattas av chit-chat-uppsättningen. När du lägger till en ny chit-chat QnA läggs den till i din **redaktionella** källa. För att säkerställa att rankern förstår att detta är små chatt, lägg till metadata nyckel / värdepar "Editorial: småprat", som ses i följande bild:
+## <a name="add-additional-chit-chat-questions-and-answers"></a>Lägg till fler frågor och svar om CHI2TEST
+Du kan lägga till en ny CHI2TEST QnA som inte finns i den fördefinierade uppsättningen. Se till att du inte duplicerar ett QnA-par som redan ingår i uppsättningen CHI2TEST. När du lägger till nya QnA i CHI2TEST läggs den till i din **redigerings** källa. För att se till att rangordningen förstår att detta är CHI2TEST, Lägg till nyckel/värde-paret "redaktionell: ChitChat", som visas i följande bild:
    
-![! [Lägg till chit-chat QnAs] (.. /media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
+![! [Lägg till CHI2TEST kring] (.. /media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 
-## <a name="delete-chit-chat-from-an-existing-kb"></a>Ta bort chit-chat från en befintlig KB
-Välj KB och navigera till sidan **Inställningar.** Din specifika chit-chat-källa visas som en fil, med det valda personlighetsnamnet. Du kan ta bort detta som en källfil.
+## <a name="delete-chit-chat-from-an-existing-kb"></a>Ta bort CHI2TEST från en befintlig KB
+Välj din KB och gå till sidan **Inställningar** . Din aktuella CHI2TEST-Chat-källa visas som en fil med det valda personliga namnet. Du kan ta bort den som en käll fil.
 
-![Ta bort chit-chat från KB](../media/qnamaker-how-to-chit-chat/delete-chit-chat.png)
+![Ta bort CHI2TEST från KB](../media/qnamaker-how-to-chit-chat/delete-chit-chat.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Importera en kunskapsbas](../Tutorials/migrate-knowledge-base.md)
+> [Importera en kunskaps bas](../Tutorials/migrate-knowledge-base.md)
 
 ## <a name="see-also"></a>Se även 
 

@@ -1,7 +1,7 @@
 ---
-title: Ålder Fördefinierad enhet - LUIS
+title: Fördefinierad Entity-LUIS
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller åldersdefinierad entitetsinformation i Language Understanding (LUIS).
+description: Den här artikeln innehåller fördefinierad Entity-information i Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,25 +12,25 @@ ms.topic: reference
 ms.date: 10/04/2019
 ms.author: diberry
 ms.openlocfilehash: 1607b80276a9c35bf0ac2f0a00bd2226e2c07f97
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78270795"
 ---
-# <a name="age-prebuilt-entity-for-a-luis-app"></a>Åldersfördefinierad entitet för en LUIS-app
-Den fördefinierade åldersenheten fångar åldersvärdet både numeriskt och i form av dagar, veckor, månader och år. Eftersom den här entiteten redan har tränats behöver du inte lägga till exempelyttranden som innehåller ålder i programavsikterna. Ålder enhet stöds i [många kulturer](luis-reference-prebuilt-entities.md).
+# <a name="age-prebuilt-entity-for-a-luis-app"></a>Fördefinierad ålders enhet för en LUIS-app
+Fördefinierad ålders enhet fångar upp ålder svärdet både numeriskt och i dagar, veckor, månader och år. Eftersom entiteten redan har tränats behöver du inte lägga till exempel yttranden som innehåller ålder på program avsikterna. Ålders enheten stöds i [många kulturer](luis-reference-prebuilt-entities.md).
 
 ## <a name="types-of-age"></a>Typer av ålder
-Ålder hanteras från [GitHub-databasen med identifierartext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3)
+Ålder hanteras från GitHub-lagringsplatsen för [identifierare – text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3)
 
-## <a name="resolution-for-prebuilt-age-entity"></a>Upplösning för fördefinierad åldersenhet
+## <a name="resolution-for-prebuilt-age-entity"></a>Lösning för fördefinierad ålders enhet
 
 
 
 #### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
-Följande JSON är `verbose` med parametern inställd `false`på:
+Följande JSON- `verbose` parameter har angetts till `false`:
 
 ```json
 "entities": {
@@ -42,8 +42,8 @@ Följande JSON är `verbose` med parametern inställd `false`på:
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3-verbos respons](#tab/V3-verbose)
-Följande JSON är `verbose` med parametern inställd `true`på:
+#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
+Följande JSON- `verbose` parameter har angetts till `true`:
 
 ```json
 "entities": {
@@ -69,7 +69,7 @@ Följande JSON är `verbose` med parametern inställd `true`på:
 ```
 #### <a name="v2-response"></a>[V2-svar](#tab/V2)
 
-I följande exempel visas upplösningen för den **inbyggda.age-entiteten.**
+I följande exempel visas upplösningen för enheten **Builtin. Age** .
 
 ```json
   "entities": [
@@ -88,6 +88,6 @@ I följande exempel visas upplösningen för den **inbyggda.age-entiteten.**
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-Lär dig mer om [valuta,](luis-reference-prebuilt-currency.md) [datetimeV2](luis-reference-prebuilt-datetimev2.md)och dimensionsentiteter. [dimension](luis-reference-prebuilt-dimension.md)
+Lär dig mer om entiteterna [Currency](luis-reference-prebuilt-currency.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md)och [dimension](luis-reference-prebuilt-dimension.md) .

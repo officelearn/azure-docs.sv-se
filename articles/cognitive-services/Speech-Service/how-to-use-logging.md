@@ -1,7 +1,7 @@
 ---
-title: Tal SDK-loggning - Taltjänst
+title: Tal SDK-loggning – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: Läs mer om hur du aktiverar loggning i Tal-SDK (C++, C#, Python, Objective-C, Java).
+description: 'Lär dig mer om hur du aktiverar loggning i tal-SDK: n (C++, C#, python, mål-C, Java).'
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
 ms.openlocfilehash: 707a0f801a739a7a91cee19635e609305cd8f021
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74805798"
 ---
-# <a name="enable-logging-in-the-speech-sdk"></a>Aktivera loggning i Tal-SDK
+# <a name="enable-logging-in-the-speech-sdk"></a>Aktivera loggning i tal-SDK
 
-Att logga till fil är en valfri funktion för Tal-SDK. Under utvecklingsloggningen finns ytterligare information och diagnostik från Tal-SDK:s kärnkomponenter. Den kan aktiveras genom `Speech_LogFilename` att ange egenskapen på ett talkonfigurationsobjekt till loggfilens plats och namn. Loggning aktiveras globalt när en identifierare har skapats från den konfigurationen och inte kan inaktiveras efteråt. Du kan inte ändra namnet på en loggfil under en loggningssession som körs.
+Loggning till filen är en valfri funktion för tal-SDK: n. Under utvecklings loggningen finns ytterligare information och diagnostik från tal SDK: s kärn komponenter. Den kan aktive ras genom att ange `Speech_LogFilename` egenskapen för ett tal konfigurations objekt till platsen och namnet på logg filen. Loggning aktive ras globalt när en identifierare skapas från den konfigurationen och kan inte inaktive ras efteråt. Du kan inte ändra namnet på en loggfil under en pågående inloggningssession.
 
 > [!NOTE]
-> Loggning är tillgänglig sedan Speech SDK version 1.4.0 i alla tal SDK-programmeringsspråk som stöds, med undantag för JavaScript.
+> Loggning är tillgängligt eftersom tal SDK-versionen 1.4.0 i alla API: er som stöds i tal SDK, med undantag för Java Script.
 
 ## <a name="sample"></a>Exempel
 
-Loggfilsnamnet anges på ett konfigurationsobjekt. Tar `SpeechConfig` som ett exempel och förutsatt att du `config`har skapat en instans som heter:
+Logg filens namn anges i ett konfigurations objekt. Ta med `SpeechConfig` som ett exempel och förutsatt att du har skapat en instans med namnet `config`:
 
 ```csharp
 config.SetProperty(PropertyId.Speech_LogFilename, "LogfilePathAndName");
@@ -48,18 +48,18 @@ config.set_property(speechsdk.PropertyId.Speech_LogFilename, "LogfilePathAndName
 [config setPropertyTo:@"LogfilePathAndName" byId:SPXSpeechLogFilename];
 ```
 
-Du kan skapa en identifierare från config-objektet. Detta gör det möjligt att logga för alla identifierare.
+Du kan skapa en tolk från konfigurationsobjektet konfiguration. Detta aktiverar loggning för alla identifierare.
 
 > [!NOTE]
-> Om du `SpeechSynthesizer` skapar en från config-objektet aktiveras inte loggning. Om loggning är aktiverat får du dock även `SpeechSynthesizer`diagnostik från .
+> Om du skapar en `SpeechSynthesizer` från config-objektet kommer den inte att aktivera loggning. Om loggning har Aktiver ATS kan du också få diagnostik från `SpeechSynthesizer`.
 
 ## <a name="create-a-log-file-on-different-platforms"></a>Skapa en loggfil på olika plattformar
 
-För Windows eller Linux kan loggfilen vara i vilken väg som helst som användaren har skrivbehörighet för. Skrivbehörigheter till filsystemplatser i andra operativsystem kan vara begränsade eller begränsade som standard.
+För Windows eller Linux kan logg filen finnas i valfri sökväg som användaren har Skriv behörighet för. Skriv behörighet till fil system platser i andra operativ system kan vara begränsad eller begränsad som standard.
 
 ### <a name="universal-windows-platform-uwp"></a>Universal Windows Platform (UWP)
 
-UWP-program måste placeras i loggfiler på en av programdataplatserna (lokal, roaming eller tillfällig). En loggfil kan skapas i den lokala programmappen:
+UWP-program måste placera loggfiler på någon av program data platserna (lokal, nätverks växling eller tillfällig). En loggfil kan skapas i den lokala programmappen:
 
 ```csharp
 StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
@@ -67,11 +67,11 @@ StorageFile logFile = await storageFolder.CreateFileAsync("logfile.txt", Creatio
 config.SetProperty(PropertyId.Speech_LogFilename, logFile.Path);
 ```
 
-Mer information om filåtkomstbehörighet för UWP-program finns [här](https://docs.microsoft.com/windows/uwp/files/file-access-permissions).
+Mer information om fil åtkomst behörighet för UWP-program finns [här](https://docs.microsoft.com/windows/uwp/files/file-access-permissions).
 
 ### <a name="android"></a>Android
 
-Du kan spara en loggfil i antingen intern lagring, extern lagring eller cachekatalogen. Filer som skapas i den interna lagringen eller cachekatalogen är privata för programmet. Det är att föredra att skapa en loggfil i extern lagring.
+Du kan spara en loggfil till antingen intern lagring, extern lagring eller cache-katalogen. Filer som skapas i den interna lagringen eller i cachekatalogen är privata för programmet. Det är bättre att skapa en loggfil i extern lagring.
 
 ```java
 File dir = context.getExternalFilesDir(null);
@@ -79,9 +79,9 @@ File logFile = new File(dir, "logfile.txt");
 config.setProperty(PropertyId.Speech_LogFilename, logFile.getAbsolutePath());
 ```
 
-Koden ovan sparar en loggfil i den externa lagringen i roten till en programspecifik katalog. En användare kan komma åt filen med `Android/data/ApplicationName/logfile.txt`filhanteraren (vanligtvis i ). Filen tas bort när programmet avinstalleras.
+Koden ovan sparar en loggfil till den externa lagringen i roten i en programspecifik katalog. En användare kan komma åt filen med fil hanteraren (vanligt vis i `Android/data/ApplicationName/logfile.txt`). Filen tas bort när programmet avinstalleras.
 
-Du måste också `WRITE_EXTERNAL_STORAGE` begära behörighet i manifestfilen:
+Du måste också begära `WRITE_EXTERNAL_STORAGE` behörighet i manifest filen:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="...">
@@ -91,11 +91,11 @@ Du måste också `WRITE_EXTERNAL_STORAGE` begära behörighet i manifestfilen:
 </manifest>
 ```
 
-Mer om data och fillagring för Android-program finns [här](https://developer.android.com/guide/topics/data/data-storage.html).
+Mer information om data och fil lagring för Android-program finns [här](https://developer.android.com/guide/topics/data/data-storage.html).
 
 #### <a name="ios"></a>iOS
 
-Endast kataloger i programsandlådan är tillgängliga. Filer kan skapas i dokument-, biblioteks- och tempkatalogerna. Filer i dokumentkatalogen kan göras tillgängliga för en användare. Följande kodavsnitt visar skapandet av en loggfil i programdokumentkatalogen:
+Endast kataloger i begränsat läge för program är tillgängliga. Filer kan skapas i dokument, bibliotek och temporära kataloger. Filer i katalogen dokument kan göras tillgängliga för en användare. Följande kodfragment visar hur du skapar en loggfil i program dokument katalogen:
 
 ```objc
 NSString *filePath = [
@@ -104,7 +104,7 @@ NSString *filePath = [
 [speechConfig setPropertyTo:filePath byId:SPXSpeechLogFilename];
 ```
 
-Om du vill komma åt en `Info.plist` skapad fil lägger du till egenskaperna nedan i programmets egenskapslista:
+Om du vill komma åt en skapad fil lägger du till nedanstående `Info.plist` egenskaper i programmets egenskaps lista:
 
 ```xml
 <key>UIFileSharingEnabled</key>
@@ -113,7 +113,7 @@ Om du vill komma åt en `Info.plist` skapad fil lägger du till egenskaperna ned
 <true/>
 ```
 
-Mer om iOS File System finns [här](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html).
+Mer information om iOS-filsystem finns [här](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html).
 
 ## <a name="next-steps"></a>Nästa steg
 

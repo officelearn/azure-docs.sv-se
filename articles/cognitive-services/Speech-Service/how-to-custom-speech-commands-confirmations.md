@@ -1,7 +1,7 @@
 ---
-title: Så här lägger du till en bekräftelse i ett anpassat kommando (förhandsgranskning)
+title: 'Gör så här: Lägg till en bekräftelse till ett anpassat kommando (förhands granskning)'
 titleSuffix: Azure Cognitive Services
-description: I den här artikeln implementerar du bekräftelser för ett kommando i anpassade kommandon.
+description: I den här artikeln beskrivs hur du implementerar bekräftelser för ett kommando i anpassade kommandon.
 services: cognitive-services
 author: encorona-ms
 manager: yetian
@@ -11,41 +11,41 @@ ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: encorona
 ms.openlocfilehash: afa197c83b4f66f12863de4185ef7763447f3ed9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75456502"
 ---
-# <a name="how-to-add-a-confirmation-to-a-custom-command-preview"></a>Så här lägger du till en bekräftelse i ett anpassat kommando (förhandsgranskning)
+# <a name="how-to-add-a-confirmation-to-a-custom-command-preview"></a>Gör så här: Lägg till en bekräftelse till ett anpassat kommando (förhands granskning)
 
-I den här artikeln får du lära dig hur du lägger till en bekräftelse i ett kommando.
+I den här artikeln får du lära dig hur du lägger till en bekräftelse på ett kommando.
 
 ## <a name="prerequisites"></a>Krav
 
 Du måste ha slutfört stegen i följande artiklar:
 
-- [Snabbstart: Skapa ett anpassat kommando (förhandsgranskning)](./quickstart-custom-speech-commands-create-new.md)
-- [Snabbstart: Skapa ett anpassat kommando med parametrar (förhandsgranskning)](./quickstart-custom-speech-commands-create-parameters.md)
+- [Snabb start: skapa ett anpassat kommando (förhands granskning)](./quickstart-custom-speech-commands-create-new.md)
+- [Snabb start: skapa ett anpassat kommando med parametrar (förhands granskning)](./quickstart-custom-speech-commands-create-parameters.md)
 
 ## <a name="create-a-setalarm-command"></a>Skapa ett SetAlarm-kommando
 
-Om du vill demonstrera valideringar ska vi skapa ett nytt kommando som gör det möjligt för användaren att ställa in ett alarm.
+För att demonstrera valideringar ska vi skapa ett nytt kommando som gör att användaren kan ställa in ett larm.
 
-1. Öppna ditt tidigare skapade program för anpassade kommandon i [Speech Studio](https://speech.microsoft.com/)
-1. Skapa ett nytt **kommandouppsättninglarm**
-1. Lägga till en parameter som heter DateTime
+1. Öppna dina tidigare skapade program för anpassade kommandon i [tal Studio](https://speech.microsoft.com/)
+1. Skapa ett nytt kommando **SetAlarm**
+1. Lägg till en parameter med namnet DateTime
 
-   | Inställning           | Föreslaget värde                                          | Beskrivning                                                                                      |
+   | Inställningen           | Föreslaget värde                                          | Beskrivning                                                                                      |
    | ----------------- | ---------------------------------------------------------| ------------------------------------------------------------------------------------------------ |
-   | Namn              | DateTime                                                 | Ett beskrivande namn för kommandoparametern                                                    |
-   | Krävs          | true                                                     | Kryssruta som anger om ett värde för den här parametern krävs innan kommandot slutförs |
-   | Mall för svar | "- Vilken tid?"                                           | En uppmaning att be om värdet av den här parametern när den inte är känd                              |
-   | Typ              | DateTime                                                 | Typ av parameter, till exempel Tal, Sträng eller Datumtid                                      |
-   | Standardvärden för datum     | Om datum saknas idag                             |                                                                                                  |
-   | Standardvärden för tid     | Om tid saknas användning start av dagen                      |                                                                                                  | 
+   | Name              | DateTime                                                 | Ett beskrivande namn för kommando parametern                                                    |
+   | Krävs          | true                                                     | Kryss ruta som anger om ett värde för den här parametern krävs innan kommandot slutförs |
+   | Svarsmall | "-Vilken tid?"                                           | En uppmaning om att fråga efter värdet för den här parametern när den inte är känd                              |
+   | Typ              | DateTime                                                 | Parameter typ, t. ex. tal, sträng eller datum/tid                                      |
+   | Standardinställningar för datum     | Om datumet saknas används idag                             |                                                                                                  |
+   | Standardvärden     | Om tiden saknas i början av dagen                      |                                                                                                  | 
 
-1. Lägga till några exempelmeningar
+1. Lägg till några exempel meningar
    
    ```
     set an alarm for {DateTime}
@@ -53,71 +53,71 @@ Om du vill demonstrera valideringar ska vi skapa ett nytt kommando som gör det 
     alarm for {DateTime}
    ```
 
-1. Lägga till en slutföranderegel för att bekräfta resultatet
+1. Lägg till en regel för slut för ande för att bekräfta resultatet
 
-   | Inställning    | Föreslaget värde                                         | Beskrivning                                        |
+   | Inställningen    | Föreslaget värde                                         | Beskrivning                                        |
    | ---------- | ------------------------------------------------------- | -------------------------------------------------- |
-   | Regelnamn  | Ställ in larm                                               | Ett namn som beskriver syftet med regeln          |
-   | Åtgärder    | SpeechResponse - "- Ok, alarm inställt för {DateTime}"       | Åtgärden som ska vidtas när regelvillkoret är sant |
+   | Regelnamn  | Ange alarm                                               | Ett namn som beskriver syftet med regeln          |
+   | Åtgärder    | SpeechResponse-"-OK, alarm set för {DateTime}"       | Den åtgärd som ska vidtas när regel villkoret är sant |
 
-## <a name="try-it-out"></a>Prova det
+## <a name="try-it-out"></a>Prova nu
 
-Välj testpanelen och prova några interaktioner.
+Välj panelen test och prova några interaktioner.
 
-- Ingång: Ställ in larm för i morgon vid lunchtid
-- Utgång: "Ok, larm inställt på 12/06/2019 12:00:00"
+- Inmatade: Ställ in alarm i morgon kl. 12.00
+- Utdata: "OK, alarm set för 12/06/2019 12:00:00"
 
-- Ingång: Ställ in ett larm
-- Utdata: "Vilken tid?"
-- Ingång: 17:00
-- Utgång: "Ok, larm inställt på 12/05/2019 17:00:00"
+- Inmatade: Ställ in ett larm
+- Utdata: "vilken tid?"
+- Inmatade: 17
+- Utdata: "OK, alarm set för 12/05/2019 17:00:00"
 
-## <a name="add-the-advanced-rules-for-confirmation"></a>Lägg till de avancerade reglerna för bekräftelse
+## <a name="add-the-advanced-rules-for-confirmation"></a>Lägg till avancerade regler för bekräftelse
 
 1. Lägg till en avancerad regel för bekräftelse. 
 
-    Denna regel kommer att be användaren att bekräfta datum och tid för larmet och förväntar sig en bekräftelse (ja / nej) för nästa tur.
+    Den här regeln uppmanar användaren att bekräfta datum och tid för larmet och förväntar sig en bekräftelse (Ja/Nej) för nästa turn.
 
-   | Inställning               | Föreslaget värde                                                                  | Beskrivning                                        |
+   | Inställningen               | Föreslaget värde                                                                  | Beskrivning                                        |
    | --------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
-   | Regelnamn             | Bekräfta datumtid                                                                | Ett namn som beskriver syftet med regeln          |
-   | Villkor            | Obligatorisk parameter - DateTime                                                    | Villkor som avgör när regeln kan köras    |   
-   | Åtgärder               | SpeechResponse - "- Vill du ställa in ett alarm för {DateTime}?"       | Åtgärden som ska vidtas när regelvillkoret är sant |
-   | Tillstånd efter körning | Vänta på ingång                                                                   | Tillstånd för användaren efter svängen                  |
-   | Förväntningar          | Bekräftelse                                                                     | Förväntan inför nästa sväng                      |
+   | Regelnamn             | Bekräfta datum och tid                                                                | Ett namn som beskriver syftet med regeln          |
+   | Villkor            | Obligatorisk parameter-DateTime                                                    | Villkor som avgör när regeln kan köras    |   
+   | Åtgärder               | SpeechResponse-"-är du säker på att du vill ange ett larm för {DateTime}?"       | Den åtgärd som ska vidtas när regel villkoret är sant |
+   | Tillstånd efter körning | Vänta på indatamängd                                                                   | Tillstånd för användaren efter turn                  |
+   | Prestationer          | Bekräftelse                                                                     | Förväntar dig för nästa turn                      |
 
-1. Lägg till en avancerad regel för att hantera en lyckad bekräftelse (användaren sa ja)
+1. Lägg till en avancerad regel för att hantera en lyckad bekräftelse (användaren säger ja)
 
-   | Inställning               | Föreslaget värde                                                                  | Beskrivning                                        |
+   | Inställningen               | Föreslaget värde                                                                  | Beskrivning                                        |
    | --------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
-   | Regelnamn             | Accepterad bekräftelse                                                            | Ett namn som beskriver syftet med regeln          |
-   | Villkor            | Parametern SuccessfulConfirmation & obligatoriskt - DateTime                           | Villkor som avgör när regeln kan köras    |   
-   | Tillstånd efter körning | Redo för slutförande                                                             | Användarens tillstånd efter svängen                   |
+   | Regelnamn             | Godkänd bekräftelse                                                            | Ett namn som beskriver syftet med regeln          |
+   | Villkor            | SuccessfulConfirmation & obligatorisk parameter-DateTime                           | Villkor som avgör när regeln kan köras    |   
+   | Tillstånd efter körning | Klar för slut för ande                                                             | Användarens tillstånd efter aktivering                   |
 
-1. Lägg till en avancerad regel för att hantera en nekad bekräftelse (användaren sa nej)
+1. Lägg till en avancerad regel för att hantera en bekräftelse nekad (användaren sade nej)
 
-   | Inställning               | Föreslaget värde                                                                  | Beskrivning                                        |
+   | Inställningen               | Föreslaget värde                                                                  | Beskrivning                                        |
    | --------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
-   | Regelnamn             | Nekad bekräfta                                                                   | Ett namn som beskriver syftet med regeln          |
-   | Villkor            | Parametern Nekadkonkfirmation & obligatoriskt - DateTime                               | Villkor som avgör när regeln kan köras    |   
-   | Åtgärder               | ClearParameter - DateTime & SpeechResponse - "- Inga problem, vilken tid då?"     | Åtgärden som ska vidtas när regelvillkoret är sant |
-   | Tillstånd efter körning | Vänta på ingång                                                                   | Användarens tillstånd efter svängen                   |
-   | Förväntningar          | ElicitParameters - DateTime                                                      | Förväntan inför nästa sväng                      |
+   | Regelnamn             | Nekad bekräftelse                                                                   | Ett namn som beskriver syftet med regeln          |
+   | Villkor            | DeniedConfirmation & obligatorisk parameter-DateTime                               | Villkor som avgör när regeln kan köras    |   
+   | Åtgärder               | ClearParameter-DateTime & SpeechResponse-"– inga problem, vilken tid sedan?"     | Den åtgärd som ska vidtas när regel villkoret är sant |
+   | Tillstånd efter körning | Vänta på indatamängd                                                                   | Användarens tillstånd efter aktivering                   |
+   | Prestationer          | ElicitParameters-DateTime                                                      | Förväntar dig för nästa turn                      |
 
-## <a name="try-it-out"></a>Prova det
+## <a name="try-it-out"></a>Prova nu
 
-Välj testpanelen och prova några interaktioner.
+Välj panelen test och prova några interaktioner.
 
-- Ingång: Ställ in larm för i morgon vid lunchtid
-- Utdata: "Vill du ställa in ett larm för 12/07/2019 12:00:00?"
-- Ingång: Nej
-- Output: "Inga problem, vilken tid då?"
-- Ingång: 17:00
-- Utdata: "Vill du ställa in ett larm för 12/06/2019 17:00:00?"
-- Ingång: Ja
-- Utgång: "Ok, larm inställt på 12/06/2019 17:00:00"
+- Inmatade: Ställ in alarm i morgon kl. 12.00
+- Utdata: "är du säker på att du vill ställa in ett larm för 12/07/2019 12:00:00?"
+- Inmatade: Nej
+- Output: "inga problem, vilken tid sedan?"
+- Inmatade: 17
+- Utdata: "är du säker på att du vill ställa in ett larm för 12/06/2019 17:00:00?"
+- Inmatade: Ja
+- Utdata: "OK, alarm set för 12/06/2019 17:00:00"
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Så här lägger du till en korrigering i ett steg i ett anpassat kommando (förhandsgranskning)](./how-to-custom-speech-commands-one-step-correction.md)
+> [Gör så här: Lägg till en steg korrigering i ett anpassat kommando (förhands granskning)](./how-to-custom-speech-commands-one-step-correction.md)

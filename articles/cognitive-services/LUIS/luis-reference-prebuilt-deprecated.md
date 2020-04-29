@@ -1,5 +1,5 @@
 ---
-title: Inaktuella fördefinierade enheter - LUIS
+title: Föråldrade fördefinierade entiteter – LUIS
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller föråldrad fördefinierad entitetsinformation i Language Understanding (LUIS).
 services: cognitive-services
@@ -12,25 +12,25 @@ ms.topic: reference
 ms.date: 07/29/2019
 ms.author: diberry
 ms.openlocfilehash: 46da828b7553fdf9cdded817febd3bb95cd4cbb9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78270677"
 ---
-# <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Inaktuella fördefinierade entiteter i en LUIS-app
+# <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Föråldrade fördefinierade entiteter i en LUIS-app
 Följande fördefinierade entiteter är inaktuella och kan inte läggas till i nya LUIS-appar.
 
-* **Datumtid**: Befintliga LUIS-appar som använder **datetime** ska migreras till **datetimeV2,** även om datetime-entiteten fortsätter att fungera i befintliga appar som använder den.
-* **Geografi**: Befintliga LUIS-appar som använder **geografi** stöds fram till december 2018.
-* **Encyklopedi**: Befintliga LUIS-appar som använder **uppslagsverk** stöds fram till december 2018.
+* **Datetime**: befintliga Luis-appar som använder **datetime** ska migreras till **datetimeV2**, men datetime-entiteten fortsätter att fungera i befintliga appar som använder den.
+* **Geografi**: befintliga Luis-appar som använder **geografi** stöds till och med 2018 december.
+* **Uppslagsverk**: befintliga Luis-appar som använder **uppslagsverk** stöds till och med 2018 december.
 
-## <a name="geography-culture"></a>Geografikultur
-**Geografi** är endast `en-us` tillgängligt i lokalen.
+## <a name="geography-culture"></a>Geografisk kultur
+**Geografi** är endast tillgängligt i `en-us` språkvarianten.
 
-#### <a name="3-geography-subtypes"></a>3 Geografi subtyper
+#### <a name="3-geography-subtypes"></a>3 geografi under typer
 
-Fördefinierad enhet   |   Exempel på yttrande   |   JSON
+Fördefinierad entitet   |   Exempel på yttrande   |   JSON
 ------|------|------|
 `builtin.geography.city`   |  `seattle`    |`{ "type": "builtin.geography.city", "entity": "seattle" }`|
 `builtin.geography.city`   |  `paris`    |`{ "type": "builtin.geography.city", "entity": "paris" }`|
@@ -39,11 +39,11 @@ Fördefinierad enhet   |   Exempel på yttrande   |   JSON
 `builtin.geography.pointOfInterest`   |   `amazon river` |`{ "type": "builtin.geography.pointOfInterest", "entity": "amazon river" }`|
 `builtin.geography.pointOfInterest`   |   `sahara desert`|`{ "type": "builtin.geography.pointOfInterest", "entity": "sahara desert" }`|
 
-## <a name="encyclopedia-culture"></a>Encyklopedikultur
-**Encyklopedi** finns endast `en-US` i lokalen.
+## <a name="encyclopedia-culture"></a>Uppslagsverks kultur
+**Uppslagsverket** är endast tillgängligt i `en-US` språkvarianten.
 
-#### <a name="encyclopedia-subtypes"></a>Undertyper av Encyklopedi
-Inbyggd entitet för Encyclopedia innehåller över 100 undertyper i följande tabell: Dessutom mappas uppslagsverksentiteter ofta till flera typer. Till exempel ger frågan Ronald Reagan:
+#### <a name="encyclopedia-subtypes"></a>Uppslagsverks under typer
+Den inbyggda uppslagsverket i Encyclopedia innehåller över 100 under typer i följande tabell: dessutom mappar uppslagsverks enheter ofta till flera typer. Frågan Ronald Reagan ger till exempel:
 
 ```json
 {
@@ -65,7 +65,7 @@ Inbyggd entitet för Encyclopedia innehåller över 100 undertyper i följande t
  ```
 
 
-Fördefinierad enhet   |   Fördefinierad entitet (undertyper)   |   Exempel på yttrande
+Fördefinierad entitet   |   Fördefinierad entitet (under typer)   |   Exempel på yttrande
 ------|------|------|
 `builtin.encyclopedia.people.person`| `builtin.encyclopedia.people.person`| `bryan adams` |
 `builtin.encyclopedia.people.person`| `builtin.encyclopedia.film.producer`| `walt disney` |
@@ -163,5 +163,5 @@ Fördefinierad enhet   |   Fördefinierad entitet (undertyper)   |   Exempel på
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [dimensionen,](luis-reference-prebuilt-dimension.md) [e-postentiteterna](luis-reference-prebuilt-email.md) och [numret](luis-reference-prebuilt-number.md).
+Lär dig mer om [dimension](luis-reference-prebuilt-dimension.md), [e-](luis-reference-prebuilt-email.md) postentiteter och [nummer](luis-reference-prebuilt-number.md).
 

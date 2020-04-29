@@ -1,7 +1,7 @@
 ---
-title: Api-svarsstruktur och svarstyper för webbsökning
+title: API för webbsökning i Bing svars struktur och svars typer
 titleSuffix: Azure Cognitive Services
-description: När du skickar en sökbegäran för Bing Web Search returneras ett `SearchResponse` objekt i svarstexten.
+description: När du skickar Webbsökning i Bing en Sök förfrågan returneras ett `SearchResponse` objekt i svars texten.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 95ebfaef863a1fa05e8a5d3b46fca9659c61f6b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74110611"
 ---
-# <a name="bing-web-search-api-response-structure-and-answer-types"></a>Api-svarsstruktur och svarstyper för webbsökning  
+# <a name="bing-web-search-api-response-structure-and-answer-types"></a>API för webbsökning i Bing svars struktur och svars typer  
 
-När du skickar en sökbegäran för Bing Web Search returneras ett [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) objekt i svarstexten. Objektet innehåller ett fält för varje svar som Bing fastställt var relevant för frågan. Det här exemplet illustrerar ett svarsobjekt om Bing returnerade alla svar:
+När du skickar Webbsökning i Bing en Sök förfrågan returneras ett [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) objekt i svars texten. Objektet innehåller ett fält för varje svar som Bing bestämt var relevant för fråga. Det här exemplet illustrerar ett Response-objekt om Bing returnerade alla svar:
 
 ```json
 {
@@ -38,13 +38,13 @@ När du skickar en sökbegäran för Bing Web Search returneras ett [`SearchResp
 }, ...
 ```
 
-Vanligtvis returnerar Bing Web Search en delmängd av svaren. Om frågetermen till exempel *seglade jollar*kan `webPages` `images`svaret `rankingResponse`innehålla , och . Om du inte har använt [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) för att filtrera `webpages` bort `rankingResponse` webbsidor innehåller svaret alltid svaren och svaren.
+Vanligt vis returnerar Webbsökning i Bing en delmängd av svaren. Om till exempel termen har *seglings-dinghies*kan svaret omfatta `webPages`, `images`och. `rankingResponse` Om du inte har använt [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) för att filtrera ut webb sidor, innehåller svaret alltid `webpages` och `rankingResponse` svaren.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
-## <a name="webpages-answer"></a>Svar på webbsidor
+## <a name="webpages-answer"></a>Svar på webb sidor
 
-[WebPages-svaret](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) innehåller en lista med länkar till webbsidor som Bing Web Search fastställt var relevanta för frågan. Varje [webbsida](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage) i listan kommer att innehålla: sidans namn, url, visnings-URL, en kort beskrivning av innehållet och det datum Bing hittade innehållet.
+Svaret på [webb sidan](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) innehåller en lista med länkar till webb sidor som webbsökning i Bing fastställt var relevanta för frågan. Varje [webb sida](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage) i listan kommer att innehålla: sidans namn, URL, VISNINGS-URL, en kort beskrivning av innehållet och datumet Bing hittade innehållet.
 
 ```json
 {
@@ -57,7 +57,7 @@ Vanligtvis returnerar Bing Web Search en delmängd av svaren. Om frågetermen ti
 }, ...
 ```
 
-Använd `name` `url` och skapa en hyperlänk som tar användaren till webbsidan.
+Använd `name` och `url` för att skapa en hyperlänk som tar användaren till webb sidan.
 
 <!-- Remove until this can be replaced with a sanitized version.
 The following shows an example of how you might display the webpage in a search results page.
@@ -65,9 +65,9 @@ The following shows an example of how you might display the webpage in a search 
 ![Rendered webpage example](./media/cognitive-services-bing-web-api/bing-rendered-webpage-example.PNG)
 -->
 
-## <a name="images-answer"></a>Bilder svar
+## <a name="images-answer"></a>Svar på bilder
 
-[Bilderna](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) svaret innehåller en lista över bilder som Bing trodde var relevanta för frågan. Varje [bild](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) i listan innehåller webbadressen till bilden, dess storlek, dess dimensioner och dess kodningsformat. Bildobjektet inkluderar även URL för en miniatyrbild av bilden och miniatyrbildens mått.
+Svar på [avbildningar](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) innehåller en lista med bilder som Bing trodde var relevanta för frågan. Varje [bild](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) i listan innehåller URL: en för bilden, dess storlek, dess dimensioner och dess kodnings format. Bildobjektet inkluderar även URL för en miniatyrbild av bilden och miniatyrbildens mått.
 
 ```json
 {
@@ -93,25 +93,25 @@ The following shows an example of how you might display the webpage in a search 
 }, ...
 ```
 
-Beroende på användarens enhet visar du vanligtvis en delmängd av miniatyrerna, med ett alternativ för användaren att [bläddra igenom](paging-webpages.md) de återstående bilderna.
+Beroende på användarens enhet visar vanligt vis en delmängd av miniatyr bilderna, med ett alternativ som användaren kan använda för att [Växla mellan](paging-webpages.md) de återstående bilderna.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![List of thumbnail images](./media/cognitive-services-bing-web-api/bing-web-image-thumbnails.PNG)
 -->
 
-Du kan även expandera miniatyrbilden när användaren hovrar markören över den. Se till att tillskriva bildkällan om du expanderar bilden. Till exempel genom att extrahera `hostPageDisplayUrl` värden från och visa den under bilden. Information om att ändra storlek på miniatyrbilden finns i [Resizing and Cropping Thumbnails](./resize-and-crop-thumbnails.md) (Ändra storlek på och beskär miniatyrbilder).
+Du kan även expandera miniatyrbilden när användaren hovrar markören över den. Se till att tillskriva bildkällan om du expanderar bilden. Genom att till exempel extrahera värden från `hostPageDisplayUrl` och visa den under avbildningen. Information om att ändra storlek på miniatyrbilden finns i [Resizing and Cropping Thumbnails](./resize-and-crop-thumbnails.md) (Ändra storlek på och beskär miniatyrbilder).
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![Expanded view of thumbnail image](./media/cognitive-services-bing-web-api/bing-web-image-thumbnail-expansion.PNG)
 -->
 
-Om användaren klickar på miniatyren använder du `webSearchUrl` för att ta användaren till Bings sökresultatsida för bilder, som innehåller ett collage av bilderna.
+Om användaren klickar på miniatyren använder `webSearchUrl` du för att ta användaren till Bing-sidan Sök Resultat för bilder som innehåller ett collage av bilderna.
 
-Mer information om bildsvaret och bilderna finns i [API för bildsökning](../bing-image-search/search-the-web.md).
+Mer information om bildsvar och avbildningar finns i [bildsökning API](../bing-image-search/search-the-web.md).
 
-## <a name="related-searches-answer"></a>Svar på relaterade sökningar
+## <a name="related-searches-answer"></a>Relaterade söknings svar
 
-[RelatedSearches-svaret](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse-relatedsearches) innehåller en lista över de mest populära relaterade frågor som gjorts av andra användare. Varje [fråga](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query_obj) i listan innehåller`text`en frågesträng ( ),`displayText`en frågesträng`webSearchUrl`med träffmarkeringstecken ( ) och en URL ( ) till Bings sökresultatsida för den frågan.
+[RelatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse-relatedsearches) -svaret innehåller en lista över de populäraste relaterade frågorna från andra användare. Varje [fråga](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query_obj) i listan innehåller en frågesträng (`text`), en frågesträng med träff markerings tecken (`displayText`) och en URL (`webSearchUrl`) till Bing: s Sök resultat sida för den frågan.
 
 ```json
 {
@@ -121,17 +121,17 @@ Mer information om bildsvaret och bilderna finns i [API för bildsökning](../bi
 }, ...
 ```
 
-Använd `displayText` frågesträngen `webSearchUrl` och URL:en för att skapa en hyperlänk som tar användaren till sökresultatsidan Bing för den relaterade frågan. Du kan också `text` använda frågesträngen i din egen API-fråga för webbsökning och visa resultaten själv.
+Använd `displayText` frågesträngen och `webSearchUrl` URL: en för att skapa en hyperlänk som tar användaren till Bing search-resultat sidan för den relaterade frågan. Du kan också använda `text` frågesträngen i din egen webbsökning API-fråga och visa resultatet själv.
 
-Information om hur du hanterar markeringsmarkörerna i finns i `displayText` [Tryckmarkering](../bing-web-search/hit-highlighting.md).
+Information om hur du hanterar markerings markörerna i `displayText`finns i [träff markering](../bing-web-search/hit-highlighting.md).
 
-Följande visar ett exempel på den relaterade frågor användning i Bing.com.
+Nedan visas ett exempel på de relaterade frågor som används i Bing.com.
 
-![Exempel på relaterade sökningar på Bing](./media/cognitive-services-bing-web-api/bing-web-rendered-relatedsearches.GIF)
+![Exempel på relaterade sökningar i Bing](./media/cognitive-services-bing-web-api/bing-web-rendered-relatedsearches.GIF)
 
-## <a name="videos-answer"></a>Video svar
+## <a name="videos-answer"></a>Videoklipps svar
 
-[Videosvaret](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) innehåller en lista med videor som Bing trodde var relevanta för frågan. Varje [video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video) i listan innehåller videons URL, dess varaktighet, dess dimensioner och kodningsformat. Videoobjektet innehåller även webbadressen till en miniatyrbild av videon och miniatyrbildens mått.
+[Video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) svaret innehåller en lista över videor som Bing trodde var relevanta för frågan. Varje [video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video) i listan innehåller URL: en för videon, dess varaktighet, dess dimensioner och dess kodnings format. Videoobjektet innehåller även webbadressen till en miniatyrbild av videon och miniatyrbildens mått.
 
 ```json
 {
@@ -163,13 +163,13 @@ Följande visar ett exempel på den relaterade frågor användning i Bing.com.
 }, ...
 ```
 
-Beroende på användarens enhet visar du vanligtvis en delmängd av videorna med ett alternativ för användaren att visa de återstående videorna. Du skulle visa en miniatyrbild av videon med videons längd, beskrivning (namn) och attribution (utgivare).
+Beroende på användarens enhet visar du oftast en delmängd av videor med ett alternativ för användaren att visa de återstående videor. Du kan visa en miniatyr bild av videon med videons längd, beskrivning (namn) och behörighet (utgivare).
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![List of video thumbnails](./media/cognitive-services-bing-web-api/bing-web-video-thumbnails.PNG)
 -->
 
-När användaren hovrar över miniatyren `motionThumbnailUrl` kan du använda för att spela upp en miniatyrversion av videon. Se till att du tillskriver ursprunget när du visar en video.
+När användaren hovrar över miniatyren kan du använda `motionThumbnailUrl` för att spela upp en miniatyr version av videon. Se till att du tillskriver ursprunget när du visar en video.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![Motion thumbnail of a video](./media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
@@ -177,15 +177,15 @@ När användaren hovrar över miniatyren `motionThumbnailUrl` kan du använda f�
 
 Om användaren klickar på miniatyrbilden finns följande visningsalternativ för videon:
 
-- Används `hostPageUrl` för att visa videon på värdwebbplatsen (till exempel YouTube)
-- Används `webSearchUrl` för att visa videon i Bing-videobläddraren
-- Används `embedHtml` för att bädda in videon i din egen upplevelse
+- Använd `hostPageUrl` för att visa videon på värd webbplatsen (till exempel YouTube)
+- Använd `webSearchUrl` för att visa videon i Bing Video Browser
+- Använd `embedHtml` för att bädda in videon i din egen upplevelse
 
-Mer information om videosvaret och videorna finns i [API för videosökning](../bing-video-search/search-the-web.md).
+Mer information om video svar och videor finns [videosökning API](../bing-video-search/search-the-web.md).
 
-## <a name="news-answer"></a>Nyhetssvar
+## <a name="news-answer"></a>Nyhets svar
 
-[Nyhetssvaret](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) innehåller en lista med nyhetsartiklar som Bing trodde var relevanta för frågan. Varje [nyhetsartikel](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) i listan innehåller artikels namn, beskrivning och webbadressen till artikeln på värdens webbplats. Om artikeln innehåller en bild innehåller objektet även en miniatyr för bilden.
+[Nyhets](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) svaret innehåller en lista över nyhets artiklar som Bing trodde var relevant för frågan. Varje [nyhetsartikel](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) i listan innehåller artikels namn, beskrivning och webbadressen till artikeln på värdens webbplats. Om artikeln innehåller en bild innehåller objektet även en miniatyr för bilden.
 
 ```json
 {
@@ -208,7 +208,7 @@ Mer information om videosvaret och videorna finns i [API för videosökning](../
 }, ...
 ```
 
-Beroende på användarens enhet visar du en delmängd av nyhetsartiklarna med ett alternativ för användaren att visa de återstående artiklarna. Använd `name` och `url` till att skapa en hyperlänk som tar användaren till nyhetsartikeln på värdens webbplats. Om artikeln innehåller en bild gör du `url`bilden klickbar med . Se till att du tillskriver artikeln med `provider`.
+Beroende på användarens enhet visas en delmängd av nyhets artiklarna med ett alternativ för användaren att visa de återstående artiklarna. Använd `name` och `url` till att skapa en hyperlänk som tar användaren till nyhetsartikeln på värdens webbplats. Om artikeln innehåller en bild kan du klicka på avbildningen med hjälp `url`av. Se till att du tillskriver artikeln med `provider`.
 
 <!-- Remove until this can be replaced with a sanitized version.
 The following shows an example of how you might display articles in a search results page.
@@ -216,15 +216,15 @@ The following shows an example of how you might display articles in a search res
 ![List of news articles](./media/cognitive-services-bing-web-api/bing-web-news-list.PNG)
 -->
 
-Mer information om nyhetssvar och nyhetsartiklar finns i [API för nyhetssökning](../bing-news-search/search-the-web.md).
+Mer information om nyhets svaret och nyhets artiklarna finns i [NYHETSSÖKNING API](../bing-news-search/search-the-web.md).
 
-## <a name="computation-answer"></a>Svar på beräkning
+## <a name="computation-answer"></a>Beräknings svar
 
-Om användaren anger ett matematiskt uttryck eller en enhetskonverteringsfråga kan svaret innehålla ett [beräkningssvar.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#computation) Svaret `computation` innehåller det normaliserade uttrycket och dess resultat.
+Om användaren anger ett matematiskt uttryck eller en enhets konverterings fråga kan svaret innehålla ett [beräknings](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#computation) svar. `computation` Svaret innehåller det normaliserade uttrycket och dess resultat.
 
-En enhetskonverteringsfråga är en fråga som konverterar en enhet till en annan. Till exempel, *Hur många meter i 10 meter?* eller Hur många *matskedar i en 1/4 kopp?*
+En enhets konverterings fråga är en fråga som konverterar en enhet till en annan. Till exempel *hur många fötter i 10 meter?* eller *hur många tablespoons i en 1/4-bägare?*
 
-Följande visar `computation` svaret för *Hur många meter i 10 meter?*
+Följande visar `computation` svaret på *hur många fötter i 10 meter?*
 
 ```json
 "computation": {
@@ -234,7 +234,7 @@ Följande visar `computation` svaret för *Hur många meter i 10 meter?*
 }, ...
 ```
 
-Följande visar exempel på matematiska `computation` frågor och deras motsvarande svar.
+Nedan visas exempel på matematiska frågor och deras motsvarande `computation` svar.
 
 ```
 Query: (5+3)(10/2)+8
@@ -296,45 +296,45 @@ Ett matematiskt uttryck kan innehålla följande symboler:
 |-|Subtraktion|
 |/|Division|
 |*|Multiplikation|
-|^|Power|
+|^|Ström|
 |!|Fakultet|
 |.|Decimal|
-|()|Gruppering av prioritet|
+|()|Prioritets gruppering|
 |[]|Funktion|
 
 Ett matematiskt uttryck kan innehålla följande konstanter:
 
 |Symbol|Beskrivning|
 |------------|-----------------|
-|Pi|3.14159...|
-|Grad|Grad|
-|i|Imaginära tal|
+|Pi|3,14159...|
+|Antal|Antal|
+|i|Imaginärt nummer|
 |e|e, 2,71828...|
-|GoldenRatio (0)|Guld- förhållande, 1.61803...|
+|GoldenRatio|Gyllene förhållandet 1,61803...|
 
 Ett matematiskt uttryck kan innehålla följande funktioner:
 
 |Symbol|Beskrivning|
 |------------|-----------------|
-|Sortera|Kvadratroten|
-|Sin[x], Cos [x], Tan [x]<br />Csc[x], sek[x], cot[x]|Trigonometriska funktioner (med argument i radianer)|
-|ArcSin[x], ArcCos[x], ArcTan[x]<br />ArcCsc[x], ArcSec[x], ArcCot[x]|Omvänd trigonometriska funktioner (ger resultat i radianer)|
-|Exp[x], E^x|Exponentiell funktion|
-|Logga[x]|Naturlig logaritm|
-|Sinh[x], Cosh[x], Tanh[x]<br />Csch[x], Sech[x], Coth[x]|Hyperboliska funktioner|
-|ArcSinh[x], ArcCosh[x], ArcTanh[x]<br />ArcCsch[x], ArcSech[x], ArcCoth[x]|Omvända hyperboliska funktioner|
+|Sortera|Kvadratrot|
+|Sin [x], cos [x], Tan [x]<br />CSC [x], SEK [x], COT [x]|Trigonometriska funktioner (med argument i radianer)|
+|Bågar i [x], ArcCos [x], ArcTan [x]<br />ArcCsc [x], ArcSec [x], ArcCot [x]|Invertera trigonometriska funktioner (ger resultat i radianer)|
+|EXP [x], E ^ x|Exponentiell funktion|
+|Logg [x]|Naturlig logaritm|
+|Sinh [x], cosh [x], tanh [x]<br />Csch [x], sech [x], COTH [x]|Hyperboliska funktioner|
+|ArcSinh [x], ArcCosh [x], ArcTanh [x]<br />ArcCsch [x], ArcSech [x], ArcCoth [x]|Inverterade hyperboliska funktioner|
 
-Matematiska uttryck som innehåller variabler (till exempel 4x+6=18, där x är variabeln) stöds inte.
+Matematiska uttryck som innehåller variabler (till exempel 4x + 6 = 18, där x är variabeln) stöds inte.
 
-## <a name="timezone-answer"></a>TimeZone-svar
+## <a name="timezone-answer"></a>Svar på tidszon
 
-Om användaren anger en tids- eller datumfråga kan svaret innehålla ett [TimeZone-svar.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone) Det här svaret stöder implicita eller explicita frågor. En implicit fråga, till exempel *Vilken tid är det?* En explicit fråga, till exempel *Vilken tid är det i Seattle?*, returnerar den lokala tiden för Seattle, WA.
+Om användaren anger en tid eller datum fråga kan svaret innehålla ett [tids zons](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#timezone) svar. Det här svaret stöder implicita eller explicita frågor. En implicit fråga, till exempel *vilken tid är den?*, returnerar den lokala tiden baserat på användarens plats. En explicit fråga, till exempel *vilken tid som finns i Seattle?*, returnerar den lokala tiden för Seattle, WA.
 
-Svaret `timeZone` innehåller namnet på platsen, aktuellt UTC-datum och tid på den angivna platsen och UTC-förskjutningen. Om gränsen för platsen ligger inom flera tidszoner innehåller svaret aktuellt UTC-datum och -tid för alla tidszoner inom gränsen. Eftersom Florida State till exempel ligger inom två tidszoner innehåller svaret det lokala datumet och tiden för båda tidszonerna.  
+`timeZone` Svaret innehåller namnet på platsen, aktuellt UTC-datum och tid på den angivna platsen och UTC-förskjutningen. Om platsens gräns ligger inom flera tids zoner, innehåller svaret det aktuella UTC-datumet och-tiden för alla tids zoner inom gränsen. Eftersom Florida-tillstånd ligger inom två tids zoner, innehåller svaret till exempel det lokala datumet och tiden för båda tids zonerna.  
 
-Om frågan begär tiden för ett land/en region bestämmer Bing den primära staden inom platsens `primaryCityTime` geografiska gräns och returnerar den i fältet . Om gränsen innehåller flera tidszoner returneras de återstående tidszonerna i fältet `otherCityTimes` .
+Om frågan begär tiden för en delstat eller ett land/en region, fastställer Bing den primära staden inom platsens geografiska gräns och returnerar den i `primaryCityTime` fältet. Om gränsen innehåller flera tids zoner returneras återstående tids zoner i `otherCityTimes` fältet.
 
-Följande visar exempelfrågor som `timeZone` returnerar svaret.
+Följande exempel visar frågor som returnerar `timeZone` svaret.
 
 ```
 Query: What time is it?
@@ -417,9 +417,9 @@ Query: What time is it in the U.S.
 }
 ```
 
-## <a name="spellsuggestion-answer"></a>SpellSuggestion svar
+## <a name="spellsuggestion-answer"></a>SpellSuggestion-svar
 
-Om Bing fastställer att användaren kan ha avsett att söka efter något annat, innehåller svaret ett [SpellSuggestions-objekt.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions) Om användaren till exempel söker efter *Carlos-pennan*kan Bing fastställa att användaren sannolikt är avsedd att söka efter Carlos Pena i stället (baserat på tidigare sökningar av andra av *Carlos Pen*). Följande visar ett exempel stava svar.
+Om Bing avgör att användaren kan ha tänkt att söka efter något annat, innehåller svaret ett [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#spellsuggestions) -objekt. Om användaren till exempel söker efter Carlos- *penna*kan Bing se till att användaren förmodligen vill söka efter Carlos-Pena i stället (baserat på tidigare sökningar av andra av *Carlos-pennan*). Nedan visas ett exempel på ett stavnings svar.
 
 ```json
 "spellSuggestions": {
@@ -433,25 +433,25 @@ Om Bing fastställer att användaren kan ha avsett att söka efter något annat,
 
 ## <a name="response-headers"></a>Svarshuvuden
 
-Svar från API:et för webbsökning på Bing kan innehålla följande rubriker:
+Svar från API för webbsökning i Bing kan innehålla följande rubriker:
 
 |||
 |-|-|
-|`X-MSEdge-ClientID`|Det unika ID som Bing har tilldelat användaren|
-|`BingAPIs-Market`|Den marknad som användes för att uppfylla begäran|
-|`BingAPIs-TraceId`|Loggposten på Bing API-servern för den här begäran (för support)|
+|`X-MSEdge-ClientID`|Det unika ID som Bing har tilldelat till användaren|
+|`BingAPIs-Market`|Marknaden som användes för att uppfylla begäran|
+|`BingAPIs-TraceId`|Logg posten på Bing API-servern för den här begäran (för support)|
 
-Det är särskilt viktigt att behålla klient-ID:n och returnera det med efterföljande begäranden. När du gör detta kommer sökningen att använda tidigare kontext i rankningsresultaten och ger också en konsekvent användarupplevelse.
+Det är särskilt viktigt att spara klient-ID och returnera det till efterföljande begär Anden. När du gör detta använder sökningen tidigare kontext i ranknings Sök Resultat och ger också en konsekvent användar upplevelse.
 
-Men när du anropar API:et för webbsökning på Bing från JavaScript kan webbläsarens inbyggda säkerhetsfunktioner (CORS) hindra dig från att komma åt värdena för dessa rubriker.
+Men när du anropar API för webbsökning i Bing från java script kan webbläsarens inbyggda säkerhetsfunktioner (CORS) förhindra åtkomst till värdena i dessa huvuden.
 
-För att få tillgång till rubrikerna kan du göra API-begäran om Bing-webbsökning via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers`-huvud som vitlistar svarshuvuden och gör dem tillgängliga för JavaScript.
+Om du vill få åtkomst till sidhuvudena kan du göra API för webbsökning i Bing begäran via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers`-huvud som vitlistar svarshuvuden och gör dem tillgängliga för JavaScript.
 
-Det är enkelt att installera en CORS-proxy så att vår [handledningsapp](tutorial-bing-web-search-single-page-app.md) kan komma åt de valfria klienthuvudena. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Ange sedan följande kommando i en kommandotolk.
+Det är enkelt att installera en CORS-proxy så att vår [självstudie](tutorial-bing-web-search-single-page-app.md) kan komma åt de valfria klient rubrikerna. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Ange sedan följande kommando i en kommandotolk.
 
     npm install -g cors-proxy-server
 
-Ändra sedan slutpunkten för API-koden för webbsökning på Bing web sökning i HTML-filen till:
+Ändra sedan API för webbsökning i Bing slut punkten i HTML-filen till:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
@@ -461,22 +461,22 @@ Slutligen startar du CORS-proxyn med följande kommando:
 
 Lämna kommandofönstret öppet medan du använder självstudieappen. Om du stänger fönstret stoppas proxyn. I det expanderbara avsnittet om HTTP-huvuden nedan kan du nu se `X-MSEdge-ClientID`-huvudet (bland annat) under sökresultatet och du kan kontrollera att det är samma för varje begäran.
 
-## <a name="response-headers-in-production"></a>Svarshuvuden i produktion
+## <a name="response-headers-in-production"></a>Svars rubriker i produktion
 
-Cors proxy-metoden som beskrivs i föregående svar är lämplig för utveckling, testning och inlärning.
+Den CORS-proxy metoden som beskrivs i föregående svar är lämplig för utveckling, testning och inlärning.
 
-I en produktionsmiljö bör du vara värd för ett serverskript på samma domän som webbsidan som använder API:et för webbsökning på Bing. Det här skriptet bör ringa API-anrop på begäran från webbsidan JavaScript och skicka alla resultat, inklusive rubriker, tillbaka till klienten. Eftersom de två resurserna (sidan och skriptet) delar ett ursprung används inte CORS och specialrubrikerna är tillgängliga för JavaScript på webbsidan.
+I en produktions miljö bör du vara värd för ett skript på Server sidan på samma domän som webb sidan som använder API för webbsökning i Bing. Det här skriptet bör göra API-anrop på begäran från webb sidans Java Script och skicka alla resultat, inklusive huvuden, tillbaka till klienten. Eftersom de två resurserna (sida och skript) delar ett ursprung, används inte CORS och de särskilda rubrikerna är tillgängliga för Java Script på webb sidan.
 
-Den här metoden skyddar också din API-nyckel från exponering för allmänheten, eftersom endast serverskriptet behöver det. Skriptet kan använda en annan metod för att kontrollera att begäran är auktoriserad.
+Den här metoden skyddar också API-nyckeln från att exponeras för allmänheten, eftersom endast skript på Server sidan behöver det. Skriptet kan använda en annan metod för att se till att begäran är auktoriserad.
 
-Följande visar hur Bing använder stavningsförslaget.
+Följande visar hur Bing använder stavnings förslag.
 
-![Exempel på Bing-stavningsförslag](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
+![Exempel på Bing-stavnings förslag](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
 
 ## <a name="next-steps"></a>Nästa steg  
 
-* Granska dokumentation [för begränsning av begäranden.](throttling-requests.md)  
+* Läs dokumentationen om [begränsning av begäran](throttling-requests.md) .  
 
 ## <a name="see-also"></a>Se även  
 
-* [API-referens för webbsökning](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
+* [API för webbsökning i Bing referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

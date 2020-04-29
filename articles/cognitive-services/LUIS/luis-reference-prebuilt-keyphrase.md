@@ -1,7 +1,7 @@
 ---
-title: Nyckelfras fördefinierade entiteten - LUIS
+title: Fördefinierad enhet för LUIS
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller nyckelfras fördefinierad entitetsinformation i Language Understanding (LUIS).
+description: Den här artikeln innehåller fördefinierad enhets information för en fras i Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,24 +12,24 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: 53be1b13f1e2744e143a4be0777e3a8e3135460e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78270534"
 ---
-# <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>keyPhrase fördefinierade entiteten för en LUIS-app
-KeyPhrase-entiteten extraherar en mängd olika nyckelfraser från ett uttryck. Du behöver inte lägga till exempelyttranden som innehåller keyPhrase i programmet. KeyPhrase-entiteten stöds i [många kulturer](luis-language-support.md#languages-supported) som en del av [textanalysfunktionerna.](../text-analytics/overview.md)
+# <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>fördefinierad enhets fras för en LUIS-app
+Entiteten nyckel fras extraherar en rad olika nyckel fraser från en uttryck. Du behöver inte lägga till exempel yttranden som innehåller en-fras till programmet. Entiteten för en funktions fras stöds i [många kulturer](luis-language-support.md#languages-supported) som en del av funktionerna för [text analys](../text-analytics/overview.md) .
 
-## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Lösning för fördefinierad nyckelFratatitet
+## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Lösning för fördefinierad enhet för en enhets fras
 
-Följande entitetsobjekt returneras för frågan:
+Följande enhets objekt returneras för frågan:
 
 `where is the educational requirements form for the development and engineering group`
 
 #### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
-Följande JSON är `verbose` med parametern inställd `false`på:
+Följande JSON- `verbose` parameter har angetts till `false`:
 
 ```json
 "entities": {
@@ -39,8 +39,8 @@ Följande JSON är `verbose` med parametern inställd `false`på:
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3-verbos respons](#tab/V3-verbose)
-Följande JSON är `verbose` med parametern inställd `true`på:
+#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
+Följande JSON- `verbose` parameter har angetts till `true`:
 
 ```json
 "entities": {
@@ -78,7 +78,7 @@ Följande JSON är `verbose` med parametern inställd `true`på:
 ```
 #### <a name="v2-response"></a>[V2-svar](#tab/V2)
 
-I följande exempel visas upplösningen för den **inbyggda.keyPhrase-entiteten.**
+I följande exempel visas upplösningen för entiteten **Builtin.**
 
 ```json
 "entities": [
@@ -100,6 +100,6 @@ I följande exempel visas upplösningen för den **inbyggda.keyPhrase-entiteten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-Läs mer om [procent-](luis-reference-prebuilt-percentage.md) [och](luis-reference-prebuilt-number.md)åldersentiteter. [age](luis-reference-prebuilt-age.md)
+Lär dig mer om enheterna [procent](luis-reference-prebuilt-percentage.md), [antal](luis-reference-prebuilt-number.md)och [ålder](luis-reference-prebuilt-age.md) .

@@ -1,7 +1,7 @@
 ---
-title: Valutaförbyggd entitet - LUIS
+title: Fördefinierad valuta entitet – LUIS
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller information om fördefinierad entitet i språkförståelse (LUIS).
+description: Den här artikeln innehåller fördefinierad information om valutan i Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,23 +12,23 @@ ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: 56d264fa976967ae4772f50b4aa6f58b30355d6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78270771"
 ---
-# <a name="currency-prebuilt-entity-for-a-luis-app"></a>Valutafördefinierad entitet för en LUIS-app
-Den fördefinierade valutaentiteten identifierar valuta i många valörer och länder/regioner, oavsett LUIS-appkultur. Eftersom den här entiteten redan har tränats behöver du inte lägga till exempelyttranden som innehåller valuta i programavsikterna. Valutaentitet stöds i [många kulturer](luis-reference-prebuilt-entities.md).
+# <a name="currency-prebuilt-entity-for-a-luis-app"></a>Fördefinierad valuta enhet för en LUIS-app
+Den fördefinierade valuta enheten identifierar valuta i många valörer och länder/regioner, oavsett LUIS-programkultur. Eftersom entiteten redan har tränats behöver du inte lägga till exempel yttranden som innehåller valuta till program avsikterna. Currency-entiteten stöds i [många kulturer](luis-reference-prebuilt-entities.md).
 
 ## <a name="types-of-currency"></a>Typer av valuta
-Valutan hanteras från [GitHub-databasen med identifierartext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26)
+Valutan hanteras från GitHub-lagringsplatsen för [identifierare – text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26)
 
-## <a name="resolution-for-currency-entity"></a>Upplösning för valutaentitet
+## <a name="resolution-for-currency-entity"></a>Lösning för entiteten valuta
 
 #### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
-Följande JSON är `verbose` med parametern inställd `false`på:
+Följande JSON- `verbose` parameter har angetts till `false`:
 
 ```json
 "entities": {
@@ -40,8 +40,8 @@ Följande JSON är `verbose` med parametern inställd `false`på:
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3-verbos respons](#tab/V3-verbose)
-Följande JSON är `verbose` med parametern inställd `true`på:
+#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
+Följande JSON- `verbose` parameter har angetts till `true`:
 
 ```json
 "entities": {
@@ -68,7 +68,7 @@ Följande JSON är `verbose` med parametern inställd `true`på:
 
 #### <a name="v2-response"></a>[V2-svar](#tab/V2)
 
-I följande exempel visas upplösningen för den **inbyggda.valutaentiteten.**
+I följande exempel visas upplösningen för entiteten **Builtin. Currency** .
 
 ```json
 "entities": [
@@ -88,6 +88,6 @@ I följande exempel visas upplösningen för den **inbyggda.valutaentiteten.**
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-Lär dig mer om [datetimeV2,](luis-reference-prebuilt-datetimev2.md) [dimension](luis-reference-prebuilt-dimension.md)och [e-postentiteter.](luis-reference-prebuilt-email.md)
+Lär dig mer om [datetimeV2](luis-reference-prebuilt-datetimev2.md), [dimension](luis-reference-prebuilt-dimension.md)och [e-](luis-reference-prebuilt-email.md) postentiteter.

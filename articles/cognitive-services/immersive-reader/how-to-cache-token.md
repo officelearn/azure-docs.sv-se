@@ -1,7 +1,7 @@
 ---
 title: Cachelagra autentiseringstoken
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln visar hur du cachelagrar autentiseringstoken.
+description: I den här artikeln visas hur du cachelagrar autentiseringstoken.
 author: metanMSFT
 manager: guillasi
 ms.service: cognitive-services
@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metan
 ms.openlocfilehash: e652aa29b1c1935fcc4887dbe13ef9b683a8bd05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75946170"
 ---
-# <a name="how-to-cache-the-authentication-token"></a>Cachelagra autentiseringstoken
+# <a name="how-to-cache-the-authentication-token"></a>Så här cachelagrar du autentiseringstoken
 
 Den här artikeln visar hur du cachelagrar autentiseringstoken för att förbättra programmets prestanda.
 
 ## <a name="using-aspnet"></a>Använda ASP.NET
 
-Importera **paketet Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet, som används för att hämta en token. Använd sedan följande kod för `AuthenticationResult`att hämta en med hjälp av de autentiseringsvärden som du fick när du [skapade Immersive Reader-resursen](./how-to-create-immersive-reader.md).
+Importera NuGet-paketet **Microsoft. IdentityModel. clients. ActiveDirectory** , som används för att hämta en token. Använd sedan följande kod för att hämta en `AuthenticationResult`med hjälp av de autentiseringsmetoder som du fick när du [skapade den fördjupade läsaren](./how-to-create-immersive-reader.md).
 
 ```csharp
 private async Task<AuthenticationResult> GetTokenAsync()
@@ -34,11 +34,11 @@ private async Task<AuthenticationResult> GetTokenAsync()
 }
 ```
 
-Objektet `AuthenticationResult` har `AccessToken` en egenskap som är den faktiska token som du ska använda när du startar Immersive Reader med SDK. Den har `ExpiresOn` också en egenskap som anger när token upphör att gälla. Innan du startar Immersive Reader kan du kontrollera om token har upphört att gälla och endast hämta en ny token om den har upphört att gälla.
+`AuthenticationResult` Objektet har en `AccessToken` egenskap som är den faktiska token som du kommer att använda när du startar den fördjupade läsaren med hjälp av SDK. Den har också en `ExpiresOn` egenskap som anger när token upphör att gälla. Innan du startar den fördjupade läsaren kan du kontrol lera om token har upphört att gälla och bara hämta en ny token om den har upphört att gälla.
 
-## <a name="using-nodejs"></a>Använda nod.JS
+## <a name="using-nodejs"></a>Använda Node. JS
 
-Lägg till [**paketet för begäran**](https://www.npmjs.com/package/request) npm i projektet. Använd följande kod för att hämta en token med hjälp av de autentiseringsvärden du fick när du [skapade Immersive Reader-resursen](./how-to-create-immersive-reader.md).
+Lägg till NPM-paketet för [**begäran**](https://www.npmjs.com/package/request) i projektet. Använd följande kod för att hämta en token med hjälp av de autentiseringsmetoder som du fick när du [skapade den fördjupade läsaren](./how-to-create-immersive-reader.md).
 
 ```javascript
 router.get('/token', function(req, res) {
@@ -64,7 +64,7 @@ router.get('/token', function(req, res) {
 });
 ```
 
-Egenskapen `expires_on` är det datum och den tid då token upphör att gälla, uttryckt som antalet sekunder sedan den 1 januari 1970 UTC. Använd det här värdet för att avgöra om din token har upphört att gälla innan du försöker skaffa en ny.
+`expires_on` Egenskapen är det datum och den tid då token upphör att gälla, uttryckt i antal sekunder sedan den 1 januari 1970 UTC. Använd det här värdet för att avgöra om din token har upphört att gälla innan du försöker hämta ett nytt.
 
 ```javascript
 async function getToken() {
@@ -77,4 +77,4 @@ async function getToken() {
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska [den uppslukande läsar-SDK-referensen](./reference.md)
+* Utforska [SDK-referensen för avancerad läsare](./reference.md)

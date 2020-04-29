@@ -9,59 +9,59 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: ba516a548fc8385ca86526a7f2dd082b27e53208
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77211370"
 ---
-## <a name="general-entity-types"></a>Typer av entitet:
+## <a name="general-entity-types"></a>Allmänna enhets typer:
 
 ### <a name="person"></a>Person
 
-Känn igen personnamn i text.
+Identifiera person namn i text.
 
 Språk:
-* `Arabic`Offentlig förhandsversion: `Chinese-Simplified`, `Dutch` `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` , , `Danish`, , , , , , , , , , , , , , , , och `Czech``Turkish`
+* Offentlig för hands `Arabic`version `Czech`: `Chinese-Simplified`, `Danish`, `Dutch` `English` `Finnish` `French` `Norwegian (Bokmål)` `Polish` `Spanish` `Swedish` ,, `Portuguese (Portugal)`,,,,,, `Portuguese (Brazil)`, `Russian`,,,,,,,, och `German` `Hungarian` `Italian` `Japanese` `Korean``Turkish`
 
-| Undertypsnamn | Beskrivning                                                      | Tillgänglig från och med modellversion |
+| Under typs namn | Beskrivning                                                      | Tillgängligt från och med modell version |
 |--------------|------------------------------------------------------------------|---------------------------------------|
-| Ej tillämpligt          | Namn på igenkända personer, till exempel `Bill Gates``Marie Curie` | `2019-10-01`                          | 
+| Ej tillämpligt          | Identifierade person namn, till `Bill Gates`exempel`Marie Curie` | `2019-10-01`                          | 
 
-### <a name="persontype"></a>PersonType (PersonType)
-Jobbtyp eller roll som innehas av en person.
+### <a name="persontype"></a>PersonType
+Jobb typ eller roll som innehas av en person.
 
 Språk:
-* Offentlig förhandsgranskning:`English`
+* Offentlig för hands version:`English`
 
-| Undertypsnamn | Beskrivning                                                                                | Tillgänglig från och med modellversion |
+| Under typs namn | Beskrivning                                                                                | Tillgängligt från och med modell version |
 |--------------|--------------------------------------------------------------------------------------------|----------------------------------------|
-| Ej tillämpligt          | Jobbtyper till `civil engineer` `salesperson`exempel `chef` `librarian`, , , ,`nursing aide` | `2020-02-01`                           |
+| Ej tillämpligt          | Jobb typer till exempel `civil engineer` `salesperson` `chef` `librarian`,,,`nursing aide` | `2020-02-01`                           |
 
-### <a name="location"></a>Location
+### <a name="location"></a>Plats
 
-Naturliga och mänskligt skapade landmärken, strukturer, geografiska särdrag och geopolitiska enheter.
+Naturliga och mänskliga landmärkeer, strukturer, geografiska egenskaper och geografiskt politiska enheter.
 
 Språk:
 
-* `Arabic`Offentlig förhandsversion: `Chinese-Simplified`, `Dutch` `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` , , `Danish`, , , , , , , , , , , , , , , , och `Czech``Turkish`
+* Offentlig för hands `Arabic`version `Czech`: `Chinese-Simplified`, `Danish`, `Dutch` `English` `Finnish` `French` `Norwegian (Bokmål)` `Polish` `Spanish` `Swedish` ,, `Portuguese (Portugal)`,,,,,, `Portuguese (Brazil)`, `Russian`,,,,,,,, och `German` `Hungarian` `Italian` `Japanese` `Korean``Turkish`
 
-| Undertypsnamn              | Beskrivning                                                                              | Tillgänglig från och med modellversion |
+| Under typs namn              | Beskrivning                                                                              | Tillgängligt från och med modell version |
 |---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
-| Ej tillämpligt                       | platser, till `Atlantic Ocean` `library`exempel `Eiffel Tower`, ,`Statue of Liberty`  | `2019-10-01`                           |
-| Geopolitisk enhet (GPE) - endast engelska| Städer, länder, stater `Seattle` `Pennsylvania`till `South Africa`exempel , ,`Tokyo` | `2020-02-01`                           |
+| Ej tillämpligt                       | platser, till exempel `Atlantic Ocean` `library` `Eiffel Tower`,,`Statue of Liberty`  | `2019-10-01`                           |
+| GPE (politisk entitet) – endast engelska| Städer, länder, regioner, t `Seattle`. `Pennsylvania`ex `South Africa`.,`Tokyo` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organisation  
 
-Erkända organisationer, företag, byråer och andra grupper av människor. Till exempel: företag, politiska grupper, musikband, idrottsklubbar, statliga organ och offentliga organisationer. Nationaliteter och religioner ingår inte i denna enhetstyp. 
+Erkända organisationer, organisationer, organ och andra grupper av personer. Exempel: företag, politiska grupper, musik band, sport klubbar, myndighets organ och offentliga organisationer. Nationella objekt och religions ingår inte i den här entitetstypen. 
 
 Språk: 
 
-* `Arabic`Offentlig förhandsversion: `Chinese-Simplified`, `Dutch` `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` , , `Danish`, , , , , , , , , , , , , , , , och `Czech``Turkish`
+* Offentlig för hands `Arabic`version `Czech`: `Chinese-Simplified`, `Danish`, `Dutch` `English` `Finnish` `French` `Norwegian (Bokmål)` `Polish` `Spanish` `Swedish` ,, `Portuguese (Portugal)`,,,,,, `Portuguese (Brazil)`, `Russian`,,,,,,,, och `German` `Hungarian` `Italian` `Japanese` `Korean``Turkish`
 
-| Undertypsnamn | Beskrivning                                                                                             | Tillgänglig från och med modellversion |
+| Under typs namn | Beskrivning                                                                                             | Tillgängligt från och med modell version |
 |--------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|
-| Ej tillämpligt          | organisationer, till `Microsoft`exempel `NASA` `National Oceanic and Atmospheric Administration`, , ,`VOA` | `2019-10-01`                           |
+| Ej tillämpligt          | organisationer, till exempel `Microsoft` `NASA` `National Oceanic and Atmospheric Administration`,,`VOA` | `2019-10-01`                           |
 
 ### <a name="event"></a>Händelse  
 
@@ -69,48 +69,48 @@ Historiska, sociala och naturliga händelser.
 
 Språk: 
 
-* Offentlig förhandsgranskning:`English`
+* Offentlig för hands version:`English`
 
-| Undertypsnamn | Beskrivning                                                            | Tillgänglig från och med modellversion |
+| Under typs namn | Beskrivning                                                            | Tillgängligt från och med modell version |
 |--------------|------------------------------------------------------------------------|----------------------------------------|
-| Ej tillämpligt          | Händelser som `wedding` `hurricane`, `car accident` `solar eclipse`, , ,`American Revolution` | `2020-02-01`                           |
+| Ej tillämpligt          | Händelser som `wedding`, `hurricane` `car accident`,,, `solar eclipse``American Revolution` | `2020-02-01`                           |
 
 ### <a name="product"></a>Produkt  
 
-Fysiska objekt i olika kategorier.  
+Fysiska objekt av olika kategorier.  
 
 Språk: 
 
-* Offentlig förhandsgranskning:`English`
+* Offentlig för hands version:`English`
 
-| Undertypsnamn | Beskrivning                                                                        | Tillgänglig från och med modellversion |
+| Under typs namn | Beskrivning                                                                        | Tillgängligt från och med modell version |
 |--------------|------------------------------------------------------------------------------------|----------------------------------------|
-| Ej tillämpligt          | Till exempel `Microsoft Surface laptop` `sunglasses`, `motorcycle` `bag`, ,`Xbox` | `2020-02-01`                           |
+| Ej tillämpligt          | `Microsoft Surface laptop`Till exempel `sunglasses` `motorcycle`,,,, `bag``Xbox` | `2020-02-01`                           |
 | Databehandling    | `Azure Cosmos DB`, `Azure Kubernetes Service`                                     | `2020-02-01`                           |
 
-### <a name="skill"></a>Skicklighet  
+### <a name="skill"></a>Kvalifikation  
 
-En enhet som beskriver en kapacitet eller expertis.  
+En entitet som beskriver en funktion eller expertis.  
 
 Språk: 
 
-* Offentlig förhandsgranskning:`English`
+* Offentlig för hands version:`English`
 
-| Undertypsnamn | Beskrivning                                                                 | Tillgänglig från och med modellversion |
+| Under typs namn | Beskrivning                                                                 | Tillgängligt från och med modell version |
 |--------------|-----------------------------------------------------------------------------|----------------------------------------|
 | Ej tillämpligt          | `nursing`, `data mining`, `linguistics`, `critical thinking`, `photography` | `2020-02-01`                           |
 
 ### <a name="phone-number"></a>Telefonnummer
 
-Telefonnummer (endast amerikanska telefonnummer). 
+Telefonnummer (endast telefonnummer till USA). 
 
 Språk:
 
-* Offentlig förhandsgranskning:`English`
+* Offentlig för hands version:`English`
 
-| Undertypsnamn | Beskrivning                                    | Tillgänglig från och med modellversion |
+| Under typs namn | Beskrivning                                    | Tillgängligt från och med modell version |
 |--------------|------------------------------------------------|----------------------------------------|
-| Ej tillämpligt          | Amerikanska telefonnummer, till exempel`(312) 555-0176` | `2019-10-01`                           |
+| Ej tillämpligt          | AMERIKANSKt telefonnummer, till exempel`(312) 555-0176` | `2019-10-01`                           |
 
 ### <a name="email"></a>E-post
 
@@ -118,53 +118,53 @@ E-postadress.
 
 Språk:
 
-* Offentlig förhandsgranskning:`English`
+* Offentlig för hands version:`English`
 
-| Undertypsnamn | Beskrivning                                      | Tillgänglig från och med modellversion |
+| Under typs namn | Beskrivning                                      | Tillgängligt från och med modell version |
 |--------------|--------------------------------------------------|----------------------------------------|
 | Ej tillämpligt          | E-postadress, till exempel`support@contoso.com` | `2019-10-01`                           |
 
 ### <a name="url"></a>URL
 
-Internet-URL:er.
+Internet-URL: er.
 
 Språk:
 
-* Offentlig förhandsgranskning:`English`
+* Offentlig för hands version:`English`
 
-| Undertypsnamn | Beskrivning                                          | Tillgänglig från och med modellversion |
+| Under typs namn | Beskrivning                                          | Tillgängligt från och med modell version |
 |--------------|------------------------------------------------------|----------------------------------------|
-| Ej tillämpligt          | Webbadresser till webbplatser, till exempel`https://www.bing.com` | `2019-10-01`                           |
+| Ej tillämpligt          | URL: er till webbplatser, till exempel`https://www.bing.com` | `2019-10-01`                           |
 
 ### <a name="ip-address"></a>IP-adress
 
-Internet-protokolladress
+Internet Protocol adress
 
 Språk:
 
-* Offentlig förhandsgranskning:`English`
+* Offentlig för hands version:`English`
 
-| Undertypsnamn | Beskrivning                              | Tillgänglig från och med modellversion |
+| Under typs namn | Beskrivning                              | Tillgängligt från och med modell version |
 |--------------|------------------------------------------|----------------------------------------|
-| Ej tillämpligt          | Nätverksadress till exempel`10.0.0.101` | `2019-10-01`                           |
+| Ej tillämpligt          | Nätverks adress till exempel`10.0.0.101` | `2019-10-01`                           |
 
 ###  <a name="datetime"></a>DateTime
 
-Datum och tid entiteter. 
+Datum-och tidsentiteter. 
 
-* Tillgänglig från och med modellversion`2019-10-01`
+* Tillgängligt från och med modell version`2019-10-01`
 
 Språk:
 
-* Offentlig förhandsversion: `Chinese-Simplified`, `English`, `French` `German` och`Spanish`
+* Offentlig för hands `Chinese-Simplified`version `English`: `French`, `German` , och`Spanish`
 
-| Undertypsnamn    | Exempel                     |
+| Under typs namn    | Exempel                     |
 |-------------|------------------------------|
 | Ej tillämpligt         | `6:30PM February 4, 2012`, `4/1/2011 2:45`                   |
-| Datum  | `May 2nd, 2017`, `05/02/2017`       |
+| Date  | `May 2nd, 2017`, `05/02/2017`       |
 | Tid     | `8:15`, `6AM`              |
-| DatumRange    | `August 2nd to August 5th`         |
-| TimeRange (Tidsföring)   | `4-6PM`, `10:00AM to Noon`          |
+| DateRange    | `August 2nd to August 5th`         |
+| TimeRange   | `4-6PM`, `10:00AM to Noon`          |
 | Varaktighet | `2.5 minutes`, `one and a half hours`         |
 | Ange | `every Saturday`         |
 
@@ -172,17 +172,17 @@ Språk:
 
 Siffror och numeriska kvantiteter. 
 
-* Tillgänglig från och med modellversion`2019-10-01`
+* Tillgängligt från och med modell version`2019-10-01`
 
 Språk:
 
-* Offentlig förhandsversion: `Chinese-Simplified`, `English`, `French` `German` och`Spanish`
+* Offentlig för hands `Chinese-Simplified`version `English`: `French`, `German` , och`Spanish`
 
-| Undertypsnamn    | Exempel                     |
+| Under typs namn    | Exempel                     |
 |-------------|------------------------------|
-| Tal         | `6`, `six`                   |
+| Antal         | `6`, `six`                   |
 | Procent  | `50%`, `fifty percent`       |
-| Ordinal     | `2nd`, `second`              |
+| Numret     | `2nd`, `second`              |
 | Ålder         | `90 day old`, `30 years old` |
 | Valuta    | `$10.99`, `€30.00`           |
 | Dimension   | `10 miles`, `40 cm`          |

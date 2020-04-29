@@ -1,7 +1,7 @@
 ---
-title: Visa matematik i den uppslukande läsaren
+title: Visa matematik i den fördjupade läsaren
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln visar hur du visar matematik i Immersive Reader.
+description: I den här artikeln visas hur du visar matematik i den fördjupade läsaren.
 author: pasta
 manager: guillasi
 ms.service: cognitive-services
@@ -10,21 +10,21 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: pasta
 ms.openlocfilehash: e01cc9e8cedb6c38da0b56e04419c706d5d0566e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75946126"
 ---
-# <a name="how-to-display-math-in-the-immersive-reader"></a>Så här visar du matematik i den uppslukande läsaren
+# <a name="how-to-display-math-in-the-immersive-reader"></a>Så här visar du matematik i den fördjupade läsaren
 
-Den uppslukande läsaren kan visa matematik när den tillhandahålls i form av matematiskt markeringsspråk ([MathML](https://developer.mozilla.org/docs/Web/MathML)).
-MIME-typen kan ställas in via [segmentet](../reference.md#chunk)Immersive Reader . Mer information [finns i MIME-typer som stöds.](../reference.md#supported-mime-types)
+Den fördjupade läsaren kan visa matematik när den anges i form av[mathml](https://developer.mozilla.org/docs/Web/MathML)(matematiskt Markup Language).
+MIME-typen kan ställas in via [segmentet](../reference.md#chunk)för avancerad läsare. Mer information finns i [MIME-typer som stöds](../reference.md#supported-mime-types) .
 
-## <a name="send-math-to-the-immersive-reader"></a>Skicka matematik till den uppslukande läsaren
-För att skicka matematik till Immersive Reader, ange ett segment som innehåller ```application/mathml+xml```MathML och ställa in MIME-typen till ;
+## <a name="send-math-to-the-immersive-reader"></a>Skicka matematik till den fördjupade läsaren
+För att skicka matematik till den fördjupade läsaren, anger du ett segment som innehåller MathML och anger MIME- ```application/mathml+xml```typen till.
 
-Om ditt innehåll till exempel var följande:
+Om ditt innehåll exempelvis var följande:
 
 ```html
 <div id='ir-content'>
@@ -53,7 +53,7 @@ Om ditt innehåll till exempel var följande:
 </div>
 ```
 
-Då kan du visa ditt innehåll med hjälp av följande JavaScript.
+Sedan kan du Visa ditt innehåll med hjälp av följande Java Script.
 
 ```javascript
 const data = {
@@ -67,10 +67,10 @@ const data = {
 ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, data, YOUR_OPTIONS);
 ```
 
-När du startar Immersive Reader bör du se:
+När du startar den fördjupade läsaren bör du se:
 
-![Matematik i uppslukande läsare](../media/how-tos/1-math.png)
+![Matematik i fördjupad läsare](../media/how-tos/1-math.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska [den uppslukande läsaren SDK](https://github.com/microsoft/immersive-reader-sdk) och [Immersive Reader SDK-referensen](../reference.md)
+* Utforska SDK: [n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](../reference.md)

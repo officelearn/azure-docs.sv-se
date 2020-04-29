@@ -1,7 +1,7 @@
 ---
-title: LUIS Fördefinierade entiteter e-postreferens
+title: E-postreferens för LUIS-fördefinierade entiteter
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller information om fördefinierade enheter via e-post i Språkförståelse (LUIS).
+description: Den här artikeln innehåller fördefinierad enhets information för e-post i Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,24 +12,24 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: f7aa2a341a82d30f7022af49e626a3cd358854b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78273482"
 ---
-# <a name="email-prebuilt-entity-for-a-luis-app"></a>E-postfördefinierad entitet för en LUIS-app
-E-postextrahering innehåller hela e-postadressen från ett uttryck. Eftersom den här entiteten redan har tränats behöver du inte lägga till exempelyttranden som innehåller e-post i programavsikterna. Endast e-postentitet stöds i `en-us` kulturen.
+# <a name="email-prebuilt-entity-for-a-luis-app"></a>Fördefinierad e-postentitet för en LUIS-app
+E-postextraheringen innehåller hela e-postadressen från en uttryck. Eftersom entiteten redan har tränats behöver du inte lägga till exempel yttranden som innehåller e-post till program avsikterna. E-postentiteten `en-us` stöds endast i kultur.
 
 ## <a name="resolution-for-prebuilt-email"></a>Lösning för fördefinierad e-post
 
-Följande entitetsobjekt returneras för frågan:
+Följande enhets objekt returneras för frågan:
 
 `please send the information to patti@contoso.com`
 
 #### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
-Följande JSON är `verbose` med parametern inställd `false`på:
+Följande JSON- `verbose` parameter har angetts till `false`:
 
 ```json
 "entities": {
@@ -38,9 +38,9 @@ Följande JSON är `verbose` med parametern inställd `false`på:
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3-verbos respons](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
 
-Följande JSON är `verbose` med parametern inställd `true`på:
+Följande JSON- `verbose` parameter har angetts till `true`:
 
 ```json
 "entities": {
@@ -66,7 +66,7 @@ Följande JSON är `verbose` med parametern inställd `true`på:
 ```
 #### <a name="v2-response"></a>[V2-svar](#tab/V2)
 
-I följande exempel visas upplösningen för den **inbyggda.e-postentiteten.**
+I följande exempel visas upplösningen för entiteten **Builtin. e-post** .
 
 ```json
 "entities": [
@@ -85,6 +85,6 @@ I följande exempel visas upplösningen för den **inbyggda.e-postentiteten.**
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-Lär dig mer om [talet,](luis-reference-prebuilt-number.md) [ordningstal](luis-reference-prebuilt-ordinal.md)och [procent](luis-reference-prebuilt-percentage.md).
+Lär dig mer om [talet](luis-reference-prebuilt-number.md), [ordnings talet](luis-reference-prebuilt-ordinal.md)och [procent andelen](luis-reference-prebuilt-percentage.md).

@@ -1,5 +1,5 @@
 ---
-title: Kognitiva tjänster och maskininlärning
+title: Cognitive Services och Machine Learning
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur Azure Cognitive Services passar ihop med andra Azure-erbjudanden för maskininlärning.
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
 ms.openlocfilehash: cde505e4c95de9b9693a0e9d260d7fa84f3e905b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75531487"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services och Machine Learning
 
-Cognitive Services tillhandahåller maskininlärningsfunktioner för att lösa allmänna problem som att analysera text för känslomässiga känslor eller analysera bilder för att känna igen objekt eller ansikten. Du behöver inte särskild maskininlärning eller datavetenskap kunskap för att använda dessa tjänster. 
+Cognitive Services tillhandahåller funktioner för maskin inlärning för att lösa allmänna problem, till exempel analys av text för känslomässig sentiment eller analys av bilder för att identifiera objekt eller ansikten. Du behöver inte speciell maskin inlärning eller data vetenskaps kunskap för att använda de här tjänsterna. 
 
-[Cognitive Services](welcome.md) är en grupp tjänster som alla stöder olika, generaliserade förutsägelsefunktioner. Tjänsterna är indelade i olika kategorier för att hjälpa dig att hitta rätt tjänst. 
+[Cognitive Services](welcome.md) är en grupp tjänster, som var och en stöder olika, generaliserade förutsägelse funktioner. Tjänsterna är indelade i olika kategorier för att hjälpa dig att hitta rätt tjänst. 
 
-|Servicekategori|Syfte|
+|Tjänste kategori|Syfte|
 |--|--|
 |[Beslut](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|Skapa appar som ger rekommendationer för välinformerade och effektiva beslut.|
 |[Språk](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|Tillåt att dina appar behandlar naturligt språk med fördefinierade skript, utvärderar känslor och lär sig att känna igen vad användare vill.|
@@ -34,112 +34,112 @@ Cognitive Services tillhandahåller maskininlärningsfunktioner för att lösa a
 Använd Cognitive Services när du:
 
 * Kan använda en generaliserad lösning.
-* Åtkomstlösning från ett REST API eller SDK för programmering. 
+* Få åtkomst till lösningen från ett programmerings REST API eller SDK. 
 
-Använd en annan maskininlärningslösning när du:
+Använd en annan lösning för maskin inlärning när du:
 
-* Måste välja algoritmen och måste träna på mycket specifika data.
+* Du måste välja algoritmen och behöva träna på mycket information.
 
 ## <a name="what-is-machine-learning"></a>Vad är maskininlärning?
 
-Maskininlärning är ett koncept där du samlar data och en algoritm för att lösa ett specifikt behov. När data och algoritm har tränats är utdata en modell som du kan använda igen med olika data. Den tränade modellen ger insikter baserat på nya data. 
+Machine Learning är ett koncept där du kan samla data och en algoritm för att lösa ett särskilt behov. När data och algoritmen har tränats är utdata en modell som du kan använda igen med olika data. Den tränade modellen ger insikter som baseras på nya data. 
 
-Processen att bygga ett maskininlärningssystem kräver viss kunskap om maskininlärning eller datavetenskap.
+Processen för att skapa ett Machine Learning-system kräver viss kunskap om Machine Learning eller data vetenskap.
 
-Maskininlärning tillhandahålls med hjälp av [Azure Machine Learning (AML) produkter och tjänster](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context).
+Maskin inlärning tillhandahålls med hjälp av [Azure Machine Learning (AML)-produkter och-tjänster](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context).
 
 ## <a name="what-is-a-cognitive-service"></a>Vad är en kognitiv tjänst?
 
-En Cognitive Service tillhandahåller delar av eller alla komponenter i en maskininlärningslösning: data, algoritm och tränad modell. Dessa tjänster är avsedda att kräva allmän kunskap om dina data utan att behöva erfarenhet av maskininlärning eller datavetenskap. Dessa tjänster tillhandahåller både REST API och språkbaserade SDK:er. Därför måste du ha kunskaper i programmeringsspråk för att kunna använda tjänsterna.
+En kognitiv tjänst tillhandahåller delar av eller alla komponenter i en maskin inlärnings lösning: data, algoritm och tränad modell. Dessa tjänster är avsedda att kräva allmän kunskap om dina data utan att behöva uppleva maskin inlärning eller data vetenskap. Dessa tjänster tillhandahåller både REST API-och språkbaserade SDK: er. Därför måste du ha programmerings språk kunskap för att använda tjänsterna.
 
-## <a name="how-are-cognitive-services-and-azure-machine-learning-aml-similar"></a>Hur är Cognitive Services och Azure Machine Learning (AML) liknande?
+## <a name="how-are-cognitive-services-and-azure-machine-learning-aml-similar"></a>Hur ser Cognitive Services och Azure Machine Learning (AML) ut?
 
-Båda har slutmålet att tillämpa artificiell intelligens (AI) för att förbättra affärsverksamheten, men hur var och en tillhandahåller detta i respektive erbjudanden är olika. 
+Båda har slut målet att använda artificiell intelligens (AI) för att förbättra affärs verksamheten, men hur var och en ger dem i respektive erbjudanden är olika. 
 
-I allmänhet är publiken olika:
+I allmänhet är mål grupperna olika:
 
-* Cognitive Services är till för utvecklare utan maskininlärning.
-* Azure Machine Learning är skräddarsytt för datavetare. 
+* Cognitive Services är för utvecklare utan maskin inlärnings miljö.
+* Azure Machine Learning skräddarsys för data forskare. 
 
-## <a name="how-is-a-cognitive-service-different-from-machine-learning"></a>Hur skiljer sig en kognitiv tjänst från maskininlärning?
+## <a name="how-is-a-cognitive-service-different-from-machine-learning"></a>Hur skiljer sig en kognitiv tjänst från maskin inlärning?
 
-En cognitive service tillhandahåller en utbildad modell åt dig. Detta sammanför data och en algoritm, tillgängliga från ett REST API eller SDK. Du kan implementera den här tjänsten inom några minuter, beroende på ditt scenario.  En cognitivetjänst ger svar på allmänna problem, till exempel nyckelfraser i text- eller objektidentifiering i bilder. 
+En kognitiv tjänst tillhandahåller en tränad modell åt dig. Detta ger data och en algoritm tillsammans, som är tillgänglig från en REST API eller SDK. Du kan implementera den här tjänsten inom några minuter, beroende på ditt scenario.  En kognitiv tjänst ger svar på allmänna problem, till exempel nyckel fraser i text-eller objekt identifiering i bilder. 
 
-Maskininlärning är en process som i allmänhet kräver en längre tid för att implementera. Den här tiden går åt till datainsamling, rengöring, omvandling, algoritmval, modellutbildning och distribution för att komma till samma nivå av funktioner som tillhandahålls av en kognitiv tjänst. Med maskininlärning är det möjligt att ge svar på högspecialiserade och/eller specifika problem. Maskininlärningsproblem kräver förtrogenhet med det specifika ämnet och data om det aktuella problemet, samt expertis inom datavetenskap.
+Machine Learning är en process som vanligt vis kräver en längre tids period för att kunna implementeras. Den här tiden används för insamling, rensning, omvandling, val av algoritm, modell utbildning och distribution för att komma till samma funktions nivå som en kognitiv tjänst. Med Machine Learning är det möjligt att ge svar på mycket specialiserade och/eller specifika problem. Maskin inlärnings problem kräver att du känner till det speciella ämnet och data om problemet, samt kunskaper om data vetenskap.
 
 ## <a name="what-kind-of-data-do-you-have"></a>Vilken typ av data har du?
 
-Cognitive Services, som en grupp av tjänster, kan kräva ingen, vissa eller alla anpassade data för den tränade modellen. 
+Cognitive Services, som en grupp tjänster, kan kräva ingen, vissa eller alla anpassade data för den tränade modellen. 
 
-### <a name="no-additional-training-data-required"></a>Inga ytterligare utbildningsdata krävs
+### <a name="no-additional-training-data-required"></a>Inga ytterligare tränings data krävs
 
-Tjänster som tillhandahåller en fullt utbildad modell kan behandlas som en _svart låda_. Du behöver inte veta hur de fungerar eller vilka data som användes för att träna dem. Du tar dina data till en fullt utbildad modell för att få en förutsägelse. 
+Tjänster som tillhandahåller en fullständigt utbildad modell kan behandlas som en _svart ruta_. Du behöver inte känna till hur de fungerar eller vilka data som användes för att träna dem. Du hämtar dina data till en helt utbildad modell för att få en förutsägelse. 
 
-### <a name="some-or-all-training-data-required"></a>Vissa eller alla utbildningsdata krävs
+### <a name="some-or-all-training-data-required"></a>Vissa eller alla utbildnings data krävs
 
-Vissa tjänster kan du ta med egna data, sedan träna en modell. På så sätt kan du utöka modellen med hjälp av Tjänstens data och algoritm med dina egna data. Utdata matchar dina behov. När du tar med egna data kan du behöva tagga data på ett sätt som är specifikt för tjänsten. Till exempel, om du tränar en modell för att identifiera blommor, kan du ge en katalog över blomma bilder tillsammans med platsen för blomman i varje bild för att träna modellen. 
+Med vissa tjänster kan du ta med dina egna data och sedan träna en modell. På så sätt kan du utöka modellen med hjälp av tjänstens data och algoritm med dina egna data. Resultatet motsvarar dina behov. När du hämtar dina egna data kan du behöva tagga data på ett sätt som är särskilt för tjänsten. Om du till exempel tränar en modell för att identifiera blommor kan du ange en katalog med blomma-bilder tillsammans med den blommas plats i varje bild för att träna modellen. 
 
-En tjänst kan _tillåta_ dig att tillhandahålla data för att förbättra sina egna data. En tjänst kan _kräva_ att du tillhandahåller data. 
+En tjänst kan _göra det möjligt_ att tillhandahålla data för att förbättra sina egna data. En tjänst kan _kräva_ att du tillhandahåller data. 
 
-### <a name="real-time-or-near-real-time-data-required"></a>Realtidsdata eller nära realtidsdata som krävs
+### <a name="real-time-or-near-real-time-data-required"></a>Real tids-eller nästan real tids data krävs
 
-En tjänst kan behöva data i realtid eller i nära realtid för att skapa en effektiv modell. Dessa tjänster bearbetar betydande mängder modelldata. 
+En tjänst kan behöva real tids data eller nära real tids data för att bygga en effektiv modell. Dessa tjänster bearbetar betydande mängder modell data. 
 
-## <a name="service-requirements-for-the-data-model"></a>Servicekrav för datamodellen
+## <a name="service-requirements-for-the-data-model"></a>Tjänst krav för data modellen
 
-Följande data kategoriserar varje tjänst med vilken typ av data den tillåter eller kräver.
+Följande data kategoriserar varje tjänst enligt vilken typ av data den tillåter eller kräver.
 
-|Kognitiv tjänst|Inga utbildningsdata krävs|Du tillhandahåller vissa eller alla träningsdata|Datainsamling i realtid eller nära realtid|
+|Kognitiv tjänst|Inga tränings data krävs|Du anger några eller alla tränings data|Data insamling i real tid eller nästan i real tid|
 |--|--|--|--|
 |[Avvikelseidentifiering](./Anomaly-Detector/overview.md)|x|x|x|
 |Bing Search |x|||
-|[Datorseende](./Computer-vision/Home.md)|x|||
+|[Visuellt innehåll](./Computer-vision/Home.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Custom Vision](./Custom-Vision-Service/home.md)||x||
 |[Ansikte](./Face/Overview.md)|x|x||
 |[Formigenkänning](./form-recognizer/overview.md)||x||
 |[Avancerad läsare](./immersive-reader/overview.md)|x|||
 |[Handskriftsigenkänning](./Ink-recognizer/overview.md)|x|x||
-|[Språk understanding (LUIS)](./LUIS/what-is-luis.md)||x||
-|[Personanpassning](./personalizer/what-is-personalizer.md)|x*|x*|x|
+|[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
+|[Personanpassning](./personalizer/what-is-personalizer.md)|röntgen|röntgen|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
-|[Högtalare Recognizer](./speaker-recognition/home.md)||x||
+|[Högtalar tolk](./speaker-recognition/home.md)||x||
 |[Tal text till tal (TTS)](speech-service/text-to-speech.md)|x|x||
-|[Tal tal till text (STT)](speech-service/speech-to-text.md)|x|x||
+|[Tal-till-text (STT)](speech-service/speech-to-text.md)|x|x||
 |[Talöversättning](speech-service/speech-translation.md)|x|||
 |[Textanalys](./text-analytics/overview.md)|x|||
-|[Översättare Text](./translator/translator-info-overview.md)|x|||
-|[Översättare Text - anpassad översättare](./translator/custom-translator/overview.md)||x||
+|[Translator Text](./translator/translator-info-overview.md)|x|||
+|[Translator Text-anpassad översättare](./translator/custom-translator/overview.md)||x||
 
-*Personalizer behöver bara utbildningsdata som samlas in av tjänsten (eftersom den fungerar i realtid) för att utvärdera din policy och dina data. Personalizer behöver inte stora historiska datauppsättningar för up-front eller batch utbildning. 
+* Personanpassa behöver bara träna data som samlas in av tjänsten (som de fungerar i real tid) för att utvärdera din princip och dina data. En personanpassare behöver inte ha stora historiska data uppsättningar för utbildning i front-eller batch. 
 
 ## <a name="where-can-you-use-cognitive-services"></a>Var kan du använda Cognitive Services?
  
-Tjänsterna används i alla program som kan göra REST API eller SDK-anrop. Exempel på program är webbplatser, robotar, virtuell eller blandad verklighet, stationära och mobila applikationer. 
+Tjänsterna används i alla program som kan göra REST API-eller SDK-anrop. Exempel på program är Web Sites, robotar, Virtual eller Mixed Reality, Desktop-och Mobile-program. 
 
-## <a name="how-is-azure-cognitive-search-related-to-cognitive-services"></a>Hur är Azure Cognitive Search relaterat till Cognitive Services?
+## <a name="how-is-azure-cognitive-search-related-to-cognitive-services"></a>Hur är Azure Kognitiv sökning relaterat till Cognitive Services?
 
-[Azure Cognitive Search](../search/search-what-is-azure-search.md) är en separat molnsöktjänst som eventuellt använder Cognitive Services för att lägga till avbildnings- och bearbetning av naturligt språk för att indexera arbetsbelastningar. Cognitive Services exponeras i Azure Cognitive Search genom [inbyggda kunskaper](../search/cognitive-search-predefined-skills.md) som radbryter enskilda API:er. Du kan använda en kostnadsfri resurs för genomgångar, men planera att skapa och koppla en [fakturerbar resurs](../search/cognitive-search-attach-cognitive-services.md) för större volymer.
+[Azure kognitiv sökning](../search/search-what-is-azure-search.md) är en separat moln Sök tjänst som används för att använda Cognitive Services för att lägga till avbildning och naturlig språk bearbetning för att indexera arbets belastningar. Cognitive Services visas i Azure Kognitiv sökning via [inbyggda kunskaper](../search/cognitive-search-predefined-skills.md) som omsluter enskilda API: er. Du kan använda en kostnads fri resurs för genom gångar, men planera att skapa och koppla en [fakturerbar resurs](../search/cognitive-search-attach-cognitive-services.md) för större volymer.
 
 ## <a name="how-can-you-use-cognitive-services"></a>Hur kan du använda Cognitive Services?
 
-Varje tjänst innehåller information om dina data. Du kan kombinera tjänster tillsammans för att kedja lösningar som att konvertera tal (ljud) till text, översätta texten till många språk och sedan använda de översatta språken för att få svar från en kunskapsbas. Cognitive Services kan användas för att skapa intelligenta lösningar på egen hand, men de kan också kombineras med traditionella maskininlärningsprojekt för att komplettera modeller eller påskynda utvecklingsprocessen. 
+Varje tjänst ger information om dina data. Du kan kombinera tjänster tillsammans med lösningar som att konvertera tal (ljud) till text, översätta texten till flera språk och sedan använda de översatta språken för att få svar från en kunskaps bas. Även om Cognitive Services kan användas för att skapa intelligenta lösningar, kan de också kombineras med traditionella Machine Learning-projekt för att komplettera modeller eller påskynda utvecklings processen. 
 
-Cognitive Services som tillhandahåller exporterade modeller för andra verktygsverk:
+Cognitive Services som innehåller exporterade modeller för andra Machine Learning-verktyg:
 
-|Kognitiv tjänst|Modellinformation|
+|Kognitiv tjänst|Modell information|
 |--|--|
-|[Custom Vision](./custom-vision-service/home.md)|[Exportera](./Custom-Vision-Service/export-model-python.md) för Tensorflow för Android, CoreML för iOS11, ONNX för Windows ML|
+|[Custom Vision](./custom-vision-service/home.md)|[Exportera](./Custom-Vision-Service/export-model-python.md) för Tensorflow för Android, CoreML för IOS11, ONNX för Windows ml|
 
 ## <a name="learn-more"></a>Läs mer
 
-* [Arkitekturguide – Vilka är maskininlärningsprodukterna på Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
-* [Maskininlärning - Introduktion till djupinlärning kontra maskininlärning](../machine-learning/concept-deep-learning-vs-machine-learning.md)
+* [Arkitektur guide – vilka är Machine Learning-produkter på Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+* [Maskin inlärning – introduktion till djup inlärning jämfört med Machine Learning](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Skapa ditt Cognitive Service-konto i [Azure-portalen](cognitive-services-apis-create-account.md) eller med [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli).
-* Läs om hur du [autentiserar](authentication.md) till en kognitiv tjänst.
-* Använd [diagnostikloggning](diagnostic-logging.md) för problemidentifiering och felsökning. 
-* Distribuera en cognitivetjänst i en [Docker-behållare](cognitive-services-container-support.md).
-* Håll dig uppdaterad med [serviceuppdateringar](https://azure.microsoft.com/updates/?product=cognitive-services).
+* Skapa ett kognitivt tjänst konto i [Azure Portal](cognitive-services-apis-create-account.md) eller med [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli).
+* Lär dig hur du [autentiserar](authentication.md) till en kognitiv tjänst.
+* Använd [diagnostisk loggning](diagnostic-logging.md) för problem identifiering och fel sökning. 
+* Distribuera en kognitiv tjänst i en Docker- [behållare](cognitive-services-container-support.md).
+* Håll dig uppdaterad med [tjänst uppdateringar](https://azure.microsoft.com/updates/?product=cognitive-services).

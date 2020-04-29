@@ -1,7 +1,7 @@
 ---
-title: Sentimentanalys - LUIS
+title: Sentiment-analys – LUIS
 titleSuffix: Azure Cognitive Services
-description: Om Sentiment-analys har konfigurerats innehåller LUIS-json-svaret sentimentanalys.
+description: Om sentiment-analysen har kon figurer ATS innehåller LUIS JSON-svaret sentiment analys.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,23 +12,23 @@ ms.topic: reference
 ms.date: 10/22/2019
 ms.author: diberry
 ms.openlocfilehash: dee07859da97f76d9a2db3ccbb71ae74d8ff4846
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78270426"
 ---
 # <a name="sentiment-analysis"></a>Sentimentanalys
-Om Sentiment-analys har konfigurerats innehåller LUIS-json-svaret sentimentanalys. Läs mer om sentimentanalys i [dokumentationen till Text Analytics.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)
+Om sentiment-analysen har kon figurer ATS innehåller LUIS JSON-svaret sentiment analys. Läs mer om sentiment-analys i [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) -dokumentationen.
 
 
 ## <a name="resolution-for-sentiment"></a>Lösning för sentiment
 
-Sentimentdata är en poäng mellan 1 och 0 som anger den positiva (närmare 1) eller negativa (närmare 0) sentimentet för data.
+Sentiment-data är ett resultat mellan 1 och 0 som anger positiv (närmare 1) eller negativ (närmare 0) sentiment av data.
 
-#### <a name="english-language"></a>[Engelska språket](#tab/english)
+#### <a name="english-language"></a>[Engelskt språk](#tab/english)
 
-När kulturen `en-us`är är svaret:
+När kulturen är `en-us`är svaret:
 
 ```JSON
 "sentimentAnalysis": {
@@ -50,5 +50,5 @@ För alla andra kulturer är svaret:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 

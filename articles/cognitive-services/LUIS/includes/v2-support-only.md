@@ -1,5 +1,5 @@
 ---
-title: Funktioner som stöds i V2-slutpunkt för förutsägelse men som inte stöds i slutpunkten för V3-förutsägelse
+title: Funktioner som stöds i v2 förutsägelse slut punkt men som inte stöds i v3 förutsägelse slut punkt
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -9,11 +9,11 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: diberry
 ms.openlocfilehash: 11bedea1f6395d198c17a485ef6f8e45a4a53b52
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73499042"
 ---
 > [!Caution]
-> Den här funktionen stöds inte i V3 API för förutsägelseslutpunkter. 
+> Den här funktionen stöds inte i v3-API: et för förutsägelse slut punkter. 

@@ -1,7 +1,7 @@
 ---
-title: Suveräna moln - Taltjänst
+title: Suveräna moln – tal service
 titleSuffix: Azure Cognitive Services
-description: Läs om hur du använder suveräna moln
+description: Lär dig hur du använder suveräna moln
 services: cognitive-services
 author: cbasoglu
 manager: xdh
@@ -11,69 +11,69 @@ ms.topic: conceptual
 ms.date: 1/14/2020
 ms.author: cbasoglu
 ms.openlocfilehash: b41967033b00144ca5bd52ce23cf8aabcea6749e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78228083"
 ---
-# <a name="speech-services-with-sovereign-clouds"></a>Taltjänster med suveräna moln
+# <a name="speech-services-with-sovereign-clouds"></a>Tal tjänster med suveräna moln
 
-## <a name="azure-government-united-states"></a>Azure-regeringen (USA)
+## <a name="azure-government-united-states"></a>Azure Government (USA)
 
-Endast amerikanska federala, statliga, lokala och stamregeringar och deras partner har tillgång till denna dedikerade instans med operationer som kontrolleras av kontrollerade amerikanska medborgare.
-- Regioner: US Gov Virginia
-- SR i SpeechSDK:*config. FromHost("wss://virginia.stt.speech.azure.us",\<" your-key\>");*
-- TTS i SpeechSDK: *config. FromHost("https://virginia.tts.speech.azure.us",[]()"\<your-key\>");*
-- Autentiseringstoken: https[]()://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
-- Azure-portal:https://portal.azure.us  
-- Anpassad talportal:https://virginia.cris.azure.us/Home/CustomSpeech
-- Tillgängliga SKU:er: S0
+Endast amerikanska federala, statliga, lokala och stambaserad myndigheter och deras partner har till gång till den här dedikerade instansen med åtgärder som styrs av en kontrollerad USA-medborgare.
+- Regioner: US Gov, Virginia
+- SR i SpeechSDK:*config. FromHost ("WSS://Virginia.stt.Speech.Azure.us", "\<Your-Key\>");*
+- TTS i SpeechSDK: *config. FromHost ("https[]()://Virginia.TTS.Speech.Azure.us", "\<Your-Key\>");*
+- Autentiseringstoken: https[]()://Virginia.API.Cognitive.Microsoft.us/STS/v1.0/issueToken
+- Azure Portal:https://portal.azure.us  
+- Custom Speech Portal:https://virginia.cris.azure.us/Home/CustomSpeech
+- Tillgängliga SKU: er: S0
 - Funktioner som stöds:
   - Tal till text
-  - Anpassat tal (Akustisk/språkanpassning)
+  - Custom Speech (akustisk/språk anpassning)
   - Text till tal
-  - Talöversättare
+  - Tal översättare
 - Funktioner som inte stöds
   - Anpassad röst
-  - Neurala röster för Text-till-tal
-- Språk som stöds: Språk för följande språk stöds.
+  - Neurala röster för text till tal
+- Språk som stöds: språk för följande språk stöds.
   - Arabiska (ar-*)
   - Kinesiska (zh-*)
   - Engelska (en-*)
-  - Franska (fr-*)
+  - Franska (FR-*)
   - Tyska (de-*)
   - Hindi
   - Koreansk
   - Ryska
-  - Spanska (es-*)
+  - Spanska (ES-*)
 
 ## <a name="microsoft-azure-china"></a>Microsoft Azure Kina
 
-Finns i Kina, ett Azure-datacenter med direkt åtkomst till China Mobile, China Telecom, China Unicom och andra stora stamnät för operatörer, för kinesiska användare att tillhandahålla snabb och stabil lokal nätverksåtkomstupplevelse.
-- Regioner: China East 2 (Shanghai)
-- SR i SpeechSDK: *config. FromHost("wss://chinaeast2.stt.speech.azure.cn",\<" your-key\>");*
-- TTS i SpeechSDK: *config. FromHost("https[]()://chinaeast2.tts.speech.azure.cn", "\<your-key\>");*
-- Autentiseringstoken: https[]()://chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken
-- Azure-portal:https://portal.azure.cn
-- Anpassad talportal:https://speech.azure.cn/CustomSpeech
-- Tillgängliga SKU:er: S0
+I Kina är ett Azure-datacenter med direkt åtkomst till Kina, mobil, telekom, Kina, Unicom och andra större stamnät nätverk, för att kinesiska användare ska kunna tillhandahålla snabb och stabil lokal nätverks åtkomst.
+- Regioner: Kina, östra 2 (Shanghai)
+- SR i SpeechSDK: *config. FromHost ("WSS://chinaeast2.stt.Speech.Azure.cn", "\<Your-Key\>");*
+- TTS i SpeechSDK: *config. FromHost ("https[]()://chinaeast2.TTS.Speech.Azure.cn", "\<Your-Key\>");*
+- Autentiseringstoken: https[]()://chinaeast2.API.Cognitive.Azure.cn/STS/v1.0/issueToken
+- Azure Portal:https://portal.azure.cn
+- Custom Speech Portal:https://speech.azure.cn/CustomSpeech
+- Tillgängliga SKU: er: S0
 - Funktioner som stöds:
   - Tal till text
-  - Anpassat tal (Akustisk/språkanpassning)
+  - Custom Speech (akustisk/språk anpassning)
   - Text till tal
-  - Talöversättare
+  - Tal översättare
 - Funktioner som inte stöds
   - Anpassad röst
-  - Neurala röster för Text-till-tal
-- Språk som stöds: Språk för följande språk stöds.
+  - Neurala röster för text till tal
+- Språk som stöds: språk för följande språk stöds.
   - Arabiska (ar-*)
   - Kinesiska (zh-*)
   - Engelska (en-*)
-  - Franska (fr-*)
+  - Franska (FR-*)
   - Tyska (de-*)
   - Hindi
   - Koreansk
   - Ryska
-  - Spanska (es-*)
+  - Spanska (ES-*)
 

@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Ansluta till en anpassad kommandoapp med tal-SDK - Tal-tjänst'
+title: 'Snabb start: ansluta till en app med anpassade kommandon med tal SDK – tal service'
 titleSuffix: Azure Cognitive Services
-description: I den här artikeln ska du skapa ett Speech SDK-klientprogram med anpassade kommandon.
+description: I den här artikeln ska du skapa ett program för tal-SDK-klient med anpassade kommandon.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
@@ -11,61 +11,61 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
 ms.openlocfilehash: 9e324af0b90f595b5b7af2a417a562efb193d854
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76156785"
 ---
-# <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Snabbstart: Ansluta till ett anpassat kommandoprogram med Tal-SDK (förhandsversion)
+# <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Snabb start: ansluta till ett anpassat kommando program med talet SDK (för hands version)
 
-När du har skapat ett program för anpassade kommandon kan du börja prata med det från en klientenhet.
+När du har skapat ett program med anpassade kommandon kan du börja prata med det från en klient enhet.
 
-I den här artikeln ska du:
+I den här artikeln får du:
 
-- Publicera ett program för anpassade kommandon och hämta en programidentifierare (App-ID)
-- Skapa en klientapp med tal-SDK så att du kan prata med ditt program för anpassade kommandon
+- Publicera ett program för anpassade kommandon och hämta ett program-ID (app-ID)
+- Skapa ett klient program med hjälp av tal-SDK så att du kan prata med dina anpassade kommandon i programmet
 
 ## <a name="prerequisites"></a>Krav
 
-Ett program för anpassade kommandon krävs för att slutföra den här artikeln. Om du inte har skapat ett program för anpassade kommandon ännu kan du göra det i de tidigare snabbstarterna:
+Det krävs ett program med anpassade kommandon för att kunna slutföra den här artikeln. Om du inte har skapat ett program för anpassade kommandon än kan du göra det i dessa tidigare snabb starter:
 
-- [Snabbstart: Skapa ett anpassat kommando (förhandsgranskning)](./quickstart-custom-speech-commands-create-new.md)
-- [Snabbstart: Skapa ett anpassat kommando med parametrar (förhandsgranskning)](./quickstart-custom-speech-commands-create-parameters.md)
+- [Snabb start: skapa ett anpassat kommando (förhands granskning)](./quickstart-custom-speech-commands-create-new.md)
+- [Snabb start: skapa ett anpassat kommando med parametrar (förhands granskning)](./quickstart-custom-speech-commands-create-parameters.md)
 
 Du behöver också:
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- En Azure-prenumerationsnyckel för Taltjänster. [Skaffa en gratis](get-started.md) eller skapa den på [Azure-portalen](https://portal.azure.com)
+- En Azure-prenumerations nyckel för tal tjänster. [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com)
 
-## <a name="optional-get-started-fast"></a>Valfritt: Kom igång snabbt
+## <a name="optional-get-started-fast"></a>Valfritt: kom igång snabbt
 
-Den här snabbstarten beskriver steg för steg hur du gör ett klientprogram för att ansluta till appen Anpassade kommandon. Om du föredrar att dyka direkt i, den fullständiga, färdiga att kompilera källkod som används i `quickstart` den här snabbstarten är tillgänglig i [Tal SDK-exemplen](https://aka.ms/csspeech/samples) under mappen.
+I den här snabb starten beskrivs steg för steg hur du gör ett klient program att ansluta till din anpassade kommandon-app. Om du föredrar att använda den fullständiga käll koden för färdig att kompilera som används i den här snabb starten finns den i [exemplen för tal-SDK](https://aka.ms/csspeech/samples) under `quickstart` mappen.
 
-## <a name="step-1-publish-custom-commands-application"></a>Steg 1: Publicera programmet Anpassade kommandon
+## <a name="step-1-publish-custom-commands-application"></a>Steg 1: publicera anpassade kommandon-program
 
-1. Öppna ditt [tidigare skapade program för anpassade kommandon](./quickstart-custom-speech-commands-create-new.md) och välj **Publicera**
+1. Öppna dina [tidigare skapade program för anpassade kommandon](./quickstart-custom-speech-commands-create-new.md) och välj **publicera**
 
    > [!div class="mx-imgBorder"]
    > ![Publicera programmet](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
-1. Kopiera app-ID:et från publiceringsmeddelandet för senare användning
+1. Kopiera app-ID: t från publicerings meddelandet för senare användning
 
-## <a name="step-2-create-a-visual-studio-project"></a>Steg 2: Skapa ett Visual Studio-projekt
+## <a name="step-2-create-a-visual-studio-project"></a>Steg 2: skapa ett Visual Studio-projekt
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
 
-## <a name="step-3-add-sample-code"></a>Steg 3: Lägg till exempelkod
+## <a name="step-3-add-sample-code"></a>Steg 3: Lägg till exempel kod
 
-I det här steget lägger vi till XAML-koden som definierar programmets användargränssnitt och lägger till C#-implementeringen med bakom-kod.
+I det här steget lägger vi till XAML-koden som definierar användar gränssnittet för programmet och lägger till koden för C#-bakomliggande implementering.
 
 ### <a name="xaml-code"></a>XAML-kod
 
-Skapa programmets användargränssnitt genom att lägga till XAML-koden.
+Skapa programmets användar gränssnitt genom att lägga till XAML-koden.
 
-1. Öppna Solution Explorer i **Solution Explorer**`MainPage.xaml`
+1. I **Solution Explorer**öppnar du`MainPage.xaml`
 
-1. I designerns XAML-vy ersätter du hela innehållet med följande kodavsnitt:
+1. I designerns XAML-vy ersätter du hela innehållet med följande kodfragment:
 
    ```xml
    <Page
@@ -112,22 +112,22 @@ Skapa programmets användargränssnitt genom att lägga till XAML-koden.
    </Page>
    ```
 
-Designvyn uppdateras för att visa programmets användargränssnitt.
+Vyn Design uppdateras för att Visa programmets användar gränssnitt.
 
-### <a name="c-code-behind-source"></a>C# bakom-källkod källa
+### <a name="c-code-behind-source"></a>C#-källkod – bakom källa
 
-Lägg till den bakomgående kodenkällan så att programmet fungerar som förväntat. Den bakomgående källkoden innehåller:
+Lägg till källa för bakomliggande kod så att programmet fungerar som förväntat. Källan för bakomliggande kod innehåller:
 
-- Obligatoriska `using` satser `Speech` `Speech.Dialog` för och namnområden
-- Ett enkelt genomförande för att säkerställa mikrofonåtkomst, kopplad till en knapphanterare
-- Grundläggande gränssnittshjälpare för att presentera meddelanden och fel i programmet
-- En landningsplats för initieringskodsökvägen som ska fyllas i senare
-- En hjälpare att spela upp text-till-tal (utan stöd för direktuppspelning)
-- En tom knapphanterare för att börja lyssna som kommer att fyllas i senare
+- Obligatoriska `using` instruktioner för namn `Speech` områdena `Speech.Dialog` och
+- En enkel implementering för att säkerställa mikrofon åtkomst, kabelansluten till en knapp hanterare
+- Grundläggande användar gränssnitt hjälper dig att presentera meddelanden och fel i programmet
+- En landnings punkt för den initierings kod Sök väg som kommer att fyllas i senare
+- En hjälpare som kan spela upp text till tal (utan strömnings stöd)
+- En tom knapp hanterare för att starta lyssningen som kommer att fyllas i senare
 
-Lägg till den bakomföljande källkoden enligt följande:
+Lägg till koden bakom källan enligt följande:
 
-1. Öppna den bakomgående källfilen `MainPage.xaml.cs` för bakomkod `MainPage.xaml`(grupperad under ) i **Solution Explorer**
+1. Öppna **Solution Explorer**käll filen `MainPage.xaml.cs` bakomliggande kod i Solution Explorer (grupperad under `MainPage.xaml`)
 
 1. Ersätt filens innehåll med följande kod:
 
@@ -299,7 +299,7 @@ Lägg till den bakomföljande källkoden enligt följande:
    }
    ```
 
-1. Lägg till följande kod i metodtexten`InitializeDialogServiceConnector`
+1. Lägg till följande kod i metod texten i`InitializeDialogServiceConnector`
 
    ```csharp
    // This code creates the `DialogServiceConnector` with your subscription information.
@@ -314,9 +314,9 @@ Lägg till den bakomföljande källkoden enligt följande:
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```
 
-1. Ersätt strängarna `YourApplicationId` `YourSpeechSubscriptionKey`, `YourServiceRegion` och med dina egna värden för din app, ta-prenumeration och [region](regions.md)
+1. Ersätt strängarna `YourApplicationId`, `YourSpeechSubscriptionKey`och `YourServiceRegion` med dina egna värden för din app, tal prenumeration och [region](regions.md)
 
-1. Lägg till följande kodavsnitt i slutet av metodtexten`InitializeDialogServiceConnector`
+1. Lägg till följande kodfragment i slutet av metod texten i`InitializeDialogServiceConnector`
 
    ```csharp
    //
@@ -374,7 +374,7 @@ Lägg till den bakomföljande källkoden enligt följande:
    };
    ```
 
-1. Lägga till följande kodavsnitt i `ListenButton_ButtonClicked` metodens brödtext i klassen `MainPage`
+1. Lägg till följande kodfragment i bröd texten i- `ListenButton_ButtonClicked` metoden i-klassen `MainPage`
 
    ```csharp
    // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and
@@ -398,24 +398,24 @@ Lägg till den bakomföljande källkoden enligt följande:
    }
    ```
 
-1. På menyraden väljer du**Spara alla** **för** > att spara ändringarna
+1. Välj **Arkiv** > **Spara alla** på Meny raden för att spara ändringarna
 
 ## <a name="build-and-run-the-application"></a>Skapa och kör appen
 
-1. Välj **Bygg** > **bygglösning på** menyraden för att skapa programmet. Koden ska kompileras utan fel.
+1. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden ska kompileras utan fel.
 
-1. Välj **Felsökning** > **Avsökstarts felsökning** (eller tryck på **F5**) för att starta programmet. **Helloworld fönstret** visas.
+1. Starta programmet genom att välja **Felsök** > **Starta fel sökning** (eller tryck på **F5**). Fönstret **HelloWorld** visas.
 
-   ![Exempel på UWP-program för virtuell assistent i C# - snabbstart](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
+   ![Exempel på UWP Virtual Assistant-program i C#-snabb start](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
-1. Välj **Aktivera mikrofon**. Om åtkomstbehörighetsbegäran dyker upp väljer du **Ja**.
+1. Välj **aktivera mikrofon**. Välj **Ja**om åtkomst behörighets förfrågan öppnas.
 
-   ![Begäran om åtkomstbehörighet för mikrofon](media/sdk/qs-csharp-uwp-10-access-prompt.png)
+   ![Åtkomst behörighets förfrågan för mikrofon](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. Välj **Prata**och tala en engelsk fras eller mening i enhetens mikrofon. Ditt tal överförs till direktlinjetalskanalen och transkriberas till text, som visas i fönstret.
+1. Välj **prata**och tala en engelsk fras eller mening i enhetens mikrofon. Ditt tal överförs till den direkta linjens tal kanal och skrivs till text, som visas i fönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Så här fyller du kommandon på klienten med tal-SDK (förhandsgranskning)](./how-to-custom-speech-commands-fulfill-sdk.md)
-> [Så här lägger du till valideringar i parametrar för anpassat kommando (förhandsversion)](./how-to-custom-speech-commands-validations.md)
+> [Gör så här: utföra kommandon på klienten med talet SDK (för hands version)](./how-to-custom-speech-commands-fulfill-sdk.md)
+> gör så[här: Lägg till valideringar i anpassade kommando parametrar (för hands version)](./how-to-custom-speech-commands-validations.md)

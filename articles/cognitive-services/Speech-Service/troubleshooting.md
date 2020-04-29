@@ -1,7 +1,7 @@
 ---
-title: Felsöka tal-SDK - Taltjänsten
+title: Felsöka talet SDK-tal-tjänsten
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller information som hjälper dig att lösa problem som kan uppstå när du använder Tal-SDK.
+description: Den här artikeln innehåller information som hjälper dig att lösa problem som kan uppstå när du använder tal-SDK.
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -11,42 +11,42 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.openlocfilehash: 421b9adf4ae5d2c641484e646bea096716d46cca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74815407"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Felsöka Speech SDK
 
-Den här artikeln innehåller information som hjälper dig att lösa problem som kan uppstå när du använder Tal-SDK.
+Den här artikeln innehåller information som hjälper dig att lösa problem som kan uppstå när du använder tal-SDK.
 
 ## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Fel: WebSocket-uppgraderingen misslyckades med ett autentiseringsfel (403)
 
-Du kan ha fel slutpunkt för din region eller tjänst. Kontrollera uri:n för att kontrollera att den är korrekt.
+Du kanske har fel slut punkt för din region eller tjänst. Kontrol lera URI: n för att kontrol lera att den är korrekt.
 
-Det kan också vara problem med din prenumerationsnyckel eller auktoriseringstoken. Mer information finns i nästa avsnitt.
+Det kan också finnas ett problem med din prenumerations nyckel eller autentiseringstoken. Mer information finns i nästa avsnitt.
 
-## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Fel: HTTP 403 Förbjuden eller HTTP 401 Obehörig
+## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Fel: HTTP 403 förbud eller HTTP 401 obehörig
 
-Det här felet orsakas ofta av autentiseringsproblem. Anslutningsbegäranden `Ocp-Apim-Subscription-Key` utan `Authorization` giltigt eller huvud avvisas med statusen 403 eller 401.
+Det här felet beror ofta på autentiseringsproblem. Anslutnings begär Anden utan giltig `Ocp-Apim-Subscription-Key` eller `Authorization` rubrik avvisas med statusen 403 eller 401.
 
-* Om du använder en prenumerationsnyckel för autentisering kan felet visas eftersom:
+* Om du använder en prenumerations nyckel för autentisering kan du se felet på grund av följande:
 
-    - Prenumerationsnyckeln saknas eller är ogiltig
-    - Du har överskridit din prenumerations användningskvot
+    - Prenumerations nyckeln saknas eller är ogiltig
+    - Du har överskridit din prenumerations användnings kvot
 
-* Om du använder en auktoriseringstoken för autentisering kan felet visas eftersom:
+* Om du använder en autentiseringstoken för autentisering kan du se felet på grund av följande:
 
-    - Auktoriseringstoken är ogiltig
-    - Auktoriseringstoken har upphört att gälla
+    - Autentiseringstoken är ogiltig
+    - Autentiseringstoken har upphört att gälla
 
-### <a name="validate-your-subscription-key"></a>Validera din prenumerationsnyckel
+### <a name="validate-your-subscription-key"></a>Verifiera din prenumerations nyckel
 
-Du kan kontrollera att du har en giltig prenumerationsnyckel genom att köra något av följande kommandon.
+Du kan kontrol lera att du har en giltig prenumerations nyckel genom att köra något av följande kommandon.
 
 > [!NOTE]
-> Ersätt `YOUR_SUBSCRIPTION_KEY` `YOUR_REGION` och med din egen prenumerationsnyckel och associerade region.
+> Ersätt `YOUR_SUBSCRIPTION_KEY` och `YOUR_REGION` med din egen prenumerations nyckel och tillhör ande region.
 
 * PowerShell
 
@@ -66,14 +66,14 @@ Du kan kontrollera att du har en giltig prenumerationsnyckel genom att köra nå
     curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
-Om du har angett en giltig prenumerationsnyckel returnerar kommandot en auktoriseringstoken, annars returneras ett fel.
+Om du har angett en giltig prenumerations nyckel returnerar kommandot en autentiseringstoken, annars returneras ett fel.
 
-### <a name="validate-an-authorization-token"></a>Verifiera en auktoriseringstoken
+### <a name="validate-an-authorization-token"></a>Verifiera en autentiseringstoken
 
-Om du använder en auktoriseringstoken för autentisering kör du något av följande kommandon för att kontrollera att auktoriseringstoken fortfarande är giltig. Tokens är giltiga i 10 minuter.
+Om du använder en autentiseringstoken för autentisering kan du köra ett av följande kommandon för att kontrol lera att autentiseringstoken fortfarande är giltig. Token är giltiga i 10 minuter.
 
 > [!NOTE]
-> Ersätt `YOUR_AUDIO_FILE` med sökvägen till den förinspelade ljudfilen. Ersätt `YOUR_ACCESS_TOKEN` med auktoriseringstoken som returnerades i föregående steg. Ersätt `YOUR_REGION` med rätt region.
+> Ersätt `YOUR_AUDIO_FILE` med sökvägen till den förspelade ljud filen. Ersätt `YOUR_ACCESS_TOKEN` med den autentiseringstoken som returnerades i föregående steg. Ersätt `YOUR_REGION` med rätt region.
 
 * PowerShell
 
@@ -103,26 +103,26 @@ Om du använder en auktoriseringstoken för autentisering kör du något av föl
     curl -v -X POST "https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
     ```
 
-Om du har angett en giltig auktoriseringstoken returneras transkriptionen för ljudfilen, annars returneras ett fel.
+Om du har angett en giltig autentiseringstoken returnerar kommandot avskriften för ljud filen, annars returneras ett fel.
 
 ---
 
 ## <a name="error-http-400-bad-request"></a>Fel: HTTP 400 Felaktig begäran
 
-Det här felet uppstår vanligtvis när begäranden innehåller ogiltiga ljuddata. Endast WAV-format stöds. Kontrollera också begärans rubriker för att se till `Content-Type` att `Content-Length`du anger lämpliga värden för och .
+Det här felet uppstår vanligt vis när begär ande texten innehåller ogiltiga ljud data. Det finns endast stöd för WAV-format. Kontrol lera också begärans rubriker för att se till att du anger lämpliga värden `Content-Type` för `Content-Length`och.
 
-## <a name="error-http-408-request-timeout"></a>Fel: TIMEOUT FÖR BEGÄRAN OM HTTP 408
+## <a name="error-http-408-request-timeout"></a>Fel: tids gräns för HTTP 408-begäran
 
-Felet uppstår troligen eftersom inga ljuddata skickas till tjänsten. Det här felet kan också orsakas av nätverksproblem.
+Felet beror förmodligen på att inga ljud data skickas till tjänsten. Felet kan också bero på nätverks problem.
 
 ## <a name="recognitionstatus-in-the-response-is-initialsilencetimeout"></a>"RecognitionStatus" i svaret är "InitialSilenceTimeout"
 
-Det här problemet orsakas vanligtvis av ljuddata. Det här felet kan visas eftersom:
+Det här problemet beror vanligt vis på ljuddata. Du kan se det här felet på grund av följande:
 
-* Det är en lång sträcka av tystnad i början av ljudet. I så fall stoppar tjänsten igenkänningen `InitialSilenceTimeout`efter några sekunder och returnerar .
+* Det finns en lång utsträckning av tystnads tiden i början av ljudet. I så fall stoppar tjänsten igenkänningen efter några sekunder och returnerar `InitialSilenceTimeout`.
 
-* Ljudet använder ett codec-format som inte stöds, vilket gör att ljuddata behandlas som tystnad.
+* Ljudet använder ett codec-format som inte stöds, vilket gör att ljud data behandlas som tystnad.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Granska viktig information](releasenotes.md)
+* [Läs viktig information](releasenotes.md)

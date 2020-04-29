@@ -1,7 +1,7 @@
 ---
-title: Så här anger du en identifieringsmodell - Face
+title: Så här anger du en identifierings modell – FACET
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln visar hur du väljer vilken ansiktsidentifieringsmodell som ska användas med ditt Azure Face-program.
+description: I den här artikeln visas hur du kan välja vilken ansikts identifierings modell som ska användas med ditt Azure-ansikts program.
 services: cognitive-services
 author: yluiu
 manager: nitinme
@@ -11,54 +11,54 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
 ms.openlocfilehash: 40ca1dbf981c5a9025cf5a0bac6b007709d69a77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76934580"
 ---
 # <a name="specify-a-face-detection-model"></a>Ange en ansiktsavkänningsmodell
 
-Den här guiden visar hur du anger en ansiktsidentifieringsmodell för Azure Face-tjänsten.
+Den här guiden visar hur du anger en ansikts identifierings modell för Azure Face service.
 
-Face-tjänsten använder maskininlärningsmodeller för att utföra åtgärder på mänskliga ansikten i bilder. Vi fortsätter att förbättra noggrannheten i våra modeller baserat på feedback från kunder och framsteg inom forskning, och vi levererar dessa förbättringar som modelluppdateringar. Utvecklare har möjlighet att ange vilken version av ansiktsidentifieringsmodellen de vill använda. de kan välja den modell som bäst passar deras användningsfall.
+Ansikts tjänsten använder maskin inlärnings modeller för att utföra åtgärder på mänskliga ansikten i bilder. Vi fortsätter att förbättra noggrannheten i våra modeller baserat på kundfeedback och framsteg i forskningen, och vi levererar dessa förbättringar som modell uppdateringar. Utvecklare har möjlighet att ange vilken version av ansikts identifierings modellen som de vill använda. de kan välja den modell som passar bäst för deras användnings fall.
 
-Läs vidare om du vill lära dig hur du anger ansiktsigenkänningsmodellen i vissa ansiktsoperationer. Face-tjänsten använder ansiktsigenkänning när den konverterar en bild av ett ansikte till någon annan form av data.
+Läs vidare om du vill lära dig att ange ansikts igenkännings modellen i vissa ansikts åtgärder. Ansikts tjänsten använder ansikts igenkänning när den konverterar en bild av en ansikte till en annan typ av data.
 
-Om du är osäker på om du ska använda den senaste modellen går du till avsnittet [Utvärdera olika modeller](#evaluate-different-models) för att utvärdera den nya modellen och jämföra resultat med hjälp av den aktuella datauppsättningen.
+Om du inte är säker på om du ska använda den senaste modellen kan du gå till avsnittet [utvärdera olika modeller](#evaluate-different-models) för att utvärdera den nya modellen och jämföra resultat med din aktuella data uppsättning.
 
 ## <a name="prerequisites"></a>Krav
 
-Du bör känna till begreppet AI ansiktsigenkänning. Om du inte är det läser du konceptguiden för ansiktsigenkänning eller vägledningen:
+Du bör känna till begreppet AI ansikts igenkänning. Om du inte gör det, se rikt linjer för ansikts igenkänning eller instruktions guide:
 
-* [Begrepp för ansiktsigenkänning](../concepts/face-detection.md)
-* [Så här identifierar du ansikten i en bild](HowtoDetectFacesinImage.md)
+* [Koncept för ansikts igenkänning](../concepts/face-detection.md)
+* [Identifiera ansikten i en bild](HowtoDetectFacesinImage.md)
 
 ## <a name="detect-faces-with-specified-model"></a>Identifiera ansikten med angiven modell
 
-Ansiktsigenkänning hittar markeringsramens platser för mänskliga ansikten och identifierar deras visuella landmärken. Den extraherar ansiktets funktioner och lagrar dem för senare användning i [erkännande](../concepts/face-recognition.md) operationer.
+Ansikts igenkänning hittar de platser som är riktade mot de mänskliga ansikten och identifierar deras visuella landmärken. Den extraherar ansiktenas funktioner och lagrar dem för senare användning i [igenkännings](../concepts/face-recognition.md) åtgärder.
 
-När du använder [API:et Face - Detect] `detectionModel` kan du tilldela modellversionen till parametern. De tillgängliga värdena är:
+När du använder API: t för [ansikts igenkänning] kan du tilldela modell versionen till- `detectionModel` parametern. De tillgängliga värdena är:
 
 * `detection_01`
 * `detection_02`
 
-En url för begäran för [Face - Detect] REST API kommer att se ut så här:
+En fråge-URL för [ansikts igenkännings] REST API ser ut så här:
 
 `https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel][&detectionModel]&subscription-key=<Subscription key>`
 
-Om du använder klientbiblioteket kan du `detectionModel` tilldela värdet för genom att skicka in en lämplig sträng. Om du lämnar det otilldelat kommer API:et`detection_01`att använda standardmodellversionen ( ). Se följande kodexempel för .NET-klientbiblioteket.
+Om du använder klient biblioteket kan du tilldela värdet för `detectionModel` genom att skicka i en lämplig sträng. Om du lämnar den otilldelad, används standard modell versionen (`detection_01`) för API: et. Se följande kod exempel för .NET-klient biblioteket.
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_02", detectionModel: "detection_02");
 ```
 
-## <a name="add-face-to-person-with-specified-model"></a>Lägga till ansikte till person med angiven modell
+## <a name="add-face-to-person-with-specified-model"></a>Lägg till ansikte till person med angiven modell
 
-Face-tjänsten kan extrahera ansiktsdata från en bild och associera den med ett **personobjekt** via [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API. I det här API-anropet kan du ange identifieringsmodellen på samma sätt som i [Face - Detect].
+Ansikts tjänsten kan extrahera ansikts data från en avbildning och koppla den till ett **person** objekt via [PersonGroup-personen – Lägg till ansikts](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) -API. I det här API-anropet kan du ange identifierings modellen på samma sätt som i [ansikts igenkänning].
 
-Se följande kodexempel för .NET-klientbiblioteket.
+Se följande kod exempel för .NET-klient biblioteket.
 
 ```csharp
 // Create a PersonGroup and add a person with face detected by "detection_02" model
@@ -71,14 +71,14 @@ string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
 ```
 
-Den här koden skapar en `mypersongroupid` **persongrupp** med ID och lägger till en **person** i den. Sedan lägger ett **Person** ansikte till `detection_02` denna person med hjälp av modellen. Om du inte anger parametern *detectionModel* används standardmodellen `detection_01`.
+Den här koden skapar en **PersonGroup** med `mypersongroupid` ID och lägger till en **person** till den. Sedan lägger den till en ansikte till **Person** den här personen `detection_02` med hjälp av modellen. Om du inte anger parametern *detectionModel* använder API: n standard modellen `detection_01`.
 
 > [!NOTE]
-> Du behöver inte använda samma identifieringsmodell för alla ansikten i ett **personobjekt,** och du behöver inte använda samma identifieringsmodell när du upptäcker nya ansikten för att jämföra med ett **personobjekt** (till exempel i [ansikts- identifiera] API).
+> Du behöver inte använda samma identifierings modell för alla ansikten i ett **person** objekt, och du behöver inte använda samma identifierings modell när du identifierar nya ytor som ska jämföras med ett **person** objekt (till exempel i API: t för [ansikts] igenkänning).
 
-## <a name="add-face-to-facelist-with-specified-model"></a>Lägga till ansikte i FaceList med angiven modell
+## <a name="add-face-to-facelist-with-specified-model"></a>Lägg till ansikte i FaceList med angiven modell
 
-Du kan också ange en identifieringsmodell när du lägger till ett ansikte i ett befintligt **FaceList-objekt.** Se följande kodexempel för .NET-klientbiblioteket.
+Du kan också ange en identifierings modell när du lägger till ett ansikte i ett befintligt **FaceList** -objekt. Se följande kod exempel för .NET-klient biblioteket.
 
 ```csharp
 await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
@@ -87,31 +87,31 @@ string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");
 ```
 
-Den här koden skapar `My face collection` en **FaceList** som anropas och lägger till ett ansikte i den `detection_02` med modellen. Om du inte anger parametern *detectionModel* används standardmodellen `detection_01`.
+Den här koden skapar **FaceList** en FaceList `My face collection` som anropas och lägger till en ansikte `detection_02` till den med modellen. Om du inte anger parametern *detectionModel* använder API: n standard modellen `detection_01`.
 
 > [!NOTE]
-> Du behöver inte använda samma identifieringsmodell för alla ansikten i ett **FaceList-objekt,** och du behöver inte använda samma identifieringsmodell när du upptäcker nya ansikten för att jämföra med ett **FaceList-objekt.**
+> Du behöver inte använda samma identifierings modell för alla ansikten i ett **FaceList** -objekt, och du behöver inte använda samma identifierings modell när du identifierar nya ytor som ska jämföras med ett **FaceList** -objekt.
 
 ## <a name="evaluate-different-models"></a>Utvärdera olika modeller
 
-De olika ansiktsidentifieringsmodellerna är optimerade för olika uppgifter. Se följande tabell för en översikt över skillnaderna.
+Olika ansikts identifierings modeller är optimerade för olika uppgifter. I följande tabell visas en översikt över skillnaderna.
 
 |**detection_01**  |**detection_02**  |
 |---------|---------|
-|Standardval för alla ansiktsidentifieringsåtgärder. | Släpptes i maj 2019 och finns som tillval i alla ansiktsigenkänningsåtgärder.
-|Inte optimerad för små, sidovyer eller suddiga ytor.  | Förbättrad noggrannhet på små, sidovyer och suddiga ytor. |
-|Returnerar ansiktsattribut (huvud pose, ålder, känslor och så vidare) om de anges i upptäcka samtalet. |  Returnerar inte ansiktsattribut.     |
-|Returnerar face landmärken om de anges i identifieringsanropet.   | Returnerar inte ansikte landmärken.  |
+|Standard val för alla ansikts identifierings åtgärder. | Släpps i maj 2019 och tillgängligt eventuellt i alla ansikts identifierings åtgärder.
+|Inte optimerat för små, sido visning eller suddiga ansikten.  | Förbättrad noggrannhet för små, sido visning och suddiga ansikten. |
+|Returnerar ansikts attribut (Head-attityd, ålder, känslo och så vidare) om de anges i identifiera anropet. |  Returnerar inte ansikts-attribut.     |
+|Returnerar ansikts landmärken om de anges i identifiera anropet.   | Returnerar inte ansikts landmärken.  |
 
-Det bästa sättet att jämföra `detection_01` `detection_02` prestanda och modeller är att använda dem på ett urval datauppsättning. Vi rekommenderar att du anropar [Face - Detect] API på en mängd olika bilder, särskilt bilder av många ansikten eller ansikten som är svåra att se, med hjälp av varje identifieringsmodell. Var uppmärksam på antalet ansikten som varje modell returnerar.
+Det bästa sättet att jämföra prestanda för- `detection_01` och `detection_02` -modeller är att använda dem i en exempel data uppsättning. Vi rekommenderar att du anropar API: t för [ansikts igenkänning] på olika avbildningar, särskilt bilder av många ansikten eller ansikten som är svåra att se, med varje identifierings modell. Var uppmärksam på antalet ansikten som varje modell returnerar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln fick du lära dig hur du anger identifieringsmodellen som ska användas med olika Face API:er. Följ sedan en snabbstart för att komma igång med ansiktsigenkänning.
+I den här artikeln har du lärt dig hur du anger vilken identifierings modell som ska användas med olika ansikts-API: er. Följ sedan en snabb start för att komma igång med ansikts igenkänning.
 
-* [Vänd mot .NET SDK](../Quickstarts/csharp-sdk.md)
-* [Ansikte Python SDK](../Quickstarts/python-sdk.md)
-* [Ansikte Gå SDK](../Quickstarts/go-sdk.md)
+* [Ansikte .NET SDK](../Quickstarts/csharp-sdk.md)
+* [Ansikts python SDK](../Quickstarts/python-sdk.md)
+* [Ansikte go SDK](../Quickstarts/go-sdk.md)
 
 [Ansiktsigenkänning – Känna igen]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

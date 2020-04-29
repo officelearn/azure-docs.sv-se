@@ -1,7 +1,7 @@
 ---
-title: Geografi V2 fördefinierad enhet - LUIS
+title: Fördefinierad entitet för geografi v2 – LUIS
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller geografiV2 fördefinierad entitetsinformation i Language Understanding (LUIS).
+description: Den här artikeln innehåller geographyV2 för inbyggd entitet i Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,36 +12,36 @@ ms.topic: reference
 ms.date: 10/04/2019
 ms.author: diberry
 ms.openlocfilehash: b2b2b0781abce59628660b669f43110bf91b15e6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78273498"
 ---
-# <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>GeografiV2 fördefinierad entitet för en LUIS-app
-Den fördefinierade geografiV2 entiteten identifierar platser. Eftersom den här entiteten redan har tränats behöver du inte lägga till exempelyttranden som innehåller GeographyV2 i programavsikterna. GeographyV2 enhet stöds i engelsk [kultur](luis-reference-prebuilt-entities.md).
+# <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>GeographyV2-fördefinierad entitet för en LUIS-app
+Den färdiga geographyV2-entiteten identifierar platser. Eftersom entiteten redan har tränats behöver du inte lägga till exempel yttranden som innehåller GeographyV2 till program avsikterna. GeographyV2-entiteten stöds i engelsk [kultur](luis-reference-prebuilt-entities.md).
 
 ## <a name="subtypes"></a>Undertyper
-De geografiska platserna har undertyper:
+De geografiska platserna har under typer:
 
-|Subtyp|Syfte|
+|Undertyp|Syfte|
 |--|--|
-|`poi`|intressepunkt|
-|`city`|namn på staden|
+|`poi`|orienterings punkt|
+|`city`|Orts namn|
 |`countryRegion`|namn på land eller region|
-|`continent`|namnet på kontinenten|
-|`state`|namn på stat eller provins|
+|`continent`|namn på kontinent|
+|`state`|namn på delstat eller provins|
 
 
-## <a name="resolution-for-geographyv2-entity"></a>Lösning för geographyV2-entitet
+## <a name="resolution-for-geographyv2-entity"></a>Lösning för GeographyV2-entitet
 
-Följande entitetsobjekt returneras för frågan:
+Följande enhets objekt returneras för frågan:
 
 `Carol is visiting the sphinx in gizah egypt in africa before heading to texas.`
 
 #### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
-Följande JSON är `verbose` med parametern inställd `false`på:
+Följande JSON- `verbose` parameter har angetts till `false`:
 
 ```json
 "entities": {
@@ -70,11 +70,11 @@ Följande JSON är `verbose` med parametern inställd `false`på:
 }
 ```
 
-I föregående JSON, `poi` är en förkortning för **Point of Interest**.
+I föregående JSON `poi` är en förkortning för **orienterings punkt**.
 
-#### <a name="v3-verbose-response"></a>[V3-verbos respons](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
 
-Följande JSON är `verbose` med parametern inställd `true`på:
+Följande JSON- `verbose` parameter har angetts till `true`:
 
 ```json
 "entities": {
@@ -163,7 +163,7 @@ Följande JSON är `verbose` med parametern inställd `true`på:
 ```
 #### <a name="v2-response"></a>[V2-svar](#tab/V2)
 
-I följande exempel visas upplösningen för den **builtin.geographyV2-entiteten.**
+I följande exempel visas upplösningen för entiteten **Builtin. geographyV2** .
 
 ```json
 "entities": [
@@ -209,6 +209,6 @@ I följande exempel visas upplösningen för den **builtin.geographyV2-entiteten
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-Läs mer om [e-post,](luis-reference-prebuilt-email.md) [nummer](luis-reference-prebuilt-number.md)och [ordningstal.](luis-reference-prebuilt-ordinal.md)
+Lär dig mer om entiteterna [e-post](luis-reference-prebuilt-email.md), [nummer](luis-reference-prebuilt-number.md)och [ordnings tal](luis-reference-prebuilt-ordinal.md) .

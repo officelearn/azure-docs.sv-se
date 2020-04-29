@@ -1,7 +1,7 @@
 ---
-title: Procentuell fördefinierad entitet - LUIS
+title: Fördefinierad enhet i procent – LUIS
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller procentuell fördefinierad entitetsinformation i Language Understanding (LUIS).
+description: Den här artikeln innehåller fördefinierad enhets information i procent i Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,27 +12,27 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: 31ea1c36139abcb1e102161ad76a203073ba4dfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78270500"
 ---
-# <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Procentuell fördefinierad entitet för en LUIS-app
-Procentuella tal kan `3 1/2`visas som bråk, eller i `2%`procent. Eftersom den här entiteten redan har tränats behöver du inte lägga till exempelyttranden som innehåller procent till programavsikterna. Procentigentitet stöds i [många kulturer](luis-reference-prebuilt-entities.md).
+# <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Fördefinierad procent andel av en LUIS-app
+Procent siffror kan visas som bråktal, `3 1/2`eller som procent,. `2%` Eftersom entiteten redan har tränats behöver du inte lägga till exempel yttranden som innehåller procent till program avsikterna. Enheten i procent stöds i [många kulturer](luis-reference-prebuilt-entities.md).
 
-## <a name="types-of-percentage"></a>Typer av procent
-Procent hanteras från [GitHub-databasen med identifierartext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114)
+## <a name="types-of-percentage"></a>Procent typer
+Procent andelen hanteras från GitHub-lagringsplatsen för [identifierare – text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114)
 
-## <a name="resolution-for-prebuilt-percentage-entity"></a>Lösning för fördefinierad procentigentitet
+## <a name="resolution-for-prebuilt-percentage-entity"></a>Lösning för fördefinierad procent entitet
 
-Följande entitetsobjekt returneras för frågan:
+Följande enhets objekt returneras för frågan:
 
 `set a trigger when my stock goes up 2%`
 
 #### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
-Följande JSON är `verbose` med parametern inställd `false`på:
+Följande JSON- `verbose` parameter har angetts till `false`:
 
 ```json
 "entities": {
@@ -41,8 +41,8 @@ Följande JSON är `verbose` med parametern inställd `false`på:
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3-verbos respons](#tab/V3-verbose)
-Följande JSON är `verbose` med parametern inställd `true`på:
+#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
+Följande JSON- `verbose` parameter har angetts till `true`:
 
 ```json
 "entities": {
@@ -68,7 +68,7 @@ Följande JSON är `verbose` med parametern inställd `true`på:
 ```
 #### <a name="v2-response"></a>[V2-svar](#tab/V2)
 
-I följande exempel visas upplösningen för den **inbyggda procententiteten.**
+I följande exempel visas en lösning på enheten **Builtin. procent** .
 
 ```json
 "entities": [
@@ -87,6 +87,6 @@ I följande exempel visas upplösningen för den **inbyggda procententiteten.**
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-Lär dig mer om [number](luis-reference-prebuilt-number.md) [ordnings-](luis-reference-prebuilt-ordinal.md) [och](luis-reference-prebuilt-temperature.md) temperatureniteter.
+Lär dig mer om entiteterna [ordning](luis-reference-prebuilt-ordinal.md), [antal](luis-reference-prebuilt-number.md)och [temperatur](luis-reference-prebuilt-temperature.md) .

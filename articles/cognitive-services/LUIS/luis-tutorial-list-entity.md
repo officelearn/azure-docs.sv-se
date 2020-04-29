@@ -1,7 +1,7 @@
 ---
-title: Extact textmatchning entiteter - LUIS
+title: Extact text matcha entiteter-LUIS
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du lägger till en listentitet för att hjälpa LUIS-etikettvariationer av ett ord eller en fras.
+description: Lär dig hur du lägger till en lista entitet som hjälper dig att LUIS etikett variationer i ett ord eller en fras.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,92 +11,92 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: diberry
 ms.openlocfilehash: f3c99856eaffc454754618a1eac34630b985a77e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73499484"
 ---
-# <a name="use-a-list-entity-to-increase-entity-detection"></a>Använda en listentitet för att öka entitetsidentifiering 
-Den här artikeln visar hur [entitet](luis-concept-entity-types.md) används för att öka entitetens identifiering. Listentiteter behöver inte märkas eftersom de är en exakt matchning av termer.  
+# <a name="use-a-list-entity-to-increase-entity-detection"></a>Använd en lista entitet för att öka identifieringen av entiteter 
+Den här artikeln visar hur du använder en [list-entitet](luis-concept-entity-types.md) för att öka identifieringen av entiteter. List enheter behöver inte märkas eftersom de är en exakt matchning av villkoren.  
 
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Skapa en listentitet 
-> * Lägga till normaliserade värden och synonymer
-> * Verifiera förbättrad enhetsidentifiering
+> * Skapa en lista entitet 
+> * Lägg till normaliserade värden och synonymer
+> * Verifiera förbättrad enhets identifiering
 
 ## <a name="prerequisites"></a>Krav
 
 > [!div class="checklist"]
-> * Senaste [Node.js](https://nodejs.org)
-> * [HomeAutomation LUIS app](luis-get-started-create-app.md). Om du inte har skapat home automation-appen skapar du en ny app och lägger till den fördefinierade **homeautomationen**för domän . Träna och publicera appen. 
-> * [AuthoringKey](luis-concept-keys.md#authoring-key), [EndpointKey](luis-concept-keys.md#endpoint-key) (om du frågar många gånger), app-ID, versions-ID och [region](luis-reference-regions.md) för LUIS-appen.
+> * Senaste [Node. js](https://nodejs.org)
+> * [HOMEAUTOMATION Luis-app](luis-get-started-create-app.md). Om du inte har skapat appen Home Automation skapar du en ny app och lägger till den färdiga domänen **HomeAutomation**. Träna och publicera appen. 
+> * [AuthoringKey](luis-concept-keys.md#authoring-key), [EndpointKey](luis-concept-keys.md#endpoint-key) (om frågor många gånger), app-ID, versions-ID och [region](luis-reference-regions.md) för Luis-appen.
 
 > [!Tip]
-> Om du inte redan har en prenumeration kan du registrera dig för ett [gratis konto](https://azure.microsoft.com/free/).
+> Om du inte redan har en prenumeration kan du registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 
-All kod i den här artikeln är tillgänglig i [Azure-Samples GitHub-databasen](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
+All kod i den här artikeln är tillgänglig i [GitHub-lagringsplatsen Azure-samples](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
 
-## <a name="use-homeautomation-app"></a>Använd appen HomeAutomation
-HomeAutomation-appen ger dig kontroll över enheter som lampor, underhållningssystem och miljökontroller som uppvärmning och kylning. Dessa system har flera olika namn som kan innehålla tillverkare namn, smeknamn, förkortningar och slang. 
+## <a name="use-homeautomation-app"></a>Använda HomeAutomation-app
+HomeAutomation-appen ger dig kontroll över enheter som lampor, underhållnings system och miljö kontroller som uppvärmning och kylning. Dessa system har flera olika namn som kan innehålla namn på tillverkare, smek namn, akronymer och slang. 
 
-Ett system som har många namn över olika kulturer och demografi är termostaten. En termostat kan styra både kyl- och värmesystem för ett hus eller en byggnad.
+Ett system som har många namn över olika kulturer och demografiska är termostat. En termostat kan styra både kyl-och uppvärmnings system för ett hus eller en byggnad.
 
-Helst bör följande yttranden lösa till den fördefinierade enheten **HomeAutomation.Device:**
+Vi rekommenderar att följande yttranden matchar den fördefinierade entiteten **HomeAutomation. enhet**:
 
-|#|Yttrande|enhet som identifierats|poäng|
+|#|uttryck|identifierad entitet|poäng|
 |--|--|--|--|
-|1|slå på ac|HomeAutomation.Device - "ac"|0.8748562|
-|2|skruva upp värmen|HomeAutomation.Device - "värme"|0.784990132|
-|3|gör det kallare|||
+|1|Aktivera AC|HomeAutomation. Device-"AC"|0,8748562|
+|2|Aktivera värmen|HomeAutomation. Device-"hetta"|0,784990132|
+|3|gör IT-kallaren|||
 
-De två första yttrandena mappas till olika enheter. Det tredje uttrycket, "gör det kallare", mappas inte till en enhet utan begär i stället ett resultat. LUIS vet inte att termen "kallare", betyder att termostaten är den begärda enheten. Helst bör LUIS lösa alla dessa yttranden till samma enhet. 
+De två första yttranden mappar till olika enheter. Den tredje uttryck, "gör IT-kallaren", mappar inte till en enhet utan i stället begär ett resultat. LUIS vet inte att termen, "kall", innebär att termostat är den begärda enheten. Vi rekommenderar att LUIS löser alla dessa yttranden till samma enhet. 
 
-## <a name="use-a-list-entity"></a>Använda en listentitet
-Entity homeAutomation.Device är bra för ett litet antal enheter eller med få varianter av namnen. För en kontorsbyggnad eller ett campus växer enhetsnamnen bortom användbarheten för entityen HomeAutomation.Device. 
+## <a name="use-a-list-entity"></a>Använda en lista entitet
+Entiteten HomeAutomation. Device är perfekt för ett litet antal enheter eller med några varianter av namnen. För en kontors byggnad eller en campus-enhet växer enhets namnen bortom användbarheten för entiteten HomeAutomation. Device. 
 
-En **listentitet** är ett bra val för det här scenariot eftersom uppsättningen termer för en enhet i en byggnad eller ett campus är en känd uppsättning, även om det är en stor uppsättning. Genom att använda en lista enhet, LUIS kan ta emot alla möjliga värden i uppsättningen för termostaten, och lösa det ner till bara den enda enheten "termostat". 
+En **list-entitet** är ett bra alternativ för det här scenariot eftersom uppsättningen villkor för en enhet i en byggnad eller campus är en känd uppsättning, även om det är en enorm uppsättning. Genom att använda en List-entitet kan LUIS ta emot eventuella möjliga värden i uppsättningen för termostat och lösa det nedåt till bara den enda enheten "termostat". 
 
-Denna artikel kommer att skapa en enhet lista med termostaten. De alternativa namnen för en termostat i den här artikeln är: 
+Den här artikeln går till att skapa en enhets lista med termostat. De alternativa namnen för en termostat i den här artikeln är: 
 
 |alternativa namn för termostat|
 |--|
-| Ac |
+| uttag |
 | a/c|
 | a-c|
-|Värmare|
+|värmare|
 |snabbtangent|
-|Varmare|
-|Kallt|
-|Kallare|
+|hotter|
+|kalla|
+|kallare|
 
-Om LUIS behöver bestämma ett nytt alternativ ofta, då en [fraslista](luis-concept-feature.md#how-to-use-phrase-lists) är ett bättre svar.
+Om LUIS måste fastställa ett nytt alternativ ofta är en [fras lista](luis-concept-feature.md#how-to-use-phrase-lists) ett bättre svar.
 
-## <a name="create-a-list-entity"></a>Skapa en listentitet
-Skapa en Node.js-fil och kopiera följande kod till den. Ändra värdena authoringKey, appId, versionId och region.
+## <a name="create-a-list-entity"></a>Skapa en lista entitet
+Skapa en Node. js-fil och kopiera följande kod till den. Ändra värdena för authoringKey, appId, versionId och region.
 
    [!code-javascript[Create DevicesList List Entity](~/samples-luis/documentation-samples/tutorial-list-entity/add-entity-list.js "Create DevicesList List Entity")]
 
-Använd följande kommando för att installera NPM-beroenden och köra koden för att skapa listentiteten:
+Använd följande kommando för att installera NPM-beroenden och kör koden för att skapa List-entiteten:
 
 ```console
 npm install && node add-entity-list.js
 ```
 
-Utdata för körningen är ID för listentiteten:
+Utdata från körningen är ID: t för List entiteten:
 
 ```console
 026e92b3-4834-484f-8608-6114a83b03a6
 ```
 
 ## <a name="train-the-model"></a>Träna modellen
-Träna LUIS för att den nya listan ska påverka frågeresultaten. Utbildning är en tvådelad utbildningsprocess och kontrollerar sedan status om utbildningen är klar. En app med många modeller kan ta en stund att träna. Följande kod tränar appen väntar sedan tills utbildningen lyckas. Koden använder en strategi för att vänta och försöka för att undvika felet 429 "För många begäranden". 
+Träna LUIS så att den nya listan kan påverka frågeresultaten. Utbildning är en process i två delar och kontrollerar sedan status om utbildningen är klar. En app med många modeller kan ta en stund att träna. Följande kod tågen-appen väntar sedan tills utbildningen har slutförts. I koden används en strategi för vänta och återförsök för att undvika fel meddelandet 429 "för många begär Anden". 
 
-Skapa en Node.js-fil och kopiera följande kod till den. Ändra värdena authoringKey, appId, versionId och region.
+Skapa en Node. js-fil och kopiera följande kod till den. Ändra värdena för authoringKey, appId, versionId och region.
 
    [!code-javascript[Train LUIS](~/samples-luis/documentation-samples/tutorial-list-entity/train.js "Train LUIS")]
 
@@ -106,7 +106,7 @@ Använd följande kommando för att köra koden för att träna appen:
 node train.js
 ```
 
-Utdata för körningen är status för varje iteration av utbildningen av LUIS-modellerna. Följande utförande krävde endast en kontroll av utbildning:
+Utdata från körningen är status för varje iteration av utbildningen för LUIS-modeller. Följande körning krävde bara en kontroll av utbildning:
 
 ```console
 1 trained = true
@@ -125,9 +125,9 @@ Utdata för körningen är status för varje iteration av utbildningen av LUIS-m
 
 ```
 ## <a name="publish-the-model"></a>Publicera modellen
-Publicera så att listentiteten är tillgänglig från slutpunkten.
+Publicera så att List entiteten är tillgänglig från slut punkten.
 
-Skapa en Node.js-fil och kopiera följande kod till den. Ändra värdena för slutpunktsnyckel, appId och region. Du kan använda din authoringKey om du inte planerar att anropa filen utöver kvotgränsen.
+Skapa en Node. js-fil och kopiera följande kod till den. Ändra värdena för endpointKey, appId och region. Du kan använda din authoringKey om du inte planerar att anropa den här filen utöver din kvot gräns.
 
    [!code-javascript[Publish LUIS](~/samples-luis/documentation-samples/tutorial-list-entity/publish.js "Publish LUIS")]
 
@@ -137,7 +137,7 @@ Använd följande kommando för att köra koden för att fråga appen:
 node publish.js
 ```
 
-Följande utdata innehåller slutpunkts url för alla frågor. Real JSON resultat skulle omfatta den verkliga appID. 
+Följande utdata innehåller slut punkts-URL: en för alla frågor. Verkliga JSON-resultat omfattar det riktiga appID. 
 
 ```json
 { 
@@ -152,9 +152,9 @@ Följande utdata innehåller slutpunkts url för alla frågor. Real JSON resulta
 ```
 
 ## <a name="query-the-app"></a>Fråga appen 
-Fråga appen från slutpunkten för att bevisa att listentiteten hjälper LUIS att avgöra enhetstypen.
+Fråga appen från slut punkten för att bevisa att List entiteten hjälper LUIS att fastställa enhets typen.
 
-Skapa en Node.js-fil och kopiera följande kod till den. Ändra värdena för slutpunktsnyckel, appId och region. Du kan använda din authoringKey om du inte planerar att anropa filen utöver kvotgränsen.
+Skapa en Node. js-fil och kopiera följande kod till den. Ändra värdena för endpointKey, appId och region. Du kan använda din authoringKey om du inte planerar att anropa den här filen utöver din kvot gräns.
 
    [!code-javascript[Query LUIS](~/samples-luis/documentation-samples/tutorial-list-entity/query.js "Query LUIS")]
 
@@ -164,7 +164,7 @@ Använd följande kommando för att köra koden och fråga appen:
 node train.js
 ```
 
-Utdata är frågeresultatet. Eftersom koden lade till det **utförliga** namnet/värdeparet i frågesträngen innehåller utdata alla avsikter och deras poäng:
+Resultatet är frågeresultaten. Eftersom koden lade till **verbose** -namn/värde-paret i frågesträngen innehåller utdata alla avsikter och deras resultat:
 
 ```json
 {
@@ -210,16 +210,16 @@ Utdata är frågeresultatet. Eftersom koden lade till det **utförliga** namnet/
 }
 ```
 
-Den specifika enheten **för termostat** identifieras med en resultatorienterad fråga om "vrid upp värmen". Eftersom den ursprungliga HomeAutomation.Device-entiteten fortfarande finns i appen kan du också se dess resultat. 
+Den speciella enheten för **termostat** identifieras med en resultat orienterad fråga om "Vänd upp värmen". Eftersom den ursprungliga HomeAutomation. Device-entiteten fortfarande finns i appen kan du även se resultatet. 
 
 Prova de andra två yttranden för att se att de också returneras som en termostat. 
 
-|#|Yttrande|Enhet|typ|värde|
+|#|uttryck|entitetsrelation|typ|värde|
 |--|--|--|--|--|
-|1|slå på ac| Ac | EnheterLista | Termostat|
-|2|skruva upp värmen|Värme| EnheterLista |Termostat|
-|3|gör det kallare|Kallare|EnheterLista|Termostat|
+|1|Aktivera AC| uttag | DevicesList | Termostat|
+|2|Aktivera värmen|termisk| DevicesList |Termostat|
+|3|gör IT-kallaren|kallare|DevicesList|Termostat|
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan skapa en annan listentitet för att utöka enhetsplatser till rum, våningar eller byggnader. 
+Du kan skapa en annan lista entitet för att expandera enhets platser till rum, golv eller byggnader. 

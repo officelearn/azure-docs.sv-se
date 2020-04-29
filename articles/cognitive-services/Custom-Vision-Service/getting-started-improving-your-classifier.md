@@ -1,7 +1,7 @@
 ---
-title: Förbättra klassificeraren - Custom Vision Service
+title: Förbättra din klassificerare – Custom Vision Service
 titleSuffix: Azure Cognitive Services
-description: I den här artikeln får du lära dig hur mängden, kvaliteten och mångfalden av data kan förbättra kvaliteten på klassificeraren i tjänsten Custom Vision.
+description: I den här artikeln får du lära dig hur belopp, kvalitet och mängd data kan förbättra din klassificerares kvalitet i Custom Visions tjänsten.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,104 +11,104 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: c2858d5f9bca662cbbcd48b2345a7dc2c7ae48b2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73718540"
 ---
 # <a name="how-to-improve-your-classifier"></a>Förbättra din klassificerare
 
-I den här guiden får du lära dig hur du förbättrar kvaliteten på din Anpassade Vision Service classifier. Kvaliteten på klassificeraren beror på mängden, kvaliteten och variationen av de märkta data som du tillhandahåller den och hur balanserad den totala datauppsättningen är. En bra klassificerare har en balanserad träningsdatauppsättning som är representativ för vad som ska skickas till klassificeraren. Processen att bygga en sådan klassificerare är iterativ; Det är vanligt att ta några rundor av utbildning för att nå förväntade resultat.
+I den här guiden får du lära dig hur du förbättrar kvaliteten på din Custom Vision Service klassificerare. Klassificeringens kvalitet beror på mängden, kvaliteten och antalet olika märkta data som du anger och hur balanserade den övergripande data uppsättningen är. En bra klassificerare har en balanserade inlärnings data uppsättning som är representativ för vad som kommer att skickas till klassificeraren. Processen för att skapa en sådan klassificerare är iterativ. Det är vanligt att ta några få avvisningar för att uppnå förväntade resultat.
 
-Följande är ett allmänt mönster som hjälper dig att skapa en mer exakt klassificerare:
+Följande är ett allmänt mönster som hjälper dig att bygga en mer exakt klassificerare:
 
-1. Utbildning i första omgången
-1. Lägg till fler bilder och balansera data; Omskola
-1. Lägg till bilder med varierande bakgrund, belysning, objektstorlek, kameravinkel och stil. Omskola
-1. Använd nya bilder för att testa förutsägelse
-1. Ändra befintliga träningsdata enligt förutsägelseresultat
+1. Första rundade utbildningen
+1. Lägg till fler bilder och Balance data; omtrimma
+1. Lägg till bilder med varierande bakgrund, belysning, objekt storlek, kamera vinkel och stil; omtrimma
+1. Använd nya avbildningar för att testa förutsägelse
+1. Ändra befintliga tränings data enligt förutsägelse resultat
 
-## <a name="prevent-overfitting"></a>Förhindra övermontering
+## <a name="prevent-overfitting"></a>Förhindra överanpassning
 
-Ibland lär sig en klassificerare att göra förutsägelser baserat på godtyckliga egenskaper som dina bilder har gemensamt. Till exempel, om du skapar en klassificerare för äpplen vs citrus, och du har använt bilder av äpplen i händer och citrus på vita plattor, kan klassificeraren ge onödig betydelse för händer kontra plattor, snarare än äpplen vs citrus.
-
-![Bild av oväntad klassificering](./media/getting-started-improving-your-classifier/unexpected.png)
-
-Om du vill åtgärda problemet kan du använda följande riktlinjer för utbildning med mer varierade bilder: ge bilder olika vinklar, bakgrunder, objektstorlek, grupper och andra varianter.
-
-## <a name="data-quantity"></a>Datakvantitet
-
-Antalet träningsbilder är den viktigaste faktorn. Vi rekommenderar att du använder minst 50 bilder per etikett som utgångspunkt. Med färre bilder finns det en högre risk för övermontering, och även om dina prestandasiffror kan tyda på god kvalitet kan din modell kämpa med verkliga data. 
-
-## <a name="data-balance"></a>Databalans
-
-Det är också viktigt att tänka på de relativa mängderna av dina träningsdata. Om du till exempel använder 500 bilder för en etikett och 50 bilder för en annan etikett blir det en obalanserad träningsdatauppsättning. Detta gör att modellen är mer exakt när det gäller att förutsäga en etikett än en annan. Du kommer sannolikt att se bättre resultat om du behåller minst ett 1:2-förhållande mellan etiketten med minst antal bilder och etiketten med flest bilder. Om etiketten med flest bilder till exempel har 500 bilder bör etiketten med minst bilder ha minst 250 bilder för träning.
-
-## <a name="data-variety"></a>Variation av data
-
-Var noga med att använda bilder som är representativa för vad som kommer att skickas till klassificeraren under normal användning. Annars kan klassificeraren lära sig att göra förutsägelser baserat på godtyckliga egenskaper som dina bilder har gemensamt. Till exempel, om du skapar en klassificerare för äpplen vs citrus, och du har använt bilder av äpplen i händer och citrus på vita plattor, kan klassificeraren ge onödig betydelse för händer kontra plattor, snarare än äpplen vs citrus.
+Ibland kan en klassificerare lära sig att fatta förutsägelser baserat på valfria egenskaper som dina bilder har gemensamt. Om du till exempel skapar en klassificerare för äpplen eller citrus, och du har använt bilder av äpplen i händerna och av citrus på vita plåtar, kan klassificeraren ge onödigt stor betydelse för praktiska och plåtar i stället för äpplen eller citrus.
 
 ![Bild av oväntad klassificering](./media/getting-started-improving-your-classifier/unexpected.png)
 
-Om du vill åtgärda problemet kan du inkludera en mängd olika bilder för att säkerställa att klassificeraren kan generalisera väl. Nedan följer några sätt du kan göra din träningsuppsättning mer varierad:
+Du kan åtgärda det här problemet med hjälp av följande rikt linjer för utbildning med fler varierade bilder: ge bilder med olika vinklar, bakgrunder, objekt storlek, grupper och andra variationer.
 
-* __Bakgrund:__ Ange bilder av ditt objekt framför olika bakgrunder. Bilder i naturliga sammanhang är bättre än bilder framför neutrala bakgrunder eftersom de ger mer information för klassificeraren.
+## <a name="data-quantity"></a>Data mängd
 
-    ![Bild av bakgrundsexempel](./media/getting-started-improving-your-classifier/background.png)
+Antalet utbildnings bilder är den viktigaste faktorn. Vi rekommenderar att du använder minst 50 bilder per etikett som start punkt. Med färre avbildningar, finns det en högre risk för överanpassning, och när prestanda siffrorna kan föreslå bra kvalitet kan din modell ha problem med verkliga data. 
 
-* __Belysning:__ Ge bilder med varierad belysning (det vill säga tagen med blixt, hög exponering och så vidare), särskilt om de bilder som används för förutsägelse har olika belysning. Det är också bra att använda bilder med varierande mättnad, nyans och ljusstyrka.
+## <a name="data-balance"></a>Data balans
 
-    ![Bild av belysningsprover](./media/getting-started-improving-your-classifier/lighting.png)
+Det är också viktigt att överväga de relativa mängderna av dina utbildnings data. Till exempel kan du använda 500-bilder för en etikett och 50 bilder för en annan etikett för en data uppsättning som är i balans. Detta gör att modellen är mer korrekt för att förutsäga en etikett än en annan. Du får förmodligen bättre resultat om du behåller minst ett 1:2-förhållande mellan etiketten med minst bilder och etiketten med de flesta bilderna. Om etiketten med de flesta bilder till exempel har 500 bilder bör etiketten med minst bilder ha minst 250 bilder för träning.
 
-* __Objektstorlek:__ Ge bilder där objekten varierar i storlek och antal (till exempel ett foto av klasar av bananer och en närbild av en enda banan). Olika storlek hjälper klassificeraren generalisera bättre.
+## <a name="data-variety"></a>Data mängd
 
-    ![Bild av storleksprover](./media/getting-started-improving-your-classifier/size.png)
+Se till att använda bilder som är representativa för vad som kommer att skickas till klassificeraren under normal användning. Annars kunde din klassificerare lära sig att fatta förutsägelser utifrån valfria egenskaper som dina bilder har gemensamt. Om du till exempel skapar en klassificerare för äpplen eller citrus, och du har använt bilder av äpplen i händerna och av citrus på vita plåtar, kan klassificeraren ge onödigt stor betydelse för praktiska och plåtar i stället för äpplen eller citrus.
 
-* __Kameravinkel:__ Ge bilder tagna med olika kameravinklar. Alternativt, om alla dina bilder måste tas med fasta kameror (t.ex. övervakningskameror), se till att tilldela en&mdash;annan etikett till varje regelbundet förekommande objekt för att undvika övermontering tolka icke-närstående objekt (t.ex. lyktstolpar) som nyckelfunktion.
+![Bild av oväntad klassificering](./media/getting-started-improving-your-classifier/unexpected.png)
 
-    ![Bild av vinkelprover](./media/getting-started-improving-your-classifier/angle.png)
+Du kan åtgärda det här problemet genom att inkludera en mängd olika avbildningar för att säkerställa att klassificeraren kan generaliseras. Nedan visas några exempel på hur du kan göra inlärningen Mer Diverse:
 
-* __Stil:__ Tillhandahålla bilder av olika stilar av samma klass (till exempel olika sorter av samma frukt). Men om du har objekt med drastiskt olika stilar (till exempel Musse Pigg vs en verklig mus), rekommenderar vi att du märker dem som separata klasser för att bättre representera deras olika funktioner.
+* __Bakgrund:__ Ange bilder för ditt objekt framför olika bakgrunder. Foton i naturliga sammanhang är bättre än foton framför neutrala bakgrunder eftersom de ger mer information om klassificeraren.
 
-    ![Bild av formatprover](./media/getting-started-improving-your-classifier/style.png)
+    ![Bild av bakgrunds exempel](./media/getting-started-improving-your-classifier/background.png)
+
+* __Belysning:__ Ge bilder med varierande belysning (det vill säga med blixt, hög exponering och så vidare), särskilt om de bilder som används för förutsägelsen har olika belysning. Det är också användbart att använda bilder med varierande mättnad, nyans och ljus styrka.
+
+    ![Bild av belysnings exempel](./media/getting-started-improving-your-classifier/lighting.png)
+
+* __Objekt storlek:__ Ange bilder där objekten varierar i storlek och nummer (till exempel ett foto av bananer och en närbild av en enda banan). Olika storlekar hjälper klassificeraren att generaliseras bättre.
+
+    ![Bild av storleks exempel](./media/getting-started-improving-your-classifier/size.png)
+
+* __Kamera vinkel:__ Ange bilder tagna med olika kamera vinklar. Alternativt, om alla dina foton måste tas med fasta kameror (till exempel övervaknings kameror), måste du tilldela en annan etikett till varje objekt som utförs regelbundet för att undvika överanpassning&mdash;av orelaterade objekt (till exempel lampposts) som nyckel funktion.
+
+    ![Bild av vinkel exempel](./media/getting-started-improving-your-classifier/angle.png)
+
+* __Format:__ Ange bilder av olika format för samma klass (till exempel olika sorters frukt). Men om du har objekt av drastiskt olika format (t. ex. Mickey mus eller en verklig mus) rekommenderar vi att du ger dem etiketter som separata klasser för att bättre representera deras distinkta funktioner.
+
+    ![Bild av format exempel](./media/getting-started-improving-your-classifier/style.png)
 
 ## <a name="negative-images"></a>Negativa bilder
 
-Vid något tillfälle i projektet kan du behöva lägga till _negativa exempel_ för att göra klassificeraren mer exakt. Negativa exempel är de som inte matchar någon av de andra taggarna. När du laddar upp dessa bilder, tillämpa den särskilda **negativa** etiketten på dem.
+Vid något tillfälle i projektet kan du behöva lägga till _negativa exempel_ för att göra din klassificerar mer exakt. Negativa exempel är de som inte matchar någon av de andra taggarna. När du överför de här avbildningarna ska du använda den speciella **negativa** etiketten på dem.
 
 > [!NOTE]
-> Tjänsten Custom Vision stöder en viss automatisk negativ bildhantering. Till exempel, om du bygger en druva vs banan klassificerare och lämna in en bild av en sko för förutsägelse, bör klassificeraren poäng den bilden så nära 0% för både druva och banan.
+> Custom Vision Service stöder viss automatisk negativ bild hantering. Om du till exempel skapar en druvmust för druvmust och banan och skickar en bild av en sko för förutsägelse, bör klassificeraren lägga ut bilden som nära 0% för både druvmust och banan.
 > 
-> Å andra sidan, i de fall där de negativa bilderna är bara en variant av de bilder som används i utbildning, är det troligt att modellen kommer att klassificera de negativa bilderna som en märkt klass på grund av de stora likheterna. Till exempel, om du har en orange vs grapefrukt klassificerare, och du matar in en bild av en clementin, kan det poäng clementin som en orange eftersom många funktioner i clementin liknar de av apelsiner. Om dina negativa bilder är av detta slag rekommenderar vi att du skapar en eller flera ytterligare taggar (till exempel **Andra)** och märker de negativa bilderna med den här taggen under träningen så att modellen bättre kan skilja mellan dessa klasser.
+> Å andra sidan, i de fall där de negativa bilderna bara är en variation av de bilder som används i utbildningen, är det troligt att modellen klassificerar de negativa bilderna som en etikettad klass på grund av fantastiska likheter. Om du till exempel har en orange vs. grapefrukt-klassificerare och du matar in en bild av en Clementine kan det leda till att Clementine är orange eftersom många funktioner i Clementine liknar dem för apelsiner. Om dina negativa bilder är av samma typ, rekommenderar vi att du skapar en eller flera ytterligare Taggar (till exempel **andra**) och etiketterar de negativa bilderna med den här taggen under träningen så att modellen bättre skiljer sig mellan dessa klasser.
 
-## <a name="use-prediction-images-for-further-training"></a>Använd förutsägelsebilder för vidareutbildning
+## <a name="use-prediction-images-for-further-training"></a>Använd förutsägelse avbildningar för ytterligare utbildning
 
-När du använder eller testar bildklassificeraren genom att skicka bilder till slutpunkten förutsägelse lagras dessa bilder i tjänsten Custom Vision. Du kan sedan använda dem för att förbättra modellen.
+När du använder eller testar avbildnings klassificeraren genom att skicka avbildningar till förutsägelse slut punkten, lagrar Custom Vision tjänsten dessa avbildningar. Du kan sedan använda dem för att förbättra modellen.
 
-1. Om du vill visa bilder som skickats till klassificeraren öppnar du [webbsidan Anpassad vision,](https://customvision.ai)går till projektet och väljer fliken __Förutsägelser.__ Standardvyn visar bilder från den aktuella iterationen. Du kan använda listrutan __Iteration__ för att visa bilder som skickats in under tidigare iterationer.
+1. Om du vill visa bilder som skickats till klassificeraren öppnar du [Custom vision webb sidan](https://customvision.ai), går till projektet och väljer fliken __förutsägelser__ . Standardvyn visar bilder från den aktuella iterationen. Du kan använda List menyn __iteration__ för att visa bilder som skickats under föregående iterationer.
 
-    ![skärmbild av fliken förutsägelser, med bilder i sikte](./media/getting-started-improving-your-classifier/predictions.png)
+    ![skärm bild av fliken förutsägelser med bilder i vyn](./media/getting-started-improving-your-classifier/predictions.png)
 
-2. Hovra över en bild för att se taggarna som förutspåddes av klassificeraren. Bilderna sorteras så att de som kan ge flest förbättringar av klassificeraren visas överst. Om du vill använda en annan sorteringsmetod gör du en markering i avsnittet __Sortera.__ 
+2. Hovra över en bild för att se de taggar som förutsägs av klassificeraren. Bilderna sorteras så att de som kan få flest förbättringar av klassificeraren visas överst. Om du vill använda en annan sorterings metod gör du ett val i avsnittet __Sortera__ . 
 
-    Om du vill lägga till en bild i befintliga träningsdata markerar du bilden, ställer in rätt tagg och klickar på __Spara och stäng__. Bilden tas bort från __Förutsägelser__ och läggs till i uppsättningen träningsbilder. Du kan visa den genom att välja fliken __Träningsbilder.__
+    Om du vill lägga till en bild i dina befintliga utbildnings data väljer du bilden, anger rätt tagg (er) och klickar på __Spara och Stäng__. Bilden tas bort från __förutsägelserna__ och läggs till i uppsättningen med utbildnings bilder. Du kan visa den genom att välja fliken __träna bilder__ .
 
-    ![Bild på taggningssidan](./media/getting-started-improving-your-classifier/tag.png)
+    ![Bild av taggnings Sidan](./media/getting-started-improving-your-classifier/tag.png)
 
-3. Använd sedan __tågknappen__ för att träna om klassificeraren.
+3. Använd sedan knappen __träna__ för att träna om klassificeraren.
 
-## <a name="visually-inspect-predictions"></a>Inspektera förutsägelser visuellt
+## <a name="visually-inspect-predictions"></a>Granska förutsägelser visuellt
 
-Om du vill granska bildförutsägelser går du till fliken __Träningsbilder,__ väljer din tidigare träningsiteritering i listrutan **Iteration** och kontrollerar en eller flera taggar under avsnittet **Taggar.** Vyn ska nu visa en röd ruta runt var och en av bilderna för vilka modellen inte korrekt kunde förutsäga den angivna taggen.
+Om du vill kontrol lera bild förutsägelserna går du till fliken __inlärnings bilder__ , väljer din tidigare inlärning på **upprepnings** menyn och markerar en eller flera taggar under avsnittet **taggar** . Vyn bör nu visa en röd ruta runt var och en av de bilder som modellen inte kunde förutsäga den angivna taggen på rätt sätt.
 
-![Bild av iterationshistoriken](./media/getting-started-improving-your-classifier/iteration.png)
+![Bild av upprepnings historiken](./media/getting-started-improving-your-classifier/iteration.png)
 
-Ibland kan en visuell inspektion identifiera mönster som du sedan kan korrigera genom att lägga till mer träningsdata eller ändra befintliga träningsdata. Till exempel kan en klassificerare för äpplen vs limes felaktigt märka alla gröna äpplen som limefrukter. Du kan sedan korrigera det här problemet genom att lägga till och tillhandahålla träningsdata som innehåller taggade bilder av gröna äpplen.
+Ibland kan en visuell granskning identifiera mönster som du sedan kan korrigera genom att lägga till fler utbildnings data eller ändra befintliga tränings data. En klassificerare för äpplen eller kalk kan till exempel felaktigt märka alla gröna äpplen som kalk. Du kan sedan åtgärda problemet genom att lägga till och tillhandahålla tränings data som innehåller taggade bilder av grön äpplen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här guiden har du lärt dig flera tekniker för att göra din anpassade bildklassificeringsmodell mer exakt. Lär dig sedan hur du testar bilder programmässigt genom att skicka dem till förutsägelse-API:et.
+I den här guiden har du lärt dig flera tekniker för att göra din anpassade bild klassificerings modell mer exakt. Nu ska du lära dig hur du testar bilder genom programmering genom att skicka dem till förutsägelse-API: et.
 
 > [!div class="nextstepaction"]
 > [Använd förutsägelse-API:t](use-prediction-api.md)

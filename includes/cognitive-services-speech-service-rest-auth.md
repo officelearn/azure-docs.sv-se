@@ -5,48 +5,48 @@ ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
 ms.openlocfilehash: dc5e251fee00ee22edb2261c1abd8404714834ba
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78668763"
 ---
 ## <a name="authentication"></a>Autentisering
 
-Varje begäran kräver ett auktoriseringshuvud. Den här tabellen illustrerar vilka rubriker som stöds för varje tjänst:
+Varje begäran kräver ett Authorization-huvud. I den här tabellen visas vilka huvuden som stöds för varje tjänst:
 
-| Auktoriseringshuvuden som stöds | Tal till text | Text till tal |
+| Begärandehuvuden som stöds | Tal till text | Text till tal |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | Ja | Inga |
-| Tillstånd: Bärare | Ja | Ja |
+| Ocp-Apim-Subscription-Key | Ja | Nej |
+| Auktorisering: Bearer | Ja | Ja |
 
-När du `Ocp-Apim-Subscription-Key` använder huvudet behöver du bara ange din prenumerationsnyckel. Ett exempel:
+När du använder `Ocp-Apim-Subscription-Key` -huvudet behöver du bara ange din prenumerations nyckel. Ett exempel:
 
 ```http
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-När du `Authorization: Bearer` använder sidhuvudet måste du göra `issueToken` en begäran till slutpunkten. I den här begäran byter du ut prenumerationsnyckeln mot en åtkomsttoken som är giltig i 10 minuter. I de närmaste avsnitten får du lära dig hur du får en token och använder en token.
+När du använder `Authorization: Bearer` sidhuvudet måste du göra en begäran till `issueToken` slut punkten. I den här förfrågan utbyter du din prenumerations nyckel för en åtkomsttoken som är giltig i 10 minuter. I följande avsnitt får du lära dig hur du hämtar en token och använder en token.
 
-### <a name="how-to-get-an-access-token"></a>Så här skaffar du en åtkomsttoken
+### <a name="how-to-get-an-access-token"></a>Så här hämtar du en åtkomsttoken
 
-För att få en åtkomsttoken måste du `issueToken` göra en `Ocp-Apim-Subscription-Key` begäran till slutpunkten med hjälp av prenumerationsnyckeln och prenumerationsnyckeln.
+Om du vill hämta en åtkomsttoken måste du göra en begäran till `issueToken` slut punkten med hjälp av `Ocp-Apim-Subscription-Key` och din prenumerations nyckel.
 
-Slutpunkten `issueToken` har följande format:
+`issueToken` Slut punkten har följande format:
 
 ```http
 https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
-Ersätt `<REGION_IDENTIFIER>` med identifieraren som matchar regionen för din prenumeration från den här tabellen:
+Ersätt `<REGION_IDENTIFIER>` med den identifierare som matchar regionen för din prenumeration från den här tabellen:
 
 [!INCLUDE [](cognitive-services-speech-service-region-identifier.md)]
 
-Använd dessa exempel för att skapa din begäran om åtkomsttoken.
+Använd de här exemplen för att skapa en begäran om åtkomst-token.
 
 #### <a name="http-sample"></a>HTTP-exempel
 
-Det här exemplet är en enkel HTTP-begäran för att få en token. Ersätt `YOUR_SUBSCRIPTION_KEY` med prenumerationsnyckeln för Taltjänsten. Om din prenumeration inte finns i regionen `Host` Västra USA ersätter du huvudet med regionens värdnamn.
+Det här exemplet är en enkel HTTP-begäran för att hämta en token. Ersätt `YOUR_SUBSCRIPTION_KEY` med din prenumerations nyckel för röst tjänsten. Om din prenumeration inte finns i regionen Västra USA ersätter du `Host` rubriken med din regions värdnamn.
 
 ```http
 POST /sts/v1.0/issueToken HTTP/1.1
@@ -56,11 +56,11 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-Brödtexten i svaret innehåller åtkomsttoken i JSON Web Token -format (JWT).
+Bröd texten i svaret innehåller åtkomst-token i JSON Web Token-formatet (JWT).
 
 #### <a name="powershell-sample"></a>PowerShell-exempel
 
-Det här exemplet är ett enkelt PowerShell-skript för att få en åtkomsttoken. Ersätt `YOUR_SUBSCRIPTION_KEY` med prenumerationsnyckeln för Taltjänsten. Se till att använda rätt slutpunkt för den region som matchar din prenumeration. Det här exemplet är för närvarande inställt på västra USA.
+Det här exemplet är ett enkelt PowerShell-skript för att hämta en åtkomsttoken. Ersätt `YOUR_SUBSCRIPTION_KEY` med din prenumerations nyckel för röst tjänsten. Se till att använda rätt slut punkt för den region som matchar din prenumeration. Det här exemplet är för närvarande inställt på västra USA.
 
 ```powershell
 $FetchTokenHeader = @{
@@ -77,9 +77,9 @@ $OAuthToken
 
 ```
 
-#### <a name="curl-sample"></a>cURL-prov
+#### <a name="curl-sample"></a>Spiral exempel
 
-cURL är ett kommandoradsverktyg som finns tillgängligt i Linux (och i Windows-delsystemet för Linux). Det här cURL-kommandot illustrerar hur du får en åtkomsttoken. Ersätt `YOUR_SUBSCRIPTION_KEY` med prenumerationsnyckeln för Taltjänsten. Se till att använda rätt slutpunkt för den region som matchar din prenumeration. Det här exemplet är för närvarande inställt på västra USA.
+Sväng är ett kommando rads verktyg som är tillgängligt i Linux (och i Windows-undersystemet för Linux). Detta spiral kommando visar hur du hämtar en åtkomsttoken. Ersätt `YOUR_SUBSCRIPTION_KEY` med din prenumerations nyckel för röst tjänsten. Se till att använda rätt slut punkt för den region som matchar din prenumeration. Det här exemplet är för närvarande inställt på västra USA.
 
 ```console
 curl -v -X POST
@@ -91,7 +91,7 @@ curl -v -X POST
 
 #### <a name="c-sample"></a>C#-exempel
 
-Den här C#-klassen illustrerar hur du får en åtkomsttoken. Skicka din taltjänstprenumerationsnyckel när du instansierar klassen. Om din prenumeration inte finns i regionen västra `FetchTokenUri` USA ändrar du värdet för att matcha regionen för din prenumeration.
+Den här C#-klassen illustrerar hur du får en åtkomsttoken. Skicka din prenumerations nyckel för röst tjänsten när du instansierar klassen. Om din prenumeration inte finns i regionen USA, västra, ändrar du värdet `FetchTokenUri` för för att matcha regionen för din prenumeration.
 
 ```csharp
 public class Authentication
@@ -149,9 +149,9 @@ def get_token(subscription_key):
 
 ### <a name="how-to-use-an-access-token"></a>Så här använder du en åtkomsttoken
 
-Åtkomsttoken ska skickas till tjänsten `Authorization: Bearer <TOKEN>` som huvud. Varje åtkomsttoken är giltig i 10 minuter. Du kan få en ny token när som helst, men för att minimera nätverkstrafik och svarstid, rekommenderar vi att du använder samma token i nio minuter.
+Åtkomsttoken ska skickas till tjänsten som `Authorization: Bearer <TOKEN>` rubrik. Varje åtkomsttoken är giltig i 10 minuter. Du kan när som helst hämta en ny token för att minimera nätverks trafiken och svars tiden, men vi rekommenderar att du använder samma token i nio minuter.
 
-Här är ett exempel på HTTP-begäran till REST-API:et för text-till-tal:
+Här är ett exempel på en HTTP-begäran till text-till-tal-REST API:
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1

@@ -1,7 +1,7 @@
 ---
-title: Design med modeller - LUIS
+title: Design med modeller – LUIS
 titleSuffix: Azure Cognitive Services
-description: Språkförståelse ger flera typer av modeller. Vissa modeller kan användas på mer än ett sätt.
+description: Språk förståelse tillhandahåller flera olika typer av modeller. Vissa modeller kan användas på fler än ett sätt.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,148 +12,148 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: d721ceb25b3ce2408563a0bed16457d05affe7b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219999"
 ---
-# <a name="design-with-intent-and-entity-models"></a>Design med avsikts- och entitetsmodeller 
+# <a name="design-with-intent-and-entity-models"></a>Design med avsikts-och enhets modeller 
 
-Språkförståelse ger flera typer av modeller. Vissa modeller kan användas på mer än ett sätt. 
+Språk förståelse tillhandahåller flera olika typer av modeller. Vissa modeller kan användas på fler än ett sätt. 
 
-## <a name="v3-authoring-uses-machine-teaching"></a>V3 Författande använder maskinundervisning
+## <a name="v3-authoring-uses-machine-teaching"></a>V3-redigering använder dator undervisning
 
-LUIS tillåter människor att enkelt lära begrepp till en maskin. Maskinen kan sedan bygga modeller (funktionella approximationer av begrepp som klassificerare och utsug) som kan användas för att driva intelligenta applikationer. Luis drivs av maskininlärning, men förståelse för maskininlärning är inte nödvändig för att använda den. Istället kommunicerar maskinlärare begrepp till LUIS genom att visa positiva och negativa exempel på konceptet och förklara hur ett koncept ska modelleras med andra relaterade begrepp. Lärare kan också förbättra LUIS:s modell interaktivt genom att identifiera och åtgärda förutsägelsemisstaget. 
+LUIS gör det möjligt för personer att enkelt lära sig begrepp till en dator. Datorn kan sedan bygga modeller (funktionella uppskattningar av koncept som till exempel klassificerare och utdrag) som kan användas för att köra Power intelligent program. Medan LUIS drivs av maskin inlärning är det inte nödvändigt att förstå maskin inlärning för att använda den. I stället kommunicerar dator lärare koncepten med LUIS genom att visa positiva och negativa exempel på konceptet och förklara hur ett koncept bör modelleras med andra relaterade begrepp. Lärare kan också förbättra LUIS-modellen interaktivt genom att identifiera och korrigera förutsägelse felen. 
 
-## <a name="v3-authoring-model-decomposition"></a>V3 Författande modell sönderdelning
+## <a name="v3-authoring-model-decomposition"></a>V3 redigera modell diskomposition
 
-LUIS stöder _modellfördefall_ med V3-redigerings-API:erna och delar upp modellen i mindre delar. Detta gör att du kan bygga dina modeller med tillförsikt i hur de olika delarna är konstruerade och förutspådde.
+LUIS stöder _modell dekomposition_ med v3-redigerings-API: erna och avbryter modellen i mindre delar. På så sätt kan du skapa modeller med förtroende för hur de olika delarna konstrueras och förväntas.
 
-Modelldepositionen har följande delar:
+Modell dispositionen har följande delar:
 
-* [Avseenden](#intents-classify-utterances)
-    * [deskriptorer](#descriptors-are-features) som tillhandahålls av funktioner
-* [maskininlärda enheter](#machine-learned-entities)
-    * [subcomponenter](#entity-subcomponents-help-extract-data) (även maskininlärda enheter)
-        * [deskriptorer](#descriptors-are-features) som tillhandahålls av funktioner 
-        * [begränsningar](#constraints-are-text-rules) som tillhandahålls av enheter som inte är maskininlärda, till exempel reguljära uttryck och listor
+* [avsikter](#intents-classify-utterances)
+    * [beskrivningar](#descriptors-are-features) som tillhandahålls av funktioner
+* [enheter som har lärts till enheten](#machine-learned-entities)
+    * [del komponenter](#entity-subcomponents-help-extract-data) (även enhets belärt entiteter)
+        * [beskrivningar](#descriptors-are-features) som tillhandahålls av funktioner 
+        * [begränsningar](#constraints-are-text-rules) som tillhandahålls av icke-maskinläsbara entiteter som reguljära uttryck och listor
 
-## <a name="v2-authoring-models"></a>V2 Författande modeller
+## <a name="v2-authoring-models"></a>V2-redigerings modeller
 
-LUIS stöder sammansatta entiteter med V2-redigerings-API:erna. Detta ger liknande modell sönderdelning men är inte samma sak som V3-modell sönderdelning. Den rekommenderade modellarkitekturen är att gå över till modellfördekomst i V3-redigerings-API:erna. 
+LUIS stöder sammansatta entiteter med API: erna för redigering av v2. Detta ger liknande modell diskomposition men är inte samma som v3 modell diskomposition. Den rekommenderade modell arkitekturen är att flytta till modell diskompositionen i v3-redigerings-API: erna. 
 
 ## <a name="intents-classify-utterances"></a>Avsikter klassificera yttranden
 
-En avsikt klassificerar exempel yttranden för att lära LUIS om avsikten. Exempel yttranden i en avsikt används som positiva exempel på yttrande. Samma yttranden används som negativa exempel i alla andra avsikter.
+En avsikt klassificerar exempel yttranden för att lära LUIS om avsikten. Exempel på yttranden i ett avsikts sätt används som positiva exempel på uttryck. Samma yttranden används som negativa exempel i alla andra syften.
 
-Tänk dig en app som måste bestämma en användares avsikt att beställa en bok och en app som behöver leveransadressen för kunden. Denna app har två `OrderBook` `ShippingLocation`avsikter: och .
+Överväg en app som behöver fastställa en användares avsikt att beställa en bok och en app som behöver leverans adressen för kunden. Den här appen har två avsikter: `OrderBook` och `ShippingLocation`.
 
-Följande uttryck är ett **positivt** `OrderBook` exempel för avsikten `ShippingLocation` och `None` ett **negativt exempel** för och avsikter: 
+Följande uttryck är ett **positivt exempel** för `OrderBook` avsikten och ett **negativt exempel** för `ShippingLocation` och `None` avsikter: 
 
 `Buy the top-rated book on bot architecture.`
 
-Resultatet av väl utformade avsikter, med deras exempel yttranden, är en hög avsikt förutsägelse. 
+Resultatet av väldesignade syften, med deras exempel yttranden, är en hög förutsägelse förutsägelse. 
 
-## <a name="entities-extract-data"></a>Entiteter extraherar data
+## <a name="entities-extract-data"></a>Enheter extraherar data
 
-En entitet representerar en dataenhet som du vill extrahera från uttrycket. 
+En entitet representerar en data enhet som du vill extrahera från uttryck. 
 
-### <a name="machine-learned-entities"></a>Maskininlärda enheter
+### <a name="machine-learned-entities"></a>Enheter som har lärts till enheten
 
-En datorinlärd entitet är en enhet på den högsta nivån som innehåller delkomponenter, som också är maskininlärda entiteter. 
+En enhet som har lärts in är en enhet på den översta nivån som innehåller del komponenter, som också är enhets belärt entiteter. 
 
-**Använd en maskininlärd entitet:**
+**Använd en enhet som har registrerats av enheten**:
 
-* när delkomponenterna behövs av klientprogrammet
-* för att hjälpa maskininlärningsalgoritmen att bryta ned entiteter
+* När del komponenterna behövs av klient programmet
+* hjälp av Machine Learning-algoritmen för att skapa entiteter
 
-Varje delkomponent kan ha:
+Varje del komponent kan ha:
 
-* Delkomponenter
-* begränsningar (entitet eller listentiteten för reguljära uttryck)
-* beskrivningar (funktioner som en fraslista) 
+* under komponenterna
+* begränsningar (reguljärt uttryck entitet eller lista entitet)
+* beskrivningar (funktioner som en fras lista) 
 
-Ett exempel på en maskininlärd entitet är en order på en flygbiljett. Begreppsmässigt är detta en enda transaktion med många mindre dataenheter, till exempel datum, tid, antal platser, typ av säte som första klass eller coach, ursprungsplats, destinationsplats och måltidsval.
+Ett exempel på en enhet som har lärts in är en ordning för en plan biljett. Det här är en enskild transaktion med många mindre data enheter, till exempel datum, tid, antal platser, typ av säte, till exempel första klass eller turist klass, ursprungs plats, målplats och mål områdes val.
 
 
-### <a name="entity-subcomponents-help-extract-data"></a>Underkomponenter för entitetskomponenter hjälper till att extrahera data
+### <a name="entity-subcomponents-help-extract-data"></a>Del komponenter för entiteten hjälper till att extrahera data
 
-En underkomponent är en maskininlärd underordnad entitet inom en datorinlärd överordnad entitet. 
+En del komponent är en underordnad underordnad enhet som har registrerats i en dator som är inlärd. 
 
-**Använd delkomponenten för att**:
+**Använd del komponenten för att**:
 
-* de delar av den maskininlärda entiteten (moderentitet).
+* dela upp delarna i den enhet som har lärts från enheten (överordnad entitet).
 
-Följande representerar en maskininlärd entitet med alla dessa separata data:
+Nedan följer en enhet som har lärts upp av enheten med alla dessa separata data typer:
 
-* TravelOrder (maskininlärd enhet)
+* TravelOrder (enhet som har lärts)
     * DateTime (fördefinierad datetimeV2)
-    * Plats (maskininlärd entitet)
-        * Ursprung (roll som hittas genom sammanhang som `from`)
-        * Mål (roll som hittas genom sammanhang som `to`)
-    * Sittplatser (maskininlärd enhet)
-        * Kvantitet (fördefinierat tal)
-        * Kvalitet (maskininlärd entitet med deskriptor av fraslista)
-    * Måltider (maskininlärd enhet med begränsning av listentitet som val av livsmedel)
+    * Plats (enhets medveten entitet)
+        * Ursprung (roll hittades via kontext som `from`)
+        * Mål (rollen har hittats via kontext `to`som)
+    * Plats (enheten har lärts)
+        * Kvantitet (fördefinierat nummer)
+        * Kvalitet (enhet som sparats av enheten med beskrivning av fras lista)
+    * Mål platser (enhets medveten entitet med begränsning av list entitet som livsmedels val)
 
-En del av dessa data, till exempel ursprungsplatsen och målplatsen, bör läras av `from` uttryckssammanhanget, kanske med en sådan formulering som och `to`. Andra delar av data kan extraheras`Vegan`med exakta strängmatchningar ( ) eller `Seattle` `Cairo`fördefinierade enheter (geographyV2 of och ). 
+En del av dessa data, till exempel ursprungs platsen och mål platsen, bör registreras från uttryck, kanske med sådan formulering som `from` och. `to` Andra delar av data kan extraheras med exakta sträng matchningar`Vegan`() eller fördefinierade entiteter (geographyV2 `Seattle` av `Cairo`och). 
 
-Du utformar hur data matchas och extraheras med vilka modeller du väljer och hur du konfigurerar dem.
+Du utformar hur data matchas och extraheras enligt vilka modeller du väljer och hur du konfigurerar dem.
 
-### <a name="constraints-are-text-rules"></a>Villkor är textregler
+### <a name="constraints-are-text-rules"></a>Begränsningar är text regler
 
-Ett villkor är en textmatchningsregel som tillhandahålls av en enhet som inte har lärt sig utan dator, till exempel entiteten för reguljära uttryck eller en listentitet. Begränsningen tillämpas vid förutsägelsetid för att begränsa förutsägelsen och tillhandahålla entitetsmatchning som behövs av klientprogrammet. Du definierar dessa regler när du skapar underkomponenten. 
+En begränsning är en text matchnings regel som tillhandahålls av en icke-känd entitet, till exempel entiteten reguljärt uttryck eller en lista entitet. Begränsningen används vid förutsägelse tiden för att begränsa förutsägelsen och tillhandahålla enhets matchning som krävs av klient programmet. Du definierar dessa regler när du redigerar del komponenten. 
 
-**Använd ett villkor:**
-* när du vet den exakta texten att extrahera.
+**Använd en begränsning**:
+* När du känner till den exakta text som ska extraheras.
 
-Begränsningar inkluderar:
+Begränsningar är:
 
-* [enheter för reguljära uttryck](reference-entity-regular-expression.md)
+* entiteter med [reguljära uttryck](reference-entity-regular-expression.md)
 * [lista](reference-entity-list.md) entiteter 
-* [fördefinierade](luis-reference-prebuilt-entities.md) enheter
+* [fördefinierade](luis-reference-prebuilt-entities.md) entiteter
 
-Fortsätter med exemplet med flygbiljetten, kan flygplatskoderna vara i en lista enhet för exakt text matchningar. 
+Om du fortsätter med exemplet på plan biljetten kan flyg plats koderna finnas i en List-entitet för exakt text matchning. 
 
-För en flygplatslista är listposten för Seattle `Seattle` stadens namn, och synonymerna för Seattle innehåller flygplatskoden för Seattle tillsammans med omgivande städer:
+För en flyg plats lista är List posten för Seattle Orts namnet `Seattle` och synonymerna för Seattle innehåller flyg plats koden för Seattle tillsammans med omgivande Towns och städer:
 
-|`Seattle`Lista entitets synonymer|
+|`Seattle`Visa lista med entitets synonymer|
 |--|
 |`Sea`|
 |`seatac`|
 |`Bellevue`|
 
-Om du bara vill känna igen 3 bokstavskoder för flygplatskoder använder du ett reguljärt uttryck som begränsning. 
+Om du bara vill identifiera tre brev koder för flyg plats koder använder du ett reguljärt uttryck som begränsningen. 
 
 `/^[A-Z]{3}$/`
 
-## <a name="intents-versus-entities"></a>Avsikter kontra entiteter
+## <a name="intents-versus-entities"></a>Avsikter jämfört med entiteter
 
-En avsikt är det önskade resultatet av _hela_ uttrycket medan entiteter är bitar av data som extraherats från uttrycket. Vanligtvis är avsikter kopplade till åtgärder som klientprogrammet ska vidta och entiteter är information som behövs för att utföra den här åtgärden. Ur ett programmeringsperspektiv skulle en avsikt utlösa ett metodanrop och entiteterna skulle användas som parametrar för det metodanropet.
+Avsikt är det önskade resultatet av _hela_ uttryck medan entiteter är bitar av data som extraherats från uttryck. Vanligt vis är avsikter knutna till åtgärder som klient programmet ska vidta och entiteter är information som behövs för att utföra den här åtgärden. Från ett programmerings perspektiv utlöser en avsikt ett metod anrop och entiteterna används som parametrar för det metod anropet.
 
-Det här uttrycket _måste_ ha en avsikt och _kan_ ha entiteter:
+Den här uttryck _måste_ ha en avsikt och _kan_ ha entiteter:
 
 `Buy an airline ticket from Seattle to Cairo`
 
-Detta yttrande har en enda avsikt:
+Den här uttryck har en enda avsikt:
 
-* Köpa en flygbiljett
+* Köpa en plan biljett
 
-Det här uttrycket _kan_ ha flera entiteter:
+Den här uttryck _kan_ ha flera entiteter:
 
-* Platser i Seattle (ursprung) och Kairo (destination)
-* Kvantiteten på en enkel biljett
+* Platser för Seattle (ursprung) och Cairo (mål)
+* Antalet för en enskild biljett
 
-## <a name="descriptors-are-features"></a>Deskriptorer är funktioner
+## <a name="descriptors-are-features"></a>Beskrivningar är funktioner
 
-En deskriptor är en funktion som tillämpas på en modell vid utbildning, inklusive fraslistor och entiteter. 
+En beskrivning är en funktion som tillämpas på en modell i inlärnings tid, inklusive fras listor och entiteter. 
 
-**Använd en deskriptor när du vill:**
+**Använd en beskrivning när du vill**:
 
-* öka betydelsen av ord och fraser som identifierats av deskriptorn
-* har LUIS rekommendera ny text eller fraser att rekommendera för deskriptorn
-* åtgärda ett fel på träningsdata
+* förstärka betydelsen av ord och fraser som identifieras av beskrivningen
+* Låt LUIS rekommendera nya texter eller fraser för att rekommendera beskrivningen
+* åtgärda ett fel i tränings data
 
 ## <a name="next-steps"></a>Nästa steg
 

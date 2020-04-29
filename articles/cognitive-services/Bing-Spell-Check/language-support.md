@@ -1,7 +1,7 @@
 ---
-title: Språkstöd - API för stavningskontroll av Bing
+title: Språk stöd – API för stavningskontroll i Bing
 titleSuffix: Azure Cognitive Services
-description: En lista över naturliga språk som stöds av API:et för stavningskontroll av Bing.
+description: En lista över naturliga språk som stöds av API för stavningskontroll i Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 5ffd9f05bb429ba611a08d7985dbc9d509a9df0c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "66390170"
 ---
-# <a name="language-and-region-support-for-bing-spell-check-api"></a>Språk- och regionstöd för API för stavningskontroll av Bing
+# <a name="language-and-region-support-for-bing-spell-check-api"></a>Språk-och region stöd för API för stavningskontroll i Bing
 
-Dessa språk stöds av API:et för `spell` stavningskontroll av Bing (endast i läge).
+Dessa språk stöds av API för stavningskontroll i Bing (endast i `spell` läge).
 
-Observera att för att arbeta `en-US`med `mkt` något annat språk `Accept-Language` `setLang` än bör den ställas in och antingen eller bör ställas in som det har beskrivits i [Stavningskontroll API v7 referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+Observera att om du arbetar med ett annat språk än `en-US`, bör `mkt` det ställas in och `Accept-Language` `setLang` anges som det har beskrivits i [stavningskontrolls-API v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
 
 | Språk    | Språkkod |
 |:----------- |:-------------:|
@@ -62,7 +62,7 @@ Observera att för att arbeta `en-US`med `mkt` något annat språk `Accept-Langu
 | Spanska (Chile)     | `es-CL`          |
 | Spanska (Mexiko)    | `es-MX`          |
 | Spanska (Spanien)    | `es-ES`          |
-| Spanska (Förenta staterna)    | `es-US`          |
+| Spanska (USA)    | `es-US`          |
 | Svenska     | `sv`          |
 | Turkiska     | `tr`          |
 

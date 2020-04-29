@@ -1,7 +1,7 @@
 ---
-title: Granska användaryttranden - LUIS
+title: Granska användarens yttranden-LUIS
 titleSuffix: Azure Cognitive Services
-description: Granska yttranden som fångas upp av aktiv inlärning för att välja avsikt och markera entiteter för read-world yttranden; acceptera ändringar, träna och publicera.
+description: Granska yttranden som har registrerats av aktiv inlärning och välj avsikt och markera entiteter för Read-World yttranden; acceptera ändringar, träna och publicera.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,60 +12,60 @@ ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: diberry
 ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79219856"
 ---
-# <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Så här förbättrar du LUIS-appen genom att granska slutpunktsyttranden
+# <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Förbättra LUIS-appen genom att granska slut punkts yttranden
 
-Processen att granska slutpunktsyttranden för korrekta förutsägelser kallas [Aktiv inlärning](luis-concept-review-endpoint-utterances.md). Aktiv inlärning samlar in slutpunktsfrågor och väljer användarens slutpunktsyttranden som den är osäker på. Du granskar dessa yttranden för att välja avsikt och markera entiteter för dessa läsvärldsyttranden. Acceptera dessa ändringar i dina exempelyttranden och träna och publicera. LUIS identifierar sedan yttranden mer exakt.
+Processen för att granska slut punkts yttranden för korrekta förutsägelser kallas [aktiv inlärning](luis-concept-review-endpoint-utterances.md). Active Learning samlar in slut punkts frågor och väljer användarens slut punkt yttranden att det är osäkert. Du kan granska dessa yttranden för att välja avsikten och markera entiteter för dessa Read-World-yttranden. Acceptera ändringarna i ditt exempel yttranden och träna och publicera. LUIS identifierar sedan yttranden mer noggrant.
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-## <a name="enable-active-learning"></a>Aktivera aktivt lärande
+## <a name="enable-active-learning"></a>Aktivera aktiv inlärning
 
-Om du vill aktivera aktiv inlärning måste du logga användarfrågor. Detta åstadkoms genom att anropa `log=true` [slutpunktsfrågan](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) med frågesträngsparametern och värdet.
+Om du vill aktivera aktiv inlärning måste du logga användar frågor. Detta åstadkommer du genom att anropa [slut punkts frågan](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) med parametern `log=true` QueryString och värdet.
 
-Använd LUIS-portalen för att skapa rätt slutpunktsfråga.
+Använd LUIS-portalen för att skapa rätt slut punkts fråga.
 
-1. Välj din app i listan över appar i [luis-portalen.](https://preview.luis.ai/)
+1. Välj din app i listan över appar i [Luis-portalen för förhands granskning](https://preview.luis.ai/).
 1. Gå till avsnittet **Hantera** och välj sedan **Azure-resurser**.
-1. För den tilldelade förutsägelseresursen väljer du **Ändra frågeparametrar**.
+1. För den tilldelade förutsägelse resursen väljer du **ändra**frågeparametrar.
 
     > [!div class="mx-imgBorder"]
     > ![Använd LUIS-portalen för att spara loggar, vilket krävs för aktiv inlärning.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
 
-1. Växla **Spara loggar** spara sedan genom att välja **Klar**.
+1. Växla **Spara loggar** och spara genom att välja **färdig**.
 
     > [!div class="mx-imgBorder"]
     > ![Använd LUIS-portalen för att spara loggar, vilket krävs för aktiv inlärning.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
 
-     Den här åtgärden ändrar `log=true` exempel-URL:en genom att lägga till frågestringsparametern. Kopiera och använd den ändrade exempelfråge-URL:en när du gör förutsägelsefrågor till slutpunkten för körning.
+     Den här åtgärden ändrar exempel-URL genom att `log=true` lägga till parametern QueryString. Kopiera och Använd fråge-URL: en för den ändrade exemplet när du gör förutsägelse frågor till körnings slut punkten.
 
-## <a name="correct-intent-predictions-to-align-utterances"></a>Korrigera avsiktsförutsägelser för att justera yttranden
+## <a name="correct-intent-predictions-to-align-utterances"></a>Korrigera yttranden genom att korrigera avsikts förutsägelser
 
-Varje uttryck har en föreslagen avsikt som visas i kolumnen **Justerad avsikt.**
+Varje uttryck har en föreslagen avsikt som visas i kolumnen **justerad avsikt** .
 
 > [!div class="mx-imgBorder"]
-> [![Granska slutpunktsyttranden som LUIS är osäker på](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
+> [![Granska slut punkts yttranden som LUIS är osäker på](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
 
-Om du håller med om den avsikten markerar du markeringen. Om du inte håller med om förslaget väljer du rätt avsikt i listrutan justerad avsikt och markerar sedan markeringen till höger om den justerade avsikten. När du har markerat markeringen flyttas uttrycket till avsikten och tas bort från listan **Granska slutpunktsuttryck.**
+Om du samtycker till detta väljer du kryss rutan. Om du inte stämmer överens med förslaget väljer du rätt avsikt från List rutan justerad avsikt och markerar sedan kryss rutan till höger om det justerade avsikts alternativet. När du har markerat kryss rutan flyttas uttryck till avsikten och tas bort från listan **yttranden för gransknings slut punkt** .
 
 > [!TIP]
-> Det är viktigt att gå till sidan Avsiktsinformation för att granska och korrigera entitetsförutsägelserna från alla exempelyttranden från listan **Granska slutpunktsutsägelseer.**
+> Det är viktigt att gå till sidan med information om avsikt att granska och korrigera enhets förutsägelserna från alla exempel yttranden från **yttranden för gransknings slut punkt** .
 
 ## <a name="delete-utterance"></a>Ta bort uttryck
 
-Varje uttryck kan tas bort från granskningslistan. När den har tagits bort visas den inte i listan igen. Detta gäller även om användaren anger samma uttryck från slutpunkten.
+Varje uttryck kan tas bort från gransknings listan. När du har tagit bort den visas den inte i listan igen. Detta gäller även om användaren anger samma uttryck från slut punkten.
 
-Om du är osäker på om du ska ta bort uttrycket flyttar du `miscellaneous` det antingen till avsikten Ingen eller skapar en ny avsikt, till exempel och flyttar uttrycket till den avsikten.
+Om du är osäker på om du ska ta bort uttryck, antingen flyttar du den till none-avsikten eller skapar en ny avsikt, till exempel `miscellaneous` och flyttar uttryck till den avsikten.
 
 ## <a name="disable-active-learning"></a>Inaktivera aktiv inlärning
 
-Logga inte användarfrågor för att inaktivera aktiv inlärning. Detta åstadkoms genom att ange `log=false` [slutpunktsfrågan](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) med frågesträngsparametern och värdet eller inte använda frågesträngsvärdet eftersom standardvärdet är falskt.
+Du inaktiverar aktiv inlärning genom att inte logga användar frågor. Detta åstadkommer du genom att ställa in [slut punkts frågan](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) med parametern `log=false` QueryString och värdet eller inte använda QueryString-värdet eftersom standardvärdet är false.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill testa hur prestanda förbättras när du har märkt föreslagna uttryck kan du komma åt testkonsolen genom att välja **Testa** på den övre panelen. Instruktioner om hur du testar appen med testkonsolen finns i [Träna och testa appen](luis-interactive-test.md).
+Om du vill testa hur prestanda förbättras när du har märkt föreslagen yttranden kan du komma åt test konsolen genom att välja **test** i den övre panelen. Anvisningar om hur du testar din app med hjälp av test konsolen finns i [träna och testa din app](luis-interactive-test.md).

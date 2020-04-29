@@ -1,7 +1,7 @@
 ---
-title: Enkel entitetstyp - LUIS
+title: Enkel entitetstyp – LUIS
 titleSuffix: Azure Cognitive Services
-description: En enkel entitet beskriver ett enda koncept från det maskininlärda kontexten. Lägg till en fraslista när du använder en enkel entitet för att förbättra resultaten.
+description: En enkel entitet beskriver ett enda koncept från den dator som har lärts. Lägg till en fras lista när du använder en enkel entitet för att förbättra resultaten.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,31 +11,31 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: 8b92aa6057c81ec9442372c5b85918cb92196d61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74894764"
 ---
 # <a name="simple-entity"></a>Enkel entitet
 
-En enkel entitet är en generisk entitet som beskriver ett enda koncept och lärs ut från den maskininlärda kontexten. Eftersom enkla entiteter i allmänhet är namn som företagsnamn, produktnamn eller andra kategorier av namn lägger du till en [fraslista](luis-concept-feature.md) när du använder en enkel entitet för att öka signalen för de namn som används.
+En enkel entitet är en generisk entitet som beskriver ett enda koncept och som har lärts från den dator som har lärts. Eftersom enkla entiteter vanligt vis är namn, till exempel företags namn, produkt namn eller andra kategorier av namn, lägger du till en [fras lista](luis-concept-feature.md) när du använder en enkel entitet för att öka signalen av de namn som används.
 
 **Entiteten passar bra när:**
 
-* Data är inte konsekvent formaterade men anger samma sak.
+* Data formateras inte konsekvent, utan anger samma sak.
 
-![enkel enhet](./media/luis-concept-entities/simple-entity.png)
+![enkel entitet](./media/luis-concept-entities/simple-entity.png)
 
-## <a name="example-json"></a>Exempel på JSON
+## <a name="example-json"></a>Exempel-JSON
 
 `Bob Jones wants 3 meatball pho`
 
-I föregående uttryck, `Bob Jones` är märkt som `Customer` en enkel entitet.
+I föregående uttryck `Bob Jones` är märkt som en enkel `Customer` entitet.
 
-De data som returneras från slutpunkten innehåller entitetsnamnet, den identifierade texten från uttryck, platsen för den identifierade texten och poängen:
+Data som returneras från slut punkten innehåller enhets namnet, den identifierade texten från uttryck, platsen för den identifierade texten och poängen:
 
-#### <a name="v2-prediction-endpoint-response"></a>[V2-effektpunktssvar för förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 ```JSON
 "entities": [
@@ -49,9 +49,9 @@ De data som returneras från slutpunkten innehåller entitetsnamnet, den identif
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[V3-effektslutpunktssvar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
-Detta är JSON `verbose=false` om anges i frågesträngen:
+Detta är JSON om `verbose=false` anges i frågesträngen:
 
 ```json
 "entities": {
@@ -88,11 +88,11 @@ This is the JSON if `verbose=true` is set in the query string:
 
 * * *
 
-|Dataobjekt|Entitetsnamn|Värde|
+|Data objekt|Entitetsnamn|Värde|
 |--|--|--|
 |Enkel entitet|`Customer`|`bob jones`|
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Läs mönstersyntax](reference-pattern-syntax.md)
+> [Lär dig mönstermatchningssyntax](reference-pattern-syntax.md)

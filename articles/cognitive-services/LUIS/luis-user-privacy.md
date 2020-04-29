@@ -1,7 +1,7 @@
 ---
-title: Exportera & ta bort data - LUIS
+title: Exportera & ta bort data – LUIS
 titleSuffix: Azure Cognitive Services
-description: Du har full kontroll över visning, export och radering av deras data. Ta bort kunddata för att säkerställa sekretess och efterlevnad.
+description: Du har fullständig kontroll över att visa, exportera och ta bort data. Ta bort kund information för att säkerställa sekretess och efterlevnad.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,82 +12,82 @@ ms.topic: reference
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: 4e3e0d04b0086905b80e26fb4f838c36b5b5545e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78273366"
 ---
-# <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportera och ta bort dina kunddata i Språk understanding (LUIS) i Cognitive Services
+# <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportera och ta bort dina kund data i Language Understanding (LUIS) i Cognitive Services
 
-Ta bort kunddata för att säkerställa sekretess och efterlevnad.
+Ta bort kund information för att säkerställa sekretess och efterlevnad.
 
-## <a name="summary-of-customer-data-request-features"></a>Sammanfattning av funktionerna för kunddatabegäran
-Språk understanding Intelligent Service (LUIS) bevarar kundinnehåll för att driva tjänsten, men LUIS-användaren har full kontroll över visning, export och radering av sina data. Detta kan göras via LUIS [webbportal eller](luis-reference-regions.md) [LUIS Authoring (även känd som Programmatic) API: er](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
+## <a name="summary-of-customer-data-request-features"></a>Översikt över funktioner för begäran om kund information
+Language Understanding Intelligent Service (LUIS) bevarar kund innehåll för att köra tjänsten, men LUIS-användaren har fullständig kontroll över att visa, exportera och ta bort data. Detta kan göras via LUIS- [webbportalen](luis-reference-regions.md) eller [Luis Authoring (kallas även programmerings programmering)](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-Kundinnehåll lagras krypterat i Microsofts regionala Azure-lagring och omfattar:
+Kund innehållet lagras krypterat i Microsoft Regional Azure Storage och innehåller:
 
-- Användarkontoinnehåll som samlas in vid registreringen
-- Utbildningsdata som krävs för att bygga modellerna
-- Loggade användarfrågor som används av [aktiv inlärning](luis-concept-review-endpoint-utterances.md) för att förbättra modellen
-  - Användare kan inaktivera frågeloggning `&log=false` genom att lägga till begäran, information [här](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
+- Användar konto innehåll som samlas in vid registreringen
+- Tränings data som krävs för att bygga modeller
+- Loggade användar frågor som används av [aktiv inlärning](luis-concept-review-endpoint-utterances.md) för att förbättra modellen
+  - Användare kan stänga av loggning av frågor genom `&log=false` att lägga till i begäran, information [här](troubleshooting.md#how-can-i-disable-the-logging-of-utterances)
 
-## <a name="deleting-customer-data"></a>Ta bort kunddata
-LUIS-användare har full kontroll över att ta bort användarinnehåll, antingen via LUIS-webbportalen eller LUIS Authoring -API:erna (kallas även Programmatic). I följande tabell visas länkar som hjälper till med båda:
+## <a name="deleting-customer-data"></a>Tar bort kund information
+LUIS-användare har fullständig kontroll för att ta bort alla användar innehåll, antingen via LUIS-webbportalen eller LUIS redigering (även kallat programmatisk) API: er. I följande tabell visas länkar som hjälper dig med båda:
 
-| | **Användarkonto** | **Program** | **Exempel yttrande(er)** | **Frågor från slutanvändare** |
+| | **Användarkonto** | **Program** | **Exempel på uttryck** | **Slut användar frågor** |
 | --- | --- | --- | --- | --- |
-| **Portal** | [Länk](luis-concept-data-storage.md#delete-an-account) | [Länk](luis-how-to-start-new-app.md#delete-app) | [Länk](luis-concept-data-storage.md#utterances-in-an-intent) | [Aktiva inlärningsyttranden](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Yttranden för loggade uttryck](luis-concept-data-storage.md#disable-logging-utterances) |
+| **Portalen** | [Länk](luis-concept-data-storage.md#delete-an-account) | [Länk](luis-how-to-start-new-app.md#delete-app) | [Länk](luis-concept-data-storage.md#utterances-in-an-intent) | [Active Learning-yttranden](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Loggade yttranden](luis-concept-data-storage.md#disable-logging-utterances) |
 | **API:er** | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 
-## <a name="exporting-customer-data"></a>Exportera kunddata
-LUIS-användare har full kontroll för att visa data på portalen, men det måste exporteras via LUIS Authoring (kallas även Programmatic) API: er. I följande tabell visas länkar som hjälper till med dataexport via LUIS Authoring (kallas även Programmatic) API:er:
+## <a name="exporting-customer-data"></a>Exportera kund information
+LUIS-användare har fullständig kontroll för att visa data på portalen, men de måste exporteras genom LUIS-redigering (även kallat programmering). I följande tabell visas länkar som hjälper dig med data exporter via LUIS Authoring (kallas även program mässig) API: er:
 
-| | **Användarkonto** | **Program** | **Yttrande(er)** | **Frågor från slutanvändare** |
+| | **Användarkonto** | **Program** | **Uttryck (s)** | **Slut användar frågor** |
 | --- | --- | --- | --- | --- |
 | **API:er** | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [Länk](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
 
-## <a name="location-of-active-learning"></a>Plats för aktivt lärande
+## <a name="location-of-active-learning"></a>Plats för aktiv inlärning
 
-För att aktivera [aktiv inlärning](luis-how-to-review-endpoint-utterances.md#enable-active-learning)lagras användarnas loggade yttranden, som tas emot vid de publicerade LUIS-slutpunkterna, i följande Azure-geografiska områden:
+För att aktivera [aktiv inlärning](luis-how-to-review-endpoint-utterances.md#enable-active-learning)lagras användarens loggade yttranden som togs emot vid de publicerade Luis-slutpunkterna i följande Azure-geografiska områden:
 
 * [Europa](#europe)
 * [Australien](#australia)
 * [USA](#united-states)
 
-Med undantag för aktiva inlärningsdata (nedan) följer LUIS [datalagringsmetoderna för regionala tjänster](https://azuredatacentermap.azurewebsites.net/).
+Med undantag för aktiva inlärnings data (beskrivs nedan) följer LUIS [data lagrings metoder för regionala tjänster](https://azuredatacentermap.azurewebsites.net/).
 
 ### <a name="europe"></a>Europa
 
-Den [eu.luis.ai](https://eu.luis.ai) portalen och Europa-redigeringen (kallas även programmatiska API:er) finns i Azures Geografi i Europa. Den eu.luis.ai portalen och Europa-redigering (kallas även Programmatiska API:er) stöder distribution av slutpunkter till följande Azure-geografiska områden:
+[EU.Luis.AI](https://eu.luis.ai) -portalen och Europa-redigering (även kallat programmerings-API: er) finns i Azures Europa geografi. Eu.luis.ai-portalen och Europa-redigering (även kallat programmerings-API: er) stöder distribution av slut punkter till följande Azure-geografiska områden:
 
 * Europa
 * Frankrike
 * Storbritannien
 
-När du distribuerar till dessa Azure-geografiska områden lagras de yttranden som tas emot av slutpunkten från slutanvändare av din app i Azures Europa-geografi för aktiv inlärning. Du kan inaktivera aktiv inlärning, se [Inaktivera aktiv inlärning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Information om hur du hanterar lagrade yttranden finns i [Ta bort uttryck](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+När du distribuerar till dessa Azure-geografiska områden kommer yttranden som tagits emot av slut punkten från slutanvändare av appen att lagras i Azures Europa geografi för aktiv inlärning. Du kan inaktivera aktiv inlärning i [inaktivera aktiv inlärning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Information om hur du hanterar lagrade yttranden finns i [ta bort uttryck](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 ### <a name="australia"></a>Australien
 
-[Den au.luis.ai](https://au.luis.ai) portalen och Australien Authoring (kallas även Programmatiska API:er) finns i Azures Australiengeografi. Den au.luis.ai portalen och Australien Authoring (kallas även Programmatic API: er) stöder distribution av slutpunkter till följande Azure-geografiska områden:
+[Au.Luis.AI](https://au.luis.ai) -portalen och Australien-redigering (även kallat programmerings-API: er) finns i Azures geografi region i Australien. Au.luis.ai-portalen och Australien-redigering (även kallat programmerings-API: er) stöder distribution av slut punkter till följande Azure-geografiska områden:
 
 * Australien
 
-När du distribuerar till dessa Azure-geografiska områden lagras de yttranden som tas emot av slutpunkten från slutanvändare av din app i Azures Australien-geografi för aktiv inlärning. Du kan inaktivera aktiv inlärning, se [Inaktivera aktiv inlärning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Information om hur du hanterar lagrade yttranden finns i [Ta bort uttryck](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+När du distribuerar till dessa Azure-geografiska områden kommer de yttranden som tas emot av slut punkten från slutanvändare av appen att lagras i Azures region för Australien för aktiv inlärning. Du kan inaktivera aktiv inlärning i [inaktivera aktiv inlärning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Information om hur du hanterar lagrade yttranden finns i [ta bort uttryck](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 ### <a name="united-states"></a>USA
 
-Den [luis.ai](https://www.luis.ai) portalen och USA Authoring (kallas även Programmatiska API:er) finns i Azures geografi i USA. Den luis.ai portalen och USA Authoring (kallas även Programmatic API: er) stöder distribution av slutpunkter till följande Azure-geografiska områden:
+[Luis.AI](https://www.luis.ai) -portalen och USA redigering (även kallat programmerings-API: er) finns i azures USA geografi. Luis.ai-portalen och USA redigering (även kallat programmerings-API: er) stöder distribution av slut punkter till följande Azure-geografiska områden:
 
-* Azure-geografiska områden som inte stöds av regioner som författarregioner i Europa eller Australien
+* Azure-geografiska områden stöds inte av redigerings regionerna Europa eller Australien
 
-När du distribuerar till dessa Azure-geografiska områden lagras de yttranden som tas emot av slutpunkten från slutanvändare av din app i Azures geografiska geografi i USA för aktiv inlärning. Du kan inaktivera aktiv inlärning, se [Inaktivera aktiv inlärning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Information om hur du hanterar lagrade yttranden finns i [Ta bort uttryck](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+När du distribuerar till dessa Azure-geografiska områden kommer yttranden som tagits emot av slut punkten från slutanvändare av appen att lagras i Azures USA geografi för aktiv inlärning. Du kan inaktivera aktiv inlärning i [inaktivera aktiv inlärning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Information om hur du hanterar lagrade yttranden finns i [ta bort uttryck](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [LUIS-regionreferens](./luis-reference-regions.md)
+> [Referens för LUIS-regioner](./luis-reference-regions.md)

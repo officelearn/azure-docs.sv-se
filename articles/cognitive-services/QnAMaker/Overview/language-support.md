@@ -1,7 +1,7 @@
 ---
-title: Språkstöd - QnA Maker
+title: Språk stöd – QnA Maker
 titleSuffix: Azure Cognitive Services
-description: En lista över kultur, naturliga språk som stöds av QnA Maker för din kunskapsbas. Blanda inte språk i samma kunskapsbas.
+description: En lista över kultur, naturliga språk som stöds av QnA Maker för din kunskaps bas. Blanda inte språk i samma kunskaps bas.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
 ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79220560"
 ---
-# <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Språkstöd för en QnA Maker resurs- och kunskapsbas
+# <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Språk stöd för en QnA Maker resurs-och kunskaps baser
 
-Språk för tjänsten väljs när du skapar den första kunskapsbasen i resursen. Alla ytterligare kunskapsbaser i resursen måste vara på samma språk. 
+Språk för tjänsten väljs när du skapar den första kunskaps basen i resursen. Alla ytterligare kunskaps baser i resursen måste vara på samma språk. 
 
-Språket avgör relevansen av de resultat som QnA Maker tillhandahåller som svar på användarfrågor.
+Språket bestämmer relevansen hos resultaten QnA Maker ger svar på användar frågor.
 
-Läs mer om [hur språkval påverkar](../how-to/language-knowledge-base.md).
+Lär dig mer om [påverkan av val av språk](../how-to/language-knowledge-base.md).
 
 ## <a name="languages-supported"></a>Språk som stöds
 

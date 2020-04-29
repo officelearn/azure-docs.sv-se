@@ -1,7 +1,7 @@
 ---
-title: Antal fördefinierade entitet - LUIS
+title: Fördefinierad entitet för nummer – LUIS
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller information om numrerar fördefinierad entitet i Språkförståelse (LUIS).
+description: Den här artikeln innehåller information om fördefinierad entitetsinformation i Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,19 +12,19 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: 85e3589d7467691e2b9a11879510ab980bbd875a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78273469"
 ---
-# <a name="number-prebuilt-entity-for-a-luis-app"></a>Numrera fördefinierad entitet för en LUIS-app
-Det finns många sätt på vilka numeriska värden används för att kvantifiera, uttrycka och beskriva informationsdelar. Den här artikeln innehåller bara några av de möjliga exemplen. LUIS tolkar variationerna i användaryttranden och returnerar konsekventa numeriska värden. Eftersom den här entiteten redan har tränats behöver du inte lägga till exempelyttranden som innehåller nummer i programavsikterna.
+# <a name="number-prebuilt-entity-for-a-luis-app"></a>Numrerad fördefinierad entitet för en LUIS-app
+Det finns många sätt på vilka numeriska värden används för att kvantifiera, uttrycka och beskriva delar av information. I den här artikeln beskrivs bara några av de möjliga exemplen. LUIS tolkar variationerna i User yttranden och returnerar konsekventa numeriska värden. Eftersom entiteten redan har tränats behöver du inte lägga till exempel yttranden som innehåller nummer till program avsikterna.
 
-## <a name="types-of-number"></a>Typer av nummer
-Numret hanteras från [GitHub-databasen för identifierartext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml)
+## <a name="types-of-number"></a>Typer av tal
+Antalet hanteras från GitHub-lagringsplatsen för [identifierare – text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml)
 
-## <a name="examples-of-number-resolution"></a>Exempel på talupplösning
+## <a name="examples-of-number-resolution"></a>Exempel på nummer upplösning
 
 | Yttrande        | Entitet   | Lösning |
 | ------------- |:----------------:| --------------:|
@@ -38,17 +38,17 @@ Numret hanteras från [GitHub-databasen för identifierartext](https://github.co
 | ```buy two dozen eggs```    | ```"two dozen"``` | ```"24"``` |
 
 
-LUIS innehåller det redovisade värdet för en entitet **`builtin.number`** i `resolution` fältet för det JSON-svar som returneras.
+LUIS innehåller det identifierade värdet för **`builtin.number`** en entitet i `resolution` fältet i JSON-svaret som returneras.
 
-## <a name="resolution-for-prebuilt-number"></a>Upplösning för fördefinierat tal
+## <a name="resolution-for-prebuilt-number"></a>Lösning för fördefinierat nummer
 
-Följande entitetsobjekt returneras för frågan:
+Följande enhets objekt returneras för frågan:
 
 `order two dozen eggs`
 
 #### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
-Följande JSON är `verbose` med parametern inställd `false`på:
+Följande JSON- `verbose` parameter har angetts till `false`:
 
 ```json
 "entities": {
@@ -57,9 +57,9 @@ Följande JSON är `verbose` med parametern inställd `false`på:
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3-verbos respons](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
 
-Följande JSON är `verbose` med parametern inställd `true`på:
+Följande JSON- `verbose` parameter har angetts till `true`:
 
 ```json
 "entities": {
@@ -85,7 +85,7 @@ Följande JSON är `verbose` med parametern inställd `true`på:
 ```
 #### <a name="v2-response"></a>[V2-svar](#tab/V2)
 
-Följande exempel visar ett JSON-svar från LUIS, som innehåller upplösningen av värdet 24, för uttrycket "två dussin".
+I följande exempel visas ett JSON-svar från LUIS, som innehåller upplösningen för värdet 24, för uttryck "två dussin".
 
 ```json
 "entities": [
@@ -105,6 +105,6 @@ Följande exempel visar ett JSON-svar från LUIS, som innehåller upplösningen 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-Lär dig mer om [valutan,](luis-reference-prebuilt-currency.md) [ordningstalen](luis-reference-prebuilt-ordinal.md)och [procenttalet](luis-reference-prebuilt-percentage.md).
+Lär dig mer om [valutan](luis-reference-prebuilt-currency.md), [ordnings talet](luis-reference-prebuilt-ordinal.md)och [procent andelen](luis-reference-prebuilt-percentage.md).

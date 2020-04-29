@@ -1,7 +1,7 @@
 ---
-title: Sök på webben efter populära videor med hjälp av API:et för videosökning i Bing
+title: Sök på webben efter trend ande videor med hjälp av API för videosökning i Bing
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du använder API:et för videosökning på Bing för att söka på webben efter populära videor.
+description: Lär dig hur du använder API för videosökning i Bing för att söka på webben efter trend ande videor.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: ea6f79bf6c305ecc07b3e684ede15ad439039e7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68500620"
 ---
-# <a name="get-trending-videos-with-the-bing-video-search-api"></a>Få populära videor med API:et för videosökning på Bing 
+# <a name="get-trending-videos-with-the-bing-video-search-api"></a>Hämta videoklipp med API för videosökning i Bing 
 
-Med API:et för videosökning på Bing kan du hitta dagens populära videor från hela webben och i olika kategorier. 
+Med API för videosökning i Bing kan du hitta dagens trender i videor från webben och i olika kategorier. 
 
-## <a name="get-request"></a>HÄMTA begäran
+## <a name="get-request"></a>Hämta begäran
 
-Om du vill hämta dagens populära videor från API:et för videosökning på Bing skickar du följande GET-begäran:  
+Skicka följande GET-begäran för att få dagens trend ande videor från API för videosökning i Bing:  
   
 ```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/trending?mkt=en-us HTTP/1.1
@@ -35,27 +35,27 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```
 
-## <a name="market-support"></a>Marknadsstöd
+## <a name="market-support"></a>Marknads support
 
-Följande marknader stöder populära videor.  
+Följande marknader stöder trender i videor.  
  
--   sv-AU (engelska, Australien)  
--   sv-CA (Engelska, Kanada)  
+-   en – AU (engelska, Australien)  
+-   en-CA (engelska, Kanada)  
 -   en-GB (engelska, Storbritannien)  
--   sv-ID (Engelska, Indonesien)  
--   sv-IE (engelska, Irland)  
--   sv-IN (engelska, Indien)  
--   en-NZ (Engelska, Nya Zeeland)  
--   sv-PH (engelska, Filippinerna)  
--   en-SG (engelska, Singapore)  
--   sv-US (engelska, USA)  
--   sv-WW (engelska, global samlingskod)  
--   sv-ZA (engelska, Sydafrika)  
+-   en-ID (engelska, Indonesien)  
+-   en-IE (engelska, Irland)  
+-   en-IN (engelska, Indien)  
+-   en-NZ (engelska, Nya Zeeland)  
+-   en-PH (engelska, Filippinerna)  
+-   en-TG (engelska, Singapore)  
+-   en-US (engelska, USA)  
+-   en-WW (engelsk, global sammanställd kod)  
+-   en-ZA (engelska, Sydafrika)  
 -   zh-CN (kinesiska, Kina)
 
 ## <a name="example-json-response"></a>Exempel på JSON-svar  
 
-I följande exempel visas ett API-svar som innehåller populära videor, som visas efter kategori och underkategori. Svaret innehåller också bannervideor, som är de mest populära populära videorna, och kan komma från en eller flera kategorier.  
+I följande exempel visas ett API-svar som innehåller Trends videor, som listas efter kategori och under kategori. Svaret innehåller också banderoller, som är de populäraste trend ande videoklippen och kan komma från en eller flera kategorier.  
 
 ```json
 {  
@@ -124,4 +124,4 @@ I följande exempel visas ett API-svar som innehåller populära videor, som vis
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hämta insikter om videor](video-insights.md)
+> [Hämta information om video](video-insights.md)

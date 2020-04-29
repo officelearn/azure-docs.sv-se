@@ -1,7 +1,7 @@
 ---
-title: Uppgradera från API för bildsökning i Bing v5 till v7
+title: Uppgradera från API för bildsökning i Bing V5 till v7
 titleSuffix: Azure Cognitive Services
-description: I den här uppgraderingsguiden beskrivs ändringar mellan version 5 och version 7 av API:et för bildsökning av Bing. Använd den här guiden för att identifiera de delar av programmet som du behöver uppdatera för att använda version 7.
+description: Den här uppgraderings guiden beskriver ändringar mellan version 5 och version 7 av API för bildsökning i Bing. Använd den här guiden för att hjälpa dig att identifiera de delar av programmet som du behöver uppdatera för att använda version 7.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -12,145 +12,145 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
 ms.openlocfilehash: c4c6b95996206cfb38ea3f77b89c3ebe3c2c0026
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68883490"
 ---
-# <a name="bing-image-search-api-v7-upgrade-guide"></a>Bing Image Search API v7 uppgraderingsguide
+# <a name="bing-image-search-api-v7-upgrade-guide"></a>Uppgraderings guide för API för bildsökning i Bing v7
 
-Den här uppgraderingsguiden identifierar ändringarna mellan version 5 och version 7 av API:et för bildsökning av Bing. Använd den här guiden för att identifiera de delar av programmet som du behöver uppdatera för att använda version 7.
+Den här uppgraderings guiden identifierar ändringarna mellan version 5 och version 7 av API för bildsökning i Bing. Använd den här guiden för att hjälpa dig att identifiera de delar av programmet som du behöver uppdatera för att använda version 7.
 
 ## <a name="breaking-changes"></a>Icke-bakåtkompatibla ändringar
 
 ### <a name="endpoints"></a>Slutpunkter
 
-- Slutpunktens versionsnummer ändrades från v5 till v7. Till exempel https:\//api.cognitive.microsoft.com/bing/\*\*v7.0**/images/search.
+- Slut punktens versions nummer har ändrats från V5 till v7. Till exempel https:\//API.Cognitive.Microsoft.com/Bing/\*\*v 7.0 * */images/search.
 
-### <a name="error-response-objects-and-error-codes"></a>Felsvarsobjekt och felkoder
+### <a name="error-response-objects-and-error-codes"></a>Fel svars objekt och felkoder
 
-- Alla misslyckade begäranden `ErrorResponse` ska nu innehålla ett objekt i svarstexten.
+- Alla misslyckade förfrågningar bör nu innehålla `ErrorResponse` ett objekt i svars texten.
 
-- Lade till följande `Error` fält i objektet.  
-  - `subCode`&mdash;Partitionerar felkoden i diskreta buckets, om möjligt
-  - `moreDetails`&mdash;Ytterligare information om felet `message` som beskrivs i fältet
+- Följande fält har lagts till i `Error` objektet.  
+  - `subCode`&mdash;Partitioner felkod i diskreta buckets, om möjligt
+  - `moreDetails`&mdash;Ytterligare information om det fel som beskrivs i `message` fältet
 
 
-- Ersatte v5-felkoderna med `code` `subCode` följande möjliga och värden.
+- Ersatt felkoderna för v5 med följande möjliga `code` `subCode` värden.
 
-|Kod|Underkod|Beskrivning
+|Kod|Under kod|Beskrivning
 |-|-|-
-|ServerError (ServerError)|Oväntatare<br/>ResourceError (ResourceError)<br/>Har inte implementerats|Bing returnerar ServerError när något av underkodsvillkoren inträffar. Svaret innehåller dessa fel om HTTP-statuskoden är 500.
-|Ogiltigt begärs|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran inte är giltig. En obligatorisk parameter saknas till exempel eller så är ett parametervärde ogiltigt.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue är HTTP-statuskoden 400.<br/><br/>Om felet är HttpNotAllowed, HTTP-statuskoden 410.
-|RateLimitExceed||Bing returnerar RateLimitExceed när du överskrider dina frågor per sekund (QPS) eller frågor per månad (QPM) kvot.<br/><br/>Bing returnerar HTTP-statuskod 429 om du överskridit QPS och 403 om du överskridit QPM.
-|Ogiltiga myndigheter|Tillståndstagande<br/>TillståndSbrott|Bing returnerar InvalidAuthorization när Bing inte kan autentisera anroparen. `Ocp-Apim-Subscription-Key` Huvudet saknas till exempel eller så är prenumerationsnyckeln ogiltig.<br/><br/>Redundans inträffar om du anger mer än en autentiseringsmetod.<br/><br/>Om felet är InvalidAuthorization är HTTP-statuskoden 401.
-|Otillräcklig auktorisering|AuktoriseringDisabled<br/>Auktoriseringexpirerad|Bing returnerar InsufficientAuthorization när anroparen inte har behörighet att komma åt resursen. Detta kan inträffa om prenumerationsnyckeln har inaktiverats eller har upphört att gälla. <br/><br/>Om felet är InsufficientAuthorization är HTTP-statuskoden 403.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av under kods villkoren inträffar. Svaret innehåller dessa fel om HTTP-statuskoden är 500.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran är ogiltig. Till exempel saknas en obligatorisk parameter eller också är ett parameter värde ogiltigt.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue är HTTP-status koden 400.<br/><br/>Om felet är HttpNotAllowed, HTTP-statuskod 410.
+|RateLimitExceeded||Bing returnerar RateLimitExceeded varje gång du överskrider dina frågor per sekund (frågor per sekund) eller frågor per månad (QPM)-kvot.<br/><br/>Bing returnerar HTTP-statuskod 429 om du har överskridit frågor per sekund och 403 om du har överskridit QPM.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing returnerar InvalidAuthorization när Bing inte kan autentisera anroparen. Till exempel saknas `Ocp-Apim-Subscription-Key` rubriken eller så är prenumerations nyckeln inte giltig.<br/><br/>Redundans inträffar om du anger fler än en autentiseringsmetod.<br/><br/>Om felet är InvalidAuthorization är HTTP-status koden 401.
+|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing returnerar InsufficientAuthorization när anroparen inte har behörighet att komma åt resursen. Detta kan inträffa om prenumerations nyckeln har inaktiverats eller har upphört att gälla. <br/><br/>Om felet är InsufficientAuthorization är HTTP-status koden 403.
 
-- Följande mappar de tidigare felkoderna till de nya koderna. Om du har varit beroende av v5-felkoder uppdaterar du koden därefter.
+- Följande mappar de tidigare fel koderna till de nya koderna. Om du har tagit ett beroende på V5-felkoder, uppdaterar du koden enligt detta.
 
-|Version 5-kod|Version 7 code.subCode
+|Version 5 kod|Version 7 kod. subcode
 |-|-
-|BegäranParameterMissing|OgiltigtQuest.parametermissing
-BegäranParameterInvalidValue|OgiltigtQuest.parameterInvalidvärde
-ResurserAccessDenied|Otillräcklig auktorisering
-Överskredvolym|RateLimitExceed
-Överskridit QpsLimit|RateLimitExceed
-Disabled|Otillräcklig auktorisering.AuthorizationDisabled
-Oväntatare|ServerError.UnexpectedError
-DataSourceErrors|ServerError.ResourceError
-Tillståndstagande|Ogiltigauktorisering.AuthorizationMissing
-HttpNotAllowed|InvalidRequest.httpNotAllowed
-UserAgentMissing|OgiltigtQuest.parametermissing
-Har inte implementerats|ServerError.Inte implementerad
-Ogiltiga myndigheter|Ogiltiga myndigheter
-InvalidAuthorizationMethod|Ogiltiga myndigheter
-MultiAuthorizationMethod|Ogiltiga myndigheter.AuthorizationRedundancy
-ExpiredAuthorizationToken|Otillräcklig auktorisering.AuthorizationExpirerad
-Otillräckligtscope|Otillräcklig auktorisering
-Blockerad|Ogiltigrequest.Blockerad
+|RequestParameterMissing|InvalidRequest.ParameterMissing
+RequestParameterInvalidValue|InvalidRequest.ParameterInvalidValue
+ResourceAccessDenied|InsufficientAuthorization
+ExceededVolume|RateLimitExceeded
+ExceededQpsLimit|RateLimitExceeded
+Disabled|InsufficientAuthorization.AuthorizationDisabled
+UnexpectedError|ServerError. UnexpectedError
+DataSourceErrors|ServerError. ResourceError
+AuthorizationMissing|InvalidAuthorization.AuthorizationMissing
+HttpNotAllowed|InvalidRequest.HttpNotAllowed
+UserAgentMissing|InvalidRequest.ParameterMissing
+NotImplemented|ServerError. NotImplemented
+InvalidAuthorization|InvalidAuthorization
+InvalidAuthorizationMethod|InvalidAuthorization
+MultipleAuthorizationMethod|InvalidAuthorization.AuthorizationRedundancy
+ExpiredAuthorizationToken|InsufficientAuthorization.AuthorizationExpired
+InsufficientScope|InsufficientAuthorization
+Blockerad|InvalidRequest. blockerad
 
 
 
 ### <a name="query-parameters"></a>Frågeparametrar
 
-- Omdöpt `modulesRequested` frågeparametern till [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).  
+- Byter namn på `modulesRequested` Frågeparametern till [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).  
 
-- Bytte namn på anteckningarna till taggar. Se frågeparametern [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) till taggar.  
+- Har bytt namn till taggar. Visa en frågeparameter för [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) till taggar.  
 
-- Ändrade listan över marknader som stöds av filtret ShoppingSources endast till en-US. Se [imageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype).  
+- Ändrade listan över stödda marknader i ShoppingSources-filtervärdet till endast en-US. Se [imageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype).  
 
 
-### <a name="image-insights-changes"></a>Bildinsikter ändras
+### <a name="image-insights-changes"></a>Ändringar i Image Insights
 
-- Bytt namn `annotations` på fältet för `imageTags` [ImagesInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse) till .  
+- Bytt namn på `annotations` fältet för [ImagesInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse) till `imageTags`.  
 
-- Bytte namn `AnnotationModule` till [ImageTagsModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetagsmodule).  
+- `AnnotationModule` Objektet har döpts om till [ImageTagsModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetagsmodule).  
 
-- Bytte namn `Annotation` på objektet till `confidence` [Tagg](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#tag)och tog bort fältet.  
+- Ett nytt namn på `Annotation` objektet att [tagga](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#tag)och borttaget `confidence` fält.  
 
-- Bytte namn `insightsSourcesSummary` på fältet för `insightsMetadata` [bildobjektet](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) till .  
+- Bytt namn på `insightsSourcesSummary` fältet för objektet [bild](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) till `insightsMetadata`.  
 
-- Bytte namn `InsightsSourcesSummary` till [InsightsMetadata](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightsmetadata).  
+- `InsightsSourcesSummary` Objektet har döpts om till [InsightsMetadata](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightsmetadata).  
 
-- Lade `https://api.cognitive.microsoft.com/bing/v7.0/images/details` till slutpunkten. Använd den här slutpunkten för att begära bildinsikter i stället för slutpunkten /images/search. Se [Bildinsikter](./image-insights.md).
+- `https://api.cognitive.microsoft.com/bing/v7.0/images/details` Slut punkten lades till. Använd den här slut punkten för att begära bild insikter i stället för/images/search-slutpunkten. Se [bild insikter](./image-insights.md).
 
-- Följande frågeparametrar är nu `/images/details` endast giltiga med slutpunkten.  
+- Följande frågeparametrar är nu endast giltiga med `/images/details` slut punkten.  
 
-    -   [insikterToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken)  
-    -   [Modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)  
-    -   [imgUrl (på)](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl)  
-    -   [Cab](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)  
-    -   [Cal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal)  
+    -   [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken)  
+    -   [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)  
+    -   [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl)  
+    -   [föra](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)  
+    -   [installera](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal)  
     -   [car](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car)  
-    -   [Katt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat)  
-    -   [Ct](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#ct)  
+    -   [lat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat)  
+    -   [&](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#ct)  
 
-- Bytte namn `ImageInsightsResponse` på objektet till [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsights).  
+- `ImageInsightsResponse` Objektet har döpts om till [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsights).  
 
-- Ändrade datatyperna för följande fält i [ImageInsights-objektet.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsights)  
+- Data typerna för följande fält har ändrats i [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsights) -objektet.  
 
-    -   Ändrade typen av `relatedCollections` fält `ImageGallery[]` från till [RelatedCollectionsModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#relatedcollectionsmodule).  
+    -   `relatedCollections` Fält typen har ändrats från `ImageGallery[]` till [RelatedCollectionsModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#relatedcollectionsmodule).  
 
-    -   Ändrade typen av `pagesIncluding` fält `Image[]` från till [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagesmodule).  
+    -   `pagesIncluding` Fält typen har ändrats från `Image[]` till [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagesmodule).  
 
-    -   Ändrade typen av `relatedSearches` fält `Query[]` från till [RelatedSearchesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#relatedsearchesmodule).  
+    -   `relatedSearches` Fält typen har ändrats från `Query[]` till [RelatedSearchesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#relatedsearchesmodule).  
 
-    -   Ändrade typen av `recipes` fält `Recipe[]` från till [RecipesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#recipesmodule).  
+    -   `recipes` Fält typen har ändrats från `Recipe[]` till [RecipesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#recipesmodule).  
 
-    -   Ändrade typen av `visuallySimilarImages` fält `Image[]` från till [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagesmodule).  
+    -   `visuallySimilarImages` Fält typen har ändrats från `Image[]` till [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagesmodule).  
 
-    -   Ändrade typen av `visuallySimilarProducts` fält `ProductSummaryImage[]` från till [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagesmodule).  
+    -   `visuallySimilarProducts` Fält typen har ändrats från `ProductSummaryImage[]` till [ImagesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagesmodule).  
 
-    -   Tog `ProductSummaryImage` bort objektet och flyttade de produktrelaterade fälten till [bildobjektet.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) Objektet `Image` innehåller endast produktrelaterade fält när bilden ingår som en del av visuellt liknande produkter i ett bildinsiktssvar.  
+    -   `ProductSummaryImage` Objektet har tagits bort och de produktbaserade fälten har flyttats till objektet [bild](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) . `Image` Objektet inkluderar endast de produktbaserade fälten när avbildningen ingår som en del av visuellt likartade produkter i ett bild insikts svar.  
 
-    -   Ändrade typen av `recognizedEntityGroups` fält `RecognizedEntityGroup[]` från till [RecognizedEntitiesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#recognizedentitiesmodule).  
+    -   `recognizedEntityGroups` Fält typen har ändrats från `RecognizedEntityGroup[]` till [RecognizedEntitiesModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#recognizedentitiesmodule).  
 
--   Bytte namn `categoryClassification` på fältet [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse) till `annotations`och `AnnotationsModule`ändrade dess typ till .  
+-   Bytt namn på `categoryClassification` fältet för [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse) till `annotations`och ändrade dess typ till. `AnnotationsModule`  
 
-### <a name="images-answer"></a>Bilder svar
+### <a name="images-answer"></a>Svar på bilder
 
--   Tog bort fälten displayShoppingSourcesBadges och displayRecipeSourcesBadges från [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images).  
+-   Fälten displayShoppingSourcesBadges och displayRecipeSourcesBadges har tagits bort från [avbildningarna](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images).  
 
--   Bytte namn `nextOffsetAddCount` på fältet `nextOffset` [Bilder](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) till . Hur du använder förskjutningen har också ändrats. Tidigare har du angett [parametern förskjutningsfråga](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offset) till `nextOffsetAddCount` värdet plus föregående förskjutningsvärde plus antalet bilder i resultatet. Nu ställer `offset` du `nextOffset` in värdet.  
+-   Bytt namn på `nextOffsetAddCount` fältet med [bilder](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) till `nextOffset`. Hur du använder förskjutningen har också ändrats. Tidigare angav du parametern [förskjutnings](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offset) fråga till `nextOffsetAddCount` värdet plus föregående förskjutnings värde plus antalet bilder i resultatet. Nu ställer du in `offset` till `nextOffset` värdet.  
 
 
 ## <a name="non-breaking-changes"></a>Icke-brytande ändringar
 
 ### <a name="query-parameters"></a>Frågeparametrar
 
-- Lade till Transparent [imageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype) som ett möjligt imageType-filtervärde. Filtret Genomskinlig returnerar bara bilder med en genomskinlig bakgrund.
+- Transparent som ett möjligt [imageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype) -filter värde har lagts till. Det transparenta filtret returnerar bara bilder med en genomskinlig bakgrund.
 
-- Lade till värdet Alla som ett möjligt [licensfilter.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#license) Alla filter returnerar endast bilder som är under licens.
+- Lade till ett eventuellt [licens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#license) filter värde. Filtret returnerar bara bilder som är under licens.
 
-- Lade till frågeparametrarna [maxFileSize](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxfilesize) och [minFileSize.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minfilesize) Använd dessa filter för att returnera bilder inom en rad filstorlekar.  
+- Frågeparametrar för parametrarna [maxFileSize](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxfilesize) och [minFileSize](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minfilesize) har lagts till. Använd dessa filter för att returnera bilder inom ett intervall med fil storlekar.  
 
-- Lade till frågeparametrarna [maxHeight](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxheight), [minHeight](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minheight), [maxWidth](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxwidth), [minWidth.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minwidth) Använd dessa filter för att returnera bilder inom en rad höjder och bredder.  
+- Har lagt till parametrarna [maxHeight](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxheight), [MinHeight](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minheight), [maxWidth](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxwidth), [MinWidth](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minwidth) . Använd dessa filter för att returnera bilder inom ett intervall med höjd och bredd.  
 
-### <a name="object-changes"></a>Objektändringar
+### <a name="object-changes"></a>Objekt ändringar
 
-- Lade `description` till `lastUpdated` fälten och i [offerobjektet.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offer)  
+- Fälten `description` och `lastUpdated` har lagts till i objektet [erbjudande](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offer) .  
 
-- Lade `name` till fältet i [ImageGallery-objektet.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagegallery)  
+- `name` Fältet har lagts till i [ImageGallery](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagegallery) -objektet.  
 
-- Har `similarTerms` lagts till i objektet [Bilder.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) Det här fältet innehåller en lista med termer som liknar användarens frågesträng.  
+- Har `similarTerms` lagts till i objektet [bilder](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) . Det här fältet innehåller en lista över termer som liknar användarens frågesträng.  

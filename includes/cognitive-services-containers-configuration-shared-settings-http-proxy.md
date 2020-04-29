@@ -5,20 +5,20 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 84cd8ed79281b005407b5a857398b5669635c072
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68320503"
 ---
-Om du behöver konfigurera en HTTP-proxy för att göra utgående begäranden använder du följande två argument:
+Om du behöver konfigurera en HTTP-proxy för att göra utgående begär Anden använder du följande två argument:
 
-| Namn | Datatyp | Beskrivning |
+| Name | Datatyp | Beskrivning |
 |--|--|--|
-|HTTP_PROXY|sträng|Den proxy som ska användas, till exempel,`http://proxy:8888`<br>`<proxy-url>`|
-|HTTP_PROXY_CREDS|sträng|Alla autentiseringsuppgifter som behövs för att autentisera mot proxyn, till exempel användarnamn:lösenord.|
-|`<proxy-user>`|sträng|Användaren för proxyn.|
-|`<proxy-password>`|sträng|Lösenordet som `<proxy-user>` är associerat med för proxyn.|
+|HTTP_PROXY|sträng|Proxyservern som ska användas, till exempel`http://proxy:8888`<br>`<proxy-url>`|
+|HTTP_PROXY_CREDS|sträng|Alla autentiseringsuppgifter som krävs för att autentisera mot proxyservern, till exempel username: Password.|
+|`<proxy-user>`|sträng|Användaren för proxyservern.|
+|`<proxy-password>`|sträng|Lösen ordet som är `<proxy-user>` associerat med för proxyservern.|
 ||||
 
 

@@ -1,7 +1,7 @@
 ---
-title: Språk- och regionstöd för API:et för bläckre recognizeer
+title: Språk-och region stöd för hand SKRIFTS tolkens API
 titleSuffix: Azure Cognitive Services
-description: En lista över naturliga språk som stöds av API:et för bläckre recognizeer.
+description: 'En lista över naturliga språk som stöds av pennan tecknings-API: et.'
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
 ms.openlocfilehash: 36f2fa65f47f824ccc3544f5c13b5f5ee9afd21a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67721738"
 ---
-# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Språk- och regionstöd för API:et för bläckre recognizeer
+# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Språk-och region stöd för hand SKRIFTS tolkens API
 
-I den här artikeln beskrivs vilka språk som stöds för API:et för bläckre recognizeer. Digitalt bläckinnehåll skrivet på följande språk kan tolkas och bearbetas av API:et.
+I den här artikeln beskrivs vilka språk som stöds för pennan tecknings-API: et. Digitalt bläck innehåll som skrivs på följande språk kan tolkas och bearbetas av API: et.
 
 ## <a name="supported-languages"></a>Språk som stöds
 
@@ -53,14 +53,14 @@ I den här artikeln beskrivs vilka språk som stöds för API:et för bläckre r
 | Iriska                                      |     `ga-IE`     |
 | Italienska (Italien)                            |     `it-IT`     |
 | Japanska                                   |     `ja-JP`     |
-| Kinjarwanda                                |     `rw-RW`     |
-| Kiswahili (Kenya)                          |     `sw-KE`     |
+| Rwanda                                |     `rw-RW`     |
+| Swahili (Kenya)                          |     `sw-KE`     |
 | Koreansk                                     |     `ko-KR`     |
 | Luxemburgiska                              |     `lb-LU`     |
 | Malajiska (Brunei Darussalam)                  |     `ms-BN`     |
 | Malajiska (Malaysia)                           |     `ms-MY`     |
 | Maori                                      |     `mi-NZ`     |
-| Norska (Bokmal)                         |     `nb-NO`     |
+| Norska (bokmål)                         |     `nb-NO`     |
 | Norska (nynorsk)                        |     `nn-NO`     |
 | Polska                                     |     `pl-PL`     |
 | Portugisiska (Brasilien)                        |     `pt-BR`     |
@@ -69,14 +69,14 @@ I den här artikeln beskrivs vilka språk som stöds för API:et för bläckre r
 | Rumänska                                   |     `ro-RO`     |
 | Ryska                                    |     `ru-RU`     |
 | Skotsk gaeliska                            |     `gd-GB`     |
-| Sesotho sa Leboa                           |    `nso-ZA`     |
-| Serbiska (kyrilliska, Bosnien och Hercegovina) |  `sr-Cyrl-BA`   |
-| Serbiska (kyrilliska, Montenegro)             |  `sr-Cyrl-ME`   |
+| Nordsotho                           |    `nso-ZA`     |
+| Serbiska (kyrillisk, Bosnien och Hercegovina) |  `sr-Cyrl-BA`   |
+| Serbiska (kyrillisk, Montenegro)             |  `sr-Cyrl-ME`   |
 | Serbiska (kyrillisk, Serbien)                 |  `sr-Cyrl-RS`   |
-| Serbiska (latin, Bosnien och Hercegovina)    |  `sr-Latn-BA`   |
-| Serbiska (latin, Montenegro)                |  `sr-Latn-ME`   |
+| Serbiska (latinsk, Bosnien och Hercegovina)    |  `sr-Latn-BA`   |
+| Serbiska (latinsk, Montenegro)                |  `sr-Latn-ME`   |
 | Serbiska (latinsk, Serbien)                    |  `sr-Latn-RS`   |
-| Setswana (Sydafrika)                    |     `tn-ZA`     |
+| Tswana (Sydafrika)                    |     `tn-ZA`     |
 | Slovakiska                                     |     `sk-SK`     |
 | Slovenska                                  |     `sl-SI`     |
 | Spanska (Argentina)                        |     `es-AR`     |
@@ -92,4 +92,4 @@ I den här artikeln beskrivs vilka språk som stöds för API:et för bläckre r
 ## <a name="see-also"></a>Se även
 
 * [Vad är API för handskriftsigenkänning?](overview.md)
-* [Skicka digitala pennstreck till INK Recognizer API](concepts/send-ink-data.md)
+* [Skicka digitala penndrag till färg igenkännings-API: et](concepts/send-ink-data.md)

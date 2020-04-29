@@ -1,12 +1,12 @@
 ---
 ms.openlocfilehash: 7987e8a7a9db06608f663b6ae414788ba8330f65
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67187674"
 ---
-## <a name="publish-or-revert"></a>Publicera eller återgå
-Ändringar du gör i en anpassad sökinstans görs på fliken **Konfiguration** så att du kan validera ändringarna. När du är klar med ändringarna och är redo att publicera klickar du på **Publicera**. Ändringar återspeglas inte mot produktionsslutpunkterna förrän du publicerar.
+## <a name="publish-or-revert"></a>Publicera eller Återställ
+De ändringar du gör i en anpassad Sök instans görs på fliken **konfiguration** så att du kan verifiera dina ändringar. När du har gjort ändringarna och är redo att publicera, klickar du på **publicera**. Ändringarna återspeglas inte för dina produktions slut punkter förrän du har publicerat.
 
-Om du bestämmer dig för att du inte vill behålla ändringarna som du har gjort innan du publicerar klickar du på **Återställ.** När du återställer ändringarna är konfigurationen för livetillstånd oförändrad och fliken **Konfiguration** återställs för att matcha livetillståndet.
+Innan du publicerar, om du inte vill behålla de ändringar du gjort, klickar du på **Återställ**. När du återställer ändringarna är Live State-konfigurationen oförändrad och fliken **konfiguration** återställs för att matcha Live-tillstånd.

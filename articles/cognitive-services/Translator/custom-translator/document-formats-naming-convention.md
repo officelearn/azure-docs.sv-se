@@ -1,7 +1,7 @@
 ---
-title: Dokumentformat och namngivningskonventioner – anpassad översättare
+title: Dokument format och namngivnings konventioner – anpassad översättare
 titleSuffix: Azure Cognitive Services
-description: Det här är en guide om dokumentformat och namngivningskonvention i Custom Translator. Det här konceptet hjälper till att hantera dokumentnamn bättre abd undvika att namnge konflikter.
+description: Detta är en vägledning om dokument format och namngivnings konventioner i en anpassad översättare. Det här konceptet hjälper till att hantera dokument namn bättre i Abd Undvik namngivnings konflikter.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,46 +10,46 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 41b15cc998a7bacd033ef2fe083fc99f1bff0286
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68595851"
 ---
-# <a name="document-formats-and-naming-convention-guidance"></a>Vägledning för dokumentformat och namngivningskonvention
+# <a name="document-formats-and-naming-convention-guidance"></a>Vägledning för dokument format och namngivnings konvention
 
 Alla filer som används för anpassad översättning måste vara minst **fyra** tecken långa.
 
-Den här tabellen innehåller alla filformat som stöds som du kan använda för att skapa översättningssystemet:
+Den här tabellen innehåller alla fil format som stöds och som du kan använda för att bygga ditt översättnings system:
 
 | Format            | Tillägg   | Beskrivning                                                                                                                                                                                                                                                                    |
 |-------------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| XLIFF (OLIKA)             | . Xlf. XLIFF (OLIKA) | Ett parallellt dokumentformat, export av översättningsminnessystem. De språk som används definieras i filen.                                                                                                                                                              |
-| Tmx               | . Tmx         | Ett parallellt dokumentformat, export av översättningsminnessystem. De språk som används definieras i filen.                                                                                                                                                              |
-| Zip               | . Zip         | ZIP är ett arkivfilformat.                                                                                                                                                                                                        |
-| Locstudio (på plats)         | . Lcl         | Ett Microsoft-format för parallella dokument                                                                                                                                                                                                                                      |
-| Microsoft Word    | . Docx        | Microsoft Word-dokument                                                                                                                                                                                                                                                        |
-| Adobe Acrobat     | . Pdf         | Bärbart dokument i Adobe Acrobat                                                                                                                                                                                                                                                |
-| HTML              | . Html. HTM ( HTM )  | HTML-dokument                                                                                                                                                                                                                                                                  |
-| Textfil         | . Txt         | UTF-16 eller UTF-8 kodade textfiler. Filnamnet får inte innehålla japanska tecken.                                                                                                                                                                                        |
-| Justerad textfil | . Justera       | Tillägget `.ALIGN` är ett speciellt tillägg som du kan använda om du vet att meningarna i dokumentparet är perfekt justerade. Om du `.ALIGN` tillhandahåller en fil justeras inte meningarna åt dig. |
-| Excel-fil        | . Xlsx        | Excel-fil (2013 eller senare). Kalkylbladets första rad/rad ska vara språkkod.                                                                                                                                                                                                                                                      |
+| XLIFF             | . XLF, . XLIFF | Ett parallellt dokument format, export av översättnings minnes system. De språk som används definieras i filen.                                                                                                                                                              |
+| TMX               | . TMX         | Ett parallellt dokument format, export av översättnings minnes system. De språk som används definieras i filen.                                                                                                                                                              |
+| Komprimera               | . Komprimera         | ZIP är ett Arkiv fil format.                                                                                                                                                                                                        |
+| Locstudio         | . LCL         | Ett Microsoft-format för parallella dokument                                                                                                                                                                                                                                      |
+| Microsoft Word    | . DOCX        | Microsoft Word-dokument                                                                                                                                                                                                                                                        |
+| Adobe Acrobat     | . PDF         | Adobe Acrobat Portable-dokument                                                                                                                                                                                                                                                |
+| HTML              | . HTML,. TILLÄGGET  | HTML-dokument                                                                                                                                                                                                                                                                  |
+| Textfil         | . FORMAT         | UTF-16-eller UTF-8-kodade textfiler. Fil namnet får inte innehålla japanska tecken.                                                                                                                                                                                        |
+| Justerad textfil | . PLACERAS       | Tillägget `.ALIGN` är ett särskilt tillägg som du kan använda om du vet att meningarna i dokument paret är perfekt justerade. Om du anger en `.ALIGN` fil kommer den anpassade översättaren inte att justera meningarna åt dig. |
+| Excel-fil        | . XLSX        | Excel-fil (2013 eller senare). Första raden/raden i kalkyl bladet ska vara språkkod.                                                                                                                                                                                                                                                      |
 
-## <a name="dictionary-formats"></a>Ordlisteformat
+## <a name="dictionary-formats"></a>Ord lista format
 
-För ordlistor stöder Custom Translator alla filformat som stöds för utbildningsuppsättningar. Om du använder en Excel-ordlista ska den första raden/raden i kalkylbladet vara språkkoder.
+För ord listor stöder anpassad översättare alla fil format som stöds för inlärnings uppsättningar. Om du använder en Excel-ordlista ska den första raden/raden i kalkyl bladet vara språk koder.
 
 ## <a name="zip-file-formats"></a>Zip-filformat
 
-Dokument kan grupperas i en enda zip-fil och laddas upp. Den anpassade översättaren stöder zip-filformat (ZIP, GZ och TGZ).
+Dokument kan grupperas i en enda zip-fil och överföras. Den anpassade översättare stöder zip-filformat (ZIP, GZ och TGZ).
 
-Varje dokument i zip-filen med tillägget TXT, HTML, HTM, PDF, DOCX, ALIGN måste följa den här namngivningskonventionen:
+Varje dokument i zip-filen med fil namns tillägget TXT, HTML, HTM, PDF, DOCX måste följa denna namngivnings konvention:
 
-{dokumentnamn} \_{språkkod} där {dokumentnamn} är namnet på dokumentet, {språkkod} är ISO LanguageID (två tecken), vilket anger att dokumentet innehåller meningar på det språket. Det måste finnas ett understreck (_) före språkkoden.
+{dokument namn} \_{språkkod} där {Document Name} är namnet på ditt dokument, {language Code} är ISO-LanguageID (två tecken), vilket indikerar att dokumentet innehåller meningar på det språket. Det måste finnas ett under streck (_) före språk koden.
 
-Om du till exempel vill ladda upp två parallella dokument i en zip för en engelsk till spanskt system ska filerna heta "data_en" och "data_es".
+Om du till exempel vill överföra två parallella dokument i ett zip för ett engelskt till spanska-system ska filerna heta "data_en" och "data_es".
 
-Översättningsminnesfiler (TMX, XLF, XLIFF, LCL, XLSX) behöver inte följa den specifika språknamngivningskonventionen.  
+Översättning av minnesobjektet (TMX, XLF, XLIFF, LCL, XLSX) krävs inte för att följa den specifika språk namngivnings konventionen.  
 
 ## <a name="next-steps"></a>Nästa steg
 

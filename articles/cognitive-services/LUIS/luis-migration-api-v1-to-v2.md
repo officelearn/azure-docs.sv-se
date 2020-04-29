@@ -1,7 +1,7 @@
 ---
 title: v1 till v2 API-migrering
 titleSuffix: Azure Cognitive Services
-description: Versions-1-slutpunkten och redigering av API:er för språkförståelse är inaktuella. Använd den här guiden för att förstå hur du migrerar till versions 2-slutpunkt och skapar API:er.
+description: 'Slut punkten för version 1 och redigering Language Understanding-API: er är inaktuella. Använd den här guiden för att lära dig hur du migrerar till version 2 Endpoint och redigerar API: er.'
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,38 +12,38 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: 2f67bf0951ef8928297c71e8fc9f924cf05c63f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68932692"
 ---
-# <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 till v2 Migreringsguide för LUIS-appar
-Slutpunkten för [endpoint](https://aka.ms/v1-endpoint-api-docs) version 1 och [redigering api:er](https://aka.ms/v1-authoring-api-docs) är inaktuella. Använd den här guiden för att förstå hur du migrerar till [versions 2-slutpunkt](https://go.microsoft.com/fwlink/?linkid=2092356) och [skapar](https://go.microsoft.com/fwlink/?linkid=2092087) API:er. 
+# <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 till v2 migration guide för LUIS-appar
+[Slut punkten](https://aka.ms/v1-endpoint-api-docs) för version 1 och [redigerings](https://aka.ms/v1-authoring-api-docs) -API: er är inaktuella. Använd den här guiden för att lära dig hur du migrerar till version 2 [Endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) och [redigerar](https://go.microsoft.com/fwlink/?linkid=2092087) API: er. 
 
 ## <a name="new-azure-regions"></a>Nya Azure-regioner
-LUIS har nya [regioner](https://aka.ms/LUIS-regions) för LUIS API:er. LUIS tillhandahåller en annan portal för regiongrupper. Programmet måste skapas i samma region som du förväntar dig att fråga. Program migrerar inte automatiskt regioner. Du exporterar appen från en region och importerar sedan till en annan för att den ska vara tillgänglig i en ny region.
+LUIS har nya [regioner](https://aka.ms/LUIS-regions) som finns för Luis-API: er. LUIS tillhandahåller en annan portal för region grupper. Programmet måste ha skapats i samma region som du förväntar dig att fråga. Program migrerar inte automatiskt regioner. Du exporterar appen från en region och importerar sedan till en annan för att den ska vara tillgänglig i en ny region.
 
-## <a name="authoring-route-changes"></a>Redigera ruttändringar
-Api-vägen för redigering har ändrats från att använda **prog-vägen** till att använda **api-vägen.**
+## <a name="authoring-route-changes"></a>Redigera väg ändringar
+Redigerings-API-vägen har ändrats från att använda **PROG** -vägen för att använda **API** -vägen.
 
 
 | version | route |
 |--|--|
-|1|/luis/v1.0/**prog**/apps|
-|2|/luis/**api**/v2.0/apps|
+|1|/Luis/v1.0/**PROG**/Apps|
+|2|/Luis/**API**-/v2.0/Apps|
 
 
-## <a name="endpoint-route-changes"></a>Ändringar av slutpunktsrutten
-Slutpunkts-API:et har nya frågesträngparametrar samt ett annat svar. Om den utförliga flaggan är sann returneras alla avsikter, oavsett poäng, i en matris med namnet avsikter, utöver topScoringIntent.
+## <a name="endpoint-route-changes"></a>Ändringar i slut punkts flödet
+Slut punkts-API: et har nya parametrar för frågesträng och ett annat svar. Om verbose-flaggan är sann returneras alla avsikter, oavsett poäng, i en matris med namnet names, förutom topScoringIntent.
 
-| version | HÄMTA rutt |
+| version | Hämta väg |
 |--|--|
-|1|/luis/v1/application?ID={appId}&q={q}|
-|2|/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&utförlig][&stavningskontroll][&mellanlagring][&bing-stavningskontroll-prenumeration-nyckel][&logg]|
+|1|/Luis/v1/Application? ID = {appId} &q = {q}|
+|2|/luis/v2.0/apps/{appId}? q = {q} [&timezoneOffset] [&verbose] [&stavnings kontroll] [&mellanlagring] [&Bing-stavning-check-prenumeration-nyckel] [&log]|
 
 
-v1 slutpunkt framgång svar:
+framgångs svar för v1-slutpunkt:
 ```json
 {
   "odata.metadata":"https://dialogice.cloudapp.net/odata/$metadata#domain","value":[
@@ -54,7 +54,7 @@ v1 slutpunkt framgång svar:
 }
 ```
 
-v2 slutpunkt framgång svar:
+v2 slut punkt slutfört svar:
 ```json
 {
   "query": "forward to frank 30 dollars through HSBC",
@@ -104,71 +104,71 @@ v2 slutpunkt framgång svar:
 }
 ```
 
-## <a name="key-management-no-longer-in-api"></a>Nyckelhantering inte längre i API
-Api:erna för prenumerationsslutpunktsnyckeln är inaktuella och returnerar 410 BORTA.
+## <a name="key-management-no-longer-in-api"></a>Nyckel hantering inte längre i API
+API: erna för prenumerationens slut punkts nyckel är inaktuella och returnerar 410 borta.
 
 | version | route |
 |--|--|
-|1|/luis/v1.0/prog/subscriptions /abonnemang|
+|1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-[Azure-slutpunktsnycklar](luis-how-to-azure-subscription.md) genereras i Azure-portalen. Du tilldelar nyckeln till en LUIS-app på sidan **[Publicera.](luis-how-to-azure-subscription.md)** Du behöver inte känna till det faktiska nyckelvärdet. LUIS använder prenumerationsnamnet för att göra tilldelningen. 
+Azures [slut punkts nycklar](luis-how-to-azure-subscription.md) genereras i Azure Portal. Du tilldelar nyckeln till en LUIS-app på **[publicerings](luis-how-to-azure-subscription.md)** sidan. Du behöver inte känna till det faktiska nyckelvärdet. LUIS använder prenumerations namnet för att utföra tilldelningen. 
 
-## <a name="new-versioning-route"></a>Ny versionsväg
-V2-modellen finns nu i en [version](luis-how-to-manage-versions.md). Ett versionsnamn är 10 tecken i rutten. Standardversionen är "0.1".
+## <a name="new-versioning-route"></a>Ny versions väg
+V2-modellen finns nu i en [version](luis-how-to-manage-versions.md). Ett versions namn är 10 tecken i vägen. Standard versionen är "0,1".
 
 | version | route |
 |--|--|
-|1|/luis/v1.0/**prog**/apps/{appId}/entities|
-|2|/luis/**api**/v2.0/apps/{appId}/**versioner**/{versionId}/entities|
+|1|/Luis/v1.0/**PROG**/Apps/{appId}/entities|
+|2|/Luis/**API**/v2.0/Apps/{appId}/-**versioner**/{versionId}/entities|
 
 ## <a name="metadata-renamed"></a>Metadata har bytt namn
-Flera API:er som returnerar LUIS-metadata har nya namn.
+Flera API: er som returnerar LUIS metadata har nya namn.
 
-| v1-ruttnamn | v2-ruttnamn |
+| v1-flödets namn | v2-flödes namn |
 |--|--|
-|PersonalAssistantApps |Assistenter|
-|applikationskulturer|kulturer|
-|applicationdomains|Domäner|
-|ansökanusagescenarios|användningscenarios|
+|PersonalAssistantApps |assistenter|
+|applicationcultures|kulturer|
+|applicationdomains|domäner|
+|applicationusagescenarios|usagescenarios|
 
 
-## <a name="sample-renamed-to-suggest"></a>"Sample" omdöpt till "föreslå"
-LUIS föreslår yttranden från befintliga [slutpunktsyttranden](luis-how-to-review-endpoint-utterances.md) som kan förbättra modellen. I den tidigare versionen fick den här namnet **exempel**. I den nya versionen ändras namnet från exempel till **förslag**. Detta kallas **[Granska slutpunktsyttranden](luis-how-to-review-endpoint-utterances.md)** på LUIS-webbplatsen.
+## <a name="sample-renamed-to-suggest"></a>"Sample" har bytt namn till "föreslå"
+LUIS föreslår yttranden från befintliga [slut punkts yttranden](luis-how-to-review-endpoint-utterances.md) som kan förbättra modellen. I den tidigare versionen hette det här **exemplet**. I den nya versionen ändras namnet från exempel till **föreslå**. Detta kallas för **[gransknings slut punkts yttranden](luis-how-to-review-endpoint-utterances.md)** på Luis-webbplatsen.
 
 | version | route |
 |--|--|
-|1|/luis/v1.0/**prog**/apps/{appId}/entities/{entityId}/**exempel**|
-|1|/luis/v1.0/**prog**/apps/{appId}/intents/{intentId}/**exempel**|
-|2|/luis/**api**/v2.0/apps/{appId}/**versioner**/{versionId}/entities/{entityId}/**föreslå**|
-|2|/luis/**api**/v2.0/apps/{appId}/**versioner**/{versionId}/intents/{intentId}/**föreslå**|
+|1|**exempel** på/Luis/v1.0/**PROG**/Apps/{appId}/entities/{entityId}/|
+|1|**exempel** på/Luis/v1.0/**PROG**/Apps/{appId}/Intents/{intentId}/|
+|2|/Luis/**API**/v2.0/Apps/{appId}/-**versioner**/{versionId}/entities/{entityId}/**föreslå**|
+|2|/Luis/**API**/v2.0/Apps/{appId}/-**versioner**/{versionId}/Intents/{intentId}/**föreslå**|
 
 
-## <a name="create-app-from-prebuilt-domains"></a>Skapa app från fördefinierade domäner
-[Fördefinierade domäner](luis-how-to-use-prebuilt-domains.md) tillhandahåller en fördefinierad domänmodell. Med fördefinierade domäner kan du snabbt utveckla luis-programmet för vanliga domäner. Med det här API:et kan du skapa en ny app baserad på en fördefinierad domän. Svaret är det nya appID.
+## <a name="create-app-from-prebuilt-domains"></a>Skapa en app från fördefinierade domäner
+Fördefinierade [domäner](luis-how-to-use-prebuilt-domains.md) ger en fördefinierad domän modell. Med fördefinierade domäner kan du snabbt utveckla ditt LUIS-program för vanliga domäner. Med det här API: et kan du skapa en ny app baserat på en fördefinierad domän. Svaret är det nya appID.
 
-|v2-rutt|Verb|
+|v2-väg|verb|
 |--|--|
-|/luis/api/v2.0/apps/customprebuiltdomains  |få, posta|
+|/luis/api/v2.0/apps/customprebuiltdomains  |Hämta, publicera|
 |/luis/api/v2.0/apps/customprebuiltdomains/{culture}  |get|
 
-## <a name="importing-1x-app-into-2x"></a>Importera 1.x-app till 2.x
-Den exporterade 1.x-appens JSON har vissa områden som du behöver ändra innan du importerar till [LUIS][LUIS] 2.0. 
+## <a name="importing-1x-app-into-2x"></a>Importerar en app med 1. x till 2. x
+Den exporterade 1. x-appens JSON har vissa områden som du måste ändra innan du importerar till [LUIS][LUIS] 2,0. 
 
 ### <a name="prebuilt-entities"></a>Fördefinierade entiteter 
-De [fördefinierade entiteterna](luis-prebuilt-entities.md) har ändrats. Kontrollera att du använder V2 fördefinierade entiteter. Detta inkluderar användning av [datetimeV2](luis-reference-prebuilt-datetimev2.md), i stället för datetime. 
+De [förinställda entiteterna](luis-prebuilt-entities.md) har ändrats. Kontrol lera att du använder de v2 färdiga entiteterna. Detta inkluderar användning av [datetimeV2](luis-reference-prebuilt-datetimev2.md), i stället för DateTime. 
 
 ### <a name="actions"></a>Åtgärder
-Egenskapen Actions är inte längre giltig. Det bör vara en tom 
+Egenskapen åtgärder är inte längre giltig. Det ska vara tomt 
 
 ### <a name="labeled-utterances"></a>Märkta yttranden
-V1 tillät etiketterade yttranden att inkludera blanksteg i början eller slutet av ordet eller frasen. Tog bort mellanslagen. 
+V1 tillåtna märkta yttranden för att inkludera blank steg i början eller slutet av ordet eller frasen. Blank stegen har tagits bort. 
 
-## <a name="common-reasons-for-http-response-status-codes"></a>Vanliga orsaker till HTTP-svarsstatuskoder
-Se [LUIS API-svarskoder](luis-reference-response-codes.md).
+## <a name="common-reasons-for-http-response-status-codes"></a>Vanliga orsaker till status koder för HTTP-svar
+Se [Luis API-svars koder](luis-reference-response-codes.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd v2 API-dokumentationen för att uppdatera befintliga REST-anrop till [LUIS-slutpunkt](https://go.microsoft.com/fwlink/?linkid=2092356) och [skapa](https://go.microsoft.com/fwlink/?linkid=2092087) API:er. 
+Använd API-dokumentationen v2 för att uppdatera befintliga REST-anrop till LUIS- [slutpunkt](https://go.microsoft.com/fwlink/?linkid=2092356) och [redigerings](https://go.microsoft.com/fwlink/?linkid=2092087) -API: er. 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

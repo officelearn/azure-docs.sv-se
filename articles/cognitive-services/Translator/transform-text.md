@@ -1,7 +1,7 @@
 ---
-title: Transformera text - Translator Text API
+title: Transformera text – Translator Text API
 titleSuffix: Azure Cognitive Services
-description: Omvandla text med hjälp av translatortext-API:et.
+description: Transformera text med hjälp av Translator Text API.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,33 +11,33 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
 ms.openlocfilehash: 533f09b09b7f5899833669b5f0ad4ffa5efa3a43
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68594907"
 ---
-# <a name="how-to-use-the-transformtext-method"></a>Så här använder du transformtext-metoden
+# <a name="how-to-use-the-transformtext-method"></a>Använda metoden TransformText
 
 > [!NOTE]
-> Den här metoden är föråldrad. Den är inte tillgänglig i V3.0 i Translator Text API.
+> Den här metoden är föråldrad. Den är inte tillgänglig i V 3.0 för Translator Text API.
 
-TransformText-metoden är en textnormaliseringsfunktion för sociala medier, som returnerar en normaliserad form av indata. Metoden kan användas som ett förbehandlingssteg i maskinöversättning eller andra program som förväntar sig ren indatatext som vanligtvis inte finns i sociala medier eller användargenererat innehåll. Funktionen fungerar för närvarande endast med engelsk ingång.
+Metoden TransformText är en text normaliserings funktion för sociala medier, som returnerar en normaliserad form av indatamängden. Metoden kan användas som ett förbehandlings steg i dator översättning eller andra program som förväntar sig en ren indata-text som vanligt vis inte finns i sociala medier eller innehåll som skapats av användare. Funktionen fungerar för närvarande endast med engelska ingångar.
 
-Metoden är en RESTful-tjänst som använder GET over HTTP. Den stöder enkel XML och JSON serialisering.
+Metoden är en RESTful-tjänst som använder GET över HTTP. Det stöder enkel XML-och JSON-serialisering.
 
 ## <a name="parameters"></a>Parametrar
 
 | Parameter | Beskrivning |
 |:---|:---|
-| Auktoriseringshuvud | **Krävs** HTTP-huvud som används för att identifiera programmet. Använd nyckeln: "Auktorisering" och värde: "Bärare" + " + åtkomsttoken. För mer information, gå hit.|
-| language | **Krävs** En sträng som representerar språkkoden. Den här parametern stöder endast engelska med **en** som språknamn.|
-| category | **Valfritt** En sträng som innehåller översättningens kategori eller domän. Den här parametern stöder endast standardalternativet **allmänt**.|
-| Meningen | **Krävs** En mening som du vill korrigera. |
+| Authorization-huvud | **Krävs** HTTP-huvud som används för att identifiera programmet. Använd nyckel: "auktorisering" och värde: "Bearer" + "" + Access token. Mer information finns här.|
+| language | **Krävs** En sträng som representerar språk koden. Den här parametern stöder endast engelska med **en** som språk namn.|
+| category | **Valfritt** En sträng som innehåller översättningens kategori eller domän. Den här parametern stöder endast standard alternativet **Allmänt**.|
+| fras | **Krävs** En mening som du vill korrigera. |
 
 ## <a name="return-value"></a>Returvärde
 
-Returvärdet ger den transformerade meningen.
+Returvärdet innehåller den transformerade meningen.
 
 > [!div class="tabbedCodeSnippets"]
 > ```json

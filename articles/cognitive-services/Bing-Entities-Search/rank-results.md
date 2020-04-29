@@ -1,7 +1,7 @@
 ---
-title: Använda rankning för att visa svar - Bing Entity Search
+title: Använda rangordning för att Visa svar – Entitetssökning i Bing
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du använder rankning för att visa svaren som API:et för sökning av Bing-enhet returnerar.
+description: Lär dig hur du använder rangordning för att visa de svar som API för entitetsökning i Bing returnerar.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,31 +11,31 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68423914"
 ---
-# <a name="using-ranking-to-display-entity-search-results"></a>Använda rankning för att visa entitetssökresultat  
+# <a name="using-ranking-to-display-entity-search-results"></a>Använda rangordning för att Visa Sök Resultat för enheter  
 
-Varje entitetssöksvar innehåller ett [RankResponse-svar](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) som anger hur du måste visa sökresultat som returneras av API:et för sökning av Bing-entitet. Rankningssvarsgrupperna resulterar i pole, mainline och sidofältet innehåll. Pole resultatet är det viktigaste eller mest framträdande resultatet och bör visas först. Om du inte visar de återstående resultaten i ett traditionellt huvudlinje- och sidofältsformat måste du ge huvudlinjens innehåll högre synlighet än sidofältets innehåll. 
+Varje enhets Sök svar innehåller ett [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) -svar som anger hur du måste visa Sök resultat som returneras av API för entitetsökning i Bing. Rangordnings svar grupper resulterar i innehållet i Polen, Mainline och sid panelen. Polen-resultatet är det viktigaste eller framträdande resultatet och bör visas först. Om du inte visar återstående resultat i ett traditionellt Mainline-och sid List format måste du ange Mainline-innehållet som är större än innehållet i innehålls sidan. 
   
-Inom varje grupp identifierar matrisen [Objekt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) den ordning som innehållet måste visas i. Varje objekt innehåller två sätt att identifiera resultatet i ett svar.  
+I varje grupp identifierar [objekt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) mat ris ordningen som innehållet måste visas i. Varje objekt har två sätt att identifiera resultatet inom ett svar.  
  
 
 |Field | Beskrivning  |
 |---------|---------|
-|`answerType` och `resultIndex` | `answerType`identifierar svaret (antingen entitet `resultIndex` eller Plats) och identifierar ett resultat i det svaret (till exempel en entitet). Indexet börjar vid 0.|
-|`value`    | `value`Innehåller ett ID som matchar ID:t för antingen ett svar eller ett resultat i svaret. Antingen svaret eller resultaten innehåller ID men inte båda. |
+|`answerType` och `resultIndex` | `answerType`identifierar svaret (antingen enhet eller plats) och `resultIndex` identifierar ett resultat inom det svaret (till exempel en entitet). Indexet börjar vid 0.|
+|`value`    | `value`Innehåller ett ID som matchar ID: t för antingen ett svar eller ett resultat inom svaret. Antingen svaret eller resultatet innehåller ID: t, men inte båda. |
   
-Använda `answerType` och `resultIndex` är en tvåstegsprocess. Använd `answerType` först för att identifiera svaret som innehåller de resultat som ska visas. Använd `resultIndex` sedan för att indexera till det svarets resultat för att få resultatet att visas. (Värdet `answerType` är namnet på fältet i [SearchResponse-objektet.)](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) Om du ska visa alla svarsresultat tillsammans innehåller svarsobjektet inte `resultIndex` fältet.
+Med `answerType` och `resultIndex` är en två stegs process. Börja med `answerType` att identifiera det svar som innehåller de resultat som ska visas. Använd `resultIndex` sedan för att indexera i svarets resultat för att få resultatet att visas. ( `answerType` Värdet är namnet på fältet i [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) -objektet.) Om du vill visa alla svars resultat tillsammans innehåller inte rangordnings svars posten `resultIndex` fältet.
 
-Om du använder ID:t måste du matcha rangordnings-ID:t med ID:t för ett svar eller något av dess resultat. Om ett svarsobjekt innehåller ett `id` fält visar du alla svarsresultat tillsammans. Om objektet `Entities` till exempel `id` innehåller fältet visar du alla entitetsartiklar tillsammans. Om `Entities` objektet inte innehåller `id` fältet innehåller varje entitet ett `id` fält och rangordningssvaret blandar entiteterna med resultaten Platser.  
+Med ID: t måste du matcha rangordnings-ID: t med ID: t för ett svar eller ett av dess resultat. Om ett svars objekt innehåller `id` ett fält visas alla svars resultat tillsammans. Om `Entities` objektet till exempel innehåller `id` fältet visas alla entiteter-artiklar tillsammans. Om `Entities` objektet inte innehåller `id` fältet, innehåller varje entitet ett `id` fält och rangordnings svaret blandar entiteterna med plats resultatet.  
   
-## <a name="ranking-response-example"></a>Exempel på rankningssvar
+## <a name="ranking-response-example"></a>Exempel på ranknings svar
 
-Följande visar ett exempel [på RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse).
+Nedan visas ett exempel på en [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse).
   
 ```json
 {
@@ -67,9 +67,9 @@ Följande visar ett exempel [på RankingResponse](https://docs.microsoft.com/res
 }
 ```
 
-Baserat på detta rankningssvar skulle sidofältet visa de två entitetsresultaten relaterade till Jimi Hendrix.
+Baserat på detta ranknings svar visar sid panelen de två enhets resultaten som är relaterade till Jimi Hendrix.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en ensidig webbapp](tutorial-bing-entities-search-single-page-app.md)
+> [Skapa en enkelsidig webbapp](tutorial-bing-entities-search-single-page-app.md)

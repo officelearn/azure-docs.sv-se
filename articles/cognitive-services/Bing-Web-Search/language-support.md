@@ -1,7 +1,7 @@
 ---
-title: Språkstöd - API för webbsökning på Bing
+title: Språk stöd – API för webbsökning i Bing
 titleSuffix: Azure Cognitive Services
-description: En lista över naturliga språk, länder och regioner som stöds av API:et för sökning i Bing.A list of natural languages, countries and regions that are supported by the Bing News Search API.
+description: En lista över naturliga språk, länder och regioner som stöds av API för nyhetssökning i Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
 ms.openlocfilehash: 9425de6e75a9a46d71ff85ce49b0650c8e7a9a16
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68882677"
 ---
-# <a name="language-and-region-support-for-the-bing-web-search-api"></a>Språk- och regionstöd för API:et för webbsökning på Bing
+# <a name="language-and-region-support-for-the-bing-web-search-api"></a>Språk-och region stöd för API för webbsökning i Bing
 
-Api:et för webbsökning på Bing stöder över tre dussin länder eller regioner, många med mer än ett språk. Genom att ange ett land eller en region med en fråga kan sökresultaten förfinas baserat på det eller de ekonomiska intressena. Resultaten kan innehålla länkar till Bing, och dessa länkar kan lokalisera Bing-användarupplevelsen enligt det angivna landet/regionen eller språket.
+API för webbsökning i Bing har stöd för över tre dussin länder eller regioner, många med fler än ett språk. Genom att ange ett land eller en region med en fråga kan du förfina Sök resultat baserat på dessa länder eller regioner. Resultaten kan innehålla länkar till Bing, och dessa länkar kan lokalisera Bing-användargränssnittet enligt angivet land/region eller språk.
 
-Du kan ange ett land `cc` eller en region med frågeparametern. När ett land eller en region anges måste du ange en eller flera språkkoder med [ `Accept-Language` huvudet](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Använd [tabellen Marknader](#markets) för en lista över språk som stöds på varje marknad.
+Du kan ange ett land eller en region med `cc` hjälp av Frågeparametern. När ett land eller en region har angetts måste du ange en eller flera språk koder med [ `Accept-Language` rubriken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Använd [tabellen marknader](#markets) för att visa en lista över språk som stöds på varje marknad.
 
-Du kan också ange marknaden `mkt` med frågeparametern och en kod från tabellen **Marknader.** Om du anger en marknad samtidigt anges ett land eller en region och ett önskat språk. Du kan uttryckligen ange `setLang` språket med frågeparametern.
+Alternativt kan du ange marknaden med `mkt` Frågeparametern och en kod från tabellen **marknader** . Att ange en marknad samtidigt anger ett land eller en region och ett önskat språk. Du kan uttryckligen ange språket med `setLang` Frågeparametern.
 
 ## <a name="countriesregions"></a>Länder/regioner
 
@@ -66,50 +66,50 @@ Du kan också ange marknaden `mkt` med frågeparametern och en kod från tabelle
 |Storbritannien|GB|
 |USA|USA|
 
-## <a name="markets"></a>Marknader
+## <a name="markets"></a>Marknaden
 
-|Land/region|Språk|Marknadskod|
+|Land/region|Språk|Marknads kod|
 |-------|--------|-----------|
-|Argentina|Spanska|es-AR|
-|Australien|Svenska|sv-AU|
-|Österrike|Tyska|av-AT|
-|Belgien|Nederländska|nl-BE|
-|Belgien|Franska|fr-BE|
+|Argentina|Spanska|ES-AR|
+|Australien|Svenska|en – AU|
+|Österrike|Tyska|avinstallation|
+|Belgien|Nederländska|NL-vara|
+|Belgien|Franska|fr-vara|
 |Brasilien|Portugisiska|pt-BR|
-|Kanada|Svenska|sv-CA|
+|Kanada|Svenska|en-CA|
 |Kanada|Franska|fr-CA|
-|Chile|Spanska|es-CL|
+|Chile|Spanska|ES-CL|
 |Danmark|Danska|da-DK|
 |Finland|Finska|fi-FI|
 |Frankrike|Franska|fr-FR|
 |Tyskland|Tyska|de-DE|
 |Hongkong|Traditionell kinesiska|zh-HK|
-|Indien|Svenska|sv-IN|
-|Indonesien|Svenska|sv-ID|
+|Indien|Svenska|en-IN|
+|Indonesien|Svenska|en-ID|
 |Italien|Italienska|it-IT|
 |Japan|Japanska|ja-JP|
 |Korea|Koreansk|ko-KR|
-|Malaysia|Svenska|sv-MIN|
-|Mexiko|Spanska|es-MX|
+|Malaysia|Svenska|en-MY|
+|Mexiko|Spanska|ES – MX|
 |Nederländerna|Nederländska|nl-NL|
-|Nya Zeeland|Svenska|sv-NZ|
-|Norge|Norska|No-no|
+|Nya Zeeland|Svenska|en-NZ|
+|Norge|Norska|ingen – nej|
 |Kina|Kinesiska|zh-CN|
 |Polen|Polska|pl-PL|
 |Portugal|Portugisiska|pt-PT|
-|Filippinerna|Svenska|sv-PH|
+|Filippinerna|Svenska|en-PH|
 |Ryssland|Ryska|ru-RU|
 |Saudiarabien|Arabiska|ar-SA|
-|Sydafrika|Svenska|sv-ZA|
+|Sydafrika|Svenska|en-ZA|
 |Spanien|Spanska|es-ES|
 |Sverige|Svenska|sv-SE|
-|Schweiz|Franska|fr-CH|
-|Schweiz|Tyska|de-CH (olika)|
+|Schweiz|Franska|Frankrike-CH|
+|Schweiz|Tyska|de-CH|
 |Taiwan|Traditionell kinesiska|zh-TW|
 |Turkiet|Turkiska|tr-TR|
 |Storbritannien|Svenska|en-GB|
 |USA|Svenska|sv-SE|
-|USA|Spanska|es-USA|
+|USA|Spanska|ES – USA|
 
 ## <a name="next-steps"></a>Nästa steg
 

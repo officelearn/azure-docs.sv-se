@@ -1,7 +1,7 @@
 ---
-title: Lägga till analyser i API:et för webbsökning i Bing
+title: Lägg till analyser i API för webbsökning i Bing
 titleSuffix: Azure Cognitive Services
-description: Bing Statistics tillhandahåller analyser till API:et för bildsökning i Bing. Analytics inkluderar samtalsvolym, de vanligaste frågesträngarna, geografisk distribution med mera.
+description: Bing-statistik ger analys till API för bildsökning i Bing. Analytics inkluderar anrops volym, högsta frågesträng, geografisk distribution med mera.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -12,95 +12,95 @@ ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: 5d1b0b19523eb37aa83aa59b24114be9f76ffa55
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68882776"
 ---
-# <a name="add-analytics-to-the-bing-search-apis"></a>Lägga till analyser i API:erna för Bing-sökning
+# <a name="add-analytics-to-the-bing-search-apis"></a>Lägg till analyser i API:er för Bing-sökresultat
 
-Bing Statistics tillhandahåller analyser för API:erna för Bing-sökning. Dessa analyser omfattar samtalsvolym, de vanligaste frågesträngarna, geografisk distribution med mera. Du kan aktivera Bing-statistik i [Azure-portalen](https://ms.portal.azure.com) genom att navigera till din Azure-resurs och klicka på **Aktivera Bing-statistik**.
+Bing-statistik ger analyser för API:er för Bing-sökresultat. Dessa analyser inkluderar anrops volym, högsta frågesträng, geografisk distribution med mera. Du kan aktivera Bing-statistik i [Azure Portal](https://ms.portal.azure.com) genom att gå till Azure-resursen och klicka på **Aktivera Bing-statistik**.
 
 > [!IMPORTANT]
-> * Bing Statistik är inte tillgänglig med gratis provprenumerationer, eller resurser på den fria `F0` prisnivån.
-> * Du får inte använda några data som är tillgängliga via instrumentpanelen i Bing Statistics för att skapa program för distribution till tredje part.
-> * Om du aktiverar Bing Statistics ökar prenumerationsgraden något. Se [priser](https://aka.ms/bingstatisticspricing) för mer information.
+> * Bing-statistik är inte tillgänglig med kostnads fria utvärderings prenumerationer eller resurser `F0` på den kostnads fria pris nivån.
+> * Du får inte använda några tillgängliga data via Bing Statistics-instrumentpanelen för att skapa program för distribution till tredje part.
+> * Om du aktiverar Bing-statistik ökar prenumerations hastigheten något. Se [pris](https://aka.ms/bingstatisticspricing) information.
 
 
-Följande bild visar tillgängliga analyser för varje Bing Search API-slutpunkt.
+Följande bild visar tillgängliga analyser för varje Bing-sökning API-slutpunkt.
 
-![Stödmatris för distribution efter slutpunkt](./media/bing-statistics/bing-statistics-matrix.png)
+![Support mat ris för distribution per slut punkt](./media/bing-statistics/bing-statistics-matrix.png)
 
-## <a name="access-your-analytics"></a>Få tillgång till dina analyser
+## <a name="access-your-analytics"></a>Få åtkomst till din analys
 
-Bing uppdaterar analysdata var 24:e timme och upprätthåller upp till 13 månaders historik som du kan komma åt från [analytics-instrumentpanelen](https://bingapistatistics.com). Kontrollera att du är inloggad med samma Microsoft-konto (MSA) som du använde för att registrera dig för Bing Statistics.
+Bing uppdaterar analys data var 24: e timme och underhåller upp till 13 månaders historik som du kan komma åt från [analys instrument panelen](https://bingapistatistics.com). Kontrol lera att du har loggat in med samma Microsoft-konto (MSA) som du använde för att registrera dig för Bing-statistik.
 
 > [!NOTE]  
-> * Det kan ta upp till 24 timmar innan måtten visas på instrumentpanelen. Instrumentpanelen visar datum och tid då data senast uppdaterades.  
-> * Mått är tillgängliga från den tidpunkt då du aktiverar tillägget Bing Statistics.
+> * Det kan ta upp till 24 timmar innan måtten på instrument panelen fungerar. Instrument panelen visar datum och tid då data senast uppdaterades.  
+> * Mått är tillgängliga från den tidpunkt då du aktiverar Bing Statistics-tillägget.
 
 ## <a name="filter-the-data"></a>Filtrera data
 
-Som standard visar diagrammen och diagrammen alla mått och data som du har åtkomst till. Du kan filtrera data som visas i diagrammen och diagrammen genom att välja de resurser, marknader, slutpunkter och rapporteringsperiod som du är intresserad av. Du kan ändra följande filter:
+Som standard visar diagram och grafer alla mått och data som du har åtkomst till. Du kan filtrera data som visas i diagram och diagram genom att välja resurser, marknader, slut punkter och rapporterings perioden som du är intresse rad av. Du kan ändra följande filter:
 
-- **Resurs-ID:** Det unika resurs-ID som identifierar din Azure-prenumeration. Listan innehåller flera ID:er om du prenumererar på mer än en API-nivå för Bing-sökning. Som standard är alla resurser markerade.  
+- **Resurs-ID**: det unika resurs-ID: t som identifierar din Azure-prenumeration. Listan innehåller flera ID: n om du prenumererar på fler än en Bing-sökning API-nivå. Som standard är alla resurser markerade.  
   
-- **Marknader**: De marknader där resultaten kommer ifrån. Till exempel en-us (engelska, USA). Som standard är alla marknader markerade. Marknaden `en-WW` är den marknad som Bing använder om samtalet inte anger en marknad och Bing inte kan fastställa användarens marknad.  
+- **Marknader**: de marknader där resultatet kommer från. Till exempel en-US (engelska, USA). Som standard är alla marknader markerade. `en-WW` Marknaden är marknaden som Bing använder om samtalet inte anger någon marknad och Bing inte kan fastställa användarens marknad.  
   
-- **Slutpunkter**: Slutpunkterna för Bing Search API. Listan innehåller alla slutpunkter som du har en betald prenumeration för. Som standard är alla slutpunkter markerade.  
+- **Slut punkter**: Bing-sökning API-slutpunkter. Listan innehåller alla slut punkter som du har en betald prenumeration för. Som standard är alla slut punkter markerade.  
 
-- **Tidsram**: Rapporteringsperioden. Du kan ange:
-  - **Alla**: Inkluderar upp till 13 månaders data  
-  - **Senaste 24 timmarna**: Inkluderar analyser från de senaste 24 timmarna  
-  - **Förra veckan**: Inkluderar analyser från de föregående sju dagarna  
-  - **Föregående månad**: Inkluderar analyser från de föregående 30 dagarna  
-  - **Ett anpassat datumintervall:** Inkluderar analyser från det angivna datumintervallet, om tillgängligt  
+- **Tidsram**: rapporterings perioden. Du kan ange:
+  - **Alla**: innehåller upp till 13 månader av data  
+  - **Senaste 24 timmarna**: omfattar analys från de senaste 24 timmarna  
+  - **Senaste veckan**: omfattar analys från föregående sju dagar  
+  - **Senaste månaden**: omfattar analyser från de senaste 30 dagarna  
+  - **Ett anpassat datum intervall**: inkluderar analyser från det angivna datum intervallet, om det är tillgängligt  
 
 ## <a name="charts-and-graphs"></a>Diagram och diagram
 
-Instrumentpanelen visar diagram och diagram över de mått som är tillgängliga för den valda slutpunkten. Alla mått är inte tillgängliga för alla slutpunkter. Diagrammen och diagrammen för varje slutpunkt är statiska (du kanske inte markerar de diagram och diagram som ska visas). Instrumentpanelen visar bara diagram och diagram som det finns data för.
+Instrument panelen visar diagram och diagram över mått som är tillgängliga för den valda slut punkten. Alla mått är inte tillgängliga för alla slut punkter. Diagram och diagram för varje slut punkt är statiska (du kan inte välja de tabeller och diagram som ska visas). På instrument panelen visas endast diagram och diagram som innehåller data.
 
 <!--
 For example, if you don't include the User-Agent header in your calls, the dashboard will not include device-related graphs.
 -->
 
-Följande är möjliga mått och slutpunktsbegränsningar.
+Följande är möjliga mått och slut punkts begränsningar.
 
-- **Samtalsvolym**: Visar antalet samtal som ringts under rapporteringsperioden. Om rapporteringsperioden är för en dag visar diagrammet antalet samtal per timme. Annars visar diagrammet antalet samtal per dag under rapporteringsperioden.  
+- **Anrops volym**: visar antalet anrop som gjorts under rapporterings perioden. Om rapporterings perioden är för en dag visar diagrammet antalet anrop som görs per timme. Annars visar diagrammet antalet anrop som gjorts per dag i rapporterings perioden.  
   
   > [!NOTE]
-  > Samtalsvolymen kan skilja sig från faktureringsrapporter, som i allmänhet endast omfattar lyckade samtal.
+  > Anrops volymen kan skilja sig från fakturerings rapporter, som vanligt vis bara innehåller lyckade anrop.
 
-- **Toppfrågor:** Visar de vanligaste frågorna och antalet förekomster av varje fråga under rapporteringsperioden. Du kan konfigurera antalet frågor som visas. Du kan till exempel visa de 25, 50 eller 75 vanligaste frågorna. De vanligaste frågorna är inte tillgängliga för följande slutpunkter:  
+- **Vanligaste frågor**: visar de vanligaste frågorna och antalet förekomster av varje fråga under rapporterings perioden. Du kan konfigurera antalet frågor som visas. Du kan till exempel Visa de 25 vanligaste 50-eller 75-frågorna. De vanligaste frågorna är inte tillgängliga för följande slut punkter:  
 
-  - /bilder/trender
-  - /bilder/detaljer
-  - /bilder/visualsearch
-  - /videos/trending /videos
-  - /videos/detaljer
-  - /nyheter
-  - /nyheter/trendtopics
-  - /förslag  
+  - /images/trending
+  - /images/details
+  - /images/visualsearch
+  - /videos/trending
+  - /videos/details
+  - /news
+  - /news/trendingtopics
+  - /suggestions  
   
   > [!NOTE]  
-  > Vissa frågetermer kan undertryckas för att ta bort konfidentiell information som e-post, telefonnummer, SSN, etc.
+  > Vissa sökord kan undertryckas för att ta bort konfidentiell information, till exempel e-post, telefonnummer, SSN osv.
 
-- **Geografisk distribution**: De marknader där sökresultaten kommer. Till exempel `en-us` (engelska, USA). Bing använder `mkt` frågeparametern för att bestämma marknaden, om den anges. Annars använder Bing signaler som anroparens IP-adress för att bestämma marknaden.
+- **Geografisk distribution**: de marknader där Sök resultaten kommer. Till exempel `en-us` (engelska, USA). Bing använder `mkt` Frågeparametern för att fastställa marknaden, om den har angetts. Annars använder Bing signaler som anroparens IP-adress för att fastställa marknaden.
 
-- **Distribution av svarskod**: HTTP-statuskoder för alla anrop under rapporteringsperioden.
+- **Distribution av svarskod**: HTTP-statuskod för alla anrop under rapporterings perioden.
 
-- **Call Origin Distribution**: De typer av webbläsare som används av användarna. Microsoft Edge, Chrome, Safari och Firefox. Samtal som görs utanför en webbläsare (till exempel robotar, Brevbärare eller med curl från en konsolapp) grupperas under Bibliotek. Ursprunget bestäms med hjälp av begärans användaragenthuvudvärde. Om begäran inte innehåller användaragenthuvudet försöker Bing härleda ursprunget från andra signaler.  
+- **Anropa ursprunglig distribution**: de typer av webbläsare som används av användarna. Till exempel Microsoft Edge, Chrome, Safari och FireFox. Anrop som görs utanför en webbläsare (t. ex. robotar, Postman eller Använd vändning från en konsol app) grupperas under bibliotek. Ursprunget bestäms med hjälp av begärans huvud värde för användar agenten. Om begäran inte innehåller ett användar agent huvud försöker Bing härleda ursprunget från andra signaler.  
 
-- **Säker sökdistribution**: Fördelningen av säkra sökvärden. Till exempel av, måttlig eller strikt. Frågeparametern `safeSearch` innehåller värdet om det anges. Annars standardvärdent till moderera.  
+- **Säker Sök distribution**: distribution av säkra Sök värden. Till exempel, för, måttlig eller strikt. `safeSearch` Frågeparametern innehåller värdet, om det anges. Annars använder Bing standardvärdet som måttlig.  
 
-- **Begärd distribution**: Api:et för `responseFilter` webbsökning som du har begärt i frågeparametern.  
+- **Svar på begärd distribution**: de webbsökning API-svar som du `responseFilter` har begärt i Frågeparametern.  
 
-- **Svar Returnerad distribution**: Svaren som Webbsökning API returnerade i svaret.
+- **Svar som returnerade distribution**: svaren som webbsökning-API: t returnerade i svaret.
 
-- **Distribution av svarsserver**: Programservern som har hanterat dina API-begäranden. De möjliga värdena är Bing.com (för trafik som betjänas från stationära och bärbara enheter) och Bing.com-mobil (för trafik som betjänas från mobila enheter). Servern bestäms med hjälp av begärans användaragenthuvudvärde. Om begäran inte innehåller användaragenthuvudet försöker Bing härleda servern från andra signaler.
+- **Distribution av svars Server**: den program server som HANTERAde API-begärandena. De möjliga värdena är Bing.com (för trafik som hanteras från Station ära och bärbara enheter) och Bing.com-mobil (för trafik som hanteras från mobila enheter). Servern bestäms med hjälp av begärans huvud värde för användar agenten. Om begäran inte innehåller användar agent huvudet försöker Bing härleda servern från andra signaler.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Vilka är Bing Search API:er?](bing-api-comparison.md)
+* [Vad är API:er för Bing-sökresultat?](bing-api-comparison.md)
 * [Användnings- och visningskrav för API:er för Bing-sökresultat](use-display-requirements.md)

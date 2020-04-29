@@ -5,23 +5,23 @@ ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
 ms.openlocfilehash: 873fd8cbc211f098c93b8fb3fbe701e4a34d8487
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68320529"
 ---
-Inställningarna `Logging` hanterar ASP.NET Core-loggningsstöd för din behållare. Du kan använda samma konfigurationsinställningar och värden för din behållare som du använder för ett ASP.NET Core-program. 
+`Logging` Inställningarna hanterar ASP.net Core loggnings stöd för din behållare. Du kan använda samma konfigurations inställningar och värden för din behållare som du använder för ett ASP.NET Core-program. 
 
-Följande loggningsleverantörer stöds av behållaren:
+Följande loggnings leverantörer stöds av behållaren:
 
 |Leverantör|Syfte|
 |--|--|
-|[Konsol](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)|Den ASP.NET Core `Console` loggningsleverantören. Alla ASP.NET core-konfigurationsinställningar och standardvärden för den här loggningsleverantören stöds.|
-|[Felsökning](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)|Den ASP.NET Core `Debug` loggningsleverantören. Alla ASP.NET core-konfigurationsinställningar och standardvärden för den här loggningsleverantören stöds.|
-|[Disk](#disk-logging)|JSON-loggningsleverantören. Den här loggningsprovidern skriver loggdata till utdatafästet.|
+|[Konsolen](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)|ASP.NET Core `Console` Logging-providern. Alla ASP.NET Core konfigurations inställningar och standardvärden för den här Logging-providern stöds.|
+|[Felsökning](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)|ASP.NET Core `Debug` Logging-providern. Alla ASP.NET Core konfigurations inställningar och standardvärden för den här Logging-providern stöds.|
+|[Disk](#disk-logging)|JSON-Logging-providern. Den här loggnings leverantören skriver loggdata till utgående data montering.|
 
-Med det här behållarkommandot lagras loggningsinformation i JSON-format till utdatafästet:
+Det här behållar kommandot lagrar loggnings information i JSON-format till utmatnings monteringen:
 
 ```bash
 docker run --rm -it -p 5000:5000 \
@@ -34,7 +34,7 @@ ApiKey=<api-key> \
 Logging:Disk:Format=json
 ```
 
-Det här behållarkommandot visar felsökningsinformation, föregås av `dbug`, medan behållaren körs:
+Det här behållar kommandot visar fel söknings information, `dbug`föregåd av, medan behållaren körs:
 
 ```bash
 docker run --rm -it -p 5000:5000 \
@@ -46,14 +46,14 @@ ApiKey=<api-key> \
 Logging:Console:LogLevel:Default=Debug
 ```
 
-### <a name="disk-logging"></a>Diskloggning
+### <a name="disk-logging"></a>Disk loggning
 
-Loggningsprovidern `Disk` stöder följande konfigurationsinställningar:
+`Disk` Logging-providern har stöd för följande konfigurations inställningar:
 
-| Namn | Datatyp | Beskrivning |
+| Name | Datatyp | Beskrivning |
 |------|-----------|-------------|
-| `Format` | String | Utdataformatet för loggfiler.<br/> **Anm.:** Det här värdet `json` måste anges så att loggningsprovidern kan aktiveras. Om det här värdet anges utan att också ange en utdatamontering medan en behållare instansieras, uppstår ett fel. |
-| `MaxFileSize` | Integer | Den maximala storleken, i megabyte (MB), för en loggfil. När storleken på den aktuella loggfilen uppfyller eller överskrider det här värdet startas en ny loggfil av loggningsleverantören. Om -1 anges begränsas loggfilens storlek endast av den maximala filstorleken, om sådan finns, för utdatafästet. Standardvärdet är 1. |
+| `Format` | Sträng | Utdataformat för loggfiler.<br/> **Obs:** Värdet måste anges till `json` om du vill aktivera loggnings leverantören. Om det här värdet anges utan att även ange en utmatnings montering vid instansiering av en behållare uppstår ett fel. |
+| `MaxFileSize` | Integer | Den maximala storleken i megabyte (MB) i en loggfil. När storleken på den aktuella logg filen uppfyller eller överskrider det värdet, startas en ny loggfil av Logging-providern. Om-1 anges begränsas logg filens storlek bara av den maximala fil storleken, om det finns någon, för den utgående monteringen. Standardvärdet är 1. |
 
-Mer information om hur du konfigurerar ASP.NET Core loggningsstöd finns i [Inställningar filkonfiguration](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1).
+Mer information om hur du konfigurerar ASP.NET Core loggnings support finns i [Inställningar fil konfiguration](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1).
 

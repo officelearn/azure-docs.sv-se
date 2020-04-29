@@ -1,7 +1,7 @@
 ---
-title: Språkstöd - API för visuell sökning i Bing
+title: Språk stöd – API för visuell sökning i Bing
 titleSuffix: Azure Cognitive Services
-description: En lista över naturliga språk, länder och regioner som stöds av API:et för visuell sökning i Bing. Api:et för visuell sökning i Bing stöder mer än tre dussin länder/regioner, många med mer än ett språk.
+description: En lista över naturliga språk, länder och regioner som stöds av API för visuell sökning i Bing. API för visuell sökning i Bing har stöd för fler än tre dussin länder/regioner, många med fler än ett språk.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,27 +11,27 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
 ms.openlocfilehash: b17341bc234ff3dfecc2c6dcd84ef77116a95d61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68883552"
 ---
-# <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Språk- och regionstöd för API:et för visuell sökning i Bing
+# <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Språk-och region stöd för API för visuell sökning i Bing
 
-Bing Visual Search API stöder mer än tre dussin länder/regioner, många med mer än ett språk. Varje begäran bör innehålla användarens land/region och språkval. Att känna till användarens marknad hjälper Bing att returnera lämpliga resultat. Om du inte anger ett land/en region och ett språk gör Bing sitt bästa för att bestämma användarens land/region och språk. Eftersom resultaten kan innehålla länkar till Bing kan vetskap om land/region och språk ge en önskad lokaliserad Bing-användarupplevelse om användaren klickar på Bing-länkarna.
+API för visuell sökning i Bing stöder fler än tre dussin länder/regioner, många med fler än ett språk. Varje begäran bör innehålla användarens land/region och valfritt språk. Att känna till användarens marknad hjälper Bing att returnera lämpliga resultat. Om du inte anger något land/region och språk, gör Bing det bästa arbetet med att fastställa användarens land/region och språk. Eftersom resultaten kan innehålla länkar till Bing, kan det vara en prioriterad lokaliserad Bing-användare om användaren klickar på Bing-länkarna om du vet att landet/regionen och språket har en prioriterad lokaliserad Bing-upplevelse
 
-Om du vill ange land/region `mkt` och språk anger du frågeparametern (marknad) till en kod i tabellen **Marknader** nedan. Marknaden anger både ett land/en region och ett språk. Om användaren föredrar att visa visningstext på `setLang` ett annat språk anger du frågeparametern till lämplig språkkod.
+Om du vill ange land/region och språk ställer du `mkt` in Frågeparametern (marknads) till en kod från tabellen **marknader** nedan. Marknaden anger både land/region och språk. Om användaren vill se visnings text på ett annat språk anger `setLang` du Frågeparametern till rätt språkkod.
 
-Du kan också ange land/region `cc` med frågeparametern. Om du anger ett land/en region måste du också `Accept-Language` ange en eller flera språkkoder med HTTP-huvudet. Språken som stöds varierar mellan olika länder och regioner. de anges för varje land i tabellen Marknader.
+Alternativt kan du ange land/region med `cc` Frågeparametern. Om du anger ett land/en region måste du också ange en eller flera språk koder med `Accept-Language` HTTP-huvudet. Vilka språk som stöds varierar beroende på land/region; de anges för varje land i tabellen marknad.
 
 
 
 > [!NOTE]
-> Följande marknadsrestriktioner gäller:
+> Följande marknads begränsningar gäller:
 >
-> - Bildigenkänningsanteckningar är endast tillgängliga på engelska.
-> - Recept, shopping och sidor, inklusive insikter, är endast tillgängliga på marknaden i USA.
+> - Bild igenkännings anteckningar finns bara på engelska.
+> - Recept, shopping och sidor – inklusive insikter finns bara på en-amerikanska marknaden.
 
 
 ## <a name="countriesregions"></a>Länder/regioner
@@ -76,46 +76,46 @@ Du kan också ange land/region `cc` med frågeparametern. Om du anger ett land/e
 |USA|USA|
 
 
-## <a name="markets"></a>Marknader
+## <a name="markets"></a>Marknaden
 
-|Land/region|Språk|Marknadskod|
+|Land/region|Språk|Marknads kod|
 |-------|--------|-----------|
-|Argentina|Spanska|es-AR|
-|Australien|Svenska|sv-AU|
-|Österrike|Tyska|av-AT|
-|Belgien|Nederländska|nl-BE|
-|Belgien|Franska|fr-BE|
+|Argentina|Spanska|ES-AR|
+|Australien|Svenska|en – AU|
+|Österrike|Tyska|avinstallation|
+|Belgien|Nederländska|NL-vara|
+|Belgien|Franska|fr-vara|
 |Brasilien|Portugisiska|pt-BR|
-|Kanada|Svenska|sv-CA|
+|Kanada|Svenska|en-CA|
 |Kanada|Franska|fr-CA|
-|Chile|Spanska|es-CL|
+|Chile|Spanska|ES-CL|
 |Danmark|Danska|da-DK|
 |Finland|Finska|fi-FI|
 |Frankrike|Franska|fr-FR|
 |Tyskland|Tyska|de-DE|
 |Hongkong|Traditionell kinesiska|zh-HK|
-|Indien|Svenska|sv-IN|
-|Indonesien|Svenska|sv-ID|
+|Indien|Svenska|en-IN|
+|Indonesien|Svenska|en-ID|
 |Italien|Italienska|it-IT|
 |Japan|Japanska|ja-JP|
 |Korea|Koreansk|ko-KR|
-|Malaysia|Svenska|sv-MIN|
-|Mexiko|Spanska|es-MX|
+|Malaysia|Svenska|en-MY|
+|Mexiko|Spanska|ES – MX|
 |Nederländerna|Nederländska|nl-NL|
-|Nya Zeeland|Svenska|sv-NZ|
+|Nya Zeeland|Svenska|en-NZ|
 |Kina|Kinesiska|zh-CN|
 |Polen|Polska|pl-PL|
 |Portugal|Portugisiska|pt-PT|
-|Filippinerna|Svenska|sv-PH|
+|Filippinerna|Svenska|en-PH|
 |Ryssland|Ryska|ru-RU|
 |Saudiarabien|Arabiska|ar-SA|
-|Sydafrika|Svenska|sv-ZA|
+|Sydafrika|Svenska|en-ZA|
 |Spanien|Spanska|es-ES|
 |Sverige|Svenska|sv-SE|
-|Schweiz|Franska|fr-CH|
-|Schweiz|Tyska|de-CH (olika)|
+|Schweiz|Franska|Frankrike-CH|
+|Schweiz|Tyska|de-CH|
 |Taiwan|Traditionell kinesiska|zh-TW|
 |Turkiet|Turkiska|tr-TR|
 |Storbritannien|Svenska|en-GB|
 |USA|Svenska|sv-SE|
-|USA|Spanska|es-USA|
+|USA|Spanska|ES – USA|

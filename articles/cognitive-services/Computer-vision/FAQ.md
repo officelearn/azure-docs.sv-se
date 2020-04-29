@@ -1,7 +1,7 @@
 ---
-title: Vanliga frågor - Datorseende
+title: Vanliga frågor och svar – Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Få svar på vanliga frågor om API:et för datorseende i Azure Cognitive Services.
+description: Få svar på vanliga frågor om API för visuellt innehåll i Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -12,63 +12,63 @@ ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: e8ab205a43e5cb1e8e2b96dbd9600e1fceb29403
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68564601"
 ---
-# <a name="computer-vision-api-frequently-asked-questions"></a>API för datorseende vanliga frågor
+# <a name="computer-vision-api-frequently-asked-questions"></a>Vanliga frågor och svar om API för visuellt innehåll
 
 > [!TIP]
-> Om du inte hittar svar på dina frågor i den här vanliga frågor och svar kan du prova att fråga API-communityn för visuellt innehåll på [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) eller kontakta [hjälp och support på UserVoice](https://cognitive.uservoice.com/)
+> Om du inte kan hitta svar på dina frågor i dessa vanliga frågor och svar kan du prova att be API för visuellt innehåll community om [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) eller kontakta [Hjälp och support på UserVoice](https://cognitive.uservoice.com/)
 
 ---
 
-**Fråga:** *Kan jag träna Computer Vision API att använda anpassade taggar?  Till exempel skulle jag vilja mata in bilder av kattraser för att "träna" AI, sedan få rasen värde på en AI-begäran.*
+**Fråga**: *kan jag träna API för visuellt innehåll att använda anpassade taggar?  Anta till exempel att du vill mata in bilder av Cat-raser till "träna" AI och sedan ta emot ras-värdet i en AI-begäran.*
 
-**Svar**: Den här funktionen är inte tillgänglig för närvarande. Våra ingenjörer arbetar dock för att få denna funktion till Computer Vision.
-
----
-
-**Fråga:** *Kan Computer Vision användas lokalt utan internetuppkoppling?*
-
-**Svar**: Vi erbjuder för närvarande ingen lokal eller lokal lösning.
+**Svar**: den här funktionen är inte tillgänglig för tillfället. Våra tekniker arbetar dock för att få den här funktionen att Visuellt innehåll.
 
 ---
 
-**Fråga:** *Kan Computer Vision användas för att läsa registreringsskyltar?*
+**Fråga**: *kan visuellt innehåll användas lokalt utan Internet anslutning?*
 
-**Svar**: Vision API erbjuder bra textdetektering med OCR, men det är för närvarande inte optimerat för registreringsskyltar. Vi försöker ständigt förbättra våra tjänster och har lagt till OCR för automatisk registreringsskylt erkännande till vår lista över funktionsförfrågningar.
-
----
-
-**Fråga**: *Vilka typer av skrivytor stöds för handskriftsigenkänning?*
-
-**Svar**: Tekniken fungerar med olika typer av ytor, inklusive whiteboards, vitt papper och gula klisterlappar.
+**Svar**: Vi erbjuder för närvarande inte någon lokal eller lokal lösning.
 
 ---
 
-**Fråga**: *Hur lång tid tar handskriftsigenkänningen?*
+**Fråga**: *kan visuellt innehåll användas för att läsa licens plattor?*
 
-**Svar**: Hur lång tid det tar beror på textens längd. För längre texter kan det ta upp till flera sekunder. När åtgärden Identifiera handskriven text har slutförts kan du därför behöva vänta innan du kan hämta resultaten med hjälp av åtgärden Hämta handskriven text.
-
----
-
-**Fråga:** *Hur hanterar handskriftsigenkänningstekniken text som infogades med en smekt mitt i en rad?*
-
-**Svar**: Sådan text returneras som en separat rad av handskriftsigenkänningen.
+**Svar**: syn-API: et erbjuder en text identifiering med OCR, men den är för närvarande inte optimerad för licens plattor. Vi försöker ständigt förbättra våra tjänster och har lagt till OCR för automatisk licens plåts igenkänning till vår lista över funktions förfrågningar.
 
 ---
 
-**Fråga**: *Hur hanterar handskriftsigenkänningstekniken överstrukna ord eller linjer?*
+**Fråga**: *vilka typer av Skriv ytor stöds för hand SKRIFTS igenkänning?*
 
-**Svar**: Om orden stryks bort med flera rader för att göra dem oigenkännliga, plockas inte upp dem i handskriftsigenkänningsåtgärden. Men om orden stryks över med en enda linje behandlas den korsningen som brus, och orden plockas fortfarande upp av handskriftsigenkänningen.
+**Svar**: tekniken fungerar med olika typer av ytor, inklusive whiteboardtavlor, White Paper och gula Fästisar.
 
 ---
 
-**Fråga**: *Vilka textorienteringar stöds för handskriftsigenkänningstekniken?*
+**Fråga**: *hur lång tid tar hand SKRIFTS igenkännings åtgärden?*
 
-**Svar**: Textorienterad i vinklar på upp till cirka 30 grader till 40 grader kan plockas upp av handskriftsigenkänningen.
+**Svar**: hur lång tid det tar beror på textens längd. För längre texter kan det ta upp till flera sekunder. När åtgärden identifiera handskriven text har slutförts kan du därför behöva vänta innan du kan hämta resultatet med hjälp av åtgärden Hämta handskriven text åtgärd.
+
+---
+
+**Fråga**: *Hur hanterar hand SKRIFTS igenkännings tekniken text som infogades med ett cirkumflex mitt i en rad?*
+
+**Svar**: sådan text returneras som en separat rad vid hand SKRIFTS igenkännings åtgärden.
+
+---
+
+**Fråga**: *Hur hanterar hand SKRIFTS igenkännings tekniken överkorsade ord eller rader?*
+
+**Svar**: om orden är överkorsade med flera rader för att återges som okända, så väljs inte funktionen för hand SKRIFTS igenkänning. Men om orden korsas ut med en enda rad, behandlas korsningen som brus, och orden hämtas fortfarande av hand SKRIFTS igenkännings åtgärden.
+
+---
+
+**Fråga**: *vilka text orienteringar stöds för tekniken för hand SKRIFTS igenkänning?*
+
+**Svar**: text som är orienterad i vinklar på upp till cirka 30 grader till 40 grader kan hämtas av hand SKRIFTS igenkännings åtgärden.
 
 ---

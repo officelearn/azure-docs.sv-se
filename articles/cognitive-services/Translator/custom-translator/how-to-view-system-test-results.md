@@ -1,7 +1,7 @@
 ---
-title: Visa systemtestresultat och distribution - Custom Translator
+title: Visa system test resultat och distribution – anpassad översättare
 titleSuffix: Azure Cognitive Services
-description: När din träning är framgångsrik, granska systemtester för att analysera dina träningsresultat. Om du är nöjd med utbildningsresultaten placerar du en distributionsbegäran för den tränade modellen.
+description: När din utbildning är klar kan du granska system testerna för att analysera dina utbildnings resultat. Om du är nöjd med utbildnings resultatet ska du placera en distributions förfrågan för den tränade modellen.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,98 +10,98 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: f5e1a21f24fdd2458d4803d6ed1675455fa5037d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68595610"
 ---
 # <a name="view-system-test-results"></a>Visa testresultat för system
 
-När din träning är framgångsrik, granska systemtester för att analysera dina träningsresultat. Om du är nöjd med utbildningsresultaten placerar du en distributionsbegäran för den tränade modellen.
+När din utbildning är klar kan du granska system testerna för att analysera dina utbildnings resultat. Om du är nöjd med utbildnings resultatet ska du placera en distributions förfrågan för den tränade modellen.
 
-## <a name="system-test-results-page"></a>Sidan Resultatsida för systemtest
+## <a name="system-test-results-page"></a>Sidan system test resultat
 
-Välj ett projekt, välj sedan fliken Modeller för det projektet, leta reda på den modell du vill använda och slutligen välja testfliken.
+Välj ett projekt, Välj fliken modeller i projektet, leta upp den modell som du vill använda och välj slutligen fliken test.
 
-På fliken Test visas:
+På fliken test visas:
 
-1.  **Systemtestresultat:** Resultatet av testprocessen i träningarna. Testprocessen ger BLEU-poängen.
+1.  **System testresultat:** Resultatet av test processen i träningarna. Test processen genererar BLEU-poängen.
 
-    **Antal meningar:** Hur många parallella meningar användes i testuppsättningen.
+    **Antal meningar:** Hur många parallella meningar som användes i test uppsättningen.
 
-     **BLEU Betyg:** BLEU-poäng som genereras för en modell efter avslutad utbildning.
+     **Bleu Poäng:** BLEU Poäng som genererats för en modell efter att utbildningen har slutförts.
 
-    **Status:** Anger om testprocessen är klar eller pågår.
+    **Status:** Anger om test processen är slutförd eller pågår.
 
-    ![Systemtestresultat](media/how-to/how-to-system-test-results.png)
+    ![System test resultat](media/how-to/how-to-system-test-results.png)
 
-2.  Klicka på systemtestresultaten, så tar du dig till sidan med resultatinformation. På den här sidan visas maskinöversättning av meningar som ingick i testdatauppsättningen.
+2.  Klicka på system test resultatet så kommer du till sidan testa resultat information. Den här sidan visar dator översättning av meningar som ingick i test data uppsättningen.
 
-3.  Tabellen på sidan testresultatinformation har två kolumner - en för varje språk i paret. Kolumnen för källspråket visar meningen som ska översättas. Kolumnen för målspråket innehåller två meningar på varje rad.
+3.  Tabellen på sidan med test resultat information har två kolumner – en för varje språk i paret. Kolumnen för käll språket visar meningen som ska översättas. Kolumnen för mål språket innehåller två meningar i varje rad.
 
-    **Referens:** Denna mening är referensöversättningen av käll mening som anges i testet datauppsättningen.
+    **Ref:** Den här meningen är referens översättningen av käll meningen som anges i test data uppsättningen.
 
-    **MT:** Denna mening är automatisk översättning av käll meningen görs av den modell som byggdes efter utbildningen genomfördes.
+    **MT:** Den här meningen är den automatiska översättningen av käll meningen som görs av modellen som skapats efter att utbildningen genomförts.
 
-    ![Systemtestresultat jämför](media/how-to/how-to-system-test-results-2.png)
+    ![Jämför med system test resultat](media/how-to/how-to-system-test-results-2.png)
 
-## <a name="download-test"></a>Ladda ner test
+## <a name="download-test"></a>Hämta test
 
-Klicka på länken Hämta översättningar för att hämta en zip-fil. Dragkedjan innehåller maskinöversättningar av källmeningar i testdatauppsättningen.
+Klicka på länken Hämta översättningar för att ladda ned en zip-fil. Zip-filen innehåller dator översättningar av käll meningar i data uppsättningen test.
 
-![Ladda ner test](media/how-to/how-to-system-test-download.png)
+![Hämta test](media/how-to/how-to-system-test-download.png)
 
-Detta nedladdade zip-arkiv innehåller tre filer.
+Det hämtade ZIP-arkivet innehåller tre filer.
 
-1.  **custom.mt.txt:** Den här filen innehåller maskinöversättningar av källspråkmeningar på målspråket som görs av modellen som tränas med användarens data.
+1.  **Anpassad. mt. txt:** Den här filen innehåller dator översättningar av käll språk meningar på mål språket som sköts av modellen som tränas med användarens data.
 
-2.  **ref.txt:** Den här filen innehåller användaröversättningar av källspråkmeningar på målspråket.
+2.  **Ref. txt:** Den här filen innehåller användare som har angett översättningar av käll språkets meningar på mål språket.
 
-3.  **source.txt:** Den här filen innehåller meningar på källspråket.
+3.  **källa. txt:** Den här filen innehåller meningar i käll språket.
 
-    ![Nedladdade systemtestresultat](media/how-to/how-to-download-system-test.png)
+    ![Hämtade system test resultat](media/how-to/how-to-download-system-test.png)
 
 ## <a name="deploy-a-model"></a>Distribuera en modell
 
 Så här begär du en distribution:
 
-1.  Välj ett projekt, gå till fliken Modeller.
+1.  Välj ett projekt, gå till fliken modeller.
 
-2. För en modell som har tränats visas "Deploy"-knappen, om den inte har distribuerats.
+2. För en lyckad tränad modell visas knappen "distribuera", om den inte distribueras.
 
     ![Distribuera modell](media/how-to/how-to-deploy-model.png)
 
-3.  Klicka på Distribuera.
-4.  Välj **Distribuerad** för de regioner där du vill att modellen ska distribueras och klicka på Spara. Du kan välja **Distribuerad** för flera regioner.
+3.  Klicka på distribuera.
+4.  Välj **distribuerad** för de regioner där du vill att din modell ska distribueras och klicka sedan på Spara. Du kan välja **distribuerat** i flera regioner.
 
     ![Distribuera modell](media/how-to/how-to-deploy-model-regions.png)
 
-5.  Du kan visa modellens status i kolumnen "Status".
+5.  Du kan visa status för din modell i kolumnen "status".
 
 >[!Note]
->Custom Translator stöder 10 distribuerade modeller inom en arbetsyta när som helst.
+>Anpassad översättare stöder 10 distribuerade modeller inom en arbets yta vid varje tidpunkt.
 
-## <a name="update-deployment-settings"></a>Uppdatera distributionsinställningar
+## <a name="update-deployment-settings"></a>Uppdatera distributions inställningar
 
-Så här uppdaterar du distributionsinställningarna:
+Så här uppdaterar du distributions inställningarna:
 
-1.  Välj ett projekt och gå till fliken **Modeller.**
+1.  Välj ett projekt och gå till fliken **modeller** .
 
-2. För en modell som har distribuerats visas en **uppdateringsknapp.**
+2. För en lyckad distribuerad modell visas en **uppdaterings** knapp.
 
     ![Distribuera modell](media/how-to/how-to-update-undeploy-model.png)
 
 3.  Välj **Uppdatera**.
-4.  Välj **Distribuerad** eller **Ej distribuerad** för den region(er) där du vill att modellen ska distribueras eller inte distribueras och klicka sedan på **Spara**.
+4.  Välj **distribuerad** eller ej **distribuerad** för den eller de regioner där du vill att din modell ska distribueras eller avinstalleras och klicka sedan på **Spara**.
 
     ![Distribuera modell](media/how-to/how-to-undeploy-model.png)
 
 >[!Note]
->Om du väljer **Ej distribuerad** för alla regioner är modellen odedelad från alla regioner och hamnar i ett odestrikt tillstånd. Den är nu inte tillgänglig för användning.
+>Om du väljer **distribuerat** i alla regioner, är modellen inte distribuerad från alla regioner och försätts i ett tillstånd där det inte har distribuerats. Den är nu inte tillgänglig för användning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Börja använda din distribuerade anpassade översättningsmodell via [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
-- Läs om hur du [hanterar inställningar](how-to-manage-settings.md) för att dela arbetsytan och hantera prenumerationsnyckeln.
-- Lär dig hur du [migrerar arbetsytan och projektet](how-to-migrate.md) från [Microsoft Translator Hub](https://hub.microsofttranslator.com)
+- Börja använda din distribuerade anpassade översättnings modell via [Microsoft Translator text API v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Lär dig [hur du hanterar inställningar](how-to-manage-settings.md) för att dela din arbets yta, hantera prenumerations nyckel.
+- Lär dig [hur du migrerar din arbets yta och ditt projekt](how-to-migrate.md) från [Microsoft Translator Hub](https://hub.microsofttranslator.com)

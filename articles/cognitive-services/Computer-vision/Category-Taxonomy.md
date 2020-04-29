@@ -1,7 +1,7 @@
 ---
-title: Taxonomi av bildkategorier - Datorseende
+title: Taxonomi för avbildnings kategorier – Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Hämta de 86 kategorierna taxonomi för API:et för datorseende i Azure Cognitive Services.
+description: Hämta 86-kategorierna för taxonomi för API för visuellt innehåll i Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 42562f3e19844621cb3893cb4ce185e85cf7e0ab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68565752"
 ---
-# <a name="computer-vision-86-category-taxonomy"></a>Computer Vision 86-kategori taxonomi
+# <a name="computer-vision-86-category-taxonomy"></a>Visuellt innehåll 86-kategori-taxonomi
 
 abstract_
 

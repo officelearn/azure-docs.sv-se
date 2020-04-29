@@ -1,7 +1,7 @@
 ---
-title: Hämta videor från din anpassade vy - Anpassad Bing-sökning
+title: Hämta videor från din anpassade vy – Anpassad sökning i Bing
 titleSuffix: Azure Cognitive Services
-description: Översikt på hög nivå om hur du använder anpassad Bing-sökning för att hämta videor från din anpassade vy av webben.
+description: Översikt på hög nivå om hur du använder Anpassad sökning i Bing för att hämta videor från din anpassade vy av webben.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
 ms.openlocfilehash: 222256036a59c7df302546bbf82648c4d524d43f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68405087"
 ---
 # <a name="get-videos-from-your-custom-view"></a>Hämta videor från din anpassade vy
 
-Med Bing Custom Videos Search kan du berika din anpassade sökupplevelse med videor. På ett liknande sätt som med webbresultat har anpassad sökning stöd för videosökning i listan över webbplatser i dina instanser. Du kan hämta videorna med Bings API för anpassad videosökning eller via funktionen Värdbaserade användargränssnitt. Det är enkelt att använda funktionen Hosted UI och rekommenderas för att få igång sökupplevelsen på kort tid. Information om hur du konfigurerar användargränssnittet i värddat till att inkludera videor finns i [Konfigurera din värdbaserade användargränssnittsupplevelse](hosted-ui.md).
+Med Bing-funktionen för anpassade videor kan du utöka din anpassade Sök upplevelse med videor. På ett liknande sätt som med webbresultat har anpassad sökning stöd för videosökning i listan över webbplatser i dina instanser. Du kan hämta videor med Bing: s anpassade videor Sök-API eller via funktionen för värdbaserad gränssnitt. Att använda funktionen för värdbaserade gränssnitt är enkel att använda och rekommendera för att få din Sök upplevelse igång i kort ordning. Information om hur du konfigurerar ditt värd gränssnitt för att inkludera videor finns i [Konfigurera den värdbaserade gränssnitts upplevelsen](hosted-ui.md).
 
-Om du vill ha mer kontroll över visningen av sökresultaten kan du använda Bings API för sök-API för anpassade videor. Eftersom det liknar att anropa API:et för videosökning i Bing, går du till [bing-videosökning](../Bing-Video-Search/search-the-web.md) i kassan efter exempel som anropar API:et. Men innan du gör det, bekanta dig med [custom videos search API referensinnehåll.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference) De största skillnaderna är de frågeparametrar som stöds (du måste inkludera parametern customConfig-fråga) och slutpunkten som du skickar begäranden till.
+Om du vill ha mer kontroll över att Visa Sök resultaten kan du använda Bing: s anpassade videor Sök-API. Eftersom anrop till API: et liknar att anropa API för videosökning i Bing, kan du checka [videosökning i Bing](../Bing-Video-Search/search-the-web.md) för exempel som anropar API: et. Men innan du gör det kan du bekanta dig med det [anpassade videoklippet Sök-API referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference) innehåll. De huvudsakliga skillnaderna är de frågeparametrar som stöds (du måste inkludera Frågeparametern customConfig) och den slut punkt som du skickar begär anden till.
 
 <!--
 ## Next steps

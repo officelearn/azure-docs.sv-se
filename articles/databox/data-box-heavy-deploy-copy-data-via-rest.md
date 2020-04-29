@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Kopiera data till Azure Data Box Blob-lagring via REST-API:er'
-description: Lär dig hur du kopierar data till din Azure Data Box Heavy Blob-lagring via REST API:er
+title: 'Självstudie: kopiera data till Azure Data Box Blob Storage via REST-API: er'
+description: 'Lär dig hur du kopierar data till Azure Data Box Heavy Blob Storage via REST-API: er'
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 9f3ba0a7e9f7cf72b0eade16679d980fe2207f98
-ms.sourcegitcommit: fe6c9a35e75da8a0ec8cea979f9dec81ce308c0e
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80297215"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Självstudiekurs: Kopiera data till Azure Data Box Blob-lagring via REST-API:er  
+# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Självstudie: kopiera data till Azure Data Box Blob Storage via REST-API: er  
 
-Den här självstudien beskriver procedurer för att ansluta till Azure Data Box Blob-lagring via REST-API:er genom *http* eller *https*. När du är ansluten beskrivs de steg som krävs för att kopiera data till Data Box Blob-lagring.
+Den här självstudien beskriver procedurer för att ansluta till Azure Data Box Blob-lagring via REST-API:er genom *http* eller *https*. När du är ansluten beskrivs de steg som krävs för att kopiera data till Data Box-enhet Blob Storage.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Krav
@@ -28,13 +28,13 @@ I den här självstudiekursen får du lära du dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 
-1. Du har slutfört [självstudien: Konfigurera Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
+1. Du har slutfört [självstudien: konfigurera Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
 2. Du har fått din Data Box Heavy-enhet och orderstatusen på portalen är **Levererad**.
 3. Du har granskat [systemkraven för Data Box Blob-lagring](data-box-system-requirements-rest.md) och känner till versioner av API:er, SDK:er och verktyg som stöds.
-4. Du har tillgång till en värddator som har de data som du vill kopiera över till Data Box Heavy. Värddatorn måste
-    - Kör ett [operativsystem som stöds](data-box-system-requirements.md).
+4. Du har åtkomst till en värddator som innehåller de data som du vill kopiera till Data Box Heavy. Värddatorn måste
+    - Kör ett [operativ system som stöds](data-box-system-requirements.md).
     - Vara ansluten till en höghastighetsnätverk. För snabbast kopieringshastighet kan två 40-GbE-anslutningar (en per nod) användas parallellt. Om du inte har någon tillgänglig 40-GbE-anslutning rekommenderar vi att du har minst två 10 GbE-anslutningar (en per nod). 
 5. [Ladda ned AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417) på värddatorn. Du använder AzCopy för att kopiera data till Azure Data Box Blob-lagring från värddatorn.
 
@@ -43,10 +43,10 @@ Innan du börjar bör du kontrollera att:
 
 Du kan ansluta till Data Box Blob-lagring genom *http* eller *https*.
 
-- *Https* är det säkra och rekommenderade sättet att ansluta till Data Box Blob-lagring.
+- *Https* är det säkra och rekommenderade sättet att ansluta till data Box-enhet Blob Storage.
 - *http* används när du ansluter via betrodda nätverk.
 
-Stegen för att ansluta är olika när du ansluter till Data Box Blob storage via *http* eller *https*.
+Stegen för att ansluta är annorlunda när du ansluter till Data Box-enhet Blob Storage via *http* eller *https*.
 
 ## <a name="connect-via-http"></a>Ansluta via http
 
@@ -58,9 +58,9 @@ För anslutning till REST-API:er för Data Box Blob-lagring genom *http* krävs 
 Vart och ett av dessa steg beskrivs i följande avsnitt.
 
 > [!IMPORTANT]
-> För Data Box Heavy måste du upprepa alla anslutningsinstruktioner för att ansluta till den andra noden.
+> För Data Box Heavy måste du upprepa alla anslutnings anvisningar för att ansluta till den andra noden.
 
-### <a name="add-device-ip-address-and-blob-service-endpoint"></a>Lägga till enhetens IP-adress och blob-tjänstslutpunkt
+### <a name="add-device-ip-address-and-blob-service-endpoint"></a>Lägg till enhetens IP-adress och blob service-slutpunkt
 
 [!INCLUDE [data-box-add-device-ip](../../includes/data-box-add-device-ip.md)]
 
@@ -77,14 +77,14 @@ Vart och ett av dessa steg beskrivs i följande avsnitt.
 För anslutning till REST-API:er för Azure Blob-lagring genom https krävs följande steg:
 
 - Ladda ned certifikatet från Azure-portalen
-- Importera certifikatet på klienten eller fjärrvärden
-- Lägga till enhetens IP- och blob-tjänstslutpunkt till klienten eller fjärrvärden
+- Importera certifikatet på klienten eller fjärran sluten värd
+- Lägg till enhetens IP-adress och blob service-slutpunkt till klienten eller fjärrvärden
 - Konfigurera programvara från tredje part och verifiera anslutningen
 
 Vart och ett av dessa steg beskrivs i följande avsnitt.
 
 > [!IMPORTANT]
-> För Data Box Heavy måste du upprepa alla anslutningsinstruktioner för att ansluta till den andra noden.
+> För Data Box Heavy måste du upprepa alla anslutnings anvisningar för att ansluta till den andra noden.
 
 ### <a name="download-certificate"></a>Ladda ned certifikat
 
@@ -92,17 +92,17 @@ Använda Azure-portalen för att ladda ned certifikatet.
 
 1. Logga in i Azure-portalen.
 2. Gå till din Data Box-order och navigera till **Allmänt > Enhetsinformation**.
-3. Under **Autentiseringsuppgifter för enheten** går du till **API-åtkomst** till enheten. Klicka på **Ladda ner**. Den här åtgärden hämtar ett ** \<ditt beställningsnamn>.cer-certifikatfilen.** **Spara** den här filen. Du installerar det här certifikatet på den klient- eller värddatorn som du kommer att använda för att ansluta till enheten.
+3. Under **Autentiseringsuppgifter för enheten** går du till **API-åtkomst** till enheten. Klicka på **Hämta**. Den här åtgärden hämtar ett ** \<beställnings namn>. cer** -certifikatfil. **Spara** den här filen. Du installerar det här certifikatet på den klient- eller värddatorn som du kommer att använda för att ansluta till enheten.
 
     ![Ladda ned certifikat i Azure-portalen](media/data-box-deploy-copy-data-via-rest/download-cert-1.png)
  
 ### <a name="import-certificate"></a>Importera certifikatet 
 
-Åtkomst till databoxblolagring via HTTPS kräver ett TLS/SSL-certifikat för enheten. Det sätt på vilket certifikatet görs tillgängligt för klientprogrammet varierar från program till program och mellan operativsystem och distributioner. Vissa program kan komma åt certifikatet när det har importerats till systemets certifikatarkiv, medan andra program inte använder den mekanismen.
+Att komma åt Data Box-enhet Blob Storage via HTTPS kräver ett TLS/SSL-certifikat för enheten. Hur det här certifikatet görs tillgängligt för klient programmet varierar från program till program och mellan operativ system och distributioner. Vissa program har åtkomst till certifikatet när det har importer ATS till systemets certifikat Arkiv, medan andra program inte använder den mekanismen.
 
-Specifik information för vissa program nämns i det här avsnittet. Mer information om andra program finns i dokumentationen för programmet och det operativsystem som används.
+Viss information för vissa program beskrivs i det här avsnittet. Mer information om andra program finns i dokumentationen för programmet och det operativ system som används.
 
-Följ dessa steg `.cer` för att importera filen till rotarkivet för en Windows- eller Linux-klient. På ett Windows-system kan du använda Windows PowerShell eller Windows Server-användargränssnittet för att importera och installera certifikatet i systemet.
+Följ dessa steg om du vill `.cer` importera filen till rot arkivet för en Windows-eller Linux-klient. I ett Windows-system kan du använda Windows PowerShell eller Windows Server-gränssnittet för att importera och installera certifikatet på systemet.
 
 #### <a name="use-windows-powershell"></a>Använda Windows PowerShell
 
@@ -113,7 +113,7 @@ Följ dessa steg `.cer` för att importera filen till rotarkivet för en Windows
     Import-Certificate -FilePath C:\temp\localuihttps.cer -CertStoreLocation Cert:\LocalMachine\Root
     ```
 
-#### <a name="use-windows-server-ui"></a>Använda Windows Server-användargränssnittet
+#### <a name="use-windows-server-ui"></a>Använd Windows Server-användargränssnitt
 
 1.  Högerklicka på `.cer` filen och välj **Installera certifikat**. Den här åtgärden startar guiden Importera certifikat.
 2.  För **Store location** (Lagringsplats) väljer du **Lokal dator** och klickar sedan på **Nästa**.
@@ -128,39 +128,39 @@ Följ dessa steg `.cer` för att importera filen till rotarkivet för en Windows
 
     ![Importera certifikat med hjälp av PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
-#### <a name="use-a-linux-system"></a>Använda ett Linux-system
+#### <a name="use-a-linux-system"></a>Använd ett Linux-system
 
 Metoden för att importera ett certifikat varierar beroende på distribution.
 
 > [!IMPORTANT]
-> För Data Box Heavy måste du upprepa alla anslutningsinstruktioner för att ansluta till den andra noden.
+> För Data Box Heavy måste du upprepa alla anslutnings anvisningar för att ansluta till den andra noden.
 
-Flera, som Ubuntu och Debian, använder `update-ca-certificates` kommandot.  
+Flera, till exempel Ubuntu och Debian, använder `update-ca-certificates` kommandot.  
 
-- Byt namn på den Base64-kodade `.crt` certifikatfilen för `/usr/local/share/ca-certificates directory`att ha ett tillägg och kopiera den till .
+- Byt namn på den base64-kodade certifikat filen `.crt` till att ha ett tillägg och `/usr/local/share/ca-certificates directory`kopiera den till.
 - Kör kommandot `update-ca-certificates`.
 
-De senaste versionerna `update-ca-trust` av RHEL, Fedora och CentOS använder kommandot.
+De `update-ca-trust` senaste versionerna av RHEL, Fedora och CentOS använder kommandot.
 
-- Kopiera certifikatfilen till `/etc/pki/ca-trust/source/anchors` katalogen.
+- Kopiera certifikat filen till `/etc/pki/ca-trust/source/anchors` katalogen.
 - Kör `update-ca-trust`.
 
-Mer information finns i dokumentationen som är specifik för distributionen.
+Läs dokumentationen som är unik för din distribution för mer information.
 
-### <a name="add-device-ip-address-and-blob-service-endpoint"></a>Lägga till enhetens IP-adress och blob-tjänstslutpunkt 
+### <a name="add-device-ip-address-and-blob-service-endpoint"></a>Lägg till enhetens IP-adress och blob service-slutpunkt 
 
-Följ samma steg för att lägga till [enhetens IP-adress och blob-tjänstslutpunkt när du ansluter via *http*](#add-device-ip-address-and-blob-service-endpoint).
+Följ samma steg för att [lägga till enhetens IP-adress och blob service-slutpunkt vid anslutning via *http*](#add-device-ip-address-and-blob-service-endpoint).
 
 ### <a name="configure-partner-software-and-verify-connection"></a>Konfigurera partnerprogramvara och verifiera anslutningen
 
-Följ stegen för att [konfigurera partnerprogramvara som du använde när du anslöt via *http*](#configure-partner-software-and-verify-connection). Den enda skillnaden är att du låter alternativet *Använd http* vara avmarkerat.
+Följ stegen för att [Konfigurera de partner program som du använde vid anslutning via *http*](#configure-partner-software-and-verify-connection). Den enda skillnaden är att du låter alternativet *Använd http* vara avmarkerat.
 
 ## <a name="copy-data-to-data-box-heavy"></a>Kopiera data till Data Box Heavy
 
 När du är ansluten till Data Box-lagringen är nästa steg att kopiera data. Granska följande innan du kopierar data:
 
--  När du kopierar data ska du se till att datastorleken överensstämmer med de storleksbegränsningar som beskrivs i [Azure-lagrings- och databoxens tunga gränser](data-box-limits.md).
-- Om data, som laddas upp av Data Box Heavy, samtidigt överförs av andra program utanför Data Box Heavy, kan detta resultera i uppladdning av jobbfel och dataskador.
+-  När du kopierar data måste du se till att data storleken överensstämmer med storleks begränsningarna som beskrivs i [Azure Storage och data Box Heavy gränser](data-box-limits.md).
+- Om data som laddas upp av Data Box Heavy, samtidigt laddas upp av andra program utanför Data Box Heavy, kan det leda till uppladdning av jobbfel och skadade data.
 
 I den här självstudien används AzCopy för att kopiera data till Data Box Blob-lagring. Du kan även använda Azure Storage Explorer (om du föredrar ett GUI-baserat verktyg) eller partnerprogramvara för att kopiera data.
 
@@ -174,7 +174,7 @@ Kopieringsproceduren omfattar följande steg:
 Vart och ett av dessa steg beskrivs ingående i följande avsnitt.
 
 > [!IMPORTANT]
-> För Data Box Heavy måste du upprepa alla kopieringsinstruktioner för att kopiera data till den andra noden.
+> För Data Box Heavy måste du upprepa alla kopierings anvisningar för att kopiera data till den andra noden.
 
 ### <a name="create-a-container"></a>Skapa en container
 
@@ -232,7 +232,7 @@ Om du bara vill kopiera källresurser som inte finns i målet, så ange båda pa
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-heavy-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 
-Om det finns några fel under anslutnings- eller kopieringsåtgärden läser [du Felsöka problem med datarumpblolagring](data-box-troubleshoot-rest.md).
+Om det uppstår några fel under anslutnings-eller kopierings åtgärden, se [Felsöka problem med data Box-enhet Blob Storage](data-box-troubleshoot-rest.md).
 
 Nästa steg är att förbereda enheten för leverans.
 

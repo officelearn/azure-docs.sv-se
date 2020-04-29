@@ -1,7 +1,7 @@
 ---
-title: Översätta metod för översättartext-API
+title: Translator Text API Översätt metod
 titleSuffix: Azure Cognitive Services
-description: Förstå parametrar, rubriker och brödtextmeddelanden för Azure Cognitive Services Translator Text API Translate-metoden för att översätta text.
+description: Förstå parametrarna, rubrikerna och bröd meddelanden för Azure Cognitive Services Translator Text API Översätt metod för att översätta text.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: swmachan
 ms.openlocfilehash: 1821623fbe2a22234af649934ac06e72897a19cf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80052401"
 ---
-# <a name="translator-text-api-30-translate"></a>Översättare Text API 3.0: Översätt
+# <a name="translator-text-api-30-translate"></a>Translator Text API 3,0: Översätt
 
 Översätter text.
 
 ## <a name="request-url"></a>URL för begäran
 
-Skicka `POST` en begäran till:
+Skicka en `POST` begäran till:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
@@ -31,101 +31,101 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 ## <a name="request-parameters"></a>Parametrar för begäran
 
-Parametrar för begäran som skickas på frågesträngen är:
+Parametrarna för begäran som skickades till frågesträngen är:
 
 ### <a name="required-parameters"></a>Obligatoriska parametrar
 
 <table width="100%">
-  <th width="20%">Parameter för fråga</th>
+  <th width="20%">Frågeparameter</th>
   <th>Beskrivning</th>
   <tr>
     <td>api-version</td>
-    <td><em>Obligatorisk parameter</em>.<br/>Version av API som begärs av klienten. Värdet måste <code>3.0</code>vara .</td>
+    <td><em>Obligatorisk parameter</em>.<br/>Den version av API: t som klienten begär. Värdet måste vara <code>3.0</code>.</td>
   </tr>
   <tr>
     <td>till</td>
-    <td><em>Obligatorisk parameter</em>.<br/>Anger utdatatextens språk. Målspråket måste vara ett av de <code>translation</code> språk som <a href="./v3-0-languages.md">stöds</a> i omfånget. Använd <code>to=de</code> till exempel för att översätta till tyska.<br/>Det är möjligt att översätta till flera språk samtidigt genom att upprepa parametern i frågesträngen. Använd <code>to=de&to=it</code> till exempel för att översätta till tyska och italienska.</td>
+    <td><em>Obligatorisk parameter</em>.<br/>Anger språket för utmatnings texten. Mål språket måste vara ett av de <a href="./v3-0-languages.md">språk som stöds</a> som ingår i <code>translation</code> omfånget. Använd <code>to=de</code> till exempel för att översätta till tyska.<br/>Det går att översätta till flera språk samtidigt genom att upprepa parametern i frågesträngen. Använd <code>to=de&to=it</code> till exempel för att översätta till tyska och italienska.</td>
   </tr>
 </table>
 
 ### <a name="optional-parameters"></a>Valfria parametrar
 
 <table width="100%">
-  <th width="20%">Parameter för fråga</th>
+  <th width="20%">Frågeparameter</th>
   <th>Beskrivning</th>
   <tr>
     <td>Från</td>
-    <td><em>Valfri parameter</em>.<br/>Anger språket för indatatexten. Hitta vilka språk som är tillgängliga att översätta <code>translation</code> från genom att söka efter språk som <a href="./v3-0-languages.md">stöds</a> med hjälp av scopet. Om <code>from</code> parametern inte har angetts används automatisk språkidentifiering för att bestämma källspråket. <br/><br/>Du måste <code>from</code> använda parametern i stället för automatisk avdektion när du använder funktionen <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">för dynamisk ordlista.</a></td>
+    <td><em>Valfri parameter</em>.<br/>Anger språket för inmatad text. Hitta vilka språk som kan omvandlas från genom att leta upp <a href="./v3-0-languages.md">språk</a> som stöds <code>translation</code> med hjälp av omfånget. Om <code>from</code> parametern inte anges används automatisk språk identifiering för att fastställa käll språket. <br/><br/>Du måste använda- <code>from</code> parametern i stället för automatisk identifiering när du använder funktionen för <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dynamiskt ord listor</a> .</td>
   </tr>  
   <tr>
-    <td>textTyp</td>
-    <td><em>Valfri parameter</em>.<br/>Definierar om texten som översätts är oformaterad text eller HTML-text. Alla HTML måste vara ett välformat, komplett element. Möjliga värden <code>plain</code> är: (standard) eller <code>html</code>.</td>
+    <td>textType</td>
+    <td><em>Valfri parameter</em>.<br/>Definierar om texten som ska översättas är oformaterad text eller HTML-text. Alla HTML måste vara ett välformulerat, fullständigt element. Möjliga värden är: <code>plain</code> (standard) eller <code>html</code>.</td>
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Valfri parameter</em>.<br/>En sträng som anger översättningens kategori (domän). Den här parametern används för att hämta översättningar från ett anpassat system byggt med <a href="../customization.md">Custom Translator</a>. Lägg till kategori-ID:et från <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">projektinformationen</a> för Custom Translator i den här parametern om du vill använda det distribuerade anpassade systemet. Standardvärdet är: <code>general</code>.</td>
+    <td><em>Valfri parameter</em>.<br/>En sträng som anger en kategori (domän) för översättningen. Den här parametern används för att hämta översättningar från ett anpassat system som skapats med <a href="../customization.md">anpassad översättare</a>. Lägg till kategori-ID från din anpassad översättning <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">projekt information</a> till den här parametern för att använda det distribuerade anpassade systemet. Standardvärdet är <code>general</code>:.</td>
   </tr>
   <tr>
-    <td>svordomarAction</td>
-    <td><em>Valfri parameter</em>.<br/>Anger hur svordomar ska behandlas i översättningar. Möjliga värden <code>NoAction</code> är: <code>Marked</code> (standard) eller <code>Deleted</code>. För att förstå sätt att behandla svordomar, se <a href="#handle-profanity">Svordomar hantering</a>.</td>
+    <td>profanityAction</td>
+    <td><em>Valfri parameter</em>.<br/>Anger hur svordomar ska behandlas i översättningar. Möjliga värden är: <code>NoAction</code> (standard) <code>Marked</code> eller <code>Deleted</code>. Information om hur du hanterar svordomar finns i <a href="#handle-profanity">svordoms hantering</a>.</td>
   </tr>
   <tr>
-    <td>svordomarMarker</td>
-    <td><em>Valfri parameter</em>.<br/>Anger hur svordomar ska markeras i översättningar. Möjliga värden <code>Asterisk</code> är: (standard) eller <code>Tag</code>. För att förstå sätt att behandla svordomar, se <a href="#handle-profanity">Svordomar hantering</a>.</td>
+    <td>profanityMarker</td>
+    <td><em>Valfri parameter</em>.<br/>Anger hur svordomar ska markeras i översättningar. Möjliga värden är: <code>Asterisk</code> (standard) eller <code>Tag</code>. Information om hur du hanterar svordomar finns i <a href="#handle-profanity">svordoms hantering</a>.</td>
   </tr>
   <tr>
-    <td>inkluderaJustering</td>
-    <td><em>Valfri parameter</em>.<br/>Anger om justeringsprojektion ska inkluderas från källtext till översatt text. Möjliga värden <code>true</code> är: eller <code>false</code> (standard). </td>
+    <td>includeAlignment</td>
+    <td><em>Valfri parameter</em>.<br/>Anger om du vill ta med justerings projektion från käll texten till översatt text. Möjliga värden är: <code>true</code> eller <code>false</code> (standard). </td>
   </tr>
   <tr>
-    <td>inkluderaSentenceLength</td>
-    <td><em>Valfri parameter</em>.<br/>Anger om meningsgränserna för indatatexten och den översatta texten ska inkluderas. Möjliga värden <code>true</code> är: eller <code>false</code> (standard).</td>
+    <td>includeSentenceLength</td>
+    <td><em>Valfri parameter</em>.<br/>Anger om du vill ta med menings gränser för inmatad text och översatt text. Möjliga värden är: <code>true</code> eller <code>false</code> (standard).</td>
   </tr>
   <tr>
     <td>suggestedFrom</td>
-    <td><em>Valfri parameter</em>.<br/>Anger ett återgångsspråk om språket i indatatexten inte kan identifieras. Automatisk identifiering av språk <code>from</code> används när parametern utelämnas. Om identifieringen <code>suggestedFrom</code> misslyckas antas språket.</td>
+    <td><em>Valfri parameter</em>.<br/>Anger ett återställnings språk om språket i inmatad text inte kan identifieras. Automatisk identifiering av <code>from</code> språk används när parametern utelämnas. Om identifieringen Miss lyckas <code>suggestedFrom</code> kommer språket att antas.</td>
   </tr>
   <tr>
-    <td>frånSkript</td>
-    <td><em>Valfri parameter</em>.<br/>Anger skriptet för indatatexten.</td>
+    <td>fromScript</td>
+    <td><em>Valfri parameter</em>.<br/>Anger den inmatade textens skript.</td>
   </tr>
   <tr>
-    <td>toScript (toScript)</td>
-    <td><em>Valfri parameter</em>.<br/>Anger skriptet för den översatta texten.</td>
+    <td>toScript</td>
+    <td><em>Valfri parameter</em>.<br/>Anger skript för den översatta texten.</td>
   </tr>
   <tr>
-    <td>tillåtFallback</td>
-    <td><em>Valfri parameter</em>.<br/>Anger att tjänsten tillåts att gå tillbaka till ett allmänt system när ett anpassat system inte finns. Möjliga värden <code>true</code> är: (standard) eller <code>false</code>.<br/><br/><code>allowFallback=false</code>anger att översättningen endast ska använda <code>category</code> system som utbildats för den som anges av begäran. Om en översättning för språk X till språk Y kräver kedja genom ett pivotspråk E måste alla system i kedjan (X->E och E->Y) vara anpassade och ha samma kategori. Om inget system hittas med den specifika kategorin returneras en 400-statuskod för begäran. <code>allowFallback=true</code>anger att tjänsten tillåts att gå tillbaka till ett allmänt system när ett anpassat system inte finns.
+    <td>allowFallback</td>
+    <td><em>Valfri parameter</em>.<br/>Anger att tjänsten kan återgå till ett allmänt system när det inte finns något anpassat system. Möjliga värden är: <code>true</code> (standard) eller <code>false</code>.<br/><br/><code>allowFallback=false</code>anger att översättningen bara ska använda system som är utbildade <code>category</code> för den som anges i begäran. Om en översättning för språk X till språk Y kräver länkning genom ett Pivot-språk E, måste alla system i kedjan (X->E och E->Y) vara anpassade och ha samma kategori. Om det inte finns något system med en viss kategori returnerar begäran en 400-status kod. <code>allowFallback=true</code>anger att tjänsten kan återgå till ett allmänt system när det inte finns något anpassat system.
 </td>
   </tr>
 </table> 
 
-Begäran rubriker inkluderar:
+Begärandehuvuden innehåller:
 
 <table width="100%">
   <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
-    <td>Autentiseringshuvuden</td>
-    <td><em>Obligatoriskt begäranhuvud</em>.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>.</td>
+    <td>Authentication-huvud (er)</td>
+    <td><em>Begär ande huvud för begäran</em>.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td><em>Obligatoriskt begäranhuvud</em>.<br/>Anger innehållstypen för nyttolasten.<br/> Accepterat värde <code>application/json; charset=UTF-8</code>är .</td>
+    <td><em>Begär ande huvud för begäran</em>.<br/>Anger nytto lastens innehålls typ.<br/> Accepterat värde <code>application/json; charset=UTF-8</code>är.</td>
   </tr>
   <tr>
-    <td>Innehållslängd</td>
-    <td><em>Obligatoriskt begäranhuvud</em>.<br/>Längden på begäran kroppen.</td>
+    <td>Innehålls längd</td>
+    <td><em>Begär ande huvud för begäran</em>.<br/>Längden på begär ande texten.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td><em>Valfritt</em>.<br/>Ett klientgenererat GUID för att unikt identifiera begäran. Du kan utelämna det här huvudet om du inkluderar spårnings-ID:t i frågesträngen med hjälp av frågeparametern <code>ClientTraceId</code>.</td>
+    <td><em>Valfritt</em>.<br/>Ett GUID som skapats av klienten för att unikt identifiera begäran. Du kan utelämna det här huvudet om du inkluderar spårnings-ID: t i frågesträngen med hjälp <code>ClientTraceId</code>av en frågeparameter med namnet.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Begärandetext
 
-Brödtexten för begäran är en JSON-matris. Varje arrayelement är ett JSON-objekt `Text`med en strängegenskap med namnet , som representerar strängen att översätta.
+Bröd texten i begäran är en JSON-matris. Varje mat ris element är ett JSON-objekt med namnet `Text`, som representerar strängen som ska översättas.
 
 ```json
 [
@@ -135,48 +135,48 @@ Brödtexten för begäran är en JSON-matris. Varje arrayelement är ett JSON-ob
 
 Följande begränsningar gäller:
 
-* Matrisen kan ha högst 100 element.
-* Hela texten som ingår i begäran får inte överstiga 5 000 tecken, inklusive blanksteg.
+* Matrisen får innehålla högst 100 element.
+* Hela texten som ingår i begäran får inte överstiga 5 000 tecken inklusive blank steg.
 
 ## <a name="response-body"></a>Själva svaret
 
-Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i indatamatrisen. Ett resultatobjekt innehåller följande egenskaper:
+Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den angivna matrisen. Ett resultat objekt innehåller följande egenskaper:
 
-  * `detectedLanguage`: Ett objekt som beskriver det identifierade språket genom följande egenskaper:
+  * `detectedLanguage`: Ett objekt som beskriver det identifierade språket via följande egenskaper:
 
       * `language`: En sträng som representerar koden för det identifierade språket.
 
-      * `score`: Ett flytvärde som anger förtroendet för resultatet. Poängen är mellan noll och ett och en låg poäng indikerar ett lågt självförtroende.
+      * `score`: Ett flyt värde som indikerar förtroendet i resultatet. Poängen är mellan noll och en och en låg poäng indikerar en låg exakthet.
 
-    Egenskapen `detectedLanguage` finns bara i resultatobjektet när automatisk identifiering av språk begärs.
+    `detectedLanguage` Egenskapen finns bara i result-objektet när språk automatisk identifiering begärs.
 
-  * `translations`: En rad översättningsresultat. Matrisens storlek matchar antalet målspråk som `to` anges via frågeparametern. Varje element i matrisen innehåller:
+  * `translations`: En matris med översättnings resultat. Storleken på matrisen matchar antalet mål språk som anges i `to` Frågeparametern. Varje element i matrisen innehåller:
 
-    * `to`: En sträng som representerar målspråkets språkkod.
+    * `to`: En sträng som representerar språk koden för mål språket.
 
     * `text`: En sträng som ger den översatta texten.
 
-    * `transliteration`: Ett objekt som anger den översatta `toScript` texten i skriptet som anges av parametern.
+    * `transliteration`: Ett objekt som ger den översatta texten i skriptet som `toScript` anges av parametern.
 
-      * `script`: En sträng som anger målskriptet.   
+      * `script`: En sträng som anger mål skriptet.   
 
-      * `text`: En sträng som ger den översatta texten i målskriptet.
+      * `text`: En sträng som ger den översatta texten i mål skriptet.
 
-    Objektet `transliteration` ingår inte om translittereringen inte sker.
+    `transliteration` Objektet tas inte med om transkriberingsspråk inte sker.
 
-    * `alignment`: Ett objekt med en `proj`enda strängegenskap med namnet , som mappar indatatext till översatt text. Justeringsinformationen anges endast när `includeAlignment` parametern för begäran är `true`. Justeringen returneras som ett strängvärde `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`för följande format: .  Kolon separerar start- och slutindex, strecket separerar språken och utrymmet separerar orden. Ett ord kan justeras med noll, en eller flera ord på det andra språket, och de justerade orden kan vara icke-sammanhängande. När det inte finns någon justeringsinformation är justeringselementet tomt. Se [Hämta justeringsinformation](#obtain-alignment-information) för ett exempel och begränsningar.
+    * `alignment`: Ett objekt med en enskild sträng egenskap med `proj`namnet, som mappar inmatad text till översatt text. Justerings informationen anges bara när parametern `includeAlignment` Request är. `true` Justeringen returneras som ett sträng värde av följande format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  Kolonet separerar start-och slut index, strecket separerar språken och blank steg separerar orden. Ett ord kan justeras med noll, ett eller flera ord på det andra språket och de justerade orden kan vara icke-sammanhängande. Om ingen justerings information är tillgänglig är justerings elementet tomt. Se [Hämta justerings information](#obtain-alignment-information) för ett exempel och begränsningar.
 
-    * `sentLen`: Ett objekt som returnerar meningsgränser i in- och utdatatexterna.
+    * `sentLen`: Ett objekt som returnerar menings gränser i indata-och utmatnings texter.
 
-      * `srcSentLen`: En heltalsmatris som representerar längden på meningarna i indatatexten. Matrisens längd är antalet meningar och värdena är längden på varje mening.
+      * `srcSentLen`: En heltals mat ris som representerar längden på meningarna i indata. Matrisens längd är antalet meningar och värdena är längden på varje mening.
 
-      * `transSentLen`: En heltalsmatris som representerar längden på meningarna i den översatta texten. Matrisens längd är antalet meningar och värdena är längden på varje mening.
+      * `transSentLen`: En heltals mat ris som representerar längden på meningarna i den översatta texten. Matrisens längd är antalet meningar och värdena är längden på varje mening.
 
-    Meningsgränser inkluderas endast när `includeSentenceLength` `true`parametern för begäran är .
+    Menings gränser inkluderas endast när parametern `includeSentenceLength` Request är `true`.
 
-  * `sourceText`: Ett objekt med en `text`enda strängegenskap med namnet , som ger indatatexten i standardskriptet för källspråket. `sourceText`egenskapen finns endast när indata uttrycks i ett skript som inte är det vanliga skriptet för språket. Om indata till exempel var arabiska skrivna i latinskt skript, skulle det `sourceText.text` vara samma arabiska text som konverterats till arabiskt skript.
+  * `sourceText`: Ett objekt med en enskild sträng egenskap med `text`namnet, som ger inmatad text i standard skriptet för käll språket. `sourceText`Egenskapen finns bara när indatamängden uttrycks i ett skript som inte är det vanliga skriptet för språket. Om indatatypen till exempel är Arabiskt skriven i latinskt skript, `sourceText.text` är samma arabiska text konverterad till enscripting.
 
-Exempel på JSON-svar [examples](#examples) finns i exempelavsnittet.
+Exempel på JSON-svar finns i avsnittet [exempel](#examples) .
 
 ## <a name="response-headers"></a>Svarshuvuden
 
@@ -185,17 +185,17 @@ Exempel på JSON-svar [examples](#examples) finns i exempelavsnittet.
   <th>Beskrivning</th>
     <tr>
     <td>X-RequestId</td>
-    <td>Värde som genereras av tjänsten för att identifiera begäran. Den används för felsökning.</td>
+    <td>Värde som genereras av tjänsten för att identifiera begäran. Den används i fel söknings syfte.</td>
   </tr>
   <tr>
-    <td>X-MT-System</td>
-    <td>Anger den systemtyp som användes för översättning för varje "till"-språk som begärs för översättning. Värdet är en kommaavgränsad lista med strängar. Varje sträng anger en typ:<br/><ul><li>Anpassad - Begäran innehåller ett anpassat system och minst ett anpassat system användes under översättningen.</li><li>Team - Alla andra önskemål</li></td>
+    <td>X-MT-system</td>
+    <td>Anger den system typ som användes för översättning för varje to-language som begärdes för översättning. Värdet är en kommaavgränsad lista med strängar. Varje sträng anger en typ:<br/><ul><li>Anpassad-begäran innehåller ett anpassat system och minst ett anpassat system användes under översättningen.</li><li>Team – alla andra begär Anden</li></td>
   </tr>
 </table> 
 
-## <a name="response-status-codes"></a>Statuskoder för svar
+## <a name="response-status-codes"></a>Svars status koder
 
-Följande är möjliga HTTP-statuskoder som en begäran returnerar. 
+Följande är de möjliga HTTP-statuskod som en begäran returnerar. 
 
 <table width="100%">
   <th width="20%">Statuskod</th>
@@ -206,39 +206,39 @@ Följande är möjliga HTTP-statuskoder som en begäran returnerar.
   </tr>
   <tr>
     <td>400</td>
-    <td>En av frågeparametrarna saknas eller är ogiltig. Korrigera parametrar för begäran innan du försöker igen.</td>
+    <td>En av frågeparametrarna saknas eller är ogiltig. Korrigera parametrarna för begäran innan du försöker igen.</td>
   </tr>
   <tr>
     <td>401</td>
-    <td>Det gick inte att autentisera begäran. Kontrollera att autentiseringsuppgifterna är angivna och giltiga.</td>
+    <td>Det gick inte att autentisera begäran. Kontrol lera att autentiseringsuppgifterna har angetts och är giltiga.</td>
   </tr>
   <tr>
     <td>403</td>
-    <td>Begäran är inte auktoriserad. Kontrollera informationsfelmeddelandet. Detta indikerar ofta att alla kostnadsfria översättningar som medföljer en provprenumeration har förbrukats.</td>
+    <td>Begäran är inte auktoriserad. Se fel meddelandet information. Detta indikerar ofta att alla kostnads fria översättningar som ingår i en utvärderings prenumeration har använts.</td>
   </tr>
   <tr>
     <td>408</td>
-    <td>Det gick inte att uppfylla begäran eftersom en resurs saknas. Kontrollera informationsfelmeddelandet. När du <code>category</code>använder en anpassad anger detta ofta att det anpassade översättningssystemet ännu inte är tillgängligt för att hantera begäranden. Begäran ska göras om efter en väntetid (t.ex. 1 minut).</td>
+    <td>Begäran kunde inte uppfyllas eftersom en resurs saknas. Se fel meddelandet information. När du använder en <code>category</code>anpassad indikerar detta ofta att det anpassade översättnings systemet ännu inte är tillgängligt för att betjäna begär Anden. Begäran bör göras om efter en vänte tid (t. ex. 1 minut).</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>Servern avvisade begäran eftersom klienten har överskridit begärangränser.</td>
+    <td>Servern avvisade begäran på grund av att klienten har överskridit gränsen för begäran.</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>Det uppstod ett oväntat fel. Om felet kvarstår rapporterar du det med: datum och tid för <code>X-RequestId</code>felet, begärandeidentifierare från svarshuvudet och klientidentifierare från begäranden <code>X-ClientTraceId</code>.</td>
+    <td>Det uppstod ett oväntat fel. Om felet kvarstår rapporterar du det med: datum och tid för felet, begärande-ID från svars huvudet <code>X-RequestId</code>och klient-ID: n från begär <code>X-ClientTraceId</code>ande huvudet.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servern är inte tillgänglig för tillfället. Försök igen. Om felet kvarstår rapporterar du det med: datum och tid för <code>X-RequestId</code>felet, begärandeidentifierare från svarshuvudet och klientidentifierare från begäranden <code>X-ClientTraceId</code>.</td>
+    <td>Servern är inte tillgänglig för tillfället. Gör om begäran. Om felet kvarstår rapporterar du det med: datum och tid för felet, begärande-ID från svars huvudet <code>X-RequestId</code>och klient-ID: n från begär <code>X-ClientTraceId</code>ande huvudet.</td>
   </tr>
 </table> 
 
-Om ett fel inträffar returnerar begäran också ett JSON-felsvar. Felkoden är ett 6-siffrigt nummer som kombinerar den tresiffriga HTTP-statuskoden följt av ett tresiffrigt nummer för att ytterligare kategorisera felet. Vanliga felkoder finns på [referenssidan för v3 Translator Text API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Om ett fel inträffar returnerar begäran även ett JSON-felsvar. Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden följt av ett 3-siffrigt nummer för att ytterligare kategorisera felet. Vanliga felkoder finns på [referens sidan för v3-Translator text API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Exempel
 
-### <a name="translate-a-single-input"></a>Översätt en enda ingång
+### <a name="translate-a-single-input"></a>Översätt en enstaka inmatare
 
 Det här exemplet visar hur du översätter en enskild mening från engelska till förenklad kinesiska.
 
@@ -246,7 +246,7 @@ Det här exemplet visar hur du översätter en enskild mening från engelska til
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
-Svaret kroppen är:
+Svars texten är:
 
 ```
 [
@@ -258,17 +258,17 @@ Svaret kroppen är:
 ]
 ```
 
-Matrisen `translations` innehåller ett element som ger översättning av det enda textstycket i indata.
+`translations` Matrisen innehåller ett-element som innehåller översättningen av den enda texten i indatatypen.
 
-### <a name="translate-a-single-input-with-language-auto-detection"></a>Översätta en enda indata med automatisk språkidentifiering
+### <a name="translate-a-single-input-with-language-auto-detection"></a>Översätt en enstaka inmatning med språk automatisk identifiering
 
-Det här exemplet visar hur du översätter en enskild mening från engelska till förenklad kinesiska. Begäran anger inte inmatningsspråket. Automatisk identifiering av källspråket används i stället.
+Det här exemplet visar hur du översätter en enskild mening från engelska till förenklad kinesiska. Det angivna språket anges inte i begäran. Automatisk identifiering av käll språket används i stället.
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
-Svaret kroppen är:
+Svars texten är:
 
 ```
 [
@@ -280,17 +280,17 @@ Svaret kroppen är:
     }
 ]
 ```
-Svaret liknar svaret från föregående exempel. Eftersom automatisk identifiering av språk begärdes innehåller svaret även information om det språk som upptäckts för indatatexten. 
+Svaret liknar svaret från föregående exempel. Eftersom automatisk automatisk identifiering av språk begärdes, innehåller svaret även information om språket som har identifierats för indata. 
 
-### <a name="translate-with-transliteration"></a>Översätt med translitterering
+### <a name="translate-with-transliteration"></a>Översätt med transkriberingsspråk
 
-Låt oss utöka föregående exempel genom att lägga till translitterering. Följande begäran ber om en kinesisk översättning skriven i latinskt skript.
+Nu ska vi utöka det tidigare exemplet genom att lägga till transkriberingsspråk. Följande begäran ber om en kinesisk översättning som skrivits i det latinska skriptet.
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
-Svaret kroppen är:
+Svars texten är:
 
 ```
 [
@@ -307,17 +307,17 @@ Svaret kroppen är:
 ]
 ```
 
-Översättningsresultatet innehåller `transliteration` nu en egenskap som ger den översatta texten med latinska tecken.
+Översättnings resultatet innehåller nu en `transliteration` egenskap som ger den översatta texten med latinska tecken.
 
-### <a name="translate-multiple-pieces-of-text"></a>Översätt flera textstycken
+### <a name="translate-multiple-pieces-of-text"></a>Översätt flera delar av text
 
-Översätta flera strängar på en gång är helt enkelt en fråga om att ange en matris med strängar i begäran kroppen.
+Att översätta flera strängar samtidigt är bara en fråga om att ange en sträng mat ris i begär ande texten.
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
 
-Svaret kroppen är:
+Svars texten är:
 
 ```
 [
@@ -336,13 +336,13 @@ Svaret kroppen är:
 
 ### <a name="translate-to-multiple-languages"></a>Översätt till flera språk
 
-Det här exemplet visar hur du översätter samma indata till flera språk i en begäran.
+Det här exemplet visar hur du översätter samma inaktuella ingångar till flera språk i en begäran.
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
-Svaret kroppen är:
+Svars texten är:
 
 ```
 [
@@ -357,36 +357,36 @@ Svaret kroppen är:
 
 ### <a name="handle-profanity"></a>Hantera svordomar
 
-Normalt behåller översättaretjänsten svordomar som finns i källan i översättningen. Graden av svordomar och det sammanhang som gör ord profana skiljer sig mellan kulturer, och som ett resultat graden av svordomar i målspråket kan förstärkas eller minskas.
+Tjänsten Translator behåller normalt svordomar som finns i källan i översättningen. Antalet svordomar och den kontext som gör ord svordomar skiljer sig åt mellan olika kulturer, och därför kan det leda till att svordomarna på mål språket förstärks eller minskas.
 
-Om du vill undvika att få svordomar i översättningen, oavsett förekomsten av svordomar i källtexten, kan du använda svordomar filtrering alternativet. Med alternativet kan du välja om du vill se svordomar borttagna, om du vill markera svordomar med lämpliga taggar (vilket ger dig möjlighet att lägga till din egen efterbearbetning), eller om du inte vill att någon åtgärd vidtas. De godkända `ProfanityAction` värdena `Marked` `NoAction` är `Deleted`och (standard).
+Om du inte vill få några svordomar i översättningen, oavsett om det finns svordomar i käll texten, kan du använda filtrerings alternativet för svordomar. Med alternativet kan du välja om du vill se hur svordomar tas bort, om du vill markera svordomar med lämpliga taggar (vilket ger dig möjlighet att lägga till din egen efter bearbetning) eller om du inte vill ha någon åtgärd. De godkända värdena för `ProfanityAction` är `Deleted` `Marked` och `NoAction` (standard).
 
 <table width="100%">
-  <th width="20%">SvordomarÅtgärder</th>
-  <th>Åtgärd</th>
+  <th width="20%">ProfanityAction</th>
+  <th>Action</th>
   <tr>
     <td><code>NoAction</code></td>
-    <td>Det här är standardbeteendet. Svordomar kommer att passera från källa till mål.<br/><br/>
-    <strong>Exempelkälla (japanska)</strong>: 中ンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンン<br/>
-    <strong>Exempel översättning (engelska)</strong>: Han är en idiot.
+    <td>Det här är standardbeteendet. Svordomar skickas från källa till mål.<br/><br/>
+    <strong>Exempel källa (japanska)</strong>: 彼はジャッカスです från en omfattande<br/>
+    <strong>Exempel översättning (engelska)</strong>: he är en Jackass.
     </td>
   </tr>
   <tr>
     <td><code>Deleted</code></td>
-    <td>Profana ord tas bort från utdata utan ersättning.<br/><br/>
-    <strong>Exempelkälla (japanska)</strong>: 中ンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンン<br/>
-    <strong>Exempel översättning (engelska)</strong>: Han är a.
+    <td>Svordomar ord tas bort från utdata utan ersättning.<br/><br/>
+    <strong>Exempel källa (japanska)</strong>: 彼はジャッカスです från en omfattande<br/>
+    <strong>Exempel översättning (engelska)</strong>: han är en.
     </td>
   </tr>
   <tr>
     <td><code>Marked</code></td>
-    <td>Profana ord ersätts med en markör i utdata. Markören beror <code>ProfanityMarker</code> på parametern.<br/><br/>
-För <code>ProfanityMarker=Asterisk</code>ersätts profana <code>***</code>ord med:<br/>
-    <strong>Exempelkälla (japanska)</strong>: 中ンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンン<br/>
-    <strong>Exempel översättning (engelska)</strong>: \* \* \*Han är en .<br/><br/>
-<code>ProfanityMarker=Tag</code>För, profana ord omges &lt;av&gt; XML-taggar svordomar och &lt;/&gt;svordomar:<br/>
-    <strong>Exempelkälla (japanska)</strong>: 中ンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンン<br/>
-    <strong>Exempel översättning (engelska)</strong>: &lt;Han&gt;är en&lt;svordomar jackass / svordomar&gt;.
+    <td>Svordomar ord ersätts med en markör i utdata. Markören är beroende av <code>ProfanityMarker</code> parametern.<br/><br/>
+För <code>ProfanityMarker=Asterisk</code>, kommer svordoms-ord att <code>***</code>ersättas med:<br/>
+    <strong>Exempel källa (japanska)</strong>: 彼はジャッカスです från en omfattande<br/>
+    <strong>Exempel översättning (engelska)</strong>: han är en \* \* \*.<br/><br/>
+För <code>ProfanityMarker=Tag</code>, kommer svordomar att ord omges av &lt;XML-&gt; taggarnas svordomar och &lt;/Profanity&gt;:<br/>
+    <strong>Exempel källa (japanska)</strong>: 彼はジャッカスです från en omfattande<br/>
+    <strong>Exempel översättning (engelska)</strong>: he är en &lt;svordoms&gt;Jackass&lt;/Profanity&gt;.
   </tr>
 </table> 
 
@@ -413,7 +413,7 @@ Jämför med:
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
 
-Den sista begäran returnerar:
+Den senaste begäran returnerar:
 
 ```
 [
@@ -425,16 +425,16 @@ Den sista begäran returnerar:
 ]
 ```
 
-### <a name="translate-content-with-markup-and-decide-whats-translated"></a>Översätt innehåll med markering och bestäm vad som är översatt
+### <a name="translate-content-with-markup-and-decide-whats-translated"></a>Översätt innehåll med markering och Bestäm vad som översätts
 
-Det är vanligt att översätta innehåll som innehåller markeringar, till exempel innehåll från en HTML-sida eller innehåll från ett XML-dokument. Inkludera frågeparametern `textType=html` när du översätter innehåll med taggar. Dessutom är det ibland användbart att utesluta specifikt innehåll från översättningen. Du kan använda `class=notranslate` attributet för att ange innehåll som ska finnas kvar på originalspråket. I följande exempel översätts `div` inte innehållet i det första elementet, `div` medan innehållet i det andra elementet översätts.
+Det är vanligt att översätta innehåll som innehåller markeringar som innehåll från en HTML-sida eller innehåll från ett XML-dokument. Inkludera frågeparameter `textType=html` vid översättning av innehåll med taggar. Dessutom är det ibland användbart att undanta ett särskilt innehåll från översättningen. Du kan använda attributet `class=notranslate` för att ange innehåll som ska finnas kvar på det ursprungliga språket. I följande exempel kommer innehållet i det första `div` elementet inte att översättas, medan innehållet i det andra `div` elementet kommer att översättas.
 
 ```
 <div class="notranslate">This will not be translated.</div>
 <div>This will be translated. </div>
 ```
 
-Här är ett exempel begäran att illustrera.
+Här är en exempel förfrågan som illustreras.
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
@@ -452,9 +452,9 @@ Svaret är:
 ]
 ```
 
-### <a name="obtain-alignment-information"></a>Hämta justeringsinformation
+### <a name="obtain-alignment-information"></a>Hämta information om anpassning
 
-Om du vill `includeAlignment=true` ta emot justeringsinformation anger du på frågesträngen.
+Om du vill ta emot information `includeAlignment=true` om anpassning anger du på frågesträngen.
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The answer lies in machine translation.'}]"
@@ -476,22 +476,22 @@ Svaret är:
 ]
 ```
 
-Justeringsinformationen börjar `0:2-0:1`med , vilket innebär att de`The`tre första tecknen i källtexten (`La`) mappas till de två första tecknen i den översatta texten ( ).
+Justerings informationen börjar med `0:2-0:1`, vilket innebär att de första tre tecknen i käll texten (`The`) mappar till de första två tecknen i den översatta texten`La`().
 
 #### <a name="limitations"></a>Begränsningar
-Att få anpassningsinformation är en experimentell funktion som vi har möjliggjort för prototyper forskning och erfarenheter med potentiella fraskartläggningar. Vi kan välja att sluta stödja detta i framtiden. Här är några av de anmärkningsvärda begränsningar där justeringar inte stöds:
+Att hämta justerings information är en experimentell funktion som vi har aktiverat för prototyper av forskning och upplevelser med möjliga fras mappningar. Vi kan välja att sluta stödja detta i framtiden. Här följer några viktiga begränsningar där justering inte stöds:
 
-* Justering är inte tillgänglig för text i HTML-format, dvs textType=html
-* Justeringen returneras endast för en delmängd av språkparen:
-  - från engelska till något annat språk;
-  - från något annat språk till engelska med undantag för förenklad kinesiska, traditionell kinesiska och lettiska till engelska;
+* Justering är inte tillgängligt för text i HTML-format, dvs. textType = HTML
+* Justering returneras bara för en delmängd av språk paren:
+  - från engelska till ett annat språk.
+  - från andra språk till engelska utom förenklad kinesiska, traditionell kinesiska och lettiska till engelska,
   - från japanska till koreanska eller från koreanska till japanska.
-* Du får inte justering om meningen är en konserverad översättning. Exempel på en konserverad översättning är "Detta är ett test", "Jag älskar dig" och andra högfrekventa meningar.
-* Justering är inte tillgänglig när du använder någon av metoderna för att förhindra översättning enligt beskrivningen [här](../prevent-translation.md)
+* Du får ingen justering om meningen är en konserverad översättning. Exempel på en konserverad översättning är "det här är ett test", "Jag älskar dig" och andra meningar med hög frekvens.
+* Justering är inte tillgängligt när du tillämpar någon av metoderna för att förhindra översättning enligt beskrivningen [här](../prevent-translation.md)
 
-### <a name="obtain-sentence-boundaries"></a>Få meningsgränser
+### <a name="obtain-sentence-boundaries"></a>Hämta menings gränser
 
-Om du vill ta emot information om meningslängd i källtexten och översatt text anger du `includeSentenceLength=true` på frågesträngen.
+Om du vill få information om menings längden i käll texten och översatt text `includeSentenceLength=true` anger du på frågesträngen.
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"
@@ -513,17 +513,17 @@ Svaret är:
 ]
 ```
 
-### <a name="translate-with-dynamic-dictionary"></a>Översätt med dynamisk ordlista
+### <a name="translate-with-dynamic-dictionary"></a>Översätt med dynamisk ord lista
 
-Om du redan känner till den översättning som du vill använda på ett ord eller en fras kan du ange den som pålägg i begäran. Den dynamiska ordlistan är endast säker för sammansatta substantiv som riktiga namn och produktnamn.
+Om du redan vet vilken översättning du vill använda för ett ord eller en fras kan du ange den som markering i begäran. Den dynamiska ord listan är bara säker för sammansatta substantiv som rätt namn och produkt namn.
 
-Markeringen som ska levereras använder följande syntax.
+Den markering som ska tillhandahållas använder följande syntax.
 
 ``` 
 <mstrans:dictionary translation="translation of phrase">phrase</mstrans:dictionary>
 ```
 
-Tänk till exempel på den engelska meningen "Ordet wordomatic är en ordlistepost". Om du vill bevara ordet _wordomatic_ i översättningen skickar du begäran:
+Anta till exempel den engelska meningen "ordet WordOMatic är en ord lista." Om du vill behålla ordet _WordOMatic_ i översättningen skickar du begäran:
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
@@ -541,4 +541,4 @@ Resultatet är:
 ]
 ```
 
-Den här funktionen fungerar `textType=text` på `textType=html`samma sätt med eller med . Funktionen bör användas sparsamt. Det lämpliga och mycket bättre sättet att anpassa översättningen är att använda Custom Translator. Custom Translator utnyttjar kontext och statistiska sannolikheter fullt ut. Om du har eller har råd att skapa träningsdata som visar ditt arbete eller din fras i sitt sammanhang får du mycket bättre resultat. [Läs mer om Custom Translator](../customization.md).
+Den här funktionen fungerar på samma sätt `textType=text` med eller `textType=html`med. Funktionen bör användas sparsamt. Ett lämpligt och mycket bättre sätt att anpassa översättning är genom att använda anpassad översättare. Anpassad översättare ger fullständig användning av kontext och statistisk sannolikhet. Om du har eller kan råd om att skapa tränings data som visar ditt arbete eller en fras i ett sammanhang får du bättre resultat. [Läs mer om anpassad översättare](../customization.md).

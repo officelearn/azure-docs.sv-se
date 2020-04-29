@@ -1,5 +1,5 @@
 ---
-title: Förhindra innehållsöversättning - Translator Text API
+title: Förhindra innehålls översättning – Translator Text API
 titleSuffix: Azure Cognitive Services
 description: Förhindra översättning av innehåll med Translator Text API. Med Translator Text API kan du tagga innehåll så att det inte översätts.
 services: cognitive-services
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: swmachan
 ms.openlocfilehash: c7be4a0ea1a9d24a8b262132632a0bbb63ae1b96
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80052487"
 ---
-# <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Så här förhindrar du översättning av innehåll med Translator Text API
+# <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Förhindra översättning av innehåll med Translator Text API
 
-Med Translator Text API kan du tagga innehåll så att det inte översätts. Du kanske till exempel vill tagga kod, ett varumärke eller ett ord/en fras som inte är meningsfullt när den är lokaliserad.
+Med Translator Text API kan du tagga innehåll så att det inte översätts. Till exempel kanske du vill tagga kod, ett varumärkes namn eller ett ord/en fras som inte är meningsfull när den lokaliseras.
 
-## <a name="methods-for-preventing-translation"></a>Metoder för att förhindra översättning
+## <a name="methods-for-preventing-translation"></a>Metoder för att förhindra Översättning
 
-1. Tagga ditt `notranslate`innehåll med . Det är avsiktligt att detta fungerar endast när indatatextType är inställd som HTML
+1. Tagga ditt innehåll med `notranslate`. Det är avsiktligt att detta fungerar endast när textType anges som HTML
 
    Exempel:
 
@@ -37,11 +37,11 @@ Med Translator Text API kan du tagga innehåll så att det inte översätts. Du 
    <div>This will be translated. </div>
    ```
 
-2. Använd den [dynamiska ordlistan](dynamic-dictionary.md) för att ordinera en viss översättning.
+2. Använd den [dynamiska ord listan](dynamic-dictionary.md) för att ange en speciell översättning.
 
-3. Skicka inte strängen till Translator Text API för översättning.
+3. Överför inte strängen till Translator Text API för översättning.
 
-4. Anpassad översättare: Använd en [ordlista i Custom Translator](custom-translator/what-is-dictionary.md) för att ordinera översättning av en fras med 100% sannolikhet.
+4. Anpassad översättare: Använd en [ord lista i en anpassad översättare](custom-translator/what-is-dictionary.md) för att föreskriva översättning av en fras med en sannolikhet på 100%.
 
 
 ## <a name="next-steps"></a>Nästa steg

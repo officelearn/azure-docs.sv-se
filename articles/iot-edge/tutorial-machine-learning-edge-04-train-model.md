@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Träna och distribuera en modell – Machine Learning på Azure IoT Edge'
-description: I den här självstudien ska du träna en maskininlärningsmodell med Azure Machine Learning och sedan paketera modellen som en behållaravbildning som kan distribueras som en Azure IoT Edge Module.
+title: 'Självstudie: träna och distribuera en modell Machine Learning på Azure IoT Edge'
+description: I den här självstudien kommer du att träna en maskin inlärnings modell med Azure Machine Learning och sedan paketera modellen som en behållar avbildning som kan distribueras som en Azure IoT Edge modul.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,181 +9,181 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 57630b789233dd23e61398f445b434e4ba08b48e
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80236024"
 ---
-# <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Självstudiekurs: Träna och distribuera en Azure Machine Learning-modell
+# <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Självstudie: träna och distribuera en Azure Machine Learning modell
 
 > [!NOTE]
-> Den här artikeln är en del av en serie för en självstudiekurs om hur du använder Azure Machine Learning på IoT Edge. Om du har kommit till den här artikeln direkt, uppmuntrar vi dig att börja med den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien för bästa resultat.
+> Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Om du har kommit till den här artikeln direkt rekommenderar vi att du börjar med den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien för bästa möjliga resultat.
 
 I den här artikeln utför vi följande uppgifter:
 
-* Använd Azure Notebooks för att träna en maskininlärningsmodell.
-* Paketera den tränade modellen som en behållaravbildning.
-* Distribuera behållaravbildningen som en Azure IoT Edge-modul.
+* Använd Azure Notebooks för att träna en maskin inlärnings modell.
+* Paketera den tränade modellen som en behållar avbildning.
+* Distribuera behållar avbildningen som en Azure IoT Edge modul.
 
-Azure-anteckningsböckerna drar nytta av en Azure Machine Learning-arbetsyta, ett grundläggande block som används för att experimentera, träna och distribuera maskininlärningsmodeller.
+Azure Notebooks dra nytta av en Azure Machine Learning arbets yta, ett grundläggande block som används för att experimentera, träna och distribuera maskin inlärnings modeller.
 
-Stegen i den här artikeln kan vanligtvis utföras av dataexperter.
+Stegen i den här artikeln kan vanligt vis utföras av data experter.
 
-## <a name="set-up-azure-notebooks"></a>Konfigurera Azure-anteckningsböcker
+## <a name="set-up-azure-notebooks"></a>Konfigurera Azure Notebooks
 
-Vi använder Azure Notebooks som värd för de två Jupyter-anteckningsböckerna och stödfilerna. Här skapar och konfigurerar vi ett Azure Notebooks-projekt. Om du inte har använt Jupyter och/eller Azure Notebooks följer här ett par inledande dokument:
+Vi använder Azure Notebooks för att vara värd för de två Jupyter-Anteckningsbokarna och de filer som stöds. Här skapar och konfigurerar vi ett Azure Notebooks-projekt. Om du inte har använt Jupyter och/eller Azure Notebooks, är här några introduktions dokument:
 
-* **Snabbstart:** [Skapa och dela en anteckningsbok](../notebooks/quickstart-create-share-jupyter-notebook.md)
-* **Självstudiekurs:** [Skapa och kör en Jupyter-anteckningsbok med Python](../notebooks/tutorial-create-run-jupyter-notebook.md)
+* **Snabb start:** [skapa och dela en bärbar dator](../notebooks/quickstart-create-share-jupyter-notebook.md)
+* **Självstudie:** [skapa och kör en Jupyter-anteckningsbok med python](../notebooks/tutorial-create-run-jupyter-notebook.md)
 
-Med hjälp av Azure-anteckningsböcker säkerställer en konsekvent miljö för övningen.
+Att använda Azure Notebooks säkerställer en konsekvent miljö för övningen.
 
 > [!NOTE]
-> När azure notebooks-tjänsten har konfigurerats kan du komma åt från vilken dator som helst. Under installationen bör du använda utvecklingsdass, som har alla filer som du behöver.
+> När du har konfigurerat tjänsten kan du använda tjänsten Azure Notebooks från vilken dator som helst. Under installationen bör du använda den virtuella utvecklings datorn som innehåller alla filer som du behöver.
 
-### <a name="create-an-azure-notebooks-account"></a>Skapa ett Azure Notebooks-konto
+### <a name="create-an-azure-notebooks-account"></a>Skapa ett Azure Notebooks konto
 
-Om du vill använda Azure-anteckningsböcker måste du skapa ett konto. Azure Notebook-konton är oberoende av Azure-prenumerationer.
+Om du vill använda Azure Notebooks måste du skapa ett konto. Azure Notebook-konton är oberoende av Azure-prenumerationer.
 
 1. Navigera till [Azure-anteckningsböcker](https://notebooks.azure.com).
 
-1. Klicka **på Logga in i** det övre högra hörnet på sidan.
+1. Klicka på **Logga** in i det övre högra hörnet på sidan.
 
-1. Logga in med ditt arbets- eller skolkonto (Azure Active Directory) eller ditt personliga konto (Microsoft-konto).
+1. Logga in med ett arbets-eller skol konto (Azure Active Directory) eller ditt personliga konto (Microsoft-konto).
 
-1. Om du inte har använt Azure Notebooks tidigare uppmanas du att bevilja åtkomst för Azure Notebooks-appen.
+1. Om du inte har använt Azure Notebooks tidigare uppmanas du att bevilja åtkomst till Azure Notebooks-appen.
 
-1. Skapa ett användar-ID för Azure-anteckningsböcker.
+1. Skapa ett användar-ID för Azure Notebooks.
 
-### <a name="upload-jupyter-notebook-files"></a>Ladda upp Jupyter-anteckningsboksfiler
+### <a name="upload-jupyter-notebook-files"></a>Ladda upp Jupyter notebook-filer
 
-Vi laddar upp exempelboksböcker till ett nytt Azure Notebooks-projekt.
+Vi kommer att ladda upp exempel på notebook-filer till ett nytt Azure Notebooks-projekt.
 
-1. På användarsidan för ditt nya konto väljer du **Mina projekt** i den övre menyraden.
+1. På sidan användare i ditt nya konto väljer du **Mina projekt** i den översta meny raden.
 
-1. Lägg till ett nytt **+** projekt genom att välja knappen.
+1. Lägg till ett nytt projekt genom att **+** välja knappen.
 
-1. Ange ett **projektnamn**i dialogrutan **Skapa nytt projekt** . 
+1. Ange ett **projekt namn**i dialog rutan **Skapa nytt projekt** . 
 
-1. Lämna **Public** och **README** okontrollerat eftersom det inte finns något behov av att projektet är offentligt eller att ha en readme.
+1. Lämna **offentligt** och **viktigt** omarkerat eftersom det inte behövs något behov av att projektet ska vara offentligt eller ha ett viktigt.
 
 1. Välj **Skapa**.
 
-1. Välj **Ladda upp** (uppåtpilikonen) och välj Från **dator**.
+1. Välj **Ladda upp** (uppåtpilen) och välj **från dator**.
 
 1. Välj **Välj filer**.
 
 1. Navigera till **C:\source\IoTEdgeAndMlSample\AzureNotebooks**. Markera alla filer i listan och klicka på **Öppna**.
 
-1. Markera rutan **Jag litar på innehållet i dessa filer.**
+1. Markera kryss rutan **Jag litar på innehållet i dessa filer** .
 
-1. Välj **Ladda upp** för att börja ladda upp och välj sedan **Klar** när processen är klar.
+1. Välj **Ladda upp** för att börja ladda upp och välj sedan **klart** när processen är klar.
 
-### <a name="azure-notebook-files"></a>Filer i Azure-anteckningsbok
+### <a name="azure-notebook-files"></a>Azure notebook-filer
 
-Nu ska vi granska de filer som du har laddat upp till ditt Azure Notebooks-projekt. Aktiviteterna i den här delen av självstudien sträcker sig över två anteckningsboksfiler, som använder några stödfiler.
+Vi går igenom filerna som du laddade upp i Azure Notebooks-projektet. Aktiviteterna i den här delen av själv studie kursen sträcker sig över två notebook-filer, som använder några få stödfiler.
 
-* **01-turbofan\_regression.ipynb:** Den här anteckningsboken använder arbetsytan Machine Learning-tjänst för att skapa och köra ett maskininlärningsexperiment. I stort sett gör anteckningsboken följande steg:
+* **01-turbofan\_regression. ipynb:** Den här Notebook använder arbets ytan Machine Learning tjänst för att skapa och köra ett Machine Learning-experiment. I stort sett gör antecknings boken följande steg:
 
-  1. Hämtar data från Azure Storage-kontot som genererades av enhetsselen.
-  1. Utforskar och förbereder data och använder sedan data för att träna klassifierarmodellen.
-  1. Utvärdera modellen från experimentet med hjälp av\_en testdatauppsättning (Test FD003.txt).
-  1. Publicerar den bästa klassifierarmodellen till machine learning-tjänstarbetsytan.
+  1. Hämtar data från det Azure Storage konto som genererades av enhets nätet.
+  1. Utforskar och förbereder data och använder sedan data för att träna klassificerings modellen.
+  1. Utvärdera modellen från experimentet med hjälp av en test data uppsättning\_(test FD003. txt).
+  1. Publicerar den bästa klassificerings modellen till arbets ytan för Machine Learnings tjänsten.
 
-* **02-turbofan\_\_distribuera model.ipynb:** Den här anteckningsboken tar modellen som skapats i den tidigare anteckningsboken och använder den för att skapa en behållaravbildning som är redo att distribueras till en Azure IoT Edge-enhet. Anteckningsboken utför följande steg:
+* **02-turbofan\_distribuera\_modell. ipynb:** Den här antecknings boken tar modellen som skapats i den tidigare antecknings boken och använder den för att skapa en behållar avbildning som kan distribueras till en Azure IoT Edge enhet. Antecknings boken utför följande steg:
 
-  1. Skapar ett bedömningsskript för modellen.
-  1. Skapar en behållaravbildning med hjälp av klassifierarmodellen som sparades på machine learning-tjänstarbetsytan.
-  1. Distribuerar avbildningen som en webbtjänst på Azure Container Instance.
-  1. Använder webbtjänsten för att validera modellen och avbildningen fungerar som förväntat. Den validerade avbildningen kommer att distribueras till vår IoT Edge-enhet i delen [Skapa och distribuera anpassade IoT Edge-moduler](tutorial-machine-learning-edge-06-custom-modules.md) av den här självstudien.
+  1. Skapar ett bedömnings skript för modellen.
+  1. Skapar en behållar avbildning med hjälp av klassificerings modellen som sparades i arbets ytan Machine Learning tjänst.
+  1. Distribuerar avbildningen som en webb tjänst på Azure Container instance.
+  1. Använder webb tjänsten för att verifiera modellen och avbildningen fungerar som förväntat. Den verifierade avbildningen distribueras till vår IoT Edge enhet i avsnittet [skapa och distribuera anpassade IoT Edge moduler](tutorial-machine-learning-edge-06-custom-modules.md) i den här självstudien.
 
-* **Testa\_FD003.txt:** Den här filen innehåller de data vi kommer att använda som vår testuppsättning när vi validerar vår utbildade klassificerare. Vi valde att använda testdata, som föreskrivs för den ursprungliga tävlingen, som vår testuppsättning för sin enkelhet.
+* **Testa\_FD003. txt:** Den här filen innehåller de data som vi ska använda som vår test uppsättning när du verifierar vår utbildade klassificerare. Vi valde att använda test data, enligt vad som anges för den ursprungliga tävlingen, som vår test uppsättning för dess enkelhet.
 
-* **RUL\_FD003.txt:** Den här filen innehåller återstående användbar livslängd (RUL) för\_den sista cykeln för varje enhet i testf003.txt-filen. Se readme.txt och Damage Propagation Modeling.pdf-filerna\\\\i C: source IoTEdgeAndMlSample\\data\\Turbofan för en detaljerad förklaring av data.
+* **RUL\_FD003. txt:** den här filen innehåller återstående livs längd (RUL) för den senaste cykeln för varje enhet i filen test\_FD003. txt. Se filen Readme. txt och modellen för skadas spridning i avsnittet C\\: Source\\IoTEdgeAndMlSample\\data\\turbofan för en detaljerad förklaring av data.
 
-* **Utils.py:** Innehåller en uppsättning Python-verktygsfunktioner för att arbeta med data. Den första anteckningsboken innehåller en detaljerad förklaring av funktionerna.
+* **Utils.py:** Innehåller en uppsättning python-verktyg för att arbeta med data. Den första antecknings boken innehåller en detaljerad förklaring av funktionerna.
 
-* **README.md:** Readme som beskriver användningen av anteckningsböckerna.  
+* **Readme.MD:** README som beskriver hur du använder antecknings böckerna.  
 
-## <a name="run-azure-notebooks"></a>Kör Azure-anteckningsböcker
+## <a name="run-azure-notebooks"></a>Kör Azure Notebooks
 
-Nu när projektet har skapats kan du köra anteckningsböckerna. 
+Nu när projektet har skapats kan du köra antecknings böckerna. 
 
-1. Välj **01-turbofan\_regression.ipynb**på projektsidan .
+1. Från projekt sidan väljer du **01-turbofan\_regression. ipynb**.
 
-    ![Välj första anteckningsboken som ska köras](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
+    ![Välj den första notebook som ska köras](media/tutorial-machine-learning-edge-04-train-model/select-turbofan-regression-notebook.png)
 
-1. Om anteckningsboken visas som **Inte betrodd**klickar du på widgeten **Inte betrodd** längst upp till höger i anteckningsboken. När dialogrutan kommer upp väljer du **Förtroende**.
+1. Om antecknings boken **inte är betrodd**klickar du på widgeten **ej betrodd** överst till höger i antecknings boken. Välj **förtroende**när dialog rutan öppnas.
 
-1. Bäst resultat får du om du läser dokumentationen för varje cell och kör den individuellt. Välj **Kör** i verktygsfältet. Senare, du hittar det lämpligt att köra flera celler. Du kan bortse från uppgraderings- och utfasningsvarningar.
+1. För bästa resultat bör du läsa dokumentationen för varje cell och köra den individuellt. Välj **Kör** i verktygsfältet. Senare är det viktigt att köra flera celler. Du kan ignorera uppgraderingar och utfasnings varningar.
 
-    När en cell körs visas en asterisk mellan hakparenteserna ([\*]). När cellens åtgärd är klar ersätts asterisken med ett tal och relevanta utdata kan visas. Cellerna i en anteckningsbok bygger sekventiellt och bara en kan köras åt gången.
+    När en cell körs visas en asterisk mellan hakparenteserna ([\*]). När cellens åtgärd är klar ersätts asterisken med ett tal och relevanta utdata kan visas. Cellerna i en bärbar dator skapas i turordning och bara en kan köras i taget.
 
-    Du kan också använda köralternativ `Ctrl`  +  `Enter` från **cellmenyn,** `Shift`  +  `Enter` för att köra en cell och köra en cell och gå vidare till nästa cell.
+    Du kan också använda körnings alternativ från **cell** -menyn `Ctrl`  +  `Enter` för att köra en cell `Shift`  +  `Enter` och köra en cell och gå vidare till nästa cell.
 
     > [!TIP]
-    > Undvik att köra samma anteckningsbok från flera flikar i webbläsaren för konsekventa cellåtgärder.
+    > Undvik att köra samma bärbara dator från flera flikar i webbläsaren för konsekventa cell åtgärder.
 
-1. Skriv in värdena för din Azure-prenumeration, dina inställningar och resurser i cellen som följer instruktioner för **ange globala egenskaper.** Kör sedan cellen.
+1. I cellen som följer anvisningarna för att **ange globala egenskaper** skriver du in värdena för din Azure-prenumeration, dina inställningar och resurser. Kör sedan cellen.
 
-    ![Ange globala egenskaper i anteckningsboken](media/tutorial-machine-learning-edge-04-train-model/set-global-properties.png)
+    ![Ange globala egenskaper i antecknings boken](media/tutorial-machine-learning-edge-04-train-model/set-global-properties.png)
 
-1. Leta efter länken som instruerar dig att logga in för att autentisera efter att den har körts i cellen före **Arbetsyteinformationen**efter att den har körts:
+1. I cellen tidigare till **arbets ytans information**, efter att den har körts, letar du efter länken som uppmanar dig att logga in för att autentisera:
 
-    ![Logga in fråga om enhetsautentisering](media/tutorial-machine-learning-edge-04-train-model/sign-in-prompt.png)
+    ![Inloggnings varning för enhetsautentisering](media/tutorial-machine-learning-edge-04-train-model/sign-in-prompt.png)
 
-    Öppna länken och ange den angivna koden. Den här inloggningsproceduren autentiserar Jupyter-anteckningsboken för åtkomst till Azure-resurser med hjälp av Kommandoradsgränssnittet i Microsoft Azure.  
+    Öppna länken och ange den angivna koden. Den här inloggnings proceduren autentiserar Jupyter Notebook för att få åtkomst till Azure-resurser med hjälp av kommando rads gränssnittet Microsoft Azure plattforms oberoende plattform.  
 
-    ![Autentisera program på enhetsbekräftelse](media/tutorial-machine-learning-edge-04-train-model/cross-platform-cli.png)
+    ![Bekräfta autentisering av program vid enhet](media/tutorial-machine-learning-edge-04-train-model/cross-platform-cli.png)
 
-1. Kopiera värdet från körnings-ID:t i cellen som föregår **Utforska resultaten**och klistra in det för körnings-ID:t i cellen som följer **Reconstitute en körning**.
+1. Kopiera värdet från körnings-ID: t i cellen som föregår **resultaten**och klistra in det för körnings-ID: t i cellen som följer **rekonstruerar en körning**.
 
-   ![Kopiera körnings-ID mellan celler](media/tutorial-machine-learning-edge-04-train-model/automl-id.png)
+   ![Kopiera körnings-ID: t mellan celler](media/tutorial-machine-learning-edge-04-train-model/automl-id.png)
 
-1. Kör de återstående cellerna i anteckningsboken.
+1. Kör de återstående cellerna i antecknings boken.
 
-1. Spara anteckningsboken och gå tillbaka till projektsidan.
+1. Spara antecknings boken och gå tillbaka till projekt sidan.
 
-1. Öppna **\_02-turbofan\_distribuera model.ipynb** och kör varje cell. Du måste logga in för att autentisera i cellen som följer **Konfigurera arbetsytan**.
+1. Öppna **02-turbofan\_distribuera\_Model. ipynb** och kör varje cell. Du måste logga in för att autentisera i cellen som följer **Konfigurera arbets yta**.
 
-1. Spara anteckningsboken och gå tillbaka till projektsidan.
+1. Spara antecknings boken och gå tillbaka till projekt sidan.
 
-### <a name="verify-success"></a>Verifiera lyckade
+### <a name="verify-success"></a>Verifieringen lyckades
 
-Kontrollera att anteckningsböckerna har slutförts genom att kontrollera att några objekt har skapats.
+Kontrol lera att antecknings böckerna har slutförts genom att kontrol lera att några objekt har skapats.
 
-1. På projektsidan för Azure Notebooks väljer du **Visa dolda objekt** så att objektnamn som börjar med en punkt visas.
+1. På sidan Azure Notebooks projekt väljer du **Visa dolda objekt** så att objekt namn som börjar med en punkt visas.
 
-1. Kontrollera att följande filer har skapats:
+1. Kontrol lera att följande filer har skapats:
 
     | Fil | Beskrivning |
     | --- | --- |
-    | ./aml_config/.azureml/config.json | Konfigurationsfil som används för att skapa Arbetsytan för Azure Machine Learning. |
-    | ./aml_config/model_config.json | Konfigurationsfil som vi måste distribuera modellen i **arbetsytan turbofanDemo** Machine Learning i Azure. |
-    | myenv.yml| Innehåller information om beroenden för den distribuerade Machine Learning-modellen.|
+    | ./aml_config/.azureml/config.JSON | Konfigurations fil som används för att skapa Azure Machine Learning-arbetsyta. |
+    | ./aml_config/model_config. JSON | Konfigurations fil som vi behöver för att distribuera modellen i **turbofanDemo** Machine Learning-arbetsytan i Azure. |
+    | myenv. yml| Innehåller information om beroenden för den distribuerade Machine Learnings modellen.|
 
-1. Kontrollera att följande Azure-resurser har skapats. Vissa resursnamn läggs till med slumpmässiga tecken.
+1. Kontrol lera att följande Azure-resurser har skapats. Vissa resurs namn läggs till med slumpmässiga tecken.
 
-    | Azure-resurs | Namn |
+    | Azure-resurs | Name |
     | --- | --- |
-    | Arbetsyta för maskininlärning | turborfanDemo |
-    | Container Registry | turbofandemoxxxxxx |
-    | Program Insights | turbofaninsightxxxxxx |
-    | Key Vault | turbofankeyvaultbxxxxxx |
-    | Lagring | turbofanstoragexxxxxxx |
+    | Machine Learning arbets yta | turborfanDemo |
+    | Container Registry | turbofandemoxxxxxxxx |
+    | Program insikter | turbofaninsightxxxxxxxx |
+    | Key Vault | turbofankeyvaultbxxxxxxxx |
+    | Storage | turbofanstoragexxxxxxxxx |
 
 ### <a name="debugging"></a>Felsökning
 
-Du kan infoga Python-satser i anteckningsboken `print()` för felsökning, till exempel kommandot för att visa värden. Om du ser variabler eller objekt som inte har definierats kör du cellerna där de först deklareras eller instansieras.
+Du kan infoga python-instruktioner i antecknings boken för fel sökning, till `print()` exempel kommandot för att visa värden. Om du ser variabler eller objekt som inte har definierats kör du cellerna där de först deklareras eller instansieras.
 
-Du kan behöva ta bort tidigare skapade filer och Azure-resurser om du behöver göra om anteckningsböckerna.
+Du kanske måste ta bort tidigare skapade filer och Azure-resurser om du behöver göra om antecknings böckerna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln använde vi två Jupyter-anteckningsböcker som körs i Azure Notebooks för att använda data från turbofanenheterna för att träna en återstående RUL-klassificerare, för att spara klassificeraren som modell, skapa en behållaravbildning och för att distribuera och testa avbildningen som en webb Tjänst.
+I den här artikeln använde vi två Jupyter-anteckningsböcker som körs i Azure Notebooks för att använda data från turbofan-enheter för att träna en återstående RUL-klassificerare () för att spara klassificeraren som en modell, för att skapa en behållar avbildning och för att distribuera och testa avbildningen som en webb tjänst.
 
-Fortsätt till nästa artikel för att skapa en IoT Edge-enhet.
+Fortsätt till nästa artikel om du vill skapa en IoT Edge enhet.
 
 > [!div class="nextstepaction"]
-> [Konfigurera en IoT Edge-enhet](tutorial-machine-learning-edge-05-configure-edge-device.md)
+> [Konfigurera en IoT Edge enhet](tutorial-machine-learning-edge-05-configure-edge-device.md)

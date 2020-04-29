@@ -1,7 +1,7 @@
 ---
-title: 'Filterbaserat funktionsval: Modulreferens'
+title: 'Filtrera baserat funktions val: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen Filterbaserad funktionsval i Azure Machine Learning för att identifiera funktionerna i en datauppsättning med den största prediktiva kraften.
+description: Lär dig hur du använder funktionen filtrera baserat funktions val i Azure Machine Learning för att identifiera funktionerna i en data uppsättning med den största förutsägelse kraften.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,130 +10,130 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: c009a98931240e92527035e51fdce3f1c92f5212
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477603"
 ---
 # <a name="filter-based-feature-selection"></a>Filterbaserat funktionsval
 
-I den här artikeln beskrivs hur du använder modulen Filterbaserad funktionsval i Azure Machine Learning designer (förhandsversion). Den här modulen hjälper dig att identifiera kolumnerna i indatauppsättningen som har den största prediktiva kraften. 
+Den här artikeln beskriver hur du använder modulen filtrerad funktions val i Azure Machine Learning designer (för hands version). Den här modulen hjälper dig att identifiera kolumnerna i din indata-datauppsättning som har den största förutsägelse kraften. 
 
-I allmänhet avser *funktionsval* processen att tillämpa statistiska tester på indata, med tanke på en angiven utdata. Målet är att avgöra vilka kolumner som är mer prediktiva för utdata. Modulen Filterbaserad funktionsval innehåller flera funktionsvalsalgoritmer att välja mellan. Modulen innehåller korrelationsmetoder som Pearson korrelation och chi-kvadratvärden. 
+I allmänhet avser *funktions val* processen att tillämpa statistiska tester på indata, med en angiven utmatning. Målet är att avgöra vilka kolumner som är mer förutsägbara för utdata. I modulen filter-baserad funktions val finns flera olika funktioner för val av funktioner som du kan välja mellan. Modulen innehåller korrelations metoder som Pearson-korrelation och chi2-värden. 
 
-När du använder modulen Filterbaserad funktionsval anger du en datauppsättning och identifierar kolumnen som innehåller etiketten eller den beroende variabeln. Du anger sedan en enda metod som ska användas för att mäta funktionsbesyrende.
+När du använder funktionen filtrera baserat funktions val anger du en data uppsättning och identifierar kolumnen som innehåller etiketten eller den beroende variabeln. Sedan anger du en enda metod som ska användas för att mäta funktions prioritet.
 
-Modulen matar ut en datauppsättning som innehåller de bästa funktionskolumnerna, som rangordnas efter prediktiv effekt. Den matar också ut namnen på funktionerna och deras poäng från det valda måttet.  
+Modulen matar ut en data uppsättning som innehåller de bästa funktions kolumnerna som rankas av förutsägande kraft. Den ger också ut namnen på funktionerna och deras resultat från det valda måttet.  
 
-## <a name="what-filter-based-feature-selection-is"></a>Vilken filterbaserad funktionsval är  
+## <a name="what-filter-based-feature-selection-is"></a>Vilket filter-baserat funktions val är  
 
-Den här modulen för funktionsval kallas "filterbaserad" eftersom du använder det valda måttet för att hitta irrelevanta attribut. Du filtrerar sedan bort överflödiga kolumner från modellen. Du väljer ett enda statistiskt mått som passar dina data och modulen beräknar en poäng för varje funktionskolumn. Kolumnerna returneras rangordnade efter deras funktionspoäng. 
+Den här modulen för val av funktioner kallas "filterbaserade" eftersom du använder det valda måttet för att hitta irrelevanta attribut. Sedan filtrerar du bort överflödiga kolumner från modellen. Du väljer ett enda statistiskt mått som passar dina data och modulen beräknar en poäng för varje funktions kolumn. Kolumnerna returneras rangordnade efter deras funktions resultat. 
 
-Genom att välja rätt funktioner kan du eventuellt förbättra klassificeringens noggrannhet och effektivitet. 
+Genom att välja rätt funktioner kan du eventuellt förbättra klassificeringens exakthet och effektivitet. 
 
-Du använder vanligtvis bara kolumnerna med de bästa poängen för att skapa din prediktiva modell. Kolumner med dåliga funktionsvalspoäng kan lämnas kvar i datauppsättningen och ignoreras när du skapar en modell.  
+Du använder vanligt vis bara kolumnerna med de bästa poängen för att bygga en förutsägelse modell. Kolumner med dålig funktions val kan bli kvar i data uppsättningen och ignoreras när du skapar en modell.  
 
-## <a name="how-to-choose-a-feature-selection-metric"></a>Så här väljer du ett mått på funktionsval
+## <a name="how-to-choose-a-feature-selection-metric"></a>Hur man väljer mått för funktions val
 
-Modulen Filterbaserad funktionsval innehåller en mängd olika mått för att bedöma informationsvärdet i varje kolumn. Det här avsnittet innehåller en allmän beskrivning av varje mått och hur det tillämpas. Du kan hitta ytterligare krav för att använda varje mått i de [tekniska anteckningarna](#technical-notes) och i [instruktionerna](#how-to-configure-filter-based-feature-selection) för att konfigurera varje modul.
+Den Filterbaserade modulen för funktions val innehåller en mängd olika mått för att utvärdera information svärdet i varje kolumn. Det här avsnittet innehåller en allmän beskrivning av varje mått och hur det används. Du hittar ytterligare krav för att använda varje mått i [tekniska anteckningar](#technical-notes) och i [anvisningarna](#how-to-configure-filter-based-feature-selection) för att konfigurera varje modul.
 
--   **Pearson korrelation**  
+-   **Pearson-korrelation**  
 
-    Pearsons korrelationsstatistik, eller Pearsons korrelationskoefficient, är `r` också känd i statistiska modeller som värdet. För två variabler returneras ett värde som anger korrelationens styrka.
+    Pearsons korrelations statistik, eller Pearsons korrelations koefficient, är också känd i statistiska modeller som `r` värde. För två variabler returnerar den ett värde som anger styrkan för korrelationen.
 
-    Pearsons korrelationskoefficient beräknas genom att ta kovariansen av två variabler och dividera med produkten av deras standardavvikelser. Skaländringar i de två variablerna påverkar inte koefficienten.  
+    Korrelationskoefficienten till Pearson är beräknad genom att ta den kovariansen av två variabler och dividera med produkten av standard avvikelserna. Ändringar av skala i de två variablerna påverkar inte koefficienten.  
 
--   **Chi kvadrat**  
+-   **Chi, kvadrat**  
 
-    Det tvåvägs chi-kvadrattest är en statistisk metod som mäter hur nära förväntade värden är till faktiska resultat. Metoden förutsätter att variablerna är slumpmässiga och hämtade från ett lämpligt urval av oberoende variabler. Den resulterande chi-kvadrat statistik visar hur långt resultaten är från det förväntade (slumpmässiga) resultatet.  
+    Det tvåvägs chi2-kvadrat-testet är en statistisk metod som mäter hur nära förväntade värden är faktiska resultat. Metoden förutsätter att variablerna är slumpmässiga och ritade från ett lämpligt exempel av oberoende variabler. Den resulterande Chi-kvadrat-statistiken anger hur långt resultat som kommer från det förväntade resultatet (slumpmässigt).  
 
 
 > [!TIP]
-> Om du behöver ett annat alternativ för den anpassade funktionen valmetod, använda [kör R Script](execute-r-script.md) modul. 
+> Om du behöver ett annat alternativ för den anpassade funktions urvals metoden använder du modulen [Kör R-skript](execute-r-script.md) . 
 
-## <a name="how-to-configure-filter-based-feature-selection"></a>Konfigurera filterbaserad funktionsval
+## <a name="how-to-configure-filter-based-feature-selection"></a>Konfigurera filtrering baserat funktions val
 
-Du väljer ett standardiserat statistiskt mått. Modulen beräknar korrelationen mellan ett par kolumner: etikettkolumnen och en funktionskolumn.
+Du väljer ett standard statistik mått. Modulen beräknar korrelationen mellan ett kolumn par: kolumnen etikett och en funktions kolumn.
 
-1.  Lägg till modulen Filterbaserad funktionsval i pipelinen. Du hittar den i kategorin **Funktionsval** i designern.
+1.  Lägg till den Filterbaserade modulen för funktions val i din pipeline. Du hittar den i kategorin **funktions val** i designern.
 
-2. Anslut en indatauppsättning som innehåller minst två kolumner som är potentiella funktioner.  
+2. Anslut en indatamängd som innehåller minst två kolumner som är potentiella funktioner.  
 
-    Om du vill vara säkra på att en kolumn analyseras och en funktionspoäng genereras använder du modulen [Redigera metadata](edit-metadata.md) för att ange **attributet IsFeature.** 
+    För att säkerställa att en kolumn analyseras och att funktions poängen genereras, använder du modulen [Redigera metadata](edit-metadata.md) för att ange attributet **IsFeature** . 
 
     > [!IMPORTANT]
-    > Kontrollera att de kolumner som du tillhandahåller som indata är potentiella funktioner. En kolumn som innehåller ett enda värde har till exempel inget informationsvärde.
+    > Se till att de kolumner som du har angett som indatamängd är möjliga funktioner. Till exempel har en kolumn som innehåller ett enda värde inget värde för information.
     >
-    > Om du vet att vissa kolumner skulle göra dåliga funktioner kan du ta bort dem från kolumnmarkeringen. Du kan också använda modulen [Redigera metadata](edit-metadata.md) för att flagga dem som **kategoriska**. 
-3.  För **Funktionsbedömningsmetod**väljer du en av följande etablerade statistiska metoder som ska användas vid beräkning av poäng.  
+    > Om du vet att vissa kolumner skulle medföra dåliga funktioner kan du ta bort dem från kolumn urvalet. Du kan också använda modulen [Redigera metadata](edit-metadata.md) för att flagga dem som **kategoriska**. 
+3.  För **funktions bedömnings metod**väljer du någon av följande etablerade statistiska metoder som ska användas för att beräkna poängen.  
 
     | Metod              | Krav                             |
     | ------------------- | ---------------------------------------- |
-    | Pearson korrelation | Etiketten kan vara text eller numerisk. Funktionerna måste vara numeriska. |
-    Chi kvadrat| Etiketter och funktioner kan vara text eller numeriska. Använd den här metoden för att beräkna funktionsbetens betydelse för två kategoriska kolumner.|
+    | Pearson-korrelation | Etiketten kan vara text eller numerisk. Funktioner måste vara numeriska. |
+    Chi, kvadrat| Etiketter och funktioner kan vara text eller numeriska. Använd den här metoden för att beräkna funktioner i två kategoriska-kolumner.|
 
     > [!TIP]
-    > Om du ändrar det valda måttet återställs alla andra val. Så se till att ställa in det här alternativet först.
-4.  Välj alternativet **Endast Använd på funktionskolumner** om du bara vill generera en poäng för kolumner som tidigare har markerats som funktioner. 
+    > Om du ändrar det valda måttet så återställs alla andra val. Var noga med att ange det här alternativet först.
+4.  Välj alternativet för att **endast använda funktions kolumner** om du vill generera en poäng för kolumner som tidigare har marker ATS som funktioner. 
 
-    Om du avmarkerar det här alternativet skapar modulen en poäng för en kolumn som annars uppfyller villkoren, upp till antalet kolumner som anges i **Antal önskade funktioner**.  
+    Om du avmarkerar det här alternativet skapar modulen en poäng för alla kolumner som på annat sätt uppfyller villkoren, upp till antalet kolumner som anges i **antal önskade funktioner**.  
 
-5.  För **inriktningskolumn**väljer du **Starta kolumnväljare** för att välja etikettkolumnen antingen efter namn eller index. (Index är enbaserade.)  
-    En etikettkolumn krävs för alla metoder som involverar statistisk korrelation. Modulen returnerar ett designtidsfel om du inte väljer någon etikettkolumn eller flera etikettkolumner. 
+5.  För **kolumnen mål**väljer du **Starta kolumn väljare** för att välja etikettens kolumn antingen efter namn eller index. (Index är ett-baserat.)  
+    En etikett kolumn krävs för alla metoder som inbegriper statistisk korrelation. Modulen returnerar ett design tids fel om du väljer ingen etikett kolumn eller flera etikett kolumner. 
 
-6.  För **Antal önskade funktioner**anger du antalet funktionskolumner som du vill returnera som ett resultat:  
+6.  För **antal önskade funktioner**anger du det antal funktions kolumner som du vill ska returneras som ett resultat:  
 
-    - Det minsta antalet funktioner som du kan ange är en, men vi rekommenderar att du ökar det här värdet.  
+    - Det minsta antalet funktioner som du kan ange är ett, men vi rekommenderar att du ökar det här värdet.  
 
-    - Om det angivna antalet önskade funktioner är större än antalet kolumner i datauppsättningen returneras alla funktioner. Även funktioner med noll poäng returneras.  
+    - Om det angivna antalet önskade funktioner är större än antalet kolumner i data uppsättningen returneras alla funktioner. Även funktioner med noll resultat returneras.  
 
-    - Om du anger färre resultatkolumner än det finns funktionskolumner rangordnas funktionerna efter fallande poäng. Endast de bästa funktionerna returneras. 
+    - Om du anger färre resultat kolumner än det finns funktions kolumner rangordnas funktionerna efter fallande poäng. Endast de översta funktionerna returneras. 
 
-7.  Skicka pipelinen eller välj modulen Filtrera baserat funktionsval och välj sedan **Kör markerad**.
+7.  Skicka pipelinen eller Välj modulen filtrera baserat funktions val och välj sedan **Kör vald**.
 
 
 ## <a name="results"></a>Resultat
 
-Efter bearbetningen är klar:
+När bearbetningen är klar:
 
-+ Om du vill visa en fullständig lista över de analyserade funktionskolumnerna och deras poäng högerklickar du på modulen och väljer **Visualisera**.  
++ Om du vill se en fullständig lista över de analyserade funktions kolumnerna och deras resultat högerklickar du på modulen och väljer **visualisera**.  
 
-+ Om du vill visa datauppsättningen baserat på dina funktionsvalskriterier högerklickar du på modulen och väljer **Visualisera**. 
++ Om du vill visa data uppsättningen baserat på ditt val av funktions villkor högerklickar du på modulen och väljer **visualisera**. 
 
-Om datauppsättningen innehåller färre kolumner än förväntat kontrollerar du modulinställningarna. Kontrollera också datatyperna för kolumnerna som anges som indata. Om du till exempel anger **Antal önskade funktioner** till 1 innehåller utdatauppsättningen bara två kolumner: etikettkolumnen och den högst rankade funktionskolumnen.
+Om data uppsättningen innehåller färre kolumner än förväntat, kontrollerar du inställningarna för modulen. Kontrol lera också data typerna för de kolumner som angetts som indata. Om du till exempel anger **antalet önskade funktioner** till 1 innehåller den utgående data uppsättningen bara två kolumner: kolumnen etikett och den mest rankade funktions kolumnen.
 
 
-##  <a name="technical-notes"></a>Tekniska anmärkningar  
+##  <a name="technical-notes"></a>Tekniska anteckningar  
 
-### <a name="implementation-details"></a>Information om genomförandet
+### <a name="implementation-details"></a>Implementerings information
 
-Om du använder Pearson-korrelation på en numerisk funktion och en kategorisk etikett beräknas funktionspoängen på följande sätt:  
+Om du använder Pearson-korrelation på en numerisk funktion och en kategoriska-etikett, beräknas funktions poängen på följande sätt:  
 
-1.  För varje nivå i den kategoriska kolumnen beräknar du det villkorliga medelvärdet för numerisk kolumn.  
+1.  Beräkna det villkorliga medelvärdet för en numerisk kolumn för varje nivå i kolumnen kategoriska.  
 
-2.  Korrelera kolumnen med villkorade medel med den numeriska kolumnen.  
+2.  Korrelera kolumnen med villkorliga medelvärden med den numeriska kolumnen.  
 
 ### <a name="requirements"></a>Krav  
 
--   Det går inte att generera en poäng för funktionsval för en kolumn som har angetts som en **etikett-** eller **poängkolumn.**  
+-   Det går inte att generera en funktions markerings Poäng för en kolumn som har angetts som en **etikett** eller en **score** -kolumn.  
 
--   Om du försöker använda en bedömningsmetod med en kolumn av en datatyp som metoden inte stöder, kommer modulen att skapa ett fel. Eller så tilldelas en nollpoäng till kolumnen.  
+-   Om du försöker använda en bedömnings metod med en kolumn av en datatyp som metoden inte stöder, kommer modulen att generera ett fel. Eller så kommer ett noll poäng att tilldelas till kolumnen.  
 
--   Om en kolumn innehåller logiska (sanna/falska) värden `True = 1` bearbetas de som och `False = 0`.  
+-   Om en kolumn innehåller logiska värden (sant/falskt) bearbetas de som `True = 1` och `False = 0`.  
 
--   En kolumn kan inte vara en funktion om den har angetts som en **etikett** eller ett **poäng .**  
+-   En kolumn kan inte vara en funktion om den har angetts som en **etikett** eller **Poäng**.  
 
-### <a name="how-missing-values-are-handled"></a>Hur saknade värden hanteras  
+### <a name="how-missing-values-are-handled"></a>Hur värden som saknas hanteras  
 
--   Du kan inte ange någon kolumn som saknas som målkolumn som har alla värden som saknas som en målkolumn.  
+-   Du kan inte ange som en mål kolumn (etikett) kolumn som innehåller alla värden som saknas.  
 
--   Om en kolumn innehåller värden som saknas ignorerar modulen dem när den beräknar poängen för kolumnen.  
+-   Om en kolumn innehåller saknade värden, ignorerar modulen dem när den beräknar poängen för kolumnen.  
 
--   Om en kolumn som anges som en funktionskolumn har alla värden som saknas tilldelar modulen nollpoäng.   
+-   Om en kolumn som har angetts som en funktions kolumn har alla värden som saknas tilldelar modulen noll poäng.   
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
 

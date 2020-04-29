@@ -1,18 +1,18 @@
 ---
-title: 'Skapa ett kubernetes-utvecklingsutrymme: Visual Studio-kod & Node.js'
+title: 'Skapa ett Kubernetes dev-utrymme: Visual Studio Code & Node. js'
 services: azure-dev-spaces
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: Den här självstudien visar hur du använder Azure Dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett Node.js-program på Azure Kubernetes-tjänsten
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, servicenät, routning av tjänstnät, kubectl, k8s
+description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett Node. js-program på Azure Kubernetes-tjänsten
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 ms.openlocfilehash: 6571e23c3ca9b67d4db3c9c7bcea1e4a3b80e4c1
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80240523"
 ---
-# <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>Skapa ett kubernetes-utvecklingsutrymme: Visual Studio-kod och nod.js med Azure Dev Spaces
+# <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>Skapa ett Kubernetes dev-utrymme: Visual Studio Code och Node. js med Azure dev Spaces
 
 I den här guiden får du lära dig hur du:
 
@@ -21,7 +21,7 @@ I den här guiden får du lära dig hur du:
 - Effektivt utvecklar och testar din kod i en teammiljö.
 
 > [!Note]
-> **Om du fastnar** när som helst läser du [avsnittet Felsökning.](troubleshooting.md)
+> **Om du får fastna när som** helst kan du läsa avsnittet [fel sökning](troubleshooting.md) .
 
 ## <a name="install-the-azure-cli"></a>Installera Azure CLI
 Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten av utvecklarmiljöns konfiguration lagras i molnet och kan delas med andra användare. Börja genom att ladda ned och köra [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -34,7 +34,7 @@ az login
 ```
 
 > [!Note]
-> Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
+> Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free).
 
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>Om du har flera Azure-prenumerationer ...
 Du kan visa dina prenumerationer genom att köra: 
@@ -43,7 +43,7 @@ Du kan visa dina prenumerationer genom att köra:
 az account list --output table
 ```
 
-Leta reda på prenumerationen som har *True* för *IsDefault*.
+Leta upp prenumerationen som har *värdet sant* för *IsDefault*.
 Om det här inte är den prenumeration som du vill använda kan du ändra standardprenumerationen:
 
 ```azurecli
@@ -52,7 +52,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Skapa ett Kubernetes-kluster som är aktiverat för Azure Dev Spaces
 
-Skapa resursgruppen i en region [som stöder Azure Dev Spaces][supported-regions]i kommandotolken .
+I kommando tolken skapar du resurs gruppen i en [region som stöder Azure dev Spaces][supported-regions].
 
 ```azurecli
 az group create --name MyResourceGroup --location <region>
@@ -88,7 +88,7 @@ Avancerade funktioner som Kubernetes-felsökning är tillgängliga för .NET Cor
 I det här avsnittet ska du skapa en Node.js-webbapp och köra den i en container i Kubernetes.
 
 ### <a name="create-a-nodejs-web-app"></a>Skapa en Node.js-webbapp
-Hämta kod från GitHub [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) genom att navigera till och välj **Klona eller Ladda ned** för att hämta GitHub-databasen till din lokala miljö. Koden för den här guiden finns i `samples/nodejs/getting-started/webfrontend`.
+Ladda ned kod från GitHub genom att gå [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) till och välja **klona eller ladda ned** för att ladda ned GitHub-lagringsplatsen till din lokala miljö. Koden för den här guiden finns i `samples/nodejs/getting-started/webfrontend`.
 
 ## <a name="prepare-code-for-docker-and-kubernetes-development"></a>Förbereda kod för Docker- och Kubernetes-utveckling
 Hittills har du en grundläggande webbapp som kan köras lokalt. Du kommer nu använda den i en container genom att skapa tillgångar som definierar appens container och hur den kommer att distribueras till Kubernetes. Den här uppgiften är enkel att utföra med Azure Dev Spaces: 
@@ -106,7 +106,7 @@ Kommandot `azds prep` i Azure CLI genererar Docker- och Kubernetes-tillgångar m
 * Ett [Helm-diagram](https://docs.helm.sh) under `./charts/webfrontend` beskriver hur du distribuerar containern till Kubernetes.
 
 > [!TIP]
-> [Dockerfile- och Helm-diagrammet](how-dev-spaces-works-prep.md#prepare-your-code) för projektet används av Azure Dev Spaces för att skapa och köra din kod, men du kan ändra dessa filer om du vill ändra hur projektet byggs och kördes.
+> [Dockerfile-och Helm-diagrammet](how-dev-spaces-works-prep.md#prepare-your-code) för ditt projekt används av Azure dev Spaces för att skapa och köra din kod, men du kan ändra dessa filer om du vill ändra hur projektet skapas och körs.
 
 För tillfället är det inte nödvändigt att förstå det fullständiga innehållet i dessa filer. Det är dock värt att påpeka att **samma Kubernetes- och Docker-konfiguration som kod-tillgångar kan användas från utveckling till produktion, vilket ger bättre konsekvens mellan olika miljöer.**
  
@@ -138,17 +138,17 @@ Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890a
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-Identifiera den offentliga URL:en för `up` tjänsten i utdata från kommandot. Det slutar `.azds.io`i . I exemplet ovan är `http://webfrontend.1234567890abcdef1234.eus.azds.io/`den offentliga webbadressen .
+Identifiera den offentliga URL: en för tjänsten i utdata från `up` kommandot. Den avslutas `.azds.io`. I exemplet ovan är `http://webfrontend.1234567890abcdef1234.eus.azds.io/`den offentliga URL: en.
 
-Öppna den offentliga webbadressen i en webbläsare om du vill visa din webbapp. Dessutom strömmas meddelande `stdout` och `stderr` utdata till *azds-spårningsterminalfönstret* när du interagerar med din webbapp. Du ser också spårningsinformation för HTTP-begäranden när de går igenom systemet. Detta gör det enklare för dig att spåra komplexa flerservicesamtal under utvecklingen. Den instrumentering som läggs till av Dev Spaces ger den här begäran spårning.
+Om du vill se din webbapp öppnar du den offentliga URL: en i en webbläsare. Observera också att `stdout` meddelande `stderr` och utdata strömmas till azds-fönstret för *spårnings* terminalen när du interagerar med din webbapp. Du kan också se spårnings information för HTTP-begäranden när de går igenom systemet. Detta gör det enklare för dig att spåra komplexa anrop i flera tjänster under utvecklingen. Instrumentation som lagts till av dev Spaces innehåller den här förfrågan spårningen.
 
 > [!Note]
-> Förutom den offentliga webbadressen kan du `http://localhost:<portnumber>` använda den alternativa URL:en som visas i konsolutdatan. Om du använder url:en för localhost kan det verka som om behållaren körs lokalt, men den körs faktiskt i Azure. Azure Dev Spaces använder Kubernetes *port-forward-funktioner* för att mappa localhost-porten till behållaren som körs i AKS. Detta underlättar interaktion med tjänsten från din lokala dator.
+> Förutom den offentliga URL: en kan du använda den alternativa `http://localhost:<portnumber>` URL: en som visas i konsolens utdata. Om du använder URL: en för localhost kan det verka som att behållaren körs lokalt, men i själva verket körs den i Azure. I Azure dev Spaces används Kubernetes *Port-Forward-* funktioner för att mappa localhost-porten till den behållare som körs i AKS. Detta underlättar interaktion med tjänsten från den lokala datorn.
 
 ### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
 Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.
 
-1. Leta upp filen `./public/index.html` och gör en ändring i HTML-koden. Ändra till exempel sidans bakgrundsfärg till en blå nyans [på linje 15:](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L15)
+1. Leta upp filen `./public/index.html` och gör en ändring i HTML-koden. Ändra till exempel sidans bakgrunds färg till en nyans av blått [på rad 15](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L15):
 
     ```html
     <body style="background-color: #95B9C7; margin-left:10px; margin-right:10px;">
@@ -164,7 +164,7 @@ Vad hände? Ändringar av innehållsfiler som HTML och CSS kräver inte att Node
 
 Du kan komma runt det här problemet genom att lägga till en `viewport`-metatagg:
 1. Öppna filen `./public/index.html`
-1. Lägg `viewport` till en metatagg i det befintliga `head` elementet som börjar på rad [6:](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L6)
+1. Lägg till `viewport` en meta-tagg i `head` det befintliga elementet som börjar [på rad 6](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L6):
 
     ```html
     <head>
@@ -220,19 +220,19 @@ Då läggs felsökningskonfigurationen för Azure Dev Spaces till under mappen `
 ![](media/get-started-node/debug-configuration-nodejs2.png)
 
 > [!Note]
-> Om du inte ser några Azure Dev Spaces-kommandon i kommandopaletten kontrollerar du att du har [installerat VS-kodtillägget för Azure Dev Spaces](get-started-nodejs.md#get-kubernetes-debugging-for-vs-code).
+> Om du inte ser några Azure dev Spaces-kommandon i paletten, kontrollerar du att du har [installerat vs Code-tillägget för Azure dev Spaces](get-started-nodejs.md#get-kubernetes-debugging-for-vs-code).
 
 ### <a name="debug-the-container-in-kubernetes"></a>Felsöka containern i Kubernetes
-Tryck **på F5** för att felsöka din kod i Kubernetes!
+Tryck på **F5** för att felsöka koden i Kubernetes!
 
 På liknande sätt som med `up`-kommandot synkroniseras koden med utvecklingsmiljön när du startar felsökningen, och en container skapas och distribueras till Kubernetes. Den här gången är felsökaren kopplad till fjärrcontainern.
 
 > [!Tip]
-> Statusfältet VS-kod blir orange, vilket indikerar att felsökaren är kopplad. Det kommer också att visa en klickbar WEBBADRESS, som du kan använda för att snabbt öppna din webbplats.
+> Statusfältet för VS Code blir orange, vilket indikerar att fel söknings programmet är kopplat. Den visar också en klicknings bara URL, som du kan använda för att snabbt öppna din webbplats.
 
 ![](media/common/vscode-status-bar-url.png)
 
-Ange en brytpunkt i en kodfil `app.get('/api'...` på serversidan, till exempel på rad [13 `server.js` ](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13)i . 
+Ange en Bryt punkt i en kod fil på Server sidan, till exempel inom `app.get('/api'...` på [rad 13 i `server.js` ](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13). 
 
     ```javascript
     app.get('/api', function (req, res) {
@@ -240,12 +240,12 @@ Ange en brytpunkt i en kodfil `app.get('/api'...` på serversidan, till exempel 
     });
     ```
 
-Uppdatera webbläsarsidan eller tryck på knappen *Säg det igen,* och du bör trycka på brytpunkten och kunna gå igenom koden.
+Uppdatera webb läsar sidan, eller tryck på knappen *Säg den igen* , så bör du trycka på Bryt punkten och gå igenom koden.
 
 Du har fullständig åtkomst till felsökningsinformation precis som när koden körs lokalt, t.ex. anropsstack, lokala variabler, undantagsinformation och så vidare.
 
 ### <a name="edit-code-and-refresh-the-debug-session"></a>Redigera koden och uppdatera felsökningssessionen
-När felsökaren är aktiv gör du en kodredigering. ändra till exempel hejmeddelandet på [rad `server.js` 13](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) igen:
+Gör en kod redigering med fel söknings programmet aktiv. ändra till exempel Hello-meddelandet på [rad 13 av `server.js` ](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) igen:
 
 ```javascript
 app.get('/api', function (req, res) {
@@ -253,7 +253,7 @@ app.get('/api', function (req, res) {
 });
 ```
 
-Spara filen och klicka på knappen Starta **om** i **fönstret Felsökningsåtgärder.** 
+Spara filen och klicka på knappen **starta om** i **rutan fel söknings åtgärder**. 
 
 ![](media/common/debug-action-refresh.png)
 

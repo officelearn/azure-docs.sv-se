@@ -1,70 +1,70 @@
 ---
-title: Terminologi - Personalizer
-description: Personalizer använder terminologi från förstärkning lärande. Dessa termer används i Azure-portalen och API:erna.
+title: Terminologi – Personanpassare
+description: 'Personanpassare använder terminologin från förstärkt inlärning. Dessa villkor används i Azure Portal och API: erna.'
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: f75437c5afd5d3fd7f7570079be410d3db1ca8db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77624279"
 ---
 # <a name="terminology"></a>Terminologi
 
-Personalizer använder terminologi från förstärkning lärande. Dessa termer används i Azure-portalen och API:erna.
+Personanpassare använder terminologin från förstärkt inlärning. Dessa villkor används i Azure Portal och API: erna.
 
-## <a name="conceptual-terminology"></a>Begreppsmässig terminologi
+## <a name="conceptual-terminology"></a>Konceptuell terminologi
 
-* **Learning Loop:** Du skapar en Personalizer-resurs, som kallas _en inlärningsloop,_ för varje del av ditt program som kan dra nytta av anpassning. Om du har mer än en upplevelse att anpassa skapar du en loop för varje.
+* **Inlärnings slinga**: du skapar en personanpassa resurs, som kallas _inlärnings slinga_, för alla delar av ditt program som kan dra nytta av anpassning. Om du har mer än en upplevelse att anpassa, skapar du en slinga för var och en.
 
-* **Modell:** En Personalizer-modell samlar in alla data som lärs ut om användarbeteende, får träningsdata från kombinationen av de argument du skickar till Rank and Reward-samtal och med ett träningsbeteende som bestäms av utbildningsprincipen.
+* **Modell**: en personanpassa modell som samlar in alla data som lärts om användarens beteende, hämtar tränings data från kombinationen av argument som du skickar till ranknings-och belönings samtal och med ett inlärnings beteende som fastställs av inlärnings principen.
 
-## <a name="personalizer-configuration"></a>Konfiguration av Personalizer
+## <a name="personalizer-configuration"></a>Personanpassa konfiguration
 
-Personalizer är konfigurerad från [Azure-portalen](https://portal.azure.com).
+Personanpassaren har kon figurer ATS från [Azure Portal](https://portal.azure.com).
 
-* **Belöningar:** konfigurera standardvärdena för belöningsväntetid, standardbelöning och belöningsaggregeringsprincip.
+* **Fördelar**: konfigurera standardvärden för belönings vänte tid, standard belöning och agg regerings princip för belöning.
 
-* **Utforskning:** konfigurera procentandelen Rank-anrop som ska användas för prospektering
+* **Undersökning**: Konfigurera procent andelen rang anrop som ska användas för utforskning
 
-* **Modelluppdateringsfrekvens**: Hur ofta modellen tränas om.
+* **Modell uppdaterings frekvens**: hur ofta modellen omtränas.
 
-* **Datalagring**: Hur många dagar av data att lagra. Detta kan påverka offlineutvärderingar, som används för att förbättra din inlärningsloop.
+* **Datakvarhållning**: hur många dagars data som ska lagras. Detta kan påverka utvärderingar offline, som används för att förbättra din inlärnings slinga.
 
-## <a name="use-rank-and-reward-apis"></a>Använd ranknings- och belönings-API:er
+## <a name="use-rank-and-reward-apis"></a>Använd rang-och belönings-API: er
 
-* **Rank**: Med tanke på åtgärderna med funktioner och sammanhangsfunktioner, använd utforska eller utnyttja för att returnera den översta åtgärden (innehållsobjekt).
+* **Rangordning**: med hjälp av åtgärder med funktioner och kontext funktioner kan du använda utforska eller utnyttja för att returnera den översta åtgärden (innehålls objekt).
 
-    * **Åtgärder**: Åtgärder är innehållsobjekt, till exempel produkter eller kampanjer, att välja mellan. Personalizer väljer den översta åtgärden (returnerade belöning åtgärd ID) för att visa för dina användare via Rank API.
+    * **Åtgärder**: åtgärder är innehålls objekt, till exempel produkter eller kampanjer, för att välja bland. Personanpassa väljer den främsta åtgärden (returnerat åtgärds-ID för belöning) som ska visas för användarna via rang-API: et.
 
-    * **Sammanhang**: För att ge en mer exakt rang, ge information om ditt sammanhang, till exempel:
-        * Din användare.
-        * Enheten de är på.
-        * Den aktuella tiden.
-        * Andra uppgifter om den aktuella situationen.
+    * **Kontext**: Ange en mer exakt rangordning genom att ange information om din kontext, till exempel:
+        * Användaren.
+        * Enheten som de är på.
+        * Aktuell tid.
+        * Andra data om den aktuella situationen.
         * Historiska data om användaren eller kontexten.
 
-        Ditt specifika program kan ha annan kontextinformation.
+        Ditt specifika program kan ha annan Sammanhangs information.
 
-    * **[Funktioner](concepts-features.md)**: En informationsenhet om ett innehållsobjekt eller en användarkontext. Se till att bara använda funktioner som är aggregerade. Använd inte specifika tider, användar-ID:er eller andra icke-aggregerade data som funktioner.
+    * **[Funktioner](concepts-features.md)**: en enhet med information om ett innehålls objekt eller en användar kontext. Se till att endast använda funktioner som är aggregerade. Använd inte vissa tider, användar-ID: n eller andra icke-aggregerade data som funktioner.
 
-        * En _åtgärdsfunktion_ är metadata om innehållet.
-        * En _kontextfunktion_ är metadata om den kontext där innehållet presenteras.
+        * En _Åtgärds funktion_ är metadata om innehållet.
+        * En _kontext funktion_ är metadata om kontexten där innehållet visas.
 
-* **Utforskning:** Personalizer-tjänsten utforskar när, istället för att returnera den bästa åtgärden, väljer den en annan åtgärd för användaren. Personalizer-tjänsten undviker drift, stagnation och kan anpassa sig till pågående användarbeteende genom att utforska.
+* **Utforskning**: tjänsten personanpassa är en utforskande av när du i stället för att returnera den bästa åtgärden väljer en annan åtgärd för användaren. Tjänsten personanpassa förhindrar drift, stagnation och kan anpassas till pågående användar beteende genom att utforska.
 
-* **Utnyttjande**: Personalizer-tjänsten använder den aktuella modellen för att bestämma den bästa åtgärden baserat på tidigare data.
+* **Utnyttjande**: tjänsten personanpassa använder den aktuella modellen för att avgöra den bästa åtgärden baserat på tidigare data.
 
-* **Experimentvaraktighet**: Den tid som Personalizer-tjänsten väntar på en belöning, från det ögonblick då rank-samtalet inträffade för den händelsen.
+* **Experimentets varaktighet**: den tid som tjänsten personanpassa förväntar sig en belöning, med början från det ögonblick då rang samtalet inträffade för händelsen.
 
-* **Inaktiva händelser**: En inaktiv händelse är en händelse där du ringde Rank, men du är inte säker på att användaren någonsin kommer att se resultatet, på grund av beslut om klientprogram. Med inaktiva händelser kan du skapa och lagra anpassningsresultat och sedan välja att ignorera dem senare utan att påverka maskininlärningsmodellen.
+* **Inaktiva händelser**: en inaktiv händelse är en där du anropade rang, men du är inte säker på att användaren någonsin kommer att se resultatet, på grund av klient programs beslut. Inaktiva händelser gör att du kan skapa och lagra anpassnings resultat och sedan välja att ta bort dem senare utan att påverka Machine Learning-modellen.
 
 
-* **Belöning:** Ett mått på hur användaren svarade på Rank API: s returnerade belöning åtgärd id, som en poäng mellan 0 till 1. Värdet 0 till 1 anges av din affärslogik, baserat på hur valet hjälpte till att uppnå dina affärsmål om personalisering. Inlärningsloopen lagrar inte den här belöningen som individuell användarhistorik.
+* **Belöning**: ett mått på hur användaren svarade på rang-API: et returnerade belönings åtgärds-ID, som ett resultat mellan 0 och 1. Värdet 0 till 1 anges av din affärs logik, baserat på hur valet hjälpte dig att uppnå dina affärs mål för anpassning. Inlärnings slingan lagrar inte den här belöningen som enskild användar historik.
 
 ## <a name="offline-evaluations"></a>Offlineutvärderingar
 
-* **Utvärdering**: En offlineutvärdering avgör den bästa inlärningspolicyn för din loop baserat på loopens data.
+* **Utvärdering**: en offline-utvärdering avgör den bästa inlärnings policyn för din loop baserat på loopens data.
 
-* **Utbildningspolitik**: Hur Personalizer tränar en modell på varje händelse kommer att avgöras av vissa parametrar som påverkar hur maskininlärningsalgoritmen fungerar. En ny inlärningsloop börjar med en **standardutbildningsprincip**, som kan ge måttlig prestanda. När Du kör [Utvärderingar](concepts-offline-evaluation.md)skapar Personalizer nya utbildningsprinciper som är särskilt optimerade för användningsfallen i loopen. Personalizer kommer att prestera betydligt bättre med principer som är optimerade för varje specifik loop, som genereras under utvärderingen. Utbildningsprincipen heter _utbildningsinställningar_ på **modell- och utbildningsinställningarna** för Personalizer-resursen i Azure-portalen.
+* **Inlärnings princip**: hur personanpassare en modell i varje händelse kommer att fastställas av vissa parametrar som påverkar hur Machine Learning-algoritmen fungerar. En ny inlärnings slinga börjar med en standard **inlärnings princip**som kan ge måttliga prestanda. När du kör [utvärderingarna](concepts-offline-evaluation.md)skapar personanpassaren nya inlärnings principer som är specifikt optimerade för användnings fall i slingan. Personanpassaren kommer att utföra avsevärt bättre med principer som är optimerade för varje enskild slinga, som genereras under utvärderingen. Inlärnings policyn heter _utbildnings inställningar_ på **modell-och utbildnings inställningarna** för personanpassa-resursen i Azure Portal.

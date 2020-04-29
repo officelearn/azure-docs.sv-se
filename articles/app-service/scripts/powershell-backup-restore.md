@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell: Återställa en appsäkerhetskopiering'
-description: Lär dig hur du använder Azure PowerShell för att automatisera distribution och hantering av App Service. Det här exemplet visar hur du återställer en app från en säkerhetskopia.
+title: 'PowerShell: återställa en säkerhets kopia av appen'
+description: Lär dig hur du använder Azure PowerShell för att automatisera distribution och hantering av App Service. Det här exemplet visar hur du återställer en app från en säkerhets kopia.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
@@ -9,17 +9,17 @@ ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: a10a451bff73c081d9b0c95c494acb8b2051bd84
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80057728"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>Återställa en webbapp från en säkerhetskopia med hjälp av Azure PowerShell
 
 Det här exempelskriptet hämtar en tidigare slutförd säkerhetskopia från en befintlig webbapp och återställer den genom att skriva över innehållet. 
 
-Om det behövs installerar du Azure PowerShell med hjälp av instruktionen som finns i [Azure PowerShell-guiden](/powershell/azure/overview)och kör `Connect-AzAccount` sedan för att skapa en anslutning med Azure. 
+Om det behövs installerar du Azure PowerShell med hjälp av den instruktion som finns i [Azure PowerShell-guiden](/powershell/azure/overview)och `Connect-AzAccount` kör sedan för att skapa en anslutning till Azure. 
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -39,7 +39,7 @@ Remove-AzResourceGroup -Name $resourceGroupName -Force
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Hämtar en lista över säkerhetskopior för en webbapp. |
 | [Restore-AzWebAppBackup](/powershell/module/az.websites/restore-azwebappbackup) | Återställer en webbapp från en tidigare slutförd säkerhetskopia. |

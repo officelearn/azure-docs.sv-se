@@ -1,6 +1,6 @@
 ---
-title: CLI exempel-backup-Azure SQL-databas
-description: Azure CLI-exempelskript för säkerhetskopiering av en Enda Azure SQL-databas till en Azure-lagringsbehållare
+title: CLI-exempel – säkerhets kopiering – Azure SQL Database
+description: Exempel skript för Azure CLI för att säkerhetskopiera en enkel Azure SQL-databas till en Azure Storage-behållare
 services: sql-database
 ms.service: sql-database
 ms.custom: ''
@@ -11,15 +11,15 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
 ms.openlocfilehash: 68af42bd83565243dad5d48f227fa5cef3115cf6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80061871"
 ---
-# <a name="use-cli-to-backup-an-azure-sql-single-database-to-an-azure-storage-container"></a>Använda CLI för att säkerhetskopiera en enda Azure SQL-databas till en Azure-lagringsbehållare
+# <a name="use-cli-to-backup-an-azure-sql-single-database-to-an-azure-storage-container"></a>Använd CLI för att säkerhetskopiera en enkel Azure SQL-databas till en Azure Storage-behållare
 
-Det här Azure CLI-exemplet säkerhetskopierar en Azure SQL-databas till en Azure-lagringsbehållare.  
+Det här Azure CLI-exemplet säkerhetskopierar en Azure SQL-databas till en Azure Storage-behållare.  
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -41,20 +41,20 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="clean-up-deployment"></a>Rensa distribution
 
-Använd följande kommando för att ta bort resursgruppen och alla resurser som är associerade med den.
+Använd följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den.
 
 ```azurecli-interactive
 az group delete --name $resource
 ```
 
-## <a name="sample-reference"></a>Exempelreferens
+## <a name="sample-reference"></a>Exempel referens
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
-| [az sql server](/cli/azure/sql/server) | Serverkommandon. |
-| [az sql db](/cli/azure/sql/db) | Databaskommandon. |
+| [az sql server](/cli/azure/sql/server) | Server kommandon. |
+| [AZ SQL DB](/cli/azure/sql/db) | Databas kommandon. |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: Skicka push-meddelanden till Windows Phone-appar med Azure Notification Hubs| Microsoft-dokument
+title: Skicka push-meddelanden till Windows Phone appar med Azure Notification Hubs | Microsoft Docs
 description: I den här självstudiekursen kommer du att få lära dig hur du använder Azure Notification Hubs för att skicka push-meddelanden till en Silverlight-app på Windows Phone 8 eller Windows Phone 8.1.
 services: notification-hubs
 documentationcenter: windows
@@ -19,13 +19,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 9cad4bfc474ef23492858ed3b0a6447932b589b4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80127074"
 ---
-# <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>Självstudiekurs: Skicka push-meddelanden till Windows Phone-appar med meddelandehubbar
+# <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>Självstudie: skicka push-meddelanden till Windows Phone appar med hjälp av Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -36,7 +36,7 @@ I denna självstudiekurs skapar du en tom Windows Phone 8-app som tar emot push-
 > [!NOTE]
 > SDK:erna för Windows Phone på Notification Hubs stöder inte användning av Windows Push Notification Service (WNS) med Silverlight-appar för Windows Phone 8.1. Om du vill använda WNS (istället för MPNS) med Silverlight-appar för Windows Phone 8.1, ska du följa anvisningarna i [Notification Hubs – självstudiekurs för Windows Phone Silverlight]. Där används istället REST-API:er.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en meddelandehubb

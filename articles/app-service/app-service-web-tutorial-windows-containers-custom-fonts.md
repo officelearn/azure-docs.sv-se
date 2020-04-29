@@ -1,14 +1,14 @@
 ---
-title: 'Självstudiekurs: Äldre app med behållare (förhandsgranskning)'
-description: Lär dig hur du migrerar en anpassad Windows-behållare till Azure App Service och distribuerar anpassad programvara i behållaren.
+title: 'Självstudie: äldre app med behållare (förhands granskning)'
+description: Lär dig hur du migrerar en anpassad Windows-behållare till Azure App Service och distribuerar den anpassade program varan i behållaren.
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 74cb88bc1ace87155a35163ca8f9d3d6c4242ae0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80046622"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrera en ASP.NET-app till Azure App Service med hjälp av en Windows-container (förhandsversion)
@@ -24,9 +24,9 @@ För att slutföra den här kursen behöver du:
 - <a href="https://hub.docker.com/" target="_blank">Registrera dig för ett Docker Hub-konto</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Installera Docker för Windows</a>.
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Växla Docker för att köra Windows-containrar</a>.
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">Installera Visual Studio 2019</a> med **ASP.NET- och webbutvecklings-** och **Azure-utvecklingsarbetsbelastningar.** Om du redan har installerat Visual Studio 2019:
-    - Installera de senaste uppdateringarna i Visual Studio genom att klicka på **Hjälp** > **sök efter uppdateringar**.
-    - Lägg till arbetsbelastningarna i Visual Studio genom att klicka på **Verktyg** > **hämta verktyg och funktioner**.
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">Installera Visual Studio 2019</a> med arbets belastningarna **ASP.net och webb utveckling** och **Azure Development** . Om du redan har installerat Visual Studio 2019:
+    - Installera de senaste uppdateringarna i Visual Studio genom att klicka på **Hjälp** > **söka efter uppdateringar**.
+    - Lägg till arbets belastningarna i Visual Studio genom att klicka på **verktyg** > **Hämta verktyg och funktioner**.
 
 ## <a name="set-up-the-app-locally"></a>Konfigurera appen lokalt
 
@@ -61,7 +61,7 @@ I Solution Explorer högerklickar du på projektet **CustomFontSample** och väl
 
 ![Dialogrutan Nytt ASP.NET-projekt](media/app-service-web-tutorial-windows-containers-custom-fonts/enable-container-orchestration.png)
 
-Välj **Docker Compose** > **OK**.
+Välj **Docker Skriv** > **OK**.
 
 Nu har projektet konfigurerats för att köra i en Windows-container. En _Dockerfile_ läggs till i **CustomFontSample**-projektet och ett **docker-compose**-projekt läggs till i lösningen. 
 
@@ -82,7 +82,7 @@ RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 Du hittar _InstallFont.ps1_ i projektet **CustomFontSample**. Det är ett enkelt skript som installerar teckensnittet. Du hittar en mer komplex version av skriptet i [Skriptcenter](https://gallery.technet.microsoft.com/scriptcenter/fb742f92-e594-4d0c-8b79-27564c575133).
 
 > [!NOTE]
-> Om du vill testa Windows-behållaren lokalt kontrollerar du att Docker startas på den lokala datorn.
+> För att testa Windows-behållaren lokalt, se till att Docker är igång på den lokala datorn.
 >
 
 ## <a name="publish-to-azure-container-registry"></a>Publicera till Azure Container Registry
@@ -97,7 +97,7 @@ I Solution Explorer högerklickar du på projektet **CustomFontSample** och väl
 
 ### <a name="create-registry-and-publish"></a>Skapa register och publicera
 
-Välj Behållarregister**Skapa nytt Azure-behållarregisterpublicering** > **Publish**i **publiceringsguiden** > .
+I guiden publicera väljer du **container Registry** > **Skapa ny Azure Container Registry** > **publicera**.
 
 ![Dialogrutan Nytt ASP.NET-projekt](media/app-service-web-tutorial-windows-containers-custom-fonts/create-registry.png)
 
@@ -111,11 +111,11 @@ I dialogrutan **Create a new Azure Container Registry** (Skapa nytt Azure-contai
 
 Konfigurera det nya containerregistret baserat på de föreslagna värdena i tabellen nedan. Klicka på **Skapa** när du är klar.
 
-| Inställning  | Föreslaget värde | Mer information |
+| Inställningen  | Föreslaget värde | Mer information |
 | ----------------- | ------------ | ----|
 |**DNS-prefix**| Behåll det genererade registernamnet eller ändra det till ett annat unikt namn. |  |
-|**Resursgrupp**| Klicka på **Nytt**, skriv **myResourceGroup** och klicka på **OK**. |  |
-|**Sku**| Basic | [Prisnivåer](https://azure.microsoft.com/pricing/details/container-registry/)|
+|**Resurs grupp**| Klicka på **Nytt**, skriv **myResourceGroup** och klicka på **OK**. |  |
+|**SKU**| Basic | [Prisnivåer](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Registerplats**| Europa, västra | |
 
 ![Konfigurera Azure-containerregister](./media/app-service-web-tutorial-windows-containers-custom-fonts/configure-registry.png)
@@ -128,36 +128,36 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
 
-Välj Skapa en > **resurswebbapp** > **för behållare på**den vänstra menyn . **Create a resource**
+På den vänstra menyn väljer du **skapa en resurs** > **webb** > **Web App for containers**.
 
-### <a name="configure-app-basics"></a>Konfigurera grunderna i appen
+### <a name="configure-app-basics"></a>Konfigurera grundläggande program
 
-Konfigurera inställningarna enligt följande tabell på fliken **Grunderna** och klicka sedan på **Nästa: Docker**.
+På fliken **grundläggande** inställningar konfigurerar du inställningarna enligt följande tabell och klickar sedan på **Nästa: Docker**.
 
-| Inställning  | Föreslaget värde | Mer information |
+| Inställningen  | Föreslaget värde | Mer information |
 | ----------------- | ------------ | ----|
-|**Prenumeration**| Kontrollera att rätt prenumeration är markerad. |  |
-|**Resursgrupp**| Välj **Skapa ny**, skriv **myResourceGroup**och klicka på **OK**. |  |
+|**Prenumeration**| Kontrol lera att rätt prenumeration har valts. |  |
+|**Resurs grupp**| Välj **Skapa ny**, Skriv **myResourceGroup**och klicka på **OK**. |  |
 |**Namn**| Skriv ett unikt namn. | Webbadressen till webbappen är `http://<app-name>.azurewebsites.net`, där `<app-name>` är appens namn. |
 |**Publicera**| Docker-behållare | |
-|**Operativsystem**| Windows | |
-|**Regionen**| Europa, västra | |
-|**Windows-plan**| Välj **Skapa ny**, skriv **myAppServicePlan**och klicka på **OK**. | |
+|**Operativ system**| Windows | |
+|**Region**| Europa, västra | |
+|**Windows-plan**| Välj **Skapa ny**, Skriv **myAppServicePlan**och klicka på **OK**. | |
 
-Fliken **Grunderna** ska se ut så här:
+Fliken **grundläggande** bör se ut så här:
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-basics.png)
 
 ### <a name="configure-windows-container"></a>Konfigurera Windows-containern
 
-Konfigurera den anpassade Windows-behållaren på fliken **Docker** enligt följande tabell och välj **Granska + skapa**.
+På fliken **Docker** konfigurerar du din anpassade Windows-behållare så som visas i följande tabell och väljer **Granska + skapa**.
 
-| Inställning  | Föreslaget värde |
+| Inställningen  | Föreslaget värde |
 | ----------------- | ------------ |
-|**Bildkälla**| Azure-behållarregister |
-|**Registret**| Markera [det register som du skapade tidigare](#publish-to-azure-container-registry). |
+|**Bildkälla**| Azure Container register |
+|**Registernyckeln**| Välj [registret som du skapade tidigare](#publish-to-azure-container-registry). |
 |**Bild**| customfontsample |
-|**Etiketten**| senaste |
+|**Tag**| senaste |
 
 ### <a name="complete-app-creation"></a>Slutför appgenereringen
 
@@ -185,7 +185,7 @@ Vänta några minuter och försök igen tills startsidan visas med det snygga te
 
 ## <a name="see-container-start-up-logs"></a>Se containerns startloggar
 
-Det kan ta lite tid för Windows-containern att läsas in. Om du vill se förloppet navigerar du till följande WEBBADRESS genom att ersätta * \<>med* appens namn.
+Det kan ta lite tid för Windows-containern att läsas in. Om du vill se förloppet navigerar du till följande URL genom att ersätta * \<App-Name->* med namnet på din app.
 ```
 https://<app-name>.scm.azurewebsites.net/api/logstream
 ```

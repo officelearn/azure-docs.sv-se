@@ -1,7 +1,7 @@
 ---
 title: Sammanfatta data
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen Sammanfatta data i Azure Machine Learning för att generera en grundläggande beskrivande statistikrapport för kolumnerna i en datauppsättning.
+description: Lär dig hur du använder modulen sammanfatta data i Azure Machine Learning för att skapa en grundläggande beskrivande statistik rapport för kolumnerna i en data uppsättning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,35 +10,35 @@ author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
 ms.openlocfilehash: b0def12582dd3795e1b17334406e28d77c3c5656
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79477450"
 ---
 # <a name="summarize-data"></a>Sammanfatta data
 
-I den här artikeln beskrivs en modul med Azure Machine Learning designer (förhandsversion).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
-Använd modulen Sammanfatta data för att skapa en uppsättning statistiska standardmått som beskriver varje kolumn i indatatabellen.
+Använd modulen sammanfatta data för att skapa en uppsättning standard statistiska mått som beskriver varje kolumn i inmatnings tabellen.
 
-Sammanfattningsstatistik är användbar när du vill förstå egenskaperna för hela datauppsättningen. Du kan till exempel behöva veta:
+Sammanfattnings statistik är användbar när du vill förstå egenskaperna för hela data uppsättningen. Du kan till exempel behöva känna till:
 
-- Hur många värden saknas i varje kolumn?
-- Hur många unika värden finns det i en funktionskolumn?
-- Vad är medelvärdet och standardavvikelsen för varje kolumn?
+- Hur många saknade värden finns det i varje kolumn?
+- Hur många unika värden finns i en funktions kolumn?
+- Vad är medelvärdet och standard avvikelsen för varje kolumn?
 
-Modulen beräknar de viktiga poängen för varje kolumn och returnerar en rad med sammanfattningsstatistik för varje variabel (datakolumn) som anges som indata.
+Modulen beräknar de viktiga poängen för varje kolumn och returnerar en rad med sammanfattnings statistik för varje variabel (data kolumn) som angetts som indata.
 
-## <a name="how-to-configure-summarize-data"></a>Konfigurera sammanfatta data  
+## <a name="how-to-configure-summarize-data"></a>Konfigurera sammanfattande data  
 
-1. Lägg till modulen **Sammanfatta data** i pipelinen. Du hittar den här modulen i kategorin **Statistiska funktioner** i designern.
+1. Lägg till modulen **sammanfatta data** i din pipeline. Du hittar den här modulen i kategorin **statistiska funktioner** i designern.
 
-1. Anslut den datauppsättning som du vill generera en rapport för.
+1. Anslut den data uppsättning som du vill skapa en rapport för.
 
-    Om du bara vill rapportera om vissa kolumner använder du modulen [Välj kolumner i datauppsättning](select-columns-in-dataset.md) för att projicera en delmängd kolumner att arbeta med.
+    Om du bara vill rapportera om vissa kolumner använder du modulen [Välj kolumner i data uppsättning](select-columns-in-dataset.md) för att projicera en delmängd med kolumner att arbeta med.
 
-1. Inga ytterligare parametrar krävs. Som standard analyserar modulen alla kolumner som tillhandahålls som indata, och beroende på typen av värden i kolumnerna matar ut en relevant statistikuppsättning enligt beskrivningen i avsnittet [Resultat.](#results)
+1. Inga ytterligare parametrar krävs. Som standard analyserar modulen alla kolumner som tillhandahålls som indata, och beroende på vilken typ av värden som finns i kolumnerna, matas ut en relevant uppsättning statistik enligt beskrivningen i avsnittet [resultat](#results) .
 
 1. Skicka pipelinen.
 
@@ -49,42 +49,42 @@ Rapporten från modulen kan innehålla följande statistik.
 |Kolumnnamn|Beskrivning|
 |------|------|  
 |**Funktion**|Kolumnens namn|
-|**Räkna**|Antal rader för alla rader|
-|**Unikt värdeantal**|Antal unika värden i kolumnen|
-|**Antal värden saknas**|Antal unika värden i kolumnen|
-|**Min**|Lägsta värde i kolumnen|  
-|**Max**|Högsta värde i kolumnen|
-|**Medelvärde**|Medelvärde för alla kolumnvärden|
-|**Genomsnittlig avvikelse**|Genomsnittlig avvikelse för kolumnvärden|
-|**1: a kvartil**|Värde vid första kvartilen|
-|**Median**|Mediankolumnvärde|
-|**Tredje kvartilen**|Värde vid tredje kvartilen|
-|**Läge**|Läge för kolumnvärden|
-|**Intervall**|Heltal som representerar antalet värden mellan högsta och lägsta värden|
-|**Provavvikelse**|Varians för kolumn; se Anmärkning|
-|**Exempel på standardavvikelse**|Standardavvikelse för kolumn; se Anmärkning|
-|**Prov skevhet**|Skevhet för kolumn; se Anmärkning|
-|**Prov Kurtosis**|Kurtosis för kolonn; se Anmärkning|
-|**P0.5**|0,5% percentil|
+|**Antal**|Antal rader|
+|**Antal unika värden**|Antal unika värden i kolumnen|
+|**Antal saknade värden**|Antal unika värden i kolumnen|
+|**Minimum**|Lägsta värdet i kolumnen|  
+|**Bekräftat**|Högsta värdet i kolumnen|
+|**Medelvärde**|Medelvärde för alla kolumn värden|
+|**Genomsnittlig avvikelse**|Medelvärde för kolumn värden|
+|**1: a kvartilen**|Värde vid första kvartilen|
+|**Median**|Kolumn värde för median|
+|**tredje kvartilen**|Värde vid tredje kvartilen|
+|**Läge**|Läge för kolumn värden|
+|**Intervall**|Ett heltal som representerar antalet värden mellan högsta och lägsta värden|
+|**Exempel avvikelse**|Varians för kolumn; Se Obs!|
+|**Exempel på standard avvikelse**|Standard avvikelse för kolumn; Se Obs!|
+|**Exempel skevning**|Skevning för kolumnen; Se Obs!|
+|**Exempel-och-upplösning**|För kolumn; Se Obs!|
+|**P 0,5**|0,5% percentil|
 |**P1**|1% percentil|
 |**P5**|5% percentil|
-|**P95 (S)**|95% percentil|
-|**P99.5**|99,5% percentil |
+|**P95**|95% percentil|
+|**P 99,5**|99,5% percentil |
 
-## <a name="technical-notes"></a>Tekniska anmärkningar
+## <a name="technical-notes"></a>Tekniska anteckningar
 
-- För icke-numeriska kolumner beräknas endast värdena för Antal, Unikt värdeantal och Antal saknade värden. För annan statistik returneras ett null-värde.
+- För icke-numeriska kolumner beräknas endast värdena för antal, unika värden och antalet saknade värden. För annan statistik returneras ett null-värde.
 
-- Kolumner som innehåller booleska värden bearbetas med hjälp av följande regler:
+- Kolumner som innehåller booleska värden bearbetas med följande regler:
 
-    - Vid beräkning av Min tillämpas ett logiskt OCH.
+    - Vid beräkningen av min används ett logiskt och används.
     
-    - Vid beräkning av Max används ett logiskt ELLER
+    - Vid beräkning av Max, ett logiskt eller används
     
-    - När du beräknar område kontrollerar modulen först om antalet unika värden i kolumnen är lika med 2.
+    - Vid beräknings intervallet kontrollerar modulen först om antalet unika värden i kolumnen är lika med 2.
     
-    - Vid beräkning av statistik som kräver flyttalsberäkningar behandlas värdena i True som 1.0 och värden för False behandlas som 0,0.
+    - När du beräknar statistik som kräver flytt ALS beräkningar behandlas värdena true som 1,0 och värdet false behandlas som 0,0.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.  
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.  

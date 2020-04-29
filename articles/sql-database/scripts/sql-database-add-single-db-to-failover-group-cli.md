@@ -1,6 +1,6 @@
 ---
-title: CLI exempel-lägga till en databas till redundansgrupp - Azure SQL Database
-description: Azure CLI exempel skript för att skapa en Azure SQL Database enda databas, lägga till den i en redundansgrupp och testa redundans.
+title: CLI-exempel – Lägg till en enskild databas i gruppen redundans-Azure SQL Database
+description: Exempel skript för Azure CLI för att skapa en Azure SQL Database enskild databas, lägga till den i en grupp för redundans och testa redundans.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,15 +12,15 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
 ms.openlocfilehash: bc238f08021bb9fb16b8c7319e63acebdfec3948
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80061893"
 ---
-# <a name="use-cli-to-add-an-azure-sql-database-into-a-failover-group"></a>Använda CLI för att lägga till en Azure SQL-databas i en redundansgrupp
+# <a name="use-cli-to-add-an-azure-sql-database-into-a-failover-group"></a>Använd CLI för att lägga till en Azure SQL Database i en grupp för redundans
 
-Det här Azure CLI-skriptexempeln skapar en enskild databas, skapar en redundansgrupp, lägger till databasen i den och testar redundans.
+Det här skript exemplet för Azure CLI skapar en enda databas, skapar en grupp för växling vid fel, lägger till databasen i den och testar redundansväxlingen.
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -42,20 +42,20 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="clean-up-deployment"></a>Rensa distribution
 
-Använd följande kommando för att ta bort resursgruppen och alla resurser som är associerade med den.
+Använd följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den.
 
 ```azurecli-interactive
 az group delete --name $resource
 ```
 
-## <a name="sample-reference"></a>Exempelreferens
+## <a name="sample-reference"></a>Exempel referens
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | | |
 |---|---|
-| [az sql db](/cli/azure/sql/db) | Databaskommandon. |
-| [az sql redundansgrupp](/cli/azure/sql/failover-group) | Kommandon i redundansgruppen. |
+| [AZ SQL DB](/cli/azure/sql/db) | Databas kommandon. |
+| [AZ SQL-redundans – grupp](/cli/azure/sql/failover-group) | Kommandon för redundans grupp. |
 
 ## <a name="next-steps"></a>Nästa steg
 

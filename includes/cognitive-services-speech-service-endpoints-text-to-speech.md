@@ -5,42 +5,42 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
 ms.openlocfilehash: a1de313245e826511a7e9c864165ac44bcb48530
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80234131"
 ---
-### <a name="standard-and-neural-voices"></a>Standard- och neurala röster
+### <a name="standard-and-neural-voices"></a>Standard-och neurala-röster
 
-Använd den här tabellen för att fastställa tillgängligheten för standardröster och neurala röster efter region/slutpunkt:
+Använd den här tabellen för att fastställa tillgängligheten för standard-och neurala-röster per region/slut punkt:
 
-| Region | Slutpunkt | Standard röster | Neurala röster |
+| Region | Slutpunkt | Standard röster | Neurala-röster |
 |--------|----------|-----------------|---------------|
 | Australien, östra | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
-| Brasilien, södra | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Inga |
+| Brasilien, södra | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
 | Kanada, centrala | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
-| USA, centrala | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Inga |
-| Asien, östra | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Inga |
+| USA, centrala | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
+| Asien, östra | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
 | USA, östra | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
-| USA, östra 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Inga |
-| Frankrike, centrala | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Inga |
+| USA, östra 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
+| Frankrike, centrala | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
 | Indien, centrala | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
-| Japan, östra | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Inga |
-| Japan, västra | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Inga |
-| Sydkorea, centrala | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Inga |
-| USA, norra centrala | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Inga |
-| Europa, norra | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Inga |
+| Japan, östra | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
+| Japan, västra | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
+| Sydkorea, centrala | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
+| USA, norra centrala | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
+| Europa, norra | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
 | USA, södra centrala | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
 | Sydostasien | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
 | Storbritannien, södra | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
 | Europa, västra | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
-| USA, västra | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Inga |
+| USA, västra | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Nej |
 | USA, västra 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Ja | Ja |
 
 ### <a name="custom-voices"></a>Anpassade röster
 
-Om du har skapat ett anpassat röstteckensnitt använder du slutpunkten som du har skapat. Du kan också använda slutpunkterna nedan `{deploymentId}` och ersätta distributions-ID:t för din röstmodell.
+Om du har skapat ett anpassat röst teckensnitt använder du den slut punkt som du har skapat. Du kan också använda slut punkterna som anges nedan och ersätta `{deploymentId}` med distributions-ID: t för din röst modell.
 
 | Region | Slutpunkt |
 |--------|----------|

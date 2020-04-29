@@ -1,7 +1,7 @@
 ---
-title: Färgschemaidentifiering - Datorseende
+title: Identifiering av färg schema – Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Begrepp relaterade till att identifiera färgschemat i bilder med hjälp av API:et för visuellt innehåll.
+description: Begrepp som rör att identifiera färg schema i bilder med hjälp av API för visuellt innehåll.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,25 +12,25 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: af0c39ed8211ac2041d143112437ad5d6b384259
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80244740"
 ---
-# <a name="detect-color-schemes-in-images"></a>Identifiera färgscheman i bilder
+# <a name="detect-color-schemes-in-images"></a>Identifiera färg scheman i bilder
 
-Computer Vision analyserar färgerna i en bild för att ge tre olika attribut: den dominerande förgrundsfärgen, den dominerande bakgrundsfärgen och uppsättningen dominerande färger för bilden som helhet. Returnerade färger tillhör uppsättningen: svart, blå, brun, grå, grön, orange, rosa, lila, röd, kricka, vit och gul. 
+Visuellt innehåll analyserar färgerna i en bild för att tillhandahålla tre olika attribut: den dominerande förgrunds färgen, den dominerande bakgrunds färgen och uppsättningen av dominerande färger för bilden som helhet. Returnerade färger tillhör uppsättningen: svart, blå, brun, grå, grön, orange, rosa, lila, röd, blågrön, vit och gul. 
 
-Computer Vision extraherar också en accentfärg, som representerar den mest levande färgen i bilden, baserat på en kombination av dominerande färger och mättnad. Accentfärgen returneras som en hexadecimal HTML-färgkod. 
+Visuellt innehåll också extrahera en accentfärg, som representerar den mest livfulla färgen i bilden, baserat på en kombination av dominerande färger och mättnad. Dekor färgen returneras som en hexadecimal HTML-färgkod. 
 
-Datorseende returnerar också ett booleskt värde som anger om en bild är i svartvitt.
+Visuellt innehåll returnerar också ett booleskt värde som anger om en bild är i svart vitt.
 
-## <a name="color-scheme-detection-examples"></a>Exempel på identifiering av färgschema
+## <a name="color-scheme-detection-examples"></a>Exempel på identifiering av färg scheman
 
-I följande exempel visas JSON-svaret som returneras av Datorseende när exempelbildens färgschema identifieras. I det här fallet är exempelbilden inte en svartvit bild, men de dominerande förgrunds- och bakgrundsfärgerna är svarta och de dominerande färgerna för bilden som helhet är svartvita.
+I följande exempel visas ett JSON-svar som returneras av Visuellt innehåll när du identifierar exempel bildens färg schema. I det här fallet är exempel bilden inte en svartvit bild, men de dominerande förgrunds-och bakgrunds färgerna är svarta och de dominerande färgerna för bilden som helhet är svarta och vita.
 
-![Utomhusberg vid solnedgången, med en persons silhuett](./Images/mountain_vista.png)
+![Utomhus mountainbike vid solnedgång, med en persons Silhouette](./Images/mountain_vista.png)
 
 ```json
 {
@@ -50,37 +50,37 @@ I följande exempel visas JSON-svaret som returneras av Datorseende när exempel
 }
 ```
 
-### <a name="dominant-color-examples"></a>Dominerande färgexempel
+### <a name="dominant-color-examples"></a>Dominerande färg exempel
 
-I följande tabell visas de returnerade förgrunds-, bakgrunds- och bildfärgerna för varje exempelbild.
+I följande tabell visas de färger som returneras för förgrunds-, bakgrunds-och bildfiler för varje exempel bild.
 
 | Bild | Dominerande färger |
 |-------|-----------------|
-|![En vit blomma med grön bakgrund](./Images/flower.png)| Förgrund: Svart<br/>Bakgrund: Vit<br/>Färger: Svart, Vit, Grön|
-![Ett tåg som går genom en station](./Images/train_station.png) | Förgrund: Svart<br/>Bakgrund: Svart<br/>Färger: Svart |
+|![En vit blomma med grön bakgrund](./Images/flower.png)| Förgrund: svart<br/>Bakgrund: vit<br/>Färger: svart, vit, grönt|
+![Ett tåg som körs via en station](./Images/train_station.png) | Förgrund: svart<br/>Bakgrund: svart<br/>Färger: svart |
 
-### <a name="accent-color-examples"></a>Exempel på accentfärg
+### <a name="accent-color-examples"></a>Dekor färgs exempel
 
- I följande tabell visas den returnerade accentfärgen som ett hexadecimalt HTML-färgvärde för varje exempelbild.
+ I följande tabell visas den returnerade tilläggs färgen, som ett hexadecimalt HTML-färg värde, för varje exempel bild.
 
 | Bild | Accentfärg |
 |-------|--------------|
-|![En person som står på en bergsten vid solnedgången](./Images/mountain_vista.png) | #BB6D10 |
+|![En person som står på en Mountain rock vid solnedgång](./Images/mountain_vista.png) | #BB6D10 |
 |![En vit blomma med grön bakgrund](./Images/flower.png) | #C6A205 |
-|![Ett tåg som går genom en station](./Images/train_station.png) | #474A84 |
+|![Ett tåg som körs via en station](./Images/train_station.png) | #474A84 |
 
-### <a name="black--white-detection-examples"></a>Exempel på svart & vit identifiering
+### <a name="black--white-detection-examples"></a>Exempel på svart & White Detection
 
-I följande tabell visas Datorseendes svartvita utvärdering i exempelbilderna.
+I följande tabell visas Visuellt innehållens svarta och vita utvärdering i exempel bilderna.
 
-| Bild | Svart & vit? |
+| Bild | Svart & vitt? |
 |-------|----------------|
-|![En svartvit bild av byggnader på Manhattan](./Images/bw_buildings.png) | true |
-|![Ett blått hus och framsidan](./Images/house_yard.png) | false |
+|![En svart och vit bild av byggnader i Manhattan](./Images/bw_buildings.png) | true |
+|![Ett blått hus och en främre meter](./Images/house_yard.png) | falskt |
 
 ## <a name="use-the-api"></a>Använda API:et
 
-Färgschemaidentifieringsfunktionen är en del av [Api:et för analyseravbildning.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Du kan anropa det här API:et via en inbyggd SDK eller via REST-anrop. Inkludera `Color` i frågeparametern **visualFeatures.** Sedan, när du får hela JSON svar, helt enkelt tolka `"color"` strängen för innehållet i avsnittet.
+Funktionen för identifiering av färg scheman är en del av API: et [analys av avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Du kan anropa API: et via en inbyggd SDK eller via REST-anrop. Inkludera `Color` i **visualFeatures** -Frågeparametern. När du sedan får det fullständiga JSON-svaret ska du bara parsa strängen för innehållet i `"color"` avsnittet.
 
-* [Snabbstart: Datorseende .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
-* [Snabbstart: Analysera en bild (REST API)](./quickstarts/csharp-analyze.md)
+* [Snabb start: Visuellt innehåll .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Snabb start: analysera en avbildning (REST API)](./quickstarts/csharp-analyze.md)

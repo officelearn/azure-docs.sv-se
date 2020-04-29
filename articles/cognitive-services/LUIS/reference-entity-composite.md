@@ -1,7 +1,7 @@
 ---
-title: Sammansatt entitetstyp - LUIS
+title: Sammansatt entitetstyp – LUIS
 titleSuffix: Azure Cognitive Services
-description: En sammansatt entitet består av andra entiteter, till exempel fördefinierade entiteter, enkla, reguljära uttryck och listentiteter. De separata entiteterna utgör en hel entitet.
+description: En sammansatt entitet består av andra entiteter, till exempel färdiga entiteter, enkla, reguljära uttryck och list enheter. Separata entiteter utgör en hel entitet.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,39 +11,39 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: a5a1ad467074ee0aa55d14d50ae153ac68304e6f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71695155"
 ---
 # <a name="composite-entity"></a>Sammansatt entitet 
 
-En sammansatt entitet består av andra entiteter, till exempel fördefinierade entiteter, enkla, reguljära uttryck och listentiteter. De separata entiteterna utgör en hel entitet. 
+En sammansatt entitet består av andra entiteter, till exempel färdiga entiteter, enkla, reguljära uttryck och list enheter. Separata entiteter utgör en hel entitet. 
 
 **Den här entiteten passar bra när data:**
 
 * Är relaterade till varandra. 
 * De är relaterade till varandra i yttrandet.
-* Använd en mängd olika entitetstyper.
-* Måste grupperas och bearbetas av klientprogrammet som en informationsenhet.
-* Har en mängd olika användaryttranden som kräver maskininlärning.
+* Använd olika typer av enheter.
+* Måste grupperas och bearbetas av klient programmet som en informations enhet.
+* Ha en rad olika användar yttranden som kräver maskin inlärning.
 
-![sammansatt enhet](./media/luis-concept-entities/composite-entity.png)
+![sammansatt entitet](./media/luis-concept-entities/composite-entity.png)
 
-## <a name="example-json"></a>Exempel på JSON
+## <a name="example-json"></a>Exempel-JSON
 
-Överväg en sammansatt entitet av fördefinierade `number` och `Location::ToLocation` med följande uttryck:
+Betrakta en sammansatt entitet av `number` fördefinierad `Location::ToLocation` och med följande uttryck:
 
 `book 2 tickets to cairo`
 
-Observera `2`att , numret `cairo`och tolocationen har ord mellan dem som inte ingår i någon av entiteterna. Den gröna understrykningen, som används i [LUIS](luis-reference-regions.md) ett märkt uttryck på LUIS-webbplatsen, anger en sammansatt entitet.
+Observera att `2`antalet och `cairo`ToLocation innehåller ord mellan dem som inte ingår i någon av entiteterna. Den gröna understrykningen, som används i en etikettad uttryck på [Luis](luis-reference-regions.md) -webbplatsen, anger en sammansatt entitet.
 
 ![Sammansatt entitet](./media/luis-concept-data-extraction/composite-entity.png)
 
-#### <a name="v2-prediction-endpoint-response"></a>[V2-effektpunktssvar för förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
-Sammansatta entiteter `compositeEntities` returneras i en matris och alla entiteter i kompositen returneras också i matrisen: `entities`
+Sammansatta entiteter returneras `compositeEntities` i en matris och alla entiteter i den sammansatta `entities` returneras också i matrisen:
 
 ```JSON
   "entities": [
@@ -89,9 +89,9 @@ Sammansatta entiteter `compositeEntities` returneras i en matris och alla entite
   ]
 ```    
 
-#### <a name="v3-prediction-endpoint-response"></a>[V3-effektslutpunktssvar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
-Detta är JSON `verbose=false` om anges i frågesträngen:
+Detta är JSON om `verbose=false` anges i frågesträngen:
 
 ```json
 "entities": {
@@ -108,7 +108,7 @@ Detta är JSON `verbose=false` om anges i frågesträngen:
 }
 ```
 
-Detta är JSON `verbose=true` om anges i frågesträngen:
+Detta är JSON om `verbose=true` anges i frågesträngen:
 
 ```json
 "entities": {
@@ -172,11 +172,11 @@ Detta är JSON `verbose=true` om anges i frågesträngen:
 * * * 
 
 
-|Dataobjekt|Entitetsnamn|Värde|
+|Data objekt|Entitetsnamn|Värde|
 |--|--|--|
-|Fördefinierad entitet - tal|"byggt.nummer"|"2"|
-|Förbyggd enhet - GeografiV2|"Plats::ToLocation"|"Kairo"|
+|Fördefinierad entitet-nummer|"Builtin. Number"|11.2|
+|Fördefinierad entitet – GeographyV2|"Plats:: ToLocation"|Cairo|
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här [självstudien](luis-tutorial-composite-entity.md)lägger du till en **sammansatt entitet** för att paketera extraherade data av olika typer i en enda innehållande entitet. Genom att bunta ihop data kan klientprogrammet enkelt extrahera relaterade data i olika datatyper.
+I den här [självstudien](luis-tutorial-composite-entity.md)lägger du till en **sammansatt enhet** för att bunta extraherade data av olika typer till en enda som innehåller entiteten. Genom att koppla samman data kan klient programmet enkelt extrahera relaterade data i olika data typer.

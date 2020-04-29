@@ -6,17 +6,17 @@ ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 16093ec5e837b098da3c9b038fe2a57cd76c7151
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78851810"
 ---
-# <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Snabbstart: Få svar på en fråga från en kunskapsbas med C #
+# <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Snabb start: få svar på en fråga från en kunskaps bas med C #
 
-Den här snabbstarten vägleder dig genom att programmatiskt hämta ett svar från en publicerad QnA Maker-kunskapsbas. Kunskapsbasen innehåller frågor och svar från [datakällor](../Concepts/knowledge-base.md) som vanliga frågor och svar. [Frågan](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) skickas till QnA Maker-tjänsten. [Svaret](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) innehåller det mest förutsedda svaret.
+Den här snabbstarten vägleder dig genom att programmatiskt hämta ett svar från en publicerad QnA Maker-kunskapsbas. Kunskaps basen innehåller frågor och svar från [data källor](../Concepts/knowledge-base.md) som vanliga frågor och svar. [Frågan](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) skickas till QNA Maker tjänsten. [Svaret](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) innehåller det mest förväntade svaret.
 
-[Exempel](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime) | [på referensdokumentation](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs)
+[Reference documentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime) | [Exempel](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs) på referens dokumentation
 
 ## <a name="prerequisites"></a>Krav
 
@@ -30,8 +30,8 @@ Den här snabbstarten vägleder dig genom att programmatiskt hämta ett svar fr�
 
 ## <a name="create-a-knowledge-base-project"></a>Skapa ett kunskapsbasprojekt
 
-1. Öppna Visual Studio 2019 Community edition.
-1. Skapa ett nytt Console App-projekt (.NET Core) och namnge projektet QnaMakerQuickstart. Godkänn standardinställningarna för de återstående inställningarna.
+1. Öppna Visual Studio 2019 Community Edition.
+1. Skapa ett nytt konsol program (.NET Core)-projekt och namnge projektet QnaMakerQuickstart. Godkänn standardinställningarna för de återstående inställningarna.
 
 ## <a name="add-the-required-dependencies"></a>Lägga till nödvändiga beroenden
 

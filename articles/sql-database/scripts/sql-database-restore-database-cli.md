@@ -1,6 +1,6 @@
 ---
-title: CLI exempel-återställa-backup-Azure SQL-databas
-description: Azure CLI-exempelskript för att återställa en enda Azure SQL-databas till en tidigare tidpunkt från automatiska säkerhetskopieringar
+title: CLI-exempel – återställning-backup – Azure SQL Database
+description: Exempel skript för Azure CLI för att återställa en enkel Azure SQL-databas till en tidigare tidpunkt från automatiska säkerhets kopieringar
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -12,13 +12,13 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
 ms.openlocfilehash: 36c565837b95ce2f391d38b9934b7cf19c613897
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80067377"
 ---
-# <a name="use-cli-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Använda CLI för att återställa en enda Azure SQL-databas till en tidigare tidpunkt
+# <a name="use-cli-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Använd CLI för att återställa en enkel Azure SQL-databas till en tidigare tidpunkt
 
 Det här Azure CLI-exemplet återställer en Azure SQL-databas till en viss tidpunkt.  
 
@@ -42,19 +42,19 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="clean-up-deployment"></a>Rensa distribution
 
-Använd följande kommando för att ta bort resursgruppen och alla resurser som är associerade med den.
+Använd följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den.
 
 ```azurecli-interactive
 az group delete --name $resource
 ```
 
-## <a name="sample-reference"></a>Exempelreferens
+## <a name="sample-reference"></a>Exempel referens
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | | |
 |---|---|
-| [az sql db återställa](/cli/azure/sql/db#az-sql-db-restore) | Kommandot Återställ databasen. |
+| [AZ SQL DB-återställning](/cli/azure/sql/db#az-sql-db-restore) | Återställ databas kommando. |
 
 ## <a name="next-steps"></a>Nästa steg
 

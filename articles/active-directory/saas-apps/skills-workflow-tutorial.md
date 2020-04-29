@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med Skills Workflow | Microsoft-dokument'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Skills Workflow.
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med arbets flöde för kunskaper | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och arbets flöde för kunskaper.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,127 +16,127 @@ ms.date: 03/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 99f78b3b6c61e40f3820171d4b69eed104ed20a8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79503617"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-skills-workflow"></a>Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med skills workflow
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-skills-workflow"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med arbets flöde för kunskaper
 
-I den här självstudien får du lära dig hur du integrerar arbetsflöde för kunskaper med Azure Active Directory (Azure AD). När du integrerar arbetsflöde för kunskaper med Azure AD kan du:
+I den här självstudien får du lära dig hur du integrerar arbets flödet för kunskaper med Azure Active Directory (Azure AD). När du integrerar arbets flödet för kunskaper med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till arbetsflöde för kunskaper.
-* Gör att användarna automatiskt loggas in på Skills Workflow med sina Azure AD-konton.
-* Hantera dina konton på en central plats - Azure-portalen.
+* Kontroll i Azure AD som har åtkomst till arbets flöde för kunskaper.
+* Gör det möjligt för användarna att logga in automatiskt till arbets flöde för kunskaper med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* Skills Workflow single sign-on (SSO) aktiverad prenumeration.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Arbets flöde för enkel inloggning (SSO) för färdighets arbets flöde.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Skills Workflow stöder **SP** initierad SSO
-* När du har konfigurerat Arbetsflöde för kunskaper kan du framtvinga sessionskontroll, som skyddar exfiltrering och infiltration av organisationens känsliga data i realtid. Sessionskontrollen sträcker sig från villkorlig åtkomst. [Lär dig hur du framtvingar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Arbets flöde för kunskaper stöder **SP** -INITIERAd SSO
+* När du har konfigurerat arbets flödet för arbets flöden kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-skills-workflow-from-the-gallery"></a>Lägga till arbetsflöde för kunskaper från galleriet
+## <a name="adding-skills-workflow-from-the-gallery"></a>Lägga till arbets flöde för kunskaper från galleriet
 
-Om du vill konfigurera integreringen av arbetsflöde för kunskaper i Azure AD måste du lägga till arbetsflöde för kunskaper från galleriet i listan över hanterade SaaS-appar.
+Du måste lägga till arbets flöde för kunskaper från galleriet till din lista över hanterade SaaS-appar för att konfigurera integrering av arbets flöde för kunskaper i Azure AD.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
-1. Navigera till **företagsprogram** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **Arbetsflöde för** kunskaper i sökrutan i avsnittet Lägg till **från galleriet.**
-1. Välj **Arbetsflöde för kunskaper** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** skriver du **arbets flöde för kunskaper** i sökrutan.
+1. Välj **arbets flöde för kunskaper** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-skills-workflow"></a>Konfigurera och testa Azure AD-enstaka inloggning för arbetsflöde för kunskaper
+## <a name="configure-and-test-azure-ad-single-sign-on-for-skills-workflow"></a>Konfigurera och testa enkel inloggning för Azure AD för arbets flöde för kunskaper
 
-Konfigurera och testa Azure AD SSO med Skills Workflow med hjälp av en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i Skills Workflow.
+Konfigurera och testa Azure AD SSO med arbets flöde för kunskaper med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och relaterad användare i arbets flödet för kunskaper.
 
-Så här konfigurerar och testar du Azure AD SSO med skills workflow:
+Slutför följande Bygg stenar om du vill konfigurera och testa Azure AD SSO med arbets flöde för kunskaper:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    * **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
-    * **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
-1. **[Konfigurera Skills Workflow SSO](#configure-skills-workflow-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
-    * **[Skapa kunskaper Arbetsflöde testanvändare](#create-skills-workflow-test-user)** - att ha en motsvarighet till B.Simon i kompetens arbetsflöde som är kopplad till Azure AD representation av användaren.
-1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
+    * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera arbets flöde för kunskaper](#configure-skills-workflow-sso)** – för att konfigurera inställningar för enkel inloggning på program sidan.
+    * **[Skapa arbets flödes test användare](#create-skills-workflow-test-user)** – för att få en motsvarighet till B. Simon i kunskaps arbets flödet som är länkat till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. Leta reda på avsnittet Hantera på sidan **Hantera** i [Azure-portalen](https://portal.azure.com/)och välj **enkel inloggning**på sidan **Programintegrering** av kunskaper arbetsflöde.
-1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för **arbets flödets** program integrering och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
 1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    a. Skriv en URL i textrutan **Sign-on-URL:**`https://auth.skillsworkflow.com/saml2/acs`
+    a. Skriv en URL i text rutan **inloggnings-URL** :`https://auth.skillsworkflow.com/saml2/acs`
 
-    b. Skriv en URL i textrutan **Identifierare:**`https://auth.skillsworkflow.com/saml2`
+    b. Skriv en URL i text rutan **identifierare** :`https://auth.skillsworkflow.com/saml2`
 
-1. På sidan **Konfigurera enkel inloggning med SAML** i avsnittet **SAML-signeringscertifikat** hittar du **XML för federationsmetadata** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-1. Kopiera lämpliga webbadresser i avsnittet **Konfigurera kunskaper i arbetsflöde** baserat på dina krav.
+1. I avsnittet **Konfigurera arbets flöde för kunskaper** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
-1. Välj **Ny användare** högst upp på skärmen.
-1. Gör så här i egenskaperna **Användare:**
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Skills Workflow.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till arbets flöde för kunskaper.
 
-1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
-1. Välj **Arbetsflöde**för kunskaper i program i programlistan .
-1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **arbets flöde för kunskaper**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
-## <a name="configure-skills-workflow-sso"></a>Konfigurera arbetsflödesansvarig för kunskaper
+## <a name="configure-skills-workflow-sso"></a>Konfigurera arbets flöde för kunskaper om kunskaper
 
-Om du vill konfigurera enkel inloggning på **kompetensarbetsflödessidan** måste du skicka den nedladdade **XML-koden för federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för kompetensarbetsflödet](mailto:support@skillsworkflow.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **arbets flödes** sidan för kunskaper måste du skicka den hämtade **XML-koden för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för kunskaps arbets flöden](mailto:support@skillsworkflow.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-### <a name="create-skills-workflow-test-user"></a>Skapa testanvändare för arbetsflödesflöde för kunskaper
+### <a name="create-skills-workflow-test-user"></a>Skapa kunskaps arbets flöde test användare
 
-I det här avsnittet skapar du en användare som heter B.Simon i arbetsflödet för kunskaper. Arbeta med supportteamet för [kompetensarbetsflödet](mailto:support@skillsworkflow.com) för att lägga till användarna i plattformen För arbetsflöde för kunskaper. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B. Simon i arbets flödet för kunskaper. Arbeta med [support teamet för kunskaps arbets flöden](mailto:support@skillsworkflow.com) för att lägga till användare i arbets flödes plattformen för kunskaper. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Arbetsflöde för kunskaper på åtkomstpanelen bör du automatiskt loggas in i det arbetsflöde för kunskaper som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på arbets flödes panelen för kunskaper på åtkomst panelen, bör du loggas in automatiskt på arbets flödet för kunskaper som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -146,8 +146,8 @@ När du klickar på panelen Arbetsflöde för kunskaper på åtkomstpanelen bör
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Prova arbetsflöde för kunskaper med Azure AD](https://aad.portal.azure.com/)
+- [Testa arbets flöde för kunskaper med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Så här skyddar du arbetsflödet för kompetens med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Skydda arbets flöde för kunskaper med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

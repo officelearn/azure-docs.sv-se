@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: 68da335875752d326ee718cade3d501623c70b49
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72935944"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Kontrollera texten mot en anpassad termlista i C#
@@ -69,7 +69,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Skapa Content Moderator-klienten
 
-Lägg till följande kod för att skapa en Content Moderator-klient för din prenumeration. Uppdatera `AzureEndpoint` fälten och `CMSubscriptionKey` med värdena för slutpunkts-URL:en och prenumerationsnyckeln. Du hittar dessa på fliken **Snabbstart** för din resurs i Azure-portalen.
+Lägg till följande kod för att skapa en Content Moderator-klient för din prenumeration. Uppdatera fälten `AzureEndpoint` och `CMSubscriptionKey` med värdena för slut punkts-URL: en och prenumerations nyckeln. Du hittar dessa på fliken **snabb start** i resursen i Azure Portal.
 
 ```csharp
 /// <summary>
@@ -264,7 +264,7 @@ Du kontrollerar text med hjälp av en termlista med **ContentModeratorClient.Tex
 - En MIME-typ som kan vara ”text/html”, ”text/xml”, ”text/markdown” eller ”text/plain”.
 - Den text som ska kontrolleras.
 - Ett booleskt värde. Ange det här fältet till **true** (sant) för att autokorrigera texten innan du kontrollerar den.
-- Ett booleskt värde. Ange det här fältet så att det **är sant** att identifiera personuppgifter i texten.
+- Ett booleskt värde. Ange det här fältet till **Sant** om du vill identifiera personliga data i texten.
 - Termlistans ID.
 
 Mer information finns i [API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
@@ -362,9 +362,9 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## <a name="compose-the-main-method"></a>Komponera huvudmetoden
+## <a name="compose-the-main-method"></a>Skapa main-metoden
 
-Lägg **Main** till huvudmetoddefinitionen i **namnområdestermlistor**, **klassprogram**. Stäng slutligen **klassen Program** och **termlists-namnområdet.**
+Lägg till **huvud** metods definitionen i namn området **TermLists**, klass **program**. Stäng slutligen **program** klassen och **TermLists** -namnområdet.
 
 ```csharp
 static void Main(string[] args)
@@ -404,7 +404,7 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>Visa resultatet genom att köra programmet
 
-Konsolens utdata ser ut så här:
+Konsolens utdata kommer att se ut ungefär så här:
 
 ```console
 Creating term list.

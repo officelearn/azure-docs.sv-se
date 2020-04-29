@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Använda datakopieringstjänsten för att kopiera till enheten'
+title: 'Självstudie: använda data kopierings tjänsten för att kopiera till din enhet'
 titleSuffix: Azure Data Box
 description: I den här självstudien lär du dig att kopiera data till din Azure Data Box-enhet via datakopieringstjänsten
 services: databox
@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
 ms.openlocfilehash: ef0d79cae11a382bcca0ddb61e1d4a04b5db41e9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79501875"
 ---
-# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Självstudiekurs: Använd datakopieringstjänsten för att kopiera data till Azure Data Box (förhandsgranskning)
+# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Självstudie: Använd tjänsten data kopiering för att kopiera data till Azure Data Box (för hands version)
 
 I den här självstudien beskrivs hur du matar in data med hjälp av datakopieringstjänsten utan en mellanliggande värd. Datakopieringstjänsten körs lokalt på Microsoft Azure Data Box, ansluter till din NAS-enhet (Network-attached storage) via SMB och kopierar data till Data Box.
 
@@ -25,7 +25,7 @@ Använd datakopieringstjänsten:
 - I NAS miljöer där mellanliggande värdar kanske inte är tillgängliga.
 - Med små filer som kräver veckor för inmatning och uppladdning av data. Datakopieringstjänsten förbättrar avsevärt tiden för inmatning och uppladdning för små filer.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -33,9 +33,9 @@ I den här självstudiekursen får du lära du dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 
-1. Du har slutfört den här självstudien: [Konfigurera Azure Data Box](data-box-deploy-set-up.md).
+1. Du har slutfört den här självstudien: [konfigurera Azure Data Box](data-box-deploy-set-up.md).
 2. Du har fått din Data Box-enhet och orderstatusen i portalen är **Levererad**.
 3. Du har autentiseringsuppgifterna för den NAS-källenhet som du kommer att ansluta till för datakopiering.
 4. Du har anslutning till ett höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 Gigabit Ethernet (GbE). Om en 10 GbE-anslutning inte är tillgänglig kan du använda en 1 GbE-datalänk, men då påverkas kopieringshastigheten.
@@ -50,11 +50,11 @@ När du har anslutit till NAS är nästa steg att kopiera data. Granska följand
 
 * Om data ändras när datakopieringstjänsten läser dem kan det uppstå fel eller skadade data.
 
-* Se till att du behåller en kopia av källdata tills du kan bekräfta att datarutan har överfört dina data till Azure Storage.
+* Se till att du underhåller en kopia av käll informationen tills du kan bekräfta att Data Box-enhet har överfört dina data till Azure Storage.
 
 För att kopiera data med hjälp av datakopieringstjänsten behöver du skapa ett jobb:
 
-1. I det lokala webbgränssnittet på databoxenheten går du till **Hantera** > **kopieringsdata**.
+1. I det lokala webb gränssnittet för din data Box-enhet enhet går du till **Hantera** > **Kopiera data**.
 2. På sidan **Kopiera data** väljer du **Skapa**.
 
     ![Välj Skapa på sidan ”Kopiera data”](media/data-box-deploy-copy-data-via-copy-service/click-create.png)
@@ -65,12 +65,12 @@ För att kopiera data med hjälp av datakopieringstjänsten behöver du skapa et
     |-------------------------------|---------|
     |**Jobbnamn**                       |Ett unikt namn med färre än 230 tecken för jobbet. Följande tecken tillåts inte i jobbnamnet: \<, \>, \|, \?, \*, \\, \:, \/ och \\\.         |
     |**Källplats**                |Ange SMB-sökvägen till datakällan i formatet: `\\<ServerIPAddress>\<ShareName>` eller `\\<ServerName>\<ShareName>`.        |
-    |**Användarnamn**                       |Användarnamn i `\\<DomainName><UserName>`-format för åtkomst till datakällan. Om en lokal administratör ansluter behöver de uttryckliga säkerhetsbehörigheter. Högerklicka på mappen, välj **Egenskaper** och välj sedan **Säkerhet**. Detta bör lägga till den lokala administratören på fliken **Säkerhet.**       |
+    |**Användar**                       |Användarnamn i `\\<DomainName><UserName>`-format för åtkomst till datakällan. Om en lokal administratör ansluter behöver de uttryckliga säkerhets behörigheter. Högerklicka på mappen, Välj **Egenskaper** och välj sedan **säkerhet**. Detta bör lägga till den lokala administratören på fliken **säkerhet** .       |
     |**Lösenord**                       |Lösenord för åtkomst till datakällan.           |
     |**Mållagringskonto**    |Välj mållagringskonto för uppladdning av data från listan.         |
-    |**Måltyp**       |Välj mållagringstypen i listan: **Blockera Blob,** **Sidblob**eller **Azure-filer**.        |
+    |**Måltyp**       |Välj mål lagrings typ i listan: **Block-Blob**, **Page BLOB**eller **Azure Files**.        |
     |**Målcontainer/-resurs**    |Ange namnet på den container eller resurs som du vill ladda upp data till i ditt mållagringskonto. Namnet kan vara ett resursnamn eller ett containernamn. Använd till exempel `myshare` eller `mycontainer`. Du kan även ange namnet i formatet `sharename\directory_name` eller `containername\virtual_directory_name`.        |
-    |**Matchningsmönster för filkopiering**    | Du kan ange matchningsmönstret för filnamn på följande två sätt:<ul><li>**Använda jokerteckenuttryck:** Endast `*` `?` och stöds i jokerteckenuttryck. Till exempel matchar uttrycket `*.vhd` alla filer som har filnamnstillägget `.vhd`. På ett liknande sätt matchar `*.dl?` alla filer med antingen filnamnstillägget `.dl` eller som börjar med `.dl`, till exempel `.dll`. Och `*foo` matchar alla filer vars namn slutar med `foo`.<br>Du kan ange uttrycket med jokertecken direkt i fältet. Som standard behandlas det värde som du anger i fältet som ett uttryck med jokertecken.</li><li>**Använd reguljära uttryck:** POSIX-baserade reguljära uttryck stöds. Till exempel matchar det reguljära uttrycket `.*\.vhd` alla filer som har filnamnstillägget `.vhd`. För reguljära uttryck anger du `<pattern>` direkt som `regex(<pattern>)`. Mer information om reguljära uttryck finns i [snabbreferensen för reguljära uttryck](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
+    |**Matchningsmönster för filkopiering**    | Du kan ange matchningsmönstret för filnamn på följande två sätt:<ul><li>**Använd jokertecken:** Endast `*` och `?` stöds i jokertecken. Till exempel matchar uttrycket `*.vhd` alla filer som har filnamnstillägget `.vhd`. På ett liknande sätt matchar `*.dl?` alla filer med antingen filnamnstillägget `.dl` eller som börjar med `.dl`, till exempel `.dll`. Och `*foo` matchar alla filer vars namn slutar med `foo`.<br>Du kan ange uttrycket med jokertecken direkt i fältet. Som standard behandlas det värde som du anger i fältet som ett uttryck med jokertecken.</li><li>**Använd reguljära uttryck:** POSIX-baserade reguljära uttryck stöds. Till exempel matchar det reguljära uttrycket `.*\.vhd` alla filer som har filnamnstillägget `.vhd`. För reguljära uttryck anger du `<pattern>` direkt som `regex(<pattern>)`. Mer information om reguljära uttryck finns i [snabbreferensen för reguljära uttryck](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**Filoptimering**              |När den här funktionen är aktiverad packas filer som är mindre än 1 MB under inmatning. Paketeringen gör datakopieringen snabbare för små filer. Den sparar även betydande tid när antalet filer långt överstiger antalet kataloger.        |
  
 4. Välj **Starta**. Indata valideras, och om validering lyckas startas jobbet. Det kan ta några minuter för jobbet att startas.
@@ -124,7 +124,7 @@ För att kopiera data med hjälp av datakopieringstjänsten behöver du skapa et
         - **Pausar**
         - **Pausat**
         - **Avbryts**
-        - **Avbrutet**
+        - **Avbrutna**
         - **Slutfört med fel**
     - I kolumnen **Filer** ser du antalet och den totala storleken på de filer som kopieras.
     - I kolumnen **Bearbetade** ser du antalet och den totala storleken på de filer som bearbetas.
@@ -142,7 +142,7 @@ För att säkerställa dataintegriteten beräknas en kontrollsumma infogat när 
 När kopieringsjobbet är klart kan du välja **Förbered för att skicka**.
 
 >[!NOTE]
-> **Förbereda leveransen** kan inte köras medan kopieringsjobb pågår.
+> **Förbered för att skicka** kan inte köras medan kopierings jobb pågår.
 
 ## <a name="next-steps"></a>Nästa steg
 

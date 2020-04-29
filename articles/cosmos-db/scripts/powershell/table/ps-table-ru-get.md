@@ -1,6 +1,6 @@
 ---
-title: PowerShell-skript för att få dataflöde (RU/s) för Azure Cosmos DB Table API
-description: Azure PowerShell-skript - Azure Cosmos DB Get Throughput (RU/s) för tabell-API
+title: PowerShell-skript för att hämta data flöde (RU/s) för Azure Cosmos DB Tabell-API
+description: Azure PowerShell script-Azure Cosmos DB hämta data flöde (RU/s) för Tabell-API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: 0129b03e578d00689f085281d0499830e6ba37c2
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80365569"
 ---
-# <a name="get-throughput-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Hämta dataflöde (RU/s) för en tabell för Azure Cosmos DB - Tabell-API
+# <a name="get-throughput-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Hämta data flöde (RU/s) för en tabell för Azure Cosmos DB-Tabell-API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -36,11 +36,11 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Få-AzCosmosDBTableThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbtablethroughput) | Hämtar dataflödesvärdet för den angivna tabell-API-tabellen. |
-|**Azure-resursgrupper**| |
+| [Get-AzCosmosDBTableThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbtablethroughput) | Hämtar data flöde svärdet för den angivna Tabell-APIs tabellen. |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

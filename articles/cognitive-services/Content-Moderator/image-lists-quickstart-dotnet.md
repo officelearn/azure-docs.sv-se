@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: e650529f3adb998ce683354565acdeb3928b50c3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72931759"
 ---
 # <a name="moderate-with-custom-image-lists-in-c"></a>Moderera med anpassade bildlistor i C#
@@ -32,7 +32,7 @@ Den här artikeln innehåller information och kodexempel som hjälper dig att ko
 > [!NOTE]
 > Det finns en maxgräns på **5 bildlistor** där varje lista **inte får överstiga 10 000 bilder**.
 
-Konsolprogrammet för den här guiden simulerar några av de uppgifter som du kan utföra med API:et för avbildningslistan.
+Konsol programmet för den här guiden simulerar några av de uppgifter som du kan utföra med bild listans API.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
 
@@ -72,7 +72,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Skapa Content Moderator-klienten
 
-Lägg till följande kod för att skapa en Content Moderator-klient för din prenumeration. Uppdatera `AzureEndpoint` fälten och `CMSubscriptionKey` med värdena för slutpunkts-URL:en och prenumerationsnyckeln. Du hittar dessa på fliken **Snabbstart** för din resurs i Azure-portalen.
+Lägg till följande kod för att skapa en Content Moderator-klient för din prenumeration. Uppdatera fälten `AzureEndpoint` och `CMSubscriptionKey` med värdena för slut punkts-URL: en och prenumerations nyckeln. Du hittar dessa på fliken **snabb start** i resursen i Azure Portal.
 
 ```csharp
 /// <summary>
@@ -292,7 +292,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Skapa en metod för att lägga till en samling bilder i listan
 
-Lägg till följande metod i klassen **Program**. Den här guiden visar inte hur du använder taggar på bilder i listan. 
+Lägg till följande metod i klassen **Program**. Den här guiden visar inte hur du lägger till taggar till bilder i listan. 
 
 ```csharp
 /// <summary>

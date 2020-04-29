@@ -1,5 +1,5 @@
 ---
-title: Skicka push-meddelanden till specifika Windows-telefoner med Azure Notification Hubs | Microsoft-dokument
+title: Skicka push-meddelanden till vissa Windows-telefoner med Azure Notification Hubs | Microsoft Docs
 description: I den här självstudiekursen kommer du att få lära dig hur du använder Azure Notification Hubs för att skicka push-meddelanden till specifika (inte alla) Windows Phone 8- eller Windows Phone 8.1-enheter som har registrerats med programserverdelen.
 services: notification-hubs
 documentationcenter: windows
@@ -18,24 +18,24 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 72ecb5bdb6bb024c5e4422548dd11888c03e4799
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80126946"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>Självstudiekurs: Skicka push-meddelanden till specifika Windows-telefoner med Azure Notification Hubs
+# <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till vissa Windows-telefoner med Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 I den här självstudiekursen beskrivs hur du använder Azure Notification Hubs för att skicka push-meddelanden till specifika Windows Phone 8- eller Windows Phone 8.1-enheter. Om du vill skicka meddelanden till Windows Phone 8.1 (utan Silverlight) så gå till [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)-versionen av den här självstudiekursen.
 
-Du aktiverar det här scenariot genom att inkludera en eller flera *taggar* när du skapar en registrering i meddelandehubben. När meddelanden skickas till en tagg tar alla enheter som har registrerats för taggen emot meddelandet. Mer information om taggar finns [i Taggar i registreringar](notification-hubs-tags-segment-push-message.md).
+Du aktiverar det här scenariot genom att inkludera en eller flera *taggar* när du skapar en registrering i meddelandehubben. När meddelanden skickas till en tagg tar alla enheter som har registrerats för taggen emot meddelandet. Mer information om taggar finns [i taggar i registreringar](notification-hubs-tags-segment-push-message.md).
 
 > [!NOTE]
 > SDK:erna för Windows Phone på Notification Hubs stöder inte användning av Windows Push Notification Service (WNS) med Silverlight-appar för Windows Phone 8.1. Om du vill använda WNS (istället för MPNS) med Silverlight-appar för Windows Phone 8.1, ska du följa anvisningarna i Notification Hubs – självstudiekurs för Windows Phone Silverlight. Där används istället REST-API:er.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Lägga till kategorival i mobilappen
@@ -313,7 +313,7 @@ Appen är nu klar och kan lagra en uppsättning kategorier i den enhetens lokala
 I den här självstudien har du lärt dig mer om push-meddelanden till specifika enheter som har taggar associerade med sina registreringar. Information om hur du skickar meddelanden till specifika användare som kanske använder flera enheter finns i följande självstudiekurs: 
 
 > [!div class="nextstepaction"]
->[Skicka meddelanden till specifika användare](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
+>[Skicka push-meddelanden till specifika användare](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
 
 <!-- Anchors. -->
 [Add category selection to the app]: #adding-categories

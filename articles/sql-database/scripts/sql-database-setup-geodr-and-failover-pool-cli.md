@@ -1,6 +1,6 @@
 ---
-title: CLI-exempelaktiv geo-replikeringspoolad Azure SQL-databas
-description: Azure CLI exempel skript för att ställa in aktiv geo-replikering för en poolad databas i Azure SQL Database och växla över.
+title: CLI-exempel – aktiv geo-replikering – Azure SQL Database i pool
+description: Azure CLI-exempel skript för att konfigurera aktiv geo-replikering för en poolad databas i Azure SQL Database och redundansväxla den.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,15 +12,15 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: 2646ed98f4a73c69d339df0134e8a565c958c514
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80067362"
 ---
 # <a name="use-cli-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>Använd CLI för att konfigurera aktiv geo-replikering för en poolad databas i Azure SQL Database
 
-Det här Azure CLI-skriptexempeln konfigurerar aktiv geo-replikering för en poolad databas i Azure SQL Database och växlar över den till den sekundära repliken av databasen.
+Det här skript exemplet för Azure CLI konfigurerar aktiv geo-replikering för en poolad databas i Azure SQL Database och växlar den till den sekundära repliken av databasen.
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
@@ -42,21 +42,21 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="clean-up-deployment"></a>Rensa distribution
 
-Använd följande kommando för att ta bort resursgruppen och alla resurser som är associerade med den.
+Använd följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den.
 
 ```azurecli-interactive
 az group delete --name $resource
 az group delete --name $secondaryResource
 ```
 
-## <a name="sample-reference"></a>Exempelreferens
+## <a name="sample-reference"></a>Exempel referens
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | | |
 |---|---|
-| [az sql elastisk-pool](/cli/azure/sql/elastic-pool) | Elastiska poolkommandon |
-| [az sql db replika](/cli/azure/sql/db/replica) | Databasreplikeringskommandon. |
+| [AZ SQL Elastic-pool](/cli/azure/sql/elastic-pool) | Kommandon för elastisk pool |
+| [AZ SQL DB-replik](/cli/azure/sql/db/replica) | Kommandon för databasreplikering. |
 
 ## <a name="next-steps"></a>Nästa steg
 

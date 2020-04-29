@@ -1,18 +1,18 @@
 ---
-title: 'Skapa ett utforskningsutrymme för Kubernetes: Visual Studio-kod & .NET Core'
+title: 'Skapa ett Kubernetes dev-utrymme: Visual Studio Code & .NET Core'
 services: azure-dev-spaces
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: Den här självstudien visar hur du använder Azure Dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett .NET Core-program på Azure Kubernetes Service
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, servicenät, routning av tjänstnät, kubectl, k8s
+description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett .NET Core-program i Azure Kubernetes service
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 ms.openlocfilehash: d4078113f93159ef981a78a9917ed65bd03a304b
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80240555"
 ---
-# <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Skapa ett utforskningsutrymme för Kubernetes: Visual Studio Code och .NET Core med Azure Dev Spaces
+# <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Skapa ett Kubernetes dev-utrymme: Visual Studio Code och .NET Core med Azure dev Spaces
 
 I den här guiden får du lära dig hur du:
 
@@ -21,7 +21,7 @@ I den här guiden får du lära dig hur du:
 - Effektivt utvecklar och testar din kod i en teammiljö.
 
 > [!Note]
-> **Om du fastnar** när som helst läser du [avsnittet Felsökning.](troubleshooting.md)
+> **Om du får fastna när som** helst kan du läsa avsnittet [fel sökning](troubleshooting.md) .
 
 ## <a name="install-the-azure-cli"></a>Installera Azure CLI
 Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten av utvecklarmiljöns konfiguration lagras i molnet och kan delas med andra användare. Börja genom att ladda ned och köra [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -34,7 +34,7 @@ az login
 ```
 
 > [!Note]
-> Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
+> Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free).
 
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>Om du har flera Azure-prenumerationer ...
 Du kan visa dina prenumerationer genom att köra: 
@@ -43,7 +43,7 @@ Du kan visa dina prenumerationer genom att köra:
 az account list --output table
 ```
 
-Leta reda på prenumerationen som har *True* för *IsDefault*.
+Leta upp prenumerationen som har *värdet sant* för *IsDefault*.
 Om det här inte är den prenumeration som du vill använda kan du ändra standardprenumerationen:
 
 ```azurecli
@@ -52,7 +52,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Skapa ett Kubernetes-kluster som är aktiverat för Azure Dev Spaces
 
-Skapa resursgruppen i en region [som stöder Azure Dev Spaces][supported-regions]i kommandotolken .
+I kommando tolken skapar du resurs gruppen i en [region som stöder Azure dev Spaces][supported-regions].
 
 ```azurecli
 az group create --name MyResourceGroup --location <region>
@@ -81,7 +81,7 @@ Ange följande Azure CLI-kommando med hjälp av den resursgrupp som innehåller 
 Avancerade funktioner som Kubernetes-felsökning är tillgängliga för .NET Core- och Node.js-utvecklare som använder VS Code.
 
 1. Installera [VS Code](https://code.visualstudio.com/Download) om du inte redan har det.
-1. Hämta och installera [vs Azure Dev Spaces-](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) och [C#-tilläggen.](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) För varje tillägg klickar du på installera på tilläggets Marketplace-sida och igen i VS-kod.
+1. Hämta och installera [vs Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) och [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) -tillägg. För varje tillägg klickar du på installera på sidan Marketplace för tillägg och återigen i VS Code.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Skapa en webbapp som körs i en container
 
@@ -106,7 +106,7 @@ Kommandot `azds prep` i Azure CLI genererar Docker- och Kubernetes-tillgångar m
 * Ett [Helm-diagram](https://docs.helm.sh) under `./charts/webfrontend` beskriver hur du distribuerar containern till Kubernetes.
 
 > [!TIP]
-> [Dockerfile- och Helm-diagrammet](how-dev-spaces-works-prep.md#prepare-your-code) för projektet används av Azure Dev Spaces för att skapa och köra din kod, men du kan ändra dessa filer om du vill ändra hur projektet byggs och kördes.
+> [Dockerfile-och Helm-diagrammet](how-dev-spaces-works-prep.md#prepare-your-code) för ditt projekt används av Azure dev Spaces för att skapa och köra din kod, men du kan ändra dessa filer om du vill ändra hur projektet skapas och körs.
 
 För tillfället är det inte nödvändigt att förstå det fullständiga innehållet i dessa filer. Det är dock värt att påpeka att **samma Kubernetes- och Docker-konfiguration som kod-tillgångar kan användas från utveckling till produktion, vilket ger bättre konsekvens mellan olika miljöer.**
  
@@ -130,7 +130,7 @@ Håll ett öga på kommandots utdata – du kommer att se flera saker under för
 > De här stegen tar längre tid första gången kommandot `up` körs, men efterföljande körningar bör gå snabbare.
 
 ### <a name="test-the-web-app"></a>Testa webbappen
-Skanna konsolutgången för *programmet startade* meddelandet `up` och bekräfta att kommandot har slutförts:
+Genomsök konsolens utdata för meddelandet *programmet startade* , och bekräfta att `up` kommandot har slutförts:
 
 ```
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
@@ -151,20 +151,20 @@ webfrontend-5798f9dc44-99fsd: Now listening on: http://[::]:80
 webfrontend-5798f9dc44-99fsd: Application started. Press Ctrl+C to shut down.
 ```
 
-Identifiera den offentliga URL:en för `up` tjänsten i utdata från kommandot. Det slutar `.azds.io`i . I exemplet ovan är `http://webfrontend.1234567890abcdef1234.eus.azds.io/`den offentliga webbadressen .
+Identifiera den offentliga URL: en för tjänsten i utdata från `up` kommandot. Den avslutas `.azds.io`. I exemplet ovan är `http://webfrontend.1234567890abcdef1234.eus.azds.io/`den offentliga URL: en.
 
-Öppna den offentliga webbadressen i en webbläsare om du vill visa din webbapp. Dessutom strömmas meddelande `stdout` och `stderr` utdata till *azds-spårningsterminalfönstret* när du interagerar med din webbapp. Du ser också spårningsinformation för HTTP-begäranden när de går igenom systemet. Detta gör det enklare för dig att spåra komplexa flerservicesamtal under utvecklingen. Den instrumentering som läggs till av Dev Spaces ger den här begäran spårning.
+Om du vill se din webbapp öppnar du den offentliga URL: en i en webbläsare. Observera också att `stdout` meddelande `stderr` och utdata strömmas till azds-fönstret för *spårnings* terminalen när du interagerar med din webbapp. Du kan också se spårnings information för HTTP-begäranden när de går igenom systemet. Detta gör det enklare för dig att spåra komplexa anrop i flera tjänster under utvecklingen. Instrumentation som lagts till av dev Spaces innehåller den här förfrågan spårningen.
 
-![azds spåra terminalfönster](media/get-started-netcore/azds-trace.png)
+![azds för spårnings fönstret](media/get-started-netcore/azds-trace.png)
 
 
 > [!Note]
-> Förutom den offentliga webbadressen kan du `http://localhost:<portnumber>` använda den alternativa URL:en som visas i konsolutdatan. Om du använder localhost-URL:en kan det verka som om containern körs lokalt, men i själva verket körs den i AKS. Azure Dev Spaces använder Kubernetes *port-forward-funktioner* för att mappa localhost-porten till behållaren som körs i AKS. Detta underlättar interaktion med tjänsten från din lokala dator.
+> Förutom den offentliga URL: en kan du använda den alternativa `http://localhost:<portnumber>` URL: en som visas i konsolens utdata. Om du använder localhost-URL:en kan det verka som om containern körs lokalt, men i själva verket körs den i AKS. I Azure dev Spaces används Kubernetes *Port-Forward-* funktioner för att mappa localhost-porten till den behållare som körs i AKS. Detta underlättar interaktion med tjänsten från den lokala datorn.
 
 ### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
 Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.
 
-1. Leta upp filen `./Views/Home/Index.cshtml` och gör en ändring i HTML-koden. Ändra till exempel [linje 73 `<h2>Application uses</h2>` som läser](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) till något i stil med: 
+1. Leta upp filen `./Views/Home/Index.cshtml` och gör en ändring i HTML-koden. Ändra till exempel [rad 73 som läser `<h2>Application uses</h2>` ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) till något som: 
 
     ```html
     <h2>Hello k8s in Azure!</h2>
@@ -222,7 +222,7 @@ Tryck på **F5** för att felsöka koden i Kubernetes.
 Precis som med `up`-kommandot, synkroniseras koden med utvecklarmiljön och en container skapas och distribueras till Kubernetes. Men den här gången är felsökaren kopplad till fjärrcontainern.
 
 > [!Tip]
-> Statusfältet VS-kod blir orange, vilket indikerar att felsökaren är kopplad. Den visar också en klickbar WEBBADRESS som du kan använda för att öppna webbplatsen.
+> Statusfältet för VS Code blir orange, vilket indikerar att fel söknings programmet är kopplat. Den visar också en klicknings bara URL som du kan använda för att öppna din webbplats.
 
 ![](media/common/vscode-status-bar-url.png)
 
@@ -241,7 +241,7 @@ public IActionResult About()
 }
 ```
 
-Spara filen och klicka på knappen Starta **om** i **fönstret Felsökningsåtgärder.** 
+Spara filen och klicka på knappen **starta om** i **rutan fel söknings åtgärder**. 
 
 ![](media/common/debug-action-refresh.png)
 

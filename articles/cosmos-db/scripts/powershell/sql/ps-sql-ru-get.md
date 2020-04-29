@@ -1,6 +1,6 @@
 ---
-title: PowerShell-skript för att hämta dataflöde (RU/s) för Azure Cosmos DB SQL API-databas eller -behållare
-description: Azure PowerShell-skript för att hämta dataflöde (RU/s) för Azure Cosmos DB SQL API-databas eller -behållare
+title: PowerShell-skript för att hämta data flöde (RU/s) för Azure Cosmos DB SQL API-databas eller behållare
+description: Azure PowerShell skript för att hämta data flöde (RU/s) för Azure Cosmos DB SQL API-databas eller behållare
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 03/17/2020
 ms.author: mjbrown
 ms.openlocfilehash: f471b1d41314728a6c6f0c5d2ab981891e2caa87
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80365602"
 ---
-# <a name="get-throughput-rus-for-azure-cosmos-db-sql-api-database-or-container"></a>Hämta dataflöde (RU/s) för Azure Cosmos DB SQL API-databas eller behållare
+# <a name="get-throughput-rus-for-azure-cosmos-db-sql-api-database-or-container"></a>Hämta data flöde (RU/s) för Azure Cosmos DB SQL API-databas eller container
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -36,12 +36,12 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Hämta-AzCosmosDBSqlDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabasethroughput) | Hämta dataflödet som etablerats på en Azure Cosmos DB SQL API-databas. |
-| [Få-AzCosmosDBSqlContainerThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainerthroughput) | Hämta dataflödet som etablerats på en Azure Cosmos DB SQL API-behållare. |
-|**Azure-resursgrupper**| |
+| [Get-AzCosmosDBSqlDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabasethroughput) | Hämta det data flöde som har skapats i en Azure Cosmos DB SQL API-databas. |
+| [Get-AzCosmosDBSqlContainerThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainerthroughput) | Hämta det data flöde som har allokerats på en Azure Cosmos DB SQL API-behållare. |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

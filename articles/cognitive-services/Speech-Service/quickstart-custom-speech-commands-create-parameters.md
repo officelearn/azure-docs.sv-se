@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Skapa ett anpassat kommando med parametrar (förhandsversion) - Taltjänst'
+title: 'Snabb start: skapa ett anpassat kommando med parametrar (för hands version) – tal tjänst'
 titleSuffix: Azure Cognitive Services
-description: I den här artikeln ska du lägga till parametrar i ett program för anpassade kommandon.
+description: I den här artikeln lägger du till parametrar i ett program med anpassade kommandon.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
@@ -11,66 +11,66 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
 ms.openlocfilehash: 96312bac369cfa5fe3cb8a00fd63ecfbec624918
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80348537"
 ---
-# <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Snabbstart: Skapa ett anpassat kommando med parametrar (förhandsgranskning)
+# <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Snabb start: skapa ett anpassat kommando med parametrar (förhands granskning)
 
-I [föregående artikel](./quickstart-custom-speech-commands-create-new.md)skapade vi ett nytt anpassat kommandon projekt för att svara på kommandon utan parametrar.
+I [föregående artikel](./quickstart-custom-speech-commands-create-new.md)skapade vi ett nytt anpassat kommando-projekt för att svara på kommandon utan parametrar.
 
-I den här artikeln kommer vi att utöka det här programmet med parametrar så att det kan hantera att slå på och stänga av flera enheter.
+I den här artikeln kommer vi att utöka det här programmet med parametrar så att det kan hantera aktivering och inaktive ring av flera enheter.
 
 ## <a name="create-parameters"></a>Skapa parametrar
 
-1. Öppna projektet [vi skapade tidigare](./quickstart-custom-speech-commands-create-new.md)
-1. Eftersom kommandot nu hanterar på och av byter du namn på kommandot till "TurnOnOff"
-   - Hovra över namnet på kommandot och välj redigeringsikonen för att ändra namnet
-1. Skapa en ny parameter som representerar om användaren vill slå på eller inaktivera enheten
-   - Markera `+` ikonen bredvid avsnittet Parametrar
+1. Öppna projektet som [vi skapade tidigare](./quickstart-custom-speech-commands-create-new.md)
+1. Eftersom kommandot nu kommer att hantera på och av, byter du namn på kommandot till "TurnOnOff"
+   - Hovra över namnet på kommandot och välj redigerings ikonen för att ändra namnet
+1. Skapa en ny parameter som visar om användaren vill aktivera eller inaktivera enheten
+   - Välj `+` ikonen bredvid avsnittet parametrar
 
    > [!div class="mx-imgBorder"]
    > ![Skapa parameter](media/custom-speech-commands/create-on-off-parameter.png)
 
-   | Inställning            | Föreslaget värde     | Beskrivning                                                                                               |
+   | Inställningen            | Föreslaget värde     | Beskrivning                                                                                               |
    | ------------------ | ------------------- | --------------------------------------------------------------------------------------------------------- |
-   | Namn               | Onoff               | Ett beskrivande namn för parametern                                                                     |
-   | Är global          | Okontrollerat           | Kryssruta som anger om ett värde för den här parametern tillämpas globalt på alla kommandon i projektet |
-   | Krävs           | Kontrolleras             | Kryssruta som anger om ett värde för den här parametern krävs innan kommandot slutförs          |
-   | Mall för svar  | "- På eller av?"      | En uppmaning att be om värdet av den här parametern när den inte är känd                                       |
-   | Typ               | String              | Typ av parameter, till exempel Tal, Sträng eller Datumtid                                               |
-   | Konfiguration      | Stränglista         | För strängar begränsar en stränglista indata till en uppsättning möjliga värden                                      |
-   | Värden för stränglista | på, av             | För en stränglisteparameter visas en uppsättning möjliga värden och deras synonymer                                |
+   | Name               | Mikrofonen               | Ett beskrivande namn för din parameter                                                                     |
+   | Är global          | avmarkerat           | Kryss ruta som anger om ett värde för den här parametern används globalt för alla kommandon i projektet |
+   | Krävs           | analysera             | Kryss ruta som anger om ett värde för den här parametern krävs innan kommandot slutförs          |
+   | Svarsmall  | "-På eller av?"      | En uppmaning om att fråga efter värdet för den här parametern när den inte är känd                                       |
+   | Typ               | Sträng              | Parameter typ, t. ex. tal, sträng eller datum/tid                                               |
+   | Konfiguration      | Sträng lista         | För strängar begränsar en sträng lista indata till en uppsättning möjliga värden                                      |
+   | Sträng List värden | på, av             | För en sträng List parameter, en uppsättning möjliga värden och deras synonymer                                |
 
-   - Välj sedan `+` ikonen igen om du vill lägga till en andra parameter som representerar namnet på enheterna. I det här exemplet kan en TV och ett
+   - Välj sedan `+` ikonen igen för att lägga till en andra parameter som representerar namnet på enheterna. I det här exemplet är en TV och en fläkt
 
-   | Inställning            | Föreslaget värde       | Beskrivning                                                                                               |
+   | Inställningen            | Föreslaget värde       | Beskrivning                                                                                               |
    | ------------------ | --------------------- | --------------------------------------------------------------------------------------------------------- |
-   | Namn               | SubjectDevice         | Ett beskrivande namn för parametern                                                                     |
-   | Är global          | Okontrollerat             | Kryssruta som anger om ett värde för den här parametern tillämpas globalt på alla kommandon i projektet |
-   | Krävs           | Kontrolleras               | Kryssruta som anger om ett värde för den här parametern krävs innan kommandot slutförs          |
-   | Mall för svar  | "- Vilken enhet?"     | En uppmaning att be om värdet av den här parametern när den inte är känd                                       |
-   | Typ               | String                | Typ av parameter, till exempel Tal, Sträng eller Datumtid                                               |
-   | Konfiguration      | Stränglista           | För strängar begränsar en stränglista indata till en uppsättning möjliga värden                                      |
-   | Värden för stränglista | tv, fläkt               | För en stränglisteparameter visas en uppsättning möjliga värden och deras synonymer                                |
-   | Synonymer (tv)      | tv, tv     | Valfria synonymer för varje möjligt värde för en stränglisteparameter                                      |
+   | Name               | SubjectDevice         | Ett beskrivande namn för din parameter                                                                     |
+   | Är global          | avmarkerat             | Kryss ruta som anger om ett värde för den här parametern används globalt för alla kommandon i projektet |
+   | Krävs           | analysera               | Kryss ruta som anger om ett värde för den här parametern krävs innan kommandot slutförs          |
+   | Svarsmall  | "– Vilken enhet?"     | En uppmaning om att fråga efter värdet för den här parametern när den inte är känd                                       |
+   | Typ               | Sträng                | Parameter typ, t. ex. tal, sträng eller datum/tid                                               |
+   | Konfiguration      | Sträng lista           | För strängar begränsar en sträng lista indata till en uppsättning möjliga värden                                      |
+   | Sträng List värden | TV, fläkt               | För en sträng List parameter, en uppsättning möjliga värden och deras synonymer                                |
+   | Synonymer (TV)      | TV, Talad     | Valfria synonymer för varje möjligt värde för en sträng List parameter                                      |
 
-## <a name="add-sample-sentences"></a>Lägga till exempelmeningar
+## <a name="add-sample-sentences"></a>Lägg till exempel meningar
 
-Med parametrar är det bra att lägga till exempelmeningar som täcker alla möjliga kombinationer. Ett exempel:
+Med parametrar är det bra att lägga till exempel meningar som beskriver alla möjliga kombinationer. Ett exempel:
 
-1. Fullständig parameterinformation -`"turn {OnOff} the {SubjectDevice}"`
-1. Information om partiell parameter -`"turn it {OnOff}"`
-1. Ingen parameterinformation -`"turn something"`
+1. Fullständig parameter information –`"turn {OnOff} the {SubjectDevice}"`
+1. Partiell parameter information –`"turn it {OnOff}"`
+1. Ingen parameter information –`"turn something"`
 
-Exempelmeningar med olika mängder information gör att programmet Anpassade kommandon kan lösa både lösningar med ett slag och lösningar med flera varv med partiell information.
+Exempel på meningar med olika mängder information gör att de anpassade kommandona kan matcha både ensidiga lösningar och flera lösningar med delvis information.
 
-Med detta i åtanke redigerar du exempelmeningar för att använda parametrarna enligt nedan.
+Med det i åtanke redigerar du exempel meningarna så att de använder parametrarna enligt rekommendationerna nedan.
 
 > [!TIP]
-> I redigeraren Exempelmeningar använder du klammerparenteser för att referera till dina parametrar. - `turn {OnOff} the {SubjectDevice}`Använd flikkomplettering för att referera till tidigare skapade parametrar.
+> I exempel menings redigeraren använder du klammerparenteser för att referera till dina parametrar. - `turn {OnOff} the {SubjectDevice}`Använd slut för ande av flikar för att referera till tidigare skapade parametrar.
 
 > [!div class="mx-imgBorder"]
 > ![Exempel på meningar med parametrar](media/custom-speech-commands/create-parameter-sentences.png)
@@ -83,32 +83,32 @@ turn something {OnOff}
 turn something
 ```
 
-## <a name="add-parameters-to-completion-rule"></a>Lägga till parametrar i slutföranderegeln
+## <a name="add-parameters-to-completion-rule"></a>Lägg till parametrar till regel för slut för ande
 
-Ändra slutföranderegeln som du skapade i [föregående snabbstart:](./quickstart-custom-speech-commands-create-new.md)
+Ändra regeln för slut för ande som du skapade i [föregående snabb start](./quickstart-custom-speech-commands-create-new.md):
 
-1. Lägg till ett nytt villkor och välj Parametern Obligatoriskt. Välj `OnOff` både och`SubjectDevice`
-1. Redigera åtgärden Talsvar `OnOff` som `SubjectDevice`ska användas och:
+1. Lägg till ett nytt villkor och välj obligatorisk parameter. Välj både `OnOff` och`SubjectDevice`
+1. Redigera den röst svars åtgärd som `OnOff` ska `SubjectDevice`användas och:
 
    ```
    - Ok, turning {OnOff} the {SubjectDevice}
    ```
 
-## <a name="try-it-out"></a>Prova det
+## <a name="try-it-out"></a>Prova nu
 
-Öppna panelen Testa chatt och prova några interaktioner.
+Öppna panelen testa Chat och prova några interaktioner.
 
-- Ingång: stäng av tv:n
-- Utgång: Ok, stänga av tv:n
+- Inmatade: Stäng av TV
+- Utdata: OK, stänga av TV
 
-- Ingång: stäng av TV:n
-- Utgång: Ok, stänga av tv:n
+- Inmatade: Stäng av TV: n
+- Utdata: OK, stänga av TV
 
-- Ingång: stäng av den
-- Utdata: Vilken enhet?
-- Ingång: tv:n
-- Utgång: Ok, stänga av tv:n
+- Inmatade: Stäng av
+- Utdata: vilken enhet?
+- Inmatade: TV
+- Utdata: OK, stänga av TV
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Snabbstart: Använda anpassade kommandon med anpassad röst (förhandsgranskning)](./quickstart-custom-speech-commands-select-custom-voice.md)
+> [Snabb start: Använd anpassade kommandon med anpassad röst (förhands granskning)](./quickstart-custom-speech-commands-select-custom-voice.md)

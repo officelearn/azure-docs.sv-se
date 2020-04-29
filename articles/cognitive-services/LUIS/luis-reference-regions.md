@@ -1,80 +1,80 @@
 ---
-title: Publicera regioner & slutpunkter - LUIS
-description: Den region som anges i Azure-portalen är densamma där du publicerar LUIS-appen och en slutpunkts-URL genereras för samma region.
+title: Publicerings regioner &-slutpunkter – LUIS
+description: Den region som anges i Azure Portal är samma där du kommer att publicera LUIS-appen och en slut punkts-URL genereras för samma region.
 ms.topic: reference
 ms.date: 11/19/2019
 ms.openlocfilehash: a7709d15a51637772d7a4775cd71c307dc21c52b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80292089"
 ---
-# <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Skapa och publicera regioner och tillhörande nycklar
+# <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Redigerings-och publicerings regioner och tillhör ande nycklar
 
-Tre redigeringsområden stöds av motsvarande LUIS-portaler. Om du vill publicera en LUIS-app i mer än en region behöver du minst en nyckel per region.
+Tre redigerings regioner stöds av motsvarande LUIS-portaler. Om du vill publicera en LUIS-app i fler än en region behöver du minst en nyckel per region.
 
 <a name="luis-website"></a>
 
-## <a name="luis-authoring-regions"></a>LUIS-redigeringsområden
-Det finns tre LUIS-redigeringsportaler, baserade på region. Du måste skapa och publicera i samma region.
+## <a name="luis-authoring-regions"></a>LUIS redigerings regioner
+Det finns tre LUIS redigerings portaler, baserat på region. Du måste skapa och publicera i samma region.
 
-|LUIS|Redigeringsregion|Namn på Azure-region|
+|LUIS|Redigerings region|Namn på Azure-region|
 |--|--|--|
 |[www.luis.ai][www.luis.ai] <br>[preview.luis.ai](https://preview.luis.ai)|USA<br>inte Europa<br>inte Australien| `westus`|
 |[au.luis.ai][au.luis.ai] <br>[preview.au.luis.ai](https://preview.au.luis.ai)|Australien| `australiaeast`|
 |[eu.luis.ai][eu.luis.ai] <br>[preview.eu.luis.ai](https://preview.eu.luis.ai)|Europa|`westeurope`|
 
-Redigeringsregioner har [parkopplat överväxlingsregioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Redigerings regioner har [parat på växlings bara regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 <a name="regions-and-azure-resources"></a>
 
 ## <a name="publishing-regions-and-azure-resources"></a>Publicera regioner och Azure-resurser
-Appen publiceras i alla regioner som är associerade med LUIS-resurserna som lagts till i LUIS-portalen. Till exempel för en app som skapats på [www.luis.ai][www.luis.ai], om du skapar en LUIS- eller Cognitive Service-resurs i **westus** och [lägger till den](luis-how-to-azure-subscription.md)i appen som en resurs , publiceras appen i det området.
+Appen publiceras till alla regioner som är kopplade till de LUIS-resurser som lagts till i LUIS-portalen. För en app som skapas på [www.Luis.AI][www.luis.ai], om du till exempel skapar en Luis-eller kognitiv tjänst resurs i **väst** och [lägger till den i appen som en resurs](luis-how-to-azure-subscription.md), publiceras appen i den regionen.
 
 ## <a name="public-apps"></a>Offentliga appar
-En offentlig app publiceras i alla regioner så att en användare med en regionbaserad LUIS-resursnyckel kan komma åt appen i vilken region som är associerad med deras resursnyckel.
+En offentlig app publiceras i alla regioner så att en användare med en regions-baserad LUIS resurs nyckel kan komma åt appen i den region som är kopplad till deras resurs nyckel.
 
 <a name="publishing-regions"></a>
 
-## <a name="publishing-regions-are-tied-to-authoring-regions"></a>Publiceringsregioner är knutna till redigeringsregioner
+## <a name="publishing-regions-are-tied-to-authoring-regions"></a>Publicerings regioner är knutna till redigerings regioner
 
-Appen för redigeringsregionen kan bara publiceras i en motsvarande publiceringsregion. Om din app för närvarande är i fel redigeringsregion exporterar du appen och importerar den till rätt redigeringsregion för publiceringsregionen.
+Det går bara att publicera appen för redigerings region i en motsvarande publicerings region. Om din app för närvarande är i fel redigerings region, exportera appen och importera den till rätt redigerings region för publicerings regionen.
 
-LUIS-appar https://www.luis.ai som skapats på kan publiceras på alla slutpunkter utom [de europeiska](#publishing-to-europe) och [australiska](#publishing-to-australia) regionerna.
+LUIS-appar som https://www.luis.ai skapas på kan publiceras till alla slut punkter förutom de [Europeiska](#publishing-to-europe) och [australiska](#publishing-to-australia) regionerna.
 
-## <a name="publishing-to-europe"></a>Publicering till Europa
+## <a name="publishing-to-europe"></a>Publicera till Europa
 
-Om du bara vill publicera till https://eu.luis.ai de europeiska regionerna skapar du LUIS-appar. Om du försöker publicera någon annanstans med hjälp av en nyckel i Europa-regionen visas ett varningsmeddelande i LUIS. Använd i https://eu.luis.aistället . LUIS-appar [https://eu.luis.ai][eu.luis.ai] som skapas vid migrerar inte automatiskt till andra regioner. Exportera och importera sedan LUIS-appen för att migrera den.
+För att publicera till de europeiska regionerna skapar du LUIS-appar https://eu.luis.ai endast på. Om du försöker publicera någon annan stans med en nyckel i regionen Europa, visar LUIS ett varnings meddelande. Använd https://eu.luis.aii stället. LUIS-appar som [https://eu.luis.ai][eu.luis.ai] skapats med migreras inte automatiskt till andra regioner. Exportera och importera LUIS-appen för att migrera den.
 
-## <a name="europe-publishing-regions"></a>Europa förlagsregioner
+## <a name="europe-publishing-regions"></a>Publicerings regioner för Europa
 
- Global region | Skapa API-region & författarwebbplats| Publicera & frågeområde<br>`API region name`   |  URL-format för slutpunkt   |
+ Global region | Redigera API-region & redigerings webbplats| Publicerar & fråge område<br>`API region name`   |  URL-format för slut punkt   |
 |-----|------|------|------|
 | [Europa](#publishing-to-europe)| `westeurope`<br>[eu.luis.ai][eu.luis.ai]| Frankrike, centrala<br>`francecentral`     | `https://francecentral.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | [Europa](#publishing-to-europe)| `westeurope`<br>[eu.luis.ai][eu.luis.ai]| Europa, norra<br>`northeurope`     | `https://northeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | [Europa](#publishing-to-europe) | `westeurope`<br>[eu.luis.ai][eu.luis.ai]| Europa, västra<br>`westeurope`    |  `https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | [Europa](#publishing-to-europe) | `westeurope`<br>[eu.luis.ai][eu.luis.ai]| Storbritannien, södra<br>`uksouth`    |  `https://uksouth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 
-## <a name="publishing-to-australia"></a>Publicering till Australien
+## <a name="publishing-to-australia"></a>Publicera till Australien
 
-Om du bara vill publicera till https://au.luis.ai de australiska regionerna skapar du LUIS-appar. Om du försöker publicera någon annanstans med hjälp av en nyckel i den australiska regionen visas ett varningsmeddelande för LUIS. Använd i https://au.luis.aistället . LUIS-appar [https://au.luis.ai][au.luis.ai] som skapas vid migrerar inte automatiskt till andra regioner. Exportera och importera sedan LUIS-appen för att migrera den.
+För att publicera till australiensiska regioner skapar du LUIS-appar https://au.luis.ai endast på. Om du försöker publicera någon annan stans med hjälp av en nyckel i regionen australisk, visar LUIS ett varnings meddelande. Använd https://au.luis.aii stället. LUIS-appar som [https://au.luis.ai][au.luis.ai] skapats med migreras inte automatiskt till andra regioner. Exportera och importera LUIS-appen för att migrera den.
 
-## <a name="australia-publishing-regions"></a>Australien förlagsregioner
+## <a name="australia-publishing-regions"></a>Australien, publicerings regioner
 
- Global region | Skapa API-region & författarwebbplats| Publicera & frågeområde<br>`API region name`   |  URL-format för slutpunkt   |
+ Global region | Redigera API-region & redigerings webbplats| Publicerar & fråge område<br>`API region name`   |  URL-format för slut punkt   |
 |-----|------|------|------|
 | [Australien](#publishing-to-australia) | `australiaeast`<br>[au.luis.ai][au.luis.ai]| Australien, östra<br>`australiaeast`     |  `https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 
-## <a name="publishing-to-other-regions"></a>Publicering till andra regioner
+## <a name="publishing-to-other-regions"></a>Publicera till andra regioner
 
-Om du bara vill publicera till [https://www.luis.ai](https://www.luis.ai) de andra regionerna skapar du LUIS-appar.
+Om du vill publicera till andra regioner skapar du LUIS-appar [https://www.luis.ai](https://www.luis.ai) endast på.
 
-## <a name="other-publishing-regions"></a>Andra publiceringsregioner
+## <a name="other-publishing-regions"></a>Andra publicerings regioner
 
- Global region | Skapa API-region & författarwebbplats| Publicera & frågeområde<br>`API region name`   |  URL-format för slutpunkt   |
+ Global region | Redigera API-region & redigerings webbplats| Publicerar & fråge område<br>`API region name`   |  URL-format för slut punkt   |
 |-----|------|------|------|
-| Afrika | `westus`<br>[www.luis.ai][www.luis.ai]| Sydafrika North<br>`southafricanorth` |  `https://southafricanorth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
+| Afrika | `westus`<br>[www.luis.ai][www.luis.ai]| Sydafrika, norra<br>`southafricanorth` |  `https://southafricanorth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | Asien | `westus`<br>[www.luis.ai][www.luis.ai]| Indien, centrala<br>`centralindia` |  `https://centralindia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | Asien | `westus`<br>[www.luis.ai][www.luis.ai]| Asien, östra<br>`eastasia`     |  `https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | Asien | `westus`<br>[www.luis.ai][www.luis.ai]| Japan, östra<br>`japaneast`     |   `https://japaneast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
@@ -94,18 +94,18 @@ Om du bara vill publicera till [https://www.luis.ai](https://www.luis.ai) de and
 
 ## <a name="endpoints"></a>Slutpunkter
 
-Läs mer om [slutpunkterna för redigering och förutsägelse](developer-reference-resource.md).
+Läs mer om hur du [skapar och förutsäger slut punkter](developer-reference-resource.md).
 
 ## <a name="failover-regions"></a>Redundansregioner
 
-Varje region har en sekundär region att växla över till. Europa misslyckas över i Europa och Australien misslyckas över inne i Australien.
+Varje region har en sekundär region att redundansväxla till. Europa växlar över i Europa och Australien växlar över inom Australien.
 
-Redigeringsregioner har [parkopplat överväxlingsregioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Redigerings regioner har [parat på växlings bara regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Referens för fördefinierade enheter](./luis-reference-prebuilt-entities.md)
+> [Referens för fördefinierade entiteter](./luis-reference-prebuilt-entities.md)
 
  [www.luis.ai]: https://www.luis.ai
  [au.luis.ai]: https://au.luis.ai

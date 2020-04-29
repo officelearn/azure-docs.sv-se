@@ -1,5 +1,5 @@
 ---
-title: CLI-exempel skalar en SQL elastisk pool-Azure SQL Database
+title: CLI-exempel skalar en elastisk SQL-pool – Azure SQL Database
 description: Skriptexempel för Azure CLI för skalning av en elastisk pool i Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
 ms.openlocfilehash: b229aa8976705c5e3ad83c468ebc10a261f14a4f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80067398"
 ---
 # <a name="use-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>Använda CLI för skalning av en elastisk pool i Azure SQL Database
@@ -36,21 +36,21 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ### <a name="clean-up-deployment"></a>Rensa distribution
 
-Använd följande kommando för att ta bort resursgruppen och alla resurser som är associerade med den.
+Använd följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den.
 
 ```azurecli-interactive
 az group delete --name $resource
 ```
 
-## <a name="sample-reference"></a>Exempelreferens
+## <a name="sample-reference"></a>Exempel referens
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | | |
 |---|---|
-| [az sql server](/cli/azure/sql/server) | Serverkommandon. |
-| [az sql db](/cli/azure/sql/db) | Databaskommandon. |
-| [az sql elastiska pooler](/cli/azure/sql/elastic-pool) | Elastiska poolkommandon. |
+| [az sql server](/cli/azure/sql/server) | Server kommandon. |
+| [AZ SQL DB](/cli/azure/sql/db) | Databas kommandon. |
+| [AZ SQL elastiska pooler](/cli/azure/sql/elastic-pool) | Kommandon för elastisk pool. |
 
 ## <a name="next-steps"></a>Nästa steg
 

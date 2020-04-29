@@ -1,20 +1,20 @@
 ---
-title: 'Snabbstart: Publicera kunskapsbas, REST, Java - QnA Maker'
-description: Den här Java REST-baserade snabbstarten publicerar din kunskapsbas och skapar en slutpunkt som kan anropas i ditt program eller chattrobot.
+title: 'Snabb start: publicera kunskaps bas, REST, Java-QnA Maker'
+description: Den här Java REST-baserade snabb starten publicerar din kunskaps bas och skapar en slut punkt som kan anropas i ditt program eller chatt-robot.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 149d7963f29bf041cda75fffaac533e0a62ee7a6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78851689"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med hjälp av Java
 
-Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar din kunskapsbas (KB). Publicering skickar den senaste versionen av kunskapsbasen till ett dedikerat Azure Cognitive Search-index och skapar en slutpunkt som kan anropas i ditt program eller chattrobot.
+Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar din kunskapsbas (KB). Publiceringen skickar push-överför den senaste versionen av kunskaps basen till ett dedikerat Azure Kognitiv sökning-index och skapar en slut punkt som kan anropas i ditt program eller chatt-robot.
 
 Den här snabbstarten anropar API:er för QnA Maker:
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) (Publicera) – detta API kräver inte någon information i brödtexten för begäran.
@@ -26,16 +26,16 @@ Den här snabbstarten anropar API:er för QnA Maker:
     * httpclient-4.5.3.jar
     * httpcore-4.4.6.jar
     * commons-logging-1.2.jar
-* [Visual Studio-kod](https://code.visualstudio.com/)
-* Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta nyckeln och slutpunkten (som innehåller resursnamnet) väljer du **Snabbstart** för din resurs i Azure-portalen.
-* QnA Maker-knowledge base-ID (KB) `kbid` som finns i URL:en i frågesträngparametern enligt nedan.
+* [Visual Studio-koden](https://code.visualstudio.com/)
+* Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal.
+* QnA Maker kunskaps bas-ID (KB) hittades i URL: `kbid` en i frågesträngparametern som visas nedan.
 
     ![QnA Maker-kunskapsbas-ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
     Om du inte har en kunskapsbas ännu kan du kan skapa en exempelkunskapsbas för den här snabbstarten: [Skapa en ny kunskapsbas](create-new-kb-csharp.md).
 
 > [!NOTE]
-> De fullständiga lösningsfilerna är tillgängliga från [ **Azure-Samples/cognitive-services-qnamaker-java GitHub-databasen** ](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
+> Fullständiga lösnings fil (er) är tillgängliga från [ **Azure-samples/kognitiv-Services-qnamaker-Java** GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## <a name="create-a-java-file"></a>Skapa en Java-fil
 
@@ -62,7 +62,7 @@ public class PublishKB {
 
 ## <a name="add-required-constants"></a>Lägg till nödvändiga konstanter
 
-I **huvudmetoden** lägger du till de konstanter som krävs för att komma åt QnA Maker. Ersätt värdena med dina egna.
+I **main** -metoden lägger du till de konstanter som krävs för att få åtkomst till QNA Maker. Ersätt värdena med dina egna.
 
 [!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=27-30 "Add the required constants")]
 

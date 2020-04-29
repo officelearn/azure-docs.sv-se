@@ -1,5 +1,5 @@
 ---
-title: Distribuera en Java-app till ett Service Fabric-kluster i Azure
+title: Distribuera en Java-app till ett Service Fabric kluster i Azure
 description: I den här självstudiekursen får du lära dig hur du distribuerar en Java Service Fabric-tillämpning till ett Service Fabric-kluster i Azure.
 author: suhuruli
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: df6719cad79bdb063c2d4d74892206b6e5bbd414
-ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80292042"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Självstudie: Distribuera en Java-tillämpning till ett Service Fabric-kluster i Azure
@@ -162,7 +162,7 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    Din SAS-URL för EventHubs följer `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`strukturen: . Till exempel, `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
+    Din SAS-URL för EventHubs följer strukturen: `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`. Till exempel, `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
 
 12. Öppna filen *sfdeploy.parameters.json* och ersätt följande innehåll från föregående steg. [SAS-URL-STORAGE-ACCOUNT] beskrevs i steg 8. [SAS-URL-EVENT-HUBS] beskrevs i steg 11.
 

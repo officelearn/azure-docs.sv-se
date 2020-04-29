@@ -1,5 +1,5 @@
 ---
-title: Skicka meddelanden till specifika Android-enheter med Azure Notification Hubs och Google Cloud Messaging | Microsoft-dokument
+title: Skicka meddelanden till vissa Android-enheter med Azure Notification Hubs och Google Cloud Messaging | Microsoft Docs
 description: Lär dig hur du använder Notification Hubs för att skicka meddelanden till specifika Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging.
 services: notification-hubs
 documentationcenter: android
@@ -18,16 +18,16 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 57a11eac47baace0ad9fa7dcae82dca6eeee0988
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80127292"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-android-devices-using-google-cloud-messaging-deprecated"></a>Självstudiekurs: Skicka push-meddelanden till specifika Android-enheter med Google Cloud Messaging (inaktuella)
+# <a name="tutorial-send-push-notifications-to-specific-android-devices-using-google-cloud-messaging-deprecated"></a>Självstudie: skicka push-meddelanden till vissa Android-enheter med hjälp av Google Cloud Messaging (inaktuell)
 
 > [!WARNING]
-> Från och med den 10 april 2018 har Google föråldrat Google Cloud Messaging (GCM). GCM-servern och klient-API:erna är inaktuella och tas bort redan den 29 maj 2019. Mer information finns i [Vanliga frågor och svar om GCM och FCM](https://developers.google.com/cloud-messaging/faq).
+> Från och med den 10 april 2018 har Google föråldrad Google Cloud Messaging (GCM). GCM-servern och klient-API: erna är inaktuella och tas bort så snart som den 29 maj 2019. Mer information finns i [GCM och FCM vanliga frågor och svar](https://developers.google.com/cloud-messaging/faq).
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -328,7 +328,7 @@ Appen är nu klar och kan lagra en uppsättning kategorier i den enhetens lokala
 I den här kursen har du skickat meddelanden till specifika Android-enheter som har registrerats för kategorier. Information om hur du skickar meddelanden till specifika användare finns i följande självstudie:
 
 > [!div class="nextstepaction"]
->[Skicka meddelanden till specifika användare](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
+>[Skicka push-meddelanden till specifika användare](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
 
 <!-- Images. -->
 [A1]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG

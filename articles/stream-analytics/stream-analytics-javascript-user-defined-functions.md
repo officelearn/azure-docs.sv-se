@@ -1,6 +1,6 @@
 ---
 title: Användardefinierade funktioner i Azure Stream Analytics JavaScript
-description: Den här artikeln är en introduktion till JavaScript-användardefinierade funktioner i Stream Analytics.
+description: Den här artikeln är en introduktion till användardefinierade JavaScript-funktioner i Stream Analytics.
 author: rodrigoaatmicrosoft
 ms.author: rodrigoa
 ms.service: stream-analytics
@@ -9,59 +9,59 @@ ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 03/23/2020
 ms.openlocfilehash: 58d750b47f3f6a2bcfbf23399ca249131e7876ae
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/25/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80235401"
 ---
-# <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>JavaScript-användardefinierade funktioner i Azure Stream Analytics
+# <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Användardefinierade JavaScript-funktioner i Azure Stream Analytics
  
-Azure Stream Analytics stödjer användardefinierade JavaScript-funktioner. Med den omfattande uppsättningen **string-,** **RegExp-,** **matematiska, array-** och **datummetoder** som JavaScript tillhandahåller blir komplexa dataomvandlingar med Stream Analytics-jobb enklare att skapa. **Math**
+Azure Stream Analytics stödjer användardefinierade JavaScript-funktioner. Med den omfattande uppsättningen **sträng**-, **regexp**-, **matematik**-, **matris**-och **datum** metoder som Java Script tillhandahåller, blir det enklare att skapa komplexa data transformationer med Stream Analytics jobb.
 
 ## <a name="overview"></a>Översikt
 
-JavaScript-användardefinierade funktioner stöder tillståndslösa skalärfunktioner som endast är beräkningsbara och som inte kräver extern anslutning. Returvärdet för en funktion kan endast vara ett skalärvärde (enkelt). När du lägger till en användardefinierad JavaScript-funktion i ett jobb kan använda funktionen var som helst i frågan, som en inbyggd skalärfunktion.
+Användardefinierade JavaScript-funktioner har stöd för tillstånds lösa, endast Compute-skalära funktioner som inte kräver extern anslutning. Returvärdet för en funktion kan endast vara ett skalärvärde (enkelt). När du lägger till en användardefinierad JavaScript-funktion i ett jobb kan använda funktionen var som helst i frågan, som en inbyggd skalärfunktion.
 
 Här följer några scenarier där användardefinierade JavaScript-funktioner kan vara användbara:
 * Tolka och manipulera strängar som har funktioner med reguljära uttryck, till exempel **Regexp_Replace()** och **Regexp_Extract()**
 * Avkoda och koda data, till exempel konvertering av binärt format till hexadecimalt
-* Gör matematiska beräkningar med JavaScript **Math-funktioner**
-* Utföra matrisåtgärder som sortera, gå med, hitta och fylla
+* Utföra matematiska-beräkningar med JavaScript- **matematiska** funktioner
+* Utföra mat ris åtgärder som att sortera, delta, hitta och fylla
 
-Här är några saker du inte kan göra med en JavaScript-användardefinierad funktion i Stream Analytics:
-* Anropa externa REST-slutpunkter, till exempel göra omvänd IP-sökning eller hämta referensdata från en extern källa
+Här är några saker som du inte kan göra med en användardefinierad JavaScript-funktion i Stream Analytics:
+* Anropa externa REST-slutpunkter, till exempel genom att göra omvänd IP-sökning eller hämta referens data från en extern källa
 * Utför anpassade serialisering eller avserialisering av händelseformat på indata/utdata
 * Skapa anpassade samlingar
 
-Även om funktioner som **Date.GetDate()** eller **Math.random()** inte blockeras i funktionsdefinitionen bör du undvika att använda dem. Dessa funktioner returnerar **inte** samma resultat varje gång du anropar dem, och Azure Stream Analytics-tjänsten för inte en journal över funktionsanrop och returnerade resultat. Om en funktion returnerar olika resultat på samma händelser garanteras inte repeterbarhet när ett jobb startas om av dig eller av Tjänsten Stream Analytics.
+Även om functions som **date. GetDate ()** eller **Math. Random ()** inte är blockerade i funktions definitionen, bör du undvika att använda dem. Dessa funktioner returnerar **inte** samma resultat varje gång du anropar dem och Azure Stream Analytics tjänsten behåller inte en journal över funktions anrop och returnerade resultat. Om en funktion returnerar olika resultat för samma händelser, garanteras repeterbarhet inte när ett jobb startas om av dig eller av tjänsten Stream Analytics.
 
-## <a name="add-a-javascript-user-defined-function-to-your-job"></a>Lägga till en JavaScript-användardefinierad funktion i jobbet
+## <a name="add-a-javascript-user-defined-function-to-your-job"></a>Lägg till en användardefinierad JavaScript-funktion i jobbet
 
 > [!NOTE]
-> De här stegen fungerar med Stream Analytics-jobb som konfigurerats för att köras i molnet. Om ditt Stream Analytics-jobb är konfigurerat för att köras på Azure IoT Edge använder du i stället Visual Studio och [skriver den användardefinierade funktionen med C#](stream-analytics-edge-csharp-udf.md).
+> De här stegen fungerar på Stream Analytics jobb som kon figurer ATS för att köras i molnet. Om Stream Analytics jobbet är konfigurerat för att köras på Azure IoT Edge ska du i stället använda Visual Studio och [skriva den användardefinierade funktionen med C#](stream-analytics-edge-csharp-udf.md).
 
-Om du vill skapa en JavaScript-användardefinierad funktion i ditt Stream Analytics-jobb väljer du **Funktioner** under **Jobbtopologi**. Välj sedan **JavaScript UDF** på rullgardinsmenyn **+Lägg till.** 
+Om du vill skapa en användardefinierad JavaScript-funktion i Stream Analytics jobb väljer du **funktioner** under **jobb sto pol Ogin**. Välj sedan **JavaScript UDF** från List menyn **+ Lägg till** . 
 
-![Lägg till JavaScript UDF](./media/javascript/stream-analytics-jsudf-add.png)
+![Lägg till Java Script UDF](./media/javascript/stream-analytics-jsudf-add.png)
 
-Du måste sedan ange följande egenskaper och välja **Spara**.
+Du måste ange följande egenskaper och välja **Spara**.
 
 |Egenskap|Beskrivning|
 |--------|-----------|
-|Funktionsalias|Ange ett namn som ska anropa funktionen i frågan.|
-|Utdatatyp|Typ som returneras av din JavaScript-användardefinierade funktion till din Stream Analytics-fråga.|
-|Funktionsdefinition|Implementering av javascript-funktionen som ska köras varje gång din UDF anropas från din fråga.|
+|Funktions Ali Aset|Ange ett namn för att anropa funktionen i frågan.|
+|Utdatatyp|Typ som ska returneras av den användardefinierade JavaScript-funktionen till din Stream Analytics-fråga.|
+|Funktions definition|Implementering av JavaScript-funktionen som ska köras varje gången UDF-funktionen anropas från din fråga.|
 
-## <a name="test-and-troubleshoot-javascript-udfs"></a>Testa och felsöka JavaScript-UDF:er 
+## <a name="test-and-troubleshoot-javascript-udfs"></a>Testa och felsöka JavaScript-UDF: er 
 
-Du kan testa och felsöka din JavaScript UDF-logik i alla webbläsare. Felsökning och testning av logiken för dessa användardefinierade funktioner stöds för närvarande inte i Stream Analytics-portalen. När funktionen fungerar som förväntat kan du lägga till den i Stream Analytics-jobbet som nämnts ovan och sedan anropa den direkt från din fråga. Du kan testa frågelogiken med JavaScript UDF med Hjälp av [Stream Analytics-verktyg för Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install).
+Du kan testa och felsöka din JavaScript UDF-logik i valfri webbläsare. Det finns för närvarande inte stöd för att felsöka och testa logiken för dessa användardefinierade funktioner i Stream Analytics Portal. När funktionen fungerar som förväntat kan du lägga till den i Stream Analytics-jobbet som nämnts ovan och sedan anropa den direkt från din fråga. Du kan testa din fråge logik med Java Script UDF med [Stream Analytics verktyg för Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install).
 
 JavaScript-körningsfel betraktas som allvarliga och exponeras via aktivitetsloggen. För att hämta loggen i Azure Portal går du till jobbet och väljer **aktivitetsloggen**.
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Anropa en användardefinierad JavaScript-funktion i en fråga
 
-Du kan enkelt anropa javascript-funktionen i frågan med hjälp av funktionen alias föregås med **udf**. Här är ett exempel på en JavaScript UDF som konverterar hexadecimala värden till heltal som anropas i en Stream Analytics-fråga.
+Du kan enkelt anropa JavaScript-funktionen i din fråga med hjälp av funktions Ali Aset prefixet med **UDF**. Här är ett exempel på en JavaScript UDF som konverterar hexadecimala värden till heltal som anropas i en Stream Analytics fråga.
 
 ```SQL
     SELECT
@@ -85,8 +85,8 @@ Stream Analytics | JavaScript
 --- | ---
 bigint | Siffra (JavaScript kan bara representera heltal upp till exakt 2^53)
 DateTime | Datum (JavaScript stöder endast millisekunder)
-double | Tal
-nvarchar(MAX) | String
+double | Antal
+nvarchar(MAX) | Sträng
 Spela in | Objekt
 Matris | Matris
 NULL | Null
@@ -95,15 +95,15 @@ Här är konverteringarna från JavaScript till Stream Analytics:
 
 JavaScript | Stream Analytics
 --- | ---
-Tal | Bigint (om talet är avrundat och mellan long.MinValue och long.MaxValue, i annat fall stöds det inte)
-Datum | DateTime
-String | nvarchar(MAX)
+Antal | Bigint (om talet är avrundat och mellan long.MinValue och long.MaxValue, i annat fall stöds det inte)
+Date | DateTime
+Sträng | nvarchar(MAX)
 Objekt | Spela in
 Matris | Matris
 Null, odefinierad | NULL
 Annan typ (till exempel en funktion eller fel) | Stöds inte (resulterar i körningsfel)
 
-JavaScript-språket är skiftlägeskänsligt och höljet av objektfälten i JavaScript-koden måste matcha höljet för fälten i inkommande data. Jobb med kompatibilitetsnivå 1.0 konverterar fält från SQL SELECT-uttrycket till gemener. Under kompatibilitetsnivå 1.1 och högre har fält från SELECT-uttrycket samma hölje som anges i SQL-frågan.
+JavaScript-språket är Skift läges känsligt och Skift läge för objekt fälten i JavaScript-koden måste matcha versaler och gemener i fälten i inkommande data. Jobb med kompatibilitetsnivå 1,0 kommer att konvertera fält från SQL SELECT-instruktionen till gemener. Under kompatibilitetsnivå 1,1 och högre har fält från SELECT-instruktionen samma Skift läge som anges i SQL-frågan.
 
 ## <a name="other-javascript-user-defined-function-patterns"></a>Andra mönster för användardefinierade JavaScript-funktioner
 
@@ -119,7 +119,7 @@ return JSON.stringify(x);
 }
 ```
 
-**Exempelfråga:**
+**Exempel fråga:**
 ```SQL
 SELECT
     DataString,
@@ -134,5 +134,5 @@ FROM
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Maskininlärning UDF](https://docs.microsoft.com/azure/stream-analytics/machine-learning-udf)
-* [C# UDF](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf-methods)
+* [Machine Learning UDF](https://docs.microsoft.com/azure/stream-analytics/machine-learning-udf)
+* [UDF för C#](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf-methods)

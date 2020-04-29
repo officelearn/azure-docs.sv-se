@@ -1,6 +1,6 @@
 ---
-title: PowerShell-skript för att uppdatera RU/s för Azure Cosmos DB Table API
-description: Lär dig hur du använder ett PowerShell-skript för att uppdatera dataflödet för en databas eller en behållare i Azure Cosmos DB Table API-konto
+title: PowerShell-skript för att uppdatera RU/s för Azure Cosmos DB Tabell-API
+description: Lär dig hur du använder ett PowerShell-skript för att uppdatera data flödet för en databas eller en behållare i Azure Cosmos DB Tabell-API konto
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: 101e9e5591198b84bb9bba886249b0784cc6b43e
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80365951"
 ---
-# <a name="update-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Uppdatera RU/s för en tabell för Azure Cosmos DB - Tabell-API
+# <a name="update-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Uppdatera RU/s för en tabell för Azure Cosmos DB-Tabell-API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -36,11 +36,11 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Set-AzCosmosDBTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbtable) | Skapar eller uppdaterar en COSMOS DB Table API-tabell. |
-|**Azure-resursgrupper**| |
+| [Set-AzCosmosDBTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbtable) | Skapar eller uppdaterar en Cosmos DB Tabell-API tabell. |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

@@ -1,5 +1,5 @@
 ---
-title: 'CLI: Ansluta en app till en SQL-databas'
+title: 'CLI: ansluta en app till en SQL-databas'
 description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du ansluter en app till en SQL-databas.
 author: msangapu-msft
 tags: azure-service-management
@@ -10,10 +10,10 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 74e5af6c295ffada0fbb8d1ded63177afadad285
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80058119"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database-using-cli"></a>Ansluta en App Service-app till en SQL-databas med hjälp av CLI
@@ -36,7 +36,7 @@ Om du väljer att installera och använda CLI-gränssnittet lokalt måste du ha 
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, App Service-appen, SQL-databasen och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Skapar en App Service-plan. |

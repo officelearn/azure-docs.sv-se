@@ -1,19 +1,19 @@
 ---
-title: PowerShell-skript för att skapa ett Azure Cosmos DB-konto med IP-brandväggen
-description: Exempel på Azure PowerShell-skript – Skapa ett Azure Cosmos DB-konto med IP-brandväggen
+title: PowerShell-skript för att skapa ett Azure Cosmos DB-konto med IP-brandvägg
+description: Azure PowerShell skript exempel – skapa ett Azure Cosmos DB konto med IP-brandvägg
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
 ms.openlocfilehash: f01e8e818a1b3cf4f999afa1e0801b2341ede2bf
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80365673"
 ---
-# <a name="create-an-azure-cosmos-db-account-with-ip-firewall"></a>Skapa ett Azure Cosmos DB-konto med IP-brandväggen
+# <a name="create-an-azure-cosmos-db-account-with-ip-firewall"></a>Skapa ett Azure Cosmos DB-konto med IP-brandvägg
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "80365673"
 ## <a name="sample-script"></a>Exempelskript
 
 > [!NOTE]
-> Det här exemplet visas med hjälp av ett SQL-API-konto (Core). Om du vill använda det här exemplet för andra API:er kopierar du de relaterade egenskaperna och gäller för ditt API-specifika skript
+> Det här exemplet visar hur du använder ett SQL (Core) API-konto. Om du vill använda det här exemplet för andra API: er kopierar du de relaterade egenskaperna och tillämpar på ditt API-speciella skript
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-firewall-create.ps1 "Create an Azure Cosmos account with IP Firewall")]
 
@@ -38,11 +38,11 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Ny-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Skapar ett nytt Cosmos DB-konto. |
-|**Azure-resursgrupper**| |
+| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Skapar ett nytt Cosmos DB-konto. |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

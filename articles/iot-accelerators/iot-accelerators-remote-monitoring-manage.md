@@ -1,5 +1,5 @@
 ---
-title: Konfigurera enheter i lösning för fjärrövervakning – Azure | Microsoft-dokument
+title: Konfigurera enheter i fjärr styrnings lösningen – Azure | Microsoft Docs
 description: Den här självstudien visar dig hur du konfigurerar enheter som är anslutna till acceleratorn Fjärrövervakningslösning.
 author: dominicbetts
 manager: timlt
@@ -10,10 +10,10 @@ ms.date: 03/08/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: e4236952bd41c4955e337813ff6d706263b8ef47
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73890906"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Självstudie: Konfigurera enheter som är anslutna till din övervakningslösning
@@ -42,17 +42,17 @@ Navigera till sidan **Device Explorer** i lösningen och klicka sedan på **+ Ny
 
 I panelen **Ny enhet** väljer du **Simulerad**, lämnar antalet enheter som ska etableras på **1**, väljer enhetsmodellen **Faulty Engine** (Felaktig motor) och väljer sedan **Använd** för att skapa den simulerade enheten:
 
-[![Etablera en simulerad motorenhet](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine-expanded.png#lightbox)
+[![Etablera en simulerad motor enhet](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine-expanded.png#lightbox)
 
 ## <a name="test-the-simulated-device"></a>Testa den simulerade enheten
 
 För att testa att den simulerade motorenheten skickar telemetridata och rapporterar egenskapsvärden väljer du den i listan med enheter på sidan **Device Explorer**. Direktinformation om motorn visas i panelen **Enhetsinformation**:
 
-[![Visa den nya simulerade motorenheten](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
+[![Visa den nya simulerade motor enheten](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
 I **Enhetsinformation** kontrollerar du att den nya enheten skickar telemetridata. Om du vill visa telemetriströmmen för vibrationer från enheten klickar du på **Vibration**:
 
-[![Välj en telemetriström som ska visas](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-expanded.png#lightbox)
+[![Välj en telemetri-ström att Visa](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-expanded.png#lightbox)
 
 Panelen **Enhetsinformation** visar annan information om enheten som taggvärden, metoder som stöds och egenskaperna som rapporteras av enheten.
 
@@ -66,15 +66,15 @@ För att testa att du kan uppdatera motorns konfigurationsegenskaper väljer du 
 
 Du kan uppdatera motorns plats genom att ange jobbnamnet **UpdateEngineLocation** (Uppdatera motorns plats), anger longitud **-122.15**, anger platsen **Factory 2** (Fabrik 2), anger latitud **47.62** och klickar på **Använd**:
 
-[![Uppdatera ett enhetsegenskapsvärde](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-expanded.png#lightbox)
+[![Uppdatera ett egenskaps värde för enhet](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigurephysical-expanded.png#lightbox)
 
 Du kan spåra jobbets status genom att klicka på **Visa jobbstatus**:
 
-[![Uppdatera ett enhetsegenskapsvärde](./media/iot-accelerators-remote-monitoring-manage/locationjobstatus-inline.png)](./media/iot-accelerators-remote-monitoring-manage/locationjobstatus-expanded.png#lightbox)
+[![Uppdatera ett egenskaps värde för enhet](./media/iot-accelerators-remote-monitoring-manage/locationjobstatus-inline.png)](./media/iot-accelerators-remote-monitoring-manage/locationjobstatus-expanded.png#lightbox)
 
 När jobbet har slutförts går du till sidan **Instrumentpanel**. Motorn visas på kartan på den nya platsen:
 
-[![Visa motorns plats](./media/iot-accelerators-remote-monitoring-manage/enginelocation-inline.png)](./media/iot-accelerators-remote-monitoring-manage/enginelocation-expanded.png#lightbox)
+[![Visa plats för motorn](./media/iot-accelerators-remote-monitoring-manage/enginelocation-inline.png)](./media/iot-accelerators-remote-monitoring-manage/enginelocation-expanded.png#lightbox)
 
 ## <a name="organize-your-devices"></a>Organisera dina enheter
 
@@ -89,35 +89,35 @@ Du kan visa alla dina enheter genom att gå till sidan **Device Explorer** och v
 
 ### <a name="add-tags"></a>Lägga till taggar
 
-Välj alla enheter av typen **Trucks** (Lastbilar) och **Prototyping** (Prototyper). Klicka sedan på **Jobb**.
+Välj alla enheter av typen **Trucks** (Lastbilar) och **Prototyping** (Prototyper). Klicka sedan på **jobb**.
 
 I panelen **Jobs** (Jobb) väljer du **Tagg**. Ange jobbnamnet till **AddConnectedVehicleTag** (Lägg till ansluten fordonstagg) och lägg sedan till en texttagg med namnet **FieldService** (Fältservice) med värdet **ConnectedVehicle** (Anslutet fordon). Klicka sedan på **Använd**:
 
-[![Lägg till tagg i prototyp- och lastbilsenheter](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-expanded.png#lightbox)
+[![Lägg till tagg i prototyp-och Truck-enheter](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-expanded.png#lightbox)
 
-På enhetssidan väljer du alla enheter av typen **Chiller** (Kylaggregat), **Elevator** (Hiss) och **Motor**. Klicka sedan på **Jobb**.
+På enhetssidan väljer du alla enheter av typen **Chiller** (Kylaggregat), **Elevator** (Hiss) och **Motor**. Klicka sedan på **jobb**.
 
 I panelen **Jobs** (Jobb) väljer du **Tagg**. Ange jobbnamnet till **AddSmartBuildingTag** (Lägg till Smart Building-tagg) och lägg sedan till en texttagg med namnet **FieldService** (Fältservice) med värdet **SmartBuilding** (Smart byggnad). Klicka sedan på **Använd**:
 
-[![Lägg till tagg i kyl-, hiss- och motorenheter](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-expanded.png#lightbox)
+[![Lägg till tagg till kyl-, hiss-och motor enheter](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-expanded.png#lightbox)
 
 ### <a name="create-filters"></a>Skapa filter
 
 Nu kan du använda taggvärdena till att skapa filter. På sidan **Device Explorer** klickar du på **Hantera enhetsgrupper**:
 
-[![Hantera enhetsgrupper](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-expanded.png#lightbox)
+[![Hantera enhets grupper](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-expanded.png#lightbox)
 
 Skapa ett textfilter som använder taggnamnet **FieldService** (Fältservice) och värdet **SmartBuilding** i villkoret. Spara filtret som **Smart Building**:
 
-[![Skapa smart byggnadsfilter](./media/iot-accelerators-remote-monitoring-manage/smartbuildingfilter-inline.png)](./media/iot-accelerators-remote-monitoring-manage/smartbuildingfilter-expanded.png#lightbox)
+[![Skapa filter för smart skapande](./media/iot-accelerators-remote-monitoring-manage/smartbuildingfilter-inline.png)](./media/iot-accelerators-remote-monitoring-manage/smartbuildingfilter-expanded.png#lightbox)
 
 Skapa ett textfilter som använder taggnamnet **FieldService** (Fältservice) och värdet **ConnectedVehicle** (Anslutet fordon) i villkoret. Spara filtret som **Connected Vehicle** (Anslutet fordon).
 
-[![Skapa anslutet fordonsfilter](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-inline.png)](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-expanded.png#lightbox)
+[![Skapa anslutet fordons filter](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-inline.png)](./media/iot-accelerators-remote-monitoring-manage/connectedvehiclefilter-expanded.png#lightbox)
 
 Nu kan Contoso-operatören fråga efter enheter baserat på driftsteamet:
 
-[![Skapa anslutet fordonsfilter](./media/iot-accelerators-remote-monitoring-manage/filterinaction-inline.png)](./media/iot-accelerators-remote-monitoring-manage/filterinaction-expanded.png#lightbox)
+[![Skapa anslutet fordons filter](./media/iot-accelerators-remote-monitoring-manage/filterinaction-inline.png)](./media/iot-accelerators-remote-monitoring-manage/filterinaction-expanded.png#lightbox)
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 

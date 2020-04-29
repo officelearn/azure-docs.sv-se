@@ -1,6 +1,6 @@
 ---
-title: CLI exempel- Redundansgrupp - Azure SQL Database hanterad instans
-description: Azure CLI-exempelskript för att skapa en hanterad Azure SQL-databas-hanterad instans, lägga till den i en redundansgrupp och testa redundans.
+title: CLI-exempel – failover-grupp – Azure SQL Database Hanterad instans
+description: Exempel skript för Azure CLI för att skapa en Azure SQL Database Hanterad instans, lägga till den i en grupp för redundans och testa redundans.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,15 +12,15 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
 ms.openlocfilehash: 8ffe40662ffaf8a1fb35a3d31acfaea78ea0fbeb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80061921"
 ---
-# <a name="use-cli-to-add-an-azure-sql-database-managed-instance-to-a-failover-group"></a>Använd CLI för att lägga till en hanterad Azure SQL-databas-hanterad instans i en redundansgrupp
+# <a name="use-cli-to-add-an-azure-sql-database-managed-instance-to-a-failover-group"></a>Använd CLI för att lägga till en Azure SQL Database Hanterad instans i en failover-grupp
 
-Det här Azure CLI-exemplet skapar två hanterade instanser, lägger till dem i en redundansgrupp och testar sedan redundans från den primära hanterade instansen till den sekundära hanterade instansen.
+Det här Azure CLI-exemplet skapar två hanterade instanser, lägger till dem i en grupp för redundans och testar sedan redundans från den primära hanterade instansen till den sekundära hanterade instansen.
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
@@ -36,26 +36,26 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ### <a name="clean-up-deployment"></a>Rensa distribution
 
-Använd följande kommando för att ta bort resursgruppen och alla resurser som är associerade med den. Du måste ta bort resursgruppen två gånger. Om du tar bort resursgruppen första gången tas den hanterade instansen `az group delete : Long running operation failed with status 'Conflict'.`och de virtuella klustren bort, men felmeddelandet misslyckas sedan . Kör kommandot az-gruppborttagning en andra gång för att ta bort eventuella kvarvarande resurser samt resursgruppen.
+Använd följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den. Du måste ta bort resurs gruppen två gånger. Om du tar bort resurs gruppen första gången tas den hanterade instansen och virtuella kluster bort, men fel meddelandet `az group delete : Long running operation failed with status 'Conflict'.`kommer att Miss sen. Kör kommandot AZ Group Delete en andra gång för att ta bort eventuella kvarvarande resurser samt resurs gruppen.
 
 ```azurecli-interactive
 az group delete --name $resource
 ```
 
-## <a name="sample-reference"></a>Exempelreferens
+## <a name="sample-reference"></a>Exempel referens
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | | |
 |---|---|
-| [az nätverk vnet](/cli/azure/network/vnet) | Kommandon för virtuella nätverk.  |
-| [az nätverk vnet undernät](/cli/azure/network/vnet/subnet) | Kommandon för virtuellt nätverksundernät. |
-| [az nätverk nsg](/cli/azure/network/nsg) | Kommandon för nätverkssäkerhetsgrupp. |
-| [az-nätverksvägtabell](/cli/azure/network/route-table) | Kommandon för flödestabeller. |
-| [az sql mi](/cli/azure/sql/mi) | Hanterade instanskommandon. |
-| [az nätverk public-ip](/cli/azure/network/public-ip) | Kommandon för offentliga IP-adresser i nätverket. |
-| [az nätverk vnet-gateway](/cli/azure/network/vnet-gateway) | Kommandon för Virtual Network Gateway. |
-| [az sql-instans-redundansgrupp](/cli/azure/sql/instance-failover-group) | Hanterade förekomst redundansgruppskommandon. |
+| [AZ nätverkets VNet](/cli/azure/network/vnet) | Virtuella nätverks kommandon.  |
+| [AZ Network VNet Subnet](/cli/azure/network/vnet/subnet) | Under näts kommandon för virtuellt nätverk. |
+| [AZ Network NSG](/cli/azure/network/nsg) | Kommandon för nätverks säkerhets grupp. |
+| [AZ nätverks väg-tabell](/cli/azure/network/route-table) | Route Table-kommandon. |
+| [AZ SQL mi](/cli/azure/sql/mi) | Kommandon för hanterade instanser. |
+| [AZ Network Public-IP](/cli/azure/network/public-ip) | Nätverks kommandon för offentlig IP-adress. |
+| [AZ Network VNet-Gateway](/cli/azure/network/vnet-gateway) | Virtual Network Gateway-kommandon. |
+| [AZ SQL-instans – redundans-grupp](/cli/azure/sql/instance-failover-group) | Kommandon för redundans grupp för hanterade instanser. |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs - Använd en anpassad VM-avbildning i en skalningsuppsättning med Azure CLI
+title: Självstudie – Använd en anpassad VM-avbildning i en skalnings uppsättning med Azure CLI
 description: Läs hur du använder Azure CLI för att skapa en anpassad virtuell datoravbildning som du kan använda för att distribuera en VM-skalningsuppsättning
 author: cynthn
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 6d9f625bf425a33b690fd303a4f13d032bd59fa0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80062722"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Självstudie: Skapa och använd en anpassad avbildning för VM-skalningsuppsättningar med Azure CLI
@@ -24,7 +24,7 @@ När du skapar en skalningsuppsättning, kan du ange en avbildning som ska anvä
 > * Skapa en anpassad virtuell datoravbildning
 > * Distribuera en skalningsuppsättning som använder den anpassade virtuella datoravbildningen
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -91,7 +91,7 @@ Det kan ta några minuter att frigöra och generalisera den virtuella datorn.
 
 Nu kan du skapa en avbildning av den virtuella datorn med [az image create](/cli//azure/image). Följande exempel skapar en avbildning med namnet *myImage* från din virtuella dator:
 
-> - Jag vet inte vad du säger. Om resursgruppen och platsen för virtuella datorer `--location` skiljer sig åt kan du lägga till parametern i kommandona nedan för att specifikt ange platsen för källdatorns virtuella dator som används för att skapa avbildningen. 
+> Lägg Om resurs gruppen och den virtuella datorns plats skiljer sig åt kan du lägga `--location` till parametern i nedanstående kommandon för att ange platsen för den virtuella käll datorn som används för att skapa avbildningen. 
 
 ```azurecli-interactive
 az image create \
@@ -147,7 +147,7 @@ Ange den offentliga IP-adressen i din webbläsare. Standardwebbsidan för NGINX 
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du vill ta bort skalningsuppsättningen och ytterligare resurser tar du bort resursgruppen och alla dess resurser med [az-gruppborttagning](/cli/azure/group). Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
+Ta bort din skalnings uppsättning och ytterligare resurser genom att ta bort resurs gruppen och alla dess resurser med [AZ Group Delete](/cli/azure/group). Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

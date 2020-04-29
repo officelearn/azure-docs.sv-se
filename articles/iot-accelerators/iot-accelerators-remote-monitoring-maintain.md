@@ -1,5 +1,5 @@
 ---
-title: Använd aviseringar i lösningen för fjärrövervakning – Azure | Microsoft-dokument
+title: Använd aviseringar i lösningen för fjärrövervakning – Azure | Microsoft Docs
 description: Den här självstudiekursen visar hur du använder aviseringar till att identifiera och åtgärda problem med enheter anslutna till acceleratorn Fjärrövervakningslösning.
 author: dominicbetts
 manager: timlt
@@ -10,10 +10,10 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 853fa2b80e04dd8d9225d023db8030fed044ed7f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73890926"
 ---
 # <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Självstudie: Felsök och åtgärda enhetsproblem
@@ -36,11 +36,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 På sidan **Instrumentpanel** märker du att det finns oväntade temperaturaviseringar från regeln som hör till enheterna av typen **Prototype** (Prototyp):
 
-[![Aviseringar som visas på instrumentpanelen](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-expanded.png#lightbox)
+[![Aviseringar som visas på instrument panelen](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardalarm-expanded.png#lightbox)
 
 Du kan undersöka problemet vidare genom att välja alternativet **Explore Alert** (Utforska avisering) bredvid aviseringen:
 
-[![Utforska avisering från instrumentpanelen](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-expanded.png#lightbox)
+[![Utforska aviseringen från instrument panelen](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/dashboardexplorealarm-expanded.png#lightbox)
 
 Informationsvyn för aviseringen visar:
 
@@ -48,7 +48,7 @@ Informationsvyn för aviseringen visar:
 * Statusinformation om enheter som är kopplade till aviseringen
 * Telemetri från enheterna kopplade till aviseringen
 
-[![Varningsinformation](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-expanded.png#lightbox)
+[![Aviserings information](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-expanded.png#lightbox)
 
 Du kan bekräfta aviseringen genom att välja **Alert occurrences** (Aviseringsförekomster) och välja **Bekräfta**. Med den här åtgärden meddelas andra operatörer att du har sett aviseringen och arbetar med den:
 
@@ -58,7 +58,7 @@ När du bekräftar aviseringen ändras statusen för förekomsten till **Bekräf
 
 I listan över enheter med aviseringar visas den enhet av typen **Prototype** (Prototyp) som har gjort att en temperaturavisering har utlösts:
 
-[![Lista de enheter som orsakar aviseringen](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
+[![Visa en lista över de enheter som orsakar aviseringen](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
 
 ## <a name="resolve-the-issue"></a>Lösa problemet
 
@@ -70,15 +70,15 @@ Du kan utföra åtgärden på enheten genom att välja den i listan över enhete
 
 Välj **DecreaseTemperature** (Minska temperatur) och ange jobbnamnet **DecreaseTemperature** (Minska temperatur). Klicka sedan på **Använd**:
 
-[![Skapa jobbet för att sänka temperaturen](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-expanded.png#lightbox)
+[![Skapa jobbet för att minska temperaturen](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-expanded.png#lightbox)
 
-Om du vill spåra jobbets status klickar du på **Visa jobbstatus**. I vyn **Jobb** kan du spåra alla jobb och metodanrop i lösningen:
+Klicka på **Visa jobb status**om du vill spåra jobbets status. I vyn **Jobb** kan du spåra alla jobb och metodanrop i lösningen:
 
-[![Övervaka jobbet för att sänka temperaturen](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-expanded.png#lightbox)
+[![Övervaka jobbet för att minska temperaturen](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancerunningjob-expanded.png#lightbox)
 
 Du kan kontrollera att temperaturen för enheten har minskat genom att visa telemetridata på sidan **Instrumentpanel**:
 
-[![Visa temperatursänkningen](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
+[![Visa minskningen av temperaturen](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 

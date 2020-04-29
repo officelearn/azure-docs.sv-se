@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Distribuera från lokala Git repo'
-description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du distribuerar kod från en lokal Git-databas.
+title: 'CLI: Distribuera från lokal git-lagrings platsen'
+description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du distribuerar kod från en lokal git-lagringsplats.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 048f98aa-f708-44cb-9b9e-953f67dc6da8
@@ -10,15 +10,15 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 11cb8bd25f82e480ddbb23151d8a7622fedc828a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80044819"
 ---
 # <a name="create-an-app-service-app-and-deploy-code-from-a-local-git-repository-using-azure-cli"></a>Skapa en App Service-app och distribuera kod från en lokal Git-lagringsplats med hjälp av Azure CLI
 
-Det här exempelskriptet skapar en app i App Service med sina relaterade resurser och distribuerar sedan din appkod i en lokal Git-databas.
+Det här exempel skriptet skapar en app i App Service med dess relaterade resurser och distribuerar sedan din app-kod i en lokal git-lagringsplats.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -37,7 +37,7 @@ Om du väljer att installera och använda CLI-gränssnittet lokalt måste du ha 
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Skapar en App Service-plan. |

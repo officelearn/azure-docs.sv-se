@@ -1,6 +1,6 @@
 ---
 title: Skapa ett labb med Azure DevTest Labs | Microsoft Docs
-description: I den här självstudien skapar du ett labb i Azure DevTest Labs med hjälp av Azure-portalen. En labbadministratör skapar ett labb, skapar virtuella datorer i labbet och konfigurerar principer.
+description: I den här självstudien skapar du ett labb i Azure DevTest Labs med hjälp av Azure Portal. En labb administratör konfigurerar ett labb, skapar virtuella datorer i labbet och konfigurerar principer.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.custom: mvc
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 44539c6779afaece6d955a907819ef82d8cd7d5a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79239912"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Självstudie: Konfigurera ett labb med hjälp av Azure DevTest Labs

@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Skapa ASP.NET Core-appen från Docker'
-description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du skapar en ASP.NET Core-app från Docker Hub.
+title: 'CLI: skapa ASP.NET Core app från Docker'
+description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du skapar en ASP.NET Core app från Docker Hub.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
@@ -10,10 +10,10 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 8eb95644db5b1cb00ef6e245db6197cf2a2f301b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80044759"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-from-docker-hub-using-azure-cli"></a>Skapa en ASP.NET Core-app i en Docker-container från Docker Hub med hjälp av Azure CLI
@@ -36,7 +36,7 @@ Om du väljer att installera och använda CLI-gränssnittet lokalt måste du ha 
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, App Service-appen och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Skapar en App Service-plan. |

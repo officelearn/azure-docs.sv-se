@@ -1,6 +1,6 @@
 ---
-title: 'CLI: Ansluta en app till ett lagringskonto'
-description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du ansluter en app till ett lagringskonto.
+title: 'CLI: ansluta en app till ett lagrings konto'
+description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du ansluter en app till ett lagrings konto.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: bc8345b2-8487-40c6-a91f-77414e8688e6
@@ -10,10 +10,10 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 92cb41552d246dd30a84ce7bc27573ab6dbb7dae
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80058088"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account-using-cli"></a>Ansluta en App Service-app till ett lagringskonto med hjälp av CLI
@@ -37,7 +37,7 @@ Om du väljer att installera och använda CLI-gränssnittet lokalt måste du ha 
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, App Service-app, lagringskonto och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Skapar en App Service-plan. |

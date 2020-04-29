@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med IdeaScale | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med IdeaScale | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och IdeaScale.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 81594e6a21372f2b4dacedbda638cc87bad966db
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74227569"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Självstudiekurs: Azure Active Directory-integrering med IdeaScale
+# <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Självstudie: Azure Active Directory integrering med IdeaScale
 
 I den här självstudien lär du dig att integrera IdeaScale med Azure Active Directory (AD Azure).
 När du integrerar IdeaScale med Azure AD innebär det följande fördelar:
@@ -33,7 +33,7 @@ När du integrerar IdeaScale med Azure AD innebär det följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -142,15 +142,15 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med IdeaS
 
 3. Gå till **Säkerhet \> Inställningar för enkel inloggning**.
 
-    ![Inställningar för enkel inloggning](./media/ideascale-tutorial/ic790848.png "Inställningar för enkel inloggning")
+    ![Inställningar för enskilda inloggning](./media/ideascale-tutorial/ic790848.png "Inställningar för enskilda inloggning")
 
 4. Som **typ av enkel inloggning** väljer du **SAML 2.0**.
 
-    ![Enkel signontyp](./media/ideascale-tutorial/ic790849.png "Enkel signontyp")
+    ![Enskild inloggning-typ](./media/ideascale-tutorial/ic790849.png "Enskild inloggning-typ")
 
 5. I dialogrutan **Inställningar för enkel inloggning** utför du följande steg:
 
-    ![Inställningar för enkel inloggning](./media/ideascale-tutorial/ic790850.png "Inställningar för enkel inloggning")
+    ![Inställningar för enskilda inloggning](./media/ideascale-tutorial/ic790850.png "Inställningar för enskilda inloggning")
 
     a. I textrutan för **SAML-entitets-ID för IdP** klistrar du in värdet för **Azure Ad-identifieraren**, som du har kopierat från Azure-portalen.
 
@@ -168,7 +168,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -178,7 +178,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -207,7 +207,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -227,7 +227,7 @@ Om du vill att Azure AD-användare ska kunna logga in på IdeaScale måste de va
 
 4. Klicka på **Lägg till medlem**.
 
-    ![Medlemshantering](./media/ideascale-tutorial/ic790852.png "Medlemshantering")
+    ![Medlems hantering](./media/ideascale-tutorial/ic790852.png "Medlems hantering")
 
 5. I avsnittet Lägga till ny medlem utför du följande steg:
 
@@ -241,7 +241,7 @@ Om du vill att Azure AD-användare ska kunna logga in på IdeaScale måste de va
     > Azure Active Directory-kontoinnehavaren får ett e-postmeddelande med en länk för att bekräfta kontot innan det blir aktivt.
 
 > [!NOTE]
-> Du kan använda andra verktyg eller API:er för att skapa ett användarkonto i IdeaScale för att etablera Azure AD-användarkonton.
+> Du kan använda andra verktyg för IdeaScale av användar konton eller API: er som tillhandahålls av IdeaScale för att etablera Azure AD-användarkonton.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
@@ -253,7 +253,7 @@ När du klickar på IdeaScale-panelen i åtkomstpanelen bör du automatiskt logg
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

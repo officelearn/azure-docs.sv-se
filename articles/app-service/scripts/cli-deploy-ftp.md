@@ -1,5 +1,5 @@
 ---
-title: 'CLI: Distribuera appfiler med FTP'
+title: 'CLI: Distribuera App-filer med FTP'
 description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du skapar en app och distribuerar filer med FTP.
 author: msangapu-msft
 tags: azure-service-management
@@ -9,10 +9,10 @@ ms.date: 12/12/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: ccef4443661f9227163b2bbe9cd8a6475f856caa
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80044883"
 ---
 # <a name="create-an-app-service-app-and-deploy-files-with-ftp-using-azure-cli"></a>Skapa en App Service-app och distribuera filer med FTP och Azure CLI
@@ -35,7 +35,7 @@ Om du väljer att installera och använda CLI-gränssnittet lokalt måste du ha 
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Skapar en App Service-plan. |

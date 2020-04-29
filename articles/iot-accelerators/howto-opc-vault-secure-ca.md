@@ -1,6 +1,6 @@
 ---
-title: Så här kör du certifikathanteringstjänsten OPC Vault på ett säkert sätt – Azure | Microsoft-dokument
-description: Beskriver hur du kör OPC Vault-certifikathanteringstjänsten på ett säkert sätt i Azure och granskar andra säkerhetsriktlinjer att tänka på.
+title: Så här kör du OPC Vault Certificate Management-tjänsten på ett säkert sätt – Azure | Microsoft Docs
+description: Beskriver hur du kör OPC-tjänsten för certifikat hantering på ett säkert sätt i Azure och granskar andra säkerhets rikt linjer som du bör tänka på.
 author: mregen
 ms.author: mregen
 ms.date: 8/16/2019
@@ -9,237 +9,237 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 88f8188779c5fb6b3cd07c67e9f35a6b8f9ad97d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271712"
 ---
-# <a name="run-the-opc-vault-certificate-management-service-securely"></a>Kör tjänsten för hantering av OPC Vault-certifikat på ett säkert sätt
+# <a name="run-the-opc-vault-certificate-management-service-securely"></a>Kör OPC Vault Certificate Management-tjänsten på ett säkert sätt
 
-I den här artikeln beskrivs hur du kör OPC Vault-certifikathanteringstjänsten på ett säkert sätt i Azure och granskar andra säkerhetsriktlinjer att tänka på.
+Den här artikeln förklarar hur du kör OPC-valvet för certifikat hantering på ett säkert sätt i Azure och granskar andra säkerhets rikt linjer för att tänka på.
 
 ## <a name="roles"></a>Roller
 
 ### <a name="trusted-and-authorized-roles"></a>Betrodda och auktoriserade roller
 
-OPC Vault-mikrotjänsten möjliggör olika roller för att komma åt olika delar av tjänsten.
+Mikrotjänsten OPC Vault gör det möjligt för olika roller att komma åt olika delar av tjänsten.
 
 > [!IMPORTANT]
-> Under distributionen lägger skriptet bara till användaren som kör distributionsskriptet som användare för alla roller. För en produktionsdistribution bör du granska den här rolltilldelningen och konfigurera om på rätt sätt genom att följa riktlinjerna nedan. Den här uppgiften kräver manuell tilldelning av roller och tjänster i Azure Active Directory (Azure AD) Enterprise Applications-portalen.
+> Under distributionen lägger skriptet bara till den användare som kör distributions skriptet som en användare för alla roller. För en produktions distribution bör du granska roll tilldelningen och konfigurera på lämpligt sätt genom att följa rikt linjerna nedan. Den här uppgiften kräver manuell tilldelning av roller och tjänster i Azure Active Directory-portalen (Azure AD) Enterprise-program.
 
-### <a name="certificate-management-service-roles"></a>Tjänstroller för certifikathantering
+### <a name="certificate-management-service-roles"></a>Tjänst roller för certifikat hantering
 
 OPC Vault-mikrotjänsten definierar följande roller:
 
-- **Läsare**: Som standard har alla autentiserade användare i klienten läsbehörighet. 
-  - Läs åtkomst till program och certifikatbegäranden. Kan lista och fråga efter program och certifikatbegäranden. Även information om enhetsidentifiering och offentliga certifikat är tillgängliga med läsåtkomst.
-- **Författare**: Rollen Writer tilldelas en användare för att lägga till skrivbehörigheter för vissa uppgifter. 
-  - Läs-/skrivåtkomst till program och certifikatbegäranden. Kan registrera, uppdatera och avregistrera program. Kan skapa certifikatbegäranden och hämta godkända privata nycklar och certifikat. Kan också ta bort privata nycklar.
-- **Godkännare**: Rollen Godkännare tilldelas en användare att godkänna eller avvisa certifikatbegäranden. Rollen innehåller inte någon annan roll.
-  - Förutom rollen Godkännare för att komma åt OPC Vault microservice API måste användaren också ha behörigheten nyckelsignering i Azure Key Vault för att kunna signera certifikaten.
-  - Rollen Författare och godkännare ska tilldelas olika användare.
-  - Den viktigaste rollen för godkännaren är godkännandet av generering och avslag av certifikatbegäranden.
-- **Administratör**: Administratörsrollen tilldelas en användare för att hantera certifikatgrupperna. Rollen stöder inte rollen Godkännare, men inkluderar rollen Författare.
-  - Administratören kan hantera certifikatgrupperna, ändra konfigurationen och återkalla programcertifikat genom att utfärda en ny lista över återkallade certifikat (CRL).
-  - Helst tilldelas rollerna Författare, Godkännare och Administratör till olika användare. För ytterligare säkerhet behöver en användare med rollen Godkännare eller administratör också behörigheten nyckelsignering i Key Vault, utfärda certifikat eller förnya ett certifikatutfärdare.
-  - Förutom rollen för mikrotjänstadministration ingår rollen, men är inte begränsad till:
-    - Ansvar för att administrera genomförandet av certifikatutfärdarens säkerhetspraxis.
-    - Hantering av generering, återkallande och tillfälligt upphävande av certifikat. 
-    - Kryptografisk nyckel livscykelhantering (till exempel förnyelse av EmittentENS CA-nycklar).
-    - Installation, konfiguration och underhåll av tjänster som driver certifikatutfärdaren.
-    - Den dagliga driften av tjänsterna. 
-    - CA och säkerhetskopiering och återställning av databaser.
+- **Läsare**: som standard har alla autentiserade användare i klienten Läs behörighet. 
+  - Läs åtkomst till program och certifikat begär Anden. Kan lista och fråga efter program-och certifikat begär Anden. Dessutom är enhets identifierings information och offentliga certifikat tillgängliga med Läs behörighet.
+- **Skribent**: skrivar rollen tilldelas till en användare för att lägga till Skriv behörighet för vissa uppgifter. 
+  - Läs-/Skriv behörighet till program och certifikat begär Anden. Kan registrera, uppdatera och avregistrera program. Kan skapa certifikat begär Anden och hämta godkända privata nycklar och certifikat. Det går också att ta bort privata nycklar.
+- **God kännare**: god kännare-rollen tilldelas en användare för att godkänna eller avvisa certifikat begär Anden. Rollen omfattar inte någon annan roll.
+  - Förutom rollen god kännare för att få åtkomst till API: et för OPC Vault mikrotjänst måste användaren också ha behörigheten nyckel signering i Azure Key Vault för att kunna signera certifikaten.
+  - Rollen skrivare och god kännare bör tilldelas till olika användare.
+  - Den huvudsakliga rollen hos god kännaren är godkännande av generering och avvisande av certifikat begär Anden.
+- **Administratör**: administratörs rollen tilldelas till en användare för att hantera certifikat grupperna. Rollen har inte stöd för rollen god kännare, men innehåller rollen skrivare.
+  - Administratören kan hantera certifikat grupper, ändra konfigurationen och återkalla program certifikat genom att utfärda en ny lista över återkallade certifikat (CRL).
+  - Vi rekommenderar att rollerna skrivare, god kännare och administratör tilldelas olika användare. För ytterligare säkerhet måste en användare med rollen god kännare eller administratör också ha behörighet för nyckel signering i Key Vault, för att utfärda certifikat eller förnya certifikat utfärdarens CA-certifikat.
+  - Förutom rollen som mikrotjänst administration inkluderar rollen, men är inte begränsad till:
+    - Ansvar för att administrera implementeringen av CA: ns säkerhets rutiner.
+    - Hantering av generering, åter kallelse och upphävande av certifikat. 
+    - Livs cykel hantering av kryptografisk nyckel (till exempel förnyelse av utfärdares CA-nycklar).
+    - Installation, konfiguration och underhåll av tjänster som använder certifikat utfärdaren.
+    - Daglig drift av tjänsterna. 
+    - Säkerhets kopiering och återställning av CA och databasen.
 
-### <a name="other-role-assignments"></a>Andra rolltilldelningar
+### <a name="other-role-assignments"></a>Andra roll tilldelningar
 
 Tänk också på följande roller när du kör tjänsten:
 
-- Företagsägare i certifikatanskaffningskontraktet med den externa rotcertifikatutfärdaren (till exempel när ägaren köper certifikat från en extern certifikatutfärdare eller driver en certifikatutfärdare som är underordnad en extern certifikatutfärdare).
-- Utveckling och validering av certifikatutfärdaren.
-- Granskning av granskningsposter.
-- Personal som hjälper till att stödja certifikatutfärdaren eller hantera de fysiska anläggningarna och molnanläggningarna, men som inte är direkt betrodda att utföra CA-åtgärder, är i den *behöriga* rollen. Den uppsättning uppgifter som personer i den behöriga rollen tillåts utföra måste också dokumenteras.
+- Företags ägare till avtal för certifikat inköp med den externa rot certifikat utfärdaren (till exempel när ägaren köper certifikat från en extern certifikat utfärdare eller använder en certifikat utfärdare som är underordnad en extern certifikat utfärdare).
+- Utveckling och validering av certifikat utfärdaren.
+- Granskning av gransknings poster.
+- Personal som hjälper till att stödja CA: n eller hantera de fysiska och molnbaserade funktionerna, men som inte är direkt betrodda att utföra CA-åtgärder, finns i den *auktoriserade* rollen. Uppsättningen med uppgifter som personer i den auktoriserade rollen tillåts utföra måste också dokumenteras.
 
-### <a name="review-memberships-of-trusted-and-authorized-roles-quarterly"></a>Granska medlemskap i betrodda och auktoriserade roller kvartalsvis
+### <a name="review-memberships-of-trusted-and-authorized-roles-quarterly"></a>Granska medlemskap i betrodda och auktoriserade roller kvartals vis
 
-Granska medlemskap i betrodda och auktoriserade roller minst en gång i kvartalet. Se till att uppsättningen personer (för manuella processer) eller tjänstidentiteter (för automatiserade processer) i varje roll hålls till ett minimum.
+Granska medlemskap i betrodda och auktoriserade roller minst kvartals vis. Se till att en uppsättning av personer (för manuella processer) eller tjänst identiteter (för automatiserade processer) i varje roll hålls till ett minimum.
 
-### <a name="role-separation-between-certificate-requester-and-approver"></a>Rollsepare mellan certifikatbeställare och godkännare
+### <a name="role-separation-between-certificate-requester-and-approver"></a>Rollseparering mellan en certifikat beställare och god kännare
 
-Certifikatutfärdningsprocessen måste tvinga fram rollsepare mellan certifikatbegäranden och certifikatgodkännarens roller (personer eller automatiserade system). Certifikatutfärdandet måste godkännas av en certifikatgodkännareroll som verifierar att certifikatutfärdaren har behörighet att erhålla certifikat. De personer som innehar rollen som certifikatgodkännare måste vara en formellt behörig person.
+Processen för utfärdande av certifikat måste tillämpa roll åtskillnad mellan certifikat begär Anden och certifikat god kännare roller (personer eller automatiserade system). Utfärdande av certifikat måste godkännas av en certifikats god kännare roll som verifierar att den begär ande certifikat utfärdaren har behörighet att skaffa certifikat. De personer som innehar rollen som god kännare måste vara en formellt auktoriserad person.
 
 ### <a name="restrict-assignment-of-privileged-roles"></a>Begränsa tilldelning av privilegierade roller
 
-Du bör begränsa tilldelningen av privilegierade roller, till exempel att godkänna medlemskap i gruppen Administratörer och godkännare, till en begränsad uppsättning auktoriserad personal. Alla privilegierade rolländringar måste ha åtkomst återkallad inom 24 timmar. Granska slutligen privilegierade rolltilldelningar kvartalsvis och ta bort onödiga eller utgångna tilldelningar.
+Du bör begränsa tilldelningen av privilegierade roller, till exempel att auktorisera medlemskap i gruppen Administratörer och god kännare, till en begränsad uppsättning behörig personal. Ändringar av privilegierade roller måste ha åtkomst återkallade inom 24 timmar. Slutligen granskar du privilegierade roll tilldelningar varje kvartal och tar bort alla onödiga eller förfallna tilldelningar.
 
-### <a name="privileged-roles-should-use-two-factor-authentication"></a>Privilegierade roller bör använda tvåfaktorsautentisering
+### <a name="privileged-roles-should-use-two-factor-authentication"></a>Privilegierade roller bör använda tvåfaktorautentisering
 
-Använd multifaktorautentisering (kallas även tvåfaktorsautentisering) för interaktiva inloggningar av godkännare och administratörer till tjänsten.
+Använd Multi-Factor Authentication (kallas även tvåfaktorautentisering) för interaktiva inloggningar av god kännare och administratörer till tjänsten.
 
-## <a name="certificate-service-operation-guidelines"></a>Riktlinjer för certifikattjänståtgärd
+## <a name="certificate-service-operation-guidelines"></a>Rikt linjer för certifikat tjänst åtgärder
 
-### <a name="operational-contacts"></a>Operativa kontakter
+### <a name="operational-contacts"></a>Drift kontakter
 
-Certifikattjänsten måste ha en uppdaterad säkerhetssvarsplan registrerad, som innehåller detaljerade operativa incidenthanteringskontakter.
+Certifikat tjänsten måste ha en uppdaterad säkerhets svars plan för en fil som innehåller detaljerade rapporter om drift incident svar.
 
 ### <a name="security-updates"></a>Säkerhetsuppdateringar
 
-Alla system måste övervakas kontinuerligt och uppdateras med de senaste säkerhetsuppdateringarna.
+Alla system måste övervakas kontinuerligt och uppdateras med de senaste säkerhets uppdateringarna.
 
 > [!IMPORTANT]
-> GitHub-databasen för OPC Vault-tjänsten uppdateras kontinuerligt med säkerhetskorrigeringar. Övervaka dessa uppdateringar och tillämpa dem på tjänsten med jämna mellanrum.
+> GitHub-lagringsplatsen i OPC Vault-tjänsten uppdateras kontinuerligt med säkerhets korrigeringar. Övervaka uppdateringarna och tillämpa dem på tjänsten med jämna mellanrum.
 
 ### <a name="security-monitoring"></a>Säkerhetsövervakning
 
-Prenumerera på eller genomföra lämplig säkerhetsövervakning. Du kan till exempel prenumerera på en central övervakningslösning (till exempel Azure Security Center eller Office 365-övervakningslösning) och konfigurera den på rätt sätt för att säkerställa att säkerhetshändelser överförs till övervakningslösningen.
+Prenumerera på eller implementera lämplig säkerhets övervakning. Du kan t. ex. prenumerera på en central övervaknings lösning (till exempel Azure Security Center-eller Office 365-övervaknings lösning) och konfigurera den på lämpligt sätt för att säkerställa att säkerhets händelser överförs till övervaknings lösningen.
 
 > [!IMPORTANT]
-> Som standard distribueras OPC Vault-tjänsten med [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) som en övervakningslösning. Det rekommenderas starkt att lägga till en säkerhetslösning som [Azure Security Center.](https://azure.microsoft.com/services/security-center/)
+> OPC Vault-tjänsten distribueras som standard med [Azure Application insikter](https://docs.microsoft.com/azure/azure-monitor/app/devops) som en övervaknings lösning. Det rekommenderas starkt att du lägger till en säkerhetslösning som [Azure Security Center](https://azure.microsoft.com/services/security-center/) .
 
-### <a name="assess-the-security-of-open-source-software-components"></a>Bedöma säkerheten för programvarukomponenter med öppen källkod
+### <a name="assess-the-security-of-open-source-software-components"></a>Utvärdera säkerheten för program varu komponenter med öppen källkod
 
-Alla komponenter med öppen källkod som används i en produkt eller tjänst måste vara fria från måttliga eller större säkerhetsproblem.
+Alla komponenter med öppen källkod som används i en produkt eller tjänst måste vara fria från medelhög eller större säkerhets sårbarheter.
 
 > [!IMPORTANT]
-> Under kontinuerlig integreringsversioner söker GitHub-lagringsplatsen för OPC Vault-tjänsten igenom alla komponenter efter sårbarheter. Övervaka dessa uppdateringar på GitHub och tillämpa dem på tjänsten med jämna mellanrum.
+> Under kontinuerlig integrerings versioner genomsöker GitHub-lagringsplatsen för OPC-valvet alla komponenter för sårbarheter. Övervaka uppdateringarna på GitHub och tillämpa dem på tjänsten med jämna mellanrum.
 
-### <a name="maintain-an-inventory"></a>Underhåll ett lager
+### <a name="maintain-an-inventory"></a>Underhålla en inventering
 
-Underhåll ett tillgångslager för alla produktionsvärdar (inklusive beständiga virtuella datorer), enheter, alla interna IP-adressintervall, VIP-domäner och offentliga DNS-domännamn. När du lägger till eller tar bort ett system, enhets-IP-adress, VIP eller offentlig DNS-domän måste du uppdatera lagret inom 30 dagar.
+Underhåll en till gångs inventering för alla produktions värdar (inklusive beständiga virtuella datorer), enheter, alla interna IP-adressintervall, VIP och offentliga DNS-domännamn. När du lägger till eller tar bort ett system, en IP-adress för enheten, en VIP-eller offentlig DNS-domän måste du uppdatera inventeringen inom 30 dagar.
 
-#### <a name="inventory-of-the-default-azure-opc-vault-microservice-production-deployment"></a>Inventering av standarddistributionen av Azure OPC Vault-mikrotjänst 
+#### <a name="inventory-of-the-default-azure-opc-vault-microservice-production-deployment"></a>Inventering av standard produktions distributionen för Azure OPC Vault-mikrotjänster 
 
 I Azure:
-- **App Service Plan:** App serviceplan för tjänstvärdar. Standard S1.
-- **Apptjänst** för mikrotjänst: OPC Vault-tjänstvärden.
-- **Apptjänst** för exempelprogram: Exempelprogramvärden för OPC Vault.
-- **Key Vault Standard:** För att lagra hemligheter och Azure Cosmos DB nycklar för webbtjänster.
-- **Key Vault Premium:** För att vara värd för Utfärdarens CA-nycklar, för signeringstjänst och för valvkonfiguration och lagring av privata programnycklar.
-- **Azure Cosmos DB**: Databas för program- och certifikatbegäranden. 
-- **Application Insights**: (valfritt) Övervakningslösning för webbtjänst och program.
-- **Azure AD-programregistrering:** En registrering för exempelprogrammet, tjänsten och kantmodulen.
+- **App Service plan**: App Service-plan för tjänst värdar. Standard S1.
+- **App Service** för mikrotjänster: OPC Vault service-värd.
+- **App Service** för exempel program: OPC-valvets exempel program värd.
+- **Key Vault standard**: att lagra hemligheter och Azure Cosmos DB nycklar för webb tjänsterna.
+- **Key Vault Premium**: för att vara värd för utfärdares ca-nycklar, för signerings tjänsten och för valv konfiguration och lagring av program privata nycklar.
+- **Azure Cosmos DB**: databas för program-och certifikat begär Anden. 
+- **Application Insights**: (valfritt) övervaknings lösning för webb tjänst och program.
+- **Registrering av Azure AD-program**: en registrering för exempel programmet, tjänsten och Edge-modulen.
 
-För molntjänsterna ska alla värdnamn, resursgrupper, resursnamn, prenumerations-ID och klient-ID:er som används för att distribuera tjänsten dokumenteras. 
+För moln tjänsterna ska alla värdnamn, resurs grupper, resurs namn, prenumerations-ID och klient-ID: n som används för att distribuera tjänsten dokumenteras. 
 
-I Azure IoT Edge eller en lokal IoT Edge-server:
-- **OPC Vault IoT Edge-modul:** För att stödja ett fabriksnätverk OPC UA Global Discovery Server. 
+I Azure IoT Edge eller en lokal IoT Edge Server:
+- **OPC Vault IoT Edge modul**: för att stödja en global identifierings Server för fabriks nätverk för OPC UA. 
 
-För IoT Edge-enheterna ska värdnamnen och IP-adresserna dokumenteras. 
+För IoT Edge enheter ska värd namnen och IP-adresserna dokumenteras. 
 
-### <a name="document-the-certification-authorities-cas"></a>Dokumentera certifikatutfärdarna
+### <a name="document-the-certification-authorities-cas"></a>Dokumentera certifikat utfärdare (ca)
 
-Certifikatutfärdarhierarkins dokumentation måste innehålla alla certifikatutfärdare. Detta inkluderar alla relaterade underordnade certifikatutfärdare, överordnade certifikatutfärdare och rotcertifikatutfärdare, även när de inte hanteras av tjänsten. I stället för formell dokumentation kan du tillhandahålla en uttömmande uppsättning certifikatutfärdare som inte har upphört att gälla.
-
-> [!NOTE]
-> Exempelprogrammet OPC Vault stöder hämtning av alla certifikat som används och produceras i tjänsten för dokumentation.
-
-### <a name="document-the-issued-certificates-by-all-certification-authorities-cas"></a>Dokumentera de utfärdade certifikaten av alla certifikatutfärdare
-
-Tillhandahålla en uttömmande uppsättning av alla certifikat som utfärdats under de senaste 12 månaderna.
+Dokumentationen för CA-hierarkin måste innehålla alla drivna certifikat utfärdare. Detta omfattar alla relaterade underordnade certifikat utfärdare, överordnade certifikat utfärdare och rot certifikat utfärdare, även när de inte hanteras av tjänsten. I stället för formell dokumentation kan du ange en fullständig uppsättning CA-certifikat som inte har upphört att gälla.
 
 > [!NOTE]
-> Exempelprogrammet OPC Vault stöder hämtning av alla certifikat som används och produceras i tjänsten för dokumentation.
+> Exempel programmet OPC Vault stöder nedladdning av alla certifikat som används och produceras i tjänsten för dokumentation.
 
-### <a name="document-the-standard-operating-procedure-for-securely-deleting-cryptographic-keys"></a>Dokumentera standardproceduren för att ta bort kryptografiska nycklar på ett säkert sätt
+### <a name="document-the-issued-certificates-by-all-certification-authorities-cas"></a>Dokumentera de utfärdade certifikaten från alla certifikat utfärdare
 
-Under en certifikatutfärdars livstid kan nyckelborttagning endast ske sällan. Det är därför ingen användare har behörigheten Borttagning av nyckelvalvscertifikat och varför det inte finns några API:er som exponeras för att ta bort ett utfärdarcertifikatutfärdare. Den manuella standardproceduren för säker borttagning av kryptografiska nycklar för certifikatutfärdare är endast tillgänglig genom direkt åtkomst till Key Vault i Azure-portalen. Du kan också ta bort certifikatgruppen i Key Vault. Om du vill säkerställa omedelbar borttagning inaktiverar du funktionen [för mjuk borttagning av Nyckelvalv.](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
+Tillhandahålla en fullständig uppsättning av alla certifikat som utfärdats under de senaste 12 månaderna.
+
+> [!NOTE]
+> Exempel programmet OPC Vault stöder nedladdning av alla certifikat som används och produceras i tjänsten för dokumentation.
+
+### <a name="document-the-standard-operating-procedure-for-securely-deleting-cryptographic-keys"></a>Dokumentera standard drift proceduren för att säkert ta bort kryptografiska nycklar
+
+Under en CERTIFIKATs livs längd kan nyckel borttagningen bara ske sällan. Detta är anledningen till att ingen användare har Key Vault behörigheten Ta bort certifikat, och varför det inte finns några API: er exponerade för att ta bort ett CA-certifikat. Den manuella standard drift proceduren för att säkert ta bort certifikat utfärdarens kryptografiska nycklar är bara tillgänglig genom direkt åtkomst till Key Vault i Azure Portal. Du kan också ta bort certifikat gruppen i Key Vault. Inaktivera funktionen [Key Vault mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) för att säkerställa omedelbar borttagning.
 
 ## <a name="certificates"></a>Certifikat
 
-### <a name="certificates-must-comply-with-minimum-certificate-profile"></a>Certifikaten måste uppfylla minsta certifikatprofil
+### <a name="certificates-must-comply-with-minimum-certificate-profile"></a>Certifikat måste följa minsta certifikat profil
 
-OPC Vault-tjänsten är en onlinecertifikatutfärdare som utfärdar slutentitetscertifikat till prenumeranter. OPC Vault-mikrotjänsten följer dessa riktlinjer i standardimplementeringen.
+OPC Vault-tjänsten är en online-certifikatutfärdare som utfärdar certifikat för slutentiteter till prenumeranter. Mikrotjänsten OPC Vault följer dessa rikt linjer i standard implementeringen.
 
-- Alla certifikat måste innehålla följande X.509-fält enligt nedan:
-  - Innehållet i versionsfältet måste vara v3. 
-  - Innehållet i serialNumber-fältet måste innehålla minst 8 byte entropy som erhållits från en FIPS (Federal Information Processing Standards) 140 godkänd slumptalsgenerator.<br>
+- Alla certifikat måste innehålla följande X. 509-fält, som anges nedan:
+  - Innehållet i versions fältet måste vara v3. 
+  - Innehållet i fältet serialNumber måste innehålla minst 8 byte av entropi som hämtats från en FIPS-baserad (Federal Information Processing standard) 140-godkänd slump nummer generator.<br>
     > [!IMPORTANT]
-    > OPC Vault serienummer är som standard 20 byte och erhålls från operativsystemet kryptografiska slumptalsgenerator. Slumptalsgeneratorn är FIPS 140 godkänd på Windows-enheter, men inte på Linux. Tänk på detta när du väljer en tjänstdistribution som använder Linux virtuella datorer eller Linux docker-behållare, där den underliggande tekniken OpenSSL inte är FIPS 140 godkänd.
-  - Fälten IssuerUniqueID och subjectUniqueID får inte finnas.
-  - Slutenhetscertifikat måste identifieras med tillägget grundläggande begränsningar, i enlighet med IETF RFC 5280.
-  - Fältet pathLenConstraint måste anges till 0 för certifikatutfärdarcertifikatet Utfärdad. 
-  - Tillägget Utökad nyckelanvändning måste finnas och måste innehålla den minsta uppsättningen OID-identifierare (Extended Key Usage Object Identifiers). AnyExtendedKeyUsage OID (2.5.29.37.0) får inte anges. 
-  - CDP-tillägget (CRL Distribution Point) måste finnas i certifikatutfärdarens utfärdare.<br>
+    > Serie numret för OPC-valvet är som standard 20 byte och hämtas från det kryptografiska slump tals generatorn för operativ systemet. Slump tals generatorn är FIPS 140 som godkänts på Windows-enheter, men inte i Linux. Tänk på detta när du väljer en tjänst distribution som använder virtuella Linux-datorer eller Linux Docker-behållare, där den underliggande teknikens OpenSSL inte är FIPS 140-godkänd.
+  - Fälten issuerUniqueID och subjectUniqueID får inte förekomma.
+  - Certifikat för slutanvändare måste identifieras med tillägget för grundläggande begränsningar, i enlighet med IETF RFC 5280.
+  - PathLenConstraint-fältet måste anges till 0 för det utfärdande CA-certifikatet. 
+  - Tillägget för utökad nyckel användning måste finnas och måste innehålla minst en uppsättning objekt identifierare för utökad nyckel användning (OID). AnyExtendedKeyUsage OID (2.5.29.37.0) får inte anges. 
+  - CDP-tillägget (CRL Distribution Point) måste finnas i utfärdarens CA-certifikat.<br>
     > [!IMPORTANT]
-    > CDP-tillägget finns i OPC Vault CA-certifikat. OPC UA-enheter använder dock anpassade metoder för att distribuera CRLs.
-  - Tillägget Informationsåtkomst för myndigheten måste finnas i abonnentcertifikaten.<br>
+    > CDP-tillägget finns i OPC Vault CA-certifikat. OPC UA-enheter använder dock anpassade metoder för att distribuera CRL: er.
+  - Åtkomst tillägget för auktoritets information måste finnas i prenumerantens certifikat.<br>
     > [!IMPORTANT]
-    > Tillägget Information Access för myndighet finns i OPC Vault-abonnentcertifikat. OPC UA-enheter använder dock anpassade metoder för att distribuera information om Utfärdare CA.
-- Godkända asymmetriska algoritmer, nyckellängder, hash-funktioner och utfyllnadslägen måste användas.
+    > Åtkomst tillägget för auktoritets information finns i OPC-valv för prenumeranter. OPC UA-enheter använder dock anpassade metoder för att distribuera information om utfärdare av certifikat utfärdare.
+- Godkända asymmetriska algoritmer, nyckel längder, hash-funktioner och utfyllnads lägen måste användas.
   - RSA och SHA-2 är de enda algoritmer som stöds.
-  - RSA kan användas för kryptering, nyckelutbyte och signatur.
-  - RSA-kryptering får endast använda utfyllnadslägena OAEP, RSA-KEM eller RSA-PSS.
-  - Nyckellängder som är större än eller lika med 2048 bitar krävs.
-  - Använd SHA-2-familjen av hash-algoritmer (SHA256, SHA384 och SHA512).
-  - RSA Root CA-nycklar med en typisk livslängd som är större än eller lika med 20 år måste vara 4096 bitar eller mer.
-  - RSA Issuer CA-nycklar måste vara minst 2048 bitar. Om förfallodatumet för certifikatutfärdarcertifikatet är efter 2030 måste ca-nyckeln vara 4096 bitar eller mer.
-- Certifikatets livstid
-  - Rotcertifikatutfärdare: Den maximala certifikatgiltighetsperioden för rotcertifikatutfärdare får inte överstiga 25 år.
-  - Certifikat för certifikatutfärdare eller certifikat för utfärdare online: Den maximala certifikatgiltighetsperioden för certifikatutfärdare som är online och utfärdar endast abonnentcertifikat får inte överstiga 6 år. För dessa certifikatutfärdare får den relaterade privata signaturnyckeln inte användas längre än 3 år för att utfärda nya certifikat.<br>
+  - RSA kan användas för kryptering, nyckel utbyte och signatur.
+  - RSA-kryptering får endast använda OAEP-, RSA-KEM-eller RSA-PSS-utfyllnad.
+  - Nyckel längder som är större än eller lika med 2048 bitar krävs.
+  - Använd SHA-2-familjen för hash-algoritmer (SHA256, SHA384 och SHA512).
+  - RSA-rotens CA-nycklar med en typisk livstid som är större än eller lika med 20 år måste vara 4096 bitar eller mer.
+  - RSA Issuer-CA-nycklar måste vara minst 2048 bitar. Om certifikat UTFÄRDARens förfallo datum är efter 2030 måste CA-nyckeln vara 4096 bitar eller mer.
+- Certifikatets livs längd
+  - Certifikat för rot certifikat utfärdare: den maximala giltighets perioden för certifikat för rot certifikat utfärdare får inte överstiga 25 år.
+  - Certifikat utfärdare eller certifikat från certifikat utfärdare för certifikat utfärdare: den maximala giltighets perioden för certifikat utfärdare som är online och endast utfärdar prenumerations certifikat får inte överstiga 6 år. För dessa certifikat utfärdare får inte den relaterade privata signatur nyckeln användas längre än tre år för att utfärda nya certifikat.<br>
     > [!IMPORTANT]
-    > Utfärdarcertifikatet, eftersom det genereras i standardmispc Vault-mikrotjänsten utan extern rotcertifikatutfärdare, behandlas som en online-sub-certifikatutfärdare, med respektive krav och livstid. Standardlivstiden är inställd på 5 år, med en nyckellängd som är större än eller lika med 2048.
-  - Alla asymmetriska nycklar måste ha en maximal livslängd på 5 år och en rekommenderad livslängd på 1 år.<br>
+    > Utfärdarens certifikat, som det genereras i standard-mikrotjänsten (OPC Vault) utan extern rot certifikat utfärdare, behandlas som en online-underenhet, med respektive krav och livstid. Standard livs längden är inställd på 5 år, med en nyckel längd som är större än eller lika med 2048.
+  - Alla asymmetriska nycklar måste ha en högsta 5-årig livs längd och en rekommenderad livs längd på 1 år.<br>
     > [!IMPORTANT]
-    > Som standard har livslängden för programcertifikat som utfärdats med OPC Vault en livstid på 2 år och bör ersättas varje år. 
+    > Som standard har livs längden för program certifikat som utfärdas med OPC-valvet en livs längd på två år och bör ersättas varje år. 
   - När ett certifikat förnyas förnyas det med en ny nyckel.
-- OPC UA-specifika tillägg i certifikat för programinstanser
-  - ÄmnetAltName-tillägget innehåller programmet Uri och värdnamn. Dessa kan också omfatta FQDN-, IPv4- och IPv6-adresser.
-  - KeyUsage inkluderar digitalSignature, nonRepudiation, keyEncipherment och dataEncipherment.
+- OPC UA-specifika tillägg i program instans certifikat
+  - SubjectAltName-tillägget innehåller programmets URI och värdnamn. De kan även innehålla FQDN-, IPv4-och IPv6-adresser.
+  - Användningen innehåller digitalSignature, oavvislig het, keyEncipherment och dataEncipherment.
   - ExtendedKeyUsage innehåller serverAuth och clientAuth.
   - AuthorityKeyIdentifier anges i signerade certifikat.
 
-### <a name="ca-keys-and-certificates-must-meet-minimum-requirements"></a>Ca-nycklar och certifikat måste uppfylla minimikraven
+### <a name="ca-keys-and-certificates-must-meet-minimum-requirements"></a>CA-nycklar och certifikat måste uppfylla minimi kraven
 
-- **Privata nycklar**: RSA-nycklar måste vara minst 2048 bitar. Om förfallodatumet för certifikatutfärdarcertifikatet är efter 2030 måste ca-nyckeln vara 4096 bitar eller mer.
-- **Livslängd**: Den maximala giltighetstiden för certifikat som är online och utfärdar endast abonnentcertifikat får inte överstiga sex år. För dessa certifikatutfärdare får den relaterade privata signaturnyckeln inte användas längre än 3 år för att utfärda nya certifikat.
+- **Privata nycklar**: RSA-nycklar måste vara minst 2048 bitar. Om certifikat UTFÄRDARens förfallo datum är efter 2030 måste CA-nyckeln vara 4096 bitar eller mer.
+- **Livs längd**: den maximala giltighets perioden för certifikatet för certifikat utfärdare som är online och endast utfärdar prenumerations certifikat får inte överstiga 6 år. För dessa certifikat utfärdare får inte den relaterade privata signatur nyckeln användas längre än tre år för att utfärda nya certifikat.
 
-### <a name="ca-keys-are-protected-using-hardware-security-modules"></a>CA-nycklar skyddas med hjälp av maskinvarusäkerhetsmoduler
+### <a name="ca-keys-are-protected-using-hardware-security-modules"></a>CA-nycklar skyddas med hjälp av säkerhetsmoduler för maskin vara
 
-OpcVault använder Azure Key Vault Premium och nycklar skyddas av FIPS 140-2 Hardware Security Modules (HSM). 
+OpcVault använder Azure Key Vault Premium och nycklar skyddas av FIPS 140-2 nivå 2. 
 
-De kryptografiska moduler som Key Vault använder, oavsett om det är HSM eller programvara, valideras. Nycklar som skapas eller importeras som HSM-skyddade bearbetas i en HSM, validerad till FIPS 140-2 Nivå 2. Nycklar som skapas eller importeras som programvaruskyddade bearbetas inuti kryptografiska moduler som validerats till FIPS 140-2 Nivå 1.
+De kryptografiska moduler som Key Vault använder, om HSM eller program vara, är FIPS-validerade. Nycklar som skapas eller importeras som HSM-skyddade bearbetas i en HSM, verifieras till FIPS 140-2 nivå 2. Nycklar som skapas eller importeras som program varu skyddade bearbetas i kryptografiska moduler validerade till FIPS 140-2 nivå 1.
 
-## <a name="operational-practices"></a>Operativ praxis
+## <a name="operational-practices"></a>Operativa metoder
 
-### <a name="document-and-maintain-standard-operational-pki-practices-for-certificate-enrollment"></a>Dokumentera och underhålla standardpraxis för operativa PKI-metoder för certifikatregistrering
+### <a name="document-and-maintain-standard-operational-pki-practices-for-certificate-enrollment"></a>Dokumentera och underhålla vanliga PKI-rutiner för certifikat registrering
 
-Dokumentera och upprätthålla standardrutiner för hur certifikatutfärdare utfärdar certifikat, inklusive: 
-- Hur abonnenten identifieras och autentiseras. 
-- Hur certifikatbegäran bearbetas och valideras (i förekommande fall, även hur certifikatförnyelse och begäranden om nycklar bearbetas). 
+Dokumentera och underhålla standard operativa procedurer (SOP) för hur CAs utfärdar certifikat, inklusive: 
+- Hur prenumeranten identifieras och autentiseras. 
+- Hur certifikatbegäran bearbetas och verifieras (om det är tillämpligt inkluderar även hur certifikat förnyelse och nyckel förnyelse begär Anden bearbetas). 
 - Hur utfärdade certifikat distribueras till prenumeranterna. 
 
-OPC Vault microservice SOP beskrivs i [OPC Vault-arkitekturen](overview-opc-vault-architecture.md) och [hantera OPC Vault-certifikattjänsten](howto-opc-vault-manage.md). Metoderna följer "OPC Unified Architecture Specification Part 12: Discovery and Global Services".
+OPC Vault mikrotjänst-SOP beskrivs i [OPC Vault-arkitektur](overview-opc-vault-architecture.md) och [hanterar OPC-valvets certifikat tjänst](howto-opc-vault-manage.md). Praxis följer "OPC Unified Architecture Specification del 12: identifiering och globala tjänster".
 
 
-### <a name="document-and-maintain-standard-operational-pki-practices-for-certificate-revocation"></a>Dokumentera och upprätthålla standard operativa PKI-metoder för återkallande av certifikat
+### <a name="document-and-maintain-standard-operational-pki-practices-for-certificate-revocation"></a>Dokumentera och underhålla standardiserade PKI-metoder för certifikat åter kallelse
 
-Processen för återkallning av certifikat beskrivs i [OPC Vault-arkitekturen](overview-opc-vault-architecture.md) och [hantera OPC Vault-certifikattjänsten](howto-opc-vault-manage.md).
+Återkallnings processen för certifikat beskrivs i [OPC Vault arkitektur](overview-opc-vault-architecture.md) och [hanterar OPC-valvets certifikat tjänst](howto-opc-vault-manage.md).
     
-### <a name="document-ca-key-generation-ceremony"></a>Dokument CA nyckelgenerering ceremoni 
+### <a name="document-ca-key-generation-ceremony"></a>Dokumentera CA-nyckelns generations ceremoni 
 
-Nyckelgenereringen utfärdare i OPC Vault-mikrotjänsten förenklas på grund av det säkra lagringsutrymmet i Azure Key Vault. Mer information finns [i Hantera OPC Vault-certifikattjänsten](howto-opc-vault-manage.md).
+Genereringen av utfärdarens CA-nyckel i OPC Vault-mikrotjänsten är förenklad, på grund av den säkra lagringen i Azure Key Vault. Mer information finns i [Hantera certifikat tjänsten OPC Vault](howto-opc-vault-manage.md).
 
-Men när du använder en extern root-certifikatutfärdare måste en certifikatutgenereringsceremoni för certifikatutfärdare uppfylla följande krav.
+Men när du använder en extern rot certifikat utfärdare måste en CA-nyckel skapa ceremonin uppfylla följande krav.
 
-Certifikatutdelningsceremonin för ca-nyckel måste utföras mot ett dokumenterat skript som innehåller minst följande objekt: 
-- Definition av roller och deltagaransvar.
-- Godkännande för genomförande av CA nyckelgenerering ceremoni.
-- Kryptografisk hårdvara och aktiveringsmaterial som krävs för ceremonin.
-- Maskinvaruförberedelse (inklusive uppdatering av tillgångs-/konfigurationsinformation och signering).
-- Installation av operativsystem.
-- Specifika steg som utförs under certifikatutfärdarens nyckelgenereringsceremoni, till exempel: 
+CA-nyckeln för att skapa ceremonin måste utföras mot ett dokumenterat skript som innehåller minst följande objekt: 
+- Definition av roller och deltagar ansvar.
+- Godkännande för att genomföra CA-nyckelns generations ceremoni.
+- Kryptografisk maskin vara och aktiverings material som krävs för ceremonin.
+- Maskin varu förberedelse (inklusive uppdatering av till gångs-/konfigurations information och utloggning).
+- Installation av operativ system.
+- Vissa steg som utförs under CA-nyckelns generations ceremoni, till exempel: 
   - Installation och konfiguration av CA-program.
-  - CA nyckelgenerering.
-  - Säkerhetskopiera CA-nyckel.
+  - Generering av CA-nyckel.
+  - Säkerhets kopiering av CA-nyckel.
   - Signering av CA-certifikat.
-  - Import av signerade nycklar i tjänstens skyddade HSM.
-  - CA-systemet stängs av.
-  - Beredning av material för förvaring.
+  - Import av signerade nycklar i den skyddade HSM för tjänsten.
+  - Avstängning av CA-systemet.
+  - Beredning av material för lagring.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig att hantera OPC Vault på ett säkert sätt kan du:
+Nu när du har lärt dig hur du hanterar OPC-valvet på ett säkert sätt kan du:
 
 > [!div class="nextstepaction"]
-> [Säkra OPC UA-enheter med OPC Vault](howto-opc-vault-secure.md)
+> [Skydda OPC UA-enheter med OPC-valvet](howto-opc-vault-secure.md)

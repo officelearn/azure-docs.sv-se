@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell: Ta bort en appsäkerhetskopiering'
-description: Lär dig hur du använder Azure PowerShell för att automatisera distribution och hantering av App Service. Det här exemplet visar hur du tar bort en appsäkerhetskopiering.
+title: 'PowerShell: ta bort en säkerhets kopia av appen'
+description: Lär dig hur du använder Azure PowerShell för att automatisera distribution och hantering av App Service. Det här exemplet visar hur du tar bort en säkerhets kopia av en app.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: ebcadb49-755d-4202-a5eb-f211827a9168
@@ -9,10 +9,10 @@ ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 93b53bedef291b9aa740f5bbe9c492185f035f89
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80044840"
 ---
 # <a name="delete-a-backup-for-a-web-using-azure-powershell"></a>Ta bort säkerhetskopiering för en webb med Azure PowerShell
@@ -39,7 +39,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Hämtar en lista över säkerhetskopior för en webbapp. |
 | [Remove-AzWebAppBackup](/powershell/module/az.websites/remove-azwebappbackup) | Tar bort den angivna säkerhetskopian av en webbapp. |

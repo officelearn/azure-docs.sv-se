@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med IamIP Patent Platform | Microsoft-dokument'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och IamIP Patent Platform.
+title: 'Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med IamIP patent plattform | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och IamIP patent plattform.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,146 +16,146 @@ ms.date: 02/10/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7d487aaf7ba4aaf666962cf91ca86d46115055b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78190763"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iamip-patent-platform"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med IamIP Patent Platform
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iamip-patent-platform"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med IamIP patent plattform
 
-I den här självstudien får du lära dig hur du integrerar IamIP Patent Platform med Azure Active Directory (Azure AD). När du integrerar IamIP Patent Platform med Azure AD kan du:
+I den här självstudien får du lära dig att integrera IamIP patent plattform med Azure Active Directory (Azure AD). När du integrerar IamIP patent Platform med Azure AD kan du:
 
-* Använd Azure AD för att styra vem som kan komma åt IamIP Patent Platform.
-* Gör det möjligt för användarna att automatiskt loggas in på IamIP Patent Platform med sina Azure AD-konton.
-* Hantera dina konton på en central plats: Azure-portalen.
+* Använd Azure AD för att kontrol lera vem som har åtkomst till IamIP patent plattform.
+* Gör det möjligt för användarna att logga in automatiskt till IamIP patent plattform med sina Azure AD-konton.
+* Hantera dina konton på en central plats: Azure Portal.
 
 Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* En IamIP Patent Platform-prenumeration med enkel inloggning (SSO) aktiverad.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* En IamIP patent plattforms prenumeration med enkel inloggning aktive rad (SSO).
 
-## <a name="tutorial-description"></a>Beskrivning av självstudiekurs
+## <a name="tutorial-description"></a>Beskrivning av självstudie
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-IamIP Patent Platform stödjer SP-initierad och IDP-initierad SSO.
+IamIP patent Platform stöder SP-initierad och IDP-initierad SSO.
 
-När du har konfigurerat IamIP Patent Platform kan du genomdriva sessionskontroll, som skyddar exfiltration och infiltration av organisationens känsliga data i realtid. Sessionskontrollerna sträcker sig från villkorlig åtkomst. [Lär dig hur du framtvingar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+När du har konfigurerat patent plattformen IamIP kan du framtvinga kontroll av sessioner, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Sessions kontroller utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 
-## <a name="add-iamip-patent-platform-from-the-gallery"></a>Lägg till IamIP Patent Platform från galleriet
+## <a name="add-iamip-patent-platform-from-the-gallery"></a>Lägg till IamIP patent plattform från galleriet
 
-Om du vill konfigurera integreringen av IamIP Patent Platform i Azure AD måste du lägga till IamIP Patent Platform från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integrationen av IamIP patent Platform i Azure AD måste du lägga till IamIP patent Platform från galleriet till din lista över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller med ett personligt Microsoft-konto.
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett arbets-eller skol konto eller med en personlig Microsoft-konto.
 1. Välj **Azure Active Directory** i den vänstra rutan.
-1. Gå till **Enterprise-program** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **IamIP Patent Platform** i sökrutan i avsnittet **Lägg till från galleriet.**
-1. Välj **IamIP Patent Platform** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Gå till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , Skriv **IamIP patent plattform** i sökrutan.
+1. Välj **IamIP patent plattform** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-sso-for-iamip-patent-platform"></a>Konfigurera och testa Azure AD SSO för IamIP Patent Platform
+## <a name="configure-and-test-azure-ad-sso-for-iamip-patent-platform"></a>Konfigurera och testa Azure AD SSO för IamIP patent plattform
 
-Du konfigurerar och testar Azure AD SSO med IamIP Patent Platform med hjälp av en testanvändare som heter B.Simon. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och motsvarande användare i IamIP Patent Platform.
+Du konfigurerar och testar Azure AD SSO med IamIP patent plattform genom att använda en test användare med namnet B. Simon. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och motsvarande användare i IamIP patent plattform.
 
-Om du vill konfigurera och testa Azure AD SSO med IamIP Patent Platform vidtar du följande åtgärder på hög nivå:
+Om du vill konfigurera och testa Azure AD SSO med IamIP patent plattform tar du följande steg på hög nivå:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** så att användarna kan använda funktionen.
-    * **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** för att testa Azure AD enkel inloggning.
-    * **[Bevilja åtkomst till testanvändaren](#grant-access-to-the-test-user)** så att användaren kan använda azure AD enkel inloggning.
+    * **[Skapa en Azure AD test-användare](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD.
+    * **[Bevilja åtkomst till test användaren](#grant-access-to-the-test-user)** för att göra det möjligt för användaren att använda enkel inloggning med Azure AD.
 
-1. **[Konfigurera IamIP Patent Platform SSO](#configure-iamip-patent-platform-sso)** på applikationssidan.
-    * **[Skapa en IamIP Patent Platform testanvändare](#create-iamip-patent-platform-test-user)** som en motsvarighet till Azure AD representation av användaren.
+1. **[Konfigurera IamIP patent Platform SSO](#configure-iamip-patent-platform-sso)** på program sidan.
+    * **[Skapa en IamIP patent Platform-testanvändare](#create-iamip-patent-platform-test-user)** som motsvarighet till Azure AD-representationen av användaren.
 
-1. **[Testa SSO](#test-sso)** för att kontrollera att konfigurationen fungerar.
+1. **[Testa SSO](#test-sso)** för att verifiera att konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Så här aktiverar du Azure AD SSO i Azure-portalen:
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal:
 
-1. Välj [Azure portal](https://portal.azure.com/)en enda inloggning på sidan IamIP Patent Platform-programintegrering på sidan **IamIP Patent** **Manage** **Platform-program.**
-1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** väljer du pennknappen för Grundläggande **SAML-konfiguration** för att redigera inställningarna:
+1. I [Azure Portal](https://portal.azure.com/)på sidan **IamIP patent Platform** Application Integration i avsnittet **Hantera** väljer du **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** väljer du Penn knappen för **grundläggande SAML-konfiguration** för att redigera inställningarna:
 
-   ![Pennknapp för grundläggande SAML-konfiguration](common/edit-urls.png)
+   ![Penn knapp för grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. Om du har en metadatafil för Service Provider och vill konfigurera SSO i IDP-initierat läge i avsnittet **Grundläggande SAML-konfiguration** gör du så här:
+1. I avsnittet **grundläggande SAML-konfiguration** , om du har en metadatafil för tjänst leverantörer och vill konfigurera SSO i IDP läge, så gör du följande:
 
-    a. Välj **Ladda upp metadatafil:**
+    a. Välj **Ladda upp metadatafil**:
 
     ![Ladda upp metadatafil](common/upload-metadata.png)
 
-    b. Markera mappknappen, markera metadatafilen och välj sedan **Ladda upp:**
+    b. Välj knappen mapp, Välj metadatafilen och välj sedan **Ladda upp**:
 
-    ![Knappar för mapp och uppladdning](common/browse-upload-metadata.png)
+    ![Mapp-och överförings knappar](common/browse-upload-metadata.png)
 
-    c. När metadatafilen har laddats upp fylls **URL-värdena identifierare** och **svara** automatiskt i avsnittet **Grundläggande SAML-konfiguration:**
+    c. När metadatafilen har laddats upp fylls **ID** -och **svars-URL** -värdena automatiskt i avsnittet **grundläggande SAML-konfiguration** :
 
-    ![Url-värden för identifierare och svara](common/idp-intiated.png)
+    ![Identifierare och svars-URL-värden](common/idp-intiated.png)
 
     > [!Note]
-    > Om **URL-värdena identifierare** och **Svara** inte fylls i automatiskt anger du värdena manuellt enligt dina krav.
+    > Om **ID** -och **svars-URL** -värdena inte fylls i automatiskt anger du värdena manuellt enligt dina krav.
 
-1. Välj **Ange ytterligare webbadresser** och slutför följande steg om du vill konfigurera programmet i SP-initierat läge:
+1. Välj **Ange ytterligare URL: er** och Slutför följande steg om du vill konfigurera programmet i SP-initierat läge:
 
-    I rutan **Inloggnings-URL** anger du **https:\//patents.iamip.com/login-user**.
+    I rutan **inloggnings-URL** anger du **https:\//patents.iamip.com/login-User**.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** väljer du länken Hämta för certifikat **(Raw)** i avsnittet **Saml-signeringscertifikat** för att hämta certifikatet och spara det på datorn: **Download**
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du länken **Hämta** för **certifikat (RAW)** för att ladda ned certifikatet och spara det på datorn:
 
     ![Länk för nedladdning av certifikat](common/certificateraw.png)
 
-1. I avsnittet **Konfigurera IamIP Patent Platform** kopierar du lämplig webbadress eller webbadresser, baserat på dina krav:
+1. I avsnittet **Konfigurera IamIP patent Platform** kopierar du lämplig URL eller URL, baserat på dina krav:
 
     ![Kopiera konfigurations-URL:er](common/idp-intiated.png))
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en testanvändare med namnet B.Simon i Azure-portalen.
+I det här avsnittet ska du skapa en test användare med namnet B. Simon i Azure Portal.
 
-1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen**. Välj **Användare**och välj sedan **Alla användare**.
-1. Välj **Ny användare** högst upp på skärmen.
-1. Gör så här i **egenskaperna Användare:**
-   1. Ange **B.Simon**i rutan **Namn** .  
-   1. Ange \<användarnamn>@\<companydomain> i rutan **Användarnamn.** \<förlängning>. Till exempel `B.Simon@contoso.com`.
-   1. Välj **Visa lösenord**och skriv sedan ned värdet som visas i rutan **Lösenord.**
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**. Välj **användare**och välj sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna slutför du de här stegen:
+   1. I rutan **namn** anger du **B. Simon**.  
+   1. I rutan **användar namn** anger \<du användar namn> @\<companydomain>. \<tillägg>. Till exempel `B.Simon@contoso.com`.
+   1. Välj **Visa lösen ord**och skriv sedan ned värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
-### <a name="grant-access-to-the-test-user"></a>Bevilja åtkomst till testanvändaren
+### <a name="grant-access-to-the-test-user"></a>Bevilja åtkomst till test användaren
 
-I det här avsnittet ska du aktivera B.Simon för att använda Azure enkel inloggning genom att ge användaren åtkomst till IamIP Patent Platform.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja användaren åtkomst till IamIP patent plattform.
 
-1. I Azure-portalen väljer du **Enterprise-program**och väljer sedan **Alla program**.
-1. Välj **IamIP Patent Platform**i listan över ansökningar .
-1. På appens översiktssida väljer du **Användare och grupper**i avsnittet **Hantera:**
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **IamIP patent plattform**.
+1. I avsnittet **Hantera** på appens översikts sida väljer du **användare och grupper**:
 
    ![Välj Användare och grupper](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning:**
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** :
 
     ![Välj Lägg till användare](common/add-assign-user.png)
 
-1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan **Användare** och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Välj knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** i listan **användare** och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialog rutan **Lägg till tilldelning** väljer du knappen **tilldela** .
 
-## <a name="configure-iamip-patent-platform-sso"></a>Konfigurera IamIP Patent Platform SSO
+## <a name="configure-iamip-patent-platform-sso"></a>Konfigurera IamIP patent Platform SSO
 
-Om du vill konfigurera enkel inloggning på IamIP Patent Platform-sidan måste du skicka det nedladdade råcertifikatet och lämpliga webbadresser som du kopierade från Azure-portalen till [IamIP Patent Platform supportteam](mailto:info@iamip.com). De konfigurerar SAML SSO-anslutningen så att den är korrekt på båda sidor.
+Om du vill konfigurera enkel inloggning på den IamIP patent plattforms sidan måste du skicka det hämtade RAW-certifikatet och lämpliga URL: er som du kopierade från Azure Portal till [IamIP patent Platform support team](mailto:info@iamip.com). De konfigurerar SAML SSO-anslutningen så att den är korrekt på båda sidor.
 
-### <a name="create-iamip-patent-platform-test-user"></a>Skapa IamIP Patent Platform test användare
+### <a name="create-iamip-patent-platform-test-user"></a>Skapa IamIP patent Platform test användare
 
-Arbeta med [IamIP Patent Platform supportteam](mailto:info@iamip.com) för att lägga till en användare som heter B.Simon i IamIP Patent Platform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+Arbeta med [IamIP patent Platform support team](mailto:info@iamip.com) för att lägga till en användare med namnet B. Simon i IamIP patent plattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO
 
-I det här avsnittet ska du testa din Azure AD SSO-konfiguration med hjälp av Åtkomstpanelen.
+I det här avsnittet ska du testa din Azure AD SSO-konfiguration med hjälp av åtkomst panelen.
 
-När du väljer panelen IamIP Patent Platform i Access Panel ska du automatiskt loggas in på den IamIP Patent Platform-instans som du ställer in SSO för. Mer information om Åtkomstpanelen finns i [Introduktion till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer den IamIP patent plattforms panelen på åtkomst panelen, bör du loggas in automatiskt på den IamIP patent plattforms instans som du ställer in SSO för. Mer information om åtkomst panelen finns i [Introduktion till åtkomst panelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -165,6 +165,6 @@ När du väljer panelen IamIP Patent Platform i Access Panel ska du automatiskt 
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Prova IamIP Patent Platform med Azure AD](https://aad.portal.azure.com/)
+- [Prova IamIP patent Platform med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

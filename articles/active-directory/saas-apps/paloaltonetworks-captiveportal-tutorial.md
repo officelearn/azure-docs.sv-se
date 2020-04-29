@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Palo Alto Networks Captive Portal | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med Palo-nätverk, integrerad Portal | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Palo Alto Networks Captive Portal.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f926741bde3bdcc69cb4ea30f54daca79606047e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73160159"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Självstudiekurs: Azure Active Directory-integrering med Palo Alto Networks Captive Portal
+# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Självstudie: Azure Active Directory integrering med Palo-nätverk, integrerat på portalen
 
 I den här självstudien lär du dig att integrera Palo Alto Networks Captive Portal med Azure Active Directory (AD Azure).
 
@@ -35,7 +35,7 @@ Genom att integrera Palo Alto Networks Captive Portal med Azure AD får du följ
 
 Läs mer om SaaS-appintegrering (programvara som en tjänst) med Azure AD i [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -61,7 +61,7 @@ Kom igång genom att i galleriet lägga till Palo Alto Networks Captive Portal t
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Välj **Företagsprogram** > **Alla program**.
+2. Välj **företags program** > **alla program**.
 
     ![Alternativ för företagsprogram i menyn](common/enterprise-applications.png)
 
@@ -79,12 +79,12 @@ Du konfigurerar och testar enkel inloggning i Azure AD med Palo Alto Networks Ca
 
 För att konfigurera och testa enkel inloggning för Azure AD med Palo Alto Networks Captive Portal behöver du slutföra följande byggstenar:
 
-1. **[Konfigurera Azure AD enkel inloggning:](#configure-azure-ad-single-sign-on)** Aktivera användaren att använda den här funktionen.
-2. **[Konfigurera Enstaka inloggning för Palo Alto Networks Captive Portal](#configure-palo-alto-networks-captive-portal-single-sign-on)**: Konfigurera inställningarna för enkel inloggning i programmet.
-3. **[Skapa en Azure AD-testanvändare:](#create-an-azure-ad-test-user)** Testa azure AD-enkel inloggning med användaren *Britta Simon*.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)**: Konfigurera Britta Simon om att använda azure AD-enkel inloggning.
-5. **Skapa en Palo Alto Networks Captive Portal-testanvändare:** Skapa en *motpartsanvändare Britta Simon* i Palo Alto Networks Captive Portal som är länkad till Azure AD-användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**: Kontrollera att konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)**: gör det möjligt för användaren att använda den här funktionen.
+2. **[Konfigurera Palo-nätverk, enkel inloggning för portalen](#configure-palo-alto-networks-captive-portal-single-sign-on)**: Konfigurera inställningar för enkel inloggning i programmet.
+3. **[Skapa en Azure AD-test användare](#create-an-azure-ad-test-user)**: Testa enkel inloggning med Azure AD med användaren *Britta Simon*.
+4. **[Tilldela Azure AD-test användaren](#assign-the-azure-ad-test-user)**: Konfigurera Britta Simon för att använda enkel inloggning med Azure AD.
+5. **Skapa ett Palo-nätverk inbyggt Portal test användare**: skapa en motsvarighet för användare *Britta Simon* i Palo-nätverk, som är inkopplad till Azure AD-användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)**: kontrol lera att konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
@@ -145,7 +145,7 @@ Sedan konfigurerar du enkel inloggning för Palo Alto Networks Captive Portal:
 
 Skapa sedan en testanvändare med namnet *Britta Simon* i Azure-portalen:
 
-1. I Azure-portalen väljer du **Azure Active Directory** > **Users** > **All users**.
+1. I Azure Portal väljer du **Azure Active Directory** > **användare** > **alla användare**.
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
@@ -159,7 +159,7 @@ Skapa sedan en testanvändare med namnet *Britta Simon* i Azure-portalen:
 
     1. För **Namn** anger du **BrittaSimon**.
   
-    2. För **Användarnamn**anger du **BrittaSimon\>\@\<your_company_domain**. **Till exempel,\@BrittaSimon contoso.com**.
+    2. För **användar namn**anger du **BrittaSimon\@\<your_company_domain\>**. Till exempel **BrittaSimon\@contoso.com**.
 
     3. För **Lösenord** anger du ett lösenord. Vi rekommenderar att du antecknar det lösenord du anger. Du kan markera kryssrutan **Visa lösenord** för att visa lösenordet.
 
@@ -169,7 +169,7 @@ Skapa sedan en testanvändare med namnet *Britta Simon* i Azure-portalen:
 
 Sedan beviljar du åtkomst till Palo Alto Networks Captive Portal så att Britta Simon kan använda enkel inloggning med Azure:
 
-1. I Azure-portalen väljer du **Enterprise-program** > **Alla program**.
+1. I Azure Portal väljer du **företags program** > **alla program**.
 
     ![Fönstret Företagsprogram](common/enterprise-applications.png)
 

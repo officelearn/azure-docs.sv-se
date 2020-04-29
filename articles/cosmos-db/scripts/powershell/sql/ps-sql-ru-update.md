@@ -1,6 +1,6 @@
 ---
-title: PowerShell-skript för att uppdatera dataflödet (RU/s) för en Azure Cosmos DB SQL API-databas eller -behållare
-description: PowerShell-skript för att uppdatera dataflödet (RU/s) för en Azure Cosmos DB SQL API-databas eller -behållare
+title: PowerShell-skript för att uppdatera data flödet (RU/s) för en Azure Cosmos DB SQL API-databas eller-behållare
+description: PowerShell-skript för att uppdatera data flödet (RU/s) för en Azure Cosmos DB SQL API-databas eller-behållare
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 03/17/2020
 ms.author: mjbrown
 ms.openlocfilehash: 950a76c2caaffe6eef578d5614e9469c5942e08c
-ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80365984"
 ---
-# <a name="update-throughput-rus-for-an-azure-cosmos-db-sql-api-database-or-container"></a>Uppdatera dataflöde (RU/s) för en Azure Cosmos DB SQL API-databas eller -behållare
+# <a name="update-throughput-rus-for-an-azure-cosmos-db-sql-api-database-or-container"></a>Uppdatera data flöde (RU/s) för en Azure Cosmos DB SQL API-databas eller container
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -36,13 +36,13 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 |**Azure Cosmos DB**| |
 | [Set-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqldatabase) | Skapar en ny eller uppdaterar en befintlig Cosmos DB SQL Database. |
-| [Få-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainer) | Hämtar en Cosmos DB SQL Container. |
-| [Set-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqlcontainer) | Skapar en ny eller uppdaterar en befintlig Cosmos DB SQL Container. |
-|**Azure-resursgrupper**| |
+| [Get-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainer) | Hämtar en Cosmos DB SQL-behållare. |
+| [Set-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqlcontainer) | Skapar en ny eller uppdaterar en befintlig Cosmos DB SQL-behållare. |
+|**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

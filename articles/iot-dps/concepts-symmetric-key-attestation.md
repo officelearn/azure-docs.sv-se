@@ -1,6 +1,6 @@
 ---
-title: Etablerande tjänst för Azure IoT Hub Device - Symmetrisk nyckelbevaring
-description: Den här artikeln innehåller en begreppsmässig översikt över symmetrisk nyckeltysst med hjälp av DPS (IoT Device Provisioning Service).
+title: Azure-IoT Hub Device Provisioning Service – symmetrisk nyckel attestering
+description: Den här artikeln innehåller en översikt över symmetrisk nyckel attestering med IoT Device Provisioning-tjänsten (DPS).
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -9,38 +9,38 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 0e3d343c0a68dd527e4e8e8d23e5b3843a216a78
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271517"
 ---
 # <a name="symmetric-key-attestation"></a>Symmetrisk nyckelattestering
 
-I den här artikeln beskrivs identitetsintygsprocessen när du använder symmetriska nycklar med enhetsetableringstjänsten. 
+I den här artikeln beskrivs processen för identitets attestering när du använder symmetriska nycklar med enhets etablerings tjänsten. 
 
-Symmetrisk nyckeltysstation är en enkel metod för att autentisera en enhet med en enhetsetableringstjänstinstans. Den här attestation-metoden representerar en "Hello world"-upplevelse för utvecklare som är nya för enhetsetablering eller inte har strikta säkerhetskrav. Enhetsintyg med hjälp av ett [TPM-](concepts-tpm-attestation.md) eller [X.509-certifikat](concepts-security.md#x509-certificates) är säkrare och bör användas för strängare säkerhetskrav.
+Symmetrisk nyckel attestering är en enkel metod för att autentisera en enhet med en enhets etablerings tjänst instans. Den här attesterings metoden representerar en "Hello World"-upplevelse för utvecklare som är nya för enhets etablering eller som inte har strikta säkerhets krav. Enhets attestering med ett [TPM](concepts-tpm-attestation.md) eller ett [X. 509-certifikat](concepts-security.md#x509-certificates) är säkrare och bör användas för mer långtgående säkerhets krav.
 
-Symmetriska nyckelregistreringar är också ett utmärkt sätt för äldre enheter, med begränsad säkerhetsfunktionalitet, att bootstrap till molnet via Azure IoT. Mer information om symmetrisk nyckeltysstation med äldre enheter finns i [Så här använder du symmetriska nycklar med äldre enheter](how-to-legacy-device-symm-key.md).
+Symmetrisk nyckel registrering ger också ett bra sätt för äldre enheter, med begränsade säkerhetsfunktioner, för att starta molnet via Azure IoT. Mer information om symmetrisk nyckel attestering med äldre enheter finns i [så här använder du symmetriska nycklar med äldre enheter](how-to-legacy-device-symm-key.md).
 
 
-## <a name="symmetric-key-creation"></a>Symmetrisk nyckelskapande
+## <a name="symmetric-key-creation"></a>Skapa symmetrisk nyckel
 
-Som standard skapar enhetsetableringstjänsten nya symmetriska nycklar med en standardlängd på 32 byte när nya registreringar sparas med alternativet **Generera automatiskt nycklar** aktiverat.
+Enhets etablerings tjänsten skapar som standard nya symmetriska nycklar med en standard längd på 32 byte när nya registreringar sparas med alternativet för **automatisk generering av nycklar** aktiverade.
 
 ![Generera symmetriska nycklar automatiskt](./media/concepts-symmetric-key-attestation/auto-generate-keys.png)
 
-Du kan också ange dina egna symmetriska nycklar för registreringar genom att inaktivera det här alternativet. När du anger dina egna symmetriska nycklar måste nycklarna ha en nyckellängd mellan 16 byte och 64 byte. Dessutom måste symmetriska nycklar anges i giltigt Base64-format.
+Du kan också ange egna symmetriska nycklar för registrering genom att inaktivera det här alternativet. När du anger egna symmetriska nycklar måste nycklarna ha en nyckel längd mellan 16 byte och 64 byte. Dessutom måste symmetriska nycklar tillhandahållas i ett giltigt base64-format.
 
 
 
-## <a name="detailed-attestation-process"></a>Detaljerad attestation process
+## <a name="detailed-attestation-process"></a>Detaljerad attesterings process
 
-Symmetrisk nyckeltysstation med enhetsetableringstjänsten utförs med samma [säkerhetstoken som](../iot-hub/iot-hub-devguide-security.md#security-token-structure) stöds av IoT-hubbar för att identifiera enheter. Dessa säkerhetstoken är [SAS-token (Shared Access Signature).](../service-bus-messaging/service-bus-sas.md) 
+Symmetrisk nyckel attestering med enhets etablerings tjänsten utförs med samma [säkerhetstoken](../iot-hub/iot-hub-devguide-security.md#security-token-structure) som stöds av IoT Hub för att identifiera enheter. Dessa säkerhetstoken är [token för signatur för delad åtkomst (SAS)](../service-bus-messaging/service-bus-sas.md). 
 
-SAS-token har en *hash-signatur* som skapas med hjälp av den symmetriska nyckeln. Signaturen återskapas av enhetsetableringstjänsten för att kontrollera om en säkerhetstoken som presenteras under attesteringen är äkta eller inte.
+SAS-token har en hash- *signatur* som skapas med den symmetriska nyckeln. Signaturen återskapas av enhets etablerings tjänsten för att kontrol lera om en säkerhetstoken som visas under attesteringen är äkta eller inte.
 
-SAS-token har följande formulär:
+SAS-token har följande format:
 
 `SharedAccessSignature sig={signature}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`
 
@@ -48,32 +48,32 @@ Här är komponenterna i varje token:
 
 | Värde | Beskrivning |
 | --- | --- |
-| {signatur} |En HMAC-SHA256 signatursträng. För enskilda registreringar skapas den här signaturen med hjälp av den symmetriska nyckeln (primär eller sekundär) för att utföra hashen. För registreringsgrupper används en nyckel som härleds från registreringsgruppnyckeln för att utföra hash-värdet. Hash utförs på ett meddelande i `URL-encoded-resourceURI + "\n" + expiry`formuläret: . **Viktigt**: Nyckeln måste avkodas från base64 innan den används för att utföra HMAC-SHA256-beräkningen. Signaturresultatet måste också url-kodas. |
-| {resourceURI} |URI för registreringsslutpunkten som kan nås med den här token, med början i scope-ID för instansen Enhetsetableringstjänst. Till exempel, `{Scope ID}/registrations/{Registration ID}` |
-| {utgångsdatum} |UTF8 strängar för antal sekunder sedan epoken 00:00:00 UTC den 1 januari 1970. |
-| {URL-kodad-resourceURI} |Gemener URL-kodning av den gemena resursen URI |
-| {policyName} |Namnet på den delade åtkomstprincip som den här token refererar till. Det principnamn som används vid etablering med symmetrisk nyckeltysststation är **registrering**. |
+| signatur |En HMAC-SHA256-signatur sträng. För enskilda registreringar skapas den här signaturen med hjälp av den symmetriska nyckeln (primär eller sekundär) för att utföra hashen. För registrerings grupper används en nyckel som härletts från registrerings grupp nyckeln för att utföra hashen. Hashen utförs på ett meddelande med formatet: `URL-encoded-resourceURI + "\n" + expiry`. **Viktigt**: nyckeln måste avkodas från base64 innan den används för att utföra HMAC-SHA256-beräkningen. Dessutom måste resultatet av signaturen vara URL-kodat. |
+| ResourceURI |URI för den registrerings slut punkt som kan nås med denna token, med start med scope-ID för enhets etablerings tjänst instansen. Till exempel, `{Scope ID}/registrations/{Registration ID}` |
+| förfallo |UTF8-strängar för antalet sekunder sedan 00:00:00 UTC på 1 januari 1970. |
+| {URL-kodad – resourceURI} |Gemen URL – kodning för den nedre fall resurs-URI: n |
+| PolicyName |Namnet på den princip för delad åtkomst som denna token refererar till. Princip **namnet som används**när etableringen med symmetrisk nyckel attestering registreras. |
 
-När en enhet intygar med en enskild registrering använder enheten den symmetriska nyckeln som definierats i den enskilda registreringsposten för att skapa den hashade signaturen för SAS-token.
+När en enhet besvaras med en enskild registrering använder enheten den symmetriska nyckel som definierats i den enskilda registrerings posten för att skapa den hashade signaturen för SAS-token.
 
-Kodexempel som skapar en SAS-token finns i [Säkerhetstokens](../iot-hub/iot-hub-devguide-security.md#security-token-structure).
+Kod exempel som skapar en SAS-token finns i [säkerhetstoken](../iot-hub/iot-hub-devguide-security.md#security-token-structure).
 
-Att skapa säkerhetstoken för symmetrisk nyckeltysststation stöds av Azure IoT C SDK. Ett exempel med Azure IoT C SDK för att intyga med en enskild registrering finns i [Etablera en simulerad enhet med symmetriska nycklar](quick-create-simulated-device-symm-key.md).
+Att skapa säkerhetstoken för symmetrisk nyckel attestering stöds av Azure IoT C SDK. Ett exempel som använder Azure IoT C SDK för att intyga med en enskild registrering finns i [etablera en simulerad enhet med symmetriska nycklar](quick-create-simulated-device-symm-key.md).
 
 
-## <a name="group-enrollments"></a>Gruppregistreringar
+## <a name="group-enrollments"></a>Grupp registreringar
 
-De symmetriska nycklarna för gruppregistreringar används inte direkt av enheter vid etablering. I stället enheter som tillhör en registreringsgruppsetablering med hjälp av en härledd enhetsnyckel. 
+De symmetriska nycklarna för grupp registreringar används inte direkt av enheter vid etablering. I stället enheter som tillhör en registrerings grupps etablering med hjälp av en härledd enhets nyckel. 
 
-Först definieras ett unikt registrerings-ID för varje enhet som intygar med en registreringsgrupp. Giltiga tecken för registrerings-ID är gemener alfanumeriska och streck ('-'). Det här registrerings-ID:t ska vara något unikt som identifierar enheten. En äldre enhet kanske till exempel inte stöder många säkerhetsfunktioner. Den äldre enheten kanske bara har en MAC-adress eller serienummer tillgängligt för att identifiera den enheten på ett unikt sätt. I så fall kan ett registrerings-ID bestå av MAC-adressen och serienumret som liknar följande:
+Först definieras ett unikt registrerings-ID för varje enhet som bestyrkas med en registrerings grupp. Giltiga tecken för registrerings-ID: t är gemena alfanumeriska tecken och bindestreck (-). Detta registrerings-ID ska vara något unikt som identifierar enheten. Till exempel kanske en äldre enhet inte stöder många säkerhetsfunktioner. Den äldre enheten kanske bara har en MAC-adress eller ett serie nummer tillgängligt för att unikt identifiera enheten. I så fall kan ett registrerings-ID bestå av MAC-adressen och serie numret som liknar följande:
 
 ```
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-Det här exakta exemplet används i artikeln [Hur du etablerar äldre enheter med hjälp av symmetriska nycklar.](how-to-legacy-device-symm-key.md)
+Det här exakta exemplet används i artikeln [hur man etablerar äldre enheter med hjälp av symmetriska nycklar](how-to-legacy-device-symm-key.md) .
 
-När ett registrerings-ID har definierats för enheten används den symmetriska nyckeln för registreringsgruppen för att beräkna en [HMAC-SHA256-hash](https://wikipedia.org/wiki/HMAC) av registrerings-ID för att skapa en härledd enhetsnyckel. Hashing av registrerings-ID kan utföras med följande C# kod:
+När ett registrerings-ID har definierats för enheten används den symmetriska nyckeln för registrerings gruppen för att beräkna en [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) hash av registrerings-ID: t för att skapa en härledd enhets nyckel. Hashing av registrerings-ID: t kan utföras med följande C#-kod:
 
 ```csharp
 using System; 
@@ -96,24 +96,24 @@ public static class Utils
 String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(masterKey), registrationId);
 ```
 
-Den resulterande enhetsnyckeln används sedan för att generera en SAS-token som ska användas för attestering. Varje enhet i en registreringsgrupp måste intygas med hjälp av en säkerhetstoken som genereras från en unik härledd nyckel. Den symmetriska nyckeln för registreringsgruppen kan inte användas direkt för attestering.
+Den resulterande enhets nyckeln används sedan för att skapa en SAS-token som ska användas för attestering. Varje enhet i en registrerings grupp måste attesteras med hjälp av en säkerhetstoken som genereras från en unik härledd nyckel. Det går inte att använda symmetrisk nyckel för registrerings gruppen direkt för attestering.
 
-#### <a name="installation-of-the-derived-device-key"></a>Installation av den härledda enhetsnyckeln
+#### <a name="installation-of-the-derived-device-key"></a>Installation av den härledda enhets nyckeln
 
-Helst enhetsnycklarna härleds och installeras i fabriken. Den här metoden garanterar att gruppnyckeln aldrig ingår i någon programvara som distribueras till enheten. När enheten tilldelas en MAC-adress eller serienummer kan nyckeln härledas och injiceras i enheten, men tillverkaren väljer att lagra den.
+Vi rekommenderar att enhets nycklarna härleds och installeras i fabriken. Den här metoden garanterar att grupp nyckeln aldrig ingår i någon program vara som distribueras till enheten. När enheten tilldelas en MAC-adress eller ett serie nummer kan nyckeln härledas och matas in i enheten, men tillverkaren väljer att lagra den.
 
-Tänk på följande diagram som visar en tabell över enhetsnycklar som genereras i en fabrik genom att hashing varje enhetsregistrerings-ID med gruppregistreringsnyckeln (**K**). 
+Tänk på följande diagram som visar en tabell med enhets nycklar som har genererats i en fabrik genom att Hasha varje registrerings-ID för enheten med grupp registrerings nyckeln (**K**). 
 
-![Enhetsnycklar som tilldelats från en fabrik](./media/concepts-symmetric-key-attestation/key-diversification.png)
+![Enhets nycklar tilldelade från en fabrik](./media/concepts-symmetric-key-attestation/key-diversification.png)
 
-Identiteten på varje enhet representeras av registrerings-ID och härledd enhetsnyckel som är installerad på fabriken. Enhetsnyckeln kopieras aldrig till en annan plats och gruppnyckeln lagras aldrig på en enhet.
+Identiteten för varje enhet representeras av registrerings-ID och härledd enhets nyckel som installeras på fabriken. Enhets nyckeln kopieras aldrig till en annan plats och grupp nyckeln lagras aldrig på en enhet.
 
-Om enhetsnycklarna inte är installerade i fabriken bör en [maskinvarusäkerhetsmodul HSM](concepts-security.md#hardware-security-module) användas för att lagra enhetens identitet på ett säkert sätt.
+Om enhets nycklarna inte är installerade i fabriken, ska en [modul för maskin varu säkerhet](concepts-security.md#hardware-security-module) användas för att lagra enhets identiteten på ett säkert sätt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har en förståelse för Symmetric Key attestation, kolla in följande artiklar för att lära dig mer:
+Nu när du har en förståelse för symmetrisk nyckel attestering kan du läsa mer i följande artiklar:
 
 * [Snabbstart: Etablera en simulerad enhet med symmetriska nycklar](quick-create-simulated-device-symm-key.md)
 * [Lär dig mer om begreppen i automatisk etablering](./concepts-auto-provisioning.md)
-* [Komma igång med automatisk etablering](./quick-setup-auto-provision.md) 
+* [Kom igång med automatisk etablering](./quick-setup-auto-provision.md) 

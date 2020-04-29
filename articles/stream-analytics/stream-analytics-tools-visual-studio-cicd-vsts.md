@@ -1,5 +1,5 @@
 ---
-title: Distribuera Azure Stream Analytics-jobb med CI/CD och Azure DevOps
+title: Distribuera Azure Stream Analytics jobb med CI/CD och Azure DevOps
 description: Den här artikeln beskriver hur du distribuerar ett Stream Analytics-jobb med CI/CD med hjälp av Azure DevOps Services.
 author: su-jie
 ms.author: sujie
@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75354440"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Självstudie: Distribuera ett Azure Stream Analytics-jobb med CI/CD med hjälp av Azure Pipelines
 Den här artikeln beskriver hur du konfigurerar kontinuerlig integrering och distribution för ett Azure Stream Analytics-jobb med hjälp av Azure Pipelines. 
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * lägga till källkontroll i projektet
@@ -29,10 +29,10 @@ I den här självstudiekursen får du lära du dig att:
 ## <a name="prerequisites"></a>Krav
 Se till att du har följande innan du börjar:
 
-* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Installera [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) och arbetsbelastningen **Azure development** (Azure-utveckling) eller **Data Storage and Processing** (Datalagring och bearbetning).
 * Skapa ett [Stream Analytics-projekt i Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
-* Skapa en [Azure DevOps-organisation.](https://visualstudio.microsoft.com/team-services/)
+* Skapa en [Azure DevOps](https://visualstudio.microsoft.com/team-services/) -organisation.
 
 ## <a name="configure-nuget-package-dependency"></a>Konfigurera NuGet-paketberoende
 För att kunna utföra automatiskt skapande och automatisk distribution på en valfri virtuell dator måste du använda NuGet-paketet `Microsoft.Azure.StreamAnalytics.CICD`. Den ger verktygen för MSBuild, lokal körning och distribution som stöder processerna för kontinuerlig integrering och distribution av Stream Analytics Visual Studio-projekt. Mer information finns i [Stream Analytics CI/CD-verktyg](stream-analytics-tools-for-visual-studio-cicd.md).
@@ -60,7 +60,7 @@ Dela programkällfilerna till ett projekt i Azure DevOps så att du kan generera
 
    ![Knappen Push Git repo Publish Repository (Publicera Git-lagringsplats med push-överföring)](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-repository-devops.png)
 
-    När du publicerar lagringsplatsen skapas ett nytt projekt i organisationen med samma namn som den lokala lagringsplatsen. Om du vill skapa reporäntan i ett befintligt projekt klickar du på **Avancerat bredvid** **databasnamn**och väljer ett projekt. Du kan visa koden i webbläsaren genom att välja alternativet för att **visa på webben**.
+    När du publicerar lagringsplatsen skapas ett nytt projekt i organisationen med samma namn som den lokala lagringsplatsen. Om du vill skapa lagrings platsen i ett befintligt projekt klickar du på **Avancerat** bredvid **databas namn**och väljer ett projekt. Du kan visa koden i webbläsaren genom att välja alternativet för att **visa på webben**.
  
 ## <a name="configure-continuous-delivery-with-azure-devops"></a>Konfigurera kontinuerlig leverans med Azure DevOps
 En Azure Pipelines-bygg-pipeline beskriver ett arbetsflöde som består av byggesåtgärder som utförs i tur och ordning. Läs mer om [Azure Pipelines bygg-pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav). 
@@ -82,7 +82,7 @@ En versionspipeline för Azure Pipelines beskriver ett arbetsflöde som distribu
     
     ![Aktivera utlösarstatus för kontinuerlig integrering](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger-status-ci.png)
 
-4. Byggen utlöses också vid push-överföring och incheckning. Om du vill kontrollera byggstatusen växlar du till fliken **Bygg.**  När du har verifierat att bygget har körs måste du definiera en versionspipeline som distribuerar ditt program till ett kluster. Högerklicka på ellipsen intill bygg-pipelinen och välj **Redigera**.
+4. Byggen utlöses också vid push-överföring och incheckning. Om du vill kontrol lera Bygg förloppet växlar du till fliken **versioner** .  När du har kontrollerat att versionen körs måste du definiera en versions pipeline som distribuerar ditt program till ett kluster. Högerklicka på ellipsen intill bygg-pipelinen och välj **Redigera**.
 
 5.  I **Uppgifter** anger du "Hosted" som **Agent queue** (Agentkö).
     
@@ -117,7 +117,7 @@ En versionspipeline för Azure Pipelines beskriver ett arbetsflöde som distribu
     |**Inställning**  |**Föreslaget värde**  |
     |---------|---------|
     |Prenumeration  |  Välj din prenumeration.   |
-    |Åtgärd  |  Skapa eller uppdatera resursgrupp   |
+    |Action  |  Skapa eller uppdatera resursgrupp   |
     |Resursgrupp  |  Ange ett resursgruppsnamn.   |
     |Mall  | [Lösningens sökväg]\bin\Debug\Deploy\\[Projektnamnet].JobTemplate.json   |
     |Mallparametrar  | [Lösningens sökväg]\bin\Debug\Deploy\\[Projektnamnet].JobTemplate.parameters.json   |

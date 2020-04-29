@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
 ms.openlocfilehash: 6b8d520a539f69889b1e1bd23d255f3fe19b8717
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79238792"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Självstudier: Distribuera och använda Azure Container Registry
@@ -54,7 +54,7 @@ För att använda ACR-instansen måste du först logga in. Använd kommandot [az
 az acr login --name <acrName>
 ```
 
-Kommandot returnerar ett meddelande om inloggning som har slutförts när det har *slutförts.*
+Kommandot returnerar ett meddelande om att *inloggningen har* slutförts.
 
 ## <a name="tag-a-container-image"></a>Tagga en containeravbildning
 
@@ -77,7 +77,7 @@ Hämta inloggningsserverns adress genom att köra kommandot [az acr list][az-acr
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Tagga nu din lokala *azure-vote-front-avbildning* med *acrLoginServer-adressen* för behållarregistret. Ange versionsnumret för avbildningen genom att lägga till *:v1* i slutet av avbildningens namn:
+Tagga nu din lokala *Azure-röst-frontend-* avbildning med *acrLoginServer* -adressen för behållar registret. Ange versionsnumret för avbildningen genom att lägga till *:v1* i slutet av avbildningens namn:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1

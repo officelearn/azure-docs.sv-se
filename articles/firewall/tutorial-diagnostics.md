@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
 ms.openlocfilehash: da46cf826da40658883d22692e5038b09d222907
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75974535"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Självstudie: Övervaka Azure Firewall-loggar och mått
@@ -22,7 +22,7 @@ Du kan komma åt vissa av de här loggarna via portalen. Du kan skicka loggar ti
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * aktivera loggning via Azure Portal
@@ -44,7 +44,7 @@ Innan du påbörjar den här självstudien bör du läsa [Azure Firewall-loggar 
 Det kan ta några minuter innan data visas i loggarna när du har aktiverat diagnostisk loggning. Om du inte ser någonting direkt kan du kontrollera igen om några minuter.
 
 1. Öppna brandväggens resursgrupp i Azure Portal och klicka på brandväggen.
-2. Klicka på **Diagnostikinställningar**under **Övervakning**.
+2. Under **övervakning**klickar du på **diagnostiska inställningar**.
 
    Azure Firewall har två loggar som är specifika för tjänsten:
 

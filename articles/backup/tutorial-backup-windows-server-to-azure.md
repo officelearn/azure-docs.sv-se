@@ -1,14 +1,14 @@
 ---
-title: Självstudiekurs - Säkerhetskopiera Windows Server till Azure
+title: Självstudie – Säkerhetskopiera Windows Server till Azure
 description: Den här självstudiekursen förklarar hur du säkerhetskopierar lokala Windows-servrar till ett Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
-ms.openlocfilehash: 906901ce4792e8b363a3a9b77c9bf6bb4b59aec5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d29983bec7dbe379bfb2898e0f068a02b01ae726
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79238750"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Säkerhetskopiera Windows Server till Azure
@@ -19,11 +19,11 @@ Du kan använda Azure Backup för att skydda Windows Server från skador, attack
 >
 > * Ladda ned och installera MARS-agenten
 > * Konfigurera tidpunkter för säkerhetskopiering och kvarhållningsschema för serverns säkerhetskopior
-> * Utför en säkerhetskopiering på begäran
+> * Utföra en säkerhets kopiering på begäran
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på https://portal.azure.com.
+Logga in på Azure-portalen på <https://portal.azure.com.>
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
@@ -59,7 +59,7 @@ MARS-agenten (Microsoft Azure Recovery Services) skapar en koppling mellan Windo
 
 3. På **Säkerhetskopieringsmål**-menyn:
 
-   * för **Var körs din arbetsbelastning?** **On-premises**
+   * för **var körs din arbets belastning?**, Välj **lokalt**
    * för **Vad vill du säkerhetskopiera?**, välj **Filer och mappar** och **Systemtillstånd**.
 
    ![ange information för valvet](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)

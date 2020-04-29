@@ -1,6 +1,6 @@
 ---
-title: Ändra dina StorSimple-lösenord | Microsoft-dokument
-description: Beskriver hur du använder Tjänsten StorSimple Device Manager för att ändra lösenorden för StorSimple Snapshot Manager och enhetsadministratör.
+title: Ändra dina StorSimple-lösenord | Microsoft Docs
+description: Beskriver hur du använder tjänsten StorSimple Enhetshanteraren för att ändra lösen ord för StorSimple Snapshot Manager och enhets administratör.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,78 +15,78 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: ab874bbdcd47a4bfa9abfba721afa46d0f23a338
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79268033"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>Använda Tjänsten StorSimple Device Manager för att ändra dina StorSimple-lösenord
+# <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>Använd tjänsten StorSimple Enhetshanteraren för att ändra dina StorSimple-lösenord
 
 ## <a name="overview"></a>Översikt
-Alternativet Azure portal **Device-inställningar** innehåller alla enhetsparametrar som du kan konfigurera om på en StorSimple-enhet som hanteras av en StorSimple Enhetshanteraren-tjänst. I den här självstudien beskrivs hur du kan använda alternativet **Säkerhet** under **Enhetsinställningar för** att ändra enhetsadministratören eller Lösenordet för StorSimple Snapshot Manager.
+Alternativet Azure Portal **enhets inställningar** innehåller alla enhets parametrar som du kan konfigurera på en StorSimple-enhet som hanteras av en StorSimple Enhetshanteraren-tjänst. I den här självstudien beskrivs hur du kan använda **säkerhets** alternativet under **enhets inställningar** för att ändra enhets administratören eller StorSimple Snapshot Manager lösen ord.
 
 ## <a name="change-the-device-administrator-password"></a>Ändra enhetens administratörslösenord
-När du använder Windows PowerShell-gränssnittet för att komma åt StorSimple-enheten måste du ange ett lösenord för enhetsadministratören. När den första StorSimple-enheten är registrerad med en tjänst är standardlösenordet för det här gränssnittet *Password1*. För att dina data ska bli säkerhetsskäl måste du ändra lösenordet i slutet av registreringsprocessen. Du kan inte avsluta registreringsprocessen utan att ändra lösenordet. Mer information finns i [Steg 3: Konfigurera och registrera enheten via Windows PowerShell för StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+När du använder Windows PowerShell-gränssnittet för att få åtkomst till StorSimple-enheten måste du ange ett lösen ord för enhets administratören. När den första StorSimple-enheten registreras med en tjänst är standard lösen ordet för det här gränssnittet *Password1*. För att skydda dina data måste du ändra lösen ordet i slutet av registrerings processen. Du kan inte avsluta registrerings processen utan att ändra lösen ordet. Mer information finns i [steg 3: Konfigurera och registrera enheten via Windows PowerShell för StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
-Lösenordet som först angavs via Windows PowerShell-gränssnittet under registreringen kan ändras senare via Azure-portalen. Gör följande för att ändra lösenordet för enhetsadministratören.
+Det lösen ord som först angavs via Windows PowerShell-gränssnittet under registreringen kan ändras senare via Azure Portal. Utför följande steg för att ändra enhetens administratörs lösen ord.
 
-#### <a name="to-change-the-device-administrator-password"></a>Så här ändrar du lösenordet för enhetsadministratören
+#### <a name="to-change-the-device-administrator-password"></a>Ändra enhetens administratörs lösen ord
 1. Gå till StorSimple Device Manager-tjänsten och klicka på **Enheter**.
 
-2. Välj och klicka på den enhet vars lösenord du tänker ändra i tabelllistan för enheter.
+2. Markera och klicka på enheten vars lösen ord du vill ändra i list rutan med enheter.
 
     ![](./media/storsimple-8000-change-passwords/changepwd1.png)
 
-3. Gå till **Enhetsinställningar > säkerhet i**bladet **Inställningar** .
+3. I bladet **Inställningar** går du till **enhets inställningar > säkerhet**.
 
     ![](./media/storsimple-8000-change-passwords/changepwd2.png)
 
-4. I bladet **Säkerhetsinställningar** klickar du på **Lösenord** för att ändra lösenordet för enhetsadministratören.
+4. I bladet **säkerhets inställningar** klickar du på **lösen ord** för att ändra enhetens administratörs lösen ord.
 
     ![](./media/storsimple-8000-change-passwords/changepwd3.png)
 
-5. Ange ett administratörslösenord som innehåller mellan 8 och 15 tecken i bladet **Lösenord.** Lösenordet måste vara en kombination av 3 eller fler versaler, gemener, numeriska och specialtecken.
+5. På bladet **lösen ord** anger du ett administratörs lösen ord som innehåller mellan 8 och 15 tecken. Lösen ordet måste vara en kombination av 3 eller flera versaler, gemener, siffror och specialtecken.
 
 6. Bekräfta lösenordet.
 
     ![](./media/storsimple-8000-change-passwords/changepwd4.png)
 
-7. Klicka på **Spara** och klicka på **Ja**när du uppmanas att bekräfta.
+7. Klicka på **Spara** och bekräfta genom att klicka på **Ja**.
 
     ![](./media/storsimple-8000-change-passwords/changepwd6.png)
 
-Lösenordet för enhetsadministratören bör nu uppdateras. Du kan använda det här ändrade lösenordet för att komma åt Windows PowerShell-gränssnittet.
+Enhetens administratörs lösen ord bör nu uppdateras. Du kan använda det här ändrade lösen ordet för att få åtkomst till Windows PowerShell-gränssnittet.
 
-## <a name="set-the-storsimple-snapshot-manager-password"></a>Ange lösenordet för StorSimple Snapshot Manager
+## <a name="set-the-storsimple-snapshot-manager-password"></a>Ange Snapshot Manager lösen ord för StorSimple
 Programvaran StorSimple Manager finns på din Windows-värd och ger administratörer möjlighet att hantera säkerhetskopiering av din StorSimple-enhet i form av lokala och molnbaserade ögonblicksbilder.
 
-När du konfigurerar en enhet i StorSimple Snapshot Manager uppmanas du att ange enhetens IP-adress och lösenord för att autentisera lagringsenheten.
+När du konfigurerar en enhet i StorSimple Snapshot Manager uppmanas du att ange enhetens IP-adress och lösen ord för att autentisera lagrings enheten.
 
-Du kan ange eller ändra lösenordet för StorSimple Snapshot Manager via Azure-portalen. Utför följande steg för att ange eller ändra StorSimple Snapshot Manager-lösenordet.
+Du kan ange eller ändra lösen ordet för StorSimple Snapshot Manager via Azure Portal. Utför följande steg för att ange eller ändra StorSimple-Snapshot Manager lösen ord.
 
-#### <a name="to-set-the-storsimple-snapshot-manager-password"></a>Så här anger du storsimple-snapshothanterarens lösenord
+#### <a name="to-set-the-storsimple-snapshot-manager-password"></a>Ange StorSimple-lösenordet Snapshot Manager
 1. Gå till StorSimple Device Manager-tjänsten och klicka på **Enheter**.
 
-2. Välj och klicka på den enhet vars StorSimple Snapshot Manager-lösenord som du tänker ange eller ändra i tabelllistan för enheter.
+2. Markera och klicka på enheten vars StorSimple Snapshot Manager lösen ord som du vill ange eller ändra i tabell listan över enheter.
 
      ![](./media/storsimple-8000-change-passwords/changepwd1.png)
 
-3. Gå till **Enhetsinställningar > säkerhet i**bladet **Inställningar** .
+3. I bladet **Inställningar** går du till **enhets inställningar > säkerhet**.
 
      ![](./media/storsimple-8000-change-passwords/changepwd2.png)
 
-4. I bladet **Säkerhetsinställningar** klickar du på **Lösenord** för att ange eller ändra StorSimple Snapshot Manager-lösenordet.
+4. I bladet **säkerhets inställningar** klickar du på **lösen ord** för att ange eller ändra StorSimple Snapshot Manager-lösenord.
 
      ![](./media/storsimple-8000-change-passwords/changepwd3.png) 
 
-5. Ange ett lösenord som är 14 eller 15 tecken i bladet **Lösenord.** Kontrollera att lösenordet innehåller en kombination av 3 eller fler versaler, gemener, numeriska och specialtecken.
+5. I bladet **lösen ord** anger du ett lösen ord som är 14 eller 15 tecken. Se till att lösen ordet innehåller en kombination av 3 eller flera versaler, gemener, siffror och specialtecken.
 
 6. Bekräfta lösenordet.
 
      ![](./media/storsimple-8000-change-passwords/changepwd5.png)
 
-7. Klicka på **Spara** och klicka på **Ja**när du uppmanas att bekräfta.
+7. Klicka på **Spara** och bekräfta genom att klicka på **Ja**.
 
      ![](./media/storsimple-8000-change-passwords/changepwd6.png)
 
@@ -94,6 +94,6 @@ StorSimple Snapshot Manager-lösenordet bör nu uppdateras.
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om [StorSimple-säkerhet](storsimple-8000-security.md).
-* Läs mer om [hur du ändrar enhetskonfigurationen](storsimple-8000-modify-device-config.md).
-* Läs mer om [hur du använder Tjänsten StorSimple Device Manager för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+* Läs mer om hur [du ändrar enhets konfigurationen](storsimple-8000-modify-device-config.md).
+* Lär dig mer om [att använda tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
 

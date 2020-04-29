@@ -1,8 +1,8 @@
 ---
-title: 'Azure AD Connect: Sömlös enkel inloggning – snabbstart | Microsoft-dokument'
-description: I den här artikeln beskrivs hur du kommer igång med Azure Active Directory Seamless Single Sign-On
+title: 'Azure AD Connect: snabb start med sömlös enkel inloggning | Microsoft Docs'
+description: Den här artikeln beskriver hur du kommer igång med Azure Active Directory sömlös enkel inloggning
 services: active-directory
-keywords: vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Enkel inloggning
+keywords: Vad är Azure AD Connect, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, enkel inloggning
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -17,226 +17,226 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3ec56d37ca2c0a199968707b3d93f4797be2beca
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79261208"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Sömlös enkel inloggning: Snabbstart
+# <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: snabb start
 
 ## <a name="deploy-seamless-single-sign-on"></a>Distribuera sömlös enkel inloggning
 
-Azure Active Directory (Azure AD) Seamless Single Sign-On (Seamless SSO) signerar automatiskt användare när de finns på sina företagsdator som är anslutna till ditt företagsnätverk. Sömlös SSO ger dina användare enkel åtkomst till dina molnbaserade program utan att behöva några ytterligare lokala komponenter.
+Azure Active Directory (Azure AD) sömlös enkel inloggning (sömlös SSO) loggar automatiskt in användare när de befinner sig på sina företags datorer som är anslutna till företagets nätverk. Sömlös SSO ger dina användare enkel åtkomst till dina molnbaserade program utan att behöva ytterligare lokala komponenter.
 
-Så här distribuerar du Sömlös SSO.
+Följ dessa steg om du vill distribuera sömlös SSO.
 
-## <a name="step-1-check-the-prerequisites"></a>Steg 1: Kontrollera förutsättningarna
+## <a name="step-1-check-the-prerequisites"></a>Steg 1: kontrol lera kraven
 
-Se till att följande förutsättningar finns på plats:
+Se till att följande krav är uppfyllda:
 
-* **Konfigurera Din Azure AD Connect-server:** Om du använder [direktautentisering](how-to-connect-pta.md) som inloggningsmetod krävs ingen ytterligare nödvändig kontroll. Om du använder [synkronisering av lösenordshã¥1er](how-to-connect-password-hash-synchronization.md) som inloggningsmetod och om det finns en brandvägg mellan Azure AD Connect och Azure AD kontrollerar du att:
+* **Konfigurera din Azure AD Connect Server**: om du använder [direktautentisering](how-to-connect-pta.md) som inloggnings metod krävs ingen ytterligare krav kontroll. Om du använder [Password-hash-synkronisering](how-to-connect-password-hash-synchronization.md) som inloggnings metod och om det finns en brand vägg mellan Azure AD Connect och Azure AD, kontrollerar du att:
    - Du använder version 1.1.644.0 eller senare av Azure AD Connect. 
-   - Om brandväggen eller proxyn tillåter DNS-vitlistning ** \*** vitlistar du anslutningarna till .msappproxy.net url:er över port 443. Om inte, tillåt åtkomst till [Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653), som uppdateras varje vecka. Den här förutsättningen gäller endast när du aktiverar funktionen. Det krävs inte för faktiska användarloggningar.
+   - Om din brand vägg eller proxy tillåter DNS-vit listning, vitlista anslutningarna till ** \*. msappproxy.net** -URL: er via port 443. Om inte, Tillåt åtkomst till [Azure datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653)som uppdateras varje vecka. Den här förutsättningen gäller endast när du aktiverar funktionen. Det krävs inte för faktiska användar inloggningar.
 
     >[!NOTE]
-    >Azure AD Connect-versionerna 1.1.557.0, 1.1.558.0, 1.1.561.0 och 1.1.614.0 har ett problem relaterat till synkronisering av lösenord hash.0. Om du _inte_ tänker använda synkronisering av lösenordsh hash-synkronisering i samband med direktautentisering läser du [azure AD Connect-viktig information](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) om du vill veta mer.
+    >Azure AD Connect-versionerna 1.1.557.0, 1.1.558.0, 1.1.561.0 och 1.1.614.0 har ett problem som rör hash-synkronisering av lösen ord. Om du _inte_ tänker använda Lösenordssynkronisering i samband med direktautentisering kan du läsa mer i [Azure AD Connect viktig information](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) .
 
-* **Använd en Azure AD Connect-topologi som stöds:** Kontrollera att du använder en av Azure AD Connects topologier som stöds som beskrivs [här](plan-connect-topologies.md).
+* **Använd en Azure AD Connect topologi som stöds**: kontrol lera att du använder en av Azure AD Connects topologier som stöds beskrivs [här](plan-connect-topologies.md).
 
     >[!NOTE]
     >Sömlös SSO stöder flera AD-skogar, oavsett om det finns AD-förtroenden mellan dem eller inte.
 
-* **Konfigurera autentiseringsuppgifter för domänadministratören**: Du måste ha autentiseringsuppgifter för domänadministratören för varje Active Directory-skog som:
+* **Konfigurera autentiseringsuppgifter för domän administratör**: du måste ha autentiseringsuppgifter för domän administratör för varje Active Directory skog som:
     * Du synkroniserar till Azure AD via Azure AD Connect.
-    * Innehåller användare som du vill aktivera för Sömlös SSO.
+    * Innehåller användare som du vill aktivera för sömlös SSO.
     
-* **Aktivera modern autentisering:** Du måste aktivera [modern autentisering](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) på din klient för att den här funktionen ska fungera.
+* **Aktivera modern autentisering**: du måste aktivera [modern autentisering](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) på din klient för att den här funktionen ska fungera.
 
-* **Använd de senaste versionerna av Office 365-klienter:** För att få en tyst inloggningsupplevelse med Office 365-klienter (Outlook, Word, Excel och andra) måste användarna använda versionerna 16.0.8730.xxxx eller senare.
+* **Använd de senaste versionerna av Office 365-klienter**: för att få en tyst inloggnings upplevelse med Office 365-klienter (Outlook, Word, Excel och andra) måste användarna använda versionerna 16.0.8730. xxxx eller senare.
 
-## <a name="step-2-enable-the-feature"></a>Steg 2: Aktivera funktionen
+## <a name="step-2-enable-the-feature"></a>Steg 2: aktivera funktionen
 
 Aktivera sömlös SSO via [Azure AD Connect](whatis-hybrid-identity.md).
 
 >[!NOTE]
-> Du kan också [aktivera Sömlös SSO med PowerShell](tshoot-connect-sso.md#manual-reset-of-the-feature) om Azure AD Connect inte uppfyller dina krav. Använd det här alternativet om du har mer än en domän per Active Directory-skog och du vill vara mer inriktad på den domän som du vill aktivera Sömlös SSO för.
+> Du kan också [Aktivera sömlös enkel inloggning med PowerShell](tshoot-connect-sso.md#manual-reset-of-the-feature) om Azure AD Connect inte uppfyller dina krav. Använd det här alternativet om du har mer än en domän per Active Directory skog och du vill bli mer riktad till den domän som du vill aktivera sömlös SSO för.
 
-Om du gör en ny installation av Azure AD Connect väljer du den [anpassade installationssökvägen](how-to-connect-install-custom.md). På sidan **Använda inloggning** väljer du alternativet Aktivera **enkel inloggning.**
+Om du har en ny installation av Azure AD Connect väljer du den [anpassade installations Sök vägen](how-to-connect-install-custom.md). På sidan **användar inloggning** väljer du alternativet **aktivera enkel inloggning** .
 
 >[!NOTE]
-> Alternativet är endast tillgängligt för val om inloggningsmetoden är **synkronisering av lösenord hash** eller **direktautentisering**.
+> Alternativet är bara tillgängligt för markering om metoden Sign on är **Password hash-synkronisering** eller **direktautentisering**.
 
-![Azure AD Connect: Användarloggning](./media/how-to-connect-sso-quick-start/sso8.png)
+![Azure AD Connect: användar inloggning](./media/how-to-connect-sso-quick-start/sso8.png)
 
-Om du redan har en installation av Azure AD Connect väljer du inloggningssidan **Ändra användare i** Azure AD Connect och väljer sedan **Nästa**. Om du använder Azure AD Connect-versioner 1.1.880.0 eller högre väljs alternativet **Aktivera enkel inloggning** som standard. Om du använder äldre versioner av Azure AD Connect väljer du alternativet **Aktivera enkel inloggning.**
+Om du redan har en installation av Azure AD Connect väljer du **inloggnings sidan Ändra användare** i Azure AD Connect och väljer sedan **Nästa**. Om du använder Azure AD Connect versioner 1.1.880.0 eller senare, är alternativet **aktivera enkel inloggning** markerat som standard. Om du använder äldre versioner av Azure AD Connect väljer du alternativet **aktivera enkel inloggning** .
 
-![Azure AD Connect: Ändra användarloggningen](./media/how-to-connect-sso-quick-start/changeusersignin.png)
+![Azure AD Connect: ändra användar inloggningen](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
-Fortsätt genom guiden tills du kommer till sidan **Aktivera enkel inloggning.** Ange autentiseringsuppgifter för domänadministratören för varje Active Directory-skog som:
+Fortsätt med guiden tills du kommer till sidan **aktivera enkel inloggning** . Ange autentiseringsuppgifter för domän administratör för varje Active Directory skog som:
 
 * Du synkroniserar till Azure AD via Azure AD Connect.
-* Innehåller användare som du vill aktivera för Sömlös SSO.
+* Innehåller användare som du vill aktivera för sömlös SSO.
 
-När guiden har slutförts är Sömlös SSO aktiverat för din klientorganisation.
+När guiden har slutförts aktive ras sömlös SSO på din klient.
 
 >[!NOTE]
-> Domänadministratörsuppgifterna lagras inte i Azure AD Connect eller i Azure AD. De används bara för att aktivera funktionen.
+> Autentiseringsuppgifterna för domän administratören lagras inte i Azure AD Connect eller i Azure AD. De används endast för att aktivera funktionen.
 
-Följ dessa instruktioner för att kontrollera att du har aktiverat Seamless SSO korrekt:
+Följ dessa anvisningar för att kontrol lera att du har aktiverat sömlös SSO korrekt:
 
-1. Logga in på [Administrationscentret](https://aad.portal.azure.com) för Azure Active Directory med globala administratörsbehörighet för din klient.
-2. Välj **Azure Active Directory** i den vänstra rutan.
+1. Logga in på [Azure Active Directory administrations Center](https://aad.portal.azure.com) med den globala administratörs behörigheten för din klient organisation.
+2. Välj **Azure Active Directory** i det vänstra fönstret.
 3. Välj **Azure AD Connect**.
-4. Kontrollera att funktionen **Sömlös enkel inloggning** visas som **Aktiverad**.
+4. Kontrol lera att funktionen **sömlös enkel inloggning** visas som **aktive rad**.
 
-![Azure-portal: Azure AD Connect-fönster](./media/how-to-connect-sso-quick-start/sso10.png)
+![Azure Portal: Azure AD Connects fönstret](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> Sömlös SSO skapar ett `AZUREADSSOACC` datorkonto som namnges i din lokala Active Directory (AD) i varje AD-skog. Datorkontot `AZUREADSSOACC` måste skyddas starkt av säkerhetsskäl. Endast domänadministratörer bör kunna hantera datorkontot. Kontrollera att Kerberos-delegering på datorkontot är inaktiverat och att `AZUREADSSOACC` inget annat konto i Active Directory har delegeringsbehörigheter för datorkontot. Lagra datorkontot i en organisationsenhet (OU) där de är säkra från oavsiktliga borttagningar och där endast domänadministratörer har åtkomst.
+> Sömlös SSO skapar ett dator konto som `AZUREADSSOACC` heter i din lokala Active Directory (AD) i varje AD-skog. `AZUREADSSOACC` Dator kontot måste vara starkt skyddat av säkerhets skäl. Endast domän administratörer bör kunna hantera dator kontot. Se till att Kerberos-delegering på dator kontot är inaktiverat och att inget annat konto i Active Directory har Delegerings behörighet för `AZUREADSSOACC` dator kontot. Lagra dator kontot i en organisationsenhet (OU) där de är säkra från oavsiktliga borttagningar och där endast domän administratörer har åtkomst.
 
 >[!NOTE]
-> Om du använder arkitekturer för pass-the-hash- och autentiseringsuppgifter för stöld i din `AZUREADSSOACC` lokala miljö gör du lämpliga ändringar för att säkerställa att datorkontot inte hamnar i karantänbehållaren. 
+> Om du använder pass-The-hash och stöld av stöld av autentiseringsuppgifter i din lokala miljö bör du göra lämpliga ändringar för att se till att `AZUREADSSOACC` dator kontot inte upphör i karantän behållaren. 
 
-## <a name="step-3-roll-out-the-feature"></a>Steg 3: Rulla ut funktionen
+## <a name="step-3-roll-out-the-feature"></a>Steg 3: Distribuera funktionen
 
-Du kan gradvis distribuera Sömlös SSO till användarna med hjälp av instruktionerna nedan. Du börjar med att lägga till följande Azure AD-URL i alla eller valda användares zoninställningar för intranät med hjälp av Grupprincip i Active Directory:
+Du kan gradvis distribuera sömlös SSO till dina användare med hjälp av anvisningarna nedan. Du börjar med att lägga till följande Azure AD-URL till alla eller valda användares intranät zons inställningar med hjälp av grupprincip i Active Directory:
 
 - `https://autologon.microsoftazuread-sso.com`
 
-Dessutom måste du aktivera en zonprincipinställning för intranät som heter **Tillåt uppdateringar av statusfältet via skript** via grupprincip. 
+Dessutom måste du aktivera en princip inställning för intranät zon som kallas **Tillåt uppdateringar till statusfältet via skript** genom att Grupprincip. 
 
 >[!NOTE]
-> Följande instruktioner fungerar bara för Internet Explorer och Google Chrome i Windows (om den delar en uppsättning betrodda webbadresser med Internet Explorer). Läs nästa avsnitt för instruktioner om hur du ställer in Mozilla Firefox och Google Chrome på macOS.
+> Följande anvisningar fungerar bara för Internet Explorer och Google Chrome i Windows (om det delar en uppsättning betrodda webbplats-URL: er med Internet Explorer). Läs nästa avsnitt för instruktioner om hur du konfigurerar Mozilla Firefox och Google Chrome på macOS.
 
-### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Varför behöver du ändra användarnas intranätzonsinställningar?
+### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Varför behöver du ändra användarnas intranät zons inställningar?
 
-Som standard beräknar webbläsaren automatiskt rätt zon, antingen Internet eller intranät, från en viss URL. Kartor till `http://contoso/` zonen Intranät, medan `http://intranet.contoso.com/` kartor till zonen Internet (eftersom URL:en innehåller en punkt). Webbläsare skickar inte Kerberos-biljetter till en molnslutpunkt, till exempel Azure AD-URL:en, såvida du inte uttryckligen lägger till URL:en i webbläsarens intranätzon.
+Som standard beräknar webbläsaren automatiskt rätt zon, antingen Internet eller intranät, från en viss URL. `http://contoso/` Mappar till exempel till zonen Intranät, och `http://intranet.contoso.com/` mappar till zonen Internet (eftersom URL: en innehåller en punkt). Webbläsare skickar inte Kerberos-biljetter till en moln slut punkt, t. ex. Azure AD-URL, om du inte uttryckligen lägger till URL: en i webbläsarens intranät zon.
 
-Det finns två sätt att ändra användarnas zoninställningar för intranät:
+Det finns två sätt att ändra användares intranät zon inställningar:
 
-| Alternativ | Admin övervägande | Användarupplevelse |
+| Alternativ | Administrativa överväganden | Användarupplevelse |
 | --- | --- | --- |
-| Grupprincip | Administratör låser redigering av intranätzonsinställningar | Användare kan inte ändra sina egna inställningar |
-| Inställningar för grupprincip |  Admin tillåter redigering på intranät zoninställningar | Användare kan ändra sina egna inställningar |
+| Grup princip | Admin låser redigerings inställningarna för zonen Intranät | Användare kan inte ändra sina egna inställningar |
+| Grup princip inställningar |  Admin tillåter redigering av inställningar för zonen Intranät | Användare kan ändra sina egna inställningar |
 
-### <a name="group-policy-option---detailed-steps"></a>Alternativet "Grupprincip" - Detaljerade steg
+### <a name="group-policy-option---detailed-steps"></a>Alternativet "grup princip" – detaljerade steg
 
-1. Öppna redigeraren för grupprinciphantering.
-2. Redigera grupprincipen som tillämpas på vissa eller alla användare. I det här exemplet används **standarddomänprincip**.
-3. Bläddra till**administrativa mallar för** >  >  > **användarkonfigurationsprinciper** > **i Windows Components** > **Internet Explorer**Internet **User Configuration****Kontrollpanelen.** > **Security Page** Välj sedan **Plats till zontilldelningslista**.
+1. Öppna Redigeraren Grupprinciphantering-verktyget.
+2. Redigera grup principen som används för vissa eller alla dina användare. I det här exemplet används **standard domän principen**.
+3. Bläddra till **användar konfigurations** > **princip** > **administrativa mallar** > **Windows-komponenter** > **Internet Explorer Internet Explorer** > **Internet Control Panel** > på**säkerhets sidan**. Välj sedan **plats till zon tilldelnings lista**.
     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso6.png)
-4. Aktivera principen och ange sedan följande värden i dialogrutan:
-   - **Värdenamn**: Azure AD-URL:en där Kerberos-biljetterna vidarebefordras.
-   - **Värde** (Data): **1** anger zonen Intranät.
+4. Aktivera principen och ange sedan följande värden i dialog rutan:
+   - **Värde namn**: Azure AD-URL: en där Kerberos-biljetterna vidarebefordras.
+   - **Värde** (data): **1** anger zonen Intranät.
 
      Resultatet ser ut så här:
 
-     Värdenamn:`https://autologon.microsoftazuread-sso.com`
+     Värde namn:`https://autologon.microsoftazuread-sso.com`
   
-     Värde (Data): 1
+     Värde (data): 1
 
    >[!NOTE]
-   > Om du inte vill tillåta vissa användare från att använda Sömlös SSO (till exempel om dessa användare loggar in på delade kiosker) ställer du in föregående värden på **4**. Den här åtgärden lägger till Azure AD-URL:en i zonen Begränsad och misslyckas sömlös SSO hela tiden.
+   > Om du vill förhindra att vissa användare använder sömlös SSO (t. ex. om dessa användare loggar in på delade kiosker) anger du de föregående värdena till **4**. Den här åtgärden lägger till Azure AD-URL: en i den begränsade zonen och Miss lyckas sömlös SSO hela tiden.
    >
 
 5. Välj **OK** och sedan **OK** igen.
 
     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Bläddra till**Policy** > **administrativa mallar för** >  **användarkonfigurationsprinciper** > **Windows Components** > **Internet Explorer** > **Internet Kontrollpanelens** > **Security Page** > **intranätzon**. Välj sedan **Tillåt uppdateringar av statusfältet via skript**.
+6. Bläddra till**princip** > för **användar konfiguration** > **administrativa mallar** > **Windows-komponenter** > **Internet Explorer Internet Explorer** > **Internet Control Panel** > **säkerhets sida** > **intranät zon**. Välj sedan **Tillåt uppdateringar av statusfältet via skript**.
 
     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso11.png)
 
-7. Aktivera principinställningen och välj sedan **OK**.
+7. Aktivera princip inställningen och välj sedan **OK**.
 
     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso12.png)
 
-### <a name="group-policy-preference-option---detailed-steps"></a>Alternativet "Grupprincip" - Detaljerade steg
+### <a name="group-policy-preference-option---detailed-steps"></a>Alternativet "inställningar för grup princip" – detaljerade steg
 
-1. Öppna redigeraren för grupprinciphantering.
-2. Redigera grupprincipen som tillämpas på vissa eller alla användare. I det här exemplet används **standarddomänprincip**.
-3. Bläddra till Inställningar för **användarkonfiguration** >  >  > **Windows-inställningar****För register** > **nytt** > **register**.**Preferences**
+1. Öppna Redigeraren Grupprinciphantering-verktyget.
+2. Redigera grup principen som används för vissa eller alla dina användare. I det här exemplet används **standard domän principen**.
+3. Bläddra till **användar konfigurations** > **Inställningar** > **Windows-inställningar** > **register** > **nytt** > **register objekt**.
 
     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Ange följande värden i lämpliga fält och klicka på **OK**.
-   - **Nyckelväg:** ***Programvara\Microsoft\Windows\CurrentVersion\Internet-inställningar\ZoneMap\Domäner\microsoftazuread-sso.com\autologon***
-   - **Värdenamn**: ***https***.
+   - **Nyckel Sök väg**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-SSO.com\autologon***
+   - **Värde namn**: ***https***.
    - **Värdetyp**: ***REG_DWORD***.
-   - **Värdedata**: ***000000001***.
+   - **Värde data**: ***00000001***.
  
      ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso16.png)
  
      ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso17.png)
 
-### <a name="browser-considerations"></a>Webbläsaröverväganden
+### <a name="browser-considerations"></a>Webb läsar överväganden
 
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (alla plattformar)
 
-Mozilla Firefox använder inte automatiskt Kerberos-autentisering. Varje användare måste manuellt lägga till Azure AD-URL:en i sina Firefox-inställningar med hjälp av följande steg:
-1. Kör Firefox `about:config` och skriv in i adressfältet. Avvisa alla aviseringar som visas.
-2. Sök efter inställningarna **network.negotiate-auth.trusted-uris.** Den här inställningen visar Firefox betrodda platser för Kerberos-autentisering.
-3. Högerklicka och välj **Ändra**.
-4. Skriv `https://autologon.microsoftazuread-sso.com` in i fältet .
+I Mozilla Firefox används inte Kerberos-autentisering automatiskt. Varje användare måste manuellt lägga till Azure AD-URL: en i sina Firefox-inställningar med hjälp av följande steg:
+1. Kör Firefox och ange `about:config` i adress fältet. Stäng alla meddelanden som visas.
+2. Sök efter **nätverket. inställningar för Negotiate-auth. Trusted-URI: er** . Den här inställningen listar Firefoxs betrodda platser för Kerberos-autentisering.
+3. Högerklicka och välj **ändra**.
+4. Ange `https://autologon.microsoftazuread-sso.com` i fältet.
 5. Välj **OK** och öppna sedan webbläsaren igen.
 
 #### <a name="safari-macos"></a>Safari (macOS)
 
-Kontrollera att datorn som kör macOS är ansluten till AD. Instruktioner för AD-anslutning till din macOS-enhet ligger utanför den här artikelns omfattning.
+Se till att datorn som kör macOS är ansluten till AD. Anvisningar för AD-anslutning av din macOS-enhet omfattas inte av den här artikeln.
 
 #### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge baserat på krom (alla plattformar)
 
-Om du har åsidosatt [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) eller [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) principinställningar i din miljö, se till`https://autologon.microsoftazuread-sso.com`att du lägger till Azure AD:s URL ( ) till dem också.
+Om du har åsidosatt [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) -eller [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) -principinställningar i din miljö kontrollerar du att du även lägger till Azure AD-URL:`https://autologon.microsoftazuread-sso.com`en () till dem.
 
-#### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Microsoft Edge baserat på Krom (macOS och andra plattformar som inte kommer från Windows)
+#### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Microsoft Edge baserat på krom (macOS och andra plattformar som inte är Windows-plattformar)
 
-För Microsoft Edge baserat på Krom på Mac OS och andra plattformar som inte tillhör Windows läser du [Microsoft Edge baserat på Chromium Policy List](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) för information om hur du lägger till Azure AD-URL:en för integrerad autentisering i din tillåt-lista.
+För Microsoft Edge som bygger på krom på Mac OS och andra plattformar som inte är Windows-plattformar kan du läsa mer om hur du lägger till Azure AD-URL: en för integrerad autentisering i din Tillåt-lista med hjälp [av krom princip listan i Microsoft Edge](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) .
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (alla plattformar)
 
-Om du har åsidosatt [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) eller [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) principinställningar i din miljö, se till`https://autologon.microsoftazuread-sso.com`att du lägger till Azure AD URL ( ) till dem också.
+Om du har åsidosatt [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) -eller [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) -principinställningar i din miljö kontrollerar du att du även lägger till Azure AD-URL:`https://autologon.microsoftazuread-sso.com`en () till dem.
 
-#### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome (macOS och andra plattformar som inte kommer från Windows)
+#### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome (macOS och andra plattformar som inte är Windows-plattformar)
 
-För Google Chrome på Mac OS och andra plattformar som inte kommer från Windows läser du Policylistan för [Kromprojekt](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) för information om hur du vitlistar Azure AD-URL:en för integrerad autentisering.
+För Google Chrome på Mac OS och andra plattformar som inte är Windows-plattformar går du till [princip listan för krom projekt](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) om du vill ha information om hur du VITLISTA Azure AD-URL: en för integrerad autentisering.
 
-Användningen av active directory-grupprinklagelser från tredje part för att distribuera Azure AD-URL:en till Firefox- och Google Chrome-användare på Mac-användare omfattas inte av den här artikeln.
+Användning av Active Directory grupprincip tillägg från tredje part för att distribuera Azure AD-URL: en till Firefox och Google Chrome på Mac-användare är utanför den här artikeln.
 
-#### <a name="known-browser-limitations"></a>Kända webbläsarbegränsningar
+#### <a name="known-browser-limitations"></a>Kända webb läsar begränsningar
 
-Sömlös SSO fungerar inte i privat surfningsläge på webbläsaren Firefox och Microsoft Edge. Det fungerar inte heller på Internet Explorer om webbläsaren körs i utökat skyddat läge. För nästa version av Microsoft Edge baserat på Krom, kommer det inte att fungera i InPrivate och gästläge av design.
+Sömlös SSO fungerar inte i privat bläddringsläge i Firefox och Microsoft Edge-webbläsare. Det fungerar inte heller i Internet Explorer om webbläsaren körs i utökat skyddat läge. För nästa version av Microsoft Edge baserat på krom fungerar den inte i InPrivate-och gäst läge genom design.
 
-## <a name="step-4-test-the-feature"></a>Steg 4: Testa funktionen
+## <a name="step-4-test-the-feature"></a>Steg 4: testa funktionen
 
-Om du vill testa funktionen för en viss användare kontrollerar du att alla följande villkor är uppfyllda:
-  - Användaren loggar in på en företagsenhet.
-  - Enheten är ansluten till Active Directory-domänen. Enheten behöver _inte_ vara [Azure AD-ansluten](../active-directory-azureadjoin-overview.md).
-  - Enheten har en direkt anslutning till domänkontrollanten (DC), antingen i företagets kabelanslutna eller trådlösa nätverk eller via en fjärråtkomstanslutning, till exempel en VPN-anslutning.
-  - Du har [distribuerat funktionen](#step-3-roll-out-the-feature) till den här användaren via grupprincipen.
+Kontrol lera att alla följande villkor är uppfyllda om du vill testa funktionen för en speciell användare:
+  - Användaren loggar in på en företags enhet.
+  - Enheten är ansluten till din Active Directorys domän. Enheten behöver _inte_ vara [Azure AD-ansluten](../active-directory-azureadjoin-overview.md).
+  - Enheten har en direkt anslutning till domänkontrollanten (DC), antingen i det kabelanslutna eller trådlösa nätverket eller via en fjärråtkomstanslutning, t. ex. en VPN-anslutning.
+  - Du har [distribuerat funktionen](#step-3-roll-out-the-feature) till den här användaren via Grupprincip.
 
-Så här testar du scenariot där användaren bara anger användarnamnet, men inte lösenordet:
-   - Logga in `https://myapps.microsoft.com/` på i en ny privat webbläsarsession.
+Så här testar du scenariot där användaren bara anger användar namnet, men inte lösen ordet:
+   - Logga in på `https://myapps.microsoft.com/` i en ny privat webbläsarsession.
 
-Om du vill testa scenariot där användaren inte behöver ange användarnamnet eller lösenordet använder du något av följande steg: 
-   - Logga in `https://myapps.microsoft.com/contoso.onmicrosoft.com` på i en ny privat webbläsarsession. Ersätt *contoso* med din klients namn.
-   - Logga in `https://myapps.microsoft.com/contoso.com` på i en ny privat webbläsarsession. Ersätt *contoso.com* med en verifierad domän (inte en federerad domän) på din klientorganisation.
+Använd något av följande steg för att testa scenariot där användaren inte behöver ange användar namnet eller lösen ordet: 
+   - Logga in på `https://myapps.microsoft.com/contoso.onmicrosoft.com` i en ny privat webbläsarsession. Ersätt *contoso* med klient organisationens namn.
+   - Logga in på `https://myapps.microsoft.com/contoso.com` i en ny privat webbläsarsession. Ersätt *contoso.com* med en verifierad domän (inte en federerad domän) på din klient.
 
-## <a name="step-5-roll-over-keys"></a>Steg 5: Rulla över tangenter
+## <a name="step-5-roll-over-keys"></a>Steg 5: rulla över nycklar
 
-I steg 2 skapar Azure AD Connect datorkonton (som representerar Azure AD) i alla Active Directory-skogar där du har aktiverat Sömlös SSO. Mer information finns i [Azure Active Directory Seamless Single Sign-On: Technical deep dive](how-to-connect-sso-how-it-works.md).
-
->[!IMPORTANT]
->Kerberos-dekrypteringsnyckeln på ett datorkonto, om den läcker, kan användas för att generera Kerberos-biljetter för alla användare i AD-skogen. Skadliga aktörer kan sedan personifiera Azure AD-inloggningar för komprometterade användare. Vi rekommenderar starkt att du regelbundet rullar över dessa Kerberos dekrypteringsnycklar - minst en gång var 30:e dag.
-
-Instruktioner om hur du överför nycklar finns i [Azure Active Directory Seamless Single Sign-On: Vanliga frågor och svar](how-to-connect-sso-faq.md). Vi arbetar på en förmåga att införa automatiserad roll over av nycklar.
+I steg 2 skapar Azure AD Connect dator konton (som representerar Azure AD) i alla Active Directory skogar där du har aktiverat sömlös SSO. Läs mer i [Azure Active Directory sömlös enkel inloggning: teknisk djupgående](how-to-connect-sso-how-it-works.md).
 
 >[!IMPORTANT]
->Du behöver inte göra det här steget _direkt_ efter att du har aktiverat funktionen. Rulla över Kerberos dekrypteringsnycklarna minst en gång var 30:e dag.
+>Krypterings nyckeln för Kerberos på ett dator konto, om den läcker, kan användas för att generera Kerberos-biljetter för alla användare i AD-skogen. Skadliga aktörer kan sedan personifiera Azure AD-inloggningar för komprometterade användare. Vi rekommenderar starkt att du regelbundet rullar över dessa Kerberos-dekrypterings nycklar, minst en gång var 30: e dag.
+
+Instruktioner för hur du rullar över nycklar finns [Azure Active Directory sömlös enkel inloggning: vanliga frågor och svar](how-to-connect-sso-faq.md). Vi arbetar på en möjlighet att införa automatiserade nycklar.
+
+>[!IMPORTANT]
+>Du behöver inte göra det här steget _direkt_ efter att du har aktiverat funktionen. Rulla över Kerberos-dekrypterings nycklarna minst en gång var 30: e dag.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Teknisk djupdykning:](how-to-connect-sso-how-it-works.md)Förstå hur seamless single sign-on-funktionen fungerar.
-- Vanliga frågor och [svar:](how-to-connect-sso-faq.md)Få svar på vanliga frågor om Sömlös enkel inloggning.
-- [Felsöka:](tshoot-connect-sso.md)Lär dig hur du löser vanliga problem med sömlös enkel inloggning.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Använd Azure Active Directory Forum för att fila nya funktionsbegäranden.
+- [Teknisk djupgående](how-to-connect-sso-how-it-works.md): förstå hur den sömlösa funktionen för enkel inloggning fungerar.
+- [Vanliga frågor](how-to-connect-sso-faq.md)och svar: få svar på vanliga frågor om sömlös enkel inloggning.
+- [Felsöka](tshoot-connect-sso.md): Lär dig hur du löser vanliga problem med funktionen för sömlös enkel inloggning.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Använd Azure Active Directory-forumet för att fil nya funktions begär Anden.

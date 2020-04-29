@@ -1,15 +1,15 @@
 ---
 title: Felsöka Azure Service Fabric-appar i Windows
-description: Lär dig hur du övervakar och diagnostiserar dina tjänster som skrivits med Microsoft Azure Service Fabric på en dator för lokal utveckling.
+description: Lär dig hur du övervakar och diagnostiserar dina tjänster som skrivs med Microsoft Azure Service Fabric på en lokal utvecklings dator.
 author: srrengar
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 8435bb82afddd0070679768bb8d22ad9290f2279
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258517"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Övervaka och diagnostisera tjänster i en konfiguration för utveckling lokalt
@@ -19,43 +19,43 @@ ms.locfileid: "79258517"
 > 
 > 
 
-Övervakning, identifiering, diagnos och felsökning gör det möjligt för tjänster att fortsätta med minimala störningar i användarupplevelsen. Även om övervakning och diagnostik är avgörande i en verklig distribuerad produktionsmiljö, kommer effektiviteten att bero på att anta en liknande modell under utveckling av tjänster för att säkerställa att de fungerar när du flyttar till en verklig installation. Service Fabric gör det enkelt för tjänstutvecklare att implementera diagnostik som sömlöst kan fungera både för lokala utvecklingsinställningar för en enda dator och verkliga produktionskluster.
+Övervakning, identifiering, diagnostisering och fel sökning av tjänster för att kunna fortsätta med minimalt avbrott i användar upplevelsen. Även om övervakning och diagnostik är kritiskt i en verklig distribuerad produktions miljö, beror effektiviteten på införandet av en liknande modell under utvecklingen av tjänster för att säkerställa att de fungerar när du går vidare till en verklig installation. Service Fabric gör det enkelt för tjänst utvecklare att implementera diagnostik som fungerar smidigt i både lokala utvecklings installationer med en enda dator och verkliga produktions kluster inställningar.
 
-## <a name="event-tracing-for-windows"></a>Händelsespårning för Windows
-[Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) är den rekommenderade tekniken för att spåra meddelanden i Service Fabric. Några fördelar med att använda ETW är:
+## <a name="event-tracing-for-windows"></a>ETW (Event Tracing for Windows)
+[ETW (Event tracing for Windows)](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) är den rekommenderade tekniken för att spåra meddelanden i Service Fabric. Några fördelar med att använda ETW är:
 
-* **ETW är snabb.** Den byggdes som en spårningsteknik som har minimal inverkan på kodkörningstider.
-* **ETW-spårning fungerar sömlöst i lokala utvecklingsmiljöer och även verkliga klusterkonfigurationer.** Det innebär att du inte behöver skriva om spårningskoden när du är redo att distribuera koden till ett riktigt kluster.
-* **Service Fabric systemkod använder också ETW för intern spårning.** På så sätt kan du visa dina programspårningar interfolierade med Service Fabric-systemspårningar. Det hjälper dig också att lättare förstå sekvenser och samband mellan din programkod och händelser i det underliggande systemet.
-* **Det finns inbyggt stöd i Service Fabric Visual Studio-verktyg för att visa ETW-händelser.** ETW-händelser visas i vyn Diagnostiska händelser i Visual Studio när Visual Studio har konfigurerats korrekt med Service Fabric. 
+* **ETW är snabbt.** Den har skapats som en spårnings teknik som har minimal påverkan på kod körnings tider.
+* **ETW-spårning fungerar sömlöst i lokala utvecklings miljöer och även verkliga kluster inställningar.** Det innebär att du inte behöver skriva om spårnings koden när du är redo att distribuera din kod till ett verkligt kluster.
+* **Service Fabric system kod använder också ETW för intern spårning.** På så sätt kan du Visa dina program spårningar som är överlagrade med Service Fabric system spårningar. Det hjälper dig också att lättare förstå sekvenser och relationer mellan program koden och händelser i det underliggande systemet.
+* **Det finns inbyggt stöd i Service Fabric Visual Studio-verktyg för att Visa ETW-händelser.** ETW-händelser visas i vyn diagnostiska händelser i Visual Studio när Visual Studio är korrekt konfigurerad med Service Fabric. 
 
-## <a name="view-service-fabric-system-events-in-visual-studio"></a>Visa systemhändelser för Service Fabric i Visual Studio
-Service Fabric avger ETW-händelser för att hjälpa programutvecklare att förstå vad som händer i plattformen. Om du inte redan har gjort det följer du stegen i [Skapa ditt första program i Visual Studio](service-fabric-tutorial-create-dotnet-app.md). Den här informationen hjälper dig att få igång ett program med Diagnostikhändelsevisaren som visar spårningsmeddelandena.
+## <a name="view-service-fabric-system-events-in-visual-studio"></a>Visa Service Fabric system händelser i Visual Studio
+Service Fabric genererar ETW-händelser för att hjälpa utvecklare att förstå vad som händer i plattformen. Om du inte redan har gjort det går du vidare och följer stegen i [skapa ditt första program i Visual Studio](service-fabric-tutorial-create-dotnet-app.md). Den här informationen hjälper dig att komma igång med ett program med verktyget för diagnostik-händelser som visar spårnings meddelandena.
 
-1. Om diagnostikhändelserfönstret inte visas automatiskt går du till fliken **Visa** i Visual Studio, väljer **Andra Fönster** och sedan **Diagnostikhändelsevisaren**.
-2. Varje händelse har standardmetadatainformation som talar om för dig om noden, programmet och tjänsten som händelsen kommer från. Du kan också filtrera listan över händelser med hjälp av rutan **Filterhändelser** högst upp i händelsefönstret. Du kan till exempel filtrera på **Nodnamn** eller **Servicenamn.** Och när du tittar på händelseinformation kan du också pausa genom att använda **pausknappen** högst upp i händelsefönstret och återuppta senare utan att förlora händelser.
+1. Om fönstret diagnostik-händelser inte visas automatiskt går du till fliken **Visa** i Visual Studio, väljer **andra fönster** och sedan **diagnostiska händelse visare**.
+2. Varje händelse innehåller information om standardmetadata som visar vilken nod, vilket program och vilken tjänst händelsen kommer från. Du kan också filtrera listan över händelser genom att använda rutan **Filtrera händelser** överst i fönstret händelser. Du kan till exempel filtrera efter **nodnamn** eller **tjänst namn.** När du tittar på händelse information kan du också pausa med hjälp av knappen **pausa** överst i fönstret händelser och återuppta senare utan att några händelser går förlorade.
    
-   ![Visual Studio Diagnostik Händelser Viewer](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
+   ![Visnings program för Visual Studio Diagnostics-händelser](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
 
-## <a name="add-your-own-custom-traces-to-the-application-code"></a>Lägga till egna anpassade spårningar i programkoden
-Projektmallarna För Service Fabric Visual Studio innehåller exempelkod. Koden visar hur du lägger till anpassade programkod ETW-spår som visas i Visual Studio ETW-visningen tillsammans med systemspårningar från Service Fabric. Fördelen med den här metoden är att metadata automatiskt läggs till i spårningar och Visual Studio Diagnostic Events Viewer är redan konfigurerad för att visa dem.
+## <a name="add-your-own-custom-traces-to-the-application-code"></a>Lägg till dina egna anpassade spårningar i program koden
+Service Fabric Visual Studio-projektmallar innehåller exempel kod. Koden visar hur du lägger till anpassade ETW-spår för program kod som visas i Visual Studio ETW Viewer tillsammans med system spårningar från Service Fabric. Fördelen med den här metoden är att metadata läggs till automatiskt i spårningar och Visual Studio Diagnostic Events-visningsprogrammet redan har kon figurer ATS för att visa dem.
 
-För projekt som skapats från **tjänstmallarna (tillståndslösa** eller tillståndskänsliga) sök bara efter implementeringen: `RunAsync`
+För projekt som skapats från **tjänstmallar** (tillstånds lösa eller tillstånds känsliga) söker du `RunAsync` bara efter implementeringen:
 
-1. Anropet `ServiceEventSource.Current.ServiceMessage` `RunAsync` i metoden visar ett exempel på en anpassad ETW-spårning från programkoden.
-2. I **ServiceEventSource.cs-filen** hittar du en överbelastning `ServiceEventSource.ServiceMessage` för den metod som ska användas för högfrekventa händelser på grund av prestandaskäl.
+1. Anropet till `ServiceEventSource.Current.ServiceMessage` i- `RunAsync` metoden visar ett exempel på en anpassad ETW-spårning från program koden.
+2. I **ServiceEventSource.cs** -filen hittar du en överlagring för `ServiceEventSource.ServiceMessage` metoden som ska användas för händelser med hög frekvens på grund av prestanda skäl.
 
-För projekt som skapats från **aktörsmallarna (tillståndslösa** eller tillståndskänsliga):
+För projekt som skapats från **aktörens mallar** (tillstånds lös eller tillstånds känslig):
 
-1. Öppna filen **"ProjectName".cs** där *ProjectName* är det namn du valde för Visual Studio-projektet.  
-2. Leta reda `ActorEventSource.Current.ActorMessage(this, "Doing Work");` på koden i metoden *DoWorkAsync.*  Detta är ett exempel på en anpassad ETW-spårning skriven från programkod.  
-3. I fil **ActorEventSource.cs**hittar du en överbelastning för den `ActorEventSource.ActorMessage` metod som ska användas för högfrekventa händelser på grund av prestandaskäl.
+1. Öppna filen **"ProjectName". CS "** där *ProjectName* är det namn som du valde för ditt Visual Studio-projekt.  
+2. Hitta koden `ActorEventSource.Current.ActorMessage(this, "Doing Work");` i *DoWorkAsync* -metoden.  Detta är ett exempel på en anpassad ETW-spårning skriven från program kod.  
+3. I filen **ActorEventSource.cs**hittar du en överlagring för `ActorEventSource.ActorMessage` metoden som ska användas för händelser med hög frekvens på grund av prestanda skäl.
 
-När du har lagt till anpassad ETW-spårning i tjänstkoden kan du skapa, distribuera och köra programmet igen för att se dina händelser i Diagnostikhändelsevisaren. Om du felsöker programmet med **F5**öppnas Diagnostikhändelsevisaren automatiskt.
+När du har lagt till anpassad ETW-spårning till din service kod kan du skapa, distribuera och köra programmet igen för att se dina händelser i visnings programmet för diagnostiska händelser. Om du felsöker programmet med **F5**öppnas fönstret diagnostiska händelser automatiskt.
 
 ## <a name="next-steps"></a>Nästa steg
-Samma spårningskod som du har lagt till i ditt program ovan för lokal diagnostik fungerar med verktyg som du kan använda för att visa dessa händelser när du kör ditt program i ett Azure-kluster. Kolla in de här artiklarna som beskriver de olika alternativen för verktygen och beskriver hur du kan ställa in dem.
+Samma spårnings kod som du har lagt till i programmet ovan för lokal diagnostik fungerar med verktyg som du kan använda för att visa dessa händelser när du kör programmet i ett Azure-kluster. Kolla in de här artiklarna som diskuterar de olika alternativen för verktygen och beskriver hur du kan ställa in dem.
 
-* [Samla in loggar med Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md)
-* [Händelseaggregering och samling med EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
+* [Samla in loggar med Azure-diagnostik](service-fabric-diagnostics-how-to-setup-wad.md)
+* [Händelse agg regering och insamling med EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
 

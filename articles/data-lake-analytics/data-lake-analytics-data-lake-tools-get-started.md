@@ -1,5 +1,5 @@
 ---
-title: Fråga Azure Data Lake Analytics - Visual Studio
+title: Fråga Azure Data Lake Analytics – Visual Studio
 description: Lär dig hur du installerar Data Lake Tools för Visual Studio och hur du utvecklar och testar U-SQL-skript.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -10,22 +10,22 @@ ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: dacce0d4f40f077b5da6221000192a4398da99e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260350"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Utveckla U-SQL-skript med hjälp av Data Lake Tools för Visual Studio
 
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Azure Data Lake och Stream Analytics Tools innehåller funktioner relaterade till två Azure-tjänster, Azure Data Lake Analytics och Azure Stream Analytics. Mer information om Azure Stream Analytics-scenarierna finns i [Azure Stream Analytics-verktyg för Visual Studio](../stream-analytics/stream-analytics-tools-for-visual-studio-install.md).
+Azure Data Lake och Stream Analytics verktyg innehåller funktioner relaterade till två Azure-tjänster, Azure Data Lake Analytics och Azure Stream Analytics. Mer information om Azure Stream Analytics scenarier finns [Azure Stream Analytics verktyg för Visual Studio](../stream-analytics/stream-analytics-tools-for-visual-studio-install.md).
 
-I den här artikeln beskrivs hur du använder Visual Studio för att skapa Azure Data Lake Analytics-konton. Du kan definiera jobb i [U-SQL](data-lake-analytics-u-sql-get-started.md)och skicka jobb till tjänsten Data Lake Analytics. Mer information om DataSjöanalys finns i [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md).
+I den här artikeln beskrivs hur du använder Visual Studio för att skapa Azure Data Lake Analytics-konton. Du kan definiera jobb i [U-SQL](data-lake-analytics-u-sql-get-started.md)och skicka jobb till tjänsten Data Lake Analytics. Mer information om Data Lake Analytics finns i [Azure Data Lake Analytics översikt](data-lake-analytics-overview.md).
 
 > [!IMPORTANT]
-> Vi rekommenderar att du uppgraderar till Azure Data Lake Tools för Visual Studio version 2.3.3000.4 eller senare. Tidigare versioner är inte längre tillgängliga för hämtning och är nu föråldrade.
+> Vi rekommenderar att du uppgraderar till Azure Data Lake verktyg för Visual Studio version 2.3.3000.4 eller senare. Tidigare versioner är inte längre tillgängliga för hämtning och är nu föråldrade.
 >
 > 1. Kontrollera om du använder en tidigare version än 2.3.3000.4 för Azure Data Lake-verktyg för Visual Studio.
 >
@@ -49,17 +49,17 @@ I den här artikeln beskrivs hur du använder Visual Studio för att skapa Azure
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio"></a>Installera Azure Data Lake Tools för Visual Studio
 
-För den här självstudien krävs att Data Lake Tools för Visual Studio har installerats. Mer information finns i [Installera datasjöverktyg för Visual Studio](data-lake-analytics-data-lake-tools-install.md).
+För den här självstudien krävs att Data Lake Tools för Visual Studio har installerats. Mer information finns i [installera Data Lake verktyg för Visual Studio](data-lake-analytics-data-lake-tools-install.md).
 
 ## <a name="connect-to-an-azure-data-lake-analytics-account"></a>Ansluta till ett Azure Data Lake Analytics-konto
 
 1. Öppna Visual Studio.
 
-1. Öppna **Server Explorer** genom att välja **Visa** > **serverutforskaren**.
+1. Öppna **Server Explorer** genom att välja **Visa** > **Server Explorer**.
 
-1. Högerklicka på **Azure**och välj sedan **Anslut till Microsoft Azure-prenumeration**. I **Logga in på ditt konto**följer du instruktionerna.
+1. Högerklicka på **Azure**och välj sedan **Anslut till Microsoft Azure prenumeration**. Följ anvisningarna i **Logga in på ditt konto**.
 
-1. Välj **Azure** > **Data Lake Analytics**i Server **Explorer**. En lista över dina Data Lake Analytics-konton visas.
+1. I **Server Explorer**väljer du **Azure** > **data Lake Analytics**. En lista över dina Data Lake Analytics-konton visas.
 
 ## <a name="write-your-first-u-sql-script"></a>Skriv ditt första U-SQL-skript
 
@@ -82,17 +82,17 @@ OUTPUT @a
 
 ## <a name="submit-a-data-lake-analytics-job"></a>Skicka ett Data Lake Analytics-jobb
 
-1. Välj **Arkiv** > **nytt** > **projekt**i Visual Studio.
+1. I Visual Studio väljer du **fil** > **nytt** > **projekt**.
 
-1. Välj **typen U-SQL Project** och välj sedan **Nästa**. Välj **Skapa** **i Konfigurera det nya projektet**.
+1. Välj typen **U-SQL-projekt** och välj sedan **Nästa**. I **Konfigurera det nya projektet**väljer du **skapa**.
 
-   Visual Studio skapar en lösning som innehåller en **Script.usql-fil.**
+   Visual Studio skapar en lösning som innehåller en **script. usql** -fil.
 
-1. Klistra in skriptet från [Skriv ditt första U-SQL-skript](#write-your-first-u-sql-script) i **fönstret Script.usql.**
+1. Klistra in skriptet från [Skriv ditt första U-SQL-skript](#write-your-first-u-sql-script) i fönstret **script. usql** .
 
-1. Högerklicka på **Script.usql**i **Solution Explorer**och välj **Skicka skript**.
+1. I **Solution Explorer**högerklickar du på **script. Usql**och väljer **Skicka skript**.
 
-1. Välj ditt DataSjöanalyskonto i **Skicka jobb**och välj **Skicka**.
+1. I **Skicka jobb**väljer du ditt data Lake Analytics konto och väljer **Skicka**.
 
    ![Skicka U-SQL Visual Studio-projekt](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-submit-job-vs2019.png)
 
@@ -103,16 +103,16 @@ När jobbet har skickats öppnas fliken **Job view** (Jobbvy) där du kan följa
 * **Metadataåtgärder** visar alla åtgärder som vidtagits för U-SQL-katalogen.
 * **Data** visar alla indata och utdata.
 * **State History** (Tillståndshistorik) visar tidslinjen och tillståndsinformation.
-* **AU Analysis** visar hur många ru:er som användes i arbetet och utforska simuleringar av olika AU-allokeringsstrategier.
+* I **au-analysen** visas hur många Australien som användes i jobbet och utforska simuleringar av olika strategier för au-allokering.
 * **Diagnostik** ger en avancerad analys för jobbkörning och prestandaoptimering.
 
 ![Prestandadiagram för U-SQL Visual Studio Data Lake Analytics-jobbet](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
-Om du vill visa den senaste jobbstatusen och uppdatera skärmen väljer du **Uppdatera**.
+Om du vill se senaste jobb status och uppdatera skärmen väljer du **Uppdatera**.
 
 ## <a name="check-job-status"></a>Kontrollera jobbstatus
 
-1. Välj **Azure** > **Data Lake Analytics**i Server **Explorer**.
+1. I **Server Explorer**väljer du **Azure** > **data Lake Analytics**.
 
 1. Expandera Data Lake Analytics-kontonamnet.
 
@@ -122,7 +122,7 @@ Om du vill visa den senaste jobbstatusen och uppdatera skärmen väljer du **Upp
 
 ## <a name="see-the-job-output"></a>Visa jobbutdata
 
-1. Bläddra till det jobb du skickade i **Server Explorer.**
+1. I **Server Explorer**bläddrar du till jobbet du skickade.
 
 1. Klicka på fliken **Data**.
 

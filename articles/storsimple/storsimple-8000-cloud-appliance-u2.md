@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267994"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuera och hantera en StorSimple Cloud Appliance-installation i Azure (Uppdatering 3 eller senare)
@@ -50,9 +50,9 @@ StorSimple-molninstallationen finns i två modeller, standardmodellen 8010 (kall
 | **Lagringstyp** |Använder Azure Standardlagring för lokala diskar<br></br> Lär dig hur du [skapar ett Standardlagringskonto](../storage/common/storage-create-storage-account.md) |Använder Azure Premium Storage för lokala diskar<sup>2</sup> <br></br> |
 | **Riktlinjer för arbetsbelastning** |Hämtning av filer från säkerhetskopior på objektnivå |Utvecklings- och testscenarier i molnet <br></br>Arbetsbelastningar med kortare svarstider och högre prestanda<br></br>Sekundär enhet för katastrofåterställning |
 
-<sup>1</sup> *Tidigare känd som 1100*.
+<sup>1</sup> *tidigare*kallades 1100.
 
-<sup>2</sup> *Både 8010 och 8020 använder Azure Standard Storage för molnnivån. Skillnaden finns bara på den lokala nivån i enheten*.
+<sup>2</sup> *både 8010 och 8020 använder Azure standard Storage för moln nivån. Skillnaden finns endast på den lokala nivån i enheten*.
 
 ## <a name="how-the-cloud-appliance-differs-from-the-physical-device"></a>Så här skiljer sig molninstallationen från den fysiska enheten
 
@@ -64,10 +64,10 @@ I följande tabell beskrivs några huvudsakliga skillnader mellan StorSimple-mol
 
 |  | Fysisk enhet | Molninstallation |
 | --- | --- | --- |
-| **Location** |Finns i datacentret. |Körs i Azure. |
+| **Position** |Finns i datacentret. |Körs i Azure. |
 | **Nätverksgränssnitt** |Har sex nätverksgränssnitt: DATA 0 till DATA 5. |Har bara ett nätverksgränssnitt: DATA 0. |
 | **Registrering** |Registreras i det inledande konfigurationssteget. |Registreringen är en separat åtgärd. |
-| **Krypteringsnyckel för tjänstdata** |Återskapa på den fysiska enheten och uppdatera sedan molninstallationen med den nya nyckeln. |Det går inte att återskapa från molninstallationen. |
+| **Krypterings nyckel för tjänst data** |Återskapa på den fysiska enheten och uppdatera sedan molninstallationen med den nya nyckeln. |Det går inte att återskapa från molninstallationen. |
 | **Volymtyper som stöds** |Har stöd både för lokalt fixerade och nivåindelade volymer. |Har stöd endast för nivåindelade volymer. |
 
 ## <a name="prerequisites-for-the-cloud-appliance"></a>Krav för molninstallationen

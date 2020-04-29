@@ -1,76 +1,76 @@
 ---
-title: Uppgradering av Service Fabric-programmet
-description: Den här artikeln innehåller en introduktion till uppgradering av ett Service Fabric-program, inklusive att välja uppgraderingslägen och utföra hälsokontroller.
+title: Service Fabric program uppgradering
+description: Den här artikeln innehåller en introduktion till att uppgradera ett Service Fabric program, inklusive att välja uppgraderings lägen och utföra hälso kontroller.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 2dc484b49c5250510e5f018cbbc2da107573d452
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79259050"
 ---
-# <a name="service-fabric-application-upgrade"></a>Uppgradering av Service Fabric-programmet
-Ett Azure Service Fabric-program är en samling tjänster. Under en uppgradering jämför Service Fabric det nya [programmanifestet](service-fabric-application-and-service-manifests.md) med den tidigare versionen och avgör vilka tjänster i programmet som kräver uppdateringar. Service Fabric jämför versionsnumren i tjänstmanifesten med versionsnumren i den tidigare versionen. Om en tjänst inte har ändrats uppgraderas inte den tjänsten.
+# <a name="service-fabric-application-upgrade"></a>Service Fabric program uppgradering
+Ett Azure Service Fabric-program är en samling tjänster. Under en uppgradering jämför Service Fabric det nya [applikations manifestet](service-fabric-application-and-service-manifests.md) med den tidigare versionen och avgör vilka tjänster i programmet som behöver uppdateras. Service Fabric jämför versions numren i tjänst manifesten med versions numren i den tidigare versionen. Tjänsten uppgraderas inte om en tjänst inte har ändrats.
 
 ## <a name="rolling-upgrades-overview"></a>Översikt över rullande uppgraderingar
-I en rullande programuppgradering utförs uppgraderingen i etapper. I varje steg tillämpas uppgraderingen på en delmängd noder i klustret, en så kallad uppdateringsdomän. Därför är programmet tillgängligt under hela uppgraderingen. Under uppgraderingen kan klustret innehålla en blandning av gamla och nya versioner.
+I en uppgradering av rullande program utförs uppgraderingen i steg. I varje steg tillämpas uppgraderingen på en delmängd noder i klustret, som kallas för en uppdaterings domän. Därför förblir programmet tillgängligt under uppgraderingen. Under uppgraderingen kan klustret innehålla en blandning av de gamla och nya versionerna.
 
-Därför måste de två versionerna vara framåt- och bakåtkompatibla. Om de inte är kompatibla ansvarar programadministratören för att mellanlagring av en uppgradering i flera faser för att upprätthålla tillgängligheten. I en uppgradering i flera faser uppgraderas det första steget till en mellanliggande version av programmet som är kompatibelt med den tidigare versionen. Det andra steget är att uppgradera den slutliga versionen som bryter kompatibiliteten med förhandsversionen, men är kompatibel med den mellanliggande versionen.
+Därför måste de två versionerna vidarebefordras och vara bakåtkompatibla. Om de inte är kompatibla ansvarar program administratören för att mellanlagra en uppgradering av flera steg för att upprätthålla tillgänglighet. I en uppgradering med flera steg uppgraderar det första steget till en mellanliggande version av programmet som är kompatibelt med den tidigare versionen. Det andra steget är att uppgradera den slutgiltiga versionen som bryter kompatibiliteten med för uppdaterings versionen, men som är kompatibel med den mellanliggande versionen.
 
-Uppdateringsdomäner anges i klustermanifestet när du konfigurerar klustret. Uppdatera domäner får inga uppdateringar i en viss ordning. En uppdateringsdomän är en logisk distributionsenhet för ett program. Uppdateringsdomäner gör att tjänsterna kan vara högtillgänglighet under en uppgradering.
+Uppdaterings domäner anges i kluster manifestet när du konfigurerar klustret. Uppdaterings domäner tar inte emot uppdateringar i en viss ordning. En uppdaterings domän är en logisk enhet för distribution av ett program. Med uppdaterings domäner kan tjänsterna hållas kvar vid hög tillgänglighet under en uppgradering.
 
-Icke-rullande uppgraderingar är möjliga om uppgraderingen tillämpas på alla noder i klustret, vilket är fallet när programmet bara har en uppdateringsdomän. Den här metoden rekommenderas inte, eftersom tjänsten går ner och inte är tillgänglig vid tidpunkten för uppgraderingen. Dessutom ger Azure inga garantier när ett kluster har konfigurerats med endast en uppdateringsdomän.
+Uppgraderingar som inte går att rulla är möjliga om uppgraderingen tillämpas på alla noder i klustret, vilket är fallet när programmet bara har en uppdaterings domän. Den här metoden rekommenderas inte eftersom tjänsten slutar fungera och inte är tillgänglig vid tidpunkten för uppgraderingen. Dessutom ger Azure inga garantier när ett kluster har kon figurer ATS med endast en uppdaterings domän.
 
-När uppgraderingen är klar, alla tjänster och repliker (instanser) skulle stanna i samma version, dvs om uppgraderingen lyckas, kommer de att uppdateras till den nya versionen; Om uppgraderingen misslyckas och återställs, skulle de återställas till den gamla versionen.
+När uppgraderingen är klar kommer alla tjänster och repliker (instanser) att stanna kvar i samma version-i. e. om uppgraderingen lyckas uppdateras de till den nya versionen. Om uppgraderingen Miss lyckas och återställs, återställs de tillbaka till den tidigare versionen.
 
-## <a name="health-checks-during-upgrades"></a>Hälsokontroller under uppgraderingar
-För en uppgradering måste hälsoprinciper anges (eller standardvärden användas). En uppgradering kallas framgångsrik när alla uppdateringsdomäner uppgraderas inom de angivna tidsbegränsningarna och när alla uppdateringsdomäner anses vara felfria.  En felfritt uppdateringsdomän innebär att uppdateringsdomänen har skickat alla hälsokontroller som anges i hälsoprincipen. En hälsoprincip kan till exempel föreskriva att alla tjänster i en programinstans måste vara *felfria*, eftersom hälsotillstånd definieras av Service Fabric.
+## <a name="health-checks-during-upgrades"></a>Hälso kontroller under uppgraderingar
+För en uppgradering måste hälso principer anges (eller också kan standardvärden användas). En uppgradering kallas slutförd när alla uppdaterings domäner uppgraderas inom angivna tids gränser och när alla uppdaterings domäner anses vara felfria.  En felfri uppdaterings domän innebär att uppdaterings domänen godkände alla hälso kontroller som anges i hälso principen. En hälso princip kan till exempel kräva att alla tjänster i en program instans måste vara *felfria*, så att hälsan definieras av Service Fabric.
 
-Hälsoprinciper och kontroller under uppgradering av Service Fabric är service- och programoberoende. Det vill än, inga servicespecifika tester görs.  Tjänsten kan till exempel ha ett dataflödeskrav, men Service Fabric har inte informationen för att kontrollera dataflödet. Se [hälsoartiklarna](service-fabric-health-introduction.md) för de kontroller som utförs. De kontroller som sker under en uppgradering inkluderar tester för om programpaketet har kopierats korrekt, om instansen startades och så vidare.
+Hälso principer och kontroller under uppgraderingen genom Service Fabric är oberoende för tjänster och program. Det innebär att inga tjänstspecifika tester görs.  Din tjänst kan till exempel ha ett data flödes krav, men Service Fabric saknar information om att kontrol lera data flödet. Se [hälso artiklarna](service-fabric-health-introduction.md) för de kontroller som utförs. I de kontroller som inträffar under en uppgradering ingår tester för om programpaketet kopierades korrekt, om instansen startades och så vidare.
 
-Programmets hälsotillstånd är en aggregering av de underordnade entiteterna i programmet. Kort sagt, Service Fabric utvärderar hälsotillståndet för programmet genom den hälsa som rapporteras på ansökan. Den utvärderar också hälsan hos alla tjänster för programmet på detta sätt. Service Fabric utvärderar ytterligare hälsotillståndet för programtjänsterna genom att samla hälsotillståndet för sina underordnade, till exempel tjänstrepliken. När programmets hälsoprincip är nöjd kan uppgraderingen fortsätta. Om hälsoprincipen överträds misslyckas programuppgraderingen.
+Program hälsan är en agg regering av programmets underordnade entiteter. I korthet utvärderar Service Fabric hälso tillståndet för programmet genom det hälso tillstånd som rapporteras i programmet. Den utvärderar också hälso tillståndet för alla tjänster för programmet på det här sättet. Service Fabric ytterligare utvärderar hälso tillståndet för program tjänsterna genom att aggregera hälso tillståndet för deras underordnade, till exempel tjänst repliken. När program hälso principen är uppfylld kan uppgraderingen fortsätta. Om hälso principen överskrids Miss lyckas program uppgraderingen.
 
-## <a name="upgrade-modes"></a>Uppgraderingslägen
-Det läge som vi rekommenderar för uppgradering av programmet är det övervakade läget, som är det vanliga läget. Övervakat läge utför uppgraderingen på en uppdateringsdomän, och om alla hälsokontroller passerar (enligt den angivna principen) går vidare till nästa uppdateringsdomän automatiskt.  Om hälsokontroller misslyckas och/eller time-outs uppnås återställs uppgraderingen antingen för uppdateringsdomänen eller så ändras läget till oövervakad handbok. Du kan konfigurera uppgraderingen så att den väljer ett av dessa två lägen för misslyckade uppgraderingar. 
+## <a name="upgrade-modes"></a>Uppgraderings lägen
+Läget som vi rekommenderar för program uppgradering är det övervakade läget, vilket är det vanligaste läget. Övervakat läge utför uppgraderingen på en uppdaterings domän och om alla hälso kontroller godkänns (enligt den angivna principen), flyttas nästa uppdaterings domän automatiskt.  Om hälso kontrollerna inte fungerar och/eller om tids gränsen uppnås, återställs uppgraderingen för uppdaterings domänen eller så ändras läget till oövervakad manuell. Du kan konfigurera uppgraderingen för att välja ett av dessa två lägen för misslyckade uppgraderingar. 
 
-Oövervakad manuellt läge behöver manuell åtgärd efter varje uppgradering på en uppdateringsdomän för att starta uppgraderingen på nästa uppdateringsdomän. Hälsokontroller av service fabric utförs inte. Administratören utför hälso- eller statuskontrollerna innan uppgraderingen startas i nästa uppdateringsdomän.
+Oövervakat läge behöver manuellt ingripande efter varje uppgradering på en uppdaterings domän för att kunna starta uppgraderingen på nästa uppdaterings domän. Inga Service Fabric hälso kontroller utförs. Administratören utför hälso-och status kontrollerna innan du påbörjar uppgraderingen i nästa uppdaterings domän.
 
-## <a name="upgrade-default-services"></a>Uppgradera standardtjänster
-Vissa standardtjänstparametrar som definierats i [programmanifestet](service-fabric-application-and-service-manifests.md) kan också uppgraderas som en del av en programuppgradering. Endast de tjänstparametrar som stöder ändras via [Update-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) kan ändras som en del av en uppgradering. Hur standardtjänster ändras under programuppgraderingen är följande:
+## <a name="upgrade-default-services"></a>Uppgradera standard tjänster
+Vissa standard tjänst parametrar som definieras i [applikations manifestet](service-fabric-application-and-service-manifests.md) kan också uppgraderas som en del av en program uppgradering. Endast de tjänst parametrar som stöder ändras via [Update-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) kan ändras som en del av en uppgradering. Beteendet för att ändra standard tjänsterna under program uppgraderingen är följande:
 
-1. Standardtjänster i det nya programmanifestet som inte redan finns i klustret skapas.
-2. Standardtjänster som finns i både tidigare och nya programmanifest uppdateras. Parametrarna för standardtjänsten i det nya programmanifestet skriver över parametrarna för den befintliga tjänsten. Programuppgraderingen återställs automatiskt om uppdateringen av en standardtjänst misslyckas.
-3. Standardtjänster som inte finns i det nya programmanifestet tas bort om de finns i klustret. **Observera att om du tar bort en standardtjänst tas alla tjänstens tillstånd bort och inte kan ångras.**
+1. Standard tjänster i det nya applikations manifestet som inte redan finns i klustret skapas.
+2. Standard tjänster som finns i båda de föregående och nya applikations manifesten uppdateras. Parametrarna för standard tjänsten i det nya applikations manifestet skriver över parametrarna för den befintliga tjänsten. Program uppgraderingen återställs automatiskt om det inte går att uppdatera en standard tjänst.
+3. Standard tjänster som inte finns i det nya applikations manifestet tas bort om de finns i klustret. **Observera att om du tar bort en standard tjänst tas all tjänst status bort och kan inte ångras.**
 
-När en programuppgradering återställs återställs standardtjänstparametrarna till sina gamla värden innan uppgraderingen startade, men borttagna tjänster kan inte återskapas med sitt gamla tillstånd.
+När en program uppgradering återställs återställs standard tjänst parametrarna till sina gamla värden innan uppgraderingen påbörjas, men borttagna tjänster kan inte återskapas med sitt gamla tillstånd.
 
 > [!TIP]
-> [Inställningen EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) kluster config måste vara *sant* för att aktivera regler 2) och 3) ovan (standardserviceuppdatering och borttagning). Den här funktionen stöds med början i Service Fabric version 5.5.
+> Kluster konfigurations inställningen [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) måste vara *sann* för att aktivera reglerna 2) och 3) ovan (standard uppdatering och borttagning av tjänst). Den här funktionen stöds från och med Service Fabric version 5,5.
 
 ## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Uppgradera flera program med HTTPS-slutpunkter
-Du måste vara noga med att inte använda **samma port** för olika instanser av samma program när du använder HTTP**S**. Anledningen är att Service Fabric inte kan uppgradera certifikatet för en av programinstanserna. Till exempel om program 1 eller program 2 båda vill uppgradera sina cert 1 till cert 2. När uppgraderingen sker kan Service Fabric ha rensat registreringen cert 1 med http.sys även om det andra programmet fortfarande använder den. För att förhindra detta upptäcker Service Fabric att det redan finns en annan programinstans som registrerats på porten med certifikatet (på grund av http.sys) och misslyckas med åtgärden.
+Du måste vara noga med att inte använda **samma port** för olika instanser av samma program när du använder http**S**. Orsaken är att Service Fabric inte kan uppgradera certifikatet för en av program instanserna. Till exempel, om program 1 eller program 2 både vill uppgradera sitt certifikat 1 till cert 2. När uppgraderingen sker kan Service Fabric ha rensat certifikat 1-registreringen med http. sys trots att det andra programmet fortfarande använder den. För att förhindra detta identifierar Service Fabric att det redan finns en annan program instans registrerad på porten med certifikatet (på grund av http. sys) och åtgärden kan inte utföras.
 
-Därför stöder Service Fabric inte uppgradering av två olika tjänster med **samma port** i olika programinstanser. Med andra ord kan du inte använda samma certifikat på olika tjänster på samma port. Om du behöver ha ett delat certifikat på samma port måste du se till att tjänsterna placeras på olika datorer med placeringsbegränsningar. Eller överväg att använda dynamiska portar för Service Fabric om möjligt för varje tjänst i varje programinstans. 
+Därför stöder Service Fabric inte uppgradering av två olika tjänster med **samma port** i olika program instanser. Med andra ord kan du inte använda samma certifikat på olika tjänster på samma port. Om du behöver ett delat certifikat på samma port måste du se till att tjänsterna placeras på olika datorer med placerings begränsningar. Eller Överväg att använda Service Fabric dynamiska portar om det är möjligt för varje tjänst i varje program instans. 
 
-Om en uppgradering misslyckas med https, en felmeddelande som säger "Windows HTTP Server API stöder inte flera certifikat för program som delar en port."
+Om det inte går att uppgradera med https visas ett fel meddelande om att Windows HTTP server API inte stöder flera certifikat för program som delar en port. "
 
-## <a name="application-upgrade-flowchart"></a>Flödesschema för uppgradering av program
-Flödesschemat som följer det här stycket kan hjälpa dig att förstå uppgraderingsprocessen för ett Service Fabric-program. I synnerhet beskriver flödet hur time-outs, inklusive *HealthCheckStableDuration*, *HealthCheckRetryTimeout*och *UpgradeHealthCheckInterval*, hjälper till att kontrollera när uppgraderingen i en uppdateringsdomän anses vara en framgång eller ett fel.
+## <a name="application-upgrade-flowchart"></a>Flödes schema för program uppgradering
+Flödesschemat som följer detta stycke kan hjälpa dig att förstå uppgraderings processen för ett Service Fabric program. I synnerhet beskriver flödet hur timeout, inklusive *HealthCheckStableDuration*, *HealthCheckRetryTimeout*och *UpgradeHealthCheckInterval*, hjälper till att kontrol lera när uppgraderingen i en uppdaterings domän betraktas som lyckad eller misslyckad.
 
-![Uppgraderingsprocessen för ett service fabric-program][image]
+![Uppgraderings processen för ett Service Fabric program][image]
 
 ## <a name="next-steps"></a>Nästa steg
-[Om du uppgraderar programmet med Visual Studio](service-fabric-application-upgrade-tutorial.md) går du igenom en programuppgradering med Visual Studio.
+Genom [att uppgradera programmet med Visual Studio](service-fabric-application-upgrade-tutorial.md) går du igenom en program uppgradering med Visual Studio.
 
-[Om du uppgraderar programmet med PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) får du en programuppgradering med PowerShell.
+Genom [att uppgradera ditt program med hjälp av PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) får du en program uppgradering med PowerShell.
 
-Styr hur programmet uppgraderas med hjälp av [uppgraderingsparametrar](service-fabric-application-upgrade-parameters.md).
+Styr hur programmet uppgraderas med hjälp av [uppgraderings parametrar](service-fabric-application-upgrade-parameters.md).
 
-Gör dina programuppgraderingar kompatibla genom att lära dig hur du använder [data serialisering](service-fabric-application-upgrade-data-serialization.md).
+Gör dina program uppgraderingar kompatibla genom att lära dig hur du använder [Dataserialisering](service-fabric-application-upgrade-data-serialization.md).
 
-Lär dig hur du använder avancerade funktioner när du uppgraderar programmet genom att referera till [Avancerade ämnen](service-fabric-application-upgrade-advanced.md).
+Lär dig hur du använder avancerade funktioner när du uppgraderar ditt program genom att titta på [avancerade ämnen](service-fabric-application-upgrade-advanced.md).
 
-Åtgärda vanliga problem i programuppgraderingar genom att referera till stegen i [Felsökning av programuppgraderingar](service-fabric-application-upgrade-troubleshooting.md).
+Åtgärda vanliga problem i program uppgraderingar genom att följa stegen i [Felsöka program uppgraderingar](service-fabric-application-upgrade-troubleshooting.md).
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png

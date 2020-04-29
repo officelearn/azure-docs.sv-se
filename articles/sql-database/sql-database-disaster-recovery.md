@@ -1,6 +1,6 @@
 ---
 title: Haveriberedskap
-description: Lär dig hur du återställer en databas från ett regionalt datacenteravbrott eller ett fel med azure SQL Database active geo-replication och geo-restore-funktioner.
+description: Lär dig hur du återställer en databas från ett regionalt Data Center avbrott eller haveri med Azure SQL Database aktiv geo-replikering och geo-återställnings funktioner.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,112 +12,112 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/21/2019
 ms.openlocfilehash: d28edd28dcbe31bfe63c2d0a9c3e975967efef04
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79256385"
 ---
-# <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Återställa en Azure SQL-databas eller redundans till en sekundär
+# <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Återställa en Azure SQL Database eller redundans till en sekundär
 
-Azure SQL Database erbjuder följande funktioner för återställning från ett avbrott:
+Azure SQL Database erbjuder följande funktioner för att återskapa från ett avbrott:
 
 - [Aktiv geo-replikering](sql-database-active-geo-replication.md)
 - [Automatiska redundansgrupper](sql-database-auto-failover-group.md)
-- [Geo-återställande](sql-database-recovery-using-backups.md#point-in-time-restore)
-- [Zonundanta databaser](sql-database-high-availability.md)
+- [Geo-återställning](sql-database-recovery-using-backups.md#point-in-time-restore)
+- [Zoner-redundanta databaser](sql-database-high-availability.md)
 
-Mer information om scenarier för affärskontinuitet och de funktioner som stöder dessa scenarier finns i [Kontinuitet i verksamheten](sql-database-business-continuity.md).
-
-> [!NOTE]
-> Om du använder zonsantat Premium- eller Affärskritiska databaser eller pooler automatiseras återställningsprocessen och resten av det här materialet gäller inte.
+Läs mer om affärs kontinuitets scenarier och de funktioner som stöder dessa scenarier i [verksamhets kontinuitet](sql-database-business-continuity.md).
 
 > [!NOTE]
-> Både primära och sekundära databaser måste ha samma tjänstnivå. Vi rekommenderar också starkt att den sekundära databasen skapas med samma beräkningsstorlek (DTUs eller virtuella kärnor) som den primära. Mer information finns i [Uppgradera eller nedgradera som primär databas](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database).
+> Om du använder zoner med redundanta Premium-eller Affärskritisk databaser eller pooler, är återställnings processen automatiserad och resten av det här materialet gäller inte.
 
 > [!NOTE]
-> Använd en eller flera redundansklar för att hantera redundans för flera databaser.
-> Om du lägger till en befintlig geo-replikeringsrelation i redundansgruppen kontrollerar du att den geografiska sekundärt är konfigurerad med samma tjänstnivå och beräkningsstorlek som primär. Mer information finns i [Använda grupper för automatisk redundans för att aktivera genomskinlig och samordnad redundans för flera databaser](sql-database-auto-failover-group.md).
+> Både primära och sekundära databaser måste ha samma tjänst nivå. Vi rekommenderar också starkt att den sekundära databasen skapas med samma beräknings storlek (DTU: er eller virtuella kärnor) som primär. Mer information finns i [uppgradera eller nedgradera som primär databas](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database).
+
+> [!NOTE]
+> Använd en eller flera grupper för växling vid fel för att hantera redundans för flera databaser.
+> Om du lägger till en befintlig Geo-replikeringsrelation i gruppen redundans kontrollerar du att geo-Secondary är konfigurerat med samma tjänste nivå och beräknings storlek som den primära. Mer information finns i [använda grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser](sql-database-auto-failover-group.md).
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>Förbered dig för ett avbrott
 
-För att lyckas med återställning till en annan dataregion med hjälp av antingen redundansgrupper eller geoupptäckta säkerhetskopior måste du förbereda en server i ett annat datacenter avbrott för att bli den nya primära servern om behov skulle uppstå samt ha väldefinierade steg dokumenterade och testas för att säkerställa en smidig återhämtning. Dessa förberedelsesteg omfattar:
+För att det ska gå att återställa till ett annat data område med hjälp av antingen redundans grupper eller geo-redundanta säkerhets kopieringar måste du förbereda en server i ett annat data Center avbrott för att bli den nya primära servern, om behovet uppstår och ha väldefinierade steg dokumenterade och testade för att säkerställa en smidig återställning. Dessa förberedelse steg omfattar:
 
-- Identifiera SQL Database-servern i en annan region för att bli den nya primära servern. För geoåterställning är detta i allmänhet en server i den [parade regionen](../best-practices-availability-paired-regions.md) för den region där databasen finns. Detta eliminerar den extra trafikkostnaden under geo-återställande åtgärder.
-- Identifiera och eventuellt definiera de IP-brandväggsregler på servernivå som behövs för att användarna ska kunna komma åt den nya primära databasen.
-- Bestäm hur du ska omdirigera användare till den nya primära servern, till exempel genom att ändra anslutningssträngar eller genom att ändra DNS-poster.
-- Identifiera och eventuellt skapa de inloggningar som måste finnas i huvuddatabasen på den nya primära servern och se till att dessa inloggningar har lämpliga behörigheter i huvuddatabasen, om sådana finns. Mer information finns i [SQL Database-säkerhet efter haveriberedskap](sql-database-geo-replication-security-config.md)
-- Identifiera varningsregler som måste uppdateras för att mappa till den nya primära databasen.
-- Dokumentera granskningskonfigurationen i den aktuella primära databasen
-- Utför en [borr för haveriberedskap](sql-database-disaster-recovery-drills.md). Om du vill simulera ett avbrott för geoåterställning kan du ta bort eller byta namn på källdatabasen för att orsaka anslutningsfel för programmet. Om du vill simulera ett avbrott med redundansgrupper kan du inaktivera webbprogrammet eller den virtuella datorn som är ansluten till databasen eller redundansdatabasen för att orsaka programanslutningsfel.
+- Identifiera SQL Database servern i en annan region som ska bli den nya primära servern. För geo-återställning är detta vanligt vis en server i den [kopplade regionen](../best-practices-availability-paired-regions.md) för den region där databasen finns. Detta eliminerar den ytterligare trafik kostnaden under geo-återställnings åtgärderna.
+- Identifiera och alternativt definiera de regler för IP-brandvägg på server nivå som krävs för att användarna ska kunna komma åt den nya primära databasen.
+- Bestäm hur du ska omdirigera användare till den nya primära servern, t. ex. genom att ändra anslutnings strängar eller genom att ändra DNS-poster.
+- Identifiera och eventuellt skapa, inloggningar som måste finnas i huvud databasen på den nya primära servern och se till att dessa inloggningar har rätt behörigheter i huvud databasen, om det finns några. Mer information finns i [SQL Database säkerhet efter haveri beredskap](sql-database-geo-replication-security-config.md)
+- Identifiera aviserings regler som måste uppdateras för att mappas till den nya primära databasen.
+- Dokumentera gransknings konfigurationen för den aktuella primära databasen
+- Utföra en [granskning av haveri beredskap](sql-database-disaster-recovery-drills.md). För att simulera ett avbrott för geo-återställning kan du ta bort eller byta namn på käll databasen för att orsaka program anslutnings fel. Om du vill simulera ett avbrott med hjälp av failover-grupper kan du inaktivera webb programmet eller den virtuella datorn som är ansluten till databasen eller redundansväxla databasen för att orsaka program anslutnings fel.
 
-## <a name="when-to-initiate-recovery"></a>När ska återställningen initieras
+## <a name="when-to-initiate-recovery"></a>När återställningen ska påbörjas
 
-Återställningsåtgärden påverkar programmet. Det kräver att ändra SQL-anslutningssträngen eller omdirigering med DNS och kan resultera i permanent dataförlust. Därför bör det endast göras när avbrottet sannolikt kommer att pågå längre än programmets återställningstidsmål. När programmet distribueras till produktion bör du utföra regelbunden övervakning av programmets hälsa och använda följande datapunkter för att hävda att återställningen är berättigad:
+Återställnings åtgärden påverkar programmet. Det krävs en ändring av SQL-anslutningssträngen eller omdirigeringen med DNS och kan resultera i permanent data förlust. Därför bör det bara göras när avbrott är troligt vis längre än ditt programs återställnings tids mål. När programmet distribueras till produktion bör du utföra en regelbunden övervakning av programmets hälsa och använda följande data punkter för att kontrol lera att återställningen är berättigad:
 
-1. Permanent anslutningsfel från programnivån till databasen.
-2. Azure-portalen visar en avisering om en incident i regionen med bred inverkan.
-
-> [!NOTE]
-> Om du använder redundanskationsgrupper och väljer automatisk redundans är återställningsprocessen automatiserad och transparent för programmet.
-
-Beroende på din ansökan tolerans för driftstopp och eventuellt affärsansvar kan du överväga följande återställningsalternativ.
-
-Använd [Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.aspx) *(LastAvailableBackupDate)* för att hämta den senaste geo-replikerade återställningspunkten.
-
-## <a name="wait-for-service-recovery"></a>Vänta på återställning av tjänsten
-
-Azure-teamen arbetar hårt för att återställa tjänstens tillgänglighet så snabbt som möjligt, men beroende på grundorsaken kan det ta timmar eller dagar.  Om ditt program kan tolerera betydande driftstopp kan du helt enkelt vänta på att återställningen ska slutföras. I det här fallet krävs ingen åtgärd från din sida. Du kan se aktuell tjänststatus på vår [Azure Service Health Dashboard](https://azure.microsoft.com/status/). Efter återställningen av regionen återställs programmets tillgänglighet.
-
-## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>Växla över till geografisk replikerad sekundär server i redundansgruppen
-
-Om programmets driftstopp kan leda till affärsansvar bör du använda redundansk grupper. Det gör det möjligt för programmet att snabbt återställa tillgängligheten i en annan region i händelse av ett avbrott. En självstudiekurs finns i [Implementera en geodistribuerad databas](sql-database-implement-geo-distributed-database.md).
-
-Om du vill återställa tillgängligheten för databaserna måste du initiera redundansen till den sekundära servern med någon av de metoder som stöds.
-
-Använd någon av följande guider för att växla över till en geografisk replikerad sekundär databas:
-
-- [Växla över till en geografiskt replikerad sekundär server med Azure-portalen](sql-database-geo-replication-portal.md)
-- [Växla över till den sekundära servern med PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-- [Växla över till en sekundär server med Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
-
-## <a name="recover-using-geo-restore"></a>Återställ med geoåterställning
-
-Om programmets driftstopp inte leder till affärsansvar kan du använda [geoåterställning](sql-database-recovery-using-backups.md) som en metod för att återställa programdatabaserna. Det skapar en kopia av databasen från den senaste geo-redundanta säkerhetskopian.
-
-## <a name="configure-your-database-after-recovery"></a>Konfigurera databasen efter återställning
-
-Om du använder geoåterställning för att återställa från ett avbrott måste du se till att anslutningen till de nya databaserna är korrekt konfigurerad så att den normala programfunktionen kan återupptas. Det här är en checklista med uppgifter för att förbereda den återställda databasproduktionen.
-
-### <a name="update-connection-strings"></a>Uppdatera anslutningssträngar
-
-Eftersom den återställda databasen finns på en annan server måste du uppdatera programmets anslutningssträng så att den pekar på den servern.
-
-Mer information om hur du ändrar anslutningssträngar finns i lämpligt utvecklingsspråk för [anslutningsbiblioteket](sql-database-libraries.md).
-
-### <a name="configure-firewall-rules"></a>Konfigurera brandväggsregler
-
-Du måste se till att brandväggsreglerna som konfigurerats på servern och i databasen matchar de som har konfigurerats på den primära servern och den primära databasen. Mer information finns i [Så här konfigurerar du brandväggsinställningar (Azure SQL Database).](sql-database-configure-firewall-settings.md)
-
-### <a name="configure-logins-and-database-users"></a>Konfigurera inloggningar och databasanvändare
-
-Du måste se till att alla inloggningar som används av ditt program finns på servern som är värd för din återställda databas. Mer information finns i [Säkerhetskonfiguration för geo-replikering](sql-database-geo-replication-security-config.md).
+1. Permanent anslutnings problem från program nivån till databasen.
+2. Azure Portal visar en avisering om en incident i regionen med bred påverkan.
 
 > [!NOTE]
-> Du bör konfigurera och testa serverns brandväggsregler och inloggningar (och deras behörigheter) under en övning för haveriberedskap. Dessa servernivåobjekt och deras konfiguration kanske inte är tillgängliga under avbrottet.
+> Om du använder failover-grupper och väljer automatisk redundansväxling, är återställnings processen automatiserad och transparent för programmet.
 
-### <a name="setup-telemetry-alerts"></a>Konfigurera telemetrivarningar
+Beroende på din program tolerans för stillestånds tid och eventuellt företags ansvar kan du tänka på följande återställnings alternativ.
 
-Du måste se till att dina befintliga inställningar för varningsregeln uppdateras för att mappa till den återställda databasen och den olika servern.
+Använd Hämta återställnings [bara databaser](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) för att hämta den senaste geo-replikerade återställnings punkten.
 
-Mer information om databasaviseringsregler finns i [Ta emot aviseringar](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) och spåra [tjänsthälsa](../monitoring-and-diagnostics/insights-service-health.md).
+## <a name="wait-for-service-recovery"></a>Vänta på tjänst återställning
+
+Azure-teamen arbetar samtidigt för att återställa tjänstens tillgänglighet så fort som möjligt, men beroende på rotor saken kan det ta flera timmar eller dagar.  Om ditt program kan tolerera betydande stillestånds tid kan du bara vänta tills återställningen har slutförts. I det här fallet krävs ingen åtgärd på din del. Du kan se aktuell status för tjänsten på vår [Azure Service Health-instrumentpanel](https://azure.microsoft.com/status/). Efter återställningen av regionen återställs programmets tillgänglighet.
+
+## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>Redundansväxla till geo-replikerad sekundär server i gruppen redundans
+
+Om ditt programs stillestånd kan leda till företags ansvar, bör du använda grupper för växling vid fel. Det gör det möjligt för programmet att snabbt återställa tillgänglighet i en annan region vid ett strömavbrott. En själv studie kurs finns i [implementera en geo-distribuerad databas](sql-database-implement-geo-distributed-database.md).
+
+Om du vill återställa tillgänglighet för databaserna måste du initiera redundansväxlingen till den sekundära servern med hjälp av någon av de metoder som stöds.
+
+Använd någon av följande guider för att redundansväxla till en geo-replikerad sekundär databas:
+
+- [Redundansväxla till en geo-replikerad sekundär server med hjälp av Azure Portal](sql-database-geo-replication-portal.md)
+- [Redundansväxla till den sekundära servern med hjälp av PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+- [Redundansväxla till en sekundär server med hjälp av Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
+
+## <a name="recover-using-geo-restore"></a>Återställa med geo-återställning
+
+Om programmets nedtid inte leder till företags ansvar kan du använda [geo-återställning](sql-database-recovery-using-backups.md) som en metod för att återställa dina program databaser. Den skapar en kopia av databasen från den senaste geo-redundanta säkerhets kopian.
+
+## <a name="configure-your-database-after-recovery"></a>Konfigurera din databas efter återställning
+
+Om du använder geo-återställning för att återställa från ett avbrott måste du kontrol lera att anslutningarna till de nya databaserna är korrekt konfigurerade så att den normala program funktionen kan återupptas. Det här är en check lista med uppgifter för att få din återställda databas produktion klar.
+
+### <a name="update-connection-strings"></a>Uppdatera anslutnings strängar
+
+Eftersom den återställda databasen finns på en annan server måste du uppdatera programmets anslutnings sträng så att den pekar på den servern.
+
+Mer information om hur du ändrar anslutnings strängar finns i lämpligt utvecklings språk för [anslutnings biblioteket](sql-database-libraries.md).
+
+### <a name="configure-firewall-rules"></a>Konfigurera brand Väggs regler
+
+Du måste kontrol lera att brand Väggs reglerna som kon figurer ATS på servern och databasen matchar de som har kon figurer ATS på den primära servern och den primära databasen. Mer information finns i [så här gör du för att: Konfigurera brand Väggs inställningar (Azure SQL Database)](sql-database-configure-firewall-settings.md).
+
+### <a name="configure-logins-and-database-users"></a>Konfigurera inloggningar och databas användare
+
+Du måste se till att alla inloggningar som används av ditt program finns på den server som är värd för den återställda databasen. Mer information finns i [säkerhets konfiguration för geo-replikering](sql-database-geo-replication-security-config.md).
+
+> [!NOTE]
+> Du bör konfigurera och testa Server brand Väggs reglerna och inloggningar (och deras behörigheter) under en haveri återställnings granskning. Dessa objekt på server nivå och deras konfiguration kanske inte är tillgängliga under avbrottet.
+
+### <a name="setup-telemetry-alerts"></a>Konfigurera telemetri aviseringar
+
+Du måste se till att dina befintliga inställningar för varnings regler uppdateras för att mappas till den återställda databasen och den andra servern.
+
+Mer information om databas varnings regler finns i [ta emot varnings meddelanden](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) och [spåra service Health](../monitoring-and-diagnostics/insights-service-health.md).
 
 ### <a name="enable-auditing"></a>Aktivera granskning
 
-Om granskning krävs för att komma åt databasen måste du aktivera Granskning efter databasåterställning. Mer information finns i [Databasgranskning](sql-database-auditing.md).
+Om granskning krävs för att få åtkomst till din databas måste du aktivera granskning efter databas återställningen. Mer information finns i [databas granskning](sql-database-auditing.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om automatiska säkerhetskopior i Azure SQL Database finns i [automatiska säkerhetskopieringar i SQL Database](sql-database-automated-backups.md)
-- Mer information om design- och återställningsscenarier för affärskontinuitet finns i [Kontinuitetsscenarier](sql-database-business-continuity.md)
-- Mer information om hur du använder automatiska säkerhetskopior för återställning finns i [återställa en databas från de tjänstinitierade säkerhetskopiorna](sql-database-recovery-using-backups.md)
+- Mer information om hur du Azure SQL Database automatiserade säkerhets kopieringar finns [SQL Database automatiska säkerhets kopieringar](sql-database-automated-backups.md)
+- Information om design och återställnings scenarier för affärs kontinuitet finns i [kontinuitets scenarier](sql-database-business-continuity.md)
+- Information om hur du använder automatiska säkerhets kopieringar för återställning finns i [återställa en databas från de säkerhets kopior som initieras av tjänsten](sql-database-recovery-using-backups.md)

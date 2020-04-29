@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Cisco Umbrella | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integration med Cisco-paraply | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Cisco Umbrella.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ee91ca53e32bfdc387dc20054493d02d506a75da
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73158636"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Självstudiekurs: Azure Active Directory-integrering med Cisco Umbrella
+# <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Självstudie: Azure Active Directory integrering med Cisco paraply
 
 Lär dig hur du integrerar Cisco Umbrella med Azure Active Directory (AD Azure) i den här självstudien.
 När du integrerar Cisco Umbrella med Azure AD får du följande fördelar:
@@ -33,7 +33,7 @@ När du integrerar Cisco Umbrella med Azure AD får du följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -110,7 +110,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     b. Klicka på **Ange ytterligare URL:er**.
 
-    c. Skriv en URL i textrutan **Sign-on URL:**`https://login.umbrella.com/sso`
+    c. Skriv en URL i text rutan **inloggnings-URL** :`https://login.umbrella.com/sso`
 
 5. På sidan **Konfigurera enkel inloggning med SAML**, i avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Metadata XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
@@ -146,7 +146,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     ![Nästa](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_next.png)
 
-6. I **alternativ A: Ladda upp XML-filen**laddar du upp **XML-filen federationsmetadata** som du hämtade från Azure-portalen och när du har laddat upp metadata fylls nedanstående värden i automatiskt i automatiskt och klickar sedan på **NÄSTA**.
+6. I **alternativ A: Ladda upp XML-filen**laddar du upp **XML-** filen med federationsmetadata som du laddade ned från Azure Portal och efter att ha laddat ned metadata, fylls nedanstående värden i automatiskt och sedan på **Nästa**.
 
     ![Choosefile](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
 
@@ -154,7 +154,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     ![Testet](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_test.png)
 
-8. Klicka på **SPARA**.
+8. Klicka på **Spara**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -164,7 +164,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -174,7 +174,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -203,7 +203,7 @@ I det här avsnittet ska du göra det möjligt för Britta Simon att använda en
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -230,13 +230,13 @@ När det gäller Cisco Umbrella sker etablering manuellt.
 
     c. Välj din roll från **Välj delegerad administratörsroll**.
   
-    d. I fältet **E-postadress** anger du e-postadressen till användare som **\@brittasimon contoso.com**.
+    d. I fältet **e-postadress** anger du EmailAddress för den användare som **brittasimon\@contoso.com**.
 
     e. I fältet **Lösenord** anger du ditt lösenord.
 
     f. I fältet **Bekräfta lösenord** anger du ditt lösenord igen.
 
-    g. Klicka på **SKAPA**.
+    g. Klicka på **skapa**.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
@@ -248,6 +248,6 @@ När du klickar på Cisco Umbrella-panelen i åtkomstpanelen bör du automatiskt
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

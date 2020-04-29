@@ -1,266 +1,266 @@
 ---
-title: Evenemangslista för Azure Service Fabric
-description: Omfattande lista över händelser som tillhandahålls av Azure Service Fabric för att övervaka kluster.
+title: Händelse lista för Azure Service Fabric
+description: En omfattande lista med händelser från Azure Service Fabric som hjälper dig att övervaka kluster.
 author: srrengar
 ms.topic: reference
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: e69b407bc7d58a83616daa44272ec008ccff9fad
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258543"
 ---
-# <a name="list-of-service-fabric-events"></a>Lista över evenemang för service fabric 
+# <a name="list-of-service-fabric-events"></a>Lista över Service Fabric händelser 
 
-Service Fabric exponerar en primär uppsättning klusterhändelser för att informera dig om status för klustret som [Service Fabric Events](service-fabric-diagnostics-events.md). Dessa baseras på åtgärder som utförs av Service Fabric på dina noder och dina kluster- eller hanteringsbeslut som fattas av en klusterägare/-operatör. Dessa händelser kan nås genom att konfigurera på flera olika sätt, till exempel konfigurera [Azure Monitor-loggar med klustret](service-fabric-diagnostics-oms-setup.md)eller fråga [EventStore](service-fabric-diagnostics-eventstore.md). På Windows-datorer matas dessa händelser in i EventLog – så att du kan se Service Fabric-händelser i Loggboken. 
+Service Fabric visar en primär uppsättning kluster händelser som informerar dig om klustrets status som [Service Fabric händelser](service-fabric-diagnostics-events.md). De är baserade på åtgärder som utförs av Service Fabric på noderna och ditt kluster eller hanterings beslut från en kluster ägare/-operatör. Dessa händelser kan nås genom att konfigurera på ett antal sätt, t. ex. Konfigurera [Azure Monitor loggar med klustret](service-fabric-diagnostics-oms-setup.md)eller fråga [EventStore](service-fabric-diagnostics-eventstore.md). På Windows-datorer matas de här händelserna in i EventLog – så att du kan se Service Fabric händelser i Loggboken. 
 
-Här är några egenskaper hos dessa händelser
-* Varje händelse är knuten till en viss entitet i klustret, t.ex.
-* Varje händelse innehåller en uppsättning vanliga fält: EventInstanceId, EventName och Kategori.
-* Varje händelse innehåller fält som binder händelsen tillbaka till den entitet den är associerad med. Till exempel skulle applicationcreated händelsen har fält som identifierar namnet på det program som skapats.
-* Händelser är strukturerade på ett sådant sätt att de kan konsumeras i en mängd olika verktyg för att göra ytterligare analys. Dessutom definieras relevant information för en händelse som separata egenskaper i motsats till en lång sträng. 
-* Händelser skrivs av olika delsystem i Service Fabric identifieras av Source(Task) nedan. Mer information finns på dessa delsystem i [Service Fabric Architecture](service-fabric-architecture.md) och Service Fabric Technical [Overview](service-fabric-technical-overview.md).
+Här följer några egenskaper för dessa händelser
+* Varje händelse är kopplad till en specifik entitet i klustret, t. ex. program, tjänst, nod, replik.
+* Varje händelse innehåller en uppsättning gemensamma fält: EventInstanceId, EventName och Category.
+* Varje händelse innehåller fält som binder tillbaka händelsen till den entitet som den är kopplad till. Till exempel skulle ApplicationCreated-händelsen ha fält som identifierar namnet på programmet som skapats.
+* Händelser är strukturerade på ett sådant sätt att de kan användas i en rad olika verktyg för ytterligare analys. Dessutom definieras relevant information för en händelse som separata egenskaper i stället för en lång sträng. 
+* Händelser skrivs av olika del system i Service Fabric identifieras av källan (aktivitet) nedan. Mer information finns i dessa under system i [Service Fabric arkitektur](service-fabric-architecture.md) och [Service Fabric teknisk översikt](service-fabric-technical-overview.md).
 
-Här är en lista över dessa Service Fabric-händelser ordnade efter entitet.
+Här är en lista över dessa Service Fabric händelser ordnade efter enhet.
 
 ## <a name="cluster-events"></a>Klusterhändelser
 
-**Klusteruppgraderingshändelser**
+**Kluster uppgraderings händelser**
 
-Mer information om klusteruppgraderingar finns [här](service-fabric-cluster-upgrade-windows-server.md).
+Mer information om kluster uppgraderingar hittar du [här](service-fabric-cluster-upgrade-windows-server.md).
 
-| EventId (på)EventId ) | Namn | Kategori | Beskrivning |Källa (uppgift) | Nivå | 
+| EventId | Name | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | --- | --- | --- | --- | 
-| 29627 | ClusterUpgradeStarted | Uppgradera | En klusteruppgradering har startat | CM | Information |
-| 29628 | ClusterUpgradeCompleted | Uppgradera | En klusteruppgradering har slutförts | CM | Information | 
-| 29629 | ClusterUpgradeRollbackStarted | Uppgradera | En klusteruppgradering har börjat återställas  | CM | Varning | 
-| 29630 | ClusterUpgradeRollbackKomsten | Uppgradera | En klusteruppgradering har slutförts | CM | Varning | 
-| 29631 | ClusterUpgradeDomainCompleted | Uppgradera | En uppgraderingsdomän har uppgraderats under en klusteruppgradering | CM | Information | 
+| 29627 | ClusterUpgradeStarted | Uppgradera | En kluster uppgradering har startat | CM | Information |
+| 29628 | ClusterUpgradeCompleted | Uppgradera | En kluster uppgradering har slutförts | CM | Information | 
+| 29629 | ClusterUpgradeRollbackStarted | Uppgradera | En kluster uppgradering har börjat återställas  | CM | Varning | 
+| 29630 | ClusterUpgradeRollbackCompleted | Uppgradera | En kluster uppgradering har återställts | CM | Varning | 
+| 29631 | ClusterUpgradeDomainCompleted | Uppgradera | Uppgraderingen av en uppgraderings domän har avslut ATS under en kluster uppgradering | CM | Information | 
 
-## <a name="node-events"></a>Nodhändelser
+## <a name="node-events"></a>Node-händelser
 
-**Livscykelhändelser för nod** 
+**Händelse för nodens livs cykel** 
 
-| EventId (på)EventId ) | Namn | Kategori | Beskrivning |Källa (uppgift) | Nivå |
+| EventId | Name | Kategori | Beskrivning |Källa (aktivitet) | Nivå |
 | --- | --- | ---| --- | --- | --- | 
-| 18602 | NodeDeactivateCompleted | Tillståndstransition | Inaktiveringen av en nod har slutförts | FM | Information | 
-| 18603 | NodUp | Tillståndstransition | Klustret har upptäckt att en nod har startats | FM | Information | 
-| 18604 | NodeDown | Tillståndstransition | Klustret har upptäckt att en nod har stängts av. Under en omstart av noden visas en NodeDown-händelse följt av en NodeUp-händelse |  FM | Fel | 
-| 18605 | NodeAddedToCluster | Tillståndstransition |  En ny nod har lagts till i klustret och Service Fabric kan distribuera program till den här noden | FM | Information | 
-| 18606 | NodTa bort frånCluster | Tillståndstransition |  En nod har tagits bort från klustret. Service Fabric distribuerar inte längre program till den här noden | FM | Information | 
-| 18607 | NodeDeactivateStarted | Tillståndstransition |  Inaktivering av en nod har startat | FM | Information | 
-| 25621 | NodeOpenSucceeded | Tillståndstransition |  En nod har startats | FabricNod | Information | 
-| 25622 | NodeOpenFailed | Tillståndstransition |  Det gick inte att starta en nod och ansluta till ringen | FabricNod | Fel | 
-| 25624 | NodSluten | Tillståndstransition |  En nod har stängts av | FabricNod | Information | 
-| 25626 | NodeAborted | Tillståndstransition |  En nod har stängts av | FabricNod | Fel | 
+| 18602 | NodeDeactivateCompleted | Malltypen statetransition | Inaktive ringen av en nod har slutförts | FM | Information | 
+| 18603 | NodeUp | Malltypen statetransition | Klustret har upptäckt att en nod har startat | FM | Information | 
+| 18604 | NodeDown | Malltypen statetransition | Klustret har upptäckt att en nod har avslut ATS. Under en omstart av en nod visas en NodeDown-händelse följt av en NodeUp-händelse |  FM | Fel | 
+| 18605 | NodeAddedToCluster | Malltypen statetransition |  En ny nod har lagts till i klustret och Service Fabric kan distribuera program till den här noden | FM | Information | 
+| 18606 | NodeRemovedFromCluster | Malltypen statetransition |  En nod har tagits bort från klustret. Service Fabric kommer inte längre att distribuera program till den här noden | FM | Information | 
+| 18607 | NodeDeactivateStarted | Malltypen statetransition |  Inaktive ring av en nod har startat | FM | Information | 
+| 25621 | NodeOpenSucceeded | Malltypen statetransition |  En nod har startats | FabricNode | Information | 
+| 25622 | NodeOpenFailed | Malltypen statetransition |  En nod kunde inte starta och ansluta till ringen | FabricNode | Fel | 
+| 25624 | NodeClosed | Malltypen statetransition |  En nod har stängts av | FabricNode | Information | 
+| 25626 | NodeAborted | Malltypen statetransition |  En nod har avslut ATS på ett städat sätt | FabricNode | Fel | 
 
-## <a name="application-events"></a>Programhändelser
+## <a name="application-events"></a>Program händelser
 
-**Livscykelhändelser för program**
+**Livs cykel händelser för program**
 
-| EventId (på)EventId ) | Namn | Kategori | Beskrivning |Källa (uppgift) | Nivå | 
+| EventId | Name | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | --- | --- | --- | --- | 
-| 29620 | ApplicationCreated | Livscykel | Ett nytt program har skapats | CM | Information | 
-| 29625 | ApplicationDeleted | Livscykel | Ett befintligt program har tagits bort | CM | Information | 
-| 23083 | ApplicationProcessExited | Livscykel | En process i ett program har avslutats | Värd | Information | 
+| 29620 | ApplicationCreated | – | Ett nytt program har skapats | CM | Information | 
+| 29625 | ApplicationDeleted | – | Ett befintligt program har tagits bort | CM | Information | 
+| 23083 | ApplicationProcessExited | – | En process i ett program har avslut ATS | Värd | Information | 
 
-**Programuppgraderingshändelser**
+**Program uppgraderings händelser**
 
-Mer information om programuppgraderingar finns [här](service-fabric-application-upgrade.md).
+Mer information om program uppgraderingar hittar du [här](service-fabric-application-upgrade.md).
 
-| EventId (på)EventId ) | Namn | Kategori | Beskrivning |Källa (uppgift) | Nivå | 
+| EventId | Name | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | ---| --- | --- | --- | 
-| 29621 | ApplicationUpgradeStarted | Uppgradera | En programuppgradering har startat | CM | Information | 
-| 29622 | ApplicationUpgradeCompleted | Uppgradera | En programuppgradering har slutförts | CM | Information | 
-| 29623 | ApplicationUpgradeRollbackStarted | Uppgradera | En programuppgradering har börjat återställas |CM | Varning | 
-| 29624 | ApplicationUpgradeRollbackCompleted | Uppgradera | En programuppgradering har slutförts | CM | Varning | 
-| 29626 | ApplicationUpgradeDomainCompleted | Uppgradera | En uppgraderingsdomän har uppgraderats under en programuppgradering | CM | Information | 
+| 29621 | ApplicationUpgradeStarted | Uppgradera | En program uppgradering har startat | CM | Information | 
+| 29622 | ApplicationUpgradeCompleted | Uppgradera | En program uppgradering har slutförts | CM | Information | 
+| 29623 | ApplicationUpgradeRollbackStarted | Uppgradera | En program uppgradering har börjat återställas |CM | Varning | 
+| 29624 | ApplicationUpgradeRollbackCompleted | Uppgradera | En program uppgradering har slutfört återställning | CM | Varning | 
+| 29626 | ApplicationUpgradeDomainCompleted | Uppgradera | En uppgraderings domän har avslutat uppgraderingen under en program uppgradering | CM | Information | 
 
-## <a name="service-events"></a>Servicehändelser
+## <a name="service-events"></a>Tjänst händelser
 
-**Livscykelhändelser för tjänsten**
+**Tjänste livs cykel händelser**
 
-| EventId (på)EventId ) | Namn | Kategori | Beskrivning |Källa (uppgift) | Nivå | 
+| EventId | Name | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | ---| --- | --- | --- |
-| 18657 | ServiceSkapad | Livscykel | En ny tjänst skapades | FM | Information | 
-| 18658 | ServiceDelerad | Livscykel | En befintlig tjänst har tagits bort | FM | Information | 
+| 18657 | ServiceCreated | – | En ny tjänst har skapats | FM | Information | 
+| 18658 | ServiceDeleted | – | En befintlig tjänst har tagits bort | FM | Information | 
 
-## <a name="partition-events"></a>Partitionshändelser
+## <a name="partition-events"></a>Partitionera händelser
 
-**Partition flytta händelser**
+**Flytta händelser för partition**
 
-| EventId (på)EventId ) | Namn | Kategori | Beskrivning |Källa (uppgift) | Nivå | 
+| EventId | Name | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | ---| --- | --- | --- |
-| 18940 | PartitionRekonfigurerad | Livscykel | En omkonfiguration av partitionen har slutförts | RA | Information | 
+| 18940 | PartitionReconfigured | – | En omkonfiguration av partitionen har slutförts | RA | Information | 
 
-## <a name="replica-events"></a>Replikhändelser
+## <a name="replica-events"></a>Replik händelser
 
-**Händelser för repliklivscykeln**
+**Händelser för replik livs cykel**
 
-| EventId (på)EventId ) | Namn | Kategori | Beskrivning |Källa (uppgift) | Nivå |
+| EventId | Name | Kategori | Beskrivning |Källa (aktivitet) | Nivå |
 | --- | --- | ---| --- | --- | --- |
-| 61701 | ReliableDictionaryÖppnad | Livscykel | Tillförlitlig ordlista har öppnats | DistributedDictionary | Information |
-| 61702 | ReliableDictionaryClosed | Livscykel | Tillförlitlig ordlista har stängts | DistributedDictionary | Information |
-| 61703 | ReliableDictionaryCheckpointRecovered | Livscykel | Tillförlitlig ordbok har återfått sin kontrollpunkt | DistributedDictionary | Information |
-| 61704 | ReliableDictionaryCheckpointFilesSent | Livscykel | Repliken har skickat tillförlitliga ordlistas kontrollpunktsfiler | DistributedDictionary | Information |
-| 61705 | ReliableDictionaryCheckpointFilesKom igen | Livscykel | Repliken har fått tillförlitliga ordlistas kontrollpunktsfiler | DistributedDictionary | Information |
-| 61963 | PålitligqueueÖppnad | Livscykel | Tillförlitlig kö har öppnats | DistributedQueue | Information |
-| 61964 | ReliableQueueClosed | Livscykel | Tillförlitlig kö har stängts | DistributedQueue | Information |
-| 61965 | ReliableQueueCheckpointRecovered | Livscykel | Tillförlitlig kö har återställt sin kontrollpunkt | DistributedQueue | Information |
-| 61966 | ReliableQueueCheckpointFilesSent | Livscykel | Repliken har skickat tillförlitliga kökontrollpunkter | DistributedQueue | Information |
-| 63647 | ReliableQueueCheckpointFilesKom igen | Livscykel | Repliken har tagit emot tillförlitliga kökontrollpunkter | DistributedQueue | Information |
-| 63648 | ReliableConcurrentQueueÖppnad | Livscykel | Tillförlitlig samtidig kö har öppnats | ReliableConcurrentQueue | Information |
-| 63649 | ReliableConcurrentQueueClosed | Livscykel | Tillförlitlig samtidig kö har stängts | ReliableConcurrentQueue | Information |
-| 63650 | ReliableConcurrentQueueCheckpointRecovered | Livscykel | Tillförlitlig samtidig kö har återställt sin kontrollpunkt | ReliableConcurrentQueue | Information |
-| 61687 | TStoreError (TStoreError) | Fel | Tillförlitlig samling har fått ett oväntat fel | TStore (på ett sätt) | Fel |
-| 63831 | PrimaryFullCopyInitiated | Livscykel | Primär replik har initierat en fullständig kopia | TReplicator (TReplicator) | Information |
-| 63832 | PrimaryPartialCopyInitiated PrimärPartialCopyInitiated PrimärPartialCopyInitiated PrimärParti | Livscykel | Primär replik har initierat en partiell kopia | TReplicator (TReplicator) | Information |
-| 16831 | BuildIdleReplicaStarted | Livscykel | Primär replik har börjat bygga inaktiv replik | Replikering | Information |
-| 16832 | BuildIdleReplicaCompleted | Livscykel | Den primära repliken har slutfört byggrepliken | Replikering | Information |
-| 16833 | BuildIdleReplicaFailed | Livscykel | Primär replik har misslyckats med att bygga inaktiv replik | Replikering | Varning |
-| 16834 | PrimaryReplicationQueueFull | Hälsa | Replikeringskön för primär replikering är full | Replikering | Varning |
-| 16835 | PrimaryReplicationQueueVarning | Hälsa | Replikeringskön för primär replikering är nära full | Replikering | Varning |
-| 16836 | PrimaryReplicationQueueWarningMitigated | Hälsa | Replikeringskö för primär repliker är okej | Replikering | Information |
-| 16837 | SecondaryReplicationQueueFull | Hälsa | Replikeringskön för sekundär replikering är full | Replikering | Varning |
-| 16838 | SekundärReplicationQueueVarning | Hälsa | Replikeringskön för sekundär replikering är nära full | Replikering | Varning |
-| 16839 | SecondaryReplicationQueueWarningMitigated | Hälsa | Replikeringskö för sekundär repliker är okej | Replikering | Information |
-| 16840 | PrimärFaultedSlowSecondary | Hälsa | Primär replik har fel en långsam sekundär replik | Replikering | Varning |
-| 16841 | ReplikatorFaulted | Hälsa | Repliken har fel | Replikering | Varning |
+| 61701 | ReliableDictionaryOpened | – | En tillförlitlig ord lista har öppnats | DistributedDictionary | Information |
+| 61702 | ReliableDictionaryClosed | – | Tillförlitlig ord lista har stängts | DistributedDictionary | Information |
+| 61703 | ReliableDictionaryCheckpointRecovered | – | En tillförlitlig ord lista har återställt kontroll punkten | DistributedDictionary | Information |
+| 61704 | ReliableDictionaryCheckpointFilesSent | – | Repliken har skickat en tillförlitlig ord lista med Checkpoint-filer | DistributedDictionary | Information |
+| 61705 | ReliableDictionaryCheckpointFilesReceived | – | Repliken har tagit emot en tillförlitlig ord lista med Checkpoint-filer | DistributedDictionary | Information |
+| 61963 | ReliableQueueOpened | – | Reliable Queue har öppnats | DistributedQueue | Information |
+| 61964 | ReliableQueueClosed | – | Den Reliable kön har stängts | DistributedQueue | Information |
+| 61965 | ReliableQueueCheckpointRecovered | – | Den tillförlitliga kön har återställt kontroll punkten | DistributedQueue | Information |
+| 61966 | ReliableQueueCheckpointFilesSent | – | Repliken har skickat en tillförlitlig kö med kontroll punkts filer | DistributedQueue | Information |
+| 63647 | ReliableQueueCheckpointFilesReceived | – | Repliken har tagit emot en tillförlitlig kö med Checkpoint-filer | DistributedQueue | Information |
+| 63648 | ReliableConcurrentQueueOpened | – | Den tillförlitliga samtidiga kön har öppnats | ReliableConcurrentQueue | Information |
+| 63649 | ReliableConcurrentQueueClosed | – | Den tillförlitliga samtidiga kön har stängts | ReliableConcurrentQueue | Information |
+| 63650 | ReliableConcurrentQueueCheckpointRecovered | – | Den tillförlitliga samtidiga kön har återställt kontroll punkten | ReliableConcurrentQueue | Information |
+| 61687 | TStoreError | Fel | En tillförlitlig samling fick ett oväntat fel | TStore | Fel |
+| 63831 | PrimaryFullCopyInitiated | – | Den primära repliken har initierat en fullständig kopia | TReplicator | Information |
+| 63832 | PrimaryPartialCopyInitiated | – | Den primära repliken har initierat en partiell kopia | TReplicator | Information |
+| 16831 | BuildIdleReplicaStarted | – | Den primära repliken har börjat skapa en inaktiv replik | Replikering | Information |
+| 16832 | BuildIdleReplicaCompleted | – | Den primära repliken har slutfört skapandet av inaktiv replik | Replikering | Information |
+| 16833 | BuildIdleReplicaFailed | – | Den primära repliken har inte kunnat skapa en inaktiv replik | Replikering | Varning |
+| 16834 | PrimaryReplicationQueueFull | Hälsa | Den primära replikens transaktionskö är full | Replikering | Varning |
+| 16835 | PrimaryReplicationQueueWarning | Hälsa | Den primära replikens transaktionskö är nästan full | Replikering | Varning |
+| 16836 | PrimaryReplicationQueueWarningMitigated | Hälsa | Den primära replikens transaktionskö är OK | Replikering | Information |
+| 16837 | SecondaryReplicationQueueFull | Hälsa | Den sekundära replikens transaktionskö är full | Replikering | Varning |
+| 16838 | SecondaryReplicationQueueWarning | Hälsa | Den sekundära replikens transaktionskö är nästan full | Replikering | Varning |
+| 16839 | SecondaryReplicationQueueWarningMitigated | Hälsa | Den sekundära replikens replikeringsfil är OK | Replikering | Information |
+| 16840 | PrimaryFaultedSlowSecondary | Hälsa | Den primära repliken har trasigt en långsam sekundär replik | Replikering | Varning |
+| 16841 | ReplicatorFaulted | Hälsa | Repliken har fel | Replikering | Varning |
 
-## <a name="container-events"></a>Containerhändelser
+## <a name="container-events"></a>Container händelser
 
-**Livscykelhändelser för behållare** 
+**Livs cykel händelser för behållare** 
 
-| EventId (på)EventId ) | Namn | Beskrivning |Källa (uppgift) | Nivå | Version |
+| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
-| 23074 | Behållareaktiverad | En behållare har startat | Värd | Information | 1 |
+| 23074 | ContainerActivated | En behållare har startat | Värd | Information | 1 |
 | 23075 | ContainerDeactivated | En behållare har stoppats | Värd | Information | 1 |
-| 23082 | BehållareExiterad | En behållare har avslutats - Kontrollera flaggan Oväntad bestämning | Värd | Information | 1 |
+| 23082 | ContainerExited | En behållare har avslut ATS-kontrol lera flaggan UnexpectedTermination | Värd | Information | 1 |
 
-## <a name="health-reports"></a>Hälsorapporter
+## <a name="health-reports"></a>Hälso rapporter
 
-[Service Fabric Health Model](service-fabric-health-introduction.md) ger en rik, flexibel och utökningsbar hälsoutvärdering och rapportering. Med start av Service Fabric version 6.2 skrivs hälsodata som plattformshändelser för att tillhandahålla historiska hälsouppgifter. För att hålla volymen av hälsohändelser låga skriver vi bara följande som Service Fabric-händelser:
+[Service Fabric hälso modellen](service-fabric-health-introduction.md) innehåller en omfattande, flexibel och utöknings bar hälso utvärdering och rapportering. Från Service Fabric version 6,2 är hälso data skrivna som plattforms händelser för att tillhandahålla historiska hälso tillstånd. För att hålla volymen av hälso tillstånds händelser låg skriver vi bara följande som Service Fabric händelser:
 
-* Alla `Error` `Warning` eller hälsorapporter
-* `Ok`hälsorapporter under övergångar
-* När `Error` en `Warning` eller hälsohändelse upphör att gälla. Detta kan användas för att avgöra hur länge en entitet var felaktig
+* Alla `Error` eller `Warning` hälso rapporter
+* `Ok`hälso rapporter vid över gångar
+* När en `Error` eller `Warning` hälso tillstånds händelse upphör att gälla. Detta kan användas för att avgöra hur länge en enhet var felfri
 
-**Klusterhälsorapporthändelser**
+**Hälso rapport händelser i kluster**
 
-| EventId (på)EventId ) | Namn | Beskrivning |Källa (uppgift) | Nivå | Version |
+| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | --- | --- | --- | --- |
-| 54428 | ClusterNewHealthReport | En ny klusterhälsorapport finns tillgänglig | Hm | Information | 1 |
-| 54437 | ClusterHealthReportExpirerad | En befintlig klusterhälsorapport har upphört att gälla | Hm | Information | 1 |
+| 54428 | ClusterNewHealthReport | Det finns en ny kluster hälso rapport | IGNERINGSALGORITM | Information | 1 |
+| 54437 | ClusterHealthReportExpired | En befintlig hälso rapport för klustret har upphört att gälla | IGNERINGSALGORITM | Information | 1 |
 
-**Händelser i nodrapport**
+**Händelser för nodens hälso rapport**
 
-| EventId (på)EventId ) | Namn | Beskrivning |Källa (uppgift) | Nivå | Version |
+| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
-| 54423 | NodeNewHealthReport | En ny nodhälsorapport är tillgänglig | Hm | Information | 1 |
-| 54432 | NodeHealthReportExpirerad | En befintlig nodhälsorapport har upphört att gälla | Hm | Information | 1 |
+| 54423 | NodeNewHealthReport | En ny hälso rapport för noden är tillgänglig | IGNERINGSALGORITM | Information | 1 |
+| 54432 | NodeHealthReportExpired | En befintlig hälso rapport för noden har upphört att gälla | IGNERINGSALGORITM | Information | 1 |
 
-**Hälsorapporthändelser för program**
+**Händelser för program hälso rapport**
 
-| EventId (på)EventId ) | Namn | Beskrivning |Källa (uppgift) | Nivå | Version |
+| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
-| 54425 | ProgramNewHealthReport | En ny programhälsorapport har skapats. Detta gäller odeployed applikationer. | Hm | Information | 1 |
-| 54426 | DistribueradApplicationNewHealthReport | En ny distribuerad programhälsorapport har skapats | Hm | Information | 1 |
-| 54427 | DistribueradServicePackageNewHealthReport | En ny distribuerad hälsorapport för tjänsten har skapats | Hm | Information | 1 |
-| 54434 | ApplicationHealthReportExpirerad | En befintlig programhälsorapport har upphört att gälla | Hm | Information | 1 |
-| 54435 | DistribuerasApplicationHealthReportExpirerad | En befintlig hälsorapport för distribuerade program har upphört att gälla | Hm | Information | 1 |
-| 54436 | DistribueradServicePackageHealthReportExpirerad | En befintlig tjänsthälsorapport har upphört att gälla | Hm | Information | 1 |
+| 54425 | ApplicationNewHealthReport | En ny program hälso rapport har skapats. Detta är för program som inte har distribuerats. | IGNERINGSALGORITM | Information | 1 |
+| 54426 | DeployedApplicationNewHealthReport | En ny distribuerad program hälso rapport skapades | IGNERINGSALGORITM | Information | 1 |
+| 54427 | DeployedServicePackageNewHealthReport | En ny distribuerad tjänst hälso rapport skapades | IGNERINGSALGORITM | Information | 1 |
+| 54434 | ApplicationHealthReportExpired | En befintlig program hälso rapport har upphört att gälla | IGNERINGSALGORITM | Information | 1 |
+| 54435 | DeployedApplicationHealthReportExpired | En befintlig distribuerad program hälso rapport har upphört att gälla | IGNERINGSALGORITM | Information | 1 |
+| 54436 | DeployedServicePackageHealthReportExpired | En befintlig distribuerad tjänst hälso rapport har upphört att gälla | IGNERINGSALGORITM | Information | 1 |
 
-**Hälsorapporthändelser för tjänster**
+**Händelser för service Health-rapport**
 
-| EventId (på)EventId ) | Namn | Beskrivning |Källa (uppgift) | Nivå | Version |
+| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
-| 54424 | ServiceNewHealthReport | En ny hälsorapport för tjänsten har skapats | Hm | Information | 1 |
-| 54433 | ServiceHealthReportExpirerad | En befintlig hälsorapport för tjänsten har upphört att gälla | Hm | Information | 1 |
+| 54424 | ServiceNewHealthReport | En ny tjänst hälso rapport skapades | IGNERINGSALGORITM | Information | 1 |
+| 54433 | ServiceHealthReportExpired | En befintlig tjänst hälso rapport har upphört att gälla | IGNERINGSALGORITM | Information | 1 |
 
-**Händelser i hälsorapport för partitionering**
+**Partitionera hälso rapport händelser**
 
-| EventId (på)EventId ) | Namn | Beskrivning |Källa (uppgift) | Nivå | Version |
+| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
-| 54422 | PartitionNewHealthReport | En ny hälsorapport för partitionen har skapats | Hm | Information | 1 |
-| 54431 | PartitionHealthReportExpirerad | En befintlig hälsorapport för partitionen har upphört att gälla | Hm | Information | 1 |
+| 54422 | PartitionNewHealthReport | En ny hälso rapport för partition skapades | IGNERINGSALGORITM | Information | 1 |
+| 54431 | PartitionHealthReportExpired | En befintlig hälso rapport för partitionen har upphört att gälla | IGNERINGSALGORITM | Information | 1 |
 
-**Händelser i replikhälsorapport**
+**Hälso rapport händelser för replik**
 
-| EventId (på)EventId ) | Namn | Beskrivning |Källa (uppgift) | Nivå | Version |
+| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
-| 54429 | StatefulReplicaNewHealthReport | En tillståndskänslig replikhälsorapport har skapats | Hm | Information | 1 |
-| 54430 | StatslösInstanceNewHealthReport | En ny tillståndslös instanshälsarapport har skapats | Hm | Information | 1 |
-| 54438 | StatefulReplicaHealthReportExpirerad | En befintlig tillståndskänslig replikhälsorapport har upphört att gälla | Hm | Information | 1 |
-| 54439 | StatelessInstanceHealthReportExpired | En befintlig tillståndslös instanshälsorapport har upphört att gälla | Hm | Information | 1 |
+| 54429 | StatefulReplicaNewHealthReport | En hälso rapport för tillstånds känslig replik skapades | IGNERINGSALGORITM | Information | 1 |
+| 54430 | StatelessInstanceNewHealthReport | En ny tillstånds lös instans hälso rapport skapades | IGNERINGSALGORITM | Information | 1 |
+| 54438 | StatefulReplicaHealthReportExpired | En befintlig hälso rapport för tillstånds känslig replik har upphört att gälla | IGNERINGSALGORITM | Information | 1 |
+| 54439 | StatelessInstanceHealthReportExpired | En befintlig tillstånds lös instans hälso rapport har upphört att gälla | IGNERINGSALGORITM | Information | 1 |
 
-## <a name="chaos-testing-events"></a>Kaos testhändelser 
+## <a name="chaos-testing-events"></a>Kaos test händelser 
 
-**Kaos session händelser**
+**Kaos**
 
-| EventId (på)EventId ) | Namn | Beskrivning |Källa (uppgift) | Nivå | Version |
+| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
-| 50021 | KaosStartat | En Chaos-testsession har startat | Testbarhet | Information | 1 |
-| 50023 | KaosStoppad | En Chaos-testsession har stoppats | Testbarhet | Information | 1 |
+| 50021 | ChaosStarted | En kaos-testsession har startats | Testnings | Information | 1 |
+| 50023 | ChaosStopped | En kaos-testsession har stoppats | Testnings | Information | 1 |
 
-**Händelser för kaosnod**
+**Kaos Node-händelser**
 
-| EventId (på)EventId ) | Namn | Beskrivning |Källa (uppgift) | Nivå | Version |
+| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
-| 50033 | ChaosNodeRestartPlanerad | En nod har schemalagt att startas om som en del av en Chaos-testsession | Testbarhet | Information | 1 |
-| 50087 | ChaosNodeRestartCompleted | En nod har startats om som en del av en Chaos-testsession | Testbarhet | Information | 1 |
+| 50033 | ChaosNodeRestartScheduled | En nod har schemalagts för omstart som en del av en kaos-testsession | Testnings | Information | 1 |
+| 50087 | ChaosNodeRestartCompleted | En nod har avslutat omstarten som en del av en kaos-test-session | Testnings | Information | 1 |
 
-**Kaos programhändelser**
+**Kaos program händelser**
 
-| EventId (på)EventId ) | Namn | Beskrivning |Källa (uppgift) | Nivå | Version |
+| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
-| 50053 | ChaosCodePackageRestartPlanerad | En omstart av kodpaketet har schemalagts under en Chaos-testsession | Testbarhet | Information | 1 |
-| 50101 | ChaosCodePackageRestartCompleted | En omstart av kodpaketet har slutförts under en Chaos-testsession | Testbarhet | Information | 1 |
+| 50053 | ChaosCodePackageRestartScheduled | En omstart av kod paketet har schemalagts under en kaos-testsession | Testnings | Information | 1 |
+| 50101 | ChaosCodePackageRestartCompleted | En omstart av kod paketet har slutförts under en kaos-testsession | Testnings | Information | 1 |
 
-**Kaospartitionhändelser**
+**Kaos-partitionerings händelser**
 
-| EventId (på)EventId ) | Namn | Beskrivning |Källa (uppgift) | Nivå | Version |
+| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
-| 50069 | ChaosPartitionPrimaryMoveScheduled | En primär partition har schemalagt att flyttas som en del av en Chaos-testsession | Testbarhet | Information | 1 |
-| 50077 | ChaosPartitionSecondaryMoveScheduled | En sekundär partition har schemalagt att flyttas som en del av en Chaos-testsession | Testbarhet | Information | 1 |
-| 65003 | PartitionPrimaryMoveAnalysis | Den djupare analysen av den primära partitionsflytten är tillgänglig | Testbarhet | Information | 1 |
+| 50069 | ChaosPartitionPrimaryMoveScheduled | En primär partition har schemalagts för att flyttas som en del av en kaos-testsession | Testnings | Information | 1 |
+| 50077 | ChaosPartitionSecondaryMoveScheduled | En sekundär partition har schemalagts för att flyttas som en del av en kaos-testsession | Testnings | Information | 1 |
+| 65003 | PartitionPrimaryMoveAnalysis | Djupgående analysen av den primära partitionen flyttas är tillgänglig | Testnings | Information | 1 |
 
-**Kaosreplikhändelser**
+**Kaos replik händelser**
 
-| EventId (på)EventId ) | Namn | Beskrivning |Källa (uppgift) | Nivå | Version |
+| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
-| 50047 | ChaosReplicaRestartPlanerad | En omstart av repliken har schemalagts som en del av en Chaos-testsession | Testbarhet | Information | 1 |
-| 50051 | ChaosReplicaRemovalPlanerad | En borttagning av repliker har schemalagts som en del av en Chaos-testsession | Testbarhet | Information | 1 |
-| 50093 | ChaosReplicaRemovalCompleted | En borttagning av repliker har slutförts som en del av en Chaos-testsession | Testbarhet | Information | 1 |
+| 50047 | ChaosReplicaRestartScheduled | En replik omstart har schemalagts som en del av en kaos-testsession | Testnings | Information | 1 |
+| 50051 | ChaosReplicaRemovalScheduled | En replik borttagning har schemalagts som en del av en kaos-test-session | Testnings | Information | 1 |
+| 50093 | ChaosReplicaRemovalCompleted | En replik borttagning har slutförts som en del av en kaos-test-session | Testnings | Information | 1 |
 
-## <a name="other-events"></a>Andra evenemang
+## <a name="other-events"></a>Andra händelser
 
-**Korrelationshändelser**
+**Korrelations händelser**
 
-| EventId (på)EventId ) | Namn | Beskrivning |Källa (uppgift) | Nivå | Version |
+| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
-| 65011 | KorrelationOperational | En korrelation har upptäckts | Testbarhet | Information | 1 |
+| 65011 | CorrelationOperational | En korrelation har identifierats | Testnings | Information | 1 |
 
-## <a name="events-prior-to-version-62"></a>Händelser före version 6.2
+## <a name="events-prior-to-version-62"></a>Händelser före version 6,2
 
-Här är en omfattande lista över händelser som tillhandahålls av Service Fabric före version 6.2.
+Här är en omfattande lista över händelser som tillhandahålls av Service Fabric före version 6,2.
 
-| EventId (på)EventId ) | Namn | Källa (uppgift) | Nivå |
+| EventId | Name | Källa (aktivitet) | Nivå |
 | --- | --- | --- | --- |
-| 25620 | NodeOpening | FabricNod | Information |
-| 25621 | NodeOpenedSuccess | FabricNod | Information |
-| 25622 | NodeOpenedFailed | FabricNod | Information |
-| 25623 | NodClosing | FabricNod | Information |
-| 25624 | NodSluten | FabricNod | Information |
-| 25625 | NodeAborting (NodeAborting) | FabricNod | Information |
-| 25626 | NodeAborted | FabricNod | Information |
+| 25620 | NodeOpening | FabricNode | Information |
+| 25621 | NodeOpenedSuccess | FabricNode | Information |
+| 25622 | NodeOpenedFailed | FabricNode | Information |
+| 25623 | NodeClosing | FabricNode | Information |
+| 25624 | NodeClosed | FabricNode | Information |
+| 25625 | NodeAborting | FabricNode | Information |
+| 25626 | NodeAborted | FabricNode | Information |
 | 29627 | ClusterUpgradeStart | CM | Information |
 | 29628 | ClusterUpgradeComplete | CM | Information |
 | 29629 | ClusterUpgradeRollback | CM | Information |
 | 29630 | ClusterUpgradeRollbackComplete | CM | Information |
-| 29631 | ClusterUpgradeDomainKomplett | CM | Information |
-| 23074 | Behållareaktiverad | Värd | Information |
+| 29631 | ClusterUpgradeDomainComplete | CM | Information |
+| 23074 | ContainerActivated | Värd | Information |
 | 23075 | ContainerDeactivated | Värd | Information |
 | 29620 | ApplicationCreated | CM | Information |
 | 29621 | ApplicationUpgradeStart | CM | Information |
@@ -269,12 +269,12 @@ Här är en omfattande lista över händelser som tillhandahålls av Service Fab
 | 29624 | ApplicationUpgradeRollbackComplete | CM | Information |
 | 29625 | ApplicationDeleted | CM | Information |
 | 29626 | ApplicationUpgradeDomainComplete | CM | Information |
-| 18566 | ServiceSkapad | FM | Information |
-| 18567 | ServiceDelerad | FM | Information |
+| 18566 | ServiceCreated | FM | Information |
+| 18567 | ServiceDeleted | FM | Information |
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Få en översikt över [diagnostik i Service Fabric](service-fabric-diagnostics-overview.md)
-* Läs mer om EventStore i [Service Fabric Eventstore Översikt](service-fabric-diagnostics-eventstore.md)
-* Ändra konfigurationen för [Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) för att samla in fler loggar
-* [Konfigurera programinsikter](service-fabric-diagnostics-event-analysis-appinsights.md) för att se dina operativa kanalloggar
+* Läs mer om EventStore i [Service Fabric EventStore-översikt](service-fabric-diagnostics-eventstore.md)
+* Ändra [Azure-diagnostik](service-fabric-diagnostics-event-aggregation-wad.md) -konfigurationen för att samla in fler loggar
+* Konfigurera [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) för att se dina drifts kanal loggar

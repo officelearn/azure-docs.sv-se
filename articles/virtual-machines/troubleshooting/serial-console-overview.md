@@ -1,6 +1,6 @@
 ---
-title: Seriell konsol i Azure | Microsoft-dokument
-description: Med Azure Serial Console kan du ansluta till den virtuella datorn när SSH eller RDP inte är tillgängliga.
+title: Azures serie konsol | Microsoft Docs
+description: Med Azures serie konsol kan du ansluta till din virtuella dator när SSH eller RDP inte är tillgängliga.
 services: virtual-machines
 documentationcenter: ''
 author: asinn826
@@ -15,66 +15,66 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
 ms.openlocfilehash: 779bb88d15ea6c52f4399f17223b89916e22653d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79267019"
 ---
-# <a name="azure-serial-console"></a>Seriell konsol i Azure
+# <a name="azure-serial-console"></a>Azures serie konsol
 
-Seriekonsolen i Azure-portalen ger åtkomst till en textbaserad konsol för virtuella datorer (VIRTUELLA datorer) och virtuella datorskaleuppsättningsinstanser som kör antingen Linux eller Windows. Den här seriella anslutningen ansluter till seriell port för ttyS0 eller COM1 för den virtuella datorn eller skalningsuppsättningsinstansen för virtuella datorer, vilket ger åtkomst oberoende av nätverks- eller operativsystemtillstånd. Seriell konsol kan endast nås med hjälp av Azure-portalen och är endast tillåten för de användare som har en åtkomstroll som Deltagare eller högre till den virtuella datorn eller skalan för virtuella datorer.
+Serie konsolen i Azure Portal ger till gång till en textbaserad konsol för virtuella datorer och instanser av skalnings uppsättningar för virtuella datorer som kör Linux eller Windows. Den här seriella anslutningen ansluter till ttyS0 eller COM1 seriell port för den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans, vilket ger åtkomst oberoende av nätverket eller operativ systemets tillstånd. Det går bara att komma åt serie konsolen med hjälp av Azure Portal och tillåts bara för de användare som har åtkomst rollen deltagare eller högre till den virtuella datorn eller skalnings uppsättningen för den virtuella datorn.
 
-Seriekonsolen fungerar på samma sätt för virtuella datorer och skalningsuppsättningsinstanser för virtuella datorer och virtuella datorer. I det här dokumentet innehåller alla omnämnanden till virtuella datorer implicit infallna instanser av skalningsuppsättningar för virtuella datorer om inte annat anges.
+Serie konsolen fungerar på samma sätt för virtuella datorer och instanser av skalnings uppsättningar för virtuella datorer. I det här dokumentet kommer alla omnämnanden för virtuella datorer att implicit inkludera skalnings uppsättnings instanser för virtuella datorer om inget annat anges.
 
 > [!NOTE]
-> Seriekonsolen är vanligtvis tillgänglig i globala Azure-regioner och i offentlig förhandsversion i Azure Government. Det är ännu inte tillgängligt i Azure China-molnet.
+> Serie konsolen är allmänt tillgänglig i globala Azure-regioner och i offentlig för hands version i Azure Government. Den är ännu inte tillgänglig i Azure Kina-molnet.
 
-## <a name="prerequisites-to-access-the-azure-serial-console"></a>Förutsättningar för åtkomst till Azure Serial Console
-För att komma åt seriekonsolen på din vm- eller virtuella datorskalasuppsättningsinstans behöver du följande:
+## <a name="prerequisites-to-access-the-azure-serial-console"></a>Krav för att få åtkomst till Azures serie konsol
+Du behöver följande för att få åtkomst till serie konsolen på den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans:
 
 - Startdiagnostik måste vara aktiverat för den virtuella datorn
-- Ett användarkonto som använder lösenordsautentisering måste finnas inom den virtuella datorn. Du kan skapa en lösenordsbaserad användare med [återställningslösenordsfunktionen](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) för vm-åtkomsttillägget. Välj **Återställ lösenord** i avsnittet Support + **felsökning.**
-- Azure-kontot som använder Serial Console måste ha rollen Deltagare i [virtuell dator](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för både det virtuella datorn och [lagringskontot för startdiagnostik](boot-diagnostics.md)
+- Ett användar konto som använder lösenordsautentisering måste finnas i den virtuella datorn. Du kan skapa en lösenordsbaserad användare med funktionen [Återställ lösen ord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) för VM Access-tillägget. Välj **Återställ lösen ord** i avsnittet **support och fel sökning** .
+- Azure-kontot som använder serie konsolen måste ha [rollen virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för både den virtuella datorn och lagrings kontot för [startdiagnostik](boot-diagnostics.md)
 
 > [!NOTE]
-> Klassiska distributioner stöds inte. Den virtuella datorn eller skalningsgruppsinstansen för virtuella datorer måste använda distributionsmodellen för Azure Resource Manager.
+> Klassiska distributioner stöds inte. Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste använda Azure Resource Manager distributions modell.
 
-## <a name="get-started-with-the-serial-console"></a>Komma igång med seriekonsolen
-Seriekonsolen för virtuella datorer och skalningsuppsättning för virtuella datorer är endast tillgänglig via Azure-portalen:
+## <a name="get-started-with-the-serial-console"></a>Kom igång med serie konsolen
+Serie konsolen för virtuella datorer och skalnings uppsättningen för virtuella datorer kan bara nås via Azure Portal:
 
-### <a name="serial-console-for-virtual-machines"></a>Seriekonsol för virtuella datorer
-Seriekonsol för virtuella datorer är lika enkelt som att klicka på **Seriell konsol** i felsökningsavsnittet **Support +** i Azure-portalen.
-  1. Öppna [Azure-portalen](https://portal.azure.com).
+### <a name="serial-console-for-virtual-machines"></a>Serie konsol för Virtual Machines
+Serie konsolen för virtuella datorer är lika enkel som att klicka på **seriell konsol** i avsnittet **support och fel sökning** i Azure Portal.
+  1. Öppna [Azure Portal](https://portal.azure.com).
 
-  1. Navigera till **alla resurser** och välj en virtuell dator. Översiktssidan för den virtuella datorn öppnas.
+  1. Gå till **alla resurser** och välj en virtuell dator. Översikts sidan för den virtuella datorn öppnas.
 
-  1. Bläddra ned till avsnittet **Support + felsökning** och välj **Seriell konsol**. En ny ruta med seriekonsolen öppnas och startar anslutningen.
+  1. Rulla ned till avsnittet **support och fel sökning** och välj **seriell konsol**. Ett nytt fönster med serie konsolen öppnas och startar anslutningen.
 
-     ![Fönstret Linux Serial Console](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
+     ![Fönstret för seriella Linux-konsol](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
-### <a name="serial-console-for-virtual-machine-scale-sets"></a>Seriekonsol för skalningsuppsättningar för virtuella datorer
-Serial Console är tillgänglig för skalningsuppsättningar för virtuella datorer som är tillgängliga för varje instans inom skalningsuppsättningen. Du måste navigera till den enskilda instansen av en skalauppsättning för virtuella datorer innan du ser knappen **Seriell konsol.** Om skaluppsättningen för den virtuella datorn inte har aktiverat startdiagnostik, se till att du uppdaterar skaluppsättningsmodellen för virtuell dator för att aktivera startdiagnostik och uppgradera sedan alla instanser till den nya modellen för att komma åt seriell konsol.
-  1. Öppna [Azure-portalen](https://portal.azure.com).
+### <a name="serial-console-for-virtual-machine-scale-sets"></a>Serie konsol för Virtual Machine Scale Sets
+Serie konsolen är tillgänglig för skalnings uppsättningar för virtuella datorer, tillgängliga på varje instans i skalnings uppsättningen. Du måste gå till den enskilda instansen av en skalnings uppsättning för virtuella datorer innan du ser knappen **seriell konsol** . Om den virtuella datorns skalnings uppsättning inte har startdiagnostik aktive rad, se till att du uppdaterar modell för skalnings uppsättning för virtuella datorer för att aktivera startdiagnostik, och uppgradera sedan alla instanser till den nya modellen för att få åtkomst till serie konsolen.
+  1. Öppna [Azure Portal](https://portal.azure.com).
 
-  1. Navigera till **alla resurser** och välj en skaluppsättning för virtuella datorer. Översiktssidan för skaluppsättningen för den virtuella datorn öppnas.
+  1. Gå till **alla resurser** och välj en skalnings uppsättning för virtuell dator. Översikts sidan för skalnings uppsättningen för den virtuella datorn öppnas.
 
   1. Navigera till **instanser**
 
-  1. Välj en skalningsuppsättningsinstans för virtuell dator
+  1. Välj en instans för skalnings uppsättning för virtuell dator
 
-  1. Välj **Seriell konsol**i avsnittet **Support + felsökning** . En ny ruta med seriekonsolen öppnas och startar anslutningen.
+  1. I avsnittet **support och fel sökning** väljer du **seriell konsol**. Ett nytt fönster med serie konsolen öppnas och startar anslutningen.
 
-     ![Linux virtuell maskin skala som Serial Console](./media/virtual-machines-serial-console/vmss-start-console.gif)
+     ![Serie konsol för skalnings uppsättning för virtuella Linux-datorer](./media/virtual-machines-serial-console/vmss-start-console.gif)
 
-## <a name="advanced-uses-for-serial-console"></a>Avancerade användningsområden för seriekonsol
-Förutom konsolåtkomst till din virtuella dator kan du även använda Azure Serial Console för följande:
-* Skicka ett [kommando för systembegäran till den virtuella datorn](./serial-console-nmi-sysrq.md)
-* Skicka ett [icke-maskerbart avbrott till din virtuella dator](./serial-console-nmi-sysrq.md)
-* Graciöst [starta om eller kraftfullt power-cykling din VM](./serial-console-power-options.md)
+## <a name="advanced-uses-for-serial-console"></a>Avancerade användnings områden för serie konsolen
+Förutom konsol åtkomst till den virtuella datorn kan du också använda Azures serie konsol för följande:
+* Skicka ett [kommando för system begär Ande till din virtuella dator](./serial-console-nmi-sysrq.md)
+* Skickar ett [icke-maskbart avbrott till din virtuella dator](./serial-console-nmi-sysrq.md)
+* [Starta om datorn eller framtvinga en omstart av den virtuella](./serial-console-power-options.md) datorn
 
 
 ## <a name="next-steps"></a>Nästa steg
-Ytterligare serial konsoldokumentation finns i sidofältet.
-- Mer information finns tillgänglig för [Serial Console för virtuella Linux-datorer](./serial-console-linux.md).
-- Mer information finns tillgänglig för [Seriekonsol för virtuella Windows-datorer](./serial-console-windows.md).
+Ytterligare dokumentation om serie konsolen finns på sid panelen.
+- Mer information finns i [serie konsolen för virtuella Linux-datorer](./serial-console-linux.md).
+- Mer information finns i [serie konsolen för virtuella Windows-datorer](./serial-console-windows.md).

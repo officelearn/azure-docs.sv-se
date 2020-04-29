@@ -1,6 +1,6 @@
 ---
-title: Översikt över transaktionsbearbetning i Azure Service Bus
-description: Den här artikeln ger dig en översikt över transaktionsbearbetning och skicka via-funktionen i Azure Service Bus.
+title: Översikt över transaktions bearbetning i Azure Service Bus
+description: Den här artikeln innehåller en översikt över transaktions bearbetning och funktionen Skicka via i Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -14,44 +14,44 @@ ms.workload: na
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 22744ecbced40b3195f4d047227b1e2a37228102
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79260909"
 ---
-# <a name="overview-of-service-bus-transaction-processing"></a>Översikt över bearbetning av Service Bus-transaktioner
+# <a name="overview-of-service-bus-transaction-processing"></a>Översikt över Service Bus transaktions bearbetning
 
-I den här artikeln beskrivs transaktionsfunktionerna i Microsoft Azure Service Bus. Mycket av diskussionen illustreras av [AMQP-transaktioner med servicebussprovet](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia). Den här artikeln är begränsad till en översikt över transaktionsbearbetning och *funktionen skicka via* i Service Bus, medan exemplet Med atomtransaktioner är bredare och mer komplext i omfattning.
+I den här artikeln beskrivs transaktions funktionerna i Microsoft Azure Service Bus. En stor del av diskussionen illustreras av [AMQP-transaktioner med Service Bus exemplet](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia). Den här artikeln är begränsad till en översikt över transaktions bearbetning och funktionen *Skicka via* i Service Bus, medan exemplet för atom transaktioner är bredare och mer komplext i omfånget.
 
-## <a name="transactions-in-service-bus"></a>Transaktioner i servicebuss
+## <a name="transactions-in-service-bus"></a>Transaktioner i Service Bus
 
-En *transaktion* grupperar två eller flera operationer tillsammans i ett *körningsomfång*. En sådan transaktion måste till sin natur säkerställa att alla transaktioner som tillhör en viss grupp av transaktioner antingen lyckas eller misslyckas gemensamt. I detta avseende fungerar transaktioner som en enhet, som ofta kallas *atomicitet*.
+En *transaktion* grupper två eller flera åtgärder tillsammans i ett *körnings område*. En sådan transaktion måste efter beskaffenhet säkerställa att alla åtgärder som hör till en specifik grupp av åtgärder antingen lyckas eller Miss lyckas gemensamt. I detta hänseende fungerar transaktionerna som en enhet, vilket ofta kallas *Atomicitet*.
 
-Service Bus är en transaktionsmeddelandemäklare och säkerställer transaktionsintegritet för alla interna åtgärder mot sina meddelandelager. Alla överföringar av meddelanden i Service Bus, till exempel att flytta meddelanden till en [kö för obeställbara meddelanden](service-bus-dead-letter-queues.md) eller automatisk [vidarebefordran](service-bus-auto-forwarding.md) av meddelanden mellan entiteter, är transaktionella. Om Service Bus accepterar ett meddelande har det redan lagrats och märkts med ett sekvensnummer. Från och med då är alla meddelandeöverföringar inom Service Bus samordnade åtgärder mellan entiteter och leder varken till förlust (källan lyckas och målet misslyckas) eller till duplicering (källan misslyckas och målet lyckas) av meddelandet.
+Service Bus är en transaktions meddelande Broker och säkerställer transaktions integriteten för alla interna åtgärder mot sina meddelande arkiv. Alla överföringar av meddelanden i Service Bus, till exempel att flytta meddelanden till en [kö för obeställbara](service-bus-dead-letter-queues.md) meddelanden eller [automatisk vidarebefordran](service-bus-auto-forwarding.md) av meddelanden mellan entiteter, är transaktionella. Om Service Bus accepterar ett meddelande har det redan lagrats och märkts med ett sekvensnummer. Från och med, är alla meddelande överföringar inom Service Bus koordinerade åtgärder över entiteter och kommer inte att leda till förlust (källan lyckas och målet Miss lyckas) eller för att duplicera (källan Miss lyckas och målet lyckas) för meddelandet.
 
-Service Bus stöder grupperingsåtgärder mot en enskild meddelandeenhet (kö, ämne, prenumeration) inom en transaktion. Du kan till exempel skicka flera meddelanden till en kö från ett transaktionsomfång, och meddelandena kommer bara att vara engagerade i köns logg när transaktionen har slutförts.
+Service Bus stöder grupperingsåtgärder mot en enskild meddelandeenhet (kö, ämne, prenumeration) inom en transaktion. Du kan till exempel skicka flera meddelanden till en kö inifrån ett transaktions omfång, och meddelandena skickas bara till köns logg när transaktionen har slutförts.
 
-## <a name="operations-within-a-transaction-scope"></a>Transaktioner inom ett transaktionsomfång
+## <a name="operations-within-a-transaction-scope"></a>Åtgärder inom ett transaktions omfång
 
-De åtgärder som kan utföras inom ett transaktionsomfång är följande:
+De åtgärder som kan utföras inom ett transaktions omfång är följande:
 
 * ** [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: Send, SendAsync, SendBatch, SendBatchAsync 
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Komplett, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Complete, CompleteAsync, Abandon, AbandonAsync, obeställbara meddelanden kön, DeadletterAsync, skjuta upp, DeferAsync, RenewLock, RenewLockAsync 
 
-Mottagningsåtgärder ingår inte, eftersom det antas att programmet hämtar meddelanden med hjälp av läget [ReceiveMode.PeekLock,](/dotnet/api/microsoft.azure.servicebus.receivemode) inuti vissa mottagningsloopar eller med en [OnMessage-motringning,](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) och först därefter öppnas ett transaktionsomfång för bearbetning av meddelandet.
+Receive-åtgärder ingår inte, eftersom det förutsätts att programmet hämtar meddelanden med hjälp av läget [PeekLock ReceiveMode. PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) , i vissa mottagnings slingor eller med ett [motringningen OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) -motanrop, och öppnar bara ett transaktions omfång för bearbetning av meddelandet.
 
-Dispositionen av meddelandet (fullständig, överge, död bokstav, skjuta upp) sker sedan inom ramen för, och beroende av, det totala resultatet av transaktionen.
+Dispositionen av meddelandet (fullständig, överge, obeställbara meddelanden, uppskjutning) sker inom omfånget för och är beroende av transaktionens övergripande resultat.
 
-## <a name="transfers-and-send-via"></a>Överföringar och "skicka via"
+## <a name="transfers-and-send-via"></a>Överföringar och "Skicka via"
 
-Om du vill aktivera transaktionsöverlämning av data från en kö till en behandlare och sedan till en annan kö stöder Service Bus *överföringar*. I en överföringsåtgärd skickar en avsändare först ett meddelande till en *överföringskö*och överföringskön flyttar omedelbart meddelandet till den avsedda målkön med samma robusta överföringsimplementering som funktionen för automatisk vidarebefordran är beroende av. Meddelandet har aldrig åtagit sig att överföra kön logg på ett sätt som det blir synligt för överföringskön konsumenter.
+Om du vill aktivera transaktionell överlämnande av data från en kö till en processor, och sedan till en annan kö, Service Bus stöder *överföringar*. I en överförings åtgärd skickar en sändare först ett meddelande till en *överförings kö*, och överförings kön flyttar omedelbart meddelandet till den avsedda målkön med samma robusta överförings implementering som funktionen för automatisk vidarebefordring förlitar sig på. Meddelandet allokeras aldrig till överförings köns logg på ett sätt som är synligt för överförings köns konsumenter.
 
-Kraften i den här transaktionsfunktionen blir uppenbar när själva överföringskön är källan till avsändarens indatameddelanden. Med andra ord kan Service Bus överföra meddelandet till målkön "via" överföringskön, när du utför en fullständig (eller skjuta upp, eller obeställd) åtgärd på indatameddelandet, allt i en atomåtgärd. 
+Kraften i denna transaktions funktion blir tydlig när själva överförings kön är källan till avsändarens indatameddelande. Med andra ord kan Service Bus överföra meddelandet till målkön "via" överförings kön, samtidigt som en fullständig (eller överskjutande eller obeställbara meddelanden) utförs i Indataporten, allt i en atomisk åtgärd. 
 
-### <a name="see-it-in-code"></a>Se den i kod
+### <a name="see-it-in-code"></a>Se det i kod
 
-Om du vill ställa in sådana överföringar skapar du en meddelandeavsändare som riktar sig till målkön via överföringskön. Du har också en mottagare som hämtar meddelanden från samma kö. Ett exempel:
+Om du vill konfigurera sådana överföringar skapar du en meddelande avsändare som är riktad mot målkön via överförings kön. Du har också en mottagare som hämtar meddelanden från samma kö. Ett exempel:
 
 ```csharp
 var connection = new ServiceBusConnection(connectionString);
@@ -60,7 +60,7 @@ var sender = new MessageSender(connection, QueueName);
 var receiver = new MessageReceiver(connection, QueueName);
 ```
 
-En enkel transaktion använder sedan dessa element, som i följande exempel. Om du vill referera till det fullständiga exemplet läser du [källkoden på GitHub:](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia)
+En enkel transaktion använder sedan dessa element, som i följande exempel. Om du vill referera till det fullständiga exemplet, referera till [käll koden på GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia):
 
 ```csharp
 var receivedMessage = await receiver.ReceiveAsync();
@@ -99,12 +99,12 @@ using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om servicebussköer finns i följande artiklar:
+I följande artiklar finns mer information om Service Bus köer:
 
-* [Så här använder du servicebussköer](service-bus-dotnet-get-started-with-queues.md)
-* [Kedja servicebussentiteter med automatisk vidarebefordran](service-bus-auto-forwarding.md)
+* [Använd Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
+* [Kedja Service Bus entiteter med automatisk vidarebefordran](service-bus-auto-forwarding.md)
 * [Exempel på automatisk vidarebefordran](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
-* [Atomtransaktioner med servicebussprov](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)
-* [Azure-köer och servicebussköer jämförs](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+* [Atomiska transaktioner med Service Bus exempel](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)
+* [Azure-köer och Service Bus köer jämförs](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 
 

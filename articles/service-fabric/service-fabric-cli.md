@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 46c5e1ed0a1d0db100c3415c40f59d46f62b21f9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79258946"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
@@ -22,7 +22,7 @@ Azure Service Fabric-kommandoradsgränssnittet (CLI) är ett kommandoradsverktyg
 
 Kontrollera att din miljö har både Python och pip installerade före installationen. Mer information finns i [snabbstartdokumentationen för pip](https://pip.pypa.io/en/latest/quickstart/) och den officiella [dokumentationen för installation av Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-CLI stöder Python version 2.7, 3.5, 3.6 och 3.7. Python 3.x är den rekommenderade versionen, eftersom Python 2.7 kommer att nå slutet av supporten snart.
+CLI stöder python-versionerna 2,7, 3,5, 3,6 och 3,7. Python 3. x är den rekommenderade versionen eftersom python 2,7 når snart slut på supporten.
 
 ### <a name="service-fabric-target-runtime"></a>Service Fabric-mål-runtime
 
@@ -30,7 +30,7 @@ Service Fabric CLI är tänkt att stödja den senaste runtime-versionen av Servi
 
 | CLI-version   | runtime-version som stöds |
 |---------------|---------------------------|
-| Senaste (~=9)  | Senaste (~=7)              |
+| Senaste (~ = 9)  | Senaste (~ = 7)              |
 | 8.0.0         | 6.5                       |
 | 7.1.0         | 6.4                       |
 | 6.0.0         | 6.3                       |
@@ -57,11 +57,11 @@ Du kan installera pip och Python på din plattform på många olika sätt. Följ
 
 I Windows 10, Windows Server 2016 och Windows Server 2012 R2 använder du de officiella anvisningarna för standardinstallation. Python-installationsprogrammet installerar även pip som standard.
 
-1. Gå till den officiella [sidan för nedladdningar](https://www.python.org/downloads/)av Python och ladda ned den senaste versionen av Python 3.7.
+1. Gå till den officiella [sidan för python-nedladdningar](https://www.python.org/downloads/)och ladda ned den senaste versionen av python 3,7.
 
 2. Starta installationsprogrammet.
 
-3. Längst ned i prompten väljer du **Lägg till Python 3.7 i PATH**.
+3. Klicka på **Lägg till Python 3,7 i sökvägen**längst ned i prompten.
 
 4. Välj **Installera nu** och slutför installationen.
 
@@ -72,7 +72,7 @@ python --version
 pip --version
 ```
 
-Kör sedan följande kommando för att installera Azure Service Fabric CLI (sfctl) och visa CLI-hjälpsidan:
+Kör sedan följande kommando för att installera Azure Service Fabric CLI (sfctl) och Visa hjälp sidan för CLI:
 
 ```shell
 pip install sfctl
@@ -114,7 +114,7 @@ sudo pip3 install sfctl
 
 ### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (stöd för förhandsversion av Service Fabric)
 
-Så här installerar du Service Fabric CLI på Red Hat:
+Kör följande kommandon för att installera Service Fabric CLI i Red Hat:
 
 ```bash
 sudo yum install -y python34
@@ -123,7 +123,7 @@ sudo easy_install-3.4 pip
 sudo pip3 install sfctl
 ```
 
-För att testa installationen kan du läsa stegen som nämns i **Ubuntu och Windows delsystem för** Linux-sektionen
+För att testa installationen kan du läsa de steg som beskrivs i avsnittet **Ubuntu och Windows-undersystem för Linux**
 
 <a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS
@@ -134,7 +134,7 @@ För MacOS rekommenderar vi att du använder [HomeBrew-pakethanteraren](https://
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Installera sedan Python 3.7, pip och Service Fabric CLI från terminalen genom att köra följande kommandon:
+Installera sedan python 3,7, pip och Service Fabric CLI från terminalen genom att köra följande kommandon:
 
 ```bash
 brew install python3
@@ -240,7 +240,7 @@ Kontrollera att den angivna kluster-slutpunkten är tillgänglig och lyssnar. Ko
 
 ### <a name="detailed-logs"></a>Detaljerade loggar
 
-Detaljerade loggar är ofta användbara när du felsöker eller rapporterar problem. Flaggan `--debug` ökar utdatas verbositet.
+Detaljerade loggar är ofta användbara när du felsöker eller rapporterar problem. `--debug` Flaggan ökar utförligheten för utdata.
 
 ### <a name="command-help-and-syntax"></a>Hjälp och syntax för kommandon
 

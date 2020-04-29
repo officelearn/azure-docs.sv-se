@@ -1,6 +1,6 @@
 ---
-title: Engångslösenkodsautentisering för B2B-gästanvändare - Azure AD
-description: Så här använder du E-post engångslösenord för att autentisera B2B-gästanvändare utan att behöva ett Microsoft-konto.
+title: Autentisering med eng ång slö sen ord för B2B-gäst användare – Azure AD
+description: Använda email eng ång slö sen ord för att autentisera B2B-gäst användare utan att behöva en Microsoft-konto.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -13,74 +13,74 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6d897bb983eb06baa4f1573f1f875eea8bb8afc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79263379"
 ---
-# <a name="email-one-time-passcode-authentication-preview"></a>E-postautentisering med engångslösenord (förhandsgranskning)
+# <a name="email-one-time-passcode-authentication-preview"></a>E-postautentisering med eng ång slö sen ord (för hands version)
 
 |     |
 | --- |
-| Skicka en engångskod via e-post är en offentlig förhandsgranskningsfunktion i Azure Active Directory. Mer information om förhandsgranskningar finns i [Tilläggsvillkor för microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| Email eng ång slö sen ord är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.|
 |     |
 
-I den här artikeln beskrivs hur du aktiverar autentisering av engångslösenord för B2B-gästanvändare via e-post. Funktionen E-postlösenkod autentiserar B2B-gästanvändare när de inte kan autentiseras på annat sätt som Azure AD, ett Microsoft-konto (MSA) eller Google-federation. Med engångsautentisering av lösenkod behöver du inte skapa ett Microsoft-konto. När gästanvändaren löser in en inbjudan eller får åtkomst till en delad resurs kan de begära en tillfällig kod som skickas till deras e-postadress. Sedan anger de den här koden för att fortsätta logga in.
+Den här artikeln beskriver hur du aktiverar autentisering med eng ång slö sen ord för B2B-gäst användare. Med funktionen för eng ång slö sen ord autentiseras B2B-gäst användare när de inte kan autentiseras via andra sätt som Azure AD, en Microsoft-konto (MSA) eller Google Federation. Med autentisering med eng ång slö sen ord behöver du inte skapa en Microsoft-konto. När gäst användaren löser in en inbjudan eller får åtkomst till en delad resurs, kan de begära en tillfällig kod som skickas till deras e-postadress. Sedan anger de den här koden för att fortsätta logga in.
 
-Den här funktionen är för närvarande tillgänglig för förhandsgranskning (se [Välja i förhandsgranskningen](#opting-in-to-the-preview) nedan). Efter förhandsgranskningen aktiveras den här funktionen som standard för alla klienter.
-
-> [!NOTE]
-> Engångslösenordanvändare måste logga in med en länk som innehåller `https://myapps.microsoft.com/?tenantid=<tenant id>` `https://portal.azure.com/<tenant id>`klientkontexten (till exempel `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`, eller , eller när det gäller en verifierad domän, ). Direkta länkar till program och resurser fungerar också så länge de innehåller klientkontexten. Gästanvändare kan för närvarande inte logga in med slutpunkter som inte har någon klientkontext. Om du `https://myapps.microsoft.com`till `https://portal.azure.com`exempel använder , eller teams gemensamma slutpunkt kommer det att resultera i ett fel. 
-
-## <a name="user-experience-for-one-time-passcode-guest-users"></a>Användarupplevelse för engångslösenordsgästanvändare
-Med engångsautentisering av lösenkod kan gästanvändaren lösa in din inbjudan genom att klicka på en direktlänk eller genom att använda e-postmeddelandet med inbjudan. I båda fallen anger ett meddelande i webbläsaren att en kod kommer att skickas till gästanvändarens e-postadress. Gästanvändaren väljer **Skicka kod:**
- 
-   ![Skärmbild som visar knappen Skicka kod](media/one-time-passcode/otp-send-code.png)
- 
-En lösenkod skickas till användarens e-postadress. Användaren hämtar lösenkoden från e-postmeddelandet och anger den i webbläsarfönstret:
- 
-   ![Skärmbild som visar sidan Ange kod](media/one-time-passcode/otp-enter-code.png)
- 
-Gästanvändaren är nu autentiserat och de kan se den delade resursen eller fortsätta logga in. 
+Den här funktionen är för närvarande tillgänglig för för hands version (se [väljer i för hands versionen](#opting-in-to-the-preview) nedan). Efter för hands versionen aktive ras den här funktionen som standard för alla klienter.
 
 > [!NOTE]
-> Engångslösenord är giltiga i 30 minuter. Efter 30 minuter är den specifika engångslösenkoden inte längre giltig och användaren måste begära en ny. Användarsessioner upphör att gälla efter 24 timmar. Efter den tiden får gästanvändaren en ny lösenkod när de kommer åt resursen. Session förfallodatum ger ökad säkerhet, särskilt när en gästanvändare lämnar sitt företag eller inte längre behöver åtkomst.
+> Användare av eng ång slö sen ord måste logga in med en länk som innehåller klient kontexten (till `https://myapps.microsoft.com/?tenantid=<tenant id>` exempel `https://portal.azure.com/<tenant id>`eller, eller, om det är `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`en verifierad domän). Direkt länkar till program och resurser fungerar även så länge de omfattar klient kontexten. Gäst användare kan för närvarande inte logga in med slut punkter som inte har någon klient kontext. Om du till exempel `https://myapps.microsoft.com`använder `https://portal.azure.com`, eller en gemensam slut punkt leder det till ett fel. 
 
-## <a name="when-does-a-guest-user-get-a-one-time-passcode"></a>När får en gästanvändare en engångslösenkod?
+## <a name="user-experience-for-one-time-passcode-guest-users"></a>Användar upplevelse för gäst användare med eng ång slö sen ord
+Med autentisering med eng ång slö sen ord kan gäst användaren lösa in din inbjudan genom att klicka på en direkt länk eller via e-postinbjudan. I båda fallen indikerar ett meddelande i webbläsaren att en kod skickas till gäst användarens e-postadress. Gäst användaren väljer **Skicka kod**:
+ 
+   ![Skärm bild som visar knappen Skicka kod](media/one-time-passcode/otp-send-code.png)
+ 
+Ett lösen ord skickas till användarens e-postadress. Användaren hämtar lösen ordet från e-postmeddelandet och anger det i webbläsarfönstret:
+ 
+   ![Skärm bild som visar sidan Ange tecken](media/one-time-passcode/otp-enter-code.png)
+ 
+Gäst användaren är nu autentiserad och kan se den delade resursen eller fortsätta att logga in. 
 
-När en gästanvändare löser in en inbjudan eller använder en länk till en resurs som har delats med dem får de ett engångslösenord om:
+> [!NOTE]
+> Lösen ord för eng ång slö sen ord är giltiga i 30 minuter. Efter 30 minuter är det angivna eng ång slö sen ord inte längre giltigt och användaren måste begära en ny. Användarsessioner upphör att gälla efter 24 timmar. Efter det tar gäst användaren emot ett nytt lösen ord när de får åtkomst till resursen. Sessionen upphör att gälla ger ytterligare säkerhet, särskilt när en gäst användare lämnar företaget eller inte längre behöver åtkomst.
+
+## <a name="when-does-a-guest-user-get-a-one-time-passcode"></a>När får en gäst användare en eng ång slö sen ord?
+
+När en gäst användare löser in en inbjudan eller använder en länk till en resurs som har delats med dem får de ett eng ång slö sen ord om:
 - De har inget Azure AD-konto 
-- De har inget Microsoft-konto 
-- Den inbjudande klienten har @gmail.com inte @googlemail.com konfigurerat Google-federation för och användare 
+- De har inte någon Microsoft-konto 
+- Den bjudande klienten har inte konfigurerat Google Federation för @gmail.com och @googlemail.com användare 
 
-Vid inbjudningen finns det inget som tyder på att användaren du bjuder in kommer att använda engångsautentisering av lösenkod. Men när gästanvändaren loggar in blir engångslösenkodautentisering reservmetoden om inga andra autentiseringsmetoder kan användas. 
+Vid tidpunkten för inbjudan finns det ingen indikation på att användaren som du bjuder in ska använda autentisering med eng ång slö sen ord. Men när gäst användaren loggar in blir autentiseringen med eng ång slö sen ord reserv metoden om inga andra autentiseringsmetoder kan användas. 
 
-Du kan visa gästanvändare som autentiserar med engångslösenord i Azure-portalen genom att gå till **Azure Active Directory** > **Organizational relationships** > **Användare från andra organisationer**.
+Du kan visa gäst användare som autentiserar med eng ång slö sen ord i Azure Portal genom att gå till **Azure Active Directory** > **organisations relationer** > **användare från andra organisationer**.
 
-![Skärmbild som visar en engångslösenkodsanvändare med källvärde för otp](media/one-time-passcode/otp-users.png)
+![Skärm bild som visar en eng ång slö sen ord med käll värde för eng ång slö sen ord](media/one-time-passcode/otp-users.png)
 
 > [!NOTE]
-> När en användare löser in en engångslösenkod och senare skaffar ett MSA-, Azure AD-konto eller annat federerat konto fortsätter de att autentiseras med hjälp av en engångslösenkod. Om du vill uppdatera deras autentiseringsmetod kan du ta bort deras gästanvändarkonto och skicka in dem igen.
+> När en användare löser ett eng ång slö sen ord och senare hämtar ett MSA, ett Azure AD-konto eller ett annat federerat konto, fortsätter de att autentiseras med ett eng ång slö sen ord. Om du vill uppdatera deras autentiseringsmetod kan du ta bort deras gäst användar konto och bjuda in dem på samma sätt.
 
 ### <a name="example"></a>Exempel
-Gästanvändaren alexdoe@gmail.com är inbjuden till Fabrikam, som inte har Google Federation konfigurerad. Alex har inget Microsoft-konto. De får en engångslösenord för autentisering.
+Gäst användare alexdoe@gmail.com bjuds in till Fabrikam, som inte har konfigurerat Google Federation. Alex har inte någon Microsoft-konto. De får ett eng ång slö sen ord för autentisering.
 
-## <a name="opting-in-to-the-preview"></a>Välja till förhandsgranskningen 
-Det kan ta några minuter innan opt-in-åtgärden träder i kraft. Därefter använder endast nyligen inbjudna användare som uppfyller villkoren ovan en engångsautentisering av lösenkod. Gästanvändare som tidigare löst in en inbjudan fortsätter att använda samma autentiseringsmetod.
+## <a name="opting-in-to-the-preview"></a>Väljer i för hands versionen 
+Det kan ta några minuter innan opt-in-åtgärden börjar gälla. Sedan kommer endast nyligen inbjudna användare som uppfyller villkoren ovan att använda autentisering med eng ång slö sen ord. Gäst användare som tidigare har löst en inbjudan fortsätter att använda samma autentiseringsmetod.
 
-### <a name="to-opt-in-using-the-azure-ad-portal"></a>Så här väljer du att använda Azure AD-portalen
-1.  Logga in på [Azure-portalen](https://portal.azure.com/) som global Azure AD-administratör.
-2.  Välj Azure Active **Directory**i navigeringsfönstret .
-3.  Välj **Organisationsrelationer**under **Hantera**.
+### <a name="to-opt-in-using-the-azure-ad-portal"></a>Välja att använda Azure AD-portalen
+1.  Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD.
+2.  I navigerings fönstret väljer du **Azure Active Directory**.
+3.  Under **Hantera**väljer du **organisations relationer**.
 4.  Välj **Inställningar**.
-5.  Under **Aktivera lösenord för engångsmeddelanden för gäster (förhandsversion)** väljer du **Ja**.
+5.  Under **Aktivera e-post med eng ång slö sen ord för gäster (för hands version)** väljer du **Ja**.
  
-### <a name="to-opt-in-using-powershell"></a>Så här väljer du att använda PowerShell
+### <a name="to-opt-in-using-powershell"></a>Välja att använda PowerShell
 
-Först måste du installera den senaste versionen av Azure AD PowerShell for Graph-modulen (AzureADPreview). Sedan avgör du om B2B-principer redan finns och kör lämpliga kommandon.
+Först måste du installera den senaste versionen av Azure AD PowerShell för Graph module (AzureADPreview). Sedan ska du avgöra om B2B-principerna redan finns och köra lämpliga kommandon.
 
-#### <a name="prerequisite-install-the-latest-azureadpreview-module"></a>Förutsättning: Installera den senaste AzureADPreview-modulen
+#### <a name="prerequisite-install-the-latest-azureadpreview-module"></a>Förutsättning: installera den senaste AzureADPreview-modulen
 Kontrollera först vilka moduler du har installerat. Öppna Windows PowerShell som upphöjd användare (Kör som administratör) och kör följande kommando:
  
 ```powershell  
@@ -109,22 +109,22 @@ Om modulen AzureADPreview visas utan meddelande som anger att det finns en senar
 
 Du får eventuellt en uppmaning om att installera modulen från en icke betrodd lagringsplats. Det här inträffar om du inte tidigare angett PSGallery-lagringsplatsen som en betrodd lagringsplats. Installera modulen genom att trycka på **Y**.
 
-#### <a name="check-for-existing-policies-and-opt-in"></a>Sök efter befintliga policyer och välj
+#### <a name="check-for-existing-policies-and-opt-in"></a>Sök efter befintliga principer och välj
 
-Kontrollera sedan om det finns en B2BManagementPolicy genom att köra följande:
+Kontrol lera sedan att det finns en B2BManagementPolicy genom att köra följande:
 
 ```powershell 
 $currentpolicy =  Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy' -and $_.IsOrganizationDefault -eq $true} | select -First 1
 $currentpolicy -ne $null
 ```
-- Om utdata är Falskt finns principen för närvarande inte. Skapa en ny B2BManagementPolicy och välj till förhandsversionen genom att köra följande:
+- Om utdata är false finns inte principen för närvarande. Skapa en ny B2BManagementPolicy och välj att förhands granskningen genom att köra följande:
 
    ```powershell 
    $policyValue=@("{`"B2BManagementPolicy`":{`"PreviewPolicy`":{`"Features`":[`"OneTimePasscode`"]}}}")
    New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true
    ```
 
-- Om utdata är Sant finns principen B2BManagementPolicy för närvarande. Om du vill uppdatera principen och anmäla dig till förhandsversionen kör du följande:
+- Om resultatet är sant finns B2BManagementPolicy-principen för närvarande. Om du vill uppdatera principen och välja att välja för hands versionen kör du följande:
   
    ```powershell 
    $policy = $currentpolicy.Definition | ConvertFrom-Json
@@ -133,25 +133,25 @@ $currentpolicy -ne $null
    Set-AzureADPolicy -Definition $updatedPolicy -Id $currentpolicy.Id
    ```
 
-## <a name="opting-out-of-the-preview-after-opting-in"></a>Välja bort förhandsversionen efter att ha valt att delta
-Det kan ta några minuter innan undantagsåtgärderna träder i kraft. Om du inaktiverar förhandsgranskningen kan inte gästanvändare som har löst in en engångslösenkod logga in. Du kan ta bort gästanvändaren och skicka in användaren igen så att de kan logga in igen med en annan autentiseringsmetod.
+## <a name="opting-out-of-the-preview-after-opting-in"></a>Väljer bort från förhands granskningen efter väljer i
+Det kan ta några minuter innan den opt-out-åtgärden börjar gälla. Om du inaktiverar för hands versionen kan alla gäst användare som har löst ett eng ång slö sen ord inte logga in. Du kan ta bort gäst användaren och Bjud in användaren så att de kan logga in igen med en annan autentiseringsmetod.
 
-### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>Så här inaktiverar du förhandsversionen med Azure AD-portalen
-1.  Logga in på [Azure-portalen](https://portal.azure.com/) som global Azure AD-administratör.
-2.  Välj Azure Active **Directory**i navigeringsfönstret .
-3.  Välj **Organisationsrelationer**under **Hantera**.
+### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>Så här stänger du av för hands versionen med Azure AD-portalen
+1.  Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD.
+2.  I navigerings fönstret väljer du **Azure Active Directory**.
+3.  Under **Hantera**väljer du **organisations relationer**.
 4.  Välj **Inställningar**.
-5.  Under **Aktivera lösenord för engångsmeddelanden för gäster (förhandsversion)** väljer du **Nej**.
+5.  Under **Aktivera e-post med eng ång slö sen ord för gäster (för hands version)** väljer du **Nej**.
 
-### <a name="to-turn-off-the-preview-using-powershell"></a>Så här inaktiverar du förhandsgranskningen med PowerShell
-Installera den senaste AzureADPreview-modulen om du inte redan har den (se [Förutsättning: Installera den senaste AzureADPreview-modulen](#prerequisite-install-the-latest-azureadpreview-module) ovan). Kontrollera sedan att förhandsgranskningsprincipen för engångslösenord för närvarande finns genom att köra följande:
+### <a name="to-turn-off-the-preview-using-powershell"></a>Så här stänger du av för hands versionen med PowerShell
+Installera den senaste AzureADPreview-modulen om du inte redan har den (se [förutsättning: installera den senaste AzureADPreview-modulen](#prerequisite-install-the-latest-azureadpreview-module) ovan). Kontrol lera sedan att principen för för hands versionen för eng ång slö sen ord finns för närvarande genom att köra följande:
 
 ```powershell 
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy' -and $_.IsOrganizationDefault -eq $true} | select -First 1
 ($currentPolicy -ne $null) -and ($currentPolicy.Definition -like "*OneTimePasscode*")
 ```
 
-Om utdata är Sant väljer du bort förhandsgranskningen genom att köra följande:
+Om resultatet är sant väljer du för hands versionen genom att köra följande:
 
 ```powershell 
 $policy = $currentpolicy.Definition | ConvertFrom-Json

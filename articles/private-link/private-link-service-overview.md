@@ -1,126 +1,126 @@
 ---
-title: Vad är Azure Private Link-tjänst?
-description: Läs mer om Azure Private Link-tjänsten.
+title: Vad är Azure Private Link service?
+description: Lär dig mer om Azure Private Link service.
 services: private-link
 author: sumeetmittal
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 2cc6c577abdb3698ef6aca1f1f04d239f09d119c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9ba0ad1414a09aec7ec2fb6b8c209b23f3f37050
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79280435"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82202221"
 ---
-# <a name="what-is-azure-private-link-service"></a>Vad är Azure Private Link-tjänst?
+# <a name="what-is-azure-private-link-service"></a>Vad är Azure Private Link service?
 
-Azure Private Link-tjänsten är referensen till din egen tjänst som drivs av Azure Private Link. Din tjänst som körs bakom [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) kan aktiveras för privat länkåtkomst så att konsumenter till din tjänst kan komma åt den privat från sina egna virtuella nätverk. Dina kunder kan skapa en privat slutpunkt i sitt virtuella nätverk och mappa den till den här tjänsten. I den här artikeln förklaras begrepp som är relaterade till tjänsteleverantörens sida. 
+Tjänsten Azure Private Link är referensen till din egen tjänst som drivs av en privat Azure-länk. Din tjänst som körs bakom [Azure standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) kan aktive ras för åtkomst till privat länk så att konsumenter till tjänsten kan komma åt den privat från sina egna virtuella nätverk. Dina kunder kan skapa en privat slut punkt i sitt VNet och mappa den till den här tjänsten. I den här artikeln beskrivs begrepp som är relaterade till tjänst leverantörs sidan. 
 
 ## <a name="workflow"></a>Arbetsflöde
 
-![Arbetsflöde för tjänsten Privat länk](media/private-link-service-overview/private-link-service-workflow.png)
+![Arbets flöde för privata länk tjänster](media/private-link-service-overview/private-link-service-workflow.png)
 
-### <a name="create-your-private-link-service"></a>Skapa din privata länktjänst
+### <a name="create-your-private-link-service"></a>Skapa en privat länk-tjänst
 
-- Konfigurera programmet så att det körs bakom en standardbelastningsutjämnare i det virtuella nätverket. Om du redan har konfigurerat ditt program bakom en standardbelastningsutjämnare kan du hoppa över det här steget.   
-- Skapa en privat länktjänst som refererar till belastningsutjämnaren ovan. I processen för val av belastningsutjämnare väljer du den frontend IP-konfiguration där du vill ta emot trafiken. Välj ett undernät för NAT-IP-adresser för Private Link-tjänsten. Vi rekommenderar att du har minst åtta NAT IP-adresser tillgängliga i undernätet. All konsumenttrafik verkar komma från den här poolen med privata IP-adresser till tjänsteleverantören. Välj lämpliga egenskaper/inställningar för tjänsten Privat länk.    
+- Konfigurera ditt program så att det körs bakom en standard belastningsutjämnare i det virtuella nätverket. Om du redan har konfigurerat ditt program bakom en standard belastningsutjämnare kan du hoppa över det här steget.   
+- Skapa en privat länk-tjänst som refererar till belastningsutjämnaren ovan. I urvals processen för belastnings utjämning väljer du den IP-konfiguration för klient delen där du vill ta emot trafiken. Välj ett undernät för NAT IP-adresser för den privata länk tjänsten. Vi rekommenderar att du har minst åtta NAT IP-adresser tillgängliga i under nätet. All konsument trafik ser ut att härstamma från den här poolen av privata IP-adresser till tjänst leverantören. Välj lämpliga egenskaper/inställningar för tjänsten för privat länk.    
 
     > [!NOTE]
-    > Azure Private Link Service stöds endast på Standard Load Balancer. 
+    > Azure Private Link service stöds endast på Standard Load Balancer. 
     
 ### <a name="share-your-service"></a>Dela din tjänst
 
-När du har skapat en private link-tjänst genererar Azure en globalt unik namngiven moniker som heter "alias" baserat på namnet du anger för din tjänst. Du kan dela antingen alias eller resurs-URI för din tjänst med dina kunder offline. Konsumenter kan starta en Privat länkanslutning med alias eller resurs-URI.
+När du har skapat en privat länk-tjänst genererar Azure en globalt unik namngiven moniker som kallas "alias" baserat på det namn som du anger för din tjänst. Du kan dela antingen alias eller resurs-URI för din tjänst med dina kunder offline. Konsumenter kan starta en privat länk anslutning med hjälp av aliaset eller resurs-URI: n.
  
-### <a name="manage-your-connection-requests"></a>Hantera dina anslutningsbegäranden
+### <a name="manage-your-connection-requests"></a>Hantera dina anslutnings förfrågningar
 
-När en konsument har initierat en anslutning kan tjänsteleverantören acceptera eller avvisa anslutningsbegäran. Alla anslutningsbegäranden visas under **egenskapen privateendpointconnections** på private link-tjänsten.
+När en konsument har initierat en anslutning kan tjänste leverantören acceptera eller avvisa anslutningsbegäran. Alla anslutnings begär Anden visas under egenskapen **privateendpointconnections** i tjänsten Private Link.
  
-### <a name="delete-your-service"></a>Ta bort tjänsten
+### <a name="delete-your-service"></a>Ta bort din tjänst
 
-Om tjänsten Privat länk inte längre används kan du ta bort den. Men innan du tar bort tjänsten, se till att det inte finns några privata slutpunktsanslutningar associerade med den. Du kan avvisa alla anslutningar och ta bort tjänsten.
+Om den privata länk tjänsten inte längre används kan du ta bort den. Men innan du tar bort tjänsten bör du kontrol lera att det inte finns några privata slut punkts anslutningar kopplade till den. Du kan avvisa alla anslutningar och ta bort tjänsten.
 
 ## <a name="properties"></a>Egenskaper
 
-En private link-tjänst anger följande egenskaper: 
+En privat länk-tjänst anger följande egenskaper: 
 
 |Egenskap |Förklaring  |
 |---------|---------|
-|Etableringstillstånd (etableringstat)  |En skrivskyddad egenskap som visar det aktuella etableringstillståndet för tjänsten Private Link. Tillämpliga etableringstillstånd är: "Ta bort; Misslyckades; Lyckades; Uppdatering". När etableringstillståndet är "lyckades" har du etablerat din private link-tjänst.        |
-|Alias (alias)     | Alias är en globalt unik skrivskyddad sträng för din tjänst. Det hjälper dig att maskera kunddata för din tjänst och samtidigt skapar ett lätt att dela namn för din tjänst. När du skapar en private link-tjänst genererar Azure aliaset för din tjänst som du kan dela med dina kunder. Dina kunder kan använda det här aliaset för att begära en anslutning till din tjänst.          |
-|Synlighet (synlighet)     | Synlighet är den egenskap som styr exponeringsinställningarna för tjänsten Private Link. Tjänstleverantörer kan välja att begränsa exponeringen för sin tjänst till prenumerationer med rbac-behörigheter (Role-based Access Control), en begränsad uppsättning prenumerationer eller alla Azure-prenumerationer.          |
-|Automatiskt godkännande (autoApproval)    |   Automatiskt godkännande styr den automatiska åtkomsten till private link-tjänsten. De prenumerationer som anges i listan över automatiskt godkännande godkänns automatiskt när en anslutning begärs från privata slutpunkter i dessa prenumerationer.          |
-|IP-konfiguration för belastningsutjämning frontend (loadBalancerFrontendIpConfigurations)    |    Private Link-tjänsten är knuten till klientdelens IP-adress för en standardbelastningsutjämningsapparat. All trafik avsedd för tjänsten kommer att nå frontend av SLB. Du kan konfigurera SLB-regler för att dirigera den här trafiken till lämpliga serverdpooler där dina program körs. IP-konfigurationer för belastningsutjämnare skiljer sig från NAT IP-konfigurationer.      |
-|NAT IP-konfiguration (ipkonfigureringar)    |    Den här egenskapen refererar till IP-konfigurationen för NAT (Network Address Translation) för tjänsten Private Link. NAT IP kan väljas från vilket undernät som helst i en tjänsteleverantörs virtuella nätverk. Private Link-tjänsten utför NAT-ning på den privata länktrafiken. Detta säkerställer att det inte finns någon IP-konflikt mellan källadressutrymme (konsumentsidan) och måladressutrymmet (tjänsteleverantör). På målsidan (tjänstprovidersidan) visas NAT IP-adressen som käll-IP för alla paket som tas emot av tjänsten och mål-IP för alla paket som skickas av din tjänst.       |
-|Privata slutpunktsanslutningar (privateEndpointConnections)     |  Den här egenskapen visar de privata slutpunkter som ansluter till private link-tjänsten. Flera privata slutpunkter kan ansluta till samma Private Link-tjänst och tjänsteleverantören kan styra tillståndet för enskilda privata slutpunkter.        |
-|TCP Proxy V2 (EnableProxyProtocol)     |  Med den här egenskapen kan tjänsteleverantören använda tcp proxy v2 för att hämta anslutningsinformation om tjänstekonsumenten. Tjänsteleverantör ansvarar för att ställa in mottagare configs att kunna tolka proxyprotokoll v2 header.        |
+|Etablerings status (provisioningState)  |En skrivskyddad egenskap som visar det aktuella etablerings läget för tjänsten för privat länk. Tillämpliga etablerings tillstånd är: "ta bort; Bröt Brutit Uppdaterar ". När etablerings statusen har slutförts har du slutfört den privata länk tjänsten.        |
+|Alias (alias)     | Alias är en globalt unik sträng som är skrivskyddad för din tjänst. Det hjälper dig att maskera kund informationen för din tjänst och samtidigt skapar ett namn som är enkelt att dela för din tjänst. När du skapar en privat länk-tjänst genererar Azure alias för din tjänst som du kan dela med dina kunder. Dina kunder kan använda det här aliaset för att begära en anslutning till din tjänst.          |
+|Synlighet (synlighet)     | Visibility är den egenskap som styr exponerings inställningarna för din privata länk tjänst. Tjänste leverantörer kan välja att begränsa exponeringen för deras tjänster till prenumerationer med RBAC-behörighet (rollbaserad åtkomst kontroll), en begränsad uppsättning prenumerationer eller alla Azure-prenumerationer.          |
+|Automatiskt godkännande (automatiskt godkännande)    |   Automatiskt godkännande styr automatisk åtkomst till den privata länk tjänsten. De prenumerationer som anges i listan med automatiskt godkännande godkänns automatiskt när en anslutning begärs från privata slut punkter i dessa prenumerationer.          |
+|Load Balancer IP-konfiguration för klient del (loadBalancerFrontendIpConfigurations)    |    Privata länk tjänsten är kopplad till IP-adressen för klient delen för en Standard Load Balancer. All trafik som är avsedd för tjänsten når klient delen för SLB. Du kan konfigurera SLB-regler för att dirigera trafiken till lämpliga Server dels grupper där dina program körs. IP-konfigurationer för belastningsutjämnare i klient delen skiljer sig från NAT IP-konfigurationer.      |
+|NAT IP-konfiguration (ipConfigurations)    |    Den här egenskapen refererar till IP-konfigurationen för NAT (Network Address Translation) för den privata länk tjänsten. NAT-IP kan väljas från alla undernät i tjänst leverantörens virtuella nätverk. Tjänsten för privata länkar utför NAT-ing på den privata länk trafiken. Detta säkerställer att det inte finns någon IP-konflikt mellan käll-och mål adress utrymmet (tjänst leverantör). På mål sidan (tjänst leverantörs sidan) visas NAT-IP-adressen som käll-IP för alla paket som tas emot av din tjänst och mål-IP för alla paket som skickas av din tjänst.       |
+|Anslutningar för privata slut punkter (privateEndpointConnections)     |  Den här egenskapen listar de privata slut punkter som ansluter till tjänsten för privata länkar. Flera privata slut punkter kan ansluta till samma privata länk tjänst och tjänst leverantören kan styra statusen för enskilda privata slut punkter.        |
+|TCP-proxy v2 (EnableProxyProtocol)     |  Med den här egenskapen kan tjänst leverantören använda TCP proxy v2 för att hämta anslutnings information om tjänste konsumenten. Service providern ansvarar för att konfigurera mottagares konfigurationerna för att kunna parsa proxy Protocol v2-huvudet.        |
 |||
 
 
 ### <a name="details"></a>Information
 
-- Tjänsten Private Link kan nås från godkända privata slutpunkter i samma region. Den privata slutpunkten kan nås från samma virtuella nätverk, regionalt peered virtuella nätverk, globalt peered virtuella nätverk och lokalt med hjälp av privata VPN- eller ExpressRoute-anslutningar. 
+- Private Link service kan nås från godkända privata slut punkter i valfri offentlig region. Den privata slut punkten kan nås från samma virtuella nätverk, regionalt peer-virtuella nätverk, globalt peered virtuella nätverk och lokalt med privata VPN-eller ExpressRoute-anslutningar. 
  
-- När du skapar en privat länktjänst skapas ett nätverksgränssnitt för resursens livscykel. Det här gränssnittet kan inte hanteras av kunden.
+- När du skapar en privat länk-tjänst skapas ett nätverks gränssnitt för resursens livs cykel. Det här gränssnittet kan inte hanteras av kunden.
  
-- Tjänsten För privat länk måste distribueras i samma region som det virtuella nätverket och standardbelastningsutjämningstjänsten.  
+- Den privata länk tjänsten måste distribueras i samma region som det virtuella nätverket och Standard Load Balancer.  
  
-- En enda private link-tjänst kan nås från flera privata slutpunkter som tillhör olika virtuella nätverk, prenumerationer och/eller Active Directory-klienter. Anslutningen upprättas via ett anslutningsarbetsflöde. 
+- En enda privat länk-tjänst kan nås från flera privata slut punkter som tillhör olika virtuella nätverk, prenumerationer och/eller Active Directory klienter. Anslutningen upprättas via ett anslutnings arbets flöde. 
  
-- Flera privata länktjänster kan skapas på samma standardbelastningsutjämnar med olika ip-konfigurationer. Det finns gränser för antalet privata länktjänster som du kan skapa per standardbelastningsutjämningstagare och per prenumeration. Mer information finns i [Azure-gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Det går att skapa flera privata länk tjänster på samma Standard Load Balancer att använda olika klient dels-IP-konfigurationer. Det finns gränser för antalet privata länk tjänster som du kan skapa per Standard Load Balancer och per prenumeration. Mer information finns i [Azure-gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
  
-- Private Link-tjänsten kan ha mer än en NAT IP-konfiguration kopplad till den. Om du väljer mer än en NAT IP-konfiguration kan tjänstleverantörer skalas. Idag kan tjänsteleverantörer tilldela upp till åtta NAT IP-adresser per private link-tjänst. Med varje NAT IP-adress kan du tilldela fler portar för dina TCP-anslutningar och därmed skala ut. När du har lagt till flera NAT-IP-adresser i en private link-tjänst kan du inte ta bort NAT-IP-adresserna. Detta görs för att säkerställa att aktiva anslutningar inte påverkas när NAT-IP-adresserna tas bort.
+- Privata länk tjänster kan ha mer än en länkad NAT-IP-konfiguration. Om du väljer fler än en NAT IP-konfiguration kan tjänst leverantörer skalas. Idag kan tjänst leverantörer tilldela upp till åtta NAT IP-adresser per privat länk tjänst. Med varje NAT-IP-adress kan du tilldela fler portar för dina TCP-anslutningar och därmed skala ut. När du har lagt till flera NAT IP-adresser i en privat länk-tjänst kan du inte ta bort NAT-IP-adresserna. Detta görs för att säkerställa att aktiva anslutningar inte påverkas när du tar bort NAT-IP-adresser.
 
 
 ## <a name="alias"></a>Alias
 
-**Alias** är ett globalt unikt namn för din tjänst. Det hjälper dig att maskera kunddata för din tjänst och samtidigt skapar ett lätt att dela namn för din tjänst. När du skapar en Private Link-tjänst genererar Azure ett alias för din tjänst som du kan dela med dina kunder. Dina kunder kan använda det här aliaset för att begära en anslutning till din tjänst.
+**Alias** är ett globalt unikt namn för din tjänst. Det hjälper dig att maskera kund informationen för din tjänst och samtidigt skapar ett namn som är enkelt att dela för din tjänst. När du skapar en privat länk-tjänst genererar Azure ett alias för tjänsten som du kan dela med dina kunder. Dina kunder kan använda det här aliaset för att begära en anslutning till din tjänst.
 
-Aliaset består av tre delar: *Prefix*. *GUID*. *Suffix*
+Aliaset består av tre delar: *prefix*. *GUID*. *Suffix*
 
-- Prefix är tjänstnamnet. Du kan välja ditt eget prefix. När "Alias" har skapats kan du inte ändra det, så välj prefixet på rätt sätt.  
-- GUID kommer att tillhandahållas av plattformen. Detta bidrar till att göra namnet globalt unikt. 
-- Suffix läggs till av Azure: *region*.azure.privatelinkservice 
+- Prefix är tjänstens namn. Du kan välja ett eget prefix. När du har skapat aliaset kan du inte ändra det, så välj ditt prefix på lämpligt sätt.  
+- GUID kommer att tillhandahållas av plattformen. Detta gör att namnet blir globalt unikt. 
+- Suffixet läggs till av Azure: *region*. Azure. privatelinkservice 
 
-Komplett alias: *Prefix*. {GUID}. *regionen*.azure.privatelinkservice  
+Fullständigt alias: *prefix*. {GUID}. *region*. Azure. privatelinkservice  
 
-## <a name="control-service-exposure"></a>Kontroll tjänst exponering
+## <a name="control-service-exposure"></a>Kontrol lera tjänstens exponering
 
-Private Link-tjänsten ger dig alternativ för att styra exponeringen av din tjänst genom inställningen "Synlighet". Du kan göra tjänsten privat för förbrukning från olika virtuella nätverk som du äger (endast RBAC-behörigheter), begränsa exponeringen för en begränsad uppsättning prenumerationer som du litar på eller göra den offentlig så att alla Azure-prenumerationer kan begära anslutningar på den privata länken Tjänst. Dina synlighetsinställningar avgör om en konsument kan ansluta till din tjänst eller inte. 
+Med Private Link service kan du kontrol lera exponeringen för tjänsten via "synlighet"-inställningen. Du kan göra tjänsten privat för användning från olika virtuella nätverk som du äger (endast RBAC-behörigheter), begränsa exponeringen till en begränsad uppsättning prenumerationer som du litar på, eller göra den offentlig så att alla Azure-prenumerationer kan begära anslutningar i den privata länk tjänsten. Dina Synlighets inställningar avgör om en konsument kan ansluta till din tjänst eller inte. 
 
-## <a name="control-service-access"></a>Åtkomst till kontrolltjänsten
+## <a name="control-service-access"></a>Kontrol lera tjänst åtkomst
 
-Konsumenter som har exponering (kontrolleras av synlighetsinställningen) till din Private Link-tjänst kan skapa en privat slutpunkt i sina virtuella nätverk och begära en anslutning till din Private Link-tjänst. Den privata slutpunktsanslutningen skapas i ett "Väntande" tillstånd på tjänstobjektet Private Link. Tjänsteleverantören ansvarar för att agera på anslutningsbegäran. Du kan antingen godkänna anslutningen, avvisa anslutningen eller ta bort anslutningen. Endast anslutningar som är godkända kan skicka trafik till tjänsten Private Link.
+Konsumenter som har exponering (styrs av Synlighets inställningen) till din privata länk tjänst kan skapa en privat slut punkt i sina virtuella nätverk och begära en anslutning till din privata länk tjänst. Den privata slut punkts anslutningen kommer att skapas i ett väntande tillstånd för objektet för den privata länk tjänsten. Tjänste leverantören ansvarar för att agera på anslutningsbegäran. Du kan antingen godkänna anslutningen, avvisa anslutningen eller ta bort anslutningen. Endast anslutningar som godkänns kan skicka trafik till den privata länk tjänsten.
 
-Åtgärden att godkänna anslutningarna kan automatiseras med hjälp av egenskapen för automatiskt godkännande på tjänsten Private Link. Automatiskt godkännande är en möjlighet för tjänsteleverantörer att förhandsgodkänna en uppsättning prenumerationer för automatisk åtkomst till deras tjänst. Kunderna måste dela sina prenumerationer offline för att tjänsteleverantörer ska kunna lägga till i listan över automatiskt godkännande. Automatiskt godkännande är en delmängd av synlighetsmatrisen. Synligheten styr exponeringsinställningarna medan automatisk godkännande styr godkännandeinställningarna för tjänsten. Om en kund begär en anslutning från en prenumeration i listan över automatiskt godkännande godkänns anslutningen automatiskt och anslutningen upprättas. Tjänstleverantörer behöver inte godkänna begäran manuellt längre. Å andra sidan, om en kund begär en anslutning från en prenumeration i synlighetsmatrisen och inte i matrisen för automatiskt godkännande, kommer begäran att nå tjänsteleverantören, men tjänsteleverantören måste godkänna anslutningarna manuellt.
+Åtgärden att godkänna anslutningarna kan automatiseras med hjälp av egenskapen för automatiskt godkännande i tjänsten Private Link. Automatiskt godkännande är en möjlighet för tjänste leverantörer att förgodkänna en uppsättning prenumerationer för automatisk åtkomst till tjänsten. Kunderna måste dela sina prenumerationer offline för att tjänst leverantörer ska kunna läggas till i listan med automatiskt godkännande. Automatiskt godkännande är en delmängd av Synlighets mat ris. Synlighet styr exponerings inställningarna medan automatiskt godkännande styr godkännande inställningarna för din tjänst. Om en kund begär en anslutning från en prenumeration i listan med automatiskt godkännande godkänns anslutningen automatiskt och anslutningen upprättas. Tjänste leverantörer behöver inte längre godkänna begäran manuellt. Å andra sidan, om en kund begär en anslutning från en prenumeration i Synlighets mat ris och inte i matrisen för automatiskt godkännande, kommer begäran att kontakta tjänst leverantören men tjänst leverantören måste godkänna anslutningarna manuellt.
 
-## <a name="getting-connection-information-using-tcp-proxy-v2"></a>Hämta anslutningsinformation med TCP Proxy v2
+## <a name="getting-connection-information-using-tcp-proxy-v2"></a>Hämta anslutnings information med TCP-proxy v2
 
-När du använder privat länktjänst är käll-IP-adressen för paketen som kommer från den privata slutpunkten nätverksadress översätts (NAT) på tjänsteprovidersidan med hjälp av NAT IP som tilldelats från leverantörens virtuella nätverk. Därav programmen får den tilldelade NAT IP-adressen i stället för den faktiska käll-IP-adressen för tjänstekonsumenterna. Om ditt program behöver faktisk käll-IP-adress från konsumentsidan kan du aktivera Proxy-protokollet på tjänsten och hämta informationen från proxyprotokollhuvudet. Förutom källans IP-adress har proxyprotokollhuvudet också länk-ID för den privata slutpunkten. Kombination av käll-IP-adress och LinkID kan hjälpa tjänsteleverantörer att unikt identifiera sina konsumenter. För mer information om Proxy Protocol, besök [här](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt). 
+När du använder Private Link service, är käll-IP-adressen för de paket som kommer från privat slut punkt nätverks adressen översatt (NAT) på tjänst leverantörs sidan med den NAT-IP som tilldelas från leverantörens virtuella nätverk. Därför tar programmen emot den allokerade NAT-IP-adressen i stället för den faktiska käll-IP-adressen för tjänste konsumenter. Om ditt program behöver faktisk käll-IP-adress från konsument sidan, kan du aktivera Proxy-protokollet på tjänsten och hämta informationen från proxy-protokollets huvud. Förutom käll-IP-adressen bär även proxy Protocol-huvudet LinkID för den privata slut punkten. Kombinationen av käll-IP-adress och LinkID kan hjälpa tjänst leverantörer att identifiera sina konsumenter unikt. Mer information om proxy-protokoll finns [här](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt). 
 
-Den här informationen kodas med hjälp av en anpassad TLV-vektor (Type-Length-Value) enligt följande:
+Den här informationen kodas med en anpassad Vector-Vector (Type-Length-Value) enligt följande:
 
-Anpassade TLV-detaljer:
+Anpassad TLV-information:
 
 |Field |Längd (oktetter)  |Beskrivning  |
 |---------|---------|----------|
 |Typ  |1        |PP2_TYPE_AZURE (0xEE)|
-|Längd  |2      |Värdelängd|
+|Längd  |2      |Värdets längd|
 |Värde  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
-|  |4        |UINT32 (4 byte) som representerar LINKID för den privata slutpunkten. Kodad i lite endian format.|
+|  |4        |UINT32 (4 byte) som representerar LINKID för den privata slut punkten. Kodat i little endian format.|
 
  > [!NOTE]
- > Tjänsteleverantören ansvarar för att tjänsten bakom standardbelastningsutjämnaren är konfigurerad för att tolka proxyprotokollhuvudet enligt [specifikationen](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) när proxyprotokollet är aktiverat på privat länktjänst. Begäran misslyckas om proxyprotokollinställningen är aktiverad på privata länktjänster, men tjänsteleverantörens tjänst är inte konfigurerad för att tolka huvudet. På samma sätt misslyckas begäran om tjänsteleverantörens tjänst förväntar sig ett proxyprotokollhuvud medan inställningen inte är aktiverad på den privata länktjänsten. När proxyprotokollinställningen är aktiverad inkluderas proxyprotokollhuvudet också i HTTP/TCP-hälsoavsökningar från värd till servernamns virtuella datorer, även om det inte kommer att finnas någon klientinformation i huvudet. 
+ > Tjänste leverantören ansvarar för att se till att tjänsten bakom standard belastningsutjämnaren är konfigurerad för att parsa proxy-protokollets huvud enligt [specifikationen](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) när proxy-protokollet är aktiverat i Private Link service. Begäran Miss fungerar om inställningen proxy-protokoll är aktive rad i tjänsten för privata länkar men tjänst leverantörens tjänst inte har kon figurer ATS för att parsa huvudet. På samma sätt går det inte att utföra begäran om tjänst leverantörens tjänst förväntar sig ett proxy Protocol-huvud medan inställningen inte är aktive rad i den privata länk tjänsten. När proxy Protocol-inställningen är aktive rad inkluderas även protokollets huvud i HTTP/TCP-hälsosökningar från värd till Server delens virtuella datorer, även om det inte kommer att finnas någon klient information i huvudet. 
 
 ## <a name="limitations"></a>Begränsningar
 
-Följande är de kända begränsningarna när du använder tjänsten Private Link:
-- Stöds endast på standardbelastningsutjämning 
+Följande är de kända begränsningarna när du använder den privata länk tjänsten:
+- Stöds endast på Standard Load Balancer 
 - Stöder endast IPv4-trafik
 - Stöder endast TCP-trafik
 
 ## <a name="next-steps"></a>Nästa steg
-- [Skapa en privat länktjänst med Azure PowerShell](create-private-link-service-powershell.md)
-- [Skapa en privat länktjänst med Azure CLI](create-private-link-service-cli.md)
+- [Skapa en privat länk-tjänst med hjälp av Azure PowerShell](create-private-link-service-powershell.md)
+- [Skapa en privat länk-tjänst med Azure CLI](create-private-link-service-cli.md)

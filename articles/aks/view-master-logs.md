@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.openlocfilehash: 504d6a5216f3345f22a601c4ae084488aeb97c8d
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82128956"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Aktivera och granska Kubernetes huvudnodloggar i Azure Kubernetes Service (AKS)
@@ -19,7 +19,7 @@ Med Azure Kubernetes service (AKS) tillhandahålls huvud komponenterna som *Kube
 
 Den här artikeln kräver att ett befintligt AKS-kluster körs i ditt Azure-konto. Om du inte redan har ett AKS-kluster kan du skapa ett med hjälp av [Azure CLI][cli-quickstart] eller [Azure Portal][portal-quickstart]. Azure Monitor loggar fungerar med både RBAC-och icke-RBAC-aktiverade AKS-kluster.
 
-## <a name="enable-resource-logs"></a>Aktivera resurs loggar
+## <a name="enable-resource-logs"></a>Aktivera resursloggar
 
 För att hjälpa till att samla in och granska data från flera källor, innehåller Azure Monitor loggar ett frågespråk och analys motor som ger insikter om din miljö. En arbets yta används för att sortera och analysera data och kan integreras med andra Azure-tjänster, till exempel Application Insights och Security Center. Om du vill använda en annan plattform för att analysera loggarna kan du istället välja att skicka resurs loggar till ett Azure Storage-konto eller händelsehubben. Mer information finns i [Vad är Azure Monitor loggar?][log-analytics-overview].
 

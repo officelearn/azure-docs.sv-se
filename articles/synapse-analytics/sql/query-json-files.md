@@ -1,6 +1,6 @@
 ---
-title: Fråga JSON-filer med SQL på begäran (förhandsgranskning)
-description: I det här avsnittet beskrivs hur du läser JSON-filer med SQL on-demand i Azure Synapse Analytics.
+title: Fråga JSON-filer med SQL på begäran (för hands version)
+description: I det här avsnittet beskrivs hur du läser JSON-filer med SQL på begäran i Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,26 +10,26 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 645baf9102785d223fd1f23ae52a4609725f795b
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81770811"
 ---
-# <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Fråga JSON-filer med SQL on-demand (förhandsversion) i Azure Synapse Analytics
+# <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Fråga JSON-filer med SQL på begäran (för hands version) i Azure Synapse Analytics
 
-I den här artikeln får du lära dig hur du skriver en fråga med SQL on-demand (preview) i Azure Synapse Analytics. Frågans mål är att läsa JSON-filer.
+I den här artikeln får du lära dig hur du skriver en fråga med SQL på begäran (för hands version) i Azure Synapse Analytics. Frågans mål är att läsa JSON-filer.
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du läser resten av den här artikeln, granska följande artiklar:
+Läs följande artiklar innan du läser resten av den här artikeln:
 
-- [Första gången setup](query-data-storage.md#first-time-setup)
-- [Krav](query-data-storage.md#prerequisites)
+- [Installation vid första tiden](query-data-storage.md#first-time-setup)
+- [Förutsättningar](query-data-storage.md#prerequisites)
 
 ## <a name="sample-json-files"></a>Exempel på JSON-filer
 
-Avsnittet nedan innehåller exempelskript för att läsa JSON-filer. Filer lagras i en *json-behållare,* *mappböcker*och innehåller en enda bokpost med följande struktur:
+Avsnittet nedan innehåller exempel skript för att läsa JSON-filer. Filer lagras i en *JSON* -behållare, mapp *böcker*och innehåller en post i en bok med följande struktur:
 
 ```json
 {
@@ -49,7 +49,7 @@ Avsnittet nedan innehåller exempelskript för att läsa JSON-filer. Filer lagra
 
 ## <a name="read-json-files"></a>Läsa JSON-filer
 
-Om du vill bearbeta JSON-filer med JSON_VALUE och [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)måste du läsa JSON-filen från lagring som en enda kolumn. Följande skript läser *filen book1.json* som en enda kolumn:
+Om du vill bearbeta JSON-filer med JSON_VALUE och [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)måste du läsa JSON-filen från Storage som en enda kolumn. Följande skript läser filen *book1. JSON* som en enda kolumn:
 
 ```sql
 SELECT
@@ -68,11 +68,11 @@ FROM
 ```
 
 > [!NOTE]
-> Du läser hela JSON-filen som en rad eller kolumn. Så, FIELDTERMINATOR, FIELDQUOTE och ROWTERMINATOR är inställda på 0x0b.
+> Du läser hela JSON-filen som en enskild rad eller kolumn. Så, FIELDTERMINATOR, FIELDQUOTE och ROWTERMINATOR är inställda på 0x0B.
 
 ## <a name="query-json-files-using-json_value"></a>Fråga JSON-filer med JSON_VALUE
 
-Frågan nedan visar hur du använder [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att hämta skalärvärden (titel, utgivare) från en bok med titeln *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
+Frågan nedan visar hur du använder [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att hämta skalära värden (title, Publisher) från en bok med titeln *Probabilistic och statistiska metoder i Cryptology, en introduktion av valda artiklar*:
 
 ```sql
 SELECT
@@ -96,7 +96,7 @@ WHERE
 
 ## <a name="query-json-files-using-json_query"></a>Fråga JSON-filer med JSON_QUERY
 
-Följande fråga visar hur du använder [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att hämta objekt och matriser (författare) från en bok med titeln *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics*:
+Följande fråga visar hur du använder [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att hämta objekt och matriser (författare) från en bok med titeln *Probabilistic och statistiska metoder i Cryptology, en introduktion av valda ämnen*:
 
 ```sql
 SELECT
@@ -117,9 +117,9 @@ WHERE
     JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics';
 ```
 
-## <a name="query-json-files-using-openjson"></a>Fråga JSON-filer med OPENJSON
+## <a name="query-json-files-using-openjson"></a>Fråga JSON-filer med openjson
 
-Följande fråga använder [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Det kommer att hämta objekt och egenskaper inom en bok med titeln *Probabilistic och statistiska metoder i kryptologi, en introduktion av utvalda artiklar:*
+Följande fråga använder [openjson](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Den kommer att hämta objekt och egenskaper i en bok *med titeln Probabilistic och statistiska metoder i Cryptology, en introduktion av valda artiklar*:
 
 ```sql
 SELECT
@@ -142,7 +142,7 @@ WHERE
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nästa artiklar i denna serie kommer att visa hur man:
+Nästa artiklar i den här serien visar hur du:
 
 - [Fråga mappar och flera filer](query-folders-multiple-csv-files.md)
 - [Skapa och använda vyer](create-use-views.md)

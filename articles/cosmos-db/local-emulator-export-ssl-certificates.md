@@ -1,23 +1,23 @@
 ---
 title: Exportera Azure Cosmos DB emulatorcertifikat
-description: När du utvecklar på språk och körningar som inte använder Windows-certifikatarkivet måste du exportera och hantera TLS/SSL-certifikaten. Det här inlägget innehåller stegvisa instruktioner.
+description: När du utvecklar i språk och körningar som inte använder Windows certifikat arkiv måste du exportera och hantera TLS/SSL-certifikaten. Det här inlägget innehåller stegvisa instruktioner.
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: b4283ea7d500ca038d9f1cade89c772880ece199
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: c72dbf24df850d8b0f7e5f26a873b78f5664c9e0
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409065"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82200946"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exportera Azure Cosmos DB emulatorcertifikat för användning med Java, Python och Node.js
 
 [**Ladda ned emulatorn**](https://aka.ms/cosmosdb-emulator)
 
-Azure Cosmos DB Emulator tillhandahåller en lokal miljö som emulerar Azure Cosmos DB-tjänsten för utvecklingsändamål, inklusive dess användning av TLS-anslutningar. Det här inlägget visar hur du exporterar TLS/ SSL-certifikat för användning på språk och runtimes som inte integreras med Windows Certificate Store som Java som använder sitt eget [certifikatarkiv](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) och Python som använder [socketomslag](https://docs.python.org/2/library/ssl.html) och Node.js som använder [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). Du kan läsa mer om emulatorn i [Använda Azure Cosmos DB-emulatorn för utveckling och testning](./local-emulator.md).
+Azure Cosmos DB emulatorn tillhandahåller en lokal miljö som emulerar tjänsten Azure Cosmos DB för utveckling, inklusive användning av TLS-anslutningar. Det här inlägget visar hur du exporterar TLS/SSL-certifikat för användning i språk och körningar som inte integreras med Windows-certifikatarkivet, t. ex. java, som använder ett eget [certifikat Arkiv](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) och python som använder [socket-omslag](https://docs.python.org/2/library/ssl.html) och Node. js som använder [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). Du kan läsa mer om emulatorn i [Använda Azure Cosmos DB-emulatorn för utveckling och testning](./local-emulator.md).
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -70,19 +70,19 @@ Du kan återskapa båda certifikaten genom att klicka på **Återställ data** e
 
 ## <a name="how-to-use-the-certificate-in-java"></a>Så här använder du certifikatet i Java
 
-När du kör Java-program eller MongoDB-program som använder Java-klienten är det `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` lättare att installera certifikatet i Javas standardcertifikatarkiv än att skicka flaggorna. Exempelvis kan det inkluderade [demonstrationsprogrammet för Java](https://localhost:8081/_explorer/index.html) ha beroenden till standardcertifikatarkivet.
+När du kör Java-program eller MongoDB-program som använder Java-klienten är det enklare att installera certifikatet i Java standard certifikat arkivet än att `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` skicka flaggorna. Till exempel är det inkluderade java demo`https://localhost:8081/_explorer/index.html`programmet () beroende av standard certifikat arkivet.
 
 Följ instruktionerna i avsnittet [om hur du lägger till ett certifikat i Java CA certifikatarkiv](https://docs.microsoft.com/azure/java-add-certificate-ca-store) för att importera X.509-certifikatet till standardcertifikatarkivet för Java. Observera att du kommer att arbeta i katalogen %JAVA_HOME% när du kör nyckelverktyget.
 
-När "CosmosDBEmulatorCertificate" TLS/SSL-certifikatet är installerat bör ditt program kunna ansluta och använda den lokala Azure Cosmos DB Emulator. Om du fortfarande har problem kan du leta efter en lösning i artikeln om [felsökning för SSL/TLS-anslutningar](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html). Antagligen har inte certifikatet installerats i certifikatarkivet %JAVA_HOME%/jre/lib/security/cacerts. Om du t.ex. har flera installerade versioner av Java kanske ditt program använder ett annat cacerts-certifikatarkiv än det du uppdaterade.
+När TLS/SSL-certifikatet "CosmosDBEmulatorCertificate" har installerats ska programmet kunna ansluta och använda den lokala Azure Cosmos DB-emulatorn. Om du fortfarande har problem kan du leta efter en lösning i artikeln om [felsökning för SSL/TLS-anslutningar](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html). Antagligen har inte certifikatet installerats i certifikatarkivet %JAVA_HOME%/jre/lib/security/cacerts. Om du t.ex. har flera installerade versioner av Java kanske ditt program använder ett annat cacerts-certifikatarkiv än det du uppdaterade.
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Så här använder du certifikatet i Python
 
-Som standard kommer [Python SDK(version 2.0.0 eller senare)](sql-api-sdk-python.md) för SQL API inte att försöka använda TLS/SSL-certifikatet när du ansluter till den lokala emulatorn. Om du däremot vill använda TLS-validering kan du följa exemplen i dokumentationen för [Python-socketomslag.](https://docs.python.org/2/library/ssl.html)
+Som standard försöker [python SDK (version 2.0.0 eller högre)](sql-api-sdk-python.md) för SQL API inte att försöka använda TLS/SSL-certifikatet vid anslutning till den lokala emulatorn. Om du däremot vill använda TLS-verifiering kan du följa exemplen i dokumentationen för [python socket-omslutningar](https://docs.python.org/2/library/ssl.html) .
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>Så här använder du certifikat i Node.js
 
-Som standard kommer [noden.js SDK(version 1.10.1 eller senare)](sql-api-sdk-node.md) för SQL API inte att försöka använda TLS/SSL-certifikatet när du ansluter till den lokala emulatorn. Om du däremot vill använda TLS-validering kan du följa exemplen i [nod.js-dokumentationen](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+Som standard försöker [Node. js SDK (version 1.10.1 eller senare)](sql-api-sdk-node.md) för SQL API inte att försöka använda TLS/SSL-certifikatet vid anslutning till den lokala emulatorn. Om du däremot vill använda TLS-verifiering kan du följa exemplen i [Node. js-dokumentationen](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -90,7 +90,7 @@ I den här självstudien har du gjort följande:
 
 > [!div class="checklist"]
 > * Roterat certifikat
-> * Exporterade TLS/SSL-certifikatet
+> * Exportera TLS/SSL-certifikatet
 > * Du har lärt dig hur du använder certifikat i Java, Python och Node.js
 
 Om du vill lära dig mer om Azure Cosmos DB fortsätter du till avsnittet om begrepp. 

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 52d817d1029e75837e55c1b942525661ace33f87
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82136948"
 ---
 # <a name="imagery-partner-integration"></a>Bildpartnerintegration
@@ -32,7 +32,7 @@ Drönare-partner måste göra det möjligt för kunder att koppla sitt kund kont
 Du måste använda följande autentiseringsuppgifter i drönare-partner program för att länka FarmBeats:
 
 - API-slutpunkt
-- Klient-ID:t
+- Klientorganisations-ID
 - Klientorganisations-ID
 - Klienthemlighet
 
@@ -50,7 +50,7 @@ FarmBeats Datahub använder Bearer-autentisering, som behöver följande autenti
 
 - Klientorganisations-ID
 - Klienthemlighet
-- Klient-ID:t
+- Klientorganisations-ID
 
 Med hjälp av de tidigare autentiseringsuppgifterna kan anroparen begära en åtkomsttoken som måste skickas i efterföljande API-begäranden i avsnittet rubrik enligt följande:
 

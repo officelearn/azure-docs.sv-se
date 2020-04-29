@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: c7598aafea85e91f28233645d3d71bf85bf45425
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82130982"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Skapa en CI/CD-pipeline för IoT Edge med Azure DevOps Projects
@@ -32,7 +32,7 @@ DevOps Projects skapar en CI/CD-pipeline i Azure DevOps. Du kan skapa en ny Azur
 
 ## <a name="create-a-new-application-pipeline"></a>Skapa en ny program pipeline
 
-1. Azure IoT Edge modul (er) kan skrivas i [C#](tutorial-csharp-module.md), [Node. js](tutorial-node-module.md), [python](tutorial-python-module.md), [C](tutorial-c-module.md) och [Java](tutorial-java-module.md). Välj önskat språk för att starta ett nytt program: **.net**, **Node. js**, **python**, **C**eller **Java**. Välj **Nästa** för att fortsätta.
+1. Azure IoT Edge modul (er) kan skrivas i [C#](tutorial-csharp-module.md), [Node. js](tutorial-node-module.md), [python](tutorial-python-module.md), [C](tutorial-c-module.md) och [Java](tutorial-java-module.md). Välj önskat språk för att starta ett nytt program: **.net**, **Node. js**, **python**, **C**eller **Java**. Fortsätt genom att välja **Nästa**.
 
    ![Välj språk för att skapa ett nytt program](./media/how-to-devops-project/select-language.png)
 

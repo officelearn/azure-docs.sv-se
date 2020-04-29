@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5d9dc1595e3cc812ba060d958b6e981867500ae2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5ff9ab8e2fcc1bb3b72f56348a1c86dc173bafc
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "73161507"
+ms.locfileid: "82203870"
 ---
 # <a name="security-frame-session-management"></a>Säkerhets ram: sessionshantering
 | Produkt/tjänst | Artikel |
@@ -221,7 +221,7 @@ Alla HTTP-baserade program som använder cookies bör ange HttpOnly i cookie-def
 | **Tillämpliga tekniker** | Webb formulär |
 | **Attribut**              | Ej tillämpligt  |
 | **Referenser**              | [FormsAuthentication. RequireSSL-egenskap](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
-| **Sätt** | Egenskap svärdet RequireSSL anges i konfigurations filen för ett ASP.NET-program med hjälp av requireSSL-attributet för konfigurations elementet. Du kan ange i filen Web. config för ditt ASP.NET-program om SSL (Secure Sockets Layer) krävs för att returnera en cookie för formulär-autentisering till servern genom att ange requireSSL-attributet.|
+| **Sätt** | Egenskap svärdet RequireSSL anges i konfigurations filen för ett ASP.NET-program med hjälp av requireSSL-attributet för konfigurations elementet. Du kan ange i filen Web. config för ditt ASP.NET-program om Transport Layer Security (TLS), som tidigare kallades SSL (Secure Sockets Layer), krävs för att returnera en cookie för formulär-autentisering till servern genom att ange requireSSL-attributet.|
 
 ### <a name="example"></a>Exempel 
 I följande kod exempel anges attributet requireSSL i filen Web. config.

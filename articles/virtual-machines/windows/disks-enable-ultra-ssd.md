@@ -1,6 +1,6 @@
 ---
-title: Ultra diskar för Windows virtuella datorer - Azure Managed Disks
-description: Lär dig mer om ultradiskar för virtuella Azure-datorer
+title: Ultra disks för virtuella Windows-datorer – Azure Managed Disks
+description: Läs mer om Ultra disks för virtuella Azure-datorer
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 04/09/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 857a46bd3995b39a43279188ae37b78d7cd533ec
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82085576"
 ---
-# <a name="using-azure-ultra-disks"></a>Använda Azure ultra diskar
+# <a name="using-azure-ultra-disks"></a>Använda Azure Ultra disks
 
-I den här artikeln beskrivs hur du distribuerar och använder en ultradisk, för begreppsmässig information om ultradiskar, [vilka disktyper som är tillgängliga i Azure?](disks-types.md#ultra-disk).
+Den här artikeln beskriver hur du distribuerar och använder en mycket stor disk, för konceptuell information om Ultra disks, se [vilka disk typer som är tillgängliga i Azure?](disks-types.md#ultra-disk).
 
 [!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-disks-getting-started-ultra-ssd.md)]

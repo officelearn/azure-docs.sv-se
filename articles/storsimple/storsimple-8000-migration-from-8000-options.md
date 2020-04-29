@@ -1,6 +1,6 @@
 ---
-title: Alternativ för datamigrering från StorSimple 8000-seriens enheter
-description: Ger en översikt över alternativen för att migrera data från StorSimple 8000-serien.
+title: Alternativ för datamigrering från StorSimple 8000-serie enheter
+description: Innehåller en översikt över alternativen för att migrera data från StorSimple 8000-serien.
 services: storsimple
 author: priestlg
 ms.service: storsimple
@@ -8,38 +8,38 @@ ms.topic: article
 ms.date: 03/25/2020
 ms.author: v-grpr
 ms.openlocfilehash: 974bcc657b811a10e28b41150439e83d26a208d2
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81767050"
 ---
 # <a name="options-to-migrate-data-from-storsimple-8000-series"></a>Alternativ för att migrera data från StorSimple 8000-serien
 
 > [!IMPORTANT]
-> Den 31 december 2022 kommer StorSimple 8000-serien att nå slutet av supportstatus (EOS). Vi rekommenderar att Kunder i StorSimple 8000-serien migrerar till ett av alternativen som beskrivs i dokumentet.
+> Den 31 december 2022 kommer StorSimple 8000-serien att uppnå status för slut på support (EOS). Vi rekommenderar att StorSimple 8000-seriens kunder migrerar till något av de alternativ som beskrivs i dokumentet.
 
-StorSimple 8000-serien når [slutet av supporten](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) i december 2022. De kunder som kör StorSimple 8000-serien har möjlighet att uppgradera till andra Azure-hybridtjänster från första part. I den här artikeln beskrivs de Azure-hybridalternativ som är tillgängliga för att migrera data.
+StorSimple 8000-serien når [slutet av stödet](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) i december 2022. Kunder som kör StorSimple 8000-serien har ett alternativ för att uppgradera till andra Azures hybrid tjänster från första part. I den här artikeln beskrivs de Azure Hybrid-alternativ som finns tillgängliga för att migrera data.
 
 ## <a name="migration-options"></a>Migreringsalternativ
 
-Kunderna som använder StorSimple 8000-serien har Azure- eller tredjepartsalternativ.
+Kunderna som använder StorSimple 8000-serien har alternativ för Azure eller tredje part.
 
 ### <a name="azure-options"></a>Azure-alternativ
 
 #### <a name="migrate-to-azure-file-sync"></a>Migrera till Azure File Sync
 
-Med det här helt nya migreringsalternativet kan kunder lagra organisationens filresurser i Azure-filerna. Dessa filresurser centraliseras sedan för lokal åtkomst med hjälp av Azure File Sync (AFS). AFS kan distribueras på en Windows Server-värd. Den faktiska datamigrering utförs sedan som en värdkopia eller med migreringsverktyget.
+Det här nya migrerings alternativet gör att kunder kan lagra sin organisations fil resurser i Azure Files. Dessa fil resurser centraliseras sedan för lokal åtkomst med hjälp av Azure File Sync (AFS). AFS kan distribueras på en Windows Server-värd. Den faktiska datamigreringen utförs sedan som en värd kopia eller med migrations verktyget.
 
-Mer information om hur du migrerar data till Azure File Sync finns i [StorSimple 8100 och 8600-migreringen till Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000).
+Mer information om hur du migrerar data till Azure File Sync finns i [StorSimple 8100 och 8600 migrering till Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-files-migration-storsimple-8000).
 
 ### <a name="third-party-options"></a>Alternativ från tredje part
 
-#### <a name="migrate-to-panzura-freedom-nas"></a>Migrera till Panzura Freedom NAS
+#### <a name="migrate-to-panzura-freedom-nas"></a>Migrera till Panzura frihet NAS
 
-StorSimple 5000-7000-serien och StorSimple 8000-serien kunder kan välja att migrera till Panzura Freedom NAS för att behålla sina data i Azure. Panzura Freedom-lösningen tillhandahåller en NAS-lösning som sträcker sig över datacenter, kontor, offentliga och privata moln. Lösningen möjliggör lokala, hybrida och i molnet dataarbetsflöden för NFS, SMB och mobila klienter.
+Kunder med StorSimple 5000-7000-serien och StorSimple 8000-serien kan välja att migrera till Panzura frihet som NAS ska behålla sina data i Azure. Lösningen Panzura frihet är en NAS-lösning som omfattar data Center, kontor, offentliga och privata moln. Lösningen möjliggör lokala, hybrid och molnbaserade data arbets flöden för NFS, SMB och mobila klienter.
 
-Den här migreringen stöds av Panzura och kunder kan komma igång genom att begära migreringsstöd från [Panzura-webbplatsen](https://panzura.com/migrate-storsimple-panzura/).
+Den här migreringen stöds av Panzura och kunder kan komma igång genom att begära stöd för migrering från [Panzura-webbplatsen](https://panzura.com/migrate-storsimple-panzura/).
 
 <!-- 04/09/2020 v-grpr (priestlg) - As per request, commenting out this section because the information that will go into this section is forthcoming
 #### Migrate to Cohesity
@@ -61,47 +61,47 @@ Talon makes it easy for StorSimple 5000-7000 customers to continue to leverage t
 Learn more about how to evolve to a cloud-consolidated enterprise at https://www.talonstorage.com/alliances/microsoft-storsimple.
 -->
 
-## <a name="migration---frequently-asked-questions"></a>Migration - Vanliga frågor och svar
+## <a name="migration---frequently-asked-questions"></a>Migrering – vanliga frågor och svar
 
-### <a name="q-when-do-the-storsimple-8000-series-devices-reach-end-of-service"></a>F. När når StorSimple 8000-seriens enheter tjänsten?
+### <a name="q-when-do-the-storsimple-8000-series-devices-reach-end-of-service"></a>F. När når StorSimple 8000-serie enheterna tjänstens slut?
 
-A. StorSimple 8000-serien når [supportens slut](https://support.microsoft.com/[lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) i december 2022. Supporten upphör innebär att Microsoft inte längre kommer att kunna ge stöd för både maskinvara och programvara för dessa enheter efter december 2022. Vi rekommenderar starkt att du börjar formulera en plan för att migrera data från dina enheter nu.
+A. StorSimple 8000-serien når [Supportens slut](https://support.microsoft.com/[lifecycle/search?alpha=Azure%20StorSimple%208000%20Series) i december 2022. Slutet av supporten innebär att Microsoft inte längre kommer att kunna tillhandahålla stöd för både maskin-och program vara för dessa enheter efter 2022 december. Vi rekommenderar starkt att du börjar utforma en plan för att migrera data från dina enheter nu.
 
 ### <a name="q-what-happens-to-the-data-i-have-stored-in-azure"></a>F. Vad händer med de data som jag har lagrat i Azure?  
 
-A. Du kan fortsätta att använda data i Azure när du migrerar dem till en nyare tjänst.
+A. Du kan fortsätta att använda data i Azure när du migrerar den till en nyare tjänst.
 
 ### <a name="q-what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>F. Vad händer med de data som jag har lagrat lokalt på min StorSimple-enhet?
 
-A. Data som finns på den lokala enheten kan kopieras till den nyare tjänsten enligt beskrivningen i migreringsdokumenten.
+A. De data som finns på den lokala enheten kan kopieras till den nyare tjänsten enligt beskrivningen i migrerings dokumenten.
 
-### <a name="q-what-happens-if-i-want-to-keep-my-storsimple-8000-series-appliance"></a>F. Vad händer om jag vill behålla min StorSimple 8000-serieapparat?
+### <a name="q-what-happens-if-i-want-to-keep-my-storsimple-8000-series-appliance"></a>F. Vad händer om jag vill behålla min StorSimple 8000-serieprogram?
 
-A. Tjänsterna kan fortsätta att fungera, men Microsoft kan inte längre tillhandahålla maskinvaru- och programvarusupport. Migrering rekommenderas starkt för kontinuitet i verksamheten.
+A. Även om tjänsterna kan fortsätta att fungera kommer Microsoft inte längre att kunna tillhandahålla stöd för maskin-och program vara. Migrering rekommenderas starkt för affärs kontinuitet.
 
-### <a name="q-what-options-are-available-to-migrate-data-from-storsimple-8000-series-devices"></a>F. Vilka alternativ är tillgängliga för att migrera data från StorSimple 8000-seriens enheter?
+### <a name="q-what-options-are-available-to-migrate-data-from-storsimple-8000-series-devices"></a>F. Vilka alternativ finns det för att migrera data från StorSimple 8000-seriens enheter?
 
-A. Beroende på deras scenario har StorSimple 8000-seriens användare följande migreringsalternativ:
+A. Beroende på sitt scenario har StorSimple 8000-serien användare följande alternativ för migrering:
 
-* **Migrera till Azure File Sync**: Använd det här alternativet när du vill växla till Azure-inbyggt format. Du kan använda Azure File Sync för centraliserad hantering av filresurser.
+* **Migrera till Azure File Sync**: Använd det här alternativet om du vill växla till det inbyggda Azure-formatet. Du kan använda Azure File Sync för centraliserad hantering av fil resurser.
 
-* **Andra alternativ:** Du kan kontakta Microsoft Support för att diskutera migreringsalternativ som inte finns med här.
+* **Andra alternativ**: du kan kontakta Microsoft Support för att diskutera de migreringsåtgärder som inte listas här.
 
-### <a name="q-is-migration-to-other-storage-solutions-supported"></a>F. Stöds migrering till andra lagringslösningar?
+### <a name="q-is-migration-to-other-storage-solutions-supported"></a>F. Stöds migrering till andra lagrings lösningar?
 
-A. Ja. Migrering till andra lagringslösningar med hjälp av värdkopia av data stöds.
+A. Ja. Migrering till andra lagrings lösningar med hjälp av värd kopia av data stöds.
 
-### <a name="q-is-migration-supported-by-microsoft"></a>F. Stöds migreringen av Microsoft?
+### <a name="q-is-migration-supported-by-microsoft"></a>F. Stöds migrering av Microsoft?
 
-A. Migrering från 8000-serien är en fullt stödåtgärd. Faktum är att Microsoft rekommenderar att du når ut till supporten innan du startar migreringen. Migreringen är för närvarande en assisterad åtgärd. Om du tänker migrera data från storsimple 8000-serien kontaktar [du StorSimple-supporten](mailto:storsimp@microsoft.com).
+A. Migrering från 8000-serien är en åtgärd som stöds fullt ut. Microsoft rekommenderar faktiskt att vi når ut till support innan du påbörjar migreringen. Migreringen är för närvarande en åtgärd som kan åtgärdas. [Kontakta StorSimple-supporten](mailto:storsimp@microsoft.com)om du vill migrera data från din enhet för StorSimple 8000-serien.
 
-### <a name="q-what-is-the-pricing-model-for-migration-to-azure-file-sync"></a>F. Vad är prismodellen för migrering till Azure File Sync?
+### <a name="q-what-is-the-pricing-model-for-migration-to-azure-file-sync"></a>F. Vad är pris sättnings modellen för migrering till Azure File Sync?
 
-A. När du använder Azure File Sync kan prenumerationsavgifterna för tjänsten tillkomma. Kunderna måste också betala löpande lagringskostnader. Se [AFS-priser]( https://azure.microsoft.com/pricing/details/storage/files/) för en uppskattning.
+A. När du använder Azure File Sync kan prenumerations avgifterna för tjänsten tillkomma. Kunderna måste också betala kontinuerliga lagrings kostnader. Se pris information för [AFS]( https://azure.microsoft.com/pricing/details/storage/files/) för en uppskattning.
 
 ### <a name="q-how-long-does-it-take-to-complete-a-migration"></a>F. Hur lång tid tar det att slutföra en migrering?
 
-A. Tiden för att migrera data beror på mängden data och det uppgraderingsalternativ som valts.
+A. Hur lång tid det tar att migrera data beror på mängden data och uppgraderings alternativet har valts.
 
 ## <a name="next-steps"></a>Nästa steg
 

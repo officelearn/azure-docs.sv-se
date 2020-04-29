@@ -1,65 +1,65 @@
 ---
 title: Konfigurera CI/CD med GitHub-åtgärder
-description: Lär dig hur du distribuerar din kod till Azure App Service från en CI/CD-pipeline med GitHub-åtgärder. Anpassa bygguppgifterna och kör komplexa distributioner.
+description: Lär dig hur du distribuerar din kod till Azure App Service från en CI/CD-pipeline med GitHub-åtgärder. Anpassa Bygg aktiviteterna och kör komplexa distributioner.
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.openlocfilehash: 57ca5b0880d4b027e33bc0d01fc6225eb886029b
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82084999"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Distribuera till App Service med GitHub-åtgärder
 
-[GitHub-åtgärder](https://help.github.com/en/articles/about-github-actions) ger dig flexibiliteten att skapa ett automatiserat livscykelarbetsflöde för programvaruutveckling. Med Azure App Service Actions for GitHub kan du automatisera arbetsflödet för att distribuera till [Azure App Service](overview.md) med GitHub-åtgärder.
+[GitHub-åtgärder](https://help.github.com/en/articles/about-github-actions) ger dig flexibiliteten att bygga ett arbets flöde för automatiserad livs cykel för program utveckling. Med Azure App Service åtgärder för GitHub kan du automatisera arbets flödet för att distribuera till [Azure App Service](overview.md) med GitHub-åtgärder.
 
 > [!IMPORTANT]
-> GitHub-åtgärder är för närvarande i beta. Du måste först [registrera dig för att gå med i förhandsgranskningen](https://github.com/features/actions) med ditt GitHub-konto.
+> GitHub-åtgärder är för närvarande Beta versioner. Du måste först [Registrera dig för att kunna ansluta till förhands granskningen](https://github.com/features/actions) med ditt GitHub-konto.
 > 
 
-Ett arbetsflöde definieras av en YAML-fil (.yml) i `/.github/workflows/` sökvägen i databasen. Den här definitionen innehåller de olika steg och parametrar som utgör arbetsflödet.
+Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sökvägen i lagrings platsen. Den här definitionen innehåller de olika stegen och parametrarna som utgör arbets flödet.
 
-För ett Azure App Service-arbetsflöde har filen tre avsnitt:
+För ett Azure App Service-arbetsflöde har filen tre delar:
 
 |Section  |Aktiviteter  |
 |---------|---------|
-|**Autentisering** | 1. Definiera ett huvudnamn för tjänsten <br /> 2. Skapa en GitHub-hemlighet |
-|**Utveckla** | 1. Ställ in miljön <br /> 2. Bygg webbappen |
-|**Distribuera** | 1. Distribuera webbappen |
+|**Autentisering** | 1. definiera ett huvud namn för tjänsten <br /> 2. skapa en GitHub-hemlighet |
+|**Utveckla** | 1. Konfigurera miljön <br /> 2. Bygg webb programmet |
+|**Distribuera** | 1. distribuera webbappen |
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
-Du kan skapa ett [tjänsthuvudnamn](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) med kommandot [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i [Azure CLI](https://docs.microsoft.com/cli/azure/). Du kan köra det här kommandot med [Azure Cloud Shell](https://shell.azure.com/) i Azure-portalen eller genom att välja knappen **Prova.**
+Du kan skapa ett [huvud namn för tjänsten](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) med hjälp av kommandot [AZ AD SP Create-for-RBAC](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i [Azure CLI](https://docs.microsoft.com/cli/azure/). Du kan köra det här kommandot med [Azure Cloud Shell](https://shell.azure.com/) i Azure Portal eller genom att välja knappen **prova** .
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> --sdk-auth
 ```
 
-I det här exemplet ersätter du platshållarna i resursen med ditt prenumerations-ID, resursgruppsnamn och appnamn. Utdata är de autentiseringsuppgifter för rolltilldelning som ger åtkomst till apptjänstappen. Kopiera det här JSON-objektet, som du kan använda för att autentisera från GitHub.
+I det här exemplet ersätter du plats hållarna i resursen med ditt prenumerations-ID, resurs grupp namn och app-namn. Utdata är de autentiseringsuppgifter för roll tilldelning som ger åtkomst till din App Service-app. Kopiera det här JSON-objektet, som du kan använda för att autentisera från GitHub.
 
 > [!NOTE]
-> Du behöver inte skapa ett tjänsthuvudnamn om du bestämmer dig för att använda publiceringsprofilen för autentisering.
+> Du behöver inte skapa ett huvud namn för tjänsten om du bestämmer dig för att använda publicerings profilen för autentisering.
 
 > [!IMPORTANT]
-> Det är alltid en god praxis att ge minimal tillgång. Det är därför omfånget i föregående exempel är begränsat till den specifika App Service-appen och inte hela resursgruppen.
+> Det är alltid en bra idé att bevilja minimal åtkomst. Detta är anledningen till att omfånget i föregående exempel är begränsat till den särskilda App Service-appen och inte hela resurs gruppen.
 
 ## <a name="configure-the-github-secret"></a>Konfigurera GitHub-hemligheten
 
-Du kan också använda autentiseringsuppgifter på appnivå, dvs. Följ stegen för att konfigurera hemligheten:
+Du kan också använda autentiseringsuppgifter på program nivå, t. ex. publicera profil för distribution. Följ stegen för att konfigurera hemligheten:
 
-1. Ladda ned publiceringsprofilen för App Service-appen från portalen med alternativet **Hämta publiceringsprofil.**
+1. Ladda ned publicerings profilen för App Service-appen från portalen med alternativet **Hämta publicerings profil** .
 
-2. I [GitHub](https://github.com/)väljer du **Inställningar > hemligheter > Lägg till en ny hemlighet**
+2. I [GitHub](https://github.com/), bläddra i din lagrings plats, välj **inställningar > hemligheter > Lägg till en ny hemlighet**
 
     ![secrets](media/app-service-github-actions/secrets.png)
 
-3. Klistra in innehållet för den nedladdade publiceringsprofilfilen i hemlighetens värdefält.
+3. Klistra in innehållet för den hämtade publicerings profil filen i fältet hemligt värde.
 
-4. Nu i arbetsflödesfilen i `.github/workflows/workflow.yml` din gren: `publish-profile` ersätt hemligheten för indata från den distribuerade Azure Web App-åtgärden.
+4. Nu i arbets flödes filen i din gren `.github/workflows/workflow.yml` : Ersätt hemligheten för indata `publish-profile` för åtgärden Distribuera Azure Web App.
     
     ```yaml
         - uses: azure/webapps-deploy@v2
@@ -67,22 +67,22 @@ Du kan också använda autentiseringsuppgifter på appnivå, dvs. Följ stegen f
             creds: ${{ secrets.azureWebAppPublishProfile }}
     ```
 
-5. Du ser hemligheten som visas nedan en gång definierat.
+5. Du ser hemligheten som visas nedan när den har definierats.
 
     ![secrets](media/app-service-github-actions/app-service-secrets.png)
 
 ## <a name="set-up-the-environment"></a>Konfigurera miljön
 
-Ställa in miljön kan göras med hjälp av en av inställningsåtgärderna.
+Konfigurationen av miljön kan göras med hjälp av en av installations åtgärderna.
 
-|**Språk**  |**Inställningsåtgärd**  |
+|**Språk**  |**Installations åtgärd**  |
 |---------|---------|
 |**.NET**     | `actions/setup-dotnet` |
 |**Java**     | `actions/setup-java` |
 |**JavaScript** | `actions/setup-node` |
 |**Python**     | `actions/setup-python` |
 
-I följande exempel visas den del av arbetsflödet som ställer in miljön för de olika språk som stöds:
+I följande exempel visas en del av arbets flödet som konfigurerar miljön för de olika språk som stöds:
 
 **JavaScript**
 
@@ -121,11 +121,11 @@ I följande exempel visas den del av arbetsflödet som ställer in miljön för 
         java-version: '1.8.x'
 ```
 
-## <a name="build-the-web-app"></a>Skapa webbappen
+## <a name="build-the-web-app"></a>Bygg webb programmet
 
-Detta beror på språket och för språk som stöds av Azure App Service, bör det här avsnittet vara standard byggstegen för varje språk.
+Detta beror på språket och för språk som stöds av Azure App Service, bör det här avsnittet vara standard stegen för version av varje språk.
 
-I följande exempel visas den del av arbetsflödet som bygger webbappen på de olika språk som stöds.
+I följande exempel visas den del av arbets flödet som bygger webbappen på de olika språk som stöds.
 
 **JavaScript**
 
@@ -182,18 +182,18 @@ I följande exempel visas den del av arbetsflödet som bygger webbappen på de o
 ```
 ## <a name="deploy-to-app-service"></a>Distribuera till App Service
 
-Om du vill distribuera koden till `azure/webapps-deploy@v2` en App Service-app använder du åtgärden. Den här åtgärden har fyra parametrar:
+Om du vill distribuera din kod till en App Service-app `azure/webapps-deploy@v2` använder du åtgärden. Den här åtgärden har fyra parametrar:
 
-| **Parametern**  | **Förklaring**  |
+| **ProfileServiceApplicationProxy**  | **Förklaring**  |
 |---------|---------|
-| **app-namn** | (Obligatoriskt) Namn på apptjänstappen | 
-| **publicera-profil** | (Valfritt) Publicera profilfilinnehåll med webbdetränna hemligheter |
-| **Paket** | (Valfritt) Sökväg till paket eller mapp. *.zip, *.war, *.jar eller en mapp för att distribuera |
-| **kortplatsnamn** | (Valfritt) Ange en annan befintlig platsplats än produktionsplatsen |
+| **App-Name** | Kunna Namnet på App Service-appen | 
+| **publicera – profil** | Valfritt Publicera profil filens innehåll med webb distributions hemligheter |
+| **paketfilerna** | Valfritt Sökväg till paket eller mapp. *. zip, *. War, *. jar eller en mapp för distribution |
+| **plats namn** | Valfritt Ange en befintlig plats förutom produktions platsen |
 
-### <a name="deploy-using-publish-profile"></a>Distribuera med publiceringsprofil
+### <a name="deploy-using-publish-profile"></a>Distribuera med publicerings profil
 
-Nedan finns exempelarbetsflödet för att skapa och distribuera en Node.js-app till Azure med hjälp av publiceringsprofilen.
+Nedan visas exempel arbets flödet för att bygga och distribuera en Node. js-app till Azure med hjälp av publicerings profil.
 
 ```yaml
 # File: .github/workflows/workflow.yml
@@ -225,9 +225,9 @@ jobs:
             publish-profile: ${{ secrets.azureWebAppPublishProfile }}
 ```
 
-### <a name="deploy-using-azure-service-principal"></a>Distribuera med Azure-tjänstens huvudnamn
+### <a name="deploy-using-azure-service-principal"></a>Distribuera med hjälp av Azure-tjänstens huvud namn
 
-Nedan finns exempelarbetsflödet för att skapa och distribuera en Node.js-app till Azure med hjälp av ett Huvudnamn för Azure-tjänsten.
+Nedan visas exempel arbets flödet för att bygga och distribuera en Node. js-app till Azure med hjälp av ett Azure-tjänstens huvud namn.
 
 ```yaml
 on: [push]
@@ -270,9 +270,9 @@ jobs:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du hittar vår uppsättning åtgärder grupperade i olika databaser på GitHub, var och en som innehåller dokumentation och exempel som hjälper dig att använda GitHub för CI/CD och distribuera dina appar till Azure.
+Du hittar vår uppsättning åtgärder grupperade i olika databaser på GitHub, var och en innehåller dokumentation och exempel som hjälper dig att använda GitHub för CI/CD och distribuera dina appar till Azure.
 
-- [Arbetsflöde för åtgärder som ska distribueras till Azure](https://github.com/Azure/actions-workflow-samples)
+- [Åtgärds arbets flöde för distribution till Azure](https://github.com/Azure/actions-workflow-samples)
 
 - [Azure-inloggning](https://github.com/Azure/login)
 
@@ -280,10 +280,10 @@ Du hittar vår uppsättning åtgärder grupperade i olika databaser på GitHub, 
 
 - [Azure WebApp för behållare](https://github.com/Azure/webapps-container-deploy)
 
-- [Docker inloggning / utloggning](https://github.com/Azure/docker-login)
+- [Docker-inloggning/utloggning](https://github.com/Azure/docker-login)
 
-- [Händelser som utlöser arbetsflöden](https://help.github.com/en/articles/events-that-trigger-workflows)
+- [Händelser som utlöser arbets flöden](https://help.github.com/en/articles/events-that-trigger-workflows)
 
-- [Distribution av K8:er](https://github.com/Azure/k8s-deploy)
+- [K8s-distribution](https://github.com/Azure/k8s-deploy)
 
-- [Startarbetsflöden](https://github.com/actions/starter-workflows)
+- [Start arbets flöden](https://github.com/actions/starter-workflows)

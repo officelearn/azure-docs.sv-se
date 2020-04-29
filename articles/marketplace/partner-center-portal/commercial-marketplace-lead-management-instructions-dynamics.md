@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
 ms.openlocfilehash: b9158f7b2e3fc73a2fe2a9b20ead2558b7467f6f
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82131061"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Konfigurera lead-hantering för Dynamics 365 kund engagemang
@@ -112,7 +112,7 @@ Så här konfigurerar du Azure Active Directory för Dynamics 365-kund engageman
 
 1. Gå till avsnittet "säkerhets inställningar" i den här artikeln om du vill slutföra konfigurationen av anslutningen för den här användaren.
 
-### <a name="office-365"></a>Office 365
+### <a name="office-365"></a>Office 365
 
 Om du inte vill använda Azure Active Directory kan du registrera en ny användare på Microsoft 365 administrations Center. Du måste uppdatera ditt användar namn och lösen ord var 90 dag om du vill fortsätta få leads.
 

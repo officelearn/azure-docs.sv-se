@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.custom: seodec18
 ms.openlocfilehash: fdc04c49521c9d91ef836c4d1dba76091db8f16a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115388"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
@@ -49,7 +49,7 @@ Några av följande resurser – konton, beräkningsnoder, pooler, jobb och akti
 * [Pool](#pool)
 * [Jobb](#job)
   * [Jobbscheman](#scheduled-jobs)
-* [Aktivitet](#task)
+* [Uppgift](#task)
   * [Startaktivitet](#start-task)
   * [Job Manager-aktivitet](#job-manager-task)
   * [Jobbförberedelse- och jobbpubliceringsaktiviteter](#job-preparation-and-release-tasks)
@@ -237,7 +237,7 @@ Schemaläggningen av jobb mellan pooler är oberoende av varandra. Mellan olika 
 
 Med [jobbscheman][rest_job_schedules] kan du skapa återkommande jobb i Batch-tjänsten. Ett jobbschema anger när jobb ska köras och innehåller specifikationerna för jobben som ska köras. Du kan ange schemats varaktighet – hur länge och när schemat gäller – och hur ofta jobb skapas under den schemalagda perioden.
 
-## <a name="task"></a>Aktivitet
+## <a name="task"></a>Uppgift
 
 En aktivitet är en beräkningsenhet som associeras med ett jobb. Den körs på en nod. Aktiviteter tilldelas till en nod för körning eller placeras i kö tills en nod blir ledig. Enkelt beskrivet kör en aktivitet ett eller flera program eller skript på en beräkningsnod för att utföra det arbete som du vill ha gjort.
 

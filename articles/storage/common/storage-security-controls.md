@@ -10,10 +10,10 @@ ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: 96fde15eb5071e157fedcff6154e6b0635a34721
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82128026"
 ---
 # <a name="security-controls-for-azure-storage"></a>Säkerhets kontroller för Azure Storage
@@ -24,7 +24,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="data-protection"></a>Dataskydd
 
-| Säkerhets kontroll | Ja/nej | Anteckningar |
+| Säkerhets kontroll | Ja/nej | Obs! |
 |---|---|--|
 | Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja |  |
 | Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Ja | Se [kryptering för lagringstjänst att använda Kundhanterade nycklar i Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
@@ -34,7 +34,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="network"></a>Nätverk
 
-| Säkerhets kontroll | Ja/nej | Anteckningar |
+| Säkerhets kontroll | Ja/nej | Obs! |
 |---|---|--|
 | Stöd för tjänst slut punkt| Ja |  |
 | Support för service märken| Ja | Se [Översikt över Azure Service Tags](../../virtual-network/service-tags-overview.md) för mer information om service märken som stöds av Azure Storage. |
@@ -44,7 +44,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="monitoring--logging"></a>Övervaka & loggning
 
-| Säkerhets kontroll | Ja/nej | Anteckningar|
+| Säkerhets kontroll | Ja/nej | Obs!|
 |---|---|--|
 | Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Azure Monitor mått|
 | Loggning och granskning av kontroll-och hanterings plan | Ja | Azure-aktivitetslogg |
@@ -52,14 +52,14 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="identity"></a>Identitet
 
-| Säkerhets kontroll | Ja/nej | Anteckningar|
+| Säkerhets kontroll | Ja/nej | Obs!|
 |---|---|--|
 | Autentisering| Ja | Azure Active Directory, delad nyckel, delad åtkomsttoken. |
 | Auktorisering| Ja | Stöd för auktorisering via RBAC, POSIX ACL: er och SAS-token |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhets kontroll | Ja/nej | Anteckningar|
+| Säkerhets kontroll | Ja/nej | Obs!|
 |---|---|--|
 | Konfigurations hanterings stöd (konfigurations version osv.)| Ja | Stöd för Resource Provider-versioner via Azure Resource Manager API: er |
 

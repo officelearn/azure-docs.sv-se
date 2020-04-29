@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 5b50906fac613a4e7470b0e13d6f068c3872f625
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82136914"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Mata in historiska telemetridata
@@ -27,7 +27,7 @@ Innan du fortsätter med den här artikeln måste du kontrol lera att du har ins
 Du måste aktivera partner integrering till din Azure FarmBeats-instans. Det här steget skapar en klient som har åtkomst till din Azure FarmBeats-instans som din enhets partner och ger dig följande värden som krävs i följande steg:
 
 - API-slut punkt: Detta är Datahub-URL, till exempel\<https://Datahub>. azurewebsites.net
-- Klient-ID:t
+- Klientorganisations-ID
 - Klientorganisations-ID
 - Klienthemlighet
 - EventHub-anslutningssträng
@@ -101,16 +101,16 @@ Följ de här stegen:
 |          Tillverkare            |         Tillverkarens namn    |
 |  ProductCode                    |  Enhetens produkt kod eller modell namn eller nummer. Till exempel EnviroMonitor # 6800.  |
 |            Portar          |     Port namn och-typ, som är digital eller analog.
-|     Namn                 |  Namn för att identifiera resursen. Till exempel modell namnet eller produkt namnet.
+|     Name                 |  Namn för att identifiera resursen. Till exempel modell namnet eller produkt namnet.
       Beskrivning     | Ange en meningsfull beskrivning av modellen.
 |    Egenskaper          |    Ytterligare egenskaper från tillverkaren.   |
 |    **Enhet**             |                      |
 |   DeviceModelId     |     ID för associerad enhets modell.  |
 |  HardwareId          | Unikt ID för enheten, till exempel MAC-adressen.
 |  ReportingInterval        |   Rapport intervall i sekunder.
-|  Location            |  Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter).   
+|  Plats            |  Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter).   
 |ParentDeviceId       |    ID för den överordnade enhet som enheten är ansluten till. Till exempel en nod som är ansluten till en gateway. En nod har parentDeviceId som gateway.  |
-|    Namn            | Ett namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på partner sidan. Om partner enhetens namn är användardefinierad, ska samma användardefinierade namn spridas till FarmBeats.|
+|    Name            | Ett namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på partner sidan. Om partner enhetens namn är användardefinierad, ska samma användardefinierade namn spridas till FarmBeats.|
 |     Beskrivning       |      Ange en meningsfull beskrivning. |
 |     Egenskaper    |  Ytterligare egenskaper från tillverkaren.
 |     **SensorModel**        |          |
@@ -122,16 +122,16 @@ Följ de här stegen:
 |    SensorMeasures > typ    |Typ av mått för sensorer för telemetri. Systemdefinierade typer är AmbientTemperature, CO2, djup, ElectricalConductivity, LeafWetness, length, LiquidLevel, nitrat, O2, PH, fosfat, PointInTime, kalium, press, RainGauge, RelativeHumidity, salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, volym, WindDirection, WindRun, WindSpeed, evapotranspiration, parivärde. Mer information finns i/ExtendedType-API: et.|
 |        SensorMeasures > enhet              | Enhet för data för sensor telemetri. Systemdefinierade enheter är nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, kvicksilver, PSI, MilliMeter, CentiMeter, meter, tum, fot, mil, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, examen, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, liter, DeciSiemensPerMeter, Seconds KiloPascal, VolumetricIonContent, MilliLiter och Lägg till mer finns i UnixTimestamp-API: et.|
 |    SensorMeasures > AggregationType    |  Värdena kan vara ingen, genomsnitt, högsta, lägsta eller StandardDeviation.  |
-|          Namn            | Namn för att identifiera en resurs. Till exempel modell namnet eller produkt namnet.  |
+|          Name            | Namn för att identifiera en resurs. Till exempel modell namnet eller produkt namnet.  |
 |    Beskrivning        | Ange en meningsfull beskrivning av modellen.|
 |   Egenskaper       |  Ytterligare egenskaper från tillverkaren.|
 |    **Mäta**      |          |
 | HardwareId          |   Unikt ID för sensorn som anges av tillverkaren.|
 |  SensorModelId     |    ID för associerad sensor modell.|
-| Location          |  Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).|
+| Plats          |  Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).|
 |   Port > namn        |  Namn och typ för den port som sensorn är ansluten till på enheten. Det måste vara samma namn som det definieras i enhets modellen.|
 |    DeviceID  |    ID för den enhet som sensorn är ansluten till. |
-| Namn            |   Namn för att identifiera resursen. Till exempel sensor namn, produkt namn och modell nummer eller produkt kod.|
+| Name            |   Namn för att identifiera resursen. Till exempel sensor namn, produkt namn och modell nummer eller produkt kod.|
 |    Beskrivning      | Ange en meningsfull beskrivning.|
 |    Egenskaper        |Ytterligare egenskaper från tillverkaren.|
 
@@ -147,7 +147,7 @@ FarmBeats Datahub använder Bearer-autentisering, som behöver följande autenti
 
 - Klientorganisations-ID
 - Klienthemlighet
-- Klient-ID:t
+- Klientorganisations-ID
 
 Med dessa autentiseringsuppgifter kan anroparen begära en åtkomsttoken. Token måste skickas i efterföljande API-begäranden i avsnittet rubrik enligt följande:
 

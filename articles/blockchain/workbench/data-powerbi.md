@@ -5,23 +5,23 @@ ms.date: 04/22/2020
 ms.topic: article
 ms.reviewer: sunri
 ms.openlocfilehash: 4245603fee5b3d24488426c3dc2d026a3c0d7848
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82082534"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Använda Azure Blockchain Workbench-data med Microsoft Power BI
 
-Microsoft Power BI ger möjlighet att enkelt generera kraftfulla rapporter från SQL DB-databaser med Power BI Desktop och sedan publicera dem till [https://www.powerbi.com](https://www.powerbi.com).
+Microsoft Power BI ger möjlighet att enkelt generera kraftfulla rapporter från SQL DB-databaser med hjälp av Power BI Desktop och sedan publicera [https://www.powerbi.com](https://www.powerbi.com)dem till.
 
 Den här artikeln beskriver steg för steg hur du ansluter till SQL-databasen i Azure Blockchain Workbench från PowerBI Desktop, skapar en rapport och sedan distribuerar rapporten till powerbi.com.
 
 ## <a name="prerequisites"></a>Krav
 
-* Ladda ned [Power BI-skrivbordet](https://powerbi.microsoft.com/desktop/).
+* Ladda ned [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
 
-## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Ansluta Power BI till data i Azure Blockchain Workbench
+## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Ansluta Power BI till data i Azure blockchain Workbench
 
 1.  Öppna Power BI Desktop.
 2.  Välj **Hämta data**.
@@ -43,7 +43,7 @@ Den här artikeln beskriver steg för steg hur du ansluter till SQL-databasen i 
 
     ![Navigatör](./media/data-powerbi/navigator.png)
 
-7.  Välj de vyer som du vill ta med. I demonstrationssyfte inkluderar vi **vwContractAction**, som ger information om de åtgärder som har ägt rum på ett kontrakt.
+7.  Välj de vyer som du vill ta med. I demonstrations syfte omfattar vi **vwContractAction**, som innehåller information om de åtgärder som har vidtagits i ett avtal.
 
     ![Välja vyer](./media/data-powerbi/select-views.png)
 

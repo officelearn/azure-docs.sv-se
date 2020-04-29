@@ -1,7 +1,7 @@
 ---
-title: Tolka & förklara ML-modeller i Python
+title: Tolka & förklara ML-modeller i python
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du får förklaringar till hur din maskininlärningsmodell avgör funktionens betydelse och gör förutsägelser när du använder Azure Machine Learning SDK.
+description: Lär dig hur du får förklaringar för hur din Machine Learning-modell fastställer funktions prioritet och gör förutsägelser när du använder Azure Machine Learning SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,43 +11,43 @@ author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/12/2020
 ms.openlocfilehash: 45eef976fe10bbb5acda2cd348a77b28c3ffbe02
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81769813"
 ---
-# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Använd tolkningspaketet för att förklara ML-modeller & förutsägelser i Python
+# <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python"></a>Använd tolknings paketet för att förklara ML-modeller & förutsägelser i python
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här programguiden lär du dig att använda tolkningspaketet i Azure Machine Learning Python SDK för att utföra följande uppgifter:
+I den här instruktions guiden lär du dig att använda tolknings paketet för Azure Machine Learning python SDK för att utföra följande uppgifter:
 
 
-* Förklara hela modellen beteende eller enskilda förutsägelser på din personliga dator lokalt.
+* Förklara hela modell beteendet eller enskilda förutsägelser på din personliga dator lokalt.
 
-* Aktivera tolkningstekniker för konstruerade funktioner.
+* Aktivera tolknings tekniker för tekniker som har funktioner.
 
 * Förklara beteendet för hela modellen och enskilda förutsägelser i Azure.
 
-* Använd en instrumentpanel för visualisering för att interagera med dina modellförklaringar.
+* Använd en instrument panel för visualiseringar för att interagera med dina modell förklaringar.
 
-* Distribuera en bedömningsut explainer tillsammans med din modell för att observera förklaringar under inferencing.
+* Distribuera en bedömnings förklaring tillsammans med din modell för att studera förklaringar under inferencing.
 
 
 
-Mer information om tolkningstekniker och maskininlärningsmodeller som stöds finns [i Standardtolkbarhet i Azure Machine Learning](how-to-machine-learning-interpretability.md) och exempel [anteckningsböcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
+Mer information om vilka tolknings tekniker och maskin inlärnings modeller som stöds finns i [modell tolkning i Azure Machine Learning](how-to-machine-learning-interpretability.md) och [exempel antecknings böcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
 
-## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Generera prioritetsvärde för funktioner på din personliga dator 
-I följande exempel visas hur du använder tolkningspaketet på din personliga dator utan att kontakta Azure-tjänster.
+## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Generera funktions prioritets värde på din personliga dator 
+I följande exempel visas hur du använder tolknings paketet på din personliga dator utan att kontakta Azure-tjänster.
 
-1. Installera `azureml-interpret` `azureml-contrib-interpret` och paket.
+1. Installera `azureml-interpret` och `azureml-contrib-interpret` paket.
     ```bash
     pip install azureml-interpret
     pip install azureml-contrib-interpret
     ```
 
-2. Träna en provmodell i en lokal Jupyter-anteckningsbok.
+2. Träna en exempel modell i en lokal Jupyter-anteckningsbok.
 
     ```python
     # load breast cancer dataset, a well-known small dataset that comes with scikit-learn
@@ -67,13 +67,13 @@ I följande exempel visas hur du använder tolkningspaketet på din personliga d
     model = clf.fit(x_train, y_train)
     ```
 
-3. Ring förklararen lokalt.
-   * Om du vill initiera ett explainer-objekt skickar du modellen och vissa träningsdata till explainerns konstruktor.
-   * Om du vill göra dina förklaringar och visualiseringar mer informativa kan du välja att skicka in funktionsnamn och utdataklassnamn om du gör klassificering.
+3. Anropa förklaringen lokalt.
+   * Om du vill initiera ett förklarings objekt skickar du din modell och några tränings data till förklaringens konstruktor.
+   * Om du vill göra dina förklaringar och visualiseringar mer informativa kan du välja att skicka in funktions namn och utgångs klass namn om du gör klassificering.
 
-   Följande kodblock visar hur du instansierar `TabularExplainer`ett `MimicExplainer`explainer-objekt med , och `PFIExplainer` lokalt.
-   * `TabularExplainer`kallar en av de tre SHAP-explainers under (`TreeExplainer`, `DeepExplainer`eller `KernelExplainer`).
-   * `TabularExplainer`väljer automatiskt den lämpligaste för ditt användningsfall, men du kan ringa var och en av dess tre underliggande explainers direkt.
+   Följande kod block visar hur du instansierar ett förklarings objekt med `TabularExplainer`, `MimicExplainer`och `PFIExplainer` lokalt.
+   * `TabularExplainer`anropar en av de tre SHAP-förklaringarna`TreeExplainer`under `DeepExplainer`(, `KernelExplainer`eller).
+   * `TabularExplainer`väljer automatiskt den lämpligaste för ditt användnings fall, men du kan anropa var och en av de tre underliggande förklaringarna direkt.
 
     ```python
     from interpret.ext.blackbox import TabularExplainer
@@ -122,9 +122,9 @@ I följande exempel visas hur du använder tolkningspaketet på din personliga d
                              classes=classes)
     ```
 
-### <a name="explain-the-entire-model-behavior-global-explanation"></a>Förklara hela modellen beteende (global förklaring) 
+### <a name="explain-the-entire-model-behavior-global-explanation"></a>Förklara hela modell beteendet (global förklaring) 
 
-Se följande exempel för att hjälpa dig att få de sammanlagda (globala) funktionsviktvärdena.
+Se följande exempel för att få hjälp med att hämta mängd funktions värden (global).
 
 ```python
 
@@ -144,7 +144,7 @@ global_explanation.get_feature_importance_dict()
 ```
 
 ### <a name="explain-an-individual-prediction-local-explanation"></a>Förklara en individuell förutsägelse (lokal förklaring)
-Hämta de enskilda funktionsviktvärdena för olika datapunkter genom att anropa förklaringar för en enskild instans eller en grupp instanser.
+Hämta de enskilda funktions prioritets värdena för olika Datapoints genom att anropa förklaringar för en enskild instans eller en grupp av instanser.
 > [!NOTE]
 > `PFIExplainer`stöder inte lokala förklaringar.
 
@@ -157,13 +157,13 @@ sorted_local_importance_names = local_explanation.get_ranked_local_names()
 sorted_local_importance_values = local_explanation.get_ranked_local_values()
 ```
 
-### <a name="raw-feature-transformations"></a>Omvandlingar av funktioner för råa funktioner
+### <a name="raw-feature-transformations"></a>Transformeringar av RAW-funktioner
 
-Du kan välja att få förklaringar i form av råa, oöversatta funktioner snarare än konstruerade funktioner. För det här alternativet skickar du din pipeline `train_explain.py`för funktionsomvandling till explainern i . Annars ger explainer förklaringar när det gäller konstruerade funktioner.
+Du kan välja att få förklaringar vad gäller RAW, ej transformerade funktioner i stället för de som har funktioner. För det här alternativet skickar du din funktions omvandlings pipeline till förklaringen i `train_explain.py`. Annars innehåller förklaringen förklaringar vad gäller de tekniker som finns.
 
-Formatet på omvandlingar som stöds är detsamma som beskrivs i [sklearn-pandor](https://github.com/scikit-learn-contrib/sklearn-pandas). I allmänhet stöds alla omvandlingar så länge de fungerar på en enda kolumn så att det är tydligt att de är en-till-många.
+Formatet på omvandlingar som stöds är detsamma som det beskrivs i [sklearn-Pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). I allmänhet stöds alla omvandlingar så länge de arbetar på en enda kolumn så att de är tydliga.
 
-Få en förklaring till råa funktioner med hjälp av en `sklearn.compose.ColumnTransformer` eller med en lista över monterade transformatortuppningar. I följande `sklearn.compose.ColumnTransformer`exempel används .
+Få en förklaring till RAW-funktioner med hjälp `sklearn.compose.ColumnTransformer` av en eller med en lista över monterade transformatorer. I följande exempel används `sklearn.compose.ColumnTransformer`.
 
 ```python
 from sklearn.compose import ColumnTransformer
@@ -197,7 +197,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
                                      transformations=preprocessor)
 ```
 
-Om du vill köra exemplet med listan över monterade transformatortupplar, använd följande kod:
+Om du vill köra exemplet med listan över monterade transformatorer, använder du följande kod:
 
 ```python
 from sklearn.pipeline import Pipeline
@@ -231,19 +231,19 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
                                      transformations=transformations)
 ```
 
-## <a name="generate-feature-importance-values-via-remote-runs"></a>Generera värden för funktionsavstÃ¤nning via fjärrkörningar
+## <a name="generate-feature-importance-values-via-remote-runs"></a>Generera funktions prioritets värden via fjärrkörningar
 
-I följande exempel visas hur `ExplanationClient` du kan använda klassen för att aktivera modelltolkbarhet för fjärrkörningar. Det är begreppsmässigt liknar den lokala processen, förutom du:
+I följande exempel visas hur du kan använda- `ExplanationClient` klassen för att aktivera modell tolkning för fjärrkörningar. Det påminner om den lokala processen, förutom du:
 
-* Använd `ExplanationClient` i fjärrkörningen för att ladda upp tolkningskontexten.
-* Hämta kontexten senare i en lokal miljö.
+* Använd `ExplanationClient` i fjärrkörning för att överföra tolknings kontexten.
+* Ladda ned kontexten senare i en lokal miljö.
 
-1. Installera `azureml-interpret` `azureml-interpret-contrib` och paket.
+1. Installera `azureml-interpret` och `azureml-interpret-contrib` paket.
     ```bash
     pip install azureml-interpret
     pip install azureml-interpret-contrib
     ```
-1. Skapa ett utbildningsskript i en lokal Jupyter-anteckningsbok. Till exempel `train_explain.py`.
+1. Skapa ett utbildnings skript i en lokal Jupyter-anteckningsbok. Till exempel `train_explain.py`.
 
     ```python
     from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
@@ -274,9 +274,9 @@ I följande exempel visas hur `ExplanationClient` du kan använda klassen för a
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. Konfigurera en Azure Machine Learning Compute som beräkningsmål och skicka in din träningskörning. Se [ställa in beräkningsmål för modellutbildning](how-to-set-up-training-targets.md#amlcompute) för instruktioner. Du kan också hitta [exempel anteckningsböcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) till hjälp.
+1. Konfigurera en Azure Machine Learning Compute som ditt beräknings mål och skicka din utbildnings körning. Instruktioner finns i Konfigurera [beräknings mål för modell utbildning](how-to-set-up-training-targets.md#amlcompute) . Du kan också hitta [exempel på bärbara datorer](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) .
 
-1. Ladda ner förklaringen i din lokala Jupyter anteckningsbok.
+1. Hämta förklaringen i den lokala Jupyter-anteckningsboken.
 
     ```python
     from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
@@ -297,42 +297,42 @@ I följande exempel visas hur `ExplanationClient` du kan använda klassen för a
 
 ## <a name="visualizations"></a>Visualiseringar
 
-När du har hämtat förklaringarna i den lokala Jupyter-anteckningsboken kan du använda instrumentpanelen för visualisering för att förstå och tolka din modell.
+När du har laddat ned förklaringarna i din lokala Jupyter-anteckningsbok kan du använda visualiserings instrument panelen för att förstå och tolka din modell.
 
-### <a name="understand-entire-model-behavior-global-explanation"></a>Förstå hela modellens beteende (global förklaring) 
+### <a name="understand-entire-model-behavior-global-explanation"></a>Förstå hela modell beteendet (global förklaring) 
 
-Följande tomter ger en helhetsbild av den utbildade modellen tillsammans med dess förutsägelser och förklaringar.
+I följande områden finns en övergripande vy av den tränade modellen tillsammans med dess förutsägelser och förklaringar.
 
-|Tomt|Beskrivning|
+|Basera|Beskrivning|
 |----|-----------|
-|Data Exploration| Visar en översikt över datauppsättningen tillsammans med förutsägelsevärden.|
-|Global betydelse|Aggregat har viktiga värden för enskilda datapunkter för att visa modellens övergripande topp K (konfigurerbara K) viktiga funktioner. Hjälper till att förstå underliggande modellens övergripande beteende.|
-|Förklaring Exploration|Visar hur en funktion påverkar en ändring av modellens förutsägelsevärden eller sannolikheten för förutsägelsevärden. Visar effekten av funktionsinteraktion.|
-|Sammanfattning betydelse|Använder enskilda prioritetsvärden för funktioner över alla datapunkter för att visa fördelningen av varje funktions inverkan på förutsägelsevärdet. Med hjälp av det här diagrammet undersöker du i vilken riktning funktionsvärdena påverkar förutsägelsevärdena.
+|Data utforskning| Visar en översikt över data uppsättningen tillsammans med förutsägelse värden.|
+|Global prioritet|Sammanställer funktions värden för enskilda Datapoints för att Visa modellens övergripande viktigaste K (konfigurerbara K) viktiga funktioner. Hjälper till att förstå den underliggande modellens övergripande beteende.|
+|Förklarings utforskning|Visar hur en funktion påverkar en ändring i modellens förutsägelse värden eller sannolikheten för förutsägelse värden. Visar effekten av funktions interaktion.|
+|Sammanfattnings prioritet|Använder enskilda prioritets värden för alla data punkter för att Visa fördelningen av varje funktions effekt på förutsägelse värdet. Med hjälp av det här diagrammet kan du undersöka i vilken riktning funktions värdena påverkar förutsägelse värden.
 |
 
-[![Instrumentpanel för visualisering globalt](./media/how-to-machine-learning-interpretability-aml/global-charts.png)](./media/how-to-machine-learning-interpretability-aml/global-charts.png#lightbox)
+[![Global instrument panel för visualisering](./media/how-to-machine-learning-interpretability-aml/global-charts.png)](./media/how-to-machine-learning-interpretability-aml/global-charts.png#lightbox)
 
 ### <a name="understand-individual-predictions-local-explanation"></a>Förstå enskilda förutsägelser (lokal förklaring) 
 
-Du kan läsa in det enskilda funktionsviktsdiagrammet för alla datapunkter genom att klicka på någon av de enskilda datapunkterna i något av de övergripande diagrammen.
+Du kan läsa in prioritets kurvan för enskilda funktioner för alla data punkter genom att klicka på någon av de enskilda data punkterna i de övergripande områdena.
 
-|Tomt|Beskrivning|
+|Basera|Beskrivning|
 |----|-----------|
-|Lokal betydelse|Visar de viktigaste funktionerna i K (konfigurerbara K) för en individuell förutsägelse. Hjälper till att illustrera det lokala beteendet hos den underliggande modellen på en viss datapunkt.|
-|Störning Exploration (tänk om analys)|Tillåter ändringar av funktionsvärden för den valda datapunkten och observera resulterande ändringar i förutsägelsevärdet.|
-|Individuella villkorliga förväntningar (ICE)| Tillåter funktionsvärdeändringar från ett minimivärde till ett högsta värde. Hjälper till att illustrera hur datapunktens förutsägelse ändras när en funktion ändras.|
+|Lokal prioritet|Visar de viktigaste K (konfigurerbara K) viktiga funktioner för en enskild förutsägelse. Hjälper till att illustrera den underliggande modellens lokala beteende på en viss data punkt.|
+|Perturbation-utforskning (vad händer om-analys)|Tillåter ändringar av funktions värden för den valda data punkten och observerar resulterande ändringar i förutsägelse värde.|
+|Individuell villkorlig förväntad (ICE)| Tillåter funktions värdes ändringar från ett minsta värde till ett högsta värde. Hjälper dig att illustrera hur data punktens förutsägelse ändras när en funktion ändras.|
 
-[![Lokal funktionsvikt för visualiseringsinstrumentpanel](./media/how-to-machine-learning-interpretability-aml/local-charts.png)](./media/how-to-machine-learning-interpretability-aml/local-charts.png#lightbox)
-
-
-[![Funktionsövermring av visualiseringsinstrumentpanel](./media/how-to-machine-learning-interpretability-aml/perturbation.gif)](./media/how-to-machine-learning-interpretability-aml/perturbation.gif#lightbox)
+[![Lokal funktions prioritet för visualiserings instrument panel](./media/how-to-machine-learning-interpretability-aml/local-charts.png)](./media/how-to-machine-learning-interpretability-aml/local-charts.png#lightbox)
 
 
-[![ICE-diagram för visualisering](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
+[![Instrument panel funktionen perturbation](./media/how-to-machine-learning-interpretability-aml/perturbation.gif)](./media/how-to-machine-learning-interpretability-aml/perturbation.gif#lightbox)
+
+
+[![ICE-observationer på visualiserings instrument panelen](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
 
 > [!NOTE]
-> Innan Jupyter-kärnan startar kontrollerar du att du aktiverar widgettillägg för instrumentpanelen för visualisering.
+> Innan Jupyter-kärnan startar, se till att du aktiverar widgets tillägg för visualiserings instrument panelen.
 
 * Jupyter Notebooks
 
@@ -341,14 +341,14 @@ Du kan läsa in det enskilda funktionsviktsdiagrammet för alla datapunkter geno
     jupyter nbextension enable --py --sys-prefix azureml.contrib.interpret.visualize
     ```
 
-* JupyterLab (på sätt och vir)
+* JupyterLab
 
     ```shell
     jupyter labextension install @jupyter-widgets/jupyterlab-manager
     jupyter labextension install microsoft-mli-widget
     ```
 
-Om du vill läsa in instrumentpanelen för visualisering använder du följande kod.
+Använd följande kod för att läsa in visualiserings instrument panelen.
 
 ```python
 from interpret_community.widget import ExplanationDashboard
@@ -356,30 +356,30 @@ from interpret_community.widget import ExplanationDashboard
 ExplanationDashboard(global_explanation, model, x_test)
 ```
 
-### <a name="visualization-in-azure-machine-learning-studio"></a>Visualisering i Azure Machine Learning studio
+### <a name="visualization-in-azure-machine-learning-studio"></a>Visualisering i Azure Machine Learning Studio
 
-Om du slutför stegen [för fjärrtolkning](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) (överför genererad förklaring till Azure Machine Learning Run History) kan du visa visualiseringsinstrumentpanelen i [Azure Machine Learning studio](https://ml.azure.com). Den här instrumentpanelen är en enklare version av instrumentpanelen för visualisering som förklaras ovan (förklaringsutforskning och ICE-diagram är inaktiverade eftersom det inte finns någon aktiv beräkning i studion som kan utföra sina beräkningar i realtid).
+Om du slutför stegen för [Fjärrtolkning](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) (överföring av genererad förklaring till Azure Machine Learning körnings historik) kan du Visa instrument panelen för visualiseringar i [Azure Machine Learning Studio](https://ml.azure.com). Den här instrument panelen är en enklare version av instrument panelen för visualiseringar som beskrivs ovan (förklarings utforskning och ICE-observationer har inaktiverats eftersom det inte finns någon aktiv beräkning i Studio som kan utföra sina real tids beräkningar).
 
-Om datauppsättningen, globala och lokala förklaringar är tillgängliga fylls alla flikar i data (förutom Perturbation Exploration och ICE). Om det bara finns en global förklaring inaktiveras fliken Sammanfattningsbetens och alla lokala förklaringsflikar.
+Om data uppsättningen, globala och lokala förklaringar är tillgängliga, fyller data i alla flikar (utom perturbation-utforskning och ICE). Om det bara finns en global förklaring inaktive ras fliken sammanfattnings prioritet och alla lokala förklarings flikar.
 
-Följ en av dessa sökvägar för att komma åt instrumentpanelen för visualisering i Azure Machine Learning studio:
+Följ någon av dessa sökvägar för att få åtkomst till instrument panelen för visualiseringar i Azure Machine Learning Studio:
 
-* **Fönstret Experiment** (förhandsgranskning)
-  1. Välj **Experiment** i den vänstra rutan om du vill visa en lista över experiment som du har kört på Azure Machine Learning.
-  1. Välj ett visst experiment om du vill visa alla körningar i experimentet.
-  1. Välj en körning och sedan fliken **Förklaringar** till instrumentpanelen för förklaringsvisualisering.
+* **Experiment** fönstret (förhands granskning)
+  1. Välj **experiment** i det vänstra fönstret om du vill se en lista över experiment som du har kört på Azure Machine Learning.
+  1. Välj ett särskilt experiment för att visa alla körningar i experimentet.
+  1. Välj en körning och sedan fliken **förklaringar** till instrument panelen förklarings visualisering.
 
-   [![Lokal funktionsvikt för visualiseringsinstrumentpanel](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
+   [![Lokal funktions prioritet för visualiserings instrument panel](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
-* **Fönstret Modeller**
-  1. Om du har registrerat den ursprungliga modellen genom att följa stegen i [Distribuera modeller med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)kan du välja **Modeller** i den vänstra rutan för att visa den.
-  1. Välj en modell och sedan fliken **Förklaringar** för att visa instrumentpanelen för förklaringsvisualisering.
+* Fönstret **modeller**
+  1. Om du har registrerat din ursprungliga modell genom att följa stegen i [Distribuera modeller med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), kan du välja **modeller** i det vänstra fönstret för att visa den.
+  1. Välj en modell och sedan fliken **förklaringar** för att visa instrument panelen för förklarings visualisering.
 
-## <a name="interpretability-at-inference-time"></a>Tolkningsbarhet vid slutledningstid
+## <a name="interpretability-at-inference-time"></a>Tolkning vid en fördröjning
 
-Du kan distribuera explainern tillsammans med den ursprungliga modellen och använda den vid sluten tid för att ge de enskilda funktionsviktvärdena (lokal förklaring) för nya nya datapunkter. Vi erbjuder också lättare poängbeklarare för att förbättra tolkningsförmågan vid sluten tid. Processen att distribuera en lägre poängbeklarare liknar distribuera en modell och innehåller följande steg:
+Du kan distribuera förklaringen tillsammans med den ursprungliga modellen och använda den vid en fördröjning för att tillhandahålla de enskilda funktions prioritets värdena (lokal förklaring) för nya nya Datapoint-enheter. Vi erbjuder även välklarade bedömnings förklaringar för att förbättra tolknings prestanda vid en fördröjning. Processen för att distribuera en undervisad resultat förklaring liknar att distribuera en modell och innehåller följande steg:
 
-1. Skapa ett förklaringsobjekt. Du kan till `TabularExplainer`exempel använda:
+1. Skapa ett förklarings objekt. Du kan till exempel använda `TabularExplainer`:
 
    ```python
     from interpret.ext.blackbox import TabularExplainer
@@ -392,7 +392,7 @@ Du kan distribuera explainern tillsammans med den ursprungliga modellen och anv�
                                 transformations=transformations)
    ```
 
-1. Skapa en bedömningsförklaring med förklaringsobjektet.
+1. Skapa en bedömnings förklaring med förklarings objekt.
 
    ```python
    from azureml.interpret.scoring.scoring_explainer import KernelScoringExplainer, save
@@ -406,7 +406,7 @@ Du kan distribuera explainern tillsammans med den ursprungliga modellen och anv�
    save(scoring_explainer, directory=OUTPUT_DIR, exist_ok=True)
    ```
 
-1. Konfigurera och registrera en bild som använder bedömningsförklarningsmodellen.
+1. Konfigurera och registrera en avbildning som använder bedömnings modellen bedömning.
 
    ```python
    # register explainer model using the path from ScoringExplainer.save - could be done on remote compute
@@ -418,7 +418,7 @@ Du kan distribuera explainern tillsammans med den ursprungliga modellen och anv�
    print(scoring_explainer_model.name, scoring_explainer_model.id, scoring_explainer_model.version, sep = '\t')
    ```
 
-1. Som ett valfritt steg kan du hämta bedömningsförklaringen från molnet och testa förklaringarna.
+1. Som ett valfritt steg kan du hämta bedömnings förklaringen från molnet och testa förklaringen.
 
    ```python
    from azureml.interpret.scoring.scoring_explainer import load
@@ -435,11 +435,11 @@ Du kan distribuera explainern tillsammans med den ursprungliga modellen och anv�
    print(preds)
    ```
 
-1. Distribuera avbildningen till ett beräkningsmål genom att följa följande steg:
+1. Distribuera avbildningen till ett beräknings mål genom att följa dessa steg:
 
-   1. Om det behövs registrerar du den ursprungliga förutsägelsemodellen genom att följa stegen i [Distribuera modeller med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+   1. Om det behövs registrerar du den ursprungliga förutsägelse modellen genom att följa stegen i [Distribuera modeller med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
-   1. Skapa en bedömningsfil.
+   1. Skapa en bedömnings fil.
 
          ```python
          %%writefile score.py
@@ -477,7 +477,7 @@ Du kan distribuera explainern tillsammans med den ursprungliga modellen och anv�
          ```
    1. Definiera distributionskonfigurationen.
 
-         Den här konfigurationen beror på kraven för din modell. I följande exempel definieras en konfiguration som använder en CPU-kärna och en GB minne.
+         Den här konfigurationen beror på modellens krav. I följande exempel definieras en konfiguration som använder en processor kärna och en GB minne.
 
          ```python
          from azureml.core.webservice import AciWebservice
@@ -489,7 +489,7 @@ Du kan distribuera explainern tillsammans med den ursprungliga modellen och anv�
                                                     description='Get local explanations for NAME_OF_THE_PROBLEM')
          ```
 
-   1. Skapa en fil med miljöberoenden.
+   1. Skapa en fil med miljö beroenden.
 
          ```python
          from azureml.core.conda_dependencies import CondaDependencies
@@ -512,7 +512,7 @@ Du kan distribuera explainern tillsammans med den ursprungliga modellen och anv�
             print(f.read())
          ```
 
-   1. Skapa en anpassad dockerfil med g++ installerat.
+   1. Skapa en anpassad Dockerfile med g + + installerat.
 
          ```python
          %%writefile dockerfile
@@ -521,7 +521,7 @@ Du kan distribuera explainern tillsammans med den ursprungliga modellen och anv�
 
    1. Distribuera den skapade avbildningen.
    
-         Denna process tar cirka fem minuter.
+         Den här processen tar cirka fem minuter.
 
          ```python
          from azureml.core.webservice import Webservice
@@ -562,13 +562,13 @@ Du kan distribuera explainern tillsammans med den ursprungliga modellen och anv�
     print("prediction:", resp.text)
     ```
 
-1. Städa upp.
+1. Rensa.
 
-   Om du vill ta `service.delete()`bort en distribuerad webbtjänst använder du .
+   Använd `service.delete()`om du vill ta bort en distribuerad webb tjänst.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Läs mer om modelltolkbarhet](how-to-machine-learning-interpretability.md)
+[Lär dig mer om modell tolkning](how-to-machine-learning-interpretability.md)
 
-[Kolla in azure machine learning-tolkningsformulär anteckningsböcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
+[Ta en titt på exempel antecknings böcker för Azure Machine Learning tolkning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
 

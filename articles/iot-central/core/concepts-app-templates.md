@@ -1,6 +1,6 @@
 ---
-title: Vad är programmallar i Azure IoT Central | Microsoft-dokument
-description: Med Azure IoT Central-programmallar kan du hoppa in i IoT-lösningsutveckling.
+title: Vad är programmallar i Azure IoT Central | Microsoft Docs
+description: Med Azure IoT Central programmallar kan du gå vidare till IoT Solution Development.
 author: philmea
 ms.author: philmea
 ms.date: 10/25/2019
@@ -8,55 +8,55 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 244de9a3236977308a9f7bcaf5106e86a0984201
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82024684"
 ---
 # <a name="what-are-application-templates"></a>Vad är programmallar?
 
-Programmallar i Azure IoT Central är ett verktyg för att hjälpa lösningsbyggare att kickstarta sin IoT-lösningsutveckling. Du kan använda appmallar för allt från att få en känsla för vad som är möjligt, till att helt anpassa och ditt program för återförsäljning till dina kunder.
+Programmallar i Azure IoT Central är ett verktyg som hjälper lösnings utvecklare att kickstart sin IoT-lösning. Du kan använda app-mallar för allt från att få en känsla för vad som är möjligt, för att helt anpassa och ditt program för åter försäljning till dina kunder.
 
 Programmallar består av:
 
-- Exempel på operatörsinstrumentpaneler
-- Exempel på enhetsmallar
-- Simulerade enheter som producerar realtidsdata
+- Exempel instrument panels instrument paneler
+- Exempel på mallar för enheter
+- Simulerade enheter som genererar real tids data
 - Förkonfigurerade regler och jobb
-- Omfattande dokumentation inklusive självstudier och instruktioner
+- Omfattande dokumentation inklusive själv studie kurser och instruktioner
 
-Du väljer programmallen när du skapar programmet. Du kan inte ändra mallen när programmet har skapats.
+Du väljer program mal len när du skapar programmet. Du kan inte ändra mallen när programmet har skapats.
 
 ## <a name="custom-templates"></a>Anpassade mallar
 
-Om du vill skapa programmet från grunden väljer du en av de två anpassade programmallarna:
+Om du vill skapa ditt program från grunden väljer du någon av de två anpassade Programmallarna:
 
 - Anpassat program
-- Anpassat program (äldre)
+- Anpassat program (bakåtkompatibelt)
 
-Välj den **anpassade programmallen** om du inte har en specifik anledning att använda den äldre mallen.
+Välj den **anpassade program** mal len om du inte har en specifik anledning att använda den äldre mallen.
 
-## <a name="industry-focused-templates"></a>Branschfokuserade mallar
+## <a name="industry-focused-templates"></a>Bransch fokuserade mallar
 
-Azure IoT Central är en branschoberoende programplattform. Applikationsmallar är branschfokuserade exempel som finns tillgängliga för dessa branscher idag, med mer att komma i framtiden:
+Azure IoT Central är en plattform för oberoende-program. Programmallar är bransch fokuserade exempel som är tillgängliga för dessa branscher idag, med mer att komma i framtiden:
 
-- [Detaljhandeln](../retail/overview-iot-central-retail.md)
+- [Återförsäljning](../retail/overview-iot-central-retail.md)
   - Ansluten logistik
   - Digitalt distributionscenter
-  - Analys i butik - tillståndsövervakning
-  - Analyser i butik – utcheckning
-  - Smart lagerhantering
+  - In-Store Analytics – villkors övervakning
+  - In-Store-analys-utcheckning
+  - Hantering av smarta lager
 - [Energi](../energy/overview-iot-central-energy.md)
-  - Övervakning av smarta mätare
-  - Övervakning av solpaneler
+  - Övervakning av smart mätare
+  - Övervakning på Sol panelen
 - [Government](../government/overview-iot-central-government.md)
-  - Uppkopplad avfallshantering
-  - Övervakning av vattenförbrukning
-  - Övervakning av vattenkvaliteten
-- [Hälso- och sjukvård](../healthcare/overview-iot-central-healthcare.md).
-  - Kontinuerlig patientövervakning
+  - Ansluten avfalls hantering
+  - Övervakning av vatten förbrukning
+  - Övervakning av vatten kvalitet
+- [Hälso vård](../healthcare/overview-iot-central-healthcare.md).
+  - Kontinuerlig övervakning av patienter
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du vet vad IoT Central programmallar är, komma igång genom att [skapa en IoT Central Application](quick-deploy-iot-central.md).
+Nu när du vet vad IoT Central programmallar är, kom igång genom att [skapa ett IoT Central program](quick-deploy-iot-central.md).

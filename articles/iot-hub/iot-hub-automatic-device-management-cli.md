@@ -1,6 +1,6 @@
 ---
-title: Automatisk enhetshantering i stor skala med Azure IoT Hub (CLI) | Microsoft-dokument
-description: Använda automatiska Azure IoT Hub-konfigurationer för att hantera flera IoT-enheter eller-moduler
+title: Automatisk enhets hantering i skala med Azure IoT Hub (CLI) | Microsoft Docs
+description: Använd Azure IoT Hub automatiska konfigurationer för att hantera flera IoT-enheter eller moduler
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,49 +8,49 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
 ms.openlocfilehash: 60d0ef30a1c7d948a9e837a8bc37c76ace415545
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82024973"
 ---
-# <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Automatisk IoT-enhet och modulhantering med Hjälp av Azure CLI
+# <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Automatisk hantering av IoT-enheter och-moduler med hjälp av Azure CLI
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-Automatisk enhetshantering i Azure IoT Hub automatiserar många av de repetitiva och komplexa uppgifterna för att hantera stora enhetsparker. Med automatisk enhetshantering kan du rikta in dig på en uppsättning enheter baserat på deras egenskaper, definiera en önskad konfiguration och sedan låta IoT Hub uppdatera enheterna när de kommer in i omfånget. Den här uppdateringen görs med hjälp av en _automatisk enhetskonfiguration_ eller _automatisk modulkonfiguration_, som låter dig sammanfatta slutförande och efterlevnad, hantera sammanslagning och konflikter och distribuera konfigurationer i en stegvis metod.
+Automatisk enhets hantering i Azure IoT Hub automatiserar många av de repetitiva och komplexa uppgifterna i hanteringen av stora enhets flottor. Med automatisk enhets hantering kan du rikta en uppsättning enheter baserat på deras egenskaper, definiera en önskad konfiguration och sedan låta IoT Hub uppdatera enheterna när de kommer i omfång. Den här uppdateringen görs med hjälp av en _Automatisk enhets konfiguration_ eller _automatisk konfiguration av modulen_, som gör att du kan sammanfatta, hantera sammanslagning och konflikter och distribuera konfigurationer i en stegvis metod.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Automatisk enhetshantering fungerar genom att uppdatera en uppsättning enhetstvillingar eller modultvillingar med önskade egenskaper och rapportera en sammanfattning som baseras på dubbla rapporterade egenskaper.  Den introducerar en ny klass och JSON dokument som kallas en *konfiguration* som har tre delar:
+Automatisk enhets hantering fungerar genom att uppdatera en uppsättning enheter, dubbla eller moduler, med önskade egenskaper och rapportera en sammanfattning som baseras på dubbla rapporterade egenskaper.  Den introducerar en ny klass och JSON-dokument som kallas en *konfiguration* som består av tre delar:
 
-* **Målvillkoret** definierar omfattningen av enhetstvillingar eller modultvillingar som ska uppdateras. Målvillkoret anges som en fråga på enhetstvillingtaggar och/eller rapporterade egenskaper.
+* **Mål villkoret** definierar omfånget för enheten, dubbla eller modulerna som ska uppdateras. Mål villkoret anges som en fråga på enhetens dubbla Taggar och/eller rapporterade egenskaper.
 
-* **Målinnehållet** definierar önskade egenskaper som ska läggas till eller uppdateras i de riktade enhetstvillingarna eller modultvillingarna. Innehållet innehåller en sökväg till avsnittet med önskade egenskaper som ska ändras.
+* **Målets innehåll** definierar önskade egenskaper som ska läggas till eller uppdateras i den riktade enheten, med dubbla eller moduler. Innehållet innehåller en sökväg till avsnittet av önskade egenskaper som ska ändras.
 
-* Måtten **definierar sammanfattningsantalet** för olika konfigurationstillstånd som **Framgång,** **Pågår**och **Fel**. Anpassade mått anges som frågor om dubbla rapporterade egenskaper.  Systemmått är standardmått som mäter dubbla uppdateringsstatus, till exempel antalet tvillingar som är riktade och antalet tvillingar som har uppdaterats.
+* **Måtten** definierar antalet olika konfigurations tillstånd, till exempel **lyckad**, **pågående**och **fel**. Anpassade mått anges som frågor på dubbla rapporterade egenskaper.  System mått är standard mått som mäter dubbel uppdaterings status, t. ex. antalet värden som är riktade till varandra och antalet dubbla objekt som har uppdaterats.
 
-Automatiska konfigurationer körs för första gången strax efter att konfigurationen har skapats och sedan med fem minuters intervall. Måttfrågor körs varje gång den automatiska konfigurationen körs.
+Automatiska konfigurationer körs för första gången strax efter att konfigurationen har skapats och sedan var femte minut. Mått frågor körs varje gången den automatiska konfigurationen körs.
 
-## <a name="cli-prerequisites"></a>CLI-förutsättningar
+## <a name="cli-prerequisites"></a>CLI-krav
 
 * En [IoT-hubb](../iot-hub/iot-hub-create-using-cli.md) i din Azure-prenumeration. 
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Azure CLI-versionen måste vara minst 2.0.70 eller högre. Validera med `az –-version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack. 
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Som minst måste din Azure CLI-version vara 2.0.70 eller högre. Validera med `az –-version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack. 
 
 * [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-cli).
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-## <a name="implement-twins"></a>Implementera tvillingar
+## <a name="implement-twins"></a>Implementera dubbla
 
-Automatiska enhetskonfigurationer kräver användning av enhetstvillingar för att synkronisera tillståndet mellan molnet och enheterna.  Mer information finns i [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) (Förstå och använda enhetstvillingar i IoT Hub).
+Automatisk enhets konfiguration kräver att enheten använder sig av dubbla för att synkronisera tillstånd mellan molnet och enheterna.  Mer information finns i [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) (Förstå och använda enhetstvillingar i IoT Hub).
 
-Automatiska modulkonfigurationer kräver användning av modultvillingar för att synkronisera tillstånd mellan molnet och modulerna. Mer information finns i [Förstå och använda modultvillingar i IoT Hub](iot-hub-devguide-module-twins.md).
+Automatisk konfiguration av moduler kräver att modulerna är uppdelade för att synkronisera tillstånd mellan molnet och modulerna. Mer information finns i [förstå och använda modul dubbla i IoT Hub](iot-hub-devguide-module-twins.md).
 
-## <a name="use-tags-to-target-twins"></a>Använd taggar för att rikta tvillingar
+## <a name="use-tags-to-target-twins"></a>Använd taggar för att rikta in sig på dubbla
 
-Innan du skapar en konfiguration måste du ange vilka enheter eller moduler du vill påverka. Azure IoT Hub identifierar enheter och använder taggar i enhetstvillingen och identifierar moduler med hjälp av taggar i modultvillingen. Varje enhet eller moduler kan ha flera taggar, och du kan definiera dem på något sätt som är meningsfullt för din lösning. Om du till exempel hanterar enheter på olika platser lägger du till följande taggar i en enhetstvilling:
+Innan du skapar en konfiguration måste du ange vilka enheter eller moduler som du vill påverka. Azure IoT Hub identifierar enheter och använder taggar i enheten, och identifierar moduler med hjälp av taggar i modulen. Varje enhet eller moduler kan ha flera taggar, och du kan definiera dem på ett sätt som passar din lösning. Om du till exempel hanterar enheter på olika platser lägger du till följande taggar på en enhet:
 
 ```json
 "tags": {
@@ -61,11 +61,11 @@ Innan du skapar en konfiguration måste du ange vilka enheter eller moduler du v
 },
 ```
 
-## <a name="define-the-target-content-and-metrics"></a>Definiera målinnehåll och mått
+## <a name="define-the-target-content-and-metrics"></a>Definiera mål innehåll och mått
 
-Målinnehållet och måttfrågorna anges som JSON-dokument som beskriver enhetstvillingens eller modultvillingens önskade egenskaper för att ange och rapporterade egenskaper som ska mätas.  Om du vill skapa en automatisk konfiguration med Azure CLI sparar du målinnehållet och måtten lokalt som TXT-filer. Du använder filsökvägarna i ett senare avsnitt när du kör kommandot för att tillämpa konfigurationen på enheten.
+Mål innehålls-och mått frågor anges som JSON-dokument som beskriver enhetens dubbla eller modulens dubbla önskade egenskaper för att ange och rapporterade egenskaper som ska mätas.  Om du vill skapa en automatisk konfiguration med Azure CLI sparar du mål innehållet och måtten lokalt som. txt-filer. Du använder fil Sök vägarna i ett senare avsnitt när du kör kommandot för att tillämpa konfigurationen på enheten.
 
-Här är ett grundläggande exempel på målinnehåll för en automatisk enhetskonfiguration:
+Här är ett grundläggande mål innehålls exempel för automatisk enhets konfiguration:
 
 ```json
 {
@@ -79,7 +79,7 @@ Här är ett grundläggande exempel på målinnehåll för en automatisk enhetsk
 }
 ```
 
-Automatiska modulkonfigurationer fungerar mycket `moduleContent` på `deviceContent`samma sätt, men du riktar dig i stället för .
+Automatisk konfiguration av moduler fungerar ungefär på samma sätt, men du `moduleContent` är mål `deviceContent`i stället för.
 
 ```json
 {
@@ -93,7 +93,7 @@ Automatiska modulkonfigurationer fungerar mycket `moduleContent` på `deviceCont
 }
 ```
 
-Här är exempel på måttfrågor:
+Här följer exempel på mått frågor:
 
 ```json
 {
@@ -105,7 +105,7 @@ Här är exempel på måttfrågor:
 }
 ```
 
-Måttfrågor för moduler liknar också frågor för enheter, men `moduleId` `devices.modules`du väljer för från . Ett exempel: 
+Mått frågor för moduler liknar även frågor för enheter, men du väljer för `moduleId` från. `devices.modules` Ett exempel: 
 
 ```json
 {
@@ -117,7 +117,7 @@ Måttfrågor för moduler liknar också frågor för enheter, men `moduleId` `de
 
 ## <a name="create-a-configuration"></a>Skapa en konfiguration
 
-Du konfigurerar målenheter genom att skapa en konfiguration som består av målinnehållet och måtten. 
+Du konfigurerar mål enheter genom att skapa en konfiguration som består av målets innehåll och mått. 
 
 Använd följande kommando för att skapa en konfiguration:
 
@@ -128,19 +128,19 @@ Använd följande kommando för att skapa en konfiguration:
      --metrics [metric queries]
 ```
 
-* --**config-id** - Namnet på konfigurationen som ska skapas i IoT-hubben. Ge din konfiguration ett unikt namn som är upp till 128 gemener. Undvik blanksteg och följande `& ^ [ ] { } \ | " < > /`ogiltiga tecken: .
+* --**config-ID** – namnet på den konfiguration som ska skapas i IoT-hubben. Ge konfigurationen ett unikt namn som är upp till 128 gemener. Undvik blank steg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`.
 
-* --**etiketter** - Lägg till etiketter för att spåra konfigurationen. Etiketter är Namn, Värdepar som beskriver distributionen. Det kan till exempel vara `HostPlatform, Linux` eller `Version, 3.0.1`
+* --**Etiketter** – Lägg till etiketter som hjälper dig att spåra konfigurationen. Etiketter är namn, värdepar som beskriver din distribution. Det kan till exempel vara `HostPlatform, Linux` eller `Version, 3.0.1`
 
-* --**innehåll** - Infogad JSON eller filsökväg till målinnehållet som ska anges som dubbla önskade egenskaper. 
+* --**innehålls** intern JSON eller fil Sök väg till det mål innehåll som ska anges som dubbla önskade egenskaper. 
 
-* --**hubbnamn** - Namnet på IoT-hubben där konfigurationen ska skapas. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration med kommandot`az account set -s [subscription name]`
+* --**hubb-namn** – namnet på den IoT-hubb där konfigurationen ska skapas. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration med kommandot`az account set -s [subscription name]`
 
-* --**målvillkor** - Ange ett målvillkor för att avgöra vilka enheter eller moduler som ska riktas med den här konfigurationen.För automatisk enhetskonfiguration baseras villkoret på enhetstvillingtaggar eller enhetstvilling önskade egenskaper och bör matcha uttrycksformatet.Exempel: `tags.environment='test'` eller `properties.desired.devicemodel='4000x'`.För automatisk modulkonfiguration baseras villkoret på modultvillingtaggar eller modultvilling önskade egenskaper.. Exempel: `from devices.modules where tags.environment='test'` eller `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
+* --**mål villkor** – ange ett mål villkor för att avgöra vilka enheter eller moduler som ska användas med den här konfigurationen.För automatisk enhets konfiguration baseras villkoret på enhetens dubbla taggar eller enhet med dubbla önskade egenskaper och ska matcha uttrycks formatet.Exempel: `tags.environment='test'` eller `properties.desired.devicemodel='4000x'`.För automatisk konfiguration av en modul baseras villkoret på modulens dubbla taggar eller modulens dubbla önskade egenskaper.. Exempel: `from devices.modules where tags.environment='test'` eller `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
 
-* --**prioritet** - Ett positivt heltal. I händelse av att två eller flera konfigurationer är inriktade på samma enhet eller modul gäller konfigurationen med det högsta numeriska värdet för Prioritet.
+* --**Priority** – ett positivt heltal. I händelse av att två eller flera konfigurationer är riktade till samma enhet eller modul gäller konfigurationen med det högsta numeriska värdet för prioritet.
 
-* --**mått** - Filsökväg till måttfrågorna. Mått ger sammanfattningar av de olika tillstånd som en enhet eller modul kan rapportera tillbaka efter att ha tillämpat konfigurationsinnehåll. Du kan till exempel skapa ett mått för väntande inställningsändringar, ett mått för fel och ett mått för lyckade inställningsändringar. 
+* --**mått** – Sök väg till mått frågor. Mått tillhandahåller sammanfattande antal av de olika tillstånd som en enhet eller modul kan rapportera tillbaka efter att ha använt konfigurations innehåll. Du kan till exempel skapa ett mått för väntande inställnings ändringar, ett mått för fel och ett mått för lyckade inställningar. 
 
 ## <a name="monitor-a-configuration"></a>Övervaka en konfiguration
 
@@ -151,44 +151,44 @@ az iot hub configuration show --config-id [configuration id] \
   --hub-name [hub name]
 ```
 
-* --**config-id** - Namnet på konfigurationen som finns i IoT-hubben.
+* --**config-ID** – namnet på konfigurationen som finns i IoT Hub.
 
-* --**hubbnamn** - Namnet på IoT-hubben där konfigurationen finns. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration med kommandot`az account set -s [subscription name]`
+* --**hubb-namn** – namnet på den IoT-hubb där konfigurationen finns. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration med kommandot`az account set -s [subscription name]`
 
-Kontrollera konfigurationen i kommandofönstret.Egenskapen **metrics listar** ett antal för varje mått som utvärderas av varje hubb:
+Granska konfigurationen i kommando fönstret.Egenskapen **mått** visar ett antal för varje mått som utvärderas av varje hubb:
 
-* **targetedCount** - Ett systemmått som anger antalet enhetstvillingar eller modultvillingar i IoT Hub som matchar inriktningen.
+* **targetedCount** – ett system mått som anger hur många enheter som är dubblare eller moduler i IoT Hub som matchar mål villkoret.
 
-* **appliedCount** - Ett systemmått anger antalet enheter eller moduler som har tillämpat målinnehållet.
+* **appliedCount** – ett system mått anger antalet enheter eller moduler som har använt mål innehållet.
 
-* **Ditt anpassade mått** - Alla mått som du har definierat är användarmått.
+* **Ditt anpassade mått** – alla mått som du har definierat är användar mått.
 
-Du kan visa en lista över enhets-ID: er, modul-ID eller objekt för vart och ett av måtten med hjälp av följande kommando:
+Du kan visa en lista med enhets-ID: n, modul-ID: n eller objekt för varje mått med hjälp av följande kommando:
 
 ```azurecli
 az iot hub configuration show-metric --config-id [configuration id] \
    --metric-id [metric id] --hub-name [hub name] --metric-type [type] 
 ```
 
-* --**config-id** - Namnet på distributionen som finns i IoT-hubben.
+* --**config-ID** – namnet på den distribution som finns i IoT Hub.
 
-* --**metric-id** - Namnet på det mått som du vill visa listan över enhets-ID eller modul-ID: n, till exempel `appliedCount`.
+* --**Metric-ID** – namnet på det mått som du vill se listan över enhets-ID: n eller modul-ID: t `appliedCount`för.
 
-* --**hubbnamn** - Namnet på IoT-hubben där distributionen finns. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration `az account set -s [subscription name]`med kommandot .
+* --**hubb-namn** – namnet på den IoT-hubb som distributionen finns i. Navet måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`.
 
-* --**måtttyp** - Måtttyp `system` kan `user`vara eller .  Systemmått är `targetedCount` `appliedCount`och . Alla andra mått är användarmått.
+* --**mått-Type** -Metric-typen kan `system` vara `user`eller.  System mått är `targetedCount` och `appliedCount`. Alla andra mått är användar mått.
 
 ## <a name="modify-a-configuration"></a>Ändra en konfiguration
 
-När du ändrar en konfiguration replikeras ändringarna omedelbart till alla riktade enheter. 
+När du ändrar en konfiguration replikeras ändringarna omedelbart till alla mål enheter. 
 
-Om du uppdaterar målvillkoret sker följande uppdateringar:
+Om du uppdaterar mål villkoret inträffar följande uppdateringar:
 
-* Om en tvilling inte uppfyllde det gamla målvillkoret, men uppfyller det nya målvillkoret och den här konfigurationen är den högsta prioriteten för den tvillingen, tillämpas den här konfigurationen. 
+* Om en grupp inte uppfyller det gamla mål villkoret, men uppfyller det nya mål villkoret och den här konfigurationen är den högsta prioriteten för den dubbla, används den här konfigurationen. 
 
-* Om en tvilling som för närvarande kör den här konfigurationen inte längre uppfyller målvillkoret tas inställningarna från konfigurationen bort och tvillingen ändras av den näst högsta prioritetskonfigurationen. 
+* Om en dubbel som kör den här konfigurationen inte längre uppfyller mål villkoret, kommer inställningarna från konfigurationen att tas bort och den dubbla kommer att ändras av den näst högsta prioritets konfigurationen. 
 
-* Om en tvilling som för närvarande kör den här konfigurationen inte längre uppfyller målvillkoret och inte uppfyller målvillkoret för andra konfigurationer, tas inställningarna från konfigurationen bort och inga andra ändringar görs på tvillingen. 
+* Om en dubbel som kör den här konfigurationen inte längre uppfyller mål villkoret och inte uppfyller mål villkoren för några andra konfigurationer, tas inställningarna från konfigurationen bort och inga andra ändringar görs på den dubbla. 
 
 Använd följande kommando för att uppdatera en konfiguration:
 
@@ -197,13 +197,13 @@ az iot hub configuration update --config-id [configuration id] \
    --hub-name [hub name] --set [property1.property2='value']
 ```
 
-* --**config-id** - Namnet på konfigurationen som finns i IoT-hubben.
+* --**config-ID** – namnet på konfigurationen som finns i IoT Hub.
 
-* --**hubbnamn** - Namnet på IoT-hubben där konfigurationen finns. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration `az account set -s [subscription name]`med kommandot .
+* --**hubb-namn** – namnet på den IoT-hubb där konfigurationen finns. Navet måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`.
 
-* --**-** Uppdatera en egenskap i konfigurationen. Du kan uppdatera följande egenskaper:
+* --**Ange** – uppdatera en egenskap i konfigurationen. Du kan uppdatera följande egenskaper:
 
-    * targetCondition - till exempel`targetCondition=tags.location.state='Oregon'`
+    * targetCondition – till exempel`targetCondition=tags.location.state='Oregon'`
 
     * Etiketter 
 
@@ -211,7 +211,7 @@ az iot hub configuration update --config-id [configuration id] \
 
 ## <a name="delete-a-configuration"></a>Ta bort en konfiguration
 
-När du tar bort en konfiguration får alla enhetstvillingar eller modultvillingar sin nästa konfiguration med högsta prioritet. Om tvillingar inte uppfyller målvillkoret för någon annan konfiguration tillämpas inga andra inställningar. 
+När du tar bort en konfiguration, kommer alla enheter som är dubbla eller moduler att ta med den näst högsta prioritets konfigurationen. Om det finns dubbla som inte uppfyller mål villkoren för någon annan konfiguration, tillämpas inga andra inställningar. 
 
 Använd följande kommando för att ta bort en konfiguration:
 
@@ -220,23 +220,23 @@ az iot hub configuration delete --config-id [configuration id] \
    --hub-name [hub name] 
 ```
 
-* --**config-id** - Namnet på konfigurationen som finns i IoT-hubben.
+* --**config-ID** – namnet på konfigurationen som finns i IoT Hub.
 
-* --**hubbnamn** - Namnet på IoT-hubben där konfigurationen finns. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration `az account set -s [subscription name]`med kommandot .
+* --**hubb-namn** – namnet på den IoT-hubb där konfigurationen finns. Navet måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du konfigurerar och övervakar IoT-enheter i stor skala. Följ de här länkarna om du vill veta mer om hur du hanterar Azure IoT Hub:
+I den här artikeln har du lärt dig hur du konfigurerar och övervakar IoT-enheter i stor skala. Följ dessa länkar om du vill veta mer om hur du hanterar Azure-IoT Hub:
 
 * [Hantera dina IoT Hub-enhetsidentiteter i grupp](iot-hub-bulk-identity-mgmt.md)
-* [IoT Hub-mått](iot-hub-metrics.md)
+* [IoT Hub mått](iot-hub-metrics.md)
 * [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
 
-Mer information om hur du utforskar funktionerna i IoT Hub finns i:
+För att ytterligare utforska funktionerna i IoT Hub, se:
 
-* [Utvecklarhandledning för IoT Hub](iot-hub-devguide.md)
+* [Guide för IoT Hub utvecklare](iot-hub-devguide.md)
 * [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
-Information om hur du använder etableringstjänsten för IoT Hub Device För att aktivera nollpunkts-etablering, just-in-time-etablering finns i: 
+Om du vill utforska med hjälp av IoT Hub Device Provisioning Service för att aktivera Zero-Touch, just-in-Time-etablering, se: 
 
 * [Azure IoT Hub Device Provisioning-tjänst](/azure/iot-dps)

@@ -1,6 +1,6 @@
 ---
 title: Skapa och hantera en virtuell Azure-dator med Java
-description: Använd Java och Azure Resource Manager för att distribuera en virtuell dator och alla dess stödresurser.
+description: Använd Java och Azure Resource Manager för att distribuera en virtuell dator och alla dess stöd resurser.
 services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
@@ -9,31 +9,31 @@ ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.openlocfilehash: a99924983bf0e78bd8c8901e25819a363583169a
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81870035"
 ---
-# <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Skapa och hantera Virtuella Windows-datorer i Azure med Java
+# <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Skapa och hantera virtuella Windows-datorer i Azure med Java
 
-En [virtuell Azure-dator](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) behöver flera stödda Azure-resurser. Den här artikeln handlar om att skapa, hantera och ta bort VM-resurser med Java. Lär dig att:
+En [virtuell Azure-dator](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) behöver flera stöd för Azure-resurser. Den här artikeln beskriver hur du skapar, hanterar och tar bort VM-resurser med Java. Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Maven-projekt
-> * Lägga till beroenden
+> * Lägg till beroenden
 > * Skapa autentiseringsuppgifter
 > * Skapa resurser
-> * Utföra hanteringsuppgifter
+> * Utföra hanterings uppgifter
 > * Ta bort resurser
 > * Köra appen
 
-Det tar ungefär 20 minuter att göra dessa steg.
+Det tar ungefär 20 minuter att utföra dessa steg.
 
 ## <a name="create-a-maven-project"></a>Skapa ett Maven-projekt
 
-1. Om du inte redan har gjort det installerar du [Java](https://aka.ms/azure-jdks).
-2. Installera [Maven](https://maven.apache.org/download.cgi).
+1. Installera [Java](https://aka.ms/azure-jdks)om du inte redan gjort det.
+2. Installera [maven](https://maven.apache.org/download.cgi).
 3. Skapa en ny mapp och projektet:
     
     ```
@@ -43,9 +43,9 @@ Det tar ungefär 20 minuter att göra dessa steg.
     mvn archetype:generate -DgroupId=com.fabrikam -DartifactId=testAzureApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-## <a name="add-dependencies"></a>Lägga till beroenden
+## <a name="add-dependencies"></a>Lägg till beroenden
 
-1. Öppna `testAzureApp` filen under `pom.xml` mappen och lägg till &lt;&gt; byggkonfigurationen i projektet så att programmet kan skapas:
+1. Under `testAzureApp` mappen öppnar du `pom.xml` filen och lägger till build-konfigurationen till &lt;projektet&gt; för att möjliggöra skapandet av ditt program:
 
     ```xml
     <build>
@@ -61,7 +61,7 @@ Det tar ungefär 20 minuter att göra dessa steg.
     </build>
     ```
 
-2. Lägg till de beroenden som behövs för att komma åt Azure Java SDK.
+2. Lägg till de beroenden som behövs för att få åtkomst till Azure Java SDK.
 
     ```xml
     <dependency>
@@ -110,11 +110,11 @@ Det tar ungefär 20 minuter att göra dessa steg.
 
 ## <a name="create-credentials"></a>Skapa autentiseringsuppgifter
 
-Innan du startar det här steget kontrollerar du att du har åtkomst till ett huvudnamn för [Active Directory-tjänsten](../../active-directory/develop/howto-create-service-principal-portal.md). Du bör också registrera program-ID: et, autentiseringsnyckeln och klient-ID som du behöver i ett senare steg.
+Innan du startar det här steget ska du kontrol lera att du har åtkomst till ett [Active Directory tjänstens huvud namn](../../active-directory/develop/howto-create-service-principal-portal.md). Du bör också registrera program-ID, autentiseringsnyckel och klient-ID som du behöver i ett senare steg.
 
-### <a name="create-the-authorization-file"></a>Skapa auktoriseringsfilen
+### <a name="create-the-authorization-file"></a>Skapa verifierings filen
 
-1. Skapa en `azureauth.properties` fil med namnet och lägg till dessa egenskaper i den:
+1. Skapa en fil med `azureauth.properties` namnet och Lägg till följande egenskaper:
 
     ```
     subscription=<subscription-id>
@@ -127,20 +127,20 @@ Innan du startar det här steget kontrollerar du att du har åtkomst till ett hu
     graphURL=https://graph.microsoft.com/
     ```
 
-    Ersätt ** &lt;&gt; prenumerations-ID** med din prenumerationsidentifierare, ** &lt;&gt; program-ID** med Active Directory-programidentifieraren, ** &lt;autentiseringsnyckeln&gt; ** med programnyckeln och ** &lt;klient-ID&gt; ** med klientidentifieraren.
+    Ersätt ** &lt;prenumerations-&gt; ID** med prenumerations-ID, ** &lt;program&gt; -ID** med Active Directory-program-ID, ** &lt;autentisering-&gt; nyckel** med program nyckeln och ** &lt;klient-&gt; ID** med klient-ID: t.
 
 2. Spara filen.
-3. Ange en miljövariabel med namnet AZURE_AUTH_LOCATION i skalet med den fullständiga sökvägen till autentiseringsfilen.
+3. Ange en miljö variabel med namnet AZURE_AUTH_LOCATION i ditt gränssnitt med den fullständiga sökvägen till autentiserings filen.
 
-### <a name="create-the-management-client"></a>Skapa hanteringsklienten
+### <a name="create-the-management-client"></a>Skapa hanterings klienten
 
-1. Öppna `App.java` filen `src\main\java\com\fabrikam` under och se till att den här paketsatsen är överst:
+1. Öppna `App.java` filen under `src\main\java\com\fabrikam` och kontrol lera att paket utdraget är överst:
 
     ```java
     package com.fabrikam.testAzureApp;
     ```
 
-2. Lägg till dessa importsatser under paketutdraget:
+2. Lägg till följande import uttryck under paket instruktionen:
    
     ```java
     import com.microsoft.azure.management.Azure;
@@ -162,7 +162,7 @@ Innan du startar det här steget kontrollerar du att du har åtkomst till ett hu
     import java.util.Scanner;
     ```
 
-2. Om du vill skapa de Active Directory-autentiseringsuppgifter som du behöver göra begäranden lägger du till den här koden i huvudmetoden för klassen App:
+2. Om du vill skapa de Active Directory autentiseringsuppgifter som du behöver för att göra förfrågningar lägger du till den här koden i huvud metoden i klassen app:
    
     ```java
     try {
@@ -182,9 +182,9 @@ Innan du startar det här steget kontrollerar du att du har åtkomst till ett hu
 
 ### <a name="create-the-resource-group"></a>Skapa en resursgrupp
 
-Alla resurser måste finnas i en [resursgrupp](../../azure-resource-manager/management/overview.md).
+Alla resurser måste finnas i en [resurs grupp](../../azure-resource-manager/management/overview.md).
 
-Om du vill ange värden för programmet och skapa resursgruppen lägger du till den här koden i försöksblocket i huvudmetoden:
+Om du vill ange värden för programmet och skapa resurs gruppen lägger du till den här koden i try-blocket i huvud metoden:
 
 ```java
 System.out.println("Creating resource group...");
@@ -194,11 +194,11 @@ ResourceGroup resourceGroup = azure.resourceGroups()
     .create();
 ```
 
-### <a name="create-the-availability-set"></a>Skapa tillgänglighetsuppsättningen
+### <a name="create-the-availability-set"></a>Skapa tillgänglighets uppsättningen
 
-[Tillgänglighetsuppsättningar](tutorial-availability-sets.md) gör det enklare för dig att underhålla de virtuella datorer som används av ditt program.
+[Tillgänglighets uppsättningar](tutorial-availability-sets.md) gör det enklare för dig att underhålla de virtuella datorer som används av ditt program.
 
-Om du vill skapa tillgänglighetsuppsättningen lägger du till den här koden i försöksblocket i huvudmetoden:
+Om du vill skapa tillgänglighets uppsättningen lägger du till den här koden i try-blocket i huvud metoden:
 
 ```java
 System.out.println("Creating availability set...");
@@ -211,9 +211,9 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
 ```
 ### <a name="create-the-public-ip-address"></a>Skapa den offentliga IP-adressen
 
-En [offentlig IP-adress](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) behövs för att kommunicera med den virtuella datorn.
+En [offentlig IP-adress](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) krävs för att kommunicera med den virtuella datorn.
 
-Om du vill skapa den offentliga IP-adressen för den virtuella datorn lägger du till den här koden i försöksblocket i huvudmetoden:
+Om du vill skapa den offentliga IP-adressen för den virtuella datorn lägger du till den här koden i try-blocket i huvud metoden:
 
 ```java
 System.out.println("Creating public IP address...");
@@ -227,9 +227,9 @@ PublicIPAddress publicIPAddress = azure.publicIPAddresses()
 
 ### <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
 
-En virtuell dator måste finnas i ett undernät i ett [virtuellt nätverk](../../virtual-network/virtual-networks-overview.md).
+En virtuell dator måste finnas i ett undernät för ett [virtuellt nätverk](../../virtual-network/virtual-networks-overview.md).
 
-Om du vill skapa ett undernät och ett virtuellt nätverk lägger du till den här koden i försöksblocket i huvudmetoden:
+Om du vill skapa ett undernät och ett virtuellt nätverk lägger du till den här koden i try-blocket i huvud metoden:
 
 ```java
 System.out.println("Creating virtual network...");
@@ -242,11 +242,11 @@ Network network = azure.networks()
     .create();
 ```
 
-### <a name="create-the-network-interface"></a>Skapa nätverksgränssnittet
+### <a name="create-the-network-interface"></a>Skapa nätverks gränssnittet
 
-En virtuell dator behöver ett nätverksgränssnitt för att kommunicera i det virtuella nätverket.
+En virtuell dator behöver ett nätverks gränssnitt för att kommunicera med det virtuella nätverket.
 
-Om du vill skapa ett nätverksgränssnitt lägger du till den här koden i försöksblocket i huvudmetoden:
+Om du vill skapa ett nätverks gränssnitt lägger du till den här koden i try-blocket i huvud metoden:
 
 ```java
 System.out.println("Creating network interface...");
@@ -263,9 +263,9 @@ NetworkInterface networkInterface = azure.networkInterfaces()
 
 ### <a name="create-the-virtual-machine"></a>Skapa den virtuella datorn
 
-Nu när du har skapat alla stödresurser kan du skapa en virtuell dator.
+Nu när du har skapat alla stöd resurser kan du skapa en virtuell dator.
 
-Om du vill skapa den virtuella datorn lägger du till den här koden i försöksblocket i huvudmetoden:
+Lägg till den här koden till try-blocket i huvud metoden för att skapa den virtuella datorn:
 
 ```java
 System.out.println("Creating virtual machine...");
@@ -287,11 +287,11 @@ input.nextLine();
 ```
 
 > [!NOTE]
-> Den här självstudien skapar en virtuell dator som kör en version av Operativsystemet Windows Server. Mer information om hur du väljer andra avbildningar finns i [Navigera och välja Azure-avbildningar med virtuella datorer med Windows PowerShell och Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Den här självstudien skapar en virtuell dator som kör en version av operativ systemet Windows Server. Mer information om hur du väljer andra bilder finns i [navigera och välja avbildningar av virtuella Azure-datorer med Windows PowerShell och Azure CLI](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 >
 
-Om du vill använda en befintlig disk i stället för en marketplace-avbildning använder du den här koden: 
+Använd den här koden om du vill använda en befintlig disk i stället för en Marketplace-avbildning: 
 
 ```java
 ManagedDisk managedDisk = azure.disks.define("myosdisk")
@@ -312,19 +312,19 @@ azure.virtualMachines.define("myVM")
     .create();
 ```
 
-## <a name="perform-management-tasks"></a>Utföra hanteringsuppgifter
+## <a name="perform-management-tasks"></a>Utföra hanterings uppgifter
 
 Under livscykeln för en virtuell dator kan du vilja köra administrativa uppgifter, genom att till exempel starta, stoppa eller ta bort en virtuell dator. Dessutom kanske du vill skapa kod för att automatisera repetitiva eller komplexa uppgifter.
 
-När du behöver göra något med den virtuella datorn måste du få en instans av den. Lägg till den här koden i försöksblocket för huvudmetoden:
+När du behöver göra något med den virtuella datorn måste du skaffa en instans av den. Lägg till den här koden till try-blocket för main-metoden:
 
 ```java
 VirtualMachine vm = azure.virtualMachines().getByResourceGroup("myResourceGroup", "myVM");
 ```
 
-### <a name="get-information-about-the-vm"></a>Få information om den virtuella datorn
+### <a name="get-information-about-the-vm"></a>Hämta information om den virtuella datorn
 
-Om du vill ha information om den virtuella datorn lägger du till den här koden i försöksblocket i huvudmetoden:
+Om du vill hämta information om den virtuella datorn lägger du till den här koden i try-blocket i huvud metoden:
 
 ```java
 System.out.println("hardwareProfile");
@@ -382,9 +382,9 @@ input.nextLine();
 
 ### <a name="stop-the-vm"></a>Stoppa den virtuella datorn
 
-Du kan stoppa en virtuell dator och behålla alla dess inställningar, men fortsätta att debiteras för den, eller så kan du stoppa en virtuell dator och frigöra den. När en virtuell dator är deallocated, alla resurser som är associerade med den är också deallocated och fakturering slutar för det.
+Du kan stoppa en virtuell dator och behålla alla inställningar, men fortsätta att debiteras för den, eller så kan du stoppa en virtuell dator och frigöra den. När en virtuell dator frigörs frigörs även alla resurser som är kopplade till den och faktureringen upphör.
 
-Om du vill stoppa den virtuella datorn utan att frigöra den lägger du till den här koden i försöksblocket i huvudmetoden:
+Om du vill stoppa den virtuella datorn utan att ta bort tilldelningen, lägger du till den här koden i try-blocket i huvud metoden:
 
 ```java
 System.out.println("Stopping vm...");
@@ -393,7 +393,7 @@ System.out.println("Press enter to continue...");
 input.nextLine();
 ```
 
-Om du vill frigöra den virtuella datorn ändrar du PowerOff-anropet till den här koden:
+Om du vill frigöra den virtuella datorn ändrar du avstängnings läge-anropet till den här koden:
 
 ```java
 vm.deallocate();
@@ -401,7 +401,7 @@ vm.deallocate();
 
 ### <a name="start-the-vm"></a>Starta den virtuella datorn
 
-Om du vill starta den virtuella datorn lägger du till den här koden i försöksblocket i huvudmetoden:
+För att starta den virtuella datorn lägger du till den här koden till try-blocket i huvud metoden:
 
 ```java
 System.out.println("Starting vm...");
@@ -412,9 +412,9 @@ input.nextLine();
 
 ### <a name="resize-the-vm"></a>Ändra storlek på den virtuella datorn
 
-Många aspekter av distributionen bör beaktas när man beslutar om en storlek för din virtuella dator. Mer information finns i [VM-storlekar](sizes.md).  
+Många aspekter av distributionen bör övervägas när du bestämmer dig för en storlek på den virtuella datorn. Mer information finns i [VM-storlekar](sizes.md).  
 
-Om du vill ändra storleken på den virtuella datorn lägger du till den här koden i försöksblocket i huvudmetoden:
+Om du vill ändra storleken på den virtuella datorn lägger du till den här koden i try-blocket i huvud metoden:
 
 ```java
 System.out.println("Resizing vm...");
@@ -427,7 +427,7 @@ input.nextLine();
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Lägga till en datadisk i en virtuell dator
 
-Om du vill lägga till en datadisk till den virtuella datorn som har 2 GB i storlek, har en LUN på 0 och en cachelagringstyp readwrite lägger du till den här koden i försöksblocket i huvudmetoden:
+Om du vill lägga till en datadisk till den virtuella datorn som är 2 GB i storlek, har ett LUN på 0, och en caching-typ av ReadWrite, lägger du till den här koden i try-blocket i huvud metoden:
 
 ```java
 System.out.println("Adding data disk...");
@@ -440,9 +440,9 @@ input.nextLine();
 
 ## <a name="delete-resources"></a>Ta bort resurser
 
-Eftersom du debiteras för resurser som används i Azure är det alltid bra att ta bort resurser som inte längre behövs. Om du vill ta bort de virtuella datorerna och alla stödresurser behöver du bara ta bort resursgruppen.
+Eftersom du debiteras för resurser som används i Azure är det alltid en bra idé att ta bort resurser som inte längre behövs. Om du vill ta bort de virtuella datorerna och alla stödda resurser måste du ta bort resurs gruppen.
 
-1. Om du vill ta bort resursgruppen lägger du till den här koden i försöksblocket i huvudmetoden:
+1. Om du vill ta bort resurs gruppen lägger du till den här koden i try-blocket i huvud metoden:
    
     ```java
     System.out.println("Deleting resources...");
@@ -453,17 +453,17 @@ Eftersom du debiteras för resurser som används i Azure är det alltid bra att 
 
 ## <a name="run-the-application"></a>Köra appen
 
-Det bör ta ungefär fem minuter för den här konsolen programmet att köras helt från början till.
+Det bör ta ungefär fem minuter för konsol programmet att köras helt från början till slut.
 
-1. Om du vill köra programmet använder du det här Maven-kommandot:
+1. Om du vill köra programmet använder du följande maven-kommando:
 
     ```
     mvn compile exec:java
     ```
 
-2. Innan du trycker på **Retur** för att börja ta bort resurser kan det ta några minuter att verifiera att resurserna skapas i Azure-portalen. Klicka på distributionsstatusen om du vill se information om distributionen.
+2. Innan du trycker på **RETUR** för att börja ta bort resurser kan det ta några minuter innan du verifierar att resurserna har skapats i Azure Portal. Klicka på distributions status om du vill se information om distributionen.
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om hur du använder [Azure-biblioteken för Java](https://docs.microsoft.com/java/azure/java-sdk-azure-overview).
+* Lär dig mer om att använda [Azure-biblioteken för Java](https://docs.microsoft.com/java/azure/java-sdk-azure-overview).
 

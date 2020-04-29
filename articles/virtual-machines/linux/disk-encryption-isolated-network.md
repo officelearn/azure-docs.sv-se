@@ -1,6 +1,6 @@
 ---
-title: Azure Disk-kryptering i ett isolerat nätverk
-description: Den här artikeln innehåller felsökningstips för virtuella virtuella linux-datorer med Microsoft Azure Disk Encryption for Linux.
+title: Azure Disk Encryption i ett isolerat nätverk
+description: Den här artikeln innehåller fel söknings tips för Microsoft Azure disk kryptering för virtuella Linux-datorer.
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
@@ -9,47 +9,47 @@ ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
 ms.openlocfilehash: f2b84427b9aad2d18368d808fc618f3bfbe774ec
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81460128"
 ---
-# <a name="azure-disk-encryption-on-an-isolated-network"></a>Azure Disk-kryptering i ett isolerat nätverk
+# <a name="azure-disk-encryption-on-an-isolated-network"></a>Azure Disk Encryption i ett isolerat nätverk
 
-När anslutningen begränsas av en brandvägg, proxykrav eller NSG-inställningar (Network Security Group) kan möjligheten för tillägget att utföra nödvändiga uppgifter störas. Den här störningen kan resultera i statusmeddelanden som "Tilläggsstatus är inte tillgänglig på den virtuella datorn".
+När anslutningen begränsas av en brand vägg, ett krav för en brand vägg eller en nätverks säkerhets grupp (NSG), kan det hända att tilläggets möjlighet att utföra nödvändiga åtgärder avbryts. Detta avbrott kan resultera i status meddelanden som "tilläggs status är inte tillgänglig på den virtuella datorn".
 
 ## <a name="package-management"></a>Pakethantering
 
-Azure Disk Encryption beror på ett antal komponenter, som vanligtvis installeras som en del av ADE-aktivering om det inte redan finns. När du är bakom en brandvägg eller på annat sätt isolerad från Internet måste dessa paket vara förinstallerade eller tillgängliga lokalt.
+Azure Disk Encryption är beroende av ett antal komponenter, som vanligt vis installeras som en del av ADE-aktiveringen om de inte redan finns. När du bakom en brand vägg eller på annat sätt är isolerad från Internet måste dessa paket vara förinstallerade eller tillgängliga lokalt.
 
-Här är de paket som behövs för varje distribution. En fullständig lista över distributioner och volymtyper som stöds finns i [virtuella datorer och operativsystem som stöds](disk-encryption-overview.md#supported-vms-and-operating-systems).
+Här är de paket som krävs för varje distribution. En fullständig lista över distributioner och volym typer som stöds finns i [virtuella datorer och operativ system som stöds](disk-encryption-overview.md#supported-vms-and-operating-systems).
 
-- **Ubuntu 14.04, 16.04, 18.04**: lsscsi, psmisc, at, cryptsetup-bin, python-parted, python-six, procps
-- **CentOS 7.2 - 7.7**: lsscsi, psmisc, lvm2, uuid, at, patch, cryptsetup, cryptsetup-reencrypt, pyparted, procps-ng, util-linux
-- **CentOS 6.8**: lsscsi, psmisc, lvm2, uuid, at, cryptsetup-reencrypt, pyparted, python-six
-- **RedHat 7,2 - 7,7**: lsscsi, psmisc, lvm2, uuid, på, patch, cryptsetup, cryptsetup-reencrypt, procps-ng, util-linux
-- **RedHat 6,8**: lsscsi, psmisc, lvm2, uuid, på, patch, cryptsetup-reencrypt
-- **openSUSE 42.3, SLES 12-SP4, 12-SP3**: lsscsi, cryptsetup
+- **Ubuntu 14,04, 16,04, 18,04**: lsscsi, psmisc, at, cryptsetup-bin, python-parted, python-sex, procps
+- **CentOS 7,2-7,7**: lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup, cryptsetup-recrypting, pyparted, procps-ng, util-linux
+- **CentOS 6,8**: lsscsi, psmisc, lvm2, UUID, at, cryptsetup-Encrypting, pyparted, python-sex
+- **RedHat 7,2-7,7**: lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup, cryptsetup-Encrypting, procps-ng, util-linux
+- **RedHat 6,8**: lsscsi, psmisc, lvm2, UUID, at, patch, cryptsetup-Encrypting
+- **openSUSE 42,3, SLES 12 – SP4, 12-SP3**: lsscsi, cryptsetup
 
-På Red Hat måste du se till att prenumerationshanteraren och yum är korrekt konfigurerade på Red Hat. Mer information finns i [Felsöka prenumerationshanterare och yum-problem](https://access.redhat.com/solutions/189533).  
+I Red Hat måste du, när en proxyserver krävs, se till att prenumerations-och yum har kon figurer ATS korrekt. Mer information finns i [så här felsöker du problem med prenumerations hanteraren och yum](https://access.redhat.com/solutions/189533).  
 
 När paket installeras manuellt måste de också uppgraderas manuellt när nya versioner släpps.
 
 ## <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
-Alla nätverkssäkerhetsgruppinställningar som tillämpas måste fortfarande göra det möjligt för slutpunkten att uppfylla de dokumenterade nätverkskonfigurationsförutsättningarna för diskkryptering.  Se [Azure Disk Encryption: Nätverkskrav](disk-encryption-overview.md#networking-requirements)
+Alla inställningar för nätverks säkerhets grupper som tillämpas måste fortfarande tillåta slut punkten att uppfylla de dokumenterade nätverks konfigurations kraven för disk kryptering.  Se [Azure Disk Encryption: nätverks krav](disk-encryption-overview.md#networking-requirements)
 
-## <a name="azure-disk-encryption-with-azure-ad-previous-version"></a>Azure DiskKryptering med Azure AD (tidigare version)
+## <a name="azure-disk-encryption-with-azure-ad-previous-version"></a>Azure Disk Encryption med Azure AD (tidigare version)
 
-Om du använder [Azure Disk Encryption med Azure AD (tidigare version)](disk-encryption-overview-aad.md)måste Azure Active [Directory-biblioteket](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) installeras manuellt för alla distributioner (utöver de paket som är lämpliga för distributionerna, enligt [beskrivningen ovan](#package-management)).
+Om du använder [Azure Disk Encryption med Azure AD (tidigare version)](disk-encryption-overview-aad.md)måste [Azure Active Directorys biblioteket](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) installeras manuellt för alla distributioner (utöver de paket som är lämpliga för distribution, enligt [listan ovan](#package-management)).
 
-När kryptering aktiveras med [Azure AD-autentiseringsuppgifter](disk-encryption-linux-aad.md)måste måldatorn tillåta anslutning till både Azure Active Directory-slutpunkter och Key Vault-slutpunkter. Aktuella slutpunkter för Azure Active Directory-autentisering finns i avsnitten 56 och 59 i dokumentationen för [Office 365-URL:er och IP-adressintervall.](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) Key Vault-instruktioner finns i dokumentationen om hur du [kommer åt Azure Key Vault bakom en brandvägg](../../key-vault/general/access-behind-firewall.md).
+När kryptering aktive ras med [autentiseringsuppgifter för Azure AD](disk-encryption-linux-aad.md)måste den virtuella mål datorn tillåta anslutning till både Azure Active Directory slut punkter och Key Vault slut punkter. Nuvarande Azure Active Directory autentiserings slut punkter underhålls i avsnitten 56 och 59 i dokumentationen för [Office 365-URL: er och IP-adressintervall](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) . Key Vault-instruktioner finns i dokumentationen om hur du [får åtkomst till Azure Key Vault bakom en brand vägg](../../key-vault/general/access-behind-firewall.md).
 
-### <a name="azure-instance-metadata-service"></a>Azure-instansmetadatatjänst 
+### <a name="azure-instance-metadata-service"></a>Azure-Instance Metadata Service 
 
-Den virtuella datorn måste kunna komma åt [azure instance metadata-tjänstslutpunkten,](instance-metadata-service.md) som använder`169.254.169.254`en välkänd icke-dirigerbar IP-adress ( ) som endast kan nås från den virtuella datorn.  Proxykonfigurationer som ändrar lokal HTTP-trafik till den här adressen (till exempel att lägga till ett X-Forwarded-For-huvud) stöds inte.
+Den virtuella datorn måste kunna komma åt [Azure instance metadata service](instance-metadata-service.md) -slutpunkten, som använder en välkänd icke-flyttbar IP-adress (`169.254.169.254`) som bara kan nås från den virtuella datorn.  Proxykonfigurationen som ändrar lokal HTTP-trafik till den här adressen (till exempel att lägga till ett X-vidarebefordrat-för-huvud) stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se fler steg för [felsökning av Azure-diskkryptering](disk-encryption-troubleshooting.md)
-- [Azure-datakryptering i vila](../../security/fundamentals/encryption-atrest.md)
+- Se fler steg för [fel sökning av Azure Disk Encryption](disk-encryption-troubleshooting.md)
+- [Azure Data Encryption i vila](../../security/fundamentals/encryption-atrest.md)

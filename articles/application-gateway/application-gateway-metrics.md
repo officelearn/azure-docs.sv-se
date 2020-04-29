@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor-mått för Application Gateway
-description: Lär dig hur du använder mått för att övervaka prestanda för programgateway
+title: Azure Monitor mått för Application Gateway
+description: Lär dig hur du använder mått för att övervaka prestanda för Application Gateway
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
@@ -8,67 +8,67 @@ ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
 ms.openlocfilehash: ebbdda39f019f374f8e5abe951d0180c0dd453f6
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81457883"
 ---
 # <a name="metrics-for-application-gateway"></a>Mått för Application Gateway
 
-Application Gateway publicerar datapunkter, så kallade mått, till [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för prestanda för dina Application Gateway- och serverdinstanser. Dessa mått är numeriska värden i en ordnad uppsättning tidsseriedata som beskriver någon aspekt av programgatewayen vid en viss tidpunkt. Om det finns begäranden som flödar genom Application Gateway mäter och skickar den sina mått i 60-sekundersintervall. Om det inte finns några begäranden som flödar genom Application Gateway eller inga data för ett mått, rapporteras inte måttet. Mer information finns i [Azure Monitor-mått](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Application Gateway publicerar data punkter, som kallas mått, för att [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för prestanda för dina Application Gateway-och Server dels instanser. Dessa mått är numeriska värden i en ordnad uppsättning av Time Series-data som beskriver någon aspekt av programgatewayen vid en viss tidpunkt. Om det finns begär Anden som flödar genom Application Gateway, mäter den och skickar sina mått i intervall om 60 sekunder. Om det inte finns några begär Anden som flödar genom Application Gateway eller inga data för ett mått, rapporteras inte måttet. Mer information finns i [Azure Monitor mått](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
 
-## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Mått som stöds av Application Gateway V2 SKU
+## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Mått som stöds av Application Gateway v2 SKU
 
-### <a name="timing-metrics"></a>Tidsmått
+### <a name="timing-metrics"></a>Tids mått
 
-Application Gateway innehåller flera inbyggda tidsmått som är relaterade till begäran och svar, som alla mäts i millisekunder. 
+Application Gateway innehåller flera inbyggda tids mått för begäran och svar, som är mätt i millisekunder. 
 
 ![](./media/application-gateway-metrics/application-gateway-metrics.png)
 
 > [!NOTE]
 >
-> Om det finns fler än en lyssnare i application gateway, filtrera alltid efter *lyssnardimension* samtidigt som du jämför olika svarstidsmått för att få meningsfull inferens.
+> Om det finns fler än en lyssnare i Application Gateway ska du alltid filtrera efter *Listener* -dimension samtidigt som du jämför olika svars tids mått för att få en meningsfull härledning.
 
-- **Anslutningstid för backend**
+- **Server dels anslutnings tid**
 
-  Tid som lagts ned på att upprätta en anslutning till backend-programmet. 
+  Åtgången tid för att upprätta en anslutning till backend-programmet. 
 
-  Detta inkluderar nätverksfördröjningen samt den tid det tar för serverdserverns TCP-stack att upprätta nya anslutningar. När det gäller TLS, det innehåller också den tid som spenderas på handslag. 
+  Detta omfattar nätverks svars tiden och den tid det tar för backend-serverns TCP-stack att upprätta nya anslutningar. Om TLS används omfattar det även den tid som krävs för att utföra handskakningen. 
 
-- **Svarstid för första byte för servering**
+- **Svars tid för första byte för Server del**
 
-  Tidsintervall mellan starten för att upprätta en anslutning till server för server för server som är serverad och ta emot den första bytet i svarshuvudet. 
+  Tidsintervall mellan början av att upprätta en anslutning till backend-servern och ta emot den första byten i svars huvudet. 
 
-  Detta approximerar summan av *Serverd-anslutningstid*, den tid det tar för begäran att nå servergången från Application Gateway, tid som tas av backend-programmet för att svara (den tid servern tog för att generera innehåll, eventuellt hämta databasfrågor) och den tid det tog för första byte av svaret för att nå Application Gateway från serverkopplingen.
+  Detta uppskattar summan av *Server dels anslutnings tiden*, tid det tar för en begäran att komma åt Server delen från Application Gateway, tid det tar för backend-program att svara (den tid det tog att generera innehåll, potentiellt hämtning av databas frågor) och den tid det tar för den första byten av svaret att uppnå Application Gateway från Server delen.
 
-- **Svarstid för servering senast byte**
+- **Svars tid för senaste byte för Server delen**
 
-  Tidsintervall mellan starten för att upprätta en anslutning till serverdelsservern och ta emot den sista bytet av svarstexten. 
+  Tidsintervall mellan början av att upprätta en anslutning till backend-servern och ta emot den sista byten i svars texten. 
 
-  Detta approximerar summan av *serverda svarstid* för första byte och dataöverföringstid (det här antalet kan variera kraftigt beroende på storleken på de begärda objekten och svarstiden för servernätverket).
+  Det här är den ungefärliga summan av *Svarstid för första byte från serverdelen* och dataöverföringstiden (det här talet kan variera beroende på storleken på objektet som begärs och servernätverkets svarstid).
 
-- **Total tid för programgateway**
+- **Total tid för Application Gateway**
 
-  Genomsnittlig tid som det tar för en begäran att tas emot, bearbetas och dess svar skickas. 
+  Genomsnittlig tid det tar för en begäran att tas emot, bearbetas och dess svar skickas. 
 
-  Detta är intervallet från den tidpunkt då Application Gateway tar emot den första bytet av HTTP-begäran till den tidpunkt då den senaste svarsbytet har skickats till klienten. Detta inkluderar bearbetningstiden för Application Gateway, *svarstiden för serverings sista byte*, den tid det tar för Application Gateway att skicka alla svar och *klient-RTT*.
+  Detta är intervallet från den tidpunkt då Application Gateway tar emot den första byten i HTTP-begäran till den tidpunkt då den senaste svars byte har skickats till klienten. Detta inkluderar bearbetnings tiden som det tar Application Gateway, *Server delens svars tid för senaste byte*, tid det tar för Application Gateway att skicka alla svar och den aktuella *klienten*.
 
-- **RTT för klient**
+- **Klient-/klient**
 
-  Genomsnittlig tur och returtid mellan klienter och Application Gateway.
+  Genomsnittlig fördröjning mellan klienter och Application Gateway.
 
 
 
-Dessa mått kan användas för att avgöra om den observerade avmattningen beror på klientnätverket, Application Gateway-prestanda, serveranslutningsnätverket och serverservern TCP-stackmättnad, serveråtkomstprogramprestanda eller stor filstorlek.
+Dessa mått kan användas för att avgöra om den observerade minskningen beror på klient nätverket, Application Gateway prestanda, backend-nätverket och Server dels serverns TCP-stack-mättnad, prestanda för backend-program eller stor fil storlek.
 
-Om det till exempel finns en topp i *svarstid för Serverda första byte svarstid* men *backend-anslutningstidstrenden* är stabil, kan man dra slutsatsen att programgatewayen till servertidsfördröjning och den tid det tar att upprätta anslutningen är stabil och spiken orsakas på grund av en ökning av svarstiden för backend-programmet. Å andra sidan, om spiken i *Backend första byte svarstid* är associerad med en motsvarande topp i *Backend-anslutningstid*, då kan det härledas att antingen nätverket mellan Application Gateway och backend server eller backend server TCP stacken har mättat. 
+Om det till exempel finns en topp i den *första byte tiden för svars tid* , men tiden för *anslutnings tiden för Server delen* är stabil, kan det härledas att programgatewayen till Server dels svars tiden och den tid det tar att upprätta anslutningen är stabil och insamling orsakas av en ökning av svars tiden för backend-programmet. Å andra sidan, om inökningen i *svars tiden för första byte-bytet* är kopplad till en motsvarande insamling i *Server dels anslutnings tiden*, kan det härledas att antingen nätverket mellan Application Gateway-och backend-servern eller Server dels serverns TCP-stack har mätt. 
 
-Om du märker en topp i *Serverda senaste byte svarstid* men *Backend första byte svarstiden* är stabil, då kan det dras slutsatsen att spiken beror på en större fil som begärs.
+Om du märker att det finns en topp i *svars tiden för sista byte i Server delen* , men *svars tiden för första byte-databytet* är stabil, kan det härledas att insamling är på grund av en större fil som begärs.
 
-På samma sätt, om *application gateway total tid* har en topp men *Backend sista byte svarstiden* är stabil, då kan det antingen vara ett tecken på prestanda flaskhals vid Application Gateway eller en flaskhals i nätverket mellan klient och Application Gateway. Dessutom, om *klienten RTT* också har en motsvarande topp, då det indikerar att försämringen beror på nätverket mellan klienten och Application Gateway.
+På samma sätt, om den *totala tiden för programgatewayen* har en topp men *svars tiden för Server delens svars tid* är stabil, kan det antingen vara ett tecken på en prestanda Flask hals i Application Gateway eller en Flask hals i nätverket mellan klient och Application Gateway. Dessutom, om *klientens* sökklass också har en motsvarande insamling, anger det att försämringen beror på nätverket mellan klient och Application Gateway.
 
-### <a name="application-gateway-metrics"></a>Mätvärden för programgateway
+### <a name="application-gateway-metrics"></a>Application Gateway mått
 
 För Application Gateway är följande mått tillgängliga:
 
@@ -78,19 +78,19 @@ För Application Gateway är följande mått tillgängliga:
 
 - **Skickade byte**
 
-   Antal byte som skickats av programgatewayen till klienterna
+   Antal byte som har skickats av Application Gateway till klienterna
 
-- **TLS-protokoll för klient**
+- **Klientens TLS-protokoll**
 
-   Antal TLS- och icke-TLS-begäranden som initierats av klienten som upprättade anslutningen till Application Gateway. Om du vill visa TLS-protokolldistribution filtrerar du efter dimensionen TLS Protocol.
+   Antal TLS-och icke-TLS-begäranden som initieras av klienten som upprättade anslutning till Application Gateway. Om du vill visa TLS-protokollets distribution filtrerar du efter dimension TLS-protokollet.
 
-- **Enheter för strömkapacitet**
+- **Aktuella kapacitetsenheter**
 
-   Antal kapacitetsenheter som förbrukas för att lasta trafik. Det finns tre bestämningsfaktorer för kapacitetsenhet - beräkningsenhet, beständiga anslutningar och dataflöde. Varje kapacitetsenhet består av högst: 1 beräkningsenhet eller 2500 beständiga anslutningar, eller 2,22 Mbit/s dataflöde.
+   Antalet kapacitetsenheter som förbrukas för att belastningsutjämna trafiken. Det finns tre faktorer för kapacitets enhets beräknings enhet, beständiga anslutningar och data flöde. Varje kapacitets enhet består av högst: 1 beräknings enhet eller 2500 beständiga anslutningar eller 2,22 – Mbps-dataflöde.
 
-- **Aktuella beräkningsenheter**
+- **Aktuella beräknings enheter**
 
-   Antal processorkapacitet som förbrukas. Faktorer som påverkar beräkningsenhet är TLS-anslutningar/sek, URL Skriv om beräkningar och WAF-regelbearbetning. 
+   Antal förbrukade processor kapacitet. TLS-anslutningar per sekund, beräkningar för omskrivning av webbadresser och bearbetning av WAF-regler är faktorer som påverkar beräkningsenheter. 
 
 - **Aktuella anslutningar**
 
@@ -98,147 +98,147 @@ För Application Gateway är följande mått tillgängliga:
    
 - **Uppskattade fakturerade kapacitetsenheter**
 
-  Med v2 SKU drivs prismodellen av förbrukning. Kapacitetsenheter mäter förbrukningsbaserad kostnad som debiteras utöver den fasta kostnaden. *Uppskattade fakturerade kapacitetsenheter* anger antalet kapacitetsenheter som beräknas med faktureringen. Detta beräknas som det större värdet mellan *strömkapacitetsenheter* (kapacitetsenheter som krävs för att belastningsbalansera trafiken) och *enheter med fast fakturerbar kapacitet* (enheter med minimal kapacitet hålls etablerade).
+  Med v2 SKU:n drivs prissättningsmodellen av förbrukning. Kapacitetsenheter mäter förbrukningsbaserade kostnader som debiteras utöver den fasta kostnaden. *Uppskattade enheter för fakturerings kapacitet* anger antalet kapacitets enheter som faktureringen beräknas med. Detta beräknas som det större värdet mellan *Aktuella kapacitetsenheter* (kapacitetsenheter som krävs för att belastningsutjämna trafiken) och *Fasta fakturerbara kapacitetsenheter* (lägsta antalet kapacitetsenheter som är etablerade).
 
-- **Misslyckade begäranden**
+- **Misslyckade förfrågningar**
 
-  Antal begäranden som Application Gateway har tjänat med 5xx serverfelkoder. Detta inkluderar de 5xx-koder som genereras från Application Gateway samt 5xx-koderna som genereras från backend. Antalet begäranden kan filtreras ytterligare för att visa antal per varje/specifik serversida pool-http inställningskombination.
+  Antal begär Anden som Application Gateway har hanterat med 5xx Server-felkoder. Detta inkluderar de 5xx-koder som genereras från Application Gateway samt de 5xx-koder som genereras från Server delen. Antalet begär Anden kan filtreras ytterligare för att visa antal per/specifika Server dels pool – http-inställnings kombination.
    
-- **Enheter med fast utbytbar kapacitet**
+- **Fasta fakturerbara kapacitetsenheter**
 
-  Det minsta antalet kapacitetsenheter som hålls etablerade enligt inställningen *för minsta skalningsenheter* (en instans översätts till 10 kapacitetsenheter) i application gateway-konfigurationen.
+  Det minsta antalet kapacitetsenheter som hålls etablerade enligt inställningen *Minsta antalet skalningsenheter* (en instans är tio kapacitetsenheter) i konfigurationen för Application Gateway.
    
  - **Nya anslutningar per sekund**
 
-   Genomsnittligt antal nya TCP-anslutningar per sekund som upprättats från klienter till Application Gateway och från Application Gateway till backend-medlemmar.
+   Genomsnittligt antal nya TCP-anslutningar per sekund som upprättats från klienter till Application Gateway och från Application Gateway till Server dels medlemmar.
 
 
-- **Svarsstatus**
+- **Svars status**
 
-   HTTP-svarsstatus som returneras av Application Gateway. Responsstatuskodsfördelningen kan kategoriseras ytterligare för att visa svar i kategorierna 2xx, 3xx, 4xx och 5xx.
+   HTTP-svarets status returnerades av Application Gateway. Svars status kod distributionen kan kategoriseras ytterligare för att Visa svar i 2xx-, 3xx-, 4xx-och 5xx-kategorier.
 
 - **Dataflöde**
 
-   Antal byte per sekund som Application Gateway har tjänat
+   Antal byte per sekund som Application Gateway har betjänat
 
-- **Totalt antal begäranden**
+- **Totalt antal förfrågningar**
 
-   Antal lyckade begäranden som Application Gateway har tjänat. Antalet begäranden kan filtreras ytterligare för att visa antal per varje/specifik serversida pool-http inställningskombination.
+   Antal lyckade förfrågningar som Application Gateway har betjänat. Antalet begär Anden kan filtreras ytterligare för att visa antal per/specifika Server dels pool – http-inställnings kombination.
 
-### <a name="backend-metrics"></a>Svar på backend
+### <a name="backend-metrics"></a>Server dels mått
 
 För Application Gateway är följande mått tillgängliga:
 
-- **Svarsstatus för backend**
+- **Svars status för Server del**
 
-  Antal HTTP-svarsstatuskoder som returneras av backends. Detta inkluderar inte några svarskoder som genereras av Application Gateway. Responsstatuskodsfördelningen kan kategoriseras ytterligare för att visa svar i kategorierna 2xx, 3xx, 4xx och 5xx.
+  Antal HTTP-svars status koder som returneras av Server delarna. Detta omfattar inte några svars koder som genereras av Application Gateway. Svars status kod distributionen kan kategoriseras ytterligare för att Visa svar i 2xx-, 3xx-, 4xx-och 5xx-kategorier.
 
 - **Antal felfria värdar**
 
-  Antalet serverd som bestäms friska av hälsosonden. Du kan filtrera på en per serverad pool bas för att visa antalet felfria värdar i en viss serverda pool.
+  Antalet Server delar som bedöms felfritt av hälso avsökningen. Du kan filtrera efter en pool per server del för att visa antalet felfria värdar i en viss backend-pool.
 
 - **Antal värdar med fel**
 
-  Antalet serverd som bedöms vara ohälsosamt av hälsoavsökningen. Du kan filtrera på en per serverad pool bas för att visa antalet ohälsosamma värdar i en viss serverda pool.
+  Antalet Server delar som avvisats i hälso avsökningen. Du kan filtrera per server dels pool för att visa antalet felaktiga värdar i en viss backend-pool.
   
-- **Begäranden per minut och felfri värd**
+- **Begär Anden per minut per felfri värd**
 
-  Det genomsnittliga antalet begäranden som tas emot av varje felfri medlem i en backend-pool på en minut. Du måste ange backend-poolen med *dimensionen BackendPool HttpSettings.*  
+  Det genomsnittliga antalet förfrågningar som tagits emot av varje felfritt medlem i en backend-pool på en minut. Du måste ange backend-poolen med hjälp av *BackendPool HttpSettings* -dimensionen.  
   
 
-## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Mått som stöds av Application Gateway V1 SKU
+## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Mått som stöds av Application Gateway v1 SKU
 
-### <a name="application-gateway-metrics"></a>Mätvärden för programgateway
+### <a name="application-gateway-metrics"></a>Application Gateway mått
 
 För Application Gateway är följande mått tillgängliga:
 
 - **CPU-användning**
 
-  Visar användningen av de processorer som tilldelats programgatewayen.  Under normala förhållanden bör CPU-användningen inte regelbundet överstiga 90 %, eftersom detta kan orsaka svarstid på de webbplatser som finns bakom Application Gateway och störa klientupplevelsen. Du kan indirekt styra eller förbättra CPU-användningen genom att ändra konfigurationen av Application Gateway genom att öka instansantalet eller genom att flytta till en större SKU-storlek eller göra båda.
+  Visar användningen av de CPU:er som har allokerats till Application Gateway.  Under normala förhållanden bör CPU-användningen inte regelbundet överskrida 90 %,eftersom detta kan orsaka långsamma svarstider på de webbplatser som Application Gateway är värd för, vilket kan vara frustrerande för kunderna. Du kan indirekt styra eller förbättra CPU-användningen genom att ändra konfigurationen för Application Gateway genom att öka antalet instanser eller genom att flytta till en större SKU-storlek, eller göra båda.
 
 - **Aktuella anslutningar**
 
   Antal aktuella anslutningar som upprättats med Application Gateway
 
-- **Misslyckade begäranden**
+- **Misslyckade förfrågningar**
 
-  Antal begäranden som Application Gateway har tjänat med 5xx serverfelkoder. Detta inkluderar de 5xx-koder som genereras från Application Gateway samt 5xx-koderna som genereras från backend. Antalet begäranden kan filtreras ytterligare för att visa antal per varje/specifik serversida pool-http inställningskombination.
+  Antal begär Anden som Application Gateway har hanterat med 5xx Server-felkoder. Detta inkluderar de 5xx-koder som genereras från Application Gateway samt de 5xx-koder som genereras från Server delen. Antalet begär Anden kan filtreras ytterligare för att visa antal per/specifika Server dels pool – http-inställnings kombination.
 
-- **Svarsstatus**
+- **Svars status**
 
-  HTTP-svarsstatus som returneras av Application Gateway. Responsstatuskodsfördelningen kan kategoriseras ytterligare för att visa svar i kategorierna 2xx, 3xx, 4xx och 5xx.
+  HTTP-svarets status returnerades av Application Gateway. Svars status kod distributionen kan kategoriseras ytterligare för att Visa svar i 2xx-, 3xx-, 4xx-och 5xx-kategorier.
 
 - **Dataflöde**
 
-  Antal byte per sekund som Application Gateway har tjänat
+  Antal byte per sekund som Application Gateway har betjänat
 
-- **Totalt antal begäranden**
+- **Totalt antal förfrågningar**
 
-  Antal lyckade begäranden som Application Gateway har tjänat. Antalet begäranden kan filtreras ytterligare för att visa antal per varje/specifik serversida pool-http inställningskombination.
+  Antal lyckade förfrågningar som Application Gateway har betjänat. Antalet begär Anden kan filtreras ytterligare för att visa antal per/specifika Server dels pool – http-inställnings kombination.
 
-- **Antal blockerade begäranden om webbprogram**
-- **Distribution av blockerade begäranden för webbprogram**
-- **Regeldistribution av brandväggssumtal för webbprogram**
+- **Antal blockerade förfrågningar för webb program brand vägg**
+- **Webb program brand vägg för blockerade begär Anden**
+- **Brand vägg för total regel distribution i webb program**
 
-### <a name="backend-metrics"></a>Svar på backend
+### <a name="backend-metrics"></a>Server dels mått
 
 För Application Gateway är följande mått tillgängliga:
 
 - **Antal felfria värdar**
 
-  Antalet serverd som bestäms friska av hälsosonden. Du kan filtrera på en per serverad pool bas för att visa antalet felfria värdar i en viss serverda pool.
+  Antalet Server delar som bedöms felfritt av hälso avsökningen. Du kan filtrera efter en pool per server del för att visa antalet felfria värdar i en viss backend-pool.
 
 - **Antal värdar med fel**
 
-  Antalet serverd som bedöms vara ohälsosamt av hälsoavsökningen. Du kan filtrera på en per serverad pool bas för att visa antalet ohälsosamma värdar i en viss serverda pool.
+  Antalet Server delar som avvisats i hälso avsökningen. Du kan filtrera per server dels pool för att visa antalet felaktiga värdar i en viss backend-pool.
 
-## <a name="metrics-visualization"></a>Visualisering av mätvärden
+## <a name="metrics-visualization"></a>Mått visualisering
 
-Bläddra till en programgateway under **Övervaka** välj **mått**. Om du vill visa de tillgängliga värdena väljer du listrutan **MÅTT**.
+Bläddra till en Application Gateway, under **övervakning** Välj **mått**. Om du vill visa de tillgängliga värdena väljer du listrutan **MÅTT**.
 
-I följande bild visas ett exempel med tre mått som visats under de senaste 30 minuterna:
+I följande bild visas ett exempel med tre mått som visas under de senaste 30 minuterna:
 
 [![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
-Information om hur du ser en aktuell lista över mått finns [i Mått som stöds med Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+Om du vill se en aktuell lista över mått, se [mått som stöds med Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
-### <a name="alert-rules-on-metrics"></a>Varningsregler för mått
+### <a name="alert-rules-on-metrics"></a>Aviserings regler för mått
 
-Du kan starta varningsregler baserat på mått för en resurs. En avisering kan till exempel anropa en webhook eller skicka e-post till en administratör om dataflödet för programgatewayen är över, under eller vid ett tröskelvärde under en angiven period.
+Du kan starta aviserings regler baserat på mått för en resurs. En avisering kan t. ex. anropa en webhook eller skicka en e-post till en administratör om data flödet för programgatewayen är över, under eller vid ett tröskelvärde under en angiven period.
 
-I följande exempel går du igenom att skapa en aviseringsregel som skickar ett e-postmeddelande till en administratör efter att dataflödet har överskrider ett tröskelvärde:
+Följande exempel visar hur du skapar en varnings regel som skickar ett e-postmeddelande till en administratör när data flödet har överträtt ett tröskelvärde:
 
-1. välj **Lägg till måttavisering** för att öppna sidan **Lägg till regel.** Du kan också nå den här sidan från statistiksidan.
+1. Välj **Lägg till mått avisering** för att öppna sidan **Lägg till regel** . Du kan också komma åt den här sidan från sidan mått.
 
-   ![Knappen "Lägg till måttvarning"][6]
+   ![Knappen Lägg till mått avisering][6]
 
 2. På sidan **Lägg till regel** fyller du i avsnitten namn, villkor och meddelande och väljer **OK**.
 
-   * I **villkorväljaren** väljer du ett av de fyra värdena: **Större än**, **Större än eller lika**, Mindre **än**, eller Mindre än eller **lika med**.
+   * I **villkors** väljaren väljer du något av de fyra värdena: **större än**, **större än eller lika med**, **mindre än**eller **mindre än eller lika**med.
 
-   * I **periodväljaren** väljer du en punkt från fem minuter till sex timmar.
+   * I **period** väljaren väljer du en period på fem minuter till sex timmar.
 
-   * Om du väljer **E-postägare, deltagare och läsare**kan e-postmeddelandet vara dynamiskt baserat på de användare som har åtkomst till resursen. Annars kan du ange en kommaavgränsad lista över användare i rutan **Ytterligare administratörs-e-post.**
+   * Om du väljer **e-postägare, deltagare och läsare**kan e-postmeddelandet vara dynamiskt baserat på de användare som har åtkomst till resursen. Annars kan du ange en kommaavgränsad lista med användare i rutan **ytterligare administratörs e-post (er)** .
 
    ![Sidan Lägg till regel][7]
 
-Om tröskelvärdet överskrids kommer ett e-postmeddelande som liknar det i följande bild:
+Om tröskelvärdet överskrids kommer ett e-postmeddelande som liknar det som finns i följande bild att bli:
 
-![E-post för bruten tröskel][8]
+![E-postmeddelande för överträtt tröskel][8]
 
-En lista med aviseringar visas när du har skapat en måttavisering. Det ger en översikt över alla varningsregler.
+En lista med aviseringar visas när du har skapat en mått-avisering. Den ger en översikt över alla aviserings regler.
 
 ![Lista över aviseringar och regler][9]
 
-Mer information om aviseringar finns i [Ta emot aviseringar](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Mer information om aviserings aviseringar finns i [ta emot aviseringar](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
-Om du vill förstå mer om webhooks och hur du kan använda dem med aviseringar besöker du [Konfigurera en webhook på en Azure-måttavisering](../azure-monitor/platform/alerts-webhooks.md).
+Om du vill veta mer om webhookar och hur du kan använda dem med aviseringar kan du gå till [Konfigurera en webhook på en Azure Metric-avisering](../azure-monitor/platform/alerts-webhooks.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Visualisera räknar- och händelseloggar med hjälp av [Azure Monitor-loggar](../azure-monitor/insights/azure-networking-analytics.md).
-* [Visualisera din Azure-aktivitetslogg med Power](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) BI-blogginlägg.
-* [Visa och analysera Azure-aktivitetsloggar i Power BI och mer](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blogginlägg.
+* Visualisera räknare och händelse loggar med hjälp av [Azure Monitor loggar](../azure-monitor/insights/azure-networking-analytics.md).
+* [Visualisera din Azure aktivitets logg med Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogg inlägg.
+* [Visa och analysera Azure aktivitets loggar i Power BI och fler](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blogg inlägg.
 
 [1]: ./media/application-gateway-diagnostics/figure1.png
 [2]: ./media/application-gateway-diagnostics/figure2.png

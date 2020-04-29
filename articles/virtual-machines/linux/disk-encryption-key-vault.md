@@ -1,6 +1,6 @@
 ---
 title: Skapa och konfigurera ett nyckelvalv för Azure Disk Encryption
-description: Den här artikeln innehåller steg för att skapa och konfigurera ett nyckelvalv för användning med Azure Disk Encryption
+description: Den här artikeln innehåller steg för att skapa och konfigurera ett nyckel valv som ska användas med Azure Disk Encryption
 ms.service: virtual-machines-linux
 ms.topic: article
 author: msmbaldwin
@@ -8,44 +8,44 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: 0038d5fdb38fdcfd4130a710f51d764e0cf9d907
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81459822"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Skapa och konfigurera ett nyckelvalv för Azure Disk Encryption
 
-Azure Disk Encryption använder Azure Key Vault för att styra och hantera diskkrypteringsnycklar och hemligheter.  Mer information om nyckelvalv finns i [Komma igång med Azure Key Vault](../../key-vault/key-vault-get-started.md) och Säkra ditt [nyckelvalv](../../key-vault/general/secure-your-key-vault.md). 
+Azure Disk Encryption använder Azure Key Vault för att kontrol lera och hantera disk krypterings nycklar och hemligheter.  Mer information om nyckel valv finns i [Kom igång med Azure Key Vault](../../key-vault/key-vault-get-started.md) och [skydda nyckel valvet](../../key-vault/general/secure-your-key-vault.md). 
 
 > [!WARNING]
-> - Om du tidigare har använt Azure Disk Encryption med Azure AD för att kryptera en virtuell dator måste du fortsätta använda det här alternativet för att kryptera din virtuella dator. Mer information finns i [Skapa och konfigurera ett nyckelvalv för Azure Disk Encryption med Azure AD (tidigare version).](disk-encryption-key-vault-aad.md)
+> - Om du tidigare har använt Azure Disk Encryption med Azure AD för att kryptera en virtuell dator måste du fortsätta använda det här alternativet för att kryptera den virtuella datorn. Mer information finns i [skapa och konfigurera ett nyckel valv för Azure Disk Encryption med Azure AD (tidigare version)](disk-encryption-key-vault-aad.md) .
 
-Att skapa och konfigurera ett nyckelvalv för användning med Azure Disk Encryption innebär tre steg:
+Att skapa och konfigurera ett nyckel valv som ska användas med Azure Disk Encryption omfattar tre steg:
 
-1. Skapa en resursgrupp om det behövs.
-2. Skapar ett nyckelvalv. 
-3. Ställa in avancerade åtkomstprinciper för nyckelvalv.
+1. Skapa en resurs grupp, om det behövs.
+2. Skapar ett nyckel valv. 
+3. Ställer in avancerade åtkomst principer för nyckel valvet.
 
-De här stegen illustreras i följande snabbstarter:
+Dessa steg illustreras i följande snabb starter:
 
 - [Skapa och kryptera en virtuell Linux-dator med Azure CLI](disk-encryption-cli-quickstart.md)
 - [Skapa och kryptera en virtuell Linux-dator med Azure PowerShell](disk-encryption-cli-quickstart.md)
 
-Du kan också, om du vill, generera eller importera en nyckelkrypteringsnyckel (KEK).
+Du kan också, om du vill, skapa eller importera en nyckel krypterings nyckel (KEK).
 
 > [!Note]
-> Stegen i den här artikeln är automatiserade i [Azure Disk Encryption förutsättningar CLI-skript](https://github.com/ejarvi/ade-cli-getting-started) och Azure Disk Kryptering förutsättningar [PowerShell skript](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts).
+> Stegen i den här artikeln är automatiserade i [skripten för Azure Disk Encryption nödvändiga CLI-skript](https://github.com/ejarvi/ade-cli-getting-started) och [Azure Disk Encryption krav på PowerShell-skript](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts).
 
-## <a name="install-tools-and-connect-to-azure"></a>Installera verktyg och ansluta till Azure
+## <a name="install-tools-and-connect-to-azure"></a>Installera verktyg och Anslut till Azure
 
-Stegen i den här artikeln kan slutföras med [Azure CLI](/cli/azure/), [Azure PowerShell Az-modulen](/powershell/azure/overview)eller [Azure-portalen](https://portal.azure.com). 
+Stegen i den här artikeln kan utföras med [Azure CLI](/cli/azure/), [Azure PowerShell AZ-modulen](/powershell/azure/overview)eller [Azure Portal](https://portal.azure.com). 
 
-Medan portalen är tillgänglig via din webbläsare kräver Azure CLI och Azure PowerShell lokal installation. Se [Azure Disk Encryption för Linux: Installera verktyg](disk-encryption-linux.md#install-tools-and-connect-to-azure) för mer information.
+Även om portalen är tillgänglig via webbläsaren kan Azure CLI och Azure PowerShell kräva lokal installation. Se [Azure Disk Encryption for Linux: installera verktyg](disk-encryption-linux.md#install-tools-and-connect-to-azure) för mer information.
 
 ### <a name="connect-to-your-azure-account"></a>Anslut till ditt Azure-konto
 
-Innan du använder Azure CLI eller Azure PowerShell måste du först ansluta till din Azure-prenumeration. Du gör det genom [att logga in med Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), Logga in med Azure [Powershell](/powershell/azure/authenticate-azureps?view=azps-2.5.0)eller ange dina autentiseringsuppgifter till Azure-portalen när du uppmanas.
+Innan du använder Azure CLI eller Azure PowerShell måste du först ansluta till din Azure-prenumeration. Du gör detta genom att [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [Logga in med Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0)eller ange dina autentiseringsuppgifter till Azure Portal när du uppmanas till det.
 
 ```azurecli-interactive
 az login

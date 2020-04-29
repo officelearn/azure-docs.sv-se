@@ -1,6 +1,6 @@
 ---
-title: Exempel på Azure PowerShell-skript – Azure Monitor-loggar
-description: Exempel på Azure PowerShell-skript – Azure Monitor-loggar
+title: Azure PowerShell skript exempel – Azure Monitor loggar
+description: Azure PowerShell skript exempel – Azure Monitor loggar
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,13 +15,13 @@ ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 35a4d6dfecc3d9f6a80660088a1a775825545d27
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81459686"
 ---
-# <a name="create-an-azure-monitor-vm-with-powershell"></a>Skapa en virtuell Azure-övervakare med PowerShell
+# <a name="create-an-azure-monitor-vm-with-powershell"></a>Skapa en virtuell Azure Monitor virtuell dator med PowerShell
 
 Det här skriptet skapar en virtuell Azure-dator, installerar Log Analytics-agenten och registrerar systemet på en Log Analytics-arbetsyta. När skriptet har körts visas den virtuella datorn i konsolen.
 
@@ -47,7 +47,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 Det här skriptet använder följande kommandon för att skapa distributionen. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Skapar en undernätskonfiguration. Den här konfigurationen används med skapandeprocessen för virtuella nätverk. |

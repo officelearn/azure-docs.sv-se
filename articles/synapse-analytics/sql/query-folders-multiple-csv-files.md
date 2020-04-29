@@ -1,6 +1,6 @@
 ---
-title: Fråga mappar och flera CSV-filer med SQL på begäran (förhandsgranskning)
-description: SQL on-demand (preview) stöder läsning av flera filer/mappar med hjälp av jokertecken, som liknar de jokertecken som används i Windows OS.
+title: Fråga mappar och flera CSV-filer med SQL på begäran (för hands version)
+description: SQL på begäran (för hands version) stöder läsning av flera filer/mappar med jokertecken, som liknar de jokertecken som används i Windows OS.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,38 +10,38 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 8f8af7fab7113e38b91c3f5f1bcc41b4e4fba2c1
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81457373"
 ---
 # <a name="query-folders-and-multiple-csv-files"></a>Fråga mappar och flera CSV-filer  
 
-I den här artikeln får du lära dig hur du skriver en fråga med SQL on-demand (preview) i Azure Synapse Analytics.
+I den här artikeln får du lära dig hur du skriver en fråga med SQL på begäran (för hands version) i Azure Synapse Analytics.
 
-SQL on-demand stöder läsning av flera filer/mappar med jokertecken, som liknar de jokertecken som används i Windows OS. Det finns dock större flexibilitet eftersom flera jokertecken är tillåtna.
+SQL på begäran stöder läsning av flera filer/mappar med jokertecken som liknar de jokertecken som används i Windows OS. Det finns dock större flexibilitet eftersom flera jokertecken är tillåtna.
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du läser resten av den här artikeln, se till att granska de artiklar som anges nedan:
+Innan du läser resten av den här artikeln ser du till att granska artiklarna i listan nedan:
 
-- [Första gången setup](query-data-storage.md#first-time-setup)
-- [Krav](query-data-storage.md#prerequisites)
+- [Installation vid första tiden](query-data-storage.md#first-time-setup)
+- [Förutsättningar](query-data-storage.md#prerequisites)
 
 ## <a name="read-multiple-files-in-folder"></a>Läsa flera filer i mappen
 
-Du ska använda mappen *csv/taxi* för att följa exempelfrågorna. Den innehåller NYC Taxi - Yellow Taxi Trip Records data från juli 2016 till juni 2018.
+Du använder mappen *CSV/taxi* för att följa exempel frågorna. Den innehåller NYC taxi-Yellow taxi-resa registrerar data från 2016 juli till 2018 juni.
 
-Filer i *csv /taxi* är uppkallade efter år och månad:
+Filerna i *CSV/taxi* har namnet efter år och månad:
 
-- yellow_tripdata_2016-07.csv
-- yellow_tripdata_2016-08.csv
-- yellow_tripdata_2016-09.csv
+- yellow_tripdata_2016 -07. csv
+- yellow_tripdata_2016 -08. csv
+- yellow_tripdata_2016 -09. csv
 - ...
-- yellow_tripdata_2018-04.csv
-- yellow_tripdata_2018-05.csv
-- yellow_tripdata_2018-06.csv
+- yellow_tripdata_2018 -04. csv
+- yellow_tripdata_2018 -05. csv
+- yellow_tripdata_2018 -06. csv
 
 Varje fil har följande struktur:
         
@@ -49,7 +49,7 @@ Varje fil har följande struktur:
 
 ## <a name="read-all-files-in-folder"></a>Läsa alla filer i mappen
     
-Exemplet nedan läser alla NYC Yellow Taxi datafiler från *csv / taxi* mappen och returnerar det totala antalet passagerare och rider per år. Den visar också användning av aggregerade funktioner.
+Exemplet nedan läser alla NYC gula taxi-datafiler från *CSV/taxi-* mappen och returnerar det totala antalet passagerare och sina val per år. Den visar också användningen av mängd funktioner.
 
 ```sql
 SELECT 
@@ -87,11 +87,11 @@ ORDER BY
 ```
 
 > [!NOTE]
-> Alla filer som nås med den enda OPENROWSET måste ha samma struktur (dvs. antal kolumner och deras datatyper).
+> Alla filer som används med den enda OpenRowSet-rad uppsättningen måste ha samma struktur (d.v.s. antalet kolumner och deras data typer).
 
-### <a name="read-subset-of-files-in-folder"></a>Läsa delmängd av filer i mappen
+### <a name="read-subset-of-files-in-folder"></a>Läs delmängd av filer i mappen
 
-Exemplet nedan läser 2017 NYC Yellow Taxi datafiler från *csv / taxi-mappen* med hjälp av ett jokertecken och returnerar det totala biljettpriset per betalningstyp.
+Exemplet nedan läser de 2017 NYC gula taxi-datafilerna från *CSV/taxi-* mappen med ett jokertecken och returnerar det totala avgifts beloppet per betalnings typ.
 
 ```sql
 SELECT 
@@ -126,20 +126,20 @@ ORDER BY payment_type;
 ```
 
 > [!NOTE]
-> Alla filer som nås med den enda OPENROWSET måste ha samma struktur (dvs. antal kolumner och deras datatyper).
+> Alla filer som används med den enda OpenRowSet-rad uppsättningen måste ha samma struktur (d.v.s. antalet kolumner och deras data typer).
 
 ## <a name="read-folders"></a>Läsa mappar
 
-Sökvägen som du anger till OPENROWSET kan också vara en sökväg till en mapp. Följande avsnitt innehåller dessa frågetyper.
+Den sökväg som du anger till OpenRowSet kan också vara en sökväg till en mapp. Följande avsnitt innehåller dessa frågetyper.
 
-### <a name="read-all-files-from-specific-folder"></a>Läsa alla filer från en viss mapp
+### <a name="read-all-files-from-specific-folder"></a>Läs alla filer från en speciell mapp
 
-Du kan läsa alla filer i en mapp med hjälp av jokertecken på filnivå som visas i [Läs alla filer i mappen](#read-all-files-in-folder). Men det finns ett sätt att fråga en mapp och använda alla filer i den mappen.
+Du kan läsa alla filer i en mapp med hjälp av jokertecken på filnivå som visas i [mappen Läs alla filer i mappen](#read-all-files-in-folder). Men det finns ett sätt att fråga en mapp och använda alla filer i mappen.
 
-Om sökvägen i OPENROWSET pekar på en mapp används alla filer i den mappen som en källa för frågan. Följande fråga kommer att läsa alla filer i *csv / taxi* mappen.
+Om sökvägen i OpenRowSet pekar på en mapp, kommer alla filer i mappen att användas som källa för frågan. Följande fråga läser alla filer i mappen *CSV/taxi* .
 
 > [!NOTE]
-> Observera förekomsten av / i slutet av sökvägen i frågan nedan. Det betecknar en mapp. Om / utelämnas, kommer frågan att rikta en fil som heter *taxi* istället.
+> Observera att det finns en/i slutet av sökvägen i frågan nedan. Den anger en mapp. Om/utelämnas, kommer frågan att rikta en fil med namnet *taxi* i stället.
 
 ```sql
 SELECT
@@ -177,14 +177,14 @@ ORDER BY
 ```
 
 > [!NOTE]
-> Alla filer som nås med den enda OPENROWSET måste ha samma struktur (dvs. antal kolumner och deras datatyper).
+> Alla filer som används med den enda OpenRowSet-rad uppsättningen måste ha samma struktur (d.v.s. antalet kolumner och deras data typer).
 
-### <a name="read-all-files-from-multiple-folders"></a>Läsa alla filer från flera mappar
+### <a name="read-all-files-from-multiple-folders"></a>Läs alla filer från flera mappar
 
-Det är möjligt att läsa filer från flera mappar med hjälp av ett jokertecken. Följande fråga kommer att läsa alla filer från alla mappar som finns i *csv-mappen* som har namn som börjar med *t* och slutar med *i*.
+Det går att läsa filer från flera mappar med hjälp av ett jokertecken. Följande fråga läser alla filer från alla mappar som finns i *CSV* -mappen med namn som börjar med *t* och slutar med *i*.
 
 > [!NOTE]
-> Observera förekomsten av / i slutet av sökvägen i frågan nedan. Det betecknar en mapp. Om / utelämnas, kommer frågan målfiler som heter *t&ast;i* istället.
+> Observera att det finns en/i slutet av sökvägen i frågan nedan. Den anger en mapp. Om/utelämnas, kommer frågan att skicka filer med namnet *t&ast;i* stället.
 
 ```sql
 SELECT
@@ -222,17 +222,17 @@ ORDER BY
 ```
 
 > [!NOTE]
-> Alla filer som nås med den enda OPENROWSET måste ha samma struktur (dvs. antal kolumner och deras datatyper).
+> Alla filer som används med den enda OpenRowSet-rad uppsättningen måste ha samma struktur (d.v.s. antalet kolumner och deras data typer).
 
-Eftersom du bara har en mapp som matchar villkoren är frågeresultatet detsamma som [Läs alla filer i mappen](#read-all-files-in-folder).
+Eftersom du bara har en mapp som matchar villkoren är frågeresultatet detsamma som [i mappen läsa alla filer i mappen](#read-all-files-in-folder).
 
 ## <a name="multiple-wildcards"></a>Flera jokertecken
 
-Du kan använda flera jokertecken på olika sökvägsnivåer. Du kan till exempel berika föregående fråga för att läsa filer med 2017-data, från alla mappar som namn börjar med *t* och slutar med *i*.
+Du kan använda flera jokertecken på olika Sök vägs nivåer. Du kan till exempel utöka tidigare fråga till att endast läsa filer med 2017-data från alla mappar som namnen börjar med *t* och slutar med *i*.
 
 > [!NOTE]
-> Observera förekomsten av / i slutet av sökvägen i frågan nedan. Det betecknar en mapp. Om / utelämnas, kommer frågan målfiler som heter *t&ast;i* istället.
-> Det finns en maximal gräns på 10 jokertecken per fråga.
+> Observera att det finns en/i slutet av sökvägen i frågan nedan. Den anger en mapp. Om/utelämnas, kommer frågan att skicka filer med namnet *t&ast;i* stället.
+> Det finns en övre gräns på 10 jokertecken per fråga.
 
 ```sql
 SELECT
@@ -270,10 +270,10 @@ ORDER BY
 ```
 
 > [!NOTE]
-> Alla filer som nås med den enda OPENROWSET måste ha samma struktur (dvs. antal kolumner och deras datatyper).
+> Alla filer som används med den enda OpenRowSet-rad uppsättningen måste ha samma struktur (d.v.s. antalet kolumner och deras data typer).
 
-Eftersom du bara har en mapp som matchar villkoren är frågeresultatet detsamma som [Läsundergrupp av filer i mappen](#read-subset-of-files-in-folder) och Läs alla filer från den specifika [mappen](#read-all-files-from-specific-folder). Mer komplexa scenarier för jokerteckenanvändning beskrivs i [Frågeparkettfiler](query-parquet-files.md).
+Eftersom du bara har en mapp som matchar villkoren, är frågeresultatet detsamma som att [läsa delmängd av filer i mappen](#read-subset-of-files-in-folder) och [läsa alla filer från en viss mapp](#read-all-files-from-specific-folder). Mer komplexa scenarier för användning av jokertecken beskrivs i [fråga Parquet-filer](query-parquet-files.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i artikeln i [Frågespecifika filer.](query-specific-files.md)
+Mer information finns i artikeln om [speciella filer i frågor](query-specific-files.md) .

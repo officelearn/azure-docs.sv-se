@@ -1,7 +1,7 @@
 ---
-title: 'Självstudiekurs: Förbereda data för att träna en prediktiv modell i R'
+title: 'Självstudie: förbereda data för att träna en förutsägelse modell i R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: I del ett av den här självstudieserien i tre delar förbereder du data från en Azure SQL-databas för att träna en förutsägande modell i R med Azure SQL Database Machine Learning Services (förhandsversion).
+description: I del ett av den här själv studie serien i tre delar förbereder du data från en Azure SQL-databas för att träna en förutsägelse modell i R med Azure SQL Database Machine Learning Services (för hands version).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -15,66 +15,66 @@ manager: cgronlun
 ms.date: 07/26/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: bf69d2963c74723cb3fea542e28288e4f136d5c3
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81458768"
 ---
-# <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudiekurs: Förbereda data för att träna en förutsägande modell i R med Azure SQL Database Machine Learning Services (förhandsversion)
+# <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudie: förbereda data för att träna en förutsägelse modell i R med Azure SQL Database Machine Learning Services (förhands granskning)
 
-I del ett av den här självstudieserien i tre delar importerar och förbereder du data från en Azure SQL-databas med R. Senare i den här serien använder du dessa data för att träna och distribuera en modell för automatisk maskininlärning i R med Azure SQL Database Machine Learning Services (förhandsversion).
+I del ett av den här själv studie serien i tre delar ska du importera och förbereda data från en Azure SQL-databas med R. Senare i den här serien använder du dessa data för att träna och distribuera en förutsägelse maskin inlärnings modell i R med Azure SQL Database Machine Learning Services (för hands version).
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-För den här handledningen serien, tänk dig att du äger en skiduthyrning företag och du vill förutsäga antalet hyror som du har på ett framtida datum. Denna information hjälper dig att få ditt lager, personal och faciliteter redo.
+I den här själv studie serien är det dags att du äger en Ski hyra-verksamhet och du vill förutsäga antalet hyror som du har på ett framtida datum. Den här informationen hjälper dig att komma igång med din aktie, personal och dina resurser.
 
-I del ett och två i den här serien ska du utveckla några R-skript i RStudio för att förbereda dina data och träna en maskininlärningsmodell. Sedan, i del tre, ska du köra dessa R-skript i en SQL-databas med hjälp av lagrade procedurer.
+I delar en och två av serien utvecklar du några R-skript i RStudio för att förbereda dina data och träna en maskin inlärnings modell. Sedan kan du i del tre köra dessa R-skript i en SQL-databas med hjälp av lagrade procedurer.
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln får du lära dig att:
 
 > [!div class="checklist"]
-> * Importera en exempeldatabas till en Azure SQL-databas med R
-> * Läsa in data från Azure SQL-databasen i en R-dataram
-> * Förbereda data i R genom att identifiera vissa kolumner som kategoriska
+> * Importera en exempel databas till en Azure SQL-databas med R
+> * Läsa in data från Azure SQL-databasen till en R data-ram
+> * Förbered data i R genom att identifiera några kolumner som kategoriska
 
-I [del två](sql-database-tutorial-predictive-model-build-compare.md)får du lära dig hur du skapar och tränar flera maskininlärningsmodeller i R och väljer sedan den mest exakta.
+I [del två](sql-database-tutorial-predictive-model-build-compare.md)får du lära dig hur du skapar och tränar flera Machine Learning-modeller i R och väljer den mest exakta.
 
-I [del tre](sql-database-tutorial-predictive-model-deploy.md)får du lära dig att lagra modellen i en databas och sedan skapa lagrade procedurer från R-skript som du har utvecklat i del ett och två. De lagrade procedurerna körs i en SQL-databas för att göra förutsägelser baserat på nya data.
+I [del tre](sql-database-tutorial-predictive-model-deploy.md)får du lära dig hur du lagrar modellen i en databas och sedan skapar lagrade procedurer från de R-skript som du utvecklade i delar en och två. De lagrade procedurerna kommer att köras i en SQL-databas för att göra förutsägelser baserade på nya data.
 
 ## <a name="prerequisites"></a>Krav
 
-* Azure-prenumeration – Om du inte har en Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/) innan du börjar.
+* Azure-prenumeration – om du inte har en Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/) innan du börjar.
 
 * [Azure SQL Database med Machine Learning Services (med R)](sql-database-machine-learning-services-overview.md) aktiverat.
 
-* Paketet RevoScaleR - Se [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) för alternativ för att installera paketet lokalt.
+* RevoScaleR-paket – se [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler?view=sql-server-2017#versions-and-platforms) för alternativ för att installera det här paketet lokalt.
 
-* R IDE - Den här självstudien använder [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/).
+* R IDE – i den här självstudien används [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/).
 
-* SQL-frågeverktyget - Den här självstudien förutsätter att du använder [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) eller SQL Server Management [Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS).
+* Verktyget SQL-fråga – den här självstudien förutsätter att du använder [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) eller [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="import-the-sample-database"></a>Importera exempeldatabasen
+## <a name="import-the-sample-database"></a>Importera exempel databasen
 
-Exempeldatauppsättningen som används i den här självstudien har sparats i en .bacpac-databassäkerhetskopieringsfil som du kan hämta och använda. **.bacpac**
+Exempel data uppsättningen som används i den här självstudien har sparats i en **. bacpac** -databas som du kan hämta och använda.
 
-1. Ladda ner filen [TutorialDB.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/TutorialDB.bacpac).
+1. Hämta filen [TutorialDB. bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/TutorialDB.bacpac).
 
-1. Följ anvisningarna i [Importera en BACPAC-fil för att skapa en Azure SQL-databas](https://docs.microsoft.com/azure/sql-database/sql-database-import)med hjälp av följande information:
+1. Följ anvisningarna i [Importera en BACPAC-fil för att skapa en Azure SQL-databas](https://docs.microsoft.com/azure/sql-database/sql-database-import)med hjälp av följande uppgifter:
 
-   * Importera från **filen TutorialDB.bacpac** som du hämtade
-   * Under den offentliga förhandsversionen väljer du **Gen5/vCore-konfigurationen** för den nya databasen
+   * Importera från **TutorialDB. bacpac** -filen som du laddade ned
+   * Under den allmänt tillgängliga för hands versionen väljer du konfigurationen **Gen5/vCore** för den nya databasen
    * Namnge den nya databasen "TutorialDB"
 
-## <a name="load-the-data-into-a-data-frame"></a>Läsa in data i en dataram
+## <a name="load-the-data-into-a-data-frame"></a>Läsa in data i en data ram
 
-Om du vill använda data i R läser du in data från`rentaldata`Azure SQL-databasen i en dataram ( ).
+Om du vill använda data i R läser du in data från Azure SQL-databasen i en data ram (`rentaldata`).
 
-Skapa en ny RScript-fil i RStudio och kör följande skript. Ersätt **Server,** **UID**och **PWD** med din egen anslutningsinformation.
+Skapa en ny RScript-fil i RStudio och kör följande skript. Ersätt **Server**, **UID**och **PWD** med din egen anslutnings information.
 
 ```r
 #Define the connection string to connect to the TutorialDB database
@@ -118,8 +118,8 @@ $ Snow       : num  0 0 0 0 0 0 0 0 0 0 ...
 
 ## <a name="prepare-the-data"></a>Förbereda data
 
-I den här exempeldatabasen har det mesta av preparatet redan gjorts, men du ska göra ytterligare en förberedelse här.
-Använd följande R-skript för att identifiera tre kolumner som *kategorier* genom att ändra datatyperna till *faktor*.
+I den här exempel databasen har de flesta förberedelser redan gjorts, men du kommer att göra en förberedelse här.
+Använd följande R-skript för att identifiera tre kolumner som *Kategorier* genom att ändra data typerna till *faktor*.
 
 ```r
 #Changing the three factor columns to factor types
@@ -144,28 +144,28 @@ $ Holiday    : Factor w/ 2 levels "0","1": 2 1 1 1 1 1 1 1 1 1 ...
 $ Snow       : Factor w/ 2 levels "0","1": 1 1 1 1 1 1 1 1 1 1 ...
 ```
 
-Uppgifterna förbereds nu för utbildning.
+Nu har data för beretts för utbildning.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte ska fortsätta med den här självstudien tar du bort TutorialDB-databasen från din Azure SQL Database-server.
+Om du inte kommer att fortsätta med den här självstudien tar du bort TutorialDB-databasen från Azure SQL Database-servern.
 
-Gör så här på Azure-portalen:
+Följ de här stegen i Azure Portal:
 
-1. Välj **Alla resurser** eller **SQL-databaser**på menyn till vänster i Azure-portalen .
-1. I fältet **Filter efter namn...** anger du **TutorialDB**och väljer din prenumeration.
+1. Välj **alla resurser** eller **SQL-databaser**på den vänstra menyn i Azure Portal.
+1. I fältet **Filtrera efter namn...** anger du **TutorialDB**och väljer din prenumeration.
 1. Välj din TutorialDB-databas.
 1. Välj **Ta bort** på sidan **Översikt**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I del ett av den här självstudieserien har du slutfört följande steg:
+I del ett av den här själv studie serien slutförde du följande steg:
 
-* Importera en exempeldatabas till en Azure SQL-databas med R
-* Läsa in data från Azure SQL-databasen i en R-dataram
-* Förbereda data i R genom att identifiera vissa kolumner som kategoriska
+* Importera en exempel databas till en Azure SQL-databas med R
+* Läsa in data från Azure SQL-databasen till en R data-ram
+* Förbered data i R genom att identifiera några kolumner som kategoriska
 
-Om du vill skapa en maskininlärningsmodell som använder data från TutorialDB-databasen följer du del två i den här självstudieserien:
+Om du vill skapa en maskin inlärnings modell som använder data från TutorialDB-databasen följer du del två i den här själv studie serien:
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Skapa en förutsägande modell i R med Azure SQL Database Machine Learning Services (förhandsversion)](sql-database-tutorial-predictive-model-build-compare.md)
+> [Självstudie: skapa en förutsägelse modell i R med Azure SQL Database Machine Learning Services (förhands granskning)](sql-database-tutorial-predictive-model-build-compare.md)

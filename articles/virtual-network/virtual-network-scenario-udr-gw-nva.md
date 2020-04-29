@@ -1,6 +1,6 @@
 ---
-title: Hybridanslutning med tvåstegsapplikation | Microsoft-dokument
-description: Lär dig hur du distribuerar virtuella installationer och UDR för att skapa en programmiljö på flera nivåer i Azure
+title: Hybrid anslutning med program med två nivåer | Microsoft Docs
+description: Lär dig hur du distribuerar virtuella apparater och UDR för att skapa en program miljö med flera nivåer i Azure
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,85 +14,85 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
 ms.openlocfilehash: 80a9397838e90a2af504125b2dc4c4ef39251d4e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81455370"
 ---
-# <a name="virtual-appliance-scenario"></a>Scenario för virtuell installation
-Ett vanligt scenario bland större Azure-kunder är behovet av att tillhandahålla ett tvådelat program som exponeras för Internet, samtidigt som åtkomst till backnivån från ett lokalt datacenter tillåts. Det här dokumentet hjälper dig att gå igenom ett scenario med hjälp av ANVÄNDARDEFINIERAde vägar (UDR), en VPN-gateway och virtuella nätverksinstallationer för att distribuera en miljö på två nivåer som uppfyller följande krav:
+# <a name="virtual-appliance-scenario"></a>Scenario för Virtual-apparat
+Ett vanligt scenario mellan större Azure-kunder är att du måste tillhandahålla ett program med två nivåer som exponeras för Internet, samtidigt som du får åtkomst till bak nivån från ett lokalt Data Center. Det här dokumentet vägleder dig genom ett scenario med hjälp av användardefinierade vägar (UDR), en VPN Gateway och virtuella nätverks enheter för att distribuera en miljö med två nivåer som uppfyller följande krav:
 
-* Webbapplikation får endast vara tillgängligt från det offentliga Internet.
-* Webbserver som är värd för programmet måste kunna komma åt en server för serverdelsprogram.
-* All trafik från Internet till webbprogrammet måste gå igenom en virtuell brandväggsinstallation. Den här virtuella installationen kommer endast att användas för Internet-trafik.
-* All trafik som går till programservern måste gå igenom en virtuell brandvägg. Den här virtuella installationen kommer att användas för åtkomst till serverdelsservern och åtkomst som kommer in från det lokala nätverket via en VPN-gateway.
-* Administratörer måste kunna hantera brandväggen virtuella apparater från sina lokala datorer, med hjälp av en tredje brandvägg virtuell installation som används uteslutande för hantering.
+* Webb programmet måste vara tillgängligt enbart från det offentliga Internet.
+* Webb server som är värd för programmet måste kunna komma åt en server för backend-program.
+* All trafik från Internet till webb programmet måste gå igenom en virtuell brand Väggs installation. Den här virtuella installationen används endast för Internet trafik.
+* All trafik som kommer till program servern måste gå igenom en virtuell brand Väggs installation. Den här virtuella installationen kommer att användas för åtkomst till backend-servern och åtkomst som kommer in från det lokala nätverket via en VPN Gateway.
+* Administratörerna måste kunna hantera de virtuella brand väggarna från sina lokala datorer, genom att använda en tredje brand Väggs installation som uteslutande används i hanterings syfte.
 
-Detta är ett standard perimeternätverk (även känt som DMZ) scenario med en DMZ och ett skyddat nätverk. Ett sådant scenario kan konstrueras i Azure med hjälp av NSGs, virtuella brandväggsinstallationer eller en kombination av båda. Tabellen nedan visar några av för-och nackdelar mellan NSGs och brandvägg virtuella apparater.
+Det här är ett standard nätverk för perimeter (kallas även DMZ) med ett DMZ och ett skyddat nätverk. Ett sådant scenario kan skapas i Azure med hjälp av NSG: er, virtuella brand väggar eller en kombination av båda. I tabellen nedan visas några av fördelarna och nack delar mellan NSG: er-och brand Väggs enheter.
 
 |  | Fördelar | Nackdelar |
 | --- | --- | --- |
-| NSG |Ingen kostnad. <br/>Integrerad i Azure RBAC. <br/>Regler kan skapas i Azure Resource Manager-mallar. |Komplexiteten kan variera i större miljöer. |
-| Brandvägg |Full kontroll över dataplanet. <br/>Central hantering via brandväggskonsol. |Kostnad för brandväggsapparat. <br/>Inte integrerat med Azure RBAC. |
+| NSG |Ingen kostnad. <br/>Integrerad i Azure RBAC. <br/>Regler kan skapas i Azure Resource Manager mallar. |Komplexiteten kan variera i större miljöer. |
+| Brandvägg |Fullständig kontroll över data planet. <br/>Central hantering via brand Väggs konsolen. |Kostnad för brand Väggs utrustning. <br/>Inte integrerat med Azure RBAC. |
 
-Lösningen nedan använder virtuella brandväggsinstallationer för att implementera ett perimeternätverk (DMZ)/skyddat nätverksscenario.
+I lösningen nedan används virtuella brand väggar för att implementera ett perimeternätverk (DMZ)/Protected nätverks scenario.
 
 ## <a name="considerations"></a>Överväganden
 Du kan distribuera miljön som beskrivs ovan i Azure med hjälp av olika funktioner som är tillgängliga idag, enligt följande.
 
-* **Virtuellt nätverk (VNet)**. Ett Azure-nätverk fungerar på liknande sätt som ett lokalt nätverk och kan segmenteras i ett eller flera undernät för att tillhandahålla trafikisolering och separation av problem.
-* **Virtuell apparat**. Flera partner tillhandahåller virtuella enheter på Azure Marketplace som kan användas för de tre brandväggar som beskrivs ovan. 
-* **Användardefinierade vägar (UDR)**. Vägtabeller kan innehålla UDR:er som används av Azure-nätverk för att styra flödet av paket i ett virtuella nätverk. Dessa flödestabeller kan tillämpas på undernät. En av de senaste funktionerna i Azure är möjligheten att tillämpa en vägtabell på GatewaySubnet, vilket ger möjlighet att vidarebefordra all trafik som kommer till Azure VNet från en hybridanslutning till en virtuell installation.
-* **IP-vidarebefordran**. Som standard vidarebefordrar Azure-nätverksmotorn paket till virtuella nätverkskort (NIC) endast om IP-adressen för paketmål matchar IP-adressen för nätverkskortet. Om en UDR definierar att ett paket måste skickas till en viss virtuell installation, skulle Azure-nätverksmotorn släppa det paketet. För att säkerställa att paketet levereras till en virtuell dator (i det här fallet en virtuell installation) som inte är det faktiska målet för paketet, måste du aktivera IP-vidarebefordran för den virtuella installationen.
-* **Nätverkssäkerhetsgrupper (NSG)**. Exemplet nedan använder inte NSG: er, men du kan använda NSG som tillämpas på undernäten och/eller nätverkskorten i den här lösningen för att ytterligare filtrera trafiken till och från dessa undernät och nätverkskort.
+* **Virtuellt nätverk (VNet)** . Ett Azure VNet fungerar på samma sätt som ett lokalt nätverk och kan delas upp i ett eller flera undernät för att ge trafik isolering och separering av problem.
+* **Virtuell**installation. Flera partner tillhandahåller virtuella enheter i Azure Marketplace som kan användas för de tre brand väggarna som beskrivs ovan. 
+* **Användardefinierade vägar (UDR)**. Routningstabeller kan innehålla UDR som används av Azure-nätverk för att styra flödet av paket i ett VNet. Dessa routningstabeller kan tillämpas på undernät. En av de nyaste funktionerna i Azure är möjligheten att tillämpa en routningstabell på GatewaySubnet, vilket ger möjlighet att vidarebefordra all trafik som kommer till Azure VNet från en hybrid anslutning till en virtuell installation.
+* **IP-vidarebefordring**. Som standard vidarebefordrar Azure Networking-paket till virtuella nätverkskort endast om paketets mål-IP-adress matchar NÄTVERKSKORTets IP-adress. Om en UDR definierar att ett paket måste skickas till en specifik virtuell installation, skulle Azure Networking-motorn därför släppa paketet. För att se till att paketet levereras till en virtuell dator (i det här fallet en virtuell installation) som inte är målet för paketet måste du aktivera IP-vidarebefordran för den virtuella installationen.
+* **Nätverks säkerhets grupper (NSG: er)**. Exemplet nedan använder inte NSG: er, men du kan använda NSG: er som tillämpas på undernät och/eller nätverkskort i den här lösningen för att ytterligare filtrera trafiken i och ut ur dessa undernät och nätverkskort.
 
 ![IPv6-anslutning](./media/virtual-network-scenario-udr-gw-nva/figure01.png)
 
-I det här exemplet finns det en prenumeration som innehåller följande:
+I det här exemplet finns en prenumeration som innehåller följande:
 
-* 2 resursgrupper som inte visas i diagrammet. 
+* 2 resurs grupper, visas inte i diagrammet. 
   * **ONPREMRG**. Innehåller alla resurser som behövs för att simulera ett lokalt nätverk.
-  * **AZURERG**. Innehåller alla resurser som behövs för den virtuella Azure-nätverksmiljön. 
-* Ett virtuella nätverk med namnet **onpremvnet** som används för att efterlikna ett lokalt datacenter som är segmenterat enligt nedan.
+  * **AZURERG**. Innehåller alla resurser som krävs för Azures virtuella nätverks miljö. 
+* Ett virtuellt nätverk med namnet **onpremvnet** används för att efterlikna ett lokalt Data Center segment enligt listan nedan.
   * **onpremsn1**. Undernät som innehåller en virtuell dator (VM) som kör Ubuntu för att efterlikna en lokal server.
   * **onpremsn2**. Undernät som innehåller en virtuell dator som kör Ubuntu för att efterlikna en lokal dator som används av en administratör.
-* Det finns en virtuell brandvägg som heter **OPFW** **på onpremvnet** som används för att underhålla en tunnel till **azurevnet**.
-* Ett virtuella nätverk med namnet **azurevnet** segmenterat enligt listan nedan.
-  * **azsn1**. Externt brandväggsundernät som endast används för den externa brandväggen. All Internettrafik kommer in genom detta undernät. Det här undernätet innehåller bara ett nätverkskort som är kopplat till den externa brandväggen.
-  * **azsn2**. Front end-undernät som är värd för en virtuell dator som körs som en webbserver som kommer att nås från Internet.
-  * **azsn3**. Serverdelsundernät som är värd för en virtuell dator som kör en serverdelsprogramserver som kommer att nås av klientservern.
-  * **azsn4**. Hanteringsundernät som endast används för att ge hanteringsåtkomst till alla virtuella brandväggsinstallationer. Det här undernätet innehåller bara ett nätverkskort för varje virtuell brandväggsinstallation som används i lösningen.
-  * **GatewaySubnet**. Azure hybridanslutningsundernät krävs för ExpressRoute och VPN Gateway för att tillhandahålla anslutning mellan Virtuella Azure-nätverk och andra nätverk. 
-* Det finns 3 virtuella brandväggsinstallationer i **azurevnet-nätverket.** 
-  * **AZF1**. Extern brandvägg som exponeras för det offentliga Internet med hjälp av en offentlig IP-adressresurs i Azure. Du måste se till att du har en mall från Marketplace, eller direkt från din apparatleverantör, som innehåller en virtuell 3-NIC-apparat.
-  * **AZF2**. Intern brandvägg som används för att styra trafiken mellan **azsn2** och **azsn3**. Detta är också en 3-NIC virtuell apparat.
-  * **AZF3**. Hanteringsbrandvägg som är tillgänglig för administratörer från det lokala datacentret och som är ansluten till ett hanteringsundernät som används för att hantera alla brandväggsinstallationer. Du kan hitta mallar för virtuella 2 NIC-enheter på Marketplace eller begära en direkt från din apparatleverantör.
+* Det finns en virtuell brand Väggs installation med namnet **OPFW** på **onpremvnet** som används för att underhålla en tunnel till **azurevnet**.
+* Ett virtuellt nätverk med namnet **azurevnet** segmenteras enligt listan nedan.
+  * **azsn1**. Externt brand Väggs undernät används enbart för den externa brand väggen. All Internet trafik kommer in via det här under nätet. Det här under nätet innehåller bara ett nätverkskort som är länkat till den externa brand väggen.
+  * **azsn2**. Klient dels under nät som är värd för en virtuell dator som körs som en webb server som kommer att nås från Internet.
+  * **azsn3**. Backend-undernät som är värd för en virtuell dator som kör en backend-Programserver som ska nås av klient webb servern.
+  * **azsn4**. Hanterings under nätet används enbart för att ge hanterings åtkomst till alla virtuella brand väggar. Det här under nätet innehåller bara ett nätverkskort för varje brand vägg för virtuella brand väggar som används i lösningen.
+  * **GatewaySubnet**. Azure Hybrid Connection-undernät krävs för ExpressRoute och VPN Gateway för att tillhandahålla anslutning mellan Azure virtuella nätverk och andra nätverk. 
+* Det finns 3 virtuella brand Väggs enheter i **azurevnet** -nätverket. 
+  * **AZF1**. Extern brand vägg som exponeras för det offentliga Internet med hjälp av en offentlig IP-adressresurs i Azure. Du måste se till att du har en mall från Marketplace, eller direkt från din enhets leverantör, som etablerar en virtuell dator med 3 nätverkskort.
+  * **AZF2**. Intern brand vägg som används för att styra trafiken mellan **azsn2** och **azsn3**. Detta är även en virtuell 3-NIC-enhet.
+  * **AZF3**. Hanterings brand vägg som är tillgänglig för administratörer från det lokala data centret och är ansluten till ett hanterings undernät som används för att hantera alla brand Väggs enheter. Du hittar mallar för virtuella enheter med 2-NIC på Marketplace eller begär en direkt från din enhets leverantör.
 
 ## <a name="user-defined-routing-udr"></a>Användardefinierad routning (UDR)
-Varje undernät i Azure kan länkas till en UDR-tabell som används för att definiera hur trafik som initieras i det undernätet dirigeras. Om inga UDR-enheter har definierats använder Azure standardvägar för att tillåta trafik att flöda från ett undernät till ett annat. Om du vill bättre förstå UDR:er besöker du [Vilka är användardefinierade vägar och IP-vidarebefordran](virtual-networks-udr-overview.md).
+Varje undernät i Azure kan länkas till en UDR-tabell som används för att definiera hur trafik som initieras i det under nätet dirigeras. Om ingen UDR har definierats använder Azure standard vägar för att tillåta trafik att flöda från ett undernät till ett annat. Mer information om UDR finns i [Vad är användardefinierade vägar och IP-vidarebefordring](virtual-networks-udr-overview.md).
 
-För att säkerställa att kommunikation sker via rätt brandväggsinstallation, baserat på det senaste kravet ovan, måste du skapa följande vägtabell som innehåller UDR:er i **azurevnet**.
+För att säkerställa att kommunikationen sker via rätt brand Väggs program, baserat på det senaste kravet ovan, måste du skapa följande routningstabell som innehåller UDR i **azurevnet**.
 
-### <a name="azgwudr"></a>azgwudr (
-I det här fallet kommer den enda trafiken som flödar från lokalt till Azure att användas för att hantera brandväggarna genom att ansluta till **AZF3**och att trafiken måste gå igenom den interna brandväggen, **AZF2**. Därför är endast en väg nödvändig i **GatewaySubnet** som visas nedan.
+### <a name="azgwudr"></a>azgwudr
+I det här scenariot används den enda trafiken som flödar från lokalt till Azure för att hantera brand väggarna genom att ansluta till **AZF3**och trafiken måste gå igenom den interna brand väggen, **AZF2**. Därför är det bara en väg som krävs i **GatewaySubnet** som visas nedan.
 
 | Mål | Nästa hopp | Förklaring |
 | --- | --- | --- |
-| 10.0.4.0/24 |10.0.3.11 |Tillåter lokal trafik för att nå hanteringsbrandväggen **AZF3** |
+| 10.0.4.0/24 |10.0.3.11 |Tillåter lokal trafik att uppnå hanterings brand vägg **AZF3** |
 
-### <a name="azsn2udr"></a>azsn2udr (
+### <a name="azsn2udr"></a>azsn2udr
 | Mål | Nästa hopp | Förklaring |
 | --- | --- | --- |
-| 10.0.3.0/24 |10.0.2.11 |Tillåter trafik till serverdelsundernätet som är värd för programservern via **AZF2** |
-| 0.0.0.0/0 |10.0.2.10 |Gör att all annan trafik kan dirigeras via **AZF1** |
+| 10.0.3.0/24 |10.0.2.11 |Tillåter trafik till backend-undernätet som är värd för program servern via **AZF2** |
+| 0.0.0.0/0 |10.0.2.10 |Tillåter att all annan trafik dirigeras via **AZF1** |
 
-### <a name="azsn3udr"></a>azsn3udr (
+### <a name="azsn3udr"></a>azsn3udr
 | Mål | Nästa hopp | Förklaring |
 | --- | --- | --- |
-| 10.0.2.0/24 |10.0.3.10 |Tillåter trafik till **azsn2** att flöda från appserver till webbservern via **AZF2** |
+| 10.0.2.0/24 |10.0.3.10 |Tillåter trafik till **azsn2** att flöda från App Server till webserver via **AZF2** |
 
-Du måste också skapa flödestabeller för undernäten i **onpremvnet** för att efterlikna det lokala datacentret.
+Du måste också skapa routningstabeller för undernät i **onpremvnet** för att efterlikna det lokala data centret.
 
 ### <a name="onpremsn1udr"></a>onpremsn1udr
 | Mål | Nästa hopp | Förklaring |
@@ -102,69 +102,69 @@ Du måste också skapa flödestabeller för undernäten i **onpremvnet** för at
 ### <a name="onpremsn2udr"></a>onpremsn2udr
 | Mål | Nästa hopp | Förklaring |
 | --- | --- | --- |
-| 10.0.3.0/24 |192.168.2.4 |Tillåter trafik till det säkerhetskopierade undernätet i Azure via **OPFW** |
+| 10.0.3.0/24 |192.168.2.4 |Tillåter trafik till det säkerhetskopierade under nätet i Azure via **OPFW** |
 | 192.168.1.0/24 |192.168.2.4 |Tillåter trafik till **onpremsn1** via **OPFW** |
 
 ## <a name="ip-forwarding"></a>IP-vidarebefordran
-UDR- och IP-vidarebefordran är funktioner som du kan använda i kombination för att tillåta virtuella installationer som ska användas för att styra trafikflödet i ett Azure-virtuellt nätverk.  En virtuell installation är helt enkelt en VM som kör ett program som används för att hantera nätverkstrafik på något sätt, som en brandvägg eller en NAT-enhet.
+UDR och IP-vidarebefordring är funktioner som du kan använda i en kombination för att tillåta att virtuella apparater används för att styra trafikflödet i ett Azure VNet.  En virtuell installation är helt enkelt en VM som kör ett program som används för att hantera nätverkstrafik på något sätt, som en brandvägg eller en NAT-enhet.
 
-Den här virtuella installations-VM:en måste kunna ta emot inkommande trafik som inte är adresserad till den. För att låta en VM ta emot trafik som är adresserad till andra mål, behöver du aktivera IP-vidarebefordran för VM:en. Det är en Azure-inställning, inte en inställning i gästoperativsystemet. Den virtuella installationen måste fortfarande köra någon typ av program för att hantera inkommande trafik och dirigera den på rätt sätt.
+Den här virtuella installations-VM:en måste kunna ta emot inkommande trafik som inte är adresserad till den. För att låta en VM ta emot trafik som är adresserad till andra mål, behöver du aktivera IP-vidarebefordran för VM:en. Det är en Azure-inställning, inte en inställning i gästoperativsystemet. Din virtuella installation behöver fortfarande köra någon typ av program för att hantera inkommande trafik och dirigera den på lämpligt sätt.
 
-Mer information om IP-vidarebefordran finns i [Vilka är användardefinierade rutter och IP-vidarebefordran](virtual-networks-udr-overview.md).
+Mer information om IP-vidarebefordring finns i [Vad är användardefinierade vägar och IP-vidarebefordring](virtual-networks-udr-overview.md).
 
-Anta att du har följande inställningar i ett Azure-nätverk:
+Anta till exempel att du har följande konfiguration i ett Azure VNet:
 
-* Undernät **påpremsn1** innehåller en virtuell dator med namnet **onpremvm1**.
-* Undernät **onpremsn2** innehåller en virtuell dator med namnet **onpremvm2**.
-* En virtuell apparat med namnet **OPFW** är ansluten till **onpremsn1** och **onpremsn2**.
+* Under nätet **onpremsn1** innehåller en virtuell dator med namnet **onpremvm1**.
+* Under nätet **onpremsn2** innehåller en virtuell dator med namnet **onpremvm2**.
+* En virtuell installation med namnet **OPFW** är ansluten till **onpremsn1** och **onpremsn2**.
 * En användardefinierad väg som är länkad till **onpremsn1** anger att all trafik till **onpremsn2** måste skickas till **OPFW**.
 
-Vid denna punkt, om **onpremvm1** försöker upprätta en anslutning med **onpremvm2,** UDR kommer att användas och trafiken kommer att skickas till **OPFW** som nästa hopp. Tänk på att det faktiska paketmålet inte ändras, det står fortfarande **att onpremvm2** är målet. 
+Om **onpremvm1** försöker upprätta en anslutning med **ONPREMVM2**, kommer UDR att användas och trafik skickas till **OPFW** som nästa hopp. Tänk på att det faktiska paket målet inte ändras, men det säger att **onpremvm2** är målet. 
 
-Utan IP-vidarebefordran aktiverad för **OPFW**släpper Azure virtuell nätverkslogik paketen, eftersom det bara tillåter att paket skickas till en virtuell dator om den virtuella datorns IP-adress är målet för paketet.
+Utan IP-vidarebefordring aktive rad för **OPFW**, tar Azure Virtual Networking-logiken bort paketen eftersom det bara tillåter att paket skickas till en virtuell dator om den virtuella DATORns IP-adress är målet för paketet.
 
-Med IP-vidarebefordran vidarebefordrar Azure-logiken för virtuella nätverk till OPFW, utan att ändra dess ursprungliga måladress. **OPFW** måste hantera paketen och bestämma vad de ska göra med dem.
+Med IP-vidarebefordring vidarebefordrar den virtuella Azure-nätverks logiken paketen till OPFW utan att ändra den ursprungliga mål adressen. **OPFW** måste hantera paketen och bestämma vad som ska göras med dem.
 
-För att scenariot ovan ska fungera måste du aktivera IP-vidarebefordran på nätverkskorten för **OPFW,** **AZF1,** **AZF2**och **AZF3** som används för routning (alla nätverkskort utom de som är kopplade till hanteringsundernätet). 
+För scenariot ovan att fungera måste du aktivera IP-vidarebefordring på nätverkskorten för **OPFW**, **AZF1**, **AZF2**och **AZF3** som används för routning (alla nätverkskort förutom de som är länkade till hanterings under nätet). 
 
 ## <a name="firewall-rules"></a>Brandväggsregler
-Som beskrivits ovan säkerställer IP-vidarebefordran endast att paket skickas till de virtuella apparaterna. Din apparat måste fortfarande bestämma vad du ska göra med dessa paket. I scenariot ovan måste du skapa följande regler i dina apparater:
+Som det beskrivs ovan garanterar IP-vidarebefordring endast paket som skickas till de virtuella enheterna. Din apparat måste fortfarande bestämma vad som ska göras med dessa paket. I scenariot ovan måste du skapa följande regler i dina enheter:
 
-### <a name="opfw"></a>OPFW (PÅ VÄG)
+### <a name="opfw"></a>OPFW
 OPFW representerar en lokal enhet som innehåller följande regler:
 
-* **Rutt**: All trafik till 10.0.0.0/16 **(azurevnet)** måste skickas via tunnel **ONPREMAZURE**.
-* **Policy**: Tillåt all dubbelriktad trafik mellan **port2** och **ONPREMAZURE**.
+* **Väg**: all trafik till 10.0.0.0/16 (**azurevnet**) måste skickas via tunnel- **ONPREMAZURE**.
+* **Princip**: Tillåt all dubbelriktad trafik mellan **PORT2** och **ONPREMAZURE**.
 
-### <a name="azf1"></a>AZF1 (PÅ ANDRA)
+### <a name="azf1"></a>AZF1
 AZF1 representerar en virtuell Azure-installation som innehåller följande regler:
 
-* **Princip**: Tillåt all dubbelriktad trafik mellan **port1** och **port2**.
+* **Princip**: Tillåt all dubbelriktad trafik mellan **PORT1** och **PORT2**.
 
-### <a name="azf2"></a>AZF2 (PÅ ANDRA)
+### <a name="azf2"></a>AZF2
 AZF2 representerar en virtuell Azure-installation som innehåller följande regler:
 
-* **Rutt**: All trafik till 10.0.0.0/16 **(onpremvnet)** måste skickas till AZURE gateway IP-adressen (dvs. 10.0.0.1) via **port1**.
-* **Princip**: Tillåt all dubbelriktad trafik mellan **port1** och **port2**.
+* **Väg**: all trafik till 10.0.0.0/16 (**onpremvnet**) måste skickas till Azure-gatewayens IP-adress (dvs. 10.0.0.1) via **PORT1**.
+* **Princip**: Tillåt all dubbelriktad trafik mellan **PORT1** och **PORT2**.
 
-## <a name="network-security-groups-nsgs"></a>Nätverkssäkerhetsgrupper (NSG)
-I det här fallet används inte NSG:er. Du kan dock använda NSG:er på varje undernät för att begränsa inkommande och utgående trafik. Du kan till exempel tillämpa följande NSG-regler på det externa FW-undernätet.
+## <a name="network-security-groups-nsgs"></a>Nätverks säkerhets grupper (NSG: er)
+I det här scenariot används inte NSG: er. Du kan dock tillämpa NSG: er på varje undernät för att begränsa inkommande och utgående trafik. Du kan till exempel använda följande NSG-regler för det externa VB-undernätet.
 
 **Inkommande**
 
-* Tillåt all TCP-trafik från Internet till port 80 på valfri virtuell dator i undernätet.
+* Tillåt all TCP-trafik från Internet till port 80 på alla virtuella datorer i under nätet.
 * Neka all annan trafik från Internet.
 
-**Utgående**
+**Autentiseringsnivå**
 
 * Neka all trafik till Internet.
 
 ## <a name="high-level-steps"></a>Steg på hög nivå
-Om du vill distribuera det här scenariot följer du stegen på hög nivå nedan.
+Följ stegen nedan om du vill distribuera det här scenariot.
 
 1. Logga in på din Azure-prenumeration.
-2. Om du vill distribuera ett virtuella nätverk för att efterlikna det lokala nätverket etablerar du de resurser som ingår i **ONPREMRG**.
+2. Om du vill distribuera ett VNet för att efterlikna det lokala nätverket, etablerar du de resurser som är en del av **ONPREMRG**.
 3. Etablera de resurser som ingår i **AZURERG**.
 4. Etablera tunneln från **onpremvnet** till **azurevnet**.
-5. När alla resurser har etablerats loggar du in **på onpremvm2** och pingar 10.0.3.101 för att testa anslutningen mellan **onpremsn2** och **azsn3**.
+5. När alla resurser har tillhandahållits loggar du in på **onpremvm2** och pingar 10.0.3.101 för att testa anslutningen mellan **onpremsn2** och **azsn3**.
 

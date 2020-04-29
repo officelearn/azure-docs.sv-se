@@ -1,6 +1,6 @@
 ---
-title: 'CLI-exempel: Skapa två virtuella datorer med en intern och extern NSG'
-description: Skapa två virtuella datorer med intern och extern NSG för att skydda nätverkstrafik med Hjälp av Azure CLI.
+title: 'CLI-exempel: skapa två virtuella datorer med en intern och extern NSG'
+description: Skapa två virtuella datorer med intern och extern NSG för att skydda nätverks trafik med hjälp av Azure CLI.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,13 +16,13 @@ ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: b4339ab2c512a96614158f673cb07b60184f5f71
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81459958"
 ---
-# <a name="secure-network-traffic-between-virtual-machines-using-an-nsg"></a>Säker nätverkstrafik mellan virtuella datorer med hjälp av en NSG
+# <a name="secure-network-traffic-between-virtual-machines-using-an-nsg"></a>Skydda nätverks trafik mellan virtuella datorer med en NSG
 
 Det här skriptet skapar två virtuella datorer och säkrar inkommande trafik till båda. En virtuell dator är tillgänglig på internet och har en nätverkssäkerhetsgrupp (NSG) som konfigurerats för att tillåta trafik på port 22 och port 80. Den andra virtuella datorn är inte tillgänglig på internet och har en NSG som konfigurerats för att endast tillåta trafik från den första virtuella datorn.
 
@@ -46,7 +46,7 @@ az group delete --name myResourceGroup
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, en virtuell dator och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Skapar ett virtuellt Azure-nätverk och undernät. |

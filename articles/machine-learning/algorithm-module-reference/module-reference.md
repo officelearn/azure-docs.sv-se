@@ -1,6 +1,6 @@
 ---
 title: Algoritm- och modulreferens
-description: Lär dig mer om de moduler som finns i Azure Machine Learning designer (förhandsversion)
+description: Lär dig mer om modulerna som är tillgängliga i Azure Machine Learning designer (för hands version)
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -10,64 +10,64 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/13/2020
 ms.openlocfilehash: c46c21b5662b924552f850f226a12c7350b4625a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81458211"
 ---
-# <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Algoritm & modulreferens för Azure Machine Learning designer (förhandsversion)
+# <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Algoritm & module-referens för Azure Machine Learning designer (för hands version)
 
-Det här referensinnehållet ger den tekniska bakgrunden för var och en av maskininlärningsalgoritmerna och modulerna som är tillgängliga i Azure Machine Learning designer (förhandsversion).
+Det här referens innehållet ger teknisk bakgrund på var och en av Machine Learning-algoritmerna och modulerna som är tillgängliga i Azure Machine Learning designer (för hands version).
 
-Varje modul representerar en uppsättning kod som kan köras oberoende av varandra och utföra en maskininlärningsuppgift, med tanke på de indata som krävs. En modul kan innehålla en viss algoritm eller utföra en uppgift som är viktig i maskininlärning, till exempel värdeersättning som saknas eller statistisk analys.
+Varje modul representerar en uppsättning kod som kan köras separat och utföra en maskin inlärnings uppgift, med de nödvändiga inmatningarna. En modul kan innehålla en viss algoritm eller utföra en uppgift som är viktig i Machine Learning, till exempel värde utbyte som saknas eller statistisk analys.
 
-Om du vill ha hjälp med att välja algoritmer finns i 
+Hjälp med att välja algoritmer finns i 
 * [Så här väljer du algoritmer](../how-to-select-algorithms.md)
-* [Azure Machine Learning Algoritm lathund](../algorithm-cheat-sheet.md)
+* [Lathund-blad för Azure Machine Learning algorithm](../algorithm-cheat-sheet.md)
 
 > [!TIP]
-> I alla pipeline i designern kan du få information om en viss modul. Markera modulen och välj sedan länken **mer hjälp** i **snabbhjälpsfönstret.**
+> I en pipeline i designern kan du hämta information om en speciell modul. Välj modulen och välj sedan länken **mer hjälp** i fönstret **snabb hjälp** .
 
-## <a name="data-preparation-modules"></a>Moduler för förberedelse av data
+## <a name="data-preparation-modules"></a>Moduler för data förberedelse
 
 
 | Funktioner | Beskrivning | Modul |
 | --- |--- | --- |
-| Indata och utdata | Flytta data från molnkällor till pipelinen. Skriv dina resultat eller mellanliggande data till Azure Storage, en SQL-databas eller Hive, medan du kör en pipeline, eller använd molnlagring för att utbyta data mellan pipelines.  | [Ange data manuellt](enter-data-manually.md) <br/> [Exportera data](export-data.md) <br/> [Importera data](import-data.md) |
-| Dataomvandling | Åtgärder på data som är unika för maskininlärning, till exempel normalisera eller binning data, dimensionalitet minskning och konvertera data mellan olika filformat.| [Lägga till kolumner](add-columns.md) <br/> [Lägga till rader](add-rows.md) <br/> [Använda matematisk åtgärd](apply-math-operation.md) <br/> [Använda SQL-transformering](apply-sql-transformation.md) <br/> [Rensa data som saknas](clean-missing-data.md) <br/> [Beskärningsvärden](clip-values.md) <br/> [Konvertera till CSV](convert-to-csv.md) <br/> [Konvertera till datamängd](convert-to-dataset.md) <br/> [Konvertera till indikatorvärden](convert-to-indicator-values.md) <br/> [Redigera metadata](edit-metadata.md) <br/> [Koppla data](join-data.md) <br/> [Normalisera Data](normalize-data.md) <br/> [Partitionera och prova](partition-and-sample.md)  <br/> [Ta bort dubblettrader](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Välja kolumntranformering](select-columns-transform.md) <br/> [Välja kolumner i datauppsättning](select-columns-in-dataset.md) <br/> [Dela data](split-data.md) |
-| Val av funktion | Välj en delmängd av relevanta, användbara funktioner som ska användas för att skapa en analytisk modell. | [Filterbaserat funktionsval](filter-based-feature-selection.md) <br/> [Permutationfunktionsprioritet](permutation-feature-importance.md) |
-| Statistiska funktioner | Tillhandahålla ett brett utbud av statistiska metoder relaterade till datavetenskap. | [Sammanfatta data](summarize-data.md)|
+| Indata och utdata | Flytta data från moln källor till din pipeline. Skriv resultaten eller mellanliggande data till Azure Storage, en SQL-databas eller Hive, medan du kör en pipeline eller Använd moln lagring för att utbyta data mellan pipeliner.  | [Ange data manuellt](enter-data-manually.md) <br/> [Exportera data](export-data.md) <br/> [Importera data](import-data.md) |
+| Dataomvandling | Åtgärder för data som är unika för maskin inlärning, till exempel normaliserande eller diskretisering data, Dimensional reducering och konvertering av data mellan olika fil format.| [Lägga till kolumner](add-columns.md) <br/> [Lägga till rader](add-rows.md) <br/> [Använda matematisk åtgärd](apply-math-operation.md) <br/> [Använda SQL-transformering](apply-sql-transformation.md) <br/> [Rensa data som saknas](clean-missing-data.md) <br/> [Beskärningsvärden](clip-values.md) <br/> [Konvertera till CSV](convert-to-csv.md) <br/> [Konvertera till datamängd](convert-to-dataset.md) <br/> [Konvertera till indikatorvärden](convert-to-indicator-values.md) <br/> [Redigera metadata](edit-metadata.md) <br/> [Koppla data](join-data.md) <br/> [Normalisera Data](normalize-data.md) <br/> [Partitionera och prova](partition-and-sample.md)  <br/> [Ta bort dubblettrader](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Välja kolumntranformering](select-columns-transform.md) <br/> [Välja kolumner i datauppsättning](select-columns-in-dataset.md) <br/> [Dela data](split-data.md) |
+| Val av funktion | Välj en delmängd av relevanta, användbara funktioner som du kan använda när du skapar en analys modell. | [Filterbaserat funktionsval](filter-based-feature-selection.md) <br/> [Permutationfunktionsprioritet](permutation-feature-importance.md) |
+| Statistiska funktioner | Tillhandahålla en mängd olika statistiska metoder för data vetenskap. | [Sammanfatta data](summarize-data.md)|
 
 ## <a name="machine-learning-algorithms"></a>Maskininlärningsalgoritmer
 
 | Funktioner | Beskrivning | Modul |
 | --- |--- | --- |
-| Regression | Förutsäga ett värde. | [Förbättrad regression för beslutsträd](boosted-decision-tree-regression.md) <br/> [Regression för beslutsskog](decision-forest-regression.md) <br/> [Linjär regression](linear-regression.md)  <br/> [Regression för Neural Network](neural-network-regression.md)  <br/> |
+| Regression | Förutsäg ett värde. | [Förbättrad regression för beslutsträd](boosted-decision-tree-regression.md) <br/> [Regression för beslutsskog](decision-forest-regression.md) <br/> [Linjär regression](linear-regression.md)  <br/> [Regression för Neural Network](neural-network-regression.md)  <br/> |
 | Klustring | Gruppera data tillsammans.| [K-means-klustring](k-means-clustering.md)
-| Klassificering | Förutsäg en klass.  Välj mellan binära (tvåklass- eller flerklassalgoritmer).| [Förbättrat beslutsträd med flera klasser](multiclass-boosted-decision-tree.md) <br/> [Beslutsskog med två klasser](multiclass-decision-forest.md) <br/> [Logistic Regression med flera klasser](multiclass-logistic-regression.md)  <br/> [Neural Network med flera klasser](multiclass-neural-network.md) <br/> [En mot alla multiklass](one-vs-all-multiclass.md) <br/> [Genomsnittsperceptron med två klasser](two-class-averaged-perceptron.md) <br/>  [Tvåklassade förstärkta beslutsträd](two-class-boosted-decision-tree.md)  <br/> [Beslutsskog med två klasser](two-class-decision-forest.md) <br/>  [Logistic Regression med två klasser](two-class-logistic-regression.md) <br/> [Neural Network med två klasser](two-class-neural-network.md) <br/> [Tvåklassig dator för vektorstöd](two-class-support-vector-machine.md) | 
+| Klassificering | Förutsäg en klass.  Välj mellan binära (två klasser) eller algoritmer för multiklasser.| [Förbättrat beslutsträd med flera klasser](multiclass-boosted-decision-tree.md) <br/> [Beslutsskog med två klasser](multiclass-decision-forest.md) <br/> [Logistic Regression med flera klasser](multiclass-logistic-regression.md)  <br/> [Neural Network med flera klasser](multiclass-neural-network.md) <br/> [En-mot- alla-multiklass](one-vs-all-multiclass.md) <br/> [Genomsnittsperceptron med två klasser](two-class-averaged-perceptron.md) <br/>  [Tvåklassigt förbättrat beslutsträd](two-class-boosted-decision-tree.md)  <br/> [Beslutsskog med två klasser](two-class-decision-forest.md) <br/>  [Logistic Regression med två klasser](two-class-logistic-regression.md) <br/> [Neural Network med två klasser](two-class-neural-network.md) <br/> [Tvåklassig dator för vektorstöd](two-class-support-vector-machine.md) | 
 
-## <a name="modules-for-building-and-evaluating-models"></a>Moduler för att bygga och utvärdera modeller
+## <a name="modules-for-building-and-evaluating-models"></a>Moduler för att skapa och utvärdera modeller
 
 | Funktioner | Beskrivning | Modul |
 | --- |--- | --- |
-| Modellträning | Kör data genom algoritmen. |  [Träna klustringsmodellen](train-clustering-model.md) <br/> [Träningsmodell](train-model.md)  <br/> [Finjustera hyperparametrar för modell](tune-model-hyperparameters.md) |
-| Modellbedömning och utvärdering | Mät noggrannheten hos den tränade modellen. | [Använda transformering](apply-transformation.md) <br/> [Tilldela data till kluster](assign-data-to-clusters.md) <br/> [Korsvalidera modell](cross-validate-model.md) <br/> [Utvärdera modell](evaluate-model.md) <br/> [Poängmodell](score-model.md) |
-| Python-språk | Skriv kod och bädda in den i en modul för att integrera Python med din pipeline. | [Skapa Python-modell](create-python-model.md) <br/> [Köra Python-skript](execute-python-script.md) |
+| Modellträning | Kör data via algoritmen. |  [Träna klustringsmodellen](train-clustering-model.md) <br/> [Träningsmodell](train-model.md)  <br/> [Finjustera hyperparametrar för modell](tune-model-hyperparameters.md) |
+| Bedömnings-och utvärderings modell | Mät noggrannheten för den tränade modellen. | [Använda transformering](apply-transformation.md) <br/> [Tilldela data till kluster](assign-data-to-clusters.md) <br/> [Korsvalidera modell](cross-validate-model.md) <br/> [Utvärdera modell](evaluate-model.md) <br/> [Poängmodell](score-model.md) |
+| Python-språk | Skriv kod och bädda in den i en modul för att integrera python med din pipeline. | [Skapa Python-modell](create-python-model.md) <br/> [Köra Python-skript](execute-python-script.md) |
 | R-språk | Skriv kod och bädda in den i en modul för att integrera R med din pipeline. | [Köra R-skript](execute-r-script.md) |
-| Textanalys | Tillhandahålla specialiserade beräkningsverktyg för att arbeta med både strukturerad och ostrukturerad text. | [Extrahera N-Gram-funktioner från text](extract-n-gram-features-from-text.md) <br/> [Funktions-hash](feature-hashing.md) <br/> [Förbearbeta text](preprocess-text.md) <br/> [Latent Dirichlet Tilldelning](latent-dirichlet-allocation.md) |
-| Rekommendation | Bygg rekommendationsmodeller. | [Utvärdera rekommenderare](evaluate-recommender.md) <br/> [Poäng för SVD-rekommenderare](score-svd-recommender.md) <br/> [Träna SVD-rekommenderare](train-SVD-recommender.md) |
-| Avvikelseidentifiering | Skapa avvikelseidentifieringsmodeller. | [Identifiering av PCA-baserad avvikelse](pca-based-anomaly-detection.md) <br/> [Identifieringsmodell för tågavvikelse](train-anomaly-detection-model.md) |
+| Textanalys | Tillhandahåll specialiserade beräknings verktyg för att arbeta med både strukturerad och ostrukturerad text. | [Extrahera N-Gram-funktioner från text](extract-n-gram-features-from-text.md) <br/> [Funktions-hash](feature-hashing.md) <br/> [Förbearbeta text](preprocess-text.md) <br/> [Latent Dirichlet-allokering](latent-dirichlet-allocation.md) |
+| Rekommendation | Bygg rekommendationers modeller. | [Utvärdera rekommenderare](evaluate-recommender.md) <br/> [Poäng för SVD-rekommenderare](score-svd-recommender.md) <br/> [Träna SVD-rekommenderare](train-SVD-recommender.md) |
+| Avvikelseidentifiering | Bygg modeller för avvikelse identifiering. | [PCA-baserad avvikelseidentifiering](pca-based-anomaly-detection.md) <br/> [Träna avvikelseidentifieringsmodell](train-anomaly-detection-model.md) |
 
 
 ## <a name="web-service"></a>Webbtjänst
 
-Lär dig mer om [webbtjänstmodulerna](web-service-input-output.md) som är nödvändiga för inferens i realtid i Azure Machine Learning-designern.
+Lär dig mer om [webbtjänst-modulerna](web-service-input-output.md) som krävs för real tids härledning i Azure Machine Learning designer.
 
 ## <a name="error-messages"></a>Felmeddelanden
 
-Lär dig mer om [felmeddelanden och undantagskoder](designer-error-codes.md) som kan uppstå med hjälp av moduler i Azure Machine Learning-designern.
+Lär dig mer om [fel meddelanden och undantags koder](designer-error-codes.md) som du kan stöta på med moduler i Azure Machine Learning designer.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Handledning: Bygg en modell i designer för att förutsäga auto priser](../tutorial-designer-automobile-price-train-score.md)
+* [Självstudie: Bygg en modell i designern för att förutsäga automatiska priser](../tutorial-designer-automobile-price-train-score.md)

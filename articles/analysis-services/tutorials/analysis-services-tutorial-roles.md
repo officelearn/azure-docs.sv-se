@@ -1,6 +1,6 @@
 ---
-title: Självstudiekurs - Konfigurera Azure Analysis Services-roller | Microsoft-dokument
-description: Lär dig hur du konfigurerar Azure Analysis Services administratör och användarroller med hjälp av Azure-portalen eller SQL Server Management Studio.
+title: Självstudie – konfigurera Azure Analysis Services roller | Microsoft Docs
+description: Lär dig hur du konfigurerar Azure Analysis Services administratör och användar roller med hjälp av Azure Portal eller SQL Server Management Studio.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
@@ -8,10 +8,10 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: 0bedc88b78f2ac758d3201965425b42b69580719
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81454262"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Självstudie: Konfigurera serveradministratörs- och användarroller
@@ -67,7 +67,7 @@ För de återstående uppgifterna använder du SSMS för att ansluta till och ha
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>Lägga till ett användarkonto i serveradministratörsrollen
 
-I den här uppgiften lägger du till ett användarkonto eller gruppkonto från Azure AD till serveradministratörsrollen. Om du anger en `obj:groupid@tenantid`säkerhetsgrupp använder du .
+I den här uppgiften lägger du till ett användarkonto eller gruppkonto från Azure AD till serveradministratörsrollen. Om du anger en säkerhets grupp använder `obj:groupid@tenantid`du.
 
 1. Högerklicka på servernamnet i **Object Explorer** och klicka sedan på **Properties** (Egenskaper). 
 2. I fönstret **Analysis Server Properties** (Egenskaper för Analysis Server) klickar du på **Security (Säkerhet)** > **Add (Lägg till)**.
@@ -130,13 +130,13 @@ I den här uppgiften använder du kommandot [Create](https://docs.microsoft.com/
 ## <a name="verify-your-changes"></a>Kontrollera dina ändringar
 
 1. I **Object Explorer** klickar du på servernamnet och sedan på **Refresh** (Uppdatera) eller trycker på **F5**.
-2. Expandera databaser > **äventyrsbruk** > **Roller**. **Databases** Kontrollera att de ändringar som du lade till i föregående uppgift för användarkonto och den nya rollen visas.   
+2. Expandera **databaser** > **AdventureWorks** > -**roller**. Kontrollera att de ändringar som du lade till i föregående uppgift för användarkonto och den nya rollen visas.   
 
     ![Kontrollera i Object Explorer](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort användarkonton, gruppkonton och roller när du inte lägre behöver dem. Det gör du genom att använda **Rollegenskaper** > **medlemskap** för att ta bort användarkonton, eller högerklicka på en roll och klicka sedan på **Ta bort**.
+Ta bort användarkonton, gruppkonton och roller när du inte lägre behöver dem. Det gör du genom att använda **roll egenskaper** > **medlemskap** för att ta bort användar konton eller högerklicka på en roll och sedan klicka på **ta bort**.
 
 
 ## <a name="next-steps"></a>Nästa steg

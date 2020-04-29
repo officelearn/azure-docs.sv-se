@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs - Säkerhetskopiera virtuella Linux-datorer i Azure-portalen
+title: Självstudie – säkerhetskopiera virtuella Linux-datorer i Azure Portal
 description: I den här självstudiekursen lär du dig hur du använder Azure Portal för att skydda dina virtuella Linux-datorer med Azure Backup.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,10 +15,10 @@ ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: d233cba65d190178c500f78d4817e233ab46d780
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81460078"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Självstudier: Säkerhetskopiera och återställa filer för virtuella Linux-datorer i Azure
@@ -50,7 +50,7 @@ Skapa en schemalagd daglig säkerhetskopiering till ett Recovery Services-valv:
 6. Klicka på **Säkerhetskopieringspolicy**. I det här exemplet behåller du standardvärdena och klickar på **OK**.
 7. Klicka på **Aktivera säkerhetskopiering** på bladet **Aktivera säkerhetskopiering**. Då skapas en daglig säkerhetskopia baserat på standardschemat.
 10. Om du vill skapa en första återställningspunkt går du till bladet **Säkerhetskopiera** och klickar på **Säkerhetskopiera nu**.
-11. Klicka på kalenderikonen på bladet **Säkerhetskopiera nu,** använd kalenderkontrollen för att välja den sista dagen då återställningspunkten behålls och klicka på **Säkerhetskopiering**.
+11. På bladet **Säkerhetskopiera nu** klickar du på kalender ikonen, använder kalender kontrollen för att välja den sista dagen då återställnings punkten behålls och klickar på **säkerhetskopiera**.
 12. På bladet **Säkerhetskopiera** för din virtuella dator ser du antalet återställningspunkter som är klara.
 
     ![Återställningspunkter](./media/tutorial-backup-vms/backup-complete.png)

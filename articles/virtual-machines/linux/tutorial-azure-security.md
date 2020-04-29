@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs - Använda Azure Security Center för virtuella Linux-datorer i Azure
+title: Självstudie – använda Azure Security Center för virtuella Linux-datorer i Azure
 description: I den här självstudiekursen lär du dig mer om funktionerna i Azure Security Center, som hjälper dig att skydda dina virtuella Linux-datorer i Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,10 +15,10 @@ ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 9b70474a985cde1cd6d7d98e84f7f228fde7a812
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81460111"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Självstudier: Övervaka virtuella Linux-datorer i Azure Security Center
@@ -102,14 +102,14 @@ I takt med att rekommendationerna åtgärdats markeras de som lösta.
 
 ## <a name="view-detected-threats"></a>Visa identifierade hot
 
-Utöver konfigurationsrekommendationer för resurserna visas även aviseringar om identifierade säkerhetshot. Funktionen för säkerhetsvarningar sammanställer de data som samlas in från varje virtuell dator, Azures nätverksloggar och anslutna partnerlösningar i syfte att upptäcka säkerhetshot mot Azure-resurserna. Mer detaljerad information om hotidentifieringsfunktioner i Security Center finns i [Hur identifierar Security Center hot?](../../security-center/security-center-alerts-overview.md#detect-threats).
+Utöver konfigurationsrekommendationer för resurserna visas även aviseringar om identifierade säkerhetshot. Funktionen för säkerhetsvarningar sammanställer de data som samlas in från varje virtuell dator, Azures nätverksloggar och anslutna partnerlösningar i syfte att upptäcka säkerhetshot mot Azure-resurserna. Mer detaljerad information om Security Center hot identifierings funktioner finns i [Security Center identifiera hot?](../../security-center/security-center-alerts-overview.md#detect-threats).
 
 Om du vill kunna använda funktionen för säkerhetsvarningar måste du uppgradera prisnivån för Security Center från *Kostnadsfri* till *Standard*. Om du uppgraderar till en högre prisnivå kan du använda dig av en **kostnadsfri utvärderingsversion**. 
 
 Så här ändrar du prisnivån:  
 
 1. Gå till instrumentpanelen i Security Center, klicka på **Säkerhetsprincip** och markera sedan din prenumeration.
-2. Välj **prisnivå**.
+2. Välj **pris nivå**.
 3. Välj **Standard** och klicka sedan på **Spara** längst upp på bladet.
 
 

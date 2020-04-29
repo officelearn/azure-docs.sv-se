@@ -1,7 +1,7 @@
 ---
-title: Självstudiekurs - Kryptera och dekryptera blobbar med Azure Key Vault
+title: Självstudie – kryptera och dekryptera blobbar med Azure Key Vault
 titleSuffix: Azure Storage
-description: Lär dig hur du krypterar och dekrypterar en blob med kryptering på klientsidan med Azure Key Vault.
+description: Lär dig hur du krypterar och dekrypterar en blob med kryptering på klient sidan med Azure Key Vault.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,59 +11,59 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
 ms.openlocfilehash: c1d26fda57d665cc8d83f594f4efeebebc7bf139
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81456897"
 ---
-# <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Självstudiekurs - Kryptera och dekryptera blobbar med Azure Key Vault
+# <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Självstudie – kryptera och dekryptera blobbar med Azure Key Vault
 
-Den här självstudien beskriver hur du använder lagringskryptering på klientsidan med Azure Key Vault. Den går igenom hur du krypterar och dekrypterar en blob i ett konsolprogram med hjälp av dessa tekniker.
+Den här självstudien beskriver hur du använder lagrings kryptering på klient sidan med Azure Key Vault. Den vägleder dig genom hur du krypterar och dekrypterar en BLOB i ett konsol program med hjälp av dessa tekniker.
 
 **Uppskattad tidsåtgång:** 20 minuter
 
-Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../../key-vault/general/overview.md).
+Översiktlig information om Azure Key Vault finns i [Vad är Azure Key Vault?](../../key-vault/general/overview.md).
 
-Mer information om kryptering på klientsidan för Azure Storage finns i [Kryptering på klientsidan och Azure Key Vault för Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Översikts information om kryptering på klient sidan för Azure Storage finns i [kryptering på klient sidan och Azure Key Vault för Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra den här självstudiekursen behöver du följande:
 
-* Ett Azure Storage-konto
+* Ett Azure Storage konto
 * Visual Studio 2013 eller senare
 * Azure PowerShell
 
-## <a name="overview-of-client-side-encryption"></a>Översikt över kryptering på klientsidan
+## <a name="overview-of-client-side-encryption"></a>Översikt över kryptering på klient Sidan
 
-En översikt över kryptering på klientsidan för Azure Storage finns i [Kryptering på klientsidan och Azure Key Vault för Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+En översikt över kryptering på klient sidan för Azure Storage finns i [kryptering på klient sidan och Azure Key Vault för Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-Här är en kort beskrivning av hur kryptering på klientsidan fungerar:
+Här är en kort beskrivning av hur kryptering på klient sidan fungerar:
 
-1. Azure Storage-klienten SDK genererar en innehållskrypteringsnyckel (CEK), som är en symmetrisk nyckel för engångsbruk.
-2. Kunddata krypteras med denna CEK.
-3. CEK slås sedan in (krypterad) med hjälp av nyckelkrypteringsnyckeln (KEK). KEK identifieras av en nyckelidentifierare och kan vara ett asymmetriskt nyckelpar eller en symmetrisk nyckel och kan hanteras lokalt eller lagras i Azure Key Vault. Lagringsklienten själv har aldrig tillgång till KEK. Det åberopar bara nyckeln omslagsalgoritm som tillhandahålls av Key Vault. Kunder kan välja att använda anpassade leverantörer för nyckel omslag / uppackning om de vill.
-4. De krypterade data överförs sedan till Azure Storage-tjänsten.
+1. Den Azure Storage klient-SDK: n genererar en innehålls krypterings nyckel (CEK), som är en symmetrisk nyckel som används för att använda en enda tidpunkt.
+2. Kund information krypteras med den här CEK.
+3. CEK omsluts sedan (krypteras) med nyckel krypterings nyckeln (KEK). KEK identifieras av en nyckel identifierare och kan vara ett asymmetriskt nyckel par eller en symmetrisk nyckel och kan hanteras lokalt eller lagras i Azure Key Vault. Själva lagrings klienten har aldrig åtkomst till KEK. Den anropar bara den nyckel brytnings algoritm som tillhandahålls av Key Vault. Kunder kan välja att använda anpassade providers för nyckel brytningar/avbrytningar om de vill.
+4. Krypterade data överförs sedan till Azure Storages tjänsten.
 
-## <a name="set-up-your-azure-key-vault"></a>Konfigurera ditt Azure Key Vault
+## <a name="set-up-your-azure-key-vault"></a>Konfigurera din Azure Key Vault
 
-För att kunna fortsätta med den här självstudien måste du göra följande steg, som beskrivs i självstudien [Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp:](../../key-vault/secrets/quick-create-net.md)
+För att kunna fortsätta med den här självstudien måste du utföra följande steg, som beskrivs i snabb starten för självstudier [: Ange och hämta en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp](../../key-vault/secrets/quick-create-net.md):
 
 * Skapa ett nyckelvalv.
-* Lägg till en nyckel eller hemlighet i nyckelvalvet.
+* Lägg till en nyckel eller hemlighet till nyckel valvet.
 * Registrera ett program med Azure Active Directory.
-* Auktorisera programmet att använda nyckeln eller hemligheten.
+* Ge programmet behörighet att använda nyckeln eller hemligheten.
 
-Anteckna clientID och ClientSecret som genererades när du registrerade ett program med Azure Active Directory.
+Anteckna de ClientID och ClientSecret som genererades när du registrerade ett program med Azure Active Directory.
 
-Skapa båda nycklarna i nyckelvalvet. Vi förutsätter för resten av självstudien att du har använt följande namn: ContosoKeyVault och TestRSAKey1.
+Skapa båda nycklarna i nyckel valvet. Vi utgår från resten av kursen som du har använt följande namn: ContosoKeyVault och TestRSAKey1.
 
-## <a name="create-a-console-application-with-packages-and-appsettings"></a>Skapa ett konsolprogram med paket och AppSettings
+## <a name="create-a-console-application-with-packages-and-appsettings"></a>Skapa ett konsol program med paket och AppSettings
 
-Skapa ett nytt konsolprogram i Visual Studio.
+Skapa ett nytt konsol program i Visual Studio.
 
-Lägg till nödvändiga nugetpaket i Package Manager-konsolen.
+Lägg till nödvändiga NuGet-paket i Package Manager-konsolen.
 
 ```powershell
 Install-Package Microsoft.Azure.ConfigurationManager
@@ -75,7 +75,7 @@ Install-Package Microsoft.Azure.KeyVault
 Install-Package Microsoft.Azure.KeyVault.Extensions
 ```
 
-Lägg till AppSettings i App.Config.
+Lägg till AppSettings i app. config.
 
 ```xml
 <appSettings>
@@ -87,7 +87,7 @@ Lägg till AppSettings i App.Config.
 </appSettings>
 ```
 
-Lägg till `using` följande direktiv och se till att lägga till en referens till System.Configuration i projektet.
+Lägg till följande `using` direktiv och se till att lägga till en referens till system. Configuration i projektet.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -101,9 +101,9 @@ using System.Threading;
 using System.IO;
 ```
 
-## <a name="add-a-method-to-get-a-token-to-your-console-application"></a>Lägga till en metod för att få en token till konsolprogrammet
+## <a name="add-a-method-to-get-a-token-to-your-console-application"></a>Lägg till en metod för att hämta en token till konsol programmet
 
-Följande metod används av Key Vault-klasser som behöver autentisera för åtkomst till nyckelvalvet.
+Följande metod används av Key Vault klasser som behöver autentiseras för åtkomst till ditt nyckel valv.
 
 ```csharp
 private async static Task<string> GetToken(string authority, string resource, string scope)
@@ -121,9 +121,9 @@ private async static Task<string> GetToken(string authority, string resource, st
 }
 ```
 
-## <a name="access-azure-storage-and-key-vault-in-your-program"></a>Få tillgång till Azure Storage och Key Vault i ditt program
+## <a name="access-azure-storage-and-key-vault-in-your-program"></a>Komma åt Azure Storage och Key Vault i ditt program
 
-Lägg till följande kod i metoden Main().
+Lägg till följande kod i Main ()-metoden.
 
 ```csharp
 // This is standard code to interact with Blob storage.
@@ -142,19 +142,19 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 ```
 
 > [!NOTE]
-> Objektmodeller för Key Vault
+> Key Vault objekt modeller
 > 
-> Det är viktigt att förstå att det faktiskt finns två Key Vault-objektmodeller att vara medveten om: en baseras på REST API (KeyVault-namnområde) och det andra är ett tillägg för kryptering på klientsidan.
+> Det är viktigt att förstå att det finns två Key Vault objekt modeller som är medvetna om: en är baserad på REST API (nyckel namns namn område) och det andra är ett tillägg för kryptering på klient sidan.
 > 
-> Key Vault-klienten interagerar med REST API och förstår JSON Web Keys och hemligheter för de två typer av saker som finns i Key Vault.
+> Key Vault-klienten interagerar med REST API och förstår JSON-webbnycklar och hemligheter för de två typer av saker som finns i Key Vault.
 > 
-> Key Vault-tilläggen är klasser som verkar särskilt skapade för kryptering på klientsidan i Azure Storage. De innehåller ett gränssnitt för nycklar (IKey) och klasser baserat på begreppet en nyckellösare. Det finns två implementeringar av IKey som du behöver veta: RSAKey och SymmetricKey. Nu råkar de sammanfalla med de saker som finns i ett Nyckelvalv, men på denna punkt de är oberoende klasser (så nyckeln och hemligheten hämtas av Key Vault Client inte genomföra IKey).
+> Key Vault tillägg är klasser som verkar specifikt skapade för kryptering på klient sidan i Azure Storage. De innehåller ett gränssnitt för nycklar (IKey) och klasser baserat på begreppet nyckel lösare. Det finns två implementeringar av IKey som du behöver känna till: RSAKey och SymmetricKey. De kan nu sammanfalla med de saker som finns i en Key Vault, men i den här punkten är de oberoende klasser (så att nyckeln och hemligheten som hämtas av Key Vault-klienten inte implementerar IKey).
 > 
 > 
 
 ## <a name="encrypt-blob-and-upload"></a>Kryptera blob och ladda upp
 
-Lägg till följande kod för att kryptera en blob och ladda upp den till ditt Azure-lagringskonto. Metoden **ResolveKeyAsync** som används returnerar en IKey.
+Lägg till följande kod för att kryptera en blob och ladda upp den till ditt Azure Storage-konto. **ResolveKeyAsync** -metoden som används returnerar en IKey.
 
 ```csharp
 // Retrieve the key that you created previously.
@@ -176,15 +176,15 @@ using (var stream = System.IO.File.OpenRead(@"C:\Temp\MyFile.txt"))
 ```
 
 > [!NOTE]
-> Om du tittar på BlobEncryptionPolicy-konstruktorn ser du att den kan acceptera en nyckel och/eller en resolver. Tänk på att du just nu inte kan använda en resolver för kryptering eftersom den för närvarande inte stöder en standardnyckel.
+> Om du tittar på BlobEncryptionPolicy-konstruktorn ser du att den kan acceptera en nyckel och/eller en lösare. Tänk på att just nu kan du inte använda en lösare för kryptering eftersom den inte har stöd för en standard nyckel.
 
-## <a name="decrypt-blob-and-download"></a>Dekryptera blob och ladda ner
+## <a name="decrypt-blob-and-download"></a>Dekryptera blob och hämta
 
-Dekryptering är verkligen när du använder Resolver klasser vettigt. ID:et för nyckeln som används för kryptering är associerat med blobben i dess metadata, så det finns ingen anledning för dig att hämta nyckeln och komma ihåg kopplingen mellan nyckel och blob. Du måste bara se till att nyckeln finns kvar i Key Vault.   
+Dekryptering är egentligen när du använder matchare-klasser. ID: t för den nyckel som används för kryptering är associerat med blobben i dess metadata, så det finns ingen anledning att hämta nyckeln och komma ihåg associationen mellan nyckel och blob. Du behöver bara se till att nyckeln finns kvar i Key Vault.   
 
-Den privata nyckeln till en RSA-nyckel finns kvar i Key Vault, så för att dekryptering ska inträffa skickas den krypterade nyckeln från blobmetadata som innehåller CEK till Key Vault för dekryptering.
+Den privata nyckeln för en RSA-nyckel finns kvar i Key Vault, så för dekryptering skickas den krypterade nyckeln från BLOB-metadata som innehåller CEK till Key Vault för dekryptering.
 
-Lägg till följande för att dekryptera bloben som du just har laddat upp.
+Lägg till följande för att dekryptera blobben som du just har laddat upp.
 
 ```csharp
 // In this case, we will not pass a key and only pass the resolver because
@@ -197,18 +197,18 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 ```
 
 > [!NOTE]
-> Det finns ett par andra typer av resolvers för att göra nyckelhantering enklare, inklusive: AggregateKeyResolver och CachingKeyResolver.
+> Det finns ett par andra typer av lösningar för att förenkla nyckel hanteringen, inklusive: AggregateKeyResolver och CachingKeyResolver.
 
-## <a name="use-key-vault-secrets"></a>Använd Hemligheter för Key Vault
+## <a name="use-key-vault-secrets"></a>Använd Key Vault hemligheter
 
-Sättet att använda en hemlighet med kryptering på klientsidan är via klassen SymmetricKey eftersom en hemlighet i huvudsak är en symmetrisk nyckel. Men, som nämnts ovan, en hemlighet i Key Vault inte karta exakt till en SymmetricKey. Det finns några saker att förstå:
+Sättet att använda en hemlighet med kryptering på klient sidan är via klassen SymmetricKey eftersom en hemlighet i grunden är en symmetrisk nyckel. Men som nämnts ovan mappar inte en hemlighet i Key Vault exakt till en SymmetricKey. Det finns några saker att förstå:
 
 * Nyckeln i en SymmetricKey måste vara en fast längd: 128, 192, 256, 384 eller 512 bitar.
 * Nyckeln i en SymmetricKey ska vara Base64-kodad.
-* En Key Vault hemlighet som kommer att användas som en SymmetricKey måste ha en innehållstyp av "application/octet-stream" i Key Vault.
+* En Key Vault hemlighet som ska användas som SymmetricKey måste ha innehålls typen "Application/oktett-Stream" i Key Vault.
 
 Här är ett exempel i PowerShell för att skapa en hemlighet i Key Vault som kan användas som en SymmetricKey.
-Observera att det hårdkodade värdet, $key, endast är för demonstrationsändamål. I din egen kod vill du generera den här nyckeln.
+Observera att det hårdkodade värdet $key är endast för demonstrations syfte. I din egen kod vill du skapa den här nyckeln.
 
 ```csharp
 // Here we are making a 128-bit key so we have 16 characters.
@@ -223,7 +223,7 @@ $secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
 $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
 ```
 
-I konsolprogrammet kan du använda samma anrop som tidigare för att hämta den här hemligheten som en SymmetricKey.
+I konsol programmet kan du använda samma anrop som innan du hämtar hemligheten som en SymmetricKey.
 
 ```csharp
 SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
@@ -235,8 +235,8 @@ Klart! Ha det så kul!
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du använder Microsoft Azure Storage med C#finns i [Microsoft Azure Storage Client Library för .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Mer information om hur du använder Microsoft Azure Storage med C# finns i [Microsoft Azure Storage klient bibliotek för .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-Mer information om Blob REST API finns i [Blob Service REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx).
+Mer information om BLOB-REST API finns i [BLOB Service REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-Den senaste informationen om Microsoft Azure Storage finns i [Microsoft Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/).
+Den senaste informationen om Microsoft Azure Storage finns i [Microsoft Azure Storage teamets blogg](https://blogs.msdn.com/b/windowsazurestorage/).

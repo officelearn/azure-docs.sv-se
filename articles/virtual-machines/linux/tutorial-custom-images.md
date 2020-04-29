@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs - Skapa anpassade VM-avbildningar med Azure CLI
+title: Självstudie – Skapa anpassade VM-avbildningar med Azure CLI
 description: I den här självstudien får du lära dig hur du använder Azure CLI för att skapa en anpassad virtuell datoravbildning i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,10 +15,10 @@ ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: dc7b395d46fd28cde9ccbbda8a8a55447efa61c9
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81460060"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Självstudie: Skapa en anpassad avbildning av en virtuell Azure-dator med Azure CLI
@@ -32,7 +32,7 @@ Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv
 > * Göra en lista med alla avbildningar i din prenumeration
 > * Ta bort en avbildning
 
-Den här självstudien använder CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som ständigt uppdateras till den senaste versionen. Om du vill öppna Cloud Shell väljer du **Prova det** överst i alla kodblock.
+I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
 Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -40,7 +40,7 @@ Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.
 
 Stegen nedan visar hur du tar en befintlig virtuell dator och omvandlar den till en återanvändbar anpassad avbildning som du kan skapa nya VM-instanser med.
 
-Du måste ha en befintlig virtuell dator för att kunna utföra exemplet i den här självstudiekursen. Om det behövs kan det här [skriptexemplet](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) skapa ett åt dig. När du använder självstudien ersätter du namn på resursgrupp och VM där det behövs.
+Du måste ha en befintlig virtuell dator för att kunna utföra exemplet i den här självstudiekursen. Om det behövs kan du skapa ett av [skript exemplet](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) . När du använder självstudien ersätter du namn på resursgrupp och VM där det behövs.
 
 ## <a name="create-a-custom-image"></a>Skapa en anpassad avbildning
 
@@ -51,7 +51,7 @@ Om du vill skapa en avbildning av en virtuell dator måste du förbereda den vir
 Avetableringen generaliserar den virtuella datorn genom att ta bort datorspecifik information. Tack vare generaliseringen kan man distribuera flera virtuella datorer från en enda avbildning. Under avetableringen återställs värdnamnet till *localhost.localdomain*. SSH-värdnycklar, namnserverkonfigurationer, rotlösenord och cachelagrade DHCP-lån tas också bort.
 
 > [!WARNING]
-> Avetablera och markera den virtuella datorn som generaliserad gör käll-VM ouppnämbar och kan inte startas om. 
+> Om du avetablerar och markerar den virtuella datorn som generaliserad blir den virtuella käll datorn oanvändbar och går inte att starta om. 
 
 Om du vill avetablera den virtuella datorn kan du använda Azure VM-agenten (waagent). Azure VM-agenten är installerad på den virtuella datorn och hanterar etablering och interaktion med Azures infrastrukturkontrollant. Mer information finns i [Användarguide för Azure Linux Agent](../extensions/agent-linux.md).
 
@@ -110,7 +110,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Vi rekommenderar att du begränsar antalet samtidiga distributioner till 20 virtuella datorer från en enda avbildning. Om du planerar storskaliga samtidiga distributioner av över 20 virtuella datorer från samma anpassade avbildning bör du använda ett [delat bildgalleri](shared-image-galleries.md) med flera bildrepliker. 
+Vi rekommenderar att du begränsar antalet samtidiga distributioner till 20 virtuella datorer från en enda avbildning. Om du planerar storskaliga, samtidiga distributioner av fler än 20 virtuella datorer från samma anpassade avbildning, bör du använda ett [delat avbildnings Galleri](shared-image-galleries.md) med flera avbildnings repliker. 
 
 ## <a name="image-management"></a>Avbildningshantering 
 
@@ -145,5 +145,5 @@ I självstudien skapade du en anpassad VM-avbildning. Du har lärt dig att:
 Gå vidare till nästa självstudie om du vill veta mer om virtuella datorer med hög tillgänglighet.
 
 > [!div class="nextstepaction"]
-> [Skapa virtuella datorer med hög tillgång](tutorial-availability-sets.md).
+> [Skapa virtuella datorer med hög tillgänglighet](tutorial-availability-sets.md).
 

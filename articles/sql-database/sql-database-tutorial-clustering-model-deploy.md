@@ -1,7 +1,7 @@
 ---
-title: 'Självstudiekurs: Distribuera en klustermodell i R'
+title: 'Självstudie: Distribuera en kluster modell i R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: I del tre av den här självstudieserien i tre delar distribuerar du en klustermodell i R med Azure SQL Database Machine Learning Services (förhandsversion).
+description: I del tre av den här själv studie serien i tre delar ska du distribuera en kluster modell i R med Azure SQL Database Machine Learning Services (för hands version).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -15,43 +15,43 @@ manager: cgronlun
 ms.date: 07/29/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: ef478246108d40a0c97d7dab03ecf1e5b474410b
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81452901"
 ---
-# <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudiekurs: Distribuera en klustermodell i R med Azure SQL Database Machine Learning Services (förhandsversion)
+# <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudie: Distribuera en kluster modell i R med Azure SQL Database Machine Learning Services (förhands granskning)
 
-I del tre av den här självstudieserien i tre delar distribuerar du en klustermodell, utvecklad i R, till en SQL-databas med Azure SQL Database Machine Learning Services (förhandsversion).
+I del tre av den här själv studie serien i tre delar ska du distribuera en kluster modell som utvecklats i R till en SQL-databas med hjälp av Azure SQL Database Machine Learning Services (för hands version).
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-Du ska skapa en lagrad procedur med ett inbäddat R-skript som utför klustring. Eftersom din modell körs i Azure SQL-databasen kan den enkelt tränas mot data som lagras i databasen.
+Du skapar en lagrad procedur med ett inbäddat R-skript som utför klustring. Eftersom din modell körs i Azure SQL Database kan den enkelt tränas mot data som lagras i databasen.
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en lagrad procedur som genererar modellen
-> * Utföra klustring i SQL Database
-> * Använda klusterinformationen
+> * Utför klustring i SQL Database
+> * Använd kluster information
 
-I [del ett](sql-database-tutorial-clustering-model-prepare-data.md)lärde du dig hur du förbereder data från en Azure SQL-databas för att utföra klustring.
+I [del ett](sql-database-tutorial-clustering-model-prepare-data.md)har du lärt dig hur du förbereder data från en Azure SQL-databas för att utföra klustring.
 
-I [del två](sql-database-tutorial-clustering-model-build.md)lärde du dig hur du skapar och tränar en K-Means klustringsmodell i R.
+I [del två](sql-database-tutorial-clustering-model-build.md)har du lärt dig hur du skapar och tränar en K-metod kluster modell i R.
 
 ## <a name="prerequisites"></a>Krav
 
-* Del tre av den här självstudieserien förutsätter att du har slutfört [**del ett**](sql-database-tutorial-clustering-model-prepare-data.md) och [**del två**](sql-database-tutorial-clustering-model-build.md).
+* Del tre i den här själv studie serien förutsätter att du har slutfört [**del ett**](sql-database-tutorial-clustering-model-prepare-data.md) och [**delar två**](sql-database-tutorial-clustering-model-build.md).
 
 ## <a name="create-a-stored-procedure-that-generates-the-model"></a>Skapa en lagrad procedur som genererar modellen
 
-Kör följande T-SQL-skript för att skapa den lagrade proceduren. Proceduren återskapar stegen du har utvecklat i del ett och två i den här självstudieserien:
+Kör följande T-SQL-skript för att skapa den lagrade proceduren. Proceduren återskapar de steg som du har utvecklat i delar en och två av den här själv studie serien:
 
-* klassificera kunder baserat på deras köp- och returhistorik
-* generera fyra kluster av kunder med hjälp av en K-Means-algoritm
+* klassificera kunder utifrån deras inköps-och retur historik
+* skapa fyra kluster av kunder med en K-metod
 
-Proceduren lagrar de resulterande kundklustermappningarna i databastabellen **customer_return_clusters**.
+I proceduren lagras de resulterande kund kluster mappningarna i databas tabellen **customer_return_clusters**.
 
 ```sql
 USE [tpcxbb_1gb]
@@ -176,7 +176,7 @@ END;
 GO
 ```
 
-## <a name="perform-clustering-in-sql-database"></a>Utföra klustring i SQL Database
+## <a name="perform-clustering-in-sql-database"></a>Utför klustring i SQL Database
 
 Nu när du har skapat den lagrade proceduren kör du följande skript för att utföra klustring.
 
@@ -189,7 +189,7 @@ TRUNCATE TABLE customer_return_clusters;
 EXECUTE [dbo].[generate_customer_return_clusters];
 ```
 
-Kontrollera att det fungerar och att vi faktiskt har en lista över kunder och deras klustermappningar.
+Kontrol lera att det fungerar och att vi faktiskt har listan över kunder och deras kluster mappningar.
 
 ```sql
 --Select data from table customer_return_clusters
@@ -207,11 +207,11 @@ cluster  customer  orderRatio  itemsRatio  monetaryRatio  frequency
 2        32549     0           0           0.031281       4
 ```
 
-## <a name="use-the-clustering-information"></a>Använda klusterinformationen
+## <a name="use-the-clustering-information"></a>Använd kluster information
 
-Eftersom du har lagrat klusterproceduren i databasen kan den utföra klustring effektivt mot kunddata som lagras i samma databas. Du kan köra proceduren när dina kunddata uppdateras och använda den uppdaterade klusterinformationen.
+Eftersom du har lagrat kluster proceduren i databasen kan den utföra klustring effektivt mot kund information som lagras i samma databas. Du kan köra proceduren varje gång dina kunddata uppdateras och använder den uppdaterade kluster informationen.
 
-Anta att du vill skicka ett kampanjmeddelande till kunder i kluster 3, den grupp som har mer aktivt returbeteende (du kan se hur de fyra klustren beskrevs i [del två).](sql-database-tutorial-clustering-model-build.md#analyze-the-results) Följande kod väljer e-postadresser till kunder i kluster 3.
+Anta att du vill skicka ett kampanj-e-postmeddelande till kunder i kluster 3, gruppen som har fler aktiva retur beteenden (du kan se hur de fyra klustren beskrevs i [del två](sql-database-tutorial-clustering-model-build.md#analyze-the-results)). Följande kod markerar e-postadresserna för kunder i kluster 3.
 
 ```sql
 USE [tpcxbb_1gb]
@@ -223,30 +223,30 @@ JOIN [dbo].[customer_return_clusters] AS r ON r.customer = customer.c_customer_s
 WHERE r.cluster = 3
 ```
 
-Du kan ändra **värdet r.cluster** för att returnera e-postadresser för kunder i andra kluster.
+Du kan ändra värdet för **r. Cluster** för att returnera e-postadresser för kunder i andra kluster.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med den här självstudien kan du ta bort den tpcxbb_1gb databasen från din Azure SQL Database-server.
+När du är klar med den här självstudien kan du ta bort tpcxbb_1gb-databasen från Azure SQL Database-servern.
 
-Gör så här på Azure-portalen:
+Följ de här stegen i Azure Portal:
 
-1. Välj **Alla resurser** eller **SQL-databaser**på menyn till vänster i Azure-portalen .
+1. Välj **alla resurser** eller **SQL-databaser**på den vänstra menyn i Azure Portal.
 1. I fältet **Filtrera efter namn...** anger du **tpcxbb_1gb**och väljer din prenumeration.
-1. Välj **din tpcxbb_1gb** databas.
+1. Välj din **tpcxbb_1gb** databas.
 1. Välj **Ta bort** på sidan **Översikt**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I del tre av den här självstudieserien har du slutfört följande steg:
+I del tre i den här själv studie serien slutförde du följande steg:
 
 * Skapa en lagrad procedur som genererar modellen
-* Utföra klustring i SQL Database
-* Använda klusterinformationen
+* Utför klustring i SQL Database
+* Använd kluster information
 
-Mer information om hur du använder R i Azure SQL Database Machine Learning Services (förhandsversion) finns i:
+Mer information om hur du använder R i Azure SQL Database Machine Learning Services (för hands version) finns i:
 
-* [Självstudiekurs: Förbereda data för att träna en förutsägande modell i R med Azure SQL Database Machine Learning Services (förhandsversion)](sql-database-tutorial-predictive-model-prepare-data.md)
-* [Skriva avancerade R-funktioner i Azure SQL Database med Machine Learning Services (förhandsversion)](sql-database-machine-learning-services-functions.md)
-* [Arbeta med R- och SQL-data i Azure SQL Database Machine Learning Services (förhandsversion)](sql-database-machine-learning-services-data-issues.md)
-* [Lägga till ett R-paket i Azure SQL Database Machine Learning Services (förhandsversion)](sql-database-machine-learning-services-add-r-packages.md)
+* [Självstudie: förbereda data för att träna en förutsägelse modell i R med Azure SQL Database Machine Learning Services (förhands granskning)](sql-database-tutorial-predictive-model-prepare-data.md)
+* [Skriv avancerade R-funktioner i Azure SQL Database att använda Machine Learning Services (förhands granskning)](sql-database-machine-learning-services-functions.md)
+* [Arbeta med R-och SQL-data i Azure SQL Database Machine Learning Services (för hands version)](sql-database-machine-learning-services-data-issues.md)
+* [Lägg till ett R-paket i Azure SQL Database Machine Learning Services (förhands granskning)](sql-database-machine-learning-services-add-r-packages.md)

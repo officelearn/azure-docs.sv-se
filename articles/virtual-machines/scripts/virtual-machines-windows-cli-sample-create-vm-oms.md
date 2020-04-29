@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-exempel – Skapa en Azure VM som kör Azure Monitor
-description: Azure CLI-exempel – Skapa en Virtuell Azure-dator med Windows Server 2016 VM och Azure Monitor.
+title: Azure CLI-exempel – skapa en virtuell Azure-dator som kör Azure Monitor
+description: Azure CLI-exempel – skapa en virtuell Azure-dator som kör Windows Server 2016 VM och Azure Monitor.
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -16,13 +16,13 @@ ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc,seodec18
 ms.openlocfilehash: b3c8c045b7d773f6345072ed46c4a668d0db8ec5
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81459482"
 ---
-# <a name="monitor-a-vm-with-azure-monitor-logs"></a>Övervaka en virtuell dator med Azure Monitor-loggar
+# <a name="monitor-a-vm-with-azure-monitor-logs"></a>Övervaka en virtuell dator med Azure Monitor loggar
 
 Det här skriptet skapar en virtuell Azure-dator, installerar Log Analytics-agenten och registrerar systemet på en Log Analytics-arbetsyta. När skriptet har körts visas den virtuella datorn i Azure Monitoring.
 
@@ -46,7 +46,7 @@ az group delete --name myResourceGroup --yes
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, en virtuell dator och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |

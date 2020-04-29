@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Anropa API:et för textanalys med hjälp av PHP'
 titleSuffix: Azure Cognitive Services
-description: Den här snabbstarten visar hur du hämtar information och kodexempel som hjälper dig att snabbt komma igång med textanalys-API:et i Azure Cognitive Services.
+description: Den här snabb starten visar hur du får information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: a74cdb79da668cdba44c051c7b7eada3ace8abe4
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75378593"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av PHP
@@ -36,7 +36,7 @@ API:et för språkidentifiering identifierar språket i ett textdokument, med me
 
 1. Skapa ett nytt PHP-projekt i valfri IDE.
 1. Lägg till koden nedan.
-1. Kopiera textanalysnyckeln och slutpunkten till koden.
+1. Kopiera Textanalys nyckel och slut punkt till koden.
 1. Kör programmet.
 
 ```php
@@ -144,7 +144,7 @@ API:et för attitydanalys identifierar attityden i en uppsättning textposter, m
 
 1. Skapa ett nytt PHP-projekt i valfri IDE.
 1. Lägg till koden nedan.
-1. Kopiera textanalysnyckeln och slutpunkten till koden.
+1. Kopiera Textanalys nyckel och slut punkt till koden.
 1. Kör programmet.
 
 ```php
@@ -229,7 +229,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
 1. Skapa ett nytt PHP-projekt i valfri IDE.
 1. Lägg till koden nedan.
-1. Kopiera textanalysnyckeln och slutpunkten till koden.
+1. Kopiera Textanalys nyckel och slut punkt till koden.
 1. Kör programmet.
 
 ```php
@@ -329,7 +329,7 @@ API:et för entiteter identifierar välkända entiteter i ett textdokument med h
 
 1. Skapa ett nytt PHP-projekt i valfri IDE.
 1. Lägg till koden nedan.
-1. Kopiera textanalysnyckeln och slutpunkten till koden. 
+1. Kopiera Textanalys nyckel och slut punkt till koden. 
 1. Kör programmet.
 
 ```php
@@ -436,4 +436,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="see-also"></a>Se även 
 
  [Översikt över Textanalys](../overview.md)  
- [Vanliga frågor och svar (Vanliga frågor)](../text-analytics-resource-faq.md)
+ [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)

@@ -9,10 +9,10 @@ ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 729e757c69887bbdce324e2d8383c970995dc94a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "73903671"
 ---
 ## <a name="sign-in-to-azure"></a>Logga in på Azure 
@@ -20,93 +20,93 @@ ms.locfileid: "73903671"
 Logga in på Azure Portal på https://portal.azure.com.
 
 > [!NOTE]
-> Om du har registrerat dig för att använda delade bildgallerier `Microsoft.Compute` under förhandsgranskningen kan du behöva registrera leverantören igen. Öppna [Cloud Shell](https://shell.azure.com/bash) och skriv:`az provider register -n Microsoft.Compute`
+> Om du har registrerat dig för att använda delade avbildnings gallerier under för hands versionen kan du behöva `Microsoft.Compute` registrera providern igen. Öppna [Cloud Shell](https://shell.azure.com/bash) och skriv:`az provider register -n Microsoft.Compute`
 
-## <a name="create-an-image-gallery"></a>Skapa ett bildgalleri
+## <a name="create-an-image-gallery"></a>Skapa ett bild galleri
 
-Ett bildgalleri är den primära resurs som används för att aktivera bilddelning. Tillåtna tecken för Gallerinamn är versaler eller gemener, siffror, punkter och punkter. Gallerinamnet får inte innehålla streck.  Gallerinamn måste vara unika i din prenumeration. 
+Ett avbildnings galleri är den primära resurs som används för att aktivera avbildnings delning. Tillåtna tecken för Galleri namn är versaler eller gemener, siffror, punkter och punkter. Galleri namnet får inte innehålla bindestreck.  Galleri namn måste vara unika inom din prenumeration. 
 
-I följande exempel skapas ett galleri med namnet *myGallery* i resursgruppen *myGalleryRG.*
+I följande exempel skapas ett galleri med namnet min *Galleri* i resurs gruppen *myGalleryRG* .
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.
-1. Använd typen **Delat bildgalleri** i sökrutan och välj **Delat bildgalleri** i resultaten.
-1. Klicka på **Skapa**på sidan **Delat bildgalleri.**
+1. Använd **galleriet** för typ av delad avbildning i sökrutan och välj **Galleri för delade avbildningar** i resultatet.
+1. På sidan **delad avbildnings Galleri** klickar du på **skapa**.
 1. Välj rätt prenumeration.
-1. Välj **Skapa nytt** i **resursgruppen**och skriv *myGalleryRG* för namnet.
-1. Skriv *myGallery* för namnet på galleriet i **Namn.**
-1. Lämna standardvärdet för **Region**.
-1. Du kan skriva en kort beskrivning av galleriet, till *exempel Mitt bildgalleri för testning.* och klicka sedan på **Granska + skapa**.
-1. När valideringen har gått väljer du **Skapa**.
-1. När distributionen är klar väljer du **Gå till resurs**.
+1. I **resurs grupp**väljer du **Skapa ny** och skriver *myGalleryRG* som namn.
+1. I **namn**skriver du *galleriet* för galleriets namn.
+1. Lämna standardvärdet för **region**.
+1. Du kan ange en kort beskrivning av galleriet, t *. ex. min bild galleri för testning.* och klicka sedan på **Granska + skapa**.
+1. När verifieringen har godkänts väljer du **skapa**.
+1. När distributionen är färdig väljer **du gå till resurs**.
    
-## <a name="create-an-image-definition"></a>Skapa en bilddefinition 
+## <a name="create-an-image-definition"></a>Skapa en avbildnings definition 
 
-Bilddefinitioner skapar en logisk gruppering för bilder. De används för att hantera information om de bildversioner som skapas i dem. Bilddefinitionsnamn kan bestå av versaler eller gemener, siffror, punkter, streck och punkter. Mer information om de värden du kan ange för en bilddefinition finns i [Bilddefinitioner](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Bild definitioner skapa en logisk gruppering för avbildningar. De används för att hantera information om de avbildnings versioner som skapas i dem. Namn på bild definitioner kan bestå av versaler eller gemener, siffror, punkter, streck och punkter. Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
-Skapa bilddefinitionen för galleriet i galleriet. I det här exemplet heter galleribilden *myImageDefinition*.
+Skapa Galleri avbildnings definitionen i galleriet. I det här exemplet heter Galleri bilden *myImageDefinition*.
 
-1. På sidan för det nya bildgalleriet väljer du **Lägg till en ny bilddefinition** högst upp på sidan. 
-1. Skriv *myImageDefinition*för **namn på Bilddefinition**.
-1. För **operativsystem**väljer du rätt alternativ baserat på käll-VM.
-1. För **generering av virtuella datorer**väljer du alternativet baserat på käll-VM. I de flesta fall kommer detta att vara *Gen 1*. Mer information finns i [Stöd för virtuella datorer för generation 2](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
-1. För **operativsystemtillstånd**väljer du alternativet baserat på käll-VM. Mer information finns i [Generaliserad och specialiserad](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
-1. Skriv *myPublisher*för **Publisher**. 
-1. För **Erbjudande,** skriv *myOffer*.
+1. På sidan för det nya bild galleriet väljer du **Lägg till en ny bild definition** överst på sidan. 
+1. För **bild definitions namn**skriver du *myImageDefinition*.
+1. För **operativ system**väljer du rätt alternativ baserat på den virtuella käll datorn.
+1. För **generering av virtuella datorer**väljer du alternativet baserat på den virtuella käll datorn. I de flesta fall kommer detta att vara *gen 1*. Mer information finns i [stöd för virtuella datorer i generation 2](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
+1. För **operativ systemets tillstånd**väljer du alternativet baserat på den virtuella käll datorn. Mer information finns i [generaliserad och specialiserad](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
+1. För **utgivare**skriver du in *unpublisher*. 
+1. För **erbjudande**, skriver du *erbjudandet*.
 1. För **SKU**skriver du *mySKU*.
-1. När du är klar väljer du **Granska + skapa**.
-1. När bilddefinitionen har godkänts väljer du **Skapa**.
-1. När distributionen är klar väljer du **Gå till resurs**.
+1. När du är färdig väljer du **Granska + skapa**.
+1. När du har klarat valideringen av avbildnings definitionen väljer du **skapa**.
+1. När distributionen är färdig väljer **du gå till resurs**.
 
 
-## <a name="create-an-image-version"></a>Skapa en bildversion
+## <a name="create-an-image-version"></a>Skapa en avbildnings version
 
-Skapa en bildversion från en hanterad avbildning. I det här exemplet är avbildningsversionen *1.0.0* och den replikeras till både datacenter i *Västra centrala USA* och södra centrala *USA.* När du väljer målområden för replikering bör du komma ihåg att du också måste inkludera *källregionen* som ett mål för replikering.
+Skapa en avbildnings version från en hanterad avbildning. I det här exemplet är avbildnings versionen *1.0.0* och replikeras till både *västra centrala* USA och *södra centrala* Data Center. Kom ihåg att du även måste inkludera *käll* regionen som mål för replikering när du väljer mål regioner för replikering.
 
-Tillåtna tecken för bildversion är siffror och punkter. Talen måste ligga inom intervallet för ett 32-bitars heltal. Format: *MajorVersion*. *MinorVersion*. *Patch*.
+Tillåtna tecken för bild version är tal och punkter. Talen måste vara inom intervallet för ett 32-bitars heltal. Format: *Major version*. *MinorVersion*. *Korrigering*.
 
-Stegen för att skapa en bildversion är något olika, beroende på om källan är en generaliserad avbildning eller en ögonblicksbild av en specialiserad virtuell dator. 
+Stegen för att skapa en avbildnings version skiljer sig något beroende på om källan är en generaliserad avbildning eller en ögonblicks bild av en specialiserad virtuell dator. 
 
-### <a name="option-generalized"></a>Alternativ: Generaliserad
+### <a name="option-generalized"></a>Alternativ: generaliserad
 
-1. På sidan för bilddefinitionen väljer du **Lägg till version** högst upp på sidan.
-1. I **Region**väljer du den region där den hanterade avbildningen lagras. Avbildningsversioner måste skapas i samma region som den hanterade avbildningen som de skapas från.
-1. För **Namn**skriver du *1.0.0*. Namnet på bildversionen ska följa *större*. *mindre*. *korrigeringsformat* med heltal. 
-1. Välj källhanterad bild i listrutan **i källbilden.**
-1. Lämna standardvärdet *no.* i **Uteslut från senaste**.
-1. För **slutdatum väljer**du ett datum i kalendern som är ett par månader i framtiden.
-1. Lämna **standardreplikeringsantalet** som 1 i **Replikering.** Du måste replikera till källregionen, så lämna den första repliken som standard och välj sedan en andra replikregion som *östra USA*.
-1. När du är klar väljer du **Granska + skapa**. Azure validerar konfigurationen.
-1. När bildversionen godkänns väljer du **Skapa**.
-1. När distributionen är klar väljer du **Gå till resurs**.
+1. På sidan för din avbildnings definition väljer du **Lägg till version** överst på sidan.
+1. I **region**väljer du den region där den hanterade avbildningen lagras. Avbildnings versioner måste skapas i samma region som den hanterade avbildning som de skapas från.
+1. I **namn**skriver du *1.0.0*. Avbildningens versions namn bör följa *huvud*namnet. *mindre*. *korrigerings* format med hjälp av heltal. 
+1. I **käll avbildningen**väljer du din hanterade avbildning från List rutan.
+1. Lämna standardvärdet *Nej*i **utelämna från senaste**.
+1. I **slutet av livs längd**väljer du ett datum i kalendern som är ett par månader i framtiden.
+1. Lämna **standardvärdet** för replikering som 1 i **replikering**. Du behöver replikera till käll regionen, så lämna den första repliken som standard och välj sedan en andra replik region som ska vara *östra USA*.
+1. När du är färdig väljer du **Granska + skapa**. Azure kommer att verifiera konfigurationen.
+1. När bild versionen klarar valideringen väljer du **skapa**.
+1. När distributionen är färdig väljer **du gå till resurs**.
 
-Det kan ta ett tag att replikera avbildningen till alla målområden.
+Det kan ta en stund att replikera avbildningen till alla mål regioner.
 
-### <a name="option-specialized"></a>Alternativ: Specialiserad
+### <a name="option-specialized"></a>Alternativ: specialiserad
 
-1. På sidan för bilddefinitionen väljer du **Lägg till version** högst upp på sidan.
-1. I **Region**väljer du den region där ögonblicksbilden lagras. Bildversioner måste skapas i samma region som källan de skapas från.
-1. För **Namn**skriver du *1.0.0*. Namnet på bildversionen ska följa *större*. *mindre*. *korrigeringsformat* med heltal. 
-1. I **ögonblicksbild av OS-disk**väljer du ögonblicksbilden från källdatorns dator i listrutan. Om källdatorn hade en datadisk som du vill ta med väljer du rätt **LUN-nummer** i listrutan och väljer sedan ögonblicksbilden av datadisken för ögonblicksbild av **datadisken**. 
-1. Lämna standardvärdet *no.* i **Uteslut från senaste**.
-1. För **slutdatum väljer**du ett datum i kalendern som är ett par månader i framtiden.
-1. Lämna **standardreplikeringsantalet** som 1 i **Replikering.** Du måste replikera till källregionen, så lämna den första repliken som standard och välj sedan en andra replikregion som *östra USA*.
-1. När du är klar väljer du **Granska + skapa**. Azure validerar konfigurationen.
-1. När bildversionen godkänns väljer du **Skapa**.
-1. När distributionen är klar väljer du **Gå till resurs**.
+1. På sidan för din avbildnings definition väljer du **Lägg till version** överst på sidan.
+1. I **region**väljer du den region där din ögonblicks bild lagras. Avbildnings versioner måste skapas i samma region som den källa de skapas från.
+1. I **namn**skriver du *1.0.0*. Avbildningens versions namn bör följa *huvud*namnet. *mindre*. *korrigerings* format med hjälp av heltal. 
+1. I **ögonblicks bild av OS-disk**väljer du ögonblicks bilden från den virtuella käll datorn från List rutan. Om den virtuella käll datorn hade en datadisk som du vill inkludera väljer du korrekt **LUN** -nummer i list rutan och väljer sedan ögonblicks bilden av data disken för **ögonblicks bild av data disk**. 
+1. Lämna standardvärdet *Nej*i **utelämna från senaste**.
+1. I **slutet av livs längd**väljer du ett datum i kalendern som är ett par månader i framtiden.
+1. Lämna **standardvärdet** för replikering som 1 i **replikering**. Du behöver replikera till käll regionen, så lämna den första repliken som standard och välj sedan en andra replik region som ska vara *östra USA*.
+1. När du är färdig väljer du **Granska + skapa**. Azure kommer att verifiera konfigurationen.
+1. När bild versionen klarar valideringen väljer du **skapa**.
+1. När distributionen är färdig väljer **du gå till resurs**.
 
 ## <a name="share-the-gallery"></a>Dela galleriet
 
-Vi rekommenderar att du delar åtkomst på bildgallerinivå. Följande går igenom att dela galleriet som du just skapade.
+Vi rekommenderar att du delar åtkomst på avbildnings Galleri nivån. Följande vägleder dig genom att dela galleriet som du nyss skapade.
 
-1. Öppna [Azure-portalen](https://portal.azure.com).
-1. Välj **Resursgrupper**på menyn till vänster . 
-1. Välj **myGalleryRG**i listan över resursgrupper . Bladet för resursgruppen öppnas.
-1. I menyn till vänster på **myGalleryRG-sidan** väljer du **Access control (IAM).** 
-1. Under **Lägg till en rolltilldelning**väljer du Lägg **till**. Fönstret **Lägg till en rolltilldelning** öppnas. 
-1. Under **Roll**väljer du **Läsare**.
-1. Under **tilldela åtkomst till**lämnar du standardvärdet för Azure **AD-användare, grupp eller tjänsthuvudnamn**.
-1. Skriv in e-postadressen till den person som du vill bjuda in under **Välj.**
-1. Om användaren befinner sig utanför organisationen visas meddelandet **Den här användaren får ett e-postmeddelande som gör att de kan samarbeta med Microsoft.** Markera användaren med e-postadressen och klicka sedan på **Spara**.
+1. Öppna [Azure Portal](https://portal.azure.com).
+1. I menyn till vänster väljer du **resurs grupper**. 
+1. I listan över resurs grupper väljer du **myGalleryRG**. Bladet för resurs gruppen öppnas.
+1. I menyn till vänster på sidan **myGalleryRG** väljer du **åtkomst kontroll (IAM)**. 
+1. Under **Lägg till en roll tilldelning**väljer du **Lägg till**. Fönstret **Lägg till en roll tilldelning** öppnas. 
+1. Välj **läsare**under **roll**.
+1. Lämna standardvärdet för **Azure AD-användare,-grupp eller tjänst objekt**under **tilldela åtkomst till**.
+1. Under **Välj**skriver du in e-postadressen till den person som du vill bjuda in.
+1. Om användaren är utanför organisationen visas meddelandet **den här användaren kommer att skicka ett e-postmeddelande som gör det möjligt för dem att samar beta med Microsoft.** Välj användaren med e-postadressen och klicka sedan på **Spara**.
 
-Om användaren befinner sig utanför organisationen får de en e-postbjudan för att gå med i organisationen. Användaren måste acceptera inbjudan, då de kommer att kunna se galleriet och alla bilddefinitioner och versioner i sin lista över resurser.
+Om användaren är utanför organisationen får han eller hon en e-postinbjudan om att delta i organisationen. Användaren måste godkänna inbjudan. sedan kommer de att kunna se galleriet och alla avbildnings definitioner och versioner i listan över resurser.
 

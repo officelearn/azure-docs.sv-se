@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Få bildinsikter med REST API och Ruby - Bing Visual Search'
+title: 'Snabb start: Hämta bild insikter med hjälp av REST API och ruby-Visuell sökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Ta reda på hur du laddar upp en bild till API:et för visuell sökning i Bing och får information om den.
 services: cognitive-services
@@ -11,28 +11,28 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: e19f582084bec6915f95cf16fd8571b8d99da6fd
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75379648"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Snabbstart: Få bildinsikter med hjälp av Bing Visual Search REST API och Ruby
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing REST API och ruby
 
-Den här snabbstarten använder Ruby-programmeringsspråket för att anropa Bing Visual Search och visa resultat. En POST-begäran överför en avbildning till API-slutpunkten. Resultaten innehåller webbadresser och beskrivande information om bilder som liknar den uppladdade bilden.
+I den här snabb starten används ruby-programmeringsspråket för att anropa Visuell sökning i Bing och Visa resultat. En POST-begäran laddar upp en avbildning till API-slutpunkten. Resultaten innehåller URL: er och beskrivande information om bilder som liknar den överförda avbildningen.
 
 ## <a name="prerequisites"></a>Krav
 
-Så här kör du den här snabbstarten:
+Så här kör du den här snabb starten:
 
-* Installera [Ruby 2.4 eller senare](https://www.ruby-lang.org/en/downloads/)
-* Hämta en prenumerationsnyckel:
+* Installera [Ruby 2,4 eller senare](https://www.ruby-lang.org/en/downloads/)
+* Hämta en prenumerations nyckel:
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-## <a name="project-and-required-modules"></a>Projektera och nödvändiga moduler
+## <a name="project-and-required-modules"></a>Projekt och obligatoriska moduler
 
-Skapa ett nytt Ruby-projekt i din IDE eller redigerare. Importera `net/http` `uri` och `json` hantera JSON-resultattexten. Biblioteket `base64` används för att koda filnamnssträngen: 
+Skapa ett nytt ruby-projekt i din IDE eller redigeraren. Importera `net/http`, `uri` och `json` för att hantera JSON-texten för resultat. `base64` Biblioteket används för att koda fil namn strängen: 
 
 ```
 require 'net/https'
@@ -44,7 +44,7 @@ require 'base64'
 
 ## <a name="define-variables"></a>Definiera variabler
 
-Följande kod tilldelar nödvändiga variabler. Bekräfta att slutpunkten är korrekt `accessKey` och ersätt värdet med en prenumerationsnyckel från ditt Azure-konto.  Är `batchNumber` ett GUID som krävs för inledande och avslutande gränser för POST-data.  Variabeln `fileName` identifierar bildfilen för POST.  Blocket `if` testar för en giltig prenumerationsnyckel.
+Följande kod tilldelar obligatoriska variabler. Bekräfta att slut punkten är korrekt och Ersätt `accessKey` värdet med en prenumerations nyckel från ditt Azure-konto.  `batchNumber` Är ett GUID som krävs för inledande och avslutande gränser för post-data.  `fileName` Variabeln identifierar bild filen för inlägget.  `if` Block test för en giltig prenumerations nyckel.
 
 ```
 accessKey = "ACCESS-KEY"
@@ -61,9 +61,9 @@ end
 
 ```
 
-## <a name="form-data-for-post-request"></a>Formulärdata för POST-begäran
+## <a name="form-data-for-post-request"></a>Formulär data för POST-begäran
 
-Bilddata till POST omges av inledande och efterföljande gränser. Följande funktioner anger gränserna:
+De avbildnings data som ska ANSLÅs omges av inledande och avslutande gränser. Följande funktioner anger gränserna:
 
 ```
 def BuildFormDataStart(batNum, fileName)
@@ -76,7 +76,7 @@ def BuildFormDataEnd(batNum)
 end
 ```
 
-Skapa sedan slutpunkts-URI och en matris som innehåller post-brödtexten.  Använd föregående funktion för att läsa in startgränsen i matrisen. Läs bildfilen i matrisen. Läs sedan slutgränsen i matrisen:
+Skapa sedan slut punkts-URI och en matris som innehåller POST texten.  Använd funktionen Previous för att läsa in start gränser i matrisen. Läs avbildnings filen till matrisen. Läs sedan slut gränserna till matrisen:
 
 ```
 uri = URI(uri + path)
@@ -94,7 +94,7 @@ post_body << BuildFormDataEnd(batchNumber)
 
 ## <a name="create-the-http-request"></a>Skapa HTTP-begäran
 
-Ställ `Ocp-Apim-Subscription-Key` in rubriken.  Skapa begäran. Tilldela sedan rubrik- och innehållstypen. Gå med i den POST-brödtext som skapats tidigare i begäran:
+Ange `Ocp-Apim-Subscription-Key` sidhuvudet.  Skapa begäran. Tilldela sedan rubriken och innehålls typen. Delta i INLÄGGs texten som skapades tidigare till begäran:
 
 ```
 header = {'Ocp-Apim-Subscription-Key': accessKey}
@@ -108,7 +108,7 @@ request.body = post_body.join
 
 ## <a name="request-and-response"></a>Begäran och svar
 
-Ruby skickar begäran och får svaret med följande kodrad:
+Ruby skickar begäran och hämtar svaret med följande kodrad:
 
 ```
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -119,7 +119,7 @@ end
 
 ## <a name="print-the-results"></a>Skriv ut resultaten
 
-Skriv ut rubrikerna för svaret och använd JSON-biblioteket för att formatera utdata:
+Skriv ut rubrikerna för svaret och Använd JSON-biblioteket för att formatera utdata:
 
 ```
 puts "\nRelevant Headers:\n\n"
@@ -284,5 +284,5 @@ JSON Response:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Översikt över visuell sökning i](../overview.md)
-> Bing[Skapa en webbsida med visuell sökning](../tutorial-bing-visual-search-single-page-app.md)
+> [Visuell sökning i Bing översikt](../overview.md)
+> [skapar en visuell sökning webb program med en enda sida](../tutorial-bing-visual-search-single-page-app.md)

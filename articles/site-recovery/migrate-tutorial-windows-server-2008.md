@@ -9,15 +9,15 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 20fe29a6588891c35520db01ac0403fb5b3a85d7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73936144"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrera servrar som kör Windows Server 2008 till Azure
 
-Den här självstudiekursen visar hur du migrerar lokala servrar med Windows Server 2008 eller 2008 R2 till Azure med hjälp av Azure Site Recovery. I den här självstudiekursen får du lära du dig att:
+Den här självstudiekursen visar hur du migrerar lokala servrar med Windows Server 2008 eller 2008 R2 till Azure med hjälp av Azure Site Recovery. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förbereda din lokala miljö för migrering
@@ -30,7 +30,7 @@ Den här självstudiekursen visar hur du migrerar lokala servrar med Windows Ser
 Avsnittet med begränsningar och kända problem listar några begränsningar och lösningar som du kan stöta på när du migrerar Windows Server 2008-datorer till Azure. 
 
 > [!NOTE]
-> Du kan nu migrera från lokalt till Azure med hjälp av Azure Migrate-tjänsten. [Läs mer](../migrate/migrate-services-overview.md).
+> Du kan nu migrera från en lokal plats till Azure med hjälp av tjänsten Azure Migrate. [Läs mer](../migrate/migrate-services-overview.md).
 
 
 ## <a name="supported-operating-systems-and-environments"></a>Operativsystem och miljöer som stöds
@@ -54,7 +54,7 @@ Om du vill migrera virtuella Hyper-V-datorer som kör Windows Server 2008 eller 
 
 Resten av den här självstudiekursen visar hur du kan migrera lokala virtuella VMware-datorer och fysiska servrar som kör Windows Server 2008 eller 2008 R2.
 > [!TIP]
-> Letar du efter ett agentlöst sätt att migrera virtuella virtuella datorer med VMware till Azure? [Klicka här](https://aka.ms/migrateVMs-signup)
+> Letar du efter ett agent effektivt sätt att migrera virtuella VMware-datorer till Azure? [Klicka här](https://aka.ms/migrateVMs-signup)
 
 
 ## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
@@ -87,13 +87,13 @@ Resten av den här självstudiekursen visar hur du kan migrera lokala virtuella 
 Utför följande uppgifter för att förbereda Azure-prenumerationen och den lokala VMware/fysiska miljön:
 
 1. [Förbereda Azure](tutorial-prepare-azure.md)
-2. Förbered lokala [VMware](vmware-azure-tutorial-prepare-on-premises.md)
+2. Förbered lokal [VMware](vmware-azure-tutorial-prepare-on-premises.md)
 
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
 1. Logga in på [Azure Portal](https://portal.azure.com) > **Recovery Services**.
-2. Klicka på **Skapa en** > **säkerhetskopiering****av** > resurser och återställning av webbplatser .
+2. Klicka på **skapa ett resurs** > **hanterings verktyg** > **säkerhets kopiering och Site Recovery**.
 3. I **Namn** anger du det egna namnet **W2K8-migrering**. Om du har mer än en prenumeration väljer du den lämpligaste.
 4. Skapa en resursgrupp, **w2k8migrate**.
 5. Ange en Azure-region. Information om vilka regioner som stöds finns under Geografisk tillgänglighet i avsnittet med [Azure Site Recovery-prisinformation](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -113,14 +113,14 @@ Det nya valvet läggs till på **Instrumentpanelen** under **Alla resurser** och
 
 Välj och kontrollera målresurserna.
 
-1. Klicka på **Förbered infrastrukturmål** > **Target**och välj den Azure-prenumeration som du vill använda.
+1. Klicka på **Förbered infrastruktur** > **mål**och välj den Azure-prenumeration som du vill använda.
 2. Ange Resource Manager-distributionsmodellen.
 3. Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringskonton och Azure-nätverk.
 
 
 ## <a name="set-up-a-replication-policy"></a>Konfigurerar en replikeringsprincip
 
-1. Om du vill skapa en ny replikeringsprincip klickar du på > **Replikeringsprinciper för** > replikering av **platsåterställning****+Replikeringsprincip**.
+1. Om du vill skapa en ny replikeringsprincip klickar du på **Site Recovery** > **principer** > för infrastruktur replikering **+ replikeringsprincip**.
 2. I **Skapa replikeringsprincip** anger du ett principnamn.
 3. I **Tröskelvärde för replikeringspunktmål** anger du gränsen för replikeringspunktmålet (RPO). En avisering skapas om replikeringens RPO överskrider gränsen.
 4. I **Återställningspunkt för kvarhållning** anger du kvarhållningsperioden (i antal timmar) för varje återställningspunkt. Replikerade servrar kan återställas till valfri punkt i det här fönstret. Upp till 24 timmars kvarhållning stöds för datorer replikerade till premiumlagring och 72 timmar för standardlagring.
@@ -154,8 +154,8 @@ Kör en [testredundansväxling](tutorial-dr-drill-azure.md) till Azure för att 
 
 Kör en redundansväxling för de datorer som du vill migrera.
 
-1. Klicka på datorn > **Redundans**i **Inställningar** > **replikerade objekt** .
-2. I **Redundans** väljer du en **återställningspunkt** att växla över till. Välj den senaste återställningspunkten.
+1. I **Inställningar** > **replikerade objekt** klickar du på datorn > **redundans**.
+2. I **redundans** väljer du en **återställnings punkt** att redundansväxla till. Välj den senaste återställningspunkten.
 3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av servern innan redundansväxlingen utlöses. Redundansen fortsätter även om avstängningen misslyckas. Du kan följa förloppet för redundans på sidan **Jobb**.
 4. Kontrollera att den virtuella Azure-datorn visas i Azure som förväntat.
 5. I **Replikerade objekt** högerklickar du på servern > **Slutför migrering**. Det här gör följande:
@@ -167,4 +167,4 @@ Kör en redundansväxling för de datorer som du vill migrera.
 
 
 > [!WARNING]
-> **Avbryt inte en pågående redundans:** Serverreplikering stoppas innan redundansen startar. Om du avbryter en pågående redundans stoppas redundansen, men serverreplikeringen fortsätter inte att replikeras.
+> **Avbryt inte en pågående redundansväxling**: Server replikering stoppas innan redundansväxlingen startar. Om du avbryter en pågående redundans stoppas redundansen, men serverreplikeringen fortsätter inte att replikeras.

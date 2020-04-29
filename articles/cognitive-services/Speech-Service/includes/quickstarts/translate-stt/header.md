@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Översätt tal-till-text - Taltjänst'
+title: 'Snabb start: Översätt tal-till-text-tal-tjänsten'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,16 +11,16 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: yulili
 ms.openlocfilehash: d4781808ce8e80f62e86ce1d0c6db9c38b2636d0
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74981210"
 ---
-I den här snabbstarten använder du [Tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för att interaktivt översätta tal från ett språk till text på ett annat språk. När du har uppfyllt några förutsättningar tar översättningen av tal till text bara fem steg:
+I den här snabb starten ska du använda [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för att interaktivt översätta tal från ett språk till text på ett annat språk. När ett fåtal krav har uppfyllts tar översättning av tal till text bara fem steg:
 > [!div class="checklist"]
-> * Skapa ````SpeechConfig```` ett objekt från din prenumerationsnyckel och region.
-> * Uppdatera ````SpeechConfig```` objektet för att ange käll- och målspråk.
-> * Skapa ````TranslationRecognizer```` ett objekt ````SpeechConfig```` med objektet ovanifrån.
-> * Starta ````TranslationRecognizer```` igenkänningsprocessen för ett enda uttryck med hjälp av objektet.
-> * Inspektera ````TranslationRecognitionResult```` de returnerade.
+> * Skapa ett ````SpeechConfig```` objekt från din prenumerations nyckel och region.
+> * Uppdatera ````SpeechConfig```` objektet för att ange käll-och mål språk.
+> * Skapa ett ````TranslationRecognizer```` objekt med hjälp ````SpeechConfig```` av objektet ovan.
+> * Starta igenkännings processen för en enda uttryck med hjälp av ````TranslationRecognizer```` objektet.
+> * Granska den ````TranslationRecognitionResult```` returnerade.

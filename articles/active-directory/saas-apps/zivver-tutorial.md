@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med ZIVVER | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med ZIVVER | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ZIVVER.
 services: active-directory
 documentationCenter: na
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 02b292c5db3d20f56d7b8291ea31d8da9863809b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74233249"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zivver"></a>Självstudiekurs: Azure Active Directory-integrering med ZIVVER
+# <a name="tutorial-azure-active-directory-integration-with-zivver"></a>Självstudie: Azure Active Directory integrering med ZIVVER
 
 I den här självstudien får du lära dig hur du integrerar ZIVVER med Azure Active Directory (Azure AD).
 Genom att integrera ZIVVER med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till ZIVVER.
-* Du kan aktivera dina användare automatiskt inloggad på ZIVVER (Enkel inloggning) med sina Azure AD-konton.
+* Du kan göra det möjligt för användarna att logga in automatiskt till ZIVVER (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med ZIVVER behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* ZIVVER enkel inloggning aktiverad prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* ZIVVER-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* ZIVVER stöder **IDP** initierad SSO
+* ZIVVER stöder **IDP** INITIERAd SSO
 
 ## <a name="adding-zivver-from-the-gallery"></a>Lägga till ZIVVER från galleriet
 
 Om du vill konfigurera integreringen av ZIVVER i Azure AD måste du lägga till ZIVVER från galleriet i listan över hanterade SaaS-appar.
 
-**Så här lägger du till ZIVVER från galleriet:**
+**Utför följande steg för att lägga till ZIVVER från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av ZIVVER i Azure AD måste du lägga till 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **ZIVVER**i sökrutan och välj **ZIVVER** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
+4. I rutan Sök skriver du **ZIVVER**, väljer **ZIVVER** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![ZIVVER i resultatlistan](common/search-new-app.png)
+     ![ZIVVER i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med ZIVVER baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i ZIVVER upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med ZIVVER baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i ZIVVER upprättas.
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med ZIVVER måste du slutföra följande byggstenar:
+Om du vill konfigurera och testa enkel inloggning med ZIVVER i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera ZIVVER Enkel inloggning](#configure-zivver-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera ZIVVER-enkel inloggning](#configure-zivver-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa ZIVVER-testanvändare](#create-zivver-test-user)** – om du vill ha en motsvarighet till Britta Simon i ZIVVER som är länkad till Azure AD-representationen av användaren.
+5. **[Skapa ZIVVER test User](#create-zivver-test-user)** – om du vill ha en motsvarighet till Britta Simon i ZIVVER som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med ZIVVER:
+Utför följande steg för att konfigurera enkel inloggning med ZIVVER i Azure AD:
 
-1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **ZIVVER-programintegration** . **Single sign-on**
+1. Välj **enkel inloggning**på sidan **ZIVVER** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,22 +103,22 @@ Så här konfigurerar du en enkel Azure AD-inloggning med ZIVVER:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![ZIVVER-domän och webbadresser med enkel inloggning](common/idp-identifier.png)
+    ![Information om enkel inloggning för ZIVVER-domän och URL: er](common/idp-identifier.png)
 
     I textrutan **Identifierare** skriver du en URL: `https://app.zivver.com/SAML/Zivver`
 
-5. ZIVVER-programmet förväntar sig SAML-påståenden i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. ZIVVER-programmet förväntar sig att **namnidentifieraren** mappas med **user.mail**, så du måste redigera attributmappningen genom att klicka på **Redigera-ikonen** och ändra attributmappningen.
+5. ZIVVER-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. ZIVVER-programmet förväntar sig att **NameIdentifier** mappas med **User. mail**, så du måste redigera mappningen av attribut genom att klicka på ikonen **Redigera** och ändra attributet mappning.
 
     ![image](common/edit-attribute.png)
 
-6. Utöver ovanstående förväntar sig ZIVVER-programmet att få fler attribut skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
+6. Utöver ovan förväntar sig ZIVVER-programmet att fler attribut skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
 
-    | Namn | Namnområde | Källattribut|
+    | Name | Namnområde | Källattribut|
     | ---------------| --------------- |
-    | ZivverAccountKey (olikartade) | https:\//zivver.com/SAML/Attributes | user.objectid |
+    | ZivverAccountKey | https:\//zivver.com/SAML/attributes | user.objectid |
 
     >[!NOTE]
-    >Om du använder en hybridkonfiguration med Active Directory lokalt och Azure AD Connect Tool bör VALUE ställas in på`user.objectGUID`
+    >Om du använder en hybrid installation med Active Directory lokalt och Azure AD Connect verktyget, ska värdet vara inställt på`user.objectGUID`
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
@@ -136,11 +136,11 @@ Så här konfigurerar du en enkel Azure AD-inloggning med ZIVVER:
 
     f. Klicka på **Spara**.
 
-7. Klicka på **Hämta** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** och klicka på **Kopiera** för att kopiera **url:en appfederationsmetadata** från de angivna alternativen enligt dina krav och spara den på datorn. **Federation Metadata XML**
+7. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på **Ladda ned** för att ladda ned **XML för federationsmetadata** och klickar på **Kopiera** ikon för att kopiera **URL: en för appens federationens metadata** från de angivna alternativen enligt ditt krav och spara den på din dator.
 
-    ![Hämtningslänken för certifikat-URL](./media/zivver-tutorial/metadataxmlurl.png)
+    ![Länk för hämtning av certifikat-URL](./media/zivver-tutorial/metadataxmlurl.png)
 
-8. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera ZIVVER** enligt dina krav.
+8. I avsnittet **Konfigurera ZIVVER** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -150,21 +150,21 @@ Så här konfigurerar du en enkel Azure AD-inloggning med ZIVVER:
 
     c. Utloggnings-URL
 
-### <a name="configure-zivver-single-sign-on"></a>Konfigurera enkel inloggning på ZIVVER
+### <a name="configure-zivver-single-sign-on"></a>Konfigurera ZIVVER enkel inloggning
 
-1. Logga in på ZIVVER-företagets [webbplats](https://app.zivver.com/login) som administratör i ett annat webbläsarfönster.
+1. Logga in på din ZIVVER-företags [webbplats](https://app.zivver.com/login) som administratör i ett annat webbläsarfönster.
 
-2. Klicka på ikonen **Organisationsinställningar** längst ned till vänster i webbläsarfönstret.
+2. Klicka på ikonen **organisations inställningar** längst ned till vänster i webbläsarfönstret.
 
-3. Gå till **Enkel inloggning**.
+3. Gå till **enkel inloggning**.
 
-4. Öppna XML-filen federationsmetadata som du hämtade från Azure-portalen.
+4. Öppna den XML-fil för federationsmetadata som du laddade ned från Azure Portal.
 
-5. Klistra in **url-url:en för appfederationsmetadata** som du har sparat tidigare från Azure-portalen i textrutan **Url för identitetsprovidermetadata.**
+5. I text rutan **URL för identitetsprovider för identitetsprovider** klistrar du in **URL: en för appens federationens** metadata som du har sparat tidigare från Azure Portal.
 
-6. Markera kryssrutan **Aktivera SSO**.
+6. Markera kryss rutan **Aktivera SSO**.
 
-7. Klicka på **SPARA**.
+7. Klicka på **Spara**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -174,7 +174,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -184,7 +184,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **användar namn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -192,15 +192,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till ZIVVER.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till ZIVVER.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **ZIVVER**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **ZIVVER**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **ZIVVER**i programlistan .
+2. I listan program väljer du **ZIVVER**.
 
-    ![Länken ZIVVER i listan Program](common/all-applications.png)
+    ![ZIVVER-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -212,25 +212,25 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-zivver-test-user"></a>Skapa ZIVVER-testanvändare
+### <a name="create-zivver-test-user"></a>Skapa ZIVVER test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i ZIVVER. Arbeta med [ZIVVER supportteam](https://support.zivver.com/) för att lägga till användarna i ZIVVER-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i ZIVVER. Arbeta med [ZIVVER support team](https://support.zivver.com/) för att lägga till användare i ZIVVER-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på ZIVVER-panelen på åtkomstpanelen ska du automatiskt loggas in på den ZIVVER som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen ZIVVER på åtkomst panelen, bör du loggas in automatiskt på den ZIVVER som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

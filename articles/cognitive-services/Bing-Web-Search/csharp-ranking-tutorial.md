@@ -1,7 +1,7 @@
 ---
-title: Använda rang för att visa sökresultat
+title: Använda rang för att Visa Sök Resultat
 titleSuffix: Azure Cognitive Services
-description: Visar hur du använder svaret Bing RankingResponse för att visa sökresultat i rangordning.
+description: Visar hur du kan använda Bing RankingResponse-svaret för att Visa Sök resultat i rangordnings ordning.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,65 +12,65 @@ ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: aahi
 ms.openlocfilehash: 1c8e0bb136fddeb84dc991e63a761378b38cc470
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75382335"
 ---
-# <a name="build-a-console-app-search-client-in-c"></a>Skapa en konsolappsökklient i C #
+# <a name="build-a-console-app-search-client-in-c"></a>Bygg en klients öknings klient i C #
 
-Den här självstudien visar hur du skapar en enkel .NET Core-konsolapp som tillåter användare att fråga Bing Web Search API och visa rankade resultat.
+Den här självstudien visar hur du skapar en enkel .NET Core-konsol som gör det möjligt för användarna att fråga API för webbsökning i Bing och Visa rankade resultat.
 
 Den här självstudien visar hur du:
 
-- Gör en enkel fråga till API:et för webbsökning på Bing
-- Visa frågeresultat i rangordning
+- Skapa en enkel fråga till API för webbsökning i Bing
+- Visa frågeresultat i rangordnad ordning
 
 ## <a name="prerequisites"></a>Krav
 
-För att följa med handledningen, behöver du:
+För att följa med i själv studie kursen behöver du:
 
-- Visual Studio. Om du inte har det kan [du hämta och installera den kostnadsfria Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
-- En prenumerationsnyckel för API:et för webbsökning på Bing. Om du inte har redan har en kan du registrera dig för [en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+- Visual Studio. Om du inte har det kan du [Hämta och installera den kostnads fria Visual Studio 2017 community-versionen](https://www.visualstudio.com/downloads/).
+- En prenumerations nyckel för API för webbsökning i Bing. Om du inte har redan har en kan du registrera dig för [en kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 
-## <a name="create-a-new-console-app-project"></a>Skapa ett nytt konsolappprojekt
+## <a name="create-a-new-console-app-project"></a>Skapa ett nytt konsol program projekt
 
 Skapa ett projekt i Visual Studio med `Ctrl`+`Shift`+`N`.
 
-Klicka på **Visual C# > Windows Classic Desktop > Console App (.NET Framework)** i dialogrutan **Nytt projekt** .
+I dialog rutan **nytt projekt** klickar du på **Visual C# > Windows klassisk Desktop > Console-appen (.NET Framework)**.
 
-Namnge programmet **MyConsoleSearchApp**och klicka sedan på **OK**.
+Ge programmet namnet **MyConsoleSearchApp**och klicka sedan på **OK**.
 
-## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>Lägg till JSON.net Nuget-paketet i projektet
+## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>Lägg till JSON.net NuGet-paketet i projektet
 
-JSON.net kan du arbeta med JSON-svaren som returneras av API:et. Lägg till dess NuGet-paket i projektet:
+Med JSON.net kan du arbeta med de JSON-svar som returneras av API: et. Lägg till dess NuGet-paket i projektet:
 
-- Högerklicka på projektet i **Solution Explorer** och välj **Hantera NuGet-paket...**.
-- Sök efter på fliken `Newtonsoft.Json`Bläddra på fliken **Bläddra.** Markera den senaste versionen och klicka sedan på **Installera**.
-- Klicka på knappen **OK** i fönstret **Granska ändringar.**
-- Stäng fliken Visual Studio med namnet **NuGet: MyConsoleSearchApp**.
+- I **Solution Explorer** högerklickar du på projektet och väljer **Hantera NuGet-paket...**.
+- Sök efter **Browse** `Newtonsoft.Json`på fliken Bläddra. Välj den senaste versionen och klicka sedan på **Installera**.
+- Klicka på **OK** -knappen i fönstret **Granska ändringar** .
+- Stäng Visual Studio-fliken med namnet **NuGet: MyConsoleSearchApp**.
 
-## <a name="add-a-reference-to-systemweb"></a>Lägga till en referens till System.Web
+## <a name="add-a-reference-to-systemweb"></a>Lägg till en referens i system. Web
 
-Den här självstudien `System.Web` förlitar sig på sammansättningen. Lägg till en referens till den här sammansättningen i projektet:
+Den här självstudien är `System.Web` beroende av sammansättningen. Lägg till en referens till den här sammansättningen i ditt projekt:
 
-- Högerklicka på **Referenser** i **Solution Explorer**och välj Lägg **till referens...**
-- Välj **Sammansättningar > Framework**och rulla sedan nedåt och kontrollera **System.Web**
+- Högerklicka på **referenser** i **Solution Explorer**och välj **Lägg till referens...**
+- Välj **sammansättningar > Framework**och rulla sedan ned och kontrol lera **system. Web**
 - Välj **OK**
 
-## <a name="add-some-necessary-using-statements"></a>Lägg till några nödvändiga med hjälp av satser
+## <a name="add-some-necessary-using-statements"></a>Lägg till några nödvändiga using-instruktioner
 
-Koden i den här självstudien kräver ytterligare tre med hjälp av satser. Lägg till dessa `using` uttalanden under de befintliga uttalandena högst upp **i Program.cs:**
+Koden i den här självstudien kräver tre ytterligare using-instruktioner. Lägg till dessa uttryck under de `using` befintliga-satserna överst i **program.cs**:
 
 ```csharp
 using System.Web;
 using System.Net.Http;
 ```
 
-## <a name="ask-the-user-for-a-query"></a>Be användaren om en fråga
+## <a name="ask-the-user-for-a-query"></a>Fråga användaren om en fråga
 
-Öppna **Program.cs i** **Solution Explorer**. Uppdatera `Main()` metoden:
+Öppna **program.cs**i **Solution Explorer**. Uppdatera `Main()` metoden:
 
 ```csharp
 static void Main()
@@ -89,15 +89,15 @@ static void Main()
 }
 ```
 
-Denna metod:
+Den här metoden:
 
-- Fråga användaren om en fråga
-- Anrop `RunQueryAndDisplayResults(userQuery)` för att köra frågan och visa resultaten
-- Väntar på användarindata för att förhindra att konsolfönstret stängs omedelbart.
+- Ber användaren om en fråga
+- Anropar `RunQueryAndDisplayResults(userQuery)` för att köra frågan och visa resultaten
+- Väntar på användarindata för att förhindra att konsol fönstret stängs omedelbart.
 
-## <a name="search-for-query-results-using-the-bing-web-search-api"></a>Söka efter frågeresultat med api:et för webbsökning på Bing
+## <a name="search-for-query-results-using-the-bing-web-search-api"></a>Sök efter frågeresultaten med hjälp av API för webbsökning i Bing
 
-Lägg sedan till en metod som frågar API:et och visar resultaten:
+Lägg sedan till en metod som skickar frågor till API: et och visar resultatet:
 
 ```csharp
 static void RunQueryAndDisplayResults(string userQuery)
@@ -135,18 +135,18 @@ static void RunQueryAndDisplayResults(string userQuery)
 }
 ```
 
-Denna metod:
+Den här metoden:
 
-- Skapar en `HttpClient` fråga om webbsök-API:et
-- Anger `Ocp-Apim-Subscription-Key` HTTP-huvudet som Bing använder för att autentisera begäran
-- Kör begäran och använder JSON.net för att avserialisera resultaten
-- Samtal `DisplayAllRankedResults(responseObjects)` för att visa alla resultat i rangordning
+- Skapar en `HttpClient` för att fråga webbsökning-API: et
+- Anger det `Ocp-Apim-Subscription-Key` http-huvud som Bing använder för att autentisera begäran
+- Kör begäran och använder JSON.net för att deserialisera resultaten
+- Anrop `DisplayAllRankedResults(responseObjects)` för att visa alla resultat i rangordnings ordning
 
-Se till att ange `Ocp-Apim-Subscription-Key` värdet på din prenumerationsnyckel.
+Se till att ange värdet för `Ocp-Apim-Subscription-Key` prenumerations nyckeln.
 
 ## <a name="display-ranked-results"></a>Visa rankade resultat
 
-Innan du visar hur du visar resultaten i rangordning, ta en titt på ett exempel på webbsökning svar:
+Innan du visar hur resultatet visas i rangordningen kan du ta en titt på ett exempel på Webbs öknings svar:
 
 ```json
 {
@@ -221,15 +221,15 @@ Innan du visar hur du visar resultaten i rangordning, ta en titt på ett exempel
 }
 ```
 
-`rankingResponse` JSON-objektet ([dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) beskriver lämplig visningsordning för sökresultat. Den innehåller en eller flera av följande prioriterade grupper:
+`rankingResponse` JSON-objektet ([dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) beskriver lämplig visnings ordning för Sök resultat. Den innehåller en eller flera av följande prioriterade grupper:
 
-- `pole`: Sökresultaten för att få den mest synliga behandlingen (till exempel ovanför huvudlinjen och sidofältet).
-- `mainline`: Sökresultaten som ska visas i huvudlinjen.
-- `sidebar`: Sökresultaten som ska visas i sidofältet. Om det inte finns något sidofält, visa resultaten under huvudlinjen.
+- `pole`: Sök resultaten för att få den mest synliga behandlingen (till exempel, som visas ovanför Mainline och sid panelen).
+- `mainline`: Sök resultaten visas i Mainline.
+- `sidebar`: Sök resultaten visas i sid listen. Om det inte finns någon sidpanel visas resultaten under Mainline.
 
-Rangordningen svar JSON kan innehålla en eller flera av grupperna.
+JSON för ranknings svar kan innehålla en eller flera av grupperna.
 
-I **Program.cs**lägger du till följande metod för att visa resultat i korrekt rangordnad ordning:
+I **program.cs**lägger du till följande metod för att visa resultat i korrekt rankad ordning:
 
 ```csharp
 static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects)
@@ -271,12 +271,12 @@ static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects
 }
 ```
 
-Denna metod:
+Den här metoden:
 
-- Loopar över `rankingResponse` de grupper som svaret innehåller
-- Visar objekten i varje grupp genom att ringa`DisplaySpecificResults(...)`
+- Slingor över `rankingResponse` grupper som svaret innehåller
+- Visar objekten i varje grupp genom att anropa`DisplaySpecificResults(...)`
 
-I **Program.cs**lägger du till följande två metoder:
+I **program.cs**lägger du till följande två metoder:
 
 ```csharp
 static void DisplaySpecificResults(Newtonsoft.Json.Linq.JToken resultIndex, Newtonsoft.Json.Linq.JToken items, string title, params string[] fields)
@@ -305,7 +305,7 @@ static void DisplayItem(Newtonsoft.Json.Linq.JToken item, string title, string[]
 }
 ```
 
-Dessa metoder fungerar tillsammans för att mata ut sökresultaten till konsolen.
+Dessa metoder fungerar tillsammans för att mata ut Sök resultaten till-konsolen.
 
 ## <a name="run-the-application"></a>Köra appen
 
@@ -331,4 +331,4 @@ WebPage:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [hur du använder rankning för att visa resultat](rank-results.md).
+Läs mer om hur [du använder rangordning för att visa resultat](rank-results.md).

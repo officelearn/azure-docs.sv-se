@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Översätt tal till flera språk - Taltjänst'
+title: 'Snabb start: Översätt tal till flera språk – tal tjänst'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,17 +11,17 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: yulili
 ms.openlocfilehash: 8c8cbc4e4f531d7a06ae3a33c33df9264c2cc6f2
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74980920"
 ---
-I den här snabbstarten använder du [Tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för att interaktivt översätta tal från ett språk till tal på ett annat språk. När du har uppfyllt några förutsättningar tar översättning av tal till text på flera språk bara sex steg:
+I den här snabb starten ska du använda [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för att interaktivt översätta tal från ett språk till tal på ett annat språk. Efter att ha uppfyllt några krav, tar det bara sex steg att översätta tal till text på flera språk:
 > [!div class="checklist"]
-> * Skapa ````SpeechTranslationConfig```` ett objekt från din prenumerationsnyckel och region.
-> * Uppdatera ````SpeechTranslationConfig```` objektet för att ange källspråket för taligenkänning.
-> * Uppdatera ````SpeechTranslationConfig```` objektet för att ange flera översättningsmålspråk.
-> * Skapa ````TranslationRecognizer```` ett objekt ````SpeechTranslationConfig```` med objektet ovanifrån.
-> * Starta ````TranslationRecognizer```` igenkänningsprocessen för ett enda uttryck med hjälp av objektet.
-> * Inspektera ````TranslationRecognitionResult```` de returnerade.
+> * Skapa ett ````SpeechTranslationConfig```` objekt från din prenumerations nyckel och region.
+> * Uppdatera ````SpeechTranslationConfig```` objektet för att ange käll språket för tal igenkänning.
+> * Uppdatera ````SpeechTranslationConfig```` objektet för att ange flera översättnings mål språk.
+> * Skapa ett ````TranslationRecognizer```` objekt med hjälp ````SpeechTranslationConfig```` av objektet ovan.
+> * Starta igenkännings processen för en enda uttryck med hjälp av ````TranslationRecognizer```` objektet.
+> * Granska den ````TranslationRecognitionResult```` returnerade.

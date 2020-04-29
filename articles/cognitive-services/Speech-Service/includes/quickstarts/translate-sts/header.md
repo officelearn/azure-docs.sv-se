@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Översätt tal-till-tal - Taltjänst'
+title: 'Snabb start: Översätt tal till tal-tal-tjänsten'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,17 +11,17 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: yulili
 ms.openlocfilehash: c5f0a0fe032d18cd4f01aebe9a5c736d6d511a74
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74981380"
 ---
-I den här snabbstarten använder du [Tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för att interaktivt översätta tal från ett språk till tal på ett annat språk. Efter att ha uppfyllt några förutsättningar tar översättningen av tal till tal bara sex steg:
+I den här snabb starten ska du använda [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för att interaktivt översätta tal från ett språk till tal på ett annat språk. Efter att ha uppfyllt några krav, tar det bara att översätta tal till tal sex steg:
 > [!div class="checklist"]
-> * Skapa ````SpeechTranslationConfig```` ett objekt från din prenumerationsnyckel och region.
-> * Uppdatera ````SpeechTranslationConfig```` objektet för att ange käll- och målspråk.
-> * Uppdatera ````SpeechTranslationConfig```` objektet för att ange röstnamnet för talutdata.
-> * Skapa ````TranslationRecognizer```` ett objekt ````SpeechTranslationConfig```` med objektet ovanifrån.
-> * Starta ````TranslationRecognizer```` igenkänningsprocessen för ett enda uttryck med hjälp av objektet.
-> * Inspektera ````TranslationRecognitionResult```` de returnerade.
+> * Skapa ett ````SpeechTranslationConfig```` objekt från din prenumerations nyckel och region.
+> * Uppdatera ````SpeechTranslationConfig```` objektet för att ange käll-och mål språk.
+> * Uppdatera ````SpeechTranslationConfig```` objektet för att ange röst namnet för tal utdatafilen.
+> * Skapa ett ````TranslationRecognizer```` objekt med hjälp ````SpeechTranslationConfig```` av objektet ovan.
+> * Starta igenkännings processen för en enda uttryck med hjälp av ````TranslationRecognizer```` objektet.
+> * Granska den ````TranslationRecognitionResult```` returnerade.

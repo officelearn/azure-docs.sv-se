@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
 ms.openlocfilehash: c21a16d043f972042949d6340985774741b3df6a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74888623"
 ---
 # <a name="cli-example-create-a-transform"></a>CLI-exempel: Skapa en transformering
@@ -32,9 +32,9 @@ Azure CLI-skriptet i den här artikeln visar hur du skapar en transformering. Tr
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
 > [!NOTE]
-> Du kan bara ange en sökväg till en anpassad standardkodarförinställning JSON-fil för [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), se [kodningen med ett anpassat transformeringsexempel.](custom-preset-cli-howto.md)
+> Du kan bara ange en sökväg till en anpassad standardkodad JSON-fil för [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)i [koda med ett exempel på en anpassad transformering](custom-preset-cli-howto.md) .
 >
-> Du kan inte skicka ett filnamn när du använder [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset).
+> Du kan inte skicka ett fil namn när du använder [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset).
 
 ## <a name="example-script"></a>Exempelskript
 
@@ -42,4 +42,4 @@ Azure CLI-skriptet i den här artikeln visar hur du skapar en transformering. Tr
 
 ## <a name="next-steps"></a>Nästa steg
 
-[az ams transform (CLI)](https://docs.microsoft.com/cli/azure/ams/transform?view=azure-cli-latest)
+[AZ AMS Transform (CLI)](https://docs.microsoft.com/cli/azure/ams/transform?view=azure-cli-latest)

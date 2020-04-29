@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Kontrollera stavning med REST API och PHP - Bing Stavningskontroll'
+title: 'Snabb start: kontrol lera stavningen med REST API och PHP-Stavningskontroll i Bing'
 titleSuffix: Azure Cognitive Services
-description: Denna snabbstart visar hur ett enkelt PHP-program skickar en begäran till Bing Spell Check API och returnerar en lista över föreslagna korrigeringar.
+description: Den här snabb starten visar hur ett enkelt PHP-program skickar en begäran till API för stavningskontroll i Bing och returnerar en lista med föreslagna korrigeringar.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
 ms.openlocfilehash: 816f2692a71d5d4281248405cc84102cfa881f66
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75382888"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Snabbstart: Kontrollera stavning med Bing Stavningskontroll REST API och PHP
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och PHP
 
-Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Detta enkla PHP-program skickar en begäran till API och returnerar en lista över föreslagna korrigeringar. Även om det här programmet är skrivet i PHP är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Detta enkla PHP-program skickar en begäran till API: et och returnerar en lista med föreslagna korrigeringar. Även om det här programmet är skrivet i PHP är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -33,7 +33,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 1. Skapa ett nytt PHP-projekt i valfri IDE.
 2. Lägg till koden nedan.
 3. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
+4. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 5. Kör programmet.
     
     ```php
@@ -94,7 +94,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 ## <a name="run-the-application"></a>Köra appen
 
-Kör programmet genom att starta en webbserver och navigera till filen.
+Kör programmet genom att starta en webb server och navigera till din fil.
 
 ## <a name="example-json-response"></a>Exempel på JSON-svar
 
@@ -142,5 +142,5 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en webbapp med en sida](../tutorials/spellcheck.md)
 
-- [Vad är API:et för stavningskontroll i Bing?](../overview.md)
+- [Vad är API för stavningskontroll i Bing?](../overview.md)
 - [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

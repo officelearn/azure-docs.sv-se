@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Syntetisera tal, Objective-C - Taltjänst'
+title: 'Snabb start: syntetiskt tal, mål-C-tal-tjänsten'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du syntetiserar tal i Objective-C på iOS med tal-SDK
+description: Lär dig mer om att syntetisera tal i mål-C på iOS med hjälp av talet SDK
 services: cognitive-services
 author: yulin-li
 manager: nitinme
@@ -11,32 +11,32 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: yulili
 ms.openlocfilehash: 1f5a569f9c3bfa91b78c836e37a22642238674be
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74975949"
 ---
-# <a name="quickstart-synthesize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Snabbstart: Syntetisera tal i Objective-C på iOS med tal-SDK
+# <a name="quickstart-synthesize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Snabb start: syntetisera tal i mål-C på iOS med hjälp av talet SDK
 
-I den här artikeln får du lära dig hur du skapar en iOS-app i Objective-C med hjälp av Cognitive Services Speech SDK för att syntetisera tal från text.
+I den här artikeln får du lära dig hur du skapar en iOS-app i mål-C med Cognitive Services Speech SDK för att syntetisera tal från text.
 
 ## <a name="prerequisites"></a>Krav
 
 Gå igenom den här listan med förhandskrav innan du sätter igång:
 
-* En [prenumerationsnyckel](~/articles/cognitive-services/Speech-Service/get-started.md) för taltjänsten
+* En [prenumerations nyckel](~/articles/cognitive-services/Speech-Service/get-started.md) för tal tjänsten
 * En macOS-dator med [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) eller senare
-* Målet är inställt på iOS version 9.3 eller senare
+* Mål uppsättningen till iOS version 9,3 eller senare
 
 ## <a name="get-the-speech-sdk-for-ios"></a>Skaffa Speech SDK för iOS
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-Observera att den här självstudien inte fungerar med versionen av SDK tidigare än 1.7.0.
+Observera att den här självstudien inte fungerar med tidigare version av SDK än 1.7.0.
 
-Cognitive Services Speech SDK för iOS distribueras för närvarande som ett kakaoramverk.
-Det kan användas i Xcode projekt som en [CocoaPod](https://cocoapods.org/), eller laddas ner från https://aka.ms/csspeech/iosbinary och länkas manuellt. Denna guide använder en CocoaPod.
+Cognitive Services Speech SDK för iOS är för närvarande distribuerad som ett kakao-ramverk.
+Den kan användas i Xcode-projekt som en [CocoaPod](https://cocoapods.org/)eller hämtas från https://aka.ms/csspeech/iosbinary och länkas manuellt. Den här guiden använder en CocoaPod.
 
 ## <a name="create-an-xcode-project"></a>Skapa ett Xcode-projekt
 
@@ -57,14 +57,14 @@ I dialogrutorna som följer gör du följande val:
 
 ## <a name="install-the-sdk-as-a-cocoapod"></a>Installera SDK som en CocoaPod
 
-1. Installera CocoaPod beroende manager som beskrivs i dess [installationsanvisningar](https://guides.cocoapods.org/using/getting-started.html).
-1. Navigera till katalogen för`helloworld`exempelappen ( ). Placera en textfil `Podfile` med namnet och följande innehåll i den katalogen:  
+1. Installera CocoaPod-beroende hanteraren enligt beskrivningen i [installations anvisningarna](https://guides.cocoapods.org/using/getting-started.html).
+1. Navigera till katalogen för din exempel App (`helloworld`). Placera en textfil med namnet `Podfile` och följande innehåll i katalogen:  
    [!code-ruby[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec/ios/text-to-speech/helloworld/Podfile)]
-1. Navigera till `helloworld` katalogen i en `pod install`terminal och kör kommandot . Detta genererar `helloworld.xcworkspace` en Xcode-arbetsyta som innehåller både exempelappen och Tal-SDK som ett beroende. Den här arbetsytan kommer att användas i följande.
+1. Navigera till `helloworld` katalogen i en Terminal och kör kommandot `pod install`. Detta skapar en `helloworld.xcworkspace` Xcode-arbetsyta som innehåller både exempel appen och tal-SDK som ett beroende. Den här arbets ytan kommer att användas i följande.
 
 ## <a name="add-the-sample-code"></a>Lägga till exempelkoden
 
-1. Öppna `helloworld.xcworkspace` arbetsytan i Xcode.
+1. Öppna `helloworld.xcworkspace` arbets ytan i Xcode.
 1. Ersätt innehållet i den automatiskt genererade `AppDelegate.m`-filen genom att göra följande:  
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec/ios/text-to-speech/helloworld/helloworld/AppDelegate.m#code)]
 1. Ersätt innehållet i den automatiskt genererade `ViewController.m`-filen genom att göra följande:  
@@ -74,13 +74,13 @@ I dialogrutorna som följer gör du följande val:
 
 ## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
 
-1. Gör felsökningsutdata synliga (**Visa** > **felsökningsområde** > **Aktivera konsol**).
-1. Välj antingen iOS-simulatorn eller en iOS-enhet som är ansluten till utvecklingsdatorn som mål för appen i listan på menyn > **Produktmål.** **Product**
-1. Skapa och kör exempelkoden i iOS-simulatorn genom att välja **Play** **Produktkörning** > **Run** på menyn eller klicka på knappen Spela upp.
+1. Gör fel söknings resultatet synligt (**Visa** > **fel söknings ytan** > **Aktivera konsol**).
+1. Välj antingen iOS-simulatorn eller en iOS-enhet som är ansluten till utvecklings datorn som mål för appen från listan på menyn **produkt** > **mål** .
+1. Skapa och kör exempel koden i iOS-simulatorn genom att välja **produkt** > **körning** på menyn eller genom att klicka på **uppspelnings** knappen.
 
    ![Simulerad iOS-app](~/articles/cognitive-services/Speech-Service/media/sdk/qs-objectivec-simulated-app-tts.png)
 
-1. När du har matat in text och klickat på knappen i appen bör du höra det syntesljud som spelas upp.
+1. När du har matat in text och klickat på knappen i appen bör du höra det syntetiskt spelade ljudet.
 
 ## <a name="next-steps"></a>Nästa steg
 

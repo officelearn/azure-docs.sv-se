@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs– Skala en app som körs i Azure Service Fabric Mesh
+title: Självstudie – skala en app som körs i Azure Service Fabric nät
 description: I den här självstudien lär du dig hur du skalar tjänsterna i ett program som körs i Service Fabric Mesh.
 author: dkkapur
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 1b9070e826c30bbeafdee4185ea45cfb53d9efd2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75351811"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Självstudie: Skala ett program som körs i Service Fabric Mesh
@@ -42,7 +42,7 @@ Innan du börjar den här självstudien:
 
 ## <a name="manually-scale-your-services-in-or-out"></a>Skala in eller ut dina tjänster manuellt
 
-En av de största fördelarna med att distribuera program till Service Fabric Mesh är möjligheten för dig att enkelt skala dina tjänster in eller ut. Detta bör användas för att hantera varierande mängd belastning på dina tjänster, eller förbättra tillgängligheten.
+En av de största fördelarna med att distribuera program till Service Fabric nät är möjligheten att enkelt skala dina tjänster i eller ut. Detta bör användas för att hantera olika belastnings mängder på dina tjänster eller förbättra tillgängligheten.
 
 I den här självstudien används exemplet med att göra-listan, som [distribuerades tidigare](service-fabric-mesh-tutorial-template-deploy-app.md) och som nu bör vara igång och köras. Programmet har två tjänster: WebFrontEnd och ToDoService. Varje tjänst distribuerades från början med replikantal 1.  Om du vill visa antalet repliker som körs för WebFrontEnd-tjänsten kör du följande:
 

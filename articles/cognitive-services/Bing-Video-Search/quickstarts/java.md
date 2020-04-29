@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Sök efter videor med REST API och Java - Bing Video Search'
+title: 'Snabb start: söka efter videor med hjälp av REST API och Java-Videosökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att skicka videosökningsbegäranden till REST API för videosökning i Bing med hjälp av Java.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
 ms.openlocfilehash: 8cab88b9d3a861c72d382534705ea5c087fe9ecb
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75382658"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Snabbstart: Sök efter videor med REST API för Bing Video Search REST och Java
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API och Java
 
 Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och visa ett sökresultat från JSON-svaret. Det här enkla Java-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) tillsammans med ytterligare kommentarer om hantering av fel, funktioner och kodanteckningar.
 
@@ -59,7 +59,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till API:et fö
     }
     ```
 
-3. Skapa en ny metod som heter `SearchVideos()` med variabler för din API-slutpunkts värd och sökväg, din prenumerationsnyckel samt en sökterm. Detta gör att ett `SearchResults`-objekt returneras. `host`kan vara den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
+3. Skapa en ny metod som heter `SearchVideos()` med variabler för din API-slutpunkts värd och sökväg, din prenumerationsnyckel samt en sökterm. Detta gör att ett `SearchResults`-objekt returneras. `host`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```java
     public static SearchResults SearchVideos (String searchQuery) throws Exception {

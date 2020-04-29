@@ -1,6 +1,6 @@
 ---
-title: Om klassrumslabb i Azure Lab Services | Microsoft-dokument
-description: Lär dig hur du snabbt konfigurerar en klassrumslabbmiljö i molnet – konfigurera ett labb med en virtuell mall med den programvara som krävs för klassen och gör en kopia av den virtuella datorn tillgänglig för varje elev i klassen.
+title: Om klass rums labb i Azure Lab Services | Microsoft Docs
+description: Lär dig hur du snabbt skapar en klass rums labb miljö i molnet – konfigurera ett labb med en mall-VM med den program vara som krävs för klassen och gör en kopia av den virtuella datorn som är tillgänglig för varje elev i klassen.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,10 +14,10 @@ ms.topic: overview
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.openlocfilehash: bbbea0c943758c2682f7b166e461807d2914f790
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74561681"
 ---
 # <a name="introduction-to-classroom-labs"></a>Introduktion till klassrumslabb
@@ -34,8 +34,8 @@ Användare som bjuds in till ditt labb får omedelbar åtkomst till de resurser 
 ## <a name="cost-optimization-and-tracking"></a>Kostnadsoptimering och spårning  
 Håll dig inom budgeten genom att kontrollera exakt hur många timmar dina labbanvändare kan använda de virtuella datorerna. Konfigurera scheman i labbet för att ge användarna åtkomst till de virtuella datorerna endast under angivna tidpunkter eller konfigurera återkommande avstängnings- och starttider. Håll koll på individuella användares användning och ange begränsningar.
 
-## <a name="example-class-types"></a>Exempel på klasstyper
-Du kan ställa in labb för flera typer av klasser med Azure Lab Services. Se [klassen Example-typerna i](class-types.md) Azure Lab Services för några exempeltyper av klasser som du kan konfigurera labb för med Azure Lab Services. 
+## <a name="example-class-types"></a>Exempel på klass typer
+Du kan ställa in labb för flera typer av klasser med Azure Lab Services. Se [exempel klass typerna på Azure Lab Services](class-types.md) artikel för några exempel typer av klasser för vilka du kan ställa in labb med Azure Lab Services. 
 
 ## <a name="next-steps"></a>Nästa steg
 Kom igång med att konfigurera ett labbkonto som krävs för att skapa ett klassrumslabb med Azure Lab Services:

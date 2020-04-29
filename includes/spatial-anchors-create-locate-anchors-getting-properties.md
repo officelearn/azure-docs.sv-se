@@ -1,11 +1,11 @@
 ---
 ms.openlocfilehash: c5ca85c0dfe8d601821a78c02b2230c0909c8003
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67187054"
 ---
-Du kan inte uppdatera platsen för ett ankare när det har skapats på tjänsten - du måste skapa ett nytt ankare och ta bort den gamla för att spåra en ny position.
+Du kan inte uppdatera platsen för en fäst punkt när den har skapats på tjänsten – du måste skapa ett nytt ankare och ta bort det gamla för att spåra en ny plats.
 
-Om du inte behöver hitta ett ankare för att uppdatera `GetAnchorPropertiesAsync()` dess egenskaper `CloudSpatialAnchor` kan du använda metoden som returnerar ett objekt med egenskaper.
+Om du inte behöver hitta en fäst punkt för att uppdatera dess egenskaper kan du använda `GetAnchorPropertiesAsync()` metoden, som returnerar ett `CloudSpatialAnchor` objekt med egenskaper.

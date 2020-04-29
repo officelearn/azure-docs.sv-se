@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: fd8b4ae06018de1d03ca60e836534a535c8f5df8
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69906929"
 ---
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
@@ -29,9 +29,9 @@ const uuidv4 = require('uuid/v4');
 
 De här modulerna krävs för att skapa HTTP-begäran och skapa en unik identifierare för `'X-ClientTraceId'`-sidhuvudet.
 
-## <a name="set-the-endpoint"></a>Ange slutpunkt
+## <a name="set-the-endpoint"></a>Ange slut punkten
 
-Det här exemplet försöker läsa slutpunkten för translatortext från en miljövariabel: `TRANSLATOR_TEXT_ENDPOINT`. Om du inte känner till miljövariabler kan du ange `endpoint` som en sträng och kommentera bort den villkorliga instruktionen.
+Det här exemplet försöker läsa Translator Text slut punkten från en miljö variabel: `TRANSLATOR_TEXT_ENDPOINT`. Om du inte känner till miljövariabler kan du ange `endpoint` som en sträng och kommentera bort den villkorliga instruktionen.
 
 ```javascript
 lorum ipsum
@@ -60,7 +60,7 @@ let options = {
 };
 ```
 
-Om du använder en prenumeration med flera tjänster för `Ocp-Apim-Subscription-Region` Cognitive Services måste du också inkludera parametrarna i din begäran. [Läs mer om att autentisera med prenumerationen med flera tjänster](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Om du använder en Cognitive Services-prenumeration med flera tjänster måste du också ta med `Ocp-Apim-Subscription-Region` i parametrarna för begäran. [Lär dig mer om att autentisera med multi-service-prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="make-the-request-and-print-the-response"></a>Göra en begäran och skriva ut svaret
 
@@ -87,7 +87,7 @@ Om du vill jämföra din kod med vår finns det fullständiga exemplet på [GitH
 
 ## <a name="sample-response"></a>Exempelsvar
 
-Hitta lands-/regionförkortningen i den här [listan med språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Hitta lands-/region förkortningen i den här [listan över språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 Det här exemplet har trunkerats för att visa ett avsnitt av resultatet:
 

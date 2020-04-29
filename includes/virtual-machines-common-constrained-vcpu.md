@@ -9,22 +9,22 @@ ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 24fbab2bb637edf6c7e31215cdc7ac82bdb0ebab
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/26/2020
 ms.locfileid: "67187338"
 ---
-Vissa databasarbetsbelastningar som SQL Server eller Oracle kräver hög minnes-, lagrings- och I/O-bandbredd, men inte ett högt kärnantal. Många databasarbetsbelastningar är inte processorintensiva. Azure erbjuder vissa VM-storlekar där du kan begränsa antalet virtuella datorer för att minska kostnaderna för programvarulicensiering, samtidigt som samma minne, lagring och I/O-bandbredd bibehålls.
+Vissa databas arbets belastningar som SQL Server eller Oracle kräver hög minnes-, lagrings-och I/O-bandbredd, men inte ett högt antal kärnor. Många databas arbets belastningar är inte processor intensiva. Azure erbjuder vissa VM-storlekar där du kan begränsa antalet VM-vCPU för att minska kostnaderna för program varu licensiering, samtidigt som du behåller samma minne, lagring och I/O-bandbredd.
 
-Antalet vCPU kan begränsas till hälften eller en fjärdedel av den ursprungliga vm-storleken. Dessa nya vm-storlekar har ett suffix som anger antalet aktiva virtuella processorer för att göra dem enklare för dig att identifiera.
+Antalet vCPU kan begränsas till en halv eller ett kvartal av den ursprungliga storleken på den virtuella datorn. Dessa nya VM-storlekar har ett suffix som anger antalet aktiva virtuella processorer som gör det enklare för dig att identifiera.
 
-Den nuvarande vm-storleken Standard_GS5 levereras till exempel med 32 virtuella processorer, 448 GB RAM,64 diskar (upp till 256 TB) och 80 000 IOPs eller 2 GB/s I/O-bandbredd. Den nya vm-storleken Standard_GS5-16 och Standard_GS5-8 levereras med 16 respektive 8 aktiva virtuella processorer, samtidigt som resten av specifikationerna för Standard_GS5 för minne, lagring och I/O-bandbredd bibehålls.
+Till exempel innehåller den aktuella virtuella dator storleken Standard_GS5 32 virtuella processorer, 448 GB RAM, 64 diskar (upp till 256 TB) och 80 000 IOPs eller 2 GB/s i/O-bandbredd. De nya VM-storlekarna Standard_GS5-16 och Standard_GS5-8 levereras med 16 respektive 8 aktiva virtuella processorer, samtidigt som resten av specifikationerna för Standard_GS5 för minne, lagring och I/O-bandbredd bibehålls.
 
-De licensavgifter som debiteras för SQL Server eller Oracle är begränsade till det nya vCPU-antalet, och andra produkter bör debiteras baserat på det nya antalet vCPU.The licensing fees charged for SQL Server or Oracle are constrained to the new vCPU count, and other products should be charged based on the new vCPU count. Detta resulterar i en 50% till 75% ökning av förhållandet mellan VM-specifikationer till aktiva (fakturerbara) virtuella processorer. Med de här nya vm-storlekarna kan kundarbetsbelastningar använda samma minnes-, lagrings- och I/O-bandbredd samtidigt som de optimerar licenskostnaden för programvara. För närvarande förblir beräkningskostnaden, som inkluderar OS-licensiering, samma som den ursprungliga storleken. Mer information finns i [Azure VM-storlekar för mer kostnadseffektiva databasarbetsbelastningar](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
+De licens avgifter som debiteras för SQL Server eller Oracle är begränsade till det nya antalet vCPU och andra produkter bör debiteras baserat på det nya vCPU antalet. Detta resulterar i en 50% till 75% ökning av förhållandet mellan VM-specifikationerna och aktiva (fakturerbara) virtuella processorer. Dessa nya VM-storlekar gör att kundernas arbets belastningar kan använda samma minne, lagrings utrymme och I/O-bandbredd samtidigt som program varu licensierings kostnaden optimeras. För närvarande är beräknings kostnaden, som innehåller OS-licensiering, densamma som den ursprungliga storleken. Mer information finns i [storlekar för virtuella Azure-datorer för mer kostnads effektiva databas arbets belastningar](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
 
 
-| Namn                | Virtuell processor | Specifikationer           |
+| Name                | Virtuell processor | Specifikationer           |
 |---------------------|------|-----------------|
 | Standard_M8-2ms     | 2    | Samma som M8ms    |
 | Standard_M8-4ms     | 4    | Samma som M8ms    |

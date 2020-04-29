@@ -10,10 +10,10 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "66117576"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Självstudie: Identifiera avvikelser vid gränsen med acceleratorn för fjärrövervakningslösningen
@@ -64,13 +64,13 @@ Om du vill lägga till en IoT Edge-enhet till acceleratorn för fjärrövervakni
 
 I panelen **Ny enhet** väljer du **IoT Edge-enhet** och anger **oil-pump** som enhetens ID. Du behålla standardvärden för de andra inställningarna. Klicka sedan på **Använd**:
 
-[![Lägga till IoT Edge-enhet](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-expanded.png#lightbox)
+[![Lägg till IoT Edge enhet](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-expanded.png#lightbox)
 
 Anteckna enhetsanslutningssträngen. Du behöver den i nästa avsnitt av den här självstudien.
 
 När du registrerar en enhet med IoT-hubben i acceleratorn för fjärrövervakningslösningen visas den på sidan **Device Explorer** i webbgränssnittet:
 
-[![Ny IoT Edge-enhet](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-expanded.png#lightbox)
+[![Ny IoT Edge enhet](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-expanded.png#lightbox)
 
 Om du vill göra det enklare att hantera IoT Edge-enheter i lösningen kan du skapa en enhetsgrupp och lägga till IoT Edge-enheten:
 
@@ -90,7 +90,7 @@ Om du vill göra det enklare att hantera IoT Edge-enheter i lösningen kan du sk
 
 1. Klicka på **Använd** och sedan på **Stäng**.
 
-1. Klicka på **Hantera enhetsgrupper**på sidan **Enhetsutforskaren** .
+1. På sidan **Device Explorer** klickar du på **Hantera enhets grupper**.
 
 1. Klicka på **Skapa ny enhetsgrupp**. Skapa en ny enhetsgrupp med följande inställningar:
 
@@ -102,7 +102,7 @@ Om du vill göra det enklare att hantera IoT Edge-enheter i lösningen kan du sk
     | Värde    | Y |
     | Typ     | Text |
 
-    [![Skapa enhetsgrupp](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
+    [![Skapa enhets grupp](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
 
 1. Klicka på **Spara**.
 
@@ -163,7 +163,7 @@ Du definierar Stream Analytics-jobbet i portalen innan du paketerar den som en E
     | Jobbnamn | EdgeDeviceJob |
     | Prenumeration | Din Azure-prenumeration |
     | Resursgrupp | IoTEdgeDevices |
-    | Location | USA, östra |
+    | Plats | USA, östra |
     | Värdmiljö | Edge |
     | Strömningsenheter | 1 |
 
@@ -193,7 +193,7 @@ Du definierar Stream Analytics-jobbet i portalen innan du paketerar den som en E
 
 Följande skärmbild visar det sparade Stream Analytics-jobbet:
 
-[![Stream Analytics-jobb](./media/iot-accelerators-remote-monitoring-edge/streamjob-inline.png)](./media/iot-accelerators-remote-monitoring-edge/streamjob-expanded.png#lightbox)
+[![Stream Analytics jobb](./media/iot-accelerators-remote-monitoring-edge/streamjob-inline.png)](./media/iot-accelerators-remote-monitoring-edge/streamjob-expanded.png#lightbox)
 
 Du har nu definierat ett Stream Analytics-jobb som ska köras på din Edge-enhet. Jobbet beräknar medeltemperaturen i ett fönster i intervaller om fem sekunder. Jobbet skickar också en avisering om medeltemperaturen i ett tresekundersfönster överstiger 400.
 
@@ -239,13 +239,13 @@ Därefter skapar du ett IoT Edge-distributionsmanifest som definierar vilka modu
 
 1. På sidan **Skapa distribution > Granska distributionen** klickar du på **Skicka**:
 
-    [![Granska distributionen](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-expanded.png#lightbox)
+    [![Granska distribution](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-expanded.png#lightbox)
 
 1. På huvudsidan **IoT Edge** klickar du på **IoT Edge-distributioner**. Du kan se **oil-pump-device** i listan över distributioner.
 
 1. Klicka på distributionen **oil-pump-device** och klicka sedan på **Ladda ned IoT Edge-manifest**. Spara filen som **oil-pump-device.json** på en lämplig plats på din lokala datorn. Du behöver den här filen i nästa avsnitt i den här självstudien.
 
-Du har nu skapat ett IoT Edge-manifest för att importera till lösningen för fjärrövervakning som ett paket. Vanligtvis skapar en utvecklare IoT Edge-modulerna och manifestfilen.
+Nu har du skapat ett IoT Edge manifest som du kan importera till den fjärranslutna övervaknings lösningen som ett paket. Vanligtvis skapar en utvecklare IoT Edge-modulerna och manifestfilen.
 
 ## <a name="import-a-package"></a>Importera ett paket
 
@@ -287,7 +287,7 @@ Nu är du redo att distribuera paketet till din enhet.
 
 Du måste vänta några minuter medan paketet distribueras till din enhet och telemetri börjar flöda från enheten.
 
-[![Driftsättning aktiv](./media/iot-accelerators-remote-monitoring-edge/deploymentactive-inline.png)](./media/iot-accelerators-remote-monitoring-edge/deploymentactive-expanded.png#lightbox)
+[![Aktiv distribution](./media/iot-accelerators-remote-monitoring-edge/deploymentactive-inline.png)](./media/iot-accelerators-remote-monitoring-edge/deploymentactive-expanded.png#lightbox)
 
 På sidan**Distributioner** visas följande mått:
 

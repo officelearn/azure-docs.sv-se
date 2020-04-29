@@ -9,10 +9,10 @@ ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9c18a2c74d03a636a0865f3008eb421ab8d7412d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68781497"
 ---
 1. Klicka på **+Skapa en resurs** i portalen.
@@ -30,4 +30,4 @@ ms.locfileid: "68781497"
    - **Resursgrupp:** Välj den resursgrupp som du vill använda. Du kan antingen skapa en ny resursgrupp eller välja en som du redan har skapat.
    - **Plats:** Välj den plats som det här objektet kommer att skapas i. Du kanske vill välja samma plats som din VNet finns i, men du behöver inte göra det.
 
-4. När du har angett värdena klickar du på knappen **Skapa** för att skapa gatewayen.
+4. När du är klar med att ange värden klickar du på knappen **skapa** för att skapa gatewayen.

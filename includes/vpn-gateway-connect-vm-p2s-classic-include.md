@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 6d0737a7300b2a6025f776c1ed65a05cacf2141a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "67187209"
 ---
 Skapa en anslutning till fjärrskrivbord för att ansluta till en virtuell dator som distribueras till ditt VNet. Det bästa sättet att kontrollera att du kan ansluta till den virtuella datorn är via dess privata IP-adress i stället för datornamnet. På så sätt testar du om du kan ansluta, inte huruvida namnmatchningen är korrekt konfigurerad. 

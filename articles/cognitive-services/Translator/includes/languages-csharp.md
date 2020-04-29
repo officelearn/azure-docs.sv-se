@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: a7715577936b0e95392f2d561e4b492b20c9dbf5
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69906961"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
@@ -43,9 +43,9 @@ using System.Text;
 using Newtonsoft.Json;
 ```
 
-## <a name="get-endpoint-information-from-an-environment-variable"></a>Hämta slutpunktsinformation från en miljövariabel
+## <a name="get-endpoint-information-from-an-environment-variable"></a>Hämta slut punkts information från en miljö variabel
 
-Lägg till följande `Program` rader i klassen. Dessa rader läser din prenumerationsnyckel och slutpunkt från miljövariabler och genererar ett fel om du stöter på några problem.
+Lägg till följande rader i- `Program` klassen. Dessa rader läser din prenumerations nyckel och slut punkt från miljövariabler och genererar ett fel om du stöter på problem.
 
 ```csharp
 private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
@@ -62,7 +62,7 @@ static Program()
 
 ## <a name="create-a-function-to-get-a-list-of-languages"></a>Skapa en funktion för att hämta en lista över språk
 
-`Program` Skapa en funktion som `GetLanguages`kallas . Den här klassen kapslar in den kod som används för att anropa Languages-resursen och skriver ut resultatet till konsolen.
+I- `Program` klassen skapar du en funktion som `GetLanguages`heter. Den här klassen kapslar in den kod som används för att anropa Languages-resursen och skriver ut resultatet till konsolen.
 
 ```csharp
 static void GetLanguages()
@@ -74,7 +74,7 @@ static void GetLanguages()
 }
 ```
 
-## <a name="set-the-route"></a>Ställ in rutten
+## <a name="set-the-route"></a>Ange vägen
 
 Lägg till följande rader i funktionen `GetLanguages`.
 
@@ -119,9 +119,9 @@ Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
 ```
 
-Om du använder en prenumeration med flera tjänster för `Ocp-Apim-Subscription-Region` Cognitive Services måste du också inkludera parametrarna i din begäran. [Läs mer om att autentisera med prenumerationen med flera tjänster](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Om du använder en Cognitive Services-prenumeration med flera tjänster måste du också ta med `Ocp-Apim-Subscription-Region` i parametrarna för begäran. [Lär dig mer om att autentisera med multi-service-prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
-Om du vill skriva ut svaret med "Pretty Print" (formatering för svaret) lägger du till den här funktionen i klassen Program:
+Om du vill skriva ut svaret med "ganska utskrift" (formatering för svaret) lägger du till den här funktionen i program klassen:
 
 ```csharp
 static string PrettyPrint(string s)
@@ -149,7 +149,7 @@ dotnet run
 
 ## <a name="sample-response"></a>Exempelsvar
 
-Hitta lands-/regionförkortningen i den här [listan med språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Hitta lands-/region förkortningen i den här [listan över språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 {

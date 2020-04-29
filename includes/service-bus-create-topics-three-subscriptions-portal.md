@@ -9,10 +9,10 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: ace42278269ff6af31902dbecead81329815af12
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67187579"
 ---
 ## <a name="create-a-topic-using-the-azure-portal"></a>Skapa ett ämne med Azure Portal
@@ -30,7 +30,7 @@ ms.locfileid: "67187579"
 2. På sidan **Service Bus-ämne** väljer du **Prenumerationer** från den vänstra menyn och sedan **+ Prenumeration** i verktygsfältet. 
     
     ![Knappen Lägg till prenumeration](./media/service-bus-create-topics-subscriptions-portal/add-subscription-button.png)
-3. På sidan **Skapa prenumeration** anger du **S1** för **namnet** på prenumerationen och väljer sedan **Skapa**. 
+3. På sidan **Skapa prenumeration** anger du **S1** som **namn** för prenumerationen och väljer sedan **skapa**. 
 
     ![Sidan Skapa prenumeration](./media/service-bus-create-topics-subscriptions-portal/create-subscription-page.png)
 4. Upprepa föregående steg två gånger för att skapa prenumerationer med namnet **S2** och **S3**.

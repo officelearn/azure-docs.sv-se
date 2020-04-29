@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Konfigurera PHS som backup för AD FS i Azure AD Connect | Microsoft-dokument'
+title: 'Självstudie: Konfigurera PHS som säkerhets kopiering för AD FS i Azure AD Connect | Microsoft Docs'
 description: Visar hur du aktiverar synkronisering av lösenordshash som en säkerhetskopia och för AD FS.
 services: active-directory
 documentationcenter: ''
@@ -13,27 +13,27 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e5ad7badfa44a006fd7e71d3b0e42ee95ac698d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "64918997"
 ---
-# <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Självstudiekurs: Konfigurera PHS som backup för AD FS i Azure AD Connect
+# <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Självstudie: Konfigurera PHS som säkerhets kopiering för AD FS i Azure AD Connect
 
 Följande självstudie vägleder dig genom att ställa in synkronisering av lösenordshash som en säkerhetskopiering och redundans för AD FS.  Det här dokumentet visar också hur du aktiverar synkronisering av lösenordshash som primär autentiseringsmetod om AD FS har misslyckats eller är otillgängligt.
 
 >[!NOTE] 
->Även om dessa steg vanligtvis utförs under nödsituationer eller avbrottssituationer, rekommenderar vi att du testar dessa steg och verifierar dina procedurer innan ett avbrott inträffar.
+>Även om dessa steg vanligt vis utförs under nöd situationer eller avbrott, rekommenderar vi att du testar de här stegen och kontrollerar dina procedurer innan ett avbrott uppstår.
 
 >[!NOTE]
->Om du inte har tillgång till Azure AD Connect-servern eller om servern inte har åtkomst till internet kan du kontakta [Microsoft Support](https://support.microsoft.com/en-us/contactus/) för att hjälpa till med ändringarna på Azure AD-sidan.
+>I händelse av att du inte har åtkomst till Azure AD Connect Server eller om servern inte har åtkomst till Internet, kan du kontakta [Microsoft Support](https://support.microsoft.com/en-us/contactus/) för att hjälpa till med ändringarna i Azure AD-sidan.
 
 ## <a name="prerequisites"></a>Krav
-Den här självstudien bygger på [självstudien: Federera en enda AD-skogsmiljö till molnet](tutorial-federation.md) och är en nödvändig per-erforderlig innan du försöker den här självstudien.  Om du inte har slutfört den här kursen kan du göra det innan du provar att utföra stegen i det här dokumentet.
+Den här självstudien bygger på [självstudien: federera en enda AD-skogs miljö till molnet](tutorial-federation.md) och är ett krav som krävs innan du provar den här kursen.  Om du inte har slutfört den här kursen kan du göra det innan du provar att utföra stegen i det här dokumentet.
 
 >[!IMPORTANT]
->Innan du byter till PHS bör du skapa en säkerhetskopia av din AD FS-miljö.  Detta kan göras med hjälp av [AD FS Rapid Restore Tool](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
+>Innan du växlar till PHS bör du skapa en säkerhets kopia av din AD FSs miljö.  Detta kan göras med hjälp av [AD FS Rapid Restore-verktyget](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
 
 ## <a name="enable-phs-in-azure-ad-connect"></a>Aktivera PHS i Azure AD Connect
 Det första steget, nu när vi har en Azure AD Connect-miljö som använder federation, är att aktivera lösenordshashsynkronisering och låta Azure AD Connect synkronisera hashvärdena.
@@ -48,7 +48,7 @@ Gör följande:
 6.  På skärmen **Domän- och organisationsenhetsfiltrering** klickar du på **Nästa**.
 7.  På skärmen **Valfria funktioner** kan du markera **Synkronisering av lösenordshash** och klicka på **Nästa**.
 ![Välj](media/tutorial-phs-backup/backup1.png)</br>
-8.  Klicka på **Konfigurera**på skärmen **Klar att konfigurera** .
+8.  Klicka på **Konfigurera**på skärmen **redo att konfigurera** .
 9.  När konfigurationen är klar klickar du på **Avsluta**.
 10. Klart!  Du är klar.  Synkronisering av lösenordshash utförs nu och kan användas som en säkerhetskopia om AD FS blir otillgänglig.
 
@@ -56,7 +56,7 @@ Gör följande:
 Nu ska vi visa hur du byter till synkronisering av lösenordshash. Innan du börjar bör du fundera på under vilka villkor du ska göra växlingen. Växla inte av tillfälliga skäl, som ett nätverksavbrott, ett mindre AD FS-problem eller ett problem som påverkar en delmängd av dina användare. Om du vill växla eftersom det tar för lång tid att lösa problemet kan du göra följande:
 
 > [!IMPORTANT]
-> Tänk på att det tar lite tid innan lösenordsharna synkroniseras med Azure AD.  Det innebär att det kan ta upp 3 timmar innan synkroniseringarna slutförs och innan du kan börja autentisera med hjälp av lösenordshashar.
+> Tänk på att det tar lite tid innan lösen ordets hash-värden synkroniseras med Azure AD.  Det innebär att det kan ta upp till 3 timmar innan synkroniseringarna har slutförts och innan du kan börja autentisera med hjälp av lösen ordets hash-värden.
 
 1. Dubbelklicka på ikonen för Azure AD Connect som skapades på skrivbordet
 2.  Klicka på **Konfigurera**.
@@ -77,34 +77,34 @@ Nu ska vi visa hur du byter till synkronisering av lösenordshash. Innan du bör
    ![Verifiera](media/tutorial-password-hash-sync/verify1.png)</br>
 
 ## <a name="switch-back-to-federation"></a>Växla tillbaka till federationen
-Nu ska vi visa dig hur du byter tillbaka till federationen.  Gör så här:
+Nu visar vi dig hur du växlar tillbaka till federationen.  Gör detta genom att göra följande:
 
 1.  Dubbelklicka på ikonen för Azure AD Connect som skapades på skrivbordet
 2.  Klicka på **Konfigurera**.
 3.  Välj **Ändra användarinloggning** och klicka på **Nästa**.
-4.  Ange användarnamnet och lösenordet för din globala administratör.  Detta är det konto som skapades [här](tutorial-federation.md#create-a-global-administrator-in-azure-ad) i föregående handledning.
-5.  På skärmen **Användares inloggning** väljer du **Federation med AD FS** och klickar på **Nästa**.  
+4.  Ange användarnamnet och lösenordet för din globala administratör.  Detta är det konto som skapades [här](tutorial-federation.md#create-a-global-administrator-in-azure-ad) i föregående självstudie.
+5.  På **inloggnings** skärmen för användare väljer du **Federation med AD FS** och klickar på **Nästa**.  
 6. På sidan med inloggningsuppgifterna för domänadministratören anger du användarnamnet contoso\Administrator och lösenordet och klickar på **Nästa.**
-7. Klicka på **Nästa**på AD FS-servergruppens skärm .
-8. På **domänskärmen för Azure AD** väljer du domänen i listrutan och klickar på **Nästa**.
+7. På sidan AD FS server grupp klickar du på **Nästa**.
+8. På skärmen **Azure AD-domän** väljer du domänen i list rutan och klickar på **Nästa**.
 9. Klicka på **Konfigurera** på skärmen **Klart att konfigurera**.
 10. När konfigurationen är klar klickar du på **Nästa**.
 ![Konfigurera](media/tutorial-phs-backup/backup4.png)</br>
-11. Klicka på **Verifiera**på skärmen **Verifiera federationsanslutning.**  Du kan behöva konfigurera DNS-poster (lägg till A- och AAAA-poster) för att detta ska kunna slutföras.
+11. På skärmen **Verifiera Federations anslutning** klickar du på **Verifiera**.  Du kan behöva konfigurera DNS-poster (Lägg till A-och AAAA-poster) för att det ska kunna slutföras.
 ![Verifiera](media/tutorial-phs-backup/backup5.png)</br>
 12. Klicka på **Avsluta**.
 
-## <a name="reset-the-ad-fs-and-azure-trust"></a>Återställa AD FS- och Azure-förtroendet
+## <a name="reset-the-ad-fs-and-azure-trust"></a>Återställa AD FS och Azure-förtroende
 Nu måste vi återställa förtroendet mellan AD FS och Azure.
 
 1.  Dubbelklicka på ikonen för Azure AD Connect som skapades på skrivbordet
 2.  Klicka på **Konfigurera**.
-3.  Välj **Hantera federation** och klicka på **Nästa**.
+3.  Välj **Hantera Federation** och klicka på **Nästa**.
 4.  Välj **Återställ Azure AD-förtroende** och klicka på **Nästa**.
 ![Återställ](media/tutorial-phs-backup/backup6.png)</br>
-5.  På skärmen **Anslut till Azure AD** anger du användarnamn och lösenord för din globala administratör.
-6.  På skärmen **Anslut till AD FS** anger du användarnamn och lösenord för contoso\Administratören och klickar på **Nästa.**
-7.  Klicka på **Nästa**på skärmen **Certifikat** .
+5.  På skärmen **Anslut till Azure AD** anger du användar namn och lösen ord för din globala administratör.
+6.  På skärmen **Anslut till AD FS** anger du användar namn och lösen ord för contoso\Administrator och klickar på **Nästa.**
+7.  I fönstret **certifikat** klickar du på **Nästa**.
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testa att logga in med någon av våra användare
 
@@ -117,6 +117,6 @@ Du har nu har installerat en hybrididentitetsmiljö som du kan använda för att
 ## <a name="next-steps"></a>Nästa steg
 
 
-- [Hårdvara och förutsättningar](how-to-connect-install-prerequisites.md) 
+- [Maskin vara och krav](how-to-connect-install-prerequisites.md) 
 - [Standardinställningar](how-to-connect-install-express.md)
 - [Synkronisering av lösenordshash](how-to-connect-password-hash-synchronization.md)

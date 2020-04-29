@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 05355ad37183d4c14cb8f6598141292ded0386d9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69906990"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
@@ -17,7 +17,7 @@ ms.locfileid: "69906990"
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
-Skapa ett nytt Go-projekt med din favorit-IDE eller redigerare eller ny mapp på skrivbordet. Kopiera sedan kodavsnittet till projektet/mappen i `get-languages.go`en fil med namnet .
+Skapa ett nytt go-projekt med hjälp av din favorit-IDE eller-redigerare eller ny mapp på Skriv bordet. Kopiera sedan kodfragmentet till projektet/mappen i en fil med namnet `get-languages.go`.
 
 ```go
 package main
@@ -36,7 +36,7 @@ import (
 
 Nu ska vi skapa huvudfunktionen i vårt program. Du kommer att märka att det bara är en enda rad med kod. Det beror på att vi skapar en enda funktion som hämtar och skriver ut listan med språk som stöds i Translator Text.
 
-Det här exemplet försöker läsa slutpunkten för translatortext från en miljövariabel: `TRANSLATOR_TEXT_ENDPOINT`. Om du inte känner till miljövariabler kan du ange `endpoint` som en sträng och kommentera bort den villkorliga instruktionen.
+Det här exemplet försöker läsa Translator Text slut punkten från en miljö variabel: `TRANSLATOR_TEXT_ENDPOINT`. Om du inte känner till miljövariabler kan du ange `endpoint` som en sträng och kommentera bort den villkorliga instruktionen.
 
 Kopiera den här koden till projektet:
 
@@ -98,7 +98,7 @@ if err != nil {
 }
 ```
 
-Om du använder en prenumeration med flera tjänster för `Ocp-Apim-Subscription-Region` Cognitive Services måste du också inkludera parametrarna i din begäran. [Läs mer om att autentisera med prenumerationen med flera tjänster](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Om du använder en Cognitive Services-prenumeration med flera tjänster måste du också ta med `Ocp-Apim-Subscription-Region` i parametrarna för begäran. [Lär dig mer om att autentisera med multi-service-prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="handle-and-print-the-response"></a>Hantera och skriva ut svaret
 
@@ -127,7 +127,7 @@ Om du vill jämföra din kod med vår finns det fullständiga exemplet på [GitH
 
 ## <a name="sample-response"></a>Exempelsvar
 
-Hitta lands-/regionförkortningen i den här [listan med språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Hitta lands-/region förkortningen i den här [listan över språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 

@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 3d1e1491ad045eba88ca7bbe54a1acb38199f7d7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "65987916"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Självstudie: Uppdatera lagerplatsen med PowerShell och ämnen/prenumerationer
@@ -22,7 +22,7 @@ Azure Service Bus är en meddelandetjänst i molnet för flera klienter som skic
 
 Den här kursen visar hur du skickar och tar emot meddelanden till och från en Service Bus-kö med PowerShell för att skapa ett namnområde för meddelanden och en kö inom det namnområdet och hur du får autentiseringsuppgifterna för det namnområdet. Proceduren visar därefter hur du skickar och tar emot meddelanden från den här kön med [.NET standardbiblioteket](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Skapa ett Service Bus-ämne och en eller flera prenumerationer på det ämnet med Azure PowerShell
 > * Lägg till ämnesfilter med PowerShell
@@ -34,7 +34,7 @@ Ett exempel på det här scenariot är en uppdatering av lagersortimentet för f
 
 ![ämne](./media/service-bus-tutorial-topics-subscriptions-powershell/about-service-bus-topic.png)
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto][] innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto][] innan du börjar.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -46,7 +46,7 @@ För att kunna följa de här självstudierna ska du kontrollera att du har inst
 1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.
 
-Den här självstudien kräver att du kör den senaste versionen av Azure PowerShell. Om du behöver installera eller uppgradera läser du [Installera och konfigurera Azure PowerShell][].
+Den här självstudien kräver att du kör den senaste versionen av Azure PowerShell. Om du behöver installera eller uppgradera kan du läsa [Installera och konfigurera Azure PowerShell][].
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -271,7 +271,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 ```
 
 > [!NOTE]
-> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett servicebussnamnområde och administrera meddelandeenheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelsehubbar. 
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -291,5 +291,5 @@ Gå vidare till nästa självstudie för att läsa mer om att använda Service B
 > [!div class="nextstepaction"]
 > [Uppdatera lager med hjälp av PowerShell och ämnen/prenumerationer](service-bus-tutorial-topics-subscriptions-cli.md)
 
-[gratis konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[kostnads fritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Installera och konfigurera Azure PowerShell]: /powershell/azure/install-Az-ps

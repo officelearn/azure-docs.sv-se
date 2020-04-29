@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 3d92d3f959e2ad44daa82d6b609b9357cee969c9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69906888"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
@@ -32,11 +32,11 @@ Därefter behöver du installera Json.Net. Från projektkatalogen kör du:
 dotnet add package Newtonsoft.Json --version 11.0.2
 ```
 
-## <a name="select-the-c-language-version"></a>Välj C#-språkversionen
+## <a name="select-the-c-language-version"></a>Välj C#-språk version
 
-Denna snabbstart kräver C# 7.1 eller senare. Det finns några sätt att ändra C#-versionen för ditt projekt. I den `sentences-sample.csproj` här guiden visar vi hur du justerar filen. Alla tillgängliga alternativ, till exempel ändra språket i Visual Studio, finns i [Välj C#-språkversion](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
+Den här snabb starten kräver C# 7,1 eller senare. Det finns några sätt att ändra C#-versionen för projektet. I den här hand boken visar vi hur du justerar `sentences-sample.csproj` filen. För alla tillgängliga alternativ, till exempel att ändra språk i Visual Studio, se [väljer du språk versionen C#](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
 
-Öppna projektet och `sentences-sample.csproj`öppna sedan . Se till `LangVersion` att den är inställd på 7.1 eller senare. Om det inte finns någon egenskapsgrupp för språkversionen lägger du till följande rader:
+Öppna projektet och öppna `sentences-sample.csproj`sedan. Kontrol lera att `LangVersion` är inställt på 7,1 eller senare. Om det inte finns en egenskaps grupp för språk versionen lägger du till följande rader:
 
 ```xml
 <PropertyGroup>
@@ -59,7 +59,7 @@ using Newtonsoft.Json;
 
 ## <a name="create-classes-for-the-json-response"></a>Skapa klasser för JSON-svaret
 
-Därefter ska vi skapa en klass som används när deserialiserar JSON-svaret som returneras av Translator Text API.
+Nu ska vi skapa en klass som används för att avserialisera JSON-svaret som returneras av Translator Text API.
 
 ```csharp
 /// <summary>
@@ -78,9 +78,9 @@ public class DetectedLanguage
 }
 ```
 
-## <a name="get-subscription-information-from-environment-variables"></a>Hämta prenumerationsinformation från miljövariabler
+## <a name="get-subscription-information-from-environment-variables"></a>Hämta prenumerations information från miljövariabler
 
-Lägg till följande `Program` rader i klassen. Dessa rader läser din prenumerationsnyckel och slutpunkt från miljövariabler och genererar ett fel om du stöter på några problem.
+Lägg till följande rader i- `Program` klassen. Dessa rader läser din prenumerations nyckel och slut punkt från miljövariabler och genererar ett fel om du stöter på problem.
 
 ```csharp
 private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
@@ -105,7 +105,7 @@ static Program()
 
 ## <a name="create-a-function-to-determine-sentence-length"></a>Skapa en funktion för att fastställa meningslängd
 
-`Program` Skapa en ny funktion som `BreakSentenceRequest()`kallas . Den här funktionen `subscriptionKey`tar `endpoint` `route`fyra `inputText`argument: , , och .
+I- `Program` klassen skapar du en ny funktion som `BreakSentenceRequest()`heter. Den här funktionen tar fyra argument `subscriptionKey`: `endpoint`, `route`, och `inputText`.
 
 ```csharp
 static public async Task BreakSentenceRequest(string subscriptionKey, string endpoint, string route, string inputText)
@@ -117,7 +117,7 @@ static public async Task BreakSentenceRequest(string subscriptionKey, string end
 }
 ```
 
-## <a name="serialize-the-break-sentence-request"></a>Serialisera begäran om paus mening
+## <a name="serialize-the-break-sentence-request"></a>Serialisera begäran om Break-meningen
 
 Sedan behöver du skapa och serialisera det JSON-objekt som innehåller texten. Du kan skicka fler än ett objekt i `body`-matrisen.
 
@@ -173,7 +173,7 @@ foreach (BreakSentenceResult o in deserializedOutput)
 }
 ```
 
-Om du använder en prenumeration med flera tjänster för `Ocp-Apim-Subscription-Region` Cognitive Services måste du också inkludera parametrarna i din begäran. [Läs mer om att autentisera med prenumerationen med flera tjänster](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Om du använder en Cognitive Services-prenumeration med flera tjänster måste du också ta med `Ocp-Apim-Subscription-Region` i parametrarna för begäran. [Lär dig mer om att autentisera med multi-service-prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
@@ -194,7 +194,7 @@ static async Task Main(string[] args)
 }
 ```
 
-Du kommer att `Main`märka att i `subscriptionKey`, `endpoint` `route`du deklarerar , `breakSentenceText`, och texten för att utvärdera .
+Du kommer att märka att `Main`i, du har `subscriptionKey`deklarerat `endpoint`, `route`, och den text som ska `breakSentenceText`utvärderas.
 
 ## <a name="run-the-sample-app"></a>Kör exempelappen
 
@@ -206,14 +206,14 @@ dotnet run
 
 ## <a name="sample-response"></a>Exempelsvar
 
-När du har kört exemplet bör du se följande tryckta till terminalen:
+När du har kört exemplet bör du se följande utskrivna till Terminal:
 
 ```bash
 The detected language is \'en\'. Confidence is: 1.
 The first sentence length is: 25
 ```
 
-Detta meddelande är byggt från den råa JSON, som kommer att se ut så här:
+Det här meddelandet skapas från RAW JSON, som ser ut så här:
 
 ```json
 [

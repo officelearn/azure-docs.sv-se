@@ -6,24 +6,24 @@ ms.topic: include
 ms.date: 07/17/2019
 ms.author: pafarley
 ms.openlocfilehash: ce67062f83ad10703dfb1f0ee1f3741e698fb450
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "70130120"
 ---
-Som ett minimum rekommenderar vi att du använder minst 30 bilder per tagg i den inledande träningsuppsättningen. Du vill också samla några extra bilder för att testa din modell när den är tränad.
+Som minst rekommenderar vi att du använder minst 30 bilder per tagg i den första inlärnings uppsättningen. Du vill också samla in några extra bilder för att testa din modell när den har tränats.
 
-För att träna din modell effektivt, använd bilder med visuell variation. Välj bilder som varierar med:
-* Kameravinkel
-* Belysning
+Använd bilder med visuell sort för att träna modellen effektivt. Välj bilder som varierar av:
+* kamera vinkel
+* blixt
 * bakgrund
-* visuell stil
+* visuellt format
 * enskilda/grupperade ämnen
-* size
+* ikoner
 * typ
 
-Kontrollera dessutom att alla dina träningsbilder uppfyller följande kriterier:
-* .jpg-, .png-, .bmp- eller .gif-format
-* inte större än 6 MB i storlek (4 MB för förutsägelsebilder)
-* inte mindre än 256 pixlar på kortaste kanten. bilder som är kortare än så skalas automatiskt upp av Custom Vision-tjänsten
+Se dessutom till att alla dina utbildnings bilder uppfyller följande kriterier:
+* . jpg-,. png-,. bmp-eller. gif-format
+* inte större än 6 MB i storlek (4 MB för förutsägelse avbildningar)
+* inte mindre än 256 bild punkter på den kortaste kanten; alla bilder som är kortare än detta kommer automatiskt att skalas upp av Custom Vision Service

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Integrera en enda AD-skog till Azure med PHS'
+title: 'Självstudie: integrera en enda AD-skog med Azure med PHS'
 description: Visar hur du ställer in en hybrididentitetsmiljö med synkronisering av lösenordshash.
 services: active-directory
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b17300fa69b61c7713c860e2a35e63fcb6584bc4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "66474011"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Självstudiekurs: Integrera en enda AD-skog med hjälp av lösenordshim sync (PHS)
+# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Självstudie: integrera en enda AD-skog med Password hash Sync (PHS)
 
 ![Skapa](media/tutorial-password-hash-sync/diagram.png)
 
-Följande handledning kommer att gå igenom att skapa en hybrid identitetsmiljö med hjälp av lösenord hash sync.  Den här miljön kan sedan användas för testning eller för att bekanta sig med hur en hybrididentitet fungerar.
+Följande självstudie vägleder dig genom att skapa en hybrid identitets miljö med hjälp av hash-synkronisering av lösen ord.  Den här miljön kan sedan användas för testning eller för att få bättre kunskaper om hur en hybrid identitet fungerar.
 
 ## <a name="prerequisites"></a>Krav
 Följande är förutsättningar som krävs för den här självstudien
@@ -185,7 +185,7 @@ Nu ska vi skapa en Azure AD-klientorganisation så att vi kan synkronisera våra
 3. Välj **Azure Active Directory** i sökresultatet.
 4. Välj **Skapa**.</br>
 ![Skapa](media/tutorial-password-hash-sync/create1.png)</br>
-5. Ange ett **namn på organisationen** tillsammans med det **ursprungliga domännamnet**. Välj sedan **Skapa**. Detta skapar din katalog.
+5. Ange ett **namn på organisationen** tillsammans med det **ursprungliga domännamnet**. Välj sedan **skapa**. Detta skapar din katalog.
 6. När det här har slutförts klickar du på den **här** länken för att hantera katalogen.
 
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Skapa en global administratör i Azure AD
@@ -232,9 +232,9 @@ Vi kommer nu att verifiera att de användare som vi hade i vår lokala katalog h
 
 Du har nu har installerat en hybrididentitetsmiljö som du kan använda för att testa och bekanta dig med allt som Azure har att erbjuda.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 
-- [Hårdvara och förutsättningar](how-to-connect-install-prerequisites.md) 
+- [Maskin vara och krav](how-to-connect-install-prerequisites.md) 
 - [Standardinställningar](how-to-connect-install-express.md)
-- [Synkronisering av lösenordsh hash](how-to-connect-password-hash-synchronization.md)|
+- [Hash-synkronisering av lösen ord](how-to-connect-password-hash-synchronization.md)|

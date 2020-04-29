@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 07/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 07e7cc991f127bf4bb4f466c0108962786e45bce
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "68423570"
 ---
-Observera **skjutreglaget Sannolikhetströskel** i den vänstra rutan på fliken **Prestanda.** Detta är den förtroendenivå som en förutsägelse måste ha för att anses vara korrekt (för att beräkna precision och återkallande). 
+Observera skjutreglaget för **sannolikhets tröskel** i den vänstra rutan på fliken **prestanda** . Detta är den nivå av säkerhet som en förutsägelse måste ha för att anses korrekt (i syfte att beräkna precision och återkalla). 
 
-När du tolkar förutsägelseanrop med en tröskel för hög sannolikhet tenderar&mdash;de att returnera resultat med hög precision på bekostnad av återkallandet de upptäckta klassificeringarna är korrekta, men många förblir oupptäckta. En låg sannolikhet tröskel&mdash;gör motsatsen de flesta av de faktiska klassificeringarna upptäcks, men det finns fler falska positiva inom den uppsättningen. Med detta i åtanke bör du ställa in sannolikhetströskeln enligt projektets specifika behov. Senare, när du får förutsägelseresultat på klientsidan, bör du använda samma tröskelvärde för sannolikhet som du använde här.
+När du tolkar förutsägelse samtal med en hög sannolikhets tröskel, tenderar det att returnera resultat med hög precision vid utgiften om&mdash;att de identifierade klassificeringarna är korrekta, men många förblir oidentifierade. Ett tröskelvärde för låg sannolikhet gör att&mdash;de motstående största av de faktiska klassificeringarna upptäcks, men det finns fler falska positiva identifieringar i den uppsättningen. Med detta i åtanke bör du ställa in sannolikhets tröskeln enligt projektets speciella behov. Senare, när du får förutsägelse resultat på klient sidan, bör du använda samma sannolikhets tröskel som du använde här.

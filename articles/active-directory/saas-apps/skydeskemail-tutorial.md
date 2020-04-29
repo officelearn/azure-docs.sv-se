@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med SkyDesk-e-post | Microsoft-dokument'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SkyDesk-e-post.
+title: 'Självstudie: Azure Active Directory integrering med SkyDesk e-post | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SkyDesk e-post.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: faaa5dcc435452d6ed9e0f2c5b481df1e352dfd2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67090431"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Självstudiekurs: Azure Active Directory-integrering med SkyDesk-e-post
+# <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Självstudie: Azure Active Directory integrering med SkyDesk e-post
 
-I den här självstudien får du lära dig hur du integrerar SkyDesk-e-post med Azure Active Directory (Azure AD).
-Genom att integrera SkyDesk-e-post med Azure AD får du följande fördelar:
+I den här självstudien får du lära dig att integrera SkyDesk e-post med Azure Active Directory (Azure AD).
+Att integrera SkyDesk e-post med Azure AD ger följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till SkyDesk-e-post.
-* Du kan aktivera dina användare så att de automatiskt loggas in på SkyDesk-e-post (enkel inloggning) med sina Azure AD-konton.
+* Du kan styra Azure AD som har åtkomst till SkyDesk e-post.
+* Du kan göra det möjligt för användarna att logga in automatiskt till SkyDesk e-post (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med SkyDesk-e-post behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med SkyDesk e-post behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* SkyDesk E-post enda inloggning aktiverad prenumeration
+* SkyDesk e-postaktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* SkyDesk Email stöder **SP** initierad SSO
+* SkyDesk e-post stöder **SP** -INITIERAd SSO
 
-## <a name="adding-skydesk-email-from-the-gallery"></a>Lägga till SkyDesk-e-post från galleriet
+## <a name="adding-skydesk-email-from-the-gallery"></a>Lägga till SkyDesk e-post från galleriet
 
-Om du vill konfigurera integreringen av SkyDesk-e-post i Azure AD måste du lägga till SkyDesk-e-post från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av SkyDesk-e-post i Azure AD måste du lägga till SkyDesk e-post från galleriet i listan över hanterade SaaS-appar.
 
-**Så här lägger du till SkyDesk-e-post från galleriet:**
+**Utför följande steg för att lägga till SkyDesk e-post från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av SkyDesk-e-post i Azure AD måste du läg
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **SkyDesk-e-post**i sökrutan och välj **SkyDesk-e-post** från resultatpanelen och klicka sedan på **Lägg** till-knappen för att lägga till programmet.
+4. I rutan Sök skriver du **SkyDesk email**, väljer **SkyDesk e-post** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![SkyDesk E-post i resultatlistan](common/search-new-app.png)
+     ![SkyDesk e-post i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du Azure AD enkel inloggning med SkyDesk-e-post baserat på en testanvändare som heter **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i SkyDesk-e-post upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med SkyDesk e-post baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och relaterad användare i SkyDesk e-post upprättas.
 
-Om du vill konfigurera och testa azure AD-enkel inloggning med SkyDesk-e-post måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med SkyDesk e-post i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera SkyDesk Email Single Sign-On](#configure-skydesk-email-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera SkyDesk E-mail Single Sign-on](#configure-skydesk-email-single-sign-on)** -för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa SkyDesk E-testanvändare](#create-skydesk-email-test-user)** - om du vill ha en motsvarighet till Britta Simon i SkyDesk-e-post som är länkad till Azure AD-representationen av användaren.
+5. **[Skapa SkyDesk email test User](#create-skydesk-email-test-user)** – om du vill ha en motsvarighet till Britta Simon i SkyDesk-e-post som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med SkyDesk-e-post:
+Utför följande steg för att konfigurera enkel inloggning med SkyDesk e-post i Azure AD:
 
-1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **SkyDesk-e-postprogram.** **Single sign-on**
+1. Välj **enkel inloggning**på sidan för **SkyDesk e-** postintegrering i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,18 +103,18 @@ Så här konfigurerar du en enkel Azure AD-inloggning med SkyDesk-e-post:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![SkyDesk e-postdomän och webbadresser enkel inloggningsinformation](common/sp-signonurl.png)
+    ![SkyDesk e-post domän och URL: er enkel inloggnings information](common/sp-signonurl.png)
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://mail.skydesk.jp/portal/<companyname>`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://mail.skydesk.jp/portal/<companyname>`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [SkyDesk e-postklientsupport för](https://www.skydesk.jp/apps/support/) att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [SkyDesk E-mail client support team](https://www.skydesk.jp/apps/support/) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera SkyDesk-e-post.**
+6. I avsnittet **Konfigurera SkyDesk e-post** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -124,15 +124,15 @@ Så här konfigurerar du en enkel Azure AD-inloggning med SkyDesk-e-post:
 
     c. Utloggnings-URL
 
-### <a name="configure-skydesk-email-single-sign-on"></a>Konfigurera SkyDesk-e-post enkel inloggning
+### <a name="configure-skydesk-email-single-sign-on"></a>Konfigurera SkyDesk e-post för enkel inloggning
 
-1. I en annan webbläsare loggar du in på ditt SkyDesk-e-postkonto som administratör.
+1. Logga in på ditt SkyDesk e-postkonto som administratör i en annan webbläsare.
 
-1. Klicka på **Inställningar**på menyn högst upp och välj **Org**.
+1. I menyn högst upp klickar du på **konfiguration**och väljer **org**.
 
     ![Konfigurera enkel inloggning](./media/skydeskemail-tutorial/tutorial_skydeskemail_51.png)
   
-1. Klicka på **Domäner** från den vänstra panelen.
+1. Klicka på **domäner** i den vänstra panelen.
 
     ![Konfigurera enkel inloggning](./media/skydeskemail-tutorial/tutorial_skydeskemail_53.png)
 
@@ -140,34 +140,34 @@ Så här konfigurerar du en enkel Azure AD-inloggning med SkyDesk-e-post:
 
     ![Konfigurera enkel inloggning](./media/skydeskemail-tutorial/tutorial_skydeskemail_54.png)
 
-1. Ange ditt domännamn och verifiera sedan domänen.
+1. Ange ditt domän namn och verifiera sedan domänen.
 
     ![Konfigurera enkel inloggning](./media/skydeskemail-tutorial/tutorial_skydeskemail_55.png)
 
-1. Klicka på **SAML-autentisering** från den vänstra panelen.
+1. Klicka på **SAML-autentisering** på den vänstra panelen.
 
     ![Konfigurera enkel inloggning](./media/skydeskemail-tutorial/tutorial_skydeskemail_52.png)
 
-1. Gör följande på dialogsidan **för SAML-autentisering:**
+1. Utför följande steg på dialog sidan **SAML-autentisering** :
 
     ![Konfigurera enkel inloggning](./media/skydeskemail-tutorial/tutorial_skydeskemail_56.png)
 
     > [!NOTE]
-    > Om du vill använda SAML-baserad autentisering bör du antingen ha **verifierad domän-** eller **portal-URL-konfiguration.** Du kan ange portal-URL:en med det unika namnet.
+    > Om du vill använda SAML-baserad autentisering bör du antingen ha **verifierad domän** -eller **portal-URL** -installation. Du kan ange portalens URL med det unika namnet.
 
     ![Konfigurera enkel inloggning](./media/skydeskemail-tutorial/tutorial_skydeskemail_57.png)
 
-    a. Klistra in värdet **för inloggnings-URL**i textrutan **Inloggnings-URL** , som du har kopierat från Azure-portalen.
+    a. I text rutan **inloggnings-URL** klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
 
-    b. Klistra in värdet för url för **utloggning**i textrutan **Logout** URL , som du har kopierat från Azure-portalen.
+    b. I text rutan **utloggnings** -URL klistrar du in värdet för **URL för utloggning**som du har kopierat från Azure Portal.
 
-    c. **Ändra lösenords-URL** är valfritt så lämna det tomt.
+    c. **Ändra lösen ordets URL** är valfritt så lämna det tomt.
 
-    d. Klicka på **Hämta nyckel från fil** för att välja ditt hämtade certifikat från Azure-portalen och klicka sedan på **Öppna** för att ladda upp certifikatet.
+    d. Klicka på **Hämta nyckel från fil** för att välja det hämtade certifikatet från Azure Portal och klicka sedan på **Öppna** för att ladda upp certifikatet.
 
     e. Som **Algoritm** väljer du **RSA**.
 
-    f. Klicka på **Ok** om du vill spara ändringarna.
+    f. Spara ändringarna genom att klicka på **OK** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -177,7 +177,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -196,15 +196,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till SkyDesk-e-post.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till SkyDesk e-post.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **SkyDesk-e-post**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **SkyDesk e-post**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **SkyDesk-e-post i**programlistan .
+2. I listan program väljer du **SkyDesk e-post**.
 
-    ![Länken SkyDesk e-post i programlistan](common/all-applications.png)
+    ![SkyDesk-e-postlänken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -216,32 +216,32 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-skydesk-email-test-user"></a>Skapa SkyDesk-e-posttestanvändare
+### <a name="create-skydesk-email-test-user"></a>Skapa SkyDesk e-test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i SkyDesk Email.
+I det här avsnittet skapar du en användare som heter Britta Simon i SkyDesk e-post.
 
-Klicka på **Användaråtkomst** från den vänstra panelen i SkyDesk E-post och ange sedan ditt användarnamn.
+Klicka på **användar åtkomst** på den vänstra panelen i SkyDesk e-post och ange ditt användar namn.
 
 ![Konfigurera enkel inloggning](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
 
 > [!NOTE]
-> Om du behöver skapa massanvändare måste du kontakta [SkyDesks supportteam för e-postklienten](https://www.skydesk.jp/apps/support/).
+> Om du behöver skapa Mass användare måste du kontakta [support teamet för SkyDesk e-postklient](https://www.skydesk.jp/apps/support/).
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på skydesk-e-panelen på åtkomstpanelen ska du automatiskt loggas in i skydesk-e-postmeddelandet som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen för SkyDesk e-post på åtkomst panelen, bör du loggas in automatiskt på SkyDesk-e-postmeddelandet som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

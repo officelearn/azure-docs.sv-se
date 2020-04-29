@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med T&E Express | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integration med T&E Express | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och T&E Express.
 services: active-directory
 documentationCenter: na
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 10ebe796f5aed827a4934a94d568aedbef704503
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "67088218"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Självstudiekurs: Azure Active Directory-integrering med T&E Express
+# <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Självstudie: Azure Active Directory integration med T&E Express
 
-I den här självstudien får du lära dig hur du integrerar T&E Express med Azure Active Directory (Azure AD).
-Genom att integrera T&E Express med Azure AD får du följande fördelar:
+I den här självstudien får du lära dig att integrera T&E Express med Azure Active Directory (Azure AD).
+Att integrera T&E Express med Azure AD ger följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till T&E Express.
-* Du kan aktivera dina användare automatiskt inloggad på T&E Express (Enkel inloggning) med sina Azure AD-konton.
+* Du kan styra Azure AD som har åtkomst till T&E Express.
+* Du kan göra det möjligt för användarna att logga in automatiskt till T&E Express (enkel inloggning) med deras Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med T&E Express behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* T&E Express enkel inloggning aktiverad prenumeration
+* T&prenumeration med E Express enkel inloggning aktive rad
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* T&E Express stöder **IDP-initierad** SSO
+* T&E Express stöder **IDP** -INITIERAd SSO
 
 ## <a name="adding-te-express-from-the-gallery"></a>Lägga till T&E Express från galleriet
 
-Om du vill konfigurera integreringen av T&E Express i Azure AD måste du lägga till T&E Express från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera en integrering av T&E Express till Azure AD måste du lägga till T&E Express från galleriet till listan över hanterade SaaS-appar.
 
-**Så här lägger du till T&E Express från galleriet:**
+**Gör så här om du vill lägga till en&E Express från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av T&E Express i Azure AD måste du lägga 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **T&E Express**, väljer T&E **Express** från resultatpanelen och klickar sedan på **Lägg** till knappen för att lägga till programmet.
+4. I sökrutan skriver du **t&E Express**, väljer **t&e Express** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-    ![T&E Express i resultatlistan](common/search-new-app.png)
+    ![T&E Express i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du azure AD enkel inloggning med T&E Express baserat på en testanvändare som heter **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i T&E Express upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med T&E Express baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i T&E Express upprättas.
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med T&E Express måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning i Azure AD med T&E Express måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera T&E Express Enkel inloggning](#configure-te-express-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera T&E Express enkel inloggning](#configure-te-express-single-sign-on)** -konfigurera för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa T&E Express-testanvändare](#create-te-express-test-user)** – om du vill ha en motsvarighet till Britta Simon i T&E Express som är länkad till Azure AD-representationen av användaren.
+5. **[Skapa t&e Express test User](#create-te-express-test-user)** – om du vill ha en motsvarighet till Britta Simon i T&E Express som är länkat till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med T&E Express:
+Utför följande steg för att konfigurera enkel inloggning för Azure AD med T&E Express:
 
-1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan T&E **Express-programintegration**. **T&E Express**
+1. I [Azure Portal](https://portal.azure.com/)på sidan **T&E Express** program integration väljer du **enkel inloggning**.
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,20 +103,20 @@ Så här konfigurerar du en enkel Azure AD-inloggning med T&E Express:
 
 4. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
 
-    ![T&E Express-domän och webbadresser med enkel inloggning](common/idp-intiated.png)
+    ![T&information om enkel inloggning med E Express-domän och URL: er](common/idp-intiated.png)
 
-    a. Skriv värdet som URL i textrutan **Identifierare** med följande mönster:`https://<domain>.tyeexpress.com`
+    a. I text rutan **identifierare** skriver du in värdet som URL med följande mönster:`https://<domain>.tyeexpress.com`
 
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
+    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Här föreslår vi att du använder det unika värdet för strängen i identifieraren. Kontakta [T&E Express Client support team](https://www.tyeexpress.com/contacto.aspx) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Här föreslår vi att du använder det unika värdet för strängen i identifieraren. Kontakta [T&E Express client support team](https://www.tyeexpress.com/contacto.aspx) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera T&E Express.**
+6. I avsnittet **Konfigurera T&E Express** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -128,17 +128,17 @@ Så här konfigurerar du en enkel Azure AD-inloggning med T&E Express:
 
 ### <a name="configure-te-express-single-sign-on"></a>Konfigurera T&E Express enkel inloggning
 
-1. Om du vill konfigurera enkel inloggning på **T-&E Express-sidan** loggar du in på T&E express-programmet utan SAML-enda inloggning med administratörsautentiseringsuppgifter.
+1. Om du vill konfigurera enkel inloggning på **t&e Express** -sida loggar du in på t&e Express-programmet utan att använda en enkel inloggning med hjälp av administratörs behörighet.
 
-1. Under **fliken Admin** klickar du på **SAML-domänen** för att öppna sidan SAML-inställningar.
+1. Klicka på **SAML-domän** under fliken **admin** för att öppna sidan SAML-inställningar.
 
     ![Konfigurera enkel inloggning](./media/tyeexpress-tutorial/tye-SAML.png)
 
-1. Välj alternativet **Activar(Activate)** från **Nej** till **SI(Ja)**. Klistra in metadata-XML som du har hämtat från Azure-portalen i textrutan **Identitetsprovidermetadata.**
+1. Välj alternativet **activar (aktivera)** från **no** till **si (Ja)**. I text rutan för **identitetsprovider i metadata** klistrar du in XML-metadata som du har laddat ned från Azure Portal.
 
     ![Konfigurera enkel inloggning](./media/tyeexpress-tutorial/tyeAdmin.png)
 
-1. Klicka på **Guardar (Save)** knappen för att spara inställningarna.
+1. Klicka på knappen **skydd (Spara)** för att spara inställningarna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -148,7 +148,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -167,15 +167,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till T&E Express.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till T&E Express.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan T&**E Express**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **T&E Express**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj T&**E Express**i programlistan .
+2. I listan program väljer du **T&E Express**.
 
-    ![T-&E Express-länken i listan Program](common/all-applications.png)
+    ![Länken T&E Express i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -187,27 +187,27 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-te-express-test-user"></a>Skapa T&E Express-testanvändare
+### <a name="create-te-express-test-user"></a>Skapa T&E Express test användare
 
-För att Azure AD-användare ska kunna logga in på T&E Express måste de etableras i T&E Express. När det gäller T&E Express är etablering en manuell uppgift.
+För att Azure AD-användare ska kunna logga in på T&E Express måste de vara etablerade i T&E Express. Om T&E Express är etableringen en manuell uppgift.
 
 **Utför följande steg för att tillhandahålla ett användarkonto:**
 
-1. Logga in på T&E Express-företagswebbplats som administratör.
+1. Logga in på din T&E Express-företags webbplats som administratör.
 
-1. Under Admin tagg, klicka på Användare för att öppna användarnas huvudsida.
+1. Klicka på användare under admin-tagg för att öppna användarens huvud sida.
 
     ![Lägga till medarbetare](./media/tyeexpress-tutorial/tye-adminusers.png)
 
-1. Klicka på hemsidan för **+** att lägga till användarna på startsidan.
+1. På Start sidan klickar du på på **+** för att lägga till användarna.
 
     ![Lägga till medarbetare](./media/tyeexpress-tutorial/tye-usershome.png)
 
-1. Ange alla obligatoriska uppgifter som efterfrågas i formuläret och klicka på spara-knappen för att spara informationen.
+1. Ange alla obligatoriska uppgifter som efter frågas i formuläret och klicka på knappen Spara för att spara informationen.
 
     ![Lägga till medarbetare](./media/tyeexpress-tutorial/tye-usersadd.png)
 
@@ -217,13 +217,13 @@ För att Azure AD-användare ska kunna logga in på T&E Express måste de etable
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen T&E Express på åtkomstpanelen ska du automatiskt loggas in på den T&E Express som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på ikonen T&E Express på åtkomst panelen, bör du loggas in automatiskt på T&E Express som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

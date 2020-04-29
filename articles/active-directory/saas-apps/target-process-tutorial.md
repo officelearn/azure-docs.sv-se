@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med TargetProcess | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med TargetProcess | Microsoft Docs'
 description: Lär dig att konfigurera enkel inloggning mellan Azure Active Directory och TargetProcess.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 60cd043c34ba2aee365c59feb38cc9dd02d45746
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67089048"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Självstudiekurs: Azure Active Directory-integrering med TargetProcess
+# <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Självstudie: Azure Active Directory integrering med TargetProcess
 
 I den här självstudien får du lära dig att integrera TargetProcess med Azure Active Directory (Azure AD).
 Om du integrerar TargetProcess med Azure AD får du följande fördelar:
@@ -32,7 +32,7 @@ Om du integrerar TargetProcess med Azure AD får du följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -78,7 +78,7 @@ För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD
 Om du vill konfigurera och testa enkel inloggning i Azure AD med TargetProcess, måste du slutföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Single Sign-On för TargetProcess](#configure-targetprocess-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera TargetProcess-enkel inloggning](#configure-targetprocess-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa testanvändare för TargetProcess](#create-targetprocess-test-user)** – för att få en motsvarighet till Britta Simon i TargetProcess som är länkad till en Azure AD-representation av användaren.
@@ -127,7 +127,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure ADmed Target
 
     c. Utloggnings-URL
 
-### <a name="configure-targetprocess-single-sign-on"></a>Konfigurera enkel inloggning i TargetProcess
+### <a name="configure-targetprocess-single-sign-on"></a>Konfigurera TargetProcess enkel inloggning
 
 1. Om du vill automatisera konfigurationen i **TargetProcess**, måste du installera **webbläsartillägget Enkel inloggning för mina appar** genom att klicka på **Installera tillägget**.
 
@@ -143,11 +143,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure ADmed Target
 
     ![Installation](./media/target-process-tutorial/tutorial_target_process_05.png)
 
-5. Klicka på fliken **Inställningar.**
+5. Klicka på fliken **Inställningar** .
 
     ![Inställningar](./media/target-process-tutorial/tutorial_target_process_06.png)
 
-6. Klicka på fliken **Enkel inloggning.**
+6. Klicka på fliken **enkel inloggning** .
 
     ![klicka på Enkel inloggning](./media/target-process-tutorial/tutorial_target_process_07.png)
 
@@ -157,7 +157,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure ADmed Target
 
     a. Klicka på **Aktivera enkel inloggning**.
 
-    b. Klistra in värdet **för inloggnings-URL-textrutan** som du har kopierat från Azure-portalen i textrutan För inloggning. **Login URL**
+    b. I text rutan **inloggnings-URL** klistrar du in värdet för **inloggnings-URL: en** som du har kopierat från Azure Portal.
 
     c. Öppna ditt nedladdade certifikatet i Anteckningar, kopiera innehållet och klistra sedan in det i textrutan **Certifikat**.
 
@@ -173,7 +173,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -183,7 +183,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -198,7 +198,7 @@ I det här avsnittet ser du till att Britta Simon ska kunna använda enkel inlog
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **TargetProcess**i programlistan .
+2. I listan program väljer du **TargetProcess**.
 
     ![Länken TargetProcess i programlistan](common/all-applications.png)
 
@@ -212,13 +212,13 @@ I det här avsnittet ser du till att Britta Simon ska kunna använda enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
 ### <a name="create-targetprocess-test-user"></a>Skapa TargetProcess-testanvändare
 
-I det här avsnittet skapas en användare som heter Britta Simon i TargetProcess. TargetProcess stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i TargetProcess skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som kallas Britta Simon i TargetProcess. TargetProcess stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i TargetProcess skapas en ny efter autentiseringen.
 
 > [!Note]
 > Om du vill skapa en användare manuellt, kontaktar du  [TargetProcess-supportteamet](mailto:support@targetprocess.com).
@@ -233,6 +233,6 @@ När du klickar på TargetProcess i åtkomstpanelen bör du bli automatiskt inlo
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 34ff0e792fc388f3083e2d490b2658822793988f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69906935"
 ---
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
@@ -87,7 +87,7 @@ public class GetLanguages {
 }
 ```
 
-Lägg till följande rader i klassen `GetLanguages`. Prenumerationsnyckeln och slutpunkten läss från miljövariabler:
+Lägg till följande rader i klassen `GetLanguages`. Du märker att prenumerations nyckeln och slut punkten läses från miljövariabler:
 
 ```java
 private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
@@ -95,7 +95,7 @@ private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
 String url = endpoint + "/languages?api-version=3.0";
 ```
 
-Om du använder en prenumeration med flera tjänster för `Ocp-Apim-Subscription-Region` Cognitive Services måste du också inkludera parametrarna i din begäran. [Läs mer om att autentisera med prenumerationen med flera tjänster](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Om du använder en Cognitive Services-prenumeration med flera tjänster måste du också ta med `Ocp-Apim-Subscription-Region` i parametrarna för begäran. [Lär dig mer om att autentisera med multi-service-prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="create-a-client-and-build-a-request"></a>Skapa en klient och en begäran
 
@@ -165,7 +165,7 @@ gradle run
 
 ## <a name="sample-response"></a>Exempelsvar
 
-Hitta lands-/regionförkortningen i den här [listan med språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Hitta lands-/region förkortningen i den här [listan över språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 

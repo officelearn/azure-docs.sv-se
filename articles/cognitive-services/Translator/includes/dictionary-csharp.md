@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 55ad3591a8c2e7d5de6d1efe255e0f3a4b3c11bd
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "69907056"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
@@ -43,9 +43,9 @@ using System.Text;
 using Newtonsoft.Json;
 ```
 
-## <a name="get-subscription-information-from-environment-variables"></a>Hämta prenumerationsinformation från miljövariabler
+## <a name="get-subscription-information-from-environment-variables"></a>Hämta prenumerations information från miljövariabler
 
-Lägg till följande `Program` rader i klassen. Dessa rader läser din prenumerationsnyckel och slutpunkt från miljövariabler och genererar ett fel om du stöter på några problem.
+Lägg till följande rader i- `Program` klassen. Dessa rader läser din prenumerations nyckel och slut punkt från miljövariabler och genererar ett fel om du stöter på problem.
 
 ```csharp
 private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
@@ -84,7 +84,7 @@ static void AltTranslation()
 
 ## <a name="construct-the-uri"></a>Konstruera URI
 
-Lägg till följande rader i funktionen `AltTranslation`. Du kommer att märka `api-version`att tillsammans med , två ytterligare parametrar har deklarerats. Dessa parametrar används för att ange indata och utdata för översättning. I det här exemplet är dessa engelska (`en`) och spanska (`es`).
+Lägg till följande rader i funktionen `AltTranslation`. Du kommer att märka att tillsammans med `api-version`de två ytterligare parametrarna har deklarerats. Dessa parametrar används för att ange indata och utdata för översättning. I det här exemplet är dessa engelska (`en`) och spanska (`es`).
 
 ```csharp
 string route = "/dictionary/lookup?api-version=3.0";
@@ -146,7 +146,7 @@ Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
 ```
 
-Lägg `PrettyPrint` till formatering i JSON-svaret:
+Lägg `PrettyPrint` till för att lägga till FORMATERING i JSON-svaret:
 ```csharp
 static string PrettyPrint(string s)
 {
@@ -154,7 +154,7 @@ static string PrettyPrint(string s)
 }
 ```
 
-Om du använder en prenumeration med flera tjänster för `Ocp-Apim-Subscription-Region` Cognitive Services måste du också inkludera parametrarna i din begäran. [Läs mer om att autentisera med prenumerationen med flera tjänster](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Om du använder en Cognitive Services-prenumeration med flera tjänster måste du också ta med `Ocp-Apim-Subscription-Region` i parametrarna för begäran. [Lär dig mer om att autentisera med multi-service-prenumerationen](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 

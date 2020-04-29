@@ -9,17 +9,17 @@ ms.date: 10/07/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c1f83303c3f186b37c1c5c06e61c2263420c0cfa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72028039"
 ---
-1. Navigera till sidan Virtuellt WAN. Klicka på **+Skapa en resurs** i portalen. Skriv **Virtuellt WAN** i sökrutan och välj Retur.
-1. Välj **Virtuellt WAN** i resultatet. Klicka på **Skapa**på sidan Virtuellt WAN.
-1. Fyll i följande fält på sidan **Skapa WAN:**
+1. Gå till den virtuella WAN-sidan. Klicka på **+Skapa en resurs** i portalen. Skriv det **virtuella WAN-nätverket** i sökrutan och välj RETUR.
+1. Välj **virtuellt WAN** från resultaten. På den virtuella WAN-sidan klickar du på **skapa**.
+1. Fyll i följande fält på sidan **skapa WAN** :
 
-   * **Namn** - Skriv det namn som du vill kalla ditt WAN.
+   * **Namn** – ange det namn som du vill anropa ditt WAN.
    * **Prenumeration** – Välj vilken prenumeration du vill använda.
    * **Resursgrupp** – Skapa ny eller använd befintlig.
    * **Resursplats** – Välj en resursplats i listrutan. Ett WAN är en global resurs och är inte kopplad till en viss region. Du måste dock välja en region för att lättare att hantera och leta upp WAN-resursen som du skapar.

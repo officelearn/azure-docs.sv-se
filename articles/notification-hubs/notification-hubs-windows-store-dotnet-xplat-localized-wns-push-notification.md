@@ -18,13 +18,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 4ccf62dd8a249c9ba23bbb4510164b35a58db917
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72387404"
 ---
-# <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>Självstudiekurs: Skicka lokaliserade push-meddelanden till Windows-appar med Azure Notification Hubs
+# <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>Självstudie: skicka lokaliserade push-meddelanden till Windows-appar med hjälp av Azure Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Windows Store C #](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
@@ -39,7 +39,7 @@ Den här kursen visar hur du kan skicka lokaliserade meddelanden till mobila enh
 
 När du är klar med självstudiekursen låter det mobila programmet dig registrera dig för kategorier som du är intresserad av och även ange på vilket språk meddelandena ska tas emot. Serverdelsprogrammet skickar meddelanden som är lokaliserade efter språk och enhet.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Uppdatera Windows-appen så att den stödjer språkinformation
@@ -196,7 +196,7 @@ Mer information om mallar finns i avsnittet om [push-mallar](notification-hubs-t
 
 ## <a name="run-the-uwp-application"></a>Kör UWP-programmet
 
-1. Kör programmet Universell Windows-plattform. Vänta tills du ser meddelandet **Registreringen lyckades**.
+1. Kör Universell Windows-plattform-programmet. Vänta tills du ser meddelandet **Registreringen lyckades**.
 
     ![Mobilprogram och registrering](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
 2. Välj **kategorier** och **språk** och klicka på **Prenumerera**. Appen konverterar de valda kategorierna till taggar och begär en ny enhetsregistrering för de valda taggarna från meddelandehubben.
@@ -206,7 +206,7 @@ Mer information om mallar finns i avsnittet om [push-mallar](notification-hubs-t
 
     ![Prenumerationsmeddelande](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
 
-## <a name="update-console-app-to-send-localized-notifications"></a>Uppdatera konsolapp för att skicka lokaliserade meddelanden
+## <a name="update-console-app-to-send-localized-notifications"></a>Uppdatera konsol program för att skicka lokaliserade meddelanden
 
 När du skickar mallmeddelanden behöver du bara ange en uppsättning egenskaper. I den här självstudiekursen skickar serverdelsprogrammet en uppsättning egenskaper som innehåller den lokaliserade versionen av senaste nytt:
 
@@ -259,8 +259,8 @@ private static async void SendTemplateNotificationAsync()
 
 Detta enkla anrop levererar de lokaliserade nyheterna till **alla** enheter, oavsett plattform, eftersom din meddelandehubb skapar och levererar korrekt intern nyttolast för alla enheter som prenumererar på en specifik tagg.
 
-## <a name="run-console-app-to-send-localized-notification"></a>Kör konsolapp för att skicka lokaliserad avisering
-Kör **konsolappen** för att skicka meddelanden för varje kategori och på varje språk som stöds. Kontrollera att du bara får ett meddelande i de kategorier som du prenumererar på och meddelandet gäller för det språk du valt.
+## <a name="run-console-app-to-send-localized-notification"></a>Köra en konsol app för att skicka lokaliserad avisering
+Kör- **konsol programmet** för att skicka meddelanden för varje kategori och för varje språk som stöds. Kontrollera att du bara får ett meddelande i de kategorier som du prenumererar på och meddelandet gäller för det språk du valt.
 
 ![Meddelanden](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
 

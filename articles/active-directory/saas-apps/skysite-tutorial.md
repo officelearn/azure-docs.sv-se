@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med SKYSITE | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SKYSITE | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SKYSITE.
 services: active-directory
 documentationCenter: na
@@ -17,163 +17,163 @@ ms.date: 08/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 93ef7f4201e9613cc6fa4391bc28d257272fa1c7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "72026125"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-skysite"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med SKYSITE
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-skysite"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SKYSITE
 
 I den här självstudien får du lära dig hur du integrerar SKYSITE med Azure Active Directory (Azure AD). När du integrerar SKYSITE med Azure AD kan du:
 
 * Kontroll i Azure AD som har åtkomst till SKYSITE.
-* Gör att användarna automatiskt loggas in på SKYSITE med sina Azure AD-konton.
-* Hantera dina konton på en central plats - Azure-portalen.
+* Gör det möjligt för användarna att logga in automatiskt till SKYSITE med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* Skysite enkel inloggning (SSO) aktiverad prenumeration.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* SKYSITE för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* SKYSITE stöder **IDP-initierad** SSO
+* SKYSITE stöder **IDP** INITIERAd SSO
 
-* SKYSITE stöder just in time-användaretablering **Just In Time**
+* SKYSITE stöder **just-in-Time** User-etablering
 
 ## <a name="adding-skysite-from-the-gallery"></a>Lägga till SKYSITE från galleriet
 
 Om du vill konfigurera integreringen av SKYSITE i Azure AD måste du lägga till SKYSITE från galleriet i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
-1. Navigera till **företagsprogram** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **SKYSITE** i sökrutan i avsnittet **Lägg till från galleriet.**
-1. Välj **SKYSITE** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **SKYSITE** i sökrutan.
+1. Välj **SKYSITE** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-skysite"></a>Konfigurera och testa en azure AD-inloggning för SKYSITE
+## <a name="configure-and-test-azure-ad-single-sign-on-for-skysite"></a>Konfigurera och testa enkel inloggning med Azure AD för SKYSITE
 
-Konfigurera och testa Azure AD SSO med SKYSITE med hjälp av en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i SKYSITE.
+Konfigurera och testa Azure AD SSO med SKYSITE med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i SKYSITE.
 
-Så här konfigurerar och testar du Azure AD SSO med SKYSITE:
+Om du vill konfigurera och testa Azure AD SSO med SKYSITE, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
-    1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
-1. **[Konfigurera SKYSITE SSO](#configure-skysite-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
-    1. **[Skapa SKYSITE-testanvändare](#create-skysite-test-user)** – om du vill ha en motsvarighet till B.Simon i SKYSITE som är länkad till Azure AD-representationen av användaren.
-1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera SKYSITE SSO](#configure-skysite-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa SKYSITE test User](#create-skysite-test-user)** -om du vill ha en motsvarighet till B. Simon i SKYSITE som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. På sidan **SkysITE-programintegrering** i [Azure-portalen](https://portal.azure.com/)klickar du på **fliken Egenskaper** och utför följande steg: 
+1. Klicka på **fliken Egenskaper** på sidan **SKYSITE** Application Integration i [Azure Portal](https://portal.azure.com/)och utför följande steg: 
 
     ![Egenskaper för enkel inloggning](./media/skysite-tutorial/config05.png)
 
-    * Kopiera **användaråtkomst-URL:en** och du måste klistra in den i **avsnittet Konfigurera SKYSITE SSO**, vilket förklaras senare i självstudien.
+    * Kopiera **URL: en för användar åtkomst** och du måste klistra in den i **avsnittet Konfigurera SKYSITE SSO**, som beskrivs senare i självstudien.
 
-1. På sidan För integrering av **SKYSITE-program** navigerar du till **enkel inloggning**.
-1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **SKYSITE** Application Integration navigerar du till **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **Grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP-initierat** läge och nödvändiga url:er är redan förifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på **knappen Spara.**
+1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP** initierat läge och de nödvändiga URL: erna redan är i förväg ifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **Spara** .
 
-1. SKYSITE-programmet förväntar sig SAML-påståenden i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
+1. SKYSITE-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
 
     ![image](common/edit-attribute.png)
 
-1. Utöver ovanstående förväntar sig SKYSITE-programmet att få fler attribut skickas tillbaka i SAML-svar. Gör följande i avsnittet **Användarattribut & anspråk** i dialogrutan **Gruppanspråk (förhandsversion):**
+1. Utöver ovan förväntar sig SKYSITE-programmet att fler attribut skickas tillbaka i SAML-svar. I avsnittet **användarattribut &-anspråk** i dialog rutan **grupp anspråk (förhands granskning)** utför du följande steg:
 
-    a. Klicka på **pennan** **bredvid Grupper som returneras i anspråk**.
+    a. Klicka på **pennan** bredvid **grupper som returneras i anspråk**.
 
     ![image](./media/skysite-tutorial/config01.png)
 
     ![image](./media/skysite-tutorial/config02.png)
 
-    b. Välj **Alla grupper** i radiolistan.
+    b. Välj **alla grupper** i alternativ listan.
 
-    c. Välj **källattribut för** **grupp-ID**.
+    c. Välj **källattribut** för **grupp-ID**.
 
     d. Klicka på **Spara**.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** i avsnittet **SAML-signeringscertifikat** hittar du **Certifikat (Base64)** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. Kopiera lämpliga webbadresser baserat på dina behov i avsnittet **Konfigurera SKYSITE.**
+1. I avsnittet **Konfigurera SKYSITE** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
-1. Välj **Ny användare** högst upp på skärmen.
-1. Gör så här i egenskaperna **Användare:**
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till SKYSITE.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till SKYSITE.
 
-1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
-1. Välj **SKYSITE**i programlistan .
-1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **SKYSITE**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
 ### <a name="configure-skysite-sso"></a>Konfigurera SKYSITE SSO
 
-1. Öppna ett nytt webbläsarfönster och logga in på skysite-företagets webbplats som administratör och utför följande steg:
+1. Öppna ett nytt webbläsarfönster och logga in på din SKYSITE-företags webbplats som administratör och utför följande steg:
 
-4. Klicka på **Inställningar** längst upp till höger på sidan och navigera sedan till **kontoinställning**.
+4. Klicka på **Inställningar** på den övre högra sidan av sidan och gå sedan till **konto inställningen**.
 
     ![Konfiguration](./media/skysite-tutorial/config03.png)
 
-5. Växla till fliken **Enkel inloggning (SSO)** gör du följande:
+5. Växla till fliken **enkel inloggning (SSO)** och utför följande steg:
 
     ![Konfiguration](./media/skysite-tutorial/config04.png)
 
-    a. Klistra in värdet för **användaråtkomst-URL**i textrutan **Identitetsprovider** logga in , som du har kopierat från **egenskapsfliken** i Azure-portalen.
+    a. I text rutan **identitets leverantörens inloggnings-URL** klistrar du in värdet för **URL för användar åtkomst**som du har kopierat från fliken **Egenskaper** i Azure Portal.
 
-    b. Klicka på **Ladda upp certifikat**om du vill ladda upp det Base64-kodade certifikat som du har hämtat från Azure-portalen.
+    b. Klicka på **överför certifikat**för att överföra Base64-kodat certifikat som du har laddat ned från Azure Portal.
 
     c. Klicka på **Spara**.
 
-### <a name="create-skysite-test-user"></a>Skapa SKYSITE-testanvändare
+### <a name="create-skysite-test-user"></a>Skapa SKYSITE test användare
 
-I det här avsnittet skapas en användare som heter Britta Simon i SKYSITE. SKYSITE stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i SKYSITE skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som kallas Britta Simon i SKYSITE. SKYSITE stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i SKYSITE skapas en ny efter autentiseringen.
 
 ## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på SKYSITE-panelen på åtkomstpanelen ska du automatiskt loggas in på den SKYSITE som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen SKYSITE på åtkomst panelen, bör du loggas in automatiskt på den SKYSITE som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

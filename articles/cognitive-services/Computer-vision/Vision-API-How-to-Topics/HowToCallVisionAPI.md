@@ -1,7 +1,7 @@
 ---
 title: Anropa API:et för visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du anropar API:et för datorseende med hjälp av REST API i Azure Cognitive Services.
+description: Lär dig hur du anropar API för visuellt innehåll med hjälp av REST API i Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -12,60 +12,60 @@ ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 298228eedb73298f00654f4f72c201d9ed671090
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "72177049"
 ---
 # <a name="call-the-computer-vision-api"></a>Anropa API:et för visuellt innehåll
 
-Den här artikeln visar hur du anropar API:et för datorseende med hjälp av REST API.This article demonstrates how to call the Computer Vision API by using the REST API. Exemplen skrivs både i C# med hjälp av computer vision API-klientbiblioteket och som HTTP POST- eller GET-anrop. Artikeln fokuserar på:
+Den här artikeln visar hur du anropar API för visuellt innehåll med hjälp av REST API. Exemplen skrivs både i C# med hjälp av API för visuellt innehåll klient biblioteket och som HTTP POST eller GET-anrop. Artikeln fokuserar på:
 
 - Hämta taggar, en beskrivning och kategorier
-- Hämta domänspecifik information, eller "kändisar"
+- Hämta domänbaserad information eller "kändisar"
 
 ## <a name="prerequisites"></a>Krav
 
-- En bild-URL eller en sökväg till en lokalt lagrad bild
-- Inmatningsmetoder som stöds: en binär rå bild i form av en application/octet-stream eller en bild-URL
-- Bildfilformat som stöds: JPEG, PNG, GIF och BMP
-- Bildfilstorlek: 4 MB eller mindre
-- Bilddimensioner: 50 &times; 50 pixlar eller mer
+- En bild-URL eller en sökväg till en lokalt lagrad avbildning
+- Indata metoder som stöds: en RAW-bildbinärfil i form av en program/oktett-Stream eller en bild-URL
+- Avbildnings fil format som stöds: JPEG, PNG, GIF och BMP
+- Bild fils storlek: 4 MB eller mindre
+- Bild dimensioner: 50 &times; 50 pixlar eller mer
   
-Exemplen i den här artikeln visar följande funktioner:
+I exemplen i den här artikeln demonstreras följande funktioner:
 
 * Analysera en bild för att returnera en matris med taggar och en beskrivning
-* Analysera en bild med en domänspecifik modell (särskilt "kändisar"-modellen) för att returnera motsvarande resultat i JSON
+* Analysera en avbildning med en domänbaserad modell (särskilt "kändisar"-modellen) för att returnera motsvarande resultat i JSON
 
 Funktionerna erbjuder följande alternativ:
 
-- **Alternativ 1:** Scoped Analysis - Analysera endast en angiven modell
-- **Alternativ 2:** Förbättrad analys - Analysera för att ge ytterligare information med hjälp av [86 kategorier taxonomi](../Category-Taxonomy.md)
+- **Alternativ 1**: analys med omfång – analysera bara en angiven modell
+- **Alternativ 2**: förbättrad analys – analysera för att tillhandahålla ytterligare information genom att använda [86-kategorier, taxonomi](../Category-Taxonomy.md)
   
 ## <a name="authorize-the-api-call"></a>Auktorisera API-anropet
 
-Varje anrop till ett API för visuellt innehåll kräver en prenumerationsnyckel. Den här nyckeln måste antingen skickas genom en frågesträngparameter eller anges i begäranden.
+Varje anrop till ett API för visuellt innehåll kräver en prenumerationsnyckel. Den här nyckeln måste antingen skickas via en frågeparameter-parameter eller anges i begär ande huvudet.
 
-Gör något av följande om du vill ha en kostnadsfri utvärderingsversion:
-* Gå till sidan [Prova kognitiva tjänster.](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision) 
-* Gå till sidan [Skapa ett cognitive services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Datorseende.
+Gör något av följande för att få en kostnads fri utvärderings nyckel:
+* Gå till sidan [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision) . 
+* Gå till sidan [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) om du vill prenumerera på visuellt innehåll.
 
-Du kan skicka prenumerationsnyckeln genom att göra något av följande:
+Du kan skicka prenumerations nyckeln genom att göra något av följande:
 
-* Skicka den genom en frågesträng, som i det här API-exemplet för datorseende:
+* Skicka den via en frågesträng, som i det här API för visuellt innehåll exempel:
 
   ```
   https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
   ```
 
-* Ange det i HTTP-begäranden:
+* Ange den i rubriken HTTP-begäran:
 
   ```
   ocp-apim-subscription-key: <Your subscription key>
   ```
 
-* När du använder klientbiblioteket skickar du nyckeln genom konstruktorn för ComputerVisionClient och anger regionen i en egenskap för klienten:
+* När du använder klient biblioteket skickar du nyckeln genom ComputerVisionClient-konstruktorn och anger regionen i en egenskap för klienten:
 
     ```
     var visionClient = new ComputerVisionClient(new ApiKeyServiceClientCredentials("Your subscriptionKey"))
@@ -74,13 +74,13 @@ Du kan skicka prenumerationsnyckeln genom att göra något av följande:
     }
     ```
 
-## <a name="upload-an-image-to-the-computer-vision-api-service"></a>Ladda upp en bild till API-tjänsten Computer Vision
+## <a name="upload-an-image-to-the-computer-vision-api-service"></a>Ladda upp en avbildning till API för visuellt innehåll tjänsten
 
-Det grundläggande sättet att utföra API-anropet för visuellt innehåll är att ladda upp en bild direkt för att returnera taggar, en beskrivning och kändisar. Du gör detta genom att skicka en "POST"-begäran med den binära bilden i HTTP-brödtexten tillsammans med data som läs av bilden. Uppladdningsmetoden är densamma för alla API-anrop för datorseende. Den enda skillnaden är de frågeparametrar som du anger. 
+Det grundläggande sättet att utföra API för visuellt innehåll-anropet är genom att ladda upp en avbildning direkt för att returnera taggar, en beskrivning och kändisar. Du gör detta genom att skicka en "POST"-begäran med den binära avbildningen i HTTP-innehållet tillsammans med data som läses från avbildningen. Överförings metoden är samma för alla API för visuellt innehåll-anrop. Den enda skillnaden är de frågeparametrar som du anger. 
 
-För en angiven bild får du taggar och en beskrivning med något av följande alternativ:
+Hämta Taggar och en beskrivning för en angiven avbildning med något av följande alternativ:
 
-### <a name="option-1-get-a-list-of-tags-and-a-description"></a>Alternativ 1: Få en lista med taggar och en beskrivning
+### <a name="option-1-get-a-list-of-tags-and-a-description"></a>Alternativ 1: Hämta en lista över taggar och en beskrivning
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
@@ -100,16 +100,16 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 }
 ```
 
-### <a name="option-2-get-a-list-of-tags-only-or-a-description-only"></a>Alternativ 2: Få en lista med taggar eller endast en beskrivning
+### <a name="option-2-get-a-list-of-tags-only-or-a-description-only"></a>Alternativ 2: Hämta endast en lista med taggar eller en beskrivning
 
-Endast för taggar kör du:
+Kör följande endast för Taggar:
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.1/tag?subscription-key=<Your subscription key>
 var tagResults = await visionClient.TagImageAsync("http://contoso.com/example.jpg");
 ```
 
-Kör endast en beskrivning:
+För en beskrivning, kör:
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.1/describe?subscription-key=<Your subscription key>
@@ -119,9 +119,9 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 }
 ```
 
-## <a name="get-domain-specific-analysis-celebrities"></a>Få domänspecifik analys (kändisar)
+## <a name="get-domain-specific-analysis-celebrities"></a>Hämta domänbaserad analys (kändisar)
 
-### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>Alternativ 1: Begränsad analys - Analysera endast en angiven modell
+### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>Alternativ 1: analys med omfång – analysera bara en angiven modell
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.1/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
@@ -134,17 +134,17 @@ GET https://westus.api.cognitive.microsoft.com/vision/v2.1/models
 var models = await visionClient.ListModelsAsync();
 ```
 
-### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-86-categories-taxonomy"></a>Alternativ 2: Förbättrad analys - Analysera för att ge ytterligare information med hjälp av 86 kategorier taxonomi
+### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-86-categories-taxonomy"></a>Alternativ 2: förbättrad analys – analysera för att tillhandahålla ytterligare information genom att använda 86-kategorier, taxonomi
 
-För program där du vill få en allmän bildanalys utöver information från en eller flera domänspecifika modeller utökar du v1 API:et med hjälp av parametern models query.
+För program där du vill hämta en allmän bild analys utöver information från en eller flera domänbaserade modeller utökar du v1-API: et genom att använda parametrarna för modeller.
 
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?details=celebrities
 ```
 
-När du anropar den här metoden anropar du först klassificeraren i [86-kategori.](../Category-Taxonomy.md) Om någon av kategorierna matchar en känd eller matchande modell sker ett andra pass av klassificeraranrop. Om till exempel "details=all" eller "details" innehåller "kändisar" ringer du kändisarmodellen när du har ringt klassificeraren i 86 kategorier. I resultatet ingår kategoripersonen. I motsats till alternativ 1 ökar den här metoden latensen för användare som är intresserade av kändisar.
+När du anropar den här metoden anropar du först [86-kategori-](../Category-Taxonomy.md) klassificeraren. Om någon av kategorierna stämmer överens med en känd eller matchande modell sker ett andra steg i klassificeringen av klassificeraren. Om t. ex. "information = all" eller "information" innehåller "kändisar" anropar du kändisar-modellen när du anropar klassificeraren 86-kategori. Resultatet inkluderar kategori personen. Till skillnad från alternativ 1 ökar den här metoden svars tiden för användare som är intresserade av kändisar.
 
-I det här fallet fungerar alla v1-frågeparametrar på samma sätt. Om du inte anger visualFeatures=categories är det implicit aktiverat.
+I det här fallet fungerar alla v1-frågeparametrar på samma sätt. Om du inte anger visualFeatures = kategorier aktive ras den implicit.
 
 ## <a name="retrieve-and-understand-the-json-output-for-analysis"></a>Hämta och förstå JSON-utdata för analys
 
@@ -180,18 +180,18 @@ Här är ett exempel:
 Field | Typ | Innehåll
 ------|------|------|
 Taggar  | `object` | Objektet på den översta nivån för en matris med taggar.
-tags[].Name | `string`  | Nyckelordet från taggarklassificeraren.
-tags[].Score    | `number`  | Självförtroendet, 0–1.
+tags[].Name | `string`  | Nyckelordet från taggarnas klassificerare.
+tags[].Score    | `number`  | Förtroende poängen, mellan 0 och 1.
 description  | `object` | Objektet på den översta nivån för en beskrivning.
-description.tags[] |    `string`    | Listan över taggar.  Om det inte finns tillräckligt förtroende för möjligheten att skapa en bildtext kan taggarna vara den enda information som är tillgänglig för den som ringer.
+description.tags[] |    `string`    | Listan med taggar.  Om det inte finns tillräckligt med förtroende för möjligheten att skapa en bildtext kan taggarna vara den enda information som är tillgänglig för anroparen.
 description.captions[].text | `string`  | En mening som beskriver bilden.
-description.captions[].confidence   | `number`  | Konfidenspoängen för frasen.
+description.captions[].confidence   | `number`  | Förtroende poängen för frasen.
 
-## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Hämta och förstå JSON-utdata för domänspecifika modeller
+## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Hämta och förstå JSON-utdata för domänbaserade modeller
 
-### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>Alternativ 1: Begränsad analys - Analysera endast en angiven modell
+### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>Alternativ 1: analys med omfång – analysera bara en angiven modell
 
-Utdata är en matris med taggar, som visas i följande exempel:
+Utdata är en matris med taggar, som du ser i följande exempel:
 
 ```json
 {  
@@ -208,9 +208,9 @@ Utdata är en matris med taggar, som visas i följande exempel:
 }
 ```
 
-### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-the-86-categories-taxonomy"></a>Alternativ 2: Förbättrad analys - Analysera för att ge ytterligare information med hjälp av taxonomi i "86 kategorier"
+### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-the-86-categories-taxonomy"></a>Alternativ 2: förbättrad analys – analysera för att tillhandahålla ytterligare information genom att använda "86-Categories"-taxonomin
 
-För domänspecifika modeller med alternativ 2 (förbättrad analys) utökas kategoriernas returtyp, vilket visas i följande exempel:
+För företagsspecifika modeller som använder alternativ 2 (utökad analys) utökas kategoriernas retur typ, som visas i följande exempel:
 
 ```json
 {  
@@ -237,20 +237,20 @@ För domänspecifika modeller med alternativ 2 (förbättrad analys) utökas kat
 }
 ```
 
-Kategorifältet är en lista över en eller flera av de [86 kategorierna](../Category-Taxonomy.md) i den ursprungliga taxonomin. Kategorier som slutar i ett understreck matchar den kategorin och dess underordnade (till exempel "people_" eller "people_group" för kändisarmodellen).
+Fältet kategorier är en lista över en eller flera av 86- [kategorierna](../Category-Taxonomy.md) i den ursprungliga taxonomin. Kategorier som slutar med ett under streck matchar kategorin och dess underordnade objekt (till exempel "people_" eller "people_group" för kändisar-modellen).
 
 Field   | Typ  | Innehåll
 ------|------|------|
 kategorier | `object`   | Objektet på den översta nivån.
-categories[].name    | `string` | Namnet från taxonomilistan med 86 kategorier.
-categories[].score  | `number`  | Självförtroendet, 0–1.
-categories[].detail  | `object?`      | (Valfritt) Detaljobjektet.
+categories[].name    | `string` | Namnet från listan med taxonomier i 86-kategori.
+categories[].score  | `number`  | Förtroende poängen, mellan 0 och 1.
+categories[].detail  | `object?`      | Valfritt Objektet detaljerat.
 
-Om flera kategorier matchar (till exempel 86-kategoriklassificeraren returnerar en poäng för både "people_" och "people_young", när modell=kändisar) kopplas informationen till den mest allmänna nivåmatchningen ("people_", i det exemplet).
+Om flera kategorier matchar varandra (till exempel om en klassificerare i 86-kategori returnerar en poäng för både "people_" och "people_young", när Model = kändisar), är informationen kopplad till den mest generella nivån ("people_" i det här exemplet).
 
-## <a name="error-responses"></a>Felsvar
+## <a name="error-responses"></a>Fel svar
 
-Dessa fel är identiska med dem i vision.analyze, med ytterligare inte stödsmodel fel (HTTP 400), som kan returneras i både alternativ 1 och alternativ 2 scenarier. För alternativ 2 (förbättrad analys), om någon av de modeller som anges i informationen inte känns igen, returnerar API:et en NotSupportedModel, även om en eller flera av dem är giltiga. Om du vill ta reda på vilka modeller som stöds kan du anropa listModels.
+Dessa fel är identiska med de som är i syn. analysera, med ytterligare NotSupportedModel-fel (HTTP 400), som kan returneras i båda scenarierna alternativ 1 och alternativ 2. För alternativ 2 (utökad analys), om någon av de modeller som anges i informationen inte känns igen, returnerar API: t en NotSupportedModel, även om en eller flera av dem är giltiga. För att ta reda på vilka modeller som stöds kan du anropa List mod Els.
 
 ## <a name="next-steps"></a>Nästa steg
 

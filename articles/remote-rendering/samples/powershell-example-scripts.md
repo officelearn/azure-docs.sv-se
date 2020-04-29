@@ -1,52 +1,52 @@
 ---
 title: PowerShell-exempelskript
-description: Exempel som visar hur du använder klientdelen via PowerShell-skript
+description: Exempel som visar hur du använder klient delen via PowerShell-skript
 author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
 ms.openlocfilehash: c45d2fc34ccbab6d813f12563678d036f9f35753
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80891500"
 ---
 # <a name="example-powershell-scripts"></a>PowerShell-exempelskript
 
-Azure Remote Rendering innehåller följande två REST API:er:
+Azure Remote rendering innehåller följande två REST-API: er:
 
-- [REST-API för konvertering](../how-tos/conversion/conversion-rest-api.md)
-- [REST-API för session](../how-tos/session-rest-api.md)
+- [Konverterings REST API](../how-tos/conversion/conversion-rest-api.md)
+- [Session REST API](../how-tos/session-rest-api.md)
 
-[ARR-exempeldatabasen](https://github.com/Azure/azure-remote-rendering) innehåller exempelskript i mappen Skript för interaktion med *TJÄNSTENS* REST-API:er. I den här artikeln beskrivs deras användning.
+[Plats exemplen för arr](https://github.com/Azure/azure-remote-rendering) innehåller exempel skript i mappen *skript* för att interagera med REST-API: erna för tjänsten. I den här artikeln beskrivs användningen.
 
 ## <a name="prerequisites"></a>Krav
 
-För att köra exempelskripten behöver du en funktionell installation av [Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Om du vill köra exempel skripten behöver du en fungerande installation av [Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 1. Installera Azure PowerShell:
-    1. Öppna ett PowerShell med administratörsrättigheter
-    1. Köra:`Install-Module -Name Az -AllowClobber`
+    1. Öppna en PowerShell med administratörs behörighet
+    1. Fungerar`Install-Module -Name Az -AllowClobber`
 
-1. Om du får fel om att köra skript kontrollerar du att [körningsprincipen](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) är inställd på rätt sätt:
-    1. Öppna ett PowerShell med administratörsrättigheter
-    1. Köra:`Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
+1. Om du får problem med att köra skript, se till att [körnings principen](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) är korrekt inställd:
+    1. Öppna en PowerShell med administratörs behörighet
+    1. Fungerar`Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
 
 1. [Förbereda ett Azure Storage-konto](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts)
 
-1. Logga in på din prenumeration som innehåller ditt Azure Remote Rendering-konto:
-    1. Öppna ett PowerShell
+1. Logga in på din prenumeration som innehåller ditt Azure-konto för fjärrrendering:
+    1. Öppna en PowerShell
     1. Kör: `Connect-AzAccount` och följ anvisningarna på skärmen.
 
 > [!NOTE]
-> Om din organisation har mer än en prenumeration kan du behöva ange argumenten SubscriptionId och Tenant. Hitta information i [Dokumentationen för Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+> Om din organisation har mer än en prenumeration kan du behöva ange SubscriptionId-och klient argument. Mer information finns i [dokumentationen för Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
 
-1. Hämta *mappen Skript* från [Azure Remote Rendering GithHub-databasen](https://github.com/Azure/azure-remote-rendering).
+1. Hämta mappen *skript* från GithHub- [lagringsplatsen för Azure Remote rendering](https://github.com/Azure/azure-remote-rendering).
 
 ## <a name="configuration-file"></a>Konfigurationsfil
 
-Bredvid `.ps1` filerna finns en `arrconfig.json` som du måste fylla i:
+Bredvid `.ps1` filerna finns det en `arrconfig.json` som du måste fylla i:
 
 ```json
 {
@@ -74,50 +74,50 @@ Bredvid `.ps1` filerna finns en `arrconfig.json` som du måste fylla i:
 ```
 
 > [!CAUTION]
-> Se till att korrekt escape backslashes i LocalAssetDirectoryPath sökvägen\\\\med hjälp av dubbla omvänt snedstreck: " " och använda framåt snedstreck "/" i alla andra banor som inputFolderPath och inputAssetPath.
+> Se till att du på ett korrekt sätt kan kringgå omvänt snedstreck i LocalAssetDirectoryPath-sökvägen med dubbla omvända snedstreck: "\\\\" och Använd snedstreck "/" i alla andra sökvägar som inputFolderPath och inputAssetPath.
 
-### <a name="accountsettings"></a>kontoInställningar
+### <a name="accountsettings"></a>accountSettings
 
-För `arrAccountId` `arrAccountKey`och finns i [Skapa ett Azure Remote Rendering-konto](../how-tos/create-an-account.md).
-Se `region` [listan över tillgängliga regioner](../reference/regions.md).
+Mer information finns `arrAccountId` i [skapa ett konto för Azure Remote rendering.](../how-tos/create-an-account.md) `arrAccountKey`
+`region` Se [listan över tillgängliga regioner](../reference/regions.md).
 
 ### <a name="renderingsessionsettings"></a>renderingSessionSettings
 
-Den här strukturen måste fyllas i om du vill köra **RenderingSession.ps1**.
+Den här strukturen måste fyllas i om du vill köra **RenderingSession. ps1**.
 
-- **vmSize:** Väljer storleken på den virtuella datorn. Välj *standard* eller *premium*. Stäng av renderingssessioner när du inte behöver dem längre.
-- **maxLeaseTime:** Den varaktighet som du vill låna den virtuella datorn för. Det kommer att stängas när hyresavtalet löper ut. Hyrestiden kan förlängas senare (se nedan).
+- **vmSize:** Väljer storlek på den virtuella datorn. Välj *standard* eller *Premium*. Stäng av åter givnings sessioner när du inte behöver dem längre.
+- **maxLeaseTime:** Den varaktighet som du vill att den virtuella datorn ska lånas ut för. Det kommer att stängas av när lånet upphör att gälla. Låne tiden kan utökas senare (se nedan).
 
-### <a name="assetconversionsettings"></a>tillgångKonversionErings
+### <a name="assetconversionsettings"></a>assetConversionSettings
 
-Den här strukturen måste fyllas i om du vill köra **Conversion.ps1**.
+Den här strukturen måste fyllas i om du vill köra **Conversion. ps1**.
 
-Mer information finns i [Förbereda ett Azure Storage-konto](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts).
+Mer information finns i [förbereda ett Azure Storage-konto](../how-tos/conversion/blob-storage.md#prepare-azure-storage-accounts).
 
-## <a name="script-renderingsessionps1"></a>Skript: RenderingSession.ps1
+## <a name="script-renderingsessionps1"></a>Skript: RenderingSession. ps1
 
-Det här skriptet används för att skapa, fråga och stoppa renderingssessioner.
+Det här skriptet används för att skapa, fråga och stoppa åter givning av sessioner.
 
 > [!IMPORTANT]
-> Kontrollera att du har fyllt i *avsnitten accountSettings* och *renderingSessionSettings* i arrconfig.json.
+> Kontrol lera att du har fyllt i avsnitten *accountSettings* och *renderingSessionSettings* i ARRConfig. JSON.
 
-### <a name="create-a-rendering-session"></a>Skapa en återgivningssession
+### <a name="create-a-rendering-session"></a>Skapa en åter givnings session
 
-Normal användning med en fullt fylld arrconfig.json:
+Normal användning med en fullständigt ifylld ARRConfig. JSON:
 
 ```PowerShell
 .\RenderingSession.ps1
 ```
 
-Skriptet anropar [REST API:et](../how-tos/session-rest-api.md) för sessionshantering för att skapa en återgivnings-VM med de angivna inställningarna. Vid framgång kommer det att hämta *sessionId*. Sedan kommer det att avsöka sessionsegenskaperna tills sessionen är klar eller ett fel uppstod.
+Skriptet anropar [sessions hanterings REST API](../how-tos/session-rest-api.md) för att skapa en rendering virtuell dator med de angivna inställningarna. Vid lyckad hämtning kommer det att hämta *SessionID*. Sedan avsöks sessionens egenskaper tills sessionen är klar eller ett fel har uppstått.
 
-Så här använder du en **alternativ config-fil:**
+Så här använder du en **alternativ konfigurations** fil:
 
 ```PowerShell
 .\RenderingSession.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
-Du kan **åsidosätta enskilda inställningar** från konfigurationsfilen:
+Du kan **åsidosätta enskilda inställningar** från konfigurations filen:
 
 ```PowerShell
 .\RenderingSession.ps1 -Region <region> -VmSize <vmsize> -MaxLeaseTime <hh:mm:ss>
@@ -129,19 +129,19 @@ Om du bara vill **starta en session utan avsökning**kan du använda:
 .\RenderingSession.ps1 -CreateSession
 ```
 
-*SessionId* som skriptet hämtar måste skickas till de flesta andra sessionskommandon.
+*SessionID* som skriptet hämtar måste skickas till de flesta andra session-kommandon.
 
-### <a name="retrieve-session-properties"></a>Hämta sessionsegenskaper
+### <a name="retrieve-session-properties"></a>Hämta egenskaper för session
 
-Om du vill hämta en sessions egenskaper kör du:
+Kör följande om du vill hämta en sessions egenskaper:
 
 ```PowerShell
 .\RenderingSession.ps1 -GetSessionProperties -Id <sessionID> [-Poll]
 ```
 
-Använd `-Poll` för att vänta tills sessionen är *klar* eller ett fel uppstod.
+Används `-Poll` för att vänta tills sessionen är *klar* eller ett fel har inträffat.
 
-### <a name="list-active-sessions"></a>Lista aktiva sessioner
+### <a name="list-active-sessions"></a>Visa lista över aktiva sessioner
 
 ```PowerShell
 .\RenderingSession.ps1 -GetSessions
@@ -153,45 +153,45 @@ Använd `-Poll` för att vänta tills sessionen är *klar* eller ett fel uppstod
 .\RenderingSession.ps1 -StopSession -Id <sessionID>
 ```
 
-### <a name="change-session-properties"></a>Ändra sessionsegenskaper
+### <a name="change-session-properties"></a>Ändra egenskaper för session
 
-För närvarande stöder vi bara att ändra maxLeaseTime för en session.
+För tillfället stöder vi bara ändring av maxLeaseTime för en session.
 
 > [!NOTE]
-> Lånetiden räknas alltid från den tidpunkt då den virtuella sessionen skapades. Så för att förlänga sessionen hyresavtalet med en annan timme, öka *maxLeaseTime* med en timme.
+> Låne tiden räknas alltid från den tidpunkt då den virtuella sessionen skapades. Om du vill utöka session-lånet med en annan timme ökar du *maxLeaseTime* med en timme.
 
 ```PowerShell
 .\RenderingSession.ps1 -UpdateSession -Id <sessionID> -MaxLeaseTime <hh:mm:ss>
 ```
 
-## <a name="script-conversionps1"></a>Skript: Conversion.ps1
+## <a name="script-conversionps1"></a>Skript: Conversion. ps1
 
-Det här skriptet används för att konvertera indatamodeller till Azure Remote Rendering-specifika körningsformat.
+Det här skriptet används för att konvertera inmatade modeller till Azure Remote rendering Specific runtime-formatet.
 
 > [!IMPORTANT]
-> Kontrollera att du har fyllt i avsnitten *accountSettings* och *assetConversionSettings* i arrconfig.json.
+> Kontrol lera att du har fyllt i avsnitten *accountSettings* och *assetConversionSettings* i ARRConfig. JSON.
 
-Skriptet visar de två alternativen för att använda lagringskonton med tjänsten:
+Skriptet visar de två alternativen för att använda lagrings konton med tjänsten:
 
-- Lagringskonto kopplat till Azure Remote Rendering-konto
-- Tillhandahålla åtkomst till lagring via SIGNATURER för delad åtkomst (SAS)
+- Lagrings konto som är kopplat till Azure Remote rendering-kontot
+- Ge åtkomst till lagring via signaturer för delad åtkomst (SAS)
 
-### <a name="linked-storage-account"></a>Länkat lagringskonto
+### <a name="linked-storage-account"></a>Länkat lagrings konto
 
-När du har fyllt i arrconfig.json och länkat ett lagringskonto kan du använda följande kommando. Länka ditt lagringskonto beskrivs på [Skapa ett konto](../how-tos/create-an-account.md#link-storage-accounts).
+När du har fyllt i ARRConfig. JSON och länkat ett lagrings konto kan du använda följande kommando. Att länka ditt lagrings konto beskrivs i [skapa ett konto](../how-tos/create-an-account.md#link-storage-accounts).
 
-Att använda ett länkat lagringskonto är det bästa sättet att använda konverteringstjänsten eftersom det inte finns något behov av att generera signaturer för delad åtkomst.
+Att använda ett länkat lagrings konto är det bästa sättet att använda konverterings tjänsten eftersom det inte finns några behov av att generera signaturer för delad åtkomst.
 
 ```PowerShell
 .\Conversion.ps1
 ```
 
-1. Ladda upp alla filer `assetConversionSettings.modelLocation` som finns i till indatablobbbehållaren under den angivna`inputFolderPath`
-1. Anropa [standardkonverterings-REST API](../how-tos/conversion/conversion-rest-api.md) för att starta [modellkonverteringen](../how-tos/conversion/model-conversion.md)
-1. Avsök konverteringsstatusen tills konverteringen lyckades eller misslyckades
-1. Utdata för den konverterade filplatsen (lagringskonto, utdatabehållare, filsökväg i behållaren)
+1. Ladda upp alla filer `assetConversionSettings.modelLocation` som finns i till BLOB-behållaren för inflöde under den angivna`inputFolderPath`
+1. Anropa modell konverterings [REST API](../how-tos/conversion/conversion-rest-api.md) för att starta [modell konverteringen](../how-tos/conversion/model-conversion.md)
+1. Avsök konverterings statusen tills konverteringen lyckades eller misslyckades
+1. Information om den konverterade filens plats (lagrings konto, utdatafil, fil Sök väg i behållaren)
 
-### <a name="access-to-storage-via-shared-access-signatures"></a>Tillgång till lagring via signaturer för delad åtkomst
+### <a name="access-to-storage-via-shared-access-signatures"></a>Åtkomst till lagring via signaturer för delad åtkomst
 
 ```PowerShell
 .\Conversion.ps1 -UseContainerSas
@@ -199,75 +199,75 @@ Att använda ett länkat lagringskonto är det bästa sättet att använda konve
 
 Detta kommer att:
 
-1. Ladda upp den `assetConversionSettings.localAssetDirectoryPath` lokala filen från till indatablobbbehållaren
-1. Generera en SAS-URI för indatabehållaren
-1. Generera en SAS-URI för utdatabehållaren
-1. Anropa [standardkonverterings-REST API](../how-tos/conversion/conversion-rest-api.md) för att starta [modellkonverteringen](../how-tos/conversion/model-conversion.md)
-1. Avsök konverteringsstatusen tills konverteringen lyckades eller misslyckades
-1. Utdata för den konverterade filplatsen (lagringskonto, utdatabehållare, filsökväg i behållaren)
-1. Mata ut en SAS-URI till den konverterade modellen i utdatablobbbehållaren
+1. Ladda upp den lokala filen från `assetConversionSettings.localAssetDirectoryPath` till BLOB-behållaren för indata
+1. Generera en SAS-URI för indatamängden
+1. Skapa en SAS-URI för behållaren för utdata
+1. Anropa modell konverterings [REST API](../how-tos/conversion/conversion-rest-api.md) för att starta [modell konverteringen](../how-tos/conversion/model-conversion.md)
+1. Avsök konverterings statusen tills konverteringen lyckades eller misslyckades
+1. Information om den konverterade filens plats (lagrings konto, utdatafil, fil Sök väg i behållaren)
+1. Utdata från en SAS-URI till den konverterade modellen i BLOB-behållaren för utdata
 
-### <a name="additional-command-line-options"></a>Ytterligare kommandoradsalternativ
+### <a name="additional-command-line-options"></a>Ytterligare kommando rads alternativ
 
-Så här använder du en **alternativ config-fil:**
+Så här använder du en **alternativ konfigurations** fil:
 
 ```PowerShell
 .\Conversion.ps1 -ConfigFile D:\arr\myotherconfigFile.json
 ```
 
-Om du bara vill **starta modellkonvertering utan avsökning**kan du använda:
+Om du bara vill **Starta modell konvertering utan avsökning**kan du använda:
 
 ```PowerShell
 .\Conversion.ps1 -ConvertAsset
 ```
 
-Du kan **åsidosätta enskilda inställningar** från konfigurationsfilen med hjälp av följande kommandoradsväxlar:
+Du kan **åsidosätta enskilda inställningar** från konfigurations filen med följande kommando rads växlar:
 
-* **Id:** ConversionId används med GetConversionStatus
-* **ArrAccountId:** arrAccountId av accountSettings
-* **ArrAccountKey:** åsidosätta för arrAccountKey av accountSettings
-* **Region:** åsidosätta för region av kontoInställningar
-* **ResourceGroup:** åsidosätta resursGrupp av assetConversionSettings
-* **StorageAccountName:** åsidosätta för lagringKontoNamn för tillgångKonversionsettningar
-* **BlobInputContainerName:** åsidosätta blobInputContainer av assetConversionSettings
-* **LocalAssetDirectoryPath:** åsidosätta localAssetDirectoryPath of assetConversionSettings
-* **InputAssetPath:** åsidosätt för inputAssetPath of assetConversionSettings
-* **BlobOutputContainerName:** åsidosätta blobOutputContainerName of assetConversionSettings
-* **OutputFolderPath:** åsidosätt för utdataMappspath för assetConversionSettings
-* **OutputAssetFileName:** åsidosätta för utdataAssetFileName of assetConversionSettings
+* **ID:** ConversionId som används med GetConversionStatus
+* **ArrAccountId:** ArrAccountId för accountSettings
+* **ArrAccountKey:** åsidosättande för ArrAccountKey för accountSettings
+* **Region:** åsidosättande för regionen accountSettings
+* **ResourceGroup:** åsidosättande för ResourceGroup för assetConversionSettings
+* **StorageAccountName:** åsidosättande för StorageAccountName för assetConversionSettings
+* **BlobInputContainerName:** åsidosättande för BlobInputContainer för assetConversionSettings
+* **LocalAssetDirectoryPath:** åsidosättande för LocalAssetDirectoryPath för assetConversionSettings
+* **InputAssetPath:** åsidosättande för InputAssetPath för assetConversionSettings
+* **BlobOutputContainerName:** åsidosättande för BlobOutputContainerName för assetConversionSettings
+* **OutputFolderPath:** åsidosättande för OutputFolderPath för assetConversionSettings
+* **OutputAssetFileName:** åsidosättande för OutputAssetFileName för assetConversionSettings
 
-Du kan till exempel kombinera ett antal av de angivna alternativen så här:
+Du kan till exempel kombinera ett antal alternativ så här:
 
 ```PowerShell
 .\Conversion.ps1 -LocalAssetDirectoryPath "C:\\models\\box" -InputAssetPath box.fbx -OutputFolderPath another/converted/box -OutputAssetFileName newConversionBox.arrAsset
 ```
 
-### <a name="run-the-individual-conversion-stages"></a>Kör de enskilda konverteringsfaserna
+### <a name="run-the-individual-conversion-stages"></a>Kör de enskilda konverterings stegen
 
 Om du vill köra enskilda steg i processen kan du använda:
 
-Ladda bara upp data från den angivna LocalAssetDirectoryPath
+Ladda bara upp data från den aktuella LocalAssetDirectoryPath
 
 ```PowerShell
 .\Conversion.ps1 -Upload
 ```
 
-Starta endast konverteringsprocessen för en modell som redan har överförts till blob-lagring (kör inte Ladda upp, avsök inte konverteringsstatusen) Skriptet returnerar en *conversionId*.
+Starta bara konverterings processen för en modell som redan har laddats upp till Blob Storage (kör inte uppladdning, Avsök inte konverterings status) skriptet returnerar en *conversionId*.
 
 ```PowerShell
 .\Conversion.ps1 -ConvertAsset
 ```
 
-Och du kan hämta konverteringsstatusen för den här konverteringen med hjälp av:
+Du kan också hämta konverterings statusen för den här konverteringen med:
 
 ```PowerShell
 .\Conversion.ps1 -GetConversionStatus -Id <conversionId> [-Poll]
 ```
 
-Använd `-Poll` för att vänta tills konverteringen är klar eller ett fel uppstod.
+Används `-Poll` för att vänta tills konverteringen är genomförd eller ett fel uppstod.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Snabbstart: Återge en modell med Unity](../quickstarts/render-model.md)
-- [Snabbstart: Konvertera en modell för rendering](../quickstarts/convert-model.md)
-- [Modellkonvertering](../how-tos/conversion/model-conversion.md)
+- [Snabb start: rendera en modell med Unity](../quickstarts/render-model.md)
+- [Snabb start: konvertera en modell för åter givning](../quickstarts/convert-model.md)
+- [Modell konvertering](../how-tos/conversion/model-conversion.md)

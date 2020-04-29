@@ -1,35 +1,35 @@
 ---
-title: Samla in nödvändiga parametrar
+title: Nödvändiga parametrar samlas in
 services: cognitive-services
 author: aahill
 manager: nitinme
-description: Parametrarna för alla Cognitive Services behållare
+description: Parametrar för alla Cognitive Services behållare
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 85c67384c38376dc6f5701cf26e879d6e1b76c7f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80875065"
 ---
-## <a name="gathering-required-parameters"></a>Samla in nödvändiga parametrar
+## <a name="gathering-required-parameters"></a>Nödvändiga parametrar samlas in
 
-Det finns tre primära parametrar för alla Cognitive Services behållare som krävs. Licensavtalet för slutanvändare (EULA) måste finnas med `accept`värdet . Dessutom behövs både en slutpunkts-URL och API-nyckel.
+Det finns tre primära parametrar för alla Cognitive Services behållare som krävs. Licens avtalet för slutanvändare (EULA) måste vara närvarande med värdet `accept`. Dessutom behövs både en slut punkts-URL och API-nyckel.
 
-### <a name="endpoint-uri-endpoint_uri"></a>Slutpunkt URI`{ENDPOINT_URI}`
+### <a name="endpoint-uri-endpoint_uri"></a>Slut punkts-URI`{ENDPOINT_URI}`
 
-**URI-värdet endpoint** är tillgängligt på sidan Översikt *över* Azure-portalen för motsvarande Cognitive Service-resurs. Navigera till sidan *Översikt,* hovra över `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> slutpunkten och en ikon visas. Kopiera och använd där det behövs.
+URI-värdet för **slut punkten** är tillgängligt på sidan Azure Portal *Översikt* för motsvarande kognitiva tjänst resurs. Gå till sidan *Översikt* , Hovra över slut punkten och en `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> ikon visas. Kopiera och använd vid behov.
 
-![Samla slutpunktsuri för senare användning](../media/overview-endpoint-uri.png)
+![Samla in slut punkts-URI för senare användning](../media/overview-endpoint-uri.png)
 
-### <a name="keys-api_key"></a>Nycklar`{API_KEY}`
+### <a name="keys-api_key"></a>Nyckel`{API_KEY}`
 
-Den här nyckeln används för att starta behållaren och är tillgänglig på Azure-portalens keys-sida för motsvarande Cognitive Service-resurs. Navigera till sidan *Nycklar* och `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> klicka på ikonen.
+Den här nyckeln används för att starta behållaren och är tillgänglig på sidan Azure Portals nycklar för motsvarande kognitiva tjänst resurser. Gå till sidan *nycklar* och klicka `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> på ikonen.
 
-![Skaffa en av de två nycklarna för senare användning](../media/keys-copy-api-key.png)
+![Hämta en av de två nycklarna för senare användning](../media/keys-copy-api-key.png)
 
 > [!IMPORTANT]
-> Dessa prenumerationsnycklar används för att komma åt ditt Cognitive Service API. Dela inte dina nycklar. Lagra dem säkert, till exempel med hjälp av Azure Key Vault. Vi rekommenderar också att du återskapar dessa nycklar regelbundet. Endast en nyckel är nödvändig för att ringa ett API-anrop. När du återskapar den första nyckeln kan du använda den andra nyckeln för fortsatt åtkomst till tjänsten.
+> Dessa prenumerations nycklar används för att få åtkomst till ditt kognitiva tjänst-API. Dela inte dina nycklar. Lagra dem på ett säkert sätt, till exempel med hjälp av Azure Key Vault. Vi rekommenderar också att du återskapar nycklarna regelbundet. Endast en nyckel krävs för att göra ett API-anrop. När du återskapar den första nyckeln kan du använda den andra nyckeln för fortsatt åtkomst till tjänsten.

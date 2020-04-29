@@ -1,77 +1,77 @@
 ---
-title: Använda GitHub-åtgärder för att skapa koduppdateringar i Azure Functions
-description: Lär dig hur du använder GitHub-åtgärder för att definiera ett arbetsflöde för att skapa och distribuera Azure Functions-projekt i GitHub.
+title: Använd GitHub-åtgärder för att göra kod uppdateringar i Azure Functions
+description: Lär dig hur du använder GitHub-åtgärder för att definiera ett arbets flöde för att skapa och Distribuera Azure Functions-projekt i GitHub.
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: cshoe
 ms.openlocfilehash: 54010269e5b61ebf28a29dd3165c4310f3472817
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878212"
 ---
-# <a name="continuous-delivery-by-using-github-action"></a>Kontinuerlig leverans med hjälp av GitHub Action
+# <a name="continuous-delivery-by-using-github-action"></a>Kontinuerlig leverans med hjälp av GitHub-åtgärd
 
-[Med GitHub-åtgärder](https://github.com/features/actions) kan du definiera ett arbetsflöde för att automatiskt skapa och distribuera din funktionskod för att fungera app i Azure. 
+Med [GitHub-åtgärder](https://github.com/features/actions) kan du definiera ett arbets flöde för att automatiskt skapa och distribuera din funktions kod till Function-appen i Azure. 
 
-I GitHub-åtgärder är ett [arbetsflöde](https://help.github.com/articles/about-github-actions#workflow) en automatiserad process som du definierar i GitHub-databasen. Den här processen talar om för GitHub hur du skapar och distribuerar ditt funktionsappprojekt på GitHub. 
+I GitHub-åtgärder är ett [arbets flöde](https://help.github.com/articles/about-github-actions#workflow) en automatiserad process som du definierar i din GitHub-lagringsplats. Den här processen visar GitHub hur du skapar och distribuerar dina Functions-AppData på GitHub. 
 
-Ett arbetsflöde definieras av en YAML-fil (.yml) i `/.github/workflows/` sökvägen i databasen. Den här definitionen innehåller de olika steg och parametrar som utgör arbetsflödet. 
+Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sökvägen i lagrings platsen. Den här definitionen innehåller de olika stegen och parametrarna som utgör arbets flödet. 
 
-För ett Azure Functions-arbetsflöde har filen tre avsnitt: 
+För ett Azure Functions-arbetsflöde har filen tre delar: 
 
 | Section | Aktiviteter |
 | ------- | ----- |
-| **Autentisering** | <ol><li>Definiera ett huvudnamn för tjänsten.</li><li>Ladda ner publiceringsprofilen.</li><li>Skapa en GitHub-hemlighet.</li></ol>|
-| **Utveckla** | <ol><li>Ställ in miljön.</li><li>Skapa funktionsappen.</li></ol> |
-| **Distribuera** | <ol><li>Distribuera funktionsappen.</li></ol>|
+| **Autentisering** | <ol><li>Definiera ett huvud namn för tjänsten.</li><li>Ladda ned publicerings profil.</li><li>Skapa en GitHub-hemlighet.</li></ol>|
+| **Utveckla** | <ol><li>Konfigurera miljön.</li><li>Bygg in Function-appen.</li></ol> |
+| **Distribuera** | <ol><li>Distribuera Function-appen.</li></ol>|
 
 > [!NOTE]
-> Du behöver inte skapa ett tjänsthuvudnamn om du bestämmer dig för att använda publiceringsprofilen för autentisering.
+> Du behöver inte skapa ett huvud namn för tjänsten om du bestämmer dig för att använda publicerings profilen för autentisering.
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
-Du kan skapa ett [tjänsthuvudnamn](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) med kommandot [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i [Azure CLI](/cli/azure/). Du kan köra det här kommandot med [Azure Cloud Shell](https://shell.azure.com) i Azure-portalen eller genom att välja knappen **Prova.**
+Du kan skapa ett [huvud namn för tjänsten](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) med hjälp av kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i [Azure CLI](/cli/azure/). Du kan köra det här kommandot med [Azure Cloud Shell](https://shell.azure.com) i Azure Portal eller genom att välja knappen **prova** .
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
 ```
 
-I det här exemplet ersätter du platshållarna i resursen med ditt prenumerations-ID, resursgrupp och funktionsappnamn. Utdata är de autentiseringsuppgifter för rolltilldelning som ger åtkomst till din funktionsapp. Kopiera det här JSON-objektet, som du kan använda för att autentisera från GitHub.
+I det här exemplet ersätter du plats hållarna i resursen med ditt prenumerations-ID, resurs grupp och funktionens program namn. Utdata är de autentiseringsuppgifter för roll tilldelning som ger åtkomst till din Function-app. Kopiera det här JSON-objektet, som du kan använda för att autentisera från GitHub.
 
 > [!IMPORTANT]
-> Det är alltid en god praxis att ge minimal tillgång. Det är därför omfånget i föregående exempel är begränsat till den specifika funktionsappen och inte hela resursgruppen.
+> Det är alltid en bra idé att bevilja minimal åtkomst. Detta är anledningen till att omfånget i föregående exempel är begränsat till den särskilda Function-appen och inte hela resurs gruppen.
 
-## <a name="download-the-publishing-profile"></a>Ladda ner publiceringsprofilen
+## <a name="download-the-publishing-profile"></a>Ladda ned publicerings profilen
 
-Du kan ladda ned publiceringsprofilen för din funktionsapp genom att gå till sidan **Översikt i** appen och klicka på **Hämta publiceringsprofil**.
+Du kan ladda ned publicerings profilen för din Function-app genom att gå till sidan **Översikt** i appen och klicka på **Hämta publicerings profil**.
 
-   ![Ladda ner publicera profil](media/functions-how-to-github-actions/get-publish-profile.png)
+   ![Ladda ned publicerings profil](media/functions-how-to-github-actions/get-publish-profile.png)
 
 Kopiera innehållet i filen.
 
 ## <a name="configure-the-github-secret"></a>Konfigurera GitHub-hemligheten
 
-1. I GitHub väljer du **Inställningar** > **hemligheter** > **Lägg till en ny hemlighet**i [GitHub.](https://github.com)
+1. I [GitHub](https://github.com), bläddra till din lagrings plats, Välj **Inställningar** > **hemligheter** > **Lägg till en ny hemlighet**.
 
    ![Lägg till hemlighet](media/functions-how-to-github-actions/add-secret.png)
 
 1. Lägg till en ny hemlighet.
 
-   * Om du använder tjänstens huvudnamn som du skapade `AZURE_CREDENTIALS` med hjälp av Azure CLI använder du för **namnet**. Klistra sedan in det kopierade JSON-objektutdata för **Värde**och välj **Lägg till hemligt**.
-   * Om du använder en publiceringsprofil använder du `SCM_CREDENTIALS` namnet . **Name** Använd sedan publiceringsprofilens filinnehåll för **Värde**och välj **Lägg till hemligt**.
+   * Om du använder tjänstens huvud namn som du skapade med Azure CLI använder `AZURE_CREDENTIALS` du som **namn**. Klistra sedan in det kopierade JSON-objektets utdata för **värdet**och välj **Lägg till hemlighet**.
+   * Om du använder en publicerings profil använder `SCM_CREDENTIALS` du som **namn**. Använd sedan publicerings profilens fil innehåll för **värde**och välj **Lägg till hemlighet**.
 
-GitHub kan nu autentisera till din funktionsapp i Azure.
+GitHub kan nu autentisera till din Function-app i Azure.
 
 ## <a name="set-up-the-environment"></a>Konfigurera miljön 
 
-Inställningen av miljön görs med hjälp av en språkspecifik publiceringsinställningsåtgärd.
+Konfigurationen av miljön görs med hjälp av en språkspecifik publicerings konfigurations åtgärd.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas den del `actions/setup-node` av arbetsflödet som använder åtgärden för att ställa in miljön:
+I följande exempel visas den del av arbets flödet som använder `actions/setup-node` åtgärden för att konfigurera miljön:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -86,7 +86,7 @@ I följande exempel visas den del `actions/setup-node` av arbetsflödet som anv�
 
 # <a name="python"></a>[Python](#tab/python)
 
-I följande exempel visas den del `actions/setup-python` av arbetsflödet som använder åtgärden för att ställa in miljön:
+I följande exempel visas den del av arbets flödet som använder `actions/setup-python` åtgärden för att konfigurera miljön:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -99,9 +99,9 @@ I följande exempel visas den del `actions/setup-python` av arbetsflödet som an
         python-version: 3.6
 ```
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-I följande exempel visas den del `actions/setup-dotnet` av arbetsflödet som använder åtgärden för att ställa in miljön:
+I följande exempel visas den del av arbets flödet som använder `actions/setup-dotnet` åtgärden för att konfigurera miljön:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -116,7 +116,7 @@ I följande exempel visas den del `actions/setup-dotnet` av arbetsflödet som an
 
 # <a name="java"></a>[Java](#tab/java)
 
-I följande exempel visas den del `actions/setup-java` av arbetsflödet som använder åtgärden för att ställa in miljön:
+I följande exempel visas den del av arbets flödet som använder `actions/setup-java` åtgärden för att konfigurera miljön:
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -132,11 +132,11 @@ I följande exempel visas den del `actions/setup-java` av arbetsflödet som anv�
 ```
 ---
 
-## <a name="build-the-function-app"></a>Skapa funktionsappen
+## <a name="build-the-function-app"></a>Bygg in Function-appen
 
-Detta beror på språket och för språk som stöds av Azure Functions, bör det här avsnittet vara standardbyggstegen för varje språk.
+Detta beror på språket och för språk som stöds av Azure Functions, bör det här avsnittet vara standard stegen för version av varje språk.
 
-I följande exempel visas den del av arbetsflödet som bygger funktionsappen, som är språkspecifik:
+I följande exempel visas den del av arbets flödet som bygger på Function-appen, vilket är språkspecifikt:
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -167,7 +167,7 @@ I följande exempel visas den del av arbetsflödet som bygger funktionsappen, so
         popd
 ```
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```yaml
     - name: 'Run dotnet build'
@@ -197,15 +197,15 @@ I följande exempel visas den del av arbetsflödet som bygger funktionsappen, so
 
 ## <a name="deploy-the-function-app"></a>Distribuera funktionsappen
 
-Om du vill distribuera koden till en funktionsapp måste du använda `Azure/functions-action` åtgärden. Den här åtgärden har två parametrar:
+Om du vill distribuera din kod till en Function-app måste du använda `Azure/functions-action` åtgärden. Den här åtgärden har två parametrar:
 
 |Parameter |Förklaring  |
 |---------|---------|
-|**_app-namn_** | (Obligatoriskt) Namnet på funktionsappen. |
-|_**kortplatsnamn**_ | (Valfritt) Namnet på [distributionsplatsen](functions-deployment-slots.md) som du vill distribuera till. Kortplatsen måste redan ha definierats i funktionsappen. |
+|**_App-Name_** | Erforderlig Namnet på din Function-app. |
+|_**plats namn**_ | Valfritt Namnet på den [distributions plats](functions-deployment-slots.md) som du vill distribuera till. Facket måste redan vara definierat i din Function-app. |
 
 
-I följande exempel används version `functions-action`1 av :
+I följande exempel används version 1 av `functions-action`:
 
 ```yaml
     - name: 'Run Azure Functions Action'
@@ -217,7 +217,7 @@ I följande exempel används version `functions-action`1 av :
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill visa ett fullständigt arbetsflöde .yaml läser du en av filerna `functionapp` i [arbetsflödesexemplen för Azure GitHub-åtgärder](https://aka.ms/functions-actions-samples) som har i namnet. Du kan använda dessa exempel som en startpunkt för arbetsflödet.
+Om du vill visa ett fullständigt arbets flöde. yaml, se en av filerna i [arbets flödes exemplen för Azure GitHub-åtgärder lagrings platsen](https://aka.ms/functions-actions-samples) som har `functionapp` i namnet. Du kan använda dessa exempel som start punkt för arbets flödet.
 
 > [!div class="nextstepaction"]
 > [Läs mer om GitHub-åtgärder](https://help.github.com/en/articles/about-github-actions)

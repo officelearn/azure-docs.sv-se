@@ -1,5 +1,5 @@
 ---
-title: TLS-uppdateringar för meddelandehubbar
+title: Notification Hubs TLS-uppdateringar
 description: Läs mer om stöd för TLS i Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
@@ -15,28 +15,28 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2020
 ms.openlocfilehash: 4da96df50e961f4291029a37e883fdcf88c6c87f
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80885760"
 ---
 # <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
 
-För att säkerställa en högre säkerhetsnivå inaktiverar Notification Hubs stöd för TLS-versionerna 1.0 och 1.1 den 31 maj 2020 (förlängt från den 30 april 2020). Dessa äldre protokoll ger svag kryptografi och är sårbara för BEAST- och PUDELattacker. Program som distribueras till enheter som kör Android version 5 eller senare, eller iOS version 5 eller mer, påverkas inte av den här ändringen eftersom dessa operativsystem stöder TLS 1.2 och klienten och servern kommer att förhandla fram den högsta ömsesidigt stödda versionen av protokollet vid anslutningen.
+För att säkerställa en högre säkerhets nivå kommer Notification Hubs att inaktivera stöd för TLS-versionerna 1,0 och 1,1 den 31 maj 2020 (från och med 30 april 2020). Dessa äldre protokoll ger svag kryptering och är sårbara för BEAST-och POODLE-attacker. Program som distribueras till enheter som kör Android version 5 eller senare, eller iOS version 5 eller senare, påverkas inte av den här ändringen eftersom operativ systemen har stöd för TLS 1,2 och klienten och servern förhandlar den högsta ömsesidigt stödda versionen av protokollet vid anslutning.
 
-Vi rekommenderar att du granskar alla dina program som använder Azure Notification Hubs för att säkerställa att de använder de mest tillämpliga biblioteken och TLS-staplarna som stöder TLS 1.2.
+Vi rekommenderar att du läser igenom alla dina program som använder Azure Notification Hubs för att säkerställa att de använder de mest tillämpliga biblioteken och TLS-stackar som stöder TLS 1,2.
 
 ## <a name="update-apps"></a>Uppdatera appar
 
-Du kan se till att dina iOS-appar använder TLS 1.2 med Apples säkerhetsfunktion för nätverk som kallas App Transport Security (ATS). ATS kan inte användas för SDK:er som är äldre än iOS 9.0 eller macOS 10.11, och du kan läsa mer om det från [Apples dokumentation](https://developer.apple.com/documentation/security/preventing_insecure_network_connections).
+Du kan se till att dina iOS-appar använder TLS 1,2 med hjälp av säkerhetsfunktionen i Apple som kallas app Transport Security (ATS). ATS kan inte användas för SDK: er som är äldre än iOS 9,0 eller macOS 10,11, och du kan läsa mer om det från [Apples dokumentation](https://developer.apple.com/documentation/security/preventing_insecure_network_connections).
 
-För Android-program som använder SSLSocket-instanser anger du aktiverade protokoll för varje SSLSocket-instans som anges i [setEnabledProtocols](https://developer.android.com/reference/javax/net/ssl/SSLSocket#setEnabledProtocols(java.lang.String%5B%5D)).
+För Android-program som använder SSLSocket-instanser ställer du in aktiverade protokoll på varje SSLSocket-instans som anges i [setEnabledProtocols](https://developer.android.com/reference/javax/net/ssl/SSLSocket#setEnabledProtocols(java.lang.String%5B%5D)).
 
-Tabellen på stödsidan för [TLS-protokollkompatibilitet](https://support.globalsign.com/customer/portal/articles/2934392-tls-protocol-compatibility) hjälper till att mappa operativsystem med kompatibla TLS-versioner.
+Med hjälp av tabellen på sidan för [kompatibilitet med TLS-protokoll](https://support.globalsign.com/customer/portal/articles/2934392-tls-protocol-compatibility) kan du mappa operativ system med kompatibla TLS-versioner.
 
-Mer information finns i översikten över [stödet för TLS-protokoll i Windows](https://docs.microsoft.com/archive/blogs/kaushal/support-for-ssltls-protocols-on-windows).
+Mer information finns i Översikt över [stödet för TLS-protokoll i Windows](https://docs.microsoft.com/archive/blogs/kaushal/support-for-ssltls-protocols-on-windows).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över meddelandehubbar](notification-hubs-push-notification-overview.md)
+- [Översikt över Notification Hubs](notification-hubs-push-notification-overview.md)

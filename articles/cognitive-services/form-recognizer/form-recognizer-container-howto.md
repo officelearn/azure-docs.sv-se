@@ -1,7 +1,7 @@
 ---
-title: Så här installerar och kör du behållare för Formulärconformerare
+title: Installera och köra behållare för formulär tolken
 titleSuffix: Azure Cognitive Services
-description: I den här artikeln beskrivs hur du använder behållaren för Azure Cognitive Services Form Recognizer för att tolka formulär- och tabelldata.
+description: Den här artikeln beskriver hur du använder Azure Cognitive Services formulär igenkännings behållare för att tolka formulär-och tabell data.
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
@@ -10,64 +10,64 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 8cfa9114c5a5e57882cb84b604c1cf71be9acc52
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80878348"
 ---
-# <a name="install-and-run-form-recognizer-containers-preview"></a>Installera och kör Formulärconformeringsbehållare (förhandsversion)
+# <a name="install-and-run-form-recognizer-containers-preview"></a>Installera och kör formulär igenkännings behållare (förhands granskning)
 
-Azure Form Recognizer tillämpar maskininlärningsteknik för att identifiera och extrahera nyckelvärdespar och tabeller från formulär. Den associerar värden och tabellposter med nyckelvärdesparen och matar sedan ut strukturerade data som innehåller relationerna i den ursprungliga filen. 
+Azure formulär tolken använder Machine Learning-teknik för att identifiera och extrahera nyckel/värde-par och tabeller från formulär. Den associerar värden och tabell poster med nyckel/värde-par och matar sedan ut strukturerade data som innehåller relationerna i original filen. 
 
-För att minska komplexiteten och enkelt integrera en anpassad formulärreparationsmodell i din automatiseringsprocess för arbetsflöde eller annat program kan du anropa modellen med hjälp av ett enkelt REST API. Endast fem formulärdokument (eller ett tomt formulär och två ifyllda formulär) behövs, så att du kan få resultat snabbt, korrekt och skräddarsytt för ditt specifika innehåll. Ingen tung manuell intervention eller omfattande datavetenskap expertis är nödvändig. Och det kräver inte datamärkning eller dataanotering.
+För att minska komplexiteten och enkelt integrera en anpassad formulär igenkännings modell i automatiserings processen för arbets flödet eller ett annat program, kan du anropa modellen med hjälp av en enkel REST API. Endast fem formulär dokument (eller ett tomt formulär och två ifyllda formulär) behövs, så att du kan få resultat snabbt, exakt och skräddarsys efter ditt eget innehåll. Ingen kraftig manuell åtgärd eller omfattande data vetenskaps expertis krävs. Och det kräver inte data etiketter eller data anteckningar.
 
 > [!IMPORTANT]
-> Formulärreformerarbehållarna använder för närvarande version 1.0 av API:et för formulärre recognizeer. Du kan komma åt den senaste versionen av API:et med hjälp av den hanterade tjänsten i stället.
+> Formulär tolknings behållarna använder för närvarande version 1,0 av formulärets tolknings-API. Du kan komma åt den senaste versionen av API: et genom att använda den hanterade tjänsten i stället.
 
 | Funktion | Funktioner |
 |----------|----------|
-| Formigenkänning | <li>Bearbetar PDF-, PNG- och JPG-filer<li>Tränar anpassade modeller med minst fem former av samma layout <li>Extraherar nyckelvärdespar och tabellinformation <li>Använder azure cognitive services-api:et för datorseende identifiera text för att identifiera och extrahera utskriven text från bilder i formulär<li>Kräver inte anteckning eller märkning |
+| Formigenkänning | <li>Bearbetar PDF-, PNG-och JPG-filer<li>Tågen anpassade modeller med minst fem former av samma layout <li>Extraherar nyckel/värde-par och tabell information <li>Använder Identifiera text funktionen Azure Cognitive Services API för visuellt innehåll för att identifiera och extrahera utskriven text från bilder i formulär<li>Kräver inte anteckningar eller etiketter |
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du använder Formulärconformorbehållare måste du uppfylla följande förutsättningar:
+Innan du använder formulär igenkännings behållare måste du uppfylla följande krav:
 
 | Krävs | Syfte |
 |----------|---------|
-| Docker-motorn | Du måste dockermotorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras så att behållarna kan ansluta till och skicka faktureringsdata till Azure. <br><br> I Windows måste Docker också konfigureras för att stödja Linux-behållare.<br><br> |
-| Förtrogenhet med Docker | Du bör ha en grundläggande förståelse för Docker-begrepp, till exempel register, databaser, behållare `docker` och behållaravbildningar och kunskap om grundläggande kommandon. |
-| Azure CLI | Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) på din värd. |
-| API-resurs för datorseende | Om du vill bearbeta skannade dokument och bilder behöver du en datorseenderesurs. Du kan komma åt funktionen Identifiera text som antingen en Azure-resurs (REST API eller SDK) eller en *cognitive-services-recognize-text-behållare* [container](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull). De vanliga faktureringsavgifterna tillkommer. <br><br>Skicka in både API-nyckel och slutpunkter för din Computer Vision-resurs (Azure-moln- eller Cognitive Services-behållare). Använd den här API-nyckeln och slutpunkten som **{COMPUTER_VISION_API_KEY}** och **{COMPUTER_VISION_ENDPOINT_URI}**.<br><br> Om du använder behållaren *för kognitiva tjänster-igen-text* kontrollerar du att:<br><br>Datorns vision-nyckel för behållaren För formuläravkänning `docker run` är nyckeln som anges i kommandot Datorseende för behållaren för kognitiva tjänster.Your Computer Vision key for the Form Recognizer container is the key specified in the Computer Vision command for the *cognitive-services-recognize-text* container.<br>Din faktureringsslutpunkt är behållarens slutpunkt `http://localhost:5000`(till exempel ). Om du använder både behållaren För visuellt innehåll och formulärmedkänningsbehållaren tillsammans på samma värd kan de inte båda startas med standardporten *på 5000*. |
-| Resurs för formulärkonformering | Om du vill använda dessa behållare måste du ha:<br><br>En Azure **Form Recognizer-resurs** för att hämta den associerade API-nyckeln och slutpunkts-URI. Båda värdena är tillgängliga på sidorna Azure Portal **Form Recognizer** Overview och Keys, och båda värdena krävs för att starta behållaren.<br><br>**{FORM_RECOGNIZER_API_KEY}**: En av de två tillgängliga resursnycklarna på sidan Nycklar<br><br>**{FORM_RECOGNIZER_ENDPOINT_URI}**: Slutpunkten som anges på sidan Översikt |
+| Docker-motorn | Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta att behållarna ansluter till och skicka fakturerings data till Azure. <br><br> I Windows måste Docker också konfigureras för att stödja Linux-behållare.<br><br> |
+| Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, till exempel register, databaser, behållare och behållar avbildningar samt kunskaper om grundläggande `docker` kommandon. |
+| Azure CLI | Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) på värden. |
+| API för visuellt innehåll resurs | Om du vill bearbeta skannade dokument och avbildningar behöver du en Visuellt innehåll-resurs. Du kan komma åt Identifiera text-funktionen antingen som en Azure-resurs (REST API eller SDK) eller en *kognitiv-tjänster-Recognizer-text* - [behållare](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull). De vanliga fakturerings avgifterna gäller. <br><br>Skicka både API-nyckeln och slut punkterna för din Visuellt innehåll resurs (Azure-moln eller Cognitive Services-behållare). Använd den här API-nyckeln och slut punkten som **{COMPUTER_VISION_API_KEY}** och **{COMPUTER_VISION_ENDPOINT_URI}**.<br><br> Om du använder funktionen *kognitiv-Services-recognize-text* , se till att:<br><br>Din Visuellt innehåll nyckel för formulär tolkens behållare är den nyckel som anges i kommandot Visuellt innehåll `docker run` för filen *kognitiv-Services-recognize-text* .<br>Din fakturerings slut punkt är behållarens slut punkt (till exempel `http://localhost:5000`). Om du använder både Visuellt innehåll container-och formulär igenkännings behållare på samma värd, kan de inte startas både med standard porten *5000*. |
+| Formulär igenkännings resurs | Om du vill använda dessa behållare måste du ha:<br><br>En Azure **formulär igenkännings** resurs för att hämta den associerade API-nyckeln och slut punkts-URI: n. Båda värdena är tillgängliga på sidorna **igenkännings** översikt och nycklar för Azure Portal formulär och båda värdena krävs för att starta behållaren.<br><br>**{FORM_RECOGNIZER_API_KEY}**: en av de två tillgängliga resurs nycklarna på sidan nycklar<br><br>**{FORM_RECOGNIZER_ENDPOINT_URI}**: slut punkten enligt vad som anges på sidan Översikt |
 
 > [!NOTE]
-> Resursnamnet För visuellt innehåll ska vara ett `-` enda ord, utan bindestreck eller andra specialtecken. Den här begränsningen finns på plats för att säkerställa kompatibilitet med formulärreform och igenkännlig textbehållare.
+> Visuellt innehåll resurs namnet måste vara ett enda ord, utan bindestreck `-` eller andra specialtecken. Den här begränsningen är på plats för att säkerställa att formulär tolkare och Identifiera text behållar kompatibilitet.
 
-## <a name="gathering-required-parameters"></a>Samla in nödvändiga parametrar
+## <a name="gathering-required-parameters"></a>Nödvändiga parametrar samlas in
 
-Det finns tre primära parametrar för alla Cognitive Services behållare som krävs. Licensavtalet för slutanvändare (EULA) måste finnas med `accept`värdet . Dessutom behövs både en slutpunkts-URL och API-nyckel.
+Det finns tre primära parametrar för alla Cognitive Services behållare som krävs. Licens avtalet för slutanvändare (EULA) måste vara närvarande med värdet `accept`. Dessutom behövs både en slut punkts-URL och API-nyckel.
 
-### <a name="endpoint-uri-computer_vision_endpoint_uri-and-form_recognizer_endpoint_uri"></a>Slutpunkts-URI `{COMPUTER_VISION_ENDPOINT_URI}` och`{FORM_RECOGNIZER_ENDPOINT_URI}`
+### <a name="endpoint-uri-computer_vision_endpoint_uri-and-form_recognizer_endpoint_uri"></a>Slut punkts-URI `{COMPUTER_VISION_ENDPOINT_URI}` och`{FORM_RECOGNIZER_ENDPOINT_URI}`
 
-**URI-värdet endpoint** är tillgängligt på sidan Översikt *över* Azure-portalen för motsvarande Cognitive Service-resurs. Navigera till sidan *Översikt,* hovra över `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> slutpunkten och en ikon visas. Kopiera och använd där det behövs.
+URI-värdet för **slut punkten** är tillgängligt på sidan Azure Portal *Översikt* för motsvarande kognitiva tjänst resurs. Gå till sidan *Översikt* , Hovra över slut punkten och en `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> ikon visas. Kopiera och använd vid behov.
 
-![Samla slutpunktsuri för senare användning](../containers/media/overview-endpoint-uri.png)
+![Samla in slut punkts-URI för senare användning](../containers/media/overview-endpoint-uri.png)
 
 ### <a name="keys-computer_vision_api_key-and-form_recognizer_api_key"></a>Nycklar `{COMPUTER_VISION_API_KEY}` och`{FORM_RECOGNIZER_API_KEY}`
 
-Den här nyckeln används för att starta behållaren och är tillgänglig på Azure-portalens keys-sida för motsvarande Cognitive Service-resurs. Navigera till sidan *Nycklar* och `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> klicka på ikonen.
+Den här nyckeln används för att starta behållaren och är tillgänglig på sidan Azure Portals nycklar för motsvarande kognitiva tjänst resurser. Gå till sidan *nycklar* och klicka `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> på ikonen.
 
-![Skaffa en av de två nycklarna för senare användning](../containers/media/keys-copy-api-key.png)
+![Hämta en av de två nycklarna för senare användning](../containers/media/keys-copy-api-key.png)
 
 > [!IMPORTANT]
-> Dessa prenumerationsnycklar används för att komma åt ditt Cognitive Service API. Dela inte dina nycklar. Lagra dem säkert, till exempel med hjälp av Azure Key Vault. Vi rekommenderar också att du återskapar dessa nycklar regelbundet. Endast en nyckel är nödvändig för att ringa ett API-anrop. När du återskapar den första nyckeln kan du använda den andra nyckeln för fortsatt åtkomst till tjänsten.
+> Dessa prenumerations nycklar används för att få åtkomst till ditt kognitiva tjänst-API. Dela inte dina nycklar. Lagra dem på ett säkert sätt, till exempel med hjälp av Azure Key Vault. Vi rekommenderar också att du återskapar nycklarna regelbundet. Endast en nyckel krävs för att göra ett API-anrop. När du återskapar den första nyckeln kan du använda den andra nyckeln för fortsatt åtkomst till tjänsten.
 
-## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållarregistret
+## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållar registret
 
-Du måste först fylla i och skicka [formuläret Cognitive Services Form Recognizer Containers åtkomstbegäran](https://aka.ms/FormRecognizerContainerRequestAccess) för att begära åtkomst till behållaren. Om du gör det registrerar du dig också för Datorseende. Du behöver inte registrera dig för formuläret för begäran om datorseende separat. 
+Du måste först fylla i och skicka in [formuläret för formulär för Cognitive Services som identifierar behållar formuläret](https://aka.ms/FormRecognizerContainerRequestAccess) för att begära åtkomst till behållaren. När du gör det loggas du också in för Visuellt innehåll. Du behöver inte registrera dig för formuläret för Visuellt innehåll begäran separat. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -79,61 +79,61 @@ Du måste först fylla i och skicka [formuläret Cognitive Services Form Recogni
 
 ### <a name="container-requirements-and-recommendations"></a>Krav och rekommendationer för behållare
 
-De minsta och rekommenderade CPU-kärnor och minne som allokerar för varje Forms Recognizer-behållare beskrivs i följande tabell:
+De minsta och rekommenderade processor kärnor och minne som ska allokeras för varje formulär igenkännings behållare beskrivs i följande tabell:
 
 | Container | Minimum | Rekommenderas |
 |-----------|---------|-------------|
-| Formigenkänning | 2 kärnor, 4 GB minne | 4-kärniga, 8 GB minne |
-| Känna igen text | 1 kärna, 8 GB minne | 2 kärnor, 8 GB minne |
+| Formigenkänning | 2 kärnor, 4 GB minne | 4 kärnor, 8 GB minne |
+| Identifiera text | 1 kärna, 8 GB minne | 2 kärnor, 8 GB minne |
 
 * Varje kärna måste vara minst 2,6 gigahertz (GHz) eller snabbare.
-* Kärna och minne `--cpus` motsvarar `--memory` och inställningar, som används `docker run` som en del av kommandot.
+* Core och minne motsvarar inställningarna `--cpus` och `--memory` som används som en del av `docker run` kommandot.
 
 > [!Note]
-> De lägsta och rekommenderade värdena baseras på Docker-gränser och *inte* värddatorns resurser.
+> De lägsta och rekommenderade värdena baseras på Docker-gränser och *inte* värd datorns resurser.
 
-## <a name="get-the-container-images-with-the-docker-pull-command"></a>Hämta behållaravbildningarna med docker pull-kommandot
+## <a name="get-the-container-images-with-the-docker-pull-command"></a>Hämta behållar avbildningarna med kommandot Docker pull
 
-Behållaravbildningar för både **erbjudandena formuläravkännings-** och **igenkännningstext** finns i följande behållarregister:
+Behållar avbildningar för både **formulär tolken** och **identifiera text** erbjudanden är tillgängliga i följande behållar register:
 
-| Container | Fullständigt kvalificerat bildnamn |
+| Container | Fullständigt kvalificerat avbildnings namn |
 |-----------|------------|
 | Formigenkänning | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
-| Känna igen text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
+| Identifiera text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
 
-Du behöver båda behållarna, observera att **behållaren för text recognizer** är [detaljerad utanför den här artikeln.](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull)
+Du behöver båda behållarna, Observera att text behållaren för **tolkning** är [detaljerad utanför den här artikeln.](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull)
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### <a name="docker-pull-for-the-form-recognizer-container"></a>Docker-drag för behållaren För formulärre recognizeer
+### <a name="docker-pull-for-the-form-recognizer-container"></a>Docker-hämtning för formulär igenkännings behållare
 
 #### <a name="form-recognizer"></a>Formigenkänning
 
-Så här hämtar du behållaren Formulärconformering:
+Använd följande kommando för att hämta formulär tolkens behållare:
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest
 ```
-### <a name="docker-pull-for-the-recognize-text-container"></a>Docker-dragning för behållaren Identifiera text
+### <a name="docker-pull-for-the-recognize-text-container"></a>Docker-hämtning för Identifiera text container
 
-#### <a name="recognize-text"></a>Känna igen text
+#### <a name="recognize-text"></a>Identifiera text
 
-Så här hämtar du behållaren Identifiera text:
+Använd följande kommando för att hämta Identifiera text container:
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
 ```
 
-## <a name="how-to-use-the-container"></a>Så här använder du behållaren
+## <a name="how-to-use-the-container"></a>Använda behållaren
 
-När behållaren finns på [värddatorn](#the-host-computer)använder du följande process för att arbeta med behållaren.
+När behållaren är på [värddatorn](#the-host-computer)använder du följande process för att arbeta med behållaren.
 
-1. [Kör behållaren](#run-the-container-by-using-the-docker-run-command)med de faktureringsinställningar som krävs. Fler [exempel](form-recognizer-container-configuration.md#example-docker-run-commands) `docker run` på kommandot är tillgängliga.
-1. [Fråga behållarens förutsägelseslutpunkt](#query-the-containers-prediction-endpoint).
+1. [Kör behållaren](#run-the-container-by-using-the-docker-run-command)med de fakturerings inställningar som krävs. Fler [exempel](form-recognizer-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
+1. [Fråga behållarens förutsägelse slut punkt](#query-the-containers-prediction-endpoint).
 
-## <a name="run-the-container-by-using-the-docker-run-command"></a>Köra behållaren med kommandot docker run
+## <a name="run-the-container-by-using-the-docker-run-command"></a>Kör behållaren med kommandot Docker Run
 
-Använd [kommandot docker run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållaren. Se [samla in obligatoriska parametrar](#gathering-required-parameters) för `{COMPUTER_VISION_ENDPOINT_URI}`information `{COMPUTER_VISION_API_KEY}` `{FORM_RECOGNIZER_ENDPOINT_URI}` om `{FORM_RECOGNIZER_API_KEY}` hur du hämtar , och värden.
+Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållaren. Läs om hur du [samlar in obligatoriska parametrar](#gathering-required-parameters) för information om hur `{COMPUTER_VISION_ENDPOINT_URI}`du `{COMPUTER_VISION_API_KEY}`hämtar `{FORM_RECOGNIZER_ENDPOINT_URI}` värdena `{FORM_RECOGNIZER_API_KEY}` , och.
 
 [Exempel](form-recognizer-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
 
@@ -153,17 +153,17 @@ FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 
 Det här kommandot:
 
-* Kör en behållare för formuläravkänning från behållaravbildningen.
-* Allokerar 2 CPU-kärnor och 8 GB minne.
+* Kör en formulär tolks behållare från behållar avbildningen.
+* Allokerar 2 processor kärnor och 8 GB minne.
 * Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren.
-* Tar automatiskt bort behållaren när den har avslutats. Behållaravbildningen är fortfarande tillgänglig på värddatorn.
-* Monterar en /input och en /output-volym till behållaren.
+* Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
+* Monterar en/input och en/output-volym till behållaren.
 
 [!INCLUDE [Running multiple containers on the same host H2](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
-### <a name="run-separate-containers-as-separate-docker-run-commands"></a>Kör separata behållare som separata dockerkörningskommandon
+### <a name="run-separate-containers-as-separate-docker-run-commands"></a>Kör separata behållare som separata Docker-körnings kommandon
 
-För kombinationen Formulärsammankänning och Text recognizer som finns lokalt på samma värd värd använder du följande två exempel på Docker CLI-kommandon:
+Använd följande två exempel på Docker CLI-kommandon för formulär igenkännings-och text igenkännings kombinationen som finns lokalt på samma värd:
 
 Kör den första behållaren på port 5000. 
 
@@ -188,11 +188,11 @@ Eula=accept \
 Billing={COMPUTER_VISION_ENDPOINT_URI} \
 ApiKey={COMPUTER_VISION_API_KEY}
 ```
-Varje efterföljande behållare bör vara på en annan port. 
+Varje efterföljande behållare bör finnas på en annan port. 
 
 ### <a name="run-separate-containers-with-docker-compose"></a>Kör separata behållare med Docker Compose
 
-För kombinationen Formulärsammanstol och Text recognizer som finns lokalt på samma värd värd läser du följande exempel på Docker Compose YAML-fil. Textsammankänningsverktyget `{COMPUTER_VISION_API_KEY}` måste `formrecognizer` vara `ocr` samma för både behållare och behållare. Används `{COMPUTER_VISION_ENDPOINT_URI}` endast i `ocr` behållaren eftersom `formrecognizer` behållaren `ocr` använder namnet och porten. 
+För formulär tolken och text igenkännings kombinationen som finns lokalt på samma värd, se följande exempel Docker Compose YAML-fil. Text tolken `{COMPUTER_VISION_API_KEY}` måste vara densamma för både behållaren `formrecognizer` och. `ocr` `{COMPUTER_VISION_ENDPOINT_URI}` Används endast i `ocr` behållaren, eftersom `formrecognizer` behållaren använder `ocr` namnet och porten. 
 
 ```docker
 version: '3.3'
@@ -243,23 +243,23 @@ services:
 ```
 
 > [!IMPORTANT]
-> `Eula`Den `Billing`, `ApiKey`, och , `FormRecognizer:ComputerVisionApiKey` `FormRecognizer:ComputerVisionEndpointUri` samt alternativen och, måste anges för att köra behållaren. Annars startar inte behållaren. Mer information finns i [Fakturering](#billing).
+> `Eula`, `Billing`, Och `ApiKey`, samt alternativen `FormRecognizer:ComputerVisionApiKey` och `FormRecognizer:ComputerVisionEndpointUri` måste anges för att köra behållaren. annars startar inte behållaren. Mer information finns i [fakturering](#billing).
 
-## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelseslutpunkt
+## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelse slut punkt
 
 |Container|Slutpunkt|
 |--|--|
-|formulär-igenkännare|http://localhost:5000
+|formulär-tolk|http://localhost:5000
 
 ### <a name="form-recognizer"></a>Formigenkänning
 
-Behållaren tillhandahåller websocket-baserade frågeslutpunkts-API:er, som du kommer åt via [SDK-dokumentation för Formulärreitertjänster](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
+Behållaren innehåller WebSocket-baserade frågor om slut punkts-API: er som du kommer åt via [dokumentation för formulär igenkännings tjänstens SDK](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
 
-Som standard använder Formulär recognizer SDK onlinetjänsterna. Om du vill använda behållaren måste du ändra initieringsmetoden. Se exemplen nedan.
+Som standard använder formulär igenkännings-SDK onlinetjänster. Om du vill använda behållaren måste du ändra initierings metoden. Se exemplen nedan.
 
 #### <a name="for-c"></a>För C #
 
-Ändra från att använda det här initieringsanropet i Azure-cloud:
+Ändra från att använda det här Azure-moln initierings anropet:
 
 ```csharp
 var config =
@@ -267,7 +267,7 @@ var config =
         "YourSubscriptionKey",
         "YourServiceRegion");
 ```
-till det här anropet, som använder behållarslutpunkten:
+till det här anropet, som använder behållarens slut punkt:
 
 ```csharp
 var config =
@@ -276,9 +276,9 @@ var config =
         "YourSubscriptionKey");
 ```
 
-#### <a name="for-python"></a>För Python
+#### <a name="for-python"></a>För python
 
-Ändra från att använda det här initieringsanropet i Azure-cloud:
+Ändra från att använda det här Azure-moln initierings anropet:
 
 ```python
 formrecognizer_config =
@@ -286,7 +286,7 @@ formrecognizer_config =
         subscription=formrecognizer_key, region=service_region)
 ```
 
-till det här anropet, som använder behållarslutpunkten:
+till det här anropet, som använder behållarens slut punkt:
 
 ```python
 formrecognizer_config = 
@@ -297,7 +297,7 @@ formrecognizer_config =
 
 ### <a name="form-recognizer"></a>Formigenkänning
 
-Behållaren tillhandahåller REST-slutpunkts-API:er, som du hittar på [API-sidan För formulärre recognizeer.](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel)
+Behållaren innehåller API: er för REST-slutpunkt, som du hittar på sidan [API för formulär igenkänning](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel) .
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -309,17 +309,17 @@ Behållaren tillhandahåller REST-slutpunkts-API:er, som du hittar på [API-sida
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om du kör behållaren med en [utdatamontering](form-recognizer-container-configuration.md#mount-settings) och loggning aktiverad genererar behållaren loggfiler som är användbara för att felsöka problem som inträffar när du startar eller kör behållaren.
+Om du kör behållaren med en utgående [montering](form-recognizer-container-configuration.md#mount-settings) och loggning aktive rad genererar behållaren loggfiler som är till hjälp vid fel sökning av problem som inträffar när du startar eller kör behållaren.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Fakturering
 
-Formulärkonekänningsbehållare skickar faktureringsinformation till Azure med hjälp av en _formulärkonekärerresurs_ på ditt Azure-konto.
+Formulär identifierarens behållare skickar fakturerings information till Azure med hjälp av en _formulär igenkännings_ resurs på ditt Azure-konto.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Mer information om dessa alternativ finns i [Konfigurera behållare](form-recognizer-container-configuration.md).
+Mer information om dessa alternativ finns i [Configure containers](form-recognizer-container-configuration.md).
 
 <!--blogs/samples/video courses -->
 
@@ -327,18 +327,18 @@ Mer information om dessa alternativ finns i [Konfigurera behållare](form-recogn
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln har du lärt dig begrepp och arbetsflöden för att hämta, installera och köra Formulärconformeringsbehållare. Sammanfattningsvis:
+I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ned, installera och köra formulär igenkännings behållare. Sammanfattningsvis:
 
-* Form Recognizer tillhandahåller en Linux-behållare för Docker.
-* Behållaravbildningar hämtas från det privata behållarregistret i Azure.
-* Behållaravbildningar körs i Docker.
-* Du kan använda antingen REST API eller REST SDK för att anropa åtgärder i Forms Recognizer-behållaren genom att ange behållarens värd-URI.
-* Du måste ange faktureringsinformationen när du instansierar en behållare.
+* Formulär tolken innehåller en Linux-behållare för Docker.
+* Behållar avbildningar laddas ned från det privata behållar registret i Azure.
+* Behållar avbildningar körs i Docker.
+* Du kan använda antingen REST API eller REST SDK för att anropa åtgärder i formulär igenkännings behållare genom att ange behållarens värd-URI.
+* Du måste ange fakturerings information när du instansierar en behållare.
 
 > [!IMPORTANT]
->  Cognitive Services-behållare är inte licensierade för att köras utan att vara anslutna till Azure för mätning. Kunderna måste alltid kunna kommunicera faktureringsinformation med mätartjänsten. Cognitive Services-behållare skickar inte kunddata (till exempel den bild eller text som analyseras) till Microsoft.
+>  Cognitive Services behållare är inte licensierade att köras utan att vara anslutna till Azure för mätning. Kunderna behöver göra det möjligt för behållarna att kommunicera fakturerings information med mät tjänsten hela tiden. Cognitive Services behållare skickar inte kund information (till exempel den bild eller text som analyseras) till Microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska [Konfigurera behållare](form-recognizer-container-configuration.md) för konfigurationsinställningar.
-* Använd fler [Cognitive Services-behållare](../cognitive-services-container-support.md).
+* Granska [Konfigurera behållare](form-recognizer-container-configuration.md) för konfigurations inställningar.
+* Använd fler [Cognitive Services behållare](../cognitive-services-container-support.md).

@@ -1,6 +1,6 @@
 ---
 title: Förbättra säkerheten vid fjärrhantering i Azure | Microsoft Docs
-description: I den här artikeln beskrivs steg för att förbättra fjärrhanteringssäkerheten samtidigt som Microsoft Azure-miljöer administreras, inklusive molntjänster, virtuella datorer och anpassade program.
+description: Den här artikeln beskriver steg för att förbättra säkerheten för fjärrhantering när du administrerar Microsoft Azure miljöer, inklusive moln tjänster, virtuella datorer och anpassade program.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
 ms.openlocfilehash: e1223560c5d7b19bf9da4c7c16a56c4741e582a0
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80981315"
 ---
 # <a name="security-management-in-azure"></a>Säkerhetshantering i Azure
@@ -119,11 +119,11 @@ En  fjärrskrivbordsgateway  är en principbaserad RDP-proxytjänst som tillämp
 Vanligtvis kan du se till att administratörsdatorerna är säkra att använda med molnet på ungefär samma sätt som för övriga lokala datorer. Det handlar till exempel om att minimera byggnadsbehörigheterna och de restriktiva behörigheterna. Vissa unika aspekter av molnhantering liknar mer företagshantering via fjärranslutning eller utanför IP-nätverket. Det gäller bland annat att använda och granska autentiseringsuppgifter, fjärråtkomst med ökad säkerhet och hotidentifiering och -svar.
 
 ### <a name="authentication"></a>Autentisering
-Du kan använda inloggningsbegränsningar för Azure om du vill begränsa källans IP-adresser från åtkomst till administrativa verktyg och granska förfrågningar. För att hjälpa Azure att identifiera hanteringsklienter (arbetsstationer och/eller program) kan du konfigurera både SMAPI (via kundutvecklade verktyg som Windows PowerShell-cmdlets) och Azure-portalen så att klienthanteringscertifikat installeras, förutom TLS/SSL-certifikat. Vi rekommenderar också att administratörsåtkomst kräver multifaktorautentisering.
+Du kan använda inloggningsbegränsningar för Azure om du vill begränsa källans IP-adresser från åtkomst till administrativa verktyg och granska förfrågningar. Du kan hjälpa Azure att identifiera hanterings klienter (arbets stationer och/eller program) genom att konfigurera både SMAPI (via kundutvecklade verktyg som Windows PowerShell-cmdlets) och Azure Portal att kräva att hanterings certifikat för klient sidan installeras, förutom TLS/SSL-certifikat. Vi rekommenderar också att administratörsåtkomst kräver multifaktorautentisering.
 
 Vissa program eller tjänster som du distribuerar i Azure kan ha sina egna autentiseringsmekanismer för både slutanvändare och administratörer, medan andra utnyttjar Azure AD fullt ut. Beroende på om du federerar autentiseringsuppgifter via AD FS (Active Directory Federation Services), via katalogsynkronisering eller genom underhåll av användarkonton enbart i molnet kan du med hjälp av [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (del av Azure AD Premium) hantera identitetslivscykler mellan resurserna.
 
-### <a name="connectivity"></a>Anslutning
+### <a name="connectivity"></a>Anslutningar
 Du kan säkra klientanslutningar till dina virtuella Azure-nätverk med hjälp av andra tillgängliga mekanismer. Med två av dessa mekanismer, [plats-till-plats-VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) och [punkt-till-plats-VPN](/azure/vpn-gateway/vpn-gateway-point-to-site-create) (P2S) kan du aktivera användning av branschstandarden IPsec (S2S) eller [Secure Socket Tunneling Protocol](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx) (SSTP) (P2S) för kryptering och tunnlar. När Azure ansluter till offentliga Azure-tjänster för hantering, till exempel Azure Portal, kräver Azure Hypertext Transfer Protocol Secure (HTTPS).
 
 En fristående förstärkt dator som inte ansluter till Azure via en RD Gateway ska använda det SSTP-baserade punkt-till-plats-VPN-nätverket för den första anslutningen till det virtuella Azure-nätverket. Därefter ska RDP-anslutning upprättas till enskilda virtuella datorer från VPN-tunneln.
@@ -176,7 +176,7 @@ Utgå inte ifrån att andra vanliga säkerhetskrav kan åsidosättas om en dator
 
 | Gör inte följande | Gör följande |
 | --- | --- |
-| Skicka inte e-postautentiseringsuppgifter för administratörsåtkomst eller andra hemligheter (tls/SSL eller hanteringscertifikat) |Upprätthåll sekretessen genom att lämna ut kontonamn och -lösenord via telefon (men lagrar dem inte i röstmeddelanden), utför en fjärrinstallation av klient-/servercertifikat (via en krypterad session), ladda ned från en skyddad nätverksresurs eller distribuera manuellt via flyttbara medier. |
+| Skicka inte autentiseringsuppgifter för administratörs åtkomst eller andra hemligheter (till exempel TLS/SSL eller hanterings certifikat) |Upprätthåll sekretessen genom att lämna ut kontonamn och -lösenord via telefon (men lagrar dem inte i röstmeddelanden), utför en fjärrinstallation av klient-/servercertifikat (via en krypterad session), ladda ned från en skyddad nätverksresurs eller distribuera manuellt via flyttbara medier. |
 | - | Hantera hanteringscertifikatets livscyklar proaktivt. |
 | Lagra inte lösenord okrypterade eller icke-hashformaterade i programlagring (till exempel i kalkylblad, SharePoint-webbplatser eller filresurser). |Fastställa säkerhetsprinciper och principer för systemhärdning och använd dem i din utvecklingsmiljö. |
 | - | Använd regler för att fästa certifikat i [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) för lämplig åtkomst till Azure SSL/TLS-webbplatser. |

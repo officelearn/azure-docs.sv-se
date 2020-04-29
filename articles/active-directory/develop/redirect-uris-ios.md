@@ -1,7 +1,7 @@
 ---
-title: Använd omdirigera URI:er med MSAL (iOS/macOS) | Azure
+title: 'Använda omdirigerings-URI: er med MSAL (iOS/macOS) | Azure'
 titleSuffix: Microsoft identity platform
-description: Lär dig mer om skillnaderna mellan Microsoft Authentication Library for ObjectiveC (MSAL för iOS och macOS) och Azure AD Authentication Library for ObjectiveC (ADAL. objC) och hur man migrerar mellan dem.
+description: Lär dig mer om skillnaderna mellan Microsoft Authentication Library för ObjectiveC (MSAL för iOS och macOS) och Azure AD Authentication Library för ObjectiveC (ADAL. ObjC) och hur du migrerar mellan dem.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,50 +14,50 @@ ms.author: marsma
 ms.reviewer: jak
 ms.custom: aaddev
 ms.openlocfilehash: 1291563a39e3cf3acd4b343302be8b150bf794ca
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80883516"
 ---
-# <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Använda omdirigera URI:er med Microsofts autentiseringsbibliotek för iOS och macOS
+# <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Använda omdirigerings-URI: er med Microsoft Authentication Library för iOS och macOS
 
-När en användare autentiserar skickar Azure Active Directory (Azure AD) token till appen med hjälp av den omdirigerings-URI som registrerats med Azure AD-programmet.
+När en användare autentiseras skickar Azure Active Directory (Azure AD) token till appen genom att använda den omdirigerings-URI som är registrerad i Azure AD-programmet.
 
-Microsoft Authentication-biblioteket (MSAL) kräver att omdirigerings-URI:n registreras med Azure AD-appen i ett visst format. MSAL använder en standardomdirigerings-URI om du inte anger någon. Formatet är `msauth.[Your_Bundle_Id]://auth`.
+Microsoft Authentication Library (MSAL) kräver att omdirigerings-URI: n registreras med Azure AD-appen i ett särskilt format. MSAL använder en standard-omdirigerings-URI, om du inte anger någon. Formatet är `msauth.[Your_Bundle_Id]://auth`.
 
-URI-standardformatet för omdirigering fungerar för de flesta appar och scenarier, inklusive förmedlad autentisering och systemwebbläge. Använd standardformatet när det är möjligt.
+Standardvärdet för omdirigerings-URI fungerar för de flesta appar och scenarier, inklusive Brokered Authentication and system Web View. Använd standard formatet när det är möjligt.
 
-Du kan dock behöva ändra omdirigera URI för avancerade scenarier, enligt beskrivningen nedan.
+Du kan dock behöva ändra omdirigerings-URI: n för avancerade scenarier, enligt beskrivningen nedan.
 
 ## <a name="scenarios-that-require-a-different-redirect-uri"></a>Scenarier som kräver en annan omdirigerings-URI
 
-### <a name="cross-app-single-sign-on-sso"></a>Korsapp enkel inloggning (SSO)
+### <a name="cross-app-single-sign-on-sso"></a>Enkel inloggning mellan appar (SSO)
 
-För att Microsoft Identity-plattformen ska kunna dela token mellan appar måste varje app ha samma klient-ID eller program-ID. Detta är den unika identifierare som angavs när du registrerade din app i portalen (inte det programpaket-ID som du registrerar per app med Apple).
+För att Microsoft Identity Platform ska kunna dela tokens mellan appar måste varje app ha samma klient-ID eller program-ID. Detta är den unika identifieraren som angavs när du registrerade din app i portalen (inte programpaket-ID: t som du registrerar per app med Apple).
 
-Omdirigerings-URI:erna måste vara olika för varje iOS-app. På så sätt kan Microsofts identitetstjänst unikt identifiera olika appar som delar ett program-ID. Varje program kan ha flera omdirigerings-URI:er registrerade i Azure-portalen. Varje app i din svit kommer att ha en annan omdirigera URI. Ett exempel:
+Omdirigerings-URI: erna måste vara olika för varje iOS-app. På så sätt kan Microsoft Identity service unikt identifiera olika appar som delar ett program-ID. Varje program kan ha flera omdirigerings-URI: er registrerade i Azure Portal. Varje app i din svit har en annan omdirigerings-URI. Ett exempel:
 
-Med följande programregistrering i Azure-portalen:
+Följande program registrering i Azure Portal:
 
     Client ID: ABCDE-12345 (this is a single client ID)
     RedirectUris: msauth.com.contoso.app1://auth, msauth.com.contoso.app2://auth, msauth.com.contoso.app3://auth
 
-App1 använder `msauth.com.contoso.app1://auth` omdirigering App2 använder `msauth.com.contoso.app2://auth` App3-användningsområden`msauth.com.contoso.app1://auth`
+APP1 använder omdirigera `msauth.com.contoso.app1://auth` APP2 använder `msauth.com.contoso.app2://auth` App3 använder`msauth.com.contoso.app1://auth`
 
 ### <a name="migrating-from-adal-to-msal"></a>Migrera från ADAL till MSAL
 
-När du migrerar kod som använde Azure AD Authentication Library (ADAL) till MSAL kanske du redan har en omdirigerings-URI konfigurerad för din app. Du kan fortsätta använda samma omdirigera URI så länge din ADAL-app har konfigurerats för att stödja förmedlade scenarier och din omdirigera URI uppfyller kraven för MSAL-omdirigerings-URI-format.
+När du migrerar kod som använde Azure AD Authentication Library (ADAL) till MSAL kanske du redan har konfigurerat en omdirigerings-URI för appen. Du kan fortsätta att använda samma omdirigerings-URI så länge din ADAL-app har kon figurer ATS för att stödja sammanställda scenarier och omdirigerings-URI uppfyller kraven för omdirigerings-URI-format.
 
-## <a name="msal-redirect-uri-format-requirements"></a>MSAL omdirigera URI-formatkrav
+## <a name="msal-redirect-uri-format-requirements"></a>Krav för omdirigering av URI-format för MSAL
 
-* MSAL-omdirigerings-URI:n måste vara i formuläret`<scheme>://host`
+* MSAL omdirigerings-URI måste vara i formatet`<scheme>://host`
 
-    Var `<scheme>` finns en unik sträng som identifierar din app. Det är främst baserat på Bundle Identifier av ditt program för att garantera unikhet. Om appens paket-ID till `com.contoso.myapp`exempel är skulle din omdirigerings-URI vara i formuläret : `msauth.com.contoso.myapp://auth`.
+    Var `<scheme>` är en unik sträng som identifierar din app. Det är främst baserat på paket-ID: n för ditt program för att garantera unika uppgifter. Om appens paket-ID till exempel är `com.contoso.myapp`, skulle omdirigerings-URI: n ha formatet `msauth.com.contoso.myapp://auth`:.
 
-    Om du migrerar från ADAL har din omdirigerings-URI troligen det här formatet: `<scheme>://[Your_Bundle_Id]`, var `scheme` är en unik sträng. Det här formatet fortsätter att fungera när du använder MSAL.
+    Om du migrerar från ADAL kommer din omdirigerings-URI förmodligen att ha `<scheme>://[Your_Bundle_Id]`det här `scheme` formatet:, där är en unik sträng. Det här formatet fungerar fortfarande när du använder MSAL.
 
-* `<scheme>`måste vara registrerad i appens Info.plist under `CFBundleURLTypes > CFBundleURLSchemes`.  I det här exemplet har Info.plist öppnats som källkod:
+* `<scheme>`måste registreras i appens info. plist under `CFBundleURLTypes > CFBundleURLSchemes`.  I det här exemplet har info. plist öppnats som käll kod:
 
     ```xml
     <key>CFBundleURLTypes</key>
@@ -72,15 +72,15 @@ När du migrerar kod som använde Azure AD Authentication Library (ADAL) till MS
     ```
     
 
-MSAL kontrollerar om din omdirigera URI registreras korrekt och returnerar ett fel om det inte är det.
+MSAL kontrollerar om din omdirigerings-URI registrerar sig korrekt och returnerar ett fel om det inte är det.
     
-* Om du vill använda universella länkar som `<scheme>` en `https` omdirigera URI, måste `CFBundleURLSchemes`vara och inte behöver deklareras i . Konfigurera i stället appen och domänen enligt Apples instruktioner på `handleMSALResponse:sourceApplication:` Universal `MSALPublicClientApplication` Links for Developers och anropa metoden [för](https://developer.apple.com/ios/universal-links/) när ditt program öppnas via en universell länk.
+* Om du vill använda Universal Links som en omdirigerings- `<scheme>` URI måste `https` du vara och behöver inte deklareras `CFBundleURLSchemes`i. Konfigurera i stället appen och domänen per Apple-instruktioner på [Universal Links för utvecklare](https://developer.apple.com/ios/universal-links/) och anropa `handleMSALResponse:sourceApplication:` metoden `MSALPublicClientApplication` när programmet öppnas via en Universal-länk.
 
-## <a name="use-a-custom-redirect-uri"></a>Använda en anpassad URI för omdirigering
+## <a name="use-a-custom-redirect-uri"></a>Använd en anpassad omdirigerings-URI
 
-Om du vill använda en `redirectUri` anpassad `MSALPublicClientApplicationConfig` omdirigerings-URI skickar du parametern till och skickar objektet till `MSALPublicClientApplication` när du initierar objektet. Om omdirigerings-URI:n `nil` är `redirectURIError`ogiltig returneras och anges med ytterligare information.  Ett exempel:
+Om du vill använda en anpassad omdirigerings `redirectUri` -URI `MSALPublicClientApplicationConfig` skickar du parametern till och `MSALPublicClientApplication` skickar objektet till när du initierar objektet. Om omdirigerings-URI: n är ogiltig, kommer `nil` initieraren att `redirectURIError`returnera och ange ytterligare information.  Ett exempel:
 
-Mål C:
+Mål-C:
 
 ```objc
 MSALPublicClientApplicationConfig *config =
@@ -92,7 +92,7 @@ MSALPublicClientApplication *application =
         [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&redirectURIError];
 ```
 
-Swift:
+Införliva
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "your-client-id",
@@ -108,11 +108,11 @@ do {
 
 
 
-## <a name="handle-the-url-opened-event"></a>Hantera den url-öppnade händelsen
+## <a name="handle-the-url-opened-event"></a>Hanterar händelsen öppnad URL
 
-Programmet ska anropa MSAL när det får svar via URL-scheman eller universella länkar. Anropa `handleMSALResponse:sourceApplication:` metoden `MSALPublicClientApplication` för när programmet öppnas. Här är ett exempel för anpassade scheman:
+Programmet bör anropa MSAL när det får svar via URL-scheman eller Universal-länkar. Anropa `handleMSALResponse:sourceApplication:` metoden för `MSALPublicClientApplication` när programmet öppnas. Här är ett exempel på anpassade scheman:
 
-Mål C:
+Mål-C:
 
 ```objc
 - (BOOL)application:(UIApplication *)app
@@ -124,7 +124,7 @@ Mål C:
 }
 ```
 
-Swift:
+Införliva
 
 ```swift
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -136,4 +136,4 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [autentiseringsflöden och programscenarier](authentication-flows-app-scenarios.md)
+Lär dig mer om [autentiserings flöden och program scenarier](authentication-flows-app-scenarios.md)

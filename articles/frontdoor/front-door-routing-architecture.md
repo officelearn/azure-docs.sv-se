@@ -1,6 +1,6 @@
 ---
-title: Azure Ytterdörr - routning arkitektur | Microsoft-dokument
-description: Den här artikeln hjälper dig att förstå den globala synaspekten av Ytterdörrens arkitektur.
+title: Arkitektur för Azures front dörr-routning | Microsoft Docs
+description: Den här artikeln hjälper dig att förstå den globala vyns aspekt av den främre dörrens arkitektur.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -12,36 +12,36 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: a088e52f742f96a13ba61969c2d7a6697c96b145
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80879300"
 ---
-# <a name="routing-architecture-overview"></a>Översikt över routningsarkitektur
+# <a name="routing-architecture-overview"></a>Översikt över arkitektur för routning
 
-Azure Front Door när den tar emot dina klientbegäranden då den antingen svarar dem (om cachelagring är aktiverad) eller vidarebefordrar dem till rätt program backend (som en omvänd proxy).
+Azures front dörr när den tar emot klient begär Anden, svarar den antingen (om cachelagring är aktiverat) eller vidarebefordrar dem till lämplig program Server del (som en omvänd proxy).
 
-</br>Det finns möjligheter att optimera trafiken vid routning till Azure Front Door samt vid routning till backends.
+</br>Det finns möjligheter att optimera trafiken vid routning till Azures front dörr samt vid routning till Server delar.
 
-## <a name="selecting-the-front-door-environment-for-traffic-routing-anycast"></a><a name = "anycast"></a>Välja ytterdörrsmiljön för trafikroutning (Anycast)
+## <a name="selecting-the-front-door-environment-for-traffic-routing-anycast"></a><a name = "anycast"></a>Välja miljön för den främre dörren för trafik dirigering (anycast)
 
-Routning till Azure Front Door-miljöer utnyttjar [Anycast](https://en.wikipedia.org/wiki/Anycast) för både DNS-trafik (Domain Name System) och HTTP-trafik (Hypertext Transfer Protocol), så användartrafik kommer att gå till den närmaste miljön när det gäller nätverkstopologi (minst hopp). Den här arkitekturen erbjuder vanligtvis bättre tur-och-retur-tider för slutanvändare (maximera fördelarna med Split TCP). Ytterdörren organiserar sina miljöer i primära och reserv "ringar".  Den yttre ringen har miljöer som är närmare användarna, som erbjuder lägre fördröjningar.  Den inre ringen har miljöer som kan hantera redundans för den yttre ringen miljön om ett problem inträffar. Den yttre ringen är det föredragna målet för all trafik, men den inre ringen är nödvändig för att hantera trafikspill från den yttre ringen. När det gäller VIP (Virtual Internet Protocol-adresser), tilldelas varje frontend värd, eller domän som betjänas av Ytterdörren en primär VIP, som aviserats av miljöer i både den inre och yttre ringen, samt en reserv-VIP, som endast tillkännages av miljöer i den inre ringen. 
+Routning till Azures frontend-miljöer utnyttjar [anycast](https://en.wikipedia.org/wiki/Anycast) för både DNS-(Domain Name System) och HTTP-trafik (Hypertext Transfer Protocol), så att användar trafiken går till den närmaste miljön vad gäller nätverk sto pol Ogin (minsta antal hopp). Den här arkitekturen erbjuder vanligt vis bättre svars tider för slutanvändare (maximera fördelarna med delade TCP). Front dörren ordnar sina miljöer i primär och återgång till "ringar".  Den yttre ringen har miljöer som är närmare användare, vilket ger lägre fördröjning.  Den inre ringen har miljöer som kan hantera redundansväxlingen för den yttre ring miljön, om ett problem uppstår. Den yttre ringen är det bästa målet för all trafik, men den inre ringen är nödvändig för att hantera trafik spill från den yttre ringen. Vad gäller VIP (Virtual Internet Protocol-adresser) tilldelas varje klient dels värd eller domän som betjänas av front dörren en primär VIP, som meddelas av miljöer i både den inre och yttre ringen, samt en reserv-VIP, som endast annonseras av miljöer i den inre ringen. 
 
-</br>Den här övergripande strategin säkerställer att begäranden från dina slutanvändare alltid når närmaste frontdörrsmiljö och att även om den önskade ytterdörren-miljön är ohälsosam så flyttas trafiken automatiskt till nästa närmaste miljö.
+</br>Den här övergripande strategin garanterar att förfrågningar från dina slutanvändare alltid når den närmaste främre dörren och att även om den önskade front dörr miljön inte är felfri flyttas trafiken automatiskt till nästa närmaste miljö.
 
-## <a name="connecting-to-front-door-environment-split-tcp"></a><a name = "splittcp"></a>Ansluta till ytterdörrens miljö (Split TCP)
+## <a name="connecting-to-front-door-environment-split-tcp"></a><a name = "splittcp"></a>Ansluta till en front dörrs miljö (delad TCP)
 
-[Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) är en teknik för att minska latenser och TCP problem genom att bryta en anslutning som skulle medföra en hög rundresa tid i mindre bitar.  Genom att placera frontdörrsmiljöerna närmare slutanvändarna och avsluta TCP-anslutningar inuti ytterdörrens miljö, delas en TCP-anslutning med en stor rundresa (RTT) till ansökan backend upp i två TCP-anslutningar. Den korta anslutningen mellan slutanvändaren och ytterdörren miljön innebär att anslutningen blir etablerad över tre korta tur och returresor i stället för tre långa rundresor, vilket sparar latens.  Den långa anslutningen mellan ytterdörren och backend kan förkonetables och återanvändas över flera slutanvändare samtal, återigen spara TCP anslutningstiden.  Effekten multipliceras när du upprättar en SSL/TLS-anslutning (Transport Layer Security), eftersom det finns fler tur- och returresor för att säkra anslutningen.
+[Delad TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) är en teknik för att minska fördröjnings-och TCP-problem genom att bryta en anslutning som skulle innebära en hög fördröjnings tid i mindre delar.  Genom att placera de främre dörr miljöerna närmare slutanvändare och avsluta TCP-anslutningar i den främre dörren, är en TCP-anslutning med en stor tur och svars tid i program Server delen uppdelad i två TCP-anslutningar. Den korta anslutningen mellan slutanvändaren och den främre dörren innebär att anslutningen upprättas över tre korta turer i stället för tre långa turer, vilket sparar svars tiden.  Den långa anslutningen mellan frontend-miljön och Server delen kan företableras och återanvändas över flera slut användar samtal, och sedan spara TCP-anslutningssträngen igen.  Resultatet multipliceras när du etablerar en SSL/TLS-anslutning (Transport Layer Security) eftersom det finns fler tur och ingångar för att skydda anslutningen.
 
-## <a name="processing-request-to-match-a-routing-rule"></a>Bearbeta begäran om att matcha en routningsregel
-När du har upprättat en anslutning och gjort ett TLS-handslag, när en begäran landar på en ytterdörrsmiljö, är matchning av en routningsregel det första steget. Den här matchningen avgör i princip från alla konfigurationer i Ytterdörren, vilken särskild routningsregel som ska matcha begäran till. Läs om hur Ytterdörren gör [ruttmatchning](front-door-route-matching.md) för att lära dig mer.
+## <a name="processing-request-to-match-a-routing-rule"></a>Bearbetar begäran för att matcha en regel för routning
+När du har upprättat en anslutning och gjort en TLS-handskakning, är det första steget när en begäran skickas till en front dörr miljö. Den här matchningen bestäms i princip för alla konfigurationer i front dörren, vilken specifika routningsregler som ska matcha begäran till. Läs om hur front dörr [matchar väg matchning](front-door-route-matching.md) för att lära dig mer.
 
-## <a name="identifying-available-backends-in-the-backend-pool-for-the-routing-rule"></a>Identifiera tillgängliga backends i backend-poolen för routningsregeln
-När Ytterdörren har en matchning för en routningsregel baserat på den inkommande begäran och om det inte finns någon cachelagring, är nästa steg att dra hälsoavsökningsstatusen för serverdelspoolen som är associerad med den matchade vägen. Läs om hur Front Door övervakar backend hälsa med hjälp av [Hälsosonder](front-door-health-probes.md) för att lära sig mer.
+## <a name="identifying-available-backends-in-the-backend-pool-for-the-routing-rule"></a>Identifiera tillgängliga Server delar i backend-poolen för Routningsprincipen
+När front dörren har en matchning för en routningstabell som baseras på inkommande begäran och om det inte finns någon cachelagring, är nästa steg att hämta hälso avsöknings statusen för den backend-pool som är associerad med den matchade vägen. Läs om hur front dörren övervakar Server delens hälso tillstånd med hjälp av [hälso avsökningar](front-door-health-probes.md) för mer information.
 
-## <a name="forwarding-the-request-to-your-application-backend"></a>Vidarebefordra begäran till din ansökan backend
-Slutligen, förutsatt att det inte finns någon cachelagring konfigurerad, är användaren begäran vidarebefordras till den "bästa" serverdelen baserat på din [Front Door routing metod](front-door-routing-methods.md) konfiguration.
+## <a name="forwarding-the-request-to-your-application-backend"></a>Vidarebefordra begäran till din program Server del
+Slutligen, förutsatt att ingen cachelagring har kon figurer ATS, vidarebefordras användar förfrågan till Server delen "bästa" baserat på konfigurationen för [routningsmetod](front-door-routing-methods.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,7 +1,7 @@
 ---
-title: Installera och köra behållare - Textanalys
+title: Installera och köra behållare – Textanalys
 titleSuffix: Azure Cognitive Services
-description: Så här hämtar, installerar och kör du behållare för TextAnalys i den här genomgången självstudiekurs.
+description: Hämta, installera och kör behållare för Textanalys i den här själv studie kursen.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,34 +12,34 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 2d44df1bb828140e662b06ffbe5fb14f207f68e0
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80877081"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installera och kör Textanalys-containrar
 
-Behållare kan du köra textnalytiska API:er i din egen miljö och är bra för dina specifika säkerhets- och datastyrningskrav. Textanalys-behållarna innehåller avancerad bearbetning av naturligt språk över rå text och innehåller tre huvudfunktioner: sentimentanalys, extrahering av nyckelfraser och språkidentifiering. Entitetslänkning stöds för närvarande inte i en behållare.
+Med behållare kan du köra API: er för text analys i din egen miljö och passar dina specifika krav för säkerhet och data styrning. Textanalys behållare tillhandahåller avancerad naturlig språk bearbetning över rå text och innehåller tre huvud funktioner: sentiment analys, extrahering av nyckel fraser och språk identifiering. Det finns för närvarande inte stöd för att länka entiteter i en behållare.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 > [!IMPORTANT]
-> Det kostnadsfria kontot är begränsat till 5 000 transaktioner per månad och endast <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> prisnivåerna</a> **för fri och** **standard** är giltiga för behållare. Mer information om transaktionsbegäranrhastigheter finns i [Datagränser](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
+> Det kostnads fria kontot är begränsat till 5 000 transaktioner per månad och bara <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">pris nivåerna <span class="docon docon-navigate-external x-hidden-focus"></span> </a> **kostnads fri** och **standard** är giltiga för behållare. Mer information om avgifter för transaktions begär Anden finns i [data begränsningar](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill köra någon av Text Analytics-behållarna måste du ha värddator- och behållarmiljöer.
+Om du vill köra någon av de Textanalys behållarna måste du ha värd datorn och behållar miljöerna.
 
 ## <a name="preparation"></a>Förberedelse
 
-Du måste uppfylla följande förutsättningar innan du använder Text Analytics-behållare:
+Du måste uppfylla följande krav innan du använder Textanalys behållare:
 
 |Krävs|Syfte|
 |--|--|
-|Docker-motorn| Du måste dockermotorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras så att behållarna kan ansluta till och skicka faktureringsdata till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
-|Förtrogenhet med Docker | Du bör ha en grundläggande förståelse för Docker-begrepp, till exempel register, databaser, behållare och `docker` behållaravbildningar, samt kunskap om grundläggande kommandon.| 
-|Textanalysresurs |För att kunna använda behållaren måste du ha:<br><br>En Azure [Text Analytics-resurs](../../cognitive-services-apis-create-account.md) för att hämta den associerade API-nyckeln och slutpunkts-URI. Båda värdena är tillgängliga på Azure-portalens textanalysöversikt och nycklar och krävs för att starta behållaren.<br><br>**{API_KEY}**: En av de två tillgängliga resursnycklarna på sidan **Nycklar**<br><br>**{ENDPOINT_URI}**: Slutpunkten som anges på **sidan Översikt**|
+|Docker-motorn| Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta att behållarna ansluter till och skicka fakturerings data till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
+|Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper `docker` om grundläggande kommandon.| 
+|Textanalys resurs |För att du ska kunna använda behållaren måste du ha:<br><br>En Azure [textanalys-resurs](../../cognitive-services-apis-create-account.md) för att hämta tillhör ande API-nyckel och slut punkts-URI. Båda värdena är tillgängliga på Azure Portal Textanalys översikt och nycklar sidor och krävs för att starta behållaren.<br><br>**{Api_key}**: en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}**: slut punkten enligt vad som anges på sidan **Översikt**|
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
@@ -49,7 +49,7 @@ Du måste uppfylla följande förutsättningar innan du använder Text Analytics
 
 ### <a name="container-requirements-and-recommendations"></a>Krav och rekommendationer för behållare
 
-I följande tabell beskrivs de minsta och rekommenderade CPU-kärnorna, minst 2,6 gigahertz (GHz) eller snabbare, och minne, i gigabyte (GB), att allokera för varje Text Analytics-behållare.
+I följande tabell beskrivs de minsta och rekommenderade processor kärnorna, minst 2,6 gigahertz (GHz) eller snabbare, och minne, i gigabyte (GB), för att allokera för varje Textanalys behållare.
 
 # <a name="key-phrase-extraction"></a>[Extrahering av nyckelfraser](#tab/keyphrase)
 
@@ -66,13 +66,13 @@ I följande tabell beskrivs de minsta och rekommenderade CPU-kärnorna, minst 2,
 ***
 
 * Varje kärna måste vara minst 2,6 gigahertz (GHz) eller snabbare.
-* TPS - transaktioner per sekund
+* TPS-transaktioner per sekund
 
-Kärna och minne `--cpus` motsvarar `--memory` och inställningar, som används `docker run` som en del av kommandot.
+Core och minne motsvarar inställningarna `--cpus` och `--memory` som används som en del av `docker run` kommandot.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållaravbildningen med`docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållar avbildningen med`docker pull`
 
-Behållaravbildningar för TextAnalys finns i Microsofts behållarregister.
+Behållar avbildningar för Textanalys finns tillgängliga på Microsoft Container Registry.
 
 # <a name="key-phrase-extraction"></a>[Extrahering av nyckelfraser](#tab/keyphrase)
 
@@ -90,7 +90,7 @@ Behållaravbildningar för TextAnalys finns i Microsofts behållarregister.
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### <a name="docker-pull-for-the-text-analytics-containers"></a>Docker dra för Text Analytics-behållarna
+### <a name="docker-pull-for-the-text-analytics-containers"></a>Docker-hämtning för Textanalys behållare
 
 # <a name="key-phrase-extraction"></a>[Extrahering av nyckelfraser](#tab/keyphrase)
 
@@ -106,16 +106,16 @@ Behållaravbildningar för TextAnalys finns i Microsofts behållarregister.
 
 ***
 
-## <a name="how-to-use-the-container"></a>Så här använder du behållaren
+## <a name="how-to-use-the-container"></a>Använda behållaren
 
-När behållaren finns på [värddatorn](#the-host-computer)använder du följande process för att arbeta med behållaren.
+När behållaren är på [värddatorn](#the-host-computer)använder du följande process för att arbeta med behållaren.
 
-1. [Kör behållaren](#run-the-container-with-docker-run)med de faktureringsinställningar som krävs. Fler [exempel](../text-analytics-resource-container-config.md#example-docker-run-commands) `docker run` på kommandot är tillgängliga.
-1. [Fråga behållarens förutsägelseslutpunkt](#query-the-containers-prediction-endpoint).
+1. [Kör behållaren](#run-the-container-with-docker-run)med de fakturerings inställningar som krävs. Fler [exempel](../text-analytics-resource-container-config.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
+1. [Fråga behållarens förutsägelse slut punkt](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>Kör behållaren med`docker run`
 
-Använd [kommandot docker run](https://docs.docker.com/engine/reference/commandline/run/) för att köra någon av de tre behållarna. Se [Samla in obligatoriska parametrar](#gathering-required-parameters) för `{ENDPOINT_URI}` information `{API_KEY}` om hur du hämtar värden och värden.
+Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) för att köra någon av de tre behållarna. Läs om hur du [samlar in nödvändiga parametrar](#gathering-required-parameters) för information om hur `{ENDPOINT_URI}` du `{API_KEY}` hämtar och-värden.
 
 [Exempel](../text-analytics-resource-container-config.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
 
@@ -134,15 +134,15 @@ Använd [kommandot docker run](https://docs.docker.com/engine/reference/commandl
 ***
 
 > [!IMPORTANT]
-> Alternativen `Eula` `Billing`, `ApiKey` och måste anges för att behållaren ska kunna köras. Annars startar inte behållaren.  Mer information finns i [Fakturering](#billing).
+> Alternativen `Eula`, `Billing`och `ApiKey` måste anges för att köra behållaren. annars startar inte behållaren.  Mer information finns i [fakturering](#billing).
 
 [!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
-## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelseslutpunkt
+## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelse slut punkt
 
-Behållaren tillhandahåller REST-baserade slutpunkts-API:er för frågeförutsägels.
+Behållaren innehåller REST-baserade slut punkts-API: er för frågor förutsägelse.
 
-Använd värden, `http://localhost:5000`för behållar-API:er.
+Använd värden, `http://localhost:5000`för behållar-API: er.
 
 <!--  ## Validate container is running -->
 
@@ -154,17 +154,17 @@ Använd värden, `http://localhost:5000`för behållar-API:er.
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om du kör behållaren med en [utdatamontering](../text-analytics-resource-container-config.md#mount-settings) och loggning aktiverad genererar behållaren loggfiler som är användbara för att felsöka problem som inträffar när du startar eller kör behållaren.
+Om du kör behållaren med en utgående [montering](../text-analytics-resource-container-config.md#mount-settings) och loggning aktive rad genererar behållaren loggfiler som är till hjälp vid fel sökning av problem som inträffar när du startar eller kör behållaren.
 
 [!INCLUDE [Cognitive Services FAQ note](../../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Fakturering
 
-Text Analytics-behållarna skickar faktureringsinformation till Azure med hjälp av en _Text Analytics-resurs_ på ditt Azure-konto. 
+Textanalys behållare skickar fakturerings information till Azure med hjälp av en _textanalys_ resurs på ditt Azure-konto. 
 
 [!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Mer information om dessa alternativ finns i [Konfigurera behållare](../text-analytics-resource-container-config.md).
+Mer information om dessa alternativ finns i [Configure containers](../text-analytics-resource-container-config.md).
 
 <!--blogs/samples/video course -->
 
@@ -172,21 +172,21 @@ Mer information om dessa alternativ finns i [Konfigurera behållare](../text-ana
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln har du lärt dig begrepp och arbetsflöden för att hämta, installera och köra Text Analytics-behållare. Sammanfattningsvis:
+I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ned, installera och köra Textanalys behållare. Sammanfattningsvis:
 
-* Text Analytics tillhandahåller tre Linux-behållare för Docker, som kapslar in olika funktioner:
+* Textanalys tillhandahåller tre Linux-behållare för Docker, som kapslar in olika funktioner:
    * *Extrahering av nyckelfraser*
    * *Språkidentifiering*
    * *Attitydanalys*
-* Behållaravbildningar hämtas från MCR (Microsoft Container Registry) i Azure.
-* Behållaravbildningar körs i Docker.
-* Du kan använda antingen REST API eller SDK för att anropa åtgärder i Text Analytics-behållare genom att ange behållarens värd-URI.
-* Du måste ange faktureringsinformation när du instansierar en behållare.
+* Behållar avbildningar hämtas från Microsoft Container Registry (MCR) i Azure.
+* Behållar avbildningar körs i Docker.
+* Du kan använda antingen REST API eller SDK för att anropa åtgärder i Textanalys behållare genom att ange behållarens värd-URI.
+* Du måste ange fakturerings information när du instansierar en behållare.
 
 > [!IMPORTANT]
-> Cognitive Services-behållare är inte licensierade för att köras utan att vara anslutna till Azure för mätning. Kunderna måste alltid kunna kommunicera faktureringsinformation med mätartjänsten. Cognitive Services-behållare skickar inte kunddata (t.ex. den bild eller text som analyseras) till Microsoft.
+> Cognitive Services behållare är inte licensierade att köras utan att vara anslutna till Azure för mätning. Kunderna behöver göra det möjligt för behållarna att kommunicera fakturerings information med mät tjänsten hela tiden. Cognitive Services behållare skickar inte kund information (t. ex. den bild eller text som analyseras) till Microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska [Konfigurera behållare](../text-analytics-resource-container-config.md) för konfigurationsinställningar
-* Se Vanliga frågor och svar om vanliga [frågor (FAQ)](../text-analytics-resource-faq.md) för att lösa problem som rör funktionalitet.
+* Granska [Konfigurera behållare](../text-analytics-resource-container-config.md) för konfigurations inställningar
+* Läs vanliga [frågor och svar (FAQ)](../text-analytics-resource-faq.md) för att lösa problem som rör funktioner.

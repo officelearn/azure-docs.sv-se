@@ -1,6 +1,6 @@
 ---
-title: Installationsguide för labb i klassrummet för Azure Lab Services
-description: Den här guiden hjälper labbskapare att snabbt skapa ett labbkonto för användning inom sin skola.
+title: Påskyndad installations guide för klass rummet för Azure Lab Services
+description: Den här guiden hjälper labb skapare att snabbt konfigurera ett labb konto för användning i sin skola.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,125 +14,125 @@ ms.topic: article
 ms.date: 3/18/2020
 ms.author: spelluru
 ms.openlocfilehash: e00b6dd5af1cb489aee9e8b4c9f3337eb02e4b14
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878110"
 ---
-# <a name="classroom-lab-setup-guide"></a>Installationsguide för klassrumslabb
+# <a name="classroom-lab-setup-guide"></a>Installations guide för klass rums labb
 
-Processen för att publicera ett labb till dina elever kan ta upp till flera timmar, beroende på antalet virtuella datorer som kommer att skapas i labbet. Tillåt minst en dag att konfigurera ett labb, för att säkerställa att det fungerar korrekt och ge tillräckligt med tid för att publicera elevernas virtuella datorer.
+Processen för att publicera ett labb till dina studenter kan ta upp till flera timmar, beroende på hur många virtuella datorer som kommer att skapas i labbet. Låt minst en dag konfigurera ett labb för att se till att det fungerar som det ska och för att tillåta tillräckligt med tid för att publicera studenters virtuella datorer.
 
-## <a name="understand-the-lab-requirements-of-your-class"></a>Förstå labbkraven för din klass
+## <a name="understand-the-lab-requirements-of-your-class"></a>Förstå labb kraven för klassen
 
-Innan du konfigurerar ett nytt labb bör du överväga följande frågor.
+Innan du skapar ett nytt labb bör du tänka på följande frågor.
 
-### <a name="what-software-requirements-does-the-class-have"></a>Vilka programvarukrav har klassen?
+### <a name="what-software-requirements-does-the-class-have"></a>Vilka program varu krav har klassen?
 
-Baserat på klassens inlärningsmål bestämmer du vilket operativsystem, program och verktyg som behöver installeras på labbets virtuella datorer. Om du vill konfigurera virtuella labb-datorer har du tre alternativ:
+Utifrån klassens utbildnings mål bestämmer du vilka operativ system, program och verktyg som måste installeras på Labbets virtuella datorer. Om du vill konfigurera virtuella labb datorer har du tre alternativ:
 
-- **Använd en Azure Marketplace-avbildning:** Azure Marketplace innehåller hundratals avbildningar som du kan använda när du skapar ett labb. För vissa klasser kanske en av dessa bilder redan innehåller allt du behöver för din klass.
+- **Använd en Azure Marketplace-avbildning**: Azure Marketplace innehåller hundratals avbildningar som du kan använda när du skapar ett labb. För vissa klasser kan en av dessa avbildningar redan innehålla allt som du behöver för klassen.
 
-- **Skapa en ny anpassad avbildning:** Du kan skapa en egen anpassad avbildning genom att använda en Azure Marketplace-avbildning som utgångspunkt och anpassa den genom att installera ytterligare programvara och göra konfigurationsändringar.
+- **Skapa en ny anpassad avbildning**: du kan skapa en egen anpassad avbildning genom att använda en Azure Marketplace-avbildning som en start punkt och anpassa den genom att installera ytterligare program vara och göra konfigurations ändringar.
 
-- **Använd en befintlig anpassad avbildning:** Du kan återanvända befintliga anpassade bilder som du tidigare har skapat eller som har skapats av andra administratörer eller lärare på din skola. Detta kräver att administratörerna har konfigurerat ett delat bildgalleri, som är en databas för att spara anpassade bilder.
-
-> [!NOTE]
-> Administratörerna ansvarar för att aktivera Azure Marketplace-avbildningar och anpassade avbildningar så att du kan använda dem. Samordna med IT-avdelningen för att säkerställa att bilder som du behöver är aktiverade. Anpassade bilder som du skapar aktiveras automatiskt för användning i labb som du äger.
-
-### <a name="what-hardware-requirements-does-the-class-have"></a>Vilka maskinvarukrav har klassen?
-
-Det finns en mängd olika beräkningsstorlekar som du kan välja mellan:
-
-- Kapslade virtualiseringsstorlekar, så att du kan ge åtkomst till deltagare till en virtuell dator som kan vara värd för flera kapslade virtuella datorer. Du kan till exempel använda den här beräkningsstorleken för nätverkskurser.
-
-- GPU-storlekar, så att dina elever kan använda datorintensiva typer av program. Det här valet kan till exempel vara lämpligt för artificiell intelligens och maskininlärning.
-
-Se guiden om [vm-storlek](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#vm-sizing) för att se hela listan över tillgängliga beräkningsstorlekar.
+- **Använd en befintlig anpassad avbildning**: du kan återanvända befintliga anpassade avbildningar som du skapat tidigare eller som har skapats av andra administratörer eller lärare i skolan. Detta kräver att dina administratörer har konfigurerat ett delat avbildnings Galleri, som är en lagrings plats för att spara anpassade avbildningar.
 
 > [!NOTE]
-> Beroende på regionen i ditt labb kan du se färre beräkningsstorlekar tillgängliga, eftersom detta varierar beroende på region. I allmänhet bör du välja den minsta beräkningsstorlek som är närmast dina behov. Med Azure Lab Services kan du konfigurera ett nytt labb med en annan beräkningskapacitet senare, om det behövs.
+> Dina administratörer ansvarar för att aktivera Azure Marketplace-avbildningar och anpassade avbildningar så att du kan använda dem. Koordinera med IT-avdelningen och se till att de bilder du behöver är aktiverade. Anpassade avbildningar som du skapar aktive ras automatiskt för användning inom labb som du äger.
 
-### <a name="what-dependencies-does-the-class-have-on-external-azure-or-network-resources"></a>Vilka beroenden har klassen på externa Azure- eller nätverksresurser?
+### <a name="what-hardware-requirements-does-the-class-have"></a>Vilka maskin varu krav har klassen?
 
-Om dina virtuella labbresurser behöver använda externa resurser, till exempel en databas, filresurs eller licensieringsserver, samordnar du med administratörerna för att säkerställa att labbet har åtkomst till dessa resurser.
+Det finns en mängd olika beräknings storlekar som du kan välja mellan:
 
-För åtkomst till Azure-resurser som *inte* skyddas av ett virtuellt nätverk behöver du inte söka ytterligare konfiguration av administratörerna. Du kan komma åt dessa resurser via det offentliga internet.
+- Kapslade virtualiseringslösningar så att du kan ge till gång till studenter till en virtuell dator som kan vara värd för flera, kapslade virtuella datorer. Du kan till exempel använda den här beräknings storleken för nätverks kurser.
+
+- GPU-storlekar så att eleverna kan använda dator intensiva typer av program. Det här alternativet kan till exempel vara lämpligt för artificiell intelligens och Machine Learning.
+
+Läs guiden om storlek på [virtuell dator](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#vm-sizing) för att se en fullständig lista över tillgängliga beräknings storlekar.
 
 > [!NOTE]
-> Du bör överväga om du kan minska labbets beroenden till externa resurser genom att tillhandahålla resursen direkt på den virtuella datorn. Om du till exempel vill eliminera behovet av att läsa data från en extern databas kan du installera databasen direkt på den virtuella datorn.  
+> Beroende på din labbs region kan du se färre beräknings storlekar som är tillgängliga, eftersom detta varierar beroende på region. I allmänhet bör du välja den minsta beräknings storlek som är närmast dina behov. Med Azure Lab Services kan du konfigurera ett nytt labb med en annan beräknings kapacitet senare, om det behövs.
 
-### <a name="how-will-costs-be-controlled"></a>Hur kommer kostnaderna att kontrolleras?
+### <a name="what-dependencies-does-the-class-have-on-external-azure-or-network-resources"></a>Vilka beroenden har klassen på externa Azure-eller nätverks resurser?
 
-Lab Services använder en prismodell för användningsbaserad betalning, vilket innebär att du bara betalar för den tid som en virtuell labbdator körs. Du kan kontrollera kostnaderna genom att tre alternativ som vanligtvis används tillsammans med varandra:
+Om dina virtuella labb datorer behöver använda externa resurser, till exempel en databas, fil resurs eller licensierings Server, koordinerar du med dina administratörer för att se till att ditt labb har åtkomst till dessa resurser.
 
-- **Schema:** Ett schema kan du automatiskt styra när dina labs virtuella datorer startas och stängs av.
-- **Kvot**: Kvoten styr antalet timmar som deltagarna har åtkomst till en virtuell dator utanför de schemalagda timmarna. Om kvoten nås medan en deltagare använder den stängs den virtuella datorn automatiskt av. Deltagaren kan inte starta om den virtuella datorn om inte kvoten ökas.
-- **Automatisk avstängning**: När den är aktiverad gör inställningen för automatisk avstängning att Windows virtuella datorer stängs av automatiskt efter en viss tid, efter att en elev har kopplat från en RDP-session (Remote Desktop Protocol). Som standard är denna inställning inaktiverad.  
+För åtkomst till Azure-resurser som *inte* är säkrade av ett virtuellt nätverk behöver du inte söka ytterligare konfiguration av dina administratörer. Du kan komma åt dessa resurser via det offentliga Internet.
+
+> [!NOTE]
+> Du bör fundera över om du kan minska dina labb beroenden till externa resurser genom att tillhandahålla resursen direkt på den virtuella datorn. För att till exempel eliminera behovet av att läsa data från en extern databas kan du installera databasen direkt på den virtuella datorn.  
+
+### <a name="how-will-costs-be-controlled"></a>Hur kommer kostnaderna att kontrol leras?
+
+Labb tjänster använder en pris modell enligt principen betala per användning, vilket innebär att du bara betalar för den tid som en virtuell labb dator körs. För att kontrol lera kostnaderna har du tre alternativ som vanligt vis används tillsammans med varandra:
+
+- **Schema**: ett schema gör att du automatiskt kan styra när dina labbs virtuella datorer startas och stängs av.
+- **Kvot**: kvoten styr antalet timmar som eleverna får åtkomst till en virtuell dator utanför de schemalagda timmarna. Om kvoten uppnås när en student använder den, stängs den virtuella datorn automatiskt av. Studenten kan inte starta om den virtuella datorn om inte kvoten höjs.
+- **Automatisk avstängning**: när den här inställningen är aktive rad gör inställningen för automatisk avstängning att virtuella Windows-datorer stängs av automatiskt efter en viss tids period, efter att en student har kopplats från en Remote Desktop Protocol-session (RDP). Som standard är denna inställning inaktiverad.  
 
     > [!NOTE]
     > Den här inställningen finns för närvarande bara för Windows.
 
-### <a name="how-will-students-save-their-work"></a>Hur ska eleverna spara sitt arbete?
+### <a name="how-will-students-save-their-work"></a>Hur kommer eleverna att spara sitt arbete?
 
-Deltagarna tilldelas var sin egen virtuella dator, som tilldelas dem under labbets livstid. De kan välja att:
+Eleverna tilldelas varje egen virtuell dator, som tilldelas dem under Labbets livs längd. De kan välja att:
 
 - Spara direkt till den virtuella datorn.
-- Spara på en extern plats, till exempel OneDrive eller GitHub.
+- Spara till en extern plats, till exempel OneDrive eller GitHub.
 
-Det är möjligt att konfigurera OneDrive automatiskt för studenter på sina virtuella labbdatorer.
+Det är möjligt att konfigurera OneDrive automatiskt för studenter på sina virtuella labb datorer.
 
 > [!NOTE]
-> För att säkerställa att dina elever har fortsatt åtkomst till sitt sparade arbete utanför labbet, och när klassen är, rekommenderar vi att eleverna sparar sitt arbete i en extern databas.
+> För att säkerställa att dina studenter har fortsatt åtkomst till sitt sparade arbete utanför labbet, och när klassen slutar, rekommenderar vi att eleverna sparar sitt arbete på en extern lagrings plats.
 
-### <a name="how-will-students-connect-to-their-vm"></a>Hur kommer eleverna att ansluta till sin virtuella dator?
+### <a name="how-will-students-connect-to-their-vm"></a>Hur ansluter eleverna till sin virtuella dator?
 
-För RDP till Windows virtuella datorer rekommenderar vi att eleverna använder [Microsoft Remote Desktop-klienten](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients). Klienten för fjärrskrivbord stöder Mac-datorer, Chromebook och Windows.
+För RDP till virtuella Windows-datorer rekommenderar vi att eleverna använder [Microsoft fjärrskrivbord-klienten](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients). Fjärr skrivbords klienten stöder Mac, Chromebooks och Windows.
 
-För virtuella Linux-datorer kan eleverna använda antingen SSH eller RDP. Om du vill att deltagarna ska ansluta med RDP måste du installera och konfigurera nödvändiga RDP- och GUI-paket.
+Studenter kan använda antingen SSH eller RDP för virtuella Linux-datorer. Om du vill att eleverna ska ansluta via RDP måste du installera och konfigurera de RDP-och GUI-paket som krävs.
 
 ## <a name="set-up-your-lab"></a>Skapa ett labb
 
-När du har förstått kraven för klassens labb är du redo att konfigurera det. Följ länkarna i det här avsnittet om du vill se hur du konfigurerar labbet.
+När du har förstått kraven för klassens labb är du redo att konfigurera den. Följ länkarna i det här avsnittet för att se hur du konfigurerar labbet.
 
-1. **Skapa ett labb.** Se handledningen om [hur du skapar ett klassrumslabb](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#create-a-classroom-lab) för instruktioner.
+1. **Skapa ett labb.** Mer information hittar du i självstudien om hur du [skapar ett klass rums labb](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#create-a-classroom-lab) .
 
     > [!NOTE]
-    > Om klassen kräver kapslad virtualisering läser du stegen för [att aktivera kapslad virtualisering](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-nested-virtualization-template-vm).
+    > Om din klass kräver kapslad virtualisering, se stegen i [Aktivera kapslad virtualisering](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-nested-virtualization-template-vm).
 
-1. **Anpassa bilder och publicera virtuella labb-datorer.** Anslut till en särskild virtuell dator som kallas mallen VM. Se stegen i följande guider:
-    - [Skapa och hantera en virtuell mall](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#publish-the-template-vm)
+1. **Anpassa avbildningar och publicera virtuella labb datorer.** Anslut till en särskild virtuell dator som kallas för mallen VM. Se stegen i följande guider:
+    - [Skapa och hantera en mall för virtuella datorer](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#publish-the-template-vm)
     - [Använda ett delat bildgalleri](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-use-shared-image-gallery)
 
     > [!NOTE]
-    > Om du använder Windows bör du också se instruktionerna för [att förbereda en virtuell Windows-mall](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-prepare-windows-template). De här anvisningarna innehåller steg för att konfigurera OneDrive och Office som dina elever kan använda.
+    > Om du använder Windows bör du även se anvisningarna i [förbereda en virtuell Windows-mall](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-prepare-windows-template). De här anvisningarna innehåller steg för att konfigurera OneDrive och Office för dina studenter att använda.
 
-1. **Hantera VM-pool och kapacitet.** Du kan enkelt skala upp eller ned vm-kapacitet, efter behov av din klass. Tänk på att det kan ta flera timmar att öka den virtuella datorns kapacitet, eftersom det innebär att du ställer in nya virtuella datorer. Se stegen för [att konfigurera och hantera en VM-pool](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-set-virtual-machine-passwords).
+1. **Hantera VM-pool och kapacitet.** Du kan enkelt skala upp eller ned VM-kapaciteten efter behov av klassen. Tänk på att det kan ta flera timmar att öka VM-kapaciteten, eftersom det innebär att skapa nya virtuella datorer. Se stegen i [Konfigurera och hantera en VM-pool](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-set-virtual-machine-passwords).
 
-1. **Lägg till och hantera labbanvändare.** Information om hur du lägger till användare i labbet finns i följande självstudier:
+1. **Lägg till och hantera labb användare.** Information om hur du lägger till användare i labbet finns i följande Självstudier:
    - [Lägga till användare i labbet](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#add-users-to-the-lab)
    - [Skicka inbjudningar till användare](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#send-invitation-emails-to-users)
 
-    Information om vilka typer av konton som deltagarna kan använda finns i [Studentkonton](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#student-accounts).
+    Information om vilka typer av konton som eleverna kan använda finns i [elev konton](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#student-accounts).
   
-1. **Ställ in kostnadskontroller.** Om du vill styra kostnaderna för ditt labb anger du scheman, kvoter och automatisk avstängning. Se följande självstudiekurser:
+1. **Ange kostnads kontroller.** För att kontrol lera kostnaderna för ditt labb, ange scheman, kvoter och automatisk avstängning. Se följande självstudiekurser:
 
    - [Ange ett schema](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab#set-a-schedule-for-the-lab)
         > [!NOTE]
-        > Beroende på vilken typ av operativsystem du har installerat kan det ta flera minuter att starta en virtuell dator. För att säkerställa att en virtuell labbdator är klar för användning under dina schemalagda timmar rekommenderar vi att du startar virtuella datorer 30 minuter i förväg.
+        > Det kan ta flera minuter att starta en virtuell dator beroende på vilken typ av operativ system du har installerat. För att säkerställa att en virtuell labb dator är redo att användas under dina schemalagda timmar rekommenderar vi att du startar virtuella datorer 30 minuter i förväg.
 
-   - [Ange kvoter för användare](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users) och [ange ytterligare kvoter för en viss användare](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quotas-for-specific-users)
+   - [Ange kvoter för användare](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-quotas-for-users) och [Ange ytterligare kvot för en speciell användare](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-student-usage#set-additional-quotas-for-specific-users)
   
    - [Aktivera automatisk avstängning vid frånkoppling](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
 
         > [!NOTE]
-        > Scheman, kvoter och automatisk avstängning gäller inte för mallen VM. Därför måste du se till att du stänger av mallen VM när den inte används. Annars fortsätter det att medföra kostnader. Som standard startas mallen VM som standard automatiskt när du skapar ett labb. Se till att du omedelbart slutför inrättandet av labbet och stäng av mallen VM.
+        > Scheman, kvoter och automatisk avstängning gäller inte för mallen VM. Därför måste du se till att du stänger av mallen VM när den inte används. Annars fortsätter det att ådra sig kostnaderna. Som standard startas den virtuella mallen automatiskt när du skapar ett labb. Se till att du slutför konfigurationen av labbet omedelbart och Stäng av mallen VM.
 
-1. **Använd instrumentpanelen.** Instruktioner finns [i hur du använder labbets instrumentpanel](https://docs.microsoft.com/azure/lab-services/classroom-labs/use-dashboard).
+1. **Använd instrument panelen.** Anvisningar finns i [använda Labbets instrument panel](https://docs.microsoft.com/azure/lab-services/classroom-labs/use-dashboard).
 
     > [!NOTE]
-    > Den uppskattade kostnaden som visas i instrumentpanelen är den maximala kostnaden som du kan förvänta dig för studenter användning av labbet. Du debiteras till exempel *inte* för oanvända kvottimmar av dina deltagare. De uppskattade kostnaderna återspeglar *inte* några avgifter för att använda mallen VM eller det delade bildgalleriet.
+    > Den uppskattade kostnaden som visas på instrument panelen är den högsta kostnad som du kan förväntar dig för studenters användning av labbet. Till exempel debiteras du *inte* för oanvända kvot timmar av dina studenter. De uppskattade kostnaderna återspeglar *inte* några avgifter för att använda mallen VM eller det delade avbildnings galleriet.
 
 ## <a name="next-steps"></a>Nästa steg
 

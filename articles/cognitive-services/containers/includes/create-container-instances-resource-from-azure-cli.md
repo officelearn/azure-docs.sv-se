@@ -1,7 +1,7 @@
 ---
 title: Stöd för containrar
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du skapar en Azure-behållarinstansresurs från Azure CLI.
+description: Lär dig hur du skapar en Azure Container instance-resurs från Azure CLI.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,15 +10,15 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: e3542b976921aa45794d62cad9517984c8348ce3
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80875152"
 ---
-## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Skapa en Azure Container Instance-resurs från Azure CLI
+## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Skapa en Azure Container instance-resurs från Azure CLI
 
-YAML nedan definierar Azure Container Instance-resursen. Kopiera och klistra in innehållet i `my-aci.yaml` en ny fil, namnge och ersätta de kommenterade värdena med dina egna. Se [mallformatet][template-format] för giltig YAML. Se [behållardatabaser och avbildningar][repositories-and-images] för tillgängliga bildnamn och motsvarande databas. Mer information om YAML-referensen för behållarinstanser finns i [YAML-referens: Azure Container Instances][aci-yaml-ref].
+I YAML nedan definieras Azure Container instance-resursen. Kopiera och klistra in innehållet i en ny fil med namnet `my-aci.yaml` och ersätt de kommenterade värdena med dina egna. Se [mallformat][template-format] för giltiga yaml. Referera till [behållar databaserna och avbildningarna][repositories-and-images] för de tillgängliga avbildnings namnen och deras motsvarande lagrings plats. Mer information om YAML-referensen för container instances finns i [referens för yaml: Azure Container instances][aci-yaml-ref].
 
 ```YAML
 apiVersion: 2018-10-01
@@ -64,18 +64,18 @@ type: Microsoft.ContainerInstance/containerGroups
 ```
 
 > [!NOTE]
-> Alla platser har inte samma cpu- och minnestillgänglighet. Se [plats- och resurstabellen][location-to-resource] för listningen av tillgängliga resurser för behållare per plats och operativsystem.
+> Alla platser har inte samma processor-och minnes tillgänglighet. Se tabellen [plats och resurser][location-to-resource] för att visa en lista över tillgängliga resurser för behållare per plats och operativ system.
 
-Vi förlitar oss på YAML-filen [`az container create`][azure-container-create] som vi skapade för kommandot. Från Azure CLI kör `az container create` du `<resource-group>` kommandot som ersätter med din egen. För att skydda värden inom en YAML-distribution finns dessutom [säkra värden][secure-values].
+Vi förlitar dig på den YAML-fil som [`az container create`][azure-container-create] vi har skapat för kommandot. Kör `az container create` kommandot från Azure CLI och Ersätt `<resource-group>` med ditt eget. För att skydda värden inom en YAML-distribution finns dessutom [säkra värden][secure-values].
 
 ```azurecli
 az container create -g <resource-group> -f my-aci.yaml
 ```
 
-Utdata för kommandot `Running...` är om det är giltigt, efter någon gång utdata ändras till en JSON sträng som representerar den nyligen skapade ACI-resursen. Behållaravbildningen är mer än sannolikt inte tillgänglig på ett tag, men resursen distribueras nu.
+Kommandots utdata är om det `Running...` är giltigt, efter att utdata har ändrats till en JSON-sträng som representerar den nyligen skapade ACI-resursen. Behållar avbildningen är mer än sannolikt inte tillgänglig för en stund, men resursen distribueras nu.
 
 > [!TIP]
-> Var uppmärksam på platserna för offentliga azure cognitive service-erbjudanden, eftersom YAML måste justeras i enlighet med detta för att matcha platsen.
+> Var uppmärksam på platserna för de allmänt tillgängliga Azure-tjänsterna för för hands versionen, eftersom YAML krävs för att de ska kunna matcha platsen.
 
 [azure-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
 [template-format]: https://docs.microsoft.com/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format

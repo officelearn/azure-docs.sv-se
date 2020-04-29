@@ -1,97 +1,97 @@
 ---
-title: Hantera apptjänstplan
-description: Lär dig hur du utför olika uppgifter för att hantera en App Service-plan, till exempel skapa, flytta, skala och ta bort.
-keywords: apptjänst, azure app-tjänst, skala, apptjänstplan, ändra, skapa, hantera, hantera
+title: Hantera App Service plan
+description: Lär dig hur du utför olika uppgifter för att hantera en App Service plan, till exempel skapa, flytta, skala och ta bort.
+keywords: App Service, Azure App Service, skala, App Service-plan, ändra, skapa, hantera, hantering
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: d40f5db65ce9ca90ae978bac4491bdebccc2a328
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811706"
 ---
-# <a name="manage-an-app-service-plan-in-azure"></a>Hantera en apptjänstplan i Azure
+# <a name="manage-an-app-service-plan-in-azure"></a>Hantera ett App Service plan i Azure
 
-En [Azure App Service-plan](overview-hosting-plans.md) innehåller de resurser som en App Service-app behöver för att köra. Den här guiden visar hur du hanterar en App Service-plan.
+En [Azure App Service-plan](overview-hosting-plans.md) tillhandahåller de resurser som en app service app måste köra. Den här guiden visar hur du hanterar en App Service plan.
 
 ## <a name="create-an-app-service-plan"></a>Skapa en App Service-plan
 
 > [!TIP]
-> Om du har en apptjänstmiljö läser du [Skapa en apptjänstplan i en apptjänstmiljö](environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan).
+> Om du har en App Service-miljön kan du läsa [skapa ett App Service plan i en app service-miljön](environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan).
 
-Du kan skapa en tom App Service-plan eller skapa en plan som en del av appskapande.
+Du kan skapa en tom App Service plan, eller så kan du skapa en plan som en del av att skapa en app.
 
-1. I [Azure-portalen](https://portal.azure.com)väljer du **Skapa en resurs**.
+1. I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs**.
 
-   ![Skapa en resurs i Azure-portalen.][createResource] 
+   ![Skapa en resurs i Azure Portal.][createResource] 
 
-1. Välj **Ny** > **webbapp** eller en annan typ av apptjänstapp.
+1. Välj **ny** > **webbapp** eller någon annan typ av App Service-app.
 
-   ![Skapa en app i Azure-portalen.][createWebApp] 
+   ![Skapa en app i Azure Portal.][createWebApp] 
 
-2. Konfigurera avsnittet **Instansinformation** innan appserviceplanen konfigureras. Inställningar som **Publicera** och **operativsystem** kan ändra tillgängliga prisnivåer för apptjänstplanen. **Regionen** bestämmer var apptjänstplanen skapas. 
+2. Konfigurera avsnittet **instans information** innan du konfigurerar app service plan. Inställningar som **publicera** och **operativ system** kan ändra de tillgängliga pris nivåerna för din app service plan. **Region** fastställer var App Service plan skapas. 
    
-3. I avsnittet **App Service Plan** väljer du en befintlig plan eller skapar en plan genom att välja Skapa **ny**.
+3. I avsnittet **App Service plan** väljer du en befintlig plan eller skapar en plan genom att välja **Skapa nytt**.
 
-   ![Skapa en apptjänstplan.][createASP] 
+   ![Skapa en App Service plan.][createASP] 
 
-4. När du skapar en plan kan du välja prisnivån för den nya planen. I **Sku och storlek**väljer du Ändra **storlek** om du vill ändra prisnivån. 
+4. När du skapar en plan kan du välja pris nivån för den nya planen. I **SKU och storlek**väljer du **ändra storlek** för att ändra pris nivån. 
 
 <a name="move"></a>
 
-## <a name="move-an-app-to-another-app-service-plan"></a>Flytta en app till en annan apptjänstplan
+## <a name="move-an-app-to-another-app-service-plan"></a>Flytta en app till en annan App Service plan
 
-Du kan flytta en app till en annan App Service-plan så länge källplanen och målplanen finns i _samma resursgrupp och geografiska område_.
+Du kan flytta en app till en annan App Service plan, så länge käll planen och mål planen finns i _samma resurs grupp och geografiska region_.
 
 > [!NOTE]
-> Azure distribuerar varje ny App Service-plan till en distributionsenhet, internt kallat ett webbutrymme. Varje region kan ha många webbutrymmen, men appen kan bara flyttas mellan planer som skapas i samma webbutrymme. En App Service-miljö är ett isolerat webbutrymme, så att appar kan flyttas mellan planer i samma App Service-miljö, men inte mellan planer i olika App Service-miljöer.
+> Azure distribuerar varje ny App Service plan till en distributions enhet som internt kallas för ett webb utrymme. Varje region kan ha många webb utrymmen, men appen kan bara flyttas mellan planer som skapas i samma webb utrymme. Ett App Service-miljön är ett isolerat webb utrymme, så att appar kan flyttas mellan planer i samma App Service-miljön, men inte mellan planer i olika App Service miljöer.
 >
-> Du kan inte ange det webbområde du vill använda när du skapar en plan, men det är möjligt att se till att en plan skapas i samma webbområde som en befintlig plan. Kort sagt, alla planer som skapas med samma resursgrupp och regionkombination distribueras till samma webbområde. Om du till exempel har skapat en plan i resursgrupp A och region B distribueras alla planer som du sedan skapar i resursgrupp A och region B till samma webbområde. Observera att planer inte kan flytta webbutrymmen när de har skapats, så du kan inte flytta en plan till "samma webbområde" som en annan plan genom att flytta den till en annan resursgrupp.
+> Du kan inte ange det webb utrymme du vill ha när du skapar en plan, men det är möjligt att se till att en plan skapas i samma webb utrymme som ett befintligt abonnemang. I korthet har alla planer som skapats med samma resurs grupp och regions kombination distribuerats till samma webb utrymme. Om du till exempel har skapat en plan i resurs grupp A och region B, så distribueras alla planer som du sedan skapar i resurs grupp A och region B till samma webb utrymme. Observera att det inte går att flytta webb utrymmen efter att de har skapats, så du kan inte flytta en plan till "samma webb utrymme" som en annan plan genom att flytta den till en annan resurs grupp.
 > 
 
-1. Sök efter och välj **App-tjänster** i [Azure-portalen](https://portal.azure.com)och välj den app som du vill flytta.
+1. Sök efter och välj **app Services** i [Azure Portal](https://portal.azure.com)och välj den app som du vill flytta.
 
-2. Välj **Ändra apptjänstplan på**den vänstra menyn .
+2. Välj **ändra App Service plan**på menyn till vänster.
 
-3. I listrutan **App Service-plan** väljer du en befintlig plan som appen ska flyttas till. Listrutan visar bara planer som finns i samma resursgrupp och geografiska region som den aktuella App Service-planen. Om det inte finns någon sådan plan kan du skapa en plan som standard. Du kan också skapa en ny plan manuellt genom att välja **Skapa ny**.
+3. I list rutan **App Service plan** väljer du en befintlig plan att flytta appen till. List rutan visar bara de planer som finns i samma resurs grupp och geografiska region som den aktuella App Service plan. Om det inte finns någon sådan plan kan du skapa en plan som standard. Du kan också skapa en ny plan manuellt genom att välja **Skapa ny**.
 
-4. Om du skapar en plan kan du välja prisnivån för det nya abonnemanget. I **Prisnivå**väljer du den befintliga nivån för att ändra den. 
+4. Om du skapar en plan kan du välja pris nivån för den nya planen. På **pris nivå**väljer du den befintliga nivån för att ändra den. 
    
    > [!IMPORTANT]
-   > Om du flyttar en app från en plan med högre nivå till en plan med lägre nivå, till exempel från **D1** till **F1,** kan appen förlora vissa funktioner i målplanen. Om din app till exempel använder TLS/SSL-certifikat kan det här felmeddelandet visas:
+   > Om du flyttar en app från en högre nivå plan till en plan med lägre nivåer, till exempel från **D1** till **F1**, kan appen förlora vissa funktioner i mål planen. Om din app exempelvis använder TLS/SSL-certifikat kan du se det här fel meddelandet:
    >
    > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
 
 5. När du är klar väljer du **OK**.
    
-   ![App Service-planväljare.][change] 
+   ![App Service plan väljare.][change] 
 
 ## <a name="move-an-app-to-a-different-region"></a>Flytta en app till en annan region
 
-Den region där appen körs är den region i apptjänstplanen som den finns i. Du kan dock inte ändra en apptjänstplans region. Om du vill köra din app i en annan region är ett alternativ appkloning. Kloning gör en kopia av din app i en ny eller befintlig App Service-plan i alla regioner.
+Den region där appen körs är den region i App Service plan den finns i. Du kan dock inte ändra en App Service plan region. Om du vill köra din app i en annan region är det ett alternativ som är kloning av appar. Kloningen gör en kopia av din app i en ny eller befintlig App Service plan i vilken region som helst.
 
-Du hittar **Clone App** i avsnittet **Utvecklingsverktyg** på menyn.
+Du hittar **klonings app** i avsnittet **utvecklingsverktyg** i menyn.
 
 > [!IMPORTANT]
-> Kloning har vissa begränsningar. Du kan läsa om dem i [kloning av Azure App Service App](app-service-web-app-cloning.md).
+> Kloning har vissa begränsningar. Du kan läsa om dem i [Azure App Service kloning av appar](app-service-web-app-cloning.md).
 
-## <a name="scale-an-app-service-plan"></a>Skala en apptjänstplan
+## <a name="scale-an-app-service-plan"></a>Skala en App Service plan
 
-Om du vill skala upp prisnivån för apptjänstplanen finns [i Skala upp en app i Azure](manage-scale-up.md).
+Om du vill skala upp en App Service plans pris nivå går du till [skala upp en app i Azure](manage-scale-up.md).
 
-Om du vill skala ut en apps instansantal läser du [Skala instansantal manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md).
+Information om hur du skalar ut antalet instanser för en app finns i [skala antalet instanser manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
 <a name="delete"></a>
 
-## <a name="delete-an-app-service-plan"></a>Ta bort en apptjänstplan
+## <a name="delete-an-app-service-plan"></a>Ta bort ett App Service plan
 
-Om du vill undvika oväntade debiteringar tas även planen bort som standard när du tar bort den senaste appen i en App Service-plan. Om du väljer att behålla planen i stället bör du ändra planen till **den kostnadsfria** nivån så att du inte debiteras.
+För att undvika oväntade kostnader, tar App Service även bort planen som standard när du tar bort den senaste appen i en App Service plan. Om du väljer att behålla planen i stället bör du ändra planen till den **kostnads fria** nivån så att du inte debiteras.
 
 > [!IMPORTANT]
-> App Service-planer som inte har några appar associerade med dem ådrar sig fortfarande avgifter eftersom de fortsätter att reservera de konfigurerade VM-instanserna.
+> App Service planer som inte har några program kopplade till sig debiteras ändå, eftersom de fortsätter att reservera de konfigurerade VM-instanserna.
 
 ## <a name="next-steps"></a>Nästa steg
 

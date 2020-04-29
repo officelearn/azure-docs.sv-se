@@ -1,39 +1,39 @@
 ---
-title: Aktivera Azure Monitor för virtuella datorer översikt
-description: Lär dig hur du distribuerar och konfigurerar Azure Monitor för virtuella datorer. Ta reda på systemkraven.
+title: Aktivera Azure Monitor for VMs översikt
+description: Lär dig hur du distribuerar och konfigurerar Azure Monitor for VMs. Ta reda på system kraven.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/08/2020
 ms.openlocfilehash: 5bb5d5dd5110f176b59a99f6a3aa223184158da5
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80982318"
 ---
-# <a name="enable-azure-monitor-for-vms-overview"></a>Aktivera Azure Monitor för virtuella datorer översikt
+# <a name="enable-azure-monitor-for-vms-overview"></a>Aktivera Azure Monitor for VMs översikt
 
-Den här artikeln innehåller en översikt över de alternativ som finns tillgängliga för att aktivera Azure Monitor för virtuella datorer på dina virtuella datorer för att övervaka hälsa och prestanda. Identifiera programberoenden som körs på virtuella Azure-datorer (virtuella datorer) och skaluppsättningar för virtuella datorer, lokala virtuella datorer eller virtuella datorer som finns i en annan molnmiljö.  
+Den här artikeln innehåller en översikt över tillgängliga alternativ för att aktivera Azure Monitor for VMs på dina virtuella datorer för att övervaka hälso tillstånd och prestanda. Identifiera program beroenden som körs på virtuella Azure-datorer och skalnings uppsättningar för virtuella datorer, lokala virtuella datorer eller virtuella datorer som finns i en annan moln miljö.  
 
-Så här konfigurerar du Azure Monitor för virtuella datorer:
+Så här konfigurerar du Azure Monitor for VMs:
 
-* Aktivera en enda Azure VM- eller virtuell datorskalauppsättning genom att välja **Insikter** direkt från den virtuella datorn eller skalningsuppsättningen för virtuella datorer.
-* Aktivera två eller flera virtuella Azure-datorer och skalningsuppsättningar för virtuella datorer med hjälp av Azure Policy. Den här metoden säkerställer att på befintliga och nya virtuella datorer och skalningsuppsättningar installeras och konfigureras de nödvändiga beroendena. Icke-kompatibla virtuella datorer och skalningsuppsättningar rapporteras, så du kan bestämma om du vill aktivera dem och åtgärda dem.
-* Aktivera två eller flera Azure-virtuella datorer eller skalningsuppsättningar för virtuella datorer över en angiven prenumeration eller resursgrupp med hjälp av PowerShell.
-* Aktivera Azure Monitor för virtuella datorer för att övervaka virtuella datorer eller fysiska datorer som finns i företagets nätverk eller annan molnmiljö.
+* Aktivera en enskild virtuell Azure-dator eller skalnings uppsättning för virtuella datorer genom att välja **insikter** direkt från den virtuella datorn eller skalnings uppsättningen för virtuella datorer.
+* Aktivera två eller flera virtuella Azure-datorer och skalnings uppsättningar för virtuella datorer med hjälp av Azure Policy. Den här metoden säkerställer att de nödvändiga beroendena är installerade och korrekt konfigurerade för befintliga och nya virtuella datorer och skalnings uppsättningar. Icke-kompatibla virtuella datorer och skalnings uppsättningar rapporteras, så du kan välja om du vill aktivera dem och åtgärda dem.
+* Aktivera två eller flera virtuella Azure-datorer eller skalnings uppsättningar för virtuella datorer i en angiven prenumeration eller resurs grupp med hjälp av PowerShell.
+* Aktivera Azure Monitor for VMs för att övervaka virtuella datorer eller fysiska datorer som finns i företagets nätverk eller i annan moln miljö.
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar måste du förstå informationen i följande avsnitt. 
+Innan du börjar ska du se till att du förstår informationen i följande avsnitt. 
 
 >[!NOTE]
->Följande information som beskrivs i det här avsnittet gäller även för [servicekartlösningen](service-map.md).  
+>Följande information som beskrivs i det här avsnittet gäller även för den [tjänstkarta lösningen](service-map.md).  
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Azure Monitor för virtuella datorer stöder en Log Analytics-arbetsyta i följande regioner:
+Azure Monitor for VMs stöder en Log Analytics arbets yta i följande regioner:
 
 - USA, västra centrala
 - USA, västra
@@ -55,32 +55,32 @@ Azure Monitor för virtuella datorer stöder en Log Analytics-arbetsyta i följa
 - Australien, sydöstra
 
 >[!NOTE]
->Du kan övervaka virtuella Azure-datorer i valfri region. Själva virtuella datorer är inte begränsade till de regioner som stöds av log analytics-arbetsytan.
+>Du kan övervaka virtuella Azure-datorer i vilken region som helst. De virtuella datorerna är inte begränsade till de regioner som stöds av Log Analytics arbets ytan.
 >
 
-Om du inte har en Log Analytics-arbetsyta kan du skapa en med hjälp av en av resurserna:
+Om du inte har en Log Analytics arbets yta kan du skapa en med hjälp av en av resurserna:
 * [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
 * [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
-* [Azure-portal](../../azure-monitor/learn/quick-create-workspace.md)
+* [Azure Portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
-Du kan också skapa en arbetsyta medan du aktiverar övervakning för en enda Azure VM- eller virtuell datorskala som anges i Azure-portalen.
+Du kan också skapa en arbets yta när du aktiverar övervakning för en enskild virtuell Azure-dator eller skalnings uppsättning för virtuella datorer i Azure Portal.
 
-Så här konfigurerar du ett scenario i skala som använder Azure Policy-, Azure PowerShell- eller Azure Resource Manager-mallar på arbetsytan Log Analytics:
+Om du vill konfigurera ett i skala-scenario som använder Azure Policy, Azure PowerShell eller Azure Resource Manager mallar, i din Log Analytics arbets yta:
 
-* Installera *Lösningarna ServiceMap* och *InfrastructureInsights.* Du kan slutföra den här installationen med hjälp av en medföljande Azure Resource Manager-mall. Eller på fliken **Kom igång** i Azure-portalen väljer du **Konfigurera arbetsyta**.
-* Konfigurera arbetsytan Log Analytics för att samla in prestandaräknare.
+* Installera *ServiceMap* -och *InfrastructureInsights* -lösningarna. Du kan slutföra installationen med hjälp av en angiven Azure Resource Manager mall. Eller på fliken **Kom igång** i Azure Portal väljer du **Konfigurera arbets yta**.
+* Konfigurera Log Analytics arbets ytan för att samla in prestanda räknare.
 
-Om du vill konfigurera arbetsytan för scenariot i skala använder du någon av följande metoder:
+Använd någon av följande metoder för att konfigurera din arbets yta för scenariot för vid skalning:
 
 * Använd [Azure PowerShell](vminsights-enable-at-scale-powershell.md#set-up-a-log-analytics-workspace).
-* På sidan Azure Monitor för [**virtuella datorers principtäckning**](vminsights-enable-at-scale-policy.md#manage-policy-coverage-feature-overview) väljer du **Konfigurera arbetsyta**. 
+* På sidan Azure Monitor for VMs [**princip täckning**](vminsights-enable-at-scale-policy.md#manage-policy-coverage-feature-overview) väljer du **Konfigurera arbets yta**. 
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-I följande tabell visas de Windows- och Linux-operativsystem som Azure Monitor för virtuella datorer stöder. Senare i det här avsnittet hittar du en fullständig lista som beskriver huvud- och mindre Linux OS-utgåvan och kärnversionerna som stöds.
+I följande tabell visas de Windows-och Linux-operativsystem som Azure Monitor for VMs stöder. Senare i det här avsnittet finns en fullständig lista med information om de viktigaste och lägre Linux OS-versionerna och de kernel-versioner som stöds.
 
-|Operativsystemversion |Prestanda |Kartor |
+|OS-version |Prestanda |Kartor |
 |-----------|------------|-----|
 |Windows Server 2019 | X | X |
 |Windows Server 2016 1803 | X | X |
@@ -89,89 +89,89 @@ I följande tabell visas de Windows- och Linux-operativsystem som Azure Monitor 
 |Windows Server 2012 | X | X |
 |Windows Server 2008 R2 | X | X|
 |Windows 10 1803 | X | X |
-|Windows 8.1 | X | X |
+|Windows 8,1 | X | X |
 |Windows 8 | X | X |
 |Windows 7 SP1 | X | X |
 |Red Hat Enterprise Linux (RHEL) 6, 7| X | X| 
 |Ubuntu 18,04, 16,04 | X | X |
 |CentOS Linux 7, 6 | X | X |
 |SUSE Linux Enterprise Server (SLES) 12 | X | X |
-|Debian 9.4, 8 | X<sup>1</sup> | |
+|Debian 9,4, 8 | X<sup>1</sup> | |
 
-<sup>1</sup> Prestandafunktionen i Azure Monitor för virtuella datorer är endast tillgänglig från Azure Monitor. Den är inte tillgänglig direkt från den vänstra rutan i Den virtuella Azure-datorn.
+<sup>1</sup> prestanda funktionen i Azure Monitor for VMS är bara tillgänglig från Azure Monitor. Den är inte tillgänglig direkt från den vänstra rutan i den virtuella Azure-datorn.
 
 >[!NOTE]
->I Operativsystemet Linux:
+>I Linux-operativ systemet:
 > - Endast standardversioner och SMP Linux-kernelversioner stöds.
-> - Icke-standardiserade kärnversioner, till exempel PAE (Physical Address Extension) och Xen, stöds inte för någon Linux-distribution. Ett system med utgivningssträngen *2.6.16.21-0.8-xen* stöds till exempel inte.
-> - Anpassade kärnor, inklusive omkompileringar av standardkärnor, stöds inte.
+> - Icke-standardutgåvor av kernel, till exempel PAE (Physical Address Extension) och Xen, stöds inte för någon Linux-distribution. Till exempel stöds inte ett system med versions strängen *2.6.16.21-0,8-xen* .
+> - Anpassade kärnor, inklusive omkompileringar av standard kärnor, stöds inte.
 > - CentOSPlus-kärnan stöds.
-> - Linux-kärnan måste korrigeras för Spectre-sårbarheten. Kontakta din Linux-distributionsleverantör för mer information.
+> - Linux-kärnan måste korrigeras för SPECTRE-problemet. Kontakta din leverantör av Linux-distribution för mer information.
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
-| Operativsystemversion | Kernelversion |
+| OS-version | Kernelversion |
 |:--|:--|
-| 7.6 | 3.10.0-957 |
+| 7,6 | 3.10.0-957 |
 | 7.5 | 3.10.0-862 |
 | 7.4 | 3.10.0-693 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
-| Operativsystemversion | Kernelversion |
+| OS-version | Kernelversion |
 |:--|:--|
-| 6.10 | 2.6.32-754 |
-| 6.9 | 2.6.32-696 |
+| 6,10 | 2.6.32-754 |
+| 6,9 | 2.6.32 – 696 |
 
-#### <a name="centosplus"></a>CentOSPlus (centOSPlus)
+#### <a name="centosplus"></a>CentOSPlus
 
-| Operativsystemversion | Kernelversion |
+| OS-version | Kernelversion |
 |:--|:--|
-| 6.10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
-| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
+| 6,10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
+| 6,9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
 
 #### <a name="ubuntu-server"></a>Ubuntu Server
 
-| Operativsystemversion | Kernelversion |
+| OS-version | Kernelversion |
 |:--|:--|
-| 18.04 | 5.0 (inkluderar Azure-trimmad kärna)<br>4,18*<br>4,15* |
-| 16.04.3 | 4.15.* |
-| 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
+| 18,04 | 5,0 (inkluderar Azure-justerad kernel)<br>4,18*<br>4,15* |
+| 16.04.3 | 4,15. * |
+| 16,04 | 4,13.\*<br>4,11.\*<br>4,10.\*<br>4,8.\*<br>4,4.\* |
 
-#### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Företagsserver
+#### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
-| Operativsystemversion | Kernelversion |
+| OS-version | Kernelversion |
 |:--|:--|
-|12 SP4 (på andra) | 4.12.* (inkluderar Azure-trimmad kärna) |
-|12 SP3 (PÅ ANDRA) | 4.4.* |
-|12 SP2 (S) | 4.4.* |
+|12 SP4 | 4,12. * (innehåller Azure-justerad kernel) |
+|12 SP3 | 4,4. * |
+|12 SP2 | 4,4. * |
 
 #### <a name="debian"></a>Debian 
 
-| Operativsystemversion | Kernelversion |
+| OS-version | Kernelversion |
 |:--|:--|
-| 9 | 4.9 | 
+| 9 | 4,9 | 
 
-### <a name="the-microsoft-dependency-agent"></a>Microsofts beroendeagent
+### <a name="the-microsoft-dependency-agent"></a>Microsofts beroende agent
 
-Kartfunktionen i Azure Monitor för virtuella datorer hämtar sina data från Microsoft Dependency Agent. Beroendeagenten förlitar sig på Log Analytics-agenten för sin anslutning till Log Analytics. Så ditt system måste ha Log Analytics-agenten installerad och konfigurerad med beroendeagenten.
+Kart funktionen i Azure Monitor for VMs hämtar data från Microsoft-beroende agenten. Beroende agenten använder den Log Analytics agenten för att ansluta till Log Analytics. Datorn måste ha Log Analytics-agenten installerad och konfigurerad med beroende agenten.
 
-Oavsett om du aktiverar Azure Monitor för virtuella datorer för en enda Azure-virtuell dator eller om du använder distributionsmetoden i skala använder du Azure VM Dependency Agent-tillägget för [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) eller [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) för att installera agenten som en del av upplevelsen.
+Oavsett om du aktiverar Azure Monitor for VMs för en enskild virtuell Azure-dator eller om du använder distributions metoden vid vid skala, använder du tillägget Azure VM Dependency agent för [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) eller [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) för att installera agenten som en del av upplevelsen.
 
 >[!NOTE]
->Följande information som beskrivs i det här avsnittet gäller även för [servicekartlösningen](service-map.md).  
+>Följande information som beskrivs i det här avsnittet gäller även för den [tjänstkarta lösningen](service-map.md).  
 
-I en hybridmiljö kan du hämta och installera beroendeagenten manuellt eller använda en automatiserad metod.
+I en hybrid miljö kan du ladda ned och installera beroende agenten manuellt eller med en automatiserad metod.
 
-I följande tabell beskrivs de anslutna källor som kartfunktionen stöder i en hybridmiljö.
+I följande tabell beskrivs de anslutna källor som kart funktionen stöder i en hybrid miljö.
 
 | Ansluten källa | Stöds | Beskrivning |
 |:--|:--|:--|
-| Windows-agenter | Ja | Tillsammans med [Log Analytics-agenten för Windows](../../azure-monitor/platform/log-analytics-agent.md)behöver Windows-agenter beroendeagenten. Mer information finns i [operativsystem som stöds](#supported-operating-systems). |
-| Linux-agenter | Ja | Tillsammans med [Log Analytics-agenten för Linux](../../azure-monitor/platform/log-analytics-agent.md)behöver Linux-agenter beroendeagenten. Mer information finns i [operativsystem som stöds](#supported-operating-systems). |
-| System Center Operations Manager-hanteringsgrupp | Inga | |
+| Windows-agenter | Ja | Tillsammans med [Log Analytics agent för Windows](../../azure-monitor/platform/log-analytics-agent.md), behöver Windows-agenter beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
+| Linux-agenter | Ja | Tillsammans med [Log Analytics-agenten för Linux](../../azure-monitor/platform/log-analytics-agent.md)behöver Linux-agenterna beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
+| System Center Operations Manager-hanteringsgrupp | Nej | |
 
-Du kan hämta beroendeagenten från följande platser:
+Du kan ladda ned beroende agenten från följande platser:
 
 | Fil | Operativsystem | Version | SHA-256 |
 |:--|:--|:--|:--|
@@ -180,39 +180,39 @@ Du kan hämta beroendeagenten från följande platser:
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
-Om du vill aktivera och komma åt funktionerna i Azure Monitor för virtuella datorer måste du ha rollen *Log Analytics-deltagare.* Om du vill visa prestanda, hälsa och kartdata måste du ha *rollen övervakningsläsare* för Den virtuella Azure-datorn. Log Analytics-arbetsytan måste konfigureras för Azure Monitor för virtuella datorer.
+Om du vill aktivera och komma åt funktionerna i Azure Monitor for VMs måste du ha rollen *Log Analytics deltagare* . Om du vill visa prestanda-, hälso-och kart data måste du ha rollen *övervaknings läsare* för den virtuella Azure-datorn. Arbets ytan Log Analytics måste konfigureras för Azure Monitor for VMs.
 
-Mer information om hur du styr åtkomsten till en Log Analytics-arbetsyta finns i [Hantera arbetsytor](../../azure-monitor/platform/manage-access.md).
+Mer information om hur du styr åtkomsten till en Log Analytics arbets yta finns i [hantera arbets ytor](../../azure-monitor/platform/manage-access.md).
 
-## <a name="how-to-enable-azure-monitor-for-vms"></a>Aktivera Azure Monitor för virtuella datorer
+## <a name="how-to-enable-azure-monitor-for-vms"></a>Så här aktiverar du Azure Monitor for VMs
 
-Aktivera Azure Monitor för virtuella datorer med någon av de metoder som beskrivs i den här tabellen:
+Aktivera Azure Monitor for VMs med någon av de metoder som beskrivs i den här tabellen:
 
-| Driftsättningstillstånd | Metod | Beskrivning |
+| Distributions tillstånd | Metod | Beskrivning |
 |------------------|--------|-------------|
-| Skala uppsättning för en enda Virtuell virtuell dator eller virtuell dator | [Aktivera från den virtuella datorn](vminsights-enable-single-vm.md) | Du kan aktivera en enda Azure-virtuell dator genom att välja **insikter** direkt från den virtuella datorn eller skalningsuppsättningen för virtuella datorer. |
-| Flera Azure-virtuella datorer eller skaluppsättningar för virtuella datorer | [Aktivera via Azure-princip](vminsights-enable-at-scale-policy.md) | Du kan aktivera flera virtuella Azure-datorer med hjälp av Azure-princip och tillgängliga principdefinitioner. |
-| Flera Azure-virtuella datorer eller skaluppsättningar för virtuella datorer | [Aktivera via Azure PowerShell- eller Azure Resource Manager-mallar](vminsights-enable-at-scale-powershell.md) | Du kan aktivera flera Azure-virtuella datorer eller skalningsuppsättningar för virtuella datorer över en angiven prenumeration eller resursgrupp med hjälp av Azure PowerShell- eller Azure Resource Manager-mallar. |
-| Hybridmoln | [Aktivera för hybridmiljön](vminsights-enable-hybrid-cloud.md) | Du kan distribuera till virtuella datorer eller fysiska datorer som finns i ditt datacenter eller andra molnmiljöer. |
+| Enskild virtuell Azure-dator eller skalnings uppsättning för virtuell dator | [Aktivera från den virtuella datorn](vminsights-enable-single-vm.md) | Du kan aktivera en enskild virtuell Azure-dator genom att välja **insikter** direkt från den virtuella datorn eller skalnings uppsättningen för virtuella datorer. |
+| Flera virtuella Azure-datorer eller skalnings uppsättningar för virtuella datorer | [Aktivera via Azure Policy](vminsights-enable-at-scale-policy.md) | Du kan aktivera flera virtuella Azure-datorer med hjälp av Azure Policy och tillgängliga princip definitioner. |
+| Flera virtuella Azure-datorer eller skalnings uppsättningar för virtuella datorer | [Aktivera via Azure PowerShell eller Azure Resource Manager mallar](vminsights-enable-at-scale-powershell.md) | Du kan aktivera flera virtuella Azure-datorer eller skalnings uppsättningar för virtuella datorer i en angiven prenumeration eller resurs grupp med hjälp av Azure PowerShell eller Azure Resource Manager mallar. |
+| Hybridmoln | [Aktivera för Hybrid miljön](vminsights-enable-hybrid-cloud.md) | Du kan distribuera till virtuella datorer eller fysiska datorer som finns i ditt data Center eller i andra moln miljöer. |
 
 ## <a name="management-packs"></a>Hanteringspaket
 
-När Azure Monitor för virtuella datorer är aktiverat och konfigurerat med en Log Analytics-arbetsyta vidarebefordras ett hanteringspaket till alla Windows-datorer som rapporterar till den arbetsytan. Om du har [integrerat hanteringsgruppen för System Center Operations Manager](../../azure-monitor/platform/om-agents.md) med arbetsytan Log Analytics distribueras hanteringspaketet för Service Map från hanteringsgruppen till windows-datorer som rapporterar till hanteringsgruppen.  
+När Azure Monitor for VMs har Aktiver ATS och kon figurer ATS med en Log Analytics arbets yta vidarebefordras ett hanterings paket till alla Windows-datorer som rapporterar till arbets ytan. Om du har [integrerat din System Center Operations Manager hanterings grupp](../../azure-monitor/platform/om-agents.md) med arbets ytan Log Analytics distribueras tjänstkarta hanterings paketet från hanterings gruppen till Windows-datorer som rapporterar till hanterings gruppen.  
 
-Hanteringspaketet heter *Microsoft.IntelligencePacks.ApplicationDependencyMonitor*. Dess skriftliga till `%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\` mappen. Den datakälla som hanteringspaketet använder är `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll`.
+Hanterings paketet heter *Microsoft. IntelligencePacks. ApplicationDependencyMonitor*. Den skrivs till `%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\` mappen. Data källan som hanterings paketet använder är `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll`.
 
-## <a name="diagnostic-and-usage-data"></a>Diagnostik- och användningsdata
+## <a name="diagnostic-and-usage-data"></a>Diagnostik-och användnings data
 
-Microsoft samlar automatiskt in användnings- och prestandadata med hjälp av Azure Monitor-tjänsten. Microsoft använder dessa data för att förbättra tjänstens kvalitet, säkerhet och integritet. 
+Microsoft samlar automatiskt in användnings-och prestanda data via din användning av tjänsten Azure Monitor. Microsoft använder dessa data för att förbättra tjänstens kvalitet, säkerhet och integritet. 
 
-För att tillhandahålla korrekta och effektiva felsökningsfunktioner innehåller kartfunktionen data om programvarans konfiguration. Informationen innehåller information som operativsystem och version, IP-adress, DNS-namn och arbetsstationsnamn. Microsoft samlar inte in namn, adresser eller annan kontaktinformation.
+För att tillhandahålla exakta och effektiva fel söknings funktioner innehåller kart funktionen information om konfigurationen av program varan. Datan innehåller information, till exempel operativ system och version, IP-adress, DNS-namn och arbets Stations namn. Microsoft samlar inte in namn, adresser eller annan kontakt information.
 
-Mer information om insamling och användning av data finns i [sekretesspolicyn för Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
+Mer information om insamling och användning av data finns i [sekretess policy för Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
-Nu när du har aktiverat övervakning för din virtuella dator är övervakningsinformation tillgänglig för analys i Azure Monitor för virtuella datorer.
+Nu när du har aktiverat övervakning av den virtuella datorn är övervaknings informationen tillgänglig för analys i Azure Monitor for VMs.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du använder funktionen Prestandaövervakning finns i [Visa Azure Monitor för virtuella datorers prestanda](vminsights-performance.md). Information om hur du visar identifierade programberoenden finns i [Visa Azure Monitor för virtuella datorer Karta](vminsights-maps.md).
+Information om hur du använder funktionen för prestanda övervakning finns i [visa Azure Monitor for VMS prestanda](vminsights-performance.md). Information om hur du visar identifierade program beroenden finns i [visa Azure Monitor for VMS karta](vminsights-maps.md).

@@ -1,6 +1,6 @@
 ---
-title: Skapa personliga instrumentpaneler för Azure IoT Central | Microsoft-dokument
-description: Som användare kan du lära dig hur du skapar och hanterar dina personliga instrumentpaneler.
+title: Skapa Azure-IoT Central personliga instrument paneler | Microsoft Docs
+description: Som användare får du lära dig hur du skapar och hanterar dina personliga instrument paneler.
 author: mavoge
 ms.author: mavoge
 ms.date: 10/17/2019
@@ -9,65 +9,65 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 06225e284000d7f10f575be08cd683488abec339
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80985498"
 ---
-# <a name="create-and-manage-multiple-dashboards"></a>Skapa och hantera flera instrumentpaneler
+# <a name="create-and-manage-multiple-dashboards"></a>Skapa och hantera flera instrument paneler
 
-**Instrumentpanelen** är den sida som läses in när du navigerar till ditt program. En **byggare** i programmet definierar standardprograminstrumentpanelen för alla användare. Du kan dessutom skapa en egen, personlig programinstrumentpanel. Du kan ha flera instrumentpaneler som visar olika data och växlar mellan dem.
+**Instrument panelen** är sidan som läses in när du först navigerar till ditt program. Ett **verktyg** i ditt program definierar standard program instrument panelen för alla användare. Du kan också skapa en egen, anpassad program instrument panel. Du kan ha flera instrument paneler som visar olika data och växlar mellan dem.
 
-Om du är **administratör för** programmet kan du också skapa upp till 10 instrumentpaneler på programnivå som du kan dela med andra användare av programmet. Endast **administratörer** har möjlighet att skapa, redigera och ta bort instrumentpaneler på programnivå. 
+Om du är **administratör** för programmet kan du också skapa upp till 10 instrument paneler på program nivå för att dela med andra användare av programmet. Endast **Administratörer** kan skapa, redigera och ta bort instrument paneler på program nivå. 
 
-## <a name="create-dashboard"></a>Skapa instrumentpanel
+## <a name="create-dashboard"></a>Skapa instrument panel
 
-Följande skärmbild visar instrumentpanelen i ett program som skapats från mallen **Anpassat program.** Du kan ersätta standardinstrumentpanelen för program med en personlig instrumentpanel, eller om du är administratör, en annan instrumentpanel på programnivå. Om du vill göra det väljer du **+ Nytt** längst upp till vänster på sidan.
+På följande skärm bild visas instrument panelen i ett program som skapats från den **anpassade program** mal len. Du kan ersätta standard instrument panelen med en personlig instrument panel, eller om du är administratör, en annan instrument panel för program nivå. Det gör du genom att välja **+ ny** längst upp till vänster på sidan.
  
 > [!div class="mx-imgBorder"]
-> ![Instrumentpanel för program som baseras på mallen "Anpassat program"](media/howto-create-personal-dashboards/dashboard-custom-app.png)
+> ![Instrument panel för program som baseras på mallen "anpassat program"](media/howto-create-personal-dashboards/dashboard-custom-app.png)
 
-Om du väljer **+ Nytt** öppnas instrumentpanelsredigeraren. I redigeraren kan du ge instrumentpanelen ett namn och välja objekt från biblioteket. Biblioteket innehåller de paneler och instrumentpanelsprimitiver som du kan använda för att anpassa instrumentpanelen.
-
-> [!div class="mx-imgBorder"]
-> ![Instrumentpanelsbibliotek](media/howto-create-personal-dashboards/dashboard-library.png)
-
-Om du är **administratör för** programmet får du möjlighet att växla om du vill skapa en instrumentpanel på personlig nivå eller en instrumentpanel på programnivå. Om du skapar en instrumentpanel på personlig nivå är det bara du som kan se den. Om du skapar en instrumentpanel på programnivå kan alla användare av programmet se den. När du har angett en rubrik och valt vilken typ av instrumentpanel du vill skapa kan du spara och lägga till paneler senare. Om du är redo nu och har lagt till en enhetsmall och enhetsinstans kan du skapa den första panelen. 
+Om du väljer **+ ny** öppnas instrument panels redigeraren. I redigeraren kan du ge instrument panelen ett namn och välja objekt i biblioteket. Biblioteket innehåller panelerna och de primitiver som du kan använda för att anpassa instrument panelen.
 
 > [!div class="mx-imgBorder"]
-> ![Konfigurera enhetsinformation" formulär med information om temperatur](media/howto-create-personal-dashboards/device-details.png)
+> ![Instrument panels bibliotek](media/howto-create-personal-dashboards/dashboard-library.png)
 
-Du kan till exempel lägga till en **telemetripanel** för enhetens aktuella temperatur. Gör så här:
-1. Välj en **enhetsmall**
-1. Välj en **enhetsinstans** för den enhet som du vill se på en instrumentpanelspanel. Då ser du en lista över enhetens egenskaper som kan användas på panelen.
-1. Om du vill skapa panelen på instrumentpanelen klickar du på **Temperatur** och drar den till instrumentpanelsområdet. Du kan också klicka på kryssrutan bredvid **Temperatur** och klicka på **Kombinera**. Följande skärmbild visar hur du väljer en enhetsmall och enhetsinstans och sedan skapar en temperaturtelemetripanel på instrumentpanelen.
-1. Välj **Spara** längst upp till vänster om du vill spara panelen på instrumentpanelen.
+Om du är **administratör** för programmet får du möjlighet att växla om du vill skapa en instrument panel på en personlig nivå eller på en instrument panel för program nivå. Om du skapar en instrument panel på en personlig nivå kommer du bara att kunna se den. Om du skapar en instrument panel för program nivå kommer alla användare av programmet att kunna se den. När du har angett en rubrik och valt den typ av instrument panel som du vill skapa, kan du spara och lägga till paneler senare. Eller om du är redo och har lagt till en mall och en enhets instans kan du gå vidare och skapa din första panel. 
 
 > [!div class="mx-imgBorder"]
-> ![Fliken Dashboard" med information för panelen Temperatur](media/howto-create-personal-dashboards/temperature-tile-edit.png)
+> ![Konfigurera enhets information – formulär med Detaljer för temperatur](media/howto-create-personal-dashboards/device-details.png)
 
-Nu när du visar din personliga instrumentpanel visas den nya panelen med **inställningen Temperatur** för enheten:
-
-> [!div class="mx-imgBorder"]
-> ![Fliken Dashboard" med information för panelen Temperatur](media/howto-create-personal-dashboards/temperature-tile-complete.png)
-
-Du kan utforska andra paneltyper i biblioteket för att upptäcka hur du kan anpassa dina personliga instrumentpaneler ytterligare.
-
-Mer information om hur du använder paneler i Azure IoT Central finns i [Lägga till paneler på instrumentpanelen](howto-add-tiles-to-your-dashboard.md).
-
-## <a name="manage-dashboards"></a>Hantera instrumentpaneler
-
-Du kan ha flera personliga instrumentpaneler och växla mellan dem eller välja från någon av standardinstrumentpanelerna för program:
+Du kan till exempel lägga till en **telemetri** -panel för enhetens aktuella temperatur. Gör så här:
+1. Välj en **mall för enhet**
+1. Välj en **enhets instans** för den enhet som du vill se på en panel på instrument panelen. Sedan visas en lista över enhetens egenskaper som kan användas på panelen.
+1. Om du vill skapa panelen på instrument panelen klickar du på **temperatur** och drar den till instrument panels ytan. Du kan också klicka på kryss rutan bredvid **temperatur** och klicka på **kombinera**. Följande skärm bild visar hur du väljer en enhets mall och en enhets instans och sedan skapar en panel för temperatur telemetri på instrument panelen.
+1. Välj **Spara** längst upp till vänster för att spara panelen på instrument panelen.
 
 > [!div class="mx-imgBorder"]
-> ![Växla mellan instrumentpaneler](media/howto-create-personal-dashboards/switch-dashboards.png)
+> ![Fliken instrument panel med information om temperatur panelen](media/howto-create-personal-dashboards/temperature-tile-edit.png)
 
-Du kan redigera dina personliga instrumentpaneler och ta bort alla instrumentpaneler som du inte längre behöver. Om du är **administratör**har du också möjlighet att redigera eller ta bort instrumentpaneler på programnivå också.
+Nu när du visar din personliga instrument panel visas den nya panelen med **temperatur** inställningen för enheten:
 
 > [!div class="mx-imgBorder"]
-> ![Ta bort instrumentpaneler](media/howto-create-personal-dashboards/delete-dashboards.png)
+> ![Fliken instrument panel med information om temperatur panelen](media/howto-create-personal-dashboards/temperature-tile-complete.png)
+
+Du kan utforska andra panel typer i biblioteket för att lära dig hur du kan anpassa dina personliga instrument paneler ytterligare.
+
+Mer information om hur du använder paneler i Azure IoT Central finns i [lägga till paneler på instrument panelen](howto-add-tiles-to-your-dashboard.md).
+
+## <a name="manage-dashboards"></a>Hantera instrument paneler
+
+Du kan ha flera personliga instrument paneler och växla mellan dem eller välja någon av standard instrument panelerna för programmet:
+
+> [!div class="mx-imgBorder"]
+> ![Växla mellan instrument paneler](media/howto-create-personal-dashboards/switch-dashboards.png)
+
+Du kan redigera dina personliga instrument paneler och ta bort eventuella instrument paneler som du inte längre behöver. Om du är **administratör**har du också möjlighet att redigera eller ta bort instrument paneler på program nivå.
+
+> [!div class="mx-imgBorder"]
+> ![Ta bort instrument paneler](media/howto-create-personal-dashboards/delete-dashboards.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du skapar och hanterar personliga instrumentpaneler kan du [läsa om hur du hanterar dina programinställningar](howto-manage-preferences.md)
+Nu när du har lärt dig hur du skapar och hanterar personliga instrument paneler kan du [lära dig hur du hanterar dina program inställningar](howto-manage-preferences.md)

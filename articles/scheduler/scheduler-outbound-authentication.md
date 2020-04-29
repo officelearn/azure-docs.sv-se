@@ -9,64 +9,64 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
 ms.openlocfilehash: 0a8d79af9f45731971cb1be1f39fc193f9d0f0d9
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878977"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Utgående autentisering för Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som [dras tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du har konfigurerat i Scheduler [migrerar](../scheduler/migrate-from-scheduler-to-logic-apps.md) du till Azure Logic Apps så snart som möjligt. 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt. 
 >
-> Scheduler är inte längre tillgängligt i Azure-portalen, men [REST API-](/rest/api/scheduler) och [Azure Scheduler PowerShell-cmdlets](scheduler-powershell-reference.md) förblir tillgängliga just nu så att du kan hantera dina jobb och jobbsamlingar.
+> Scheduler är inte längre tillgänglig i Azure Portal, men [PowerShell-cmdletarna](scheduler-powershell-reference.md) [REST API](/rest/api/scheduler) och Azure Scheduler är tillgängliga just nu så att du kan hantera jobb och jobb samlingar.
 
 Azure Scheduler-jobb kan behöva anropa tjänster som kräver autentisering, till exempel andra Azure-tjänster, Salesforce.com, Facebook och säkra anpassade webbplatser. Den anropade tjänsten kan avgöra om Scheduler-jobbet kan komma åt de begärda resurserna. 
 
-Scheduler stöder dessa autentiseringsmodeller: 
+Scheduler stöder följande autentiseringsmetoder: 
 
-* *Autentisering av klientcertifikat* vid användning av SSL/TLS-klientcertifikat
+* Autentisering av *klient certifikat* vid användning av SSL/TLS-klientcertifikat
 * *Grundläggande* autentisering
-* *OAuth-autentisering i Active Directory*
+* *Active Directory OAuth* -autentisering
 
-## <a name="add-or-remove-authentication"></a>Lägga till eller ta bort autentisering
+## <a name="add-or-remove-authentication"></a>Lägg till eller ta bort autentisering
 
-* Om du vill lägga till autentisering i ett Scheduler-jobb lägger du till det underordnade elementet `authentication` JavaScript Object Notation (JSON) i elementet `request` när du skapar eller uppdaterar jobbet. 
+* Om du vill lägga till autentisering till ett Scheduler-jobb, när du skapar eller uppdaterar jobbet, `authentication` lägger du till det underordnade elementet JavaScript Object Notation ( `request` JSON) i elementet. 
 
-  Svar returnerar aldrig hemligheter som skickas till Scheduler-tjänsten via en `authentication` PUT-, PATCH- eller POST-begäran i objektet. 
+  Svar returnerar aldrig hemligheter som skickas till tjänsten Scheduler via en skicka-, PATCH-eller POST-begäran i `authentication` objektet. 
   Svar anger hemlig information till null eller kan använda en offentlig token som representerar den autentiserade entiteten. 
 
-* Om du vill ta bort autentisering från ett Scheduler-jobb kör `authentication` du uttryckligen en PUT- eller PATCH-begäran på jobbet och anger att objektet ska null. Svaret innehåller inga autentiseringsegenskaper.
+* Om du vill ta bort autentisering från ett Scheduler-jobb kan du uttryckligen köra en begäran eller en PATCH-begäran för `authentication` jobbet och ange objektet som null. Svaret innehåller inga egenskaper för autentisering.
 
-## <a name="client-certificate"></a>Klientcertifikat
+## <a name="client-certificate"></a>Klient certifikat
 
-### <a name="request-body---client-certificate"></a>Handtext för begäran - Klientcertifikat
+### <a name="request-body---client-certificate"></a>Brödtext för begäran-klient certifikat
 
-När du lägger till autentisering med `ClientCertificate` hjälp av modellen anger du dessa ytterligare element i begärandetexten.  
+När du lägger till autentisering `ClientCertificate` med modellen, anger du dessa ytterligare element i begär ande texten.  
 
 | Element | Krävs | Beskrivning |
 |---------|----------|-------------|
-| **autentisering** (överordnat element) | Autentiseringsobjektet för att använda ett SSL/TLS-klientcertifikat |
-| **Typ** | Ja | Autentiseringstypen. För SSL/TLS-klientcertifikat är `ClientCertificate`värdet . |
-| **Pfx** | Ja | Det base64-kodade innehållet i PFX-filen |
-| **lösenord** | Ja | Lösenordet för åtkomst till PFX-filen |
+| **autentisering** (överordnat element) | Objektet Authentication för att använda ett SSL/TLS-klientcertifikat |
+| **bastyp** | Ja | Autentiseringstypen. För SSL/TLS-klientcertifikat är `ClientCertificate`värdet. |
+| **-** | Ja | Det Base64-kodade innehållet i PFX-filen |
+| **lösenord** | Ja | Lösen ordet för att komma åt PFX-filen |
 ||| 
 
-### <a name="response-body---client-certificate"></a>Svarstext - Klientcertifikat 
+### <a name="response-body---client-certificate"></a>Svars text – klient certifikat 
 
-När en begäran skickas med autentiseringsinformation innehåller svaret dessa autentiseringselement.
+När en begäran skickas med autentiseringsinformation innehåller svaret dessa autentiseringsdata.
 
 | Element | Beskrivning | 
 |---------|-------------| 
-| **autentisering** (överordnat element) | Autentiseringsobjektet för att använda ett SSL/TLS-klientcertifikat |
-| **Typ** | Autentiseringstypen. För SSL/TLS-klientcertifikat är `ClientCertificate`värdet . |
+| **autentisering** (överordnat element) | Objektet Authentication för att använda ett SSL/TLS-klientcertifikat |
+| **bastyp** | Autentiseringstypen. För SSL/TLS-klientcertifikat är `ClientCertificate`värdet. |
 | **certificateThumbprint** |Certifikatets tumavtryck |
-| **certifikatSugnamn** |Certifikatet ämne framstående namn |
-| **certifikatExpiration** | Certifikatets utgångsdatum |
+| **certificateSubjectName** |Unikt namn för certifikat mottagare |
+| **certificateExpiration** | Certifikatets förfallo datum |
 ||| 
 
-### <a name="sample-rest-request---client-certificate"></a>Exempel på REST-begäran - Klientcertifikat
+### <a name="sample-rest-request---client-certificate"></a>Exempel på REST-begäran – klient certifikat
 
 ```json
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
@@ -103,7 +103,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### <a name="sample-rest-response---client-certificate"></a>Exempel på REST-svar - Klientcertifikat
+### <a name="sample-rest-response---client-certificate"></a>Exempel på REST-svar – klient certifikat
 
 ```json
 HTTP/1.1 200 OKCache-Control: no-cache
@@ -161,30 +161,30 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 ## <a name="basic"></a>Basic
 
-### <a name="request-body---basic"></a>Begäran kropp - Grundläggande
+### <a name="request-body---basic"></a>Brödtext i begäran – grundläggande
 
-När du lägger till autentisering med `Basic` hjälp av modellen anger du dessa ytterligare element i begärandetexten.
+När du lägger till autentisering `Basic` med modellen, anger du dessa ytterligare element i begär ande texten.
 
 | Element | Krävs | Beskrivning |
 |---------|----------|-------------|
-| **autentisering** (överordnat element) | Autentiseringsobjektet för att använda grundläggande autentisering | 
-| **Typ** | Ja | Autentiseringstypen. För grundläggande autentisering `Basic`är värdet . | 
-| **Användarnamn** | Ja | Användarnamnet för att autentisera | 
-| **lösenord** | Ja | Lösenordet för att autentisera |
+| **autentisering** (överordnat element) | Objektet Authentication för att använda grundläggande autentisering | 
+| **bastyp** | Ja | Autentiseringstypen. För grundläggande autentisering är `Basic`värdet. | 
+| **användar** | Ja | Användar namnet som ska autentiseras | 
+| **lösenord** | Ja | Lösen ordet för att autentisera |
 |||| 
 
-### <a name="response-body---basic"></a>Svarsorgan - Grundläggande
+### <a name="response-body---basic"></a>Svars text – grundläggande
 
-När en begäran skickas med autentiseringsinformation innehåller svaret dessa autentiseringselement.
+När en begäran skickas med autentiseringsinformation innehåller svaret dessa autentiseringsdata.
 
 | Element | Beskrivning | 
 |---------|-------------|
-| **autentisering** (överordnat element) | Autentiseringsobjektet för att använda grundläggande autentisering |
-| **Typ** | Autentiseringstypen. För grundläggande autentisering `Basic`är värdet . |
-| **Användarnamn** | Det autentiserade användarnamnet |
+| **autentisering** (överordnat element) | Objektet Authentication för att använda grundläggande autentisering |
+| **bastyp** | Autentiseringstypen. För grundläggande autentisering är `Basic`värdet. |
+| **användar** | Autentiserat användar namn |
 ||| 
 
-### <a name="sample-rest-request---basic"></a>Exempel på REST-begäran - Grundläggande
+### <a name="sample-rest-request---basic"></a>Exempel på REST-begäran – grundläggande
 
 ```json
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
@@ -222,7 +222,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### <a name="sample-rest-response---basic"></a>Exempel på REST-svar - Grundläggande
+### <a name="sample-rest-response---basic"></a>Exempel på REST-svar – grundläggande
 
 ```json
 HTTP/1.1 200 OK
@@ -281,32 +281,32 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 ### <a name="request-body---active-directory-oauth"></a>Brödtext för begäran – Active Directory OAuth 
 
-När du lägger till autentisering med `ActiveDirectoryOAuth` hjälp av modellen anger du dessa ytterligare element i begärandetexten.
+När du lägger till autentisering `ActiveDirectoryOAuth` med modellen, anger du dessa ytterligare element i begär ande texten.
 
 | Element | Krävs | Beskrivning |
 |---------|----------|-------------|
-| **autentisering** (överordnat element) | Ja | Autentiseringsobjektet för användning av ActiveDirectoryOAuth-autentisering |
-| **Typ** | Ja | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering `ActiveDirectoryOAuth`är värdet . |
-| **Hyresgästen** | Ja | Klientidentifieraren för Azure AD-klienten. Om du vill hitta klientidentifieraren `Get-AzureAccount` för Azure AD-klienten körs du i Azure PowerShell. |
-| **Publik** | Ja | Det här värdet `https://management.core.windows.net/`är inställt på . | 
-| **klientId** | Ja | Klientidentifieraren för Azure AD-programmet | 
-| **Hemliga** | Ja | Hemligheten för klienten som begär token | 
+| **autentisering** (överordnat element) | Ja | Objektet Authentication för att använda ActiveDirectoryOAuth-autentisering |
+| **bastyp** | Ja | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering är `ActiveDirectoryOAuth`värdet. |
+| **innehav** | Ja | Klient-ID för Azure AD-klienten. Du hittar klient-ID: t för Azure AD-klienten `Get-AzureAccount` genom att köra i Azure PowerShell. |
+| **filmen** | Ja | Det här värdet är inställt på `https://management.core.windows.net/`. | 
+| **clientId** | Ja | Klient-ID för Azure AD-programmet | 
+| **icke** | Ja | Hemligheten för klienten som begär token | 
 |||| 
 
-### <a name="response-body---active-directory-oauth"></a>Svarstext - Active Directory OAuth
+### <a name="response-body---active-directory-oauth"></a>Svars text – Active Directory OAuth
 
-När en begäran skickas med autentiseringsinformation innehåller svaret dessa autentiseringselement.
+När en begäran skickas med autentiseringsinformation innehåller svaret dessa autentiseringsdata.
 
 | Element | Beskrivning |
 |---------|-------------|
-| **autentisering** (överordnat element) | Autentiseringsobjektet för användning av ActiveDirectoryOAuth-autentisering |
-| **Typ** | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering `ActiveDirectoryOAuth`är värdet . | 
-| **Hyresgästen** | Klientidentifieraren för Azure AD-klienten |
-| **Publik** | Det här värdet `https://management.core.windows.net/`är inställt på . |
-| **klientId** | Klientidentifieraren för Azure AD-programmet |
+| **autentisering** (överordnat element) | Objektet Authentication för att använda ActiveDirectoryOAuth-autentisering |
+| **bastyp** | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering är `ActiveDirectoryOAuth`värdet. | 
+| **innehav** | Klient-ID för Azure AD-klienten |
+| **filmen** | Det här värdet är inställt på `https://management.core.windows.net/`. |
+| **clientId** | Klient-ID för Azure AD-programmet |
 ||| 
 
-### <a name="sample-rest-request---active-directory-oauth"></a>Exempel på REST-begäran - Active Directory OAuth
+### <a name="sample-rest-request---active-directory-oauth"></a>Exempel på REST-begäran – Active Directory OAuth
 
 ```json
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
@@ -346,7 +346,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### <a name="sample-rest-response---active-directory-oauth"></a>Exempel på REST-svar - Active Directory OAuth
+### <a name="sample-rest-response---active-directory-oauth"></a>Exempel på REST-svar – Active Directory OAuth
 
 ```json
 HTTP/1.1 200 OK

@@ -1,6 +1,6 @@
 ---
-title: Network Watcher - Skapa NSG-flödesloggar med hjälp av en Azure Resource Manager-mall
-description: Använd en Azure Resource Manager-mall och PowerShell för att enkelt konfigurera NSG-flödesloggar.
+title: Network Watcher – skapa NSG flödes loggar med en Azure Resource Manager-mall
+description: Använd en Azure Resource Manager mall och PowerShell för att enkelt konfigurera NSG Flow-loggar.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -15,31 +15,31 @@ ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
 ms.openlocfilehash: 104311904b99cadbbc8c0267a98f2709443608ea
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80891466"
 ---
-# <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Konfigurera NSG-flödesloggar från en Azure Resource Manager-mall
+# <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Konfigurera NSG flödes loggar från en Azure Resource Manager mall
 
 > [!div class="op_single_selector"]
-> - [Azure-portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
-> - [REST-API](network-watcher-nsg-flow-logging-rest.md)
+> - [REST API](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
-[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) är Azures inbyggda och kraftfulla sätt att hantera din [infrastruktur som kod](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code).
+[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) är Azures inbyggda och kraftfulla sätt att hantera [infrastrukturen som kod](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code).
 
-Den här artikeln visar hur du aktiverar [NSG-flödesloggar](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) programmässigt med hjälp av en Azure Resource Manager-mall och Azure PowerShell. Vi börjar med att ge en översikt över egenskaperna för NSG Flow Log-objektet, följt av några exempelmallar. Sedan distribuerar vi mallen med hjälp av en lokal PowerShell-instans.
+Den här artikeln visar hur du aktiverar [NSG Flow-loggar](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) via programmering med hjälp av en Azure Resource Manager-mall och Azure PowerShell. Vi börjar med att tillhandahålla en översikt över egenskaperna för NSG flödes logg objekt, följt av några exempel på mallar. Sedan distribuerar vi mallen med en lokal PowerShell-instans.
 
 
-## <a name="nsg-flow-logs-object"></a>NSG-flödesloggar objekt
+## <a name="nsg-flow-logs-object"></a>NSG flödes loggar objekt
 
-NSG Flow Logs-objektet med alla parametrar visas nedan.
-Om du vill ha en fullständig översikt över egenskaperna kan du läsa [mallreferensen för NSG-flödesloggar](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
+Objektet NSG Flow-loggar med alla parametrar visas nedan.
+För en fullständig översikt över egenskaperna kan du läsa [mallen för NSG Flow-referenser](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters).
 
 ```json
 {
@@ -69,20 +69,20 @@ Om du vill ha en fullständig översikt över egenskaperna kan du läsa [mallref
     }
   }
 ```
-Om du vill skapa en Microsoft.Network/networkWatchers/flowLogs-resurs lägger du till ovanstående JSON i avsnittet resurser i mallen.
+Om du vill skapa en resurs för Microsoft. Network/networkWatchers/flowLogs lägger du till ovanstående JSON i avsnittet resurser i mallen.
 
 
-## <a name="creating-your-template"></a>Skapa mallen
+## <a name="creating-your-template"></a>Skapa din mall
 
-Om du använder Azure Resource Manager-mallar för första gången kan du läsa mer om dem med hjälp av länkarna nedan.
+Om du använder Azure Resource Manager mallar för första gången kan du läsa mer om dem med hjälp av länkarna nedan.
 
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell#deploy-local-template)
-* [Självstudiekurs: Skapa och distribuera din första Azure Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
+* [Självstudie: skapa och distribuera din första Azure Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell)
 
 
-Nedan följer två exempel på fullständiga mallar för att ställa in NSG Flow Logs.
+Nedan visas två exempel på kompletta mallar för att ställa in NSG Flow-loggar.
 
-**Exempel 1:** Den enklaste versionen av ovanstående med minsta parametrar passerade. Mallen nedan gör det möjligt för NSG-flödesloggar på en mål-NSG och lagrar dem i ett visst lagringskonto.
+**Exempel 1**: den enklaste versionen av ovanstående med minsta parametrar som överförs. Mallen nedan aktiverar NSG flödes loggar på en mål-NSG och lagrar dem i ett angivet lagrings konto.
 
 ```json
 {
@@ -110,11 +110,11 @@ Nedan följer två exempel på fullständiga mallar för att ställa in NSG Flow
 ```
 
 > [!NOTE]
-> * Namnet på resursen har formatet "Överordnad resurs>/Underordnad resurs". Här är den överordnade resursen den regionala Network Watcher-instansen (Format: NetworkWatcher_<RegionName>. Exempel: NetworkWatcher_centraluseuap)
-> * targetResourceId är resurs-ID för målet NSG
-> * storageId är resurs-ID för mållagringskontot
+> * Resurs namnet har formatet "överordnad resurs>/Child-resurs". Här är den överordnade resursen den regionala Network Watcher-instansen (format<RegionName>: NetworkWatcher_. Exempel: NetworkWatcher_centraluseuap)
+> * targetResourceId är resurs-ID för mål NSG
+> * storageId är resurs-ID för mål lagrings kontot
 
-**Exempel 2:** Följande mallar som aktiverar NSG-flödesloggar (version 2) med kvarhållning i 5 dagar. Aktivera Traffic Analytics med ett bearbetningsintervall på 10 minuter.
+**Exempel 2**: följande mallar som aktiverar NSG Flow-loggar (version 2) med kvarhållning i 5 dagar. Aktivera Trafikanalys med ett bearbetnings intervall på 10 minuter.
 
 ```json
 {
@@ -155,10 +155,10 @@ Nedan följer två exempel på fullständiga mallar för att ställa in NSG Flow
 
 ## <a name="deploying-your-azure-resource-manager-template"></a>Distribuera din Azure Resource Manager-mall
 
-Den här självstudien förutsätter att du har en befintlig resursgrupp och en NSG som du kan aktivera Flow-loggning på.
-Du kan spara någon av ovanstående exempelmallar lokalt som `azuredeploy.json`. Uppdatera egenskapsvärdena så att de pekar på giltiga resurser i prenumerationen.
+I den här självstudien förutsätter vi att du har en befintlig resurs grupp och en NSG. du kan aktivera flödes inloggning.
+Du kan spara alla ovanstående exempel mallar lokalt som `azuredeploy.json`. Uppdatera egenskapsvärdena så att de pekar på giltiga resurser i din prenumeration.
 
-Om du vill distribuera mallen kör du följande kommando i PowerShell.
+Distribuera mallen genom att köra följande kommando i PowerShell.
 ```azurepowershell
 New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatcherRG `
     -TemplateFile "C:\MyTemplates\azuredeploy.json"
@@ -167,14 +167,14 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 
 ## <a name="verifying-your-deployment"></a>Verifiera distributionen
 
-Det finns ett par sätt att kontrollera om distributionen har lyckats. PowerShell-konsolen ska visa "Etableringstate" som "lyckades". Dessutom kan du besöka [portalsidan för NSG-flödesloggar](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) för att bekräfta dina ändringar. Om det fanns problem med distributionen kan du ta en titt på [Felsöka vanliga Azure-distributionsfel med Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
+Det finns ett par olika sätt att kontrol lera om distributionen har slutförts. PowerShell-konsolen ska Visa "ProvisioningState" som "lyckades". Dessutom kan du gå till [Portal sidan NSG Flow logs](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) för att bekräfta dina ändringar. Om det uppstod problem med distributionen kan du ta en titt på [Felsöka vanliga problem med Azure-distribution med Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
 
-## <a name="deleting-your-resource"></a>Ta bort din resurs
-Azure aktiverar resursborttagning via distributionsläget "Slutför". Om du vill ta bort en flödesloggresurs anger du en distribution i fullständigt läge utan att inkludera den resurs som du vill ta bort. Läs mer om [läget Slutför distribution](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes#complete-mode)
+## <a name="deleting-your-resource"></a>Tar bort resursen
+Med Azure kan du ta bort resurser genom att slutföra distributions läget. Om du vill ta bort en flödes loggar resurs anger du en distribution i slutfört läge utan att inkludera den resurs som du vill ta bort. Läs mer om [hela distributions läget](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes#complete-mode)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du visualiserar dina NSG Flow-data med hjälp av:
+Lär dig hur du visualiserar dina NSG-flödes data med:
 * [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 * [Verktyg för öppen källkod](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-* [Azure Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Azure-Trafikanalys](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)

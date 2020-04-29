@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Konfigurera inloggning för en ensidig app (SPA)'
+title: 'Snabb start: Konfigurera inloggning för en enskild sida-app (SPA)'
 titleSuffix: Azure AD B2C
-description: I den här snabbstarten kör du ett exempel på ensidigt program som använder Azure Active Directory B2C för att tillhandahålla kontosignering.
+description: I den här snabb starten kör du ett exempel på en Enkels Ides applikation som använder Azure Active Directory B2C för att tillhandahålla konto inloggning.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,15 +12,15 @@ ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 0a754873aeafe8d4e7b48d49647469874ff40f7e
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80875901"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Snabbstart – Konfigurera inloggning för en ensidesapp med Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) tillhandahåller molnidentitetshantering för att skydda ditt program, företag och kunder. Med Azure AD B2C kan program autentisera med konton på sociala medier och företagskonton med öppna protokoll. I den här snabbstarten använder du ett enkelsidigt program för ASP.NET till att logga in med en social identitetsprovider och anropa en Azure AD B2C-skyddad webb-API.
+Azure Active Directory B2C (Azure AD B2C) tillhandahåller moln identitets hantering för att hålla ditt program, din verksamhet och dina kunder skyddade. Med Azure AD B2C kan program autentisera med konton på sociala medier och företagskonton med öppna protokoll. I den här snabbstarten använder du ett enkelsidigt program för ASP.NET till att logga in med en social identitetsprovider och anropa en Azure AD B2C-skyddad webb-API.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,9 +29,9 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller molnidentitetshanteri
 - [Visual Studio-koden](https://code.visualstudio.com/)
 - [Node.js](https://nodejs.org/en/download/)
 - Socialt konto från Facebook, Google eller Microsoft
-- Kodexempel från GitHub: [active-directory-b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
+- Kod exempel från GitHub: [Active-Directory-B2C-JavaScript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
 
-    Du kan [ladda ner zip-arkivet](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) eller klona databasen:
+    Du kan [Hämta zip-arkivet](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) eller klona lagrings platsen:
 
     ```console
     git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
@@ -47,7 +47,7 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller molnidentitetshanteri
     npm start
     ```
 
-    Servern som startades av *server.js* visar porten den lyssnar på:
+    Servern som startades av *Server. js* visar den port den lyssnar på:
 
     ```console
     Listening on port 6420...
@@ -55,33 +55,33 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller molnidentitetshanteri
 
 1. Bläddra till programmets URL. Till exempel `http://localhost:6420`.
 
-    ![Exempelapp för en sida visas i webbläsaren](./media/quickstart-single-page-app/sample-app-spa.png)
+    ![Exempel program för en enda sida som visas i webbläsare](./media/quickstart-single-page-app/sample-app-spa.png)
 
 ## <a name="sign-in-using-your-account"></a>Logga in på ditt konto
 
-1. Välj **Logga in** för att starta användarfärden.
-1. Azure AD B2C visar en inloggningssida för ett fiktivt företag som heter Fabrikam för exempelwebbprogrammet. Om du vill registrera dig med en leverantör av social identitet väljer du knappen för den identitetsleverantör som du vill använda.
+1. Välj **Logga** in för att starta användar resan.
+1. Azure AD B2C visar en inloggnings sida för ett fiktivt företag som kallas Fabrikam för exempel webb programmet. Om du vill registrera dig med en social identitetsprovider väljer du knappen för den identitetsprovider som du vill använda.
 
-    ![Inloggnings- eller registreringssida med knappar för identitetsprovider](./media/quickstart-single-page-app/sign-in-or-sign-up-spa.png)
+    ![Sidan logga in eller registrera dig med identitets leverantörs knappar](./media/quickstart-single-page-app/sign-in-or-sign-up-spa.png)
 
-    Du autentiserar (loggar in) med dina autentiseringsuppgifter för sociala konton och godkänner att programmet läser information från ditt sociala konto. När du beviljar åtkomst kan programmet hämta profilinformation från det sociala kontot, till exempel ditt namn och din ort.
+    Du autentiserar (loggar in) med dina autentiseringsuppgifter för ditt sociala konto och godkänner att programmet läser information från ditt sociala konto. När du beviljar åtkomst kan programmet hämta profilinformation från det sociala kontot, till exempel ditt namn och din ort.
 
 1. Avsluta inloggningsprocessen för identitetsprovidern.
 
 ## <a name="access-a-protected-api-resource"></a>Få åtkomst till en skyddad API-resurs
 
-Välj **Anropa API** om du vill att visningsnamnet ska returneras från webb-API:et som ett JSON-objekt.
+Välj **anropa API** om du vill att ditt visnings namn ska returneras från webb-API: et som ett JSON-objekt.
 
-![Exempelprogram i webbläsaren som visar webb-API-svaret](./media/quickstart-single-page-app/call-api-spa.png)
+![Exempel program i webbläsare som visar svaret på webb-API](./media/quickstart-single-page-app/call-api-spa.png)
 
 Det enkelsidiga exempelprogrammet innehåller en åtkomsttoken i begäran till den skyddade webb-API-resursen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du ett exempel på ensidig program för att:
+I den här snabb starten använde du ett exempel på en Enkels Ides applikation för att:
 
-- Logga in med en leverantör av social identitet
-- Skapa ett Azure AD B2C-användarkonto (skapas automatiskt vid inloggning)
+- Logga in med en social identitetsprovider
+- Skapa ett Azure AD B2C användar konto (skapas automatiskt vid inloggning)
 - Anropa ett webb-API som skyddas av Azure AD B2C
 
 Kom igång med att skapa en egen Azure AD B2C-klientorganisation.

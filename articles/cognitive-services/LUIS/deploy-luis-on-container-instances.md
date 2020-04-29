@@ -1,7 +1,7 @@
 ---
-title: Distribuera LUIS-behållaren för Azure Container-instanser
+title: Distribuera LUIS-behållare på Azure Container instances
 titleSuffix: Azure Cognitive Services
-description: Distribuera LUIS-behållaren till en Azure Container-instans och testa den i en webbläsare.
+description: Distribuera behållaren LUIS till en Azure Container instance och testa den i en webbläsare.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: aahi
 ms.openlocfilehash: 08af17106846a0f5f7a0ccc2b01da1b2e15c1143
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80879230"
 ---
-# <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>Distribuera LUIS-behållaren (Language Understanding) till Azure Container-instanser
+# <a name="deploy-the-language-understanding-luis-container-to-azure-container-instances"></a>Distribuera Language Understanding-behållaren (LUIS) till Azure Container instances
 
-Lär dig hur du [LUIS](luis-container-howto.md) distribuerar Cognitive Services LUIS-behållaren till Azure [Container-instanser](https://docs.microsoft.com/azure/container-instances/). Den här proceduren visar att en avvikelsedetektorresurs skapas. Sedan diskuterar vi att dra den tillhörande behållarbilden. Slutligen belyser vi möjligheten att utöva orkestrering av de två från en webbläsare. Med hjälp av behållare kan flytta utvecklarnas uppmärksamhet från att hantera infrastruktur till att istället fokusera på applikationsutveckling.
+Lär dig hur du distribuerar Cognitive Services [Luis](luis-container-howto.md) -behållaren till Azure [container instances](https://docs.microsoft.com/azure/container-instances/). Den här proceduren visar hur du skapar en avvikelse detektor resurs. Sedan diskuterar vi hämtningen av den tillhör ande behållar avbildningen. Slutligen fokuserar vi på att kunna utnyttja dirigeringen av de två från en webbläsare. Genom att använda behållare kan du byta utvecklares uppmärksamhet från att hantera infrastrukturen i stället för att fokusera på program utveckling.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-prerequisites.md)]
 
@@ -29,16 +29,16 @@ Lär dig hur du [LUIS](luis-container-howto.md) distribuerar Cognitive Services 
 
 ## <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
 
-LUIS-behållaren `.gz` kräver en modellfil som hämtas vid körning. Behållaren måste kunna komma åt den här modellfilen via ett volymfäste från behållarinstansen. Information om hur du skapar en Azure-filresurs finns i [skapa en filresurs](../../storage/files/storage-how-to-create-file-share.md). Notera azure storage-kontonamnet, nyckeln och filresursnamnet när du behöver dem senare.
+LUIS-containern kräver `.gz` en modell fil som hämtas i vid körning. Behållaren måste kunna komma åt den här modell filen via en volym som monteras från behållar instansen. Information om hur du skapar en Azure-filresurs finns i [skapa en fil resurs](../../storage/files/storage-how-to-create-file-share.md). Anteckna Azure Storage konto namn, nyckel och fil resurs namn som du behöver dem senare.
 
 ### <a name="export-and-upload-packaged-luis-app"></a>Exportera och ladda upp paketerad LUIS-app
 
-För att kunna överföra LUIS-modellen (paketerad app) till Azure-filresursen måste du <a href="luis-container-howto.md#export-packaged-app-from-luis" target="_blank" rel="noopener">exportera den från LUIS-portalen först <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>. Gå till sidan **Översikt** för lagringskontoresursen från Azure-portalen och välj **Filresurser**. Markera filresursnamnet som du nyligen skapade och välj sedan **knappen Ladda upp.**
+För att kunna ladda upp LUIS-modellen (paketerad app) till Azure-filresursen måste du <a href="luis-container-howto.md#export-packaged-app-from-luis" target="_blank" rel="noopener">först <span class="docon docon-navigate-external x-hidden-focus"> </span>exportera den från Luis-portalen </a>. Från Azure Portal navigerar du till sidan **Översikt** i lagrings konto resursen och väljer **fil resurser**. Välj fil resurs namnet som du nyss skapade och välj sedan knappen **överför** .
 
 > [!div class="mx-imgBorder"]
-> ![Ladda upp till filresurs](media/luis-how-to-deploy-to-aci/upload-file-share.png)
+> ![Ladda upp till fil resurs](media/luis-how-to-deploy-to-aci/upload-file-share.png)
 
-Ladda upp LUIS-modellfilen.
+Ladda upp LUIS-modell filen.
 
 [!INCLUDE [Create LUIS Container instance resource](../containers/includes/create-container-instances-resource-from-azure-cli.md)]
 

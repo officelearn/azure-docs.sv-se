@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: cshoe
 ms.openlocfilehash: 6571482d738549d2708fd8ab23eaf8c9f6fb1f70
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80892367"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Köra en funktion som inte utlösts av HTTP manuellt
@@ -26,9 +26,9 @@ Om du vill köra en icke-HTTP-utlöst funktion behöver du ett sätt att skicka 
 
 ![Definiera platsen för begäran: värdnamn och mappsökväg + funktionsnamn](./media/functions-manually-run-non-http/azure-functions-admin-url-anatomy.png)
 
-- **Värdnamn:** Funktionsappens offentliga plats som består av funktionsappens namn plus *azurewebsites.net* eller din anpassade domän.
-- **Sökväg till mapp:** Om du vill komma åt icke HTTP-utlösta funktioner via en HTTP-begäran måste du skicka begäran via mapparna *admin/funktioner*.
-- **Funktionsnamn:** Namnet på den funktion som du vill köra.
+- **Värdnamn:** Funktions appens offentliga plats som består av Function-appens namn plus *azurewebsites.net* eller din anpassade domän.
+- **Mappsökväg:** För att få åtkomst till icke-HTTP-utlösta funktioner via en HTTP-begäran måste du skicka begäran via mapparna *admin/Functions*.
+- **Funktions namn:** Namnet på den funktion som du vill köra.
 
 Du kan använda den här platsen för begäran i Postman tillsammans med funktionens huvudnyckel i förfrågan till Azure om att köra funktionen.
 
@@ -41,7 +41,7 @@ Gå till din funktion på Azure-portalen och klicka på **Hantera** och leta upp
 
 ![Kopiera huvudnyckeln från hanteringsfunktionsskärmen](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
 
-Klicka på funktionsnamnet att återgå till kodfilfönstret när du har kopierat huvudnyckeln. Klicka sedan på fliken **Loggar.** Du ser meddelanden från funktionen som loggas här när du kör funktionen manuellt från Postman.
+Klicka på funktionsnamnet att återgå till kodfilfönstret när du har kopierat huvudnyckeln. Klicka sedan på fliken **loggar** . Du ser meddelanden från funktionen som loggas här när du kör funktionen från Postman manuellt.
 
 > [!CAUTION]  
 > På grund av de utökade behörigheterna i din funktionsapp som beviljats av huvudnyckeln bör du inte dela den här nyckeln med tredje part eller distribuera den i ett program.

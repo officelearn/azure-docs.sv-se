@@ -1,6 +1,6 @@
 ---
-title: Använda läget delad enhet med MSAL Android | Azure
-description: Lär dig hur du förbereder en Android-enhet för att köras i delat läge och kör en förstalinjearbetsapp.
+title: Använda läget för delad enhet med MSAL Android | Azure
+description: Lär dig hur du förbereder en Android-enhet för att köras i delat läge och köra en firstline Worker-app.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,13 +13,13 @@ ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: b2f74d2d441007f195abd38ca26ca7fa73605318
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80886440"
 ---
-# <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Självstudiekurs: Använd läget delad enhet i Android-programmet
+# <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Självstudie: Använd läget delad enhet i din Android-app
 
 > [!NOTE]
 > Den här funktionen är en allmänt tillgänglig förhandsversion.
@@ -28,15 +28,15 @@ ms.locfileid: "80886440"
 
 ## <a name="developer-guide"></a>Utvecklarguide
 
-Den här guiden innehåller utvecklarvägledning för att implementera läget för delade enheter i ett Android-program med hjälp av Microsoft Authentication Library (MSAL). Se [msal Android-självstudien](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android) för att se hur du integrerar MSAL med din Android-app, loggar in en användare, anropar Microsoft-diagram och loggar ut en användare.
+Den här guiden ger vägledning för utvecklare som implementerar delad enhet i ett Android-program med hjälp av Microsoft Authentication Library (MSAL). I [själv studie kursen om MSAL Android](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android) kan du se hur du integrerar MSAL med din Android-app. Logga in en användare, anropa Microsoft Graph och logga ut en användare.
 
 ### <a name="download-the-sample"></a>Hämta exemplet
 
-Klona [exempelprogrammet](https://github.com/Azure-Samples/ms-identity-android-java/) från GitHub. Exemplet har möjlighet att arbeta i [ett eller flera kontoläge](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account).
+Klona [exempel programmet](https://github.com/Azure-Samples/ms-identity-android-java/) från GitHub. Exemplet har möjlighet att arbeta i [ett läge med enkel eller flera konton](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account).
 
-### <a name="add-the-msal-sdk-to-your-local-maven-repository"></a>Lägga till MSAL SDK i din lokala Maven-databas
+### <a name="add-the-msal-sdk-to-your-local-maven-repository"></a>Lägg till MSAL SDK i din lokala maven-lagringsplats
 
-Om du inte använder exempelappen lägger du till MSAL-biblioteket som ett beroende i filen build.gradle, så här:
+Om du inte använder exempel appen lägger du till MSAL-biblioteket som ett beroende i filen build. gradle, så här:
 
 ```gradle
 dependencies{
@@ -44,15 +44,15 @@ dependencies{
 }
 ```
 
-### <a name="configure-your-app-to-use-shared-device-mode"></a>Konfigurera appen så att den använder läget för delade enheter
+### <a name="configure-your-app-to-use-shared-device-mode"></a>Konfigurera appen så att den använder delad enhets läge
 
-Mer information om hur du konfigurerar konfigurationsfilen finns i [konfigurationsdokumentationen.](https://docs.microsoft.com/azure/active-directory/develop/msal-configuration)
+Mer information om hur du konfigurerar konfigurations filen hittar du i [konfigurations dokumentationen](https://docs.microsoft.com/azure/active-directory/develop/msal-configuration) .
 
-Ställ `"shared_device_mode_supported"` `true` in i konfigurationsfilen för MSAL.
+Ange `"shared_device_mode_supported"` som `true` i konfigurations filen för MSAL.
 
-Du kanske inte planerar att stödja läget för flera konton. Det kan vara om du inte använder en delad enhet och användaren kan logga in på appen med mer än ett konto samtidigt. Om så `"account_mode"` är `"SINGLE"`fallet, ställ in på . Detta garanterar att din `ISingleAccountPublicClientApplication`app alltid kommer att få, och avsevärt förenklar din MSAL integration. Standardvärdet `"account_mode"` för `"MULTIPLE"`är , så det är viktigt att ändra det här `"single account"` värdet i konfigurationsfilen om du använder läget.
+Du kanske inte planerar att stödja läge för flera konton. Det kan bero på att du inte använder en delad enhet och att användaren kan logga in på appen med mer än ett konto på samma tid. I så fall, `"account_mode"` ange `"SINGLE"`till. Detta garanterar att din app alltid får `ISingleAccountPublicClientApplication`och fören klar din MSAL-integrering avsevärt. Standardvärdet `"account_mode"` är `"MULTIPLE"`, så det är viktigt att ändra det här värdet i konfigurations filen om du använder `"single account"` läge.
 
-Här är ett exempel på filen auth_config.json som ingår**raw** i **appens**>**res**>**huvudkatalog**>för exempelappen:
+Här är ett exempel på filen auth_config. JSON som ingår i **appens**>**primära**>**res**>**RAW** -katalog i exempel appen:
 
 ```json
 {
@@ -74,21 +74,21 @@ Här är ett exempel på filen auth_config.json som ingår**raw** i **appens**>*
 }
 ```
 
-### <a name="detect-shared-device-mode"></a>Identifiera läget för delade enheter
+### <a name="detect-shared-device-mode"></a>Identifiera läge för delad enhet
 
-Med läget med delade enheter kan du konfigurera Android-enheter som ska delas av flera anställda, samtidigt som Microsoft Identity-säkerhetskopierad hantering av enheten tillhandahålls. Anställda kan logga in på sina enheter och komma åt kundinformation snabbt. När de är klara med skiftet eller uppgiften kan de logga ut från alla appar på den delade enheten med ett enda klick och enheten är omedelbart redo för nästa medarbetare att använda.
+Med delad enhets läge kan du konfigurera Android-enheter så att de delas av flera anställda, samtidigt som du tillhandahåller Microsoft Identity-baserad hantering av enheten. Anställda kan logga in på sina enheter och få åtkomst till kund information snabbt. När de är klara med Skift eller uppgift kan de logga ut från alla appar på den delade enheten med en enkel klickning och enheten är omedelbart klar för nästa medarbetare att använda.
 
-Används `isSharedDevice()` för att avgöra om en app körs på en enhet som är i läget delad enhet. Din app kan använda den här flaggan för att avgöra om den ska ändra användarupplevelsen i enlighet med detta.
+Använd `isSharedDevice()` för att avgöra om en app körs på en enhet som är i delat enhets läge. Din app kan använda den här flaggan för att avgöra om den ska ändra UX enligt detta.
 
-Här är ett kodavsnitt som visar hur `isSharedDevice()`du kan använda .  Det är från `SingleAccountModeFragment` klassen i exempelappen:
+Här är ett kodfragment som visar hur du kan använda `isSharedDevice()`.  Det är från- `SingleAccountModeFragment` klassen i exempel appen:
 
 ```Java
 deviceModeTextView.setText(mSingleAccountApp.isSharedDevice() ?"Shared" :"Non-Shared");
 ```
 
-### <a name="initialize-the-publicclientapplication-object"></a>Initiera publicclientApplication-objektet
+### <a name="initialize-the-publicclientapplication-object"></a>Initiera PublicClientApplication-objektet
 
-Om du `"account_mode":"SINGLE"` anger i MSAL-config-filen kan du på ett `ISingleAccountPublicCLientApplication`säkert sätt casta det returnerade programobjektet som ett .
+Om du ställer `"account_mode":"SINGLE"` in i MSAL konfigurations filen kan du på ett säkert sätt skicka det returnerade `ISingleAccountPublicCLientApplication`programobjektet som en.
 
 ```java
 private ISingleAccountPublicClientApplication mSingleAccountApp;
@@ -109,11 +109,11 @@ PublicClientApplication.create(this.getApplicationCOntext(),
 });
 ```
 
-### <a name="detect-single-vs-multiple-account-mode"></a>Identifiera ett eller flera konton
+### <a name="detect-single-vs-multiple-account-mode"></a>Identifiera enskilt vs. läge för flera konton
 
-Om du skriver en app som bara används för förstahandsarbetare på en delad enhet rekommenderar vi att du skriver din app för att bara stödja ett kontoläge. Detta inkluderar de flesta program som är uppgiftsfokuserade, till exempel journalappar, fakturaappar och de flesta affärsappar. Detta kommer att förenkla din utveckling eftersom många funktioner i SDK inte behöver tillgodoses.
+Om du skriver en app som endast ska användas för firstline-arbetare på en delad enhet rekommenderar vi att du skriver appen så att den endast stöder enanvändarläge. Detta inkluderar de flesta program som är aktiviteter fokuserade som medicinska register appar, faktura program och de flesta branschspecifika appar. Detta fören klar utvecklingen eftersom många funktioner i SDK inte behöver hanteras.
 
-Om appen stöder flera konton och läget för delade enheter måste du utföra en typkontroll och casta till rätt gränssnitt enligt nedan.
+Om din app har stöd för flera konton och läget för delad enhet måste du utföra en typ kontroll och omvandla det till lämpligt gränssnitt enligt bilden nedan.
 
 ```java
 private IPublicClientApplication mApplication;
@@ -129,7 +129,7 @@ private IPublicClientApplication mApplication;
 
 ### <a name="get-the-signed-in-user-and-determine-if-a-user-has-changed-on-the-device"></a>Hämta den inloggade användaren och ta reda på om en användare har ändrats på enheten
 
-Metoden `loadAccount` hämtar kontot för den inloggade användaren. Metoden `onAccountChanged` avgör om den inloggade användaren har ändrats och i så fall rensa:
+`loadAccount` Metoden hämtar kontot för den inloggade användaren. `onAccountChanged` Metoden avgör om den inloggade användaren har ändrat, och i så fall rensa:
 
 ```java
 private void loadAccount()
@@ -164,7 +164,7 @@ private void loadAccount()
 
 ### <a name="globally-sign-in-a-user"></a>Logga in en användare globalt
 
-Följande loggar in en användare över enheten till andra appar som använder MSAL med Authenticator-appen:
+Följande tecken i en användare på enheten till andra appar som använder MSAL med Authenticator-appen:
 
 ```java
 private void onSignInClicked()
@@ -175,7 +175,7 @@ private void onSignInClicked()
 
 ### <a name="globally-sign-out-a-user"></a>Logga ut en användare globalt
 
-Följande tar bort det inloggade kontot och rensar cachelagrade token från inte bara appen utan även från enheten som är i läget för delade enheter:
+Följande tar bort det inloggade kontot och rensar cachelagrade token från inte bara appen utan även från enheten som är i läget för delad enhet:
 
 ```java
 private void onSignOutClicked()
@@ -198,69 +198,69 @@ private void onSignOutClicked()
 
 ## <a name="administrator-guide"></a>Administratörsguide
 
-I följande steg beskrivs hur du konfigurerar ditt program i Azure-portalen och placerar enheten i läget för delade enheter.
+Följande steg beskriver hur du konfigurerar programmet i Azure Portal och placerar enheten i läget för delad enhet.
 
 ### <a name="register-your-application-in-azure-active-directory"></a>Registrera ditt program i Azure Active Directory
 
-Registrera först ditt program i organisationens klientorganisation. Ange sedan dessa värden nedan i auth_config.json för att ditt program ska fungera korrekt.
+Registrera först ditt program i din organisations klient. Ange värdena nedan i auth_config. JSON för att programmet ska fungera korrekt.
 
-Mer information om hur du gör detta finns [i Registrera din ansökan](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#register-your-application).
+Information om hur du gör detta finns i [Registrera ditt program](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#register-your-application).
 
 > [!NOTE]
-> När du registrerar din app använder du snabbstartsguiden till vänster och väljer sedan **Android**. Detta leder dig till en sida där du blir ombedd att ange **paketnamn** och **signatur hash** för din app. Dessa är mycket viktiga för att säkerställa att din appkonfiguration fungerar. Du får sedan ett konfigurationsobjekt som du kan använda för din app som du ska klippa ut och klistra in i filen auth_config.json.
+> När du registrerar din app ska du använda snabb starts guiden till vänster och sedan välja **Android**. Detta leder till en sida där du uppmanas att ange **paket namn** och **signatur-hash** för din app. Detta är mycket viktigt för att se till att din app-konfiguration fungerar. Du får sedan ett konfigurations objekt som du kan använda för din app som du ska klippa ut och klistra in i din auth_config. JSON-fil.
 
-![Skärmen](media/tutorial-v2-shared-device-mode/register-app.png) För appregistrering Du bör välja **Gör den här ändringen åt mig** och sedan ange de värden som snabbstarten efterfrågar i Azure-portalen. När det är gjort kommer vi att generera alla konfigurationsfiler du behöver.
+![Registrerings skärmen](media/tutorial-v2-shared-device-mode/register-app.png) för appen du bör välja **gör den här ändringen för mig** och ange värdena som snabb starten frågar efter i Azure Portal. När det är färdigt kommer vi att generera alla konfigurationsfiler som du behöver.
 
-![Visa informationsskärmen för App config](media/tutorial-v2-shared-device-mode/config-info.png)
+![Sidan konfigurations information för app](media/tutorial-v2-shared-device-mode/config-info.png)
 
 ## <a name="set-up-a-tenant"></a>Konfigurera en klient
 
-Konfigurera följande i din klientorganisation i testsyfte: minst två anställda, en molnenhetsadministratör och en global administratör. Ange molnenhetsadministratören i Azure-portalen genom att ändra organisationsroller. I Azure-portalen får du åtkomst till dina organisationsroller genom att välja **Azure Active Directory** > **Roles och Administrators** > **Cloud Device Administrator**. Lägg till de användare som kan placera en enhet i delat läge.
+I test syfte ställer du in följande i din klient organisation: minst två anställda, en moln enhets administratör och en global administratör. I Azure Portal anger du moln enhets administratören genom att ändra organisatoriska roller. I Azure Portal kan du komma åt dina organisations roller genom att välja **Azure Active Directory** > **roller och administratörer** > **moln enhets administratör**. Lägg till användare som kan lagra en enhet i delat läge.
 
 ## <a name="set-up-an-android-device-in-shared-mode"></a>Konfigurera en Android-enhet i delat läge
 
-### <a name="download-the-authenticator-app"></a>Ladda ner Authenticator-appen
+### <a name="download-the-authenticator-app"></a>Hämta Authenticator-appen
 
-Ladda ned Microsoft Authenticator-appen från Google Play Store. Om du redan har laddat ned appen kontrollerar du att den är den senaste versionen.
+Hämta Microsoft Authenticator-appen från Google Play-butiken. Om du redan har hämtat appen kontrollerar du att den är den senaste versionen.
 
-### <a name="authenticator-app-settings--registering-the-device-in-the-cloud"></a>Inställningar för Autentiseringsappar & registrera enheten i molnet
+### <a name="authenticator-app-settings--registering-the-device-in-the-cloud"></a>Verifierings program inställningar & att registrera enheten i molnet
 
-Starta Authenticator-appen och navigera till huvudkontosidan. När du ser sidan **Lägg till konto** är du redo att göra enheten delad.
+Starta Authenticator-appen och gå till huvud konto sidan. När du ser sidan **Lägg till konto** är du redo att göra enheten delad.
 
-![Skärmen Autentiseringsperson för lägg till konto](media/tutorial-v2-shared-device-mode/authenticator-add-account.png)
+![Skärmen Lägg till konto för autentiserare](media/tutorial-v2-shared-device-mode/authenticator-add-account.png)
 
- Gå till fönstret **Inställningar** med hjälp av den högra menyraden. Välj **Enhetsregistrering** under **Konton & arbete.**
+ Gå till fönstret **Inställningar** med hjälp av den högra meny raden. Välj **enhets registrering** under **arbets & skol konton**.
 
- ![Skärmen Autentiseringsperson för lägg till konto](media/tutorial-v2-shared-device-mode/authenticator-settings.png)
+ ![Skärmen Lägg till konto för autentiserare](media/tutorial-v2-shared-device-mode/authenticator-settings.png)
 
- När du klickar på den här knappen blir du ombedd att auktorisera åtkomst till enhetskontakter. Detta beror på Androids kontointegration på enheten. Välj **tillåt**.
+ När du klickar på den här knappen uppmanas du att ge åtkomst till enhets kontakter. Detta beror på Android: s konto integrering på enheten. Välj **Tillåt**.
 
- ![Skärmen Autentiseringsperson för lägg till konto](media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png)
+ ![Skärmen Lägg till konto för autentiserare](media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png)
 
-Cloud-enhetsadministratören ska ange sin organisations-e-postadress under **Eller registrera sig som en delad enhet**. Klicka sedan på **knappen Registrera som delad enhet** och ange deras autentiseringsuppgifter.
+Moln enhets administratören bör ange sin organisations e-postadress under **eller registrera sig som en delad enhet**. Klicka sedan på knappen **Registrera som delad enhet** och ange deras autentiseringsuppgifter.
 
-![skärmen registrera enheter](media/tutorial-v2-shared-device-mode/register-device.png)
+![registrera – enhets skärm](media/tutorial-v2-shared-device-mode/register-device.png)
 
 ![sign-in](media/tutorial-v2-shared-device-mode/sign-in.png)
 
 Enheten är nu i delat läge.
 
-![skärmen registrera enheter](media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png)
+![registrera – enhets skärm](media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png)
 
- Alla inloggningar och ut signeringar på enheten kommer att vara globala, vilket innebär att de gäller för alla appar som är integrerade med MSAL och Microsoft Authenticator på enheten. Du kan nu distribuera program till den enhet som använder funktioner för delad enhetsläge.
+ Alla inloggningar och inloggningar på enheten är globala, vilket innebär att de gäller för alla appar som är integrerade med MSAL och Microsoft Authenticator på enheten. Nu kan du distribuera program till enheten som använder funktioner för delad enhets läge.
 
-## <a name="view-the-shared-device-in-the-azure-portal"></a>Visa den delade enheten i Azure-portalen
+## <a name="view-the-shared-device-in-the-azure-portal"></a>Visa den delade enheten i Azure Portal
 
-När du har placerat en enhet i delat läge blir den känd för din organisation och spåras i organisationens klientorganisation. Du kan visa dina delade enheter genom att titta på **kopplingstypen** i Azure Active Directory-bladet på din Azure-portal.
+När du har satt en enhet i delat läge, blir den känd för din organisation och spåras i din organisations klient. Du kan visa dina delade enheter genom att titta på **kopplings typen** i Azure Active Directory bladet i Azure Portal.
 
-![Alla enheter blad i Azure-portalen](media/tutorial-v2-shared-device-mode/registered-device-screen.png)
+![Bladet alla enheter i Azure Portal](media/tutorial-v2-shared-device-mode/registered-device-screen.png)
 
-## <a name="running-the-sample-app"></a>Köra exempelappen
+## <a name="running-the-sample-app"></a>Köra exempel appen
 
-Exempelprogrammet är en enkel app som anropar graph-API:et för din organisation. Vid första körningen uppmanas du att godkänna när programmet är nytt för ditt medarbetarkonto.
+Exempel programmet är en enkel app som anropar Graph API i din organisation. Vid första körningen uppmanas du att godkänna att programmet är nytt för ditt medarbetar konto.
 
-![Visa informationsskärmen för App config](media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png)
+![Sidan konfigurations information för app](media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om delat läge i [läget Delad enhet för Android-enheter](msal-android-shared-devices.md)
+Lär dig mer om delat läge i [delat enhets läge för Android-enheter](msal-android-shared-devices.md)

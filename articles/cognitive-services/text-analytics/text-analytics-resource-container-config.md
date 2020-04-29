@@ -1,7 +1,7 @@
 ---
-title: Konfigurera behållare - Textanalys
+title: Konfigurera behållare – Textanalys
 titleSuffix: Azure Cognitive Services
-description: Text Analytics förser varje behållare med ett gemensamt konfigurationsramverk, så att du enkelt kan konfigurera och hantera lagring, loggning och telemetri samt säkerhetsinställningar för dina behållare.
+description: Textanalys förser varje behållare med ett gemensamt konfigurations ramverk, så att du enkelt kan konfigurera och hantera lagring, loggning och telemetri och säkerhets inställningar för dina behållare.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,56 +12,56 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: f062fb2f3a653bc1b2845b92e373fdb67ba583d8
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80878702"
 ---
-# <a name="configure-text-analytics-docker-containers"></a>Konfigurera dockerbehållare för textanalys
+# <a name="configure-text-analytics-docker-containers"></a>Konfigurera Textanalys Docker-behållare
 
-Text Analytics förser varje behållare med ett gemensamt konfigurationsramverk, så att du enkelt kan konfigurera och hantera lagring, loggning och telemetri samt säkerhetsinställningar för dina behållare.
+Textanalys förser varje behållare med ett gemensamt konfigurations ramverk, så att du enkelt kan konfigurera och hantera lagring, loggning och telemetri och säkerhets inställningar för dina behållare.
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> [`ApiKey`](#apikey-configuration-setting)Inställningarna [`Billing`](#billing-configuration-setting), [`Eula`](#eula-setting) och används tillsammans och du måste ange giltiga värden för alla tre. Annars startar inte behållaren. Mer information om hur du använder de här konfigurationsinställningarna för att instansiera en behållare finns i [Fakturering](how-tos/text-analytics-how-to-install-containers.md#billing).
+> Inställningarna [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting)och [`Eula`](#eula-setting) används tillsammans och du måste ange giltiga värden för alla tre. annars startar inte behållaren. Mer information om hur du använder dessa konfigurations inställningar för att instansiera en behållare finns i [fakturering](how-tos/text-analytics-how-to-install-containers.md#billing).
 
-## <a name="apikey-configuration-setting"></a>Konfigurationsinställning för ApiKey
+## <a name="apikey-configuration-setting"></a>Konfigurations inställning för ApiKey
 
-Inställningen `ApiKey` anger den Azure-resursnyckel som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig [`Billing`](#billing-configuration-setting) nyckel för den _Text Analytics-resurs_ som angetts för konfigurationsinställningen.
+`ApiKey` Inställningen anger den Azure-resurs nyckel som används för att spåra fakturerings information för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _textanalys_ resurs som angetts för [`Billing`](#billing-configuration-setting) konfigurations inställningen.
 
-Den här inställningen finns på följande plats:
+Du hittar den här inställningen på följande plats:
 
-* Azure portal: **Text Analytics** resurshantering, under **Nycklar**
+* Azure Portal: **textanalys** resurs hantering under **nycklar**
 
-## <a name="applicationinsights-setting"></a>Inställning av ApplicationInsights
+## <a name="applicationinsights-setting"></a>ApplicationInsights-inställning
 
 [!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
-## <a name="billing-configuration-setting"></a>Konfigurationsinställning för fakturering
+## <a name="billing-configuration-setting"></a>Konfigurations inställning för fakturering
 
-Inställningen `Billing` anger slutpunkts-URI för _textanalysresursen_ på Azure som används för att mäta faktureringsinformation för behållaren. Du måste ange ett värde för den här konfigurationsinställningen och värdet måste vara en giltig slutpunkts-URI för en __Text Analytics-resurs_ på Azure. Behållaren rapporterar användning ungefär var 10 till 15:e minut.
+Inställningen anger slut punkts-URI för den Textanalys resursen på Azure som används för att mäta fakturerings information för behållaren. _Text Analytics_ `Billing` Du måste ange ett värde för den här konfigurations inställningen och värdet måste vara en giltig slut punkts-URI för en __textanalys_ -resurs på Azure. Behållar rapporteringen visar var 10 till 15: e minut.
 
-Den här inställningen finns på följande plats:
+Du hittar den här inställningen på följande plats:
 
-* Översikt över Azure-portalen: Översikt över **textanalys,** märkt`Endpoint`
+* Azure Portal: **textanalys** översikt, etiketterad`Endpoint`
 
-|Krävs| Namn | Datatyp | Beskrivning |
+|Krävs| Name | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
-|Ja| `Billing` | Sträng | Fakturering slutpunkt URI. Mer information om hur du hämtar fakturerings-URI finns i [samla in obligatoriska parametrar](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slutpunkter finns i [Anpassade underdomännamn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
+|Ja| `Billing` | Sträng | URI för fakturerings slut punkt. Mer information om hur du skaffar fakturerings-URI: n finns i [samla in obligatoriska parametrar](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters). Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
-## <a name="eula-setting"></a>Eula-inställning
+## <a name="eula-setting"></a>Licens avtals inställning
 
 [!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
-## <a name="fluentd-settings"></a>Flytande inställningar
+## <a name="fluentd-settings"></a>Fluent-inställningar
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>Inställningar för http-proxyautentiseringsuppgifter
+## <a name="http-proxy-credentials-settings"></a>Inställningar för autentiseringsuppgifter för http-proxy
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
@@ -69,36 +69,36 @@ Den här inställningen finns på följande plats:
  
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
-## <a name="mount-settings"></a>Montera inställningar
+## <a name="mount-settings"></a>Monterings inställningar
 
-Använd bindningsfästen för att läsa och skriva data till och från behållaren. Du kan ange ett indatafäste eller `--mount` utdatafäste genom att ange alternativet i [dockerkörningskommandot.](https://docs.docker.com/engine/reference/commandline/run/)
+Använd bind-monteringar för att läsa och skriva data till och från behållaren. Du kan ange en inmatnings montering eller utmatnings `--mount` montering genom att ange alternativet i kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) .
 
-Text Analytics-behållarna använder inte indata- eller utdatafästen för att lagra tränings- eller tjänstdata. 
+Textanalys behållare använder inte indata eller utdata monteras för att lagra utbildning eller tjänst data. 
 
-Den exakta syntaxen för värdmonteringsplatsen varierar beroende på värdoperativsystemet. Dessutom kanske [värddatorns](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)monteringsplats inte är tillgänglig på grund av en konflikt mellan behörigheter som används av docker-tjänstkontot och värdfästeplatsbehörigheterna. 
+Den exakta syntaxen för värd monterings platsen varierar beroende på värd operativ systemet. Dessutom kanske [värd datorns](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)monterings plats inte är tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värd monterings platsens behörigheter. 
 
-|Valfri| Namn | Datatyp | Beskrivning |
+|Valfri| Name | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Inte tillåten| `Input` | Sträng | Text Analytics-behållare använder inte detta.|
-|Valfri| `Output` | Sträng | Målet för utmatningsfästet. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Inte tillåten| `Input` | Sträng | Textanalys behållare använder inte detta.|
+|Valfri| `Output` | Sträng | Målet för utmatnings monteringen. Standardvärdet är `/output`. Detta är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="example-docker-run-commands"></a>Exempel på dockerkörningskommandon 
+## <a name="example-docker-run-commands"></a>Exempel på Docker-körnings kommandon 
 
-I följande exempel används konfigurationsinställningarna för `docker run` att illustrera hur du skriver och använder kommandon.  När den körs fortsätter behållaren att köras tills du [stoppar](how-tos/text-analytics-how-to-install-containers.md#stop-the-container) den.
+I följande exempel används konfigurations inställningarna för att illustrera hur du skriver och använder `docker run` kommandon.  När den körs fortsätter behållaren att köras tills du [stoppar](how-tos/text-analytics-how-to-install-containers.md#stop-the-container) den.
 
-* **Rad-fortsättning**tecken : Docker kommandon i följande avsnitt använder `\`tillbaka snedstreck, , som en rad fortsättning tecken. Ersätt eller ta bort detta baserat på värdoperativsystemets krav. 
-* **Argumentordning**: Ändra inte ordningen på argumenten om du inte är väl förtrogen med dockercontainrar.
+* **Rad fortsättnings bokstav**: Docker-kommandona i följande avsnitt använder omvänt snedstreck `\`, som ett fortsättnings steg. Ersätt eller ta bort detta baserat på värd operativ systemets krav. 
+* **Argument ordning**: Ändra inte ordningen på argumenten om du inte är bekant med Docker-behållare.
 
-Ersätt {_argument_name_} med dina egna värderingar:
+Ersätt {_argument_name_} med dina egna värden:
 
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|
-| **{API_KEY}** | Slutpunktsnyckeln `Text Analytics` för resursen `Text Analytics` som är tillgänglig på sidan Azure Keys. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | Värdet för faktureringsslutpunkt är `Text Analytics` tillgängligt på sidan Azure Overview.| Se [samla in nödvändiga parametrar](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters) för explicita exempel. |
+| **{API_KEY}** | Slut punkts nyckeln för `Text Analytics` resursen som är tillgänglig på `Text Analytics` sidan med Azure-nycklar. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | Värdet för fakturerings slut punkten är tillgängligt på sidan `Text Analytics` Azure-översikt.| Se [samla in obligatoriska parametrar](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters) för explicita exempel. |
 
 > [!IMPORTANT]
-> Alternativen `Eula` `Billing`, `ApiKey` och måste anges för att behållaren ska kunna köras. Annars startar inte behållaren.  Mer information finns i [Fakturering](how-tos/text-analytics-how-to-install-containers.md#billing).
-> ApiKey-värdet är **nyckeln** från `Text Analytics` sidan Azure Resource keys. 
+> Alternativen `Eula`, `Billing`och `ApiKey` måste anges för att köra behållaren. annars startar inte behållaren.  Mer information finns i [fakturering](how-tos/text-analytics-how-to-install-containers.md#billing).
+> ApiKey-värdet är **nyckeln** på sidan med Azures `Text Analytics` resurs nycklar. 
 
 #### <a name="key-phrase-extraction"></a>[Extrahering av nyckelfraser](#tab/keyphrase)
 
@@ -116,5 +116,5 @@ Ersätt {_argument_name_} med dina egna värderingar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska [Hur du installerar och kör behållare](how-tos/text-analytics-how-to-install-containers.md)
-* Använda fler [Cognitive Services-behållare](../cognitive-services-container-support.md)
+* Granska [hur du installerar och kör behållare](how-tos/text-analytics-how-to-install-containers.md)
+* Använd fler [Cognitive Services behållare](../cognitive-services-container-support.md)

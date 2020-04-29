@@ -1,91 +1,91 @@
 ---
-title: Azure Application Insights Användarflöden analyserar navigeringsflöden
-description: Analysera hur användarna navigerar mellan sidorna och funktionerna i din webbapp.
+title: Azure Application insikter Användarflöden analyserar navigerings flöden
+description: Analysera hur användare navigerar mellan sidor och funktioner i din webbapp.
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 8622ede9e6f7fba2fde2e0b2e90eb31520a23d04
-ms.sourcegitcommit: df8b2c04ae4fc466b9875c7a2520da14beace222
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80892452"
 ---
-# <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analysera användarnavigeringsmönster med användarflöden i application insights
+# <a name="analyze-user-navigation-patterns-with-user-flows-in-application-insights"></a>Analysera användar navigerings mönster med Användarflöden i Application Insights
 
-![Verktyget Användarflöden för programinsikter](./media/usage-flows/00001-flows.png)
+![Application Insights Användarflöden-verktyget](./media/usage-flows/00001-flows.png)
 
-Med verktyget Användarflöden visualiserar du hur användarna navigerar mellan sidorna och funktionerna på webbplatsen. Det är bra för att svara på frågor som:
+Verktyget Användarflöden visualiserar hur användare navigerar mellan sidor och funktioner på din webbplats. Det är bra för att besvara frågor som:
 
-* Hur navigerar användarna bort från en sida på din webbplats?
-* Vad klickar användarna på en sida på din webbplats?
-* Var finns de platser som användarna spottar mest från din webbplats?
-* Finns det platser där användarna upprepar samma åtgärd om och om igen?
+* Hur kommer användarna att navigera bort från en sida på din webbplats?
+* Vad kan användarna klicka på på en sida på din webbplats?
+* Var finns de platser som användare omsättnings mest från din plats?
+* Finns det platser där användarna upprepar samma åtgärd över och över?
 
-Verktyget Användarflöden startar från en första sidvy, en anpassad händelse eller ett undantag som du anger. Med tanke på den här första händelsen visar användarflöden de händelser som inträffade före och efteråt under användarsessioner. Linjer med varierande tjocklek visar hur många gånger varje sökväg följdes av användare. Särskilda **sessionsstartade** noder visar var de efterföljande noderna började en session. **SessionSlutna** noder visar hur många användare som inte har skickat några sidvisningar eller anpassade händelser efter den föregående noden, vilket markerar var användarna förmodligen lämnade webbplatsen.
+Verktyget Användarflöden startar från en inledande sidvy, en anpassad händelse eller ett undantag som du anger. Med den här inledande händelsen visar Användarflöden händelser som inträffat tidigare och efteråt under användarsessioner. Linjer med varierande tjocklek visar hur många gånger varje sökväg följs av användare. Särskilda **sessioner startade** noder visar var efterföljande noder startade en session. Noder som **avslutas av sessionen** visar hur många användare som inte skickade några sid visningar eller anpassade händelser efter den föregående noden, som markerar var användarna förmodligen har lämnat platsen.
 
 > [!NOTE]
-> Application Insights-resursen måste innehålla sidvisningar eller anpassade händelser för att använda verktyget Användarflöden. [Lär dig hur du konfigurerar appen så att den samlar in sidvisningar automatiskt med JavaScript-SDK för programinsikter](../../azure-monitor/app/javascript.md).
+> Din Application Insights-resurs måste innehålla sidvyer eller anpassade händelser för att använda Användarflöden-verktyget. [Lär dig hur du konfigurerar din app för att samla in sid visningar automatiskt med Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md).
 >
 >
 
-## <a name="start-by-choosing-an-initial-event"></a>Börja med att välja en första händelse
+## <a name="start-by-choosing-an-initial-event"></a>Börja med att välja en inledande händelse
 
-![Välj en första händelse för användarflöden](./media/usage-flows/00002-flows-initial-event.png)
+![Välj en inledande händelse för Användarflöden](./media/usage-flows/00002-flows-initial-event.png)
 
-Om du vill börja svara på frågor med verktyget Användarflöden väljer du en första sidvy, en anpassad händelse eller ett undantag som ska användas som utgångspunkt för visualiseringen:
+Om du vill börja besvara frågor med Användarflöden-verktyget väljer du en inledande sidvy, en anpassad händelse eller ett undantag som ska fungera som utgångs punkt för visualiseringen:
 
-1. Klicka på länken i rubriken **Vad gör användarna efter...?** eller klicka på knappen **Redigera.**
-2. Välj en sidvy, en anpassad händelse eller ett undantag från listrutan **Inledande händelse.**
-3. Klicka på **Skapa diagram**.
+1. Klicka på länken i rubriken **vad gör användarna efter...?** eller klicka på knappen **Redigera** .
+2. Välj en sidvy, en anpassad händelse eller ett undantag från den **inledande händelse** List rutan.
+3. Klicka på **skapa graf**.
 
-Kolumnen "Steg 1" i visualiseringen visar vad användarna gjorde oftast strax efter den första händelsen, som beställdes uppifrån och ned från de flesta till minst frekventa. Kolumnerna "Steg 2" och efterföljande visar vad användarna gjorde därefter, vilket skapar en bild av alla sätt som användarna har navigerat på din webbplats.
+I kolumnen "steg 1" i visualiseringen visas vad användare oftast precis precis efter den inledande händelsen, ordnat längst ned från de flesta till minsta frekventa. I "steg 2" och efterföljande kolumner visas vad användare har gjort därefter, vilket skapar en bild av alla sätt som användare har navigerat på din webbplats.
 
-Som standard tar verktyget Användarflöden slumpmässigt bara de senaste 24 timmarna av sidvisningar och en anpassad händelse från webbplatsen. Du kan öka tidsintervallet och ändra balansen mellan prestanda och noggrannhet för slumpmässigt urval på Redigera-menyn.
+Som standard samplar verktyget Användarflöden slumpmässigt bara de senaste 24 timmarna av sid visningar och anpassad händelse från din webbplats. Du kan öka tidsintervallet och ändra balansen för prestanda och exakthet för slumpmässig sampling på Redigera-menyn.
 
-Om några av sidvisningarna, anpassade händelser och undantag inte är relevanta för dig klickar du på **Krysset** på de noder som du vill dölja. När du har markerat de noder som du vill dölja klickar du på knappen **Skapa diagram** under visualiseringen. Om du vill visa alla noder som du har dolt klickar du på knappen **Redigera** och tittar sedan på avsnittet **Uteslutna händelser.**
+Om några av sid visningarna, anpassade händelser och undantag inte är relevanta för dig, klickar du på **X** på de noder som du vill dölja. När du har valt de noder som du vill dölja klickar du på knappen **skapa diagram** under visualiseringen. Om du vill se alla noder som du har dolt klickar du på knappen **Redigera** och tittar sedan på avsnittet **undantagna händelser** .
 
-Om sidvisningar eller anpassade händelser saknas som du förväntar dig att se i visualiseringen:
+Om sidvyer eller anpassade händelser saknas som du förväntar dig att se i visualiseringen:
 
-* Kontrollera avsnittet **Uteslutna händelser** på **Redigera-menyn.**
-* Använd plusknapparna på **andra** noder för att inkludera mindre frekventa händelser i visualiseringen.
-* Om sidvyn eller den anpassade händelse som du förväntar dig skickas sällan av användare kan **Edit** du prova att öka tidsintervallet för visualiseringen på Redigera-menyn.
-* Kontrollera att sidvyn, den anpassade händelsen eller undantaget som du förväntar dig har konfigurerats för att samlas in av SDK för programinsikter i webbplatsens källkod. [Läs mer om hur du samlar in anpassade händelser.](../../azure-monitor/app/api-custom-events-metrics.md)
+* Markera avsnittet **exkluderade händelser** på **Redigera** -menyn.
+* Använd plus-knapparna på **andra** noder för att inkludera mindre frekventa händelser i visualiseringen.
+* Om sid visningen eller den anpassade händelsen som du förväntar dig skickas sällan av användarna kan du prova att öka tidsintervallet för visualiseringen på **Redigera** -menyn.
+* Se till att sid visning, anpassad händelse eller undantag som du förväntar dig har kon figurer ATS att samlas in av Application Insights SDK i käll koden för din webbplats. [Lär dig mer om att samla in anpassade händelser.](../../azure-monitor/app/api-custom-events-metrics.md)
 
-Om du vill se fler steg i visualiseringen använder du listrutan **Föregående steg** och **Nästa steg** ovanför visualiseringen.
+Om du vill se fler steg i visualiseringen använder du de **föregående stegen** och list rutorna för **Nästa steg** ovanför visualiseringen.
 
-## <a name="after-visiting-a-page-or-feature-where-do-users-go-and-what-do-they-click"></a>Efter att ha besökt en sida eller funktion, vart tar användarna vägen och vad klickar de på?
+## <a name="after-visiting-a-page-or-feature-where-do-users-go-and-what-do-they-click"></a>När du har besökt en sida eller funktion, var ska användarna gå och vad klickar de klickar på?
 
-![Använda användarflöden för att förstå var användarna klickar](./media/usage-flows/00003-flows-one-step.png)
+![Använd Användarflöden för att förstå var användarna klickar](./media/usage-flows/00003-flows-one-step.png)
 
-Om den första händelsen är en sidvy är den första kolumnen (steg 1) i visualiseringen ett snabbt sätt att förstå vad användarna gjorde direkt efter att ha besökt sidan. Prova att öppna webbplatsen i ett fönster bredvid visualiseringen Användarflöden. Jämför dina förväntningar på hur användarna interagerar med sidan med listan över händelser i kolumnen Steg 1. Ofta kan ett gränssnittselement på sidan som verkar obetydligt för ditt team vara bland de mest använda på sidan. Det kan vara en bra utgångspunkt för designförbättringar på din webbplats.
+Om din inledande händelse är en sidvy, är den första kolumnen ("steg 1") i visualiseringen ett snabbt sätt att förstå vad användarna gjorde direkt efter att ha besökt sidan. Försök att öppna din webbplats i ett fönster bredvid Användarflöden visualiseringen. Jämför dina förväntningar på hur användare interagerar med sidan i listan över händelser i kolumnen "steg 1". Ofta kan ett GRÄNSSNITTs element på sidan som verkar vara obetydligt för ditt team vara bland de mest använda på sidan. Det kan vara en bra utgångs punkt för design förbättringar av webbplatsen.
 
-Om den första händelsen är en anpassad händelse visar den första kolumnen vad användarna gjorde precis efter att de utfört åtgärden. Precis som med sidvisningar bör du överväga om användarnas observerade beteende matchar lagets mål och förväntningar. Om den valda första händelsen är "Lagt till objekt i kundvagnen", till exempel, titta för att se om "Gå till kassan" och "Slutfört köp" visas i visualiseringen kort därefter. Om användarbeteende skiljer sig från dina förväntningar använder du visualiseringen för att förstå hur användarna blir "fångade" av webbplatsens aktuella design.
+Om den första händelsen är en anpassad händelse visar den första kolumnen vad användare precis har gjort efter att åtgärden utfördes. Precis som med sidvyer bör du fundera över om det observerade beteendet för dina användare matchar ditt teams mål och förväntningar. Om den valda inledande händelsen är "tillagt objekt i shopping vagnen", kan du till exempel titta för att se om "gå till utcheckning" och "slutfört köp" visas i visualiseringen strax därefter. Om användar beteendet skiljer sig från dina förväntningar använder du visualiseringen för att förstå hur användare får "fångade" av din webbplats nuvarande design.
 
-## <a name="where-are-the-places-that-users-churn-most-from-your-site"></a>Var finns de platser som användarna spottar mest från din webbplats?
+## <a name="where-are-the-places-that-users-churn-most-from-your-site"></a>Var finns de platser som användare omsättnings mest från din plats?
 
-Titta efter **sessionsslutna** noder som visas högt upp i en kolumn i visualiseringen, särskilt tidigt i ett flöde. Det innebär att många användare förmodligen har spottats från webbplatsen efter att ha följt föregående sökväg till sidor och gränssnittsinteraktioner. Ibland churn förväntas - efter att ha avslutat ett köp på en e-handel webbplats, till exempel - men oftast churn är ett tecken på designproblem, dåliga prestanda, eller andra problem med din webbplats som kan förbättras.
+Se efter om **sessionen avslutades** som visas högt i en kolumn i visualiseringen, särskilt tidigt i ett flöde. Det innebär att många användare som troligen är sammanslagna från din plats efter att ha gått till föregående sökväg till sidor och användar gränssnitts interaktioner Ibland förväntas omsättningen efter att ett köp har slutförts på en eCommerce-webbplats, till exempel, men vanligt vis är omsättningen ett tecken på design problem, dåliga prestanda eller andra problem med din webbplats som kan förbättras.
 
-Tänk på att **sessionsslutda** noder endast baseras på telemetri som samlas in av den här application insights-resursen. Om Application Insights inte tar emot telemetri för vissa användarinteraktioner kan användarna fortfarande ha interagerat med din webbplats på de sätten efter att verktyget Användarflöden säger att sessionen avslutades.
+Tänk på att sessioner som **avslutas av sessionen** endast baseras på telemetri som samlas in av den här Application Insights resursen. Om Application Insights inte tar emot telemetri för vissa användar interaktioner kan användarna fortfarande ha interagerat med webbplatsen på dessa sätt när Användarflödens verktyget säger att sessionen är avslutad.
 
-## <a name="are-there-places-where-users-repeat-the-same-action-over-and-over"></a>Finns det platser där användarna upprepar samma åtgärd om och om igen?
+## <a name="are-there-places-where-users-repeat-the-same-action-over-and-over"></a>Finns det platser där användarna upprepar samma åtgärd över och över?
 
-Leta efter en sidvy eller en anpassad händelse som upprepas av många användare i efterföljande steg i visualiseringen. Det innebär vanligtvis att användarna utför repetitiva åtgärder på webbplatsen. Om du hittar upprepning, fundera på att ändra utformningen av din webbplats eller lägga till nya funktioner för att minska upprepning. Till exempel lägga till massredigeringsfunktioner om du upptäcker att användare utför repetitiva åtgärder på varje rad i ett tabellelement.
+Leta efter en sid visning eller en anpassad händelse som upprepas av många användare i efterföljande steg i visualiseringen. Det innebär vanligt vis att användarna utför repetitiva åtgärder på din webbplats. Om du hittar upprepning bör du tänka på att ändra designen för din webbplats eller lägga till nya funktioner för att minska upprepningen. Du kan till exempel lägga till Mass redigerings funktioner om du hittar användare som utför repetitiva åtgärder på varje rad i ett tabell element.
 
 ## <a name="common-questions"></a>Vanliga frågor
 
-### <a name="does-the-initial-event-represent-the-first-time-the-event-appears-in-a-session-or-any-time-it-appears-in-a-session"></a>Representerar den första händelsen första gången händelsen visas i en session, eller när den visas i en session?
+### <a name="does-the-initial-event-represent-the-first-time-the-event-appears-in-a-session-or-any-time-it-appears-in-a-session"></a>Representerar den inledande händelsen första gången händelsen visas i en session eller när som helst i en session?
 
-Den första händelsen i visualiseringen representerar bara första gången en användare skickade sidvyn eller den anpassade händelsen under en session. Om användare kan skicka den första händelsen flera gånger i en session visar kolumnen "Steg 1" bara hur användare beter sig efter den *första* instansen av den första händelsen, inte alla instanser.
+Den första händelsen i visualiseringen representerar bara första gången som en användare skickade den sid visningen eller anpassade händelsen under en session. Om användarna kan skicka den första händelsen flera gånger i en session, visar kolumnen "steg 1" bara hur användare beter sig efter den *första* instansen av inledande händelse, inte alla instanser.
 
-### <a name="some-of-the-nodes-in-my-visualization-are-too-high-level-for-example-a-node-that-just-says-button-clicked-how-can-i-break-it-down-into-more-detailed-nodes"></a>Några av noderna i min visualisering är för höga. Till exempel en nod som bara säger "Knapp klickade". Hur kan jag dela upp det i mer detaljerade noder?
+### <a name="some-of-the-nodes-in-my-visualization-are-too-high-level-for-example-a-node-that-just-says-button-clicked-how-can-i-break-it-down-into-more-detailed-nodes"></a>Några av noderna i min visualisering är för hög nivå. Till exempel en nod som bara säger "klickning". Hur kan jag dela upp det i mer detaljerade noder?
 
-Använd alternativen **Dela efter** på **Redigera-menyn:**
+Använd alternativen **dela efter** på **Redigera** -menyn:
 
-1. Välj den händelse som du vill dela upp på **Evenemangsmenyn.**
-2. Välj en dimension på **Dimension-menyn.** Om du till exempel har en händelse som heter "Knappsklickad" provar du en anpassad egenskap som heter "Knappnamn".
+1. Välj den händelse som du vill dela upp i **händelse** menyn.
+2. Välj en dimension på menyn **dimension** . Om du till exempel har en händelse med namnet "knapp klickning", provar du en anpassad egenskap med namnet "knapp namn".
 
 ## <a name="next-steps"></a>Nästa steg
 

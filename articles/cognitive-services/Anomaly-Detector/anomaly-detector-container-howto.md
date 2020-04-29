@@ -1,7 +1,7 @@
 ---
-title: Så här installerar och kör du behållare för att använda API för avvikelsedetektor
+title: 'Installera och köra behållare för att använda API: t för avvikelse detektor'
 titleSuffix: Azure Cognitive Services
-description: Använd API:et för avvikelsedetektorns avancerade algoritmer för att identifiera avvikelser i tidsseriedata.
+description: Använd de avancerade algoritmerna för avvikelse detektorns API för att identifiera avvikelser i dina tids serie data.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,40 +11,40 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: fa25d27e99a9516d461a84dde184e2a6412baa0b
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80875067"
 ---
-# <a name="install-and-run-anomaly-detector-containers-preview"></a>Installera och köra behållare för avvikelsedetektor (förhandsversion)
+# <a name="install-and-run-anomaly-detector-containers-preview"></a>Installera och kör avvikelse detektor behållare (förhands granskning)
 
-Avvikelsedetektorn har följande behållarfunktionsfunktioner:
+Avvikelse detektorn har följande funktioner för container funktioner:
 
 | Funktion | Funktioner |
 |--|--|
-| Avvikelsedetektor | <li> Identifierar avvikelser när de inträffar i realtid. <li> Identifierar avvikelser i hela datauppsättningen som en batch. <li> Härleder det förväntade normala intervallet för dina data. <li> Stöder justering av känslighetsjustering för avvikelseidentifiering för att bättre passa dina data. |
+| Avvikelse detektor | <li> Identifierar avvikelser när de inträffar i real tid. <li> Identifierar avvikelser i alla data uppsättningar som en batch. <li> Härleder det förväntade normala intervallet av dina data. <li> Stöder känslighets justering för avvikelse identifiering så att den bättre passar dina data. |
 
-Mer information om API:erna finns i:
-* [Läs mer om API-tjänsten för avvikelsedetektorn](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
+Detaljerad information om API: er finns i:
+* [Läs mer om API-tjänsten för avvikelse detektor](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Du måste uppfylla följande förutsättningar innan du använder behållare för avvikelsedetektor:
+Du måste uppfylla följande krav innan du använder behållare för avvikelse detektor:
 
 |Krävs|Syfte|
 |--|--|
-|Docker-motorn| Du måste dockermotorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras så att behållarna kan ansluta till och skicka faktureringsdata till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
-|Förtrogenhet med Docker | Du bör ha en grundläggande förståelse för Docker-begrepp, till exempel register, databaser, behållare och `docker` behållaravbildningar, samt kunskap om grundläggande kommandon.| 
-|Avvikelsedetektor resurs |För att kunna använda dessa behållare måste du ha:<br><br>En Azure _Anomaly Detector-resurs_ för att hämta den associerade API-nyckeln och slutpunkts-URI. Båda värdena är tillgängliga på Azure-portalens **avvikelsedetektoröversikt** och nycklar och krävs för att starta behållaren.<br><br>**{API_KEY}**: En av de två tillgängliga resursnycklarna på sidan **Nycklar**<br><br>**{ENDPOINT_URI}**: Slutpunkten som anges på **sidan Översikt**|
+|Docker-motorn| Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta att behållarna ansluter till och skicka fakturerings data till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
+|Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper `docker` om grundläggande kommandon.| 
+|Avvikelse detektor resurs |Du måste ha följande för att kunna använda dessa behållare:<br><br>En Azure- _avvikelses detektor_ resurs för att hämta tillhör ande API-nyckel och slut punkts-URI. Båda värdena är tillgängliga på Azure Portalens **avvikelse detektor** översikt och nycklar sidor och krävs för att starta behållaren.<br><br>**{Api_key}**: en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}**: slut punkten enligt vad som anges på sidan **Översikt**|
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
-## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållarregistret
+## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållar registret
 
-Du måste först fylla i och skicka formuläret Begäran om begäran om begäran om begäran om åtkomst till behållaren för [avvikelsedetektorbegäran.](https://aka.ms/adcontainer)
+Du måste först fylla i och skicka in ett [formulär för avvikelse detektor container](https://aka.ms/adcontainer) för att begära åtkomst till behållaren.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -58,46 +58,46 @@ Du måste först fylla i och skicka formuläret Begäran om begäran om begäran
 
 ### <a name="container-requirements-and-recommendations"></a>Krav och rekommendationer för behållare
 
-I följande tabell beskrivs de minsta och rekommenderade CPU-kärnorna och minnet som ska allokeras för behållare för avvikelsedetektor.
+I följande tabell beskrivs de minsta och rekommenderade processor kärnor och minne som ska allokeras för avvikelse detektor behållare.
 
-| QPS(Frågor per sekund) | Minimum | Rekommenderas |
+| FRÅGOR per sekund (frågor per sekund) | Minimum | Rekommenderas |
 |-----------|---------|-------------|
-| 10 QPS (10 QPS) | 4-kärniga, 1 GB minne | 8 kärnor 2 GB-minne |
-| 20 QPS (20 QPS) | 8 kärnor, 2 GB minne | 16 kärnor 4 GB minne |
+| 10 FRÅGOR PER SEKUND | 4 kärnor, 1 GB minne | 8 kärnor, 2 GB minne |
+| 20 FRÅGOR PER SEKUND | 8 kärnor, 2 GB minne | 16 kärnor 4 GB minne |
 
 Varje kärna måste vara minst 2,6 gigahertz (GHz) eller snabbare.
 
-Kärna och minne `--cpus` motsvarar `--memory` och inställningar, som används `docker run` som en del av kommandot.
+Core och minne motsvarar inställningarna `--cpus` och `--memory` som används som en del av `docker run` kommandot.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållaravbildningen med`docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållar avbildningen med`docker pull`
 
-Använd [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) kommandot för att hämta en behållaravbildning.
+Använd [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) kommandot för att ladda ned en behållar avbildning.
 
 | Container | Lagringsplats |
 |-----------|------------|
-| kognitiv-tjänster-anomali-detektor | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest` |
+| kognitiva tjänster – avvikelser-detektor | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest` |
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
 -->
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### <a name="docker-pull-for-the-anomaly-detector-container"></a>Docker dra för Anomali Detector behållaren
+### <a name="docker-pull-for-the-anomaly-detector-container"></a>Docker-hämtning för avvikelse detektor behållaren
 
 ```Docker
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest
 ```
 
-## <a name="how-to-use-the-container"></a>Så här använder du behållaren
+## <a name="how-to-use-the-container"></a>Använda behållaren
 
-När behållaren finns på [värddatorn](#the-host-computer)använder du följande process för att arbeta med behållaren.
+När behållaren är på [värddatorn](#the-host-computer)använder du följande process för att arbeta med behållaren.
 
-1. [Kör behållaren](#run-the-container-with-docker-run)med de faktureringsinställningar som krävs. Fler [exempel](anomaly-detector-container-configuration.md#example-docker-run-commands) `docker run` på kommandot är tillgängliga.
-1. [Fråga behållarens förutsägelseslutpunkt](#query-the-containers-prediction-endpoint).
+1. [Kör behållaren](#run-the-container-with-docker-run)med de fakturerings inställningar som krävs. Fler [exempel](anomaly-detector-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
+1. [Fråga behållarens förutsägelse slut punkt](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>Kör behållaren med`docker run`
 
-Använd [kommandot docker run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållaren. Se [samla in nödvändiga parametrar](#gathering-required-parameters) för `{ENDPOINT_URI}` information `{API_KEY}` om hur du får och värden.
+Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållaren. Läs om hur du [samlar in nödvändiga parametrar](#gathering-required-parameters) för information om hur `{ENDPOINT_URI}` du `{API_KEY}` hämtar och-värden.
 
 [Exempel](anomaly-detector-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
 
@@ -111,19 +111,19 @@ ApiKey={API_KEY}
 
 Det här kommandot:
 
-* Kör en behållare för avvikelsedetektor från behållarbilden
-* Allokerar en CPU-kärna och 4 GIGABYTE (GB) minne
+* Kör en avvikelse detektor behållare från behållar avbildningen
+* Allokerar en processor kärna och 4 GB minne
 * Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren
-* Tar automatiskt bort behållaren när den har avslutats. Behållaravbildningen är fortfarande tillgänglig på värddatorn. 
+* Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn. 
 
 > [!IMPORTANT]
-> Alternativen `Eula` `Billing`, `ApiKey` och måste anges för att behållaren ska kunna köras. Annars startar inte behållaren.  Mer information finns i [Fakturering](#billing).
+> Alternativen `Eula`, `Billing`och `ApiKey` måste anges för att köra behållaren. annars startar inte behållaren.  Mer information finns i [fakturering](#billing).
 
 ### <a name="running-multiple-containers-on-the-same-host"></a>Köra flera behållare på samma värd
 
-Om du tänker köra flera behållare med exponerade portar, se till att köra varje behållare med en annan port. Kör till exempel den första behållaren på port 5000 och den andra behållaren på port 5001.
+Om du tänker köra flera behållare med exponerade portar ska du se till att köra varje behållare med en annan port. Kör till exempel den första behållaren på port 5000 och den andra behållaren på port 5001.
 
-Ersätt `<container-registry>` och `<container-name>` med värdena för de behållare du använder. Dessa behöver inte vara samma behållare. Du kan ha behållaren avvikelsedetektor och LUIS-behållaren som körs på värdvärden tillsammans eller så kan du ha flera avvikelsedetektorbehållare igång. 
+Ersätt `<container-registry>` och `<container-name>` med värdena för de behållare som du använder. De behöver inte vara samma behållare. Du kan ha en avvikande detektor behållare och LUIS-behållaren som körs på värden tillsammans eller så kan du ha flera avvikande detektor behållare som kör. 
 
 Kör den första behållaren på port 5000. 
 
@@ -146,13 +146,13 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Varje efterföljande behållare bör vara på en annan port. 
+Varje efterföljande behållare bör finnas på en annan port. 
 
-## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelseslutpunkt
+## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelse slut punkt
 
-Behållaren tillhandahåller REST-baserade slutpunkts-API:er för frågeförutsägels. 
+Behållaren innehåller REST-baserade slut punkts-API: er för frågor förutsägelse. 
 
-Använd värden, http://localhost:5000för behållar-API:er.
+Använd värden, http://localhost:5000för behållar-API: er.
 
 <!--  ## Validate container is running -->
 
@@ -164,17 +164,17 @@ Använd värden, http://localhost:5000för behållar-API:er.
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om du kör behållaren med en [utdatamontering](anomaly-detector-container-configuration.md#mount-settings) och loggning aktiverad genererar behållaren loggfiler som är användbara för att felsöka problem som inträffar när du startar eller kör behållaren.
+Om du kör behållaren med en utgående [montering](anomaly-detector-container-configuration.md#mount-settings) och loggning aktive rad genererar behållaren loggfiler som är till hjälp vid fel sökning av problem som inträffar när du startar eller kör behållaren.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Fakturering
 
-Behållaren för avvikelsedetektor skickar faktureringsinformation till Azure med hjälp av en _avvikelsedetektorresurs_ på ditt Azure-konto. 
+Avvikelse detektor behållare skickar fakturerings information till Azure med hjälp av en _avvikelse_ resurs på ditt Azure-konto. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Mer information om dessa alternativ finns i [Konfigurera behållare](anomaly-detector-container-configuration.md).
+Mer information om dessa alternativ finns i [Configure containers](anomaly-detector-container-configuration.md).
 
 <!--blogs/samples/video coures -->
 
@@ -182,19 +182,19 @@ Mer information om dessa alternativ finns i [Konfigurera behållare](anomaly-det
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln har du lärt dig begrepp och arbetsflöde för att hämta, installera och köra behållare för avvikelsedetektor. Sammanfattningsvis:
+I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ned, installera och köra avvikelser som behållare. Sammanfattningsvis:
 
-* Avvikelsedetektor ger en Linux-behållare för Docker, kapsla in avvikelseidentifiering med batch vs streaming, förväntad intervall inferens och känslighetsjustering.
-* Behållaravbildningar hämtas från ett privat Azure Container-register som är dedikerat för förhandsgranskning av behållare.
-* Behållaravbildningar körs i Docker.
-* Du kan använda antingen REST API eller SDK för att anropa åtgärder i behållare för avvikelsedetektor genom att ange behållarens värd-URI.
-* Du måste ange faktureringsinformation när du instansierar en behållare.
+* Avvikelse detektor tillhandahåller en Linux-behållare för Docker, inkapsling av avvikelse identifiering med batch vs streaming, förväntat intervalls-härledning och känslighets justering.
+* Behållar avbildningar laddas ned från ett privat Azure Container Registry dedikerat för för hands version.
+* Behållar avbildningar körs i Docker.
+* Du kan använda antingen REST API eller SDK för att anropa åtgärder i avvikande detektor behållare genom att ange behållarens värd-URI.
+* Du måste ange fakturerings information när du instansierar en behållare.
 
 > [!IMPORTANT]
-> Cognitive Services-behållare är inte licensierade för att köras utan att vara anslutna till Azure för mätning. Kunderna måste alltid kunna kommunicera faktureringsinformation med mätartjänsten. Cognitive Services-behållare skickar inte kunddata (t.ex. tidsseriedata som analyseras) till Microsoft.
+> Cognitive Services behållare är inte licensierade att köras utan att vara anslutna till Azure för mätning. Kunderna behöver göra det möjligt för behållarna att kommunicera fakturerings information med mät tjänsten hela tiden. Cognitive Services behållare skickar inte kund information (t. ex. tids serie data som analyseras) till Microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska [Konfigurera behållare](anomaly-detector-container-configuration.md) för konfigurationsinställningar
-* [Distribuera en avvikelsedetektorbehållare till Azure Container-instanser](how-to/deploy-anomaly-detection-on-container-instances.md)
-* [Läs mer om API-tjänsten för avvikelsedetektorn](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
+* Granska [Konfigurera behållare](anomaly-detector-container-configuration.md) för konfigurations inställningar
+* [Distribuera en avvikelse detektor behållare till Azure Container Instances](how-to/deploy-anomaly-detection-on-container-instances.md)
+* [Läs mer om API-tjänsten för avvikelse detektor](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

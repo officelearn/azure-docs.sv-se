@@ -1,6 +1,6 @@
 ---
-title: Felsökningsguide för Azure Service Bus | Microsoft-dokument
-description: Den här artikeln innehåller en lista över undantag från Azure Service Bus-meddelanden och föreslog åtgärder som ska vidtas när undantaget inträffar.
+title: Fel söknings guide för Azure Service Bus | Microsoft Docs
+description: Den här artikeln innehåller en lista över Azure Service Bus meddelande undantag och föreslagna åtgärder som vidtas när undantaget inträffar.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -15,27 +15,27 @@ ms.workload: na
 ms.date: 04/07/2020
 ms.author: aschhab
 ms.openlocfilehash: 63bf035d4e19cc1d64998a6ad533812e71ee71b8
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887780"
 ---
-# <a name="troubleshooting-guide-for-azure-service-bus"></a>Felsökningsguide för Azure Service Bus
-Den här artikeln innehåller felsökningstips och rekommendationer för några problem som kan visas när du använder Azure Service Bus. 
+# <a name="troubleshooting-guide-for-azure-service-bus"></a>Fel söknings guide för Azure Service Bus
+Den här artikeln innehåller fel söknings tips och rekommendationer för några problem som kan uppstå när du använder Azure Service Bus. 
 
-## <a name="connectivity-certificate-or-timeout-issues"></a>Anslutnings-, certifikat- eller timeout-problem
-Följande steg kan hjälpa dig att felsöka anslutnings-/certifikat-/timeout-problem för alla tjänster under *.servicebus.windows.net. 
+## <a name="connectivity-certificate-or-timeout-issues"></a>Problem med anslutning, certifikat eller tids gräns
+Följande steg kan hjälpa dig med fel sökning av problem med anslutning/certifikat/tids gräns för alla tjänster under *. servicebus.windows.net. 
 
-- Bläddra till eller [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/`. Det hjälper med att kontrollera om du har IP-filtrering eller virtuellt nätverk eller certifikatkedjeproblem (vanligast när du använder java SDK).
+- Bläddra till eller [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/`. Det hjälper till med att kontrol lera om du har problem med IP-filtrering eller problem med virtuella nätverk eller certifikat kedjan (vanligt vis när du använder Java SDK).
 
-    Ett exempel på lyckat meddelande:
+    Ett exempel på ett slutfört meddelande:
     
     ```xml
     <feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Publicly Listed Services</title><subtitle type="text">This is the list of publicly-listed services currently available.</subtitle><id>uuid:27fcd1e2-3a99-44b1-8f1e-3e92b52f0171;id=30</id><updated>2019-12-27T13:11:47Z</updated><generator>Service Bus 1.1</generator></feed>
     ```
     
-    Ett exempel på felmeddelande av fel:
+    Ett exempel på fel meddelande:
 
     ```json
     <Error>
@@ -45,49 +45,49 @@ Följande steg kan hjälpa dig att felsöka anslutnings-/certifikat-/timeout-pro
         </Detail>
     </Error>
     ```
-- Kör följande kommando för att kontrollera om någon port är blockerad i brandväggen. Portar som används är 443 (HTTPS), 5671 (AMQP) och 9354 (Net Messaging/SBMP). Beroende på vilket bibliotek du använder används även andra portar. Här är exempelkommandot som kontrollerar om 5671-porten är blockerad. 
+- Kör följande kommando för att kontrol lera om någon port är blockerad i brand väggen. Portarna som används är 443 (HTTPS), 5671 (AMQP) och 9354 (net Messaging/SBMP). Beroende på vilket bibliotek du använder används även andra portar. Här är exempel kommandot som kontrollerar om 5671-porten är blockerad. 
 
     ```powershell
     tnc <yournamespacename>.servicebus.windows.net -port 5671
     ```
 
-    På Linux:
+    I Linux:
 
     ```shell
     telnet <yournamespacename>.servicebus.windows.net 5671
     ```
-- När det finns återkommande anslutningsproblem kör du följande kommando för att kontrollera om det finns några ignorerade paket. Det här kommandot kommer att försöka upprätta 25 olika TCP-anslutningar var 1 sekund med tjänsten. Sedan kan du kontrollera hur många av dem som lyckades/misslyckades och även se TCP-anslutningsfördröjning. Du kan `psping` ladda ner verktyget [härifrån](/sysinternals/downloads/psping).
+- När det finns tillfälliga anslutnings problem kör du följande kommando för att kontrol lera om det finns några paket som ignoreras. Med det här kommandot görs ett försök att upprätta 25 olika TCP-anslutningar varje sekund med tjänsten. Sedan kan du kontrol lera hur många av dem som har lyckats/misslyckats och även se TCP-anslutningssträngen. Du kan hämta `psping` verktyget [härifrån.](/sysinternals/downloads/psping)
 
     ```shell
     .\psping.exe -n 25 -i 1 -q <yournamespace>.servicebus.windows.net:5671 -nobanner     
     ```
-    Du kan använda motsvarande kommandon om du använder `tnc` `ping`andra verktyg, till exempel , och så vidare. 
-- Hämta en nätverksspårning om de föregående stegen inte hjälper och analyserar den med verktyg som [Wireshark](https://www.wireshark.org/). Kontakta [Microsoft Support](https://support.microsoft.com/) om det behövs. 
+    Du kan använda motsvarande kommandon om du använder andra verktyg som `tnc`, `ping`och så vidare. 
+- Få en nätverks spårning om föregående steg inte hjälper och analyseras med verktyg som [wireshark](https://www.wireshark.org/). Kontakta [Microsoft Support](https://support.microsoft.com/) om det behövs. 
 
-## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problem som kan uppstå vid serviceuppgraderingar/omstarter
-Uppgraderingar och omstarter av backend-tjänsten kan orsaka följande inverkan på dina program:
+## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problem som kan uppstå med tjänst uppgraderingar/omstarter
+Uppgraderingar och omstarter av backend-tjänsten kan orsaka följande påverkan på dina program:
 
-- Begäranden kan kort hållas strypt.
-- Det kan finnas en minskning av inkommande meddelanden/begäranden.
-- Loggfilen kan innehålla felmeddelanden.
-- Programmen kan kopplas från tjänsten i några sekunder.
+- Begär Anden kan begränsas tillfälligt.
+- Det kan finnas en minskning av inkommande meddelanden/begär Anden.
+- Logg filen kan innehålla fel meddelanden.
+- Programmen kan vara frånkopplade från tjänsten under några sekunder.
 
-Om programkoden använder SDK är återförsöksprincipen redan inbyggd och aktiv. Programmet återansluter utan någon större påverkan på programmet/arbetsflödet.
+Om program koden använder SDK är principen för återförsök redan inbyggd och aktiv. Programmet återansluter utan betydande påverkan på programmet/arbets flödet.
 
-## <a name="unauthorized-access-send-claims-are-required"></a>Obehörig åtkomst: Skicka anspråk krävs
-Det här felet kan visas när du försöker komma åt ett Service Bus-ämne från Visual Studio på en lokal dator med hjälp av en användartilldelad hanterad identitet med sändningsbehörighet.
+## <a name="unauthorized-access-send-claims-are-required"></a>Obehörig åtkomst: skicka anspråk krävs
+Du kanske ser det här felet när du försöker komma åt ett Service Bus ämne från Visual Studio på en lokal dator med hjälp av en användardefinierad hanterad identitet med Send-behörighet.
 
 ```bash
 Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perform this operation.
 ```
 
-LÃ¶s problemet genom att installera biblioteket [Microsoft.Azure.Services.AppAuthentication.](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/)  Mer information finns i [Autentisering av lokal utveckling](..\key-vault\service-to-service-authentication.md#local-development-authentication). 
+Lös problemet genom att installera biblioteket [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) .  Mer information finns i [lokal utvecklings autentisering](..\key-vault\service-to-service-authentication.md#local-development-authentication). 
 
-Mer information om hur du tilldelar behörigheter till roller finns i [Autentisera en hanterad identitet med Azure Active Directory för åtkomst till Azure Service Bus-resurser](service-bus-managed-service-identity.md).
+Information om hur du tilldelar behörigheter till roller finns i [autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Azure Service Bus resurser](service-bus-managed-service-identity.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar: 
 
-- [Azure Resource Manager undantag](service-bus-resource-manager-exceptions.md). Den listundantag som genereras när du interagerar med Azure Service Bus med Azure Resource Manager (via mallar eller direktsamtal).
-- [Undantag för meddelanden](service-bus-messaging-exceptions.md). Den innehåller en lista över undantag som genereras av .NET Framework för Azure Service Bus. 
+- [Azure Resource Manager undantag](service-bus-resource-manager-exceptions.md). Den visar undantag som genereras när du interagerar med Azure Service Bus att använda Azure Resource Manager (via mallar eller direkta anrop).
+- [Undantag för meddelanden](service-bus-messaging-exceptions.md). Den innehåller en lista över undantag som har genererats av .NET Framework för Azure Service Bus. 
 

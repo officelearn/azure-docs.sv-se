@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.openlocfilehash: 9f4757bca79476a1e59f5f18a94753c1ea06cf9c
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80985226"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Självstudiekurs om NoSQL: Skapa ett Java-konsolprogram med SQL API
@@ -74,7 +74,7 @@ Katalogen innehåller en `pom.xml`-fil för projektet och en `src`-mapp med Java
     </dependency>
 
 ## <a name="step-3-connect-to-an-azure-cosmos-db-account"></a><a id="Connect"></a>Steg 3: Ansluta till ett Azure Cosmos DB-konto
-Gå sedan tillbaka till [Azure-portalen](https://portal.azure.com) för att hämta din slutpunkt och primär huvudnyckel. Azure DB Cosmos-slutpunkten och den primära nyckeln krävs för att ditt program ska veta vart det ska ansluta, och för att Azure Cosmos DB ska lita på programmets anslutning.
+Gå sedan tillbaka till [Azure Portal](https://portal.azure.com) för att hämta din slut punkt och primär huvud nyckel. Azure DB Cosmos-slutpunkten och den primära nyckeln krävs för att ditt program ska veta vart det ska ansluta, och för att Azure Cosmos DB ska lita på programmets anslutning.
 
 Gå till ditt Azure Cosmos DB-konto på Azure Portal och klicka på **Nycklar**. Kopiera URI:n från portalen och klistra in den i `https://FILLME.documents.azure.com` i Program.java-filen. Kopiera sedan PRIMÄRNYCKELN från portalen och klistra in den i `FILLME`.
 
@@ -84,7 +84,7 @@ Gå till ditt Azure Cosmos DB-konto på Azure Portal och klicka på **Nycklar**.
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 
-![Skärmbild av Azure-portalen som används av nosql-självstudien för att skapa ett Java-konsolprogram. Visar ett Azure Cosmos DB-konto där den AKTIVA hubben är markerad, där knappen NYCKLAR är markerad på bladet för Azure Cosmos DB-kontot och där värdena för URI, PRIMÄR NYCKEL och SEKUNDÄR NYCKEL är markerade på bladet Nycklar][keys]
+![Skärm bild av Azure Portal som används av NoSQL-självstudien för att skapa ett Java-konsolprogram. Visar ett Azure Cosmos DB-konto där den AKTIVA hubben är markerad, där knappen NYCKLAR är markerad på bladet för Azure Cosmos DB-kontot och där värdena för URI, PRIMÄR NYCKEL och SEKUNDÄR NYCKEL är markerade på bladet Nycklar][keys]
 
 ## <a name="step-4-create-a-database"></a>Steg 4: Skapa en databas
 Azure Cosmos DB-[databasen](databases-containers-items.md#azure-cosmos-databases) kan skapas med metoden [createDatabase](/java/api/com.microsoft.azure.documentdb.documentclient.createdatabase) i **DocumentClient**-klassen. En databas är en logisk container för JSON-dokumentlagring, partitionerad över samlingarna.
@@ -113,7 +113,7 @@ En samling kan skapas med metoden [createCollection](/java/api/com.microsoft.azu
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a name="step-6-create-json-documents"></a><a id="CreateDoc"></a>Steg 6: Skapa JSON-dokument
-Ett dokument kan skapas med hjälp av [metoden createDocument](/java/api/com.microsoft.azure.documentdb.documentclient.createdocument) i klassen **DocumentClient.** Dokument är användardefinierat (godtyckligt) JSON-innehåll. Vi kan nu infoga ett eller flera dokument. Om du redan har data som du vill lagra i databasen kan du använda [datamigreringsverktyget](import-data.md) för Azure Cosmos DB för att importera dina data till en databas.
+Ett dokument kan skapas med [metoden createdocument](/java/api/com.microsoft.azure.documentdb.documentclient.createdocument) -metoden för **DocumentClient** -klassen. Dokument är användardefinierat (godtyckligt) JSON-innehåll. Vi kan nu infoga ett eller flera dokument. Om du redan har data som du vill lagra i databasen kan du använda [datamigreringsverktyget](import-data.md) för Azure Cosmos DB för att importera dina data till en databas.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();

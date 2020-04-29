@@ -1,53 +1,53 @@
 ---
 title: Konfigurera ömsesidig TLS-autentisering
-description: Lär dig hur du autentiserade klientcertifikat på TLS. Azure App Service kan göra klientcertifikatet tillgängligt för appkoden för verifiering.
+description: Lär dig hur du autentiserade klient certifikat på TLS. Azure App Service kan göra klient certifikatet tillgängligt för verifiering av appens kod.
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: seodec18
 ms.openlocfilehash: 2f6dd455024aba184cbb16b5b9c7cfffd032dc70
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80811728"
 ---
-# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Konfigurera TLS-ömsesidig autentisering för Azure App Service
+# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Konfigurera ömsesidig TLS-autentisering för Azure App Service
 
-Du kan begränsa åtkomsten till din Azure App Service-app genom att aktivera olika typer av autentisering för den. Ett sätt att göra det är att begära ett klientcertifikat när klientbegäran är över TLS/SSL och validera certifikatet. Den här mekanismen kallas TLS-ömsesidig autentisering eller klientcertifikatautentisering. Den här artikeln visar hur du konfigurerar appen så att den använder klientcertifikatautentisering.
+Du kan begränsa åtkomsten till Azure App Service-appen genom att aktivera olika typer av autentisering för den. Ett sätt att göra det är att begära ett klient certifikat när klientbegäran är över TLS/SSL och validera certifikatet. Denna mekanism kallas TLS-ömsesidig autentisering eller autentisering av klient certifikat. Den här artikeln visar hur du konfigurerar din app för att använda autentisering med klient certifikat.
 
 > [!NOTE]
-> Om du öppnar webbplatsen via HTTP och inte HTTPS får du inget klientcertifikat. Så om ditt program kräver klientcertifikat bör du inte tillåta begäranden till ditt program via HTTP.
+> Om du ansluter till din webbplats via HTTP och inte HTTPS får du inga klient certifikat. Så om ditt program kräver klient certifikat bör du inte tillåta begär anden till ditt program via HTTP.
 >
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
-## <a name="enable-client-certificates"></a>Aktivera klientcertifikat
+## <a name="enable-client-certificates"></a>Aktivera klient certifikat
 
-Om du vill konfigurera appen så att den `clientCertEnabled` kräver klientcertifikat `true`måste du ange inställningen för appen på . Om du vill ange inställningen kör du följande kommando i [Cloud Shell](https://shell.azure.com).
+Om du vill konfigurera din app så att den kräver klient certifikat måste du ställa `clientCertEnabled` in appens inställning på `true`. Ange inställningen genom att köra följande kommando i [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
 ```
 
-## <a name="exclude-paths-from-requiring-authentication"></a>Exkludera sökvägar från att kräva autentisering
+## <a name="exclude-paths-from-requiring-authentication"></a>Uteslut sökvägar från att kräva autentisering
 
-När du aktiverar ömsesidig autentisering för ditt program kräver alla sökvägar under appens rot ett klientcertifikat för åtkomst. Om du vill att vissa sökvägar ska vara öppna för anonym åtkomst kan du definiera uteslutningssökvägar som en del av programkonfigurationen.
+När du aktiverar ömsesidig autentisering för ditt program, kräver alla sökvägar under appens rot ett klient certifikat för åtkomst. Om du vill tillåta att vissa sökvägar är öppna för anonym åtkomst kan du definiera undantags Sök vägar som en del av program konfigurationen.
 
-Uteslutningssökvägar kan konfigureras genom att välja **Konfigurations** > **allmänna inställningar** och definiera en uteslutningssökväg. I det här `/public` exemplet skulle allt under sökväg för ditt program inte begära ett klientcertifikat.
+Du kan konfigurera undantags Sök vägar genom att välja **konfiguration** > **allmänna inställningar** och definiera en sökväg för undantag. I det här exemplet skulle något `/public` under sökvägen för ditt program inte begära ett klient certifikat.
 
-![Sökvägar för uteslutning av certifikat][exclusion-paths]
+![Sökvägar för certifikat undantag][exclusion-paths]
 
 
-## <a name="access-client-certificate"></a>Åtkomst till klientcertifikat
+## <a name="access-client-certificate"></a>Åtkomst till klient certifikat
 
-I App Service sker TLS-avslutning av begäran hos frontend-belastningsutjämnaren. När begäran vidarebefordras till din appkod med [klientcertifikat aktiverade,](#enable-client-certificates)injicerar App Service ett `X-ARR-ClientCert` begärandehuvud med klientcertifikatet. App Service gör inget annat med det här klientcertifikatet än att vidarebefordra det till din app. Din appkod ansvarar för att verifiera klientcertifikatet.
+I App Service sker TLS-avslutning av begäran i klient delens belastningsutjämnare. När du vidarebefordrar begäran till din app-kod med [aktiverade klient certifikat](#enable-client-certificates), infogar App Service `X-ARR-ClientCert` ett begär ande huvud med klient certifikatet. App Service gör ingenting med det här klient certifikatet annat än att vidarebefordra det till din app. Appens kod ansvarar för att verifiera klient certifikatet.
 
-För ASP.NET är klientcertifikatet tillgängligt via egenskapen **HttpRequest.ClientCertificate.**
+För ASP.NET är klient certifikatet tillgängligt via egenskapen **HttpRequest. ClientCertificate** .
 
-För andra programstaplar (Node.js, PHP, etc.) är klientcertifikatet tillgängligt i din app `X-ARR-ClientCert` via ett base64-kodat värde i begäranden.
+För andra program stackar (Node. js, PHP osv.) är klient certifikatet tillgängligt i din app via ett base64-kodat värde i `X-ARR-ClientCert` begär ande huvudet.
 
-## <a name="aspnet-sample"></a>ASP.NET exempel
+## <a name="aspnet-sample"></a>ASP.NET-exempel
 
 ```csharp
     using System;
@@ -171,9 +171,9 @@ För andra programstaplar (Node.js, PHP, etc.) är klientcertifikatet tillgängl
     }
 ```
 
-## <a name="nodejs-sample"></a>Nod.js-exempel
+## <a name="nodejs-sample"></a>Node. js-exempel
 
-Följande nod.js-exempelkod `X-ARR-ClientCert` hämtar huvudet och använder [nod-smedja för](https://github.com/digitalbazaar/forge) att konvertera den base64-kodade PEM-strängen till ett certifikatobjekt och validera den:
+Följande Node. js-exempel kod hämtar `X-ARR-ClientCert` rubriken och använder [Node-falska](https://github.com/digitalbazaar/forge) för att konvertera den BASE64-kodade PEM-strängen till ett certifikat objekt och verifiera den:
 
 ```javascript
 import { NextFunction, Request, Response } from 'express';
@@ -218,7 +218,7 @@ export class AuthorizationHandler {
 
 ## <a name="java-sample"></a>Java-exempel
 
-Följande Java-klass kodar certifikatet `X-ARR-ClientCert` `X509Certificate` från till en instans. `certificateIsValid()`verifierar att certifikatets tumavtryck matchar det som anges i konstruktorn och att certifikatet inte har upphört att gälla.
+Följande Java-klass kodar certifikatet från `X-ARR-ClientCert` till en `X509Certificate` instans. `certificateIsValid()`verifierar att certifikatets tumavtryck matchar det som angetts i konstruktorn och att certifikatet inte har upphört att gälla.
 
 
 ```java

@@ -1,7 +1,7 @@
 ---
-title: Köra form recognizer-behållare i Azure Container-instanser
+title: Kör formulär igenkännings behållare i Azure Container Instances
 titleSuffix: Azure Cognitive Services
-description: Distribuera behållaren för formulärkoneform till en Azure Container-instans och testa den i en webbläsare.
+description: Distribuera formulärets tolknings behållare till en Azure Container instance och testa den i en webbläsare.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: acba4d9fab784181fda5728c30831c8c1838b91f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80879538"
 ---
-# <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>Distribuera behållaren för formuläravkänningsbehållare till Azure Container-instanser
+# <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>Distribuera formulär identifierarens behållare till Azure Container Instances
 
-Lär dig hur du distribuerar behållaren för Cognitive [Services-formulärreform](form-recognizer-container-howto.md) till Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/). Den här proceduren visar skapandet av en Azure Form Recognizer-resurs. Sedan diskuterar vi att dra den tillhörande behållarbilden. Slutligen belyser vi möjligheten att utöva orkestrering av de två från en webbläsare. Med hjälp av behållare kan flytta utvecklarnas uppmärksamhet från att hantera infrastruktur till att istället fokusera på applikationsutveckling.
+Lär dig hur du distribuerar Cognitive Services [formulärets igenkännings](form-recognizer-container-howto.md) behållare till Azure [container instances](https://docs.microsoft.com/azure/container-instances/). Den här proceduren visar hur du skapar en identifierings resurs för Azure-formulär. Sedan diskuterar vi hämtningen av den tillhör ande behållar avbildningen. Slutligen fokuserar vi på att kunna utnyttja dirigeringen av de två från en webbläsare. Genom att använda behållare kan du byta utvecklares uppmärksamhet från att hantera infrastrukturen i stället för att fokusera på program utveckling.
 
 > [!IMPORTANT]
-> Formulärreformerarbehållarna använder för närvarande version 1.0 av API:et för formulärre recognizeer. Du kan komma åt den senaste versionen av API:et med hjälp av den hanterade tjänsten i stället.
+> Formulär tolknings behållarna använder för närvarande version 1,0 av formulärets tolknings-API. Du kan komma åt den senaste versionen av API: et genom att använda den hanterade tjänsten i stället.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 
-## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållarregistret
+## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållar registret
 
-Du måste först fylla i och skicka [formuläret Cognitive Services Form Recognizer Containers åtkomstbegäran](https://aka.ms/FormRecognizerContainerRequestAccess) för att begära åtkomst till behållaren. Om du gör det registrerar du dig också för Datorseende. Du behöver inte registrera dig för formuläret för begäran om datorseende separat. 
+Du måste först fylla i och skicka in [formuläret för formulär för Cognitive Services som identifierar behållar formuläret](https://aka.ms/FormRecognizerContainerRequestAccess) för att begära åtkomst till behållaren. När du gör det loggas du också in för Visuellt innehåll. Du behöver inte registrera dig för formuläret för Visuellt innehåll begäran separat. 
 
 [!INCLUDE [Request access](../../../includes/cognitive-services-containers-request-access-only.md)]
 

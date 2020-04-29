@@ -1,7 +1,7 @@
 ---
 title: Recept för Docker-behållare
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du skapar, testar och lagrar behållare med några eller alla dina konfigurationsinställningar för distribution och återanvändning.
+description: Lär dig hur du skapar, testar och lagrar behållare med några eller alla konfigurations inställningar för distribution och åter användning.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,51 +11,51 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 7380ff58d033a68565de7e419ff318f7bdec121d
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80875086"
 ---
 # <a name="create-containers-for-reuse"></a>Skapa containrar för återanvändning
 
-Använd dessa behållarrecept för att skapa Cognitive Services-behållare som kan återanvändas. Behållare kan byggas med vissa eller alla konfigurationsinställningar så att de _inte_ behövs när behållaren startas.
+Använd de här behållar recepten för att skapa Cognitive Services behållare som kan återanvändas. Behållare kan skapas med vissa eller alla konfigurations inställningar så att de _inte_ behövs när behållaren startas.
 
-När du har det här nya lagret av behållare (med inställningar) och du har testat det lokalt kan du lagra behållaren i ett behållarregister. När behållaren startar behöver den bara de inställningar som för närvarande inte lagras i behållaren. Den privata registerbehållaren ger konfigurationsutrymme där du kan skicka in dessa inställningar.
+När du har det här nya lager behållaren (med inställningar) och du har testat det lokalt, kan du lagra behållaren i ett behållar register. När behållaren startar, kommer den bara att behöva de inställningar som för närvarande inte är lagrade i behållaren. Den privata register behållaren innehåller konfigurations utrymme som du kan överföra inställningarna i.
 
-## <a name="docker-run-syntax"></a>Syntax för Docker-körning
+## <a name="docker-run-syntax"></a>Docker-körning av syntax
 
-Alla `docker run` exempel i det här dokumentet `^` förutsätter en Windows-konsol med ett linjefortsättningstecken. Tänk på följande för eget bruk:
+Alla `docker run` exempel i det här dokumentet förutsätter en Windows- `^` konsol med ett fortsättnings streck. Tänk på följande när du använder:
 
-* Ändra inte ordningen på argumenten om du inte är väl förtrogen med dockerbehållare.
-* Om du använder ett annat operativsystem än Windows, eller en annan konsol än Windows-konsolen, använder du rätt konsol/terminal, mappsyntax för fästen och linjefortsättningstecken för konsolen och systemet.  Eftersom Cognitive Services-behållaren är ett Linux-operativsystem använder målfästet en mappsyntax för Linux-stil.
-* `docker run`exempel använder katalogen `c:` utanför enheten för att undvika behörighetskonflikter i Windows. Om du behöver använda en viss katalog som indatakatalog kan du behöva ge dockertjänsten behörighet.
+* Ändra inte ordningen på argumenten om du inte är bekant med Docker-behållare.
+* Om du använder ett annat operativ system än Windows, eller en annan konsol än Windows-konsol, använder du rätt konsol/Terminal, kommandosyntax för monteringar och linje fortsättnings text för din konsol och ditt system.  Eftersom Cognitive Services container är ett Linux-operativsystem använder mål monteringen en syntax för en mappvy i Linux-typ.
+* `docker run`exempel använder katalogen från `c:` enheten för att undvika eventuella behörighets konflikter i Windows. Om du behöver använda en speciell katalog som indatalistan kan du behöva ge Docker-tjänstens behörighet.
 
-## <a name="store-no-configuration-settings-in-image"></a>Lagra inga konfigurationsinställningar i bilden
+## <a name="store-no-configuration-settings-in-image"></a>Spara inga konfigurations inställningar i avbildningen
 
-`docker run` Exempelkommandona för varje tjänst lagrar inga konfigurationsinställningar i behållaren. När du startar behållaren från en konsol- eller registertjänst måste dessa konfigurationsinställningar gå in. Den privata registerbehållaren ger konfigurationsutrymme där du kan skicka in dessa inställningar.
+Exempel `docker run` kommandona för varje tjänst lagrar inte några konfigurations inställningar i behållaren. När du startar behållaren från en-konsol eller register tjänst måste dessa konfigurations inställningar skickas. Den privata register behållaren innehåller konfigurations utrymme som du kan överföra inställningarna i.
 
-## <a name="reuse-recipe-store-all-configuration-settings-with-container"></a>Återanvänd recept: lagra alla konfigurationsinställningar med behållare
+## <a name="reuse-recipe-store-all-configuration-settings-with-container"></a>Återanvänd recept: lagra alla konfigurations inställningar med behållare
 
-Skapa en `Dockerfile` med dessa inställningar för att lagra alla konfigurationsinställningar.
+För att lagra alla konfigurations inställningar skapar du en `Dockerfile` med dessa inställningar.
 
-Problem med detta tillvägagångssätt:
+Problem med den här metoden:
 
-* Den nya behållaren har ett separat namn och en separat tagg från den ursprungliga behållaren.
-* För att ändra dessa inställningar måste du ändra värdena för Dockerfile, återskapa avbildningen och publicera om till registret.
-* Om någon får åtkomst till ditt behållarregister eller din lokala värd kan de köra behållaren och använda slutpunkterna Cognitive Services.
-* Om din kognitiva tjänst inte kräver indatafästen `COPY` ska du inte lägga till raderna i Dockerfile.
+* Den nya behållaren har ett separat namn och en annan tagg än den ursprungliga behållaren.
+* För att kunna ändra de här inställningarna måste du ändra värdena för Dockerfile, återskapa avbildningen och publicera dem igen i registret.
+* Om någon får åtkomst till ditt behållar register eller din lokala värd kan de köra behållaren och använda Cognitive Services slut punkter.
+* Om din kognitiva tjänst inte kräver inmatade monteringar lägger `COPY` du inte till raderna i din Dockerfile.
 
-Skapa Dockerfile, hämta från den befintliga Cognitive Services-behållaren som du vill använda och använd sedan dockerkommandon i Dockerfile för att ange eller hämta information som behållaren behöver.
+Skapa Dockerfile, hämta från den befintliga Cognitive Services-behållare som du vill använda och Använd Docker-kommandon i Dockerfile för att ange eller hämta information som container behöver.
 
 Det här exemplet:
 
-* Ställer in faktureringsslutpunkten `{BILLING_ENDPOINT}` från värdens `ENV`miljönyckel med .
-* Ställer in API-nyckeln `{ENDPOINT_KEY}` för fakturering, från värdens miljönyckel med "ENV.Sets the billing API-key, from the host's environment key using 'ENV.
+* Anger fakturerings slut punkten `{BILLING_ENDPOINT}` från värdens miljö nyckel med hjälp av `ENV`.
+* Ställer in fakturerings-API-nyckeln `{ENDPOINT_KEY}` från värdens miljö nyckel med "kuvert".
 
-### <a name="reuse-recipe-store-billing-settings-with-container"></a>Återanvänd recept: lagra faktureringsinställningar med behållare
+### <a name="reuse-recipe-store-billing-settings-with-container"></a>Återanvänd recept: lagra fakturerings inställningar med behållare
 
-Det här exemplet visar hur du skapar textanalysens sentimentbehållare från en Dockerfile.
+I det här exemplet visas hur du skapar den Textanalys sentiment-containern från en Dockerfile.
 
 ```Dockerfile
 FROM mcr.microsoft.com/azure-cognitive-services/sentiment:latest
@@ -64,15 +64,15 @@ ENV apikey={ENDPOINT_KEY}
 ENV EULA=accept
 ```
 
-Skapa och kör behållaren [lokalt](#how-to-use-container-on-your-local-host) eller från den [privata registerbehållaren](#how-to-add-container-to-private-registry) efter behov.
+Skapa och kör behållaren [lokalt](#how-to-use-container-on-your-local-host) eller från din [privata register behållare](#how-to-add-container-to-private-registry) efter behov.
 
-### <a name="reuse-recipe-store-billing-and-mount-settings-with-container"></a>Återanvänd recept: lagra fakturerings- och monteringsinställningar med behållare
+### <a name="reuse-recipe-store-billing-and-mount-settings-with-container"></a>Återanvänd recept: lagra fakturerings-och monterings inställningar med behållare
 
-Det här exemplet visar hur du använder språk understanding, spara fakturering och modeller från Dockerfile.
+Det här exemplet visar hur du använder Language Understanding och hur du sparar fakturering och modeller från Dockerfile.
 
-* Kopierar standardfilen För språk understanding (LUIS) från `COPY`värdens filsystem med .
-* LUIS-behållaren stöder mer än en modell. Om alla modeller lagras i samma mapp `COPY` behöver ni alla en sats.
-* Kör dockerfilen från den relativa överordnade för modellens indatakatalog. I följande exempel kör `docker build` `docker run` du kommandona och `/input`från den relativa överordnade till . Det `/input` första `COPY` på kommandot är värddatorns katalog. Den `/input` andra är behållarens katalog.
+* Kopierar modell filen Language Understanding (LUIS) från värdens fil system med hjälp av `COPY`.
+* LUIS-containern har stöd för mer än en modell. Om alla modeller lagras i samma mapp behöver du en `COPY` instruktion.
+* Kör Docker-filen från den relativa överordnade katalogen för modellens indatamängds katalog. I följande exempel kör du `docker build` och `docker run` -kommandona från den relativa överordnad för. `/input` Det första `/input` `COPY` kommandot i kommandot är värd datorns katalog. Den andra `/input` är behållarens katalog.
 
 ```Dockerfile
 FROM <container-registry>/<cognitive-service-container-name>:<tag>
@@ -82,67 +82,67 @@ ENV EULA=accept
 COPY /input /input
 ```
 
-Skapa och kör behållaren [lokalt](#how-to-use-container-on-your-local-host) eller från den [privata registerbehållaren](#how-to-add-container-to-private-registry) efter behov.
+Skapa och kör behållaren [lokalt](#how-to-use-container-on-your-local-host) eller från din [privata register behållare](#how-to-add-container-to-private-registry) efter behov.
 
-## <a name="how-to-use-container-on-your-local-host"></a>Så här använder du behållaren på din lokala värd
+## <a name="how-to-use-container-on-your-local-host"></a>Så här använder du behållare på den lokala värden
 
-Om du vill skapa `<your-image-name>` Docker-filen ersätter du med bildens nya namn och använder sedan:
+Om du vill bygga Docker-filen `<your-image-name>` ersätter du med det nya namnet på avbildningen och använder sedan:
 
 ```console
 docker build -t <your-image-name> .
 ```
 
-Så här kör du avbildningen och`--rm`tar bort den när behållaren stannar ( ):
+Köra avbildningen och ta bort den när behållaren stoppas (`--rm`):
 
 ```console
 docker run --rm <your-image-name>
 ```
 
-## <a name="how-to-add-container-to-private-registry"></a>Så här lägger du till behållare i privat register
+## <a name="how-to-add-container-to-private-registry"></a>Lägga till behållare i privata register
 
-Följ dessa steg för att använda Dockerfile och placera den nya avbildningen i ditt privata behållarregister.  
+Följ dessa steg om du vill använda Dockerfile och placera den nya avbildningen i ditt privata behållar register.  
 
-1. Skapa `Dockerfile` en med texten från återanvändningsreceptet. A `Dockerfile` har ingen förlängning.
+1. Skapa en `Dockerfile` med texten från Återanvänd recept. En `Dockerfile` saknar tillägg.
 
-1. Ersätt eventuella värden i vinkelparenteserna mot dina egna värden.
+1. Ersätt alla värden i vinkelparenteser med dina egna värden.
 
-1. Skapa filen till en bild på kommandoraden eller terminalen med hjälp av följande kommando. Ersätt värdena i `<>`vinkelparenteserna, med ditt eget behållarnamn och -tagg.  
+1. Bygg filen i en avbildning på kommando raden eller terminalen med hjälp av följande kommando. Ersätt värdena i vinkelparenteser, `<>`med ditt egna behållar namn och tagg.  
 
-    Taggalternativet `-t`är ett sätt att lägga till information om vad du har ändrat för behållaren. Ett behållarnamn `modified-LUIS` för anger till exempel att den ursprungliga behållaren har skiktats. Ett taggnamn `with-billing-and-model` för anger hur BEHÅLLAREN För språk understanding (LUIS) har ändrats.
+    Alternativet tag, `-t`, är ett sätt att lägga till information om vad du har ändrat för behållaren. Ett behållar namn på `modified-LUIS` anger till exempel att den ursprungliga behållaren har lager. Ett taggnamn `with-billing-and-model` visar hur language Understanding (Luis)-behållaren har ändrats.
 
     ```Bash
     docker build -t <your-new-container-name>:<your-new-tag-name> .
     ```
 
-1. Logga in på Azure CLI från en konsol. Det här kommandot öppnar en webbläsare och kräver autentisering. När du har autentiserats kan du stänga webbläsaren och fortsätta arbeta i konsolen.
+1. Logga in på Azure CLI från en-konsol. Det här kommandot öppnar en webbläsare och kräver autentisering. När du har autentiserat kan du stänga webbläsaren och fortsätta att arbeta i-konsolen.
 
     ```azurecli
     az login
     ```
 
-1. Logga in på ditt privata register med Azure CLI från en konsol.
+1. Logga in i ditt privata register med Azure CLI från en-konsol.
 
-    Ersätt värdena i vinkelparenteserna `<my-registry>`med ditt eget registernamn.  
+    Ersätt värdena i vinkelparenteser, `<my-registry>`med ditt eget register namn.  
 
     ```azurecli
     az acr login --name <my-registry>
     ```
 
-    Du kan också logga in med dockerinloggning om du har tilldelats ett huvudnamn för tjänsten.
+    Du kan också logga in med Docker-inloggning om du har tilldelats ett huvud namn för tjänsten.
 
     ```Bash
     docker login <my-registry>.azurecr.io
     ```
 
-1. Tagga behållaren med den privata registerplatsen. Ersätt värdena i vinkelparenteserna `<my-registry>`med ditt eget registernamn. 
+1. Tagga behållaren med den privata register platsen. Ersätt värdena i vinkelparenteser, `<my-registry>`med ditt eget register namn. 
 
     ```Bash
     docker tag <your-new-container-name>:<your-new-tag-name> <my-registry>.azurecr.io/<your-new-container-name-in-registry>:<your-new-tag-name>
     ```
 
-    Om du inte använder ett `latest` taggnamn är underförstått underförstått.
+    Om du inte använder ett taggnamn `latest` är det underförstådda.
 
-1. Skicka den nya avbildningen till ditt privata behållarregister. När du visar ditt privata behållarregister kommer behållarnamnet som används i följande CLI-kommando att vara namnet på databasen.
+1. Skicka den nya avbildningen till ditt privata behållar register. När du visar ditt privata behållar register blir behållar namnet som används i följande CLI-kommando namnet på lagrings platsen.
 
     ```Bash
     docker push <my-registry>.azurecr.io/<your-new-container-name-in-registry>:<your-new-tag-name>
@@ -151,7 +151,7 @@ Följ dessa steg för att använda Dockerfile och placera den nya avbildningen i
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa och använda Azure Container Instance](azure-container-instance-recipe.md)
+> [Skapa och Använd Azure Container instance](azure-container-instance-recipe.md)
 
 <!--
 ## Store input and output configuration settings

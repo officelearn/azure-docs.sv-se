@@ -1,6 +1,6 @@
 ---
-title: Azure-trafikanalys | Microsoft-dokument
-description: Lär dig hur du analyserar flödesloggar för Azure-nätverkssäkerhetsgrupper med trafikanalyser.
+title: Azure Traffic Analytics | Microsoft Docs
+description: Lär dig hur du analyserar flödes loggar i Azure Network Security Group med trafik analys.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -13,51 +13,51 @@ ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
 ms.openlocfilehash: adba282a96f9d250569e090e186859c04e89ebda
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80981553"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
-Traffic Analytics är en molnbaserad lösning som ger insyn i användar- och programaktivitet i molnnätverk. Trafikanalys analyserar NSG-flödesloggar (Network Watcher Network Security Group) för att ge insikter om trafikflödet i ditt Azure-moln. Med trafikanalys kan du:
+Trafikanalys är en molnbaserad lösning som ger insyn i användar-och program aktivitet i moln nätverk. Trafik analys analyserar Network Watcher flödes loggar för nätverks säkerhets gruppen (NSG) för att ge insikter i trafikflödet i Azure-molnet. Med trafik analys kan du:
 
-- Visualisera nätverksaktivitet över dina Azure-prenumerationer och identifiera aktiva punkter.
-- Identifiera säkerhetshot mot och skydda nätverket, med information som öppna portar, program som försöker komma åt internet och virtuella datorer (VM) som ansluter till oseriösa nätverk.
-- Förstå trafikflödesmönster i Azure-regioner och internet för att optimera nätverksdistributionen för prestanda och kapacitet.
-- Identifiera nätverksdefigureringar som leder till misslyckade anslutningar i nätverket.
+- Visualisera nätverks aktivitet i dina Azure-prenumerationer och identifiera aktiva punkter.
+- Identifiera säkerhetshot till och skydda nätverket, med information som öppna portar, program som försöker ansluta till Internet och virtuella datorer (VM) som ansluter till falska nätverk.
+- Förstå trafik flödes mönster i Azure-regioner och på Internet för att optimera nätverks distributionen för prestanda och kapacitet.
+- Hitta felaktiga nätverks konfigurationer som leder till misslyckade anslutningar i nätverket.
 
 > [!NOTE]
-> Traffic Analytics stöder nu insamling av NSG-flödesloggar med en högre frekvens på 10 minuter
+> Trafikanalys stöder nu insamling av data flödes loggar med en högre frekvens på 10 minuter
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="why-traffic-analytics"></a>Varför trafikanalys?
+## <a name="why-traffic-analytics"></a>Varför trafik analys?
 
-Det är viktigt att övervaka, hantera och känna till ditt eget nätverk för kompromisslös säkerhet, efterlevnad och prestanda. Att känna till din egen miljö är av största vikt för att skydda och optimera den. Du behöver ofta känna till det aktuella tillståndet för nätverket, vem som ansluter, var de ansluter från, vilka portar som är öppna för internet, förväntat nätverksbeteende, oregelbundet nätverksbeteende och plötsliga trafikökningar.
+Det är viktigt att övervaka, hantera och känna till ditt eget nätverk för kompromisslös säkerhet, efterlevnad och prestanda. Att känna till din egen miljö är av största vikt för att skydda och optimera den. Du behöver ofta känna till det aktuella läget för nätverket, som ansluter, var de ansluter från, vilka portar som är öppna för Internet, förväntade nätverks beteende, oregelbunden nätverks beteende och plötsliga ökningar i trafiken.
 
-Molnnätverk skiljer sig från lokala företagsnätverk, där du har netflow eller motsvarande protokollfunktioner routrar och växlar, som ger möjlighet att samla in IP-nätverkstrafik när den kommer in i eller avslutar ett nätverksgränssnitt. Genom att analysera trafikflödesdata kan du skapa en analys av nätverkstrafikflöde och volym.
+Moln nätverk skiljer sig från lokala företags nätverk, där du har Netflow eller motsvarande protokoll som stöder routrar och växlar, vilket ger möjlighet att samla in IP-nätverkstrafik när den går in eller avslutar ett nätverks gränssnitt. Genom att analysera trafikflödes data kan du bygga en analys av flöde och volym för nätverks trafik.
 
-Virtuella Azure-nätverk har NSG-flödesloggar som ger dig information om inkommande och utgående IP-trafik via en nätverkssäkerhetsgrupp som är associerad med enskilda nätverksgränssnitt, virtuella datorer eller undernät. Genom att analysera råa NSG-flödesloggar och infoga information om säkerhet, topologi och geografi kan trafikanalys ge dig insikter i trafikflödet i din miljö. Traffic Analytics tillhandahåller information som de flesta kommunicerande värdar, de flesta kommunicerande programprotokoll, de flesta samtalande värdpar, tillåten/blockerad trafik, inkommande/utgående trafik, öppna Internetportar, de flesta blockeringsregler, trafikdistribution per Azure-datacenter, virtuellt nätverk, undernät eller otillåtna nätverk.
+Virtuella Azure-nätverk har NSG flödes loggar, som ger dig information om inkommande och utgående IP-trafik via en nätverks säkerhets grupp som är kopplad till enskilda nätverks gränssnitt, virtuella datorer eller undernät. Genom att analysera rå NSG flödes loggar och infoga information om säkerhet, topologi och geografi kan trafik analys ge dig insikter i trafikflödet i din miljö. Trafikanalys innehåller information som de flesta kommunicerande värdar, de flesta kommunicerande program protokoll, de flesta konversation-värd par, tillåten/blockerad trafik, inkommande/utgående trafik, öppna Internet portar, de flesta spärrnings regler, trafik distribution per Azure-datacenter, virtuellt nätverk, undernät eller falska nätverk.
 
 ## <a name="key-components"></a>Nyckelkomponenter
 
-- **NSG (Network Security Group):** Innehåller en lista över säkerhetsregler som tillåter eller nekar nätverkstrafik till resurser som är anslutna till ett Virtuellt Azure-nätverk. Nätverkssäkerhetsgrupper kan kopplas till undernät, enskilda virtuella datorer (klassisk) eller enskilda nätverkskort (NIC) som är anslutna till virtuella datorer (Resource Manager). Mer information finns i [Översikt över nätverkssäkerhetsgrupper](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **NSG-flödesloggar (Network Security Group):** Gör att du kan visa information om inkommande och utgående IP-trafik via en nätverkssäkerhetsgrupp. NSG-flödesloggar skrivs i json-format och visar utgående och inkommande flöden per regel, nätverkskortet som flödet gäller för fem-tuppelinformation om flödet (källa/mål-IP-adress, källa/målport och protokoll) och om trafiken tilläts eller nekades. Mer information om NSG-flödesloggar finns i [NSG-flödesloggar](network-watcher-nsg-flow-logging-overview.md).
-- **Logganalys:** En Azure-tjänst som samlar in övervakningsdata och lagrar data i en central databas. Dessa data kan innehålla händelser, prestandadata eller anpassade data som tillhandahålls via Azure API. När data har samlats in är de tillgängliga för avisering, analys och export. Övervakningsprogram som nätverksprestandaövervakare och trafikanalys skapas med Azure Monitor-loggar som grund. Mer information finns i [Azure Monitor-loggar](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Log Analytics-arbetsyta:** En instans av Azure Monitor-loggar, där data som hör till ett Azure-konto lagras. Mer information om Log Analytics-arbetsytor finns i [Skapa en log analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Network Watcher**: En regional tjänst som gör att du kan övervaka och diagnostisera villkor på nätverksscenarionivå i Azure. Du kan aktivera och inaktivera NSG-flödesloggar med Network Watcher. Mer information finns i [Network Watcher](network-watcher-monitoring-overview.md).
+- **Nätverks säkerhets grupp (NSG)**: innehåller en lista över säkerhets regler som tillåter eller nekar nätverks trafik till resurser som är anslutna till en Azure-Virtual Network. Nätverkssäkerhetsgrupper kan kopplas till undernät, enskilda virtuella datorer (klassisk) eller enskilda nätverkskort (NIC) som är anslutna till virtuella datorer (Resource Manager). Mer information finns i [Översikt över nätverks säkerhets grupper](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Flödes loggar för nätverks säkerhets grupper (NSG)**: gör att du kan visa information om inkommande och utgående IP-trafik via en nätverks säkerhets grupp. NSG flödes loggar skrivs i JSON-format och visar utgående och inkommande flöden per regel, vilket nätverkskort flödet gäller för, fem tuple-information om flödet (käll-och mål-IP-adress, käll-och mål Port och protokoll) och om trafiken tillåts eller nekas. Mer information om NSG Flow-loggar finns i [NSG Flow-loggar](network-watcher-nsg-flow-logging-overview.md).
+- **Log Analytics**: en Azure-tjänst som samlar in övervaknings data och lagrar data i en central lagrings plats. Dessa data kan omfatta händelser, prestanda data eller anpassade data som tillhandahålls via Azure-API: et. När data har samlats in är de tillgängliga för avisering, analys och export. Övervakning av program, till exempel övervakaren för nätverks prestanda och trafik analys skapas med Azure Monitor loggar som grund. Mer information finns i [Azure Monitor loggar](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics arbets yta**: en instans av Azure Monitor loggar där data som hör till ett Azure-konto lagras. Mer information om Log Analytics-arbetsytor finns i [skapa en Log Analytics arbets yta](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Network Watcher**: en regional tjänst som gör att du kan övervaka och diagnostisera villkor på en nätverks scenario nivå i Azure. Du kan aktivera och inaktivera NSG flödes loggar med Network Watcher. Mer information finns i [Network Watcher](network-watcher-monitoring-overview.md).
 
-## <a name="how-traffic-analytics-works"></a>Så här fungerar trafikanalyser
+## <a name="how-traffic-analytics-works"></a>Så här fungerar trafik analys
 
-Trafikanalys undersöker de råa NSG-flödesloggarna och fångar in reducerade loggar genom att samla gemensamma flöden mellan samma käll-IP-adress, mål-IP-adress, målport och protokoll. Host 1 (IP-adress: 10.10.10.10) kommunicerar till Host 2 (IP-adress: 10.10.20.10), 100 gånger under en period av 1 timme med port (till exempel 80) och protokoll (till exempel http). Den reducerade loggen har en post, som värd 1 & Host 2 kommunicerade 100 gånger under en period av 1 timme med port *80* och protokoll *HTTP*, i stället för att ha 100 poster. Reducerade loggar förbättras med information om geografi, säkerhet och topologi och lagras sedan på en Log Analytics-arbetsyta. Följande bild visar dataflödet:
+Trafik analys undersöker rå NSG flödes loggar och avbildar färre loggar genom att aggregera vanliga flöden mellan samma käll-IP-adress, mål-IP-adress, målport och protokoll. Till exempel, värd 1 (IP-adress: 10.10.10.10) som kommunicerar med värd 2 (IP-adress: 10.10.20.10), 100 gånger under en period på 1 timme med port (t. ex. 80) och protokoll (till exempel http). Den reducerade loggen har en post, som är värddator 1 & värd 2, med 100 gånger under en period på 1 timme med port *80* och protokoll http, i stället för att ha 100 *-* poster. Lägre loggar har förbättrats med information om geografi, säkerhet och topologi och lagras sedan i en Log Analytics-arbetsyta. Följande bild visar data flödet:
 
-![Dataflöde för bearbetning av NSG-flödesloggar](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
+![Data flöde för bearbetning av NSG flödes loggar](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
 ## <a name="supported-regions-nsg"></a>Regioner som stöds: NSG 
 
-Du kan använda trafikanalys för NSG:er i någon av följande regioner som stöds:
+Du kan använda Traffic Analytics för NSG: er i någon av följande regioner:
 
 * Kanada, centrala
 * USA, västra centrala
@@ -84,11 +84,11 @@ Du kan använda trafikanalys för NSG:er i någon av följande regioner som stö
 * Japan, östra 
 * Japan, västra
 * US Gov, Virginia
-* Kina Öst 2
+* Kina, östra 2
 
-## <a name="supported-regions-log-analytics-workspaces"></a>Regioner som stöds: Logganalysarbetsytor
+## <a name="supported-regions-log-analytics-workspaces"></a>Regioner som stöds: Log Analytics arbets ytor
 
-Arbetsytan Log Analytics måste finnas i följande regioner:
+Arbets ytan Log Analytics måste finnas i följande regioner:
 * Kanada, centrala
 * USA, västra centrala
 * USA, östra
@@ -113,13 +113,13 @@ Arbetsytan Log Analytics måste finnas i följande regioner:
 * Indien, centrala
 * Japan, östra
 * US Gov, Virginia
-* Kina Öst 2
+* Kina, östra 2
 
 ## <a name="prerequisites"></a>Krav
 
-### <a name="user-access-requirements"></a>Krav på användaråtkomst
+### <a name="user-access-requirements"></a>Krav för användar åtkomst
 
-Ditt konto måste vara medlem i någon av följande [azure-inbyggda roller:](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
+Ditt konto måste vara medlem i någon av följande [inbyggda Azure-roller](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json):
 
 |Distributionsmodell   | Roll                   |
 |---------          |---------               |
@@ -128,47 +128,47 @@ Ditt konto måste vara medlem i någon av följande [azure-inbyggda roller:](../
 |                   | Läsare                 |
 |                   | Nätverksdeltagare    |
 
-Om ditt konto inte har tilldelats någon av de inbyggda rollerna måste det tilldelas en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) som tilldelas följande åtgärder på prenumerationsnivå:
+Om ditt konto inte har tilldelats någon av de inbyggda rollerna måste det tilldelas en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) som har tilldelats följande åtgärder på prenumerations nivå:
 
-- "Microsoft.Network/applicationGateways/read"
-- "Microsoft.Network/connections/read"
-- "Microsoft.Network/loadBalancers/read"
-- "Microsoft.Network/localNetworkGateways/read"
-- "Microsoft.Network/networkInterfaces/read"
-- "Microsoft.Network/networkSecurityGroups/read"
-- "Microsoft.Network/publicIPAdresser/läs"
-- "Microsoft.Network/routeTables/read"
-- "Microsoft.Network/virtualNetworkGateways/read"
-- "Microsoft.Network/virtualNetworks/read"
-- "Microsoft.Network/expressRouteCircuits/read"
+- "Microsoft. Network/applicationGateways/Read"
+- "Microsoft. Network/Connections/Read"
+- "Microsoft. Network/belastningsutjämnare/Read"
+- "Microsoft. Network/localNetworkGateways/Read"
+- "Microsoft. Network/networkInterfaces/Read"
+- "Microsoft. Network/networkSecurityGroups/Read"
+- "Microsoft. Network/publicIPAddresses/Read"
+- "Microsoft. Network/routeTables/Read"
+- "Microsoft. Network/virtualNetworkGateways/Read"
+- "Microsoft. Network/virtualNetworks/Read"
+- "Microsoft. Network/expressRouteCircuits/Read"
 
-Information om hur du kontrollerar behörigheter för användaråtkomst finns i [Vanliga frågor och svar om trafikanalys](traffic-analytics-faq.md).
+Information om hur du kontrollerar användar behörighet finns i [vanliga frågor och svar om trafik analys](traffic-analytics-faq.md).
 
 ### <a name="enable-network-watcher"></a>Aktivera Network Watcher
 
-För att analysera trafiken måste du ha en befintlig nätverksbevakare eller [aktivera en nätverksbevakare](network-watcher-create.md) i varje region som du har NSGs som du vill analysera trafik för. Trafikanalys kan aktiveras för NSG-enheter som finns i någon av de [regioner som stöds](#supported-regions-nsg).
+För att analysera trafiken måste du ha en befintlig nätverks övervakare eller [Aktivera en nätverks övervakare](network-watcher-create.md) i varje region som du har NSG: er som du vill analysera trafiken för. Trafik analys kan aktive ras för NSG: er som finns i någon av de [regioner som stöds](#supported-regions-nsg).
 
-### <a name="select-a-network-security-group"></a>Välj en nätverkssäkerhetsgrupp
+### <a name="select-a-network-security-group"></a>Välj en nätverks säkerhets grupp
 
-Innan du aktiverar NSG-flödesloggning måste du ha en nätverkssäkerhetsgrupp att logga flöden för. Om du inte har någon nätverkssäkerhetsgrupp läser du [Skapa en nätverkssäkerhetsgrupp](../virtual-network/manage-network-security-group.md#create-a-network-security-group) för att skapa en.
+Innan du aktiverar NSG Flow-loggning måste du ha en nätverks säkerhets grupp för att logga flöden för. Om du inte har någon nätverks säkerhets grupp, se [skapa en nätverks säkerhets grupp](../virtual-network/manage-network-security-group.md#create-a-network-security-group) för att skapa en.
 
-Gå till **Nätverksbevakaren**i Azure-portalen och välj sedan **NSG-flödesloggar**. Välj den nätverkssäkerhetsgrupp som du vill aktivera en NSG-flödeslogg för, som visas i följande bild:
+I Azure Portal går du till **Network Watcher**och väljer sedan **NSG Flow-loggar**. Välj den nätverks säkerhets grupp som du vill aktivera en NSG flödes logg för, som du ser i följande bild:
 
-![Val av NSG som kräver aktivering av NSG-flödeslogg](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
+![Val av NSG: er som kräver aktivering av NSG Flow-loggen](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
-Om du försöker aktivera trafikanalys för en NSG som finns i någon annan region än de [regioner som stöds](#supported-regions-nsg)visas felmeddelandet "Hittades inte".
+Om du försöker aktivera trafik analys för en NSG som finns i någon annan region än de regioner som [stöds](#supported-regions-nsg)visas fel meddelandet "Det gick inte att hitta".
 
-## <a name="enable-flow-log-settings"></a>Aktivera inställningar för flödeslogg
+## <a name="enable-flow-log-settings"></a>Aktivera flödes logg inställningar
 
-Innan du aktiverar flödeslogginställningar måste du utföra följande uppgifter:
+Innan du aktiverar flödes logg inställningar måste du utföra följande uppgifter:
 
-Registrera Azure Insights-providern om den inte redan är registrerad för din prenumeration:
+Registrera Azure Insights-providern om den inte redan har registrerats för din prenumeration:
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
-Om du inte redan har ett Azure Storage-konto för att lagra NSG-flödesloggar i måste du skapa ett lagringskonto. Du kan skapa ett lagringskonto med kommandot som följer. Innan du kör `<replace-with-your-unique-storage-account-name>` kommandot, ersätt med ett namn som är unikt på alla Azure-platser, mellan 3-24 tecken i längd, med endast siffror och gemener. Du kan också ändra resursgruppsnamnet om det behövs.
+Om du inte redan har ett Azure Storage konto för att lagra NSG Flow-loggar i måste du skapa ett lagrings konto. Du kan skapa ett lagrings konto med kommandot som följer. Innan du kör kommandot ersätter `<replace-with-your-unique-storage-account-name>` du med ett namn som är unikt för alla Azure-platser, mellan 3-24 tecken, med enbart siffror och gemener. Du kan också ändra resurs gruppens namn, om det behövs.
 
 ```azurepowershell-interactive
 New-AzStorageAccount `
@@ -179,210 +179,210 @@ New-AzStorageAccount `
   -Kind StorageV2
 ```
 
-Markera följande alternativ, som visas på bilden:
+Välj följande alternativ, som du ser på bilden:
 
-1. Välj *På* för **status**
-2. Välj *version 2* för **flödesloggar version**. Version 2 innehåller flödessessionsstatistik (byte och paket)
-3. Välj ett befintligt lagringskonto om du vill lagra flödesloggarna. Kontrollera att lagringen inte har "Data Lake Storage Gen2 Hierarchical Namespace Enabled" inställd på true.
-4. Ange **Kvarhållning** till det antal dagar som du vill lagra data för. Om du vill lagra data för alltid anger du värdet till *0*. Du ådrar dig Azure Storage-avgifter för lagringskontot. 
-5. Välj *På* för **trafikanalysstatus**.
-6. Välj bearbetningsintervall. Baserat på ditt val kommer flödesloggar att samlas in från lagringskontot och bearbetas av Traffic Analytics. Du kan välja bearbetningsintervall för varje 1 timme eller var 10:e minut. 
-7. Välj en befintlig LOG Analytics -arbetsyta (OMS) eller välj **Skapa ny arbetsyta** för att skapa en ny. En Log Analytics-arbetsyta används av Traffic Analytics för att lagra de aggregerade och indexerade data som sedan används för att generera analyserna. Om du väljer en befintlig arbetsyta måste den finnas i en av de [regioner som stöds](#supported-regions-log-analytics-workspaces) och har uppgraderats till det nya frågespråket. Om du inte vill uppgradera en befintlig arbetsyta eller inte har en arbetsyta i en region som stöds skapar du en ny. Mer information om frågespråk finns i [Azure Log Analytics-uppgradering till ny loggsökning](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+1. Välj *på* för **status**
+2. Välj *version 2* för **flödes loggar version**. Version 2 innehåller statistik för flödes-session (byte och paket)
+3. Välj ett befintligt lagrings konto för att lagra flödes loggarna i. Kontrol lera att lagrings utrymmet för Data Lake Storage Gen2 hierarkiskt namn område är inställt på sant.
+4. Ange **kvarhållning** till det antal dagar som du vill lagra data för. Ange värdet till *0*om du vill lagra data permanent. Du debiteras Azure Storage avgifter för lagrings kontot. 
+5. Välj *för* **trafikanalys status**.
+6. Välj bearbetnings intervall. Baserat på ditt val samlas flödes loggar in från lagrings kontot och bearbetas av Trafikanalys. Du kan välja bearbetnings intervall för varannan timme eller var 10: e minut. 
+7. Välj en befintlig Log Analytics (OMS)-arbets yta eller Välj **Skapa ny arbets yta** för att skapa en ny. En Log Analytics arbets yta används av Trafikanalys för att lagra aggregerade och indexerade data som sedan används för att generera analysen. Om du väljer en befintlig arbets yta måste den finnas i någon av de [regioner som stöds](#supported-regions-log-analytics-workspaces) och ha uppgraderats till det nya frågespråket. Om du inte vill uppgradera en befintlig arbets yta eller om du inte har en arbets yta i en region som stöds skapar du en ny. Mer information om frågespråk finns i [Azure Log Analytics uppgradera till ny loggs ökning](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 > [!NOTE]
->Arbetsytan för logganalys som är värd för trafikanalyslösningen och NSG:erna behöver inte vara i samma region. Du kan till exempel ha trafikanalyser på en arbetsyta i regionen Västeuropa, medan du kan ha NSG:er i östra USA och västra USA. Flera NSG kan konfigureras på samma arbetsyta.
+>Log Analytics-arbetsytan som är värd för Traffic Analytics-lösningen och NSG: er behöver inte vara i samma region. Du kan till exempel ha trafik analys i en arbets yta i regionen Europa, västra, medan du kan ha NSG: er i USA och västra USA. Flera NSG: er kan konfigureras i samma arbets yta.
 
 8. Välj **Spara**.
 
-    ![Val av lagringskonto, Log Analytics-arbetsyta och Traffic Analytics-aktivering](./media/traffic-analytics/ta-customprocessinginterval.png)
+    ![Val av lagrings konto, Log Analytics arbets yta och Trafikanalys aktivering](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-Upprepa föregående steg för andra NSG:er som du vill aktivera trafikanalys för. Data från flödesloggar skickas till arbetsytan, så se till att lokala lagar och förordningar i ditt land tillåter datalagring i den region där arbetsytan finns. Om du har angett olika bearbetningsintervall för olika NSG-grupper samlas data in med olika intervall. Till exempel: Du kan välja att aktivera bearbetningsintervall på 10 minuter för kritiska VNETs och 1 timme för icke-kritiska VNETs.
+Upprepa föregående steg för alla andra NSG: er som du vill aktivera trafik analys för. Data från flödes loggar skickas till arbets ytan, så se till att lokala lagar och föreskrifter i ditt land tillåter data lagring i den region där arbets ytan finns. Om du har angett olika bearbetnings intervall för olika NSG: er kommer data att samlas in i olika intervall. Exempel: du kan välja att aktivera bearbetnings intervallet på 10 minuter för kritiska virtuella nätverk och 1 timme för icke-kritiska virtuella nätverk.
 
-Du kan också konfigurera trafikanalys med [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell-cmdlet i Azure PowerShell. Kör `Get-Module -ListAvailable Az` för att hitta din installerade version. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
+Du kan också konfigurera trafik analys med hjälp av [set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell-cmdleten i Azure PowerShell. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
 
-## <a name="view-traffic-analytics"></a>Visa trafikanalys
+## <a name="view-traffic-analytics"></a>Visa trafik analys
 
-Om du vill visa Traffic Analytics söker du efter **Network Watcher** i sökfältet i portalen. En gång i Network Watcher, för att utforska trafikanalys och dess funktioner, välj **Traffic Analytics** på den vänstra menyn. 
+Om du vill visa Trafikanalys söker du efter **Network Watcher** i portalens Sök fält. När du är i Network Watcher kan du utforska trafik analyser och dess funktioner genom att välja **trafikanalys** på den vänstra menyn. 
 
-![Komma åt instrumentpanelen för Traffic Analytics](./media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
+![Komma åt Trafikanalys-instrumentpanelen](./media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 
-Instrumentpanelen kan ta upp till 30 minuter att visas första gången eftersom Traffic Analytics först måste aggregera tillräckligt med data för att den ska kunna härleda meningsfulla insikter innan den kan generera några rapporter.
+Det kan ta upp till 30 minuter innan instrument panelen visas första gången eftersom Trafikanalys måste samla in tillräckligt med data för att få meningsfulla insikter innan de kan generera rapporter.
 
 ## <a name="usage-scenarios"></a>Användningsscenarier
 
-Några av de insikter du kanske vill få efter att Traffic Analytics har konfigurerats är fullständigt konfigurerade, är följande:
+Några av de insikter du kanske vill få när Trafikanalys har kon figurer ATS fullständigt är följande:
 
-### <a name="find-traffic-hotspots"></a>Hitta trafikhotspots
+### <a name="find-traffic-hotspots"></a>Hitta trafik-hotspots
 
 **Titta efter**
 
-- Vilka värdar, undernät och virtuella nätverk skickar eller tar emot mest trafik, passerar maximal skadlig trafik och blockerar betydande flöden?
-    - Kontrollera jämförande diagram för värd, undernät och virtuellt nätverk. Om du förstår vilka värdar, undernät och virtuella nätverk som skickar eller tar emot mest trafik kan du identifiera de värdar som bearbetar mest trafik och om trafikdistributionen görs korrekt.
-    - Du kan utvärdera om trafikvolymen är lämplig för en värd. Är volymen av trafik normalt beteende, eller förtjänar det ytterligare utredning?
+- Vilka värdar, undernät och virtuella nätverk skickar eller tar emot den högsta trafiken, passerar maximal skadlig trafik och blockerar betydande flöden?
+    - Kontrol lera jämför ande diagram för värd, undernät och virtuellt nätverk. Att förstå vilka värdar, undernät och virtuella nätverk som skickar eller tar emot den mesta trafiken kan hjälpa dig att identifiera de värdar som bearbetar den högsta trafiken och huruvida trafik distributionen har utförts på rätt sätt.
+    - Du kan utvärdera om trafik volymen är lämplig för en värd. Är volymen av normal trafik eller har den en ytterligare undersökning?
 - Hur mycket inkommande/utgående trafik finns det?
-    -   Förväntas värden få mer inkommande trafik än utgående eller vice versa?
+    -   Förväntas värden att ta emot mer inkommande trafik än utgående eller vice versa?
 - Statistik över blockerad trafik.
-    - Varför blockerar en värd en betydande mängd godartad trafik? Detta kräver ytterligare undersökning och förmodligen optimering av konfiguration
-- Statistik över skadlig tillåten/blockerad trafik
-  - Varför tar en värd emot skadlig trafik och varför flöden från skadlig källa är tillåtna? Detta kräver ytterligare undersökning och förmodligen optimering av konfigurationen.
+    - Varför blockerar en värd en betydande volym av ofarlig trafik? Detta beteende kräver ytterligare undersökning och förmodligen optimering av konfigurationen
+- Statistik över skadlig trafik som tillåts/blockeras
+  - Varför tillåts en värd att ta emot skadlig trafik och varför flöden från skadlig källa är tillåtna? Det här beteendet kräver ytterligare undersökning och förmodligen optimering av konfigurationen.
 
-    Välj **Visa alla**under **Värd**, som visas i följande bild:
+    Välj **Visa alla**, under **värd**, som du ser i följande bild:
 
-    ![Instrumentpanel som visar värd med de flesta trafikinformationer](media/traffic-analytics/dashboard-showcasing-host-with-most-traffic-details.png)
+    ![Instrument panel som demonstrerar värd med mest trafik information](media/traffic-analytics/dashboard-showcasing-host-with-most-traffic-details.png)
 
-- Följande bild visar tidstrender för de fem bästa talande värdarna och flödesrelaterade detaljer (tillåtna – inkommande/utgående och nekade – inkommande/utgående flöden) för en värd:
+- Följande bild visar tids trender för de fem främsta samtals värdarna och de flödes relaterade detaljer (tillåtna – inkommande/utgående och nekade inkommande/utgående flöden) för en värd:
 
-    ![Topp fem mest talande värd trend](media/traffic-analytics/top-five-most-talking-host-trend.png)
+    ![Främsta fem mest pratade värd trender](media/traffic-analytics/top-five-most-talking-host-trend.png)
 
 **Titta efter**
 
-- Vilka är de mest konverserande värdparen?
-    - Förväntat beteende som front-end eller back-end kommunikation eller oregelbundet beteende, som back-end internettrafik.
+- Vilka är de flesta konversation-värd par?
+    - Förväntat beteende, t. ex. klient-eller backend-kommunikation eller oregelbundet beteende, t. ex. Internet trafik på Server sidan.
 - Statistik över tillåten/blockerad trafik
-    - Varför en värd tillåter eller blockerar betydande trafikvolym
-- Vanligast förekommande programprotokoll bland de flesta samtalande värdpar:
+    - Varför en värd tillåter eller blockerar betydande trafik volym
+- Program protokoll som används oftast bland de flesta konversation-värd par:
     - Är dessa program tillåtna i det här nätverket?
-    - Är programmen korrekt konfigurerade? Använder de lämpligt protokoll för kommunikation? Välj **Visa alla** under Frekvent **konversation**, som visas i följande bild:
+    - Är programmen korrekt konfigurerade? Använder de rätt protokoll för kommunikation? Välj **Visa alla** under **vanliga konversationer**, som visas i följande bild:
 
-        ![Instrumentpanel som visar de vanligaste konversationerna](./media/traffic-analytics/dashboard-showcasing-most-frequent-conversation.png)
+        ![Instrument panel som demonstrerar de vanligaste konversationerna](./media/traffic-analytics/dashboard-showcasing-most-frequent-conversation.png)
 
-- Följande bild visar tidstrender för de fem konversationerna och flödesrelaterade detaljer, till exempel tillåtna och nekade inkommande och utgående flöden för ett konversationspar:
+- Följande bild visar tids trender för de fem främsta konversationerna och de flödes information som tillåts och nekade inkommande och utgående flöden för ett konversations par:
 
-    ![Topp fem pratsamma konversation detaljer och trend](./media/traffic-analytics/top-five-chatty-conversation-details-and-trend.png)
+    ![Information och trend om de fem vanligaste samtalen](./media/traffic-analytics/top-five-chatty-conversation-details-and-trend.png)
 
 **Titta efter**
 
-- Vilket programprotokoll används mest i din miljö och vilka samtalar värdpar använder programprotokollet mest?
+- Vilket program protokoll används mest i din miljö och vilka konversation-värdnamn använder det program protokoll som är mest?
     - Är dessa program tillåtna i det här nätverket?
-    - Är programmen korrekt konfigurerade? Använder de lämpligt protokoll för kommunikation? Förväntat beteende är vanliga portar som 80 och 443. För standardkommunikation, om ovanliga portar visas, kan de kräva en konfigurationsändring. Välj **Visa alla** under **Programport**, i följande bild:
+    - Är programmen korrekt konfigurerade? Använder de rätt protokoll för kommunikation? Förväntat beteende är vanliga portar som 80 och 443. Om en ovanlig port visas för standard kommunikation kan det krävas en konfigurations ändring. Välj **Visa alla** under **program port**i följande bild:
 
-        ![Instrumentpanel som visar de bästa programprotokollen](./media/traffic-analytics/dashboard-showcasing-top-application-protocols.png)
+        ![Instrument panel för demonstration av de främsta program protokollen](./media/traffic-analytics/dashboard-showcasing-top-application-protocols.png)
 
-- Följande bilder visar tidstrender för de fem bästa L7-protokollen och de flödesrelaterade detaljerna (till exempel tillåtna och nekade flöden) för ett L7-protokoll:
+- Följande bilder visar tids trender för de fem främsta L7-protokollen och flödes relaterade detaljer (till exempel tillåtna och nekade flöden) för ett L7-protokoll:
 
-    ![Detaljer och trend på fem lager i 7-skikt](./media/traffic-analytics/top-five-layer-seven-protocols-details-and-trend.png)
+    ![5 främsta protokoll information och trend](./media/traffic-analytics/top-five-layer-seven-protocols-details-and-trend.png)
 
-    ![Flödesinformation för programprotokoll i loggsökning](./media/traffic-analytics/flow-details-for-application-protocol-in-log-search.png)
-
-**Titta efter**
-
-- Kapacitetsutnyttjandetrender för en VPN-gateway i din miljö.
-    - Varje VPN SKU tillåter en viss mängd bandbredd. Är VPN-gateways underutnyttjade?
-    - Når dina gateways kapacitet? Ska du uppgradera till nästa högre SKU?
-- Vilka är de mest samtalande värdarna, via vilken VPN-gateway, över vilken port?
-    - Är det här mönstret normalt? Välj **Visa alla** under **VPN-gateway**, som visas i följande bild:
-
-        ![Instrumentpanel som visar de bästa aktiva VPN-anslutningarna](./media/traffic-analytics/dashboard-showcasing-top-active-vpn-connections.png)
-
-- Följande bild visar tidstrender för kapacitetsutnyttjande av en Azure VPN Gateway och flödesrelaterade detaljer (t.ex. tillåtna flöden och portar):
-
-    ![Trend- och flödesinformation för VPN-gateway](./media/traffic-analytics/vpn-gateway-utilization-trend-and-flow-details.png)
-
-### <a name="visualize-traffic-distribution-by-geography"></a>Visualisera trafikfördelning efter geografi
+    ![Flödes information för program protokoll i loggs ökning](./media/traffic-analytics/flow-details-for-application-protocol-in-log-search.png)
 
 **Titta efter**
 
-- Trafikdistribution per datacenter, till exempel de främsta trafikkällorna till ett datacenter, de vanligaste oseriösa nätverken som samtalar med datacentret och de främsta samtalsprogramprotokollen.
-  - Om du observerar mer belastning på ett datacenter kan du planera för effektiv trafikdistribution.
-  - Om oseriösa nätverk samtalar i datacentret, korrigera sedan NSG regler för att blockera dem.
+- Kapacitets användnings trender för en VPN-gateway i din miljö.
+    - Varje VPN-SKU tillåter en viss mängd bandbredd. Är VPN-gatewayerna underutnyttjade?
+    - Når dina gateways kapacitet? Bör du uppgradera till nästa högre SKU?
+- Vilka är de flesta konversation-värdar, via vilka VPN-gateway, vars port?
+    - Är det här mönstret normal? Välj **Se alla** under **VPN-gateway**, som du ser i följande bild:
 
-    Välj **Visa karta** under Din **miljö**, som visas i följande bild:
+        ![Instrument panel med främsta aktiva VPN-anslutningar](./media/traffic-analytics/dashboard-showcasing-top-active-vpn-connections.png)
 
-    ![Instrumentpanel som visar trafikdistribution](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
+- Följande bild visar tids trenden för kapacitets användning av en Azure-VPN Gateway och information om flöde (till exempel tillåtna flöden och portar):
 
-- Geo-kartan visar det övre menyfliksområdet för val av parametrar som datacenter (Distribuerad/ingen distribution/Aktiv/Inaktiv/Trafikanalys Aktiverad/Trafikanalys inte aktiverad) och länder/regioner som bidrar godartad/skadlig trafik till den aktiva distributionen:
+    ![Tendens och flödes information om VPN gateway-användning](./media/traffic-analytics/vpn-gateway-utilization-trend-and-flow-details.png)
 
-    ![Geo kartvy som visar aktiv distribution](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
-
-- Geo-kartan visar trafikfördelningen till ett datacenter från länder/regioner och kontinenter som kommunicerar med den i blått (Godartad trafik) och röda (skadliga trafikerar) färgade linjer:
-
-    ![Geo kartvy som visar trafikdistribution till länder/regioner och kontinenter](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
-
-    ![Flödesinformation för trafikdistribution i loggsökning](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
-
-### <a name="visualize-traffic-distribution-by-virtual-networks"></a>Visualisera trafikdistribution via virtuella nätverk
+### <a name="visualize-traffic-distribution-by-geography"></a>Visualisera trafik distribution efter geografi
 
 **Titta efter**
 
-- Trafikdistribution per virtuellt nätverk, topologi, de främsta trafikkällorna till det virtuella nätverket, de främsta oseriösa nätverken som samtalar med det virtuella nätverket och de främsta samtalande programprotokollen.
-  - Att veta vilket virtuellt nätverk som samtalar till vilket virtuellt nätverk. Om konversationen inte förväntas kan den korrigeras.
-  - Om oseriösa nätverk samtalar med ett virtuellt nätverk kan du korrigera NSG-regler för att blockera de oseriösa nätverken.
+- Trafik distribution per Data Center, t. ex. främsta trafik källor till ett Data Center, främsta konversation nätverk med data Center och de konversation program protokollen.
+  - Om du ser mer belastning i ett Data Center kan du planera för effektiv trafik distribution.
+  - Om falska nätverk är konversation i data centret ska du korrigera NSG-reglerna så att de blockeras.
+
+    Välj **Visa karta** under **din miljö**, som du ser i följande bild:
+
+    ![Instrument panels demonstration av trafik distribution](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
+
+- Geo-kartan visar det övre menyfliksområdet för val av parametrar, t. ex. Data Center (distribuerat/ingen-distribution/aktiv/inaktiv/Trafikanalys aktive rad/Trafikanalys inte aktive rad) och länder/regioner som bidrar till att den aktiva distributionen är oskadlig/skadlig trafik:
+
+    ![Visning av den geografiska kart vyn som demonstrerar aktiv distribution](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
+
+- Geo-kartan visar trafik distributionen till ett Data Center från länder/regioner och kontinenter som kommunicerar med den i blått (oskadlig trafik) och röda (skadlig trafik) färgade linjer:
+
+    ![Geo Map-vy som demonstrerar trafik distribution till länder/regioner och kontinenter](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
+
+    ![Flödes information för trafik distribution i loggs ökning](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
+
+### <a name="visualize-traffic-distribution-by-virtual-networks"></a>Visualisera trafik distribution av virtuella nätverk
+
+**Titta efter**
+
+- Trafik distribution per virtuellt nätverk, topologi, högsta trafik trafik till det virtuella nätverket, de mest falska nätverken konversation till det virtuella nätverket och de främsta konversation-programprotokollen.
+  - Att veta vilket virtuellt nätverk som är konversation till det virtuella nätverket. Om konversationen inte förväntas kan du åtgärda det.
+  - Om falska nätverk är konversation med ett virtuellt nätverk kan du korrigera NSG-reglerna för att blockera de falska nätverken.
  
-    Välj **Visa virtuella nätverk** under Din **miljö**, som visas i följande bild:
+    Välj **Visa virtuella nätverk** under **din miljö**, som du ser i följande bild:
 
-    ![Instrumentpanel som visar virtuell nätverksdistribution](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
+    ![Instrument panel som demonstrerar distribution av virtuella nätverk](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
-- Den virtuella nätverkstopologin visar det övre menyfliksområdet för val av parametrar som ett virtuellt nätverk (Inter-virtuella nätverksanslutningar/Aktiva/inaktiva), externa anslutningar, aktiva flöden och skadliga flöden i det virtuella nätverket.
-- Du kan filtrera topologin för virtuellt nätverk baserat på prenumerationer, arbetsytor, resursgrupper och tidsintervall. Ytterligare filter som hjälper dig att förstå flödet är: Flödestyp (InterVNet, IntraVNET och så vidare), Flödesriktning (inkommande, Utgående), Flödesstatus (tillåten, Blockerad), VNETs (Riktad och Ansluten), Anslutningstyp (Peering eller Gateway - P2S och S2S) och NSG. Använd dessa filter för att fokusera på virtuella nätverk som du vill undersöka i detalj.
-- Den virtuella nätverkstopologin visar trafikdistributionen till ett virtuellt nätverk med avseende på flöden (Tillåtet/Blockerat/Inkommande/Utgående/Godartade/skadliga), programprotokoll och nätverkssäkerhetsgrupper, till exempel:
+- Virtual Network sto pol Ogin visar det övre menyfliksområdet för val av parametrar som ett virtuellt nätverk (mellan virtuella nätverks anslutningar/aktiva/inaktiva), externa anslutningar, aktiva flöden och skadliga flöden i det virtuella nätverket.
+- Du kan filtrera Virtual Network sto pol Ogin utifrån prenumerationer, arbets ytor, resurs grupper och tidsintervall. Ytterligare filter som hjälper dig att förstå flödet är: flödes typ (anslutningar, IntraVNET och så vidare), flödes riktning (inkommande, utgående), flödes status (tillåts, blockerad), virtuella nätverk (riktad och ansluten), Anslutnings typ (peering eller gateway-P2S och S2S) och NSG. Använd dessa filter för att fokusera på virtuella nätverk som du vill undersöka i detalj.
+- Virtual Network sto pol Ogin visar trafik distributionen till ett virtuellt nätverk med avseende på flöden (tillåtna/blockerade/inkommande/utgående/ofarlig/skadlig/skadlig), program protokoll och nätverks säkerhets grupper, till exempel:
 
-    ![Virtuell nätverkstopologi som visar trafikdistribution och flödesinformation](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
+    ![Topologi för virtuella nätverk som demonstrerar trafik distribution och flödes information](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
     
-    ![Virtuell nätverkstopologi som visar den högsta nivån och fler filter](./media/traffic-analytics/virtual-network-filters.png)
+    ![Topologi för virtuellt nätverk som visar högsta nivå och fler filter](./media/traffic-analytics/virtual-network-filters.png)
 
-    ![Flödesinformation för distribution av virtuell nätverkstrafik i loggsökning](./media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
-
-**Titta efter**
-
-- Trafikdistribution per undernät, topologi, de främsta trafikkällorna till undernätet, de vanligaste oseriösa nätverken som samtalar med undernätet och de vanligaste samtalsprogramprotokollen.
-    - Att veta vilket undernät som samtalar till vilket undernät. Om du ser oväntade konversationer kan du korrigera konfigurationen.
-    - Om oseriösa nätverk samtalar med ett undernät kan du korrigera det genom att konfigurera NSG-regler för att blockera de oseriösa nätverken.
-- I topologin Undernät visas det övre menyfliksområdet för val av parametrar som Active/Inaktivt undernät, Externa anslutningar, Aktiva flöden och Skadliga flöden i undernätet.
-- Undernätstopologin visar trafikdistributionen till ett virtuellt nätverk med avseende på flöden (tillåtet/blockerat/inkommande/utgående/godartade/skadliga), programprotokoll och NSG:er, till exempel:
-
-    ![Nättopologi som visar trafikdistribution ett virtuellt nätverksundernät när det gäller flöden](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)
+    ![Flödes information för distribution av virtuella nätverks trafik i loggs ökning](./media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 
 **Titta efter**
 
-Trafikdistribution per programgateway & belastningsutjämnare, topkällor för trafik, de viktigaste oseriösa nätverken som samtalar med application gateway-gatewayen & belastningsutjämnar och de främsta samtalande programprotokollen. 
+- Trafik distribution per undernät, topologi, högsta trafik källa till under nätet, de mest falska nätverken konversation till under nätet och de konversation applikations protokollen.
+    - Veta vilket undernät som är konversation för vilket undernät. Om du ser oväntade konversationer kan du korrigera konfigurationen.
+    - Om falska nätverk är konversation med ett undernät kan du korrigera det genom att konfigurera NSG-regler för att blockera de falska nätverken.
+- Topologin för undernät visar det översta menyfliksområdet för val av parametrar, till exempel aktivt/inaktivt undernät, externa anslutningar, aktiva flöden och skadliga flöden i under nätet.
+- Under nät sto pol Ogin visar trafik distributionen till ett virtuellt nätverk med avseende på flöden (tillåtna/blockerade/inkommande/utgående/ofarlig/skadlig/skadlig), program protokoll och NSG: er, till exempel:
+
+    ![Under näts topologi som demonstrerar trafik distribution ett virtuellt nätverks under nät med avseende på flöden](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)
+
+**Titta efter**
+
+Trafik distribution per Programgateway & Load Balancer, topologi, topp källor för trafik, de främsta falska nätverken konversation till Application Gateway & Load Balancer och Top konversation-programprotokoll. 
     
- - Att veta vilket undernät som samtalar till vilken programgateway eller belastningsutjämnare. Om du observerar oväntade konversationer kan du korrigera konfigurationen.
- - Om oseriösa nätverk samtalar med en programgateway eller belastningsutjämnare kan du korrigera den genom att konfigurera NSG-regler för att blockera de oseriösa nätverken. 
+ - Veta vilket undernät som är konversation till vilken Application Gateway eller Load Balancer. Om du upptäcker oväntade konversationer kan du korrigera konfigurationen.
+ - Om falska nätverk är konversation med en Programgateway eller Load Balancer kan du korrigera det genom att konfigurera NSG-regler för att blockera de falska nätverken. 
 
-    ![undernät-topologi-visa upp-trafik-distribution-till-en-application-gateway-subnet-med-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
+    ![undernät – topologi-demonstration – trafik-distribution-till-a-Application-Gateway-undernät-med-avser](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 
-### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Visa portar och virtuella datorer som tar emot trafik från internet
-
-**Titta efter**
-
-- Vilka öppna portar samtalar över internet?
-  - Om oväntade portar hittas öppna kan du korrigera konfigurationen:
-
-    ![Instrumentpanel som visar portar som tar emot och skickar trafik till internet](./media/traffic-analytics/dashboard-showcasing-ports-receiving-and-sending-traffic-to-the-internet.png)
-
-    ![Information om Azure-målportar och värdar](./media/traffic-analytics/details-of-azure-destination-ports-and-hosts.png)
+### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Visa portar och virtuella datorer som tar emot trafik från Internet
 
 **Titta efter**
 
-Har du skadlig trafik i din miljö? Var kommer det ifrån? Var är den avsedd?
+- Vilka öppna portar är konversation via Internet?
+  - Om oväntade portar har hittats öppna kan du korrigera konfigurationen:
 
-![Information om skadlig trafik flödar i loggsökning](./media/traffic-analytics/malicious-traffic-flows-detail-in-log-search.png)
+    ![Instrument panels demonstrations portar som tar emot och skickar trafik till Internet](./media/traffic-analytics/dashboard-showcasing-ports-receiving-and-sending-traffic-to-the-internet.png)
 
-
-### <a name="visualize-the-trends-in-nsgnsg-rules-hits"></a>Visualisera trenderna i NSG / NSG regler träffar
+    ![Information om Azures mål portar och värdar](./media/traffic-analytics/details-of-azure-destination-ports-and-hosts.png)
 
 **Titta efter**
 
-- Vilka NSG/NSG-regler har flest träffar i jämförande diagram med flödesfördelning?
-- Vilka är de bästa käll- och målkonversationsparen per NSG/NSG-regler?
+Har du skadlig trafik i din miljö? Var kommer den från? Var är den avsedd för?
 
-    ![Dashboard visar NSG träffar statistik](./media/traffic-analytics/dashboard-showcasing-nsg-hits-statistics.png)
+![Information om skadliga trafik flöden i loggs ökning](./media/traffic-analytics/malicious-traffic-flows-detail-in-log-search.png)
 
-- Följande bilder visar tidstrender för träffar av NSG-regler och information om källmålsflöde för en nätverkssäkerhetsgrupp:
 
-  - Snabbt upptäcka vilka NSGs och NSG regler korsar skadliga flöden och vilka som är de bästa skadliga IP-adresser som kommer åt din molnmiljö
-  - Identifiera vilka NSG/NSG-regler som tillåter/blockerar betydande nättrafik
-  - Välj toppfilter för detaljerad inspektion av NSG- eller NSG-regler
+### <a name="visualize-the-trends-in-nsgnsg-rules-hits"></a>Visualisera trender i NSG/NSG-regel träffar
 
-    ![Visa upp tidstrender för NSG-regelträffar och topp-NSG-regler](./media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
+**Titta efter**
 
-    ![Top NSG regler statistik detaljer i loggsökning](./media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
+- Vilka NSG/NSG-regler har flest träffar i jämför ande diagram med flödes distribution?
+- Vilka är de största käll-och destinations samtals paren per NSG/NSG-regler?
+
+    ![Instrument panel Showcase NSG-träffar statistik](./media/traffic-analytics/dashboard-showcasing-nsg-hits-statistics.png)
+
+- I följande bilder visas tids trender för träffar av NSG-regler och information om käll destinations flöden för en nätverks säkerhets grupp:
+
+  - Identifiera snabbt vilka NSG: er-och NSG-regler som passerar skadliga flöden och vilka som är de vanligaste skadliga IP-adresserna som används för att komma åt din moln miljö
+  - Identifiera vilka NSG/NSG-regler som tillåter/blockerar betydande nätverks trafik
+  - Välj Top filter för detaljerad granskning av en NSG-eller NSG-regel
+
+    ![Visa tids trender för NSG regel träffar och de främsta NSG-reglerna](./media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
+
+    ![Statistik information om främsta NSG i loggs ökning](./media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-Mer om du vill få svar på vanliga frågor och svar finns i [Vanliga frågor och svar om trafikanalys](traffic-analytics-faq.md).
+För att få svar på vanliga frågor, se [vanliga frågor och svar om trafik analys](traffic-analytics-faq.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om hur du aktiverar flödesloggar finns i [Aktivera NSG-flödesloggning](network-watcher-nsg-flow-logging-portal.md).
-- Information om hur du förstår schema och bearbetningsinformation för Traffic Analytics finns i [Trafikanalysschema](traffic-analytics-schema.md).
+- Information om hur du aktiverar flödes loggar finns i [Aktivera NSG flödes loggning](network-watcher-nsg-flow-logging-portal.md).
+- Information om schema och bearbetning av Trafikanalys finns i [Traffic Analytics-schemat](traffic-analytics-schema.md).

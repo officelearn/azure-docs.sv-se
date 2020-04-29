@@ -1,7 +1,7 @@
 ---
-title: Köra behållare för språkidentifiering i Kubernetes-tjänsten
+title: Kör Språkidentifiering behållare i Kubernetes-tjänsten
 titleSuffix: Text Analytics -  Azure Cognitive Services
-description: Distribuera språkidentifieringsbehållaren, med ett exempel som körs, till Azure Kubernetes-tjänsten och testa den i en webbläsare.
+description: Distribuera behållaren för språk identifiering, med ett exempel som körs, till Azure Kubernetes-tjänsten och testa det i en webbläsare.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,54 +11,54 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: cdd1cf255c943c8dc6d55a5b749b30357bdcd373
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80876733"
 ---
-# <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Distribuera språkidentifieringsbehållaren för textanalys till Azure Kubernetes-tjänsten
+# <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Distribuera Textanalys språk identifierings behållare till Azure Kubernetes-tjänsten
 
-Lär dig hur du distribuerar behållaren för språkidentifiering. Den här proceduren visar hur du skapar de lokala Docker-behållarna, skickar behållarna till ditt eget privata behållarregister, kör behållaren i ett Kubernetes-kluster och testar den i en webbläsare.
+Lär dig hur du distribuerar behållaren för språk identifiering. Den här proceduren visar hur du skapar de lokala Docker-behållare, push-överför behållarna till ditt eget privata behållar register, kör behållaren i ett Kubernetes-kluster och testar det i en webbläsare.
 
 ## <a name="prerequisites"></a>Krav
 
-Den här proceduren kräver flera verktyg som måste installeras och köras lokalt. Använd inte Azure Cloud-skalet.
+Den här proceduren kräver flera verktyg som måste installeras och köras lokalt. Använd inte Azure Cloud Shell.
 
 * Använd en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
-* [Git](https://git-scm.com/downloads) för ditt operativsystem så att du kan klona [exemplet](https://github.com/Azure-Samples/cognitive-services-containers-samples) som används i den här proceduren.
+* [Git](https://git-scm.com/downloads) för ditt operativ system så att du kan klona [exemplet](https://github.com/Azure-Samples/cognitive-services-containers-samples) som används i den här proceduren.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-* [Docker-motorn](https://www.docker.com/products/docker-engine) och verifiera att Docker CLI fungerar i ett konsolfönster.
+* [Docker-motorn](https://www.docker.com/products/docker-engine) och kontrollerar att Docker CLI fungerar i ett konsol fönster.
 * [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe).
-* En Azure-resurs med rätt prisnivå. Alla prisnivåer fungerar inte med den här behållaren:
-  * **Textanalysresurs** med endast F0- eller Standardprisnivåer.
-  * **Cognitive Services-resurs** med prisnivån S0.
+* En Azure-resurs med rätt pris nivå. Alla pris nivåer fungerar inte med den här behållaren:
+  * **Textanalys** endast resurs med F0 eller standard pris nivåer.
+  * **Cognitive Services** resurs med pris nivån S0.
 
 ## <a name="running-the-sample"></a>Köra exemplet
 
-Den här proceduren läser in och kör exemplet Med Cognitive Services-behållaren för språkidentifiering. Exemplet innehåller två behållare, en för klientprogrammet och en för Cognitive Services-behållaren. Vi skickar båda dessa avbildningar till Azure Container Registry. När de är på ditt eget register, skapa en Azure Kubernetes-tjänst för att komma åt dessa avbildningar och köra behållarna. När behållarna är igång använder du **kubectl** CLI för att titta på behållarnas prestanda. Få tillgång till klientprogrammet med en HTTP-begäran och se resultatet.
+Den här proceduren läser in och kör Cognitive Services container-exemplet för språk identifiering. Exemplet har två behållare, en för klient programmet och en för Cognitive Services container. Vi ska skicka båda avbildningarna till Azure Container Registry. När de finns i ditt eget register skapar du en Azure Kubernetes-tjänst för att få åtkomst till de här avbildningarna och kör behållarna. När behållarna körs använder du **kubectl** CLI för att se behållarens prestanda. Få åtkomst till klient programmet med en HTTP-begäran och se resultatet.
 
-![Konceptuell idé om att köra provbehållare](../text-analytics/media/how-tos/container-instance-sample/containers.png)
+![Koncept idé för att köra exempel behållare](../text-analytics/media/how-tos/container-instance-sample/containers.png)
 
-## <a name="the-sample-containers"></a>Provbehållarna
+## <a name="the-sample-containers"></a>Exempel behållare
 
-Exemplet innehåller två behållarbilder, en för frontend-webbplatsen. Den andra bilden är språkidentifieringsbehållaren som returnerar det identifierade språket (kulturen) i texten. Båda behållarna är tillgängliga från en extern IP när du är klar.
+Exemplet har två behållar avbildningar, en för klient delens webbplats. Den andra bilden är språk identifierings behållaren som returnerar textens identifierade språk (kultur). Båda behållarna är tillgängliga från en extern IP-adress när du är färdig.
 
-### <a name="the-language-frontend-container"></a>Behållaren för språkfrontend
+### <a name="the-language-frontend-container"></a>Språk-frontend-behållare
 
-Den här webbplatsen motsvarar ditt eget program på klientsidan som gör begäranden om slutpunkten för språkidentifiering. När proceduren är klar får du det identifierade språket för en teckensträng `http://<external-IP>/<text-to-analyze>`genom att komma åt webbplatsbehållaren i en webbläsare med . Ett exempel på `http://132.12.23.255/helloworld!`den här webbadressen är . Resultatet i webbläsaren `English`är .
+Den här webbplatsen motsvarar ditt eget program på klient sidan som gör begäran av språk identifierings slut punkten. När proceduren är färdig får du det identifierade språket för en tecken sträng genom att komma åt webbplats behållaren i en webbläsare med `http://<external-IP>/<text-to-analyze>`. Ett exempel på den här URL `http://132.12.23.255/helloworld!`: en är. Resultatet i webbläsaren är `English`.
 
-### <a name="the-language-container"></a>Språkbehållaren
+### <a name="the-language-container"></a>Språk behållare
 
-Språkidentifieringsbehållaren, i den här specifika proceduren, är tillgänglig för alla externa begäranden. Behållaren har inte ändrats på något sätt så det standarda Cognitive Services-behållarspecifika språkidentifierings-API:et är tillgängligt.
+Behållaren för språk identifiering, i den här specifika proceduren, är tillgänglig för alla externa förfrågningar. Behållaren har inte ändrats på något sätt så att standard-Cognitive Services-API för språk identifiering är tillgängligt.
 
-För den här behållaren är det API:et en POST-begäran om språkidentifiering. Som med alla Cognitive Services-behållare kan du läsa mer om behållaren från dess värdbaserade Swagger-information. `http://<external-IP>:5000/swagger/index.html`
+Detta API är en POST-begäran för språk identifiering för den här behållaren. Precis som med alla Cognitive Services behållare kan du läsa mer om behållaren från den värdbaserade Swagger- `http://<external-IP>:5000/swagger/index.html`informationen.
 
-Port 5000 är standardporten som används med Cognitive Services-behållarna.
+Port 5000 är standard porten som används med Cognitive Services behållare.
 
-## <a name="create-azure-container-registry-service"></a>Skapa azure-behållarregistertjänst
+## <a name="create-azure-container-registry-service"></a>Skapa Azure Container Registry tjänst
 
-Om du vill distribuera behållaren till Azure Kubernetes-tjänsten måste behållaravbildningarna vara tillgängliga. Skapa din egen Azure Container Registry-tjänst som värd för avbildningarna.
+För att distribuera behållaren till Azure Kubernetes-tjänsten måste behållar avbildningarna vara tillgängliga. Skapa din egen Azure Container Registry-tjänst som värd för avbildningarna.
 
 1. Logga in på Azure CLI
 
@@ -66,19 +66,19 @@ Om du vill distribuera behållaren till Azure Kubernetes-tjänsten måste behål
     az login
     ```
 
-1. Skapa en resursgrupp med namnet `cogserv-container-rg` för att lagra alla resurser som skapas i den här proceduren.
+1. Skapa en resurs grupp med `cogserv-container-rg` namnet för att lagra alla resurser som skapats i den här proceduren.
 
     ```azurecli-interactive
     az group create --name cogserv-container-rg --location westus
     ```
 
-1. Skapa ditt eget Azure Container-register med `registry`formatet på `pattyregistry`ditt namn och sedan , till exempel . Använd inte streck eller understrykningstecken i namnet.
+1. Skapa en egen Azure Container Registry med namnet på ditt namn och sedan `registry`, till exempel `pattyregistry`. Använd inte bindestreck eller understrukna tecken i namnet.
 
     ```azurecli-interactive
     az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
     ```
 
-    Spara resultaten för **loginServer** att få inloggningServeregenskapen. Detta kommer att vara en del av den värdbaserade behållarens adress, som används senare i `language.yml` filen.
+    Spara resultaten för att hämta egenskapen **namnet** . Detta kommer att ingå i den värd behållares adress, som används senare i `language.yml` filen.
 
     ```azurecli-interactive
     az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
@@ -105,39 +105,39 @@ Om du vill distribuera behållaren till Azure Kubernetes-tjänsten måste behål
     }
     ```
 
-1. Logga in i behållarregistret. Du måste logga in innan du kan skicka bilder till ditt register.
+1. Logga in i behållar registret. Du måste logga in innan du kan push-överföra avbildningar till registret.
 
     ```azurecli-interactive
     az acr login --name pattyregistry
     ```
 
-## <a name="get-website-docker-image"></a>Hämta bild av docker för webbplats
+## <a name="get-website-docker-image"></a>Hämta webbplats Docker-avbildning
 
-1. Exempelkoden som används i den här proceduren finns i databasen med exempeldatabasen för Cognitive Services-behållare. Klona databasen så att den har en lokal kopia av exemplet.
+1. Exempel koden som används i den här proceduren finns i databasen för Cognitive Services containers-exempel. Klona lagrings platsen så att den har en lokal kopia av exemplet.
 
     ```console
     git clone https://github.com/Azure-Samples/cognitive-services-containers-samples
     ```
 
-    När databasen finns på den lokala datorn hittar du webbplatsen i katalogen [\dotnet\Language\FrontendService.](https://github.com/Azure-Samples/cognitive-services-containers-samples/tree/master/dotnet/Language/FrontendService) Den här webbplatsen fungerar som klientprogrammet som anropar API:et för språkidentifiering som finns i språkidentifieringsbehållaren.  
+    När lagrings platsen finns på din lokala dator hittar du webbplatsen i [\dotnet\Language\FrontendService](https://github.com/Azure-Samples/cognitive-services-containers-samples/tree/master/dotnet/Language/FrontendService) -katalogen. Den här webbplatsen fungerar som klient programmet som anropar API: t för språk identifiering som finns i behållaren för språk identifiering.  
 
-1. Skapa Docker-avbildningen för den här webbplatsen. Kontrollera att konsolen finns i katalogen [\FrontendService](https://github.com/Azure-Samples/cognitive-services-containers-samples/tree/master/dotnet/Language/FrontendService) där Dockerfile finns när du kör följande kommando:
+1. Bygg Docker-avbildningen för den här webbplatsen. Kontrol lera att konsolen finns i [\FrontendService](https://github.com/Azure-Samples/cognitive-services-containers-samples/tree/master/dotnet/Language/FrontendService) -katalogen där Dockerfile finns när du kör följande kommando:
 
     ```console
     docker build -t language-frontend -t pattiyregistry.azurecr.io/language-frontend:v1 .
     ```
 
-    Om du vill spåra versionen i behållarregistret lägger du `v1`till taggen med ett versionsformat, till exempel .
+    Om du vill spåra versionen i behållar registret lägger du till taggen med versions format, `v1`till exempel.
 
-1. Skicka avbildningen till behållarregistret. Det kan ta några minuter.
+1. Push-överför avbildningen till behållar registret. Det kan ta några minuter.
 
     ```console
     docker push pattyregistry.azurecr.io/language-frontend:v1
     ```
 
-    Om du `unauthorized: authentication required` får ett felmeddelande, logga in med kommandot. `az acr login --name <your-container-registry-name>` 
+    Logga in med `az acr login --name <your-container-registry-name>` kommandot `unauthorized: authentication required` om du får ett fel meddelande. 
 
-    När processen är klar bör resultaten likna:
+    När processen är färdig bör resultatet likna följande:
 
     ```output
     The push refers to repository [pattyregistry.azurecr.io/language-frontend]
@@ -150,37 +150,37 @@ Om du vill distribuera behållaren till Azure Kubernetes-tjänsten måste behål
     v1: digest: sha256:31930445deee181605c0cde53dab5a104528dc1ff57e5b3b34324f0d8a0eb286 size: 1580
     ```
 
-## <a name="get-language-detection-docker-image"></a>Hämta dockeravbildning för språkidentifiering
+## <a name="get-language-detection-docker-image"></a>Hämta Docker-avbildning för språk identifiering
 
-1. Dra den senaste versionen av Docker-avbildningen till den lokala datorn. Det kan ta några minuter. Om det finns en nyare version av `1.1.006770001-amd64-preview` den här behållaren ändrar du värdet från till den nyare versionen.
+1. Hämta den senaste versionen av Docker-avbildningen till den lokala datorn. Det kan ta några minuter. Om det finns en nyare version av behållaren ändrar du värdet från `1.1.006770001-amd64-preview` till den nyare versionen.
 
     ```console
     docker pull mcr.microsoft.com/azure-cognitive-services/language:1.1.006770001-amd64-preview
     ```
 
-1. Taggavbildning med behållarregistret. Hitta den senaste versionen `1.1.006770001-amd64-preview` och ersätt versionen om du har en nyare version. 
+1. Tagga avbildningen med ditt behållar register. Hitta den senaste versionen och ersätt versionen `1.1.006770001-amd64-preview` om du har en senare version. 
 
     ```console
     docker tag mcr.microsoft.com/azure-cognitive-services/language pattiyregistry.azurecr.io/language:1.1.006770001-amd64-preview
     ```
 
-1. Skicka avbildningen till behållarregistret. Det kan ta några minuter.
+1. Push-överför avbildningen till behållar registret. Det kan ta några minuter.
 
     ```console
     docker push pattyregistry.azurecr.io/language:1.1.006770001-amd64-preview
     ```
 
-## <a name="get-container-registry-credentials"></a>Hämta autentiseringsuppgifter för behållarregister
+## <a name="get-container-registry-credentials"></a>Hämta Container Registry autentiseringsuppgifter
 
-Följande steg behövs för att få den information som krävs för att ansluta behållarregistret till Azure Kubernetes-tjänsten som du skapar senare i den här proceduren.
+Följande steg krävs för att hämta den information som krävs för att ansluta ditt behållar register med Azure Kubernetes-tjänsten som du skapar senare i den här proceduren.
 
-1. Skapa tjänstens huvudnamn.
+1. Skapa tjänstens huvud namn.
 
     ```azurecli-interactive
     az ad sp create-for-rbac --skip-assignment
     ```
 
-    Spara resultatvärdet `appId` för parametern för mottagare `<appId>`i steg 3. Spara `password` parametern för nästa avsnitts `<client-secret>`klienthemlighet .
+    Spara resultat `appId` värdet för tilldelnings parametern i steg 3, `<appId>`. Spara `password` för nästa avsnitts klient hemlighet-parameter `<client-secret>`.
 
     ```output
     {
@@ -192,13 +192,13 @@ Följande steg behövs för att få den information som krävs för att ansluta 
     }
     ```
 
-1. Hämta ditt behållarregister-ID.
+1. Hämta ditt behållar register-ID.
 
     ```azurecli-interactive
     az acr show --resource-group cogserv-container-rg --name pattyregistry --query "id" --o table
     ```
 
-    Spara utdata för scopeparametervärdet `<acrId>`i nästa steg. Det ser ut som:
+    Spara utdata för värdet `<acrId>`för parametern scope i nästa steg. Det ser ut så här:
 
     ```output
     /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/pattyregistry
@@ -206,15 +206,15 @@ Följande steg behövs för att få den information som krävs för att ansluta 
 
     Spara det fullständiga värdet för steg 3 i det här avsnittet.
 
-1. Skapa en rolltilldelning om du vill bevilja rätt åtkomst för AKS-klustret för att använda avbildningar som lagras i behållarregistret. Ersätt `<appId>` `<acrId>` och med de värden som samlats in i de två föregående stegen.
+1. Skapa en roll tilldelning för att ge rätt åtkomst för AKS-klustret till att använda avbildningar som lagras i behållar registret. Ersätt `<appId>` och `<acrId>` med de värden som samlats in i föregående två steg.
 
     ```azurecli-interactive
     az role assignment create --assignee <appId> --scope <acrId> --role Reader
     ```
 
-## <a name="create-azure-kubernetes-service"></a>Skapa Azure Kubernetes-tjänsten
+## <a name="create-azure-kubernetes-service"></a>Skapa Azure Kubernetes-tjänst
 
-1. Skapa Kubernetes-klustret. Alla parametervärden kommer från föregående avsnitt utom namnparametern. Välj ett namn som anger vem som skapade `patty-kube`det och dess syfte, till exempel .
+1. Skapa Kubernetes-klustret. Alla parameter värden är från föregående avsnitt förutom parametern name. Välj ett namn som visar vem som skapade det och dess syfte, till `patty-kube`exempel.
 
     ```azurecli-interactive
     az aks create --resource-group cogserv-container-rg --name patty-kube --node-count 2  --service-principal <appId>  --client-secret <client-secret>  --generate-ssh-keys
@@ -279,7 +279,7 @@ Följande steg behövs för att få den information som krävs för att ansluta 
     }
     ```
 
-    Tjänsten skapas men den har inte webbplatsbehållaren eller språkidentifieringsbehållaren ännu.  
+    Tjänsten har skapats, men den har inte en webbplats behållare eller en behållare för språk identifiering ännu.  
 
 1. Hämta autentiseringsuppgifter för Kubernetes-klustret.
 
@@ -287,17 +287,17 @@ Följande steg behövs för att få den information som krävs för att ansluta 
     az aks get-credentials --resource-group cogserv-container-rg --name patty-kube
     ```
 
-## <a name="load-the-orchestration-definition-into-your-kubernetes-service"></a>Ladda orchestration-definitionen i din Kubernetes-tjänst
+## <a name="load-the-orchestration-definition-into-your-kubernetes-service"></a>Läs in Orchestration-definitionen i din Kubernetes-tjänst
 
-Det här avsnittet använder **kubectl** CLI för att prata med Azure Kubernetes Service.
+I det här avsnittet används **kubectl** CLI för att kommunicera med Azure Kubernetes-tjänsten.
 
-1. Innan orchestration-definitionen läses in har **kubectl** åtkomst till noderna.
+1. Innan du läser in Orchestration-definitionen kontrollerar du att **kubectl** har åtkomst till noderna.
 
     ```console
     kubectl get nodes
     ```
 
-    Svaret ser ut som:
+    Svaret ser ut så här:
 
     ```output
     NAME                       STATUS    ROLES     AGE       VERSION
@@ -305,29 +305,29 @@ Det här avsnittet använder **kubectl** CLI för att prata med Azure Kubernetes
     aks-nodepool1-13756812-1   Ready     agent     6m        v1.9.11
     ```
 
-1. Kopiera följande fil och `language.yml`namnge den . Filen har `service` ett avsnitt `deployment` och ett avsnitt vardera `language-frontend` för de `language` två behållartyperna, webbplatsbehållaren och identifieringsbehållaren.
+1. Kopiera följande fil och ge den `language.yml`namnet. Filen har `service` ett avsnitt och `deployment` ett avsnitt för de två behållar typerna, `language-frontend` webbplats behållaren och `language` identifierings behållaren.
 
     [!code-yml[Kubernetes orchestration file for the Cognitive Services containers sample](~/samples-cogserv-containers/Kubernetes/language/language.yml "Kubernetes orchestration file for the Cognitive Services containers sample")]
 
-1. Ändra distributionsraderna `language.yml` för språk frontend-distribution baserat på följande tabell för att lägga till egna inställningar för behållarregisteravbildning, klienthemlighet och textanalysinställningar.
+1. Ändra distributions raderna för språk klient delen `language.yml` av som baseras på följande tabell för att lägga till dina egna avbildnings namn, klient hemlighet och text analys inställningar.
 
-    Inställningar för distribution av språk frontend|Syfte|
+    Distributions inställningar för språk klient del|Syfte|
     |--|--|
-    |Linje 32<br> `image`Egenskapen|Bildplats för frontend-avbildningen i behållarregistret<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
-    |Linje 44<br> `name`Egenskapen|Behållare registret hemlighet för avbildningen, `<client-secret>` kallad i ett tidigare avsnitt.|
+    |Rad 32<br> `image`immaterialrätt|Avbildnings plats för klient dels avbildningen i Container Registry<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
+    |Rad 44<br> `name`immaterialrätt|Container Registry hemlighet för avbildningen, som kallas `<client-secret>` i ett föregående avsnitt.|
 
-1. Ändra språkdistributionsraderna `language.yml` för baserat på följande tabell för att lägga till egna inställningar för behållarregisteravbildningar, klienthemlighet och textanalysinställningar.
+1. Ändra språk distributions raderna i `language.yml` baserat på följande tabell om du vill lägga till egna avbildnings namn, klient hemlighet och text analys inställningar för behållare.
 
-    |Inställningar för språkdistribution|Syfte|
+    |Språk distributions inställningar|Syfte|
     |--|--|
-    |Linje 78<br> `image`Egenskapen|Bildplats för språkavbildningen i behållarregistret<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
-    |Linje 95<br> `name`Egenskapen|Behållare registret hemlighet för avbildningen, `<client-secret>` kallad i ett tidigare avsnitt.|
-    |Linje 91<br> `apiKey`Egenskapen|Resursnyckeln för textanalys|
-    |Linje 92<br> `billing`Egenskapen|Slutpunkten för fakturering för din textanalysresurs.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+    |Rad 78<br> `image`immaterialrätt|Avbildnings plats för språk avbildningen i din Container Registry<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
+    |Rad 95<br> `name`immaterialrätt|Container Registry hemlighet för avbildningen, som kallas `<client-secret>` i ett föregående avsnitt.|
+    |Rad 91<br> `apiKey`immaterialrätt|Din nyckel för text analys resurs|
+    |Rad 92<br> `billing`immaterialrätt|Fakturerings slut punkten för din text Analytics-resurs.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
-    Eftersom **apiKey-** och **faktureringsslutpunkten** anges som en del av Kubernetes orchestration definition, behöver webbplatsbehållaren inte känna till dessa eller skicka dem som en del av begäran. Webbplatsbehållaren refererar till språkidentifieringsbehållaren med dess orchestrator-namn `language`.
+    Eftersom **apiKey** och **fakturerings slut punkten** anges som en del av Kubernetes Orchestration-definitionen behöver inte webbplats behållaren känna till dessa eller skicka dem som en del av begäran. Webbplats behållaren refererar till behållaren för språk identifiering efter dess Orchestrator-namn `language`.
 
-1. Läs in orchestration definition-filen för det här exemplet `language.yml`från mappen där du skapade och sparade .
+1. Läs in Orchestration-definitions filen för det här exemplet från den mapp där du skapade och `language.yml`sparade.
 
     ```console
     kubectl apply -f language.yml
@@ -342,9 +342,9 @@ Det här avsnittet använder **kubectl** CLI för att prata med Azure Kubernetes
     deployment.apps "language" created
     ```
 
-## <a name="get-external-ips-of-containers"></a>Hämta externa IPs av behållare
+## <a name="get-external-ips-of-containers"></a>Hämta externa IP-adresser för behållare
 
-För de två behållarna kontrollerar du `language-frontend` att tjänsterna och `language` tjänsterna körs och hämtar den externa IP-adressen.
+För de två behållarna kontrollerar `language-frontend` du `language` att och-tjänsterna körs och hämtar den externa IP-adressen.
 
 ```console
 kubectl get all
@@ -377,21 +377,21 @@ replicaset.apps/language-586849d8dc            1         1         1         13h
 replicaset.apps/language-frontend-68b9969969   1         1         1         13h
 ```
 
-Om `EXTERNAL-IP` tjänsten visas som väntande kör du kommandot igen tills IP-adressen visas innan du går vidare till nästa steg.
+Om tjänsten `EXTERNAL-IP` för tjänsten visas som väntande kör du kommandot igen tills IP-adressen visas innan du går vidare till nästa steg.
 
-## <a name="test-the-language-detection-container"></a>Testa behållaren för språkidentifiering
+## <a name="test-the-language-detection-container"></a>Testa språk identifierings behållaren
 
-Öppna en webbläsare och navigera till `language` behållarens externa `http://<external-ip>:5000/swagger/index.html`IP från föregående avsnitt: . Du kan `Try it` använda funktionen för API:et för att testa slutpunkten för språkidentifiering.
+Öppna en webbläsare och gå till den externa IP-adressen `language` för behållaren från föregående avsnitt: `http://<external-ip>:5000/swagger/index.html`. Du kan använda `Try it` funktionen i API: et för att testa slut punkten för språk identifiering.
 
-![Visa behållarens swagger-dokumentation](../text-analytics/media/how-tos/container-instance-sample/language-detection-container-swagger-documentation.png)
+![Visa behållarens dokumentation om Swagger](../text-analytics/media/how-tos/container-instance-sample/language-detection-container-swagger-documentation.png)
 
-## <a name="test-the-client-application-container"></a>Testa klientprogrambehållaren
+## <a name="test-the-client-application-container"></a>Testa klient program behållaren
 
-Ändra URL:en i webbläsaren till `language-frontend` behållarens externa IP `http://<external-ip>/helloworld`med följande format: . Den engelska kulturtexten `helloworld` av `English`förutsags som .
+Ändra URL: en i webbläsaren till den externa IP-adressen `language-frontend` för behållaren med följande format: `http://<external-ip>/helloworld`. Den engelska kultur texten i `helloworld` är förväntad som `English`.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med klustret tar du bort Azure-resursgruppen.
+När du är färdig med klustret tar du bort Azure-resurs gruppen.
 
 ```azurecli-interactive
 az group delete --name cogserv-container-rg
@@ -404,7 +404,7 @@ az group delete --name cogserv-container-rg
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Behållare för kognitiva tjänster](../cognitive-services-container-support.md)
+> [Cognitive Services behållare](../cognitive-services-container-support.md)
 
 <!--
 kubectl get secrets

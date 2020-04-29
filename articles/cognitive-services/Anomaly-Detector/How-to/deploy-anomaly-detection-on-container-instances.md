@@ -1,7 +1,7 @@
 ---
-title: Kör behållare för avvikelsedetektor i Azure-behållarinstanser
+title: Kör avvikelse detektor behållare i Azure Container Instances
 titleSuffix: Azure Cognitive Services
-description: Distribuera behållaren för avvikelsedetektor till en Azure Container-instans och testa den i en webbläsare.
+description: Distribuera avvikelse detektor behållaren till en Azure Container instance och testa den i en webbläsare.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: a4973254c8a53917d99daf38b0d11e5dbecbb731
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80875151"
 ---
-# <a name="deploy-an-anomaly-detector-container-to-azure-container-instances"></a>Distribuera en avvikelsedetektorbehållare till Azure Container-instanser
+# <a name="deploy-an-anomaly-detector-container-to-azure-container-instances"></a>Distribuera en avvikelse detektor behållare till Azure Container Instances
 
-Lär dig hur du distribuerar behållaren för [avvikelsedetektor för](../anomaly-detector-container-howto.md) Cognitive Services till Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/). Den här proceduren visar att en avvikelsedetektorresurs skapas. Sedan diskuterar vi att dra den tillhörande behållarbilden. Slutligen belyser vi möjligheten att utöva orkestrering av de två från en webbläsare. Med hjälp av behållare kan flytta utvecklarnas uppmärksamhet från att hantera infrastruktur till att istället fokusera på applikationsutveckling.
+Lär dig hur du distribuerar Cognitive Services [avvikelse detektor](../anomaly-detector-container-howto.md) behållare till Azure [container instances](https://docs.microsoft.com/azure/container-instances/). Den här proceduren visar hur du skapar en avvikelse detektor resurs. Sedan diskuterar vi hämtningen av den tillhör ande behållar avbildningen. Slutligen fokuserar vi på att kunna utnyttja dirigeringen av de två från en webbläsare. Genom att använda behållare kan du byta utvecklares uppmärksamhet från att hantera infrastrukturen i stället för att fokusera på program utveckling.
 
 [!INCLUDE [Prerequisites](../../containers/includes/container-preview-prerequisites.md)]
 
-## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till det privata behållarregistret
+## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till registret för privat behållare
 
-Du måste först fylla i och skicka formuläret för begäran om begäran om [avvikelsedetektorbehållare](https://aka.ms/adcontainer) för att begära åtkomst till behållaren.
+Du måste först fylla i och skicka in ett [formulär för avvikelse detektor container](https://aka.ms/adcontainer) för att begära åtkomst till behållaren.
 
 [!INCLUDE [Request access](../../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -37,6 +37,6 @@ Du måste först fylla i och skicka formuläret för begäran om begäran om [av
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska [Installera och kör behållare](../anomaly-detector-container-configuration.md) för att dra behållaravbildningen och köra behållaren
-* Granska [Konfigurera behållare](../anomaly-detector-container-configuration.md) för konfigurationsinställningar
-* [Läs mer om API-tjänsten för avvikelsedetektorn](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
+* Granska [installations-och körnings behållare](../anomaly-detector-container-configuration.md) för att hämta behållar avbildningen och köra behållaren
+* Granska [Konfigurera behållare](../anomaly-detector-container-configuration.md) för konfigurations inställningar
+* [Läs mer om API-tjänsten för avvikelse detektor](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

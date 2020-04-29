@@ -1,6 +1,6 @@
 ---
-title: Förutsättningar för Azure och Dynamics 365 Consulting-tjänsten – Azure Marketplace
-description: Förutsättningar för ett Azure- eller Dynamics 365 Consulting-tjänsterbjudande i Partner Center
+title: Krav för Azure och Dynamics 365 Consulting service – Azure Marketplace
+description: Krav för ett Azure-eller Dynamics 365 Consulting service-erbjudande i Partner Center
 author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: mingshen
 ms.openlocfilehash: fca40e1beb3e3c7bf03682511447539be2702f93
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80874695"
 ---
-# <a name="consulting-service-prerequisites"></a>Förutsättningar för konsulttjänster
+# <a name="consulting-service-prerequisites"></a>Krav för konsult tjänster
 
 > [!IMPORTANT]
-> Vi flyttar hanteringen av dina konsulttjänster från Cloud Partner Portal till Partner Center. Tills dina erbjudanden har migrerats följer du instruktionerna i [Azure och Dynamics 365 konsulttjänsterbjudande](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) för Cloud Partner Portal för att hantera dina erbjudanden.
+> Vi flyttar hantering av konsult tjänst erbjudanden från Cloud Partner Portal till Partner Center. Följ anvisningarna i [Azure-och Dynamics 365 Consulting Service-erbjudandet](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) för Cloud Partner Portal att hantera dina erbjudanden innan du migrerar dina erbjudanden.
 
-Information om erbjudandet om konsulttjänster, inklusive kraven för den här erbjudandetypen, finns i [Konsulttjänster för Azure Marketplace och AppSource](https://docs.microsoft.com/azure/marketplace/consulting-services). I följande tabell visas ytterligare krav för specifika konsulttjänster.
+Information om erbjudandet om konsult tjänster, inklusive krav för den här erbjudande typen, finns i [konsult tjänster för Azure Marketplace och AppSource](https://docs.microsoft.com/azure/marketplace/consulting-services). I följande tabell visas ytterligare krav för särskilda konsult tjänst typer.
 
-| Ämne för konsulttjänster | Primär produkt att välja i Partnercenter | Krav |
+| Avsnitt om konsult tjänster | Primär produkt att välja i Partner Center | Krav |
 |---------|---------|---------|
-| Azure-produkter | Azure | Erbjudandet måste innehålla minst en av följande fullt intjänade kompetenser: <ul><li>Apputveckling</li><li>Integrering av program</li><li>Hantering av programmets livscykel</li><li>Molnplattform</li><li>Dataanalys</li><li>Datacenter</li><li>Dataplattform</li><li>DevOps|
-| Dynamics 365-försäljning <br> Dynamics 365 Marknadsföring <br> Dynamics 365 kundtjänst <br> Fälttjänst för Dynamics 365 <br> Dynamik 365 Personal | Program för kundengagemang | Måste vara guld- eller silvercertifierad i cloud [business applications-kompetensen](https://partner.microsoft.com/membership/cloud-business-applications-competency) för kundengagemang, eller ha ett samförsäljningserbjudande för den primära produkt som tjänsten är relaterad till. |
-| Dynamics 365 Ekonomi <br> Dynamics 365 Supply Chain Management <br> Dynamics 365 Handel <br> Dynamik 365 Personal <br> Automatisering av 365 projekttjänster för Dynamik 365 | Finansierings- och verksamhetsapplikationer | Måste vara guld- eller silvercertifierat i [cloud business applications-kompetensen](https://partner.microsoft.com/membership/cloud-business-applications-competency) för unified operations-alternativet, eller ha ett samförsäljningserbjudande för den primära produkt som tjänsten är relaterad till. |
-| Dynamics 365 Customer Insights | Dynamics 365 Customer Insights | Måste ha minst en lyckad implementering av [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) med minst fem mått och fem segment, eller ha ett samförsäljningserbjudande för den primära produkten som tjänsten är relaterad till. |
-| Dynamics 365 Business Central | Dynamics 365 Business Central | Måste vara guld- eller silvercertifierat i [enterprise resource planning-kompetensen](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) och betjäna minst tre kunder eller ha publicerat ett Business Central-program i Microsoft AppSource, eller ha ett samutsägningserbjudande för den primära produkt som tjänsten är relaterad till. |
-| Power BI | Power BI | Måste anges på [Power BI-partner showcase,](https://powerbi.microsoft.com/partner-showcase/)eller har ett co-sell erbjudande för den primära produkten tjänsten är relaterad till.|
-|Power Apps | Power Apps | Måste vara berättigade till avancerade förmåner i [Power Apps Partnership-programmet,](https://aka.ms/PowerAppsPartner) eller ha ett samförsäljningserbjudande för den primära produkt som tjänsten är relaterad till. |
+| Azure-produkter | Azure | Erbjudandet måste innehålla minst en av följande fullständigt intjänade kompetenser: <ul><li>Apputveckling</li><li>Programintegrering</li><li>Hantering av program livs cykel</li><li>Moln plattform</li><li>Dataanalys</li><li>Datacenter</li><li>Data plattform</li><li>DevOps|
+| Dynamics 365-försäljning <br> Dynamics 365-marknadsföring <br> Dynamics 365-kundtjänster <br> Dynamics 365-fälttjänster <br> Dynamics 365 personal | Program för kund engagemang | Måste vara guld eller silver certifierat i [molnet Business Applications kompetens](https://partner.microsoft.com/membership/cloud-business-applications-competency) för kund engagemang eller ha ett erbjudande för samförsäljning för den primära produkt som tjänsten är relaterad till. |
+| Dynamics 365-ekonomi <br> Dynamics 365-hantering av leverans kedjan <br> Dynamics 365-handel <br> Dynamics 365 personal <br> Dynamics 365-automatisering av Project service | Finans-och drift program | Måste vara guld eller silver certifierat i [molnet Business Applications kompetens](https://partner.microsoft.com/membership/cloud-business-applications-competency) för enhetliga drifts alternativ, eller ha ett erbjudande för samförsäljning för den primära produkt som tjänsten är relaterad till. |
+| Dynamics 365 Customer Insights | Dynamics 365 Customer Insights | Måste ha minst en framgångs rik implementering av [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) med minst fem mått och fem segment, eller ha ett erbjudande för samförsäljning för den primära produkt som tjänsten är relaterad till. |
+| Dynamics 365 Business Central | Dynamics 365 Business Central | Måste vara guld eller silver certifierat i [företags resurs planerings kompetensen](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) och betjäna minst tre kunder eller ha publicerat ett företags Central program i Microsoft AppSource, eller har ett erbjudande för samförsäljning för den primära produkt som tjänsten är relaterad till. |
+| Power BI | Power BI | Måste finnas med i [Power BI partner Showcase](https://powerbi.microsoft.com/partner-showcase/)eller ha ett erbjudande för en gemensam försäljning för den primära produkt som tjänsten är relaterad till.|
+|Power Apps | Power Apps | Måste vara berättigad till avancerade förmåner i [kopplings programmet för Power Apps](https://aka.ms/PowerAppsPartner) , eller ha ett erbjudande för en gemensam försäljning för den primära produkt som tjänsten är relaterad till. |
 
-När du är redo att skapa ditt erbjudande läser du [Skapa ett erbjudande om konsulttjänster.](./create-consulting-service-offer.md)
+När du är redo att skapa ditt erbjudande kan du läsa [skapa ett erbjudande för konsult tjänster](./create-consulting-service-offer.md).

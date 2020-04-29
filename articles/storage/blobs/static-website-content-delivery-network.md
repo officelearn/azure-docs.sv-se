@@ -1,6 +1,6 @@
 ---
-title: Integrera en statisk webbplats med Azure CDN - Azure Storage
-description: Lär dig hur du cachelagrar statiskt webbplatsinnehåll från ett Azure Storage-konto med hjälp av CDN (Azure Content Delivery Network).
+title: Integrera en statisk webbplats med Azure CDN-Azure Storage
+description: Lär dig hur du cachelagrar statisk webbplats innehåll från ett Azure Storage-konto med hjälp av Azure Content Delivery Network (CDN).
 author: normesta
 ms.service: storage
 ms.subservice: blobs
@@ -8,62 +8,62 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 04/07/2020
 ms.openlocfilehash: 4516e9f48174a0f1f5201c46cf114badf13d99d6
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80878837"
 ---
 # <a name="integrate-a-static-website-with-azure-cdn"></a>Integrera en statisk webbplats med Azure CDN
 
-Du kan aktivera [CDN (Azure Content Delivery Network)](../../cdn/cdn-overview.md) för att cachelagra innehåll från en [statisk webbplats](storage-blob-static-website.md) som finns i ett Azure-lagringskonto. Du kan använda Azure CDN för att konfigurera den anpassade domänslutpunkten för din statiska webbplats, etablera anpassade TLS/SSL-certifikat och konfigurera anpassade omskrivningsregler. Konfiguration av Azure CDN resulterar i ytterligare avgifter men ger konsekvent korta svarstider till din webbplats från hela världen. Azure CDN tillhandahåller också TLS-kryptering med ditt eget certifikat. 
+Du kan aktivera [Azure Content Delivery Network (CDN)](../../cdn/cdn-overview.md) för att cachelagra innehåll från en [statisk webbplats](storage-blob-static-website.md) som finns på ett Azure Storage-konto. Du kan använda Azure CDN för att konfigurera den anpassade domän slut punkten för din statiska webbplats, etablera anpassade TLS/SSL-certifikat och konfigurera anpassade regler för omskrivning. Konfiguration av Azure CDN resulterar i ytterligare avgifter men ger konsekvent korta svarstider till din webbplats från hela världen. Azure CDN också tillhandahålla TLS-kryptering med ditt eget certifikat. 
 
 Information om priser för Azure CDN finns i [Azure CDN-priser](https://azure.microsoft.com/pricing/details/cdn/).
 
 ## <a name="enable-azure-cdn-for-your-static-website"></a>Aktivera Azure CDN för din statiska webbplats
 
-Du kan aktivera Azure CDN för din statiska webbplats direkt från ditt lagringskonto. Om du vill ange avancerade konfigurationsinställningar för din CDN-slutpunkt, som [optimering av nedladdning av stora filer](../../cdn/cdn-optimization-overview.md#large-file-download), kan du istället använda [Azure CDN-tillägget](../../cdn/cdn-create-new-endpoint.md) till att skapa en CDN-profil och en slutpunkt.
+Du kan aktivera Azure CDN för din statiska webbplats direkt från ditt lagrings konto. Om du vill ange avancerade konfigurationsinställningar för din CDN-slutpunkt, som [optimering av nedladdning av stora filer](../../cdn/cdn-optimization-overview.md#large-file-download), kan du istället använda [Azure CDN-tillägget](../../cdn/cdn-create-new-endpoint.md) till att skapa en CDN-profil och en slutpunkt.
 
-1. Leta reda på ditt lagringskonto i Azure-portalen och visa kontoöversikten.
+1. Leta upp ditt lagrings konto i Azure Portal och Visa konto översikten.
 
-1. Under **Blob-tjänstmenyn** väljer du **Azure CDN** för att öppna Sidan **Azure CDN:**
+1. Under menyn **BLOB service** väljer du **Azure CDN** för att öppna sidan **Azure CDN** :
 
     ![Skapa en CDN-slutpunkt](media/storage-blob-static-website-custom-domain/cdn-storage-new.png)
 
-1. I avsnittet **CDN-profil** anger du om du vill skapa en ny CDN-profil eller använda en befintlig. En CDN-profil är en samling CDN-slutpunkter som delar en prisnivå och leverantör. Ange sedan ett namn på CDN som är unikt i din prenumeration.
+1. I avsnittet **CDN-profil** anger du om du vill skapa en ny CDN-profil eller använda en befintlig. En CDN-profil är en samling CDN-slutpunkter som delar en pris nivå och leverantör. Ange sedan ett namn för CDN som är unikt i din prenumeration.
 
-1. Ange en prisnivå för CDN-slutpunkten. Mer information om priser finns i [Priser för Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/). Mer information om de funktioner som är tillgängliga för varje nivå finns i [Jämför Azure CDN-produktfunktioner](../../cdn/cdn-features.md).
+1. Ange en pris nivå för CDN-slutpunkten. Mer information om priser finns i [Content Delivery Network priser](https://azure.microsoft.com/pricing/details/cdn/). Mer information om vilka funktioner som är tillgängliga för varje nivå finns i [jämföra Azure CDN produkt funktioner](../../cdn/cdn-features.md).
 
-1. Ange ett namn på CDN-slutpunkten i **namnfältet CDN.** CDN-slutpunkten måste vara unik i Azure och tillhandahåller den första delen av slutpunkts-URL:en. Formuläret verifierar att slutpunktsnamnet är unikt.
+1. Ange ett namn på CDN-slutpunkten i fältet **namn på CDN-slutpunkt** . CDN-slutpunkten måste vara unik i Azure och ger den första delen av slut punkts-URL: en. Formuläret validerar att slut punktens namn är unikt.
 
-1. Ange din statiska webbplatsslutpunkt i fältet **Ursprungsvärdnamn.** 
+1. Ange din statiska webbplats slut punkt i fältet **Ursprungligt värdnamn** . 
 
-   Om du vill hitta din statiska webbplatsslutpunkt navigerar du till de **statiska webbplatsinställningarna** för ditt lagringskonto.  Kopiera den primära slutpunkten och klistra in den i CDN-konfigurationen.
+   Du hittar din statiska webbplats slut punkt genom att navigera till inställningarna för den **statiska webbplatsen** för ditt lagrings konto.  Kopiera den primära slut punkten och klistra in den i CDN-konfigurationen.
 
    > [!IMPORTANT]
-   > Se till att ta bort protokollidentifieraren *(t.ex.* HTTPS) och det efterföljande snedstrecket i URL:en. Om till exempel den statiska `https://mystorageaccount.z5.web.core.windows.net/`webbplatsslutpunkten `mystorageaccount.z5.web.core.windows.net` är , skulle du ange i fältet **Ursprungsvärdnamn.**
+   > Se till att ta bort protokoll identifieraren (*t. ex.* https) och avslutande snedstreck i URL: en. Om till exempel den statiska webbplats slut punkten är `https://mystorageaccount.z5.web.core.windows.net/`, anger `mystorageaccount.z5.web.core.windows.net` du i fältet **Ursprungligt värdnamn** .
 
-   Följande bild visar en exempelslutpunktskonfiguration:
+   Följande bild visar ett exempel på en slut punkts konfiguration:
 
-   ![Skärmbild som visar konfigurationen av CDN-slutpunkter](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
+   ![Skärm bild som visar exempel på CDN-slutpunkts konfiguration](media/storage-blob-static-website-custom-domain/add-cdn-endpoint.png)
 
-1. Välj **Skapa**och vänta sedan på att CDN ska etableras. När slutpunkten har skapats visas den i listan med slutpunkter. (Om du har några fel i formuläret visas ett utropstecken bredvid fältet.)
+1. Välj **skapa**och vänta sedan på att CDN ska etableras. När slutpunkten har skapats visas den i listan med slutpunkter. (Om du har fel i formuläret visas ett utrops tecken bredvid fältet.)
 
-1. Om du vill kontrollera att CDN-slutpunkten är korrekt konfigurerad klickar du på slutpunkten för att navigera till dess inställningar. Från CDN-översikten för ditt lagringskonto letar du reda på slutpunktsvärden och navigerar till slutpunkten, som visas i följande bild. Formatet på CDN-slutpunkten liknar `https://staticwebsitesamples.azureedge.net`.
+1. Kontrol lera att CDN-slutpunkten är korrekt konfigurerad genom att klicka på slut punkten för att navigera till dess inställningar. Från CDN-översikten för ditt lagrings konto letar du reda på slut punktens värdnamn och navigerar till slut punkten, som du ser i följande bild. Formatet på CDN-slutpunkten ser ut ungefär `https://staticwebsitesamples.azureedge.net`så här.
 
-    ![Skärmbild som visar översikt över CDN-slutpunkten](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
+    ![Skärm bild som visar översikt över CDN-slutpunkt](media/storage-blob-static-website-custom-domain/verify-cdn-endpoint.png)
 
-1. När CDN-slutpunkten har etablerats visas innehållet i filen index.html som du tidigare har laddat upp till den statiska webbplatsen genom att navigera till CDN-slutpunkten.
+1. När CDN-slutpunkten har tillhandahållits, kan du navigera till CDN-slutpunkten och visa innehållet i filen index. html som du tidigare har laddat upp till din statiska webbplats.
 
-1. Om du vill granska ursprungsinställningarna för CDN-slutpunkten navigerar du till **Origin** under avsnittet **Inställningar** för CDN-slutpunkten. Du kommer att se att fältet **Ursprungstyp** är inställt på *Anpassat ursprung* och att fältet **Ursprungsvärdnamn** visar din statiska webbplatsslutpunkt.
+1. Om du vill granska ursprungs inställningarna för CDN-slutpunkten navigerar du till **ursprung** under avsnittet **Inställningar** för CDN-slutpunkten. Du ser att fältet **ursprungs typ** är inställt på *anpassat ursprung* och att fältet **Ursprungligt värdnamn** visar din statiska webbplats slut punkt.
 
-    ![Skärmbild som visar Origin-inställningar för CDN-slutpunkt](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
+    ![Skärm bild som visar ursprungs inställningar för CDN-slutpunkt](media/storage-blob-static-website-custom-domain/verify-cdn-origin.png)
 
 ## <a name="remove-content-from-azure-cdn"></a>Ta bort innehåll från Azure CDN
 
 Om du inte längre vill cachelagra ett objekt i Azure CDN kan du vidta något av följande steg:
 
-* Gör containern privat i stället för offentlig. Mer information finns i [Hantera anonym läsåtkomst till behållare och blobbar](storage-manage-access-to-resources.md).
+* Gör containern privat i stället för offentlig. Mer information finns i [Hantera anonym Läs behörighet till behållare och blobbar](storage-manage-access-to-resources.md).
 * Inaktivera eller ta bort CDN-slutpunkten med hjälp av Azure Portal.
 * Ändra din värdbaserade tjänst så att den inte längre svarar på förfrågningar för objektet.
 
@@ -71,4 +71,4 @@ Ett objekt som redan har cachelagrats i Azure CDN förblir cachelagrat tills obj
 
 ## <a name="next-steps"></a>Nästa steg
 
-(Valfritt) Lägg till en anpassad domän till din Azure CDN-slutpunkt. Se [självstudiekurs: Lägg till en anpassad domän i din Azure CDN-slutpunkt](../../cdn/cdn-map-content-to-custom-domain.md).
+Valfritt Lägg till en anpassad domän till din Azure CDN-slutpunkt. Se [Självstudier: Lägg till en anpassad domän i Azure CDN slut punkten](../../cdn/cdn-map-content-to-custom-domain.md).

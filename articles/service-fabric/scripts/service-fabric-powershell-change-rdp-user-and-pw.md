@@ -1,5 +1,5 @@
 ---
-title: Uppdatera användarnamn och lösenord för RDP i PowerShell
+title: Uppdatera RDP-användarnamnet och lösen ordet i PowerShell
 description: Skriptexempel för Azure PowerShell – Uppdatera RDP-användarnamnet och lösenordet för alla noder i Service Fabric-klustret av en viss nodtyp.
 services: service-fabric
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.date: 03/19/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: b7f229162ed745408121d898f5af516d22a0c039
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80984937"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>Uppdatera administratörens användarnamn och lösenord för de virtuella datorerna i ett kluster
@@ -37,7 +37,7 @@ Installera Azure PowerShell, om så behövs, med hjälp av anvisningarna i [Azur
 
 Det här skriptet använder följande kommandon: varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [Get-AzVmss](/powershell/module/az.compute/get-azvmss) | Hämtar egenskaperna för en klusternodstyp (en VM-skalningsuppsättning).   |
 | [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)| Lägger till ett tillägg till VM-skalningsuppsättningen.|
@@ -45,7 +45,7 @@ Det här skriptet använder följande kommandon: varje kommando i tabellen länk
 
 ## <a name="duration"></a>Varaktighet
 
-En enda nodtyp med fem noder har till exempel en varaktighet på 45 till 60 minuter för att ändra användarnamnet eller lösenordet. 
+En enda nodtyp med fem noder, till exempel, har en varaktighet på 45 till 60 minuter för att ändra användar namn eller lösen ord. 
 
 ## <a name="next-steps"></a>Nästa steg
 

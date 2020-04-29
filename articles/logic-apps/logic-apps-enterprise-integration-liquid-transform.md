@@ -1,6 +1,6 @@
 ---
-title: Konvertera JSON-data med vätsketransformningar
-description: Skapa transformeringar eller kartor för avancerade JSON-omvandlingar med hjälp av logic apps och flytande mall
+title: Konvertera JSON-data med flytande transformeringar
+description: Skapa transformeringar eller kartor för avancerade JSON-omvandlingar med hjälp av Logic Apps och flytande mall
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,34 +9,34 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 04/01/2020
 ms.openlocfilehash: d2598dfe9d7972dcb764abf4a1239613a1e8417a
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80879181"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Utföra avancerade JSON-omvandlingar med flytande mallar i Azure Logic Apps
 
-Du kan utföra grundläggande JSON-omvandlingar i dina logikappar med åtgärder för inbyggt dataåtgärder som **Compose** eller **Parse JSON**. Om du vill utföra avancerade JSON-omvandlingar kan du skapa mallar eller kartor med [Liquid](https://shopify.github.io/liquid/), vilket är ett mallspråk med öppen källkod för flexibla webbappar. En flytande mall definierar hur du omvandlar JSON-utdata och stöder mer komplexa JSON-omvandlingar, till exempel iterationer, kontrollflöden, variabler och så vidare.
+Du kan utföra grundläggande JSON-omvandlingar i Logi Kap par med åtgärder för inbyggd data åtgärd, till exempel **skapa** eller **parsa JSON**. Om du vill utföra avancerade JSON-omvandlingar kan du skapa mallar eller kartor med [flytande](https://shopify.github.io/liquid/), som är ett mall-språk med öppen källkod för flexibla webb program. En flytande mall definierar hur JSON-utdata ska transformeras och stöder mer komplexa JSON-omvandlingar, till exempel iterationer, kontroll flöden, variabler och så vidare.
 
-Innan du kan utföra en flytande omvandling i logikappen måste du först definiera JSON-till JSON-mappningen med en flytande mall och lagra den kartan i ditt integrationskonto. Den här artikeln visar hur du skapar och använder denna flytande mall eller karta.
+Innan du kan utföra en flytande omvandling i din Logic app måste du först definiera JSON-till-JSON-mappningen med en flytande mall och lagra mappningen i ditt integrations konto. Den här artikeln visar hur du skapar och använder den här vätske mal len eller kartan.
 
 ## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Ett grundläggande [integrationskonto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
+* Ett grundläggande [integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
-* Grundläggande kunskaper om [flytande mallspråk](https://shopify.github.io/liquid/)
+* Grundläggande kunskaper om [flytande mallar språk](https://shopify.github.io/liquid/)
 
-## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Skapa flytande mall eller karta för ditt integrationskonto
+## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Skapa en flytande mall eller karta för ditt integrations konto
 
-1. I det här exemplet skapar du exempelmallen Flytande som beskrivs i det här steget. I din liquid-mall kan du använda [Flytande filter](https://shopify.github.io/liquid/basics/introduction/#filters), som använder [DotLiquid](https://github.com/dotliquid/dotliquid) och C# namngivningskonventioner.
+1. I det här exemplet skapar du exempel mal len flytande som beskrivs i det här steget. I din flytande mall kan du använda [vätskor filter](https://shopify.github.io/liquid/basics/introduction/#filters), som använder namngivnings konventionerna [DotLiquid](https://github.com/dotliquid/dotliquid) och C#.
 
    > [!NOTE]
-   > Kontrollera att filternamnen använder *meningshölje* i mallen. Annars fungerar inte filtren. Kartor har också [filstorleksgränser](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits).
+   > Kontrol lera att filter namnen använder *menings hölje* i din mall. Annars fungerar inte filtren. Mappar har också [fil storleks begränsningar](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits).
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -57,111 +57,111 @@ Innan du kan utföra en flytande omvandling i logikappen måste du först defini
    }
    ```
 
-1. Ange i [Azure-portalen](https://portal.azure.com)i sökrutan `integration accounts`i Azure och välj **Integrationskonton**.
+1. I [Azure Portal](https://portal.azure.com), i rutan Azure Search, anger `integration accounts`du och väljer **integrations konton**.
 
-   ![Hitta "Integrationskonton"](./media/logic-apps-enterprise-integration-liquid-transform/find-integration-accounts.png)
+   ![Hitta "integrations konton"](./media/logic-apps-enterprise-integration-liquid-transform/find-integration-accounts.png)
 
-1. Hitta och välj ditt integrationskonto.
+1. Sök efter och välj ditt integrations konto.
 
-   ![Välj integrationskonto](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
+   ![Välj integrations konto](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
 
-1. Välj **Kartor**under **Komponenter**i **fönstret Översikt** .
+1. I **översikts** fönstret under **komponenter**väljer du **Maps**.
 
-    ![Välj panel "Kartor"](./media/logic-apps-enterprise-integration-liquid-transform/select-maps-tile.png)
+    ![Välj panelen kartor](./media/logic-apps-enterprise-integration-liquid-transform/select-maps-tile.png)
 
-1. I fönstret **Kartor** väljer du **Lägg till** och anger följande information för kartan:
+1. I fönstret **Maps** väljer du **Lägg till** och anger den här informationen för kartan:
 
    | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------|
    | **Namn** | `JsonToJsonTemplate` | Namnet på kartan, som är "JsonToJsonTemplate" i det här exemplet | 
-   | **Typ av karta** | **Flytande** | Typ för din karta. För JSON till JSON omvandling, måste du välja **vätska**. | 
-   | **Karta** | `SimpleJsonToJsonTemplate.liquid` | En befintlig flytande mall eller kartfil som ska användas för omvandling, som är "SimpleJsonToJsonTemplate.liquid" i det här exemplet. Om du vill hitta den här filen kan du använda filväljaren. Begränsningar för kartstorlek finns i [Gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
+   | **Kart typ** | **flytande** | Kartans typ. För JSON till JSON-transformering måste du välja **flytande**. | 
+   | **Mappa** | `SimpleJsonToJsonTemplate.liquid` | En befintlig flytande mall eller kart fil som ska användas för omvandling, som är "SimpleJsonToJsonTemplate. flytande" i det här exemplet. Du kan använda fil väljaren för att hitta den här filen. För mappnings storleks gränser, se [gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
    ||| 
 
    ![Lägg till flytande mall](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
     
-## <a name="add-the-liquid-action-for-json-transformation"></a>Lägg till flytande åtgärd för JSON omvandling
+## <a name="add-the-liquid-action-for-json-transformation"></a>Lägg till vätske åtgärden för JSON-transformering
 
-1. I Azure-portalen följer du dessa steg för att [skapa en tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+1. I Azure Portal följer du de här stegen för att [skapa en tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Lägg till [utlösaren för begäran i](../connectors/connectors-native-reqres.md#add-request) logikappen i Logikappdesignern.
+1. Lägg till [utlösaren för begäran](../connectors/connectors-native-reqres.md#add-request) till din Logic app i Logic App Designer.
 
-1. Under utlösaren väljer du **Nytt steg**. I sökrutan anger `liquid` du som filter och väljer den här åtgärden: **Omvandla JSON till JSON - Vätska**
+1. Under utlösaren väljer du **nytt steg**. I rutan Sök anger `liquid` du som filter och väljer den här åtgärden: **TRANSFORMERA JSON till JSON-flytande**
 
-   ![Sök efter och välj Flytande åtgärd](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
+   ![Sök och välj flytande åtgärd](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
-1. Öppna **kartlistan** och välj din Liquid-mall, som är "JsonToJsonTemplate" i det här exemplet.
+1. Öppna **kart** listan och välj din flytande mall, som är "JsonToJsonTemplate" i det här exemplet.
 
    ![Välj karta](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
 
-   Om mapplistan är tom är din logikapp troligen inte länkad till ditt integrationskonto. 
-   Så här länkar du logikappen till integrationskontot som har mallen flytande eller karta:
+   Om Maps-listan är tom är den mest sannolika att din Logic app inte är länkad till ditt integrations konto. 
+   Följ dessa steg om du vill länka din Logic app till det integrations konto som har den flytande mallen eller kartan:
 
-   1. Välj **Arbetsflödesinställningar**på logikapp-menyn .
+   1. På din Logic app-meny väljer du **arbets flödes inställningar**.
 
-   1. Välj ditt integrationskonto i listan **Välj ett integrationskonto** och välj **Spara**.
+   1. I listan **Välj ett integrations konto** väljer du ditt integrations konto och väljer **Spara**.
 
-      ![Länka logikapp till integrationskonto](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
+      ![Länka Logic app till integrations konto](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
-1. Lägg nu till egenskapen **Innehåll** i den här åtgärden. Öppna listan **Lägg till ny parameter** och välj **Innehåll**.
+1. Lägg nu till egenskapen **innehåll** i den här åtgärden. Öppna listan **Lägg till ny parameter** och välj **innehåll**.
 
-   ![Lägg till egenskapen "Innehåll" i åtgärd](./media/logic-apps-enterprise-integration-liquid-transform/add-content-property-to-action.png)
+   ![Lägg till egenskapen content i åtgärden](./media/logic-apps-enterprise-integration-liquid-transform/add-content-property-to-action.png)
 
-1. Om du vill ange **egenskapsvärdet Innehåll** klickar du i rutan **Innehåll** så att listan med dynamiskt innehåll visas. Välj **body** token, som representerar brödtextinnehållet som matas ut från utlösaren.
+1. Ange **innehålls** egenskap svärdet genom att klicka inuti **innehålls** rutan så att listan med dynamiskt innehåll visas. Välj **Body** -token, som representerar bröd textens utdata från utlösaren.
 
-   ![Välj "Body"-token för egenskapsvärdet "Innehåll"](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
+   ![Välj "Body"-token för egenskap svärdet "content"](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
 
    När du är klar ser villkoret ut som i det här exemplet:
 
-   ![Åtgärden "Transform JSON to JSON" har slutförts](./media/logic-apps-enterprise-integration-liquid-transform/finished-transform-action.png)
+   ![Åtgärden transformera JSON till JSON har utförts](./media/logic-apps-enterprise-integration-liquid-transform/finished-transform-action.png)
 
-## <a name="test-your-logic-app"></a>Testa logikappen
+## <a name="test-your-logic-app"></a>Testa din Logic app
 
-Publicera JSON-indata i logikappen från [Postman](https://www.getpostman.com/postman) eller ett liknande verktyg. Den transformerade JSON-utgången från logikappen ser ut så här:
+Publicera JSON-indata till din Logic app från [Postman](https://www.getpostman.com/postman) eller ett liknande verktyg. De transformerade JSON-utdata från din Logic app ser ut som i det här exemplet:
   
 ![Exempel på utdata](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
 
 ## <a name="more-liquid-action-examples"></a>Fler exempel på flytande åtgärder
-Vätska är inte begränsad till endast JSON transformationer. Här är andra tillgängliga omvandlingsåtgärder som använder Liquid.
+Flytande är inte begränsad till JSON-transformationer. Här följer andra tillgängliga omvandlings åtgärder som använder Liquid.
 
-* Omvandla JSON till text
+* Transformera JSON till text
   
-  Här är flytande mall som används för detta exempel:
+  Här är den flytande mall som används för det här exemplet:
    
    ``` json
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
-   Här är exempelindata och utdata:
+   Här är exempel på indata och utdata:
   
-   ![Exempel på utdata JSON till text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+   ![Exempel på utdata-JSON till text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
 
-* Omvandla XML till JSON
+* Transformera XML till JSON
   
-  Här är flytande mall som används för detta exempel:
+  Här är den flytande mall som används för det här exemplet:
    
    ``` json
    [{% JSONArrayFor item in content -%}
         {{item}}
     {% endJSONArrayFor -%}]
    ```
-   Här är exempelindata och utdata:
+   Här är exempel på indata och utdata:
 
-   ![Exempel på XML för utdata till JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+   ![Exempel på utdata-XML till JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
 
-* Omvandla XML till text
+* Transformera XML till text
   
-  Här är flytande mall som används för detta exempel:
+  Här är den flytande mall som används för det här exemplet:
 
    ``` json
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
 
-   Här är exempelindata och utdata:
+   Här är exempel på indata och utdata:
 
-   ![Exempel på XML för utdata till text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
+   ![Exempel på utdata-XML till text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs mer om Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Läs mer om Enterprise Integration Pack")  
-* [Läs mer om kartor](../logic-apps/logic-apps-enterprise-integration-maps.md "Läs mer om företagsintegrationskartor")  
+* [Läs mer om Enterprise-integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md "Läs mer om Enterprise-integrationspaket")  
+* [Läs mer om Maps](../logic-apps/logic-apps-enterprise-integration-maps.md "Lär dig mer om Enterprise integration Maps")  
 

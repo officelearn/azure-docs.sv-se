@@ -1,7 +1,7 @@
 ---
-title: Köra Azure-behållarinstanser - Textanalys
+title: Kör Azure Container Instances-Textanalys
 titleSuffix: Azure Cognitive Services
-description: Distribuera textanalysbehållarna till Azure Container Instance och testa den i en webbläsare.
+description: Distribuera text Analytics-behållare till Azure Container instance och testa den i en webbläsare.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: e4b61c6fe2f62745d0f5268221cbb5c84803eb10
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80876477"
 ---
-# <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Distribuera en Text Analytics-behållare till Azure Container Instances
+# <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Distribuera en Textanalys-behållare till Azure Container Instances
 
-Lär dig hur du distribuerar Behållaren för Cognitive Services [Text Analytics][install-and-run-containers] till Azure [Container Instances][container-instances]. Den här proceduren exemplifierar skapandet av en Text Analytics-resurs, skapandet av en associerad sentimentanalysbild och möjligheten att utöva denna orkestrering av de två från en webbläsare. Med hjälp av behållare kan flytta utvecklarnas uppmärksamhet från att hantera infrastruktur till att istället fokusera på applikationsutveckling.
+Lär dig hur du distribuerar Cognitive Services [textanalys][install-and-run-containers] -behållaren till Azure [container instances][container-instances]. Den här proceduren exemplifies skapandet av en Textanalys resurs, skapandet av en associerad Attitydanalys avbildning och möjlighet att utnyttja den här dirigeringen av de två från en webbläsare. Genom att använda behållare kan du byta utvecklares uppmärksamhet från att hantera infrastrukturen i stället för att fokusera på program utveckling.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -45,8 +45,8 @@ Lär dig hur du distribuerar Behållaren för Cognitive Services [Text Analytics
 
 ## <a name="next-steps"></a>Nästa steg 
 
-* Använda fler [Cognitive Services-behållare](../../cognitive-services-container-support.md)
-* Använda tjänsten [Text Analytics Connected](../vs-text-connected-service.md)
+* Använd fler [Cognitive Services behållare](../../cognitive-services-container-support.md)
+* Använd [textanalys anslutna tjänsten](../vs-text-connected-service.md)
 
 [install-and-run-containers]: ./text-analytics-how-to-install-containers.md
 [container-instances]: https://docs.microsoft.com/azure/container-instances

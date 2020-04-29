@@ -1,7 +1,7 @@
 ---
-title: Installera och köra behållare - Face
+title: Installera och kör behållare – ansikte
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln visar hur du hämtar, installerar och kör behållare för Face i den här genomgången självstudiekurs.
+description: Den här artikeln visar hur du hämtar, installerar och kör behållare för ansikte i den här själv studie kursen.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,31 +12,31 @@ ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 74465bddb57c14af4d02c1d3bfdc46f3ac25bef3
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80878552"
 ---
-# <a name="install-and-run-face-containers-preview"></a>Installera och kör Ansiktsbehållare (Förhandsversion)
+# <a name="install-and-run-face-containers-preview"></a>Installera och kör ansikts behållare (förhands granskning)
 
-Azure Cognitive Services Face tillhandahåller en standardiserad Linux-behållare för Docker som identifierar mänskliga ansikten i avbildningar. Den identifierar också attribut, som inkluderar ansikte landmärken såsom näsor och ögon, kön, ålder, och andra maskin-förutspådde ansiktsdrag. Förutom identifiering kan Face kontrollera om två ansikten i samma bild eller olika bilder är desamma med hjälp av en konfidenspoäng. Face kan också jämföra ansikten mot en databas för att se om det redan finns ett liknande eller identiskt ansikte. Det kan också organisera liknande ansikten i grupper med hjälp av delade visuella egenskaper.
+Azure Cognitive Services FACET tillhandahåller en standardiserad Linux-behållare för Docker som identifierar mänskliga ansikten i bilder. Den identifierar också attribut, bland annat ansikts landmärken, till exempel näsaer och ögon, kön, ålder och andra maskin förväntade ansikts funktioner. Förutom identifiering kan ansikte kontrol lera om två ansikten i samma bild eller olika bilder är desamma genom att använda en förtroende poäng. Ansikte kan också jämföra ansikten mot en databas för att se om ett liknande eller identiskt ansikte redan finns. Den kan också organisera liknande ansikten i grupper med hjälp av delade visuella egenskaper.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Du måste uppfylla följande förutsättningar innan du använder Face-tjänstbehållarna.
+Du måste uppfylla följande krav innan du använder behållare för ansikts tjänster.
 
 |Krävs|Syfte|
 |--|--|
-|Docker-motorn| Docker-motorn måste vara installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras så att behållarna kan ansluta till och skicka faktureringsdata till Azure. <br><br> I Windows måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
-|Förtrogenhet med Docker | Du behöver en grundläggande förståelse för Docker-begrepp, till exempel register, databaser, behållare och behållaravbildningar. Du behöver också `docker` kunskap om grundläggande kommandon.| 
-|Ansiktsresurs |Om du vill använda behållaren måste du ha:<br><br>En Azure **Face-resurs** och den associerade API-nyckeln och slutpunkts-URI.An Azure Face resource and the associated API key and the endpoint URI. Båda värdena är tillgängliga på sidorna **Översikt** **och Nycklar** för resursen. De måste starta containern.<br><br>**{API_KEY}**: En av de två tillgängliga resursnycklarna på sidan **Nycklar**<br><br>**{ENDPOINT_URI}**: Slutpunkten som anges på **sidan Översikt**
+|Docker-motorn| Docker-motorn måste vara installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta att behållarna ansluter till och skicka fakturerings data till Azure. <br><br> I Windows måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
+|Bekant med Docker | Du behöver grundläggande förståelse för Docker-koncept, till exempel register, databaser, behållare och behållar avbildningar. Du behöver också kunskap om grundläggande `docker` kommandon.| 
+|Ansikts resurs |Om du vill använda behållaren måste du ha:<br><br>En Azure- **ansikts** resurs och tillhör ande API-nyckel och slut punkts-URI. Båda värdena är tillgängliga på sidorna **Översikt** och **nycklar** för resursen. De måste starta behållaren.<br><br>**{Api_key}**: en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}**: slut punkten enligt vad som anges på sidan **Översikt**
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
-## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till det privata behållarregistret
+## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till registret för privat behållare
 
 [!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -46,7 +46,7 @@ Du måste uppfylla följande förutsättningar innan du använder Face-tjänstbe
 
 ### <a name="container-requirements-and-recommendations"></a>Krav och rekommendationer för behållare
 
-I följande tabell beskrivs de minsta och rekommenderade CPU-kärnor och minne som ska allokeras för varje Face-tjänstbehållare.
+I följande tabell beskrivs de minsta och rekommenderade processor kärnor och minne som ska allokeras för varje behållare för ansikts tjänster.
 
 | Container | Minimum | Rekommenderas | Transaktioner per sekund<br>(Minimum, maximum)|
 |-----------|---------|-------------|--|
@@ -55,11 +55,11 @@ I följande tabell beskrivs de minsta och rekommenderade CPU-kärnor och minne s
 * Varje kärna måste vara minst 2,6 GHz eller snabbare.
 * Transaktioner per sekund (TPS).
 
-Kärna och minne `--cpus` motsvarar `--memory` och inställningar, som används `docker run` som en del av kommandot.
+Core och minne motsvarar inställningarna `--cpus` och `--memory` som används som en del av `docker run` kommandot.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållaravbildningen med docker pull
+## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållar avbildningen med Docker pull
 
-Behållaravbildningar för Face-tjänsten är tillgängliga. 
+Behållar avbildningar för Face service är tillgängliga. 
 
 | Container | Lagringsplats |
 |-----------|------------|
@@ -67,7 +67,7 @@ Behållaravbildningar för Face-tjänsten är tillgängliga.
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### <a name="docker-pull-for-the-face-container"></a>Docker dra för Face behållaren
+### <a name="docker-pull-for-the-face-container"></a>Docker-hämtning för ansikts behållaren
 
 ```
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
@@ -75,14 +75,14 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 
 ## <a name="use-the-container"></a>Använd behållaren
 
-När behållaren finns på [värddatorn](#the-host-computer)använder du följande process för att arbeta med behållaren.
+När behållaren är på [värddatorn](#the-host-computer)använder du följande process för att arbeta med behållaren.
 
-1. [Kör behållaren](#run-the-container-with-docker-run) med de faktureringsinställningar som krävs. Fler [exempel](./face-resource-container-config.md#example-docker-run-commands) `docker run` på kommandot är tillgängliga. 
-1. [Fråga behållarens förutsägelseslutpunkt](#query-the-containers-prediction-endpoint). 
+1. [Kör behållaren](#run-the-container-with-docker-run) med de fakturerings inställningar som krävs. Fler [exempel](./face-resource-container-config.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga. 
+1. [Fråga behållarens förutsägelse slut punkt](#query-the-containers-prediction-endpoint). 
 
-## <a name="run-the-container-with-docker-run"></a>Kör behållaren med dockerkörning
+## <a name="run-the-container-with-docker-run"></a>Kör behållaren med Docker-körning
 
-Använd [kommandot docker run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållaren. Se [samla in nödvändiga parametrar](#gathering-required-parameters) för `{ENDPOINT_URI}` information `{API_KEY}` om hur du får och värden.
+Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållaren. Läs om hur du [samlar in nödvändiga parametrar](#gathering-required-parameters) för information om hur `{ENDPOINT_URI}` du `{API_KEY}` hämtar och-värden.
 
 [Exempel](face-resource-container-config.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
 
@@ -96,24 +96,24 @@ ApiKey={API_KEY}
 
 Det här kommandot:
 
-* Kör en ansiktsbehållare från behållaravbildningen.
-* Allokerar en CPU-kärna och 4 GB minne.
-* Exponerar TCP-port 5000 och allokerar en pseudo TTY för behållaren.
-* Tar automatiskt bort behållaren när den har avslutats. Behållaravbildningen är fortfarande tillgänglig på värddatorn. 
+* Kör en ansikts behållare från behållar avbildningen.
+* Allokerar en processor kärna och 4 GB minne.
+* Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren.
+* Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn. 
 
-Fler [exempel](./face-resource-container-config.md#example-docker-run-commands) `docker run` på kommandot är tillgängliga. 
+Fler [exempel](./face-resource-container-config.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga. 
 
 > [!IMPORTANT]
-> Alternativen `Eula` `Billing`, `ApiKey` och måste anges för att behållaren ska kunna köras, annars startar inte behållaren. Mer information finns i [Fakturering](#billing).
+> Alternativen `Eula`, `Billing`och `ApiKey` måste anges för att köra behållaren eller så startar inte behållaren. Mer information finns i [fakturering](#billing).
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 
-## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelseslutpunkt
+## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelse slut punkt
 
-Behållaren tillhandahåller REST-baserade slutpunkts-API:er för frågeförutsägels. 
+Behållaren innehåller REST-baserade slut punkts-API: er för frågor förutsägelse. 
 
-Använd värden, `http://localhost:5000`för behållar-API:er.
+Använd värden, `http://localhost:5000`för behållar-API: er.
 
 
 <!--  ## Validate container is running -->
@@ -126,17 +126,17 @@ Använd värden, `http://localhost:5000`för behållar-API:er.
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om du kör behållaren med en [utdatamontering](./face-resource-container-config.md#mount-settings) och loggning är aktiverad genererar behållaren loggfiler som är användbara för att felsöka problem som inträffar medan du startar eller kör behållaren.
+Om du kör behållaren med en utgående [montering](./face-resource-container-config.md#mount-settings) och loggning har Aktiver ATS genererar behållaren loggfiler som är till hjälp vid fel sökning av problem som inträffar när du startar eller kör behållaren.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Fakturering
 
-Face-tjänstbehållarna skickar faktureringsinformation till Azure med hjälp av en Face-resurs på ditt Azure-konto. 
+Face service-behållare skickar fakturerings information till Azure med hjälp av en ansikts resurs på ditt Azure-konto. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Mer information om dessa alternativ finns i [Konfigurera behållare](./face-resource-container-config.md).
+Mer information om dessa alternativ finns i [Configure containers](./face-resource-container-config.md).
 
 <!--blogs/samples/video coures -->
 
@@ -144,19 +144,19 @@ Mer information om dessa alternativ finns i [Konfigurera behållare](./face-reso
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln har du lärt dig begrepp och arbetsflöden för hur du hämtar, installerar och kör Face-tjänstbehållare. Sammanfattningsvis:
+I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ned, installera och köra Face service-behållare. Sammanfattningsvis:
 
-* Behållaravbildningar hämtas från Azure Container Registry.
-* Behållaravbildningar körs i Docker.
-* Du kan använda antingen REST API eller SDK för att anropa åtgärder i Face-tjänstbehållare genom att ange behållarens värd-URI.
-* Du måste ange faktureringsinformation när du instansierar en behållare.
+* Behållar avbildningar hämtas från Azure Container Registry.
+* Behållar avbildningar körs i Docker.
+* Du kan använda antingen REST API eller SDK för att anropa åtgärder i ansikts tjänste behållare genom att ange behållarens värd-URI.
+* Du måste ange fakturerings information när du instansierar en behållare.
 
 > [!IMPORTANT]
-> Cognitive Services-behållare är inte licensierade för att köras utan att vara anslutna till Azure för mätning. Kunderna måste alltid kunna kommunicera faktureringsinformation med mätartjänsten. Cognitive Services-behållare skickar inte kunddata, till exempel bilden eller texten som analyseras, till Microsoft.
+> Cognitive Services behållare är inte licensierade att köras utan att vara anslutna till Azure för mätning. Kunderna måste göra det möjligt för behållarna att kommunicera fakturerings information med mät tjänsten hela tiden. Cognitive Services behållare skickar inte kund information, till exempel den bild eller text som analyseras, till Microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Konfigurationsinställningar finns i [Konfigurera behållare](face-resource-container-config.md).
-* Mer information om hur du identifierar och identifierar ansikten finns i [Översikt över ansiktet](Overview.md).
-* Information om de metoder som stöds av behållaren finns i [Ansikts-API:](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)et .
-* Information om hur du använder fler Cognitive Services-behållare finns i [Cognitive Services-behållare](../cognitive-services-container-support.md).
+* Konfigurations inställningar finns i [Konfigurera behållare](face-resource-container-config.md).
+* Mer information om hur du identifierar och identifierar ansikten finns i [Översikt över ansikts](Overview.md).
+* Information om vilka metoder som stöds av behållaren finns i [ansikts-API](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+* Om du vill använda fler Cognitive Services behållare, se [Cognitive Services behållare](../cognitive-services-container-support.md).

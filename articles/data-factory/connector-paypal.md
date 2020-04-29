@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från PayPal med Azure Data Factory (förhandsversion)
-description: Lär dig hur du kopierar data från PayPal till sink-datalager som stöds med hjälp av en kopieringsaktivitet i en Azure Data Factory-pipeline.
+title: Kopiera data från PayPal med Azure Data Factory (för hands version)
+description: Lär dig hur du kopierar data från PayPal till mottagar data lager med stöd för en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,50 +12,50 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: c93425fe2e5210a3a8cc577b6e74e281c88121c0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416793"
 ---
-# <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Kopiera data från PayPal med Azure Data Factory (förhandsversion)
+# <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Kopiera data från PayPal med Azure Data Factory (för hands version)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från PayPal. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från PayPal. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
 
 > [!IMPORTANT]
-> Den här kopplingen är för närvarande i förhandsgranskning. Du kan prova det och ge oss feedback. Om du vill skapa ett beroende på anslutningsappar som är i förhandsversion i din lösning kan du kontakta [Azure-supporten](https://azure.microsoft.com/support/).
+> Den här kopplingen är för närvarande en för hands version. Du kan prova det och ge oss feedback. Om du vill skapa ett beroende på anslutningsappar som är i förhandsversion i din lösning kan du kontakta [Azure-supporten](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här PayPal-kontakten stöds för följande aktiviteter:
+Den här PayPal-kopplingen stöds för följande aktiviteter:
 
-- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
-- [Uppslagsaktivitet](control-flow-lookup-activity.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
+- [Söknings aktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från PayPal till alla sink-datalager som stöds. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
+Du kan kopiera data från PayPal till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, därför behöver du inte installera någon drivrutin manuellt med den här anslutningen.
+Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning, och du behöver därför inte installera någon driv rutin manuellt med hjälp av den här anslutningen.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-I följande avsnitt finns information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för PayPal-anslutningsappen.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för PayPal-koppling.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
 Följande egenskaper stöds för PayPal-länkad tjänst:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste ställas in på: **PayPal** | Ja |
-| värd | Url:en för PayPal-instansen. (det vill api.sandbox.paypal.com)  | Ja |
-| ClientID | Klient-ID som är kopplat till ditt PayPal-program.  | Ja |
-| clientSecret (klientSecret) | Klienthemligheten som är associerad med ditt PayPal-program. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| användaKrypteradeEndpoints | Anger om slutpunkterna för datakällan är krypterade med HTTPS. Standardvärdet är True.  | Inga |
-| useHostVerification | Anger om värdnamnet i serverns certifikat ska behövas för att matcha serverns värdnamn när du ansluter via TLS. Standardvärdet är True.  | Inga |
-| användaUppvering | Anger om serverns identitet ska verifieras när den ansluter via TLS. Standardvärdet är True.  | Inga |
+| typ | Egenskapen Type måste anges till: **PayPal** | Ja |
+| värd | URL: en för PayPal-instansen. (det vill säga api.sandbox.paypal.com)  | Ja |
+| ClientID | Det klient-ID som är associerat med ditt PayPal-program.  | Ja |
+| clientSecret | Den klient hemlighet som är associerad med ditt PayPal-program. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| useEncryptedEndpoints | Anger om data källans slut punkter krypteras med HTTPS. Standardvärdet är True.  | Nej |
+| useHostVerification | Anger om värd namnet i Server certifikatet måste matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är True.  | Nej |
+| usePeerVerification | Anger om du vill verifiera serverns identitet vid anslutning via TLS. Standardvärdet är True.  | Nej |
 
 **Exempel:**
 
@@ -78,14 +78,14 @@ Följande egenskaper stöds för PayPal-länkad tjänst:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningsartikeln.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av PayPal-datauppsättning.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av PayPal-datauppsättningen.
 
-Om du vill kopiera data från PayPal anger du egenskapen typ för datauppsättningen till **PayPalObject**. Följande egenskaper stöds:
+Om du vill kopiera data från PayPal ställer du in egenskapen type för data uppsättningen på **PayPalObject**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typegenskapen för datauppsättningen måste ställas in på: **PayPalObject** | Ja |
-| tableName | Tabellens namn. | Nej (om "fråga" i aktivitetskällan har angetts) |
+| typ | Data uppsättningens typ-egenskap måste anges till: **PayPalObject** | Ja |
+| tableName | Tabellens namn. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
 
@@ -106,16 +106,16 @@ Om du vill kopiera data från PayPal anger du egenskapen typ för datauppsättni
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av PayPal-källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av PayPal-källa.
 
 ### <a name="paypal-as-source"></a>PayPal som källa
 
-Om du vill kopiera data från PayPal anger du källtypen i kopieringsaktiviteten till **PayPalSource**. Följande egenskaper stöds i källavsnittet för **kopieringsaktivitet:**
+Om du vill kopiera data från PayPal anger du käll typen i kopierings aktiviteten till **PayPalSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen type property för kopians aktivitet måste ställas in på: **PayPalSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Payment_Experience"`. | Nej (om "tableName" i datauppsättningen har angetts) |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **PayPalSource** | Ja |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Payment_Experience"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 
@@ -149,10 +149,10 @@ Om du vill kopiera data från PayPal anger du källtypen i kopieringsaktiviteten
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

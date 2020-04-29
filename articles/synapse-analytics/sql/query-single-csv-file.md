@@ -1,6 +1,6 @@
 ---
-title: Fråga CSV-filer med SQL på begäran (förhandsgranskning)
-description: I den här artikeln får du lära dig att fråga enstaka CSV-filer med olika filformat med SQL on-demand (preview).
+title: Fråga CSV-filer med SQL på begäran (för hands version)
+description: I den här artikeln får du lära dig att fråga enkla CSV-filer med olika fil format med hjälp av SQL på begäran (för hands version).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,37 +10,37 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 3d09692c06bcdffbb070f545950092592e417838
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431597"
 ---
 # <a name="query-csv-files"></a>Fråga CSV-filer
 
-I den här artikeln får du lära dig att fråga en enda CSV-fil med SQL on-demand (preview) i Azure Synapse Analytics. CSV-filer kan ha olika format: 
+I den här artikeln får du lära dig hur du frågar en enkel CSV-fil med SQL på begäran (för hands version) i Azure Synapse Analytics. CSV-filer kan ha olika format: 
 
-- Med och utan rubrikrad
-- Komma- och flikavgränsade värden
-- Radslut i Windows- och Unix-format
-- Icke-citerade och citerade värden och utrymda tecken
+- Med och utan en rubrik rad
+- Kommatecken och Tabbavgränsade värden
+- Windows-och UNIX-format rads slut
+- Värden som inte är citerade och citerade och som överlappar tecken
 
-Alla ovanstående variationer kommer att täckas nedan.
+Alla ovanstående variationer kommer att täckas av nedan.
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du läser resten av den här artikeln, granska följande artiklar:
+Läs följande artiklar innan du läser resten av den här artikeln:
 
-- [Första gången setup](query-data-storage.md#first-time-setup)
-- [Krav](query-data-storage.md#prerequisites)
+- [Installation vid första tiden](query-data-storage.md#first-time-setup)
+- [Förutsättningar](query-data-storage.md#prerequisites)
 
-## <a name="windows-style-new-line"></a>Ny linje i Windows-format
+## <a name="windows-style-new-line"></a>Ny rad i Windows-format
 
-Följande fråga visar hur du läser en CSV-fil utan rubrikrad, med en ny rad i Windows-stil och kommaavgränsade kolumner.
+Följande fråga visar hur du läser en CSV-fil utan en rubrik rad, med en ny rad med Windows-typ och kommaavgränsade kolumner.
 
-Förhandsgranskning av filer:
+Fil för hands version:
 
-![Första 10 raderna i CSV-filen utan rubrik, Windows stil ny rad.](./media/query-single-csv-file/population.png)
+![De första 10 raderna i CSV-filen utan sidhuvud, ny rad i Windows-format.](./media/query-single-csv-file/population.png)
 
 ```sql
 SELECT *
@@ -61,13 +61,13 @@ WHERE
     AND year = 2017;
 ```
 
-## <a name="unix-style-new-line"></a>Ny linje i Unix-stil
+## <a name="unix-style-new-line"></a>Ny rad med UNIX-format
 
-Följande fråga visar hur du läser en fil utan rubrikrad, med en ny linje med Unix-format och kommaavgränsade kolumner. Observera den olika platsen för filen jämfört med de andra exemplen.
+Följande fråga visar hur du läser en fil utan en rubrik rad, med en ny rad med UNIX-format och kommaavgränsade kolumner. Observera den olika platsen för filen jämfört med de andra exemplen.
 
-Förhandsgranskning av filer:
+Fil för hands version:
 
-![Första 10 raderna i CSV-filen utan rubrikrad och med ny rad i Unix-format.](./media/query-single-csv-file/population-unix.png)
+![De första 10 raderna i CSV-filen utan rubrik rad och med ny rad UNIX-typ.](./media/query-single-csv-file/population-unix.png)
 
 ```sql
 SELECT *
@@ -88,13 +88,13 @@ WHERE
     AND year = 2017;
 ```
 
-## <a name="header-row"></a>Rubrikraden
+## <a name="header-row"></a>Rubrik rad
 
-Följande fråga visar hur du gör en läst fil med en rubrikrad, med en ny linje i Unix-format och kommaavgränsade kolumner. Observera den olika platsen för filen jämfört med de andra exemplen.
+Följande fråga visar hur du kan läsa en fil med en rubrik rad, med en ny rad med UNIX-typ och kommaavgränsade kolumner. Observera den olika platsen för filen jämfört med de andra exemplen.
 
-Förhandsgranskning av filer:
+Fil för hands version:
 
-![Första 10 raderna i CSV-filen med rubrikrad och med Ny rad i Unix-format.](./media/query-single-csv-file/population-unix-hdr.png)
+![De första 10 raderna i CSV-filen med rubrik raden och med ny rad UNIX-typ.](./media/query-single-csv-file/population-unix-hdr.png)
 
 ```sql
 SELECT *
@@ -115,13 +115,13 @@ WHERE
     AND year = 2017;
 ```
 
-## <a name="custom-quote-character"></a>Anpassat citattecken
+## <a name="custom-quote-character"></a>Anpassat citat tecken
 
-Följande fråga visar hur du läser en fil med en rubrikrad, med en ny rad i Unix-format, kommaavgränsade kolumner och citerade värden. Observera den olika platsen för filen jämfört med de andra exemplen.
+Följande fråga visar hur du läser en fil med en rubrik rad, med en ny rad med UNIX-format, kommaavgränsade kolumner och offererade värden. Observera den olika platsen för filen jämfört med de andra exemplen.
 
-Förhandsgranskning av filer:
+Fil för hands version:
 
-![De första 10 raderna i CSV-filen med rubrikrad och med ny rad i Unix-stil och citerade värden.](./media/query-single-csv-file/population-unix-hdr-quoted.png)
+![De första 10 raderna i CSV-filen med rubrik raden och med nya rad-och offererade värden i UNIX-format.](./media/query-single-csv-file/population-unix-hdr-quoted.png)
 
 ```sql
 SELECT *
@@ -145,15 +145,15 @@ WHERE
 ```
 
 > [!NOTE]
-> Den här frågan returnerar samma resultat om du utelämnade PARAMETERN FIELDQUOTE eftersom standardvärdet för FIELDQUOTE är en dubbeloffert.
+> Den här frågan returnerar samma resultat om du utelämnade parametern FIELDQUOTE eftersom standardvärdet för FIELDQUOTE är ett dubbelt citat tecken.
 
-## <a name="escaping-characters"></a>Fly tecken
+## <a name="escaping-characters"></a>Undantagna tecken
 
-Följande fråga visar hur du läser en fil med en rubrikrad, med en ny rad av Unix-format, kommaavgränsade kolumner och en escape-tecken som används för fältavgränsaren (komma) i värdena. Observera den olika platsen för filen jämfört med de andra exemplen.
+Följande fråga visar hur du läser en fil med en rubrik rad, med en ny rad med UNIX-typ, kommaavgränsade kolumner och ett escape-tecken som används för fält avgränsare (komma) i värden. Observera den olika platsen för filen jämfört med de andra exemplen.
 
-Förhandsgranskning av filer:
+Fil för hands version:
 
-![Första 10 raderna i CSV-filen med rubrikrad och med Unix-Style ny rad och escape-tecken som används för fält avgränsare.](./media/query-single-csv-file/population-unix-hdr-escape.png)
+![De första 10 raderna i CSV-filen med rubrik raden och med ny rad och escape-tecken i UNIX-format som används för fält avgränsare.](./media/query-single-csv-file/population-unix-hdr-escape.png)
 
 ```sql
 SELECT *
@@ -176,15 +176,15 @@ WHERE
 ```
 
 > [!NOTE]
-> Den här frågan skulle misslyckas om ESCAPECHAR inte anges eftersom kommatecknet i "Slov,enia" skulle behandlas som fält avgränsare i stället för en del av landsnamnet. "Slov,enia" skulle behandlas som två kolumner. Därför skulle den aktuella raden ha en kolumn mer än de andra raderna och en kolumn mer än du definierade i WITH-satsen.
+> Den här frågan kan inte utföras om ESCAPECHAR inte anges eftersom kommatecknet i "slov, enia" behandlas som fält avgränsare i stället för en del av landets namn. "Slov, enia" behandlas som två kolumner. Därför skulle den aktuella raden ha en kolumn mer än de andra raderna, och en kolumn mer än du definierade i WITH-satsen.
 
 ## <a name="tab-delimited-files"></a>Tabbavgränsade filer
 
-Följande fråga visar hur du läser en fil med en rubrikrad, med en ny linje med Unix-format och flikavgränsade kolumner. Observera den olika platsen för filen jämfört med de andra exemplen.
+Följande fråga visar hur du läser en fil med en rubrik rad, med en ny rad med UNIX-typ och tabbavgränsade kolumner. Observera den olika platsen för filen jämfört med de andra exemplen.
 
-Förhandsgranskning av filer:
+Fil för hands version:
 
-![Första 10 raderna i CSV-filen med rubrikrad och med Unix-style ny rad och flik avgränsare.](./media/query-single-csv-file/population-unix-hdr-tsv.png)
+![De första 10 raderna i CSV-filen med rubrik raden och med en ny rad med UNIX-typ och avgränsare.](./media/query-single-csv-file/population-unix-hdr-tsv.png)
 
 ```sql
 SELECT *
@@ -206,14 +206,14 @@ WHERE
     AND year = 2017
 ```
 
-## <a name="returning-subset-of-columns"></a>Returnera delmängd av kolumner
+## <a name="returning-subset-of-columns"></a>Returnerar delmängd av kolumner
 
-Hittills har du angett CSV-filschemat med MED och lista alla kolumner. Du kan bara ange kolumner som du faktiskt behöver i frågan med hjälp av ett ordningstal för varje kolumn som behövs. Du utelämnar också kolumner utan intresse.
+Hittills har du angett CSV-filschemat med med och visar alla kolumner. Du kan bara ange kolumner som du faktiskt behöver i frågan genom att använda ett ordnings tal för varje kolumn som behövs. Du kommer också att utelämna kolumner utan intresse.
 
-Följande fråga returnerar antalet olika landsnamn i en fil och anger bara de kolumner som behövs:
+Följande fråga returnerar antalet distinkta lands namn i en fil och anger bara de kolumner som behövs:
 
 > [!NOTE]
-> Ta en titt på WITH-satsen i frågan nedan och notera att det finns "2" (utan citattecken) i slutet av raden där du definierar kolumnen *[country_name].* Det betyder att kolumnen *[country_name]* är den andra kolumnen i filen. Frågan ignorerar alla kolumner i filen utom den andra.
+> Ta en titt på WITH-satsen i frågan nedan och Observera att det finns "2" (utan citat tecken) i slutet av raden där du definierar kolumnen *[country_name]* . Det innebär att kolumnen *[country_name]* är den andra kolumnen i filen. Frågan kommer att ignorera alla kolumner i filen förutom den andra.
 
 ```sql
 SELECT
@@ -234,7 +234,7 @@ WITH (
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nästa artiklar visar hur du:
+I nästa artiklar visas hur du:
 
-- [Fråga parettfiler](query-parquet-files.md)
+- [Fråga Parquet-filer](query-parquet-files.md)
 - [Fråga mappar och flera filer](query-folders-multiple-csv-files.md)

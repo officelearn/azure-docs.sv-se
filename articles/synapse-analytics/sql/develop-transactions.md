@@ -1,6 +1,6 @@
 ---
 title: Använda transaktioner
-description: Tips för att implementera transaktioner i SQL-pool (informationslager) för att utveckla lösningar.
+description: Tips för att implementera transaktioner i SQL-poolen (informations lager) för att utveckla lösningar.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,90 +11,90 @@ ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 9b9ce5110a03ec4d67b3e8af6d9b18e5ad6836af
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81428724"
 ---
 # <a name="using-transactions-in-sql-pool"></a>Använda transaktioner i SQL-pool
 
-Tips för att implementera transaktioner i SQL-pool (informationslager) för att utveckla lösningar.
+Tips för att implementera transaktioner i SQL-poolen (informations lager) för att utveckla lösningar.
 
-## <a name="what-to-expect"></a>Vad du kan förvänta dig
+## <a name="what-to-expect"></a>Vad som ska förväntas
 
-Som du förväntar dig stöder SQL-poolen transaktioner som en del av datalagerarbetsbelastningen. För att säkerställa att sql-poolens prestanda bibehålls i stor skala är vissa funktioner begränsade jämfört med SQL Server. I den här artikeln belysers skillnaderna och listar de andra.
+Som förväntat stöder SQL-poolen transaktioner som en del av arbets belastningen för data lagret. Men för att säkerställa att SQL-poolens prestanda upprätthålls i skala är vissa funktioner begränsade jämfört med SQL Server. I den här artikeln beskrivs skillnaderna och en lista över de andra.
 
-## <a name="transaction-isolation-levels"></a>Isoleringsnivåer för transaktioner
+## <a name="transaction-isolation-levels"></a>Transaktions isolerings nivåer
 
-SQL-poolen implementerar ACID-transaktioner. Isoleringsnivån för transaktionsstödet är standard för READ UNCOMMITTED.  Du kan ändra den till LÄS COMMITTED SNAPSHOT ISOLATION genom att aktivera READ_COMMITTED_SNAPSHOT databasalternativet för en användardatabas när den är ansluten till huvuddatabasen.  
+SQL-poolen implementerar syror-transaktioner. Isolerings nivån för transaktions stödet är som standard SKRIVSKYDDad.  Du kan ändra den för att läsa en ISOLERAd ÖGONBLICKs bild isolering genom att aktivera READ_COMMITTED_SNAPSHOT databas alternativ för en användar databas när du är ansluten till huvud databasen.  
 
-När det har aktiverats körs alla transaktioner i den här databasen under LÄS COMMITTED SNAPSHOT ISOLATION och inställningen READ UNCOMMITTED på sessionsnivå kommer inte att uppfyllas. Mer information finns [i alter database set-alternativ (Transact-SQL).](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)
+När den är aktive rad körs alla transaktioner i den här databasen under den SKRIVSKYDDade ÖGONBLICKs bild ISOLERINGen och inställningen Läs upp ej ALLOKERAd på sessions nivå kommer inte att ske. Se [Alter Database set Options (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) för mer information.
 
-## <a name="transaction-size"></a>Transaktionsstorlek
-En enda dataändringstransaktion är begränsad i storlek. Gränsen tillämpas per fördelning. Därför kan den totala allokeringen beräknas genom att multiplicera gränsen med fördelningsantalet. 
+## <a name="transaction-size"></a>Transaktions storlek
+En enda data ändrings transaktion är begränsad i storlek. Gränsen tillämpas per distribution. Den totala allokeringen kan därför beräknas genom att gränsen multipliceras med antalet distributioner. 
 
-Om du vill approximera det maximala antalet rader i transaktionen dividerar du distributionstaket med den totala storleken på varje rad. För kolumner med variabel längd bör du överväga att ta en genomsnittlig kolumnlängd i stället för att använda den maximala storleken.
+Om du vill approximera det maximala antalet rader i transaktionen dividerar du distributions gränsen med den totala storleken på varje rad. För kolumner med varierande längd kan du ta en genomsnittlig kolumn längd i stället för att använda den maximala storleken.
 
 I tabellen nedan har följande antaganden gjorts:
 
-* En jämn fördelning av data har skett
-* Den genomsnittliga radlängden är 250 byte
+* En jämn fördelning av data har inträffat
+* Den genomsnittliga rad längden är 250 byte
 
-## <a name="gen2"></a>Gen2 (På andra)
+## <a name="gen2"></a>Gen2
 
-| [DWU](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Tak per fördelning (GB) | Antal fördelningar | MAX transaktionsstorlek (GB) | # Rader per fördelning | Max rader per transaktion |
+| [DWU](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Cap per distribution (GB) | Antal distributioner | MAXIMAL transaktions storlek (GB) | Antal rader per distribution | Maximalt antal rader per transaktion |
 | --- | --- | --- | --- | --- | --- |
-| DW100c (på andra) |1 |60 |60 |4,000,000 |240,000,000 |
-| DW200c (på andra) |1.5 |60 |90 |6,000,000 |360,000,000 |
-| DW300c (på andra) |2.25 |60 |135 |9,000,000 |540,000,000 |
-| DW400c (på andra) |3 |60 |180 |12,000,000 |720,000,000 |
-| DW500c |3.75 |60 |225 |15,000,000 |900,000,000 |
-| DW1000c |7.5 |60 |450 |30,000,000 |1,800,000,000 |
-| DW1500c |11.25 |60 |675 |45,000,000 |2,700,000,000 |
-| DW2000c |15 |60 |900 |60,000,000 |3,600,000,000 |
-| DW2500c |18.75 |60 |1125 |75,000,000 |4,500,000,000 |
-| DW3000c |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
-| DW5000c |37.5 |60 |2,250 |150,000,000 |9,000,000,000 |
-| DW6000c |45 |60 |2,700 |180,000,000 |10,800,000,000 |
-| DW7500c |56.25 |60 |3,375 |225,000,000 |13,500,000,000 |
-| DW10000c |75 |60 |4 500 |300,000,000 |18,000,000,000 |
-| DW15000c |112.5 |60 |6 750 |450,000,000 |27,000,000,000 |
-| DW30000c |225 |60 |13,500 |900,000,000 |54,000,000,000 |
+| DW100c |1 |60 |60 |4 000 000 |240 000 000 |
+| DW200c |1.5 |60 |90 |6,000,000 |360 000 000 |
+| DW300c |2.25 |60 |135 |9 000 000 |540 000 000 |
+| DW400c |3 |60 |180 |12 000 000 |720 000 000 |
+| DW500c |3.75 |60 |225 |15 000 000 |900 000 000 |
+| DW1000c |7.5 |60 |450 |30 000 000 |1 800 000 000 |
+| DW1500c |11,25 |60 |675 |45 000 000 |2 700 000 000 |
+| DW2000c |15 |60 |900 |60 000 000 |3 600 000 000 |
+| DW2500c |18,75 |60 |1125 |75 000 000 |4 500 000 000 |
+| DW3000c |22,5 |60 |1 350 |90 000 000 |5 400 000 000 |
+| DW5000c |37,5 |60 |2 250 |150 000 000 |9 000 000 000 |
+| DW6000c |45 |60 |2 700 |180 000 000 |10 800 000 000 |
+| DW7500c |56,25 |60 |3 375 |225 000 000 |13 500 000 000 |
+| DW10000c |75 |60 |4 500 |300,000,000 |18 000 000 000 |
+| DW15000c |112,5 |60 |6 750 |450 000 000 |27 000 000 000 |
+| DW30000c |225 |60 |13 500 |900 000 000 |54 000 000 000 |
 
-## <a name="gen1"></a>Gen1 (På andra)
+## <a name="gen1"></a>Gen1
 
-| [DWU](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Tak per fördelning (GB) | Antal fördelningar | MAX transaktionsstorlek (GB) | # Rader per fördelning | Max rader per transaktion |
+| [DWU](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Cap per distribution (GB) | Antal distributioner | MAXIMAL transaktions storlek (GB) | Antal rader per distribution | Maximalt antal rader per transaktion |
 | --- | --- | --- | --- | --- | --- |
-| DW100 (PÅ) |1 |60 |60 |4,000,000 |240,000,000 |
-| DW200 (PÅ) |1.5 |60 |90 |6,000,000 |360,000,000 |
-| DW300 |2.25 |60 |135 |9,000,000 |540,000,000 |
-| DW400 |3 |60 |180 |12,000,000 |720,000,000 |
-| DW500 (PÅ) |3.75 |60 |225 |15,000,000 |900,000,000 |
-| DW600 |4.5 |60 |270 |18,000,000 |1,080,000,000 |
-| DW1000 |7.5 |60 |450 |30,000,000 |1,800,000,000 |
-| DW1200 |9 |60 |540 |36,000,000 |2,160,000,000 |
-| DW1500 |11.25 |60 |675 |45,000,000 |2,700,000,000 |
-| DW2000 |15 |60 |900 |60,000,000 |3,600,000,000 |
-| DW3000 |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
-| DW6000 |45 |60 |2,700 |180,000,000 |10,800,000,000 |
+| DW100 |1 |60 |60 |4 000 000 |240 000 000 |
+| DW200 kl |1.5 |60 |90 |6,000,000 |360 000 000 |
+| DW300 |2.25 |60 |135 |9 000 000 |540 000 000 |
+| DW400 |3 |60 |180 |12 000 000 |720 000 000 |
+| DW500 |3.75 |60 |225 |15 000 000 |900 000 000 |
+| DW600 |4,5 |60 |270 |18 000 000 |1 080 000 000 |
+| DW1000 |7.5 |60 |450 |30 000 000 |1 800 000 000 |
+| DW1200 |9 |60 |540 |36 000 000 |2 160 000 000 |
+| DW1500 |11,25 |60 |675 |45 000 000 |2 700 000 000 |
+| DW2000 |15 |60 |900 |60 000 000 |3 600 000 000 |
+| DW3000 |22,5 |60 |1 350 |90 000 000 |5 400 000 000 |
+| DW6000 |45 |60 |2 700 |180 000 000 |10 800 000 000 |
 
-Transaktionsstorleksgränsen tillämpas per transaktion eller åtgärd. Det tillämpas inte över alla samtidiga transaktioner. Därför är varje transaktion tillåten att skriva denna mängd data till loggen.
+Transaktions storleks gränsen tillämpas per transaktion eller åtgärd. Den används inte för alla samtidiga transaktioner. Varje transaktion tillåts därför att skriva denna data mängd till loggen.
 
-Om du vill optimera och minimera mängden data som skrivs till loggen läser du artikeln Om bästa praxis för transaktioner finns i artikeln För bästa praxis för [transaktioner.](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+Information om hur du optimerar och minimerar mängden data som skrivs till loggen finns i artikeln [metod tips för transaktioner](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) .
 
 > [!WARNING]
-> Den maximala transaktionsstorleken kan endast uppnås för HASH eller ROUND_ROBIN distribuerade tabeller där spridningen av data är jämn. Om transaktionen skriver data på ett skevt sätt till distributionerna kommer gränsen sannolikt att nås före den maximala transaktionsstorleken.
+> Den maximala transaktions storleken kan bara uppnås för HASH-värden eller ROUND_ROBIN distribuerade tabeller där data spridningen är jämnt. Om transaktionen skriver data i ett skevat sätt till distributionerna, kommer gränsen att nås före den maximala transaktions storleken.
 > <!--REPLICATED_TABLE-->
 
-## <a name="transaction-state"></a>Transaktionstillstånd
+## <a name="transaction-state"></a>Transaktions tillstånd
 
-SQL-poolen använder funktionen XACT_STATE() för att rapportera en misslyckad transaktion med värdet -2. Det här värdet innebär att transaktionen har misslyckats och markeras endast för återställning.
+SQL-poolen använder funktionen XACT_STATE () för att rapportera en misslyckad transaktion med värdet-2. Det här värdet innebär att transaktionen har misslyckats och bara har marker ATS för återställning.
 
 > [!NOTE]
-> Användningen av -2 av funktionen XACT_STATE för att beteckna en misslyckad transaktion representerar ett annat beteende än SQL Server. SQL Server använder värdet -1 för att representera en transaktion som inte kan tillskrivas. SQL Server kan tolerera vissa fel i en transaktion utan att den behöver markeras som oförsändbar. Skulle `SELECT 1/0` till exempel orsaka ett fel men inte tvinga en transaktion till ett okommissabelt tillstånd. SQL Server tillåter också läsningar i den icke-kommitterbara transaktionen. Sql-poolen låter dig dock inte göra detta. Om ett fel uppstår i en SQL-pooltransaktion kommer den automatiskt att ange -2-tillståndet och du kommer inte att kunna göra några ytterligare urvalssatser förrän uttrycket har återställts. Det är därför viktigt att kontrollera att din programkod för att se om den använder XACT_STATE() eftersom du kan behöva göra kodändringar.
+> Användningen av-2 i XACT_STATE-funktionen för att beteckna en misslyckad transaktion representerar olika beteenden för SQL Server. SQL Server använder värdet-1 för att representera en allokerad-transaktion. SQL Server kan tolerera fel i en transaktion utan att den måste markeras som allokerad. Till exempel `SELECT 1/0` skulle orsaka ett fel, men inte framtvinga en transaktion i ett allokerad-tillstånd. SQL Server tillåter också läsningar i allokerad-transaktionen. SQL-poolen tillåter dock inte detta. Om ett fel uppstår i en transaktion i SQL-poolen, anges-2-tillstånd automatiskt och du kan inte göra några fler SELECT-instruktioner förrän instruktionen har återställts. Det är därför viktigt att kontrol lera att program koden för att se om den använder XACT_STATE () som du kan behöva göra kod ändringar.
 
-I SQL Server kan du till exempel se en transaktion som ser ut så här:
+I SQL Server kan du till exempel se en transaktion som ser ut ungefär så här:
 
 ```sql
 SET NOCOUNT ON;
@@ -132,13 +132,13 @@ END
 SELECT @xact_state AS TransactionState;
 ```
 
-Den föregående koden ger följande felmeddelande:
+Föregående kod ger följande fel meddelande:
 
-Msg 111233, nivå 16, stat 1, linje 1 111233; Den aktuella transaktionen har avbrutits och alla väntande ändringar har återställts. Orsak: En transaktion i ett återställningstillstånd återställdes inte uttryckligen före en DDL-, DML- eller SELECT-sats.
+MSG 111233, nivå 16, tillstånd 1, rad 1 111233; Den aktuella transaktionen har avbrutits och alla väntande ändringar har återställts. Orsak: en transaktion i ett återställnings tillstånd återställs inte explicit före en DDL-, DML-eller SELECT-instruktion.
 
-Du får inte utdata från ERROR_*-funktionerna.
+Du får inte utdata från ERROR_ * functions.
 
-I SQL-poolen måste koden ändras något:
+I SQL-poolen behöver koden ändras till något av följande:
 
 ```sql
 SET NOCOUNT ON;
@@ -175,21 +175,21 @@ END
 SELECT @xact_state AS TransactionState;
 ```
 
-Det förväntade beteendet observeras nu. Felet i transaktionen hanteras och ERROR_*-funktionerna ger värden som förväntat.
+Det förväntade beteendet observeras nu. Felet i transaktionen hanteras och ERROR_ *-funktioner ger värden som förväntat.
 
-Allt som har ändrats är att rollback för transaktionen måste ske innan läsningen av felinformationen i CATCH-blocket.
+Allt som har ändrats är att återställningen av transaktionen måste ske innan fel informationen i CATCH-blocket lästes.
 
-## <a name="error_line-function"></a>Error_Line() funktion
+## <a name="error_line-function"></a>Error_Line ()-funktionen
 
-Det är också värt att notera att SQL-poolen inte implementerar eller stöder funktionen ERROR_LINE(). Om du har detta i koden måste du ta bort det för att vara kompatibel med SQL-poolen. Använd frågeetiketter i koden i stället för att implementera motsvarande funktioner. Mer information finns i [label-artikeln.](develop-label.md)
+Det är också värt att notera att SQL-poolen inte implementerar eller stöder funktionen ERROR_LINE (). Om du har det här i din kod måste du ta bort den för att vara kompatibel med SQL-poolen. Använd fråge etiketter i koden i stället för att implementera motsvarande funktioner. Mer information finns i artikeln om [Etiketter](develop-label.md) .
 
 ## <a name="using-throw-and-raiserror"></a>Använda THROW och RAISERROR
 
-THROW är den modernare implementeringen för att höja undantagen i SQL-poolen, men RAISERROR stöds också. Det finns några skillnader som är värda att uppmärksamma dock.
+THROW är den mer moderna implementeringen för att generera undantag i SQL-poolen, men RAISERROR stöds också. Det finns några skillnader som är intressanta att betala.
 
-* Användardefinierade felmeddelandenummer kan inte finnas i intervallet 100 000 - 150 000 för THROW
-* RAISERROR-felmeddelanden är fixerade till 50 000
-* Användning av sys.messages stöds inte
+* Användardefinierade fel meddelande nummer får inte ligga inom intervallet 100 000-150 000 för THROW
+* RAISERROR fel meddelanden åtgärdas med 50 000
+* Det finns inte stöd för användning av sys. Messages
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -199,11 +199,11 @@ Det här är skillnaderna:
 
 * Inga distribuerade transaktioner
 * Inga kapslade transaktioner tillåts
-* Inga sparpoäng tillåtna
+* Inga sparade punkter tillåts
 * Inga namngivna transaktioner
 * Inga markerade transaktioner
-* Inget stöd för DDL, till exempel SKAPA TABELL i en användardefinierad transaktion
+* Inget stöd för DDL, till exempel CREATE TABLE i en användardefinierad transaktion
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du optimerar transaktioner finns i [Metodtips för transaktioner](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Ytterligare metodtipsguider finns också för [SQL-pool](best-practices-sql-pool.md) och [SQL on-demand (förhandsversion).](on-demand-workspace-overview.md)
+Mer information om hur du optimerar transaktioner finns i [metod tips för transaktioner](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Ytterligare metod tips finns också för SQL- [poolen](best-practices-sql-pool.md) och [SQL på begäran (för hands version)](on-demand-workspace-overview.md).

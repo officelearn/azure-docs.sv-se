@@ -1,6 +1,6 @@
 ---
-title: Övervaka pipeline kör Azure Synapse Studio (förhandsversion)
-description: Använd Azure Synapse Studio för att övervaka dina arbetsytepipelplatser.
+title: Övervaka pipeline kör Azure Synapse Studio (för hands version)
+description: Använd Azure Synapse Studio för att övervaka pipeline-körningar i arbets ytan.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
@@ -9,46 +9,46 @@ ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
 ms.openlocfilehash: 712dc62e29229f03dec12afdf18edbf55667dbdf
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430791"
 ---
-# <a name="use-azure-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Använda Azure Synapse Studio för att övervaka dina arbetsytepipellinekörningar
+# <a name="use-azure-synapse-studio-to-monitor-your-workspace-pipeline-runs"></a>Använd Azure Synapse Studio för att övervaka pipeline-körningar i arbets ytan
 
-Med Azure Synapse Analytics kan du skapa komplexa pipelines som kan automatisera och dirigera dataförflyttningar, dataomvandling och beräkningsaktiviteter i din lösning. Du kan skapa och övervaka dessa pipelines med Hjälp av Azure Synapse Studio (förhandsversion).
+Med Azure Synapse Analytics kan du skapa komplexa pipelines som kan automatisera och dirigera din data förflyttning, data omvandling och beräknings aktiviteter i din lösning. Du kan skapa och övervaka dessa pipeliner med Azure Synapse Studio (för hands version).
 
-I den här artikeln beskrivs hur du övervakar dina pipeline-körningar, vilket gör att du kan hålla ett öga på den senaste statusen, problemen och förloppet för dina pipelines.
+Den här artikeln förklarar hur du övervakar dina pipeline-körningar, vilket gör att du kan hålla koll på den senaste statusen, problemen och förloppet för dina pipeliner.
 
-## <a name="access-the-list-of-pipeline-runs"></a>Få tillgång till listan över pipelinekörningar
+## <a name="access-the-list-of-pipeline-runs"></a>Åtkomst till listan över pipeline-körningar
 
-Om du vill se listan över pipeline-körningar på arbetsytan öppnar du först [Azure Synapse Studio](https://web.azuresynapse.net/) och väljer arbetsyta.
+Om du vill se en lista över pipelines körs i din arbets yta [öppnar du först Azure Synapse Studio](https://web.azuresynapse.net/) och väljer din arbets yta.
 
-![Logga in på arbetsytan](./media/common/login-workspace.png)
+![Logga in på arbets ytan](./media/common/login-workspace.png)
 
-När du har öppnat arbetsytan väljer du avsnittet **Bildskärm** till vänster.
+När du har öppnat din arbets yta väljer du avsnittet **övervaka** till vänster.
 
-![Välj övervakarnav](./media/common/left-nav.png)
+![Välj övervaka hubb](./media/common/left-nav.png)
 
-Välj **Pipeline körs** om du vill visa listan över pipeline-körningar.
+Välj **pipeline-körningar** om du vill visa listan över pipeliner som körs.
 
 ![Välj pipeline-körningar](./media/how-to-monitor-pipeline-runs/monitor-hub-nav-pipelineruns.png)
 
-## <a name="filtering-your-pipeline-runs"></a>Filtrera dina pipeline-körningar
+## <a name="filtering-your-pipeline-runs"></a>Filtrering av pipelines körningar
 
-Du kan filtrera listan över pipelinekörningar till de som du är intresserad av. Med filtren högst upp på skärmen kan du ange ett fält som du vill filtrera mellan.
+Du kan filtrera listan över pipelines som körs till de som du är intresse rad av. Med filtren längst upp på skärmen kan du ange ett fält som du vill filtrera.
 
-Du kan till exempel filtrera vyn så att endast pipeline-körningarna för pipelinen med namnet "helgdag" visas:
+Du kan till exempel filtrera vyn om du bara vill se pipelinen för pipelinen med namnet "helgdag":
 
-![Knappen Filter](./media/common/filter-button.png)
+![Knappen Filtrera](./media/common/filter-button.png)
 
-![Exempelfilter](./media/how-to-monitor-pipeline-runs/filter-example.png)
+![Exempel filter](./media/how-to-monitor-pipeline-runs/filter-example.png)
 
-## <a name="viewing-details-about-a-specific-pipeline-run"></a>Visa information om en viss pipelinekörning
+## <a name="viewing-details-about-a-specific-pipeline-run"></a>Visa information om en speciell pipeline-körning
 
-Om du vill visa information om pipeline-körningen väljer du pipeline-körningen. Visa sedan aktivitetskörningar som är associerade med pipelinekörningen. Om pipelinen fortfarande körs kan du övervaka förloppet. 
+Om du vill visa information om din pipeline-körning väljer du pipeline-körningen. Visa sedan de aktivitets körningar som är associerade med pipeline-körningen. Om pipelinen fortfarande körs kan du övervaka förloppet. 
   
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om övervakningsprogram finns i artikeln [Övervaka Apache Spark-program.](how-to-monitor-spark-applications.md) 
+Mer information om övervakning av program finns i artikeln [övervaka Apache Spark program](how-to-monitor-spark-applications.md) . 

@@ -1,6 +1,6 @@
 ---
 title: T-SQL-vyer med Synapse SQL
-description: Tips om hur du använder T-SQL-vyer och utvecklar lösningar med Synapse SQL.
+description: Tips för att använda T-SQL-vyer och utveckla lösningar med Synapse SQL.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,34 +10,34 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: 3a073c9539f2fb996ae59ef513525c217170f2e7
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81428659"
 ---
 # <a name="t-sql-views-using-synapse-sql"></a>T-SQL-vyer med Synapse SQL
-I den här artikeln hittar du tips om hur du använder T-SQL-vyer och utvecklar lösningar med Synapse SQL. 
+I den här artikeln hittar du tips för att använda T-SQL-vyer och utveckla lösningar med Synapse SQL. 
 
-## <a name="why-use-views"></a>Varför använda vyer?
+## <a name="why-use-views"></a>Varför ska jag använda vyer?
 
-Vyer kan användas på ett antal olika sätt för att förbättra kvaliteten på din lösning.  Den här artikeln belyser några exempel på hur du kan berika din lösning med vyer och innehåller de begränsningar som måste beaktas.
+Vyer kan användas på ett antal olika sätt för att förbättra kvaliteten på din lösning.  I den här artikeln beskrivs några exempel på hur du kan utöka din lösning med vyer och innehåller de begränsningar som måste beaktas.
 
-### <a name="sql-pool---create-view"></a>SQL pool - skapa vy
-
-> [!NOTE]
-> **SQL-pool**: Syntax för SKAPA VY beskrivs inte i den här artikeln. Mer information finns i [DOKUMENTATIONEN SKAPA VY.](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-
-### <a name="sql-on-demand-preview---create-view"></a>SQL on-demand (förhandsgranskning) - skapa vy
+### <a name="sql-pool---create-view"></a>SQL-pool – skapa vy
 
 > [!NOTE]
-> **SQL on-demand**: Syntax för SKAPA-VY beskrivs inte i den här artikeln. Mer information finns i [DOKUMENTATIONEN SKAPA VY.](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+> **SQL-pool**: syntaxen för Create View beskrivs inte i den här artikeln. Mer information finns i dokumentationen för att [Skapa vy](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) .
 
-## <a name="architectural-abstraction"></a>Arkitektonisk abstraktion
+### <a name="sql-on-demand-preview---create-view"></a>SQL på begäran (för hands version) – skapa vy
 
-Ett vanligt programmönster är att återskapa tabeller med [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (CTAS), som följs av ett objekt som byter namn på mönster när data läses in.
+> [!NOTE]
+> **SQL på begäran**: syntaxen för Create View beskrivs inte i den här artikeln. Mer information finns i dokumentationen för att [Skapa vy](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) .
 
-I följande exempel läggs nya datumposter till i en datumdimension. Observera hur en ny tabell, DimDate_New, först skapas och sedan byter namn för att ersätta den ursprungliga versionen av tabellen.
+## <a name="architectural-abstraction"></a>Arkitektur abstraktion
+
+Ett vanligt program mönster är att återskapa tabeller med [CREATE TABLE som Select](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (CTAS), som följs av ett objekt som byter namn på ett mönster när data läses in.
+
+I följande exempel läggs nya datum poster till i en datum dimension. Observera att en ny tabell, DimDate_New, först skapas och sedan byter namn till den ursprungliga versionen av tabellen.
 
 ```sql
 CREATE TABLE dbo.DimDate_New
@@ -57,29 +57,29 @@ RENAME OBJECT DimDate_New TO DimDate;
 
 ```
 
-Tänk på att den här metoden kan leda till att tabeller visas och försvinner från en användares vy och uppmanar felmeddelanden om att "tabellen inte finns". Vyer kan användas för att ge användarna ett konsekvent presentationslager medan de underliggande objekten byter namn.
+Tänk på att den här metoden kan resultera i att tabeller visas och visas i en användares vy, och meddelande om att tabellen inte finns i fel meddelanden. Vyer kan användas för att ge användare ett konsekvent presentations lager medan de underliggande objekten byter namn.
 
-Genom att ge åtkomst till data via vyer behöver användarna inte synlighet för de underliggande tabellerna. Förutom en konsekvent användarupplevelse säkerställer det här lagret att analysdesigners kan utveckla datamodellen. Möjligheten att utveckla de underliggande tabellerna innebär att designers kan använda CTAS för att maximera prestanda under datainläsningsprocessen.
+Genom att ge åtkomst till data via vyer behöver användarna inte insyn i de underliggande tabellerna. Förutom en konsekvent användar upplevelse ser det här lagret till att Analytics designers kan utveckla data modellen. Möjligheten att utveckla de underliggande tabellerna innebär att designers kan använda CTAS för att maximera prestanda under inläsningen av data.
 
 ## <a name="performance-optimization"></a>Prestandaoptimering
 
-Vyer kan också användas för att framtvinga prestandaoptimerade kopplingar mellan tabeller. En vy kan till exempel innehålla en redundant distributionsnyckel som en del av kopplingskriterierna för att minimera dataflyttning.
+Vyer kan också användas för att upprätthålla prestanda optimerade kopplingar mellan tabeller. En vy kan till exempel innehålla en redundant distributions nyckel som en del av villkoren för att minimera data flytten.
 
-Att tvinga fram en specifik fråga eller gå med tips är en annan fördel med att använda T-SQL-vyer. Därför säkerställer vyfunktionen att kopplingar alltid utförs på ett optimalt sätt. Du undviker behovet av att användarna kommer ihåg rätt konstruktion för sina kopplingar.
+Att tvinga fram en viss fråga eller ett kopplings tips är en annan fördel med T-SQL-vyer. Det innebär att funktionerna för vyer säkerställer att kopplingar alltid utförs på ett optimalt sätt. Du undviker att användarna måste komma ihåg rätt konstruktion för deras kopplingar.
 
 ## <a name="limitations"></a>Begränsningar
 
-Vyer i Synapse SQL lagras bara som metadata. Därför är följande alternativ inte tillgängliga:
+Vyer i Synapse SQL lagras endast som metadata. Det innebär att följande alternativ inte är tillgängliga:
 
-* Det finns inget schemabindningsalternativ
-* Bastabeller kan inte uppdateras via vyn
+* Det finns inget schema bindnings alternativ
+* Bas tabeller kan inte uppdateras via vyn
 * Det går inte att skapa vyer över temporära tabeller
-* Det finns inget stöd för EXPAND / NOEXPAND tips
+* Det finns inget stöd för utöknings-och NOEXPAND-tips
 * Det finns inga indexerade vyer i Synapse SQL
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fler utvecklingstips finns i [Synapse SQL-utvecklingsöversikt](develop-overview.md).
+Mer utvecklings tips finns i [Översikt över SYNAPSE SQL-utveckling](develop-overview.md).
 
 
 

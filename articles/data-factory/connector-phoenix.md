@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från Phoenix med Azure Data Factory
-description: Lär dig hur du kopierar data från Phoenix till sink-datalager som stöds med hjälp av en kopieringsaktivitet i en Azure Data Factory-pipeline.
+title: Kopiera data från Phoenix med hjälp av Azure Data Factory
+description: Lär dig hur du kopierar data från Phoenix till mottagar data lager som stöds genom att använda en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,27 +12,27 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: d236b9f8800b644a0aa51597d01df1c1442475ac
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416780"
 ---
-# <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Kopiera data från Phoenix med Azure Data Factory 
+# <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Kopiera data från Phoenix med hjälp av Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från Phoenix. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från Phoenix. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här Phoenix-kopplingen stöds för följande aktiviteter:
+Den här Phoenix-anslutningen stöds för följande aktiviteter:
 
-- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
-- [Uppslagsaktivitet](control-flow-lookup-activity.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
+- [Söknings aktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från Phoenix till alla sink-datalager som stöds. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
+Du kan kopiera data från Phoenix till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, därför behöver du inte installera någon drivrutin manuellt med den här anslutningen.
+Azure Data Factory innehåller en inbyggd driv rutin som möjliggör anslutning, och du behöver därför inte installera någon driv rutin manuellt med hjälp av den här anslutningen.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -42,30 +42,30 @@ Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslu
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-I följande avsnitt finns information om egenskaper som används för att definiera datafabrikentiteter som är specifika för Phoenix-anslutningsappen.
+I följande avsnitt finns information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Phoenix-anslutaren.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
-Följande egenskaper stöds för Phoenix-länkade tjänst:
+Följande egenskaper stöds för den länkade tjänsten i Linköping:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **Phoenix** | Ja |
-| värd | IP-adressen eller värdnamnet för Phoenix-servern. (det vill än 192.168.222.160)  | Ja |
-| port | TCP-porten som Phoenix-servern använder för att lyssna efter klientanslutningar. Standardvärdet är 8765. Om du ansluter till Azure HDInsights anger du porten som 443. | Inga |
-| httpPath (på ett sätt) | Den partiella URL som motsvarar Phoenix-servern. (det vill vara/ gateway/sandbox/phoenix/version). Ange `/hbasephoenix0` om du använder HDInsights-klustret.  | Inga |
-| authenticationType | Autentiseringsmekanismen som används för att ansluta till Phoenix-servern. <br/>Tillåtna värden är: **Anonym**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
-| användarnamn | Användarnamnet som används för att ansluta till Phoenix-servern.  | Inga |
-| password | Lösenordet som motsvarar användarnamnet. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
-| enableSsl enableSsl enableSsl enableS | Anger om anslutningarna till servern är krypterade med TLS. Standardvärdet är false.  | Inga |
-| betroddaCertPath | Den fullständiga sökvägen till PEM-filen som innehåller betrodda certifikatutfärdare för att verifiera servern när du ansluter via TLS. Den här egenskapen kan bara ställas in när du använder TLS på självvärdbaserad IR. The default value is the cacerts.pem file installed with the IR.  | Inga |
-| användaSystemTrustStore | Anger om ett CERTIFIKAT FRÅN systemförtroendearkivet eller från en angiven PEM-fil ska användas. Standardvärdet är false.  | Inga |
-| allowHostNameCNMismatch | Anger om ett certifikatutfärdat TLS/SSL-certifikatnamn ska krävas för att matcha serverns värdnamn när du ansluter via TLS. Standardvärdet är false.  | Inga |
-| tillåtVälsignedServerCert | Anger om självsignerade certifikat ska tillåtas från servern. Standardvärdet är false.  | Inga |
-| connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Läs mer från avsnittet [Förutsättningar.](#prerequisites) Om det inte anges används standardkörningen för Azure Integration. |Inga |
+| värd | IP-adressen eller värd namnet för Phoenix-servern. (det vill säga 192.168.222.160)  | Ja |
+| port | Den TCP-port som Phoenix-servern använder för att lyssna efter klient anslutningar. Standardvärdet är 8765. Om du ansluter till Azure HDInsights anger du port som 443. | Nej |
+| httpPath | Den partiella URL som motsvarar Phoenix-servern. (det vill säga/Gateway/sandbox/Phoenix/version). Ange `/hbasephoenix0` om du använder HDInsights-kluster.  | Nej |
+| authenticationType | Den autentiseringsmekanism som används för att ansluta till Phoenix-servern. <br/>Tillåtna värden är: **Anonym**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
+| användarnamn | Det användar namn som används för att ansluta till Phoenix-servern.  | Nej |
+| password | Lösen ordet som motsvarar användar namnet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| enableSsl | Anger om anslutningarna till servern är krypterade med TLS. Standardvärdet är false.  | Nej |
+| trustedCertPath | Den fullständiga sökvägen till. pem-filen som innehåller certifikat från betrodda certifikat utfärdare för att verifiera servern vid anslutning via TLS. Den här egenskapen kan bara anges när du använder TLS på IR med egen värd. Standardvärdet är den cacerts. PEM-fil som installeras med IR.  | Nej |
+| useSystemTrustStore | Anger om du vill använda ett CA-certifikat från systemets betrodda lager eller från en angiven PEM-fil. Standardvärdet är false.  | Nej |
+| allowHostNameCNMismatch | Anger om ett CA-utfärdat TLS/SSL-certifikat namn ska matcha värd namnet för servern vid anslutning via TLS. Standardvärdet är false.  | Nej |
+| allowSelfSignedServerCert | Anger om självsignerade certifikat ska tillåtas från servern. Standardvärdet är false.  | Nej |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Nej |
 
 >[!NOTE]
->Om klustret inte stöder klibbiga session `/hbasephoenix0` `/hbasephoenix`t.ex.
+>Om klustret inte har stöd för en svarsomgång, t. ex. HDInsight, lägger du uttryckligen till Node-index i slutet av inställningen för `/hbasephoenix0` http- `/hbasephoenix`sökvägen, t. ex. Ange i stället för.
 
 **Exempel:**
 
@@ -91,16 +91,16 @@ Följande egenskaper stöds för Phoenix-länkade tjänst:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningsartikeln.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Phoenix-datauppsättning.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Phoenix-datauppsättningen.
 
-Om du vill kopiera data från Phoenix anger du egenskapen Type för datauppsättningen till **PhoenixObject**. Följande egenskaper stöds:
+Om du vill kopiera data från Phoenix anger du egenskapen type för data uppsättningen till **PhoenixObject**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Datauppsättningens typegenskap måste ställas in på: **PhoenixObject** | Ja |
-| Schemat | Namnet på schemat. |Nej (om "fråga" i aktivitetskällan har angetts)  |
-| tabell | Tabellens namn. |Nej (om "fråga" i aktivitetskällan har angetts)  |
-| tableName | Namn på tabellen med schema. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` `table` och för ny arbetsbelastning. | Nej (om "fråga" i aktivitetskällan har angetts) |
+| typ | Data uppsättningens typ-egenskap måste anges till: **PhoenixObject** | Ja |
+| schema | Schemats namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
+| tabell | Tabellens namn. |Nej (om "fråga" i aktivitets källan har angetts)  |
+| tableName | Namnet på tabellen med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och `table` för nya arbets belastningar. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
 
@@ -121,16 +121,16 @@ Om du vill kopiera data från Phoenix anger du egenskapen Type för datauppsätt
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Phoenix-källan.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Phoenix-källan.
 
 ### <a name="phoenix-as-source"></a>Phoenix som källa
 
-Om du vill kopiera data från Phoenix anger du källtypen i kopieringsaktiviteten till **PhoenixSource**. Följande egenskaper stöds i källavsnittet för **kopieringsaktivitet:**
+Om du vill kopiera data från Phoenix anger du käll typen i kopierings aktiviteten till **PhoenixSource**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type property för kopians aktivitetskälla måste anges till: **PhoenixSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i datauppsättningen har angetts) |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **PhoenixSource** | Ja |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 
@@ -164,9 +164,9 @@ Om du vill kopiera data från Phoenix anger du källtypen i kopieringsaktivitete
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

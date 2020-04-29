@@ -1,6 +1,6 @@
 ---
 title: Användardefinierade scheman i Synapse SQL
-description: I avsnitten nedan hittar du olika tips om hur du använder T-SQL-användardefinierade scheman för att utveckla lösningar med Synapse SQL-funktionen i Azure Synapse Analytics.
+description: I avsnitten nedan hittar du olika tips för att använda användardefinierade SQL-scheman i T-SQL för att utveckla lösningar med Synapse SQL-funktionen i Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,49 +10,49 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: ac4753da1405fe6b8cd209bb4899192e9f317aa1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81428711"
 ---
 # <a name="user-defined-schemas-within-synapse-sql"></a>Användardefinierade scheman i Synapse SQL
 
-I avsnitten nedan hittar du olika tips om hur du använder T-SQL-användardefinierade scheman för att utveckla lösningar inom Synapse SQL.
+I avsnitten nedan hittar du olika tips för att använda användardefinierade scheman för T-SQL för att utveckla lösningar i Synapse SQL.
 
-## <a name="schemas-for-application-boundaries"></a>Scheman för programgränser
+## <a name="schemas-for-application-boundaries"></a>Scheman för program gränser
 
-Traditionell analysarkitektur använder ofta separata databaser för att skapa programgränser baserat på arbetsbelastning, domän eller säkerhet. En traditionell SQL Server-analysinfrastruktur kan till exempel innehålla en mellanlagringsdatabas, en analysdatabas och datamardatabaser. I den här topologin fungerar varje databas som en arbetsbelastning och säkerhetsgräns i arkitekturen.
+Traditionell analys arkitektur använder ofta separata databaser för att skapa program gränser utifrån arbets belastning, domän eller säkerhet. En traditionell SQL Server analys infrastruktur kan till exempel omfatta en mellanlagringsdatabas, en Analytics-databas och data mart databaser. I den här topologin fungerar varje databas som arbets belastning och säkerhets gränser i arkitekturen.
 
-I stället kör Synapse SQL hela analysarbetsbelastningen i en databas. Korsdatabaskopplingar är inte tillåtna. Synapse SQL förväntar sig att alla tabeller som används av distributionslagret ska lagras i en databas.
+I stället kör Synapse SQL hela analys arbets belastningen i en databas. Kopplingar mellan databaser är inte tillåtna. Synapse SQL förväntar sig att alla tabeller som används av lagret lagras i en databas.
 
 > [!NOTE]
-> SQL-pooler stöder inte korsdatabasfrågor av något slag. Därför måste analysimplementeringar som utnyttjar det här mönstret revideras. SQL on-demand (preview) stöder frågor över flera databaser.
+> SQL-pooler stöder inte kors databas frågor av någon typ. Därför måste analys implementeringar som använder det här mönstret ändras. SQL på begäran (för hands version) stöder kors databas frågor.
 
-## <a name="user-defined-schema-recommendations"></a>Användardefinierade schemarekommendationer
+## <a name="user-defined-schema-recommendations"></a>Användar definierade schema rekommendationer
 
-Här ingår rekommendationer för att konsolidera arbetsbelastningar, säkerhet, domäner och funktionsgränser med hjälp av användardefinierade scheman:
+Här följer rekommendationer för konsolidering av arbets belastningar, säkerhet, domän och funktionella gränser med hjälp av användardefinierade scheman:
 
-- Använd en databas för att köra hela analysarbetsbelastningen.
-- Konsolidera din befintliga analysmiljö så att den använder en databas.
-- Utnyttja **användardefinierade scheman** för att ange den gräns som tidigare implementerats med hjälp av databaser.
+- Använd en databas för att köra hela analys arbets belastningen.
+- Konsolidera din befintliga analys miljö för att använda en databas.
+- Använd **användardefinierade scheman** för att tillhandahålla den gräns som tidigare implementerats med hjälp av databaser.
 
-Om användardefinierade scheman inte har använts tidigare har du en ren griffeltavla. Använd det gamla databasnamnet som grund för dina användardefinierade scheman i Synapse SQL-databasen.
+Om användardefinierade scheman inte har använts tidigare har du en ren Skriv platta. Använd det gamla databas namnet som bas för dina användardefinierade scheman i Synapse SQL-databasen.
 
 Om scheman redan har använts har du några alternativ:
 
-- Ta bort äldre schemanamn och börja om från början
-- Behåll de äldre schemanamnen före väntande det äldre schemanamnet till tabellnamnet
-- Behåll de äldre schemanamnen genom att implementera vyer över tabellen i ett extra schema som återskapar den gamla schemastrukturen.
+- Ta bort de gamla schema namnen och börja om på nytt
+- Behåll gamla schema namn genom att vänta det gamla schema namnet till tabell namnet
+- Behåll gamla schema namn genom att implementera vyer över tabellen i ett extra schema, vilket skapar den gamla schema strukturen igen.
 
 > [!NOTE]
-> Vid första inspektionen kan alternativ 3 verka som det mest tilltalande valet. Vyerna skrivs bara i Synapse SQL. Alla data eller tabelländringar måste utföras mot bastabellen. Alternativ 3 introducerar också ett lager av vyer i ditt system. Du kanske vill ge detta ytterligare en tanke om du redan använder vyer i din arkitektur.
+> Vid första inspektion kan alternativ 3 verka som det mest tilltalande valet. Vyer är skrivskyddade i Synapse SQL. Data-eller tabell ändringar måste utföras mot bas tabellen. Alternativ 3 introducerar också ett lager med vyer i systemet. Du kanske vill ge ytterligare en tanke på att du redan använder vyer i din arkitektur.
 > 
 > 
 
 ### <a name="examples"></a>Exempel
 
-Implementera användardefinierade scheman baserat på databasnamn.
+Implementera användardefinierade scheman baserat på databas namn.
 
 ```sql
 CREATE SCHEMA [stg]; -- stg previously database name for staging database
@@ -70,7 +70,7 @@ CREATE TABLE [edw].[customer] -- create analytics tables in the edw schema
 );
 ```
 
-Behåll de äldre schemanamnen genom att vänta i väntan på dem till tabellnamnet. Använd scheman för arbetsbelastningsgränsen.
+Behåll gamla schema namn genom att vänta dem i tabell namnet. Använd scheman för arbets belastnings gränser.
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -88,7 +88,7 @@ CREATE TABLE [edw].[dim_customer] --pre-pend the old schema name to the table an
 );
 ```
 
-Behåll de äldre schemanamnen med hjälp av vyer.
+Behåll gamla schema namn med hjälp av vyer.
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -116,10 +116,10 @@ FROM    [edw].customer
 ```
 
 > [!NOTE]
-> Alla ändringar i schemastrategin kräver en granskning av databasens säkerhetsmodell. I många fall kanske du kan förenkla säkerhetsmodellen genom att tilldela behörigheter på schemanivå.
+> Alla ändringar i schema strategin kräver en granskning av databasens säkerhets modell. I många fall kanske du kan förenkla säkerhets modellen genom att tilldela behörigheter på schema nivå.
 
-Om fler detaljerade behörigheter krävs kan du använda databasroller. Mer information om databasroller finns i artikeln [Hantera databasroller och användare.](../../analysis-services/analysis-services-database-users.md)
+Om mer detaljerade behörigheter krävs kan du använda databas roller. Mer information om databas roller finns i artikeln [Hantera databas roller och användare](../../analysis-services/analysis-services-database-users.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fler utvecklingstips finns i [Synapse SQL-utvecklingsöversikt](develop-overview.md).
+Mer utvecklings tips finns i [Översikt över SYNAPSE SQL-utveckling](develop-overview.md).

@@ -11,67 +11,67 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 33e3bc13e67e268b82bf517033b4b1c7c51c361f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430895"
 ---
 # <a name="authentication-requests-and-responses"></a>Autentisering, begäranden och svar
 
-Azure Key Vault stöder JSON-formaterade begäranden och svar. Begäranden till Azure Key Vault dirigeras till en giltig Azure Key Vault-URL med HTTPS med vissa URL-parametrar och JSON-kodade begärande- och svarsorgan.
+Azure Key Vault stöder JSON-formaterade begär Anden och svar. Begär anden till Azure Key Vault dirigeras till en giltig Azure Key Vault-URL med hjälp av HTTPS med vissa URL-parametrar och JSON-kodade begär Anden och svars texter.
 
-Det här avsnittet innehåller detaljer för Azure Key Vault-tjänsten. Allmän information om hur du använder Azure REST-gränssnitt, inklusive autentisering/auktorisering och hur du hämtar en åtkomsttoken, finns i [Azure REST API Reference](https://docs.microsoft.com/rest/api/azure).
+Det här avsnittet beskriver information om Azure Key Vault tjänsten. Allmän information om hur du använder Azure REST-gränssnitt, inklusive autentisering/auktorisering och hur du hämtar en åtkomsttoken finns i [Azure REST API Reference](https://docs.microsoft.com/rest/api/azure).
 
 ## <a name="request-url"></a>URL för begäran  
- Nyckelhanteringsåtgärder använder HTTP DELETE, GET, PATCH, PUT och HTTP POST och kryptografiska åtgärder mot befintliga nyckelobjekt använder HTTP POST. Klienter som inte stöder specifika HTTP-verb kan också använda HTTP POST med x-HTTP-REQUEST-huvudet för att ange det avsedda verbet. Begäranden som normalt inte kräver en kropp bör innehålla en tom kropp när du använder HTTP POST, till exempel när du använder POST i stället för DELETE.  
+ Nyckel hanterings åtgärder använder http-post, GET, PATCH, skicka och HTTP POST och kryptografiska åtgärder mot befintliga nyckel objekt Använd HTTP POST. Klienter som inte stöder vissa HTTP-verb kan också använda HTTP POST med rubriken X-HTTP-REQUEST för att ange avsett verb. begär Anden som normalt inte kräver en brödtext bör innehålla en tom brödtext när HTTP POST används, till exempel när POST används i stället för DELETE.  
 
- Om du vill arbeta med objekt i Azure Key Vault är följande exempel på WEBBADRESSER:  
+ Följande är exempel på webb adresser för att arbeta med objekt i Azure Key Vault:  
 
-- Om du vill skapa en nyckel som kallas TESTKEY i ett key vault-`PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
+- Så här skapar du en nyckel med namnet TESTKEY i en Key Vault use-`PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
 
-- Om du vill importera en nyckel som kallas IMPORTEDKEY till ett key vault-`POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
+- Importera en nyckel med namnet IMPORTEDKEY till en Key Vault use-`POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
 
-- För att få en hemlighet som heter MYSECRET i en Key Vault användning -`GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
+- Så här får du en hemlighet som heter hemlig i en Key Vault use-`GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
 
-- Om du vill signera en sammanfattning med hjälp av en nyckel som kallas TESTKEY i ett Key Vault-`POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
+- SIGNERA en sammanfattning med hjälp av en nyckel med namnet TESTKEY i en Key Vault use-`POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
-  Myndigheten för en begäran till ett nyckelvalv är alltid följande,`https://{keyvault-name}.vault.azure.net/`  
+  Auktoriteten för en begäran till en Key Vault är alltid följande:`https://{keyvault-name}.vault.azure.net/`  
 
-  Nycklar lagras alltid under sökvägen /keys, Hemligheter lagras alltid under sökvägen /secrets.  
+  Nycklar lagras alltid under/Keys sökväg, hemligheter lagras alltid under/Secrets-sökvägen.  
 
 ## <a name="api-version"></a>API-version  
- Azure Key Vault-tjänsten stöder protokollversionering för att ge kompatibilitet med klienter på lägre nivå, även om inte alla funktioner är tillgängliga för dessa klienter. Klienter måste `api-version` använda frågesträngparametern för att ange den version av protokollet som de stöder eftersom det inte finns någon standard.  
+ Tjänsten Azure Key Vault stöder protokoll versioner för att ge kompatibilitet med äldre klienter, även om alla funktioner inte är tillgängliga för dessa klienter. Klienterna måste använda `api-version` frågesträngparametern för att ange vilken version av protokollet som de stöder eftersom det inte finns något standardvärde.  
 
- Azure Key Vault-protokollversioner följer ett datumnumreringsschema med hjälp av ett {YYYY}. {MM}. {DD}-format.  
+ Azure Key Vault protokoll versioner följer ett schema för datum numrering med hjälp av {ÅÅÅÅ}. {MM}. {DD}-format.  
 
 ## <a name="request-body"></a>Begärandetext  
- Enligt HTTP-specifikationen får GET-åtgärder INTE ha ett begärandeorgan, och POST- och PUT-åtgärder måste ha ett förfrågningsorgan. Brödtexten i DELETE-åtgärder är valfri i HTTP.  
+ Som per HTTP-specifikation får GET-åtgärder inte ha en begär ande text, och POST-och PLACERINGs åtgärder måste ha en begär ande text. Texten i DELETE-åtgärder är valfri i HTTP.  
 
- Om inte annat anges i åtgärdsbeskrivningen måste typen för brödtextinnehåll vara application/json och innehålla ett serialiserat JSON-objekt som överensstämmer med innehållstypen.  
+ Om inget annat anges i åtgärds beskrivningen måste innehålls typen för begär ande texten vara Application/JSON och måste innehålla ett serialiserat JSON-objekt som överensstämmer med innehålls typen.  
 
- Om inget annat anges i åtgärdsbeskrivningen måste huvudet acceptera begäran innehålla medietypen application/json.  
+ Om inget annat anges i åtgärds beskrivningen, måste rubriken för accept-begäran innehålla medie typen application/JSON.  
 
-## <a name="response-body"></a>Svarskropp  
- Om inget annat anges i åtgärdsbeskrivningen kommer svarstextinnehållstypen för både lyckade och misslyckade åtgärder att vara program/json och innehåller detaljerad felinformation.  
+## <a name="response-body"></a>Svars text  
+ Om inget annat anges i åtgärds beskrivningen kommer svars bröd textens innehålls typ för både lyckade och misslyckade åtgärder att vara Application/JSON och innehåller detaljerad fel information.  
 
 ## <a name="using-http-post"></a>Använda HTTP POST  
- Vissa klienter kanske inte kan använda vissa HTTP-verb, till exempel PATCH eller DELETE. Azure Key Vault stöder HTTP POST som ett alternativ för dessa klienter, förutsatt att klienten även innehåller "X-HTTP-METOD"-huvudet för specifika det ursprungliga HTTP-verbet. Stöd för HTTP POST noteras för var och en av de API som definieras i det här dokumentet.  
+ Vissa klienter kanske inte kan använda vissa HTTP-verb, till exempel PATCH eller ta bort. Azure Key Vault stöder HTTP POST som ett alternativ för dessa klienter förutsatt att klienten även inkluderar huvudet "X-HTTP-METHOD" för att ange det ursprungliga HTTP-verbet. Stöd för HTTP POST anges för var och en av de API: er som definierats i det här dokumentet.  
 
 ## <a name="error-responses"></a>Fel svar  
- Om du hanterar fel används HTTP-statuskoder. Typiska resultat är:  
+ Fel hanteringen kommer att använda HTTP-statuskod. Typiska resultat:  
 
-- 2xx – Framgång: Används för normal drift. Svarskroppen kommer att innehålla det förväntade resultatet  
+- 2xx – lyckades: används för normal drift. Svars texten kommer att innehålla det förväntade resultatet  
 
-- 3xx – Omdirigering: 304"Inte ändrad" kan returneras för att uppfylla en villkorlig GET. Andra 3xx-koder kan användas i framtiden för att ange DNS- och sökvägsändringar.  
+- 3xx – omdirigering: 304 "inte ändrade" kan returneras för att uppfylla ett villkorligt GET-uttryck. Andra 3xx-koder kan användas i framtiden för att indikera DNS-och Sök vägs ändringar.  
 
-- 4xx – Klientfel: Används för felaktiga begäranden, saknade nycklar, syntaxfel, ogiltiga parametrar, autentiseringsfel etc. Svarstexten kommer att innehålla detaljerad felförklaring.  
+- 4xx – klient fel: används för felaktiga begär Anden, saknade nycklar, syntaxfel, ogiltiga parametrar, autentiseringsfel osv. Svars texten kommer att innehålla detaljerad fel förklaring.  
 
-- 5xx – Serverfel: Används för interna serverfel. Svarstexten innehåller sammanfattad felinformation.  
+- 5xx – Server fel: används för interna Server fel. Svars texten kommer att innehålla sammanfattad fel information.  
 
-  Systemet är utformat för att fungera bakom en proxy eller brandvägg. Därför kan en klient få andra felkoder.  
+  Systemet är utformat för att fungera bakom en proxy eller brand vägg. Därför kan en klient få andra felkoder.  
 
-  Azure Key Vault returnerar också felinformation i svarstexten när ett problem uppstår. Svarstexten är JSON formaterad och har formen:  
+  Azure Key Vault returnerar också fel information i svars texten när ett problem uppstår. Svars texten är JSON-formaterad och använder formuläret:  
 
 ```  
 
@@ -89,11 +89,11 @@ Det här avsnittet innehåller detaljer för Azure Key Vault-tjänsten. Allmän 
 ```  
 
 ## <a name="authentication"></a>Autentisering  
- Alla begäranden till Azure Key Vault måste autentiseras. Azure Key Vault stöder Azure Active Directory-åtkomsttoken som kan erhållas med OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
+ Alla begär anden till Azure Key Vault måste autentiseras. Azure Key Vault stöder Azure Active Directory åtkomsttoken som kan erhållas med hjälp av OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
- Mer information om hur du registrerar ditt program och autentiserar för att använda Azure Key Vault finns i [Registrera ditt klientprogram med Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
+ Mer information om hur du registrerar ditt program och autentiserar dig för att använda Azure Key Vault finns i [Registrera ditt klient program med Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
  
- Åtkomsttoken måste skickas till tjänsten med http-auktoriseringshuvudet:  
+ Åtkomsttoken måste skickas till tjänsten med HTTP-Authorization-huvudet:  
 
 ```  
 PUT /keys/MYKEY?api-version=<api_version>  HTTP/1.1  
@@ -101,7 +101,7 @@ Authorization: Bearer <access_token>
 
 ```  
 
- När en åtkomsttoken inte anges, eller när en token inte accepteras av tjänsten, returneras ett HTTP 401-fel till klienten och kommer att innehålla WWW-Autentisera-huvudet, till exempel:  
+ När en åtkomsttoken inte anges, eller när en token inte accepteras av tjänsten, returneras ett HTTP 401-fel till klienten och inkluderar WWW-autentisera-sidhuvudet, till exempel:  
 
 ```  
 401 Not Authorized  
@@ -109,9 +109,9 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 ```  
 
- Parametrarna i WWW-Autentisera-huvudet är:  
+ Parametrarna i WWW-autentisera-huvudet är:  
 
--   auktorisering: Adressen till OAuth2-auktoriseringstjänsten som kan användas för att hämta en åtkomsttoken för begäran.  
+-   auktorisering: adressen till OAuth2 som kan användas för att hämta en åtkomsttoken för begäran.  
 
--   resurs: Namnet på den`https://vault.azure.net`resurs ( ) som ska användas i auktoriseringsbegäran.  
+-   resurs: namnet på resursen (`https://vault.azure.net`) som ska användas i auktoriseringsbegäran.  
 

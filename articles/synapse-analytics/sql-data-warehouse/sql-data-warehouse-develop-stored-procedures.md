@@ -11,48 +11,48 @@ ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.openlocfilehash: 3ffdf7a66c2562b43fc2ed02bb088ab1095118fb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416165"
 ---
 # <a name="using-stored-procedures-in-synapse-sql-pool"></a>Använda lagrade procedurer i Synapse SQL-pool
 
-Den här artikeln innehåller tips för hur du utvecklar SQL-poollösningar genom att implementera lagrade procedurer.
+Den här artikeln innehåller tips för att utveckla lösningar för SQL-pooler genom att implementera lagrade procedurer.
 
-## <a name="what-to-expect"></a>Vad du kan förvänta dig
+## <a name="what-to-expect"></a>Vad som ska förväntas
 
-SQL-poolen stöder många av de T-SQL-funktioner som används i SQL Server. Ännu viktigare är att det finns utskalningsspecifika funktioner som du kan använda för att maximera prestanda för din lösning.
+SQL-poolen stöder många av de T-SQL-funktioner som används i SQL Server. Det är viktigt att det finns skalbara funktioner som du kan använda för att maximera prestandan för din lösning.
 
-För att hjälpa dig att behålla skalan och prestandan för SQL-poolen finns det också ytterligare funktioner som har beteendemässiga skillnader.
+För att hjälpa dig att underhålla skalning och prestanda i SQL-poolen finns det också ytterligare funktioner som har beteende skillnader.
 
-## <a name="introducing-stored-procedures"></a>Införande av lagrade procedurer
+## <a name="introducing-stored-procedures"></a>Introduktion till lagrade procedurer
 
-Lagrade procedurer är ett bra sätt att kapsla in din SQL-kod, som lagras nära dina SQL-pooldata. Lagrade procedurer hjälper också utvecklare att modularisera sina lösningar genom att kapsla in koden i hanterbara enheter, vilket underlättar större återanvändning av kod. Varje lagrad procedur kan också acceptera parametrar för att göra dem ännu mer flexibla.
+Lagrade procedurer är ett bra sätt att kapsla in din SQL-kod, som lagras nära SQL-poolens data. Lagrade procedurer hjälper också utvecklare att modularize sina lösningar genom att kapsla in koden i hanterbara enheter, vilket underlättar bättre kod åter användning. Varje lagrad procedur kan också acceptera parametrar för att göra dem ännu mer flexibla.
 
 SQL-poolen ger en förenklad och strömlinjeformad implementering av lagrade procedurer. Den största skillnaden jämfört med SQL Server är att den lagrade proceduren inte är förkompilerad kod.
 
-För informationslager är kompileringstiden i allmänhet liten jämfört med den tid det tar att köra frågor mot stora datavolymer. Det är viktigare att se till att den lagrade procedurkoden är korrekt optimerad för stora frågor.
+I allmänhet är kompileringen för informations lager liten jämfört med den tid det tar att köra frågor mot stora data volymer. Det är viktigt att se till att den lagrade procedur koden är korrekt optimerad för stora frågor.
 
 > [!TIP]
-> Målet är att spara timmar, minuter och sekunder, inte millisekunder. Så det är bra att tänka på lagrade procedurer som behållare för SQL-logik.
+> Målet är att spara timmar, minuter och sekunder, inte millisekunder. Det är därför bra att tänka på lagrade procedurer som behållare för SQL-logik.
 
-När SQL-poolen kör din lagrade procedur tolkas SQL-uttrycken, översätts och optimeras vid körning. Under den här processen konverteras varje sats till distribuerade frågor. SQL-koden som körs mot data skiljer sig från den fråga som skickas.
+När SQL-poolen kör den lagrade proceduren, parsas SQL-uttryck, översätts och optimeras vid körning. Under den här processen konverteras varje instruktion till distribuerade frågor. SQL-koden som körs mot data skiljer sig från den skickade frågan.
 
-## <a name="nesting-stored-procedures"></a>Kapsla lagrade procedurer
+## <a name="nesting-stored-procedures"></a>Kapslade lagrade procedurer
 
-När lagrade procedurer anropar andra lagrade procedurer, eller kör dynamisk SQL, sägs den inre lagrade proceduren eller kodanropet vara kapslad.
+När lagrade procedurer anropar andra lagrade procedurer eller kör dynamisk SQL, kallas den inre lagrade proceduren eller kod anropet som kapslas.
 
-SQL-poolen stöder högst åtta kapslingsnivåer. Kapslingsnivån i SQL Server är däremot 32.
+SQL-poolen stöder högst åtta kapslings nivåer. Kapslings nivån i SQL Server är däremot 32.
 
-Det lagrade proceduranropet på den översta nivån motsvarar kapsla nivå 1.
+Det översta lagrade procedur anropet motsvarar kapslad nivå 1.
 
 ```sql
 EXEC prc_nesting
 ```
 
-Om den lagrade proceduren också gör ett annat EXEC-anrop ökar bonivån till två.
+Om den lagrade proceduren också gör ett annat EXEC-anrop, ökar kapslings nivån till två.
 
 ```sql
 CREATE PROCEDURE prc_nesting
@@ -62,7 +62,7 @@ GO
 EXEC prc_nesting
 ```
 
-Om den andra proceduren sedan kör någon dynamisk SQL ökar kapslingsnivån till tre.
+Om den andra proceduren sedan kör en del dynamisk SQL, ökar kapslings nivån till tre.
 
 ```sql
 CREATE PROCEDURE prc_nesting_2
@@ -72,28 +72,28 @@ GO
 EXEC prc_nesting
 ```
 
-SQL-poolen stöder för närvarande inte [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Därför måste du spåra boet nivå. Det är osannolikt att du överskrider gränsen för åtta bonivå. Men om du gör det måste du omarbeta koden så att den passar kapslingsnivåerna inom den här gränsen.
+SQL-poolen stöder för närvarande inte [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Därför måste du spåra kapslings nivån. Det är osannolikt att du överskrider gränsen på åtta kapslings nivåer. Men om du gör det måste du arbeta om koden för att passa de kapslade nivåerna i den här gränsen.
 
-## <a name="insertexecute"></a>Infoga.. Utföra
+## <a name="insertexecute"></a>Infoga.. KÖRA
 
-SQL-poolen tillåter inte att du använder resultatuppsättningen för en lagrad procedur med en INSERT-sats. Det finns dock ett alternativt tillvägagångssätt som du kan använda. En exempelvis se artikeln på [temporära tabeller](sql-data-warehouse-tables-temporary.md).
+SQL-poolen tillåter inte att du använder resultat uppsättningen för en lagrad procedur med en INSERT-instruktion. Det finns dock en annan metod som du kan använda. Ett exempel finns i artikeln om [temporära tabeller](sql-data-warehouse-tables-temporary.md).
 
 ## <a name="limitations"></a>Begränsningar
 
-Det finns vissa aspekter av Transact-SQL-lagrade procedurer som inte implementeras i SQL-poolen, som är följande:
+Det finns vissa aspekter av lagrade Transact-SQL-procedurer som inte implementeras i SQL-poolen, som är följande:
 
-* tillfälliga lagrade förfaranden
+* temporärt lagrade procedurer
 * numrerade lagrade procedurer
 * utökade lagrade procedurer
-* CLR-lagrade procedurer
-* krypteringsalternativ
+* Lagrade CLR-procedurer
+* krypterings alternativ
 * replikeringsalternativ
-* tabellvärderade parametrar
-* Skrivskyddade parametrar
-* standardparametrar
-* exekveringskontexter
-* returutdrag
+* tabell värdes parametrar
+* skrivskyddade parametrar
+* standard parametrar
+* körnings kontexter
+* Return-instruktion
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fler utvecklingstips finns i [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
+Mer utvecklings tips finns i [utvecklings översikt](sql-data-warehouse-overview-develop.md).

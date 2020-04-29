@@ -1,6 +1,6 @@
 ---
-title: Använda frågeetiketter i Synapse SQL
-description: I den här artikeln finns viktiga tips för hur du använder frågeetiketter i Synapse SQL.
+title: Använda fråge etiketter i Synapse SQL
+description: I den här artikeln finns några viktiga tips för att använda fråge etiketter i Synapse SQL.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -12,20 +12,20 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
 ms.openlocfilehash: 47b476cbc6997ca5ec63968bdc269e2273662100
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430037"
 ---
-# <a name="use-query-labels-in-synapse-sql"></a>Använda frågeetiketter i Synapse SQL
-I den här artikeln finns viktiga tips för hur du använder frågeetiketter i Synapse SQL.
+# <a name="use-query-labels-in-synapse-sql"></a>Använda fråge etiketter i Synapse SQL
+I den här artikeln finns några viktiga tips för att använda fråge etiketter i Synapse SQL.
 
 > [!NOTE]
-> SQL on-demand (preview) stöder inte märkningsfrågor.
+> SQL på begäran (för hands version) stöder inte märknings frågor.
 
-## <a name="what-are-query-labels"></a>Vad är frågeetiketter
-SQL-poolen stöder ett koncept som kallas frågeetiketter. Innan du går in på något djup, låt oss titta på ett exempel:
+## <a name="what-are-query-labels"></a>Vad är fråge etiketter
+SQL-poolen stöder ett begrepp som kallas fråge etiketter. Låt oss titta på ett exempel innan du går igenom ett djup:
 
 ```sql
 SELECT *
@@ -34,11 +34,11 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-Den sista raden taggar strängen "Min frågeetikett" till frågan. Den här taggen är särskilt användbar eftersom etiketten är frågeduglig via DMVs. Att fråga efter etiketter är en mekanism för att hitta problemfrågor och hjälper till att identifiera förloppet via en ELT-körning.
+Den sista raden Taggar strängen "min fråga etikett" till frågan. Den här taggen är särskilt användbar eftersom etiketten är frågekörning genom DMV: er. Fråga efter etiketter är en mekanism för att hitta problem frågor och hjälpa till att identifiera förloppet genom en ELT körning.
 
-Bra namngivningskonvention är till stor hjälp. Om du till exempel startar etiketten med PROJECT, PROCEDURE, STATEMENT eller COMMENT identifierar frågan unikt bland all kod i källkoden.
+Bra namngivnings konventioner är mest användbara. Exempel: om du startar etiketten med PROJECT, PROCEDURe, STATEMENT eller COMMENT identifieras frågan bland all kod i käll kontrollen.
 
-Följande fråga använder en dynamisk hanteringsvy för att söka efter etikett:
+Följande fråga använder en vy med dynamisk hantering för att söka efter etikett:
 
 ```sql
 SELECT  *
@@ -48,11 +48,11 @@ WHERE   r.[label] = 'My Query Label'
 ```
 
 > [!NOTE]
-> Det är viktigt att sätta hakparenteser eller dubbla citattecken runt ordetiketten när du frågar. Etikett är ett reserverat ord och orsakar ett fel när det inte avgränsas. 
+> Det är viktigt att sätta hakparenteser eller dubbla citat tecken runt ordet etikett vid frågor. Label är ett reserverat ord och orsakar ett fel när det inte är avgränsat. 
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-Fler utvecklingstips finns i [utvecklingsöversikt](develop-overview.md).
+Mer utvecklings tips finns i [utvecklings översikt](develop-overview.md).
 
 

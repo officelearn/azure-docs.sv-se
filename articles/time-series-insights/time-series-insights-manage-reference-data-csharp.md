@@ -1,6 +1,6 @@
 ---
-title: Hantera referensdata i GA-miljöer med hjälp av C# - Azure Time Series Insights | Microsoft-dokument
-description: Lär dig hur du hanterar referensdata för GA-miljön genom att skapa ett anpassat program skrivet i C#.
+title: Hantera referens data i GA-miljöer med C#-Azure Time Series Insights | Microsoft Docs
+description: Lär dig hur du hanterar referens data för din GA-miljö genom att skapa ett anpassat program skrivet i C#.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,70 +12,70 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: f0ce0f7d90540274d24a7e0248e6f197b74033a1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416970"
 ---
-# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>Hantera GA-referensdata för en Azure Time Series Insights-miljö med C #
+# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>Hantera GA-referens data för en Azure Time Series Insights miljö med hjälp av C #
 
-Den här artikeln visar hur du kombinerar C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)och Azure Active Directory för att göra programmatiska API-begäranden till Azure Time Series Insights GA [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
+Den här artikeln visar hur du kombinerar C#, [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)och Azure Active Directory för att göra programmerings-API-begäranden till Azure Time Series Insights GA [Reference datahantering API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
 
 > [!TIP]
-> Visa GA C#-kodexempel på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+> Visa GA C#-kod exempel [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample)på.
 
 ## <a name="summary"></a>Sammanfattning
 
-Exempelkoden nedan visar följande funktioner:
+Exempel koden nedan visar följande funktioner:
 
-* Hämta en åtkomsttoken med [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
-* Sekventiella skapa, läsa, uppdatera och ta bort åtgärder mot GA [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
-* Vanliga svarskoder inklusive [vanliga felkoder](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling).
+* Förvärva en åtkomsttoken med hjälp av [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
+* Sekventiella åtgärder för att skapa, läsa, uppdatera och ta bort mot GA- [referensen datahantering API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
+* Vanliga svars koder, inklusive [vanliga felkoder](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling).
     
-    Api:et för referensdatahantering bearbetar varje objekt individuellt och ett fel med ett objekt hindrar inte de andra från att slutföras. Om din begäran till exempel har 100 objekt och ett objekt har ett fel skrivs 99 objekt och ett avvisas.
+    Referens Datahanterings-API: n bearbetar varje objekt individuellt och ett fel med ett objekt förhindrar inte att andra slutförs. Om din begäran till exempel har 100 objekt och ett objekt har ett fel, så skrivs 99-objekt och ett avvisas.
 
-## <a name="prerequisites-and-setup"></a>Förutsättningar och inställningar
+## <a name="prerequisites-and-setup"></a>Krav och installation
 
-Gör följande innan du kompilerar och kör exempelkoden:
+Slutför följande steg innan du kompilerar och kör exempel koden:
 
-1. [Etablera en GA Azure Time Series Insights-miljö.](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
-)
+1. [Etablera en GA Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started
+) -miljö.
 
-1. [Skapa en referensdatauppsättning](time-series-insights-add-reference-data-set.md) i din miljö. Använd följande referensdataschema:
+1. [Skapa en referens data uppsättning](time-series-insights-add-reference-data-set.md) i din miljö. Använd följande referens data schema:
 
    | Nyckelnamn | Typ |
    | --- | --- |
    | uuid | Sträng | 
 
-1. Konfigurera din Azure Time Series Insights-miljö för Azure Active Directory enligt beskrivningen i [Autentisering och auktorisering](time-series-insights-authentication-and-authorization.md). Använd `http://localhost:8080/` som **Redirect URI**.
+1. Konfigurera din Azure Time Series Insightss miljö för Azure Active Directory enligt beskrivningen i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md). Använd `http://localhost:8080/` som **omdirigerings-URI**.
 
-1. Installera de nödvändiga projektberoendena.
+1. Installera de projekt beroenden som krävs.
 
-1. Redigera exempelkoden nedan genom att ersätta varje **#PLACEHOLDER#** med lämplig miljöidentifierare.
+1. Redigera exempel koden nedan genom att ersätta varje **#PLACEHOLDER #** med rätt miljö identifierare.
 
-1. Kör `dotnet run` i projektets rotkatalog. När du uppmanas att använda din användarprofil för att logga in på Azure. 
+1. Kör `dotnet run` i projektets rot Katalog. När du uppmanas använder du din användar profil för att logga in på Azure. 
 
 ## <a name="project-dependencies"></a>Projektberoenden
 
-Vi rekommenderar att du använder den senaste versionen av Visual Studio och **NETCore.app:**
+Vi rekommenderar att du använder den senaste versionen av Visual Studio och **NetCore. app**:
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) - Version 16.4.2+
-* [NETCore.app](https://www.nuget.org/packages/Microsoft.NETCore.App/2.2.8) - Version 2.2.8
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) -version 16.4.2 +
+* [NetCore. app](https://www.nuget.org/packages/Microsoft.NETCore.App/2.2.8) -version 2.2.8
 
-Exempelkoden har två obligatoriska beroenden:
+Exempel koden har två nödvändiga beroenden:
 
-* MSAL.NET [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client/) - 4.7.1-paketet.
-* [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) - 12.0.3 paket.
+* MSAL.NET [Microsoft. Identity. client](https://www.nuget.org/packages/Microsoft.Identity.Client/) -4.7.1-paket.
+* [Newtonsoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json) -12.0.3-paket.
 
-Lägg till paketen med [NuGet 2.12+](https://www.nuget.org/):
+Lägg till paketen med [NuGet 2.12 +](https://www.nuget.org/):
 
 * `dotnet add package Newtonsoft.Json --version 12.0.3`
 * `dotnet add package Microsoft.Identity.Client --version 4.7.1`
 
-Eller:
+Eller
 
-1. Deklarera `csharp-tsi-msal-ga-sample.csproj` en fil:
+1. Deklarera en `csharp-tsi-msal-ga-sample.csproj` fil:
 
     ```XML
     <Project Sdk="Microsoft.NET.Sdk">
@@ -94,7 +94,7 @@ Eller:
     ```
 1. Kör sedan `dotnet restore`.
 
-## <a name="c-sample-code"></a>C#exempelkod
+## <a name="c-sample-code"></a>Exempel kod för C#
 
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
@@ -309,4 +309,4 @@ namespace CsharpTsiMsalGaSample
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs referensdokumentationen för GA [Reference Data Management API.](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)
+- Läs referens dokumentationen för GA [reference datahantering API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) .

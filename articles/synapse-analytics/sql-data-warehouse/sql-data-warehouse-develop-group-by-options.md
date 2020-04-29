@@ -1,6 +1,6 @@
 ---
-title: Använda grupp efter alternativ
-description: Tips för att implementera grupp efter alternativ i Synapse SQL-pool.
+title: Använda Group by-alternativ
+description: Tips för att implementera gruppera efter alternativ i Synapse SQL-pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,29 +12,29 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 5d8d4c6d47e33ca365415542c2da9779b4d7d1dd
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416198"
 ---
 # <a name="group-by-options-in-synapse-sql-pool"></a>Gruppera efter alternativ i Synapse SQL-pool
 
-I den här artikeln hittar du tips om hur du implementerar grupp efter alternativ i SQL-poolen.
+I den här artikeln hittar du tips för att implementera grup alternativ i SQL-poolen.
 
-## <a name="what-does-group-by-do"></a>Vad gör GROUP BY?
+## <a name="what-does-group-by-do"></a>Vad sker gruppera efter?
 
-[Satsgrupp av](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL-satsen sammanställer data till en sammanfattningsuppsättning rader. GROUP BY har några alternativ som SQL-poolen inte stöder. De här alternativen har lösningar, som är följande:
+[Group by](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL-satsen sammanställer data till en sammanfattande uppsättning rader. GROUP BY har vissa alternativ som SQL-poolen inte stöder. De här alternativen innehåller lösningar, som är följande:
 
-* GRUPPERA EFTER MED SAMMANSLAGNING
-* GRUPPERA UPPSÄTTNINGAR
-* GRUPPERA EFTER MED KUB
+* Gruppera efter med sammanslagning
+* GRUPPERADE UPPSÄTTNINGAR
+* Gruppera efter med kub
 
-## <a name="rollup-and-grouping-sets-options"></a>Alternativ för sammanslagning och gruppering anger
+## <a name="rollup-and-grouping-sets-options"></a>Alternativ för sammanfattning och gruppering av uppsättningar
 
-Det enklaste alternativet här är att använda UNION ALL för att utföra sammanslagningen i stället för att förlita sig på den explicita syntaxen. Resultatet är exakt detsamma.
+Det enklaste alternativet är att använda UNION ALL för att utföra sammanslagningen i stället för att förlita dig på den explicita syntaxen. Resultatet är exakt detsamma.
 
-I följande exempel med sats av GRUPP FÖR med alternativet SAMLAD:
+I följande exempel används GROUP BY-instruktionen med alternativet samla in:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -49,13 +49,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-Genom att använda samlad, föregående exempel begär följande aggregeringar:
+Genom att använda ROLLUP begär föregående exempel följande agg regeringar:
 
 * Land och region
 * Land/region
 * Totalsumma
 
-Om du vill ersätta samlad och returnera samma resultat kan du använda UNION ALL och uttryckligen ange de aggregeringar som krävs:
+Om du vill ersätta ROLLUP och returnera samma resultat kan du använda UNION alla och uttryckligen ange de nödvändiga agg regeringar:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -82,15 +82,15 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-Om du vill ersätta GRUPPERINGSUPPSÄTTNINGAR gäller exempelprincipen. Du behöver bara skapa UNION ALLA avsnitt för de aggregeringsnivåer som du vill se.
+Exempel principen gäller för att ersätta grupp uppsättningar. Du behöver bara skapa UNION alla avsnitt för de agg regerings nivåer som du vill se.
 
-## <a name="cube-options"></a>Alternativ för kub
+## <a name="cube-options"></a>Kubalternativ
 
-Det är möjligt att skapa en GRUPP MED KUB med hjälp av union alla-metoden. Problemet är att koden snabbt kan bli besvärlig och svårhanterlig. För att minska problemet kan du använda den här mer avancerade metoden.
+Det är möjligt att skapa en grupp med hjälp av kub med hjälp av UNION ALL-metoden. Problemet är att koden snabbt kan bli besvärlig och svårhanterligt. Du kan använda den här mer avancerade metoden för att undvika det här problemet.
 
-Med hjälp av föregående exempel är det första steget att definiera "kuben" som definierar alla aggregeringsnivåer som vi vill skapa.
+Det första steget är att definiera "kub" som definierar alla nivåer av agg regering som vi vill skapa i föregående exempel.
 
-Notera CROSS JOIN av de två härledda tabeller eftersom detta genererar alla nivåer för oss. Resten av koden är där för formatering:
+Anteckna kors kopplingen för de två härledda tabellerna eftersom det genererar alla nivåer för oss. Resten av koden innehåller följande formatering:
 
 ```sql
 CREATE TABLE #Cube
@@ -121,11 +121,11 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-Följande bild visar resultaten av CTAS:
+Följande bild visar resultatet av CTAS:
 
 ![Gruppera efter kub](./media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
-Det andra steget är att ange en måltabell för att lagra delresultat:
+Det andra steget är att ange en mål tabell för att lagra interimistiska resultat:
 
 ```sql
 DECLARE
@@ -148,7 +148,7 @@ WITH
 ;
 ```
 
-Det tredje steget är att loopa över vår kub av kolumner som utför aggregering. Frågan körs en gång för varje rad i den #Cube temporära tabellen. Resultaten lagras i tabellen #Results temp:
+Det tredje steget är att loopa över vår kub av kolumner som utför aggregation. Frågan körs en gång för varje rad i #Cube temporär tabell. Resultaten lagras i tabellen #Results temporära tabell:
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -172,7 +172,7 @@ BEGIN
 END
 ```
 
-Slutligen kan du returnera resultaten genom att läsa från den #Results temporära tabellen:
+Slutligen kan du returnera resultaten genom att läsa från #Results temporär tabell:
 
 ```sql
 SELECT *
@@ -181,8 +181,8 @@ ORDER BY 1,2,3
 ;
 ```
 
-Genom att dela upp koden i sektioner och generera en looping konstruktion, blir koden mer hanterbar och underhållsbar.
+Genom att dela upp koden i avsnitt och generera en loop-konstruktion blir koden mer hanterbar och hanterbar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fler utvecklingstips finns i [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
+Mer utvecklings tips finns i [utvecklings översikt](sql-data-warehouse-overview-develop.md).

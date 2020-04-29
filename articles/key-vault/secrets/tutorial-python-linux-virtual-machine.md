@@ -11,13 +11,13 @@ ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
 ms.openlocfilehash: df089f0338a177c08f4d9e88d55b501fd12f88f2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81423322"
 ---
-# <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Självstudiekurs: Använd en Virtuell Linux- och Python-app för att lagra hemligheter i Azure Key Vault
+# <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Självstudie: Använd en virtuell Linux-dator och en python-app för att lagra hemligheter i Azure Key Vault
 
 Med Azure Key Vault kan du skydda hemligheter, till exempel API-nycklar och databasanslutningssträngar som behövs för att komma åt dina program, tjänster samt IT-resurser.
 
@@ -76,9 +76,9 @@ Du använder den här resursgruppen i hela självstudien.
 
 I nästa steg skapar du ett nyckelvalv i den resursgrupp som du skapade i föregående steg. Ange följande information:
 
-* Nyckelvalvets namn: Namnet måste vara en sträng med 3-24 tecken och får endast innehålla 0-9, a-z, A-Ö och bindestreck (-).
+* Namn på nyckel valv: namnet måste vara en sträng med 3-24 tecken och får bara innehålla 0-9, a-z, A-Z och bindestreck (-).
 * Namn på resursgrupp.
-* Plats: **Västra USA**.
+* Plats: **västra USA**.
 
 ```azurecli-interactive
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"

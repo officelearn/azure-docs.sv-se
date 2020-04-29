@@ -1,5 +1,5 @@
 ---
-title: Kopiera data i grupp med Azure-portalen
+title: Kopiera data i bulk med Azure Portal
 description: Lär dig hur du använder Azure Data Factory och kopieringsaktiviteten till att masskopiera data från ett källdatalager till ett måldatalager.
 services: data-factory
 ms.author: jingwang
@@ -12,17 +12,17 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/27/2020
 ms.openlocfilehash: 04469fa1bd0473710d9fa0bf0190c6459f1f8a07
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81418787"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Kopiera flera tabeller i grupp med Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Den här självstudien visar **hur du kopierar ett antal tabeller från Azure SQL Database till Azure Synapse Analytics (tidigare SQL DW).** Du kan även använda samma mönster i andra kopieringssituationer. Kopiera till exempel tabeller från SQL Server/Oracle till Azure SQL Database/Azure Synapse Analytics (tidigare SQL DW)/Azure Blob, kopiera olika sökvägar från Blob till Azure SQL Database-tabeller.
+Den här självstudien visar hur **du kopierar ett antal tabeller från Azure SQL Database till Azure Synapse Analytics (tidigare SQL DW)**. Du kan även använda samma mönster i andra kopieringssituationer. Kopiera till exempel tabeller från SQL Server/Oracle till Azure SQL Database/Azure Synapse Analytics (tidigare SQL DW)/Azure Blob, och kopiera olika sökvägar från blob till Azure SQL Database tabeller.
 
 > [!NOTE]
 > - Om du inte har använt Azure Data Factory tidigare kan du läsa [Introduktion till Azure Data Factory](introduction.md).
@@ -31,8 +31,8 @@ Sett på en hög nivå ingår följande steg i självstudierna:
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.
-> * Skapa Azure SQL Database, Azure Synapse Analytics (tidigare SQL DW) och Azure Storage-länkade tjänster.
-> * Skapa Azure SQL Database och Azure Synapse Analytics (tidigare SQL DW) datauppsättningar.
+> * Skapa Azure SQL Database, Azure Synapse Analytics (tidigare SQL DW) och Azure Storage länkade tjänster.
+> * Skapa Azure SQL Database-och Azure Synapse Analytics-datauppsättningar (tidigare SQL DW).
 > * Skapa en pipeline för sökning av de tabeller som ska kopieras och en annan pipeline för den faktiska kopieringsåtgärden. 
 > * Starta en pipelinekörning.
 > * Övervaka pipelinen och aktivitetskörningarna.
@@ -40,77 +40,77 @@ Sett på en hög nivå ingår följande steg i självstudierna:
 I den här självstudien används Azure-portalen. Läs mer om att använda andra verktyg/SDK:er för att skapa en datafabrik i [Snabbstarter](quickstart-create-data-factory-dot-net.md). 
 
 ## <a name="end-to-end-workflow"></a>Arbetsflödet slutpunkt till slutpunkt
-I det här fallet har du ett antal tabeller i Azure SQL Database som du vill kopiera till Azure Synapse Analytics (tidigare SQL DW). Här är den logiska ordningsföljden i arbetsflödet som sker i våra pipelines:
+I det här scenariot har du ett antal tabeller i Azure SQL Database som du vill kopiera till Azure Synapse Analytics (tidigare SQL DW). Här är den logiska ordningsföljden i arbetsflödet som sker i våra pipelines:
 
 ![Arbetsflöde](media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png)
 
 * Den första pipelinen letar rätt på listan med tabeller som ska kopieras till de mottagande datalagren.  Du kan istället underhålla en metadatatabell som innehåller alla tabeller som ska kopieras till de mottagande datalagren. Sedan utlöser pipelinen en annan pipeline, som itererar över varje tabell i databasen och utför själva datakopieringen.
-* Den andra pipelinen utför den faktiska kopieringen. Den tar listan med tabeller som en parameter. För varje tabell i listan kopierar du den specifika tabellen i Azure SQL Database till motsvarande tabell i Azure Synapse Analytics (tidigare SQL DW) med hjälp av [stegvis kopia via Blob-lagring och PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) för bästa prestanda. I det här exemplet skickar den första pipelinen listan med tabeller som värde för parametern. 
+* Den andra pipelinen utför den faktiska kopieringen. Den tar listan med tabeller som en parameter. För varje tabell i listan kopierar du den speciella tabellen i Azure SQL Database till motsvarande tabell i Azure Synapse Analytics (tidigare SQL DW) med [mellanlagrad kopia via Blob Storage och PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) för bästa prestanda. I det här exemplet skickar den första pipelinen listan med tabeller som värde för parametern. 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
-* **Azure Storage-konto**. Azure Storage-kontot används för mellanlagring för Blob Storage i masskopieringsåtgärden. 
-* **Azure SQL-databas**. Den här databasen innehåller källdata. 
+* **Azure Storage konto**. Azure Storage-kontot används för mellanlagring för Blob Storage i masskopieringsåtgärden. 
+* **Azure SQL Database**. Den här databasen innehåller källdata. 
 * **Azure Synapse Analytics (tidigare SQL DW)**. Det här datalagret innehåller de data som kopieras från SQL Database. 
 
 ### <a name="prepare-sql-database-and-azure-synapse-analytics-formerly-sql-dw"></a>Förbereda SQL Database och Azure Synapse Analytics (tidigare SQL DW)
 
 **Förbered Azure SQL Database-källan**:
 
-Skapa en Azure SQL-databas med exempeldata för Adventure Works LT genom att följa anvisningarna i artikeln [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md). Den här självstudien kopierar alla tabeller från den här exempeldatabasen till en Azure Synapse Analytics (tidigare SQL DW).
+Skapa en Azure SQL-databas med exempeldata för Adventure Works LT genom att följa anvisningarna i artikeln [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md). Den här självstudien kopierar alla tabeller från den här exempel databasen till en Azure Synapse Analytics (tidigare SQL DW).
 
-**Förbered diskhon Azure Synapse Analytics (tidigare SQL DW):**
+**Förbered mottagaren Azure Synapse Analytics (tidigare SQL DW)**:
 
-1. Om du inte har en Azure Synapse Analytics (tidigare SQL DW) läser du artikeln [Skapa ett SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) för steg för att skapa en.
+1. Om du inte har en Azure Synapse-analys (tidigare SQL DW) läser du artikeln [skapa en SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) för att skapa ett.
 
-1. Skapa motsvarande tabellscheman i Azure Synapse Analytics (tidigare SQL DW). Du kommer att använda Azure Data Factory till att migrera/kopiera data i ett senare steg.
+1. Skapa motsvarande tabell scheman i Azure Synapse Analytics (tidigare SQL DW). Du kommer att använda Azure Data Factory till att migrera/kopiera data i ett senare steg.
 
 ## <a name="azure-services-to-access-sql-server"></a>Azure-tjänster för åtkomst till SQL-servern
 
-För både SQL Database och Azure Synapse Analytics (tidigare SQL DW) tillåt Azure-tjänster åtkomst till SQL-servern. Kontrollera att **tillåt Azure-tjänster och resurser för åtkomst till den här serverinställningen** är **aktiverad** för din Azure SQL-server. Med den här inställningen kan tjänsten Data Factory läsa data från din Azure SQL-databas och skriva data till din Azure Synapse Analytics (tidigare SQL DW). 
+För både SQL Database och Azure Synapse Analytics (tidigare SQL DW) ger Azure-tjänster åtkomst till SQL Server. Se till att **Tillåt att Azure-tjänster och resurser får åtkomst till den här server** inställningen **är aktive** rad för din Azure SQL-Server. Med den här inställningen kan Data Factory tjänsten läsa data från din Azure SQL Database och skriva data till Azure Synapse Analytics (tidigare SQL DW). 
 
-Om du vill verifiera och aktivera den här inställningen går du till din Azure SQL-server > Security > Firewalls och virtuella nätverk > anger **tillåt Azure-tjänster och resurser för att komma åt den här servern** till **ON**.
+Om du vill kontrol lera och aktivera den här inställningen går du till Azure SQL Server > säkerhets > brand väggar och virtuella nätverk > ställer in **Tillåt Azure-tjänster och-resurser för att få åtkomst till den här servern** **på**.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
-1. Gå till [Azure-portalen](https://portal.azure.com). 
-1. Till vänster på Azure-portalmenyn väljer du **Skapa en resurs** > **Analytics** > **Data Factory**. 
+1. Gå till [Azure Portal](https://portal.azure.com). 
+1. Till vänster på Azure Portal-menyn väljer du **skapa en resurs** > **analys** > **Data Factory**. 
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
-1. På sidan **Ny datafabrik** anger du **ADFTutorialBulkCopyDF** för **namn**. 
+1. På sidan **ny data fabrik** anger du **ADFTutorialBulkCopyDF** som **namn**. 
  
-   Namnet på Azure-datafabriken måste vara **globalt unikt**. Om följande fel visas för namnfältet ändrar du namnet på datafabriken (till exempel dittnamnADFTutorialBulkCopyDF). Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
+   Namnet på Azure Data Factory måste vara **globalt unikt**. Om följande fel visas för namnfältet ändrar du namnet på datafabriken (till exempel dittnamnADFTutorialBulkCopyDF). Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
   
        `Data factory name "ADFTutorialBulkCopyDF" is not available`
 1. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i. 
 1. För **resursgruppen** utför du något av följande steg:
      
-   - Välj **Använd befintlig**och välj en befintlig resursgrupp i listrutan. 
-   - Välj **Skapa ny**och ange namnet på en resursgrupp.   
+   - Välj **Använd befintlig**och välj en befintlig resurs grupp i den nedrullningsbara listan. 
+   - Välj **Skapa ny**och ange namnet på en resurs grupp.   
          
      Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
 1. Välj **V2** för **versionen**.
 1. Välj **plats** för datafabriken. Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 1. Klicka på **Skapa**.
-1. När skapandet är klart väljer du **Gå till resurs** för att navigera till sidan Data **Factory.** 
+1. När du har skapat filen väljer du **gå till resurs** för att gå till sidan **Data Factory** . 
    
 1. Klicka på panelen **Författare och övervakare** för att starta användargränssnittet för Data Factory på en separat flik.
-1. Växla till fliken **Författare** på sidan Låt oss komma igång på sidan **Låt oss komma igång** på sidan Låt oss komma igång på sidan Låt oss komma igång på följande bild:
+1. På sidan **nu sätter vi igång** växlar du till fliken **författare** i den vänstra panelen, som du ser i följande bild:
 
      ![Sidan Kom igång](./media/doc-common-process/get-started-page-author-button.png)
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 Du kan skapa länkade tjänster för att länka dina datalager och beräkna till en datafabrik. En länkad tjänst har anslutningsinformationen som Data Factory-tjänsten använder för att ansluta till datalagret i körningsfasen. 
 
-I den här självstudien länkar du dina Azure SQL Database, Azure Synapse Analytics (tidigare SQL DW) och Azure Blob Storage-datalager till din datafabrik. Azure SQL Database är källdatalagret. Azure Synapse Analytics (tidigare SQL DW) är datalagrings- och mållagringsplatsen för handfat/mål. Azure Blob Storage är att arrangera data innan data läses in i Azure Synapse Analytics (tidigare SQL DW) med hjälp av PolyBase. 
+I den här självstudien länkar du Azure SQL Database, Azure Synapse Analytics (tidigare SQL DW) och Azure Blob Storage data lager till din data fabrik. Azure SQL Database är källdatalagret. Azure Synapse Analytics (tidigare SQL DW) är data lagret för mottagare/mål. Azure-Blob Storage är att mellanlagra data innan data läses in i Azure Synapse Analytics (tidigare SQL DW) med PolyBase. 
 
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Skapa den länkade tjänsten för Azure SQL Database-källan
 I det här steget skapar du en länkad tjänst för att länka Azure SQL-databasen till datafabriken. 
 
-1. Klicka på **Anslutningar** längst ned i fönstret och klicka på **+ Nytt** i**verktygsfältet (knappen Anslutningar** finns längst ned i den vänstra kolumnen under **Fabriksresurser**). 
+1. Klicka på **anslutningar** längst ned i fönstret och klicka på **+ ny** i verktygsfältet (**anslutningar** -knappen finns längst ned i den vänstra kolumnen under **fabriks resurser**). 
 
 1. I fönstret **New Linked Service** (Ny länkad tjänst) väljer du **Azure SQL Database** och klickar på **Fortsätt**. 
-1. Gör följande i fönstret **Ny länkad tjänst (Azure SQL Database):** 
+1. Utför följande steg i fönstret **ny länkad tjänst (Azure SQL Database)** : 
 
     a. Ange **AzureSqlDatabaseLinkedService** som **namn**.
     
@@ -124,14 +124,14 @@ I det här steget skapar du en länkad tjänst för att länka Azure SQL-databas
 
     f. Om du vill testa anslutningen till Azure SQL-databasen med den angivna informationen klickar du på **Testanslutning**.
   
-    g. Klicka på **Skapa** om du vill spara den länkade tjänsten.
+    g. Klicka på **skapa** för att spara den länkade tjänsten.
 
 
-### <a name="create-the-sink-azure-synapse-analytics-formerly-sql-dw-linked-service"></a>Skapa den länkade tjänsten Sink Azure Synapse Analytics (tidigare SQL DW)
+### <a name="create-the-sink-azure-synapse-analytics-formerly-sql-dw-linked-service"></a>Skapa den länkade tjänsten Azure Synapse Analytics (tidigare SQL DW)
 
 1. På fliken **Anslutningar** klickar du på **+ Ny** på verktygsfältet igen. 
-1. I fönstret **Ny länkad tjänst** väljer du **Azure Synapse Analytics (tidigare SQL DW)** och klickar på **Fortsätt**. 
-1. I fönstret **Ny länkad tjänst (Azure Synapse Analytics (tidigare SQL DW))** gör du följande steg: 
+1. I fönstret **ny länkad tjänst** väljer du **Azure Synapse Analytics (tidigare SQL DW)** och klickar på **Fortsätt**. 
+1. Utför följande steg i fönstret **ny länkad tjänst (tidigare SQL DW)** : 
    
     a. Ange **AzureSqlDWLinkedService** som **namn**.
      
@@ -139,9 +139,9 @@ I det här steget skapar du en länkad tjänst för att länka Azure SQL-databas
      
     c. Välj din Azure SQL-databas som **databasnamn**. 
      
-    d. Ange **användarnamn** för att ansluta till Azure SQL-databas. 
+    d. Ange **användar namn** för att ansluta till Azure SQL Database. 
      
-    e. Ange **lösenord** för användaren. 
+    e. Ange **lösen ordet** för användaren. 
      
     f. Om du vill testa anslutningen till Azure SQL-databasen med den angivna informationen klickar du på **Testanslutning**.
      
@@ -152,7 +152,7 @@ I den här självstudien använder du Azure Blob Storage som ett mellanlagringsu
 
 1. På fliken **Anslutningar** klickar du på **+ Ny** på verktygsfältet igen. 
 1. I fönstret **New Linked Service** (Ny länkad tjänst) väljer du **Azure Blob Storage** och klickar på **Fortsätt**. 
-1. Gör följande i fönstret **Ny länkad tjänst (Azure Blob Storage):** 
+1. Utför följande steg i fönstret **ny länkad tjänst (Azure Blob Storage)** : 
 
     a. Ange **AzureStorageLinkedService** som **namn**.                                                 
     b. Välj ditt **Azure-lagringskonto** som **Lagringskontonamn**.
@@ -165,47 +165,47 @@ I den här självstudien skapar du datauppsättningar för källa och mottagare 
 
 Datauppsättningen för indata **AzureSqlDatabaseDataset** refererar till **AzureSqlDatabaseLinkedService**. Den länkade tjänsten anger anslutningssträngen för att ansluta till databasen. Datauppsättningen anger namnet på databasen och tabellen som innehåller källdata. 
 
-Datauppsättningen för utdata **AzureSqlDWDataset** refererar till **AzureSqlDWLinkedService**. Den länkade tjänsten anger anslutningssträngen för att ansluta till Azure Synapse Analytics (tidigare SQL DW). Datauppsättningen anger databasen och tabellen som data kopieras till. 
+Datauppsättningen för utdata **AzureSqlDWDataset** refererar till **AzureSqlDWLinkedService**. Den länkade tjänsten anger anslutnings strängen för att ansluta till Azure Synapse Analytics (tidigare SQL DW). Datauppsättningen anger databasen och tabellen som data kopieras till. 
 
 I den här självstudien är käll- och måltabellerna i SQL inte hårdkodade i definitionen för datauppsättningen. Istället skickar ForEach-aktiviteten tabellens namn under körningsfasen till kopieringsaktiviteten. 
 
 ### <a name="create-a-dataset-for-source-sql-database"></a>Skapa en datauppsättning för SQL Database-källan
 
-1. Klicka på **+ (plus)** i den vänstra rutan och klicka sedan på **Datauppsättning**. 
+1. Klicka på **+ (plus)** i den vänstra rutan och klicka sedan på **data uppsättning**. 
 
     ![Menyn Ny datauppsättning](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
-1. I fönstret **Ny datauppsättning** väljer du **Azure SQL Database**och klickar sedan på **Fortsätt**. 
+1. I fönstret **ny data uppsättning** väljer du **Azure SQL Database**och klickar sedan på **Fortsätt**. 
     
-1. Ange **AzureSqlDatabaseDataset**under **Namn**i fönstret **Ange egenskaper.** Under **Länkad tjänst**väljer du **AzureSqlDatabaseLinkedService**. Klicka sedan på **OK**.
+1. I fönstret **Ange egenskaper** , under **namn**, anger du **AzureSqlDatabaseDataset**. Under **länkad tjänst**väljer du **AzureSqlDatabaseLinkedService**. Klicka sedan på **OK**.
 
-1. Växla till fliken **Anslutning,** välj en tabell för **Tabell**. Den här tabellen är en dummytabell. Du anger en fråga för källdatauppsättningen när du skapar en pipeline. Frågan används för att extrahera data från Azure SQL-databasen. Du kan också klicka på **Kryssrutan Redigera** och ange **dbo.dummyName** som tabellnamn. 
+1. Växla till fliken **anslutning** , Välj valfri tabell för **tabell**. Den här tabellen är en dummytabell. Du anger en fråga för källdatauppsättningen när du skapar en pipeline. Frågan används för att extrahera data från Azure SQL-databasen. Alternativt kan du klicka på kryss rutan **Redigera** och ange **dbo. dummyName** som tabell namn. 
  
 
-### <a name="create-a-dataset-for-sink-azure-synapse-analytics-formerly-sql-dw"></a>Skapa en datauppsättning för sink Azure Synapse Analytics (tidigare SQL DW)
+### <a name="create-a-dataset-for-sink-azure-synapse-analytics-formerly-sql-dw"></a>Skapa en data uppsättning för Sink Azure Synapse Analytics (tidigare SQL DW)
 
 1. Klicka på **+ (plus)** i den vänstra rutan och sedan på **Datauppsättning**. 
-1. I fönstret **Ny datauppsättning** väljer du **Azure Synapse Analytics (tidigare SQL DW)** och klickar sedan på **Fortsätt**.
-1. Ange **AzureSqlDWDataset**under **Namn**i fönstret **Ange egenskaper.** Under **Länkad tjänst**väljer du **AzureSqlDWLinkedService**. Klicka sedan på **OK**.
-1. Byt till fliken **Parametrar**, klicka på **+ Ny** och ange **DWTableName** som parameternamn. Om du kopierar/klistrar in det här namnet från sidan kontrollerar du att det inte finns något **avslutande blanksteg** i slutet av **DWTableName**.
+1. I fönstret **ny data uppsättning** väljer du **Azure Synapse Analytics (tidigare SQL DW)** och klickar sedan på **Fortsätt**.
+1. I fönstret **Ange egenskaper** , under **namn**, anger du **AzureSqlDWDataset**. Under **länkad tjänst**väljer du **AzureSqlDWLinkedService**. Klicka sedan på **OK**.
+1. Byt till fliken **Parametrar**, klicka på **+ Ny** och ange **DWTableName** som parameternamn. Om du kopierar eller klistrar in det här namnet från sidan kontrollerar du att det inte finns något **avslutande blank stegs tecken** i slutet av **DWTableName**.
 1. Växla till fliken **Anslutningar**. 
 
-    a. **För Tabell**markerar du alternativet **Redigera.** Ange **dbo** i inmatningsrutan för för tabellnamn. Och välj sedan i den andra inmatningsrutan och klicka på länken **Lägg till dynamiskt innehåll** nedan. 
+    a. För **tabell**kontrollerar du alternativet **Redigera** . Ange **dbo** i rutan första tabell namn indatatypen. Och välj sedan i den andra ingångs rutan och klicka på länken **Lägg till dynamiskt innehåll** nedan. 
 
-    ![Tabellnamn för datauppsättningsanslutning](./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png)
+    ![Data uppsättnings anslutningens tabell namn](./media/tutorial-bulk-copy-portal/dataset-connection-tablename.png)
 
-    b. På sidan **Lägg till dynamiskt innehåll** klickar du på **DWTAbleName** under **Parametrar**, som automatiskt fyller i textrutan `@dataset().DWTableName`för det översta uttrycket och sedan på **Slutför**. Uppsättningens egenskap **tableName** är inställd på värdet som har skickats som argument för parametern **DWTableName**. ForEach-aktiviteten itereras via en lista över tabeller och skickar en i taget till kopieringsaktiviteten. 
+    b. På sidan **Lägg till dynamiskt innehåll** klickar du på **DWTAbleName** under **parametrar**, som fyller automatiskt i text rutan `@dataset().DWTableName`för det översta uttrycket och klickar sedan på **Slutför**. Uppsättningens egenskap **tableName** är inställd på värdet som har skickats som argument för parametern **DWTableName**. ForEach-aktiviteten itereras via en lista över tabeller och skickar en i taget till kopieringsaktiviteten. 
 
     ![Byggare för datauppsättningsparametern](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
  
 ## <a name="create-pipelines"></a>Skapa pipelines
 I den här självstudien skapar du två pipeliner: **IterateAndCopySQLTables** och **GetTableListAndTriggerCopyData**. 
 
-**Pipelinen GetTableListAndTriggerCopyData** utför två åtgärder:
+**GetTableListAndTriggerCopyData** -pipeline utför två åtgärder:
 
 * Den söker i Azure SQL Database-systemtabellen för att få fram listan med tabeller som ska kopieras
-* Utlöser pipeline **IterateAndCopySQLTables** för att göra den faktiska datakopian.
+* Utlöser pipeline- **IterateAndCopySQLTables** för att utföra den faktiska data kopieringen.
 
-Pipelinen **IterateAndCopySQLTables** tar en lista med tabeller som en parameter. För varje tabell i listan kopieras data från tabellen i Azure SQL Database till Azure Synapse Analytics (tidigare SQL DW) med hjälp av stegvis kopia och PolyBase.
+**IterateAndCopySQLTables** -pipeline tar en lista med tabeller som en parameter. För varje tabell i listan kopieras data från tabellen i Azure SQL Database till Azure Synapse Analytics (tidigare SQL DW) med mellanlagrad kopia och PolyBase.
 
 ### <a name="create-the-pipeline-iterateandcopysqltables"></a>Skapa pipelinen IterateAndCopySQLTables
 
@@ -218,7 +218,7 @@ Pipelinen **IterateAndCopySQLTables** tar en lista med tabeller som en parameter
 
     a. Klicka på **+ Ny**. 
     
-    b. Ange **tabellLista** för parametern **Namn**.
+    b. Ange **tablelist** som parameter **namn**.
     
     c. Välj **Matris** för **Typ**.
 
@@ -226,23 +226,23 @@ Pipelinen **IterateAndCopySQLTables** tar en lista med tabeller som en parameter
 
     a. I fliken **Allmänt ** längst ned skriver du **IterateSQLTables** för **Namn**. 
 
-    b. Växla till fliken **Inställningar,** klicka på inmatningsrutan för **Objekt**och klicka sedan på länken **Lägg till dynamiskt innehåll** nedan. 
+    b. Växla till fliken **Inställningar** , klicka på kryss rutan för **objekt**och klicka sedan på länken **Lägg till dynamiskt innehåll** nedan. 
 
-    c. På sidan **Lägg till dynamiskt innehåll** döljer du avsnitten **Systemvariabler** och **funktioner,** klickar på **tabelllistan** under **Parametrar**, som automatiskt fyller i den övre uttryckstextrutan som `@pipeline().parameter.tableList`. Klicka sedan på **Slutför**. 
+    c. På sidan **Lägg till dynamiskt innehåll** döljer du avsnittet **Systemvariabler** och **funktioner** , klickar på **tablelist** under **parametrar**, som automatiskt fyller i text rutan överst uttryck som `@pipeline().parameter.tableList`. Klicka sedan på **Slutför**. 
 
     ![Byggare för parametern Foreach](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     
-    d. Växla till fliken **Aktiviteter** genom att klicka på **pennikonen** för att lägga till en underordnad aktivitet i **forEach-aktiviteten.**
-    ![Aktivitetsbyggare för Foreach](./media/tutorial-bulk-copy-portal/for-each-activity-builder.png)
+    d. Växla till fliken **aktiviteter** och klicka på **Penn ikonen** för att lägga till en underordnad aktivitet i den **förgrunds** aktiviteten.
+    ![För-aktivitets byggare](./media/tutorial-bulk-copy-portal/for-each-activity-builder.png)
 
-1. Expandera **Flytta & överföring i** **verktygslådan Aktiviteter** och dra ned **kopieringsdata** till pipelinedesignerytan. Lägg märke till adressfältmenyn längst upp. **IterateAndCopySQLTable** är pipelinenamnet och **IterateSQLTables är aktivitetsnamnet** ForEach. Designern är i aktivitetsomfånget. Om du vill växla tillbaka till pipelineredigeraren från ForEach-redigeraren kan du klicka på länken i sökvägen. 
+1. I verktygs lådan **aktiviteter** expanderar du **Flytta & överföring**och drar och släpper **Kopiera data** aktivitet i pipelinens designer-yta. Lägg märke till adressfältmenyn längst upp. **IterateAndCopySQLTable** är pipelinens namn och **IterateSQLTables** är förgrunds aktivitetens namn. Designern är i aktivitetsomfånget. Om du vill växla tillbaka till pipeline-redigeraren från förgrunds redigeraren kan du klicka på länken i menyn för dynamiska länkar. 
 
     ![Kopiera i ForEach](./media/tutorial-bulk-copy-portal/copy-in-for-each.png)
 
 1. Växla till fliken **Källa** och gör följande:
 
     1. Välj **AzureSqlDatabaseDataset** för **källdatauppsättning**. 
-    1. Välj **frågealternativ** för **Använd fråga**. 
+    1. Välj **frågealternativet** för **Använd fråga**. 
     1. Klicka på textrutan **Fråga** -> välj **Lägg till dynamiskt innehåll** nedan -> ange följande uttryck för **Fråga** -> välj **Slutför**.
 
         ```sql
@@ -253,9 +253,9 @@ Pipelinen **IterateAndCopySQLTables** tar en lista med tabeller som en parameter
 1. Växla till fliken **Mottagare** och gör följande: 
 
     1. Välj **AzureSqlDWDataset** för **Sink Dataset** (Datauppsättning för mottagare).
-    1. Klicka på indatarutan för parametern VALUE of DWTableName -> väljer **lägg till dynamiskt innehåll** nedan, anger `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` uttryck som skript, -> väljer **Slutför**.
-    1. För kopieringsmetod väljer du **PolyBase**. 
-    1. Avmarkera **standardalternativet Använd typ.** 
+    1. Klicka på indatamängden för värdet för parametern DWTableName-> Markera kryss rutan **Lägg till dynamiskt innehåll** nedan `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` , ange uttrycket som skript, > Välj **Slutför**.
+    1. För kopierings metod väljer du **PolyBase**. 
+    1. Avmarkera alternativet **Använd typ som standard** . 
     1. Klicka på textrutan **Pre-copy Script** (Förkopieringsskript) -> välj **Lägg till dynamiskt innehåll** nedan -> ange följande uttryck för Fråga -> välj **Slutför**. 
 
         ```sql
@@ -265,10 +265,10 @@ Pipelinen **IterateAndCopySQLTables** tar en lista med tabeller som en parameter
         ![Inställningar för att kopiera mottagare](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
 1. Växla till fliken **Inställningar** och gör följande: 
 
-    1. Markera kryssrutan för **Aktivera förproduktion**.
+    1. Markera kryss rutan för **att aktivera mellanlagring**.
     1. Välj **AzureStorageLinkedService** för **Store Account Linked Service** (Länkad tjänst för lagringskonto).
 
-1. Verifiera pipelineinställningarna genom att klicka på **Verifiera** i verktygsfältet för pipelinen. Kontrollera att det inte finns något valideringsfel. Om du vill stänga **verifieringsrapporten för pipeline** klickar du på **>>**.
+1. Verifiera pipelineinställningarna genom att klicka på **Verifiera** i verktygsfältet för pipelinen. Kontrol lera att det inte finns något validerings fel. Om du vill stänga **verifieringsrapporten för pipeline** klickar du på **>>**.
 
 ### <a name="create-the-pipeline-gettablelistandtriggercopydata"></a>Skapa pipelinen GetTableListAndTriggerCopyData
 
@@ -280,7 +280,7 @@ Den här pipelinen gör två åtgärder:
 1. I den vänstra rutan klickar du på **+ (plus)** och sedan på **Pipeline**.
 1. På fliken **Allmänt** ändrar du namnet på pipelinen till **GetTableListAndTriggerCopyData**. 
 
-1. Expandera aktiviteten **Allmänt**och dra släpp **upp** till pipelinedesignerytan i **verktygslådan Aktiviteter** och gör följande:
+1. I verktygs lådan **aktiviteter** expanderar du **Allmänt**och drar och släpper **söknings** aktivitet till pipelinen för pipelinen och utför följande steg:
 
     1. Skriv **LookupTableList** som **namn**. 
     1. Ange **Retrieve the table list from Azure SQL database** (Hämta tabellistan från Azure SQL-databas) som **Beskrivning**.
@@ -288,7 +288,7 @@ Den här pipelinen gör två åtgärder:
 1. Växla till fliken **Inställningar** och gör följande:
 
     1. Välj **AzureSqlDatabaseDataset** för **källdatauppsättning**. 
-    1. Välj **Fråga** för **användningsfråga**. 
+    1. Välj **fråga** för **Använd fråga**. 
     1. Ange följande SQL-fråga för **Fråga**.
 
         ```sql
@@ -297,39 +297,39 @@ Den här pipelinen gör två åtgärder:
     1. Avmarkera kryssrutan för fältet **First row only** (Endast första raden).
 
         ![Sökningsaktivitet – inställningssida](./media/tutorial-bulk-copy-portal/lookup-settings-page.png)
-1. Dra-släpp **Kör pipeline-aktivitet** från verktygslådan Aktiviteter till pipelinedesignerytan och ange namnet på **TriggerCopy**.
+1. Dra och släpp **pipeline** -aktivitet från aktivitets lådan till pipelinen och ange namnet till **TriggerCopy**.
 
-1. Om du vill **ansluta** **uppslagsaktiviteten** till aktiviteten **Kör pipeline** drar du den gröna **rutan** som är kopplad till uppslagsaktiviteten till vänster om aktiviteten Kör pipeline.
+1. Om du vill **ansluta** **söknings** aktiviteten till aktiviteten **Kör pipeliner** drar du den **gröna rutan** som är kopplad till Sök aktiviteten till vänster om aktiviteten kör pipeline.
 
     ![Ansluta kopierings- och Kör pipeline-aktiviteter](./media/tutorial-bulk-copy-portal/connect-lookup-execute-pipeline.png)
 
-1. Växla till fliken **Inställningar för** **Kör pipeline-aktivitet** och gör följande: 
+1. Växla till fliken **Inställningar** för aktiviteten **Kör pipeline** och utför följande steg: 
 
     1. Välj **IterateAndCopySQLTables** som **Invoked pipeline** (Anropad pipeline). 
-    1. Expandera avsnittet **Avancerat** och avmarkera kryssrutan vänta **när du är klar**.
+    1. Expandera avsnittet **Avancerat** och avmarkera kryss rutan för **vänta på slut för ande**.
     1. Klicka på **+ Ny** i avsnittet **Parametrar**. 
-    1. Ange **tabellLista** för **parameternamn**.
-    1. Klicka på textrutan VALUE -> välj **Lägg till dynamiskt innehåll** nedan -> ange `@activity('LookupTableList').output.value` som värde för tabellens namn -> välj **Slutför**. Du anger resultatlistan från uppslagsaktiviteten som en indata till den andra pipelinen. Resultatlistan innehåller listan över tabeller vars data ska kopieras till målet. 
+    1. Ange **tablelist** som parameter **namn**.
+    1. Klicka på textrutan VALUE -> välj **Lägg till dynamiskt innehåll** nedan -> ange `@activity('LookupTableList').output.value` som värde för tabellens namn -> välj **Slutför**. Du ställer in resultat listan från söknings aktiviteten som inmatad till den andra pipelinen. Resultatlistan innehåller listan över tabeller vars data ska kopieras till målet. 
 
         ![Kör pipeline-aktivitet – sidan inställningar](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
 
 1. Verifiera pipelinen genom att klicka på **Verifiera** i verktygsfältet. Kontrollera att det inte finns några verifieringsfel. Om du vill stänga **verifieringsrapporten för pipeline** klickar du på **>>**.
 
-1. Om du vill publicera entiteter (datauppsättningar, pipelines osv.) till tjänsten Data Factory klickar du på **Publicera alla** ovanpå fönstret. Vänta tills publiceringen har lyckats. 
+1. Om du vill publicera entiteter (data uppsättningar, pipeliner osv.) till den Data Factory tjänsten klickar du på **publicera allt** ovanpå fönstret. Vänta tills publiceringen har lyckats. 
 
 ## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
 
-1. Gå till pipeline **GetTableListAndTriggerCopyData**, klicka på **Lägg till utlösare** i det övre pipelineverktygsfältet och klicka sedan på **Utlösare nu**. 
+1. Gå till pipeline- **GetTableListAndTriggerCopyData**, klicka på **Lägg till utlösare** i det övre pipeline-verktygsfältet och klicka sedan på **Utlös nu**. 
 
-1. Bekräfta körningen på sidan **Pipeline-körning** och välj sedan **Slutför**.
+1. Bekräfta körningen på sidan **Kör pipelinen** och välj sedan **Slutför**.
 
 ## <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
 
-1. Växla till fliken **Bildskärm.** Klicka på **Uppdatera** tills du ser körs för båda pipelines i din lösning. Fortsätt att uppdatera listan tills du ser statusen **Lyckades**. 
+1. Växla till fliken **övervakare** . Klicka på **Uppdatera** tills du ser körningar för båda pipelinen i din lösning. Fortsätt att uppdatera listan tills du ser statusen **Lyckades**. 
 
-1. Om du vill visa aktivitetskörningar som är associerade med Pipelinen **GetTableListAndTriggerCopyData** klickar du på pipelinens namnlänk för pipelinen. Du ska se två aktivitetskörningar för den här pipelinekörningen. 
+1. Om du vill visa aktivitets körningar som är associerade med **GetTableListAndTriggerCopyData** -pipeline klickar du på länken pipeline-namn för pipelinen. Du ska se två aktivitetskörningar för den här pipelinekörningen. 
     ![Övervaka pipeline-körning](./media/tutorial-bulk-copy-portal/monitor-pipeline.png)
-1. Om du vill visa utdata för **uppslagsaktiviteten** klickar du på länken **Utdata bredvid** aktiviteten under kolumnen **AKTIVITETSNAMN.** Du kan maximera och återställa fönstret **Utdata**. Stäng fönstret **Utdata** när du har sett klart genom att klicka på **X**.
+1. Om du vill visa resultatet av **uppslags** aktiviteten klickar du på länken **utdata** bredvid AKTIVITETEN under kolumnen **aktivitets namn** . Du kan maximera och återställa fönstret **Utdata**. Stäng fönstret **Utdata** när du har sett klart genom att klicka på **X**.
 
     ```json
     {
@@ -384,17 +384,17 @@ Den här pipelinen gör två åtgärder:
         ]
     }
     ```    
-1. Om du vill växla tillbaka till vyn **Pipeline-körningar** klickar du på länken **Alla pipelinekörningar** högst upp på sökvägen på sökvägen. Klicka på **Länken IterateAndCopySQLTables** (under kolumn **för PIPELINE NAME)** om du vill visa aktivitetskörningar av pipelinen. Observera att det finns en **kopiera** aktivitet som körs för varje tabell i **uppslagsaktivitetutdata.** 
+1. Om du vill växla tillbaka till vyn **pipelines körs** klickar du på **alla pipeline-körningar** överst i menyn för dynamiska länkar. Klicka på **IterateAndCopySQLTables** länk (under **pipeline Name** -kolumnen) om du vill visa aktivitets körningar för pipelinen. Observera att det finns en **kopierings** aktivitet som körs för varje tabell i utdata för **söknings** aktiviteten. 
 
-1. Bekräfta att data har kopierats till målet Azure Synapse Analytics (tidigare SQL DW) som du använde i den här självstudien. 
+1. Bekräfta att data har kopierats till Azure Synapse Analytics (tidigare SQL DW) som du använde i den här självstudien. 
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen fick du: 
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.
-> * Skapa Azure SQL Database, Azure Synapse Analytics (tidigare SQL DW) och Azure Storage-länkade tjänster.
-> * Skapa Azure SQL Database och Azure Synapse Analytics (tidigare SQL DW) datauppsättningar.
+> * Skapa Azure SQL Database, Azure Synapse Analytics (tidigare SQL DW) och Azure Storage länkade tjänster.
+> * Skapa Azure SQL Database-och Azure Synapse Analytics-datauppsättningar (tidigare SQL DW).
 > * Skapa en pipeline för sökning av de tabeller som ska kopieras och en annan pipeline för den faktiska kopieringsåtgärden. 
 > * Starta en pipelinekörning.
 > * Övervaka pipelinen och aktivitetskörningarna.

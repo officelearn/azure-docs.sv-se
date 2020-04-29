@@ -1,6 +1,6 @@
 ---
-title: Säkerhetskontroller för Azure Key Vault
-description: En checklista med säkerhetskontroller för utvärdering av Azure Key Vault
+title: Säkerhets kontroller för Azure Key Vault
+description: En check lista över säkerhets kontroller för utvärdering av Azure Key Vault
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -9,59 +9,59 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
 ms.openlocfilehash: cd6602f68b63e2c236e7f3905d33b88fbda36ed2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81429868"
 ---
-# <a name="security-controls-for-azure-key-vault"></a>Säkerhetskontroller för Azure Key Vault
+# <a name="security-controls-for-azure-key-vault"></a>Säkerhets kontroller för Azure Key Vault
 
-Den här artikeln dokumenterar de säkerhetskontroller som är inbyggda i Azure Key Vault. 
+I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azure Key Vault. 
 
 [!INCLUDE [Security controls Header](../../../includes/security-controls-header.md)]
 
 ## <a name="network"></a>Nätverk
 
-| Säkerhetskontroll | Ja/nej | Anteckningar |
+| Säkerhets kontroll | Ja/nej | Obs! |
 |---|---|--|
-| Support för tjänstens slutpunkt| Ja | Använda VNet-tjänstslutpunkter (Virtual Network). |
-| Stöd för VNet-injektion| Inga |  |
-| Stöd för nätverksisolering och brandväggar| Ja | Använda VNet-brandväggsregler. |
-| Stöd för påtvingad tunnelning| Inga |  |
+| Stöd för tjänst slut punkt| Ja | Använda tjänst slut punkter för Virtual Network (VNet). |
+| Stöd för VNet-injektering| Nej |  |
+| Stöd för nätverks isolering och brand vägg| Ja | Använd brand Väggs regler för VNet. |
+| Stöd för Tvingad tunnel trafik| Nej |  |
 
-## <a name="monitoring--logging"></a>Övervakning & loggning
+## <a name="monitoring--logging"></a>Övervaka & loggning
 
-| Säkerhetskontroll | Ja/nej | Anteckningar|
+| Säkerhets kontroll | Ja/nej | Obs!|
 |---|---|--|
-| Azure övervakningsstöd (Logganalys, App insikter, etc.)| Ja | Använda Logganalys. |
-| Loggning och granskning av kontroll/hanteringsplan| Ja | Använda Logganalys. |
-| Loggning och granskning av dataplan| Ja | Använda Logganalys. |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Använda Log Analytics. |
+| Kontroll/hantering plan-loggning och granskning| Ja | Använda Log Analytics. |
+| Loggning och granskning av data planet| Ja | Använda Log Analytics. |
 
 ## <a name="identity"></a>Identitet
 
-| Säkerhetskontroll | Ja/nej | Anteckningar|
+| Säkerhets kontroll | Ja/nej | Obs!|
 |---|---|--|
-| Autentisering| Ja | Autentisering sker via Azure Active Directory. |
-| Auktorisering| Ja | Använda åtkomstprincipen för Nyckelvalv. |
+| Autentisering| Ja | Autentisering är via Azure Active Directory. |
+| Auktorisering| Ja | Använda Key Vault åtkomst princip. |
 
 ## <a name="data-protection"></a>Dataskydd
 
-| Säkerhetskontroll | Ja/nej | Anteckningar |
+| Säkerhets kontroll | Ja/nej | Obs! |
 |---|---|--|
-| Kryptering på serversidan i vila: Microsoft-hanterade nycklar | Ja | Alla objekt är krypterade. |
-| Kryptering på serversidan i vila: kundhanterade nycklar (BYOK) | Ja | Kunden styr alla nycklar i key vault. När HSM-stödda nycklar (Hardware Security Module) har angetts skyddar en FIPS-nivå 2 HSM nyckeln, certifikatet eller hemligheten. |
-| Kryptering på kolumnnivå (Azure Data Services)| Ej tillämpligt |  |
-| Kryptering under överföring (till exempel ExpressRoute-kryptering, vnet-kryptering och VNet-VNet-kryptering)| Ja | All kommunikation sker via krypterade API-anrop |
-| API-anrop krypterade| Ja | Använda HTTPS. |
+| Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja | Alla objekt är krypterade. |
+| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Ja | Kunden styr alla nycklar i sina Key Vault. När HSM-säkerhetskopierade nycklar har angetts skyddar en FIPS-nivå 2 HSM nyckeln, certifikatet eller hemligheten. |
+| Kryptering på kolumn nivå (Azure Data Services)| Ej tillämpligt |  |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | All kommunikation sker via krypterade API-anrop |
+| Krypterade API-anrop| Ja | Använda HTTPS. |
 
 ## <a name="access-controls"></a>Åtkomstkontroller
 
-| Säkerhetskontroll | Ja/nej | Anteckningar|
+| Säkerhets kontroll | Ja/nej | Obs!|
 |---|---|--|
-| Åtkomstkontroller för styr-/hanteringsplan | Ja | Azure Resource Manager rollbaserad åtkomstkontroll (RBAC) |
-| Åtkomstkontroller för dataplan (på alla servicenivåer) | Ja | Åtkomstprincip för nyckelvalv |
+| Åtkomst kontroller för kontroll/hanterings plan | Ja | Azure Resource Manager rollbaserad åtkomstkontroll (RBAC) |
+| Åtkomst kontroller för data plan (på varje service nivå) | Ja | Key Vault åtkomst princip |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om de [inbyggda säkerhetskontrollerna för Azure-tjänster](../../security/fundamentals/security-controls.md).
+- Lär dig mer om de [inbyggda säkerhets kontrollerna i Azure-tjänster](../../security/fundamentals/security-controls.md).

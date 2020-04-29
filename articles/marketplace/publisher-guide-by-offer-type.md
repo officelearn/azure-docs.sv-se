@@ -1,6 +1,6 @@
 ---
-title: Microsofts kommersiella marknadsplats publiceringsguide efter erbjudandetyp
-description: I den här artikeln beskrivs de erbjudandetyper som är tillgängliga på Microsofts kommersiella marknadsplats.
+title: Publicerings guide för Microsoft Commercial Marketplace efter erbjudande typ
+description: I den här artikeln beskrivs de erbjudande typer som är tillgängliga på Microsofts kommersiella marknads platser.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,43 +8,43 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
 ms.openlocfilehash: 6521f19ea566719fee39c238adda8e3a068e2c25
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81419297"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Publiceringsguide efter erbjudandetyp
 
-När du [har bestämt dig för ett publiceringsalternativ](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)är du redo att välja den erbjudandetyp som ska användas för att presentera erbjudandet.
+När du [bestämmer dig för ett publicerings alternativ](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)kan du välja den erbjudande typ som ska användas för att presentera ditt erbjudande.
 
- *Erbjudandetypen* definierar erbjudandestrukturen, som innehåller metadata, artefakter och annat innehåll som används för att presentera erbjudandet på marketplace.
+ *Erbjudande typen* definierar erbjudande strukturen, som innehåller de metadata, artefakter och annat innehåll som används för att presentera erbjudandet i Marketplace.
 
-Innan du kan skapa ett erbjudande måste du välja en erbjudandetyp. Erbjudandetypen motsvarar den typ av lösning, app eller tjänsterbjudande som du vill publicera, samt dess anpassning till Microsofts produkter och tjänster.
+Innan du kan skapa ett erbjudande måste du välja en erbjudande typ. Erbjudande typen motsvarar den typ av lösning, app eller tjänst erbjudande som du vill publicera, samt dess justering för Microsofts produkter och tjänster.
 
-En enda erbjudandetyp kan konfigureras på olika sätt för att aktivera olika publiceringsalternativ, uppmaningar, etablering eller prissättning. Publiceringsalternativet och konfigurationen av erbjudandetypen anpassar sig också till erbjudandets berättigande och tekniska krav.
+En enda erbjudande typ kan konfigureras på olika sätt för att möjliggöra olika publicerings alternativ, anrop till åtgärd, etablering eller prissättning. Publicerings alternativet och konfigurationen av erbjudande typen överensstämmer också med kravet på erbjudanden och tekniska krav.
 
-Var noga med att granska skyltfönster och erbjuda typ behörighetskrav och de tekniska publiceringskraven innan du skapar ditt erbjudande.
+Se till att granska kraven för butik och erbjudande typ och de tekniska publicerings kraven innan du skapar erbjudandet.
 
-## <a name="list-of-offer-types"></a>Lista över erbjudandetyper
+## <a name="list-of-offer-types"></a>Lista över erbjudande typer
 
-Azure Marketplace-erbjudandetyper visas i tabellen nedan.
+Erbjudanden för Azure Marketplace-erbjudanden visas i tabellen nedan.
 
-| **Typ av erbjudande**    | **Beskrivning**  |
+| **Erbjudande typ**    | **Beskrivning**  |
 | :------------------- | :-------------------|
-| [**Virtuella datorer**](./marketplace-virtual-machines.md) | Använd erbjudandetypen för den virtuella datorn när du distribuerar en virtuell installation till prenumerationen som är kopplad till kunden. |
-| [**Lösningsmallar**](./marketplace-solution-templates.md) | Använd lösningsmallen (kallas även Azure-program) erbjudandetyp när din lösning kräver ytterligare distribution och konfigurationsautomatisering utöver en enda virtuell dator. Lösningsmallar kan använda många olika typer av Azure-resurser, inklusive men inte begränsat till virtuella datorer.  |
-| [**Hanterade program**](./marketplace-managed-apps.md) | Använd Azure-appen: hanterad apperbjudandetyp när följande villkor krävs: <br> <ul> <li> Du distribuerar antingen en prenumerationsbaserad lösning för kunden med antingen en virtuell dator eller en hel IaaS-baserad lösning. </li> <li>Du eller din kund kräver att lösningen hanteras av en partner. </li> <ul> |
-| [**SaaS-program**](./marketplace-saas-applications-technical-publishing-guide.md) | Använd erbjudandetypen SaaS-appen för att göra det möjligt för kunden att köpa din SaaS-baserade, tekniska lösning som prenumeration. |
-| [**Container erbjudanden**](./marketplace-containers.md) | Använd erbjudandetypen Behållare när din lösning är en Docker-behållaravbildning som etablerats som en Kubernetes-baserad Azure-behållartjänst. |
-| [**Azure IoT Edge-moduler**](./iot-edge-module.md) | Azure IoT Edge-moduler är de minsta beräkningsenheterna som hanteras av IoT Edge och kan innehålla Microsoft-tjänster (till exempel Azure Stream Analytics), tjänster från tredje part eller din egen lösningsspecifika kod. |
-| [**Konsulttjänster**](./consulting-services.md) | Konsulttjänster hjälper till att ansluta kunder till tjänster för att stödja och utöka deras användning av Azure-, Dynamics 365- eller Power Suite-tjänster.|
+| [**Virtuella datorer**](./marketplace-virtual-machines.md) | Använd den virtuella datorns erbjudande typ när du distribuerar en virtuell installation till prenumerationen som är kopplad till din kund. |
+| [**Lösningsmallar**](./marketplace-solution-templates.md) | Använd lösnings mal len (även kallat Azure-program) som erbjudande typ när din lösning kräver ytterligare distribution och konfigurations automatisering utöver en enskild virtuell dator. Solution templates kan använda många olika typer av Azure-resurser, inklusive men inte begränsat till virtuella datorer.  |
+| [**Hanterade program**](./marketplace-managed-apps.md) | Använd Azure app: den hanterade appens erbjudande typ när följande villkor är uppfyllda: <br> <ul> <li> Du distribuerar antingen en prenumeration baserad lösning för din kund med antingen en virtuell dator eller en hel IaaS lösning. </li> <li>Du eller din kund kräver att lösningen hanteras av en partner. </li> <ul> |
+| [**SaaS-program**](./marketplace-saas-applications-technical-publishing-guide.md) | Använd SaaS-appens erbjudande typ för att göra det möjligt för kunden att köpa din SaaS-baserade, tekniska lösning som en prenumeration. |
+| [**Container-erbjudanden**](./marketplace-containers.md) | Använd containerns erbjudande typ när din lösning är en Docker-behållar avbildning som tillhandahålls som en Kubernetes-baserad Azure Container Service. |
+| [**Azure IoT Edge moduler**](./iot-edge-module.md) | Azure IoT Edge moduler är de minsta beräknings enheter som hanteras av IoT Edge, och kan innehålla Microsoft-tjänster (till exempel Azure Stream Analytics), tjänster från tredje part eller din egen lösnings-specifika kod. |
+| [**Konsulttjänster**](./consulting-services.md) | Konsult tjänster hjälper till att ansluta kunder till tjänster som stöder och utökar användningen av Azure, Dynamics 365 eller Power Suite-tjänster.|
 | [**Office 365, Dynamics 365 och Power BI**](./appsource-offer-publishing-guide.md) | Du kan publicera AppSource-erbjudanden som bygger på eller utökar Dynamics 365, Office 365, Power BI och Power Apps.|
-| [**Integrerade lösningar**](./integrated-solutions-for-publishers.md) | Du kan publicera integrerade, branschrejade lösningar som kombinerar teknik och tjänster som ett enda erbjudande.|
+| [**Integrerade lösningar**](./integrated-solutions-for-publishers.md) | Du kan publicera integrerade, branschledande lösningar som kombinerar teknik och tjänster som ett enda erbjudande.|
 
-Information om enstaka inloggningskrav genom att lista alternativ och erbjudandetyper finns i [**Azure AD-krav**](./enable-appsource-marketplace-using-azure-ad.md).
+Information om krav för enkel inloggning genom att lista alternativ och erbjudande typer finns i [**krav för Azure AD**](./enable-appsource-marketplace-using-azure-ad.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska behörighetskraven i motsvarande artikel för din erbjudandetyp (följande avsnitt) för att slutföra valet och konfigurationen av ditt erbjudande.
-- Läs publiceringsmönstren efter skyltfönster för exempel på hur lösningen mappar till en erbjudandetyp och konfiguration.
+- Granska behörighets kraven i motsvarande artikel för din erbjudande typ (följande avsnitt) för att slutföra valet och konfigurationen av ditt erbjudande.
+- Granska publicerings mönstren efter butik för exempel på hur din lösning mappar till en erbjudande typ och konfiguration.

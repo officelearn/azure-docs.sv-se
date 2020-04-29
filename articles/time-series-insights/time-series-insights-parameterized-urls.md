@@ -1,6 +1,6 @@
 ---
-title: Dela anpassade vyer med parameteriserade webbadresser – Azure Time Series Insights | Microsoft-dokument
-description: Lär dig hur du skapar parameteriserade URL:er för att enkelt dela anpassade utforskarevyer i Azure Time Series Insights.
+title: 'Dela anpassade vyer med parametriserade URL: er – Azure Time Series Insights | Microsoft Docs'
+description: 'Lär dig hur du skapar parametriserade URL: er för att enkelt dela anpassade Explorer-vyer i Azure Time Series Insights.'
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,25 +11,25 @@ ms.workload: big-data
 ms.date: 04/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: 10616c8003d9bbbe42cb70bd1bac4193044907c0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416996"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Dela en anpassad vy med en parametriserad URL
 
-Om du vill dela en anpassad vy i Time Series Insights Explorer kan du programmässigt skapa en parameteriserad URL för den anpassade vyn.
+Om du vill dela en anpassad vy i Time Series Insights Explorer kan du program mässigt skapa en parametriserad URL för den anpassade vyn.
 
-Time Series Insights Explorer stöder URL-frågeparametrar för att ange vyer i upplevelsen direkt från URL:en. Med bara URL:en kan du till exempel ange en målmiljö, ett sökpredikat och önskat tidsintervall. När en användare väljer den anpassade URL:en tillhandahåller gränssnittet en länk direkt till den tillgången i time series insights-portalen. Dataåtkomstprinciper tillämpas.
+Time Series Insights Explorer stöder URL-frågeparametrar för att ange vyer i upplevelsen direkt från URL: en. Med bara URL:en kan du till exempel ange en målmiljö, ett sökpredikat och önskat tidsintervall. När en användare väljer den anpassade URL: en, tillhandahåller gränssnittet en länk direkt till den till gången i Time Series Insights portalen. Dataåtkomstprinciper tillämpas.
 
 > [!TIP]
-> * Visa den kostnadsfria [demonstrationen För Time Series Insights](https://insights.timeseries.azure.com/samples).
-> * Läs dokumentationen för [Time Series Insights Explorer.](./time-series-insights-explorer.md)
+> * Visa den kostnads fria [Time Series Insights demonstrationen](https://insights.timeseries.azure.com/samples).
+> * Läs dokumentationen om den medföljande [Time Series Insights Explorer](./time-series-insights-explorer.md) .
 
 ## <a name="environment-id"></a>Miljö-ID
 
-Parametern `environmentId=<guid>` anger målmiljö-ID:t. Det är en komponent i dataåtkomst FQDN, och du kan hitta den i det övre högra hörnet av miljön översikt i Azure-portalen. Det är allt som `env.timeseries.azure.com`föregår.
+Parametern `environmentId=<guid>` anger målmiljö-ID:t. Det är en komponent i data åtkomst-FQDN, och du hittar den i det övre högra hörnet i miljö översikten i Azure Portal. Det är allt som föregår `env.timeseries.azure.com`.
 
 Ett exempel på miljö-ID-parametern är `?environmentId=10000000-0000-0000-0000-100000000108`.
 
@@ -45,17 +45,17 @@ För absoluta tidsvärden använder du parametrarna `from=<integer>` och `to=<in
 * `to=<integer>` är ett värde i JavaScript-millisekunder för sluttiden för sökintervallet.
 
 > [!TIP]
-> Om du enkelt vill översätta datum till JavaScript-millisekunder provar [du Epoch & Unix Timestamp Converter](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html).
+> Om du enkelt vill översätta datum till JavaScript-millisekunder, kan du prova med den [epok & UNIX timestamp-konverteraren](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html).
 
 ### <a name="relative-time-values"></a>Relativa tidsvärden
 
-För ett relativt tidsvärde använder du `relativeMillis=<value>`, där *värdet* finns i JavaScript-millisekunder från den senaste tidsstämpeln som tagits emot från API:et.
+För ett relativt tids värde använder `relativeMillis=<value>`, där *värdet* är i Java Script millisekunder från den senaste tidsstämpeln som togs emot från API: et.
 
 `&relativeMillis=3600000` visar till exempel data från de senaste 60 minuterna.
 
-Godkända värden motsvarar **snabbtidsmenyn** för Time Series Insights explorer och inkluderar:
+Godkända värden motsvarar **snabb tids** menyn i Time Series Insights Explorer och inkluderar:
 
-* `1800000`(Senaste 30 minuter)
+* `1800000`(Senaste 30 minuterna)
 * `3600000`(Senaste 60 minuter)
 * `10800000`(Senaste 3 timmarna)
 * `21600000`(Senaste 6 timmarna)
@@ -66,71 +66,71 @@ Godkända värden motsvarar **snabbtidsmenyn** för Time Series Insights explore
 
 ### <a name="optional-parameters"></a>Valfria parametrar
 
-Parametern `timeSeriesDefinitions=<collection of term objects>` anger predikattermer som ska visas i en time series insights-vy:
+`timeSeriesDefinitions=<collection of term objects>` Parametern anger vilka predikat som ska visas i en Time Series Insights vy:
 
 | Parameter | URL-objekt | Beskrivning |
 | --- | --- | --- |
 | **Namn** | `\<string>` | Namnet på *villkoret*. |
-| **splitBy (splitBy)** | `\<string>` | Kolumnnamnet att *dela med*. |
-| **mätNamn** | `\<string>` | Kolumnnamnet för *mått*. |
-| **Predikat** | `\<string>` | *Where*-sats för filtrering på serversidan. |
-| **useSum** | `true` | En valfri parameter som anger att summan används för ditt mått. |
+| **splitBy** | `\<string>` | Kolumnnamnet att *dela med*. |
+| **measureName** | `\<string>` | Kolumnnamnet för *mått*. |
+| **predikatet** | `\<string>` | *Where*-sats för filtrering på serversidan. |
+| **useSum** | `true` | En valfri parameter som anger att summan ska används för måttet. |
 
 > [!NOTE]
-> Om `Events` är det valda **useSum-måttet** väljs antal som standard.  
-> Om `Events` inte markeras väljs medelvärdet som standard. |
+> Om `Events` är valt **useSum** mått är Count valt som standard.  
+> Om `Events` inte är valt väljs Average som standard. |
 
-* Nyckel-värde-paret `multiChartStack=<true/false>` möjliggör stapling i diagrammet.
-* Nyckel-värde-paret `multiChartSameScale=<true/false>` möjliggör samma Y-axelskala över termer inom en valfri parameter.  
-* Med `timeBucketUnit=<Unit>&timeBucketSize=<integer>` möjlighet kan du justera intervallreglaget så att det ger en mer detaljerad eller jämnare, mer aggregerad vy av diagrammet.  
-* Med `timezoneOffset=<integer>` parametern kan du ange tidszonen för diagrammet som ska visas som en förskjutning till UTC.
+* `multiChartStack=<true/false>` Nyckel värdes paret aktiverar stackning i diagrammet.
+* `multiChartSameScale=<true/false>` Nyckel/värde-paret möjliggör samma skala för Y-axeln mellan termer inom en valfri parameter.  
+* Med `timeBucketUnit=<Unit>&timeBucketSize=<integer>` kan du justera skjutreglaget intervall så att det ger en mer detaljerad eller smidigare, mer sammanslagen vy av diagrammet.  
+* `timezoneOffset=<integer>` Parametern låter dig ange tids zonen för diagrammet som ska visas som en förskjutning till UTC.
 
-| Par(er) | Beskrivning |
+| Par (er) | Beskrivning |
 | --- | --- |
-| `multiChartStack=false` | `true`är aktiverat som standard `false` så passera till stack. |
-| `multiChartStack=false&multiChartSameScale=true` | Stapling måste aktiveras att använda samma skala för y-axeln i villkoren.  Det är `false` som standard, `true` så att skicka aktiverar den här funktionen. |
-| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Enheter = `days` `hours`, `minutes` `seconds`, `milliseconds`, , .  Inled alltid enheten med versal. </br> Definiera antalet enheter genom att skicka önskat heltal för **timeBucketSize**.  |
+| `multiChartStack=false` | `true`är aktiverat som standard för att `false` skicka till stack. |
+| `multiChartStack=false&multiChartSameScale=true` | Stapling måste aktiveras att använda samma skala för y-axeln i villkoren.  Det är `false` som standard, så överföring `true` aktiverar den här funktionen. |
+| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Units `days`= `hours`, `minutes`, `seconds`, `milliseconds`,.  Inled alltid enheten med versal. </br> Definiera antalet enheter genom att skicka önskat heltal för **timeBucketSize**.  |
 | `timezoneOffset=-<integer>` | Heltalet är alltid i millisekunder. |
 
 > [!NOTE]
-> **timeBucketUnit-värden** kan jämnas ut upp till 7 dagar.
-> **tidszonoffset-värden** är varken UTC eller lokal tid.
+> **timeBucketUnit** -värden kan jämnas upp till 7 dagar.
+> **timezoneOffset** -värden är varken UTC eller lokal tid.
 
 ### <a name="examples"></a>Exempel
 
-Om du vill lägga till tidsseriedefinitioner i en Time Series Insights-miljö som url-parameter lägger du till:
+Lägg till tids serie definitioner i en Time Series Insights miljö som en URL-parameter genom att lägga till:
 
 ```URL parameter
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
 {"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
-Använd exempeltidsseriedefinitionerna för:
+Använd exempel tid serie definitioner för:
 
 * Miljö-ID
-* De sista 60 minuterna av data
-* Termerna **(F1PressureID**, **F2TempStation**och **F3VibrationPL**) som omfattar de valfria parametrarna
+* De senaste 60 minuterna data
+* Villkoren (**F1PressureID**, **F2TempStation**och **F3VibrationPL**) som utgör de valfria parametrarna
 
-Du kan skapa följande parameteriserade URL för en vy:
+Du kan skapa följande parametriserade URL för en vy:
 
 ```URL
 https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
-[![Parameteriserad URL för Time Series Insights Explorer](media/parameterized-url/share-parameterized-url.png)](media/parameterized-url/share-parameterized-url.png#lightbox)
+[![URL för Time Series Insights Explorer-parameter](media/parameterized-url/share-parameterized-url.png)](media/parameterized-url/share-parameterized-url.png#lightbox)
 
 > [!TIP]
-> Se Explorer live [med url-exemplet](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]) ovan.
+> Se Explorer Live [med hjälp av URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]) -exemplet ovan.
 
-Url:en ovan beskriver och visar utforskarvyn Time Series Insights. 
+URL: en ovan beskriver och visar den parameterstyrda Time Series Insights Explorer-vyn. 
 
-* De parameteriserade predikaten.
+* Parametriserade predikat.
 
-  [![Time Series Insights explorer parameteriserade predikater.](media/parameterized-url/share-parameterized-url-predicates.png)](media/parameterized-url/share-parameterized-url-predicates.png#lightbox)
+  [![Time Series Insights Explorer-parametriserade predikat.](media/parameterized-url/share-parameterized-url-predicates.png)](media/parameterized-url/share-parameterized-url-predicates.png#lightbox)
 
-* Den delade fullständiga diagramvyn.
+* Vyn delat fullständigt diagram.
 
-  [![Den delade fullständiga diagramvyn.](media/parameterized-url/share-parameterized-url-full-chart.png)](media/parameterized-url/share-parameterized-url-full-chart.png#lightbox)
+  [![Vyn delat fullständigt diagram.](media/parameterized-url/share-parameterized-url-full-chart.png)](media/parameterized-url/share-parameterized-url-full-chart.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 

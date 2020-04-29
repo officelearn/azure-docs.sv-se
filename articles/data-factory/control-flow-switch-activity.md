@@ -1,6 +1,6 @@
 ---
 title: Växla aktivitet i Azure Data Factory
-description: Med switch-aktiviteten kan du styra bearbetningsflödet baserat på ett villkor.
+description: Med växel aktiviteten kan du styra bearbetnings flödet baserat på ett villkor.
 services: data-factory
 author: djpmsft
 ms.author: daperlov
@@ -10,17 +10,17 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.openlocfilehash: 4f839de6e276727fa910f91eccc34601cf34f85c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418022"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Växla aktivitet i Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Switch-aktiviteten ger samma funktioner som en switch-sats tillhandahåller i programmeringsspråk. Den utvärderar en uppsättning aktiviteter som motsvarar ett ärende som matchar villkorsutvärderingen.
+Växel aktiviteten ger samma funktioner som en switch-instruktion i programmeringsspråk. Den utvärderar en uppsättning aktiviteter som motsvarar ett ärende som matchar villkors utvärderingen.
 
 ## <a name="syntax"></a>Syntax
 
@@ -65,24 +65,24 @@ Switch-aktiviteten ger samma funktioner som en switch-sats tillhandahåller i pr
 }
 ```
 
-## <a name="type-properties"></a>Egenskaper för typ
+## <a name="type-properties"></a>Typ egenskaper
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namnet på växelaktiviteten. | Sträng | Ja
-typ | Måste ställas in på *Switch** | Sträng | Ja
-uttryck | Uttryck som måste utvärderas till strängvärde | Uttryck med sträng av resultattyp | Ja
-Fall | Uppsättning ärenden som innehåller ett värde och en uppsättning aktiviteter som ska utföras när värdet matchar uttrycksutvärderingen. Måste tillhandahålla minst ett fall. Det finns en maxgräns på 25 fall. | Matris med ärendeobjekt | Ja
-defaultActivities (standardAktiviteter) | Uppsättning aktiviteter som körs när uttrycksutvärderingen inte är nöjd. | Matris med aktiviteter | Ja
+name | Växel aktivitetens namn. | Sträng | Ja
+typ | Måste anges för att *Växla** | Sträng | Ja
+uttryck | Uttryck som måste utvärderas till sträng värde | Uttryck med resultat typs sträng | Ja
+fall | En uppsättning ärenden som innehåller ett värde och en uppsättning aktiviteter som ska köras när värdet matchar uttrycks utvärderingen. Måste innehålla minst ett fall. Det finns en Max gräns på 25 fall. | Matris med Case-objekt | Ja
+defaultActivities | Uppsättning aktiviteter som körs när uttrycks utvärderingen inte är uppfyllt. | Matris med aktiviteter | Ja
 
 ## <a name="example"></a>Exempel
 
-Pipelinen i det här exemplet kopierar data från en indatamapp till en utdatamapp. Utdatamappen bestäms av värdet för pipelineparametern: routeSelection.
+Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil. Mappen utdata bestäms av värdet för pipeline-parametern: routeSelection.
 
 > [!NOTE]
-> Det här avsnittet innehåller JSON-definitioner och exempel på PowerShell-kommandon för att köra pipelinen. En genomgång med steg-för-steg-instruktioner för att skapa en Data Factory-pipeline med hjälp av Azure PowerShell- och JSON-definitioner finns i [självstudiekurs: skapa en datafabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Det här avsnittet innehåller JSON-definitioner och exempel på PowerShell-kommandon för att köra pipelinen. En genom gång med stegvisa instruktioner för att skapa en Data Factory pipeline med hjälp av Azure PowerShell-och JSON-definitioner finns i [Självstudier: skapa en data fabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Pipeline med växelaktivitet (Adfv2QuickStartPipeline.json)
+### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Pipeline med växel aktivitet (Adfv2QuickStartPipeline. JSON)
 
 ```json
 {
@@ -230,7 +230,7 @@ Pipelinen i det här exemplet kopierar data från en indatamapp till en utdatama
 
 ```
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure Storage-länkad tjänst (AzureStorageLinkedService.json)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure Storage länkad tjänst (AzureStorageLinkedService. JSON)
 
 ```json
 {
@@ -244,9 +244,9 @@ Pipelinen i det här exemplet kopierar data från en indatamapp till en utdatama
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parameteriserad Azure Blob-datauppsättning (BlobDataset.json)
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametriserad Azure Blob-datauppsättning (BlobDataset. JSON)
 
-Pipelinen ställer in **folderPath** till värdet för antingen **parametern outputPath1** eller **outputPath2** för pipelinen. 
+Pipelinen anger **folderPath** till värdet för antingen **OutputPath1** -eller **outputPath2** -parametern för pipelinen. 
 
 ```json
 {
@@ -272,7 +272,7 @@ Pipelinen ställer in **folderPath** till värdet för antingen **parametern out
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parametern JSON (PipelineParameters.json)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parameter-JSON (PipelineParameters. JSON)
 
 ```json
 {
@@ -331,7 +331,7 @@ $result.Error -join "`r`n"
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
+Se andra kontroll flödes aktiviteter som stöds av Data Factory: 
 
 - [If-villkorsaktivitet](control-flow-if-condition-activity.md)
 - [Köra pipelineaktivitet](control-flow-execute-pipeline-activity.md)

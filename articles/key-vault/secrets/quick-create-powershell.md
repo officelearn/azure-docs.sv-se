@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Ange & hämta en hemlighet från Key Vault med PowerShell'
-description: I den här snabbstarten kan du lära dig hur du skapar, hämtar och tar bort hemligheter från ett Azure Key Vault med Azure PowerShell.
+title: 'Snabb start: Ange & hämta en hemlighet från Key Vault med PowerShell'
+description: I den här snabb starten lär du dig att skapa, hämta och ta bort hemligheter från en Azure Key Vault med hjälp av Azure PowerShell.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.date: 11/08/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 3bac3cc2a5cedbd4b963a0759e6c8b940d2ca924
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81424988"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Snabbstart: Ställ in och hämta en hemlighet från Azure Key Vault med hjälp av PowerShell
@@ -46,11 +46,11 @@ New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
 
 Sedan skapar du ett nyckelvalv. När du utför det här steget behöver du en del information:
 
-Även om vi använder "Contoso KeyVault2" som namn för vårt Key Vault under hela den här snabbstarten, måste du använda ett unikt namn.
+Även om vi använder "contoso KeyVault2" som namn på vår Key Vault i den här snabb starten måste du använda ett unikt namn.
 
 - **Valvnamn** Contoso-Vault2.
-- **Namn på resursgrupp** ContosoResourceGroup.
-- **Plats** Östra USA.
+- **Resurs grupps namn** ContosoResourceGroup.
+- **Plats** USA, östra.
 
 ```azurepowershell-interactive
 New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
@@ -101,8 +101,8 @@ Remove-AzResourceGroup -Name ContosoResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du ett Nyckelvalv och lagrade en hemlighet i det. Om du vill veta mer om Key Vault och hur du integrerar det med dina program fortsätter du med artiklarna nedan.
+I den här snabb starten skapade du en Key Vault och sparade en hemlighet. Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
 
-- Läs en [översikt över Azure Key Vault](../general/overview.md)
-- Se referensen för [cmdlets](/powershell/module/az.keyvault/?view=azps-2.6.0#key_vault) för Azure PowerShell Key Vault
-- Granska [metodtips för Azure Key Vault](../general/best-practices.md)
+- Läs en [Översikt över Azure Key Vault](../general/overview.md)
+- Se referensen för [Azure PowerShell Key Vault-cmdletar](/powershell/module/az.keyvault/?view=azps-2.6.0#key_vault)
+- Granska [Azure Key Vault bästa praxis](../general/best-practices.md)

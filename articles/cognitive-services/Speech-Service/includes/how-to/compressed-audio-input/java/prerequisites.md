@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
 ms.openlocfilehash: ccc7fcd748323e05f21edcfff1535085d2cdbdc7
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81421714"
 ---
-Hantering av komprimerat ljud implementeras med [GStreamer](https://gstreamer.freedesktop.org). Av licensskäl kompileras inte GStreamer-binärfiler och länkas till Tal-SDK. I stället måste du använda de fördefinierade binärfilerna för Android. Om du vill hämta de färdiga biblioteken läser du [installera för Android-utveckling](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
+Hantering av komprimerat ljud implementeras med [gstreamer](https://gstreamer.freedesktop.org). Av licens skäl GStreamer binärfiler inte kompileras och länkas till tal-SDK: n. I stället måste du använda fördefinierade binärfiler för Android. Information om hur du hämtar färdiga bibliotek finns i [Installera för Android-utveckling](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c).
 
-`libgstreamer_android.so` måste anges. Se till att dina GStreamer-plugins är länkade i `libgstreamer_android.so`.
+`libgstreamer_android.so` måste anges. Kontrol lera att dina GStreamer-plugin-program `libgstreamer_android.so`är länkade i.
 
 ```makefile
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \
@@ -21,7 +21,7 @@ GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 \
     opus wavparse alaw mulaw flac
 ```
 
-Ett `Android.mk` exempel `Application.mk` och en fil finns nedan. Så här skapar `gstreamer` du det`libgstreamer_android.so`delade objektet: .
+Ett exempel `Android.mk` och `Application.mk` en fil finns nedan. Följ de här stegen för att `gstreamer` skapa det delade`libgstreamer_android.so`objektet:.
 
 ```makefile
 # Android.mk
@@ -76,7 +76,7 @@ APP_PLATFORM = android-21
 APP_BUILD_SCRIPT = Android.mk
 ```
 
-Du kan `libgstreamer_android.so` skapa med följande kommando på Ubuntu 16.04 eller 18.04. Följande kommandorader har endast testats för [GStreamer Android version 1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2) med [Android NDK b16b.](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)
+Du kan bygga `libgstreamer_android.so` med följande kommando på Ubuntu 16,04 eller 18,04. Följande kommando rader har endast testats för [gstreamer Android-version 1.14.4](https://gstreamer.freedesktop.org/data/pkg/android/1.14.4/gstreamer-1.0-android-universal-1.14.4.tar.bz2) med [Android NDK B16B.](https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip)
 
 ```sh
 # Assuming wget and unzip already installed on the system
@@ -108,4 +108,4 @@ ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=armeab
 #ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=x86 NDK_LIBS_OUT=$(pwd)
 ```
 
-När det delade`libgstreamer_android.so`objektet ( ) är byggt måste programutvecklaren placera det delade objektet i Android-appen, så att det kan läsas in av tal-SDK.
+När det delade objektet (`libgstreamer_android.so`) är skapat måste programutvecklaren placera det delade objektet i Android-appen, så att det kan läsas in med tal-SDK.

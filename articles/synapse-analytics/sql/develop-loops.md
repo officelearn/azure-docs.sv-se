@@ -1,6 +1,6 @@
 ---
-title: Använda T-SQL-loopar
-description: Tips om hur du använder T-SQL-loopar, ersätter markörer och utvecklar relaterade lösningar med SQL-pool i Synapse SQL.
+title: Använda T-SQL-slingor
+description: Tips för att använda T-SQL-slingor, ersätta markörer och utveckla relaterade lösningar med SQL-pool i Synapse SQL.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -11,28 +11,28 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.openlocfilehash: baff2806b1a8c3c99546365c2496238c24b2b243
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81429959"
 ---
-# <a name="using-t-sql-loops-in-synapse-sql"></a>Använda T-SQL-loopar i Synapse SQL
-Den här artikeln ger dig viktiga tips för hur du använder T-SQL-loopar, ersätter markörer och utvecklar relaterade lösningar med SQL-pool i Synapse SQL.
+# <a name="using-t-sql-loops-in-synapse-sql"></a>Använda T-SQL-slingor i Synapse SQL
+Den här artikeln innehåller viktiga tips för att använda T-SQL-slingor, ersätta markörer och utveckla relaterade lösningar med SQL-poolen i Synapse SQL.
 
-## <a name="purpose-of-while-loops"></a>Syftet med WHILE-loopar
+## <a name="purpose-of-while-loops"></a>Syfte med WHILe-slingor
 
-Synapse SQL [WHILE](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15) stöder WHILE-loopen för att upprepade gånger köra statement block. Den här WHILE-loopen fortsätter så länge de angivna villkoren är sanna eller tills koden specifikt avslutar loopen med nyckelordet BREAK. 
+Synapse SQL stöder [while](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15) -slingan för att köra instruktions block upprepade gånger. Den här WHILe-slingan fortsätter så länge som de angivna villkoren är sanna eller tills koden specifikt avslutar loopen med hjälp av nyckelordet BREAK. 
 
-Loopar i SQL-poolen är användbara för att ersätta markörer som definierats i SQL-kod. Lyckligtvis är nästan alla markörer som är skrivna i SQL-kod av snabbspolning framåt, skrivskyddad sort. Så, [MEDAN] loopar är ett bra alternativ för att ersätta markörer.
+Slingor i SQL-poolen är användbara för att ersätta markörer som definierats i SQL-kod. Lyckligt vis är nästan alla markörer som skrivs i SQL-kod av den snabba, skrivskyddade sorten. Därför är det ett bra alternativ att ersätta markörer med [WHILe]-slingor.
 
 ## <a name="replacing-cursors-in-sql-pool"></a>Ersätta markörer i SQL-pool
 
-Innan du dyker in bör följande fråga övervägas: "Kan den här markören skrivas om för att använda set-baserade operationer?" I många fall är svaret ja och är ofta det bästa tillvägagångssättet. En set-baserad åtgärd körs ofta snabbare än en iterativ, rad för rad-metod.
+Innan simhopp i bör följande fråga beaktas: "kan den här markören skrivas om för att använda set-based Operations?" I många fall är svaret ja och det är ofta den bästa metoden. En fristående åtgärd körs ofta snabbare än en upprepad rad med rad-metod.
 
-Snabbspola skrivskyddade markörer ersätts enkelt med en loopkonstruktion. Följande kod är ett enkelt exempel. I det här kodexemplet uppdateras statistiken för varje tabell i databasen. Genom att iterera över tabellerna i loopen körs varje kommando i följd.
+Snabba framåtriktade skrivskyddade markörer kan enkelt ersättas med en loop-konstruktion. Följande kod är ett enkelt exempel. I den här kod exemplet uppdateras statistiken för alla tabeller i databasen. Genom att iterera över tabellerna i slingan körs varje kommando i följd.
 
-Skapa först en temporär tabell som innehåller ett unikt radnummer som används för att identifiera de enskilda uttrycken:
+Skapa först en temporär tabell som innehåller ett unikt rad nummer som används för att identifiera de enskilda uttrycken:
 
 ```sql
 CREATE TABLE #tbl
@@ -47,7 +47,7 @@ FROM    sys.tables
 ;
 ```
 
-För det andra initierar du de variabler som krävs för att köra loopen:
+Sedan initierar du de variabler som krävs för att köra slingan:
 
 ```sql
 DECLARE @nbr_statements INT = (SELECT COUNT(*) FROM #tbl)
@@ -55,7 +55,7 @@ DECLARE @nbr_statements INT = (SELECT COUNT(*) FROM #tbl)
 ;
 ```
 
-Nu loop över uttalanden som utför dem en i taget:
+Loopar över instruktioner som kör dem en i taget:
 
 ```sql
 WHILE   @i <= @nbr_statements
@@ -66,7 +66,7 @@ BEGIN
 END
 ```
 
-Släpp slutligen den temporära tabellen som skapades i det första steget
+Ta slutligen bort den tillfälliga tabellen som skapades i det första steget
 
 ```sql
 DROP TABLE #tbl;
@@ -74,4 +74,4 @@ DROP TABLE #tbl;
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fler utvecklingstips finns i [utvecklingsöversikt](develop-overview.md).
+Mer utvecklings tips finns i [utvecklings översikt](develop-overview.md).

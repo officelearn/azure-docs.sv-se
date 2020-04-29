@@ -1,48 +1,48 @@
 ---
-title: Metodtips för tidskrävande åtgärder i Azure Analysis Services | Microsoft-dokument
-description: I den här artikeln beskrivs metodtips för tidskrävande åtgärder.
+title: Metod tips för långvariga drift åtgärder i Azure Analysis Services | Microsoft Docs
+description: Den här artikeln beskriver metod tips för långvariga drift åtgärder.
 author: minewiskan
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: owend
 ms.openlocfilehash: 3f6b2194cc422a827bbc7a15c012173b3f814b52
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81428113"
 ---
-# <a name="best-practices-for-long-running-operations"></a>Metodtips för tidskrävande åtgärder
+# <a name="best-practices-for-long-running-operations"></a>Metod tips för långvariga drift åtgärder
 
-I Azure Analysis Services representerar en *nod* en virtuell värddator där en serverresurs körs. Vissa åtgärder, till exempel tidskrävande frågor, uppdateringsåtgärder och frågeskalningssynkronisering, kan misslyckas om en serverresurs flyttas till en annan nod. Vanliga felmeddelanden i det här scenariot är:
+I Azure Analysis Services representerar en *nod* en virtuell värd dator där en server resurs körs. Vissa åtgärder, t. ex. tids krävande frågor, uppdaterings åtgärder och synkronisering av en fråga kan inte utföras om en server resurs flyttas till en annan nod. Vanliga fel meddelanden i det här scenariot är:
 
-- "Ett fel uppstod när en XMLA-begäran som körs körs. Begäran kan ha avbrutits av tjänstuppgraderingen eller omstarten av servern."
-- "Jobb med ID'<guid><database>för modell ' ' avbröts på grund av servicefel (inaktivitet) med meddelandet "Avbryta uppdateringsbegäran eftersom den fastnade utan några uppdateringar. Detta är ett internt serviceproblem. Skicka in jobbet eller lämna in en biljett igen för att få hjälp om problemet uppstår upprepade gånger."
+- "Ett fel uppstod vid försök att hitta en tids krävande XMLA-begäran. Begäran kan ha avbrutits av tjänst uppgradering eller omstart av servern. "
+- "Jobbet med ID<guid>för modellen"<database>"avbröts på grund av ett fel i tjänsten (inaktivitet) när meddelandet avbröt uppdateringsbegäran sedan den fastnade utan några uppdateringar. Detta är ett internt tjänst problem. Skicka jobbet eller filen en biljett igen för att få hjälp om det här problemet inträffar upprepade gånger. "
 
-Det finns många anledningar till att långvariga operationer kan störas. Till exempel uppdateringar i Azure, till exempel: 
-- Korrigeringar av operativsystem 
+Det finns många orsaker till varför tids krävande åtgärder kan avbrytas. Till exempel uppdateringar i Azure, till exempel: 
+- Korrigeringsfiler för operativ system 
 - Säkerhetsuppdateringar
-- Uppdateringar av Azure Analysis Services-tjänsten
-- Service Fabric-uppdateringar. Service Fabric är en plattformskomponent som används av ett antal Microsoft-molntjänster, inklusive Azure Analysis Services.
+- Azure Analysis Services tjänst uppdateringar
+- Service Fabric uppdateringar. Service Fabric är en plattforms komponent som används av ett antal Microsofts moln tjänster, inklusive Azure Analysis Services.
 
-Förutom uppdateringar som sker i tjänsten finns det en naturlig förflyttning av tjänster över noder på grund av belastningsutjämning. Nodrörelser är en förväntad del av en molntjänst. Azure Analysis Services försöker minimera påverkan från nodrörelser, men det är omöjligt att eliminera dem helt. 
+Förutom uppdateringar som inträffar i tjänsten, finns det en naturlig flyttning av tjänster mellan noder på grund av belastnings utjämning. Nod transporter är en förväntad del av en moln tjänst. Azure Analysis Services försöker minimera påverkan från nodens rörelser, men det är omöjligt att helt ta bort dem. 
 
-Förutom nodrörelser finns det andra fel som kan uppstå. Ett databassystem för datakällan kan till exempel vara offline eller nätverksanslutningen går förlorad. Om en partition under uppdateringen har 10 miljoner rader och ett fel inträffar på den 9 miljonde raden, finns det inget sätt att starta om uppdateringen vid felpunkten. Tjänsten måste börja om från början. 
+Förutom nod transporter finns det andra fel som kan uppstå. Till exempel kan ett data käll databas system vara offline eller nätverks anslutningen förloras. Om det under uppdateringen har 10 000 000 rader och ett fel uppstår på raden 9 millionth finns det inget sätt att starta om uppdateringen vid fel punkten. Tjänsten måste börja om från början. 
 
 ## <a name="refresh-rest-api"></a>Uppdatera REST API
 
-Avbrott i tjänsten kan vara utmanande för tidskrävande åtgärder som datauppdatering. Azure Analysis Services innehåller ett REST API för att minska negativa effekter från avbrott i tjänsten. Mer information finns i [Asynkron uppdatering med REST API](analysis-services-async-refresh.md).
+Tjänst avbrott kan vara utmanande för tids krävande åtgärder som data uppdatering. Azure Analysis Services innehåller ett REST API som minskar negativ påverkan från tjänst avbrott. Läs mer i [asynkron uppdatering med REST API](analysis-services-async-refresh.md).
  
-Förutom REST API finns det andra metoder som du kan använda för att minimera potentiella problem under tidskrävande uppdateringsåtgärder. Huvudmålet är att undvika att behöva starta om uppdateringsåtgärden från början och i stället utföra uppdateringar i mindre batchar som kan bekräftas i etapper. 
+Förutom REST API finns det andra metoder som du kan använda för att minimera eventuella problem under tids krävande uppdaterings åtgärder. Huvud målet är att undvika att behöva starta om uppdaterings åtgärden från början och i stället utföra uppdateringar i mindre batchar som kan allokeras i steg. 
  
-REST API möjliggör en sådan omstart, men det tillåter inte full flexibilitet för partition skapande och radering. Om ett scenario kräver komplexa datahanteringsåtgärder bör din lösning innehålla någon form av batchbearbetning i logiken. Genom att till exempel använda transaktioner för att bearbeta data i flera, tillåter separata batchar att det inte krävs omstart från början, utan i stället från en mellanliggande kontrollpunkt. 
+REST API tillåter sådan omstart, men den tillåter inte fullständig flexibilitet när det gäller att skapa och ta bort partitioner. Om ett scenario kräver komplexa data hanterings åtgärder bör din lösning innehålla någon form av satsvis kompilering i sin logik. Genom att använda transaktioner för att bearbeta data i flera kan separata batchar till exempel inte kräva omstart från början, utan i stället från en mellanliggande kontroll punkt. 
  
-## <a name="scale-out-query-replicas"></a>Utskalningsfrågerepliker
+## <a name="scale-out-query-replicas"></a>Skala ut fråga-repliker
 
-Oavsett om du använder REST eller anpassad logik kan klientprogramfrågor fortfarande returnera inkonsekventa eller mellanliggande resultat medan batchar bearbetas. Om konsekventa data som returneras av klientprogramfrågor krävs under bearbetningen och modelldata är i ett mellanliggande tillstånd, kan du använda [utskalning](analysis-services-scale-out.md) med skrivskyddade frågerepliker.
+Oavsett om du använder REST eller anpassad logik kan klient program frågor fortfarande returnera inkonsekventa eller mellanliggande resultat medan batchar bearbetas. Om konsekventa data som returneras av klient program frågor krävs medan bearbetningen sker, och modell data är i ett mellanliggande tillstånd, kan du använda [skalbarhet](analysis-services-scale-out.md) med skrivskyddade fråga-repliker.
 
-Genom att använda skrivskyddade frågerepliker, medan uppdateringar utförs i batchar, kan klientprogramanvändare fortsätta att fråga den gamla ögonblicksbilden av data på skrivskyddade repliker. När uppdateringarna är klara kan en synkroniseringsåtgärd utföras för att uppdatera skrivskyddade repliker.
+Genom att använda skrivskyddade repliker, medan uppdatering utförs i batchar, kan klient program användare fortsätta att fråga den gamla ögonblicks bilden av data på de skrivskyddade replikerna. När uppdateringarna har slutförts kan en Synch-åtgärd utföras för att se till att de skrivskyddade replikerna är aktuella.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -50,5 +50,5 @@ Genom att använda skrivskyddade frågerepliker, medan uppdateringar utförs i b
 [Asynkron uppdatering med REST API](analysis-services-async-refresh.md)  
 [Utskalning för Azure Analysis Services](analysis-services-scale-out.md)  
 [Analysis Services hög tillgänglighet](analysis-services-bcdr.md)  
-[Sök vägledning för Azure-tjänster igen](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)   
+[Vägledning för nytt försök för Azure-tjänster](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)   
 

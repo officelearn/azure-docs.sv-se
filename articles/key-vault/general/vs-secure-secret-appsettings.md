@@ -1,6 +1,6 @@
 ---
-title: Spara hemliga programinställningar för ett webbprogram på ett säkert sätt – Azure Key Vault | Microsoft-dokument
-description: Så här sparar du hemliga programinställningar som Azure-autentiseringsuppgifter eller API-nycklar från tredje part med ASP.NET grundläggande Key Vault Provider-, User Secret- eller .NET 4.7.1-konfigurationsbyggare
+title: Spara hemliga program inställningar för ett webb program på ett säkert sätt – Azure Key Vault | Microsoft Docs
+description: Hur du säkert sparar inställningar för hemliga program, till exempel Azure-autentiseringsuppgifter eller API-nycklar från tredje part med hjälp av ASP.NET Core Key Vault Provider, användar hemlighet eller .NET 4.7.1 Configuration Builder
 services: visualstudio
 author: cawaMS
 manager: paulyuk
@@ -11,48 +11,48 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: cawa
 ms.openlocfilehash: bcacd5d2ed9e325383ec7ae75002ae0a6213111c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81429764"
 ---
-# <a name="securely-save-secret-application-settings-for-a-web-application"></a>Spara hemliga programinställningar för ett webbprogram på ett säkert sätt
+# <a name="securely-save-secret-application-settings-for-a-web-application"></a>Spara hemliga program inställningar för ett webb program på ett säkert sätt
 
 ## <a name="overview"></a>Översikt
-I den här artikeln beskrivs hur du på ett säkert sätt sparar hemliga programkonfigurationsinställningar för Azure-program.
+Den här artikeln beskriver hur du säkert sparar konfigurations inställningar för hemliga program för Azure-program.
 
-Traditionellt sparas alla konfigurationsinställningar för webbprogram i konfigurationsfiler som Web.config. Den här metoden leder till att du kontrollerar hemliga inställningar som molnautentiseringsuppgifter till styrsystem för offentliga källor som GitHub. Under tiden kan det vara svårt att följa bästa säkerhetspraxis på grund av de omkostnader som krävs för att ändra källkod och konfigurera om utvecklingsinställningar.
+Traditionellt har alla konfigurations inställningar för webb program sparats i konfigurationsfiler, till exempel Web. config. Den här övningen leder till att kontrol lera hemliga inställningar som till exempel moln uppgifter för offentliga käll kontrolls system, t. ex. GitHub. Under tiden kan det vara svårt att följa säkerhets praxis på grund av den omkostnader som krävs för att ändra käll koden och konfigurera om utvecklings inställningarna.
 
-För att säkerställa att utvecklingsprocessen är säker skapas verktygs- och rambibliotek för att spara programhemliga inställningar på ett säkert sätt med minimal eller ingen källkodsändring.
+För att säkerställa att utvecklings processen är säker skapas verktygs-och Ramverks bibliotek för att spara inställningar för program hemlighet på ett säkert sätt med minimal eller ingen käll kods ändring.
 
-## <a name="aspnet-and-net-core-applications"></a>ASP.NET- och .NET Core-program
+## <a name="aspnet-and-net-core-applications"></a>ASP.NET-och .NET Core-program
 
-### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Spara hemliga inställningar i User Secret-arkivet som ligger utanför källkontrollmappen
-Om du gör en snabb prototyp eller om du inte har tillgång till internet, börja med att flytta dina hemliga inställningar utanför källa kontrollmapp till User Secret store. User Secret Store är en fil som sparats under mappen användare profiler, så hemligheter inte checkas in till källkontroll. Följande diagram visar hur [Användarhemlighet](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio) fungerar.
+### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Spara hemliga inställningar i användarens hemliga arkiv som ligger utanför käll kontroll mappen
+Om du utför en snabb prototyp eller om du inte har till gång till Internet, börjar du med att flytta dina hemliga inställningar utanför käll kontrollens mapp till användarens hemliga arkiv. Användarens hemliga arkiv är en fil som sparats under mappen User profiler, så hemligheterna är inte incheckade i käll kontrollen. Följande diagram visar hur [användar hemlighet](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio) fungerar.
 
-![Användarhemlighet håller hemliga inställningar utanför källkontrollen](../media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
+![Användar hemlighet behåller hemliga inställningar utanför käll kontrollen](../media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
-Om du kör .NET core console-programmet använder du Key Vault för att spara hemligheten på ett säkert sätt.
+Om du kör .NET Core-konsolen använder du Key Vault för att spara din hemliga information på ett säkert sätt.
 
 ### <a name="save-secret-settings-in-azure-key-vault"></a>Spara hemliga inställningar i Azure Key Vault
-Om du utvecklar ett projekt och behöver dela källkoden på ett säkert sätt använder du [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+Om du utvecklar ett projekt och behöver dela käll koden på ett säkert sätt, använder du [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
-1. Skapa ett Key Vault i din Azure-prenumeration. Fyll i alla obligatoriska fält i användargränssnittet och klicka på *Skapa* längst ned på bladet
+1. Skapa en Key Vault i din Azure-prenumeration. Fyll i alla obligatoriska fält i användar gränssnittet och klicka på *skapa* längst ned på bladet
 
     ![Skapa Azure Key Vault](../media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Ge dig och dina gruppmedlemmar tillgång till Key Vault. Om du har ett stort team kan du skapa en [Azure Active Directory-grupp](../../active-directory/active-directory-groups-create-azure-portal.md) och lägga till säkerhetsgruppsåtkomsten till Nyckelvalvet. I listrutan *Hemliga behörigheter* markerar du *Hämta* och *lista* under *Hemliga hanteringsåtgärder*.
-Om du redan har skapat din webbapp ger du webbappen åtkomst till Key Vault så att den kan komma åt nyckelvalvet utan att lagra hemlig konfiguration i Appinställningar eller filer. Sök efter din webbapp efter namnet och lägg till den på samma sätt som du ger användarna åtkomst.
+2. Ge dig och ditt team medlemmar åtkomst till Key Vault. Om du har ett stort team kan du skapa en [Azure Active Directory-grupp](../../active-directory/active-directory-groups-create-azure-portal.md) och lägga till den säkerhets gruppen till Key Vault. I list rutan *hemliga behörigheter* kontrollerar du *Hämta* och *lista* under *hemliga hanterings åtgärder*.
+Om du redan har skapat din webbapp ger du webbappen åtkomst till den Key Vault så att den kan komma åt nyckel valvet utan att lagra hemlig konfiguration i appinställningar eller filer. Sök efter din webbapp med sitt namn och Lägg till den på samma sätt som du beviljar användarna åtkomst.
 
-    ![Lägg till åtkomstprincip för Key Vault](../media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
+    ![Lägg till Key Vault åtkomst princip](../media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-3. Lägg till din hemlighet i Key Vault på Azure-portalen. För kapslade konfigurationsinställningar ersätter du ':' med '--' så att det hemliga namnet för Key Vault är giltigt. ':' är inte tillåtet att vara i namn av en Key Vault hemlighet.
+3. Lägg till din hemlighet i Key Vault på Azure Portal. För kapslade konfigurations inställningar ersätter du ":" med "-", så att Key Vault hemliga namnet är giltigt. ":" får inte vara i namnet på en Key Vault hemlighet.
 
-    ![Lägg till Key Vault-hemlighet](../media/vs-secure-secret-appsettings/add-keyvault-secret.png)
+    ![Lägg till Key Vault hemlighet](../media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
     > [!NOTE]
-    > Innan Visual Studio 2017 V15.6 vi brukade rekommendera att installera Azure Services autentiseringstillägg för Visual Studio. Men det är föråldrad nu som funktionaliteten är integrerad i Visual Studio . Om du använder en äldre version av visual Studio 2017 föreslår vi därför att du uppdaterar till minst VS 2017 15.6 eller uppåt så att du kan använda den här funktionen internt och komma åt key-valvet från att använda själva Visual Studio-inloggningsidentiteten.
+    > Före Visual Studio 2017 V-15,6 vi vi använde för att rekommendera att installera Azure-tjänstens autentiserings-tillägg för Visual Studio. Men det är föråldrat nu när funktionen är integrerad i Visual Studio. Om du använder en äldre version av Visual Studio 2017, rekommenderar vi att du uppdaterar till minst VS 2017 15,6 eller upp så att du kan använda den här funktionen internt och komma åt nyckel valvet från att använda Visual Studio-inloggning identiteten.
     >
 
 4. Lägg till följande NuGet-paket i projektet:
@@ -62,7 +62,7 @@ Om du redan har skapat din webbapp ger du webbappen åtkomst till Key Vault så 
     Microsoft.Azure.Services.AppAuthentication
     Microsoft.Extensions.Configuration.AzureKeyVault
     ```
-5. Lägg till följande kod i Program.cs-fil:
+5. Lägg till följande kod i Program.cs-filen:
 
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -87,19 +87,19 @@ Om du redan har skapat din webbapp ger du webbappen åtkomst till Key Vault så 
 
         private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
     ```
-6. Lägg till url:en för Key Vault i filen launchsettings.json. Miljövariabelnamnet *KEYVAULT_ENDPOINT* definieras i koden som du lade till i steg 6.
+6. Lägg till din Key Vault-URL i launchsettings. JSON-filen. Miljö variabel namnet *KEYVAULT_ENDPOINT* definieras i den kod som du lade till i steg 6.
 
-    ![Lägga till URL för Nyckelvalv som en projektmiljövariabel](../media/vs-secure-secret-appsettings/add-keyvault-url.png)
+    ![Lägg till Key Vault URL som en projekt miljö variabel](../media/vs-secure-secret-appsettings/add-keyvault-url.png)
 
-7. Börja felsöka projektet. Det bör köras framgångsrikt.
+7. Starta fel sökningen av projektet. Den bör kunna köras.
 
-## <a name="aspnet-and-net-applications"></a>ASP.NET- och .NET-program
+## <a name="aspnet-and-net-applications"></a>ASP.NET-och .NET-program
 
-.NET 4.7.1 stöder konfigurationsbyggare för Key Vault och Secret, vilket säkerställer att hemligheter kan flyttas utanför källkontrollmappen utan kodändringar.
-Om du vill fortsätta [laddar du ned .NET 4.7.1](https://www.microsoft.com/download/details.aspx?id=56115) och migrerar programmet om det använder en äldre version av .NET-ramverket.
+.NET 4.7.1 stöder Key Vault-och hemligheter för konfigurations verktyg, som säkerställer att hemligheter kan flyttas utanför käll kontrolls-mappen utan kod ändringar.
+Fortsätt genom att [Ladda ned .NET-4.7.1](https://www.microsoft.com/download/details.aspx?id=56115) och migrera ditt program om det använder en äldre version av .NET Framework.
 
-### <a name="save-secret-settings-in-a-secret-file-that-is-outside-of-source-control-folder"></a>Spara hemliga inställningar i en hemlig fil som ligger utanför källkontrollmappen
-Om du skriver en snabb prototyp och inte vill etablera Azure-resurser går du med det här alternativet.
+### <a name="save-secret-settings-in-a-secret-file-that-is-outside-of-source-control-folder"></a>Spara hemliga inställningar i en hemlig fil utanför käll kontroll mappen
+Om du skriver en snabb prototyp och inte vill etablera Azure-resurser går du till det här alternativet.
 
 1. Installera följande NuGet-paket i projektet
     ```
@@ -117,7 +117,7 @@ Om du skriver en snabb prototyp och inte vill etablera Azure-resurser går du me
     </root>
     ```
 
-3. Definiera den hemliga filen som en konfigurationsbyggare i filen Web.config. Placera det här avsnittet före *avsnittet appSettings.*
+3. Definiera den hemliga filen som en konfigurations byggare i din Web. config-fil. Lägg till det här avsnittet i avsnittet *appSettings* .
 
     ```xml
     <configBuilders>
@@ -129,7 +129,7 @@ Om du skriver en snabb prototyp och inte vill etablera Azure-resurser går du me
     </configBuilders>
     ```
 
-4. Ange avsnittet appSettings använder den hemliga konfigurationsverktyget. Kontrollera att det finns en post för den hemliga inställningen med ett dummy-värde.
+4. Avsnittet appSettings använder det hemliga konfigurations verktyget. Se till att det finns en post för den hemliga inställningen med ett dummy-värde.
 
     ```xml
         <appSettings configBuilders="Secrets">
@@ -141,17 +141,17 @@ Om du skriver en snabb prototyp och inte vill etablera Azure-resurser går du me
         </appSettings>
     ```
 
-5. Felsöka appen. Det bör köras framgångsrikt.
+5. Felsök din app. Den bör kunna köras.
 
-### <a name="save-secret-settings-in-an-azure-key-vault"></a>Spara hemliga inställningar i ett Azure Key Vault
-Följ instruktionerna från ASP.NET kärnavsnitt för att konfigurera ett Nyckelvalv för projektet.
+### <a name="save-secret-settings-in-an-azure-key-vault"></a>Spara hemliga inställningar i en Azure Key Vault
+Följ anvisningarna från avsnittet ASP.NET Core om du vill konfigurera ett Key Vault för projektet.
 
 1. Installera följande NuGet-paket i projektet
    ```
    Microsoft.Configuration.ConfigurationBuilders.UserSecrets
    ```
 
-2. Definiera konfigurationsverktyget för Nyckelvalv i Web.config. Placera det här avsnittet före *avsnittet appSettings.* Ersätt *vaultName* till att vara Key Vault-namnet om ditt Key Vault finns i offentliga Azure eller fullständig URI om du använder Sovereign-molnet.
+2. Definiera Key Vault Configuration Builder i Web. config. Lägg till det här avsnittet i avsnittet *appSettings* . Ersätt *vaultName* till Key Vault namnet om Key Vault finns i en offentlig Azure-eller fullständig URI om du använder det suveräna molnet.
 
     ```xml
     <configSections>
@@ -163,7 +163,7 @@ Följ instruktionerna från ASP.NET kärnavsnitt för att konfigurera ett Nyckel
         </builders>
     </configBuilders>
     ```
-3. Ange avsnittet AppSettings använder konfigurationsverktyget för Nyckelvalv. Kontrollera att det finns någon post för den hemliga inställningen med ett dummy-värde.
+3. Ange appSettings-avsnittet använder Key Vault Configuration Builder. Se till att det finns en post för den hemliga inställningen med ett värde för provdocka.
 
    ```xml
    <appSettings configBuilders="AzureKeyVault">
@@ -175,4 +175,4 @@ Följ instruktionerna från ASP.NET kärnavsnitt för att konfigurera ett Nyckel
    </appSettings>
    ```
 
-4. Börja felsöka projektet. Det bör köras framgångsrikt.
+4. Starta fel sökningen av projektet. Den bör kunna köras.

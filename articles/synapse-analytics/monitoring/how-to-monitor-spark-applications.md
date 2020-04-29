@@ -1,5 +1,5 @@
 ---
-title: Övervaka Apache Spark-program
+title: Övervaka Apache Spark program
 description: Använd Azure Synapse Studio för att övervaka dina Apache Spark-program.
 services: synapse-analytics
 author: matt1883
@@ -10,51 +10,51 @@ ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
 ms.openlocfilehash: f231693fdcf3519e29eed38e47db52d92acc00fa
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430752"
 ---
-# <a name="use-the-azure-synapse-studio-preview-to-monitor-your-apache-spark-applications"></a>Använda Azure Synapse Studio (förhandsversion) för att övervaka dina Apache Spark-program
+# <a name="use-the-azure-synapse-studio-preview-to-monitor-your-apache-spark-applications"></a>Använd Azure Synapse Studio (för hands version) för att övervaka dina Apache Spark-program
 
-Med Azure Synapse Analytics kan du använda Spark för att köra anteckningsböcker, jobb och andra typer av program på dina Spark-pooler på arbetsytan.
+Med Azure Synapse Analytics kan du använda Spark för att köra antecknings böcker, jobb och andra typer av program på dina Spark-pooler på din arbets yta.
 
-I den här artikeln beskrivs hur du övervakar dina Spark-program, så att du kan hålla ett öga på den senaste statusen, problemen och förloppet.
+Den här artikeln förklarar hur du övervakar Spark-program, så att du kan hålla ett öga på den senaste statusen, problemen och förloppet.
 
-## <a name="accessing-the-list-of-spark-applications"></a>Komma åt listan över Spark-program
+## <a name="accessing-the-list-of-spark-applications"></a>Åtkomst till listan över Spark-program
 
-Om du vill se listan över Spark-program på arbetsytan öppnar du först [Azure Synapse Studio](https://web.azuresynapse.net/) och väljer arbetsyta.
-
-  > [!div class="mx-imgBorder"]
-  > ![Logga in på arbetsytan](./media/common/login-workspace.png)
-
-När du har öppnat arbetsytan väljer du avsnittet **Bildskärm** till vänster.
+Om du vill se en lista över Spark-program i din arbets yta [öppnar du först Azure Synapse Studio](https://web.azuresynapse.net/) och väljer din arbets yta.
 
   > [!div class="mx-imgBorder"]
-  > ![Välj övervakarnav](./media/common/left-nav.png)
+  > ![Logga in på arbets ytan](./media/common/login-workspace.png)
+
+När du har öppnat din arbets yta väljer du avsnittet **övervaka** till vänster.
+
+  > [!div class="mx-imgBorder"]
+  > ![Välj övervaka hubb](./media/common/left-nav.png)
 
 Välj **Spark-program** om du vill visa listan över Spark-program.
 
   > [!div class="mx-imgBorder"]
   > ![Välj Spark-program](./media/how-to-monitor-spark-applications/monitor-hub-nav-sparkapplications.png)
 
-## <a name="filtering-your-spark-applications"></a>Filtrera dina Spark-program
+## <a name="filtering-your-spark-applications"></a>Filtrering av Spark-program
 
-Du kan filtrera listan över Spark-program till de du är intresserad av. Med filtren högst upp på skärmen kan du ange ett fält som du vill filtrera mellan.
+Du kan filtrera listan över Spark-program till de som du är intresse rad av. Med filtren längst upp på skärmen kan du ange ett fält som du vill filtrera.
 
-Du kan till exempel filtrera vyn så att endast Spark-programmen som innehåller namnet "försäljning":
-
-  > [!div class="mx-imgBorder"]
-  > ![Knappen Filter](./media/common/filter-button.png)
+Du kan till exempel filtrera vyn om du bara vill se de Spark-program som innehåller namnet "Sales":
 
   > [!div class="mx-imgBorder"]
-  > ![Exempelfilter](./media/how-to-monitor-spark-applications/filter-example.png)
+  > ![Knappen Filtrera](./media/common/filter-button.png)
 
-## <a name="viewing-details-about-a-specific-spark-application"></a>Visa information om ett specifikt Spark-program
+  > [!div class="mx-imgBorder"]
+  > ![Exempel filter](./media/how-to-monitor-spark-applications/filter-example.png)
 
-Om du vill visa information om ett av dina Spark-program väljer du Spark-programmet och visar informationen. Om Spark-programmet fortfarande körs kan du övervaka förloppet.
+## <a name="viewing-details-about-a-specific-spark-application"></a>Visa information om ett speciellt Spark-program
+
+Om du vill visa information om ett Spark-program väljer du Spark-programmet och visar informationen. Om Spark-programmet fortfarande körs kan du övervaka förloppet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om övervakning av pipeline-körningar finns i artikeln [Övervaka pipeline kör Azure Synapse Studio.](how-to-monitor-pipeline-runs.md)  
+Mer information om övervakning av pipeline-körningar finns i artikeln [övervaka pipelinen kör Azure Synapse Studio](how-to-monitor-pipeline-runs.md) .  

@@ -1,6 +1,6 @@
 ---
-title: Tills aktiviteten i Azure Data Factory
-description: Tills-aktiviteten kör en uppsättning aktiviteter i en loop tills villkoret som är associerat med aktiviteten utvärderas till sant eller så time out.
+title: Tills aktivitet i Azure Data Factory
+description: Aktiviteten until kör en uppsättning aktiviteter i en slinga tills villkoret som är associerat med aktiviteten utvärderas till sant eller tids gränsen uppnås.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 63873a4f8301d3cb20488b02b32200f476922276
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417954"
 ---
-# <a name="until-activity-in-azure-data-factory"></a>Tills aktiviteten i Azure Data Factory
+# <a name="until-activity-in-azure-data-factory"></a>Tills aktivitet i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Aktiviteten Until fungerar på samma sätt som en do-until-loopstruktur i ett programmeringsspråk. En uppsättning aktiviteter körs i en loop tills det villkor som är associerat med aktiviteten utvärderas till sant. Du kan ange en tidsgräns för Until-aktiviteten i Data Factory. 
@@ -51,23 +51,23 @@ Aktiviteten Until fungerar på samma sätt som en do-until-loopstruktur i ett pr
 
 ```
 
-## <a name="type-properties"></a>Egenskaper för typ
+## <a name="type-properties"></a>Typ egenskaper
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Aktivitetens `Until` namn. | Sträng | Ja
-typ | Måste ställas in på **Until**. | Sträng | Ja
+name | `Until` Aktivitetens namn. | Sträng | Ja
+typ | Måste **anges till till.** | Sträng | Ja
 uttryck | Uttryck som måste utvärderas till sant eller falskt | Uttryck.  | Ja
-timeout | Do-till-loopen time out efter den angivna tiden här. | Sträng. `d.hh:mm:ss`(eller) `hh:mm:ss`. Standardvärdet är 7 dagar. Högsta värde är: 90 dagar. | Inga
-Aktiviteter | Uppsättning aktiviteter som körs tills uttrycket utvärderas till `true`. | En rad aktiviteter. |  Ja
+timeout | Loopen för att göra-tills-tiden är slut efter den angivna tiden här. | Sträng. `d.hh:mm:ss`eller `hh:mm:ss`. Standardvärdet är 7 dagar. Högsta värde är: 90 dagar. | Nej
+Aktiviteter | Uppsättning aktiviteter som körs tills uttrycket utvärderas till `true`. | Matris med aktiviteter. |  Ja
 
 ## <a name="example-1"></a>Exempel 1
 
 > [!NOTE]
-> Det här avsnittet innehåller JSON-definitioner och exempel på PowerShell-kommandon för att köra pipelinen. En genomgång med steg-för-steg-instruktioner för att skapa en Data Factory-pipeline med hjälp av Azure PowerShell- och JSON-definitioner finns i [självstudiekurs: skapa en datafabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Det här avsnittet innehåller JSON-definitioner och exempel på PowerShell-kommandon för att köra pipelinen. En genom gång med stegvisa instruktioner för att skapa en Data Factory pipeline med hjälp av Azure PowerShell-och JSON-definitioner finns i [Självstudier: skapa en data fabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-until-activity"></a>Pipeline med tills-aktivitet
-I det här exemplet har pipelinen två aktiviteter: **Till och** **Vänta**. Vänta-aktiviteten väntar på den angivna tidsperioden innan webbaktiviteten körs i loopen. Mer information om uttryck och funktioner i Data Factory finns i [Uttrycksspråk och funktioner](control-flow-expression-language-functions.md). 
+### <a name="pipeline-with-until-activity"></a>Pipeline med till-aktivitet
+I det här exemplet har pipelinen två aktiviteter: **till** och med **vänta**. Vänta-aktiviteten väntar under den angivna tids perioden innan webb aktiviteten körs i slingan. Information om uttryck och funktioner i Data Factory finns i [uttrycks språk och funktioner](control-flow-expression-language-functions.md). 
 
 ```json
 {
@@ -118,9 +118,9 @@ I det här exemplet har pipelinen två aktiviteter: **Till och** **Vänta**. Vä
 ```
 
 ## <a name="example-2"></a>Exempel 2 
-Pipelinen i det här exemplet kopierar data från en indatamapp till en utdatamapp i en loop. Loopen avslutas när värdet för den upprepande parametern är inställt på false eller det time out efter en minut.   
+Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil i en slinga. Loopen avslutas när värdet för parametern REPEAT är inställt på falskt eller så nådde tids gränsen efter en minut.   
 
-### <a name="pipeline-with-until-activity-adfv2quickstartpipelinejson"></a>Pipeline med tills-aktivitet (Adfv2QuickStartPipeline.json)
+### <a name="pipeline-with-until-activity-adfv2quickstartpipelinejson"></a>Pipeline med till-aktivitet (Adfv2QuickStartPipeline. JSON)
 
 ```json
 {
@@ -193,7 +193,7 @@ Pipelinen i det här exemplet kopierar data från en indatamapp till en utdatama
 ```
 
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure Storage-länkad tjänst (AzureStorageLinkedService.json)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure Storage länkad tjänst (AzureStorageLinkedService. JSON)
 
 ```json
 {
@@ -207,8 +207,8 @@ Pipelinen i det här exemplet kopierar data från en indatamapp till en utdatama
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parameteriserad Azure Blob-datauppsättning (BlobDataset.json)
-Pipelinen ställer in **folderPath** till värdet för antingen **parametern outputPath1** eller **outputPath2** för pipelinen. 
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametriserad Azure Blob-datauppsättning (BlobDataset. JSON)
+Pipelinen anger **folderPath** till värdet för antingen **OutputPath1** -eller **outputPath2** -parametern för pipelinen. 
 
 ```json
 {
@@ -234,7 +234,7 @@ Pipelinen ställer in **folderPath** till värdet för antingen **parametern out
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parametern JSON (PipelineParameters.json)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parameter-JSON (PipelineParameters. JSON)
 
 ```json
 {
@@ -288,7 +288,7 @@ while ($True) {
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
+Se andra kontroll flödes aktiviteter som stöds av Data Factory: 
 
 - [If-villkorsaktivitet](control-flow-if-condition-activity.md)
 - [Köra pipelineaktivitet](control-flow-execute-pipeline-activity.md)

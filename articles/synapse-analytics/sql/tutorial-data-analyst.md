@@ -1,6 +1,6 @@
 ---
-title: Självstudiekurs för dataanalytiker – Använd SQL on-demand (förhandsversion) för att analysera Azure Open Datasets i Azure Synapse Studio (förhandsversion)
-description: I den här självstudien får du lära dig hur du enkelt utför utforskande dataanalys som kombinerar olika Azure Open Dataset med SQL on-demand (preview) och visualiserar resultaten i Azure Synapse Studio.
+title: Självstudier om data analytiker – Använd SQL på begäran (för hands version) för att analysera Azure Open-datauppsättningar i Azure Synapse Studio (för hands version)
+description: I den här självstudien får du lära dig hur du enkelt kan utföra analys av test data som kombinerar olika Azure Open-datauppsättningar med SQL på begäran (för hands version) och visualisera resultatet i Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,19 +10,19 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 1080001cb222f91503080914d7fb253e5ee82626
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81423231"
 ---
-# <a name="use-sql-on-demand-preview-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio-preview"></a>Använd SQL on-demand (förhandsversion) för att analysera Azure Open Dataset och visualisera resultaten i Azure Synapse Studio (förhandsversion)
+# <a name="use-sql-on-demand-preview-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio-preview"></a>Använd SQL på begäran (för hands version) för att analysera Azure Open-datauppsättningar och visualisera resultaten i Azure Synapse Studio (för hands version)
 
-I den här självstudien får du lära dig hur du utför utforskande dataanalys genom att kombinera olika Azure Open Dataset med SQL on-demand och sedan visualisera resultaten i Azure Synapse Studio.
+I den här självstudien får du lära dig hur du utför analys av exempel data genom att kombinera olika Azure Open-datauppsättningar med SQL på begäran och sedan visualisera resultaten i Azure Synapse Studio.
 
-I synnerhet analyserar du [New York City (NYC) Taxi-datauppsättningen](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) som inkluderar hämtnings- och avlämningsdatum/avlämningsdatum/-tider, hämtnings- och avlämningsplatser, reseavstånd, specificerade biljettpriser, pristyper, betalningstyper och förarrapporterade passagerarantal.
+I synnerhet analyseras den [nya taxi-datauppsättningen för Göteborg (NYC)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) som innehåller plocknings-och utgångs datum/-tidpunkter, hämtnings-och list platser, rese avstånd, specificerade priser, pris typer, betalnings typer och driv rutins rapporter som rapporteras.
 
-Fokus för analysen är att hitta trender i förändringar av antalet taxiresor över tiden. Du analyserar två andra Azure Open Datasets ([Helgdagar](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) och [väderdata](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)) för att förstå avvikare i antalet taxiresor.
+Fokus på analysen är att hitta trender i förändringar av antalet taxi-ändringar över tid. Du analyserar två andra Azure Open-datauppsättningar ([offentliga helgdagar](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/) och [väder data](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)) för att förstå avvikande värden i antal taxi-tillägg.
 
 ## <a name="create-credentials"></a>Skapa autentiseringsuppgifter
 
@@ -44,11 +44,11 @@ SECRET = ''
 GO
 ```
 
-## <a name="automatic-schema-inference"></a>Automatisk schemaavferening
+## <a name="automatic-schema-inference"></a>Automatisk schema härledning
 
-Eftersom data lagras i parquet filformat, automatisk schema inferens är tillgänglig, så man kan enkelt fråga data utan att behöva lista datatyper för alla kolumner i filerna. Dessutom kan man använda virtuell kolumn mekanism och filpath funktion för att filtrera bort en viss delmängd av filer.
+Eftersom data lagras i Parquet-filformat är automatisk schema härledning tillgängligt, så det är enkelt att skicka frågor till data utan att behöva ange data typerna för alla kolumner i filerna. Dessutom kan en virtuell kolumn mekanism och funktionen filsökväg användas för att filtrera bort en del av filerna.
 
-Låt oss först bekanta sig med NYC Taxi-data genom att köra följande fråga:
+Vi börjar med att bekanta dig med NYC taxi-data genom att köra följande fråga:
 
 ```sql
 SELECT TOP 100 * FROM
@@ -58,11 +58,11 @@ SELECT TOP 100 * FROM
     ) AS [nyc]
 ```
 
-Följande visar resultatet utdrag för NYC Taxi data:
+Nedan visas ett resultat-kodfragment för NYC taxi-data:
 
-![resultatutdrag](./media/tutorial-data-analyst/1.png)
+![resultat kod avsnitt](./media/tutorial-data-analyst/1.png)
 
-På samma sätt kan vi fråga helgdagar datauppsättning med hjälp av följande fråga:
+På samma sätt kan vi skicka frågor till den offentliga helgdags data uppsättningen med följande fråga:
 
 ```sql
 SELECT TOP 100 * FROM
@@ -72,11 +72,11 @@ SELECT TOP 100 * FROM
     ) AS [holidays]
 ```
 
-Följande visar resultatkodavsnittet för datauppsättningen för helgdagar:
+Nedan visas ett resultat-kodfragment för den offentliga helgdags data uppsättningen:
 
-![resultatutdrag 2](./media/tutorial-data-analyst/2.png)
+![resultat avsnitt 2](./media/tutorial-data-analyst/2.png)
 
-Slutligen kan vi också fråga väderdatauppsättningen med hjälp av följande fråga:
+Slutligen kan vi även fråga väder data uppsättningen med följande fråga:
 
 ```sql
 SELECT
@@ -88,15 +88,15 @@ FROM
     ) AS [weather]
 ```
 
-Följande visar resultatkodavsnittet för väderdatauppsättningen:
+Nedan visas ett resultat-kodfragment för väder data uppsättningen:
 
-![resultatutdrag 3](./media/tutorial-data-analyst/3.png)
+![resultat avsnitt 3](./media/tutorial-data-analyst/3.png)
 
-Du kan läsa mer om innebörden av de enskilda kolumnerna i beskrivningarna av [NYC Taxi,](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) [Helgdagar](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/)och [Väderdatadatauppsättningar.](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
+Du kan lära dig mer om innebörden av enskilda kolumner i beskrivningarna av [NYC taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/), [offentliga helgdagar](https://azure.microsoft.com/services/open-datasets/catalog/public-holidays/)och data uppsättningar för [väder data](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/) .
 
-## <a name="time-series-seasonality-and-outlier-analysis"></a>Tidsserier, säsongsvariationer och avvikare analys
+## <a name="time-series-seasonality-and-outlier-analysis"></a>Tids serier, säsongs beroende och avvikare analys
 
-Du kan enkelt sammanfatta det årliga antalet taxiresor med följande fråga:
+Du kan enkelt sammanfatta det årliga antalet taxi-åsidosättningar med hjälp av följande fråga:
 
 ```sql
 SELECT
@@ -112,20 +112,20 @@ GROUP BY YEAR(tpepPickupDateTime)
 ORDER BY 1 ASC
 ```
 
-Följande visar resultatet utdrag för det årliga antalet taxiresor:
+Följande visar resultatet av resultatet för det årliga antalet taxi-åsidosättningar:
 
-![resultatutdrag 4](./media/tutorial-data-analyst/4.png)
+![resultat kod 4](./media/tutorial-data-analyst/4.png)
 
-Data kan visualiseras i Synapse Studio genom att växla från tabell till diagramvy. Du kan välja mellan olika diagramtyper (Area, Bar, Column, Line, Pie och Scatter). I det här fallet ska vi rita stapeldiagram med kategorikolumn inställd på "current_year":
+Data kan visualiseras i Synapse Studio genom att växla från tabell till diagramvy. Du kan välja bland olika diagram typer (Area, stapel, kolumn, linje, cirkel och punkt). I det här fallet ska vi rita upp stapeldiagram med kategori kolumn inställt på "current_year":
 
-![resultatvisualisering 5](./media/tutorial-data-analyst/5.png)
+![resultat visualisering 5](./media/tutorial-data-analyst/5.png)
 
-Från denna visualisering, en trend av ett minskande antal rider under åren kan tydligt ses, förmodligen på grund av en nyligen ökad popularitet ride sharing företag.
+I den här visualiseringen kan en tendens av ett minskat antal ändringar i år visas tydligt, förmodligen på grund av en nyligen ökad popularitet av att dela företag.
 
 > [!NOTE]
-> I skrivande stund är data för 2019 ofullständiga, så det finns en enorm minskning av ett antal turer för det året.
+> Vid tidpunkten för den här självstudien är data för 2019 ofullständiga, så det finns ett stort antal olika åsidosättningar för det året.
 
-Låt oss sedan fokusera vår analys på ett enda år, till exempel 2016. Följande fråga returnerar det dagliga antalet turer under det året:
+Nu ska vi fokusera på vår analys på ett enda år, till exempel 2016. Följande fråga returnerar det dagliga antalet åsidosättningar under det året:
 
 ```sql
 SELECT
@@ -141,17 +141,17 @@ GROUP BY CAST([tpepPickupDateTime] AS DATE)
 ORDER BY 1 ASC
 ```
 
-Följande visar resultatkodavsnittet för den här frågan:
+I följande avsnitt visas resultatet av den här frågan:
 
-![resultatutdrag 6](./media/tutorial-data-analyst/6.png)
+![resultat kod 6](./media/tutorial-data-analyst/6.png)
 
-Återigen kan vi enkelt visualisera data genom att rita kolumndiagram med kategorikolumn "current_day" och Legend (serie) kolumn "rides_per_day".
+Återigen kan vi enkelt visualisera data genom att rita kolumn diagram med kolumnen Kategori current_day och förklaring (serien) rides_per_day.
 
-![resultatvisualisering 7](./media/tutorial-data-analyst/7.png)
+![resultat visualisering 7](./media/tutorial-data-analyst/7.png)
 
-Från tomten kan det observeras att det finns ett veckomönster, med lördagens topp. Under sommarmånaderna är det färre taxiresor på grund av semesterperioden. Men det finns också några betydande minskningar i antalet taxiresor utan ett tydligt mönster när och varför de inträffar.
+Från området kan det observeras att det finns ett vecko mönster, med lördagens topp. Under sommaren månader finns det färre taxi-åsidosättningar på grund av semester period. Det finns dock också några betydande droppar i antal Taxis ökningar utan tydliga mönster när och varför de inträffar.
 
-Därefter ska vi se om dessa droppar är potentiellt korrelerade med helgdagar genom att gå NYC taxiresor med helgdagar datauppsättning:
+Nu ska vi se om dessa droppar är potentiellt korrelerade med offentliga helgdagar genom att delta i NYC taxi-åsidosättningar med den offentliga helgdags data uppsättningen:
 
 ```sql
 WITH taxi_rides AS
@@ -186,13 +186,13 @@ LEFT OUTER JOIN public_holidays p on t.current_day = p.date
 ORDER BY current_day ASC
 ```
 
-![resultatvisualisering 8](./media/tutorial-data-analyst/8.png)
+![resultat visualisering 8](./media/tutorial-data-analyst/8.png)
 
-Den här gången vill vi lyfta fram antalet taxiresor under helgdagar. För detta ändamål väljer vi "ingen" för kolumnkategori och "rides_per_day" och "semester" som kolumner i förklaring (serie).
+Den här gången vill vi belysa antalet taxi-ändringar under offentliga helgdagar. För detta ändamål väljer vi "ingen" för kolumnen Kategori "och" rides_per_day "och" semester "som förklarings kolumner (serier).
 
-![resultatvisualisering 9](./media/tutorial-data-analyst/9.png)
+![resultat visualisering 9](./media/tutorial-data-analyst/9.png)
 
-Från tomten kan man tydligt se att under helgdagar ett antal taxiresor är lägre. Det finns dock fortfarande en oförklarlig stor nedgång den 23 januari. Låt oss kontrollera vädret i NYC den dagen genom att fråga vädret datauppsättning:
+Från området kan det tydligt visas att ett antal taxi-åsidosättningar är lägre under offentliga helgdagar. Det finns dock fortfarande en icke-förklarad enorma minskning den 23 januari. Nu ska vi titta på väder i NYC den dagen genom att fråga väder data uppsättningen:
 
 ```sql
 SELECT
@@ -219,17 +219,17 @@ FROM
 WHERE countryorregion = 'US' AND CAST([datetime] AS DATE) = '2016-01-23' AND stationname = 'JOHN F KENNEDY INTERNATIONAL AIRPORT'
 ```
 
-![resultatvisualisering 10](./media/tutorial-data-analyst/10.png)
+![resultat visualisering 10](./media/tutorial-data-analyst/10.png)
 
-Resultatet av frågan visar att nedgången i ett antal taxiresor berodde på:
+Resultatet av frågan indikerar att minskningen i ett antal taxi-åsidosättningar berodde på:
 
-- snöstorm den dagen i NYC, eftersom det var tung snö (~ 30 cm)
-- det var kallt (temperatur under noll grader Celsius)
-- och blåsigt (~10m/s)
+- Blizzard den dagen i NYC, eftersom det var tungt snö (~ 30 cm)
+- Det var kall (temperatur under noll grader Celsius)
+- och lindning (~ 10 miljoner/s)
 
-Den här självstudien har visat hur dataanalytiker snabbt kan utföra utforskande dataanalys, enkelt kombinera olika datauppsättningar med SQL on-demand och visualisera resultaten med Azure Synapse Studio.
+I den här självstudien visas hur data analytiker snabbt kan utföra analys av analys av data, enkelt kombinera olika data uppsättningar med SQL på begäran och visualisera resultaten med Azure Synapse Studio.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs [connect SQL on-demand till Power BI Desktop & skapa rapportartikel](tutorial-connect-power-bi-desktop.md) om du vill lära dig hur du ansluter SQL på begäran till Power BI Desktop och skapar rapporter.
+Granska den [ansluta SQL på begäran för att Power BI Desktop & Skapa rapport](tutorial-connect-power-bi-desktop.md) artikel och lär dig hur du ansluter SQL på begäran till Power BI Desktop och skapar rapporter.
  

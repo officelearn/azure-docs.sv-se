@@ -1,6 +1,6 @@
 ---
-title: Säkerhetsvärldar i Azure Key Vault | Microsoft-dokument
-description: Azure Key Vault är en tjänst med flera innehavare. Den använder en pool av HSM:er på varje Azure-plats. Alla platser i en geografisk region delar en kryptografisk gräns.
+title: Azure Key Vault säkerhets världar | Microsoft Docs
+description: 'Azure Key Vault är en tjänst för flera innehavare. Den använder en pool med HSM: er på varje Azure-plats. Alla platser i en geografisk region delar en kryptografisk avgränsning.'
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
@@ -9,40 +9,40 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 07/03/2017
 ms.openlocfilehash: 3584f83c5e1a5e83d069373395227b70c084eae9
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81428958"
 ---
-# <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Säkerhetsvärldar och geografiska gränser för Azure Key Vault
+# <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Azure Key Vault säkerhets världar och geografiska gränser
 
-Azure Key Vault är en tjänst med flera innehavare och använder en pool av HSM -moduler (Hardware Security Modules) på varje Azure-plats. 
+Azure Key Vault är en tjänst för flera innehavare och använder en pool med HSM: er (Hardware Security modules) på varje Azure-plats. 
 
-Alla HSM:er på Azure-platser i samma geografiska region har samma kryptografiska gräns (Thales Security World). Till exempel, Östra USA och västra USA delar samma säkerhet världen eftersom de tillhör den amerikanska geo plats. På samma sätt delar alla Azure-platser i Japan samma säkerhetsvärld och alla Azure-platser i Australien, Indien och så vidare. 
+Alla HSM: er på Azure-platser i samma geografiska region delar samma kryptografiska gränser (Thales Security World). Till exempel, östra USA och västra USA delar samma säkerhets värld eftersom de hör till den amerikanska geo-platsen. På samma sätt delar alla Azure-platser i Japan samma säkerhets värld och alla Azure-platser i Australien, Indien och så vidare. 
 
-## <a name="backup-and-restore-behavior"></a>Säkerhetskopiering och återställning
+## <a name="backup-and-restore-behavior"></a>Beteende för säkerhets kopiering och återställning
 
-En säkerhetskopia av en nyckel från ett nyckelvalv på en Azure-plats kan återställas till ett nyckelvalv på en annan Azure-plats, så länge båda dessa villkor är uppfyllda:
+En säkerhets kopia som tar en nyckel från ett nyckel valv på en Azure-plats kan återställas till ett nyckel valv på en annan Azure-plats, förutsatt att båda dessa villkor är uppfyllda:
 
 - Båda Azure-platserna tillhör samma geografiska plats
-- Båda nyckelvalven tillhör samma Azure-prenumeration
+- Båda nyckel valvena tillhör samma Azure-prenumeration
 
-En säkerhetskopia som tas av en viss prenumeration på en nyckel i ett nyckelvalv i västra Indien kan till exempel bara återställas till ett annat nyckelvalv i samma prenumeration och geografisk plats. Västra Indien, Centrala Indien eller Södra Indien.
+Till exempel kan en säkerhets kopia som tas av en specifik prenumeration av en nyckel i ett nyckel valv i västra Indien bara återställas till ett annat nyckel valv i samma prenumeration och Geo-plats; Västra Indien, centrala Indien eller södra Indien.
 
 ## <a name="regions-and-products"></a>Regioner och produkter
 
 - [Azure-regioner](https://azure.microsoft.com/regions/)
 - [Microsoft-produkter efter region](https://azure.microsoft.com/regions/services/)
 
-Regionerna är mappade till säkerhetsvärldar, som visas som huvudrubriker i tabellerna:
+Regioner mappas till säkerhets världar som visas som huvud rubriker i tabellerna:
 
-I produkterna efter region artikel, till exempel, **innehåller Americas** fliken ÖSTRA USA, CENTRALA USA, VÄSTRA USA alla kartläggning till Amerika regionen. 
+I artikeln produkter per region, t. ex., innehåller fliken **Amerika** östra USA, centrala USA, västra USA all mappning till Amerika-regionen. 
 
 >[!NOTE]
->Ett undantag är att US DOD EAST och US DOD CENTRAL har sina egna säkerhetsvärldar. 
+>Ett undantag är att US DOD öst och US DOD CENTRAL har sina egna säkerhets världar. 
 
-På samma sätt **Europe** kartlägger nordeuropa och Västeuropa i Europa båda europaregionen. Detsamma gäller även på fliken **Asien och Stillahavsområdet.**
+På samma sätt kan du på fliken **Europa** , norra Europa och västra Europa, mappa båda till regionen Europa. Samma sak gäller även på fliken **Asien och Stillahavsområdet** .
 
 
 

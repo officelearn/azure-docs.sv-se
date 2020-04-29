@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från OData-källor med hjälp av Azure Data Factory
-description: Lär dig hur du kopierar data från OData-källor till sink-datalager som stöds med hjälp av en kopieringsaktivitet i en Azure Data Factory-pipeline.
+description: Lär dig hur du kopierar data från OData-källor till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: c2fe6b6cc7b52dda9f2beffa444f1965723ea92a
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416933"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Kopiera data från en OData-källa med hjälp av Azure Data Factory
@@ -25,21 +25,21 @@ ms.locfileid: "81416933"
 > * [Version 1](v1/data-factory-odata-connector.md)
 > * [Aktuell version](connector-odata.md)
 
-I den här artikeln beskrivs hur du använder Kopiera aktivitet i Azure Data Factory för att kopiera data från en OData-källa. Artikeln bygger på [Kopiera aktivitet i Azure Data Factory](copy-activity-overview.md), som presenterar en allmän översikt över kopiera aktivitet.
+Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från en OData-källa. Artikeln bygger på [kopierings aktivitet i Azure Data Factory](copy-activity-overview.md), som visar en översikt över kopierings aktiviteten.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här OData-kopplingen stöds för följande aktiviteter:
+Denna OData-anslutning stöds för följande aktiviteter:
 
-- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
-- [Uppslagsaktivitet](control-flow-lookup-activity.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
+- [Söknings aktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från en OData-källa till alla sink-datalager som stöds. En lista över datalager som Kopierar aktivitet stöder som källor och sänkor finns i [Datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+Du kan kopiera data från en OData-källa till alla mottagar data lager som stöds. En lista över data lager som kopierings aktiviteten stöder som källor och mottagare finns i [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Specifikt stöder den här OData-anslutningen:
+Mer specifikt stöder denna OData-anslutning:
 
-- OData version 3.0 och 4.0.
-- Kopiera data med någon av följande autentiseringar: **Anonym**, **Basic**, **Windows**och **AAD-tjänstens huvudnamn**.
+- OData version 3,0 och 4,0.
+- Kopiera data med någon av följande autentiseringar: **Anonym**, **grundläggande**, **Windows**och **AAD-tjänstens huvud namn**.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -49,29 +49,29 @@ Specifikt stöder den här OData-anslutningen:
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-I följande avsnitt finns information om egenskaper som du kan använda för att definiera datafabrikentiteter som är specifika för en OData-anslutningsapp.
+Följande avsnitt innehåller information om egenskaper som du kan använda för att definiera Data Factory entiteter som är speciella för en OData-anslutning.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
 Följande egenskaper stöds för en OData-länkad tjänst:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | **Egenskapen type** måste anges till **OData**. |Ja |
-| url | Rot-URL:en för OData-tjänsten. |Ja |
-| authenticationType | Den typ av autentisering som används för att ansluta till OData-källan. Tillåtna värden är **Anonym**, **Basic**, **Windows**och **AadServicePrincipal**. Användarbaserad OAuth stöds inte. | Ja |
-| userName | Ange **användarnamn** om du använder Grundläggande autentisering eller Windows-autentisering. | Inga |
-| password | Ange **lösenord** för användarkontot som du angav för **userName**. Markera det här fältet som en **SecureString-typ** för att lagra det säkert i Data Factory. Du kan också [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
-| servicePrincipalId | Ange Azure Active Directory-programmets klient-ID. | Inga |
-| aadServicePrincipalCredentialType | Ange vilken autentiseringstyp som ska användas för huvudautentisering av tjänsten. Tillåtna värden `ServicePrincipalKey` `ServicePrincipalCert`är: eller . | Inga |
-| servicePrincipalKey | Ange nyckeln till Azure Active Directory-programmet. Markera det här fältet som en **SecureString** för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
-| servicePrincipalEmbeddedCert | Ange det base64-kodade certifikatet för ditt program som är registrerat i Azure Active Directory. Markera det här fältet som en **SecureString** för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
-| servicePrincipalEmbeddedCertPassword | Ange lösenordet för certifikatet om certifikatet är skyddat med ett lösenord. Markera det här fältet som en **SecureString** för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md).  | Inga|
-| tenant | Ange klientinformation (domännamn eller klient-ID) som programmet finns under. Hämta den genom att hålla musen i det övre högra hörnet av Azure-portalen. | Inga |
-| aadResourceId | Ange den AAD-resurs som du begär för auktorisering.| Inga |
-| connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Läs mer från avsnittet [Förutsättningar.](#prerequisites) Om inget anges används standardkörningen för Azure Integration Runtime. |Inga |
+| typ | Egenskapen **Type** måste anges till **OData**. |Ja |
+| url | OData-tjänstens rot-URL. |Ja |
+| authenticationType | Den typ av autentisering som används för att ansluta till OData-källan. Tillåtna värden är **Anonymous**, **Basic**, **Windows**och **AadServicePrincipal**. User-based OAuth stöds inte. | Ja |
+| userName | Ange **användar namn** om du använder Basic-eller Windows-autentisering. | Nej |
+| password | Ange **lösen ordet** för det användar konto som du har angett för **användar namn**. Markera det här fältet som en **SecureString** -typ för att lagra det på ett säkert sätt i Data Factory. Du kan också [referera till en hemlighet som lagrats i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| servicePrincipalId | Ange det Azure Active Directory programmets klient-ID. | Nej |
+| aadServicePrincipalCredentialType | Ange vilken typ av autentiseringsuppgift som ska användas för autentisering av tjänstens huvud namn. Tillåtna värden är: `ServicePrincipalKey` eller `ServicePrincipalCert`. | Nej |
+| servicePrincipalKey | Ange Azure Active Directory programmets nyckel. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| servicePrincipalEmbeddedCert | Ange det Base64-kodade certifikatet för ditt program registrerat i Azure Active Directory. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| servicePrincipalEmbeddedCertPassword | Ange lösen ordet för ditt certifikat om ditt certifikat är skyddat med ett lösen ord. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md).  | Nej|
+| tenant | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Nej |
+| aadResourceId | Ange den AAD-resurs som du begär för auktorisering.| Nej |
+| connectVia | [Integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Nej |
 
-**Exempel 1: Använda anonym autentisering**
+**Exempel 1: använda anonym autentisering**
 
 ```json
 {
@@ -90,7 +90,7 @@ Följande egenskaper stöds för en OData-länkad tjänst:
 }
 ```
 
-**Exempel 2: Använda grundläggande autentisering**
+**Exempel 2: använda grundläggande autentisering**
 
 ```json
 {
@@ -114,7 +114,7 @@ Följande egenskaper stöds för en OData-länkad tjänst:
 }
 ```
 
-**Exempel 3: Använda Windows-autentisering**
+**Exempel 3: använda Windows-autentisering**
 
 ```json
 {
@@ -138,7 +138,7 @@ Följande egenskaper stöds för en OData-länkad tjänst:
 }
 ```
 
-**Exempel 4: Använda autentisering av tjänstens huvudnyckel**
+**Exempel 4: använda autentisering av tjänstens huvud namn**
 
 ```json
 {
@@ -165,7 +165,7 @@ Följande egenskaper stöds för en OData-länkad tjänst:
 }
 ```
 
-**Exempel 5: Använda autentisering av tjänstens huvudcertifikat**
+**Exempel 5: använda autentisering av tjänstens huvud certifikat**
 
 ```json
 {
@@ -198,15 +198,15 @@ Följande egenskaper stöds för en OData-länkad tjänst:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-Det här avsnittet innehåller en lista över egenskaper som OData-datauppsättningen stöder.
+Det här avsnittet innehåller en lista över egenskaper som stöds av OData-datauppsättningen.
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [Datauppsättningar och länkade tjänster](concepts-datasets-linked-services.md). 
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [data uppsättningar och länkade tjänster](concepts-datasets-linked-services.md). 
 
-Om du vill kopiera data från OData anger du **egenskapen type** för datauppsättningen till **ODataResource**. Följande egenskaper stöds:
+Om du vill kopiera data från OData ställer du in egenskapen **Type** för data uppsättningen på **ODataResource**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Datauppsättningens **typegenskap** måste anges till **ODataResource**. | Ja |
+| typ | Data uppsättningens **typ** -egenskap måste anges till **ODataResource**. | Ja |
 | path | Sökvägen till OData-resursen. | Ja |
 
 **Exempel**
@@ -230,20 +230,20 @@ Om du vill kopiera data från OData anger du **egenskapen type** för datauppsä
 }
 ```
 
-## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
+## <a name="copy-activity-properties"></a>Kopiera aktivitets egenskaper
 
 Det här avsnittet innehåller en lista över egenskaper som OData-källan stöder.
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md). 
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [pipelines](concepts-pipelines-activities.md). 
 
-### <a name="odata-as-source"></a>OData som källa
+### <a name="odata-as-source"></a>OData as-källa
 
-Om du vill kopiera data från OData stöds följande egenskaper i avsnittet Kopiera **aktivitetskälla:**
+Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att kopiera data från OData:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | **Egenskapen Type** property för källan Kopiera aktivitet måste anges till **ODataSource**. | Ja |
-| DocumentDB | OData-frågealternativ för filtrering av data. Exempel: `"$select=Name,Description&$top=5"`.<br/><br/>**Obs:** OData-anslutningen kopierar data `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`från den kombinerade WEBBADRESSEN: . Mer information finns i [OData URL-komponenter](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Inga |
+| typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till **ODataSource**. | Ja |
+| DocumentDB | OData-frågealternativ för att filtrera data. Exempel: `"$select=Name,Description&$top=5"`.<br/><br/>**Obs!** OData-kopplingen kopierar data från den kombinerade URL: `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`en:. Mer information finns i [OData URL-komponenter](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nej |
 
 **Exempel**
 
@@ -277,38 +277,38 @@ Om du vill kopiera data från OData stöds följande egenskaper i avsnittet Kopi
 ]
 ```
 
-Om du `RelationalSource` använde den maskinskrivna källan stöds den fortfarande som den är, medan du föreslås använda den nya framåt.
+Om du använder typ `RelationalSource` av källa, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya vägen framåt.
 
-## <a name="data-type-mapping-for-odata"></a>Mappning av datatyp för OData
+## <a name="data-type-mapping-for-odata"></a>Data typs mappning för OData
 
-När du kopierar data från OData används följande mappningar mellan OData-datatyper och Azure Data Factory interimsdatatyper. Mer information om hur Kopiera aktivitet mappar källschemat och datatypen till diskhon finns i [Schema- och datatypsmappningar](copy-activity-schema-and-type-mapping.md).
+När du kopierar data från OData används följande mappningar mellan OData-datatyper och Azure Data Factory interimistiska data typer. Information om hur kopierings aktiviteten mappar käll schema och data typ till mottagaren finns i [schema-och data typs mappningar](copy-activity-schema-and-type-mapping.md).
 
-| Datatyp för OData | Data Factory interimdatatyp |
+| OData-datatyp | Data Factory data typen Interim |
 |:--- |:--- |
-| Edm.Binary (Edm.Binary) | Byte[] |
+| EDM. Binary | Byte [] |
 | Edm.Boolean | Bool |
-| Edm.Byte | Byte[] |
-| Edm.DateTime | DateTime |
-| Edm.Decimal | Decimal |
+| EDM. byte | Byte [] |
+| EDM. DateTime | DateTime |
+| EDM. decimal | Decimal |
 | Edm.Double | Double |
-| Edm.Singel | Enkel |
-| Edm.Guid (edm.guid) | GUID |
-| Edm.Int16 (på andra) | Int16 (int16) |
+| EDM. Single | Enkel |
+| EDM. GUID | GUID |
+| EDM. Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
-| Edm.SByte (edm.sbyte) | Int16 (int16) |
+| EDM. SByte | Int16 |
 | Edm.String | Sträng |
-| Edm.Time (på Edm.Time) | TimeSpan |
+| EDM. Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 
 > [!NOTE]
-> OData-komplexa datatyper (till exempel **Objekt)** stöds inte.
+> OData komplexa data typer (t. ex. **objekt**) stöds inte.
 
 
-## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-En lista över datalager som kopierar aktivitet stöder som källor och sänkor i Azure Data Factory finns [i Datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över data lager som kopierings aktiviteten stöder som källor och handfat i Azure Data Factory finns i [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

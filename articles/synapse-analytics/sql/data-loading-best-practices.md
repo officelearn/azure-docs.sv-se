@@ -1,6 +1,6 @@
 ---
 title: Metodtips för datainläsning
-description: Rekommendationer och prestandaoptimeringar för inläsning av data i Synapse SQL
+description: Rekommendationer och prestanda optimeringar för inläsning av data i Synapse SQL
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,15 +12,15 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: b80fe79a2c27de7dbaaa2edccf7b4598c6c63f47
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431051"
 ---
-# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Metodtips för inläsning av data för datalagring
+# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Metod tips för att läsa in data för data lager
 
-Rekommendationer och prestandaoptimeringar för inläsning av data
+Rekommendationer och prestanda optimeringar för att läsa in data
 
 ## <a name="preparing-data-in-azure-storage"></a>Förbereda data i Azure Storage
 
@@ -36,9 +36,9 @@ Dela upp stora komprimerade filer i små komprimerade filer.
 
 ## <a name="running-loads-with-enough-compute"></a>Köra belastningar med tillräckligt med beräkning
 
-För högsta hastighet för inläsning, kör du bara ett inläsningsjobb i taget. Om detta inte är möjligt, kör du ett minimalt antal belastningar samtidigt. Om du förväntar dig ett stort inläsningsjobb kan du överväga att skala upp SQL-poolen före inläsningen.
+För högsta hastighet för inläsning, kör du bara ett inläsningsjobb i taget. Om detta inte är möjligt, kör du ett minimalt antal belastningar samtidigt. Om du förväntar dig ett stort inläsnings jobb kan du skala upp SQL-poolen före belastningen.
 
-För att köra inläsningar med lämpliga beräkningsresurser skapar du inläsningsanvändare som är avsedda att köra inläsningar. Tilldela varje inläsningsanvändare till en viss resursklass eller arbetsbelastningsgrupp. Om du vill köra en inläsning loggar du in som en av de inläsningsanvändare och kör sedan belastningen. Inläsningen körs med användarens resursklass.  Den här metoden är enklare än att försöka ändra en användares resursklass så att den passar det aktuella behovet av resursklass.
+För att köra inläsningar med lämpliga beräkningsresurser skapar du inläsningsanvändare som är avsedda att köra inläsningar. Tilldela varje inläsnings användare till en angiven resurs klass eller arbets belastnings grupp. Om du vill köra en inläsning loggar du in som en inläsnings användare och kör sedan belastningen. Inläsningen körs med användarens resursklass.  Den här metoden är enklare än att försöka ändra en användares resursklass så att den passar det aktuella behovet av resursklass.
 
 ### <a name="example-of-creating-a-loading-user"></a>Exempel på att skapa en inläsningsanvändare
 
@@ -58,13 +58,13 @@ Anslut till informationslagret och skapa en användare. Följande kod förutsät
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
 
-Om du vill köra en belastning med resurser för de statiskaRC20-resursklasserna loggar du in som LoaderRC20 och kör belastningen.
+Om du vill köra en belastning med resurser för resurs klasserna staticRC20 loggar du in som LoaderRC20 och kör belastningen.
 
-Kör inläsningar under statiska i stället för dynamiska resursklasser. Om du använder de statiska resursklasserna garanteras samma resurser oavsett [dina informationslagerenheter.](resource-consumption-models.md) Om du använder en dynamisk resursklass varierar resurserna beroende på din servicenivå. För dynamiska klasser innebär en lägre servicenivå att du troligtvis behöver använda en större resursklass för din inläsningsanvändare.
+Kör inläsningar under statiska i stället för dynamiska resursklasser. Att använda statiska resurs klasser garanterar samma resurser oavsett dina [informations lager enheter](resource-consumption-models.md). Om du använder en dynamisk resursklass varierar resurserna beroende på din servicenivå. För dynamiska klasser innebär en lägre servicenivå att du troligtvis behöver använda en större resursklass för din inläsningsanvändare.
 
 ## <a name="allowing-multiple-users-to-load"></a>Tillåta många användare att läsa in
 
-Det finns ofta ett behov av att ha flera användare som kan läsa in data i informationslagret. Inläsning med [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) kräver kontrollbehörigheter för databasen.  CONTROL-behörigheten ger kontrollbehörighet till alla scheman. Du kanske inte vill att alla användare som läser in ska ha behörighet för alla scheman. Om du vill begränsa behörigheten använder du DENY CONTROL-instruktionen.
+Det finns ofta ett behov av att ha flera användare som kan läsa in data i informationslagret. Inläsning med [CREATE TABLE as Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) kräver kontroll behörigheter för databasen.  CONTROL-behörigheten ger kontrollbehörighet till alla scheman. Du kanske inte vill att alla användare som läser in ska ha behörighet för alla scheman. Om du vill begränsa behörigheten använder du DENY CONTROL-instruktionen.
 
 Anta att du har följande databasscheman: schema_A för avdelning A och schema_B för avdelning B. Då låter du användare_A och användare_B vara användare för PolyBase-inläsning i avdelning A respektive avdelning B. Båda har beviljats kontrollbehörigheter till databasen. De som skapat schema_A och B låser nu deras scheman med DENY:
 
@@ -73,7 +73,7 @@ Anta att du har följande databasscheman: schema_A för avdelning A och schema_B
    DENY CONTROL ON SCHEMA :: schema_B TO user_A;
 ```
 
-User_A och user_B är nu utelåst från den andra avd schema.
+User_A och user_B är nu utelåsta från det andra avd-schemat.
 
 ## <a name="loading-to-a-staging-table"></a>Inläsning i en mellanlagringstabell
 
@@ -90,7 +90,7 @@ Kolumnlagringsindex kräver en stor mängd minne för att komprimera data i hög
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Öka batchstorleken när du använder SQLBulkCopy API eller BCP
 
-Som tidigare nämnts kommer inläsning med PolyBase att ge det högsta dataflödet med Synapse SQL-pool. Om du inte kan använda PolyBase för att läsa in och måste använda SQLBulkCopy API (eller BCP) bör du överväga att öka batchstorleken för bättre dataflöde - en bra tumregel är en batchstorlek mellan 100K till 1 M rader.
+Som nämnts tidigare ger inläsning med PolyBase det högsta data flödet med Synapse SQL-pool. Om du inte kan använda PolyBase för att läsa in och måste använda SQLBulkCopy-API (eller BCP) bör du fundera på att öka batchstorleken för bättre data flöde – en bra tumregel är en batchstorlek mellan 100 000 och 1 miljon rader.
 
 ## <a name="handling-loading-failures"></a>Hantera inläsningsfel
 
@@ -106,9 +106,9 @@ Om du har tusentals eller fler enskilda infogningar under dagen bör du gruppera
 
 ## <a name="creating-statistics-after-the-load"></a>Skapa statistik efter inläsningen
 
-För att få bättre frågeprestanda är det viktigt att skapa statistik på alla kolumner i alla tabeller efter den första inläsningen eller efter betydande dataändringar.  Detta kan göras manuellt eller så kan du aktivera [automatisk skapa statistik](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+För att få bättre frågeprestanda är det viktigt att skapa statistik på alla kolumner i alla tabeller efter den första inläsningen eller efter betydande dataändringar.  Detta kan göras manuellt eller så kan du aktivera [statistik för automatisk skapande](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-En detaljerad förklaring av statistik finns i [Statistik](develop-tables-statistics.md). I följande exempel visas hur du manuellt skapar statistik för fem kolumner i Customer_Speed tabellen.
+En detaljerad förklaring av statistik finns i [Statistik](develop-tables-statistics.md). I följande exempel visas hur du manuellt skapar statistik på fem kolumner i Customer_Speeds tabellen.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);

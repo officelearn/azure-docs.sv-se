@@ -10,33 +10,33 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: jingwang
 ms.openlocfilehash: 931287fa2a4104069b101236bec9f76bb7193e8d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416355"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Avro-format i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Följ den här artikeln när du vill **tolka Avro-filerna eller skriva data i Avro-format**. 
+Följ den här artikeln när du vill **parsa Avro-filerna eller skriva data i Avro-format**. 
 
-Avro-format stöds för följande kopplingar: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)och [SFTP](connector-sftp.md).
+Avro-formatet stöds för följande anslutningar: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure-File Storage](connector-azure-file-storage.md), [fil system](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)och [SFTP](connector-sftp.md).
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln [Datauppsättningar.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Avro-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Avro-datauppsättningen.
 
 | Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Datauppsättningens typegenskap måste anges till **Avro**. | Ja      |
-| location         | Platsinställningar för filen/filerna. Varje filbaserad koppling har sin egen platstyp och egenskaper som stöds under `location`. **Se information i kopplingens artikel -> egenskaper för datauppsättning**. | Ja      |
-| avroKomprimeringCodec | Komprimeringscodec som ska användas när du skriver till Avro-filer. När du läser från Avro-filer bestämmer Data Factory automatiskt komprimeringscodec baserat på filens metadata.<br>Typer som stöds är "**inga**" (standard), "**deflate**", "**snappy**". Kopiera aktivitet stöder för närvarande inte Snappy när du läser/skriver Avro-filer. | Inga       |
+| typ             | Data uppsättningens typ-egenskap måste anges till **Avro**. | Ja      |
+| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds `location`under. **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning**. | Ja      |
+| avroCompressionCodec | Den komprimerings-codec som ska användas när du skriver till Avro-filer. Vid läsning från Avro-filer bestämmer Data Factory automatiskt komprimerings-codecen baserat på filens metadata.<br>De typer som stöds är "**none**" (standard),**DEFLATE**","**fästning**". Obs! kopierings aktiviteten stöder för närvarande inte fästfunktionen vid läsning/skrivning av Avro-filer. | Nej       |
 
 > [!NOTE]
-> Blanksteg i kolumnnamnet stöds inte för Avro-filer.
+> Tomt utrymme i kolumn namn stöds inte för Avro-filer.
 
-Nedan följer ett exempel på Avro-datauppsättning på Azure Blob Storage:
+Nedan visas ett exempel på en Avro-datauppsättning på Azure Blob Storage:
 
 ```json
 {
@@ -62,36 +62,36 @@ Nedan följer ett exempel på Avro-datauppsättning på Azure Blob Storage:
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Avro-källan och diskhon.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Avro-källan och Sink.
 
 ### <a name="avro-as-source"></a>Avro som källa
 
-Följande egenskaper stöds i källavsnittet för *** \*kopieringsaktivitet.\* ***
+Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \*källa\* *** .
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Egenskapen Type property för kopians aktivitetskälla måste anges till **AvroSource**. | Ja      |
-| storeInställningar | En grupp egenskaper för hur du läser data från ett datalager. Varje filbaserad anslutning har sina egna `storeSettings`läsinställningar som stöds under . **Se information i kopplingens artikel -> Kopiera aktivitetsegenskaper avsnitt**. | Inga       |
+| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **AvroSource**. | Ja      |
+| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings`. **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Nej       |
 
-### <a name="avro-as-sink"></a>Avro som diskbänk
+### <a name="avro-as-sink"></a>Avro som mottagare
 
-Följande egenskaper stöds i avsnittet kopiera *** \*aktivitetsmottagare.\* ***
+Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \*mottagare\* *** .
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Egenskapen Type property för kopians aktivitetskälla måste vara av **avroSink**. | Ja      |
-| storeInställningar | En grupp egenskaper för hur du skriver data till ett datalager. Varje filbaserad anslutning har sina egna `storeSettings`skrivinställningar som stöds under . **Se information i kopplingens artikel -> Kopiera aktivitetsegenskaper avsnitt**. | Inga       |
+| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **AvroSink**. | Ja      |
+| storeSettings | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings`. **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Nej       |
 
-## <a name="data-type-support"></a>Stöd för datatyp
+## <a name="data-type-support"></a>Data typs stöd
 
 ### <a name="copy-activity"></a>Kopieringsaktivitet
-[Avro-komplexa datatyper](https://avro.apache.org/docs/current/spec.html#schema_complex) stöds inte (poster, uppräkningar, matriser, kartor, fackföreningar och fasta) i Kopiera aktivitet.
+Avro [komplexa data typer](https://avro.apache.org/docs/current/spec.html#schema_complex) stöds inte (poster, uppräkningar, matriser, kartor, unioner och fasta) i kopierings aktiviteten.
 
 ### <a name="data-flows"></a>Dataflöden
-När du arbetar med Avro-filer i dataflöden kan du läsa och skriva komplexa datatyper, men se till att först rensa det fysiska schemat från datauppsättningen. I dataflöden kan du ange logiska projektions- och härledningskolumner som är komplexa strukturer och sedan mappa dessa fält automatiskt till en Avro-fil.
+När du arbetar med Avro-filer i data flöden kan du läsa och skriva komplexa data typer, men se till att ta bort det fysiska schemat från data uppsättningen först. I data flöden kan du ange din logiska projektion och härleda kolumner som är komplexa strukturer och automatiskt mappa dessa fält till en Avro-fil.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Kopiera aktivitetsöversikt](copy-activity-overview.md)
-- [Uppslagsaktivitet](control-flow-lookup-activity.md)
+- [Översikt över kopierings aktivitet](copy-activity-overview.md)
+- [Söknings aktivitet](control-flow-lookup-activity.md)
 - [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)

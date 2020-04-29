@@ -1,6 +1,6 @@
 ---
 title: Kontinuerlig integrering och distribution
-description: Databasutvecklar i företagsklass för datalagring med inbyggt stöd för kontinuerlig integrering och distribution med Azure Pipelines.
+description: Databas DevOps-upplevelse i företags klass för data lager hantering med inbyggt stöd för kontinuerlig integrering och distribution med hjälp av Azure-pipelines.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,55 +12,55 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: ddd24eb510405d49465ca4e0e0f326f7260e2ed1
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416229"
 ---
-# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Kontinuerlig integrering och distribution för datalagring
+# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Kontinuerlig integrering och distribution för data lager
 
-Den här enkla självstudien beskriver hur du integrerar ditt SSDT-databasprojekt (SQL Server Data Tools) med Azure DevOps och använder Azure Pipelines för att konfigurera kontinuerlig integrering och distribution. Den här självstudien är det andra steget för att skapa din kontinuerliga integrations- och distributionspipeline för datalagring.
+Den här enkla själv studie kursen beskriver hur du integrerar SQL Server ditt SSDT-databas projekt med Azure DevOps och utnyttjar Azure-pipeliner för att konfigurera kontinuerlig integrering och distribution. Den här självstudien är det andra steget i att skapa en pipeline för kontinuerlig integrering och distribution för data lager.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-- Gå igenom [självstudien för källkontrollintegration](sql-data-warehouse-source-control-integration.md)
+- Gå igenom [självstudien för käll kontrolls integrering](sql-data-warehouse-source-control-integration.md)
 
-- Konfigurera och ansluta till Azure DevOps
+- Konfigurera och Anslut till Azure-DevOps
 
-## <a name="continuous-integration-with-visual-studio-build"></a>Kontinuerlig integrering med Visual Studio-build
+## <a name="continuous-integration-with-visual-studio-build"></a>Kontinuerlig integrering med Visual Studio build
 
-1. Navigera till Azure Pipelines och skapa en ny build pipeline.
+1. Navigera till Azure-pipeliner och skapa en ny versions pipeline.
 
       ![Ny pipeline](./media/sql-data-warehouse-continuous-integration-and-deployment/1-new-build-pipeline.png "Ny pipeline")
 
-2. Välj källkodsdatabasen (Azure Repos Git) och välj .NET Desktop-appmallen.
+2. Välj din käll kods lagrings plats (Azure databaser git) och välj mallen .NET Desktop app.
 
-      ![Installation av pipeline](./media/sql-data-warehouse-continuous-integration-and-deployment/2-pipeline-setup.png "Installation av pipeline")
+      ![Pipeline-installation](./media/sql-data-warehouse-continuous-integration-and-deployment/2-pipeline-setup.png "Pipeline-installation")
 
-3. Redigera YAML-filen så att den använder rätt pool på agenten. Yaml-filen ska se ut ungefär så här:
+3. Redigera din YAML-fil och Använd rätt pool för din agent. Din YAML-fil bör se ut ungefär så här:
 
       ![YAML](./media/sql-data-warehouse-continuous-integration-and-deployment/3-yaml-file.png "YAML")
 
-Nu har du en enkel miljö där alla incheckningar till källkontrolldatabasens huvudgren automatiskt ska utlösa en lyckad Visual Studio-version av databasprojektet. Verifiera automatiseringen fungerar från till genom att göra en ändring i det lokala databasprojektet och checka in ändringen till huvudgrenen.
+Nu har du en enkel miljö där all incheckning av huvud grenen för käll kontrollens lagrings plats bör automatiskt utlösa en lyckad Visual Studio-version av ditt databas projekt. Verifiera att automatiseringen fungerar och slutar genom att göra en ändring i ditt lokala databas projekt och kontrol lera ändringen i huvud grenen.
 
-## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Kontinuerlig distribution med distributionsuppgiften för Azure SQL Data Warehouse (eller Databas)
+## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Kontinuerlig distribution med distributions aktiviteten Azure SQL Data Warehouse (eller databas)
 
-1. Lägg till en ny uppgift med hjälp av [distributionsuppgiften för Azure SQL Database](/devops/pipelines/targets/azure-sqldb?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och fyll i de obligatoriska fälten för att ansluta till ditt måldatalager. När den här aktiviteten körs distribueras DACPAC som genererats från den tidigare byggprocessen till måldatalagret. Du kan också använda [distributionsuppgiften för Azure SQL Data Warehouse](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment).
+1. Lägg till en ny aktivitet med [Azure SQL Database distributions uppgift](/devops/pipelines/targets/azure-sqldb?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och fyll i de obligatoriska fälten för att ansluta till mål informations lagret. När den här aktiviteten körs distribueras DACPAC som genererades från den tidigare Bygg processen till mål informations lagret. Du kan också använda [aktiviteten för Azure SQL Data Warehouse distribution](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment).
 
-      ![Distributionsaktivitet](./media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Distributionsaktivitet")
+      ![Distributions aktivitet](./media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Distributions aktivitet")
 
-2. Om du använder en självvärdställd agent kontrollerar du att du ställer in miljövariabeln så att den använder rätt SqlPackage.exe för SQL Data Warehouse. Sökvägen ska se ut ungefär så här:
+2. Om du använder en lokal agent, se till att du ställer in din miljö variabel så att den använder rätt SqlPackage. exe för SQL Data Warehouse. Sökvägen bör se ut ungefär så här:
 
-      ![Miljövariabel](./media/sql-data-warehouse-continuous-integration-and-deployment/5-environment-variable-preview.png "Miljövariabel")
+      ![Miljö variabel](./media/sql-data-warehouse-continuous-integration-and-deployment/5-environment-variable-preview.png "Miljö variabel")
 
-   C:\Program-filer (x86)\Microsoft Visual Studio\2019\Preview\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150  
+   C:\Program Files (x86) \Microsoft Visual Studio\2019\Preview\Common7\IDE\Extensions\Microsoft\SQLDB\DAC\150  
 
-   Kör och validera din pipeline. Du kan göra ändringar lokalt och checka in ändringar i källkontrollen som ska generera en automatisk version och distribution.
+   Kör och verifiera din pipeline. Du kan göra ändringar lokalt och kontrol lera ändringar i din käll kontroll som ska generera en automatisk version och distribution.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Utforska [Synapse SQL pool MPP-arkitektur](massively-parallel-processing-mpp-architecture.md)
-- Skapa snabbt [en SQL-pool](create-data-warehouse-portal.md)
-- [Läsa in exempeldata](load-data-from-azure-blob-storage-using-polybase.md)
-- Utforska [videoklipp](sql-data-warehouse-videos.md)
+- Utforska [SYNAPSE SQL-poolens MPP-arkitektur](massively-parallel-processing-mpp-architecture.md)
+- [Skapa snabbt en SQL-pool](create-data-warehouse-portal.md)
+- [Läs in exempel data](load-data-from-azure-blob-storage-using-polybase.md)
+- Utforska [videor](sql-data-warehouse-videos.md)

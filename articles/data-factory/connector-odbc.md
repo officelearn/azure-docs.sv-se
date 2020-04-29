@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från ODBC-källor med Azure Data Factory
-description: Lär dig hur du kopierar data från OData-källor till sink-datalager som stöds med hjälp av en kopieringsaktivitet i en Azure Data Factory-pipeline.
+description: Lär dig hur du kopierar data från OData-källor till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,57 +12,57 @@ ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: jingwang
 ms.openlocfilehash: da5c53f8953960c382070be658add2877fff3f8c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416886"
 ---
-# <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Kopiera data från och till ODBC-datalager med Azure Data Factory
+# <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Kopiera data från och till ODBC-datalager med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-odbc-connector.md)
 > * [Aktuell version](connector-odbc.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från och till ett ODBC-datalager. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från och till ett ODBC-data lager. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
 Den här ODBC-anslutningen stöds för följande aktiviteter:
 
-- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
-- [Uppslagsaktivitet](control-flow-lookup-activity.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
+- [Söknings aktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från ODBC-källa till alla sink-datalager som stöds eller kopiera från ett källdatalager som stöds till ODBC-mottagare. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
+Du kan kopiera data från ODBC-källa till alla mottagar data lager som stöds, eller kopiera från alla käll data lager som stöds till ODBC-mottagare. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Den här ODBC-anslutningen stöder kopiering av data från/till **odbc-kompatibla datalager** med hjälp av **grundläggande** eller **anonym** autentisering. En **64-bitars ODBC-drivrutin** krävs.
+Mer specifikt stöder denna ODBC-anslutning kopiering av data från/till **ODBC-kompatibla data lager** med **Basic** eller **Anonym** autentisering. En **64-bitars ODBC-drivrutin** krävs.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill använda den här ODBC-kontakten måste du:
+Om du vill använda den här ODBC-anslutningen måste du:
 
-- Konfigurera en självvärderad integrationskörning. Mer information finns i artikeln Integration Runtime för [självvärd.](create-self-hosted-integration-runtime.md)
-- Installera 64-bitars ODBC-drivrutinen för datalagret på integrationskörningsdatorn.
+- Konfigurera en egen värd Integration Runtime. Mer information finns i artikeln om [egen värd integration runtime](create-self-hosted-integration-runtime.md) .
+- Installera 64-bitars ODBC-drivrutinen för data lagret på den Integration Runtime datorn.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-I följande avsnitt finns information om egenskaper som används för att definiera datafabrikentiteter som är specifika för ODBC-anslutningsappen.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för ODBC-anslutning.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
 Följande egenskaper stöds för ODBC-länkad tjänst:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste ställas in på: **Odbc** | Ja |
-| Connectionstring | Anslutningssträngen exklusive autentiseringsdelen. Du kan ange anslutningssträngen med mönster som `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, eller använda systemet DSN (Data `"DSN=<name of the DSN on IR machine>;"` Source Name) som du ställer in på integrationskörningsdatorn med (du måste fortfarande ange autentiseringsuppgiftersdelen i den länkade tjänsten därefter).<br>Du kan också placera ett lösenord i `password` Azure Key Vault och hämta konfigurationen ur anslutningssträngen.Se [Store-autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) med mer information.| Ja |
-| authenticationType | Typ av autentisering som används för att ansluta till ODBC-datalagret.<br/>Tillåtna värden är: **Grundläggande** och **Anonym**. | Ja |
-| userName | Ange användarnamn om du använder grundläggande autentisering. | Inga |
-| password | Ange lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
-| credential | Åtkomstautentiseringsdelen av anslutningssträngen som anges i drivrutinsspecifikt egenskapsvärdeformat. Exempel: `"RefreshToken=<secret refresh token>;"`. Markera det här fältet som en SecureString. | Inga |
-| connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. En självvärdad integrationskörning krävs som nämns i [Förutsättningar](#prerequisites). |Ja |
+| typ | Egenskapen Type måste anges till: **ODBC** | Ja |
+| Begär | Anslutnings strängen exklusive Credential-delen. Du kan ange anslutnings strängen med ett mönster som `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, eller använda system-DSN (data källans namn) som du konfigurerade på den integration runtime datorn `"DSN=<name of the DSN on IR machine>;"` med (du behöver fortfarande ange autentiseringsuppgiften i den länkade tjänsten).<br>Du kan också ange ett lösen ord i Azure Key Vault och hämta `password` konfigurationen från anslutnings strängen.Mer information finns [i lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) .| Ja |
+| authenticationType | Typ av autentisering som används för att ansluta till ODBC-datalagret.<br/>Tillåtna värden är: **Basic** och **Anonymous**. | Ja |
+| userName | Ange användar namn om du använder grundläggande autentisering. | Nej |
+| password | Ange lösen ordet för det användar konto som du har angett för användar namnet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| credential | Delen autentiseringsuppgifter för den anslutnings sträng som anges i drivrutinsspecifika egenskaps värde format. Exempel: `"RefreshToken=<secret refresh token>;"`. Markera det här fältet som en SecureString. | Nej |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Det krävs en egen värd Integration Runtime som anges i [krav](#prerequisites). |Ja |
 
 **Exempel 1: använda grundläggande autentisering**
 
@@ -113,14 +113,14 @@ Följande egenskaper stöds för ODBC-länkad tjänst:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningsartikeln.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av ODBC-datauppsättning.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av ODBC-datauppsättning.
 
-Så här kopierar du data från/till ODBC-kompatibelt datalager:
+Följande egenskaper stöds för att kopiera data från/till ODBC-kompatibelt data lager:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Datauppsättningens typegenskap måste ställas in på: **OdbcTable** | Ja |
-| tableName | Namnet på tabellen i ODBC-datalagret. | Nej för källan (om "fråga" i aktivitetskällan anges).<br/>Ja för diskbänk |
+| typ | Data uppsättningens typ-egenskap måste anges till: **OdbcTable** | Ja |
+| tableName | Namnet på tabellen i ODBC-datalagret. | Nej för källa (om "fråga" i aktivitets källan har angetts);<br/>Ja för mottagare |
 
 **Exempel**
 
@@ -141,20 +141,20 @@ Så här kopierar du data från/till ODBC-kompatibelt datalager:
 }
 ```
 
-Om du `RelationalTable` använde maskinskriven datauppsättning stöds den fortfarande som den är, medan du föreslås använda den nya framöver.
+Om du använder typ `RelationalTable` av data uppsättning, stöds den fortfarande som den är, medan du föreslås att använda den nya som går framåt.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av ODBC-källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av ODBC-källa.
 
 ### <a name="odbc-as-source"></a>ODBC som källa
 
-Om du vill kopiera data från ODBC-kompatibelt datalager stöds följande egenskaper i källavsnittet för **kopieringsaktivitet:**
+För att kopiera data från ODBC-kompatibelt data lager, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type property för kopians aktivitetskälla måste ställas in på: **OdbcSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i datauppsättningen har angetts) |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **OdbcSource** | Ja |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 
@@ -188,21 +188,21 @@ Om du vill kopiera data från ODBC-kompatibelt datalager stöds följande egensk
 ]
 ```
 
-Om du `RelationalSource` använde den maskinskrivna källan stöds den fortfarande som den är, medan du föreslås använda den nya framåt.
+Om du använder typ `RelationalSource` av källa, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya vägen framåt.
 
-### <a name="odbc-as-sink"></a>ODBC som diskbänk
+### <a name="odbc-as-sink"></a>ODBC som mottagare
 
-Om du vill kopiera data till ODBC-kompatibelt datalager anger du sink-typen i kopieringsaktiviteten till **OdbcSink**. Följande egenskaper stöds i avsnittet kopiera **aktivitetsmottagare:**
+Om du vill kopiera data till ODBC-kompatibelt data lager ställer du in mottagar typen i kopierings aktiviteten till **OdbcSink**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typegenskapen för kopieringsaktivitetsmottagaren måste ställas in på: **OdbcSink** | Ja |
-| skriverBatchTimeout |Vänta på att batchinsatsen ska slutföras innan den har klarats upp.<br/>Tillåtna värden är: tidsspann. Exempel: "00:30:00" (30 minuter). |Inga |
-| skriverBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize.<br/>Tillåtna värden är: heltal (antal rader). |Nej (standard är 0 - automatisk upptäckt) |
-| preCopyScript |Ange en SQL-fråga för kopieringsaktivitet som ska köras innan data skrivs i datalagret i varje körning. Du kan använda den här egenskapen för att rensa de förinlästa data. |Inga |
+| typ | Egenskapen Type för kopierings aktivitetens Sink måste anges till: **OdbcSink** | Ja |
+| writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes.<br/>Tillåtna värden är: TimeSpan. Exempel: "00:30:00" (30 minuter). |Nej |
+| writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize.<br/>Tillåtna värden är: heltal (antal rader). |Nej (Standardvärdet är 0 – identifieras automatiskt) |
+| preCopyScript |Ange en SQL-fråga för kopierings aktivitet som ska köras innan data skrivs till data lagret i varje körning. Du kan använda den här egenskapen för att rensa förinlästa data. |Nej |
 
 > [!NOTE]
-> För "writeBatchSize", om den inte är inställd (automatiskt upptäckt), identifierar kopieringsaktivitet först om drivrutinen stöder batchåtgärder och ställer in den på 10000 om den gör det, eller ställer in den på 1 om den inte gör det. Om du uttryckligen anger värdet annat än 0, kopierar aktiviteten uppfyller värdet och misslyckas vid körning om drivrutinen inte stöder batchåtgärder.
+> För "writeBatchSize", om den inte har angetts (identifieras automatiskt), identifierar kopierings aktiviteten först om driv rutinen stöder batch-åtgärder och anger den till 10000 om den gör det, eller så anger du den till 1 om den inte gör det. Om du anger något annat värde än 0, följer kopierings aktiviteten värdet och Miss lyckas vid körning om driv rutinen inte stöder batch-åtgärder.
 
 **Exempel:**
 
@@ -236,19 +236,19 @@ Om du vill kopiera data till ODBC-kompatibelt datalager anger du sink-typen i ko
 ]
 ```
 
-## <a name="sap-hana-sink"></a>SAP HANA sjunka
+## <a name="sap-hana-sink"></a>SAP HANA mottagare
 
 >[!NOTE]
->Om du vill kopiera data från SAP HANA-datalager läser du den inbyggda [SAP HANA-anslutningen](connector-sap-hana.md). Om du vill kopiera data till SAP HANA följer du den här instruktionen för att använda ODBC-kontakt. Observera att de länkade tjänsterna för SAP HANA-anslutning och ODBC-anslutning är med olika typ och kan därför inte återanvändas.
+>Information om hur du kopierar data från SAP HANA data lager finns i intern [SAP HANA-anslutning](connector-sap-hana.md). Om du vill kopiera data till SAP HANA ska du följa den här instruktionen för att använda ODBC-anslutning. Observera att de länkade tjänsterna för SAP HANA koppling och ODBC-koppling är av olika typ, så att de inte kan återanvändas.
 >
 
-Du kan kopiera data till SAP HANA-databasen med den allmänna ODBC-anslutningen.
+Du kan kopiera data till SAP HANA Database med hjälp av den allmänna ODBC-anslutningen.
 
-Konfigurera en självvärderad integrationskörningstid på en dator med åtkomst till ditt datalager. Integration Runtime använder ODBC-drivrutinen för SAP HANA för att ansluta till datalagret. Installera därför drivrutinen om den inte redan är installerad på samma dator. Mer information finns i avsnittet [Förutsättningar.](#prerequisites)
+Konfigurera en egen värd Integration Runtime på en dator med åtkomst till ditt data lager. Integration Runtime använder ODBC-drivrutinen för SAP HANA för att ansluta till data lagret. Installera därför driv rutinen om den inte redan är installerad på samma dator. Mer information finns i avsnittet [krav](#prerequisites) .
 
-Innan du använder SAP HANA-diskhon i en Data Factory-lösning kontrollerar du om integrationskörningen kan ansluta till datalagret med hjälp av instruktioner i avsnittet [Felsöka anslutningsproblem.](#troubleshoot-connectivity-issues)
+Innan du använder SAP HANA Sink i en Data Factory-lösning kontrollerar du om Integration Runtime kan ansluta till data lagret med hjälp av anvisningarna i avsnittet [Felsöka anslutnings problem](#troubleshoot-connectivity-issues) .
 
-Skapa en ODBC-länkad tjänst för att länka ett SAP HANA-datalager till en Azure-datafabrik enligt följande exempel:
+Skapa en ODBC-länkad tjänst för att länka ett SAP HANA data lager till en Azure-datafabrik som visas i följande exempel:
 
 ```json
 {
@@ -272,22 +272,22 @@ Skapa en ODBC-länkad tjänst för att länka ett SAP HANA-datalager till en Azu
 }
 ```
 
-Läs artikeln från början för en detaljerad översikt över hur du använder ODBC-datalager som käll-/sinkdatalager i en kopiering.
+I artikeln från början finns en detaljerad översikt över hur du använder ODBC-datalager som data lager/Sink-datalager i en kopierings åtgärd.
 
-## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 
 ## <a name="troubleshoot-connectivity-issues"></a>Felsök anslutningsproblem
 
-Om du vill felsöka anslutningsproblem använder du fliken **Diagnostik** **i Configuration Manager för Integration Runtime**.
+Använd fliken **diagnostik** i **integration runtime Configuration Manager**för att felsöka anslutnings problem.
 
-1. Starta **Konfigurationshanteraren för integreringskörningstid**.
-2. Växla till fliken **Diagnostik.**
-3. Under avsnittet "Testanslutning" väljer du **typ** av datalager (länkad tjänst).
-4. Ange **den anslutningssträng** som används för att ansluta till datalagret, välj **autentisering** och ange **användarnamn,** **lösenord**och/eller **autentiseringsuppgifter**.
-5. Klicka på **Testa anslutning** om du vill testa anslutningen till datalagret.
+1. Starta **Integration Runtime Configuration Manager**.
+2. Växla till fliken **diagnostik** .
+3. Under avsnittet "Testa anslutning" väljer du **typ** av data lager (länkad tjänst).
+4. Ange **anslutnings strängen** som används för att ansluta till data lagret, Välj **autentiseringen** och ange **användar namn**, **lösen ord**och/eller **autentiseringsuppgifter**.
+5. Klicka på **Testa anslutning** för att testa anslutningen till data lagret.
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

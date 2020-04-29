@@ -1,6 +1,6 @@
 ---
-title: Konfigurera kundhanterade nycklar för ditt Azure Cosmos DB-konto
-description: Lär dig hur du konfigurerar kundhanterade nycklar för ditt Azure Cosmos DB-konto med Azure Key Vault
+title: Konfigurera Kundhanterade nycklar för ditt Azure Cosmos DB-konto
+description: Lär dig hur du konfigurerar Kundhanterade nycklar för ditt Azure Cosmos DB-konto med Azure Key Vault
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,97 +8,97 @@ ms.date: 03/19/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
 ms.openlocfilehash: 8f58887a056c8ca0cd175a44127556562338de38
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81450040"
 ---
-# <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Konfigurera kundhanterade nycklar för ditt Azure Cosmos-konto med Azure Key Vault
+# <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Konfigurera Kundhanterade nycklar för ditt Azure Cosmos-konto med Azure Key Vault
 
 > [!NOTE]
-> För närvarande måste du begära åtkomst för att kunna använda den här funktionen. För att göra [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com)det, vänligen kontakta .
+> För tillfället måste du begära åtkomst för att använda den här funktionen. Om du vill göra det kontaktar [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com)du.
 
-Data som lagras i ditt Azure Cosmos-konto krypteras automatiskt och sömlöst med nycklar som hanteras av Microsoft (**tjänsthanterade nycklar**). Du kan också välja att lägga till ett andra lager kryptering med nycklar som du hanterar (**kundhanterade nycklar).**
+Data som lagras i ditt Azure Cosmos-konto är automatiskt och sömlöst krypterade med nycklar som hanteras av Microsoft (**tjänst hanterade nycklar**). Du kan också välja att lägga till ett andra lager av kryptering med nycklar som du hanterar (**Kundhanterade nycklar**).
 
-![Lager av kryptering runt kunddata](./media/how-to-setup-cmk/cmk-intro.png)
+![Lager för kryptering runt kund information](./media/how-to-setup-cmk/cmk-intro.png)
 
-Du måste lagra kundhanterade nycklar i [Azure Key Vault](../key-vault/general/overview.md) och ange en nyckel för varje Azure Cosmos-konto som är aktiverat med kundhanterade nycklar. Den här nyckeln används för att kryptera alla data som lagras i det kontot.
+Du måste lagra Kundhanterade nycklar i [Azure Key Vault](../key-vault/general/overview.md) och tillhandahålla en nyckel för varje Azure Cosmos-konto som är aktiverat med Kundhanterade nycklar. Den här nyckeln används för att kryptera alla data som lagras i kontot.
 
 > [!NOTE]
-> För närvarande är kundhanterade nycklar endast tillgängliga för nya Azure Cosmos-konton. Du bör konfigurera dem när du skapar kontot.
+> För närvarande är Kundhanterade nycklar endast tillgängliga för nya Azure Cosmos-konton. Du bör konfigurera dem när kontot skapas.
 
-## <a name="register-the-azure-cosmos-db-resource-provider-for-your-azure-subscription"></a><a id="register-resource-provider"></a>Registrera Azure Cosmos DB-resursprovidern för din Azure-prenumeration
+## <a name="register-the-azure-cosmos-db-resource-provider-for-your-azure-subscription"></a><a id="register-resource-provider"></a>Registrera Azure Cosmos DB Resource Provider för din Azure-prenumeration
 
-1. Logga in på [Azure-portalen,](https://portal.azure.com/)gå till din Azure-prenumeration och välj **Resursleverantörer** under fliken **Inställningar:**
+1. Logga in på [Azure Portal](https://portal.azure.com/), gå till din Azure-prenumeration och välj **resurs leverantörer** på fliken **Inställningar** :
 
-   !["Resursleverantörer" från den vänstra menyn](./media/how-to-setup-cmk/portal-rp.png)
+   !["Resource providers"-post från den vänstra menyn](./media/how-to-setup-cmk/portal-rp.png)
 
-1. Sök efter resursleverantören **Microsoft.DocumentDB.** Kontrollera om resursleverantören redan har markerats som registrerad. Om inte, välj resursprovidern och välj **Registrera:**
+1. Sök efter **Microsoft. DocumentDB** -resurs leverantören. Kontrol lera att resurs leverantören redan har marker ATS som registrerad. Annars väljer du resurs leverantören och väljer **Registrera**:
 
-   ![Registrera resursprovidern Microsoft.DocumentDB](./media/how-to-setup-cmk/portal-rp-register.png)
+   ![Registrera Microsoft. DocumentDB Resource Provider](./media/how-to-setup-cmk/portal-rp-register.png)
 
-## <a name="configure-your-azure-key-vault-instance"></a>Konfigurera din Azure Key Vault-instans
+## <a name="configure-your-azure-key-vault-instance"></a>Konfigurera Azure Key Vault-instansen
 
-Om du använder kundhanterade nycklar med Azure Cosmos DB måste du ange två egenskaper i Azure Key Vault-instansen som du planerar att använda för att vara värd för dina krypteringsnycklar. Dessa egenskaper inkluderar **Mjuk borttagning** och **Rensa inte**. Dessa egenskaper är inte aktiverade som standard. Du kan aktivera dem med hjälp av antingen PowerShell eller Azure CLI.
+Om du använder Kundhanterade nycklar med Azure Cosmos DB måste du ange två egenskaper för den Azure Key Vault-instans som du planerar att använda som värd för dina krypterings nycklar. Dessa egenskaper inkluderar **mjuk borttagning** och **Rensa inte**. Dessa egenskaper är inte aktiverade som standard. Du kan aktivera dem med hjälp av antingen PowerShell eller Azure CLI.
 
-Mer information om hur du aktiverar dessa egenskaper i en befintlig Azure Key Vault-instans finns i avsnitten "Aktivera mjuk borttagning" och "Aktivera rensningsskydd" i någon av följande artiklar:
+Information om hur du aktiverar dessa egenskaper på en befintlig Azure Key Vault instans finns i avsnitten "Aktivera mjuk borttagning" och "Aktivera rensnings skydd" i någon av följande artiklar:
 
-- [Så här använder du mjuk borttagning med PowerShell](../key-vault/general/soft-delete-powershell.md)
-- [Så här använder du mjuk borttagning med Azure CLI](../key-vault/general/soft-delete-cli.md)
+- [Använda mjuk borttagning med PowerShell](../key-vault/general/soft-delete-powershell.md)
+- [Använda mjuk borttagning med Azure CLI](../key-vault/general/soft-delete-cli.md)
 
-## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Lägga till en åtkomstprincip i azure key vault-instansen
+## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Lägg till en åtkomst princip till Azure Key Vault-instansen
 
-1. Från Azure-portalen går du till Azure Key Vault-instansen som du planerar att använda för att vara värd för dina krypteringsnycklar. Välj **Åtkomstprinciper** på den vänstra menyn:
+1. Från Azure Portal går du till den Azure Key Vault instans som du planerar att använda som värd för dina krypterings nycklar. Välj **åtkomst principer** på den vänstra menyn:
 
-   !["Åtkomstprinciper" från den vänstra menyn](./media/how-to-setup-cmk/portal-akv-ap.png)
+   !["Åtkomst principer" på den vänstra menyn](./media/how-to-setup-cmk/portal-akv-ap.png)
 
-1. Välj **+ Lägg till åtkomstprincip**.
+1. Välj **+ Lägg till åtkomst princip**.
 
-1. Under listrutan **Nyckelbehörigheter** väljer du **Hämta,** **Ta bort nyckel**och **Radbryt** nyckelbehörigheter:
+1. Under List rutan **nyckel behörigheter** väljer du **Hämta**, **packa upp nyckel**och packa upp **nyckel** behörigheter:
 
    ![Välja rätt behörigheter](./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png)
 
-1. Under **Välj huvudnamn**väljer du **Ingen markerad**. Sök sedan efter **Azure Cosmos** DB-huvudnamn och välj det (för att göra `a232010e-820c-4083-83bb-3ace5fc29d0b` det lättare att hitta kan du också `57506a73-e302-42a9-b869-6f12d9ec29e9`söka efter huvud-ID: för alla Azure-regioner utom Azure Government-regioner där huvud-ID är ). Slutligen väljer **du Välj** längst ned. Om **Azure Cosmos** DB-huvudnumret inte finns med i listan kan du behöva registrera om resursleverantören **Microsoft.DocumentDB** enligt beskrivningen i avsnittet [Registrera resursprovidern](#register-resource-provider) i den här artikeln.
+1. Under **Välj huvud konto**väljer du **ingen vald**. Sök sedan efter **Azure Cosmos DB** huvud konto och välj det (för att göra det lättare att hitta, kan du också söka efter huvud- `a232010e-820c-4083-83bb-3ace5fc29d0b` ID: för alla Azure-regioner utom Azure Government regioner där ägar `57506a73-e302-42a9-b869-6f12d9ec29e9`-ID är). Slutligen väljer du **Välj** längst ned. Om **Azure Cosmos DB** -huvudobjektet inte finns i listan kan du behöva registrera om **Microsoft. DocumentDB** Resource Provider enligt beskrivningen i avsnittet [Registrera resurs leverantören](#register-resource-provider) i den här artikeln.
 
-   ![Välj azure Cosmos DB-huvudnamn](./media/how-to-setup-cmk/portal-akv-add-ap.png)
+   ![Välj Azure Cosmos DB huvud konto](./media/how-to-setup-cmk/portal-akv-add-ap.png)
 
-1. Välj **Lägg till** om du vill lägga till den nya åtkomstprincipen.
+1. Välj **Lägg** till för att lägga till den nya åtkomst principen.
 
 ## <a name="generate-a-key-in-azure-key-vault"></a>Generera en nyckel i Azure Key Vault
 
-1. Gå till Azure Key Vault-instansen som du planerar att använda för att vara värd för dina krypteringsnycklar från Azure-portalen. Välj sedan **Tangenter** på den vänstra menyn:
+1. Från Azure Portal, gå till den Azure Key Vault instans som du planerar att använda som värd för dina krypterings nycklar. Välj sedan **nycklar** i den vänstra menyn:
 
-   !["Nycklar" från den vänstra menyn](./media/how-to-setup-cmk/portal-akv-keys.png)
+   !["Nycklar"-post från den vänstra menyn](./media/how-to-setup-cmk/portal-akv-keys.png)
 
-1. Välj **Generera/importera**, ange ett namn på den nya nyckeln och välj en RSA-nyckelstorlek. Minst 3072 rekommenderas för bästa säkerhet. Välj sedan **Skapa:**
+1. Välj **generera/importera**, ange ett namn för den nya nyckeln och välj en nyckel storlek för RSA. Minst 3072 rekommenderas för bästa säkerhet. Välj sedan **skapa**:
 
    ![Skapa en ny nyckel](./media/how-to-setup-cmk/portal-akv-gen.png)
 
-1. När nyckeln har skapats väljer du den nyskapade nyckeln och sedan dess aktuella version.
+1. När nyckeln har skapats väljer du den nya nyckeln och sedan dess aktuella version.
 
-1. Kopiera nyckelns **nyckelidentifierare**, förutom delen efter det sista snedstrecket:
+1. Kopiera nyckelns **nyckel identifierare**, förutom delen efter det sista snedstrecket:
 
-   ![Kopiera nyckelns nyckelidentifierare](./media/how-to-setup-cmk/portal-akv-keyid.png)
+   ![Nyckelns nyckel identifierare kopieras](./media/how-to-setup-cmk/portal-akv-keyid.png)
 
 ## <a name="create-a-new-azure-cosmos-account"></a>Skapa ett nytt Azure Cosmos-konto
 
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
 
-När du skapar ett nytt Azure Cosmos DB-konto från Azure-portalen väljer du **Kundhanterad nyckel** i **krypteringssteget.** I fältet **Nyckel-URI** klistrar du in URI/nyckelidentifieraren för azure key vault-nyckeln som du kopierade från föregående steg:
+När du skapar ett nytt Azure Cosmos DB konto från Azure Portal väljer du **kundhanterad nyckel** i **krypterings** steget. I fältet **nyckel-URI** klistrar du in URI/nyckel-ID för den Azure Key Vault nyckel som du kopierade från föregående steg:
 
-![Ställa in CMK-parametrar i Azure-portalen](./media/how-to-setup-cmk/portal-cosmos-enc.png)
+![Ange CMK-parametrar i Azure Portal](./media/how-to-setup-cmk/portal-cosmos-enc.png)
 
 ### <a name="using-azure-powershell"></a>Använda Azure PowerShell
 
 När du skapar ett nytt Azure Cosmos DB-konto med PowerShell:
 
-- Skicka URI-värden för Azure Key Vault-nyckeln som kopierats tidigare under egenskapen **keyVaultKeyUri** i **PropertyObject**.
+- Skicka URI: n för den Azure Key Vault nyckel som kopierats tidigare under egenskapen **keyVaultKeyUri** i **PropertyObject**.
 
 - Använd **2019-12-12** som API-version.
 
 > [!IMPORTANT]
-> Du måste `Location` ange parametern uttryckligen för att kontot ska kunna skapas med kundhanterade nycklar.
+> Du måste ange `Location` parametern explicit för att kontot ska kunna skapas med Kundhanterade nycklar.
 
 ```powershell
 $resourceGroupName = "myResourceGroup"
@@ -120,16 +120,16 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Location $accountLocation -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-### <a name="using-an-azure-resource-manager-template"></a>Använda en Azure Resource Manager-mall
+### <a name="using-an-azure-resource-manager-template"></a>Använda en Azure Resource Manager mall
 
 När du skapar ett nytt Azure Cosmos-konto via en Azure Resource Manager-mall:
 
-- Skicka URI-värden för Azure Key Vault-nyckeln som du kopierade tidigare under egenskapen **keyVaultKeyUri** i **egenskapsobjektet.**
+- Skicka URI: n för den Azure Key Vault nyckel som du kopierade tidigare under egenskapen **keyVaultKeyUri** i objektet **Properties** .
 
 - Använd **2019-12-12** som API-version.
 
 > [!IMPORTANT]
-> Du måste `Location` ange parametern uttryckligen för att kontot ska kunna skapas med kundhanterade nycklar.
+> Du måste ange `Location` parametern explicit för att kontot ska kunna skapas med Kundhanterade nycklar.
 
 ```json
 {
@@ -189,7 +189,7 @@ New-AzResourceGroupDeployment `
 
 ### <a name="using-the-azure-cli"></a>Använda Azure CLI
 
-När du skapar ett nytt Azure Cosmos-konto via Azure CLI skickar du URI-värden för Azure Key Vault-nyckeln som du kopierade tidigare under parametern **--key-uri.**
+När du skapar ett nytt Azure Cosmos-konto via Azure CLI skickar du URI: n för den Azure Key Vault nyckel som du kopierade tidigare under parametern **--Key-URI** .
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -205,49 +205,49 @@ az cosmosdb create \
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-### <a name="is-there-any-additional-charge-for-using-customer-managed-keys"></a>Finns det någon extra kostnad för att använda kundhanterade nycklar?
+### <a name="is-there-any-additional-charge-for-using-customer-managed-keys"></a>Finns det ytterligare avgifter för att använda Kundhanterade nycklar?
 
-Ja. För att ta hänsyn till den ytterligare beräkningsbelastning som krävs för att hantera datakryptering och dekryptering med kundhanterade nycklar, förbrukar alla åtgärder som körs mot Azure Cosmos-kontot en 25-procentig ökning av [begärandeenheter](./request-units.md).
+Ja. För att ta hänsyn till den ytterligare beräknings belastning som krävs för att hantera data kryptering och dekryptering med Kundhanterade nycklar, förbrukar sig alla åtgärder som utförs mot Azure Cosmos-kontot en ökning på 25 procent i [enheter för programbegäran](./request-units.md).
 
-### <a name="what-data-gets-encrypted-with-the-customer-managed-keys"></a>Vilka data krypteras med de kundhanterade nycklarna?
+### <a name="what-data-gets-encrypted-with-the-customer-managed-keys"></a>Vilka data krypteras med kundens Kundhanterade nycklar?
 
-Alla data som lagras i ditt Azure Cosmos-konto krypteras med de kundhanterade nycklarna, förutom följande metadata:
+Alla data som lagras i ditt Azure Cosmos-konto krypteras med kundens hanterade nycklar, förutom följande metadata:
 
-- Namnen på dina Azure Cosmos [DB-konton, databaser och behållare](./account-overview.md#elements-in-an-azure-cosmos-account)
+- Namnen på dina Azure Cosmos DB [-konton, databaser och behållare](./account-overview.md#elements-in-an-azure-cosmos-account)
 
 - Namnen på dina [lagrade procedurer](./stored-procedures-triggers-udfs.md)
 
-- Egenskapsvägarna som deklarerats i [indexeringsprinciperna](./index-policy.md)
+- Egenskaps Sök vägarna som deklareras i dina [indexerings principer](./index-policy.md)
 
-- Värdena för behållarnas [partitionsnycklar](./partitioning-overview.md)
+- Värdena för dina behållar [partitionerings nycklar](./partitioning-overview.md)
 
-### <a name="are-customer-managed-keys-supported-for-existing-azure-cosmos-accounts"></a>Stöds kundhanterade nycklar för befintliga Azure Cosmos-konton?
+### <a name="are-customer-managed-keys-supported-for-existing-azure-cosmos-accounts"></a>Stöds kund hanterade nycklar för befintliga Azure Cosmos-konton?
 
 Den här funktionen är för närvarande endast tillgänglig för nya konton.
 
-### <a name="is-there-a-plan-to-support-finer-granularity-than-account-level-keys"></a>Finns det en plan för att stödja finare granularitet än nycklar på kontonivå?
+### <a name="is-there-a-plan-to-support-finer-granularity-than-account-level-keys"></a>Finns det någon plan för att ge bättre granularitet än nycklar på konto nivå?
 
-Inte för närvarande, men nycklar på behållarnivå övervägs.
+Inte för närvarande, men nycklar för container nivå beaktas.
 
-### <a name="how-do-customer-managed-keys-affect-a-backup"></a>Hur påverkar kundhanterade nycklar en säkerhetskopia?
+### <a name="how-do-customer-managed-keys-affect-a-backup"></a>Hur påverkar kund hanterade nycklar en säkerhets kopia?
 
-Azure Cosmos DB tar [regelbundna och automatiska säkerhetskopior](./online-backup-and-restore.md) av data som lagras i ditt konto. Den här åtgärden säkerhetskopierar krypterade data. Om du vill använda den återställda säkerhetskopian krävs krypteringsnyckeln som du använde vid tidpunkten för säkerhetskopieringen. Detta innebär att ingen återkallelse gjordes och den version av nyckeln som användes vid tidpunkten för säkerhetskopieringen kommer fortfarande att aktiveras.
+Azure Cosmos DB använder [regelbundna och automatiska säkerhets kopieringar](./online-backup-and-restore.md) av de data som lagras i ditt konto. Den här åtgärden säkerhetskopierar krypterade data. Om du vill använda den återställda säkerhets kopian krävs den krypterings nyckel som du använde vid tidpunkten för säkerhets kopieringen. Det innebär att ingen åter kallelse görs och den version av nyckeln som användes vid tidpunkten för säkerhets kopieringen fortfarande kommer att aktive ras.
 
-### <a name="how-do-i-revoke-an-encryption-key"></a>Hur återkallar jag en krypteringsnyckel?
+### <a name="how-do-i-revoke-an-encryption-key"></a>Hur gör jag för att återkalla en krypterings nyckel?
 
-Nyckelåterkallning görs genom att inaktivera den senaste versionen av nyckeln:
+Nyckel återkallning görs genom att den senaste versionen av nyckeln inaktive ras:
 
-![Inaktivera en nyckelversion](./media/how-to-setup-cmk/portal-akv-rev2.png)
+![Inaktivera en nyckels version](./media/how-to-setup-cmk/portal-akv-rev2.png)
 
-Om du vill återkalla alla nycklar från en Azure Key Vault-instans kan du också ta bort åtkomstprincipen som beviljats Azure Cosmos DB-huvudmannen:
+Om du vill återkalla alla nycklar från en Azure Key Vault-instans kan du också ta bort åtkomst principen som beviljats till Azure Cosmos DB-huvudobjektet:
 
-![Ta bort åtkomstprincipen för Azure Cosmos DB-huvudprincipen](./media/how-to-setup-cmk/portal-akv-rev.png)
+![Tar bort åtkomst principen för Azure Cosmos DB-huvudobjektet](./media/how-to-setup-cmk/portal-akv-rev.png)
 
 ### <a name="what-operations-are-available-after-a-customer-managed-key-is-revoked"></a>Vilka åtgärder är tillgängliga när en kundhanterad nyckel har återkallats?
 
-Den enda möjliga åtgärden när krypteringsnyckeln har återkallats är borttagning av konton.
+Den enda åtgärd som är möjlig när krypterings nyckeln har återkallats är borttagning av kontot.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [datakryptering i Azure Cosmos DB](./database-encryption-at-rest.md).
+- Läs mer om [data kryptering i Azure Cosmos DB](./database-encryption-at-rest.md).
 - Få en översikt över [säker åtkomst till data i Cosmos DB](secure-access-to-data.md).

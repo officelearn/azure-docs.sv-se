@@ -10,11 +10,11 @@ ms.topic: include
 ms.date: 12/02/2019
 ms.author: trbye
 ms.openlocfilehash: 5d1ec3fcc817431622c4f50a49afe8d61797c690
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81421974"
 ---
 > [!NOTE]
-> Vid testning kommer systemet att utföra en transkription. Detta är viktigt att tänka på, eftersom prissättningen varierar per tjänsteutbud och prenumerationsnivå. Se alltid den officiella Azure Cognitive Services-prissättningen - Taltjänsten för [den senaste informationen](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).
+> Vid testning utförs en avskrift i systemet. Detta är viktigt att tänka på eftersom prissättningen varierar per tjänst erbjudande och prenumerations nivå. Information om [den senaste informationen](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services)finns alltid i den officiella Azure Cognitive Services pris-och tal tjänsten.

@@ -1,6 +1,6 @@
 ---
-title: Använda alternativ FÖR GRUPP I Synapse SQL
-description: Synapse SQL möjliggör utveckling av lösningar genom att implementera olika GROUP BY-alternativ.
+title: Använd GROUP BY-alternativ i Synapse SQL
+description: Med Synapse SQL kan du utveckla lösningar genom att implementera olika grupper med alternativ.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -12,34 +12,34 @@ ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
 ms.openlocfilehash: 261f75344d250ae8a8d9687f4bcd80535d11716b
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81429049"
 ---
-# <a name="group-by-options-in-synapse-sql"></a>ALTERNATIV FÖR GRUPP EFTER i Synapse SQL
-Synapse SQL möjliggör utveckling av lösningar genom att implementera olika GROUP BY-alternativ. 
+# <a name="group-by-options-in-synapse-sql"></a>Gruppera efter alternativ i Synapse SQL
+Med Synapse SQL kan du utveckla lösningar genom att implementera olika grupper med alternativ. 
 
-## <a name="what-does-group-by-do"></a>Vad gör GROUP BY
+## <a name="what-does-group-by-do"></a>Vad sker gruppera efter
 
-[Satsgrupp av](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL-satsen sammanställer data till en sammanfattningsuppsättning rader.
+[Group by](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL-satsen sammanställer data till en sammanfattande uppsättning rader.
 
-SQL on-demand stöder hela skalan av GROUP BY-alternativ. SQL-poolen stöder ett begränsat antal GROUP BY-alternativ.
+SQL på begäran stöder hela intervallet av GROUP BY-alternativ. SQL-poolen stöder ett begränsat antal grupper med alternativ.
 
-## <a name="group-by-options-supported-in-sql-pool"></a>GRUPPERA EFTER-alternativ som stöds i SQL-poolen
+## <a name="group-by-options-supported-in-sql-pool"></a>Gruppera efter alternativ som stöds i SQL-poolen
 
-GROUP BY har några alternativ som SQL-poolen inte stöder. De här alternativen har lösningar, som är följande:
+GROUP BY har vissa alternativ som SQL-poolen inte stöder. De här alternativen innehåller lösningar, som är följande:
 
-* GRUPPERA EFTER MED SAMMANSLAGNING
-* GRUPPERA UPPSÄTTNINGAR
-* GRUPPERA EFTER MED KUB
+* Gruppera efter med sammanslagning
+* GRUPPERADE UPPSÄTTNINGAR
+* Gruppera efter med kub
 
-### <a name="rollup-and-grouping-sets-options"></a>Alternativ för sammanslagning och gruppering anger
+### <a name="rollup-and-grouping-sets-options"></a>Alternativ för sammanfattning och gruppering av uppsättningar
 
-Det enklaste alternativet här är att använda UNION ALL för att köra sammanslagningen i stället för att förlita sig på den explicita syntaxen. Resultatet är exakt samma
+Det enklaste alternativet är att använda UNION ALL för att köra sammanslagningen i stället för att förlita dig på den explicita syntaxen. Resultatet är exakt samma
 
-I följande exempel används SATS FÖR GRUPP MED alternativet SAMMANSLAGNING:
+I följande exempel används GROUP BY-instruktionen med alternativet samla in:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -54,13 +54,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-Genom att använda samlad, föregående exempel begär följande aggregeringar:
+Genom att använda ROLLUP begär föregående exempel följande agg regeringar:
 
 * Land och region
 * Land/region
 * Totalsumma
 
-Om du vill ersätta samlad och returnera samma resultat kan du använda UNION ALL och uttryckligen ange de aggregeringar som krävs:
+Om du vill ersätta ROLLUP och returnera samma resultat kan du använda UNION alla och uttryckligen ange de nödvändiga agg regeringar:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -87,13 +87,13 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-Om du vill ersätta GRUPPERINGSUPPSÄTTNINGAR gäller exempelprincipen. Du behöver bara skapa UNION ALLA avsnitt för de aggregeringsnivåer som du vill se.
+Exempel principen gäller för att ersätta grupp uppsättningar. Du behöver bara skapa UNION alla avsnitt för de agg regerings nivåer som du vill se.
 
-### <a name="cube-options"></a>Alternativ för kub
+### <a name="cube-options"></a>Kubalternativ
 
-Det är möjligt att skapa en GRUPP MED KUB med hjälp av union alla-metoden. Problemet är att koden snabbt kan bli besvärlig och svårhanterlig. För att minska problemet kan du använda den här mer avancerade metoden.
+Det är möjligt att skapa en grupp med hjälp av kub med hjälp av UNION ALL-metoden. Problemet är att koden snabbt kan bli besvärlig och svårhanterligt. Du kan använda den här mer avancerade metoden för att undvika det här problemet.
 
-Det första steget är att definiera "kuben" som definierar alla nivåer av aggregering som vi vill skapa. Notera CROSS JOIN av de två härledda tabellerna eftersom det genererar alla nivåer. Resten av koden är där för formatering.
+Det första steget är att definiera ' Cube ' som definierar alla nivåer av agg regering som vi vill skapa. Anteckna kors kopplingen för de två härledda tabellerna när alla nivåer skapas. Resten av koden finns där för formatering.
 
 ```sql
 CREATE TABLE #Cube
@@ -124,11 +124,11 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-Följande bild visar resultatet av [SKAPA TABELL SOM SELECT:](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+Följande bild visar resultatet av [CREATE TABLE som Välj](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest):
 
 ![Gruppera efter kub](./media/develop-group-by-options/develop-group-by-cube.png)
 
-Det andra steget är att ange en måltabell för att lagra delresultat:
+Det andra steget är att ange en mål tabell för att lagra interimistiska resultat:
 
 ```sql
 DECLARE
@@ -151,7 +151,7 @@ WITH
 ;
 ```
 
-Det tredje steget är att loopa över kuben av kolumner som utför aggregeringen. Frågan körs en gång för varje rad i den #Cube temporära tabellen. Resultaten lagras i tabellen #Results temp:
+Det tredje steget är att loopa över kuben med kolumner som utför aggregation. Frågan körs en gång för varje rad i #Cube temporär tabell. Resultaten lagras i tabellen #Results temporära tabell:
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -175,7 +175,7 @@ BEGIN
 END
 ```
 
-Slutligen kan du returnera resultaten genom att läsa från den #Results temporära tabellen:
+Slutligen kan du returnera resultaten genom att läsa från #Results temporär tabell:
 
 ```sql
 SELECT *
@@ -184,8 +184,8 @@ ORDER BY 1,2,3
 ;
 ```
 
-Genom att dela upp koden i sektioner och generera en looping konstruktion, blir koden mer hanterbar och underhållsbar.
+Genom att dela upp koden i avsnitt och generera en loop-konstruktion blir koden mer hanterbar och hanterbar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fler utvecklingstips finns i [utvecklingsöversikt](develop-overview.md).
+Mer utvecklings tips finns i [utvecklings översikt](develop-overview.md).

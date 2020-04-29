@@ -1,6 +1,6 @@
 ---
-title: ForEach-aktivitet i Azure Data Factory
-description: För varje aktivitet definierar ett upprepande kontrollflöde i pipelinen. Den används för att iterera över en samling och utföra angivna aktiviteter.
+title: Förgrunds aktiviteter i Azure Data Factory
+description: För varje aktivitet definieras ett upprepat kontroll flöde i din pipeline. Den används för att iterera över en samling och köra angivna aktiviteter.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.openlocfilehash: 35d61e896a395c3044a51780fef72d54c211a31f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417182"
 ---
-# <a name="foreach-activity-in-azure-data-factory"></a>ForEach-aktivitet i Azure Data Factory
+# <a name="foreach-activity-in-azure-data-factory"></a>Förgrunds aktiviteter i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-ForEach-aktiviteten definierar ett upprepande kontrollflöde i pipelinen. Den här aktiviteten används till att iterera över en samling och kör angivna aktiviteter i en loop. Implementeringen av loopen för den här aktiviteten liknar Foreach-loopstrukturen i programmeringsspråk.
+Med en förgrunds aktivitet definieras ett upprepat kontroll flöde i din pipeline. Den här aktiviteten används till att iterera över en samling och kör angivna aktiviteter i en loop. Implementeringen av loopen för den här aktiviteten liknar Foreach-loopstrukturen i programmeringsspråk.
 
 ## <a name="syntax"></a>Syntax
-Egenskaperna beskrivs senare i den här artikeln. Egenskapen Items är samlingen och varje objekt i samlingen `@item()` refereras till med hjälp av följande syntax:  
+Egenskaperna beskrivs längre fram i den här artikeln. Egenskapen Items är samlingen och varje objekt i samlingen kallas genom att använda det `@item()` som visas i följande syntax:  
 
 ```json
 {  
@@ -68,27 +68,27 @@ Egenskaperna beskrivs senare i den här artikeln. Egenskapen Items är samlingen
 
 ```
 
-## <a name="type-properties"></a>Egenskaper för typ
+## <a name="type-properties"></a>Typ egenskaper
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namn på för varje aktivitet. | Sträng | Ja
-typ | Måste ställas in på **ForEach** | Sträng | Ja
-ärSequential | Anger om loopen ska köras sekventiellt eller parallellt.  Maximalt 20 loop iterationer kan utföras på en gång parallellt). Om du till exempel har en ForEach-aktivitet som itererar över en kopieringsaktivitet med 10 olika käll- och sink-datauppsättningar med **isEquential** inställd på Falskt, körs alla kopior samtidigt. Standard är Falskt. <br/><br/> Om "isSequential" är inställt på Falskt, se till att det finns en korrekt konfiguration för att köra flera körbara filer. Annars bör den här egenskapen användas med försiktighet för att undvika att ådra sig skrivkonflikter. Mer information finns i [avsnittet Parallell körning.](#parallel-execution) | Boolesk | Nej. Standard är Falskt.
-batchCount(1)batchCount | Batchantal som ska användas för att kontrollera antalet parallella körning (när isSequential är inställt på false). Detta är den övre samtidighetsgränsen, men för varje aktivitet kommer inte alltid att köras vid detta nummer | Heltal (max 50) | Nej. Standard är 20.
-Objekt | Ett uttryck som returnerar en JSON-matris som ska itereras över. | Uttryck (som returnerar en JSON-matris) | Ja
+name | Namnet på for-each-aktiviteten. | Sträng | Ja
+typ | Måste vara inställt **på Sol** | Sträng | Ja
+isSequential | Anger om loopen ska köras sekventiellt eller parallellt.  Högst 20 upprepnings iterationer kan köras samtidigt parallellt). Om du till exempel har en titt på en aktivitet med 10 olika käll-och mottagar data uppsättningar med **isSequential** inställt på falskt körs alla kopior samtidigt. Standardvärdet är false. <br/><br/> Om "isSequential" är inställt på false kontrollerar du att det finns en korrekt konfiguration för att köra flera körbara filer. Annars bör den här egenskapen användas med försiktighet för att undvika att skapa Skriv konflikter. Mer information finns i avsnittet om [parallell körning](#parallel-execution) . | Boolesk | Nej. Standardvärdet är false.
+batchCount | Antal batchar som ska användas för att kontrol lera antalet parallell körningar (när isSequential är inställt på falskt). Detta är den övre samtidiga gränsen, men för-varje aktivitet kommer inte alltid att köras på det här numret | Heltal (högst 50) | Nej. Standardvärdet är 20.
+Objekt | Ett uttryck som returnerar en JSON-matris som ska upprepas. | Uttryck (som returnerar en JSON-matris) | Ja
 Aktiviteter | De aktiviteter som ska utföras. | Lista med aktiviteter | Ja
 
 ## <a name="parallel-execution"></a>Parallell körning
-Om **isEquential** är inställd på false, iterererar aktiviteten parallellt med högst 20 samtidiga iterationer. Denna inställning bör användas med försiktighet. Om de samtidiga iterationerna skriver till samma mapp men till olika filer är den här metoden bra. Om de samtidiga iterationerna skriver samtidigt till exakt samma fil, orsakar den här metoden troligen ett fel. 
+Om **isSequential** har angetts till false, upprepas aktiviteten parallellt med maximalt 20 samtidiga iterationer. Den här inställningen bör användas med försiktighet. Om samtidiga iterationer skrivs till samma mapp, men till olika filer, är den här metoden bra. Om samtidiga iterationer skrivs samtidigt till exakt samma fil, orsakar den här metoden förmodligen ett fel. 
 
-## <a name="iteration-expression-language"></a>Språk för iterationsuttryck
-I aktiviteten ForEach anger du en matris som ska itereras över för **egenskapsobjekten**." Använd `@item()` för att iterera över en enda uppräkning i ForEach-aktivitet. Om **objekt** till exempel är en matris: [1, `@item()` 2, 3], returnerar 1 i den första iterationen, 2 i den andra iterationen och 3 i den tredje iterationen.
+## <a name="iteration-expression-language"></a>Språk för upprepnings uttryck
+I förgrunds aktiviteten anger du en matris som ska upprepas för egenskaps **objekt**. " Används `@item()` för att iterera över en enskild uppräkning i en förgrunds aktivitet. Om **objekt** till exempel är en matris: [1, 2, 3], `@item()` returnerar 1 i den första iterationen, 2 i den andra iterationen och 3 i den tredje iterationen.
 
-## <a name="iterating-over-a-single-activity"></a>Itererar över en enda aktivitet
-**Scenario:** Kopiera från samma källfil i Azure Blob till flera målfiler i Azure Blob.
+## <a name="iterating-over-a-single-activity"></a>Iterera över en enskild aktivitet
+**Scenario:** Kopiera från samma källfil i Azure blob till flera målfiler i Azure blob.
 
-### <a name="pipeline-definition"></a>Definition av pipeline
+### <a name="pipeline-definition"></a>Pipeline-definition
 
 ```json
 {
@@ -154,7 +154,7 @@ I aktiviteten ForEach anger du en matris som ska itereras över för **egenskaps
 
 ```
 
-### <a name="blob-dataset-definition"></a>Definition av Blob-datauppsättning
+### <a name="blob-dataset-definition"></a>Definition av BLOB-datauppsättning
 
 ```json
 {  
@@ -181,7 +181,7 @@ I aktiviteten ForEach anger du en matris som ska itereras över för **egenskaps
 
 ```
 
-### <a name="run-parameter-values"></a>Kör parametervärden
+### <a name="run-parameter-values"></a>Kör parameter värden
 
 ```json
 {
@@ -192,7 +192,7 @@ I aktiviteten ForEach anger du en matris som ska itereras över för **egenskaps
 ```
 
 ## <a name="iterate-over-multiple-activities"></a>Iterera över flera aktiviteter
-Det är möjligt att iterera över flera aktiviteter (till exempel kopiera och webbaktiviteter) i en ForEach-aktivitet. I det här fallet rekommenderar vi att du abstraherar flera aktiviteter i en separat pipeline. Sedan kan du använda [aktiviteten ExecutePipeline](control-flow-execute-pipeline-activity.md) i pipelinen med ForEach-aktivitet för att anropa den separata pipelinen med flera aktiviteter. 
+Det går att iterera över flera aktiviteter (t. ex. kopiering och webb aktiviteter) i en förgrunds aktivitet. I det här scenariot rekommenderar vi att du sammanfattar flera aktiviteter i en separat pipeline. Sedan kan du använda ExecutePipeline- [aktiviteten](control-flow-execute-pipeline-activity.md) i pipelinen med en förgrunds aktivitet för att anropa den separata pipelinen med flera aktiviteter. 
 
 
 ### <a name="syntax"></a>Syntax
@@ -238,9 +238,9 @@ Det är möjligt att iterera över flera aktiviteter (till exempel kopiera och w
 ```
 
 ### <a name="example"></a>Exempel
-**Scenario:** Iterera över en InnerPipeline i en ForEach-aktivitet med Utföra pipeline-aktivitet. Den inre pipelinen kopierar med schemadefinitioner som parameteriserats.
+**Scenario:** Iterera över en InnerPipeline i en förgrunds aktivitet med utföra pipeline-aktivitet. Den inre pipelinen kopierar med schema definitioner Parameters.
 
-#### <a name="master-pipeline-definition"></a>Huvudpipelinedefinition
+#### <a name="master-pipeline-definition"></a>Huvud pipeline-definition
 
 ```json
 {
@@ -300,7 +300,7 @@ Det är möjligt att iterera över flera aktiviteter (till exempel kopiera och w
 
 ```
 
-#### <a name="inner-pipeline-definition"></a>Definition av inre rörledning
+#### <a name="inner-pipeline-definition"></a>Definition av inre pipeline
 
 ```json
 {
@@ -372,7 +372,7 @@ Det är möjligt att iterera över flera aktiviteter (till exempel kopiera och w
 
 ```
 
-#### <a name="source-dataset-definition"></a>Definition av källdatauppsättning
+#### <a name="source-dataset-definition"></a>Definition av käll data uppsättning
 
 ```json
 {
@@ -406,7 +406,7 @@ Det är möjligt att iterera över flera aktiviteter (till exempel kopiera och w
 
 ```
 
-#### <a name="sink-dataset-definition"></a>Definition av sink-datauppsättning
+#### <a name="sink-dataset-definition"></a>Definition av Sink-datamängd
 
 ```json
 {
@@ -440,7 +440,7 @@ Det är möjligt att iterera över flera aktiviteter (till exempel kopiera och w
 
 ```
 
-#### <a name="master-pipeline-parameters"></a>Huvudpipellineparametrar
+#### <a name="master-pipeline-parameters"></a>Huvud pipeline-parametrar
 ```json
 {
     "inputtables": [
@@ -473,24 +473,24 @@ Det är möjligt att iterera över flera aktiviteter (till exempel kopiera och w
 }
 ```
 
-## <a name="aggregating-outputs"></a>Samla utdata
+## <a name="aggregating-outputs"></a>Aggregera utdata
 
-Om du vill aggregera utdata __för förensch-aktivitet__ använder du _variabler_ och _lägg till variabel_ aktivitet.
+Om du vill aggregera utdata från en __förgrunds__ aktivitet använder du _variabler_ och _lägger till variabel_ aktivitet.
 
-Deklarera först `array` en _variabel_ i pipelinen. Anropa sedan _Lägg till variabel_ aktivitet inuti varje __förödgliga__ slinga. Därefter kan du hämta aggregeringen från matrisen.
+Deklarera först en `array` _variabel_ i pipelinen. Anropa sedan _Lägg till variabel_ aktivitet i varje __förgrunds__ slinga. Sedan kan du hämta agg regeringen från matrisen.
 
 ## <a name="limitations-and-workarounds"></a>Begränsningar och lösningar
 
-Här är några begränsningar för ForEach-aktiviteten och föreslagna lösningar.
+Här följer några begränsningar för den förgrunds aktiviteten och föreslagna lösningar.
 
 | Begränsning | Lösning |
 |---|---|
-| Du kan inte kapsla en ForEach-loop inuti en annan ForEach-loop (eller en Till-slinga). | Utforma en pipeline på två nivåer där den yttre rörledningen med den yttre ForEach-loopen itererar över en inre pipeline med den kapslade slingan. |
-| ForEach-aktiviteten har `batchCount` högst 50 för parallell bearbetning och högst 100 000 artiklar. | Utforma en pipeline på två nivåer där den yttre pipelinen med ForEach-aktiviteten itererar över en inre pipeline. |
+| Du kan inte kapsla en förgrunds slinga i en annan förgrunds slinga (eller en until-slinga). | Utforma en pipeline på två nivåer där den yttre pipelinen med den yttre slingan upprepas över en inre pipeline med den kapslade slingan. |
+| Förgrunds aktiviteten har högst `batchCount` 50 för parallell bearbetning och högst 100 000 objekt. | Utforma en pipeline på två nivåer där den yttre pipelinen med förgrunds aktiviteten upprepas över en inre pipeline. |
 | | |
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
+Se andra kontroll flödes aktiviteter som stöds av Data Factory: 
 
 - [Köra pipelineaktivitet](control-flow-execute-pipeline-activity.md)
 - [Hämta metadataaktivitet](control-flow-get-metadata-activity.md)

@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från MySQL med Azure Data Factory
-description: Lär dig mer om MySQL-anslutningsappen i Azure Data Factory som gör att du kan kopiera data från en MySQL-databas till ett datalager som stöds som en diskbänk.
+description: Lär dig mer om MySQL Connector i Azure Data Factory som gör att du kan kopiera data från en MySQL-databas till ett data lager som stöds som mottagare.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: jingwang
 ms.openlocfilehash: 8467bbe1512e45342b86ff62d51a3f66b3096f03
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81418141"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Kopiera data från MySQL med Azure Data Factory
@@ -24,50 +24,50 @@ ms.locfileid: "81418141"
 > * [Aktuell version](connector-mysql.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från en MySQL-databas. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från en MySQL-databas. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
 
 >[!NOTE]
->Om du vill kopiera data från eller till [Azure Database for MySQL-tjänsten](../mysql/overview.md) använder du den specialiserade [Azure Database for MySQL-anslutningen](connector-azure-database-for-mysql.md).
+>Om du vill kopiera data från eller till [Azure Database for MySQL](../mysql/overview.md) tjänsten använder du den specialiserade [Azure Database for MySQL-anslutningen](connector-azure-database-for-mysql.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här MySQL-kopplingen stöds för följande aktiviteter:
+Denna MySQL-koppling stöds för följande aktiviteter:
 
-- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
-- [Uppslagsaktivitet](control-flow-lookup-activity.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
+- [Söknings aktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från MySQL-databasen till alla sink-datalager som stöds. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
+Du kan kopiera data från MySQL-databasen till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Specifikt stöder denna MySQL-kontakt MySQL **version 5.6 och 5.7**.
+Mer specifikt stöder den här MySQL-anslutaren MySQL **version 5,6 och 5,7**.
 
 ## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-Integration Runtime ger en inbyggd MySQL-drivrutin från version 3.7, därför behöver du inte installera någon drivrutin manuellt.
+Integration Runtime innehåller en inbyggd MySQL-drivrutin som börjar med version 3,7, och därför behöver du inte installera någon driv rutin manuellt.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-I följande avsnitt finns information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för MySQL-anslutning.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för MySQL Connector.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
-Följande egenskaper stöds för MySQL-länkad tjänst:
+Följande egenskaper stöds för MySQL-länkade tjänster:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **MySql** | Ja |
-| Connectionstring | Ange information som behövs för att ansluta till Azure-databasen för MySQL-instans.<br/> Du kan också placera lösenord i `password` Azure Key Vault och dra ut konfigurationen ur anslutningssträngen. Mer information finns i följande exempel och [Store-autentiseringsuppgifter i](store-credentials-in-key-vault.md) azure key vault-artikeln. | Ja |
-| connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Läs mer från avsnittet [Förutsättningar.](#prerequisites) Om det inte anges används standardkörningen för Azure Integration. |Inga |
+| typ | Typ egenskapen måste anges till: **MySQL** | Ja |
+| Begär | Ange information som krävs för att ansluta till Azure Database for MySQL-instansen.<br/> Du kan också ställa in lösen ord i Azure Key Vault och `password` Hämta konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Nej |
 
-En typisk anslutningssträng är `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Fler egenskaper som du kan ställa in per ditt ärende:
+En typisk anslutnings sträng är `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Fler egenskaper som du kan ställa in per ärende:
 
 | Egenskap | Beskrivning | Alternativ | Krävs |
 |:--- |:--- |:--- |:--- |
-| SSLMode (SSLMode) | Det här alternativet anger om drivrutinen använder TLS-kryptering och verifiering när du ansluter till MySQL. E.g.`SSLMode=<0/1/2/3/4>`| FUNKTIONSHINDRADE (0) / PREFERRED (1) **(Standard)** / KRÄVS (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Inga |
-| AnvändaSystemTrustStore | Det här alternativet anger om ett certifikatutfärdarcertifikat ska användas från systemets förtroendearkivet eller från en angiven PEM-fil. T.ex. `UseSystemTrustStore=<0/1>;`| Aktiverad (1) / Inaktiverad (0) **(standard)** | Inga |
+| SSLMode | Det här alternativet anger om driv rutinen använder TLS-kryptering och verifiering vid anslutning till MySQL. T. ex.,`SSLMode=<0/1/2/3/4>`| Inaktive rad (0)/PRIORITERAt (1) **(standard)** /obligatoriskt (2)/VERIFY_CA (3)/VERIFY_IDENTITY (4) | Nej |
+| UseSystemTrustStore | Det här alternativet anger om du vill använda ett CA-certifikat från arkivet för system förtroende eller från en angiven PEM-fil. T.ex. `UseSystemTrustStore=<0/1>;`| Aktiverat (1)/inaktiverat (0) **(standard)** | Nej |
 
 **Exempel:**
 
@@ -87,7 +87,7 @@ En typisk anslutningssträng är `Server=<server>;Port=<port>;Database=<database
 }
 ```
 
-**Exempel: lagra lösenord i Azure Key Vault**
+**Exempel: lagra lösen ord i Azure Key Vault**
 
 ```json
 {
@@ -113,9 +113,9 @@ En typisk anslutningssträng är `Server=<server>;Port=<port>;Database=<database
 }
 ```
 
-Om du använde MySQL-länkad tjänst med följande nyttolast stöds den fortfarande som den är, medan du föreslås använda den nya framöver.
+Om du använder MySQL-länkad tjänst med följande nytto Last, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya som skickas.
 
-**Tidigare nyttolast:**
+**Föregående nytto last:**
 
 ```json
 {
@@ -141,14 +141,14 @@ Om du använde MySQL-länkad tjänst med följande nyttolast stöds den fortfara
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningsartikeln.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av MySQL-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av MySQL-datauppsättningen.
 
-Så här kopierar du data från MySQL:
+Följande egenskaper stöds för att kopiera data från MySQL:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type property för datauppsättningen måste anges till: **MySqlTable** | Ja |
-| tableName | Namn på tabellen i MySQL-databasen. | Nej (om "fråga" i aktivitetskällan har angetts) |
+| typ | Data uppsättningens typ-egenskap måste anges till: **MySqlTable** | Ja |
+| tableName | Namnet på tabellen i MySQL-databasen. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
 
@@ -168,20 +168,20 @@ Så här kopierar du data från MySQL:
 }
 ```
 
-Om du `RelationalTable` använde maskinskriven datauppsättning stöds den fortfarande som den är, medan du föreslås använda den nya framöver.
+Om du använder typ `RelationalTable` av data uppsättning, stöds den fortfarande som den är, medan du föreslås att använda den nya som går framåt.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av MySQL-källan.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av MySQL-källan.
 
 ### <a name="mysql-as-source"></a>MySQL som källa
 
-Om du vill kopiera data från MySQL stöds följande egenskaper i källavsnittet för **kopieringsaktivitet:**
+För att kopiera data från MySQL stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type property för kopians aktivitetskälla måste anges till: **MySqlSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i datauppsättningen har angetts) |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **MySqlSource** | Ja |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 
@@ -215,13 +215,13 @@ Om du vill kopiera data från MySQL stöds följande egenskaper i källavsnittet
 ]
 ```
 
-Om du `RelationalSource` använde den maskinskrivna källan stöds den fortfarande som den är, medan du föreslås använda den nya framåt.
+Om du använder typ `RelationalSource` av källa, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya vägen framåt.
 
-## <a name="data-type-mapping-for-mysql"></a>Mappning av datatyp för MySQL
+## <a name="data-type-mapping-for-mysql"></a>Data typs mappning för MySQL
 
-När du kopierar data från MySQL används följande mappningar från MySQL-datatyper till Azure Data Factory interimdatatyper. Se [Schema- och datatypsmappningar](copy-activity-schema-and-type-mapping.md) om du vill veta mer om hur du kopierar aktivitetsschemat och datatypen till diskhon.
+När du kopierar data från MySQL används följande mappningar från MySQL-datatyper för att Azure Data Factory interimistiska data typer. Se [mappningar av schema och data typer](copy-activity-schema-and-type-mapping.md) för att lära dig mer om hur kopierings aktiviteten mappar käll schema och datatyp till mottagaren.
 
-| MySQL-datatyp | Data fabrik interim datatyp |
+| Data typen MySQL | Data fabrikens interimistiska datatyp |
 |:--- |:--- |
 | `bigint` |`Int64` |
 | `bigint unsigned` |`Decimal` |
@@ -265,9 +265,9 @@ När du kopierar data från MySQL används följande mappningar från MySQL-data
 | `year` |`Int` |
 
 
-## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

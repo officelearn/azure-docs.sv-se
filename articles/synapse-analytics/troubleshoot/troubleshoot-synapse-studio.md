@@ -1,5 +1,5 @@
 ---
-title: Felsöka Azure Synapse Studio (förhandsversion)
+title: Felsöka Azure Synapse Studio (för hands version)
 description: Felsöka Azure Synapse Studio
 author: julieMSFT
 ms.service: synapse-analytics
@@ -8,95 +8,95 @@ ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.openlocfilehash: ede38317762e5aac5562c9bb3494713c3edacc69
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431324"
 ---
-# <a name="azure-synapse-studio-preview-troubleshooting"></a>Felsökning av Azure Synapse Studio (förhandsversion)
+# <a name="azure-synapse-studio-preview-troubleshooting"></a>Fel sökning för Azure Synapse Studio (för hands version)
 
-Den här felsökningsguiden innehåller instruktioner om vilken information som ska tillhandahållas när du öppnar en supportbiljett om problem med nätverksanslutningen. Med rätt information kan vi eventuellt lösa problemet snabbare.
+Den här fel söknings guiden innehåller instruktioner om vilken information som ska tillhandahållas när du öppnar ett support ärende om problem med nätverks anslutningen. Med rätt information kan vi eventuellt lösa problemet snabbare.
 
-## <a name="sql-on-demand-preview-service-connectivity-issue"></a>Anslutningsproblem för SQL on-demand (förhandsversion)
+## <a name="sql-on-demand-preview-service-connectivity-issue"></a>Problem med tjänst anslutning för SQL på begäran (för hands version)
 
 ### <a name="symptom-1"></a>Symptom 1
 
-Alternativet "SQL on-demand" är nedtonat i listrutan "Anslut till".
+Alternativet "SQL on-demand" är nedtonat i list rutan "Anslut till".
 
 ![symptom1](media/troubleshooting-synapse-studio/symptom1v2.png)
 
 ### <a name="symptom-2"></a>Symptom 2
 
-Om du kör frågan med "SQL on-demand" visas felmeddelandet "Det gick inte att upprätta anslutningen till servern".
+Genom att köra frågan med "SQL på begäran" får du fel meddelandet "Det gick inte att upprätta anslutningen till servern".
 
 ![symptom2](media/troubleshooting-synapse-studio/symptom2.png)
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 
 > [!NOTE] 
->    Följande felsökningssteg gäller Krom Edge och Chrome. Du kan använda andra webbläsare (till exempel Firefox) med samma felsökningssteg, men fönstret "Utvecklarverktyg" kan ha en annan layout än skärmbilderna i den här TSG:n. Använd om möjligt INTE klassisk Edge för felsökning, eftersom det kan visa felaktig information i vissa situationer.
+>    Följande fel söknings steg är till för krom Edge och Chrome. Du kan använda andra webbläsare (till exempel FireFox) med samma fel söknings steg, men fönstret "utvecklarverktyg" kan ha en annan layout än skärm bilderna i den här TSG. Om möjligt ska du inte använda klassisk gräns för fel sökning, eftersom det kan visa felaktig information i vissa situationer.
 
-Öppna panelen "Diagnostikinformation" och välj knappen "Ladda ned diagnostik". Behåll den nedladdade informationen för felrapportering. Du kan i stället kopiera "Sessions-ID" och bifoga det när du öppnar supportbiljetten.
+Öppna panelen diagnostisk information och välj knappen "Ladda ned diagnostik". Behåll den nedladdade informationen för fel rapportering. Du kan i stället kopiera "sessions-ID" och koppla det när du öppnar support ärendet.
 
 ![diagnostik-info](media/troubleshooting-synapse-studio/diagnostic-info-download.png)
 
-Försök med felsökning igen genom att försöka med åtgärden som du utförde i Azure Synapse Studio.
+Starta fel sökningen genom att försöka utföra åtgärden igen i Azure Synapse Studio.
 
-- För symptom 1, välj "Uppdatera"-knappen till höger om rullgardinsmenyn "Använd databas" på fliken "SQL script" och kontrollera om du kan se "SQL on-demand".
-- Om du vill ha symptom 2 kan du försöka köra frågan igen för att se om den körs.
+- För symptom 1 väljer du knappen Uppdatera till höger om List rutan "Använd databas" på fliken "SQL-skript" och kontrollerar om du kan se "SQL på begäran".
+- Prova att köra frågan igen för att se om den körs korrekt, för symptom 2.
 
-Om problemet kvarstår trycker du på F12 i webbläsaren för att öppna "Utvecklarverktyg" (DevTools).
+Om problemet fortfarande finns trycker du på F12 i webbläsaren för att öppna "Utvecklarverktyg" (DevTools).
 
-Växla till panelen "Nätverk" i fönstret "Utvecklarverktyg". Välj knappen "Rensa" i verktygsfältet på panelen "Nätverk" om det behövs.
-Kontrollera att "Inaktivera cache" på panelen "Nätverk" är markerat.
+I fönstret Utvecklarverktyg växlar du till panelen nätverk. Välj knappen "Rensa" i verktygsfältet på panelen "nätverk" om det behövs.
+Kontrol lera att "inaktivera cache" i "Network"-panelen är markerat.
 
-Försök igen med åtgärden som du utförde i Azure Synapse Studio. Nya objekt kan visas i listan "Nätverk" i "Utvecklarverktyg". Observera din nuvarande systemtid att tillhandahålla i supportbiljetten.
+Försök utföra åtgärden igen i Azure Synapse Studio. Du kan se nya objekt som visas i listan "nätverk" i "Utvecklarverktyg". Notera din aktuella system tid för att tillhandahålla support ärendet.
 
-![nätverkspanel](media/troubleshooting-synapse-studio/network-panel.png)
+![nätverks panel](media/troubleshooting-synapse-studio/network-panel.png)
 
-Leta reda på objektet vars url-kolumn matchar följande mönster:
+Hitta objektet vars URL-kolumn matchar följande mönster:
 
 `https://[*A*]-ondemand.database.windows.net:1443/databases/[*B*]/query?api-version=2018-08-01-preview&application=ArcadiaSqlOnDemandExplorer`
 
-Där *[A*] är ditt arbetsytenamn, och "-ondemand" kan vara "-sqlod" och där [*B*] ska vara ett databasnamn, till exempel "master". Det bör finnas högst två objekt med samma URL-värde men olika metodvärden. ALTERNATIV OCH POST. Kontrollera om dessa två objekt har "200" eller "20x" under statuskolumnen, där "x" kan vara en siffra.
+Där [*A*] är namnet på din arbets yta och "-OnDemand" kan vara "-sqlod" och var [*B*] ska vara ett databas namn, till exempel "Master". Det får finnas högst två objekt med samma URL-värde men olika metod värden. ALTERNATIV och POST. Kontrol lera om dessa två objekt har "200" eller "20x" under kolumnen status, där "x" kan vara valfri siffra.
 
 Om någon av dem har något annat än "20x" och:
 
-- status börjar med "(misslyckades)", antingen vidga "Status" kolumnen eller hovra pekaren över statustexten för att se hela texten. Inkludera texten och/eller skärmbilden när supporten öppnas.
+- status börjar med "(misslyckad)", antingen utvidgar kolumnen "status" eller hovra över status texten för att se hela texten. Ta med texten och/eller skärm bilden när du öppnar support ärendet.
 
     ![status-text](media/troubleshooting-synapse-studio/status-text.png)
 
-    - Om du ser ERR_NAME_NOT_RESOLVED och du har skapat arbetsytan inom 10 minuter väntar du i 10 minuter och försöker igen för att se om problemet fortfarande finns.
-    - Om ERR_INTERNET_DISCONNECTED eller ERR_NETWORK_CHANGED visas kan det tyda på att nätverksanslutningen för datorn har problem. Kontrollera nätverksanslutningen och försök igen.
-    - Om du ser ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR eller andra felkoder som innehåller "SSL", kan det tyda på att din lokala SSL-konfiguration har problem eller så har nätverksadministratören blockerat åtkomsten till SQL-servern på begäran. Öppna en supportbiljett och bifoga felkoden i beskrivningen.
-    - Om du ser ERR_NETWORK_ACCESS_DENIED kan du behöva kontrollera med administratören om din lokala brandväggsprincip har blockerat åtkomsten till antingen *.database.windows.net domän eller fjärrport 1443.
-    - Du kan också prova samma åtgärd direkt på en annan dator och/eller nätverksmiljö för att utesluta ett problem med nätverkskonfigurationen på datorn.
+    - Om du ser ERR_NAME_NOT_RESOLVED och du har skapat din arbets yta inom 10 minuter, vänta i 10 minuter och försök att se om problemet fortfarande finns.
+    - Om du ser ERR_INTERNET_DISCONNECTED eller ERR_NETWORK_CHANGED kan det bero på att din DATORs nätverks anslutning har problem. Kontrol lera nätverks anslutningen och försök igen.
+    - Om du ser ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR eller andra felkoder som innehåller "SSL", kan det tyda på att den lokala SSL-konfigurationen har problem eller att nätverks administratören har blockerat åtkomst till SQL-servern på begäran. Öppna ett support ärende och bifoga felkoden i beskrivningen.
+    - Om du ser ERR_NETWORK_ACCESS_DENIED kan du behöva kontrol lera med administratören om den lokala brand Väggs principen har blockerat åtkomst till antingen *. database.windows.net-domän eller Fjärrport 1443.
+    - Du kan också prova samma åtgärd direkt på en annan dator och/eller nätverks miljö för att utesluta ett problem med nätverks konfigurationen på din dator.
 
-- status är "40x", "50x", eller andra nummer, välj på objektet (s) för att se detaljerna. Du bör se objektinformationen till höger. Hitta avsnittet "Svarshuvud". Kontrollera sedan om det finns ett objekt med namnet "access-control-allow-origin". Om så är fallet kontrollerar du om det har något av följande värden:
+- status är "40x", "50 gånger" eller andra siffror, Välj objekt för att se information. Du bör se objekt informationen till höger. Hitta avsnittet "svars huvud". kontrol lera sedan om ett objekt med namnet "åtkomst kontroll-Allow-Origin" finns. I så fall, kontrol lera om det har något av följande värden:
 
     - `*`(enkel asterisk)
-    - https://web.azuresynapse.net/(eller annat värde som texten i webbläsarens adressfält börjar med)
+    - https://web.azuresynapse.net/(eller annat värde som texten i webbläsarens Adress fält börjar med)
 
-Om svarshuvudet innehåller ett av ovanstående värden betyder det att vi redan borde ha samlat in felinformationen. Du kan öppna en supportbiljett om det behövs och bifoga skärmbilden av artikelinformationen.
+Om svars huvudet innehåller ett av ovanstående värden, innebär det att vi redan borde ha samlat in information om problemet. Du kan öppna ett support ärende om det behövs och eventuellt bifoga skärm bilden med objekt detaljerna.
 
-Om du inte kan se sidhuvudet, eller om huvudet inte har något av värdena ovan, bifogar du en skärmbild av artikelinformationen när du öppnar biljetten.
+Om du inte kan se rubriken eller om rubriken inte har något av värdena som anges ovan, bifoga en skärm bild av objekt detaljerna när du öppnar biljetten.
 
-![artikelinformation](media/troubleshooting-synapse-studio/item-details.png)
+![objekt – information](media/troubleshooting-synapse-studio/item-details.png)
 
-Om stegen ovan inte löser problemet kan du behöva öppna en supportbiljett. När du skickar in supportbiljetten ska du inkludera "Sessions-ID" eller "Diagnostikinformation" som hämtats i början av den här guiden.
+Om stegen ovan inte löser problemet kan du behöva öppna ett support ärende. När du skickar in ditt support ärende ska du ta med "sessions-ID" eller "diagnostikinformation" som hämtades i början av den här guiden.
 
-När du anmäler problemet kan du eventuellt ta en skärmbild av fliken "Konsol" i "Utvecklarverktyg" och bifoga den till supportbiljetten. Bläddra innehållet och ta mer än en skärmdump om det behövs för att fånga hela meddelandet.
+När du rapporterar problemet kan du eventuellt ta en skärm bild av din "konsol"-flik i "Utvecklarverktyg" och koppla den till support ärendet. Rulla innehållet och ta mer än en skärm bild om det behövs för att avbilda hela meddelandet.
 
-![utvecklare-verktygskonsol](media/troubleshooting-synapse-studio/developer-tool-console.png)
+![utvecklarverktyg-verktyg-konsol](media/troubleshooting-synapse-studio/developer-tool-console.png)
 
-Om du bifogar skärmdumpar, ange tid (eller ett uppskattat tidsintervall) för när du tog skärmdumpar. Det kommer att hjälpa oss när vi undersöker problemet.
+Om du kopplar skärm bilder anger du tiden (eller ett uppskattat tidsintervall) för när du tog skärm bilderna. Det hjälper oss när du tittar på problemet.
 
-Vissa webbläsare har stöd för att visa tidsstämplar på fliken "Konsol". För Krom Edge/Chrome öppnar du dialogrutan "Inställningar" i "Utvecklarverktyg" och kontrollerar "Visa tidsstämplar" på fliken "Inställningar".
+Vissa webbläsare har stöd för att Visa tidsstämplar på fliken "konsol". För krom Edge/Chrome öppnar du dialog rutan "Inställningar" i "Utvecklarverktyg" och kontrollerar "Visa tidsstämplar" på fliken "Preferences".
 
-![inställningar för utvecklare-verktygskonsol](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
+![Developer-Tool-Console-Settings](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
 
-![show-time-stämpel](media/troubleshooting-synapse-studio/show-time-stamp.png)
+![Visa tidstämpel](media/troubleshooting-synapse-studio/show-time-stamp.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Om de föregående stegen hjälper inte till att lösa problemet [Skapa en supportbiljett](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+Om föregående steg är till hjälp för att lösa problemet [skapar du ett support ärende](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

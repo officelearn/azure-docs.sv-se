@@ -1,6 +1,6 @@
 ---
-title: SQL-skript i Azure Synapse Studio (förhandsversion)
-description: Introduktion av Azure Synapse Studio (förhandsversion) SQL-skript
+title: SQL-skript i Azure Synapse Studio (för hands version)
+description: Introduktion till Azure Synapse Studio (för hands version) SQL-skript
 services: synapse-analytics
 author: pimorano
 ms.service: synapse-analytics
@@ -9,84 +9,84 @@ ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
 ms.openlocfilehash: 940c6d6d96c5c1aa062397d21ea96dace2c09bae
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81431077"
 ---
-# <a name="using-sql-script-in-azure-synapse-studio-preview"></a>Använda SQL-skript i Azure Synapse Studio (förhandsversion)
+# <a name="using-sql-script-in-azure-synapse-studio-preview"></a>Använda SQL-skript i Azure Synapse Studio (för hands version)
 
-Azure Synapse Studio (förhandsversion) tillhandahåller ett SQL-skriptwebbgränssnitt där du kan skapa SQL-frågor. Du kan ansluta till SQL-pool (förhandsgranskning) eller SQL på begäran (förhandsgranskning). 
+Azure Synapse Studio (för hands version) innehåller ett webb gränssnitt för SQL-skript där du kan redigera SQL-frågor. Du kan ansluta till SQL-poolen (förhands granskning) eller SQL på begäran (för hands version). 
 
-## <a name="begin-authoring-in-sql-script"></a>Börja skapa i SQL-skript 
+## <a name="begin-authoring-in-sql-script"></a>Börja redigera i SQL-skript 
 
-Det finns flera sätt att starta redigeringsupplevelsen i SQL-skript. Du kan skapa ett nytt SQL-skript med någon av följande metoder.
+Det finns flera sätt att starta redigerings funktionen i SQL-skript. Du kan skapa ett nytt SQL-skript via någon av följande metoder.
 
-1. Välj "+"-ikonen och välj SQL-skript.
-
-    > [!div class="mx-imgBorder"] 
-    >![nyhetsqlscript](./media/author-sql-script/newsqlscript.png)
-
-2. På menyn Åtgärder under Utveckla SQL-skript Välj "Nytt SQL-skript" på menyn "Åtgärder" under Utveckla SQL-skript. 
+1. Välj ikonen "+" och välj SQL-skript.
 
     > [!div class="mx-imgBorder"] 
-    > ![nyhetsqlscript](./media/author-sql-script/newsqlscript2actions.png)
+    >![newsqlscript](./media/author-sql-script/newsqlscript.png)
+
+2. Från menyn åtgärder under utveckla SQL-skript väljer du "nytt SQL-skript" på menyn "åtgärder" under utveckla SQL-skript. 
+
+    > [!div class="mx-imgBorder"] 
+    > ![newsqlscript](./media/author-sql-script/newsqlscript2actions.png)
 
 eller 
 
-3. Välj "Importera" på menyn "Åtgärder" under Utveckla SQL-skript och välj ett befintligt SQL-skript från din lokala lagring.
+3. Välj Importera från menyn åtgärder under utveckla SQL-skript och välj ett befintligt SQL-skript från din lokala lagrings plats.
 
     > [!div class="mx-imgBorder"] 
-    > ![nyhetsqlscript](./media/author-sql-script/newsqlscript3actions.png)
+    > ![newsqlscript](./media/author-sql-script/newsqlscript3actions.png)
 
-## <a name="create-your-sql-script"></a>Skapa ditt SQL-skript
+## <a name="create-your-sql-script"></a>Skapa SQL-skript
 
-1. Välj ett namn på SQL-skriptet genom att välja knappen "Egenskap" och ersätta standardnamnet som tilldelats SQL-skriptet.
-
-    > [!div class="mx-imgBorder"] 
-    > ![nyhetsqlscript](./media/author-sql-script/newsqlscriptrename.png)
-
-1. Välj den specifika SQL-poolen eller SQL på begäran på den nedrullningsbar menyn Anslut till. Eller om det behövs, välj databasen från "Använd databas".
+1. Välj ett namn för ditt SQL-skript genom att välja knappen "egenskap" och ersätta standard namnet som tilldelats SQL-skriptet.
 
     > [!div class="mx-imgBorder"] 
-    > ![nyhetsqlscript](./media/author-sql-script/newsqlchoosepool.png)
+    > ![newsqlscript](./media/author-sql-script/newsqlscriptrename.png)
 
-1. Börja skapa ditt SQL-skript med intellisense-funktionen.
+1. Välj den angivna SQL-poolen eller SQL på begäran på den nedrullningsbara menyn Anslut till. Om det behövs väljer du databasen från Använd databas.
 
     > [!div class="mx-imgBorder"] 
-    > ![nyhetsqlscript](./media/author-sql-script/newsqlintellisense.png)
+    > ![newsqlscript](./media/author-sql-script/newsqlchoosepool.png)
 
-## <a name="run-your-sql-script"></a>Kör sql-skriptet
+1. Börja redigera SQL-skript med hjälp av IntelliSense-funktionen.
 
-Välj knappen "Kör" för att köra ditt SQL-skript. Resultaten visas som standard i en tabell.
+    > [!div class="mx-imgBorder"] 
+    > ![newsqlscript](./media/author-sql-script/newsqlintellisense.png)
+
+## <a name="run-your-sql-script"></a>Kör SQL-skriptet
+
+Klicka på knappen Kör för att köra SQL-skriptet. Resultaten visas som standard i en tabell.
 
 > [!div class="mx-imgBorder"] 
-> ![nyhetsqlscript](./media/author-sql-script/newsqlscriptresultstable.png)
+> ![newsqlscript](./media/author-sql-script/newsqlscriptresultstable.png)
 
-## <a name="export-your-results"></a>Exportera dina resultat
+## <a name="export-your-results"></a>Exportera resultaten
 
 Du kan exportera resultaten till din lokala lagring i olika format (inklusive CSV, Excel, JSON, XML) genom att välja "Exportera resultat" och välja tillägget.
 
-Du kan också visualisera SQL-skriptet resultat i ett diagram genom att välja "Diagram"-knappen. Markera kolumnen "Diagramtyp" och "Kategori". Du kan exportera diagrammet till en bild genom att välja "Spara som bild". 
+Du kan också visualisera SQL-skript resultatet i ett diagram genom att välja knappen diagram. Välj "diagram typ" och "kategori kolumn". Du kan exportera diagrammet till en bild genom att välja "Spara som bild". 
 
 > [!div class="mx-imgBorder"] 
-> ![nyhetsqlscript](./media/author-sql-script/newsqlscriptresultschart.png)
+> ![newsqlscript](./media/author-sql-script/newsqlscriptresultschart.png)
 
-## <a name="explore-data-from-a-parquet-file"></a>Utforska data från en parkettfil.
+## <a name="explore-data-from-a-parquet-file"></a>Utforska data från en Parquet-fil.
 
-Du kan utforska Parquet-filer i ett lagringskonto med SQL-skript för att förhandsgranska filinnehållet. 
+Du kan utforska Parquet-filer i ett lagrings konto med hjälp av SQL-skript för att förhandsgranska fil innehållet. 
 
 > [!div class="mx-imgBorder"] 
-> ![nyhetsqlscript](./media/author-sql-script/newscriptsqlodparquet.png)
+> ![newsqlscript](./media/author-sql-script/newscriptsqlodparquet.png)
 
 ## <a name="sql-tables-external-tables-views"></a>SQL-tabeller, externa tabeller, vyer
 
-Genom att välja menyn "Åtgärder" under data kan du välja flera åtgärder som: "Nytt SQL-skript", "Välj TOPP 1000 rader", "SKAPA", "DROP och CREATE". Utforska den tillgängliga gesten genom att högerklicka på noderna i SQL-poolen och SQL på begäran.
+Genom att välja menyn åtgärder under data kan du välja flera åtgärder som: "nytt SQL-skript", "Välj de översta 1000 raderna", "skapa", "släpp och skapa". Utforska den tillgängliga gesten genom att högerklicka på noderna i SQL-poolen och SQL på begäran.
 
 > [!div class="mx-imgBorder"] 
-> ![nyhetsqlscript](./media/author-sql-script/newscriptdatabase.png)
+> ![newsqlscript](./media/author-sql-script/newscriptdatabase.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du skapar ett SQL-skript finns i [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics).
+Mer information om hur du redigerar ett SQL-skript finns i [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics).

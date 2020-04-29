@@ -1,6 +1,6 @@
 ---
 title: Filtrera aktivitet i Azure Data Factory
-description: Filteraktiviteten filtrerar indata.
+description: Filter aktiviteten filtrerar indata.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.openlocfilehash: 2c8ada22b4492bef0239b6f811d5a7bd58e58510
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417212"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Filtrera aktivitet i Azure Data Factory
-Du kan använda en filteraktivitet i en pipeline för att använda ett filteruttryck på en indatamatris. 
+Du kan använda en filter aktivitet i en pipeline för att tillämpa ett filter uttryck på en indatakälla. 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## <a name="syntax"></a>Syntax
@@ -35,18 +35,18 @@ Du kan använda en filteraktivitet i en pipeline för att använda ett filterutt
 }
 ```
 
-## <a name="type-properties"></a>Egenskaper för typ
+## <a name="type-properties"></a>Typ egenskaper
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Aktivitetens `Filter` namn. | Sträng | Ja
-typ | Måste vara inställt på **filtret**. | Sträng | Ja
-Villkor | Villkor som ska användas för filtrering av indata. | Uttryck | Ja
-Objekt | Indatamatris på vilken filter ska användas. | Uttryck | Ja
+name | `Filter` Aktivitetens namn. | Sträng | Ja
+typ | Måste vara inställd på **filter**. | Sträng | Ja
+moduletype | Villkor som ska användas för att filtrera indatatypen. | Uttryck | Ja
+objekt | Ange matrisen som filtret ska tillämpas på. | Uttryck | Ja
 
 ## <a name="example"></a>Exempel
 
-I det här exemplet har pipelinen två aktiviteter: **Filter** och **ForEach**. Filteraktiviteten är konfigurerad för att filtrera indatamatrisen för objekt med ett värde som är större än 3. ForEach-aktiviteten itererar sedan över de filtrerade värdena och ställer in **variabeltestet** till det aktuella värdet.
+I det här exemplet har pipelinen två aktiviteter: **filter** **och**förloppet. Filter aktiviteten har kon figurer ATS för att filtrera Indataporten för objekt med ett värde som är större än 3. Förgrunds aktiviteten itererar sedan över de filtrerade värdena och ställer in variabel **testet** till det aktuella värdet.
 
 ```json
 {
@@ -113,7 +113,7 @@ I det här exemplet har pipelinen två aktiviteter: **Filter** och **ForEach**. 
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
+Se andra kontroll flödes aktiviteter som stöds av Data Factory: 
 
 - [If-villkorsaktivitet](control-flow-if-condition-activity.md)
 - [Köra pipelineaktivitet](control-flow-execute-pipeline-activity.md)

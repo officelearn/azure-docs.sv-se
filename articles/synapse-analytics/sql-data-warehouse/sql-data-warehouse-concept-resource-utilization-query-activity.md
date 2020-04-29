@@ -1,6 +1,6 @@
 ---
-title: Hanterbarhet och övervakning - frågeaktivitet, resursutnyttjande
-description: Lär dig vilka funktioner som är tillgängliga för att hantera och övervaka Azure Synapse Analytics. Använd Azure-portalen och DTV-na (Dynamic Management Views) för att förstå frågeaktivitet och resursutnyttjande av ditt informationslager.
+title: Hantering och övervakning – fråga aktivitet, resursutnyttjande
+description: 'Lär dig vilka funktioner som är tillgängliga för hantering och övervakning av Azure Synapse Analytics. Använd Azure Portal-och DMV: er (Dynamic Management views) för att förstå frågans aktivitet och resursutnyttjande för ditt informations lager.'
 services: synapse-analytics
 author: kevinvngo
 manager: craigg-msft
@@ -12,58 +12,58 @@ ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: d38c0df45da3a751a456846813543a4ce5de98eb
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416216"
 ---
-# <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Övervaka resursanvändning och frågeaktivitet i Azure Synapse Analytics
+# <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Övervaka resursutnyttjande och fråga aktivitet i Azure Synapse Analytics
 
-Azure Synapse Analytics ger en omfattande övervakningsupplevelse inom Azure-portalen för att visa insikter om din datalagerarbetsbelastning. Azure-portalen är det rekommenderade verktyget när du övervakar ditt informationslager eftersom det ger konfigurerbara kvarhållningsperioder, aviseringar, rekommendationer och anpassningsbara diagram och instrumentpaneler för mått och loggar. Portalen gör det också möjligt att integrera med andra Azure-övervakningstjänster, till exempel Azure Monitor (loggar) med logganalys för att ge en holistisk övervakningsupplevelse för inte bara ditt informationslager utan även hela din Azure-analysplattform för en integrerad övervakningsupplevelse. Den här dokumentationen beskriver vilka övervakningsfunktioner som är tillgängliga för att optimera och hantera din analysplattform med SQL Analytics.
+Azure Synapse Analytics ger en omfattande övervaknings upplevelse inom Azure Portal till Surface Insights för arbets belastningen för informations lagret. Azure Portal är det rekommenderade verktyget när du övervakar ditt informations lager eftersom det tillhandahåller konfigurerbara kvarhållningsperiod, varningar, rekommendationer och anpassningsbara diagram och instrument paneler för mått och loggar. Portalen gör det också möjligt att integrera med andra Azure Monitoring-tjänster som Azure Monitor (loggar) med Log Analytics för att ge en helhets övervakning av inte bara ditt informations lager, utan även hela din Azure Analytics-plattform för en integrerad övervaknings upplevelse. Den här dokumentationen beskriver vilka övervaknings funktioner som är tillgängliga för att optimera och hantera din analys plattform med SQL Analytics.
 
 ## <a name="resource-utilization"></a>Resursutnyttjande
 
-Följande mått är tillgängliga i Azure-portalen för SQL Analytics. Dessa mått visas via [Azure Monitor](../../azure-monitor/platform/data-collection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#metrics).
+Följande mått är tillgängliga i Azure Portal för SQL Analytics. Dessa mått är uppdelade via [Azure Monitor](../../azure-monitor/platform/data-collection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#metrics).
 
-| Måttnamn             | Beskrivning                                                  | Sammansättningstyp |
+| Mått namn             | Beskrivning                                                  | Sammansättningstyp |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
-| CPU-procent          | CPU-användning över alla noder för informationslagret      | Medel, Min, Max    |
-| Data IO-procent      | IO-användning för alla noder för informationslagret       | Medel, Min, Max    |
-| Minnesprocent       | Minnesanvändning (SQL Server) för alla noder för informationslagret | Medel, Min, Max   |
+| CPU-procent          | CPU-användning över alla noder för data lagret      | Genomsn, min, max    |
+| Data IO-procent      | I/o-användning över alla noder för data lagret       | Genomsn, min, max    |
+| Minnes procent       | Minnes användning (SQL Server) över alla noder för data lagret | Genomsn, min, max   |
 | Aktiva frågor          | Antal aktiva frågor som körs på systemet             | Summa              |
 | Köade frågor          | Antal köade frågor som väntar på att börja köras          | Summa              |
-| Lyckade anslutningar  | Antal lyckade anslutningar (inloggningar) mot databasen | Summa, antal       |
-| Misslyckade anslutningar      | Antal misslyckade anslutningar (inloggningar) mot databasen | Summa, antal       |
-| Blockerad av brandvägg     | Antal inloggningar till informationslagret som blockerades     | Summa, antal       |
-| DWU-gräns               | Datalagrets mål på servicenivå                | Medel, Min, Max    |
-| DWU-procent          | Maximalt mellan CPU-procent och data-IO-procent        | Medel, Min, Max    |
-| DWU används                | DWU-gräns * DWU-procent                                   | Medel, Min, Max    |
-| Antal träffar i cacheminne    | (cache träffar / cache miss) * 100 där cache träffar är summan av alla columnstore segment träffar i den lokala SSD cache och cache miss är columnstore segment missar i den lokala SSD cache summeras över alla noder | Medel, Min, Max    |
-| Använd procent av cache   | (cache används / cache kapacitet) * 100 där cache används är summan av alla byte i den lokala SSD-cachen över alla noder och cache kapacitet är summan av lagringskapaciteten för den lokala SSD-cachen över alla noder | Medel, Min, Max    |
-| Lokal tempdb-procent | Lokal tempdb-användning över alla beräkningsnoder - värden avges var femte minut | Medel, Min, Max    |
-| Datalagringsstorlek (GB) | Databasens totala storlek. Detta inkluderar använt, reserverat och oallokerat utrymme. Oallokerat utrymme behålls för databasen för att optimera fråge- och inläsningsprestanda. | Summa |
-| Storlek för haveriberedskap (GB) | Den totala storleken på den geo-säkerhetskopiering som tas var 24:e timme | Summa |
-| Lagringsstorlek för ögonblicksbilder (GB) | Total storlek på ögonblicksbilder som tagits för att tillhandahålla återställningspunkter för databasen. Detta inkluderar automatiserade och användardefinierade ögonblicksbilder. | Summa |
+| Lyckade anslutningar  | Antal lyckade anslutningar (inloggningar) mot databasen | Sum, antal       |
+| Misslyckade anslutningar      | Antal misslyckade anslutningar (inloggningar) mot databasen | Sum, antal       |
+| Blockerad av brand väggen     | Antal inloggningar till data lagret som blockerades     | Sum, antal       |
+| DWU-gräns               | Informations lagrets service nivå mål                | Genomsn, min, max    |
+| DWU procent          | Maximalt mellan CPU-procent och data IO-procent        | Genomsn, min, max    |
+| DWU som används                | DWU-gräns * DWU procent                                   | Genomsn, min, max    |
+| Procent andel cacheträffar    | (cacheträffar/cache missar) * 100 där cacheträffar är summan av alla träffar i det lokala SSD-cacheminnet och cache missar är columnstore-segmenten missar i den lokala SSD-cachen som summeras för alla noder | Genomsn, min, max    |
+| Procent andel som används   | (cache-använt/cache-kapacitet) * 100 där cache används är summan av alla byte i den lokala SSD-cachen på alla noder och cache-kapacitet är summan av lagrings kapaciteten för den lokala SSD-cachen på alla noder | Genomsn, min, max    |
+| Lokal tempdb-procent | Lokal tempdb-användning över alla Compute-noder – värden genereras var femte minut | Genomsn, min, max    |
+| Data lagrings storlek (GB) | Databasens totala storlek. Detta inkluderar använt, reserverat och oallokerat utrymme. Oallokerat utrymme behålls för databasen för att optimera frågor och läsa in prestanda. | Summa |
+| Katastrof återställnings storlek (GB) | Den totala storleken på Geo-säkerhetskopieringen som gjorts var 24: e timme | Summa |
+| Storlek på ögonblicks bild lagring (GB) | Total storlek för ögonblicks bilder som har vidtagits för att tillhandahålla databas återställnings punkter. Detta inkluderar automatiserade och användardefinierade ögonblicks bilder. | Summa |
 
 Saker att tänka på när du visar mått och ställer in aviseringar:
 
-- DWU används representerar endast en hög nivå representation av användning över **SQL-poolen** och är inte tänkt att vara en omfattande indikator på utnyttjande. För att avgöra om du vill skala upp eller ned bör du tänka på alla faktorer som kan påverkas av DWU, till exempel samtidighet, minne, tempdb och adaptiv cachekapacitet. Vi rekommenderar att [du kör din arbetsbelastning med olika DWU-inställningar](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) för att avgöra vad som fungerar bäst för att uppfylla dina affärsmål.
-- Misslyckade och lyckade anslutningar rapporteras för ett visst informationslager - inte för den logiska servern
-- Minnesprocenten återspeglar användningen även om informationslagret är i inaktivt tillstånd - det återspeglar inte aktiv arbetsbelastningsminnesförbrukning. Använd och spåra det här måttet tillsammans med andra (tempdb, gen2-cache) för att fatta ett holistiskt beslut om om skalning för ytterligare cachekapacitet ökar arbetsbelastningsprestanda för att uppfylla dina krav.
+- DWU som används representerar en övergripande **representation av användningen** i SQL-poolen och är inte avsedd att vara en omfattande indikator för användning. För att avgöra om du vill skala upp eller ned bör du ta hänsyn till alla faktorer som kan påverkas av DWU, till exempel samtidighet, minne, tempdb och adaptiv cache-kapacitet. Vi rekommenderar att du [Kör arbets belastningen på olika DWU-inställningar](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) för att avgöra vad som fungerar bäst för att uppfylla dina affärs mål.
+- Misslyckade och lyckade anslutningar rapporteras för ett visst informations lager – inte för den logiska servern
+- Minnes procent visar användningen även om informations lagret är i inaktivt läge – det visar inte den aktiva minnes användningen för arbets belastningen. Använd och spåra det här måttet tillsammans med andra (tempdb, Gen2 cache) för att fatta ett holistiskt beslut om skalning för ytterligare cache-kapacitet ökar arbets belastnings prestandan för att uppfylla dina krav.
 
-## <a name="query-activity"></a>Frågeaktivitet
+## <a name="query-activity"></a>Fråga aktivitet
 
-För en programmatisk upplevelse när du övervakar SQL Analytics via T-SQL tillhandahåller tjänsten en uppsättning d-spel (Dynamic Management Views). Dessa vyer är användbara när du aktivt felsöker och identifierar flaskhalsar med din arbetsbelastning.
+För en programmerings upplevelse vid övervakning av SQL Analytics via T-SQL tillhandahåller tjänsten en uppsättning vyer för dynamisk hantering (DMV: er). Dessa vyer är användbara när du aktivt ska felsöka och identifiera Flask halsar i prestanda med din arbets belastning.
 
-Om du vill visa listan över DMVs som gäller för Synapse SQL läser du den här [dokumentationen](../sql/reference-tsql-system-views.md#sql-pool-dynamic-management-views-dmvs). 
+Om du vill visa en lista över DMV: er som gäller för Synapse SQL, se den här [dokumentationen](../sql/reference-tsql-system-views.md#sql-pool-dynamic-management-views-dmvs). 
 
 ## <a name="metrics-and-diagnostics-logging"></a>Mått- och diagnostikloggning 
 
-Både mått och loggar kan exporteras till Azure Monitor, särskilt [Azure Monitor-loggkomponenten](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och kan nås programmässigt via [loggfrågor](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Loggsvarstiden för SQL Analytics är ca 10-15 minuter. Mer information om vilka faktorer som påverkar svarstiden finns i följande dokumentation.
+Både mått och loggar kan exporteras till Azure Monitor, särskilt [Azure Monitor loggar](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) -komponenten och kan nås via programmering via [logg frågor](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Logg fördröjningen för SQL Analytics är cirka 10-15 minuter. Mer information om de faktorer som påverkar svars tiderna finns i följande dokumentation.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande instruktioner beskrivs vanliga scenarier och användningsfall när du övervakar och hanterar ditt informationslager:
+I följande instruktions guide beskrivs vanliga scenarier och användnings fall när du övervakar och hanterar ditt informations lager:
 
-- [Övervaka din datalagerarbetsbelastning med DMV:er](sql-data-warehouse-manage-monitor.md)
+- [Övervaka arbets belastningen för informations lagret med DMV: er](sql-data-warehouse-manage-monitor.md)

@@ -1,30 +1,30 @@
 ---
-title: Ange tjänstslutpunkter för service fabric
-description: Så här beskriver du slutpunktsresurser i ett tjänstmanifest, inklusive hur du ställer in HTTPS-slutpunkter
+title: Ange Service Fabric tjänst slut punkter
+description: Så här beskriver du slut punkts resurser i ett tjänst manifest, inklusive hur du konfigurerar HTTPS-slutpunkter
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 88e71d15829e68bde635f5b4d40224b8fa914f40
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417594"
 ---
-# <a name="specify-resources-in-a-service-manifest"></a>Ange resurser i ett tjänstmanifest
+# <a name="specify-resources-in-a-service-manifest"></a>Ange resurser i ett tjänst manifest
 ## <a name="overview"></a>Översikt
-Servicemanifestet gör att resurser som används av tjänsten kan deklareras eller ändras utan att ändra den kompilerade koden. Service Fabric stöder konfiguration av slutpunktsresurser för tjänsten. Åtkomsten till de resurser som anges i tjänstmanifestet kan styras via SecurityGroup i programmanifestet. Deklarationen av resurser gör att dessa resurser kan ändras vid distributionen, vilket innebär att tjänsten inte behöver införa en ny konfigurationsmekanism. Schemadefinitionen för filen ServiceManifest.xml installeras med Service Fabric SDK och verktygen till *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+Tjänst manifestet gör det möjligt för resurser som används av tjänsten att deklareras eller ändras, utan att den kompilerade koden ändras. Service Fabric stöder konfiguration av slut punkts resurser för tjänsten. Åtkomst till de resurser som anges i tjänst manifestet kan styras via SecurityGroup i applikations manifestet. Resurs deklarationen gör att dessa resurser kan ändras vid distributions tillfället, vilket innebär att tjänsten inte behöver införa en ny konfigurations funktion. Schema definitionen för filen ServiceManifest. XML installeras med Service Fabric SDK och verktyg för *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ## <a name="endpoints"></a>Slutpunkter
-När en slutpunktsresurs har definierats i tjänstmanifestet tilldelar Service Fabric portar från det reserverade programportområdet när en port inte uttryckligen anges. Titta till exempel på slutpunkten *ServiceEndpoint1* som anges i manifestkodavsnittet som angavs efter det här stycket. Dessutom kan tjänster också begära en viss port i en resurs. Tjänstrepliker som körs på olika klusternoder kan tilldelas olika portnummer, medan repliker av en tjänst som körs på samma nod delar porten. Tjänstrepliker kan sedan använda dessa portar efter behov för replikering och lyssning efter klientbegäranden.
+När en slut punkts resurs definieras i tjänst manifestet tilldelar Service Fabric portar från det reserverade programmets port intervall när en port inte anges explicit. Titta till exempel på slut punkts *ServiceEndpoint1* som anges i manifestet som anges efter detta stycke. Dessutom kan tjänster även begära en speciell port i en resurs. Tjänst repliker som körs på olika klusternoder kan tilldelas olika port nummer, medan repliker av en tjänst som körs på samma nod delar porten. Tjänste replikerna kan sedan använda dessa portar vid behov för replikering och lyssna efter klient begär Anden.
 
-När du aktiverar en tjänst som anger en https-slutpunkt anger Service Fabric åtkomstkontrollposten för porten, binder det angivna servercertifikatet till porten och beviljar även den identitet som tjänsten körs som behörigheter till certifikatets privata nyckel. Aktiveringsflödet anropas varje gång Service Fabric startar, eller när certifikatdeklarationen för programmet ändras via en uppgradering. Slutpunktscertifikatet kommer också att övervakas för ändringar/förnyelser och behörigheter kommer regelbundet att tillämpas på ett sätt vid behov.
+Vid aktivering av en tjänst som anger en HTTPS-slutpunkt anger Service Fabric åtkomst kontroll posten för porten, binder det angivna Server certifikatet till porten och ger också identiteten att tjänsten körs som behörighet till certifikatets privata nyckel. Aktiverings flödet anropas varje gång Service Fabric startas, eller när certifikat deklarationen för programmet ändras via en uppgradering. Slut punkts certifikatet kommer också att övervakas för ändringar/förnyelser, och behörigheter kommer att tillämpas regelbundet vid behov.
 
-När tjänsten avslutas rensas åtkomstkontrollposten för slutpunkt och certifikatbindningen tas bort. Alla behörigheter som tillämpas på certifikatets privata nyckel rensas dock inte.
+När tjänsten avslutas kommer Service Fabric att rensa slut punkts åtkomst kontroll posten och ta bort certifikat bindningen. Behörigheter som tillämpas på certifikatets privata nyckel kommer dock inte att rensas.
 
 > [!WARNING] 
-> Av design bör statiska portar inte överlappa med programportintervallet som anges i ClusterManifest. Om du anger en statisk port tilldelar du den utanför programportintervallet, annars leder den till portkonflikter. Med release 6.5CU2 kommer vi att utfärda en **hälsovarning** när vi upptäcker en sådan konflikt men låter distributionen fortsätta synkroniseras med det levererade 6.5-beteendet. Vi kan dock förhindra programdistribution från nästa större versioner.
+> Genom att definiera statiska portar ska inte överlappa med det applikations port intervall som anges i ClusterManifest. Om du anger en statisk port tilldelar du den utanför program port intervallet, annars leder det till port konflikter. Med version 6.5 CU2 kommer vi att utfärda en **hälso varning** när vi identifierar en sådan konflikt men låter distributionen fortsätta att synkroniseras med den levererade 6,5 beteendet. Vi kan dock förhindra program distributionen från nästa större versioner.
 >
-> Med release 7.0 kommer vi att utfärda en **hälsovarning** när vi upptäcker användning av programportintervall går utöver HostingConfig::ApplicationPortExhaustThresholdPercentage (standard 80%).
+> Med version 7,0 kommer vi att utfärda en **hälso varning** när vi identifierar användningen av användnings port intervallet går utöver HostingConfig:: ApplicationPortExhaustThresholdPercentage (standard 80%).
 >
 
 ```xml
@@ -37,7 +37,7 @@ När tjänsten avslutas rensas åtkomstkontrollposten för slutpunkt och certifi
 </Resources>
 ```
 
-Om det finns flera kodpaket i ett enda servicepaket måste kodpaketet också refereras i avsnittet **Slutpunkter.**  Om Till exempel **ServiceEndpoint2a** och **ServiceEndpoint2b** är slutpunkter från samma servicepaket som refererar till olika kodpaket, förtydligas kodpaketet som motsvarar varje slutpunkt på följande sätt:
+Om det finns flera kod paket i ett enda tjänst paket måste kod paketet också refereras i avsnittet **slut punkter** .  Om till exempel **ServiceEndpoint2a** och **ServiceEndpoint2b** är slut punkter från samma tjänst paket som refererar till olika kod paket, så klargörs det kod paket som motsvarar varje slut punkt enligt följande:
 
 ```xml
 <Resources>
@@ -48,12 +48,12 @@ Om det finns flera kodpaket i ett enda servicepaket måste kodpaketet också ref
 </Resources>
 ```
 
-Mer information om refererande av tillståndskänsliga tillförlitliga tjänster finns i Konfigurera [tillståndskänsliga tillförlitliga tjänster](service-fabric-reliable-services-configuration.md) om du vill läsa mer om refererande slutpunkter från filen config-paketinställningar (settings.xml).
+Läs mer om att [Konfigurera tillstånds känsliga Reliable Services](service-fabric-reliable-services-configuration.md) för att läsa mer om att referera till slut punkter från konfigurations filen för konfigurations paket (Settings. xml).
 
-## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Exempel: ange en HTTP-slutpunkt för tjänsten
-Följande tjänstmanifest definierar en TCP-slutpunktsresurs och &lt;&gt; två HTTP-slutpunktsresurser i elementet Resurser.
+## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Exempel: Ange en HTTP-slutpunkt för din tjänst
+Följande tjänst manifest definierar en resurs för TCP-slutpunkten och två HTTP- &lt;slutpunkts resurser i resurs&gt; -elementet.
 
-HTTP-slutpunkter ACL'd automatiskt av Service Fabric.
+HTTP-slutpunkter är automatiskt ACL med Service Fabric.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -100,18 +100,18 @@ HTTP-slutpunkter ACL'd automatiskt av Service Fabric.
 </ServiceManifest>
 ```
 
-## <a name="example-specifying-an-https-endpoint-for-your-service"></a>Exempel: ange en HTTPS-slutpunkt för tjänsten
-HTTPS-protokollet tillhandahåller serverautentisering och används även för kryptering av klientserverkommunikation. Om du vill aktivera HTTPS på tjänsten Service Fabric anger du protokollet i avsnittet *Resurser -> slutpunkter -> slutpunkt* i tjänstmanifestet, som tidigare för slutpunkten *ServiceEndpoint3*.
+## <a name="example-specifying-an-https-endpoint-for-your-service"></a>Exempel: Ange en HTTPS-slutpunkt för din tjänst
+HTTPS-protokollet tillhandahåller serverautentisering och används även för kryptering av klient-server-kommunikation. Om du vill aktivera HTTPS på din Service Fabric-tjänst anger du protokollet i avsnittet *resurser-> slut punkter-> slut* punkt i tjänst manifestet, som du ser tidigare för slut punkten *ServiceEndpoint3*.
 
 > [!NOTE]
-> Det går inte att ändra en tjänsts protokoll under programuppgraderingen. Om det ändras under uppgraderingen är det en brytande förändring.
+> Det går inte att ändra tjänstens protokoll under program uppgraderingen. Om den ändras under uppgraderingen, är det en större ändring.
 > 
 
 > [!WARNING] 
-> När du använder HTTPS ska du inte använda samma port och certifikat för olika tjänstinstanser (oberoende av programmet) som distribueras till samma nod. Om du uppgraderar två olika tjänster med samma port i olika programinstanser kan det leda till ett uppgraderingsfel. Mer information finns i [Uppgradera flera program med HTTPS-slutpunkter ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
+> När du använder HTTPS ska du inte använda samma port och certifikat för olika tjänst instanser (oberoende av programmet) som distribueras till samma nod. Uppgradering av två olika tjänster med samma port i olika program instanser leder till ett uppgraderings haveri. Mer information finns i [uppgradera flera program med https-slutpunkter ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
 >
 
-Här är ett exempel ApplicationManifest som visar konfigurationen som krävs för en HTTPS-slutpunkt. Server-/slutpunktscertifikatet kan deklareras med tumavtryck eller ett vanligt namn, och ett värde måste anges. EndpointRef är en referens till EndpointResource i ServiceManifest och vars protokoll måste ha angetts till https-protokollet. Du kan lägga till mer än ett EndpointCertificate.  
+Här är ett exempel på en ApplicationManifest som demonstrerar konfigurationen som krävs för en HTTPS-slutpunkt. Server-eller slut punkt certifikatet kan ha deklarerats med tumavtryck eller subjektets nätverks namn och ett värde måste anges. EndpointRef är en referens till EndpointResource i ServiceManifest och vars protokoll måste ha angetts till HTTPS-protokollet. Du kan lägga till fler än en EndpointCertificate.  
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -155,16 +155,16 @@ Här är ett exempel ApplicationManifest som visar konfigurationen som krävs f�
 </ApplicationManifest>
 ```
 
-För Linux-kluster är **MY-butiken** som standard mappen **/var/lib/sfcerts**.
+För Linux-kluster är **mitt** Arkiv standardvärdet för mappen **/var/lib/sfcerts**.
 
 
-## <a name="overriding-endpoints-in-servicemanifestxml"></a>Åsidosätta slutpunkter i ServiceManifest.xml
+## <a name="overriding-endpoints-in-servicemanifestxml"></a>Åsidosätt slut punkter i ServiceManifest. XML
 
-I avsnittet ApplicationManifest lägger du till en ResourceOverrides, som kommer att vara ett syskon till configOverrides. I det här avsnittet kan du ange åsidosättning för avsnittet Slutpunkter i avsnittet resurser som anges i servicemanifestet. Övergripande slutpunkter stöds i körning 5.7.217/SDK 2.7.217 och högre.
+I ApplicationManifest lägger du till en ResourceOverrides-sektion, som kommer att vara en syskon till ConfigOverrides-avsnittet. I det här avsnittet kan du ange åsidosättningen för avsnittet slut punkter i avsnittet resurser som anges i tjänst manifestet. Det finns stöd för att åsidosätta slut punkter i runtime 5.7.217/SDK 2.7.217 och högre.
 
-För att åsidosätta EndPoint i ServiceManifest med ApplicationParameters ändra ApplicationManifest enligt följande:
+För att åsidosätta slut punkten i ServiceManifest med ApplicationParameters ändrar du ApplicationManifest enligt följande:
 
-Lägg till ett nytt avsnitt "ResourceOverrides" i avsnittet ServiceManifestImport.
+I avsnittet service manifest import lägger du till ett nytt avsnitt "ResourceOverrides".
 
 ```xml
 <ServiceManifestImport>
@@ -182,7 +182,7 @@ Lägg till ett nytt avsnitt "ResourceOverrides" i avsnittet ServiceManifestImpor
   </ServiceManifestImport>
 ```
 
-I parametrarna lägg nedan:
+I parametrarna lägger du till nedan:
 
 ```xml
   <Parameters>
@@ -194,17 +194,17 @@ I parametrarna lägg nedan:
   </Parameters>
 ```
 
-När du distribuerar programmet kan du skicka in dessa värden som ApplicationParameters.  Ett exempel:
+När du distribuerar programmet kan du överföra dessa värden som ApplicationParameters.  Ett exempel:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Om värdena för ApplicationParameters är tomma går vi tillbaka till standardvärdet som anges i ServiceManifest för motsvarande EndPointName.
+Obs! Om värdena för ApplicationParameters är tomma går vi tillbaka till det standardvärde som anges i ServiceManifest för motsvarande EndPointName.
 
 Ett exempel:
 
-Om du i ServiceManifest du angav
+Om du har angett i ServiceManifest
 
 ```xml
   <Resources>
@@ -214,6 +214,6 @@ Om du i ServiceManifest du angav
   </Resources>
 ```
 
-Och port1- och protokoll1-värdet för programparametrar är null eller tomt. Hamnen avgörs fortfarande av ServiceFabric. Och protokollet kommer tcp.
+Och värdet PORT1 och Protocol1 för program parametrarna är null eller tomt. Porten bestäms fortfarande av ServiceFabric. Och protokollet kommer att TCP.
 
-Anta att du anger ett fel värde. Precis som för Port du angav ett strängvärde "Foo" i stället för en int.  Kommandot New-ServiceFabricApplication misslyckas med ett fel: Åsidosättparametern med namnet "ServiceEndpoint1" attribut 'Port1' i avsnittet "ResourceOverrides" är ogiltig. Det angivna värdet är "Foo" och krävs är "int".
+Anta att du anger ett felaktigt värde. Precis som för porten angav du ett sträng värde "foo" i stället för en int.  New-ServiceFabricApplication-kommandot Miss fungerar med ett fel: parametern override med namnet ServiceEndpoint1 PORT1 i avsnittet ResourceOverrides är ogiltig. Det angivna värdet är ' foo ' och måste vara ' int '.

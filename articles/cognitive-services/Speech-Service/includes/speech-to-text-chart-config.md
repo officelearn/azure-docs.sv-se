@@ -1,7 +1,7 @@
 ---
-title: Installera talbehållare
+title: Installera tal behållare
 titleSuffix: Azure Cognitive Services
-description: Information om konfigurationsalternativen för tal-till-text-helmdiagram.
+description: Information om konfigurations alternativen för tal-till-text-Helm.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -11,32 +11,32 @@ ms.topic: include
 ms.date: 08/22/2019
 ms.author: trbye
 ms.openlocfilehash: f7ca8fdaddab9757292939c4f7e658179d6e517c
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81421925"
 ---
-### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>Tal-till-text (underdiagram: diagram/talTotext)
+### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>Tal till text (under diagram: diagram/speechToText)
 
-Om du vill åsidosätta paraplydiagrammet `speechToText.` lägger du till prefixet på en parameter för att göra det mer specifikt. Till exempel åsidosätter den motsvarande parametern, till exempel `speechToText.numberOfConcurrentRequest` åsidosätter `numberOfConcurrentRequest`.
+Om du vill åsidosätta diagrammet "paraply" lägger du `speechToText.` till prefixet på valfri parameter för att göra det mer exakt. Den kommer till exempel att åsidosätta motsvarande parameter till exempel `speechToText.numberOfConcurrentRequest` åsidosättningar. `numberOfConcurrentRequest`
 
-|Parameter|Beskrivning|Default|
+|Parameter|Beskrivning|Standardvärde|
 | -- | -- | -- |
-| `enabled` | Om **tal-till-text-tjänsten** är aktiverad. | `false` |
-| `numberOfConcurrentRequest` | Antalet samtidiga begäranden för **tal-till-text-tjänsten.** Det här diagrammet beräknar automatiskt CPU- och minnesresurser, baserat på det här värdet. | `2` |
-| `optimizeForAudioFile`| Om tjänsten behöver optimera för ljudinmatning via ljudfiler. Om `true`det här diagrammet allokerar mer CPU-resurs till service. | `false` |
-| `image.registry`| Avbildningsregistret **för tal-till-text-docker.** | `containerpreview.azurecr.io` |
-| `image.repository` | Bilddatabasen för tad-docker från **tal till text.** | `microsoft/cognitive-services-speech-to-text` |
-| `image.tag` | Bildtaggen för docker från **tal till text.** | `latest` |
-| `image.pullSecrets` | Bildhemligheterna för att dra **tal-till-text-dockerbilden.** | |
-| `image.pullByHash`| Om dockerbilden dras av hash. Om `true` `image.hash` , krävs. | `false` |
-| `image.hash`| Det är en tystningsbild mellan tal och **text.** Används endast `image.pullByHash: true`när .  | |
-| `image.args.eula`(krävs) | Anger att du har accepterat licensen. Det enda giltiga värdet är`accept` | |
-| `image.args.billing`(krävs) | URI-värdet för faktureringsslutpunkt är tillgängligt på Azure-portalens sida för talöversikt. | |
-| `image.args.apikey`(krävs) | Används för att spåra faktureringsinformation. ||
-| `service.type` | Tjänsttypen Kubernetes för **tal-till-text-tjänsten.** Mer information finns i instruktioner för [Kubernetes-tjänsttyper](https://kubernetes.io/docs/concepts/services-networking/service/) och verifierar support för molnleverantörer. | `LoadBalancer` |
-| `service.port`|  Porten för **tal-till-text-tjänsten.** | `80` |
-| `service.annotations` | **Tal-till-text-anteckningarna** för tjänstens metadata. Anteckningar är nyckelvärdespar. <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |
-| `service.autoScaler.enabled` | Om [den automatiska vågensträttsenheten](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) är aktiverad. Om `true` `speech-to-text-autoscaler` kommer kommer att distribueras i Kubernetes klustret. | `true` |
-| `service.podDisruption.enabled` | Om budgeten för [pod-avbrott](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) är aktiverad. Om `true` `speech-to-text-poddisruptionbudget` kommer kommer att distribueras i Kubernetes klustret. | `true` |
+| `enabled` | Om tjänsten för **tal till text** är aktive rad. | `false` |
+| `numberOfConcurrentRequest` | Antalet samtidiga förfrågningar för tjänsten **tal till text** . Det här diagrammet beräknar automatiskt processor-och minnes resurser baserat på det här värdet. | `2` |
+| `optimizeForAudioFile`| Om tjänsten behöver optimeras för ljud inspelning via ljudfiler. Om `true`det här diagrammet kommer att ALLOKERA mer processor resurser till tjänsten. | `false` |
+| `image.registry`| Registrerings avbildningen **tal till text** i Docker. | `containerpreview.azurecr.io` |
+| `image.repository` | Bild lagrings platsen för **tal-till-text-** Docker. | `microsoft/cognitive-services-speech-to-text` |
+| `image.tag` | Avbildnings tag gen till Docker för **tal till text** . | `latest` |
+| `image.pullSecrets` | Bild hemligheterna för att hämta Docker-avbildningen från **tal till text** . | |
+| `image.pullByHash`| Anger om Docker-avbildningen hämtas via hash. Om `true`, `image.hash` krävs. | `false` |
+| `image.hash`| Bild **-hashen tal-till-text** Docker. Används endast när `image.pullByHash: true`.  | |
+| `image.args.eula`kunna | Visar att du har accepterat licensen. Det enda giltiga värdet är`accept` | |
+| `image.args.billing`kunna | URI-värdet för fakturerings slut punkten är tillgängligt på sidan med tal översikts sidan för Azure Portal. | |
+| `image.args.apikey`kunna | Används för att spåra fakturerings information. ||
+| `service.type` | Kubernetes tjänst typ för tjänsten **tal till text** . Se [anvisningarna för Kubernetes-tjänst typer](https://kubernetes.io/docs/concepts/services-networking/service/) för mer information och kontrol lera stöd för moln leverantörer. | `LoadBalancer` |
+| `service.port`|  Porten för tjänsten **tal-till-text** . | `80` |
+| `service.annotations` | **Tal-till-text-** anteckningar för tjänste-metadata. Anteckningar är nyckel värdes par. <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |
+| `service.autoScaler.enabled` | Om den [automatiska skalnings funktionen för horisontella Pod](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) är aktive rad. Om `true` `speech-to-text-autoscaler` kommer att distribueras i Kubernetes-klustret. | `true` |
+| `service.podDisruption.enabled` | Om [Pod störnings budget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) är aktive rad. Om `true` `speech-to-text-poddisruptionbudget` kommer att distribueras i Kubernetes-klustret. | `true` |

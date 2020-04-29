@@ -1,6 +1,6 @@
 ---
-title: Så här beviljar du behörigheter till hanterad identitet på Azure Synapse-arbetsytan
-description: En artikel som förklarar hur du konfigurerar behörigheter för hanterad identitet i Azure Synapse-arbetsytan.
+title: Så här beviljar du behörigheter till hanterad identitet i Azure dataSynapses-arbetsyta
+description: En artikel som förklarar hur du konfigurerar behörigheter för hanterad identitet i Azure dataSynapses-arbetsytan.
 author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
@@ -8,114 +8,114 @@ ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: 9f519022fffe98c565c3b2d30f6578b9ebb70c57
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81428022"
 ---
-# <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Bevilja behörigheter till arbetsytans hanterade identitet (förhandsgranskning)
+# <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Bevilja behörigheter till hanterad identitet för arbets ytan (för hands version)
 
-I den här artikeln får du lära dig hur du beviljar behörigheter till den hanterade identiteten i Azure-arbetsytan. Behörigheter tillåter i sin tur åtkomst till SQL-pooler i arbetsytan och ADLS gen2-lagringskontot via Azure-portalen.
+Den här artikeln lär dig hur du beviljar behörigheter till den hanterade identiteten i Azure datasynapses-arbetsytan. Behörigheter, i sin tur, tillåter åtkomst till SQL-pooler i arbets ytan och ADLS Gen2 lagrings konto via Azure Portal.
 
 >[!NOTE]
->Den här arbetsytehanterade identiteten kallas hanterad identitet via resten av det här dokumentet.
+>Den här arbets ytans hanterade identitet kallas hanterad identitet genom resten av det här dokumentet.
 
-## <a name="grant-the-managed-identity--permissions-to-the-sql-pool"></a>Bevilja hanterade identitetsbehörigheter till SQL-poolen
+## <a name="grant-the-managed-identity--permissions-to-the-sql-pool"></a>Ge hanterade identitets behörigheter till SQL-poolen
 
-Den hanterade identiteten ger behörigheter till SQL-poolerna på arbetsytan. Med beviljade behörigheter kan du dirigera pipelines som utför SQL-poolrelaterade aktiviteter. När du skapar en Azure Synapse-arbetsyta med Azure-portalen kan du bevilja behörigheter för hanterad identitetskontroll för SQL-pooler.
+Den hanterade identiteten ger behörighet till SQL-pooler i arbets ytan. Med behörigheter som har beviljats kan du dirigera pipeliner som utför SQL-pool-relaterade aktiviteter. När du skapar en Azure dataSynapses-arbetsyta med hjälp av Azure Portal kan du bevilja behörighet för hanterad identitets kontroll på SQL-pooler.
 
-Välj **Säkerhet + nätverk** när du skapar din Azure Synapse-arbetsyta. Välj sedan **Bevilja KONTROLL till arbetsytans hanterade identitet i SQL-pooler**.
+Välj **säkerhet + nätverk** när du skapar din Azure dataSynapses-arbetsyta. Välj sedan **bevilja kontroll till arbets ytans hanterade identitet på SQL-pooler**.
 
-![BEHÖRIGHET FÖR KONTROLL för SQL-pooler](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
+![KONTROL lera behörighet för SQL-pooler](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
 
-## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>Bevilja hanterade identitetsbehörigheter till ADLS gen2-lagringskonto
+## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>Ge hanterade identitets behörigheter till ADLS Gen2 Storage Account
 
-Ett ADLS gen2-lagringskonto krävs för att skapa en Azure Synapse-arbetsyta. För att kunna starta Spark-pooler i Azure Synapse-arbetsytan behöver azure Synapse-hanterade identitet rollen *Storage Blob Data Contributor* på det här lagringskontot . Pipeline-orkestrering i Azure Synapse drar också nytta av den här rollen.
+Ett ADLS Gen2-lagrings konto krävs för att skapa en Azure Synapse-arbetsyta. För att kunna starta Spark-pooler i Azure dataSynapses-arbetsytan behöver Azure Synapse-hanterad identitet rollen *Storage BLOB data Contributor* på det här lagrings kontot. Pipelining i Azure Synapse har också nytta av den här rollen.
 
-### <a name="grant-permissions-to-managed-identity-during-workspace-creation"></a>Bevilja behörigheter till hanterad identitet när arbetsytan skapas
+### <a name="grant-permissions-to-managed-identity-during-workspace-creation"></a>Bevilja behörighet till hanterad identitet när arbets ytan skapas
 
-Azure Synapse försöker bevilja rollen Storage Blob Data Contributor till den hanterade identiteten när du har skapat Azure Synapse-arbetsytan med Azure-portalen. Du anger adls gen2-lagringskontoinformation på fliken **Grunderna.**
+Azure Synapse försöker tilldela rollen Storage BLOB data Contributor till den hanterade identiteten när du har skapat Azure Synapse-arbetsytan med Azure Portal. Du anger lagrings konto informationen för ADLS-Gen2 på fliken **grundläggande** .
 
-![Fliken Grunderna i flödet för att skapa arbetsytor](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-1.png)
+![Fliken grundläggande i flöde för skapande av arbets ytor](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-1.png)
 
-Välj ADLS gen2-lagringskonto och filsystem i **Kontonamn** och **Filsystemnamn**.
+Välj ADLS Gen2 lagrings konto och fil system namn i **konto namn** och **fil system namn**.
 
-![Tillhandahålla en ADLS gen2-lagringskontoinformation](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-2.png)
+![Tillhandahålla en ADLS Gen2 Storage Account-information](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-2.png)
 
-Om arbetsytans skapare också är **ägare** till ADLS gen2-lagringskontot, kommer Azure Synapse att tilldela rollen *Storage Blob Data Contributor* till den hanterade identiteten. Följande meddelande visas under information om lagringskontot som du angav.
+Om den som skapat arbets ytan också är **ägare** av ADLS Gen2-lagrings kontot, tilldelar Azure Synapse rollen *Storage BLOB data Contributor* till den hanterade identiteten. Följande meddelande visas under den lagrings konto information som du har angett.
 
-![Tilldelning av storage blob-datadeltagare](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-3.png)
+![Slutförd tilldelning av BLOB för lagrings data deltagare](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-3.png)
 
-Om arbetsytans skapare inte är ägare till ADLS gen2-lagringskontot tilldelar Azure Synapse inte rollen *Storage Blob Data Contributor* till den hanterade identiteten. Meddelandet som visas under lagringskontoinformationen meddelar arbetsytans skapare att de inte har tillräcklig behörighet för att ge rollen *Storage Blob Data Contributor* till den hanterade identiteten.
+Om arbets ytans skapare inte är ägare av ADLS Gen2-lagrings kontot, tilldelar Azure Synapse inte rollen *Storage BLOB data Contributor* till den hanterade identiteten. Meddelandet som visas under information om lagrings kontot meddelar arbets ytans skapare att de inte har tillräckliga behörigheter för att ge rollen *Storage BLOB data Contributor* åtkomst till den hanterade identiteten.
 
-![Tilldelning av misslyckade storage blob-databe deltagare](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-4.png)
+![Misslyckad tilldelning av BLOB data för lagrings data deltagare](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-4.png)
 
-Som meddelandet anger kan du inte skapa Spark-pooler om inte *Storage Blob Data Contributor* har tilldelats den hanterade identiteten.
+Som meddelande tillstånd kan du inte skapa Spark-pooler om inte *lagrings data deltagaren* tilldelas till den hanterade identiteten.
 
-### <a name="grant-permissions-to-managed-identity-after-workspace-creation"></a>Bevilja behörigheter till hanterad identitet när arbetsytan har skapats
+### <a name="grant-permissions-to-managed-identity-after-workspace-creation"></a>Bevilja behörighet till hanterad identitet efter att arbets ytan har skapats
 
-Om du inte tilldelar *den storage blob-datadeltagaren* till den hanterade identiteten under arbetsytan tilldelar **adls** gen2-lagringskontot rollen manuellt den rollen till identiteten. Följande steg hjälper dig att utföra manuell tilldelning.
+Om du inte tilldelar den hanterade identiteten *till den* hanterade identiteten tilldelar ADLS Gen2 lagrings **kontot den rollen** till identiteten manuellt. Med följande steg kan du utföra manuell tilldelning.
 
-#### <a name="step-1-navigate-to-the-adls-gen2-storage-account-in-azure-portal"></a>Steg 1: Navigera till ADLS gen2-lagringskontot i Azure-portalen
+#### <a name="step-1-navigate-to-the-adls-gen2-storage-account-in-azure-portal"></a>Steg 1: navigera till lagrings kontot ADLS Gen2 i Azure Portal
 
-Öppna ADLS gen2-lagringskontot i Azure-portalen och välj **Översikt** från den vänstra navigeringen. Du behöver bara tilldela rollen *Storage Blob Data Contributor* på behållar- eller filsystemnivå. Välj **Behållare**.  
-![Översikt över ADLS gen2-lagringskonto](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-5.png)
+Öppna lagrings kontot ADLS Gen2 i Azure Portal och välj **Översikt** i det vänstra navigerings fältet. Du behöver bara tilldela rollen *Storage BLOB data Contributor* på nivån container eller fil system. Välj **behållare**.  
+![Översikt över ADLS Gen2 Storage Account](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-5.png)
 
-#### <a name="step-2-select-the-container"></a>Steg 2: Välj behållare
+#### <a name="step-2-select-the-container"></a>Steg 2: Välj behållaren
 
-Den hanterade identiteten bör ha dataåtkomst till behållaren (filsystemet) som angavs när arbetsytan skapades. Du hittar den här behållaren eller filsystemet i Azure-portalen. Öppna Azure Synapse-arbetsytan i Azure-portalen och välj fliken **Översikt** från den vänstra navigeringen.
-![ADLS gen2-lagringskontobehållare](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-7.png)
+Den hanterade identiteten ska ha data åtkomst till den behållare (fil system) som angavs när arbets ytan skapades. Du kan hitta den här behållaren eller fil systemet i Azure Portal. Öppna Azure dataSynapses-arbetsytan i Azure Portal och välj fliken **Översikt** i det vänstra navigerings fältet.
+![ADLS Gen2 Storage Account container](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-7.png)
 
 
-Markera samma behållare eller filsystem om du vill bevilja rollen *Storage Blob Data Contributor* till den hanterade identiteten.
-![Adls gen2 lagringskonto behållare val](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
+Välj samma behållare eller fil system för att bevilja rollen *Storage BLOB data Contributor* till den hanterade identiteten.
+![ADLS Gen2 Storage Account container Selection](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
-#### <a name="step-3-navigate-to-access-control"></a>Steg 3: Navigera till åtkomstkontrollen
+#### <a name="step-3-navigate-to-access-control"></a>Steg 3: navigera till åtkomst kontroll
 
-Välj **Åtkomstkontroll (IAM)**.
+Välj **Access Control (IAM)**.
 
-![Åtkomstkontroll(IAM)](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-8.png)
+![Åtkomst kontroll (IAM)](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-8.png)
 
-#### <a name="step-4-add-a-new-role-assignment"></a>Steg 4: Lägga till en ny rolltilldelning
+#### <a name="step-4-add-a-new-role-assignment"></a>Steg 4: Lägg till en ny roll tilldelning
 
 Välj **+ Lägg till**.
 
-![Lägg till ny rolltilldelning](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-9.png)
+![Lägg till ny roll tilldelning](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-9.png)
 
 #### <a name="step-5-select-the-rbac-role"></a>Steg 5: Välj RBAC-rollen
 
-Välj rollen **Storage Blob Data Contributor.**
+Välj rollen **Storage BLOB data Contributor** .
 
 ![Välj RBAC-rollen](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-10.png)
 
-#### <a name="step-6-select-the-azure-ad-security-principal"></a>Steg 6: Välj säkerhetsobjektet För Azure AD
+#### <a name="step-6-select-the-azure-ad-security-principal"></a>Steg 6: Välj säkerhets objekt för Azure AD
 
-Välj **Azure AD-användare, grupp eller tjänsthuvudnamn** i **listrutan Tilldela åtkomst till.**
+Välj **Azure AD-användare, grupp eller tjänstens huvud namn** från List rutan **tilldela åtkomst till** .
 
-![Välj AAD-säkerhetsobjekt](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-11.png)
+![Välj AAD säkerhets objekt](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-11.png)
 
 #### <a name="step-7-search-for-the-managed-identity"></a>Steg 7: Sök efter den hanterade identiteten
 
-Den hanterade identitetens namn är också arbetsytans namn. Sök efter din hanterade identitet genom att ange azure Synapse-arbetsytenamn i **Välj**. Du bör se den hanterade identiteten i listan.
+Namnet på den hanterade identiteten är också arbets ytans namn. Sök efter din hanterade identitet genom att ange namnet på Azure Synapse-arbetsytan i **Välj**. Du bör se den hanterade identiteten i listan.
 
 ![Hitta den hanterade identiteten](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-12.png)
 
 #### <a name="step-8-select-the-managed-identity"></a>Steg 8: Välj den hanterade identiteten
 
-Välj den hanterade identiteten till de **markerade medlemmarna**. Välj **Spara** om du vill lägga till rolltilldelningen.
+Välj den hanterade identiteten för de **valda medlemmarna**. Välj **Spara** för att lägga till roll tilldelningen.
 
 ![Välj den hanterade identiteten](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-13.png)
 
-#### <a name="step-9-verify-that-the-storage-blob-data-contributor-role-is-assigned-to-the-managed-identity"></a>Steg 9: Kontrollera att rollen Storage Blob Data Contributor har tilldelats den hanterade identiteten
+#### <a name="step-9-verify-that-the-storage-blob-data-contributor-role-is-assigned-to-the-managed-identity"></a>Steg 9: kontrol lera att rollen Storage BLOB data Contributor är tilldelad till den hanterade identiteten
 
-Välj **Åtkomstkontroll(IAM)** och välj sedan **Rolltilldelningar**.
+Välj **Access Control (IAM)** och välj **roll tilldelningar**.
 
-![Verifiera rolltilldelning](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-14.png)
+![Verifiera roll tilldelning](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-14.png)
 
-Du bör se din hanterade identitet som anges under avsnittet **Storage Blob Data Contributor** med rollen Storage *Blob Data Contributor* tilldelad den. 
-![Adls gen2 lagringskonto behållare val](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-15.png)
+Du bör se din hanterade identitet som anges under avsnittet **Storage BLOB data Contributor** med rollen *Storage BLOB data Contributor* kopplad till den. 
+![ADLS Gen2 Storage Account container Selection](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-15.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [arbetsytehanterad identitet](./synapse-workspace-managed-identity.md)
+Läs mer om [hanterad identitet för arbets ytan](./synapse-workspace-managed-identity.md)

@@ -1,6 +1,6 @@
 ---
 title: Ange variabel aktivitet i Azure Data Factory
-description: Lär dig hur du använder aktiviteten Ange variabel för att ange värdet för en befintlig variabel som definierats i en Data Factory-pipeline
+description: Lär dig hur du använder aktiviteten ange variabel för att ange värdet för en befintlig variabel som definierats i en Data Factory pipeline
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -12,34 +12,34 @@ ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.openlocfilehash: e5bd3d10e4e43daf3031aae5083ee917cfe65ede
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81417988"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Ange variabel aktivitet i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Använd aktiviteten Ange variabel för att ange värdet för en befintlig variabel av typen Sträng, Bool eller Matris som definierats i en Data Factory-pipeline.
+Använd aktiviteten ange variabel för att ange värdet för en befintlig variabel av typen sträng, bool eller matris som definierats i en Data Factory pipeline.
 
-## <a name="type-properties"></a>Egenskaper för typ
+## <a name="type-properties"></a>Typ egenskaper
 
 Egenskap | Beskrivning | Krävs
 -------- | ----------- | --------
-namn | Namnet på den på gång som den verksamhet som är i gång | ja
+name | Namn på aktiviteten i pipeline | ja
 description | Text som beskriver vad aktiviteten gör | nej
-typ | Måste ställas in **på SetVariable** | ja
-värde | Stränglitteralt eller uttrycksobjektvärde som variabeln ska tilldelas till | ja
-variableName (variabelNamn) | Namnet på den variabel som ska ställas in av den här aktiviteten | ja
+typ | Måste anges till **SetVariable** | ja
+värde | Det sträng tecken eller uttrycks objekt värde som variabeln ska tilldelas | ja
+variableName | Namnet på den variabel som ska anges av den här aktiviteten | ja
 
-## <a name="incrementing-a-variable"></a>Öka en variabel
+## <a name="incrementing-a-variable"></a>Stegvis ökning av en variabel
 
-Ett vanligt scenario med variabler i Azure Data Factory använder en variabel som iterator inom en till- eller förförd aktivitet. I en uppsättningsvariabelaktivitet kan du `value` inte referera till variabeln som anges i fältet. Om du vill lösa den här begränsningen anger du en tillfällig variabel och skapar sedan en andra uppsättningsvariabelaktivitet. Den andra insatta variabelaktiviteten anger iteratorns värde till den tillfälliga variabeln. 
+Ett vanligt scenario som involverar variabler i Azure Data Factory är att använda en variabel som en iterator i en till-eller-aktivitet. I en uppsättning variabel aktivitet kan du inte referera till variabeln som anges `value` i fältet. Du kan lösa den här begränsningen genom att ange en tillfällig variabel och sedan skapa en andra uppsättnings variabel aktivitet. Den andra uppsättningen variabel aktivitet anger värdet för Iteratorn till den tillfälliga variabeln. 
 
-Nedan följer ett exempel på detta mönster:
+Nedan visas ett exempel på det här mönstret:
 
-![Variabel för ökning](media/control-flow-set-variable-activity/increment-variable.png "Variabel för ökning")
+![Increment-variabel](media/control-flow-set-variable-activity/increment-variable.png "Increment-variabel")
 
 ``` json
 {
@@ -97,6 +97,6 @@ Nedan följer ett exempel på detta mönster:
 
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om en relaterad kontrollflödesaktivitet som stöds av Data Factory: 
+Lär dig mer om en relaterad kontroll flödes aktivitet som stöds av Data Factory: 
 
 - [Lägga till variabelaktivitet](control-flow-append-variable-activity.md)

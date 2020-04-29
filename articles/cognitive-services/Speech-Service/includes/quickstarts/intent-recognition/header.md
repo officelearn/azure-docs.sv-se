@@ -6,19 +6,19 @@ ms.topic: include
 ms.date: 01/27/2020
 ms.author: trbye
 ms.openlocfilehash: 8d70d282ffb1a39f9ffb3eb6addf694ac9d0d060
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81421738"
 ---
-I den här snabbstarten använder du tjänsten [Tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) och LUIS (Language Understanding) för att känna igen avsikter från ljuddata som hämtas från en mikrofon. Specifikt ska du använda Tal-SDK för att fånga tal och en fördefinierad domän från LUIS för att identifiera avsikter för hemautomatisering, som att slå på och stänga av en lampa. 
+I den här snabb starten använder du tjänsten [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) och language Understanding (Luis) för att identifiera avsikter från ljuddata som fångats från en mikrofon. Mer specifikt använder du talet SDK för att avbilda tal och en fördefinierad domän från LUIS för att identifiera avsikter för start automatisering, som att aktivera och inaktivera ett ljus. 
 
-Efter att ha uppfyllt några förutsättningar, erkänner tal och identifiera avsikter från en mikrofon tar bara några steg:
+Efter att ha uppfyllt några krav, tar det bara några steg att känna igen tal och identifiera syften från en mikrofon:
 
 > [!div class="checklist"]
 >
-> * Skapa `SpeechConfig` ett objekt från din prenumerationsnyckel och region.
-> * Skapa `IntentRecognizer` ett objekt `SpeechConfig` med objektet ovanifrån.
-> * Starta `IntentRecognizer` igenkänningsprocessen för ett enda uttryck med hjälp av objektet.
-> * Inspektera `IntentRecognitionResult` de returnerade.
+> * Skapa ett `SpeechConfig` objekt från din prenumerations nyckel och region.
+> * Skapa ett `IntentRecognizer` objekt med hjälp `SpeechConfig` av objektet ovan.
+> * Starta igenkännings processen för en enda uttryck med hjälp av `IntentRecognizer` objektet.
+> * Granska den `IntentRecognitionResult` returnerade.

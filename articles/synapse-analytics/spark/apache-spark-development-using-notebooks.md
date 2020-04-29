@@ -1,6 +1,6 @@
 ---
-title: Skapa, utveckla och underhålla Azure Synapse Studio -datorer (förhandsversion)
-description: I den här artikeln får du lära dig hur du skapar och utvecklar Azure Synapse Studio (förhandsversion) anteckningsböcker för att göra dataförberedelser och visualisering.
+title: Skapa, utveckla och underhålla antecknings böcker för Azure Synapse Studio (för hands version)
+description: I den här artikeln får du lära dig att skapa och utveckla bärbara datorer i Azure Synapse Studio (för hands version) för att förbereda data och visualiseringar.
 services: synapse analytics
 author: ruixinxu
 ms.service: synapse-analytics
@@ -10,82 +10,82 @@ ms.date: 04/15/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.openlocfilehash: 506339cefa90fb17bedfc946f70cb4d7d8047cf2
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81430232"
 ---
-# <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Skapa, utveckla och underhålla Azure Synapse Studio -datorer (förhandsversion)
+# <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Skapa, utveckla och underhålla antecknings böcker för Azure Synapse Studio (för hands version)
 
-En Azure Synapse Studio -anteckningsbok (förhandsversion) är ett webbgränssnitt där du kan skapa filer som innehåller live-kod, visualiseringar och berättande text. Anteckningsböcker är ett bra ställe att validera idéer och använda snabba experiment för att få insikter från dina data. Anteckningsböcker används också i stor utsträckning i dataförberedelser, datavisualisering, maskininlärning och andra Big Data-scenarier.
+En Azure Synapse Studio-anteckningsbok (för hands version) är ett webb gränssnitt där du kan skapa filer som innehåller Live-kod, visualiseringar och text. Bärbara datorer är en bra plats för att verifiera idéer och använda snabba experiment för att få insikter om dina data. Antecknings böcker används också ofta i förberedelse av data, data visualisering, maskin inlärning och andra stora data scenarier.
 
 Med en Azure Synapse Studio-anteckningsbok kan du:
 
-* Kom igång med noll installationsansträngning.
-* Skydda data med inbyggda säkerhetsfunktioner för företag.
-* Analysera data över råformat (CSV, txt, JSON, etc.), bearbetade filformat (parkett, Delta Lake, ORC, etc.) och SQL-tabelldatafiler mot Spark och SQL.
-* Var produktiv med förbättrade redigeringsfunktioner och inbyggd datavisualisering.
+* Kom igång med noll setup-arbete.
+* Skydda dina data med inbyggda funktioner för företags säkerhet.
+* Analysera data över RAW-format (CSV, txt, JSON osv.), bearbetade fil format (Parquet, delta Lake, ORC osv.) och SQL-datafiler i tabell mot Spark och SQL.
+* Var produktiv med förbättrade redigerings funktioner och inbyggd data visualisering.
 
-I den här artikeln beskrivs hur du använder anteckningsböcker i Azure Synapse Studio.
+Den här artikeln beskriver hur du använder antecknings böcker i Azure Synapse Studio.
 
 ## <a name="create-a-notebook"></a>Skapa en notebook-fil
 
-Det finns två sätt att skapa en anteckningsbok. Du kan skapa en ny anteckningsbok eller importera en befintlig anteckningsbok till en Azure Synapse-arbetsyta från **Objektutforskaren**. Azure Synapse Studio-anteckningsböcker kan känna igen vanliga IPYNB-filer för bärbara Filer i Jupyter.
+Det finns två sätt att skapa en antecknings bok. Du kan skapa en ny antecknings bok eller importera en befintlig antecknings bok till en Azure Synapse-arbetsyta från **Object Explorer**. Bärbara Azure Synapse Studio-datorer kan känna igen standard Jupyter Notebook IPYNB-filer.
 
-![synaps-create-import-notebook](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
+![Synapse-Create-import – Notebook](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
-## <a name="develop-notebooks"></a>Utveckla bärbara datorer
+## <a name="develop-notebooks"></a>Utveckla antecknings böcker
 
-Anteckningsböcker består av celler, som är enskilda kodblock eller textblock som kan kördes oberoende av eller som en grupp.
+Antecknings böcker består av celler, som är enskilda kodblock eller text som kan köras oberoende av varandra eller som en grupp.
 
-### <a name="add-a-cell"></a>Lägga till en cell
+### <a name="add-a-cell"></a>Lägg till en cell
 
-Det finns flera sätt att lägga till en ny cell i anteckningsboken.
+Det finns flera sätt att lägga till en ny cell i din bärbara dator.
 
-1. Expandera den övre vänstra **+ cellknappen** och välj **Lägg till kodcell** eller **Lägg till textcell**.
+1. Expandera knappen uppe till vänster **+ cell** och välj **Lägg till kod cell** eller **Lägg till text cell**.
 
-    ![add-cell-with-cell-knapp](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
+    ![Lägg till cell-med-cell-knapp](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
 
-2. Hovra över avståndet mellan två celler och välj **Lägg till kod** eller Lägg till **text**.
+2. Hovra över utrymmet mellan två celler och välj **Lägg till kod** eller **Lägg till text**.
 
-    ![lägga till cell mellan mellan blanksteg](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
+    ![Lägg till cell-mellan-blank steg](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
 
-3. Använd [Kortkommandon under kommandoläge](#shortcut-keys-under-command-mode). Tryck på **A** för att infoga en cell ovanför den aktuella cellen. Tryck på **B** för att infoga en cell under den aktuella cellen.
+3. Använd [kortkommandon under kommando läge](#shortcut-keys-under-command-mode). Tryck på **a** för att infoga en cell ovanför den aktuella cellen. Tryck på **B** för att infoga en cell under den aktuella cellen.
 
 ### <a name="set-a-primary-language"></a>Ange ett primärt språk
 
-Azure Synapse Studio-anteckningsböcker har stöd för fyra sparkspråk:
+Bärbara Azure Synapse Studio-datorer stöder fyra Spark-språk:
 
-* pyspark (pyspark)
-* gnista (Scala)
+* pyspark (python)
+* Spark (Scala)
 * sparkSQL
 * Spark.NET (C#)
 
-Du kan ange det primära språket för nya tillagda celler från listrutan i det övre kommandofältet.
+Du kan ställa in det primära språket för nya tillagda celler i list rutan i det övre kommando fältet.
 
-   ![standard-synaps-språk](./media/apache-spark-development-using-notebooks/synapse-default-language.png)
+   ![standard – Synapse – språk](./media/apache-spark-development-using-notebooks/synapse-default-language.png)
 
-### <a name="use-multiple-languages"></a>Använda flera språk
+### <a name="use-multiple-languages"></a>Använd flera språk
 
-Du kan använda flera språk i en anteckningsbok genom att ange rätt språkmagikommando i början av en cell. I följande tabell visas de magiska kommandona för att växla cellspråk.
+Du kan använda flera språk i en bärbar dator genom att ange rätt språk-Magic-kommando i början av en cell. I följande tabell visas Magic-kommandon för att växla mellan cell språk.
 
 |Magiskt kommando |Språk | Beskrivning |  
 |---|------|-----|
-|%%pyspark| Python | Kör en **Python-fråga** mot Spark-kontext.  |
-|%%spark| Scala | Kör en **Scala-fråga** mot Spark-kontext.  |  
-|%%sql| SparkSQL (Kvm) | Kör en **SparkSQL-fråga** mot Spark-kontext.  |
-|%%csharp | Spark.NET C # | Kör en **Spark.NET C#-fråga** mot Spark-kontext. |
+|%% pyspark| Python | Kör en **python** -fråga mot Spark-kontext.  |
+|%% Spark| Scala | Kör en **Scala** -fråga mot Spark-kontext.  |  
+|%% SQL| SparkSQL | Kör en **SparkSQL** -fråga mot Spark-kontext.  |
+|%% csharp | Spark.NET C # | Kör en **Spark.net C#** -fråga mot Spark-kontext. |
 
-Följande bild är ett exempel på hur du kan skriva en PySpark-fråga med kommandot **%%pyspark** magic command eller en SparkSQL-fråga med kommandot **%%sql** magic i en **Spark(Scala)-anteckningsbok.** Observera att det primära språket för anteckningsboken är inställt på Scala.
+Följande bild är ett exempel på hur du kan skriva en PySpark-fråga med kommandot **%% PySpark** Magic eller en SparkSQL-fråga med **%% SQL** Magic-kommandot i en **Spark-anteckningsbok (Scala)** . Observera att det primära språket för antecknings boken är inställt på Scala.
 
-   ![synaps-spark-magi](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
+   ![Synapse – Spark-MAGICS](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
-### <a name="use-temp-tables-to-reference-data-across-languages"></a>Använda temporära tabeller för att referera till data mellan språk
+### <a name="use-temp-tables-to-reference-data-across-languages"></a>Använd temporära tabeller för att referera till data över olika språk
 
-Du kan inte referera till data eller variabler direkt på olika språk i en anteckningsbok för Synapse Studio. I Spark kan en tillfällig tabell refereras över språk. Här är ett exempel på `Scala` hur `PySpark` du `SparkSQL` läser en DataFrame i och använder en Spark temp-tabell som en lösning.
+Du kan inte referera till data eller variabler direkt på olika språk i en Synapse Studio-anteckningsbok. I Spark kan en tillfällig tabell refereras mellan olika språk. Här är ett exempel på hur du läser en `Scala` DataFrame i `PySpark` och `SparkSQL` använder en spark-temporär tabell som en lösning.
 
-1. I cell 1 läser du en DataFrame från SQL-poolkoppling med Scala och skapar en tillfällig tabell.
+1. I cell 1 läser du en DataFrame från SQL-anslutningspoolen med Scala och skapar en temporär tabell.
 
    ```scala
    %%scala
@@ -93,7 +93,7 @@ Du kan inte referera till data eller variabler direkt på olika språk i en ante
    scalaDataFrame.registerTempTable( "mydataframetable" )
    ```
 
-2. I cell 2 frågar du data med Spark SQL.
+2. Fråga data i cell 2 med hjälp av Spark SQL.
    
    ```sql
    %%sql
@@ -107,114 +107,114 @@ Du kan inte referera till data eller variabler direkt på olika språk i en ante
    myNewPythonDataFrame = spark.sql("SELECT * FROM mydataframetable")
    ```
 
-### <a name="ide-style-intellisense"></a>IDE-stil IntelliSense
+### <a name="ide-style-intellisense"></a>IDE-stil, IntelliSense
 
-Azure Synapse Studio-anteckningsböcker är integrerade med Monaco-redigeraren för att föra IDE-stil IntelliSense till cellredigeraren. Syntaxmarkering, felskapare och automatiska kodkompletter hjälper dig att skriva kod och identifiera problem snabbare.
+Bärbara Azure Synapse Studio-datorer är integrerade med Monaco-redigeraren för att kunna använda IntelliSense i IDE-format i cell redigeraren. Syntax för syntax, fel skapare och automatisk kod komplettering hjälper dig att skriva kod och identifiera problem snabbare.
 
-IntelliSense-funktionerna ligger på olika mognadsnivåer för olika språk. Använd tabellen nedan för att se vad som stöds.
+IntelliSense-funktionerna finns på olika förfallo nivåer för olika språk. Använd tabellen nedan för att se vad som stöds.
 
-|Språk| Syntaxmarkering | Syntaxfelsmarkör  | Slutförande av syntaxkod | Slutförande av variabel kod| Slutförande av systemfunktionskod| Slutförande av användarfunktionskod| Smarta indrag | Vikning av kod|
+|Språk| Syntaxkontroll | Fel markör för syntaxfel  | Komplettering av syntax kod | Slut för ande av variabel kod| Slut för ande av system funktions kod| Slut för ande av användar funktions kod| Smarta indrag | Kod vikning|
 |--|--|--|--|--|--|--|--|--|
-|Pyspark (Pyspark )|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Gnista (Scala)|Ja|Ja|Ja|Ja|-|-|-|Ja|
-|SparkSQL (Kvm)|Ja|Ja|-|-|-|-|-|-|
+|PySpark (python)|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
+|Spark (Scala)|Ja|Ja|Ja|Ja|-|-|-|Ja|
+|SparkSQL|Ja|Ja|-|-|-|-|-|-|
 |Spark.NET (C#)|Ja|-|-|-|-|-|-|-|
 
-### <a name="format-text-cell-with-toolbar-buttons"></a>Formatera textcell med knappar i verktygsfältet
+### <a name="format-text-cell-with-toolbar-buttons"></a>Formatera en text cell med knappar i verktygsfältet
 
-Du kan använda formatknapparna i verktygsfältet textceller för att utföra vanliga markeringsåtgärder. Den innehåller fetstil text, kursiv text, infoga kodavsnitt, infoga oordnad lista, infoga ordnad lista och infoga bild från URL.
+Du kan använda format knapparna i verktygsfältet text celler för att utföra vanliga markdown-åtgärder. Den innehåller fet text, kursivering av text, infoga kodfragment, infoga osorterad lista, infoga sorterad lista och infoga bild från URL.
 
-  ![synaps-text-cell-verktygsfält](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
+  ![Synapse – text – cell-verktygsfält](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
 
-### <a name="undo-cell-operations"></a>Ångra cellåtgärder
-Klicka på **ångra-knappen** eller tryck på **Ctrl+Z** för att återkalla den senaste cellåtgärden. Nu kan du ångra upp till de senaste 20 historiska cellåtgärderna. 
+### <a name="undo-cell-operations"></a>Ångra cell åtgärder
+Klicka på knappen **Ångra** eller tryck på **CTRL + Z** för att återkalla den senaste cell åtgärden. Nu kan du ångra upp till de senaste 20 historiska cell åtgärderna. 
 
-   ![synaps-ångra-celler](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
+   ![Synapse – ångra-celler](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
 
 ### <a name="move-a-cell"></a>Flytta en cell
 
-Välj ellipserna (...) för att komma åt menyn för ytterligare cellåtgärder längst till höger. Välj sedan **Flytta cell uppåt** eller Flytta **cellen nedåt** om du vill flytta den aktuella cellen. 
+Välj ellipserna (...) för att få åtkomst till menyn ytterligare cell åtgärder längst till höger. Välj sedan **Flytta cell uppåt** eller **Flytta cell nedåt** för att flytta den aktuella cellen. 
 
-Du kan också använda [kortkommandon under kommandoläge](#shortcut-keys-under-command-mode). Tryck på **Ctrl+Alt+↑** för att flytta upp den aktuella cellen. Tryck på **Ctrl+Alt+↓** om du vill flytta den aktuella cellen nedåt.
+Du kan också använda [kortkommandon under kommando läge](#shortcut-keys-under-command-mode). Tryck på **CTRL + ALT + ↑** för att flytta upp den aktuella cellen. Tryck på **CTRL + ALT + ↓** för att flytta den aktuella cellen nedåt.
 
-   ![flytta en cell](./media/apache-spark-development-using-notebooks/synapse-move-cells.png)
+   ![flytta – a-cell](./media/apache-spark-development-using-notebooks/synapse-move-cells.png)
 
 ### <a name="delete-a-cell"></a>Ta bort en cell
 
-Om du vill ta bort en cell markerar du ellipserna (...) för att komma åt menyn för ytterligare cellåtgärder längst till höger och väljer sedan **Ta bort cell**. 
+Om du vill ta bort en cell väljer du ellipserna (...) för att komma åt menyn ytterligare cell åtgärder längst till höger och väljer sedan **ta bort cell**. 
 
-Du kan också använda [kortkommandon under kommandoläge](#shortcut-keys-under-command-mode). Tryck på **D,D** för att ta bort den aktuella cellen.
+Du kan också använda [kortkommandon under kommando läge](#shortcut-keys-under-command-mode). Tryck på **d, d** för att ta bort den aktuella cellen.
   
-   ![ta bort en cell](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
+   ![ta bort a-cell](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
 
-### <a name="collapse-a-cell-input"></a>Komprimera en cellinmatning
-Klicka på pilknappen längst ned i den aktuella cellen för att dölja den. Om du vill expandera den klickar du på pilknappen medan cellen är komprimerad.
+### <a name="collapse-a-cell-input"></a>Komprimera en cell Indatatyp
+Klicka på pilen längst ned i den aktuella cellen för att dölja den. Klicka på pilknappen när cellen är komprimerad för att expandera den.
 
-   ![komprimera-cell-ingång](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
+   ![Komprimera-cell-Indatatyp](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
 
-### <a name="collapse-a-cell-output"></a>Dölja en cellutdata
+### <a name="collapse-a-cell-output"></a>Komprimera cell utdata
 
-Klicka på **knappen dölj utdata** längst upp till vänster i den aktuella cellutmatningen för att dölja den. Om du vill expandera den klickar du på **Visa cellutdata** medan cellutdata är komprimerade.
+Klicka på knappen för att **Komprimera utdata** längst upp till vänster i den aktuella cellens utdata för att dölja den. Expandera det genom att klicka på **Visa cellens utdata** medan cellens utdata komprimeras.
 
-   ![komprimera-cell-utdata](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
+   ![Komprimera-cell-utdata](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
 
-## <a name="run-notebooks"></a>Kör anteckningsböcker
+## <a name="run-notebooks"></a>Köra antecknings böcker
 
-Du kan köra kodcellerna i anteckningsboken individuellt eller på en gång. Status och förlopp för varje cell representeras i anteckningsboken.
+Du kan köra kod cellerna i din bärbara dator separat eller alla på en gång. Status och förlopp för varje cell representeras i antecknings boken.
 
 ### <a name="run-a-cell"></a>Köra en cell
 
 Det finns flera sätt att köra koden i en cell.
 
-1. Hovra på den cell som du vill köra och markera knappen **Kör cell** eller tryck på **Ctrl+Retur**.
+1. Hovra över den cell som du vill köra och välj knappen **Kör cell** eller tryck på **CTRL + RETUR**.
 
-   ![run-cell-1](./media/apache-spark-development-using-notebooks/synapse-run-cell.png)
+   ![Kör-cell-1](./media/apache-spark-development-using-notebooks/synapse-run-cell.png)
 
 
-2. Om du vill komma åt menyn för ytterligare cellåtgärder längst till höger väljer du ellipserna (**...**). Välj sedan **Kör cell**.
+2. Om du vill komma åt menyn ytterligare cell åtgärder längst till höger väljer du ellipserna (**...**). Välj sedan **Kör cell**.
 
-   ![run-cell-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
+   ![Kör-cell-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
    
-3. Använd [Kortkommandon under kommandoläge](#shortcut-keys-under-command-mode). Tryck på **Skift+Retur** för att köra den aktuella cellen och markera cellen nedan. Tryck på **Alt+Retur** för att köra den aktuella cellen och infoga en ny cell nedan.
+3. Använd [kortkommandon under kommando läge](#shortcut-keys-under-command-mode). Tryck på **SKIFT + RETUR** för att köra den aktuella cellen och markera cellen nedan. Tryck på **Alt + Retur** för att köra den aktuella cellen och infoga en ny cell nedan.
 
 
-### <a name="run-all-cells"></a>Köra alla celler
-Klicka på knappen **Kör alla** om du vill köra alla celler i den aktuella anteckningsboken i följd.
+### <a name="run-all-cells"></a>Kör alla celler
+Klicka på knappen **Kör alla** för att köra alla celler i den aktuella antecknings boken i följd.
 
-   ![run-all-celler](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
+   ![Kör alla – celler](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
 
 ### <a name="run-all-cells-above-or-below"></a>Kör alla celler ovanför eller under
 
-Om du vill komma åt menyn för ytterligare cellåtgärder längst till höger väljer du ellipserna (**...**). Välj sedan **Kör celler ovan** om du vill köra alla celler ovanför strömmen i följd. Välj **Kör celler nedan** om du vill köra alla celler under strömmen i följd.
+Om du vill komma åt menyn ytterligare cell åtgärder längst till höger väljer du ellipserna (**...**). Välj sedan **Kör celler ovan** för att köra alla celler ovanför den aktuella i sekvensen. Välj **Kör celler nedan** om du vill köra alla celler under den aktuella sekvensen.
 
-   ![run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
+   ![Run-cellernas över-eller-under](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
 
-### <a name="cell-status-indicator"></a>Indikator för cellstatus
+### <a name="cell-status-indicator"></a>Cell status indikator
 
-En steg-för-steg cell körning status visas under cellen för att hjälpa dig att se dess aktuella framsteg. När cellkörningen är klar visas en körningssammanfattning med den totala varaktigheten och sluttiden och behålls där för framtida referens.
+En steg-för-steg-cells körnings status visas under cellen för att hjälpa dig att se den aktuella förloppet. När cell körningen är klar visas en körnings översikt med den totala varaktigheten och slut tiden, där det finns en framtida referens.
 
 ![cell-status](./media/apache-spark-development-using-notebooks/synapse-cell-status.png)
 
-### <a name="spark-progress-indicator"></a>Indikator för gnistans förlopp
+### <a name="spark-progress-indicator"></a>Status indikator för Spark
 
-Azure Synapse Studio-anteckningsboken är enbart Spark-baserad. Kodceller körs på Spark-poolen på distans. En spark-jobbförloppsindikator med ett förloppsfält i realtid visas för att hjälpa dig att förstå jobbkörningsstatusen.
-
-
-![spark-progress-indikator](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
-
-### <a name="spark-session-config"></a>Spark-session config
-
-Du kan ange tidsgränsen, antalet och storleken på utförare som ska utföras till den aktuella Spark-sessionen i **Konfigurera session**. Starta om Spark-sessionen är att konfigurationsändringar ska börja gälla. Alla cachelagrade variabler för bärbara datorer rensas.
-
-![session-mgmt](./media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png)
+Azure Synapse Studio-anteckningsbok är enbart Spark-baserad. Kod celler körs i Spark-poolen via fjärr anslutning. En status indikator för Spark-jobbet visas med en förlopps indikator i real tid som hjälper dig att förstå jobb körnings statusen.
 
 
-## <a name="bring-data-to-a-notebook"></a>Hämta data till en anteckningsbok
+![Spark-Progress-Indicator](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
 
-Du kan läsa in data från Azure Blob Storage, Azure Data Lake Store Gen 2 och SQL-pool som visas i kodexemplen nedan.
+### <a name="spark-session-config"></a>Konfiguration av Spark-session
 
-### <a name="read-a-csv-from-azure-data-lake-store-gen2-as-a-spark-dataframe"></a>Läsa en CSV från Azure Data Lake Store Gen2 som en Spark DataFrame
+Du kan ange tids längd, antal och storlek på körningar för att ge den aktuella Spark-sessionen i **Konfigurera session**. Starta om Spark-sessionen för att konfigurations ändringarna ska börja gälla. Alla cachelagrade Notebook-variabler rensas.
+
+![hantering av sessioner](./media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png)
+
+
+## <a name="bring-data-to-a-notebook"></a>Hämta data till en bärbar dator
+
+Du kan läsa in data från Azure Blob Storage, Azure Data Lake Store gen 2 och SQL-poolen som visas i kod exemplen nedan.
+
+### <a name="read-a-csv-from-azure-data-lake-store-gen2-as-a-spark-dataframe"></a>Läs en CSV-fil från Azure Data Lake Store Gen2 som en spark-DataFrame
 
 ```python
 from pyspark.sql import SparkSession
@@ -233,7 +233,7 @@ df1 = spark.read.option('header', 'true') \
 
 ```
 
-#### <a name="read-a-csv-from-azure-blob-storage-as-a-spark-dataframe"></a>Läsa en CSV från Azure Blob Storage som spark dataframe
+#### <a name="read-a-csv-from-azure-blob-storage-as-a-spark-dataframe"></a>Läs en CSV-fil från Azure Blob Storage som en spark-DataFrame
 
 ```python
 
@@ -255,32 +255,32 @@ df = spark.read.option("header", "true") \
 
 ```
 
-### <a name="read-data-from-the-primary-storage-account"></a>Läsa data från det primära lagringskontot
+### <a name="read-data-from-the-primary-storage-account"></a>Läs data från det primära lagrings kontot
 
-Du kan komma åt data i det primära lagringskontot direkt. Du behöver inte ange de hemliga nycklarna. Högerklicka på en fil i Data Explorer och välj **Ny anteckningsbok** för att se en ny anteckningsbok med dataextraherat dataextraherat.
+Du kan komma åt data i det primära lagrings kontot direkt. Du behöver inte ange de hemliga nycklarna. I Datautforskaren högerklickar du på en fil och väljer **ny antecknings** bok för att se en ny antecknings bok med autogenerated dataextractor.
 
-![data-till-cell](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
+![data till cell](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
 
-## <a name="visualize-data-in-a-notebook"></a>Visualisera data i en anteckningsbok
+## <a name="visualize-data-in-a-notebook"></a>Visualisera data i en bärbar dator
 
-### <a name="display"></a>Display()
+### <a name="display"></a>Visa ()
 
-En tabellvy med ett tabellresultat medföljer alternativet att skapa ett stapeldiagram, linjediagram, cirkeldiagram, punktdiagram och ytdiagram. Du kan visualisera dina data utan att behöva skriva kod. Diagrammen kan anpassas i **diagramalternativen**. 
+En vy med tabell resultat tillhandahålls med möjligheten att skapa ett stapeldiagram, linje diagram, cirkel diagram, punkt diagram och ytdiagram. Du kan visualisera dina data utan att behöva skriva kod. Diagrammen kan anpassas i **diagram alternativen**. 
 
-Utdata för **%%sql** magiska kommandon visas i den renderade tabellvyn som standard. Du kan anropa **display(`<DataFrame name>`)** på Spark DataFrames eller Fröna distribuerade datauppsättningar (RDD) för att skapa den renderade tabellvyn.
+Utdata från **%% SQL** Magic-kommandon visas som standard i vyn renderad tabell. Du kan anropa **Display (`<DataFrame name>`)** i Spark-DataFrames eller elastiska distribuerade data uppsättningar (RDD)-funktionen för att skapa den åter givnings tabellen.
 
-   ![inbyggda diagram](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)
+   ![inbyggt – diagram](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)
 
 ### <a name="displayhtml"></a>DisplayHTML()
 
-Du kan återge HTML eller interaktiva bibliotek, till exempel **bokeh**, med hjälp av **displayHTML()**.
+Du kan återge HTML-eller interaktiva bibliotek, som **bokeh**, med hjälp av **displayHTML ()**.
 
-Följande bild är ett exempel på att rita tecken över en karta med hjälp av **bokeh**.
+Följande bild är ett exempel på hur du ritar glyfer över en karta med **bokeh**.
 
-   ![bokeh-exempel](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
+   ![bokeh – exempel](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
    
 
-Kör följande exempelkod för att rita bilden ovan.
+Kör följande exempel kod för att rita bilden ovan.
 
 ```python
 from bokeh.plotting import figure, output_file
@@ -312,83 +312,83 @@ displayHTML(html)
 
 ```
 
-## <a name="save-notebooks"></a>Spara anteckningsböcker
+## <a name="save-notebooks"></a>Spara antecknings böcker
 
-Du kan spara en enda anteckningsbok eller alla anteckningsböcker på arbetsytan.
+Du kan spara en enskild bärbar dator eller alla antecknings böcker i din arbets yta.
 
-1. Om du vill spara ändringar som du har gjort i en enda anteckningsbok markerar du knappen **Publicera** i kommandofältet för anteckningsbok.
+1. Om du vill spara ändringar som du har gjort i en enskild antecknings bok väljer du knappen **publicera** i kommando fältet för antecknings boken.
 
-   ![publicera-anteckningsbok](./media/apache-spark-development-using-notebooks/synapse-publish-notebook.png)
+   ![publicera – Notebook](./media/apache-spark-development-using-notebooks/synapse-publish-notebook.png)
 
-2. Om du vill spara alla anteckningsböcker på arbetsytan markerar du knappen **Publicera alla** i kommandofältet på arbetsytan. 
+2. Om du vill spara alla antecknings böcker i arbets ytan väljer du knappen **publicera alla** i arbets ytans kommando fält. 
 
-   ![publicera-alla](./media/apache-spark-development-using-notebooks/synapse-publish-all.png)
+   ![publicera – alla](./media/apache-spark-development-using-notebooks/synapse-publish-all.png)
 
-I egenskaperna för anteckningsboken kan du konfigurera om du vill inkludera cellutdata när du sparar.
+I egenskaperna för antecknings boken kan du konfigurera om du vill ta med cellens utdata när du sparar.
 
-   ![egenskaper för anteckningsbok](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
+   ![Notebook – egenskaper](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
 
-## <a name="magic-commands"></a>Magiska kommandon
-Du kan använda dina välbekanta Jupyter-magiska kommandon i Azure Synapse Studio-anteckningsböcker. Kontrollera listan nedan som den aktuella tillgängliga magiska kommandon. Berätta för oss dina användningsfall på GitHub så att vi kan fortsätta att bygga ut mer magiska kommandon för att möta dina behov.
+## <a name="magic-commands"></a>Magic-kommandon
+Du kan använda dina välkända Jupyter Magic-kommandon i Azure Synapse Studio-anteckningsböcker. Kontrol lera listan nedan som de aktuella tillgängliga Magic-kommandona. Berätta för oss dina användnings fall på GitHub så att vi kan fortsätta att bygga upp fler Magic-kommandon för att uppfylla dina behov.
 
-Tillgängliga radmagi: [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%tid](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
+Tillgängliga rad Magic: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% Time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% timeIt](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
 
-Tillgängliga cellmagi: [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages)
+Tillgängliga cell Magic: [%% Time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%% timeIt](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%% Capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%% WriteFile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%% SQL](#use-multiple-languages), [%% pyspark](#use-multiple-languages), [%% Spark](#use-multiple-languages), [%% csharp](#use-multiple-languages)
 
 ## <a name="shortcut-keys"></a>Kortkommandon
 
-I likhet med Jupyter-anteckningsböcker har Azure Synapse Studio-anteckningsböcker ett modalt användargränssnitt. Tangentbordet gör olika saker beroende på vilket läge anteckningsbokscellen är i. Synapse Studio-anteckningsböcker stöder följande två lägen för en viss kodcell: kommandoläge och redigeringsläge.
+I likhet med Jupyter-anteckningsböcker har Azure Synapse Studio-anteckningsbokar ett spärrat användar gränssnitt. Tangent bordet skiljer sig åt beroende på vilket läge som Notebook-cellen finns i. Bärbara datorer i Synapse Studio har stöd för följande två lägen för en specifik kod cell: kommando läge och redigerings läge.
 
-1. En cell är i kommandoläge när det inte finns någon textmarkör som uppmanar dig att skriva. När en cell är i kommandoläge kan du redigera anteckningsboken som helhet men inte skriva i enskilda celler. Ange kommandoläge `ESC` genom att trycka eller använda musen för att klicka utanför en cells redigeringsområde.
+1. En cell är i kommando läge när ingen text markör visas som anger att du skriver. När en cell är i kommando läge kan du redigera antecknings boken som helhet men inte skriva in enskilda celler. Ange kommando läge genom att `ESC` trycka eller använda musen för att klicka utanför cellens redigerings området.
 
-   ![kommandoläge](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
+   ![kommando läge](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. Redigeringsläget visas med en textmarkör som uppmanar dig att skriva i redigeringsområdet. När en cell är i redigeringsläge kan du inte skriva in i cellen. Ange redigeringsläge `Enter` genom att trycka eller använda musen för att klicka på en cells redigeringsområde.
+2. Redigerings läget anges av en text markör där du ombeds ange redigerings ytan. När en cell är i redigerings läge kan du inte skriva i cellen. Ange redigerings läge genom att `Enter` trycka eller använda musen för att klicka på cellens redigerings yta.
    
    ![redigerings-läge](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 
-### <a name="shortcut-keys-under-command-mode"></a>Kortkommandon under kommandoläge
+### <a name="shortcut-keys-under-command-mode"></a>Kortkommandon under kommando läge
 
-Med hjälp av följande kortkommandon för tangenttryckningar kan du lättare navigera och köra kod i Azure Synapse-anteckningsböcker.
+Med följande kortkommandon kan du enkelt navigera och köra kod i Azure Synapse Notebooks.
 
-| Åtgärd |Synapse Studio-genvägar för bärbara datorer  |
+| Action |Genvägar till Synapse Studio-anteckningsbok  |
 |--|--|
-|Kör den aktuella cellen och välj nedan | Skift+Retur |
-|Kör den aktuella cellen och infoga nedan | Alt+Retur |
-|Markera cellen ovan| Upp |
-|Markera cellen nedan| Ned |
+|Kör den aktuella cellen och välj nedan | SKIFT + RETUR |
+|Kör den aktuella cellen och infoga den nedan | ALT + RETUR |
+|Markera cell ovanför| Upp |
+|Markera cell under| Ned |
 |Infoga cell ovanför| A |
 |Infoga cell under| B |
-|Utöka markerade celler ovanför| Skift+Uppåt |
-|Utöka markerade celler nedan| Skift+Nedåt|
-|Flytta cellen uppåt| Ctrl+Alt+↑ |
-|Flytta cellen nedåt| Ctrl+Alt+↓ |
+|Utöka markerade celler ovanför| Skift + upp |
+|Utöka markerade celler nedan| Skift + ned|
+|Flytta upp cell| Ctrl + Alt + ↑ |
+|Flytta cell nedåt| Ctrl + Alt + ↓ |
 |Ta bort markerade celler| D, D |
-|Växla till redigeringsläge| Ange |
+|Växla till redigerings läge| Ange |
 
-### <a name="shortcut-keys-under-edit-mode"></a>Kortkommandon under redigeringsläge
+### <a name="shortcut-keys-under-edit-mode"></a>Kortkommandon under redigerings läge
 
-Med hjälp av följande kortkommandon för tangenttryckningar kan du lättare navigera och köra kod i Azure Synapse-anteckningsböcker när du är i redigeringsläge.
+Med följande kortkommandon kan du enkelt navigera och köra kod i Azure Synapse Notebooks i redigerings läge.
 
-| Åtgärd |Kortkommandon för Synapse Studio-anteckningsbok  |
+| Action |Genvägar till Synapse Studio-anteckningsbok  |
 |--|--|
 |Flytta markören uppåt | Upp |
 |Flytta markören nedåt|Ned|
 |Ångra|Ctrl + Z|
 |Gör om|Ctrl + Y|
-|Kommentar/Avkommentar|Ctrl + /|
-|Ta bort ord före|Ctrl + Backsteg|
-|Ta bort ord efter|Ctrl + Ta bort|
-|Gå till cellstart|Ctrl + Start|
-|Gå till cellslut |Ctrl +|
-|Gå ett ord åt vänster|Ctrl + Vänster|
-|Gå ett ord till höger|Ctrl + Höger|
-|Markera alla|Ctrl + A|
-|Strecksatsen| Ctrl + ]|
-|Dedent (på andra)|Ctrl + [|
-|Växla till kommandoläge| Esc |
+|Kommentera/ta bort kommentar|CTRL +/|
+|Ta bort ord före|CTRL + BACKSTEG|
+|Ta bort ord efter|CTRL + Delete|
+|Gå till cell start|Ctrl + Home|
+|Gå till cell slut |CTRL + END|
+|Gå ett ord till vänster|CTRL + vänster|
+|Gå ett ord till höger|CTRL + höger|
+|Markera alla|CTRL + A|
+|Uppgiften| Ctrl +]|
+|Dra ut|Ctrl + [|
+|Växla till kommando läge| Esc |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [.NET för Apache Spark-dokumentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Dokumentation om .NET för Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

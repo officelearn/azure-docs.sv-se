@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från Sybase med Azure Data Factory
-description: Lär dig hur du kopierar data från Sybase till sink-datalager som stöds med hjälp av en kopieringsaktivitet i en Azure Data Factory-pipeline.
+description: Lär dig hur du kopierar data från Sybase till mottagar data lager som stöds genom att använda en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: 495d16efcc26fc336a87c0f2d88f5202ab0b4a3e
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81416624"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Kopiera data från Sybase med Azure Data Factory
@@ -24,48 +24,48 @@ ms.locfileid: "81416624"
 > * [Aktuell version](connector-sybase.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från en Sybase-databas. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från en Sybase-databas. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här Sybase-kopplingen stöds för följande aktiviteter:
+Denna Sybase-koppling stöds för följande aktiviteter:
 
-- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
-- [Uppslagsaktivitet](control-flow-lookup-activity.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
+- [Söknings aktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från Sybase-databasen till alla sink-datalager som stöds. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
+Du kan kopiera data från Sybase Database till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Den här Sybase-kontakten stöder:
+Mer specifikt stöder denna Sybase-anslutning:
 
-- SAP Sybase SQL Anywhere (ASA) **version 16 och senare;** IQ och ASE stöds inte.
-- Kopiera data med **grundläggande** autentisering eller Windows-autentisering. **Windows**
+- SAP Sybase SQL Anywhere (ASA) **version 16 och senare**; SWEETIQ och ASE stöds inte.
+- Kopiera data med **Basic** -eller **Windows** -autentisering.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill använda den här Sybase-kopplingen måste du:
 
-- Konfigurera en självvärderad integrationskörning. Mer information finns i artikeln Integration Runtime för [självvärd.](create-self-hosted-integration-runtime.md)
-- Installera [dataprovidern för Sybase iAnywhere.Data.SQLAnywhere](https://go.microsoft.com/fwlink/?linkid=324846) 16 eller högre på Integration Runtime-datorn.
+- Konfigurera en egen värd Integration Runtime. Mer information finns i artikeln om [egen värd integration runtime](create-self-hosted-integration-runtime.md) .
+- Installera [dataprovidern för Sybase iAnywhere. data. SQLAnywhere](https://go.microsoft.com/fwlink/?linkid=324846) 16 eller senare på den integration runtime datorn.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-I följande avsnitt finns information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Sybase-anslutningsappen.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Sybase Connector.
 
-## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+## <a name="linked-service-properties"></a>Egenskaper för länkad tjänst
 
-Följande egenskaper stöds för Sybase-länkad tjänst:
+Följande egenskaper stöds för den länkade tjänsten Sybase:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **Sybase** | Ja |
-| server | Namn på Sybase-servern. |Ja |
-| databas | Namn på Sybase-databasen. |Ja |
-| authenticationType | Typ av autentisering som används för att ansluta till Sybase-databasen.<br/>Tillåtna värden är: **Grundläggande**och **Windows**. |Ja |
-| användarnamn | Ange användarnamn som ska anslutas till Sybase-databasen. |Ja |
-| password | Ange lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. En självvärdad integrationskörning krävs som nämns i [Förutsättningar](#prerequisites). |Ja |
+| typ | Typ egenskapen måste anges till: **Sybase** | Ja |
+| server | Sybase-serverns namn. |Ja |
+| databas | Sybase-databasens namn. |Ja |
+| authenticationType | Typ av autentisering som används för att ansluta till Sybase-databasen.<br/>Tillåtna värden är: **Basic**och **Windows**. |Ja |
+| användarnamn | Ange användar namnet för att ansluta till Sybase-databasen. |Ja |
+| password | Ange lösen ordet för det användar konto som du har angett för användar namnet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Det krävs en egen värd Integration Runtime som anges i [krav](#prerequisites). |Ja |
 
 **Exempel:**
 
@@ -94,14 +94,14 @@ Följande egenskaper stöds för Sybase-länkad tjänst:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningsartikeln.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Sybase-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Sybase-datauppsättningen.
 
-Så här kopierar du data från Sybase och följande egenskaper stöds:
+Följande egenskaper stöds för att kopiera data från Sybase:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Datauppsättningens typegenskap måste anges till: **SybaseTable** | Ja |
-| tableName | Namnet på tabellen i Sybase-databasen. | Nej (om "fråga" i aktivitetskällan har angetts) |
+| typ | Data uppsättningens typ-egenskap måste anges till: **SybaseTable** | Ja |
+| tableName | Namnet på tabellen i Sybase-databasen. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 **Exempel**
 
@@ -120,20 +120,20 @@ Så här kopierar du data från Sybase och följande egenskaper stöds:
 }
 ```
 
-Om du `RelationalTable` använde maskinskriven datauppsättning stöds den fortfarande som den är, medan du föreslås använda den nya framöver.
+Om du använder typ `RelationalTable` av data uppsättning, stöds den fortfarande som den är, medan du föreslås att använda den nya som går framåt.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Sybase-källan.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av Sybase-källa.
 
 ### <a name="sybase-as-source"></a>Sybase som källa
 
-Om du vill kopiera data från Sybase stöds följande egenskaper i avsnittet kopiera **aktivitetskälla:**
+Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att kopiera data från Sybase:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type property för kopians aktivitetskälla måste ställas in på: **SybaseSource** | Ja |
-| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i datauppsättningen har angetts) |
+| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **SybaseSource** | Ja |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i data uppsättningen har angetts) |
 
 **Exempel:**
 
@@ -167,19 +167,19 @@ Om du vill kopiera data från Sybase stöds följande egenskaper i avsnittet kop
 ]
 ```
 
-Om du `RelationalSource` använde den maskinskrivna källan stöds den fortfarande som den är, medan du föreslås använda den nya framåt.
+Om du använder typ `RelationalSource` av källa, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya vägen framåt.
 
-## <a name="data-type-mapping-for-sybase"></a>Mappning av datatyp för Sybase
+## <a name="data-type-mapping-for-sybase"></a>Data typs mappning för Sybase
 
-När du kopierar data från Sybase används följande mappningar från Sybase-datatyper till Azure Data Factory interimsdatatyper. Se [Schema- och datatypsmappningar](copy-activity-schema-and-type-mapping.md) om du vill veta mer om hur du kopierar aktivitetsschemat och datatypen till diskhon.
+När du kopierar data från Sybase används följande mappningar från Sybase-datatyper för att Azure Data Factory interimistiska data typer. Se [mappningar av schema och data typer](copy-activity-schema-and-type-mapping.md) för att lära dig mer om hur kopierings aktiviteten mappar käll schema och datatyp till mottagaren.
 
-Sybase stöder T-SQL-typer. En mappningstabell från SQL-typer till interimdatatyper i Azure Data Factory finns i Azure SQL Database Connector - mappningsavsnitt för [datatyp.](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database)
+Sybase stöder T-SQL-typer. En mappnings tabell från SQL-typer till Azure Data Factory interimistiska data typer finns i avsnittet [Azure SQL Database koppling – data typs mappning](connector-azure-sql-database.md#data-type-mapping-for-azure-sql-database) .
 
-## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med uniFLOW Online | Microsoft-dokument'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och uniFLOW Online.
+title: 'Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med uniFLOW online | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och uniFLOW online.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,69 +17,69 @@ ms.date: 12/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f26af813fcd4032aabce2305ac8845307d1fca65
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76262137"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-uniflow-online"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med uniFLOW Online
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-uniflow-online"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med uniFLOW online
 
-I den här självstudien får du lära dig hur du integrerar uniFLOW Online med Azure Active Directory (Azure AD). När du integrerar uniFLOW Online med Azure AD kan du:
+I den här självstudien får du lära dig hur du integrerar uniFLOW online med Azure Active Directory (Azure AD). När du integrerar uniFLOW online med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till uniFLOW Online.
-* Gör det möjligt för användarna att logga in på uniFLOW Online med sina Azure AD-konton.
-* Hantera dina konton på en central plats - Azure-portalen.
+* Kontroll i Azure AD som har åtkomst till uniFLOW online.
+* Gör det möjligt för användarna att logga in på uniFLOW online med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* uniFLOW Online-klient.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* uniFLOW online-klient.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* uniFLOW Online stöder **SP** initierade SSO
+* uniFLOW online stöder **SP** -INITIERAd SSO
 
-## <a name="adding-uniflow-online-from-the-gallery"></a>Lägga till uniFLOW Online från galleriet
+## <a name="adding-uniflow-online-from-the-gallery"></a>Lägga till uniFLOW online från galleriet
 
-Om du vill konfigurera integreringen av uniFLOW Online i Azure AD måste du lägga till uniFLOW Online från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av uniFLOW online i Azure AD måste du lägga till uniFLOW online från galleriet till listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
-1. Navigera till **företagsprogram** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **uniFLOW Online** i sökrutan i avsnittet **Lägg till från galleriet.**
-1. Välj **uniFLOW Online** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , Skriv **uniFLOW online** i sökrutan.
+1. Välj **uniFLOW online** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-uniflow-online"></a>Konfigurera och testa en azure AD-inloggning för uniFLOW Online
+## <a name="configure-and-test-azure-ad-single-sign-on-for-uniflow-online"></a>Konfigurera och testa enkel inloggning med Azure AD för uniFLOW online
 
-Konfigurera och testa Azure AD SSO med uniFLOW Online med en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i uniFLOW Online.
+Konfigurera och testa Azure AD SSO med uniFLOW online med en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i uniFLOW online.
 
-Så här konfigurerar och testar du Azure AD SSO med uniFLOW Online:
+Om du vill konfigurera och testa Azure AD SSO med uniFLOW online slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-   1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
-   1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
-1. **[Konfigurera uniFLOW Online SSO](#configure-uniflow-online-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
-    * **[Logga in på uniFLOW Online med den skapade testanvändaren](#sign-in-to-uniflow-online-using-the-created-test-user)** - för att testa användarinloggning på programsidan.
+   1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+   1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera uniFLOW online SSO](#configure-uniflow-online-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    * **[Logga in på uniFLOW online med hjälp av den skapade test användaren](#sign-in-to-uniflow-online-using-the-created-test-user)** – för att testa användar inloggningen på program sidan.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. Leta reda på avsnittet **uniFLOW Online** Hantera på sidan Hantera på sidan **Manage** [Azure-portalen](https://portal.azure.com/)och välj **enkel inloggning**.
-1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
+1. I [Azure Portal](https://portal.azure.com/)på sidan **uniFLOW online** Application Integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. Ange värdena för följande fält i avsnittet **Grundläggande SAML-konfiguration:**
+1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: 
 
@@ -102,111 +102,111 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
     | `https://<tenant_domain_name>.au.uniflowonline.com`|
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [uniFLOW Online Client support team](mailto:support@nt-ware.com) för att få dessa värden. Du kan också referera till de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen eller referera till svars-URL:en som visas i uniFLOW Online-klienten.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [uniFLOW online](mailto:support@nt-ware.com) för att hämta dessa värden. Du kan också se de mönster som visas i avsnittet **grundläggande SAML-konfiguration** i Azure Portal eller referera till svars-URL: en som visas i uniFLOW online-klienten.
 
-1. uniFLOW Online-programmet förväntar sig SAML-påståenden i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut.
+1. uniFLOW online-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
     ![image](common/default-attributes.png)
 
-1. Utöver ovanstående förväntar sig uniFLOW Online-programmet att få fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda men du kan granska dem enligt dina krav.
+1. Utöver ovan förväntar sig uniFLOW-online-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    | Namn |  Källattribut|
+    | Name |  Källattribut|
     | -----------| --------------- |
     | displayname (visningsnamn) | user.displayname |
-    | Smeknamn | user.onpremisessamaccountname |
+    | smek namn | User. egna namnet onpremisessamaccountname |
 
    > [!NOTE]
-   > Attributet `user.onpremisessamaccountname` innehåller endast ett värde om dina Azure AD-användare synkroniseras från en lokal Active Directory i Windows.
+   > `user.onpremisessamaccountname` Attributet innehåller bara ett värde om dina Azure AD-användare synkroniseras från en lokal Windows-Active Directory.
 
-1. Klicka på knappen Kopiera i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** för att kopiera url till App **Federationsmetadata** och spara den på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.
 
     ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
-1. Välj **Ny användare** högst upp på skärmen.
-1. Gör så här i egenskaperna **Användare:**
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till uniFLOW Online.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till uniFLOW online.
 
-1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
-1. Välj **uniFLOW Online**i programlistan .
-1. På appens översiktssida går du till avsnittet **Hantera** och väljer **Användare och grupper**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **uniFLOW online**.
+1. På sidan Översikt för appen går du till avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
    ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
 > [!NOTE]
-> Om du vill att alla användare ska kunna komma åt programmet utan manuell tilldelning går du till avsnittet **Hantera** och väljer **Egenskaper**. Ändra sedan parametern **Användartilldelning krävs** till **NO**.
+> Om du vill tillåta alla användare att komma åt programmet utan manuell tilldelning går du till avsnittet **Hantera** och väljer **Egenskaper**. Ändra sedan parametern för **användar tilldelning som krävs** till **Nej**.
 
-## <a name="configure-uniflow-online-sso"></a>Konfigurera uniFLOW Online SSO
+## <a name="configure-uniflow-online-sso"></a>Konfigurera uniFLOW online SSO
 
 1. Logga in på uniFLOW Online-webbplatsen som administratör i ett annat webbläsarfönster.
 
-1. Välj **Fliken Användare** på den vänstra navigeringspanelen.
+1. Välj fliken **användare** i den vänstra navigerings panelen.
 
-    ![uniFLOW-onlinekonfiguration](./media/uniflow-online-tutorial/configure1.png)
+    ![uniFLOW online-konfiguration](./media/uniflow-online-tutorial/configure1.png)
 
-1. Klicka på **Identitetsleverantörer**.
+1. Klicka på **identitets leverantörer**.
 
-    ![uniFLOW-onlinekonfiguration](./media/uniflow-online-tutorial/configure2.png)
+    ![uniFLOW online-konfiguration](./media/uniflow-online-tutorial/configure2.png)
 
-1. Klicka på **Lägg till identitetsprovider**.
+1. Klicka på **Lägg till identitets leverantör**.
 
-    ![uniFLOW-onlinekonfiguration](./media/uniflow-online-tutorial/configure3.png)
+    ![uniFLOW online-konfiguration](./media/uniflow-online-tutorial/configure3.png)
 
-1. Gör följande i avsnittet **LÄGG TILL IDENTITETSPROVIDER:**
+1. I avsnittet **Lägg till identitetsprovider** utför du följande steg:
 
 
-    ![uniFLOW-onlinekonfiguration](./media/uniflow-online-tutorial/configure4.png)
+    ![uniFLOW online-konfiguration](./media/uniflow-online-tutorial/configure4.png)
 
-    a. Ange visningsnamnet Ex: *AzureAD SSO*.
+    a. Ange visnings namnet t. ex.: *AZUREAD SSO*.
 
-    b. För **providertyp**väljer du alternativet **WS-Fed** i listrutan.
+    b. För **typ av Provider**väljer du alternativet **WS-utfodras** i list rutan.
 
-    c. För **WS-Fed-typ**väljer du **Alternativet Azure Active Directory** i listrutan.
+    c. För **WS-utfodras typ**väljer du **Azure Active Directory** alternativ i list rutan.
 
     d. Klicka på **Spara**.
 
-1. Gör följande på fliken **Allmänt:**
+1. Utför följande steg på fliken **Allmänt** :
 
-    ![uniFLOW-onlinekonfiguration](./media/uniflow-online-tutorial/configure5.png)
+    ![uniFLOW online-konfiguration](./media/uniflow-online-tutorial/configure5.png)
 
-    a. Ange visningsnamnet Ex: *AzureAD SSO*.
+    a. Ange visnings namnet t. ex.: *AZUREAD SSO*.
 
-    b. Välj alternativet **Från URL** för **ADFS Federation Metadata**.
+    b. Välj alternativet **från URL** för **ADFS federation-metadata**.
 
-    c. I textrutan **Federation Metadata URl** klistrar du in **url-värdet för App Federation Metadata,** som du har kopierat från Azure-portalen.
+    c. I text rutan **URL för federationsmetadata** klistrar du in URL-värdet för **app Federation-Metadata** , som du har kopierat från Azure Portal.
 
-    d. Välj **Identitetsprovider** som **aktiverad**.
+    d. Välj **identitets leverantör** som **aktive rad**.
 
-    e. Välj **Automatisk användarregistrering** som **aktiverad**.
+    e. Välj **Automatisk användar registrering** som **aktive rad**.
 
     f. Klicka på **Spara**.
 
-### <a name="sign-in-to-uniflow-online-using-the-created-test-user"></a>Logga in på uniFLOW Online med den skapade testanvändaren
+### <a name="sign-in-to-uniflow-online-using-the-created-test-user"></a>Logga in på uniFLOW online med den skapade test användaren
 
-1. I ett annat webbläsarfönster går du till uniFLOW Online-URL:en för din klientorganisation.
+1. Gå till uniFLOW online-URL: en för din klient organisation i ett annat webbläsarfönster.
 
-1. Välj den tidigare skapade identitetsprovidern för att logga in via din Azure AD-instans.
+1. Välj den tidigare skapade identitets leverantören för inloggning via Azure AD-instansen.
 
-1. Logga in med testanvändaren.
+1. Logga in med test användaren.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -216,4 +216,4 @@ I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning ge
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Prova uniFLOW Online med Azure AD](https://aad.portal.azure.com/)
+- [Prova uniFLOW online med Azure AD](https://aad.portal.azure.com/)

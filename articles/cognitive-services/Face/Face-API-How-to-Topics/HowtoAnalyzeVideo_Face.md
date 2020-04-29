@@ -1,7 +1,7 @@
 ---
-title: 'Exempel: Videoanalys i realtid - Face'
+title: 'Exempel: real tids video analys – ansikte'
 titleSuffix: Azure Cognitive Services
-description: Använd Face-tjänsten för att utföra analyser i nära realtid på bildrutor som tagits från en livevideoström.
+description: Använd ansikts tjänsten för att utföra analys i nära real tid på ramar som tas från en video ström i real tid.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.openlocfilehash: ab3f596000216e8555bb84d0d47aff9a6e969eeb
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76169889"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Exempel: Så analyserar du videor i realtid
@@ -26,7 +26,7 @@ Den här guiden visar hur du utför analyser nästan i realtid på bildrutor som
 - Skicka dessa bildrutor till API:et
 - Använda varje analysresultat som returneras från API-anropet
 
-Dessa prover är skrivna i C# och koden finns [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)på GitHub här: .
+De här exemplen är skrivna i C# och koden hittar du på GitHub här: [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/).
 
 ## <a name="the-approach"></a>Metoden
 
@@ -138,11 +138,11 @@ while (true)
 
 ### <a name="getting-started"></a>Komma igång
 
-För att få igång din app så snabbt som möjligt använder du en flexibel implementering av det system som beskrivs ovan. För att komma åt [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis)koden går du till .
+För att få igång din app så snabbt som möjligt använder du en flexibel implementering av det system som beskrivs ovan. Om du vill komma åt koden går [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis)du till.
 
 Biblioteket innehåller klassen FrameGrabber som implementerar det ovan beskrivna producent-konsument-systemet för att bearbeta bildrutor från en webbkamera. Användaren kan ange den exakta formen av API-anropet, och klassen använder händelser för att informera koden om när en ny bildruta tas eller ett nytt analysresultat är tillgängligt.
 
-För att beskriva några av möjligheterna finns det två exempelappar som använder biblioteket. Den första är en enkel konsolapp, och en förenklad version av den återges nedan. Den griper ramar från standard webbkameran, och skickar dem till Face tjänsten för ansiktsigenkänning.
+För att beskriva några av möjligheterna finns det två exempelappar som använder biblioteket. Den första är en enkel konsolapp, och en förenklad version av den återges nedan. Den hämtar ramar från standard webb kameran och skickar dem till ansikts tjänsten för ansikts igenkänning.
 
 ```csharp
 using System;
@@ -208,7 +208,7 @@ Kom igång med det här exemplet genom att följa dessa steg:
 2. Klona GitHub-lagringsplatsen [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)
 
 3. Öppna exemplet i Visual Studio 2015 och skapa och kör exempelprogrammen:
-    - För BasicConsoleSample är face-tangenten hårdkodad direkt i [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+    - För BasicConsoleSample är ansikts nyckeln hårdkodad direkt i [BasicConsoleSample/program. cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - För LiveCameraSample bör du ange nycklarna i appens fönster Inställningar. De bevaras mellan sessioner som användardata.
         
 

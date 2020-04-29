@@ -11,16 +11,16 @@ ms.custom: include file
 ms.date: 01/15/2020
 ms.author: diberry
 ms.openlocfilehash: 7ef219e6b5f7547029612ec3898efec51abd4712
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76122896"
 ---
-## <a name="change-the-model-update-frequency"></a>Ändra modellens uppdateringsfrekvens
+## <a name="change-the-model-update-frequency"></a>Ändra modell uppdaterings frekvensen
 
-I Azure-portalen, i Personalizer-resursen på sidan **Konfiguration,** ändrar du **uppdateringsfrekvensen för modell** till 10 sekunder. Denna korta varaktighet kommer att träna tjänsten snabbt, så att du kan se hur den översta åtgärden ändras för varje iteration.
+I Azure Portal i gruppen personanpassa på sidan **konfiguration** ändrar du **modell uppdaterings frekvensen** till 10 sekunder. Den här korta varaktigheten kommer att träna tjänsten snabbt, så att du kan se hur de viktigaste åtgärderna ändras för varje iteration.
 
-![Ändra uppdateringsfrekvens för modell](../media/settings/configure-model-update-frequency-settings.png)
+![Ändra modell uppdaterings frekvens](../media/settings/configure-model-update-frequency-settings.png)
 
-När en Personalizer-loop först instansieras finns det ingen modell eftersom det inte har förekommit några belönings-API-anrop att träna från. Rank-anrop returnerar lika många sannolikheter för varje objekt. Ditt program bör fortfarande alltid rangordna innehåll med hjälp av utdata från RewardActionId.
+När en säkerhetsslinga först instansieras finns det ingen modell eftersom det inte har skett några belönings-API-anrop att träna från. Ranknings anrop returnerar lika många sannolikheter för varje objekt. Ditt program borde fortfarande alltid rangordna innehåll med hjälp av utdata från RewardActionId.

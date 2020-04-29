@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Känna igen tal från en ljudfil - Taltjänst'
+title: 'Snabb start: identifiera tal från en ljud fil – tal tjänst'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: erhopf
@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
 ms.openlocfilehash: 08a8df8382cc0e513916a802eb1b383124107393
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75927876"
 ---
-Visa eller ladda ned alla <a href="https://aka.ms/speech/github">Tal SDK-exempel</a> på GitHub.
+Visa eller hämta alla <a href="https://aka.ms/speech/github">tal SDK-exempel</a> på GitHub.

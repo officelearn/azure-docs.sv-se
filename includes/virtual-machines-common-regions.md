@@ -9,10 +9,10 @@ ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 5e3f25727204343de107bacb9fc99d6cfb77d76f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76020937"
 ---
 Det är viktigt att förstå hur och var dina virtuella datorer körs i Azure och vilka alternativ du har för att maximera prestanda, tillgänglighet och redundans. Den här artikeln ger en översikt över funktionerna för tillgänglighet och redundans i Azure.
@@ -21,17 +21,17 @@ Det är viktigt att förstå hur och var dina virtuella datorer körs i Azure oc
 ## <a name="what-are-azure-regions"></a>Vad är Azure-regioner?
 Azure körs på ett antal datacenter över hela världen. Dessa datacenter är grupperade i geografiska regioner så att du kan välja var du vill bygga dina program. 
 
-Du skapar Azure-resurser i definierade geografiska regioner som "Västra USA", "Norra Europa" eller Sydostasien. Se [listan över regioner och deras platser](https://azure.microsoft.com/regions/). I varje region finns flera datacenter för att skapa förutsättningar för redundans och tillgänglighet. Den här metoden ger dig flexibilitet när du utformar program för att skapa virtuella datorer närmast dina användare och för att uppfylla alla juridiska, efterlevnads- eller skatteändamål.
+Du skapar Azure-resurser i definierade geografiska områden som "västra USA", "Nord Europa" eller "Sydostasien". Se [listan över regioner och deras platser](https://azure.microsoft.com/regions/). I varje region finns flera datacenter för att skapa förutsättningar för redundans och tillgänglighet. Den här metoden ger dig flexibilitet när du utformar program för att skapa virtuella datorer som är närmast dina användare och som uppfyller juridiska, efterlevnads-eller skatte syfte.
 
 ## <a name="special-azure-regions"></a>Särskilda Azure-regioner
-Azure har några speciella regioner som du kanske vill använda när du skapar dina program för efterlevnad eller juridiska ändamål. De särskilda regionerna innefattar:
+Azure har vissa särskilda regioner som du kanske vill använda när du skapar program för efterlevnad eller i juridiskt syfte. De särskilda regionerna innefattar:
 
 * **USA Gov, Virginia** och **USA Gov, Iowa**
   * En fysisk och logisk nätverksisolerad instans av Azure för amerikanska myndigheter och partner som drivs av säkerhetskontrollerad amerikansk personal. Innefattar ytterligare efterlevnadscertifieringar som [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) och [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). Läs mer om [Azure Government](https://azure.microsoft.com/features/gov/).
 * **Kina, östra** och **Kina, norra**
-  * Dessa regioner är tillgängliga via ett unikt partnerskap mellan Microsoft och 21Vianet, vilket innebär att Microsoft inte direkt underhåller dessa datacenter. Läs mer om [Azure China 21Vianet](https://www.windowsazure.cn/).
+  * Dessa regioner är tillgängliga via ett unikt partnerskap mellan Microsoft och 21Vianet, vilket innebär att Microsoft inte direkt underhåller dessa datacenter. Läs mer om [Azure Kina 21Vianet](https://www.windowsazure.cn/).
 * **Tyskland, centrala** och **Tyskland, nordöstra**
-  * Dessa regioner är tillgängliga via en dataförvaltare modell där kunddata kvar i Tyskland under kontroll av T-Systems, ett Deutsche Telekom företag, som agerar som den tyska dataförvaltare.
+  * Dessa regioner är tillgängliga via en data förvaltar modell där kund information förblir i Tyskland under kontroll av T-Systems, ett tyska telekom-företag som agerar som den tyska data förvaltar.
 
 ## <a name="region-pairs"></a>Regionpar
 Varje Azure-region är kopplad till en annan region inom samma geografiska område (till exempel USA, Europa och Asien). På så sätt kan resurser som VM-lagring replikeras över geografiska områden som inte troligtvis påverkas samtidigt av naturkatastrofer, oroligheter i landet, strömavbrott eller avbrott i fysiska nätverk. Ytterligare fördelar med regionpar:
@@ -51,7 +51,7 @@ Exempel på regionpar:
 Se [den fullständiga listan över regionpar](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
 ## <a name="feature-availability"></a>Funktionstillgänglighet
-Vissa tjänster eller VM-funktioner är endast tillgängliga i vissa regioner, till exempel särskilda VM-storlekar eller lagringstyper. Det finns också vissa globala Azure-tjänster som inte kräver att du väljer en viss region, till exempel [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md) och [Azure DNS](../articles/dns/dns-overview.md). När du utformar din programmiljö kan du kontrollera [tillgängligheten av Azure-tjänster för varje region](https://azure.microsoft.com/regions/#services). Du kan också [programmässigt fråga de vm-storlekar och begränsningar som stöds i varje region](../articles/azure-resource-manager/templates/error-sku-not-available.md).
+Vissa tjänster eller VM-funktioner är endast tillgängliga i vissa regioner, till exempel särskilda VM-storlekar eller lagringstyper. Det finns också vissa globala Azure-tjänster som inte kräver att du väljer en viss region, till exempel [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md) och [Azure DNS](../articles/dns/dns-overview.md). När du utformar din programmiljö kan du kontrollera [tillgängligheten av Azure-tjänster för varje region](https://azure.microsoft.com/regions/#services). Du kan också [program mässigt fråga efter de VM-storlekar som stöds och begränsningar i varje region](../articles/azure-resource-manager/templates/error-sku-not-available.md).
 
 ## <a name="storage-availability"></a>Lagringstillgänglighet
 Det är viktigt att förstå Azure-regioner och geografiska områden när du ska välja bland de tillgängliga alternativen för lagringsreplikering. Det finns olika replikeringsalternativ beroende på vilken lagringstyp du har.
@@ -74,8 +74,8 @@ Följande tabell ger en snabb översikt över skillnaderna mellan lagringsreplik
 
 | Replikeringsstrategi | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Data replikeras över flera anläggningar. |Inga |Ja |Ja |Ja |
-| Data kan läsas från den sekundära platsen och från den primära platsen. |Inga |Inga |Inga |Ja |
+| Data replikeras över flera anläggningar. |Nej |Ja |Ja |Ja |
+| Data kan läsas från den sekundära platsen och från den primära platsen. |Nej |Nej |Nej |Ja |
 | Antal kopior av data som finns på olika noder. |3 |3 |6 |6 |
 
 Du kan läsa mer om [Azure Storage-replikeringsalternativen här](../articles/storage/common/storage-redundancy.md). Mer information om hanterade diskar finns i [Översikt över Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
@@ -84,10 +84,10 @@ Du kan läsa mer om [Azure Storage-replikeringsalternativen här](../articles/st
 Priserna varierar beroende på vilken lagringstyp och tillgänglighet du väljer.
 
 **Azure Managed Disks**
-* Premium-hanterade diskar backas upp av SSD-enheter (Solid State Drives) och standardhanterade diskar backas upp av vanliga snurrande diskar. Både Premium och Standard Managed Disks debiteras baserat på etablerad kapacitet för disken.
+* Premium Managed Disks backas upp av solid state-hårddiskar (SSD) och standard Managed Disks backas upp av vanliga snurrande diskar. Både Premium och Standard Managed Disks debiteras baserat på etablerad kapacitet för disken.
 
 **Ohanterade diskar**
-* Premiumlagring backas upp av SSD-enheter (Solid State Drives) och debiteras baserat på diskens kapacitet.
+* Premium Storage backas upp av solid state-hårddiskar (SSD) och debiteras baserat på diskens kapacitet.
 * Standard Storage använder roterande diskar och debiteras baserat på den kapacitet som används och önskad lagringstillgänglighet.
   * För RA-GRS tillkommer en extra dataöverföringsavgift för geo-replikering för bandbredden som används för att replikera dessa data till en annan Azure-region.
 

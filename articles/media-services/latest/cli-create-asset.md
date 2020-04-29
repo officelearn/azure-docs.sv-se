@@ -1,5 +1,5 @@
 ---
-title: Ladda upp innehåll till en Azure Media Services-tillgång med Azure CLI
+title: Ladda upp innehåll till en Azure Media Services till gång med Azure CLI
 description: Azure CLI-skriptet i det här avsnittet visar hur du skapar en Media Services-tillgång för att överföra innehåll till.
 services: media-services
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
 ms.openlocfilehash: 0c24464050d0beee120dcb234582a464d6245270
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76310653"
 ---
 # <a name="cli-example-create-an-asset"></a>CLI-exempel: Skapa en tillgång

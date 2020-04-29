@@ -1,5 +1,5 @@
 ---
-title: Belastningsutjämning flera webbplatser - Azure CLI - Azure Load Balancer
+title: Belastningsutjämna flera webbplatser – Azure CLI – Azure Load Balancer
 description: Det här exemplet på CLI-skript visar hur du belastningsutjämnar flera webbplatser på samma virtuella dator
 documentationcenter: load-balancer
 author: asudbring
@@ -10,10 +10,10 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
 ms.openlocfilehash: 80ec18ca722b9833307fc270c710abd93c6fb6f9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76274625"
 ---
 # <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Exempel på Azure CLI-skript: Belastningsutjämning av flera webbplatser
@@ -41,7 +41,7 @@ az group delete --name myResourceGroup --yes
 
 I det här skriptet används följande kommandon för att skapa en resursgrupp, virtuellt nätverk, lastbalanserare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az-network-vnet-create) | Skapar ett virtuellt Azure-nätverk och undernät. |

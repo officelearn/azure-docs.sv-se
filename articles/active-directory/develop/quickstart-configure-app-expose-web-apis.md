@@ -1,5 +1,5 @@
 ---
-title: Konfigurera en app för att exponera webb-API:er – Microsoft identity platform | Azure
+title: 'Konfigurera en app för att exponera webb-API: er – Microsoft Identity Platform | Azure'
 description: Lär dig hur du konfigurerar en app att exponera en ny behörighet/ett nytt omfång och roller för att göra appen tillgänglig för klientprogram.
 services: active-directory
 author: rwike77
@@ -13,13 +13,13 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: e005ba9c5458849863bd4668ffde1e0f6fb4bf91
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76704229"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Snabbstart: Konfigurera ett program för att exponera webb-API:er
+# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Snabb start: Konfigurera ett program för att exponera webb-API: er
 
 Du kan utveckla ett webb-API och göra det tillgängligt för klientprogram genom att exponera [behörigheter/omfång](developer-glossary.md#scopes) och [roller](developer-glossary.md#roles). Ett korrekt konfigurerat webb-API tillhandahålls precis som de andra webb-API:erna från Microsoft, inklusive Graph API och Office 365-API:erna.
 
@@ -39,7 +39,7 @@ Innan du kan konfigurera appen gör du följande:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-1. I det vänstra navigeringsfönstret väljer du **Azure Active Directory-tjänsten** och väljer sedan **Appregistreringar**.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar**.
 1. Leta reda på och välj den app du vill konfigurera. När du har valt appen ser du dess **översikt** eller huvudregistreringssida.
 1. Välj vilken metod du vill använda, användargränssnitt eller applikationsmanifest, för att exponera ett nytt omfång:
     * [Exponera ett nytt omfång via användargränssnittet](#expose-a-new-scope-through-the-ui)
@@ -47,7 +47,7 @@ Innan du kan konfigurera appen gör du följande:
 
 ## <a name="expose-a-new-scope-through-the-ui"></a>Exponera ett nytt omfång via användargränssnittet
 
-[![Visar hur du exponerar ett API med användargränssnittet](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+[![Visar hur du exponerar ett API med hjälp av användar gränssnittet](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
 
 Så här exponerar du ett nytt omfång via användargränssnittet:
 
@@ -79,7 +79,7 @@ Så här exponerar du ett nytt omfång via användargränssnittet:
 
 ## <a name="expose-a-new-scope-or-role-through-the-application-manifest"></a>Exponera ett nytt omfång eller en ny roll via applikationsmanifestet
 
-[![Exponera ett nytt scope med hjälp av oauth2Permissions-samlingen i manifestet](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png#lightbox)
+[![Exponera ett nytt omfång med oauth2Permissions-samlingen i manifestet](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png#lightbox)
 
 Så här exponerar du ett nytt omfång eller en ny roll via applikationsmanifestet:
 
@@ -111,7 +111,7 @@ Så här exponerar du ett nytt omfång eller en ny roll via applikationsmanifest
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Verifiera att webb-API:et görs tillgängligt för andra appar
 
 1. Gå tillbaka till din Azure AD-klientorganisation, välj **Appregistreringar**, leta upp och välj det klientprogram som du vill konfigurera.
-1. Upprepa stegen i [Konfigurera ett klientprogram för att komma åt webb-API:er](quickstart-configure-app-access-web-apis.md).
+1. Upprepa stegen som beskrivs i [Konfigurera ett klient program för att få åtkomst till webb-API: er](quickstart-configure-app-access-web-apis.md).
 1. När du kommer till steget för att [välja ett API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
 )väljer du din resurs. Du bör se det nya omfånget, tillgängligt för begäranden om klientbehörighet.
 

@@ -9,48 +9,48 @@ ms.topic: overview
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 576bc3e37711851acd7d6c7ac811a10e40080710
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75908922"
 ---
 # <a name="internet-peering-overview"></a>Översikt över Internet-peering
 
-Peering är sammankopplingen mellan Microsofts globala nätverk (AS8075) och ditt nätverk i syfte att utbyta internettrafik från/till Microsofts onlinetjänster och Microsoft Azure Services. Operatörer eller tjänsteleverantörer kan begära att få kontakt med Microsoft på någon av våra Edge-platser. Varje begäran granskas av Microsoft för att säkerställa att den följer vår peering-policy. Du kan konfigurera en peering med Microsoft-nätverk på två sätt:
+Peering är en sammanlänkning mellan Microsofts globala nätverk (AS8075) och ditt nätverk för att kunna utbyta Internet trafik från/till Microsoft onlinetjänster och Microsoft Azure-tjänster. Leverantörer eller tjänst leverantörer kan begära att ansluta till Microsoft på någon av våra gräns platser. Varje begäran granskas av Microsoft för att säkerställa att den följer vår peering-princip. Du kan konfigurera en peering med Microsoft Network på två sätt:
 
 * **Direkt peering:**
 
-    Peering upprättas via direkta fysiska anslutningar mellan Microsoft-nätverk på en Microsoft Edge och ditt nätverk. BGP-sessioner konfigureras över dessa anslutningar enligt vår routningsprincip och med hjälp av förförhandsförhandlade avtal. Detta kallas även PNI.
+    Peering har upprättats över direkta fysiska anslutningar mellan Microsoft-nätverk på Microsoft Edge och nätverket. BGP-sessioner konfigureras för de här anslutningarna enligt Routningsprincipen och enligt förhandlat avtal. Detta kallas även PNI.
 
-* **Exchange peering:**
+* **Exchange-peering:**
 
-    Detta avser vanliga offentliga peering-anslutningar på Internet Exchanges (IX). De fysiska anslutningarna mellan Microsoft-nätverket och nätverket sker via växelstrukturen som drivs av IX. BGP-sessioner konfigureras med IP-utrymme som tillhandahålls av IX.
+    Detta avser standard-offentliga peering-anslutningar i Internet utbyten (IX). De fysiska anslutningarna mellan Microsoft-nätverk och nätverket är via växel infrastruktur som drivs av IX. BGP-sessioner konfigureras med hjälp av det IP-utrymme som tillhandahålls av IX.
 
 ## <a name="benefits-of-peering-with-microsoft"></a>Fördelar med peering med Microsoft
-* Sänk dina transitkostnader genom att leverera Microsoft-trafik med hjälp av peering med Microsoft.
-* Förbättra prestanda för dina kunder genom att minska nätverkshopp och svarstid till Microsoft Edge-nätverket.
-* Skydda kundtrafiken mot fel i nätverkets eller transitleverantörens nätverk genom att peering med Microsoft på redundanta platser.
-* Lär dig prestandamått om dina peering-anslutningar och använd insikter för att felsöka nätverket.
+* Sänk dina överförings kostnader genom att leverera Microsoft-trafik med hjälp av peering med Microsoft.
+* Förbättra prestanda för dina kunder genom att minska nätverks hopp och svars tid till Microsoft Edge-nätverk.
+* Skydda kund trafik mot problem i nätverket eller transit leverantörens nätverk genom peering med Microsoft på redundanta platser.
+* Lär dig prestanda mått om dina peering-anslutningar och Använd insikter för att felsöka nätverket.
 
 ## <a name="benefits-of-using-azure-to-set-up-peering"></a>Fördelar med att använda Azure för att konfigurera peering
 
-Du kan begära peering med Microsoft med Azure PowerShell eller portal. Peering-uppsättning på detta sätt hanteras som en Azure-resurs och ger följande fördelar:
+Du kan begära peering med Microsoft med hjälp av Azure PowerShell eller portalen. Peering-konfiguration på det här sättet hanteras som en Azure-resurs och ger följande fördelar:
 * Förenklade och automatiserade steg för att konfigurera och hantera peering med Microsoft.
-* Snabbt och enkelt sätt att visa och hantera alla dina peerings på ett ställe.
-* Spåra status- och bandbreddsdata för alla anslutningar.
-* Du kan använda samma prenumeration för att komma åt dina Azure Cloud Services.
+* Snabbt och enkelt sätt att visa och hantera alla dina kollegor på ett och samma ställe.
+* Spåra status-och bandbredds data för alla dina anslutningar.
+* Du kan använda samma prenumeration för att få åtkomst till Azure-Cloud Services.
 
-Om du redan har etablerat peerings med Microsoft kallas de **äldre peerings**. Du kan välja att hantera sådana peerings som Azure-resurs för att dra nytta av ovanstående fördelar. Om du vill skicka en ny peering-begäran eller konvertera äldre peering till Azure-resurs följer du länkarna i avsnittet **Nästa steg** nedan.
+Om du redan har upprättat peer-kopplingar med Microsoft kallas de för **äldre peer**-kopplingar. Du kan välja att hantera sådana peer-kopplingar som Azure Resource för att dra nytta av de ovannämnda fördelarna. Om du vill skicka en ny peering-begäran eller konvertera äldre peering till Azure Resource följer du länkarna i avsnittet **Nästa steg** nedan.
 
 ## <a name="peering-policy"></a>Peering-policy
-Microsoft har en selektiv men i allmänhet öppen peering-policy. Peers väljs ut baserat på prestanda, kapacitet och där det finns ömsesidiga fördelar, och omfattas av vissa tekniska, kommersiella och juridiska krav. Mer information finns i [peering-principen](policy.md).
+Microsoft har en selektiv, men ofta öppen peering-princip. Peer-datorer väljs utifrån prestanda, kapacitet och var de har ömsesidig nytta och omfattas av vissa tekniska, kommersiella och juridiska krav. Mer information finns i [peering-principen](policy.md).
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
-Vanliga frågor och svar om peering finns i [Internet peering - vanliga frågor](faqs.md).
+Vanliga frågor och svar om peering finns i [Internet-peering – vanliga frågor och svar](faqs.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill veta mer om steg för att konfigurera Direkt peering med Microsoft följer du [Direktgenomspelning](walkthrough-direct-all.md)
-* Om du vill veta mer om steg för att konfigurera Exchange-peering med Microsoft följer du [Exchange-peering-genomgång](walkthrough-exchange-all.md)
+* Om du vill veta mer om hur du konfigurerar direkt peering med Microsoft följer du [genom gången av direkt peering](walkthrough-direct-all.md)
+* Om du vill veta mer om hur du konfigurerar Exchange-peering med Microsoft följer du [genom gången av Exchange-peering](walkthrough-exchange-all.md)
 * Lär dig mer om de andra viktiga [nätverksfunktionerna](https://docs.microsoft.com/azure/networking/networking-overview) i Azure.

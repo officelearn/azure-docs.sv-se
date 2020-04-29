@@ -1,6 +1,6 @@
 ---
-title: Visa granskningsrapport för Azure-resursroller i PIM (Privileged Identity Management) – Azure AD | Microsoft-dokument
-description: Visa aktivitets- och granskningshistorik för Azure-resursroller i Azure AD Privileged Identity Management (PIM).
+title: Visa gransknings rapport för Azure Resource roles i Privileged Identity Management (PIM) – Azure AD | Microsoft Docs
+description: Visa aktivitet och gransknings historik för Azure Resource roles i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,131 +15,131 @@ ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4bf65ad595fb1ab70eb6613b6d54ac2a4f69141e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78329646"
 ---
-# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Visa aktivitets- och granskningshistorik för Azure-resursroller i Privilegierad identitetshantering
+# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Visa aktivitet och gransknings historik för Azures resurs roller i Privileged Identity Management
 
-Med Azure Active Directory (Azure AD) Privilegierad identitetshantering (PIM) kan du visa aktivitet, aktiveringar och granskningshistorik för Azure-resursroller inom organisationen. Detta inkluderar prenumerationer, resursgrupper och till och med virtuella datorer. Alla resurser i Azure-portalen som utnyttjar Azure-rollbaserade åtkomstkontrollfunktioner kan dra nytta av säkerhets- och livscykelhanteringsfunktionerna i Privilegierad identitetshantering.
+Med Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kan du Visa aktivitet, aktiveringar och gransknings historik för Azure-resurser i din organisation. Detta omfattar prenumerationer, resurs grupper och till och med virtuella datorer. Alla resurser i Azure Portal som utnyttjar Azures rollbaserade åtkomst kontroll funktioner kan dra nytta av funktionerna för säkerhet och livs cykel hantering i Privileged Identity Management.
 
 > [!NOTE]
-> Om din organisation har lagt ut hanteringsfunktioner på entreprenad till en tjänsteleverantör som använder [Azure-delegerad resurshantering](../../lighthouse/concepts/azure-delegated-resource-management.md)visas inte rolltilldelningar som auktoriserats av den tjänsteleverantören här.
+> Om din organisation har funktioner som har hanterats av en tjänst leverantör som använder [Azure-delegerad resurs hantering](../../lighthouse/concepts/azure-delegated-resource-management.md), visas inte roll tilldelningar som har auktoriserats av tjänste leverantören här.
 
 ## <a name="view-activity-and-activations"></a>Visa aktivitet och aktiveringar
 
-Om du vill se vilka åtgärder en viss användare har vidtagit i olika resurser kan du visa azure-resursaktiviteten som är associerad med en viss aktiveringsperiod.
+Om du vill se vilka åtgärder en viss användare har tagit i olika resurser kan du Visa den Azure Resource-aktivitet som är associerad med en viss aktiverings period.
 
-1. Öppna **Azure AD-privilegierad identitetshantering**.
+1. Öppna **Azure AD Privileged Identity Management**.
 
 1. Välj **Azure-resurser**.
 
-1. Välj den resurs som du vill visa aktivitet och aktiveringar för.
+1. Välj den resurs som du vill visa aktivitet och aktivering för.
 
-1. Välj **Roller** eller **Medlemmar**.
+1. Välj **roller** eller **medlemmar**.
 
 1. Välj en användare.
 
-    Du ser en sammanfattning av användarens åtgärder i Azure-resurser efter datum. Den visar också de senaste rollaktiveringarna under samma tidsperiod.
+    Du ser en sammanfattning av användarens åtgärder i Azure-resurser efter datum. Den visar även de senaste roll aktiveringarna under samma tids period.
 
-    ![Användarinformation med sammanfattning av resursaktivitet och rollaktiveringar](media/azure-pim-resource-rbac/rbac-user-details.png)
+    ![Användar information med sammanfattning av resurs aktivitet och roll aktiveringar](media/azure-pim-resource-rbac/rbac-user-details.png)
 
-1. Välj en specifik rollaktivering för att se information och motsvarande Azure-resursaktivitet som inträffade när användaren var aktiv.
+1. Välj en speciell roll aktivering om du vill visa information och motsvarande Azure Resource-aktivitet som uppstod när användaren var aktiv.
 
-    [![Rollaktivering markerad och aktivitetsinformation](media/azure-pim-resource-rbac/export-membership.png "Rollaktivering markerad och aktivitetsinformation")](media/azure-pim-resource-rbac/export-membership.png)
+    [![Roll aktivering har valts och aktivitets information](media/azure-pim-resource-rbac/export-membership.png "Roll aktivering har valts och aktivitets information")](media/azure-pim-resource-rbac/export-membership.png)
 
-## <a name="export-role-assignments-with-children"></a>Exportera rolluppgifter med underordnade
+## <a name="export-role-assignments-with-children"></a>Exportera roll tilldelningar med underordnade
 
-Du kan ha ett efterlevnadskrav där du måste tillhandahålla en fullständig lista över rolltilldelningar till revisorer. Med privilegierad identitetshantering kan du fråga rolltilldelningar på en viss resurs, vilket inkluderar rolltilldelningar för alla underordnade resurser. Tidigare var det svårt för administratörer att få en fullständig lista över rolltilldelningar för en prenumeration och de var tvungna att exportera rolltilldelningar för varje specifik resurs. Med privilegierad identitetshantering kan du fråga efter alla aktiva och kvalificerade rolltilldelningar i en prenumeration, inklusive rolltilldelningar för alla resursgrupper och resurser.
+Du kan ha ett krav på efterlevnad där du måste ange en fullständig lista över roll tilldelningar till granskare. Med Privileged Identity Management kan du fråga roll tilldelningar för en speciell resurs, vilket innefattar roll tilldelningar för alla underordnade resurser. Tidigare var det svårt för administratörer att få en fullständig lista över roll tilldelningar för en prenumeration och de behövde exportera roll tilldelningar för varje enskild resurs. Med hjälp av Privileged Identity Management kan du fråga efter alla aktiva och berättigade roll tilldelningar i en prenumeration, inklusive roll tilldelningar för alla resurs grupper och resurser.
 
-1. Öppna **Azure AD-privilegierad identitetshantering**.
+1. Öppna **Azure AD Privileged Identity Management**.
 
 1. Välj **Azure-resurser**.
 
-1. Välj den resurs som du vill exportera rolltilldelningar för, till exempel en prenumeration.
+1. Välj den resurs som du vill exportera roll tilldelningar för, till exempel en prenumeration.
 
 1. Välj **medlemmar**.
 
-1. Välj **Exportera** om du vill öppna fönstret Exportera medlemskap.
+1. Välj **Exportera** för att öppna fönstret Exportera medlemskap.
 
-    [![Exportera medlemsfönstret för att exportera alla medlemmar](media/azure-pim-resource-rbac/export-membership.png "Exportera medlemskapssida för att exportera alla medlemmar")](media/azure-pim-resource-rbac/export-membership.png)
+    [![Exportera medlemskaps fönstret för att exportera alla medlemmar](media/azure-pim-resource-rbac/export-membership.png "Exportera medlemskaps sidan för att exportera alla medlemmar")](media/azure-pim-resource-rbac/export-membership.png)
 
-1. Välj **Exportera alla medlemmar** om du vill exportera alla rolltilldelningar i en CSV-fil.
+1. Välj **Exportera alla medlemmar** för att exportera alla roll tilldelningar i en CSV-fil.
 
-    ![Exporterade rolltilldelningar i CSV-fil som visas i Excel](media/azure-pim-resource-rbac/export-csv.png)
+    ![Exporterade roll tilldelningar i CSV-fil som visas i Excel](media/azure-pim-resource-rbac/export-csv.png)
 
-## <a name="view-resource-audit-history"></a>Visa historik för resursgranskning
+## <a name="view-resource-audit-history"></a>Visa resurs gransknings historik
 
-Resursgranskning ger dig en vy över all rollaktivitet för en resurs.
+Resurs granskning ger dig en översikt över alla roll aktiviteter för en resurs.
 
-1. Öppna **Azure AD-privilegierad identitetshantering**.
+1. Öppna **Azure AD Privileged Identity Management**.
 
 1. Välj **Azure-resurser**.
 
-1. Välj den resurs som du vill visa granskningshistorik för.
+1. Välj den resurs som du vill visa gransknings historik för.
 
-1. Välj **Resursgranskning**.
+1. Välj **resurs granskning**.
 
-1. Filtrera historiken med hjälp av ett fördefinierat datum eller anpassat intervall.
+1. Filtrera historiken med ett fördefinierat datum eller anpassat intervall.
 
-    [![Lista över resursgranskning med filter](media/azure-pim-resource-rbac/rbac-resource-audit.png "Lista över resursgranskning med filter")](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    [![Resurs gransknings lista med filter](media/azure-pim-resource-rbac/rbac-resource-audit.png "Resurs gransknings lista med filter")](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
-1. För **granskningstyp**väljer du **Aktivera (Tilldelad + Aktiverad)**.
+1. För **gransknings typ**väljer du **Aktivera (tilldelad + aktive rad)**.
 
-    [![Resursgranskningslista filtrerad efter Aktivera granskningstyp](media/azure-pim-resource-rbac/rbac-audit-activity.png "Lista över resursgranskning filtrerad efter Aktivera")](media/azure-pim-resource-rbac/rbac-audit-activity.png) ![Resursgranskningslista som filtreras efter Aktivera granskningstyp](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    [![Resurs gransknings listan filtrerad genom att aktivera](media/azure-pim-resource-rbac/rbac-audit-activity.png "Resurs gransknings lista filtrerad efter aktivering")](media/azure-pim-resource-rbac/rbac-audit-activity.png) ![gransknings typen resurs gransknings lista som är filtrerad genom att aktivera gransknings typ](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
-1. Under **Åtgärd**klickar du **på (aktivitet)** för att en användare ska kunna se användarens aktivitetsinformation i Azure-resurser.
+1. Under **åtgärd**klickar du på **(aktivitet)** för en användare för att se användarens aktivitets information i Azure-resurser.
 
-    ![Information om användaraktivitet för en viss åtgärd](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
+    ![Information om användar aktiviteter för en viss åtgärd](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
 ## <a name="view-my-audit"></a>Visa min granskning
 
-Med min granskning kan du visa din personliga rollaktivitet.
+I min granskning kan du Visa din personliga roll aktivitet.
 
-1. Öppna **Azure AD-privilegierad identitetshantering**.
+1. Öppna **Azure AD Privileged Identity Management**.
 
 1. Välj **Azure-resurser**.
 
-1. Välj den resurs som du vill visa granskningshistorik för.
+1. Välj den resurs som du vill visa gransknings historik för.
 
-1. Välj **Min granskning**.
+1. Välj **min granskning**.
 
-1. Filtrera historiken med hjälp av ett fördefinierat datum eller anpassat intervall.
+1. Filtrera historiken med ett fördefinierat datum eller anpassat intervall.
 
-    [![Granskningslista för den aktuella användaren](media/azure-pim-resource-rbac/my-audit-time.png "Granskningslista för den aktuella användaren")](media/azure-pim-resource-rbac/my-audit-time.png)
+    [![Gransknings lista för den aktuella användaren](media/azure-pim-resource-rbac/my-audit-time.png "Gransknings lista för den aktuella användaren")](media/azure-pim-resource-rbac/my-audit-time.png)
 
 > [!NOTE]
-> Åtkomst till granskningshistorik kräver antingen en global administratör eller en privilegierad rolladministratörsroll.
+> Åtkomst till gransknings historik kräver antingen en global administratör eller en privilegie rad roll administratörs roll.
 
-## <a name="get-reason-approver-and-ticket-number-for-approval-events"></a>Få orsak, godkännare och biljettnummer för godkännandehändelser
+## <a name="get-reason-approver-and-ticket-number-for-approval-events"></a>Hämta orsak, god kännare och biljett nummer för godkännande händelser
 
-1. Logga in på [Azure-portalen](https://aad.portal.azure.com) med administratörsbehörigheter för privilegierad roll och öppna Azure AD.
-1. Välj **Granskningsloggar**.
-1. Använd **filtret Tjänst** om du bara vill visa granskningshändelser för tjänsten Privilegierad identitetshantering. På sidan **Granskningsloggar** kan du:
+1. Logga in på [Azure Portal](https://aad.portal.azure.com) med roll behörigheten privilegierad roll administratör och öppna Azure AD.
+1. Välj **gransknings loggar**.
+1. Använd **tjänst** filtret om du endast vill visa gransknings händelser för tjänsten Privileged Identity Management. På sidan **gransknings loggar** kan du:
 
-    - Se orsaken till en granskningshändelse i kolumnen **Statusorsak.**
-    - Se godkännaren i kolumnen **Initierad av (aktör)** för händelsen "Lägg till medlem i godkänd rollbegäran".
+    - Se orsaken till en gransknings händelse i kolumnen **status orsak** .
+    - I kolumnen god kännare i kolumnen **initierad av (aktör)** för händelsen "Lägg till medlem i roll förfrågan har godkänts".
 
-    [![Filtrera granskningsloggen för PIM-tjänsten](media/azure-pim-resource-rbac/filter-audit-logs.png "Filtrera granskningsloggen för PIM-tjänsten")](media/azure-pim-resource-rbac/filter-audit-logs.png)
+    [![Filtrera gransknings loggen för PIM-tjänsten](media/azure-pim-resource-rbac/filter-audit-logs.png "Filtrera gransknings loggen för PIM-tjänsten")](media/azure-pim-resource-rbac/filter-audit-logs.png)
 
-1. Välj en granskningslogghändelse om du vill visa biljettnumret på fliken **Aktivitet** i **informationsfönstret.**
+1. Välj en Gransknings logg händelse om du vill se biljett numret på fliken **aktivitet** i **informations** fönstret.
   
-    [![Kontrollera biljettnumret för granskningshändelsen](media/azure-pim-resource-rbac/audit-event-ticket-number.png "Kontrollera biljettnumret för revisionshändelsen")](media/azure-pim-resource-rbac/audit-event-ticket-number.png)]
+    [![Kontrol lera biljett numret för gransknings händelsen](media/azure-pim-resource-rbac/audit-event-ticket-number.png "Kontrol lera biljett numret för gransknings händelsen")](media/azure-pim-resource-rbac/audit-event-ticket-number.png)]
 
-1. Du kan visa beställaren (den person som aktiverar rollen) på fliken **Mål** i **informationsfönstret** för en granskningshändelse. Det finns tre måltyper för Azure-resursroller:
+1. Du kan visa beställaren (personen som aktiverar rollen) på fliken **mål** i **informations** fönstret för en gransknings händelse. Det finns tre mål typer för Azure-resurs roller:
 
-    - Rollen (**Typ** = Roll)
-    - Beställaren (**Typ** = Övrigt)
-    - Godkännaren (**Typ** = Användare)
+    - Rollen (**typ** = roll)
+    - Beställaren (**typ** = annan)
+    - God kännaren (**typ** = användare)
 
-    [![Kontrollera måltypen](media/azure-pim-resource-rbac/audit-event-target-type.png "Kontrollera måltypen")](media/azure-pim-resource-rbac/audit-event-target-type.png)
+    [![Kontrol lera måltypen](media/azure-pim-resource-rbac/audit-event-target-type.png "Kontrol lera måltypen")](media/azure-pim-resource-rbac/audit-event-target-type.png)
 
-Vanligtvis är logghändelsen omedelbart ovanför godkännandehändelsen en händelse för "Lägg till medlem i roll **slutförd" där den initierade av (aktören)** är beställaren. I de flesta fall behöver du inte hitta beställaren i godkännandebegäran från ett granskningsperspektiv.
+Vanligt vis är logg händelsen omedelbart ovanför godkännande händelsen en händelse för "Lägg till medlem i rollen slutförd" där den **initierade av (aktör)** är beställaren. I de flesta fall behöver du inte hitta beställaren i begäran om godkännande från ett gransknings perspektiv.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Tilldela Azure-resursroller i Privilegierad identitetshantering](pim-resource-roles-assign-roles.md)
-- [Godkänna eller neka begäranden om Azure-resursroller i Privilegierad identitetshantering](pim-resource-roles-approval-workflow.md)
-- [Visa granskningshistorik för Azure AD-roller i privilegierad identitetshantering](pim-how-to-use-audit-log.md)
+- [Tilldela Azure-resurs roller i Privileged Identity Management](pim-resource-roles-assign-roles.md)
+- [Godkänn eller neka begär Anden för Azures resurs roller i Privileged Identity Management](pim-resource-roles-approval-workflow.md)
+- [Visa gransknings historik för Azure AD-roller i Privileged Identity Management](pim-how-to-use-audit-log.md)

@@ -1,6 +1,6 @@
 ---
-title: Hantera en användartilldelad hanterad identitet i Azure-portalen - Azure AD
-description: Steg för steg instruktioner om hur du skapar, lista, ta bort och tilldela en roll till en användartilldelad hanterad identitet.
+title: Hantera en användare som tilldelats en hanterad identitet i Azure Portal – Azure AD
+description: Steg för steg-anvisningar om hur du skapar, visar, tar bort och tilldelar en roll till en användardefinierad hanterad identitet.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -16,76 +16,76 @@ ms.date: 04/16/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10caa9e5e61dc1dd0c1062583f55a7357c643ce5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79244139"
 ---
-# <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Skapa, lista, ta bort eller tilldela en roll till en användartilldelad hanterad identitet med Hjälp av Azure-portalen
+# <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Skapa, Visa, ta bort eller tilldela en roll till en användare som tilldelats en hanterad identitet med hjälp av Azure Portal
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Hanterade identiteter för Azure-resurser ger Azure-tjänster en hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till tjänster som stöder Azure AD-autentisering, utan att behöva autentiseringsuppgifter i koden. 
+Hanterade identiteter för Azure-resurser tillhandahåller Azure-tjänster med en hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till tjänster som stöder Azure AD-autentisering, utan att behöva ange autentiseringsuppgifter i koden. 
 
-I den här artikeln får du lära dig hur du skapar, listar, tar bort eller tilldelar en roll till en användartilldelad hanterad identitet med Hjälp av Azure Portal.
+I den här artikeln får du lära dig hur du skapar, visar, tar bort eller tilldelar en roll till en användardefinierad hanterad identitet med hjälp av Azure Portal.
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [översiktsavsnittet](overview.md). **Var noga med att granska [skillnaden mellan en systemtilldelad och användartilldelad hanterad identitet](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
+- Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Skapa en användartilldelad hanterad identitet
 
-Om du vill skapa en användartilldelad hanterad identitet behöver ditt konto rolltilldelningen [Managed Identity Contributor.](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)
+För att skapa en användardefinierad hanterad identitet måste ditt konto ha roll tilldelningen [hanterad identitets deltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) .
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett konto som är associerat med Azure-prenumerationen för att skapa den användartilldelade hanterade identiteten.
-2. Skriv *Hanterade identiteter i*sökrutan och klicka på **Hanterade identiteter**under **Tjänster**.
-3. Klicka på **Lägg till** och ange värden i följande fält under Fönstret Skapa **användare tilldelad hanterad** identitet:
-   - **Resursnamn**: Det här är namnet på din användartilldelade hanterade identitet, till exempel UAI1.
-   - **Prenumeration**: Välj prenumeration för att skapa den användartilldelade hanterade identiteten under
-   - **Resursgrupp**: Skapa en ny resursgrupp som innehåller den användartilldelade hanterade identiteten eller välj **Använd befintlig** för att skapa den användartilldelade hanterade identiteten i en befintlig resursgrupp.
-   - **Plats**: Välj en plats för att distribuera den användartilldelade hanterade identiteten, till exempel **västra USA.**
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är kopplat till Azure-prenumerationen för att skapa den tilldelade hanterade identiteten.
+2. I rutan Sök skriver du *hanterade identiteter*och under **tjänster**klickar du på **hanterade identiteter**.
+3. Klicka på **Lägg till** och ange värden i följande fält under **skapa användare tilldelade hanterade** identitets fönster:
+   - **Resurs namn**: det här är namnet på den användar tilldelnings hanterade identiteten, till exempel UAI1.
+   - **Prenumeration**: Välj den prenumeration som du vill skapa den användarspecifika hanterade identiteten under
+   - **Resurs grupp**: skapa en ny resurs grupp som innehåller din användarspecifika hanterade identitet eller Välj **Använd befintlig** för att skapa den tilldelade hanterade identiteten i en befintlig resurs grupp.
+   - **Plats**: Välj en plats där du vill distribuera den tilldelade hanterade identiteten, till exempel **västra USA**.
 4. Klicka på **Skapa**.
 
 ![Skapa en användartilldelad hanterad identitet](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
 
-## <a name="list-user-assigned-managed-identities"></a>Lista användartilldelade hanterade identiteter
+## <a name="list-user-assigned-managed-identities"></a>Lista användare-tilldelade hanterade identiteter
 
-Om du vill lista/läsa en användartilldelad hanterad identitet behöver ditt konto rolltilldelningen [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) eller Managed Identity [Contributor.](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)
+Om du vill visa en lista över/läsa en användardefinierad hanterad identitet måste ditt konto ha roll tilldelningen [hanterad identitet](/azure/role-based-access-control/built-in-roles#managed-identity-operator) eller [hanterad identitets deltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) .
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett konto som är associerat med Azure-prenumerationen för att lista de användartilldelade hanterade identiteterna.
-2. Skriv *Hanterade identiteter i*sökrutan och klicka på **Hanterade identiteter**under Tjänster .
-3. En lista över användartilldelade hanterade identiteter för din prenumeration returneras.  Om du vill visa information om en användartilldelad hanterad identitet klickar du på dess namn.
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är associerat med Azure-prenumerationen för att visa en lista över användare som tilldelats hanterade identiteter.
+2. I rutan Sök skriver du *hanterade identiteter*och under tjänster klickar du på **hanterade identiteter**.
+3. En lista över de användare tilldelade hanterade identiteterna för din prenumeration returneras.  Om du vill se information om en användardefinierad hanterad identitet klickar du på dess namn.
 
-![Lista användartilldelade hanterade identitet](./media/how-to-manage-ua-identity-portal/list-user-assigned-managed-identity-portal.png)
+![Lista användare-tilldelad hanterad identitet](./media/how-to-manage-ua-identity-portal/list-user-assigned-managed-identity-portal.png)
 
-## <a name="delete-a-user-assigned-managed-identity"></a>Ta bort en användartilldelad hanterad identitet
+## <a name="delete-a-user-assigned-managed-identity"></a>Ta bort en användare som tilldelats en hanterad identitet
 
-Om du vill ta bort en användartilldelad hanterad identitet behöver kontot rolltilldelningen [Managed Identity Contributor.](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)
+För att ta bort en användardefinierad hanterad identitet måste ditt konto ha roll tilldelningen [hanterad identitets deltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) .
 
-Om du tar bort en användartilldelad identitet tas den inte bort från den virtuella dator eller resurs som den tilldelats.  Om du vill ta bort den tilldelade användarens identitet från en virtuell dator finns [ta bort en användartilldelad hanterad identitet från en virtuell dator](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#remove-a-user-assigned-managed-identity-from-a-vm).
+Om du tar bort en tilldelad identitet tas den inte bort från den virtuella datorn eller resursen som den tilldelades.  Ta bort den användare som tilldelats identiteten från en virtuell dator genom att [ta bort en användardefinierad hanterad identitet från en virtuell dator](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#remove-a-user-assigned-managed-identity-from-a-vm).
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett konto som är associerat med Azure-prenumerationen för att ta bort en användartilldelad hanterad identitet.
-2. Markera den användartilldelade hanterade identiteten och klicka på **Ta bort**.
-3. Under bekräftelserutan väljer du **Ja**.
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är kopplat till Azure-prenumerationen för att ta bort en tilldelad hanterad identitet.
+2. Välj den användare-tilldelade hanterade identiteten och klicka på **ta bort**.
+3. Välj **Ja**under bekräftelse rutan.
 
-![Ta bort användartilldelade hanterade identitet](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
+![Ta bort användardefinierad hanterad identitet](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
 
-## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Tilldela en roll till en användartilldelad hanterad identitet 
+## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Tilldela en roll till en användare som tilldelats en hanterad identitet 
 
-Om du vill tilldela en roll till en användartilldelad hanterad identitet behöver ditt konto rolltilldelningen [för administratörsadministratören](/azure/role-based-access-control/built-in-roles#user-access-administrator) för användare.
+För att tilldela en roll till en användardefinierad hanterad identitet måste ditt konto ha roll tilldelningen [administratör för användar åtkomst](/azure/role-based-access-control/built-in-roles#user-access-administrator) .
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett konto som är associerat med Azure-prenumerationen för att lista de användartilldelade hanterade identiteterna.
-2. Skriv *Hanterade identiteter i*sökrutan och klicka på **Hanterade identiteter**under Tjänster .
-3. En lista över användartilldelade hanterade identiteter för din prenumeration returneras.  Välj den användartilldelade hanterade identitet som du vill tilldela en roll.
-4. Välj **Åtkomstkontroll (IAM)** och välj sedan **Lägg till rolltilldelning**.
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är associerat med Azure-prenumerationen för att visa en lista över användare som tilldelats hanterade identiteter.
+2. I rutan Sök skriver du *hanterade identiteter*och under tjänster klickar du på **hanterade identiteter**.
+3. En lista över de användare tilldelade hanterade identiteterna för din prenumeration returneras.  Välj den användar tilldelnings hanterade identitet som du vill tilldela en roll.
+4. Välj **åtkomst kontroll (IAM)** och välj sedan **Lägg till roll tilldelning**.
 
-   ![Användartilldelade hanterade identitetsstart](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
+   ![Användare som tilldelats hanterad identitets start](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
 
-5. Konfigurera följande värden i bladet Lägg till rolltilldelning och klicka sedan på **Spara:**
-   - **Roll** - den roll att tilldela
-   - **Tilldela åtkomst till** - resursen att tilldela den användartilldelade hanterade identiteten
-   - **Välj** - den medlem som ska tilldelas åtkomst
+5. Konfigurera följande värden i bladet Lägg till roll tilldelning och klicka sedan på **Spara**:
+   - **Roll** – rollen som ska tilldelas
+   - **Tilldela åtkomst till** -resursen för att tilldela den användare tilldelade hanterade identiteten
+   - **Välj** -medlemmen att tilldela åtkomst
    
-   ![Användartilldelade hanterade identitet IAM](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)  
+   ![Användarens tilldelade hanterade identitet-IAM](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)  

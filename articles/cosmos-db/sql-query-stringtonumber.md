@@ -1,6 +1,6 @@
 ---
-title: StringToNumber i Azure Cosmos DB-frågespråk
-description: Lär dig mer om SQL-systemfunktionen StringToNumber i Azure Cosmos DB.
+title: StringToNumber i Azure Cosmos DB frågespråk
+description: Lär dig mer om SQL system Function StringToNumber i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 5ca8d0c4a6d244823dda6f0f79a3cf5c743a12a9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78296430"
 ---
 # <a name="stringtonumber-azure-cosmos-db"></a>StringToNumber (Azure Cosmos DB)
- Returnerar uttryck översatt till ett tal. Om uttrycket inte kan översättas returnerar det odefinierade.  
+ Returnerar uttryck översatt till ett tal. Om uttrycket inte kan översättas returneras undefined.  
   
 ## <a name="syntax"></a>Syntax
   
@@ -26,17 +26,17 @@ StringToNumber(<str_expr>)
 ## <a name="arguments"></a>Argument
   
 *str_expr*  
-   Är ett stränguttryck som ska tolkas som ett JSON-taluttryck. Tal i JSON måste vara ett heltal eller en flyttals. Mer information om JSON-formatet finns [i json.org](https://json.org/)  
+   Är ett sträng uttryck som ska tolkas som ett JSON Number-uttryck. Talen i JSON måste vara ett heltal eller en flyttal. Mer information om JSON-formatet finns i [JSON.org](https://json.org/)  
   
-## <a name="return-types"></a>Returtyper
+## <a name="return-types"></a>Retur typer
   
-  Returnerar ett taluttryck eller odefinierat.  
+  Returnerar ett tal uttryck eller ett odefinierat värde.  
   
 ## <a name="examples"></a>Exempel
   
-  I följande exempel `StringToNumber` visas hur det fungerar mellan olika typer. 
+  I följande exempel visas hur `StringToNumber` beter sig mellan olika typer. 
 
-Blanktecken tillåts endast före eller efter numret.
+Blank steg tillåts bara före eller efter talet.
 
 ```sql
 SELECT 
@@ -52,7 +52,7 @@ SELECT
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
-I JSON måste ett giltigt tal vara antingen ett heltal eller ett flyttalsnummer.
+I JSON måste ett giltigt tal vara ett heltal eller ett flytt ALS nummer.
 
 ```sql
 SELECT   
@@ -65,7 +65,7 @@ SELECT
 {{}}
 ```  
 
-Uttrycket som skickas tolkas som ett taluttryck. Dessa indata utvärderar inte för att skriva Tal och returnerar därmed odefinierade. 
+Det överförda uttrycket kommer att tolkas som ett tal uttryck. dessa indata utvärderas inte till typ nummer och returneras därför inte. 
 
 ```sql
 SELECT 
@@ -85,10 +85,10 @@ SELECT
 
 ## <a name="remarks"></a>Anmärkningar
 
-Den här systemfunktionen kommer inte att använda indexet.
+Den här system funktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Strängfunktioner Azure Cosmos DB](sql-query-string-functions.md)
-- [Systemfunktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [Sträng funktioner Azure Cosmos DB](sql-query-string-functions.md)
+- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)

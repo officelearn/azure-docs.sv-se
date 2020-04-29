@@ -1,6 +1,6 @@
 ---
-title: Komma igång guide för utvecklare på Azure | Microsoft-dokument
-description: Den här artikeln innehåller viktig information för utvecklare som vill komma igång med Microsoft Azure-plattformen för deras utvecklingsbehov.
+title: Kom igång-guide för utvecklare på Azure | Microsoft Docs
+description: Den här artikeln innehåller viktig information för utvecklare som vill komma igång med Microsoft Azure-plattformen för deras utvecklings behov.
 services: ''
 cloud: ''
 documentationcenter: ''
@@ -15,327 +15,327 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
 ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79245010"
 ---
-# <a name="get-started-guide-for-azure-developers"></a>Komma igång-guide för Azure-utvecklare
+# <a name="get-started-guide-for-azure-developers"></a>Utvecklarens startguide för Azure
 
 ## <a name="what-is-azure"></a>Vad är Azure?
 
-Azure är en komplett molnplattform som kan vara värd för dina befintliga program och effektivisera ny programutveckling. Azure kan även förbättra lokala program. Azure integrerar de molntjänster som du behöver för att utveckla, testa, distribuera och hantera dina program, samtidigt som du drar nytta av effektiviteten i molnbaserad databehandling.
+Azure är en komplett moln plattform som kan vara värd för dina befintliga program och effektivisera nya program utveckling. Azure kan även förbättra lokala program. Azure integrerar de moln tjänster som du behöver för att utveckla, testa, distribuera och hantera dina program, samtidigt som du drar nytta av effektiviteten hos molnbaserad data behandling.
 
-Genom att vara värd för dina program i Azure kan du börja små och enkelt skala ditt program när kundens efterfrågan växer. Azure erbjuder också den tillförlitlighet som behövs för program med hög tillgänglighet, även inklusive redundans mellan olika regioner. [Med Azure-portalen](https://portal.azure.com) kan du enkelt hantera alla dina Azure-tjänster. Du kan också hantera dina tjänster programmässigt med hjälp av tjänstspecifika API:er och mallar.
+Genom att vara värd för dina program i Azure kan du starta små och enkelt skala ditt program när din kund efter frågan växer. Azure erbjuder också den tillförlitlighet som krävs för program med hög tillgänglighet, till exempel även redundans mellan olika regioner. Med [Azure Portal](https://portal.azure.com) kan du enkelt hantera alla dina Azure-tjänster. Du kan också hantera dina tjänster program mässigt med hjälp av tjänste/regionsspecifika API: er och mallar.
 
-Den här guiden är en introduktion till Azure-plattformen för programutvecklare. Det ger vägledning och vägledning som du behöver för att börja skapa nya program i Azure eller migrera befintliga program till Azure.
+Den här guiden är en introduktion till Azure-plattformen för programutvecklare. Det ger vägledning och riktning som du behöver för att börja skapa nya program i Azure eller migrera befintliga program till Azure.
 
 ## <a name="where-do-i-start"></a>Vad ska jag börja med?
 
-Med alla tjänster som Azure erbjuder kan det vara en skrämmande uppgift att ta reda på vilka tjänster du behöver för att stödja din lösningsarkitektur. I det här avsnittet beskrivs de Azure-tjänster som utvecklare ofta använder. En lista över alla Azure-tjänster finns i [Azure-dokumentationen](../../index.yml).
+Med alla tjänster som Azure erbjuder kan det vara en skrämma uppgift för att ta reda på vilka tjänster du behöver för att stödja din lösnings arkitektur. I det här avsnittet beskrivs de Azure-tjänster som utvecklare ofta använder. En lista över alla Azure-tjänster finns i [Azure-dokumentationen](../../index.yml).
 
-Först måste du bestämma hur du ska vara värd för ditt program i Azure. Behöver du hantera hela infrastrukturen som en virtuell dator (VM). Kan du använda de plattformshanteringsfunktioner som Azure tillhandahåller? Kanske behöver du en serverlös ram för att vara värd för körning av kod bara?
+Först måste du bestämma hur du ska vara värd för ditt program i Azure. Behöver du hantera hela infrastrukturen som en virtuell dator (VM). Kan du använda de plattforms hanterings funktioner som Azure tillhandahåller? Kanske behöver du en server lös Ramverks struktur för att endast köra kod på värden?
 
-Ditt program behöver molnlagring, vilket Azure innehåller flera alternativ för. Du kan dra nytta av Azures företagsautentisering. Det finns också verktyg för molnbaserad utveckling och övervakning, och de flesta värdtjänster erbjuder DevOps-integrering.
+Ditt program behöver moln lagring, som Azure tillhandahåller flera alternativ för. Du kan dra nytta av Azures företagsspecifika autentisering. Det finns också verktyg för molnbaserad utveckling och övervakning, och de flesta värd tjänster erbjuder DevOps-integrering.
 
-Nu ska vi titta på några av de specifika tjänster som vi rekommenderar att undersöka för dina program.
+Nu ska vi titta på några av de tjänster som vi rekommenderar att du undersöker för dina program.
 
-### <a name="application-hosting"></a>Programhosting
+### <a name="application-hosting"></a>Program värd
 
-Azure tillhandahåller flera molnbaserade beräkningserbjudanden för att köra ditt program så att du inte behöver oroa dig för infrastrukturinformationen. Du kan enkelt skala upp eller skala ut dina resurser när programanvändningen växer.
+Azure tillhandahåller flera molnbaserade beräknings erbjudanden för att köra ditt program så att du inte behöver bekymra dig om infrastruktur informationen. Du kan enkelt skala upp eller skala ut dina resurser när din program användning växer.
 
-Azure erbjuder tjänster som stöder dina programutvecklings- och värdbehov. Azure tillhandahåller infrastruktur som en tjänst (IaaS) för att ge dig full kontroll över din programvärd. Azures PaaS-erbjudanden (Platform as a Service) tillhandahåller de fullständigt hanterade tjänster som behövs för att driva dina appar. Det finns även sann serverlös hosting i Azure där allt du behöver göra är att skriva din kod.
+Azure erbjuder tjänster som har stöd för dina program utvecklings-och värd behov. Azure tillhandahåller IaaS (Infrastructure as a Service) för att ge dig fullständig kontroll över dina program värdar. Azures PaaS-erbjudanden (Platform as a Service) tillhandahåller de fullständigt hanterade tjänsterna som krävs för att sätta dina appar. Det finns även sant Server lös värd i Azure där allt du behöver göra är att skriva koden.
 
-![Alternativ för hosting av Azure-program](./media/azure-developer-guide/azure-developer-hosting-options.png)
+![Azure Application hosting-alternativ](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
 
-#### <a name="azure-app-service"></a>Azure Apptjänst
+#### <a name="azure-app-service"></a>Azure App Service
 
-När du vill ha den snabbaste sökvägen för att publicera dina webbaserade projekt bör du överväga Azure App Service. App Service gör det enkelt att utöka dina webbappar för att stödja dina mobila klienter och publicera lätt förbrukade REST-API:er. Den här plattformen tillhandahåller autentisering med hjälp av sociala leverantörer, trafikbaserad automatisk skalning, testning i produktion och kontinuerliga och behållarbaserade distributioner.
+När du vill att den snabbaste sökvägen ska publicera dina webbaserade projekt bör du överväga Azure App Service. App Service gör det enkelt att utöka dina webbappar till att stödja dina mobila klienter och publicera enkelt förbrukade REST-API: er. Den här plattformen tillhandahåller autentisering med hjälp av sociala leverantörer, principbaserad automatisk skalning, testning i produktion och kontinuerliga och containerbaserade distributioner.
 
-Du kan skapa webbappar, tillbakaslut för mobilappar och API-appar.
+Du kan skapa webbappar, Server delar för mobilappar och API Apps.
 
-Eftersom alla tre apptyperna delar App Service-körningen kan du vara värd för en webbplats, stödja mobila klienter och exponera dina API:er i Azure, allt från samma projekt eller lösning. Mer information om App Service finns i [Vad är Azure Web Apps](../../app-service/overview.md).
+Eftersom alla tre typer av appar delar App Service runtime, kan du vara värd för en webbplats, stödja mobila klienter och exponera dina API: er i Azure, allt från samma projekt eller lösning. Mer information om App Service finns i [Vad är Azure Web Apps](../../app-service/overview.md).
 
-App Service har utformats med DevOps i åtanke. Den stöder olika verktyg för publicering och kontinuerlig integrationsdistributioner. Dessa verktyg inkluderar GitHub webhooks, Jenkins, Azure DevOps, TeamCity och andra.
+App Service har utformats med DevOps i åtanke. Det stöder olika verktyg för publicering och kontinuerlig integrering av distributioner. Dessa verktyg omfattar GitHub Webhooks, Jenkins, Azure DevOps, TeamCity och andra.
 
-Du kan migrera dina befintliga program till App Service med hjälp av [onlinemigreringsverktyget](https://appmigration.microsoft.com/).
+Du kan migrera dina befintliga program till App Service med hjälp av [verktyget online-migrering](https://appmigration.microsoft.com/).
 
-> **När du ska använda**: Använd App Service när du migrerar befintliga webbprogram till Azure och när du behöver en fullständigt hanterad värdplattform för dina webbappar. Du kan också använda App Service när du behöver stödja mobila klienter eller exponera REST-API:er med din app.
+> **När du ska använda**: Använd App Service när du migrerar befintliga webb program till Azure och när du behöver en fullständigt hanterad värd plattform för dina webb program. Du kan också använda App Service när du behöver stöd för mobila klienter eller exponera REST-API: er med din app.
 >
-> **Kom igång:** App Service gör det enkelt att skapa och distribuera din första [webbapp,](../../app-service/app-service-web-get-started-dotnet.md) [mobilapp](../../app-service-mobile/app-service-mobile-ios-get-started.md)eller [API-app](../../app-service/app-service-web-tutorial-rest-api.md).
+> **Kom igång**: App Service gör det enkelt att skapa och distribuera din första [webbapp](../../app-service/app-service-web-get-started-dotnet.md), [mobilapp](../../app-service-mobile/app-service-mobile-ios-get-started.md)eller [API-app](../../app-service/app-service-web-tutorial-rest-api.md).
 >
-> **Prova nu:** Med App Service kan du etablera en kortlivad app för att prova plattformen utan att behöva registrera dig för ett Azure-konto. Prova plattformen och [skapa din Azure App Service-app](https://tryappservice.azure.com/).
+> **Prova nu**: App Service gör att du kan etablera en app med kort livs längd för att testa plattformen utan att behöva registrera dig för ett Azure-konto. Testa plattformen och [skapa din Azure App Service-app](https://tryappservice.azure.com/).
 
 #### <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
-Som en IaaS-provider (Infrastructure as a Service) kan du distribuera till eller migrera ditt program till antingen Virtuella Datorer i Windows eller Linux. Tillsammans med Azure Virtual Network stöder Virtuella Azure-datorer distributionen av virtuella Windows- eller Linux-datorer till Azure. Med virtuella datorer har du total kontroll över datorns konfiguration. När du använder virtuella datorer ansvarar du för alla serverprogramvarans installations-, konfigurations-, underhålls- och operativsystemkorrigeringar.
+Som en IaaS-Provider (Infrastructure as a Service) kan du använda Azure för att distribuera till eller migrera ditt program till virtuella Windows-eller Linux-datorer. Tillsammans med Azure Virtual Network stöder Azure Virtual Machines distributionen av virtuella Windows-eller Linux-datorer till Azure. Med virtuella datorer har du total kontroll över datorns konfiguration. När du använder virtuella datorer ansvarar du för all serverprogram vara installation, konfiguration, underhåll och operativ system uppdateringar.
 
-På grund av den kontrollnivå som du har med virtuella datorer kan du köra ett brett utbud av serverarbetsbelastningar på Azure som inte passar in i en PaaS-modell. Dessa arbetsbelastningar omfattar databasservrar, Windows Server Active Directory och Microsoft SharePoint. Mer information finns i dokumentationen för virtuella datorer för [antingen Linux](/azure/virtual-machines/linux/) eller [Windows](/azure/virtual-machines/windows/).
+På grund av den kontroll nivå som du har med virtuella datorer kan du köra ett brett utbud av Server arbets belastningar på Azure som inte passar in i en PaaS modell. Dessa arbets belastningar omfattar databas servrar, Windows Server Active Directory och Microsoft SharePoint. Mer information finns i Virtual Machines-dokumentationen för [Linux](/azure/virtual-machines/linux/) eller [Windows](/azure/virtual-machines/windows/).
 
-> **När du ska använda**: Använd virtuella datorer när du vill ha fullständig kontroll över programinfrastrukturen eller migrera lokala programarbetsbelastningar till Azure utan att behöva göra ändringar.
+> **När du ska använda**: Använd Virtual Machines när du vill ha fullständig kontroll över din program infrastruktur eller migrera lokala program arbets belastningar till Azure utan att behöva göra några ändringar.
 >
-> **Kom igång:** Skapa en [virtuell Linux-dator](../../virtual-machines/virtual-machines-linux-quick-create-portal.md) eller [Windows VM](../../virtual-machines/virtual-machines-windows-hero-tutorial.md) från Azure-portalen.
+> **Kom igång**: skapa en virtuell [Linux-dator](../../virtual-machines/virtual-machines-linux-quick-create-portal.md) eller en [virtuell Windows-dator](../../virtual-machines/virtual-machines-windows-hero-tutorial.md) från Azure Portal.
 
-#### <a name="azure-functions-serverless"></a>Azure-funktioner (serverlösa)
+#### <a name="azure-functions-serverless"></a>Azure Functions (utan server)
 
-Hellre än att oroa sig för att bygga ut och hantera ett helt program eller infrastruktur för att köra din kod, tänk om du bara kunde skriva din kod och få den att köras som svar på händelser eller på ett schema?  [Azure Functions](../../azure-functions/functions-overview.md) är ett "serverlöst" erbjudande som låter dig skriva precis den kod du behöver. Med Functions kan du utlösa kodkörning med HTTP-begäranden, webhooks, molntjänsthändelser eller enligt ett schema. Du kan koda på ditt utvecklingsspråk, till exempel C,\#F,\#Node.js, Python eller PHP. Med förbrukningsbaserad fakturering betalar du bara för den tid som koden körs och Azure-skalor efter behov.
+I stället för att oroa dig för att skapa och hantera ett helt program eller infrastrukturen för att köra din kod, vad gör du om du bara skulle kunna skriva din kod och låta den köras som svar på händelser eller enligt ett schema?  [Azure Functions](../../azure-functions/functions-overview.md) är ett "Server lös"-format som du kan använda för att skriva enbart den kod du behöver. Med Functions kan du utlösa kod körning med HTTP-förfrågningar, Webhooks, moln tjänst händelser eller enligt ett schema. Du kan koda i det utvecklings språk som du väljer, till exempel\#C,\#F, Node. js, python eller php. Med förbruknings-baserad fakturering betalar du bara för den tid som koden körs och Azure skalas efter behov.
 
-> **När du ska använda**: Använd Azure-funktioner när du har kod som utlöses av andra Azure-tjänster, av webbaserade händelser eller enligt ett schema. Du kan också använda Funktioner när du inte behöver omkostnaderna för ett fullständigt värdprojekt eller när du bara vill betala för den tid som koden körs. Mer information finns i [Översikt över Azure-funktioner](../../azure-functions/functions-overview.md).
+> **När du ska använda**: Använd Azure Functions när du har kod som utlöses av andra Azure-tjänster, via webbaserade händelser eller enligt ett schema. Du kan också använda funktioner när du inte behöver lägga till ett komplett värdbaserade projekt eller om du bara vill betala för den tid som koden körs. Läs mer i [Azure Functions översikt](../../azure-functions/functions-overview.md).
 >
-> **Kom igång:** Följ snabbstartshandledningen Funktioner för att [skapa din första funktion](../../azure-functions/functions-create-first-azure-function.md) från portalen.
+> **Kom igång**: Följ själv studie kursen om funktionen Functions för att [skapa din första funktion](../../azure-functions/functions-create-first-azure-function.md) från portalen.
 >
-> **Prova nu:** Med Azure Functions kan du köra din kod utan att behöva registrera dig för ett Azure-konto. Prova nu och [skapa din första Azure-funktion](https://tryappservice.azure.com/).
+> **Prova nu**: Azure Functions gör att du kan köra din kod utan att behöva registrera dig för ett Azure-konto. Testa nu och [skapa din första Azure-funktion](https://tryappservice.azure.com/).
 
 #### <a name="azure-service-fabric"></a>Azure Service Fabric
 
-Azure Service Fabric är en distribuerad systemplattform. Den här plattformen gör det enkelt att bygga, paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster. Det ger också omfattande funktioner för programhantering, till exempel:
+Azure Service Fabric är en distribuerad system plattform. Den här plattformen gör det enkelt att bygga, paketera, distribuera och hantera skalbara och pålitliga mikrotjänster. Den innehåller också omfattande funktioner för program hantering, till exempel:
 
 * Etablering
-* Distribuera
+* Deploy
 * Övervakning
-* Uppgradering/korrigering
-* Ta bort
+* Uppgradering/uppdatering
+* Rader
 
-Appar, som körs på en delad pool av datorer, kan börja i liten skala till hundratals eller tusentals datorer efter behov.
+Appar som körs på en delad pool med datorer kan starta små och skala till hundratals eller tusentals datorer efter behov.
 
-Service Fabric stöder WebAPI med Open Web Interface för .NET (OWIN) och ASP.NET Core. Det ger SDKs för att bygga tjänster på Linux i både .NET Core och Java. Mer information om Service Fabric finns i [dokumentationen för Service Fabric](https://docs.microsoft.com/azure/service-fabric/).
+Service Fabric stöder WebAPI med Open Web Interface för .NET (OWIN) och ASP.NET Core. Den innehåller SDK: er för att skapa tjänster i Linux i både .NET Core och Java. Mer information om Service Fabric finns i Service Fabric- [dokumentationen](https://docs.microsoft.com/azure/service-fabric/).
 
-> **När du ska använda:** Service Fabric är ett bra val när du skapar ett program eller skriver om ett befintligt program för att använda en mikrotjänstarkitektur. Använd Service Fabric när du behöver mer kontroll över, eller direkt åtkomst till, den underliggande infrastrukturen.
+> **När du ska använda:** Service Fabric är ett bra val när du skapar ett program eller skriver om ett befintligt program för att använda en arkitektur för mikrotjänster. Använd Service Fabric när du behöver mer kontroll över eller direkt åtkomst till, den underliggande infrastrukturen.
 >
-> **Kom igång:** [Skapa ditt första Azure Service Fabric-program](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
+> **Kom igång:** [skapa ditt första Azure Service Fabric-program](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md).
 
 ### <a name="enhance-your-applications-with-azure-services"></a>Förbättra dina program med Azure-tjänster
 
-Tillsammans med programhosting tillhandahåller Azure tjänsteerbjudanden som kan förbättra funktionaliteten. Azure kan också förbättra utvecklingen och underhållet av dina program, både i molnet och lokalt.
+Tillsammans med program värd tillhandahåller Azure tjänst erbjudanden som kan förbättra funktionerna. Azure kan också förbättra utvecklingen och underhållet av dina program, både i molnet och lokalt.
 
-#### <a name="hosted-storage-and-data-access"></a>Värdlagring och dataåtkomst
+#### <a name="hosted-storage-and-data-access"></a>Värdbaserad lagring och data åtkomst
 
-De flesta program måste lagra data, så hur du än väljer att vara värd för ditt program i Azure, överväga en eller flera av följande lagrings- och datatjänster.
+De flesta program måste lagra data, så du kan välja att vara värd för ditt program i Azure, överväga en eller flera av följande lagrings-och data tjänster.
 
-- **Azure Cosmos DB**: En globalt distribuerad databastjänst med flera modeller. Med den här databasen kan du elastiskt skala dataflöde och lagring i valfritt antal geografiska regioner med ett omfattande serviceavtal.
+- **Azure Cosmos DB**: en globalt distribuerad databas tjänst för flera data modeller. Med den här databasen kan du på ett flexibelt sätt skala data flöde och lagring i valfritt antal geografiska regioner med ett omfattande service avtal.
 
-  > **När du ska använda:** När ditt program behöver dokument-, tabell- eller diagramdatabaser, inklusive MongoDB-databaser, med flera väldefinierade konsekvensmodeller.
+  > **När du ska använda:** När ditt program behöver dokument-, tabell-eller graf-databaser, inklusive MongoDB-databaser, med flera väldefinierade konsekvens modeller.
   >
-  > **Kom igång:** [Skapa en Azure Cosmos DB-webbapp](../../cosmos-db/create-sql-api-dotnet.md). Om du är MongoDB-utvecklare läser du [Skapa en MongoDB-webbapp med Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
+  > **Kom igång**: [Bygg en Azure Cosmos DB-webbapp](../../cosmos-db/create-sql-api-dotnet.md). Om du är en MongoDB-utvecklare kan du läsa mer i [bygga en MongoDB-webbapp med Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
 
-- **Azure Storage**: Erbjuder varaktig, högtillgänglig lagring för blobbar, köer, filer och andra typer av icke-relationella data. Lagring ger lagringsgrunden för virtuella datorer.
+- **Azure Storage**: erbjuder hållbar lagring med hög tillgänglighet för blobbar, köer, filer och andra typer av ej relationella data. Storage tillhandahåller lagrings bas för virtuella datorer.
 
-  > **När du ska använda**: När appen lagrar icke-relationella data, till exempel nyckelvärdespar (tabeller), blobbar, filresurser eller meddelanden (köer).
+  > **När du ska använda**: när din app lagrar ej relationella data, till exempel nyckel/värde-par (tabeller), blobbar, fil resurser eller meddelanden (köer).
   >
-  > **Kom igång**: Välj bland någon av dessa typer lagring: [blobbar,](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) [tabeller,](../../cosmos-db/table-storage-how-to-use-dotnet.md) [köer](../../storage/queues/storage-dotnet-how-to-use-queues.md)eller [filer](../../storage/files/storage-dotnet-how-to-use-files.md).
+  > **Kom igång**: Välj någon av följande typer av lagring: [blobbar](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tabeller](../../cosmos-db/table-storage-how-to-use-dotnet.md), [köer](../../storage/queues/storage-dotnet-how-to-use-queues.md)eller [filer](../../storage/files/storage-dotnet-how-to-use-files.md).
 
-- **Azure SQL Database**: En Azure-baserad version av Microsoft SQL Server-motorn för lagring av relationstabelldata i molnet. SQL Database ger förutsägbar prestanda, skalbarhet utan driftstopp, affärskontinuitet och dataskydd.
+- **Azure SQL Database**: en Azure-baserad version av Microsoft SQL Server motor för att lagra Relations tabell data i molnet. SQL Database ger förutsägbar prestanda, skalbarhet utan drift avbrott, verksamhets kontinuitet och data skydd.
 
-  > **När du ska använda**: När ditt program kräver datalagring med referensintegritet, transaktionsstöd och stöd för TSQL-frågor.
+  > **När du ska använda**: när ditt program kräver data lagring med referens integritet, transaktions stöd och stöd för tsql-frågor.
   >
-  > **Kom igång:** [Skapa en SQL-databas på några minuter med hjälp av Azure-portalen](../../sql-database/sql-database-get-started.md).
+  > **Kom igång**: [skapa en SQL-databas på några minuter med hjälp av Azure Portal](../../sql-database/sql-database-get-started.md).
 
 
-Du kan använda [Azure Data Factory](../../data-factory/introduction.md) för att flytta befintliga lokala data till Azure. Om du inte är redo att flytta data till molnet kan du ansluta din App Service-värdapp till lokala resurser med [hybridanslutningar](../../app-service/app-service-hybrid-connections.md) i Azure App Service. Du kan också ansluta till Azure-data och lagringstjänster från dina lokala program.
+Du kan använda [Azure Data Factory](../../data-factory/introduction.md) för att flytta befintliga lokala data till Azure. Om du inte är redo att flytta data till molnet kan [hybridanslutningar](../../app-service/app-service-hybrid-connections.md) i Azure App Service ansluta din app service värdbaserade app till lokala resurser. Du kan också ansluta till Azure data-och lagrings tjänster från dina lokala program.
 
-#### <a name="docker-support"></a>Support för Docker
+#### <a name="docker-support"></a>Docker-stöd
 
-Docker-behållare, en form av OS-virtualisering, gör att du kan distribuera program på ett mer effektivt och förutsägbart sätt. Ett containeriserat program fungerar i produktion på samma sätt som på dina utvecklings- och testsystem. Du kan hantera behållare med hjälp av standarddockerverktyg. Du kan använda dina befintliga kunskaper och populära verktyg med öppen källkod för att distribuera och hantera behållarbaserade program på Azure.
+Docker-behållare, en form av OS-virtualisering, gör att du kan distribuera program på ett mer effektivt och förutsägbart sätt. Ett program i behållare fungerar i produktion på samma sätt som i utvecklings-och test systemen. Du kan hantera behållare med hjälp av standard Docker-verktyg. Du kan använda dina befintliga kunskaper och populära verktyg med öppen källkod för att distribuera och hantera behållare baserade program på Azure.
 
-Azure innehåller flera sätt att använda behållare i dina program.
+Azure tillhandahåller flera olika sätt att använda behållare i dina program.
 
-- **Azure Docker VM-tillägg:** Låter dig konfigurera din virtuella dator med Docker-verktyg för att fungera som dockervärd.
+- **Azure Docker VM-tillägg**: gör att du kan konfigurera din virtuella dator med Docker-verktyg som fungerar som en Docker-värd.
 
-  > **När du ska använda**: När du vill generera konsekventa behållardistributioner för dina program på en virtuell dator, eller när du vill använda [Docker Compose](https://docs.docker.com/compose/overview/).
+  > **När du ska använda**: när du vill generera konsekvent behållar distributioner för dina program på en virtuell dator eller när du vill använda [Docker Compose](https://docs.docker.com/compose/overview/).
   >
-  > **Kom igång:** [Skapa en Docker-miljö i Azure med hjälp av tillägget Docker VM](../../virtual-machines/virtual-machines-linux-dockerextension.md).
+  > **Kom igång**: [skapa en Docker-miljö i Azure med hjälp av Docker VM-tillägget](../../virtual-machines/virtual-machines-linux-dockerextension.md).
 
-- **Azure Kubernetes Service**: Låter dig skapa, konfigurera och hantera ett kluster av virtuella datorer som är förkonfigurerade för att köra behållarprogram. Mer information om Azure Kubernetes-tjänsten finns i [azure kubernetes service-introduktion](../../aks/intro-kubernetes.md).
+- **Azure Kubernetes service**: låter dig skapa, konfigurera och hantera ett kluster med virtuella datorer som är förkonfigurerade för att köra program i behållare. Mer information om Azure Kubernetes-tjänsten finns i [Introduktion till Azure Kubernetes service](../../aks/intro-kubernetes.md).
 
-  > **När du ska använda**: När du behöver skapa produktionsklara, skalbara miljöer som tillhandahåller ytterligare schemaläggnings- och hanteringsverktyg, eller när du distribuerar ett Docker Swarm-kluster.
+  > **När du ska använda**: när du behöver skapa produktions klara, skalbara miljöer som tillhandahåller ytterligare schemaläggnings-och hanterings verktyg, eller när du distribuerar ett Docker Swarm-kluster.
   >
-  > **Kom igång:** [Distribuera ett Kubernetes-tjänstkluster](../../aks/tutorial-kubernetes-deploy-cluster.md).
+  > **Kom igång**: [distribuera ett Kubernetes-tjänst kluster](../../aks/tutorial-kubernetes-deploy-cluster.md).
 
-- **Docker Machine:** Låter dig installera och hantera en Docker-motor på virtuella värdar med hjälp av docker-maskinkommandon.
+- **Docker-dator**: låter dig installera och hantera en Docker-motor på virtuella värdar med hjälp av Docker Machine-kommandon.
 
-  >**När du ska använda**: När du snabbt behöver prototyp en app genom att skapa en enda Docker-värd.
+  >**När du ska använda**: när du snabbt behöver prototyp av en app genom att skapa en enda Docker-värd.
 
-- **Anpassad Docker-avbildning för App Service:** Gör att du kan använda Docker-behållare från ett behållarregister eller en kundbehållare när du distribuerar en webbapp på Linux.
+- **Anpassad Docker-avbildning för App Service**: låter dig använda Docker-behållare från ett behållar register eller en kund behållare när du distribuerar en webbapp i Linux.
 
-  > **När du ska använda**: När du distribuerar en webbapp på Linux till en Docker-avbildning.
+  > **När du ska använda**: när du distribuerar en webbapp på Linux till en Docker-avbildning.
   >
-  > **Kom igång:** [Använd en anpassad Docker-avbildning för App Service på Linux](../../app-service/containers/quickstart-docker-go.md).
+  > **Kom igång**: [Använd en anpassad Docker-avbildning för App Service på Linux](../../app-service/containers/quickstart-docker-go.md).
 
 ### <a name="authentication"></a>Autentisering
 
-Det är viktigt att inte bara veta vem som använder dina program, men också för att förhindra obehörig åtkomst till dina resurser. Azure innehåller flera sätt att autentisera dina appklienter.
+Det är viktigt att inte bara veta vem som använder dina program, utan även för att förhindra obehörig åtkomst till dina resurser. Azure tillhandahåller flera olika sätt att autentisera dina app-klienter.
 
-- **Azure Active Directory (Azure AD)**: Microsofts multitenant, molnbaserade identitets- och åtkomsthanteringstjänst. Du kan lägga till SSO (Single-sign on) i dina program genom att integrera med Azure AD. Du kan komma åt katalogegenskaper med hjälp av Azure AD Graph API direkt eller Microsoft Graph API. Du kan integrera med Azure AD-stöd för OAuth2.0-auktoriseringsramverket och Open ID Connect med hjälp av inbyggda HTTP/REST-slutpunkter och Azure AD-autentiseringsbibliotek för flera plattformar.
+- **Azure Active Directory (Azure AD)**: Microsoft-klient, molnbaserad identitets-och åtkomst hanterings tjänst. Du kan lägga till enkel inloggning (SSO) till dina program genom att integrera med Azure AD. Du kan komma åt katalog egenskaper med hjälp av Azure AD Graph API direkt eller Microsoft Graph-API: et. Du kan integrera med Azure AD-stöd för OAuth 2.0 Authorization Framework och öppna ID Connect genom att använda interna HTTP/REST-slutpunkter och Azure AD-autentiseringspaket.
 
-  > **När du ska använda**: När du vill ge en SSO-upplevelse kan du arbeta med Graph-baserade data eller autentisera domänbaserade användare.
+  > **När du ska använda**: när du vill skapa en SSO-miljö arbetar du med diagrambaserade data eller autentiserar domänbaserade användare.
   >
-  > **Kom igång:** Mer information finns i [Azure Active Directory-utvecklarens guide](../../active-directory/develop/v2-overview.md).
+  > **Kom igång**: Mer information finns i [Azure Active Directory Developer ' s guide](../../active-directory/develop/v2-overview.md).
 
-- **Apptjänstautentisering**: När du väljer AppTjänst som värd för din app får du också inbyggt autentiseringsstöd för Azure AD, tillsammans med leverantörer av sociala identiteter – inklusive Facebook, Google, Microsoft och Twitter.
+- **App Service autentisering**: när du väljer app service som värd för din app får du även inbyggt stöd för autentisering för Azure AD, tillsammans med sociala identitets leverantörer – inklusive Facebook, Google, Microsoft och Twitter.
 
-  > **När du ska använda**: När du vill aktivera autentisering i en App Service-app med hjälp av Azure AD, leverantörer av social identitet eller båda.
+  > **När du ska använda**: om du vill aktivera autentisering i en app service-app med hjälp av Azure AD, sociala identitets leverantörer eller båda.
   >
-  > **Kom igång:** Mer information om autentisering i App Service finns [i Autentisering och auktorisering i Azure App Service](../../app-service/overview-authentication-authorization.md).
+  > **Kom igång**: Mer information om autentisering i App Service finns i [autentisering och auktorisering i Azure App Service](../../app-service/overview-authentication-authorization.md).
 
-Mer information om metodtips för säkerhet i Azure finns i [Metodtips och mönster för Azure-säkerhet](../../security/fundamentals/best-practices-and-patterns.md).
+Mer information om rekommenderade säkerhets metoder i Azure finns i [metod tips och mönster för Azure-säkerhet](../../security/fundamentals/best-practices-and-patterns.md).
 
 ### <a name="monitoring"></a>Övervakning
 
-Med ditt program igång i Azure måste du övervaka prestanda, hålla utkik efter problem och se hur kunderna använder din app. Azure innehåller flera övervakningsalternativ.
+Med ditt program igång i Azure måste du övervaka prestanda, titta efter problem och se hur kunderna använder din app. Azure tillhandahåller flera övervaknings alternativ.
 
--   **Application Insights**: En Azure-värdförd utökningsbar analystjänst som integreras med Visual Studio för att övervaka dina live-webbprogram. Det ger dig de data som du behöver för att förbättra prestanda och användbarhet för dina appar kontinuerligt. Den här förbättringen uppstår oavsett om du är värd för dina program på Azure eller inte.
+-   **Application Insights**: en Azure-värdbaserad utöknings bar analys tjänst som integreras med Visual Studio för att övervaka dina Live-webbprogram. Det ger dig de data du behöver för att förbättra prestanda och användbarhet för dina appar kontinuerligt. Den här förbättringen gäller om du är värd för dina program på Azure eller inte.
 
-    >**Kom igång:** Följ [självstudiekursen Application Insights](../../azure-monitor/app/app-insights-overview.md).
+    >**Kom igång**: Följ [Application Insights själv studie kursen](../../azure-monitor/app/app-insights-overview.md).
 
--   **Azure Monitor**: En tjänst som hjälper dig att visualisera, fråga, dirigera, arkivera och agera på de mått och loggar som du genererar med din Azure-infrastruktur och dina resurser. Monitor är en enda källa för övervakning av Azure-resurser och tillhandahåller de datavyer som visas i Azure-portalen.
+-   **Azure Monitor**: en tjänst som hjälper dig att visualisera, fråga, cirkulera, arkivera och agera på de mått och loggar som du genererar med din Azure-infrastruktur och dina resurser. Övervakaren är en enda källa för övervakning av Azure-resurser och innehåller de datavyer som visas i Azure Portal.
 
-    >**Kom igång:** [Kom igång med Azure Monitor](../../monitoring-and-diagnostics/monitoring-get-started.md).
+    >**Kom igång**: [kom igång med Azure Monitor](../../monitoring-and-diagnostics/monitoring-get-started.md).
 
 ### <a name="devops-integration"></a>DevOps-integrering
 
-Oavsett om det handlar om att etablera virtuella datorer eller publicera dina webbappar med kontinuerlig integrering integreras Azure med de flesta populära DevOps-verktygen. Du kan arbeta med de verktyg som du redan har och maximera din befintliga upplevelse med stöd för verktyg som:
+Oavsett om det är etablering av virtuella datorer eller om du publicerar dina webbappar med kontinuerlig integrering, integreras Azure med de flesta populära DevOps-verktygen. Du kan arbeta med de verktyg som du redan har och maximera din befintliga upplevelse med stöd för verktyg som:
 
 * Jenkins
 * GitHub
 * Puppet
 * Chef
-* TeamCity (Svenska)
+* TeamCity
 * Ansible
 * Azure DevOps
 
-> **Kom igång:** Information om hur du ser DevOps-alternativ för en App Service-app finns i [Kontinuerlig distribution till Azure App Service](../../app-service/deploy-continuous-deployment.md).
+> **Kom igång**: om du vill se DevOps-alternativ för en app service app, se [kontinuerlig distribution till Azure App Service](../../app-service/deploy-continuous-deployment.md).
 >
-> **Prova nu:** [Prova flera av DevOps-integreringarna](https://azure.microsoft.com/try/devops/).
+> **Prova nu:** [prova flera av DevOps-integreringarna](https://azure.microsoft.com/try/devops/).
 
 
 ## <a name="azure-regions"></a>Azure-regioner
 
-Azure är en global molnplattform som är allmänt tillgänglig i många regioner runt om i världen. När du etablerar en tjänst, ett program eller en virtuell dator i Azure ombeds du att välja en region. Den här regionen representerar ett specifikt datacenter där ditt program körs eller där dina data lagras. Dessa regioner motsvarar specifika platser som publiceras på sidan [Azure-regioner.](https://azure.microsoft.com/regions/)
+Azure är en global moln plattform som är allmänt tillgänglig i många regioner runtom i världen. När du etablerar en tjänst, ett program eller en virtuell dator i Azure uppmanas du att välja en region. Den här regionen representerar ett speciellt Data Center där ditt program körs eller var data lagras. Dessa regioner motsvarar vissa platser som publiceras på sidan [Azure-regioner](https://azure.microsoft.com/regions/) .
 
 ### <a name="choose-the-best-region-for-your-application-and-data"></a>Välj den bästa regionen för ditt program och dina data
 
-En av fördelarna med att använda Azure är att du kan distribuera dina program till olika datacenter runt om i världen. Den region som du väljer kan påverka programmets prestanda. Det är till exempel bättre att välja en region som ligger närmare de flesta av dina kunder för att minska svarstiden i nätverksbegäranden. Du kanske också vill välja din region för att uppfylla de juridiska kraven för att distribuera din app i vissa länder/regioner. Det är alltid en bra idé att lagra programdata i samma datacenter eller i ett datacenter så nära det datacenter som är värd för ditt program.
+En av fördelarna med att använda Azure är att du kan distribuera dina program till olika data center runtom i världen. Den region som du väljer kan påverka programmets prestanda. Till exempel är det bättre att välja en region som är närmare för de flesta kunder för att minska svars tiden i nätverks förfrågningar. Du kanske också vill välja din region för att uppfylla de juridiska kraven för att distribuera din app i vissa länder/regioner. Det är alltid bästa praxis att lagra program data i samma data Center eller i ett Data Center så nära som möjligt till data centret som är värd för ditt program.
 
 ### <a name="multi-region-apps"></a>Appar med flera regioner
 
-Även om det är osannolikt, är det inte omöjligt för ett helt datacenter att gå offline på grund av en händelse som en naturkatastrof eller Internet-fel. Det är en bra idé att vara värd för viktiga affärsprogram i mer än ett datacenter för att ge maximal tillgänglighet. Om du använder flera regioner kan du också minska svarstiden för globala användare och ge ytterligare möjligheter till flexibilitet vid uppdatering av program.
+Även om det är osannolikt är det inte omöjligt för ett helt data Center att gå offline på grund av en händelse som en natur katastrof eller ett Internet haveri. Vi rekommenderar att du är värd för viktiga affärs program i mer än ett Data Center för att få maximal tillgänglighet. Att använda flera regioner kan också minska svars tiden för globala användare och ge ytterligare möjligheter till flexibilitet vid uppdatering av program.
 
-Vissa tjänster, till exempel Virtual Machine och App Services, använder [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) för att aktivera support med flera regioner med redundans mellan regioner för att stödja företagsprogram med hög tillgänglighet. Ett exempel finns i [Azure-referensarkitektur: Kör ett webbprogram i flera regioner](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
+Vissa tjänster, till exempel virtuella datorer och App Services, använder [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) för att möjliggöra stöd för flera regioner med redundans mellan regioner för att stödja företags program med hög tillgänglighet. Ett exempel finns i [referens arkitektur för Azure: kör ett webb program i flera regioner](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
->**När du ska använda**: När du har program för företags- och hög tillgänglighet som drar nytta av redundans och replikering.
+>**När du ska använda**: när du har företags program och program med hög tillgänglighet som drar nytta av redundans och replikering.
 
 ## <a name="how-do-i-manage-my-applications-and-projects"></a>Hur hanterar jag mina program och projekt?
 
-Azure innehåller en omfattande uppsättning upplevelser som du kan skapa och hantera dina Azure-resurser, program och projekt – både programmässigt och i [Azure-portalen](https://portal.azure.com/).
+Azure innehåller en omfattande uppsättning upplevelser som du kan använda för att skapa och hantera dina Azure-resurser, program och projekt – både program mässigt och i [Azure Portal](https://portal.azure.com/).
 
-### <a name="command-line-interfaces-and-powershell"></a>Kommandoradsgränssnitt och PowerShell
+### <a name="command-line-interfaces-and-powershell"></a>Kommando rads gränssnitt och PowerShell
 
-Azure erbjuder två sätt att hantera dina program och tjänster från kommandoraden. Du kan använda verktyg som Bash, Terminal, kommandotolken eller kommandoradsverktyget. Vanligtvis kan du utföra samma uppgifter från kommandoraden som i Azure-portalen, till exempel skapa och konfigurera virtuella datorer, virtuella nätverk, webbappar och andra tjänster.
+Azure tillhandahåller två sätt att hantera dina program och tjänster från kommando raden. Du kan använda verktyg som bash, Terminal, kommando tolken eller kommando rads verktyget som du väljer. Normalt kan du utföra samma uppgifter från kommando raden som i Azure Portal, till exempel skapa och konfigurera virtuella datorer, virtuella nätverk, webbappar och andra tjänster.
 
--   [Azure Command-Line Interface (CLI):](../../xplat-cli-install.md)Låter dig ansluta till en Azure-prenumeration och programmera olika uppgifter mot Azure-resurser från kommandoraden.
+-   [Kommando rads gränssnitt för Azure (CLI)](../../xplat-cli-install.md): gör att du kan ansluta till en Azure-prenumeration och program olika uppgifter mot Azure-resurser från kommando raden.
 
--   [Azure PowerShell](../../powershell-install-configure.md): Innehåller en uppsättning moduler med cmdlets som gör att du kan hantera Azure-resurser med hjälp av Windows PowerShell.
+-   [Azure PowerShell](../../powershell-install-configure.md): innehåller en uppsättning moduler med cmdletar som gör att du kan hantera Azure-resurser med hjälp av Windows PowerShell.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-[Azure-portalen](https://portal.azure.com) är ett webbaserat program. Du kan använda Azure-portalen för att skapa, hantera och ta bort Azure-resurser och -tjänster. Den innehåller:
+[Azure Portal](https://portal.azure.com) är ett webbaserat program. Du kan använda Azure Portal för att skapa, hantera och ta bort Azure-resurser och-tjänster. Den innehåller:
 
-* En konfigurerbar instrumentpanel
-* Verktyg för hantering av Azure-resurser
-* Tillgång till prenumerationsinställningar och faktureringsinformation. Mer information finns i [Översikt över Azure-portalen](../../azure-portal-overview.md).
+* En konfigurerbar instrument panel
+* Azure Resource Management-verktyg
+* Åtkomst till prenumerations inställningar och fakturerings information. Mer information finns i [Översikt över Azure Portal](../../azure-portal-overview.md).
 
 ### <a name="rest-apis"></a>REST API:er
 
-Azure bygger på en uppsättning REST API:er som stöder Azure-portalens användargränssnitt. De flesta av dessa REST-API:er stöds också för att låta dig programmera och hantera dina Azure-resurser och -program från alla Internetaktiverade enheter. Den fullständiga uppsättningen REST API-dokumentation finns i [Azure REST SDK-referensen](https://docs.microsoft.com/rest/api/).
+Azure bygger på en uppsättning REST API: er som stöder Azure Portal gränssnittet. De flesta av dessa REST API: er stöds också för att låta dig program mässigt etablera och hantera dina Azure-resurser och-program från valfri enhet med Internet. En fullständig uppsättning REST API-dokumentation finns i [Azure rest SDK-referensen](https://docs.microsoft.com/rest/api/).
 
 ### <a name="apis"></a>API:er
 
-Tillsammans med REST-API:er kan du också programmässigt hantera resurser från dina program med hjälp av plattformsspecifika Azure SDK:er, inklusive SDK:er för följande utvecklingsplattformar:
+Tillsammans med REST API: er kan många Azure-tjänster också hantera resurser från dina program program mässigt med hjälp av plattformsspecifika Azure-SDK: er, inklusive SDK: er för följande utvecklings plattformar:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
 -   [Node.js](https://docs.microsoft.com/azure/javascript/)
 -   [Java](https://docs.microsoft.com/java/azure)
--   [Php](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
+-   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 -   [Python](/azure/python/)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
 -   [Kör](https://docs.microsoft.com/azure/go)
 
-Tjänster som [mobilappar](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) och [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md) tillhandahåller SDK:er på klientsidan så att du kan komma åt tjänster från webb- och mobilappar.
+Tjänster som [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) och [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md) tillhandahålla SDK: er på klient sidan så att du kan komma åt tjänster från webb-och mobilappar.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Att köra din app på Azure innebär sannolikt att du arbetar med flera Azure-tjänster. Dessa tjänster följer samma livscykel och kan ses som en logisk enhet. En webbapp kan till exempel använda webbappar, SQL-databas, lagring, Azure-cache för Redis och Azure Content Delivery Network-tjänster. [Med Azure Resource Manager](../../azure-resource-manager/management/overview.md) kan du arbeta med resurserna i ditt program som en grupp. Du kan distribuera, uppdatera eller ta bort alla resurser i en enda samordnad åtgärd.
+Att köra din app på Azure innebär troligen att du arbetar med flera Azure-tjänster. Dessa tjänster följer samma livs cykel och kan betraktas som en logisk enhet. Till exempel kan en webbapp använda Web Apps, SQL Database, lagring, Azure cache för Redis och Azure Content Delivery Network-tjänster. Med [Azure Resource Manager](../../azure-resource-manager/management/overview.md) kan du arbeta med resurserna i ditt program som en grupp. Du kan distribuera, uppdatera eller ta bort alla resurser i en enda, koordinerad åtgärd.
 
-Tillsammans med logiskt gruppering och hantering av relaterade resurser innehåller Azure Resource Manager distributionsfunktioner som gör att du kan anpassa distributionen och konfigurationen av relaterade resurser. Du kan till exempel använda Resurshanteraren distribuera och konfigurera ett program. Det här programmet kan bestå av flera virtuella datorer, en belastningsutjämning och en Azure SQL-databas som en enda enhet.
+Tillsammans med gruppering och hantering av relaterade resurser i logisk grupp, innehåller Azure Resource Manager distributions funktioner som gör att du kan anpassa distributionen och konfigurationen av relaterade resurser. Du kan till exempel använda Resource Manager-distribution och konfigurera ett program. Det här programmet kan bestå av flera virtuella datorer, en belastningsutjämnare och en Azure SQL-databas som en enda enhet.
 
-Du utvecklar dessa distributioner med hjälp av en Azure Resource Manager-mall, som är ett JSON-formaterat dokument. Med mallar kan du definiera en distribution och hantera dina program med hjälp av deklarativa mallar i stället för skript. Mallarna kan fungera för olika miljöer, till exempel testning, mellanlagring och produktion. Du kan till exempel använda mallar för att lägga till en knapp i en GitHub-repo som distribuerar koden i osiningen till en uppsättning Azure-tjänster med ett enda klick.
+Du utvecklar dessa distributioner med hjälp av en Azure Resource Manager mall, som är ett JSON-formaterat dokument. Med mallar kan du definiera en distribution och hantera dina program med hjälp av deklarativ mallar i stället för skript. Dina mallar kan användas i olika miljöer, till exempel testning, mellanlagring och produktion. Du kan till exempel använda mallar för att lägga till en knapp till en GitHub-lagrings platsen som distribuerar koden i lagrings platsen till en uppsättning Azure-tjänster med ett enda klick.
 
-> **När du ska använda**: Använd Resource Manager-mallar när du vill ha en mallbaserad distribution för din app som du kan hantera programmässigt med hjälp av REST API:er, Azure CLI och Azure PowerShell.
+> **När du ska använda**: använder du Resource Manager-mallar när du vill ha en mall-baserad distribution för din app som du kan hantera program mässigt med hjälp av REST API: er, Azure CLI och Azure PowerShell.
 >
-> **Kom igång:** Information om hur du kommer igång med mallar finns i [Skapa Azure Resource Manager-mallar](../../resource-group-authoring-templates.md).
+> **Kom igång**: för att komma igång med mallar, se [Redigera Azure Resource Manager mallar](../../resource-group-authoring-templates.md).
 
 ## <a name="understanding-accounts-subscriptions-and-billing"></a>Förstå konton, prenumerationer och fakturering
 
-Som utvecklare gillar vi att dyka rakt in i koden och försöka komma igång så fort som möjligt med att få våra program att köras. Vi vill verkligen uppmuntra dig att börja arbeta i Azure så enkelt som möjligt. För att göra det enkelt erbjuder Azure en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/). Vissa tjänster har till och med funktionen "Prova gratis", till exempel [Azure App Service](https://tryappservice.azure.com/), som inte kräver att du ens skapar ett konto. Hur roligt det än är att gå in i kodning och distribuera ditt program till Azure, är det också viktigt att ta lite tid att förstå hur Azure fungerar. Specifikt bör du förstå hur det fungerar ur en synvinkel av användarkonton, prenumerationer och fakturering.
+Som utvecklare vill vi gå in i koden och försöka komma igång så snabbt som möjligt med att köra våra program. Vi vill gärna att du ska börja arbeta i Azure så enkelt som möjligt. Azure erbjuder en [kostnads fri utvärderings version](https://azure.microsoft.com/free/)för att hjälpa till att göra det enkelt. Vissa tjänster har även funktionen "Testa gratis", t. ex. [Azure App Service](https://tryappservice.azure.com/), som inte kräver att du ens skapar ett konto. Så roligt som det är att koda och distribuera ditt program till Azure är det också viktigt att ta en stund att förstå hur Azure fungerar. Mer specifikt bör du förstå hur det fungerar från ett syn sätt för användar konton, prenumerationer och fakturering.
 
 ### <a name="what-is-an-azure-account"></a>Vad är ett Azure-konto?
 
-Om du vill skapa eller arbeta med en Azure-prenumeration måste du ha ett Azure-konto. Ett Azure-konto är helt enkelt en identitet i Azure AD eller i en katalog, till exempel en arbets- eller skolorganisation, som Azure AD litar på. Om du inte tillhör en sådan organisation kan du alltid skapa en prenumeration med hjälp av ditt Microsoft-konto, som är betrodd av Azure AD. Mer information om hur du integrerar lokal Windows Server Active Directory med Azure AD finns i [Integrera dina lokala identiteter med Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md).
+Om du vill skapa eller arbeta med en Azure-prenumeration måste du ha ett Azure-konto. Ett Azure-konto är bara en identitet i Azure AD eller i en katalog, t. ex. en arbets-eller skol organisation, som Azure AD litar på. Om du inte tillhör en sådan organisation kan du alltid skapa en prenumeration med ditt Microsoft-konto, som är betrott av Azure AD. Mer information om hur du integrerar lokala Windows Server-Active Directory med Azure AD finns i [integrera dina lokala identiteter med Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md).
 
-Alla Azure-prenumerationer har en förtroenderelation med en Azure AD-instans. Det innebär att den litar på den katalogen för att autentisera användare, tjänster och enheter. Flera prenumerationer kan lita på samma katalog, men en prenumeration litar bara på en katalog. Mer information finns i [Hur Azure-prenumerationer associeras med Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+Alla Azure-prenumerationer har en förtroenderelation med en Azure AD-instans. Det innebär att den litar på den katalogen för att autentisera användare, tjänster och enheter. Flera prenumerationer kan lita på samma katalog, men en prenumeration litar bara på en katalog. Mer information finns i [hur Azure-prenumerationer är associerade med Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-Förutom att definiera enskilda Azure-kontoidentiteter, även kallade *användare,* kan du definiera *grupper* i Azure AD. Att skapa användargrupper är ett bra sätt att hantera åtkomst till resurser i en prenumeration med hjälp av rollbaserad åtkomstkontroll (RBAC). Mer information om hur du skapar grupper finns [i Skapa en grupp i förhandsversionen av Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Du kan också skapa och hantera grupper med hjälp av [PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
+Samt definiera enskilda Azure-konto identiteter, även kallade *användare*, kan du definiera *grupper* i Azure AD. Att skapa användar grupper är ett bra sätt att hantera åtkomst till resurser i en prenumeration med hjälp av rollbaserad åtkomst kontroll (RBAC). Information om hur du skapar grupper finns [i skapa en grupp i Azure Active Directory för hands version](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Du kan också skapa och hantera grupper med [hjälp av PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
 
 ### <a name="manage-your-subscriptions"></a>Hantera dina prenumerationer
 
-En prenumeration är en logisk gruppering av Azure-tjänster som är kopplad till ett Azure-konto. Ett enda Azure-konto kan innehålla flera prenumerationer. Fakturering för Azure-tjänster sker per prenumeration. En lista över tillgängliga prenumerationserbjudanden efter typ finns i [Microsoft Azure Offer Details](https://azure.microsoft.com/support/legal/offer-details/). Azure-prenumerationer har en kontoadministratör som har full kontroll över prenumerationen. De har också en tjänstadministratör som har kontroll över alla tjänster i prenumerationen. Information om klassiska prenumerationsadministratörer finns i [Lägga till eller ändra Azure-prenumerationsadministratörer](../../cost-management-billing/manage/add-change-subscription-administrator.md). Enskilda konton kan beviljas detaljerad kontroll över Azure-resurser med hjälp av [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/overview.md).
+En prenumeration är en logisk gruppering av Azure-tjänster som är länkad till ett Azure-konto. Ett enda Azure-konto kan innehålla flera prenumerationer. Faktureringen för Azure-tjänster görs per prenumeration. En lista över tillgängliga prenumerations erbjudanden per typ finns i [Microsoft Azure erbjudande information](https://azure.microsoft.com/support/legal/offer-details/). Azure-prenumerationer har en konto administratör som har fullständig kontroll över prenumerationen. De har också en tjänst administratör som har kontroll över alla tjänster i prenumerationen. Information om klassiska prenumerations administratörer finns i [lägga till eller ändra Azure-prenumerations administratörer](../../cost-management-billing/manage/add-change-subscription-administrator.md). Enskilda konton kan beviljas detaljerad kontroll över Azure-resurser med hjälp av [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md).
 
 #### <a name="resource-groups"></a>Resursgrupper
 
-När du etablerar nya Azure-tjänster gör du det i en viss prenumeration. Enskilda Azure-tjänster, som också kallas resurser, skapas i kontexten för en resursgrupp. Resursgrupper gör det enklare att distribuera och hantera programmets resurser. En resursgrupp bör innehålla alla resurser för ditt program som du vill arbeta med som en enhet. Du kan flytta resurser mellan resursgrupper och till och med till olika prenumerationer. Mer information om hur du flyttar resurser finns i [Flytta resurser till ny resursgrupp eller prenumeration](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
+När du etablerar nya Azure-tjänster gör du det i en specifik prenumeration. Enskilda Azure-tjänster, som även kallas resurser, skapas i kontexten för en resurs grupp. Resurs grupper gör det enklare att distribuera och hantera dina programs resurser. En resurs grupp ska innehålla alla resurser för ditt program som du vill arbeta med som en enhet. Du kan flytta resurser mellan resurs grupper och till och med olika prenumerationer. Mer information om hur du flyttar resurser finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-Azure Resource Explorer är ett bra verktyg för att visualisera de resurser som du redan har skapat i din prenumeration. Mer information finns i [Använda Azure Resource Explorer för att visa och ändra resurser](../../resource-manager-resource-explorer.md).
+Azure Resource Explorer är ett bra verktyg för visualisering av de resurser som du redan har skapat i din prenumeration. Mer information finns i [använda Azure Resource Explorer för att visa och ändra resurser](../../resource-manager-resource-explorer.md).
 
 #### <a name="grant-access-to-resources"></a>Bevilja åtkomst till resurser
 
-När du tillåter åtkomst till Azure-resurser är det alltid en bra idé att ge användarna den lägsta behörighet som krävs för att utföra en viss uppgift.
+När du tillåter åtkomst till Azure-resurser är det alltid en bra idé att ge användarna den minsta behörighet som krävs för att utföra en specifik uppgift.
 
-- **Rollbaserad åtkomstkontroll (RBAC):** I Azure kan du bevilja åtkomst till användarkonton (huvudnamn) med ett angivet scope: prenumeration, resursgrupp eller enskilda resurser. Med RBAC kan du distribuera resurser till en resursgrupp och bevilja behörigheter till en viss användare eller grupp. Du kan också begränsa åtkomsten till endast de resurser som tillhör målgruppen. Du kan också bevilja åtkomst till en enskild resurs, till exempel en virtuell dator eller ett virtuellt nätverk. Om du vill bevilja åtkomst tilldelar du en roll till användaren, gruppen eller tjänstens huvudnamn. Det finns många fördefinierade roller och du kan också definiera dina egna anpassade roller. Mer information finns i [Vad är rollbaserad åtkomstkontroll (RBAC)?](../../role-based-access-control/overview.md).
+- **Rollbaserad åtkomst kontroll (RBAC)**: i Azure kan du bevilja åtkomst till användar konton (huvud konton) i en angiven omfattning: prenumeration, resurs grupp eller enskilda resurser. Med RBAC kan du distribuera resurser till en resurs grupp och bevilja behörigheter till en speciell användare eller grupp. Du kan också begränsa åtkomsten till de resurser som tillhör mål resurs gruppen. Du kan också bevilja åtkomst till en enskild resurs, till exempel en virtuell dator eller ett virtuellt nätverk. Om du vill bevilja åtkomst tilldelar du en roll till användaren, gruppen eller tjänstens huvud namn. Det finns många fördefinierade roller och du kan också definiera egna anpassade roller. Mer information finns i [Vad är rollbaserad åtkomst kontroll (RBAC)?](../../role-based-access-control/overview.md).
 
-  > **När du ska använda**: När du behöver finkornig åtkomsthantering för användare och grupper eller när du behöver göra en användare till ägare av en prenumeration.
+  > **När du ska använda**: när du behöver detaljerade åtkomst hantering för användare och grupper eller när du behöver göra en användare till ägare av en prenumeration.
   >
-  > **Kom igång:** Mer information finns i [Hantera åtkomst med RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
+  > **Kom igång**: Mer information finns i [Hantera åtkomst med RBAC och Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
-- **Huvudobjekt för tjänsten**: Tillsammans med åtkomst till användarens huvudnamn och grupper kan du ge samma åtkomst till ett tjänsthuvudnamn.
+- **Tjänst huvud objekt**: tillsammans med ger åtkomst till användarens huvud namn och grupper kan du ge samma åtkomst till ett huvud namn för tjänsten.
 
-  > **När du ska använda**: När du programmässigt hanterar Azure-resurser eller beviljar åtkomst för program. Mer information finns i [Skapa Active Directory-program och tjänsthuvudnamn](../../active-directory/develop/howto-create-service-principal-portal.md).
+  > **När du ska använda**: när du program mässigt hanterar Azure-resurser eller beviljar åtkomst för program. Mer information finns i [skapa Active Directory-program och tjänstens huvud namn](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="tags"></a>Taggar
 
-Med Azure Resource Manager kan du tilldela anpassade taggar till enskilda resurser. Taggar, som är nyckel-värde par, kan vara till hjälp när du behöver organisera resurser för fakturering eller övervakning. Taggar ger dig ett sätt att spåra resurser över flera resursgrupper. Du kan tilldela taggar på följande sätt:
+Med Azure Resource Manager kan du tilldela anpassade taggar till enskilda resurser. Taggar, som är nyckel/värde-par, kan vara användbara när du behöver organisera resurser för fakturering eller övervakning. Taggar ger dig ett sätt att spåra resurser över flera resurs grupper. Du kan tilldela taggar på följande sätt:
 
 * I portalen
-* I Azure Resource Manager-mallen
+* I Azure Resource Manager mall
 * Använda REST API
 * Använda Azure CLI
 * Använda PowerShell
 
-Du kan tilldela flera taggar till varje resurs. Mer information finns i [Använda taggar för att ordna dina Azure-resurser](../../resource-group-using-tags.md).
+Du kan tilldela flera taggar till varje resurs. Mer information finns i [använda taggar för att ordna dina Azure-resurser](../../resource-group-using-tags.md).
 
 ### <a name="billing"></a>Fakturering
 
-I övergången från lokal databehandling till molnbaserade tjänster är spårning och uppskattning av tjänstens användning och relaterade kostnader betydande problem. Det är viktigt att uppskatta vad nya resurser kostar att köra på månadsbasis. Du kan också projicera hur faktureringen ser ut för en viss månad baserat på de aktuella utgifterna.
+I flytten från lokal data behandling till molnbaserade tjänster är det viktigt att spåra och uppskatta tjänst användning och relaterade kostnader. Det är viktigt att uppskatta vilka nya resurser som kostar att köras per månad. Du kan också projicera hur faktureringen ser ut för en månad baserat på de aktuella utgifterna.
 
-#### <a name="get-resource-usage-data"></a>Hämta resursanvändningsdata
+#### <a name="get-resource-usage-data"></a>Hämta resursanvändnings data
 
-Azure tillhandahåller en uppsättning REST-API:er för fakturering som ger åtkomst till resursförbrukning och metadatainformation för Azure-prenumerationer. Dessa fakturerings-API:er ger dig möjlighet att bättre förutsäga och hantera Azure-kostnader. Du kan spåra och analysera utgifter i timsteg och skapa utgiftsaviseringar. Du kan också förutsäga framtida fakturering baserat på aktuella användningstrender.
+Azure tillhandahåller en uppsättning fakturerings REST-API: er som ger åtkomst till resursförbrukning och metadatainformation för Azure-prenumerationer. Dessa API:er för fakturering ger dig möjlighet att förutse och hantera Azure-kostnader. Du kan spåra och analysera utgifter i steg om varje timme och skapa utgifts aviseringar. Du kan också förutsäga framtida fakturering baserat på aktuella användnings trender.
 
->**Kom igång:** Mer information om hur du använder fakturerings-API:erna finns i [översikten över Azure Billing Usage och RateCard API:er](../../cost-management-billing/manage/usage-rate-card-overview.md).
+>**Kom igång**: Mer information om hur du använder API:er för fakturering finns i [Översikt över Azure fakturerings användning och ratecard API: er](../../cost-management-billing/manage/usage-rate-card-overview.md).
 
-#### <a name="predict-future-costs"></a>Förutse framtida kostnader
+#### <a name="predict-future-costs"></a>Förutsäg framtida kostnader
 
-Även om det är svårt att uppskatta kostnaderna i förväg har Azure verktyg som kan hjälpa dig. Den har en [priskalkylator](https://azure.microsoft.com/pricing/calculator/) för att uppskatta kostnaden för distribuerade resurser. Du kan också använda faktureringsresurserna i portalen och REST-API:erna för fakturering för att uppskatta framtida kostnader, baserat på aktuell förbrukning.
+Även om det är svårt att uppskatta kostnader i förväg, har Azure verktyg som kan hjälpa dig. Den har en [pris kalkylator](https://azure.microsoft.com/pricing/calculator/) som hjälper till att beräkna kostnaden för distribuerade resurser. Du kan också använda fakturerings resurserna i portalen och fakturerings REST-API: erna för att beräkna framtida kostnader baserat på aktuell förbrukning.
 
->**Kom igång:** Se [översikt över Azure Billing Usage och RateCard API:er](../../cost-management-billing/manage/usage-rate-card-overview.md).
+>**Kom igång**: se [Översikt över Azure fakturerings användning och ratecard API: er](../../cost-management-billing/manage/usage-rate-card-overview.md).

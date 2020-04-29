@@ -1,7 +1,7 @@
 ---
-title: Exempel på anpassad färdighet (Python)
+title: Exempel på anpassade kunskaper (python)
 titleSuffix: Azure Cognitive Search
-description: För Python-utvecklare lär du dig verktygen och teknikerna för att skapa en anpassad färdighet med Azure Functions och Visual Studio. Anpassade kunskaper innehåller användardefinierade modeller eller logik som du kan lägga till i en AI-berikad indexeringspipeline i Azure Cognitive Search.
+description: För python-utvecklare lär du dig verktyg och tekniker för att skapa en anpassad färdighet med Azure Functions och Visual Studio. Anpassade kunskaper innehåller användardefinierade modeller eller logik som du kan lägga till i en AI-fördefinierad indexerings pipeline i Azure Kognitiv sökning.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,55 +9,55 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.openlocfilehash: fc69761a05ea381d39d58d5ebf0046e0d9874961
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77210473"
 ---
-# <a name="example-create-a-custom-skill-using-python"></a>Exempel: Skapa en anpassad färdighet med Python
+# <a name="example-create-a-custom-skill-using-python"></a>Exempel: skapa en anpassad kunskap med hjälp av python
 
-I det här exemplet med Azure Cognitive Search skillset får du lära dig hur du skapar en anpassad webb-API-färdighet med Python och Visual Studio Code. I exemplet används en [Azure-funktion](https://azure.microsoft.com/services/functions/) som implementerar det [anpassade färdighetsgränssnittet](cognitive-search-custom-skill-interface.md).
+I det här Azure Kognitiv sökning färdigheter-exemplet får du lära dig hur du skapar en webb-API anpassad kunskap med hjälp av python och Visual Studio Code. I exemplet används en [Azure-funktion](https://azure.microsoft.com/services/functions/) som implementerar det [anpassade kunskaps gränssnittet](cognitive-search-custom-skill-interface.md).
 
-Den anpassade färdigheten är enkel genom design (den sammanfogar två strängar) så att du kan fokusera på de verktyg och tekniker som används för anpassad kompetensutveckling i Python. När du lyckas med en enkel färdighet kan du förgrena dig med mer komplexa scenarier.
+Den anpassade kunskapen är enkel genom design (den sammanfogar två strängar) så att du kan fokusera på de verktyg och tekniker som används för anpassad kunskaps utveckling i python. När du har lyckats med en enkel kunskap kan du förgrena ut med mer komplexa scenarier.
 
 ## <a name="prerequisites"></a>Krav
 
-+ Granska det [anpassade färdighetsgränssnittet](cognitive-search-custom-skill-interface.md) för en introduktion till indata-/utdatagränssnittet som en anpassad färdighet bör implementera.
++ Granska det [anpassade kunskaps gränssnittet](cognitive-search-custom-skill-interface.md) för en introduktion till gränssnittet för indata/utdata som en anpassad färdighet ska implementera.
 
-+ Konfigurera din miljö. Vi följde [den här självstudien från mot slut](https://docs.microsoft.com/azure/python/tutorial-vs-code-serverless-python-01) för att konfigurera serverlös Azure-funktion med Visual Studio-kod och Python-tillägg. Självstudien leder dig genom installation av följande verktyg och komponenter: 
++ Konfigurera din miljö. Vi följde [den här självstudien från slut punkt till slut punkt](https://docs.microsoft.com/azure/python/tutorial-vs-code-serverless-python-01) för att konfigurera en server lös Azure-funktion med Visual Studio Code och python-tillägg. Självstudien vägleder dig genom installationen av följande verktyg och komponenter: 
 
   + [Python 3,75](https://www.python.org/downloads/release/python-375/)
-  + [Visual Studio-kod](https://code.visualstudio.com/)
-  + [Python-tillägg för Visual Studio-kod](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  + [Grundläggande verktyg för Azure-funktioner](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
+  + [Visual Studio-koden](https://code.visualstudio.com/)
+  + [Python-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+  + [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
   + [Azure Functions-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
 ## <a name="create-an-azure-function"></a>Skapa en Azure-funktion
 
-I det här exemplet används en Azure-funktion för att demonstrera konceptet värd för ett webb-API, men andra metoder är möjliga. Så länge du uppfyller [gränssnittskraven för en kognitiv färdighet](cognitive-search-custom-skill-interface.md)är det tillvägagångssätt du tar oväsentligt. Azure Functions gör det dock enkelt att skapa en anpassad färdighet.
+I det här exemplet används en Azure-funktion för att demonstrera konceptet som värd för ett webb-API, men andra metoder är möjliga. Så länge du uppfyller [gränssnitts kraven för en kognitiv skicklighet](cognitive-search-custom-skill-interface.md), är den metod du tar oväsentlig. Azure Functions, gör det dock enkelt att skapa en anpassad färdighet.
 
 ### <a name="create-a-function-app"></a>Skapa en funktionsapp
 
 Med Azure Functions-projektmallen i Visual Studio Code skapas ett projekt som kan publiceras till en funktionsapp i Azure. Med en funktionsapp kan du gruppera funktioner som en logisk enhet så att det blir enklare att hantera, distribuera och dela resurser.
 
-1. Öppna kommandopaletten genom att trycka på F1 i Visual Studio Code. Sök efter och välj `Azure Functions: Create new project...`i kommandopaletten .
+1. I Visual Studio Code, trycker du på F1 för att öppna kommando paletten. I paletten kommando söker du efter och väljer `Azure Functions: Create new project...`.
 
-1. Välj en katalogplats för projektarbetsytan och välj **Välj**.
+1. Välj en katalog plats för projekt arbets ytan och välj **Välj**.
 
     > [!NOTE]
-    > Dessa steg har utformats för att slutföras utanför en arbetsyta. Välj därför inte en projektmapp som ingår i en arbetsyta.
+    > De här stegen har utformats för att slutföras utanför en arbets yta. Därför ska du inte välja en projektmapp som är en del av en arbets yta.
 
-1. Välj ett språk för funktionsappprojektet. För den här självstudien väljer du **Python**.
-1. Välj Python-versionen (version 3.7.5 stöds av Azure Functions)
-1. Välj en mall för projektets första funktion. Välj **HTTP-utlösare** om du vill skapa en HTTP-utlösad funktion i den nya funktionsappen.
-1. Ange ett funktionsnamn. I det här fallet, låt oss använda **Concatenator** 
-1. Välj **Funktion** som auktoriseringsnivå. Detta innebär att vi kommer att tillhandahålla en [funktionsnyckel](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) för att anropa funktionens HTTP-slutpunkt. 
-1. Välj hur du vill öppna projektet. I det här steget väljer du **Lägg till arbetsyta för att** skapa funktionsappen på den aktuella arbetsytan.
+1. Välj ett språk för ditt Function Apps-projekt. I den här självstudien väljer du **python**.
+1. Välj python-versionen (version 3.7.5 stöds av Azure Functions)
+1. Välj en mall för projektets första funktion. Välj **http-utlösare** för att skapa en http-utlöst funktion i den nya Function-appen.
+1. Ange ett funktions namn. I det här fallet ska vi använda **sammanlänkning** 
+1. Välj **funktion** som autentiseringsnivå. Det innebär att vi kommer att tillhandahålla en [funktions nyckel](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) för att anropa FUNKTIONENS http-slutpunkt. 
+1. Välj hur du vill öppna projektet. I det här steget väljer du **Lägg till i arbets yta** för att skapa Function-appen i den aktuella arbets ytan.
 
 I Visual Studio Code skapas funktionsappsprojektet på en ny arbetsyta. Det här projektet innehåller konfigurationsfilerna [host.json](../azure-functions/functions-host-json.md) och [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file), plus eventuella språkspecifika projektfiler. 
 
-En ny HTTP-utlöst funktion skapas också i **concatenatormappen** i funktionsappprojektet. Inuti det kommer att finnas\_\_en fil som heter "init__.py", med detta innehåll:
+En ny HTTP-utlöst funktion skapas också i mappen **sammanlänkningar** i Function app-projektet. I det här fallet är det en fil med\_\_namnet "init__. py" med det här innehållet:
 
 ```py
 import logging
@@ -87,7 +87,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ```
 
-Nu ska vi ändra den koden för att följa det [anpassade färdighetsgränssnittet).](cognitive-search-custom-skill-interface.md) Ändra koden med följande innehåll:
+Nu ska vi ändra koden så att den följer det [anpassade kunskaps gränssnittet](cognitive-search-custom-skill-interface.md). Ändra koden med följande innehåll:
 
 ```py
 import logging
@@ -167,41 +167,41 @@ def transform_value(value):
             })
 ```
 
-Metoden **transform_value** utför en åtgärd på en enskild post. Du kan ändra metoden för att uppfylla dina specifika behov. Kom ihåg att göra alla nödvändiga indatavalidering och att returnera eventuella fel och varningar som uppstår om åtgärden inte kunde slutföras för posten.
+Metoden **transform_value** utför en åtgärd på en enskild post. Du kan ändra metoden för att uppfylla dina speciella behov. Kom ihåg att utföra alla nödvändiga verifierings verifieringar och returnera eventuella fel och varningar som uppstår om åtgärden inte kunde slutföras för posten.
 
-### <a name="debug-your-code-locally"></a>Felsöka koden lokalt
+### <a name="debug-your-code-locally"></a>Felsök din kod lokalt
 
-Visual Studio Code gör det enkelt att felsöka koden. Tryck på "F5" eller gå till **Felsökningsmenyn** och välj **Starta felsökning**.
+Med Visual Studio Code är det enkelt att felsöka koden. Tryck på F5 eller gå till **fel söknings** menyn och välj **Starta fel sökning**.
 
-Du kan ställa in brytpunkter på koden genom att trycka på "F9" på raden av intresse.
+Du kan ställa in eventuella Bryt punkter på koden genom att trycka på F9 på ränte raden.
 
-När du har börjat felsöka körs funktionen lokalt. Du kan använda ett verktyg som Postman eller Fiddler för att utfärda begäran till localhost. Observera platsen för den lokala slutpunkten i terminalfönstret. 
+När du har startat fel sökningen körs funktionen lokalt. Du kan använda ett verktyg som Postman eller Fiddler för att skicka begäran till localhost. Anteckna platsen för den lokala slut punkten i terminalfönstret. 
 
 ## <a name="publish-your-function"></a>Publicera din funktion
 
-När du är nöjd med funktionsbeteendet kan du publicera det.
+När du är nöjd med funktions beteendet kan du publicera den.
 
-1. Öppna kommandopaletten genom att trycka på F1 i Visual Studio Code. Sök efter och välj Distribuera **till funktionsapp**i kommandopaletten. 
+1. I Visual Studio Code, trycker du på F1 för att öppna kommando paletten. I paletten kommando söker du efter och väljer **distribuera till Funktionsapp...**. 
 
-1. Välj den Azure-prenumeration där du vill distribuera ditt program.
+1. Välj den Azure-prenumeration där du vill distribuera programmet.
 
-1. Välj **+ Skapa ny funktionsapp i Azure**
+1. Välj **+ skapa nya Funktionsapp i Azure**
 
-1. Ange ett globalt unikt namn för din funktionsapp.
+1. Ange ett globalt unikt namn för din Function-app.
 
-1. Välj Python-version (Python 3.7.x fungerar för den här funktionen).
+1. Välj python-version (python 3.7. x fungerar för den här funktionen).
 
-1. Välj en plats för den nya resursen (till exempel västra US 2).
+1. Välj en plats för den nya resursen (till exempel USA, västra 2).
 
-Nu skapas nödvändiga resurser i din Azure-prenumeration för att vara värd för den nya Azure-funktionen på Azure. Vänta tills distributionen har slutförts. Utdatafönstret visar distributionsprocessens status.
+I det här läget skapas de nödvändiga resurserna i din Azure-prenumeration för att vara värd för den nya Azure-funktionen på Azure. Vänta tills distributionen har slutförts. I fönstret Utdata visas distributions processens status.
 
-1. I [Azure-portalen](https://portal.azure.com)navigerar du till **Alla resurser** och letar efter den funktion som du publicerade med dess namn. Om du har döpt den **till Sammanfogare**väljer du resursen.
+1. I [Azure Portal](https://portal.azure.com)navigerar du till **alla resurser** och letar efter funktionen som du har publicerat med namnet. Om du har namngett IT- **sammansättning**väljer du resursen.
 
-1. Klicka på knappen **</> Hämta funktionsadress.** På så sätt kan du kopiera webbadressen för att anropa funktionen.
+1. Klicka på knappen **</> Hämta funktions-URL** . Detta gör att du kan kopiera URL: en för att anropa funktionen.
 
 ## <a name="test-the-function-in-azure"></a>Testa funktionen i Azure
 
-Nu när du har standardvärdentt för att testa funktionen på följande sätt:
+Nu när du har standard värd nyckeln testar du funktionen enligt följande:
 
 ```http
 POST [Function URL you copied above]
@@ -227,11 +227,11 @@ POST [Function URL you copied above]
 }
 ```
 
-Det här exemplet bör ge samma resultat som du såg tidigare när du kör funktionen i den lokala miljön.
+Det här exemplet bör ge samma resultat som du såg tidigare när du körde funktionen i den lokala miljön.
 
-## <a name="connect-to-your-pipeline"></a>Ansluta till pipelinen
+## <a name="connect-to-your-pipeline"></a>Anslut till din pipeline
 
-Nu när du har en ny anpassad färdighet kan du lägga till den i din kompetens. Exemplet nedan visar hur du anropar färdigheten för att sammanfoga dokumentets titel och författare till ett enda fält som vi kallar merged_title_author. Ersätt `[your-function-url-here]` med URL:en för din nya Azure-funktion.
+Nu när du har en ny anpassad färdighet kan du lägga till den i din färdigheter. Exemplet nedan visar hur du anropar kunskapen för att sammanfoga rubriken och dokumentets författare till ett enda fält som vi anropar merged_title_author. Ersätt `[your-function-url-here]` med URL: en för den nya Azure-funktionen.
 
 ```json
 {
@@ -266,8 +266,8 @@ Nu när du har en ny anpassad färdighet kan du lägga till den i din kompetens.
 ## <a name="next-steps"></a>Nästa steg
 Grattis! Du har skapat din första anpassade färdighet. Nu kan du följa samma mönster för att lägga till dina egna anpassade funktioner. Klicka på följande länkar om du vill veta mer.
 
-+ [Power Skills: en databas med anpassade färdigheter](https://github.com/Azure-Samples/azure-search-power-skills)
-+ [Lägga till en anpassad färdighet i en AI-anrikningspipeline](cognitive-search-custom-skill-interface.md)
-+ [Hur man definierar en kompetens](cognitive-search-defining-skillset.md)
-+ [Skapa skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Så här mappar du berikade fält](cognitive-search-output-field-mapping.md)
++ [Energi kunskaper: ett lager med anpassade kunskaper](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Lägg till en anpassad färdighet till en AI-pipeline för anrikning](cognitive-search-custom-skill-interface.md)
++ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
++ [Skapa färdigheter (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Så här mappar du omfattande fält](cognitive-search-output-field-mapping.md)

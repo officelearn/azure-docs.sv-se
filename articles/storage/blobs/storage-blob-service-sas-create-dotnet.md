@@ -1,7 +1,7 @@
 ---
-title: Skapa en service-SAS för en behållare eller blob med .NET
+title: Skapa en tjänst-SAS för en behållare eller BLOB med .NET
 titleSuffix: Azure Storage
-description: Lär dig hur du skapar en tjänst delad åtkomstsignatur (SAS) för en behållare eller blob med .NET-klientbiblioteket.
+description: Lär dig hur du skapar en signatur för delad åtkomst för en behållare (SAS) för en behållare eller BLOB med hjälp av .NET-klient biblioteket.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,23 +11,23 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
 ms.openlocfilehash: 10045a760d7e0fcb02a754bc9bb52a5ebca970f4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79137219"
 ---
-# <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Skapa en service-SAS för en behållare eller blob med .NET
+# <a name="create-a-service-sas-for-a-container-or-blob-with-net"></a>Skapa en tjänst-SAS för en behållare eller BLOB med .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Den här artikeln visar hur du använder lagringskontonyckeln för att skapa en tjänst SAS för en behållare eller blob med [Azure Storage-klientbiblioteket för .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Den här artikeln visar hur du använder lagrings konto nyckeln för att skapa en tjänst-SAS för en behållare eller BLOB med [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-## <a name="create-a-service-sas-for-a-blob-container"></a>Skapa en service-SAS för en blob-behållare
+## <a name="create-a-service-sas-for-a-blob-container"></a>Skapa en tjänst-SAS för en BLOB-behållare
 
-Om du vill skapa en service-SAS för en behållare anropar du metoden [CloudBlobContainer.GetSharedAccessSignature.](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature)
+Om du vill skapa en tjänst-SAS för en behållare anropar du metoden [CloudBlobContainer. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature) .
 
-I följande kodexempel skapas en SAS på en behållare. Om namnet på en befintlig lagrad åtkomstprincip anges associeras den principen med SAS. Om ingen lagrad åtkomstprincip anges skapar koden en ad hoc-SAS på behållaren.
+I följande kod exempel skapas en SAS på en behållare. Om namnet på en befintlig lagrad åtkomst princip anges, är den principen associerad med SAS. Om ingen lagrad åtkomst princip anges skapar koden en ad hoc SAS på behållaren.
 
 ```csharp
 private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName = null)
@@ -69,11 +69,11 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 }
 ```
 
-## <a name="create-a-service-sas-for-a-blob"></a>Skapa en service-SAS för en blob
+## <a name="create-a-service-sas-for-a-blob"></a>Skapa en tjänst-SAS för en BLOB
 
-Om du vill skapa en tjänst SAS för en blob anropar du metoden [CloudBlob.GetSharedAccessSignature.](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature)
+Om du vill skapa en tjänst-SAS för en BLOB anropar du metoden [CloudBlob. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) .
 
-I följande kodexempel skapas en SAS på en blob. Om namnet på en befintlig lagrad åtkomstprincip anges associeras den principen med SAS. Om ingen lagrad åtkomstprincip anges skapar koden en ad hoc SAS på bloben.
+I följande kod exempel skapas en SAS på en blob. Om namnet på en befintlig lagrad åtkomst princip anges, är den principen associerad med SAS. Om ingen lagrad åtkomst princip anges skapar koden en ad hoc SAS på blobben.
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container, string blobName, string policyName = null)
@@ -122,5 +122,5 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av SIGNATURER för delad åtkomst (SAS)](../common/storage-sas-overview.md)
+- [Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)](../common/storage-sas-overview.md)
 - [Skapa en tjänst-SAS](/rest/api/storageservices/create-service-sas)

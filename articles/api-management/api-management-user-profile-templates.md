@@ -1,6 +1,6 @@
 ---
-title: Användarprofilmallar i Azure API Management | Microsoft-dokument
-description: Lär dig hur du anpassar innehållet på användarprofilsidorna i utvecklarportalen i Azure API Management.
+title: Mallar för användar profiler i Azure API Management | Microsoft Docs
+description: Lär dig hur du anpassar innehållet i användar profil sidorna i Developer-portalen i Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4e3e430874f9d5b64f717b6ebb1cacb0eae46b1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79243957"
 ---
-# <a name="user-profile-templates-in-azure-api-management"></a>Användarprofilmallar i Azure API Management
-Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarportalsidor med hjälp av en uppsättning mallar som konfigurerar deras innehåll. Med hjälp av [DotLiquid-syntax](http://dotliquidmarkup.org/) och valfri redigerare, till exempel [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)och en uppsättning lokaliserade [strängresurser,](api-management-template-resources.md#strings) [Glyph-resurser](api-management-template-resources.md#glyphs)och [sidkontroller,](api-management-page-controls.md)har du stor flexibilitet att konfigurera innehållet på sidorna som du tycker passar med hjälp av dessa mallar.  
+# <a name="user-profile-templates-in-azure-api-management"></a>Mallar för användar profiler i Azure API Management
+Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor med en uppsättning mallar som konfigurerar innehållet. Om du använder [DotLiquid](http://dotliquidmarkup.org/) -syntax och valfritt redigerings program, t. ex. [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), [Glyph-resurser](api-management-template-resources.md#glyphs)och [sid kontroller](api-management-page-controls.md), har du stor flexibilitet att konfigurera innehållet på sidorna när du ser anpassa med hjälp av dessa mallar.  
   
- Med mallarna i det här avsnittet kan du anpassa innehållet på profilsidorna för användare i utvecklarportalen.  
+ Med mallarna i det här avsnittet kan du anpassa innehållet i användar profil sidorna i Developer-portalen.  
   
 -   [Profil](#Profile)  
   
@@ -31,19 +31,19 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
   
 -   [Program](#Applications)  
   
--   [Uppdatera kontoinformation](#UpdateAccountInfo)  
+-   [Uppdatera konto information](#UpdateAccountInfo)  
   
 > [!NOTE]
->  Exempelmallar för exempel ingår i följande dokumentation, men kan komma att ändras på grund av kontinuerliga förbättringar. Du kan visa standardmallarna i utvecklarportalen genom att navigera till önskade enskilda mallar. Mer information om hur du arbetar med mallar finns i [Så här anpassar du utvecklarportalen](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)för API Management med hjälp av mallar .  
+>  Exempel på standardmallar finns i följande dokumentation, men kan komma att ändras på grund av kontinuerliga förbättringar. Du kan visa standardmallarna för Live i Developer-portalen genom att gå till önskade enskilda mallar. Mer information om hur du arbetar med mallar finns i [anpassa API Management Developer-portalen med hjälp av mallar](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="profile"></a><a name="Profile"></a>Profil  
- Med **profilmallen** kan du anpassa avsnittet användarprofil på användarprofilsidan i utvecklarportalen.  
+##  <a name="profile"></a><a name="Profile"></a>Upphandlarprofil  
+ Med **profil** mal len kan du anpassa användar profil avsnittet på sidan användar profil i Developer-portalen.  
   
- ![Sida för användarprofil](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Apim-användarprofilsida")  
+ ![Sidan användar profil](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "Sidan användar profil för APIM")  
   
 ### <a name="default-template"></a>Standardmall  
   
@@ -98,28 +98,28 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ```  
   
 ### <a name="controls"></a>Kontroller  
- Den här mallen får inte använda några [sidkontroller](api-management-page-controls.md).  
+ Den här mallen kan inte använda några [sid kontroller](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Datamodell  
   
 > [!NOTE]
->  Mallarna [Profil,](#Profile) [Program](#Applications)och [Prenumerationer](#Subscriptions) delar samma datamodell och får samma malldata.  
+>  Mallarna [profil](#Profile), [program](#Applications)och [prenumerationer](#Subscriptions) delar samma data modell och får samma mall data.  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|`firstName`|sträng|Förnamn för den aktuella användaren.|  
-|`lastName`|sträng|Efternamn på den aktuella användaren.|  
-|`companyName`|sträng|Företagsnamnet på den aktuella användaren.|  
+|`firstName`|sträng|Den aktuella användarens förnamn.|  
+|`lastName`|sträng|Den aktuella användarens efter namn.|  
+|`companyName`|sträng|Den aktuella användarens företags namn.|  
 |`addresserEmail`|sträng|Den aktuella användarens e-postadress.|  
 |`developersUsageStatisticsLink`|sträng|Relativ URL för att visa analyser för den aktuella användaren.|  
-|`subscriptions`|Insamling [Subscription](api-management-template-data-model-reference.md#Subscription) av prenumerationsentiteter.|Prenumerationerna för den aktuella användaren.|  
-|`applications`|Insamling [Application](api-management-template-data-model-reference.md#Application) av application-entiteter.|Den aktuella användarens program.|  
-|`changePasswordUrl`|sträng|Den relativa URL:en för att ändra den aktuella användarens lösenord.|  
-|`changeNameOrEmailUrl`|sträng|Den relativa URL:en för att ändra namn och e-post för den aktuella användaren.|  
-|`canChangePassword`|boolean|Om den aktuella användaren kan ändra sitt lösenord.|  
-|`isSystemUser`|boolean|Om den aktuella användaren är medlem i en av de inbyggda [grupperna](api-management-key-concepts.md#groups).|  
+|`subscriptions`|Samling av [prenumerations](api-management-template-data-model-reference.md#Subscription) enheter.|Prenumerationerna för den aktuella användaren.|  
+|`applications`|Samling av [Application](api-management-template-data-model-reference.md#Application) programentiteter.|Den aktuella användarens program.|  
+|`changePasswordUrl`|sträng|Den relativa URL: en för att ändra den aktuella användarens lösen ord.|  
+|`changeNameOrEmailUrl`|sträng|Den relativa URL: en för att ändra namn och e-postadress för den aktuella användaren.|  
+|`canChangePassword`|boolean|Om den aktuella användaren kan ändra sina lösen ord.|  
+|`isSystemUser`|boolean|Om den aktuella användaren är medlem i någon av de inbyggda [grupperna](api-management-key-concepts.md#groups).|  
   
-### <a name="sample-template-data"></a>Exempel på malldata  
+### <a name="sample-template-data"></a>Exempel mal lin data  
   
 ```json  
 {  
@@ -186,9 +186,9 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ```  
   
 ##  <a name="subscriptions"></a><a name="Subscriptions"></a>Prenumerationer  
- Med mallen **Prenumerationer** kan du anpassa prenumerationsavsnittet på användarprofilsidan i utvecklarportalen.  
+ Med **prenumerations** mal len kan du anpassa prenumerations avsnittet på sidan användar profil i Developer-portalen.  
   
- ![Sida för användarprenumeration](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Prenumerationssida för APIM-användare")  
+ ![Sidan användar prenumeration](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "APIM användar prenumerations sida")  
   
 ### <a name="default-template"></a>Standardmall  
   
@@ -317,30 +317,30 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ```  
   
 ### <a name="controls"></a>Kontroller  
- Den här mallen kan använda följande [sidkontroller](api-management-page-controls.md).  
+ Den här mallen kan använda följande [sid kontroller](api-management-page-controls.md).  
   
--   [prenumerationsuppst)](api-management-page-controls.md#subscription-cancel)  
+-   [prenumeration-Avbryt](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>Datamodell  
   
 > [!NOTE]
->  Mallarna [Profil,](#Profile) [Program](#Applications)och [Prenumerationer](#Subscriptions) delar samma datamodell och får samma malldata.  
+>  Mallarna [profil](#Profile), [program](#Applications)och [prenumerationer](#Subscriptions) delar samma data modell och får samma mall data.  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|`firstName`|sträng|Förnamn för den aktuella användaren.|  
-|`lastName`|sträng|Efternamn på den aktuella användaren.|  
-|`companyName`|sträng|Företagsnamnet på den aktuella användaren.|  
+|`firstName`|sträng|Den aktuella användarens förnamn.|  
+|`lastName`|sträng|Den aktuella användarens efter namn.|  
+|`companyName`|sträng|Den aktuella användarens företags namn.|  
 |`addresserEmail`|sträng|Den aktuella användarens e-postadress.|  
 |`developersUsageStatisticsLink`|sträng|Relativ URL för att visa analyser för den aktuella användaren.|  
-|`subscriptions`|Insamling [Subscription](api-management-template-data-model-reference.md#Subscription) av prenumerationsentiteter.|Prenumerationerna för den aktuella användaren.|  
-|`applications`|Insamling [Application](api-management-template-data-model-reference.md#Application) av application-entiteter.|Den aktuella användarens program.|  
-|`changePasswordUrl`|sträng|Den relativa URL:en för att ändra den aktuella användarens lösenord.|  
-|`changeNameOrEmailUrl`|sträng|Den relativa URL:en för att ändra namn och e-post för den aktuella användaren.|  
-|`canChangePassword`|boolean|Om den aktuella användaren kan ändra sitt lösenord.|  
-|`isSystemUser`|boolean|Om den aktuella användaren är medlem i en av de inbyggda [grupperna](api-management-key-concepts.md#groups).|  
+|`subscriptions`|Samling av [prenumerations](api-management-template-data-model-reference.md#Subscription) enheter.|Prenumerationerna för den aktuella användaren.|  
+|`applications`|Samling av [Application](api-management-template-data-model-reference.md#Application) programentiteter.|Den aktuella användarens program.|  
+|`changePasswordUrl`|sträng|Den relativa URL: en för att ändra den aktuella användarens lösen ord.|  
+|`changeNameOrEmailUrl`|sträng|Den relativa URL: en för att ändra namn och e-postadress för den aktuella användaren.|  
+|`canChangePassword`|boolean|Om den aktuella användaren kan ändra sina lösen ord.|  
+|`isSystemUser`|boolean|Om den aktuella användaren är medlem i någon av de inbyggda [grupperna](api-management-key-concepts.md#groups).|  
   
-### <a name="sample-template-data"></a>Exempel på malldata  
+### <a name="sample-template-data"></a>Exempel mal lin data  
   
 ```json  
 {  
@@ -406,10 +406,10 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 }  
 ```  
   
-##  <a name="applications"></a><a name="Applications"></a>Program  
- Med **mallen Program** kan du anpassa prenumerationsavsnittet på användarprofilsidan i utvecklarportalen.  
+##  <a name="applications"></a><a name="Applications"></a>Ansökan  
+ Med **program** mal len kan du anpassa prenumerations avsnittet på sidan användar profil i Developer-portalen.  
   
- ![Sidan Program för användarkonton](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Sidan APIM-användarkontoprogram")  
+ ![Sidan program för användar konton](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Sidan APIM User Account-program")  
   
 ### <a name="default-template"></a>Standardmall  
   
@@ -480,30 +480,30 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ```  
   
 ### <a name="controls"></a>Kontroller  
- Den här mallen kan använda följande [sidkontroller](api-management-page-controls.md).  
+ Den här mallen kan använda följande [sid kontroller](api-management-page-controls.md).  
   
--   [app-åtgärder](api-management-page-controls.md#app-actions)  
+-   [app-Actions](api-management-page-controls.md#app-actions)  
   
 ### <a name="data-model"></a>Datamodell  
   
 > [!NOTE]
->  Mallarna [Profil,](#Profile) [Program](#Applications)och [Prenumerationer](#Subscriptions) delar samma datamodell och får samma malldata.  
+>  Mallarna [profil](#Profile), [program](#Applications)och [prenumerationer](#Subscriptions) delar samma data modell och får samma mall data.  
   
 |Egenskap|Typ|Beskrivning|  
 |--------------|----------|-----------------|  
-|`firstName`|sträng|Förnamn för den aktuella användaren.|  
-|`lastName`|sträng|Efternamn på den aktuella användaren.|  
-|`companyName`|sträng|Företagsnamnet på den aktuella användaren.|  
+|`firstName`|sträng|Den aktuella användarens förnamn.|  
+|`lastName`|sträng|Den aktuella användarens efter namn.|  
+|`companyName`|sträng|Den aktuella användarens företags namn.|  
 |`addresserEmail`|sträng|Den aktuella användarens e-postadress.|  
 |`developersUsageStatisticsLink`|sträng|Relativ URL för att visa analyser för den aktuella användaren.|  
-|`subscriptions`|Insamling [Subscription](api-management-template-data-model-reference.md#Subscription) av prenumerationsentiteter.|Prenumerationerna för den aktuella användaren.|  
-|`applications`|Insamling [Application](api-management-template-data-model-reference.md#Application) av application-entiteter.|Den aktuella användarens program.|  
-|`changePasswordUrl`|sträng|Den relativa URL:en för att ändra den aktuella användarens lösenord.|  
-|`changeNameOrEmailUrl`|sträng|Den relativa URL:en för att ändra namn och e-post för den aktuella användaren.|  
-|`canChangePassword`|boolean|Om den aktuella användaren kan ändra sitt lösenord.|  
-|`isSystemUser`|boolean|Om den aktuella användaren är medlem i en av de inbyggda [grupperna](api-management-key-concepts.md#groups).|  
+|`subscriptions`|Samling av [prenumerations](api-management-template-data-model-reference.md#Subscription) enheter.|Prenumerationerna för den aktuella användaren.|  
+|`applications`|Samling av [Application](api-management-template-data-model-reference.md#Application) programentiteter.|Den aktuella användarens program.|  
+|`changePasswordUrl`|sträng|Den relativa URL: en för att ändra den aktuella användarens lösen ord.|  
+|`changeNameOrEmailUrl`|sträng|Den relativa URL: en för att ändra namn och e-postadress för den aktuella användaren.|  
+|`canChangePassword`|boolean|Om den aktuella användaren kan ändra sina lösen ord.|  
+|`isSystemUser`|boolean|Om den aktuella användaren är medlem i någon av de inbyggda [grupperna](api-management-key-concepts.md#groups).|  
   
-### <a name="sample-template-data"></a>Exempel på malldata  
+### <a name="sample-template-data"></a>Exempel mal lin data  
   
 ```json  
 {  
@@ -569,10 +569,10 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 }  
 ```  
   
-##  <a name="update-account-info"></a><a name="UpdateAccountInfo"></a>Uppdatera kontoinformation  
- Med mallen **Uppdatera kontoinformation** kan du anpassa sidan **Uppdatera kontoinformation** i utvecklarportalen.  
+##  <a name="update-account-info"></a><a name="UpdateAccountInfo"></a>Uppdatera konto information  
+ Med mallen **Uppdatera konto** information kan du anpassa sidan **Uppdatera konto information** i Developer-portalen.  
   
- ![Utvecklarportalmallar för information om användarkonto](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Apim-användarkontoinformationsportalmallar för")  
+ ![Informations sidan för användar konton utvecklare Portal-mallar](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "APIM för användar konto information Page Developer Portal templates")  
   
 ### <a name="default-template"></a>Standardmall  
   
@@ -607,12 +607,12 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ```  
   
 ### <a name="controls"></a>Kontroller  
- Den här mallen får inte använda några [sidkontroller](api-management-page-controls.md).  
+ Den här mallen kan inte använda några [sid kontroller](api-management-page-controls.md).  
   
 ### <a name="data-model"></a>Datamodell  
- [Entiteten för användarkontoinformation.](api-management-template-data-model-reference.md#UserAccountInfo)  
+ Entitet för [användar konto information](api-management-template-data-model-reference.md#UserAccountInfo) .  
   
-### <a name="sample-template-data"></a>Exempel på malldata  
+### <a name="sample-template-data"></a>Exempel mal lin data  
   
 ```json  
 {  
@@ -627,4 +627,4 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du arbetar med mallar finns i [Så här anpassar du utvecklarportalen](api-management-developer-portal-templates.md)för API Management med hjälp av mallar .
+Mer information om hur du arbetar med mallar finns i [anpassa API Management Developer-portalen med hjälp av mallar](api-management-developer-portal-templates.md).

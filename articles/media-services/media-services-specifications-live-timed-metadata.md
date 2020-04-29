@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services - Signaling tidsinnade metadata i livestreaming
-description: Den här specifikationen beskriver metoder för signalering av tidsbetonade metadata vid intag och direktuppspelning till Azure Media Services. Detta inkluderar stöd för generiska tidsinmatade metadatasignaler (ID3), samt SCTE-35-signalering för ad insertion och skarvtillståndssignalering.
+title: Timed metadata för Azure Media Services signalering i Live Streaming
+description: Den här specifikationen beskriver metoder för att signalera Timed metadata vid inmatning och strömning till Azure Media Services. Detta omfattar stöd för allmänna timeed metadata-signaler (ID3), samt SCTE-35-signaler för annons infogning och splice-villkor signaler.
 services: media-services
 documentationcenter: ''
 author: johndeu
@@ -15,136 +15,136 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
 ms.openlocfilehash: 551fb0cb9f3745a62d5d84f2c4878bbbbe5ad9a0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79137330"
 ---
-# <a name="signaling-timed-metadata-in-live-streaming"></a>Tidsinställningar för signalering i livestreaming 
+# <a name="signaling-timed-metadata-in-live-streaming"></a>Signalerar Timed metadata i Live Streaming 
 
 Senast uppdaterad: 2019-08-22
 
-### <a name="conformance-notation"></a>Notering av konforman
+### <a name="conformance-notation"></a>Överensstämmelse notation
 
-Nyckelorden "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY" och "OPTIONAL" i detta dokument ska tolkas enligt beskrivningen i RFC 2119
+Nyckelorden "måste", "måste", "krävs", ",", ",", ",", "ska inte", "ska inte", "rekommenderas", "maj" och "valfritt" i det här dokumentet tolkas enligt beskrivningen i RFC 2119
 
-## <a name="1-introduction"></a>1. Inledning 
+## <a name="1-introduction"></a>1. Introduktion 
 
-För att signalera införandet av annonser eller anpassade metadatahändelser på en klientspelare använder programföretagen ofta tidsinställd metadata som är inbäddade i videon. För att aktivera dessa scenarier ger Media Services stöd för transport av tidsinniga metadata från den intövande punkten för direktuppspelningskanalen till klientprogrammet.
-Den här specifikationen beskriver flera lägen som stöds av Media Services för tidsbända metadata i direktuppspelningssignaler.
+För att signalera infogningen av annonseringar eller anpassade metadata-händelser på en klient spelare använder broadcast-meddelanden ofta inbäddade metadata inbäddade i videon. För att aktivera de här scenarierna ger Media Services stöd för transport av tidshanterade metadata från inmatnings punkten för Live streaming-kanalen till klient programmet.
+Den här specifikationen beskriver flera lägen som stöds av Media Services för Timed metadata i direkt uppspelnings signaler.
 
-1. [SCTE-35] signalering som uppfyller de standarder som beskrivs av [SCTE-35], [SCTE-214-1], [SCTE-214-3] och [RFC8216]
+1. [SCTE-35] signalerar som uppfyller de standarder som beskrivs av [SCTE-35], [SCTE-214-1], [SCTE-214-3] och [RFC8216]
 
-2. [SCTE-35] signalering som överensstämmer med den äldre [Adobe-Primetime] specifikationen för RTMP-annonssignalering.
+2. [SCTE-35] signalerar som uppfyller den äldre [Adobe-Primetime]-specifikationen för RTMP AD-signalering.
    
-3. Ett allmänt tidsinmatat metadatasignaleringsläge för meddelanden som **INTE** är [SCTE-35] och som kan bära [ID3v2] eller andra anpassade scheman som definierats av programutvecklaren.
+3. Ett allmänt timeed metadata Signaling-läge för meddelanden som **inte** är [SCTE-35] och som kan ha [ID3v2] eller andra anpassade scheman som definieras av programutvecklaren.
 
-## <a name="11-terms-used"></a>1.1 Använda termer
+## <a name="11-terms-used"></a>användnings villkor för 1,1
 
 | Period                | Definition                                                                                                                                                                                                                                    |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Avbrott i annonser            | En plats eller tidpunkt där en eller flera annonser kan schemaläggas för leverans. samma som nytta och placering möjlighet.                                                                                                                     |
-| Tjänst för annonsbeslut | externa tjänst som bestämmer vilka annonser och varaktigheter som ska visas för användaren. Tjänsterna tillhandahålls vanligtvis av en partner och är utanför omfånget för det här dokumentet.                                                                    |
-| Cue                 | Uppgift om tid och parametrar för den kommande annonspausen. Observera att köer kan indikera en väntande övergång till en annonspaus, väntande övergång till nästa annons i en annonspaus och väntande övergång från en annonspaus till huvudinnehållet.           |
-| Packager            | Azure Media Services "Streaming Endpoint" ger dynamiska förpackningsfunktioner för DASH och HLS och kallas "Packager" i mediebranschen.                                                                              |
-| Presentationstid   | Den tid som en händelse presenteras för en tittare. Tiden representerar det ögonblick på media tidslinjen som en tittare skulle se händelsen. Presentationstiden för ett STE-35-splice_info()-kommandomeddelande är till exempel splice_time(). |
-| Ankomsttid        | Den tid som ett händelsemeddelande anländer. Tiden skiljer sig vanligtvis från presentationen tid för händelsen, eftersom händelsemeddelanden skickas före presentationen tid för händelsen.                                                    |
-| Gles spår        | mediespår som inte är kontinuerligt och som tid synkroniseras med ett överordnat spår eller kontrollspår.                                                                                                                                                  |
-| Ursprung              | Streamingtjänsten för Azure Media                                                                                                                                                                                                             |
-| Kanal Diskbänk        | The Azure Media Live Streaming Service                                                                                                                                                                                                        |
+| AD-avbrott            | En plats eller tidpunkt då en eller flera annonser kan schemaläggas för leverans; samma som DISP-och placerings möjlighet.                                                                                                                     |
+| AD-besluts tjänst | extern tjänst som avgör vilka AD (er) och varaktigheter som ska visas för användaren. Tjänsterna tillhandahålls vanligt vis av en partner och är utanför omfånget för det här dokumentet.                                                                    |
+| Utlösare                 | Indikering av tid och parametrar för den kommande AD-rasten. Observera att stacken kan indikera en väntande växel till en AD Break, väntar på att växla till nästa AD i en AD Break och väntande växel från en AD Break till huvud innehållet.           |
+| Packager            | Azure Media Services slut punkt för direkt uppspelning tillhandahåller funktioner för dynamisk paketering för streck-och HLS och kallas för "Paketeraren" i medie branschen.                                                                              |
+| Presentations tid   | Den tid som en händelse presenteras för ett visnings program. Tiden visar tidpunkten för den medie tids linje som ett visnings program skulle se händelsen. Till exempel är presentations tiden för kommando meddelandet SCTE-35 splice_info () splice_time (). |
+| Införsel tid        | Den tidpunkt då ett händelse meddelande tas emot. Tiden är vanligt vis distinkt från händelsens presentations tid, eftersom händelse meddelanden skickas före händelsens presentations tid.                                                    |
+| Sparse-spår        | medie spår som inte är kontinuerlig och som är tids synkroniserat med ett överordnat eller kontroll spår.                                                                                                                                                  |
+| Ursprung              | Tjänsten Azure Media Streaming                                                                                                                                                                                                             |
+| Kanal mottagare        | Tjänsten Azure Media Live Streaming                                                                                                                                                                                                        |
 | HLS                 | Apple HTTP Live Streaming-protokoll                                                                                                                                                                                                            |
-| Dash                | Dynamisk adaptiv direktuppspelning över HTTP                                                                                                                                                                                                          |
-| Smidig              | Smidigt protokoll för direktuppspelning                                                                                                                                                                                                                     |
-| MPEG2-TS            | MPEG 2 Transportströmmar                                                                                                                                                                                                                      |
-| RTMP                | Multimediaprotokoll i realtid                                                                                                                                                                                                                 |
-| uimsbf (på)              | Osignerat heltal, mest signifikanta bit först.                                                                                                                                                                                                 |
+| DASH                | Dynamisk adaptiv strömning via HTTP                                                                                                                                                                                                          |
+| Utseende              | Smooth Streaming protokoll                                                                                                                                                                                                                     |
+| MPEG2 – TS            | MPEG 2-överförings strömmar                                                                                                                                                                                                                      |
+| RTMP                | Real tids multimedie protokoll                                                                                                                                                                                                                 |
+| uimsbf              | Osignerat heltal, mest signifikanta bit först.                                                                                                                                                                                                 |
 
 ---
 
-## <a name="12-normative-references"></a>1.2 Normativa referenser
+## <a name="12-normative-references"></a>1,2 normativa referenser
 
-Följande dokument innehåller bestämmelser som genom hänvisning i denna text utgör bestämmelser i detta dokument. Alla dokument är föremål för översyn av standardiseringsorganen, och läsarna uppmanas att undersöka möjligheten att tillämpa de senaste utgåvorna av de dokument som anges nedan. Läsare påminns också om att nyare versioner av de refererade dokumenten kanske inte är kompatibla med den här versionen av den tidsinbästa metadataspecifikationen för Azure Media Services.
+Följande dokument innehåller bestämmelser, som till följd av referens i denna text utgör bestämmelser i det här dokumentet. Alla dokument är föremål för revidering av standard organen, och läsarna uppmuntras att undersöka möjligheten att tillämpa de senaste versionerna av dokumenten som anges nedan. Läsarna får också en påminnelse om att nyare versioner av de refererade dokumenten kanske inte är kompatibla med den här versionen av den tidsbegränsade metadata-specifikationen för Azure Media Services.
 
 
 | Standard          | Definition                                                                                                                                                                                                     |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Adobe-Primetime] | [Primetime Digital Program Insättningssignal specifikation 1.2](https://www.adobe.com/content/dam/acom/en/devnet/primetime/PrimetimeDigitalProgramInsertionSignalingSpecification.pdf)                       |
-| [Adobe-Flash-AS]  | [Språkreferens för FLASH ActionScript](https://help.adobe.com/archive/en_US/as2/flashlite_2.x_3.x_aslr.pdf)                                                                                                   |
-| - Jag vet inte vad du säger.            | ["Åtgärdsmeddelandeformat AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)                                                                                                              |
-| [DASH-IF-IOP]     | DASH Industri Forum Interop Vägledning v 4,2[https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html)    |
-| [HLS-TMD]         | Tidsinläst metadata för HTTP Live Streaming -[https://developer.apple.com/streaming](https://developer.apple.com/streaming)                                                                                        |
-| [CMAF-ID3]        | [Tidsinformad metadata i CMAF (Common Media Application Format)](https://github.com/AOMediaCodec/id3-emsg)                                                                                                        |
-| [ID3v2]           | ID3 Tag version 2.4.0[http://id3.org/id3v2.4.0-structure](http://id3.org/id3v2.4.0-structure)                                                                                                                |
-| [ISO-14496-12]    | ISO/IEC 14496-12: Del 12 ISO-basmediafilformat, Fjärde Uppgången 2012-07-15                                                                                                                                 |
-| -Jag har inte tid med det här.        | Informationsteknik – Dynamisk adaptiv direktuppspelning via HTTP (DASH) – Del 1: Beskrivning av mediepresentation och segmentformat. maj 2014. Publicerade. Url:https://www.iso.org/standard/65274.html         |
-| [MPEGCMAF]        | Informationsteknik – MPEG-A (Multimedia application format) – Del 19: CMAF (Common Media Application Format) för segmenterade medier. januari 2018. Publicerade. Url:https://www.iso.org/standard/71975.html |
-| -Jag har inte tid med det här.        | Informationsteknik – MPEG-systemteknik – Del 7: Gemensam kryptering i ISO-basfilformatfiler. februari 2016. Publicerade. Url:https://www.iso.org/standard/68042.html                   |
-| -Jag har inte tid med det här.         | ["Microsoft Smooth Streaming Protocol", 15 maj 2014](https://docs.microsoft.com/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)                                                     |
-| [MS-SSTR-Ingest]  | [Fragmenterad MP4 Live-specifikation för Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)                                                      |
-| [RFC8216]         | R. Pantos, Ed.; W. Maj. HTTP Live Streaming. augusti 2017. Informativt. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216)                                                            |
-| [RFC4648]         | Datakodnings- och baskodningskodningen Base16, Base32 och Base64 -[https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648)                                                                                     |
-| -Jag har inte tid med det här.            | ["Adobes protokoll för meddelanden i realtid", 21 december 2012](https://www.adobe.com/devnet/rtmp.html)                                                                                                            |
-| [SCTE-35-2019]    | SCTE 35: 2019 - Cueing-meddelande för infogning av digitala program för kabel -https://www.scte.org/SCTEDocs/Standards/ANSI_SCTE%2035%202019r1.pdf                                                                       |
-| [SCTE-214-1]      | SCTE 214-1 2016 – MPEG DASH för IP-baserade kabeltjänster Del 1: MPD-begränsningar och tillägg                                                                                                                 |
-| [SCTE-214-3]      | SCTE 214-3 2015 MPEG DASH för IP-baserade kabeltjänster Del 3: DASH/FF-profil                                                                                                                                  |
-| [SCTE-224]        | SCTE 224 2018r1 – Gränssnitt för schemaläggning och anmälan till evenemang                                                                                                                                                  |
-| [SCTE-250]        | API för händelse- och signalhantering (ESAM)                                                                                                                                                                      |
+| [Adobe-Primetime] | [Primetime Digital program infogning, signal specifikation 1,2](https://www.adobe.com/content/dam/acom/en/devnet/primetime/PrimetimeDigitalProgramInsertionSignalingSpecification.pdf)                       |
+| [Adobe-Flash-AS]  | [Språk referens för FLASH ActionScript](https://help.adobe.com/archive/en_US/as2/flashlite_2.x_3.x_aslr.pdf)                                                                                                   |
+| [AMF0]            | ["Åtgärds meddelande format AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)                                                                                                              |
+| [BINDESTRECK-IF-IOP]     | Utlinjes sällskap interop-vägledning v 4,2[https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html)    |
+| [HLS-TMD]         | Tidsbaserade metadata för HTTP Live Streaming-[https://developer.apple.com/streaming](https://developer.apple.com/streaming)                                                                                        |
+| [CMAF-ID3]        | [Timed metadata i det vanliga medie program formatet (CMAF)](https://github.com/AOMediaCodec/id3-emsg)                                                                                                        |
+| [ID3v2]           | ID3-tagg version 2.4.0[http://id3.org/id3v2.4.0-structure](http://id3.org/id3v2.4.0-structure)                                                                                                                |
+| [ISO-14496-12]    | ISO/IEC 14496-12: del 12 ISO Base Media-filformat, FourthEdition 2012-07-15                                                                                                                                 |
+| [MPEGDASH]        | Informations teknik – dynamisk anpassningsbar strömning via HTTP (bindestreck)--del 1: Beskrivning av medie presentation och segment format. Maj 2014. Delade. ADRESSERhttps://www.iso.org/standard/65274.html         |
+| [MPEGCMAF]        | Information Technology – multimedie program format (MPEG-A)--del 19: common Media program format (CMAF) för segmenterade medier. 2018 januari. Delade. ADRESSERhttps://www.iso.org/standard/71975.html |
+| [MPEGCENC]        | Information Technology – MPEG Systems Technologies – del 7: common Encryption in fil format i ISO Base-filer. Februari 2016. Delade. ADRESSERhttps://www.iso.org/standard/68042.html                   |
+| [MS-SSTR]         | ["Microsoft Smooth Streaming-protokollet", 15 maj 2014](https://docs.microsoft.com/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)                                                     |
+| [MS-SSTR-intag]  | [Azure Media Services-specifikation för fragmenterad MP4 Live](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)                                                      |
+| [RFC8216]         | R. Pantos, ED. W. maj. HTTP Live Streaming. 2017 augusti. Informations. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216)                                                            |
+| [RFC4648]         | Data kodningarna Base16, Base32 och base64 –[https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648)                                                                                     |
+| RTMP            | ["Adobes real tids meddelande protokoll", den 21 december 2012](https://www.adobe.com/devnet/rtmp.html)                                                                                                            |
+| [SCTE-35-2019]    | SCTE 35:2019-Digital program infogning cueing meddelande för kabel-https://www.scte.org/SCTEDocs/Standards/ANSI_SCTE%2035%202019r1.pdf                                                                       |
+| [SCTE-214-1]      | SCTE 214-1 2016 – MPEG-streck för IP-baserade kabel tjänster, del 1: MPD-begränsningar och tillägg                                                                                                                 |
+| [SCTE-214-3]      | SCTE 214-3 2015 MPEG-streck för IP-baserade kabel tjänster, del 3: streck-/FF-profil                                                                                                                                  |
+| [SCTE-224]        | SCTE 224 2018r1 – händelse schema och meddelande gränssnitt                                                                                                                                                  |
+| [SCTE-250]        | API för händelse-och signal hantering (ESAM)                                                                                                                                                                      |
 
 ---
 
 
-## <a name="2-timed-metadata-ingest"></a>2. Tidsintade metadata intas
+## <a name="2-timed-metadata-ingest"></a>2. inläsning av Timed metadata
 
-Azure Media Services stöder realtidsmetadata för både [RTMP] och Smooth Streaming [MS-SSTR-Ingest] protokoll. Metadata i realtid kan användas för att definiera anpassade händelser, med dina egna unika anpassade scheman (JSON, Binary, XML) samt branschdefinierade format som ID3 eller SCTE-35 för annonssignalering i en broadcast-ström. 
+Azure Media Services stöder real tids inlösnings-metadata för både [RTMP] och Smooth Streaming [MS-SSTR-insugning]-protokoll. Real tids metadata kan användas för att definiera anpassade händelser, med dina egna unika anpassade scheman (JSON, Binary, XML), samt bransch definierade format som ID3 eller SCTE-35 för AD-signalering i en broadcast-dataström. 
 
-Den här artikeln innehåller information om hur du skickar anpassade tidsinniga metadatasignaler med hjälp av de protokoll som stöds för Azure Media Services. Artikeln förklarar också hur manifesten för HLS, DASH och Smooth Streaming är dekorerade med tidsintade metadatasignaler, samt hur det bärs i bandet när innehållet levereras med CMAF-segment (MP4-fragment) eller Transport Stream (TS) för HLS. 
+Den här artikeln innehåller information om hur du skickar anpassade metadata-signaler med de inmatnings protokoll som stöds av Azure Media Services. Artikeln beskriver också hur manifesten för HLS, bindestreck och Smooth Streaming dekoreras med de tidsvisade metadata-signalerna, samt hur den transporteras i band när innehållet levereras med CMAF (MP4-fragment) eller transport data ström (TS) segment för HLS. 
 
-Vanliga användningsfallsscenarier för tidsbegripade metadata är:
+Vanliga användnings fall för Timed metadata inkluderar:
 
- - SCTE-35-annonssignaler för att utlösa annonspauser i en livehändelse eller linjär sändning
- - Anpassade ID3-metadata som kan utlösa händelser i ett klientprogram (webbläsare, iOS eller Android)
- - Anpassade definierade JSON-, binära eller XML-metadata för att utlösa händelser i ett klientprogram
- - Telemetri från en live-kodare, IP-kamera eller drone
- - Händelser från en IP-kamera som rörelse, ansiktsigenkänning, etc.
- - Geografisk positionsinformation från en åtgärdskamera, drönare eller flyttenhet
- - Låttexter
- - Programgränser för en linjär live-feed
- - Bilder eller utökade metadata som ska visas i en live-feed
- - Sportresultat eller information om spelklockan
- - Interaktiva reklampaket som ska visas tillsammans med videon i webbläsaren
- - Frågesporter eller omröstningar
+ - SCTE – 35 AD-signaler för att utlösa AD-avbrott i en Live-händelse eller linjär sändning
+ - Anpassade ID3-metadata som kan utlösa händelser i ett klient program (webbläsare, iOS eller Android)
+ - Anpassade JSON-, Binary-eller XML-metadata för att utlösa händelser i ett klient program
+ - Telemetri från en Live Encoder, IP-kamera eller drönare
+ - Händelser från en IP-kamera som rörelse, ansikts igenkänning osv.
+ - Geografisk positions information från en åtgärd kamera, drönare eller rörlig enhet
+ - Sång texter
+ - Program gränser i en linjär live-feed
+ - Bilder eller förstärkta metadata som ska visas i en live-feed
+ - Sport poäng eller information om spel klock håll
+ - Interaktiva annonserings paket som ska visas bredvid videon i webbläsaren
+ - Frågor eller avsökningar
   
-Azure Media Services Live Events och Packager kan ta emot dessa tidsinniga metadatasignaler och konvertera dem till en ström av metadata som kan nå klientprogram med hjälp av standardbaserade protokoll som HLS och DASH.
+Azure Media Services Live-händelser och Paketeraren kan ta emot dessa tidsbaserade metadata signaler och omvandla dem till en data ström med metadata som kan komma åt klient program med hjälp av standardbaserade protokoll som HLS och bindestreck.
 
 
-## <a name="21-rtmp-timed-metadata"></a>2.1 RTMP-tidsinnade metadata
+## <a name="21-rtmp-timed-metadata"></a>2,1 RTMP Timed metadata
 
-[RTMP]-protokollet gör det möjligt att skicka tidsinnade metadatasignaler för olika scenarier, inklusive anpassade metadata och SCTE-35-annonssignaler. 
+Med [RTMP]-protokollet kan du skicka Timed metadata-signaler för olika scenarier, inklusive anpassade metadata och SCTE-35 AD-signaler. 
 
-Reklamsignaler (cue-meddelanden) skickas som [AMF0] cue-meddelanden inbäddade i [RTMP]-strömmen. Kömeddelandena kan skickas någon gång innan den faktiska händelsen eller [SCTE35] ad splice signal måste inträffa. För att stödja det här scenariot skickas den faktiska presentationens tidsstämpel för händelsen i kömeddelandet. Mer information finns i [AMF0].
+Annonserings signaler (Cue-meddelanden) skickas som [AMF0] Cue-meddelanden inbäddade i [RTMP]-strömmen. Stack-meddelanden kan skickas någon gång innan den faktiska händelsen eller [SCTE35] AD splice-signalen måste utföras. För att stödja det här scenariot skickas den faktiska presentationens tidstämpel för händelsen i stack-meddelandet. Mer information finns i [AMF0].
 
-Följande [AMF0]-kommandon stöds av Azure Media Services för RTMP-intag:
+Följande [AMF0]-kommandon stöds av Azure Media Services för RTMP-inmatning:
 
-- **onUserDataEvent** - används för anpassade metadata eller [ID3v2] tidsinlämda metadata
-- **onAdCue** - används främst för att signalera en annons placering möjlighet i live stream. Två former av kö stöds, ett enkelt läge och ett "SCTE-35"-läge. 
-- **onCuePoint** - stöds av vissa lokala maskinvarukodare, som Elemental Live-kodaren, för att signalera [SCTE35] meddelanden. 
+- **onUserDataEvent** – används för anpassade metadata eller [ID3v2] Timed metadata
+- **onAdCue** – används främst för att signalera en möjlighet att placera reklam i Live Stream. Två former av stack-ikonen stöds, ett enkelt läge och ett "SCTE-35"-läge. 
+- **onCuePoint** – stöds av vissa lokala maskin varu kodare, till exempel grundämne Live Encoder, för att signalera [SCTE35]-meddelanden. 
   
 
-I följande tabell beskrivs formatet för den AMF-meddelandenyttolat som Media Services får förtjänst för både meddelandelägena "enkel" och [SCTE35].
+I följande tabell beskrivs formatet på den AMF meddelande nytto last som Media Services kommer att mata in för både "enkla" och [SCTE35]-meddelande lägen.
 
-Namnet på [AMF0]-meddelandet kan användas för att skilja flera händelseströmmar av samma typ.  För både [SCTE-35] meddelanden och "enkelt" läge måste namnet på AMF-meddelandet vara "onAdCue" enligt kraven i [Adobe-Primetime]-specifikationen.  Alla fält som inte visas nedan ska ignoreras av Azure Media Services vid intag.
+Namnet på [AMF0]-meddelandet kan användas för att särskilja flera händelse strömmar av samma typ.  För både [SCTE-35]-meddelanden och läget "Simple" måste namnet på AMF-meddelandet vara "onAdCue", vilket krävs i [Adobe-Primetime]-specifikationen.  Fält som inte anges nedan ignoreras av Azure Media Services vid inmatning.
 
-## <a name="211-rtmp-with-custom-metadata-using-onuserdataevent"></a>2.1.1 RTMP med anpassade metadata med "onUserDataEvent"
+## <a name="211-rtmp-with-custom-metadata-using-onuserdataevent"></a>2.1.1 RTMP med anpassade metadata med hjälp av "onUserDataEvent"
 
-Om du vill tillhandahålla anpassade metadataflöden från din uppströmskodare, IP-kamera, drönare eller enhet med RTMP-protokollet använder du kommandotypen "onUserDataEvent" [AMF0].
+Om du vill tillhandahålla anpassade metadata från din överordnade kodare, IP-kamera, drönare eller enhet med hjälp av RTMP-protokollet använder du kommando typen "onUserDataEvent" [AMF0] data meddelande.
 
-Datameddelandekommandot **"onUserDataEvent"** måste bära en meddelandenyttolast med följande definition som ska fångas av Media Services och paketeras i in-band-filformatet samt manifesten för HLS, DASH och Smooth Streaming.
-Vi rekommenderar att du skickar tidsinnade metadatameddelanden inte oftare än en gång var 0,5 sekund (500 ms) eller stabilitetsproblem med livestreamen kan uppstå. Varje meddelande kan aggregera metadata från flera ramar om du behöver ange metadata på ramnivå. Om du skickar multibitrate-strömmar rekommenderar vi att du även tillhandahåller metadata på en enda bithastighet bara för att minska bandbredden och undvika störningar i video-/ljudbearbetning. 
+Data meddelande kommandot **"onUserDataEvent"** måste ha en meddelande nytto last med följande definition för att kunna fångas in av Media Services och paketeras i fil formatet in-band samt manifesten för HLS, bindestreck och Smooth Streaming.
+Vi rekommenderar att skicka meddelanden med Time-metadata som inte ofta förekommer oftare än en gång var 0,5 sekund (500ms) eller stabilitets problem med den aktiva strömmen. Varje meddelande kan aggregera metadata från flera ramar om du behöver ange metadata för bildskärms nivå. Om du skickar strömmar med flera bit hastigheter rekommenderar vi att du även ger metadata på en enskild bit hastighet för att minska bandbredden och undvika störningar i video/ljud-bearbetning. 
 
-Nyttolasten för **"onUserDataEvent"** ska vara ett [MPEGDASH] EventStream XML-formatmeddelande. Detta gör det enkelt att passera i anpassade definierade scheman som kan bäras i 'emsg' nyttolaster i bandet för CMAF [MPEGCMAF] innehåll som levereras via HLS- eller DASH-protokoll. Varje DASH Event Stream-meddelande innehåller ett schemaIdUri som fungerar som en URN-meddelandeschemaidentifierare och definierar nyttolasten för meddelandet. Vissa system somhttps://aomedia.org/emsg/ID3" " för [ID3v2] eller **urn:scte:scte35:2013:bin** för [SCTE-35] standardiseras av branschkonsortier för interoperabilitet. Alla programleverantörer kan definiera sitt eget anpassade schema med hjälp av en URL som de styr (ägd domän) och kan tillhandahålla en specifikation på den webbadressen om de vill. Om en spelare har en hanterare för det definierade schemat är det den enda komponenten som behöver förstå nyttolasten och protokollet.
+Nytto lasten för **"onUserDataEvent"** ska vara ett [MPEGDASH] EventStream XML-formaterat meddelande. Detta gör det enkelt att skicka in anpassade scheman som kan utföras i "EMSG"-nytto laster på band för CMAF [MPEGCMAF]-innehåll som levereras över HLS-eller tank strecks protokoll. Varje streck händelse Stream-meddelande innehåller en schemeIdUri som fungerar som en identifierare för URN-meddelande scheman och definierar nytto lasten för meddelandet. Vissa scheman som "https://aomedia.org/emsg/ID3" för [ID3v2] eller **urn: scte: scte35:2013: bin** för [scte-35] är standardiserade av bransch konsortier för interoperabilitet. Alla programproviders kan definiera egna anpassade scheman med en URL som de styr (ägs domän) och kan tillhandahålla en specifikation på denna URL om de väljer. Om en spelare har en hanterare för det definierade schemat, är det den enda komponenten som behöver förstå nytto lasten och protokollet.
 
-Schemat för [MPEG-DASH] EventStream XML-nyttolasten definieras som (utdrag från DASH ISO-IEC-23009-1-3rd Edition). Observera att endast en "EventType" per "EventStream" stöds just nu. Endast det första **händelseelementet** bearbetas om flera händelser anges i **EventStream**.
+Schemat för [MPEG-streck] EventStream XML-nyttolasten definieras som (utdrag från streck ISO-IEC-23009-1-tredje utgåva). Observera att endast en "EventType" per "EventStream" stöds för tillfället. Endast det första **händelse** elementet kommer att bearbetas om flera händelser finns i **EventStream**.
 
 ```xml
   <!-- Event Stream -->
@@ -174,7 +174,7 @@ Schemat för [MPEG-DASH] EventStream XML-nyttolasten definieras som (utdrag frå
 ```
 
 
-### <a name="example-xml-event-stream-with-id3-schema-id-and-base64-encoded-data-payload"></a>Exempel på XML Event Stream med ID3-schema-ID och base64-kodad datanyttolast.  
+### <a name="example-xml-event-stream-with-id3-schema-id-and-base64-encoded-data-payload"></a>Exempel på XML-dataström med ID3-schema-ID och Base64-kodad data nytto Last.  
 ```xml
    <?xml version="1.0" encoding="UTF-8"?>
    <EventStream schemeIdUri="https://aomedia.org/emsg/ID3">
@@ -184,7 +184,7 @@ Schemat för [MPEG-DASH] EventStream XML-nyttolasten definieras som (utdrag frå
    <EventStream>
 ```
 
-### <a name="example-event-stream-with-custom-schema-id-and-base64-encoded-binary-data"></a>Exempel på händelseström med anpassade schema-ID och base64-kodade binära data  
+### <a name="example-event-stream-with-custom-schema-id-and-base64-encoded-binary-data"></a>Exempel händelse ström med anpassat schema-ID och base64-kodade binära data  
 ```xml
    <?xml version="1.0" encoding="UTF-8"?>
    <EventStream schemeIdUri="urn:example.org:custom:binary">
@@ -194,7 +194,7 @@ Schemat för [MPEG-DASH] EventStream XML-nyttolasten definieras som (utdrag frå
    <EventStream>
 ```
 
-### <a name="example-event-stream-with-custom-schema-id-and-custom-json"></a>Exempel på händelseström med anpassat schema-ID och anpassad JSON  
+### <a name="example-event-stream-with-custom-schema-id-and-custom-json"></a>Exempel händelse ström med anpassat schema-ID och anpassad JSON  
 ```xml
    <?xml version="1.0" encoding="UTF-8"?>
    <EventStream schemeIdUri="urn:example.org:custom:JSON">
@@ -207,100 +207,100 @@ Schemat för [MPEG-DASH] EventStream XML-nyttolasten definieras som (utdrag frå
    <EventStream>
 ```
 
-### <a name="built-in-supported-scheme-id-uris"></a>Inbyggda schema-ID-urier som stöds
-| Schema-ID-IURI                 | Beskrivning                                                                                                                                                                                                                                          |
+### <a name="built-in-supported-scheme-id-uris"></a>Inbyggda schema-ID: n som stöds
+| Schema-ID-URI                 | Beskrivning                                                                                                                                                                                                                                          |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| https:\//aomedia.org/emsg/ID3 | Beskriver hur [ID3v2]-metadata kan överföras som tidsintade metadata i en CMAF-kompatibel [MPEGCMAF] fragmenterad MP4. Mer information finns [i tidsinformade metadata i CMAF (Common Media Application Format)](https://github.com/AOMediaCodec/id3-emsg) |
+| https:\//aomedia.org/EMSG/ID3 | Beskriver hur [ID3v2] metadata kan överföras som tids bara metadata i en CMAF-kompatibel [MPEGCMAF]-fragmenterad MP4. Mer information finns i de tidsspecifika [metadata i det vanliga medie program formatet (cmaf)](https://github.com/AOMediaCodec/id3-emsg) |
 
-### <a name="event-processing-and-manifest-signaling"></a>Händelsebearbetning och manifestsignalering
+### <a name="event-processing-and-manifest-signaling"></a>Händelse bearbetning och manifest signalering
 
-Vid mottagandet av en giltig **"onUserDataEvent"-händelse** söker Azure Media Services efter en giltig XML-nyttolast som matchar EventStreamType (definierad i [MPEGDASH] ), tolkar XML-nyttolasten och konverterar den till en [MPEGCMAF] MP4-fragmentversion 1-box för lagring i det direktsända arkivet och överföringen till Media Services Packager.   Den Packer kommer att upptäcka "emsg" rutan i live stream och:
+Vid mottagande av en giltig **"onUserDataEvent"** -händelse kommer Azure Media Services att söka efter en giltig XML-nyttolast som matchar EventStreamType (definieras i [MPEGDASH]), PARSA XML-nyttolasten och konvertera den till ett [MPEGCMAF] MP4-fragment ' EMSG ' version 1-ruta för lagring i Live-arkivet och överföring till Media Services Paketeraren.   Paketeraren identifierar rutan "EMSG" i Live Stream och:
 
-- (a) "dynamiskt paketera" det till TS-segment för leverans till HLS-klienter i enlighet med HLS tidsinställda metadataspecifikation [HLS-TMD], eller
-- b) försa den för leverans i CMAF-fragment via HLS eller DASH, eller 
-- c) omvandla den till en gles spårsignal för leverans via Smooth Streaming [MS-SSTR].
+- (a) "paketera" det i TS-segment för leverans till HLS-klienter i enlighet med HLS-specifikationen för tidsbaserad metadata [HLS-TMD], eller
+- (b) skicka det via för leverans i CMAF-fragment via HLS eller tank streck, eller 
+- (c) konvertera den till en renullad spår signal för leverans via Smooth Streaming [MS-SSTR].
 
-Förutom cmaf- eller TS PES-paketen i bandets format för HLS innehåller manifesten för DASH (MPD) och Smooth Streaming en referens till in-band-händelseströmmarna (även kallat sparse stream-spår i Smooth Streaming). 
+Förutom "EMSG"-formatet CMAF eller TS PARAMETERENTITETER-paket för HLS, innehåller manifesten för streck (MPD) och Smooth Streaming innehålla en referens till händelse strömmar för inband (även kallat re Stream-spår i Smooth Streaming). 
 
-Enskilda händelser eller deras datanyttolaster matas INTE ut direkt i HLS-, DASH- eller Smooth-manifesten. 
+Enskilda händelser eller deras data nytto laster matas inte ut direkt i HLS, bindestreck eller smidiga manifest. 
 
-### <a name="additional-informational-constraints-and-defaults-for-onuserdataevent-events"></a>Ytterligare informationsbegränsningar och standardvärden för onUserDataEvent-händelser
+### <a name="additional-informational-constraints-and-defaults-for-onuserdataevent-events"></a>Ytterligare information begränsningar och standardvärden för onUserDataEvent-händelser
 
-- Om tidsskalan inte anges i EventStream-elementet används tidsskalan RTMP 1 kHz som standard
-- Leverans av ett onUserDataEvent-meddelande är begränsad till en gång per 500ms max. Om du skickar händelser oftare kan det påverka bandbredden och stabiliteten i live-matningen
+- Om tids skalan inte har ställts in i EventStream-elementet används RTMP 1 kHz-tidsskalan som standard
+- Leverans av ett onUserDataEvent-meddelande är begränsat till en gång varje 500ms max. Om du skickar händelser oftare kan det påverka bandbredden och stabiliteten hos Live-matningen
 
-## <a name="212-rtmp-ad-cue-signaling-with-onadcue"></a>2.1.2 RTMP-annonssignal signalering med "onAdCue"
+## <a name="212-rtmp-ad-cue-signaling-with-onadcue"></a>2.1.2 RTMP AD Cue-signalering med "onAdCue"
 
-Azure Media Services kan lyssna och svara på flera [AMF0]-meddelandetyper som kan användas för att signalera olika realtidssynkronerade metadata i livestreamen.  [Adobe-Primetime]-specifikationen definierar två kötyper som kallas "enkel" och "SCTE-35"-läge. För "enkelt" läge stöder Media Services ett enda AMF-stackmeddelande som kallas "onAdCue" med en nyttolast som matchar tabellen nedan definierad för signalen "Enkelt läge".  
+Azure Media Services kan lyssna efter och svara på flera [AMF0]-meddelande typer som kan användas för att signalera olika synkroniserade metadata i real tid i Live Stream.  [Adobe-Primetime]-specifikationen definierar två Cue-typer som kallas "enkelt" och "SCTE-35"-läge. För "enkelt" läge stöder Media Services ett enda AMF-Cue-meddelande med namnet "onAdCue" med en nytto last som matchar tabellen nedan definierad för signalen "enkel läge".  
 
-Följande avsnitt visar RTMP "enkelt" läge nyttolast, som kan användas för att signalera en grundläggande "spliceOut" annonssignal som kommer att överföras till klientmanifestet för HLS, DASH och Microsoft Smooth Streaming. Detta är mycket användbart för scenarier där kunden inte har ett komplext SCTE-35-baserat annonssignaldistributions- eller insättningssystem och använder en grundläggande lokal kodare för att skicka in stack-ikonen via ett API. Vanligtvis stöder den lokala kodaren ett REST-baserat API för att utlösa den här signalen, som också "skarvar-villkorar" videoströmmen genom att infoga en IDR-ram i videon och starta en ny GOP.
+I följande avsnitt visas en "enkel" läge "-nytto last som kan användas för att signalera en grundläggande" spliceOut "AD-signal som överförs till klient manifestet för HLS, tank streck och Microsoft Smooth Streaming. Detta är användbart för scenarier där kunden inte har ett komplext SCTE-35-baserat AD-signalerande distributions-eller infognings system och använder en grundläggande lokal kodare för att skicka i Cue-meddelandet via ett API. Den lokala kodaren har vanligt vis stöd för ett REST-baserat API för att utlösa den här signalen, som även "splice-Condition" video strömmen genom att infoga en IDR-ram i videon och starta en ny GOP.
 
-## <a name="213--rtmp-ad-cue-signaling-with-onadcue---simple-mode"></a>2.1.3 RTMP-annonssignal signalering med "onAdCue" - Enkelt läge
+## <a name="213--rtmp-ad-cue-signaling-with-onadcue---simple-mode"></a>2.1.3 RTMP AD Cue Signaling med "onAdCue" – enkelt läge
 
-| Fältnamn | Fälttyp | Krävs? | Beskrivningar                                                                                                                                                                                                                                                                        |
+| Fältnamn | Fälttyp | Obligatoriskt? | Förklaringar                                                                                                                                                                                                                                                                        |
 | ---------- | ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| typ       | String     | Krävs  | Händelsemeddelandet.  Ska vara "SpliceOut" för att beteckna en enkel läge skarv.                                                                                                                                                                                                         |
-| id         | String     | Krävs  | En unik identifierare som beskriver skarv eller segment. Identifierar den här instansen av meddelandet                                                                                                                                                                                       |
-| varaktighet   | Tal     | Krävs  | Varaktigheten av skarv. Enheter är fraktionerad sekund.                                                                                                                                                                                                                           |
-| elapsed    | Tal     | Valfri  | När signalen upprepas för att stödja ingången ska detta fält vara den mängd presentationstid som har förflutit sedan skarvningen började. Enheter är fraktionerad sekund. När du använder enkelt läge bör detta värde inte överstiga den ursprungliga varaktigheten av skarv. |
-| time       | Tal     | Krävs  | Skall vara tiden för skarv, i presentationen tid. Enheter är fraktionerad sekund.                                                                                                                                                                                                |
+| typ       | Sträng     | Krävs  | Händelse meddelandet.  Måste vara "SpliceOut" för att ange en enkel läges splice.                                                                                                                                                                                                         |
+| id         | Sträng     | Krävs  | En unik identifierare som beskriver splice eller-segmentet. Identifierar den här instansen av meddelandet                                                                                                                                                                                       |
+| varaktighet   | Antal     | Krävs  | Varaktigheten för splice. Enheter är bråkiska sekunder.                                                                                                                                                                                                                           |
+| elapsed    | Antal     | Valfri  | När signalen upprepas för att ge stöd för att ställa in, är det här fältet den mängd av presentationen som har förflutit sedan splice började. Enheter är bråkiska sekunder. När du använder enkelt läge får det här värdet inte överskrida den ursprungliga varaktigheten för splice. |
+| time       | Antal     | Krävs  | Är tiden för splice i presentations tid. Enheter är bråkiska sekunder.                                                                                                                                                                                                |
 
 ---
  
-#### <a name="example-mpeg-dash-manifest-output-when-using-adobe-rtmp-simple-mode"></a>Exempel på MPEG DASH-manifestutdata när du använder enkelt Adobe RTMP-läge
+#### <a name="example-mpeg-dash-manifest-output-when-using-adobe-rtmp-simple-mode"></a>Exempel på MPEG-datautdata-manifest när du använder enkel läge för Adobe RTMP
 
-Se exempel [3.3.2.1 MPEG DASH .mpd EventStream med enkelt Adobe-läge](#3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode)
+Se exempel [3.3.2.1 MPEG bindestreck. mpd EventStream med hjälp av Adobe Simple mode](#3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode)
 
-Se exempel [3.3.3.1 DASH-manifest med enkel period och Adobe enkelt läge](#3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals)
+Se exempel [på 3.3.3.1-datastreck med enkel punkt och Adobe enkel läge](#3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals)
 
-#### <a name="example-hls-manifest-output-when-using-adobe-rtmp-simple-mode"></a>Exempel på HLS-manifestutdata när du använder enkelt Adobe RTMP-läge
+#### <a name="example-hls-manifest-output-when-using-adobe-rtmp-simple-mode"></a>Exempel på HLS manifest när du använder enkel läge för Adobe RTMP
 
-Se exempel [3.2.2 HLS manifest med Adobe enkelt läge och EXT-X-CUE tagg](#322-apple-hls-with-adobe-primetime-ext-x-cue-legacy)
+Se exempel [3.2.2 HLS-manifestet med hjälp av Adobe Simple mode och EXT-X-Cue-taggen](#322-apple-hls-with-adobe-primetime-ext-x-cue-legacy)
 
-## <a name="214-rtmp-ad-cue-signaling-with-onadcue---scte-35-mode"></a>2.1.4 RTMP-annonssignal signalering med "onAdCue" - SCTE-35 Mode
+## <a name="214-rtmp-ad-cue-signaling-with-onadcue---scte-35-mode"></a>2.1.4 RTMP AD Cue-signalering med "onAdCue"-SCTE-35-läge
 
-När du arbetar med ett mer avancerat broadcast-produktionsarbetsflöde som kräver att det fullständiga SCTE-35-nyttolastmeddelandet ska överföras till HLS- eller DASH-manifestet är det bäst att använda "SCTE-35 Mode" i [Adobe-Primetime]-specifikationen.  Det här läget stöder att SCTE-35-signaler i frekvensbandet skickas direkt till en lokal livekodare, som sedan kodar ut signalerna i RTMP-strömmen med hjälp av "SCTE-35 Mode" som anges i [Adobe-Primetime]-specifikationen. 
+När du arbetar med ett mer avancerat arbets flöde för sändnings produktion som kräver ett fullständigt SCTE-35-nyttolast-meddelande som ska överföras till HLS-eller streck manifestet, är det bäst att använda "SCTE-35 mode" i [Adobe-Primetime]-specifikationen.  Det här läget stöder in-band-SCTE-35-signaler som skickas direkt till en lokal Live-kodare, som sedan kodar signaler ut till RTMP-dataströmmen med "SCTE-35-läge" som anges i [Adobe-Primetime]-specifikationen. 
 
-Vanligtvis kan SCTE-35-meddelanden bara visas i TS-indata (MPEG-2 transportström) på en lokal kodare. Kontakta kodartillverkaren för mer information om hur du konfigurerar ett transportflödesföseri som innehåller SCTE-35 och aktivera den för vidareström till RTMP i Adobe SCTE-35-läge.
+Vanligt vis kan SCTE-35-meddelanden endast visas i TS-indata (MPEG-2 transport stream) på en lokal kodare. Kontrol lera med din Encoder-tillverkare om du vill ha mer information om hur du konfigurerar en transport stream-inmatning som innehåller SCTE-35 och gör det möjligt för genom strömning till RTMP i Adobe SCTE-35-läge.
 
-I det här fallet måste följande nyttolast skickas från den lokala kodaren med meddelandetypen **"onAdCue"** [AMF0].
+I det här scenariot måste följande nytto Last skickas från den lokala kodaren med meddelande typen **"onAdCue"** [AMF0].
 
-| Fältnamn | Fälttyp | Krävs? | Beskrivningar                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Fältnamn | Fälttyp | Obligatoriskt? | Förklaringar                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ---------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cue        | String     | Krävs  | Händelsemeddelandet.  För [SCTE-35]-meddelanden måste detta vara base64-kodade [RFC4648] binära splice_info_section() för att meddelanden ska skickas till HLS-, Smooth- och Dash-klienter.                                                                                                                                                                                                                               |
-| typ       | String     | Krävs  | En URN eller URL som identifierar meddelandeschemat. För [SCTE-35] meddelanden **bör** detta vara **"scte35"** för att meddelanden ska skickas till HLS-, Smooth- och Dash-klienter, i enlighet med [Adobe-Primetime]. Du kan också använda URN-meddelandet urn:scte:scte35:2013:bin för att signalera ett [SCTE-35]-meddelande.                                                                                                        |
-| id         | String     | Krävs  | En unik identifierare som beskriver skarv eller segment. Identifierar den här instansen av meddelandet.  Meddelanden med motsvarande semantik ska ha samma värde.                                                                                                                                                                                                                                                       |
-| varaktighet   | Tal     | Krävs  | Varaktigheten av händelsen eller annons skarv-segmentet, om det är känt. Om det är okänt **ska** värdet vara 0.                                                                                                                                                                                                                                                                                                                    |
-| elapsed    | Tal     | Valfri  | När [SCTE-35]-annonssignalen upprepas för att ställa in, ska detta fält vara den mängd presentationstid som har förflutit sedan skarvningen började. Enheter är fraktionerad sekund. I [SCTE-35] -läge kan detta värde överstiga den ursprungliga angivna varaktigheten för skarv eller segment.                                                                                                                   |
-| time       | Tal     | Krävs  | Presentationstiden för händelsen eller annonssker.  Presentationstiden och varaktigheten **BÖR** anpassas till Stream Access Points (SAP) av typ 1 eller 2, enligt definitionen i [ISO-14496-12] bilaga I. För HLS-utgående bör tid och **varaktighet** anpassa sig till segmentgränserna. Presentationstiden och varaktigheten för olika händelsemeddelanden i samma händelseström får inte överlappa varandra. Enheter är fraktionerad sekund. |
+| utlösare        | Sträng     | Krävs  | Händelse meddelandet.  För [SCTE-35]-meddelanden måste detta vara den base64-kodade [RFC4648] binära splice_info_section () för att meddelanden ska kunna skickas till HLS-, utjämna-och streck-klienter.                                                                                                                                                                                                                               |
+| typ       | Sträng     | Krävs  | En URN eller URL som identifierar meddelande schemat. För [SCTE-35]-meddelanden **ska** detta vara **"scte35"** för att meddelanden ska kunna skickas till HLS-, utjämna-och streck-klienter, i enlighet med [Adobe-Primetime]. Alternativt kan URN "urn: scte: scte35:2013: bin" också användas för att signalera ett [SCTE-35]-meddelande.                                                                                                        |
+| id         | Sträng     | Krävs  | En unik identifierare som beskriver splice eller-segmentet. Identifierar den här instansen av meddelandet.  Meddelanden med motsvarande semantik måste ha samma värde.                                                                                                                                                                                                                                                       |
+| varaktighet   | Antal     | Krävs  | Händelsens eller AD-splice-segmentets varaktighet, om det är känt. Om detta är okänt **ska** värdet vara 0.                                                                                                                                                                                                                                                                                                                    |
+| elapsed    | Antal     | Valfri  | När AD-signalen [SCTE-35] upprepas för att kunna ställa in, är det här fältet den mängd av presentationen som har förflutit sedan splice började. Enheter är bråkiska sekunder. I läget [SCTE-35] kan det här värdet överskrida den ursprungliga angivna varaktigheten för en splice eller ett segment.                                                                                                                   |
+| time       | Antal     | Krävs  | Presentations tiden för händelsen eller AD-splice.  Presentationens tid och varaktighet **bör** justeras mot Stream-åtkomst punkter (SAP) av typ 1 eller 2, enligt definitionen i [ISO-14496-12] bilaga I. För HLS utgående, tid och varaktighet **bör** justeras mot segment gränser. Presentations tiden och varaktigheten för olika händelse meddelanden inom samma händelse ström får inte överlappa varandra. Enheter är bråkiska sekunder. |
 
 ---
 
-#### <a name="example-mpeg-dash-mpd-manifest-with-scte-35-mode"></a>Exempel på MPEG DASH .mpd-manifest med SCTE-35-läge
-Se [avsnitt 3.3.3.2 exempel DASH manifest med SCTE-35](#3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling)
+#### <a name="example-mpeg-dash-mpd-manifest-with-scte-35-mode"></a>Exempel på MPEG-streck. mpd-manifest med SCTE-35-läge
+Se [avsnittet 3.3.3.2-exempel på streck manifestet med SCTE-35](#3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling)
 
-#### <a name="example-hls-manifest-m3u8-with-scte-35-mode-signal"></a>Exempel på HLS-manifestet .m3u8 med SCTE-35-lägessignal
-Se [avsnitt 3.2.1.1 exempel HLS manifest med SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35)
+#### <a name="example-hls-manifest-m3u8-with-scte-35-mode-signal"></a>Exempel på HLS manifest. M3U8 med SCTE-35-läge
+Se [avsnittet 3.2.1.1 exempel HLS manifest med SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35)
 
-## <a name="215-rtmp-ad-signaling-with-oncuepoint-for-elemental-live"></a>2.1.5 RTMP-annonssignalering med "onCuePoint" för Elemental Live
+## <a name="215-rtmp-ad-signaling-with-oncuepoint-for-elemental-live"></a>2.1.5 RTMP AD signalerar med "onCuePoint" för grundämne Live
 
-Elemental Live lokalt kodare stöder annonsmarkörer i RTMP-signalen. Azure Media Services stöder för närvarande endast typen "onCuePoint" ad marker för RTMP.  Detta kan aktiveras i Adobe RTMP-gruppinställningarna i inställningarna elemental media live eller API genom att ställa in "**ad_markers**" till "onCuePoint".  Mer information finns i Dokumentationen till Elemental Live. Om du aktiverar den här funktionen i RTMP-gruppen skickar SCTE-35-signaler till Adobe RTMP-utgångarna som ska bearbetas av Azure Media Services.
+Den fördefinierade Live-kodarens lokala kodare stöder AD-markörer i RTMP-signalen. Azure Media Services stöder för närvarande bara AD-markör typen "onCuePoint" för RTMP.  Detta kan aktive ras i inställningarna för Adobe RTMP-gruppen i inställningarna för Media Live Encoder eller API genom att ange "**ad_markers**" till "onCuePoint".  Mer information finns i Live-dokumentationen för grundämne. Om du aktiverar den här funktionen i RTMP-gruppen skickas SCTE-35-signaler till de Adobe RTMP-utdata som ska bearbetas av Azure Media Services.
 
-Meddelandetypen "onCuePoint" definieras i [Adobe-Flash-AS] och har följande nyttolaststruktur när den skickas från Elemental Live RTMP-utdata.
+Meddelande typen "onCuePoint" definieras i [Adobe-Flash-AS] och har följande nytto Last struktur när den skickas från den fördefinierade Live RTMP-utdata.
 
 
 | Egenskap   | Beskrivning                                                                                                                                                                                                                     |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| namn       | Namnet BÖR vara '**scte35**' av Elemental Live.                                                                                                                                                                              |
-| time       | Den tid i sekunder då referenspunkten inträffade i videofilen under tidslinjen                                                                                                                                           |
-| typ       | Typen av referenspunkt bör ställas in på "**händelse**".                                                                                                                                                                             |
-| parameters | En associativ matris med namn-/värdeparsträngar som innehåller informationen från MEDDELANDET SCTE-35, inklusive ID och varaktighet. Dessa värden tolkas av Azure Media Services och ingår i manifestdekorationstaggen. |
+| name       | Namnet måste vara '**scte35**' av typen grundämne Live.                                                                                                                                                                              |
+| time       | Tiden i sekunder då referens punkten inträffade i video filen under tids linjen                                                                                                                                           |
+| typ       | Typen av referens punkt ska anges till "**Event**".                                                                                                                                                                             |
+| parameters | En associativ array med namn/värde-par strängar som innehåller information från SCTE-35-meddelandet, inklusive ID och varaktighet. Dessa värden analyseras av Azure Media Services och ingår i dekorations tag gen för manifestet. |
 
 
-När det här annonsmarkörläget används liknar HLS-manifestutdata Adobes "enkla" läge.
+När det här läget för AD-markör används liknar HLS-Manifestets utdata samma som i Adobe "Simple"-läge.
 
 
-#### <a name="example-mpeg-dash-mpd-single-period-adobe-simple-mode-signals"></a>Exempel PÅ MPEG DASH MPD, signaler för en period, Adobe Simple-läge
+#### <a name="example-mpeg-dash-mpd-single-period-adobe-simple-mode-signals"></a>Exempel på MPEG-streck, MPD, enkel period, Adobe Simple mode-signaler
 
 ~~~ xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -355,9 +355,9 @@ När det här annonsmarkörläget används liknar HLS-manifestutdata Adobes "enk
 </MPD>
 ~~~
 
-#### <a name="example-hls-playlist-adobe-simple-mode-signals-using-ext-x-cue-tag-truncated--for-brevity"></a>Exempel på HLS-spellista, Adobe Simple-mode-signaler med EXT-X-CUE-tagg (trunkerad "..." för korthet)
+#### <a name="example-hls-playlist-adobe-simple-mode-signals-using-ext-x-cue-tag-truncated--for-brevity"></a>Exempel på HLS-spelnings lista, Adobe Simple mode-signaler med EXT-X-CUE-tagg (trunkerad "..." för det kortfattat)
 
-I följande exempel visas utdata från den dynamiska paketeraren för Media Services för en RTMP-inmatningsström med Adobes "enkla" lägessignaler och den äldre [Adobe-Primetime] EXT-X-CUE-taggen.  
+I följande exempel visas utdata från Media Services dynamiska Paketeraren för en RTMP-inmatnings ström med hjälp av Adobe "Simple" mode-signaler och den äldre [Adobe-Primetime] EXT-X-CUE-taggen.  
 
 ~~~
 #EXTM3U
@@ -399,107 +399,107 @@ Fragments(video=1583488022000000,format=m3u8-aapl-v8)
 
 ~~~
 
-### <a name="216-cancellation-and-updates"></a>2.1.6 Avbokning och uppdateringar
+### <a name="216-cancellation-and-updates"></a>2.1.6 för annullering och uppdateringar
 
-Meddelanden kan avbrytas eller uppdateras genom att skicka flera meddelanden med samma presentationstid och ID. Presentationstiden och ID:n identifierar händelsen unikt och det senaste meddelandet som tas emot för en viss presentationstid som uppfyller pre-roll-begränsningar är det budskap som åtgärdas. Den uppdaterade händelsen ersätter alla tidigare mottagna meddelanden. Pre-roll-begränsningen är fyra sekunder. Meddelanden som tas emot minst fyra sekunder före presentationstiden kommer att åtgärdas.
+Meddelanden kan avbrytas eller uppdateras genom att skicka flera meddelanden med samma presentations tid och ID. Presentations tiden och ID: t identifierar händelsen unikt och det senaste meddelandet togs emot för en speciell presentations tid som uppfyller för insamlade begränsningar är det meddelande som har åtgärd ATS. Den uppdaterade händelsen ersätter alla tidigare mottagna meddelanden. För registrerings begränsningen är fyra sekunder. Meddelanden som mottagits minst fyra sekunder innan presentations tiden kommer att behandlas.
 
-## <a name="22-fragmented-mp4-ingest-smooth-streaming"></a>2.2 Fragmenterad MP4-intiga (jämn strömning)
+## <a name="22-fragmented-mp4-ingest-smooth-streaming"></a>2,2-fragmenterad MP4-insugning (Smooth Streaming)
 
-Se [MS-SSTR-Ingest] för krav på live stream-intag. I följande avsnitt finns information om intag av tidsinnade presentationsmetadata.  Tidsinförda presentationsmetadata intas som ett glest spår, vilket definieras i både Manifestboxen för Live Server (se MS-SSTR) och Movie Box ("moov").  
+I [MS-SSTR-inmatning] finns krav på Live Stream-inmatning. I följande avsnitt finns information om inläsning av metadata för tids presentationer.  Timed presentations-metadata matas in som ett sparse-spår, som definieras i båda rutan Live Server-manifest (se MS-SSTR) och film rutan (' Moov ').  
 
-Varje glesfragment består av en filmfragmentruta ("moof") och Media Data Box ("mdat"), där rutan "mdat" är det binära meddelandet.
+Varje sparse-fragment består av en ruta för film fragment (' moof ') och media Data Box-enhet (' mdat '), där rutan ' mdat ' är det binära meddelandet.
 
-För att uppnå bildruterejlig insättning av annonser måste kodaren dela upp fragmentet vid den presentationstid där köeringen måste infogas.  Ett nytt fragment MÅSTE skapas som börjar med en nyskapad IDR-ram, eller Stream Access Points (SAP) av typ 1 eller 2, enligt definitionen i [ISO-14496-12] bilaga I. På så sätt kan Azure Media Packager korrekt generera ett HLS-manifest och ett DASH-flerperiodmanifest där den nya perioden börjar vid den bildruterelevade skarvkonditionerade presentationstiden.
+För att det ska gå att lägga till en ram-korrekt infogning av annonser måste kodaren dela upp fragmentet vid den tidpunkt då stacken måste infogas.  Ett nytt fragment måste skapas som börjar med en nyligen skapad IDR-ram eller Stream-åtkomst punkter (SAP) av typ 1 eller 2, enligt definitionen i [ISO-14496-12] bilaga I. Detta gör det möjligt för Azure Media-Paketeraren att generera ett HLS-manifest och ett-paket med flera perioder där den nya perioden börjar med den bildruta-korrekta splice-baserade presentations tiden.
 
-### <a name="221-live-server-manifest-box"></a>2.2.1 Manifestbox för liveserver
+### <a name="221-live-server-manifest-box"></a>avsnitt med 2.2.1 Live Server-manifest
 
-Det glesa spåret **MÅSTE** deklareras i rutan Live Server Manifest med en ** \<textstream-post\> ** och **måste** ha följande attribut inställda:
+Det glesa spåret **måste** deklareras i rutan för Live Server-manifestet med en ** \<textstream\> ** -post och **måste** ha följande attribut inställda:
 
-| **Attributnamn** | **Fälttyp** | **Krävs?** | **Beskrivning**                                                                                                                                                                                                              |
+| **Attributnamn** | **Fälttyp** | **Obligatoriskt?** | **Beskrivning**                                                                                                                                                                                                              |
 | ------------------ | -------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| systemBitrate      | Tal         | Krävs      | **MÅSTE** vara "0", vilket indikerar ett spår med okänd, variabel bithastighet.                                                                                                                                                          |
-| parentTrackName    | String         | Krävs      | **MÅSTE** vara namnet på det överordnade spåret, som de glesa spårtidskoderna är tidsskala justerade. Det överordnade spåret kan inte vara ett glest spår.                                                                             |
-| manifestUtfällbart     | Boolean        | Krävs      | **MÅSTE** vara "sant", för att ange att det glesa spåret bäddas in i smooth-klientmanifestet.                                                                                                                        |
-| Subtyp            | String         | Krävs      | **MÅSTE** vara den fyra teckenkoden "DATA".                                                                                                                                                                                  |
-| Schema             | String         | Krävs      | **MÅSTE** vara ett URN eller EN URL som identifierar meddelandeschemat. För [SCTE-35]-meddelanden **måste** detta vara "urn:scte:scte35:2013:bin" för att meddelanden ska kunna skickas till HLS-, Smooth- och Dash-klienter i enlighet med [SCTE-35]. |
-| trackName (trackName)          | String         | Krävs      | **MÅSTE** vara namnet på det glesa spåret. TrackName kan användas för att skilja flera händelseströmmar med samma schema. Varje unik händelseström **måste** ha ett unikt spårnamn.                                |
-| Tidsskalan          | Tal         | Valfri      | **MÅSTE** vara tidsskalan för det överordnade spåret.                                                                                                                                                                               |
+| systemBitrate      | Antal         | Krävs      | **Måste** vara "0", vilket indikerar ett spår med okänd variabel bit hastighet.                                                                                                                                                          |
+| parentTrackName    | Sträng         | Krävs      | **Måste** vara namnet på det överordnade spåret, där tids koderna för den glesa spårnings tids skalan är justerade. Det överordnade spåret får inte vara ett sparse-spår.                                                                             |
+| manifestOutput     | Boolesk        | Krävs      | **Måste** vara "true" för att indikera att det glesa spåret ska bäddas in i det smidiga klient manifestet.                                                                                                                        |
+| Undertyp            | Sträng         | Krävs      | **Måste** vara den fyra tecken koden "data".                                                                                                                                                                                  |
+| Schema             | Sträng         | Krävs      | **Måste** vara en URN eller URL som identifierar meddelande schemat. För [SCTE-35]-meddelanden **måste** detta vara "urn: SCTE: scte35:2013: bin" för att meddelanden ska kunna skickas till HLS-, utjämna-och streck-klienter i enlighet med [SCTE-35]. |
+| trackName          | Sträng         | Krävs      | **Måste** vara namnet på det sparse-spåret. TrackName kan användas för att särskilja flera händelse strömmar med samma schema. Varje unik händelse ström **måste** ha ett unikt spårnings namn.                                |
+| tidsplan          | Antal         | Valfri      | **Måste** vara tids skalan för det överordnade spåret.                                                                                                                                                                               |
 
 ---
 
-### <a name="222-movie-box"></a>2.2.2 Filmlåda
+### <a name="222-movie-box"></a>2.2.2-film Box
 
-Movie Box ('moov') följer Live Server Manifest Box som en del av strömhuvudet för ett glest spår.
+Film rutan (' Moov ') följer direkt Server manifest rutan som en del av data Ströms huvudet för ett sparse-spår.
 
-"moov"-rutan **SKA** innehålla en **TrackHeaderBox -ruta (nedan kallad tkhd)** enligt definitionen i [ISO-14496-12] med följande begränsningar:
+Rutan ' Moov ' **ska** innehålla en **TrackHeaderBox (' tkhd ')** som definieras i [ISO-14496-12] med följande begränsningar:
 
-| **Fältnamn** | **Fälttyp**          | **Krävs?** | **Beskrivning**                                                                                                    |
+| **Fält namn** | **Fälttyp**          | **Obligatoriskt?** | **Beskrivning**                                                                                                    |
 | -------------- | ----------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------ |
-| varaktighet       | 64-bitars osignerat heltal | Krävs      | **BÖR** vara 0, eftersom spårrutan har nollprover och den totala varaktigheten av proverna i spårrutan är 0. |
+| varaktighet       | 64-bitars osignerat heltal | Krävs      | **Ska** vara 0, eftersom spår rutan innehåller noll exempel och den totala längden för exemplen i spår rutan är 0. |
 
 ---
 
-"moov"-rutan **SKA** innehålla en **HandlerBox ("hdlr")** enligt definitionen i [ISO-14496-12] med följande begränsningar:
+Rutan Moov **ska** innehålla en **-hanterare (hdlr)** enligt definitionen i [ISO-14496-12] med följande begränsningar:
 
-| **Fältnamn** | **Fälttyp**          | **Krävs?** | **Beskrivning**       |
+| **Fält namn** | **Fälttyp**          | **Obligatoriskt?** | **Beskrivning**       |
 | -------------- | ----------------------- | ------------- | --------------------- |
-| handler_type   | 32-bitars osignerat heltal | Krävs      | **Bör** vara "meta". |
+| handler_type   | 32-bitars osignerat heltal | Krävs      | **Ska** vara meta. |
 
 ---
 
-Rutan "stsd" **SKA** innehålla en MetaDataSampleEntry-ruta med kodningsnamn enligt definitionen i [ISO-14496-12].  För SCTE-35-meddelanden **ska** kodningsnamnet till exempel vara "scte".
+Rutan stsd **ska** innehålla en MetaDataSampleEntry-ruta med ett kodnings namn som definieras i [ISO-14496-12].  För SCTE-35-meddelanden **ska** kodnings namnet till exempel vara ' SCTE '.
 
-### <a name="223-movie-fragment-box-and-media-data-box"></a>2.2.3 Filmfragmentlåda och mediadataruta
+### <a name="223-movie-fragment-box-and-media-data-box"></a>2.2.3-film fragment Box och media Data Box-enhet
 
-Glesa spårfragment består av en filmfragmentruta ("moof") och en mediadataruta (mdat).
+Uppdelade spår fragment består av en ruta för film fragment (' moof ') och en Media Data Box-enhet (' mdat ').
 
 > [!NOTE]
-> För att uppnå bildruterejlig insättning av annonser måste kodaren dela upp fragmentet vid den presentationstid där köeringen måste infogas.  Ett nytt fragment MÅSTE skapas som börjar med en nyskapad IDR-ram, eller Stream Access Points (SAP) av typ 1 eller 2, enligt definitionen i [ISO-14496-12] Bilaga I
+> För att det ska gå att lägga till en ram-korrekt infogning av annonser måste kodaren dela upp fragmentet vid den tidpunkt då stacken måste infogas.  Ett nytt fragment måste skapas som börjar med en nyligen skapad IDR-ram eller Stream-åtkomst punkter (SAP) av typ 1 eller 2, enligt definitionen i [ISO-14496-12] bilaga I
 > 
 
-Rutan MovieFragmentBox (nedan kallad moof) **MÅSTE** innehålla en **TrackFragmentExtendedHeaderBox ("uuid")** enligt definitionen i [MS-SSTR] med följande fält:
+MovieFragmentBox (' moof ') **måste** innehålla en **TrackFragmentExtendedHeaderBox (' UUID ')** -ruta som definieras i [MS-SSTR] med följande fält:
 
-| **Fältnamn**         | **Fälttyp**          | **Krävs?** | **Beskrivning**                                                                                           |
+| **Fält namn**         | **Fälttyp**          | **Obligatoriskt?** | **Beskrivning**                                                                                           |
 | ---------------------- | ----------------------- | ------------- | --------------------------------------------------------------------------------------------------------- |
-| fragment_absolute_time | 64-bitars osignerat heltal | Krävs      | **MÅSTE** vara ankomsttiden för evenemanget. Det här värdet justerar meddelandet med det överordnade spåret.           |
-| fragment_duration      | 64-bitars osignerat heltal | Krävs      | **MÅSTE** vara varaktigheten av händelsen. Varaktigheten kan vara noll för att ange att varaktigheten är okänd. |
+| fragment_absolute_time | 64-bitars osignerat heltal | Krävs      | **Måste** vara händelsens ankomst tid. Det här värdet justerar meddelandet med det överordnade spåret.           |
+| fragment_duration      | 64-bitars osignerat heltal | Krävs      | **Måste** vara händelsens varaktighet. Varaktigheten kan vara noll för att indikera att varaktigheten är okänd. |
 
 ---
 
 
-Rutan MediaDataBox (mdat) **måste** ha följande format:
+Rutan MediaDataBox (' mdat ') **måste** ha följande format:
 
-| **Fältnamn**          | **Fälttyp**                   | **Krävs?** | **Beskrivning**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **Fält namn**          | **Fälttyp**                   | **Obligatoriskt?** | **Beskrivning**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ----------------------- | -------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version                 | 32-bitars osignerat heltal (uimsbf) | Krävs      | Bestämmer formatet på innehållet i rutan "mdat". Okända versioner ignoreras. För närvarande är den enda versionen som stöds 1.                                                                                                                                                                                                                                                                                                                                                                      |
-| id                      | 32-bitars osignerat heltal (uimsbf) | Krävs      | Identifierar den här instansen av meddelandet. Meddelanden med likvärdig semantik skall ha samma värde. det vill än räcker att bearbeta en händelsemeddelanderuta med samma id.that is, processing any one event message box with the same id is sufficient.                                                                                                                                                                                                                                                                                                                            |
-| presentation_time_delta | 32-bitars osignerat heltal (uimsbf) | Krävs      | Summan av fragment_absolute_time, som anges i TrackFragmentExtendedHeaderBox, och presentation_time_delta **MÅSTE** vara presentationen tid för händelsen. Presentationstiden och varaktigheten **BÖR** anpassas till Stream Access Points (SAP) av typ 1 eller 2, enligt definitionen i [ISO-14496-12] bilaga I. För HLS-utgående bör tid och **varaktighet** anpassa sig till segmentgränserna. Presentationstiden och varaktigheten för olika händelsemeddelanden i samma händelseström **får** inte överlappa varandra. |
-| meddelande                 | bytematris                       | Krävs      | Händelsemeddelandet. För [SCTE-35] meddelanden är meddelandet den binära splice_info_section(). För [SCTE-35]-meddelanden **måste** detta vara splice_info_section() för att meddelanden ska kunna skickas till HLS-, Smooth- och Dash-klienter i enlighet med [SCTE-35]. För [SCTE-35] meddelanden är den binära splice_info_section() nyttolasten för rutan "mdat" och den är **INTE** base64 kodad.                                                                                                                     |
+| version                 | 32-bitars osignerat heltal (uimsbf) | Krävs      | Anger formatet för innehållet i rutan "mdat". Okända versioner kommer att ignoreras. För närvarande är den enda version som stöds 1.                                                                                                                                                                                                                                                                                                                                                                      |
+| id                      | 32-bitars osignerat heltal (uimsbf) | Krävs      | Identifierar den här instansen av meddelandet. Meddelanden med motsvarande semantik måste ha samma värde. Det räcker med att bearbeta en händelse meddelande ruta med samma ID.                                                                                                                                                                                                                                                                                                                            |
+| presentation_time_delta | 32-bitars osignerat heltal (uimsbf) | Krävs      | Summan av de fragment_absolute_time som anges i TrackFragmentExtendedHeaderBox och presentation_time_delta **måste** vara händelsens presentations tid. Presentationens tid och varaktighet **bör** justeras mot Stream-åtkomst punkter (SAP) av typ 1 eller 2, enligt definitionen i [ISO-14496-12] bilaga I. För HLS utgående, tid och varaktighet **bör** justeras mot segment gränser. Presentations tiden och varaktigheten för olika händelse meddelanden inom samma händelse ström **får** inte överlappa varandra. |
+| meddelande                 | bytematris                       | Krävs      | Händelse meddelandet. För [SCTE-35]-meddelanden är meddelandet binärfilen splice_info_section (). För [SCTE-35]-meddelanden **måste** det vara splice_info_section () för att meddelanden ska kunna skickas till HLS-, utjämna-och streck-klienter i enlighet med [SCTE-35]. För [SCTE-35]-meddelanden är binärfilen splice_info_section () nytto lasten för rutan "mdat" och den är **inte** Base64-kodad.                                                                                                                     |
 
 ---
 
 
-### <a name="224-cancellation-and-updates"></a>2.2.4 Avbokning och uppdateringar
+### <a name="224-cancellation-and-updates"></a>2.2.4 för annullering och uppdateringar
 
-Meddelanden kan avbrytas eller uppdateras genom att skicka flera meddelanden med samma presentationstid och ID.  Presentationstiden och ID:et identifierar händelsen unikt. Det sista meddelandet som tas emot för en viss presentationstid, som uppfyller pre-roll-begränsningar, är det meddelande som åtgärdas. Det uppdaterade meddelandet ersätter alla tidigare mottagna meddelanden.  Pre-roll-begränsningen är fyra sekunder. Meddelanden som tas emot minst fyra sekunder före presentationstiden kommer att åtgärdas. 
+Meddelanden kan avbrytas eller uppdateras genom att skicka flera meddelanden med samma presentations tid och ID.  Presentationens tid och ID identifierar händelsen unikt. Det sista meddelandet som togs emot för en speciell presentations tid, som uppfyller för hands versioner, är det meddelande som har åtgärd ATS. Det uppdaterade meddelandet ersätter alla tidigare mottagna meddelanden.  För registrerings begränsningen är fyra sekunder. Meddelanden som mottagits minst fyra sekunder innan presentations tiden kommer att behandlas. 
 
 
-## <a name="3-timed-metadata-delivery"></a>3 Tidsinställd metadataleverans
+## <a name="3-timed-metadata-delivery"></a>3 Timed metadata-leverans
 
-Händelseströmdata är ogenomskinlig för Media Services. Media Services skickar bara tre delar av informationen mellan den intaste slutpunkten och klientslutpunkten. Följande egenskaper levereras till klienten i enlighet med [SCTE-35] och/eller klientens streamingprotokoll:
+Händelse data strömmen är ogenomskinlig för Media Services. Media Services skickar bara tre delar av information mellan inmatnings slut punkten och klient slut punkten. Följande egenskaper levereras till klienten, i enlighet med [SCTE-35] och/eller klientens strömnings protokoll:
 
-1.  Schema – en URN eller URL som identifierar schemat för meddelandet.
-2.  Presentationstid – presentationen tid för händelsen på media tidslinjen.
-3.  Varaktighet – varaktigheten av händelsen.
+1.  Schema – en URN eller URL som identifierar meddelandets schema.
+2.  Presentations tid – händelsens presentations tid på medie tids linjen.
+3.  Duration – händelsens varaktighet.
 4.  ID – en valfri unik identifierare för händelsen.
-5.  Meddelande – händelsedata.
+5.  Meddelande – händelse data.
 
-## <a name="31-microsoft-smooth-streaming-manifest"></a>3.1 Microsoft Smooth Streaming Manifest  
+## <a name="31-microsoft-smooth-streaming-manifest"></a>3,1 Microsoft Smooth Streaming-manifest  
 
-Mer information om hur du formaterar ett glest meddelandespår finns i gles spårhantering [MS-SSTR] . För [SCTE35]-meddelanden matas Smooth Streaming ut den base64-kodade splice_info_section() till ett glest fragment.
-StreamIndex **MÅSTE** ha en undertyp av "DATA" och CustomAttributes **MÅSTE** innehålla ett attribut med Name="Schema" och Value="urn:scte:scte35:2013:bin".
+Mer information om hur du formaterar ett reoptimerat meddelande spår finns i hantering av glesa spår [MS-SSTR]. För [SCTE35]-meddelanden kommer Smooth Streaming att mata ut base64-kodade splice_info_section () i ett sparse-fragment.
+StreamIndex **måste** ha en undertyp till "data" och CustomAttributes **måste** innehålla ett attribut med Name = "schema" och värde = "urn: scte: scte35:2013: bin".
 
-#### <a name="smooth-client-manifest-example-showing-base64-encoded-scte35-splice_info_section"></a>Exempel på utjämnat klientmanifest som visar base64-kodad [SCTE35] splice_info_section()
+#### <a name="smooth-client-manifest-example-showing-base64-encoded-scte35-splice_info_section"></a>Exempel på ett smidigt klient manifest som visar base64-kodade [SCTE35] splice_info_section ()
 ~~~ xml
 <?xml version="1.0" encoding="utf-8"?>
 <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" TimeScale="10000000" IsLive="true" Duration="0"
@@ -538,24 +538,24 @@ StreamIndex **MÅSTE** ha en undertyp av "DATA" och CustomAttributes **MÅSTE** 
 </SmoothStreamingMedia>
 ~~~
 
-## <a name="32-apple-hls-manifest-decoration"></a>3.2 ÄppelHLS Manifest dekoration
+## <a name="32-apple-hls-manifest-decoration"></a>3,2 Apple HLS-manifest
 
-Azure Media Services stöder följande HLS-manifesttaggar för signalering av annonsavbegripande information under en live- eller on-demand-händelse. 
+Azure Media Services stöder följande HLS manifest-taggar för att signalera AD via-information under en Live-eller on-demand-händelse. 
 
-- EXT-X-DATERANGE enligt definitionen i Apple HLS [RFC8216]
-- EXT-X-CUE enligt definitionen i [Adobe-Primetime] - det här läget anses vara "arv". Kunder bör anta EXT-X-DATERANGE-taggen när det är möjligt.
+- EXT-X-DATERANGE som definieras i Apple HLS [RFC8216]
+- EXT-X-CUE enligt definitionen i [Adobe-Primetime] – det här läget anses vara "Bakåtkompatibelt". Kunderna bör anta en EXT-X-DATERANGE-tagg när det är möjligt.
 
-Datautdata till varje tagg varierar beroende på det intagssignalläge som används. RTMP-inmatning med Adobe Simple-läge innehåller till exempel inte den fullständiga SCTE-35-bas64-kodade nyttolasten.
+Datautdata till varje tagg varierar beroende på vilket inmatnings signal läge som används. Exempelvis innehåller RTMP-inmatningen med Adobe Simple mode inte den fullständiga SCTE-35 base64-kodade nytto lasten.
 
-## <a name="321-apple-hls-with-ext-x-daterange-recommended"></a>3.2.1 Apple HLS med EXT-X-DATERANGE (rekommenderas)
+## <a name="321-apple-hls-with-ext-x-daterange-recommended"></a>3.2.1 Apple-HLS med EXT-X-DATERANGE (rekommenderas)
 
-Apple HTTP Live Streaming [RFC8216] specifikation möjliggör signalering av [SCTE-35] meddelanden. Meddelandena infogas i segmentspellistan i ett EXT-X-DATERANGE-tagg per [RFC8216] med titeln "Mapping SCTE-35 into EXT-X-DATERANGE".  Klientprogramlagret kan tolka M3U-spellistan och bearbeta M3U-taggar, eller ta emot händelserna via Apple Player-ramverket.  
+I specifikationen Apple HTTP Live Streaming [RFC8216] kan du signalera [SCTE-35]-meddelanden. Meddelandena infogas i listan över segment i segment listan i en EXT-X-DATERANGE-tagg per [RFC8216]-avsnitt med rubriken "Mappa SCTE-35 till EXT-X-DATERANGE".  Klient program skiktet kan parsa M3U-spelnings listan och bearbeta M3U-taggarna, eller ta emot händelserna via Apple Player-ramverket.  
 
-**Den REKOMMENDERADE** metoden i Azure Media Services (version 3 API) är att följa [RFC8216] och använda EXT-X_DATERANGE-taggen för [SCTE35] ad avail dekoration i manifestet.
+Den **rekommenderade** metoden i Azure Media Services (version 3 API) är att följa [RFC8216] och använda taggen EXT-X_DATERANGE för [SCTE35] AD-DISP i manifestet.
 
-## <a name="3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35"></a>3.2.1.1 Exempel HLS manifest .m3u8 visar EXT-X-DATERANGE signalering av SCTE-35
+## <a name="3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35"></a>3.2.1.1 exempel på HLS manifest. M3U8 visar EXT-X-DATERANGE-signalering av SCTE-35
 
-Följande exempel HLS-manifestutdata från den dynamiska paketeraren för Media Services visar användningen av EXT-X-DATERANGE-taggen från [RFC8216] som signalerar SCTE-35-händelserna i dataströmmen. Dessutom innehåller den här strömmen den "äldre" EXT-X-CUE-taggen för [Adobe-Primetime].
+I följande exempel HLS manifest utdata från Media Services dynamiska Paketeraren visas användningen av EXT-X-DATERANGE-taggen från [RFC8216] som signalerar SCTE-35-händelserna i data strömmen. Dessutom innehåller den här data strömmen den "äldre" EXT-X-CUE-taggen för [Adobe-Primetime].
 
 ~~~
 #EXTM3U
@@ -756,27 +756,27 @@ Fragments(video=28648620,format=m3u8-aapl-v8)
 ~~~
 
 
-## <a name="322-apple-hls-with-adobe-primetime-ext-x-cue-legacy"></a>3.2.2 Apple HLS med Adobe Primetime EXT-X-CUE (äldre)
+## <a name="322-apple-hls-with-adobe-primetime-ext-x-cue-legacy"></a>3.2.2 Apple-HLS med Adobe Primetime EXT-X-CUE (bakåtkompatibelt)
 
-Det finns också en "äldre" implementering som tillhandahålls i Azure Media Services (version 2 och 3 API) som använder EXT-X-CUE-taggen enligt definitionen i [Adobe-Primetime] "SCTE-35 Mode". I det här läget bäddar Azure Media Services in base64-kodade [SCTE-35] splice_info_section() i EXT-X-CUE-taggen.  
+Det finns också en "äldre" implementering som tillhandahålls i Azure Media Services (version 2 och 3 API) som använder taggen EXT-X-CUE enligt definitionen i [Adobe-Primetime] "SCTE-35-läge". I det här läget kommer Azure Media Services bädda in Base64-kodat [SCTE-35] splice_info_section () i taggen EXT-X-CUE.  
 
-Den "äldre" EXT-X-CUE-taggen definieras som nedan och kan även vara normativ refererad i [Adobe-Primetime]-specifikationen. Detta bör endast användas för äldre SCTE35-signalering där det behövs, annars definieras den rekommenderade taggen i [RFC8216] som EXT-X-DATERANGE. 
+Taggen "Legacy" EXT-X-CUE definieras enligt nedan och kan också vara normativ som refereras till i [Adobe-Primetime]-specifikationen. Detta bör endast användas för äldre SCTE35-signaler vid behov, annars definieras den rekommenderade taggen i [RFC8216] som EXT-X-DATERANGE. 
 
-| **Attributnamn** | **Typ**                      | **Krävs?**                             | **Beskrivning**                                                                                                                                                                                                                                                                          |
+| **Attributnamn** | **Typ**                      | **Obligatoriskt?**                             | **Beskrivning**                                                                                                                                                                                                                                                                          |
 | ------------------ | ----------------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cue                | citerad sträng                 | Krävs                                  | Meddelandet kodas som en base64-kodad sträng enligt beskrivningen i [RFC4648]. För [SCTE-35] meddelanden är detta base64-kodade splice_info_section().                                                                                                                                      |
-| TYPE               | citerad sträng                 | Krävs                                  | En URN eller URL som identifierar meddelandeschemat. För [SCTE-35] meddelanden tar typen det speciella värdet "scte35".                                                                                                                                                                          |
-| ID                 | citerad sträng                 | Krävs                                  | En unik identifierare för händelsen. Om ID:n inte anges när meddelandet används genererar Azure Media Services ett unikt id.                                                                                                                                              |
-| Varaktighet           | decimalt flyttalstal | Krävs                                  | Varaktigheten av händelsen. Om det är okänt **ska** värdet vara 0. Enheter är fraktionella sekunder.                                                                                                                                                                                           |
-| Förfluten            | decimalt flyttalstal | Valfritt, men obligatoriskt för skjutfönster | När signalen upprepas för att stödja ett glidande presentationsfönster **måste** det här fältet vara den mängd presentationstid som har förflutit sedan händelsen började. Enheter är fraktionerad sekund. Det här värdet kan överstiga den ursprungliga angivna varaktigheten för skarv eller segment. |
-| TIME               | decimalt flyttalstal | Krävs                                  | Presentationen tid för händelsen. Enheter är fraktionerad sekund.                                                                                                                                                                                                                        |
+| UTLÖSARE                | Citerad sträng                 | Krävs                                  | Meddelandet kodas som en Base64-kodad sträng enligt beskrivningen i [RFC4648]. För [SCTE-35]-meddelanden är detta den base64-kodade splice_info_section ().                                                                                                                                      |
+| TYPE               | Citerad sträng                 | Krävs                                  | En URN eller URL som identifierar meddelande schemat. För [SCTE-35]-meddelanden använder typen det särskilda värdet "scte35".                                                                                                                                                                          |
+| ID                 | Citerad sträng                 | Krävs                                  | En unik identifierare för händelsen. Om ID: t inte anges när meddelandet matas in kommer Azure Media Services att generera ett unikt ID.                                                                                                                                              |
+| GILTIGHET           | decimalt flytt ALS nummer | Krävs                                  | Händelsens varaktighet. Om detta är okänt **ska** värdet vara 0. Enheter är factional sekunder.                                                                                                                                                                                           |
+| Förfluten            | decimalt flytt ALS nummer | Valfritt, men krävs för glidande fönster | När signalen upprepas för att stödja ett glidande presentations fönster **måste** det här fältet vara den mängd av presentationen som har förflutit sedan händelsen började. Enheter är bråkiska sekunder. Det här värdet kan överskrida den ursprungliga angivna varaktigheten för en splice eller ett segment. |
+| TIME               | decimalt flytt ALS nummer | Krävs                                  | Händelsens presentations tid. Enheter är bråkiska sekunder.                                                                                                                                                                                                                        |
 
 
-HLS-spelarens programlager använder TYP för att identifiera formatet för meddelandet, avkoda meddelandet, tillämpa nödvändiga tidskonverteringar och bearbeta händelsen.  Händelserna är tidssynkronerade i segmentspellistan för det överordnade spåret, enligt händelsetidsstämpeln.  De infogas före närmaste segment (#EXTINF tagg).
+HLS Player-Programskiktet använder typen för att identifiera meddelandets format, avkoda meddelandet, tillämpa nödvändiga tids konverteringar och bearbeta händelsen.  Händelserna är tids synkroniserade i segment listan över överordnade spår enligt händelsens tidsstämpel.  De infogas före närmaste segment (#EXTINF tagg).
 
-### <a name="323-hls-m3u8-manifest-example-using-legacy-adobe-primetime-ext-x-cue"></a>3.2.3 HLS .m3u8 manifestexempel med "Legacy" Adobe Primetime EXT-X-CUE
+### <a name="323-hls-m3u8-manifest-example-using-legacy-adobe-primetime-ext-x-cue"></a>3.2.3 HLS. M3U8 manifest exempel med "Legacy" Adobe Primetime EXT-X-CUE
 
-I följande exempel visas HLS manifestdekoration med adobe Primetime EXT-X-CUE-taggen.  Parametern "CUE" innehåller endast egenskaperna TYP och Varaktighet, vilket innebär att detta var en RTMP-källa med Adobes "enkla" lägessignalering.  Om detta var en SCTE-35-lägessignal skulle taggen innehålla bas64-kodad binär SCTE-35-nyttolast som visas i [exemplet 3.2.1.1](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35).
+I följande exempel visas HLS-manifestet med hjälp av taggen Adobe Primetime EXT-X-CUE.  Parametern "CUE" innehåller bara egenskaperna TYPE och duration, vilket innebär att detta var en RTMP-källa med Adobe "Simple" mode-signalering.  Om det här är en signal i SCTE-35-läge skulle taggen innehålla Base64-kodad binär SCTE-35-nyttolasten som visas i [exemplet 3.2.1.1](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35).
 
 ~~~
 #EXTM3U
@@ -839,58 +839,58 @@ Fragments(video=4011702982,format=m3u8-aapl)
 
 ~~~
 
-### <a name="324-hls-message-handling-for-legacy-adobe-primetime-ext-x-cue"></a>3.2.4 HLS-meddelandehantering för "Legacy" Adobe Primetime EXT-X-CUE
+### <a name="324-hls-message-handling-for-legacy-adobe-primetime-ext-x-cue"></a>3.2.4 HLS-meddelande hantering för "Legacy" Adobe Primetime EXT-X-CUE
 
-Händelser signaleras i segmentspellistan för varje video- och ljudspår. Positionen för EXT-X-CUE-taggen **måste** alltid vara antingen omedelbart före det första HLS-segmentet (för skarv ut eller segmentstart) eller omedelbart efter det sista HLS-segmentet (för skarv i eller segmentets ände) som dess attribut TID och VARAKTIGHET avser, som krävs av [Adobe-Primetime].
+Händelser signaleras i listan över segment för varje video-och ljud spår. Positionen för EXT-X-CUE-taggen **måste** alltid vara omedelbart före det första HLS-segmentet (för splice out eller segment start) eller omedelbart efter det sista HLS-segmentet (för splice in-eller segment slut), vilket krävs av [Adobe-Primetime].
 
-När ett glidande presentationsfönster är aktiverat **måste** EXT-X-CUE-taggen upprepas tillräckligt ofta för att skarven eller segmentet alltid beskrivs fullständigt i segmentspellistan, och förflutet-attributet **MÅSTE** användas för att ange hur lång tid skarv eller segment har varit aktivt, i enlighet med [Adobe-Primetime].
+När ett glidande presentations fönster är aktiverat **måste** ext-X-Cue-taggen upprepas oftare så ofta att splice eller segmentet alltid är fullständigt beskrivet i segment listan och det förflutna attributet **måste** användas för att ange hur lång tid som splice eller segmentet har varit aktivt, enligt vad som krävs av [Adobe-Primetime].
 
-När ett glidande presentationsfönster är aktiverat tas EXT-X-CUE-taggarna bort från segmentspellistan när medietiden som de refererar till har rullat ut ur det glidande presentationsfönstret.
+När ett glidande presentations fönster är aktiverat tas EXT-X-CUE-taggarna bort från listan över segment när medie tiden som de hänvisar till har lyfts ut från fönstret med den glidande presentationen.
 
-## <a name="33-dash-manifest-decoration-mpd"></a>3.3 DASH Manifest dekoration (MPD)
+## <a name="33-dash-manifest-decoration-mpd"></a>3,3 STRECKs manifest dekoration (MPD)
 
-[MPEGDASH] ger tre sätt att signalera händelser:
+[MPEGDASH] tillhandahåller tre sätt att signalera händelser:
 
-1.  Händelser som signaleras i MPD-eventstream
-2.  Händelser som signaleras i bandet med hjälp av händelsemeddelanderutan ("emsg")
+1.  Händelser som signaleras i MPD-EventStream
+2.  Händelser signalerade på-band med hjälp av händelse meddelande rutan ("EMSG")
 3.  En kombination av både 1 och 2
 
-Händelser som signaleras i MPD EventStream är användbara för VOD-direktuppspelning eftersom klienter har åtkomst till alla händelser, omedelbart när MPD hämtas. Det är också användbart för SSAI-signalering, där SSAI-leverantören i efterföljande led behöver tolka signalerna från ett MPD-manifest med flera perioder och infoga annonsinnehåll dynamiskt.  In-band ('emsg')-lösningen är användbar för livestreaming där klienter inte behöver ladda ner MPD igen, eller om det inte finns någon SSAI-manifestmanipulering mellan klienten och ursprunget. 
+Händelser som har signaler ATS i MPD-EventStream är användbara för VOD-direktuppspelning eftersom klienterna har åtkomst till alla händelser omedelbart när MPD laddas ned. Det är också användbart för SSAI-signaler, där den underordnade SSAI-leverantören behöver parsa signalerna från ett MPD-manifest med flera perioder och infoga AD-innehåll dynamiskt.  Lösningen in-band (' EMSG ') är användbar för Live-direktuppspelning där klienterna inte behöver hämta MPD igen, eller så finns det ingen SSAI för manifest manipulering mellan klienten och ursprunget. 
 
-Standardbeteendet för AZURE Media Services för DASH är att signalera både i MPD EventStream och i-bandet med hjälp av händelsemeddelanderutan ("emsg").
+Azure Media Services standard beteendet för bindestreck är att signalera både i MPD-EventStream och i-band med hjälp av händelse meddelande rutan ("EMSG").
 
-Cue-meddelanden som förtärs över [RTMP] eller [MS-SSTR-Ingest] mappas till DASH-händelser med hjälp av in-band 'emsg' rutor och/eller i-MPD EventStreams. 
+Stack meddelanden som matats in över [RTMP] eller [MS-SSTR-inmatning] mappas till streck händelser, med hjälp av EMSG-rutorna och/eller i MPD-EventStreams. 
 
-In-band SCTE-35-signalering för DASH följer den definition och de krav som definieras i [SCTE-214-3] och även i [DASH-IF-IOP] avsnitt 13.12.2 (SCTE35 Events). 
+In-band-SCTE – 35 signalering för streck följer definitionen och kraven som definierats i [SCTE-214-3] och även i [streck-IF-IOP] avsnitt 13.12.2 ("SCTE35 Events"). 
 
-För in-band [SCTE-35] vagn, Händelsemeddelande rutan ("emsg") använder schemeId = "urn:scte:scte35:2013:bin". För MPD manifest dekoration EventStream schemeId använder "urn:scte:scte35:2014:xml+bin".  Det här formatet är en XML-representation av händelsen som innehåller en binär base64-kodad utdata från det fullständiga SCTE-35-meddelandet som kom fram till inmatning. 
+För in-band-[SCTE-35]-transport använder händelse meddelande rutan ("EMSG") schemeId = "urn: SCTE: scte35:2013: bin". För dekoration av MPD-manifest EventStream-schemeId använder "urn: scte: scte35:2014: XML + bin".  Det här formatet är en XML-representation av händelsen som innehåller en binär Base64-kodad utdata från det fullständiga SCTE-35-meddelandet som kom in vid inmatningen. 
 
-Normativa referensdefinitioner för transport av [SCTE-35] cue-meddelanden i DASH finns i [SCTE-214-1] sek 6.7.4 (MPD) och [SCTE-214-3] sek 7.3.2 (Transport av SCTE 35 cue-meddelanden).
+Normativ referens definitioner för transport av [SCTE-35] Cue-meddelanden i bindestreck är tillgängliga i [SCTE-214-1] SEK 6.7.4 (MPD) och [SCTE-214-3] SEC 7.3.2 (transport av SCTE 35 Cue-meddelanden).
 
-### <a name="331-mpeg-dash-mpd-eventstream-signaling"></a>3.3.1 MPEG DASH (MPD) EventStream-signalering
+### <a name="331-mpeg-dash-mpd-eventstream-signaling"></a>3.3.1 MPEG-streck (MPD) EventStream-signalering
 
-Manifest -MPD-dekoration av händelser kommer att signaleras i MPD med elementet EventStream, som visas i elementet Period. Det schema Som används är "urn:scte:scte35:2014:xml+bin".
+Ett manifest (MPD) av händelser kommer att signaleras i det här MPD-objektet med hjälp av EventStream-elementet, som visas i period-elementet. SchemeId som används är "urn: scte: scte35:2014: XML + bin".
 
 > [!NOTE]
-> För korthetsändamål [SCTE-35] tillåter användning av base64-kodade avsnittet i Signal.Binary element (snarare än Signal.SpliceInfoSection element) som ett alternativ till transport av en helt tolkad cue meddelande.
-> Azure Media Services använder den här xml+bin-metoden för att signalera i MPD-manifestet.
-> Detta är också den rekommenderade metoden som används i [DASH-IF-IOP] - se avsnittet ["Ad insertion event streams" i DASH IF IOP-riktlinjen](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html#ads-insertion-event-streams)
+> I det kortfattat-syfte [SCTE-35] kan använda det Base64-kodade avsnittet i signal. Binary-element (i stället för signal-SpliceInfoSection-elementet) som ett alternativ till att transportera ett fullständigt parsat Cue-meddelande.
+> Azure Media Services använder den här metoden "XML + bin" för att signalera i MPD-manifestet.
+> Detta är även den rekommenderade metoden som används i [bindestreck-IF-IOP] – Se avsnittet ["AD-infogning händelse strömmar" i bindestrecket om IOP-rikt linjen](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html#ads-insertion-event-streams)
 > 
 
-Elementet EventStream har följande attribut:
+EventStream-elementet har följande attribut:
 
-| **Attributnamn** | **Typ**                | **Krävs?** | **Beskrivning**                                                                                                                                                                                                                                                                                                                                                                         |
+| **Attributnamn** | **Typ**                | **Obligatoriskt?** | **Beskrivning**                                                                                                                                                                                                                                                                                                                                                                         |
 | ------------------ | ----------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| scheme_id_uri      | sträng                  | Krävs      | Identifierar schemat för meddelandet. Schemat är inställt på värdet för attributet Scheme i rutan Live Server Manifest. Värdet **SKA** vara ett URN eller EN URL som identifierar meddelandeschemat. Det utdata schemeId som stöds ska vara "urn:scte:scte35:2014:xml+bin" per [SCTE-214-1] sek 6.7.4 (MPD), eftersom tjänsten endast stöder "xml+bin" för tillfället för korthet i MPD. |
-| värde              | sträng                  | Valfri      | Ett ytterligare strängvärde som används av ägarna till schemat för att anpassa meddelandets semantik. För att kunna skilja flera händelseströmmar med samma schema **måste** värdet anges till namnet på händelseströmmen (trackName för [MS-SSTR-Ingest] eller AMF-meddelandenamnet för [RTMP]-intårigeten).                                                                         |
-| Tidsskala          | 32-bitars osignerat heltal | Krävs      | Tidsskalan, i fästingar per sekund.                                                                                                                                                                                                                                                                                                                                                     |
+| scheme_id_uri      | sträng                  | Krävs      | Identifierar meddelandets schema. Schemat anges till värdet för attributet Scheme i rutan Live Server manifest. Värdet **måste** vara en URN eller URL som identifierar meddelande schemat. De utdata-schemeId som stöds ska vara "urn: scte: scte35:2014: XML + bin" per [SCTE-214-1] SEK 6.7.4 (MPD), eftersom tjänsten endast stöder "XML + bin" för närvarande för det kortfattat i MPD. |
+| värde              | sträng                  | Valfri      | Ett ytterligare sträng värde som används av schemats ägare för att anpassa semantiken för meddelandet. För att kunna särskilja flera händelse strömmar med samma schema **måste** värdet anges till namnet på händelse strömmen (trackName for [MS-SSTR-inmatning] eller AMF-för [RTMP] intag).                                                                         |
+| Tidsskala          | 32-bitars osignerat heltal | Krävs      | Tids skalan i Tick per sekund.                                                                                                                                                                                                                                                                                                                                                     |
 
 
-### <a name="332-example-event-streams-for-mpeg-dash"></a>3.3.2 Exempel på händelseströmmar för MPEG DASH
+### <a name="332-example-event-streams-for-mpeg-dash"></a>3.3.2 exempel händelse strömmar för MPEG-streck
 
-#### <a name="3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode"></a>3.3.2.1 Exempel MPEG DASH .mpd manifest signalering av RTMP streaming med Adobe enkelt läge
+#### <a name="3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode"></a>3.3.2.1-exempel på MPEG-streck. mpd-manifest signalering av RTMP streaming med hjälp av Adobe Simple mode
 
-Följande exempel visar ett utdrag EventStream från Media Services dynamisk paketerare för en RTMP ström med Adobe "enkel" läge signalering.
+I följande exempel visas en utdrag-EventStream från Media Services dynamiska Paketeraren för en RTMP-dataström med hjälp av Adobe "enkel" läges signalering.
 
 ~~~ xml
 <!-- Example EventStream element using "urn:com:adobe:dpi:simple:2015" Adobe simple signaling per [Adobe-Primetime] -->
@@ -909,9 +909,9 @@ Följande exempel visar ett utdrag EventStream från Media Services dynamisk pak
     </EventStream>
 ~~~
 
-#### <a name="3322-example-mpeg-dash-mpd-manifest-signaling-of-an-rtmp-stream-using-adobe-scte-35-mode"></a>3.3.2.2 Exempel MPEG DASH .mpd manifest signalering av en RTMP ström med Adobe SCTE-35 läge
+#### <a name="3322-example-mpeg-dash-mpd-manifest-signaling-of-an-rtmp-stream-using-adobe-scte-35-mode"></a>3.3.2.2-exempel på MPEG-streck. mpd-manifest signalering av en RTMP-dataström med Adobe SCTE-35-läge
 
-I följande exempel visas ett utdrag EventStream från Media Services dynamiska paketerare för en RTMP-ström med Adobe SCTE-35-lägessignalering.
+I följande exempel visas en utdrag-EventStream från Media Services dynamiska Paketeraren för en RTMP-dataström med hjälp av Adobe SCTE-35-läge-signalering.
 
 ~~~ xml
 <!-- Example EventStream element using xml+bin style signaling per [SCTE-214-1] -->
@@ -931,15 +931,15 @@ I följande exempel visas ett utdrag EventStream från Media Services dynamiska 
 ~~~
 
 > [!IMPORTANT]
-> Observera att presentationTime är presentationstiden för [SCTE-35] händelse översatt till att vara relativ till periodens starttid, inte ankomsttiden för meddelandet.
-> [MPEGDASH] definierar Event@presentationTime som "Anger presentationens tid för händelsen i förhållande till början av perioden.
-> Värdet för presentationstiden i sekunder är fördelningen av värdet för det EventStream@timescale här attributet och värdet för attributet.
-> Om det inte finns är värdet för presentationstiden 0.
+> Observera att presentationTime är presentations tiden för händelsen [SCTE-35] översatt till att vara relativ till periodens start tid, inte för meddelandets införsel tid.
+> [MPEGDASH] definierar Event@presentationTime som "anger presentations tiden för händelsen i förhållande till början av perioden.
+> Värdet för presentations tiden i sekunder är indelningen av värdet för det här attributet och EventStream@timescale attributets värde.
+> Om detta inte anges är värdet för presentations tiden 0.
 
-#### <a name="3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals"></a>3.3.3.1 Exempel PÅ MPEG DASH-manifest (MPD) med enperiod, EventStream, med hjälp av Adobes enkla lägessignaler
+#### <a name="3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals"></a>3.3.3.1-exempel för MPEG-streck (MPD) med en EventStream med med Adobe Simple mode-signaler
 
-I följande exempel visas utdata från den dynamiska paketeraren för Media Services för en källa RTMP-ström med adsignalmetoden i Adobes "enkla" läge. Utdata är ett enda periodmanifest som visar ett EventStream med schemeId Uri inställd på "urn:com:adobe:dpi:simple:2015" och värdeegenskapen inställd på "simplesignal".
-Varje enkel signal tillhandahålls i ett @presentationTime @durationhändelseelement @id med , och egenskaper som fylls baserat på inkommande enkla signaler.
+I följande exempel visas utdata från den Media Services dynamiska Paketeraren för en käll-RTMP-dataström med hjälp av AD-signal metoden i Adobe "enkel" läge. Utdata är ett enda period manifest som visar en EventStream med schemeId-URI: n inställt på "urn: com: Adobe: dpi: simple: 2015" och Value Property inställd på "simplesignal".
+Varje enkel signal tillhandahålls i ett händelse element med egenskaperna @presentationTime, @duration, och @id fylls i baserat på inkommande enkla signaler.
 
 ~~~ xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -992,10 +992,10 @@ Varje enkel signal tillhandahålls i ett @presentationTime @durationhändelseele
 
 ~~~
 
-#### <a name="3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling"></a>3.3.3.2 Exempel MPEG DASH-manifest (MPD) med flera period, EventStream, med Adobe SCTE35-lägessignalering
+#### <a name="3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling"></a>3.3.3.2-exempel för MPEG-streck (MPD) med multi-period, EventStream, med Adobe SCTE35 mode-signalering
 
-I följande exempel visas utdata från den dynamiska paketeraren för Media Services för en källa RTMP-ström med signalen i Adobe SCTE35-läget.
-I det här fallet är utdatamanifestet en DASH -mpd @schemeIdUri med flera olika perioder med ett EventStream-element och egenskapen "urn:scte:scte35:2014:xml+bin" och en @value egenskap inställd på "scte35". Varje händelseelement i EventStream innehåller den fullständiga base64-kodade binära SCTE35-signalen 
+I följande exempel visas utdata från den Media Services dynamiska Paketeraren för en käll-RTMP-dataström med hjälp av Adobe SCTE35 mode-signalering.
+I det här fallet är utmatnings manifestet ett snedstreck med flera punkter. mpd med ett EventStream- @schemeIdUri element, och egenskapen har angetts till "urn: scte: scte35:2014: XML + @value bin" och en egenskap har angetts till "scte35". Varje händelse element i EventStream innehåller den fullständiga base64-kodade binärfilen SCTE35-signalen 
 
 ~~~ xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -1122,64 +1122,64 @@ I det här fallet är utdatamanifestet en DASH -mpd @schemeIdUri med flera olika
 </MPD>
 
 ~~~
-### <a name="334-mpeg-dash-in-band-event-message-box-signaling"></a>3.3.4 MPEG DASH In-band Event Message Box Signalering
+### <a name="334-mpeg-dash-in-band-event-message-box-signaling"></a>Varning för 3.3.4 MPEG-streck i band
 
-En händelseström i bandet kräver att MPD har ett InbandEventStream-element på anpassningsuppsättningsnivå.  Det här elementet har ett obligatoriskt schemeIdUri-attribut och valfritt tidskaleattribut, som också visas i händelsemeddelanderutan ("emsg").  Händelsemeddelanderutor med schemaidentifierare som inte har definierats i MPD **bör** inte finnas.
+En inbands händelse ström kräver att MPD har ett InbandEventStream-element på anpassnings uppsättnings nivån.  Det här elementet har ett obligatoriskt schemeIdUri-attribut och valfritt Tidsskale-attribut som också visas i händelse meddelande rutan (' EMSG ').  Händelse meddelande rutor med schema identifierare som inte har definierats i MPD **ska** inte finnas.
 
-För in-band [SCTE-35] vagn, signaler **måste** använda schemeId = "urn:scte:scte35:2013:bin".
-Normativa definitioner av transport av [SCTE-35] in-band-meddelanden definieras i [SCTE-214-3] sek 7.3.2 (Transport av SCTE 35-stacklägen).
+För in-band-[SCTE-35]-transport **måste** signaler använda schemeId = "urn: SCTE: scte35:2013: bin".
+Normativa definitioner för transport av [SCTE-35] in-band-meddelanden definieras i [SCTE-214-3] s 7.3.2 (transport av SCTE 35 Cue-meddelanden).
 
-Följande detaljer beskriver de specifika värden som klienten bör förvänta sig i "emsg" i enlighet med [SCTE-214-3]:
+Följande information beskriver de angivna värdena som klienten ska förvänta sig i EMSG i enlighet med [SCTE-214-3]:
 
-| **Fältnamn**          | **Fälttyp**          | **Krävs?** | **Beskrivning**                                                                                                                                                                                                                                                                                        |
+| **Fält namn**          | **Fälttyp**          | **Obligatoriskt?** | **Beskrivning**                                                                                                                                                                                                                                                                                        |
 | ----------------------- | ----------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| scheme_id_uri           | sträng                  | Krävs      | Identifierar schemat för meddelandet. Schemat är inställt på värdet för attributet Scheme i rutan Live Server Manifest. Värdet **MÅSTE** vara ett URN som identifierar meddelandeschemat. För [SCTE-35] meddelanden **måste** detta vara "urn:scte:scte35:2013:bin" i enlighet med [SCTE-214-3]          |
-| Värde                   | sträng                  | Krävs      | Ett ytterligare strängvärde som används av ägarna till schemat för att anpassa meddelandets semantik. För att skilja flera händelseströmmar med samma schema ställs värdet in på namnet på händelseströmmen (trackName for Smooth ingest eller AMF-meddelandenamn för RTMP-intält). |
-| Tidsskala               | 32-bitars osignerat heltal | Krävs      | Tidsskalan, i fästingar per sekund, av fälten tider och varaktighet i rutan "emsg".                                                                                                                                                                                                            |
-| Presentation_time_delta | 32-bitars osignerat heltal | Krävs      | Tidsdeldelen för mediepresentation för presentationen av händelsen och den tidigaste presentationstiden i det här segmentet. Presentationstiden och varaktigheten **BÖR** anpassas till Stream Access Points (SAP) av typ 1 eller 2, enligt definitionen i [ISO-14496-12] bilaga I.                                  |
-| event_duration          | 32-bitars osignerat heltal | Krävs      | Varaktigheten av händelsen, eller 0xFFFFFFFF att ange en okänd varaktighet.                                                                                                                                                                                                                              |
-| Id                      | 32-bitars osignerat heltal | Krävs      | Identifierar den här instansen av meddelandet. Meddelanden med motsvarande semantik ska ha samma värde. Om ID:n inte anges när meddelandet används genererar Azure Media Services ett unikt id.                                                                                        |
-| Message_data            | bytematris              | Krävs      | Händelsemeddelandet. För [SCTE-35]-meddelanden är meddelandedata den binära splice_info_section() i enlighet med [SCTE-214-3]                                                                                                                                                                        |
+| scheme_id_uri           | sträng                  | Krävs      | Identifierar meddelandets schema. Schemat anges till värdet för attributet Scheme i rutan Live Server manifest. Värdet **måste** vara en URN som identifierar meddelande schemat. För [SCTE-35]-meddelanden **måste** detta vara "urn: SCTE: scte35:2013: bin" i enlighet med [SCTE-214-3]          |
+| Värde                   | sträng                  | Krävs      | Ett ytterligare sträng värde som används av schemats ägare för att anpassa semantiken för meddelandet. För att skilja flera händelse strömmar med samma schema, anges värdet för händelse strömmen (trackName för utjämna inmatning eller AMF meddelande namn för RTMP-inmatning). |
+| Tidsskala               | 32-bitars osignerat heltal | Krävs      | Tids skalan, i Tick per sekund, för fälten tid och varaktighet i rutan "EMSG".                                                                                                                                                                                                            |
+| Presentation_time_delta | 32-bitars osignerat heltal | Krävs      | Medie presentationens tids förändring av händelsens presentations tid och den tidigaste presentations tiden i det här segmentet. Presentationens tid och varaktighet **bör** justeras mot Stream-åtkomst punkter (SAP) av typ 1 eller 2, enligt definitionen i [ISO-14496-12] bilaga I.                                  |
+| event_duration          | 32-bitars osignerat heltal | Krävs      | Händelsens varaktighet eller 0xFFFFFFFF för att ange en okänd varaktighet.                                                                                                                                                                                                                              |
+| Id                      | 32-bitars osignerat heltal | Krävs      | Identifierar den här instansen av meddelandet. Meddelanden med motsvarande semantik måste ha samma värde. Om ID: t inte anges när meddelandet matas in kommer Azure Media Services att generera ett unikt ID.                                                                                        |
+| Message_data            | bytematris              | Krävs      | Händelse meddelandet. För [SCTE-35] meddelanden är meddelande data binärfilen splice_info_section () i enlighet med [SCTE-214-3]                                                                                                                                                                        |
 
 
-#### <a name="example-inbandevenstream-entity-for-adobe-simple-mode"></a>Exempel på InBandEvenStream-entitet för Enkelt Adobe-läge
+#### <a name="example-inbandevenstream-entity-for-adobe-simple-mode"></a>Exempel på InBandEvenStream-entitet för Adobe Simple mode
 ~~~ xml
 
       <InbandEventStream schemeIdUri="urn:com:adobe:dpi:simple:2015" value="amssignal"/>
 ~~~
 
-### <a name="335-dash-message-handling"></a>3.3.5 HANTERING AV DASH-meddelanden
+### <a name="335-dash-message-handling"></a>Meddelande hantering för 3.3.5-datastreck
 
-Händelser signaleras i bandet, inom "emsg" rutan, för både video-och ljudspår.  Signalen sker för alla segmentbegäranden för vilka presentation_time_delta är 15 sekunder eller mindre. 
+Händelser signaleras i band i rutan "EMSG" för både video-och ljud spår.  Signaleringen sker för alla segment begär Anden som presentation_time_delta är 15 sekunder eller mindre. 
 
-När ett glidande presentationsfönster är aktiverat tas händelsemeddelanden bort från MPD när summan av tid och varaktighet för händelsemeddelandet är mindre än tiden för mediedata i manifestet.  Med andra ord tas händelsemeddelandena bort från manifestet när medietiden som de refererar till har rullat ut från det glidande presentationsfönstret.
+När ett glidande presentations fönster är aktiverat tas händelse meddelanden bort från MPD när summan av tid och varaktighet för händelse meddelandet är mindre än tiden för medie data i manifestet.  Med andra ord tas händelse meddelandena bort från manifestet när medie tiden som de hänvisar till har lyfts ut från fönstret med den glidande presentationen.
 
-## <a name="4-scte-35-ingest-implementation-guidance-for-encoder-vendors"></a>4. SCTE-35 Introllningsvägledning för kodare Leverantörer
+## <a name="4-scte-35-ingest-implementation-guidance-for-encoder-vendors"></a>4. SCTE – 35 inmatnings vägledning för kodare-leverantörer
 
-Följande riktlinjer är vanliga problem som kan påverka en kodarleverantörs implementering av den här specifikationen.  Riktlinjerna nedan har samlats in baserat på verkliga partner feedback för att göra det lättare att genomföra denna specifikation för andra. 
+Följande rikt linjer är vanliga problem som kan påverka en kodares leverantörs implementering av den här specifikationen.  Rikt linjerna nedan har samlats in baserat på verklig feedback från vår partner för att göra det enklare att implementera den här specifikationen för andra. 
 
-[SCTE-35]-meddelanden förtärs i binärt format med formatet **"urn:scte:scte35:2013:bin"** för [MS-SSTR-Ingest] och typen **"scte35"** för [RTMP] intag. För att underlätta konverteringen av [SCTE-35] timing, som baseras på MPEG-2 transportström presentation tidsstämplar (PTS), en kartläggning mellan PTS (pts_time + pts_adjustment av splice_time()) och media tidslinjen tillhandahålls av händelsen presentation tid ( fältet fragment_absolute_time för Smooth ingest och tidsfältet för RTMP-intag). Mappningen är nödvändig eftersom PTS-värdet på 33 bitar rullar över ungefär var 26,5 timme.
+[SCTE-35] meddelanden matas in i binärformat med schemat **"urn: SCTE: scte35:2013: bin"** för [MS-SSTR-inmatning] och typen **"scte35"** för [RTMP] intag. För att under lätta konverteringen av [SCTE-35]-timing, som baseras på tidsstämpeler i MPEG-2-transportnivån (punkter), en mappning mellan punkter (pts_time + pts_adjustment av splice_time ()) och medie tids linjen tillhandahålls av händelse presentations tiden (fragment_absolute_time fältet för utmatnings-och tids fältet för RTMP-inmatning). Mappningen är nödvändig eftersom värdet 33-bit punkter rullar över ungefär var 26,5: e timme.
 
-Smooth Streaming ingest [MS-SSTR-Ingest] kräver att Media Data Box ("mdat") **måste** innehålla **splice_info_section()** som definieras i [SCTE-35]. 
+Smooth Streaming-inmatningen [MS-SSTR-inmatning] kräver att medie Data Box-enhet (' mdat ') **måste** innehålla **splice_info_section ()** som definierats i [SCTE-35]. 
 
-För RTMP-introllning ställs köattributet för AMF-meddelandet till den base64-kodade **splice_info_section()** som definieras i [SCTE-35].  
+För RTMP-inläsning anges attributet Cue för AMF-meddelandet Base64-kodat **splice_info_section ()** som definierats i [SCTE-35].  
 
-När meddelandena har det format som beskrivs ovan skickas de till HLS-, Smooth- och DASH-klienter enligt definitionen ovan.  
+När meddelandet har det format som beskrivs ovan skickas de till HLS-, utjämna-och streck-klienter enligt definitionen ovan.  
 
-När du testar implementeringen med Azure Media Services-plattformen kan du börja testa med en "direkt" LiveEvent först innan du går över till testning på en kodnings-LiveEvent.
+När du testar din implementering med Azure Media Services plattform börjar du testa med en "direkt" LiveEvent innan du går vidare till testning på en kodnings LiveEvent.
 
 ---
 
 ## <a name="change-history"></a>Ändra historik
 
-| Datum     | Ändringar                                                                                                             |
+| Date     | Något                                                                                                             |
 | -------- | ------------------------------------------------------------------------------------------------------------------- |
-| 07/2/19  | Reviderad RTMP-intag för SCTE35-stöd, tillade RTMP "onCuePoint" för Elemental Live                                  |
-| 08/22/19 | Uppdaterad för att lägga till OnUserDataEvent i RTMP för anpassade metadata                                                          |
-| 1/08/20  | Fast fel på RTMP Enkel och RTMP SCTE35 läge. Ändrat från "onCuePoint" till "onAdCue". Uppdaterad Tabell med enkelt läge. |
+| 07/2/19  | Reviderad RTMP-inmatning för SCTE35-stöd, har lagt till RTMP "onCuePoint" för grundämne Live                                  |
+| 08/22/19 | Uppdaterat för att lägga till OnUserDataEvent i RTMP för anpassade metadata                                                          |
+| 1/08/20  | Fast fel i RTMP enkel och RTMP SCTE35-läge. Har ändrats från "onCuePoint" till "onAdCue". Tabell med enkel läge har uppdaterats. |
 
 ## <a name="next-steps"></a>Nästa steg
-Visa utbildningsvägar för Media Services.
+Visa Media Services utbildnings vägar.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

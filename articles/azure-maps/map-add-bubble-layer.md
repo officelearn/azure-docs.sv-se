@@ -1,6 +1,6 @@
 ---
-title: Lägga till ett bubbellager på en karta | Microsoft Azure Maps
-description: I den här artikeln får du lära dig mer om hur du lägger till ett Bubbellager på en karta med Hjälp av Microsoft Azure Maps Web SDK.
+title: Lägg till ett bubbel-lager till en karta | Microsoft Azure Maps
+description: I den här artikeln får du lära dig hur du lägger till ett bubbel-lager till en karta med hjälp av Microsoft Azure Maps-webbsdk.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -10,22 +10,22 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 7ae11734eb804715f3eb1b5edcb02fc328dafec8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77208564"
 ---
-# <a name="add-a-bubble-layer-to-a-map"></a>Lägga till ett bubbellager på en karta
+# <a name="add-a-bubble-layer-to-a-map"></a>Lägg till ett bubbel-lager till en karta
 
-I den här artikeln visas hur du återger punktdata från en datakälla som ett bubbellager på en karta. Bubbellager återger punkter som cirklar på kartan med en fast pixelradie. 
+Den här artikeln visar hur du återger punkt data från en data källa som ett bubbeldiagram på en karta. Bubbeldiagram återger punkter som cirklar på kartan med en fast pixel-radie. 
 
 > [!TIP]
-> Bubbellager återges som standard koordinaterna för alla geometrier i en datakälla. Om du vill begränsa lagret så att det `filter` bara återger `['==', ['geometry-type'], 'Point']` punktgeometrifunktioner anger egenskapen för lagret till eller `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` om du vill inkludera MultiPoint-funktioner också.
+> Bubbel lager som standard återger koordinaterna för alla Geometries i en data källa. För att begränsa lagret så att det bara återger punkt geometri funktioner anger du `filter` egenskapen för lagret till `['==', ['geometry-type'], 'Point']` eller `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` om du även vill inkludera Multipoint-funktioner.
 
 ## <a name="add-a-bubble-layer"></a>Lägga till ett bubbelskikt
 
-Följande kod läser in en matris med punkter i en datakälla. Sedan ansluter den datapunkterna till ett [bubbellager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). Bubbellagret återger radien för varje bubbla med fem pixlar och en fyllningsfärg av vitt. Och en linjefärg av blått och en linjebredd på sex pixlar. 
+Följande kod läser in en matris med punkter i en data källa. Sedan ansluter den data punkterna till ett [bubbel-lager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). Bubble-lagret återger radien för varje bubbla med fem bild punkter och en fyllnings färg som är vit. Och en linje färg för blått och en linje bredd på sex bild punkter. 
 
 ```javascript
 //Add point locations.
@@ -53,29 +53,29 @@ map.layers.add(new atlas.layer.BubbleLayer(dataSource, null, {
 }));
 ```
 
-Nedan visas det fullständiga kodexemplet för ovanstående funktioner.
+Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Datakälla för BubbleLayer' src='//codepen.io/azuremaps/embed/mzqaKB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Pen <a href='https://codepen.io/azuremaps/pen/mzqaKB/'>BubbleLayer DataSource</a> by<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='BubbleLayer data Källa' src='//codepen.io/azuremaps/embed/mzqaKB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/mzqaKB/'>data källan</a> för pen BubbleLayer genom att<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="show-labels-with-a-bubble-layer"></a>Visa etiketter med ett bubbellager
+## <a name="show-labels-with-a-bubble-layer"></a>Visa etiketter med ett bubbel-lager
 
-Den här koden visar hur du använder ett bubbellager för att återge en punkt på kartan. Och hur man använder ett symbollager för att återge en etikett. Om du vill dölja ikonen för `image` symbollagret anger `'none'`du ikonens egenskap på .
+Den här koden visar hur du använder ett bubbel-lager för att återge en punkt på kartan. Och hur du använder ett symbol lager för att återge en etikett. Om du vill dölja symbolen för symbol lagret anger du `image` egenskapen för ikon alternativen till. `'none'`
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Datakälla för fleralager' src='//codepen.io/azuremaps/embed/rqbQXy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Pen <a href='https://codepen.io/azuremaps/pen/rqbQXy/'>MultiLayer DataSource</a> by<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='MultiLayer data Källa' src='//codepen.io/azuremaps/embed/rqbQXy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/rqbQXy/'>data källan</a> för pen MultiLayer genom att<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="customize-a-bubble-layer"></a>Anpassa ett bubbellager
+## <a name="customize-a-bubble-layer"></a>Anpassa ett bubbel-lager
 
-Bubble-lagret har bara några stylingalternativ. Här är ett verktyg för att prova dem.
+Bubble-lagret har bara några format alternativ. Här är ett verktyg för att testa dem.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Alternativ för bubblalager' src='//codepen.io/azuremaps/embed/eQxbGm/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se alternativen för <a href='https://codepen.io/azuremaps/pen/eQxbGm/'>pennbubblor</a> i<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Alternativ för bubbel Layer' src='//codepen.io/azuremaps/embed/eQxbGm/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se alternativen för rit <a href='https://codepen.io/azuremaps/pen/eQxbGm/'>skiktet</a> ritstift efter Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Nästa steg
@@ -83,12 +83,12 @@ Bubble-lagret har bara några stylingalternativ. Här är ett verktyg för att p
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [BubbleLayer (svenska)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)
+> [BubbleLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions?view=azure-iot-typescript-latest)
 
-Se följande artiklar för fler kodexempel att lägga till i dina kartor:
+Se följande artiklar för fler kod exempel som du kan lägga till i dina kartor:
 
 > [!div class="nextstepaction"]
 > [Skapa en datakälla](create-data-source-web-sdk.md)

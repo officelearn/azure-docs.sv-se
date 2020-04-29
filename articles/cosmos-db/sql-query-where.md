@@ -1,21 +1,21 @@
 ---
-title: WHERE-satsen i Azure Cosmos DB
-description: Lär dig mer om SQL WHERE-satsen för Azure Cosmos DB
+title: WHERE-sats i Azure Cosmos DB
+description: Läs om SQL WHERE-satsen för Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
 ms.openlocfilehash: 483a0533eafc81ef8698d260a753062ae074f6d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78898782"
 ---
-# <a name="where-clause-in-azure-cosmos-db"></a>WHERE-satsen i Azure Cosmos DB
+# <a name="where-clause-in-azure-cosmos-db"></a>WHERE-sats i Azure Cosmos DB
 
-Den valfria`WHERE <filter_condition>`WHERE-satsen ( ) anger villkor som källan JSON-objekt måste uppfylla för att frågan ska kunna inkludera dem i resultat. En JSON-artikel måste utvärdera `true` de angivna villkor som ska beaktas för resultatet. Indexlagret använder WHERE-satsen för att bestämma den minsta delmängden av källobjekt som kan vara en del av resultatet.
+Den valfria WHERE-satsen (`WHERE <filter_condition>`) anger villkor som käll-JSON-objekten måste uppfylla för att frågan ska inkluderas i resultaten. Ett JSON-objekt måste utvärdera de angivna villkoren `true` för att kunna beaktas för resultatet. Index skiktet använder WHERE-satsen för att fastställa den minsta delmängd av käll objekt som kan ingå i resultatet.
   
 ## <a name="syntax"></a>Syntax
   
@@ -29,21 +29,21 @@ WHERE <filter_condition>
 
 - `<filter_condition>`  
   
-   Anger villkoret som ska uppfyllas för att dokumenten ska returneras.  
+   Anger det villkor som ska uppfyllas för de dokument som ska returneras.  
   
 - `<scalar_expression>`  
   
-   Uttryck som representerar det värde som ska beräknas. Mer information finns i [Skalningsuttryck.](sql-query-scalar-expressions.md)  
+   Uttryck som representerar det värde som ska beräknas. Mer information finns i [skalära uttryck](sql-query-scalar-expressions.md) .  
   
 ## <a name="remarks"></a>Anmärkningar
   
-  För att dokumentet ska kunna returneras måste ett uttryck som anges som filtervillkor utvärderas till true. Endast booleskt värde `true` kommer att uppfylla villkoret, något annat värde: odefinierat, null, falskt, Tal, Array eller Objekt kommer inte att uppfylla villkoret.
+  För att det ska gå att returnera ett uttryck som har angetts som filter villkor måste det utvärderas till sant. Endast booleskt värde `true` uppfyller villkoret, vilket ger något annat värde: odefinierat, null, falskt, tal, matris eller objekt uppfyller inte villkoret.
 
-  Om du inkluderar partitionsnyckeln `WHERE` i satsen som en del av ett likhetsfilter filtreras frågan automatiskt till endast relevanta partitioner.
+  Om du inkluderar din partitionsnyckel i- `WHERE` satsen som en del av ett likhets filter så filtreras frågan automatiskt till de relevanta partitionerna.
 
 ## <a name="examples"></a>Exempel
 
-Följande fråga begär objekt `id` som innehåller `AndersenFamily`en egenskap vars värde är . Det utesluter alla objekt som `id` inte har en egenskap `AndersenFamily`eller vars värde inte matchar .
+Följande fråga begär objekt som innehåller en `id` egenskap vars värde är. `AndersenFamily` Det utesluter alla objekt som inte har någon `id` egenskap eller vars värde inte matchar. `AndersenFamily`
 
 ```sql
     SELECT f.address
@@ -63,9 +63,9 @@ Resultatet är:
     }]
 ```
 
-### <a name="scalar-expressions-in-the-where-clause"></a>Skaläruttryck i WHERE-satsen
+### <a name="scalar-expressions-in-the-where-clause"></a>Skalära uttryck i WHERE-satsen
 
-I föregående exempel visades en enkel likhetsfråga. SQL API stöder också olika [skalenade uttryck](sql-query-scalar-expressions.md). De mest använda är binära och unära uttryck. Egenskapsreferenser från JSON-källobjektet är också giltiga uttryck.
+I föregående exempel visades en enkel likhetsfråga. SQL-API: et stöder också olika [skalära uttryck](sql-query-scalar-expressions.md). De mest använda är binära och unära uttryck. Egenskapsreferenser från JSON-källobjektet är också giltiga uttryck.
 
 Du kan använda följande binära operatorer som stöds:  
 
@@ -75,7 +75,7 @@ Du kan använda följande binära operatorer som stöds:
 |Binära    | \|, &, ^, <<, >>, >>> (högerskiftning med nollfyllning) |
 |Logiska    | AND, OR, NOT (och, eller, inte)      |
 |Jämförelse | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|String     |  \|\| (sammanfoga) |
+|Sträng     |  \|\| (sammanfoga) |
 
 Följande frågor använder binära operatorer:
 
@@ -93,7 +93,7 @@ Följande frågor använder binära operatorer:
     WHERE c.grade >= 5    -- matching grades == 5
 ```
 
-Du kan också använda de oariska operatorerna +,-, ~och INTE i frågor, som visas i följande exempel:
+Du kan också använda unära operatorer +,-, ~ och inte i frågor, som du ser i följande exempel:
 
 ```sql
     SELECT *
@@ -105,10 +105,10 @@ Du kan också använda de oariska operatorerna +,-, ~och INTE i frågor, som vis
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-Du kan också använda egenskapsreferenser i frågor. Returnerar `SELECT * FROM Families f WHERE f.isRegistered` till exempel JSON-objektet `isRegistered` som innehåller `true`egenskapen med ett värde som är lika med . Alla andra värden, `false` `null`till `Undefined` `<number>`exempel `<string>` `<object>`, `<array>`, , , , eller , exkluderar objektet från resultatet.
+Du kan också använda egenskaps referenser i frågor. `SELECT * FROM Families f WHERE f.isRegistered` Returnerar till exempel JSON-objektet som innehåller egenskapen `isRegistered` med värdet lika med `true`. Alla andra värden, till exempel `false`, `null` `Undefined` `<number>` `<string>` `<object>`,,,, eller `<array>`, utesluter objektet från resultatet.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Komma igång](sql-query-getting-started.md)
 - [Nyckelordet IN (I)](sql-query-keywords.md#in)
-- [FRÅN-satsen](sql-query-from.md)
+- [FROM-sats](sql-query-from.md)

@@ -1,6 +1,6 @@
 ---
-title: Kopiera en blob med .NET - Azure Storage
-description: Lär dig hur du kopierar en blob i ditt Azure Storage-konto med .NET-klientbiblioteket.
+title: Kopiera en blob med .NET-Azure Storage
+description: Lär dig hur du kopierar en BLOB i ditt Azure Storage-konto med hjälp av .NET-klient biblioteket.
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,46 +9,46 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: 9ffa69980f020580376aea447f40ac615f26cf03
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79135895"
 ---
 # <a name="copy-a-blob-with-net"></a>Kopiera en blob med .NET
 
-Den här artikeln visar hur du kopierar en blob med ett Azure Storage-konto. Den visar också hur du avbryter en asynkron kopiering. Exempelkoden använder [Azure Storage-klientbiblioteket för .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Den här artikeln visar hur du kopierar en blob med ett Azure Storage-konto. Det visar också hur du avbryter en asynkron kopierings åtgärd. Exempel koden använder [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-## <a name="about-copying-blobs"></a>Om att kopiera blobbar
+## <a name="about-copying-blobs"></a>Om att kopiera blobar
 
-När du kopierar en blob i samma lagringskonto är det en synkron åtgärd. När du kopierar mellan konton är det en asynkron åtgärd. [Metoderna StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) och [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) returnerar ett kopierings-ID-värde som används för att kontrollera status eller avbryta kopieringen.
+När du kopierar en BLOB inom samma lagrings konto är det en synkron åtgärd. När du kopierar mellan-konton är det en asynkron åtgärd. Metoderna [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) och [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) returnerar ett kopierings-ID-värde som används för att kontrol lera status eller avbryta kopierings åtgärden.
 
-Källbloben för en kopiering kan vara en blockblob, en tilläggsblob, en sidblob eller en ögonblicksbild. Om målbloben redan finns måste den vara av samma blobtyp som källblobben. Alla befintliga målblob kommer att skrivas över. 
+Käll-bloben för en kopierings åtgärd kan vara en Block-Blob, en tilläggs-BLOB, en sid-BLOB eller en ögonblicks bild. Om det redan finns en mål-BLOB måste den vara av samma Blob-typ som käll-bloben. Alla befintliga mål-blobar skrivs över. 
 
-Målbloben kan inte ändras medan en kopiering pågår. En målblob kan bara ha en utestående kopia blob-åtgärd. Med andra ord kan en blob inte vara målet för flera väntande kopieringsåtgärder.
+Det går inte att ändra mål-bloben medan en kopierings åtgärd pågår. En mål-BLOB kan bara ha en utestående kopierings-BLOB-åtgärd. Med andra ord kan en BLOB inte vara målet för flera väntande kopierings åtgärder.
 
-Hela källblobben eller -filen kopieras alltid. Det går inte att kopiera ett antal byte eller blockuppsättningar.
+Hela käll-bloben eller filen kopieras alltid. Det finns inte stöd för att kopiera en mängd byte eller uppsättning block.
 
-När en blob kopieras kopieras dess systemegenskaper till målblobben med samma värden.
+När en BLOB kopieras kopieras system egenskaperna till mål-bloben med samma värden.
 
-För alla blobtyper kan du kontrollera egenskapen [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet) på målbloben för att få status för kopieringen. Den slutliga blobben kommer att bekräftas när kopian är klar.
+För alla BLOB-typer kan du kontrol lera egenskapen [CopyState. status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet) på mål-bloben för att hämta status för kopierings åtgärden. Den sista blobben kommer att allokeras när kopieringen är klar.
 
-En kopiering kan ha något av följande former:
+En kopierings åtgärd kan ha följande format:
 
-  - Du kan kopiera en källblob till en målblob med ett annat namn. Målbloben kan vara en befintlig blob av samma blobtyp (block, tillägg eller sida) eller kan vara en ny blob som skapas av kopieringen.
-  - Du kan kopiera en källblob till en målblob med samma namn och effektivt ersätta målbloben. En sådan kopiering tar bort alla okrediterade block och skriver över målblobbens metadata.
-  - Du kan kopiera en källfil i Azure File-tjänsten till en målblob. Målbloben kan vara en befintlig blockblob eller vara en ny blockblob som skapats av kopieringen. Det går inte att kopiera från filer till sidblobar eller lägga till blobbar.
-  - Du kan kopiera en ögonblicksbild över dess basblob. Genom att befordra en ögonblicksbild till positionen för basbloben kan du återställa en tidigare version av en blob.
-  - Du kan kopiera en ögonblicksbild till en målblob med ett annat namn. Den resulterande målbloben är en skrivbar blob och inte en ögonblicksbild.
+  - Du kan kopiera en käll-blob till en mål-BLOB med ett annat namn. Mål-bloben kan vara en befintlig blob av samma Blob-typ (block, tillägg eller sida) eller kan vara en ny blob som skapats av kopierings åtgärden.
+  - Du kan kopiera en käll-blob till en mål-BLOB med samma namn, vilket i själva verket ersätter mål-bloben. En sådan kopierings åtgärd tar bort alla icke allokerade block och skriver över målets BLOB-metadata.
+  - Du kan kopiera en källfil i Azure File Service till en mål-blob. Mål-bloben kan vara en befintlig Block-Blob eller en ny Block-Blob som skapats av kopierings åtgärden. Det finns inte stöd för att kopiera från filer till Page blobbar eller bifogade blobbar.
+  - Du kan kopiera en ögonblicks bild över dess bas-blob. Genom att befordra en ögonblicks bild till positionen för bas-bloben kan du återställa en tidigare version av en blob.
+  - Du kan kopiera en ögonblicks bild till en mål-BLOB med ett annat namn. Den resulterande mål-bloben är en skrivbar blob och inte en ögonblicks bild.
 
-## <a name="copy-a-blob"></a>Kopiera en blob
+## <a name="copy-a-blob"></a>Kopiera en BLOB
 
-Om du vill kopiera en blob anropar du någon av följande metoder:
+Om du vill kopiera en BLOB anropar du någon av följande metoder:
 
- - [StartKopia](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
+ - [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet)
  - [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet)
 
-I följande kodexempel hämtas en referens till en blob som skapats tidigare och kopieras till en ny blob i samma behållare:
+I följande kod exempel hämtas en referens till en blob som skapats tidigare och kopierar den till en ny BLOB i samma behållare:
 
 ```csharp
 private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
@@ -107,13 +107,13 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
 }
 ```
 
-## <a name="abort-a-blob-copy-operation"></a>Avbryta en blob-kopieringsåtgärd
+## <a name="abort-a-blob-copy-operation"></a>Avbryt en BLOB-kopiera åtgärd
 
-Om du avbryter en kopieringsåtgärd resulterar det i en målblobb med noll längd för blockblobar, tilläggsblobbar och sidblobar. Metadata för målblobben kommer dock att få de nya värdena kopierade från källblobben eller anges explicit i [StartCopy-](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) eller [StartCopyAsync-anropet.](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) Om du vill behålla de ursprungliga metadata från före kopian `StartCopy` `StartCopyAsync`gör du en ögonblicksbild av målbloben innan du ringer eller .
+Om du avbryter en kopierings åtgärd i ett mål-BLOB med längden noll för block-blobbar, bifoga blobbar och sid-blobar. Metadata för mål-bloben kommer dock att ha de nya värdena som kopieras från käll-bloben eller uttryckligen anges i [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy?view=azure-dotnet) -eller [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync?view=azure-dotnet) -anropet. Om du vill behålla de ursprungliga metadata från före kopian ska du skapa en ögonblicks bild av `StartCopy` mål `StartCopyAsync`-bloben innan du anropar eller.
 
-När du avbryter en pågående blob-kopieringsåtgärd anges målblobben [CopyState.Status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CopyState_Status) till [CopyStatus.Aborterad](/dotnet/api/microsoft.azure.storage.blob.copystatus?view=azure-dotnet).
+När du avbryter en pågående BLOB Copy-åtgärd är mål-blobens [CopyState. status](/dotnet/api/microsoft.azure.storage.blob.copystate.status?view=azure-dotnet#Microsoft_Azure_Storage_Blob_CopyState_Status) inställt på [CopyStatus. abort](/dotnet/api/microsoft.azure.storage.blob.copystatus?view=azure-dotnet).
 
-Metoderna [AbortCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopy?view=azure-dotnet) och [AbortCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopyasync?view=azure-dotnet) avbryter en pågående blob-kopiering och lämnar en målblobb med noll längd och fullständiga metadata.
+Metoderna [AbortCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopy?view=azure-dotnet) och [AbortCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.abortcopyasync?view=azure-dotnet) avbryter en pågående BLOB-kopiering och lämnar en mål-BLOB med noll längd och fullständiga metadata.
 
 ```csharp
 // Fetch the destination blob's properties before checking the copy state.
@@ -131,7 +131,7 @@ if (destBlob.CopyState.Status == CopyStatus.Pending)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följande avsnitt innehåller information om hur du kopierar blobbar och avbryter pågående kopieringsåtgärder med hjälp av Azure REST API:er.
+Följande avsnitt innehåller information om hur du kopierar blobbar och avbryter pågående kopierings åtgärder med hjälp av Azure REST-API: er.
 
 - [Kopiera blob](/rest/api/storageservices/copy-blob)
-- [Avbryt kopia blob](/rest/api/storageservices/abort-copy-blob)
+- [Avbryt kopiering av BLOB](/rest/api/storageservices/abort-copy-blob)

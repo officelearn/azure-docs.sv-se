@@ -1,7 +1,7 @@
 ---
-title: Distribuera ml-modeller till Azure Functions Apps (förhandsversion)
+title: Distribuera ml-modeller till Azure Functions appar (för hands version)
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder Azure Machine Learning för att distribuera en modell till en Azure Functions App.
+description: Lär dig hur du använder Azure Machine Learning för att distribuera en modell till en Azure Functions-app.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,57 +11,57 @@ author: vaidyas
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.openlocfilehash: d03a3d482d147d3bc69354ee09dfe0b187610a09
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78927447"
 ---
-# <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuera en maskininlärningsmodell till Azure Functions (förhandsversion)
+# <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuera en maskin inlärnings modell till Azure Functions (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Lär dig hur du distribuerar en modell från Azure Machine Learning som en funktionsapp i Azure Functions.
+Lär dig hur du distribuerar en modell från Azure Machine Learning som en Function-app i Azure Functions.
 
 > [!IMPORTANT]
-> Även om både Azure Machine Learning och Azure Functions är allmänt tillgängliga, är möjligheten att paketera en modell från Machine Learning-tjänsten för funktioner i förhandsversion.
+> Både Azure Machine Learning och Azure Functions är allmänt tillgängliga, men möjligheten att paketera en modell från Machine Learnings tjänsten för functions är i för hands version.
 
-Med Azure Machine Learning kan du skapa Docker-avbildningar från utbildade maskininlärningsmodeller. Azure Machine Learning har nu förhandsversionsfunktionen för att skapa dessa maskininlärningsmodeller i funktionsappar, som kan [distribueras till Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container).
+Med Azure Machine Learning kan du skapa Docker-avbildningar från tränade maskin inlärnings modeller. Azure Machine Learning har nu förhands gransknings funktioner för att bygga dessa maskin inlärnings modeller i Function-appar som kan [distribueras till Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container).
 
 ## <a name="prerequisites"></a>Krav
 
-* En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [Skapa en arbetsyta.](how-to-manage-workspace.md)
+* En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-* En tränad maskininlärningsmodell som är registrerad på arbetsytan. Om du inte har någon modell använder du [självstudiekursen Bildklassificering: tågmodell](tutorial-train-models-with-aml.md) för att träna och registrera en.
+* En utbildad Machine Learning-modell som registrerats i din arbets yta. Om du inte har någon modell använder du [själv studie kursen om bild klassificering: träna modell](tutorial-train-models-with-aml.md) att träna och registrera en.
 
     > [!IMPORTANT]
-    > Kodavsnitten i den här artikeln förutsätter att du har angett följande variabler:
+    > Kodfragmenten i den här artikeln förutsätter att du har angett följande variabler:
     >
-    > * `ws`- Din Azure Machine Learning-arbetsyta.
-    > * `model`- Den registrerade modellen som ska distribueras.
-    > * `inference_config`- Inferenskonfigurationen för modellen.
+    > * `ws`– Din Azure Machine Learning-arbetsyta.
+    > * `model`– Den registrerade modellen som ska distribueras.
+    > * `inference_config`– Den här modellens konfigurations konfiguration.
     >
-    > Mer information om hur du anger dessa variabler finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
+    > Mer information om hur du ställer in dessa variabler finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prepare-for-deployment"></a>Förbereda för distribution
 
-Innan du distribuerar måste du definiera vad som krävs för att köra modellen som en webbtjänst. I följande lista beskrivs de grundläggande objekt som behövs för en distribution:
+Innan du distribuerar måste du definiera vad som behövs för att köra modellen som en webb tjänst. I följande lista beskrivs de grundläggande objekt som behövs för en-distribution:
 
-* Ett __postskript__. Det här skriptet accepterar begäranden, gör poäng för begäran med hjälp av modellen och returnerar resultaten.
+* Ett __Entry-skript__. Det här skriptet accepterar begär Anden, visar begäran med hjälp av modellen och returnerar resultatet.
 
     > [!IMPORTANT]
-    > Postskriptet är specifikt för din modell. Den måste förstå formatet på inkommande begäran data, formatet på de data som förväntas av din modell, och formatet på de data som returneras till klienter.
+    > Start skriptet är bara för din modell. den måste förstå formatet på inkommande begär ande data, formatet på de data som förväntas av din modell och formatet på de data som returneras till klienter.
     >
-    > Om begärandedata är i ett format som inte kan kan användas av din modell kan skriptet omvandla dem till ett acceptabelt format. Det kan också omvandla svaret innan du återvänder till det till klienten.
+    > Om begär ande data har ett format som inte kan användas av din modell kan skriptet omvandla det till ett acceptabelt format. Det kan också omvandla svaret innan det returneras till klienten.
     >
-    > Som standard när du paketerar för funktioner behandlas indata som text. Om du är intresserad av att konsumera råbyten för indata (till exempel för Blob-utlösare) bör du använda [AMLRequest för att acceptera rådata](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data).
+    > Som standard behandlas indatatypen som text när de paketeras för funktioner. Om du är intresse rad av att använda rå byte för indata (till exempel för BLOB-utlösare) bör du använda [AMLRequest för att acceptera rå data](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data).
 
 
-* **Beroenden**, till exempel hjälpskript eller Python/Conda-paket som krävs för att köra inmatningsskriptet eller modellen
+* **Beroenden**, till exempel hjälp skript eller python/Conda-paket som krävs för att köra registrerings skriptet eller modellen
 
-Dessa entiteter är inkapslade i en __inferenskonfiguration__. Inferenskonfigurationen refererar till startskriptet och andra beroenden.
+Dessa entiteter kapslas in i en konfiguration för en __härledning__. Inferenskonfigurationen refererar till startskriptet och andra beroenden.
 
 > [!IMPORTANT]
-> När du skapar en inferenskonfiguration för användning med Azure Functions måste du använda ett [miljöobjekt.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) Observera att om du definierar en anpassad miljö måste du lägga till azureml-standardvärden med version >= 1.0.45 som pipberoende. Det här paketet innehåller de funktioner som behövs för att vara värd för modellen som en webbtjänst. I följande exempel visas hur du skapar ett miljöobjekt och använder det med en slutledningskonfiguration:
+> När du skapar en konfigurations konfiguration för användning med Azure Functions måste du använda ett [miljö](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) objekt. Observera att om du definierar en anpassad miljö måste du lägga till azureml-defaults med version >= 1.0.45 som ett pip-beroende. Det här paketet innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst. I följande exempel visas hur du skapar ett miljö objekt och använder det med en konfigurations konfiguration:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -77,16 +77,16 @@ Dessa entiteter är inkapslade i en __inferenskonfiguration__. Inferenskonfigura
 > inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 > ```
 
-Mer information om miljöer finns i [Skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md).
+Mer information om miljöer finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md).
 
-Mer information om inferenskonfiguration finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
+Mer information om konfiguration av konfiguration finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> När du distribuerar till Funktioner behöver du inte skapa en __distributionskonfiguration__.
+> När du distribuerar till Functions behöver du inte skapa en __distributions konfiguration__.
 
-## <a name="install-the-sdk-preview-package-for-functions-support"></a>Installera förhandsgranskningspaketet för SDK för funktioner
+## <a name="install-the-sdk-preview-package-for-functions-support"></a>Installera SDK Preview-paketet för functions-stöd
 
-Om du vill skapa paket för Azure Functions måste du installera förhandsgranskningspaketet för SDK.
+Om du vill bygga paket för Azure Functions måste du installera SDK-paketet för för hands versionen.
 
 ```bash
 pip install azureml-contrib-functions
@@ -94,10 +94,10 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Skapa avbildningen
 
-Om du vill skapa Docker-avbildningen som distribueras till Azure Functions använder du [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py) eller den specifika paketfunktionen för den utlösare som du är intresserad av att använda. Följande kodavsnitt visar hur du skapar ett nytt paket med en blob-utlösare från modellen och inferenskonfigurationen:
+Om du vill skapa Docker-avbildningen som distribueras till Azure Functions använder du [azureml. contrib. functions. Package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py) eller funktionen Package för den utlösare som du är intresse rad av. Följande kodfragment visar hur du skapar ett nytt paket med en BLOB-utlösare från modellen och konfigurationen för konfigurations härledning:
 
 > [!NOTE]
-> Kodavsnittet förutsätter att `model` den innehåller en registrerad `inference_config` modell och som innehåller konfigurationen för inferensmiljön. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
+> Kodfragmentet förutsätter att `model` innehåller en registrerad modell och att `inference_config` den innehåller konfigurationen för härlednings miljön. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.contrib.functions import package
@@ -108,23 +108,23 @@ blob.wait_for_creation(show_output=True)
 print(blob.location)
 ```
 
-När `show_output=True`visas utdata från Docker-byggprocessen. När processen är klar har avbildningen skapats i Azure Container Registry för din arbetsyta. När avbildningen har skapats visas platsen i ditt Azure-behållarregister. Platsen som returneras är `<acrinstance>.azurecr.io/package@sha256:<hash>`i formatet .
+När `show_output=True`visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i `<acrinstance>.azurecr.io/package@sha256:<hash>`formatet.
 
 > [!NOTE]
-> Förpackningar för funktioner stöder för närvarande HTTP-utlösare, Blob-utlösare och servicebussutlösare. Mer information om utlösare finns i [Azure Functions-bindningar](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
+> Paketering för functions stöder HTTP-utlösare, BLOB-utlösare och Service Bus-utlösare Mer information om utlösare finns i [Azure Functions-bindningar](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
 
 > [!IMPORTANT]
-> Spara platsinformationen, som den används när avbildningen distribueras.
+> Spara plats informationen som används när avbildningen distribueras.
 
 ## <a name="deploy-image-as-a-web-app"></a>Distribuera avbildning som en webbapp
 
-1. Använd följande kommando för att hämta inloggningsuppgifterna för Azure Container Registry som innehåller avbildningen. Ersätt `<myacr>` med det värde `package.location`som returnerats tidigare från: 
+1. Använd följande kommando för att hämta inloggnings uppgifterna för den Azure Container Registry som innehåller avbildningen. Ersätt `<myacr>` med det värde som returnerades `package.location`tidigare från: 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
     ```
 
-    Utdata för det här kommandot liknar följande JSON-dokument:
+    Utdata från det här kommandot liknar följande JSON-dokument:
 
     ```json
     {
@@ -142,21 +142,21 @@ När `show_output=True`visas utdata från Docker-byggprocessen. När processen �
     }
     ```
 
-    Spara värdet för __användarnamn__ och ett av __lösenorden__.
+    Spara värdet för __användar namn__ och ett av __lösen orden__.
 
-1. Om du inte redan har en resursgrupp eller apptjänstplan för att distribuera tjänsten visar följande kommandon hur du skapar båda:
+1. Om du inte redan har en resurs grupp eller App Service-plan för att distribuera tjänsten visar följande kommandon hur du skapar båda:
 
     ```azurecli-interactive
     az group create --name myresourcegroup --location "West Europe"
     az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
     ```
 
-    I det här exemplet används`--sku B1`en _linux-grundläggande_ prisnivå ( ).
+    I det här exemplet används en pris nivå för _Linux Basic_ (`--sku B1`).
 
     > [!IMPORTANT]
-    > Avbildningar som skapats av Azure Machine `--is-linux` Learning använder Linux, så du måste använda parametern.
+    > Avbildningar som skapats av Azure Machine Learning använda Linux, så du måste `--is-linux` använda parametern.
 
-1. Skapa lagringskontot som ska användas för webbjobblagringen och hämta anslutningssträngen. Ersätt `<webjobStorage>` med det namn du vill använda.
+1. Skapa lagrings kontot som ska användas för webb jobbets lagring och hämta dess anslutnings sträng. Ersätt `<webjobStorage>` med det namn som du vill använda.
 
     ```azurecli-interactive
     az storage account create --name <webjobStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
@@ -165,16 +165,16 @@ När `show_output=True`visas utdata från Docker-byggprocessen. När processen �
     az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
     ```
 
-1. Använd följande kommando om du vill skapa funktionsappen. Ersätt `<app-name>` med det namn du vill använda. Ersätt `<acrinstance>` `<imagename>` och med värdena `package.location` från som returnerats tidigare. Ersätt `<webjobStorage>` med namnet på lagringskontot från föregående steg:
+1. Använd följande kommando för att skapa en Function-app. Ersätt `<app-name>` med det namn som du vill använda. Ersätt `<acrinstance>` och `<imagename>` med värdena från returnerade `package.location` tidigare. Ersätt `<webjobStorage>` med namnet på lagrings kontot från föregående steg:
 
     ```azurecli-interactive
     az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename> --storage-account <webjobStorage>
     ```
 
     > [!IMPORTANT]
-    > Nu har funktionsappen skapats. Men eftersom du inte har angett anslutningssträngen för blob-utlösaren eller autentiseringsuppgifterna till Azure Container Registry som innehåller avbildningen, är funktionsappen inte aktiv. I nästa steg anger du anslutningssträngen och autentiseringsinformationen för behållarregistret. 
+    > Nu har Function-appen skapats. Men eftersom du inte har angett anslutnings strängen för BLOB-utlösaren eller autentiseringsuppgifterna till Azure Container Registry som innehåller avbildningen, är funktions programmet inte aktivt. I nästa steg anger du anslutnings strängen och autentiseringsinformationen för behållar registret. 
 
-1. Skapa lagringskontot som ska användas för blob-utlösarlagringen och hämta anslutningssträngen. Ersätt `<triggerStorage>` med det namn du vill använda.
+1. Skapa lagrings kontot som ska användas för BLOB trigger Storage och hämta dess anslutnings sträng. Ersätt `<triggerStorage>` med det namn som du vill använda.
 
     ```azurecli-interactive
     az storage account create --name <triggerStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
@@ -182,9 +182,9 @@ När `show_output=True`visas utdata från Docker-byggprocessen. När processen �
     ```azurecli-interactiv
     az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
-    Spela in den här anslutningssträngen som ska tillhandahållas till funktionsappen. Vi kommer att använda den senare när vi ber om`<triggerConnectionString>`
+    Registrera den här anslutnings strängen för att tillhandahålla Function-appen. Vi kommer att använda den senare när vi ber om`<triggerConnectionString>`
 
-1. Skapa behållarna för indata och utdata i lagringskontot. Ersätt `<triggerConnectionString>` med anslutningssträngen som returnerats tidigare:
+1. Skapa behållarna för indata och utdata i lagrings kontot. Ersätt `<triggerConnectionString>` med den anslutnings sträng som returnerades tidigare:
 
     ```azurecli-interactive
     az storage container create -n input --connection-string <triggerConnectionString>
@@ -193,19 +193,19 @@ När `show_output=True`visas utdata från Docker-byggprocessen. När processen �
     az storage container create -n output --connection-string <triggerConnectionString>
     ```
 
-1. Om du vill associera utlösaranslutningssträngen med funktionsappen använder du följande kommando. Ersätt `<app-name>` med namnet på funktionsappen. Ersätt `<triggerConnectionString>` med anslutningssträngen som returnerats tidigare:
+1. Om du vill associera anslutnings strängen för utlösaren med Function-appen använder du följande kommando. Ersätt `<app-name>` med namnet på Function-appen. Ersätt `<triggerConnectionString>` med den anslutnings sträng som returnerades tidigare:
 
     ```azurecli-interactive
     az functionapp config appsettings set --name <app-name> --resource-group myresourcegroup --settings "TriggerConnectionString=<triggerConnectionString>"
     ```
-1. Du måste hämta taggen som är associerad med den skapade behållaren med följande kommando. Ersätt `<username>` med användarnamnet som returnerats tidigare från behållarregistret:
+1. Du måste hämta taggen som är associerad med den skapade behållaren med hjälp av följande kommando. Ersätt `<username>` med det användar namn som returnerades tidigare från behållar registret:
 
     ```azurecli-interactive
     az acr repository show-tags --repository package --name <username> --output tsv
     ```
-    Spara det returnerade värdet, det `imagetag` kommer att användas som i nästa steg.
+    Spara värdet som returneras, används som `imagetag` i nästa steg.
 
-1. Om du vill ge funktionsappen de autentiseringsuppgifter som krävs för att komma åt behållarregistret använder du följande kommando. Ersätt `<app-name>` med namnet på funktionsappen. Ersätt `<acrinstance>` `<imagetag>` och med värdena från AZ CLI-anropet i föregående steg. Ersätt `<username>` `<password>` och med ACR inloggningsinformation hämtas tidigare:
+1. Använd följande kommando för att tillhandahålla funktionen appen med de autentiseringsuppgifter som krävs för att komma åt behållar registret. Ersätt `<app-name>` med namnet på Function-appen. Ersätt `<acrinstance>` och `<imagetag>` med värdena från AZ CLI-anropet i föregående steg. Ersätt `<username>` och `<password>` med ACR-inloggnings informationen som hämtades tidigare:
 
     ```azurecli-interactive
     az functionapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagetag> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
@@ -242,16 +242,16 @@ När `show_output=True`visas utdata från Docker-byggprocessen. När processen �
     ]
     ```
 
-Nu börjar funktionsappen läsa in bilden.
+I det här läget börjar Function-appen läsa in avbildningen.
 
 > [!IMPORTANT]
-> Det kan ta flera minuter innan bilden har lästs in. Du kan övervaka förloppet med Hjälp av Azure Portal.
+> Det kan ta flera minuter innan avbildningen har lästs in. Du kan övervaka förloppet med hjälp av Azure Portal.
 
 ## <a name="test-the-deployment"></a>Testa distributionen
 
-När bilden har lästs in och appen är tillgänglig gör du så här för att utlösa appen:
+När avbildningen har lästs in och appen är tillgänglig använder du följande steg för att utlösa appen:
 
-1. Skapa en textfil som innehåller de data som score.py filen förväntar sig. Följande exempel skulle fungera med en score.py som förväntar sig en matris med 10 tal:
+1. Skapa en textfil som innehåller de data som score.py-filen förväntar sig. Följande exempel fungerar med en score.py som förväntar sig en matris med 10 tal:
 
     ```json
     {"data": [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
@@ -260,13 +260,13 @@ När bilden har lästs in och appen är tillgänglig gör du så här för att u
     > [!IMPORTANT]
     > Formatet på data beror på vad din score.py och modell förväntar sig.
 
-2. Använd följande kommando för att överföra filen till indatabehållaren i utlösarlagringsbloben som skapats tidigare. Ersätt `<file>` med namnet på filen som innehåller data. Ersätt `<triggerConnectionString>` med anslutningssträngen som returnerats tidigare. I det `input` här exemplet är namnet på indatabehållaren som skapats tidigare. Om du har använt ett annat namn ersätter du det här värdet:
+2. Använd följande kommando för att överföra den här filen till behållaren indata i den Utlös ande lagrings blob som skapades tidigare. Ersätt `<file>` med namnet på den fil som innehåller data. Ersätt `<triggerConnectionString>` med den anslutnings sträng som returnerades tidigare. I det här exemplet `input` är namnet på den indatamängd som skapades tidigare. Om du har använt ett annat namn ersätter du det här värdet:
 
     ```azurecli-interactive
     az storage blob upload --container-name input --file <file> --name <file> --connection-string <triggerConnectionString>
     ```
 
-    Utdata för det här kommandot liknar följande JSON:
+    Utdata från det här kommandot liknar följande JSON:
 
     ```json
     {
@@ -275,28 +275,28 @@ När bilden har lästs in och appen är tillgänglig gör du så här för att u
     }
     ```
 
-3. Om du vill visa utdata som produceras av funktionen använder du följande kommando för att lista de utdatafiler som genereras. Ersätt `<triggerConnectionString>` med anslutningssträngen som returnerats tidigare. I det `output` här exemplet är namnet på utdatabehållaren som skapats tidigare. Om du har använt ett annat namn ersätter du det här värdet::
+3. Om du vill visa utdata som skapas av funktionen använder du följande kommando för att lista de utdatafiler som genereras. Ersätt `<triggerConnectionString>` med den anslutnings sträng som returnerades tidigare. I det här exemplet `output` är namnet på den utmatnings behållare som skapades tidigare. Om du har använt ett annat namn ersätter du det här värdet:
 
     ```azurecli-interactive
     az storage blob list --container-name output --connection-string <triggerConnectionString> --query '[].name' --output tsv
     ```
 
-    Utdata för det här `sample_input_out.json`kommandot liknar .
+    Utdata från det här kommandot liknar `sample_input_out.json`.
 
-4. Om du vill hämta filen och kontrollera innehållet använder du följande kommando. Ersätt `<file>` med filnamnet som returnerades av föregående kommando. Ersätt `<triggerConnectionString>` med anslutningssträngen som returnerats tidigare: 
+4. Om du vill hämta filen och kontrol lera innehållet använder du följande kommando. Ersätt `<file>` med fil namnet som returneras av föregående kommando. Ersätt `<triggerConnectionString>` med den anslutnings sträng som returnerades tidigare: 
 
     ```azurecli-interactive
     az storage blob download --container-name output --file <file> --name <file> --connection-string <triggerConnectionString>
     ```
 
-    När kommandot är klart öppnar du filen. Den innehåller de data som returneras av modellen.
+    När kommandot har slutförts öppnar du filen. Den innehåller de data som returneras av modellen.
 
-Mer information om hur du använder blob-utlösare finns i artikeln [Skapa en funktion som utlöses av Azure Blob storage.](/azure/azure-functions/functions-create-storage-blob-triggered-function)
+Mer information om hur du använder BLOB-utlösare finns i artikeln [skapa en funktion som utlöses av Azure Blob Storage](/azure/azure-functions/functions-create-storage-blob-triggered-function) .
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig att konfigurera din functions-app i [dokumentationen Funktioner.](/azure/azure-functions/functions-create-function-linux-custom-image)
-* Läs mer om Blob-lagringsutlösare [Azure Blob storage bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
+* Lär dig att konfigurera Functions-appen i [Functions](/azure/azure-functions/functions-create-function-linux-custom-image) -dokumentationen.
+* Läs mer om Blob Storage-utlösare av [Azure Blob Storage-bindningar](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
 * [Distribuera din modell till Azure App Service](how-to-deploy-app-service.md).
-* [Använda en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md)
+* [Använda en ML-modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
 * [API-referens](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py)

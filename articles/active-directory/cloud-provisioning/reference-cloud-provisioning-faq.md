@@ -1,6 +1,6 @@
 ---
 title: Vanliga frågor och svar om Azure AD Connect-molnetablering
-description: Det här dokumentet beskriver vanliga frågor och svar för molnetablering.
+description: Det här dokumentet beskriver vanliga frågor om moln etablering.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,73 +12,73 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fbc1baa86bb81c8975587e84427a72ccc044805e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77916582"
 ---
-# <a name="azure-active-directory-connect-faq"></a>Vanliga frågor och svar om Azure Active Directory Connect
+# <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect vanliga frågor och svar
 
-Läs om vanliga frågor och svar för Azure Active Directory (Azure AD) Connect-molnetablering.
+Läs om vanliga frågor och svar om Azure Active Directory (Azure AD) Anslut till moln etablering.
 
 ## <a name="general-installation"></a>Allmän installation
 
-**F: Hur ofta körs molnetablering?**
+**F: hur ofta körs moln etablering?**
 
-Molnetablering är schemalagd att köras varannan minut. Varje 2 minuter, alla användare, grupper och lösenord hash ändringar kommer att etableras till Azure AD.
+Moln etablering är schemalagt att köras var 2: e minut. Var 2: e minut, kommer alla användare, grupp-och lösen ords-hash-ändringar att tillhandahållas till Azure AD.
 
-**F: Visa synkroniseringsfel för lösenord hash-synkronisering vid den första körningen. Varför?**
+**F: se synkroniseringsfel vid synkronisering av lösen ord vid första körningen. Varför?**
 
-Detta är normalt. Felen beror på att användarobjektet inte finns i Azure AD. När användaren har etablerats till Azure AD bör lösenordshashar etableras i den efterföljande körningen. Vänta på ett par körningar och bekräfta att lösenord hash-synkronisering inte längre har felen.
+Detta är förväntat. Felen beror på att användarobjektet inte finns i Azure AD. När användaren har allokerats till Azure AD bör hash-värden för lösen ord tillhandahållas i den efterföljande körningen. Vänta på några körningar och bekräfta att det inte längre finns några fel i lösen ordets hash-synkronisering.
 
-**F: Vad händer om Active Directory-instansen har attribut som inte stöds av molnprovisonering (till exempel katalogtillägg)?**
+**F: Vad händer om Active Directory-instansen har attribut som inte stöds av Cloud provisoning (till exempel katalog tillägg)?**
 
-Molnetablering körs och etablerar attribut som stöds. Attributen som inte stöds kommer inte att etableras till Azure AD. Granska katalogtilläggen i Active Directory och se till att du inte behöver dessa attribut för att flöda till Azure AD. Om ett eller flera attribut krävs kan du överväga att använda Azure AD Connect-synkronisering eller flytta den information som krävs till ett av de attribut som stöds (till exempel tilläggsattribut 1-15).
+Moln etablering kommer att köras och etablera de attribut som stöds. Attribut som inte stöds är inte etablerade i Azure AD. Granska katalog tilläggen i Active Directory och se till att du inte behöver dessa attribut för att flöda till Azure AD. Om det krävs ett eller flera attribut kan du överväga att använda Azure AD Connect synkronisera eller flytta nödvändig information till ett av de attribut som stöds (t. ex. tilläggets attribut 1-15).
 
-**F: Vad är skillnaden mellan Azure AD Connect-synkronisering och molnetablering?**
+**F: Vad är skillnaden mellan Azure AD Connect synkronisering och moln etablering?**
 
-Med Azure AD Connect-synkronisering körs etablering på den lokala synkroniseringsservern. Konfigurationen lagras på den lokala synkroniseringsservern. Med Azure AD Connect-molnetablering lagras etableringskonfigurationen i molnet och körs i molnet som en del av Azure AD-etableringstjänsten. 
+Med Azure AD Connect Sync körs etableringen på den lokala Sync-servern. Konfigurationen lagras på den lokala Sync-servern. Med Azure AD Connect Cloud etableringen lagras etablerings konfigurationen i molnet och körs i molnet som en del av Azure AD Provisioning-tjänsten. 
 
-**F: Kan jag använda molnetablering för synkronisering från flera Active Directory-skogar?**
+**F: kan jag använda moln etablering för att synkronisera från flera Active Directory skogar?**
 
-Ja. Molnetablering kan användas för synkronisering från flera Active Directory-skogar. I flerskogsmiljön måste alla referenser (exempel, chef) finnas inom domänen.  
+Ja. Moln etablering kan användas för att synkronisera från flera Active Directory skogar. I miljöer med flera skogar måste alla referenser (t. ex. hanteraren) finnas i domänen.  
 
 **F: Hur uppdateras agenten?**
 
-Agenterna uppgraderas automatiskt av Microsoft. För IT-teamet minskar detta bördan av att behöva testa och validera nya agentversioner. 
+Agenterna uppgraderas automatiskt av Microsoft. För IT-teamet minskar detta belastningen på att testa och validera nya agent versioner. 
 
-**F: Kan jag inaktivera automatisk uppgradering?**
+**F: kan jag inaktivera automatisk uppgradering?**
 
-Det finns inget sätt att inaktivera automatisk uppgradering.
+Det finns inget stöd för att inaktivera automatisk uppgradering.
 
-**F: Kan jag ändra källankaret för molnetablering?**
+**F: kan jag ändra käll ankare för moln etablering?**
 
-Som standard använder molnetablering ms-ds-consistency-GUID med en återgång till ObjectGUID som källankare. Det finns inget sätt att ändra källankaret.
+Som standard använder moln etablering ms-DS-konsekvens-GUID med en återställning till ObjectGUID som käll ankare. Det finns inget stöd för att ändra käll ankare.
 
-**F: Jag ser nya tjänsthuvudnamn med AD-domännamnen när du använder molnetablering. Är det väntat?**
+**F: Jag ser nya tjänst huvud namn med AD-domännamnen när de använder moln etablering. Förväntas det?**
 
-Ja, molnetablering skapar ett tjänsthuvudnamn för etableringskonfigurationen med domännamnet som tjänstens huvudnamn. Gör inga ändringar i tjänstens huvudkonfiguration.
+Ja, Cloud-etablering skapar ett huvud namn för etablerings konfigurationen med domän namnet som tjänstens huvud namn. Gör inga ändringar i tjänstens huvud konfiguration.
 
-**F: Vad händer när en synkroniserad användare måste ändra lösenord vid nästa inloggning?**
+**F: Vad händer när en synkroniserad användare krävs för att ändra lösen ord vid nästa inloggning?**
 
-Om synkronisering av lösenord hash är aktiverad i molnetablering och den synkroniserade användaren krävs för att ändra lösenord vid nästa inloggning i lokal AD, etablerar inte molnetablering som ska ändras lösenordshh till Azure AD. När användaren har ändrat lösenordet etableras användarens lösenordshh från AD till Azure AD.
+Om lösen ordets hash-synkronisering är aktiverat i moln etableringen och den synkroniserade användaren krävs för att ändra lösen ord vid nästa inloggning i den lokala AD-miljön, etablerar inte moln etableringen om att ändra lösen ordets hash-värde till Azure AD. När användaren har ändrat lösen ordet, tillhandahålls hashen för användarens lösen ord från AD till Azure AD.
 
-**F: Stöder molnetablering tillbakaskrivning av ms-ds-consistencyGUID för alla objekt?**
+**F: har moln etableringen stöd för tillbakaskrivning av ms-DS-consistencyGUID för alla objekt?**
 
-Nej, molnetablering stöder inte tillbakaskrivning av ms-ds-consistencyGUID för alla objekt (inklusive användarobjekt). 
+Nej, moln etableringen stöder inte tillbakaskrivning av ms-DS-consistencyGUID för alla objekt (inklusive användar objekt). 
 
-**F: Jag etablerar användare med hjälp av molnetablering. Jag har tagit bort konfigurationen. Varför ser jag fortfarande de gamla synkroniserade objekten i Azure AD?** 
+**F: Jag är etablerad användare som använder moln etablering. Jag har tagit bort konfigurationen. Varför ser jag fortfarande de gamla synkroniserade objekten i Azure AD?** 
 
-När du tar bort konfigurationen rensas inte de synkroniserade objekten i Azure AD. Om du vill vara säkra på att du inte har de gamla objekten ändrar du konfigurationens omfattning till en tom grupp eller organisationsenheter. När etableringen körs och rensas objekten inaktiverar och tar du bort konfigurationen. 
+När du tar bort konfigurationen rensar moln etableringen inte de synkroniserade objekten i Azure AD. Se till att du inte har de gamla objekten genom att ändra omfånget för konfigurationen till en tom grupp eller organisationsenheter. När etableringen körs och rensar objekten inaktiverar du och tar bort konfigurationen. 
 
 **F: Vad betyder det att Exchange hybrid inte stöds?**
 
-Funktionen Exchange-hybridinstallation gör att Exchange-postlådor kan samexistera lokalt och i Office 365. Azure AD Connect synkroniserar en specifik uppsättning attribut från Azure AD tillbaka till din lokala katalog.  Molnetableringsagenten synkroniserar för närvarande inte tillbaka dessa attribut till din lokala katalog och stöds därför inte som ersättning för Azure AD Connect.
+Funktionen Exchange-hybridinstallation gör att Exchange-postlådor kan samexistera lokalt och i Office 365. Azure AD Connect synkroniserar en specifik uppsättning attribut från Azure AD tillbaka till din lokala katalog.  Moln Provisioning-agenten synkroniserar för närvarande inte de här attributen i din lokala katalog och stöds därför inte som en ersättning för Azure AD Connect.
 
-**F: Kan jag installera molnetableringsagenten i Windows Server Core?**
+**F: kan jag installera moln etablerings agenten på Windows Server Core?**
 
-Nej, det går inte att installera agenten på serverkärna.
+Nej, det finns inte stöd för att installera agenten på Server Core.
 
 ## <a name="next-steps"></a>Nästa steg 
 

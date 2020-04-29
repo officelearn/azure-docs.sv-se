@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure Security Benchmark
-description: Översikt över säkerhetsriktmärken
+title: Översikt över Azure Security benchmark
+description: Översikt över säkerhet-benchmark
 author: msmbaldwin
 manager: rkarlin
 ms.service: security
@@ -9,23 +9,23 @@ ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
 ms.openlocfilehash: c16d7247b781fea04cfa2d53b8854cff14e039c7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616452"
 ---
-# <a name="overview-of-azure-security-baselines"></a>Översikt över Azure Security-originalplaner
+# <a name="overview-of-azure-security-baselines"></a>Översikt över Azures säkerhets bas linjer
 
-Azure Security Baselines hjälper dig att stärka säkerheten för våra produkter genom förbättrade verktygs-, spårnings- och säkerhetsfunktioner och ger dig en konsekvent upplevelse när du skyddar din miljö.
+Med Azures säkerhets bas linjer kan du förbättra säkerheten för våra produkter genom förbättrade verktyg, spårnings-och säkerhetsfunktioner och ger dig en enhetlig upplevelse när du skyddar din miljö.
 
-Azure Service Security-baslinjer fokuserar på molncentrerade kontrollområden. Dessa kontroller överensstämmer med välkända säkerhetsriktmärken, till exempel de som beskrivs av Center for Internet Security (CIS). Våra baslinjer ger vägledning för de kontrollområden som anges i [Azure Security Benchmark](overview.md).
+Azure Service Security-bas linjer fokuserar på molnbaserade kontroll områden. Dessa kontroller är konsekventa med välkända säkerhets mått, till exempel de som beskrivs i Center for Internet Security (CIS). Våra bas linjer ger vägledning för de kontroll områden som anges i [Azures säkerhets benchmark](overview.md).
 
 Varje rekommendation innehåller följande information:
-- **Azure ID**: Azure Security Benchmark ID som motsvarar rekommendationen.
-- **Rekommendation:** Efter direkt efter Azure-ID ger rekommendationen en beskrivning på hög nivå av kontrollen.
-- **Vägledning**: Motiveringen till rekommendationen och länkar till vägledning om hur den ska genomföras. Om rekommendationen stöds av Azure Security Center visas även den informationen.
-- **Ansvar**: Vem är ansvarig för att genomföra kontrollen. Möjliga scenarier är kundansvar, Microsofts ansvar eller delat ansvar.
-- **Övervakning av Azure Security Center**: Om kontrollen övervakas av Azure Security Center, med länk till referens.
+- **Azure-ID**: det ID för Azure-säkerhetsbenchmark som motsvarar rekommendationen.
+- **Rekommendation**: följer direkt efter Azure-ID: t ger rekommendationen en övergripande beskrivning av kontrollen.
+- **Vägledning**: motiveringen till rekommendationen och länkar till vägledning om hur du implementerar den. Om rekommendationen stöds av Azure Security Center, visas även den informationen.
+- **Ansvar**: vem som ansvarar för att implementera kontrollen. Möjliga scenarier är kund ansvar, Microsoft-ansvar eller delade ansvar.
+- **Azure Security Center övervakning**: om kontrollen övervakas av Azure Security Center, med länk till referens.
 
-Alla rekommendationer, inklusive rekommendationer som inte är tillämpliga på den här specifika tjänsten, ingår i baslinjen för att ge dig en fullständig bild av hur Azure Security Benchmark relaterar till varje tjänst. Det kan ibland finnas kontroller som inte är tillämpliga av olika skäl, till exempel kan IaaS/compute-centrerade kontroller (till exempel kontroller som är specifika för os-konfigurationshantering) inte vara tillämpliga på PaaS-tjänster.
+Alla rekommendationer, inklusive rekommendationer som inte gäller för den här tjänsten, ingår i bas linjen för att ge dig en fullständig bild av hur Azures säkerhets benchmark relaterar till varje tjänst. Det kan ibland finnas kontroller som inte är tillämpliga av olika anledningar, t. ex. IaaS/Compute-inriktade kontroller (till exempel kontroller som är speciella för konfigurations hantering av operativ system) kanske inte kan tillämpas på PaaS-tjänster.

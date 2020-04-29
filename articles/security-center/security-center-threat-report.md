@@ -14,24 +14,24 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
 ms.openlocfilehash: f8b4063d87fa9a89dccd42eddea644609bd6ff27
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77921257"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Hotinformationsrapporter i Azure Security Center
 Det här dokumentet beskriver hur du kan lära dig mer om ett hot som genererat en säkerhetsvarning med hjälp av hotinformationsrapporter i Azure Security Center.
 
 ## <a name="what-is-a-threat-intelligence-report"></a>Vad är en hotinformationsrapport?
-Skydd av hothantering i Security Center fungerar genom att övervaka säkerhetsinformation från dina Azure-resurser, nätverket och anslutna partnerlösningar. Tjänsten analyserar den här informationen, och korrelerar ofta information från flera källor för att identifiera hot. Mer information finns i [Hur Azure Security Center identifierar och svarar på hot](security-center-alerts-overview.md#detect-threats).
+Security Center hot skydd fungerar genom att övervaka säkerhets information från dina Azure-resurser, nätverket och anslutna partner lösningar. Tjänsten analyserar den här informationen, och korrelerar ofta information från flera källor för att identifiera hot. Mer information finns i [hur Azure Security Center identifierar och svarar på hot](security-center-alerts-overview.md#detect-threats).
 
-När Security Center identifierar ett hot utlöses en [säkerhetsvarning](security-center-managing-and-responding-alerts.md), som innehåller detaljerad information om en viss händelse, inklusive förslag på åtgärder. För att hjälpa incidenthanteringsgrupper, undersöka och åtgärda hot, innehåller Security Center en rapport om hotinformation som innehåller information om hotet som upptäcktes, inklusive information som:
+När Security Center identifierar ett hot utlöses en [säkerhetsvarning](security-center-managing-and-responding-alerts.md), som innehåller detaljerad information om en viss händelse, inklusive förslag på åtgärder. För att hjälpa incident hanterings team, undersöka och åtgärda hot, Security Center innehåller en hot informations rapport som innehåller information om det hot som identifierades, inklusive information som:
 
 * Angriparens identitet eller associationer (om den här informationen är tillgänglig)
 * Angriparens mål
 * Aktuella och historiska attackkampanjer (om den här informationen är tillgänglig)
-* Angriparnas taktik, verktyg och procedurer
+* Angripares taktiker, verktyg och procedurer
 * Associerade indikatorer för kompromettering, till exempel URL:er och filhashvärden
 * Viktimologi, vilket syftar på information om utbredningen inom en bransch och geografisk region som kan hjälpa dig att avgöra om dina Azure-resurser är utsatta för risk
 * Information om rekommenderade åtgärder
@@ -47,19 +47,19 @@ Security Center tillhandahåller tre typer av hotrapporter, som kan variera bero
 * **Kampanjrapport**: Fokuserar på information om specifika attackkampanjer.
 * **Hotsammanfattningsrapport**: Omfattar alla objekt i de föregående två rapporterna.
 
-Den här typen av information är användbar under incidentsvarsprocessen, där det pågår en utredning för att förstå källan till attacken, angriparens motiv och vad du ska göra för att minska problemet framåt.
+Den här typen av information är användbar under incident svars processen, där det finns en pågående undersökning för att förstå Angreppets källa, angriparens motivation och vad som krävs för att undvika det här problemet.
 
 ## <a name="how-to-access-the-threat-intelligence-report"></a>Hur kommer du åt hotinformationsrapporten?
-Du kan se aktuella aviseringar i rutan **Security alerts (Säkerhetsaviseringar)**. Öppna Azure-portalen och följ stegen nedan för att se mer information om varje avisering:
+Du kan se aktuella aviseringar i rutan **Security alerts (Säkerhetsaviseringar)**. Öppna Azure Portal och följ stegen nedan om du vill se mer information om varje avisering:
 
 1. På instrumentpanelen i Security Center hittar du rutan **Security alerts (Säkerhetsaviseringar)**.
 2. Klicka på ikonen för att öppna bladet **Säkerhetsvarningar** som innehåller mer information om aviseringarna och klicka sedan på den säkerhetsvarning som du vill visa mer information om.
 
     ![Säkerhetsaviseringar](./media/security-center-threat-report/security-center-threat-report-fig1.png)
-3. I det här fallet visar det **misstänkta bearbetade utförda** bladet information om aviseringen enligt bilden nedan:
+3. I det här fallet visar bladet **misstänkt process som körs** detaljerna om aviseringen som visas i bilden nedan:
 
     ![Utförlig information om säkerhetsaviseringar](./media/security-center-threat-report/security-center-threat-report-fig2.png)
-4. Mängden information som är tillgänglig för varje säkerhetsvarning varierar beroende på typen av avisering. I fältet **RAPPORTER** har du en länk till rapporten om hotinformation. Klicka på länken så öppnas ett nytt webbläsarfönster med en PDF-fil.
+4. Mängden information som är tillgänglig för varje säkerhetsvarning varierar beroende på typen av avisering. I fältet **rapporter** finns det en länk till Threat Intelligence-rapporten. Klicka på länken så öppnas ett nytt webbläsarfönster med en PDF-fil.
 
    ![Val av lagringsutrymme](./media/security-center-threat-report/security-center-threat-report-fig3.png)
 
@@ -68,6 +68,6 @@ Härifrån kan du hämta PDF-filen för den här rapporten och läsa mer om säk
 ## <a name="see-also"></a>Se även
 I det här dokumentet har vi tittat på hur hotinformationsrapporterna i Azure Security Center kan hjälpa dig när du undersöker säkerhetsaviseringar. I följande avsnitt kan du lära dig mer om Azure Security Center:
 
-* [Planerings- och driftsguide för Azure Security Center](security-center-planning-and-operations-guide.md). Lär dig mer om planering och viktiga designaspekter när du ska börja använda Azure Security Center.
+* [Azure Security Center planerings-och drift guide](security-center-planning-and-operations-guide.md). Lär dig mer om planering och viktiga designaspekter när du ska börja använda Azure Security Center.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md). Lär dig att hantera och åtgärda säkerhetsaviseringar.
-* [Hantera säkerhetsincidenter i Azure Security Center](security-center-incident.md)
+* [Hantering av säkerhets incidenter i Azure Security Center](security-center-incident.md)

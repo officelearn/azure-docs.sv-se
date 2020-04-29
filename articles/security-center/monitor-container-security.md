@@ -1,6 +1,6 @@
 ---
 title: Övervaka säkerheten för dina behållare i Azure Security Center
-description: Lär dig hur du kontrollerar säkerhetspositionen för dina behållare från Azure Security Center
+description: Lär dig hur du kontrollerar säkerhets position för dina behållare från Azure Security Center
 services: security-center
 author: memildin
 manager: rkarlin
@@ -9,68 +9,68 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: memildin
 ms.openlocfilehash: 330cbc3f28f5e549d5a21417c3d7ccc1e5444769
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77919540"
 ---
 # <a name="monitoring-the-security-of-your-containers"></a>Övervaka säkerheten för dina behållare
 
-På den här sidan beskrivs hur du använder behållarsäkerhetsfunktionerna som beskrivs i [artikeln Container Security](container-security.md) i avsnittet Innehåller koncept.
+På den här sidan förklaras hur du använder behållar säkerhetsfunktioner som beskrivs i [artikeln behållar säkerhet](container-security.md) i avsnittet begrepp.
 
-Azure Security Center täcker följande tre aspekter av containersäkerhet:
+Azure Security Center omfattar följande tre aspekter av behållar säkerhet:
 
-- **Sårbarhetshantering** – Om du använder Security Centers standardprisnivå (se [prissättning)](/azure/security-center/security-center-pricing)kan du skanna ditt ARM-baserade Azure Container-register varje gång en ny avbildning skjuts. Skannern (som drivs av Qualys) presenterar resultaten som Security Center rekommendationer.
-    Detaljerade instruktioner finns i [Skanna behållarregister för säkerhetsproblem](#scanning-your-arm-based-container-registries-for-vulnerabilities) nedan.
+- **Sårbarhets hantering** – om du är på Security Center standard pris nivån (se [prissättning](/azure/security-center/security-center-pricing)) kan du söka igenom ARM-baserade Azure Container Registry varje gång en ny avbildning skickas. Skannern (drivs av Qualys) visar avgöranden som Security Center rekommendationer.
+    Detaljerade anvisningar finns i [genomsöka dina behållar register för sårbarheter](#scanning-your-arm-based-container-registries-for-vulnerabilities) nedan.
 
-- **Härdning av dina containers Docker-värdar** - Security Center hittar ohanterade behållare som finns på IaaS Linux-virtuella datorer eller andra Linux-datorer som kör Docker, och jämför kontinuerligt behållarnas konfigurationer med CiS-dockerriktaren (Center for Internet Security). Security Center varnar dig om dina behållare inte uppfyller någon av kontrollerna. Kontinuerlig övervakning av säkerhetsrisker på grund av felkonfigurationer är en viktig komponent i alla säkerhetsprogram. 
-    Detaljerade instruktioner finns i [Härda dina behållares Docker-värdar](#hardening-your-containers-docker-hosts) nedan.
+- **Härdning av behållarna "Docker hosts"** -Security Center hittar ohanterade behållare som finns på virtuella datorer med IaaS Linux eller andra Linux-datorer som kör Docker och kontinuerligt jämför behållar konfigurationerna med Center for Internet Security (CIS) Docker-benchmark. Security Center varnar dig om dina behållare inte uppfyller någon av kontrollerna. Kontinuerlig övervakning av säkerhets risker på grund av felaktig konfiguration är en viktig komponent i alla säkerhets program. 
+    Detaljerade anvisningar finns i [skärp dina behållares Docker-värdar](#hardening-your-containers-docker-hosts) nedan.
 
-- **Härdatning av dina Azure Kubernetes-tjänstkluster** – Security Center ger rekommendationer när det hittar säkerhetsproblem i konfigurationen av dina Azure Kubernetes-tjänstkluster. Mer information om de specifika rekommendationer som kan visas finns i [kubernetes-tjänstens rekommendationer](recommendations-reference.md#recs-containers).
+- **Härdning av Azure Kubernetes service-kluster** – Security Center ger rekommendationer när de hittar sårbarheter i konfigurationen av Azure Kubernetes service-kluster. Mer information om de rekommendationer som kan visas finns i rekommendationer för [Kubernetes-tjänsten](recommendations-reference.md#recs-containers).
 
-- **Körningsskydd** – Om du använder Security Centers standardprisnivå får du hotskydd i realtid för dina containermiljöer. Security Center genererar aviseringar för misstänkta aktiviteter på värd- och AKS-klusternivå. Mer information om relevanta säkerhetsaviseringar som kan visas finns i [aviseringarna för Azure Kubernetes-tjänstkluster](alerts-reference.md#alerts-akscluster) och [aviseringar för behållare – värdnivåavsnitt](alerts-reference.md#alerts-containerhost) i referenstabellen för aviseringar.
+- **Körnings skydd** – om du är på Security Center standard pris nivån får du real tids skydd för dina behållares miljöer. Security Center genererar aviseringar för misstänkta aktiviteter på kluster nivån värd och AKS. Mer information om relevanta säkerhets aviseringar som kan visas finns i avsnittet [aviseringar för Azure Kubernetes service-kluster](alerts-reference.md#alerts-akscluster) och [aviseringar för behållare-värdnivå](alerts-reference.md#alerts-containerhost) avsnitt i referens tabellen för aviseringar.
 
-## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Skanna dina ARM-baserade behållarregister efter sårbarheter 
+## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Genomsökning av dina ARM-baserade behållar register för sårbarheter 
 
-1. Så här aktiverar du säkerhetsproblem genom avbildningar i Azure Container Registry:
+1. Aktivera sårbarhets ökningar av Azure Container Registry avbildningar:
 
-    1. Se till att du är på Azure Security Centers standardprisnivå.
+    1. Se till att du är på Azure Security Center standard pris nivån.
 
-    1. Aktivera det valfria paket för behållarregister för din prenumeration på ![sidan Pris & **inställningar:** Aktivera paketet Container Registertries](media/monitor-container-security/enabling-container-registries-bundle.png)
+    1. På sidan **Inställningar för prissättnings &** aktiverar du de valfria paketen för behållar register ![för din prenumeration: Aktivera paket för behållar register](media/monitor-container-security/enabling-container-registries-bundle.png)
 
-        Security Center är nu redo att skanna avbildningar som skjuts till registret. 
+        Security Center är nu redo att skanna bilder som skickas till registret. 
 
         >[!NOTE]
-        >Den här funktionen debiteras per bild.
+        >Den här funktionen debiteras per avbildning.
 
 
-1. Om du vill utlösa genomsökningen av en avbildning skickar du den till registret. 
+1. Om du vill utlösa skanningen av en avbildning, push-överför den till registret. 
 
-    När genomsökningen är klar (vanligtvis efter cirka 10 minuter) finns resultaten i Säkerhetscenterrekommendationer.
+    När genomsökningen är klar (vanligt vis efter cirka 10 minuter), finns det ett avgörande i Security Center rekommendationer.
     
 
-1. Om du vill visa resultaten går du till sidan **Rekommendationer.** Om problem hittades visas följande rekommendation:
+1. Om du vill visa resultaten går du till sidan **rekommendationer** . Om problem påträffas visas följande rekommendation:
 
     ![Rekommendation för att åtgärda problem ](media/monitor-container-security/acr-finding.png)
 
 
 1. Välj rekommendationen. 
-    Sidan med rekommendationsinformation öppnas med ytterligare information. Den här informationen innehåller en lista över register med sårbara bilder ("Berörda resurser") och reparationsstegen. 
+    Sidan med rekommendations information öppnas med ytterligare information. Den här informationen omfattar listan över register med sårbara avbildningar ("resurser som påverkas") och åtgärds stegen. 
 
-1. Välj ett specifikt register om du vill visa de databaser i det som har sårbara databaser.
+1. Välj ett enskilt register för att se de databaser i den som har sårbara databaser.
 
     ![Välj ett register](media/monitor-container-security/acr-finding-select-registry.png)
 
-    Sidan registerinformation öppnas med en lista över berörda databaser.
+    Sidan register information öppnas med listan över berörda databaser.
 
-1. Välj en specifik databas om du vill visa de databaser i den som har sårbara bilder.
+1. Välj en annan lagrings plats för att se de databaser som har sårbara avbildningar i den.
 
-    ![Markera en databas](media/monitor-container-security/acr-finding-select-repository.png)
+    ![Välj en lagrings plats](media/monitor-container-security/acr-finding-select-repository.png)
 
-    Informationssidan för databasen öppnas. Den listar de sårbara bilderna tillsammans med en bedömning av hur allvarliga resultaten är.
+    Sidan databas information öppnas. Den visar de sårbara bilderna tillsammans med en utvärdering av avgörandenas allvarlighets grad.
 
-1. Välj en specifik bild om du vill se säkerhetsproblemen.
+1. Välj en avbildning för att se sårbarheterna.
 
     ![Välj bilder](media/monitor-container-security/acr-finding-select-image.png)
 
@@ -78,69 +78,69 @@ Azure Security Center täcker följande tre aspekter av containersäkerhet:
 
     ![Lista över resultat](media/monitor-container-security/acr-findings.png)
 
-1. Om du vill veta mer om ett resultat väljer du att hitta. 
+1. Om du vill veta mer om att hitta kan du välja hitta. 
 
-    Fönstret resultatinformation öppnas.
+    Fönstret med information om resultat visas.
 
-    [![Fönstret Information om resultat](media/monitor-container-security/acr-finding-details-pane.png)](media/monitor-container-security/acr-finding-details-pane.png#lightbox)
+    [![Informations fönstret för resultat](media/monitor-container-security/acr-finding-details-pane.png)](media/monitor-container-security/acr-finding-details-pane.png#lightbox)
 
-    Det här fönstret innehåller en detaljerad beskrivning av problemet och länkar till externa resurser för att minska hoten.
+    I det här fönstret finns en detaljerad beskrivning av problemet och länkar till externa resurser som hjälper dig att minimera hoten.
 
-1. Följ stegen i avsnittet reparation i det här fönstret.
+1. Följ stegen i reparations avsnittet i det här fönstret.
 
-1. När du har vidtagit de åtgärder som krävs för att åtgärda säkerhetsproblemet ersätter du avbildningen i registret:
+1. När du har vidtagit de steg som krävs för att åtgärda säkerhets problemet ersätter du avbildningen i registret:
 
-    1. Tryck på den uppdaterade bilden. Detta kommer att utlösa en genomsökning. 
+    1. Skicka den uppdaterade avbildningen. Detta utlöser en sökning. 
     
-    1. Kontrollera rekommendationssidan för rekommendationen "Säkerhetsproblem i Azure Container Registry avbildningar bör åtgärdas". 
+    1. Se sidan rekommendationer för rekommendationen "säkerhets risker i Azure Container Registry avbildningar bör åtgärdas". 
     
-        Om rekommendationen fortfarande visas och bilden du har hanterat fortfarande visas i listan över sårbara bilder kontrollerar du reparationsstegen igen.
+        Om rekommendationen fortfarande visas och den avbildning som du har hanterat fortfarande visas i listan över sårbara avbildningar, kontrol lera reparations stegen igen.
 
-    1. När du är säker på att den uppdaterade bilden har pushats, skannats och inte längre visas i rekommendationen tar du bort den "gamla" sårbara avbildningen från registret.
+    1. När du är säker på att den uppdaterade avbildningen har flyttats, genomsökts och inte längre visas i rekommendationen, tar du bort den "gamla" sårbara avbildningen från registret.
 
 
-## <a name="hardening-your-containers-docker-hosts"></a>Härdning av dina containrars Docker-värdar
+## <a name="hardening-your-containers-docker-hosts"></a>Härdning av dina behållares Docker-värdar
 
-Security Center övervakar ständigt konfigurationen av Dina Docker-värdar och genererar säkerhetsrekommendationer som återspeglar branschstandarder.
+Security Center övervakar ständigt konfigurationen av Docker-värdarna och genererar säkerhets rekommendationer som återspeglar bransch standarder.
 
-Så här visar du säkerhetsrekommendationer för Azure Security Center för docker-värdar för dina behållare:
+Så här visar du Azure Security Center säkerhets rekommendationer för dina behållares Docker-värdar:
 
-1. Öppna **&-appar i** navigeringsfältet i Security Center och välj fliken **Behållare.**
+1. Öppna **compute & Apps** i navigerings fältet Security Center och välj fliken **behållare** .
 
-1. Du kan också filtrera listan över behållarresurser till behållare värdar.
+1. Du kan också filtrera listan över dina behållar resurser till container hosts-värdar.
 
-    ![Filter för behållareresurser](media/monitor-container-security/container-resources-filter.png)
+    ![Filter för container resurser](media/monitor-container-security/container-resources-filter.png)
 
-1. Välj en som ska undersökas ytterligare i listan över behållarvärdmaskiner.
+1. I listan över dina behållares värddatorer väljer du en för att undersöka ytterligare.
 
-    ![Rekommendationer för behållarevärd](media/monitor-container-security/container-resources-filtered-to-hosts.png)
+    ![Rekommendationer för container värd](media/monitor-container-security/container-resources-filtered-to-hosts.png)
 
-    Sidan **Container värdinformation** öppnas med information om värden och en lista med rekommendationer.
+    **Sidan information om behållarens värd** öppnas med information om värden och en lista över rekommendationer.
 
-1. Välj en rekommendation som ska undersökas ytterligare i listan över rekommendationer.
+1. I listan rekommendationer väljer du en rekommendation för att undersöka vidare.
 
-    ![Rekommendationslista för behållare värd](media/monitor-container-security/container-host-rec.png)
+    ![Rekommendations lista för container värd](media/monitor-container-security/container-host-rec.png)
 
 1. Du kan också läsa stegen beskrivning, information, hot och reparation. 
 
-1. Välj **Vidta åtgärder** längst ned på sidan.
+1. Välj **vidta åtgärd** längst ned på sidan.
 
-    [![Knappen Vidta åtgärd](media/monitor-container-security/host-security-take-action-button.png)](media/monitor-container-security/host-security-take-action.png#lightbox)
+    [![Knappen Ta med åtgärd](media/monitor-container-security/host-security-take-action-button.png)](media/monitor-container-security/host-security-take-action.png#lightbox)
 
-    Log Analytics öppnas med en anpassad åtgärd som är klar att köras. Standardanpassad fråga innehåller en lista över alla misslyckade regler som har bedömts, tillsammans med riktlinjer som hjälper dig att lösa problemen.
+    Log Analytics öppnar med en anpassad åtgärd som är klar att köras. Den anpassade standard frågan innehåller en lista över alla misslyckade regler som utvärderades, tillsammans med rikt linjer som hjälper dig att lösa problemen.
 
-    [![Logga analytics-åtgärd](media/monitor-container-security/log-analytics-for-action-small.png)](media/monitor-container-security/log-analytics-for-action.png#lightbox)
+    [![Log Analytics åtgärd](media/monitor-container-security/log-analytics-for-action-small.png)](media/monitor-container-security/log-analytics-for-action.png#lightbox)
 
-1. Justera frågeparametrarna och välj **Kör** när du är säker på att den är klar för värden. 
+1. Justera frågeparametrarna och välj **Kör** när du är säker på att den är redo för värden. 
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du använder Säkerhetscenters säkerhetsfunktioner för behållare. 
+I den här artikeln har du lärt dig hur du använder Security Center behållar säkerhetsfunktioner. 
 
 För annat relaterat material, se följande sidor: 
 
-- [Rekommendationer för säkerhetscenter för behållare](recommendations-reference.md#recs-containers)
-- [Aviseringar för AKS-klusternivå](alerts-reference.md#alerts-akscluster)
-- [Aviseringar för värdnivå för behållare](alerts-reference.md#alerts-containerhost)
+- [Security Center rekommendationer för behållare](recommendations-reference.md#recs-containers)
+- [Aviseringar för AKS-kluster nivå](alerts-reference.md#alerts-akscluster)
+- [Aviseringar för värd nivå för behållare](alerts-reference.md#alerts-containerhost)

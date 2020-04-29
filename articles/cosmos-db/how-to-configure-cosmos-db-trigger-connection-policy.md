@@ -1,29 +1,29 @@
 ---
-title: Azure Functions-utlösare för Cosmos DB-anslutningsprincip
-description: Lär dig hur du konfigurerar anslutningsprincipen som används av Azure Functions-utlösaren för Cosmos DB
+title: Azure Functions utlösare för Cosmos DB anslutnings princip
+description: Lär dig hur du konfigurerar anslutnings principen som används av Azure Functions utlösare för Cosmos DB
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.openlocfilehash: 953121a9a15d4fef56d381e3aab85329fadacce2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77604962"
 ---
-# <a name="how-to-configure-the-connection-policy-used-by-azure-functions-trigger-for-cosmos-db"></a>Konfigurera anslutningsprincipen som används av Azure Functions-utlösaren för Cosmos DB
+# <a name="how-to-configure-the-connection-policy-used-by-azure-functions-trigger-for-cosmos-db"></a>Konfigurera anslutnings principen som används av Azure Functions utlösare för Cosmos DB
 
-I den här artikeln beskrivs hur du kan konfigurera anslutningsprincipen när du använder Azure Functions-utlösaren för Cosmos DB för att ansluta till ditt Azure Cosmos-konto.
+Den här artikeln beskriver hur du kan konfigurera anslutnings principen när du använder Azure Functions-utlösaren för Cosmos DB för att ansluta till ditt Azure Cosmos-konto.
 
-## <a name="why-is-the-connection-policy-important"></a>Varför är anslutningsprincipen viktig?
+## <a name="why-is-the-connection-policy-important"></a>Varför är anslutnings principen viktig?
 
-Det finns två anslutningslägen - Direktläge och Gateway-läge. Mer information om dessa anslutningslägen finns i artikeln [med prestandatips.](./performance-tips.md#networking) Som standard används **Gateway** för att upprätta alla anslutningar på Azure Functions-utlösaren för Cosmos DB. Det kanske dock inte är det bästa alternativet för prestandadrivna scenarier.
+Det finns två anslutnings lägen – direkt läge och gateway-läge. Mer information om dessa anslutnings lägen finns i artikeln [prestanda tips](./performance-tips.md#networking) . Som standard används **gatewayen** för att upprätta alla anslutningar i Azure Functions-utlösaren för Cosmos dB. Men det kanske inte är det bästa alternativet för prestanda drivna scenarier.
 
-## <a name="changing-the-connection-mode-and-protocol"></a>Ändra anslutningsläge och protokoll
+## <a name="changing-the-connection-mode-and-protocol"></a>Ändra anslutnings läge och protokoll
 
-Det finns två viktiga konfigurationsinställningar för att konfigurera klientanslutningsprincipen – **anslutningsläget** och **anslutningsprotokollet**. Du kan ändra standardanslutningsläget och protokollet som används av Azure Functions-utlösaren för Cosmos DB och alla [Azure Cosmos DB-bindningar](../azure-functions/functions-bindings-cosmosdb-v2-output.md)). Om du vill ändra standardinställningarna `host.json` måste du hitta filen i ditt Azure Functions-projekt eller Azure Functions App och lägga till följande [extrainställning:](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings)
+Det finns två nyckel konfigurations inställningar som är tillgängliga för att konfigurera klient anslutnings principen – **anslutnings läge** och **anslutnings protokoll**. Du kan ändra standard anslutnings läge och protokoll som används av Azure Functions-utlösaren för Cosmos DB och alla [Azure Cosmos DB bindningar](../azure-functions/functions-bindings-cosmosdb-v2-output.md)). Om du vill ändra standardinställningarna måste du leta upp `host.json` filen i Azure Functions-projektet eller Azure Functions-appen och lägga till följande [extra inställning](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings):
 
 ```js
 {
@@ -34,9 +34,9 @@ Det finns två viktiga konfigurationsinställningar för att konfigurera klienta
 }
 ```
 
-Var `connectionMode` måste ha önskat anslutningsläge `protocol` (Direkt eller Gateway) och önskat anslutningsprotokoll (Tcp eller Https). 
+Där `connectionMode` måste du ha önskat anslutnings läge (direkt eller Gateway) och `protocol` önskat anslutnings protokoll (TCP eller https). 
 
-Om ditt Azure Functions-projekt fungerar med Azure Functions V1-körningen har `documentDB` konfigurationen `cosmosDB`en liten namnskillnad, bör du använda i stället för:
+Om Azure Functions-projektet arbetar med Azure Functions v1-körningen har konfigurationen en liten namn skillnad, du bör använda `documentDB` i stället för `cosmosDB`:
 
 ```js
 {
@@ -48,10 +48,10 @@ Om ditt Azure Functions-projekt fungerar med Azure Functions V1-körningen har `
 ```
 
 > [!NOTE]
-> När du arbetar med Azure Functions Consumption Plan Hosting-abonnemang har varje instans en gräns för hur många Socket-anslutningar som den kan underhålla. När du arbetar med Direkt/ TCP-läge skapas genom design fler anslutningar och kan nå [gränsen för förbrukningsplan](../azure-functions/manage-connections.md#connection-limit), i vilket fall du antingen kan använda gateway-läge eller köra dina Azure-funktioner i [apptjänstläge](../azure-functions/functions-scale.md#app-service-plan).
+> När du arbetar med Azure Functions användnings plan som värd plan, har varje instans en gräns för antalet socketanslutningar som den kan underhålla. När du arbetar med direkt-/TCP-läge skapas fler anslutningar och du kan nå [gränsen för förbruknings planen](../azure-functions/manage-connections.md#connection-limit), i vilket fall du kan antingen använda Gateway-läge eller köra Azure Functions i [app service läge](../azure-functions/functions-scale.md#app-service-plan).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Anslutningsgränser i Azure-funktioner](../azure-functions/manage-connections.md#connection-limit)
-* [Prestandatips för Azure Cosmos DB](./performance-tips.md)
+* [Anslutnings gränser i Azure Functions](../azure-functions/manage-connections.md#connection-limit)
+* [Azure Cosmos DB prestanda tips](./performance-tips.md)
 * [Kodexempel](https://github.com/ealsur/serverless-recipes/tree/master/connectionmode)

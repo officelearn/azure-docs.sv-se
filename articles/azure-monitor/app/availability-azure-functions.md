@@ -1,51 +1,51 @@
 ---
-title: Skapa och köra anpassade tillgänglighetstester med Azure Functions
-description: Det här dokumentet täcker hur du skapar en Azure-funktion med TrackAvailability() som körs regelbundet enligt konfigurationen som anges i TimerTrigger-funktionen. Resultatet av det här testet skickas till din Application Insights-resurs, där du kan fråga efter och avisera tillgänglighetsresultatdata. Anpassade tester gör att du kan skriva mer komplexa tillgänglighetstester än vad som är möjligt med hjälp av portalgränssnittet, övervaka en app inuti ditt Azure VNET, ändra slutpunktsadressen eller skapa ett tillgänglighetstest om det inte är tillgängligt i din region.
+title: Skapa och kör anpassade tillgänglighets test med Azure Functions
+description: Det här dokumentet beskriver hur du skapar en Azure-funktion med TrackAvailability () som körs regelbundet enligt konfigurationen i funktionen TimerTrigger. Resultatet av det här testet skickas till din Application Insights-resurs, där du kan fråga efter och Avisera om tillgänglighets resultat data. Med anpassade tester kan du skriva mer komplexa tillgänglighets test än vad som är möjligt med hjälp av Portal gränssnittet, övervaka en app inuti ditt Azure VNET, ändra slut punkts adressen eller skapa ett tillgänglighets test om det inte är tillgängligt i din region.
 ms.topic: conceptual
 author: morgangrobin
 ms.author: mogrobin
 ms.date: 11/22/2019
 ms.openlocfilehash: 476d66c51c10a5fcfb3cb0319c47b3338d28812c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77665807"
 ---
-# <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Skapa och köra anpassade tillgänglighetstester med Azure Functions
+# <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Skapa och kör anpassade tillgänglighets test med Azure Functions
 
-Den här artikeln beskriver hur du skapar en Azure-funktion med TrackAvailability() som körs regelbundet enligt konfigurationen som anges i TimerTrigger-funktionen med din egen affärslogik. Resultatet av det här testet skickas till din Application Insights-resurs, där du kan fråga efter och avisera tillgänglighetsresultatdata. På så sätt kan du skapa anpassade tester som liknar vad du kan göra via [tillgänglighetsövervakning](../../azure-monitor/app/monitor-web-app-availability.md) i portalen. Anpassade tester gör att du kan skriva mer komplexa tillgänglighetstester än vad som är möjligt med hjälp av portalgränssnittet, övervaka en app inuti ditt Azure VNET, ändra slutpunktsadressen eller skapa ett tillgänglighetstest även om den här funktionen inte är tillgänglig i din region.
+Den här artikeln beskriver hur du skapar en Azure-funktion med TrackAvailability () som kommer att köras regelbundet enligt konfigurationen i TimerTrigger-funktionen med din egen affärs logik. Resultatet av det här testet skickas till din Application Insights-resurs, där du kan fråga efter och Avisera om tillgänglighets resultat data. På så sätt kan du skapa anpassade tester som liknar vad du kan göra via [tillgänglighets övervakning](../../azure-monitor/app/monitor-web-app-availability.md) i portalen. Med anpassade tester kan du skriva mer komplexa tillgänglighets test än vad som är möjligt med hjälp av Portal gränssnittet, övervaka en app inuti ditt Azure VNET, ändra slut punkts adressen eller skapa ett tillgänglighets test även om den här funktionen inte är tillgänglig i din region.
 
 > [!NOTE]
-> Det här exemplet är utformat endast för att visa dig mekaniken i hur API-anropet TrackAvailability() fungerar inom en Azure-funktion. Inte hur man skriver den underliggande HTTP-testkod / affärslogik som skulle krävas för att förvandla detta till en fullt fungerande tillgänglighet test. Som standard om du går igenom det här exemplet kommer du att skapa ett tillgänglighetstest som alltid genererar ett fel.
+> Det här exemplet är utformat enbart för att Visa Mechanics för hur API-anropet TrackAvailability () fungerar i en Azure-funktion. Det går inte att skriva den underliggande koden/affärs logiken för HTTP-test som krävs för att göra detta till ett fullständigt funktionellt tillgänglighets test. Som standard om du går igenom det här exemplet kommer du att skapa ett tillgänglighets test som alltid ska generera ett haveri.
 
-## <a name="create-timer-triggered-function"></a>Skapa timerutlösad funktion
+## <a name="create-timer-triggered-function"></a>Skapa timer-utlöst funktion
 
-- Om du har en application insights-resurs:
-    - Som standard Azure Functions skapar en Application Insights resurs men om du vill använda en av dina redan skapade resurser måste du ange det när du skapar.
-    - Följ instruktionerna om hur du [skapar en Azure Functions-resurs och timerutlöst funktion](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (stoppa innan rensning) med följande alternativ.
-        -  Välj fliken **Övervakning** högst upp.
+- Om du har en Application Insights-resurs:
+    - Som standard skapar Azure Functions en Application Insights resurs, men om du vill använda en av dina redan skapade resurser måste du ange att du under genereringen.
+    - Följ anvisningarna för hur du [skapar en funktion som utlöses av en Azure Functions resurs och timer](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (stoppa före rensning) med följande val.
+        -  Välj fliken **övervakning** längst upp.
 
             ![ Skapa en Azure Functions-app med din egen App Insights-resurs](media/availability-azure-functions/create-function-app.png)
 
-        - Välj listrutan Programstatistik och skriv eller välj namnet på din resurs.
+        - Markera List rutan Application Insights och skriv eller välj namnet på din resurs.
 
-            ![Välja befintlig application insights-resurs](media/availability-azure-functions/app-insights-resource.png)
+            ![Välja befintlig Application Insights resurs](media/availability-azure-functions/app-insights-resource.png)
 
         - Välj **Granska + skapa**
-- Om du inte har skapat en application insights-resurs ännu för den utlösta timern-funktionen:
-    - Som standard när du skapar ditt Azure Functions-program skapar den en Application Insights-resurs åt dig.
-    - Följ instruktionerna om hur du [skapar en Azure Functions-resurs och timerutlöst funktion](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (stoppa före rensning).
+- Om du inte har en Application Insights-resurs som har skapats ännu för din timer-utlöst funktion:
+    - Som standard när du skapar ditt Azure Functions program skapas en Application Insights resurs åt dig.
+    - Följ anvisningarna för hur du [skapar en Azure Functions resurs och timer-utlöst funktion](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (stoppa före rensning).
 
 ## <a name="sample-code"></a>Exempelkod
 
-Kopiera koden nedan till filen run.csx (detta ersätter den befintliga koden). Det gör du genom att gå in i ditt Azure Functions-program och välja din timerutlösarfunktion till vänster.
+Kopiera koden nedan till filen Run. CSX (det ersätter den befintliga koden). Det gör du genom att gå till Azure Functions programmet och välja funktionen timer-utlösare till vänster.
 
 >[!div class="mx-imgBorder"]
->![Azure-funktionens run.csx i Azure-portalen](media/availability-azure-functions/runcsx.png)
+>![Azure Functions Run. CSX i Azure Portal](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> För slutpunktsadressen som `EndpointAddress= https://dc.services.visualstudio.com/v2/track`du vill använda: . Såvida inte din resurs finns i en region som Azure Government eller Azure China, i vilket fall konsultera den här artikeln om [att åsidosätta standardslutpunkterna](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) och välja lämplig slutpunkt för Telemetrikanal för din region.
+> För den slut punkts adress som du `EndpointAddress= https://dc.services.visualstudio.com/v2/track`använder:. Om inte din resurs finns i en region som Azure Government eller Azure Kina, i vilket fall läser du den här artikeln om hur [du åsidosätter standard slut punkterna](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) och väljer lämplig telemetri-kanal slut punkt för din region.
 
 ```C#
 #load "runAvailabilityTest.csx"
@@ -127,7 +127,7 @@ public async static Task Run(TimerInfo myTimer, ILogger log)
 
 ```
 
-Till höger under Visa filer väljer du **Lägg till**. Anropa den nya filen **function.proj** med följande konfiguration.
+Till höger under Visa filer väljer du **Lägg till**. Anropa den nya fil **funktionen. proj** med följande konfiguration.
 
 ```C#
 <Project Sdk="Microsoft.NET.Sdk">
@@ -142,9 +142,9 @@ Till höger under Visa filer väljer du **Lägg till**. Anropa den nya filen **f
 ```
 
 >[!div class="mx-imgBorder"]
->![Lägg till till till höger. Namnge filen function.proj](media/availability-azure-functions/addfile.png)
+>![Till höger väljer du Lägg till. Namnge fil funktionen. proj](media/availability-azure-functions/addfile.png)
 
-Till höger under Visa filer väljer du **Lägg till**. Anropa den nya filen **runAvailabilityTest.csx** med följande konfiguration.
+Till höger under Visa filer väljer du **Lägg till**. Anropa den nya filen **runAvailabilityTest. CSX** med följande konfiguration.
 
 ```C#
 public async static Task RunAvailbiltyTestAsync(ILogger log)
@@ -155,34 +155,34 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 
 ```
 
-## <a name="check-availability"></a>Kontrollera tillgänglighet
+## <a name="check-availability"></a>Kontrol lera tillgänglighet
 
-Om du vill vara säker på att allt fungerar kan du titta på diagrammet på fliken Tillgänglighet för din Application Insights-resurs.
+För att se till att allt fungerar kan du titta på diagrammet på fliken tillgänglighet i din Application Insights-resurs.
 
 > [!NOTE]
-> Om du implementerade din egen affärslogik i runAvailabilityTest.csx så kommer du att se framgångsrika resultat som i skärmdumpar nedan, om du inte gjorde det kommer du att se misslyckade resultat.
+> Om du har implementerat din egen affärs logik i runAvailabilityTest. CSX visas lyckade resultat som i skärm bilderna nedan, om du inte gjorde det visas misslyckade resultat.
 
 >[!div class="mx-imgBorder"]
->![Fliken Tillgänglighet med lyckade resultat](media/availability-azure-functions/availtab.png)
+>![Fliken tillgänglighet med lyckade resultat](media/availability-azure-functions/availtab.png)
 
-När du konfigurerar testet med Azure Functions kommer du att märka att namnet på testet inte visas till skillnad från att använda Lägg till **test** på fliken Tillgänglighet och att du inte kommer att kunna interagera med det. Resultaten visualiseras men du får en sammanfattningsvy i stället för samma detaljerade vy som du får när du skapar ett tillgänglighetstest via portalen.
+När du ställer in testet med Azure Functions kan du se att namnet på testet inte visas och att du inte kan interagera med det om du vill använda **Lägg till test** på fliken tillgänglighet. Resultaten visualiseras men du får en sammanfattningsvy i stället för samma detaljerade vy som du får när du skapar ett tillgänglighets test via portalen.
 
-Om du vill visa transaktionsinformation från slutna till slutna data väljer du **Lyckad** eller **Misslyckad** under detaljgranskning och väljer sedan ett exempel. Du kan också komma till transaktionsinformationen från slutpunkt till slutpunkt genom att välja en datapunkt i diagrammet.
-
->[!div class="mx-imgBorder"]
->![Välj ett exempeltillgänglighetstest](media/availability-azure-functions/sample.png)
+Om du vill se en transaktions information från slut punkt till slut punkt väljer du **lyckades** eller **misslyckades** under detalj granskning till och väljer sedan ett exempel. Du kan också komma till transaktions informationen från slut punkt till slut punkt genom att välja en data punkt i diagrammet.
 
 >[!div class="mx-imgBorder"]
->![Transaktionsinformation från slutna till sluten tid](media/availability-azure-functions/end-to-end.png)
-
-Om du körde allt som det är (utan att lägga till affärslogik) ser du att testet misslyckades.
-
-## <a name="query-in-logs-analytics"></a>Fråga i loggar (Analytics)
-
-Du kan använda Logs(analytics) för att visa tillgänglighetsresultat, beroenden med mera. Mer information om loggar finns i [Översikt över loggfrågor](../../azure-monitor/log-query/log-query-overview.md).
+>![Välj ett exempel på tillgänglighets test](media/availability-azure-functions/sample.png)
 
 >[!div class="mx-imgBorder"]
->![Tillgänglighetsresultat](media/availability-azure-functions/availabilityresults.png)
+>![Transaktions information från slut punkt till slut punkt](media/availability-azure-functions/end-to-end.png)
+
+Om du körde allting som det är (utan att lägga till affärs logik) ser du att testet misslyckades.
+
+## <a name="query-in-logs-analytics"></a>Fråga i loggar (analys)
+
+Du kan använda loggar (analys) om du vill visa tillgänglighets resultat, beroenden och mer. Mer information om loggar finns i [Översikt över logg frågor](../../azure-monitor/log-query/log-query-overview.md).
+
+>[!div class="mx-imgBorder"]
+>![Tillgänglighets resultat](media/availability-azure-functions/availabilityresults.png)
 
 >[!div class="mx-imgBorder"]
 >![Beroenden](media/availability-azure-functions/dependencies.png)

@@ -1,49 +1,49 @@
 ---
 title: Hantera tillstånd för aviseringar och smarta grupper
-description: Hantera tillstånden för varnings- och smartgruppsinstanserna
+description: Hantera tillstånd för aviseringen och de smarta grupp instanserna
 ms.subservice: alerts
 ms.topic: conceptual
 author: anantr
 ms.date: 09/24/2018
 ms.openlocfilehash: a22d7b7b962b36f93ee804c64b3bc6b08ecceb0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77667524"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Hantera tillstånd för aviseringar och smarta grupper
 
-Aviseringar i Azure Monitor har nu ett [varningstillstånd och ett övervakarvillkor](https://aka.ms/azure-alerts-overview) och smartgrupper har på samma sätt ett [smart grupptillstånd](https://aka.ms/smart-groups). Ändringar i tillståndet fångas nu in i historiken som är associerad med respektive avisering eller smart grupp. I den här artikeln får du hjälp med hur du ändrar tillståndet, både för en avisering och en smart grupp.
+Aviseringar i Azure Monitor har nu ett [aviserings tillstånd och ett övervaknings villkor](https://aka.ms/azure-alerts-overview) och kan, på samma sätt, smarta grupper ha ett [smart grupp tillstånd](https://aka.ms/smart-groups). Ändringar av statusen samlas nu in i historik som är associerade med respektive avisering eller smart grupp. Den här artikeln vägleder dig genom processen att ändra tillstånd, för både en avisering och en smart grupp.
 
-## <a name="change-the-state-of-an-alert"></a>Ändra tillståndet för en avisering
+## <a name="change-the-state-of-an-alert"></a>Ändra status för en avisering
 
-1. Du kan ändra tillståndet för en avisering på följande sätt: 
-    * På sidan Alla aviseringar klickar du på kryssrutan bredvid de aviseringar som du vill ändra tillståndet för och klickar på Ändra tillstånd.   
+1. Du kan ändra status för en avisering på följande sätt: 
+    * På sidan alla aviseringar klickar du på kryss rutan bredvid de aviseringar du vill ändra status för och klickar på Ändra tillstånd.   
     ![Övervakning](./media/alerts-managing-alert-states/state-all-alerts.jpg)
-    * På sidan Aviseringsinformation för en viss varningsinstans kan du klicka på ändra tillstånd   
+    * På sidan aviserings information för en viss varnings instans kan du klicka på Ändra tillstånd   
     ![Övervakning](./media/alerts-managing-alert-states/state-alert-details.jpg)
-    * På sidan Aviseringsinformation för en viss aviseringsinstans kan du klicka på kryssrutan bredvid de aviseringar du vill ha i fönstret Smart grupp    
+    * I fönstret smart grupp på sidan aviserings information kan du klicka på kryss rutan bredvid de aviseringar du vill    
     ![Övervakning](./media/alerts-managing-alert-states/state-alert-details-sg.jpg)
 
-    * På sidan Information om smarta grupper kan du i listan med medlemsaviseringar klicka på kryssrutan bredvid de aviseringar som du vill ändra tillståndet för och klicka på Ändra tillstånd om du vill ändra tillståndet för och klicka på Ändra tillstånd.   
+    * På sidan information om smart grupp klickar du på kryss rutan bredvid de aviseringar som du vill ändra status för i listan över medlems aviseringar och klickar på Ändra Stateto ändra status och klickar på Ändra tillstånd.   
     ![Övervakning](./media/alerts-managing-alert-states/state-sg-details-alerts.jpg)
-1. När du klickar på Ändra tillstånd öppnas en popup så att du kan välja tillstånd (Ny/Bekräftad/Stängd) och ange en kommentar om det behövs.   
+1. När du klickar på Ändra tillstånd öppnas en popup-meny där du kan välja tillstånd (nytt/bekräftat/stängt) och ange en kommentar om det behövs.   
 ![Övervakning](./media/alerts-managing-alert-states/state-alert-change.jpg)
-1. När detta är gjort registreras tillståndsändringen i respektive aviserings historia. Detta kan visas genom att öppna respektive informationssida och kontrollera historikavsnittet.    
+1. När detta görs registreras tillstånds ändringen i historiken för respektive avisering. Detta kan visas genom att öppna respektive informations sida och kontrol lera historik avsnittet.    
 ![Övervakning](./media/alerts-managing-alert-states/state-alert-history.jpg)
 
-## <a name="change-the-state-of-a-smart-group"></a>Ändra tillståndet för en smart grupp
-1. Du kan ändra tillståndet för en smart grupp på följande sätt:
-    1. På listsidan för Smart grupp kan du klicka på kryssrutan bredvid de smarta grupper som du vill ändra tillståndet för och klicka på Ändra tillstånd  
+## <a name="change-the-state-of-a-smart-group"></a>Ändra status för en smart grupp
+1. Du kan ändra status för en smart grupp på följande sätt:
+    1. På sidan smart grupp lista kan du klicka på kryss rutan bredvid de smarta grupper som du vill ändra tillstånd för och klicka på Ändra tillstånd  
     ![Övervakning](./media/alerts-managing-alert-states/state-sg-list.jpg)
-    1. På sidan Information om smart grupp kan du klicka på ändra tillstånd        
+    1. På sidan information om smart grupp kan du klicka på Ändra tillstånd        
     ![Övervakning](./media/alerts-managing-alert-states/state-sg-details.jpg)
-1. När du klickar på Ändra tillstånd öppnas en popup så att du kan välja tillstånd (Ny/Bekräftad/Stängd) och ange en kommentar om det behövs. 
+1. När du klickar på Ändra tillstånd öppnas en popup-meny där du kan välja tillstånd (nytt/bekräftat/stängt) och ange en kommentar om det behövs. 
 ![Övervakning](./media/alerts-managing-alert-states/state-sg-change.jpg)
    > [!NOTE]
-   >  Om du ändrar tillståndet för en smart grupp ändras inte tillståndet för de enskilda medlemsaviseringarna.
+   >  Att ändra status för en smart grupp ändrar inte statusen för de enskilda medlems aviseringarna.
 
-1. När detta är gjort registreras tillståndsändringen i respektive smart grupps historia. Detta kan visas genom att öppna respektive informationssida och kontrollera historikavsnittet.     
+1. När detta görs registreras status ändringen i historiken för respektive smart grupp. Detta kan visas genom att öppna respektive informations sida och kontrol lera historik avsnittet.     
 ![Övervakning](./media/alerts-managing-alert-states/state-sg-history.jpg)
 

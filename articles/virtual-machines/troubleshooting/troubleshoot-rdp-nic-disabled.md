@@ -1,6 +1,6 @@
 ---
-title: Det går inte att fjärransluta till virtuella Azure-datorer eftersom nätverkskortet är inaktiverat | Microsoft-dokument
-description: Lär dig hur du felsöker ett problem där RDP misslyckas eftersom nätverkskortet är inaktiverat i Azure VM| Microsoft-dokument
+title: Det går inte att fjärrans luta till Azure Virtual Machines eftersom NÄTVERKSKORTet är inaktiverat | Microsoft Docs
+description: Lär dig hur du felsöker ett problem där RDP Miss lyckas eftersom NÄTVERKSKORTet är inaktiverat på den virtuella Azure-datorn | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,53 +13,53 @@ ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
 ms.openlocfilehash: 315974e4995630eb3af055ac0e1c44f7d8dd0737
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77918248"
 ---
-#  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Det går inte att fjärrskrivborda till en virtuell dator eftersom nätverksgränssnittet är inaktiverat
+#  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Det går inte att fjärr skrivbordet till en virtuell dator eftersom nätverks gränssnittet är inaktiverat
 
-I den här artikeln beskrivs hur du löser ett problem där du inte kan ansluta till Virtuella Azure Windows-datorer om nätverksgränssnittet är inaktiverat.
+Den här artikeln förklarar hur du löser ett problem där du inte kan göra en fjärr skrivbords anslutning till Azure Virtuella Windows-datorer (VM) om nätverks gränssnittet är inaktiverat.
 
 
 ## <a name="symptoms"></a>Symtom
 
-Du kan inte göra en RDP-anslutning eller någon annan typ av anslutning till andra portar till en virtuell dator i Azure eftersom nätverksgränssnittet i den virtuella datorn är inaktiverat.
+Du kan inte upprätta en RDP-anslutning eller någon annan typ av anslutning till andra portar till en virtuell dator i Azure eftersom nätverks gränssnittet i den virtuella datorn är inaktiverat.
 
 ## <a name="solution"></a>Lösning
 
-Innan du följer dessa steg ska du ta en ögonblicksbild av OS-disken för den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [Ögonblicksbild en disk](../windows/snapshot-copy-managed-disk.md).
+Innan du följer de här stegen ska du ta en ögonblicks bild av OS-disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicks bilder av en disk](../windows/snapshot-copy-managed-disk.md).
 
-Om du vill aktivera gränssnittet för den virtuella datorn använder du seriell kontroll eller [återställer nätverksgränssnittet](#reset-network-interface) för den virtuella datorn.
+Om du vill aktivera gränssnittet för den virtuella datorn använder du seriell kontroll eller [Återställ nätverks gränssnitt](#reset-network-interface) för den virtuella datorn.
 
 ### <a name="use-serial-control"></a>Använd seriell kontroll
 
-1. Anslut till [seriekonsolen och öppna CMD-instansen](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Om seriekonsolen inte är aktiverad på den virtuella datorn läser du [återställa nätverksgränssnittet](#reset-network-interface).
-2. Kontrollera nätverksgränssnittets tillstånd:
+1. Anslut till [serie konsolen och öppna cmd-instansen](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+). Om serie konsolen inte är aktive rad på den virtuella datorn, se [Återställ nätverks gränssnitt](#reset-network-interface).
+2. Kontrol lera nätverks gränssnittets status:
 
         netsh interface show interface
 
-    Observera namnet på det inaktiverade nätverksgränssnittet.
+    Anteckna namnet på det inaktiverade nätverks gränssnittet.
 
-3. Aktivera nätverksgränssnittet:
+3. Aktivera nätverks gränssnittet:
 
         netsh interface set interface name="interface Name" admin=enabled
 
-    Om gränssnittet mellan arbete till exempel heter "Ethernet 2" kör du följande kommando:
+    Om gränssnittet interwork till exempel heter "Ethernet 2" kör du följande kommando:
 
         netsh interface set interface name="Ethernet 2" admin=enabled
 
-4.  Kontrollera nätverksgränssnittets tillstånd igen för att kontrollera att nätverksgränssnittet är aktiverat.
+4.  Kontrol lera status för nätverks gränssnittet igen för att se till att nätverks gränssnittet är aktiverat.
 
         netsh interface show interface
 
-    Du behöver inte starta om den virtuella datorn just nu. Den virtuella datorn kommer att vara tillbaka nåbar.
+    Du behöver inte starta om den virtuella datorn just nu. Den virtuella datorn kommer att gå att komma åt.
 
 5.  Anslut till den virtuella datorn och se om problemet är löst.
 
-## <a name="reset-network-interface"></a>Återställ nätverksgränssnittet
+## <a name="reset-network-interface"></a>Återställ nätverks gränssnitt
 
-Om du vill återställa nätverksgränssnittet ändrar du IP-adressen till en annan IP-adress som är tillgänglig i undernätet. Det gör du genom att använda Azure-portalen eller Azure PowerShell. Mer information finns i [Återställa nätverksgränssnittet](reset-network-interface.md).
+Ändra IP-adressen till en annan IP-adress som är tillgänglig i under nätet för att återställa nätverks gränssnittet. Det gör du genom att använda Azure Portal eller Azure PowerShell. Mer information finns i [Återställ nätverks gränssnitt](reset-network-interface.md).

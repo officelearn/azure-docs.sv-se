@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Bevilja åtkomst till ett ASP.NET webb-API'
+title: 'Självstudie: bevilja åtkomst till ett ASP.NET webb-API'
 titleSuffix: Azure AD B2C
 description: Självstudie om hur du använder Active Directory B2C för att skydda ett ASP.NET webb-API och anropa det från en ASP.NET-webbapp.
 services: active-directory-b2c
@@ -12,17 +12,17 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 23531bd4c53dc2fc4851a1e4718fca0e9c3bfc1c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78187431"
 ---
-# <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Självstudiekurs: Bevilja åtkomst till ett ASP.NET webb-API med Azure Active Directory B2C
+# <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Självstudie: bevilja åtkomst till ett ASP.NET webb-API med hjälp av Azure Active Directory B2C
 
-Den här självstudien visar hur du anropar en skyddad webb-API-resurs i Azure Active Directory B2C (Azure AD B2C) från ett ASP.NET webbprogram.
+Den här självstudien visar hur du anropar en skyddad webb-API-resurs i Azure Active Directory B2C (Azure AD B2C) från ett ASP.NET-webbprogram.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Lägga till ett program för webb-API
@@ -34,37 +34,37 @@ I den här självstudiekursen får du lära du dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-Slutför stegen och förutsättningarna i [självstudiekurs: Aktivera autentisera i ett webbprogram med Azure Active Directory B2C](tutorial-web-app-dotnet.md).
+Slutför stegen och kraven i [själv studie kursen: aktivera autentisering i ett webb program med hjälp av Azure Active Directory B2C](tutorial-web-app-dotnet.md).
 
 ## <a name="add-a-web-api-application"></a>Lägga till ett program för webb-API
 
 Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan godkänna och svara på en begäran från en skyddad resurs från klientprogram som använder en åtkomsttoken.
 
-Om du vill registrera ett program i din Azure AD B2C-klient kan du använda den aktuella **programupplevelsen** eller vår nya upplevelse av enhetliga **appregistreringar (förhandsversion).** [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregintro)
+Om du vill registrera ett program i din Azure AD B2C klient kan du använda den aktuella **program** upplevelsen eller vår nya enhetliga **Appregistreringar (förhands granskning)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregintro)
 
 #### <a name="applications"></a>[Program](#tab/applications/)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient genom att välja **katalog + prenumerationsfilter** i den övre menyn och välja den katalog som innehåller din klient.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
-4. Välj **Program**och välj sedan **Lägg till**.
+4. Välj **program**och välj sedan **Lägg till**.
 5. Ange ett namn på programmet. Till exempel *webapi1*.
-6. För **Inkludera webbapp/ webb-API**väljer du **Ja**.
+6. För **Inkludera webb program/webb-API**väljer du **Ja**.
 7. För **Svars-URL** anger du en slutpunkt dit Azure AD B2C ska returnera de token som programmet begär. I den här självstudien körs exemplet lokalt och lyssnar på `https://localhost:44332`.
 8. För **URI för app-ID** anger du den identifierare som används för webb-API:t. Den fullständiga URI-identifieraren inklusive domänen skapas åt dig. Till exempel `https://contosotenant.onmicrosoft.com/api`.
 9. Klicka på **Skapa**.
 10. På egenskapssidan antecknar du program-ID:t du kommer att använda när du konfigurerar webbappen.
 
-#### <a name="app-registrations-preview"></a>[Appregistreringar (förhandsversion)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj **katalog + prenumerationsfilter** på den övre menyn och välj sedan den katalog som innehåller din Azure AD B2C-klient.
-1. Välj Azure AD **B2C**på den vänstra menyn . Du kan också välja **Alla tjänster** och sök efter och välj Azure **AD B2C**.
-1. Välj **Appregistreringar (förhandsgranskning)** och välj sedan **Ny registrering**.
+1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
+1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
+1. Välj **Appregistreringar (för hands version)** och välj sedan **ny registrering**.
 1. Ange ett **namn** för programmet. Till exempel *webapi1*.
-1. Under **Omdirigera URI**väljer du **Webb**och anger sedan en slutpunkt där Azure AD B2C ska returnera alla token som ditt program begär. I den här självstudien körs exemplet lokalt och lyssnar på `https://localhost:44332`.
+1. Under **omdirigerings-URI**väljer du **webb**och anger sedan en slut punkt där Azure AD B2C ska returnera de token som programmet begär. I den här självstudien körs exemplet lokalt och lyssnar på `https://localhost:44332`.
 1. Välj **Registrera**.
-1. Registrera **program-ID:t (klient)** för användning i ett senare steg.
+1. Registrera **program-ID: t (Client)** för användning i ett senare steg.
 
 * * *
 
@@ -94,7 +94,7 @@ Exempellösningen innehåller två projekt:
 ### <a name="configure-the-web-application"></a>Konfigurera webbappen
 
 1. Öppna **B2C-WebAPI-DotNet**-lösningen i Visual Studio.
-1. Öppna **Web.config**i **TaskWebApp-projektet** .
+1. Öppna **Web. config**i **TaskWebApp** -projektet.
 1. Kör API:et lokalt genom att använda inställningen för lokala värden för **api:TaskServiceUrl**. Ändra Web.config enligt följande:
 
     ```csharp
@@ -111,7 +111,7 @@ Exempellösningen innehåller två projekt:
 
 ### <a name="configure-the-web-api"></a>Konfigurera webb-API
 
-1. Öppna **Web.config**i **TaskService-projektet** .
+1. Öppna **Web. config**i **TaskService** -projektet.
 1. Ställ in API:t så det använder din klientorganisation.
 
     ```csharp
@@ -119,19 +119,19 @@ Exempellösningen innehåller två projekt:
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
     ```
 
-1. Ange klient-ID:t till program-ID:t för ditt registrerade webb-API-program, *webapi1*.
+1. Ange klient-ID: t för program-ID: t för det registrerade webb-API-programmet, *webapi1*.
 
     ```csharp
     <add key="ida:ClientId" value="<application-ID>"/>
     ```
 
-1. Uppdatera inställningen för användarflöde med namnet på ditt registrerings- och inloggningsanvändarflöde, *B2C_1_signupsignin1*.
+1. Uppdatera användar flödes inställningen med namnet på ditt användar flöde för registrering och inloggning, *B2C_1_signupsignin1*.
 
     ```csharp
     <add key="ida:SignUpSignInPolicyId" value="B2C_1_signupsignin1" />
     ```
 
-1. Konfigurera scopeinställningen så att den matchar dem som du har skapat i portalen.
+1. Konfigurera omfattnings inställningen så att den matchar de som du skapade i portalen.
 
     ```csharp
     <add key="api:ReadScope" value="demo.read" />
@@ -146,14 +146,14 @@ Du måste köra både **TaskWebApp**- och **TaskService**-projektet.
 1. Välj **Flera startprojekt**.
 1. Ändra **Åtgärd** för båda projekten till **Start**.
 1. Spara ändringarna genom att klicka på **OK**.
-1. Tryck på **F5** för att köra båda programmen. Varje program öppnas i sitt eget webbläsarfönster.
-    * `https://localhost:44316/`är webbprogrammet.
+1. Tryck på **F5** för att köra båda programmen. Varje program öppnas i ett eget webbläsarfönster.
+    * `https://localhost:44316/`är webb programmet.
     * `https://localhost:44332/` är webb-API:t.
 
-1. I webbapplikationen väljer du **registrering/inloggning** för att logga in på webbprogrammet. Använd det konto som du skapade tidigare.
-1. När du har loggat in väljer du **Att göra-lista** och skapar ett att göra-listobjekt.
+1. I webb programmet väljer du **registrering/logga** in för att logga in på webb programmet. Använd det konto som du skapade tidigare.
+1. När du har loggat in väljer **du att göra-lista** och skapar ett objekt för att göra-listan.
 
-När du skapar en post i listan skickar webbappen en begäran till webb-API:et om att skapa listposten. Ditt skyddade webbprogram anropar webb-API:et som skyddas av Azure AD B2C.
+När du skapar en post i listan skickar webbappen en begäran till webb-API:et om att skapa listposten. Det skyddade webb programmet anropar webb-API: t som skyddas av Azure AD B2C.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -166,4 +166,4 @@ I den här självstudiekursen lärde du dig att:
 > * Konfigurera exemplet för att använda programmet
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Lägga till identitetsleverantörer i dina program i Azure Active Directory B2C](tutorial-add-identity-providers.md)
+> [Självstudie: Lägg till identitets leverantörer till dina program i Azure Active Directory B2C](tutorial-add-identity-providers.md)

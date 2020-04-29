@@ -1,32 +1,32 @@
 ---
-title: Använda tillgänglighetszoner i Azure Kubernetes Service (AKS)
-description: Lär dig hur du skapar ett kluster som distribuerar noder över tillgänglighetszoner i Azure Kubernetes Service (AKS)
+title: Använda tillgänglighets zoner i Azure Kubernetes service (AKS)
+description: Lär dig hur du skapar ett kluster som distribuerar noder över tillgänglighets zoner i Azure Kubernetes service (AKS)
 services: container-service
 ms.custom: fasttrack-edit
 ms.topic: article
 ms.date: 06/24/2019
 ms.openlocfilehash: 5693d9e90de9ba68e7b76e0f2bd5b75141dbda71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77596818"
 ---
-# <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Skapa ett AKS-kluster (Azure Kubernetes Service) som använder tillgänglighetszoner
+# <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Skapa ett Azure Kubernetes service-kluster (AKS) som använder tillgänglighets zoner
 
-Ett AKS-kluster (Azure Kubernetes Service) distribuerar resurser som noder och lagring över logiska avsnitt i den underliggande Azure-beräkningsinfrastrukturen. Den här distributionsmodellen ser till att noderna körs över separata uppdaterings- och feldomäner i ett enda Azure-datacenter. AKS-kluster som distribueras med det här standardbeteendet ger en hög tillgänglighetsnivå för att skydda mot ett maskinvarufel eller en planerad underhållshändelse.
+Ett Azure Kubernetes service-kluster (AKS) distribuerar resurser, till exempel noder och lagring över logiska delar av den underliggande Azure-beräknings infrastrukturen. Den här distributions modellen ser till att noderna körs i separata uppdaterings-och fel domäner i ett enda Azure-datacenter. AKS-kluster som distribueras med detta standard beteende ger en hög tillgänglighets nivå för att skydda mot ett maskin varu fel eller ett planerat underhålls evenemang.
 
-Aks-kluster kan distribueras över tillgänglighetszoner för att ge dina program en högre nivå av tillgänglighet. Dessa zoner är fysiskt separata datacenter inom en viss region. När klusterkomponenterna distribueras över flera zoner kan AKS-klustret tolerera ett fel i en av dessa zoner. Dina program och hanteringsåtgärder fortsätter att vara tillgängliga även om ett helt datacenter har problem.
+AKS-kluster kan distribueras mellan tillgänglighets zoner för att ge en högre tillgänglighets nivå för dina program. Dessa zoner är fysiskt separata data Center inom en specifik region. När kluster komponenterna distribueras över flera zoner kan ditt AKS-kluster tolerera ett fel i någon av dessa zoner. Dina program och hanterings åtgärder fortsätter att vara tillgängliga även om ett helt data Center har problem.
 
-Den här artikeln visar hur du skapar ett AKS-kluster och distribuerar nodkomponenterna över tillgänglighetszoner.
+Den här artikeln visar hur du skapar ett AKS-kluster och distribuerar nodens komponenter över tillgänglighets zoner.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du behöver Azure CLI version 2.0.76 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du behöver Azure CLI-versionen 2.0.76 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
-## <a name="limitations-and-region-availability"></a>Begränsningar och regiontillgänglighet
+## <a name="limitations-and-region-availability"></a>Begränsningar och region tillgänglighet
 
-AKS-kluster kan för närvarande skapas med hjälp av tillgänglighetszoner i följande regioner:
+AKS-kluster kan för närvarande skapas med tillgänglighets zoner i följande regioner:
 
 * USA, centrala
 * USA, östra 2
@@ -39,42 +39,42 @@ AKS-kluster kan för närvarande skapas med hjälp av tillgänglighetszoner i f�
 * Europa, västra
 * USA, västra 2
 
-Följande begränsningar gäller när du skapar ett AKS-kluster med hjälp av tillgänglighetszoner:
+Följande begränsningar gäller när du skapar ett AKS-kluster med hjälp av tillgänglighets zoner:
 
-* Du kan bara aktivera tillgänglighetszoner när klustret skapas.
-* Inställningar för tillgänglighetszon kan inte uppdateras när klustret har skapats. Du kan inte heller uppdatera ett befintligt zonkluster som inte är tillgängliga för att använda tillgänglighetszoner.
-* Du kan inte inaktivera tillgänglighetszoner för ett AKS-kluster när det har skapats.
-* Den nodstorlek (VM SKU) som valts måste vara tillgänglig i alla tillgänglighetszoner.
-* Kluster med aktiverade tillgänglighetszoner kräver användning av Azure Standard Load Balancers för distribution mellan zoner.
-* Du måste använda Kubernetes version 1.13.5 eller senare för att kunna distribuera standardbelastningsutjämningsmedel.
+* Du kan bara aktivera tillgänglighets zoner när klustret skapas.
+* Det går inte att uppdatera inställningarna för tillgänglighets zonen när klustret har skapats. Du kan inte heller uppdatera ett befintligt, icke-tillgänglighets zon kluster för att använda tillgänglighets zoner.
+* Du kan inte inaktivera tillgänglighets zoner för ett AKS-kluster när det har skapats.
+* Den Node-storlek (VM-SKU) som väljs måste vara tillgänglig i alla tillgänglighets zoner.
+* Kluster med aktiverade tillgänglighets zoner kräver användning av Azures standard belastnings utjämning för distribution mellan zoner.
+* Du måste använda Kubernetes-version 1.13.5 eller senare för att kunna distribuera standard belastnings utjämning.
 
-AKS-kluster som använder tillgänglighetszoner måste använda Standard *SKU* för Azure load balancer, som är standardvärdet för belastningsutjämnartypen. Den här belastningsutjämnadstypen kan bara definieras vid klusterskapande tid. Mer information och begränsningarna för standardbelastningsutjämnaren finns i [Standard-SKU-begränsningar för Azure load balancer][standard-lb-limitations].
+AKS-kluster som använder tillgänglighets zoner måste använda Azure Load Balancer *standard* SKU, vilket är standardvärdet för belastnings Utjämnings typen. Den här typen av belastnings utjämning kan bara definieras i klustrets skapande tid. Mer information och begränsningarna för standard Load Balancer finns i begränsningar för [Azure Load Balancer standard SKU][standard-lb-limitations]: er.
 
-### <a name="azure-disks-limitations"></a>Begränsningar för Azure-diskar
+### <a name="azure-disks-limitations"></a>Begränsningar för Azure disks
 
-Volymer som använder Azure-hanterade diskar är för närvarande inte zonresurser. Poddar som schemaläggs om i en annan zon än den ursprungliga zonen kan inte återansluta sina tidigare diskar. Vi rekommenderar att du kör tillståndslösa arbetsbelastningar som inte kräver beständig lagring som kan uppstå i zonproblem.
+Volymer som använder Azure Managed disks är för närvarande inte zonindelade resurser. Poddar som har schemalagts om i en annan zon än den ursprungliga zonen kan inte återansluta sina tidigare diskar. Vi rekommenderar att du kör tillstånds lösa arbets belastningar som inte kräver beständig lagring som kan komma mellan zonindelade-problem.
 
-Om du måste köra tillståndskänsliga arbetsbelastningar använder du taints och tolerations i pod-specifikationerna för att tala om för Kubernetes-schemaläggaren att skapa poddar i samma zon som dina diskar. Du kan också använda nätverksbaserad lagring, till exempel Azure-filer som kan kopplas till poddar när de schemaläggs mellan zoner.
+Om du måste köra tillstånds känsliga arbets belastningar använder du bismakar och tolererar i pod-specifikationerna för att instruera Kubernetes Scheduler att skapa poddar i samma zon som dina diskar. Du kan också använda nätverksbaserad lagring som Azure Files som kan kopplas till poddar när de är schemalagda mellan zoner.
 
-## <a name="overview-of-availability-zones-for-aks-clusters"></a>Översikt över tillgänglighetszoner för AKS-kluster
+## <a name="overview-of-availability-zones-for-aks-clusters"></a>Översikt över tillgänglighets zoner för AKS-kluster
 
-Tillgänglighetszoner är ett erbjudande med hög tillgänglighet som skyddar dina program och data från datacenterfel. Zoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Den fysiska avgränsningen av tillgänglighetszonerna inom en region skyddar program och data mot datacenterfel. Zonuppsagda tjänster replikerar dina program och data över tillgänglighetszoner för att skydda mot enstaka felpunkter.
+Tillgänglighets zoner är ett erbjudande med hög tillgänglighet som skyddar dina program och data från data Center problem. Zoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Den fysiska avgränsningen av tillgänglighetszonerna inom en region skyddar program och data mot datacenterfel. Zoner – redundanta tjänster replikerar dina program och data över tillgänglighets zoner för att skydda från enskilda platser.
 
-Mer information finns [i Vad är tillgänglighetszoner i Azure?][az-overview].
+Mer information finns i [Vad är tillgänglighets zoner i Azure?][az-overview].
 
-AKS-kluster som distribueras med hjälp av tillgänglighetszoner kan distribuera noder över flera zoner inom en enda region. Ett kluster i regionen *Östra USA 2* kan till exempel skapa noder i alla tre tillgänglighetszonerna i *östra USA 2*. Den här fördelningen av AKS-klusterresurser förbättrar klustertillgängligheten eftersom de är motståndskraftiga mot fel på en viss zon.
+AKS-kluster som distribueras med hjälp av tillgänglighets zoner kan distribuera noder över flera zoner inom en enda region. Ett kluster i regionen *USA, östra 2* kan till exempel skapa noder i alla tre tillgänglighets zoner i *USA, östra 2*. Den här distributionen av AKS kluster resurser ger bättre kluster tillgänglighet eftersom de är elastiska till fel i en speciell zon.
 
-![AKS-noddistribution över tillgänglighetszoner](media/availability-zones/aks-availability-zones.png)
+![AKS Node-fördelning över tillgänglighets zoner](media/availability-zones/aks-availability-zones.png)
 
-I ett zonutfälle kan noderna balanseras om manuellt eller använda klusterautomatskalningen. Om en enskild zon blir otillgänglig fortsätter dina program att köras.
+I ett zon avbrott kan noderna ombalanseras manuellt eller med hjälp av klustrets autoskalning. Om en enskild zon blir otillgänglig fortsätter programmen att köras.
 
-## <a name="create-an-aks-cluster-across-availability-zones"></a>Skapa ett AKS-kluster över tillgänglighetszoner
+## <a name="create-an-aks-cluster-across-availability-zones"></a>Skapa ett AKS-kluster mellan tillgänglighets zoner
 
-När du skapar ett kluster med kommandot `--zones` [az aks create][az-aks-create] definierar parametern vilka zoner agentnoder som distribueras till. AKS-kontrollplankomponenterna för klustret är också spridda över zoner i den högsta tillgängliga konfigurationen när du definierar parametern `--zones` vid skapande av kluster.
+När du skapar ett kluster med kommandot [AZ AKS Create][az-aks-create] definierar `--zones` parametern vilka zoner som agent-noder distribueras till. AKS Control plan-komponenter för klustret är också spridda över zoner i den högsta tillgängliga konfigurationen när du definierar parametern `--zones` vid skapande av klustrets tid.
 
-Om du inte definierar några zoner för standardagentpoolen när du skapar ett AKS-kluster, kommer AKS-kontrollplankomponenterna för klustret inte att använda tillgänglighetszoner. Du kan lägga till ytterligare nodpooler med kommandot az `--zones` [aks nodepool add][az-aks-nodepool-add] och ange för de nya noderna, men kontrollplankomponenterna förblir utan medvetenhet om tillgänglighetszon. Du kan inte ändra zonmedvetenhet för en nodpool eller AKS-kontrollplankomponenter när de har distribuerats.
+Om du inte definierar några zoner för standard agenten när du skapar ett AKS-kluster, kommer AKSs kontroll Plans komponenter för klustret inte använda tillgänglighets zoner. Du kan lägga till fler resurspooler med kommandot [AZ AKS nodepool Add][az-aks-nodepool-add] och ange `--zones` för de nya noderna, men kontroll Plans komponenterna är fortfarande inte medvetna om tillgänglighets zonen. Du kan inte ändra zon medvetenheten för en Node-pool eller AKS Control plan-komponenterna när de har distribuerats.
 
-I följande exempel skapas ett AKS-kluster med namnet *myAKSCluster* i resursgruppen *myResourceGroup*. Totalt *3* noder skapas - en agent i zon *1*, en i *2*och sedan en i *3*. AKS-kontrollplankomponenterna är också fördelade över zoner i den högsta tillgängliga konfigurationen eftersom de definieras som en del av klusterskapandeprocessen.
+I följande exempel skapas ett AKS-kluster med namnet *myAKSCluster* i resurs gruppen med namnet *myResourceGroup*. Totalt *3* noder skapas – en agent i zon *1*, en i *2*, och sedan en i *3*. AKS Control plan-komponenterna distribueras också mellan zoner i den högsta tillgängliga konfigurationen eftersom de har definierats som en del av klustrets Create-process.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
@@ -91,23 +91,23 @@ az aks create \
 
 Det tar några minuter att skapa AKS-klustret.
 
-## <a name="verify-node-distribution-across-zones"></a>Verifiera noddistribution mellan zoner
+## <a name="verify-node-distribution-across-zones"></a>Verifiera fördelning av noder mellan zoner
 
-När klustret är klart anger du agentnoderna i skalningsuppsättningen för att se vilken tillgänglighetszon de distribueras i.
+När klustret är klart kan du ange vilken tillgänglighets zon de har distribuerats till i skalnings uppsättningen.
 
-Hämta först AKS-klusterautentiseringsuppgifterna med kommandot [az aks get-credentials:][az-aks-get-credentials]
+Börja med att hämta autentiseringsuppgifter för AKS-klustret med kommandot [AZ AKS get-credentials][az-aks-get-credentials] :
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Använd sedan kommandot [kubectl describe][kubectl-describe] för att lista noderna i klustret. Filtrera på *failure-domain.beta.kubernetes.io/zone* värde som visas i följande exempel:
+Använd sedan kommandot [kubectl beskriver][kubectl-describe] för att visa en lista över noderna i klustret. Filtrera på *Failure-Domain.beta.Kubernetes.io/Zone* -värdet så som visas i följande exempel:
 
 ```console
 kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
 ```
 
-Följande exempelutdata visar de tre noderna som distribueras över den angivna regionen och tillgänglighetszonerna, till exempel *eastus2-1* för den första tillgänglighetszonen och *eastus2-2* för den andra tillgänglighetszonen:
+Följande exempel på utdata visar de tre noder som distribueras i den angivna regionen och tillgänglighets zonerna, till exempel *eastus2-1* för den första tillgänglighets zonen och *eastus2-2* för den andra tillgänglighets zonen:
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
@@ -118,13 +118,13 @@ Name:       aks-nodepool1-28993262-vmss000002
             failure-domain.beta.kubernetes.io/zone=eastus2-3
 ```
 
-När du lägger till ytterligare noder i en agentpool distribuerar Azure-plattformen automatiskt de underliggande virtuella datorerna över de angivna tillgänglighetszonerna.
+När du lägger till ytterligare noder i en agent distribuerar Azure-plattformen automatiskt de underliggande virtuella datorerna i de angivna tillgänglighets zonerna.
 
-Observera att i nyare Kubernetes-versioner (1.17.0 och senare) `topology.kubernetes.io/zone` använder AKS den `failure-domain.beta.kubernetes.io/zone`nyare etiketten utöver den inaktuella .
+Observera att i senare Kubernetes-versioner (1.17.0 och senare) använder AKS den nyare etiketten `topology.kubernetes.io/zone` förutom den inaktuella. `failure-domain.beta.kubernetes.io/zone`
 
-## <a name="verify-pod-distribution-across-zones"></a>Verifiera pod-distribution mellan zoner
+## <a name="verify-pod-distribution-across-zones"></a>Verifiera Pod-distribution mellan zoner
 
-Kubernetes används `failure-domain.beta.kubernetes.io/zone` etiketten i [Välkända etiketter, anteckningar och taints][kubectl-well_known_labels]för att automatiskt distribuera poddar i en replikeringsstyrenhet eller tjänst över de olika zoner som är tillgängliga. För att testa detta kan du skala upp klustret från 3 till 5 noder för att verifiera korrekt pod spridning:
+Som dokumenterade på [välkända etiketter, anteckningar och Utsmaker][kubectl-well_known_labels], använder Kubernetes `failure-domain.beta.kubernetes.io/zone` etiketten för att automatiskt distribuera poddar i en replikeringsprovider eller tjänst över olika zoner som är tillgängliga. För att testa detta kan du skala upp klustret från 3 till 5 noder för att verifiera korrekt Pod-spridning:
 
 ```azurecli-interactive
 az aks scale \
@@ -133,7 +133,7 @@ az aks scale \
     --node-count 5
 ```
 
-När skalningsåtgärden är klar efter `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` några minuter bör kommandot ge ett utdata som liknar det här exemplet:
+När skalnings åtgärden slutförs efter några minuter bör kommandot `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` ge utdata som liknar det här exemplet:
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
@@ -148,13 +148,13 @@ Name:       aks-nodepool1-28993262-vmss000004
             failure-domain.beta.kubernetes.io/zone=eastus2-2
 ```
 
-Som ni kan se har vi nu två ytterligare noder i zonerna 1 och 2. Du kan distribuera ett program som består av tre repliker. Vi kommer att använda NGINX som exempel:
+Som du kan se har vi nu två ytterligare noder i zon 1 och 2. Du kan distribuera ett program som består av tre repliker. Vi kommer att använda NGINX som exempel:
 
 ```console
 kubectl run nginx --image=nginx --replicas=3
 ```
 
-Om du kontrollerar att noder där poddarna körs ser du att poddar körs på poddar som motsvarar tre olika tillgänglighetszoner. Till exempel med `kubectl describe pod | grep -e "^Name:" -e "^Node:"` kommandot skulle du få en utdata som liknar denna:
+Om du verifierar att noderna där dina poddar körs, ser du att poddar körs på poddar som motsvarar tre olika tillgänglighets zoner. Till exempel med kommandot `kubectl describe pod | grep -e "^Name:" -e "^Node:"` kan du få utdata som liknar detta:
 
 ```console
 Name:         nginx-6db489d4b7-ktdwg
@@ -165,11 +165,11 @@ Name:         nginx-6db489d4b7-xz6wj
 Node:         aks-nodepool1-28993262-vmss000004/10.240.0.8
 ```
 
-Som du kan se från föregående utdata körs den första podden på nod `eastus2-1`0, som finns i tillgänglighetszonen . Den andra pod körs på nod 2, vilket motsvarar `eastus2-3`, och den `eastus2-2`tredje i nod 4, i . Utan någon ytterligare konfiguration sprider Kubernetes poddarna korrekt över alla tre tillgänglighetszonerna.
+Som du kan se från föregående utdata körs den första Pod på nod 0, som finns i tillgänglighets zonen `eastus2-1`. Den andra Pod körs på nod 2, som motsvarar `eastus2-3`och den tredje i nod 4 i. `eastus2-2` Utan ytterligare konfiguration, Kubernetes spridningen av poddar korrekt i alla tre tillgänglighets zoner.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln beskrivs hur du skapar ett AKS-kluster som använder tillgänglighetszoner. Mer information om kluster med hög tillgänglig tillgång finns [i Metodtips för affärskontinuitet och haveriberedskap i AKS][best-practices-bc-dr].
+Den här artikeln innehåller information om hur du skapar ett AKS-kluster som använder tillgänglighets zoner. Mer information om kluster med hög tillgänglighet finns i [metod tips för verksamhets kontinuitet och haveri beredskap i AKS][best-practices-bc-dr].
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

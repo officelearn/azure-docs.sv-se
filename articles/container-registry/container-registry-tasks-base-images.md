@@ -1,67 +1,67 @@
 ---
-title: Grundläggande bilduppdateringar - Uppgifter
-description: Lär dig mer om basavbildningar för programbehållarevbildningar och om hur en basavbildningsuppdatering kan utlösa en Azure Container Registry-uppgift.
+title: Bas avbildnings uppdateringar – uppgifter
+description: Lär dig mer om grundläggande avbildningar för program behållar avbildningar och om hur en bas avbildnings uppdatering kan utlösa en Azure Container Registry aktivitet.
 ms.topic: article
 ms.date: 01/22/2019
 ms.openlocfilehash: 017c8f8a3a15896bd6e14a54136ba713e9f9c499
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617936"
 ---
-# <a name="about-base-image-updates-for-acr-tasks"></a>Om basavbildningsuppdateringar för ACR-uppgifter
+# <a name="about-base-image-updates-for-acr-tasks"></a>Om bas avbildnings uppdateringar för ACR-uppgifter
 
-Den här artikeln innehåller bakgrundsinformation om uppdateringar av ett programs basavbildning och hur dessa uppdateringar kan utlösa en Azure Container Registry-uppgift.
+Den här artikeln innehåller bakgrunds information om uppdateringar av ett programs bas avbildning och hur dessa uppdateringar kan utlösa en Azure Container Registry aktivitet.
 
-## <a name="what-are-base-images"></a>Vad är basbilder?
+## <a name="what-are-base-images"></a>Vad är bas avbildningar?
 
-Dockerfiler som definierar de flesta behållaravbildningar anger en överordnad bild som bilden baseras på, ofta kallad *basavbildningen*. Basavbildningar innehåller vanligtvis operativsystemet, till exempel [Alpine Linux][base-alpine] eller [Windows Nano Server][base-windows], där resten av containerns lager tillämpas. De kan även innehålla programramverk som [Node.js][base-node] eller [.NET Core][base-dotnet]. Dessa basbilder är själva vanligtvis baserade på offentliga uppströmsbilder. Flera av dina programbilder kan dela en gemensam basavbildning.
+Dockerfiles som definierar de flesta behållar avbildningar anger en överordnad avbildning som avbildningen är baserad på, vilket ofta kallas för *bas avbildningen*. Basavbildningar innehåller vanligtvis operativsystemet, till exempel [Alpine Linux][base-alpine] eller [Windows Nano Server][base-windows], där resten av containerns lager tillämpas. De kan även innehålla programramverk som [Node.js][base-node] eller [.NET Core][base-dotnet]. De här bas avbildningarna är vanligt vis baserade på offentliga överordnade avbildningar. Flera av dina program avbildningar kan dela en vanlig bas avbildning.
 
-En basavbildning uppdateras ofta av avbildningens underhållare med nya funktioner och förbättringar av operativsystem eller ramverk i avbildningen. Säkerhetskorrigeringar är en annan vanlig orsak till att en basavbildning uppdateras. När dessa uppströmsuppdateringar inträffar måste du också uppdatera basavbildningarna så att de innehåller den kritiska korrigeringen. Varje programavbildning måste sedan också byggas om för att inkludera dessa uppströmskorrigeringar som nu ingår i basavbildningen.
+En basavbildning uppdateras ofta av avbildningens underhållare med nya funktioner och förbättringar av operativsystem eller ramverk i avbildningen. Säkerhetskorrigeringar är en annan vanlig orsak till att en basavbildning uppdateras. När dessa överordnade uppdateringar inträffar måste du också uppdatera dina bas avbildningar för att inkludera den kritiska korrigeringen. Varje program avbildning måste sedan återskapas för att inkludera dessa uppströms korrigeringar som nu ingår i bas avbildningen.
 
-I vissa fall, till exempel ett privat utvecklingsteam, kan en basavbildning ange mer än operativsystem eller ramverk. En basavbildning kan till exempel vara en avbildning av komponenten för delad tjänst som måste spåras. Medlemmar i ett team kan behöva spåra den här basavbildningen för testning eller behöver uppdatera avbildningen regelbundet när programavbildningar utvecklas.
+I vissa fall, till exempel ett privat utvecklings team, kan en bas avbildning ange mer än operativ system eller ramverk. En bas avbildning kan till exempel vara en avbildning av en delad tjänst komponent som måste spåras. Medlemmar i ett team kan behöva spåra den här bas avbildningen för testning eller behöver regelbundet uppdatera avbildningen när de utvecklar program avbildningar.
 
-## <a name="track-base-image-updates"></a>Spåra grundläggande bilduppdateringar
+## <a name="track-base-image-updates"></a>Spåra bas avbildnings uppdateringar
 
 I ACR Tasks finns möjligheten att automatiskt skapa avbildningar när en containers basavbildning uppdateras.
 
-ACR-uppgifter identifierar dynamiskt basavbildningsberoenden när en behållaravbildning skapas. Som ett resultat kan den identifiera när en programavbildnings basavbildning uppdateras. Med en förkonfigurerad bygguppgift kan ACR-uppgifter automatiskt återskapa alla programavbildningar som refererar till basavbildningen. Med den här automatiska identifieringen och ombyggnaden sparar ACR-uppgifter den tid och ansträngning som normalt krävs för att manuellt spåra och uppdatera varje programavbildning som refererar till den uppdaterade basavbildningen.
+ACR-aktiviteter identifierar dynamiskt bas avbildnings beroenden när en behållar avbildning skapas. Det innebär att den kan identifiera när en program avbildnings bas avbildning uppdateras. Med en förkonfigurerad versions uppgift kan ACR-aktiviteter automatiskt återskapa varje program avbildning som refererar till bas avbildningen. Med den här automatiska identifieringen och återuppbyggnaden sparar ACR-uppgifter den tid och ansträngning som normalt krävs för att manuellt spåra och uppdatera varje program avbildning som refererar till den uppdaterade bas avbildningen.
 
-## <a name="base-image-locations"></a>Platser för basbilder
+## <a name="base-image-locations"></a>Bas avbildnings platser
 
-För bildversioner från en Dockerfile identifierar en ACR-uppgift beroenden på basavbildningar på följande platser:
+För avbildningar som bygger på en Dockerfile identifierar en ACR-uppgift beroenden för bas avbildningarna på följande platser:
 
-* Samma Azure-behållarregister där aktiviteten körs
-* Ett annat privat Azure-behållarregister i samma eller en annan region 
-* En offentlig återdejt i Docker Hub 
-* En offentlig repo i Microsoft Container Registry
+* Samma Azure Container Registry där aktiviteten körs
+* Ett annat privat Azure Container Registry i samma eller en annan region 
+* En offentlig lagrings platsen i Docker Hub 
+* En offentlig lagrings platsen i Microsoft Container Registry
 
-Om basbilden som anges `FROM` i uttrycket finns på en av dessa platser lägger ACR-aktiviteten till en krok för att säkerställa att bilden återskapas när som helst dess bas uppdateras.
+Om bas avbildningen som anges i `FROM` instruktionen finns på någon av dessa platser lägger ACR-aktiviteten till en Hook för att se till att avbildningen återskapas när dess bas uppdateras.
 
 ## <a name="additional-considerations"></a>Annat som är bra att tänka på
 
-* **Basavbildningar för programavbildningar** - För närvarande spårar en ACR-uppgift endast basavbildningsuppdateringar för program *(runtime)* bilder. Den spårar inte basavbildningsuppdateringar för mellanliggande *(buildtime)* bilder som används i dockerfiler i flera steg.  
+* **Bas avbildningar för program avbildningar** – för närvarande spårar en ACR-uppgift endast bas avbildnings uppdateringar för program (*runtime*)-avbildningar. Det spårar inte bas avbildnings uppdateringar för mellanliggande (*buildtime*) avbildningar som används i Dockerfiles med flera steg.  
 
-* **Aktiverad som standard** - När du skapar en ACR-uppgift med kommandot [az acr-aktivitetsskapande][az-acr-task-create] *aktiveras* som standard aktiviteten för utlösare av en basavbildningsuppdatering. Det vill `base-image-trigger-enabled` än, egenskapen är inställd på Sant. Om du vill inaktivera det här beteendet i en aktivitet uppdaterar du egenskapen till False. Kör till exempel följande kommando för [uppdatering av az acr-aktivitet:][az-acr-task-update]
+* **Aktive rad som standard** – när du skapar en ACR-uppgift med kommandot [AZ ACR Task Create][az-acr-task-create] , *aktive* ras uppgiften som standard för Utlös ande av en bas avbildnings uppdatering. Det vill säga `base-image-trigger-enabled` egenskapen anges till sant. Om du vill inaktivera det här beteendet i en aktivitet uppdaterar du egenskapen till false. Kör till exempel följande [AZ ACR aktivitets uppdaterings][az-acr-task-update] kommando:
 
   ```azurecli
   az acr task update --myregistry --name mytask --base-image-trigger-enabled False
   ```
 
-* **Utlösare för att spåra samband** - Om du vill att en ACR-aktivitet ska kunna bestämma och spåra en behållaravbildningsberoenden - som innehåller basavbildningen - måste du först utlösa aktiviteten för att skapa avbildningen minst en **gång**. Utlösa aktiviteten manuellt med kommandot [az acr-aktivitetskörning.][az-acr-task-run]
+* **Utlös för att spåra beroenden** – om du vill aktivera en ACR-uppgift för att fastställa och spåra en behållar avbildnings beroenden – som inkluderar dess bas avbildning, måste du först utlösa uppgiften för att skapa avbildningen **minst en gång**. Utlös till exempel uppgiften manuellt med kommandot [AZ ACR Task Run][az-acr-task-run] .
 
-* **Stabil tagg för basavbildning** - För att utlösa en uppgift vid basavbildningsuppdatering måste basavbildningen ha en *stabil* tagg, till exempel `node:9-alpine`. Den här taggningen är typisk för en basavbildning som uppdateras med OS- och ramkorrigeringar till en senaste stabil version. Om basavbildningen uppdateras med en ny versionstagg utlöses inte en aktivitet. Mer information om bildtaggning finns i [vägledningen för metodtips](container-registry-image-tag-version.md). 
+* **Stabil tagg för bas avbildning** – för att utlösa en aktivitet på bas avbildnings uppdatering måste bas avbildningen ha en *stabil* tagg, till `node:9-alpine`exempel. Den här märkningen är typisk för en bas avbildning som uppdateras med OS-och Framework-korrigeringsfiler till en senaste stabil utgåva. Om bas avbildningen uppdateras med en ny versions tagg utlöses inte en uppgift. Mer information om bild taggning finns i [rikt linjer för bästa praxis](container-registry-image-tag-version.md). 
 
-* **Andra aktivitetsutlösare** - I en uppgift som utlöses av basavbildningsuppdateringar kan du också aktivera utlösare baserat på [ursprungskodsavstage](container-registry-tutorial-build-task.md) eller [ett schema](container-registry-tasks-scheduled.md). En basavbildningsuppdatering kan också utlösa en [aktivitet i flera steg](container-registry-tasks-multi-step.md).
+* **Andra aktivitets utlösare** – i en aktivitet som utlöses av bas avbildnings uppdateringar kan du också aktivera utlösare baserat på [käll kods genomförande](container-registry-tutorial-build-task.md) eller [ett schema](container-registry-tasks-scheduled.md). En bas avbildnings uppdatering kan även utlösa en [aktivitet i flera steg](container-registry-tasks-multi-step.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande självstudier för scenarier för att automatisera programavbildningsversioner när en basavbildning har uppdaterats:
+Se följande självstudier för att automatisera program avbildnings versioner när en bas avbildning har uppdaterats:
 
-* [Automatisera behållaravbildningsversioner när en basavbildning uppdateras i samma register](container-registry-tutorial-base-image-update.md)
+* [Automatisera behållar avbildningen skapar när en bas avbildning uppdateras i samma register](container-registry-tutorial-base-image-update.md)
 
-* [Automatisera behållaravbildningsversioner när en basavbildning uppdateras i ett annat register](container-registry-tutorial-base-image-update.md)
+* [Automatisera behållar avbildningen skapar när en bas avbildning uppdateras i ett annat register](container-registry-tutorial-base-image-update.md)
 
 
 <!-- LINKS - External -->

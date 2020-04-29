@@ -1,5 +1,5 @@
 ---
-title: Skapa, testa och distribuera behållare till Azure Kubernetes-tjänsten med GitHub-åtgärder
+title: Bygg, testa och distribuera behållare till Azure Kubernetes-tjänsten med hjälp av GitHub-åtgärder
 description: Lär dig hur du använder GitHub-åtgärder för att distribuera din behållare till Kubernetes
 services: container-service
 author: azooinmyluggage
@@ -7,37 +7,37 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
 ms.openlocfilehash: 5ee8ee4d2c9e225d82e58daffeef9e5f09e43e6b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77595373"
 ---
-# <a name="github-actions-for-deploying-to-kubernetes-service"></a>GitHub-åtgärder för distribution till Kubernetes-tjänsten
+# <a name="github-actions-for-deploying-to-kubernetes-service"></a>GitHub-åtgärder för att distribuera till Kubernetes-tjänsten
 
-[GitHub-åtgärder](https://help.github.com/en/articles/about-github-actions) ger dig flexibiliteten att skapa ett automatiserat livscykelarbetsflöde för programvaruutveckling. Kubernetes-åtgärden [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) underlättar distributioner till Azure Kubernetes-tjänstkluster. Åtgärden anger mål AKS-klusterkontexten, som kan användas av andra åtgärder som [azure/k8s-deploy,](https://github.com/Azure/k8s-deploy/tree/master) [azure/k8s-create-secret](https://github.com/Azure/k8s-create-secret/tree/master) etc. eller köra några kubectl-kommandon.
+[GitHub-åtgärder](https://help.github.com/en/articles/about-github-actions) ger dig flexibiliteten att bygga ett arbets flöde för automatiserad livs cykel för program utveckling. Kubernetes-åtgärden [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) underlättar distributioner till Azure Kubernetes service-kluster. Åtgärden ställer in mål AKS kluster kontext, som kan användas av andra åtgärder, t. ex. [Azure/K8s-Deploy](https://github.com/Azure/k8s-deploy/tree/master), [Azure/K8s-Create-Secret](https://github.com/Azure/k8s-create-secret/tree/master) osv. eller kör eventuella kubectl-kommandon.
 
-Ett arbetsflöde definieras av en YAML-fil (.yml) i `/.github/workflows/` sökvägen i databasen. Den här definitionen innehåller de olika steg och parametrar som utgör arbetsflödet.
+Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sökvägen i lagrings platsen. Den här definitionen innehåller de olika stegen och parametrarna som utgör arbets flödet.
 
-För ett arbetsflöde som riktar sig till AKS har filen tre avsnitt:
+För ett arbets flöde som riktar sig till AKS har filen tre delar:
 
 |Section  |Aktiviteter  |
 |---------|---------|
-|**Autentisering** | Logga in i ett privat behållarregister (ACR) |
-|**Utveckla** | Skapa & pusha behållaravbildningen  |
-|**Distribuera** | 1. Ställ in målet AKS-kluster |
-| |2. Skapa en allmän/docker-registerhemlighet i Kubernetes-klustret  |
-||3. Distribuera till Kubernetes-klustret|
+|**Autentisering** | Logga in på ett privat container Registry (ACR) |
+|**Utveckla** | Bygg & push-överför behållar avbildningen  |
+|**Distribuera** | 1. Ange mål AKS-klustret |
+| |2. skapa en allmän/Docker-register hemlighet i Kubernetes-kluster  |
+||3. distribuera till Kubernetes-klustret|
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
-Du kan skapa ett [tjänsthuvudnamn](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) med kommandot [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i [Azure CLI](https://docs.microsoft.com/cli/azure/). Du kan köra det här kommandot med [Azure Cloud Shell](https://shell.azure.com/) i Azure-portalen eller genom att välja knappen **Prova.**
+Du kan skapa ett [huvud namn för tjänsten](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) med hjälp av kommandot [AZ AD SP Create-for-RBAC](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i [Azure CLI](https://docs.microsoft.com/cli/azure/). Du kan köra det här kommandot med [Azure Cloud Shell](https://shell.azure.com/) i Azure Portal eller genom att välja knappen **prova** .
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
 ```
 
-I kommandot ovan ersätter du platshållarna med ditt prenumerations-ID och resursgrupp. Utdata är de autentiseringsuppgifter för rolltilldelning som ger åtkomst till din resurs. Kommandot ska mata ut ett JSON-objekt som liknar detta.
+I kommandot ovan ersätter du plats hållarna med ditt prenumerations-ID och resurs grupp. Utdata är de autentiseringsuppgifter för roll tilldelning som ger åtkomst till din resurs. Kommandot ska generera ett JSON-objekt liknande detta.
 
 ```json
   {
@@ -50,40 +50,40 @@ I kommandot ovan ersätter du platshållarna med ditt prenumerations-ID och resu
 ```
 Kopiera det här JSON-objektet, som du kan använda för att autentisera från GitHub.
 
-## <a name="configure-the-github-secrets"></a>Konfigurera GitHub-hemligheterna
+## <a name="configure-the-github-secrets"></a>Konfigurera GitHub hemligheter
 
 Följ stegen för att konfigurera hemligheterna:
 
-1. I GitHub väljer du **Inställningar > hemligheter > Lägg till en ny hemlighet**i [GitHub.](https://github.com/)
+1. I [GitHub](https://github.com/), bläddra till din lagrings plats, välj **inställningar > hemligheter > Lägg till en ny hemlighet**.
 
     ![secrets](media/kubernetes-action/secrets.png)
 
-2. Klistra in innehållet `az cli` i kommandot ovan som värdet för den hemliga variabeln. Till exempel `AZURE_CREDENTIALS`.
+2. Klistra in innehållet i ovanstående `az cli` kommando som värde för den hemliga variabeln. Till exempel `AZURE_CREDENTIALS`.
 
-3. På samma sätt definierar du följande ytterligare hemligheter för behållarregisterautentiseringsuppgifterna och anger dem i Docker-inloggningsåtgärden. 
+3. På samma sätt definierar du följande ytterligare hemligheter för autentiseringsuppgifterna för behållar registret och anger dem i Docker login login-åtgärd. 
 
     - REGISTRY_USERNAME
     - REGISTRY_PASSWORD
 
-4. Du kommer att se hemligheterna som visas nedan när de har definierats.
+4. Du ser de hemligheter som visas nedan när den har definierats.
 
-    ![kubernetes-hemligheter](media/kubernetes-action/kubernetes-secrets.png)
+    ![Kubernetes – hemligheter](media/kubernetes-action/kubernetes-secrets.png)
 
-##  <a name="build-a-container-image-and-deploy-to-azure-kubernetes-service-cluster"></a>Skapa en behållaravbildning och distribuera till Azure Kubernetes Service-kluster
+##  <a name="build-a-container-image-and-deploy-to-azure-kubernetes-service-cluster"></a>Bygg en behållar avbildning och distribuera till Azure Kubernetes service-kluster
 
-Uppbyggnaden och push av behållaravbildningar görs med hjälp av `Azure/docker-login@v1` åtgärder. Om du vill distribuera en behållaravbildning `Azure/k8s-deploy@v1` till AKS måste du använda åtgärden. Den här åtgärden har fem parametrar:
+Att bygga och skicka behållar avbildningar görs med `Azure/docker-login@v1` hjälp av åtgärden. Om du vill distribuera en behållar avbildning till AKS måste du använda `Azure/k8s-deploy@v1` åtgärden. Den här åtgärden har fem parametrar:
 
-| **Parametern**  | **Förklaring**  |
+| **ProfileServiceApplicationProxy**  | **Förklaring**  |
 |---------|---------|
-| **Namespace** | (Valfritt) Välj namnområdet målkubernetes. Om namnområdet inte anges körs kommandona i standardnamnområdet | 
-| **Manifesterar** |  (Obligatoriskt) Sökväg till manifestfilerna, som ska användas för distribution |
-| **Bilder** | (Valfritt) Fullständigt kvalificerad resurs-URL för den eller de bilder som ska användas för ersättningar på manifestfilerna |
-| **imagepullsecrets** | (Valfritt) Namn på en dockerregisterhemlighet som redan har konfigurerats i klustret. Vart och ett av dessa hemliga namn läggs till under fältet imagePullSecrets för arbetsbelastningarna som finns i indatamanifestfilerna |
-| **kubectl-version** | (Valfritt) Installerar en specifik version av kubectl binary |
+| **namn område** | Valfritt Välj mål namn området Kubernetes. Om namn området inte anges körs kommandona i standard namn området | 
+| **manifest** |  Kunna Sökväg till manifest-filerna som ska användas för distribution |
+| **avbildningar** | Valfritt Fullständigt resurs-URL för den eller de avbildningar som ska användas för ersättningar på manifest filerna |
+| **imagepullsecrets** | Valfritt Namnet på en Docker-register hemlighet som redan har kon figurer ATS i klustret. Vart och ett av dessa hemliga namn läggs till i fältet imagePullSecrets för de arbets belastningar som finns i manifest filen för indatafiler |
+| **kubectl-version** | Valfritt Installerar en speciell version av kubectl Binary |
 
-### <a name="deploy-to-azure-kubernetes-service-cluster"></a>Distribuera till Azure Kubernetes Service-kluster
+### <a name="deploy-to-azure-kubernetes-service-cluster"></a>Distribuera till Azure Kubernetes service-kluster
 
-på slutarbetsflödet för att skapa behållaravbildningar och distribuera till ett Azure Kubernetes-tjänstkluster.
+Slut punkt till slut punkt för att skapa behållar avbildningar och distribuera till ett Azure Kubernetes service-kluster.
 
 ```yaml
 on: [push]
@@ -131,18 +131,18 @@ jobs:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du hittar vår uppsättning åtgärder i olika databaser på GitHub, var och en som innehåller dokumentation och exempel som hjälper dig att använda GitHub för CI/CD och distribuera dina appar till Azure.
+Du hittar vår uppsättning åtgärder i olika databaser på GitHub, där var och en innehåller dokumentation och exempel som hjälper dig att använda GitHub för CI/CD och distribuera dina appar till Azure.
 
-- [setup-kubectl](https://github.com/Azure/setup-kubectl)
+- [Konfigurera kubectl](https://github.com/Azure/setup-kubectl)
 
-- [k8s-set-sammanhang](https://github.com/Azure/k8s-set-context)
+- [K8s – uppsättning – kontext](https://github.com/Azure/k8s-set-context)
 
-- [aks-set-sammanhang](https://github.com/Azure/aks-set-context)
+- [AKS – uppsättning – kontext](https://github.com/Azure/aks-set-context)
 
-- [k8s-skapa-hemlighet](https://github.com/Azure/k8s-create-secret)
+- [K8s-Create-Secret](https://github.com/Azure/k8s-create-secret)
 
-- [k8s-distribuera](https://github.com/Azure/k8s-deploy)
+- [K8s – distribuera](https://github.com/Azure/k8s-deploy)
 
-- [webapps-container-distribuera](https://github.com/Azure/webapps-container-deploy)
+- [Webbappar-container-Deploy](https://github.com/Azure/webapps-container-deploy)
 
-- [åtgärder-arbetsflöde-exempel](https://github.com/Azure/actions-workflow-samples)
+- [åtgärder – arbets flöde – exempel](https://github.com/Azure/actions-workflow-samples)

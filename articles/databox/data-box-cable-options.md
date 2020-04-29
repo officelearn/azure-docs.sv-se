@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
 ms.openlocfilehash: ffabd917eff1c545bba734ab1621b947ee8d9ae9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77920645"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Alternativ för kabelanslutning av Azure Data Box
@@ -74,7 +74,7 @@ Kabelanslut enheten med hjälp av följande steg.
 
 Kabelanslut enheten med hjälp av följande steg.
 
-1. Använd en RJ45 Ethernet-kabel från den separata datorn direkt till MGMT-porten för konfiguration.
+1. Använd en RJ45 Ethernet-kabel från den separata datorn direkt till HANTERINGs porten för konfiguration.
 2. Använd en RJ45-kabel för DATA 3 eller SFP+-kabel för att ansluta DATA 1 eller DATA 2 till servern. Vi rekommenderar att du använder 10-GbE DATA 1- eller DATA 2-portar för bra prestanda. Dataportarna ansluts via en 10-GbE-switch till servern med data.
 3. Konfigurera Ethernet-adaptern på den bärbara datorn du använder för att ansluta enheten med:
 

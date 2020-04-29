@@ -11,22 +11,22 @@ ms.topic: overview
 ms.date: 02/28/2020
 ms.author: pafarley
 ms.openlocfilehash: 82318df08ffc9ec47b1ed40171f79163bbdd600f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78207640"
 ---
-# <a name="whats-new-in-custom-vision"></a>Nyheter i Custom Vision
+# <a name="whats-new-in-custom-vision"></a>Vad är nytt i Custom Vision
 
-Läs om vad som är nytt i tjänsten. Dessa objekt kan släppa anteckningar, videor, blogginlägg och andra typer av information. Bokmärk den här sidan för att hålla dig uppdaterad med tjänsten.
+Läs om vad som är nytt i tjänsten. Dessa objekt kan vara viktig för anteckningar, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
 
 ## <a name="september-2019"></a>September 2019
 
-### <a name="suggested-tags"></a>Föreslagna taggar
+### <a name="suggested-tags"></a>Föreslagna Taggar
 
-* Smart Labeler-verktyget på [webbplatsen Custom Vision](https://www.customvision.ai/) genererar föreslagna taggar för dina träningsbilder. På så sätt kan du märka ett stort antal bilder snabbare när du tränar en Custom Vision-modell. Instruktioner om hur du använder den här funktionen finns i [Förslag på taggar](./suggested-tags.md).
+* Verktyget Smart Labeler på [Custom vision webbplats](https://www.customvision.ai/) genererar föreslagna taggar för dina utbildnings bilder. På så sätt kan du märka ett stort antal bilder snabbare när du tränar en Custom Vision modell. Instruktioner för hur du använder den här funktionen finns i [föreslagna Taggar](./suggested-tags.md).
 
-## <a name="cognitive-service-updates"></a>Uppdateringar av Cognitive Service
+## <a name="cognitive-service-updates"></a>Uppdatering av kognitiva tjänster
 
-[Azure-uppdateringsmeddelanden för Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)
+[Azure Update-meddelanden för Cognitive Services](https://azure.microsoft.com/updates/?product=cognitive-services)

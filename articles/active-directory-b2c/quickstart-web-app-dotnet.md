@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Konfigurera inloggning för en ASP.NET webbapp'
+title: 'Snabb start: Konfigurera inloggning för en ASP.NET-webbapp'
 titleSuffix: Azure AD B2C
-description: I den här snabbstarten kör du ett exempel ASP.NET webbapp som använder Azure Active Directory B2C för att tillhandahålla kontosignering.
+description: I den här snabb starten kör du ett exempel på en ASP.NET-webbapp som använder Azure Active Directory B2C för att tillhandahålla konto inloggning.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,21 +12,21 @@ ms.date: 09/12/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 197155650bf7b8d113f96dbcfd6d9e2b58924b7f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "78187210"
 ---
-# <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Snabbstart: Konfigurera inloggning för ett ASP.NET program med Azure Active Directory B2C
+# <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Snabb start: Konfigurera inloggning för ett ASP.NET-program med hjälp av Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) tillhandahåller molnidentitetshantering för att skydda ditt program, företag och kunder. Med Azure AD B2C kan program autentisera med konton på sociala medier och företagskonton med öppna protokoll. I den här snabbstarten använder du ett ASP.NET-program för att logga in med en social identitetsprovider och anropa en Azure AD B2C-skyddad webb-API.
+Azure Active Directory B2C (Azure AD B2C) tillhandahåller moln identitets hantering för att hålla ditt program, din verksamhet och dina kunder skyddade. Med Azure AD B2C kan program autentisera med konton på sociala medier och företagskonton med öppna protokoll. I den här snabbstarten använder du ett ASP.NET-program för att logga in med en social identitetsprovider och anropa en Azure AD B2C-skyddad webb-API.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Krav
 
-- [Visual Studio 2019](https://www.visualstudio.com/downloads/) med **arbetsbelastningen ASP.NET och webbutveckling.**
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) med arbets belastningen **ASP.net och webb utveckling** .
 - Ett socialt konto från Facebook, Google eller Microsoft.
 - [Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) eller klona exempelwebbprogrammet från GitHub.
 
@@ -34,9 +34,9 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller molnidentitetshanteri
     git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
     ```
 
-    Det finns två projekt i urvalslösningen:
+    Det finns två projekt i exempel lösningen:
 
-    - **TaskWebApp** – Ett webbprogram som skapar och redigerar en uppgiftslista. Webbprogrammet använder användarflödet **för registrering eller inloggning** för att registrera eller logga in användare.
+    - **TaskWebApp** – Ett webbprogram som skapar och redigerar en uppgiftslista. Webb programmet använder användar flödet för **registrering eller inloggning** för att registrera eller logga in användare.
     - **TaskService** – Ett webb-API med stöd för att skapa, läsa, uppdatera och ta bort en uppgiftslista. Webb-API:n skyddas av Azure AD B2C och anropas av webbprogrammet.
 
 ## <a name="run-the-application-in-visual-studio"></a>Kör programmet i Visual Studio
@@ -54,15 +54,15 @@ Azure Active Directory B2C (Azure AD B2C) tillhandahåller molnidentitetshanteri
 
 1. Klicka på **Registrera dig/Logga in** i ASP.NET-webbprogrammet för att starta arbetsflödet.
 
-    ![Exempel ASP.NET webbapp i webbläsaren med registrerings-/anmälningslänken markerad](./media/quickstart-web-app-dotnet/web-app-sign-in.png)
+    ![Exempel på ASP.NET-webbapp i webbläsare med registrering/Sign-länk markerad](./media/quickstart-web-app-dotnet/web-app-sign-in.png)
 
-    Exemplet stöder flera registreringsalternativ, till exempel att använda en social identitetsprovider eller att skapa ett lokalt konto med en e-postadress. För den här snabbstarten använder du ett konto för en social identitetsleverantör från antingen Facebook, Google eller Microsoft.
+    Exemplet stöder flera registreringsalternativ, till exempel att använda en social identitetsprovider eller att skapa ett lokalt konto med en e-postadress. I den här snabb starten ska du använda ett konto för sociala identitets leverantörer från Facebook, Google eller Microsoft.
 
-2. Azure AD B2C visar en inloggningssida för ett fiktivt företag som heter Fabrikam för exempelwebbprogrammet. Klicka på knappen för den identitetsprovider som du vill använda för att registrera dig med en social identitetsprovider.
+2. Azure AD B2C visar en inloggnings sida för ett fiktivt företag som kallas Fabrikam för exempel webb programmet. Klicka på knappen för den identitetsprovider som du vill använda för att registrera dig med en social identitetsprovider.
 
-    ![Inloggnings- eller registreringssida med knappar för identitetsprovider](./media/quickstart-web-app-dotnet/sign-in-or-sign-up-web.png)
+    ![Sidan logga in eller registrera dig med identitets leverantörs knappar](./media/quickstart-web-app-dotnet/sign-in-or-sign-up-web.png)
 
-    Du autentiserar (loggar in) med dina autentiseringsuppgifter för sociala konton och godkänner att programmet läser information från ditt sociala konto. När du beviljar åtkomst kan programmet hämta profilinformation från det sociala kontot, till exempel ditt namn och din ort.
+    Du autentiserar (loggar in) med dina autentiseringsuppgifter för ditt sociala konto och godkänner att programmet läser information från ditt sociala konto. När du beviljar åtkomst kan programmet hämta profilinformation från det sociala kontot, till exempel ditt namn och din ort.
 
 3. Avsluta inloggningsprocessen för identitetsprovidern.
 
@@ -84,7 +84,7 @@ Azure Active Directory B2C tillhandahåller funktioner som gör det möjligt fö
 
 2. Ange text i textrutan **Nytt objekt**. Klicka på **Lägg till** för att anropa det Azure AD B2C-skyddade webb-API:et som lägger till ett objekt i att göra-listan.
 
-    ![Exempel på webbapp i webbläsaren med Lägg till ett att göra-listobjekt](./media/quickstart-web-app-dotnet/add-todo-item-web.png)
+    ![Exempel på webbapp i webbläsare med Lägg till ett objekt i att göra-listan](./media/quickstart-web-app-dotnet/add-todo-item-web.png)
 
     ASP.NET-webbtillämpningsprogrammet innehåller en åtkomsttoken för Azure AD i begäran till den skyddade web API-resursen som utför åtgärder på användarnas objekt för att göra-listor.
 
@@ -96,11 +96,11 @@ Du kan använda Azure AD B2C-klientorganisationen om du vill prova andra snabbst
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du ett exempel ASP.NET program för att:
+I den här snabb starten använde du ett exempel på ASP.NET-program för att:
 
-* Logga in med en anpassad inloggningssida
-* Logga in med en leverantör av social identitet
-* Skapa ett Azure AD B2C-konto
+* Logga in med en anpassad inloggnings sida
+* Logga in med en social identitetsprovider
+* Skapa ett Azure AD B2C konto
 * Anropa ett webb-API som skyddas av Azure AD B2C
 
 Kom igång med att skapa en egen Azure AD B2C-klientorganisation.

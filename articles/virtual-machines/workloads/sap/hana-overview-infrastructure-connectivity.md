@@ -1,6 +1,6 @@
 ---
-title: Infrastruktur och anslutning till SAP HANA på Azure (stora instanser) | Microsoft-dokument
-description: Konfigurera nödvändig anslutningsinfrastruktur för att använda SAP HANA på Azure (stora instanser).
+title: Infrastruktur och anslutning till SAP HANA på Azure (stora instanser) | Microsoft Docs
+description: Konfigurera nödvändig anslutnings infrastruktur för att använda SAP HANA på Azure (stora instanser).
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
@@ -14,43 +14,43 @@ ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cea89087742f1987f693b8bfb627bd71038a0c14
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77616926"
 ---
-# <a name="sap-hana-large-instances-deployment"></a>SAP HANA-distribution (stora instanser) 
+# <a name="sap-hana-large-instances-deployment"></a>SAP HANA (stora instanser) distribution 
 
-Den här artikeln förutsätter att du har slutfört ditt köp av SAP HANA på Azure (stora instanser) från Microsoft. Innan du läser den här artikeln, för allmän bakgrund, se [HANA stora instanser vanliga termer](hana-know-terms.md) och [HANA stora instanser SKU .](hana-available-skus.md)
+Den här artikeln förutsätter att du har slutfört köpet av SAP HANA på Azure (stora instanser) från Microsoft. Innan du läser den här artikeln kan du läsa mer i [Hana stora instanser vanliga termer](hana-know-terms.md) och [Hana stora instanser](hana-available-skus.md)i den allmänna bakgrunden.
 
 
-Microsoft kräver följande information för att distribuera STORA HANA-enheter:
+Microsoft kräver följande information för att distribuera HANA-stora instans enheter:
 
-- Kundens namn.
-- Affärskontaktinformation (inklusive e-postadress och telefonnummer).
-- Teknisk kontaktinformation (inklusive e-postadress och telefonnummer).
-- Teknisk kontaktinformation för nätverk (inklusive e-postadress och telefonnummer).
-- Azure-distributionsregion (till exempel Västra USA, Östra Australien eller Norra Europa).
+- Kund namn.
+- Företags kontakt information (inklusive e-postadress och telefonnummer).
+- Teknisk kontakt information (inklusive e-postadress och telefonnummer).
+- Teknisk nätverks kontakt information (inklusive e-postadress och telefonnummer).
+- Azure-distributions region (till exempel västra USA, östra Australien eller Nord Europa).
 - SAP HANA på Azure (stora instanser) SKU (konfiguration).
-- För alla Azure-distributionsregioner:
-    - Ett /29 IP-adressintervall för ER-P2P-anslutningar som ansluter virtuella Azure-nätverk till HANA stora instanser.
-    - Ett /24 CIDR-block som används för HANA:s IP-pool för stora instanser.
-    - Valfritt när du använder [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) för att aktivera direkt routning från lokalt till HANA-enheter för stora instanser eller routning mellan HANA-enheter för stora instanser i olika Azure-regioner, måste du reservera ett annat /29 IP-adressintervall. Det här intervallet kanske inte överlappar något av de andra IP-adressintervall som du definierade tidigare.
-- DE IP-adressintervallvärden som används i attributet virtuellt nätverk adressutrymme för alla virtuella Azure-nätverk som ansluter till DE STORA HANA-instanserna.
-- Data för varje HANA stora instanser system:
-  - Önskat värdnamn, helst med ett fullständigt kvalificerat domännamn.
-  - Önskad IP-adress för den stora HANA-instansenheten utanför server-IP-pooladressintervallet. (De första 30 IP-adresserna i server-IP-pooladressintervallet är reserverade för internt bruk i HANA stora instanser.)
-  - SAP HANA SID-namn för SAP HANA-instansen (krävs för att skapa nödvändiga SAP HANA-relaterade diskvolymer). Microsoft behöver HANA SID för att skapa behörigheter för sidadm på NFS-volymerna. Dessa volymer kopplas till den stora HANA-instansenheten. HANA SID används också som en av namnkomponenterna i de diskvolymer som monteras. Om du vill köra mer än en HANA-instans på enheten bör du lista flera HANA-SID. Var och en får en separat uppsättning tilldelade volymer.
-  - I Linux OS har sidadm-användaren ett grupp-ID. Det här ID:t krävs för att skapa nödvändiga SAP HANA-relaterade diskvolymer. SAP HANA-installationen skapar vanligtvis sapsys-gruppen med ett grupp-ID på 1001. Sidadm-användaren ingår i den gruppen.
-  - I Linux OS har sidadm-användaren ett användar-ID. Det här ID:t krävs för att skapa nödvändiga SAP HANA-relaterade diskvolymer. Om du kör flera HANA-instanser på enheten kan du lista alla sidadm-användare. 
-- Azure-prenumerations-ID för Azure-prenumerationen som SAP HANA på Azure HANA stora instanser kommer att vara direkt anslutna till. Det här prenumerations-ID:t refererar till Azure-prenumerationen, som kommer att debiteras med HANA:s stora instansenhet eller enheter.
+- För varje Azure-distributions region:
+    - Ett/29 IP-adressintervall för ER-P2P-anslutningar som ansluter virtuella Azure-nätverk till HANA-stora instanser.
+    - Ett/24 CIDR-block som används för IP-adresspoolen HANA Large instances Server.
+    - Valfritt när du använder [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) för att aktivera dirigerad routning från lokal plats till Hana stora instans enheter eller routning mellan Hana-stora instans enheter i olika Azure-regioner, måste du reservera ett annat/29 IP-adressintervall. Detta specifika intervall får inte överlappa något av de andra IP-adressintervall som du definierade tidigare.
+- De IP-adressintervall som används i det virtuella nätverkets adress utrymme-attribut för varje virtuellt Azure-nätverk som ansluter till de stora HANA-instanserna.
+- Data för varje HANA-stor instans system:
+  - Önskat värdnamn, helst med ett fullständigt kvalificerat domän namn.
+  - Önskad IP-adress för den stora volymen HANA av en stor instans av serverns IP-adresspool. (De första 30 IP-adresserna i Server intervallet för IP-adresspoolen är reserverade för intern användning i HANA stora instanser.)
+  - SAP HANA SID-namn för SAP HANA-instansen (krävs för att skapa nödvändiga SAP HANA-relaterade disk volymer). Microsoft behöver det HANA-SID som krävs för att skapa behörigheter för sidadm på NFS-volymerna. Dessa volymer ansluter till den stora volymen HANA. HANA SID används också som en av namn komponenterna för de disk volymer som monteras. Om du vill köra fler än en HANA-instans på enheten bör du lista flera HANA-sid. Var och en får en separat uppsättning tilldelade volymer.
+  - I Linux OS har sidadm-användaren ett grupp-ID. Detta ID krävs för att skapa nödvändiga SAP HANA-relaterade disk volymer. SAP HANA-installationen skapar vanligt vis gruppen sapsys med grupp-ID 1001. Sidadm-användaren är en del av den gruppen.
+  - I Linux OS har sidadm-användaren ett användar-ID. Detta ID krävs för att skapa nödvändiga SAP HANA-relaterade disk volymer. Om du kör flera HANA-instanser på enheten ska du Visa en lista över alla sidadm-användare. 
+- ID för Azure-prenumerationen för den Azure-prenumeration som SAP HANA på Azure HANA stora instanser kommer att vara direkt anslutna. Det här prenumerations-ID: t refererar till Azure-prenumerationen, som kommer att debiteras med en stor instans enhet eller enheter i HANA.
 
-När du har anger föregående information, microsoft bestämmelser SAP HANA på Azure (stora instanser). Microsoft skickar information om du vill länka dina virtuella Azure-nätverk till STORA HANA-instanser. Du kan också komma åt HANA stora instansenheter.
+När du har angett föregående information, etablerar Microsoft SAP HANA på Azure (stora instanser). Microsoft skickar information till att länka dina virtuella Azure-nätverk till HANA-stora instanser. Du kan också komma åt de stora instans enheterna i HANA.
 
-Använd följande sekvens för att ansluta till stora HANA-instanser efter att Microsoft har distribuerat den:
+Använd följande sekvens för att ansluta till de stora HANA-instanserna när Microsoft har distribuerat den:
 
-1. [Ansluta virtuella Azure-datorer till STORA HANA-instanser](hana-connect-azure-vm-large-instances.md)
-2. [Ansluta ett VNet till HANA stora instanser ExpressRoute](hana-connect-vnet-express-route.md)
-3. [Ytterligare nätverkskrav (valfritt)](hana-additional-network-requirements.md)
+1. [Ansluta virtuella Azure-datorer till HANA-stora instanser](hana-connect-azure-vm-large-instances.md)
+2. [Ansluta ett VNet till HANA-stora instanser ExpressRoute](hana-connect-vnet-express-route.md)
+3. [Ytterligare nätverks krav (valfritt)](hana-additional-network-requirements.md)
 

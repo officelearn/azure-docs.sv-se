@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure Service Bus begränsning | Microsoft-dokument
-description: Översikt över servicebussbegränsning - standard- och premiumnivåer.
+title: Översikt över Azure Service Bus begränsning | Microsoft Docs
+description: Översikt över Service Bus begränsning – standard-och Premium-nivåer.
 services: service-bus-messaging
 author: axisc
 editor: spelluru
@@ -9,124 +9,124 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: aschhab
 ms.openlocfilehash: f852ad70b2eb97e2b8b3e40d086e98b3836c3592
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77598297"
 ---
-# <a name="throttling-operations-on-azure-service-bus"></a>Begränsningsåtgärder på Azure Service Bus
+# <a name="throttling-operations-on-azure-service-bus"></a>Begränsnings åtgärder på Azure Service Bus
 
-Inbyggda molnlösningar ger en uppfattning om obegränsade resurser som kan skalas med din arbetsbelastning. Även om det här begreppet är mer sant i molnet än med lokala system, finns det fortfarande begränsningar som finns i molnet.
+Inbyggda Cloud-lösningar ger ett begrepp för obegränsade resurser som kan skalas med din arbets belastning. Även om den här begreppet är mer sann i molnet än med lokala system, finns det fortfarande begränsningar som finns i molnet.
 
-Dessa begränsningar kan orsaka begränsning av klientprogrambegäranden på både standard- och premiumnivåer som beskrivs i den här artikeln. 
+Dessa begränsningar kan orsaka begränsning av klient program begär Anden på nivåerna standard och Premium enligt beskrivningen i den här artikeln. 
 
-## <a name="throttling-in-azure-service-bus-standard-tier"></a>Begränsning i Azure Service Bus Standard-nivå
+## <a name="throttling-in-azure-service-bus-standard-tier"></a>Begränsning i Azure Service Bus standard nivån
 
-Azure Service Bus Standard-nivån fungerar som en konfiguration med flera innehavare med en prismodell för användningsbaserad betalning. Här delar flera namnområden i samma kluster de tilldelade resurserna. Standardnivå är det rekommenderade valet för utvecklar-, testnings- och QA-miljöer tillsammans med produktionssystem för lågt dataflöde.
+Azure Service Bus standard nivån fungerar som en installation med flera innehavare med en pris sättnings modell enligt principen betala per användning. Här är flera namn områden i samma kluster delar de allokerade resurserna. Standard nivån är det rekommenderade valet för utvecklings-, testnings-och frågor och svars miljöer tillsammans med låg data flödes produktions system.
 
-Tidigare hade Azure Service Bus grova begränsningsgränser som är strikt beroende av resursutnyttjande. Det finns dock en möjlighet att förfina begränsningslogiken och tillhandahålla förutsägbart begränsningsbeteende till alla namnområden som delar dessa resurser.
+Tidigare hade Azure Service Bus grov begränsnings gränser som är strikt beroende av resursutnyttjande. Det finns dock en möjlighet att förfina begränsnings logiken och tillhandahålla förutsägbart begränsnings beteende för alla namn områden som delar resurserna.
 
-I ett försök att säkerställa rättvis användning och distribution av resurser i alla Azure Service Bus Standard-namnområden som använder samma resurser har begränsningslogiken ändrats till kreditbaserad.
+I ett försök att säkerställa en rättvis användning och distribution av resurser i alla Azure Service Bus standard namn områden som använder samma resurser har begränsnings logiken ändrats till kredit.
 
 > [!NOTE]
-> Det är viktigt att notera att begränsning inte är ***ny*** för Azure Service Bus eller någon molnbaserad tjänst.
+> Det är viktigt att Observera att begränsningen ***inte är ny*** för Azure Service Bus eller någon moln intern tjänst.
 >
-> Kreditbaserad begränsning förfinar helt enkelt hur olika namnområden delar resurser i en standardmiljö för flera innehavare och möjliggör därmed rättvis användning av alla namnområden som delar resurserna.
+> Kredit baserad begränsning är helt enkelt att förfina det sätt som olika namn områden delar resurser i en miljö med flera klienters standard nivåer och därmed aktiverar rättvis användning av alla namn områden som delar resurserna.
 
-### <a name="what-is-credit-based-throttling"></a>Vad är kreditbaserad begränsning?
+### <a name="what-is-credit-based-throttling"></a>Vad är en kredit baserad begränsning?
 
-Kreditbaserad begränsning begränsar antalet åtgärder som kan utföras på ett visst namnområde under en viss tidsperiod. 
+Kreditbaserade begränsningar begränsar antalet åtgärder som kan utföras i ett angivet namn område under en viss tids period. 
 
-Nedan finns arbetsflödet för kreditbaserad begränsning - 
+Nedan visas arbets flödet för kredit baserad begränsning – 
 
-  * I början av varje tidsperiod tillhandahåller vi ett visst antal krediter till varje namnområde.
-  * Alla åtgärder som utförs av avsändaren eller mottagaren klientprogram kommer att räknas mot dessa krediter (och subtraheras från tillgängliga krediter).
-  * Om krediterna är uttömda begränsas efterföljande åtgärder till början av nästa tidsperiod.
-  * Krediterna fylls på i början av nästa tidsperiod.
+  * I början av varje tids period ger vi ett visst antal krediter för varje namn område.
+  * Alla åtgärder som utförs av avsändare eller mottagares klient program räknas mot dessa krediter (och subtraheras från de tillgängliga krediterna).
+  * Om krediterna är slut kommer efterföljande åtgärder att begränsas tills nästa tids period börjar gälla.
+  * Krediter debiteras i början av nästa tids period.
 
-### <a name="what-are-the-credit-limits"></a>Vilka är kreditgränserna?
+### <a name="what-are-the-credit-limits"></a>Vilka är kredit gränserna?
 
-Kreditgränserna är för närvarande inställda på "1000" krediter varje sekund (per namnområde).
+Kredit gränserna är för närvarande inställt på 1000-krediter varje sekund (per namnrymd).
 
-Alla åtgärder är inte skapade lika. Här är kreditkostnaderna för var och en av 
+Alla åtgärder har inte skapats lika. Här är kredit kostnaderna för var och en av driften – 
 
-| Åtgärd | Kreditkostnad|
+| Åtgärd | Kredit kostnad|
 |-----------|-----------|
-| Dataåtgärder (Skicka, SendAsync, Receive, ReceiveAsync, Peek) |1 kredit per meddelande |
-| Hanteringsåtgärder (Skapa, Läsa, Uppdatera, Ta bort i köer, ämnen, prenumerationer, filter) | 10 hp |
+| Data åtgärder (skicka, SendAsync, ta emot, ReceiveAsync, spetsig) |1 kredit per meddelande |
+| Hanterings åtgärder (skapa, läsa, uppdatera, ta bort i köer, ämnen, prenumerationer, filter) | 10 krediter |
 
 > [!NOTE]
-> Observera att när du skickar till ett ämne utvärderas varje meddelande mot filter innan de görs tillgängliga på prenumerationen.
-> Varje filterutvärdering räknas också mot kreditgränsen (dvs. 1 kredit per filterutvärdering).
+> Observera att varje meddelande som skickas till ett ämne utvärderas mot filter innan de görs tillgängliga i prenumerationen.
+> Varje filter utvärdering räknas också mot kredit gränsen (t. ex. 1 kredit per filter utvärdering).
 >
 
-### <a name="how-will-i-know-that-im-being-throttled"></a>Hur vet jag att jag blir strypt?
+### <a name="how-will-i-know-that-im-being-throttled"></a>Hur vet jag att jag är begränsad?
 
-När klientprogrambegäranden begränsas tas svaret på nedanstående server emot av ditt program och loggas.
+När klient program begär Anden begränsas tas nedanstående Server svar emot av ditt program och loggas.
 
 ```
 The request was terminated because the entity is being throttled. Error code: 50009. Please wait 2 seconds and try again.
 ```
 
-### <a name="how-can-i-avoid-being-throttled"></a>Hur kan jag undvika att bli strypt?
+### <a name="how-can-i-avoid-being-throttled"></a>Hur kan jag undvika att begränsas?
 
-Med delade resurser är det viktigt att genomdriva någon form av rättvis användning över olika Service Bus-namnområden som delar dessa resurser. Begränsning säkerställer att en topp i en enskild arbetsbelastning inte orsakar att andra arbetsbelastningar på samma resurser begränsas.
+Med delade resurser är det viktigt att se till att du har en viss typ av god användning i olika Service Bus namn områden som delar dessa resurser. Begränsningen säkerställer att all insamling i en enskild arbets belastning inte medför att andra arbets belastningar på samma resurser begränsas.
 
-Som nämnts senare i artikeln finns det ingen risk att begränsas eftersom klient-SDK:erna (och andra Azure PaaS-erbjudanden) har standardprincipen för återförsök inbyggd i dem. Alla begränsade begäranden kommer att göras om med exponentiell backoff och kommer så småningom att gå igenom när krediterna fylls på.
+Som vi nämnt senare i artikeln finns det ingen risk för att begränsas eftersom klient-SDK: erna (och andra Azure PaaS-erbjudanden) har en inbyggd standard princip för återförsök. Eventuella begränsade begär Anden görs om med exponentiell backoff och kommer att gå igenom när krediten har återgått.
 
-Det är förståeligt att vissa program kan vara känsliga för att begränsas. I så fall rekommenderas att [du migrerar det aktuella servicebussstandardnamnområdet till Premium](service-bus-migrate-standard-premium.md). 
+Vissa program kan förstås vara känsliga för att begränsas. I så fall rekommenderar vi att du [migrerar din nuvarande Service Bus standard namn område till Premium](service-bus-migrate-standard-premium.md). 
 
-Vid migreringen kan du allokera dedikerade resurser till tjänstbussens namnområde och skala upp resurserna på rätt sätt om det finns en ökning av arbetsbelastningen och minska sannolikheten för att begränsas. När arbetsbelastningen minskar till normala nivåer kan du dessutom skala ned de resurser som allokerats till ditt namnområde.
+Vid migrering kan du allokera dedikerade resurser till ditt Service Bus-namnområde och skala upp resurserna på ett lämpligt sätt om du har en topp i arbets belastningen och minska sannolikheten för att bli begränsad. När din arbets belastning minskar till normala nivåer kan du dessutom skala ned resurserna som är allokerade till ditt namn område.
 
-## <a name="throttling-in-azure-service-bus-premium-tier"></a>Begränsning i Azure Service Bus Premium-nivå
+## <a name="throttling-in-azure-service-bus-premium-tier"></a>Begränsning i Azure Service Bus Premium-nivån
 
-[Azure Service Bus Premium-nivån](service-bus-premium-messaging.md) allokerar dedikerade resurser, i form av meddelandeenheter, till varje namnområdesinställning av kunden. Dessa dedikerade resurser ger förutsägbart dataflöde och svarstid och rekommenderas för system med hög genomströmning eller känslig produktionskvalitet.
+[Azure Service Bus Premium](service-bus-premium-messaging.md) -nivån allokerar dedikerade resurser, vad gäller meddelande enheter, till varje namn områdes konfiguration av kunden. Dessa dedikerade resurser tillhandahåller förutsägbart data flöde och svars tider och rekommenderas för stora data flöden eller känsliga system för produktions betyg.
 
-Dessutom gör Premium-nivån det också möjligt för kunder att skala upp sin dataflödeskapacitet när de upplever toppar i arbetsbelastningen.
+Dessutom gör Premium nivån det också möjligt för kunderna att skala upp sin data flödes kapacitet när de upplever toppar i arbets belastningen.
 
-### <a name="how-does-throttling-work-in-service-bus-premium"></a>Hur fungerar begränsning i Service Bus Premium?
+### <a name="how-does-throttling-work-in-service-bus-premium"></a>Hur fungerar begränsningen i Service Bus Premium?
 
-Med exklusiv resursallokering för Service Bus Premium drivs begränsningen enbart av begränsningarna för de resurser som allokerats till namnområdet.
+Med exklusiv resursallokering för Service Bus Premium styrs begränsningen helt av begränsningarna för de resurser som har allokerats till namn området.
 
-Om antalet begäranden är fler än de aktuella resurserna kan serva begränsas begäranden.
+Om antalet begär Anden är fler än vad de aktuella resurserna kan betjäna, kommer begäran att begränsas.
 
-### <a name="how-will-i-know-that-im-being-throttled"></a>Hur vet jag att jag blir strypt?
+### <a name="how-will-i-know-that-im-being-throttled"></a>Hur vet jag att jag är begränsad?
 
-Det finns olika sätt att identifiera begränsning i Azure Service Bus Premium - 
-  * **Begränsade begäranden** visas på [Azure Monitor Request-måtten](service-bus-metrics-azure-monitor.md#request-metrics) för att identifiera hur många begäranden som begränsades.
-  * Hög **CPU-användning** indikerar att den aktuella resursallokeringen är hög och begäranden kan begränsas om den aktuella arbetsbelastningen inte minskar.
-  * Hög **minnesanvändning** indikerar att den aktuella resursallokeringen är hög och begäranden kan begränsas om den aktuella arbetsbelastningen inte minskar.
+Det finns olika sätt att identifiera begränsning i Azure Service Bus Premium- 
+  * **Begränsade begär Anden** visas i [Azure Monitor begär ande mått](service-bus-metrics-azure-monitor.md#request-metrics) för att identifiera hur många begär Anden som begränsades.
+  * Hög **CPU-användning** anger att den aktuella resursallokeringen är hög och att förfrågningar kan bli begränsade om den aktuella arbets belastningen inte minskar.
+  * Hög **minnes användning** anger att den aktuella resursallokeringen är hög och att förfrågningar kan bli begränsade om den aktuella arbets belastningen inte minskar.
 
-### <a name="how-can-i-avoid-being-throttled"></a>Hur kan jag undvika att bli strypt?
+### <a name="how-can-i-avoid-being-throttled"></a>Hur kan jag undvika att begränsas?
 
-Eftersom Service Bus Premium-namnområdet redan har dedikerade resurser kan du minska risken för att få begränsat genom att skala upp antalet meddelandeenheter som tilldelats ditt namnområde i händelse (eller förväntan) för en ökning av arbetsbelastningen.
+Eftersom namn området för Service Bus Premium redan har dedikerade resurser, kan du minska risken för att få en begränsning genom att skala upp antalet meddelande enheter som allokerats till ditt namn område i händelsen (eller förväntade) av en insamling i arbets belastningen.
 
-Skala upp/ned kan uppnås genom att skapa [runbooks](../automation/automation-create-alert-triggered-runbook.md) som kan utlösas av ändringar i ovanstående mått.
+Skala upp/ned kan uppnås genom att skapa [Runbooks](../automation/automation-create-alert-triggered-runbook.md) som kan utlösas av ändringar i ovanstående mått.
 
 ## <a name="faqs"></a>Vanliga frågor och svar
 
 ### <a name="how-does-throttling-affect-my-application"></a>Hur påverkar begränsningen mitt program?
 
-När en begäran begränsas innebär det att tjänsten är upptagen eftersom den står inför fler begäranden än resurserna tillåter. Om samma åtgärd försöker igen efter en stund, när tjänsten har arbetat igenom sin aktuella arbetsbelastning, kan begäran uppfyllas.
+När en begäran har begränsats innebär det att tjänsten är upptagen eftersom den är riktad mot fler begär Anden än vad resurserna tillåter. Om samma åtgärd görs igen efter en liten stund, när tjänsten har fungerat genom sin nuvarande arbets belastning, kan begäran hanteras.
 
-Eftersom begränsning är det förväntade beteendet för alla molninbyggda tjänster har vi skapat logiken för återförsök i Azure Service Bus SDK själv. Standardinställningen är inställd på automatiskt nytt försök med en exponentiell back-off för att säkerställa att vi inte har samma begäran som begränsas varje gång.
+Eftersom begränsning är det förväntade beteendet för en moln intern tjänst har vi skapat logiken för nya försök i själva Azure Service Bus SDK: n. Standardvärdet är inställt på automatiskt försök med en exponentiell säkerhets kopiering för att se till att vi inte har samma begäran som begränsas varje tid.
 
-Standardlogiken för återförsök gäller för varje åtgärd.
+Standard logiken för omförsök kommer att gälla för varje åtgärd.
 
-### <a name="does-throttling-result-in-data-loss"></a>Leder begränsningen till dataförlust?
+### <a name="does-throttling-result-in-data-loss"></a>Leder begränsningen till data förlust?
 
-Azure Service Bus är optimerad för persistens, vi ser till att alla data som skickas till Service Bus har åtagit sig att lagras innan tjänsten bekräftar att begäran är lyckad.
+Azure Service Bus är optimerat för persistence ser vi till att alla data som skickas till Service Bus sparas i lagrings utrymmet innan tjänsten bekräftar att begäran lyckades.
 
-När begäran har slutförts "ACK" (bekräftad) av Service Bus innebär det att Service Bus har behandlat begäran. Om Service Bus returnerar en "NACK" (fel), innebär det att Service Bus inte har kunnat behandla begäran och klientprogrammet måste försöka igen begäran.
+När begäran har blivit ACK (bekräftad) av Service Bus, innebär det att Service Bus har bearbetat begäran. Om Service Bus returnerar ett ' NACK ' (fel) innebär det att Service Bus inte har kunnat bearbeta begäran och klient programmet måste försöka utföra begäran igen.
 
-Men när en begäran begränsas innebär tjänsten att den inte kan acceptera och bearbeta begäran just nu på grund av resursbegränsningar. Detta **innebär inte** någon form av dataförlust eftersom Service Bus helt enkelt inte har tittat på begäran. I det här fallet säkerställer förlita sig på standardprincipen för återförsök i Service Bus SDK att begäran så småningom bearbetas.
+Men när en begäran är begränsad, förutsätter tjänsten att den inte kan godkänna och bearbeta begäran just nu på grund av resurs begränsningar. Detta innebär **ingen** sortering av data förlust, eftersom Service Bus helt enkelt inte har tittat på begäran. I det här fallet är det att förlita dig på standard principen för återförsök i Service Bus SDK säkerställer att begäran behandlas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information och exempel på hur du använder Service Bus-meddelanden finns i följande avancerade avsnitt:
+Mer information och exempel på hur du använder Service Bus meddelanden finns i följande avancerade avsnitt:
 
-* [Översikt över servicebussmeddelanden](service-bus-messaging-overview.md)
+* [Översikt över Service Bus meddelande hantering](service-bus-messaging-overview.md)
 * [Snabbstart: Skicka och ta emot meddelanden med Azure-portalen och .NET](service-bus-quickstart-portal.md)
 * [Självstudie: Uppdatera lagret med Azure-portalen och ämnen/prenumerationer](service-bus-tutorial-topics-subscriptions-portal.md)
 

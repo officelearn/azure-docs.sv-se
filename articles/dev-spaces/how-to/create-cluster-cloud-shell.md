@@ -1,24 +1,24 @@
 ---
-title: Skapa ett Kubernetes-kluster med Azure Dev Spaces aktiverat - Azure Cloud Shell
+title: Skapa ett Kubernetes-kluster med Azure dev Spaces aktiverat – Azure Cloud Shell
 services: azure-dev-spaces
 ms.date: 10/04/2018
 ms.topic: conceptual
-description: Lär dig hur du snabbt skapar ett Kubernetes-kluster aktiverat för Azure Dev Spaces direkt från din webbläsare utan att installera något.
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, servicenät, routning av tjänstnät, kubectl, k8s
+description: Lär dig hur du snabbt skapar ett Kubernetes-kluster som är aktiverat för Azure dev Spaces direkt från webbläsaren utan att installera något.
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 ms.openlocfilehash: 5e2e5cfd22eeedd3554737458caeca0b891b62fe
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77605299"
 ---
-# <a name="create-a-kubernetes-cluster-with-azure-dev-spaces-enabled-with-azure-cloud-shell"></a>Skapa ett Kubernetes-kluster med Azure Dev Spaces aktiverat med Azure Cloud Shell
+# <a name="create-a-kubernetes-cluster-with-azure-dev-spaces-enabled-with-azure-cloud-shell"></a>Skapa ett Kubernetes-kluster med Azure dev Spaces aktiverat med Azure Cloud Shell
 
-Du kan använda [Azure Cloud Shell](/azure/cloud-shell) för att skapa ett Azure Kubernetes Service-kluster med hjälp av knappen **Prova** på från den här sidan. Om du inte är inloggad följer du anvisningarna för att logga in med ett Azure-konto och skriver sedan kommandona på Azure Cloud Shell-prompten när den visas.
+Du kan använda [Azure Cloud Shell](/azure/cloud-shell) för att skapa ett Azure Kubernetes service-kluster genom att använda knappen **prova** från den här sidan. Om du inte har loggat in, följer du anvisningarna för att logga in med ett Azure-konto och skriver sedan kommandona i Azure Cloud Shell prompt när det visas.
 
 ## <a name="create-the-cluster"></a>Skapa klustret
 
-Skapa först resursgruppen i en [region som stöder Azure Dev Spaces][supported-regions].
+Skapa först resurs gruppen i en [region som stöder Azure dev Spaces][supported-regions].
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -30,14 +30,14 @@ Skapa ett Kubernetes-kluster med följande kommando:
 az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
-Det tar några minuter att skapa klustret.  När du är klar visas utdata i JSON-formatet. Leta `provisioningState` efter och kontrollera `Succeeded`att det är .
+Det tar några minuter att skapa klustret.  När du är klar visas utdata i JSON-format. Leta efter `provisioningState` och kontrol lera att `Succeeded`den är.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [Azure Dev Spaces](/azure/dev-spaces/) för länkar till fullständiga självstudier.
+I [Azure dev Spaces](/azure/dev-spaces/) finns länkar till fullständiga självstudier.
 
 > [!IMPORTANT]
-> Många av azure dev spaces-snabbstarter och självstudiekurser använder Azure Dev Spaces CLI för att utföra åtgärder. Du kan inte installera AZURE Dev Spaces CLI i Azure Cloud Shell.
+> Många av våra snabb starter och självstudier för Azure dev Spaces använder Azure dev Spaces CLI för att utföra åtgärder. Det går inte att installera Azure dev Spaces CLI i Azure Cloud Shell.
 
 
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

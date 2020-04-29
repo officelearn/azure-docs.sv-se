@@ -1,5 +1,5 @@
 ---
-title: Certifiering av SAP HANA på Azure (stora instanser) | Microsoft-dokument
+title: Certifiering av SAP HANA på Azure (stora instanser) | Microsoft Docs
 description: Certifiering av SAP HANA på Azure (stora instanser).
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,31 +14,31 @@ ms.date: 09/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2a02f0e1b05b9de8105126d1c9e4e3f79057285f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77617234"
 ---
 # <a name="certification"></a>Certifiering
 
-Förutom NetWeaver-certifieringen kräver SAP en särskild certifiering för SAP HANA för att stödja SAP HANA på vissa infrastrukturer, till exempel Azure IaaS.
+Förutom NetWeaver-certifieringen kräver SAP en speciell certifiering för SAP HANA för att stödja SAP HANA på vissa infrastrukturer, till exempel Azure IaaS.
 
-Kärn-SAP-anmärkningen på NetWeaver och i viss mån SAP HANA-certifiering är [SAP Note #1928533 – SAP-program på Azure: Produkter som stöds och Azure VM-typer](https://launchpad.support.sap.com/#/notes/1928533).
+Core SAP-anteckningen på NetWeaver, och till en examen SAP HANA-certifiering, är [SAP obs #1928533 – SAP-program på Azure: produkter som stöds och Azure VM-typer](https://launchpad.support.sap.com/#/notes/1928533).
 
-Certifieringsposterna för SAP HANA på Azure-enheter (Stora instanser) finns på sap [HANA-certifierade IaaS-plattformar.](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) 
+Certifierings posterna för SAP HANA på Azure-enheter (stora instanser) finns på webbplatsen [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) . 
 
-SAP HANA på Azure (Stora instanser) typer, som avses i SAP HANA certifierade IaaS-plattformar webbplats, ger Microsoft och SAP-kunder möjlighet att distribuera stora SAP Business Suite, SAP BW, S/4 HANA, BW/4HANA eller andra SAP HANA arbetsbelastningar i Azure. Lösningen bygger på SAP-HANA-certifierad dedikerad hårdvarustämpel[(SAP HANA-skräddarsydd datacenterintegration – TDI](https://scn.sap.com/docs/DOC-63140)). Om du kör en SAP HANA TDI-konfigurerad lösning fungerar alla SAP HANA-baserade program (till exempel SAP Business Suite på SAP HANA, SAP BW på SAP HANA, S4/HANA och BW4/HANA) på maskinvaruinfrastrukturen.
+SAP HANA på Azure-typer (stora instanser) som hänvisas till i SAP HANA Certified IaaS Platforms site, ger Microsoft och SAP-kunder möjlighet att distribuera stora SAP Business Suite, SAP BW, S/4 HANA, BW/4HANA eller andra SAP HANA arbets belastningar i Azure. Lösningen baseras på den SAP-HANA-certifierade dedikerade maskin varu stämpeln ([SAP HANA anpassad Data Center integration – TDI](https://scn.sap.com/docs/DOC-63140)). Om du kör en SAP HANA TDI-konfigurerad lösning fungerar alla SAP HANA-baserade program (t. ex. SAP Business Suite på SAP HANA, SAP BW på SAP HANA, S4/HANA och BW4/HANA) i maskin varu infrastrukturen.
 
-Jämfört med att köra SAP HANA i virtuella datorer har den här lösningen en fördel. Det ger mycket större minnesvolymer. För att aktivera den här lösningen måste du förstå följande nyckelaspekter:
+Den här lösningen har en förmån jämfört med att köra SAP HANA i virtuella datorer. Det ger mycket större minnes volymer. Om du vill aktivera den här lösningen måste du förstå följande viktiga aspekter:
 
-- SAP-programskiktet och icke-SAP-program körs i virtuella datorer som finns i de vanliga Azure-maskinvarustämplarna.
-- Kundens lokala infrastruktur, datacenter och programdistributioner är anslutna till molnplattformen via ExpressRoute (rekommenderas) eller ett virtuellt privat nätverk (VPN). Active Directory och DNS utökas också till Azure.
-- SAP HANA-databasinstansen för HANA-arbetsbelastning körs på SAP HANA på Azure (Stora instanser). Stämpeln Stor instans är ansluten till Azure-nätverk, så programvara som körs i virtuella datorer kan interagera med HANA-instansen som körs i HANA Large Instance.
-- Maskinvara för SAP HANA på Azure (stora instanser) är dedikerad maskinvara som tillhandahålls i en IaaS med SUSE Linux Enterprise Server eller Red Hat Enterprise Linux förinstallerad. Precis som med virtuella datorer är ytterligare uppdateringar och underhåll till operativsystemet ditt ansvar.
-- Installation av HANA eller eventuella ytterligare komponenter som krävs för att köra SAP HANA på enheter av HANA Large Instance är ditt ansvar. Alla respektive pågående åtgärder och administration av SAP HANA på Azure är också ditt ansvar.
-- Utöver de lösningar som beskrivs här kan du installera andra komponenter i din Azure-prenumeration som ansluter till SAP HANA på Azure (Stora instanser). Exempel är komponenter som möjliggör kommunikation med eller direkt till SAP HANA-databasen, till exempel hoppservrar, RDP-servrar, SAP HANA Studio, SAP Data Services för SAP BI-scenarier eller nätverksövervakningslösningar.
-- Precis som i Azure erbjuder HANA Large Instance stöd för funktioner för hög tillgänglighet och haveriberedskap.
+- SAP-program lagret och icke-SAP-program körs på virtuella datorer som finns i de vanliga datorerna för Azure-maskinvaran.
+- Kundens lokala infrastruktur, data Center och program distributioner är anslutna till moln plattformen via ExpressRoute (rekommenderas) eller ett virtuellt privat nätverk (VPN). Active Directory och DNS utökas också till Azure.
+- SAP HANA databas instansen för HANA-arbetsbelastningar körs på SAP HANA på Azure (stora instanser). Den stora instans stämpeln är ansluten till Azure-nätverk, så program som körs i virtuella datorer kan interagera med HANA-instansen som körs i HANA stor instans.
+- Maskin vara för SAP HANA på Azure (stora instanser) är dedikerad maskin vara som tillhandahålls i en IaaS med SUSE Linux Enterprise Server eller Red Hat Enterprise Linux förinstallerad. Precis som med virtuella datorer är du ansvarig för ytterligare uppdateringar och underhåll av operativ systemet.
+- Ditt ansvar är att installera HANA eller ytterligare komponenter som krävs för att köra SAP HANA på enheter av HANA stor instans. Alla pågående åtgärder och administration av SAP HANA på Azure är också ditt ansvar.
+- Förutom de lösningar som beskrivs här kan du installera andra komponenter i din Azure-prenumeration som ansluter till SAP HANA på Azure (stora instanser). Exempel är komponenter som möjliggör kommunikation med eller direkt till SAP HANA-databasen, till exempel hopp servrar, RDP-servrar, SAP HANA Studio, SAP Data Services för SAP BI-scenarier eller lösningar för nätverks övervakning.
+- Som i Azure erbjuder en stor instans av HANA stor tillgänglighet stöd för hög tillgänglighet och katastrof återställning.
 
 **Nästa steg**
-- Se [Tillgängliga SKU:er för HLI](hana-available-skus.md) 
+- Se [tillgängliga SKU: er för HLI](hana-available-skus.md) 

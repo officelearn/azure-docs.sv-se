@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs- Distribuera en app till Azure Service Fabric Mesh
+title: Självstudie – distribuera en app till Azure Service Fabric nät
 description: I den här självstudiekursen får du lära dig hur du distribuerar ett program till ett Service Fabric Mesh med en mall.
 author: dkkapur
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75494936"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Självstudie: Distribuera ett program till Service Fabric Mesh med hjälp av en mall

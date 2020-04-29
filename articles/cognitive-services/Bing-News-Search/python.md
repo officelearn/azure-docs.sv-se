@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Gör en nyhetssökning med Python och REST-API:et för Bing News Search'
+title: 'Snabb start: utföra en nyhets sökning med python och Nyhetssökning i Bing REST API'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST-API:et för nyhetssökning i Bing med hjälp av Python och få ett JSON-svar.
 services: cognitive-services
@@ -12,19 +12,19 @@ ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 1c424c75a4df193ec412355607c68abeda0560a5
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75448499"
 ---
-# <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>Snabbstart: Gör en nyhetssökning med Python och REST-API:et för Bing-nyheters söksökning
+# <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>Snabb start: utföra en nyhets sökning med python och Nyhetssökning i Bing REST API
 
 Använd den här snabbstarten för att göra ditt första anrop till API för nyhetssökning i Bing och få ett JSON-svar. Det här enkla JavaScript-programmet skickar en sökfråga till API:et och bearbetar resultatet. Även om det här programmet är skrivet i Python är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 Du kan köra det här kodexemplet som en Jupyter Notebook på [MyBinder](https://mybinder.org) genom att klicka på ikonen för att starta Binder: 
 
-[![Pärm](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingNewsSearchAPI.ipynb)
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingNewsSearchAPI.ipynb)
 
 Källkoden till det här exemplet finns även på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingNewsSearchv7.py).
 
@@ -34,7 +34,7 @@ Källkoden till det här exemplet finns även på [GitHub](https://github.com/Az
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och importera begärandemodulen. Skapa variabler för din prenumerationsnyckel, en slutpunkt och ett sökvillkor. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
+1. Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och importera begärandemodulen. Skapa variabler för din prenumerationsnyckel, en slutpunkt och ett sökvillkor. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
 ```python
 import requests
@@ -83,4 +83,4 @@ HTML("<table>"+rows+"</table>")
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en ensidig webbapp](tutorial-bing-news-search-single-page-app.md)
+> [Skapa en enkelsidig webbapp](tutorial-bing-news-search-single-page-app.md)

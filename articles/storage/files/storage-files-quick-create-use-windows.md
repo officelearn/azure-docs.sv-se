@@ -1,5 +1,5 @@
 ---
-title: Skapa och använda en Azure Files-resurs på virtuella Windows-datorer
+title: Skapa och Använd en Azure Files resurs på virtuella Windows-datorer
 description: I den här snabbstarten konfigurerar du en Azure Files-resurs i Azure-portalen och ansluter den till en virtuell Windows-dator. Du ansluter till Files-resursen och laddar upp en fil till Files-resursen. Sedan tar du en ögonblicksbild av Files-resursen, ändrar filen Files-resursen och återställer en tidigare ögonblicksbild av Files-resursen.
 author: roygara
 ms.service: storage
@@ -8,13 +8,13 @@ ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 6bbab0ee2eefe6e86c150d5bddab4f8e91a7c92d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75463906"
 ---
-# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Snabbstart: Skapa och hantera Azure-filerdelning med virtuella Windows-datorer
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Snabb start: skapa och hantera Azure Files resurs med virtuella Windows-datorer
 
 Artikeln visar de grundläggande stegen för att skapa och använda en Azure Files-resurs. I den här snabbstarten fokuserar vi på att snabbt konfigurera en Azure Files-resurs så att du kan se hur tjänsten fungerar. Om du behöver mer detaljerade instruktioner för att skapa och använda Azure-filresurser i din egen miljö, kan du läsa mer i [Använda en Azure-filresurs med Windows](storage-how-to-use-files-windows.md).
 
@@ -31,7 +31,7 @@ I den här snabbstarten konfigurerar du följande objekt:
 - Skapa ett Azure-lagringskonto och en Azure-filresurs
 - En virtuell Windows Server 2016 Datacenter-dator
 
-### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Innan du kan arbeta med en Azure-filresurs måste du skapa ett Azure-lagringskonto. Ett v2-lagringskonto för generell användning ger åtkomst till alla Azure Storage-tjänster: blobar, filer, köer och tabeller. Snabbstarten skapar ett v2-lagringskonto för generell användning, men stegen för att skapa alla typer av lagringskonton liknar dessa. Ett lagringskonto kan innehålla ett obegränsat antal resurser. En resurs kan lagra ett obegränsat antal filer, upp till kapacitetsbegränsningen för lagringskontot.
 
@@ -46,7 +46,7 @@ Därefter skapar du en filresurs.
 
     ![Välj Filer](./media/storage-files-quick-create-use-windows/click-files.png)
 
-1. Välj **Filresurs**.
+1. Välj **fil resurs**.
 
     ![Välj knappen för att lägga till filresurs](./media/storage-files-quick-create-use-windows/create-file-share.png)
 
@@ -63,7 +63,7 @@ Nu har du skapat ett Azure Storage-konto och en filresurs med en fil i Azure. D�
 ### <a name="deploy-a-vm"></a>Distribuera en virtuell dator
 
 1. Expandera sedan menyn till vänster om portalen och välj **Skapa en resurs** i det övre vänstra hörnet i Azure-portalen.
-1. Sök efter och välj **Windows Server 2016 Datacenter**i sökrutan ovanför listan över Azure **Marketplace-resurser** och välj sedan **Skapa**.
+1. Sök efter och välj **Windows Server 2016 Data Center**i sökrutan ovanför **Azure Marketplace** -resurser och välj sedan **skapa**.
 1. På fliken **Grundinställningar** under **Projektinformation** väljer du den resursgrupp som du skapade för snabbstarten.
 
    ![Ange grundläggande information om de virtuella datorerna på portalens blad](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
@@ -101,7 +101,7 @@ Nu har du skapat en ny virtuell dator och anslutit en datadisk. Nu måste du ans
    ![UNC-sökvägen från fönstret Anslut i Azure Files](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
 
 1. I den virtuella datorn öppnar du **Utforskaren** och väljer **Den här datorn** i fönstret. Detta ändrar menyerna i menyfliksområdet. Under menyn **Dator** väljer du **Mappa nätverksenhet**.
-1. Välj enhetsbeteckningen och ange UNC-sökvägen. Om du har följt namnförslagen i den här snabbstarten * \\kopierar du qsstorageacct.file.core.windows.net\qsfileshare* från **Anteckningar**.
+1. Välj enhetsbeteckningen och ange UNC-sökvägen. Om du har följt namn förslaget i den här snabb starten kopierar * \\du qsstorageacct. File. Core. Windows. net\qsfileshare* från **anteckningar**.
 
    Kontrollera att båda kryssrutorna är markerade.
 
@@ -173,7 +173,7 @@ Precis som med lokala VSS-ögonblicksbilder, kan du visa ögonblicksbilder från
 
 1. Välj **Återställ**. Åtgärden kopierar innehållet i hela katalogen rekursivt vid tidpunkten då resursögonblicksbilden skapades till den ursprungliga platsen.
 
-   ![Knappen Återställ i](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) varningsmeddelandet Obs!Om filen inte har ändrats visas ingen tidigare version för filen eftersom filen är samma version som ögonblicksbilden. Detta är förenligt med hur detta fungerar på en Windows-filserver.
+   ![Knappen Återställ i varnings](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) meddelandet: om filen inte har ändrats visas inte en tidigare version av filen eftersom den är samma version som ögonblicks bilden. Detta är konsekvent med hur det fungerar på en Windows-filserver.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

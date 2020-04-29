@@ -1,15 +1,15 @@
 ---
-title: Snabbstart – distribuera Hello World till Azure Service Fabric Mesh
+title: Snabb start – distribuera Hello World till Azure Service Fabric-nätet
 description: Den här snabbstarten visar hur du distribuerar ett Service Fabric Mesh-program till Azure Service Fabric Mesh.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: quickstart
 ms.openlocfilehash: ce897b6e0e9d6a0b9b672907a64f4683f907b677
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75458973"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Snabbstart: Distribuera Hello World till Service Fabric Mesh

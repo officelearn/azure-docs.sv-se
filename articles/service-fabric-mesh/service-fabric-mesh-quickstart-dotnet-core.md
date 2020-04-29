@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – distribuera en webbapp till Azure Service Fabric Mesh
+title: Snabb start – distribuera en webbapp till Azure Service Fabric nät
 description: Den här snabbstarten beskriver hur du skapar en ASP.NET Core-webbplats och publicerar den till Azure Service Fabric Mesh med hjälp av Visual Studio.
 author: dkkapur
 ms.topic: quickstart
@@ -7,10 +7,10 @@ ms.date: 07/17/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 276f8860f407693a7ff08048399fa6edf16aaf0a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75459064"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Snabbstart: Skapa och distribuera en webbapp till Azure Service Fabric Mesh
@@ -25,7 +25,7 @@ Du behöver en Azure-prenumeration. Om du inte har någon Azure-prenumeration ka
 
 ## <a name="create-a-service-fabric-mesh-project"></a>Skapa ett Service Fabric Mesh-projekt
 
-Öppna Visual Studio och välj **Arkiv** > **Nytt** > **projekt...**
+Öppna Visual Studio och välj **fil** > **nytt** > **projekt...**
 
 I dialogrutan **Nytt projekt** dialogrutan, i rutan **Sök** längst upp skriver du `mesh`. Välj mallen **Service Fabric Mesh Application**. (Om du inte ser mallen kontrollerar du att du har installerat Mesh-SDK och förhandsversionen av VS-verktygen enligt anvisningarna om att [skapa en utvecklingsmiljö](service-fabric-mesh-howto-setup-developer-environment-sdk.md). 
 

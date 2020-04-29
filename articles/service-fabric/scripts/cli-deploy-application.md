@@ -15,13 +15,13 @@ ms.date: 04/16/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: ff40dc62b4dcd622156a78518bbdcb6b9b430644
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75526608"
 ---
-# <a name="deploy-an-application-to-a-service-fabric-cluster-using-the-service-fabric-cli"></a>Distribuera ett program till ett Service Fabric-kluster med hjälp av Service Fabric CLI
+# <a name="deploy-an-application-to-a-service-fabric-cluster-using-the-service-fabric-cli"></a>Distribuera ett program till ett Service Fabric kluster med hjälp av Service Fabric CLI
 
 Det här exempelskriptet kopierar ett programpaket till ett klusteravbildningsarkiv, registrerar programtypen i klustret och skapar en instans av programmet från programtypen. Alla standardtjänster skapas också vid samma tillfälle.
 

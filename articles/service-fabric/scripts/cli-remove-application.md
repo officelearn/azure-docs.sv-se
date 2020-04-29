@@ -15,13 +15,13 @@ ms.date: 12/06/2017
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: fd5d20ed3f2cc41f4d7d51f06d4bc90a6afd22eb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75526540"
 ---
-# <a name="remove-an-application-from-a-service-fabric-cluster-using-the-service-fabric-cli"></a>Ta bort ett program från ett Service Fabric-kluster med hjälp av Service Fabric CLI
+# <a name="remove-an-application-from-a-service-fabric-cluster-using-the-service-fabric-cli"></a>Ta bort ett program från ett Service Fabric kluster med hjälp av Service Fabric CLI
 
 Det här exempelskriptet tar bort en instans som kör en Service Fabric-instans och avregistrerar en programtyp och version från klustret.  Om du tar bort en programinstans raderas även de tjänstinstanser som körs som associeras med det programmet. Därefter tas programmets filer bort från avbildningsarkivet. 
 

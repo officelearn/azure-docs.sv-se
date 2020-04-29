@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skicka en sökbegäran till REST API med C# - Bing Entitetssökning'
+title: 'Snabb start: skicka en Sök förfrågan till REST API med C#-Entitetssökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST API för entitetssökning i Bing med hjälp av C# och få ett JSON-svar.
 services: cognitive-services
@@ -11,30 +11,30 @@ ms.topic: quickstart
 ms.date: 12/11/2019
 ms.author: aahi
 ms.openlocfilehash: c343c160f67eda2dd390ffc39f3b4f1ff49cacb6
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75448658"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Snabbstart: Skicka en sökbegäran till REST-APIN för sökning efter Bingtitet med C #
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Snabb start: skicka en Sök förfrågan till Entitetssökning i Bing REST API med C #
 
-Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla C#-programmet skickar en nyhetssökfråga till API:et och visar svaret. Källkoden för det här programmet är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
+Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla C#-programmet skickar en nyhetssökfråga till API:et och visar svaret. Käll koden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
 
 Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 
 ## <a name="prerequisites"></a>Krav
 
-- Alla utgåvor av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
+- En version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
 
 - [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket. Så här installerar du NuGet-paketet i Visual Studio:
 
-   1. Högerklicka på projektet i **Solution Explorer**.
+   1. Högerklicka på ditt projekt i **Solution Explorer**.
    2. Välj **Hantera NuGet-paket**.
-   3. Sök efter *Newtonsoft.Json* och installera paketet.
+   3. Sök efter *Newtonsoft. JSON* och installera paketet.
 
-- Om du använder Linux/MacOS kan det här programmet köras med [mono](https://www.mono-project.com/).
+- Om du använder Linux/MacOS kan du köra det här programmet med hjälp av [mono](https://www.mono-project.com/).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
@@ -50,7 +50,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
     using System.Text;
     ```
 
-2. Skapa en ny klass och lägg till variabler för API-slutpunkten, din prenumerationsnyckel samt den fråga som du vill söka med. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
+2. Skapa en ny klass och lägg till variabler för API-slutpunkten, din prenumerationsnyckel samt den fråga som du vill söka med. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```csharp
     namespace EntitySearchSample
@@ -77,7 +77,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
    1. Skapa URI för din begäran genom att kombinera värd och sökväg. Lägg sedan till din marknad och URL-koda frågan.
    2. Vänta på `client.GetAsync()` för att få ett HTTP-svar och lagra sedan json-svaret genom att vänta på `ReadAsStringAsync()`.
-   3. Formatera JSON-strängen med `JsonConvert.DeserializeObject()` och skriv ut den på konsolen.
+   3. Formatera JSON-strängen med `JsonConvert.DeserializeObject()` och skriv ut den till-konsolen.
 
       ```csharp
       async static void Search()
@@ -177,5 +177,5 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en enkelsidig webbapp](../tutorial-bing-entities-search-single-page-app.md)
 
-* [Vad är API:et för sökning av Bing-entitet?](../overview.md )
-* [Api-referens för sökning av Bing-enhet](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Vad är API för entitetsökning i Bing?](../overview.md )
+* [API för entitetsökning i Bing referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

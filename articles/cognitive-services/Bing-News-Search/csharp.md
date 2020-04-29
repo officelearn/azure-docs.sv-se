@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Gör en nyhetssökning med C# - Bing News Search REST API'
+title: 'Snabb start: utföra en nyhets sökning med C# – Nyhetssökning i Bing REST API'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST-API:et för nyhetssökning i Bing med hjälp av C# och få ett JSON-svar.
 services: cognitive-services
@@ -12,13 +12,13 @@ ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: e6911c51ecfe1c8f6924bf403e9ad00e14558a09
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75448482"
 ---
-# <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Snabbstart: Sök efter nyheter med C# och REST API FÖR Bing-nyheter
+# <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Snabb start: Sök efter nyheter med C# och Nyhetssökning i Bing REST API
 
 Använd den här snabbstarten för att göra ditt första anrop till API för nyhetssökning i Bing och visa JSON-svaret. Det här enkla C#-programmet skickar en nyhetssökfråga till API:et och visar svaret. Den fullständiga koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingNewsSearchv7.cs).
 
@@ -26,7 +26,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för ny
 
 ## <a name="prerequisites"></a>Krav
 
-* Alla utgåvor av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
+* En version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
 * [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 
@@ -44,7 +44,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för ny
     using System.Collections.Generic;
     ```
 
-2. Skapa variabler för API-slutpunkter, din prenumerationsnyckel och sökvillkor. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
+2. Skapa variabler för API-slutpunkter, din prenumerationsnyckel och sökvillkor. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```csharp
     const string accessKey = "enter key here";
@@ -213,4 +213,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en ensidig webbapp](tutorial-bing-news-search-single-page-app.md)
+> [Skapa en enkelsidig webbapp](tutorial-bing-news-search-single-page-app.md)

@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Storage-analys för att samla in loggar och måttdata | Microsoft-dokument
-description: Med Storage Analytics kan du spåra måttdata för alla lagringstjänster och samla in loggar för Blob-, kö- och Tabelllagring.
+title: Använd Azure Storage analys för att samla in loggar och statistik data | Microsoft Docs
+description: Med Lagringsanalys kan du spåra mått data för alla lagrings tjänster och samla in loggar för BLOB-, Queue-och table-lagring.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -9,42 +9,42 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 4ad9f13bcdf36b67400adb62d58ee260ff256bb3
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80637149"
 ---
 # <a name="storage-analytics"></a>Lagringsanalys
 
-Azure Storage Analytics utför loggning och tillhandahåller måttdata för ett lagringskonto. Du kan använda dessa data för att spåra begäranden, analysera användningstrender och diagnostisera problem med ditt lagringskonto.
+Azure-lagringsanalys utför loggning och tillhandahåller mått data för ett lagrings konto. Du kan använda dessa data för att spåra begär Anden, analysera användnings trender och diagnostisera problem med ditt lagrings konto.
 
-Om du vill använda Storage Analytics måste du aktivera den individuellt för varje tjänst som du vill övervaka. Du kan aktivera den från [Azure-portalen](https://portal.azure.com). Mer information finns [i Övervaka ett lagringskonto i Azure-portalen](storage-monitor-storage-account.md). Du kan också aktivera Storage Analytics programmässigt via REST API eller klientbiblioteket. Använd [egenskaperna Ange Blob-tjänst,](/rest/api/storageservices/set-blob-service-properties) [Ange egenskaper för kötjänst,](/rest/api/storageservices/set-queue-service-properties) [Egenskaper för ange tabelltjänst](/rest/api/storageservices/set-table-service-properties)och Ange egenskaper för [filtjänst](/rest/api/storageservices/Get-File-Service-Properties) för att aktivera Lagringsanalys för varje tjänst.
+Om du vill använda Lagringsanalys måste du aktivera det separat för varje tjänst som du vill övervaka. Du kan aktivera den från [Azure Portal](https://portal.azure.com). Mer information finns i [övervaka ett lagrings konto i Azure Portal](storage-monitor-storage-account.md). Du kan också aktivera Lagringsanalys program mässigt via REST API eller klient biblioteket. Använd egenskaperna [Ange BLOB service](/rest/api/storageservices/set-blob-service-properties), ange egenskaper för [Queue Service](/rest/api/storageservices/set-queue-service-properties), [Ange Table service-egenskaper](/rest/api/storageservices/set-table-service-properties)och [ange åtgärder för fil tjänst egenskaper](/rest/api/storageservices/Get-File-Service-Properties) för att aktivera Lagringsanalys för varje tjänst.
 
-Aggregerade data lagras i en välkänd blob (för loggning) och i välkända tabeller (för mått), som kan nås med hjälp av Blob-tjänsten och tabelltjänst-API:er.
+De aggregerade data lagras i en välkänd BLOB (för loggning) och i välkända tabeller (för mått) som kan nås med hjälp av Blob Service-och Table service-API: er.
 
-Storage Analytics har en gräns på 20 TB för mängden lagrade data som är oberoende av den totala gränsen för ditt lagringskonto. Mer information om begränsningar för lagringskonton finns i [Skalbarhets- och prestandamål för standardlagringskonton](scalability-targets-standard-account.md).
+Lagringsanalys har en gräns på 20 TB för mängden lagrade data som är oberoende av den totala gränsen för ditt lagrings konto. Mer information om begränsningar för lagrings konton finns i [skalbarhets-och prestanda mål för standard lagrings konton](scalability-targets-standard-account.md).
 
-En detaljerad guide om hur du använder Storage Analytics och andra verktyg för att identifiera, diagnostisera och felsöka Problem med Azure Storage finns i [Övervaka, diagnostisera och felsöka Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
+En djupgående guide om hur du använder Lagringsanalys och andra verktyg för att identifiera, diagnostisera och felsöka Azure Storage-relaterade problem finns i [övervaka, diagnostisera och felsöka Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
-## <a name="billing-for-storage-analytics"></a>Fakturering för lagringsanalys
+## <a name="billing-for-storage-analytics"></a>Fakturering för Lagringsanalys
 
-Alla måttdata skrivs av tjänsterna för ett lagringskonto. Därför kan varje skrivåtgärd som utförs av Storage Analytics faktureras. Dessutom är mängden lagringsutrymme som används av måttdata också fakturerbar.
+Alla mått data skrivs av tjänsterna för ett lagrings konto. Därför är varje Skriv åtgärd som utförs av Lagringsanalys fakturerbar. Dessutom är mängden lagrings utrymme som används av mät data också fakturerbar.
 
-Följande åtgärder som utförs av Storage Analytics kan faktureras:
+Följande åtgärder som utförs av Lagringsanalys är fakturerbara:
 
-* Begäranden om att skapa blobbar för loggning.
-* Begäranden om att skapa tabellentiteter för mått.
+* Begär Anden om att skapa blobbar för loggning.
+* Begär Anden om att skapa tabell enheter för mått.
 
-Om du har konfigurerat en datalagringsprincip debiteras du inte för att ta bort transaktioner när Lagringsanalys tar bort gamla loggnings- och måttdata. Ta bort transaktioner från en klient kan dock faktureras. Mer information om bevarandeprinciper finns i [Ange en lagringsanalysdatalagringsprincip](https://msdn.microsoft.com/library/azure/hh343263.aspx).
+Om du har konfigurerat en princip för data bevarande debiteras du inte för borttagnings transaktioner när Lagringsanalys tar bort gamla loggnings-och mått data. Ta bort transaktioner från en klient är dock fakturerbara. Mer information om bevarande principer finns i [ställa in en Lagringsanalys data lagrings princip](https://msdn.microsoft.com/library/azure/hh343263.aspx).
 
-### <a name="understanding-billable-requests"></a>Förstå fakturerbara begäranden
+### <a name="understanding-billable-requests"></a>Förstå fakturerbara förfrågningar
 
-Varje begäran som görs till ett kontos lagringstjänst kan antingen faktureras eller inte kan faktureras. Storage Analytics loggar varje enskild begäran till en tjänst, inklusive ett statusmeddelande som anger hur begäran hanterades. På samma sätt lagrar Storage Analytics mått för både en tjänst och API-åtgärder för den tjänsten, inklusive procentandelar och antal av vissa statusmeddelanden. Tillsammans kan dessa funktioner hjälpa dig att analysera dina fakturerbara begäranden, göra förbättringar i ditt program och diagnostisera problem med förfrågningar till dina tjänster. Mer information om fakturering finns i [Förstå Azure Storage Billing - Bandbredd, Transaktioner och Kapacitet](https://docs.microsoft.com/archive/blogs/windowsazurestorage/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
+Varje begäran som görs till ett kontos lagrings tjänst är antingen fakturerbar eller ej fakturerbar. Lagringsanalys loggar varje enskild begäran som görs till en tjänst, inklusive ett status meddelande som anger hur begäran hanterades. På samma sätt lagrar Lagringsanalys mått för både en tjänst och API-åtgärderna för tjänsten, inklusive procent andelen och antalet vissa status meddelanden. Tillsammans kan de här funktionerna hjälpa dig att analysera dina fakturerbara förfrågningar, göra förbättringar i programmet och diagnostisera problem med förfrågningar till dina tjänster. Mer information om fakturering finns i [förstå Azure Storage fakturering-bandbredd, transaktioner och kapacitet](https://docs.microsoft.com/archive/blogs/windowsazurestorage/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
 
-När du tittar på Storage Analytics-data kan du använda tabellerna i avsnittet [Lagringsanalysloggade operationer och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) för att avgöra vilka begäranden som kan faktureras. Sedan kan du jämföra dina loggar och måttdata med statusmeddelanden för att se om du debiterades för en viss begäran. Du kan också använda tabellerna i föregående ämne för att undersöka tillgänglighet för en lagringstjänst eller enskild API-åtgärd.
+När du tittar på Lagringsanalys data kan du använda tabellerna i avsnittet [Lagringsanalys loggade åtgärder och status meddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) för att avgöra vilka förfrågningar som är fakturerbara. Sedan kan du jämföra dina loggar och mät data med status meddelanden för att se om du debiteras för en viss begäran. Du kan också använda tabellerna i föregående avsnitt för att undersöka tillgänglighet för en lagrings tjänst eller en enskild API-åtgärd.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Övervaka ett lagringskonto i Azure-portalen](storage-monitor-storage-account.md)
-* [Mätvärden för lagringsanalys](storage-analytics-metrics.md)
+* [Lagringsanalys mått](storage-analytics-metrics.md)
 * [Loggning för lagringsanalys](storage-analytics-logging.md)

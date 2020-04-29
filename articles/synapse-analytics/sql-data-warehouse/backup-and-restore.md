@@ -1,6 +1,6 @@
 ---
-title: Säkerhetskopiering och återställning - ögonblicksbilder, geouppsagda
-description: Lär dig hur säkerhetskopiering och återställning fungerar i Azure Synapse Analytics SQL-pool. Använd säkerhetskopior för att återställa informationslagret till en återställningspunkt i den primära regionen. Använd geo-redundanta säkerhetskopior för att återställa till ett annat geografiskt område.
+title: Säkerhets kopiering och återställning – ögonblicks bilder, Geo-redundant
+description: Lär dig hur säkerhets kopiering och återställning fungerar i Azure Synapse Analytics SQL-poolen. Använd säkerhets kopior för att återställa data lagret till en återställnings punkt i den primära regionen. Använd geo-redundanta säkerhets kopieringar för att återställa till en annan geografisk region.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,29 +12,29 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
 ms.openlocfilehash: 1d82c7c22bb5aeb2740884b0d7ede4a4d8f07f86
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631220"
 ---
-# <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Säkerhetskopiera och återställa i Azure Synapse SQL-pool
+# <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Säkerhets kopiering och återställning i Azure Synapse SQL-poolen
 
-Lär dig hur du använder säkerhetskopiering och återställning i Azure Synapse SQL-pool. Använd SQL-poolåterställningspunkter för att återställa eller kopiera informationslagret till ett tidigare tillstånd i den primära regionen. Använd geoundundundundanta säkerhetskopior för datalager för att återställa till ett annat geografiskt område.
+Lär dig hur du använder säkerhets kopiering och återställning i Azure Synapse SQL-poolen. Använd återställnings punkter för SQL-pool för att återställa eller kopiera data lagret till ett tidigare tillstånd i den primära regionen. Använd informations lager geo-redundanta säkerhets kopieringar för att återställa till en annan geografisk region.
 
-## <a name="what-is-a-data-warehouse-snapshot"></a>Vad är en ögonblicksbild av informationslager
+## <a name="what-is-a-data-warehouse-snapshot"></a>Vad är en ögonblicks bild av informations lagret
 
-En *ögonblicksbild av informationslager* skapar en återställningspunkt som du kan utnyttja för att återställa eller kopiera ditt informationslager till ett tidigare tillstånd.  Eftersom SQL-pool är ett distribuerat system består en ögonblicksbild av informationslager av många filer som finns i Azure-lagring. Ögonblicksbilder samlar inkrementella ändringar från data som lagras i ditt informationslager.
+En *ögonblicks bild av ett informations lager* skapar en återställnings punkt som du kan använda för att återställa eller kopiera data lagret till ett tidigare tillstånd.  Eftersom SQL-poolen är ett distribuerat system består en ögonblicks bild av ett informations lager av många filer som finns i Azure Storage. Ögonblicks bilder fångar stegvisa ändringar från data som lagras i ditt informations lager.
 
-En återställning av *informationslager* är ett nytt informationslager som skapas från en återställningspunkt för ett befintligt eller borttaget informationslager. Att återställa ditt informationslager är en viktig del av alla affärskontinuiteter och katastrofåterställningsstrategier eftersom det återskapar dina data efter oavsiktlig skada eller borttagning. Informationslager är också en kraftfull mekanism för att skapa kopior av ditt informationslager för test- eller utvecklingsändamål.  Sql pool återställningshastigheter kan variera beroende på databasens storlek och plats för källan och måldatalagret.
+En *data lager återställning* är ett nytt informations lager som skapas från en återställnings punkt för ett befintligt eller Borttaget data lager. Att återställa ditt informations lager är en viktig del av en affärs kontinuitet och katastrof återställnings strategi eftersom den återskapar dina data efter haveri skada eller borttagning. Data lagret är också en kraftfull mekanism för att skapa kopior av ditt informations lager i test-eller utvecklings syfte.  Återställnings takten för SQL-pooler kan variera beroende på databasens storlek och platsen för käll-och mål data lagret.
 
 ## <a name="automatic-restore-points"></a>Automatiska återställningspunkter
 
-Ögonblicksbilder är en inbyggd funktion i tjänsten som skapar återställningspunkter. Du behöver inte aktivera den här funktionen. SQL-poolen bör dock vara i ett aktivt tillstånd för att skapa återställningspunkt. Om SQL-poolen pausas ofta kan det hända att automatiska återställningspunkter inte skapas, så se till att skapa användardefinierad återställningspunkt innan SQL-poolen pausas. Automatiska återställningspunkter kan för närvarande inte tas bort av användare eftersom tjänsten använder dessa återställningspunkter för att underhålla SLA:er för återställning.
+Ögonblicks bilder är en inbyggd funktion i tjänsten som skapar återställnings punkter. Du behöver inte aktivera den här funktionen. SQL-poolen bör dock vara i ett aktivt tillstånd för skapande av återställnings punkter. Om SQL-poolen har pausats ofta kan automatiska återställnings punkter inte skapas, så se till att skapa en användardefinierad återställnings punkt innan du pausar SQL-poolen. Det går inte att ta bort automatiska återställnings punkter av användare eftersom tjänsten använder dessa återställnings punkter för att underhålla service avtal för återställning.
 
-Ögonblicksbilder av ditt informationslager tas under hela dagen skapa återställningspunkter som är tillgängliga i sju dagar. Det går inte att ändra kvarhållningsperioden. SQL-poolen stöder ett åtta timmars återställningspunktsmål (RPO). Du kan återställa ditt informationslager i den primära regionen från någon av de ögonblicksbilder som tagits under de senaste sju dagarna.
+Ögonblicks bilder av ditt informations lager tas under dagen som skapar återställnings punkter som är tillgängliga i sju dagar. Kvarhållningsperioden kan inte ändras. SQL-poolen har stöd för ett återställnings punkt mål på 8 timmar. Du kan återställa ditt informations lager i den primära regionen från någon av de ögonblicks bilder som tagits under de senaste sju dagarna.
 
-Om du vill se när den senaste ögonblicksbilden startade kör du den här frågan på din SQL-pool online.
+Kör den här frågan på SQL-poolen online om du vill se när den senaste ögonblicks bilden startade.
 
 ```sql
 select   top 1 *
@@ -45,66 +45,66 @@ order by run_id desc
 
 ## <a name="user-defined-restore-points"></a>Användardefinierade återställningspunkter
 
-Med den här funktionen kan du manuellt utlösa ögonblicksbilder för att skapa återställningspunkter i informationslagret före och efter stora ändringar. Den här funktionen säkerställer att återställningspunkterna är logiskt konsekventa, vilket ger ytterligare dataskydd vid avbrott i arbetsbelastningen eller användarfel för snabb återställningstid. Användardefinierade återställningspunkter är tillgängliga i sju dagar och raderas automatiskt för din räkning. Du kan inte ändra kvarhållningsperioden för användardefinierade återställningspunkter. **42 användardefinierade återställningspunkter** garanteras när som helst så att de måste [tas bort](https://go.microsoft.com/fwlink/?linkid=875299) innan de skapar en annan återställningspunkt. Du kan utlösa ögonblicksbilder för att skapa användardefinierade återställningspunkter via [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) eller Azure-portalen.
+Med den här funktionen kan du utlösa ögonblicks bilder manuellt för att skapa återställnings punkter för ditt informations lager innan och efter stora ändringar. Den här funktionen säkerställer att återställnings punkter logiskt konsekvent, vilket ger ytterligare data skydd i händelse av arbets belastnings avbrott eller användar fel för snabb återställnings tid. Användardefinierade återställnings punkter är tillgängliga i sju dagar och tas automatiskt bort för din räkning. Det går inte att ändra kvarhållningsperioden för användardefinierade återställnings punkter. **42 användardefinierade återställnings punkter** garanteras vid varje tidpunkt så att de måste [tas bort](https://go.microsoft.com/fwlink/?linkid=875299) innan en annan återställnings punkt skapas. Du kan utlösa ögonblicks bilder för att skapa användardefinierade återställnings punkter via [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) eller Azure Portal.
 
 > [!NOTE]
-> Om du behöver återställa poäng längre än 7 dagar, vänligen rösta för denna funktion [här](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Du kan också skapa en användardefinierad återställningspunkt och återställa från den nyligen skapade återställningspunkten till ett nytt informationslager. När du har återställt har du SQL-poolen online och kan pausa den på obestämd tid för att spara beräkningskostnader. Den pausade databasen medför lagringsavgifter till Azure Premium Storage-priset. Om du behöver en aktiv kopia av det återställda informationslagret kan du återuppta vilket bör ta bara några minuter.
+> Om du behöver återställnings punkter längre än 7 dagar bör du rösta på den här funktionen [här](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Du kan också skapa en användardefinierad återställnings punkt och återställa från den nyligen skapade återställnings punkten till ett nytt data lager. När du har återställt har du SQL-poolen online och kan pausa den under obegränsad tid för att spara beräknings kostnader. Den pausade databasen ådrar sig lagrings kostnader med Azure Premium Storage rate. Om du behöver en aktiv kopia av det återställda informations lagret kan du återuppta vilket som bör ta några minuter.
 
-### <a name="restore-point-retention"></a>Kvarhållning av återställningspunkt
+### <a name="restore-point-retention"></a>Kvarhållning av återställnings punkt
 
-I följande lista visas information om kvarhållandeperioder för återställningspunkt:
+Följande visar information om återställnings punkter för återställnings punkter:
 
-1. SQL-poolen tar bort en återställningspunkt när den når 7-dagars kvarhållningsperioden **och** när det finns minst 42 totala återställningspunkter (inklusive både användardefinierade och automatiska).
-2. Ögonblicksbilder tas inte när en SQL-pool pausas.
-3. Åldern på en återställningspunkt mäts med de absoluta kalenderdagarna från den tidpunkt då återställningspunkten tas, inklusive när SQL-poolen pausas.
-4. Vid varje tidpunkt är en SQL-pool garanterad att kunna lagra upp till 42 användardefinierade återställningspunkter och 42 automatiska återställningspunkter så länge dessa återställningspunkter inte har nått 7-dagars kvarhållningsperioden
-5. Om en ögonblicksbild tas pausas SQL-poolen sedan i mer än 7 dagar och återupptas sedan, återställningspunkten kvarstår tills det finns 42 totala återställningspunkter (inklusive både användardefinierade och automatiska)
+1. SQL-poolen tar bort en återställnings punkt när den får en kvarhållningsperiod på 7 dagar **och** när det finns minst 42 sammanlagt återställnings punkter (inklusive både användardefinierad och automatisk).
+2. Ögonblicks bilder utförs inte när en SQL-pool har pausats.
+3. En återställnings punkts ålder mäts av de absoluta kalender dagarna från den tidpunkt då återställnings punkten tas, inklusive när SQL-poolen har pausats.
+4. Vid en viss tidpunkt är en SQL-pool garanterat att kunna lagra upp till 42 användardefinierade återställnings punkter och 42 automatiska återställnings punkter så länge de här återställnings punkterna inte har nått lagrings perioden på 7 dagar
+5. Om en ögonblicks bild tas pausas SQL-poolen i mer än 7 dagar och återupptas sedan återställnings punkten tills det finns 42 totala återställnings punkter (inklusive både användardefinierad och automatisk)
 
-### <a name="snapshot-retention-when-a-sql-pool-is-dropped"></a>Ögonblicksbildkvarhållning när en SQL-pool tas bort
+### <a name="snapshot-retention-when-a-sql-pool-is-dropped"></a>Kvarhållning av ögonblicks bilder när en SQL-pool släpps
 
-När du släpper en SQL-pool skapas och sparas en slutlig ögonblicksbild i sju dagar. Du kan återställa SQL-poolen till den slutliga återställningspunkten som skapats vid borttagning. Om SQL-poolen tas i pausat tillstånd tas ingen ögonblicksbild. I det scenariot, se till att skapa en användardefinierad återställningspunkt innan du släpper SQL-poolen.
+När du släpper en SQL-pool skapas en slutgiltig ögonblicks bild som sparas i sju dagar. Du kan återställa SQL-poolen till den sista återställnings punkten som skapas vid borttagning. Om SQL-poolen släpps i pausat läge tas ingen ögonblicks bild. I det scenariot ser du till att skapa en användardefinierad återställnings punkt innan du släpper SQL-poolen.
 
 > [!IMPORTANT]
-> Om du tar bort en logisk SQL-serverinstans tas även alla databaser som tillhör instansen bort och kan inte återställas. Du kan inte återställa en borttagen server.
+> Om du tar bort en logisk SQL Server-instans raderas även alla databaser som tillhör instansen och de kan inte återställas. Det går inte att återställa en borttagen Server.
 
-## <a name="geo-backups-and-disaster-recovery"></a>Geo-säkerhetskopior och haveriberedskap
+## <a name="geo-backups-and-disaster-recovery"></a>Geo-säkerhets kopiering och haveri beredskap
 
-En geo-säkerhetskopiering skapas en gång per dag till ett [parkopplat datacenter](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). RPO för en geo-återställning är 24 timmar. Du kan återställa geo-säkerhetskopieringen till en server i alla andra regioner där SQL-pool stöds. En geo-säkerhetskopiering säkerställer att du kan återställa informationslager om du inte kan komma åt återställningspunkterna i din primära region.
+En geo-säkerhetskopiering skapas en gång per dag till ett [parat Data Center](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Återställningen för en geo-återställning är 24 timmar. Du kan återställa geo-säkerhetskopiering till en server i någon annan region där SQL-poolen stöds. En geo-säkerhetskopiering garanterar att du kan återställa data lagret om du inte kan komma åt återställnings punkterna i din primära region.
 
 > [!NOTE]
-> Om du behöver en kortare RPO för geo-säkerhetskopior, rösta för den här funktionen [här](https://feedback.azure.com/forums/307516-sql-data-warehouse). Du kan också skapa en användardefinierad återställningspunkt och återställa från den nyligen skapade återställningspunkten till ett nytt informationslager i en annan region. När du har återställt har du informationslagret online och kan pausa det på obestämd tid för att spara beräkningskostnader. Den pausade databasen medför lagringsavgifter till Azure Premium Storage-priset. Om du behöver en aktiv kopia av informationslagret kan du återuppta vilket bör ta bara några minuter.
+> Om du behöver en kortare återställnings punkt för geo-säkerhetskopiering, röst för den här funktionen [här](https://feedback.azure.com/forums/307516-sql-data-warehouse). Du kan också skapa en användardefinierad återställnings punkt och återställa från den nyligen skapade återställnings punkten till ett nytt informations lager i en annan region. När du har återställt har du data lagret online och kan pausa det oändligt för att spara beräknings kostnader. Den pausade databasen ådrar sig lagrings kostnader med Azure Premium Storage rate. Om du behöver en aktiv kopia av data lagret kan du fortsätta vilket som bör ta några minuter.
 
-## <a name="backup-and-restore-costs"></a>Kostnader för säkerhetskopiering och återställning
+## <a name="backup-and-restore-costs"></a>Säkerhetskopiera och återställa kostnader
 
-Du kommer att märka att Azure-fakturan har en radartikel för lagring och en radartikel för lagring av haveriberedskap. Lagringsavgiften är den totala kostnaden för att lagra dina data i den primära regionen tillsammans med de inkrementella ändringarna som fångas upp av ögonblicksbilder. En mer detaljerad förklaring av hur ögonblicksbilder debiteras finns [i Förstå hur ögonblicksbilder samlar in avgifter](/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Den geoundundanta avgiften täcker kostnaden för lagring av geo-säkerhetskopior.  
+Observera att Azure-fakturan har ett rad objekt för lagring och ett rad objekt för haveri beredskaps lagring. Lagrings avgiften är den totala kostnaden för att lagra dina data i den primära regionen tillsammans med de stegvisa ändringar som fångas av ögonblicks bilder. En mer detaljerad förklaring av hur ögonblicks bilder debiteras finns i [förstå hur ögonblicks](/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)bilder debiteras. Den geo-redundanta avgiften täcker kostnaden för lagring av Geo-säkerhetskopieringar.  
 
-Den totala kostnaden för ditt primära informationslager och sju dagar med ögonblicksbildändringar avrundas till närmaste TB. Om ditt informationslager till exempel är 1,5 TB och ögonblicksbilderna samlar in 100 GB debiteras du för 2 TB data till Azure Premium Storage-priser.
+Den totala kostnaden för ditt primära informations lager och sju dagars ögonblicks bilds ändringar avrundas till närmaste TB. Om ditt informations lager till exempel är 1,5 TB och ögonblicks bilderna fångar 100 GB debiteras du för 2 TB data med Azure Premium Storage priser.
 
-Om du använder geoupptundret lagringsutrymme får du en separat lagringsavgift. Den geo-redundanta lagringen faktureras enligt ra-GRS-standardhastigheten för geografiskt redundant lagring (Read-Access Geografiskt redundant lagring).
+Om du använder Geo-redundant lagring får du en separat lagrings avgift. Geo-redundant lagring debiteras enligt standard priset för Läs åtkomst till geografiskt redundant lagring (RA-GRS).
 
-Mer information om Azure Synapse-priser finns i [Azure Synapse-priser](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/). Du debiteras inte för data som går ut när du återställer mellan regioner.
+Mer information om priser för Azure Synapse finns i [priser för Azure Synapse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/). Du debiteras inte för utgående data vid återställning mellan regioner.
 
-## <a name="restoring-from-restore-points"></a>Återställa från återställningspunkter
+## <a name="restoring-from-restore-points"></a>Återställa från återställnings punkter
 
-Varje ögonblicksbild skapar en återställningspunkt som representerar den tid ögonblicksbilden startade. Om du vill återställa ett informationslager väljer du en återställningspunkt och utfärdar ett återställningskommando.  
+Varje ögonblicks bild skapar en återställnings punkt som representerar tidpunkten då ögonblicks bilden startades. Om du vill återställa ett informations lager väljer du en återställnings punkt och utfärdar kommandot Restore.  
 
-Du kan antingen behålla det återställda informationslagret och det aktuella, eller ta bort ett av dem. Om du vill ersätta det aktuella informationslagret med det återställda informationslagret kan du byta namn på det med [alter database (SQL-pool)](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) med alternativet ÄNDRA NAMN.
+Du kan antingen behålla det återställda informations lagret och det aktuella, eller ta bort ett av dem. Om du vill ersätta det aktuella data lagret med det återställda data lagret kan du byta namn på det med hjälp av [Alter Database (SQL pool)](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) med alternativet ändra namn.
 
-Information om hur du återställer ett informationslager finns i [Återställa en SQL-pool](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
+Information om hur du återställer ett informations lager finns i [återställa en SQL-pool](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
 
-Om du vill återställa ett borttaget eller pausat informationslager kan du [skapa en supportbiljett](sql-data-warehouse-get-started-create-support-ticket.md).
+Om du vill återställa ett borttaget eller pausat data lager kan du [skapa ett support ärende](sql-data-warehouse-get-started-create-support-ticket.md).
 
-## <a name="cross-subscription-restore"></a>Återställning av flera prenumerationer
+## <a name="cross-subscription-restore"></a>Återställning mellan prenumerationer
 
-Om du behöver återställa prenumerationen direkt kan du rösta på den här [funktionen](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Återställ till en annan logisk server och [Flytta](/azure/azure-resource-manager/resource-group-move-resources?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) servern över prenumerationer för att utföra en återställning mellan prenumerationer.
+Om du behöver återställa direkt mellan prenumerationen kan du rösta på den här funktionen [här](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Återställ till en annan logisk server och [Flytta](/azure/azure-resource-manager/resource-group-move-resources?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) servern över prenumerationer för att utföra en återställning mellan prenumerationer.
 
 ## <a name="geo-redundant-restore"></a>Geo-redundant återställning
 
-Du kan [återställa SQL-poolen](sql-data-warehouse-restore-from-geo-backup.md#restore-from-an-azure-geographical-region-through-powershell) till alla regioner som stöder SQL-pool på din valda prestandanivå.
+Du kan [återställa SQL-poolen](sql-data-warehouse-restore-from-geo-backup.md#restore-from-an-azure-geographical-region-through-powershell) till vilken region som helst som stöder SQL-poolen på den valda prestanda nivån.
 
 > [!NOTE]
-> Om du vill utföra en geoundundant återställning får du inte ha valt bort den här funktionen.
+> Om du vill utföra en Geo-redundant återställning får du inte välja att använda den här funktionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om katastrofplanering finns i [Översikt över affärskontinuitet](../../sql-database/sql-database-business-continuity.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Mer information om haveri planering finns i [Översikt över affärs kontinuitet](../../sql-database/sql-database-business-continuity.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)

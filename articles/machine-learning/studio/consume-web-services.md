@@ -1,7 +1,7 @@
 ---
-title: Använda webbtjänst
+title: Använda webb tjänst
 titleSuffix: ML Studio (classic) - Azure
-description: När en maskininlärningstjänst har distribuerats från Azure Machine Learning Studio (klassisk) kan TJÄNSTEN RESTFul Web förbrukas antingen som tjänst för begäran-svar i realtid eller som en batchkörningstjänst.
+description: När en Machine Learning-tjänst har distribuerats från Azure Machine Learning Studio (klassisk) kan RESTFul-webbtjänsten konsumeras antingen som real tids tjänst för begäran-svar eller som en batch-körnings tjänst.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,104 +11,104 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 06/02/2017
 ms.openlocfilehash: b97fe6e55e2c36b6f101071e702952f529146281
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631664"
 ---
-# <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Så här använder du en azure Machine Learning Studio -webbtjänst (klassisk)
+# <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Använda en Azure Machine Learning Studio (klassisk)-webb tjänst
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-När du distribuerar en Azure Machine Learning Studio (klassisk) prediktiv modell som en webbtjänst kan du använda ett REST API för att skicka data och få förutsägelser. Du kan skicka data i realtid eller i batchläge.
+När du har distribuerat en Azure Machine Learning Studio (klassisk) förutsägelse modell som en webb tjänst kan du använda en REST API för att skicka IT-data och hämta förutsägelser. Du kan skicka data i real tid eller i batchläge.
 
-Du hittar mer information om hur du skapar och distribuerar en Machine Learning Web-tjänst med Machine Learning Studio (klassiskt) här:
+Du hittar mer information om hur du skapar och distribuerar en Machine Learning-webbtjänst med Machine Learning Studio (klassisk) här:
 
-* En självstudiekurs om hur du skapar ett experiment i Machine Learning Studio (klassiskt) finns i [Skapa ditt första experiment](create-experiment.md).
-* Mer information om hur du distribuerar en webbtjänst finns i [Distribuera en machine learning-webbtjänst](deploy-a-machine-learning-web-service.md).
-* Mer information om Maskininlärning i allmänhet finns i [Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
+* En själv studie kurs om hur du skapar ett experiment i Machine Learning Studio (klassisk) finns i [skapa ditt första experiment](create-experiment.md).
+* Mer information om hur du distribuerar en webb tjänst finns i [distribuera en Machine Learning-webbtjänst](deploy-a-machine-learning-web-service.md).
+* Mer information om Machine Learning i allmänhet finns i [Machine Learning dokumentations centret](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 
 
 ## <a name="overview"></a>Översikt
-Med webbtjänsten Azure Machine Learning kommunicerar ett externt program med en machine learning-arbetsflödesbedömningsmodell i realtid. Ett Machine Learning Web service-anrop returnerar förutsägelseresultat till ett externt program. Om du vill ringa ett Machine Learning Web-tjänstanrop skickar du en API-nyckel som skapas när du distribuerar en förutsägelse. Machine Learning Web-tjänsten är baserad på REST, ett populärt arkitekturval för webbprogrammeringsprojekt.
+Med Azure Machine Learning-webbtjänsten kommunicerar ett externt program med en beräknings modell för en Machine Learning arbets flöde i real tid. Ett Machine Learning webb tjänst anrop returnerar förutsägelse resultat till ett externt program. Om du vill göra ett Machine Learning webb tjänst anrop skickar du en API-nyckel som skapas när du distribuerar en förutsägelse. Machine Learning-webbtjänsten baseras på REST, ett populärt arkitektur val för webb program projekt.
 
 Azure Machine Learning Studio (klassisk) har två typer av tjänster:
 
-* RRS (Request-Response Service) – En låg latens, mycket skalbar tjänst som tillhandahåller ett gränssnitt till de tillståndslösa modeller som skapats och distribuerats från Machine Learning Studio (klassisk).
-* BATCH Execution Service (BES) – En asynkron tjänst som gör en batch för dataposter.
+* Request-Response service (resurs poster) – en låg fördröjning, hög skalbar tjänst som tillhandahåller ett gränssnitt för de tillstånds lösa modeller som skapas och distribueras från Machine Learning Studio (klassisk).
+* BES (batch execution service) – en asynkron tjänst som poängs ätter en batch för data poster.
 
-Mer information om Machine Learning Web-tjänster finns i [Distribuera en machine learning-webbtjänst](deploy-a-machine-learning-web-service.md).
+Mer information om Machine Learning webb tjänster finns i [distribuera en Machine Learning-webbtjänst](deploy-a-machine-learning-web-service.md).
 
-## <a name="get-an-authorization-key"></a>Hämta en auktoriseringsnyckel
-När du distribuerar experimentet genereras API-nycklar för webbtjänsten. Du kan hämta nycklarna från flera platser.
+## <a name="get-an-authorization-key"></a>Hämta en nyckel för auktorisering
+När du distribuerar experimentet genereras API-nycklar för webb tjänsten. Du kan hämta nycklarna från flera platser.
 
 ### <a name="from-the-microsoft-azure-machine-learning-web-services-portal"></a>Från Microsoft Azure Machine Learning Web Services-portalen
-Logga in på [Microsoft Azure Machine Learning Web Services-portalen.](https://services.azureml.net)
+Logga in på [Microsoft Azure Machine Learning Web Services-](https://services.azureml.net) portalen.
 
-Så här hämtar du API-nyckeln för en ny machine learning-webbtjänst:
+Hämta API-nyckeln för en ny Machine Learning-webb tjänst:
 
-1. Klicka på **Webbtjänster** på portalen för Azure Machine Learning Web Services på den översta menyn.
-2. Klicka på den webbtjänst som du vill hämta nyckeln för.
-3. Klicka på **Förbruka**på den övre menyn .
-4. Kopiera och spara **primärnyckeln**.
+1. Klicka på **webb tjänster** på den översta menyn i Azure Machine Learning Web Services-portalen.
+2. Klicka på den webb tjänst som du vill hämta nyckeln för.
+3. Klicka på **förbruka**på den översta menyn.
+4. Kopiera och spara **primär nyckeln**.
 
-Så här hämtar du API-nyckeln för en webbkameratjänst för klassisk maskininlärning:
+Hämta API-nyckeln för en klassisk Machine Learning-webb tjänst:
 
-1. Klicka på **Klassiska webbtjänster** på portalen för Maskininlärning av webbtjänster på den översta menyn.
-2. Klicka på den webbtjänst som du arbetar med.
-3. Klicka på den slutpunkt som du vill hämta nyckeln för.
-4. Klicka på **Förbruka**på den övre menyn .
-5. Kopiera och spara **primärnyckeln**.
+1. Klicka på **klassiska webb tjänster** på den översta menyn i Azure Machine Learning Web Services-portalen.
+2. Klicka på den webb tjänst som du arbetar med.
+3. Klicka på den slut punkt som du vill hämta nyckeln för.
+4. Klicka på **förbruka**på den översta menyn.
+5. Kopiera och spara **primär nyckeln**.
 
-### <a name="classic-web-service"></a>Klassisk webbtjänst
- Du kan också hämta en nyckel för en klassisk webbtjänst från Machine Learning Studio (klassisk).
+### <a name="classic-web-service"></a>Klassisk webb tjänst
+ Du kan också hämta en nyckel för en klassisk webb tjänst från Machine Learning Studio (klassisk).
 
 #### <a name="machine-learning-studio-classic"></a>Machine Learning Studio (klassisk)
-1. I Machine Learning Studio (klassisk) klickar du på **WEBBTJÄNSTER** till vänster.
-2. Klicka på en webbtjänst. **API-nyckeln** finns på fliken **INSTRUMENTPANEL.**
+1. I Machine Learning Studio (klassisk) klickar du på **webb tjänster** till vänster.
+2. Klicka på en webb tjänst. **API-nyckeln** finns på fliken **instrument panel** .
 
-## <a name="connect-to-a-machine-learning-web-service"></a><a id="connect"></a>Ansluta till en machine learning-webbtjänst
-Du kan ansluta till en Machine Learning Web-tjänst med valfritt programmeringsspråk som stöder HTTP-begäran och svar. Du kan visa exempel i C#, Python och R från en hjälpsida för machine learning-webbtjänst.
+## <a name="connect-to-a-machine-learning-web-service"></a><a id="connect"></a>Ansluta till en Machine Learning-webbtjänst
+Du kan ansluta till en Machine Learning-webbtjänst med valfritt programmeringsspråk som stöder HTTP-begäran och-svar. Du kan visa exempel i C#, python och R från en Machine Learning-webbtjänstens hjälp sida.
 
-**Hjälp om MASKININlärnings-API** Maskininlärnings-API-hjälp skapas när du distribuerar en webbtjänst. Se [handledning 3: distribuera kreditriskmodell](tutorial-part3-credit-risk-deploy.md).
-Hjälpen för Machine Learning API innehåller information om en förutsägelsewebbtjänst.
+**Machine Learning API-hjälp** Machine Learning API-hjälp skapas när du distribuerar en webb tjänst. Se [självstudie 3: Distribuera kredit risk modell](tutorial-part3-credit-risk-deploy.md).
+Machine Learning API-hjälpen innehåller information om en förutsägelse webb tjänst.
 
-1. Klicka på den webbtjänst som du arbetar med.
-2. Klicka på den slutpunkt som du vill visa api-hjälpsidan för.
-3. Klicka på **Förbruka**på den övre menyn .
-4. Klicka på **API-hjälpsidan** under slutpunkterna Begäran-svar eller Batch-körning.
+1. Klicka på den webb tjänst som du arbetar med.
+2. Klicka på den slut punkt som du vill visa API-hjälp sidan för.
+3. Klicka på **förbruka**på den översta menyn.
+4. Klicka på **API-hjälp sidan** under antingen Request-Response-eller batch-körningens slut punkter.
 
-**Så här visar du hjälp med Maskininlärnings-API för en ny webbtjänst**
+**Visa Machine Learning API-hjälp för en ny webb tjänst**
 
-I [Portalen för Azure Machine Learning Web Services](https://services.azureml.net/):
+På [Azure Machine Learning Web Services-portalen](https://services.azureml.net/):
 
-1. Klicka på **WEBBTJÄNSTER** på den övre menyn.
-2. Klicka på den webbtjänst som du vill hämta nyckeln för.
+1. Klicka på **webb tjänster** på den översta menyn.
+2. Klicka på den webb tjänst som du vill hämta nyckeln för.
 
-Klicka på **Använd webbtjänst** om du vill hämta URI:erna för tjänsten Förfråm och batchkörning och exempelkoden i C#, R och Python.
+Klicka på **Använd webb tjänst** för att hämta URI: er för Request-Response-och batch execution-tjänsterna och exempel kod i C#, R och python.
 
-Klicka på **Swagger API** för att få Swagger-baserad dokumentation för API:er som anropas från de medföljande URI:erna.
+Klicka på **Swagger API** för att hämta Swagger-baserad dokumentation för de API: er som anropas från angivna URI: er.
 
-### <a name="c-sample"></a>C# Exempel
-Om du vill ansluta till en Machine Learning Web-tjänst använder du en HttpClient-passeringspoängdata. **HttpClient** ScoreData innehåller en FeatureVector, en n-dimensionell vektor med numeriska funktioner som representerar ScoreData. Du autentiserar till machine learning-tjänsten med en API-nyckel.
+### <a name="c-sample"></a>C#-exempel
+Om du vill ansluta till en Machine Learning-webbtjänst använder du en **httpclient** som skickar ScoreData. ScoreData innehåller en FeatureVector, en n-dimensionell Vector med numeriska funktioner som representerar ScoreData. Du autentiserar till tjänsten Machine Learning med en API-nyckel.
 
-Om du vill ansluta till en Machine Learning Web-tjänst måste **Paketet Microsoft.AspNet.WebApi.Client** NuGet vara installerat.
+För att ansluta till en Machine Learning-webbtjänst måste **Microsoft. ASPNET. WebAPI. client** NuGet-paketet installeras.
 
-**Installera Microsoft.AspNet.WebApi.Client NuGet i Visual Studio**
+**Installera Microsoft. ASPNET. WebApi. client NuGet i Visual Studio**
 
-1. Publicera datauppsättningen Hämta från UCI: Adult 2-klassens datauppsättningswebbtjänst.
-2. Klicka på **Verktyg** > **NuGet Package Manager** > **Package Manager Console**.
-3. Välj **Installera-paket Microsoft.AspNet.webapi.client**.
+1. Publicera nedladdnings data uppsättningen från den här webb tjänsten för den andra klass data uppsättningen med den vuxna 2.
+2. Klicka på **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**.
+3. Välj **install-Package Microsoft. ASPNET. WebAPI. client**.
 
-**Så här kör du kodexemplet**
+**Så här kör du kod exemplet**
 
-1. Publicera experimentet "Exempel 1: Ladda ned datauppsättning från UCI: Adult 2 class dataset", en del av exempelsamlingen machine learning.
-2. Tilldela apiKey med nyckeln från en webbtjänst. Se **Hämta en auktoriseringsnyckel** ovan.
+1. Publicera "exempel 1: Ladda ned data uppsättning från" typ av data uppsättning från den andra klassen "för data uppsättning för vuxna 2", en del av Machine Learning samling
+2. Tilldela apiKey med nyckeln från en webb tjänst. Se **Hämta en auktoriseringsregel** ovan.
 3. Tilldela serviceUri med URI för begäran.
 
-**Här är vad en fullständig begäran kommer att se ut.**
+**Så här kommer en fullständig förfrågan att se ut.**
 ```csharp
 using System;
 using System.Collections.Generic;
@@ -196,15 +196,15 @@ namespace CallRequestResponseService
 ```
 
 ### <a name="python-sample"></a>Python-exempel
-Om du vill ansluta till en Machine Learning Web-tjänst använder du **urllib2-biblioteket** för Python 2.X och **urllib.request-biblioteket** för Python 3.X. Du kommer att passera ScoreData, som innehåller en FeatureVector, en n-dimensionell vektor av numeriska funktioner som representerar ScoreData. Du autentiserar till machine learning-tjänsten med en API-nyckel.
+För att ansluta till en Machine Learning-webbtjänst använder du **Urllib2** -biblioteket för python 2. x och **urllib. Request** -bibliotek för python 3. x. Du kommer att skicka ScoreData, som innehåller en FeatureVector, en n-dimensionell Vector med numeriska funktioner som representerar ScoreData. Du autentiserar till tjänsten Machine Learning med en API-nyckel.
 
-**Så här kör du kodexemplet**
+**Så här kör du kod exemplet**
 
-1. Distribuera experimentet "Exempel 1: Hämta datauppsättning från UCI: Adult 2 class dataset", en del av exempelsamlingen maskininlärning.
-2. Tilldela apiKey med nyckeln från en webbtjänst. Se avsnittet **Hämta nyckelavsnittet för auktorisering** i början av den här artikeln.
+1. Distribuera "exempel 1: Ladda ned data uppsättning från den här data uppsättningen för den vuxna 2 klassen", som ingår i exempel samlingen Machine Learning.
+2. Tilldela apiKey med nyckeln från en webb tjänst. Se avsnittet **Hämta en auktoriseringsregel** nära början av den här artikeln.
 3. Tilldela serviceUri med URI för begäran.
 
-**Här är vad en fullständig begäran kommer att se ut.**
+**Så här kommer en fullständig förfrågan att se ut.**
 ```python
 import urllib2 # urllib.request and urllib.error for Python 3.X
 import json
@@ -250,9 +250,9 @@ except urllib2.HTTPError, error:
 
 ### <a name="r-sample"></a>R-exempel
 
-Om du vill ansluta till en machine learning-webbtjänst använder du **biblioteken RCurl** och **rjson** för att göra begäran och bearbeta det returnerade JSON-svaret. Du kommer att passera ScoreData, som innehåller en FeatureVector, en n-dimensionell vektor av numeriska funktioner som representerar ScoreData. Du autentiserar till machine learning-tjänsten med en API-nyckel.
+Om du vill ansluta till en Machine Learning-webbtjänst använder du **RCurl** -och **rjson** -biblioteken för att göra begäran och bearbeta det returnerade JSON-svaret. Du kommer att skicka ScoreData, som innehåller en FeatureVector, en n-dimensionell Vector med numeriska funktioner som representerar ScoreData. Du autentiserar till tjänsten Machine Learning med en API-nyckel.
 
-**Här är vad en fullständig begäran kommer att se ut.**
+**Så här kommer en fullständig förfrågan att se ut.**
 ```r
 library("RCurl")
 library("rjson")
@@ -306,9 +306,9 @@ print(fromJSON(result))
 
 ### <a name="javascript-sample"></a>JavaScript-exempel
 
-Om du vill ansluta till en machine learning-webbtjänst använder du **paketet för begäran** npm i projektet. Du kommer också `JSON` att använda objektet för att formatera indata och tolka resultatet. Installera `npm install request --save`med , `"request": "*"` eller lägg till `dependencies` i `npm install`package.json under och kör .
+Om du vill ansluta till en Machine Learning-webbtjänst använder du NPM-paketet för **begäran** i projektet. Du kan också använda `JSON` objektet för att formatera inaktuella inaktuella och analysera resultatet. Installera med `npm install request --save`eller Lägg till `"request": "*"` i Package. JSON under `dependencies` och kör. `npm install`
 
-**Här är vad en fullständig begäran kommer att se ut.**
+**Så här kommer en fullständig förfrågan att se ut.**
 ```js
 let req = require("request");
 

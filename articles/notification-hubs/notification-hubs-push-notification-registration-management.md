@@ -1,6 +1,6 @@
 ---
-title: Registreringshantering
-description: I det här avsnittet beskrivs hur du registrerar enheter med meddelandehubbar för att ta emot push-meddelanden.
+title: Registrerings hantering
+description: I det här avsnittet beskrivs hur du registrerar enheter med Notification Hub för att ta emot push-meddelanden.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -17,38 +17,38 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/08/2019
 ms.openlocfilehash: 00de9c803ef796eda8da609a4009e0a8cfcb3664
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79455375"
 ---
 # <a name="registration-management"></a>Registreringshantering
 
-I det här avsnittet beskrivs hur du registrerar enheter med meddelandehubbar för att ta emot push-meddelanden. Avsnittet beskriver registreringar på hög nivå, introducerar sedan de två huvudmönstren för registrering av enheter: registrering från enheten direkt till meddelandehubben och registrering via en programservering.
+I det här avsnittet beskrivs hur du registrerar enheter med Notification Hub för att ta emot push-meddelanden. Avsnittet beskriver registreringar på en hög nivå och presenterar sedan de två huvud mönstren för att registrera enheter: att registrera från enheten direkt till Notification Hub och registrera dig via en program Server del.
 
-## <a name="what-is-device-registration"></a>Vad är enhetsregistrering
+## <a name="what-is-device-registration"></a>Vad är enhets registrering
 
-Enhetsregistrering med en meddelandehubb utförs med hjälp av en **registrering** eller **installation**.
+Enhets registrering med en Notification Hub görs med hjälp av en **registrering** eller **installation**.
 
 ### <a name="registrations"></a>Registreringar
 
-En registrering associerar PNS-handtaget (Platform Notification Service) för en enhet med taggar och eventuellt en mall. PNS-referensen kan vara ett ChannelURI-, enhetstoken eller FCM-registrerings-ID. Taggar används för att dirigera meddelanden till rätt uppsättning enhetshandtag. Mer information finns i [Routning och tagguttryck](notification-hubs-tags-segment-push-message.md). Mallar används för att implementera omvandling per registrering. Mer information finns i [Mallar](notification-hubs-templates-cross-platform-push-messages.md).
+Vid registreringen associeras PNS-handtaget (Platform Notification Service) för en enhet med taggar och eventuellt en mall. PNS-referensen kan vara en ChannelURI, Device token eller FCM registrerings-ID. Taggar används för att dirigera meddelanden till rätt uppsättning enhets referenser. Mer information finns i avsnittet om [Routning och tagg uttryck](notification-hubs-tags-segment-push-message.md). Mallar används för att implementera omvandling per registrering. Mer information finns i [Mallar](notification-hubs-templates-cross-platform-push-messages.md).
 
 > [!NOTE]
-> Azure Notification Hubs stöder högst 60 taggar per enhet.
+> Azure Notification Hubs stöder högst 60 Taggar per enhet.
 
 ### <a name="installations"></a>Installationer
 
-En installation är en förbättrad registrering som innehåller en påse med push-relaterade egenskaper. Det är den senaste och bästa metoden för att registrera dina enheter. Det stöds dock inte av klientsidan .NET SDK ([Notification Hub SDK för backend-åtgärder](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) i nuläget.  Det innebär att om du registrerar dig från själva klientenheten måste du använda metoden [Notification Hubs REST API](/rest/api/notificationhubs/create-overwrite-installation) för att stödja installationer. Om du använder en backend-tjänst bör du kunna använda [Notification Hub SDK för backend-åtgärder](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+En installation är en förbättrad registrering som innehåller en uppsättning push-relaterade egenskaper. Det är den senaste och bästa metoden för att registrera dina enheter. Men det stöds inte av .NET SDK för klient sidan ([Notification Hub SDK för Server dels åtgärder](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) ännu.  Det innebär att om du registrerar från själva klient enheten skulle du behöva använda [Notification Hubs REST API](/rest/api/notificationhubs/create-overwrite-installation) -metoden för att stödja installationer. Om du använder en backend-tjänst bör du kunna använda [Notification Hub SDK för Server dels åtgärder](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Följande är några viktiga fördelar med att använda installationer:
 
-- Att skapa eller uppdatera en installation är helt idempotent. Så du kan försöka igen utan några frågor om dubbla registreringar.
-- Installationsmodellen stöder ett speciellt`$InstallationId:{INSTALLATION_ID}`taggformat ( ) som gör det möjligt att skicka ett meddelande direkt till den specifika enheten. Om appens kod till exempel anger ett `joe93developer` installations-ID för den här enheten kan en `$InstallationId:{joe93developer}` utvecklare rikta in sig på den här enheten när du skickar ett meddelande till taggen. På så sätt kan du rikta in dig på en viss enhet utan att behöva göra någon ytterligare kodning.
-- Med hjälp av installationer kan du också göra partiella registreringsuppdateringar. Den partiella uppdateringen av en installation begärs med en [PATCH-metod med JSON-Patch-standarden](https://tools.ietf.org/html/rfc6902). Detta är användbart när du vill uppdatera taggar på registreringen. Du behöver inte dra ner hela registreringen och sedan skicka alla tidigare taggar igen.
+- Att skapa eller uppdatera en installation är helt idempotenta. Så du kan försöka igen utan några problem om dubbla registreringar.
+- Installations modellen stöder ett särskilt tagg format (`$InstallationId:{INSTALLATION_ID}`) som gör det möjligt att skicka ett meddelande direkt till den specifika enheten. Om appens kod till exempel anger ett installations-ID för `joe93developer` för den här enheten kan en utvecklare Rikta enheten när den skickar ett meddelande till- `$InstallationId:{joe93developer}` taggen. På så sätt kan du rikta in dig på en speciell enhet utan att behöva göra ytterligare kodning.
+- Med hjälp av installationer kan du också göra partiella registrerings uppdateringar. Den partiella uppdateringen av en installation begärs med en KORRIGERINGs metod med hjälp av [JSON-patch-standarden](https://tools.ietf.org/html/rfc6902). Detta är användbart när du vill uppdatera Taggar i registreringen. Du behöver inte hämta hela registreringen och sedan skicka om alla tidigare Taggar igen.
 
-En installation kan innehålla följande egenskaper. En fullständig lista över installationsegenskaperna finns i [Skapa eller skriva över en installation med REST API](/rest/api/notificationhubs/create-overwrite-installation) eller [installationsegenskaper](/dotnet/api/microsoft.azure.notificationhubs.installation).
+En installation kan innehålla följande egenskaper. En fullständig lista över installations egenskaperna finns i [skapa eller skriva över en installation med REST API](/rest/api/notificationhubs/create-overwrite-installation) eller [installations egenskaper](/dotnet/api/microsoft.azure.notificationhubs.installation).
 
 ```json
 // Example installation format to show some supported properties
@@ -89,43 +89,43 @@ En installation kan innehålla följande egenskaper. En fullständig lista över
 > [!NOTE]
 > Som standard upphör inte registreringar och installationer att gälla.
 
-Registreringar och installationer måste innehålla ett giltigt PNS-handtag för varje enhet/kanal. Eftersom PNS-referenser endast kan erhållas i en klientapp på enheten är ett mönster att registrera sig direkt på den enheten med klientappen. Å andra sidan kan säkerhetsöverväganden och affärslogik som är relaterade till taggar kräva att du hanterar enhetsregistrering i appens backend.
+Registreringar och installationer måste innehålla en giltig PNS-referens för varje enhet/kanal. Eftersom PNS-referenser bara kan hämtas i en klient app på enheten, är ett mönster att registrera sig direkt på enheten med klient programmet. Å andra sidan kan säkerhets överväganden och affärs logik som är relaterade till taggar kräva att du hanterar enhets registrering i appens Server del.
 
 > [!NOTE]
-> Installations-API:et stöder inte Baidu-tjänsten (även om API:et för registreringar gör det). 
+> API: erna för installation stöder inte Baidu-tjänsten (även om registrerings-API: et). 
 
 ### <a name="templates"></a>Mallar
 
-Om du vill använda Mallar innehåller [enhetsinstallationen](notification-hubs-templates-cross-platform-push-messages.md)även alla mallar som är associerade med enheten i ett JSON-format (se exempel ovan). Mallnamnen hjälper till att rikta in sig på olika mallar för samma enhet.
+Om du vill använda [mallar](notification-hubs-templates-cross-platform-push-messages.md)innehåller enhets installationen även alla mallar som är kopplade till enheten i ett JSON-format (se exemplet ovan). Mallens namn hjälper till att rikta olika mallar för samma enhet.
 
-Varje mallnamn mappas till en malltext och en valfri uppsättning taggar. Dessutom kan varje plattform ha ytterligare mallegenskaper. För Windows Store (med WNS) och Windows Phone 8 (med MPNS) kan ytterligare en uppsättning rubriker ingå i mallen. När det gäller APN kan du ange en förfallodeegenskap till antingen en konstant eller till ett malluttryck. En fullständig lista över installationsegenskaperna finns i [Skapa eller skriva över ett installations- med REST-ämne.](/rest/api/notificationhubs/create-overwrite-installation)
+Varje mallnamn mappar till en malldel och en valfri uppsättning taggar. Dessutom kan varje plattform ha ytterligare mall egenskaper. För Windows Store (med WNS) och Windows Phone 8 (med MPNS) kan en extra uppsättning huvuden vara en del av mallen. Om det gäller APN kan du ange en förfallo egenskap som antingen en konstant eller ett frågeuttryck. En fullständig lista över installations egenskaperna finns i [skapa eller skriva över en installation med rest](/rest/api/notificationhubs/create-overwrite-installation) -ämnet.
 
 ### <a name="secondary-tiles-for-windows-store-apps"></a>Sekundära paneler för Windows Store-appar
 
-För Windows Store-klientprogram är det samma sätt att skicka meddelanden till sekundära paneler som att skicka dem till den primära. Detta stöds också i installationer. Sekundära paneler har en annan ChannelUri, som SDK på klientappen hanterar transparent.
+För Windows Store-klientprogram är sändning av meddelanden till sekundära paneler detsamma som att skicka dem till den primära. Detta stöds också i installationer. Sekundära paneler har olika ChannelUri, som SDK: n i klient programmet hanterar transparent.
 
-Ordlistan SecondaryTiles använder samma TileId som används för att skapa SecondaryTiles-objektet i Din Windows Store-app. Precis som med den primära ChannelUri kan ChannelUris av sekundära paneler ändras när som helst. För att hålla installationerna i meddelandehubben uppdaterade måste enheten uppdatera dem med de aktuella ChannelUris-hubben för de sekundära panelerna.
+SecondaryTiles-ordlistan använder samma TileId som används för att skapa SecondaryTiles-objektet i din Windows Store-app. Precis som med den primära ChannelUri kan ChannelUris av sekundära paneler ändras när som helst. För att installationen av Notification Hub ska kunna fortsätta måste enheten uppdatera dem med den aktuella ChannelUris av de sekundära panelerna.
 
-## <a name="registration-management-from-the-device"></a>Registreringshantering från enheten
+## <a name="registration-management-from-the-device"></a>Registrerings hantering från enheten
 
-När du hanterar enhetsregistrering från klientappar är backend endast ansvarig för att skicka meddelanden. Klientappar håller PNS-hanterar uppdaterade och registertaggar. Följande bild illustrerar detta mönster.
+Vid hantering av enhets registrering från klient program är Server delen bara ansvarig för att skicka meddelanden. Klient program håller PNS-handtagen uppdaterade och registrerar taggar. Följande bild illustrerar det här mönstret.
 
 ![Registrering från enhet](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
-Enheten hämtar först PNS-handtaget från PNS och registrerar sedan med meddelandehubben direkt. När registreringen har slutförts kan appens medberedskap skicka ett meddelande som är inriktat på registreringen. Mer information om hur du skickar meddelanden finns i [Routning och tagguttryck](notification-hubs-tags-segment-push-message.md).
+Enheten hämtar först PNS-referensen från PNS och registrerar sedan med Notification Hub direkt. När registreringen är klar kan appens Server del skicka ett meddelande som riktar sig till registreringen. Mer information om hur du skickar meddelanden finns i avsnittet om [Routning och tagg uttryck](notification-hubs-tags-segment-push-message.md).
 
-I det här fallet använder du bara lyssningsrättigheter för att komma åt dina meddelandehubbar från enheten. Mer information finns i [Säkerhet](notification-hubs-push-notification-security.md).
+I det här fallet använder du bara lyssnings rättigheter för att komma åt dina Notification Hub från enheten. Mer information finns i [säkerhet](notification-hubs-push-notification-security.md).
 
-Registrering från enheten är den enklaste metoden, men det har några nackdelar:
+Att registrera från enheten är den enklaste metoden, men den har vissa nack delar:
 
-- En klientapp kan bara uppdatera sina taggar när appen är aktiv. Om en användare till exempel har två enheter som registrerar taggar relaterade till idrottslag, när den första enheten registrerar sig för en ytterligare tagg (till exempel Seahawks), kommer den andra enheten inte att få meddelanden om Seahawks förrän appen på den andra enheten är en andra gång. Mer allmänt, när taggar påverkas av flera enheter, hantera taggar från backend är ett önskvärt alternativ.
-- Eftersom appar kan hackas krävs extra försiktighet för att säkra registreringen till specifika taggar, vilket förklaras i artikeln [Säkerhet](notification-hubs-push-notification-security.md).
+- En klient app kan bara uppdatera sina taggar när appen är aktiv. Om en användare till exempel har två enheter som registrerar Taggar relaterade till sport team, och den första enheten registrerar sig för en extra tagg (till exempel Seahawks), kommer den andra enheten inte att ta emot meddelanden om Seahawks tills appen på den andra enheten körs en andra gång. I allmänhet är det ett önskvärt alternativ när Taggar påverkas av flera enheter.
+- Eftersom appar kan bli hackiga måste det vara extra viktigt att skydda registreringen till särskilda taggar, enligt beskrivningen i artikel [säkerheten](notification-hubs-push-notification-security.md).
 
-### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Exempel på kod för att registrera med en meddelandehubb från en enhet med hjälp av en installation
+### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Exempel kod för registrering med en Notification Hub från en enhet med hjälp av en installation
 
-För närvarande stöds detta endast med hjälp av [REST API FÖR Notification Hubs.](/rest/api/notificationhubs/create-overwrite-installation)
+För tillfället stöds detta endast med [Notification Hubs REST API](/rest/api/notificationhubs/create-overwrite-installation).
 
-Du kan också använda [PATCH-metoden med JSON-Patch-standarden](https://tools.ietf.org/html/rfc6902) för att uppdatera installationen.
+Du kan också använda KORRIGERINGs metoden med hjälp av [JSON-patch-standarden](https://tools.ietf.org/html/rfc6902) för uppdatering av installationen.
 
 ```csharp
 class DeviceInstallation
@@ -204,9 +204,9 @@ else
 }
 ```
 
-### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration"></a>Exempel på kod för att registrera med en meddelandehubb från en enhet med hjälp av en registrering
+### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration"></a>Exempel kod som ska registreras med en Notification Hub från en enhet med hjälp av en registrering
 
-Dessa metoder skapar eller uppdaterar en registrering för den enhet som de anropas på. Det innebär att du måste skriva över hela registreringen för att kunna uppdatera handtaget eller taggarna. Kom ihåg att registreringar är övergående, så du bör alltid ha en tillförlitlig butik med de aktuella taggarna som en viss enhet behöver.
+Dessa metoder skapar eller uppdaterar en registrering för den enhet som de anropas på. Det innebär att du måste skriva över hela registreringen för att kunna uppdatera referensen eller taggarna. Kom ihåg att registreringar är tillfälliga, så du bör alltid ha en tillförlitlig butik med de aktuella taggar som en speciell enhet behöver.
 
 ```csharp
 // Initialize the Notification Hub
@@ -259,19 +259,19 @@ catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
 }
 ```
 
-## <a name="registration-management-from-a-backend"></a>Registreringshantering från en backend
+## <a name="registration-management-from-a-backend"></a>Registrerings hantering från en server del
 
-För att hantera registreringar från backend krävs ytterligare kod. Appen från enheten måste tillhandahålla det uppdaterade PNS-handtaget till backend varje gång appen startar (tillsammans med taggar och mallar), och backend måste uppdatera den här referensen på meddelandehubben. Följande bild illustrerar den här designen.
+Att hantera registreringar från Server delen kräver att du skriver ytterligare kod. Appen från enheten måste tillhandahålla den uppdaterade PNS-referensen till Server delen varje gång appen startas (tillsammans med taggar och mallar) och Server delen måste uppdatera den här referensen i Notification Hub. Följande bild illustrerar den här designen.
 
 ![Registreringshantering](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
 
-Fördelarna med att hantera registreringar från backend inkluderar möjligheten att ändra taggar till registreringar även när motsvarande app på enheten är inaktiv och att autentisera klientappen innan du lägger till en tagg i registreringen.
+Fördelarna med att hantera registreringar från Server delen är möjligheten att ändra taggar till registreringar även när motsvarande app på enheten är inaktiv och för att autentisera klient programmet innan du lägger till en tagg i registreringen.
 
-### <a name="example-code-to-register-with-a-notification-hub-from-a-backend-using-an-installation"></a>Exempel på kod för att registrera med en meddelandehubb från en serverd med hjälp av en installation
+### <a name="example-code-to-register-with-a-notification-hub-from-a-backend-using-an-installation"></a>Exempel kod för registrering med en Notification Hub från en server del med en installation
 
-Klientenheten får fortfarande sin PNS-handtag och relevanta installationsegenskaper som tidigare och anropar ett anpassat API på serversida som kan utföra registrerings- och auktorisera taggar etc. Den bakre sidan kan utnyttja [Meddelande Hub SDK för backend-åtgärder](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Klient enheten får fortfarande sitt PNS-handtag och relevanta installations egenskaper som innan och anropar ett anpassat API på Server delen som kan utföra registrerings-och auktorisera-taggarna osv. Server delen kan utnyttja [SDK för Notification Hub för Server dels åtgärder](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-Du kan också använda [PATCH-metoden med JSON-Patch-standarden](https://tools.ietf.org/html/rfc6902) för att uppdatera installationen.
+Du kan också använda KORRIGERINGs metoden med hjälp av [JSON-patch-standarden](https://tools.ietf.org/html/rfc6902) för uppdatering av installationen.
 
 ```csharp
 // Initialize the Notification Hub
@@ -315,9 +315,9 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 }
 ```
 
-### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Exempel på kod för att registrera med en meddelandehubb från en enhet med hjälp av ett registrerings-ID
+### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Exempel kod för registrering med en Notification Hub från en enhet med ett registrerings-ID
 
-Från din app backend kan du utföra grundläggande CRUDS-åtgärder på registreringar. Ett exempel:
+Från din app server del kan du utföra grundläggande CRUDS-åtgärder för registreringar. Ett exempel:
 
 ```csharp
 var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
@@ -341,4 +341,4 @@ await hub.UpdateRegistrationAsync(r);
 await hub.DeleteRegistrationAsync(r);
 ```
 
-Backend måste hantera samtidighet mellan registreringsuppdateringar. Service Bus erbjuder optimistisk samtidighetskontroll för registreringshantering. På HTTP-nivå implementeras detta med hjälp av ETag på registreringshanteringsåtgärder. Den här funktionen används transparent av Microsoft SDK:er, som genererar ett undantag om en uppdatering avvisas av samtidiga skäl. Appens backend ansvarar för att hantera dessa undantag och försöka igen uppdateringen om det behövs.
+Server delen måste hantera samtidighet mellan registrerings uppdateringar. Service Bus erbjuder optimistisk concurrency-kontroll för registrerings hantering. På HTTP-nivå implementeras detta med hjälp av ETag vid registrerings hanterings åtgärder. Den här funktionen används transparent av Microsoft SDK: er, vilket genererar ett undantag om en uppdatering avvisas av samtidiga orsaker. Appens Server del ansvarar för hantering av dessa undantag och försöker uppdatera igen om det behövs.

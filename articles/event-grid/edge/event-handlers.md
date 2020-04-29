@@ -1,6 +1,6 @@
 ---
-title: Händelsehanterare och mål – Azure Event Grid IoT Edge | Microsoft-dokument
-description: Händelsehanterare och destinationer i händelserutnät på kant
+title: Händelse hanterare och destinationer – Azure Event Grid IoT Edge | Microsoft Docs
+description: Händelse hanterare och mål i Event Grid på kant
 author: banisadr
 ms.author: babanisa
 ms.reviewer: spelluru
@@ -9,23 +9,23 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 35bf5af90aa5f0456aa8d68f0e4e8aaacc6cf84f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76849752"
 ---
-# <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Händelsehanterare och destinationer i händelserutnät på kant
+# <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Händelse hanterare och mål i Event Grid på kant
 
-En händelsehanterare är den plats där händelsen för ytterligare åtgärd eller för att bearbeta händelsen. Med modulen Event Grid on Edge kan händelsehanteraren finnas på samma kantenhet, en annan enhet eller i molnet. Du kan använda valfri WebHook för att hantera händelser eller skicka händelser till en av de inbyggda hanterarna som Azure Event Grid.
+En händelse hanterare är den plats där händelsen för ytterligare åtgärder eller bearbetning av händelsen bearbetas. Med modulen Event Grid i Edge kan händelse hanteraren finnas på samma Edge-enhet, en annan enhet eller i molnet. Du kan använda en webhook för att hantera händelser eller skicka händelser till en av de inbyggda hanterarna som Azure Event Grid.
 
 Den här artikeln innehåller information om hur du konfigurerar var och en.
 
-## <a name="webhook"></a>WebHook (olika)
+## <a name="webhook"></a>WebHook
 
-Om du vill publicera till en `endpointType` WebHook-slutpunkt ställer du in och `WebHook` anger:
+Om du vill publicera till en webhook-slutpunkt `endpointType` anger `WebHook` du till och anger:
 
-* slutpunktUrl: Url:en webhook-slutpunkt
+* endpointUrl: URL för webhook-slutpunkten
 
     ```json
         {
@@ -42,11 +42,11 @@ Om du vill publicera till en `endpointType` WebHook-slutpunkt ställer du in och
 
 ## <a name="azure-event-grid"></a>Azure Event Grid
 
-Om du vill publicera till en molnslutpunkt för Azure Event Grid anger du `endpointType` till `eventGrid` och tillhandahåller:
+Om du vill publicera till en Azure Event Grid moln slut punkt `endpointType` ställer `eventGrid` du in på och anger:
 
-* endpointUrl: URL för händelserutnätsämne i molnet
-* sasKey: Sas-tangenten för sas-händelserutnätet
-* topicName: Namn om du vill stämpla alla utgående händelser i Händelserutnätet. Ämnesnamn är användbart när du bokför ett eventrutnätsdomänavsnitt.
+* endpointUrl: URL för Event Grid avsnittet i molnet
+* sasKey: Event Grid ämnets SAS-nyckel
+* topicName: namn för att stämpla alla utgående händelser till Event Grid. Ämnes namnet är användbart när du publicerar i ett Event Grid domän ämne.
 
    ```json
         {
@@ -63,11 +63,11 @@ Om du vill publicera till en molnslutpunkt för Azure Event Grid anger du `endpo
     }
    ```
 
-## <a name="iot-edge-hub"></a>IoT Edge-hubb
+## <a name="iot-edge-hub"></a>IoT Edge hubb
 
-Om du vill publicera till `endpointType` en `edgeHub` Edge Hub-modul ställer du in och tillhandahåller:
+Om du vill publicera till en Edge Hub-modul `endpointType` ställer `edgeHub` du in på och anger:
 
-* outputName: Utdata som modulen Event Grid dirigerar händelser som matchar den här prenumerationen till edgeHub. Till exempel skrivs händelser som matchar nedanstående prenumeration till /messages/modules/eventgridmodule/outputs/sampleSub4.
+* outputName: utdata som Event Grid-modulen dirigerar händelser som matchar den här prenumerationen på edgeHub. Till exempel kommer händelser som matchar prenumerationen nedan att skrivas till/messages/modules/eventgridmodule/outputs/sampleSub4.
 
     ```json
         {
@@ -82,14 +82,14 @@ Om du vill publicera till `endpointType` en `edgeHub` Edge Hub-modul ställer du
         }
     ```
 
-## <a name="event-hubs"></a>Händelsehubbar
+## <a name="event-hubs"></a>Event Hubs
 
-Om du vill publicera till `endpointType` `eventHub` en eventhubb ställer du in och tillhandahåller:
+Om du vill publicera till en Event Hub ställer `endpointType` du `eventHub` in på och anger:
 
-* connectionString: Anslutningssträng för den specifika händelsehubben som du riktar in dig på genereras via en princip för delad åtkomst.
+* connectionString: anslutnings sträng för den specifika Händelsehubben som du har genererat via en princip för delad åtkomst.
 
     >[!NOTE]
-    > Anslutningssträngen måste vara entitetsspecifik. Det fungerar inte att använda en namnområdesanslutningssträng. Du kan generera en entitetsspecifik anslutningssträng genom att navigera till den specifika händelsehubb som du vill publicera till i Azure Portal och klicka på principer för **delad åtkomst** för att generera en ny entitetsspecifik connecection-sträng.
+    > Anslutnings strängen måste vara en speciell entitet. Det går inte att använda en anslutnings sträng för namn områden. Du kan skapa en entitets-Specific-anslutningssträng genom att navigera till den speciella händelsehubben som du vill publicera till i Azure-portalen och klicka på **principer för delad åtkomst** för att generera en ny entitets connecection sträng.
 
     ```json
         {
@@ -106,12 +106,12 @@ Om du vill publicera till `endpointType` `eventHub` en eventhubb ställer du in 
 
 ## <a name="service-bus-queues"></a>Service Bus-köer
 
-Om du vill publicera till `endpointType` en `serviceBusQueue` servicebusskö ställer du in och tillhandahåller:
+Om du vill publicera till en Service Bus kö anger `endpointType` du `serviceBusQueue` till och anger:
 
-* connectionString: Anslutningssträng för den specifika servicebusskö som du riktar in dig på genereras via en princip för delad åtkomst.
+* connectionString: anslutnings sträng för den specifika Service Bus kön som du har genererat via en princip för delad åtkomst.
 
     >[!NOTE]
-    > Anslutningssträngen måste vara entitetsspecifik. Det fungerar inte att använda en namnområdesanslutningssträng. Generera en entitetsspecifik anslutningssträng genom att navigera till den specifika servicebusskö som du vill publicera till i Azure Portal och klicka på Principer för **delad åtkomst** för att generera en ny entitetsspecifik connecection-sträng.
+    > Anslutnings strängen måste vara en speciell entitet. Det går inte att använda en anslutnings sträng för namn områden. Generera en entitets-Specific-anslutningssträng genom att gå till den angivna Service Buss kön som du vill publicera till i Azure-portalen och klicka på **principer för delad åtkomst** för att generera en ny entitets Specific connecection-sträng.
 
     ```json
         {
@@ -128,12 +128,12 @@ Om du vill publicera till `endpointType` en `serviceBusQueue` servicebusskö st�
 
 ## <a name="service-bus-topics"></a>Avsnitt om Service Bus
 
-Om du vill publicera till `endpointType` ett `serviceBusTopic` servicebussavsnitt ställer du in och tillhandahåller:
+Om du vill publicera till ett Service Bus ämne anger `endpointType` du `serviceBusTopic` till och anger:
 
-* connectionString: Anslutningssträng för det specifika servicebussämne som du riktar in dig på genereras via en princip för delad åtkomst.
+* connectionString: anslutnings sträng för det specifika Service Bus ämne som du har genererat via en princip för delad åtkomst.
 
     >[!NOTE]
-    > Anslutningssträngen måste vara entitetsspecifik. Det fungerar inte att använda en namnområdesanslutningssträng. Generera en entitetsspecifik anslutningssträng genom att navigera till det specifika servicebussämne som du vill publicera till i Azure Portal och klicka på principer för **delad åtkomst** för att generera en ny entitetsspecifik connecection-sträng.
+    > Anslutnings strängen måste vara en speciell entitet. Det går inte att använda en anslutnings sträng för namn områden. Generera en entitets-speciell anslutnings sträng genom att gå till den aktuella Service Bus avsnittet som du vill publicera till i Azure-portalen och klicka på **principer för delad åtkomst** för att generera en ny entitets Specific connecection-sträng.
 
     ```json
         {
@@ -150,13 +150,13 @@ Om du vill publicera till `endpointType` ett `serviceBusTopic` servicebussavsnit
 
 ## <a name="storage-queues"></a>Lagringsköer
 
-Om du vill publicera i `endpointType` `storageQueue` en lagringskö ställer du in och tillhandahåller:
+För att publicera till en lagrings kö, `endpointType` ange `storageQueue` till och ange:
 
-* queueName: Namnet på den lagringskö som du publicerar till.
-* connectionString: Anslutningssträng för lagringskontot som lagringskön finns i.
+* queueName: namnet på lagrings kön som du publicerar till.
+* connectionString: anslutnings sträng för lagrings kontot som lagrings kön finns i.
 
     >[!NOTE]
-    > Avgränsade händelsehubbar, servicebussköer och servicebussavsnitt, anslutningssträngen som används för lagringsköer är inte entitetsspecifik. I stället måste den bara anslutningssträngen för lagringskontot.
+    > Unline Event Hubs, Service Bus köer och Service Bus ämnen, den anslutnings sträng som används för lagrings köer är inte entitets-specifika. I stället måste den, men anslutnings strängen för lagrings kontot.
 
     ```json
         {

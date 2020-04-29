@@ -1,6 +1,6 @@
 ---
-title: Ansluta Windows Virtual Desktop-webbklient - Azure
-description: Så här ansluter du till Windows Virtual Desktop med webbklienten.
+title: Anslut Windows Virtual Desktop webb klient – Azure
+description: Ansluta till virtuella Windows-datorer med hjälp av webb klienten.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,24 +9,24 @@ ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: b8023c0927c05d3952bd9f3a51e99e85154552fd
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80656361"
 ---
 # <a name="connect-with-the-web-client"></a>Ansluta med webbklienten
 
-Med webbklienten kan du komma åt windows virtuella skrivbordsresurser från en webbläsare utan den långa installationsprocessen.
+Med webb klienten kan du komma åt dina Windows-resurser för virtuella skriv bord från en webbläsare utan den långa installations processen.
 
 >[!NOTE]
->Webbklienten har för närvarande inte stöd för mobilt operativsystem.
+>Webb klienten har för närvarande inte stöd för mobila operativ system.
 
 ## <a name="supported-operating-systems-and-browsers"></a>Operativsystem och webbläsare som stöds
 
-Medan alla HTML5-kompatibla webbläsare bör fungera, stöder vi officiellt följande operativsystem och webbläsare.
+Även om en HTML5-kompatibel webbläsare ska fungera, har vi officiellt stöd för följande operativ system och webbläsare.
 
-| Webbläsare           | Operativsystem som stöds                     | Anteckningar               |
+| Webbläsare           | Operativ system som stöds                     | Obs!               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
 | Internet Explorer | Windows                          |                     |
@@ -34,15 +34,15 @@ Medan alla HTML5-kompatibla webbläsare bör fungera, stöder vi officiellt föl
 | Mozilla Firefox   | Windows, macOS, Linux            | Version 55 eller senare |
 | Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |
 
-## <a name="access-remote-resources-feed"></a>Komma åt fjärrresursfeed
+## <a name="access-remote-resources-feed"></a>Åtkomst till fjär resurser-feed
 
-I en webbläsare navigerar du till [windows virtual desktop-webbklienten](https://rdweb.wvd.microsoft.com/webclient) och loggar in med ditt användarkonto.
+I en webbläsare navigerar du till [webb klienten för virtuella Windows-datorer](https://rdweb.wvd.microsoft.com/webclient) och loggar in med ditt användar konto.
 
 >[!NOTE]
->Om du redan har loggat in med ett annat Azure Active Directory-konto än det du vill använda för Windows Virtual Desktop bör du antingen logga ut eller använda ett privat webbläsarfönster.
+>Om du redan har loggat in med ett annat Azure Active Directory-konto än det som du vill använda för Windows Virtual Desktop, bör du antingen logga ut eller använda ett privat webbläsarfönster.
 
-När du har loggat in bör du nu se en lista över resurser. Du kan starta resurser genom att välja dem på samma sätt som en vanlig app på fliken **Alla resurser.**
+När du har loggat in bör du nu se en lista över resurser. Du kan starta resurser genom att välja dem som en normal app på fliken **alla resurser** .
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du använder webbklienten finns i [Kom igång med webbklienten](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client).
+Om du vill veta mer om hur du använder webb klienten kan du läsa [komma igång med webb klienten](/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client).

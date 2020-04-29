@@ -1,6 +1,6 @@
 ---
 title: Använda användardefinierade scheman
-description: Tips om hur du använder T-SQL-användardefinierade scheman för att utveckla lösningar i Synapse SQL-pool.
+description: Tips om hur du använder användardefinierade scheman för T-SQL för att utveckla lösningar i Synapse SQL-poolen.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,50 +12,50 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 7144fa75d156ca7aed9d8215592f89c167cfb221
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633459"
 ---
 # <a name="user-defined-schemas-in-synapse-sql-pool"></a>Användardefinierade scheman i Synapse SQL-pool
-Den här artikeln fokuserar på att ge flera tips om hur du använder T-SQL-användardefinierade scheman för att utveckla lösningar i Synapse SQL-pool.
+Den här artikeln fokuserar på att tillhandahålla flera tips för att använda användardefinierade scheman för T-SQL för att utveckla lösningar i Synapse SQL-poolen.
 
-## <a name="schemas-for-application-boundaries"></a>Scheman för programgränser
+## <a name="schemas-for-application-boundaries"></a>Scheman för program gränser
 
-Traditionella informationslager använder ofta separata databaser för att skapa programgränser baserat på antingen arbetsbelastning, domän eller säkerhet. 
+Traditionella informations lager använder ofta separata databaser för att skapa program gränser baserat på antingen arbets belastning, domän eller säkerhet. 
 
-Ett traditionellt SQL Server-informationslager kan till exempel innehålla en mellanlagringsdatabas, en datalagerdatabas och vissa datamardatabaser. I den här topologin fungerar varje databas som en arbetsbelastning och säkerhetsgräns i arkitekturen.
+Till exempel kan ett traditionellt SQL Server informations lager omfatta en mellanlagringsdatabas, en informations lager databas och några data mart-databaser. I den här topologin fungerar varje databas som arbets belastning och säkerhets gränser i arkitekturen.
 
-Sql-poolen kör däremot hela datalagerarbetsbelastningen i en databas. Korsdatabaskopplingar är inte tillåtna. SQL-poolen förväntar sig att alla tabeller som används av distributionslagret ska lagras i en databas.
+SQL-poolen kör däremot hela arbets belastningen för data lagret i en databas. Kopplingar mellan databaser är inte tillåtna. SQL-poolen förväntar sig att alla tabeller som används av lagret lagras i en databas.
 
 > [!NOTE]
-> SQL-poolen stöder inte korsdatabasfrågor av något slag. Därför måste implementeringar av informationslager som utnyttjar detta mönster ses över.
+> SQL-poolen stöder inte kors databas frågor av någon typ. Det innebär att data lager implementeringar som utnyttjar det här mönstret måste ändras.
 > 
 > 
 
 ## <a name="recommendations"></a>Rekommendationer
-Vad som följer är rekommendationer för att konsolidera arbetsbelastningar, säkerhet, domän och funktionella gränser med hjälp av användardefinierade scheman:
+Här följer rekommendationer för konsolidering av arbets belastningar, säkerhet, domän och funktionella gränser med hjälp av användardefinierade scheman:
 
-- Använd en SQL-pooldatabas för att köra hela datalagerarbetsbelastningen.
-- Konsolidera din befintliga informationslagermiljö för att använda en SQL-pooldatabas.
-- Utnyttja **användardefinierade scheman** för att ange den gräns som tidigare implementerats med hjälp av databaser.
+- Använd en SQL-adresspool för att köra hela arbets belastningen för data lagret.
+- Konsolidera din befintliga data lager miljö för att använda en SQL-adresspool.
+- Använd **användardefinierade scheman** för att tillhandahålla den gräns som tidigare implementerats med hjälp av databaser.
 
-Om användardefinierade scheman inte har använts tidigare har du en ren griffeltavla. Använd det gamla databasnamnet som grund för dina användardefinierade scheman i SQL-pooldatabasen.
+Om användardefinierade scheman inte har använts tidigare har du en ren Skriv platta. Använd det gamla databas namnet som grund för dina användardefinierade scheman i SQL-adresspoolen.
 
 Om scheman redan har använts har du några alternativ:
 
-- Ta bort de äldre schemanamnen och börja om från början.
-- Behåll de äldre schemanamnen genom att vänta på det äldre schemanamnet till tabellnamnet.
-- Behåll de äldre schemanamnen genom att implementera vyer över tabellen i ett extra schema för att återskapa den gamla schemastrukturen.
+- Ta bort de gamla schema namnen och börja om på nytt.
+- Behåll gamla schema namn genom att vänta det gamla schema namnet till tabell namnet.
+- Behåll gamla schema namn genom att implementera vyer över tabellen i ett extra schema för att återskapa den gamla schema strukturen.
 
 > [!NOTE]
-> Vid första inspektion alternativ 3 kan verka som det mest tilltalande alternativet. Men djävulen är i detalj. Vyer är skrivskyddade i SQL-poolen. Alla data eller tabelländringar måste utföras mot bastabellen. Alternativ 3 introducerar också ett lager av vyer i ditt system. Du kanske vill ge detta lite ytterligare eftertanke om du redan använder vyer i din arkitektur.
+> Vid första inspektions alternativ 3 kan det verka som det mest tilltalande alternativet. Devil är dock i detalj. Vyer är skrivskyddade i SQL-poolen. Data-eller tabell ändringar måste utföras mot bas tabellen. Alternativ 3 introducerar också ett lager med vyer i systemet. Du kanske vill ge detta ytterligare en tanke på att du redan använder vyer i arkitekturen.
 > 
 > 
 
 ### <a name="examples"></a>Exempel:
-Implementera användardefinierade scheman baserat på databasnamn:
+Implementera användardefinierade scheman baserat på databas namn:
 
 ```sql
 CREATE SCHEMA [stg]; -- stg previously database name for staging database
@@ -73,7 +73,7 @@ CREATE TABLE [edw].[customer] -- create data warehouse tables in the edw schema
 );
 ```
 
-Behåll äldre schemanamn genom att vänta på dem till tabellnamnet. Använd scheman för arbetsbelastningsgränsen:
+Behåll gamla schema namn genom att vänta dem i tabell namnet. Använd scheman för arbets belastnings gränser:
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -91,7 +91,7 @@ CREATE TABLE [edw].[dim_customer] --pre-pend the old schema name to the table an
 );
 ```
 
-Behåll äldre schemanamn med hjälp av vyer:
+Behåll gamla schema namn med hjälp av vyer:
 
 ```sql
 CREATE SCHEMA [stg]; -- stg defines the staging boundary
@@ -119,10 +119,10 @@ FROM    [edw].customer
 ```
 
 > [!NOTE]
-> Alla ändringar i schemastrategin behöver en översyn av databasens säkerhetsmodell. I många fall kanske du kan förenkla säkerhetsmodellen genom att tilldela behörigheter på schemanivå. Om fler detaljerade behörigheter krävs kan du använda databasroller.
+> Alla ändringar i schema strategin behöver en granskning av databasens säkerhets modell. I många fall kanske du kan förenkla säkerhets modellen genom att tilldela behörigheter på schema nivå. Om mer detaljerade behörigheter krävs kan du använda databas roller.
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-Fler utvecklingstips finns i [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
+Mer utvecklings tips finns i [utvecklings översikt](sql-data-warehouse-overview-develop.md).
 

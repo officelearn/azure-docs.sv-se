@@ -1,6 +1,6 @@
 ---
-title: Leverans och återförsök – Azure Event Grid IoT Edge | Microsoft-dokument
-description: Leverans och återförsök i händelserutnät på IoT Edge.
+title: Leverans och nya försök Azure Event Grid IoT Edge | Microsoft Docs
+description: Leverans och försök igen i Event Grid på IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,63 +10,63 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 7df283b12a0d04d2b785c13a2f12b03115581e79
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76841720"
 ---
 # <a name="delivery-and-retry"></a>Leverans och nytt försök
 
-Event Grid ger hållbar leverans. Den försöker leverera varje meddelande minst en gång för varje matchande prenumeration omedelbart. Om en prenumerantslutpunkt inte bekräftar mottagandet av en händelse eller om det är fel, försöker Event Grid leverera baserat på en **fast schema för återförsök** och **återförsök.**  Som standard levererar modulen Event Grid en händelse i taget till prenumeranten. Nyttolasten är dock en matris med en enda händelse. Du kan låta modulen leverera mer än en händelse i taget genom att aktivera batchfunktionen för utdata. Mer information om den här funktionen finns i [utdatabatching](delivery-output-batching.md).  
+Event Grid tillhandahåller varaktig leverans. Det försöker leverera varje meddelande minst en gång för varje matchande prenumeration direkt. Om en prenumerants slut punkt inte bekräftar mottagandet av en händelse eller om det uppstår ett fel, Event Grid försöker leverera igen baserat på ett fast **schema för omförsök** och **försök igen**.  Som standard skickar modulen Event Grid en händelse i taget till prenumeranten. Nytto lasten är dock en matris med en enda händelse. Du kan låta modulen leverera mer än en händelse i taget genom att aktivera batch-funktionen för utdata. Mer information om den här funktionen finns i [batching av utdata](delivery-output-batching.md).  
 
 > [!IMPORTANT]
->Det finns inget stöd för händelsedata. Det innebär att omfördelning eller omstart av modulen Event Grid gör att du förlorar alla händelser som ännu inte har levererats.
+>Det finns inget beständigt stöd för händelse data. Det innebär att omdistribution eller omstart av Event Grid-modulen gör att du förlorar eventuella händelser som ännu inte har levererats.
 
-## <a name="retry-schedule"></a>Schema för återförsök
+## <a name="retry-schedule"></a>Schema för förnyat försök
 
-Event Grid väntar upp till 60 sekunder på ett svar efter att ha levererat ett meddelande. Om abonnentens slutpunkt inte ACK svaret, då meddelandet kommer att dämpas i en av våra back off köer för efterföljande återförsök.
+Event Grid väntar upp till 60 sekunder innan ett meddelande har levererats. Om prenumerantens slut punkt inte ACK ger svar, kommer meddelandet att placeras i en av våra säkerhets kopierings köer för efterföljande återförsök.
 
-Det finns två förkonfigurerade avbackade köer som avgör det schema som ett nytt försök ska göras på. De är:
+Det finns två förkonfigurerade köer som avgör vilket schema som försök görs att försöka igen. De är:
 
 | Schema | Beskrivning |
 | ---------| ------------ |
-| 1 minut | Meddelanden som hamnar här görs varje minut.
-| 10 minuter | Meddelanden som hamnar här försöker var tionde minut.
+| 1 minut | Meddelanden som visas här görs varje minut.
+| 10 minuter | Meddelanden som visas här kommer att göras var tionde minut.
 
-### <a name="how-it-works"></a>Hur det fungerar
+### <a name="how-it-works"></a>Så här fungerar det
 
-1. Meddelandet kommer till modulen Event Grid. Man försöker leverera den omedelbart.
-1. Om leveransen misslyckas, då meddelandet är enqueued i 1-minuters kö och försöker igen efter en minut.
-1. Om leveransen fortsätter att misslyckas, då meddelandet är enqueued i 10-minuters kö och försökte igen var 10 minuter.
-1. Leveranserna görs tills principbegränsningar eller återförsök har uppnåtts.
+1. Meddelandet tas emot i Event Grid-modulen. Försök görs att leverera det direkt.
+1. Om leveransen Miss lyckas placeras meddelandet i kö i 1 minut och provas igen efter en minut.
+1. Om leveransen fortsätter att fungera hamnar meddelandet i kö i 10 minuter och provas var 10: e minut.
+1. Leveranser görs till dess att de slutförda eller återförsöks princip gränserna har nåtts.
 
-## <a name="retry-policy-limits"></a>Begränsningar för återförsöksprincip
+## <a name="retry-policy-limits"></a>Princip begränsningar för återförsök
 
-Det finns två konfigurationer som bestämmer principen för återförsök. De är:
+Det finns två konfigurationer som avgör princip för återförsök. De är:
 
 * Maximalt antal försök
-* Händelsetid för att leva (TTL)
+* TTL (Time-to-Live) för händelse
 
-En händelse tas bort om någon av gränserna för återförsöksprincipen har nåtts. Själva schemat för återförsök beskrevs i avsnittet Schemalägg igen. Konfiguration av dessa gränser kan göras antingen för alla prenumeranter eller per prenumerationsbas. I följande avsnitt beskrivs var och en av dem ytterligare detaljer.
+En händelse tas bort om någon av gränserna för principen för återförsök har nåtts. Schemat för förnyat försök beskrivs i avsnittet schema för förnyat försök. Konfigurationen av dessa gränser kan göras antingen för alla prenumeranter eller per prenumeration. I följande avsnitt beskrivs var och en ytterligare information.
 
 ## <a name="configuring-defaults-for-all-subscribers"></a>Konfigurera standardvärden för alla prenumeranter
 
-Det finns två `brokers__defaultMaxDeliveryAttempts` `broker__defaultEventTimeToLiveInSeconds` egenskaper: och som kan konfigureras som en del av distributionen av händelserutnät, som styr principen för återförsök för alla prenumeranter.
+Det finns två egenskaper: `brokers__defaultMaxDeliveryAttempts` och `broker__defaultEventTimeToLiveInSeconds` som kan konfigureras som en del av event Grid-distributionen, som kontrollerar princip inställningarna för återförsök för alla prenumeranter.
 
 | Egenskapsnamn | Beskrivning |
 | ---------------- | ------------ |
 | `broker__defaultMaxDeliveryAttempts` | Maximalt antal försök att leverera en händelse. Standardvärde: 30.
-| `broker__defaultEventTimeToLiveInSeconds` | Händelse TTL i sekunder varefter en händelse kommer att släppas om den inte levereras. Standardvärde: **7200** sekunder
+| `broker__defaultEventTimeToLiveInSeconds` | TTL för händelse i sekunder efter vilken en händelse tas bort om den inte levereras. Standardvärde: **7200** sekunder
 
-## <a name="configuring-defaults-per-subscriber"></a>Konfigurera standardvärden per prenumerant
+## <a name="configuring-defaults-per-subscriber"></a>Konfigurera standardinställningar per prenumerant
 
-Du kan också ange principbegränsningar för återförsök per prenumeration.
-Mer information om hur du konfigurerar standardvärden per prenumerant finns i vår [API-dokumentation.](api.md) Standardinställningar på prenumerationsnivå åsidosätter konfigurationerna på modulnivå.
+Du kan också ange en princip gräns för återförsök per prenumeration.
+I vår [API-dokumentation](api.md) finns information om hur du konfigurerar standardinställningar per prenumerant. Standardvärden för prenumerations nivåer åsidosätter modulens nivå konfiguration.
 
 ## <a name="examples"></a>Exempel
 
-I följande exempel ställs princip för återförsök i modulen Event Grid med maxNumberOfAttempts = 3 och Event TTL på 30 minuter
+I följande exempel konfigureras princip för återförsök i Event Grid-modulen med maxNumberOfAttempts = 3 och händelse-TTL på 30 minuter
 
 ```json
 {
@@ -86,7 +86,7 @@ I följande exempel ställs princip för återförsök i modulen Event Grid med 
 }
 ```
 
-I följande exempel ställs en webbkrokprenumeration med maxNumberOfAttempts = 3 och Event TTL på 30 minuter
+I följande exempel konfigureras en Web Hook-prenumeration med maxNumberOfAttempts = 3 och händelse-TTL på 30 minuter
 
 ```json
 {

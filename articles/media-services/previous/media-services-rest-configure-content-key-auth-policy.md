@@ -1,6 +1,6 @@
 ---
-title: Konfigurera en behörighetsprincip för innehållsnyckel med REST - Azure | Microsoft-dokument
-description: Lär dig hur du konfigurerar en auktoriseringsprincip för en innehållsnyckel med hjälp av REST-API:et för Media Services.
+title: Konfigurera en auktoriseringsprincip för innehålls nycklar med REST-Azure | Microsoft Docs
+description: Lär dig hur du konfigurerar en auktoriseringsprincip för en innehålls nyckel med hjälp av Media Services REST API.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,53 +15,53 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8942ad8bdc4f9fc37a88d09871c983f63cd8c1b9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "76773701"
 ---
-# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Dynamisk kryptering: Konfigurera en behörighetsprincip för innehållsnyckel  
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Dynamisk kryptering: Konfigurera en auktoriseringsprincip för innehålls nycklar  
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>Översikt
- Du kan använda Azure Media Services för att leverera ditt innehåll krypterat (dynamiskt) med Advanced Encryption Standard (AES) med hjälp av 128-bitars krypteringsnycklar och PlayReady eller Widevine digital rights management (DRM). Media Services tillhandahåller också en tjänst för att leverera nycklar och PlayReady/Widevine-licenser till auktoriserade klienter.
+ Du kan använda Azure Media Services för att leverera ditt innehåll krypterat (dynamiskt) med Advanced Encryption Standard (AES) genom att använda 128-bitars krypterings nycklar och PlayReady eller Widevine Digital Rights Management (DRM). Media Services tillhandahåller också en tjänst för att leverera nycklar och PlayReady/Widevine-licenser till auktoriserade klienter.
 
-Om du vill att Media Services ska kryptera en tillgång måste du associera en krypteringsnyckel (CommonEncryption eller EnvelopeEncryption) med tillgången. Mer information finns i [Skapa innehållsnycklar med REST](media-services-rest-create-contentkey.md). Du måste också konfigurera auktoriseringsprinciper för nyckeln (enligt beskrivningen i den här artikeln).
+Om du vill Media Services kryptera en till gång måste du associera en krypterings nyckel (CommonEncryption eller EnvelopeEncryption) med till gången. Mer information finns i [skapa innehålls nycklar med rest](media-services-rest-create-contentkey.md). Du måste också konfigurera Auktoriseringsprinciper för nyckeln (enligt beskrivningen i den här artikeln).
 
-När en stream begärs av en spelare använder Media Services den angivna nyckeln för att dynamiskt kryptera ditt innehåll med hjälp av AES- eller PlayReady-kryptering. Om spelaren vill dekryptera dataströmmen begär hon eller han nyckeln från nyckelleveranstjänsten. För att avgöra om användaren har behörighet att hämta nyckeln utvärderar tjänsten de auktoriseringsprinciper som du har angett för nyckeln.
+När en data ström begärs av en spelare, använder Media Services den angivna nyckeln för att dynamiskt kryptera innehållet med hjälp av AES eller PlayReady-kryptering. Om spelaren vill dekryptera dataströmmen begär hon eller han nyckeln från nyckelleveranstjänsten. För att avgöra om användaren har behörighet att hämta nyckeln utvärderar tjänsten de Auktoriseringsprinciper som du har angett för nyckeln.
 
-Media Services stöder flera olika sätt att auktorisera användare som begär nycklar. Behörighetsprincipen för innehållsnyckel kan ha en eller flera auktoriseringsbegränsningar med hjälp av antingen den öppna eller tokenbegränsningen. Den tokenbegränsade principen måste åtföljas av en token utfärdad av en säker tokentjänst (Secure Token Service – STS). Media Services stöder token i formatet Enkel webbtoken[(SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) och JSON Web Token (JWT).
+Media Services stöder flera olika sätt att auktorisera användare som begär nycklar. Auktoriseringsprincipen för innehålls nyckeln kan ha en eller flera restriktioner för auktorisering med antingen begränsningen Open eller token. Den tokenbegränsade principen måste åtföljas av en token utfärdad av en säker tokentjänst (Secure Token Service – STS). Media Services stöder tokens i formaten simple web token ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) och JSON Web token (JWT).
 
-Media Services tillhandahåller inte STS. Du kan skapa en anpassad STS eller använda Azure Active Directory (Azure AD) för att utfärda token. STS måste konfigureras för att skapa en token som signerats med den angivna nyckeln och utfärda anspråk som du angav i tokenbegränsningskonfigurationen (enligt beskrivningen i den här artikeln). Om token är giltig och anspråken i token matchar de som konfigurerats för innehållsnyckeln returnerar Media Services nyckelleveranstjänst krypteringsnyckeln till klienten.
+Media Services tillhandahåller inte STS. Du kan skapa en anpassad STS eller använda Azure Active Directory (Azure AD) för att utfärda token. STS måste konfigureras för att skapa en token som signerats med den angivna nyckeln och utfärda anspråk som du angav i konfigurationen för token-begränsning (enligt beskrivningen i den här artikeln). Om token är giltig och anspråk i token matchar de som kon figurer ATS för innehålls nyckeln, returnerar tjänsten Media Services Key Delivery krypterings nyckeln till klienten.
 
 Mer information finns i följande artiklar:
-- [JWT-tokenautentisering](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
-- [Integrera en OWIN MVC-baserad app för Azure Media Services med Azure Active Directory och begränsa leverans av innehållsnyckel baserat på JWT-anspråk](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
+- [JWT-token-autentisering](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
+- [Integrera en Azure Media Services OWIN MVC-baserad app med Azure Active Directory och begränsa leverans av innehålls nycklar baserat på JWT-anspråk](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
 
 ### <a name="some-considerations-apply"></a>Vissa överväganden gäller
-* Om du vill använda dynamisk paketering och dynamisk kryptering kontrollerar du att slutpunkten för direktuppspelning som du vill strömma innehållet från är i tillståndet "Kör".
-* Din tillgång måste innehålla en uppsättning adaptiva bitrate MP4s eller adaptiv bitrate Smooth Streaming-filer. Mer information finns i [Koda en tillgång](media-services-encode-asset.md).
-* Ladda upp och koda dina tillgångar med alternativet AssetCreationOptions.StorageEncrypted.
-* Om du planerar att ha flera innehållsnycklar som kräver samma principkonfiguration rekommenderar vi att du skapar en enda auktoriseringsprincip och återanvänder den med flera innehållsnycklar.
-* Nyckelleveranstjänsten cachelagrar ContentKeyAuthorizationPolicy och dess relaterade objekt (principalternativ och begränsningar) i 15 minuter. Du kan skapa ContentKeyAuthorizationPolicy och ange att använda en tokenbegränsning, testa den och sedan uppdatera principen till den öppna begränsningen. Den här processen tar ungefär 15 minuter innan principen växlar till den öppna versionen av principen.
+* Om du vill använda dynamisk paketering och dynamisk kryptering kontrollerar du att den strömnings slut punkt som du vill strömma innehållet i är i läget "körs".
+* Till gången måste innehålla en uppsättning anpassad bit hastighet hastigheter eller anpassad bit hastighet Smooth Streaming filer. Mer information finns i [koda en till gång](media-services-encode-asset.md).
+* Ladda upp och koda dina resurser med hjälp av alternativet AssetCreationOptions. StorageEncrypted.
+* Om du planerar att ha flera innehålls nycklar som kräver samma princip konfiguration rekommenderar vi att du skapar en princip för enskild auktorisering och återanvänder den med flera innehålls nycklar.
+* Nyckel leverans tjänsten cachelagrar ContentKeyAuthorizationPolicy och dess relaterade objekt (princip alternativ och begränsningar) i 15 minuter. Du kan skapa ContentKeyAuthorizationPolicy och ange om du vill använda en begränsning för token, testa den och sedan uppdatera principen till den öppna begränsningen. Den här processen tar ungefär 15 minuter innan principen växlar till den öppna versionen av principen.
 * Om du lägger till eller uppdaterar din tillgångs leveransprincip måste du ta bort eventuella befintliga lokaliserare och skapa en ny.
-* För närvarande kan du inte kryptera progressiva nedladdningar.
-* Slutpunkten för direktuppspelning av Media Services anger värdet för CORS Access-Control-Allow-Origin-huvudet i preflight-svar som jokertecken "\*." Det här värdet fungerar bra med de flesta spelare, inklusive Azure Media Player, Roku och JWPlayer och andra. Vissa spelare som använder dash.js fungerar dock inte eftersom XMLHttpRequest i deras dash.js inte tillåter jokertecken "\*" som värdet för Access-Control-Allow-Origin. Som en lösning på den här begränsningen i dash.js kan Media Services ange domänen i svarshuvudet för preflight. Om du behöver hjälp kan du öppna en supportbiljett via Azure-portalen.
+* För närvarande kan du inte kryptera Progressive hämtningar.
+* Media Services strömnings slut punkt anger värdet för CORS Access-Control-Allow-Origin-huvudet i preflight-svar som jokertecknet\*"." Det här värdet fungerar bra med de flesta spelare, inklusive Azure Media Player, Roku och JWPlayer och andra. Men vissa spelare som använder bindestreck. js fungerar inte eftersom, med läget för autentiseringsuppgifter inställt på "inkludera", XMLHttpRequest i sina bindestreck. js tillåter inte jokertecknet "\*" som värde för Access-Control-Allow-Origin. Som en lösning på den här begränsningen i bindestreck. js, om du är värd för din klient från en enda domän, kan Media Services ange domänen i svars huvudet för preflight. Om du behöver hjälp öppnar du ett support ärende via Azure Portal.
 
 ## <a name="aes-128-dynamic-encryption"></a>AES-128 dynamisk kryptering
 > [!NOTE]
-> När du arbetar med REST-API:et för Media Services gäller följande överväganden.
+> När du arbetar med Media Services REST API gäller följande saker.
 > 
-> När du öppnar entiteter i Media Services måste du ange specifika rubrikfält och värden i HTTP-begäranden. Mer information finns i [Installationsprogrammet för REST API-utveckling för Media Services](media-services-rest-how-to-use.md).
+> När du öppnar entiteter i Media Services måste du ange vissa huvud fält och värden i dina HTTP-begäranden. Mer information finns i [installations programmet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
 > 
 > 
 > 
 
-### <a name="open-restriction"></a>Öppen begränsning
-Öppen begränsning innebär att systemet levererar nyckeln till alla som gör en nyckelbegäran. Den här begränsningen kan vara användbar för testning.
+### <a name="open-restriction"></a>Öppna begränsning
+Öppen begränsning innebär att systemet levererar nyckeln till alla som gör en nyckel förfrågan. Den här begränsningen kan vara användbar i test syfte.
 
-I följande exempel skapas en öppen auktoriseringsprincip och den läggs till i innehållsnyckeln.
+I följande exempel skapas en öppen auktoriseringsprincip och den läggs till i innehålls nyckeln.
 
 #### <a name="create-contentkeyauthorizationpolicies"></a><a id="ContentKeyAuthorizationPolicies"></a>Skapa ContentKeyAuthorizationPolicies
 Begäran:
@@ -156,7 +156,7 @@ Svar:
 
     HTTP/1.1 204 No Content
 
-#### <a name="add-an-authorization-policy-to-the-content-key"></a><a id="AddAuthorizationPolicyToKey"></a>Lägga till en auktoriseringsprincip i innehållsnyckeln
+#### <a name="add-an-authorization-policy-to-the-content-key"></a><a id="AddAuthorizationPolicyToKey"></a>Lägg till en auktoriseringsprincip i innehålls nyckeln
 Begäran:
 
     PUT https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A2e6d36a7-a17c-4e9a-830d-eca23ad1a6f9') HTTP/1.1
@@ -177,13 +177,13 @@ Svar:
 
     HTTP/1.1 204 No Content
 
-### <a name="token-restriction"></a>Token begränsning
-I det här avsnittet beskrivs hur du skapar en behörighetsprincip för innehållsnyckel och associerar den med innehållsnyckeln. Auktoriseringsprincipen beskriver vilka auktoriseringskrav som måste uppfyllas för att avgöra om användaren har behörighet att ta emot nyckeln. Innehåller till exempel verifieringsnyckellistan nyckeln som token signerades med?
+### <a name="token-restriction"></a>Begränsning av token
+I det här avsnittet beskrivs hur du skapar en auktoriseringsprincip för innehålls nycklar och associerar den med innehålls nyckeln. Auktoriseringsprincipen beskriver vilka auktorisations krav som måste uppfyllas för att avgöra om användaren har behörighet att ta emot nyckeln. Till exempel innehåller verifierings nyckel listan den nyckel som token har signerats med?
 
-Om du vill konfigurera alternativet tokenbegränsning måste du använda en XML för att beskriva tokens auktoriseringskrav. XML-koden för tokenbegränsningsbegränsningen måste överensstämma med följande XML-schema:
+Om du vill konfigurera begränsnings alternativet för token måste du använda en XML för att beskriva tokens auktoriserings krav. XML-konfigurationsfilen för begränsning av token måste följa följande XML-schema:
 
 
-#### <a name="token-restriction-schema"></a><a id="schema"></a>Schema för tokenbegränsning
+#### <a name="token-restriction-schema"></a><a id="schema"></a>Schema för token-begränsning
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="https://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -231,12 +231,12 @@ Om du vill konfigurera alternativet tokenbegränsning måste du använda en XML 
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-När du konfigurerar principen tokenbegränsad måste du ange den primära verifieringsnyckeln, utfärdaren och målgruppsparametrarna. Den primära verifieringsnyckeln innehåller nyckeln som token signerades med. Utfärdaren är STS som utfärdar token. Målgruppen (kallas ibland scope) beskriver avsikten med token eller den resurs som token auktoriserar åtkomst till. Medietjänstnyckelleveranstjänsten verifierar att dessa värden i token matchar värdena i mallen.
+När du konfigurerar den token-begränsade principen måste du ange primär verifierings nyckel, utfärdare och mål grupps parametrar. Den primära verifierings nyckeln innehåller den nyckel som token har signerats med. Utfärdaren är den STS som utfärdar token. Mål gruppen (kallas ibland omfång) beskriver syftet med den token eller resurs som token tillåter åtkomst till. Tjänsten Media Services Key Delivery verifierar att värdena i token matchar värdena i mallen.
 
-I följande exempel skapas en auktoriseringsprincip med en tokenbegränsning. I det här exemplet måste klienten presentera en token som innehåller signeringsnyckeln (VerificationKey), en tokenutfärdare och obligatoriska anspråk.
+I följande exempel skapas en auktoriseringsprincip med en begränsning för token. I det här exemplet måste klienten presentera en token som innehåller signerings nyckeln (VerificationKey), en token utfärdare och obligatoriska anspråk.
 
 ### <a name="create-contentkeyauthorizationpolicies"></a>Skapa ContentKeyAuthorizationPolicies
-Skapa en tokenbegränsningsprincip, som visas i avsnittet["Skapa ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
+Skapa en begränsnings princip för token enligt vad som visas i avsnittet "[skapa ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
 
 ### <a name="create-contentkeyauthorizationpolicyoptions"></a>Skapa ContentKeyAuthorizationPolicyOptions
 Begäran:
@@ -275,20 +275,20 @@ Svar:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:e1ef6145-46e8-4ee6-9756-b1cf96328c23","Name":"Token option for HLS","KeyDeliveryType":2,"KeyDeliveryConfiguration":null,"Restrictions":[{"Name":"Token Authorization Policy","KeyRestrictionType":1,"Requirements":"<TokenRestrictionTemplate xmlns:i=\"https://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1\"><AlternateVerificationKeys><TokenVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>BklyAFiPTQsuJNKriQJBZHYaKM2CkCTDQX2bw9sMYuvEC9sjW0W7GUIBygQL/+POEeUqCYPnmEU2g0o1GW2Oqg==</KeyValue></TokenVerificationKey></AlternateVerificationKeys><Audience>urn:test</Audience><Issuer>http://testissuer.com/</Issuer><PrimaryVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>E5BUHiN4vBdzUzdP0IWaHFMMU3D1uRZgF16TOhSfwwHGSw+Kbf0XqsHzEIYk11M372viB9vbiacsdcQksA0ftw==</KeyValue></PrimaryVerificationKey><RequiredClaims><TokenClaim><ClaimType>urn:microsoft:azure:mediaservices:contentkeyidentifier</ClaimType><ClaimValue i:nil=\"true\" /></TokenClaim></RequiredClaims><TokenType>SWT</TokenType></TokenRestrictionTemplate>"}]}
 
 #### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Länka ContentKeyAuthorizationPolicies med alternativ
-Länka ContentKeyAuthorizationPolicies med alternativ, som visas i avsnittet["Skapa ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
+Länka ContentKeyAuthorizationPolicies med alternativ, som du ser i avsnittet "[skapa ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
 
-#### <a name="add-an-authorization-policy-to-the-content-key"></a>Lägga till en auktoriseringsprincip i innehållsnyckeln
-Lägg till AuthorizationPolicy i ContentKey, som visas i avsnittet "[Lägg till en auktoriseringsprincip i innehållsnyckeln](#AddAuthorizationPolicyToKey)."
+#### <a name="add-an-authorization-policy-to-the-content-key"></a>Lägg till en auktoriseringsprincip i innehålls nyckeln
+Lägg till AuthorizationPolicy till ContentKey, som du ser i avsnittet "[Lägg till en auktoriseringsprincip i innehålls nyckeln](#AddAuthorizationPolicyToKey)".
 
-## <a name="playready-dynamic-encryption"></a>PlayReady dynamisk kryptering
-Du kan använda Media Services för att konfigurera de rättigheter och begränsningar som du vill att PlayReady DRM-körningen ska tillämpas när en användare försöker spela upp skyddat innehåll. 
+## <a name="playready-dynamic-encryption"></a>PlayReady Dynamic Encryption
+Du kan använda Media Services för att konfigurera de rättigheter och begränsningar som du vill att PlayReady DRM-körningen ska använda när en användare försöker spela upp skyddat innehåll. 
 
-När du skyddar ditt innehåll med PlayReady är en av de saker du behöver ange i auktoriseringsprincipen en XML-sträng som definierar [licensmallen PlayReady](media-services-playready-license-template-overview.md). 
+När du skyddar ditt innehåll med PlayReady är ett av de saker du behöver ange i auktoriseringsprincipen en XML-sträng som definierar [licens mal len PlayReady](media-services-playready-license-template-overview.md). 
 
-### <a name="open-restriction"></a>Öppen begränsning
-Öppen begränsning innebär att systemet levererar nyckeln till alla som gör en nyckelbegäran. Den här begränsningen kan vara användbar för testning.
+### <a name="open-restriction"></a>Öppna begränsning
+Öppen begränsning innebär att systemet levererar nyckeln till alla som gör en nyckel förfrågan. Den här begränsningen kan vara användbar i test syfte.
 
-I följande exempel skapas en öppen auktoriseringsprincip och den läggs till i innehållsnyckeln.
+I följande exempel skapas en öppen auktoriseringsprincip och den läggs till i innehålls nyckeln.
 
 #### <a name="create-contentkeyauthorizationpolicies"></a><a id="ContentKeyAuthorizationPolicies2"></a>Skapa ContentKeyAuthorizationPolicies
 Begäran:
@@ -364,16 +364,16 @@ Svar:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:1052308c-4df7-4fdb-8d21-4d2141fc2be0","Name":"","KeyDeliveryType":1,"KeyDeliveryConfiguration":"<PlayReadyLicenseResponseTemplate xmlns:i=\"https://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1\"><LicenseTemplates><PlayReadyLicenseTemplate><AllowTestDevices>false</AllowTestDevices><ContentKey i:type=\"ContentEncryptionKeyFromHeader\" /><LicenseType>Nonpersistent</LicenseType><PlayRight /></PlayReadyLicenseTemplate></LicenseTemplates></PlayReadyLicenseResponseTemplate>","Restrictions":[{"Name":"Open","KeyRestrictionType":0,"Requirements":null}]}
 
 #### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Länka ContentKeyAuthorizationPolicies med alternativ
-Länka ContentKeyAuthorizationPolicies med alternativ, som visas i avsnittet["Skapa ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
+Länka ContentKeyAuthorizationPolicies med alternativ, som du ser i avsnittet "[skapa ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
 
-#### <a name="add-an-authorization-policy-to-the-content-key"></a>Lägga till en auktoriseringsprincip i innehållsnyckeln
-Lägg till AuthorizationPolicy i ContentKey, som visas i avsnittet "[Lägg till en auktoriseringsprincip i innehållsnyckeln](#AddAuthorizationPolicyToKey)."
+#### <a name="add-an-authorization-policy-to-the-content-key"></a>Lägg till en auktoriseringsprincip i innehålls nyckeln
+Lägg till AuthorizationPolicy till ContentKey, som du ser i avsnittet "[Lägg till en auktoriseringsprincip i innehålls nyckeln](#AddAuthorizationPolicyToKey)".
 
-### <a name="token-restriction"></a>Token begränsning
-Om du vill konfigurera alternativet tokenbegränsning måste du använda en XML för att beskriva tokens auktoriseringskrav. XML-koden för tokenbegränsningskonfiguration måste överensstämma med XML-schemat som visas i avsnittet "[Tokenbegränsningsschema](#schema)".
+### <a name="token-restriction"></a>Begränsning av token
+Om du vill konfigurera begränsnings alternativet för token måste du använda en XML för att beskriva tokens auktoriserings krav. XML-konfigurationsfilen för begränsning av token måste överensstämma med XML-schemat som visas i avsnittet "[token begränsning schema](#schema)".
 
 #### <a name="create-contentkeyauthorizationpolicies"></a>Skapa ContentKeyAuthorizationPolicies
-Skapa ContentKeyAuthorizationPolicies, som visas i avsnittet["Skapa ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies2)".
+Skapa ContentKeyAuthorizationPolicies, som du ser i avsnittet "[skapa ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies2)".
 
 #### <a name="create-contentkeyauthorizationpolicyoptions"></a>Skapa ContentKeyAuthorizationPolicyOptions
 Begäran:
@@ -412,10 +412,10 @@ Svar:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:e42bbeae-de42-4077-90e9-a844f297ef70","Name":"Token option","KeyDeliveryType":1,"KeyDeliveryConfiguration":"<PlayReadyLicenseResponseTemplate xmlns:i=\"https://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1\"><LicenseTemplates><PlayReadyLicenseTemplate><AllowTestDevices>false</AllowTestDevices><ContentKey i:type=\"ContentEncryptionKeyFromHeader\" /><LicenseType>Nonpersistent</LicenseType><PlayRight /></PlayReadyLicenseTemplate></LicenseTemplates></PlayReadyLicenseResponseTemplate>","Restrictions":[{"Name":"Token Authorization Policy","KeyRestrictionType":1,"Requirements":"<TokenRestrictionTemplate xmlns:i=\"https://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1\"><AlternateVerificationKeys><TokenVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>w52OyHVqXT8aaupGxuJ3NGt8M6opHDOtx132p4r6q4hLI6ffnLusgEGie1kedUewVoIe1tqDkVE6xsIV7O91KA==</KeyValue></TokenVerificationKey></AlternateVerificationKeys><Audience>urn:test</Audience><Issuer>http://testissuer.com/</Issuer><PrimaryVerificationKey i:type=\"SymmetricVerificationKey\"><KeyValue>dYwLKIEMBljLeY9VM7vWdlhps31Fbt0XXhqP5VyjQa33bJXleBtkzQ6dF5AtwI9gDcdM2dV2TvYNhCilBKjMCg==</KeyValue></PrimaryVerificationKey><RequiredClaims><TokenClaim><ClaimType>urn:microsoft:azure:mediaservices:contentkeyidentifier</ClaimType><ClaimValue i:nil=\"true\" /></TokenClaim></RequiredClaims><TokenType>SWT</TokenType></TokenRestrictionTemplate>"}]}
 
 #### <a name="link-contentkeyauthorizationpolicies-with-options"></a>Länka ContentKeyAuthorizationPolicies med alternativ
-Länka ContentKeyAuthorizationPolicies med alternativ, som visas i avsnittet["Skapa ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
+Länka ContentKeyAuthorizationPolicies med alternativ, som du ser i avsnittet "[skapa ContentKeyAuthorizationPolicies](#ContentKeyAuthorizationPolicies)".
 
-#### <a name="add-an-authorization-policy-to-the-content-key"></a>Lägga till en auktoriseringsprincip i innehållsnyckeln
-Lägg till AuthorizationPolicy i ContentKey, som visas i avsnittet "[Lägg till en auktoriseringsprincip i innehållsnyckeln](#AddAuthorizationPolicyToKey)."
+#### <a name="add-an-authorization-policy-to-the-content-key"></a>Lägg till en auktoriseringsprincip i innehålls nyckeln
+Lägg till AuthorizationPolicy till ContentKey, som du ser i avsnittet "[Lägg till en auktoriseringsprincip i innehålls nyckeln](#AddAuthorizationPolicyToKey)".
 
 ## <a name="types-used-when-you-define-contentkeyauthorizationpolicy"></a><a id="types"></a>Typer som används när du definierar ContentKeyAuthorizationPolicy
 ### <a name="contentkeyrestrictiontype"></a><a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
@@ -428,7 +428,7 @@ Lägg till AuthorizationPolicy i ContentKey, som visas i avsnittet "[Lägg till 
 
 
 > [!NOTE]
-> IP-begränsningen för principer för behörighet för innehållsnyckel är ännu inte tillgänglig i tjänsten.
+> IP-begränsning för Auktoriseringsprinciper för innehålls nycklar är inte tillgänglig ännu i tjänsten.
 
 
 ### <a name="contentkeydeliverytype"></a><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
@@ -442,7 +442,7 @@ Lägg till AuthorizationPolicy i ContentKey, som visas i avsnittet "[Lägg till 
 
 ## <a name="additional-notes"></a>Ytterligare information
 
-* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av användarvillkoren och sekretesspolicyn för Google, Inc.
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -451,5 +451,5 @@ Lägg till AuthorizationPolicy i ContentKey, som visas i avsnittet "[Lägg till 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har konfigurerat en innehållsnyckels auktoriseringsprincip läser du [Konfigurera princip för tillgångsleverans](media-services-rest-configure-asset-delivery-policy.md).
+Nu när du har konfigurerat en innehålls nyckels auktoriseringsprincip, se [Konfigurera till gångs leverans princip](media-services-rest-configure-asset-delivery-policy.md).
 

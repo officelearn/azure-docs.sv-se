@@ -1,6 +1,6 @@
 ---
-title: Så här lägger du till referensdatauppsättningar i din miljö – Azure Time Series Insights | Microsoft-dokument
-description: I den här artikeln beskrivs hur du lägger till en referensdatauppsättning för att öka data i azure time series insights-miljön.
+title: Så här lägger du till referens data uppsättningar i miljön – Azure Time Series Insights | Microsoft Docs
+description: Den här artikeln beskriver hur du lägger till en referens data uppsättning för att utöka data i din Azure Time Series Insightss miljö.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,110 +12,110 @@ ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: seodec18~~~~
 ms.openlocfilehash: 79628ed44753577023464ef6208027e1b7996d30
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "77087259"
 ---
-# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Skapa en referensdatauppsättning för time series insights-miljön med hjälp av Azure-portalen
+# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Skapa en referens data uppsättning för din Time Series Insights-miljö med hjälp av Azure Portal
 
-I den här artikeln beskrivs hur du lägger till en referensdatauppsättning i azure time series insights-miljön. Referensdata är användbara för att ansluta till källdata för att öka värdena.
+I den här artikeln beskrivs hur du lägger till en referens data uppsättning i din Azure Time Series Insightss miljö. Referens data är användbara för att ansluta till dina källdata för att öka värdena.
 
-En referensdatauppsättning är en samling objekt som utökar händelserna från händelsekällan. Time Series Insights ingress-motor ansluter till varje händelse från händelsekällan med motsvarande datarad i referensdatauppsättningen. Den här förhöjda händelsen är sedan tillgängliga för frågor. Den här kopplingen baseras på kolumnerna primärnyckel som definierats i referensdatauppsättningen.
+En referens data uppsättning är en samling objekt som utökar händelserna från din händelse källa. Time Series Insights ingress-motorn kopplar varje händelse från din händelse källa till motsvarande datarad i referens data uppsättningen. Den här förhöjda händelsen är sedan tillgängliga för frågor. Den här kopplingen baseras på primär nyckel kolumnerna som definierats i referens data uppsättningen.
 
-Referensdata är inte sammanfogade retroaktivt. Således matchas endast aktuella och framtida ingressdata och sammanfogas till referensdatumuppsättningen, när den har konfigurerats och överförts.
+Referens data har inte anslutits retroaktivt. Det innebär att endast aktuella och framtida ingångs data matchas och kopplas till den angivna referens tiden när den har kon figurer ATS och laddats upp.
 
 ## <a name="video"></a>Video
 
-### <a name="learn-about-time-series-insights-reference-data-modelbr"></a>Läs mer om Time Series Insight referensdatamodell.</br>
+### <a name="learn-about-time-series-insights-reference-data-modelbr"></a>Lär dig mer om Time Series Insights referens data modell.</br>
 
 > [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
 
-## <a name="add-a-reference-data-set"></a>Lägga till en referensdatauppsättning
+## <a name="add-a-reference-data-set"></a>Lägg till en referens data uppsättning
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Hitta din befintliga Azure Time Series Insights-miljö. Välj **Alla resurser** på menyn till vänster i Azure-portalen. Välj Time Series Insights-miljö.
+1. Leta upp din befintliga Azure Time Series Insights-miljö. Välj **alla resurser** på menyn på vänster sida av Azure Portal. Välj Time Series Insights-miljö.
 
-1. Välj sidan **Översikt.** Expandera avsnittet **Essentials** högst upp på sidan för att hitta url:en för Utforskaren för **Tidsseriestatistik** och öppna länken.  
+1. Välj **översikts** sidan. Expandera avsnittet **Essentials** överst på sidan för att leta upp **URL: en för Time Series Insights Explorer** och öppna länken.  
 
-   [![Avsnittet Expandera väsentligheter](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
+   [![Avsnittet Visa Essentials](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
-   Visa utforskaren för din Time Series Insights-miljö.
+   Visa Utforskaren för din Time Series Insightss miljö.
 
-1. Expandera miljöväljaren i Utforskaren för Time Series Insights. Välj den aktiva miljön. Välj referensdataikonen längst upp till höger på utforskarsidan.
+1. Expandera miljö väljaren i Time Series Insights Explorer. Välj den aktiva miljön. Välj referens data ikonen längst upp till höger på sidan Utforskaren.
 
-   [![Lägga till referensdata](media/add-reference-data-set/tsi-select-environment-and-data-icons.png)](media/add-reference-data-set/tsi-select-environment-and-data-icons.png#lightbox)
+   [![Lägg till referens data](media/add-reference-data-set/tsi-select-environment-and-data-icons.png)](media/add-reference-data-set/tsi-select-environment-and-data-icons.png#lightbox)
 
-1. Välj knappen **+ Lägg till en datauppsättning** om du vill börja lägga till en ny datauppsättning.
+1. Klicka på knappen **+ Lägg till en data uppsättning** för att börja lägga till en ny data uppsättning.
 
-   [![Lägga till datauppsättning](media/add-reference-data-set/tsi-add-a-reference-data-set.png)](media/add-reference-data-set/tsi-add-a-reference-data-set.png#lightbox)
+   [![Lägg till data uppsättning](media/add-reference-data-set/tsi-add-a-reference-data-set.png)](media/add-reference-data-set/tsi-add-a-reference-data-set.png#lightbox)
 
-1. På sidan **Ny referensdatauppsättning** väljer du formatet för data:
+1. På sidan **ny referens data uppsättning** väljer du data formatet:
 
-   - Välj **CSV** för kommaavgränsade data. Den första raden behandlas som en rubrikrad.
-   - Välj **JSON Array** för JavaScript-objekt notation (JSON) formaterade data.
+   - Välj **CSV** för kommaavgränsade data. Den första raden behandlas som en rubrik rad.
+   - Välj **JSON-matris** för JSON-formaterade data (Java Script Object Notation).
 
-   [![Välj dataformat.](media/add-reference-data-set/tsi-select-data-upload-option.png)](media/add-reference-data-set/tsi-select-data-upload-option.png#lightbox)
+   [![Välj data format.](media/add-reference-data-set/tsi-select-data-upload-option.png)](media/add-reference-data-set/tsi-select-data-upload-option.png#lightbox)
 
-1. Ange data med en av de två metoderna:
+1. Ange data med någon av de två metoderna:
 
-   - Klistra in data i textredigeraren. Välj sedan **knappen Parsa referensdata.**
-   - Välj knappen **Välj fil** om du vill lägga till data från en lokal textfil.
+   - Klistra in data i text redigeraren. Välj sedan knappen **parsa referens data** .
+   - Klicka på **Välj fil** om du vill lägga till data från en lokal textfil.
 
-   Klistra till exempel in CSV-data: [ ![Inklist CSV-data](media/add-reference-data-set/select-csv-and-enter-data.png)](media/add-reference-data-set/select-csv-and-enter-data.png#lightbox)
+   Exempel: klistra in CSV-data: [ ![inklistrade CSV-data](media/add-reference-data-set/select-csv-and-enter-data.png)](media/add-reference-data-set/select-csv-and-enter-data.png#lightbox)
 
-   Klistra till exempel in JSON-matrisdata: Klistra [ ![in JSON-data](media/add-reference-data-set/select-json-option-and-enter-data.png)](media/add-reference-data-set/select-json-option-and-enter-data.png#lightbox)
+   Till exempel klistra in JSON mat ris data: [ ![klistra in JSON-data](media/add-reference-data-set/select-json-option-and-enter-data.png)](media/add-reference-data-set/select-json-option-and-enter-data.png#lightbox)
 
-   Om det finns ett fel med att tolka datavärdena visas felet i `CSV parsing error, no rows extracted`rött längst ned på sidan, till exempel .
+   Om det uppstår ett fel vid parsning av datavärdena visas felet i rött längst ned på sidan, till exempel `CSV parsing error, no rows extracted`.
 
-1. När data har tolkats visas ett datarutnät som visar kolumnerna och raderna som representerar data. Granska datarutnätet för att säkerställa korrekthet.
+1. När data har pars ATS visas ett data rutnät som visar de kolumner och rader som representerar data. Granska data rutnätet för att säkerställa att det är korrekt.
 
-   [![Granska referensdata](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
+   [![Granska referens data](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
 
-1. Granska varje kolumn för att förstå vilken datatyp som antas och ändra datatypen om det behövs.  Välj datatypssymbolen i **#** kolumnrubriken: för dubbla (numeriska data), **T| F** för boolesk, eller **Abc** för sträng.
+1. Granska varje kolumn för att förstå data typen som antas och ändra data typen om det behövs.  Välj data typs symbolen i kolumn rubriken: **#** för Double (numeriska data), **T | F** för boolesk eller **ABC** för sträng.
 
-   [![Välj datatyper på kolumnrubrikerna.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
+   [![Välj data typer i kolumn rubrikerna.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
-1. Byt namn på kolumnrubrikerna om det behövs. Nyckelkolumnnamnet är nödvändigt för att ansluta till motsvarande egenskap i händelsekällan. 
+1. Byt namn på kolumn rubrikerna om det behövs. Nyckel kolumn namnet är nödvändigt för att kunna ansluta till motsvarande egenskap i din händelse källa. 
 
    > [!IMPORTANT]
-   > Kontrollera att referensdatanyckelkolumnnamnen matchar exakt händelsenamnet med inkommande data, inklusive skiftlägeskänslighet. Kolumnnamnen som inte är nyckeltal används för att utöka inkommande data med motsvarande referensdatavärden.
+   > Se till att kolumn namnen för referens data matchar exakt händelse namnet för inkommande data, inklusive Skift läges känslighet. Kolumn namn som inte är nyckel används för att utöka inkommande data med motsvarande referens data värden.
 
-1. Skriv ett värde i fältet **Filtrera raderna...** om du vill granska specifika rader efter behov. Filtret är användbart för att granska data, men används inte när data överförs.
+1. Skriv ett värde i fältet **filtrera fältet rader...** om du vill granska vissa rader efter behov. Filtret är användbart för att granska data, men används inte vid överföring av data.
 
-1. Namnge datauppsättningen genom att fylla i **namnfältet Datauppsättning** ovanför datarutnätet.
+1. Namnge data uppsättningen genom att fylla i fältet **data uppsättnings namn** ovanför data rutnätet.
 
-    [![Ge datauppsättningen ett namn.](media/add-reference-data-set/enter-reference-data-set-name.png)](media/add-reference-data-set/enter-reference-data-set-name.png#lightbox)
+    [![Namnge data uppsättningen.](media/add-reference-data-set/enter-reference-data-set-name.png)](media/add-reference-data-set/enter-reference-data-set-name.png#lightbox)
 
-1. Ange kolumnen **Primärnyckel** i datauppsättningen genom att välja listrutan ovanför datarutnätet.
+1. Ange kolumnen **primär nyckel** i data uppsättningen genom att välja List rutan ovanför data rutnätet.
 
-    [![Markera nyckelkolumnerna.](media/add-reference-data-set/select-primary-key-column.png)](media/add-reference-data-set/select-primary-key-column.png#lightbox)
+    [![Välj nyckel kolumn (er).](media/add-reference-data-set/select-primary-key-column.png)](media/add-reference-data-set/select-primary-key-column.png#lightbox)
 
-    **(Valfritt)** Välj **+** knappen om du vill lägga till en sekundär nyckelkolumn, som en sammansatt primärnyckel. Om du behöver ångra markeringen väljer du det tomma värdet i listrutan för att ta bort den sekundära nyckeln.
+    **(Valfritt)** Välj **+** knappen för att lägga till en sekundär nyckel kolumn som en sammansatt primär nyckel. Om du behöver ångra valet väljer du det tomma värdet i list rutan för att ta bort den sekundära nyckeln.
 
-1. Om du vill ladda upp data väljer du knappen **Ladda upp rader.**
+1. Om du vill överföra data väljer du knappen **Överför rader** .
 
-    [![Ladda upp rader och bekräfta data.](media/add-reference-data-set/confirm-upload-reference-data.png)](media/add-reference-data-set/confirm-upload-reference-data.png#lightbox)
+    [![Överför rader och bekräfta data.](media/add-reference-data-set/confirm-upload-reference-data.png)](media/add-reference-data-set/confirm-upload-reference-data.png#lightbox)
 
-    Sidan bekräftar den slutförda överföringen och visar meddelandet **Datauppsättningen med datauppsättningen**.
+    Sidan bekräftar att överföringen är klar och visar att meddelandet **har laddat ned data uppsättningen**.
 
     > [!WARNING]
-    > Kolumner eller egenskaper som delas mellan referensdatauppsättningar visar ett fel för uppladdning **av dubblettgenskapsnamn.** Felet förhindrar inte en lyckad överföring av referensdatauppsättningarna. Den kan tas bort genom att kombinera rader som delar det duplicerade egenskapsnamnet.
+    > Kolumner eller egenskaper som delas mellan referens data uppsättningar visar ett **duplicerat egenskaps namn** för överförings fel. Felet förhindrar inte lyckad uppladdning av referens data uppsättningar. Den kan tas bort genom att kombinera rader som delar det duplicerade egenskaps namnet.
 
-1. Välj **Lägg till en rad,** **Massimportrader**eller **Lägg till en kolumn** om du vill lägga till fler referensdatavärden efter behov.
+1. Välj **Lägg till en rad**, **Mass import rader**eller **Lägg till en kolumn** för att lägga till fler referens data värden efter behov.
 
-    [![Lägg till en rad, Massimportrader eller Lägg till en kolumn.](media/add-reference-data-set/add-row-or-bulk-upload.png)](media/add-reference-data-set/add-row-or-bulk-upload.png#lightbox)
+    [![Lägg till en rad, Mass import rader eller Lägg till en kolumn.](media/add-reference-data-set/add-row-or-bulk-upload.png)](media/add-reference-data-set/add-row-or-bulk-upload.png#lightbox)
 
    > [!IMPORTANT]
-   > Varje rad som delar en unik nyckel med en annan rad kommer att ha sina kolumner åsidosatta av den sista raden till som delar den unika nyckeln.
+   > Alla rader som delar en unik nyckel med en annan rad kommer att ha sina kolumner åsidosatta av den sista raden som delar den unika nyckeln.
 
    > [!NOTE]
-   > Tillagda rader behöver **inte** vara *rektangulära* – de kan ha färre, större eller varierande kolumner från de andra posterna i referensdatauppsättningen.
+   > Tillagda rader behöver **inte** vara *rektangulära* – de kan ha färre, större eller varierande kolumner från andra poster i referens data uppsättningen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Hantera referensdata](time-series-insights-manage-reference-data-csharp.md) programmässigt.
 
-* För den fullständiga API-referensen finns [i API-dokumentet för referensdata.](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)
+* En fullständig API-referens finns i API-dokumentet Läs [referens data](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) .

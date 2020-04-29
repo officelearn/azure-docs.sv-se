@@ -1,6 +1,6 @@
 ---
-title: Hantera volymer på StorSimple Virtual Array | Microsoft-dokument
-description: Beskriver StorSimple Device Manager och förklarar hur du använder den för att hantera volymer på din StorSimple Virtual Array.
+title: Hantera volymer på virtuell StorSimple-matris | Microsoft Docs
+description: Beskriver StorSimple-Enhetshanteraren och förklarar hur du använder den för att hantera volymer på din StorSimple-virtuella matris.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -15,109 +15,109 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 2dbbe6bcd4957a108cc3eae4d41816b130cf8f07
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633867"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Använda StorSimple Device Manager-tjänsten för att hantera volymer i StorSimple Virtual Array
 
 ## <a name="overview"></a>Översikt
 
-I den här självstudien beskrivs hur du använder Tjänsten StorSimple Device Manager för att skapa och hantera volymer på den virtuella storsimple-matrisen.
+I den här självstudien beskrivs hur du använder tjänsten StorSimple Enhetshanteraren för att skapa och hantera volymer på din StorSimple-virtuella matris.
 
-Tjänsten StorSimple Device Manager är ett tillägg i Azure-portalen som gör att du kan hantera din StorSimple-lösning från ett enda webbgränssnitt. Förutom att hantera resurser och volymer kan du använda Tjänsten StorSimple Device Manager för att visa och hantera enheter, visa aviseringar och visa och hantera principer för säkerhetskopiering och säkerhetskopieringskatalogen.
+Tjänsten StorSimple Enhetshanteraren är ett tillägg i Azure Portal som gör att du kan hantera din StorSimple-lösning från ett enda webb gränssnitt. Förutom att hantera resurser och volymer kan du använda tjänsten StorSimple Enhetshanteraren för att visa och hantera enheter, Visa aviseringar och Visa och hantera säkerhets kopierings principer och säkerhets kopierings katalogen.
 
-## <a name="volume-types"></a>Volymtyper
+## <a name="volume-types"></a>Volym typer
 
-StorSimple volymer kan vara:
+StorSimple-volymer kan vara:
 
-* **Lokalt fäst**: Data i dessa volymer finns kvar på matrisen hela tiden och spills inte till molnet.
-* **Nivåindelade**: Data i dessa volymer kan spillas till molnet. När du skapar en nivåindelad volym etableras cirka 10 % av utrymmet på den lokala nivån och 90 % av utrymmet etableras i molnet. Om du till exempel har etablerat en volym på 1 TB skulle 100 GB finnas i det lokala utrymmet och 900 GB skulle användas i molnet när datanivåerna. Detta innebär i sin tur att om du får på allt lokalt utrymme på enheten, kan du inte etablera en nivåindelad volym (eftersom de 10 % som krävs på den lokala nivån inte kommer att vara tillgängliga).
+* **Lokalt fäst**: data i de här volymerna förblir i matrisen alltid och spiller inte i molnet.
+* **Skiktat**: data i dessa volymer kan spilla till molnet. När du skapar en nivå volym etablerades cirka 10% av utrymmet på den lokala nivån och 90% av utrymmet i molnet. Om du till exempel har etablerad en volym på 1 TB skulle 100 GB finnas i det lokala utrymmet och 900 GB används i molnet när data nivåerna. Detta innebär i sin tur att om du tar bort allt lokalt utrymme på enheten kan du inte etablera en nivå volym (eftersom 10% som krävs på den lokala nivån inte är tillgänglig).
 
 ### <a name="provisioned-capacity"></a>Etablerad kapacitet
-Se följande tabell för maximal etablerad kapacitet för varje volymtyp.
+Se följande tabell för den högsta etablerade kapaciteten för varje volymtyp.
 
 | **Gräns för identifierare**                                       | **Gräns**     |
 |------------------------------------------------------------|---------------|
-| Minsta storlek för en nivåindelad volym                            | 500 GB        |
-| Maximal storlek för en nivåindelad volym                            | 5 TB          |
-| Minsta storlek för en lokalt fäst volym                    | 50 GB         |
-| Maximal storlek för en lokalt fäst volym                    | 200 GB        |
+| Minsta storlek på en nivå volym                            | 500 GB        |
+| Maximal storlek på en nivå volym                            | 5 TB          |
+| Minsta storlek på en lokalt fäst volym                    | 50 GB         |
+| Maximal storlek på en lokalt fäst volym                    | 200 GB        |
 
-## <a name="the-volumes-blade"></a>Bladet Volymer
-Menyn Volymer på **sammanfattningsbladet** för StorSimple-tjänsten visar listan över lagringsvolymer på en viss StorSimple-matris och låter dig hantera dem.
+## <a name="the-volumes-blade"></a>Bladet volymer
+Menyn **volymer** på bladet StorSimple service Summary visar listan över lagrings volymer på en specifik StorSimple-matris och gör att du kan hantera dem.
 
-![Bladet Volymer](./media/storsimple-virtual-array-manage-volumes/volumes-blade.png)
+![Bladet volymer](./media/storsimple-virtual-array-manage-volumes/volumes-blade.png)
 
 En volym består av en serie attribut:
 
-* **Volymnamn** – Ett beskrivande namn som måste vara unikt och hjälper till att identifiera volymen.
-* **Status** – Kan vara online eller offline. Om en volym är offline är den inte synlig för initierare (servrar) som har åtkomst att använda volymen.
-* **Typ** – Anger om volymen är **nivåindelade** (standard) eller **Lokalt fäst**.
+* **Volym namn** – ett beskrivande namn som måste vara unikt och som hjälper dig att identifiera volymen.
+* **Status** – kan vara online eller offline. Om en volym är offline är den inte synlig för initierare (servrar) som har behörighet att använda volymen.
+* **Typ** – anger om volymen är i **nivå** av (standard) eller **lokalt fäst**.
 * **Kapacitet** – anger mängden data som används jämfört med den totala mängden data som kan lagras av initieraren (servern).
-* **Säkerhetskopiering** – Vid StorSimple Virtual Array aktiveras alla volymer automatiskt för säkerhetskopiering.
-* **Anslutna värdar** – Anger de initierare (servrar) som får åtkomst till den här volymen.
+* **Säkerhets kopiering** – i händelse av den virtuella StorSimple-matrisen aktive ras alla volymer automatiskt för säkerhets kopiering.
+* **Anslutna värdar** – anger initierare (servrar) som har åtkomst till den här volymen.
 
 ![Information om volymer](./media/storsimple-virtual-array-manage-volumes/volume-details.png)
 
-Använd instruktionerna i den här självstudien för att utföra följande uppgifter:
+Följ anvisningarna i den här självstudien för att utföra följande uppgifter:
 
-* Lägga till en volym
+* Lägg till en volym
 * Ändra en volym
 * Koppla från en volym
 * Ta bort en volym
 
-## <a name="add-a-volume"></a>Lägga till en volym
+## <a name="add-a-volume"></a>Lägg till en volym
 
-1. Klicka på + Lägg till **volym** från kommandofältet i sammanfattningsbladet för StorSimple-tjänsten. Detta öppnar **bladet Lägg till volym.**
+1. Från bladet StorSimple service Summary klickar du på **+ Lägg till volym** från kommando fältet. Då öppnas bladet **Lägg till volym** .
    
     ![Lägg till volym](./media/storsimple-virtual-array-manage-volumes/add-volume.png)
-2. Gör följande i bladet **Lägg till volym:**
+2. Gör följande på bladet **Lägg till volym** :
    
-   * Ange ett unikt namn för volymen i fältet **Volymnamn.** Namnet måste vara en sträng som innehåller 3 till 127 tecken.
-   * I listrutan **Typ** anger du om du vill skapa en **nivåindelad** eller **Lokalt fäst** volym. För arbetsbelastningar som kräver lokala garantier, låga svarstider och högre prestanda väljer du **Lokalt fäst volym**. För alla andra data väljer du **Nivåinerad** volym.
-   * Ange volymens storlek i fältet **Kapacitet.** En nivåindelad volym måste vara mellan 500 GB och 5 TB och en lokalt fäst volym måste vara mellan 50 GB och 500 GB.
-   * * Klicka på **Anslutna värdar,** välj en åtkomstkontrollpost (ACR) som motsvarar den iSCSI-initierare som du vill ansluta till den här volymen och klicka sedan på **Välj**.
-3. Om du vill lägga till en ny ansluten värd, klickar du på **Lägg till ny,** anger ett namn för värden och dess iSCSI-kvalificerat namn (IQN) och klickar sedan på **Lägg till**.
+   * Ange ett unikt namn för din volym i fältet **volym namn** . Namnet måste vara en sträng som innehåller mellan 3 och 127 tecken.
+   * I list rutan **typ** anger du om du vill skapa en **nivåAD** eller **lokalt fäst** volym. För arbets belastningar som kräver lokala garantier, låg latens och högre prestanda, väljer du **lokalt fästa volym**. För alla andra data väljer du **nivå** volym.
+   * I fältet **kapacitet** anger du storleken på volymen. En nivå volym måste vara mellan 500 GB och 5 TB och en lokalt fäst volym måste vara mellan 50 GB och 500 GB.
+   * * Klicka på **anslutna värdar**, Välj en åtkomst kontroll post (ACR) som motsvarar den iSCSI-initierare som du vill ansluta till den här volymen och klicka sedan på **Välj**.
+3. Om du vill lägga till en ny ansluten värd klickar du på **Lägg till ny**, anger ett namn för värden och dess iSCSI-kvalificerade namn (IQN) och klickar sedan på **Lägg till**.
    
     ![Lägg till volym](./media/storsimple-virtual-array-manage-volumes/volume-add-acr.png)
-4. När du har konfigurerat volymen klickar du på **Skapa**. En volym skapas med de angivna inställningarna och du kommer att se ett meddelande om att skapa samma. Som standard aktiveras säkerhetskopiering för volymen.
-5. Om du vill bekräfta att volymen har skapats går du till bladet **Volymer.** Du bör se volymen i listan.
+4. Klicka på **skapa**när du är klar med konfigurationen av volymen. En volym skapas med de angivna inställningarna och du får ett meddelande om att det har skapats. Som standard kommer säkerhets kopiering att aktive ras för volymen.
+5. Du kan kontrol lera att volymen har skapats genom att gå till bladet **volymer** . Du bör se volymen som visas.
    
-    ![Volym skapa framgång](./media/storsimple-virtual-array-manage-volumes/volume-success.png)
+    ![Volym skapandet lyckades](./media/storsimple-virtual-array-manage-volumes/volume-success.png)
 
 ## <a name="modify-a-volume"></a>Ändra en volym
 
-Ändra en volym när du behöver ändra de värdar som kommer åt volymen. De andra attributen för en volym kan inte ändras när volymen har skapats.
+Ändra en volym när du behöver ändra de värdar som har åtkomst till volymen. Det går inte att ändra andra attribut för en volym när volymen har skapats.
 
-#### <a name="to-modify-a-volume"></a>Så här ändrar du en volym
+#### <a name="to-modify-a-volume"></a>Ändra en volym
 
-1. Välj den virtuella matris som du vill att du ska ändra finns i inställningen **Volymer** på storsimple-tjänstens sammanfattningsblad.
-2. **Markera** volymen och klicka på **Anslutna värdar** om du vill visa den anslutna värden och ändra den till en annan server.
+1. Från inställningen **volymer** på bladet StorSimple service Summary väljer du den virtuella matris som du vill ändra den volym som du vill ändra finns i.
+2. **Välj** volymen och klicka på **anslutna värdar** för att visa den aktuella anslutna värden och ändra den till en annan server.
    
     ![Redigera volym](./media/storsimple-virtual-array-manage-volumes/volume-edit-acr.png)
-3. Spara ändringarna genom att klicka på kommandofältet **Spara.** Dina angivna inställningar kommer att tillämpas och du kommer att se ett meddelande.
+3. Spara ändringarna genom att klicka på **Spara** kommando fältet. De angivna inställningarna tillämpas och du får ett meddelande.
 
 ## <a name="take-a-volume-offline"></a>Koppla från en volym
 
-Du kan behöva koppla från en volym när du planerar att ändra den eller ta bort den. När en volym är offline är den inte tillgänglig för läs- och skrivåtkomst. Du måste koppla från volymen på värden och på enheten.
+Du kan behöva koppla från en volym när du planerar att ändra den eller ta bort den. När en volym är offline är den inte tillgänglig för Läs-och Skriv behörighet. Du måste ta volymen offline på värden och på enheten.
 
-#### <a name="to-take-a-volume-offline"></a>Så här kopplar du från en volym
+#### <a name="to-take-a-volume-offline"></a>Koppla från en volym
 
-1. Kontrollera att volymen i fråga inte används innan du kopplar från den.
-2. Ta volymen offline på värden först. Detta eliminerar alla potentiella risker för data korruption på volymen. Mer information om hur du gör det finns i instruktionerna för värdoperativsystemet.
-3. När volymen på värden är offline tar du volymen på matrisen offline genom att utföra följande steg:
+1. Kontrol lera att volymen i fråga inte används innan du tar den offline.
+2. Ta volymen offline på värden först. Detta eliminerar eventuell risk för skadade data på volymen. Mer information om de olika stegen finns i anvisningarna för värd operativ systemet.
+3. När volymen på värden är offline tar du volymen i matrisen offline genom att utföra följande steg:
    
-   * Välj den virtuella matris som du vill att du ska koppla från i **sammanfattningsbladet** för StorSimple-tjänsten på.
-   * **Markera** volymen och klicka på **...** (högerklicka alternativt på den här raden) och välj **Koppla offline**på snabbmenyn .
+   * Från inställningen **volymer** på bladet StorSimple service Summary väljer du den virtuella matris som du vill koppla från.
+   * **Välj** volymen och klicka på **...** (alternativt högerklicka på den här raden) och välj **ta offline**i snabb menyn.
      
-        ![Offlinevolym](./media/storsimple-virtual-array-manage-volumes/volume-offline.png)
-   * Granska informationen i bladet **Ta offline** och bekräfta att du godkänner åtgärden. Klicka på **Koppla från** om du vill koppla från volymen. Du kommer att se ett meddelande om den pågående åtgärden.
-   * Om du vill bekräfta att volymen har tagits offline går du till bladet **Volymer.** Du bör se volymens status som offline.
+        ![Offline-volym](./media/storsimple-virtual-array-manage-volumes/volume-offline.png)
+   * Granska informationen i bladet **ta offline** och bekräfta ditt godkännande av åtgärden. Klicka på koppla **från offline** för att ta volymen offline. Ett meddelande visas om att åtgärden pågår.
+   * Du kan kontrol lera att volymen har kopplats från genom att gå till bladet **volymer** . Du bör se statusen för volymen som offline.
      
-       ![Bekräftelse av offlinevolym](./media/storsimple-virtual-array-manage-volumes/volume-offline-confirm.png)
+       ![Offline-volym bekräftelse](./media/storsimple-virtual-array-manage-volumes/volume-offline-confirm.png)
 
 ## <a name="delete-a-volume"></a>Ta bort en volym
 
@@ -126,18 +126,18 @@ Du kan behöva koppla från en volym när du planerar att ändra den eller ta bo
 > 
 > 
 
-Slutför följande steg för att ta bort en volym.
+Utför följande steg för att ta bort en volym.
 
-#### <a name="to-delete-a-volume"></a>Så här tar du bort en volym
+#### <a name="to-delete-a-volume"></a>Ta bort en volym
 
-1. Välj den virtuella matris som du vill ta bort finns i inställningen **Volymer** på storsimple-tjänstens sammanfattningsblad.
-2. **Markera** volymen och klicka på **...** (högerklicka alternativt på den här raden) och välj **Ta bort**på snabbmenyn .
+1. Från inställningen **volymer** på bladet StorSimple service Summary väljer du den virtuella matris som du vill ta bort den volym som du vill ta bort.
+2. **Välj** volymen och klicka på **...** (alternativt högerklicka på den här raden) och välj **ta bort**på snabb menyn.
    
     ![Ta bort volym](./media/storsimple-virtual-array-manage-volumes/volume-delete.png)
-3. Kontrollera status för den volym som du vill ta bort. Om volymen som du vill ta bort inte är offline tar du den offline först genom att följa stegen i [Koppla från volymen](#take-a-volume-offline).
-4. När du uppmanas att bekräfta i bladet **Ta bort** godkänner du bekräftelsen och klickar på **Ta bort**. Volymen tas nu bort och **bladet Volymer** visar den uppdaterade listan över volymer i den virtuella matrisen.
+3. Kontrol lera status för den volym som du vill ta bort. Om den volym som du vill ta bort inte är offline kopplar du först från genom att följa stegen i koppla från [en volym](#take-a-volume-offline).
+4. När du uppmanas att bekräfta i bladet **ta bort** godkänner du bekräftelsen och klickar på **ta bort**. Volymen tas nu bort och **volym bladet visar den uppdaterade** listan över volymer i den virtuella matrisen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [klonar en StorSimple-volym](storsimple-virtual-array-clone.md).
+Lär dig hur du [klonar en StorSimple volym](storsimple-virtual-array-clone.md).
 

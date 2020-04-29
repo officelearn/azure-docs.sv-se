@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Hantera beräkning med Azure-funktioner'
-description: Så här använder du Azure-funktioner för att hantera beräkningen av din SQL-pool i Azure Synapse Analytics.
+title: 'Självstudie: hantera beräkning med Azure Functions'
+description: Hur du använder Azure Functions för att hantera beräkningen av SQL-poolen i Azure Synapse Analytics.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -12,49 +12,49 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: aa2cff552b49bceeaf6fd46510bf78384f0e7bfb
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631969"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Använda Azure Functions för att hantera beräkningsresurser i Azure Synapse Analytics SQL-pool
+# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Använda Azure Functions för att hantera beräknings resurser i Azure Synapse Analytics SQL-poolen
 
-Den här självstudien använder Azure Functions för att hantera beräkningsresurser för en SQL-pool i Azure Synapse Analytics.
+I den här självstudien används Azure Functions för att hantera beräknings resurser för en SQL-pool i Azure Synapse Analytics.
 
-För att kunna använda Azure Function App med SQL-pool måste du skapa ett [tjänsthuvudnamnskonto](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) med deltagaråtkomst under samma prenumeration som din SQL-poolinstans.
+För att kunna använda Azure Funktionsapp med SQL-poolen måste du skapa ett [tjänst huvud namns konto](../../active-directory/develop/howto-create-service-principal-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) med deltagar åtkomst under samma prenumeration som SQL-adresspoolen.
 
-## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Distribuera timerbaserad skalning med en Azure Resource Manager-mall
+## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Distribuera timer-baserad skalning med en Azure Resource Manager-mall
 
-För att distribuera mallen behöver du följande information:
+Om du vill distribuera mallen behöver du följande information:
 
-- Namnet på den resursgrupp som SQL-poolinstansen finns i
-- Namnet på den logiska server som SQL-poolinstansen finns i
-- Namn på SQL-poolinstansen
+- Namnet på resurs gruppen som instansen av SQL-poolen finns i
+- Namnet på den logiska server som SQL-instansen finns i
+- Namn på din instans av SQL-pool
 - Klient-ID (katalog-ID) för din Azure Active Directory
 - Prenumerations-ID:t
 - Program-ID för tjänstens huvudkonto
 - Hemlig nyckel för tjänstens huvudkonto
 
-När du har den föregående informationen distribuerar du den här mallen:
+När du har föregående information distribuerar du den här mallen:
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
 
-När du har distribuerat mallen bör du hitta tre nya resurser: en kostnadsfri Azure App Service Plan, en förbrukningsbaserad funktionsappplan och ett lagringskonto som hanterar loggningen och operationskön. Fortsätta att läsa mer i andra avsnitt om du vill se hur du ändrar de distribuerade funktionerna så att de passar dina behov.
+När du har distribuerat mallen bör du hitta tre nya resurser: ett kostnads fritt Azure App Service plan, en förbruknings-baserad Funktionsapp-plan och ett lagrings konto som hanterar loggningen och drift kön. Fortsätta att läsa mer i andra avsnitt om du vill se hur du ändrar de distribuerade funktionerna så att de passar dina behov.
 
-## <a name="change-the-compute-level"></a>Ändra beräkningsnivån
+## <a name="change-the-compute-level"></a>Ändra beräknings nivån
 
 1. Gå till funktionsapptjänsten. Om du har distribuerat mallen med standardvärden ska tjänsten ha namnet *DWOperations*. När funktionsappen är öppen bör du se fem funktioner som har driftsatts inom ramen för din funktionsapptjänst.
 
    ![Funktioner som distribueras med mallen](./media/manage-compute-with-azure-functions/five-functions.png)
 
-2. Välj antingen *DWScaleDownTrigger* eller *DWScaleUpTrigger* beroende på om du vill ändra skala upp eller ned tid. Välj Integrera i den nedrullningsbara menyn.
+2. Välj antingen *DWScaleDownTrigger* eller *DWScaleUpTrigger* beroende på om du vill ändra skala upp eller ned tid. Välj integrera i den nedrullningsbara menyn.
 
    ![Välj Integrera för funktionen](./media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. Det aktuella värdet ska antingen vara *%ScaleDownTime%* eller *%ScaleUpTime%*. Dessa värden anger att schemat baseras på värden som definierats i dina [programinställningar](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). För tillfället kan du ignorera det här värdet och ändra schemat till önskad tid baserat på nästa steg.
+3. Det aktuella värdet ska antingen vara *%ScaleDownTime%* eller *%ScaleUpTime%*. Dessa värden anger att schemat baseras på värden som definierats i dina [programinställningar](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). För närvarande kan du ignorera det här värdet och ändra schemat till önskad tid baserat på nästa steg.
 
 4. I schemaområdet kan du lägga till tid för det CRON-uttryck som du vill ska visa hur ofta du vill att SQL Data Warehouse ska skalas upp.
 
@@ -66,9 +66,9 @@ När du har distribuerat mallen bör du hitta tre nya resurser: en kostnadsfri A
    {second} {minute} {hour} {day} {month} {day-of-week}
    ```
 
-   Till exempel skulle *"0 30 9 * * 1-5"* återspegla en utlösare varje vardag kl 9:30. Mer information finns i Azure Functions [schemaexempel](../../azure-functions/functions-bindings-timer.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#example).
+   Exempel: *"0 30 9 * * 1-5"* visar en utlösare varje vardag kl. 9:10:30. Mer information finns i Azure Functions [schemaexempel](../../azure-functions/functions-bindings-timer.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#example).
 
-## <a name="change-the-time-of-the-scale-operation"></a>Ändra tid för skalningsåtgärden
+## <a name="change-the-time-of-the-scale-operation"></a>Ändra tid för skalnings åtgärden
 
 1. Gå till funktionsapptjänsten. Om du har distribuerat mallen med standardvärden ska tjänsten ha namnet *DWOperations*. När funktionsappen är öppen bör du se fem funktioner som har driftsatts inom ramen för din funktionsapptjänst.
 
@@ -76,7 +76,7 @@ När du har distribuerat mallen bör du hitta tre nya resurser: en kostnadsfri A
 
    ![Ändra beräkningsnivån för funktionsutlösaren](././media/manage-compute-with-azure-functions/index-js.png)
 
-3. Ändra värdet för *ServiceLevelObjective* till den nivå som du vill använda och klicka på Spara. Det här värdet är den beräkningsnivå som informationslagerinstansen skalas till baserat på schemat som definierats i avsnittet Integrera.
+3. Ändra värdet för *ServiceLevelObjective* till den nivå som du vill använda och klicka på Spara. Det här värdet är den beräknings nivå som data lager instansen skalar till baserat på det schema som definierats i avsnittet integrera.
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>Använd funktionerna Pausa eller Återuppta istället för Skala
 
@@ -91,13 +91,13 @@ Standardfunktionerna är för närvarande *DWScaleDownTrigger* och *DWScaleUpTri
 3. Navigera till fliken *Integrera* för respektive utlösare om du vill ändra schemat.
 
    > [!NOTE]
-   > Den funktionella skillnaden mellan skalningsutlösare och paus-/återuppta-utlösare är det meddelande som skickas till kön. Mer information finns i [Lägga till en ny utlösarfunktion](manage-compute-with-azure-functions.md#add-a-new-trigger-function).
+   > Den funktionella skillnaden mellan skalnings utlösare och paus-/återställnings utlösare är meddelandet som skickas till kön. Mer information finns i [lägga till en ny utlösare](manage-compute-with-azure-functions.md#add-a-new-trigger-function).
 
 ## <a name="add-a-new-trigger-function"></a>Lägg till en ny utlösare
 
-För närvarande ingår bara två skalningsfunktioner i mallen. Med dessa funktioner, under loppet av en dag, kan du bara skala ner en gång och upp en gång. För mer detaljerad kontroll, till exempel nedskalning flera gånger per dag eller med olika skalningsbeteende på helgerna, måste du lägga till en annan utlösare.
+För närvarande ingår bara två skalningsfunktioner i mallen. Med dessa funktioner, under en dag, kan du bara skala ned en gång och en gång. Om du vill ha mer detaljerad kontroll, till exempel skala ned flera gånger per dag eller om du har olika skalnings beteende på helgerna, måste du lägga till en annan utlösare.
 
-1. Skapa en ny tom funktion. Välj *+* knappen nära platsen Funktioner om du vill visa funktionsmallsfönstret.
+1. Skapa en ny tom funktion. Välj *+* knappen nära funktions platsen för att visa fönstret funktion mall.
 
    ![Skapa ny funktion](./media/manage-compute-with-azure-functions/create-new-function.png)
 
@@ -113,7 +113,7 @@ För närvarande ingår bara två skalningsfunktioner i mallen. Med dessa funkti
 
    ![Kopiera index.js](././media/manage-compute-with-azure-functions/index-js.png)
 
-5. Ställ in åtgärdsvariabeln på önskat beteende enligt följande:
+5. Ställ in din åtgärds variabel på önskat beteende enligt följande:
 
    ```javascript
    // Resume the SQL pool instance
@@ -135,7 +135,7 @@ För närvarande ingår bara två skalningsfunktioner i mallen. Med dessa funkti
 
 ## <a name="complex-scheduling"></a>Komplex schemaläggning
 
-Det här avsnittet visar kortfattat vad som krävs för att få mer komplex schemaläggning av paus-, återuppta- och skalningsfunktioner.
+Det här avsnittet visar kortfattat vad som krävs för att få en mer komplex schemaläggning av funktioner för att pausa, återuppta och skala.
 
 ### <a name="example-1"></a>Exempel 1
 
@@ -148,7 +148,7 @@ Daglig uppskalning till DW600 kl. 08.00 och nedskalning till DW200 kl. 20.00.
 
 ### <a name="example-2"></a>Exempel 2
 
-Daglig skala upp vid 08:00 till DW1000, skala ner en gång till DW600 vid 16:00, och skala ner vid 10:00 till DW200.
+Dags att skala upp på 8.00 till DW1000, skala ned en gång till DW600 vid 4pm och skala ned på 10pm till DW200 kl.
 
 | Funktion  | Schema     | Åtgärd                                |
 | :-------- | :----------- | :--------------------------------------- |
@@ -171,4 +171,4 @@ Uppskalning till DW1000 kl. 08.00, nedskalning till DW600 kl. 16.00 under arbets
 
 Läs mer om Azures funktioner för [timerutlösare](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-Checka ut [databasen för SQL-poolprover](https://github.com/Microsoft/sql-data-warehouse-samples).
+Checka in databasen för SQL-poolens [exempel](https://github.com/Microsoft/sql-data-warehouse-samples).

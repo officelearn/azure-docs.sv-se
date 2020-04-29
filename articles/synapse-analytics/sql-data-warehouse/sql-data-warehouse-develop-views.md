@@ -1,6 +1,6 @@
 ---
 title: Använda T-SQL-vyer
-description: Tips om hur du använder T-SQL-vyer och utvecklar lösningar i Synapse SQL-pool.
+description: Tips för att använda T-SQL-vyer och utveckla lösningar i Synapse SQL-poolen.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,55 +12,55 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 76442368fe4b3e498f622a8a3cd5b5b973f16bd6
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633396"
 ---
 # <a name="views-in-synapse-sql-pool"></a>Vyer i Synapse SQL-pool
 
 Vyer kan användas på ett antal olika sätt för att förbättra kvaliteten på din lösning.
 
-SQL-poolen stöder både standard- och materialiserade vyer. Båda är virtuella tabeller som skapats med SELECT-uttryck och presenteras för frågor som logiska tabeller.
+SQL-poolen stöder både standard-och materialiserade vyer. Båda är virtuella tabeller som skapats med SELECT-uttryck och visas för frågor som logiska tabeller.
 
-Vyer kapslar in komplexiteten i gemensam databeräkning och lägger till ett abstraktionslager i beräkningsändringar så att du inte behöver skriva om frågor.
+Vyer kapslar in komplexiteten för vanlig data beräkning och lägger till ett abstraktions lager för beräknings ändringar så att du inte behöver skriva om frågor.
 
 ## <a name="standard-view"></a>Standardvy
 
-En standardvy beräknar sina data varje gång vyn används. Det finns inga data lagrade på disken. Personer använder vanligtvis standardvyer som ett verktyg som hjälper till att ordna logiska objekt och frågor i en databas.
+En standardvy beräknar data varje gång som vyn används. Det finns inga data lagrade på disken. Användarna använder vanligt vis standardvyer som ett verktyg som hjälper dig att ordna de logiska objekten och frågorna i en databas.
 
-Om du vill använda en standardvy måste en fråga referera direkt till den. Mer information finns i [DOKUMENTATIONEN SKAPA VY.](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Om du vill använda en standardvy måste en fråga hänvisa till den. Mer information finns i dokumentationen för att [Skapa vy](/sql/t-sql/statements/create-view-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
 
-Vyer i SQL-poolen lagras endast som metadata. Därför är följande alternativ inte tillgängliga:
+Vyer i SQL-poolen lagras endast som metadata. Det innebär att följande alternativ inte är tillgängliga:
 
-* Det finns inget schemabindningsalternativ
-* Bastabeller kan inte uppdateras via vyn
+* Det finns inget schema bindnings alternativ
+* Bas tabeller kan inte uppdateras via vyn
 * Det går inte att skapa vyer över temporära tabeller
-* Det finns inget stöd för EXPAND / NOEXPAND tips
+* Det finns inget stöd för utöknings-och NOEXPAND-tips
 * Det finns inga indexerade vyer i SQL-poolen
 
-Standardvyer kan användas för att framtvinga prestandaoptimerade kopplingar mellan tabeller. En vy kan till exempel innehålla en redundant distributionsnyckel som en del av kopplingskriterierna för att minimera dataflyttning.
+Standardvyer kan användas för att upprätthålla prestanda optimerade kopplingar mellan tabeller. En vy kan till exempel innehålla en redundant distributions nyckel som en del av villkoren för att minimera data flytten.
 
-En annan fördel med en vy kan vara att tvinga fram en specifik fråga eller gå med tips. Genom att använda vyer på det här sättet garanteras att kopplingar alltid utförs på ett optimalt sätt och att användarna måste komma ihåg rätt konstruktion för sina kopplingar.
+En annan fördel med en vy kan vara att framtvinga en speciell fråga eller delta i tips. Med hjälp av vyer på det här sättet garanterar vi att kopplingar alltid utförs på ett optimalt sätt så att användarna inte behöver komma ihåg rätt konstruktion för sina kopplingar.
 
 ## <a name="materialized-view"></a>Materialiserad vy
 
-En materialiserad vy förberäknar, lagrar och underhåller sina data i SQL-poolen precis som en tabell. Det behövs ingen omdämning varje gång en materialiserad vy används.
+En materialiserad vy för beräkning, lager och underhåll av data i SQL-poolen precis som en tabell. Ingen omberäkning krävs varje gång en materialiserad vy används.
 
-När data läses in i bastabeller uppdateras de materialiserade vyerna synkront.  Frågeoptimeraren använder automatiskt distribuerade materialiserade vyer för att förbättra frågeprestanda även om vyerna inte refereras i frågan.  
+När data läses in i bas tabeller uppdaterar SQL-poolen de materialiserade vyerna synkront.  I frågans optimering används automatiskt distribuerade materialiserade vyer för att förbättra frågans prestanda även om vyerna inte refereras till i frågan.  
 
-Frågor som drar mest nytta av materialiserade vyer är komplexa frågor (vanligtvis frågor med kopplingar och aggregeringar) på stora tabeller som ger liten resultatuppsättning.  
+Frågor som har störst nytta av materialiserade vyer är komplexa frågor (vanligt vis frågor med kopplingar och agg regeringar) i stora tabeller som producerar små resultat uppsättningar.  
 
-Mer information om den materialiserade vysyntaxen och andra krav finns i [SKAPA MATERIALISERAD VY SOM SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+Mer information om syntaxen för materialiserad vy och andra krav finns i [skapa materialiserad vy som Välj](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
 
-Om du vill ha vägledning för frågejusteringar kontrollerar du [Prestandajustering med materialiserade vyer](performance-tuning-materialized-views.md).
+Kontrol lera [prestanda justering med materialiserade vyer](performance-tuning-materialized-views.md)för att ställa frågor om frågor.
 
 ## <a name="example"></a>Exempel
 
-Ett vanligt programmönster är att återskapa tabeller med CREATE TABLE AS SELECT (CTAS) följt av ett objekt som byter namn på mönstret när data läses in.  
+Ett vanligt program mönster är att återskapa tabeller med CREATE TABLE som SELECT (CTAS) följt av ett objekt byter namn på ett mönster när data läses in.  
 
-I följande exempel läggs nya datumposter till i en datumdimension. Observera hur en ny tabell, DimDate_New, först skapas och sedan byter namn för att ersätta den ursprungliga versionen av tabellen.
+I följande exempel läggs nya datum poster till i en datum dimension. Observera att en ny tabell, DimDate_New, först skapas och sedan byter namn till den ursprungliga versionen av tabellen.
 
 ```sql
 CREATE TABLE dbo.DimDate_New
@@ -79,12 +79,12 @@ RENAME OBJECT DimDate_New TO DimDate;
 
 ```
 
-Den här metoden kan dock resultera i att tabeller visas och försvinner från en användares vy tillsammans med att utfärda felmeddelanden om att en "tabell inte finns" visas.
+Den här metoden kan dock leda till att tabeller som visas och visas från en användares vy tillsammans med meddelande om att det inte finns några fel meddelanden om att tabellen inte finns.
 
-Vyer kan användas för att ge användarna ett konsekvent presentationslager medan de underliggande objekten byter namn. Genom att ge åtkomst till data via vyer behöver användarna inte synlighet för de underliggande tabellerna.
+Vyer kan användas för att ge användare ett konsekvent presentations lager medan de underliggande objekten byter namn. Genom att ge åtkomst till data via vyer behöver användarna inte insyn i de underliggande tabellerna.
 
-Det här lagret ger en konsekvent användarupplevelse samtidigt som det säkerställer att informationslagerdesigners kan utveckla datamodellen. Att kunna utveckla de underliggande tabellerna innebär att designers kan använda CTAS för att maximera prestanda under datainläsningsprocessen.
+Det här lagret ger en konsekvent användar upplevelse och säkerställer att data lagrets designers kan utveckla data modellen. Att kunna utveckla de underliggande tabellerna innebär att designers kan använda CTAS för att maximera prestanda under inläsningen av data.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fler utvecklingstips finns i [översikt över utveckling av SQL-pooler](sql-data-warehouse-overview-develop.md).
+Mer utvecklings tips finns i [Översikt över SQL-poolens utveckling](sql-data-warehouse-overview-develop.md).

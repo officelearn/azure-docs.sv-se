@@ -1,6 +1,6 @@
 ---
-title: Sorteringstyper för informationslager
-description: Sorteringstyper som stöds i Azure Synapse Analytics SQL-pool.
+title: Sorterings typer för informations lager
+description: Sorterings typer som stöds i Azure Synapse Analytics SQL-poolen.
 services: synapse-analytics
 author: antvgski
 manager: igorstan
@@ -11,25 +11,25 @@ ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 202bbaf4ea53dd6ba285e79dfa9e6ce782c0903e
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633094"
 ---
-# <a name="database-collation-support-for-azure-synapse-analytics-sql-pool"></a>Stöd för databassortering för Azure Synapse Analytics SQL-pool
+# <a name="database-collation-support-for-azure-synapse-analytics-sql-pool"></a>Stöd för databas sortering för Azure Synapse Analytics SQL-pool
 
-Du kan ändra standarddatabassorteringen från Azure-portalen när du skapar en ny Azure Synapse SQL-pooldatabas. Den här funktionen gör det ännu enklare att skapa en ny databas med hjälp av en av de 3800 databassortering som stöds.
+Du kan ändra standard databas sorteringen från Azure Portal när du skapar en ny Azure Synapse SQL-adresspool. Den här funktionen gör det ännu enklare att skapa en ny databas med en av de 3800 databas sorteringar som stöds.
 
-Sorteringar ger språk-, teckentabells-, sorteringsordnings- och teckenkänslighetsregler för teckenbaserade datatyper. När du har valt ärva alla kolumner och uttryck som kräver sorteringsinformation den valda sorteringen från databasinställningen. Standardarvet kan åsidosättas genom att uttryckligen ange en annan sortering för en teckenbaserad datatyp.
+Sorteringarna anger språk, tecken tabell, sorterings ordning och tecken känslighets regler för teckenbaserade data typer. När du har valt alla kolumner och uttryck som kräver sorterings information ärver du den valda sorteringen från databas inställningen. Standard arvet kan åsidosättas genom att uttryckligen ange en annan sortering för en tecken-baserad datatyp.
 
-## <a name="changing-collation"></a>Ändra sortering
+## <a name="changing-collation"></a>Ändrar sortering
 
-Om du vill ändra standardsorteringen uppdaterar du till fältet Sortering i etableringsupplevelsen.
+Om du vill ändra standard sorteringen uppdaterar du till sorterings fältet i etablerings upplevelsen.
 
-Om du till exempel vill ändra standardsorteringen till skiftlägeskänsliga, byter du helt enkelt namn på sorteringen från SQL_Latin1_General_CP1_CI_AS till SQL_Latin1_General_CP1_CS_AS.
+Om du till exempel vill ändra standard sorteringen till Skift läges känslig, behöver du bara byta namn på sorteringen från SQL_Latin1_General_CP1_CI_AS till SQL_Latin1_General_CP1_CS_AS.
 
-## <a name="list-of-unsupported-collation-types"></a>Lista över sorteringstyper som inte stöds
+## <a name="list-of-unsupported-collation-types"></a>Lista över sorterings typer som inte stöds
 
 * Japanese_Bushu_Kakusu_140_BIN
 * Japanese_Bushu_Kakusu_140_BIN2
@@ -102,12 +102,12 @@ Om du till exempel vill ändra standardsorteringen till skiftlägeskänsliga, by
 * SQL_EBCDIC1141_CP1_CS_AS
 * SQL_EBCDIC277_2_CP1_CS_AS
 
-## <a name="checking-the-current-collation"></a>Kontrollera den aktuella sorteringen
+## <a name="checking-the-current-collation"></a>Kontrollerar den aktuella sorteringen
 
-Om du vill kontrollera den aktuella sorteringen för databasen kan du köra följande T-SQL-kodavsnitt:
+Om du vill kontrol lera den aktuella sorteringen för databasen kan du köra följande T-SQL-kodfragment:
 
 ```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 ```
 
-När funktionen DatabasePropertyEx skickas som egenskapsparameter returneras den aktuella sorteringen för den angivna databasen. Mer information finns i [DatabasePropertyEx](/sql/t-sql/functions/databasepropertyex-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+När den skickade sorteringen som egenskaps parameter returnerar funktionen DatabasePropertyEx den aktuella sorteringen för den angivna databasen. Mer information finns i [DatabasePropertyEx](/sql/t-sql/functions/databasepropertyex-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).

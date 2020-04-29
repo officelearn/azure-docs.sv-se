@@ -1,6 +1,6 @@
 ---
-title: Underhållsscheman för Synapse SQL-pool
-description: Underhållsplanering gör det möjligt för kunder att planera runt de nödvändiga schemalagda underhållshändelser som Azure Synapse Analytics använder för att distribuera nya funktioner, uppgraderingar och korrigeringar.
+title: Underhålls scheman för Synapse SQL-pool
+description: Med underhålls planeringen kan kunderna planera kring de nödvändiga schemalagda underhålls händelser som Azure Synapse Analytics använder för att distribuera nya funktioner, uppgraderingar och korrigeringar.
 services: synapse-analytics
 author: antvgski
 manager: craigg
@@ -11,92 +11,92 @@ ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.openlocfilehash: 43fc32e910c51e8b70e15aa49584a18e5b703fca
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631583"
 ---
-# <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Använd underhållsscheman för att hantera serviceuppdateringar och underhåll
+# <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Använd underhålls scheman för att hantera uppdateringar och underhåll av tjänster
 
-Underhållsschemafunktionen integrerar servicehälsoplanerade underhållsmeddelanden, resurshälsokontrollövervakaren och underhållsschemaläggningstjänsten för Synapse SQL-pool (datalager) i Azure Synapse Analytics.
+Funktionen underhålls schema integrerar Service Health planerade underhålls aviseringar, Resource Health kontrol lera övervakning och underhålls planerings tjänsten för SQL-poolen för Synapse (Data Warehouse) i Azure Synapse Analytics.
 
-Du bör använda underhållsplanering för att välja ett tidsfönster när det är praktiskt att ta emot nya funktioner, uppgraderingar och korrigeringsfiler. Du måste välja ett primärt och ett sekundärt underhållsfönster inom en sjudagarsperiod, varje fönster måste vara inom separata dagintervall.
+Du bör använda underhålls schemaläggning för att välja en tids period när det är praktiskt att ta emot nya funktioner, uppgraderingar och korrigeringar. Du måste välja ett primärt och ett sekundärt underhålls fönster inom en sju dagars period. varje fönster måste ligga inom olika dags intervall.
 
-Du kan till exempel schemalägga ett primärt fönster på lördag 22:00 till söndag 01:00 och sedan schemalägga ett sekundärt fönster onsdag 19:00 till 22:00. Om underhåll inte kan utföras under det primära underhållsfönstret försöker det igen under det sekundära underhållsfönstret. Underhåll av service kan ibland ske under både de primära och sekundära fönstren. För att säkerställa ett snabbt slutförande av alla underhållsåtgärder kan DW400c och lägre informationslagernivåer slutföra underhållet utanför ett angivet underhållsfönster.
+Du kan till exempel schemalägga ett primärt fönster på lördag 22:00 till söndag 01:00 och sedan schemalägga ett sekundärt fönster på onsdag 19:00 till 22:00. Om underhållet inte kan utföras under ditt primära underhålls fönster, kommer det att försöka utföra underhållet igen under det sekundära underhålls fönstret. Underhåll av tjänsten kan uppstå under både den primära och den sekundära Windows. För att säkerställa snabb slut för ande av alla underhålls åtgärder kan DW400c och lägre informations lager nivåer slutföra underhållet utanför ett angivet underhålls fönster.
 
-Alla nyskapade informationslagerinstanser har en systemdefinierad underhållsschema som tillämpas under distributionen. Schemat kan redigeras så snart distributionen är klar.
+Alla nyligen skapade informations lager instanser har ett Systemdefinierat underhålls schema som tillämpas under distributionen. Schemat kan redige ras så snart distributionen är klar.
 
-Även om ett underhållsfönster kan vara mellan tre och åtta timmar betyder det inte att informationslagret är offline under hela tiden. Underhåll kan ske när som helst inom det fönstret och du bör förvänta dig en enda frånkoppling under den perioden som varar ~5 -6 minuter när tjänsten distribuerar ny kod till ditt informationslager. DW400c och lägre kan uppleva flera korta förluster i anslutning vid olika tidpunkter under underhållsfönstret. När underhållet startar avbryts alla aktiva sessioner och icke-genomförda transaktioner återställs. För att minimera förekomststopptid, se till att ditt informationslager inte har några långvariga transaktioner före den valda underhållsperioden.
+Även om en underhålls period kan vara mellan tre och åtta timmar innebär detta inte att data lagret är offline under hela tiden. Underhåll kan ske när som helst inom det fönstret och du bör förvänta dig att en enskild från koppling under perioden är cirka 5 -6 minuter, eftersom tjänsten distribuerar ny kod till data lagret. DW400c och lägre kan få flera korta förluster i anslutningen vid olika tidpunkter under underhålls perioden. När underhållet startar avbryts alla aktiva sessioner och transaktioner som inte allokeras kommer att återställas. Se till att informations lagret inte har några tids krävande transaktioner innan du väljer underhålls period för att minimera instans stillestånd.
 
-Alla underhållsåtgärder bör slutföras inom de angivna underhållsfönstren om vi inte behöver distribuera en tidskänslig uppdatering. Om ditt informationslager pausas under ett schemalagt underhåll uppdateras det under återuppta-åtgärden. Du meddelas omedelbart efter att underhållet av informationslager har slutförts.
+Alla underhålls åtgärder bör slutföras inom de angivna underhålls Fönstren, såvida vi inte behöver distribuera en tids känslig uppdatering. Om informations lagret har pausats under ett schemalagt underhåll uppdateras det under återställnings åtgärden. Du får ett meddelande direkt efter att ditt underhåll av data lagret har slutförts.
 
-## <a name="alerts-and-monitoring"></a>Varningar och övervakning
+## <a name="alerts-and-monitoring"></a>Aviseringar och övervakning
 
-Integrering med servicehälsomeddelanden och Resource Health Check Monitor gör det möjligt för kunder att hålla sig informerade om förestående underhållsaktiviteter. Den här automatiseringen drar nytta av Azure Monitor. Du kan bestämma hur du vill bli meddelad om förestående underhållshändelser. Du kan också välja vilka automatiserade flöden som hjälper dig att hantera driftstopp och minimera driftspåverkan.
+Genom att integrera med Service Health-meddelanden och Resource Health kontroll övervakaren kan kunderna hålla dig informerad om kommande underhålls aktiviteter. Den här automationen utnyttjar Azure Monitor. Du kan välja hur du vill bli meddelad om kommande underhålls händelser. Du kan också välja vilka automatiserade flöden som hjälper dig att hantera drift stopp och minimera drifts påverkan.
 
-Ett 24-timmars förhandsmeddelande föregår alla underhållshändelser som inte är för DWC400c- och lägre nivåer.
+Ett meddelande om 24-timmarsformat föregås av alla underhålls händelser som inte är för DWC400c och lägre nivåer.
 
 > [!NOTE]
-> I händelse av att vi är skyldiga att distribuera en tidskritisk uppdatering kan avancerade meddelandetider minskas avsevärt.
+> I händelse av att vi krävs för att distribuera en tidpunkts kritisk uppdatering kan avancerade aviserings tider minska avsevärt.
 
-Om du har fått ett förhandsmeddelande om att underhåll kommer att ske, men underhåll inte kan utföras under tidsperioden i meddelandet, får du ett meddelande om avbokning. Underhållet återupptas sedan under nästa schemalagda underhållsperiod.
+Om du fick ett meddelande om att underhåll pågår, men underhållet inte kan utföras under tids perioden i meddelandet, får du ett meddelande om uppsägning. Underhåll kommer sedan att återupptas under nästa schemalagda underhålls period.
 
-Alla aktiva underhållshändelser visas i avsnittet **Service Health - Planned Maintenance.** Tjänstens hälsohistorik innehåller en fullständig förteckning över tidigare händelser. Du kan övervaka underhåll via Azure Service Health check portal instrumentpanelen under en aktiv händelse.
+Alla aktiva underhålls händelser visas i avsnittet **service Health-planerat underhåll** . Service Health historiken innehåller en fullständig post med tidigare händelser. Du kan övervaka underhåll via Azure Service Health kontrol lera portalens instrument panel under en aktiv händelse.
 
-### <a name="maintenance-schedule-availability"></a>Tillgänglighet för underhållsschema
+### <a name="maintenance-schedule-availability"></a>Tillgänglighet för underhålls schema
 
-Även om underhållsplanering inte är tillgängligt i den valda regionen kan du när som helst visa och redigera underhållsschemat. När underhållsplanering blir tillgängligt i din region blir det identifierade schemat omedelbart aktivt på din Synapse SQL-pool.
+Även om underhålls planeringen inte är tillgänglig i den valda regionen kan du när som helst Visa och redigera ditt underhålls schema. När underhålls planeringen blir tillgänglig i din region blir det identifierade schemat omedelbart aktivt i Synapse SQL-poolen.
 
-## <a name="view-a-maintenance-schedule"></a>Visa ett underhållsschema
+## <a name="view-a-maintenance-schedule"></a>Visa ett underhålls schema
 
-Som standard har alla nyskapade informationslagerinstanser ett åtta timmars primärt och sekundärt underhållsfönster som tillämpas under distributionen. Som nämnts ovan kan du ändra fönstren så snart distributionen är klar. Inget underhåll sker utanför de angivna underhållsperioderna utan föregående meddelande.
+Som standard har alla nyligen skapade informations lager instanser ett primärt och sekundärt underhålls fönster på åtta timmar som tillämpas under distributionen. Som anges ovan kan du ändra Windows så snart distributionen är klar. Inget underhåll sker utanför de angivna underhållsperioderna utan föregående meddelande.
 
-Så här visar du underhållsschemat som har tillämpats på Din Synapse SQL-pool:
-
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Välj den Synapse SQL-pool som du vill visa.
-3. Den valda Synapse SQL-poolen öppnas på översiktsbladet. Underhållsschemat som tillämpas på informationslagret visas under **Underhållsschema**.
-
-![Överblickblad](./media/maintenance-scheduling/clear-overview-blade.PNG)
-
-## <a name="change-a-maintenance-schedule"></a>Ändra ett underhållsschema
-
-Ett underhållsschema kan uppdateras eller ändras när som helst. Om den valda instansen går igenom en aktiv underhållscykel sparas inställningarna. De kommer att bli aktiva under nästa identifierade underhållsperiod. [Läs mer](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) om att övervaka ditt informationslager under en aktiv underhållshändelse.
-
-## <a name="identifying-the-primary-and-secondary-windows"></a>Identifiera de primära och sekundära fönstren
-
-De primära och sekundära fönstren måste ha separata dagintervall. Ett exempel är ett primärt fönster tisdag–torsdag och ett sekundärt fönster på lördag–söndag.
-
-Så här ändrar du underhållsschemat för Synapse SQL-poolen:
+Utför följande steg för att visa det underhålls schema som har tillämpats på din Synapse-SQL-pool:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Välj den Synapse SQL-pool som du vill uppdatera. Sidan öppnas på översiktsbladet.
-Öppna sidan för inställningar för underhållsschema genom att välja sammanfattningslänken **Underhållsschema** på översiktsbladet. Du kan också välja alternativet **Underhållsschema** på resursmenyn till vänster.
+2. Välj den Synapse-SQL-pool som du vill visa.
+3. Den valda Synapse-SQL-poolen öppnas på bladet översikt. Det underhålls schema som tillämpas på data lagret visas under **underhålls schema**.
 
-    ![Alternativ för översiktsblad](./media/maintenance-scheduling/maintenance-change-option.png)
+![Översikts blad](./media/maintenance-scheduling/clear-overview-blade.PNG)
 
-3. Identifiera önskat dagintervall för ditt primära underhållsfönster med hjälp av alternativen högst upp på sidan. Det här valet avgör om ditt primära fönster kommer att inträffa på en veckodag eller under helgen. Ditt val uppdaterar listrårsvärdena.
-Under förhandsversionen kanske vissa regioner ännu inte har stöd för alla tillgängliga **dagalternativ.**
+## <a name="change-a-maintenance-schedule"></a>Ändra ett underhålls schema
 
-   ![Bladet underhållsinställningar](./media/maintenance-scheduling/maintenance-settings-page.png)
+Ett underhålls schema kan uppdateras eller ändras när som helst. Om den valda instansen går genom en aktiv underhålls cykel sparas inställningarna. De blir aktiva under nästa identifierade underhålls period. [Lär dig mer](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) om att övervaka ditt informations lager under en aktiv underhålls händelse.
 
-4. Välj önskade primära och sekundära underhållsfönster med hjälp av listrutorna:
-   - **Dag**: Önskad dag för att utföra underhåll under det valda fönstret.
-   - **Starttid**: Önskad starttid för underhållsfönstret.
-   - **Tidsfönster**: Önskad varaktighet för tidsfönstret.
+## <a name="identifying-the-primary-and-secondary-windows"></a>Identifiera de primära och sekundära Fönstren
 
-   **Sammanfattningsområdet Schema** längst ned på bladet uppdateras baserat på de värden som du har valt.
+De primära och sekundära Fönstren måste ha separata dags intervall. Ett exempel är ett primärt fönster på tisdag – torsdag och ett sekundärt fönster på lördag – söndag.
+
+Utför följande steg för att ändra underhålls schema för din Synapse SQL-pool:
+
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Välj den Synapse-SQL-pool som du vill uppdatera. Sidan öppnas på bladet översikt.
+Öppna sidan för underhålls schema inställningar genom att välja länken **underhålls schema Sammanfattning** på bladet översikt. Alternativt väljer du alternativet **underhålls schema** på resurs menyn i den vänstra sidan.
+
+    ![Översikt över blad alternativ](./media/maintenance-scheduling/maintenance-change-option.png)
+
+3. Identifiera det önskade dags intervallet för ditt primära underhålls fönster med hjälp av alternativen överst på sidan. Det här valet avgör om ditt primära fönster kommer att ske på en veckodag eller över helgen. Ditt val uppdaterar List Rute värden.
+Under för hands versionen kanske vissa regioner ännu inte har stöd för den fullständiga uppsättningen tillgängliga **dags** alternativ.
+
+   ![Bladet underhålls inställningar](./media/maintenance-scheduling/maintenance-settings-page.png)
+
+4. Välj önskat primärt och sekundärt underhålls fönster med hjälp av list rutorna:
+   - **Dag**: prioriterad dag för att utföra underhåll under den valda perioden.
+   - **Start tid**: önskad start tid för underhålls perioden.
+   - **Tids**period: önskad varaktighet för din tidsperiod.
+
+   Platsen för **schema Sammanfattning** längst ned på bladet uppdateras baserat på de värden som du har valt.
   
-5. Välj **Spara**. Ett meddelande visas som bekräftar att det nya schemat nu är aktivt.
+5. Välj **Spara**. Ett meddelande visas som bekräftar att ditt nya schema nu är aktivt.
 
-   Om du sparar ett schema i en region som inte stöder schemaläggning av underhåll visas följande meddelande. Dina inställningar sparas och aktiveras när funktionen blir tillgänglig i den valda regionen.
+   Om du sparar ett schema i en region som inte har stöd för underhålls planeringen visas följande meddelande. Inställningarna sparas och aktive ras när funktionen blir tillgänglig i den valda regionen.
 
-   ![Meddelande om regionens tillgänglighet](./media/maintenance-scheduling/maintenance-not-active-toast.png)
+   ![Meddelande om region tillgänglighet](./media/maintenance-scheduling/maintenance-not-active-toast.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Läs mer](../../azure-monitor/platform/alerts-metric.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) om hur du skapar, visar och hanterar aviseringar med hjälp av Azure Monitor.
-- [Läs mer](../..//azure-monitor/platform/alerts-log-webhook.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) om webhook-åtgärder för loggvarningsregler.
-- [Läs mer](../..//azure-monitor/platform/action-groups.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Skapa och hantera åtgärdsgrupper.
+- [Lär dig mer](../../azure-monitor/platform/alerts-metric.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) om att skapa, Visa och hantera aviseringar med hjälp av Azure Monitor.
+- [Läs mer](../..//azure-monitor/platform/alerts-log-webhook.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) om webhook-åtgärder för logg aviserings regler.
+- [Läs mer](../..//azure-monitor/platform/action-groups.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Skapa och hantera åtgärds grupper.
 - [Läs mer](../../service-health/service-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) om Azure Service Health.

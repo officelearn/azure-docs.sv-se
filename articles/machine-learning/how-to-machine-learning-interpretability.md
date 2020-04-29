@@ -1,7 +1,7 @@
 ---
-title: Modelltolkbarhet i Azure Machine Learning
+title: Modell tolkning i Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du förklarar varför din modell gör förutsägelser med Hjälp av Azure Machine Learning SDK. Den kan användas under träning och slutledning för att förstå hur din modell gör förutsägelser.
+description: Lär dig hur du förklarar varför din modell gör förutsägelser med hjälp av Azure Machine Learning SDK. Den kan användas under utbildning och härledning för att förstå hur din modell gör förutsägelser.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,113 +11,113 @@ author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/02/2020
 ms.openlocfilehash: fcb837af85a54102e8c9eafc33249af9dba6b5ce
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631399"
 ---
-# <a name="model-interpretability-in-azure-machine-learning"></a>Modelltolkbarhet i Azure Machine Learning
+# <a name="model-interpretability-in-azure-machine-learning"></a>Modell tolkning i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-## <a name="overview-of-model-interpretability"></a>Översikt över modellens tolkningsförmåga
+## <a name="overview-of-model-interpretability"></a>Översikt över modell tolkning
 
-Tolkningsförmåga är avgörande för både dataforskare, revisorer och beslutsfattare för att säkerställa efterlevnad av företagets policyer, branschstandarder och myndighetsregler:
+Tolkning är avgörande för data forskare, revisorer och affärs besluts fattare som är likadana för att säkerställa efterlevnaden av företagets principer, bransch standarder och myndighets bestämmelser:
 
-+ Dataforskare behöver förmågan att förklara sina modeller för chefer och intressenter, så att de kan förstå värdet och riktigheten i sina resultat. De kräver också tolkningsbarhet för att felsöka sina modeller och fatta välgrundade beslut om hur de kan förbättras. 
++ Data forskare behöver kunna förklara sina modeller för chefer och intressenter, så att de kan förstå värdet och noggrannheten i sina resultat. De behöver också kunna tolkas för att felsöka sina modeller och fatta välgrundade beslut om hur de kan förbättras. 
 
-+ Juridiska revisorer kräver verktyg för att validera modeller med avseende på regelefterlevnad och övervaka hur modellernas beslut påverkar människor. 
++ Juridiska granskare kräver verktyg för att validera modeller med avseende på regelefterlevnad och övervaka hur modellernas beslut påverkar människa. 
 
-+ Beslutsfattare i näringslivet behöver sinnesro genom att ha möjlighet att skapa insyn för slutanvändarna. Detta gör det möjligt för dem att tjäna och behålla förtroendet.
++ Affärs besluts fattare behöver tryggare genom att kunna tillhandahålla insyn för slutanvändare. Detta gör att de kan tjäna och upprätthålla förtroende.
 
 
-Att aktivera möjligheten att förklara en maskininlärningsmodell är viktigt under två huvudfaser av modellutveckling:
-+ Under utbildningsfasen kan modelldesigners och utvärderare använda tolkningsresultat av en modell för att verifiera hypoteser och bygga förtroende hos intressenter. De använder också insikterna i modellen för felsökning, validering av modellbeteende matchar deras mål och för att kontrollera om modellen är orättvis eller obetydliga funktioner.
+Att göra det möjligt att förklara en maskin inlärnings modell är viktigt under två huvud faser av modell utveckling:
++ Under övnings fasen kan modell designers och utvärderare använda tolknings resultat för en modell för att verifiera Hypotheses och bygga förtroende med intressenter. De kan också använda insikter i modellen för fel sökning, verifiera modell beteendet överensstämmer med deras mål och för att kontrol lera om det finns någon modell som är rättvis eller obetydlig.
 
-+ Under inferencing fasen, som har öppenhet kring utplacerade modeller ger chefer att förstå "när de används" hur modellen fungerar och hur dess beslut behandlar och påverkar människor i verkliga livet. 
++ I inferencing-fasen, som har genomskinlighet kring distribuerade modeller, ger chefer möjlighet att förstå "när de distribueras", hur modellen fungerar och hur dess beslut behandlas och påverkar personer i real tid. 
 
-## <a name="interpretability-with-azure-machine-learning"></a>Tolkningsbarhet med Azure Machine Learning
+## <a name="interpretability-with-azure-machine-learning"></a>Tolkning med Azure Machine Learning
 
-Tolkningsklasserna görs tillgängliga via flera SDK-paket: (Lär dig hur du [installerar SDK-paket för Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py))
+Tolknings klasser görs tillgängliga via flera SDK-paket: (Lär dig hur du [installerar SDK-paket för Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py))
 
-* `azureml.interpret`, huvudpaketet, som innehåller funktioner som stöds av Microsoft.
+* `azureml.interpret`, huvud paketet, som innehåller funktioner som stöds av Microsoft.
 
-* `azureml.contrib.interpret`, förhandsgranskning och experimentella funktioner som du kan prova.
+* `azureml.contrib.interpret`, för hands versioner och experiment funktioner som du kan prova.
 
-* `azureml.train.automl.automlexplainer`paket för tolkning av automatiserade maskininlärningsmodeller.
+* `azureml.train.automl.automlexplainer`paket för att tolka automatiserade maskin inlärnings modeller.
 
-Använd `pip install azureml-interpret` `pip install azureml-interpret-contrib` och för allmänt `pip install azureml-interpret-contrib` bruk, och för AutoML-användning för att hämta tolkningspaketen.
+Använd `pip install azureml-interpret` och `pip install azureml-interpret-contrib` för allmän användning och `pip install azureml-interpret-contrib` för AutoML använder du för att hämta tolknings paketen.
 
 
 > [!IMPORTANT]
-> Innehåll i `contrib` namnområdet stöds inte fullt ut. När de experimentella funktionerna blir mogna, kommer de gradvis att flyttas till huvudnamnområdet.
+> Innehållet i `contrib` namn området stöds inte fullt ut. När experiment funktionerna blir mogna, kommer de gradvis att flyttas till huvud namn rummet.
 .
 
 
 
 ## <a name="how-to-interpret-your-model"></a>Så här tolkar du din modell
 
-Med hjälp av klasser och metoder i SDK kan du:
-+ Förklara modellprediktion genom att generera funktionsbetensvärden för hela modellen och/eller enskilda datapunkter. 
-+ Uppnå modelltolkbarhet på verkliga datauppsättningar i stor skala, under utbildning och slutledning.
-+ Använda en interaktiv instrumentpanel för visualisering för att identifiera mönster i data och förklaringar vid träningstid
+Med hjälp av klasserna och metoderna i SDK kan du:
++ Förklara modell förutsägelsen genom att generera funktions prioritets värden för hela modellen och/eller enskilda datapoints. 
++ Uppnå modell tolkning på verkliga data uppsättningar i stor skala, under utbildning och härledning.
++ Använd en interaktiv instrument panel för visualisering för att identifiera mönster i data och förklaringar i utbildnings tid
 
 
-I maskininlärning är **funktioner** de datafält som används för att förutsäga en måldatapunkt. För att till exempel förutsäga kreditrisk kan datafält för ålder, kontostorlek och kontoålder användas. I det här fallet är ålder, kontostorlek och kontoålder **funktioner**. Funktionsvikt talar om för dig hur varje datafält påverkade modellens förutsägelser. Ålder kan till exempel användas kraftigt i förutsägelsen medan kontostorlek och ålder inte påverkar förutsägelsevärdena nämnvärt. Den här processen gör det möjligt för dataforskare att förklara resulterande förutsägelser, så att intressenterna får insyn i vilka funktioner som är viktigast i modellen.
+I Machine Learning är **funktioner** de data fält som används för att förutsäga en mål data punkt. För att förutsäga kredit risken kan exempelvis data fält för ålder, konto storlek och konto ålder användas. I det här fallet är ålder, konto storlek och konto ålder **funktioner**. Funktions prioriteten visar hur varje data fält påverkar modellens förutsägelser. Till exempel kan ålder användas kraftigt i förutsägelsen när kontots storlek och ålder inte påverkar förutsägelserna avsevärt. Den här processen gör det möjligt för data experter att förklara de resulterande förutsägelserna, så att intressenterna har insyn i vilka funktioner som är viktigast i modellen.
 
-Lär dig mer om tolkningstekniker som stöds, modeller för maskininlärning som stöds och kör miljöer som stöds här.
+Lär dig mer om tolknings tekniker som stöds, maskin inlärnings modeller som stöds och vilka körnings miljöer som stöds här.
 
 
-## <a name="supported-interpretability-techniques"></a>Tolkningstekniker som stöds
+## <a name="supported-interpretability-techniques"></a>Tolknings tekniker som stöds
 
- `azureml-interpret`använder de tolkningstekniker som utvecklats i [Interpret-Community](https://github.com/interpretml/interpret-community/), ett pythonpaket med öppen källkod för att träna tolkningsbara modeller och hjälpa till att förklara BLACKBOX AI-system. [Interpret-Community](https://github.com/interpretml/interpret-community/) fungerar som värd för denna SDK:s explainers som stöds och stöder för närvarande följande tolkningstekniker:
+ `azureml-interpret`använder tolknings tekniker som utvecklats i [tolkning – community](https://github.com/interpretml/interpret-community/), ett python-paket med öppen källkod för inlärnings bara modeller och hjälper till att förklara blackbox AI-system. [Tolkning – community](https://github.com/interpretml/interpret-community/) fungerar som värd för den här SDK: s support förklaringar och stöder för närvarande följande tolknings tekniker:
 
-|Tolkningsteknik|Beskrivning|Typ|
+|Tolknings teknik|Beskrivning|Typ|
 |--|--|--------------------|
-|1. SHAP Träd Explainer| [SHAP:](https://github.com/slundberg/shap)s träd explainer, som fokuserar på polynom tid snabb SHAP värde uppskattning algoritm som är specifik för **träd och ensembler av träd**.|Modellspecifik|
-|2. SHAP Djup explainer| Baserat på förklaringen från [SHAP](https://github.com/slundberg/shap), Deep Explainer "är en höghastighets approximation algoritm för SHAP värden i djupinlärning modeller som bygger på en anslutning med DeepLIFT beskrivs i [SHAP NIPS papper](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). **TensorFlow-modeller** och **Keras-modeller** som använder TensorFlow-backend stöds (det finns också preliminärt stöd för PyTorch)".|Modellspecifik|
-|3. SHAP linjär explainer| [SHAP's](https://github.com/slundberg/shap)Linjär explainer beräknar SHAP-värden för en **linjär modell**, eventuellt redovisning av inter-feature korrelationer.|Modellspecifik|
-|4. SHAP Kernel Explainer| [SHAP's](https://github.com/slundberg/shap)Kernel explainer använder en speciellt viktad lokal linjär regression för att uppskatta SHAP-värden för **alla modeller**.|Modellagnostiker|
-|5. Härma Explainer (Global Surrogat)| Mimic explainer är baserad på idén att utbilda [globala surrogatmodeller](https://christophm.github.io/interpretable-ml-book/global.html) för att efterlikna blackbox-modeller. En global surrogatmodell är en i sig tolkningsbar modell som är utbildad för att approximera förutsägelserna för **en svart låda modell** så exakt som möjligt. Dataforskare kan tolka surrogatmodellen för att dra slutsatser om den svarta lådan modellen. Du kan använda en av följande tolkningsbara modeller som din surrogatmodell: LightGBM (LGBMExplainableModel), Linjär regression (LinearExplainableModel), Stokastisk Gradient Descent förklaras modell (SGDExplainableModel) och Decision Tree (DecisionTreeExplainableModel).|Modellagnostiker|
-|6. Permutation Feature Betydelse Explainer (PFI)| Permutationsfunktionsbetydelse är en teknik som används för att förklara klassificerings- och regressionsmodeller som är inspirerade av [Breimans Random Forests-papper](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (se avsnitt 10). På en hög nivå är det sätt det fungerar genom att slumpmässigt blanda data en funktion i taget för hela datauppsättningen och beräkna hur mycket prestandamåttet av intresse ändras. Ju större förändring, desto viktigare är den funktionen. PFI kan förklara det övergripande beteendet hos **alla underliggande modeller** men förklarar inte enskilda förutsägelser. |Modellagnostiker|
+|1. SHAP Tree-förklaring| [SHAP](https://github.com/slundberg/shap): s träd förklaring, som fokuserar på polynomed Time fast SHAP för värde uppskattning som är speciell för träd **och ensembler för träd**.|Modell-/regionsspecifika|
+|2. SHAP djup förklaring| Baserat på förklaringen från [SHAP](https://github.com/slundberg/shap)är djupgående förklaring en algoritm för hög hastighet för SHAP värden i djup inlärnings modeller som bygger på en anslutning med DeepLIFT som beskrivs i [SHAP Nips-papper](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). **TensorFlow** -modeller och **keras** -modeller med TensorFlow-backend stöds (det finns även stöd för PyTorch) ".|Modell-/regionsspecifika|
+|3. SHAP linjära förklaring| [SHAP](https://github.com/slundberg/shap)är en linjär uppskattning som beräknar SHAP-värden för en **linjär modell**, vilket kan vara att redovisa mellan funktions korrelationer.|Modell-/regionsspecifika|
+|4. SHAP kernel-förklaring| [SHAPs](https://github.com/slundberg/shap)kernel-förklaring använder en särskilt viktad lokal linjär regression för att beräkna SHAP-värden för **alla modeller**.|Modell – oberoende|
+|5. härmar förklaring (globalt surrogat)| Härma förklarar vad som är baserat på idén med [globala surrogat modeller](https://christophm.github.io/interpretable-ml-book/global.html) för att efterlikna blackbox-modeller. En global surrogat modell är en modell med en inbyggd tolkning som är utbildad för att approximera förutsägelserna för **en svart Box-modell** så exakt som möjligt. Data forskare kan tolka surrogat modellen för att rita slut satser om den svarta Box-modellen. Du kan använda någon av följande tolknings bara modeller som surrogat modell: LightGBM (LGBMExplainableModel), linjär regression (LinearExplainableModel), Stochastic gradient brantaste-förklarande modell (SGDExplainableModel) och besluts träd (DecisionTreeExplainableModel).|Modell – oberoende|
+|6. permutations förklaring för funktions prioritet (PFI)| Permutations funktionens betydelse är en teknik som används för att förklara klassificerings-och Regressions modeller som inspireras av [Breiman-bladet för slumpmässiga skogar](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (se avsnitt 10). På en hög nivå är det sättet som det fungerar genom att slumpmässigt blandning data en funktion i taget för hela data uppsättningen och att beräkna hur mycket prestanda måtten för räntan förändras. Ju större ändringen är, desto viktigare är funktionen. PFI kan förklara det övergripande beteendet för **en underliggande modell** men förklarar inte enskilda förutsägelser. |Modell – oberoende|
 
 
 
 
-Förutom de tolkningstekniker som beskrivs ovan stöder vi `TabularExplainer`en annan [SHAP-baserad explainer](https://github.com/slundberg/shap), kallad . Beroende på modell `TabularExplainer` använder du en av shap-explainers som stöds:
+Förutom de tolknings tekniker som beskrivs ovan har vi stöd för en annan [SHAP-baserad förklaring](https://github.com/slundberg/shap), som kallas `TabularExplainer`. Beroende på modellen använder en av `TabularExplainer` de SHAP-förklaringar som stöds:
 
 * TreeExplainer för alla trädbaserade modeller
 * DeepExplainer för DNN-modeller
-* Linjärutförsening för linjära modeller
+* LinearExplainer för linjära modeller
 * KernelExplainer för alla andra modeller
 
-`TabularExplainer`har också gjort betydande funktioner och prestandaförbättringar över den direkta SHAP Explainers:
+`TabularExplainer`har också gjort betydande förbättringar av funktioner och prestanda i de direkta SHAP-förklaringarna:
 
-* **Summering av initieringsdatauppsättningen**. I de fall där förklaringshastighet är viktigast sammanfattar vi initieringsdatauppsättningen och genererar en liten uppsättning representativa prover, vilket snabbar upp genereringen av övergripande och individuella funktionsbetensviktsvärden.
-* **Provtagning av utvärderingsdatauppsättningen**. Om användaren passerar i en stor uppsättning utvärderingsexempel men faktiskt inte behöver alla utvärderas, kan samplingsparametern ställas in på true för att påskynda beräkningen av övergripande modellförklaringar.
+* **Sammanfattning av initierings data uppsättningen**. I de fall då förklaringen är viktigast sammanfattar vi initierings data uppsättningen och genererar en liten uppsättning representativa exempel, vilket påskyndar skapandet av övergripande och enskilda funktions prioritets värden.
+* **Sampling av utvärderings data uppsättningen**. Om användaren går igenom en stor uppsättning utvärderings exempel men inte behöver alla dem för att utvärderas, kan exempel parametern anges till sant för att påskynda beräkningen av övergripande modell förklaringar.
 
-Följande diagram visar den aktuella strukturen för explainers som stöds.
+Följande diagram visar den aktuella strukturen för förklaringar som stöds.
 
-[![Maskininlärningsretolkbarhetsarkitektur](./media/how-to-machine-learning-interpretability/interpretability-architecture.png)](./media/how-to-machine-learning-interpretability/interpretability-architecture.png#lightbox)
+[![Machine Learning tolknings arkitektur](./media/how-to-machine-learning-interpretability/interpretability-architecture.png)](./media/how-to-machine-learning-interpretability/interpretability-architecture.png#lightbox)
 
 
-## <a name="supported-machine-learning-models"></a>Maskininlärningsmodeller som stöds
+## <a name="supported-machine-learning-models"></a>Maskin inlärnings modeller som stöds
 
-Paketet `azureml.interpret` med SDK stöder modeller som tränas med följande datauppsättningsformat:
+`azureml.interpret` Paketet för SDK har stöd för modeller som har tränats med följande data uppsättnings format:
 - `numpy.array`
 - `pandas.DataFrame`
 - `iml.datatypes.DenseData`
 - `scipy.sparse.csr_matrix`
 
-Förklaringsfunktionerna accepterar både modeller och rörledningar som indata. Om en modell tillhandahålls måste modellen implementera `predict` `predict_proba` förutsägelsefunktionen eller som överensstämmer med Scikit-konventionen. Om din modell inte stöder detta kan du slå in din modell `predict` `predict_proba` i en funktion som genererar samma resultat som eller i Scikit och använda den omslagsfunktionen med den valda explainern. Om en pipeline tillhandahålls förutsätter förklaringsfunktionen att pipeline-skriptet som körs returnerar en förutsägelse. Med hjälp av `azureml.interpret` denna förpackningsteknik kan stödja modeller som tränas via PyTorch, TensorFlow och Keras deep learning-ramverk samt klassiska maskininlärningsmodeller.
+Förklarings funktionerna accepterar både modeller och pipeliner som inmatade. Om en modell anges måste modellen implementera förutsägelse funktionen `predict` eller `predict_proba` som följer Scikit-konventionen. Om din modell inte stöder detta kan du omsluta din modell i en funktion som genererar samma resultat som `predict` eller `predict_proba` i Scikit och använder den omslutnings funktionen med den valda förklaringen. Om en pipeline anges förutsätter förklarings funktionen att det pågående pipeline-skriptet returnerar en förutsägelse. Med den här metoden `azureml.interpret` kan du använda modeller som har tränats via PyTorch, TensorFlow och keras djup inlärnings modeller samt klassiska maskin inlärnings modeller.
 
-## <a name="local-and-remote-compute-target"></a>Lokalt och avlägset beräkningsmål
+## <a name="local-and-remote-compute-target"></a>Lokalt och fjärrstyrt beräknings mål
 
-Paketet `azureml.interpret` är utformat för att fungera med både lokala och fjärranslutna beräkningsmål. Om körs lokalt kommer SDK-funktionerna inte att kontakta några Azure-tjänster. 
+`azureml.interpret` Paketet är utformat för att fungera med både lokala och fjärranslutna beräknings mål. Om kör lokalt kontaktar inte SDK-funktionerna några Azure-tjänster. 
 
-Du kan fjärrköra förklaring på Azure Machine Learning Compute och logga förklaringsinformationen i Azure Machine Learning Run History Service. När den här informationen har loggats är rapporter och visualiseringar från förklaringen lätt tillgängliga i Azure Machine Learning Studio för användaranalys.
+Du kan köra förklaringen via fjärr anslutning på Azure Machine Learning beräkna och logga förklarings informationen i Azure Machine Learning körnings historik tjänsten. När den här informationen har loggats finns rapporter och visualiseringar från förklaringen enkelt i Azure Machine Learning Studio för användar analys.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [hur du](how-to-machine-learning-interpretability-aml.md) aktiverar tolkningsbarhet för modeller som tränar både lokalt och på Azure Machine Learning fjärrberäkningsresurser. Mer information finns i [exempeldatorerna](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) för ytterligare scenarier.
+Se [anvisningar för att](how-to-machine-learning-interpretability-aml.md) aktivera tolkning för modell utbildning både lokalt och på Azure Machine Learning fjärrstyrda beräknings resurser. Se [exempel antecknings böcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) för ytterligare scenarier.

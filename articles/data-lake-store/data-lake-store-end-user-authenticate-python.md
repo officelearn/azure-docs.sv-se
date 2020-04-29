@@ -1,6 +1,6 @@
 ---
-title: 'Autentisering för slutanvändare: Python med Azure Data Lake Storage Gen1 med Azure Active Directory | Microsoft-dokument'
-description: Lär dig hur du uppnår slutanvändarautentisering med Azure Data Lake Storage Gen1 med Azure Active Directory med Python
+title: 'Autentisering med slutanvändare: python med Azure Data Lake Storage Gen1 som använder Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du uppnår autentisering för slutanvändare med Azure Data Lake Storage Gen1 att använda Azure Active Directory med python
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c69f6c1f587285c5c52280c4c49008764d5b20d8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79265602"
 ---
-# <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Slutanvändarens autentisering med Azure Data Lake Storage Gen1 med Python
+# <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autentisering med slutanvändare med Azure Data Lake Storage Gen1 med python
 > [!div class="op_single_selector"]
 > * [Använda Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Använda .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
@@ -27,12 +27,12 @@ ms.locfileid: "79265602"
 > 
 > 
 
-I den här artikeln får du lära dig mer om hur du använder Python SDK för att göra slutanvändarens autentisering med Azure Data Lake Storage Gen1. Autentisering av slutanvändare kan delas in i två kategorier:
+I den här artikeln får du lära dig hur du använder python SDK för att utföra autentisering med slutanvändare med Azure Data Lake Storage Gen1. Autentisering med slutanvändare kan delas upp i två kategorier:
 
-* Autentisering av slutanvändare utan multifaktorautentisering
-* Autentisering för slutanvändare med multifaktorautentisering
+* Autentisering med slutanvändare utan Multi-Factor Authentication
+* Autentisering med slutanvändare med Multi-Factor Authentication
 
-Båda dessa alternativ diskuteras i den här artikeln. För tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med Python finns i [Autentisering från Tjänst till tjänst med Data Lake Storage Gen1 med Python](data-lake-store-service-to-service-authenticate-python.md).
+Båda alternativen beskrivs i den här artikeln. För tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med python, se [tjänst-till-tjänst-autentisering med data Lake Storage gen1 med hjälp av python](data-lake-store-service-to-service-authenticate-python.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -40,15 +40,15 @@ Båda dessa alternativ diskuteras i den här artikeln. För tjänst-till-tjänst
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Skapa ett "native"-program i Azure Active Directory**. Du måste ha slutfört stegen i [Slutanvändarautentisering med Data Lake Storage Gen1 med Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Skapa ett Azure Active Directory "internt"-program**. Du måste ha slutfört stegen i [slut användar autentisering med data Lake Storage gen1 med hjälp av Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## <a name="install-the-modules"></a>Installera modulerna
 
-Om du vill arbeta med Data Lake Storage Gen1 med Python måste du installera tre moduler.
+Om du vill arbeta med Data Lake Storage Gen1 med python måste du installera tre moduler.
 
 * `azure-mgmt-resource`-modulen, som innehåller Azure-moduler för Active Directory osv.
-* Modulen, `azure-mgmt-datalake-store` som innehåller Azure Data Lake Storage Gen1-kontohanteringsåtgärder. Mer information om den här modulen finns i [Azure Data Lake Storage Gen1 Management-modulens referens](/python/api/azure-mgmt-datalake-store/).
-* Modulen, `azure-datalake-store` som innehåller azure data lake storage gen1-filsystemåtgärder. Mer information om den här modulen finns i [referens för filsystemmodulreferens för azure-datalake-store-store filsystemmodul](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core/).
+* `azure-mgmt-datalake-store` Modulen, som innehåller Azure Data Lake Storage gen1 konto hanterings åtgärder. Mer information om den här modulen finns i [referens för Azure Data Lake Storage gen1 Management-modulen](/python/api/azure-mgmt-datalake-store/).
+* `azure-datalake-store` Modulen, som innehåller Azure Data Lake Storage gen1 fil Systems åtgärder. Mer information om den här modulen finns i [referens för Azure-datalake-Store-filsystem-modul](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core/).
 
 Installera modulerna med hjälp av följande kommandon.
 
@@ -60,7 +60,7 @@ pip install azure-datalake-store
 
 ## <a name="create-a-new-python-application"></a>Skapa ett nytt Python-program
 
-1. I den IDE som du väljer skapar du ett nytt Python-program, till exempel **mysample.py**.
+1. Skapa ett nytt python-program i valfri IDE-app, till exempel **mysample.py**.
 
 2. Lägg till följande kodavsnitt för att importera de nödvändiga modulerna
 
@@ -86,11 +86,11 @@ pip install azure-datalake-store
 
 3. Spara ändringarna i mysample.py.
 
-## <a name="end-user-authentication-with-multi-factor-authentication"></a>Autentisering för slutanvändare med multifaktorautentisering
+## <a name="end-user-authentication-with-multi-factor-authentication"></a>Autentisering med slutanvändare med Multi-Factor Authentication
 
-### <a name="for-account-management"></a>För kontohantering
+### <a name="for-account-management"></a>För konto hantering
 
-Använd följande kodavsnitt för att autentisera med Azure AD för kontohanteringsåtgärder på ett Data Lake Storage Gen1-konto. Följande kodfragment kan användas för att autentisera ditt program med multifaktorautentisering. Ange värdena nedan för ett befintligt Azure **AD-inbyggt** program.
+Använd följande kodfragment för att autentisera med Azure AD för konto hanterings åtgärder på ett Data Lake Storage Gen1-konto. Följande kodfragment kan användas för att autentisera ditt program med multifaktorautentisering. Ange värdena nedan för ett befintligt **internt** Azure AD-program.
 
     authority_host_url = "https://login.microsoftonline.com"
     tenant = "FILL-IN-HERE"
@@ -105,19 +105,19 @@ Använd följande kodavsnitt för att autentisera med Azure AD för kontohanteri
     mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
     armCreds = AADTokenCredentials(mgmt_token, client_id, resource = RESOURCE)
 
-### <a name="for-filesystem-operations"></a>För filsystemåtgärder
+### <a name="for-filesystem-operations"></a>För fil Systems åtgärder
 
-Använd detta för att autentisera med Azure AD för filsystemåtgärder på ett Data Lake Storage Gen1-konto. Följande kodfragment kan användas för att autentisera ditt program med multifaktorautentisering. Ange värdena nedan för ett befintligt Azure **AD-inbyggt** program.
+Använd detta för att autentisera med Azure AD för fil Systems åtgärder på ett Data Lake Storage Gen1-konto. Följande kodfragment kan användas för att autentisera ditt program med multifaktorautentisering. Ange värdena nedan för ett befintligt **internt** Azure AD-program.
 
     adlCreds = lib.auth(tenant_id='FILL-IN-HERE', resource = 'https://datalake.azure.net/')
 
-## <a name="end-user-authentication-without-multi-factor-authentication"></a>Autentisering av slutanvändare utan multifaktorautentisering
+## <a name="end-user-authentication-without-multi-factor-authentication"></a>Autentisering med slutanvändare utan Multi-Factor Authentication
 
-Detta är inaktuellt. Mer information finns i [Azure Authentication med Python SDK](/azure/python/python-sdk-azure-authenticate).
+Detta är inaktuellt. Mer information finns i [Azure-autentisering med python SDK](/azure/python/python-sdk-azure-authenticate).
    
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln lärde du dig hur du använder slutanvändarens autentisering för att autentisera med Azure Data Lake Storage Gen1 med Python. Du kan nu titta på följande artiklar som beskriver hur du använder Python för att arbeta med Azure Data Lake Storage Gen1.
+I den här artikeln har du lärt dig hur du använder autentisering med slutanvändare för att autentisera med Azure Data Lake Storage Gen1 med python. Nu kan du titta på följande artiklar som talar om hur du använder python för att arbeta med Azure Data Lake Storage Gen1.
 
-* [Kontohanteringsåtgärder på Data Lake Storage Gen1 med Python](data-lake-store-get-started-python.md)
-* [Dataåtgärder på DataSjölagring Gen1 med Python](data-lake-store-data-operations-python.md)
+* [Konto hanterings åtgärder på Data Lake Storage Gen1 med python](data-lake-store-get-started-python.md)
+* [Data åtgärder på Data Lake Storage Gen1 med python](data-lake-store-data-operations-python.md)
 

@@ -1,36 +1,36 @@
 ---
-title: Använda OpenFaaS med Azure Kubernetes Service (AKS)
-description: Lär dig hur du distribuerar och använder OpenFaaS på ett AKS-kluster (Azure Kubernetes Service) för att skapa serverlösa funktioner med behållare.
+title: Använda OpenFaaS med Azure Kubernetes service (AKS)
+description: Lär dig hur du distribuerar och använder OpenFaaS på ett Azure Kubernetes service-kluster (AKS) för att bygga Server lös funktioner med behållare.
 author: justindavies
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
 ms.openlocfilehash: 95039573c607f516755f08f1ebad8b968416ec8b
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631474"
 ---
 # <a name="using-openfaas-on-aks"></a>Använda OpenFaaS på AKS
 
-[OpenFaaS][open-faas] är ett ramverk för att bygga serverlösa funktioner med hjälp av behållare. Som ett open source-projekt har det fått storskaliga adoptioner inom samhället. Den här dokumentinformationen om hur du installerar och använder OpenFaas i ett AKS-kluster (Azure Kubernetes Service).
+[OpenFaaS][open-faas] är ett ramverk för att skapa Server funktioner med hjälp av behållare. Som ett projekt med öppen källkod har det fått stor skala i communityn. Det här dokumentet innehåller information om hur du installerar och använder OpenFaas i ett AKS-kluster (Azure Kubernetes service).
 
 ## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra stegen i den här artikeln behöver du följande.
 
-* Grundläggande förståelse av Kubernetes.
-* Ett AKS-kluster (Azure Kubernetes Service) och AKS-autentiseringsuppgifter som konfigurerats på utvecklingssystemet.
-* Azure CLI installerat på ditt utvecklingssystem.
-* Git kommandoradsverktyg installerade på datorn.
+* Grundläggande förståelse för Kubernetes.
+* Ett Azure Kubernetes service-kluster (AKS) och AKS-autentiseringsuppgifter har kon figurer ATS i utvecklings systemet.
+* Azure CLI installerat i utvecklings systemet.
+* Git kommando rads verktyg som är installerade på systemet.
 
-## <a name="add-the-openfaas-helm-chart-repo"></a>Lägga till openfaas-helm-listan
+## <a name="add-the-openfaas-helm-chart-repo"></a>Lägg till OpenFaaS Helm-diagrammets lagrings platsen
 
-Gå [https://shell.azure.com](https://shell.azure.com) till för att öppna Azure Cloud Shell i din webbläsare.
+Gå till [https://shell.azure.com](https://shell.azure.com) för att öppna Azure Cloud Shell i webbläsaren.
 
-OpenFaaS har egna helm-diagram för att hålla sig uppdaterade med alla de senaste ändringarna.
+OpenFaaS underhåller sina egna Helm-diagram för att hålla dig uppdaterad med alla de senaste ändringarna.
 
 ```console
 helm repo add openfaas https://openfaas.github.io/faas-netes/
@@ -39,15 +39,15 @@ helm repo update
 
 ## <a name="deploy-openfaas"></a>Distribuera OpenFaaS
 
-Som en god praxis bör OpenFaaS- och OpenFaaS-funktioner lagras i sitt eget Kubernetes-namnområde.
+Som en bra idé bör OpenFaaS-och OpenFaaS-funktioner lagras i sitt eget Kubernetes-namnområde.
 
-Skapa ett namnområde för OpenFaaS-systemet och -funktionerna:
+Skapa ett namn område för OpenFaaS-systemet och-funktioner:
 
 ```console
 kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
 ```
 
-Generera ett lösenord för OpenFaaS UI Portal och REST API:
+Skapa ett lösen ord för OpenFaaS-användargränssnitt-portalen och REST API:
 
 ```console
 # generate a random password
@@ -58,11 +58,11 @@ kubectl -n openfaas create secret generic basic-auth \
 --from-literal=basic-auth-password="$PASSWORD"
 ```
 
-Du kan få värdet av `echo $PASSWORD`hemligheten med .
+Du kan hämta värdet för hemligheten med `echo $PASSWORD`.
 
-Lösenordet vi skapar här kommer att användas av rodret diagrammet för att möjliggöra grundläggande autentisering på OpenFaaS Gateway, som utsätts för Internet via ett moln LoadBalancer.
+Lösen ordet som vi skapar här används av Helm-diagrammet för att aktivera grundläggande autentisering på OpenFaaS-gatewayen, som exponeras för Internet via en molnbaserad belastningsutjämnare.
 
-Ett Helm-diagram för OpenFaaS ingår i den klonade databasen. Använd det här diagrammet om du vill distribuera OpenFaaS till AKS-klustret.
+Ett Helm-diagram för OpenFaaS ingår i den klonade lagrings platsen. Använd det här diagrammet för att distribuera OpenFaaS till ditt AKS-kluster.
 
 ```console
 helm upgrade openfaas --install openfaas/openfaas \
@@ -94,13 +94,13 @@ To verify that openfaas has started, run:
   kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
 ```
 
-En offentlig IP-adress skapas för åtkomst till OpenFaaS-gatewayen. Om du vill hämta den här IP-adressen använder du kommandot [kubectl get service.][kubectl-get] Det kan ta en minut innan IP-adressen tilldelas tjänsten.
+En offentlig IP-adress har skapats för åtkomst till OpenFaaS-gatewayen. Använd kommandot [kubectl get service][kubectl-get] för att hämta den här IP-adressen. Det kan ta en stund innan IP-adressen har tilldelats till tjänsten.
 
 ```console
 kubectl get service -l component=gateway --namespace openfaas
 ```
 
-Produktionen.
+Utdataparametrar.
 
 ```output
 NAME               TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)          AGE
@@ -108,17 +108,17 @@ gateway            ClusterIP      10.0.156.194   <none>         8080/TCP        
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-Om du vill testa OpenFaaS-systemet bläddrar du till den `http://52.186.64.52:8080` externa IP-adressen på port 8080 i det här exemplet. Du kommer att bli ombedd att logga in. Om du vill `echo $PASSWORD`hämta ditt lösenord anger du .
+Du testar OpenFaaS-systemet genom att bläddra till den externa IP-adressen på port `http://52.186.64.52:8080` 8080 i det här exemplet. Du uppmanas att logga in. Ange `echo $PASSWORD`för att hämta ditt lösen ord.
 
-![OpenFaaS-användargränssnitt](media/container-service-serverless/openfaas.png)
+![OpenFaaS-gränssnitt](media/container-service-serverless/openfaas.png)
 
-Installera slutligen OpenFaaS CLI. Det här exemplet används brygga, se [OpenFaaS CLI-dokumentationen][open-faas-cli] för fler alternativ.
+Slutligen installerar du OpenFaaS CLI. I det här exemplet används Brew finns mer alternativ i [OPENFAAS CLI-dokumentationen][open-faas-cli] .
 
 ```console
 brew install faas-cli
 ```
 
-Ställ `$OPENFAAS_URL` in på den offentliga IP som finns ovan.
+Ange `$OPENFAAS_URL` till den offentliga IP-adress som hittades ovan.
 
 Logga in med Azure CLI:
 
@@ -129,13 +129,13 @@ echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 
 ## <a name="create-first-function"></a>Skapa första funktionen
 
-Nu när OpenFaaS är i drift skapar du en funktion med OpenFaas-portalen.
+Nu när OpenFaaS fungerar skapar du en funktion med hjälp av OpenFaas-portalen.
 
-Klicka på **Distribuera ny funktion** och sök efter **Figlet**. Välj funktionen Figlet och klicka på **Distribuera**.
+Klicka på **distribuera ny funktion** och Sök efter **figlet**. Välj funktionen figlet och klicka på **distribuera**.
 
 ![Figlet](media/container-service-serverless/figlet.png)
 
-Använd curl för att anropa funktionen. Ersätt IP-adressen i följande exempel med den för din OpenFaas-gateway.
+Använd sväng för att anropa funktionen. Ersätt IP-adressen i följande exempel med den för din OpenFaas-Gateway.
 
 ```console
 curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
@@ -152,25 +152,25 @@ Resultat:
 
 ```
 
-## <a name="create-second-function"></a>Skapa andra funktionen
+## <a name="create-second-function"></a>Skapa den andra funktionen
 
-Skapa nu en andra funktion. Det här exemplet distribueras med OpenFaaS CLI och innehåller en anpassad behållaravbildning och hämtar data från en Cosmos DB. Flera objekt måste konfigureras innan funktionen skapas.
+Nu ska du skapa en andra funktion. Det här exemplet kommer att distribueras med hjälp av OpenFaaS CLI och innehåller en anpassad behållar avbildning och hämta data från en Cosmos DB. Flera objekt måste konfigureras innan funktionen skapas.
 
-Skapa först en ny resursgrupp för Cosmos DB.
+Skapa först en ny resurs grupp för Cosmos DB.
 
 ```azurecli-interactive
 az group create --name serverless-backing --location eastus
 ```
 
-Distribuera en CosmosDB-instans av slag `MongoDB`. Instansen behöver ett unikt `openfaas-cosmos` namn, uppdatera till något som är unikt för din miljö.
+Distribuera en CosmosDB-instans av `MongoDB`typen. Instansen måste ha ett unikt namn `openfaas-cosmos` och uppdateras till något unikt i din miljö.
 
 ```azurecli-interactive
 az cosmosdb create --resource-group serverless-backing --name openfaas-cosmos --kind MongoDB
 ```
 
-Hämta Cosmos-databasanslutningssträngen och lagra den i en variabel.
+Hämta anslutnings strängen för Cosmos-databasen och lagra den i en variabel.
 
-Uppdatera värdet för `--resource-group` argumentet till namnet på resursgruppen `--name` och argumentet till namnet på cosmos-DB:n.
+Uppdatera värdet för `--resource-group` argumentet till namnet på din resurs grupp och `--name` argumentet till namnet på din Cosmos dB.
 
 ```azurecli-interactive
 COSMOS=$(az cosmosdb list-connection-strings \
@@ -180,7 +180,7 @@ COSMOS=$(az cosmosdb list-connection-strings \
   --output tsv)
 ```
 
-Fyll nu i Cosmos DB med testdata. Skapa en `plans.json` fil med namnet och kopiera i följande json.
+Fyll nu i Cosmos DB med test data. Skapa en fil med `plans.json` namnet och kopiera i följande JSON.
 
 ```json
 {
@@ -194,9 +194,9 @@ Fyll nu i Cosmos DB med testdata. Skapa en `plans.json` fil med namnet och kopie
 }
 ```
 
-Använd *mongoimport-verktyget* för att läsa in CosmosDB-instansen med data.
+Använd *mongoimport* -verktyget för att läsa in CosmosDB-instansen med data.
 
-Installera MongoDB-verktygen om det behövs. I följande exempel installeras dessa verktyg med bryggning, se [MongoDB-dokumentationen][install-mongo] för andra alternativ.
+Om det behövs installerar du MongoDB-verktygen. I följande exempel installeras dessa verktyg med hjälp av Brew i [MongoDB-dokumentationen][install-mongo] för andra alternativ.
 
 ```console
 brew install mongodb
@@ -215,20 +215,20 @@ Resultat:
 2018-02-19T14:42:14.918+0000    imported 1 document
 ```
 
-Kör följande kommando för att skapa funktionen. Uppdatera värdet för `-g` argumentet med din OpenFaaS-gatewayadress.
+Kör följande kommando för att skapa funktionen. Uppdatera värdet för `-g` argumentet med din OpenFaaS-Gateway-adress.
 
 ```console
 faas-cli deploy -g http://52.186.64.52:8080 --image=shanepeckham/openfaascosmos --name=cosmos-query --env=NODE_ENV=$COSMOS
 ```
 
-När du har distribuerats bör du se din nyligen skapade OpenFaaS-slutpunkt för funktionen.
+När du har distribuerat bör du se den nyligen skapade OpenFaaS-slutpunkten för funktionen.
 
 ```output
 Deployed. 202 Accepted.
 URL: http://52.186.64.52:8080/function/cosmos-query
 ```
 
-Testa funktionen med hjälp av lock. Uppdatera IP-adressen med OpenFaaS gateway-adressen.
+Testa funktionen med hjälp av sväng. Uppdatera IP-adressen med OpenFaaS gateway-adressen.
 
 ```console
 curl -s http://52.186.64.52:8080/function/cosmos-query
@@ -240,13 +240,13 @@ Resultat:
 [{"ID":"","Name":"two_person","FriendlyName":"","PortionSize":"","MealsPerWeek":"","Price":72,"Description":"Our basic plan, delivering 3 meals per week, which will feed 1-2 people."}]
 ```
 
-Du kan också testa funktionen i OpenFaaS-användargränssnittet.
+Du kan också testa funktionen i OpenFaaS-ANVÄNDARGRÄNSSNITTET.
 
 ![alternativ text](media/container-service-serverless/OpenFaaSUI.png)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
-Du kan fortsätta att lära dig med OpenFaaS-workshopen genom en uppsättning praktiska övningar som täcker ämnen som hur du skapar din egen GitHub-robot, konsumerar hemligheter, visar mätvärden och automatisk skalning.
+Du kan fortsätta att lära dig med OpenFaaS-workshopen genom en uppsättning praktiska labb övningar som beskriver ämnen, till exempel hur du skapar din egen GitHub-robot, använder hemligheter, visar mått och automatisk skalning.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/

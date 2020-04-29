@@ -1,6 +1,6 @@
 ---
 title: Analysera din arbetsbelastning
-description: Tekniker för att analysera frågeprioritering för din arbetsbelastning i Azure Synapse Analytics.
+description: Tekniker för att analysera frågan prioriteras för din arbets belastning i Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,23 +12,23 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 6a38fe65b4aedf4f594531f5e9cd8cf9b5dfaac7
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631247"
 ---
-# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analysera din arbetsbelastning i Azure Synapse Analytics
+# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analysera din arbets belastning i Azure Synapse Analytics
 
 Tekniker för att analysera din Synapse SQL-arbetsbelastning i Azure Synapse Analytics.
 
 ## <a name="resource-classes"></a>Resursklasser
 
-Synapse SQL tillhandahåller resursklasser för att tilldela systemresurser till frågor.  Mer information om resursklasser finns i [Resursklasser & arbetsbelastningshantering](resource-classes-for-workload-management.md).  Frågor väntar om resursklassen som tilldelats en fråga behöver mer resurser än vad som för närvarande är tillgängligt.
+Synapse SQL tillhandahåller resurs klasser för att tilldela system resurser till frågor.  Mer information om resurs klasser finns i [resurs klasser & hantering av arbets belastning](resource-classes-for-workload-management.md).  Frågor väntar om resurs klassen som tilldelas till en fråga behöver fler resurser än vad som för närvarande är tillgängligt.
 
-## <a name="queued-query-detection-and-other-dmvs"></a>Identifiering av köfrågor och andra DMVs
+## <a name="queued-query-detection-and-other-dmvs"></a>Avkänning av köade frågor och andra DMV: er
 
-Du kan `sys.dm_pdw_exec_requests` använda DMV för att identifiera frågor som väntar i en samtidig kö. Frågor som väntar på en samtidighetsplats har statusen **pausad**.
+Du kan använda `sys.dm_pdw_exec_requests` DMV för att identifiera frågor som väntar i en concurrency-kö. Frågor som väntar på en concurrency-kortplats har statusen **inaktive**rad.
 
 ```sql
 SELECT  r.[request_id]                           AS Request_ID
@@ -41,7 +41,7 @@ FROM    sys.dm_pdw_exec_requests r
 ;
 ```
 
-Roller för arbetsbelastningshantering `sys.database_principals`kan visas med .
+Roller för arbets belastnings hantering kan `sys.database_principals`visas med.
 
 ```sql
 SELECT  ro.[name]           AS [db_role_name]
@@ -51,7 +51,7 @@ AND     ro.[is_fixed_role]  = 0
 ;
 ```
 
-Följande fråga visar vilken roll varje användare har tilldelats.
+Följande fråga visar vilken roll som varje användare är tilldelad till.
 
 ```sql
 SELECT  r.name AS role_principal_name
@@ -63,12 +63,12 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-Synapse SQL har följande väntetyper:
+Synapse SQL har följande vänte typer:
 
-* **LocalQueriesConcurrencyResourceType**: Frågor som sitter utanför ramverket för samtidighetsfack. DMV-frågor och systemfunktioner `SELECT @@VERSION` som är exempel på lokala frågor.
-* **UserConcurrencyResourceType**: Frågor som sitter i ramverket för samtidighetsfack. Frågor mot slutanvändartabeller representerar exempel som använder den här resurstypen.
-* **DmsConcurrencyResourceType**: Väntar på resultat från dataförflyttningsåtgärder.
-* **BackupConcurrencyResourceType**: Den här väntan anger att en databas säkerhetskopieras. Det maximala värdet för den här resurstypen är 1. Om flera säkerhetskopior har begärts samtidigt, köar de andra. I allmänhet rekommenderar vi en minsta tid mellan på varandra följande ögonblicksbilder på 10 minuter.
+* **LocalQueriesConcurrencyResourceType**: frågor som ligger utanför samtidighets fack ramverket. DMV-frågor och system funktioner som `SELECT @@VERSION` är exempel på lokala frågor.
+* **UserConcurrencyResourceType**: frågor som är i ramverket för samtidighets fack. Frågor mot slut användar tabeller representerar exempel som använder den här resurs typen.
+* **DmsConcurrencyResourceType**: väntar på data förflyttnings åtgärder.
+* **BackupConcurrencyResourceType**: det här väntar indikerar att en databas säkerhets kopie ras. Det maximala värdet för den här resurs typen är 1. Om flera säkerhets kopieringar har begärts samtidigt, den andra kön. I allmänhet rekommenderar vi att du tar en stund mellan flera ögonblicks bilder på 10 minuter.
 
 `sys.dm_pdw_waits` DMV kan användas för att se vilka resurser en begäran väntar på.
 
@@ -107,7 +107,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-`sys.dm_pdw_resource_waits` DMV visar vänta information för en viss fråga. Resursvändtiden mäter den tid som väntar på att resurser ska tillhandahållas. Signal väntetid är den tid det tar för underliggande SQL-servrar att schemalägga frågan på processorn.
+`sys.dm_pdw_resource_waits` DMV visar wait-information för en specifik fråga. Resursens vänte tid mäter den tid som väntar på att resurser ska tillhandahållas. Vänte tiden för signalen är den tid det tar för de underliggande SQL-servrarna att schemalägga frågan till processorn.
 
 ```sql
 SELECT  [session_id]
@@ -126,7 +126,7 @@ WHERE    [session_id] <> SESSION_ID()
 ;
 ```
 
-Du kan också `sys.dm_pdw_resource_waits` använda DMV beräkna hur många samtidighetsplatser som har beviljats.
+Du kan också använda DMV `sys.dm_pdw_resource_waits` -beräkningen av hur många samtidiga samtidiga platser som har beviljats.
 
 ```sql
 SELECT  SUM([concurrency_slots_used]) as total_granted_slots
@@ -137,7 +137,7 @@ AND     [session_id]     <> session_id()
 ;
 ```
 
-`sys.dm_pdw_wait_stats` DMV kan användas för historisk trendanalys av väntetider.
+`sys.dm_pdw_wait_stats` DMV kan användas för historisk trend analys av väntande.
 
 ```sql
 SELECT   w.[pdw_node_id]
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du hanterar databasanvändare och säkerhet finns [i Skydda en databas i Synapse SQL](sql-data-warehouse-overview-manage-security.md). Mer information om hur större resursklasser kan förbättra indexkvaliteten i klustrade columnstore finns i [Återskapa index för att förbättra segmentkvaliteten](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Mer information om hur du hanterar databas användare och säkerhet finns i [skydda en databas i SYNAPSE SQL](sql-data-warehouse-overview-manage-security.md). Mer information om hur större resurs klasser kan förbättra grupperade columnstore-index finns i [Återskapa index för att förbättra segment kvaliteten](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

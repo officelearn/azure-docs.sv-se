@@ -1,6 +1,6 @@
 ---
-title: Konfigurera serverparametrar - Azure CLI - Azure Database för MariaDB
-description: I den här artikeln beskrivs hur du konfigurerar tjänstparametrarna i Azure Database för MariaDB med hjälp av kommandoradsverktyget i Azure CLI.
+title: Konfigurera Server parametrar – Azure CLI – Azure Database for MariaDB
+description: I den här artikeln beskrivs hur du konfigurerar tjänst parametrarna i Azure Database for MariaDB med hjälp av kommando rads verktyget för Azure CLI.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
@@ -8,95 +8,95 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 4/1/2020
 ms.openlocfilehash: 3ba06ea592d51eedbe827e1ab6418f65722d579c
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632306"
 ---
-# <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Anpassa serverkonfigurationsparametrar med hjälp av Azure CLI
-Du kan lista, visa och uppdatera konfigurationsparametrar för en Azure-databas för MariaDB-server med hjälp av Azure CLI, kommandoradsverktyget i Azure. En delmängd av motorkonfigurationer exponeras på servernivå och kan ändras.
+# <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Anpassa Server konfigurations parametrar med hjälp av Azure CLI
+Du kan visa, Visa och uppdatera konfigurations parametrar för en Azure Database for MariaDB-server med hjälp av Azure CLI, kommando rads verktyget för Azure. En del av motor konfigurationerna exponeras på server nivå och kan ändras.
 
 ## <a name="prerequisites"></a>Krav
-För att gå igenom den här guiden behöver du:
-- [En Azure-databas för MariaDB-server](quickstart-create-mariadb-server-database-using-azure-cli.md)
-- [Azure CLI](/cli/azure/install-azure-cli) kommandoradsverktyget eller använd Azure Cloud Shell i webbläsaren.
+För att gå igenom den här instruktions guiden behöver du:
+- [En Azure Database for MariaDB-Server](quickstart-create-mariadb-server-database-using-azure-cli.md)
+- Kommando rads verktyget för [Azure CLI](/cli/azure/install-azure-cli) eller Använd Azure Cloud Shell i webbläsaren.
 
-## <a name="list-server-configuration-parameters-for-azure-database-for-mariadb-server"></a>Lista serverkonfigurationsparametrar för Azure Database för MariaDB-server
-Om du vill visa alla ändringsbara parametrar på en server och deras värden kör du kommandot [az mariadb-serverkonfigurationslist.](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-list)
+## <a name="list-server-configuration-parameters-for-azure-database-for-mariadb-server"></a>Visa lista med Server konfigurations parametrar för Azure Database for MariaDB Server
+Om du vill visa alla ändrings bara parametrar på en server och deras värden kör du kommandot [AZ MariaDB Server Configuration List](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-list) .
 
-Du kan ange serverkonfigurationsparametrarna för servern **mydemoserver.mariadb.database.azure.com** under resursgrupp **minresourcegroup**.
+Du kan ange serverns konfigurations parametrar för servern **mydemoserver.MariaDB.Database.Azure.com** under resurs grupp **myresourcegroup**.
 ```azurecli-interactive
 az mariadb server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
 
-Information om definitionen av var och en av de angivna parametrarna finns i avsnittet MariaDB-referens på [serversystemvariabler](https://mariadb.com/kb/en/library/server-system-variables/).
+För definitionen av var och en av de angivna parametrarna, se avsnittet referens för MariaDB på [Server systemets variabler](https://mariadb.com/kb/en/library/server-system-variables/).
 
-## <a name="show-server-configuration-parameter-details"></a>Visa information om serverkonfigurationsparameter
-Om du vill visa information om en viss konfigurationsparameter för en server kör du kommandot [az mariadb-serverkonfiguration.](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-show)
+## <a name="show-server-configuration-parameter-details"></a>Visa information om Server konfigurations parameter
+Om du vill visa information om en viss konfigurations parameter för en server kör du kommandot [AZ MariaDB Server Configuration show](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-show) .
 
-I det här exemplet visas information om **mydemoserver.mariadb.database.azure.com** den långsamma **\_\_** konfigurationsparametern för frågeloggserver för server mydemoserver.mariadb.database.azure.com under resursgrupp **myresourcegroup.**
+Det här exemplet visar information om konfigurations parametern för **\_långsam fråge\_logg** Server för Server- **mydemoserver.MariaDB.Database.Azure.com** under resurs grupp **myresourcegroup.**
 ```azurecli-interactive
 az mariadb server configuration show --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
 
-## <a name="modify-a-server-configuration-parameter-value"></a>Ändra ett serverkonfigurationsparametervärde
-Du kan också ändra värdet för en viss serverkonfigurationsparameter, som uppdaterar det underliggande konfigurationsvärdet för MariaDB-servermotorn. Om du vill uppdatera konfigurationen använder du kommandot [az mariadb-serverkonfigurationsuppsättning.](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-set) 
+## <a name="modify-a-server-configuration-parameter-value"></a>Ändra ett parameter värde för Server konfiguration
+Du kan också ändra värdet för en viss server konfigurations parameter, som uppdaterar det underliggande konfiguration svärdet för MariaDB-Server motorn. Om du vill uppdatera konfigurationen använder du kommandot [AZ MariaDB Server Configuration set](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-set) . 
 
-Så här uppdaterar du den långsamma **mydemoserver.mariadb.database.azure.com** **\_\_** konfigurationsparametern för frågeloggserver för server mydemoserver.mariadb.database.azure.com under resursgrupp **myresourcegroup.**
+Så här uppdaterar **du\_den\_långsamma fråge loggs** serverns konfigurations parameter för Server **mydemoserver.MariaDB.Database.Azure.com** under resurs grupp **myresourcegroup.**
 ```azurecli-interactive
 az mariadb server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver --value ON
 ```
 
-Om du vill återställa värdet för en konfigurationsparameter utelämnar du den valfria `--value` parametern och tjänsten tillämpar standardvärdet. I exemplet ovan skulle det se ut som:
+Om du vill återställa värdet för en konfigurations parameter utelämnar du den valfria `--value` parametern, och tjänsten använder standardvärdet. I exemplet ovan skulle det se ut så här:
 ```azurecli-interactive
 az mariadb server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
 
-Den här koden återställer den **långsamma\_frågeloggkonfigurationen\_** till standardvärdet **OFF**. 
+Den här koden återställer **logg konfigurationen\_för\_långsam fråga** till standardvärdet **.** 
 
-## <a name="working-with-the-time-zone-parameter"></a>Arbeta med tidszonsparametern
+## <a name="working-with-the-time-zone-parameter"></a>Arbeta med tids zons parametern
 
-### <a name="populating-the-time-zone-tables"></a>Fylla i tidszonstabellerna
+### <a name="populating-the-time-zone-tables"></a>Fylla i tids zons tabellerna
 
-Tidszonstabellerna på servern kan fyllas `mysql.az_load_timezone` i genom att anropa den lagrade proceduren från ett verktyg som MariaDB-kommandoraden eller MariaDB Workbench.
+Du kan fylla i tids zons tabellerna på servern genom att anropa den `mysql.az_load_timezone` lagrade proceduren från ett verktyg som kommando raden MariaDB eller MariaDB Workbench.
 
 > [!NOTE]
-> Om du kör `mysql.az_load_timezone` kommandot från MariaDB Workbench kan du behöva stänga `SET SQL_SAFE_UPDATES=0;`av felsäkert uppdateringsläge först med .
+> Om du kör `mysql.az_load_timezone` kommandot från MariaDB Workbench kan du behöva inaktivera läget för säker uppdatering först med `SET SQL_SAFE_UPDATES=0;`.
 
 ```sql
 CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> Du bör starta om servern för att säkerställa att tidszonstabellerna är korrekt ifyllda. Om du vill starta om servern använder du [Azure-portalen](howto-restart-server-portal.md) eller [CLI](howto-restart-server-cli.md).
+> Du bör starta om servern för att se till att tids zons tabellerna är korrekt ifyllda. Om du vill starta om servern använder du [Azure Portal](howto-restart-server-portal.md) eller [CLI](howto-restart-server-cli.md).
 
-Om du vill visa tillgängliga tidszonsvärden kör du följande kommando:
+Kör följande kommando för att visa tillgängliga tids zons värden:
 
 ```sql
 SELECT name FROM mysql.time_zone_name;
 ```
 
-### <a name="setting-the-global-level-time-zone"></a>Ställa in tidszonen på global nivå
+### <a name="setting-the-global-level-time-zone"></a>Ange tidszon på global nivå
 
-Tidszonen på global nivå kan ställas in med kommandot [az mariadb-serverkonfigurationsuppsättning.](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-set)
+Du kan ange tids zonen för global nivå med hjälp av kommandot [AZ MariaDB Server Configuration set](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-set) .
 
-Följande kommando uppdaterar **\_tidszonsserverkonfigurationsparametern** **för** server mydemoserver.mariadb.database.azure.com under resursgrupp **minresourcegroup** till **USA/Stillahavsområdet**.
+Följande kommando uppdaterar konfigurations parametern för **\_tids zons** servern för Server- **mydemoserver.MariaDB.Database.Azure.com** under resurs grupp **myresourcegroup** till **US/Pacific**.
 
 ```azurecli-interactive
 az mariadb server configuration set --name time_zone --resource-group myresourcegroup --server mydemoserver --value "US/Pacific"
 ```
 
-### <a name="setting-the-session-level-time-zone"></a>Ställa in tidszonen för sessionsnivå
+### <a name="setting-the-session-level-time-zone"></a>Ange tids zonen för sessionen
 
-Tidszonen för sessionsnivå kan ställas `SET time_zone` in genom att köra kommandot från ett verktyg som MariaDB-kommandoraden eller MariaDB Workbench. I exemplet nedan anges tidszonen till tidszonen **USA/Stillahavsområdet.**  
+Tids zonen för tids zonen kan ställas in genom att `SET time_zone` köra kommandot från ett verktyg som MariaDB kommando rad eller MariaDB Workbench. I exemplet nedan ställs tids zonen till i **USA/Stilla havs** området.  
 
 ```sql
 SET time_zone = 'US/Pacific';
 ```
 
-Se MariaDB-dokumentationen för [datum- och tidsfunktioner](https://mariadb.com/kb/en/library/date-time-functions/).
+I MariaDB-dokumentationen hittar du [datum-och tids funktioner](https://mariadb.com/kb/en/library/date-time-functions/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Konfigurera [serverparametrar i Azure-portalen](howto-server-parameters.md)
+- Konfigurera [Server parametrar i Azure Portal](howto-server-parameters.md)

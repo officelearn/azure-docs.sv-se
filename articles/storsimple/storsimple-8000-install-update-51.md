@@ -1,6 +1,6 @@
 ---
-title: Installera uppdatering 5.1 på StorSimple 8000-serien | Microsoft-dokument
-description: I artikeln beskrivs hur du installerar StorSimple 8000 Series Update 5.1 på enheten i StorSimple 8000-serien.
+title: Installera uppdatering 5,1 på StorSimple 8000-seriens enhet | Microsoft Docs
+description: Förklarar hur du installerar StorSimple 8000-serien uppdatering 5,1 på din StorSimple 8000-serie enhet.
 services: storsimple
 documentationcenter: NA
 author: priestlg
@@ -13,25 +13,25 @@ ms.workload: TBD
 ms.date: 03/05/2020
 ms.author: v-grpr
 ms.openlocfilehash: b90f0f35f908d16b0746075e638fe66769939a64
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80658045"
 ---
-# <a name="install-update-51-on-your-storsimple-device"></a>Installera uppdatering 5.1 på StorSimple-enheten
+# <a name="install-update-51-on-your-storsimple-device"></a>Installera uppdatering 5,1 på din StorSimple-enhet
 
 ## <a name="overview"></a>Översikt
 
-Den här självstudien förklarar hur du installerar Uppdatering 5.1 på en StorSimple-enhet som kör en tidigare programvaruversion via Azure-portalen. <!--The hotfix method is used when you are trying to install Update 5.1 on a device running pre-Update 3 versions. The hotfix method is also used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.-->
+I den här självstudien beskrivs hur du installerar uppdatering 5,1 på en StorSimple-enhet som kör en tidigare program varu version via Azure Portal. <!--The hotfix method is used when you are trying to install Update 5.1 on a device running pre-Update 3 versions. The hotfix method is also used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.-->
 
-Uppdatering 5.1 innehåller icke-störande säkerhetsuppdateringar. De icke-störande eller regelbundna uppdateringarna kan tillämpas via Azure-portalen <!--or by the hotfix method-->.
+Uppdatering 5,1 innehåller icke-störande säkerhets uppdateringar. Icke-störande eller regelbundna uppdateringar kan tillämpas via Azure Portal <!--or by the hotfix method-->.
 
 > [!IMPORTANT]
 >
-> * Uppdatering 5.1 är en obligatorisk uppdatering och bör installeras omedelbart. Mer information finns i [viktig information för uppdatering 5.1](storsimple-update51-release-notes.md).
-> * En uppsättning manuella och automatiska förkontroller görs före installationen för att fastställa enhetens hälsa när det gäller maskinvarutillstånd och nätverksanslutning. Dessa förhandskontroller utförs endast om du installerar uppdateringarna från Azure-portalen.
-> * Om du vill installera med snabbkorrigeringsmetoden kontaktar du [Microsoft Support](mailto:support@microsoft.com).
+> * Uppdatering 5,1 är en obligatorisk uppdatering och bör installeras omedelbart. Mer information finns i [uppdatering 5,1 viktig](storsimple-update51-release-notes.md)information.
+> * En uppsättning manuella och automatiska för kontroller görs före installationen för att fastställa enhetens hälso status vad gäller maskin varu tillstånd och nätverks anslutning. Dessa för kontroller utförs endast om du tillämpar uppdateringarna från Azure Portal.
+> * Kontakta [Microsoft Support](mailto:support@microsoft.com)om du vill installera med hjälp av snabb korrigerings metoden.
 
 <!--
 > * We strongly recommend that when updating a device running versions prior to Update 3, you install the updates using hotfix method. If you encounter any issues, [log a support ticket](storsimple-8000-contact-microsoft-support.md). 
@@ -45,12 +45,12 @@ Uppdatering 5.1 innehåller icke-störande säkerhetsuppdateringar. De icke-stö
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
-## <a name="install-update-51-through-the-azure-portal"></a>Installera uppdatering 5.1 via Azure-portalen
+## <a name="install-update-51-through-the-azure-portal"></a>Installera uppdatering 5,1 via Azure Portal
 
-Gör följande för att uppdatera enheten till [uppdatering 5.1](storsimple-update51-release-notes.md).
+Utför följande steg för att uppdatera enheten till [uppdatering 5,1](storsimple-update51-release-notes.md).
 
 > [!NOTE]
-> Microsoft hämtar ytterligare diagnostikinformation från enheten. När vårt driftteam identifierar enheter som har problem är vi därför bättre rustade att samla in information från enheten och diagnostisera problem.
+> Microsoft hämtar ytterligare diagnostikinformation från enheten. Det innebär att när vårt drift team identifierar enheter som har problem är vi bättre utrustade med att samla in information från enheten och diagnostisera problem.
 
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Installera en uppdatering från Azure Portal
 
@@ -58,17 +58,17 @@ Gör följande för att uppdatera enheten till [uppdatering 5.1](storsimple-upda
 
     ![Välj enhet](./media/storsimple-8000-install-update-51/update1.png)
 
-2. Navigera till **Enhetsinställningar** > **Enhetsuppdateringar**.
+2. Gå till **enhets inställningar** > **enhets uppdateringar**.
 
-    ![Klicka på Enhetsuppdateringar](./media/storsimple-8000-install-update-51/update2.png)
+    ![Klicka på enhets uppdateringar](./media/storsimple-8000-install-update-51/update2.png)
 
-3. Ett meddelande visas om det finns nya uppdateringar tillgängliga. Du kan också klicka på **Skanna uppdateringar**i bladet **Enhetsuppdateringar** . Det skapas ett jobb för att söka efter tillgängliga uppdateringar. Du meddelas när jobbet har slutförts.
+3. Ett meddelande visas om nya uppdateringar är tillgängliga. Alternativt klickar du på **Sök efter uppdateringar**på bladet **enhets uppdateringar** . Det skapas ett jobb för att söka efter tillgängliga uppdateringar. Du meddelas när jobbet har slutförts.
 
-    ![Klicka på Enhetsuppdateringar](./media/storsimple-8000-install-update-51/update3.png)
+    ![Klicka på enhets uppdateringar](./media/storsimple-8000-install-update-51/update3.png)
 
-4. Vi rekommenderar att du läser den viktiga informationen innan du installerar en uppdatering på enheten. Om du vill installera uppdateringar klickar du på **Installera uppdateringar**. I bladet **Bekräfta regelbundna uppdateringar** läser du förutsättningarna för att slutföra innan du installerar uppdateringar. Markera kryssrutan om du vill visa att du är redo att uppdatera enheten och klicka sedan på **Installera**.
+4. Vi rekommenderar att du läser den viktiga informationen innan du installerar en uppdatering på enheten. Klicka på **Installera uppdateringar**om du vill tillämpa uppdateringar. På bladet **Bekräfta vanliga uppdateringar** kontrollerar du att kraven är uppfyllda innan du installerar uppdateringarna. Markera kryss rutan för att ange att du är redo att uppdatera enheten och klicka sedan på **Installera**.
 
-    ![Klicka på Enhetsuppdateringar](./media/storsimple-8000-install-update-51/update4.png)
+    ![Klicka på enhets uppdateringar](./media/storsimple-8000-install-update-51/update4.png)
 
 5. En uppsättning nödvändiga kontrollerar startar. Dessa kontroller omfattar följande:
    
@@ -76,9 +76,9 @@ Gör följande för att uppdatera enheten till [uppdatering 5.1](storsimple-upda
    * **Hälsokontroller för maskinvarukomponenter** för att verifiera att alla maskinvarukomponenter på StorSimple-enheten är felfria.
    * **DATA 0-kontroller** för att verifiera att DATA 0 är aktiverat på enheten. Om inte det här gränssnittet är aktiverat måste du aktivera det och sedan försöka igen.
 
-     Uppdateringen hämtas och installeras endast om alla kontroller har slutförts. Du får ett meddelande när kontrollerna pågår. Om prechecks misslyckas, då du kommer att förses med orsakerna till misslyckande. Åtgärda dessa problem och försök sedan igen. Du kan behöva kontakta Microsofts support om du inte kan lösa dessa problem själv.
+     Uppdateringen laddas ned och installeras endast om alla kontroller har slutförts. Du får ett meddelande när kontrollerna pågår. Om för kontrollen Miss lyckas får du orsaken till felet. Åtgärda problemen och försök sedan igen. Du kan behöva kontakta Microsofts support om du inte kan lösa dessa problem själv.
 
-7. När förkontrollerna har slutförts skapas ett uppdateringsjobb. Du får ett meddelande när uppdateringsjobbet har skapats.
+7. När dina för-kontroller har slutförts skapas ett uppdaterings jobb. Du får ett meddelande när uppdateringsjobbet har skapats.
    
     ![Uppdatera skapande av jobb](./media/storsimple-8000-install-update-51/update6.png)
    
@@ -88,14 +88,14 @@ Gör följande för att uppdatera enheten till [uppdatering 5.1](storsimple-upda
 
     ![Uppdatera skapande av jobb](./media/storsimple-8000-install-update-51/update8.png)
 
-     Du kan också övervaka hur uppdateringsjobbet fortskrider från **Enhetsinställningar > jobb**. På bladet **Jobb** kan du se uppdateringsframsteget.
+     Du kan också övervaka förloppet för uppdaterings jobbet från **enhets inställningar > jobb**. På bladet **jobb** kan du se uppdaterings förloppet.
 
      ![Uppdatera skapande av jobb](./media/storsimple-8000-install-update-51/update7.png)
 
-10. När jobbet är klart navigerar du till **enhetsinställningarna > enhetsuppdateringar**. Programvaruversionen bör nu uppdateras.
+10. När jobbet är klart navigerar du till **enhets inställningarna > enhets uppdateringar**. Program versionen bör nu uppdateras.
 
 
-Kontrollera att enheten kör **StorSimple 8000 Series Update 5.1 (6.3.9600.17885)**. **Det senast uppdaterade datumet** ska ändras.
+Kontrol lera att enheten kör **StorSimple 8000-serien uppdatering 5,1 (6.3.9600.17885)**. **Datum för senaste uppdatering** ska ändras.
 <!-- 5.1 - KB 4542887-->
 
 <!--You will now see that the Maintenance mode updates are available (this message might continue to be displayed for up to 24 hours after you install the updates). The steps to install maintenance mode update are detailed in the next section.
@@ -168,4 +168,4 @@ Perform the following steps to download and install the hotfixes.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [versionen update 5.1](storsimple-update51-release-notes.md).
+Läs mer om [uppdatering 5,1-versionen](storsimple-update51-release-notes.md).

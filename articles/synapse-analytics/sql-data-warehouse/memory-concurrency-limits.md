@@ -1,6 +1,6 @@
 ---
-title: Begränsningar för minne och samtidighet
-description: Visa de begränsningar för minne och samtidighet som allokerats till de olika prestandanivåerna och resursklasserna i Azure Synapse Analytics.
+title: Minnes-och samtidiga gränser
+description: Visa minnes-och samtidiga gränser som tilldelats de olika prestanda nivåerna och resurs klasserna i Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,30 +12,30 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 56ab49949b4ea2a92bc591042b2d43a7f7b2dc63
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632670"
 ---
-# <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Begränsningar för minne och samtidighet för Azure Synapse Analytics
+# <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Minnes-och samtidiga gränser för Azure Synapse Analytics
 
-Visa de begränsningar för minne och samtidighet som allokerats till de olika prestandanivåerna och resursklasserna i Azure Synapse Analytics.  
+Visa minnes-och samtidiga gränser som tilldelats de olika prestanda nivåerna och resurs klasserna i Azure Synapse Analytics.  
 
-## <a name="data-warehouse-capacity-settings"></a>Inställningar för datalagerkapacitet
+## <a name="data-warehouse-capacity-settings"></a>Kapacitets inställningar för informations lager
 
-Följande tabeller visar den maximala kapaciteten för informationslagret på olika prestandanivåer. Mer om du vill ändra prestandanivån finns i [Skala beräkning - portal](quickstart-scale-compute-portal.md).
+I följande tabeller visas den maximala kapaciteten för data lagret på olika prestanda nivåer. Information om hur du ändrar prestanda nivån finns i [Scale Compute-Portal](quickstart-scale-compute-portal.md).
 
-### <a name="service-levels"></a>Servicenivåer
+### <a name="service-levels"></a>Service nivåer
 
-Servicenivåerna sträcker sig från DW100c till DW30000c.
+Tjänst nivåerna sträcker sig från DW100c till DW30000c.
 
-| Prestandanivå | Beräkningsnoder | Distributioner per beräkningsnod | Minne per informationslager (GB) |
+| Prestanda nivå | Beräkningsnoder | Distributioner per Compute-nod | Minne per informations lager (GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
-| DW100c (på andra)            | 1             | 60                             |    60                          |
-| DW200c (på andra)            | 1             | 60                             |   120                          |
-| DW300c (på andra)            | 1             | 60                             |   180                          |
-| DW400c (på andra)            | 1             | 60                             |   240                          |
+| DW100c            | 1             | 60                             |    60                          |
+| DW200c            | 1             | 60                             |   120                          |
+| DW300c            | 1             | 60                             |   180                          |
+| DW400c            | 1             | 60                             |   240                          |
 | DW500c            | 1             | 60                             |   300                          |
 | DW1000c           | 2             | 30                             |   600                          |
 | DW1500c           | 3             | 20                             |   900                          |
@@ -49,25 +49,25 @@ Servicenivåerna sträcker sig från DW100c till DW30000c.
 | DW15000c          | 30            | 2                              |  9000                          |
 | DW30000c          | 60            | 1                              | 18000                          |
 
-Den maximala servicenivån är DW30000c, som har 60 beräkningsnoder och en distribution per beräkningsnod. Ett 600 TB-informationslager på DW30000c bearbetar till exempel cirka 10 TB per beräkningsnod.
+Den högsta service nivån är DW30000c, som har 60 Compute-noder och en distribution per Compute-nod. Till exempel, ett 600 TB informations lager på DW30000c bearbetar cirka 10 TB per Compute-nod.
 
-## <a name="concurrency-maximums-for-workload-groups"></a>Maximalt antal samtidigheter för arbetsbelastningsgrupper
+## <a name="concurrency-maximums-for-workload-groups"></a>Concurrency-maximum för arbets belastnings grupper
 
-I och med införandet av [arbetsbelastningsgrupper](sql-data-warehouse-workload-isolation.md)gäller inte längre begreppet samtidighetsplatser.  Resurser per begäran fördelas i procent och anges i arbetsbelastningsgruppdefinitionen.  Men även med borttagning av samtidighetsplatser finns det minsta belopp för resurser som behövs per frågor baserat på servicenivån.  I tabellen nedan definierades den minsta mängd resurser som behövs per fråga över tjänstnivåer och den tillhörande samtidighet som kan uppnås.
+Med introduktionen av [arbets belastnings grupper](sql-data-warehouse-workload-isolation.md)gäller inte längre begreppet samtidiga platser.  Resurser per begäran tilldelas i procent och anges i definitionen av arbets belastnings gruppen.  Men även om du tar bort samtidiga platser, finns det minimala mängder resurser som krävs per fråga baserat på service nivå.  Tabellen nedan definierar den minsta mängd resurser som krävs per fråga över tjänst nivåer och den associerade samtidigheten som kan uppnås.
 
-|Servicenivå|Maximala samtidiga frågor|Min % stöd för REQUEST_MIN_RESOURCE_GRANT_PERCENT|
+|Service nivå|Maximalt antal samtidiga frågor|Lägsta% som stöds för REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
-|DW100c (på andra)|4|25 %|
-|DW200c (på andra)|8|12.5%|
-|DW300c (på andra)|12|8 %|
-|DW400c (på andra)|16|6.25%|
+|DW100c|4|25 %|
+|DW200c|8|12,5%|
+|DW300c|12|8 %|
+|DW400c|16|6,25%|
 |DW500c|20|5 %|
 |DW1000c|32|3 %|
 |DW1500c|32|3 %|
 |DW2000c|48|2 %|
 |DW2500c|48|2 %|
-|DW3000c|64|1.5%|
-|DW5000c|64|1.5%|
+|DW3000c|64|1,5%|
+|DW5000c|64|1,5%|
 |DW6000c|128|0,75 %|
 |DW7500c|128|0,75 %|
 |DW10000c|128|0,75 %|
@@ -75,20 +75,20 @@ I och med införandet av [arbetsbelastningsgrupper](sql-data-warehouse-workload-
 |DW30000c|128|0,75 %|
 ||||
 
-## <a name="concurrency-maximums-for-resource-classes"></a>Maximalt antal samtidigheter för resursklasser
+## <a name="concurrency-maximums-for-resource-classes"></a>Concurrency-maximum för resurs klasser
 
-För att säkerställa att varje fråga har tillräckligt med resurser för att köra effektivt spårar SQL Analytics i Azure Synapse resursutnyttjande genom att tilldela samtidighetsplatser till varje fråga. Systemet placerar frågor i en kö baserat på prioritet och samtidighetsplatser. Frågor väntar i kön tills tillräckligt med samtidighetsplatser är tillgängliga. [Viktiga](sql-data-warehouse-workload-importance.md) och samtidighetsplatser avgör CPU-prioritering. Mer information finns i [Analysera din arbetsbelastning](analyze-your-workload.md)
+För att se till att varje fråga har tillräckligt med resurser för att fungera effektivt spårar du resursutnyttjande med hjälp av SQL Analytics i Azure Synapse genom att tilldela samtidiga platser till varje fråga. Systemet placerar frågor i en kö baserat på prioritets-och samtidiga platser. Frågor väntar i kön tills det finns tillräckligt med tillgängliga samtidighets fack. [Prioritets](sql-data-warehouse-workload-importance.md) -och samtidiga platser fastställer processor prioritet. Mer information finns i [analysera din arbets belastning](analyze-your-workload.md)
 
-**Statiska resursklasser**
+**Statiska resurs klasser**
 
-I följande tabell visas de maximala samtidiga frågorna och samtidighetsplatserna för varje [statisk resursklass](resource-classes-for-workload-management.md).  
+Följande tabell visar maximalt antal samtidiga frågor och samtidiga platser för varje [statisk resurs klass](resource-classes-for-workload-management.md).  
 
-| Servicenivå | Maximala samtidiga frågor | Tillgängliga ankomst- och avgångstider | Platser som används av staticrc10 | Slots som används av staticrc20 | Kortplatser som används av staticrc30 | Kortplatser som används av staticrc40 | Kortplatser som används av staticrc50 | Kortplatser som används av staticrc60 | Kortplatser som används av staticrc70 | Kortplatser som används av staticrc80 |
+| Service nivå | Maximalt antal samtidiga frågor | Tillgängliga samtidiga platser | Platser som används av staticrc10 | Platser som används av staticrc20 | Platser som används av staticrc30 | Platser som används av staticrc40 | Platser som används av staticrc50 | Platser som används av staticrc60 | Platser som används av staticrc70 | Platser som används av staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-| DW100c (på andra)        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
-| DW200c (på andra)        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
-| DW300c (på andra)        | 12                         |   12                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
-| DW400c (på andra)        | 16                         |   16                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
+| DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
+| DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
+| DW300c        | 12                         |   12                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
+| DW400c        | 16                         |   16                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW500c        | 20                         |   20                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
@@ -102,16 +102,16 @@ I följande tabell visas de maximala samtidiga frågorna och samtidighetsplatser
 | DW15000c      | 128                        |  600                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW30000c      | 128                        | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
-**Dynamiska resursklasser**
+**Dynamiska resurs klasser**
 
-I följande tabell visas de maximala samtidiga frågorna och samtidighetsplatserna för varje [dynamisk resursklass](resource-classes-for-workload-management.md). Dynamiska resursklasser använder en minnesprocentallokering på 3-10-22-70 för små-medelstora-stora xlarge-resursklasser på alla tjänstnivåer.
+I följande tabell visas maximalt antal samtidiga frågor och samtidiga platser för varje [dynamisk resurs klass](resource-classes-for-workload-management.md). Dynamiska resurs klasser använder en procent andel av 3-10-22-70-minne för små och medel stora XLarge resurs klasser på alla service nivåer.
 
-| Servicenivå | Maximala samtidiga frågor | Tillgängliga ankomst- och avgångstider | Slots som används av smallrc | Slots som används av mediumrc | Slots som används av largerc | Slots som används av xlargerc |
+| Service nivå | Maximalt antal samtidiga frågor | Tillgängliga samtidiga platser | Platser som används av smallrc | Platser som används av mediumrc | Platser som används av largerc | Platser som används av xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
-| DW100c (på andra)        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
-| DW200c (på andra)        |  8                         |    8                        | 1                     |  1                     |  1                    |   5                    |
-| DW300c (på andra)        | 12                         |   12                        | 1                     |  1                     |  2                    |   8                    |
-| DW400c (på andra)        | 16                         |   16                        | 1                     |  1                     |  3                    |  11                    |
+| DW100c        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
+| DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5                    |
+| DW300c        | 12                         |   12                        | 1                     |  1                     |  2                    |   8                    |
+| DW400c        | 16                         |   16                        | 1                     |  1                     |  3                    |  11                    |
 | DW500c        | 20                         |   20                        | 1                     |  2                     |  4                    |  14                    |
 | DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
 | DW1500c       | 32                         |   60                        | 1                     |  6                     |  13                   |  42                    |
@@ -125,11 +125,11 @@ I följande tabell visas de maximala samtidiga frågorna och samtidighetsplatser
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-När det inte finns tillräckligt med samtidighetsplatser som är lediga för att starta frågekörning, köas och körs frågor baserat på betydelse.  Om det finns motsvarande betydelse utförs frågor först in, först ut.  När en fråga avslutas och antalet frågor och platser hamnar under gränserna, SQL Data Warehouse-versioner i kösfrågor.
+När det inte finns tillräckligt många lediga platser för att starta frågekörningen, placeras frågor i kö och körs utifrån prioritet.  Om det finns motsvarande prioritet körs frågor på en första, först ut-grunden.  När en fråga har slutförts och antalet frågor och platser faller under gränserna, SQL Data Warehouse släpper köade frågor.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du utnyttjar resursklasser för att optimera arbetsbelastningen ytterligare läser du följande artiklar:
+Om du vill veta mer om hur du utnyttjar resurs klasser för att optimera arbets belastningen ytterligare kan du läsa följande artiklar:
 
-* [Resursklasser för arbetsbelastningshantering](resource-classes-for-workload-management.md)
-* [Analysera din arbetsbelastning](analyze-your-workload.md)
+* [Resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md)
+* [Analysera din arbets belastning](analyze-your-workload.md)

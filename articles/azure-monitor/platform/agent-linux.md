@@ -7,10 +7,10 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
 ms.openlocfilehash: 9807d6eeb07b953ab75b328ce64c5166ca52dd2a
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80637526"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Anslut Linux-datorer till Azure Monitor
@@ -123,9 +123,9 @@ Följande steg konfigurerar installationen av agenten för Log Analytics i Azure
 
 Om Linux-datorn behöver kommunicera via en proxyserver till Log Analytics, kan den här konfigurationen anges på kommando raden genom att inkludera `-p [protocol://][user:password@]proxyhost[:port]`. *Protokoll* egenskapen accepterar `http` eller `https`, och egenskapen *ProxyHost* accepterar ett fullständigt kvalificerat domän namn eller en IP-adress för proxyservern. 
 
-Exempel: `https://proxy01.contoso.com:30443`
+Exempelvis: `https://proxy01.contoso.com:30443`
 
-Om autentisering krävs i båda fallen måste du ange användar namn och lösen ord. Exempel: `https://user01:password@proxy01.contoso.com:30443`
+Om autentisering krävs i båda fallen måste du ange användar namn och lösen ord. Exempelvis: `https://user01:password@proxy01.contoso.com:30443`
 
 1. Kör följande kommando för att ange arbetsyte-ID och primär nyckel för att konfigurera Linux-datorn för att ansluta till en Log Analytics-arbetsyta. Med följande kommando laddar du ned agenten, verifierar dess kontrollsumma och installerar den.
     

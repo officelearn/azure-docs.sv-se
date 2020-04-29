@@ -1,6 +1,6 @@
 ---
-title: Migrera SQL-poolen till Gen2
-description: Instruktioner för att migrera en befintlig SQL-pool till Gen2 och migreringsschemat per region.
+title: Migrera din SQL-pool till Gen2
+description: Instruktioner för att migrera en befintlig SQL-pool till Gen2 och schemat för migrering per region.
 services: synapse-analytics
 author: mlee3gsd
 ms.author: anjangsh
@@ -12,124 +12,124 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 6f2af826473bfd13f8100796a540d41cbedbb037
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80631572"
 ---
-# <a name="upgrade-your-sql-pool-to-gen2"></a>Uppgradera din SQL-pool till Gen2
+# <a name="upgrade-your-sql-pool-to-gen2"></a>Uppgradera SQL-poolen till Gen2
 
-Microsoft hjälper till att minska kostnaden på ingångsnivå för att köra en SQL-pool.  Lägre beräkningsnivåer som kan hantera krävande frågor är nu tillgängliga för SQL-pool. Läs hela meddelandet [Lägre stöd för beräkningsnivå för Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). Det nya erbjudandet finns i de regioner som anges i tabellen nedan. För regioner som stöds kan befintliga Gen1 SQL-pooler uppgraderas till Gen2 genom antingen:
+Microsoft hjälper till att minska kostnaden på ingångs nivå för att köra en SQL-pool.  Lägre beräknings nivåer som kan hantera krävande frågor är nu tillgängliga för SQL-poolen. Läs hela meddelandet [lägre beräknings nivå stöd för Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). Det nya erbjudandet är tillgängligt i de regioner som anges i tabellen nedan. För regioner som stöds kan befintliga gen1-pooler för SQL uppgraderas till Gen2 via antingen:
 
-- **Den automatiska uppgraderingsprocessen:** Automatiska uppgraderingar startar inte så snart tjänsten är tillgänglig i en region.  När automatiska uppgraderingar startar i en viss region sker enskilda uppgraderingar av informationslager under det valda underhållsschemat.
-- [**Självuppgradering till Gen2:**](#self-upgrade-to-gen2) Du kan styra när du ska uppgradera genom att göra en självuppgradering till Gen2. Om din region ännu inte stöds kan du återställa från en återställningspunkt direkt till en Gen2-instans i en region som stöds.
+- **Den automatiska uppgraderings processen:** Automatiska uppgraderingar startar inte så fort tjänsten är tillgänglig i en region.  När automatiska uppgraderingar startar i en viss region sker enskilda data lager uppgraderingar under det valda underhålls schemat.
+- [**Själv uppgradering till Gen2:**](#self-upgrade-to-gen2) Du kan styra när du ska uppgradera genom att göra en själv uppgradering till Gen2. Om din region ännu inte stöds, kan du återställa från en återställnings punkt direkt till en Gen2-instans i en region som stöds.
 
-## <a name="automated-schedule-and-region-availability-table"></a>Automatisk tillgänglighetstabell för schema och region
+## <a name="automated-schedule-and-region-availability-table"></a>Automatiserad schema-och region tillgänglighets tabell
 
-Följande tabell sammanfattar efter region när beräkningsnivån Nedre Gen2 är tillgänglig och när automatiska uppgraderingar startar. Datumen kan komma att ändras. Kom tillbaka för att se när din region blir tillgänglig.
+I följande tabell sammanfattas efter region när den nedre Gen2 beräknings nivån är tillgänglig och när automatiska uppgraderingar startar. Datumen kan komma att ändras. Kom tillbaka till se när din region blir tillgänglig.
 
-\*anger att ett visst schema för regionen för närvarande inte är tillgängligt.
+\*anger att ett angivet schema för regionen inte är tillgängligt för tillfället.
 
-| **Regionen** | **Lägre Gen2 tillgänglig** | **Automatiska uppgraderingar börjar** |
+| **Region** | **Lägre tillgängliga Gen2** | **Automatiska uppgraderingar börjar** |
 |:--- |:--- |:--- |
-| Kanada, östra |den 1 juni 2020 |den 1 juli 2020 |
+| Kanada, östra |Den 1 juni 2020 |Den 1 juli 2020 |
 | Kina, östra |\* |\* |
 | Kina, norra |\* |\* |
 | Tyskland, centrala |\* |\* |
-| Tyskland Västra Central |Tillgängligt |Den 1 maj 2020 |
+| Tyskland, västra centrala |Tillgängligt |Den 1 maj 2020 |
 | Indien, västra |Tillgängligt |Den 1 maj 2020  |
 
-## <a name="automatic-upgrade-process"></a>Automatisk uppgraderingsprocess
+## <a name="automatic-upgrade-process"></a>Automatisk uppgraderings process
 
-Baserat på tillgänglighetsdiagrammet ovan schemalägger vi automatiska uppgraderingar för dina Gen1-instanser. För att undvika oväntade avbrott i sql-poolens tillgänglighet schemaläggs de automatiska uppgraderingarna under underhållsschemat. Möjligheten att skapa en ny Gen1-instans inaktiveras i regioner som genomgår automatisk uppgradering till Gen2. Gen1 kommer att inaktuella när de automatiska uppgraderingarna har slutförts. Mer information om scheman finns i [Visa ett underhållsschema](maintenance-scheduling.md#view-a-maintenance-schedule)
+Baserat på tillgänglighets diagrammet ovan kommer vi att schemalägga automatiska uppgraderingar för dina gen1-instanser. För att undvika oväntade avbrott i tillgängligheten för SQL-poolen schemaläggs de automatiska uppgraderingarna under ditt underhålls schema. Möjligheten att skapa en ny gen1-instans kommer att inaktive ras i regioner som genomgår automatisk uppgradering till Gen2. Gen1 kommer att bli inaktuell när de automatiska uppgraderingarna har slutförts. Mer information om scheman finns i [Visa ett underhålls schema](maintenance-scheduling.md#view-a-maintenance-schedule)
 
-Uppgraderingsprocessen kommer att innebära en kort minskning av anslutningen (ca 5 min) när vi startar om din SQL-pool.  När SQL-poolen har startats om är den fullt tillgänglig för användning. Du kan dock uppleva en försämring av prestanda medan uppgraderingsprocessen fortsätter att uppgradera datafilerna i bakgrunden. Hur länge prestandaförsämringen pågår beror på storleken på dina filer.
+Uppgraderings processen innebär en kort nedrullningsbar anslutning (cirka 5 min) när vi startar om SQL-poolen.  När SQL-poolen har startats om kommer den att vara helt tillgänglig för användning. Det kan dock uppstå sämre prestanda när uppgraderings processen fortsätter att uppgradera datafilerna i bakgrunden. Hur länge prestandaförsämringen pågår beror på storleken på dina filer.
 
-Du kan också påskynda uppgraderingsprocessen för datafiler genom att köra [Alter Index återskapa](sql-data-warehouse-tables-index.md) på alla primära columnstore-tabeller med hjälp av en större SLO- och resursklass efter omstarten.
+Du kan också påskynda uppgraderings processen för data filen genom att köra [Alter index Rebuild](sql-data-warehouse-tables-index.md) på alla primära columnstore-tabeller med ett större service nivå mål och en resurs klass efter omstarten.
 
 > [!NOTE]
-> Alter Index återskapa är en offline-åtgärd och tabellerna kommer inte att vara tillgängliga förrän ombyggnaden är klar.
+> Alter index Rebuild är en offline-åtgärd och tabellerna kommer inte att vara tillgängliga förrän återställningen har slutförts.
 
-## <a name="self-upgrade-to-gen2"></a>Självuppgradering till Gen2
+## <a name="self-upgrade-to-gen2"></a>Själv uppgradering till Gen2
 
-Du kan välja att självuppgradera genom att följa dessa steg på en befintlig Gen1 SQL-pool. Om du väljer att självuppgradera måste du slutföra den innan den automatiska uppgraderingen börjar i din region. Detta säkerställer att du undviker risken för att automatiska uppgraderingar orsakar en konflikt.
+Du kan välja att själv uppgradera genom att följa dessa steg på en befintlig gen1 SQL-pool. Om du väljer att själv uppgradera måste du slutföra den innan den automatiska uppgraderings processen börjar i din region. På så sätt ser du till att du undviker en risk för automatiska uppgraderingar som orsakar en konflikt.
 
-Det finns två alternativ när du utför en självuppgradering.  Du kan antingen uppgradera din nuvarande SQL-pool på plats eller så kan du återställa en Gen1 SQL-pool till en Gen2-instans.
+Det finns två alternativ när du utför en själv uppgradering.  Du kan antingen uppgradera den aktuella SQL-poolen på plats eller så kan du återställa en gen1 SQL-pool till en Gen2-instans.
 
-- [Uppgradera på plats](upgrade-to-latest-generation.md) - Det här alternativet uppgraderar din befintliga Gen1 SQL-pool till Gen2. Uppgraderingsprocessen kommer att innebära en kort minskning av anslutningen (ca 5 min) när vi startar om din SQL-pool.  När SQL-poolen har startats om är den fullt tillgänglig för användning. Om du får problem under uppgraderingen öppnar du en [supportbegäran](sql-data-warehouse-get-started-create-support-ticket.md) och refererar till "Gen2-uppgradering" som möjlig orsak.
-- [Uppgradera från återställningspunkten](sql-data-warehouse-restore-points.md) - Skapa en användardefinierad återställningspunkt på din aktuella Gen1 SQL-pool och återställ sedan direkt till en Gen2-instans. Den befintliga Gen1 SQL-poolen kommer att finnas kvar. När återställningen har slutförts kommer Din Gen2 SQL-pool att vara fullt tillgänglig för användning.  När du har kört alla test- och valideringsprocesser på den återställda Gen2-instansen kan den ursprungliga Gen1-instansen tas bort.
+- [Uppgradera på plats – med](upgrade-to-latest-generation.md) det här alternativet uppgraderas din befintliga gen1 SQL-pool till Gen2. Uppgraderings processen innebär en kort nedrullningsbar anslutning (cirka 5 min) när vi startar om SQL-poolen.  När SQL-poolen har startats om kommer den att vara helt tillgänglig för användning. Om det uppstår problem under uppgraderingen öppnar du en [support förfrågan](sql-data-warehouse-get-started-create-support-ticket.md) och en referens "Gen2 uppgradering" som möjlig orsak.
+- [Uppgradera från återställnings punkt](sql-data-warehouse-restore-points.md) – skapa en användardefinierad återställnings punkt i den aktuella gen1 SQL-poolen och återställ sedan direkt till en Gen2-instans. Den befintliga gen1 SQL-poolen förblir på plats. När återställningen har slutförts är din Gen2-SQL-pool helt tillgänglig för användning.  När du har kört alla testnings-och validerings processer på den återställda Gen2-instansen kan den ursprungliga gen1-instansen tas bort.
 
-  - Steg 1: Skapa [en användardefinierad återställningspunkt från Azure-portalen](sql-data-warehouse-restore-active-paused-dw.md).
-  - Steg 2: När du återställer från en användardefinierad återställningspunkt ställer du in "prestandanivå" på önskad Gen2-nivå.
+  - Steg 1: [skapa en användardefinierad återställnings punkt](sql-data-warehouse-restore-active-paused-dw.md)från Azure Portal.
+  - Steg 2: när du återställer från en användardefinierad återställnings punkt ställer du in "prestanda nivå" på din önskade Gen2-nivå.
 
 Det kan uppstå en prestandaförsämring när datafilerna uppgraderas i bakgrunden. Hur länge prestandaförsämringen pågår beror på storleken på dina filer.
 
-Om du vill påskynda migreringsprocessen för bakgrundsdata kan du omedelbart tvinga fram dataförflyttningar genom att köra [Alter Index återskapa](sql-data-warehouse-tables-index.md) på alla primära columnstore-tabeller som du skulle fråga på en större SLO- och resursklass.
+Om du vill påskynda migreringen av bakgrunds data kan du omedelbart framtvinga data förflyttning genom att köra [Alter index Rebuild](sql-data-warehouse-tables-index.md) på alla primära columnstore-tabeller som du frågar efter en större service nivå mål och resurs klass.
 
 > [!NOTE]
-> Alter Index återskapa är en offline-åtgärd och tabellerna kommer inte att vara tillgängliga förrän ombyggnaden är klar.
+> Alter index Rebuild är en offline-åtgärd och tabellerna kommer inte att vara tillgängliga förrän återställningen har slutförts.
 
-Om du stöter på några problem med din SQL-pool kan du skapa en [supportbegäran](sql-data-warehouse-get-started-create-support-ticket.md) och referera till "Gen2-uppgradering" som möjlig orsak.
+Om du stöter på problem med SQL-poolen skapar du en [support förfrågan](sql-data-warehouse-get-started-create-support-ticket.md) och en referens "Gen2 Upgrade" som möjlig orsak.
 
 Mer information finns i [Uppgradera till Gen2](upgrade-to-latest-generation.md).
 
 ## <a name="migration-frequently-asked-questions"></a>Vanliga frågor och svar om migrering
 
-**F: Kostar Gen2 samma som Gen1?**
+**F: kostar Gen2 samma som gen1?**
 
 - S: Ja.
 
-**F: Hur påverkar uppgraderingarna mina automatiseringsskript?**
+**F: Hur påverkar uppgraderingar mina Automation-skript?**
 
-- S: Alla automatiseringsskript som refererar till ett servicenivåmål bör ändras så att det motsvarar gen2-motsvarigheten.  Se detaljer [här](upgrade-to-latest-generation.md#upgrade-in-a-supported-region-using-the-azure-portal).
+- A: alla Automation-skript som refererar till ett service nivå mål ska ändras så att de motsvarar Gen2 motsvarande.  Se information [här](upgrade-to-latest-generation.md#upgrade-in-a-supported-region-using-the-azure-portal).
 
-**F: Hur lång tid tar en självuppgradering normalt?**
+**F: hur lång tid tar en själv uppgradering ut normalt?**
 
-- S: Du kan uppgradera på plats eller uppgradera från en återställningspunkt.
+- S: du kan uppgradera på plats eller uppgradera från en återställnings punkt.
 
-  - Om du uppgraderar på plats pausas och återupptas SQL-poolen tillfälligt.  En bakgrundsprocess fortsätter medan SQL-poolen är online.  
-  - Det tar längre tid om du uppgraderar via en återställningspunkt, eftersom uppgraderingen kommer att gå igenom hela återställningsprocessen.
+  - Om du uppgraderar på plats kommer SQL-poolen att bli tillfälligt pausad och återuppta.  En bakgrunds process kommer att fortsätta när SQL-poolen är online.  
+  - Det tar längre tid om du uppgraderar via en återställnings punkt, eftersom uppgraderingen går igenom hela återställnings processen.
 
-**F: Hur lång tid tar den automatiska uppgraderingen?**
+**F: hur lång tid kommer den automatiska uppgraderingen att ta?**
 
-- S: Den faktiska driftstopp för uppgraderingen är bara den tid det tar att pausa och återuppta tjänsten, vilket är mellan 5 och 10 minuter. Efter det korta driftstoppet körs en lagringsmigrering i en bakgrundsprocess. Hur lång tid som ska tas för bakgrundsprocessen beror på storleken på SQL-poolen.
+- S: den faktiska stillestånds tiden för uppgraderingen är bara den tid det tar att pausa och återuppta tjänsten, vilket är mellan 5 och 10 minuter. Efter det korta driftstoppet körs en lagringsmigrering i en bakgrundsprocess. Tiden för bakgrunds processen beror på storleken på SQL-poolen.
 
-**F: När kommer den automatiska uppgraderingen att ske?**
+**F: När kommer den här automatiska uppgraderingen att ske?**
 
-- S: Under underhållsschemat. Genom att utnyttja ditt valda underhållsschema minimeras störningar i ditt företag.
+- A: under ditt underhålls schema. Genom att dra nytta av det valda underhålls schemat minimeras störningar i verksamheten.
 
-**F: Vad ska jag göra om min bakgrundsuppgraderingsprocess verkar ha fastnat?**
+**F: Vad gör jag om min bakgrunds uppgraderings process verkar vara fastnad?**
 
-- S: Starta en omindexering av dina Columnstore-tabeller. Observera att omindexeringen av tabellen kommer att vara offline under den här åtgärden.
+- A: starta om en Omindexering av dina columnstore-tabeller. Observera att Omindexering av tabellen kommer att vara offline under den här åtgärden.
 
-**F: Vad händer om Gen2 inte har det servicenivåmål jag har på Gen1?**
+**F: Vad händer om Gen2 inte har service nivå målet på gen1?**
 
-- S: Om du kör en DW600 eller DW1200 på Gen1, rekommenderas att använda DW500c respektive DW1000c eftersom Gen2 ger mer minne, resurser och högre prestanda än Gen1.
+- A: om du kör en DW600 eller DW1200 på gen1, rekommenderar vi att du använder DW500c eller DW1000c eftersom Gen2 ger mer minne, resurser och högre prestanda än gen1.
 
-**F: Kan jag inaktivera geo-säkerhetskopiering?**
+**F: kan jag inaktivera geo-säkerhetskopiering?**
 
-- S: Nej. Geo-backup är en företagsfunktion för att bevara din SQL-pool tillgänglighet i händelse av att en region blir otillgänglig. Öppna en [supportbegäran](sql-data-warehouse-get-started-create-support-ticket.md) om du har ytterligare problem.
+- S: Nej. Geo-Backup är en företags funktion för att bevara tillgängligheten i SQL-poolen i händelse av att en region blir otillgänglig. Öppna en [support förfrågan](sql-data-warehouse-get-started-create-support-ticket.md) om du har ytterligare frågor.
 
-**F: Finns det en skillnad i T-SQL syntax mellan Gen1 och Gen2?**
+**F: finns det en skillnad i T-SQL-syntaxen mellan gen1 och Gen2?**
 
-- S: Det finns ingen förändring i syntaxen för T-SQL-språk från Gen1 till Gen2.
+- S: det finns ingen ändring i språksyntaxen T-SQL från gen1 till Gen2.
 
-**F: Stöder Gen2 Underhåll Windows?**
+**F: stöder Gen2 underhålls fönster?**
 
 - S: Ja.
 
-**F: Kommer jag att kunna skapa en ny Gen1-instans efter att min region har uppgraderats?**
+**F: kan jag skapa en ny gen1-instans när min region har uppgraderats?**
 
-- S: Nej. När en region har uppgraderats inaktiveras skapandet av nya Gen1-instanser.
+- S: Nej. När en region har uppgraderats kommer skapandet av nya gen1-instanser att inaktive ras.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Uppgradera steg](upgrade-to-latest-generation.md)
-- [Underhållsfönster](maintenance-scheduling.md)
-- [Övervakare av resurshälsa](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+- [Uppgraderings steg](upgrade-to-latest-generation.md)
+- [Underhålls fönster](maintenance-scheduling.md)
+- [Övervakaren resurs hälsa](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 - [Granska innan du påbörjar en migrering](upgrade-to-latest-generation.md#before-you-begin)
-- [Uppgradera på plats och uppgradera från en återställningspunkt](upgrade-to-latest-generation.md)
-- [Skapa en användardefinierad återställningspunkt](sql-data-warehouse-restore-points.md)
+- [Uppgradera på plats och uppgradera från en återställnings punkt](upgrade-to-latest-generation.md)
+- [Skapa en användardefinierad återställnings punkt](sql-data-warehouse-restore-points.md)
 - [Lär dig hur du återställer till Gen2](sql-data-warehouse-restore-active-paused-dw.md)
-- [Öppna en begäran om SQL Data Warehouse-stöd](https://go.microsoft.com/fwlink/?linkid=857950)
+- [Öppna en SQL Data Warehouse support förfrågan](https://go.microsoft.com/fwlink/?linkid=857950)

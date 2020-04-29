@@ -1,6 +1,6 @@
 ---
 title: Optimizing transactions (Optimera transaktioner)
-description: Lär dig hur du optimerar prestanda för transaktionskoden i Synapse SQL samtidigt som du minimerar risken för långa återställningar.
+description: Lär dig hur du optimerar prestandan för transaktions koden i Synapse SQL samtidigt som du minimerar risken för långa återställningar.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,47 +12,47 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 0139c581e6660622f1ab6db9f407725816377a6d
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633568"
 ---
 # <a name="optimizing-transactions-in-synapse-sql"></a>Optimera transaktioner i Synapse SQL
 
-Lär dig hur du optimerar prestanda för transaktionskoden i Synapse SQL samtidigt som du minimerar risken för långa återställningar.
+Lär dig hur du optimerar prestandan för transaktions koden i Synapse SQL samtidigt som du minimerar risken för långa återställningar.
 
 ## <a name="transactions-and-logging"></a>Transaktioner och loggning
 
-Transaktioner är en viktig komponent i en relationsdatabasmotor. Transaktioner används vid dataändring. Dessa transaktioner kan vara explicita eller implicita. Enkel INFOGA, UPPDATERA och TA BORT-satser är alla exempel på implicita transaktioner. Explicita transaktioner använder BEGIN TRAN, COMMIT TRAN eller ROLLBACK TRAN. Explicita transaktioner används vanligtvis när flera ändringssatser måste kopplas samman i en enda atomenhet.
+Transaktioner är en viktig komponent i en Relations databas motor. Transaktioner används vid data ändringar. Dessa transaktioner kan vara explicita eller implicita. Ett enda INSERT-, UPDATE-och DELETE-uttryck är exempel på implicita transaktioner. Explicita transaktioner använder påbörja omstart, genomför omlägg eller Återställ omlastning. Explicita transaktioner används vanligt vis när flera ändrings instruktioner måste vara knutna till varandra i en enda atomisk enhet.
 
-Ändringar i databasen spåras med hjälp av transaktionsloggar. Varje distribution har en egen transaktionslogg. Transaktionsloggskrivningar är automatiska. Det krävs ingen konfiguration. Men även om denna process garanterar att skriva det inte införa en overhead i systemet. Du kan minimera den här effekten genom att skriva transaktionseffektiv kod. Transaktionseffektiv kod hör i stort sett in i två kategorier.
+Ändringar i databasen spåras med transaktions loggar. Varje distribution har sin egen transaktions logg. Transaktions logg skrivningar är automatiskt. Ingen konfiguration krävs. Men även om den här processen garanterar Skriv åtgärden, introduceras en omkostnader i systemet. Du kan minimera den här effekten genom att skriva en transaktions effektiv kod. Transaktions effektiv kod i stort sett hamnar i två kategorier.
 
-* Använd minimala loggningskonstruktioner när det är möjligt
-* Bearbeta data med hjälp av begränsade batchar för att undvika ovanliga tidskrävande transaktioner
-* Anta ett partitionsväxlingsmönster för stora ändringar av en viss partition
+* Använd minimala loggnings konstruktioner när det är möjligt
+* Bearbeta data med hjälp av omfångs batchar för att undvika att transaktioner med lång tid körs
+* Använd ett partition växlings mönster för stora ändringar av en specifik partition
 
-## <a name="minimal-vs-full-logging"></a>Minimal kontra fullständig loggning
+## <a name="minimal-vs-full-logging"></a>Minimal vs. fullständig loggning
 
-Till skillnad från helt loggade åtgärder, som använder transaktionsloggen för att hålla reda på varje radändring, håller minimalt loggade åtgärder endast reda på omfattningsallokeringar och metadataändringar. Därför innebär minimal loggning loggning endast den information som krävs för att återställa transaktionen efter ett fel, eller för en explicit begäran (ROLLBACK TRAN). Eftersom mycket mindre information spåras i transaktionsloggen, presterar en minimalt loggad åtgärd bättre än en lika stor fullständigt loggad åtgärd. Dessutom, eftersom färre skrivningar går transaktionsloggen, genereras en mycket mindre mängd loggdata och så är mer I / O-effektiv.
+Till skillnad från fullständigt loggade åtgärder, som använder transaktions loggen för att hålla reda på varje rad ändring, är minimalt inloggade åtgärder fortfarande spår över omfattnings tilldelningar och metadata ändringar. Därför innebär minimal loggning att endast logga den information som krävs för att återställa transaktionen efter ett haveri eller för en explicit begäran (återföring av återföring). Eftersom mycket mindre information spåras i transaktions loggen fungerar en minimalt loggad åtgärd bättre än en fullständigt loggad åtgärd på liknande sätt. Dessutom, eftersom färre skrivningar går till transaktions loggen, genereras en mycket mindre mängd loggdata och därför är mer I/O-effektivt.
 
-Transaktionssäkerhetsgränserna gäller endast för fullständigt loggade åtgärder.
+Transaktionernas säkerhets gränser gäller endast fullständigt loggade åtgärder.
 
 > [!NOTE]
-> Minimalt loggade åtgärder kan delta i explicita transaktioner. När alla ändringar i allokeringsstrukturer spåras är det möjligt att återställa minimalt loggade åtgärder.
+> Minimalt inloggade åtgärder kan delta i explicita transaktioner. När alla ändringar i tilldelnings strukturerna spåras är det möjligt att återställa minimalt inloggade åtgärder.
 
 ## <a name="minimally-logged-operations"></a>Minimalt loggade åtgärder
 
-Följande åtgärder kan loggas minimalt:
+Följande åtgärder kan vara minimalt loggade:
 
-* SKAPA TABELL SOM SELECT ([CTAS](sql-data-warehouse-develop-ctas.md))
-* Infoga.. Välj
+* CREATE TABLE som SELECT ([CTAs](sql-data-warehouse-develop-ctas.md))
+* Infoga.. SELECT
 * CREATE INDEX
-* ÄNDRA OMBYGGNAD AV INDEX
+* ÄNDRA INDEX ÅTERSKAPA
 * DROP INDEX
-* TRUNKERA TABELL
-* SLÄPP TABELL
-* ÄNDRA PARTITION FÖR TABELLVÄXEL
+* TRUNCATE TABLE
+* TA BORT TABELL
+* ÄNDRA PARTITION FÖR TABELL VÄXEL
 
 <!--
 - MERGE
@@ -61,31 +61,31 @@ Följande åtgärder kan loggas minimalt:
 -->
 
 > [!NOTE]
-> Interna datarörelser (till exempel BROADCAST och SHUFFLE) påverkas inte av transaktionssäkerhetsgränsen.
+> Interna data förflyttnings åtgärder (t. ex. BROADCAST och blandad) påverkas inte av transaktionens säkerhets gräns.
 
-## <a name="minimal-logging-with-bulk-load"></a>Minimal loggning med massbelastning
+## <a name="minimal-logging-with-bulk-load"></a>Minimal loggning med Mass inläsning
 
-CTAS och INSERT... SELECT är båda massbelastningsåtgärder. Båda påverkas dock av måltabelldefinitionen och är beroende av belastningsscenariot. I följande tabell förklaras när massåtgärder är helt eller minimalt inloggade:  
+CTAS och infoga... SELECT är både Mass inläsnings åtgärder. Båda påverkas dock av mål tabell definitionen och är beroende av inläsnings scenariot. I följande tabell förklaras när Mass åtgärder är fullständigt eller minimalt loggade:  
 
-| Primärt index | Inläsningsscenario | Loggningsläge |
+| Primärt index | Läs in scenario | Loggnings läge |
 | --- | --- | --- |
 | Heap |Alla |**Minimal** |
-| Grupperat index |Tom måltabell |**Minimal** |
-| Grupperat index |Inlästa rader överlappar inte befintliga sidor i målet |**Minimal** |
+| Grupperat index |Tom mål tabell |**Minimal** |
+| Grupperat index |Inlästa rader överlappar inte befintliga sidor i mål |**Minimal** |
 | Grupperat index |Inlästa rader överlappar befintliga sidor i målet |Fullständig |
-| Grupperat Columnstore-index |Batchstorlek >= 102 400 per partitionsjusterad fördelning |**Minimal** |
-| Grupperat Columnstore-index |Batchstorlek < 102 400 per partitionsjusterad fördelning |Fullständig |
+| Grupperat columnstore-index |Batchstorlek >= 102 400 per partition-justerad distribution |**Minimal** |
+| Grupperat columnstore-index |Batchstorlek < 102 400 per partition anpassad distribution |Fullständig |
 
-Det är värt att notera att alla skrivningar för att uppdatera sekundära eller icke-klustrade index alltid kommer att vara helt loggade operationer.
+Det är värt att notera att alla skrivningar för att uppdatera sekundära eller icke-grupperade index alltid är fullständigt loggade.
 
 > [!IMPORTANT]
-> En Synapse SQL pool databas har 60 distributioner. Om alla rader distribueras jämnt och landar i en enda partition måste därför batchen innehålla 6 144 000 rader eller större för att vara minimalt inloggad när du skriver till ett clustered columnstore-index. Om tabellen är partitionerad och raderna infogas intervallpartitionsgränser, behöver du 6 144 000 rader per partitionsgräns förutsatt att även datadistribution. Varje partition i varje distribution måste självständigt överskrida 102 400-radtröskeln för att insatsen ska vara minimalt inloggad i distributionen.
+> En Synapse-databas för SQL-pooler har 60 distributioner. Detta förutsätter att alla rader är jämnt distribuerade och landningar i en enda partition, men din batch måste innehålla 6 144 000 rader eller större för att få minimal inloggning vid skrivning till ett grupperat columnstore-index. Om tabellen är partitionerad och de rader som infogas sträcker sig över diskpartitioner, behöver du 6 144 000 rader per partition, förutsatt att du har till och med data distribution. Varje partition i varje distribution måste vara oberoende av gränsen på 102 400 rader för att infogningen ska vara minimalt inloggad i distributionen.
 
-Att läsa in data i en icke-tom tabell med ett klustrade index kan ofta innehålla en blandning av fullständigt loggade och minimalt loggade rader. Ett grupperat index är ett balanserat träd (b-träd) med sidor. Om sidan som skrivs till redan innehåller rader från en annan transaktion loggas dessa skrivningar helt. Men om sidan är tom kommer skrivningen till den sidan att loggas minimalt.
+Inläsning av data i en icke-tom tabell med ett grupperat index kan ofta innehålla en blandning av fullständigt loggade och minimalt loggade rader. Ett grupperat index är ett balanserat träd (b-Tree) av sidor. Om sidan som skrivs till redan innehåller rader från en annan transaktion, kommer dessa skrivningar att loggas fullständigt. Men om sidan är tom loggas skrivningen till sidan av minimalt.
 
-## <a name="optimizing-deletes"></a>Optimera borttagningar
+## <a name="optimizing-deletes"></a>Optimerar borttagningar
 
-DELETE är en fullständigt loggad åtgärd.  Om du behöver ta bort en stor mängd data i en tabell `SELECT` eller en partition är det ofta mer meningsfullt att de data du vill behålla, som kan köras som en minimalt loggad åtgärd.  Om du vill markera data skapar du en ny tabell med [CTAS](sql-data-warehouse-develop-ctas.md).  När du har skapat det använder du [BYT NAMN](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) FÖR att byta ut din gamla tabell med den nyskapade tabellen.
+TA bort är en fullständigt loggad åtgärd.  Om du behöver ta bort en stor mängd data i en tabell eller partition är det ofta mer meningsfullt för `SELECT` de data som du vill behålla, vilket kan köras som en minimalt loggad åtgärd.  Om du vill välja data skapar du en ny tabell med [CTAs](sql-data-warehouse-develop-ctas.md).  När du har skapat använder du [rename](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att byta ut den gamla tabellen med den tabell som skapats nyligen.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -117,11 +117,11 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 
 ## <a name="optimizing-updates"></a>Optimera uppdateringar
 
-UPDATE är en fullständigt loggad åtgärd.  Om du behöver uppdatera ett stort antal rader i en tabell eller en partition kan det ofta vara mycket effektivare att använda en minimalt loggad åtgärd som [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att göra det.
+UPPDATERINGEN är en fullständigt loggad åtgärd.  Om du behöver uppdatera ett stort antal rader i en tabell eller partition, kan det ofta vara mycket mer effektivt att använda en minimalt loggad åtgärd, till exempel [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
 
-I exemplet nedan har en fullständig tabelluppdatering konverterats till ett CTAS så att minimal loggning är möjlig.
+I exemplet nedan har en fullständig tabell uppdatering konverterats till en CTAS så att minimal loggning är möjlig.
 
-I det här fallet lägger vi i efterhand till ett rabattbelopp till försäljningen i tabellen:
+I det här fallet lägger vi retroaktivt till ett rabatt belopp för försäljningen i tabellen:
 
 ```sql
 --Step 01. Create a new table containing the "Update".
@@ -178,21 +178,21 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Återskapa stora tabeller kan dra nytta av att använda Synapse SQL pool arbetsbelastningshanteringsfunktioner. Mer information finns i [Resursklasser för arbetsbelastningshantering](resource-classes-for-workload-management.md).
+> Att återskapa stora tabeller kan dra nytta av att använda Synapse-funktioner i SQL-pool. Mer information finns i [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md).
 
-## <a name="optimizing-with-partition-switching"></a>Optimera med partitionsväxling
+## <a name="optimizing-with-partition-switching"></a>Optimera med partition växling
 
-Om man står inför storskaliga ändringar inuti en [tabellpartition](sql-data-warehouse-tables-partition.md)är ett partitionsväxlingsmönster vettigt. Om dataändringen är betydande och sträcker sig över flera partitioner, uppnår iterering över partitionerna samma resultat.
+Om det står i stor skala i storskaliga ändringar i en [Table partition](sql-data-warehouse-tables-partition.md), är ett mönster för partitions växlingen begripligt. Om data ändringen är betydande och sträcker sig över flera partitioner, uppnås samma resultat om du går igenom partitionerna.
 
-Stegen för att utföra en partitionsväxel är följande:
+Stegen för att utföra en partitionsnyckel är följande:
 
-1. Skapa en tom utpartition
-2. Utföra "uppdateringen" som en CTAS
-3. Växla ut befintliga data till uttabellen
-4. Växla in nya data
+1. Skapa en tom out-partition
+2. Utför uppdateringen som en CTAS
+3. Växla ut befintliga data till ut-tabellen
+4. Växla till nya data
 5. Rensa data
 
-Men för att identifiera partitioner att byta, skapa följande hjälpprocedur.  
+För att hjälpa till att identifiera de partitioner som ska växlas, skapar du följande hjälp procedur.  
 
 ```sql
 CREATE PROCEDURE dbo.partition_data_get
@@ -238,9 +238,9 @@ OPTION (LABEL = 'dbo.partition_data_get : CTAS : #ptn_data')
 GO
 ```
 
-Den här proceduren maximerar återanvändning av kod och håller partitionsväxlingsexempelet mer kompakt.
+Med den här proceduren maximeras kod åter användning och du får ett exempel på partition växling mer kompakt.
 
-Följande kod visar de steg som tidigare nämnts för att uppnå en fullständig partitionsväxlingsrutin.
+Följande kod visar de steg som nämndes tidigare för att få en fullständig partitions växlings rutin.
 
 ```sql
 --Create a partitioned aligned empty table to switch out the data
@@ -345,9 +345,9 @@ DROP TABLE #ptn_data
 
 ## <a name="minimize-logging-with-small-batches"></a>Minimera loggning med små batchar
 
-För stora datamodifieringsåtgärder kan det vara klokt att dela upp åtgärden i segment eller batchar för att begränsa arbetsenheten.
+För stora data ändringar kan det vara bra att dela upp åtgärden i segment eller batchar för att begränsa arbets enheten.
 
-En följande kod är ett fungerande exempel. Batchstorleken har ställts in på ett trivialt tal för att markera tekniken. I verkligheten skulle partiets storlek vara betydligt större.
+En följande kod är ett arbets exempel. Batchstorleken har angetts till ett trivialt nummer för att markera tekniken. I verkligheten skulle batchstorleken vara betydligt större.
 
 ```sql
 SET NO_COUNT ON;
@@ -405,18 +405,18 @@ BEGIN
 END
 ```
 
-## <a name="pause-and-scaling-guidance"></a>Pausa och skala vägledning
+## <a name="pause-and-scaling-guidance"></a>Guide för paus och skalning
 
-Med Synapse SQL kan du [pausa, återuppta och skala](sql-data-warehouse-manage-compute-overview.md) din SQL-pool på begäran. När du pausar eller skalar SQL-poolen är det viktigt att förstå att alla transaktioner under flygning avslutas omedelbart. vilket gör att alla öppna transaktioner återställs. Om din arbetsbelastning hade utfärdat en tidskrävande och ofullständig dataändring före paus- eller skalningsåtgärden måste det här arbetet ångras. Den här undergången kan påverka den tid det tar att pausa eller skala DIN SQL-pool.
+Med Synapse SQL kan du [pausa, återuppta och skala](sql-data-warehouse-manage-compute-overview.md) din SQL-pool på begäran. När du pausar eller skalar SQL-poolen är det viktigt att förstå att alla transaktioner i flygningen avslutas omedelbart. orsaka att eventuella öppna transaktioner återställs. Om din arbets belastning har utfärdat en tids krävande och ofullständig data ändring innan paus-eller skalnings åtgärden, måste det här arbetet utföras. Detta kan påverka tiden det tar att pausa eller skala SQL-poolen.
 
 > [!IMPORTANT]
-> Båda `UPDATE` `DELETE` och är helt loggade åtgärder och så dessa ångra / gör om åtgärder kan ta betydligt längre tid än motsvarande minimalt loggade åtgärder.
+> Både `UPDATE` och `DELETE` är fullständigt loggade och därmed kan dessa åtgärder för att ångra/upprepa ta betydligt längre tid än motsvarande minimalt loggade åtgärder.
 
-Det bästa scenariot är att låta i flygdata ändringstransaktioner slutföras innan pausa eller skala SQL pool. Men det här scenariot kanske inte alltid är praktiskt. Om du vill minska risken för en lång återställning bör du överväga något av följande alternativ:
+Det bästa scenariot är att tillåta att ändringar i Flight-transaktioner slutförs innan SQL-poolen pausas eller skalas. Det här scenariot är dock inte alltid praktiskt. Överväg något av följande alternativ för att minska risken för en lång återställning:
 
-* Skriva om tidskrävande åtgärder med [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* Dela upp operationen i segment. arbetar på en delmängd av raderna
+* Skriv över tids krävande åtgärder med [CTAs](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* Bryt åtgärden i segment. körs på en delmängd av raderna
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [Transaktioner i Synapse SQL](sql-data-warehouse-develop-transactions.md) om du vill veta mer om isoleringsnivåer och transaktionsgränser.  En översikt över andra metodtips finns i [bästa praxis för SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Se [transaktioner i SYNAPSE SQL](sql-data-warehouse-develop-transactions.md) för att lära dig mer om isolerings nivåer och transaktionella gränser.  En översikt över andra bästa metoder finns i [SQL Data Warehouse metod tips](sql-data-warehouse-best-practices.md).

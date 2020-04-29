@@ -1,6 +1,6 @@
 ---
 title: Hantera och övervaka arbetsbelastningsprioritet
-description: Lär dig hur du hanterar och övervakar prioritet på begäransnivå i Azure Synapse Analytics.
+description: Lär dig hur du hanterar och övervakar prioriteten på begärans nivå i Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,20 +12,20 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: 3efd8a776542616a9ceefba331b06406540905a8
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80633327"
 ---
-# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Hantera och övervaka arbetsbelastningsbetydelse i Azure Synapse Analytics
+# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Hantera och övervaka arbets belastnings prioritet i Azure Synapse Analytics
 
-Hantera och övervaka Synapse SQL-begäransnivå i Azure Synapse med hjälp av DMVs och katalogvyer.
+Hantera och övervaka Synapse för SQL-begäranden i Azure Synapse med hjälp av DMV: er och katalogvyer.
 
-## <a name="monitor-importance"></a>Övervaka betydelse
+## <a name="monitor-importance"></a>Övervaknings prioritet
 
-Övervaka vikten med hjälp av den nya prioritetskolumnen i [den dynamiska hanteringsvyn sys.dm_pdw_exec_requests.](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-Övervakningsfrågan nedan visar skicka tid och starttid för frågor. Granska inlämningstiden och starttiden tillsammans med vikten för att se hur viktigt påverkade schemaläggningen.
+Övervaka prioritet med kolumnen ny prioritet i vyn [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) dynamisk hantering.
+Övervaknings frågan nedan visar sändnings tid och start tid för frågor. Granska sändnings tiden och start tiden tillsammans med viktig information för att se hur viktigt det är att schemalägga.
 
 ```sql
 SELECT s.login_name, r.status, r.importance, r.submit_time, r.start_time
@@ -35,11 +35,11 @@ SELECT s.login_name, r.status, r.importance, r.submit_time, r.start_time
 ORDER BY r.start_time
 ```
 
-Om du vill titta närmare på hur frågor schemaläggs använder du katalogvyerna.
+Använd katalogvyer för att se mer i hur frågor schemaläggs.
 
-## <a name="manage-importance-with-catalog-views"></a>Hantera betydelse med katalogvyer
+## <a name="manage-importance-with-catalog-views"></a>Hantera prioritet med katalogvyer
 
-Katalogvyn sys.workload_management_workload_classifiers innehåller information om klassificerare. Så här utesluter du de systemdefinierade klassificerare som mappas till resursklasser kör följande kod:
+Vyn sys. workload_management_workload_classifiers Catalog innehåller information om klassificerare. Om du vill utesluta systemdefinierade klassificerare som mappar till resurs klasser kör du följande kod:
 
 ```sql
 SELECT *
@@ -47,7 +47,7 @@ SELECT *
   WHERE classifier_id > 12
 ```
 
-Katalogvyn [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)innehåller information om de parametrar som används för att skapa klassificeraren.  Nedanstående fråga visar att ExecReportsClassifier ```membername``` skapades på parametern för värden med ExecutiveReports:
+Vyn katalog, [sys. workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), innehåller information om de parametrar som används för att skapa klassificeraren.  Frågan nedan visar att ExecReportsClassifier skapades i ```membername``` parametern för värden med ExecutiveReports:
 
 ```sql
 SELECT c.name,cd.classifier_type, classifier_value
@@ -59,8 +59,8 @@ SELECT c.name,cd.classifier_type, classifier_value
 
 ![frågeresultat](./media/sql-data-warehouse-how-to-manage-and-monitor-workload-importance/wlm-query-results.png)
 
-För att förenkla felsökningen av felklassificering rekommenderar vi att du tar bort rollmappningar för resursklass när du skapar arbetsbelastningsklassificerare. Koden nedan returnerar befintliga medlemskap i resursklassrollen. Kör sp_droprolemember för varje ```membername``` returnerad från motsvarande resursklass.
-Nedan följer ett exempel på att söka efter existens innan du släpper en arbetsbelastningsklassificerare:
+För att under lätta fel sökningen av fel klassificering rekommenderar vi att du tar bort mappningar av resurs klass roller när du skapar arbets belastnings klassificerare. Koden nedan returnerar befintliga roll medlemskap i resurs klass. Kör sp_droprolemember för varje ```membername``` returnerad från motsvarande resurs klass.
+Nedan visas ett exempel på att söka efter förekomster innan du släpper en arbets belastnings klassificering:
 
 ```sql
 IF EXISTS (SELECT 1 FROM sys.workload_management_workload_classifiers WHERE name = 'ExecReportsClassifier')
@@ -70,8 +70,8 @@ GO
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om klassificering finns i [Arbetsbelastningsklassificering](sql-data-warehouse-workload-classification.md).
-- Mer information om Betydelse finns i [Arbetsbelastningsbetydning](sql-data-warehouse-workload-importance.md)
+- Mer information om klassificering finns i avsnittet om [arbets belastnings klassificering](sql-data-warehouse-workload-classification.md).
+- Mer information om prioritet finns i [arbets belastnings prioritet](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
-> [Gå till Konfigurera arbetsbelastningsbetydning](sql-data-warehouse-how-to-configure-workload-importance.md)
+> [Gå till konfigurera arbets belastnings prioritet](sql-data-warehouse-how-to-configure-workload-importance.md)

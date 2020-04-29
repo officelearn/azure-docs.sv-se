@@ -1,76 +1,76 @@
 ---
-title: GitHub-åtgärder & Azure Kubernetes-tjänsten (förhandsversion)
+title: GitHub-åtgärder & Azure Kubernetes service (för hands version)
 services: azure-dev-spaces
 ms.date: 04/03/2020
 ms.topic: conceptual
-description: Granska och testa ändringar från en pull-begäran direkt i Azure Kubernetes-tjänsten med GitHub-åtgärder och Azure Dev Spaces
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, GitHub-åtgärder, Helm, servicenät, routning av tjänstnät, kubectl, k8s
+description: Granska och testa ändringar från en pull-begäran direkt i Azure Kubernetes-tjänsten med hjälp av GitHub-åtgärder och Azure dev Spaces
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, GitHub Actions, Helm, service nät, service mask-routning, kubectl, K8s
 manager: gwallace
 ms.openlocfilehash: a83da0ef3958748831eb0eeda1aa5e91efa7ef2e
-ms.sourcegitcommit: 0450ed87a7e01bbe38b3a3aea2a21881f34f34dd
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80637952"
 ---
-# <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub-åtgärder & Azure Kubernetes-tjänsten (förhandsversion)
+# <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub-åtgärder & Azure Kubernetes service (för hands version)
 
-Azure Dev Spaces tillhandahåller ett arbetsflöde med GitHub-åtgärder som gör att du kan testa ändringar från en pull-begäran direkt i AKS innan pull-begäran slås samman till databasens huvudgren. Att ha ett program som körs för att granska ändringar av en pull-begäran kan öka förtroendet för både utvecklaren och gruppmedlemmarna. Detta program som körs kan också hjälpa gruppmedlemmar som, produktchefer och designers, att bli en del av granskningsprocessen under tidiga utvecklingsstadier.
+Azure dev Spaces innehåller ett arbets flöde med GitHub-åtgärder som gör att du kan testa ändringar från en pull-begäran direkt i AKS innan pull-begäran slås samman i huvud grenen för din databas. Att ha ett program som körs för att granska ändringar av en pull-begäran kan öka säkerheten både för utvecklare och grupp medlemmar. Detta program som körs kan också hjälpa grupp medlemmar, till exempel produkt chefer och designers, att bli en del av gransknings processen under de första utvecklings faserna.
 
 I den här guiden får du lära dig hur du:
 
-* Konfigurera Azure Dev Spaces på ett hanterat Kubernetes-kluster i Azure.
-* Distribuera ett stort program med flera mikrotjänster till ett utvecklingsutrymme.
+* Konfigurera Azure dev Spaces i ett hanterat Kubernetes-kluster i Azure.
+* Distribuera ett stort program med flera mikrotjänster till ett dev-utrymme.
 * Konfigurera CI/CD med GitHub-åtgärder.
-* Testa en enda mikrotjänst i ett isolerat utvecklingsutrymme inom ramen för det fullständiga programmet.
+* Testa en enskild mikrotjänst i ett isolerat dev-utrymme inom ramen för det fullständiga programmet.
 
 > [!IMPORTANT]
-> Den här funktionen är för närvarande en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Den här funktionen finns för närvarande som en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
 ## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free).
 * [Azure CLI installerat][azure-cli-installed].
-* [Helm 3 installerat][helm-installed].
-* Ett GitHub-konto med [GitHub-åtgärder aktiverade][github-actions-beta-signup].
-* [Exempelprogrammet För Azure Dev Spaces-cykeldelning](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp/README.md) som körs på ett AKS-kluster.
+* [Helm 3 är installerat][helm-installed].
+* Ett GitHub-konto med [aktiverade GitHub-åtgärder][github-actions-beta-signup].
+* [Exempel programmet för cykel delning i Azure dev Spaces](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp/README.md) som körs på ett AKS-kluster.
 
 ## <a name="create-an-azure-container-registry"></a>Skapa ett Azure Container Registry
 
-Skapa ett Azure-behållarregister (ACR):
+Skapa en Azure Container Registry (ACR):
 
 ```azurecli
 az acr create --resource-group MyResourceGroup --name <acrName> --sku Basic
 ```
 
 > [!IMPORTANT]
-> Namnet som din ACR måste vara unikt i Azure och innehålla 5-50 alfanumeriska tecken. Alla bokstäver du använder måste vara gemener.
+> Namnet ACR måste vara unikt i Azure och innehålla 5-50 alfanumeriska tecken. Alla bokstäver som du använder måste vara gemena.
 
-Spara *loginServer-värdet* från utdata eftersom det används i ett senare steg.
+Spara *namnet* -värdet från utdata eftersom det används i ett senare steg.
 
-## <a name="create-a-service-principal-for-authentication"></a>Skapa ett huvudnamn för tjänsten för autentisering
+## <a name="create-a-service-principal-for-authentication"></a>Skapa ett huvud namn för tjänsten för autentisering
 
-Använd [az ad sp create-for-rbac för][az-ad-sp-create-for-rbac] att skapa ett huvudnamn för tjänsten. Ett exempel:
+Använd [AZ AD SP Create-for-RBAC][az-ad-sp-create-for-rbac] för att skapa ett huvud namn för tjänsten. Ett exempel:
 
 ```azurecli
 az ad sp create-for-rbac --sdk-auth --skip-assignment
 ```
 
-Spara JSON-utdata eftersom den används i ett senare steg.
+Spara JSON-utdata eftersom det används i ett senare steg.
 
-Använd [az aks-visning][az-aks-show] för att visa *ID:n* för AKS-klustret:
+Använd [AZ AKS show][az-aks-show] för att visa *ID: t* för ditt AKS-kluster:
 
 ```azurecli
 az aks show -g MyResourceGroup -n MyAKS  --query id
 ```
 
-Använd [az acr-reglaget][az-acr-show] för att visa *ID:n* för ACR:
+Använd [AZ ACR show][az-acr-show] för att visa *ID: t* för ACR:
 
 ```azurecli
 az acr show --name <acrName> --query id
 ```
 
-Använd [az-rolltilldelning skapa][az-role-assignment-create] för att ge *Contributor* åtkomst till AKS-klustret och *AcrPush-åtkomst* till din ACR.
+Använd [AZ roll tilldelning skapa][az-role-assignment-create] för att ge *deltagar* åtkomst till ditt AKS-kluster och *AcrPush* åtkomst till din ACR.
 
 ```azurecli
 az role assignment create --assignee <ClientId> --scope <AKSId> --role Contributor
@@ -78,52 +78,52 @@ az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 ```
 
 > [!IMPORTANT]
-> Du måste vara ägare till både AKS-klustret och ACR för att ge tjänstens huvudåtkomst till dessa resurser.
+> Du måste vara ägare till både ditt AKS-kluster och ACR för att ge tjänstens huvud namn åtkomst till dessa resurser.
 
 ## <a name="configure-your-github-action"></a>Konfigurera din GitHub-åtgärd
 
 > [!IMPORTANT]
-> Du måste ha GitHub-åtgärder aktiverade för din databas. Om du vill aktivera GitHub-åtgärder för databasen navigerar du till databasen på GitHub, klickar på fliken Åtgärder och väljer att aktivera åtgärder för den här databasen.
+> Du måste ha aktiverat GitHub-åtgärder för din lagrings plats. Om du vill aktivera GitHub-åtgärder för din lagrings plats går du till din lagrings plats på GitHub, klickar på fliken åtgärder och väljer att aktivera åtgärder för den här lagrings platsen.
 
-Navigera till den kluslade databasen och klicka på *Inställningar*. Klicka på *Hemligheter* i det vänstra sidofältet. Klicka på *Lägg till en ny hemlighet* om du vill lägga till varje ny hemlighet nedan:
+Navigera till din förgrenade lagrings plats och klicka på *Inställningar*. Klicka på *hemligheter* i den vänstra panelen. Klicka på *Lägg till en ny hemlighet* för att lägga till varje ny hemlighet nedan:
 
-1. *AZURE_CREDENTIALS*: hela utdata från den tjänste- rektorn som skapas.
-1. *RESOURCE_GROUP:* resursgruppen för AKS-klustret, som i det här exemplet är *MyResourceGroup*.
-1. *CLUSTER_NAME:* namnet på AKS-klustret, som i det här exemplet är *MyAKS*.
-1. *CONTAINER_REGISTRY:* *loginServer* för ACR.
-1. *VÄRD:* Värden för ditt dev space, som tar formen *<MASTER_SPACE>.<APP_NAME>.<HOST_SUFFIX>*, som i det här exemplet är *dev.bikesharingweb.fedcab0987.eus.azds.io*.
-1. *IMAGE_PULL_SECRET*: namnet på den hemlighet du vill använda, till exempel *demohemlig*.
-1. *MASTER_SPACE:* namnet på ditt överordnade dev space, som i det här exemplet *är dev*.
-1. *REGISTRY_USERNAME*: *clientId* från JSON-utdata från tjänstens huvudprincip.
-1. *REGISTRY_PASSWORD*: *clientSecret* från JSON-utdata från tjänstens huvudskapande.
+1. *AZURE_CREDENTIALS*: hela utdata från tjänstens huvud namn skapas.
+1. *RESOURCE_GROUP*: resurs gruppen för ditt AKS-kluster, som i det här exemplet är *MyResourceGroup*.
+1. *CLUSTER_NAME*: namnet på ditt AKS-kluster, som i det här exemplet är *MyAKS*.
+1. *CONTAINER_REGISTRY*: *namnet* för ACR.
+1. *Värd*: värden för ditt dev Space, som tar formuläret *<MASTER_SPACE>. <APP_NAME>. <* HOST_SUFFIX>, som i det här exemplet är *dev.bikesharingweb.fedcab0987.EUs.azds.io*.
+1. *IMAGE_PULL_SECRET*: namnet på hemligheten som du vill använda, till exempel *demo-Secret*.
+1. *MASTER_SPACE*: namnet på det överordnade dev-utrymmet, som i det här exemplet är *dev*.
+1. *REGISTRY_USERNAME*: *clientId* från JSON-utdata från det att tjänstens huvud namn skapas.
+1. *REGISTRY_PASSWORD*: *clientSecret* från JSON-utdata från det att tjänstens huvud namn skapas.
 
 > [!NOTE]
-> Alla dessa hemligheter används av GitHub-åtgärden och är konfigurerade i [.github/workflows/bikes.yml][github-action-yaml].
+> Alla dessa hemligheter används av GitHub-åtgärden och konfigureras i [. GitHub/arbets flöden/Bikes. yml][github-action-yaml].
 
-Om du vill uppdatera huvudutrymmet när din PR har slagits samman lägger du till *GATEWAY_HOST* hemlighet, som tar formen *<MASTER_SPACE>.gateway.<HOST_SUFFIX>*, som i det här exemplet är *dev.gateway.fedcab0987.eus.azds.io*. När du har sammanfogat ändringarna till huvudgrenen i gaffeln körs en annan åtgärd för att återskapa och köra hela programmet i huvuddelegeringsutrymmet. I det här exemplet är *huvudutrymmet utåt*. Den här åtgärden har konfigurerats i [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+Om du vill uppdatera huvud utrymmet efter att din PR har slagits samman lägger du till *GATEWAY_HOST* hemlighet, som tar formuläret *<MASTER_SPACE>. GATEWAY. <HOST_SUFFIX>*, som i det här exemplet är *dev.Gateway.fedcab0987.EUs.azds.io*. När du har slagit samman ändringarna i huvud grenen i din förgrening, kommer en annan åtgärd att köras för att återskapa och köra hela programmet i huvud utvecklings utrymmet. I det här exemplet är huvud utrymmet *dev*. Den här åtgärden har kon figurer ATS i [. GitHub/Workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
-Dessutom, om du vill att ändringarna i din PR ska köras i ett barnbarn utrymme, uppdatera *MASTER_SPACE* och *HOST* hemligheter. Om ditt program till exempel körs i *dev* med ett underordnat utrymme *dev/azureuser1*, för att få PR-körningen i ett underordnat utrymme för *dev/azureuser1:*
+Dessutom, om du vill att ändringarna i din PR ska köras i ett grandchild-utrymme, uppdaterar du *MASTER_SPACE* och *värd* hemligheter. Om ditt program till exempel körs i *dev* med en *azureuser1 dev/*, så att PR-körningen kan köras i ett underordnat utrymme med *dev/azureuser1*:
 
-* Uppdatera *MASTER_SPACE* till det underordnade utrymme som du vill ha som överordnat utrymme, i det här exemplet *azureuser1*.
-* Uppdatera *HOST* till *<GRANDPARENT_SPACE>.<APP_NAME>.<HOST_SUFFIX>* i det här exemplet *dev.bikesharingweb.fedcab0987.eus.azds.io*.
+* Uppdatera *MASTER_SPACE* till det underordnade utrymmet som du vill ha som överordnat utrymme, i det här exemplet *azureuser1*.
+* Uppdatera *värd* till *<GRANDPARENT_SPACE>. <APP_NAME>. *<HOST_SUFFIX>, i det här exemplet *dev.bikesharingweb.fedcab0987.EUs.azds.io*.
 
-## <a name="create-a-new-branch-for-code-changes"></a>Skapa en ny gren för kodändringar
+## <a name="create-a-new-branch-for-code-changes"></a>Skapa en ny gren för kod ändringar
 
-Navigera `BikeSharingApp/` till och skapa en ny gren som kallas *cykelbilder*.
+Navigera till `BikeSharingApp/` och skapa en ny gren med namnet *Bikes-bilder*.
 
 ```cmd
 cd dev-spaces/samples/BikeSharingApp/
 git checkout -b bike-images
 ```
 
-Redigera [cyklar/server.js][bikes-server-js] om du vill ta bort raderna 232 och 233:
+Redigera [cyklar/Server. js][bikes-server-js] för att ta bort raderna 232 och 233:
 
 ```javascript
     // Hard code image url *FIX ME*
     theBike.imageUrl = "/static/logo.svg";
 ```
 
-Avsnittet ska nu se ut så här:
+Avsnittet bör nu se ut så här:
 
 ```javascript
     var theBike = result;
@@ -131,35 +131,35 @@ Avsnittet ska nu se ut så här:
     delete theBike._id;
 ```
 
-Spara filen och `git add` `git commit` använd sedan och för att iscensätta ändringarna.
+Spara filen och Använd `git add` och `git commit` för att mellanlagra ändringarna.
 
 ```cmd
 git add Bikes/server.js 
 git commit -m "Removing hard coded imageUrl from /bikes/:id route"
 ```
 
-## <a name="push-your-changes"></a>Tryck på dina ändringar
+## <a name="push-your-changes"></a>Skicka dina ändringar
 
-Används `git push` för att skicka den nya grenen till den kluvna databasen:
+Använd `git push` för att skicka din nya gren till din förgrenade lagrings plats:
 
 ```cmd
 git push origin bike-images
 ```
 
-När push är klar navigerar du till den kluvna databasen på GitHub för att skapa en pull-begäran med *huvudgrenen* i den kluvna databasen som basgren jämfört med *cykelavbildningsgrenen.*
+När push-åtgärden är klar navigerar du till din förgrenade lagrings plats på GitHub för att skapa en pull-begäran med *huvud* grenen i din förgrenade lagrings plats som bas gren jämfört med grenen *cykel-images* .
 
-När pull-begäran har öppnats navigerar du till fliken *Åtgärder.* Kontrollera att en ny åtgärd har startats och bygger tjänsten *Cyklar.*
+När din pull-begäran har öppnats navigerar du till fliken *åtgärder* . kontrol lera att en ny åtgärd har startats och att tjänsten *Bikes* skapas.
 
 ## <a name="view-the-child-space-with-your-changes"></a>Visa det underordnade utrymmet med dina ändringar
 
-När åtgärden har slutförts visas en kommentar med en URL till det nya underordnade utrymmet baserat på ändringarna i pull-begäran.
+När åtgärden har slutförts visas en kommentar med en URL till ditt nya underordnade utrymme baserat på ändringarna i pull-begäran.
 
 > [!div class="mx-imgBorder"]
-> ![Åtgärdsadress för GitHub](../media/github-actions/github-action-url.png)
+> ![GitHub åtgärds-URL](../media/github-actions/github-action-url.png)
 
-Navigera till *bikesharingweb-tjänsten* genom att öppna webbadressen från kommentaren. Välj *Aurelia Briggs (kund)* som användare och välj sedan en cykel att hyra. Kontrollera att du inte längre ser platshållarbilden för cykeln.
+Navigera till *bikesharingweb* -tjänsten genom att öppna URL: en från kommentaren. Välj *Aurelia Briggs (kund)* som användare och välj sedan en cykel att hyra. Kontrol lera att du inte längre ser platshållarbilden för cykeln.
 
-Om du sammanfogar ändringarna till *huvudgrenen* i gaffeln körs en annan åtgärd för att återskapa och köra hela programmet i det överordnade utvecklingsutrymmet. I det här exemplet är det överordnade utrymmet *dev*. Den här åtgärden har konfigurerats i [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+Om du sammanfogar dina ändringar i *huvud* grenen i din förgrening, kommer en annan åtgärd att köras för att återskapa och köra hela programmet i det överordnade dev-utrymmet. I det här exemplet är det överordnade utrymmet *dev*. Den här åtgärden har kon figurer ATS i [. GitHub/Workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
 ## <a name="clean-up-your-azure-resources"></a>Rensa dina Azure-resurser
 
@@ -169,10 +169,10 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om hur Azure Dev Spaces hjälper dig att utveckla mer komplexa program över flera behållare och hur du kan förenkla samarbete genom att arbeta med olika versioner eller grenar av koden i olika utrymmen.
+Lär dig hur Azure dev Spaces hjälper dig att utveckla mer komplexa program över flera behållare och hur du kan förenkla samarbets utveckling genom att arbeta med olika versioner eller grenar av koden i olika utrymmen.
 
 > [!div class="nextstepaction"]
-> [Teamutveckling i Azure Dev Spaces][team-quickstart]
+> [Grupp utveckling i Azure dev Spaces][team-quickstart]
 
 [azure-cli-installed]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac

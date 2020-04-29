@@ -1,6 +1,6 @@
 ---
-title: Uppdateringar och komponentuppgraderingar i Azure Site Recovery
-description: Innehåller en översikt över uppdateringar av Azure Site Recovery-tjänsten och komponentuppgraderingar.
+title: Uppdateringar och komponent uppgraderingar i Azure Site Recovery
+description: Innehåller en översikt över Azure Site Recovery tjänst uppdateringar och komponent uppgraderingar.
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
@@ -8,137 +8,137 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.openlocfilehash: 3489f7f812798504d0c57a265a04e57344105419
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79257828"
 ---
-# <a name="service-updates-in-site-recovery"></a>Tjänstuppdateringar i Site Recovery
+# <a name="service-updates-in-site-recovery"></a>Tjänst uppdateringar i Site Recovery
 
-Den här artikeln innehåller en översikt över Uppdateringar av [Azure Site Recovery](site-recovery-overview.md) och beskriver hur du uppgraderar site recovery-komponenter.
+Den här artikeln innehåller en översikt över [Azure Site Recovery](site-recovery-overview.md) uppdateringar och beskriver hur du uppgraderar Site Recovery-komponenter.
 
-Site Recovery publicerar serviceuppdateringar regelbundet. Uppdateringar inkluderar nya funktioner, supportförbättringar, komponentuppdateringar och buggfixar. För att kunna dra nytta av de senaste funktionerna och korrigeringarna rekommenderar vi att du kör de senaste versionerna av Site Recovery-komponenter. 
+Site Recovery publicerar regelbundet uppdateringar av tjänsten. Uppdateringarna innehåller nya funktioner, support förbättringar, komponent uppdateringar och fel korrigeringar. För att kunna dra nytta av de senaste funktionerna och korrigeringarna rekommenderar vi att du kör de senaste versionerna av Site Recovery-komponenter. 
  
  
 ## <a name="updates-support"></a>Stöd för uppdateringar
 
-### <a name="support-statement-for-azure-site-recovery"></a>Supportsats för Azure Site Recovery
+### <a name="support-statement-for-azure-site-recovery"></a>Support policy för Azure Site Recovery
 
-Vi rekommenderar att du alltid uppgraderar till de senaste komponentversionerna:
+Vi rekommenderar att du alltid uppgraderar till de senaste komponent versionerna:
 
-**Med varje ny version "N" av en Azure Site Recovery-komponent som släpps anses alla versioner under "N-4" vara utan stöd**. 
+**Med varje ny version av en Azure Site Recovery komponent som släpps, anses alla versioner under "n-4" inte vara av stöd**. 
 
 > [!IMPORTANT]
-> Officiellt stöd är för uppgradering från > N-4 version till N-version. Om du till exempel kör du på N-6 måste du först uppgradera till N-4 och sedan uppgradera till N.
+> Statligt stöd är att uppgradera från > N-4-versionen till N-version. Om du till exempel kör du är i N-6 måste du först uppgradera till N-4 och sedan uppgradera till N.
 
 
-### <a name="links-to-currently-supported-update-rollups"></a>Länkar till sammanslagningar som stöds för närvarande
+### <a name="links-to-currently-supported-update-rollups"></a>Länkar till aktuella samlade uppdateringar som stöds
 
- Granska den senaste samlade uppdateringen (version N) i [den här artikeln](site-recovery-whats-new.md). Kom ihåg att Site Recovery ger stöd för N-4-versioner.
+ Läs den senaste samlade uppdateringen (version N) i [den här artikeln](site-recovery-whats-new.md). Kom ihåg att Site Recovery ger stöd för N-4-versioner.
 
 
 
-## <a name="component-expiry"></a>Komponentens utgång
+## <a name="component-expiry"></a>Komponentens förfallo datum
 
-Site Recovery meddelar dig om utgångna komponenter (eller nära att gå ut) via e-post (om du prenumererar på e-postmeddelanden) eller på instrumentpanelen i valvet i portalen.
+Site Recovery meddelar dig om utgångna komponenter (eller snart upphör ande) via e-post (om du prenumererar på e-postmeddelanden) eller på instrument panelen för valvet i portalen.
 
-- När uppdateringar är tillgängliga visas dessutom en **tillgänglig uppdateringsknapp bredvid** komponenten i infrastrukturvyn för ditt scenario i portalen. Den här knappen omdirigerar dig till en länk för att hämta den senaste komponentversionen.
--  Instrumentpanelsaviseringar för valv är inte tillgängliga om du replikerar virtuella hyper-v-datorer. 
+- När uppdateringar är tillgängliga i vyn infrastruktur för ditt scenario i portalen, visas dessutom en **uppdaterings** knapp bredvid komponenten. Med den här knappen omdirigeras du till en länk för att ladda ned den senaste komponent versionen.
+-  Instrument panels meddelanden för valv är inte tillgängliga om du replikerar virtuella Hyper-V-datorer. 
 
-E-postmeddelanden skickas enligt följande.
+E-postmeddelanden skickas på följande sätt.
 
 **Tid** | **Frekvens**
 --- | ---
-60 dagar före komponentens utgång | En gång varannan vecka
-Nästa 53 dagar | En gång i veckan
+60 dagar innan komponentens upphör Ande | En gång i veckan
+Kommande 53 dagarna | En gång i veckan
 Senaste 7 dagarna | En gång om dagen
-Efter utgången | En gång varannan vecka
+Efter förfallo datum | En gång i veckan
 
 
-### <a name="upgrading-outside-official-support"></a>Uppgradering utanför officiellt stöd
+### <a name="upgrading-outside-official-support"></a>Uppgradera utanför statsstöd
 
-Om skillnaden mellan komponentversionen och den senaste versionen är större än fyra, anses detta vara av stöd. I det här fallet uppgraderar du enligt följande: 
+Om skillnaden mellan komponent versionen och den senaste versionen av versionen är större än fyra anses detta vara av stöd. I det här fallet uppgraderar du enligt följande: 
 
-1. Uppgradera den installerade komponenten till din nuvarande version plus fyra. Om din version till exempel är 9.16 uppgraderar du till 9.20.
-2. Uppgradera sedan till nästa kompatibla version. Så i vårt exempel, efter uppgradering 9,16 till 9,20, uppgradera till 9,24. 
+1. Uppgradera den aktuella installerade komponenten till din aktuella version plus fyra. Om din version till exempel är 9,16, så uppgradera sedan till 9,20.
+2. Uppgradera sedan till nästa kompatibla version. I vårt exempel, efter att ha uppgraderat 9,16 till 9,20, uppgradera till 9,24. 
 
 Följ samma process för alla relevanta komponenter.
 
-### <a name="support-for-latest-operating-systemskernels"></a>Stöd för de senaste operativsystemen/kärnorna
+### <a name="support-for-latest-operating-systemskernels"></a>Stöd för de senaste operativ systemen/kernelerna
 
 > [!NOTE]
-> Om du har schemalagt ett underhållsfönster och en omstart ingår i det, rekommenderar vi att du först uppgraderar Site Recovery-komponenter och fortsätter sedan med resten av schemalagda aktiviteter i underhållsfönstret.
+> Om du har schemalagt ett underhålls fönster och en omstart ingår i den, rekommenderar vi att du först uppgraderar Site Recovery-komponenter och fortsätter sedan med resten av de schemalagda aktiviteterna i underhålls fönstret.
 
-1. Innan du uppgraderar operativsystem-/kärnversioner kontrollerar du om målversionen stöds för Site Recovery. 
+1. Innan du uppgraderar operativ systemet/kernel-versioner kontrollerar du om mål versionen stöds Site Recovery. 
 
-    - [Azure VM-stöd.](azure-to-azure-support-matrix.md#replicated-machine-operating-systems)
-    - [Stöd för VMware/fysisk server](vmware-physical-azure-support-matrix.md#replicated-machines)
-    - Stöd för [Hyper-V.](hyper-v-azure-support-matrix.md#replicated-vms)
+    - Stöd för [virtuella Azure-datorer](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) .
+    - Stöd för [VMware/fysisk server](vmware-physical-azure-support-matrix.md#replicated-machines)
+    - Stöd för [Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms) .
 2. Granska [tillgängliga uppdateringar](site-recovery-whats-new.md) för att ta reda på vad du vill uppgradera.
-3. Uppgradera till den senaste site recovery-versionen.
-4. Uppgradera operativsystemet/kärnan till de versioner som krävs.
+3. Uppgradera till den senaste versionen av Site Recovery.
+4. Uppgradera operativ systemet/kärnan till de versioner som krävs.
 5. Omstart.
 
 
-Den här processen säkerställer att datorns operativsystem/kärna uppgraderas till den senaste versionen och att de senaste site recovery-ändringarna som behövs för att stödja den nya versionen läses in på datorn.
+Den här processen säkerställer att datorns operativ system/kernel uppgraderas till den senaste versionen och att de senaste Site Recovery ändringar som krävs för att stödja den nya versionen har lästs in på datorn.
 
 ## <a name="azure-vm-disaster-recovery-to-azure"></a>Haveriberedskap för virtuell Azure-dator till Azure
 
-I det här fallet rekommenderar vi starkt att du [aktiverar automatiska uppdateringar](azure-to-azure-autoupdate.md). Du kan tillåta att webbplatsåterställning hanterar uppdateringar på följande sätt:
+I det här scenariot rekommenderar vi starkt att du [aktiverar automatiska uppdateringar](azure-to-azure-autoupdate.md). Du kan tillåta Site Recovery att hantera uppdateringar på följande sätt:
 
-- Under aktivera replikeringsprocessen.
-- Genom att ställa in inställningarna för tilläggsuppdatering i valvet.
+- Under aktiveringen av replikering.
+- Genom att ange inställningar för tilläggs uppdatering i valvet.
 
 Om du vill hantera uppdateringar manuellt gör du följande:
 
-1. Klicka på det här meddelandet högst upp på skärmen i **valvets > replikerade objekt:** 
+1. I valvet > **replikerade objekt**klickar du på det här meddelandet överst på skärmen: 
     
-    **Uppdatering av ny replikeringsagent för webbplatsåterställning är tillgänglig. Klicka här om du vill installera ->**
+    **Det finns en ny Site Recovery uppdatering av replikeringsprincipen. Klicka om du vill installera >**
 
-4. Markera de virtuella datorer som du vill installera uppdateringen för och klicka sedan på **OK**.
+4. Välj de virtuella datorer som du vill använda uppdateringen för och klicka sedan på **OK**.
 
 
-## <a name="vmware-vmphysical-server-disaster-recovery-to-azure"></a>VMware VM/fysisk serverkatastrofåterställning till Azure
+## <a name="vmware-vmphysical-server-disaster-recovery-to-azure"></a>Katastrof återställning av VMware VM/fysisk server till Azure
 
-1. Baserat på din aktuella version och [supportsatsen](#support-statement-for-azure-site-recovery)installerar du uppdateringen först på den lokala [konfigurationsservern](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server)med hjälp av dessa instruktioner . 
-2. Om du har utskalningsprocessservrar uppdaterar du dem nästa gång med hjälp av [dessa instruktioner](vmware-azure-manage-process-server.md#upgrade-a-process-server).
-3. Information om hur du uppdaterar mobilitetsagenten på varje skyddad dator finns i [den här](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) artikeln.
+1. Baserat på din aktuella version och [support instruktionen](#support-statement-for-azure-site-recovery)installerar du först uppdateringen på den lokala konfigurations servern med hjälp av [dessa instruktioner](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server). 
+2. Om du har skalbara process servrar uppdaterar du dem sedan med hjälp av [de här anvisningarna](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+3. Information om hur du uppdaterar mobilitets agenten på varje skyddad dator finns i [den här](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) artikeln.
 
-### <a name="reboot-after-mobility-service-upgrade"></a>Starta om efter uppgradering av mobilitetstjänsten
+### <a name="reboot-after-mobility-service-upgrade"></a>Starta om efter uppgradering av mobilitets tjänsten
 
-En omstart rekommenderas efter varje uppgradering av mobilitetstjänsten för att säkerställa att alla de senaste ändringarna läses in på källmaskinen.
+En omstart rekommenderas efter varje uppgradering av mobilitets tjänsten för att säkerställa att alla de senaste ändringarna läses in på käll datorn.
 
-En omstart är inte obligatorisk, såvida inte skillnaden mellan agentversionen under den senaste omstarten och den aktuella versionen är större än fyra.
+En omstart är inte obligatorisk, om inte skillnaden mellan agent versionen under den senaste omstarten och den aktuella versionen är större än fyra.
 
 Exemplet i tabellen visar hur det fungerar.
 
-|**Agentversion (senaste omstart)** | **Uppgradera till** | **Obligatorisk omstart?**|
+|**Agent version (senaste omstart)** | **Uppgradera till** | **Obligatorisk omstart?**|
 |---------|---------|---------|
-|9.16 |  9.18 | Inte obligatoriskt|
-|9.16 | 9.19 | Inte obligatoriskt|
-| 9.16 | 9.20 | Inte obligatoriskt
- | 9.16 | 9.21 | Obligatorisk.<br/><br/> Uppgradera till 9,20 och starta sedan om innan du uppgraderar till 9.21.
+|9,16 |  9,18 | Inte obligatoriskt|
+|9,16 | 9,19 | Inte obligatoriskt|
+| 9,16 | 9,20 | Inte obligatoriskt
+ | 9,16 | 9,21 | Obligatorisk.<br/><br/> Uppgradera till 9,20 och starta sedan om innan du uppgraderar till 9,21.
 
 ## <a name="hyper-v-vm-disaster-recovery-to-azure"></a>Haveriberedskap för virtuell Hyper-V-dator till Azure
 
 ### <a name="between-a-hyper-v-site-and-azure"></a>Mellan en Hyper-V-plats och Azure
 
-1. Hämta uppdateringen för Microsoft Azure Site Recovery Provider.
-2. Installera providern på varje Hyper-V-server som är registrerad i Site Recovery. Om du kör ett kluster uppgraderar du på alla klusternoder.
+1. Hämta uppdateringen för Microsoft Azure Site Recovery-providern.
+2. Installera providern på varje Hyper-V-server som registrerats i Site Recovery. Om du kör ett kluster uppgraderar du på alla klusternoder.
 
 
-## <a name="between-an-on-premises-vmm-site-and-azure"></a>Mellan en lokal VMM-plats och Azure
-1. Hämta uppdateringen för Microsoft Azure Site Recovery Provider.
-2. Installera providern på VMM-servern. Om VMM distribueras i ett kluster installerar du providern på alla klusternoder.
-3. Installera den senaste Microsoft Azure Recovery Services-agenten på alla Hyper-V-värdar eller klusternoder.
+## <a name="between-an-on-premises-vmm-site-and-azure"></a>Mellan en lokal VMM-webbplats och Azure
+1. Hämta uppdateringen för Microsoft Azure Site Recovery-providern.
+2. Installera providern på VMM-servern. Om VMM är distribuerat i ett kluster installerar du providern på alla klusternoder.
+3. Installera den senaste Microsoft Azure Recovery Services agenten på alla Hyper-V-värdar eller klusternoder.
 
 
-## <a name="between-two-on-premises-vmm-sites"></a>Mellan två lokala VMM-platser
-1. Hämta den senaste uppdateringen för Microsoft Azure Site Recovery Provider.
-2. Installera den senaste providern på VMM-servern som hanterar den sekundära återställningsplatsen. Om VMM distribueras i ett kluster installerar du providern på alla klusternoder.
-3. När återställningsplatsen har uppdaterats installerar du providern på VMM-servern som hanterar den primära platsen.
+## <a name="between-two-on-premises-vmm-sites"></a>Mellan två lokala VMM-webbplatser
+1. Hämta den senaste uppdateringen för Microsoft Azure Site Recovery-providern.
+2. Installera den senaste providern på VMM-servern som hanterar den sekundära återställnings platsen. Om VMM är distribuerat i ett kluster installerar du providern på alla klusternoder.
+3. När återställnings platsen har uppdaterats installerar du providern på VMM-servern som hanterar den primära platsen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följ vår [sida Azure Updates](https://azure.microsoft.com/updates/?product=site-recovery) för att spåra nya uppdateringar och versioner.
+Följ våra [Azure updates](https://azure.microsoft.com/updates/?product=site-recovery) -sidor för att spåra nya uppdateringar och versioner.

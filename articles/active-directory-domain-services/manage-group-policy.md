@@ -1,6 +1,6 @@
 ---
-title: Skapa och hantera grupprinciper i Azure AD Domain Services | Microsoft-dokument
-description: Lär dig hur du redigerar de inbyggda grupprincipobjekten och skapar egna anpassade principer i en hanterad Azure Active Directory Domain Services-domän.
+title: Skapa och hantera grup princip i Azure AD Domain Services | Microsoft Docs
+description: Lär dig hur du redigerar inbyggda grup princip objekt (GPO) och hur du skapar egna anpassade principer i en Azure Active Directory Domain Services hanterad domän.
 author: iainfoulds
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -11,116 +11,116 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: iainfou
 ms.openlocfilehash: 742d716ecdfff6ab67dedc281aa6134020f57add
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80655042"
 ---
-# <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrera grupprincip i en hanterad Azure AD-domän
+# <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrera grupprincip i en Azure AD Domain Services hanterad domän
 
-Inställningar för användar- och datorobjekt i Azure Active Directory Domain Services (Azure AD DS) hanteras ofta med grupprincipobjekt (GCO). Azure AD DS innehåller inbyggda grupprincipobjekt för *AADDC-användare* och *AADDC-datorer* behållare. Du kan anpassa dessa inbyggda grupprincipobjekt för att konfigurera grupprinciper efter behov för din miljö. Medlemmar i azure *AD DC-administratörsgruppen* har behörighet att administration av grupprinciper i Azure AD DS-domänen och kan också skapa anpassade GPU:er och organisationsenheter (ORGANISATIONSENHETER). Mer information om vad grupprincip är och hur den fungerar finns i [översikt över grupprinciper][group-policy-overview].
+Inställningar för användar-och dator objekt i Azure Active Directory Domain Services (Azure AD DS) hanteras ofta med hjälp av grupprincip objekt (GPO). Azure AD DS innehåller inbyggda grup princip objekt för behållare för *AADDC-användare* och AADDC- *datorer* . Du kan anpassa de här inbyggda grupprincipobjekten för att konfigurera grupprincip efter behov för din miljö. Medlemmar i gruppen *Azure AD DC-administratörer* har Grupprincip administratörs behörighet i Azure AD DS-domänen och kan också skapa anpassade grup princip objekt och organisationsenheter (OU). Mer information om vad grupprincip är och hur det fungerar finns i [Grupprincip översikt][group-policy-overview].
 
-I en hybridmiljö synkroniseras inte grupprinciper som konfigurerats i en lokal AD DS-miljö till Azure AD DS. Om du vill definiera konfigurationsinställningar för användare eller datorer i Azure AD DS redigerar du en av standard-grupprincipobjekten eller skapar ett anpassat grupprincipobjekt.
+I en hybrid miljö synkroniseras inte grup principer som kon figurer ATS i en lokal AD DS-miljö med Azure AD DS. Om du vill definiera konfigurations inställningar för användare eller datorer i Azure AD DS redigerar du en av standard grup princip objekt eller skapar ett anpassat grup princip objekt.
 
-Den här artikeln visar hur du installerar verktygen för grupprinciphantering, redigerar sedan de inbyggda grupprincipobjekten och skapar anpassade grupprincipobjekt.
+Den här artikeln visar hur du installerar grupprincip hanterings verktyg och sedan redigerar de inbyggda grupprincipobjekten och skapar anpassade grup princip objekt.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-För att kunna slutföra den här artikeln behöver du följande resurser och privilegier:
+För att slutföra den här artikeln behöver du följande resurser och behörigheter:
 
 * En aktiv Azure-prenumeration.
-    * Om du inte har en Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* En Azure Active Directory-klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog med endast molnet.
-    * Om det behövs [skapar du en Azure Active Directory-klientorganisation][create-azure-ad-tenant] eller [associerar en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
-* En hanterad Azure Active Directory Domain Services-domän aktiverad och konfigurerad i din Azure AD-klientorganisation.
-    * Om det behövs slutför du självstudien för att [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
-* En virtuell windows serverhantering som är ansluten till den Hanterade Azure AD DS-domänen.
-    * Om det behövs slutför du självstudien för att [skapa en virtuell Windows Server-dator och ansluta den till en hanterad domän][create-join-windows-vm].
-* Ett användarkonto som är medlem i azure *AD DC-administratörsgruppen* i din Azure AD-klientorganisation.
+    * [Skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)om du inte har någon Azure-prenumeration.
+* En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
+    * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
+* En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
+    * Om det behövs, slutför du själv studie kursen för att [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
+* En virtuell Windows Server Management-dator som är ansluten till den hanterade Azure AD DS-domänen.
+    * Om det behövs, slutför du själv studie kursen för att [skapa en virtuell Windows Server-dator och koppla den till en hanterad domän][create-join-windows-vm].
+* Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
 
 > [!NOTE]
-> Du kan använda administrativa mallar för grupprinciper genom att kopiera de nya mallarna till hanteringsarbetsstationen. Kopiera *ADMX-filerna* `%SYSTEMROOT%\PolicyDefinitions` till och kopiera de språkspecifika *ADML-filerna* till `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`, där `Language-CountryRegion` matchar språket och regionen för *ADML-filerna.*
+> Du kan använda grupprincip Administrativa mallar genom att kopiera de nya mallarna till hanterings arbets stationen. Kopiera *. admx* -filerna till `%SYSTEMROOT%\PolicyDefinitions` och kopiera språkspecifika *. adml* -filer till `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`, där `Language-CountryRegion` matchar språk och region för *. adml* -filerna.
 >
-> Kopiera till exempel den engelska versionen av *ADML-filerna* i `\en-us` mappen.
+> Kopiera till exempel den engelska USA versionen av *. adml* -filerna till `\en-us` mappen.
 >
-> Du kan också lagra din administrativa mall för grupprincip centralt på domänkontrollanterna som ingår i azure AD DS-hanterade domänen. Mer information finns i [Så här skapar och hanterar du administrativa mallar för centralarkivet för grupprinciper i Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
+> Alternativt kan du centralt lagra din grupprincip administrativa mall på domän kontrol Lanterna som ingår i den hanterade domänen i Azure AD DS. Mer information finns i [så här skapar och hanterar du den centrala butiken för grupprincip administrativa mallar i Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
-## <a name="install-group-policy-management-tools"></a>Installera verktyg för grupprinciphantering
+## <a name="install-group-policy-management-tools"></a>Installera grupprincip hanterings verktyg
 
-Om du vill skapa och konfigurera grupprincipobjekt måste du installera verktygen för grupprinciphantering. Dessa verktyg kan installeras som en funktion i Windows Server. Mer information om hur du installerar administrationsverktygen på en Windows-klient finns i installera [RSAT (Remote Server Administration Tools).][install-rsat]
+Om du vill skapa och konfigurera grupprincip objekt (GPO) måste du installera grupprincip hanterings verktyg. Dessa verktyg kan installeras som en funktion i Windows Server. Mer information om hur du installerar administrations verktyg på en Windows-klient finns i installera [verktyg för fjärrserveradministration (RSAT)][install-rsat].
 
-1. Logga in på den virtuella datorn för hantering. Steg om hur du ansluter med Azure-portalen finns i [Ansluta till en Virtuell Windows Server][connect-windows-server-vm].
-1. **Serverhanteraren** ska öppnas som standard när du loggar in på den virtuella datorn. Om inte, välj **Serverhanteraren**på **Start-menyn** .
-1. Välj **Lägg till roller och funktioner**i *instrumentpanelsfönstret* i **serverhanteraren.**
-1. På sidan **Innan du börjar** i guiden Lägg till roller och *funktioner*väljer du **Nästa**.
-1. För *installationstypen*lämnar du alternativet **Rollbaserad eller funktionsbaserad installation** markerat och väljer **Nästa**.
-1. På sidan **Serverval** väljer du den aktuella virtuella datorn i serverpoolen, till exempel *myvm.aaddscontoso.com*och väljer sedan **Nästa**.
-1. Klicka på **Nästa**på sidan **Serverroller** .
-1. Välj funktionen **Grupprinciphantering** på sidan **Funktioner.**
+1. Logga in på den virtuella hanterings datorn. Anvisningar om hur du ansluter med hjälp av Azure Portal finns i [ansluta till en virtuell Windows Server-dator][connect-windows-server-vm].
+1. **Serverhanteraren** bör öppnas som standard när du loggar in på den virtuella datorn. Annars väljer du **Serverhanteraren**på **Start** -menyn.
+1. I fönstret *instrument panel* i fönstret **Serverhanteraren** väljer du **Lägg till roller och funktioner**.
+1. På sidan **innan du börjar** i *guiden Lägg till roller och funktioner*väljer du **Nästa**.
+1. För *installations typen*låter du alternativet för **rollbaserad eller funktions baserad installation** vara markerat och väljer **Nästa**.
+1. På sidan **Server val** väljer du den aktuella virtuella datorn från serverpoolen, till exempel *myvm.aaddscontoso.com*, och väljer sedan **Nästa**.
+1. På sidan **Server roller** klickar du på **Nästa**.
+1. På sidan **funktioner** väljer du funktionen **Grupprincip hantering** .
 
-    ![Installera "Grupprinciphantering" från sidan Funktioner](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management.png)
+    ![Installera grupprincip hantering från funktions Sidan](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management.png)
 
-1. På sidan **Bekräftelse** väljer du **Installera**. Det kan ta en minut eller två att installera verktygen för grupprinciphantering.
-1. När funktionsinstallationen är klar väljer du **Stäng** för att avsluta guiden **Lägg till roller och funktioner.**
+1. På sidan **bekräftelse** väljer du **Installera**. Det kan ta en minut eller två att installera grupprincip hanterings verktyg.
+1. När funktions installationen är klar väljer du **Stäng** för att avsluta guiden **Lägg till roller och funktioner** .
 
-## <a name="open-the-group-policy-management-console-and-edit-an-object"></a>Öppna konsolen Grupprinciphantering och redigera ett objekt
+## <a name="open-the-group-policy-management-console-and-edit-an-object"></a>Öppna konsolen grupprinciphantering och redigera ett objekt
 
-Standardgruppprincipobjekt (GRUPPRINCIPOBJEKT) finns för användare och datorer i en Azure AD DS-hanterad domän. Med funktionen Grupprinciphantering installerad från föregående avsnitt ska vi visa och redigera ett befintligt grupprincipobjekt. I nästa avsnitt skapar du en anpassad gpo.
+Det finns standard grup princip objekt (GPO) för användare och datorer i en hanterad Azure AD DS-domän. Med den grupprincip hanterings funktionen installerad från föregående avsnitt kan vi visa och redigera ett befintligt grup princip objekt. I nästa avsnitt skapar du ett anpassat grup princip objekt.
 
 > [!NOTE]
-> Om du vill administrera grupprincipen i en Azure AD DS-hanterad domän måste du vara inloggad på ett användarkonto som är medlem i gruppen *AAD DC-administratörer.*
+> Om du vill administrera en grup princip i en Azure AD DS-hanterad domän måste du vara inloggad på ett användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* .
 
-1. Välj **Administrationsverktyg**på Startskärmen . En lista över tillgängliga hanteringsverktyg visas, inklusive **grupprinciphantering** som är installerad i föregående avsnitt.
-1. Om du vill öppna konsolen Grupprinciphantering (GPMC) väljer du **Grupprinciphantering**.
+1. Välj **administrations verktyg**på Start skärmen. En lista över tillgängliga hanterings verktyg visas, inklusive **Grupprincip hantering** som installerades i föregående avsnitt.
+1. Öppna konsolen grupprinciphantering (GPMC) genom att välja **Grupprincip hantering**.
 
-    ![Konsolen Grupprinciphantering öppnas redo att redigera grupprincipobjekt](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
+    ![konsolen grupprinciphantering öppnar redigera grup princip objekt](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
 
-Det finns två inbyggda grupprincipobjekt (GPOs) i en Azure AD DS-hanterad domän - en för *behållaren AADDC-datorer* och en för *behållaren för AADDC-användare.* Du kan anpassa dessa grupprincipobjekt för att konfigurera grupprincipen efter behov i din Azure AD DS-hanterade domän.
+Det finns två inbyggda grupprincip objekt (GPO: er) i en Azure AD DS-hanterad domän – en för behållaren *AADDC Computers* och en för behållaren *AADDC Users* . Du kan anpassa dessa grup princip objekt för att konfigurera grup principen efter behov i din Azure AD DS-hanterade domän.
 
-1. Expandera noden **Skog: aaddscontoso.com** i konsolen **Grupprinciphantering.** Expandera sedan **noderna Domäner.**
+1. I konsolen **Grupprincip hantering** expanderar du noden **skog: aaddscontoso.com** . Därefter expanderar du noderna **domäner** .
 
-    Det finns två inbyggda behållare för *AADDC-datorer* och *AADDC-användare*. Var och en av dessa behållare har en standard gpo tillämpas på dem.
+    Två inbyggda behållare finns för AADDC- *datorer* och *AADDC-användare*. Var och en av dessa behållare har ett standard grup princip objekt som tillämpas på dem.
 
-    ![Inbyggda grupprincipobjekt som tillämpas på standardbehållarna "AADDC-datorer" och "AADDC-användare"](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
+    ![Inbyggda grup princip objekt tillämpas på standard behållarna "AADDC datorer" och "AADDC Users"](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
 
-1. Dessa inbyggda grupprincipobjekt kan anpassas för att konfigurera specifika gruppprinciper på din Azure AD DS-hanterade domän. Högerval av en av grupprincipobjekten, till exempel *GPO för AADDC-datorer,* och välj sedan **Redigera...**.
+1. Dessa inbyggda grup princip objekt kan anpassas för att konfigurera särskilda grup principer på din Azure AD DS-hanterade domän. Högerklicka på en av grupprincipobjekten, till exempel *AADDC Computers GPO*, och välj sedan **Redigera.**...
 
-    ![Välj alternativet "Redigera" en av de inbyggda grupprincipobjekten](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
+    ![Välj alternativet för att redigera ett av de inbyggda grupprincipobjekten](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
 
-1. Verktyget Redigerare för grupprinciphantering öppnas så att du kan anpassa grupprincipobjektet, till exempel *Kontoprinciper:*
+1. Verktyget Redigeraren Grupprinciphantering öppnas så att du kan anpassa GRUPPRINCIPOBJEKTet, till exempel *konto principer*:
 
-    ![Anpassa dokument som anges för att konfigurera inställningar efter behov](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+    ![Anpassa GPO för att konfigurera inställningar efter behov](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
-    När du är klar väljer du **Spara fil >** för att spara principen. Datorer uppdaterar grupprincipen som standard var 90:e minut och tillämpar de ändringar du har gjort.
+    När du är färdig väljer du **arkiv > Spara** för att spara principen. Datorer uppdaterar grupprincip som standard var 90: e minut och tillämpar de ändringar du gjort.
 
-## <a name="create-a-custom-group-policy-object"></a>Skapa ett anpassat grupprincipobjekt
+## <a name="create-a-custom-group-policy-object"></a>Skapa ett anpassat grupprincip-objekt
 
-Om du vill gruppera liknande principinställningar skapar du ofta ytterligare grupprincipobjekt i stället för att använda alla nödvändiga inställningar i den enda standardgruppgruppen för grupprincipobjekt. Med Azure AD DS kan du skapa eller importera egna anpassade grupprincipobjekt och länka dem till en anpassad organisationsenhet. Om du först behöver skapa en anpassad organisationsenhet läser du [skapa en anpassad organisationsenhet i en Azure AD DS-hanterad domän](create-ou.md).
+För att gruppera liknande princip inställningar skapar du ofta ytterligare grup princip objekt i stället för att tillämpa alla nödvändiga inställningar i GRUPPRINCIPOBJEKTet Single, default. Med Azure AD DS kan du skapa eller importera egna anpassade grup princip objekt och länka dem till en anpassad ORGANISATIONSENHET. Om du behöver skapa en anpassad ORGANISATIONSENHET, se [skapa en anpassad organisationsenhet i en Azure AD DS-hanterad domän](create-ou.md).
 
-1. Välj din anpassade organisationsenhet (OU), till exempel *MyCustomOU*i konsolen **Grupprinciphantering.** Högerklicka på organisationsenheten och välj **Skapa ettrincipobjekt i den här domänen och länka det här...**:
+1. I **Grupprincip hanterings** konsolen väljer du din anpassade ORGANISATIONSENHET (OU), till exempel *MyCustomOU*. Högerklicka på ORGANISATIONSENHETen och välj **skapa ett grup princip objekt i den här domänen och länka det här...**:
 
-    ![Skapa ett anpassat grupprincipobjekt i konsolen Grupprinciphantering](./media/active-directory-domain-services-admin-guide/gp-create-gpo.png)
+    ![Skapa ett anpassat grup princip objekt i grupprincip hanterings konsolen](./media/active-directory-domain-services-admin-guide/gp-create-gpo.png)
 
-1. Ange ett namn för det nya gpo-numret, till exempel *Min anpassade GPO,* och välj sedan **OK**. Du kan också basera den här anpassade gpo:n på en befintlig uppsättning principalternativ.
+1. Ange ett namn för det nya GRUPPRINCIPOBJEKTet, till exempel *mitt anpassade grup princip objekt*, och välj sedan **OK**. Du kan också basera det här anpassade GRUPPRINCIPOBJEKTet på ett befintligt grup princip objekt och en uppsättning princip alternativ.
 
-    ![Ange ett namn för det nya anpassade gpo](./media/active-directory-domain-services-admin-guide/gp-specify-gpo-name.png)
+    ![Ange ett namn för det nya anpassade GRUPPRINCIPOBJEKTet](./media/active-directory-domain-services-admin-guide/gp-specify-gpo-name.png)
 
-1. Det anpassade gpo-programmet skapas och länkas till din anpassade organisationsenhet. Om du nu vill konfigurera principinställningarna högerklickar du på den anpassade nationella användarobjektet och väljer **Redigera...**
+1. Det anpassade GRUPPRINCIPOBJEKTet skapas och länkas till din anpassade ORGANISATIONSENHET. Du kan nu konfigurera princip inställningarna genom att högerklicka på det anpassade GRUPPRINCIPOBJEKTet och välja **Redigera...**:
 
-    ![Välj alternativet "Redigera" ditt anpassaderincipobjekt](./media/active-directory-domain-services-admin-guide/gp-gpo-created.png)
+    ![Välj alternativet för att redigera ditt anpassade grup princip objekt](./media/active-directory-domain-services-admin-guide/gp-gpo-created.png)
 
-1. **Redigeraren för grupprinciphantering** öppnas så att du kan anpassa grupprincipobjektet:
+1. **Redigeraren Grupprinciphantering** öppnas så att du kan anpassa grupprincipobjektet:
 
-    ![Anpassa dokument som anges för att konfigurera inställningar efter behov](./media/active-directory-domain-services-admin-guide/gp-customize-gpo.png)
+    ![Anpassa GPO för att konfigurera inställningar efter behov](./media/active-directory-domain-services-admin-guide/gp-customize-gpo.png)
 
-    När du är klar väljer du **Spara fil >** för att spara principen. Datorer uppdaterar grupprincipen som standard var 90:e minut och tillämpar de ändringar du har gjort.
+    När du är färdig väljer du **arkiv > Spara** för att spara principen. Datorer uppdaterar grupprincip som standard var 90: e minut och tillämpar de ändringar du gjort.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om tillgängliga grupprincipinställningar som du kan konfigurera med konsolen Grupprinciphantering finns i [Arbeta med inställningar för grupprinciper][group-policy-console].
+Mer information om tillgängliga grupprincip inställningar som du kan konfigurera med hjälp av konsolen grupprinciphantering finns i [arbeta med Grupprincip inställnings objekt][group-policy-console].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

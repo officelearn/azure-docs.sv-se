@@ -1,6 +1,6 @@
 ---
-title: Medsälja statliga och provinskoder | Azure Marketplace
-description: Använd dessa tillstånds- och provinskoder när du tillhandahåller kontaktinformation på erbjudandets sida för samförsäljning.
+title: Försäljnings delstat och regions koder | Azure Marketplace
+description: Använd dessa delstat-och provins koder när du tillhandahåller kontakt information på ditt erbjudandes samarbets sida.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
@@ -8,81 +8,81 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 782f2d6facb28630989f086a68c551314e02e48e
-ms.sourcegitcommit: bc738d2986f9d9601921baf9dded778853489b16
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80619364"
 ---
-# <a name="co-sell-state-and-province-codes"></a>Samsälja delstats- och provinskoder
+# <a name="co-sell-state-and-province-codes"></a>Regions-och provins koder
 
-Om tillämpligt, använd dessa koder för att ge information om stat/provins när [du tillhandahåller kontaktinformation på erbjudandets sida för samförsäljning.](commercial-marketplace-co-sell.md#contacts)
+Om det är tillämpligt använder du dessa koder för att ange information om delstat/provins när [du tillhandahåller kontakt information på ditt erbjudandes samarbets sida](commercial-marketplace-co-sell.md#contacts).
 
-## <a name="us-states-and-territories"></a>Amerikanska delstater och territorier
+## <a name="us-states-and-territories"></a>USA och territorier
 
-|   Namn på stat och territorium          |   Kod    |
+|   Namn på region och område          |   Kod    |
 |-------------------------------------|-----------|
 | Alabama                             | USA-AL     |
-| Alaska                              | USA-AK     |
-| Arizona                             | USA-AZ     |
-| Arkansas                            | USA-AR     |
-| California                          | USA-CA     |
-| Colorado                            | USA-CO     |
-| Connecticut                         | USA-CT     |
+| Alaska                              | US-AK     |
+| Arizona                             | US-AZ     |
+| Arkansas                            | USA – AR     |
+| California                          | US-CA     |
+| Colorado                            | US-CO     |
+| Connecticut                         | US-CT     |
 | Delaware                            | USA-DE     |
-| Florida                             | USA-FL     |
-| Georgien                             | USA-GA     |
-| Hawaii                              | USA-HEJ     |
-| Idaho                               | USA-ID     |
-| Illinois                            | USA-IL     |
-| Indiana                             | USA-IN     |
-| Iowa                                | USA-IA     |
-| Kansas                              | USA-KS     |
-| Kentucky                            | USA-KY     |
-| Louisiana                           | USA-LA     |
-| Maine                               | USA-ME     |
-| Maryland                            | USA-VD     |
-| Massachusetts                       | USA-MA     |
-| Michigan                            | USA-MI     |
-| Minnesota                           | USA-MN     |
-| Mississippi                         | USA-MEDLEMSSTAT     |
-| Missouri                            | USA-MO     |
-| Montana                             | USA-MT     |
-| Nebraska                            | USA-NE     |
-| Nevada                              | USA-NV     |
-| New Hampshire                       | USA-NH     |
-| New Jersey                          | USA-NJ     |
-| New Mexico                          | USA-NM     |
-| New York                            | USA-NY     |
-| North Carolina                      | USA-NC     |
-| North Dakota                        | USA-ND     |
-| Ohio                                | USA-OH     |
-| Oklahoma                            | USA-OK     |
-| Oregon                              | USA-ELLER     |
-| Pennsylvania                        | USA-PA     |
-| Rhode Island                        | USA-RI     |
+| Florida                             | USA – FL     |
+| Georgien                             | USA – GA     |
+| Hawaii                              | USA – HÖG     |
+| Idaho                               | US-ID     |
+| Illinois                            | USA – IL     |
+| Indiana                             | USA – IN     |
+| Iowa                                | US-IA     |
+| Kansas                              | US-KS     |
+| Kentucky                            | US-KY     |
+| Louisiana                           | US-LA     |
+| Maine                               | OSS – MIG     |
+| Maryland                            | US-MD     |
+| Massachusetts                       | USA – MA     |
+| Michigan                            | US-MI     |
+| Minnesota                           | US-MN     |
+| Mississippi                         | USA – MS     |
+| Missouri                            | US-MO     |
+| Montana                             | US-MT     |
+| Nebraska                            | US-NE     |
+| Nevada                              | US-NV     |
+| New Hampshire                       | US-NH     |
+| New Jersey                          | US-NJ     |
+| New Mexico                          | USA – NM     |
+| New York                            | USA – NY     |
+| North Carolina                      | USA – NC     |
+| North Dakota                        | US-ND     |
+| Ohio                                | OSS-OH     |
+| Oklahoma                            | US – OK     |
+| Oregon                              | USA ELLER     |
+| Pennsylvania                        | USA – PA     |
+| Rhode Island                        | USA – RI     |
 | South Carolina                      | US-SC     |
-| South Dakota                        | USA-SD     |
-| Tennessee                           | USA-TN     |
-| Texas                               | USA-TX     |
-| Utah                                | USA-UT     |
-| Vermont                             | USA-VT     |
+| South Dakota                        | USA – SD     |
+| Tennessee                           | USA – TN     |
+| Texas                               | US-TX     |
+| Utah                                | US-UT     |
+| Vermont                             | US – VT     |
 | Virginia                            | USA-VA     |
-| Washington                          | USA-WA     |
+| Washington                          | USA – WA     |
 | West Virginia                       | US-WV     |
-| Wisconsin                           | USA-WI     |
-| Wyoming                             | USA-WY     |
-| District of Columbia                | USA-DC     |
-| Amerikanska Samoa                      | USA-AS     |
-| Guam                                | USA-GU     |
-| Nordmarianerna            | USA-MP     |
-| Puerto Rico                         | USA-PR     |
-| Usa mindre outlying öar | USA-UM    |
-| Jungfruöarna, USA                 | USA-VI    |
+| Wisconsin                           | USA – WI     |
+| Wyoming                             | US-WY     |
+| District of Columbia                | USA – DC     |
+| Amerikanska Samoa                      | USA – SOM     |
+| Guam                                | US-GU     |
+| Nordmarianerna            | USA – MP     |
+| Puerto Rico                         | US-PR     |
+| USA mindre öar | USA – UM    |
+| Jungfruöarna, USA                 | USA – VI    |
 
 ## <a name="canadian-provinces-and-territories"></a>Kanadensiska provinser och territorier
 
-|   Namn på provins och territorium       |   Kod    |
+|   Namn på provins och område       |   Kod    |
 |-------------------------------------|-----------|
 | Alberta                             |  CA-AB    |
 | British Columbia                    |  CA-BC    |
@@ -99,9 +99,9 @@ Om tillämpligt, använd dessa koder för att ge information om stat/provins nä
 | Yukon                               |  CA-YT    |
 
 
-## <a name="australian-states-and-territories"></a>Australiska delstater och territorier
+## <a name="australian-states-and-territories"></a>Australiska stater och territorier
 
-|   Namn på stat och territorium          |   Kod    |
+|   Namn på region och område          |   Kod    |
 |-------------------------------------|-----------|
 | New South Wales                     |  AU-NSW   |
 | Queensland                          |  AU-QLD   |
@@ -115,4 +115,4 @@ Om tillämpligt, använd dessa koder för att ge information om stat/provins nä
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [samförsäljningsalternativet i Partner Center](./commercial-marketplace-co-sell.md).
+- Lär dig mer om [alternativet Co-Sälj i Partner Center](./commercial-marketplace-co-sell.md).

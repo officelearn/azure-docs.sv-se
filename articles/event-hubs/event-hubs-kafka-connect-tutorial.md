@@ -9,19 +9,19 @@ ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: shvija
 ms.openlocfilehash: 60c6207b1c90ca40f02097a1c82d2811a50f664d
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80632837"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrera stöd för Apache Kafka Connect stöd i Azure Event Hubs (förhandsversion)
-När inmatning för företagsbehov ökar så ökas även kraven för inmatning av olika externa källor och kanalmottagare. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) innehåller sådana ramverk för att ansluta och importera/exportera data från/till externa system såsom MySQL, HDFS och filsystem via ett Kafka-kluster. Den här självstudien går igenom med Kafka Connect-ramverket med eventhubbar.
+När inmatning för företagsbehov ökar så ökas även kraven för inmatning av olika externa källor och kanalmottagare. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) innehåller sådana ramverk för att ansluta och importera/exportera data från/till externa system såsom MySQL, HDFS och filsystem via ett Kafka-kluster. Den här självstudien vägleder dig genom att använda Kafka Connect Framework med Event Hubs.
 
-Den här självstudien går igenom integreringen av Kafka Connect med en händelsehubb och distribuerar grundläggande FileStreamSource- och FileStreamSink-kopplingar. Den här funktionen är för närvarande en förhandsversion. De här anslutningsapparna är inte avsedda för produktionsanvändning, men de demonstrerar ett Kafka Connect-scenario med slutpunkt till slutpunkt där Azure Event Hubs fungerar som asynkron Kafka-meddelandekö.
+Den här självstudien vägleder dig genom integreringen av Kafka Connect med en Event Hub och distribuerar grundläggande FileStreamSource-och FileStreamSink-anslutningar. Den här funktionen finns för närvarande som en förhandsversion. De här anslutningsapparna är inte avsedda för produktionsanvändning, men de demonstrerar ett Kafka Connect-scenario med slutpunkt till slutpunkt där Azure Event Hubs fungerar som asynkron Kafka-meddelandekö.
 
 > [!NOTE]
-> Det här exemplet är tillgängligt på [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
+> Det här exemplet finns på [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
 
 I den här självstudien gör du följande:
 
@@ -42,7 +42,7 @@ För att kunna slutföra den här genomgången behöver du följande:
 - Läs introduktionsartikeln [Event Hubs för Apache Kafka](https://docs.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
 
 ## <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
-En Event Hubs-namnrymd krävs för att skicka och ta emot från Event Hubs-tjänster. Se [Skapa en händelsehubb](event-hubs-create.md) för instruktioner om hur du skapar ett namnområde och en händelsehubb. Hämta Event Hubs-anslutningssträngen och fullständigt domännamn (FQDN) för senare användning. Anvisningar finns i avsnittet om att [hämta en Event Hubs-anslutningssträng](event-hubs-get-connection-string.md). 
+En Event Hubs-namnrymd krävs för att skicka och ta emot från Event Hubs-tjänster. Instruktioner för att skapa ett namn område och en Event Hub finns i [skapa en Event Hub](event-hubs-create.md) . Hämta Event Hubs-anslutningssträngen och fullständigt domännamn (FQDN) för senare användning. Anvisningar finns i avsnittet om att [hämta en Event Hubs-anslutningssträng](event-hubs-get-connection-string.md). 
 
 ## <a name="clone-the-example-project"></a>Klona exempelprojektet
 Klona Azure Event Hubs-lagringsplatsen och navigera till undermappen tutorials/connect: 
@@ -107,7 +107,7 @@ I det här steget startas en Kafka Connect-arbetare lokalt i distribuerat läge 
 > [!NOTE]
 > Kafka Connect använder Kafka AdminClient API för att automatiskt skapa ämnen med rekommenderade konfigurationer, inklusive komprimering. En snabb kontroll av namnrymden i Azure-portalen visar att Connect-arbetarens interna ämnen har skapats automatiskt.
 >
->Kafka Anslut interna ämnen **måste använda komprimering**.  Event Hubs-teamet ansvarar inte för att åtgärda felaktiga konfigurationer om interna Connect-avsnitt är felaktigt konfigurerade.
+>Kafka Connect, interna ämnen **måste använda komprimering**.  Event Hubs-teamet ansvarar inte för att åtgärda Felaktiga konfigurationer om interna anslutnings ämnen är felaktigt konfigurerade.
 
 ### <a name="create-connectors"></a>Skapa anslutningsappar
 Det här avsnittet vägleder dig genom att skapa anslutningsapparna FileStreamSource och FileStreamSink. 
@@ -157,11 +157,11 @@ Kafka Connect skapar Event Hub-ämnen för att lagra konfigurationer, förskjutn
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om eventhubbar för Kafka finns i följande artiklar:  
+Mer information om Event Hubs för Kafka finns i följande artiklar:  
 
 - [Spegla en Kafka-broker i en händelsehubb](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Ansluta Apache Spark till en händelsehubb](event-hubs-kafka-spark-tutorial.md)
 - [Ansluta Apache Flink till en händelsehubb](event-hubs-kafka-flink-tutorial.md)
 - [Utforska exempel på vår GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-- [Ansluta Akka-strömmar till ett händelsenav](event-hubs-kafka-akka-streams-tutorial.md)
-- [Utvecklarguide för Apache Kafka för Azure Event Hubs](apache-kafka-developer-guide.md)
+- [Ansluta Akka-dataströmmar till en händelsehubb](event-hubs-kafka-akka-streams-tutorial.md)
+- [Apache Kafka Developer Guide för Azure Event Hubs](apache-kafka-developer-guide.md)

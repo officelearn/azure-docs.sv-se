@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Sök efter videor med REST API och PHP - Bing Video Search'
+title: 'Snabb start: söka efter videor med hjälp av REST API och PHP-Videosökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att skicka videosökningsbegäranden till REST API för videosökning i Bing med PHP
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
 ms.openlocfilehash: 357cc85991ac88aef4fd0958e2bc776373f56dc8
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75448367"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Snabbstart: Sök efter videor med hjälp av Bing Video Search REST API och PHP
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API och PHP
 
 Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och visa ett sökresultat från JSON-svaret. Det här enkla JavaScript-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i JavaScript och använder Node.js, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 Exempelkoden skrevs för att fungera med PHP 5.6.
@@ -37,7 +37,7 @@ Se [API-referensen](https://docs.microsoft.com/rest/api/cognitiveservices-bingse
 1. Kontrollera att stöd för säker HTTP är aktiverat i `php.ini` enligt beskrivningen i kodkommentaren.
 2. Skapa ett nytt PHP-projekt i valfri IDE eller redigeringsprogram.
 3. Lägg till koden nedan.
-4. Ersätt värdet `$accessKey` med en giltig åtkomstnyckel för din prenumeration. `$endpoint`kan vara den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
+4. Ersätt värdet `$accessKey` med en giltig åtkomstnyckel för din prenumeration. `$endpoint`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 5. Kör programmet.
 
 ```php

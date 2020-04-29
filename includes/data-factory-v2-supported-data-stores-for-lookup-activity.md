@@ -1,6 +1,6 @@
 ---
 title: ta med fil
-description: kopplingar som stöds för uppslagsaktivitet
+description: anslutningar som stöds för lookup-aktivitet
 services: data-factory
 author: linda33wj
 ms.service: data-factory
@@ -9,15 +9,15 @@ ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: fb44f217b7a940bc07a164e482b67ddb53835715
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75440491"
 ---
 | Kategori | Datalager |
 |:--- |:--- |
-| **Azure** |[Azure Blob-lagring](../articles/data-factory/connector-azure-blob-storage.md) |
+| **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |
 | &nbsp; |[Azure-datautforskaren](../articles/data-factory/connector-azure-data-explorer.md) |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |
@@ -25,7 +25,7 @@ ms.locfileid: "75440491"
 | &nbsp; |[Azure-databas för MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |
 | &nbsp; |[Azure Database for MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
-| &nbsp; |[Azure-filer](../articles/data-factory/connector-azure-file-storage.md) |
+| &nbsp; |[Azure Files](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |
 | &nbsp; |[Hanterad Azure SQL Database-instans](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |
 | &nbsp; |[Azure Synapse Analytics (tidigare SQL Data Warehouse)](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
@@ -36,7 +36,7 @@ ms.locfileid: "75440491"
 | &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |
 | &nbsp; |[Greenplum](../articles/data-factory/connector-greenplum.md) |
 | &nbsp; |[HBase](../articles/data-factory/connector-hbase.md) |
-| &nbsp; |[Registreringsdatafilen](../articles/data-factory/connector-hive.md) |
+| &nbsp; |[Hive](../articles/data-factory/connector-hive.md) |
 | &nbsp; |[Apache Impala](../articles/data-factory/connector-impala.md) |
 | &nbsp; |[Informix](../articles/data-factory/connector-informix.md) 
 | &nbsp; |[MariaDB](../articles/data-factory/connector-mariadb.md) |
@@ -51,7 +51,7 @@ ms.locfileid: "75440491"
 | &nbsp; |[SAP Business Warehouse via MDX](../articles/data-factory/connector-sap-business-warehouse.md) |
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |
 | &nbsp; |[SAP-tabell](../articles/data-factory/connector-sap-table.md) |
-| &nbsp; |[Gnista](../articles/data-factory/connector-spark.md) |
+| &nbsp; |[Spark](../articles/data-factory/connector-spark.md) |
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |
 | &nbsp; |[Teradata](../articles/data-factory/connector-teradata.md) |
@@ -80,8 +80,8 @@ ms.locfileid: "75440491"
 | &nbsp; |[Marketo (förhandsversion)](../articles/data-factory/connector-marketo.md) |
 | &nbsp; |[Oracle Eloqua (förhandsversion)](../articles/data-factory/connector-oracle-eloqua.md) |
 | &nbsp; |[Oracle Responsys (förhandsversion)](../articles/data-factory/connector-oracle-responsys.md) |
-| &nbsp; |[Oracle-tjänstmoln (förhandsversion)](../articles/data-factory/connector-oracle-service-cloud.md) |
-| &nbsp; |[PayPal (förhandsgranskning)](../articles/data-factory/connector-paypal.md) |
+| &nbsp; |[Oracle service Cloud (för hands version)](../articles/data-factory/connector-oracle-service-cloud.md) |
+| &nbsp; |[PayPal (för hands version)](../articles/data-factory/connector-paypal.md) |
 | &nbsp; |[QuickBooks (förhandsversion)](../articles/data-factory/connector-quickbooks.md) |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |
 | &nbsp; |[Salesforce Service Cloud](../articles/data-factory/connector-salesforce-service-cloud.md) |

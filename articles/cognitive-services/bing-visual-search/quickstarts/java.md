@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Få bildinsikter med REST API och Java - Bing Visual Search'
+title: 'Snabb start: Hämta bild insikter med hjälp av REST API och Java-Visuell sökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Ta reda på hur du laddar upp en bild till API:et för visuell sökning i Bing och får information om den.
 services: cognitive-services
@@ -11,27 +11,27 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: fe323fc27062ad1bee9abdfaf3408430e28523a9
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75446618"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Snabbstart: Få bildinsikter med hjälp av Bing Visual Search REST API och Java
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing REST API och Java
 
-Använd den här snabbstarten för att ringa ditt första samtal till API:et för visuell sökning i Bing och visa resultaten. Detta Java-program överför en avbildning till API:et och visar den information den returnerar. Även om det här programmet är skrivet i Java är API:et en RESTful Web-tjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabb starten för att göra ditt första anrop till API för visuell sökning i Bing och visa resultatet. Java-programmet överför en avbildning till API: et och visar den information som returneras. Även om det här programmet är skrivet i Java är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Krav
 
 * [Java Development Kit (JDK) 7 eller 8](https://aka.ms/azure-jdks)
-* [Gson Java-bibliotek](https://github.com/google/gson)
+* [Gson Java-biblioteket](https://github.com/google/gson)
 * [Apache HttpComponents](https://hc.apache.org/downloads.cgi)
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa ett nytt Java-projekt i din favorit-IDE eller redigerare och importera följande bibliotek:
+1. Skapa ett nytt Java-projekt i din favorit-IDE eller-redigerare och importera följande bibliotek:
 
     ```java
     import java.util.*;
@@ -52,7 +52,7 @@ Använd den här snabbstarten för att ringa ditt första samtal till API:et fö
     import org.apache.http.impl.client.HttpClientBuilder;
     ```
 
-2. Skapa variabler för din API-slutpunkt, prenumerationsnyckel och sökvägen till din bild. `endpoint`kan vara den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs:
+2. Skapa variabler för din API-slutpunkt, prenumerationsnyckel och sökvägen till din bild. `endpoint`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs:
 
     ```java
     static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
@@ -61,7 +61,7 @@ Använd den här snabbstarten för att ringa ditt första samtal till API:et fö
     ```
 
     
-    När du laddar upp en lokal bild `Content-Disposition` måste formulärdata innehålla sidhuvudet. Du måste `name` ange parametern till "image", `filename` och du kan ställa in parametern på valfri sträng. Innehållet i formuläret innehåller den binära data i bilden. Den maximala bildstorleken du kan ladda upp är 1 MB.
+    När du laddar upp en lokal avbildning måste formulär data innehålla `Content-Disposition` sidhuvudet. Du måste ange `name` parametern till "image" och du kan ange `filename` parametern till valfri sträng. Innehållet i formuläret är en bilds binära data. Den maximala bild storlek som du kan ladda upp är 1 MB.
     
     ```
     --boundary_1234-abcd
@@ -74,7 +74,7 @@ Använd den här snabbstarten för att ringa ditt första samtal till API:et fö
 
 ## <a name="create-the-json-parser"></a>Skapa JSON-parsern
 
-Skapa en metod för att göra JSON-svaret `JsonParser`från API:et mer läsbart med:
+Skapa en metod för att göra JSON-svaret från API: et mer `JsonParser`läsbart med:
 
 ```java
 public static String prettify(String json_text) {
@@ -87,13 +87,13 @@ public static String prettify(String json_text) {
 
 ## <a name="construct-the-search-request-and-query"></a>Konstruera sökbegäran och fråga
 
-1. Skapa en HTTP-klient med hjälp `HttpClientBuilder.create().build();`av:
+1. I appens huvud metod skapar du en HTTP-klient med hjälp `HttpClientBuilder.create().build();`av:
 
     ```java
     CloseableHttpClient httpClient = HttpClientBuilder.create().build();
     ```
 
-2. Skapa `HttpEntity` ett objekt för att överföra avbildningen till API:et:
+2. Skapa ett `HttpEntity` objekt för att ladda upp avbildningen till API: et:
 
     ```java
     HttpEntity entity = MultipartEntityBuilder
@@ -102,7 +102,7 @@ public static String prettify(String json_text) {
         .build();
     ```
 
-3. Skapa `httpPost` ett objekt med slutpunkten och ange att sidhuvudet ska använda prenumerationsnyckeln:
+3. Skapa ett `httpPost` objekt med din slut punkt och ange att rubriken ska använda din prenumerations nyckel:
 
     ```java
     HttpPost httpPost = new HttpPost(endpoint);
@@ -112,7 +112,7 @@ public static String prettify(String json_text) {
 
 ## <a name="receive-and-process-the-json-response"></a>Ta emot och bearbeta JSON-svaret
 
-1. Använd `HttpClient.execute()` metoden för att skicka en begäran till API:et och lagra svaret i ett `InputStream` objekt:
+1. Använd `HttpClient.execute()` metoden för att skicka en begäran till API: et och lagra svaret i ett `InputStream` objekt:
     
     ```java
     HttpResponse response = httpClient.execute(httpPost);
@@ -130,4 +130,4 @@ public static String prettify(String json_text) {
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en ensidig visuell sökapp](../tutorial-bing-visual-search-single-page-app.md)
+> [Bygg en Visuell sökning webb program med en enda sida](../tutorial-bing-visual-search-single-page-app.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Sök efter videor med REST API och Ruby - Bing Video Search'
+title: 'Snabb start: söka efter videor med hjälp av REST API och ruby-Videosökning i Bing'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att skicka videosökningsbegäranden till REST API för videosökning i Bing med hjälp av Ruby.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
 ms.openlocfilehash: 8f6022f03d28362e85fba3fd75e60c4d7032b41b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75448369"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>Snabbstart: Sök efter videor med REST API för Bing Video Search REST och Ruby
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API och ruby
 
 Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och visa ett sökresultat från JSON-svaret. Det här enkla Ruby-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
 
@@ -37,7 +37,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till API:et fö
     require 'json'
     ```
 
-2. Skapa variabler för API-slutpunkten, sökväg för video-API, din prenumerationsnyckel och sökterm. `uri`kan vara den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
+2. Skapa variabler för API-slutpunkten, sökväg för video-API, din prenumerationsnyckel och sökterm. `uri`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"

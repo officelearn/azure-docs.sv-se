@@ -6,20 +6,20 @@ ms.topic: include
 ms.date: 11/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 3c6059e131eadf1144fd189c47691b2352176745
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75446420"
 ---
-## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Analysera formulär för nyckelvärdespar och tabeller
+## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Analysera formulär för nyckel/värde-par och tabeller
 
-Därefter ska du använda den nyutbildade modellen för att analysera ett dokument och extrahera nyckelvärdespar och tabeller från den. Anropa **[Api:et analysera formulär](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** genom att köra följande kod i ett nytt Python-skript. Innan du kör skriptet gör du följande ändringar:
+Sedan använder du din nya tränade modell för att analysera ett dokument och extrahera nyckel/värde-par och tabeller från det. Anropa **[analys formulärets](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** API genom att köra följande kod i ett nytt Python-skript. Innan du kör skriptet gör du följande ändringar:
 
-1. Ersätt `<file path>` med formulärets filsökväg (till exempel C:\temp\file.pdf). Detta kan också vara URL:en till en fjärrfil. För den här snabbstarten kan du använda filerna under mappen **Testa** i [exempeldatauppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451).
-1. Ersätt `<model_id>` med det modell-ID som du fick i föregående avsnitt.
-1. Ersätt `<endpoint>` med slutpunkten som du fick med prenumerationsnyckeln För formulärmedkänningsnyckel. Du hittar den på fliken **Resursöversikt för** formulärdeform.
-1. Ersätt `<file type>` med filtypen. Typer som `application/pdf` `image/jpeg`stöds: , , `image/png`, `image/tiff`.
+1. Ersätt `<file path>` med fil Sök vägen för ditt formulär (till exempel C:\temp\file.pdf). Detta kan också vara webb adressen till en fjärrfil. I den här snabb starten kan du använda filerna under mappen **test** i [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451).
+1. Ersätt `<model_id>` med modell-ID: t som du fick i föregående avsnitt.
+1. Ersätt `<endpoint>` med den slut punkt som du fick med ditt formulärs igenkännings prenumerations nyckel. Du hittar det på fliken **Översikt** i formulärets tolknings resurs.
+1. Ersätt `<file type>` med filtypen. Typer som stöds `application/pdf`: `image/jpeg`, `image/png`, `image/tiff`,.
 1. Ersätt `<subscription key>` med din prenumerationsnyckel.
 
     ```python
@@ -58,15 +58,15 @@ Därefter ska du använda den nyutbildade modellen för att analysera ett dokume
         quit() 
     ```
 
-1. Spara koden i en fil med ett py-tillägg. Till exempel *form-recognizer-analyze.py*.
+1. Spara koden i en fil med fil namns tillägget. py. Till exempel *form-Recognizer-Analyze.py*.
 1. Öppna ett kommandotolksfönster.
 1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python form-recognizer-analyze.py`.
 
-När du anropar **API:et** för `201 (Success)` analysera formulär får du ett svar med ett **åtgärdsplatshuvud.** Värdet för det här huvudet är ett ID som du ska använda för att spåra resultatet av analysåtgärden. Skriptet ovan skriver ut värdet för det här huvudet till konsolen.
+När du anropar API: t **analysera formulär** får du ett `201 (Success)` svar med en **Åtgärds plats** rubrik. Värdet för den här rubriken är ett ID som du kommer att använda för att spåra resultatet av analys åtgärden. Skriptet ovan skriver ut värdet för den här rubriken till-konsolen.
 
-## <a name="get-the-analyze-results"></a>Få analysresultaten
+## <a name="get-the-analyze-results"></a>Hämta analys resultatet
 
-Lägg till följande kod längst ned i Python-skriptet. Detta använder ID-värdet från föregående anrop i ett nytt API-anrop för att hämta analysresultaten. Åtgärden **Analysera formulär** är asynkron, så det här skriptet anropar API:et med jämna mellanrum tills resultaten är tillgängliga. Vi rekommenderar ett intervall på en sekund eller mer.
+Lägg till följande kod längst ned i python-skriptet. Detta använder ID-värdet från det föregående anropet i ett nytt API-anrop för att hämta analys resultatet. Åtgärden **analysera formulär** är asynkron, så det här skriptet anropar API: n med jämna mellanrum tills resultaten är tillgängliga. Vi rekommenderar ett intervall på en sekund.
 
 ```python 
 n_tries = 15

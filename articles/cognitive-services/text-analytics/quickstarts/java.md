@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Använd Java för att anropa REST-API:et för textanalys'
+title: 'Snabb start: Använd Java för att anropa Textanalys REST API'
 titleSuffix: Azure Cognitive Services
-description: Den här snabbstarten visar hur du hämtar information och kodexempel som hjälper dig att snabbt komma igång med textanalys-API:et i Azure Cognitive Services.
+description: Den här snabb starten visar hur du får information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 12/17/2019
 ms.author: aahi
 ms.custom: seo-java-july2019, seo-java-august2019
 ms.openlocfilehash: 0541438659f25780be0c7bc1c87670cab6d7ca08
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75446312"
 ---
-# <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Snabbstart: Använd Java för att anropa Cognitive Service för Azure Text Analytics
+# <a name="quickstart-use-java-to-call-the-azure-text-analytics-cognitive-service"></a>Snabb start: Använd Java för att anropa tjänsten Azure Textanalys kognitivt
 <a name="HOLTop"></a>
 
 Den här artikeln visar hur du [identifierar språk](#Detect), [analyserar sentiment](#SentimentAnalysis), [extraherar diskussionsämnen](#KeyPhraseExtraction) och [identifierar länkade entiteter](#Entities) med hjälp av  [API:er för textanalys](//go.microsoft.com/fwlink/?LinkID=759711) med Java.
@@ -37,11 +37,11 @@ Du måste även ha [slutpunkten och åtkomstnyckeln](../../cognitive-services-ap
 
 API:et för språkidentifiering identifierar språket i ett textdokument med hjälp av metoden  [Detect Language](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) (Identifiera språk).
 
-1. Skapa ett nytt Java-projekt i din favorit-IDE (eller ny mapp på skrivbordet). Skapa en `DetectLanguage.java`klass med namnet .
-1. Lägg till koden nedan till din klass.
-1. Kopiera textanalysnyckeln och slutpunkten till koden. 
-1. Kontrollera att du har [Gson-biblioteket](https://github.com/google/gson) installerat.
-1. Kör programmet i din IDE eller använd kommandoraden för att köra (instruktioner i koden kommentarer).
+1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass med `DetectLanguage.java`namnet.
+1. Lägg till den kod som anges nedan till din-klass.
+1. Kopiera Textanalys nyckel och slut punkt till koden. 
+1. Kontrol lera att du har [Gson](https://github.com/google/gson) -biblioteket installerat.
+1. Kör programmet i IDE-nätverket eller Använd kommando raden för att köra (anvisningar i kod kommentarerna).
 
 ```java
 import java.io.*;
@@ -206,11 +206,11 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 API:et för attitydanalys identifierar attityden i en uppsättning textposter, med metoden [Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) (Attityd). I följande exempel poängsätts två dokument, ett på engelska och ett annat på spanska.
 
-1. Skapa ett nytt Java-projekt i din favorit-IDE (eller ny mapp på skrivbordet). Skapa en klass `GetSentiment.java`i den med namnet .
-1. Lägg till koden nedan till din klass.
-1. Kopiera textanalysnyckeln och slutpunkten till koden.
-1. Kontrollera att du har [Gson-biblioteket](https://github.com/google/gson) installerat.
-1. Kör programmet i din IDE eller använd kommandoraden för att köra (instruktioner i koden kommentarer).
+1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass i den med `GetSentiment.java`namnet.
+1. Lägg till den kod som anges nedan till din-klass.
+1. Kopiera Textanalys nyckel och slut punkt till koden.
+1. Kontrol lera att du har [Gson](https://github.com/google/gson) -biblioteket installerat.
+1. Kör programmet i IDE-nätverket eller Använd kommando raden för att köra (anvisningar i kod kommentarerna).
 
 ```java
 import java.io.*;
@@ -327,7 +327,7 @@ public class GetSentiment {
 
 ### <a name="sentiment-analysis-response"></a>Svar vid attitydanalys
 
-Resultatet mäts som positivt om det görs närmare 1,0 och negativt om det görs närmare 0,0.
+Resultatet mäts som positivt om det beräknas närmare 1,0 och negativt om det beräknas närmare 0,0.
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
 ```json
@@ -352,11 +352,11 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från ett textdokument, med metoden [Key Phrases](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) (Diskussionsämnen). I följande exempel extraheras diskussionsämnen för både engelska och spanska dokument.
 
-1. Skapa ett nytt Java-projekt i din favorit-IDE (eller ny mapp på skrivbordet). Skapa en klass `GetKeyPhrases.java`i den som kallas .
-1. Lägg till koden nedan till din klass.
-1. Kopiera textanalysnyckeln och slutpunkten till koden. 
-1. Kontrollera att du har [Gson-biblioteket](https://github.com/google/gson) installerat.
-1. Kör programmet i din IDE eller använd kommandoraden för att köra (instruktioner i koden kommentarer).
+1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass i den kallas `GetKeyPhrases.java`.
+1. Lägg till den kod som anges nedan till din-klass.
+1. Kopiera Textanalys nyckel och slut punkt till koden. 
+1. Kontrol lera att du har [Gson](https://github.com/google/gson) -biblioteket installerat.
+1. Kör programmet i IDE-nätverket eller Använd kommando raden för att köra (anvisningar i kod kommentarerna).
 
 ```java
 import java.io.*;
@@ -515,13 +515,13 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="identify-entities"></a>Identifiera entiteter
 
-API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraherar ord från text, som "USA", och ger dig sedan typ- och/eller Wikipedia-länken för det här ordet. Typen för "USA" `location`är , medan länken `https://en.wikipedia.org/wiki/United_States`till Wikipedia är .  I följande exempel identifieras entiteter för engelska dokument.
+API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraherar ord från text, t. ex. "USA", och ger dig sedan typen och/eller Wikipedia-länken för dessa ord. Typen för "USA" är `location`, medan länken till Wikipedia är. `https://en.wikipedia.org/wiki/United_States`  I följande exempel identifieras entiteter för engelska dokument.
 
-1. Skapa ett nytt Java-projekt i din favorit-IDE (eller ny mapp på skrivbordet). Skapa en klass `GetEntities.java`i den med namnet .
-1. Lägg till koden nedan till din klass.
-1. Kopiera textanalysnyckeln och slutpunkten till koden. 
-1. Kontrollera att du har [Gson-biblioteket](https://github.com/google/gson) installerat.
-1. Kör programmet i din IDE eller använd kommandoraden för att köra (instruktioner i koden kommentarer).
+1. Skapa ett nytt Java-projekt i din favorit IDE (eller nya mapp på Skriv bordet). Skapa en klass i den med `GetEntities.java`namnet.
+1. Lägg till den kod som anges nedan till din-klass.
+1. Kopiera Textanalys nyckel och slut punkt till koden. 
+1. Kontrol lera att du har [Gson](https://github.com/google/gson) -biblioteket installerat.
+1. Kör programmet i IDE-nätverket eller Använd kommando raden för att köra (anvisningar i kod kommentarerna).
 
 ```java
 import java.io.*;
@@ -692,4 +692,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="see-also"></a>Se även
 
  [Översikt över Textanalys](../overview.md)  
- [Vanliga frågor och svar (Vanliga frågor)](../text-analytics-resource-faq.md)
+ [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)

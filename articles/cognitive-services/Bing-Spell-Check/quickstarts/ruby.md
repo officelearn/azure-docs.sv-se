@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Kontrollera stavning med REST API och Ruby - Bing Stavningskontroll'
+title: 'Snabb start: kontrol lera stavningen med REST API och ruby-Stavningskontroll i Bing'
 titleSuffix: Azure Cognitive Services
-description: Kom igång med REST-API:et för stavningskontroll för stavningskontroll för att kontrollera stavning och grammatik med den här snabbstarten.
+description: Kom igång med Stavningskontroll i Bing REST API för att kontrol lera stavning och grammatik med den här snabb starten.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
 ms.openlocfilehash: 89a2a345e2a4e3ca1be31297e614e86f800e6316
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75448422"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Snabbstart: Kontrollera stavning med Bing Stavningskontroll REST API och Ruby
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och ruby
 
 Använd den här snabbstarten för att skicka ditt första anrop till REST API för stavningskontroll i Bing med hjälp av Ruby. Det här enkla programmet skickar en begäran till API:et och returnerar en lista över ord som det inte kände igen följt av föreslagna korrigeringar. Även om det här programmet är skrivet i Ruby, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
 
@@ -38,7 +38,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till REST API f
     require 'json'
     ```
 
-2. Skapa variabler för din prenumerationsnyckel, slutpunkts-URI och sökväg. Skapa dina begärandeparametrar genom att lägga till parametern `mkt=` i din marknad samt `&mode` till bevisläget `proof`. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
+2. Skapa variabler för din prenumerationsnyckel, slutpunkts-URI och sökväg. Skapa dina begärandeparametrar genom att lägga till parametern `mkt=` i din marknad samt `&mode` till bevisläget `proof`. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -49,7 +49,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till REST API f
 
 ## <a name="send-a-spell-check-request"></a>Skicka en begäran om stavningskontroll
 
-1. Skapa en URI från din värd-URI, sökväg och parametersträng. Ange att frågan ska innehålla den text som du vill stavningskontrollen.
+1. Skapa en URI från din värd-URI, sökväg och parametersträng. Ange att frågan ska innehålla den text som du vill stavnings kontrol lera.
 
    ```ruby
    uri = URI(uri + path + params)
@@ -84,9 +84,9 @@ Använd den här snabbstarten för att skicka ditt första anrop till REST API f
 
 ## <a name="run-the-application"></a>Köra appen
 
-Bygg och kör ditt projekt.
+Skapa och kör ditt projekt.
 
-Om du använder kommandoraden använder du följande kommando för att köra programmet.
+Om du använder kommando raden använder du följande kommando för att köra programmet.
 
 ```bash
 ruby <FILE_NAME>.rb
@@ -139,5 +139,5 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en webbapp med en sida](../tutorials/spellcheck.md)
 
-- [Vad är API:et för stavningskontroll i Bing?](../overview.md)
+- [Vad är API för stavningskontroll i Bing?](../overview.md)
 - [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

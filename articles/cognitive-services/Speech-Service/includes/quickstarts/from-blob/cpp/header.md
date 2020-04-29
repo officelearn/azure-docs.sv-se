@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Känna igen tal som lagras i bloblagring, C++ - Taltjänst'
+title: 'Snabb start: identifiera tal som lagras i Blob Storage, C++-tal service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 ms.openlocfilehash: 2bc38b75a5239e31eb98dab94989e6dc15b3fbf1
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75469909"
 ---
-Om du föredrar att hoppa in direkt kan du visa eller hämta alla <a href="https://aka.ms/speech/github-cpp">Tal SDK C++-exempel</a> på GitHub. Annars sätter vi igång.
+Om du föredrar att gå direkt till, Visa eller hämta alla <a href="https://aka.ms/speech/github-cpp">exempel på tal-SDK C++</a> på GitHub. Annars sätter vi igång.

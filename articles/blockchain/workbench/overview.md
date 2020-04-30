@@ -1,19 +1,19 @@
 ---
-title: Förhandsöversikt över Azure Blockchain Workbench
-description: Översikt över förhandsversionen av Azure Blockchain Workbench och dess funktioner.
+title: Översikt över Azure blockchain Workbench Preview
+description: Översikt över Azure blockchain Workbench Preview och dess funktioner.
 ms.date: 09/05/2019
 ms.topic: overview
 ms.reviewer: brendal
 ms.openlocfilehash: 162626ba2303ab04bd2963a5add61c556615ebec
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79203652"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Vad är Azure Blockchain Workbench?
 
-Azure Blockchain Workbench Preview är en samling Azure-tjänster och funktioner som utformats för att hjälpa dig att skapa och distribuera blockchain-program för att dela affärsprocesser och data med andra organisationer. Azure Blockchain Workbench tillhandahåller infrastrukturen för att skapa blockkedjeprogram och gör det möjligt för utvecklarna att fokusera på att skapa affärslogik och smarta kontrakt. Dessutom blir det enklare att skapa blockkedjeprogram genom att integrera flera Azure-tjänster och funktioner så att vanliga utvecklingsuppgifter kan automatiseras.
+Azure blockchain Workbench Preview är en samling Azure-tjänster och-funktioner som är utformade för att hjälpa dig att skapa och distribuera blockchain-program för att dela affärs processer och data med andra organisationer. Azure Blockchain Workbench tillhandahåller infrastrukturen för att skapa blockkedjeprogram och gör det möjligt för utvecklarna att fokusera på att skapa affärslogik och smarta kontrakt. Dessutom blir det enklare att skapa blockkedjeprogram genom att integrera flera Azure-tjänster och funktioner så att vanliga utvecklingsuppgifter kan automatiseras.
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
@@ -29,7 +29,7 @@ Azure Blockchain Workbench innehåller ett webbprogram och REST API:er för att 
 
 Du kan integrera med befintliga system genom att använda Blockchain Workbench REST API:er och meddelandebaserade API:er. API:erna tillhandahåller ett gränssnitt som gör det möjligt att ersätta eller använda flera tekniker för distribuerad redovisning, lagring och databaserbjudanden.
 
-Blockchain Workbench kan omvandla meddelanden som skickas till dess meddelandebaserade API för att skapa transaktioner i ett format som förväntas av den blockkedjans inbyggda API.  Workbench kan logga in och vidarebefordra transaktioner till lämplig blockkedja. 
+Blockchain Workbench kan omvandla meddelanden som skickas till dess meddelandebaserade API för att bygga transaktioner i ett format som förväntas av den blockchain inbyggda API: et.  Workbench kan logga in och vidarebefordra transaktioner till lämplig blockkedja. 
 
 Workbench levererar automatiskt händelser till Service Bus och Event Grid så att meddelanden kan skickas till underordnade konsumenter. Utvecklarna kan integrera med endera av dessa meddelandesystem för att driva transaktioner och studera resultaten.
 
@@ -43,21 +43,21 @@ Med befintliga blockkedjeprotokoll representeras blockkedjeidentiteterna som en 
 
 ## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>Synkronisera kedjedata med lagring utanför kedjan
 
-Azure Blockchain Workbench gör det lättare att analysera blockkedjehändelser och data genom att automatiskt synkronisera data i blockkedjan med lagring utanför kedjan. I stället för att extrahera data direkt från blockkedjan kan du fråga databassystem utanför kedjan som t.ex. SQL Server. Blockchain-expertis krävs inte för slutanvändare som utför dataanalysuppgifter.
+Azure Blockchain Workbench gör det lättare att analysera blockkedjehändelser och data genom att automatiskt synkronisera data i blockkedjan med lagring utanför kedjan. I stället för att extrahera data direkt från blockkedjan kan du fråga databassystem utanför kedjan som t.ex. SQL Server. Blockchain-expertis krävs inte för slutanvändare som utför data analys uppgifter.
 
 ## <a name="support-and-feedback"></a>Support och feedback
 
-För Azure Blockchain-nyheter kan du besöka [Azure Blockchain-bloggen](https://azure.microsoft.com/blog/topics/blockchain/) för att hålla dig uppdaterad om blockchain-tjänsterbjudanden och information från Azure Blockchain-teknikteamet.
+För Azure blockchain News går du till [Azure blockchain-bloggen](https://azure.microsoft.com/blog/topics/blockchain/) för att hålla dig uppdaterad om blockchain service-erbjudanden och information från Azures teknik team för blockchain.
 
-Om du vill ge produktfeedback eller begära nya funktioner kan du rösta på en idé via [Azures feedbackforum för blockchain](https://aka.ms/blockchainuservoice).
+För att ge feedback på produkter eller för att begära nya funktioner, röst post för en idé via [Azure feedback-forumet för blockchain](https://aka.ms/blockchainuservoice).
 
 ### <a name="community-support"></a>Community-support
 
-Samarbeta med Microsoft-tekniker och Azure Blockchain-communityexperter.
+Engagera med Microsoft-tekniker och Azure blockchain community-experter.
 
-* [Azure Blockchain MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
+* [Azure blockchain MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
-* [Stackspill](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,10 +10,10 @@ ms.topic: overview
 ms.date: 09/17/2019
 ms.author: alkohli
 ms.openlocfilehash: a3e27cf427de3a33f71d6f4a0af9b1590abeb573
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240718"
 ---
 # <a name="what-is-azure-data-box"></a>Vad är Azure Data Box?
@@ -109,9 +109,9 @@ Under den här processen meddelas du via e-post om alla statusändringar. Mer in
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Data Box kan överföra data baserat på den region där tjänsten distribueras, land/region dit enheten levereras och målet Azure-lagringskonto där du överför data. 
+Data Box-enhet kan överföra data baserat på den region där tjänsten distribueras, land/region dit enheten levereras och det Azure Storage-konto som du överför data till. 
 
-- **Tjänsttillgänglighet** – Information om regiontillgänglighet finns i [Azure-produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box kan också distribueras i Azure Government Cloud. Mer information finns i [Vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Tjänst tillgänglighet** – information om regions tillgänglighet finns i [Azure-produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box-enhet kan också distribueras i Azure Government molnet. Mer information finns i [Vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
 - **Destinationslagringskonton** – de lagringskonton som lagrar data som är tillgängliga i alla Azure-regioner där tjänsten är tillgänglig.  
 

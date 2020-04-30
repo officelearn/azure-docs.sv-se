@@ -1,22 +1,22 @@
 ---
-title: Hanterad tjänstkatalog hanterad app
+title: Publicera hanterad app för tjänst katalog
 description: Visar hur du skapar ett Azure-hanterat program som är avsett för medlemmar i din organisation.
 author: tfitzmac
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: 48aaca64949aafecff27c76ad7572b3c2fa44732
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81391509"
 ---
-# <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Snabbstart: Skapa och publicera en hanterad programdefinition
+# <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Snabb start: skapa och publicera en definition för ett hanterat program
 
-Den här snabbstarten ger en introduktion till hur du arbetar med [Azure Managed Applications](overview.md). Du kan skapa och publicera ett hanterat program som är avsett för medlemmar i organisationen.
+Den här snabb starten ger en introduktion till att arbeta med [Azure Managed Applications](overview.md). Du kan skapa och publicera ett hanterat program som är avsett för medlemmar i din organisation.
 
-Om du vill publicera ett hanterat program i tjänstkatalogen måste du:
+Om du vill publicera ett hanterat program i tjänst katalogen måste du:
 
 * Skapa en mall som definierar resurserna som ska distribueras med det hanterade programmet.
 * Definiera användargränssnittselementen för portalen när du distribuerar det hanterade programmet.
@@ -26,7 +26,7 @@ Om du vill publicera ett hanterat program i tjänstkatalogen måste du:
 
 ## <a name="create-the-arm-template"></a>Skapa ARM-mallen
 
-Alla definitioner för hanterade program innehåller en fil med namnet **mainTemplate.json**. I den filen definierar du Azure-resurserna som ska distribueras. Mallen skiljer sig inte från en vanlig AZURE Resource Manager -mall (ARM).
+Alla definitioner för hanterade program innehåller en fil med namnet **mainTemplate.json**. I den filen definierar du Azure-resurserna som ska distribueras. Mallen är inte en annan än en vanlig Azure Resource Manager-mall (ARM).
 
 Skapa en fil med namnet **mainTemplate.json**. Namnet är skiftlägeskänsligt.
 
@@ -77,11 +77,11 @@ Spara filen mainTemplate.json.
 
 ## <a name="define-your-create-experience"></a>Definiera din skapa upplevelse
 
-Som utgivare definierar du portalupplevelsen för att skapa det hanterade programmet. Filen **createUiDefinition.json** genererar portalgränssnittet. Du definierar hur användare anger indata för varje parameter med hjälp av [kontrollelement,](create-uidefinition-elements.md) inklusive listrutor, textrutor och lösenordsrutor.
+Som utgivare definierar du Portal upplevelsen för att skapa det hanterade programmet. **CreateUiDefinition. JSON** -filen genererar Portal gränssnittet. Du definierar hur användare anger indatatyper för varje parameter med [kontroll element](create-uidefinition-elements.md) , inklusive List rutor, text rutor och lösen ord.
 
-Skapa en fil med namnet **createUiDefinition.json** (Det här namnet är skiftlägeskänsligt)
+Skapa en fil med namnet **createUiDefinition. JSON** (detta namn är Skift läges känsligt)
 
-Lägg till följande startspelare JSON i filen och spara den.
+Lägg till följande start-JSON i filen och spara den.
 
 ```json
 {
@@ -138,7 +138,7 @@ Mer information finns i [Kom igång med CreateUiDefinition](create-uidefinition-
 
 Lägg till de två filerna i en ZIP-fil med namnet app.zip. Båda filerna måste ligga på rotnivå i ZIP-filen. Om du lägger dem i en mapp får du ett felmeddelande när du skapar definitionen för det hanterade programmet, som anger att de nödvändiga filerna saknas.
 
-Ladda upp paketet till en tillgänglig plats som det kan användas från. Du måste ange ett unikt namn för lagringskontot.
+Ladda upp paketet till en tillgänglig plats som det kan användas från. Du måste ange ett unikt namn för lagrings kontot.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -194,7 +194,7 @@ az storage blob upload \
 
 ### <a name="create-an-azure-active-directory-user-group-or-application"></a>Skapa en Azure Active Directory-användargrupp eller ett Azure Active Directory-program
 
-Nästa steg är att välja en användargrupp, användare eller ett program för att hantera resurserna för kunden. Den här identiteten har behörigheter på den hanterade resursgruppen enligt den roll som är tilldelad. Rollen kan vara en inbyggd roll för rollbaserad åtkomstkontroll (RBAC) som Ägare eller Deltagare. Information om hur du skapar en ny Active Directory-användargrupp finns i [Skapa en grupp och lägga till medlemmar i Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+Nästa steg är att välja en användar grupp, användare eller ett program för att hantera resurser för kunden. Den här identiteten har behörigheter på den hanterade resursgruppen enligt den roll som är tilldelad. Rollen kan vara en inbyggd roll för rollbaserad åtkomstkontroll (RBAC) som Ägare eller Deltagare. Information om hur du skapar en ny Active Directory-användargrupp finns i [Skapa en grupp och lägga till medlemmar i Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Du behöver objekt-ID:t för den användargrupp som du vill använda för att hantera resurser. 
 
@@ -288,38 +288,38 @@ När kommandot har slutförts har du en definition för det hanterade programmet
 
 Några av de parametrar som användes i det föregående exemplet är:
 
-* **resursgrupp**: Namnet på den resursgrupp där den hanterade programdefinitionen skapas.
-* **låsnivå**: Den typ av lås som placeras på den hanterade resursgruppen. Det förhindrar kunden från att utföra oönskade åtgärder på den här resursgruppen. ReadOnly stöds för närvarande endast på låsnivå. När ReadOnly har angivits kan kunden endast läsa resurser som finns i den hanterade resursgruppen. Utgivaridentiteter som beviljas åtkomst till den hanterade resursgruppen är undantagna från låset.
+* **resurs grupp**: namnet på resurs gruppen där definitionen för det hanterade programmet skapas.
+* **Lås nivå**: typen av lås som placerats i den hanterade resurs gruppen. Det förhindrar kunden från att utföra oönskade åtgärder på den här resursgruppen. ReadOnly stöds för närvarande endast på låsnivå. När ReadOnly har angivits kan kunden endast läsa resurser som finns i den hanterade resursgruppen. Utgivaridentiteter som beviljas åtkomst till den hanterade resursgruppen är undantagna från låset.
 * **auktorisering**: Beskriver huvudkontots ID och rolldefinitions-ID som används för att ge behörigheter till den hanterade resursgruppen. Det anges i formatet `<principalId>:<roleDefinitionId>`. Om det krävs fler än ett värde anger du dem i formatet `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Värdena avgränsas med ett blanksteg.
-* **paketfil URI**: Platsen för ett ZIP-paket som innehåller de nödvändiga filerna.
+* **paket filens URI**: platsen för ett. zip-paket som innehåller de filer som krävs.
 
-## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Ta med egen lagring för den hanterade programdefinitionen
+## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Ta med din egen lagring för definitionen av det hanterade programmet
 
-Du kan välja att lagra den hanterade programdefinitionen i ett lagringskonto som du tillhandahåller när du skapar så att dess plats och åtkomst kan hanteras fullständigt av dig för dina lagstadgade behov.
+Du kan välja att lagra definitionen för det hanterade programmet i ett lagrings konto som du har angett under skapandet, så att dess plats och åtkomst kan hanteras helt av dig enligt dina krav.
 
 > [!NOTE]
-> Ta med din egen lagring stöds endast med ARM-mall eller REST API-distributioner av den hanterade programdefinitionen.
+> Det finns bara stöd för att ta med din egen lagring med ARM-mall eller REST API distributioner av definitionen för hanterade program.
 
-### <a name="select-your-storage-account"></a>Välj ditt lagringskonto
+### <a name="select-your-storage-account"></a>Välj ditt lagrings konto
 
-Du måste [skapa ett lagringskonto](../../storage/common/storage-account-create.md) för att innehålla den hanterade programdefinitionen för användning med Service Catalog.
+Du måste [skapa ett lagrings konto](../../storage/common/storage-account-create.md) som innehåller din definition av hanterade program för användning med tjänst katalogen.
 
-Kopiera lagringskontots resurs-ID. Den kommer att användas senare när du distribuerar definitionen.
+Kopiera lagrings kontots resurs-ID. Den kommer att användas senare när du distribuerar definitionen.
 
-### <a name="set-the-role-assignment-for-appliance-resource-provider-in-your-storage-account"></a>Ange rolltilldelning för "Leverantör av apparatresurser" i ditt lagringskonto
+### <a name="set-the-role-assignment-for-appliance-resource-provider-in-your-storage-account"></a>Ange roll tilldelningen för "utrustnings resurs leverantör" i ditt lagrings konto
 
-Innan den hanterade programdefinitionen kan distribueras till ditt lagringskonto måste du ge deltagarbehörighet till rollen **Resursprovider** för apparat så att den kan skriva definitionsfilerna till lagringskontots behållare.
+Innan din definition av hanterade program kan distribueras till ditt lagrings konto måste du ge deltagar behörighet till enhets **resurs leverantörs** rollen så att den kan skriva definitions filerna till lagrings kontots behållare.
 
-1. Navigera till ditt lagringskonto i [Azure-portalen.](https://portal.azure.com)
-1. Välj **Åtkomstkontroll (IAM)** om du vill visa åtkomstkontrollinställningarna för lagringskontot. Välj fliken **Rolltilldelningar** om du vill visa listan över rolltilldelningar.
-1. Välj rollen **Deltagare** i fönstret **Lägg till rolltilldelning.** 
-1. Välj **Azure AD-användare, grupp eller tjänsthuvudnamn**i fältet **Tilldela åtkomst till.**
-1. Sök efter rollen Resursleverantör för **apparat** under **Välj**och välj den.
-1. Spara rolltilldelningen.
+1. I [Azure Portal](https://portal.azure.com)navigerar du till ditt lagrings konto.
+1. Välj **åtkomst kontroll (IAM)** om du vill visa inställningarna för åtkomst kontroll för lagrings kontot. Välj fliken **roll tilldelningar** om du vill se en lista över roll tilldelningar.
+1. I fönstret **Lägg till roll tilldelning** väljer du rollen **deltagare** . 
+1. I fältet **tilldela åtkomst till väljer du** **Azure AD-användare, grupp eller tjänstens huvud namn**.
+1. Under **Välj**, söker du efter enhets **resurs leverantörs** rollen och markerar den.
+1. Spara roll tilldelningen.
 
-### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Distribuera den hanterade programdefinitionen med en ARM-mall 
+### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Distribuera den hanterade program definitionen med en ARM-mall 
 
-Använd följande ARM-mall för att distribuera det paketerade hanterade programmet som en ny hanterad programdefinition i Service Catalog vars definitionsfiler lagras och underhålls i ditt eget lagringskonto:
+Använd följande ARM-mall för att distribuera ditt paketerade hanterade program som en ny definition för hanterade program i tjänst katalogen vars definitionsfiler lagras och bevaras i ditt eget lagrings konto:
    
 ```json
     {
@@ -391,12 +391,12 @@ Använd följande ARM-mall för att distribuera det paketerade hanterade program
 }
 ```
 
-Vi har lagt till en ny egenskap med namnet **storageAccountId** till din applicationDefintions egenskaper och tillhandahåller lagringskonto-ID som du vill lagra din definition i som värde:
+Vi har lagt till en ny egenskap med namnet **storageAccountId** i dina applicationDefintion egenskaper och ange det lagrings konto-ID som du vill lagra definitionen i som dess värde:
 
-Du kan kontrollera att programdefinitionsfilerna sparas i det angivna lagringskontot i en behållare med namnet **applicationdefinitions**.
+Du kan kontrol lera att programdefinitions-filerna sparas i det tillhandahållna lagrings kontot i en behållare med namnet **applicationdefinitions**.
 
 > [!NOTE]
-> För ökad säkerhet kan du skapa en definition av hanterade program lagra den i en [Azure storage account-blob där kryptering är aktiverad](../../storage/common/storage-service-encryption.md). Definitionsinnehållet krypteras via lagringskontots krypteringsalternativ. Endast användare med behörighet till filen kan se definitionen i Service Catalog.
+> För ökad säkerhet kan du skapa en definition för hanterade program i en [Azure Storage-konto-BLOB där kryptering är aktiverat](../../storage/common/storage-service-encryption.md). Definitions innehållet krypteras via lagrings kontots krypterings alternativ. Endast användare med behörighet till filen kan se definitionen i tjänst katalogen.
 
 ## <a name="make-sure-users-can-see-your-definition"></a>Kontrollera att användare kan se din definition
 

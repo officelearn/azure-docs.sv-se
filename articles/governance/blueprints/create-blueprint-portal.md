@@ -1,18 +1,18 @@
 ---
-title: 'Snabbstart: Skapa en skiss i portalen'
-description: I den här snabbstarten använder du Azure Blueprints för att skapa, definiera och distribuera artefakter via Azure-portalen.
+title: 'Snabb start: skapa en skiss i portalen'
+description: I den här snabb starten använder du Azure-ritningar för att skapa, definiera och distribuera artefakter via Azure Portal.
 ms.date: 03/25/2020
 ms.topic: quickstart
 ms.openlocfilehash: dd50b1833f16d364a4494483fcccfee017bb982b
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81381895"
 ---
-# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Snabbstart: Definiera och tilldela en skiss i portalen
+# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Snabb start: definiera och tilldela en skiss i portalen
 
-När du lär dig hur du skapar och tilldelar ritningar kan du definiera vanliga mönster för att utveckla återanvändbara och snabbt distribuerade konfigurationer baserat på Azure Resource Manager-mallar, principer, säkerhet med mera. I den här självstudien lär du dig att använda Azure Blueprints för att utföra några av de vanliga uppgifterna som är relaterade till att skapa, publicera och tilldela en skiss inom organisationen. Dessa uppgifter omfattar:
+När du lär dig hur du skapar och tilldelar ritningar kan du definiera vanliga mönster för att utveckla återanvändbara och snabbt distributions bara konfigurationer baserat på Azure Resource Manager mallar, principer, säkerhet och mycket annat. I den här självstudien får du lära dig att använda Azure-ritningar för att utföra några av de vanligaste uppgifterna för att skapa, publicera och tilldela en skiss i din organisation. Följande uppgifter är:
 
 ## <a name="prerequisites"></a>Krav
 
@@ -20,76 +20,76 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="create-a-blueprint"></a>Skapa en skiss
 
-Det första steget när du definierar ett standardmönster för efterlevnad är att skapa en skiss från de tillgängliga resurserna. I det här exemplet skapar du en ny skiss med namnet **MyBlueprint** för att konfigurera roll- och principtilldelningar för prenumerationen. Lägg sedan till en ny resursgrupp och skapa en Resource Manager-mall och rolltilldelning i den nya resursgruppen.
+Det första steget när du definierar ett standardmönster för efterlevnad är att skapa en skiss från de tillgängliga resurserna. I det här exemplet skapar du en ny skiss som heter min **skiss** för att konfigurera roll-och princip tilldelningar för prenumerationen. Lägg sedan till en ny resurs grupp och skapa en Resource Manager-mall och roll tilldelning i den nya resurs gruppen.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Välj **Skissdefinitioner** från sidan till vänster och välj knappen **+ Skapa skiss** högst upp på sidan.
+1. Välj **skiss definitioner** på sidan till vänster och välj knappen **+ skapa skiss** överst på sidan.
 
-   Du kan också välja **Skapa** på sidan **Komma igång** för att gå direkt till att skapa en skiss.
+   Eller Välj **skapa** från sidan **komma igång** för att gå direkt till att skapa en skiss.
 
-   :::image type="content" source="./media/create-blueprint-portal/create-blueprint-button.png" alt-text="Skapa en skiss från sidan Skissdefinitioner" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/create-blueprint-button.png" alt-text="Skapa en skiss från sidan skiss definitioner" border="false":::
 
-1. Välj **Börja med tom skiss** från kortet högst upp i listan med inbyggda ritningar.
+1. Välj **börja med en tom skiss** från kortet överst i listan med inbyggda ritningar.
 
-1. Ange ett **blueprint-namn** som **MyBlueprint**. (Använd upp till 48 bokstäver och siffror, men inga blanksteg eller specialtecken). Lämna **skissbeskrivningen** tom för tillfället.
+1. Ange ett **skiss namn** , till exempel min **skiss**. (Använd upp till 48 bokstäver och siffror, men inga blank steg eller specialtecken). Lämna **skiss beskrivningen** tom för tillfället.
 
-1. I rutan **Definitionsplats** väljer du ellipsen till höger, väljer den [hanteringsgrupp](../management-groups/overview.md) eller prenumeration där du vill spara skissen och väljer **Välj**.
+1. I rutan **definitions plats** väljer du ellipsen till höger, väljer [hanterings gruppen](../management-groups/overview.md) eller prenumerationen där du vill spara skissen och väljer **Välj**.
 
-1. Kontrollera att informationen är korrekt. Det går inte att ändra fälten **Skissnamn** och **Definitionsplats** senare. Välj sedan **Nästa: Artefakter** längst ned på sidan eller fliken **Artefakter** högst upp på sidan.
+1. Kontrol lera att informationen är korrekt. Fälten **skiss namn** och **definitions plats** kan inte ändras senare. Välj sedan **Nästa: artefakter** längst ned på sidan eller på fliken **artefakter** högst upp på sidan.
 
-1. Lägg till en rolltilldelning på prenumerationsnivå:
+1. Lägg till en roll tilldelning på prenumerations nivån:
 
-   1. Välj raden **+ Lägg till artefakt** under **Prenumeration**. **Fönstret Lägg till artefakt** öppnas till höger i webbläsaren.
+   1. Välj raden **+ Lägg till artefakt** under **prenumeration**. Fönstret **Lägg till artefakt** öppnas på höger sida av webbläsaren.
 
-   1. Välj **Rolltilldelning** för **artefakttyp**.
+   1. Välj **roll tilldelning** för **artefakt typ**.
 
-   1. Under **Roll**väljer du **Deltagare**. Lämna rutan **Lägg till användare, app eller grupp** med kryssrutan som anger en dynamisk parameter.
+   1. Under **roll**väljer du **deltagare**. Lämna rutan **Lägg till användare, app eller grupp** med kryss rutan som anger en dynamisk parameter.
 
-   1. Välj **Lägg till** om du vill lägga till den här artefakten i skissen.
+   1. Välj **Lägg** till för att lägga till den här artefakten i skissen.
 
-   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment.png" alt-text="Rolltilldelning för en skissartefakt" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment.png" alt-text="Roll tilldelning för en skiss artefakt" border="false":::
 
    > [!NOTE]
-   > De flesta artefakter stöder parametrar. En parameter som har tilldelats ett värde när skiss skapas är en _statisk parameter_. Om parametern tilldelas under skisstilldelningen är det en _dynamisk parameter_. Mer information finns i [Skissparametrar](./concepts/parameters.md).
+   > De flesta artefakter stöder parametrar. En parameter som tilldelas ett värde när skissen skapas är en _statisk parameter_. Om parametern tilldelas under skiss tilldelningen, är det en _dynamisk parameter_. Mer information finns i [skiss parametrar](./concepts/parameters.md).
 
-1. Lägg till en principtilldelning på prenumerationsnivå:
+1. Lägg till en princip tilldelning på prenumerations nivån:
 
-   1. Välj raden **+ Lägg till artefakt** under rolltilldelningsartefakten.
+   1. Välj raden **+ Lägg till artefakt** under roll tilldelnings artefakten.
 
-   1. Välj **Principtilldelning** för **artefakttyp**.
+   1. Välj **princip tilldelning** för **artefakt typ**.
 
-   1. Ändra **typ** till **inbyggd**. Skriv **taggen**i **Sök**.
+   1. Ändra **typ** till **inbyggd**. I **Sök**anger du **tagg**.
 
-   1. Klicka på **Sök** om du vill genomföra filtrering. Välj **Lägg till-tagg och dess standardvärde i resursgrupper**.
+   1. Klicka på **Sök** om du vill genomföra filtrering. Välj **Lägg till tagg och dess standardvärde till resurs grupper**.
 
-   1. Välj **Lägg till** om du vill lägga till den här artefakten i skissen.
+   1. Välj **Lägg** till för att lägga till den här artefakten i skissen.
 
-1. Markera raden för **taggen Lägg till tilläggsbelägger för principtilldelning och dess standardvärde för resursgrupper**.
+1. Välj raden för princip tilldelningens **Lägg till-tagg och dess standardvärde till resurs grupper**.
 
-1. Det fönster där du kan ange parametrar för att artefakten som en del av skissdefinitionen öppnas, så att du kan ange parametrar för alla tilldelningar (statiska parametrar) baserade på den här skissen istället för under tilldelningen (dynamiska parametrar). I det här exemplet används dynamiska parametrar under skisstilldelning, så lämna standardvärdena och välj **Avbryt**.
+1. Det fönster där du kan ange parametrar för att artefakten som en del av skissdefinitionen öppnas, så att du kan ange parametrar för alla tilldelningar (statiska parametrar) baserade på den här skissen istället för under tilldelningen (dynamiska parametrar). I det här exemplet används dynamiska parametrar under skiss tilldelningen, så lämna standardvärdena och välj **Avbryt**.
 
-1. Lägg till en resursgrupp på prenumerationsnivå:
+1. Lägg till en resurs grupp på prenumerations nivån:
 
-   1. Välj raden **+ Lägg till artefakt** under **Prenumeration**.
+   1. Välj raden **+ Lägg till artefakt** under **prenumeration**.
 
-   1. Välj **resursgrupp** för **artefakttyp**.
+   1. Välj **resurs grupp** för **artefakt typ**.
 
-   1. Lämna rutorna **Artefaktnamn,** **Resursgruppnamn**och **Plats** tomma, men kontrollera att kryssrutan är markerad för varje parameteregenskap för att göra dem dynamiska parametrar.
+   1. Lämna rutorna för **artefakt visnings namn**, **resurs grupp namn**och **plats** tomma, men se till att kryss rutan är markerad för varje parameter egenskap för att göra dem dynamiska parametrar.
 
-   1. Välj **Lägg till** om du vill lägga till den här artefakten i skissen.
+   1. Välj **Lägg** till för att lägga till den här artefakten i skissen.
 
-1. Lägg till en mall under resursgruppen:
+1. Lägg till en mall under resurs gruppen:
 
-   1. Markera raden **+ Lägg till artefakt** under posten **ResourceGroup.**
+   1. Välj raden **+ Lägg till artefakt** under posten **ResourceGroup** .
 
-   1. Välj **Azure Resource Manager-mall** för **artefakttyp,** ange **artefaktvisningsnamn** till **StorageAccount**och lämna **Beskrivning** tom.
+   1. Välj **Azure Resource Manager mall** för **artefakt typ**, ange **artefakt visnings namnet** till **StorageAccount**och lämna **beskrivningen** tom.
 
    1. Klistra in följande Resource Manager-mall i redigeringsrutan på fliken **Mall**.
-      När du har klistrat in mallen väljer du fliken **Parametrar** och noterar att mallparametrarna **storageAccountType** och **plats** har identifierats. Varje parameter har identifierades och fylldes i automatiskt, men konfigurerades som en dynamisk parameter.
+      När du har klistrat in mallen väljer du fliken **parametrar** och Observera att parametrarna **storageAccountType** och **location** har identifierats. Varje parameter har identifierades och fylldes i automatiskt, men konfigurerades som en dynamisk parameter.
 
       > [!IMPORTANT]
-      > Om du importerar mallen kontrollerar du att filen bara är JSON och inte innehåller HTML. När du pekar på en URL på GitHub kontrollerar du att du har valt **RAW** för att få den rena JSON-filen och inte den som är insvept med HTML för visning på GitHub. Ett fel inträffar om den importerade mallen inte är ren JSON.
+      > Om du importerar mallen kontrollerar du att filen endast är JSON och inkluderar inte HTML. När du pekar på en URL på GitHub bör du se till att du har valt **RAW** för att hämta den rena JSON-filen och inte den som är FIGURSATT med HTML för visning på GitHub. Ett fel inträffar om den importerade mallen inte är ren JSON.
 
       ```json
       {
@@ -140,72 +140,72 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
       }
       ```
 
-   1. Avmarkera kryssrutan **storageAccountType** och observera att listrutan endast innehåller värden som ingår i resource manager-mallen under **allowedValues**. Markera rutan om du vill ställa tillbaka den till en dynamisk parameter.
+   1. Avmarkera kryss rutan **storageAccountType** och Observera att den nedrullningsbara listan bara innehåller värden som ingår i Resource Manager-mallen under **allowedValues**. Markera rutan för att återställa den till en dynamisk parameter.
 
-   1. Välj **Lägg till** om du vill lägga till den här artefakten i skissen.
+   1. Välj **Lägg** till för att lägga till den här artefakten i skissen.
 
-   :::image type="content" source="./media/create-blueprint-portal/add-resource-manager-template.png" alt-text="Resource Manager-mall för skissartefakten" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/add-resource-manager-template.png" alt-text="Resource Manager-mall för skiss artefakten" border="false":::
 
-1. Din färdiga skiss bör se ut som i det följande. Observera att varje artefakt har ** _x_ av _y_ parametrar som fylls** i kolumnen **Parametrar.** De dynamiska parametrarna anges vid varje tilldelning av skissen.
+1. Din färdiga skiss bör se ut som i det följande. Observera att varje artefakt har ** _x_ out of _y_ -parametrar** som är ifylld i kolumnen **parametrar** . De dynamiska parametrarna anges vid varje tilldelning av skissen.
 
-   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint.png" alt-text="Slutförd skissdefinition" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/completed-blueprint.png" alt-text="Färdig skiss definition" border="false":::
 
 1. Nu när alla planerade artefakter har lagts till väljer du **Spara utkast** längst ned på sidan.
 
 ## <a name="edit-a-blueprint"></a>Redigera en skiss
 
-I [Skapa en skiss](#create-a-blueprint)har du inte en beskrivning eller lagt till rolltilldelningen i den nya resursgruppen. Du kan åtgärda båda genom att följa dessa steg:
+I [skapa en skiss](#create-a-blueprint)angav du inte någon beskrivning eller lägger till roll tilldelningen i den nya resurs gruppen. Du kan åtgärda båda genom att följa dessa steg:
 
 1. Välj **Skissdefinitioner** till vänster på sidan.
 
-1. Högerklicka på den som du tidigare skapade i listan över ritningar och välj **Redigera skiss**.
+1. I listan över skisser högerklickar du på den som du skapade tidigare och väljer **Redigera skiss**.
 
-1. I **Skissbeskrivning** anger du information om skissen och de artefakter som ingår i den. I det här fallet anger du något i stil med: **Den här skissen anger taggprincip och rolltilldelning för prenumerationen, skapar en ResourceGroup och distribuerar en resursmall och rolltilldelning till den ResourceGroup.**
+1. I **Skissbeskrivning** anger du information om skissen och de artefakter som ingår i den. I det här fallet anger du något som: **den här skissen anger tag-princip och roll tilldelning för prenumerationen, skapar en ResourceGroup och distribuerar en resurs mal len och roll tilldelningen till den ResourceGroup.**
 
-1. Välj **Nästa: Artefakter** längst ned på sidan eller fliken **Artefakter** högst upp på sidan.
+1. Välj **Nästa: artefakter** längst ned på sidan eller på fliken **artefakter** högst upp på sidan.
 
-1. Lägg till en rolltilldelning under resursgruppen:
+1. Lägg till en roll tilldelning under resurs gruppen:
 
-   1. Markera raden **+ Lägg till artefakt** direkt under **resursgruppsposten.**
+   1. Välj raden **+ Lägg till artefakt** direkt under posten **ResourceGroup** .
 
-   1. Välj **Rolltilldelning** för **artefakttyp**.
+   1. Välj **roll tilldelning** för **artefakt typ**.
 
-   1. Under **Roll**markerar du **Ägare**och avmarkerar kryssrutan under rutan Lägg **till användare, app eller grupp.**
+   1. Under **roll**väljer du **ägare**och avmarkerar kryss rutan under rutan **Lägg till användare, app eller grupp** .
 
-   1. Sök efter och välj en användare, app eller grupp att lägga till. Den här artefakten använder en statisk parameter som ställs in på samma sätt i alla tilldelningar av den här skissen.
+   1. Sök efter och välj en användare, app eller grupp som ska läggas till. Den här artefakten använder en statisk parameter som ställs in på samma sätt i alla tilldelningar av den här skissen.
 
-   1. Välj **Lägg till** om du vill lägga till den här artefakten i skissen.
+   1. Välj **Lägg** till för att lägga till den här artefakten i skissen.
 
-   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment-2.png" alt-text="Andra rolltilldelningen för skissartefakten" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/add-role-assignment-2.png" alt-text="Andra roll tilldelningen för skiss artefakten" border="false":::
 
-1. Din färdiga skiss bör se ut som i det följande. Observera att den nyligen tillagda rolltilldelningen visar **1 av 1 parametrar ifyllda**. Det betyder att det är en statisk parameter.
+1. Din färdiga skiss bör se ut som i det följande. Observera att den nyligen tillagda roll tilldelningen visar **1 av 1 parametrar har fyllts**i. Det innebär att det är en statisk parameter.
 
    :::image type="content" source="./media/create-blueprint-portal/completed-blueprint-2.png" alt-text="Andra definitionen för den färdiga skissen" border="false":::
 
-1. Välj **Spara utkast** nu när det har uppdaterats.
+1. Välj **Spara utkast** nu som det har uppdaterats.
 
 ## <a name="publish-a-blueprint"></a>Publicera en skiss
 
 Nu när alla de planerade artefakterna har lagts till i skissen är det dags att publicera den.
-Publicering gör skissen tillgänglig för tilldelning till en prenumeration.
+Med publicering blir skissen tillgänglig för att tilldelas en prenumeration.
 
 1. Välj **Skissdefinitioner** till vänster på sidan.
 
-1. Högerklicka på den som du tidigare har skapat i listan över ritningar och välj **Publicera skiss**.
+1. Högerklicka på den som du skapade tidigare i listan med skisser och välj **publicera skiss**.
 
-1. I fönstret som öppnas anger du en **version** (bokstäver, siffror och bindestreck med en maximal längd på 20 tecken), till exempel **v1**. Du kan också ange text i **Ändra anteckningar,** till exempel **Publicera först**.
+1. I fönstret som öppnas anger du en **version** (bokstäver, siffror och bindestreck med en maximal längd på 20 tecken), till exempel **v1**. Du kan också ange text i **ändrings anteckningar**, till exempel **första publiceringen**.
 
-1. Välj **Publicera** längst ned på sidan.
+1. Välj **publicera** längst ned på sidan.
 
 ## <a name="assign-a-blueprint"></a>Tilldela en skiss
 
-När en skiss har publicerats kan den tilldelas en prenumeration. Tilldela skissen som du skapade till en av prenumerationerna under hanteringsgrupphierarkin. Om skissen sparas till en prenumeration kan den endast tilldelas till den prenumerationen.
+När en skiss har publicerats kan den tilldelas en prenumeration. Tilldela skissen som du skapade till en av prenumerationerna under din hanterings grupp hierarki. Om skissen sparas till en prenumeration kan den endast tilldelas till den prenumerationen.
 
 1. Välj **Skissdefinitioner** till vänster på sidan.
 
-1. Högerklicka på den som du tidigare har skapat (eller välj ellipsen) i listan över ritningar och välj **Tilldela skiss**.
+1. I listan över skisser högerklickar du på den som du skapade tidigare (eller väljer ellipsen) och väljer **tilldela skiss**.
 
-1. På sidan **Tilldela skiss** i listrutan **Prenumeration** väljer du de prenumerationer som du vill distribuera skissen till.
+1. På sidan **tilldela skiss** i list rutan **prenumeration** väljer du de prenumerationer som du vill distribuera den här skissen till.
 
    Om det finns Enterprise-erbjudanden som stöds tillgängliga från [Azure-fakturering](../../billing/index.md) aktiveras länken **Skapa nytt** under rutan **Prenumeration**. Följ de här stegen:
 
@@ -213,88 +213,88 @@ När en skiss har publicerats kan den tilldelas en prenumeration. Tilldela skiss
 
    1. Ange ett **Visningsnamn** för den nya prenumerationen.
 
-   1. Välj det tillgängliga **Erbjudandet** i listrutan.
+   1. Välj det tillgängliga **erbjudandet** i list rutan.
 
-   1. Använd ellipsen för att välja den [hanteringsgrupp](../management-groups/overview.md) som prenumerationen ska vara underordnad.
+   1. Använd ellipsen för att välja den [hanterings grupp](../management-groups/overview.md) som prenumerationen ska vara underordnad.
 
    1. Välj **Skapa** längst ned på sidan.
 
-      :::image type="content" source="./media/create-blueprint-portal/assignment-create-subscription.png" alt-text="Skapa en prenumeration för en prenumeration på skisstilldelning" border="false":::
+      :::image type="content" source="./media/create-blueprint-portal/assignment-create-subscription.png" alt-text="Skapa en prenumeration för en prenumeration på skiss tilldelning" border="false":::
 
       > [!IMPORTANT]
-      > Den nya prenumerationen skapas direkt efter att du har valt **Skapa**.
+      > Den nya prenumerationen skapas direkt efter att du har valt **skapa**.
 
    > [!NOTE]
-   > En tilldelning skapas för varje prenumeration som du väljer. Du kan göra ändringar i en enskild prenumerationstilldelning vid ett senare tillfälle utan att tvinga fram ändringar på resten av de valda prenumerationerna.
+   > En tilldelning skapas för varje prenumeration som du väljer. Du kan göra ändringar i en enskild prenumerations tilldelning vid ett senare tillfälle utan att framtvinga ändringar i resten av de valda prenumerationerna.
 
-1. För **tilldelningsnamn**anger du ett unikt namn för den här tilldelningen.
+1. Ange ett unikt namn för tilldelningen för **tilldelnings namn**.
 
-1. Välj en region för det hanterade identitets- och prenumerationsdistributionsobjekt som ska skapas i i **Plats.** Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
+1. I **plats**väljer du en region för det hanterade identitet-och prenumerations objekt som ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
 
-1. Lämna listrutan **Blueprint definition version** av **publicerade** versioner på **v1-posten.** (Standard är den senast publicerade versionen.)
+1. Lämna List rutan för **skiss definitions versions** val av **publicerade** versioner på **v1** -posten. (Standardinställningen är den senast publicerade versionen.)
 
-1. Låt standardvärdet **Lås inte** vara för **Lås tilldelning**. Mer information finns i [Låsning av skisser resurs](./concepts/resource-locking.md).
+1. Låt standardvärdet **Lås inte** vara för **Lås tilldelning**. Mer information finns i [resurs låsning för ritningar](./concepts/resource-locking.md).
 
-   :::image type="content" source="./media/create-blueprint-portal/assignment-locking-mi.png" alt-text="Låsa och hanterade identiteter för tilldelningen" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/assignment-locking-mi.png" alt-text="Låsning och hanterade identiteter för tilldelningen" border="false":::
 
-1. Lämna standardvärdet **system tilldelat**under **Hanterad identitet**.
+1. Under **hanterad identitet**lämnar du standardvärdet **system Assigned**.
 
 1. För prenumerationsnivåns rolltilldelning **[Användargrupp eller programnamn]: Deltagare**, så sök efter och välj en användare, en app eller grupp.
 
-1. För tilldelningen av prenumerationsnivåprincip anger du **Taggnamn** till **CostCenter** och **taggvärdet** till **ContosoIT**.
+1. För princip tilldelningen på prenumerations nivå anger du **taggnamnet** till **CostCenter** och **Tag Value** **ContosoIT**.
 
-1. För **ResourceGroup**anger du ett **namn på** **StorageAccount** och en **plats för** östra **US 2** från listrutan.
+1. För **ResourceGroup**anger du **namnet** på **STORAGEACCOUNT** och en **plats** för **USA, östra 2** i list rutan.
 
    > [!NOTE]
-   > För varje artefakt som du har lagt till under resursgruppen under skissdefinitionen är artefakten indragen för att justera med resursgruppen eller objektet som du ska distribuera den med.
-   > Artefakter som antingen inte tar parametrar eller inte har några parametrar som ska definieras vid tilldelning visas endast för kontextuell information.
+   > För varje artefakt som du lagt till under resurs gruppen under skiss definitionen, dras den artefakten till att överensstämma med den resurs grupp eller det objekt som du ska distribuera den med.
+   > Artefakter som antingen inte tar parametrar eller som inte har några parametrar som ska definieras vid tilldelningen visas bara för sammanhangsbaserad information.
 
-1. På Azure Resource Manager-mallen **StorageAccount**väljer du **Standard_GRS** för parametern **storageAccountType.**
+1. På Azure Resource Manager mal len **StorageAccount**väljer du **Standard_GRS** för parametern **storageAccountType** .
 
-1. Läs informationsrutan längst ned på sidan och välj sedan **Tilldela**.
+1. Läs rutan information längst ned på sidan och välj sedan **tilldela**.
 
 ## <a name="track-deployment-of-a-blueprint"></a>Spåra distributionen av en skiss
 
 När en skiss har tilldelats till en eller flera prenumerationer händer två saker:
 
-- Skissen läggs till på sidan **Tilldelade ritningar** för varje prenumeration.
-- Processen att distribuera alla artefakter som definieras av skissen börjar.
+- Skissen läggs till på sidan **tilldelade ritningar** för varje prenumeration.
+- Processen för att distribuera alla artefakter som definieras av skissen börjar.
 
-Nu när skissen har tilldelats en prenumeration kontrollerar du hur distributionen fortskrider:
+Nu när skissen har tilldelats en prenumeration kontrollerar du förloppet för distributionen:
 
-1. Välj **Tilldelade ritningar** från sidan till vänster.
+1. Välj **tilldelade skisser** från sidan till vänster.
 
-1. Högerklicka på den som du tidigare har tilldelat i listan över ritningar och välj **Visa tilldelningsinformation**.
+1. I listan över skisser högerklickar du på den som du tidigare tilldelade och väljer **Visa tilldelnings information**.
 
-   :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="Visa tilldelningsinformation från sidan Tilldelade skisser" border="false":::
+   :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="Visa tilldelnings information från sidan tilldelade modeller" border="false":::
 
-1. På sidan **Skisstilldelning** verifierar du att alla artefakter har distribuerats och att det inte fanns några fel under distributionen. Om fel uppstod läser [du Felsöka ritningar](./troubleshoot/general.md) för steg för att avgöra vad som gick fel.
+1. På sidan **skiss tilldelning** kontrollerar du att alla artefakter lyckades distribueras och att det inte fanns några fel under distributionen. Om det uppstår fel, se [fel sökning av ritningar](./troubleshoot/general.md) för att avgöra vad som gått fel.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 ### <a name="unassign-a-blueprint"></a>Ta bort en skisstilldelning
 
-Om du inte längre behöver en skisstilldelning tar du bort den från en prenumeration. Skissen kan ha ersatts av en nyare skiss med uppdaterade mönster, principer och mönster. När en skiss tas bort blir artefakterna som tilldelats som en del av skissen kvar. Följ dessa steg om du vill ta bort en skisstilldelning:
+Om du inte längre behöver en skiss tilldelning tar du bort den från en prenumeration. Skissen kan ha ersatts av en nyare skiss med uppdaterade mönster, principer och design. När en skiss tas bort blir artefakterna som tilldelats som en del av skissen kvar. Följ dessa steg om du vill ta bort en skisstilldelning:
 
-1. Välj **Tilldelade ritningar** från sidan till vänster.
+1. Välj **tilldelade skisser** från sidan till vänster.
 
-1. I listan över ritningar väljer du den skiss som du vill ta bort tilldelningen av. Välj sedan knappen **Ta bort tilldelning** av skiss högst upp på sidan.
+1. I listan över ritningar väljer du den skiss som du vill ta bort tilldelningen för. Välj sedan knappen **ta bort tilldelning av skisser** högst upp på sidan.
 
-1. Läs bekräftelsemeddelandet och välj sedan **OK**.
+1. Läs bekräftelse meddelandet och välj sedan **OK**.
 
 ### <a name="delete-a-blueprint"></a>Ta bort en skiss
 
 1. Välj **Skissdefinitioner** till vänster på sidan.
 
-1. Högerklicka på skissen som du vill ta bort och välj **Ta bort skiss**. Välj sedan **Ja** i bekräftelsedialogrutan.
+1. Högerklicka på den skiss som du vill ta bort och välj **ta bort skiss**. Välj **Ja** i bekräftelse dialog rutan.
 
 > [!NOTE]
-> Om du tar bort en skiss i den här metoden tas även alla publicerade versioner av den valda skissen bort.
-> Om du vill ta bort en enda version öppnar du skissen, väljer fliken **Publicerade versioner,** markerar den version som du vill ta bort och väljer sedan Ta bort den **här versionen**. Du kan inte heller ta bort en skiss förrän du har tagit bort alla skisstilldelningar av skissdefinitionen.
+> Om du tar bort en skiss i den här metoden raderas även alla publicerade versioner av den valda skissen.
+> Om du vill ta bort en enda version öppnar du skissen, väljer fliken **publicerade versioner** , väljer den version som du vill ta bort och väljer sedan **ta bort den här versionen**. Du kan inte heller ta bort en skiss förrän du har tagit bort all skiss tilldelning av skiss definitionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat, tilldelat och tagit bort en skiss med Azure-portalen. Om du vill veta mer om Azure Blueprints fortsätter du till artikeln om skisslivscykeln.
+I den här snabb starten har du skapat, tilldelat och tagit bort en skiss med Azure Portal. Om du vill veta mer om Azure-ritningar kan du fortsätta till ritnings livs cykel artikeln.
 
 > [!div class="nextstepaction"]
-> [Läs mer om skisslivscykeln](./concepts/lifecycle.md)
+> [Lär dig mer om skiss livs cykeln](./concepts/lifecycle.md)

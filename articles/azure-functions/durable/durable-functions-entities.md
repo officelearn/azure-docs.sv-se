@@ -1,65 +1,65 @@
 ---
-title: Varaktiga entiteter – Azure-funktioner
-description: Lär dig vilka varaktiga entiteter är och hur du använder dem i tillägget Varaktiga funktioner för Azure Functions.
+title: Varaktiga entiteter – Azure Functions
+description: Lär dig mer om de varaktiga enheterna och hur de används i Durable Functions-tillägget för Azure Functions.
 author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4f45ac40e7df865bdb4722d086325096c377cd59
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80877550"
 ---
-# <a name="entity-functions"></a>Funktioner för entitet
+# <a name="entity-functions"></a>Enhets funktioner
 
-Entitetsfunktioner definierar åtgärder för läsning och uppdatering av små delar av tillståndet, så kallade *varaktiga entiteter*. Precis som orchestrator-funktioner är entitetsfunktioner funktioner med en speciell utlösartyp, *entitetens utlösare*. Till skillnad från orchestrator-funktioner hanterar entitetsfunktioner tillståndet för en entitet explicit, i stället för att implicit representera tillstånd via kontrollflödet.
-Entiteter är ett sätt att skala ut program genom att distribuera arbetet över många entiteter, var och en med ett tillstånd av blygsam storlek.
+Entitets funktioner definierar åtgärder för att läsa och uppdatera små delar av tillstånd, så kallade *varaktiga entiteter*. Precis som med Orchestrator Functions är enhets funktionerna funktioner med en särskild utlösnings typ, *enhets utlösaren*. Till skillnad från Orchestrator-funktioner hanterar entiteter en entitets tillstånd explicit, i stället för implicit som representerar tillstånd via kontroll flödet.
+Entiteter ger ett sätt att skala ut program genom att distribuera arbetet över flera entiteter, var och en med ett mycket stort tillstånd.
 
 > [!NOTE]
-> Entitetsfunktioner och relaterade funktioner är endast tillgängliga i Varaktiga funktioner 2.0 och högre.
+> Enhets funktioner och relaterade funktioner är bara tillgängliga i Durable Functions 2,0 och senare.
 
 ## <a name="general-concepts"></a>Allmänna begrepp
 
-Entiteter beter sig lite som små tjänster som kommunicerar via meddelanden. Varje entitet har en unik identitet och ett internt tillstånd (om det finns). Precis som tjänster eller objekt utför entiteter åtgärder när de uppmanas att göra det. När en åtgärd körs kan den uppdatera entitetens interna tillstånd. Det kan också ringa externa tjänster och vänta på ett svar. Entiteter kommunicerar med andra entiteter, orkestreringar och klienter med hjälp av meddelanden som implicit skickas via tillförlitliga köer. 
+Entiteter fungerar på samma sätt som små tjänster som kommunicerar via meddelanden. Varje entitet har en unik identitet och ett internt tillstånd (om den finns). Precis som tjänster eller objekt utför entiteter åtgärder när de uppmanas att göra det. När en åtgärd körs kan den uppdatera entitetens interna status. Det kan också anropa externa tjänster och vänta på ett svar. Entiteter kommunicerar med andra entiteter, dirigeringar och klienter genom att använda meddelanden som är implicit skickade via pålitliga köer. 
 
-För att förhindra konflikter garanteras alla åtgärder på en enda entitet att köras seriellt, det vill än en efter en. 
+För att förhindra konflikter garanterar vi att alla åtgärder på en enskild enhet körs seriellt, det vill säga en efter en annan. 
 
 ### <a name="entity-id"></a>Enhets-ID
-Entiteter nås via en unik identifierare, *entitets-ID.* Ett entitets-ID är helt enkelt ett par strängar som unikt identifierar en entitetsinstans. Den består av en:
+Entiteter nås via en unik identifierare, *entitets-ID: t*. Ett entitets-ID är bara ett par med strängar som unikt identifierar en enhets instans. Det består av en:
 
-* **Entitetsnamn**, vilket är ett namn som identifierar typen av entitet. Ett exempel är "Räknare". Det här namnet måste matcha namnet på entitetsfunktionen som implementerar entiteten. Det är inte känsligt för fallet.
-* **Entitetsnyckel**, som är en sträng som unikt identifierar entiteten bland alla andra entiteter med samma namn. Ett exempel är ett GUID.
+* **Entitetsnamn**, som är ett namn som identifierar typen för entiteten. Ett exempel är "Counter". Namnet måste matcha namnet på den enhets funktion som implementerar entiteten. Det är inte känsligt för fall.
+* **Enhets nyckel**, som är en sträng som unikt identifierar entiteten bland alla andra entiteter med samma namn. Ett exempel är ett GUID.
 
-En entitetsfunktion `Counter` kan till exempel användas för att hålla poäng i ett onlinespel. Varje instans av spelet har ett unikt `@Counter@Game1` entitets-ID, till exempel och `@Counter@Game2`. Alla operationer som är inriktade på en viss entitet kräver att du anger ett entitets-ID som en parameter.
+En `Counter` entitets funktion kan till exempel användas för att hålla poängen i ett online-spel. Varje instans av spelet har ett unikt entitets-ID, till `@Counter@Game1` exempel `@Counter@Game2`och. Alla åtgärder som är riktade till en viss entitet kräver att du anger ett entitets-ID som en parameter.
 
 ### <a name="entity-operations"></a>Entitetsåtgärder ###
 
-Om du vill anropa en operation på en entitet anger du:
+Om du vill anropa en åtgärd på en entitet anger du:
 
 * **Entitets-ID** för målentiteten.
-* **Åtgärdsnamn**, som är en sträng som anger vilken åtgärd som ska utföras. Entiteten kan till `add` `get`exempel `reset` stödja , eller operationer. `Counter`
-* **Indata för drift**, som är en valfri indataparameter för åtgärden. Tilläggsåtgärden kan till exempel ta ett heltal som indata.
-* **Schemalagd tid**, som är en valfri parameter för att ange leveranstiden för operationen. En åtgärd kan till exempel schemaläggas på ett tillförlitligt sätt för att köras flera dagar i framtiden.
+* **Åtgärds namn**, som är en sträng som anger vilken åtgärd som ska utföras. `Counter` Entiteten kan till exempel stödja `add`-, `get`-eller `reset` -åtgärder.
+* **Åtgärds information**, vilket är en valfri indataparameter för åtgärden. Till exempel kan åtgärden Lägg till ta ett heltal som inmatat värde.
+* **Schemalagd tid**, vilket är en valfri parameter för att ange leverans tiden för åtgärden. En åtgärd kan till exempel vara en tillförlitlig schemaläggning att köra flera dagar i framtiden.
 
-Åtgärder kan returnera ett resultatvärde eller ett felresultat, till exempel ett JavaScript-fel eller ett .NET-undantag. Det här resultatet eller felet kan observeras av orkestreringar som anropade åtgärden.
+Åtgärder kan returnera ett resultat värde eller ett fel resultat, till exempel ett JavaScript-fel eller ett .NET-undantag. Det här resultatet eller felet kan observeras av dirigeringar som anropar åtgärden.
 
-En entitetsåtgärd kan också skapa, läsa, uppdatera och ta bort tillståndet för entiteten. Tillståndet för entiteten är alltid durably kvar i lagring.
+En entitets åtgärd kan också skapa, läsa, uppdatera och ta bort status för entiteten. Status för entiteten är alltid varaktigt beständig i lagrings utrymmet.
 
 ## <a name="define-entities"></a>Definiera entiteter
 
-För närvarande är de två distinkta API:erna för att definiera entiteter:
+För närvarande är de två distinkta API: erna för att definiera entiteter:
 
-**Funktionsbaserad syntax**, där entiteter representeras som funktioner och operationer skickas uttryckligen av programmet. Den här syntaxen fungerar bra för entiteter med enkelt tillstånd, få åtgärder eller en dynamisk uppsättning åtgärder som i programramverk. Den här syntaxen kan vara tråkig att underhålla eftersom den inte fångar typfel vid kompileringstillfället.
+**Function-baserad syntax**där entiteter representeras som funktioner och åtgärder uttryckligen skickas av programmet. Den här syntaxen fungerar bra för entiteter med enkel status, få åtgärder eller en dynamisk uppsättning åtgärder som i program ramverk. Den här syntaxen kan vara omständlig att underhålla eftersom den inte fångar in typ fel vid kompilering.
 
-**Klassbaserad syntax (.NET endast)**, där entiteter och operationer representeras av klasser och metoder. Den här syntaxen ger mer lättläst kod och gör att åtgärder kan anropas på ett typsäkert sätt. Den klassbaserade syntaxen är ett tunt lager ovanpå den funktionsbaserade syntaxen, så båda varianterna kan användas omväxlande i samma program.
+**Klass-baserad syntax (endast .net)**, där entiteter och åtgärder representeras av klasser och metoder. Den här syntaxen ger enklare läsbar kod och gör att åtgärder kan anropas på ett typ säkert sätt. Den klassbaserade syntaxen är ett tunt lager ovanpå den Function-baserade syntaxen, så att båda variantarna kan användas i samma program.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-### <a name="example-function-based-syntax---c"></a>Exempel: Funktionsbaserad syntax - C #
+### <a name="example-function-based-syntax---c"></a>Exempel: Function-baserad syntax-C #
 
-Följande kod är ett exempel `Counter` på en enkel entitet som implementeras som en varaktig funktion. Den här funktionen definierar `reset`tre `get`operationer, `add`, och , som var och en fungerar på ett heltalstillstånd.
+Följande kod är ett exempel på en enkel `Counter` entitet som implementeras som en varaktig funktion. Den här funktionen definierar tre åtgärder `add`, `reset`,, `get`och, som körs på ett heltals tillstånd.
 
 ```csharp
 [FunctionName("Counter")]
@@ -80,11 +80,11 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-Mer information om den funktionsbaserade syntaxen och hur du använder den finns i [Funktionsbaserad syntax](durable-functions-dotnet-entities.md#function-based-syntax).
+Mer information om den Function-baserade syntaxen och hur du använder den finns i [Function-based syntax](durable-functions-dotnet-entities.md#function-based-syntax).
 
-### <a name="example-class-based-syntax---c"></a>Exempel: Klassbaserad syntax - C #
+### <a name="example-class-based-syntax---c"></a>Exempel: klass-baserad syntax-C #
 
-Följande exempel är en motsvarande `Counter` implementering av entiteten med hjälp av klasser och metoder.
+Följande exempel är en motsvarande implementering av `Counter` entiteten med hjälp av klasser och metoder.
 
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]
@@ -105,17 +105,17 @@ public class Counter
 }
 ```
 
-Tillståndet för den här entiteten är ett objekt av typen `Counter`, som innehåller ett fält som lagrar det aktuella värdet för räknaren. Om du vill behålla objektet i lagringen serialiseras det [Json.NET](https://www.newtonsoft.com/json) och avserialiseras det av Json.NET-biblioteket. 
+Status för den här entiteten är ett objekt av `Counter`typen, som innehåller ett fält som lagrar räknarens aktuella värde. För att spara objektet i lagret serialiseras det och deserialiseras av [JSON.net](https://www.newtonsoft.com/json) -biblioteket. 
 
-Mer information om den klassbaserade syntaxen och hur du använder den finns i [Definiera entitetsklasser](durable-functions-dotnet-entities.md#defining-entity-classes).
+Mer information om den klassbaserade syntaxen och hur du använder den finns i [definiera enhets klasser](durable-functions-dotnet-entities.md#defining-entity-classes).
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-### <a name="example-javascript-entity"></a>Exempel: JavaScript-enhet
+### <a name="example-javascript-entity"></a>Exempel: JavaScript-entitet
 
-Varaktiga entiteter är tillgängliga i JavaScript som börjar `durable-functions` med version **1.3.0** av npm-paketet. Följande kod är `Counter` den enhet som implementeras som en varaktig funktion skriven i JavaScript.
+Varaktiga entiteter är tillgängliga i Java Script **1.3.0** från och med `durable-functions` version 1.3.0 av NPM-paketet. Följande kod är `Counter` entiteten som implementeras som en varaktig funktion som skrivits i Java Script.
 
-**Räknare/funktion.json**
+**Counter/function. JSON**
 ```json
 {
   "bindings": [
@@ -129,7 +129,7 @@ Varaktiga entiteter är tillgängliga i JavaScript som börjar `durable-function
 }
 ```
 
-**Räknare/index.js**
+**Counter/index. js**
 ```javascript
 const df = require("durable-functions");
 
@@ -152,29 +152,29 @@ module.exports = df.entity(function(context) {
 
 ---
 
-## <a name="access-entities"></a>Åtkomstentiteter
+## <a name="access-entities"></a>Åtkomst till entiteter
 
-Entiteter kan nås med hjälp av enkelriktad eller dubbelriktad kommunikation. Följande terminologi skiljer de två kommunikationsformerna mellan olika former: 
+Entiteter kan nås med envägs-eller tvåvägs kommunikation. Följande terminologi särskiljer två former av kommunikation: 
 
-* **Att anropa** en entitet använder tvåvägskommunikation (tur och retur). Du skickar ett åtgärdsmeddelande till entiteten och väntar sedan på svarsmeddelandet innan du fortsätter. Svarsmeddelandet kan ge ett resultatvärde eller ett felresultat, till exempel ett JavaScript-fel eller ett .NET-undantag. Detta resultat eller fel observeras sedan av den som ringer.
-* **Signalering** en enhet använder enkelriktad (brand och glömma) kommunikation. Du skickar ett åtgärdsmeddelande men väntar inte på ett svar. Även om meddelandet garanterat levereras så småningom vet avsändaren inte när och kan inte observera något resultatvärde eller fel.
+* **Anrop** av en entitet använder tvåvägs kommunikation (tur och retur). Du skickar ett åtgärds meddelande till entiteten och väntar sedan på svars meddelandet innan du fortsätter. Svars meddelandet kan ge ett resultat värde eller ett fel resultat, till exempel ett JavaScript-fel eller ett .NET-undantag. Det här resultatet eller felet observeras sedan av anroparen.
+* Att **signalera** en entitet använder enkelriktad (Fire och glömma) kommunikation. Du skickar ett åtgärds meddelande men väntar inte på svar. Även om meddelandet är garanterat levererat kan avsändaren inte känna till när och inte kan observera ett resultat värde eller fel.
 
-Entiteter kan nås inifrån klientfunktioner, inifrån orchestrator-funktioner eller inifrån entitetsfunktioner. Alla kommunikationsformer stöds inte av alla sammanhang:
+Entiteter kan nås från klient funktioner, inifrån Orchestrator-funktioner eller inifrån enhets funktioner. Alla kontexter stöds inte för alla typer av kommunikation:
 
-* Inifrån klienter kan du signalera entiteter och du kan läsa entitetstillståndet.
-* Inifrån orkestreringar kan du signalera entiteter och du kan anropa entiteter.
-* Inifrån entiteter kan du signalera entiteter.
+* Inifrån-klienter kan du signalera entiteter och du kan läsa enhets status.
+* I Orchestration kan du signalera entiteter och du kan anropa entiteter.
+* I entiteter kan du signalera entiteter.
 
 Följande exempel illustrerar dessa olika sätt att komma åt entiteter.
 
-### <a name="example-client-signals-an-entity"></a>Exempel: Klienten signalerar en entitet
+### <a name="example-client-signals-an-entity"></a>Exempel: klienten signalerar en entitet
 
-Om du vill komma åt entiteter från en vanlig Azure-funktion, som också kallas klientfunktion, använder du [entitetsklientbindningen](durable-functions-bindings.md#entity-client). I följande exempel visas en köutlöst funktion som signalerar en entitet med den här bindningen.
+Om du vill komma åt entiteter från en vanlig Azure Function, som även kallas en klient funktion, använder du [enhets klient bindningen](durable-functions-bindings.md#entity-client). I följande exempel visas en köade funktion som signalerar en entitet som använder den här bindningen.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 > [!NOTE]
-> För enkelhetens skull visar följande exempel den löst skrivna syntaxen för åtkomst till entiteter. I allmänhet rekommenderar vi att du [kommer åt entiteter via gränssnitt](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) eftersom det ger fler typkontroll.
+> För enkelhetens skull visar följande exempel den strikt skrivna syntaxen för åtkomst till entiteter. I allmänhet rekommenderar vi att du [kommer åt entiteter via gränssnitt](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) eftersom det ger mer typ kontroll.
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -203,13 +203,13 @@ module.exports = async function (context) {
 
 ---
 
-Termen *signal* innebär att entiteten API-anrop är enkelriktad och asynkron. Det är inte möjligt för en klientfunktion att veta när entiteten har bearbetat operationen. Klientfunktionen kan inte heller observera några resultatvärden eller undantag. 
+Termen *signal* innebär att entitets-API-anropet är enkelriktat och asynkront. Det är inte möjligt att en klient funktion vet när entiteten har bearbetat åtgärden. Dessutom kan inte klient funktionen Observera resultat värden eller undantag. 
 
-### <a name="example-client-reads-an-entity-state"></a>Exempel: Klienten läser ett entitetstillstånd
+### <a name="example-client-reads-an-entity-state"></a>Exempel: klienten läser ett enhets tillstånd
 
-Klientfunktioner kan också fråga tillståndet för en entitet, vilket visas i följande exempel:
+Klient funktioner kan också fråga efter status för en entitet, som visas i följande exempel:
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryCounter")]
@@ -238,13 +238,13 @@ module.exports = async function (context) {
 
 ---
 
-Entitetstillståndsfrågor skickas till det varaktiga spårningsarkivet och returnerar entitetens senast bevarade tillstånd. Detta tillstånd är alltid en "engagerad" tillstånd, det vill säga det är aldrig ett tillfälligt mellanliggande tillstånd antas i mitten av att utföra en åtgärd. Det är dock möjligt att det här tillståndet är inaktuellt jämfört med entitetens minnestillstånd. Endast orkestreringar kan läsa en entitets minnestillstånd, enligt beskrivningen i följande avsnitt.
+Frågor för enhets tillstånd skickas till lagrings platsen för beständig spårning och returnerar entitetens senast sparade tillstånd. Det här läget är alltid ett "dedikerat" tillstånd, det vill säga det är aldrig ett tillfälligt mellanliggande tillstånd som antas i mitten av körningen av en åtgärd. Det är dock möjligt att det här läget är inaktuellt jämfört med enhetens minnes tillstånd. Endast dirigering kan läsa en entitets minnes intern tillstånd enligt beskrivningen i följande avsnitt.
 
-### <a name="example-orchestration-signals-and-calls-an-entity"></a>Exempel: Orkestrering signalerar och anropar en entitet
+### <a name="example-orchestration-signals-and-calls-an-entity"></a>Exempel: Orchestration-signaler och anropa en entitet
 
-Orchestrator-funktioner kan komma åt entiteter med hjälp av API:er på [orchestration-utlösarbindningen](durable-functions-bindings.md#orchestration-trigger). Följande exempelkod visar en orchestrator-funktion `Counter` som anropar och signalerar en entitet.
+Orchestrator-funktioner har åtkomst till entiteter med hjälp av API: er på [bindningen för Orchestration-utlösaren](durable-functions-bindings.md#orchestration-trigger) Följande exempel kod visar en Orchestrator-funktion som anropar och signalerar en `Counter` entitet.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("CounterOrchestration")]
@@ -277,21 +277,21 @@ module.exports = df.orchestrator(function*(context){
 ```
 
 > [!NOTE]
-> JavaScript stöder för närvarande inte signalering av en entitet från en orchestrator. Använd `callEntity` i stället.
+> Java Script stöder för närvarande inte att signalera en entitet från en Orchestrator. Använd `callEntity` i stället.
 
 ---
 
-Endast orkestreringar kan anropa entiteter och få ett svar, vilket kan vara antingen ett returvärde eller ett undantag. Klientfunktioner som använder [klientbindningen](durable-functions-bindings.md#entity-client) kan bara signalera entiteter.
+Endast dirigering kan anropa entiteter och få svar, vilket kan vara antingen ett retur värde eller ett undantag. Klient funktioner som använder [klient bindningen](durable-functions-bindings.md#entity-client) kan bara signalerar entiteter.
 
 > [!NOTE]
-> Att anropa en entitet från en orchestrator-funktion liknar att anropa en [aktivitetsfunktion](durable-functions-types-features-overview.md#activity-functions) från en orchestrator-funktion. Den största skillnaden är att entitetsfunktioner är varaktiga objekt med en adress, vilket är entitets-ID. Entitetsfunktioner stöder att ange ett operationsnamn. Aktivitetsfunktioner, å andra sidan, är statslösa och har inte begreppet verksamhet.
+> Anrop av en entitet från en Orchestrator-funktion liknar att anropa en [aktivitets funktion](durable-functions-types-features-overview.md#activity-functions) från en Orchestrator-funktion. Den största skillnaden är att entitetens funktioner är beständiga objekt med en adress, vilket är entitets-ID: t. Enhets funktioner har stöd för att ange ett åtgärds namn. Aktivitets funktioner, å andra sidan, är tillstånds lösa och har inte begreppet drift.
 
-### <a name="example-entity-signals-an-entity"></a>Exempel: Entitet signalerar en entitet
+### <a name="example-entity-signals-an-entity"></a>Exempel: entiteten signalerar en entitet
 
-En entitetsfunktion kan skicka signaler till andra entiteter, eller till och med sig själv, medan den utför en åtgärd.
-Vi kan till exempel `Counter` ändra föregående entitetsexempel så att det skickar en "milstolpe nådd" signal till en viss övervakarentitet när räknaren når värdet 100.
+En entitets funktion kan skicka signaler till andra entiteter, eller till och med sig själv, medan en åtgärd körs.
+Vi kan till exempel ändra föregående `Counter` entitet-exempel så att den skickar en "mil stolpe-nådd"-signal till en övervaknings enhet när räknaren når värdet 100.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
    case "add":
@@ -321,16 +321,16 @@ Vi kan till exempel `Counter` ändra föregående entitetsexempel så att det sk
 
 ---
 
-## <a name="entity-coordination-currently-net-only"></a><a name="entity-coordination"></a>Enhetssamordning (endast för närvarande .NET)
+## <a name="entity-coordination-currently-net-only"></a><a name="entity-coordination"></a>Organisations koordinering (endast för närvarande .NET)
 
-Det kan finnas tillfällen när du behöver samordna åtgärder över flera entiteter. I ett bankprogram kan du till exempel ha entiteter som representerar enskilda bankkonton. När du överför pengar från ett konto till ett annat måste du se till att källkontot har tillräckliga medel. Du måste också se till att uppdateringar av både käll- och målkonton görs på ett transaktionsmässigt konsekvent sätt.
+Det kan finnas tillfällen när du behöver koordinera åtgärder över flera entiteter. I ett bank program kan du till exempel ha entiteter som representerar enskilda bank konton. När du överför betalningar från ett konto till ett annat, måste du se till att käll kontot har tillräckligt med penning belopp. Du måste också se till att uppdateringar av både käll-och mål kontona görs på ett transaktions konsekvent sätt.
 
-### <a name="example-transfer-funds-c"></a>Exempel: Överför medel (C#)
+### <a name="example-transfer-funds-c"></a>Exempel: Transfer Funds (C#)
 
-I följande exempel överför kod medel mellan två kontoentiteter med hjälp av en orchestrator-funktion. Samordning av entitetsuppdateringar kräver att du använder `LockAsync` metoden för att skapa ett kritiskt _avsnitt_ i orkestreringen.
+I följande exempel kod överförs fonder mellan två konto enheter med hjälp av en Orchestrator-funktion. Koordinerande enhets uppdateringar kräver att `LockAsync` du använder metoden för att skapa ett _kritiskt avsnitt_ i dirigeringen.
 
 > [!NOTE]
-> För enkelhetens skull återanvänder det här exemplet den `Counter` entitet som definierats tidigare. I ett verkligt program skulle det vara `BankAccount` bättre att definiera en mer detaljerad enhet.
+> För enkelhetens skull återanvänder det `Counter` här exemplet den entitet som definierats tidigare. I ett verkligt program är det bättre att definiera en mer detaljerad `BankAccount` entitet.
 
 ```csharp
 // This is a method called by an orchestrator function
@@ -372,61 +372,61 @@ public static async Task<bool> TransferFundsAsync(
 }
 ```
 
-I .NET `LockAsync` `IDisposable`returnerar , vilket avslutar det kritiska avsnittet när det kasseras. Detta `IDisposable` resultat kan användas `using` tillsammans med ett block för att få en syntaktisk representation av det kritiska avsnittet.
+I .NET `LockAsync` returneras `IDisposable`, som avslutar det kritiska avsnittet när det tas bort. Det `IDisposable` här resultatet kan användas tillsammans med ett `using` block för att få en syntaktisk representation av det kritiska avsnittet.
 
-I föregående exempel överförde en orchestrator-funktion medel från en källentitet till en målentitet. Metoden `LockAsync` låste både käll- och målkontotiteterna. Den här låsningen säkerställde att ingen annan klient kunde fråga eller ändra tillståndet för något `using` av kontona tills orchestration-logiken avslutade det kritiska avsnittet i slutet av satsen. Detta förhindrar möjligheten att checka över från källkontot.
-
-> [!NOTE] 
-> När en orkestrering avslutas, antingen normalt eller med ett fel, avslutas alla kritiska avsnitt implicit och alla lås släpps.
-
-### <a name="critical-section-behavior"></a>Kritiskt avsnittsbeteende
-
-Metoden `LockAsync` skapar ett kritiskt avsnitt i en orkestrering. Dessa kritiska avsnitt hindrar andra orkestreringar från att göra överlappande ändringar i en angiven uppsättning entiteter. Internt skickar `LockAsync` API:et "lås"-åtgärder till entiteterna och returnerar när det tar emot ett "låsupparvuten" svarsmeddelande från var och en av dessa samma entiteter. Både lås och upplåsning är inbyggda åtgärder som stöds av alla entiteter.
-
-Inga åtgärder från andra klienter tillåts på en entitet medan den är i låst tillstånd. Detta säkerställer att endast en orchestration-instans kan låsa en entitet åt gången. Om en anropare försöker anropa en åtgärd på en entitet medan den är låst av en orkestrering placeras den åtgärden i en väntande åtgärdskön. Inga väntande åtgärder bearbetas förrän anläggningen orkestrering släpper sitt lås.
+I föregående exempel har en Orchestrator-funktion överfört fonder från en källentiteten till en målentitet. `LockAsync` Metoden låser både käll-och mål kontots entiteter. Den här låsningen säkerställer att ingen annan klient kan fråga eller ändra status för något av kontona tills Orchestration-logiken avbröt det kritiska avsnittet i slutet av `using` instruktionen. Det här beteendet förhindrar möjlighet att förhindra att käll kontot bearbetas.
 
 > [!NOTE] 
-> Detta skiljer sig något från synkroniseringsföre primitiver som `lock` används i de flesta programmeringsspråk, till exempel uttrycket i C#. I C#måste `lock` satsen till exempel användas av alla trådar för att säkerställa korrekt synkronisering över flera trådar. Entiteter kräver dock inte att alla anropare uttryckligen låser en entitet. Om någon anropare låser en entitet blockeras alla andra åtgärder på den entiteten och köas bakom låset.
+> När en dirigering avslutas, antingen normalt eller med ett fel, avslutas alla kritiska delar som pågår implicit och alla Lås släpps.
 
-Lås på entiteter är hållbara, så de kvarstår även om körningsprocessen återvinns. Lås sparas internt som en del av en entitets varaktiga tillstånd.
+### <a name="critical-section-behavior"></a>Beteende för kritiskt avsnitt
 
-Till skillnad från transaktioner återställs inte ändringar i händelse av fel automatiskt. I stället måste alla felhantering, till exempel återställning eller återförsök, uttryckligen kodas, till exempel genom att fånga fel eller undantag. Detta designval är avsiktligt. Det är svårt eller omöjligt att automatiskt återställa alla effekter av en orkestrering i allmänhet, eftersom orkestreringar kan köra aktiviteter och ringa till externa tjänster som inte kan återställas. Försök att återställa kan också själva misslyckas och kräver ytterligare felhantering.
+`LockAsync` Metoden skapar ett kritiskt avsnitt i en dirigering. Dessa kritiska avsnitt förhindrar andra dirigeringar från att göra överlappande ändringar till en angiven uppsättning entiteter. Internt skickar `LockAsync` API: et för att skicka "lås"-åtgärder till entiteterna och returnerar när de får ett meddelande om "Lås förvärvad" från var och en av dessa entiteter. Både lås och upplåsning är inbyggda åtgärder som stöds av alla entiteter.
 
-### <a name="critical-section-rules"></a>Regler för kritiska avsnitt
+Inga åtgärder från andra klienter tillåts för en entitet medan den är låst. Det här beteendet säkerställer att endast en Dirigerings instans kan låsa en entitet i taget. Om en anropare försöker anropa en åtgärd på en entitet när den har låsts av ett dirigering, placeras den åtgärden i en kö för väntande åtgärder. Väntande åtgärder bearbetas inte förrän innehavaren har låst det.
 
-Till skillnad från lågnivålåsning primitiver i de flesta programmeringsspråk, kritiska avsnitt är *garanterat inte dödläge*. För att förhindra dödlägen tillämpar vi följande begränsningar: 
+> [!NOTE] 
+> Det här beteendet skiljer sig något från primitiva primitiver som används i de flesta programmeringsspråk `lock` , t. ex. instruktionen i C#. I C# måste exempelvis `lock` instruktionen användas av alla trådar för att säkerställa korrekt synkronisering över flera trådar. Entiteter kräver dock inte att alla anropare uttryckligen låser en entitet. Om någon anropare låser en entitet, blockeras alla andra åtgärder på den entiteten och placeras bakom det låset.
 
-* Kritiska avsnitt kan inte kapslas.
-* Kritiska avsnitt kan inte skapa underorchestrations.
-* Kritiska avsnitt kan anropa endast entiteter som de har låst.
+Lås på entiteter är varaktiga, så de kvarstår även om processen som körs återvinns. Lås är internt bestående som en del av en enhets varaktiga tillstånd.
+
+Till skillnad från transaktioner återställer viktiga avsnitt inte automatiskt ändringar i händelse av fel. I stället måste en eventuell fel hantering, till exempel återställning eller omförsök, uttryckligen kodas, till exempel genom att fånga fel eller undantag. Det här design valet är avsiktligt. Det är svårt eller omöjligt att återställa alla effekterna av en dirigering automatiskt, eftersom dirigeringar kan köra aktiviteter och ringa till externa tjänster som inte kan återställas. Försök att återställa kan Miss lyckas och kräva ytterligare fel hantering.
+
+### <a name="critical-section-rules"></a>Regler för kritiskt avsnitt
+
+Till skillnad från primitiva primitiver på låg nivå i de flesta programmeringsspråk garanterar viktiga delar *inte död läge*. För att förhindra dödrar tvingar vi följande begränsningar: 
+
+* Det går inte att kapsla kritiska avsnitt.
+* Det går inte att skapa under dirigering med kritiska avsnitt.
+* Kritiska avsnitt kan bara anropa entiteter som de har låst.
 * Kritiska avsnitt kan inte anropa samma entitet med flera parallella anrop.
-* Kritiska avsnitt kan signalera endast entiteter som de inte har låst.
+* Kritiska avsnitt kan bara signalera de entiteter de inte är låsta.
 
-Alla överträdelser av dessa regler orsakar ett `LockingRulesViolationException` körningsfel, till exempel i .NET, som innehåller ett meddelande som förklarar vilken regel som bröts.
+Överträdelser av dessa regler orsakar ett körnings fel, t. `LockingRulesViolationException` ex. i .net, som innehåller ett meddelande som förklarar vilken regel som har brutits.
 
 ## <a name="comparison-with-virtual-actors"></a>Jämförelse med virtuella aktörer
 
-Många av de hållbara entiteter funktioner är inspirerade av [skådespelaren modellen](https://en.wikipedia.org/wiki/Actor_model). Om du redan är bekant med skådespelare kanske du känner igen många av de begrepp som beskrivs i den här artikeln. Varaktiga enheter är särskilt lika [virtuella aktörer](https://research.microsoft.com/projects/orleans/), eller korn, som populariserades av [Orleans projektet](http://dotnet.github.io/orleans/). Ett exempel:
+Många av de varaktiga entiteternas funktioner inspireras av [aktörs modellen](https://en.wikipedia.org/wiki/Actor_model). Om du redan är bekant med aktörer kan du känna igen många av de begrepp som beskrivs i den här artikeln. Varaktiga enheter är särskilt likartade för [virtuella aktörer](https://research.microsoft.com/projects/orleans/), eller kärnor, som är populärt av [Orleans-projektet](http://dotnet.github.io/orleans/). Ett exempel:
 
 * Varaktiga entiteter kan adresseras via ett entitets-ID.
-* Varaktiga entitetsåtgärder körs seriellt, en i taget, för att förhindra konkurrensförhållanden.
+* Varaktiga enhets åtgärder körs seriellt, en i taget, för att förhindra tävlings förhållanden.
 * Varaktiga entiteter skapas implicit när de anropas eller signaleras.
-* När du inte kör åtgärder tas varaktiga entiteter tyst bort från minnet.
+* När åtgärder inte körs inaktive ras varaktiga entiteter tyst från minnet.
 
 Det finns några viktiga skillnader som är värda att notera:
 
-* Varaktiga entiteter prioriterar varaktighet över svarstid och kanske därför inte är lämpliga för program med strikta svarstidskrav.
-* Varaktiga entiteter har inte inbyggda tidsutse för meddelanden. I Orleans, alla meddelanden time out efter en konfigurerbar tid. Standardvärdet är 30 sekunder.
-* Meddelanden som skickas mellan entiteter levereras på ett tillförlitligt sätt och i ordning. I Orleans stöds tillförlitlig eller beställd leverans för innehåll som skickas via strömmar, men är inte garanterat för alla meddelanden mellan korn.
-* Mönster för begäran-svar i entiteter är begränsade till orkestreringar. Inifrån enheter är endast enkelriktad meddelandehantering (även känd som signalering) tillåten, som i den ursprungliga aktörsmodellen, och till skillnad från korn i Orleans. 
-* Varaktiga enheter är inte låsta. I Orleans kan dödlägen uppstå och löser inte förrän meddelandena har time out.
-* Varaktiga enheter kan användas tillsammans med hållbara orkestreringar och stödja distribuerade låsmekanismer. 
+* Varaktiga enheter prioriterar hållbarhet över svars tider och kan därför vara lämpligt för program med strikt latens krav.
+* Varaktiga entiteter har inte inbyggda tids gränser för meddelanden. I Orleans nåddes alla meddelanden efter en konfigurerbar tid. Standardvärdet är 30 sekunder.
+* Meddelanden som skickas mellan entiteter levereras på ett tillförlitligt sätt och i rätt ordning. I Orleans stöds tillförlitlig eller ordnad leverans för innehåll som skickas via strömmar, men är inte garanterat för alla meddelanden mellan olika kärnor.
+* Mönster för begär ande svar i entiteter är begränsade till dirigering. I entiteter tillåts endast enkelriktade meddelanden (även kallat Signaling), som i den ursprungliga aktörs modellen och till skillnad från kärnor i Orleans. 
+* Varaktiga entiteter är inte död läge. I Orleans kan död lägen ske och lösas inte förrän tids gränsen nåtts för meddelanden.
+* Varaktiga entiteter kan användas tillsammans med varaktiga dirigeringar och stöd för distribuerade Lås metoder. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Läs utvecklarens guide till varaktiga enheter i .NET](durable-functions-dotnet-entities.md)
+> [Läs Developer ' s Guide to varaktiga entiteter i .NET](durable-functions-dotnet-entities.md)
 
 > [!div class="nextstepaction"]
-> [Läs mer om aktivitetshubbar](durable-functions-task-hubs.md)
+> [Lär dig mer om aktivitets nav](durable-functions-task-hubs.md)

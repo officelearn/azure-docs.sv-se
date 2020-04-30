@@ -18,15 +18,15 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6cbea49fe39c92c8a2fc50e501cb4ef5cff74b1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68989685"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Snabbstart: Ladda ned en granskningsrapport med Azure-portalen
 
-I den här snabbstarten får du lära dig hur du hämtar en CSV-fil för granskningsloggarna för din klientorganisation under de senaste 24 timmarna. Du kan hämta upp till 250 000 poster från Azure-portalen. Posterna sorteras efter senast så som standard får du de senaste 250 000 posterna. 
+I den här snabb starten får du lära dig hur du hämtar en CSV-fil med gransknings loggarna för din klient under de senaste 24 timmarna. Du kan hämta upp till 250 000 poster från Azure Portal. Posterna sorteras efter senaste så att du får de senaste 250 000 posterna som standard. 
 
 ## <a name="prerequisites"></a>Krav
 
@@ -37,11 +37,11 @@ Du behöver:
 
 ## <a name="quickstart-download-an-audit-report"></a>Snabbstart: Ladda ned en granskningsrapport
 
-1. Navigera till [Azure-portalen](https://portal.azure.com).
+1. Navigera till [Azure Portal](https://portal.azure.com).
 2. Välj **Azure Active Directory** från det vänstra navigeringsfönstret och använd **Växla katalog** för att välja din active directory.
 3. Från instrumentpanelen väljer du **Azure Active Directory** och sedan **Granskningsloggar**. 
 4. Välj **senaste 24 timmarna** i filterlistrutan **datumintervall** och välj **Tillämpa** för att visa granskningsloggarna för de senaste 24 timmarna. 
-5. Välj knappen **Hämta,** välj **CSV** som filformat och ange ett filnamn för att hämta en CSV-fil som innehåller de filtrerade posterna. 
+5. Välj knappen **Ladda ned** , Välj **CSV** som fil format och ange ett fil namn för att ladda ned en CSV-fil som innehåller de filtrerade posterna. 
 
 ![Rapportering](./media/quickstart-download-audit-report/download-audit-logs.png)
 

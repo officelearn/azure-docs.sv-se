@@ -1,5 +1,5 @@
 ---
-title: Nyheter i Azure Monitor-dokumentation
+title: Nyheter i Azure Monitor-dokumentationen
 description: Viktiga uppdateringar av Azure Monitor-dokumentationen uppdateras varje månad.
 ms.subservice: ''
 ms.topic: overview
@@ -7,74 +7,74 @@ author: bwren
 ms.author: bwren
 ms.date: 03/05/2020
 ms.openlocfilehash: a2e6d2a459a6713aa9372496fc3a933c0a886ed9
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80802612"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Vad är nytt i Azure Monitor-dokumentationen?
-Den här artikeln innehåller listor över Azure Monitor-artiklar som antingen är nya eller har uppdaterats avsevärt. Den uppdateras den första veckan i varje månad för att inkludera artikeluppdateringar från föregående månad.
+Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya eller som har uppdaterats markant. Den kommer att uppdateras den första veckan i varje månad för att inkludera artikel uppdateringar från föregående månad.
 
 ## <a name="march-2020"></a>Mars 2020
 
 ### <a name="general"></a>Allmänt
-- [Översikt över Azure Monitor](overview.md) – Översiktsvideo för Azure Monitor har lagts till.
-- [Azure Monitor kundhanterad nyckelkonfiguration](platform/customer-managed-keys.md) - Allmänna uppdateringar.
-- [Azure Monitor-datareferens](/azure/azure-monitor/reference) - Ny plats.
+- [Azure Monitor översikt](overview.md) – lägg till Azure Monitor översikts video.
+- [Azure Monitor kundhanterad nyckel konfiguration](platform/customer-managed-keys.md) – allmänna uppdateringar.
+- [Azure Monitor data referens](/azure/azure-monitor/reference) – ny plats.
 
 ### <a name="alerts"></a>Aviseringar
 
-- [Skapa, visa och hantera aktivitetsloggaviseringar i Azure Monitor](platform/alerts-activity-log.md) - Ytterligare förklaring av Resource Manager-mallen.
-- [Förstå hur måttaviseringar fungerar i Azure Monitor.](platform/alerts-metric-overview.md) - Uppdaterad för statligt stöd.
-- [Felsöka Aviseringar och meddelanden för Azure Monitor](platform/alerts-troubleshoot.md) – Ny artikel
+- [Skapa, Visa och hantera aktivitets logg aviseringar i Azure Monitor](platform/alerts-activity-log.md) – ytterligare förklaring till Resource Manager-mallen.
+- [Förstå hur mått varningar fungerar i Azure Monitor.](platform/alerts-metric-overview.md) – Uppdaterat för myndighets support.
+- [Felsöka Azure Monitor aviseringar och aviseringar](platform/alerts-troubleshoot.md) – ny artikel
 
 ### <a name="application-insights"></a>Application Insights
-- [Automatisera Azure Application Insights med PowerShell](app/powershell.md) – Lade till ARMClient-exempel.
-- [Kontinuerlig export av telemetri från Application Insights](app/export-telemetry.md) - Lägg till tabell med information om exportstruktur.
-- [Aktivera felsökare för ögonblicksbilder för .NET-appar i Azure App Service](app/snapshot-debugger-appservice.md) - Exempel på informationshanterarens tillägg.
-- [Hantera användning och kostnader för Azure Application Insights](app/pricing.md) – Lade till information om datatakavisering.
-- [Övervaka Python-program med Azure Monitor (förhandsversion)](app/opencensus-python.md) – Lade till standardmått.
-- [Stöd för källkartföring för JavaScript-program - Azure Monitor Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/source-map-support) - Ny artikel.
+- [Automatisera Azure Application insikter med PowerShell](app/powershell.md) -ARMClient exempel.
+- [Kontinuerlig export av telemetri från Application Insights](app/export-telemetry.md) – Lägg till tabell med information om export struktur.
+- [Aktivera Snapshot debugger för .net-appar i Azure App Service](app/snapshot-debugger-appservice.md) -tillagd Resource Manager-mall exempel.
+- [Hantera användning och kostnader för Azure Application insikter](app/pricing.md) – information om data Cap-aviseringar har lagts till.
+- [Övervaka python-program med Azure Monitor (för hands version)](app/opencensus-python.md) – tillagda standard mått.
+- [Käll kart stöd för JavaScript-program – Azure Monitor Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/source-map-support) – ny artikel.
 
 
 ### <a name="containers"></a>Containrar
-- [Vanliga frågor och svar om Azure Monitor](faq.md) – Uppdatera för Azure Monitor för behållare.
-- [Konfigurera GPU-övervakning med Azure Monitor för behållare](insights/container-insights-gpu-monitoring.md) - Ny artikel
+- [Azure Monitor vanliga frågor och svar](faq.md) – uppdatering för Azure Monitor för behållare.
+- [Konfigurera GPU-övervakning med Azure Monitor för behållare](insights/container-insights-gpu-monitoring.md) – ny artikel
 
 ### <a name="insights"></a>Insikter
-- [Hanteringslösning för Office 365 i Azure](insights/solution-office-365.md) – Uppdaterat utfasningsdatum.
+- [Office 365-hanterings lösning i Azure](insights/solution-office-365.md) – uppdaterat utfasnings datum.
 
 ### <a name="logs"></a>Loggar
-- [Optimera loggfrågor i Azure Monitor](log-query/query-optimization.md) - Lagt till CPU-villkor för XML- och JSON-tolkning.
-- [Ta bort och återställa Azure Log Analytics-arbetsyta –](platform/delete-workspace.md) Lade till felsökning.
-- [Använd Azure Monitor-loggar med Azure Logic Apps och Power Automate](platform/logicapp-flow-connector.md) – Uppdaterad för ny Azure Monitor-anslutningsapp.
+- [Optimera logg frågor i Azure Monitor](log-query/query-optimization.md) -extra processor villkor för XML-och JSON-parsning.
+- [Ta bort och återställa Azure Log Analytics-arbetsytan](platform/delete-workspace.md) – fel sökning har lagts till.
+- [Använd Azure Monitor loggar med Azure Logic Apps och energi automatisering](platform/logicapp-flow-connector.md) – uppdaterat för nya Azure Monitor-anslutningar.
 
 ### <a name="metrics"></a>Mått
-- [Diskmått som har utfasning i Azure-portalen](https://docs.microsoft.com/azure/azure-monitor/platform/portal-disk-metrics-deprecation) - Ny artikel.
-- [Självstudiekurs - Skapa ett måttdiagram i Azure Monitor](learn/tutorial-metrics-explorer.md) - Lade till video.
+- [Föråldrade disk värden i den Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/portal-disk-metrics-deprecation) nya artikeln.
+- [Självstudie – Skapa ett mått diagram i Azure Monitor](learn/tutorial-metrics-explorer.md) -tillagd video.
 
 ### <a name="platform-logs"></a>Plattformsloggar
-- [Samla in och analysera Azure-aktivitetsloggen i Azure Monitor](platform/activity-log-collect.md) - Skriv om för att bättre förklara att samla in aktivitetslogg med diagnostikinställningar.
+- [Samla in och analysera Azure aktivitets logg i Azure Monitor](platform/activity-log-collect.md) – Skriv om för att få en bättre förklaring av aktivitets loggen med diagnostiska inställningar.
 
 ### <a name="virtual-machines"></a>Virtuella datorer
-- [Övervaka virtuella Azure-datorer med Azure Monitor](insights/monitor-vm-azure.md) - Ny artikel.
-- [Snabbstart: Övervaka virtuella Azure-datorer med Azure Monitor](learn/quick-monitor-azure-vm.md) – Uppdaterad för att lägga till Azure Monitor för virtuella datorer.
-- [Aviseringar från Azure Monitor för virtuella datorer](insights/vminsights-alerts.md) – ny artikel
-- [Aktivera Azure Monitor för virtuella datorer översikt](insights/vminsights-enable-overview.md) - Uppdaterade agenthämtningslänkar.
+- [Övervaka virtuella Azure-datorer med Azure Monitor](insights/monitor-vm-azure.md) ny artikel.
+- [Snabb start: övervaka virtuella Azure-datorer med Azure Monitor](learn/quick-monitor-azure-vm.md) -uppdaterat för att lägga till Azure Monitor for VMS.
+- [Aviseringar från Azure Monitor for VMS](insights/vminsights-alerts.md) – ny artikel
+- [Aktivera Azure Monitor for VMS översikt](insights/vminsights-enable-overview.md) – uppdaterade Länkar för agent hämtning.
 
 
-Allmänna uppdateringar för allmän tillgänglighet för Azure Monitor för virtuella datorer
-- [Vad är Azure Monitor för virtuella datorer?](insights/vminsights-overview.md)
-- [Vanliga frågor och svar om Azure Monitor för virtuella datorer (GA)](insights/vminsights-ga-release-faq.md) 
-- [Aktivera Azure Monitor för virtuella datorer med hjälp av Azure Policy](insights/vminsights-enable-at-scale-policy.md) 
-- [Diagramprestanda med Azure Monitor för virtuella datorer](insights/vminsights-performance.md)
-- [Fråga loggar från Azure Monitor för virtuella datorer](insights/vminsights-log-search.md)
-- [Visa appberoenden med Azure Monitor för virtuella datorer](insights/vminsights-maps.md) 
+Allmänna uppdateringar för allmän tillgänglighet för Azure Monitor for VMs
+- [Vad är Azure Monitor for VMs?](insights/vminsights-overview.md)
+- [Vanliga frågor och svar om Azure Monitor for VMs (GA)](insights/vminsights-ga-release-faq.md) 
+- [Aktivera Azure Monitor for VMs med Azure Policy](insights/vminsights-enable-at-scale-policy.md) 
+- [Så här diagramerar du prestanda med Azure Monitor for VMs](insights/vminsights-performance.md)
+- [Så här frågar du efter loggar från Azure Monitor for VMs](insights/vminsights-log-search.md)
+- [Visa program beroenden med Azure Monitor for VMs](insights/vminsights-maps.md) 
 
 
 ### <a name="visualizations"></a>Visualiseringar
-- [Visualisera data från Azure Monitor](visualizations.md) - Uppdaterad för att notera planerad utfasning av View Designer.
+- [Visualiserar data från Azure Monitor](visualizations.md) -uppdaterat för att notera planerad utfasning av View Designer.
 
 
 
@@ -83,53 +83,53 @@ Allmänna uppdateringar för allmän tillgänglighet för Azure Monitor för vir
 ## <a name="february-2020"></a>Februari 2020
 
 ### <a name="agents"></a>Agenter
-Flera uppdateringar som en del av omskrivning av diagnostiktilläggsinnehåll.
+Flera uppdateringar som en del av omskrivning av innehåll för diagnostik-tillägg.
 
-- [Översikt över Azure-övervakningsagenter](platform/agents-overview.md) - Omstrukturerade tabeller för att bättre klargöra unika funktioner för varje agent.
-- [Översikt över Azure Diagnostics-tillägg](platform/diagnostics-extension-overview.md) – Fullständig omskrivning.
-- [Använd blob-lagring för IIS och tabelllagring för händelser i Azure Monitor](platform/diagnostics-extension-logs.md) - Allmän omskrivning för uppdatering och tydlighet.
-- [Installera och konfigurera Windows Azure diagnostics extension (WAD)](platform/diagnostics-extension-windows-install.md) - Ny artikel. 
-- [Windows-diagnostiktilläggsschema](platform/diagnostics-extension-schema-windows.md) - Omorganiseras.
-- [Skicka data från Windows Azure diagnostics-tillägget till Azure Event Hubs](platform/diagnostics-extension-stream-event-hubs.md) - Helt omskrivna och uppdaterade.
-- [Lagra och visa diagnostikdata i Azure Storage](/azure/cloud-services/diagnostics-extension-to-storage) - Helt omskriven och uppdaterad.
-- [Log Analytics virtual machine-tillägg för Windows](../virtual-machines/extensions/oms-windows.md) – Bättre förtydligar relationen med Log Analytics-agenten.
-- [Azure Monitor virtual machine extension för Linux](../virtual-machines/extensions/oms-linux.md) - Bättre förtydligar relationen med Log Analytics-agenten.
+- [Översikt över Azure Monitoring agents](platform/agents-overview.md) – strukturerade tabeller för att bättre klargöra unika funktioner i varje agent.
+- [Översikt över Azure-diagnostik-tillägg](platform/diagnostics-extension-overview.md) – fullständig omskrivning.
+- [Använd Blob Storage för IIS och tabell lagring för händelser i Azure Monitor](platform/diagnostics-extension-logs.md) – allmän omskrivning för uppdatering och tydlighet.
+- [Installera och konfigurera Windows Azure Diagnostics Extension (wad)](platform/diagnostics-extension-windows-install.md) – ny artikel. 
+- [Tilläggs schema för Windows-diagnostik](platform/diagnostics-extension-schema-windows.md) – omorganisera.
+- [Skicka data från Windows Azure Diagnostics-tillägget till Azure Event Hubs](platform/diagnostics-extension-stream-event-hubs.md) -helt omskrivna och uppdaterade.
+- [Lagra och Visa diagnostikdata i Azure Storage](/azure/cloud-services/diagnostics-extension-to-storage) -helt omskrivna och uppdaterade.
+- [Log Analytics tillägg för virtuell dator för Windows](../virtual-machines/extensions/oms-windows.md) – bättre klargör relationen med Log Analytics-agenten.
+- [Azure Monitor tillägg för virtuell dator för Linux](../virtual-machines/extensions/oms-linux.md) – bättre klargör relationen med Log Analytics-agenten.
 
 
 
 
 ### <a name="application-insights"></a>Application Insights
-- [Anslutningssträngar i Azure Application Insights](app/sdk-connection-string.md) - Ny artikel.
+- [Anslutnings strängar i Azure Application Insights](app/sdk-connection-string.md) – ny artikel.
 
 ### <a name="insights-and-solutions"></a>Insikter och lösningar
 
 #### <a name="azure-monitor-for-containers"></a>Azure Monitor för containrar
-- [Integrera Azure Active Directory med Azure Kubernetes Service](../aks/azure-ad-integration.md) - Lade till anteckning för att skapa ett klientprogram för att stödja RBAC-aktiverat kluster för att stödja Azure Monitor för behållare.
+- [Integrera Azure Active Directory med Azure Kubernetes service](../aks/azure-ad-integration.md) – en anteckning om att skapa ett klient program som stöder RBAC-aktiverat kluster för att stödja Azure Monitor för behållare.
 
 #### <a name="azure-monitor-for-vms"></a>Azure Monitor för virtuella datorer
-- [Azure Monitor för virtuella datorer (GA) vanliga frågor och svar](insights/vminsights-ga-release-faq.md) - Ändra till hur prestandadata lagras.
+- [Azure Monitor for VMS (ga) vanliga frågor och svar](insights/vminsights-ga-release-faq.md) – ändra till hur prestanda data lagras.
 
 #### <a name="office-365"></a>Office 365
-- [Hanteringslösning för Office 365 i Azure](insights/solution-office-365.md) – Uppdaterat utfasningsdatum.
+- [Office 365-hanterings lösning i Azure](insights/solution-office-365.md) – uppdaterat utfasnings datum.
 
 
 ### <a name="logs"></a>Loggar
-- [Optimera loggfrågor i Azure Monitor](log-query/query-optimization.md) - Ny artikel.
-- [Hantera användning och kostnader för Azure Monitor Logs](platform/manage-cost-storage.md) - Förbättrade exempelfrågor för att förstå din användning.
+- [Optimera logg frågor i Azure Monitor](log-query/query-optimization.md) – ny artikel.
+- [Hantera användning och kostnader för Azure Monitor loggar](platform/manage-cost-storage.md) – förbättrade exempel frågor som hjälper dig att förstå din användning.
 
 ### <a name="metrics"></a>Mått
-- [Azure Monitor-plattformsmått som kan exporteras via diagnostikinställningar](platform/metrics-supported-export-diagnostic-settings.md) – lagt till avsnitt om ändring av beteende för nulls- och nollvärden.
+- [Azure Monitor plattforms mått som exporteras via diagnostikinställningar](platform/metrics-supported-export-diagnostic-settings.md) – avsnittet har lagts till vid ändring av beteendet för null-värden och nollvärden.
 
 
 ### <a name="visualizations"></a>Visualiseringar
-Flera nya artiklar för visningsdesigner till arbetsböcker konvertering guide.
+Flera nya artiklar för konverterings guiden för Visa designer till arbets böcker.
 
-- [Azure Monitor-vydesigner till arbetsböcker övergångsguide](platform/view-designer-conversion-overview.md) - Ny artikel.
-- [Azure Monitor-vydesigner till arbetsböcker konverteringsalternativ](platform/view-designer-conversion-options.md) - Ny artikel.
-- [Azure Monitor-vydesigner till arbetsböcker panelkonverteringar](platform/view-designer-conversion-tiles.md) - Ny artikel.
-- [Azure Monitor-vydesigner till arbetsböcker konvertering sammanfattning och åtkomst](platform/view-designer-conversion-access.md) - Ny artikel.
-- [Azure Monitor-vydesigner till arbetsböcker konvertering vanliga uppgifter](platform/view-designer-conversion-tasks.md) - Ny artikel.
-- [Azure Monitor-vydesigner till arbetsböcker konverteringsexempel](platform/view-designer-conversion-examples.md) - Ny artikel.
+- [Azure Monitor Visa designer till arbets böcker över gångs guide](platform/view-designer-conversion-overview.md) – ny artikel.
+- [Azure Monitor Visa designer till arbets böcker konverterings alternativ](platform/view-designer-conversion-options.md) -ny artikel.
+- [Azure Monitor Visa designer till panel konverteringar](platform/view-designer-conversion-tiles.md) – ny artikel.
+- [Azure Monitor Visa designer till arbets böcker konverterings Sammanfattning och Access](platform/view-designer-conversion-access.md) -ny artikel.
+- [Azure Monitor Visa designer till arbets böcker konvertering av vanliga uppgifter](platform/view-designer-conversion-tasks.md) – ny artikel.
+- [Azure Monitor Visa designer till arbets böcker konverterings exempel](platform/view-designer-conversion-examples.md) – ny artikel.
 
 
 
@@ -137,57 +137,57 @@ Flera nya artiklar för visningsdesigner till arbetsböcker konvertering guide.
 ## <a name="january-2020"></a>Januari 2020
 
 ### <a name="general"></a>Allmänt
-- [Vad övervakas av Azure Monitor?](monitor-reference.md) - Ny artikel.
+- [Vad övervakas av Azure Monitor?](monitor-reference.md) – Ny artikel.
 
 ### <a name="agents"></a>Agenter
-- [Samla in loggdata med Azure Log Analytics-agent](platform/log-analytics-agent.md) - Uppdaterad informationsförvar för nätverksbrandväggen.
+- [Samla in loggdata med Azure Log Analytics agent](platform/log-analytics-agent.md) -uppdaterad tabell över nätverks brand Väggs krav.
 
 
 ### <a name="alerts"></a>Aviseringar
-- [Skapa och hantera åtgärdsgrupper i Azure-portalen](platform/action-groups.md) - Inställning som tagits bort för v2-funktioner som inte längre krävs.
-- [Skapa en måttavisering med en Resource Manager-mall](platform/alerts-metric-create-templates.md) - Tillagt exempel för parametern *ignoreDataBefore.*  Lade till begränsningar om regler för flera villkor.
-- [Använda Log Analytics Alert REST API](platform/api-alerts.md) - JSON exempel korrigeras.
+- [Skapa och hantera åtgärds grupper i Azure Portal](platform/action-groups.md) -inställningen tas bort för v2-funktioner som inte längre krävs.
+- [Skapa en mått varning med en Resource Manager-mall – ett](platform/alerts-metric-create-templates.md) exempel har lagts till för parametern *ignoreDataBefore* .  Begränsningar för regler för flera villkor har lagts till.
+- Att [använda Log Analytics varning REST API](platform/api-alerts.md) – JSON-exempel korrigeras.
 
 
 ### <a name="application-insights"></a>Application Insights
-- [IP-adresser som används av Application Insights och Log Analytics](app/ip-addresses.md) - Uppdaterade avsnittet Tillgänglighetstest med hur du lägger till en inkommande portregel för att tillåta trafik med Hjälp av Azure Network Security Groups.
-- [Felsöka problem med Profiler för Azure Application Insights](app/profiler-troubleshooting.md) – Uppdaterad allmän felsökning.
-- [Telemetrisampling i Azure Application Insights](app/sampling.md) – Uppdaterad och omstrukturerad för att förbättra läsbarheten baserat på feedback från kunder.
+- [IP-adresser som används av Application Insights och Log Analytics](app/ip-addresses.md) – uppdaterat avsnittet tillgänglighets test med anvisningar för hur du lägger till en regel för inkommande portar för att tillåta trafik med hjälp av Azure nätverks säkerhets grupper.
+- [Felsök problem med Azure Application Insights profiler](app/profiler-troubleshooting.md) -uppdaterad allmän fel sökning.
+- [Telemetri-sampling i Azure Application insikter](app/sampling.md) – uppdateras och struktureras om för att förbättra läsbarheten baserat på feedback från kunderna.
 
 
 ### <a name="data-security"></a>Datasäkerhet
-- [Azure Monitor kundhanterad nyckelkonfiguration](platform/customer-managed-keys.md) - Ny artikel.
+- [Azure Monitor kundhanterad nyckel konfiguration](platform/customer-managed-keys.md) – ny artikel.
 
 ### <a name="insights-and-solutions"></a>Insikter och lösningar
 
 #### <a name="azure-monitor-for-containers"></a>Azure Monitor för containrar
-- [Konfigurera Azure Monitor för behållare agent datainsamling](insights/container-insights-agent-config.md) - Lagt till information för uppgradering agent på Azure Red Hat OpenShift, och lagt till ytterligare information för att skilja metoderna för uppgradering agent.
-- [Skapa prestandaaviseringar för Azure Monitor för behållare](insights/container-insights-alerts.md) – Reviderad information och uppdaterade steg för att skapa en avisering om prestandadata som lagras på arbetsytan med hjälp av aviseringar för arbetsytekontexter.
-- [Kubernetes övervakning med Azure Monitor för behållare](insights/container-insights-analyze.md) - Uppdaterade både översiktsartikeln och analysera artikeln om stöd för Windows Kubernetes kluster.
-- [Konfigurera Azure Red Hat OpenShift-kluster med Azure Monitor för behållare](insights/container-insights-azure-redhat-setup.md) – Lade till information för uppgraderingsagent på Azure Red Hat OpenShift och lade till ytterligare information för att skilja metoderna för uppgradering av agent.
-- [Konfigurera Hybrid Kubernetes-kluster med Azure Monitor för behållare](insights/container-insights-hybrid-setup.md) – Uppdaterad för att återspegla extra stöd för säker port:10250 med Kubelets cAdvisor.
-- [Hantera Azure Monitor för behållare agent](insights/container-insights-manage-agent.md) - Uppdaterad information relaterad till beteende och config av metrisk skrapning med Azure Red Hat OpenShift jämfört med andra typer av Kubernetes kluster.
-- [Konfigurera Azure Monitor för behållare Prometheus Integration](insights/container-insights-prometheus-integration.md) - Uppdaterad information relaterad till beteende och config av metrisk skrapning med Azure Red Hat OpenShift jämfört med andra typer av Kubernetes-kluster.
-- [Så här uppdaterar du Azure Monitor för behållare för mått](insights/container-insights-update-metrics.md) – Uppdaterad information om beteende och konfiguration av måttskrapning med Azure Red Hat OpenShift jämfört med andra typer av Kubernetes-kluster.
+- [Konfigurera Azure Monitor för behållare agent data insamling](insights/container-insights-agent-config.md) -ytterligare information för att uppgradera agenten i Azure Red Hat OpenShift och ytterligare information för att särskilja metoderna för att uppgradera agenten.
+- [Skapa prestanda varningar för Azure Monitor för behållare](insights/container-insights-alerts.md) – ändrad information och uppdaterade steg för att skapa en avisering om prestanda data som lagras i arbets ytan med hjälp av arbets ytans kontext aviseringar.
+- [Kubernetes övervakning med Azure Monitor för behållare](insights/container-insights-analyze.md) – uppdaterad både översikts artikeln och analys artikeln om stöd för Windows Kubernetes-kluster.
+- [Konfigurera Azure Red Hat OpenShift-kluster med Azure Monitor för behållare](insights/container-insights-azure-redhat-setup.md) – ytterligare information för att uppgradera agenten i Azure Red Hat OpenShift och ytterligare information som särskiljer metoderna för att uppgradera agenten.
+- [Konfigurera hybrid Kubernetes-kluster med Azure Monitor för behållare](insights/container-insights-hybrid-setup.md) – uppdaterat för att avspegla ytterligare stöd för säker port: 10250 med Kubelet cAdvisor.
+- [Så här hanterar du Azure Monitor för behållare agent](insights/container-insights-manage-agent.md) – uppdaterad information relaterad till beteende och konfiguration av mått kassation med Azure Red Hat OpenShift jämfört med andra typer av Kubernetes-kluster.
+- [Konfigurera Azure Monitor för containers Prometheus-integrering](insights/container-insights-prometheus-integration.md) – uppdaterad information relaterad till beteende och konfiguration av mått kassation med Azure Red Hat OpenShift jämfört med andra typer av Kubernetes-kluster.
+- [Uppdatera Azure Monitor för behållare för mått](insights/container-insights-update-metrics.md) – uppdaterad information relaterad till beteende och konfiguration av mått kassation med Azure Red Hat OpenShift jämfört med andra typer av Kubernetes-kluster.
 
 
 #### <a name="azure-monitor-for-vms"></a>Azure Monitor för virtuella datorer
-- [Azure Monitor för virtuella datorer (GA) ställde vanliga frågor](insights/vminsights-ga-release-faq.md) – Lagt till information om uppgradering av arbetsyta och agenter till ny version.
+- [Azure Monitor for VMS (ga) vanliga frågor](insights/vminsights-ga-release-faq.md) – ytterligare information om att uppgradera arbets ytan och agenter till den nya versionen.
 
 #### <a name="office-365"></a>Office 365
-- [Hanteringslösning för Office 365 i Azure](insights/solution-office-365.md) – Lade till information och vanliga frågor om migrering till Office 365-lösning i Azure Sentinel. Borttagen introduktionssektion.
+- [Office 365-hanterings lösning i Azure](insights/solution-office-365.md) – ytterligare information och vanliga frågor och svar om migrering till Office 365-lösning i Azure Sentinel. Avsnittet har tagits bort.
 
 
 
 ### <a name="logs"></a>Loggar
-- [Hantera logganalysarbetsytor i Azure Monitor](platform/manage-access.md) – Uppdateringar av inte åtgärder.
-- [Hantera användning och kostnader för Azure Monitor Logs](platform/manage-cost-storage.md) - Lade till förtydligande vid beräkning av datavolym i avsnittet Prismodell.
-- [Använd Azure Resource Manager-mallar för att skapa och konfigurera en logganalysarbetsyta](platform/template-workspace-configuration.md) – uppdaterad mall med nya prisnivåer.
+- [Hantera Log Analytics arbets ytor i Azure Monitor](platform/manage-access.md) – uppdateringar av inte åtgärder.
+- [Hantera användning och kostnader för Azure Monitor loggar](platform/manage-cost-storage.md) – du har lagt till klargöranden vid beräkning av data volym i avsnittet prissättnings modell.
+- [Använd Azure Resource Manager mallar för att skapa och konfigurera en mall för Log Analytics-arbetsytan](platform/template-workspace-configuration.md) – uppdaterad med nya pris nivåer.
 
 
 ### <a name="platform-logs"></a>Plattformsloggar
-- [Samla in Azure Activity-logg med diagnostikinställningar- Azure Monitor](platform/diagnostic-settings-legacy.md) - Ytterligare information om ändrade egenskaper.
-- [Exportera Azure Activity Log](platform/activity-log-export.md) - Uppdaterad för gränssnittsändringar. 
+- [Samla in Azure aktivitets logg med diagnostikinställningar – Azure Monitor](platform/diagnostic-settings-legacy.md) – ytterligare information om ändrade egenskaper.
+- [Exportera Azure aktivitets loggen](platform/activity-log-export.md) – uppdaterad för ändringar i gränssnittet. 
 
 
 
@@ -196,75 +196,75 @@ Flera nya artiklar för visningsdesigner till arbetsböcker konvertering guide.
 ## <a name="december-2019"></a>December 2019
 
 ### <a name="agents"></a>Agenter
-- [Anslut Linux-datorer till Azure Monitor](platform/agent-linux.md) - Ny artikel.
+- [Anslut Linux-datorer till Azure Monitor](platform/agent-linux.md) -ny artikel.
 
 ### <a name="alerts"></a>Aviseringar
-- [Skapa en måttavisering med en Resource Manager-mall](platform/alerts-metric-create-templates.md) - Tillagt exempel för anpassade mått.
-- [Skapa aviseringar med dynamiska tröskelvärden i Azure Monitor](platform/alerts-dynamic-thresholds.md) – Lagt till avsnitt om tolkning av dynamiska tröskelvärden.
-- [Översikt över aviseringar och meddelandeövervakning i Azure](platform/alerts-overview.md) - Uppdaterad resursdiagramfråga.
-- [Resurser som stöds för måttaviseringar i Azure Monitor](platform/alerts-metric-near-real-time.md) – Uppdatera till mått och dimensioner som stöds.
-- [Växla från äldre Logg Analytics-aviseringar API till nytt Azure Alerts API](platform/alerts-log-api-switch.md) - Lade till anteckning om ändrat aviseringsnamn.
-- [Förstå hur måttaviseringar fungerar i Azure Monitor.](platform/alerts-metric-overview.md) - Lade till resurstyper som stöds för övervakning i stor skala.
+- [Skapa en mått varning med en Resource Manager-mall](platform/alerts-metric-create-templates.md) – exempel på anpassat mått har lagts till.
+- [Skapa aviseringar med dynamiska tröskelvärden i avsnittet Azure Monitor](platform/alerts-dynamic-thresholds.md) -Added för tolkning av dynamiska tröskel diagram.
+- [Översikt över aviseringar och meddelande övervakning i Azure](platform/alerts-overview.md) -uppdaterad resurs diagram fråga.
+- [Resurser som stöds för mått varningar i Azure Monitor](platform/alerts-metric-near-real-time.md) – uppdatering av mått och dimensioner som stöds.
+- [Växla från äldre Log Analytics aviserings-API till nya](platform/alerts-log-api-switch.md) aviseringar i Azure-aviseringar – Lägg till anteckning om ändrat aviserings namn.
+- [Förstå hur mått varningar fungerar i Azure Monitor.](platform/alerts-metric-overview.md) -Resurs typer som stöds för övervakning i skala har lagts till.
 
 ### <a name="application-insights"></a>Application Insights
-- [Application Insights for Worker Service apps (icke-HTTP-appar)](app/worker-service.md) - Lade till standardloggningsnivå i C#-kod. Uppdaterad paketreferensversion.
-- [ApplicationInsights.config-referens - Azure](app/configuration-with-applicationinsights-config.md) - Uppdaterad exempelkod.
-- [Automatisera Azure Application Insights med PowerShell](app/powershell.md) - Update to Resource Manager-mall.
-- [Azure Monitor Application Insights NuGet-paket](app/nuget.md) - Uppdaterade paketversioner.
-- [Skapa en ny Azure Application Insights-resurs](app/create-new-resource.md) – Anteckning som lagts till i globalt unikt namn.
-- [Diagnostisera med Live Metrics Stream - Azure Application Insights](app/live-stream.md) - Uppdaterad ASP.NET Core SDK-versionskrav.
-- [Händelseräknare i Application Insights](app/eventcounters.md) - Uppdaterad kategori och tabell till customMetrics.
-- [Utforska Java-spårningsloggar i Azure Application Insights](app/java-trace-logs.md) – Lade till konfiguration för Java-agentloggningströskel.
-- [IP-adresser som används av Application Insights och Log Analytics](app/ip-addresses.md) - Uppdaterade IP-adresser för Live Metrics Stream.
-- [Övervaka prestanda för Azure-apptjänster](app/azure-web-apps.md) – Har lagt till stöd för ASP.NET Core 3.0. 
-- [Övervaka Python-program med Azure Monitor (förhandsversion)](app/opencensus-python.md) – Lade till förtydligande för OpenCensus Python-schemamappning i Azure . Schema för bildskärm
-- [Viktig information för Azure Application Insights](app/release-notes.md) - Lade till anteckningar för äldre versioner.
-- [Telemetrikanaler i Azure Application Insights](app/telemetry-channels.md) - Uppdaterad varaktighet för ignorerade data under längre anslutningsperiod.
-- [Telemetrisampling i Azure Application Insights](app/sampling.md) - Korrigerat kodavsnitt för anpassad TelemetryInitializer.
-- [Felsöka programinsikter i ett Java-webbprojekt](app/java-troubleshoot.md) – Tog bort uttryck om att inte stödja beroendesamling i JDK 9.
+- [Application Insights för Worker service-appar (icke-http-appar)](app/worker-service.md) – en standard loggnings nivå har lagts till i C#-koden. Uppdaterad paket referens version.
+- [ApplicationInsights. config-referens – Azure](app/configuration-with-applicationinsights-config.md) -uppdaterad exempel kod.
+- [Automatisera Azure Application Insights med PowerShell](app/powershell.md) – uppdatera till Resource Manager-mall.
+- [Azure Monitor Application Insights NuGet-paket](app/nuget.md) – uppdaterade paket versioner.
+- [Skapa en ny Azure Application Insights-resurs](app/create-new-resource.md) -anteckning som har lagts till i globalt unikt namn.
+- [Diagnostisera med Live Metrics Stream-Azure Application Insights](app/live-stream.md) – uppdaterat krav för ASP.net Core SDK-version.
+- [Händelse räknare i Application Insights](app/eventcounters.md) -uppdaterad kategori och tabell till customMetrics.
+- [Utforska Java trace-loggar i Azure Application Insights](app/java-trace-logs.md) -tillagd konfiguration för loggnings tröskeln för Java-agent.
+- [IP-adresser som används av Application Insights och Log Analytics](app/ip-addresses.md) uppdaterade IP-adresser för Live Metrics Stream.
+- [Övervaka Azure App Services-prestanda](app/azure-web-apps.md) – stöd har lagts till för ASP.net Core 3,0. 
+- [Övervaka python-program med Azure Monitor (för hands version)](app/opencensus-python.md) – du har lagt till klargöranden för python-schema mappning i openpool till Azure. Övervaka schema
+- [Viktig information för Azure Application insikter](app/release-notes.md) – tillagda anteckningar för äldre versioner.
+- [Telemetri kanaler i Azure Application insikter](app/telemetry-channels.md) – uppdaterad varaktighet för förkastade data under den utökade tids perioden för förlorad anslutning.
+- [Telemetri-sampling i Azure Application Insights](app/sampling.md) – korrigerat kodfragment för anpassade TelemetryInitializer.
+- [Felsök Application Insights i en Java-webbprojekt](app/java-troubleshoot.md) -borttagen instruktion om att inte stödja beroende insamling i JDK 9.
 
 ### <a name="insights-and-solutions"></a>Insikter och lösningar
-- [Azure Monitor för behållare Vanliga frågor](insights/container-insights-faq.md) – Lade till fråga i fälten Bild och Namn.
-- [Azure SQL Analytics-lösning i Azure Monitor](insights/azure-sql.md) - Uppdaterad databas väntar support för hanterade instanser.
-- [Konfigurera Azure Monitor för behållare agent datainsamling](insights/container-insights-agent-config.md) - Added inställning för enrich_container_logs.
-- [Konfigurera Hybrid Kubernetes-kluster med Azure Monitor för behållare](insights/container-insights-hybrid-setup.md) – tillagd felsökningssektion.
-- [Övervaka Active Directory-replikeringsstatus med Azure Monitor](insights/ad-replication-status.md) - .NET Framework-förutsättningen uppdaterad.
-- [Network Performance Monitor-lösning i Azure](insights/network-performance-monitor.md) – Lade till regioner som stöds.
-- [Optimera din Active Directory-miljö med Azure Monitor](insights/ad-assessment.md) - .NET Framework förutsättning uppdaterad.
-- [Optimera din SQL Server-miljö med Azure Monitor](insights/sql-assessment.md) - .NET Framework förutsättning uppdaterad.
-- [Optimera din System Center Operations Manager-miljö med Azure Log Analytics](insights/scom-assessment.md) - .NET Framework förutsättning uppdaterad.
-- [Anslutningar som stöds med IT Service Management Connector i Azure Log Analytics](platform/itsmc-connections.md) - Lade till New York till ett förutsättningsklient-ID och klienthemlighet.
+- [Azure Monitor för behållare vanliga frågor och svar](insights/container-insights-faq.md) – tillagd fråga i fälten bild och namn.
+- [Azure SQL-analys lösning i Azure Monitor](insights/azure-sql.md) -uppdaterad databas väntar på stöd för hanterade instanser.
+- [Konfigurera Azure Monitor för behållare agent data insamling](insights/container-insights-agent-config.md) – ytterligare inställning för enrich_container_logs.
+- [Konfigurera hybrid Kubernetes-kluster med Azure Monitor för behållare som](insights/container-insights-hybrid-setup.md) har lagts till fel söknings avsnittet.
+- [Övervaka Active Directory replikeringsstatus med Azure Monitor](insights/ad-replication-status.md) -.NET Framework nödvändiga uppdateringar.
+- [Övervakare av nätverksprestanda lösning i Azure](insights/network-performance-monitor.md) – tillagda regioner som stöds.
+- [Optimera din Active Directory miljö med Azure Monitor](insights/ad-assessment.md) -.NET Framework nödvändiga uppdateringar.
+- [Optimera din SQL Server miljö med Azure Monitor](insights/sql-assessment.md) -.NET Framework nödvändiga uppdateringar.
+- [Optimera din System Center Operations Manager-miljö med Azure Log Analytics](insights/scom-assessment.md) -.NET Framework nödvändiga uppdateringar.
+- [Anslutningar som stöds med anslutningsprogram för hantering av IT-tjänster (ITSM) i Azure Log Analytics](platform/itsmc-connections.md) – tillagt New York till det nödvändiga klient-ID: t och klient hemligheten.
 
 ### <a name="logs"></a>Loggar
-- [Ta bort och återställa Azure Log Analytics-arbetsyta](platform/delete-workspace.md) - Added PowerShell-metod.
-- [Designa din Azure Monitor Logs-distribution](platform/design-logs-deployment.md) - Inmatningshastigheten för en arbetsyta ökade.
+- [Ta bort och Återställ Azure-Log Analytics arbets yta](platform/delete-workspace.md) som har lagts till med PowerShell-metoden.
+- Genom [att utforma dina Azure Monitor loggar distribution](platform/design-logs-deployment.md) efter inmatnings takt för en arbets yta ökade.
 
 ### <a name="metrics"></a>Mått
-- [Azure Monitor-plattformsmått som kan exporteras via diagnostikinställningar](platform/metrics-supported-export-diagnostic-settings.md) – ny artikel.
+- [Azure Monitor plattforms mått som exporteras via diagnostikinställningar](platform/metrics-supported-export-diagnostic-settings.md) – ny artikel.
 
 ### <a name="platform-logs"></a>Plattformsloggar
-Flera artiklar uppdateras som en del av omstruktureringen av innehåll för plattformsloggar baserat på ny funktion för att konfigurera aktivitetslogg med hjälp av diagnostikinställningar.
+Flera artiklar har uppdaterats som en del av omstrukturering av innehåll för plattforms loggar baserat på en ny funktion för att konfigurera aktivitets loggen med hjälp av diagnostikinställningar.
 
-- [Arkivera Azure-resursloggar till lagringskonto](platform/resource-logs-collect-storage.md)
-- [Händelseschema för Azure Activity Log](platform/activity-log-schema.md)
-- [Begränsningar för Azure Monitor-tjänsten](service-limits.md)
-- [Samla in och analysera Azure-aktivitetsloggar i Log Analytics-arbetsytan](platform/activity-log-collect.md)
-- [Samla in Azure Activity-logg med diagnostikinställningar (förhandsversion) – Azure Monitor](platform/diagnostic-settings-legacy.md)
-- [Samla in Azure Activity-loggar i en log Analytics-arbetsyta för Azure-klienter](platform/activity-log-collect-tenants.md)
-- [Samla in Azure-resursloggar i Log Analytics-arbetsytan](platform/resource-logs-collect-workspace.md)
-- [Skapa diagnostikinställning i Azure med hjälp av Resource Manager-mallen](platform/diagnostic-settings-template.md)
-- [Skapa diagnostikinställning för att samla in loggar och mått i Azure](platform/diagnostic-settings.md)
-- [Exportera Azure-aktivitetsloggen](platform/activity-log-export.md)
-- [Översikt över Azure-plattformsloggar](platform/platform-logs-overview.md)
-- [Strömma Azure-övervakningsdata till händelsehubb](platform/stream-monitoring-data-event-hubs.md)
-- [Strömma Azure-plattformsloggar till en händelsehubb](platform/resource-logs-stream-event-hubs.md)
+- [Arkivera Azures resurs loggar till lagrings kontot](platform/resource-logs-collect-storage.md)
+- [Händelse schema för Azure aktivitets logg](platform/activity-log-schema.md)
+- [Azure Monitor tjänst gränser](service-limits.md)
+- [Samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta](platform/activity-log-collect.md)
+- [Samla in Azure aktivitets logg med diagnostikinställningar (för hands version) – Azure Monitor](platform/diagnostic-settings-legacy.md)
+- [Samla in Azures aktivitets loggar i en Log Analytics arbets yta över Azure-klienter](platform/activity-log-collect-tenants.md)
+- [Samla in Azures resurs loggar i Log Analytics arbets yta](platform/resource-logs-collect-workspace.md)
+- [Skapa diagnostisk inställning i Azure med Resource Manager-mall](platform/diagnostic-settings-template.md)
+- [Skapa en diagnostisk inställning för insamling av loggar och mått i Azure](platform/diagnostic-settings.md)
+- [Exportera Azure aktivitets loggen](platform/activity-log-export.md)
+- [Översikt över Azures plattforms loggar](platform/platform-logs-overview.md)
+- [Strömma Azure-övervaknings data till händelsehubben](platform/stream-monitoring-data-event-hubs.md)
+- [Strömma Azure-plattformar loggar till en händelsehubben](platform/resource-logs-stream-event-hubs.md)
 
 ### <a name="quickstarts-and-tutorials"></a>Snabbstarter och självstudier
 
-- [Skapa ett måttdiagram i Azure Monitor](learn/tutorial-metrics-explorer.md) - Ny artikel.
-- [Samla in resursloggar från en Azure-resurs och analysera med Azure Monitor](learn/tutorial-resource-logs.md) - Ny artikel.
-- [Övervaka en Azure-resurs med Azure Monitor](learn/quick-monitor-azure-resource.md) - Ny artikel.
+- [Skapa ett mått diagram i Azure Monitor](learn/tutorial-metrics-explorer.md) nya artikeln.
+- [Samla in resurs loggar från en Azure-resurs och analysera med Azure Monitor](learn/tutorial-resource-logs.md) nya artikeln.
+- [Övervaka en Azure-resurs med Azure Monitor](learn/quick-monitor-azure-resource.md) ny artikel.
    
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill bidra till Azure Monitor-dokumentationen läser du [docs contributor guide](https://docs.microsoft.com/contribute/).
+- Om du vill bidra till Azure Monitor-dokumentationen kan du läsa [guiden dokument bidrags givare](https://docs.microsoft.com/contribute/).

@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – skapa ett Stream Analytics-jobb med Azure PowerShell
+title: Snabb start – skapa ett Stream Analytics jobb med Azure PowerShell
 description: Den här snabbstarten demonstrerar hur du använder Azure PowerShell-modulen för att distribuera och köra ett Azure Stream Analytics-jobb.
 author: mamccrea
 ms.author: mamccrea
@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 ms.openlocfilehash: 84c132c333e4d6ba052029350f275ebf499a906f
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79536810"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Snabbstart: Skapa ett Stream Analytics-jobb med Azure PowerShell
+# <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Snabb start: skapa ett Stream Analytics jobb med Azure PowerShell
 
 Azure PowerShell-modulen används för att skapa och hantera Azure-resurser med hjälp av PowerShell-cmdletar eller -skript. Den här snabbstarten beskriver hur du använder Azure PowerShell-modulen för att distribuera och köra ett Azure Stream Analytics-jobb.
 
@@ -24,11 +24,11 @@ Exempeljobbet läser strömmande data från en IoT Hub-enhet. Indata genereras a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto.](https://azure.microsoft.com/free/)
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto.](https://azure.microsoft.com/free/)
 
 * Den här snabbstarten kräver Azure PowerShell-modulen. Hitta versionen som är installerad på den lokala datorn genom att köra `Get-Module -ListAvailable Az`. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
 
-* Vissa IoT Hub-åtgärder stöds inte av Azure PowerShell och måste slutföras med Azure CLI version 2.0.70 eller senare och IoT-tillägget för Azure CLI. [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och använd `az extension add --name azure-iot` för att installera IoT-tillägget.
+* Vissa IoT Hub åtgärder stöds inte av Azure PowerShell och måste slutföras med hjälp av Azure CLI version 2.0.70 eller senare och IoT-tillägget för Azure CLI. [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och använd `az extension add --name azure-iot` för att installera IoT-tillägget.
 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure

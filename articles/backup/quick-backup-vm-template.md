@@ -1,49 +1,49 @@
 ---
-title: Snabbstart - Vm-säkerhetskopia för Resurshanteraren
-description: Lär dig hur du säkerhetskopierar dina virtuella datorer med Azure Resource Manager-mall
+title: Snabb start – Resource Manager-mall VM-säkerhetskopiering
+description: Lär dig hur du säkerhetskopierar virtuella datorer med Azure Resource Manager-mall
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc,subject-armqs
 ms.openlocfilehash: d6fb73801f0f460daf2ed70f8dc88187e41ea887
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81458853"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-resource-manager-template"></a>Säkerhetskopiera en virtuell dator i Azure med Resource Manager-mall
 
-[Azure Backup](backup-overview.md) säkerhetskopierar lokala datorer och appar och virtuella Azure-datorer. Den här artikeln visar hur du säkerhetskopierar en Azure VM med Resource Manager-mall och Azure PowerShell. Den här snabbstarten fokuserar på hur du distribuerar en Resource Manager-mall för att skapa ett Recover Services-valv. Mer information om hur du utvecklar Resource Manager-mallar finns i [Dokumentationen](/azure/azure-resource-manager/) till Resource Manager och [mallreferensen](/azure/templates/microsoft.recoveryservices/allversions).
+[Azure Backup](backup-overview.md) säkerhetskopierar lokala datorer och appar och virtuella Azure-datorer. Den här artikeln visar hur du säkerhetskopierar en virtuell Azure-dator med Resource Manager-mall och Azure PowerShell. Den här snabb starten fokuserar på processen att distribuera en Resource Manager-mall för att skapa ett återhämtnings tjänst valv. Mer information om hur du utvecklar Resource Manager-mallar finns i [Resource Manager-dokumentation](/azure/azure-resource-manager/) och [mallen referens](/azure/templates/microsoft.recoveryservices/allversions).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Du kan också säkerhetskopiera en virtuell dator med [Azure PowerShell,](./quick-backup-vm-powershell.md) [Azure CLI](quick-backup-vm-cli.md)eller i [Azure-portalen](quick-backup-vm-portal.md).
+Alternativt kan du säkerhetskopiera en virtuell dator med [Azure PowerShell](./quick-backup-vm-powershell.md), [Azure CLI](quick-backup-vm-cli.md)eller i [Azure Portal](quick-backup-vm-portal.md).
 
-## <a name="create-a-vm-and-recovery-services-vault"></a>Skapa ett vm- och återställningstjänster-valv
+## <a name="create-a-vm-and-recovery-services-vault"></a>Skapa en virtuell dator och Recovery Services valv
 
-Ett [Recovery Services-valv](backup-azure-recovery-services-vault-overview.md) är en logisk behållare som lagrar säkerhetskopierade data för skyddade resurser, till exempel virtuella Azure-datorer. När ett säkerhetskopieringsjobb körs skapas en återställningspunkt i Recovery Services-valvet. Du kan sedan använda någon av dessa återställningspunkter för att återställa data till en given tidpunkt.
+Ett [Recovery Services valv](backup-azure-recovery-services-vault-overview.md) är en logisk behållare som lagrar säkerhetskopierade data för skyddade resurser, till exempel virtuella Azure-datorer. När ett säkerhets kopierings jobb körs skapas en återställnings punkt i Recovery Services valvet. Du kan sedan använda någon av dessa återställningspunkter för att återställa data till en given tidpunkt.
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabbstarten är från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). Med den här mallen kan du distribuera enkla Windows VM och Recovery Services Vault som konfigurerats med DefaultPolicy for Protection.
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/). Med den här mallen kan du distribuera enkel virtuell Windows-dator och Recovery Services valv som kon figurer ATS med DefaultPolicy för skydd.
 
 :::code language="json" source="~/quickstart-templates/101-recovery-services-create-vm-and-configure-backup/azuredeploy.json" range="1-247" highlight="221-245":::
 
 De resurser som definieras i mallen är:
 
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts)
-- [**Microsoft.Network/publicIPAdresser**](/azure/templates/microsoft.network/publicipaddresses)
-- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft.Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines)
-- [**Microsoft.RecoveryServices/valv**](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults)
-- [**Microsoft.RecoveryServices/valv/backupFabric/protectionContainers/protectedItems**](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults/backupfabrics/protectioncontainers/protecteditems)
+- [**Microsoft. Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts)
+- [**Microsoft. Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft. Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
+- [**Microsoft. Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft. RecoveryServices/valv**](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults)
+- [**Microsoft. RecoveryServices/valv/backupFabrics/protectionContainers/protectedItems**](/azure/templates/microsoft.recoveryservices/2016-06-01/vaults/backupfabrics/protectioncontainers/protecteditems)
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 
-Om du vill distribuera mallen väljer du **Prova** den för att öppna Azure Cloud Shell och klistra sedan in följande PowerShell-skript i skalfönstret. Om du vill klistra in koden högerklickar du på skalfönstret och väljer sedan **Klistra in**.
+Om du vill distribuera mallen väljer du **prova** att öppna Azure Cloud Shell och klistrar in följande PowerShell-skript i Shell-fönstret. Om du vill klistra in koden högerklickar du på Shell-fönstret och väljer **Klistra in**.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name (limited to eight characters) that is used to generate Azure resource names"
@@ -59,26 +59,26 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName -adminUsername $adminUsername -adminPassword $adminPassword -dnsLabelPrefix $dnsPrefix
 ```
 
-Azure PowerShell används för att distribuera Resource Manager-mallen i den här snabbstarten. [Azure-portalen,](../azure-resource-manager/templates/deploy-portal.md) [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)och [Rest API](../azure-resource-manager/templates/deploy-rest.md) kan också användas för att distribuera mallar.
+Azure PowerShell används för att distribuera Resource Manager-mallen i den här snabb starten. [Azure Portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)och rest- [API: et](../azure-resource-manager/templates/deploy-rest.md) kan också användas för att distribuera mallar.
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
 
 ### <a name="start-a-backup-job"></a>Starta ett säkerhetskopieringsjobb
 
-Mallen skapar en virtuell dator och aktiverar den virtuella datorn igen. När du har distribuerat mallen måste du starta ett säkerhetskopieringsjobb. Mer information finns i [Starta ett säkerhetskopieringsjobb](./quick-backup-vm-powershell.md#start-a-backup-job).
+Mallen skapar en virtuell dator och aktiverar den virtuella datorn igen. När du har distribuerat mallen måste du starta ett säkerhets kopierings jobb. Mer information finns i [starta ett säkerhets kopierings jobb](./quick-backup-vm-powershell.md#start-a-backup-job).
 
 ### <a name="monitor-the-backup-job"></a>Övervaka säkerhetskopieringen
 
-Om du vill övervaka säkerhetskopieringsjobbet finns i [Övervaka säkerhetskopieringsjobbet](./quick-backup-vm-powershell.md#monitor-the-backup-job).
+Information om hur du övervakar säkerhets kopierings jobbet finns i [övervaka säkerhets kopierings jobbet](./quick-backup-vm-powershell.md#monitor-the-backup-job).
 
 ## <a name="clean-up-the-deployment"></a>Rensa distributionen
 
 Om du inte längre behöver säkerhetskopiera den virtuella datorn kan du rensa den.
 
 - Om du vill prova att återställa den virtuella datorn hoppar du över rensningen.
-- Om du har använt en befintlig virtuell dator kan du hoppa över den slutliga [Cmdleten Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att lämna resursgruppen och den virtuella datorn på plats.
+- Om du använde en befintlig virtuell dator kan du hoppa över den slutliga cmdleten [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) så att du lämnar resurs gruppen och den virtuella datorn på plats.
 
-Inaktivera skydd, ta bort återställningspunkterna och valvet. Ta sedan bort resursgruppen och associerade VM-resurser enligt följande:
+Inaktivera skydd, ta bort återställnings punkterna och valvet. Ta sedan bort resurs gruppen och tillhör ande virtuella dator resurser enligt följande:
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $item -RemoveRecoveryPoints
@@ -91,6 +91,6 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 I den här snabbstarten har du skapat ett Recovery Services-valv, aktiverat skydd på en virtuell dator och skapat den första återställningspunkten.
 
-- [Läs om hur du](tutorial-backup-vm-at-scale.md) säkerhetskopierar virtuella datorer i Azure-portalen.
-- [Lär dig hur du](tutorial-restore-disk.md) snabbt återställer en virtuell dator
-- [Lär dig hur du](../azure-resource-manager/templates/template-tutorial-create-first-template.md) skapar Resource Manager-mallar.
+- [Lär dig hur](tutorial-backup-vm-at-scale.md) du säkerhetskopierar virtuella datorer i Azure Portal.
+- [Lär dig hur](tutorial-restore-disk.md) du snabbt återställer en virtuell dator
+- [Lär dig hur](../azure-resource-manager/templates/template-tutorial-create-first-template.md) du skapar Resource Manager-mallar.

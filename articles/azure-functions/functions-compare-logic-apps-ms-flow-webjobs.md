@@ -1,38 +1,38 @@
 ---
-title: Alternativ för integrations- och automatiseringsplattformar i Azure
-description: 'Jämför Microsofts molntjänster som är optimerade för integrationsuppgifter: Power Automate, Logic Apps, Functions och WebJobs.'
+title: Alternativ för integrering och automatiserings plattform i Azure
+description: 'Jämför Microsofts moln tjänster som är optimerade för integrations åtgärder: automatisera, Logic Apps, funktioner och WebJobs.'
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
 ms.openlocfilehash: 40293056a73fd88e9ad6b3922aebfe0ba71f07dd
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80878144"
 ---
-# <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Välj rätt integrations- och automatiseringstjänster i Azure
+# <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Välj rätt integrering och automatiserings tjänster i Azure
 
 Den här artikeln jämför följande Microsoft-molntjänster:
 
-* [Microsoft Power Automate](https://flow.microsoft.com/) (var Microsoft Flow)
+* [Microsoft Power automatisering](https://flow.microsoft.com/) (har Microsoft Flow)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Azure App Service WebJobs](../app-service/webjobs-create.md)
 
 Alla dessa tjänster kan lösa integrationsproblem och automatisera affärsprocesser. Samtliga tjänster definierar indata, åtgärder, villkor och utdata. Du kan välja att köra dem enligt ett schema eller med utlösare. Varje tjänst har unika fördelar, och den här artikeln förklarar skillnaderna. 
 
-Om du letar efter en mer allmän jämförelse mellan Azure-funktioner och andra Azure-beräkningsalternativ läser du [Villkor för att välja en Azure-beräkningstjänst](/azure/architecture/guide/technology-choices/compute-comparison) och välja ett [Azure-beräkningsalternativ för mikrotjänster](/azure/architecture/microservices/design/compute-options).
+Om du vill ha en mer allmän jämförelse mellan Azure Functions och andra Azure Compute-alternativ, se [kriterier för att välja en Azure Compute-tjänst](/azure/architecture/guide/technology-choices/compute-comparison) och [välja ett Azure Compute-alternativ för mikrotjänster](/azure/architecture/microservices/design/compute-options).
 
-## <a name="compare-microsoft-power-automate-and-azure-logic-apps"></a>Jämföra Microsoft Power Automate- och Azure Logic-appar
+## <a name="compare-microsoft-power-automate-and-azure-logic-apps"></a>Jämför Microsoft Power automatisering och Azure Logic Apps
 
-Power Automate och Logic Apps är båda *designer-första* integrationstjänster som kan skapa arbetsflöden. Båda tjänsterna integreras med olika SaaS- och företagsprogram. 
+Automatisera och Logic Apps är både *Designer-första* integrerings tjänster som kan skapa arbets flöden. Båda tjänsterna integreras med olika SaaS- och företagsprogram. 
 
-Power Automate är byggt ovanpå Logic Apps. De delar samma arbetsflödesdesigner och samma [anslutningsappar](../connectors/apis-list.md). 
+Automatisk energi förbrukning bygger på Logic Apps. De delar samma arbetsflödesdesigner och samma [anslutningsappar](../connectors/apis-list.md). 
 
-Power Automate ger alla kontorsarbetare möjlighet att utföra enkla integreringar (till exempel en godkännandeprocess på ett SharePoint-dokumentbibliotek) utan att gå igenom utvecklare eller IT. Logic Apps kan även användas för att göra avancerade integreringar (till exempel B2B-processer) där Azure DevOps och säkerhetsåtgärder på företagsnivå krävs. Det är vanligt att företagsarbetsflöden växer i komplexitet med tiden. Därför går det bra att börja med ett enkelt flöde och sedan konvertera det till en logikapp efter behov.
+Automatiserad energi gör att alla kontors arbetare kan utföra enkla integreringar (till exempel en godkännande process på ett SharePoint-dokumentbibliotek) utan att gå via utvecklare eller det. Logic Apps kan även användas för att göra avancerade integreringar (till exempel B2B-processer) där Azure DevOps och säkerhetsåtgärder på företagsnivå krävs. Det är vanligt att företagsarbetsflöden växer i komplexitet med tiden. Därför går det bra att börja med ett enkelt flöde och sedan konvertera det till en logikapp efter behov.
 
-I följande tabell kan du avgöra om Power Automate eller Logic Apps är bäst för en viss integrering:
+I följande tabell får du hjälp att avgöra om Power-eller Logic Apps är bäst för en viss integrering:
 
 |  | Power Automate | Logic Apps |
 | --- | --- | --- |
@@ -40,8 +40,8 @@ I följande tabell kan du avgöra om Power Automate eller Logic Apps är bäst f
 | **Scenarier** |Självbetjäning |Avancerade integreringar |
 | **Designverktyg** |I webbläsaren och mobilappen, endast användargränssnitt |I webbläsaren och [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [kodvyer](../logic-apps/logic-apps-author-definitions.md) är tillgängliga |
 | **Application Lifecycle Management (ALM)** |Utforma och testa i icke-produktionsmiljöer, skicka till produktion när det är klart |Azure DevOps: källkontroll, testning, support, automatisering och hanterbarhet i [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| **Administratörsupplevelse** |Hantera Power Automate-miljöer och DLP-principer (Data Loss Prevention), spåra licensiering: [Administrationscenter](https://admin.flow.microsoft.com) |Hantera resursgrupper, anslutningar, åtkomsthantering och loggning: [Azure-portal](https://portal.azure.com) |
-| **Säkerhet** |Granskningsloggar för Office 365-säkerhet och efterlevnad, principer för dataförlustskydd, [kryptering i vila](https://wikipedia.org/wiki/Data_at_rest#Encryption) för känsliga data |Säkerhetssäkring av Azure: [Azure-säkerhet](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [granskningsloggar](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
+| **Administratörsupplevelse** |Hantera energi automatiserade miljöer och principer för data förlust skydd (DLP), spåra licensiering: [administrations Center](https://admin.flow.microsoft.com) |Hantera resurs grupper, anslutningar, åtkomst hantering och loggning: [Azure Portal](https://portal.azure.com) |
+| **Säkerhet** |Granskningsloggar för Office 365-säkerhet och efterlevnad, principer för dataförlustskydd, [kryptering i vila](https://wikipedia.org/wiki/Data_at_rest#Encryption) för känsliga data |Säkerhets garanti för Azure: [Azure-säkerhet](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Azure Security Center](https://azure.microsoft.com/services/security-center/), [gransknings loggar](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Jämföra Azure Functions och Azure Logic Apps
 
@@ -82,11 +82,11 @@ Azure Functions bygger på WebJobs-SDK:n, och delar därför många händelseutl
 |[Utveckla och testa i webbläsaren](functions-create-first-azure-function.md) |✔||
 |[Betala per användning](functions-scale.md#consumption-plan)|✔||
 |[Integrering med Logic Apps](functions-twitter-email.md)|✔||
-| Utlösarhändelser |[Timer](functions-bindings-timer.md)<br>[Azure Storage-köer och blobar](functions-bindings-storage-blob.md)<br>[Köer och avsnitt i Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Azure Storage-köer och blobar](functions-bindings-storage-blob.md)<br>[Köer och avsnitt i Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Filsystem](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
+| Utlösarhändelser |[Timer](functions-bindings-timer.md)<br>[Azure Storage-köer och blobar](functions-bindings-storage-blob.md)<br>[Azure Service Bus köer och ämnen](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Timer](functions-bindings-timer.md)<br>[Azure Storage-köer och blobar](functions-bindings-storage-blob.md)<br>[Azure Service Bus köer och ämnen](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Fil system](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
 | Språk som stöds  |C#<br>F#<br>JavaScript<br>Java<br>Python<br>PowerShell |C#<sup>1</sup>|
 |Pakethanterare|NPM och NuGet|NuGet<sup>2</sup>|
 
-<sup>1</sup> WebJobs (utan WebJobs SDK) stöder C#, Java, JavaScript, Bash, .cmd, .bat, PowerShell, PHP, TypeScript, Python med mera. Den här listan är inte omfattande. Ett WebJob kan köra vilket program eller skript som helst som kan köras i App Service-sandboxen.
+<sup>1</sup> WebJobs (utan WebJobs SDK) stöder C#, Java, Java Script, bash,. cmd,. bat, POWERSHELL, php, typescript, python med mera. Den här listan är inte omfattande. Ett WebJob kan köra vilket program eller skript som helst som kan köras i App Service-sandboxen.
 
 <sup>2</sup> WebJobs (utan WebJobsSDK:n) stöder NPM och NuGet.
 
@@ -103,25 +103,25 @@ När det gäller andra scenarier där du vill köra kodfragment för att integre
 
 <a name="together"></a>
 
-## <a name="power-automate-logic-apps-functions-and-webjobs-together"></a>Power Automate, Logic Apps, Functions och WebJobs tillsammans
+## <a name="power-automate-logic-apps-functions-and-webjobs-together"></a>Automatisera, Logic Apps, Functions och WebJobs tillsammans
 
 Du behöver inte välja endast en av dessa tjänster. De integreras med varandra lika bra som med externa tjänster.
 
 Ett flöde kan anropa en logikapp. En logikapp kan anropa en funktion, och en funktion kan anropa en logikapp. Läs t.ex. [Skapa en funktion som kan integreras med Azure Logic Apps](functions-twitter-email.md).
 
-Integrationen mellan Power Automate, Logic Apps och Functions fortsätter att förbättras med tiden. Det går bra att skapa något i en tjänst och sedan använda detsamma i de andra tjänsterna.
+Integreringen mellan automatiserad energi, Logic Apps och funktioner fortsätter att förbättras med tiden. Det går bra att skapa något i en tjänst och sedan använda detsamma i de andra tjänsterna.
 
 Det finns mer information om integreringstjänster via följande länkar:
 
 * [Artikel av Christopher Anderson om hur man utnyttjar Azure Functions och Azure App Service i integreringsscenarier](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
 * [Artikel av Charles Lamanna om hur man förenklar integreringar](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Webbsändning med Logic Apps](https://aka.ms/logicappslive)
-* [Power Automate vanliga frågor och svar](/power-automate/frequently-asked-questions)
+* [Automatisera vanliga frågor och svar om energispar funktioner](/power-automate/frequently-asked-questions)
 
 ## <a name="next-steps"></a>Nästa steg
 
 Kom igång genom att skapa ditt första flöde, din första logikapp eller din första funktionsapp. Välj någon av följande länkar:
 
-* [Komma igång med Power Automate](/power-automate/getting-started)
-* [Skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Kom igång med automatisk energi förbrukning](/power-automate/getting-started)
+* [Skapa en Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Skapa din första Azure-funktion](functions-create-first-azure-function.md)

@@ -1,59 +1,59 @@
 ---
-title: Ansluta funktioner till Azure Storage med Visual Studio
-description: Lär dig hur du lägger till en utdatabindning för att ansluta dina C#-klassbiblioteksfunktioner till en Azure Storage-kö med Visual Studio.
+title: Ansluta funktioner till Azure Storage med hjälp av Visual Studio
+description: Lär dig hur du lägger till en utgående bindning för att ansluta dina C#-klass biblioteks funktioner till en Azure Storage kö med Visual Studio.
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: 171479a0f60741b545a171315e99cc5e4e8bc843
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74849215"
 ---
-# <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Ansluta funktioner till Azure Storage med Visual Studio
+# <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Ansluta funktioner till Azure Storage med hjälp av Visual Studio
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-Den här artikeln visar hur du använder Visual Studio för att ansluta funktionen som du skapade i föregående [snabbstartsartikel] till Azure Storage. Utdatabindningen som du lägger till i den här funktionen skriver data från HTTP-begäran till ett meddelande i en Azure Queue storage-kö. 
+Den här artikeln visar hur du använder Visual Studio för att ansluta den funktion som du skapade i [föregående snabb starts artikel] till Azure Storage. Den utgående bindning som du lägger till i den här funktionen skriver data från HTTP-begäran till ett meddelande i en kö för Azure Queue Storage. 
 
-De flesta bindningar kräver en lagrad anslutningssträng som Funktioner använder för att komma åt den bundna tjänsten. För att göra det enklare använder du det lagringskonto som du skapade med funktionsappen. Anslutningen till det här kontot lagras redan `AzureWebJobsStorage`i appinställningen .  
+De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra det enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot är redan lagrad i en app- `AzureWebJobsStorage`inställning med namnet.  
 
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här artikeln måste du: 
 
- - Fyll [i del 1 av snabbstarten i Visual Studio](./functions-create-first-function-vs-code.md). 
+ - Slutför [snabb starten i del 1 av Visual Studio](./functions-create-first-function-vs-code.md). 
 
 - Logga in på din Azure-prenumeration från Visual Studio.
 
-## <a name="download-the-function-app-settings"></a>Ladda ned funktionsappinställningarna
+## <a name="download-the-function-app-settings"></a>Ladda ned appens funktions inställningar
 
-I den [föregående snabbstartsartikeln](functions-create-first-function-vs-code.md)skapade du en funktionsapp i Azure tillsammans med det nödvändiga lagringskontot. Anslutningssträngen för det här kontot lagras säkert i appinställningar i Azure. I den här artikeln skriver du meddelanden till en lagringskö i samma konto. Om du vill ansluta till ditt Lagringskonto när du kör funktionen lokalt måste du hämta appinställningarna till filen *local.settings.json.* 
+I [föregående snabb starts artikel](functions-create-first-function-vs-code.md)skapade du en Function-app i Azure tillsammans med det lagrings konto som krävs. Anslutnings strängen för det här kontot lagras på ett säkert sätt i appinställningar i Azure. I den här artikeln skriver du meddelanden till en lagrings kö i samma konto. För att ansluta till ditt lagrings konto när funktionen körs lokalt måste du hämta appinställningar till filen *Local. Settings. JSON* . 
 
 1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**. 
 
-1. Under **Åtgärder**väljer du **Redigera Azure App Service Settings**. 
+1. Under **åtgärder**väljer du **Redigera Azure App Service inställningar**. 
 
-    ![Redigera programinställningarna](media/functions-add-output-binding-storage-queue-vs/edit-app-settings.png)
+    ![Redigera program inställningarna](media/functions-add-output-binding-storage-queue-vs/edit-app-settings.png)
 
-1. Under **AzureWebJobsStorage**kopierar du **fjärrsträngvärdet** till **Lokal**och väljer sedan **OK**. 
+1. Under **AzureWebJobsStorage**, kopierar du **värdet för fjärrsträng till** **lokalt**och väljer sedan **OK**. 
 
-Lagringsbindningen, `AzureWebJobsStorage` som använder inställningen för anslutningen, kan nu ansluta till din kölagring när du kör lokalt.
+Lagrings bindningen, som använder `AzureWebJobsStorage` inställningen för anslutningen, kan nu ansluta till din Queue Storage när den körs lokalt.
 
 ## <a name="register-binding-extensions"></a>Registrera bindningstillägg
 
-Eftersom du använder en kölagringsutdatabindning behöver du tillägget Lagringsbindningar installerat innan du kör projektet. Med undantag för HTTP- och timerutlösare implementeras bindningar som tilläggspaket. 
+Eftersom du använder en kö för lagring av utdata måste du använda tillägget för lagrings bindningar installerade innan du kör projektet. Med undantag för HTTP-och timer-utlösare implementeras bindningar som tilläggs paket. 
 
-1. Välj **NuGet Package Manager** > **Package Manager Console**på **Verktyg-menyn.** 
+1. Från **verktyg** -menyn väljer du **NuGet Package Manager** > **Package Manager-konsolen**. 
 
-1. I konsolen kör du följande [kommandot Install-Package](/nuget/tools/ps-ref-install-package) för att installera lagringstilläggen:
+1. I-konsolen kör du följande [install-Package-](/nuget/tools/ps-ref-install-package) kommando för att installera lagrings tilläggen:
 
     ```Command
     Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.6
     ````
 
-Nu kan du lägga till lagringsutdatabindningen i projektet.
+Nu kan du lägga till bindningen för Storage-utdata i projektet.
 
 ## <a name="add-an-output-binding"></a>Lägg till en utdatabindning
 
@@ -61,7 +61,7 @@ Nu kan du lägga till lagringsutdatabindningen i projektet.
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Lägg till kod som använder utdatabindning
 
-När bindningen har definierats `name` kan du använda bindningen för att komma åt den som ett attribut i funktionssignaturen. Genom att använda en utdatabindning behöver du inte använda Azure Storage SDK-koden för autentisering, hämta en köreferens eller skriva data. Funktionskörnings- och köutdatabindningen utför dessa uppgifter åt dig.
+När bindningen har definierats kan du använda bindningen `name` för att komma åt den som ett attribut i Function-signaturen. Genom att använda en utgående bindning behöver du inte använda den Azure Storage SDK-koden för autentisering, hämta en Queue referens eller skriva data. Bindningarna Functions Runtime och Queue output utför dessa uppgifter åt dig.
 
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
 
@@ -69,31 +69,31 @@ När bindningen har definierats `name` kan du använda bindningen för att komma
 
 [!INCLUDE [functions-run-function-test-local-vs](../../includes/functions-run-function-test-local-vs.md)]
 
-En ny `outqueue` kö som heter skapas i ditt lagringskonto av funktionskörningen när utdatabindningen först används. Du ska använda Cloud Explorer för att verifiera att kön har skapats tillsammans med det nya meddelandet.
+En ny kö med `outqueue` namnet skapas i ditt lagrings konto av Functions-körningen när data bindningen först används. Du använder Cloud Explorer för att kontrol lera att kön har skapats tillsammans med det nya meddelandet.
 
 ## <a name="examine-the-output-queue"></a>Granska utdatakö
 
-1. Välj **Cloud Explorer**på Visual Studio på **Visa-menyn** .
+1. I Visual Studio från menyn **Visa** väljer du **Cloud Explorer**.
 
-1. Expandera din Azure-prenumeration och **lagringskonton i** **Cloud Explorer**och expandera sedan det lagringskonto som används av din funktion. Om du inte kommer ihåg lagringskontonamnet kontrollerar du `AzureWebJobsStorage` inställningen för anslutningssträngen i filen *local.settings.json.*  
+1. Expandera dina Azure-prenumerationer och **lagrings konton**i **Cloud Explorer**och expandera sedan det lagrings konto som används av din funktion. Om du inte kommer ihåg namnet på lagrings kontot kontrollerar `AzureWebJobsStorage` du inställningen för anslutnings strängen i filen *Local. Settings. JSON* .  
 
-1. Expandera noden **Köer** och dubbelklicka sedan på kön med namnet **utköa** för att visa innehållet i kön i Visual Studio. 
+1. Expandera noden **köer** och dubbelklicka sedan på kön med namnet **disqueue** för att visa innehållet i kön i Visual Studio. 
 
    Kön innehåller meddelandet som köutdatabindningen skapade när du körde den HTTP-utlösta funktionen. Om du startade en funktion med standardvärdet `name` för *Azure* så är kömeddelandet *Name passed to the function: Azure* (Namn som skickats till funktionen: Azure).
 
-    ![Kömeddelande som visas i Azure Storage Explorer](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
+    ![Köa meddelande visas i Azure Storage Explorer](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
 
-1. Kör funktionen igen, skicka en ny begäran och du ser ett nytt meddelande visas i kön.  
+1. Kör funktionen igen, skicka en annan begäran och se att ett nytt meddelande visas i kön.  
 
-Nu är det dags att publicera om den uppdaterade funktionsappen till Azure.
+Nu är det dags att publicera om den uppdaterade Function-appen till Azure.
 
 ## <a name="redeploy-and-verify-the-updated-app"></a>Distribuera om och verifiera den uppdaterade appen
 
-1. Högerklicka på projektet i **Solution Explorer**och välj **Publicera**och välj sedan **Publicera** för att publicera projektet igen till Azure.
+1. I **Solution Explorer**högerklickar du på projektet och väljer **publicera**. Välj sedan **publicera** för att publicera projektet på Azure igen.
 
-1. När distributionen är klar kan du återigen använda webbläsaren för att testa funktionen omdeviserad. Lägg till frågesträngen `&name=<yourname>` i URL:en som tidigare.
+1. När distributionen är klar kan du använda webbläsaren igen för att testa den omdistribuerade funktionen. Som tidigare lägger du till frågesträngen `&name=<yourname>` i URL: en.
 
-1. Visa [meddelandet i lagringskön](#examine-the-output-queue) igen för att kontrollera att utdatabindningen igen genererar ett nytt meddelande i kön.
+1. [Visa meddelandet i lagrings kön](#examine-the-output-queue) igen för att kontrol lera att utgående bindningen igen genererar ett nytt meddelande i kön.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -101,12 +101,12 @@ Nu är det dags att publicera om den uppdaterade funktionsappen till Azure.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har uppdaterat http-utlöst funktion för att skriva data till en lagringskö. Mer information om hur du utvecklar funktioner finns i [Utveckla Azure-funktioner med Visual Studio](functions-develop-vs.md).
+Du har uppdaterat din HTTP-utlöst funktion för att skriva data till en lagrings kö. Mer information om hur du utvecklar funktioner finns i [utveckla Azure Functions med Visual Studio](functions-develop-vs.md).
 
-Därefter bör du aktivera Application Insights-övervakning för din funktionsapp:
+Sedan bör du aktivera Application Insights övervakning för din Function-app:
 
 > [!div class="nextstepaction"]
 > [Aktivera Application Insights-integrering](functions-monitoring.md#manually-connect-an-app-insights-resource)
 
 [Azure Storage Explorer]: https://storageexplorer.com/
-[föregående snabbstartsartikel]: functions-create-your-first-function-visual-studio.md
+[föregående snabb starts artikel]: functions-create-your-first-function-visual-studio.md

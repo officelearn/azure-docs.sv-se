@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en Java-app på Azure Service Fabric'
+title: 'Snabb start: skapa en Java-app på Azure Service Fabric'
 description: I den här snabbstarten skapar du ett Java-program för Azure med ett Service Fabric-exempelprogram (tillförlitliga tjänster).
 author: suhuruli
 ms.topic: quickstart
@@ -7,23 +7,23 @@ ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: fc615149b092aebfdde767fb3b716fb897bfd551
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77121500"
 ---
-# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Snabbstart: Distribuera en Java-app till Azure Service Fabric på Linux
+# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Snabb start: Distribuera en Java-app till Azure Service Fabric på Linux
 
-I den här snabbstarten distribuerar du ett Java-program till Azure Service Fabric med Eclipse IDE på en Linux-utvecklardator. När du är klar har du ett röstningsprogram med en Java-webbklient som sparar röstningsresultat i en tillståndskänslig backend-tjänst i klustret.
+I den här snabb starten distribuerar du ett Java-program till Azure Service Fabric med hjälp av Sol förmörkelse IDE på en dator med Linux-utvecklare. När du är klar har du ett röstningsprogram med en Java-webbklient som sparar röstningsresultat i en tillståndskänslig backend-tjänst i klustret.
 
 Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av mikrotjänster och containrar.
 
 ## <a name="prerequisites"></a>Krav
 
-- [Java miljö](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) och [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-- [Eclipse Neon (4,6) +](https://www.eclipse.org/downloads/packages/) och [Eclipse plug-in för Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#install-the-eclipse-plug-in-optional)
-- [Service Fabric SDK och Kommandoradsgränssnitt (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+- [Java-miljö](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) och [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
+- Plugin-programmet [Neon (4.6) +](https://www.eclipse.org/downloads/packages/) och [sol förmörkelse för Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#install-the-eclipse-plug-in-optional)
+- [Service Fabric SDK och kommando rads gränssnitt (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 - [Git](https://git-scm.com/downloads)
 
 ## <a name="download-the-sample"></a>Hämta exemplet
@@ -46,15 +46,15 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![Azure Service Fabric Explorer visar felfria noder](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
 
 2. Öppna Eclipse.
-3. Välj > **Filimport** > **Gradle** >  **File****Befintligt Gradle-projekt** och följ guiden.
-4. Välj **Katalog** och välj **röstkatalogen** i mappen **service-fabric-java-quickstart** som du klonade från GitHub. Välj **Slutför**.
+3. Välj **fil** > **import** > **Gradle**Gradle > **befintliga Gradle-projekt** och följ guiden.
+4. Välj **katalog** och välj **röstnings** katalogen i mappen **Service-Fabric-Java-snabb start** som du har klonat från GitHub. Välj **Slutför**.
 
-    ![Importera Gradle-projektet till Eclipse](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
+    ![Importera Gradle-projekt till Sol förmörkelse](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
 
 5. Nu finns projektet `Voting` i Package Explorer (Paketutforskaren) för Eclipse.
-6. Högerklicka på projektet och välj **Publicera program** under listrutan **Service Fabric.** Välj **PubliceraProfiler/Local.json** som målprofil och välj **Publicera**.
+6. Högerklicka på projektet och välj **Publicera program** i list rutan **Service Fabric** . Välj **PublishProfiles/Local. JSON** som mål profil och välj **publicera**.
 
-    ![Azure Service Fabric publicerar lokala JSON](./media/service-fabric-quickstart-java/service-fabric-publish-local-json.png)
+    ![Azure Service Fabric publicera lokal JSON](./media/service-fabric-quickstart-java/service-fabric-publish-local-json.png)
 
 7. Öppna valfri webbläsare och öppna programmet genom att gå till `http://localhost:8080`.
 
@@ -62,25 +62,25 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 Du kan nu lägga till en uppsättning röstningsalternativ och börja ta emot röster. Programmet körs och lagrar alla data i Service Fabric-klustret, utan att en separat databas krävs.
 
-![Röstningsexempel för Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-voting-sample.png)
+![Exempel på Azure Service Fabric röstning](./media/service-fabric-quickstart-java/service-fabric-voting-sample.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Skala program och tjänster i ett kluster
 
-Tjänsterna kan enkelt skalas över ett kluster när belastningen på tjänsterna ändras. Du kan skala en tjänst genom att ändra antalet instanser som körs i klustret. Det finns många sätt att skala dina tjänster. Du kan till exempel använda skript eller kommandon`sfctl`från Service Fabric CLI ( ). I följande steg använder du Service Fabric Explorer.
+Tjänsterna kan enkelt skalas över ett kluster när belastningen på tjänsterna ändras. Du kan skala en tjänst genom att ändra antalet instanser som körs i klustret. Det finns många sätt att skala dina tjänster på. Du kan till exempel använda skript eller kommandon från Service Fabric CLI (`sfctl`). I följande steg använder du Service Fabric Explorer.
 
-Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från en webbläsare genom att bläddra till klustrets HTTP-hanteringsport (19080). Till exempel `http://localhost:19080`.
+Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från en webbläsare genom att bläddra till klustrets HTTP-hanterings port (19080). Till exempel `http://localhost:19080`.
 
 Så här skalar du webbklienttjänsten:
 
 1. Öppna Service Fabric Explorer i klustret. Till exempel `https://localhost:19080`.
-2. Välj ellipsen (**...**) bredvid **noden fabric:/Voting/VotingWeb** i trädvyn och välj **Skalningstjänst**.
+2. Välj ellipsen (**...**) bredvid noden **Fabric:/röstning/VotingWeb** i trädvyn och välj **Scale service (skala tjänst**).
 
     ![Skala en tjänst i Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)
 
     Du kan nu välja att skala antalet instanser av frontwebbtjänsten.
 
-3. Ändra numret till **2** och välj **Skala tjänst**.
-4. Välj **noden fabric:/Voting/VotingWeb** i trädvyn och expandera partitionsnoden (representerad av ett GUID).
+3. Ändra antalet till **2** och välj **Scale service (skala tjänst)**.
+4. Välj noden **infrastruktur:/röstning/VotingWeb** i trädvyn och expandera noden partition (representeras av ett GUID).
 
     ![Skalad tjänst i Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-explorer-service-scaled.png)
 
@@ -99,4 +99,4 @@ I den här snabbstarten har du lärt dig att:
 I självstudien för Java-appar finns mer information om hur du arbetar med Java-appar i Service Fabric.
 
 > [!div class="nextstepaction"]
-> [Distribuera en Java-app](./service-fabric-tutorial-create-java-app.md)
+> [Distribuera ett Java-program](./service-fabric-tutorial-create-java-app.md)

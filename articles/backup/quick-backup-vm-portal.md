@@ -1,16 +1,16 @@
 ---
-title: Snabbstart – Säkerhetskopiera en virtuell dator med Azure-portalen
-description: I den här snabbstarten kan du lära dig hur du skapar ett Recovery Services-valv, aktiverar skydd på en Virtuell Azure-dator och säkerhetskopierar den virtuella datorn med Azure-portalen.
+title: Snabb start – säkerhetskopiera en virtuell dator med Azure Portal
+description: I den här snabb starten får du lära dig hur du skapar ett Recovery Services valv, aktiverar skydd på en virtuell Azure-dator och hur du säkerhetskopierar den virtuella datorn med Azure Portal.
 ms.reviewer: saurse
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 02/06/2020
 ms.custom: mvc
 ms.openlocfilehash: 4bff53516447408486a6e40f2f7059ebc811aaa4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240452"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Säkerhetskopiera en virtuell dator i Azure
@@ -76,7 +76,7 @@ Om du tänker gå vidare till en säkerhetskopieringskurs som förklarar hur du 
 
 3. Välj **Ta bort säkerhetskopieringsdata** på den nedrullningsbara menyn.
 
-4. Ange namnet på den virtuella datorn, till exempel *myVM*, i dialogrutan **Type the name of the Backup item** (Skriv namnet på säkerhetskopieringsobjektet). Välj **Stoppa säkerhetskopiering**.
+4. Ange namnet på den virtuella datorn, till exempel *myVM*, i dialogrutan **Type the name of the Backup item** (Skriv namnet på säkerhetskopieringsobjektet). Välj **stoppa säkerhets kopiering**.
 
     När säkerhetskopieringen av den virtuella datorn har avbrutits och återställningspunkterna har tagits bort, kan du ta bort resursgruppen. Om du använde en befintlig virtuell dator kanske du vill ha kvar resursgruppen och den virtuella datorn.
 

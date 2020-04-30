@@ -1,6 +1,6 @@
 ---
-title: Vad är hybrididentitet med Azure Active Directory?
-description: Hybrididentitet har en gemensam användaridentitet för autentisering och auktorisering både lokalt och i molnet.
+title: Vad är hybrid identitet med Azure Active Directory?
+description: Hybrid identitet har en gemensam användar identitet för autentisering och auktorisering både lokalt och i molnet.
 keywords: introduktion till Azure AD Connect, översikt över Azure AD Connect, vad är Azure AD Connect, installera Active Directory
 services: active-directory
 author: billmath
@@ -14,21 +14,21 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c3d681dd06f07f6174e31b59cccf42df5dc16a1e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68779855"
 ---
-# <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Vad är hybrididentitet med Azure Active Directory?
+# <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Vad är hybrid identitet med Azure Active Directory?
 
-Företag och organisationer blir i dag allt mer en blandning av lokala och molnbaserade program.  Användare behöver åtkomst till dessa program både lokalt och i molnet. Att hantera användare både lokalt och i molnet innebär utmanande scenarier. 
+Företag och organisationer blir i dag allt mer en blandning av lokala och molnbaserade program.  Användare behöver åtkomst till dessa program både lokalt och i molnet. Att hantera användare både lokalt och i molnet utgör utmanande situationer. 
 
-Microsofts identitetslösningar omfattar både lokala och molnbaserade funktioner.  Dessa lösningar skapar en gemensam användaridentitet för autentisering och auktorisering för alla resurser, oavsett plats. Vi kallar det för **hybrididentitet**.
+Microsofts identitetslösningar omfattar både lokala och molnbaserade funktioner.  Dessa lösningar skapar en gemensam användaridentitet för autentisering och auktorisering för alla resurser, oavsett plats. Vi kallar denna **hybrid identitet**.
 
-Med hybrididentitet till Azure AD och hybrididentitetshantering blir dessa scenarier möjliga.
+Med hybrid identitet till Azure AD och hybrid identitets hantering blir de här scenarierna möjliga.
 
-För att uppnå hybrididentitet med Azure AD kan en av tre autentiseringsmetoder användas, beroende på dina scenarier.   De tre metoderna är: 
+För att uppnå hybrid identitet med Azure AD kan en av tre autentiseringsmetoder användas, beroende på dina scenarier.   De tre metoderna är: 
 
 - **[Synkronisering av lösenordshash (PHS)](whatis-phs.md)**  
 - **[Direktautentisering (PTA)](how-to-connect-pta.md)**  
@@ -63,11 +63,11 @@ Här följer några vanliga scenarier med hybrididentitet och åtkomsthantering 
 > <sup>4</sup> AD FS kan integreras med din företags-PKI för att tillåta inloggning med certifikat. Dessa certifikat kan vara mjuka certifikat som distribueras via betrodda etableringskanaler, till exempel MDM, GPO eller smartkortscertifikat (inklusive PIV/CAC-kort) eller Hello för företag (cert-förtroende). Mer information om stöd för smartkortsautentisering finns på [den här bloggen](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/). 
 > 
 
-## <a name="license-requirements-for-using-azure-ad-connect"></a>Licenskrav för användning av Azure AD Connect
+## <a name="license-requirements-for-using-azure-ad-connect"></a>Licens krav för att använda Azure AD Connect
 
 [!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
-## <a name="next-steps"></a>Efterföljande moment 
+## <a name="next-steps"></a>Nästa steg 
 
 - [Vad är Azure AD Connect och Connect Health?](whatis-azure-ad-connect.md) 
 - [Vad är synkronisering av lösenordshash (PHS)?](whatis-phs.md) 

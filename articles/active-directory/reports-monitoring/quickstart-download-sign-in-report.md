@@ -18,15 +18,15 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86bc72f69903134afa3750ad6b72486a713b6cc0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68989659"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Snabbstart: Ladda ned en inloggningsrapport med Azure-portalen
 
-I den här snabbstarten får du lära dig hur du hämtar inloggningsloggarna för din klient för de senaste 24 timmarna. Du kan hämta upp till 250 000 poster från Azure-portalen. Posterna sorteras efter senast så som standard får du de senaste 250 000 posterna. 
+I den här snabbstarten får du lära dig hur du hämtar inloggningsloggarna för din klient för de senaste 24 timmarna. Du kan hämta upp till 250 000 poster från Azure Portal. Posterna sorteras efter senaste så att du får de senaste 250 000 posterna som standard. 
 
 ## <a name="prerequisites"></a>Krav
 
@@ -37,11 +37,11 @@ Du behöver:
 
 ## <a name="quickstart-download-a-sign-in-report"></a>Snabbstart: Ladda ned en inloggningsrapport
 
-1. Navigera till [Azure-portalen](https://portal.azure.com).
+1. Navigera till [Azure Portal](https://portal.azure.com).
 2. Välj **Azure Active Directory** från det vänstra navigeringsfönstret och använd **Växla katalog** för att välja din active directory.
 3. Från instrumentpanelen väljer du **Azure Active Directory** och sedan **Inloggningsloggar**. 
 4. Välj **senaste 24 timmarna** i filterlistrutan **datum** och välj **Tillämpa** för att visa inloggningsloggarna för de senaste 24 timmarna. 
-5. Välj knappen **Hämta,** välj **CSV** som filformat och ange ett filnamn för att hämta en CSV-fil som innehåller de filtrerade posterna. 
+5. Välj knappen **Ladda ned** , Välj **CSV** som fil format och ange ett fil namn för att ladda ned en CSV-fil som innehåller de filtrerade posterna. 
 
 ![Rapportering](./media/quickstart-download-sign-in-report/download-sign-ins.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Konfigurera tvingad tunneltrafik
-description: Lär dig hur du aktiverar apptjänstmiljön så att den fungerar när utgående trafik tvingas tunnel i det virtuella nätverket.
+description: Lär dig hur du aktiverar App Service-miljön att fungera när utgående trafik tvingas tunnel trafik i det virtuella nätverket.
 author: ccompy
 ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
 ms.topic: quickstart
@@ -8,10 +8,10 @@ ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 3334a19b1ba0e3949ab2670c5d2f70d3bcd02fe8
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80983918"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Konfigurera App Service Environment med tvingande dirigering
@@ -60,7 +60,7 @@ Du kan konfigurera ditt ASE-undernät så att alla BGP-vägar ignoreras.  När A
 Så här konfigurerar du ditt ASE-undernät så att BGP-vägar ignoreras:
 
 * Skapa en UDR och tilldela den till ditt ASE-undernät om du inte redan har en.
-* Öppna Azure Portal och öppna gränssnittet för routningstabellen som tilldelats till ASE-undernätet.  Välj Konfiguration.  Ange spridning av virtual network gateway-väg till Inaktiverad.  Klicka på Spara. Inaktiveringen är dokumenterad i dokumentet [Skapa en routningstabell][routetable].
+* Öppna Azure Portal och öppna gränssnittet för routningstabellen som tilldelats till ASE-undernätet.  Välj Konfiguration.  Ange väg spridning för virtuell nätverks-Gateway till inaktive rad.  Klicka på Spara. Inaktiveringen är dokumenterad i dokumentet [Skapa en routningstabell][routetable].
 
 När du har konfigurerat ASE-undernätet att ignorera alla BGP-vägar kan dina appar inte längre nå resurser lokalt. Om du vill göra så att apparna kan komma åt resurser lokalt redigerar du UDR som tilldelats till ASE-underlätet och lägger till vägar för dina lokala adressintervall. Nästa hopptyp bör ställas in som Virtuell nätverksgateway. 
 

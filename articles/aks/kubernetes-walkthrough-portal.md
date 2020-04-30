@@ -7,13 +7,13 @@ ms.topic: quickstart
 ms.date: 01/21/2020
 ms.custom: mvc, seo-javascript-october2019
 ms.openlocfilehash: e4ac5a953b5d88d0074c3cfb7f1bd45331577238
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81392794"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Snabbstart: Distribuera ett AKS-kluster (Azure Kubernetes Service) med Azure-portalen
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Snabb start: Distribuera ett Azure Kubernetes service-kluster (AKS) med hjälp av Azure Portal
 
 Azure Kubernetes Service (AKS) är en hanterad Kubernetes-tjänst som gör att du snabbt kan distribuera och hantera kluster. I den här snabbstarten ska du distribuera ett AKS-kluster med hjälp av Azure-portalen. Ett flerbehållarprogram som består av en webbklientdel och en Redis-instans körs sedan i klustret. Då ser du hur du övervakar hälsotillståndet för klustret och poddar som kör programmet.
 
@@ -33,31 +33,31 @@ Du skapar ett AKS-kluster genom att slutföra följande steg:
 
 1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**.
 
-2. Välj **Behållare** >  **Kubernetes Service**.
+2. Välj **behållare** >  **Kubernetes-tjänsten**.
 
-3. Konfigurera följande alternativ på sidan **Grunderna:**
-    - **Projektinformation:** Välj en **Azure-prenumeration**och välj eller skapa sedan en Azure **Resource-grupp,** till exempel *myResourceGroup*.
-    - **Klusterinformation**: Ange ett **Kubernetes-klusternamn,** till exempel *myAKSCluster*. Välj en **region-,** **Kubernetes-version**och **DNS-namnprefix** för AKS-klustret.
-    - **Primär nodpool:** Välj en **VM-nodstorlek** för AKS-noderna. Vm-storleken *kan inte* ändras när ett AKS-kluster har distribuerats. 
-            - Välj antalet noder som ska distribueras till klustret. För den här snabbstarten ställer du in **Nodantal** till *1*. Antalet noder *kan* justeras efter att klustret har distribuerats.
+3. På sidan **grundläggande** inställningar konfigurerar du följande alternativ:
+    - **Projekt information**: Välj en Azure- **prenumeration**och välj eller skapa en Azure- **resurs grupp**, till exempel *myResourceGroup*.
+    - **Kluster information**: Ange ett **Kubernetes-kluster namn**, till exempel *myAKSCluster*. Välj en **region**, **Kubernetes-version**och **DNS-namn-prefix** för AKS-klustret.
+    - **Primär Node-pool**: Välj en VM- **nods storlek** för AKS-noderna. Den virtuella datorns storlek *kan inte* ändras när ett AKS-kluster har distribuerats. 
+            -Välj antalet noder som ska distribueras till klustret. För den här snabbstarten ställer du in **Nodantal** till *1*. Antalet noder *kan* justeras efter att klustret har distribuerats.
     
     ![Skapa AKS-kluster – ange grundläggande information](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-    Välj **Nästa: Skala** när du är klar.
+    Välj **Nästa: skala** när du är klar.
 
-4. Behåll standardalternativen på sidan **Skala.** Klicka på **Nästa: Autentisering**längst ned på skärmen .
+4. Behåll standard alternativen på sidan **skala** . Längst ned på skärmen klickar du på **Nästa: autentisering**.
     > [!CAUTION]
-    > Det kan ta flera minuter att skapa nya AAD-tjänsthuvudnamn för att sprida och bli tillgängligt, vilket gör att tjänsthuvudtillstånd inte hittades fel och valideringsfel i Azure-portalen. Om du träffar detta besök [här](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) för mildrande åtgärder.
+    > Det kan ta flera minuter att sprida nya AAD-tjänstens huvud namn och bli tillgängliga, vilket orsakar att tjänstens huvud namn inte hittades fel och validerings fel i Azure Portal. Om du når [den här lösningen går du](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) vidare till lösningar.
 
-5. Konfigurera följande alternativ på sidan **Autentisering:**
-    - Skapa ett nytt tjänsthuvudnamn genom att lämna fältet **Tjänsthuvudnamn** med **(nytt) standardtjänsthuvudnamn**. Eller så kan du välja *Konfigurera tjänstens huvudnamn* för att använda ett befintligt. Om du använder ett befintligt måste du ange SPN-klient-ID och hemligt.
-    - Aktivera alternativet för kontroller för rollbaserad åtkomstkontroll (RBAC) för Kubernetes. Detta ger mer detaljerad kontroll över åtkomsten till Kubernetes-resurserna som distribueras i AKS-klustret.
+5. Konfigurera följande alternativ på sidan **autentisering** :
+    - Skapa ett nytt huvud namn för tjänsten genom att lämna fältet för **tjänstens huvud** namn med **(nytt) standard huvud namn för tjänsten**. Du kan också välja *Konfigurera tjänstens huvud namn* för att använda en befintlig. Om du använder en befintlig måste du ange klient-ID och hemlighet för tjänstens huvud namn.
+    - Aktivera alternativet för kontroller för rollbaserad åtkomstkontroll (RBAC) för Kubernetes. Detta ger mer detaljerad kontroll över åtkomsten till de Kubernetes-resurser som distribueras i ditt AKS-kluster.
 
-    Du kan också använda en hanterad identitet i stället för ett tjänsthuvudnamn. Se [använda hanterade identiteter](use-managed-identity.md) för mer information.
+    Alternativt kan du använda en hanterad identitet i stället för ett huvud namn för tjänsten. Mer information finns i [använda hanterade identiteter](use-managed-identity.md) .
 
-Som standard används *Grundläggande* nätverk och Azure Monitor för container är aktiverat. Klicka på **Granska + skapa** och sedan **skapa** när valideringen är klar.
+Som standard används *Grundläggande* nätverk och Azure Monitor för container är aktiverat. Klicka på **Granska + skapa** och **skapa** när verifieringen är klar.
 
-Det tar några minuter att skapa AKS-klustret. När distributionen är klar klickar du på **Gå till resurs**eller bläddrar till AKS-klusterresursgruppen, till exempel *myResourceGroup,* och väljer AKS-resursen, till exempel *myAKSCluster*. AKS-klusterinstrumentpanelen visas, som i det här exemplet:
+Det tar några minuter att skapa AKS-klustret. När distributionen är klar klickar du på **gå till resurs**, eller bläddrar till resurs gruppen AKS-kluster, till exempel *myResourceGroup*, och väljer AKS-resursen, till exempel *myAKSCluster*. AKS-klustrets instrument panel visas, som i det här exemplet:
 
 ![Exempel på AKS-instrumentpanel i Azure-portalen](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
@@ -65,7 +65,7 @@ Det tar några minuter att skapa AKS-klustret. När distributionen är klar klic
 
 För att hantera Kubernetes-kluster använder du [kubectl][kubectl], Kubernetes kommandoradsklient. `kubectl`-klienten är förinstallerad i Azure Cloud Shell.
 
-Öppna Cloud Shell `>_` med knappen högst upp i Azure-portalen.
+Öppna Cloud Shell med `>_` knappen överst i Azure Portal.
 
 ![Öppna Azure Cloud Shell i portalen](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 
@@ -95,7 +95,7 @@ En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till 
 > [!TIP]
 > I den här snabbstarten skapar och distribuerar du manuellt applikationsmanifest till AKS-klustret. I verkliga scenarier kan du använda [Azure Dev Spaces][azure-dev-spaces] för att snabbt iterera och felsöka koden direkt i AKS-klustret. Du kan använda Dev Spaces på olika OS-plattformar och i olika utvecklingsmiljöer samt arbeta tillsammans med andra i ditt team.
 
-I Cloud Shell använder `nano azure-vote.yaml` du `vi azure-vote.yaml` antingen kommandot eller `azure-vote.yaml`för att skapa en fil med namnet . Kopiera sedan i följande YAML-definition:
+I Cloud Shell använder du antingen- `nano azure-vote.yaml` eller `vi azure-vote.yaml` -kommandot för att skapa en fil `azure-vote.yaml`med namnet. Kopiera sedan följande YAML-definition:
 
 ```yaml
 apiVersion: apps/v1
@@ -239,20 +239,20 @@ Containrarna *bak-azure-vote* och *azure-vote-front* visas enligt följande exem
 
 ![Visa hälsan för containrar som körs i AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Om du vill `azure-vote-front` visa loggar för podden väljer du **listrutan Visa behållarloggar** i listrutan i behållarelistan. Dessa loggar inkluderar *stdout-* och *stderr-strömmar* från behållaren.
+Om du vill se loggar `azure-vote-front` för pod, väljer du **Visa behållar loggar** i list rutan i listan behållare. Dessa loggar inkluderar *STDOUT* -och *stderr* -strömmar från behållaren.
 
 ![Visa containerloggarna i AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
 ## <a name="delete-cluster"></a>Ta bort klustret
 
-När klustret inte längre behövs, kan du ta bort klusterresursen. Alla associerade resurser tas då också bort. Den här åtgärden kan slutföras i Azure-portalen genom att välja knappen **Ta bort** på AKS-klusterinstrumentpanelen. Alternativt kan kommandot [az aks delete][az-aks-delete] användas i Cloud Shell:
+När klustret inte längre behövs, kan du ta bort klusterresursen. Alla associerade resurser tas då också bort. Du kan utföra den här åtgärden i Azure Portal genom att välja knappen **ta bort** på instrument panelen för AKS-klustret. Alternativt kan du använda kommandot [AZ AKS Delete][az-aks-delete] i Cloud Shell:
 
 ```azurecli-interactive
 az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
 
 > [!NOTE]
-> När du tar bort klustret tas Azure Active Directory-tjänstens huvudnamn, som används av AKS-klustret, inte bort. Stegvisa instruktioner om hur du tar bort tjänstens huvudnamn finns i dokumentationen om [viktiga överväganden och borttagning av AKS-tjänsten][sp-delete]. Om du har använt en hanterad identitet hanteras identiteten av plattformen och kräver inte borttagning.
+> När du tar bort klustret tas Azure Active Directory-tjänstens huvudnamn, som används av AKS-klustret, inte bort. Stegvisa instruktioner om hur du tar bort tjänstens huvudnamn finns i dokumentationen om [viktiga överväganden och borttagning av AKS-tjänsten][sp-delete]. Om du använde en hanterad identitet hanteras identiteten av plattformen och kräver inte borttagning.
 
 ## <a name="get-the-code"></a>Hämta koden
 

@@ -1,15 +1,15 @@
 ---
 title: Översikt över hanterade program
-description: Beskriver begreppen för Azure Managed Applications, som tillhandahåller molnlösningar som är enkla för konsumenter att distribuera och använda.
+description: Beskriver koncepten för Azure Managed Applications, som innehåller moln lösningar som är lätta för konsumenter att distribuera och använda.
 author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
 ms.openlocfilehash: 0615830e525ab60bbb2167dd39d9c4bf14cc91b3
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81391567"
 ---
 # <a name="azure-managed-applications-overview"></a>Översikt över Azure Managed Applications
@@ -19,7 +19,7 @@ Med Azure Managed Applications kan du erbjuda molnlösningar som är enkla för 
 Ett hanterat program liknar en lösningsmall i Marketplace med en viktig skillnad. I ett hanterat program distribueras resurserna till en resursgrupp som hanteras av appens utgivare. Resursgruppen finns i kundens prenumeration, men en identitet i utgivarens klient har åtkomst till resursgruppen. Som utgivare anger du kostnaden för fortlöpande support för lösningen.
 
 > [!NOTE]
-> Tidigare ingick dokumentationen för Azure Custom Providers i dokumentationen för hanterade program. Den dokumentationen har flyttats. Se nu [Azure Custom Providers](../custom-providers/overview.md).
+> Tidigare fanns dokumentationen för Azure Custom providers i dokumentationen för hanterade program. Den dokumentationen har flyttats. Nu kan du se [Azure-anpassade providers](../custom-providers/overview.md).
 
 ## <a name="advantages-of-managed-applications"></a>Fördelar med hanterade program
 
@@ -31,7 +31,7 @@ Trots att kunder distribuerar hanterade program i sina prenumerationer måste de
 
 För IT-team gör hanterade program att de kan erbjuda förhandsgodkända lösningar till användare i organisationen. Du vet att lösningarna uppfyller organisationens standarder.
 
-Hanterade program har [stöd för hanterade identiteter för Azure-resurser](./publish-managed-identity.md).
+Hanterade program har stöd [för hanterade identiteter för Azure-resurser](./publish-managed-identity.md).
 
 ## <a name="types-of-managed-applications"></a>Typer av hanterade program
 
@@ -53,7 +53,7 @@ Mer information om hur du publicerar program på Marketplace finns i [Använda m
 
 ## <a name="resource-groups-for-managed-applications"></a>Resursgrupper för hanterade program
 
-Vanligtvis finns resurserna för ett hanterat program i två resursgrupper. Användaren hanterar en resursgrupp och utgivaren hanterar den andra resursgruppen. När utgivaren definierar det hanterade programmet anger han/hon åtkomstnivå. Utgivaren kan begära antingen en permanent rolltilldelning eller [just-in-time-åtkomst](request-just-in-time-access.md) för en tilldelning som är begränsad till en tidsperiod.
+Normalt är resurserna för ett hanterat program i två resurs grupper. Användaren hanterar en resursgrupp och utgivaren hanterar den andra resursgruppen. När utgivaren definierar det hanterade programmet anger han/hon åtkomstnivå. Utgivaren kan begära antingen en permanent roll tilldelning eller [just-in-Time-åtkomst](request-just-in-time-access.md) för en tilldelning som är begränsad till en tids period.
 
 Möjligheten att begränsa åtkomsten för [dataåtgärder](../../role-based-access-control/role-definitions.md) stöds inte för närvarande för alla datalprovidrar i Azure.
 
@@ -69,9 +69,9 @@ Användaren har fullständig åtkomst till resursgruppen och använder den för 
 
 ### <a name="managed-resource-group"></a>Hanterad resursgrupp
 
-Den här resursgruppen innehåller alla resurser som krävs av det hanterade programmet. Den här resursgruppen innehåller exempelvis lösningens virtuella datorer, lagringskonton och virtuella nätverk. Användaren har begränsad åtkomst till den här resursgruppen eftersom användaren inte hanterar de enskilda resurserna för det hanterade programmet. Utgivarens åtkomst till den här resursgruppen motsvarar rollen som anges i definitionen av hanterade program. Utgivaren kan till exempel begära ägar- eller deltagarroll för den här resursgruppen. Åtkomsten är antingen permanent eller begränsad till en viss tid.
+Den här resursgruppen innehåller alla resurser som krävs av det hanterade programmet. Den här resursgruppen innehåller exempelvis lösningens virtuella datorer, lagringskonton och virtuella nätverk. Användaren har begränsad åtkomst till den här resursgruppen eftersom användaren inte hanterar de enskilda resurserna för det hanterade programmet. Utgivarens åtkomst till den här resursgruppen motsvarar rollen som anges i definitionen av hanterade program. Utgivaren kan till exempel begära ägar- eller deltagarroll för den här resursgruppen. Åtkomsten är antingen permanent eller begränsad till en viss tidpunkt.
 
-När du publicerar det [hanterade programmet på marknadsplatsen](publish-marketplace-app.md)kan utgivaren ge konsumenterna möjlighet att utföra specifika åtgärder på resurser i den hanterade resursgruppen. Utgivaren kan till exempel ange att konsumenter kan starta om virtuella datorer. Alla andra åtgärder utöver läsåtgärder nekas fortfarande.
+När du publicerar det [hanterade programmet på Marketplace](publish-marketplace-app.md)kan utgivaren ge konsumenterna möjlighet att utföra specifika åtgärder på resurser i den hanterade resurs gruppen. Utgivaren kan till exempel ange att konsumenter kan starta om virtuella datorer. Alla andra åtgärder utöver Läs åtgärder nekas fortfarande.
 
 När användaren tar bort det hanterade programmet tas även den hanterade resursgruppen bort.
 

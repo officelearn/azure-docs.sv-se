@@ -1,5 +1,5 @@
 ---
-title: Ansluta med C++ - Azure Database för MySQL
+title: Anslut med C++ – Azure Database for MySQL
 description: Den här snabbstarten innehåller ett kodexempel i C++ som du kan använda för att ansluta till och fråga efter data från Azure Database för MySQL.
 author: ajlam
 ms.author: andrela
@@ -9,14 +9,14 @@ ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.openlocfilehash: c09327e208719d31b1ae1587c14d0223269abfa9
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80062589"
 ---
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database för MySQL: Använda Connector/C++ för att ansluta och fråga efter data
-Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett C++-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är bekant med att utveckla med C++ och du har inte använt Azure Database för MySQL.
+Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett C++-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är bekant med att utveckla med C++ och att du inte har arbetat med Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Krav
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
@@ -30,18 +30,18 @@ Du måste också:
 - Installera [Boost](https://www.boost.org/)
 
 ## <a name="install-visual-studio-and-net"></a>Installera Visual Studio och .NET
-Stegen i det här avsnittet förutsätter att du är bekant med att utveckla med .NET.
+Stegen i det här avsnittet förutsätter att du är van att utveckla med .NET.
 
 ### <a name="windows"></a>**Windows**
-- Installera gemenskapen i Visual Studio 2019. Visual Studio 2019 Community är en komplett, utbyggbar, gratis IDE. Med den här IDE:n kan du skapa moderna program för Android-, iOS-, Windows-, webb- och databasprogram och molntjänster. Du kan installera det fullständiga .NET Framework eller bara .NET Core. Kodfragmenten i snabbstarten fungerar med båda. Om du redan har Visual Studio installerat på datorn kan du hoppa över de kommande två stegen.
-   1. Ladda ner [installationsprogrammet för Visual Studio 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
+- Installera Visual Studio 2019-communityn. Visual Studio 2019 community är en fullt utrustad, utbyggbar och kostnads fri IDE. Med den här IDE-tjänsten kan du skapa moderna program för Android-, iOS-, Windows-, webb-och databas program och moln tjänster. Du kan installera det fullständiga .NET Framework eller bara .NET Core. Kodfragmenten i snabbstarten fungerar med båda. Om du redan har Visual Studio installerat på datorn kan du hoppa över de kommande två stegen.
+   1. Hämta [Visual Studio 2019-installationsprogrammet](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15). 
    2. Kör installationsprogrammet och följ anvisningarna för att slutföra installationen.
 
 ### <a name="configure-visual-studio"></a>**Konfigurera Visual Studio**
-1. Från Visual Studio, Project -> Properties -> Linker -> General > Additional Library Directories lägger du till katalogen "\lib\opt" (till exempel: C:\Program Files (x86)\MySQL\MySQL Connector C++ 1.1.9\lib\opt) för C++-anslutningen.
+1. Från Visual Studio, Project-> egenskaper-> länkar – > allmänna > ytterligare biblioteks kataloger lägger du till katalogen "\lib\opt" (till exempel: C:\Program Files (x86) \MySQL\MySQL Connector C++ 1.1.9 \ lib\opt) för C++-anslutaren.
 2. Från Visual Studio: Projekt -> Egenskaper -> C/C++ -> Allmänt > Ytterligare inkluderingskataloger:
-   - Lägg till katalogen "\include" för c++-anslutning (till exempel: C:\Program-filer (x86)\MySQL\MySQL Connector\)C++ 1.1.9\include .
-   - Lägg till boost-bibliotekets rotkatalog (till exempel: C:\boost_1_64_0\).
+   - Lägg till katalogen "\include" för c++ Connector (till exempel: C:\Program Files (x86) \MySQL\MySQL Connector C++ 1.1.9 \ include\).
+   - Lägg till förstärknings bibliotekets rot Katalog (till exempel: C:\\)boost_1_64_0.
 3. Från Visual Studio: Projekt -> Egenskaper -> Linker -> Indata -> Ytterligare beroenden, lägg till **mysqlcppconn.lib** i textfältet.
 4. Antingen kopierar du **mysqlcppconn.dll** från biblioteksmappen C++ connector i steg 3 till samma katalog som den körbara programfilen eller lägger till den i miljövariabeln så att programmet kan hitta den.
 
@@ -55,7 +55,7 @@ Skaffa den information som du behöver för att ansluta till Azure Database för
  ![Azure Database för MySQL-servernamn](./media/connect-cpp/1_server-overview-name-login.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Ansluta, skapa tabell och infoga data
-Använd följande kod för att ansluta och läsa in data med hjälp av **CREATE TABLE** och **INSERT INTO** SQL-satser. Koden använder klassen sql::Driver med metoden connect() för att upprätta en anslutning till MySQL. Sedan används metoden createStatement() och execute() för att köra databaskommandona. 
+Använd följande kod för att ansluta och läsa in data med hjälp av **CREATE TABLE** och **insert i** SQL-uttryck. Koden använder klassen sql::Driver med metoden connect() för att upprätta en anslutning till MySQL. Sedan används metoden createStatement() och execute() för att köra databaskommandona. 
 
 Ersätt parametrarna Host, DBName, User och Password. Du kan ersätta parametrarna med de värden som du angav när du skapade servern och databasen. 
 

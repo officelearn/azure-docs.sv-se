@@ -8,52 +8,52 @@ ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
 ms.openlocfilehash: 2f6efdad7ab0685e58d2edd73bc36b758e8dbae2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80245505"
 ---
-# <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Snabbstart: Skapa en Azure Functions-app med Azure App-konfiguration
+# <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Snabb start: skapa en Azure Functions-app med Azure App konfiguration
 
-I den här snabbstarten införlivar du Azure App Configuration-tjänsten i en Azure Functions-app för att centralisera lagring och hantering av alla dina programinställningar som är åtskilda från din kod.
+I den här snabb starten införlivar du Azure App konfigurations tjänsten i en Azure Functions-app för att centralisera lagring och hantering av alla dina program inställningar separat från din kod.
 
 ## <a name="prerequisites"></a>Krav
 
-- Azure-prenumeration - [skapa en gratis](https://azure.microsoft.com/free/)
-- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) med **Azure-utvecklingsarbetsbelastningen.**
-- [Azure Functions-verktyg](../azure-functions/functions-develop-vs.md#check-your-tools-version)
+- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) med arbets belastningen **Azure Development** .
+- [Azure Functions verktyg](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 
-## <a name="create-an-app-configuration-store"></a>Skapa ett appkonfigurationsarkiv
+## <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **Konfigurationsutforskaren** > **+ Skapa** > **nyckelvärde** om du vill lägga till följande nyckel-värde-par:
+6. Välj **Configuration Explorer** > **+ skapa** > **nyckel värde** om du vill lägga till följande nyckel/värde-par:
 
     | Nyckel | Värde |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App Configuration |
 
-    Lämna **etikett** och **innehållstyp** tomma för tillfället.
+    Lämna **etiketten** och **innehålls typen** tom för tillfället.
 
 7. Välj **Använd**.
 
-## <a name="create-a-functions-app"></a>Skapa en funktionsapp
+## <a name="create-a-functions-app"></a>Skapa en Functions-app
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-## <a name="connect-to-an-app-configuration-store"></a>Ansluta till ett appkonfigurationsarkiv
+## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
 
-1. Högerklicka på projektet och välj **Hantera NuGet-paket**. Sök efter och lägg till `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet-paketet i projektet på fliken **Bläddra.** Om du inte hittar den markerar du kryssrutan **Inkludera förhandsversion.**
+1. Högerklicka på projektet och välj **Hantera NuGet-paket**. På fliken **Bläddra** söker du efter och lägger till `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet-paketet i projektet. Om du inte hittar det markerar du kryss rutan **Inkludera för hands version** .
 
-2. Öppna *Function1.cs*och lägg till namnområdena för .NET Core-konfigurationen och konfigurationsprovidern för appkonfiguration.
+2. Öppna *Function1.cs*och Lägg till namn områdena för .net Core-konfigurationen och konfigurations leverantören för app Configuration.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-3. Lägg `static` till `Configuration` en egenskap med namnet `IConfiguration`för att skapa en singleton-instans av . Lägg sedan `static` till en konstruktor `AddAzureAppConfiguration()`för att ansluta till appkonfiguration genom att anropa . Detta kommer att läsa in konfigurationen en gång vid programstarten. Samma konfigurationsinstans används för alla functions-anrop senare.
+3. Lägg till `static` en egenskap `Configuration` med namnet för att skapa en `IConfiguration`singleton-instans av. Lägg sedan till `static` en konstruktor för att ansluta till app- `AddAzureAppConfiguration()`konfigurationen genom att anropa. Konfigurationen läses in en gång när programmet startas. Samma konfigurations instans kommer att användas för alla funktions anrop senare.
 
     ```csharp
     private static IConfiguration Configuration { set; get; }
@@ -85,7 +85,7 @@ I den här snabbstarten införlivar du Azure App Configuration-tjänsten i en Az
 
 ## <a name="test-the-function-locally"></a>Testa funktionen lokalt
 
-1. Ange en miljövariabel med namnet **ConnectionString**och ange den till åtkomstnyckeln till appkonfigurationsarkivet. Om du använder kommandotolken i Windows kör du följande kommando och startar om kommandotolken så att ändringen kan börja gälla:
+1. Ange en miljö variabel med namnet **ConnectionString**och ange den till åtkomst nyckeln till appens konfigurations arkiv. Om du använder kommando tolken i Windows kör du följande kommando och startar om kommando tolken för att ändringarna ska börja gälla:
 
     ```cmd
         setx ConnectionString "connection-string-of-your-app-configuration-store"
@@ -103,13 +103,13 @@ I den här snabbstarten införlivar du Azure App Configuration-tjänsten i en Az
         export ConnectionString='connection-string-of-your-app-configuration-store'
     ```
 
-2. Tryck på F5 för att testa din funktion. Om du uppmanas till det godkänner du begäran från Visual Studio om att hämta och installera **CLI-verktyg (Azure Functions Core).** Du kan också behöva aktivera ett brandväggsundantag så att verktygen kan hantera HTTP-begäranden.
+2. Tryck på F5 för att testa funktionen. Om du uppmanas att göra det accepterar du begäran från Visual Studio för att ladda ned och installera **Azure Functions Core-verktyg (CLI)** . Du kan också behöva aktivera ett brand Väggs undantag så att verktygen kan hantera HTTP-begäranden.
 
 3. Kopiera URL:en för funktionen från dina Azure Functions-utdata.
 
     ![Snabbstart för funktionsfelsökning i VS](./media/quickstarts/function-visual-studio-debugging.png)
 
-4. Klistra in webbadressen för HTTP-begäran i webbläsarens adressfält. Följande bild visar svaret i webbläsaren på den lokala GET-begäran som returneras av funktionen.
+4. Klistra in webbadressen för HTTP-begäran i webbläsarens adressfält. Följande bild visar svaret i webbläsaren till den lokala GET-begäran som returnerades av funktionen.
 
     ![Snabbstart för lokal funktionsstart](./media/quickstarts/dotnet-core-function-launch-local.png)
 
@@ -119,7 +119,7 @@ I den här snabbstarten införlivar du Azure App Configuration-tjänsten i en Az
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du ett nytt App Configuration Store och använde det med en Azure Functions-app via [appkonfigurationsprovidern](https://go.microsoft.com/fwlink/?linkid=2074664). Om du vill veta hur du konfigurerar din Azure Functions-app för att dynamiskt uppdatera konfigurationsinställningar fortsätter du till nästa självstudiekurs.
+I den här snabb starten skapade du ett nytt konfigurations Arkiv för appar och använde det med en Azure Functions app via [appens Konfigurationsprovider](https://go.microsoft.com/fwlink/?linkid=2074664). Fortsätt till nästa självstudie om du vill veta hur du konfigurerar din Azure Functions-app för att dynamiskt uppdatera konfigurations inställningar.
 
 > [!div class="nextstepaction"]
 > [Aktivera dynamisk konfiguration](./enable-dynamic-configuration-azure-functions-csharp.md)

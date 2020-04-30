@@ -1,6 +1,6 @@
 ---
-title: Anslut med C# - Azure-databas för PostgreSQL - Single Server
-description: Den här snabbstarten innehåller ett C# (.NET)-kodexempel som du kan använda för att ansluta och fråga data från Azure Database for PostgreSQL - Single Server.
+title: Anslut med C# – Azure Database for PostgreSQL-enskild server
+description: Den här snabb starten innehåller ett kod exempel i C# (.NET) som du kan använda för att ansluta och fråga efter data från Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -9,13 +9,13 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 5/6/2019
 ms.openlocfilehash: 4ac462873d34faa5ffa9d1e1bd873734be88e442
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74767984"
 ---
-# <a name="azure-database-for-postgresql---single-server-use-net-c-to-connect-and-query-data"></a>Azure Database for PostgreSQL - Single Server: Använd .NET (C#) för att ansluta och fråga data
+# <a name="azure-database-for-postgresql---single-server-use-net-c-to-connect-and-query-data"></a>Azure Database for PostgreSQL-enskild server: använda .NET (C#) för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database för PostgreSQL med hjälp av ett C#-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. I den här artikeln förutsätter vi att du har kunskaper om C# och att du inte har arbetat med Azure Database för PostgreSQL tidigare.
 
 ## <a name="prerequisites"></a>Krav
@@ -38,7 +38,7 @@ Hämta den information som du behöver för att ansluta till Azure Database för
  ![Azure Database for PostgreSQL-servernamn](./media/connect-csharp/1-connection-string.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Ansluta, skapa tabell och infoga data
-Använd följande kod för att ansluta och läsa in data med hjälp av SQL-instruktionerna **CREATE TABLE** och **INSERT**. Koden använder klassen NpgsqlCommand med metoden [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) för att upprätta en anslutning till PostgreSQL-databasen. Sedan använder koden metoden [CreateCommand(),](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand)anger egenskapen CommandText och anropar metoden [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) för att köra databaskommandona. 
+Använd följande kod för att ansluta och läsa in data med hjälp av SQL-instruktionerna **CREATE TABLE** och **INSERT**. Koden använder klassen NpgsqlCommand med metoden [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) för att upprätta en anslutning till PostgreSQL-databasen. Sedan använder koden metoden [createCommand ()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), anger egenskapen CommandText och anropar metoden [ExecuteNonQuery ()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) för att köra databas kommandona. 
 
 Ersätt parametrarna Host, DBName, User och Password med de värden som du angav när du skapade servern och databasen. 
 

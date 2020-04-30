@@ -1,6 +1,6 @@
 ---
-title: Ordna appar med hjälp av samlingar från Portalen Mina appar - Azure Active Directory | Microsoft-dokument
-description: Läs om hur du kommer åt och använder samlingar för organisationens molnbaserade appar från portalen Mina appar.
+title: Organisera appar med hjälp av samlingar från portalen Mina appar – Azure Active Directory | Microsoft Docs
+description: Lär dig hur du får åtkomst till och använder samlingar för din organisations molnbaserade appar från portalen Mina appar.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,43 +13,43 @@ ms.date: 02/06/2020
 ms.author: curtand
 ms.custom: user-help
 ms.openlocfilehash: 1abcd22621d427244f9b0533aaea46cbf1f356ad
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77064044"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Använda samlingar i portalen Mina appar
 
-Samlingar är olika appvyer som du ser i portalen **Mina appar.** Appar kan grupperas i samlingar efter avdelningsfunktion eller användarroll, till exempel. Om du inte ser några samlingar eller kategorier tillgängliga betyder det att administratören inte har konfigurerat eller delat några med dig. Kontakta organisationens helpdesk om du vill ha ytterligare hjälp eller behörigheter för att se delade samlingar.
+Samlingar är olika app-vyer som visas i portalen för **Mina appar** . Appar kan grupperas i samlingar efter avdelnings funktion eller användar roll, till exempel. Om du inte ser några samlingar eller kategorier tillgängliga, innebär det att administratören inte har konfigurerat eller delat några med dig. Kontakta din organisations supportavdelning om du behöver ytterligare hjälp eller behörigheter för att se delade samlingar.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
->Det här innehållet är avsett för **Användare av Mina appar.** Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [dokumentationen för programhantering](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
+>Det här innehållet är avsett för **Mina Apps** -användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
 
-## <a name="access-apps-using-collections"></a>Komma åt appar med hjälp av samlingar
+## <a name="access-apps-using-collections"></a>Få åtkomst till appar med samlingar
 
-Listan över samlingar i portalen **Mina appar** visar som standard en med namnet **Alla appar**, som har alla appar du har tillgång till:
+Listan över samlingar i **Mina Apps** -portalens standardinställningar visar en namngiven **alla appar**, som har alla appar som du har åtkomst till:
 
-![Sidan Alla appar i portalen Mina appar](media/my-applications-portal-workspaces/my-apps-all.png)
+![Sidan alla appar i portalen Mina appar](media/my-applications-portal-workspaces/my-apps-all.png)
 
-Alla andra samlingar som visas i den här listan har skapats av administratören och delades med dig. Du kan välja en av dessa samlingar om du vill visa en mer begränsad uppsättning appar, till exempel *Support* i följande exempel:
+Alla andra samlingar som visas i den här listan har skapats av din administratör och delas med dig. Du kan välja någon av dessa samlingar för att se en mer begränsad uppsättning appar, till exempel *support* i följande exempel:
 
-![Individuell samling och begränsad uppsättning appar i portalen Mina appar](media/my-applications-portal-workspaces/my-apps-workspace.png)
+![Individuell samling och omfattnings uppsättning av appar i portalen Mina appar](media/my-applications-portal-workspaces/my-apps-workspace.png)
 
-När du väljer och visar en samling ser du bara de standardprogram som du har åtkomst till.
+När du väljer och visar en samling visas bara de standard program som du har åtkomst till.
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har ordnat dina appar i de olika kategorierna i portalen **Mina appar** kan du:
+När du har organiserat dina appar i de olika kategorierna i portalen **Mina appar** kan du:
 
-- Granska, uppdatera eller återkalla behörigheter som beviljats till program. Mer information finns [i Redigera eller återkalla programbehörigheter i portalen Mina appar](my-applications-portal-permissions-saved-accounts.md).
+- Granska, uppdatera eller återkalla behörigheter som beviljats till program. Mer information finns i [Redigera eller återkalla program behörigheter i portalen Mina appar](my-applications-portal-permissions-saved-accounts.md).
 
 ## <a name="related-articles"></a>Relaterade artiklar
 
-- [Uppdatera din profil och kontoinformation](my-account-portal-overview.md). Instruktioner om hur du uppdaterar din personliga information som visas på portalen **Min profil.**
+- [Uppdatera din profil och konto information](my-account-portal-overview.md). Anvisningar om hur du uppdaterar din personliga information som visas i **min profil** Portal.
 
-- [Hantera dina organisationer](my-account-portal-organizations-page.md). Instruktioner om hur du visar och hanterar din organisationsrelaterade information på sidan **Organisationer** i portalen **Min profil.**
+- [Hantera dina organisationer](my-account-portal-organizations-page.md). Anvisningar om hur du visar och hanterar din organisations information på sidan **organisationer** i **min profil** Portal.
 
-- [Hantera dina anslutna enheter](my-account-portal-devices-page.md). Instruktioner om hur du hanterar de enheter du är ansluten till med ditt arbets- eller skolkonto på sidan **Enheter** på portalen **Min profil.**
+- [Hantera dina anslutna enheter](my-account-portal-devices-page.md). Anvisningar om hur du hanterar enheter som du är ansluten till med ditt arbets-eller skol konto finns på sidan **enheter** i **min profil** Portal.

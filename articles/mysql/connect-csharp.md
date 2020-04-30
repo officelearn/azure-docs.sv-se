@@ -1,5 +1,5 @@
 ---
-title: Ansluta med C# - Azure Database för MySQL
+title: Anslut med C# – Azure Database for MySQL
 description: Den här snabbstarten innehåller ett kodexempel i C# (.NET) som du kan använda för att ansluta till och fråga efter data från Azure Database för MySQL.
 author: ajlam
 ms.author: andrela
@@ -9,10 +9,10 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.openlocfilehash: 715be66e1b7d1c9270600dd3f11ee16d9aa1885d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80067993"
 ---
 # <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Azure Database för MySQL: Använda .NET (C#) för att ansluta och fråga efter data
@@ -24,7 +24,7 @@ I den här snabbstarten används de resurser som skapades i någon av följande 
 - [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 Du måste också:
-- Installera [.NET](https://www.microsoft.com/net/download). Följ stegen i den länkade artikeln för att installera .NET specifikt för din plattform (Windows, Ubuntu, Linux eller Mac OS). 
+- Installera [.net](https://www.microsoft.com/net/download). Följ stegen i den länkade artikeln för att installera .NET specifikt för din plattform (Windows, Ubuntu, Linux eller Mac OS). 
 - Installera [Visual Studio](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-c-project"></a>Skapa ett C#-projekt

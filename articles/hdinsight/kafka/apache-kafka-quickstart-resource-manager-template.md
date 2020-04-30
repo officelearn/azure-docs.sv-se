@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Apache Kafka med Hjälp av Azure Resource Manager - HDInsight'
-description: I den här snabbstarten får du lära dig hur du skapar ett Apache Kafka-kluster på Azure HDInsight med Azure Resource Manager-mallen. Du lär dig också om Kafka-ämnen, -prenumeranter och -konsumenter.
+title: 'Snabb start: Apache Kafka att använda Azure Resource Manager-HDInsight'
+description: I den här snabb starten får du lära dig hur du skapar ett Apache Kafka kluster på Azure HDInsight med Azure Resource Manager-mall. Du lär dig också om Kafka-ämnen, -prenumeranter och -konsumenter.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,15 +9,15 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
 ms.openlocfilehash: f5f92044a0274b809388eeb164be9f1587013e0b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80064622"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Snabbstart: Skapa Apache Kafka-kluster i Azure HDInsight med hjälp av Resource Manager-mallen
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Snabb start: skapa Apache Kafka kluster i Azure HDInsight med Resource Manager-mall
 
-I den här snabbstarten använder du en Azure Resource Manager-mall för att skapa ett [Apache Kafka-kluster](./apache-kafka-introduction.md) i Azure HDInsight. Kafka är en distribuerad direktuppspelningsplattform med öppen källkod. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö.
+I den här snabb starten använder du en Azure Resource Manager-mall för att skapa ett [Apache Kafka](./apache-kafka-introduction.md) kluster i Azure HDInsight. Kafka är en distribuerad direktuppspelningsplattform med öppen källkod. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -29,18 +29,18 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabbstarten kommer från [Azure Quickstart-mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-kafka).
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-kafka).
 
 :::code language="json" source="~/quickstart-templates/101-hdinsight-kafka/azuredeploy.json" range="1-150":::
 
 Två Azure-resurser definieras i mallen:
 
-* [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): skapa ett Azure Storage-konto.
-* [Microsoft.HDInsight/cluster](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/clusters): skapa ett HDInsight-kluster.
+* [Microsoft. Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): skapa ett Azure Storage-konto.
+* [Microsoft. HDInsight/kluster](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/clusters): skapa ett HDInsight-kluster.
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 
-1. Välj knappen **Distribuera till Azure** nedan om du vill logga in på Azure och öppna Resource Manager-mallen.
+1. Klicka på knappen **distribuera till Azure** nedan för att logga in på Azure och öppna Resource Manager-mallen.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-kafka-java-get-started%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/apache-kafka-quickstart-resource-manager-template/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
@@ -48,22 +48,22 @@ Två Azure-resurser definieras i mallen:
 
     |Egenskap |Beskrivning |
     |---|---|
-    |Prenumeration|Välj den Azure-prenumeration som används för klustret i listrutan.|
-    |Resursgrupp|Välj din befintliga resursgrupp i listrutan eller välj **Skapa ny**.|
-    |Location|Värdet fylls i automatiskt med den plats som används för resursgruppen.|
-    |Klusternamn|Ange ett globalt unikt namn. För den här mallen använder du bara gemener och siffror.|
-    |Användarnamn för klusterinloggning|Ange användarnamn, standard är **admin**.|
-    |Lösenord för klusterinloggning|Ange ett lösenord. Lösenordet måste vara minst 10 tecken långt och innehålla minst en siffra, en versal och en gemen, ett icke-alfanumeriskt tecken (utom tecknen ' " ' ). |
-    |Ssh-användarnamn|Ange användarnamn, standard är **sshuser**|
-    |Ssh lösenord|Ange lösenordet.|
+    |Prenumeration|I list rutan väljer du den Azure-prenumeration som används för klustret.|
+    |Resursgrupp|Välj din befintliga resurs grupp i list rutan eller Välj **Skapa ny**.|
+    |Plats|Värdet fylls i automatiskt med den plats som används för resurs gruppen.|
+    |Klusternamn|Ange ett globalt unikt namn. Använd bara gemena bokstäver och siffror för den här mallen.|
+    |Användarnamn för klusterinloggning|Ange användar namnet, standard är **administratör**.|
+    |Lösenord för klusterinloggning|Ange ett lösen ord. Lösen ordet måste bestå av minst 10 tecken och måste innehålla minst en siffra, en versal och en gemen bokstav, ett icke-alfanumeriskt tecken (förutom tecknen "" "). |
+    |Användar namn för SSH|Ange användar namnet, standard är **sshuser**|
+    |SSH-lösenord|Ange lösen ordet.|
 
     ![En skärmbild av mallegenskaperna](./media/apache-kafka-quickstart-resource-manager-template/resource-manager-template-kafka.png)
 
-1. Läs igenom **villkoren**. Välj sedan **jag godkänner de villkor som anges ovan,** sedan **Köp**. Du får ett meddelande om att distributionen pågår. Det tar cirka 20 minuter att skapa ett kluster.
+1. Granska de **allmänna**villkoren. Välj sedan **Jag accepterar villkoren som anges ovan**och **köp**. Du får ett meddelande om att distributionen pågår. Det tar cirka 20 minuter att skapa ett kluster.
 
 ## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 
-När klustret har skapats får du ett **meddelande om distribution** med länken Gå till **resurs.** På sidan Resursgrupp visas en lista över ditt nya HDInsight-kluster och standardlagringsutrymmet som är associerat till klustret. Varje kluster har ett [Azure Storage-konto](../hdinsight-hadoop-use-blob-storage.md) eller ett [Azure Data Lake Storage-kontoberoende.](../hdinsight-hadoop-use-data-lake-store.md) Det kallas standardlagringskontot. HDInsight-klustret och dess standardlagringskonto måste samlokaliseras i samma Azure-region. Om du tar bort kluster tas inte lagringskontot bort.
+När klustret har skapats får du ett meddelande om att **distributionen har slutförts** med en **gå till resurs** länken. På sidan Resursgrupp visas en lista över ditt nya HDInsight-kluster och standardlagringsutrymmet som är associerat till klustret. Varje kluster har ett [Azure Storage](../hdinsight-hadoop-use-blob-storage.md) konto eller ett beroende för ett [Azure Data Lake Storage konto](../hdinsight-hadoop-use-data-lake-store.md) . Det kallas för standard lagrings kontot. HDInsight-klustret och dess standard lagrings konto måste samplaceras i samma Azure-region. Om du tar bort kluster tas inte lagrings kontot bort.
 
 ## <a name="get-the-apache-zookeeper-and-broker-host-information"></a>Hämta information om värden i Apache Zookeeper och Broker
 
@@ -71,13 +71,13 @@ När du arbetar med Kafka måste du känna till *Apache Zookeeper*- och *Broker*
 
 I det här avsnittet hämtas information om värden från klustrets Ambari REST API.
 
-1. Använd kommandot ssh för att ansluta till [klustret.](../hdinsight-hadoop-linux-use-ssh-unix.md) Redigera kommandot nedan genom att ersätta CLUSTERNAME med namnet på klustret och ange sedan kommandot:
+1. Använd [SSH-kommandot](../hdinsight-hadoop-linux-use-ssh-unix.md) för att ansluta till klustret. Redigera kommandot nedan genom att ersätta kluster namn med namnet på klustret och ange sedan kommandot:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Från SSH-anslutningen använder du följande `jq` kommando för att installera verktyget. Det här verktyget används för att parsa JSON-dokument och är användbart när du ska hämta värdinformation:
+1. Använd följande kommando för att installera `jq` verktyget från ssh-anslutningen. Det här verktyget används för att parsa JSON-dokument och är användbart när du ska hämta värdinformation:
 
     ```bash
     sudo apt -y install jq
@@ -91,7 +91,7 @@ I det här avsnittet hämtas information om värden från klustrets Ambari REST 
 
     Ange Kafka-klustrets namn när du uppmanas till detta.
 
-1. Om du vill ange en miljövariabel med Zookeeper-värdinformation använder du kommandot nedan. Kommandot hämtar alla Zookeeper värdar och sedan returnerar bara de två första posterna. Det beror på att det är bra att ha viss redundans ifall en värd inte kan nås.
+1. Använd kommandot nedan om du vill ange en miljö variabel med Zookeeper-värd information. Kommandot hämtar alla Zookeeper-värdar och returnerar sedan bara de första två posterna. Det beror på att det är bra att ha viss redundans ifall en värd inte kan nås.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
@@ -149,7 +149,7 @@ Kafka lagrar dataströmmar i kategorier som kallas *ämnen*. Du kan hantera ämn
         
         Om du vill ha information om antalet feldomäner i en region läser du dokumentet [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) (Tillgänglighet för virtuella Linux-datorer).
 
-        Kafka är inte medveten om Azure-feldomäner. När du skapar partitionsrepliker för ämnen kanske det inte distribueras repliker korrekt för hög tillgänglighet.
+        Kafka är inte medvetna om Azures fel domäner. När du skapar partitionsrepliker för ämnen kanske det inte distribueras repliker korrekt för hög tillgänglighet.
 
         Garantera hög tillgänglighet med hjälp av [verktyget för partitionsombalansering för Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Du måste köra det här verktyget från en SSH-anslutning till ditt Kafka-klusters huvudnod.
 
@@ -208,7 +208,7 @@ Använd följande steg för att lagra poster i det testämne som du skapade tidi
 
     Med det här kommandot hämtar du posterna från ämnet och visar dem. Med hjälp av `--from-beginning` anges att konsumenten ska starta från början av direktuppspelningen så att alla poster hämtas.
 
-    Om du använder en äldre version av `--bootstrap-server $KAFKABROKERS` Kafka ersätter du med `--zookeeper $KAFKAZKHOSTS`.
+    Om du använder en äldre version av Kafka ersätter `--bootstrap-server $KAFKABROKERS` du med. `--zookeeper $KAFKAZKHOSTS`
 
 1. Använd __Ctrl + C__ om du vill stoppa konsumenten.
 
@@ -216,17 +216,17 @@ Du kan också programmässigt skapa producenter och konsumenter. Ett exempel på
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du har slutfört snabbstarten kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage, så att du kan ta bort ett kluster på ett säkert sätt när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är många gånger högre än avgifterna för lagring, är det ekonomiskt meningsfullt att ta bort kluster när de inte används.
+När du har slutfört snabb starten kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage, så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger mer än avgifterna för lagring, är det ekonomiskt klokt att ta bort kluster när de inte används.
 
-Navigera till klustret på Azure-portalen och välj **Ta bort**.
+Från Azure Portal, navigera till klustret och välj **ta bort**.
 
-![Resurshanterarens mall HBase](./media/apache-kafka-quickstart-resource-manager-template/azure-portal-delete-kafka.png)
+![HBase för Resource Manager-mall](./media/apache-kafka-quickstart-resource-manager-template/azure-portal-delete-kafka.png)
 
-Du kan också välja resursgruppnamnet för att öppna resursgruppsidan. Välj sedan **Ta bort resursgrupp**. Genom att ta bort resursgruppen tar du bort både HDInsight-klustret och standardlagringskontot.
+Du kan också välja resursgruppnamnet för att öppna resursgruppsidan. Välj sedan **Ta bort resursgrupp**. Genom att ta bort resurs gruppen tar du bort både HDInsight-klustret och standard lagrings kontot.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten lärde du dig hur du skapar ett Apache Kafka-kluster i HDInsight med hjälp av en Resource Manager-mall. I nästa artikel får du lära dig hur du skapar ett program som använder Apache Kafka Streams API och kör det med Kafka på HDInsight.
+I den här snabb starten har du lärt dig hur du skapar ett Apache Kafka kluster i HDInsight med hjälp av en Resource Manager-mall. I nästa artikel får du lära dig hur du skapar ett program som använder API: et för Apache Kafka strömmar och kör det med Kafka på HDInsight.
 
 > [!div class="nextstepaction"]
-> [Använda Apache Kafka streams API i Azure HDInsight](./apache-kafka-streams-api.md)
+> [Använda Apache Kafka Streams-API i Azure HDInsight](./apache-kafka-streams-api.md)

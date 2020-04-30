@@ -1,5 +1,5 @@
 ---
-title: Anslut med PHP - Azure Database för MySQL
+title: Anslut med PHP-Azure Database for MySQL
 description: I den här snabbstarten finns ett kodexempel i PHP som du kan använda för att ansluta till och fråga efter data från Azure Database för MySQL.
 author: ajlam
 ms.author: andrela
@@ -8,10 +8,10 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.openlocfilehash: 58683cb6eb74fcc3bc2f90245d6f76ef65bdf2e6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80067928"
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database för MySQL: Använda PHP för att ansluta och fråga efter data
@@ -27,15 +27,15 @@ Installera PHP på din server, eller skapa en Azure-[webbapp](../app-service/ove
 
 ### <a name="macos"></a>MacOS
 - Hämta [PHP 7.1.4](https://secure.php.net/downloads.php).
-- Installera PHP och hänvisa till [PHP manual](https://secure.php.net/manual/install.macosx.php) för ytterligare konfiguration.
+- Installera PHP och se php- [handboken](https://secure.php.net/manual/install.macosx.php) för ytterligare konfiguration.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-- Ladda ner [PHP 7.1.4 icke-tråd säker (x64) version](https://secure.php.net/downloads.php).
-- Installera PHP och hänvisa till [PHP manual](https://secure.php.net/manual/install.unix.php) för ytterligare konfiguration.
+- Hämta [php-7.1.4 (x64) version som inte är tråd säker (x64)](https://secure.php.net/downloads.php).
+- Installera PHP och se php- [handboken](https://secure.php.net/manual/install.unix.php) för ytterligare konfiguration.
 
 ### <a name="windows"></a>Windows
-- Ladda ner [PHP 7.1.4 icke-tråd säker (x64) version](https://windows.php.net/download#php-7.1).
-- Installera PHP och hänvisa till [PHP manual](https://secure.php.net/manual/install.windows.php) för ytterligare konfiguration.
+- Hämta [php-7.1.4 (x64) version som inte är tråd säker (x64)](https://windows.php.net/download#php-7.1).
+- Installera PHP och se php- [handboken](https://secure.php.net/manual/install.windows.php) för ytterligare konfiguration.
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 Skaffa den information som du behöver för att ansluta till Azure Database för MySQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.

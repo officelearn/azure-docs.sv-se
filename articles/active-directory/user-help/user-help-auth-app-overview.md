@@ -12,10 +12,10 @@ ms.topic: overview
 ms.date: 01/15/2020
 ms.author: curtand
 ms.openlocfilehash: c95ae2e48a7d5a3b9e9e28b1d4e14b670205c043
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77062293"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Vad är Microsoft Authenticator-appen?
@@ -24,16 +24,16 @@ Med Microsoft Authenticator-appen kan du logga in på dina konton om du använde
 
 Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följande:
 
-- Svara på en uppmaning om autentisering när du har loggat in med ditt användarnamn och lösenord.
+- Svara på en prompt för autentisering när du har loggat in med ditt användar namn och lösen ord.
 
-- Logga in utan att ange ett lösenord med ditt användarnamn, autentiseringsappen och din mobila enhet med fingeravtryck, ansikte eller PIN-kod.
+- Logga in utan att ange ett lösen ord, med ditt användar namn, Authenticator-appen och din mobila enhet med ditt finger avtryck, ansikte eller PIN-kod.
 
-- Som kodgenerator för alla andra konton som stöder autentiseringsappar.
+- Som kod generator för andra konton som stöder Authenticator-appar.
 
 > [!Important]
-> Microsoft Authenticator-appen fungerar med alla konton som använder tvåfaktorsverifiering och stöder de tidsbaserade totp-standarderna (One-time password).
+> Microsoft Authenticator-appen fungerar med ett konto som använder tvåstegsverifiering och som stöder tidsbaserad eng ång slö sen ord (TOTP mobilapp).
 >
->Den här artikeln är avsedd för användare som försöker hämta och använda Microsoft Authenticator-appen som en säkerhetsverifieringsmetod. Om du är administratör och letar efter information om hur du aktiverar lösenordslös inloggning med appen Authenticator för dina anställda och andra användningsområden läser du [aktivera lösenordslös inloggning med Microsoft Authenticator-appen (förhandsversion)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-phone).
+>Den här artikeln är avsedd för användare som försöker hämta och använda Microsoft Authenticator-appen som en säkerhets verifierings metod. Om du är administratör för att söka efter information om hur du aktiverar lösen ords lös inloggning med hjälp av Authenticator-appen för dina anställda och andra användnings områden, se [Aktivera lösen ords lös inloggning med Microsoft Authenticator-appen (för hands version)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-phone).
 
 ## <a name="terminology"></a>Terminologi
 

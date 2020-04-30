@@ -1,6 +1,6 @@
 ---
-title: Skapa distribuerade tabeller - Hyperskala (Citus) - Azure Database för PostgreSQL
-description: Snabbstart för att skapa och fråga distribuerade tabeller på Azure Database för PostgreSQL Hyperscale (Citus).
+title: Skapa distribuerade tabeller – storskalig (citus) – Azure Database for PostgreSQL
+description: Snabb start för att skapa och fråga distribuerade tabeller på Azure Database for PostgreSQL storskalig (citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,33 +9,33 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.openlocfilehash: 02e009e6fff2e717693d1579d409199ab179d941
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79241516"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Snabbstart: Skapa en Azure-databas för PostgreSQL - Hyperskala (Citus) i Azure-portalen
+# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Snabb start: skapa en Azure Database for PostgreSQL-storskalig (citus) i Azure Portal
 
-Azure Database för PostgreSQL är en hanterad tjänst som du använder för att köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Den här snabbstarten visar hur du skapar en Azure-databas för PostgreSQL - Citus-servergrupp (Hyperscale) med hjälp av Azure-portalen. Du ska utforska distribuerade data: fragmentera tabeller över noder, inta exempeldata och köra frågor som körs på flera noder.
+Azure Database för PostgreSQL är en hanterad tjänst som du använder för att köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Den här snabb starten visar hur du skapar en citus-servergrupp (Azure Database for PostgreSQL-Scale Scale) med hjälp av Azure Portal. Du kommer att utforska distribuerade data: horisontell partitionering tabeller över flera noder, mata in exempel data och köra frågor som körs på flera noder.
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## <a name="create-and-distribute-tables"></a>Skapa och distribuera tabeller
 
-När du är ansluten till den hyperskalakoordinatornoden med psql kan du utföra vissa grundläggande uppgifter.
+När du har anslutit till noden för den storskaliga koordinatorn med psql kan du utföra några grundläggande uppgifter.
 
-Inom Hyperscale-servrar finns det tre typer av tabeller:
+Det finns tre typer av tabeller i storskaliga servrar:
 
-- Distribuerade eller fragmenterade tabeller (utspridda för att hjälpa till att skala för prestanda och parallellisering)
-- Referenstabeller (flera kopior underhålls)
-- Lokala tabeller (används ofta för interna administratörstabeller)
+- Distribuerade eller shardade tabeller (Sprid ut för att hjälpa till med skalning för prestanda och parallellisering)
+- Referens tabeller (flera kopior finns kvar)
+- Lokala tabeller (används ofta för interna administratörs tabeller)
 
-I den här snabbstarten fokuserar vi främst på distribuerade tabeller och bekanta oss med dem.
+I den här snabb starten fokuserar vi främst på distribuerade tabeller och bekanta dig med dem.
 
-Datamodellen vi ska arbeta med är enkel: användar- och händelsedata från GitHub. Händelser inkluderar skapande av gaffel, git commits relaterade till en organisation och mycket mer.
+Data modellen som vi ska arbeta med är enkel: användar-och händelse data från GitHub. Händelser omfattar att skapa gaffel, git-incheckningar som är relaterade till en organisation och mer.
 
-När du har anslutit via psql, låt oss skapa våra tabeller. I psql konsolen köra:
+När du har anslutit via psql ska vi skapa våra tabeller. I psql-konsolen kör du:
 
 ```sql
 CREATE TABLE github_events
@@ -62,23 +62,23 @@ CREATE TABLE github_users
 );
 ```
 
-Fältet `payload` `github_events` har en JSONB-datatyp. JSONB är JSON-datatypen i binär form i Postgres. Datatypen gör det enkelt att lagra ett flexibelt schema i en enda kolumn.
+`payload` Fältet i `github_events` har en JSONB-datatype. JSONB är JSON-datatypen i binär form i postgres. Datatype gör det enkelt att lagra ett flexibelt schema i en enda kolumn.
 
-Postgres kan `GIN` skapa ett index på den här typen, som indexerar varje nyckel och värde i den. Med ett index blir det snabbt och enkelt att fråga nyttolasten med olika villkor. Låt oss gå vidare och skapa ett par index innan vi laddar våra data. I psql:
+Postgres kan skapa ett `GIN` index av den här typen, vilket kommer att indexera varje nyckel och värde i den. Med ett index blir det snabbt och enkelt att fråga nytto lasten med olika villkor. Nu ska vi gå vidare och skapa ett par index innan vi läser in våra data. I psql:
 
 ```sql
 CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Därefter tar vi postgres-tabellerna på koordinatornsnoden och säger till Hyperscale att fragmentera dem över arbetarna. För att göra det kör vi en fråga för varje tabell som anger nyckeln för att fragmentera den. I det aktuella exemplet ska vi fragmentera `user_id`både händelser och användare tabell på:
+Härnäst ska vi ta dessa postgres-tabeller på koordinator-noden och meddela att de kan Shard dem över arbets tagarna. För att göra det kör vi en fråga för varje tabell som anger nyckeln för att Shard den. I det aktuella exemplet ska vi Shard både händelse-och användar tabellen på `user_id`:
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
 SELECT create_distributed_table('github_users', 'user_id');
 ```
 
-Vi är redo att ladda data. I psql fortfarande, punga ut för att ladda ner filerna:
+Vi är redo att läsa in data. I psql kan du fortfarande ladda ned filerna:
 
 ```sql
 \! curl -O https://examples.citusdata.com/users.csv
@@ -96,13 +96,13 @@ SET CLIENT_ENCODING TO 'utf8';
 
 ## <a name="run-queries"></a>Köra frågor
 
-Nu är det dags för den roliga delen, faktiskt kör några frågor. Låt oss börja med `count (*)` en enkel att se hur mycket data vi läst in:
+Nu är det dags för den roliga delen, som faktiskt kör några frågor. Vi börjar med en enkel `count (*)` för att se hur mycket data vi läst in:
 
 ```sql
 SELECT count(*) from github_events;
 ```
 
-Det fungerade fint. Vi kommer tillbaka till den typen av aggregering i lite, men för nu ska vi titta på några andra frågor. I JSONB-kolumnen `payload` finns det en bra bit data, men den varierar beroende på händelsetyp. `PushEvent`händelser innehåller en storlek som innehåller antalet olika åtaganden för push. Vi kan använda den för att hitta det totala antalet åtaganden per timme:
+Det fungerade snyggt. Vi kommer tillbaka till den sortens agg regering i en bit, men nu ska vi titta på några andra frågor. I kolumnen JSONB `payload` finns det en utmärkt mängd data, men den varierar beroende på händelse typ. `PushEvent`händelser innehåller en storlek som inkluderar antalet distinkta incheckningar för push. Vi kan använda den för att hitta det totala antalet incheckningar per timme:
 
 ```sql
 SELECT date_trunc('hour', created_at) AS hour,
@@ -113,9 +113,9 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Hittills har frågorna involverat github-händelserna\_uteslutande, men vi kan kombinera\_den här informationen med github-användare. Eftersom vi fragmenterade både användare och händelser`user_id`på samma identifierare ( ) kommer raderna i båda tabellerna med matchande användar-ID:er att [samlokaliseras](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) på samma databasnoder och kan enkelt anslutas.
+Hittills har frågorna involverade GitHub\_-händelserna exklusivt, men vi kan kombinera den här informationen med GitHub\_-användare. Eftersom vi shardade både användare och händelser på samma identifierare (`user_id`), kommer raderna i båda tabellerna med matchande användar-ID att [samplaceras](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) på samma databasnoder och kan enkelt anslutas.
 
-Om vi `user_id`går med på kan Hyperskala trycka ned kopplingskörningen till shards för körning parallellt på arbetsnoder. Låt oss till exempel hitta de användare som skapade det största antalet databaser:
+Om vi ansluter till `user_id`kan skalningen av anslutningen gå över till Shards för körning parallellt på arbetsnoder. Vi kan till exempel hitta de användare som skapade det största antalet databaser:
 
 ```sql
 SELECT gu.login, count(*)
@@ -130,12 +130,12 @@ SELECT gu.login, count(*)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-I föregående steg skapade du Azure-resurser i en servergrupp. Om du inte förväntar dig att behöva dessa resurser i framtiden tar du bort servergruppen. Tryck på knappen **Ta bort** på sidan **Översikt** för servergruppen. När du uppmanas att göra det på en popup-sida **Delete** bekräftar du namnet på servergruppen och klickar på den slutliga delete-knappen.
+I föregående steg skapade du Azure-resurser i en Server grupp. Om du inte tror att du behöver dessa resurser i framtiden tar du bort Server gruppen. Tryck på knappen **ta bort** på sidan **Översikt** för Server gruppen. När du uppmanas till ett popup-fönster bekräftar du namnet på Server gruppen och klickar på knappen slutlig **borttagning** .
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten lärde du dig att etablera en citus-servergrupp (Hyperscale). Du har anslutit till den med psql, skapat ett schema och distribuerade data.
+I den här snabb starten har du lärt dig hur du etablerar en Server grupp för storskaliga (citus). Du är ansluten till den med psql, skapat ett schema och distribuerade data.
 
-Följ sedan en självstudiekurs för att skapa skalbara program med flera innehavare.
+Sedan följer du en självstudie för att bygga skalbara program för flera klienter.
 > [!div class="nextstepaction"]
-> [Utforma en databas med flera innehavare](https://aka.ms/hyperscale-tutorial-multi-tenant)
+> [Utforma en databas för flera innehavare](https://aka.ms/hyperscale-tutorial-multi-tenant)

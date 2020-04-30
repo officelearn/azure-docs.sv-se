@@ -1,6 +1,6 @@
 ---
-title: Anslut med Java - Azure Database för PostgreSQL - Single Server
-description: Den här snabbstarten innehåller ett Java-kodexempel som du kan använda för att ansluta och fråga data från Azure Database for PostgreSQL - Single Server.
+title: Ansluta till Java-Azure Database for PostgreSQL-enskild server
+description: Den här snabb starten innehåller ett Java-kod exempel som du kan använda för att ansluta och fråga efter data från Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -11,33 +11,33 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.openlocfilehash: cf03cebcd69bd85a4cc94ceb7e99fd0edef99b58
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80063132"
 ---
-# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-postgresql---single-server"></a>Snabbstart: Använda Java för att ansluta till och fråga data i Azure Database för PostgreSQL - Single Server
+# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-postgresql---single-server"></a>Snabb start: Använd Java för att ansluta till och fråga efter data i Azure Database for PostgreSQL-enskild server
 
-I den här snabbstarten ansluter du till en Azure-databas för PostgreSQL med ett Java-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. I den här artikeln förutsätter vi att du har kunskaper om Java och att du inte har arbetat med Azure Database for PostgreSQL tidigare.
+I den här snabb starten ansluter du till en Azure Database for PostgreSQL med hjälp av ett Java-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. I den här artikeln förutsätter vi att du har kunskaper om Java och att du inte har arbetat med Azure Database for PostgreSQL tidigare.
 
 ## <a name="prerequisites"></a>Krav
 
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- Slutförande av [snabbstart: Skapa en Azure-databas för PostgreSQL-server i Azure-portalen](quickstart-create-server-database-portal.md) eller [Snabbstart: Skapa en Azure-databas för PostgreSQL med Hjälp av Azure CLI](quickstart-create-server-database-azure-cli.md).
+- Slut för ande av [snabb start: skapa en Azure Database for postgresql-server i Azure Portal](quickstart-create-server-database-portal.md) eller [snabb start: skapa en Azure Database for PostgreSQL med hjälp av Azure CLI](quickstart-create-server-database-azure-cli.md).
 
-- [PostgreSQL JDBC Driver](https://jdbc.postgresql.org/download.html) - matcha din version av Java och Java Development Kit.
-- [Classpath-information](https://jdbc.postgresql.org/documentation/head/classpath.html) - Inkludera Jar-filen PostgreSQL JDBC (till exempel postgresql-42.1.1.jar) i din programklasssökväg.
+- [POSTGRESQL JDBC-drivrutin](https://jdbc.postgresql.org/download.html) – matcha din version av Java och Java Development Kit.
+- [Classpath-information](https://jdbc.postgresql.org/documentation/head/classpath.html) – inkludera jar-filen för POSTGRESQL-JDBC (t. ex. postgresql-42.1.1. jar) i din program-classpath.
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 Hämta den information som du behöver för att ansluta till Azure Database för PostgreSQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
-1. Sök efter och välj den server som du har skapat i [Azure-portalen](https://portal.azure.com/)(till exempel **mydemoserver**).
+1. I [Azure Portal](https://portal.azure.com/)söker du efter och väljer den server som du har skapat (till exempel **mydemoserver**).
 
-1. Anteckna **servernamn** och **administratörsanvändarnamn**på panelen **Översikt** på serverns översiktspanel . Om du glömmer lösenordet kan du även återställa det på den här panelen.
+1. Gå till serverns **översikts** panel och anteckna **Server namnet** och **administratörens användar namn**. Om du glömmer lösenordet kan du även återställa det på den här panelen.
 
-    ![Azure-databas för PostgreSQL-anslutningssträng](./media/connect-java/server-details-azure-database-postgresql.png)
+    ![Azure Database for PostgreSQL anslutnings sträng](./media/connect-java/server-details-azure-database-postgresql.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Ansluta, skapa tabell och infoga data
 Använd följande kod för att ansluta och läsa in data i databasen med hjälp av en funktion med SQL-instruktionen **INSERT**. Metoderna [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) och [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) används för att ansluta till databasen, ta bort och skapa tabellen. Objektet [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) används för att skapa infogningskommandon och setString() och setInt() används för att binda parametervärdena. Metoden [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) körs för varje uppsättning parametrar. 

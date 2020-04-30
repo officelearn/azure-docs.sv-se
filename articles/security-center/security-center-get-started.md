@@ -1,5 +1,5 @@
 ---
-title: Uppgradera till standardnivå – Azure Security Center
+title: Uppgradera till standard nivå – Azure Security Center
 description: I den här snabbstarten får du lära dig att uppgradera till Security Centers Standard-prisnivå för ytterligare säkerhet.
 services: security-center
 documentationcenter: na
@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
 ms.openlocfilehash: 3f0d624605f617a8e5ab914c49c4c94a40ebdcc6
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80435787"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Snabbstart: Publicera din Azure-prenumeration till Security Center Standard
 Azure Security Center erbjuder enhetlig säkerhetshantering och skydd mot hot i olika hybridmolnarbetsbelastningar. På den kostnadsfria nivån erbjuds endast begränsad säkerhet för dina Azure-resurser, medan Standard-nivån utökar funktionerna till lokala resurser och andra moln. Med Security Center Standard kan du hitta och åtgärda säkerhetsproblem, tillämpa åtkomst- och programkontroller för att blockera skadlig aktivitet, upptäcka hot med analys och intelligens och svara snabbt under attacker. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
 
-I den här artikeln uppgraderar du till standardnivån för ökad säkerhet och installerar Log Analytics-agenten på dina virtuella datorer för att övervaka säkerhetsproblem och hot.
+I den här artikeln ska du uppgradera till standard nivån för ytterligare säkerhet och installera Log Analytics-agenten på dina virtuella datorer för att övervaka säkerhets problem och hot.
 
 ## <a name="prerequisites"></a>Krav
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
@@ -33,8 +33,8 @@ Om du vill uppgradera en prenumeration till standardnivån måste du vara tillde
 
 ## <a name="enable-your-azure-subscription"></a>Aktivera din Azure-prenumeration
 
-1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
-2. Välj **Security Center**på **Microsoft Azure-menyn** . **Security Center – Översikt** öppnas.
+1. Logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+2. Välj **Security Center**på **Microsoft Azure** -menyn. **Security Center – Översikt** öppnas.
 
    ![Översikt över Security Center][2]
 
@@ -47,7 +47,7 @@ Inom några minuter efter att du har startat Security Center för första gånge
 - **Rekommendationer** för sätt att förbättra säkerheten för dina Azure-prenumerationer. Om du klickar på panelen **Rekommendationer** öppnas en rangordnad lista.
 - En inventering av resurserna **beräkning och appar**, **nätverk**, **datasäkerhet** och **identitet och åtkomst** som nu utvärderas av Security Center tillsammans med säkerhetspositionen för var och en.
 
-Om du vill dra full nytta av Security Center måste du slutföra stegen nedan för att uppgradera till standardnivån och installera Log Analytics-agenten.
+Om du vill dra full nytta av Security Center måste du slutföra stegen nedan för att uppgradera till standard nivån och installera Log Analytics agenten.
 
 ## <a name="upgrade-to-the-standard-tier"></a>Uppgradera till standardnivån
 Du måste uppgradera till standardnivån för att kunna använda snabbstart och självstudier i Security Center. Det finns en kostnadsfri utvärderingsversion av Security Center Standard. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). 
@@ -66,14 +66,14 @@ Du måste uppgradera till standardnivån för att kunna använda snabbstart och 
   ![Säkerhetsaviseringar][9]
 
 ## <a name="automate-data-collection"></a>Automatisera datainsamling
-Security Center samlar in data från dina virtuella Azure-datorer och icke-Azure-datorer för att övervaka säkerhetsproblem och hot. Data samlas in med log analytics-agenten, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till arbetsytan för analys. Som standard skapar Security Center en ny arbetsyta till dig.
+Security Center samlar in data från dina virtuella Azure-datorer och icke-Azure-datorer för att övervaka säkerhetsproblem och hot. Data samlas in med hjälp av Log Analytics agent, som läser olika säkerhetsrelaterade konfigurationer och händelse loggar från datorn och kopierar data till din arbets yta för analys. Som standard skapar Security Center en ny arbetsyta till dig.
 
-När automatisk etablering är aktiverad installerar Security Center Log Analytics-agenten på alla azure-virtuella datorer som stöds och alla nya som skapas. Automatisk försörjning rekommenderas starkt.
+När automatisk etablering har Aktiver ATS installerar Security Center Log Analytics agent på alla virtuella Azure-datorer som stöds och eventuella nya som skapas. Automatisk försörjning rekommenderas starkt.
 
-Så här aktiverar du automatisk etablering av Log Analytics-agenten:
+Så här aktiverar du automatisk etablering av Log Analytics agent:
 
-1. Under huvudmenyn för Säkerhetscenter väljer du **Inställningar för &.**
-2. Klicka på prenumerationen som du vill ändra inställningarna på prenumerationen på prenumerationen på.
+1. Under Security Center huvud menyn väljer du **pris & inställningar**.
+2. På prenumerations raden klickar du på den prenumeration som du vill ändra inställningarna för.
 3. På fliken **Datainsamling** anger du **Automatisk etablering** till **På**.
 4. Välj **Spara**.
 ---
@@ -86,24 +86,24 @@ Med de här nya kunskaperna om dina virtuella datorer i Azure kan Security Cente
 ## <a name="clean-up-resources"></a>Rensa resurser
 De andra snabbstarterna och självstudierna i den här samlingen bygger på den här snabbstarten. Om du tänker fortsätta med att arbeta med efterföljande snabbstarter och självstudier ska du fortsätta att köra Standard-nivån och ha automatisk etablering aktiverad. Om du inte tänker fortsätta eller vill återgå till den kostnadsfria nivån:
 
-1. Gå tillbaka till huvudmenyn för Säkerhetscenter och välj **Inställningar för &**.
-2. Klicka på den prenumeration som du vill ändra till den kostnadsfria nivån.
+1. Gå tillbaka till Security Center huvud menyn och välj **pris & inställningar**.
+2. Klicka på den prenumeration som du vill ändra till den kostnads fria nivån.
 3. Välj **Prisnivå** och välj **Kostnadsfri** om du vill byta prenumeration från Standard-nivån till den kostnadsfria nivån.
 5. Välj **Spara**.
 
 Om du vill avaktivera automatisk etablering:
 
-1. Gå tillbaka till huvudmenyn för Säkerhetscenter och välj **Inställningar för &**.
-2. Rensa på den prenumeration som du vill inaktivera automatisk etablering på.
+1. Gå tillbaka till Security Center huvud menyn och välj **pris & inställningar**.
+2. Rensa den prenumeration som du vill inaktivera automatisk etablering på.
 3. På fliken **Datainsamling** anger du **Automatisk etablering** till **Av**.
 4. Välj **Spara**.
 
 >[!NOTE]
-> Om du inaktiverar automatisk etablering tas inte Log Analytics-agenten bort från virtuella Azure-datorer där agenten har etablerats. Inaktivering av automatisk etablering begränsar säkerhetsövervakningen för dina resurser.
+> Om du inaktiverar automatisk etablering tas inte Log Analytics agenten bort från virtuella Azure-datorer där agenten har etablerats. Inaktivering av automatisk etablering begränsar säkerhetsövervakningen för dina resurser.
 >
 
 ## <a name="next-steps"></a>Nästa steg
-I den här snabbstarten uppgraderade du till standardnivå och etablerade Log Analytics-agenten för enhetlig säkerhetshantering och hotskydd över dina hybridmolnarbetsbelastningar. Om du vill lära dig mer om att använda Security Center fortsätter du till snabbstarten för publicering av Windows-datorer som är lokala och i andra moln.
+I den här snabb starten har du uppgraderat till standard nivån och etablerade Log Analytics agent för enhetlig säkerhets hantering och skydd mot hot i dina hybrid moln arbets belastningar. Om du vill lära dig mer om att använda Security Center fortsätter du till snabbstarten för publicering av Windows-datorer som är lokala och i andra moln.
 
 > [!div class="nextstepaction"]
 > [Snabbstart: Publicera Windows-datorer till Azure Security Center](quick-onboard-windows-computer.md)

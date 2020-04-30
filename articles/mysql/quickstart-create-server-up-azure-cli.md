@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa Azure-databas för MySQL med az mysql up'
-description: Snabbstartsguide för att skapa Azure Database för MySQL-server med kommandot Azure CLI (kommandoradsgränssnitt).
+title: 'Snabb start: Skapa Azure Database for MySQL med AZ MySQL up'
+description: Snabb starts guide för att skapa Azure Database for MySQL server med Azure CLI-kommandot (kommando rads gränssnitt).
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -9,32 +9,32 @@ ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc
 ms.openlocfilehash: 7b81e88fe6f658fdf4c1857c6082100894c6f2f6
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80067710"
 ---
-# <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Snabbstart: Skapa en Azure-databas för MySQL med ett enkelt Azure CLI-kommando – az mysql up (preview)
+# <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Snabb start: skapa en Azure Database for MySQL med ett enkelt Azure CLI-kommando – AZ MySQL up (för hands version)
 
 > [!IMPORTANT]
-> Kommandot [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) Azure CLI visas i förhandsversion.
+> [AZ MySQL up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) Azure CLI-kommandot är i för hands version.
 
-Azure Database för MySQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga MySQL-databaser i molnet. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller skript. Den här snabbstarten visar hur du använder kommandot [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) för att skapa en Azure Database för MySQL-server med Azure CLI. Förutom att skapa servern `az mysql up` skapar kommandot en exempeldatabas, en rotanvändare i databasen, öppnar brandväggen för Azure-tjänster och skapar standardbrandväggsregler för klientdatorn. Detta bidrar till att påskynda utvecklingsprocessen.
+Azure Database för MySQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga MySQL-databaser i molnet. Azure CLI används för att skapa och hantera Azure-resurser från kommando raden eller i skript. Den här snabb starten visar hur du använder kommandot [AZ MySQL up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) för att skapa en Azure Database for MySQL-server med hjälp av Azure CLI. Förutom att skapa-servern skapar `az mysql up` kommandot en exempel databas, en rot användare i databasen, öppnar brand väggen för Azure-tjänster och skapar standard brand Väggs regler för klient datorn. Detta hjälper till att påskynda utvecklings processen.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-Den här artikeln kräver att du kör Azure CLI version 2.0 eller senare lokalt. Kör kommandot `az --version` om du vill se vilken version som är installerad. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Den här artikeln kräver att du kör Azure CLI version 2,0 eller senare lokalt. Kör kommandot `az --version` om du vill se vilken version som är installerad. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-Du måste logga in på ditt konto med kommandot [az login.](/cli/azure/authenticate-azure-cli?view=interactive-log-in) Observera egenskapen **ID** från kommandoutdata för det motsvarande prenumerationsnamnet.
+Du måste logga in på ditt konto med kommandot [AZ login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) . Observera egenskapen **ID** från kommandoutdata för det motsvarande prenumerationsnamnet.
 
 ```azurecli
 az login
 ```
 
-Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Välj det specifika prenumerations-ID:t under ditt konto med hjälp av kommandot [az account set](/cli/azure/account). Ersätt **prenumerations-ID-egenskapen** från **az-inloggningsutgången** för din prenumeration med platshållaren för prenumerations-ID.
+Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Välj det specifika prenumerations-ID:t under ditt konto med hjälp av kommandot [az account set](/cli/azure/account). Ersätt egenskapen **prenumerations-ID** från **AZ-inloggnings** resultatet för din prenumeration till plats hållaren för prenumerations-ID.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -42,63 +42,63 @@ az account set --subscription <subscription id>
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Skapa en Azure Database för MySQL-server
 
-Om du vill använda kommandona installerar du [tillägget db-up.](/cli/azure/ext/db-up) Om ett fel returneras kontrollerar du att du har installerat den senaste versionen av Azure CLI. Se [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du vill använda kommandona installerar du [db-up-](/cli/azure/ext/db-up) tillägget. Om ett fel returneras kontrollerar du att du har installerat den senaste versionen av Azure CLI. Se [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ```azurecli
 az extension add --name db-up
 ```
 
-Skapa en Azure-databas för MySQL-server med följande kommando:
+Skapa en Azure Database for MySQL server med följande kommando:
 
 ```azurecli
 az mysql up
 ```
 
-Servern skapas med följande standardvärden (såvida du inte åsidosätter dem manuellt):
+Servern skapas med följande standardvärden (om du inte åsidosätter dem manuellt):
 
 **Inställning** | **Standardvärde** | **Beskrivning**
 ---|---|---
-server-name | System som genereras | Ett unikt namn för Azure Database för MySQL-server.
-resource-group | System som genereras | En ny Azure-resursgrupp.
-sku-name | GP_Gen5_2 | Namnet på SKU:n. Följer konventionen {prisnivå}\_{beräkningsgenerering}\_{vCores} i snabbformat. Standardär en General Purpose Gen5-server med 2 virtuella kärnor. Se vår [prissida](https://azure.microsoft.com/pricing/details/mysql/) för mer information om nivåerna.
+server-name | Genereras av systemet | Ett unikt namn för Azure Database för MySQL-server.
+resource-group | Genereras av systemet | En ny Azure-resurs grupp.
+sku-name | GP_Gen5_2 | Namnet på SKU:n. Följer konventionen {prisnivå}\_{beräkningsgenerering}\_{vCores} i snabbformat. Standardvärdet är en Generell användning Gen5-server med 2 virtuella kärnor. På vår [prissättnings sida](https://azure.microsoft.com/pricing/details/mysql/) finns mer information om nivåerna.
 backup-retention | 7 | Hur länge en säkerhetskopia ska behållas. Enheten är dagar.
 geo-redundant-backup | Disabled | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern eller inte.
 location | westus2 | Azure-platsen för servern.
-ssl-enforcement | Disabled | Om SSL ska aktiveras eller inte för den här servern.
+ssl-enforcement | Disabled | Om SSL ska vara aktiverat eller inte för den här servern.
 storage-size | 5120 | Serverns lagringskapacitet (enheten är megabyte).
 version | 5.7 | Huvudversion för MySQL.
-admin-user | System som genereras | Användarnamnet för administratörsinloggning.
-admin-password | System som genereras | Lösenordet för administratörsanvändaren.
+admin-user | Genereras av systemet | Användarnamnet för administratörsinloggning.
+admin-password | Genereras av systemet | Lösenordet för administratörsanvändaren.
 
 > [!NOTE]
 > Mer information om `az mysql up` kommandot och dess ytterligare parametrar finns i [Azure CLI-dokumentationen](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up).
 
-När servern har skapats levereras följande inställningar:
+När servern har skapats levereras den med följande inställningar:
 
-- En brandväggsregel som kallas "devbox" skapas. Azure CLI försöker identifiera IP-adressen för `az mysql up` den dator som kommandot körs från och vitlistar IP-adressen.
-- "Tillåt åtkomst till Azure-tjänster" är inställt på ON. Den här inställningen konfigurerar serverns brandvägg så att den accepterar anslutningar från alla Azure-resurser, inklusive resurser som inte finns i din prenumeration.
-- Parametern `wait_timeout` är inställd på 8 timmar
+- En brand Väggs regel med namnet "devbox" skapas. Azure CLI försöker identifiera datorns IP-adress som `az mysql up` kommandot körs från och WHITELISTS den IP-adressen.
+- "Tillåt åtkomst till Azure-tjänster" är inställt på på. Den här inställningen konfigurerar serverns brand vägg så att den accepterar anslutningar från alla Azure-resurser, inklusive resurser som inte finns i din prenumeration.
+- `wait_timeout` Parametern har angetts till 8 timmar
 - En tom databas med namnet "sampledb" skapas
-- En ny användare med namnet "root" med behörighet att "sampledb" skapas
+- En ny användare med namnet "rot" med behörighet till "sampledb" skapas
 
 > [!NOTE]
-> Azure Database for MySQL kommunicerar via port 3306. När du ansluter från ett företagsnätverk kan det hända att utgående trafik via port 3306 inte tillåts av nätverkets brandvägg. Låt IT-avdelningen öppna port 3306 för att ansluta till servern.
+> Azure Database for MySQL kommunicerar via port 3306. När du ansluter inifrån ett företags nätverk kanske utgående trafik via port 3306 inte tillåts av nätverkets brand vägg. Be din IT-avdelning öppna port 3306 för att ansluta till servern.
 
 ## <a name="get-the-connection-information"></a>Hämta anslutningsinformationen
 
-När `az mysql up` kommandot är klart returneras en lista över anslutningssträngar för populära programmeringsspråk till dig. Dessa anslutningssträngar är förkonfigurerade med specifika attribut för din nyligen skapade Azure-databas för MySQL-server.
+När `az mysql up` kommandot har slutförts returneras en lista över anslutnings strängar för populära programmeringsspråk. Dessa anslutnings strängar är förkonfigurerade med de angivna attributen för den nyskapade Azure Database for MySQL-servern.
 
-Du kan använda kommandot [az mysql show-connection-string](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-show-connection-string) för att lista dessa anslutningssträngar igen.
+Du kan använda kommandot [AZ MySQL show-Connection-String](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-show-connection-string) för att lista dessa anslutnings strängar igen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Rensa alla resurser som du har skapat i snabbstarten med följande kommando. Det här kommandot tar bort Azure Database för MySQL-servern och resursgruppen.
+Rensa alla resurser som du skapade i snabb starten med hjälp av följande kommando. Det här kommandot tar bort Azure Database for MySQL-servern och resurs gruppen.
 
 ```azurecli
 az mysql down --delete-group
 ```
 
-Om du bara vill ta bort den nyskapade servern, kan du köra [az mysql ner](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-down) kommandot.
+Om du bara vill ta bort den nyligen skapade servern kan du köra [AZ MySQL](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-down) -kommandot.
 
 ```azurecli
 az mysql down

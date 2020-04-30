@@ -1,6 +1,6 @@
 ---
-title: Skapa en Azure Media Services livestream
-description: Lär dig hur du skapar en Azure Media Services live stream med hjälp av portalen och Wirecast
+title: Skapa en Azure Media Services Live Stream
+description: Lär dig hur du skapar en Azure Media Services Live Stream med hjälp av portalen och Wirecast
 services: media-services
 ms.service: media-services
 ms.topic: quickstart
@@ -8,15 +8,15 @@ ms.author: inhenkel
 author: IngridAtMicrosoft
 ms.date: 03/25/2020
 ms.openlocfilehash: 459f11844f873a911b3e5702e8c768b1cd22e504
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80985005"
 ---
-# <a name="create-an-azure-media-services-live-stream"></a>Skapa en Azure Media Services livestream
+# <a name="create-an-azure-media-services-live-stream"></a>Skapa en Azure Media Services Live Stream
 
-Den här snabbstarten hjälper dig att skapa en Azure Media Services live stream med hjälp av Azure-portalen och Telestream Wirecast. Det förutsätter att du har en Azure-prenumeration och har skapat ett Media Services-konto.
+Den här snabb starten hjälper dig att skapa en Azure Media Services Live Stream med hjälp av Azure Portal-och Wirecast. Det förutsätter att du har en Azure-prenumeration och har skapat ett Media Services-konto.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -24,171 +24,171 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Öppna webbläsaren och gå till [Microsoft Azure-portalen](https://portal.azure.com/). Ange dina autentiseringsuppgifter och logga in på portalen. Standardvyn är instrumentpanelen.
 
-I den här snabbstarten täcker vi:
+I den här snabb starten tar vi upp:
 
-- Ställa in en lokal kodare med en kostnadsfri utvärderingsversion av Telestream Wirecast.
-- Ställa in en livestream.
-- Ställa in livestream-utdata.
-- Köra en standardslutpunkt för direktuppspelning.
-- Använda Azure Media Player för att visa livestreamen och utdata på begäran.
+- Konfigurera en lokal kodare med en kostnads fri utvärderings version av multistream-Wirecast.
+- Konfigurera en Live-dataström.
+- Konfigurera real tids data Ströms utdata.
+- Kör en standard slut punkt för direkt uppspelning.
+- Använd Azure Media Player för att Visa Live Stream och utdata på begäran.
 
-För att hålla det enkelt använder vi en kodningsförinställning för Azure Media Services i Wirecast, genomströmning av molnkodning och RTMP.
+För att det ska vara enkelt, använder vi en kodning för att Azure Media Services i Wirecast, genom strömnings moln kodning och RTMP.
 
-## <a name="set-up-an-on-premises-encoder-by-using-wirecast"></a>Konfigurera en lokal kodare med Wirecast
+## <a name="set-up-an-on-premises-encoder-by-using-wirecast"></a>Konfigurera en lokal kodare med hjälp av Wirecast
 
-1. Ladda ner och installera Wirecast för ditt operativsystem på [Telestreams webbplats](https://www.telestream.net).
-1. Starta programmet och använd din favorit e-postadress för att registrera produkten. Håll programmet öppet.
-1. Verifiera din e-postadress i e-postmeddelandet som du får. Då programmet kommer att starta den fria rättegången.
-1. Rekommenderas: Titta på videohandledningen på öppningsprogrammets skärm.
+1. Ladda ned och installera Wirecast för ditt operativ system på den [fjärrströms webbplatsen](https://www.telestream.net).
+1. Starta programmet och Använd din favorit-e-postadress för att registrera produkten. Se till att programmet är öppet.
+1. Verifiera din e-postadress i e-postmeddelandet som du får. Sedan startar programmet den kostnads fria utvärderings versionen.
+1. Rekommenderat: titta på video självstudien på skärmen öppna program.
 
-## <a name="set-up-an-azure-media-services-live-stream"></a>Konfigurera en Azure Media Services livestream
+## <a name="set-up-an-azure-media-services-live-stream"></a>Konfigurera en Azure Media Services Live Stream
 
-1. Gå till Azure Media Services-kontot i portalen och välj sedan **Direktuppspelning** från **mediatjänstlistan.**
+1. Gå till Azure Media Services kontot i portalen och välj sedan **Live streaming** från **Media Services** listan.
 
-   ![Länk för livestreaming](media/live-events-wirecast-quickstart/select-live-streaming.png)
-1. Välj **Lägg till livehändelse** om du vill skapa en ny livestreaminghändelse.
+   ![Länk till Live Streaming](media/live-events-wirecast-quickstart/select-live-streaming.png)
+1. Välj **Lägg till Live-händelse** för att skapa en ny direkt uppspelnings händelse.
 
-   ![Ikonen Lägg till livehändelse](media/live-events-wirecast-quickstart/add-live-event.png)
-1. Ange ett namn på den nya händelsen, till exempel *TestLiveEvent,* i rutan **Live-händelsenamn.**
+   ![Lägg till ikonen Live-händelse](media/live-events-wirecast-quickstart/add-live-event.png)
+1. Ange ett namn för den nya händelsen, till exempel *TestLiveEvent*, i rutan **Live-händelseloggen** .
 
-   ![Rutan Namnruta för liveevenemang](media/live-events-wirecast-quickstart/live-event-name.png)
-1. Ange en valfri beskrivning av händelsen i rutan **Beskrivning.**
-1. Välj **alternativet Direkt – inget molnkodningsalternativ.**
+   ![Rutan Live-händelse namn](media/live-events-wirecast-quickstart/live-event-name.png)
+1. Ange en valfri beskrivning av händelsen i rutan **Beskrivning** .
+1. Välj alternativet genom **strömning – ingen moln kodning** .
 
-   ![Alternativ för molnkodning](media/live-events-wirecast-quickstart/cloud-encoding.png)
-1. Välj **RTMP-alternativet.**
-1. Kontrollera att alternativet **Nej** är markerat för **Starta livehändelse**, för att undvika att faktureras för livehändelsen innan det är klart. (Faktureringen börjar när livehändelsen startas.)
+   ![Alternativ för moln kodning](media/live-events-wirecast-quickstart/cloud-encoding.png)
+1. Välj alternativet **RTMP** .
+1. Se till att alternativet **Nej** är markerat för att **starta direkt sändningen**för att undvika att faktureras för direkt sändningen innan det är klart. (Faktureringen påbörjas när Live-händelsen startas.)
 
-   ![Starta livehändelsealternativ](media/live-events-wirecast-quickstart/start-live-event-no.png)
-1. Välj knappen **Granska + skapa** om du vill granska inställningarna.
-1. Välj knappen **Skapa** för att skapa livehändelsen. Du returneras sedan till live-händelselistan.
-1. Välj länken till den livehändelse som du just skapade. Observera att händelsen har stoppats.
-1. Håll den här sidan öppen i din webbläsare. Vi återkommer till det senare.
+   ![Alternativet Starta Live-händelse](media/live-events-wirecast-quickstart/start-live-event-no.png)
+1. Granska inställningarna genom att klicka på knappen **Granska + skapa** .
+1. Välj knappen **skapa** för att skapa en Live-händelse. Sedan återgår du till listan över direktsända händelser.
+1. Välj länken till den Live-händelse som du nyss skapade. Observera att din händelse har stoppats.
+1. Se till att sidan är öppen i webbläsaren. Vi kommer tillbaka till den senare.
 
-## <a name="set-up-a-live-stream-by-using-wirecast-studio"></a>Konfigurera en livestream med Wirecast Studio
+## <a name="set-up-a-live-stream-by-using-wirecast-studio"></a>Konfigurera en Live-ström med hjälp av Wirecast Studio
 
-1. I Wirecast-programmet väljer du **Skapa tomt dokument** på huvudmenyn och väljer sedan **Fortsätt**.
+1. I Wirecast-programmet väljer du **Skapa tomt dokument** från huvud menyn och väljer sedan **Fortsätt**.
 
-   ![Startskärmen för kabelsändning](media/live-events-wirecast-quickstart/open-empty-document.png)
-1. Hovra över det första lagret i området **Wirecast-lager.**  Välj ikonen **Lägg till** som visas och välj den videoinmatning som du vill strömma.
+   ![Wirecast Start skärm](media/live-events-wirecast-quickstart/open-empty-document.png)
+1. Hovra över det första lagret i **Wirecast lager** -ytan.  Välj ikonen **Lägg till** som visas och välj den video indata som du vill strömma.
 
-   ![Ikon för Wirecast-tillägg](media/live-events-wirecast-quickstart/add-icon.png)
+   ![Wirecast Lägg till ikon](media/live-events-wirecast-quickstart/add-icon.png)
 
-   Dialogrutan **Huvudlager 1** öppnas.
-1. Välj **Videoinspelning** på menyn och välj sedan den kamera som du vill använda.
+   Dialog rutan **Master Layer 1** öppnas.
+1. Välj **video insamling** på menyn och välj sedan den kamera som du vill använda.
 
-   ![Förhandsgranskningsområde för videoinspelning](media/live-events-wirecast-quickstart/video-shot-selection.png)
+   ![Förhands gransknings yta för videoinspelning](media/live-events-wirecast-quickstart/video-shot-selection.png)
 
-   Vyn från kameran visas i förhandsgranskningsområdet.
-1. Hovra över det andra lagret i området **Wirecast-lager.** Välj ikonen **Lägg till** som visas och välj den ljudinmatning som du vill strömma. Dialogrutan **Huvudlager 2** öppnas.
-1. Välj **Ljudinspelning** på menyn och välj sedan den ljudinmatning som du vill använda.
+   Vyn från kameran visas i förhands gransknings avsnittet.
+1. Hovra över det andra lagret i **Wirecast lager** -ytan. Välj ikonen **Lägg till** som visas och välj den ljud inspelning som du vill strömma. Dialog rutan **Master Layer 2** öppnas.
+1. Välj **ljud inspelning** på menyn och välj sedan den ljud inspelning som du vill använda.
 
-   ![Ingångar för ljudinspelning](media/live-events-wirecast-quickstart/audio-shot-select.png)
-1. Välj **Utdatainställningar**på huvudmenyn . Dialogrutan **Välj ett utdatamål** visas.
-1. Välj **Azure Media Services** i listrutan **Mål.** Utdatainställningen för Azure Media Services fyller automatiskt i *de flesta* utdatainställningarna.
+   ![Indata för ljud inspelning](media/live-events-wirecast-quickstart/audio-shot-select.png)
+1. Från huvud menyn väljer du **Inställningar för utdata**. Dialog rutan **Välj ett mål för utgående utdata** visas.
+1. Välj **Azure Media Services** i list rutan **mål** . Inställningen utdata för Azure Media Services fyller automatiskt i *de flesta* av inställningarna för utdata.
 
-   ![Skärmen För kabelsändningsinställningar](media/live-events-wirecast-quickstart/azure-media-services.png)
+   ![Skärmen Wirecast Output Settings](media/live-events-wirecast-quickstart/azure-media-services.png)
 
 
-I nästa procedur går du tillbaka till Azure Media Services i webbläsaren för att kopiera indata-URL:en för att ange utdatainställningarna:
+I nästa procedur går du tillbaka till Azure Media Services i webbläsaren för att kopiera inmatnings-URL: en för att komma in i inställningarna för utdata:
 
-1. På sidan Azure Media Services på portalen väljer du **Start** för att starta live stream-händelsen. (Faktureringen börjar nu.)
+1. På sidan Azure Media Services i portalen väljer du **Starta** för att starta händelsen Live Stream. (Faktureringen startar nu.)
 
-   ![Ikonen Start](media/live-events-wirecast-quickstart/start.png)
-2. Ställ in den **säkra/inte säkra** växlingsknappen till **Inte säker**. Det här steget ställer in protokollet till RTMP i stället för RTMPS.
-3. Kopiera URL:en till Urklipp i rutan **Indata-URL.**
+   ![Start ikon](media/live-events-wirecast-quickstart/start.png)
+2. Ange säker **/** osäker växling **till osäkert.** I det här steget anges protokollet till RTMP i stället för RTMP.
+3. I rutan **inmatad URL** kopierar du webb adressen till Urklipp.
 
-   ![Url för indata](media/live-events-wirecast-quickstart/input-url.png)
-4. Växla till Wirecast-programmet och klistra in **indata-URL:en** i **rutan Adress** i utdatainställningarna.
+   ![Inmatad URL](media/live-events-wirecast-quickstart/input-url.png)
+4. Växla till Wirecast **-** programmet och klistra in **URL: en för indata** i rutan adress i inställningarna för utdata.
 
-   ![Url för wirecast-indata](media/live-events-wirecast-quickstart/input-url-wirecast.png)
+   ![Wirecast-ingångs-URL](media/live-events-wirecast-quickstart/input-url-wirecast.png)
 5. Välj **OK**.
 
-## <a name="set-up-outputs"></a>Ställ in utdata
+## <a name="set-up-outputs"></a>Konfigurera utdata
 
-Den här delen ställer in dina utdata och gör att du kan spara en inspelning av din livestream.  
+Den här delen konfigurerar dina utdata och gör att du kan spara en inspelning av din Live Stream.  
 
 > [!NOTE]
-> För att du ska kunna strömma ut måste slutpunkten för direktuppspelning köras. Se det senare [avsnittet Kör standardslutpunktsavsnittet för direktuppspelning.](#run-the-default-streaming-endpoint)
+> För att du ska kunna strömma dessa utdata måste slut punkten för direkt uppspelning köras. Mer information finns i avsnittet senare [köra standard slut punkten för direkt uppspelning](#run-the-default-streaming-endpoint) .
 
-1. Välj länken **Skapa utdata** under videovisningen **Utdata.**
-1. Om du vill kan du redigera namnet på utdata i rutan **Namn** till något mer användarvänligt så att det är lätt att hitta senare.
+1. Välj länken **skapa utdata** under **utdata** i video visnings programmet.
+1. Om du vill kan du redigera namnet på utdata i rutan **namn** om du vill ha något mer användarvänligt, så att det är enkelt att hitta senare.
    
-   ![Rutan Utdatanamn](media/live-events-wirecast-quickstart/output-name.png)
-1. Lämna alla resten av lådorna ifred för tillfället.
-1. Välj **Nästa** om du vill lägga till en streamingpositionerare.
-1. Ändra namnet på positioneraren till något mer användarvänligt, om du vill.
+   ![Utmatnings namn ruta](media/live-events-wirecast-quickstart/output-name.png)
+1. Lämna bara resten av rutorna för tillfället.
+1. Välj **Nästa** för att lägga till en strömmande positionerare.
+1. Ändra namnet på lokaliseraren till något mer användarvänligt, om du vill.
    
-   ![Rutan Lokaliseringsnamn](media/live-events-wirecast-quickstart/live-event-locator.png)
-1. Lämna allt annat på den här skärmen ensam för nu.
+   ![Namn Box för lokaliserare](media/live-events-wirecast-quickstart/live-event-locator.png)
+1. Lämna allt annat på den här skärmen separat för tillfället.
 1. Välj **Skapa**.
 
 ## <a name="start-the-broadcast"></a>Starta sändningen
 
-1. I Wirecast väljer du **Utdatastart** > **/ Sluta sända** > **Start Azure Media Services: Azure Media Services** på huvudmenyn.
+1. I Wirecast väljer du **utdata** > **Starta/stoppa sändning** > **Start Azure Media Services: Azure Media Services** från huvud menyn.
 
-   ![Menyalternativ för Start-sändning](media/live-events-wirecast-quickstart/start-broadcast.png)
+   ![Starta meny alternativ för sändning](media/live-events-wirecast-quickstart/start-broadcast.png)
 
-   När strömmen har skickats till live-händelsen visas **livefönstret** i Wirecast i videospelaren på livehändelsesidan i Azure Media Services.
+   När strömmen har skickats till direkt sändningen visas **Live** -fönstret i Wirecast i Videos pelaren på sidan live event i Azure Media Services.
 
-1. Välj knappen **Gå** under förhandsgranskningsfönstret om du vill börja sända den video och det ljud som du har valt för Wirecast-lagren.
+1. Välj knappen **gå** under förhands gransknings fönstret för att starta sändningen av video och ljud som du har valt för Wirecast-skiktet.
 
-   ![Knappen Wirecast Go](media/live-events-wirecast-quickstart/go-button.png)
+   ![Wirecast go-knapp](media/live-events-wirecast-quickstart/go-button.png)
 
    > [!TIP]
-   > Om det finns ett fel kan du försöka ladda om spelaren genom att välja länken **Reload player** ovanför spelaren.
+   > Om det uppstår ett fel kan du prova att läsa in spelaren igen genom att välja länken **load Player** ovanför spelaren.
 
-## <a name="run-the-default-streaming-endpoint"></a>Kör standardslutpunkten för direktuppspelning
+## <a name="run-the-default-streaming-endpoint"></a>Kör standard slut punkten för direkt uppspelning
 
-1. Välj **Slutpunkter för direktuppspelning** i mediatjänstlistan.
+1. Välj **strömnings slut punkter** i Media Services listan.
 
-   ![Menyalternativ för strömmande slutpunkter](media/live-events-wirecast-quickstart/streaming-endpoints.png)
-1. Om standardstatusen för direktuppspelningsslutpunkt stoppas markerar du den. Det här steget tar dig till sidan för den slutpunkten.
+   ![Meny alternativ för strömnings slut punkter](media/live-events-wirecast-quickstart/streaming-endpoints.png)
+1. Om statusen för direkt uppspelnings slut punkten stoppas väljer du den. Det här steget tar dig till sidan för slut punkten.
 1. Välj **Starta**.
    
-   ![Start-knappen för slutpunkten för direktuppspelning](media/live-events-wirecast-quickstart/start.png)
+   ![Start-knappen för slut punkten för direkt uppspelning](media/live-events-wirecast-quickstart/start.png)
 
-## <a name="play-the-output-broadcast-by-using-azure-media-player"></a>Spela upp utdatasändningen med Hjälp av Azure Media Player
+## <a name="play-the-output-broadcast-by-using-azure-media-player"></a>Spela upp utdata-sändningen med hjälp av Azure Media Player
 
-1. Kopiera den strömmande webbadressen under videospelaren **Output.**
-1. Öppna [demoen för Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html)i en webbläsare .
-1. Klistra in url:en för direktuppspelning i **URL-rutan** för Azure Media Player.
-1. Välj knappen **Uppdatera spelare.**
-1. Välj **ikonen Spela upp** på videon för att se din livestream.
+1. Kopiera den strömmande URL: en under **utdata** Videos pelaren.
+1. Öppna [Azure Media Player demonstration](https://ampdemo.azureedge.net/azuremediaplayer.html)i en webbläsare.
+1. Klistra in URL-adressen för strömning i rutan **URL** för Azure Media Player.
+1. Välj knappen **Uppdatera spelare** .
+1. Klicka på ikonen **spela upp** på videon om du vill se din real tids ström.
 
 ## <a name="stop-the-broadcast"></a>Stoppa sändningen
 
-När du tror att du har strömmat tillräckligt med innehåll stoppar du sändningen.
+När du tror att du har strömmat tillräckligt med innehåll, stoppa sändningen.
 
-1. Välj knappen **Broadcast** i Wirecast. Det här steget stoppar sändningen från Wirecast.
-1. Välj **Stoppa**i portalen . Du får då ett varningsmeddelande om att livestreamen kommer att stoppas, men utdata kommer nu att bli en on-demand-tillgång.
-1. Välj **Stoppa** i varningsmeddelandet. Azure Media Player visar nu ett fel eftersom livestreamen inte längre är tillgänglig.
+1. I Wirecast väljer du **sändnings** knappen. Det här steget avbryter sändningen från Wirecast.
+1. I portalen väljer du **stoppa**. Sedan får du ett varnings meddelande om att den aktiva strömmen kommer att stoppas, men utdata blir nu en till gång på begäran.
+1. Välj **stoppa** i varnings meddelandet. Azure Media Player visar nu ett fel, eftersom direkt strömmen inte längre är tillgänglig.
 
-## <a name="play-the-on-demand-output-by-using-azure-media-player"></a>Spela upp utdata på begäran med hjälp av Azure Media Player
+## <a name="play-the-on-demand-output-by-using-azure-media-player"></a>Spela upp utdata på begäran genom att använda Azure Media Player
 
-Utdata som du har skapat är nu tillgängligt för direktuppspelning på begäran så länge som slutpunkten för direktuppspelning körs.
+De utdata som du har skapat är nu tillgängliga för strömning på begäran så länge som slut punkten för direkt uppspelning körs.
 
-1. Gå till mediatjänstlistan och välj **Tillgångar**.
-1. Leta reda på händelseutdata som du skapade tidigare och välj länken till tillgången. Utdatasidan öppnas.
-1. Kopiera den strömmande webbadressen under videospelaren för tillgången.
-1. Gå tillbaka till Azure Media Player i webbläsaren och klistra in url:en för direktuppspelning i url-rutan.
-1. Välj **Uppdatera spelare**.
-1. Välj **ikonen Spela upp** i videon om du vill visa tillgången på begäran.
+1. Gå till Media Services listan och välj **till gångar**.
+1. Hitta de händelse utdata som du skapade tidigare och välj länken till till gången. Sidan till gångens utdata öppnas.
+1. Kopiera strömnings-URL: en under Videos pelaren för till gången.
+1. Gå tillbaka till Azure Media Player i webbläsaren och klistra in URL-adressen för strömning i rutan URL.
+1. Välj **uppdaterings spelaren**.
+1. Välj **uppspelnings** ikonen på videon om du vill visa en till gång på begäran.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 > [!IMPORTANT]
-> Stoppa servicen! När du har slutfört stegen i den här snabbstarten ska du se till att stoppa livehändelsen och slutpunkten för direktuppspelning, annars debiteras du för den tid de körs. Om du vill stoppa livehändelsen läser du [Proceduren Stoppa sändningen,](#stop-the-broadcast) steg 2 och 3.
+> Stoppa tjänsterna! När du har slutfört stegen i den här snabb starten måste du stoppa Live-händelsen och slut punkten för direkt uppspelning, annars debiteras du för den tid som de fortfarande körs. Om du vill stoppa direkt sändningen går du till [stoppa sändnings](#stop-the-broadcast) proceduren, steg 2 och 3.
 
-Så här stoppar du slutpunkten för direktuppspelning:
+Stoppa slut punkten för direkt uppspelning:
 
-1. Välj Slutpunkter för **direktuppspelning**i listan Media Services .
-2. Välj standardslutpunkten för direktuppspelning som du startade tidigare. Det här steget öppnar slutpunktens sida.
-3. Välj **Stopp**.
+1. I listan Media Services väljer du **slut punkter för direkt uppspelning**.
+2. Välj den standard slut punkt för direkt uppspelning som du startade tidigare. I det här steget öppnas sidan slut punkt.
+3. Välj **stoppa**.
 
 > [!TIP]
-> Om du inte vill behålla tillgångarna från den här händelsen måste du ta bort dem så att du inte faktureras för lagring.
+> Om du inte vill behålla till gångarna från den här händelsen måste du ta bort dem så att du inte debiteras för lagring.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Live-evenemang och live-resultat i Medietjänster](./live-events-outputs-concept.md)
+> [Live-händelser och Live-utdata i Media Services](./live-events-outputs-concept.md)

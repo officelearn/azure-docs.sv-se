@@ -9,13 +9,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.openlocfilehash: 1afdc0319ae26fcd6c8cb3ada0b4aa8c31fe1fbb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240228"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra-app med .NET SDK och Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Snabb start: Bygg en Cassandra-app med .NET SDK och Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -24,7 +24,7 @@ ms.locfileid: "79240228"
 > * [Python](create-cassandra-python.md)
 >  
 
-Den här snabbstarten visar hur du använder .NET och Azure Cosmos DB [Cassandra API](cassandra-introduction.md) för att skapa en profilapp genom att klona ett exempel från GitHub. Den här snabbstarten visar även hur du använder den webbaserade Azure-portalen för att skapa ett Azure Cosmos DB-konto.
+Den här snabb starten visar hur du använder .NET och Azure Cosmos DB [API för Cassandra](cassandra-introduction.md) för att bygga en profil-app genom att klona ett exempel från GitHub. Den här snabbstarten visar även hur du använder den webbaserade Azure-portalen för att skapa ett Azure Cosmos DB-konto.
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, tabeller, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
@@ -33,7 +33,7 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Du kan även [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden.
 
 Dessutom behöver du: 
-* Om du inte redan har Installerat Visual Studio 2019 kan du ladda ned och använda den **kostnadsfria** [Visual Studio 2019 Community Edition.](https://www.visualstudio.com/downloads/) Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
+* Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 * Installera [Git](https://www.git-scm.com/) för att klona exemplet.
 
 <a id="create-account"></a>
@@ -144,9 +144,9 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 5. Spara filen Program.cs.
     
-## <a name="run-the-net-app"></a>Köra .NET-appen
+## <a name="run-the-net-app"></a>Kör .NET-appen
 
-1. I Visual Studio väljer du **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+1. I Visual Studio väljer du **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**.
 
 2. I kommandotolken installerar du .NET-drivrutinens NuGet-paket genom att köra följande kommando. 
 

@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skicka anpassade händelser till eventhubbar – eventrutnät, Azure CLI'
-description: 'Snabbstart: Använd Azure Event Grid och Azure CLI för att publicera ett ämne och prenumerera på den händelsen. En händelsehubb används för slutpunkten.'
+title: 'Snabb start: skicka anpassade händelser till Event Hubs-Event Grid, Azure CLI'
+description: 'Snabb start: Använd Azure Event Grid och Azure CLI för att publicera ett ämne och prenumerera på händelsen. En händelsehubb används för slutpunkten.'
 services: event-grid
 keywords: ''
 author: spelluru
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: 832c4e453befc9e54051c968e0c364d22afd2bc2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73721423"
 ---
-# <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Snabbstart: Dirigera anpassade händelser till Azure Event Hubs med Azure CLI och Event Grid
+# <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Snabb start: dirigera anpassade händelser till Azure Event Hubs med Azure CLI och Event Grid
 
 Azure Event Grid är en händelsetjänst för molnet. Azure Event Hubs är en av de händelsehanterare som stöds. I den här artikeln använder du Azure CLI för att skapa ett anpassat ämne, prenumerera på det anpassade ämnet och utlösa händelsen för att visa resultatet. Skicka händelser till en händelsehubb.
 
@@ -59,7 +59,7 @@ az eventhubs eventhub create --name $hubname --namespace-name $namespace --resou
 
 ## <a name="subscribe-to-a-custom-topic"></a>Prenumerera på ett anpassat ämne
 
-Du prenumererar på ett ämne för händelserutnät för att tala om för Event Grid vilka händelser du vill spåra. I följande exempel prenumererar du på det anpassade ämne som du har skapat och skickar resurs-ID:t för händelsehubben för slutpunkten. Slutpunkten är i formatet:
+Du prenumererar på ett event Grid-ämne för att berätta Event Grid vilka händelser du vill spåra. I följande exempel prenumererar du på det anpassade ämne som du skapade och skickar resurs-ID för händelse hubben för slut punkten. Slutpunkten är i formatet:
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.EventHub/namespaces/<namespace-name>/eventhubs/<hub-name>`
 

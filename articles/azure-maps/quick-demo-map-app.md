@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Interaktiv kartsökning med Azure Maps | Microsoft Azure Maps'
-description: Lär dig hur du skapar ett demowebbprogram för interaktiv kartsökning med hjälp av Microsoft Azure Maps web SDK.
+title: 'Snabb start: interaktiv kart sökning med Azure Maps | Microsoft Azure Maps'
+description: Lär dig hur du skapar ett demonstrations webb program för interaktiv kart sökning genom att använda Microsoft Azure Maps-webbsdk.
 author: philmea
 ms.author: philmea
 ms.date: 1/14/2020
@@ -10,13 +10,13 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 13dc5f6c7175e1ed568199abcbaa4c5d9a20fa7f
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80334426"
 ---
-# <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Snabbstart: Skapa en interaktiv sökkarta med hjälp av Azure Maps
+# <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Snabb start: skapa en interaktiv Sök karta genom att använda Azure Maps
 
 Den här artikeln visar funktionerna i Azure Maps för att skapa en karta som ger användarna en interaktiv sökupplevelse. Vi går igenom de grundläggande stegen:
 * Skapa ditt eget Azure Maps-konto.
@@ -41,7 +41,7 @@ Skapa ett nytt Maps-konto med följande steg:
     * Den *Prenumeration* som ska användas för det här kontot.
     * Namnet på *Resursgrupp* för kontot. Du kan välja att *skapa ny* eller *använda befintlig* resursgrupp.
     * *Namn* för ditt nya konto.
-    * *Prisnivån* för det här kontot.
+    * *Pris nivån* för det här kontot.
     * Läs *licensen* och *sekretesspolicy* och markera kryssrutan för att godkänna villkoren.
     * Klicka på knappen **Skapa**.
 
@@ -51,17 +51,17 @@ Skapa ett nytt Maps-konto med följande steg:
 
 ## <a name="get-the-primary-key-for-your-account"></a>Hitta primärnyckeln för ditt konto
 
-När ditt Maps-konto har skapats hämtar du nyckeln som gör att du kan fråga API:et Kartkontroll. Vi rekommenderar att du använder kontots primära nyckel som prenumerationsnyckel när du anropar Azure Maps-tjänster.
+När ditt Maps-konto har skapats hämtar du nyckeln som gör att du kan fråga API:et Kartkontroll. Vi rekommenderar att du använder ditt kontos primär nyckel som prenumerations nyckel när du anropar Azure Maps Services.
 
 1. Öppna ditt Maps-konto i portalen.
-2. Välj **Autentisering**i inställningsavsnittet .
+2. I avsnittet Inställningar väljer du **autentisering**.
 3. Kopiera **Primärnyckel** till Urklipp. Spara den lokalt för senare användning i den här självstudien.
 
-![Hämta nyckeln Azure Maps för primärnyckel i Azure-portalen](./media/quick-demo-map-app/get-key.png)
+![Hämta primär nyckel Azure Maps nyckel i Azure Portal](./media/quick-demo-map-app/get-key.png)
 
 ## <a name="download-the-application"></a>Hämta programmet
 
-1. Gå till [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html) och klicka på det för att visa innehållet i GitHub-användargränssnittet. Högerklicka på **Raw-knappen** och kopiera innehållet i filen eller "Spara som" för att ladda ner filen.
+1. Gå till [interactiveSearch. html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html) och klicka på den för att visa innehållet i GitHub-användargränssnittet. Högerklicka på den **råa** knappen och kopiera innehållet i filen eller Spara som för att ladda ned filen.
 2. Spara innehållet i den här filen lokalt som **AzureMapDemo.html**. Öppna den i en textredigerare.
 3. Sök efter strängen `<Your Azure Maps Key>`. Ersätt den med **primärnyckelvärdet** från föregående avsnitt.
 
@@ -73,7 +73,7 @@ När ditt Maps-konto har skapats hämtar du nyckeln som gör att du kan fråga A
 4. Prova den interaktiva sökupplevelsen. I sökrutan i det övre vänstra hörnet i demowebbappen söker du efter **restauranger**.
 5. Flytta musen över listan med adresser och platser som visas under sökrutan. Observera hur motsvarande nål på kartan visar information om den platsen. Observera att namnen och adresserna som visas är fiktiva för att skydda privata företag.
 
-    ![Interaktiv karta sök webbapplikation](./media/quick-demo-map-app/interactive-search.png)
+    ![Webb program för interaktiv kart sökning](./media/quick-demo-map-app/interactive-search.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -84,7 +84,7 @@ Självstudierna förklarar hur du använder och konfigurerar Azure Maps med ditt
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du ditt Azure Maps-konto och en demonstrationsapp. Ta en titt på följande självstudier för att lära dig mer om Azure Maps:
+I den här snabbstarten skapade du ditt Azure Maps-konto och en demonstrationsapp. Ta en titt på följande självstudier om du vill lära dig mer om Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Söka efter orienteringspunkter i närheten med hjälp av Azure Maps](tutorial-search-location.md)

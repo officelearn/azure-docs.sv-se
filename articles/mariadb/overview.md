@@ -1,6 +1,6 @@
 ---
-title: Översikt - Azure Database för MariaDB
-description: Lär dig mer om Azure Database for MariaDB-tjänsten, en relationsdatabastjänst i Microsoft-molnet baserat på MySQL-community-utgåvan.
+title: Översikt – Azure Database for MariaDB
+description: Lär dig mer om tjänsten Azure Database for MariaDB, en Relations databas tjänst i Microsoft-molnet baserat på MySQL Community Edition.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
@@ -8,15 +8,15 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 3/18/2020
 ms.openlocfilehash: 84fd24890495e7278c69c2f83c7182fd65f86791
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79535569"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Vad är Azure Database for MariaDB?
 
-Azure Database for MariaDB är en relationsdatabastjänst i Microsofts moln. Azure Database för MariaDB baseras på [MariaDB community-utgåvan](https://mariadb.org/download/) (tillgänglig under GPLv2-licensen), version 10.2 och 10.3.
+Azure Database for MariaDB är en relationsdatabastjänst i Microsofts moln. Azure Database for MariaDB baseras på [MariaDB Community Edition](https://mariadb.org/download/) (finns i GPLv2-licensen) databas motor, version 10,2 och 10,3.
 
 Azure Database for MariaDB ger:
 
@@ -53,7 +53,7 @@ Azures branschledande serviceavtal med 99,99 % tillgänglighet drivs av ett glo
 
 ## <a name="secure-your-data"></a>Skydda dina data
 
-Azure-databastjänster har en tradition av datasäkerhet som Azure Database for MariaDB upprätthåller. Azure Database for MariaDB ger funktioner som begränsar åtkomst, skyddar data i vila och under rörelse samt hjälper dig att övervaka aktivitet. Besök [Azure Säkerhetscenter](https://www.microsoft.com/trustcenter/security) för information om Azures plattformssäkerhet. Mer information om säkerhetsfunktioner i Azure Database för MariaDB finns i [säkerhetsöversikten](concepts-security.md).
+Azure-databastjänster har en tradition av datasäkerhet som Azure Database for MariaDB upprätthåller. Azure Database for MariaDB ger funktioner som begränsar åtkomst, skyddar data i vila och under rörelse samt hjälper dig att övervaka aktivitet. Besök [Azure Säkerhetscenter](https://www.microsoft.com/trustcenter/security) för information om Azures plattformssäkerhet. Mer information om Azure Database for MariaDB säkerhetsfunktioner finns i [säkerhets översikten](concepts-security.md).
 
 ## <a name="contacts"></a>Contacts
 
@@ -67,7 +67,7 @@ Du kan även använda följande kontaktpunkter:
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har läst en introduktion till Azure Database for MariaDB är du redo att:
-- Se [prissidan](https://azure.microsoft.com/pricing/details/mariadb/) för kostnadsjämställare och kalkylatorer. 
+- Se [pris](https://azure.microsoft.com/pricing/details/mariadb/) sidan för kostnads jämförelser och räknare. 
 - Kom igång genom [att skapa din första server](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
 <!--- - Build your first app using your preferred language: [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md) --->

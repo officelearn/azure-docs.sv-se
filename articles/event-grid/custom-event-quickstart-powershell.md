@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skicka anpassade händelser till webbslutpunkten - Event Grid, PowerShell'
-description: 'Snabbstart: Använd Azure Event Grid och PowerShell för att publicera ett anpassat ämne och prenumerera på händelser för det ämnet. Händelserna hanteras av en webbapp.'
+title: 'Snabb start: skicka anpassade händelser till webb slut punkt – Event Grid, PowerShell'
+description: 'Snabb start: Använd Azure Event Grid och PowerShell för att publicera ett anpassat ämne och prenumerera på händelser för ämnet. Händelserna hanteras av en webbapp.'
 services: event-grid
 keywords: ''
 author: spelluru
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: bc92e0cf579bc008fdb09c9cbb576d8cac0191cb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73721430"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Snabbstart: Dirigera anpassade händelser till webbslutpunkt med PowerShell och Event Grid
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Snabb start: dirigera anpassade händelser till webb slut punkt med PowerShell och Event Grid
 
 Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure PowerShell för att skapa ett anpassat ämne, prenumerera på ämnet och utlösa händelsen för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
 

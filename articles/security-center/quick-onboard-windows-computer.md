@@ -1,6 +1,6 @@
 ---
 title: Publicera Windows-datorer till Azure Security Center
-description: Den här snabbstarten visar hur du etablerar Log Analytics-agenten på en Windows-dator.
+description: Den här snabb starten visar hur du etablerar Log Analytics-agenten på en Windows-dator.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
 ms.openlocfilehash: 2840b6636c2b511ab57a8bae8adf411f4d8a27d2
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80435927"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Snabbstart: Publicera Windows-datorer till Azure Security Center
-När du har liksom azure-prenumerationer kan du aktivera Security Center för resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att etablera Log Analytics-agenten.
+När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center för resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att tillhandahålla Log Analytics agenten.
 
-Den här snabbstarten visar hur du installerar Log Analytics-agenten på en Windows-dator.
+Den här snabb starten visar hur du installerar Log Analytics-agenten på en Windows-dator.
 
 ## <a name="prerequisites"></a>Krav
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
@@ -33,8 +33,8 @@ Innan du startar den här snabbstarten måste du ha standardnivån i Security Ce
 
 ## <a name="add-new-windows-computer"></a>Lägg till ny Windows-dator
 
-1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
-2. Välj **Security Center**på **Microsoft Azure-menyn** . **Security Center – Översikt** öppnas.
+1. Logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+2. Välj **Security Center**på **Microsoft Azure** -menyn. **Security Center – Översikt** öppnas.
 
    ![Översikt över Security Center][2]
 
@@ -72,7 +72,7 @@ Nu måste du installera den hämtade filen på måldatorn.
 9. På sidan **Klar att installera** kontrollerar du valen och väljer sedan **Installera**.
 10. På sidan **Konfigurationen har slutförts** väljer du **Slutför**
 
-När du är klar visas **Log Analytics-agenten** på **Kontrollpanelen**. Du kan granska konfigurationen där och bekräfta att agenten är ansluten.
+När du är klar visas **Log Analytics agenten** på **kontroll panelen**. Du kan granska konfigurationen där och bekräfta att agenten är ansluten.
 
 Mer information om att installera och konfigurera agenten finns i dokumentationen om att [ansluta Windows-datorer](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
 
@@ -91,12 +91,12 @@ När den inte längre behövs kan du ta bort agenten från Windows-datorn.
 
 Så här tar du bort agenten:
 
-1. Öppna **Kontrollpanelen**.
+1. Öppna **kontroll panelen**.
 2. Öppna **Program och funktioner**.
-3. I **Program och funktioner**väljer du Log **Analytics-agent** och klickar på **Avinstallera**.
+3. I **program och funktioner**väljer du **Log Analytics agent** och klickar på **Avinstallera**.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här snabbstarten har du etablerat Log Analytics-agenten på en Windows-dator. Om du vill läsa mer om hur du använder Security Center fortsätter du till självstudien om konfiguration av en säkerhetsprincip och utvärderar resursers säkerhet.
+I den här snabb starten etablerade du Log Analytics-agenten på en Windows-dator. Om du vill läsa mer om hur du använder Security Center fortsätter du till självstudien om konfiguration av en säkerhetsprincip och utvärderar resursers säkerhet.
 
 > [!div class="nextstepaction"]
 > [Självstudie: Definiera och utvärdera säkerhetsprinciper](tutorial-security-policy.md)

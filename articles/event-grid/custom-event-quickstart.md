@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skicka anpassade händelser med Event Grid och Azure CLI'
-description: Snabbstart Använd Azure Event Grid och Azure CLI för att publicera ett anpassat ämne och prenumerera på händelser för det ämnet. Händelserna hanteras av en webbapp.
+title: 'Snabb start: skicka anpassade händelser med Event Grid och Azure CLI'
+description: Snabb start använder Azure Event Grid och Azure CLI för att publicera ett anpassat ämne och prenumerera på händelser för ämnet. Händelserna hanteras av en webbapp.
 services: event-grid
 keywords: ''
 author: spelluru
@@ -13,13 +13,13 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 ms.openlocfilehash: eee6c453b4e30880034a048a3d2b63388927a753
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78674531"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Snabbstart: Dirigera anpassade händelser till webbslutpunkt med Azure CLI och Event Grid
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Snabb start: dirigera anpassade händelser till webb slut punkten med Azure CLI och Event Grid
 
 Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure CLI för att skapa ett anpassat ämne, prenumerera på det anpassade ämnet och utlösa händelsen för att visa resultatet.
 
@@ -98,7 +98,7 @@ az eventgrid event-subscription create \
 
 Visa ditt webbprogram igen och observera att en händelse för verifieringen av prenumerationen har skickats till den. Välj ögonikonen för att utöka informationen om händelsen. Händelserutnätet skickar valideringshändelsen så att slutpunkten kan bekräfta att den vill ta emot händelsedata. Webbappen inkluderar kod för att verifiera prenumerationen.
 
-![Visa prenumerationshändelsen i Azure Event Grid Viewer](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
+![Visa prenumerations händelsen i Azure Event Grid Viewer](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
 
 
 ## <a name="send-an-event-to-your-custom-topic"></a>Skicka en händelse till ditt anpassade ämne

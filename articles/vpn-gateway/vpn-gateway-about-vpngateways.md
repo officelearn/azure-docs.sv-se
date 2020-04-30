@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 01/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: c4a406961444845fef783c47942924b01b7aa646
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79241460"
 ---
 # <a name="what-is-vpn-gateway"></a>Vad är en VPN-gateway?
@@ -21,13 +21,13 @@ En VPN-gateway är en viss typ av virtuell nätverksgateway som används till at
 
 ## <a name="what-is-a-virtual-network-gateway"></a><a name="whatis"></a>Vad är en virtuell nätverksgateway?
 
-En virtuell nätverksgateway består av två eller flera virtuella datorer som distribueras till ett visst undernät som du skapar som kallas *gateway-undernätet*. Virtuella virtuella virtuella nätverksgateway-datorer innehåller routningstabeller och kör specifika gatewaytjänster. Dessa virtuella datorer skapas när du skapar den virtuella nätverksgatewayen. Du kan inte konfigurera de virtuella datorerna som ingår i den virtuella nätverksgatewayen direkt.
+En virtuell nätverksgateway består av två eller flera virtuella datorer som distribueras till ett speciellt undernät som du skapar som gateway- *undernätet*. Virtuella nätverksgateway VM: ar innehåller routningstabeller och kör vissa gateway-tjänster. De här virtuella datorerna skapas när du skapar den virtuella Nätverksgatewayen. Du kan inte konfigurera de virtuella datorerna som ingår i den virtuella Nätverksgatewayen.
 
-En inställning som du konfigurerar för en virtuell nätverksgateway är gatewaytypen. Gateway-typen anger hur den virtuella nätverksgatewayen ska användas och vilka åtgärder gatewayen vidtar. Gatewaytypen "Vpn" anger att den typ av virtuell nätverksgateway som skapas är en VPN-gateway i stället för en ExpressRoute-gateway. Ett virtuellt nätverk kan ha två virtuella nätverksgateways. en VPN-gateway och en ExpressRoute-gateway - som är fallet med [samtidiga](#coexisting) anslutningskonfigurationer. Se [Gatewaytyper](vpn-gateway-about-vpn-gateway-settings.md#gwtype) för mer information.
+En inställning som du konfigurerar för en virtuell nätverksgateway är Gateway-typen. Gateway-typ anger hur den virtuella Nätverksgatewayen ska användas och de åtgärder som gatewayen tar. Gateway-typen VPN anger att den typ av virtuell nätverksgateway som skapas är en VPN-gateway i stället för en ExpressRoute-Gateway. Ett virtuellt nätverk kan ha två virtuella nätverksgateway; en VPN-gateway och en ExpressRoute-gateway – som är fallet med [sambefintliga](#coexisting) anslutnings konfigurationer. Se [Gatewaytyper](vpn-gateway-about-vpn-gateway-settings.md#gwtype) för mer information.
 
-VPN-gateways kan distribueras i Azure-tillgänglighetszoner. Det ger flexibilitet, skalbarhet och högre tillgänglighet för virtuella nätverksgatewayer. Distribution av gatewayer i Azure-tillgänglighetszoner skiljer gatewayerna åt fysiskt och logiskt i en region, samtidigt som din lokala nätverksanslutning till Azure skyddas mot fel på zonnivå. se [Om zons redundanta virtuella nätverksgatewayer i Azure-tillgänglighetszoner](about-zone-redundant-vnet-gateways.md)
+VPN-gatewayer kan distribueras i Azure-tillgänglighetszoner. Det ger flexibilitet, skalbarhet och högre tillgänglighet för virtuella nätverksgatewayer. Distribution av gatewayer i Azure-tillgänglighetszoner skiljer gatewayerna åt fysiskt och logiskt i en region, samtidigt som din lokala nätverksanslutning till Azure skyddas mot fel på zonnivå. Se [om zoner – redundanta virtuella nätverksgateway i Azure-tillgänglighetszoner](about-zone-redundant-vnet-gateways.md)
 
-Det kan ta upp till 45 minuter att skapa en virtuell nätverksgateway. När du skapar en virtuell nätverksgateway distribueras de virtuella gatewaydatorerna till gatewayundernätet och konfigureras med de inställningar du anger. När du har skapat en VPN-gateway kan du skapa en VPN-tunnelanslutning med IPsec/IKE mellan denna VPN-gateway och en annan VPN-gateway (VNet-till-VNet), eller en VPN-tunnel med IPsec/IKE mellan VPN-gatewayen och en lokal VPN-enhet (Plats-till-plats). Du kan också skapa en VPN-anslutning från Punkt till plats (VPN via OpenVPN, IKEv2 eller SSTP), som gör att du kan ansluta till ditt virtuella nätverk från en fjärrplats, till exempel från en konferens eller hemifrån.
+Det kan ta upp till 45 minuter att skapa en virtuell nätverksgateway. När du skapar en virtuell nätverksgateway distribueras de virtuella gatewaydatorerna till gatewayundernätet och konfigureras med de inställningar du anger. När du har skapat en VPN-gateway kan du skapa en VPN-tunnelanslutning med IPsec/IKE mellan denna VPN-gateway och en annan VPN-gateway (VNet-till-VNet), eller en VPN-tunnel med IPsec/IKE mellan VPN-gatewayen och en lokal VPN-enhet (Plats-till-plats). Du kan också skapa en punkt-till-plats-VPN-anslutning (VPN över OpenVPN, IKEv2 eller SSTP), vilket gör att du kan ansluta till ditt virtuella nätverk från en annan plats, till exempel från en konferens eller hemifrån.
 
 ## <a name="configuring-a-vpn-gateway"></a><a name="configuring"></a>Konfigurera en VPN gateway
 
@@ -55,8 +55,8 @@ Tabellen nedan kan hjälpa dig att bestämma det bästa anslutningsalternativet 
 
 När du skapar en virtuell nätverksgateway anger du vilken gateway-SKU som du vill använda. Välj den SKU som uppfyller dina krav baserat på typerna av arbetsbelastning, dataflöden, funktioner och serviceavtal.
 
-* Mer information om gateway-SKU:er, inklusive funktioner som stöds, produktion och utvecklingstest och konfigurationssteg, finns i artikeln [VPN Gateway Settings - Gateway SKUs.](vpn-gateway-about-vpn-gateway-settings.md#gwsku)
-* Äldre SKU-information finns i [Arbeta med äldre SKU:er](vpn-gateway-about-skus-legacy.md).
+* Mer information om Gateway-SKU: er, inklusive funktioner som stöds, produktions-och dev-test och konfigurations steg, finns i artikeln [VPN Gateway inställningar-Gateway SKU: er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) .
+* Äldre SKU-information finns i [arbeta med äldre SKU: er](vpn-gateway-about-skus-legacy.md).
 
 ### <a name="gateway-skus-by-tunnel-connection-and-throughput"></a><a name="benchmark"></a>Gateway-SKU:er efter tunnel, anslutning och dataflöde
 
@@ -74,13 +74,13 @@ Använd diagrammen och beskrivningarna för att välja den anslutningstopologi s
 
 ## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a><a name="s2smulti"></a>Plats-till-plats och flera platser (IPsec/IKE VPN-tunnel)
 
-### <a name="site-to-site"></a><a name="S2S"></a>Plats-till-plats-anslutning
+### <a name="site-to-site"></a><a name="S2S"></a>Plats-till-plats
 
-En plats-till-plats-anslutning (S2S) för VPN-gateway är en anslutning via en VPN-tunnel med IPsec/IKE (IKEv1 eller IKEv2). S2S-anslutningar kan användas för konfigurationer mellan platser och för hybridkonfigurationer. En S2S-anslutning kräver en VPN-enhet som finns lokalt och som har en offentlig IP-adress tilldelad. Om du vill ha information om att välja en VPN-enhet kan du läsa [vanliga frågor och svar om VPN Gateway – VPN-enheter](vpn-gateway-vpn-faq.md#s2s).
+En plats-till-plats-anslutning (S2S) för VPN-gateway är en anslutning via en VPN-tunnel med IPsec/IKE (IKEv1 eller IKEv2). S2S-anslutningar kan användas för konfigurationer mellan platser och för hybridkonfigurationer. En S2S-anslutning kräver en VPN-enhet som finns lokalt och som har tilldelats en offentlig IP-adress. Om du vill ha information om att välja en VPN-enhet kan du läsa [vanliga frågor och svar om VPN Gateway – VPN-enheter](vpn-gateway-vpn-faq.md#s2s).
 
 ![Exempel på Azure VPN Gateway-anslutningar för plats-till-plats](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 
-### <a name="multi-site"></a><a name="Multi"></a>Flera webbplatser
+### <a name="multi-site"></a><a name="Multi"></a>Flera platser
 
 Den här typen av anslutning är en variant av plats-till-plats-anslutningen. Du skapar fler än en VPN-anslutning från din virtuella nätverksgateway, vanligtvis sker anslutningen till flera lokala platser. När du arbetar med flera anslutningar måste du använda en RouteBased VPN-typ (kallas även en ”dynamisk gateway” för klassiska virtuella nätverk). Eftersom varje virtuellt nätverk bara kan ha en VPN-gateway delar alla anslutningar via gatewayen på den tillgängliga bandbredden. Den här typen av anslutning kallas ofta för en ”anslutning till flera platser”.
 
@@ -134,7 +134,7 @@ ExpressRoute-anslutningar går inte via offentligt Internet. Det innebär att Ex
 
 För ExpressRoute-anslutningar används en virtuell nätverksgateway som en del i den obligatoriska konfigurationen. I en ExpressRoute-anslutning konfigureras den virtuella nätverksgatewayen med gatewaytypen ”ExpressRoute” istället för ”Vpn”. Även om trafiken i en ExpressRoute-krets inte är krypterad som standard så kan du skapa en lösning där du skickar krypterad trafik i en ExpressRoute-krets. Mer information om ExpressRoute finns i [Teknisk översikt över ExpressRoute](../expressroute/expressroute-introduction.md).
 
-## <a name="site-to-site-and-expressroute-coexisting-connections"></a><a name="coexisting"></a>Anslutningar från plats till plats och ExpressRoute samexisterar
+## <a name="site-to-site-and-expressroute-coexisting-connections"></a><a name="coexisting"></a>Plats-till-plats- och samexisterande ExpressRoute-anslutningar
 
 ExpressRoute är en direkt, privat anslutning från ditt WAN (inte över offentliga internet) till Microsoft-tjänster, däribland Azure. VPN-trafiken från plats-till-plats transporteras krypterat över offentligt Internet. Det finns flera fördelar med att kunna konfigurera VPN-anslutningar för plats-till-plats- och ExpressRoute-anslutningar för samma virtuella nätverk.
 
@@ -152,7 +152,7 @@ Du kan konfigurera ett VPN för plats-till-plats som en säker redundansväxling
 
 Se [Gateway-SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för information om gateway-SKU:er för VPN Gateway.
 
-## <a name="faq"></a><a name="faq"></a>Faq
+## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 Vanliga frågor om VPN Gateway finns i [Vanliga frågor och svar om VPN Gateway](vpn-gateway-vpn-faq.md).
 

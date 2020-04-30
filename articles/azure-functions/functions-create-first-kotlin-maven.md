@@ -1,32 +1,32 @@
 ---
-title: Skapa din första funktion i Azure med Kotlin och Maven
-description: Skapa och publicera en HTTP-utlöst funktion till Azure med Kotlin och Maven.
+title: Skapa din första funktion i Azure med Kotlin och maven
+description: Skapa och publicera en HTTP-utlöst funktion i Azure med Kotlin och Maven.
 author: dglover
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
 ms.openlocfilehash: e4ac4f669d38f07d9fe4edbd600cc06f135fac03
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80674106"
 ---
-# <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>Quickstart: Skapa din första funktion med Kotlin och Maven
+# <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>Snabb start: skapa din första funktion med Kotlin och maven
 
-Den här artikeln guidar dig genom att använda kommandoradsverktyget Maven för att skapa och publicera ett Kotlin-funktionsprojekt till Azure Functions. När du är klar körs funktionskoden på [förbrukningsplanen](functions-scale.md#consumption-plan) i Azure och kan utlösas med hjälp av en HTTP-begäran.
+Den här artikeln vägleder dig genom att använda kommando rads verktyget Maven för att bygga och publicera ett Kotlin-funktions projekt för att Azure Functions. När du är klar körs funktionskoden på [förbrukningsplanen](functions-scale.md#consumption-plan) i Azure och kan utlösas med hjälp av en HTTP-begäran.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Krav
 
-För att utveckla funktioner med Kotlin måste du ha följande installerat:
+Om du vill utveckla funktioner med Kotlin måste du ha följande installerat:
 
 - [Java Developer Kit](https://aka.ms/azure-jdks), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 eller senare
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
-- [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 eller senare
+- [Azure Functions Core tools](./functions-run-local.md#v2) version 2.6.666 eller senare
 
 > [!IMPORTANT]
 > Miljövariabeln JAVA_HOME måste vara inställd på JDK-installationsplatsen för att snabbstarten ska gå att genomföra.
@@ -35,7 +35,7 @@ För att utveckla funktioner med Kotlin måste du ha följande installerat:
 
 Kör följande kommando i en tom mapp för att skapa ett funktionsprojekt utifrån en [Maven-arketyp](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
-# <a name="bash"></a>[Bash](#tab/bash)
+# <a name="bash"></a>[bash](#tab/bash)
 ```bash
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
@@ -43,7 +43,7 @@ mvn archetype:generate \
 ```
 
 > [!NOTE]
-> Om du har problem med att köra kommandot kan `maven-archetype-plugin` du ta en titt på vilken version som används. Eftersom du kör kommandot i en `.pom` tom katalog utan fil, kan det vara `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` att försöka använda ett plugin-program av den äldre versionen från om du uppgraderade din Maven från en äldre version. Försök i så `maven-archetype-plugin` fall att ta bort katalogen och köra kommandot igen.
+> Om du har problem med att köra kommandot bör du ta en titt på vilken `maven-archetype-plugin` version som används. Eftersom du kör kommandot i en tom katalog utan `.pom` fil, kan det försöka använda ett plugin-program av den äldre versionen från `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` om du har uppgraderat maven från en äldre version. I så fall kan du `maven-archetype-plugin` försöka ta bort katalogen och köra kommandot igen.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```powershell
@@ -60,9 +60,9 @@ mvn archetype:generate ^
 ```
 ---
 
-Maven ber dig om värden som behövs för att slutföra projektet. Mer information om värdena _groupId_, _artifactId_ och _version_ finns i referensmaterialet om [namngivningskonventioner i Maven](https://maven.apache.org/guides/mini/guide-naming-conventions.html). Värdet _appName_ måste vara unikt i Azure, så Maven genererar som standard ett appnamn baserat på ett tidigare angivet _artifactId_. _PackageName-värdet_ bestämmer Kotlin-paketet för den genererade funktionskoden.
+Maven ber dig om värden som behövs för att slutföra genereringen av projektet. Mer information om värdena _groupId_, _artifactId_ och _version_ finns i referensmaterialet om [namngivningskonventioner i Maven](https://maven.apache.org/guides/mini/guide-naming-conventions.html). Värdet _appName_ måste vara unikt i Azure, så Maven genererar som standard ett appnamn baserat på ett tidigare angivet _artifactId_. _PackageName_ -värdet avgör Kotlin-paketet för den genererade funktions koden.
 
-Identifierarna `com.fabrikam.functions` och `fabrikam-functions` nedan används som exempel och för att göra senare steg i den här snabbstarten lättare att läsa. Du uppmuntras att leverera dina egna värderingar till Maven i detta steg.
+Identifierarna `com.fabrikam.functions` och `fabrikam-functions` nedan används som exempel och för att göra senare steg i den här snabbstarten lättare att läsa. Du uppmanas att ange dina egna värden för maven i det här steget.
 
 <pre>
 [INFO] Parameter: groupId, Value: com.fabrikam.function
@@ -166,7 +166,7 @@ az login
 Distribuera koden till en ny funktionsapp med hjälp av Maven-målet `azure-functions:deploy`.
 
 > [!NOTE]
-> När du använder Visual Studio Code för att distribuera din funktionsapp, kom ihåg att välja en icke-fri prenumeration, eller så får du ett felmeddelande. Du kan titta på din prenumeration till vänster om IDE.
+> När du använder Visual Studio Code för att distribuera din Function-app måste du komma ihåg att välja en icke-kostnads fri prenumeration eller så får du ett fel meddelande. Du kan titta på din prenumeration på vänster sida av IDE-nätverket.
 
 ```
 mvn azure-functions:deploy
@@ -185,7 +185,7 @@ När distributionen är klar kan du se den webbadress som används för att få 
 Testa funktionsappen som körs på Azure med hjälp av `cURL`. Du måste ändra URL-adressen från exemplet till den distribuerade URL-adressen för din egen funktionsapp från föregående steg.
 
 > [!NOTE]
-> Se till att du `Anonymous`ställer in **åtkomsträttigheterna** till . När du väljer standardnivån `Function`för måste du presentera [funktionsnyckeln](functions-bindings-http-webhook-trigger.md#authorization-keys) i begäranden för att komma åt funktionsslutpunkten.
+> Se till att du ställer in **åtkomst behörighet** till `Anonymous`. När du väljer standard nivån för `Function`, måste du presentera [funktions nyckeln](functions-bindings-http-webhook-trigger.md#authorization-keys) i begär Anden för att få åtkomst till funktions slut punkten.
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/HttpTrigger-Java -d AzureFunctions
@@ -221,24 +221,24 @@ Spara ändringarna och distribuera om genom att köra `azure-functions:deploy` f
 curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
 ```
 
-Du ser den uppdaterade utdata:
+Du ser de uppdaterade utdata:
 
 <pre>
 Hi, AzureFunctionsTest
 </pre>
 
 
-## <a name="reference-bindings"></a>Referensbindningar
+## <a name="reference-bindings"></a>Referens bindningar
 
-Om du vill arbeta med [andra utlösare och bindningar av funktioner](functions-triggers-bindings.md) än HTTP-utlösare och timerutlösare måste du installera bindningstillägg. Även om det inte krävs av den här artikeln måste du veta hur du aktiverar tillägg när du arbetar med andra bindningstyper.
+Om du vill arbeta med [funktions utlösare och andra bindningar](functions-triggers-bindings.md) än http-utlösare och timer-utlösare måste du installera bindnings tillägg. Även om detta inte krävs i den här artikeln, måste du veta hur du gör detta för att aktivera tillägg när du arbetar med andra typer av bindningar.
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har skapat en Kotlin-funktionsapp med en enkel HTTP-utlösare och distribuerat den till Azure Functions.
+Du har skapat en Kotlin Function-app med en enkel HTTP-utlösare och distribuerat den till Azure Functions.
 
-- Läs [utvecklarhandboken](functions-reference-java.md) för Java Functions för mer information om hur du utvecklar Java- och Kotlin-funktioner.
+- Mer information om hur du utvecklar Java-och Kotlin-funktioner finns i [utvecklings guiden för Java Functions](functions-reference-java.md) .
 - Lägg till fler funktioner med olika utlösare i projektet med Maven-målet `azure-functions:add`.
 - Skriv och felsök funktioner lokalt med [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) och [Eclipse](functions-create-maven-eclipse.md). 
 - Felsök funktioner distribuerade i Azure med Visual Studio Code. Instruktioner finns i dokumentationen för [serverlösa Java-program](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) för Visual Studio Code.

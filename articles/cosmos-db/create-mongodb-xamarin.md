@@ -1,5 +1,5 @@
 ---
-title: Skapa en Xamarin-app med .NET och Azure Cosmos DB:s API för MongoDB
+title: Bygg en Xamarin-app med .NET och Azure Cosmos DB s API för MongoDB
 description: Presenterar ett Xamarin-kodexempel som du kan använda för att ansluta till och ställa frågor till Azure Cosmos DB:s API för MongoDB
 author: codemillmatt
 ms.service: cosmos-db
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/16/2020
 ms.author: masoucou
 ms.openlocfilehash: 98b0ddf345ebd19e2cd974db3891e88c9f72530d
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79481695"
 ---
-# <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Snabbstart: Skapa en Xamarin.Forms-app med .NET SDK och Azure Cosmos DB:s API för MongoDB
+# <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Snabb start: Bygg en Xamarin. Forms-app med .NET SDK och Azure Cosmos DB s API för MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -34,7 +34,7 @@ I den här snabbstarten visas hur du kan skapa ett [Cosmos-konto som konfigurera
 
 Om du vill köra exemplet behöver du [Visual Studio](https://www.visualstudio.com/downloads/) eller [Visual Studio för Mac](https://visualstudio.microsoft.com/vs/mac/) och ett giltigt Azure CosmosDB-konto.
 
-Om du inte redan har Visual Studio kan du ladda ned [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) med **mobilutvecklingen med .NET-arbetsbelastning** installerad med installationen.
+Om du inte redan har Visual Studio kan du ladda ned [Visual studio 2019 Community Edition](https://www.visualstudio.com/downloads/) med **mobil utveckling med .net** -arbets belastningar installerade med installations programmet.
 
 Om du föredrar att arbeta på en Mac laddar du ned [Visual Studio för Mac](https://visualstudio.microsoft.com/vs/mac/) och kör installationsprogrammet.
 
@@ -56,7 +56,7 @@ Ladda först ned eller klona exempelappen från GitHub. Den implementerar en att
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
-1. I Windows öppnar du en kommandotolk eller på Mac öppnar du terminalen, skapar en ny mapp med namnet git-exempel och stänger sedan fönstret.
+1. I Windows öppnar du en kommando tolk eller öppnar terminalen, skapar en ny mapp med namnet git-samples och stänger sedan fönstret.
 
     ```batch
     md "C:\git-samples"
@@ -170,10 +170,10 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 3. Kopiera värdet för **primär anslutningssträng** från portalen (med kopieringsknappen) och gör det till värdet för fältet **ConnectionString** i filen **APIKeys.cs**.
 
-4. Ta `&replicaSet=globaldb` bort från anslutningssträngen. Du får ett körningsfel om du inte tar bort det värdet från frågesträngen.
+4. Ta `&replicaSet=globaldb` bort från anslutnings strängen. Du får ett körnings fel om du inte tar bort det värdet från frågesträngen.
 
 > [!IMPORTANT]
-> Du måste `&replicaSet=globaldb` ta bort nyckel-/värdeparet från anslutningssträngens frågesträng för att undvika ett körningsfel.
+> Du måste ta bort `&replicaSet=globaldb` nyckel/värde-paret från anslutnings strängens frågesträng för att undvika ett körnings fel.
 
 Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB.
 

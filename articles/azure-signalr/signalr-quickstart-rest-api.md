@@ -1,16 +1,16 @@
 ---
 title: Snabbstart – Azure SignalR Service REST API
-description: Lär dig hur du använder REST API med Azure SignalR Service efter exempel. Hitta information om REST API-specifikationen.
+description: Lär dig hur du använder REST API med Azure SignalR service i följande exempel. Hitta information om REST API specifikation.
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: 70053fbc47a5ba85e7bb18ab762868973d014beb
-ms.sourcegitcommit: 980c3d827cc0f25b94b1eb93fd3d9041f3593036
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80548135"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Snabbstart: Sända realtidsmeddelanden från konsolapp
@@ -135,12 +135,12 @@ Sänd till vissa grupper | **&#x2713;** (inaktuellt) | `N / A`
 Skicka till vissa användare | **&#x2713;** (inaktuellt) | `N / A`
 [Lägga till användare i en grupp](#add-user-to-group) | `N / A` | **&#x2713;**
 [Ta bort en användare från en grupp](#remove-user-from-group) | `N / A` | **&#x2713;**
-[Kontrollera användarens existens](#check-user-existence) | `N / A` | **&#x2713;**
+[Kontrol lera användar förekomst](#check-user-existence) | `N / A` | **&#x2713;**
 [Ta bort en användare från alla grupper](#remove-user-from-all-groups) | `N / A` | **&#x2713;**
 [Skicka till en anslutning](#send-connection) | `N / A` | **&#x2713;**
-[Lägga till en anslutning till en grupp](#add-connection-to-group) | `N / A` | **&#x2713;**
+[Lägg till en anslutning till en grupp](#add-connection-to-group) | `N / A` | **&#x2713;**
 [Ta bort en anslutning från en grupp](#remove-connection-from-group) | `N / A` | **&#x2713;**
-[Stänga en klientanslutning](#close-connection) | `N / A` | **&#x2713;**
+[Stänga en klient anslutning](#close-connection) | `N / A` | **&#x2713;**
 [Service Health](#service-health) | `N / A` | **&#x2713;**
 
 <a name="broadcast"> </a>
@@ -182,7 +182,7 @@ Version | API HTTP-metoden | URL för begäran
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<user-id>`
 
 <a name="check-user-existence"> </a>
-### <a name="check-user-existence-in-a-group"></a>Kontrollera användarnas existens i en grupp
+### <a name="check-user-existence-in-a-group"></a>Kontrol lera användarnas existens i en grupp
 
 API-version | API HTTP-metoden | URL för begäran
 ---|---|---
@@ -209,7 +209,7 @@ API-version | API HTTP-metoden | URL för begäran | Begärandetext
 `1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>` | `{ "target":"<method-name>", "arguments":[ ... ] }`
 
 <a name="add-connection-to-group"> </a>
-### <a name="add-a-connection-to-a-group"></a>Lägga till en anslutning till en grupp
+### <a name="add-a-connection-to-a-group"></a>Lägg till en anslutning till en grupp
 
 API-version | API HTTP-metoden | URL för begäran
 ---|---|---
@@ -225,7 +225,7 @@ API-version | API HTTP-metoden | URL för begäran
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/connections/<connection-id>/groups/<group-name>`
 
 <a name="close-connection"> </a>
-### <a name="close-a-client-connection"></a>Stänga en klientanslutning
+### <a name="close-a-client-connection"></a>Stänga en klient anslutning
 
 API-version | API HTTP-metoden | URL för begäran
 ---|---|---
@@ -241,14 +241,14 @@ API-version | API HTTP-metoden | URL för begäran
 
 Statuskod för svar | Beskrivning
 ---|---
-`200` | Service Bra
+`200` | Tjänsten är felfri
 `503` | Tjänsten är inte tillgänglig
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten lärde du dig hur du använder REST API för att sända meddelanden i realtid från SignalR-tjänsten till klienter. Läs sedan mer om hur du utvecklar och distribuerar Azure-funktioner med SignalR-tjänstbindning, som bygger på REST API.
+I den här snabb starten har du lärt dig hur du använder REST API för att sända real tids meddelanden från SignalR-tjänsten till klienter. Nu ska du läsa mer om hur du utvecklar och distribuerar Azure Functions med en signal tjänst bindning, som är byggd ovanpå REST API.
 
 > [!div class="nextstepaction"]
-> [Utveckla Azure-funktioner med Azure SignalR-tjänstbindningar](signalr-quickstart-azure-functions-csharp.md)
+> [Utveckla Azure Functions med hjälp av Azure SignalR service-bindningar](signalr-quickstart-azure-functions-csharp.md)

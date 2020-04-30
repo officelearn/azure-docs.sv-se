@@ -1,6 +1,6 @@
 ---
-title: Azure Synapse Analytics delad metadatamodell
-description: Azure Synapse Analytics gör det möjligt för olika beräkningsmotorer på arbetsytan att dela databaser och tabeller mellan sina Spark-pooler (förhandsversion), SQL on-demand-motor (förhandsversion) och SQL-pooler.
+title: Azure Synapse Analytics-modell för delad metadata
+description: Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela databaser och tabeller mellan dess Spark-pooler (för hands version), SQL på begäran-motor (för hands version) och SQL-pooler.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,56 +10,56 @@ ms.date: 04/15/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.openlocfilehash: 3b26d516080961a482a3ba67f314e98ece4c9f24
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424120"
 ---
-# <a name="azure-synapse-analytics-shared-metadata"></a>Delade metadata för Azure Synapse Analytics
+# <a name="azure-synapse-analytics-shared-metadata"></a>Delade Azure Synapse Analytics-metadata
 
-Azure Synapse Analytics gör det möjligt för olika beräkningsmotorer på arbetsytan att dela databaser och tabeller mellan sina Spark-pooler (förhandsversion), SQL on-demand-motor (förhandsversion) och SQL-pooler.
+Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela databaser och tabeller mellan dess Spark-pooler (för hands version), SQL på begäran-motor (för hands version) och SQL-pooler.
 
 [!INCLUDE [preview](../includes/note-preview.md)]
 
 
 
-Delningen stöder det så kallade moderna datalagermönstret och ger arbetsytans SQL-motorer åtkomst till databaser och tabeller som skapats med Spark. Det gör det också möjligt för SQL-motorer att skapa sina egna objekt som inte delas med de andra motorerna.
+Delningen har stöd för det s.k. moderna informations lager mönstret och ger arbets ytans SQL-motorer åtkomst till databaser och tabeller som skapats med Spark. Det gör det också möjligt för SQL-motorer att skapa egna objekt som inte delas med andra motorer.
 
-## <a name="support-the-modern-data-warehouse"></a>Stöd det moderna datalagret
+## <a name="support-the-modern-data-warehouse"></a>Stöd för modern informations lager
 
-Den delade metadatamodellen stöder det moderna informationslagermönstret på följande sätt:
+Den delade metadata-modellen stöder det moderna informations lagrets mönster på följande sätt:
 
-1. Data från datasjön förbereds och struktureras effektivt med Spark genom att lagra de förberedda data i (eventuellt partitionerade) Parkett-stödda tabeller som finns i eventuellt flera databaser.
+1. Data från data Lake förbereds och struktureras effektivt med Spark genom att lagra de förberedda data i (eventuellt partitionerade) Parquet tabeller som finns i möjligen flera databaser.
 
-2. Spark skapade databaser och alla deras tabeller blir synliga i någon av Azure Synapse-arbetsyte spark-poolinstanserna och kan användas från alla Spark-jobb. Den här funktionen omfattas av [behörigheterna](#security-model-at-a-glance) eftersom alla Spark-pooler på en arbetsyta har samma underliggande katalogmetabutik.
+2. Spark skapade databaser och alla deras tabeller blir synliga i någon av instanserna i Azure Synapse-arbets ytan Spark-pool och kan användas från alla Spark-jobb. Den här funktionen omfattas av [behörigheterna](#security-model-at-a-glance) eftersom alla Spark-pooler i en arbets yta delar samma underliggande katalog-meta-arkiv.
 
-3. Spark skapade databaser och deras Parkett-backed tabeller blir synliga i arbetsytan SQL on-demand motor. [Databaser skapas](database.md) automatiskt i SQL-metadata på begäran och både de [externa och hanterade tabeller som](table.md) skapas av ett Spark-jobb görs tillgängliga som externa tabeller i SQL-metadata på begäran i `dbo` schemat för motsvarande databas. <!--For more details, see [ADD LINK].-->
+3. Spark-skapade databaser och deras Parquet tabeller blir synliga i arbets ytans SQL-motor på begäran. [Databaser](database.md) skapas automatiskt i SQL-metadata på begäran, och både de [externa och hanterade tabellerna](table.md) som skapas av ett Spark-jobb blir tillgängliga som externa tabeller i SQL on-demand-metadata i `dbo` schemat för motsvarande databas. <!--For more details, see [ADD LINK].-->
 
-4. Om det finns SQL-poolinstanser på arbetsytan som har sin metadatasynkronisering aktiverad <!--[ADD LINK]--> Eller om en ny SQL-poolinstans skapas med metadatasynkroniseringen aktiverad mappas de Spark-skapade databaserna och deras parettstödda tabeller automatiskt till SQL-pooldatabasen enligt beskrivningen i [Azure Synapse Analytics delade databas](database.md).
+4. Om det finns instanser av SQL-pooler i arbets ytan där deras metadata-synkronisering är aktiverat <!--[ADD LINK]--> eller om en ny instans av SQL-poolen skapas med synkronisering av metadata aktive rad, mappas Spark-skapade databaser och deras Parquet tabeller automatiskt till SQL-adresspoolen enligt beskrivningen i den [delade Azure Synapse Analytics-databasen](database.md).
 
 <!--[INSERT PICTURE]-->
 
 <!--__Figure 1 -__ Supporting the Modern Data Warehouse Pattern with shared metadata-->
 
-Objektsynkronisering sker asynkront. Objekt kommer att ha en liten fördröjning på några sekunder tills de visas i SQL-kontexten. När de visas kan de efterfrågas, men inte uppdateras eller ändras av SQL-motorer som har åtkomst till dem.
+Synkronisering av objekt sker asynkront. Objekt får en liten fördröjning på några sekunder tills de visas i SQL-kontexten. När de visas kan de frågas, men inte uppdateras eller ändras inte av de SQL-motorer som har åtkomst till dem.
 
-## <a name="which-metadata-objects-are-shared"></a>Vilka metadataobjekt som delas
+## <a name="which-metadata-objects-are-shared"></a>Vilka metadata-objekt som delas
 
-Med Spark kan du skapa databaser, externa tabeller, hanterade tabeller och vyer. Eftersom Spark-vyer kräver en Spark-motor för att bearbeta det definierande Spark SQL-uttrycket och inte kan bearbetas av en SQL-motor, delas endast databaser och deras externa och hanterade tabeller som använder parettlagringsformat med SQL-jobben på arbetsytan. Spark-vyer delas bara mellan Spark-poolinstanserna.
+Med Spark kan du skapa databaser, externa tabeller, hanterade tabeller och vyer. Eftersom Spark-vyer kräver en spark-motor för att bearbeta den definierade Spark SQL-instruktionen och inte kan bearbetas av en SQL-motor, delas bara databaser och deras externa och hanterade tabeller som använder lagrings formatet för Parquet med arbets ytans SQL-motorer. Spark-vyer delas bara mellan instanserna i Spark-poolen.
 
-## <a name="security-model-at-a-glance"></a>Säkerhetsmodell i korthet
+## <a name="security-model-at-a-glance"></a>Säkerhets modell snabbt
 
-Spark-databaserna och tabellerna, tillsammans med deras synkroniserade representationer i SQL-motorerna, är säkrade på den underliggande lagringsnivån. När tabellen efterfrågas av någon av de motorer som frågelämnaren har rätt att använda skickas frågelämnarens säkerhetsobjekt till de underliggande filerna. Behörigheter kontrolleras på filsystemnivå.
+Spark-databaser och-tabeller, tillsammans med deras synkroniserade representationer i SQL-motorerna, skyddas på den underliggande lagrings nivån. När en fråga skickas från någon av de motorer som den som skickar frågan har rätt att använda, skickas frågans säkerhets objekt till de underliggande filerna. Behörigheter kontrol leras på fil system nivå.
 
-Mer information finns i [den delade databasen För Azure Synapse Analytics](database.md).
+Mer information finns i den [delade Azure Synapse Analytics-databasen](database.md).
 
 ## <a name="change-maintenance"></a>Ändra underhåll
 
-Om ett metadataobjekt tas bort eller ändras med Spark, plockas ändringarna upp och sprids till SQL on-demand-motorn och SQL-poolerna som har objekten synkroniserade. Synkronisering är asynkron och ändringar återspeglas i SQL-motorerna efter en kort fördröjning.
+Om ett metadataobjekt tas bort eller ändras med Spark, hämtas ändringarna och sprids till SQL-motorn på begäran och de SQL-pooler som har objekten synkroniserade. Synkroniseringen är asynkron och ändringar avspeglas i SQL-motorerna efter en kort fördröjning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Läs mer om Azure Synapse Analytics delade metadatadatabaser](database.md)
-- [Läs mer om Azure Synapse Analytics delade metadatatabeller](table.md)
+- [Läs mer om databaserna för delade metadata i Azure Synapse Analytics](database.md)
+- [Läs mer om delade metadata-tabeller för Azure Synapse Analytics](table.md)
 

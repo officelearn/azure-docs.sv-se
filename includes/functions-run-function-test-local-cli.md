@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 02/09/2020
 ms.author: glenga
 ms.openlocfilehash: 749b733039e89421ac33ef76a11f3291b296e718
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80673194"
 ---
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 
-Kör din funktion genom att starta den lokala Azure Functions-körningsvärden från mappen *LocalFunctionProj:*
+Kör din funktion genom att starta den lokala Azure Functions runtime-värden från mappen *LocalFunctionProj* :
 
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-javascript,programming-language-python"
 ```
@@ -35,7 +35,7 @@ mvn azure-functions:run
 ```
 ::: zone-end
 
-Mot slutet av utdata ska följande rader visas: 
+I slutet av utdata bör följande rader visas: 
 
 <pre>
 ...
@@ -51,12 +51,12 @@ Http Functions:
 </pre>
 
 >[!NOTE]  
-> Om HttpExample inte visas som visas nedan, startade du förmodligen värden från utanför rotmappen för projektet. I så fall använder du **Ctrl**+**C** för att stoppa värden, navigera till projektets rotmapp och köra föregående kommando igen.
+> Om HttpExample inte visas som visas nedan, kommer du förmodligen igång värden från utsidan av projektets rotmapp. I så fall kan du använda **CTRL**+**C** för att stoppa värden, navigera till projektets rotmapp och köra föregående kommando igen.
 
-Kopiera URL:en `HttpExample` för din funktion från den här `?name=<your-name>`utdata till en `http://localhost:7071/api/HttpExample?name=Functions`webbläsare och lägg till frågesträngen, vilket gör den fullständiga webbadressen som . Webbläsaren bör visa ett `Hello Functions`meddelande som:
+Kopiera URL: en för `HttpExample` din funktion från utdata till en webbläsare och Lägg till frågesträngen `?name=<your-name>`och gör den fullständiga URL: `http://localhost:7071/api/HttpExample?name=Functions`en som. Webbläsaren ska visa ett meddelande som `Hello Functions`:
 
-![Resultatet av funktionen som körs lokalt i webbläsaren](./media/functions-run-function-test-local-cli/function-test-local-browser.png)
+![Resultatet av funktionen körs lokalt i webbläsaren](./media/functions-run-function-test-local-cli/function-test-local-browser.png)
 
-Terminalen där du startade projektet visar också loggutdata när du gör förfrågningar.
+Terminalen där du startade projektet visar också logg data när du gör förfrågningar.
 
-När du är klar använder du `y` **Ctrl**+**C** och väljer att stoppa funktionernas värd.
+När du är klar kan du använda **CTRL**+**C** och `y` välja att stoppa funktions värden.

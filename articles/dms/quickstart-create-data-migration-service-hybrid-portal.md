@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Skapa en hybridlägesinstans med Azure-portal'
+title: 'Snabb start: skapa en instans i hybrid läge med Azure Portal'
 titleSuffix: Azure Database Migration Service
-description: Använd Azure-portalen för att skapa en instans av Azure Database Migration Service i hybridläge.
+description: Använd Azure Portal för att skapa en instans av Azure Database Migration Service i hybrid läge.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -13,33 +13,33 @@ ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 03/13/2020
 ms.openlocfilehash: dd3e77610749eb5d146b0c0b7cf9d307fba0dd83
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79370244"
 ---
-# <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Snabbstart: Skapa en hybridlägesinstans med Azure-portalen & Azure Database Migration Service
+# <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Snabb start: skapa en instans i hybrid läge med Azure Portal & Azure Database Migration Service
 
-Azure Database Migration Service hybridläge hanterar databasmigreringar med hjälp av en migreringsarbetare som är värd lokalt tillsammans med en instans av Azure Database Migration Service som körs i molnet. Hybridläge är särskilt användbart för scenarier där det saknas anslutning mellan det lokala nätverket och Azure eller om det finns begränsad bandbredd för anslutning från plats till plats.
+Azure Database Migration Service hybrid läge hanterar migrering av databasen med hjälp av en migrering som finns lokalt tillsammans med en instans av Azure Database Migration Service som körs i molnet. Hybrid läge är särskilt användbart för scenarier där det inte finns någon plats-till-plats-anslutning mellan det lokala nätverket och Azure, eller om det finns begränsad plats-till-plats-anslutningens bandbredd.
 
 >[!NOTE]
->För närvarande stöder Azure Database Migration Service som körs i hybridläge SQL Server-migreringar till:
+>Azure Database Migration Service som körs i hybrid läge stöder för närvarande SQL Server migreringar till:
 >
->- Azure SQL Database hanterad instans med nära noll driftstopp (online).
->- En enda Azure SQL-databas med viss driftstopp (offline).
->- MongoDb till Azure CosmosDB med nära noll driftstopp (online).
->- MongoDb till Azure CosmosDB med vissa driftstopp (offline).
+>- Azure SQL Database Hanterad instans med nästan noll nedtid (online).
+>- Azure SQL Database en enkel databas med vissa stillestånds tider (offline).
+>- MongoDb till Azure CosmosDB med nästan noll stillestånd (online).
+>- MongoDb till Azure CosmosDB med vissa stillestånds tider (offline).
 
-I den här snabbstarten använder du Azure-portalen för att skapa en instans av Azure Database Migration Service i hybridläge. Efteråt hämtar, installerar och konfigurerar du hybridarbetaren i det lokala nätverket. Under förhandsversionen kan du använda hybridläget för Azure Database Migration Service för att migrera data från en lokal instans av SQL Server till Azure SQL Database.
+I den här snabb starten använder du Azure Portal för att skapa en instans av Azure Database Migration Service i hybrid läge. Därefter laddar du ned, installerar och konfigurerar hybrid Worker i ditt lokala nätverk. Under för hands versionen kan du använda Azure Database Migration Service hybrid läge för att migrera data från en lokal instans av SQL Server till Azure SQL Database.
 
 > [!NOTE]
-> Hybridinstallationsprogrammet för Azure Database Migration Service körs på Microsoft Windows Server 2012 R2, Window Server 2016, Windows Server 2019 och Windows 10.
+> Azure Database Migration Service hybrid installations program körs på Microsoft Windows Server 2012 R2, Window Server 2016, Windows Server 2019 och Windows 10.
 
 > [!IMPORTANT]
-> Hybridinstallationsprogrammet för Azure Database Migration Service kräver .NET 4.7.2 eller senare. Information om hur du hittar de senaste versionerna av .NET finns på sidan [Hämta .NET Framework.](https://dotnet.microsoft.com/download/dotnet-framework)
+> Den Azure Database Migration Service hybrid installations programmet kräver .NET 4.7.2 eller senare. Du hittar de senaste versionerna av .NET på sidan [hämta .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) .
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -49,147 +49,147 @@ Standardvyn är instrumentpanelen.
 
 ## <a name="register-the-resource-provider"></a>Registrera resursprovidern
 
-Registrera microsoft.datamigration-resursprovidern innan du skapar din första instans av Azure Database Migration Service.
+Registrera Microsoft. data migration-resurs leverantören innan du skapar din första instans av Azure Database Migration Service.
 
-1. I Azure-portalen väljer du **Prenumerationer**, väljer den prenumeration där du vill skapa instansen av Azure Database Migration Service och väljer sedan **Resursleverantörer**.
+1. I Azure Portal väljer du **prenumerationer**, väljer den prenumeration där du vill skapa instansen av Azure Database migration service och väljer sedan **resurs leverantörer**.
 
-    ![Sök resursleverantör](media/quickstart-create-data-migration-service-hybrid-portal/dms-portal-search-resource-provider.png)
+    ![Sök efter resurs leverantör](media/quickstart-create-data-migration-service-hybrid-portal/dms-portal-search-resource-provider.png)
 
-2. Sök efter migrering och välj sedan **Registrera**till höger om **Microsoft.DataMigration**.
+2. Sök efter migrering och välj sedan **Registrera**till höger om **Microsoft. data migration**.
 
     ![Registrera resursprovider](media/quickstart-create-data-migration-service-hybrid-portal/dms-portal-register-resource-provider.png)
 
 ## <a name="create-an-instance-of-the-service"></a>Skapar en instans av tjänsten
 
-1. Välj +**Skapa en resurs** för att skapa en instans av Azure Database Migration Service.
+1. Välj +**skapa en resurs** för att skapa en instans av Azure Database migration service.
 
-2. Sök på Marketplace efter "migrering", välj **Azure Database Migration Service**och välj sedan **Skapa**på skärmen Azure Database **Migration Service** .
+2. Sök på Marketplace efter "migrering", Välj **Azure Database migration service**och välj sedan **skapa**på skärmen **Azure Database migration service** .
 
 3. På skärmen **Skapa migreringstjänst**:
 
-    - Välj ett **tjänstnamn** som är minnesvärt och unikt för att identifiera din instans av Azure Database Migration Service.
+    - Välj ett **tjänst namn** som är minnes värt och unikt för att identifiera din instans av Azure Database migration service.
     - Välj den Azure-**prenumeration** där du vill skapa instansen.
     - Välj en befintlig **resursgrupp** eller skapa en ny.
     - Välj den **plats** som ligger närmast din käll- eller målserver.
-    - För **tjänstläge**väljer du **Hybrid (Förhandsgranskning)**.
+    - För **tjänst läge**väljer du **hybrid (för hands version)**.
 
-         ![Skapa migreringstjänst - grunderna](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
+         ![Skapa migration service – grundläggande information](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
 
 4. Välj **Granska + skapa**.
 
-5. På fliken **Granska + skapa** granskar du villkoren, verifierar annan information som tillhandahålls och väljer sedan **Skapa**.
+5. På fliken **Granska + skapa** granskar du villkoren, verifierar den andra informationen och väljer sedan **skapa**.
 
-    ![Skapa migreringstjänst - Granska + skapa](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-review-and-create.png)
+    ![Skapa migration service – granska + skapa](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-review-and-create.png)
 
-    Efter en stund skapas din instans av Azure Database Migration Service i hybridläge och är klar att konfigureras. Azure Database Migration Service-instansen visas som visas i följande bild:
+    Efter en liten stund skapas din instans av Azure Database Migration Service i hybrid läge och är redo att konfigureras. Azure Database Migration Service-instansen visas som på följande bild:
 
-    ![Hybridlägesinstans för Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-instance-hybrid-mode.png)
+    ![Azure Database Migration Service hybrid läges instans](media/quickstart-create-data-migration-service-hybrid-portal/dms-instance-hybrid-mode.png)
 
-6. När tjänsten har skapats väljer du **Egenskaper**och kopierar sedan värdet som visas i rutan **Resurs-ID,** som du använder för att installera hybridarbetaren för Azure Database Migration Service.
+6. När tjänsten har skapats väljer du **Egenskaper**och kopierar sedan värdet som visas i rutan **resurs-ID** , som du kommer att använda för att installera Azure Database migration service hybrid Worker.
 
-    ![Hybridlägesegenskaper för Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-copy-resource-id.png)
+    ![Egenskaper för Azure Database Migration Service hybrid läge](media/quickstart-create-data-migration-service-hybrid-portal/dms-copy-resource-id.png)
 
-## <a name="create-azure-app-registration-id"></a>Skapa registrerings-ID för Azure-program
+## <a name="create-azure-app-registration-id"></a>Skapa Azure App registrerings-ID
 
-Du måste skapa ett Registrerings-ID för Azure-appar som den lokala hybridarbetaren kan använda för att kommunicera med Azure Database Migration Service i molnet.
+Du måste skapa ett Azure App registrerings-ID som den lokala hybrid Worker kan använda för att kommunicera med Azure Database Migration Service i molnet.
 
-1. I Azure-portalen väljer du **Azure Active Directory**, väljer **Appregistreringar**och väljer sedan **Ny registrering**.
-2. Ange ett namn för programmet och välj sedan den typ av konton som ska stödjas under Kontotyper som stöds för att ange vem som kan använda programmet under **Kontotyper som stöds.**
+1. I Azure Portal väljer du **Azure Active Directory**, väljer **Appregistreringar**och väljer sedan **ny registrering**.
+2. Ange ett namn för programmet och välj den typ av konton som du vill ge stöd för att ange vem som kan använda programmet under **typer av konto typer som stöds**.
 
-    ![Hybridlägesregisterprogram för Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-register-application.png)
+    ![Register program för Azure Database Migration Service hybrid läge](media/quickstart-create-data-migration-service-hybrid-portal/dms-register-application.png)
 
-3. Använd standardvärdena för fälten **Omdirigera URI (valfritt)** och välj sedan **Registrera**.
+3. Använd standardvärdena för fälten **omdirigerings-URI (valfritt)** och välj sedan **Registrera**.
 
-4. När registreringen av app-ID har slutförts bör du anteckna **programmets (klient)-ID**, som du ska använda när du installerar hybridarbetaren.
+4. När app-ID-registreringen är klar noterar du **program-ID: t**, som du kommer att använda när du installerar hybrid Worker.
 
-5. I Azure-portalen navigerar du till Azure Database Migration Service, väljer **Åtkomstkontroll (IAM)** och väljer sedan **Lägg till rolltilldelning** för att tilldela deltagare åtkomst till app-ID.
+5. Gå till Azure Database Migration Service i Azure Portal, Välj **åtkomst kontroll (IAM)** och välj sedan **Lägg till roll tilldelning** för att tilldela deltagar åtkomst till app-ID: t.
 
-    ![Hybridläge för Azure Database Migration Service-tjänst tilldela deltagarroll](media/quickstart-create-data-migration-service-hybrid-portal/dms-app-assign-contributor.png)
+    ![Azure Database Migration Service hybrid läge tilldela deltagar rollen](media/quickstart-create-data-migration-service-hybrid-portal/dms-app-assign-contributor.png)
 
-6. Välj **Deltagare** som roll, tilldela åtkomst till **Azure AD-användare eller tjänstens huvudnamn**och välj sedan namnet på app-ID.
+6. Välj **deltagare** som roll, tilldela åtkomst till **Azure AD-användare eller tjänstens huvud**namn och välj sedan appens id-namn.
 
-    ![Hybridläge för Azure Database Migration Service tilldela deltagarrollinformation](media/quickstart-create-data-migration-service-hybrid-portal/dms-add-role-assignment.png)
+    ![Azure Database Migration Service hybrid läge tilldela deltagar roll information](media/quickstart-create-data-migration-service-hybrid-portal/dms-add-role-assignment.png)
 
-7. Välj **Spara** om du vill spara rolltilldelningen för app-ID:et på Azure Database Migration Service-resursen.
+7. Välj **Spara** för att spara roll tilldelningen för app-ID: t på Azure Database migration service resursen.
 
-## <a name="download-and-install-the-hybrid-worker"></a>Hämta och installera hybridarbetaren
+## <a name="download-and-install-the-hybrid-worker"></a>Ladda ned och installera hybrid Worker
 
-1. Navigera till din instans av Azure Database Migration Service i Azure-portalen.
+1. I Azure Portal navigerar du till din instans av Azure Database Migration Service.
 
-2. Under **Inställningar**väljer du **Hybrid**och väljer sedan **Hämta Installer** för att hämta hybridarbetaren.
+2. Under **Inställningar**väljer du **hybrid**och väljer sedan **installations programmet Ladda** ned för att ladda ned hybrid Worker.
 
-    ![Hybridarbetstjänsthämtning av Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-installer-download.png)
+    ![Azure Database Migration Service hybrid Worker-hämtning](media/quickstart-create-data-migration-service-hybrid-portal/dms-installer-download.png)
 
-3. Extrahera ZIP-filen på servern som ska vara värd för hybridarbetaren för Azure Database Migration Service.
+3. Extrahera ZIP-filen på den server som ska vara värd för Azure Database Migration Service hybrid Worker.
 
     > [!IMPORTANT]
-    > Hybridinstallationsprogrammet för Azure Database Migration Service kräver .NET 4.7.2 eller senare. Information om hur du hittar de senaste versionerna av .NET finns på sidan [Hämta .NET Framework.](https://dotnet.microsoft.com/download/dotnet-framework)
+    > Den Azure Database Migration Service hybrid installations programmet kräver .NET 4.7.2 eller senare. Du hittar de senaste versionerna av .NET på sidan [hämta .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) .
 
-4. Leta upp och öppna filen **dmsSettings.json** i installationsmappen, ange **ApplicationId** och **resourceId**och spara filen.
+4. I mappen installera, leta upp och öppna filen **dmsSettings. JSON** , ange **ApplicationId** och **resourceId**och spara sedan filen.
 
-    ![Hybridarbetstagarinställningar för Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-settings.png)
+    ![Azure Database Migration Service hybrid Worker-inställningar](media/quickstart-create-data-migration-service-hybrid-portal/dms-settings.png)
 
-5. Generera ett certifikat som Azure Database Migration Service kan använda för att autentisera kommunikationen från hybridarbetaren med hjälp av följande kommando.
+5. Generera ett certifikat som Azure Database Migration Service kan använda för att autentisera kommunikationen från hybrid arbetaren med hjälp av följande kommando.
 
     ```
     <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a GenerateCert
     ```
 
-    Ett certifikat genereras i mappen Installera.
+    Ett certifikat skapas i installationsmappen.
 
-    ![Hybridarbetscertifikat för Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-certificate.png)
+    ![Azure Database Migration Service hybrid Worker-certifikat](media/quickstart-create-data-migration-service-hybrid-portal/dms-certificate.png)
 
-6. I Azure-portalen navigerar du till app-ID:t under **Hantera**, väljer **Certifikat & hemligheter**och väljer sedan Ladda upp **certifikat** för att välja det offentliga certifikat som du genererade.
+6. I Azure Portal navigerar du till app-ID: t under **Hantera**, väljer **certifikat & hemligheter**och väljer sedan **Ladda upp certifikat** för att välja det offentliga certifikat som du skapade.
 
-    ![Hybridarbetscertifikat för Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-app-upload-certificate.png)
+    ![Azure Database Migration Service hybrid Worker Certificate upload](media/quickstart-create-data-migration-service-hybrid-portal/dms-app-upload-certificate.png)
 
-7. Installera hybridarbetaren för Azure Database Migration Service på den lokala servern genom att köra följande kommando:
+7. Installera Azure Database Migration Service hybrid Worker på din lokala server genom att köra följande kommando:
 
     ```
     <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a Install -IAcceptDMSLicenseTerms -d
     ```
 
     > [!NOTE]
-    > När du kör installationskommandot kan du också använda följande parametrar:
+    > När du kör installations kommandot kan du också använda följande parametrar:
     >
-    > - **-TelemetryOptOut** - Stoppar arbetaren från att skicka telemetri men fortsätter att logga lokalt minimalt.  Installationsprogrammet skickar fortfarande telemetri.
-    > - **-p {InstallLocation}**. Aktiverar ändring av installationssökvägen, som som standard är "C:\Program Files\DatabaseMigrationServiceHybrid".
+    > - **-TelemetryOptOut** – hindrar arbets tagaren från att skicka telemetri men fortsätter att loggas lokalt på ett minimum.  Installations programmet skickar fortfarande telemetri.
+    > - **-p {InstallLocation}**. Aktiverar ändring av installations Sök vägen, som standard är "C:\Program Files\DatabaseMigrationServiceHybrid".
 
-8. Om installationsprogrammet körs utan fel visas en onlinestatus i Azure Database Migration Service och du är redo att migrera dina databaser.
+8. Om installations programmet körs utan fel kommer tjänsten att visa en onlinestatus i Azure Database Migration Service och du är redo att migrera dina databaser.
 
-    ![Migreringstjänsten för Azure Database online](media/quickstart-create-data-migration-service-hybrid-portal/dms-instance-hybrid-mode-online.png)
+    ![Azure Database Migration Service online](media/quickstart-create-data-migration-service-hybrid-portal/dms-instance-hybrid-mode-online.png)
 
-## <a name="uninstall-azure-database-migration-service-hybrid-mode"></a>Avinstallera hybridläget för Azure Database Migration Service
+## <a name="uninstall-azure-database-migration-service-hybrid-mode"></a>Avinstallera Azure Database Migration Service hybrid läge
 
-För närvarande stöds avinstallation av hybridläget för Azure Database Migration Service endast via hybridarbetsinstallationsprogrammet för Azure Database Migration Service på din lokala server med hjälp av följande kommando:
+För närvarande stöds inte installation av Azure Database Migration Service hybrid läge via Azure Database Migration Service hybrid Worker-installation på den lokala servern med hjälp av följande kommando:
 
 ```
 <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a uninstall
 ```
 
 > [!NOTE]
-> När du kör avinstallationskommandot kan du också använda parametern "-ReuseCert", som behåller AdApp-cert som genereras av generateCert-arbetsflödet.  Detta gör det möjligt att använda samma certifikat som tidigare genererades och laddades upp.
+> När du kör avinstallations kommandot kan du också använda parametern "-ReuseCert", som håller AdApp-certifikatet genererat av generateCert-arbetsflödet.  Detta gör att du kan använda samma certifikat som tidigare genererades och laddades upp.
 
-## <a name="set-up-the-azure-database-migration-service-hybrid-worker-using-powershell"></a>Konfigurera hybridarbetaren för Azure Database Migration Service med PowerShell
+## <a name="set-up-the-azure-database-migration-service-hybrid-worker-using-powershell"></a>Konfigurera Azure Database Migration Service hybrid Worker med PowerShell
 
-Förutom att installera hybridarbetaren för Azure Database Migration Service via Azure-portalen tillhandahåller vi ett [PowerShell-skript](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/MicrosoftDataMigration/119/1/DMS_Hybrid_Script.zip) som du kan använda för att automatisera arbetsinstallationsstegen när du har skapat en ny instans av Azure Database Migration Service i hybridläge. Skriptet:
+Förutom att installera Azure Database Migration Service hybrid Worker via Azure Portal ger vi ett [PowerShell-skript](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/MicrosoftDataMigration/119/1/DMS_Hybrid_Script.zip) som du kan använda för att automatisera installations stegen för arbets processen när du har skapat en ny instans av Azure Database migration service i hybrid läge. Skriptet:
 
 1. Skapar en ny AdApp.
-2. Hämtar installationsprogrammet.
-3. Kör generateCert-arbetsflödet.
+2. Laddar ned installations programmet.
+3. Kör arbets flödet generateCert.
 4. Laddar upp certifikatet.
-5. Lägger till AdApp som deltagare i din Azure Database Migration Service-instans.
-6. Kör arbetsflödet för installation.
+5. Lägger till AdApp som deltagare till din Azure Database Migration Service-instans.
+6. Kör arbets flödet för installation.
 
-Det här skriptet är avsett för snabb prototyper när användaren redan har alla nödvändiga behörigheter i miljön. Observera att i din produktionsmiljö kan AdApp och Cert ha olika krav, så skriptet kan misslyckas.
+Det här skriptet är avsett för snabb prototyper när användaren redan har alla nödvändiga behörigheter i miljön. Observera att AdApp och cert kan ha olika krav i produktions miljön, så skriptet kan Miss lyckas.
 
 > [!IMPORTANT]
-> Det här skriptet förutsätter att det finns en befintlig instans av Azure Database Migration Service i hybridläge och att det Azure-konto som används har behörighet att skapa AdApps i klienten och ändra RBAC på prenumerationen.
+> Det här skriptet förutsätter att det finns en befintlig instans av Azure Database Migration Service i hybrid läge och att det använda Azure-kontot har behörighet att skapa AdApps i klienten och ändra RBAC för-prenumerationen.
 
-Fyll i parametrarna högst upp i skriptet och kör sedan skriptet från en Administratörs-PowerShell-instans.
+Fyll i parametrarna överst i skriptet och kör skriptet från en administratör PowerShell-instans.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Migrera SQL Server till en Hanterad Azure SQL Database-hanterad instans online](tutorial-sql-server-managed-instance-online.md)
-> [Migrera SQL Server till en enda databas eller poolad databas i Azure SQL Database offline](tutorial-sql-server-to-azure-sql.md)
+> [Migrera SQL Server till en Azure SQL Database Hanterad instans online](tutorial-sql-server-managed-instance-online.md)
+> [migrera SQL Server till en enskild databas eller en databas i poolen i Azure SQL Database offline](tutorial-sql-server-to-azure-sql.md)

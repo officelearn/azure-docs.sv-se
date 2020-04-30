@@ -1,5 +1,5 @@
 ---
-title: Snabbstart - Skapa en skalauppsättning för virtuell virtuell dator med en Azure Resource Manager-mall
+title: Snabb start – skapa en skalnings uppsättning för virtuella Linux-datorer med en Azure Resource Manager-mall
 description: Lär dig hur du snabbt skapar en skalningsuppsättning för virtuella Linux-datorer med en Azure Resource Manager-mall som distribuerar en exempelapp och konfigurerar regler för automatisk skalning
 author: ju-shim
 tags: azure-resource-manager
@@ -9,13 +9,13 @@ ms.custom: mvc,subject-armqs
 ms.date: 03/27/2020
 ms.author: jushiman
 ms.openlocfilehash: 4c0bac943be996c02436824334bd79a270f9a2e2
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81010468"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-resource-manager-template"></a>Snabbstart: Skapa en skalauppsättning för virtuell virtuell dator med en Azure Resource Manager-mall
+# <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-resource-manager-template"></a>Snabb start: skapa en skalnings uppsättning för virtuella Linux-datorer med en Azure Resource Manager-mall
 
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. En Azure-lastbalanserare distribuerar sedan trafiken till de virtuella datorinstanserna i skalningsuppsättningen. I den här snabbstarten skapar du en VM-skalningsuppsättning och distribuerar ett exempelprogram med en Azure Resource Manager-mall.
 
@@ -33,26 +33,26 @@ Du kan distribuera grupper av relaterade resurser med hjälp av Azure Resource M
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabbstarten kommer från [Azure Quickstart-mallar](https://azure.microsoft.com/resources/templates/201-vmss-bottle-autoscale/).
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/201-vmss-bottle-autoscale/).
 
 :::code language="json" source="~/quickstart-templates/201-vmss-bottle-autoscale/azuredeploy.json" range="1-330" highlight="176-264":::
 
 Dessa resurser definieras i mallen:
 
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Network/publicIPAdresser**](/azure/templates/microsoft.network/publicipaddresses)
-- [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadbalancers)
+- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft. Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft. Network/belastningsutjämnare**](/azure/templates/microsoft.network/loadbalancers)
 - [**Microsoft.Compute/virtualMachineScaleSets**](/azure/templates/microsoft.compute/virtualmachinescalesets)
-- [**Microsoft.Insights/autoscaleSettings**](/azure/templates/microsoft.insights/autoscalesettings)
+- [**Microsoft. Insights/autoscaleSettings**](/azure/templates/microsoft.insights/autoscalesettings)
 
 #### <a name="define-a-scale-set"></a>Definiera en skalningsuppsättning
 
-Den markerade delen är resursdefinitionen för skalningsuppsättning. När du skapar en skalningsuppsättning med en mall definierar du lämpliga resurser. Huvuddelarna i resurstypen för VM-skalningsuppsättning:
+Den markerade delen är resurs definitionen för skalnings uppsättningen. När du skapar en skalningsuppsättning med en mall definierar du lämpliga resurser. Huvuddelarna i resurstypen för VM-skalningsuppsättning:
 
 | Egenskap                     | Egenskapsbeskrivning                                  | Exempelmallvärde                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
 | typ                         | Azure-resurstypen som ska skapas                            | Microsoft.Compute/virtualMachineScaleSets |
-| namn                         | Namnet på skalningsuppsättningen                                       | myScaleSet                                |
+| name                         | Namnet på skalningsuppsättningen                                       | myScaleSet                                |
 | location                     | Platsen där skalningsuppsättningen skapas                     | USA, östra                                   |
 | sku.name                     | VM-storleken för varje skalningsuppsättningsinstans                  | Standard_A1                               |
 | sku.capacity                 | Antal VM-instanser som skapas inledningsvis           | 2                                         |
@@ -62,7 +62,7 @@ Den markerade delen är resursdefinitionen för skalningsuppsättning. När du s
 | osProfile.adminUsername      | Användarnamn för varje VM-instans                        | azureuser                                 |
 | osProfile.adminPassword      | Lösenord för varje VM-instans                        | P@ssw0rd!                                 |
 
-Om du vill anpassa en skalningsuppsättningsmall kan du ändra den virtuella datorns storlek eller ursprungliga kapacitet. Ett annat alternativ är att använda en annan plattform eller en anpassad bild.
+Om du vill anpassa en mall för skalnings uppsättningar kan du ändra storleken på den virtuella datorn eller den ursprungliga kapaciteten. Ett annat alternativ är att använda en annan plattform eller en anpassad avbildning.
 
 #### <a name="add-a-sample-application"></a>Lägg till ett exempelprogram
 
@@ -74,13 +74,13 @@ Testa din skalningsuppsättning genom att installera ett grundläggande webbprog
 - Plats för konfiguration eller installation av skript
 - Kommandon som körs för VM-instanser
 
-Mallen använder det anpassade skripttillägget för att installera [flaska,](https://bottlepy.org/docs/dev/)ett Python-webbramverk och en enkel HTTP-server.
+Mallen använder tillägget för anpassat skript för att installera [Flask](https://bottlepy.org/docs/dev/), ett python-webbramverk och en enkel http-server.
 
-Två skript definieras i **fileUris** - *installserver.sh*och *workserver.py*. Dessa filer hämtas från GitHub och sedan `bash installserver.sh` *commandToExecute* körs för att installera och konfigurera appen.
+Två skript definieras i **fileUris** - -*installserver.sh*och *workserver.py*. Filerna laddas ned från GitHub och sedan *commandToExecute* körs `bash installserver.sh` commandToExecute för att installera och konfigurera appen.
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 
-Du kan distribuera mallen genom att välja följande **knappen Distribuera till Azure.** Knappen öppnar Azure Portal, läser in hela mallen och frågar efter ett par parametrar, till exempel namn på skalningsuppsättningen, antal instanser och administratörsautentiseringsuppgifter.
+Du kan distribuera mallen genom att välja följande **distribuera till Azure** -knapp. Knappen öppnar Azure Portal, läser in hela mallen och frågar efter ett par parametrar, till exempel namn på skalningsuppsättningen, antal instanser och administratörsautentiseringsuppgifter.
 
 [![Distribuera mall till Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
@@ -108,13 +108,13 @@ az network public-ip list \
     --query [*].ipAddress -o tsv
 ```
 
-Ange lastutjämningens offentliga IP-adress i en webbläsare i formatet *\/http: /publicIpAddress:9000/do_work*. Lastbalanseraren distribuerar trafik till en av dina VM-instanser enligt följande exempel:
+Ange den offentliga IP-adressen för belastningsutjämnaren i en webbläsare i formatet *http:\//publicIpAddress: 9000/do_work*. Lastbalanseraren distribuerar trafik till en av dina VM-instanser enligt följande exempel:
 
 ![Standardwebbsida i NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När det inte längre behövs kan du använda [az-gruppborttagning](/cli/azure/group) för att ta bort resursgruppen, skalningsuppsättningen och alla relaterade resurser enligt följande. Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
+När de inte längre behövs kan du använda [AZ Group Delete](/cli/azure/group) för att ta bort resurs gruppen, skalnings uppsättningen och alla relaterade resurser på följande sätt. Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

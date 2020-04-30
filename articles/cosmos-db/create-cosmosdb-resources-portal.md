@@ -1,6 +1,6 @@
 ---
-title: Snabbstart - Skapa Azure Cosmos DB-resurser från Azure-portalen
-description: Den här snabbstarten visar hur du skapar en Azure Cosmos-databas, behållare och objekt med hjälp av Azure-portalen.
+title: Snabb start – skapa Azure Cosmos DB resurser från Azure Portal
+description: Den här snabb starten visar hur du skapar en Azure Cosmos-databas, behållare och objekt med hjälp av Azure Portal.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
@@ -9,13 +9,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/05/2020
 ms.openlocfilehash: 79deb2f33a11e8ccb6f059bde7590b7cc0fe20c0
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80521097"
 ---
-# <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Snabbstart: Skapa ett Azure Cosmos-konto, databas, behållare och objekt från Azure-portalen
+# <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Snabb start: skapa ett Azure Cosmos-konto, databas, behållare och objekt från Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](create-cosmosdb-resources-portal.md)
@@ -26,13 +26,13 @@ ms.locfileid: "80521097"
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
-Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan använda Azure Cosmos DB för att snabbt skapa och fråga efter nyckel-/värdedatabaser, dokumentdatabaser och grafdatabaser, som alla drar nytta av de globala distributions- och vågräta skalfunktionerna i kärnan av Azure Cosmos DB. 
+Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan använda Azure Cosmos DB för att snabbt skapa och fråga nyckel/värde-databaser, dokument databaser och Graf-databaser, som alla drar nytta av den globala distributionen och den horisontella skalnings kapaciteten i kärnan av Azure Cosmos DB. 
 
-Den här snabbstarten visar hur du använder Azure-portalen för att skapa ett Azure Cosmos DB [SQL API-konto,](sql-api-introduction.md) skapa en dokumentdatabas och behållare och lägga till data i behållaren. 
+Den här snabb starten visar hur du använder Azure Portal för att skapa ett Azure Cosmos DB [SQL API](sql-api-introduction.md) -konto, skapa en dokument databas och behållare och lägga till data i behållaren. 
 
 ## <a name="prerequisites"></a>Krav
 
-En Azure-prenumeration eller ett kostnadsfritt utvärderingskonto för Azure Cosmos DB
+En Azure-prenumeration eller ett kostnads fritt Azure Cosmos DB utvärderings konto
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
@@ -52,14 +52,14 @@ Gå till [Microsoft Azure-portalen](https://portal.azure.com/) för att skapa et
     |Prenumeration|Prenumerationens namn|Välj den Azure-prenumeration som ska användas för det här Azure Cosmos-kontot. |
     |Resursgrupp|Namn på resursgrupp|Välj en resursgrupp eller välj **Skapa ny** och ange sedan ett unikt namn för den nya resursgruppen. |
     |Kontonamn|Ett unikt namn|Ange ett namn som identifierar ditt Azure Cosmos-konto. Eftersom*documents.azure.com* läggs till det namn du anger för att skapa din URI måste du använda ett unikt namn.<br><br>Namnet får endast innehålla gemener, siffror och bindestreck (-). Det måste innehålla 3–31 tecken.|
-    |API|Typ av konto som skapas|Välj **Core (SQL)** för att skapa en dokumentdatabas och kör frågor med hjälp av SQL-syntax. <br><br>API:n avgör vilken typ av konto som skapas. Azure Cosmos DB innehåller fem API:er: Core (SQL) och MongoDB för dokumentdata, Gremlin för diagramdata, Azure Table och Cassandra. För närvarande måste du skapa ett separat konto för varje API. <br><br>[Läs mer om SQL API](introduction.md).|
-    |Tillämpa rabatt på kostnadsfri nivå|Ansök eller Gäller inte|Med Azure Cosmos DB-kostnadsfri nivå får du de första 400 RU/s och 5 GB lagringsutrymme som är gratis på ett konto. Läs mer om [den kostnadsfria nivån](https://azure.microsoft.com/pricing/details/cosmos-db/).|
-    |Location|Den region som är närmast dina användare|Välj en geografisk plats som värd för ditt Azure Cosmos DB-konto. Använd den plats som är närmast dina användare för att ge dem så snabb åtkomst till data som möjligt.|
-    |Typ av konto|Produktion eller icke-produktion|Välj **Produktion** om kontot ska användas för en produktionsarbetsbelastning. Välj **Icke-produktion** om kontot ska användas för icke-produktion, t.ex. Det här är en Azure-resurstagginställning som trimmar portalupplevelsen men inte påverkar det underliggande Azure Cosmos DB-kontot. Du kan ändra det här värdet när som helst.|
+    |API|Typ av konto som skapas|Välj **Core (SQL)** för att skapa en dokumentdatabas och kör frågor med hjälp av SQL-syntax. <br><br>API:n avgör vilken typ av konto som skapas. Azure Cosmos DB tillhandahåller fem API: er: Core (SQL) och MongoDB för dokument data, Gremlin för graf-data, Azure Table och Cassandra. För närvarande måste du skapa ett separat konto för varje API. <br><br>[Läs mer om SQL-API: et](introduction.md).|
+    |Använd rabatt på kostnads fri nivå|Tillämpa eller Verkställ inte|Med Azure Cosmos DB kostnads fri nivå får du de första 400 RU/s och 5 GB lagring kostnads fritt i ett konto. Läs mer om den [kostnads fria nivån](https://azure.microsoft.com/pricing/details/cosmos-db/).|
+    |Plats|Den region som är närmast dina användare|Välj en geografisk plats som värd för ditt Azure Cosmos DB-konto. Använd den plats som är närmast dina användare för att ge dem så snabb åtkomst till data som möjligt.|
+    |Kontotyp|Produktion eller icke-produktion|Välj **produktion** om kontot ska användas för en produktions arbets belastning. Välj **icke-produktion** om kontot ska användas för icke-produktion, t. ex. utveckling, testning, frågor och svar eller mellanlagring. Det här är en Azure-resurs tag-inställning som justerar Portal upplevelsen, men som inte påverkar det underliggande Azure Cosmos DB kontot. Du kan ändra det här värdet när som helst.|
 
 
 > [!NOTE]
-> Du kan ha upp till en kostnadsfri nivå Azure Cosmos DB-konto per Azure-prenumeration och måste anmäla dig när du skapar kontot. Om du inte ser alternativet att tillämpa rabatten på den kostnadsfria nivån innebär det att ett annat konto i prenumerationen redan har aktiverats med den kostnadsfria nivån.
+> Du kan ha upp till en kostnads fri nivå Azure Cosmos DB ett konto per Azure-prenumeration och måste välja när du skapar kontot. Om du inte ser alternativet för att tillämpa rabatten på den kostnads fria nivån innebär det att ett annat konto i prenumerationen redan har Aktiver ATS med den kostnads fria nivån.
    
    ![Den nya kontosidan för Azure Cosmos DB](./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png)
 
@@ -74,39 +74,39 @@ Gå till [Microsoft Azure-portalen](https://portal.azure.com/) för att skapa et
     ![Sidan för Azure Cosmos DB-kontot](./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png)
 
 <a id="create-container-database"></a>
-## <a name="add-a-database-and-a-container"></a>Lägga till en databas och en behållare 
+## <a name="add-a-database-and-a-container"></a>Lägg till en databas och en behållare 
 
-Du kan använda Data Explorer i Azure-portalen för att skapa en databas och behållare. 
+Du kan använda Datautforskaren i Azure Portal för att skapa en databas och behållare. 
 
-1.  Välj **Data Explorer** från den vänstra navigeringen på din Azure Cosmos DB-kontosida och välj sedan Ny **behållare**. 
+1.  Välj **datautforskaren** i det vänstra navigerings fältet på ditt Azure Cosmos DB konto och välj sedan **ny behållare**. 
     
-    Du kan behöva rulla åt höger för att se fönstret **Lägg till behållare.**
+    Du kan behöva rulla åt höger för att se fönstret **Lägg till behållare** .
     
     ![Datautforskaren på Azure-portalen, fönstret Lägg till container](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
     
-1.  Ange inställningarna för den nya behållaren i fönstret **Lägg till behållare.**
+1.  I fönstret **Lägg till behållare** anger du inställningarna för den nya behållaren.
     
-    |Inställning|Föreslaget värde|Beskrivning
+    |Inställningen|Föreslaget värde|Beskrivning
     |---|---|---|
-    |**Databas-ID**|ToDoList|Ange *ToDoList* som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg. Kontrollera **alternativet Etablera databasdataflöde,** det låter dig dela dataflödet som etablerats i databasen över alla behållare i databasen. Det här alternativet hjälper också till med kostnadsbesparingar. |
-    |**Dataflöde**|400|Lämna dataflödet på 400 begäranheter per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.| 
+    |**Databas-ID**|ToDoList|Ange *ToDoList* som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg. Kontrol lera **data flödes alternativet etablera databas** så att du kan dela det data flöde som har etablerats till databasen över alla behållare i databasen. Det här alternativet hjälper också till med kostnads besparingar. |
+    |**Dataflöde**|400|Lämna data flödet på 400 enheter för programbegäran per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.| 
     |**Container-ID**|Objekt|Ange *objekt* som namn på den nya behållaren. För container-ID:n gäller samma teckenkrav som för databasnamn.|
-    |**Partitionsnyckeln**| /category| I exemplet som beskrivs i den här artikeln används */category* som partitionsnyckel.|
+    |**Partitionsnyckeln**| /category| Exemplet som beskrivs i den här artikeln använder */Category* som partitionsnyckel.|
 
     
-    Lägg inte till **unika nycklar** för det här exemplet. Med unika nycklar kan du lägga till ett lager av dataintegritet i databasen genom att säkerställa att ett eller flera värden per partitionsnyckel är unika. Mer information finns [i Unika nycklar i Azure Cosmos DB](unique-keys.md).
+    Lägg inte till **unika nycklar** i det här exemplet. Med unika nycklar kan du lägga till ett lager med data integritet i databasen genom att se till att det är unikt för ett eller flera värden per partitionsnyckel. Mer information finns i [unika nycklar i Azure Cosmos DB](unique-keys.md).
     
-1.  Välj **OK**. Datautforskaren visar den nya databasen och behållaren som du skapade.
+1.  Välj **OK**. Datautforskaren visar den nya databasen och den behållare som du skapade.
 
-## <a name="add-data-to-your-database"></a>Lägga till data i databasen
+## <a name="add-data-to-your-database"></a>Lägg till data i databasen
 
-Lägg till data i den nya databasen med Data Explorer.
+Lägg till data i den nya databasen med hjälp av Datautforskaren.
 
-1. Expandera **ToDoList-databasen** i **Data Explorer**och expandera behållaren **Objekt.** Välj sedan **Objekt**och välj sedan **Nytt objekt**. 
+1. Expandera **ToDoList** -databasen i **datautforskaren**och expandera behållaren **objekt** . Välj sedan **objekt**och välj sedan **nytt objekt**. 
    
    ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
    
-1. Lägg till följande struktur i dokumentet till höger i **dokumentfönstret:**
+1. Lägg till följande struktur till dokumentet till höger i fönstret **dokument** :
 
      ```json
      {
@@ -120,9 +120,9 @@ Lägg till data i den nya databasen med Data Explorer.
 
 1. Välj **Spara**.
    
-   ![Kopiera i json-data och välj Spara i Utforskaren i Azure-portalen](./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png)
+   ![Kopiera i JSON-data och välj Spara i Datautforskaren i Azure Portal](./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png)
    
-1. Välj **Nytt dokument** igen och skapa och `id`spara ett annat dokument med ett unikt och andra egenskaper och värden som du vill använda. Dina dokument kan ha vilken struktur som helst, eftersom Azure Cosmos DB inte medför något schema för dina data.
+1. Välj **nytt dokument** igen och skapa och spara ett annat dokument med en unik `id`och andra egenskaper och värden som du vill ha. Dokumenten kan ha vilken struktur som helst, eftersom Azure Cosmos DB inte har något schema för dina data.
 
 ## <a name="query-your-data"></a>Fråga dina data
 
@@ -134,13 +134,13 @@ Lägg till data i den nya databasen med Data Explorer.
 
 Om du bara vill ta bort databasen och använda Azure Cosmos-kontot i framtiden kan du ta bort databasen med följande steg:
 
-* Kom till ditt Azure Cosmos-konto.
-* Öppna **Data Explorer,** högerklicka på den databas som du vill ta bort och välj **Ta bort databas**.
-* Ange databas-ID/databasnamn för att bekräfta borttagningen. 
+* Fick ditt Azure Cosmos-konto.
+* Öppna **datautforskaren**, högerklicka på den databas som du vill ta bort och välj **ta bort databas**.
+* Ange databas-ID/databas namn för att bekräfta borttagnings åtgärden. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten lärde du dig hur du skapar ett Azure Cosmos DB-konto, skapar en databas och behållare med datautforskaren. Du kan nu importera ytterligare data till ditt Azure Cosmos DB-konto. 
+I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos DB-konto, skapar en databas och behållare med hjälp av Datautforskaren. Du kan nu importera ytterligare data till ditt Azure Cosmos DB-konto. 
 
 > [!div class="nextstepaction"]
 > [Importera data till Azure Cosmos DB](import-data.md)

@@ -1,6 +1,6 @@
 ---
-title: Hanterad identitet i Azure Synapse-arbetsytan
-description: En artikel som förklarar hanterad identitet på Azure Synapse-arbetsytan
+title: Hanterad identitet i Azure dataSynapses-arbetsyta
+description: En artikel som förklarar hanterad identitet i Azure dataSynapses-arbetsytan
 author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
@@ -8,53 +8,53 @@ ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ms.openlocfilehash: ee0e6249acf3fbbab369d42ae691a5a826df1ee8
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81425121"
 ---
-# <a name="azure-synapse-workspace-managed-identity-preview"></a>Azure Synapse arbetsyta hanterad identitet (förhandsversion)
+# <a name="azure-synapse-workspace-managed-identity-preview"></a>Azure Synapse-arbetsytan hanterad identitet (för hands version)
 
-I den här artikeln får du lära dig mer om hanterad identitet i Azure Synapse-arbetsytan.
+I den här artikeln får du lära dig om hanterad identitet i Azure dataSynapses-arbetsytan.
 
 ## <a name="managed-identities"></a>Hanterade identiteter
 
-Hanterad identitet för Azure-resurser är en funktion i Azure Active Directory. Funktionen förser Azure-tjänster med en automatiskt hanterad identitet i Azure AD. Du kan använda funktionen Hanterad identitet för att autentisera till alla tjänster som stöder Azure AD-autentisering.
+Hanterad identitet för Azure-resurser är en funktion i Azure Active Directory. Funktionen förser Azure-tjänster med en automatiskt hanterad identitet i Azure AD. Du kan använda funktionen för hanterad identitet för att autentisera till alla tjänster som stöder Azure AD-autentisering.
 
-Hanterade identiteter för Azure-resurser är det nya namnet för tjänsten som tidigare kallades MSI (Managed Service Identity). Se [Hanterade identiteter om](../../active-directory/managed-identities-azure-resources/overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) du vill veta mer.
+Hanterade identiteter för Azure-resurser är det nya namnet på tjänsten som tidigare kallades Hanterad tjänstidentitet (MSI). Mer information finns i [hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) .
 
-## <a name="azure-synapse-workspace-managed-identity"></a>Azure Synapse arbetsyta hanterad identitet
+## <a name="azure-synapse-workspace-managed-identity"></a>Hanterad identitet för Azure Synapse-arbetsytan
 
-En systemtilldelad hanterad identitet skapas för din Azure Synapse-arbetsyta när du skapar arbetsytan.
+En systemtilldelad hanterad identitet skapas för din Azure Synapse-arbetsyta när du skapar arbets ytan.
 
 >[!NOTE]
->Den här arbetsytehanterade identiteten kallas hanterad identitet via resten av det här dokumentet.
+>Den här arbets ytans hanterade identitet kallas hanterad identitet genom resten av det här dokumentet.
 
-Azure Synapse använder den hanterade identiteten för att dirigera pipelines. Livscykeln för hanterad identitet är direkt knuten till Azure Synapse-arbetsytan. Om du tar bort Azure Synapse-arbetsytan rensas även den hanterade identiteten.
+I Azure Synapse används den hanterade identiteten för att dirigera pipeliner. Den hanterade identitets livs cykeln är direkt knuten till Azure dataSynapses-arbetsytan. Om du tar bort Azure dataSynapses-arbetsytan rensas även den hanterade identiteten.
 
-Arbetsytan hanterad identitet behöver behörigheter för att utföra åtgärder i pipelines. Du kan använda objekt-ID eller ditt Azure Synapse-arbetsytenamn för att hitta den hanterade identiteten när du beviljar behörigheter.
+Arbets ytans hanterade identitet måste ha behörighet att utföra åtgärder i pipelinen. Du kan använda objekt-ID: t eller din Azure Synapse-arbetsyta för att hitta den hanterade identiteten när du beviljar behörigheter.
 
-## <a name="retrieve-managed-identity-in-azure-portal"></a>Hämta hanterad identitet i Azure-portalen
+## <a name="retrieve-managed-identity-in-azure-portal"></a>Hämta hanterad identitet i Azure Portal
 
-Du kan hämta den hanterade identiteten i Azure-portalen. Öppna din Azure Synapse-arbetsyta i Azure-portalen och välj **Översikt** från vänster navigering. Den hanterade identitetens objekt-ID visas på huvudskärmen.
+Du kan hämta den hanterade identiteten i Azure Portal. Öppna din Azure Synapse-arbetsyta i Azure Portal och välj **Översikt** i det vänstra navigerings fältet. Objekt-ID: t för den hanterade identiteten visas på huvud skärmen.
 
-![Id för hanterade identitetsobjekt](./media/synapse-workspace-managed-identity/workspace-managed-identity-1.png)
+![Objekt-ID för hanterad identitet](./media/synapse-workspace-managed-identity/workspace-managed-identity-1.png)
 
-Den hanterade identitetsinformationen visas också när du skapar en länkad tjänst som stöder autentisering av hanterad identitet från Azure Synapse Studio.
+Den hanterade identitets informationen visas också när du skapar en länkad tjänst som stöder autentisering med hanterad identitet från Azure Synapse Studio.
 
-Starta **Azure Synapse Studio** och välj fliken **Hantera** från vänster navigering. Välj sedan **Länkade tjänster** och välj alternativet **+ Nytt** för att skapa en ny länkad tjänst.
+Starta **Azure Synapse Studio** och välj fliken **Hantera** i det vänstra navigerings fältet. Välj sedan **länkade tjänster** och välj alternativet **+ ny** för att skapa en ny länkad tjänst.
 
-![Skapande av länkade tjänster 1](./media/synapse-workspace-managed-identity/workspace-managed-identity-2.png)
+![Skapa länkad tjänst 1](./media/synapse-workspace-managed-identity/workspace-managed-identity-2.png)
 
-Skriv Azure Data Lake *Storage Gen2*i fönstret **Nytt länkat tjänst** . Välj resurstypen **Azure Data Lake Storage Gen2** i listan nedan och välj **Fortsätt**.
+I fönstret **ny länkad tjänst** skriver du *Azure Data Lake Storage Gen2*. Välj resurs typen **Azure Data Lake Storage Gen2** i listan nedan och välj **Fortsätt**.
 
-![Skapande av länkade tjänster 2](./media/synapse-workspace-managed-identity/workspace-managed-identity-3.png)
+![Skapa länkad tjänst 2](./media/synapse-workspace-managed-identity/workspace-managed-identity-3.png)
 
-I nästa fönster väljer du **Metoden Hanterad identitet** för **autentisering**. Du ser den hanterade identitetens **namn** och **objekt-ID**.
+I nästa fönster väljer du **hanterad identitet** för **autentiseringsmetod**. Du ser **namnet** och **objekt-ID: t**för den hanterade identiteten.
 
-![Skapande av länkade tjänster 3](./media/synapse-workspace-managed-identity/workspace-managed-identity-4.png)
+![Skapa länkad tjänst 3](./media/synapse-workspace-managed-identity/workspace-managed-identity-4.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Bevilja behörigheter till Azure Synapse-arbetsytans hanterade identitet](./how-to-grant-workspace-managed-identity-permissions.md)
+[Bevilja behörighet till Azure Synapse-arbetsytans hanterade identitet](./how-to-grant-workspace-managed-identity-permissions.md)

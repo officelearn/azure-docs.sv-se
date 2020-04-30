@@ -1,6 +1,6 @@
 ---
-title: Lagra frågeresultat till lagring
-description: I den här artikeln får du lära dig hur du lagrar frågeresultat till lagring med SQL on-demand (preview).
+title: Spara frågeresultat till lagringsplats
+description: I den här artikeln får du lära dig hur du lagrar frågeresultat till lagring med SQL på begäran (för hands version).
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -10,29 +10,29 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 462185feb2b9cbebd17ce9cba54c2b23deea6c75
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81425149"
 ---
-# <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Lagra frågeresultat till lagring med SQL on-demand (preview) med Azure Synapse Analytics
+# <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Lagra frågeresultat till lagring med SQL på begäran (för hands version) med Azure Synapse Analytics
 
-I den här artikeln får du lära dig hur du lagrar frågeresultat till lagring med SQL On-demand (preview).
+I den här artikeln får du lära dig hur du lagrar frågeresultat till lagrings utrymmet med SQL på begäran (för hands version).
 
 ## <a name="prerequisites"></a>Krav
 
-Ditt första steg är att granska artiklarna nedan och se till att du har uppfyllt förutsättningarna:
+Ditt första steg är att granska artiklarna nedan och se till att du uppfyller kraven:
 
-- [Första gången setup](query-data-storage.md#first-time-setup)
-- [Krav](query-data-storage.md#prerequisites)
+- [Installation vid första tiden](query-data-storage.md#first-time-setup)
+- [Förutsättningar](query-data-storage.md#prerequisites)
 
-## <a name="create-external-table-as-select"></a>Skapa extern tabell som markering
+## <a name="create-external-table-as-select"></a>Skapa extern tabell som Välj
 
-Du kan använda CREATE EXTERNAL TABLE AS SELECT (CETAS) för att lagra frågeresultaten till lagringen.
+Du kan använda CREATE EXTERNAL TABLE AS SELECT (CETAS)-instruktionen för att lagra frågeresultaten till lagringen.
 
 > [!NOTE]
-> Ändra den första raden i frågan, dvs [mydbname], så att du använder databasen du skapade. Om du inte har skapat en databas läser du [Första gången.](query-data-storage.md#first-time-setup)
+> Ändra den första raden i frågan, t. ex. [mydbname], så att du använder den databas som du har skapat. Om du inte har skapat en databas läser du [installations programmet för första gången](query-data-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname];
@@ -69,12 +69,12 @@ FROM
 
 ```
 
-## <a name="use-a-external-table-created"></a>Använda en extern tabell som skapats
+## <a name="use-a-external-table-created"></a>Använd en extern tabell som skapats
 
-Du kan använda extern tabell som skapats via CETAS som en vanlig extern tabell.
+Du kan använda en extern tabell som skapats via CETAS som en vanlig extern tabell.
 
 > [!NOTE]
-> Ändra den första raden i frågan, dvs [mydbname], så att du använder databasen du skapade. Om du inte har skapat en databas läser du [Första gången.](query-data-storage.md#first-time-setup)
+> Ändra den första raden i frågan, t. ex. [mydbname], så att du använder den databas som du har skapat. Om du inte har skapat en databas läser du [installations programmet för första gången](query-data-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname];
@@ -91,4 +91,4 @@ ORDER BY
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du frågar olika filtyper finns i artiklarna [Fråga en enda CSV-fil,](query-single-csv-file.md) [Frågeparkettfiler](query-parquet-files.md)och [Fråge-JSON-filer.](query-json-files.md)
+Information om hur du frågar olika filtyper finns i artikeln [fråga en enkel CSV-fil](query-single-csv-file.md), [fråga Parquet-filer](query-parquet-files.md)och [fråga JSON-filer](query-json-files.md) .

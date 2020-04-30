@@ -1,5 +1,5 @@
 ---
-title: Skapa en Azure-datafabrik med hjälp av Resource Manager-mallen
+title: Skapa en Azure Data Factory med Resource Manager-mall
 description: I de här självstudierna skapar du ett exempel på en Azure Data Factory-pipeline med hjälp av en Azure Resource Manager-mall.
 services: data-factory
 documentationcenter: ''
@@ -11,10 +11,10 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.openlocfilehash: 5ea45346de5ea841867dd13dd4c9a0ed26647448
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81419127"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Självstudie: Skapa en Azure-datafabrik med hjälp av en Azure Resource Manager-mall
@@ -48,7 +48,7 @@ Mer information om JSON-syntaxen och JSON-egenskaperna för Data Factory-resurse
 
 ## <a name="data-factory-json"></a>Data Factory JSON
 
-Skapa en JSON-fil med namnet **ADFTutorialARM.json** i **mappen C:\ADFTutorial** (Skapa mappen ADFTutorial om den inte redan finns) med följande innehåll:
+Skapa en JSON-fil med namnet **ADFTutorialARM. JSON** i mappen **C:\ADFTutorial** (skapa mappen ADFTutorial om den inte redan finns) med följande innehåll:
 
 ```json
 {  
@@ -325,7 +325,7 @@ Skapa en JSON-fil med namnet **ADFTutorialARM-Parameters.json** som innehåller 
 
 ## <a name="deploy-data-factory-entities"></a>Distribuera Data Factory-entiteter
 
-I PowerShell kör du följande kommando för att distribuera Data Factory-entiteter i resursgruppen (i det här fallet ta ADFTutorialResourceGroup som exempel) med hjälp av den Resource Manager-mall som du skapade tidigare i den här snabbstarten.
+I PowerShell kör du följande kommando för att distribuera Data Factory entiteter i resurs gruppen (i det här fallet ska du ta ADFTutorialResourceGroup som ett exempel) med hjälp av Resource Manager-mallen som du skapade tidigare i den här snabb starten.
 
 ```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
@@ -359,13 +359,13 @@ DeploymentDebugLogLevel :
 Med mallen kan du distribuera följande Data Factory-entiteter:
 
 - Länkad Azure-lagringstjänst
-- Binära datamängder (indata och utdata)
+- Binära data uppsättningar (indata och utdata)
 - Pipeline med en kopieringsaktivitet
 - Utlösare för att utlösa pipelinen
 
-Den distribuerade utlösaren har stoppats. Ett sätt att starta utlösaren är att använda **Start-AzDataFactoryV2Trigger** PowerShell cmdlet. Följande procedur innehåller detaljerade anvisningar:
+Den distribuerade utlösaren har stoppats. Ett av sätt att starta utlösaren är att använda PowerShell **-cmdleten Start-AzDataFactoryV2Trigger** . Följande procedur innehåller detaljerade anvisningar:
 
-1. I PowerShell-fönstret skapar du en variabel som anger namnet på resursgruppen. Kopiera följande kommando till PowerShell-fönstret och tryck på RETUR. Om du har angett ett annat resursgruppsnamn för kommandot New-AzResourceGroupDeployment uppdaterar du värdet här.
+1. I PowerShell-fönstret skapar du en variabel som anger namnet på resursgruppen. Kopiera följande kommando till PowerShell-fönstret och tryck på RETUR. Om du har angett ett annat resurs grupp namn för kommandot New-AzResourceGroupDeployment uppdaterar du värdet här.
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -434,21 +434,21 @@ Den distribuerade utlösaren har stoppats. Ett sätt att starta utlösaren är a
 
 2. På sidan **Datafabriker** klickar du på datafabriken som du skapade. Om det behövs kan du filtrera listan med namnet på datafabriken.
 
-3. Klicka på **Författare & bildskärm** på sidan Datafabrik.
+3. På sidan data fabrik klickar du på **författar & Monitor** panel.
 
-4. På sidan **Kom igång** väljer du **fliken Bildskärm**.  ![Övervaka pipeline-körning](media/doc-common-process/get-started-page-monitor-button.png)
+4. På sidan **nu sätter vi igång** väljer du **fliken övervakare**.  ![Övervaka pipeline-körning](media/doc-common-process/get-started-page-monitor-button.png)
 
     > [!IMPORTANT]
     > Du ser att pipelines endast körs hel timme (till exempel: 4, 5, 6 osv.). Klicka på **Uppdatera** i verktygsfältet för att uppdatera listan när tiden når nästa timma.
 
-5. Klicka på länken **Visa aktivitetskörningar** i kolumnen **Åtgärder.**
+5. Klicka på länken **Visa aktivitets körningar** i kolumnen **åtgärder** .
 
     ![Länk för pipelineåtgärder](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
 
 6. Du ser att aktiviteten som körs är associerad med pipelinekörningen. I den här snabbstarten har pipelinen endast en aktivitet av typen: kopiera. Därför kan du se en körning för den aktiviteten.
 
     ![Aktivitetskörningar](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
-7. Klicka på länken **Utdata** under Åtgärdskolumnen. Du ser utdata från kopieringsåtgärden i ett **utdatafönster**. Klicka på maximeringsknappen om du vill visa fullständiga utdata. Du kan stänga det maximerade utdatafönstret eller stänga det.
+7. Klicka på länken **utdata** under kolumnen åtgärder. Du ser utdata från kopieringsåtgärden i ett **utdatafönster**. Klicka på maximeringsknappen om du vill visa fullständiga utdata. Du kan stänga det maximerade utdatafönstret eller stänga det.
 
 8. Stoppa utlösaren när du ser en lyckad/misslyckad körning. Utlösaren kör pipelinen en gång i timmen. Pipelinen kopierar samma fil från indatamappen till utdatamappen för varje körning. Kör följande kommando i PowerShell-fönstret om du vill stoppa utlösaren.
     
@@ -462,9 +462,9 @@ Den distribuerade utlösaren har stoppats. Ett sätt att starta utlösaren är a
 
 Följande Data Factory-entiteter har definierats i JSON-mallen:
 
-- [Azure Storage-länkad tjänst](#azure-storage-linked-service)
-- [Binär indatauppsättning](#binary-input-dataset)
-- [Binär datauppsättning](#binary-output-dataset)
+- [Azure Storage länkad tjänst](#azure-storage-linked-service)
+- [Data uppsättning för binär indata](#binary-input-dataset)
+- [Data uppsättning för binär utdata](#binary-output-dataset)
 - [Datapipeline med en kopieringsaktivitet](#data-pipeline)
 - [Utlösare](#trigger)
 
@@ -494,9 +494,9 @@ AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Du
 
 connectionString använder parametrarna storageAccountName och storageAccountKey. Värdena för dessa parametrar skickades med hjälp av en konfigurationsfil. Definitionen använder också variablerna azureStorageLinkedService och dataFactoryName, som definieras i mallen.
 
-#### <a name="binary-input-dataset"></a>Binär indatauppsättning
+#### <a name="binary-input-dataset"></a>Data uppsättning för binär indata
 
-Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. I Definition av binär datauppsättning anger du namnen på blob-behållaren, mappen och filen som innehåller indata. Se [Binära datauppsättningsegenskaper](format-binary.md#dataset-properties) för information om JSON-egenskaper som används för att definiera en binär datauppsättning.
+Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. I definition av binär data uppsättning anger du namn på BLOB-behållare, mapp och fil som innehåller indata. Se [Egenskaper för binär data mängd](format-binary.md#dataset-properties) för information om JSON-egenskaper som används för att definiera en binär data uppsättning.
 
 ```json
 {  
@@ -528,9 +528,9 @@ Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory
 }
 ```
 
-#### <a name="binary-output-dataset"></a>Binär datauppsättning
+#### <a name="binary-output-dataset"></a>Data uppsättning för binär utdata
 
-Du anger namnet på mappen i Azure Blob Storage som innehåller kopierade data från indatamappen. Se [Binära datauppsättningsegenskaper](format-binary.md#dataset-properties) för information om JSON-egenskaper som används för att definiera en binär datauppsättning.
+Du anger namnet på mappen i Azure Blob Storage som innehåller kopierade data från indatamappen. Se [Egenskaper för binär data mängd](format-binary.md#dataset-properties) för information om JSON-egenskaper som används för att definiera en binär data uppsättning.
 
 ```json
 {  
@@ -563,7 +563,7 @@ Du anger namnet på mappen i Azure Blob Storage som innehåller kopierade data f
 
 #### <a name="data-pipeline"></a>Datapipeline
 
-Du definierar en pipeline som kopierar data från en binär datauppsättning till en annan binär datauppsättning. Se [Pipeline-JSON](concepts-pipelines-activities.md#pipeline-json) för beskrivningar av JSON-element som används för att definiera en pipeline i det här exemplet.
+Du definierar en pipeline som kopierar data från en binär data uppsättning till en annan binär data uppsättning. Se [Pipeline-JSON](concepts-pipelines-activities.md#pipeline-json) för beskrivningar av JSON-element som används för att definiera en pipeline i det här exemplet.
 
 ```json
 {  
@@ -638,7 +638,7 @@ Du definierar en pipeline som kopierar data från en binär datauppsättning til
 
 #### <a name="trigger"></a>Utlösare
 
-Du definierar en utlösare som kör pipelinen en gång per timme. Den distribuerade utlösaren har stoppats. Starta utlösaren med hjälp av **cmdleten Start-AzDataFactoryV2Trigger.** Mer information om utlösare finns i artikel [om pipelinekörning och utlösare.](concepts-pipeline-execution-triggers.md#trigger-execution)
+Du definierar en utlösare som kör pipelinen en gång per timme. Den distribuerade utlösaren har stoppats. Starta utlösaren med hjälp av cmdleten **Start-AzDataFactoryV2Trigger** . Mer information om utlösare finns i artikeln [pipeline-körning och utlösare](concepts-pipeline-execution-triggers.md#trigger-execution) .
 
 ```json
 {  

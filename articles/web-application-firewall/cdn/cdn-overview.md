@@ -1,6 +1,6 @@
 ---
-title: Vad är Brandvägg för Azure-webbprogram på Azure CDN?
-description: Lär dig hur Azure-brandväggen för webbprogram i Azure CDN-tjänsten skyddar dina webbprogram från skadliga attacker.
+title: Vad är Azure Web Application-brandvägg på Azure CDN?
+description: Lär dig hur Azure WebApplication-brandväggen i Azure CDN service skyddar dina webb program mot skadliga attacker.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -8,110 +8,110 @@ ms.topic: overview
 ms.date: 03/18/2020
 ms.author: victorh
 ms.openlocfilehash: 28cf8d9fd60cc6fc158812aa0a1dff3a4b0dced1
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80754297"
 ---
-# <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Azure Web Application-brandväggen i Azure Content Delivery Network
+# <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Azure Web Application-brandvägg på Azure Content Delivery Network
 
-Azure Web Application Firewall (WAF) på CDN (Azure Content Delivery Network) från Microsoft ger centraliserat skydd för ditt webbinnehåll. WAF försvarar dina webbtjänster mot vanliga bedrifter och sårbarheter. Det håller din tjänst mycket tillgänglig för dina användare och hjälper dig att uppfylla efterlevnadskraven.
+Azure Web Application Firewall (WAF) på Azure Content Delivery Network (CDN) från Microsoft tillhandahåller centraliserat skydd för ditt webb innehåll. WAF skyddar dina webb tjänster mot vanliga sårbarheter och sårbarheter. Tjänsten håller din tjänst hög tillgänglig för dina användare och hjälper dig att uppfylla kraven för efterlevnad.
 
 > [!IMPORTANT]
-> WAF på Azure CDN från Microsoft är för närvarande i offentlig förhandsversion och har ett förhandsversionsavtal på tjänstnivå. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet.  Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> WAF på Azure CDN från Microsoft är för närvarande en offentlig för hands version och tillhandahålls med ett service nivå avtal för för hands versioner. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet.  Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-WAF på Azure CDN är en global och centraliserad lösning. Den distribueras på Azure-nätverkskantplatser runt om i världen. WAF stoppar skadliga attacker nära attackkällorna, innan de når ditt ursprung. Du får globalt skydd i stor skala utan att offra prestanda. 
+WAF på Azure CDN är en global och centraliserad lösning. Den distribueras på Azures nätverks gräns platser runtom i världen. WAF stoppar skadliga attacker nära angrepps källorna innan de når ditt ursprung. Du får globalt skydd i skala utan att offra prestanda. 
 
-En WAF-princip länkar enkelt till alla CDN-slutpunkter i din prenumeration. Nya regler kan distribueras inom några minuter, så att du snabbt kan svara på ändrade hotmönster.
+En WAF-princip länkar enkelt till en CDN-slutpunkt i din prenumeration. Nya regler kan distribueras inom några minuter, så du kan snabbt svara på att ändra hot mönster.
 
-![Brandvägg för Azure-webbprogram](../media/cdn-overview/waf-cdn-overview.png)
+![Brand vägg för Azure-webbprogram](../media/cdn-overview/waf-cdn-overview.png)
 
-## <a name="waf-policy-and-rules"></a>WAF:s policy och regler
+## <a name="waf-policy-and-rules"></a>WAF princip och regler
 
-Du kan konfigurera en WAF-princip och associera principen till en eller flera CDN-slutpunkter för skydd. En WAF-princip består av två typer av säkerhetsregler:
+Du kan konfigurera en WAF-princip och associera principen till en eller flera CDN-slutpunkter för skydd. En WAF-princip består av två typer av säkerhets regler:
 
 - anpassade regler som du kan skapa.
 
-- hanterade regeluppsättningar som är en samling azure-hanterade förkonfigurerade regler.
+- hanterade regel uppsättningar som är en samling med Azure-hanterade förkonfigurerade regler.
 
-När båda finns bearbetas anpassade regler innan reglerna bearbetas i en hanterad regeluppsättning. En regel består av ett matchningsvillkor, en prioritet och en åtgärd. Åtgärdstyper som stöds är: *TILLÅT*, *BLOCKERA,* *LOGGA*och *OMDIRIGERA*. Du kan skapa en helt anpassad princip som uppfyller dina specifika programskyddskrav genom att kombinera hanterade och anpassade regler.
+När båda finns bearbetas anpassade regler innan reglerna bearbetas i en hanterad regel uppsättning. En regel består av ett matchnings villkor, en prioritet och en åtgärd. De åtgärds typer som stöds är: *Tillåt*, *blockera*, *Logga*och *omdirigera*. Du kan skapa en helt anpassad princip som uppfyller dina specifika krav för program skydd genom att kombinera de hanterade och anpassade reglerna.
 
-Regler inom en princip bearbetas i prioritetsordning. Prioritet är ett unikt tal som definierar ordningen på de regler som ska bearbetas. Mindre tal har högre prioritet och dessa regler utvärderas före regler med ett större värde. När en regel har matchats tillämpas motsvarande åtgärd som definierades i regeln på begäran. När en sådan matchning har bearbetats bearbetas inte regler med lägre prioritet ytterligare.
+Regler i en princip bearbetas i en prioritetsordning. Prioritet är ett unikt nummer som definierar ordningen på regler som ska bearbetas. Lägre siffror är högre prioritet och dessa regler utvärderas innan regler med ett större värde. När en regel har matchats tillämpas motsvarande åtgärd som definierats i regeln för begäran. När en sådan matchning bearbetas bearbetas inte regler med lägre prioritet ytterligare.
 
-Ett webbprogram som finns på Azure CDN kan bara ha en WAF-princip associerad med den åt gången. Du kan dock ha en CDN-slutpunkt utan waf-principer som är associerade med den. Om det finns en WAF-princip replikeras den till alla våra kantplatser för att säkerställa konsekventa säkerhetsprinciper över hela världen.
+Ett webb program som finns på Azure CDN kan bara ha en associerad WAF-princip i taget. Du kan dock ha en CDN-slutpunkt utan några WAF-principer som är kopplade till den. Om det finns en WAF-princip replikeras den till alla våra gräns platser för att säkerställa konsekventa säkerhets principer över hela världen.
 
 ## <a name="waf-modes"></a>WAF-lägen
 
-WAF-principen kan konfigureras för att köras i följande två lägen:
+WAF-principen kan konfigureras att köras i följande två lägen:
 
-- *Identifieringsläge*: När waf körs i identifieringsläge vidtar du inga andra åtgärder än bildskärmar och loggar begäran och dess matchade WAF-regel till WAF-loggar. Du kan aktivera loggningsdiagnostik för ytterdörren. När du använder portalen går du till avsnittet **Diagnostik.**
+- *Identifierings läge*: vid körning i identifierings läge tar WAF inte med andra åtgärder än övervakare och loggar begäran och dess MATCHAde WAF-regel till WAF-loggar. Du kan aktivera loggning av diagnostik för front dörren. När du använder portalen går du till avsnittet **diagnostik** .
 
-- *Förebyggande läge*: I förebyggande läge vidtar WAF den angivna åtgärden om en begäran matchar en regel. Om en matchning hittas utvärderas inga ytterligare regler med lägre prioritet. Alla matchade begäranden loggas också i WAF-loggarna.
+- *Skydds läge*: i skydds läge tar WAF den angivna åtgärden om en begäran matchar en regel. Om en matchning hittas utvärderas inga ytterligare regler med lägre prioritet. Alla matchade begär Anden loggas också i WAF-loggarna.
 
 ## <a name="waf-actions"></a>WAF-åtgärder
 
-Du kan välja en av följande åtgärder när en begäran matchar en regels villkor:
+Du kan välja någon av följande åtgärder när en begäran matchar en regels villkor:
 
-- *Tillåt*: Begäran passerar genom WAF och vidarebefordras till backend. Inga ytterligare regler med lägre prioritet kan blockera den här begäran.
-- *Blockera*: Begäran är blockerad och WAF skickar ett svar till klienten utan att vidarebefordra begäran till backend.
-- *Logg:* Begäran loggas i WAF-loggarna och WAF fortsätter att utvärdera regler med lägre prioritet.
-- *Omdirigering*: WAF omdirigerar begäran till den angivna URI.Redirect : WAF redirects the request to the specified URI. Den angivna URI-principen är en principnivåinställning. När alla begäranden som matchar *åtgärden Omdirigera* har konfigurerats skickas de till den URI:n.
+- *Tillåt*: begäran passerar genom WAF och vidarebefordras till Server delen. Inga ytterligare regler för lägre prioritet kan blockera den här begäran.
+- *Blockera*: begäran är blockerad och WAF skickar ett svar till klienten utan att vidarebefordra begäran till Server delen.
+- *Log*: begäran loggas i WAF-loggarna och WAF fortsätter att utvärdera lägre prioritets regler.
+- *Omdirigera*: WAF omdirigerar begäran till angiven URI. Den angivna URI: n är en princip nivå inställning. När den har kon figurer ATS skickas alla begär Anden som matchar *omdirigeringen* till denna URI.
 
 ## <a name="waf-rules"></a>WAF-regler
 
-En WAF-princip kan bestå av två typer av säkerhetsregler:
+En WAF-princip kan bestå av två typer av säkerhets regler:
 
-- *anpassade regler:* regler som du skapar själv 
-- *hanterade regeluppsättningar:* Azure-hanterade förkonfigurerade uppsättning regler
+- *anpassade regler*: regler som du skapar själv 
+- *hanterade regel uppsättningar*: Azure Managed förkonfigurerad uppsättning regler
 
 ### <a name="custom-rules"></a>Anpassade regler
 
-Anpassade regler kan ha matchningsregler och regler för hastighetskontroll.
+Anpassade regler kan ha matchnings regler och kontroll regler för hastighet.
 
-Du kan konfigurera följande anpassade matchningsregler:
+Du kan konfigurera följande anpassade matchnings regler:
 
-- *IP-tillåta lista och blockera lista:* Du kan styra åtkomsten till dina webbprogram baserat på en lista över klient-IP-adresser eller IP-adressintervall. Både IPv4- och IPv6-adresstyper stöds. Den här listan kan konfigureras för att antingen blockera eller tillåta de begäranden där käll-IP matchar en IP-adress i listan.
+- Lista över *tillåtna och blockerade IP-* adresser: du kan styra åtkomsten till dina webb program baserat på en lista över klient-IP-adresser eller IP-adressintervall. Både IPv4-och IPv6-adress typer stöds. Den här listan kan konfigureras för att antingen blockera eller tillåta de förfrågningar där käll-IP: en motsvarar en IP-adress i listan.
 
-- *Geografisk baserad åtkomstkontroll*: Du kan styra åtkomsten till dina webbprogram baserat på landskoden som är associerad med en klients IP-adress.
+- *Geografisk åtkomst kontroll*: du kan styra åtkomsten till dina webb program baserat på den landskod som är associerad med KLIENTens IP-adress.
 
-- *HTTP-parameterbaserad åtkomstkontroll*: Du kan basera regler på strängmatchningar i PARAMETRAR för HTTP/HTTPS-begäran.  Till exempel frågesträngar, POST args, Request URI, Request Header och Request Body.
+- *Http-parameter-baserad åtkomst kontroll*: du kan basera regler på sträng matchningar i http/https-begäran parametrar.  Till exempel frågesträngar, POST-argument, begär ande-URI, begär ande rubrik och brödtext för begäran.
 
-- *Begäran metodbaserad åtkomstkontroll*: Du baserar regler på HTTP-begäran metoden för begäran. Till exempel GET, PUT eller HEAD.
+- *Metod-baserad åtkomst kontroll*: du baserar regler på http request-metoden för begäran. Till exempel GET, tag eller HEAD.
 
-- *Storleksbegränsning:* Du kan basera regler på längden på specifika delar av en begäran, till exempel frågesträng, Uri eller begärandetext.
+- *Storleks begränsning*: du kan basera regler på längden på vissa delar av en begäran, till exempel frågesträng, URI eller brödtext i begäran.
 
-En hastighetskontrollregel begränsar onormalt hög trafik från alla klient-IP-adresser.
+En hastighets kontroll regel begränsar onormalt hög trafik från alla klient-IP-adresser.
 
-- *Regler för hastighetsbegränsning:* Du kan konfigurera ett tröskelvärde för antalet webbbegäranden som tillåts från en klient-IP-adress under en minuts varaktighet. Den här regeln skiljer sig från en IP-lista-baserad tillåt/blockera anpassad regel som antingen tillåter alla eller blockerar alla begäranden från en klient-IP-adress. Hastighetsgränser kan kombineras med ytterligare matchningsvillkor, till exempel HTTP(S) parametermatchningar för detaljerad hastighetskontroll.
+- *Hastighets begränsnings regler*: du kan konfigurera ett tröskelvärde för antalet webb förfrågningar som tillåts från en KLIENTs IP-adress under en varaktighet på en minut. Den här regeln skiljer sig från en anpassad regel för Tillåt/blockera en IP-lista som antingen tillåter alla eller blockerar all begäran från en klients IP-adress. Hastighets begränsningar kan kombineras med ytterligare matchnings villkor, t. ex. HTTP (S)-parameter matchningar för detaljerad hastighets kontroll.
 
-### <a name="azure-managed-rule-sets"></a>Azure-hanterade regeluppsättningar
+### <a name="azure-managed-rule-sets"></a>Azure-hanterade regel uppsättningar
 
-Azure-hanterade regeluppsättningar är ett enkelt sätt att distribuera skydd mot en gemensam uppsättning säkerhetshot. Eftersom dessa regeluppsättningar hanteras av Azure uppdateras reglerna efter behov för att skydda mot nya attacksignaturer. Den hanterade standardregeluppsättningen för Azure innehåller regler mot följande hotkategorier:
+Azure-hanterade regel uppsättningar ger ett enkelt sätt att distribuera skydd mot en gemensam uppsättning säkerhetshot. Eftersom dessa rulesets hanteras av Azure uppdateras reglerna vid behov för att skydda mot nya attack-signaturer. Den Azure-hanterade standard regel uppsättningen inkluderar regler mot följande hot kategorier:
 
 - Skriptkörning över flera webbplatser
 - Java-attacker
-- Lokal filinkludering
-- PHP injektion attacker
-- Fjärrkommandokörning
+- Lokal fil inkludering
+- Angrepp för PHP-injektering
+- Fjärrkörning av kommando
 - Införande av fjärrfil
-- Session fixering
+- Sessions-bindning
 - Skydd mot SQL-inmatning
-- Protokollangripare
+- Protokoll angripare
 
-Versionsnumret för standardregeluppsättningen ökar när nya attacksignaturer läggs till i regeluppsättningen.
-Standardregeluppsättningen är aktiverad som standard i *identifieringsläge* i WAF-principerna. Du kan inaktivera eller aktivera enskilda regler i standardregeluppsättningen för att uppfylla dina programkrav. Du kan också ange specifika åtgärder (ALLOW/BLOCK/REDIRECT/LOG) per regel. Standardåtgärden för den hanterade standardregeluppsättningen är *Blockera*.
+Versions numret för standard regel uppsättningen ökar när nya angrepps signaturer läggs till i regel uppsättningen.
+Standard regel uppsättningen är aktive rad som standard i *identifierings* läge i dina WAF-principer. Du kan inaktivera eller aktivera enskilda regler inom standard regel uppsättningen för att uppfylla dina program krav. Du kan också ange specifika åtgärder (Tillåt/blockera/OMDIRIGERA/logga) per regel. Standard åtgärden för den hanterade standard regel uppsättningen är *blockera*.
 
-Anpassade regler tillämpas alltid innan regler i standardregeluppsättningen utvärderas. Om en begäran matchar en anpassad regel tillämpas motsvarande regelåtgärd. Begäran blockeras eller skickas till backend. Inga andra anpassade regler eller reglerna i standardregeluppsättningen bearbetas. Du kan också ta bort standardregeluppsättningen från WAF-principerna.
+Anpassade regler tillämpas alltid innan regler i standard regel uppsättningen utvärderas. Om en begäran matchar en anpassad regel tillämpas motsvarande regel åtgärd. Begäran är antingen blockerad eller passerad till Server delen. Inga andra anpassade regler eller reglerna i standard regel uppsättningen bearbetas. Du kan också ta bort standard regel uppsättningen från dina WAF-principer.
 
 ## <a name="configuration"></a>Konfiguration
 
-Du kan konfigurera och distribuera alla WAF-regeltyper med hjälp av Azure-portalen, REST-API:er, Azure Resource Manager-mallar och Azure PowerShell.
+Du kan konfigurera och distribuera alla typer av WAF med hjälp av Azure Portal, REST-API: er, Azure Resource Manager mallar och Azure PowerShell.
 
 ## <a name="monitoring"></a>Övervakning
 
-Övervakning för WAF med CDN är integrerad med Azure Monitor för att spåra aviseringar och enkelt övervaka trafiktrender.
+Övervakning av WAF med CDN är integrerat med Azure Monitor för att spåra aviseringar och enkelt övervaka trafik trender.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudiekurs: Skapa en WAF-princip med Azure CDN med Azure-portalen](waf-cdn-create-portal.md)
+- [Självstudie: skapa en WAF-princip med Azure CDN med hjälp av Azure Portal](waf-cdn-create-portal.md)

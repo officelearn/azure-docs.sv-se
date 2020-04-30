@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 45276ab59f1a3dabea42b904ff54bd37326fdeca
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/30/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80398117"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs – en stordataströmningsplattform och händelseinmatningstjänst
@@ -61,7 +61,7 @@ Med Event Hubs kan du börja med dataströmmar i megabytestorlek och växa till 
 
 Med [Event Hubs för Apache Kafka-ekosystem](event-hubs-for-kafka-ecosystem-overview.md) kan [Apache Kafka-klienter och -program (1.0 och senare)](https://kafka.apache.org/) kommunicera med Event Hubs. Du behöver inte installera, konfigurera eller hantera några Kafka-kluster.
 
-Med ett brett ekosystem tillgängligt på olika språk [.NET](https://github.com/Azure/azure-sdk-for-net/), [Java](https://github.com/Azure/azure-sdk-for-java/), [Python](https://github.com/Azure/azure-sdk-for-python/), [JavaScript](https://github.com/Azure/azure-sdk-for-js/)kan du enkelt börja bearbeta dina strömmar från Event Hubs. Alla klientspråk som stöds ger lågnivåintegrering. Ekosystemet innehåller också sömlös integrering med Azure-tjänster som Azure Stream Analytics och Azure Functions så att du kan skapa arkitekturer utan server.
+Med ett brett eko system som är tillgängligt på olika språk [.net](https://github.com/Azure/azure-sdk-for-net/), [Java](https://github.com/Azure/azure-sdk-for-java/), [python](https://github.com/Azure/azure-sdk-for-python/), [Java Script](https://github.com/Azure/azure-sdk-for-js/), kan du enkelt börja bearbeta dina strömmar från Event Hubs. Alla klientspråk som stöds ger lågnivåintegrering. Ekosystemet innehåller också sömlös integrering med Azure-tjänster som Azure Stream Analytics och Azure Functions så att du kan skapa arkitekturer utan server.
 
 ## <a name="key-architecture-components"></a>Nyckelkomponenter i arkitektur
 Event Hubs innehåller följande [viktiga element](event-hubs-features.md):
@@ -76,17 +76,17 @@ Följande bild visar strömhanteringsarkitekturen i Event Hubs:
 
 ![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
 
-## <a name="event-hubs-on-azure-stack-hub"></a>Händelsehubbar på Azure Stack Hub
-Event Hubs på Azure Stack Hub kan du förverkliga hybridmoln scenarier. Streaming och händelsebaserade lösningar stöds, för både lokal och Azure-molnbearbetning. Oavsett om ditt scenario är hybrid (ansluten) eller frånkopplat kan din lösning stödja bearbetning av händelser/strömmar i stor skala. Ditt scenario är bara bundet av klusterstorleken Event Hubs, som du kan etablera efter dina behov. 
+## <a name="event-hubs-on-azure-stack-hub"></a>Event Hubs på Azure Stack Hub
+Med Event Hubs på Azure Stack Hub kan du använda hybrid moln scenarier. Strömnings-och händelsebaserade lösningar stöds för både lokal och Azure-molnbaserad bearbetning. Oavsett om ditt scenario är hybrid (ansluten) eller frånkopplat kan din lösning stödja bearbetning av händelser/strömmar i stor skala. Ditt scenario är bara kopplat till Event Hubs kluster storlek, som du kan etablera efter dina behov. 
 
-Event Hubs-utgåvorna (på Azure Stack Hub och på Azure) erbjuder en hög grad av funktionsparitet. Den här pariteten innebär att SDK:er, exempel, PowerShell, CLI och portaler erbjuder en liknande upplevelse, med få skillnader. 
+Event Hubs-versionerna (på Azure Stack hubb och på Azure) erbjuder en hög grad av funktions paritet. Den här pariteten innebär att SDK: er, exempel, PowerShell, CLI och portaler ger samma upplevelse, med några skillnader. 
 
-Event Hubs on Stack är gratis under offentlig förhandsversion. Mer information finns i [Översikt över händelsehubbar på Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/event-hubs-overview).
+Event Hubs på stack är kostnads fritt under den offentliga för hands versionen. Mer information finns i [Översikt över Event Hubs på Azure Stack Hub](https://docs.microsoft.com/azure-stack/user/event-hubs-overview).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du kommer igång med eventhubbar finns i självstudiekurserna **Skicka och ta emot händelser:**
+Information om hur du kommer igång med Event Hubs finns i självstudierna **skicka och ta emot händelser** :
 
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](get-started-java-send-v2.md)
@@ -100,6 +100,6 @@ Information om hur du kommer igång med eventhubbar finns i självstudiekurserna
 Mer information om Event Hubs finns i följande artiklar:
 
 - [Översikt över Event Hubs-funktioner](event-hubs-features.md)
-- [Vanliga frågor](event-hubs-faq.md)och svar .
+- [Vanliga frågor och svar](event-hubs-faq.md).
 
 

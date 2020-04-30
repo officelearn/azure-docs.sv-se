@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Azure Blob storage library v12 - .NET'
-description: I den här snabbstarten får du lära dig hur du använder Azure Blob storage client library version 12 för .NET för att skapa en behållare och en blob i Blob (objekt) lagring. Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container.
+title: 'Snabb start: Azure Blob Storage-bibliotek V12-.NET'
+description: I den här snabb starten får du lära dig hur du använder Azure Blob Storage klient bibliotek version 12 för .NET för att skapa en behållare och en BLOB i blob-lagring (objekt). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 11/05/2019
@@ -8,58 +8,58 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: 5cfb0430bc94d347afd75bc01170a71a7ad53565
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240508"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Snabbstart: Azure Blob storage client library v12 för .NET
+# <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Snabb start: klient biblioteket för Azure Blob Storage-V12 för .NET
 
-Kom igång med Azure Blob storage-klientbiblioteket v12 för .NET. Azure Blob Storage är Microsofts objektlagringslösning för molnet. Följ stegen för att installera paketet och prova exempelkod för grundläggande uppgifter. Blobblagring är optimerat för att lagra stora mängder ostrukturerade data.
+Kom igång med Azure Blob Storage-V12 för .NET. Azure Blob Storage är Microsofts objektlagringslösning för molnet. Följ stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Blobblagring är optimerat för att lagra stora mängder ostrukturerade data.
 
 > [!NOTE]
-> Information om hur du kommer igång med den tidigare SDK-versionen finns i [Snabbstart: Azure Blob storage client library for .NET](storage-quickstart-blobs-dotnet-legacy.md).
+> För att komma igång med den tidigare SDK-versionen, se [snabb start: Azure Blob Storage klient bibliotek för .net](storage-quickstart-blobs-dotnet-legacy.md).
 
-Använd Azure Blob storage client library v12 for .NET för att:
+Använd Azure Blob Storage-V12 för .NET för att:
 
 * Skapa en container
 * Ladda upp en blob till Azure Storage
-* Lista alla blobbar i en behållare
-* Ladda ned blobben till din lokala dator
+* Lista alla blobar i en behållare
+* Ladda ned blobben till den lokala datorn
 * Ta bort en container
 
-[API-referensdokumentation](/dotnet/api/azure.storage.blobs) | [Biblioteksnamnpaket](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [(NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+[API Reference dokumentation](/dotnet/api/azure.storage.blobs) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>Krav
 
-* Azure-prenumeration - [skapa en gratis](https://azure.microsoft.com/free/)
-* Azure storage-konto - [skapa ett lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Aktuell [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) för ditt operativsystem. Var noga med att få SDK och inte körningen.
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* Azure Storage-konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Nuvarande [.net Core SDK](https://dotnet.microsoft.com/download/dotnet-core) för ditt operativ system. Se till att hämta SDK och inte körnings miljön.
 
-## <a name="setting-up"></a>Inrätta
+## <a name="setting-up"></a>Konfigurera
 
-I det här avsnittet beskrivs förbereder du ett projekt för att arbeta med Azure Blob storage-klientbiblioteket v12 för .NET.
+Det här avsnittet beskriver hur du förbereder ett projekt så att det fungerar med Azure Blob Storage-V12 för .NET.
 
 ### <a name="create-the-project"></a>Skapa projektet
 
 Skapa ett .NET Core-program med namnet *BlobQuickstartV12*.
 
-1. I ett konsolfönster (till exempel cmd, PowerShell `dotnet new` eller Bash) använder du kommandot för att skapa en ny konsolapp med namnet *BlobQuickstartV12*. Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda källfil: *Program.cs*.
+1. I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet *BlobQuickstartV12*. Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda käll fil: *program.cs*.
 
    ```console
    dotnet new console -n BlobQuickstartV12
    ```
 
-1. Växla till den nyskapade *BlobQuickstartV12-katalogen.*
+1. Växla till den nyligen skapade *BlobQuickstartV12* -katalogen.
 
    ```console
    cd BlobQuickstartV12
    ```
 
-1. Skapa en annan katalog som kallas *data*på sidan *BlobQuickstartV12.* Det är här blob-datafilerna kommer att skapas och lagras.
+1. Skapa en annan katalog med namnet *data*på sidan *BlobQuickstartV12* . Det är här som BLOB-datafilerna ska skapas och lagras.
 
     ```console
     mkdir data
@@ -67,20 +67,20 @@ Skapa ett .NET Core-program med namnet *BlobQuickstartV12*.
 
 ### <a name="install-the-package"></a>Installera paketet
 
-Installera Azure Blob-lagringsklientbiblioteket för .NET-paketet `dotnet add package` medan du fortfarande är i programkatalogen.
+När du fortfarande är i program katalogen installerar du Azure Blob Storage-klient biblioteket för .NET-paketet med `dotnet add package` hjälp av kommandot.
 
 ```console
 dotnet add package Azure.Storage.Blobs
 ```
 
-### <a name="set-up-the-app-framework"></a>Konfigurera ramverket för appen
+### <a name="set-up-the-app-framework"></a>Konfigurera app Framework
 
-Från projektkatalogen:
+Från projekt katalogen:
 
-1. Öppna *Program.cs-filen* i redigeraren
-1. Ta `Console.WriteLine("Hello World!");` bort utdraget
-1. Lägga `using` till direktiv
-1. Uppdatera `Main` metoddeklarationen för att stödja asynkron kod
+1. Öppna filen *program.cs* i redigeraren
+1. Ta bort `Console.WriteLine("Hello World!");` instruktionen
+1. Lägg `using` till direktiv
+1. Uppdatera `Main` Metod deklarationen för att stödja asynkron kod
 
 Här är koden:
 
@@ -104,13 +104,13 @@ namespace BlobQuickstartV12
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
-## <a name="object-model"></a>Objektmodell
+## <a name="object-model"></a>Objekt modell
 
-Azure Blob-lagring är optimerad för lagring av stora mängder ostrukturerade data. Ostrukturerade data är data som inte följer en viss datamodell eller definition, till exempel text eller binära data. I blobblagringen finns tre typer av resurser:
+Azure Blob Storage är optimerat för att lagra enorma mängder ostrukturerade data. Ostrukturerade data är data som inte följer en viss datamodell eller definition, till exempel text eller binära data. I blobblagringen finns tre typer av resurser:
 
-* Lagringskontot
+* Lagrings kontot
 * En container på lagringskontot
-* En blob i behållaren
+* En BLOB i behållaren
 
 Följande diagram visar relationen mellan de här resurserna.
 
@@ -118,17 +118,17 @@ Följande diagram visar relationen mellan de här resurserna.
 
 Använd följande .NET-klasser för att interagera med dessa resurser:
 
-* [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): `BlobServiceClient` Med klassen kan du manipulera Azure Storage-resurser och blob-behållare.
-* [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): `BlobContainerClient` Med klassen kan du manipulera Azure Storage-behållare och deras blobbar.
-* [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): `BlobClient` Klassen låter dig manipulera Azure Storage blobbar.
-* [BlobDownloadInfo](/dotnet/api/azure.storage.blobs.models.blobdownloadinfo): `BlobDownloadInfo` Klassen representerar de egenskaper och innehåll som returneras från nedladdning av en blob.
+* [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): `BlobServiceClient` klassen låter dig ändra Azure Storage-resurser och blob-behållare.
+* [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): `BlobContainerClient` klassen låter dig ändra Azure Storage behållare och deras blobbar.
+* [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): `BlobClient` klassen låter dig ändra Azure Storage blobbar.
+* [BlobDownloadInfo](/dotnet/api/azure.storage.blobs.models.blobdownloadinfo): `BlobDownloadInfo` klassen representerar egenskaper och innehåll som returneras från att hämta en blob.
 
 ## <a name="code-examples"></a>Kodexempel
 
-I det här exemplet visar kodavsnitten hur du utför följande med Azure Blob storage-klientbiblioteket för .NET:
+I de här exempel kods tycken visas hur du gör följande med klient biblioteket för Azure Blob Storage för .NET:
 
 * [Hämta anslutningssträngen](#get-the-connection-string)
-* [Skapa en behållare](#create-a-container)
+* [Skapa en container](#create-a-container)
 * [Ladda upp blobbar till en behållare](#upload-blobs-to-a-container)
 * [Visa en lista över blobarna i en container](#list-the-blobs-in-a-container)
 * [Ladda ned blobbar](#download-blobs)
@@ -136,9 +136,9 @@ I det här exemplet visar kodavsnitten hur du utför följande med Azure Blob st
 
 ### <a name="get-the-connection-string"></a>Hämta anslutningssträngen
 
-Koden nedan hämtar anslutningssträngen för lagringskontot från den miljövariabel som skapas i avsnittet [Konfigurera lagringsanslutningssträngen.](#configure-your-storage-connection-string)
+Koden nedan hämtar anslutnings strängen för lagrings kontot från den miljö variabel som skapades i avsnittet [Konfigurera din lagrings anslutnings sträng](#configure-your-storage-connection-string) .
 
-Lägg till den `Main` här koden i metoden:
+Lägg till den här koden `Main` i-metoden:
 
 ```csharp
 Console.WriteLine("Azure Blob storage v12 - .NET quickstart sample\n");
@@ -154,14 +154,14 @@ string connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONN
 
 ### <a name="create-a-container"></a>Skapa en container
 
-Bestäm ett namn för den nya behållaren. Koden nedan lägger till ett GUID-värde i behållarnamnet för att säkerställa att det är unikt.
+Välj ett namn för den nya behållaren. Koden nedan lägger till ett GUID-värde till behållar namnet för att säkerställa att det är unikt.
 
 > [!IMPORTANT]
 > Containernamn måste använda gemener. Mer information om namngivning av containrar och blobar finns i [Namngivning och referens av containrar, blobar och metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-Skapa en instans av klassen [BlobServiceClient.](/dotnet/api/azure.storage.blobs.blobserviceclient) Anropa sedan metoden [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync) för att skapa behållaren i ditt lagringskonto.
+Skapa en instans av klassen [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) . Anropa sedan [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync) -metoden för att skapa behållaren i ditt lagrings konto.
 
-Lägg till den här `Main` koden i slutet av metoden:
+Lägg till den här koden i slutet av `Main` metoden:
 
 ```csharp
 // Create a BlobServiceClient object which will be used to create a container client
@@ -176,13 +176,13 @@ BlobContainerClient containerClient = await blobServiceClient.CreateBlobContaine
 
 ### <a name="upload-blobs-to-a-container"></a>Ladda upp blobbar till en behållare
 
-Följande kodavsnitt:
+Följande kodfragment:
 
-1. Skapar en textfil i *data* den lokala datakatalogen.
-1. Hämtar en referens till ett [BlobClient-objekt](/dotnet/api/azure.storage.blobs.blobclient) genom att anropa [metoden GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) på behållaren från avsnittet [Skapa en behållare.](#create-a-container)
-1. Överför den lokala textfilen till blobben genom att anropa [metoden UploadAsync.](/dotnet/api/azure.storage.blobs.blobclient.uploadasync#Azure_Storage_Blobs_BlobClient_UploadAsync_System_IO_Stream_System_Boolean_System_Threading_CancellationToken_) Den här metoden skapar bloben om den inte redan finns, och skriver över den om den finns.
+1. Skapar en textfil i den lokala *data* katalogen.
+1. Hämtar en referens till ett [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) -objekt genom att anropa metoden [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) i behållaren från avsnittet [skapa en behållare](#create-a-container) .
+1. Överför den lokala text filen till blobben genom att anropa metoden [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync#Azure_Storage_Blobs_BlobClient_UploadAsync_System_IO_Stream_System_Boolean_System_Threading_CancellationToken_) . Den här metoden skapar bloben om den inte redan finns, och skriver över den om den finns.
 
-Lägg till den här `Main` koden i slutet av metoden:
+Lägg till den här koden i slutet av `Main` metoden:
 
 ```csharp
 // Create a local file in the ./data/ directory for uploading and downloading
@@ -206,9 +206,9 @@ uploadFileStream.Close();
 
 ### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Lista blobbar i behållaren genom att anropa [metoden GetBlobsAsync.](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) I det här fallet har bara en blob lagts till i behållaren, så listningsåtgärden returnerar bara den bloben.
+Visa en lista över blobarna i behållaren genom att anropa metoden [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) . I det här fallet har endast en BLOB lagts till i behållaren, så List åtgärden returnerar bara den en blob.
 
-Lägg till den här `Main` koden i slutet av metoden:
+Lägg till den här koden i slutet av `Main` metoden:
 
 ```csharp
 Console.WriteLine("Listing blobs...");
@@ -222,9 +222,9 @@ await foreach (BlobItem blobItem in containerClient.GetBlobsAsync())
 
 ### <a name="download-blobs"></a>Ladda ned blobbar
 
-Hämta den tidigare skapade blobben genom att anropa [metoden DownloadAsync.](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) Exempelkoden lägger till ett suffix med "NEDLADDAT" i filnamnet så att du kan se båda filerna i det lokala filsystemet.
+Ladda ned den tidigare skapade blobben genom att anropa [DownloadAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) -metoden. Exempel koden lägger till suffixet "DOWNLOADed" till fil namnet så att du kan se båda filerna i det lokala fil systemet.
 
-Lägg till den här `Main` koden i slutet av metoden:
+Lägg till den här koden i slutet av `Main` metoden:
 
 ```csharp
 // Download the blob to a local file
@@ -246,11 +246,11 @@ using (FileStream downloadFileStream = File.OpenWrite(downloadFilePath))
 
 ### <a name="delete-a-container"></a>Ta bort en container
 
-Följande kod rensar de resurser som appen har skapat genom att ta bort hela behållaren med Hjälp av [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). De lokala filer som skapas av appen tas också bort.
+Följande kod rensar resurserna som skapats av appen genom att ta bort hela behållaren med hjälp av [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). Den tar också bort de lokala filer som skapats av appen.
 
-Appen pausar för användarindata genom att anropa `Console.ReadLine` innan blobben, behållaren och de lokala filerna tas bort. Detta är en bra chans att kontrollera att resurserna faktiskt skapades korrekt, innan de tas bort.
+Appen pausar indata från användaren genom att `Console.ReadLine` anropa innan den tar bort BLOB, container och lokala filer. Det här är en bra chans att verifiera att resurserna faktiskt har skapats korrekt innan de tas bort.
 
-Lägg till den här `Main` koden i slutet av metoden:
+Lägg till den här koden i slutet av `Main` metoden:
 
 ```csharp
 // Clean up
@@ -269,9 +269,9 @@ Console.WriteLine("Done");
 
 ## <a name="run-the-code"></a>Kör koden
 
-Den här appen skapar en testfil i din lokala *datamapp* och överför den till Blob-lagring. I exemplet visas sedan blobbar i behållaren och hämtar filen med ett nytt namn så att du kan jämföra gamla och nya filer.
+Den här appen skapar en test fil i din *lokala* datamapp och laddar upp den till Blob Storage. Exemplet visar sedan blobarna i behållaren och laddar ned filen med ett nytt namn så att du kan jämföra de gamla och nya filerna.
 
-Navigera till programkatalogen och skapa och kör programmet.
+Gå till program katalogen och skapa och kör sedan programmet.
 
 ```console
 dotnet build
@@ -281,7 +281,7 @@ dotnet build
 dotnet run
 ```
 
-Utdata för appen liknar följande exempel:
+Utdata från appen liknar följande exempel:
 
 ```output
 Azure Blob storage v12 - .NET quickstart sample
@@ -301,18 +301,18 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-Innan du påbörjar rensningsprocessen *data* kontrollerar du datamappen efter de två filerna. Du kan öppna dem och se att de är identiska.
+Innan du påbörjar rensnings processen kontrollerar du mappen *data* för de två filerna. Du kan öppna dem och se att de är identiska.
 
-När du har verifierat filerna trycker du på **Retur för** att ta bort testfilerna och slutför demon.
+När du har verifierat filerna trycker du på **RETUR** -tangenten för att ta bort testfilerna och slutföra demon.
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här snabbstarten har du lärt dig att ladda upp, ladda ned och lista blobar med hjälp av .NET.
 
-Om du vill visa exempelappar för Blob-lagring fortsätter du att:
+Om du vill se exempel appar för Blob Storage fortsätter du till:
 
 > [!div class="nextstepaction"]
-> [SDK för Azure Blob-lagring v12 .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+> [Azure Blob Storage SDK V12 .NET-exempel](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
 
-* För självstudier, exempel, snabbstarter och annan dokumentation, besök [Azure för .NET- och .NET Core-utvecklare](/dotnet/azure/).
+* För självstudier, exempel, snabb starter och annan dokumentation går du till [Azure för .net och .net Core-utvecklare](/dotnet/azure/).
 * Mer information om .NET Core finns i [Kom igång med .NET på 10 minuter](https://www.microsoft.com/net/learn/get-started/).

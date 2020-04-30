@@ -1,5 +1,5 @@
 ---
-title: Översikt - Azure Digital Twins | Microsoft-dokument
+title: Översikt – digitala Azure-dubbla Microsoft Docs
 description: Läs mer om Azure Digital Twins, en Azure IoT-lösning för spatial intelligens.
 ms.author: alinast
 author: alinamstanciu
@@ -10,21 +10,21 @@ ms.service: digital-twins
 services: digital-twins
 ms.custom: mvc
 ms.openlocfilehash: 91386eaf7753f2aefada2d1423a11b366c3ee924
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79370907"
 ---
-# <a name="overview-of-azure-digital-twins-preview"></a>Översikt över förhandsversionen av Azure Digital Twins
+# <a name="overview-of-azure-digital-twins-preview"></a>Översikt över Azure Digitals för hands version
 
 [!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
-Azure Digital Twins Preview är en Azure IoT-tjänst som skapar omfattande modeller av den fysiska miljön. Det kan skapa diagram för spatial intelligens för att modellera relationer och interaktioner mellan människor, utrymmen och enheter.
+Azure Digitals förhands granskning är en Azure IoT-tjänst som skapar omfattande modeller av den fysiska miljön. Det kan skapa diagram för spatial intelligens för att modellera relationer och interaktioner mellan människor, utrymmen och enheter.
 
 Med Azure Digital Twins kan du köra frågor mot data från ett fysiskt utrymme i stället för ett stort antal skilda sensorer. Den här tjänsten hjälper dig att skapa återanvändbara, mycket skalbara, spatialt medvetna upplevelser som länkar strömmande data över hela den digitala och den fysiska världen. Dina appar har förbättrats med funktionerna för unikt relevant sammanhangsberoende. 
 
-Azure Digital Twins gäller för alla typer av miljöer, till exempel lager, kontor, skolor, sjukhus och banker. Det kan även användas för idrottsarenor, fabriker, parkeringar, parker, smarta rutnät och städer. Följande är några scenarier där Azure Digital Twins kan vara till hjälp:
+Azure Digitals sammanflätade gäller för alla typer av miljöer, till exempel lager, kontor, skolor, sjukhus och banker. Det kan även användas för idrottsarenor, fabriker, parkeringar, parker, smarta rutnät och städer. Här följer några scenarier där Azure Digitals-dubblare kan vara till hjälp:
 
 - Förutse underhållsbehov för en fabrik.
 - Analysera energikrav i realtid för ett elnät.
@@ -35,7 +35,7 @@ Azure Digital Twins gäller för alla typer av miljöer, till exempel lager, kon
 - Analysera användningsnivåerna för en byggnad.
 - Hitta den mest använda kassan i din butik.
 
-Oavsett vad ditt verkliga affärsscenario är, är det troligt att en motsvarande digital instans kan etableras via Azure Digital Twins.
+Oavsett ditt verkliga affärs scenario är det förmodligen en motsvarande Digital instans som kan tillhandahållas via Azures digitala dubbla.
 
 Följande videoklipp tar en närmare titt på Azure Digital Twins.
 
@@ -53,9 +53,9 @@ Tänk dig en smart verktygsapp som hanterar flera elmätare som är anslutna i e
 
 ### <a name="digital-twin-object-models"></a>Digitala tvillingobjektmodeller
 
-[Digitala tvillingobjektmodeller](./concepts-objectmodel-spatialgraph.md#digital-twins-object-models) är fördefinierade enhetsprotokoll och dataschema. De anpassar lösningens domänspecifika behov för att påskynda och förenkla utvecklingen.
+[Digitala tvillingobjektmodeller](./concepts-objectmodel-spatialgraph.md#digital-twins-object-models) är fördefinierade enhetsprotokoll och dataschema. De anpassar din lösnings företagsspecifika behov av att påskynda och förenkla utvecklingen.
 
-Ett rumsappappapp kan till exempel använda fördefinierade utrymmestyper som campus, byggnad, golv och rum.
+Till exempel kan ett Room-program använda fördefinierade utrymmes typer som campus, byggnad, golv och rum.
 
 ### <a name="multiple-and-nested-tenants"></a>Flera och kapslade klientorganisationer
 
@@ -97,7 +97,7 @@ Azure Digital Twins använder Azure IoT Hub för att ansluta IoT-enheter och -se
 
 [![Azure Digital Twins är en tjänst som bygger på Azure IoT Hub](media/overview/azure-digital-twins-in-iot-ecosystem.png)](media/overview/azure-digital-twins-in-iot-ecosystem.png#lightbox)
 
-Mer information om IoT finns i [Azure IoT-tekniker och -lösningar](../iot-fundamentals/iot-services-and-technologies.md).
+Mer information om IoT finns i [Azure IoT-tekniker och-lösningar](../iot-fundamentals/iot-services-and-technologies.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

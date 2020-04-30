@@ -1,6 +1,6 @@
 ---
-title: Skapa och använda externa tabeller i SQL på begäran (förhandsgranskning)
-description: I det här avsnittet får du lära dig hur du skapar och använder externa tabeller i SQL på begäran (förhandsgranskning). Externa tabeller är användbara när du vill styra åtkomsten till externa data i SQL On-demand och om du vill använda verktyg, till exempel Power BI, tillsammans med SQL on-demand.
+title: Skapa och Använd externa tabeller i SQL på begäran (för hands version)
+description: I det här avsnittet får du lära dig hur du skapar och använder externa tabeller i SQL på begäran (för hands version). Externa tabeller är användbara när du vill kontrol lera åtkomsten till externa data i SQL på begäran och om du vill använda verktyg, till exempel Power BI, tillsammans med SQL på begäran.
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -10,29 +10,29 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: a708e5e713e62ab5b7ca70b61235a84830b051cd
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424554"
 ---
-# <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Skapa och använda externa tabeller i SQL on-demand (förhandsversion) med Azure Synapse Analytics
+# <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Skapa och Använd externa tabeller i SQL på begäran (för hands version) med Azure Synapse Analytics
 
-I det här avsnittet får du lära dig hur du skapar och använder externa tabeller i SQL på begäran (förhandsgranskning). Externa tabeller är användbara när du vill styra åtkomsten till externa data i SQL On-demand och om du vill använda verktyg, till exempel Power BI, tillsammans med SQL on-demand.
+I det här avsnittet får du lära dig hur du skapar och använder externa tabeller i SQL på begäran (för hands version). Externa tabeller är användbara när du vill kontrol lera åtkomsten till externa data i SQL på begäran och om du vill använda verktyg, till exempel Power BI, tillsammans med SQL på begäran.
 
 ## <a name="prerequisites"></a>Krav
 
-Ditt första steg är att granska artiklarna nedan och se till att du har uppfyllt förutsättningarna för att skapa och använda sql on-demand externa tabeller:
+Ditt första steg är att granska artiklarna nedan och kontrol lera att du har uppfyllt kraven för att skapa och använda SQL på begäran-externa tabeller:
 
-- [Första gången setup](query-data-storage.md#first-time-setup)
-- [Krav](query-data-storage.md#prerequisites)
+- [Installation vid första tiden](query-data-storage.md#first-time-setup)
+- [Förutsättningar](query-data-storage.md#prerequisites)
 
 ## <a name="create-an-external-table"></a>Skapa en extern tabell
 
-Du kan skapa externa tabeller på samma sätt som du skapar vanliga externa SQL Server-tabeller. Frågan nedan skapar en extern tabell som läser *population.csv-fil.*
+Du kan skapa externa tabeller på samma sätt som du skapar vanliga SQL Server externa tabeller. Frågan nedan skapar en extern tabell som läser en *populations. csv* -fil.
 
 > [!NOTE]
-> Ändra den första raden i frågan, dvs [mydbname], så att du använder databasen du skapade. Om du inte har skapat en databas läser du [Första gången.](query-data-storage.md#first-time-setup)
+> Ändra den första raden i frågan, t. ex. [mydbname], så att du använder den databas som du har skapat. Om du inte har skapat en databas läser du [installations programmet för första gången](query-data-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname];
@@ -69,14 +69,14 @@ WITH (
 GO
 ```
 
-## <a name="use-a-external-table"></a>Använda en extern tabell
+## <a name="use-a-external-table"></a>Använd en extern tabell
 
-Du kan använda externa tabeller i dina frågor på samma sätt som du använder dem i SQL Server-frågor.
+Du kan använda externa tabeller i dina frågor på samma sätt som du använder dem i SQL Server frågor.
 
-Följande fråga visas med hjälp av *den externa populationstabellen* som vi skapade i Skapa ett [externt tabellavsnitt.](#create-an-external-table) Landet returnerar landsnamn med sin befolkning 2019 i fallande ordning.
+Följande fråga visar hur du använder den externa *populations* tabellen som vi skapade i avsnittet [skapa en extern tabell](#create-an-external-table) . Den returnerar lands namn med sin population i 2019 i fallande ordning.
 
 > [!NOTE]
-> Ändra den första raden i frågan, dvs [mydbname], så att du använder databasen du skapade. Om du inte har skapat en databas läser du [Första gången.](query-data-storage.md#first-time-setup)
+> Ändra den första raden i frågan, t. ex. [mydbname], så att du använder den databas som du har skapat. Om du inte har skapat en databas läser du [installations programmet för första gången](query-data-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname];
@@ -93,4 +93,4 @@ ORDER BY
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du lagrar resultat av en fråga till lagringen finns i [store-frågeresultaten till lagringen](../sql/create-external-table-as-select.md).
+Information om hur du lagrar resultat från en fråga till lagringen hittar du i [butiks frågeresultaten till lagringen](../sql/create-external-table-as-select.md).

@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB:s API för MongoDB (3.6-version) stöds funktioner och syntax
-description: Lär dig mer om Azure Cosmos DB:s API för MongoDB (3.6 version) som stöds funktioner och syntax.
+title: Azure Cosmos DB s API för MongoDB (3,6-version) som stöds av funktioner och syntax
+description: Läs mer om Azure Cosmos DBs API för MongoDB (3,6-version) som stöds av funktioner och syntax.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
@@ -8,25 +8,25 @@ ms.date: 01/15/2020
 author: sivethe
 ms.author: sivethe
 ms.openlocfilehash: 5df21b2c1926803a65eca911c66b059f36ee18aa
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/15/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81393618"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB:s API för MongoDB (version 3.6): Funktioner och syntax som stöds
 
-Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan kommunicera med Azure Cosmos DB:s API för MongoDB med någon av de drivrutiner för MongoDB med öppen källkod [.](https://docs.mongodb.org/ecosystem/drivers) Azure Cosmos DB:s API för MongoDB tillåter gör det möjligt att använda befintliga klientdrivrutiner genom att följa MongoDB-[trådprotokollet](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan kommunicera med Azure Cosmos DBens API för MongoDB med någon av MongoDB-klient [driv rutinerna](https://docs.mongodb.org/ecosystem/drivers)med öppen källkod. Azure Cosmos DB:s API för MongoDB tillåter gör det möjligt att använda befintliga klientdrivrutiner genom att följa MongoDB-[trådprotokollet](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-Genom att använda Azure Cosmos DB:s API för MongoDB kan du dra nytta av fördelarna med den MongoDB du är van vid, med alla företagsfunktioner som Cosmos DB tillhandahåller: [global distribution,](distribute-data-globally.md) [automatisk sharding,](partition-data.md)tillgänglighet och svarstidsgarantier, kryptering i vila, säkerhetskopior och mycket mer.
+Genom att använda Azure Cosmos DBs API för MongoDB kan du dra nytta av fördelarna med MongoDB som du använder för att, med alla Enterprise-funktioner som Cosmos DB ger: [global distribution](distribute-data-globally.md), [Automatisk horisontell partitionering](partition-data.md), tillgänglighet och latens garantier, kryptering i vila, säkerhets kopiering och mycket mer.
 
 ## <a name="protocol-support"></a>Protokollstöd
 
-Azure Cosmos DB:s API för MongoDB är kompatibelt med MongoDB-serverversion **3.6** som standard för nya konton. De operatorer som stöds och eventuella begränsningar eller undantag anges nedan. Klientdrivrutiner som förstår dessa protokoll bör kunna ansluta till Cosmos DB:s API för MongoDB. Observera att när du använder Azure Cosmos DB:s API för MongoDB-konton har 3.6-versionen av konton slutpunkten i formatet `*.mongo.cosmos.azure.com` `*.documents.azure.com`medan 3.2-versionen av konton har slutpunkten i formatet .
+Azure Cosmos DBens API för MongoDB är kompatibelt med MongoDB Server version **3,6** som standard för nya konton. De operatorer som stöds och eventuella begränsningar eller undantag anges nedan. Klientdrivrutiner som förstår dessa protokoll bör kunna ansluta till Cosmos DB:s API för MongoDB. Observera att när du använder Azure Cosmos DB s API för MongoDB-konton har 3,6-versionen av konton slut punkten i formatet `*.mongo.cosmos.azure.com` , medan 3,2-versionen av kontona har slut punkten i `*.documents.azure.com`formatet.
 
 ## <a name="query-language-support"></a>Stöd för frågespråk
 
-Azure Cosmos DB:s API för MongoDB erbjuder omfattande stöd för MongoDB-frågespråkskonstruktioner. Nedan hittar du en detaljerad lista över åtgärder som stöds, operatorer, faser, kommandon och alternativ.
+Azure Cosmos DB:s API för MongoDB erbjuder omfattande stöd för MongoDB-frågespråkskonstruktioner. Nedan hittar du en detaljerad lista över de åtgärder, operatorer, stadier, kommandon och alternativ som stöds för närvarande.
 
 ## <a name="database-commands"></a>Databaskommandon
 
@@ -41,13 +41,13 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |findAndModify | Ja  |
 |getLastError|   Ja |
 |getMore  |  Ja  |
-|fåPrevError | Inga  |
+|getPrevError | Nej  |
 |insert  |   Ja  |
 |parallelCollectionScan  | Ja   |
-|resetError |    Inga  |
+|resetError |    Nej  |
 |update  |   Ja  |
 |[Ändra dataströmmar](mongodb-change-streams.md)  |  Ja  |
-|GridFS (GridFS) |   Ja  |
+|GridFS |   Ja  |
 
 ### <a name="authentication-commands"></a>Autentiseringskommandon
 
@@ -62,27 +62,27 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 |Kommando  |Stöds |
 |---------|---------|
-|Begränsade samlingar   |   Inga      |
-|klonCollectionAsCapped     |   Inga      |
-|collMod (collMod)     |   Inga      |
-|collMod: expireAfterSeconds   |   Inga      |
-|konverteraToCapped   |  Inga       |
-|copydb     |  Inga       |
+|Tak samlingar   |   Nej      |
+|cloneCollectionAsCapped     |   Nej      |
+|collMod     |   Nej      |
+|collMod: expireAfterSeconds   |   Nej      |
+|convertToCapped   |  Nej       |
+|copydb     |  Nej       |
 |skapa   |    Ja     |
 |createIndexes     |  Ja       |
-|currentOp (currentOp)     |  Ja       |
+|currentOp     |  Ja       |
 |drop     |   Ja      |
 |dropDatabase     |  Ja       |
 |dropIndexes     |   Ja      |
 |filemd5    |   Ja      |
 |killCursors    |  Ja       |
-|killOp (på)     |   Inga      |
+|killOp     |   Nej      |
 |listCollections     |  Ja       |
 |listDatabases     |  Ja       |
 |listIndexes     |  Ja       |
 |reIndex     |    Ja     |
-|byta namn På NamnInktion     |    Inga     |
-|connectionStatus    |     Inga    |
+|renameCollection     |    Nej     |
+|connectionStatus    |     Nej    |
 
 ### <a name="diagnostics-commands"></a>Diagnostiska kommandon
 
@@ -90,20 +90,20 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |---------|---------|
 |buildInfo         |   Ja      |
 |collStats    |  Ja       |
-|connPoolStats (på)     |  Inga       |
-|connectionStatus     |  Inga       |
-|dataStorlek     |   Inga      |
-|dbHash (på ett sätt)    |    Inga     |
+|connPoolStats     |  Nej       |
+|connectionStatus     |  Nej       |
+|dataSize     |   Nej      |
+|dbHash    |    Nej     |
 |dbStats     |   Ja      |
-|Förklara     |   Ja      |
-|förklara: executionStats     |   Ja      |
-|funktioner     |    Inga     |
-|hostInfo     |   Inga      |
+|Vad     |   Ja      |
+|förklaring: executionStats     |   Ja      |
+|funktioner     |    Nej     |
+|hostInfo     |   Nej      |
 |listDatabases         |   Ja      |
-|listaKommands     |  Inga       |
-|profilerar     |  Inga       |
-|serverStatus     |  Inga       |
-|överst     |    Inga     |
+|listCommands     |  Nej       |
+|profiler     |  Nej       |
+|serverStatus     |  Nej       |
+|överst     |    Nej     |
 |whatsmyuri     |   Ja      |
 
 <a name="aggregation-pipeline"/>
@@ -117,13 +117,13 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |aggregate |   Ja  |
 |count     |   Ja  |
 |distinct  | Ja |
-|kartaReeduce | Inga |
+|mapReduce | Nej |
 
 ### <a name="aggregation-stages"></a>Sammansättningsfaser
 
 |Kommando  |Stöds |
 |---------|---------|
-|$collStats    |Inga|
+|$collStats    |Nej|
 |$project    |Ja|
 |$match    |Ja|
 |$redact|    Ja|
@@ -133,21 +133,21 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |$group    |    Ja|
 |$sample|        Ja|
 |$sort    |Ja|
-|$geoNear|    Inga|
+|$geoNear|    Nej|
 |$lookup    |    Ja|
 |$out        |Ja|
-|$indexStats|        Inga|
-|$facet    |Inga|
-|$bucket|    Inga|
-|$bucketAuto|    Inga|
+|$indexStats|        Nej|
+|$facet    |Nej|
+|$bucket|    Nej|
+|$bucketAuto|    Nej|
 |$sortByCount|    Ja|
 |$addFields    |Ja|
 |$replaceRoot|    Ja|
 |$count    |Ja|
-|$currentOp|    Inga|
-|$listLocalSessions    |Inga|
-|$listSessions    |Inga|
-|$graphLookup    |Inga|
+|$currentOp|    Nej|
+|$listLocalSessions    |Nej|
+|$listSessions    |Nej|
+|$graphLookup    |Nej|
 
 ### <a name="boolean-expressions"></a>Booleska uttryck
 
@@ -220,11 +220,11 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 | $toLower|  Ja       |
 | $toUpper|  Ja       |
 
-### <a name="text-search-operator"></a>Operator för textsökning
+### <a name="text-search-operator"></a>Text Sök operator
 
 |Kommando  |Stöds |
 |---------|---------|
-| $meta | Inga|
+| $meta | Nej|
 
 ### <a name="array-expressions"></a>Matrisuttryck
 
@@ -245,25 +245,25 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |$zip    |    Ja|
 |$in    |    Ja|
 
-### <a name="variable-operators"></a>Variabla operatorer
+### <a name="variable-operators"></a>Variabel operatörer
 
 |Kommando  |Stöds |
 |---------|---------|
-|$map    |Inga|
+|$map    |Nej|
 |$let    |Ja|
 
 ### <a name="system-variables"></a>Systemvariabler
 
 |Kommando  |Stöds |
 |---------|---------|
-|$$CURRENT|    Ja|
-|$$DESCEND|        Ja|
-|$$KEEP        |Ja|
-|$$PRUNE    |    Ja|
-|$$REMOVE    |Ja|
-|$$ROOT        |Ja|
+|$ $CURRENT|    Ja|
+|$ $DESCEND|        Ja|
+|$ $KEEP        |Ja|
+|$ $PRUNE    |    Ja|
+|$ $REMOVE    |Ja|
+|$ $ROOT        |Ja|
 
-### <a name="literal-operator"></a>Bokstavlig operator
+### <a name="literal-operator"></a>Litteral operator
 
 |Kommando  |Stöds |
 |---------|---------|
@@ -286,9 +286,9 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |$dateToString    |Ja    |
 |$isoDayOfWeek    |Ja    |
 |$isoWeek    |Ja    |
-|$dateFromParts|    Inga|    
-|$dateToParts    |Inga    |
-|$dateFromString|    Inga|
+|$dateFromParts|    Nej|    
+|$dateToParts    |Nej    |
+|$dateFromString|    Nej|
 |$isoWeekYear    |Ja    |
 
 ### <a name="conditional-expressions"></a>Villkorliga uttryck
@@ -299,13 +299,13 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 | $ifNull| Ja|
 | $switch |Ja|
 
-### <a name="data-type-operator"></a>Operator för datatyp
+### <a name="data-type-operator"></a>Data typs operator
 
 |Kommando  |Stöds |
 |---------|---------|
 | $type| Ja|
 
-### <a name="accumulator-expressions"></a>Flervalsuttryck
+### <a name="accumulator-expressions"></a>Ackumulator uttryck
 
 |Kommando  |Stöds |
 |---------|---------|
@@ -317,10 +317,10 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |$min    |Ja    |
 |$push|    Ja|
 |$addToSet|    Ja|
-|$stdDevPop|    Inga    |
-|$stdDevSamp|    Inga|
+|$stdDevPop|    Nej    |
+|$stdDevSamp|    Nej|
 
-### <a name="merge-operator"></a>Koppla operator
+### <a name="merge-operator"></a>Slå samman operatör
 
 |Kommando  |Stöds |
 |---------|---------|
@@ -341,38 +341,38 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |Null    |Ja    |
 |32-bitars heltal (int)    |Ja    |
 |Tidsstämpel    |Ja    |
-|64-bitars heltal (lång)    |Ja    |
-|MinKey (min nyckel)    |Ja    |
-|MaxKey (MaxKey)    |Ja    |
+|64-bitars heltal (långt)    |Ja    |
+|MinKey    |Ja    |
+|MaxKey    |Ja    |
 |Decimal128    |Ja|    
 |Reguljärt uttryck    |Ja|
 |JavaScript    |Ja|
-|JavaScript (med omfattning)|    Ja    |
+|Java Script (med omfång)|    Ja    |
 |Undefined (Odefinierad)    |Ja    |
 
-## <a name="indexes-and-index-properties"></a>Index och indexegenskaper
+## <a name="indexes-and-index-properties"></a>Index och index egenskaper
 
 ### <a name="indexes"></a>Index
 
 |Kommando  |Stöds |
 |---------|---------|
-|Ett fältindex    |Ja    |
+|Index för enskilt fält    |Ja    |
 |Sammansatt index    |Ja    |
-|Index för flera nycklar    |Ja    |
-|Textindex    |Inga|
-|2dsphere (2dsphere)    |Ja    |
-|2d-index    |Inga    |
-|Hashed Index    | Ja|
+|MultiKey-index    |Ja    |
+|Text index    |Nej|
+|2dsphere    |Ja    |
+|2D-index    |Nej    |
+|Hashed index    | Ja|
 
-### <a name="index-properties"></a>Indexegenskaper
+### <a name="index-properties"></a>Index egenskaper
 
 |Kommando  |Stöds |
 |---------|---------|
 |TTL|    Ja    |
 |Unik    |Ja|
-|Delvis|    Inga|
-|Fall Okänslig    |Inga|
-|Utspridda    |Inga |
+|Delvis|    Nej|
+|Skift läges okänslig    |Nej|
+|Utspridda    |Nej |
 |Bakgrund|    Ja |
 
 ## <a name="operators"></a>Operatorer
@@ -386,33 +386,33 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |$not    |    Ja|
 |$nor    |    Ja| 
 
-### <a name="element-operators"></a>Elementoperatorer
+### <a name="element-operators"></a>Element operatörer
 
 |Kommando  |Stöds |
 |---------|---------|
 |$exists|    Ja|
 |$type    |    Ja|
 
-### <a name="evaluation-query-operators"></a>Frågeoperatorer för utvärdering
+### <a name="evaluation-query-operators"></a>Operatorer för utvärderings fråga
 
 |Kommando  |Stöds |
 |---------|---------|
-|$expr    |    Inga|
-|$jsonSchema    |    Inga|
+|$expr    |    Nej|
+|$jsonSchema    |    Nej|
 |$mod    |    Ja|
 |$regex |    Ja|
-|$text    | Nej (Stöds inte. Använd $regex i stället.)| 
-|$where    |Inga| 
+|$text    | Nej (stöds inte. Använd $regex i stället.)| 
+|$where    |Nej| 
 
-I $regex frågor tillåter vänsterförankrade uttryck indexsökning. Om du använder modifierarna i (skiftlägesokänsligt) och m (flera rader) så får du dock samlingsskanningen i alla uttryck.
+I $regex-frågor tillåter vänster-förankrade uttryck indexs ökning. Om du använder modifierarna i (skiftlägesokänsligt) och m (flera rader) så får du dock samlingsskanningen i alla uttryck.
 
-När det finns ett behov att inkludera $ eller | så är det bäst att skapa två (eller flera) regex-frågor. Med tanke på följande ursprungliga ```find({x:{$regex: /^abc$/})```fråga: måste den ändras på följande sätt:
+När det finns ett behov att inkludera $ eller | så är det bäst att skapa två (eller flera) regex-frågor. Till exempel, med följande ursprungliga fråga: ```find({x:{$regex: /^abc$/})```, måste ändras på följande sätt:
 
 ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
 
 Den första delen använder indexet för att begränsa sökningen till dokument som börjar med ^abc och den andra delen matchar de exakta posterna. Fält-operatorn | fungerar som en or-funktion – frågan ```find({x:{$regex: /^abc|^def/})``` matchar dokumenten där fältet x har värden som börjar med abc eller def. Om du vill använda indexet så rekommenderar vi att du delar upp frågan i två olika frågor anslutna med operatorn $or: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
-### <a name="array-operators"></a>Matrisoperatorer
+### <a name="array-operators"></a>Mat ris operatorer
 
 |Kommando  |Stöds | 
 |---------|---------|
@@ -420,18 +420,18 @@ Den första delen använder indexet för att begränsa sökningen till dokument 
 | $elemMatch | Ja| 
 | $size | Ja | 
 
-### <a name="comment-operator"></a>Kommentar operatör
+### <a name="comment-operator"></a>Kommentars operator
 
 |Kommando  |Stöds | 
 |---------|---------|
 $comment |Ja| 
 
-### <a name="projection-operators"></a>Projektionsoperatörer
+### <a name="projection-operators"></a>Projektions operatörer
 
 |Kommando  |Stöds |
 |---------|---------|
 |$elemMatch    |Ja|
-|$meta|    Inga|
+|$meta|    Nej|
 |$slice    | Ja|
 
 ### <a name="update-operators"></a>Uppdateringsoperatorer
@@ -479,10 +479,10 @@ $comment |Ja|
 |Kommando  |Stöds |
 |---------|---------|
 | $bit    |    Ja|    
-|$bitsAllSet    |    Inga|
-|$bitsAnySet    |    Inga|
-|$bitsAllClear    |Inga|
-|$bitsAnyClear    |Inga|
+|$bitsAllSet    |    Nej|
+|$bitsAnySet    |    Nej|
+|$bitsAllClear    |Nej|
+|$bitsAnyClear    |Nej|
 
 ### <a name="geospatial-operators"></a>Geospatiala operatorer
 
@@ -504,45 +504,45 @@ $polygon |  Ja |
 
 |Kommando  |Stöds |
 |---------|---------|
-|cursor.batchSize()    |    Ja|
-|cursor.close()    |Ja|
-|cursor.isClosed()|        Ja|
-|cursor.collation()|    Inga|
-|cursor.comment()    |Ja|
-|cursor.count()    |Ja|
-|cursor.explain()|    Inga|
-|cursor.forEach()    |Ja|
-|cursor.hasNästa()    |Ja|
-|cursor.hint()    |Ja|
-|cursor.isExhausted()|    Ja|
-|cursor.itcount()    |Ja|
-|cursor.limit()    |Ja|
-|cursor.map()    |Ja|
-|cursor.maxScan()    |Ja|
-|cursor.maxTimeMS()|    Ja|
-|cursor.max()    |Ja|
-|cursor.min()    |Ja|
-|cursor.next()|    Ja|
-|cursor.noCursorTimeout()    |Inga|
-|cursor.objsLeftInBatch()    |Ja|
-|cursor.pretty()|    Ja|
-|cursor.readConcern()|    Ja|
-|cursor.readPref()        |Ja|
-|cursor.returnKey()    |Inga|
-|cursor.showRecordId()|    Inga|
-|cursor.size()    |Ja|
-|cursor.skip()    |Ja|
+|cursor. batchSize ()    |    Ja|
+|cursor. Close ()    |Ja|
+|cursor. isClosed ()|        Ja|
+|cursor. COLLATE ()|    Nej|
+|cursor. comment ()    |Ja|
+|cursor. Count ()    |Ja|
+|cursor. förklaring ()|    Nej|
+|cursor. ()    |Ja|
+|cursor. hasNext ()    |Ja|
+|cursor. ledtråd ()    |Ja|
+|cursor. isExhausted ()|    Ja|
+|cursor. itcount ()    |Ja|
+|cursor. Limit ()    |Ja|
+|cursor. map ()    |Ja|
+|cursor. maxScan ()    |Ja|
+|cursor. maxTimeMS ()|    Ja|
+|markör. Max ()    |Ja|
+|cursor. min ()    |Ja|
+|markör. Next ()|    Ja|
+|cursor. noCursorTimeout ()    |Nej|
+|cursor. objsLeftInBatch ()    |Ja|
+|cursor. Pretty ()|    Ja|
+|cursor. readConcern ()|    Ja|
+|cursor. readPref ()        |Ja|
+|markör. renyckels ()    |Nej|
+|cursor. showRecordId ()|    Nej|
+|cursor. size ()    |Ja|
+|cursor. SKIP ()    |Ja|
 |cursor.sort()    |    Ja|
-|cursor.tailable()|    Inga|
-|cursor.toArray()    |Ja|
+|cursor. ensidigt ()|    Nej|
+|cursor. toArray ()    |Ja|
 
-## <a name="sort-operations"></a>Sorteringsåtgärder
+## <a name="sort-operations"></a>Sorterings åtgärder
 
 Med åtgärden `findOneAndUpdate` kan du använda sorteringsåtgärder på ett enda fält, men inte på flera fält.
 
 ## <a name="unique-indexes"></a>Unika index
 
-Unika index säkerställer att ett visst fält inte har dubblettvärden för alla dokument i en samling, ungefär som det sätt på vilket unikhet bevaras på standardnyckeln "_id". Du kan skapa anpassade index i Cosmos DB med kommandot createIndex, inklusive det "unika" villkoret.
+Unika index säkerställer att ett särskilt fält inte har dubblettvärden i alla dokument i en samling, på liknande sätt som unika bevaras i standard nyckeln "_id". Du kan skapa anpassade index i Cosmos DB med hjälp av kommandot createIndex, inklusive begränsningen "Unique".
 
 ## <a name="time-to-live-ttl"></a>TTL-värde (time to live)
 
@@ -550,7 +550,7 @@ Cosmos DB stöder Time to Live (TTL) baserat på dokumentets tidsstämpel. Du ka
 
 ## <a name="user-and-role-management"></a>Användar- och rollhantering
 
-Cosmos DB stöder ännu inte användare och roller. Cosmos DB stöder dock rollbaserad åtkomstkontroll (RBAC) och läs- och skrivskyddade lösenord/nycklar som kan erhållas via [Azure-portalen](https://portal.azure.com) (sidan Anslutningssträng).
+Cosmos DB stöder ännu inte användare och roller. Cosmos DB stöder dock rollbaserad åtkomst kontroll (RBAC) och skriv-och skriv skydds-och skrivskyddade lösen ord/nycklar som kan hämtas via [Azure Portal](https://portal.azure.com) (anslutnings sträng).
 
 ## <a name="replication"></a>Replikering
 
@@ -562,17 +562,17 @@ Vissa program förlitar sig på en [Write Concern](https://docs.mongodb.com/manu
 
 ## <a name="sharding"></a>Horisontell partitionering
 
-Azure Cosmos DB stöder automatisk, horisontell partitionering på serversidan. Den hanterar fragment skapande, placering och balansering automatiskt. Azure Cosmos DB stöder inte manuella sharding-kommandon, vilket innebär att du inte behöver anropa kommandon som addShard, balancerStart, moveChunk etc. Du behöver bara ange fragmentnyckeln när du skapar behållarna eller frågar efter data.
+Azure Cosmos DB stöder automatisk, horisontell partitionering på serversidan. Den hanterar Shard skapande, placering och balansering automatiskt. Azure Cosmos DB stöder inte manuella horisontell partitionering-kommandon, vilket innebär att du inte behöver anropa kommandon som addShard, balancerStart, moveChunk osv. Du behöver bara ange nyckeln Shard när du skapar behållarna eller frågar efter data.
 
 ## <a name="sessions"></a>Sessioner
 
-Azure Cosmos DB stöder ännu inte serversessionskommandon.
+Azure Cosmos DB har ännu inte stöd för kommandon på Server sidans sessioner.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För ytterligare information kontrollera [Mongo 3.6 version funktioner](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-dbs-api-for-mongodb-now-supports-server-version-3-6/)
+- Mer information finns i [Mongo 3,6 versions funktioner](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-dbs-api-for-mongodb-now-supports-server-version-3-6/)
 - Lär dig hur du [använder Studio 3T](mongodb-mongochef.md) med Azure Cosmos DB:s API för MongoDB.
 - Lär dig hur du [använder Robo 3T](mongodb-robomongo.md) med Azure Cosmos DB:s API för MongoDB.
 - Utforska MongoDB-[exempel](mongodb-samples.md) med Azure Cosmos DB:s API för MongoDB.
 
-<sup>Den här artikeln beskriver en funktion i Azure Cosmos DB som tillhandahåller kompatibilitet med trådprotokoll med MongoDB-databaser. Microsoft kör inte MongoDB-databaser för att tillhandahålla den här tjänsten. Azure Cosmos DB är inte anslutet till MongoDB, Inc.</sup>
+<sup>OBS! den här artikeln beskriver en funktion i Azure Cosmos DB som ger till gång till Wire Protocol-kompatibilitet med MongoDB-databaser. Microsoft kör inte MongoDB-databaser för att tillhandahålla den här tjänsten. Azure Cosmos DB är inte kopplad till MongoDB, Inc.</sup>

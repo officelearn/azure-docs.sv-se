@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Använda Azure Cache för Redis med .NET-appar'
+title: 'Snabb start: Använd Azure cache för Redis med .NET-appar'
 description: I den här snabbstarten lär du dig hur du får tillgång till Azure Cache for Redis från dina .NET-appar
 author: yegu-ms
 ms.author: yegu
@@ -9,21 +9,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/11/2020
 ms.openlocfilehash: 6384416c2feef3c9a9517bce08374a7667eb5d6b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79369071"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Snabbstart: Använd Azure Cache för Redis med ett .NET Framework-program
+# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Snabb start: använda Azure cache för Redis med ett .NET Framework-program
 
-I den här snabbstarten införlivar du Azure Cache för Redis i en .NET Framework-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure. Du använder specifikt [StackExchange.Redis-klienten](https://github.com/StackExchange/StackExchange.Redis) med C#-kod i en .NET-konsolapp.
+I den här snabb starten införlivar du Azure cache för Redis i en .NET Framework-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure. Du använder särskilt [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) -klienten med C#-kod i en .net-konsol app.
 
 ## <a name="prerequisites"></a>Krav
 
-- Azure-prenumeration - [skapa en gratis](https://azure.microsoft.com/free/)
+- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/)
-- [.NET Framework 4 eller senare](https://www.microsoft.com/net/download/dotnet-framework-runtime), vilket krävs av StackExchange.Redis-klienten.
+- [.NET Framework 4 eller högre](https://www.microsoft.com/net/download/dotnet-framework-runtime), vilket krävs av klienten stackexchange. Redis.
 
 ## <a name="create-a-cache"></a>Skapa en cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -47,9 +47,9 @@ Ersätt `<access-key>` med primärnyckeln för cachen.
 
 ## <a name="create-a-console-app"></a>Skapa en konsolapp
 
-Klicka på **Arkiv** > **nytt** > **projekt**i Visual Studio.
+I Visual Studio klickar du på **fil** > **nytt** > **projekt**.
 
-Välj **Console App (.NET Framework)** och **Nästa** för att konfigurera appen. Skriv ett **projektnamn** och klicka på **Skapa** om du vill skapa ett nytt konsolprogram.
+Välj **konsol program (.NET Framework)** och **bredvid** Konfigurera appen. Ange ett **projekt namn** och klicka på **skapa** för att skapa ett nytt konsol program.
 
 <a name="configure-the-cache-clients"></a>
 
@@ -57,7 +57,7 @@ Välj **Console App (.NET Framework)** och **Nästa** för att konfigurera appen
 
 I det här avsnittet konfigurerar du konsolprogrammet att använda [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis)-klienten för .NET.
 
-I Visual Studio klickar du på **Tools** > **NuGet Package Manager** > **Package Manager Console**och kör följande kommando från fönstret Package Manager Console.
+I Visual Studio klickar du på **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**och kör följande kommando från fönstret Package Manager-konsol.
 
 ```powershell
 Install-Package StackExchange.Redis
@@ -178,7 +178,7 @@ Azure Cache for Redis kan cachelagra både .NET-objekt och basdatatyper, men .NE
 
 Ett enkelt sätt att serialisera objekt är att använda `JsonConvert`-serialiseringsmetoderna i [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) och serialisera till och från JSON. I det här avsnittet ska du lägga till ett .NET-objekt till cachen.
 
-I Visual Studio klickar du på **Tools** > **NuGet Package Manager** > **Package Manager Console**och kör följande kommando från fönstret Package Manager Console.
+I Visual Studio klickar du på **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**och kör följande kommando från fönstret Package Manager-konsol.
 
 ```powershell
 Install-Package Newtonsoft.Json

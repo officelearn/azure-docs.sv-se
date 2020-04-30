@@ -1,6 +1,6 @@
 ---
-title: Konfigurera ett P2S-VPN (Point-to-Site) i Windows för användning med Azure Files | Microsoft-dokument
-description: Konfigurera ett P2S-VPN (Point-to-Site) i Windows för användning med Azure-filer
+title: Konfigurera en punkt-till-plats (P2S) VPN i Windows för användning med Azure Files | Microsoft Docs
+description: Så här konfigurerar du en punkt-till-plats (P2S) VPN i Windows för användning med Azure Files
 author: roygara
 ms.service: storage
 ms.topic: overview
@@ -8,32 +8,32 @@ ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 95386af4522adca1d65e04b01c2a349a80e9ab8a
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81273485"
 ---
-# <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Konfigurera ett P2S-VPN (Point-to-Site) i Windows för användning med Azure-filer
-Du kan använda en P2S-VPN-anslutning (Point-to-Site) för att montera dina Azure-filresurser via SMB utanför Azure, utan att öppna port 445. En Punkt-till-plats VPN-anslutning är en VPN-anslutning mellan Azure och en enskild klient. Om du vill använda en P2S VPN-anslutning med Azure Files måste en P2S VPN-anslutning konfigureras för varje klient som vill ansluta. Om du har många klienter som behöver ansluta till dina Azure-filresurser från ditt lokala nätverk kan du använda en S2S-anslutning (Site-to-Site) i stället för en Point-to-Site-anslutning för varje klient. Mer information finns i [Konfigurera ett plats-till-plats-VPN för användning med Azure Files](storage-files-configure-s2s-vpn.md).
+# <a name="configure-a-point-to-site-p2s-vpn-on-windows-for-use-with-azure-files"></a>Konfigurera en punkt-till-plats (P2S) VPN i Windows för användning med Azure Files
+Du kan använda en punkt-till-plats (P2S) VPN-anslutning för att montera dina Azure-filresurser över SMB utanför Azure, utan att öppna port 445. En punkt-till-plats-VPN-anslutning är en VPN-anslutning mellan Azure och en enskild klient. Om du vill använda en P2S VPN-anslutning med Azure Files måste en P2S VPN-anslutning konfigureras för varje klient som vill ansluta. Om du har många klienter som behöver ansluta till dina Azure-filresurser från ditt lokala nätverk kan du använda en plats-till-plats (S2S) VPN-anslutning i stället för en punkt-till-plats-anslutning för varje klient. Mer information finns i [Konfigurera en plats-till-plats-VPN för användning med Azure Files](storage-files-configure-s2s-vpn.md).
 
-Vi rekommenderar starkt att du läser [Nätverksöverväganden för direkt Azure-filresursåtkomst](storage-files-networking-overview.md) innan du fortsätter med den här artikeln för en fullständig diskussion om nätverksalternativen som är tillgängliga för Azure-filer.
+Vi rekommenderar starkt att du läser [nätverks överväganden för direkt åtkomst till Azure-filresurser](storage-files-networking-overview.md) innan du fortsätter med den här artikeln för en fullständig diskussion av de nätverks alternativ som är tillgängliga för Azure Files.
 
-Artikeln beskriver stegen för att konfigurera en Point-to-Site VPN på Windows (Windows-klient och Windows Server) för att montera Azure-filresurser direkt lokalt. Om du vill dirigera Azure File Sync-trafik via en VPN läser du [konfigurera proxy- och brandväggsinställningar för Azure File Sync](storage-sync-files-firewall-and-proxy.md).
+Artikeln beskriver stegen för att konfigurera en punkt-till-plats-VPN i Windows (Windows-klient och Windows Server) för att montera Azure-filresurser direkt lokalt. Om du vill dirigera Azure File Sync trafik via en VPN-anslutning kan du läsa [konfigurera Azure File Sync proxy-och brand Väggs inställningar](storage-sync-files-firewall-and-proxy.md).
 
 ## <a name="prerequisites"></a>Krav
-- Den senaste versionen av Azure PowerShell-modulen. Mer information om hur du installerar Azure PowerShell finns i [Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps) och välj operativsystem. Om du föredrar att använda Azure CLI på Windows kan du, men instruktionerna nedan presenteras för Azure PowerShell.
+- Den senaste versionen av Azure PowerShell-modulen. Mer information om hur du installerar Azure PowerShell finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps) och välja operativ system. Om du föredrar att använda Azure CLI i Windows kan du se till att anvisningarna nedan visas för Azure PowerShell.
 
-- En Azure-filresurs som du vill montera lokalt. Azure-filresurser distribueras i lagringskonton, som är hanteringskonstruktioner som representerar en delad lagringspool där du kan distribuera flera filresurser, samt andra lagringsresurser, till exempel blob-behållare eller köer. Du kan läsa mer om hur du distribuerar Azure-filresurser och lagringskonton i [Skapa en Azure-filresurs](storage-how-to-create-file-share.md).
+- En Azure-filresurs som du vill montera lokalt. Azure-filresurser distribueras i lagrings konton, som är hanterings konstruktioner som representerar en delad pool av lagring där du kan distribuera flera fil resurser, samt andra lagrings resurser, till exempel BLOB-behållare eller köer. Du kan lära dig mer om hur du distribuerar Azure-filresurser och lagrings konton i [skapa en Azure-filresurs](storage-how-to-create-file-share.md).
 
-- En privat slutpunkt för lagringskontot som innehåller den Azure-filresurs som du vill montera lokalt. Mer information om hur du skapar en privat slutpunkt finns i [Konfigurera slutpunkter för Azure Files-nätverk](storage-files-networking-endpoints.md?tabs=azure-powershell). 
+- En privat slut punkt för det lagrings konto som innehåller den Azure-filresurs som du vill montera lokalt. Mer information om hur du skapar en privat slut punkt finns i [konfigurera Azure Files nätverks slut punkter](storage-files-networking-endpoints.md?tabs=azure-powershell). 
 
 ## <a name="deploy-a-virtual-network"></a>Distribuera ett virtuellt nätverk
-Om du vill komma åt din Azure-filresurs och andra Azure-resurser från lokala via ett Point-to-Site VPN måste du skapa ett virtuellt nätverk eller ett virtuellt nätverk. Den P2S VPN-anslutning som du automatiskt skapar är en brygga mellan din lokala Windows-dator och det virtuella Azure-nätverket.
+För att få åtkomst till Azure-filresursen och andra Azure-resurser från lokala platser via en punkt-till-plats-VPN måste du skapa ett virtuellt nätverk eller ett virtuellt nätverk. P2S VPN-anslutningen som du skapar automatiskt är en bro mellan den lokala Windows-datorn och det virtuella Azure-nätverket.
 
-Följande PowerShell skapar ett virtuellt Azure-nätverk med tre undernät: ett för ditt lagringskontos tjänstslutpunkt, en för ditt lagringskontos privata slutpunkt, som krävs för att komma åt lagringskontot lokalt utan att skapa anpassad routning för den offentliga IP-adressen för lagringskontot som kan ändras och en för din virtuella nätverksgateway som tillhandahåller VPN-tjänsten. 
+Följande PowerShell skapar ett virtuellt Azure-nätverk med tre undernät: ett för lagrings kontots tjänst slut punkt, ett för lagrings kontots privata slut punkt, vilket krävs för att komma åt lagrings kontot lokalt utan att skapa en anpassad routning för den offentliga IP-adressen för det lagrings konto som kan ändras, och ett för din virtuella nätverksgateway som tillhandahåller VPN-tjänsten. 
 
-Kom ihåg `<region>` `<resource-group>`att `<desired-vnet-name>` ersätta , och med lämpliga värden för din miljö.
+Kom ihåg att `<region>`ersätta `<resource-group>`, och `<desired-vnet-name>` med lämpliga värden för din miljö.
 
 ```PowerShell
 $region = "<region>"
@@ -78,8 +78,8 @@ $gatewaySubnet = $virtualNetwork.Subnets | `
     Where-Object { $_.Name -eq "GatewaySubnet" }
 ```
 
-## <a name="create-root-certificate-for-vpn-authentication"></a>Skapa rotcertifikat för VPN-autentisering
-För att VPN-anslutningar från dina lokala Windows-datorer ska autentiseras för att komma åt det virtuella nätverket måste du skapa två certifikat: ett rotcertifikat som ska tillhandahållas till den virtuella datorns gateway och ett klientcertifikat som signeras med rotcertifikatet. Följande PowerShell skapar rotcertifikatet. Klientcertifikatet skapas när Azure-gatewayen för virtuella nätverk har skapats med information från gatewayen. 
+## <a name="create-root-certificate-for-vpn-authentication"></a>Skapa rot certifikat för VPN-autentisering
+För att VPN-anslutningar från dina lokala Windows-datorer ska kunna autentiseras för åtkomst till ditt virtuella nätverk måste du skapa två certifikat: ett rot certifikat som kommer att tillhandahållas till den virtuella datorns gateway och ett klient certifikat som kommer att signeras med rot certifikatet. Följande PowerShell skapar rot certifikatet. klient certifikatet skapas efter det att Azures virtuella nätverksgateway har skapats med information från gatewayen. 
 
 ```PowerShell
 $rootcertname = "CN=P2SRootCert"
@@ -126,12 +126,12 @@ foreach($line in $rawRootCertificate) {
 ```
 
 ## <a name="deploy-virtual-network-gateway"></a>Distribuera virtuell nätverksgateway
-Azure-gatewayen för virtuella nätverk är den tjänst som dina lokala Windows-datorer ansluter till. Distribuera den här tjänsten kräver två grundläggande komponenter: en offentlig IP som identifierar gatewayen till dina klienter var de än är i världen och ett rotcertifikat som du skapade tidigare som kommer att användas för att autentisera dina klienter.
+Den virtuella Azure-Nätverksgatewayen är den tjänst som dina lokala Windows-datorer kommer att ansluta till. Att distribuera den här tjänsten kräver två grundläggande komponenter: en offentlig IP-adress som identifierar gatewayen för dina klienter oavsett var de finns i världen och ett rot certifikat som du skapade tidigare och som ska användas för att autentisera dina klienter.
 
-Kom ihåg `<desired-vpn-name-here>` att ersätta med det namn du vill ha för dessa resurser.
+Kom ihåg att `<desired-vpn-name-here>` ersätta med det namn som du vill ha för dessa resurser.
 
 > [!Note]  
-> Det kan ta upp till 45 minuter att distribuera azure-gatewayen för virtuella nätverk. Medan den här resursen distribueras blockerar det här PowerShell-skriptet för att distributionen ska slutföras. Detta är normalt.
+> Det kan ta upp till 45 minuter att distribuera den virtuella Azure-Nätverksgatewayen. Även om den här resursen distribueras, kommer det här PowerShell-skriptet att blockeras för att distributionen ska slutföras. Detta är förväntat.
 
 ```PowerShell
 $vpnName = "<desired-vpn-name-here>" 
@@ -166,8 +166,8 @@ $vpn = New-AzVirtualNetworkGateway `
     -VpnClientRootCertificates $azRootCertificate
 ```
 
-## <a name="create-client-certificate"></a>Skapa klientcertifikat
-Klientcertifikatet skapas med URI för den virtuella nätverksgatewayen. Certifikatet är signerat med rotcertifikatet som du skapade tidigare.
+## <a name="create-client-certificate"></a>Skapa klient certifikat
+Klient certifikatet skapas med URI: n för den virtuella Nätverksgatewayen. Certifikatet är signerat med rot certifikatet som du skapade tidigare.
 
 ```PowerShell
 $clientcertpassword = "1234"
@@ -212,9 +212,9 @@ Export-PfxCertificate `
 ```
 
 ## <a name="configure-the-vpn-client"></a>Konfigurera VPN-klienten
-Azure-gatewayen för virtuella nätverk skapar ett nedladdningsbart paket med konfigurationsfiler som krävs för att initiera VPN-anslutningen på din lokala Windows-dator. Vi konfigurerar VPN-anslutningen med funktionen [Always On VPN i](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/) Windows 10/Windows Server 2016+. Det här paketet innehåller även körbara paket som konfigurerar den äldre Windows VPN-klienten, om så önskas. Den här guiden använder Alltid på VPN i stället för den äldre Windows VPN-klienten eftersom Alltid på VPN-klienten tillåter slutanvändare att ansluta/koppla från Azure VPN utan att ha administratörsbehörighet till sin dator. 
+Den virtuella Azure-Nätverksgatewayen kommer att skapa ett nedladdnings Bart paket med konfigurationsfiler som krävs för att initiera VPN-anslutningen på din lokala Windows-dator. Vi konfigurerar VPN-anslutningen med funktionen [Always on VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/) i Windows 10/Windows Server 2016 +. Det här paketet innehåller också körbara paket som konfigurerar den äldre Windows VPN-klienten, om så önskas. Den här guiden använder alltid VPN i stället för den äldre Windows VPN-klienten som Always on VPN-klienten, vilket gör att slutanvändarna kan ansluta eller koppla från Azure VPN utan administratörs behörighet till datorn. 
 
-Följande skript installerar klientcertifikatet som krävs för autentisering mot den virtuella nätverksgatewayen, hämtning och installation av VPN-paketet. Kom ihåg `<computer1>` `<computer2>` att byta ut och med önskade datorer. Du kan köra skriptet på så många datorer du vill `$sessions` genom att lägga till fler PowerShell-sessioner i matrisen. Ditt användningskonto måste vara administratör på var och en av dessa datorer. Om en av dessa datorer är den lokala datorn som du kör skriptet från måste du köra skriptet från en upphöjd PowerShell-session. 
+Följande skript kommer att installera det klient certifikat som krävs för autentisering mot den virtuella Nätverksgatewayen, ladda ned och installera VPN-paketet. Kom ihåg att `<computer1>` ersätta `<computer2>` och med önskade datorer. Du kan köra det här skriptet på så många datorer som du vill genom att lägga till fler PowerShell `$sessions` -sessioner i matrisen. Ditt användnings konto måste vara administratör på var och en av dessa datorer. Om någon av dessa datorer är den lokala dator som du kör skriptet från, måste du köra skriptet från en upphöjd PowerShell-session. 
 
 ```PowerShell
 $sessions = [System.Management.Automation.Runspaces.PSSession[]]@()
@@ -292,7 +292,7 @@ Remove-Item -Path $vpnTemp -Recurse
 ```
 
 ## <a name="mount-azure-file-share"></a>Montera Azure-filresurs
-Nu när du har konfigurerat vpn för punkt till plats kan du använda den för att montera Azure-filresursen på de datorer du konfigurerar via PowerShell. I följande exempel monteras resursen, resursens rotkatalog listas för att bevisa att resursen faktiskt är monterad och resursen avmonteras. Tyvärr är det inte möjligt att montera aktien ihållande över PowerShell-ommotning. Information om hur du monterar beständigt finns i [Använda en Azure-filresurs med Windows](storage-how-to-use-files-windows.md). 
+Nu när du har konfigurerat din punkt-till-plats-VPN kan du använda den för att montera Azure-filresursen på de datorer som du installerar via PowerShell. I följande exempel monteras resursen, en lista visas i resursens rot Katalog för att bevisa att resursen faktiskt monteras och demontera resursen. Det går tyvärr inte att montera resursen beständigt över PowerShell-fjärrkommunikation. Information om hur du monterar permanent finns i [använda en Azure-filresurs med Windows](storage-how-to-use-files-windows.md). 
 
 ```PowerShell
 $myShareToMount = "<file-share>"
@@ -337,6 +337,6 @@ Invoke-Command `
 ```
 
 ## <a name="see-also"></a>Se även
-- [Nätverksöverväganden för direkt azure-filresursåtkomst](storage-files-networking-overview.md)
-- [Konfigurera ett P2S-VPN (Point-to-Site) på Linux för användning med Azure-filer](storage-files-configure-p2s-vpn-linux.md)
-- [Konfigurera ett S2S-VPN (Site-to-Site) för användning med Azure-filer](storage-files-configure-s2s-vpn.md)
+- [Nätverks överväganden för direkt åtkomst till Azure-filresurser](storage-files-networking-overview.md)
+- [Konfigurera en punkt-till-plats (P2S) VPN på Linux som ska användas med Azure Files](storage-files-configure-p2s-vpn-linux.md)
+- [Konfigurera ett VPN för plats-till-plats (S2S) som ska användas med Azure Files](storage-files-configure-s2s-vpn.md)

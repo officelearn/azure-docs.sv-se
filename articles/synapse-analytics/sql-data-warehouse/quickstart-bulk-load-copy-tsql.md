@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Massinläsningsdata med ett enda T-SQL-uttryck'
-description: Massinläsningsdata med COPY-satsen
+title: 'Snabb start: Mass inläsning av data med ett enda T-SQL-uttryck'
+description: Mass inläsning av data med hjälp av KOPIERINGs instruktionen
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -12,33 +12,33 @@ ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: d39b3085a802ca0ff745ab1f63f4a8fba966ea48
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81115011"
 ---
-# <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Snabbstart: Massinläsningsdata med COPY-satsen
+# <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Snabb start: Mass inläsning av data med hjälp av KOPIERINGs instruktionen
 
-I den här snabbstarten ska du massinläsning av data i DIN SQL-pool med hjälp av den enkla och flexibla [COPY-uttrycket](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) för datainmatning med högt dataflöde. COPY-satsen är det rekommenderade inläsningsverktyget eftersom det gör att du kan läsa in data sömlöst och flexibelt genom att tillhandahålla funktioner för:
+I den här snabb starten ska du samla in data i SQL-poolen med hjälp av den enkla och flexibla [kopierings instruktionen](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) för data inmatning med stora data flöden. KOPIERINGs instruktionen är det rekommenderade inläsnings verktyget, som du kan använda för att sömlöst och flexibelt läsa in data genom att tillhandahålla funktioner för att:
 
-- Tillåt att användare med lägre privilegierade kan läsas in utan att behöva strikta behörigheter för datalagret
-- Utnyttja endast ett enda T-SQL-uttryck utan att behöva skapa ytterligare databasobjekt
-- Utnyttja en finare behörighetsmodell utan att exponera lagringskontonycklar med Hjälp av SAS (Share Access Signatures)
-- Ange ett annat lagringskonto för FELFILE-platsen (REJECTED_ROW_LOCATION)
-- Anpassa standardvärden för varje målkolumn och ange källdatafält som ska läsas in i specifika målkolumner
-- Ange en anpassad radavslutning för CSV-filer
-- Escape-sträng, fält- och radavgränsare för CSV-filer
-- Utnyttja SQL Server-datumformat för CSV-filer
-- Ange jokertecken och flera filer i sökvägen till lagringsplatsen
+- Tillåt att lägre privilegierade användare läser in utan att du behöver strikt behörighet för data lagret
+- Använd endast ett enda T-SQL-uttryck utan att behöva skapa några ytterligare databas objekt
+- Utnyttja en bättre behörighets modell utan att exponera lagrings konto nycklar med hjälp av dela åtkomst-signaturer (SAS)
+- Ange ett annat lagrings konto för ERRORFILE-platsen (REJECTED_ROW_LOCATION)
+- Anpassa standardvärden för varje mål kolumn och ange käll data fält som ska läsas in i specifika mål kolumner
+- Ange en anpassad rads avslutning för CSV-filer
+- Escape-sträng, fält och rad avgränsare för CSV-filer
+- Utnyttja SQL Server datum format för CSV-filer
+- Ange jokertecken och flera filer i sökvägen till lagrings platsen
 
 ## <a name="prerequisites"></a>Krav
 
-Den här snabbstarten förutsätter att du redan har en SQL-pool. Om en SQL-pool inte har skapats använder du snabbstarten [Skapa och Anslut -](create-data-warehouse-portal.md) portalen.
+Den här snabb starten förutsätter att du redan har en SQL-pool. Om en SQL-pool inte har skapats använder du snabb starten [skapa och Anslut-portalen](create-data-warehouse-portal.md) .
 
-## <a name="create-the-target-table"></a>Skapa måltabellen
+## <a name="create-the-target-table"></a>Skapa mål tabellen
 
-I det här exemplet läser vi in data från New York-taxidatauppsättningen. Vi laddar ett bord som heter Trip som representerar taxiresor som görs inom ett enda år. Kör följande för att skapa tabellen:
+I det här exemplet kommer vi att läsa in data från New York taxi-datauppsättningen. Vi läser in en tabell med namnet resa som representerar taxi resor som fattas under ett och samma år. Kör följande för att skapa tabellen:
 
 ```sql
 CREATE TABLE [dbo].[Trip]
@@ -74,9 +74,9 @@ WITH
 );
 ```
 
-## <a name="run-the-copy-statement"></a>Kör COPY-satsen
+## <a name="run-the-copy-statement"></a>Kör KOPIERINGs instruktionen
 
-Kör följande COPY-sats som läser in data från Azure blob storage-kontot i tabellen Resa.
+Kör följande KOPIERINGs instruktion som läser in data från Azure Blob Storage-kontot i rese tabellen.
 
 ```sql
 COPY INTO [dbo].[Trip] FROM 'https://nytaxiblob.blob.core.windows.net/2013/Trip2013/'
@@ -88,7 +88,7 @@ WITH (
 
 ## <a name="monitor-the-load"></a>Övervaka belastningen
 
-Kontrollera om inläsningen gör framsteg genom att regelbundet köra följande fråga:
+Kontrol lera om din belastning gör att processen körs genom att regelbundet köra följande fråga:
 
 ```sql
 SELECT  r.[request_id]                           
@@ -110,5 +110,5 @@ GROUP BY r.[request_id]
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Bästa praxis för inläsning av data finns i [Metodtips för inläsning av data](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data).
-- Information om hur du hanterar resurser för dina datainläsningar finns i [Arbetsbelastningsisolering](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql). 
+- Metod tips för inläsning av data finns i [metod tips för att läsa in data](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data).
+- Information om hur du hanterar resurserna för dina data belastningar finns i [arbets belastnings isolering](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql). 

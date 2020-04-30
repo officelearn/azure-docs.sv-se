@@ -1,6 +1,6 @@
 ---
-title: Vad är teamdatavetenskapsprocessen?
-description: Innehåller en datascience-metod för att leverera lösningar för prediktiv analys och intelligenta program.
+title: Vad är team data science-processen?
+description: Tillhandahåller en data vetenskaps metod för att leverera lösningar för förutsägelse analys och intelligenta program.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,96 +12,96 @@ ms.date: 1/10/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 10d6e562301e089700940ac5dfb212bcc4e09653
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79088082"
 ---
-# <a name="what-is-the-team-data-science-process"></a>Vad är teamdatavetenskapsprocessen?
+# <a name="what-is-the-team-data-science-process"></a>Vad är team data science-processen?
 
-Team Data Science Process (TDSP) är en smidig, iterativ datavetenskapsmetod för att leverera prediktiva analyslösningar och intelligenta applikationer effektivt. TDSP hjälper till att förbättra teamets samarbete och inlärning genom att föreslå hur grupproller fungerar bäst tillsammans. TDSP innehåller bästa praxis och strukturer från Microsoft och andra branschledare för att hjälpa till att lyckas genomföra datavetenskapliga initiativ. Målet är att hjälpa företag att dra nytta av sina analysprogram fullt ut.
+TDSP (Team data science process) är en smidig, iterativ data vetenskaps metod för att leverera lösningar för förutsägelse analys och intelligenta program effektivt. TDSP hjälper till att förbättra grupp samarbete och inlärning genom att föreslå hur grupp roller fungerar bäst tillsammans. TDSP innehåller bästa praxis och strukturer från Microsoft och andra bransch ledare för att hjälpa till med lyckad implementering av data vetenskaps initiativ. Målet är att hjälpa företag att dra nytta av sina analysprogram fullt ut.
 
-Den här artikeln innehåller en översikt över TDSP och dess huvudkomponenter. Vi ger en generisk beskrivning av processen här som kan genomföras med olika typer av verktyg. En mer detaljerad beskrivning av projektaktiviteter och roller som ingår i processens livscykel finns i ytterligare länkade ämnen. Vägledning om hur du implementerar TDSP med hjälp av en specifik uppsättning Microsoft-verktyg och -infrastruktur som vi använder för att implementera TDSP i våra team finns också.
+Den här artikeln innehåller en översikt över TDSP och dess huvud komponenter. Vi tillhandahåller en allmän beskrivning av processen här som kan implementeras med olika typer av verktyg. En mer detaljerad beskrivning av de projekt aktiviteter och roller som ingår i processens livs cykel finns i ytterligare länkade ämnen. Vägledning om hur du implementerar TDSP med en speciell uppsättning Microsoft-verktyg och-infrastruktur som vi använder för att implementera TDSP i våra team tillhandahålls också.
 
 ## <a name="key-components-of-the-tdsp"></a>Viktiga komponenter i TDSP
 
-TDSP består av följande nyckelkomponenter:
+TDSP består av följande viktiga komponenter:
 
-- En livscykeldefinition **för datavetenskap**
-- En **standardiserad projektstruktur**
-- **Infrastruktur och resurser** för datavetenskapliga projekt
-- **Verktyg och verktyg** för projektkörning
+- En **livs cykel definition för data vetenskap**
+- En **standardiserad projekt struktur**
+- **Infrastruktur och resurser** för data vetenskaps projekt
+- **Verktyg och verktyg** för projekt körning
 
 
-## <a name="data-science-lifecycle"></a>Livscykel för datavetenskap
+## <a name="data-science-lifecycle"></a>Data vetenskaps livs cykel
 
-Team Data Science Process (TDSP) ger en livscykel för att strukturera utvecklingen av dina datavetenskapliga projekt. Livscykeln beskriver de fullständiga steg som framgångsrika projekt följer.
+Med TDSP (Team data science process) får du en livs cykel för att strukturera utvecklingen av data vetenskaps projekt. Livs cykeln beskriver alla steg som slutfört projekt.
 
-Om du använder en annan livscykel för datavetenskap, till exempel [CRISP-DM,](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining) [KDD](https://wikipedia.org/wiki/Data_mining#Process) eller organisationens egen anpassade process, kan du fortfarande använda den uppgiftsbaserade TDSP-enheten i samband med dessa utvecklingslivscykler. På en hög nivå har dessa olika metoder mycket gemensamt. 
+Om du använder en annan data vetenskaps livs cykel, till exempel [skarpt DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) eller din organisations egen anpassade process, kan du fortfarande använda uppgiftsbaserade TDSP i samband med dessa utvecklings livscykler. På hög nivå har dessa olika metoder mycket gemensamt. 
 
-Den här livscykeln har utformats för datavetenskapliga projekt som levereras som en del av intelligenta program. Dessa program distribuerar maskininlärning eller artificiell intelligens modeller för prediktiv analys. Utforskande datavetenskapsprojekt eller improviserade analysprojekt kan också dra nytta av att använda denna process. Men i sådana fall kan det hända att vissa av de beskrivna stegen inte behövs.    
+Den här livs cykeln har utformats för data vetenskaps projekt som levereras som en del av intelligenta program. Dessa program distribuerar Machine Learning-eller artificiell Intelligence-modeller för förutsägelse analys. Undersökande data vetenskaps projekt eller Improvised analys projekt kan också dra nytta av den här processen. Men i sådana fall kanske vissa av stegen som beskrivs inte behövs.    
 
-Livscykeln beskriver de stora faserna som projekt vanligtvis körs, ofta iterativt:
+Livs cykeln beskriver de viktigaste faserna som projekt vanligt vis körs, ofta iterativt:
 
-* **Affärssyssning**
-* **Datainsamling och förståelse**
+* **Affärs förståelse**
+* **Data hämtning och förståelse**
 * **Modellering**
 * **Distribution**
-* **Kundacceptans**
+* **Kund godkännande**
 
-Här är en visuell representation av **Team Data Science Process livscykel**. 
+Här är en visuell representation av **livs cykeln för team data science process**. 
 
-![TDSP-livscykel2](./media/overview/tdsp-lifecycle2.png) 
+![TDSP – Lifecycle2](./media/overview/tdsp-lifecycle2.png) 
 
-Mål, uppgifter och dokumentationsartefakter för varje fas i livscykeln i TDSP beskrivs i livscykelavsnittet [Team Data Science Process.](lifecycle.md) Dessa aktiviteter och artefakter är associerade med projektroller:
+De mål, uppgifter och dokumentations artefakter för varje steg i livs cykeln i TDSP beskrivs i avsnittet om [team data science process Lifecycle](lifecycle.md) . Dessa uppgifter och artefakter är kopplade till projekt roller:
 
-- Lösningsarkitekt
+- Lösnings arkitekt
 - Projektledare
 - Data Scientist
 - Projektledare 
 
-Följande diagram innehåller en rutnätsvy över de aktiviteter (i blått) och artefakter (i grönt) som är associerade med varje steg i livscykeln (på den vågräta axeln) för dessa roller (på den lodräta axeln). 
+Följande diagram innehåller en rutnätsvy över de aktiviteter (i blått) och artefakter (i grönt) som är associerade med varje stadium i livs cykeln (på den vågräta axeln) för dessa roller (på den lodräta axeln). 
 
-[![TDSP-roller och uppgifter](./media/overview/tdsp-tasks-by-roles.png)](./media/overview/tdsp-tasks-by-roles.png#lightbox)
+[![TDSP – roller-och-uppgifter](./media/overview/tdsp-tasks-by-roles.png)](./media/overview/tdsp-tasks-by-roles.png#lightbox)
 
-## <a name="standardized-project-structure"></a>Standardiserad projektstruktur
+## <a name="standardized-project-structure"></a>Standardiserad projekt struktur
 
-Att låta alla projekt dela en katalogstruktur och använda mallar för projektdokument gör det enkelt för gruppmedlemmarna att hitta information om sina projekt. All kod och alla dokument lagras i ett versionskontrollsystem (VCS) som Git, TFS eller Subversion för att möjliggöra gruppsamarbete. Genom att spåra uppgifter och funktioner i ett flexibelt projektspårningssystem som Jira, Rally och Azure DevOps kan du följa koden närmare för enskilda funktioner. Sådan spårning gör det också möjligt för team att få bättre kostnadsberäkningar. TDSP rekommenderar att du skapar en separat databas för varje projekt på VCS för versionshantering, informationssäkerhet och samarbete. Den standardiserade strukturen för alla projekt bidrar till att bygga upp institutionell kunskap i hela organisationen.
+Om du har alla projekt som delar en katalog struktur och använder mallar för projekt dokument blir det enklare för grupp medlemmarna att hitta information om sina projekt. All kod och alla dokument lagras i ett versions kontroll system (VCS) som git, TFS eller Subversion för att ge grupp samarbete. Spårning av aktiviteter och funktioner i ett flexibelt projekt spårnings system, till exempel JIRA, rally och Azure DevOps, gör det möjligt att spåra koden för enskilda funktioner. Sådan spårning gör det också möjligt för team att få bättre kostnads uppskattningar. TDSP rekommenderar att du skapar en separat lagrings plats för varje projekt i VCS för versions hantering, informations säkerhet och samarbete. Den standardiserade strukturen för alla projekt hjälper till att bygga institutionella kunskaper i organisationen.
 
-Vi tillhandahåller mallar för mappstrukturen och nödvändiga dokument på standardplatser. Den här mappstrukturen ordnar de filer som innehåller kod för datautforskning och funktionsextrahering och som registrerar modelliterationer. Dessa mallar gör det enklare för gruppmedlemmarna att förstå det arbete som utförs av andra och att lägga till nya medlemmar i teamen. Det är enkelt att visa och uppdatera dokumentmallar i markdown-format. Använd mallar för att ge checklistor med viktiga frågor för varje projekt för att försäkra att problemet är väl definierat och att slutprodukter uppfyller den förväntade kvaliteten. Exempel på rekommendationer:
+Vi tillhandahåller mallar för mappstrukturen och de dokument som krävs på standard platserna. Den här mappstrukturen ordnar filerna som innehåller kod för data utforskning och funktions extrahering och den post modellen iterationer. Dessa mallar gör det enklare för grupp medlemmar att förstå arbete som har utförts av andra och lägga till nya medlemmar i team. Det är enkelt att visa och uppdatera dokumentmallar i markdown-format. Använd mallar för att tillhandahålla check listor med viktiga frågor för varje projekt för att se till att problemet är väl definierat och att slut produkten uppfyller den förväntade kvaliteten. Exempel på rekommendationer:
 
-- en projektstadga för att dokumentera projektets affärsproblem och omfattning
-- datarapporter för att dokumentera strukturen och statistiken för rådata
-- modellrapporter för att dokumentera de härledda funktionerna
-- modellprestandamått som ROC-kurvor eller MSE
+- en projekt stadga för att dokumentera affärs problem och projektets omfattning
+- data rapporter för att dokumentera strukturen och statistiken för rå data
+- modell rapporter för att dokumentera de härledda funktionerna
+- modellera prestanda mått som ROC-kurvor eller MSE
 
 
-[![TDSP-kataloger](./media/overview/tdsp-dir-structure.png)](./media/overview/tdsp-dir-structure.png#lightbox)
+[![TDSP – kataloger](./media/overview/tdsp-dir-structure.png)](./media/overview/tdsp-dir-structure.png#lightbox)
 
-Katalogstrukturen kan klonas från [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
+Katalog strukturen kan klonas från [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
-## <a name="infrastructure-and-resources-for-data-science-projects"></a>Infrastruktur och resurser för datavetenskapliga projekt  
+## <a name="infrastructure-and-resources-for-data-science-projects"></a>Infrastruktur och resurser för data vetenskaps projekt  
 
-TDSP innehåller rekommendationer för hantering av delad analys- och lagringsinfrastruktur, till exempel:
+TDSP ger rekommendationer för att hantera infrastruktur för delad analys och lagring, till exempel:
 
-- molnfilsystem för lagring av datauppsättningar 
+- moln fil system för lagring av data uppsättningar 
 - databaser
-- stordatakluster (Hadoop eller Spark) 
-- maskininlärningstjänst 
+- Big data-kluster (Hadoop eller Spark) 
+- Machine Learning-tjänsten 
 
-Analys- och lagringsinfrastrukturen, där råa och bearbetade datauppsättningar lagras, kan finnas i molnet eller lokalt. Den här infrastrukturen möjliggör reproducerbar analys. Man undviker också dubbelarbete, vilket kan leda till inkonsekvenser och onödiga infrastrukturkostnader. Verktyg tillhandahålls för att etablera delade resurser, spåra dem och låta varje gruppmedlem ansluta till dessa resurser på ett säkert sätt. Det är också en god idé att låta projektmedlemmar skapa en konsekvent beräkningsmiljö. Olika gruppmedlemmar kan sedan replikera och validera experiment.
+Analys-och lagrings infrastrukturen, där obehandlade och bearbetade data uppsättningar lagras, kan finnas i molnet eller lokalt. Den här infrastrukturen möjliggör reproducerbar analys. Dessutom undviks duplicering, vilket kan leda till inkonsekvenser och onödiga infrastruktur kostnader. Det finns verktyg för att etablera delade resurser, spåra dem och tillåta varje grupp medlem att ansluta till dessa resurser på ett säkert sätt. Det är också en bra idé att låta projekt medlemmar skapa en konsekvent beräknings miljö. Olika team medlemmar kan sedan replikera och validera experiment.
 
-Här är ett exempel på ett team som arbetar med flera projekt och delar olika molnanalysinfrastrukturkomponenter.
+Här är ett exempel på ett team som arbetar på flera projekt och delar olika infrastruktur komponenter för moln analys.
 
 [![TDSP-infrastruktur](./media/overview/tdsp-analytics-infra.png)](./media/overview/tdsp-analytics-infra.png#lightbox) 
 
 
-## <a name="tools-and-utilities-for-project-execution"></a>Verktyg och verktyg för projektkörning
+## <a name="tools-and-utilities-for-project-execution"></a>Verktyg och verktyg för projekt körning
 
-Att införa processer i de flesta organisationer är en utmaning. Verktyg som tillhandahålls för att genomföra datascience processen och livscykeln bidra till att minska hindren för och öka konsekvensen i deras antagande. TDSP tillhandahåller en första uppsättning verktyg och skript för att få fart på införandet av TDSP i ett team. Det hjälper också till att automatisera några av de vanliga uppgifterna i livscykeln för datavetenskap, till exempel datautforskning och baslinjemodellering. Det finns en väldefinierad struktur som tillhandahålls för enskilda personer att bidra med delade verktyg och verktyg i teamets delade kodarkiv. Dessa resurser kan sedan utnyttjas av andra projekt inom teamet eller organisationen. TDSP planerar också att möjliggöra bidrag av verktyg och verktyg till hela samhället. TDSP-verktygen kan klonas från [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
+Det är svårt att introducera processer i de flesta organisationer. Verktyg som tillhandahålls för att implementera data vetenskaps processen och livs cykeln bidrar till att minska barriärerna till och öka konsekvensen av deras införande. TDSP innehåller en första uppsättning verktyg och skript som du kan använda för att komma igång med att använda TDSP i ett team. Du kan också automatisera några av de vanliga uppgifterna i livs cykeln för data vetenskap, till exempel data utforskning och bas linje modellering. Det finns en väldefinierad struktur som ger enskilda personer möjlighet att bidra med delade verktyg och verktyg till sitt Teams delade kod lagrings plats. Dessa resurser kan sedan utnyttjas av andra projekt i teamet eller organisationen. TDSP planerar också att aktivera bidrag från verktyg och verktyg till hela communityn. TDSP-verktygen kan klonas från [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Team Data Science Process: Roller och uppgifter](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) Beskriver de viktigaste personalrollerna och deras associerade uppgifter för ett datavetenskapslag som standardiserar den här processen. 
+[Team data vetenskaps process: roller och uppgifter](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) Beskriver viktiga personal roller och deras associerade uppgifter för ett data vetenskaps team som är standardiserat för den här processen. 

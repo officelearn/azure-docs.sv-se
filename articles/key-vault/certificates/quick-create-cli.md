@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Ange och hämta ett certifikat från Azure Key Vault'
-description: Snabbstart som visar hur du anger och hämtar ett certifikat från Azure Key Vault med Azure CLI
+title: 'Snabb start: Ange och hämta ett certifikat från Azure Key Vault'
+description: Snabb start visar hur du ställer in och hämtar ett certifikat från Azure Key Vault med Azure CLI
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -12,15 +12,15 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 09/03/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d8107d26405423da6bb5d85ab79b83edce95d179
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81423728"
 ---
-# <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-cli"></a>Snabbstart: Ange och hämta ett certifikat från Azure Key Vault med Azure CLI
+# <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-cli"></a>Snabb start: Ange och hämta ett certifikat från Azure Key Vault med Azure CLI
 
-I den här snabbstarten skapar du ett nyckelvalv i Azure Key Vault med Azure CLI. Azure Key Vault är en molntjänst som fungerar som säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Om du vill ha mer information om Key Vault kan du läsa [översikten](../general/overview.md). Med Azure-CLI:t kan du skapa och hantera Azure-resurser med hjälp av kommandon eller skript. När du har slutfört det kommer du att lagra ett certifikat.
+I den här snabb starten skapar du ett nyckel valv i Azure Key Vault med Azure CLI. Azure Key Vault är en molntjänst som fungerar som säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Mer information om Key Vault kan du läsa [översikten](../general/overview.md). Med Azure-CLI:t kan du skapa och hantera Azure-resurser med hjälp av kommandon eller skript. När du har slutfört det kommer du att lagra ett certifikat.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
@@ -64,26 +64,26 @@ Utdata från denna cmdlet visar egenskaper för nyckelvalvet du precis skapade. 
 
 Nu är ditt Azure-konto det enda kontot med behörighet att utföra åtgärder i det nya valvet.
 
-## <a name="add-a-certificate-to-key-vault"></a>Lägga till ett certifikat i Key Vault
+## <a name="add-a-certificate-to-key-vault"></a>Lägg till ett certifikat i Key Vault
 
-Om du vill lägga till ett certifikat i valvet behöver du bara vidta några ytterligare åtgärder. Det här certifikatet kan användas av ett program. 
+Om du vill lägga till ett certifikat i valvet behöver du bara göra några ytterligare steg. Det här certifikatet kan användas av ett program. 
 
-Skriv kommandona nedan om du vill skapa ett självsignerat certifikat med standardprincipen **ExampleCertificate:**
+Skriv kommandona nedan för att skapa ett självsignerat certifikat med standard principen som kallas **ExampleCertificate** :
 
 ```azurecli
 az keyvault certificate create --vault-name "Contoso-Vault2" -n ExampleCertificate -p "$(az keyvault certificate get-default-policy)"
 ```
 
-Du kan nu referera till det här certifikatet som du har lagt till i Azure Key Vault med hjälp av dess URI. Används **https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate** för att hämta den aktuella versionen. 
+Nu kan du referera till det här certifikatet som du lade till Azure Key Vault med hjälp av dess URI. Används **https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate** för att hämta den aktuella versionen. 
 
-Så här visar du tidigare lagrat certifikat:
+Visa tidigare lagrat certifikat:
 
 ```azurecli
 
 az keyvault certificate show --name "ExampleCertificate" --vault-name "Contoso-Vault2"
 ```
 
-Nu har du skapat ett Nyckelvalv, lagrat ett certifikat och hämtat det.
+Nu har du skapat en Key Vault, lagrat ett certifikat och hämtat det.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -96,8 +96,8 @@ az group delete --name ContosoResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du ett Nyckelvalv och sparade ett certifikat i det. Om du vill veta mer om Key Vault och hur du integrerar det med dina program fortsätter du med artiklarna nedan.
+I den här snabb starten skapade du ett Key Vault och lagrat ett certifikat i det. Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
 
-- Läs en [översikt över Azure Key Vault](../general/overview.md)
-- Se referensen för [Azure CLI az keyvault-kommandon](/cli/azure/keyvault?view=azure-cli-latest)
-- Granska [metodtips för Azure Key Vault](../general/best-practices.md)
+- Läs en [Översikt över Azure Key Vault](../general/overview.md)
+- Se referensen för [kommandon för Azure CLI-AZ](/cli/azure/keyvault?view=azure-cli-latest)
+- Granska [Azure Key Vault bästa praxis](../general/best-practices.md)

@@ -10,83 +10,83 @@ ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
 ms.openlocfilehash: 65f6c6627093358f8cbc66055bb9b16561f7c610
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424666"
 ---
-# <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Vad är Azure Synapse Analytics (förhandsversion av arbetsytor)?
+# <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Vad är Azure Synapse Analytics (för hands versioner av arbets ytor)?
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-Idag företagsanalys kräver att arbeta i stor skala på alla typer av data, oavsett om råa, raffinerade eller mycket kurerade. Förr i tiden, bygga denna typ av analyslösningar krävs företag att sy ihop stordata och data lagerteknik som Spark och SQL. Därefter skulle de behöva integrera dem i avancerade datapipelpipelar som fungerar över data i relationslager och datasjöar.  
+Idag Enterprise Analytics kräver en enorm skala på alla typer av data, både RAW, raffinerad eller mycket anpassad. Tidigare var du tvungen att skapa dessa typer av analys lösningar som krävs för att kunna häfta ihop Big data och data lager tekniker som Spark och SQL. Därefter måste de integrera dem i omfattande datapipeliner som fungerar mellan data i Relations lager och data sjöar.  
 
-Lösningar som denna är svåra att bygga, konfigurera, säkra och underhålla, vilket försenar den snabba utvinningen av intelligent insikt.
+Lösningar som detta är svåra att bygga, konfigurera, skydda och underhålla, vilket fördröjer Swift-extraktionen av intelligenta insikter.
 
-**Azure Synapse** är en integrerad analystjänst som påskyndar tiden till insikt från alla data i valfri skala, över datalager och stordataanalyssystem. Det sammanför det bästa av **DE SQL-tekniker** som används i företagsdatalagring, **Spark-teknik** som används i stordataanalys och **pipelines** för att dirigera aktiviteter och dataförflyttningar. 
+**Azure Synapse** är en integrerad analys tjänst som påskyndar tiden till insikter från alla data i alla skalor, i informations lager och Big data analys system. Det kombinerar det bästa av **SQL** -teknikerna som används i företags data lager, **Spark** -tekniker som används i Big data Analytics och **pipelines** för att samordna aktiviteter och data förflyttning. 
 
-Azure Synapse levereras med **Studio** en webbbaserad Studio-användarupplevelse som ger en enda upplevelse och modell för hantering, övervakning, kodning och säkerhet.
+Azure Synapse levereras med en webbaserad **Studio** -användar upplevelse som ger en enda upplevelse och modell för hantering, övervakning, kodning och säkerhet.
 
-Azure Synapse är det enklaste och snabbaste sättet för ett företag att samla in insikter om alla data i alla storlekar, med hjälp av de analyser de är mest bekanta med. Den integreras djupt med **Power BI** så att datatekniker kan skapa analyslösningar som arbetar från på tid för att tillhandahålla Business Intelligence. 
+Azure Synapse erbjuder det enklaste och snabbaste sättet för ett företag att samla in insikter om alla data i valfri storlek, med hjälp av de analyser som de är mest bekanta med. Den integreras kraftigt med **Power BI** som gör det möjligt för data tekniker att skapa analys lösningar som fungerar från slut punkt till slut punkt för att ge Business Intelligence. 
 
-Dessutom underlättar Azure Synapse förutsägande modelluppbyggnad och avancerad analys med maskininlärning via dess inbyggda stöd för **AzureML**.
+Dessutom underlättar Azure-Synapse förutsägelse modell utveckling och avancerad analys med Machine Learning via det inbyggda stödet för **azureml**.
 
-## <a name="key-features--benefits"></a>Viktiga funktioner & fördelar
+## <a name="key-features--benefits"></a>Viktiga funktioner & förmåner
 
 ### <a name="industry-leading-sql"></a>Branschledande SQL
 
-* **Synapse SQL** är ett distribuerat frågesystem som gör det möjligt för företag att implementera datalagring och datavirtualiseringsscenarier med hjälp av vanliga T-SQL-upplevelser som är välbekanta för datatekniker. Det utökar också funktionerna i SQL för att hantera streaming och machine learning scenarier.
+* **SYNAPSE SQL** är ett distribuerat Query-system som gör det möjligt för företag att implementera data lager-och data virtualiseringslösningar med hjälp av vanliga T-SQL-upplevelser som är bekanta med data tekniker. Den utökar också funktionerna i SQL för att adressera strömnings-och maskin inlärnings scenarier.
 
-* Synapse SQL erbjuder både **serverlösa** och **etablerade** resursmodeller, som erbjuder förbruknings- och faktureringsalternativ som passar dina behov. För förutsägbara prestanda och kostnader, etablera pooler för att reservera processorkraft för data som lagras i SQL-tabeller. För oplanerade eller bursty arbetsbelastningar använder du den serverlösa, alltid tillgängliga SQL-slutpunkten.
-* Använd inbyggda **streamingfunktioner** för att landa data från molndatakällor i SQL-tabeller
-* Integrera AI med SQL genom att använda **maskininlärningsmodeller** för att få data med hjälp av funktionen T-SQL PREDICT
+* Synapse SQL erbjuder både **Server** löst och **etablerade** resurs modeller, och erbjuder användnings-och fakturerings alternativ som passar dina behov. För förutsägbar prestanda och kostnad etablera pooler för att reservera bearbetnings kraft för data som lagras i SQL-tabeller. Använd den serverbaserade, alltid tillgängliga SQL-slutpunkten för oplanerade eller burst-arbetsbelastningar.
+* Använd inbyggda **strömnings** funktioner för att landa data från moln data källor till SQL-tabeller
+* Integrera AI med SQL genom att använda **maskin inlärnings** modeller för att räkna data med hjälp av funktionen T-SQL predict
 
-### <a name="industry-standard-apache-spark"></a>Apache Spark av branschstandard
+### <a name="industry-standard-apache-spark"></a>Bransch standard Apache Spark
 
-**Synapse Spark integrerar** på ett djupt och smidigt sätt Apache Spark – den mest populära stordatamotorn med öppen källkod som används för dataförberedelse, datateknik, ETL och maskininlärning.
+**Synapse Spark** är djupt integrerat och sömlöst integrerar Apache Spark – den mest populära Big data motorn med öppen källkod som används för förberedelse av data, data teknik, ETL och maskin inlärning.
 
-* ML-modeller med SparkML-algoritmer och AzureML-integrering för Apache Spark 2.4 med inbyggt stöd för Linux Foundation Delta Lake.
-* Förenklad resursmodell som befriar dig från att behöva oroa dig för att hantera kluster.
-* Snabb Spark start-up och aggressiv autoscaling.
-* Inbyggt stöd för .NET for Spark så att du kan återanvända din C#-expertis och befintlig .NET-kod i ett Spark-program.
+* ML-modeller med SparkML-algoritmer och AzureML-integrering för Apache Spark 2,4 med inbyggt stöd för Linux Foundation delta Lake.
+* Förenklad resurs modell som gör att du inte behöver oroa dig för att hantera kluster.
+* Snabb start av Spark och aggressiv automatisk skalning.
+* Inbyggt stöd för .NET för Spark gör att du kan återanvända din C#-expertis och befintliga .NET-kod i ett Spark-program.
 
-### <a name="interop-of-sql-and-spark-on-your-data-lake"></a>Interop av SQL och Spark på din Data Lake
+### <a name="interop-of-sql-and-spark-on-your-data-lake"></a>Interop för SQL och Spark på din Data Lake
 
-Azure Synapse tar bort de traditionella teknikbarriärerna mellan att använda SQL och Spark tillsammans. Du kan sömlöst blanda och matcha baserat på dina behov och expertis.
+Azure Synapse tar bort de traditionella teknik barriärerna mellan att använda SQL och Spark tillsammans. Du kan kombinera och matcha på ett smidigt sätt utifrån dina behov och kunskaper.
 
-* Ett delat Hive-kompatibelt metadatasystem gör att tabeller som definierats på filer i datasjön kan förbrukas sömlöst av antingen Spark eller Hive.
-* SQL- och Spark kan direkt utforska och analysera Parett-, CSV-, TSV- och JSON-filer som lagras i datasjön.
-* Snabb skalbar belastning och lossning för data som går mellan SQL- och Spark-databaser
+* Ett delat Hive-kompatibelt metadata system gör det möjligt för tabeller som definierats på filer i data Lake att vara sömlöst förbrukade antingen av Spark eller Hive.
+* SQL och Spark kan direkt utforska och analysera Parquet-, CSV-, TSV-och JSON-filer som lagras i data Lake.
+* Snabb skalbar belastning och borttagning av data som går mellan SQL-och Spark-databaser
 
-### <a name="built-in-orchestration-via-pipelines"></a>Inbyggd orkestrering via rörledningar
+### <a name="built-in-orchestration-via-pipelines"></a>Inbyggd dirigering via pipelines
 
-Azure Synapse levereras inbyggt med samma dataintegrationsmotor och -upplevelser som Azure Data Factory, så att du kan skapa omfattande datapipelpipelsar utan att använda en separat orkestreringsmotor.
+Azure Synapse levereras med samma data integrerings motor och upplevelser som Azure Data Factory, så att du kan skapa omfattande datapipeliner utan att använda en separat Orchestration-motor.
 
-* Flytta data mellan Synapse och 85+ lokala datakällor
-* Orkestrera anteckningsböcker, pipelines, Spark-jobb, SQL-skript, lagrade procedurer
-* Kodfri ETL med dataflödesaktiviteter
+* Flytta data mellan Synapse och 85 + lokala data källor
+* Dirigera antecknings böcker, pipeliner, Spark-jobb, SQL-skript, lagrade procedurer
+* Kod fri ETL med data flödes aktiviteter
 
 ### <a name="unified-management-monitoring-and-security"></a>Enhetlig hantering, övervakning och säkerhet
 
-Azure Synapse är ett enda sätt för företag att hantera analysresurser, övervaka användning och aktivitet och upprätthålla säkerhet.
+Azure Synapse erbjuder ett enda sätt för företag att hantera analys resurser, övervaka användning och aktivitet och upprätthålla säkerhet.
 
-* Tilldela användare till rollen för att förenkla åtkomsten till analysresurser
-* Finkornig åtkomstkontroll av data och kod
-* En enda instrumentpanel för att övervaka resurser, användning och användare i SQL och Spark
+* Tilldela användare till roll för att förenkla åtkomst till analys resurser
+* Detaljerad åtkomst kontroll för data och kod
+* En enda instrument panel för att övervaka resurser, användning och användare i SQL och Spark
 
 ### <a name="synapse-studio"></a>Synapse Studio
 
-**Synapse Studio** är den webbinbyggda upplevelsen som binder ihop allt för datatekniker, så att de på en plats kan utföra alla uppgifter de behöver för att bygga en komplett lösning.
+**Synapse Studio** är den webb inbyggda upplevelsen som kopplar ihop allt för data tekniker, så att de kan utföra alla uppgifter som behövs för att skapa en komplett lösning.
 
-* Skapa en heltäckande analyslösning på ett ställe: inta, utforska, förbereda, orkestrera, visualisera
-* Branschledande produktivitet för datatekniker som skriver SQL- eller Spark-kod: redigering, felsökning och prestandaoptimering
-* Integrera med CI/CD-processer för företag
+* Bygg en lösning från slut punkt till slut punkt på en plats: mata in, utforska, förbereda, dirigera, visualisera
+* Branschledande produktivitet för data tekniker som skriver SQL-eller Spark-kod: redigering, fel sökning och prestanda optimering
+* Integrera med Enterprise CI/CD-processer
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa en arbetsyta](quickstart-create-workspace.md)
-* [Använd Synapse Studio](quickstart-synapse-studio.md)
+* [Använda Synapse Studio](quickstart-synapse-studio.md)
 * [Skapa en SQL-pool](quickstart-create-sql-pool.md)
 * [Använda SQL på begäran](quickstart-sql-on-demand.md)
-* [Skapa en Apache Spark-pool](quickstart-create-apache-spark-pool.md)
+* [Skapa en Apache Spark pool](quickstart-create-apache-spark-pool.md)

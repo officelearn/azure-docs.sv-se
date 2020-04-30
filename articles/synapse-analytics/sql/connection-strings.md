@@ -1,6 +1,6 @@
 ---
-title: Anslutningssträngar för Synapse SQL (förhandsgranskning)
-description: Anslutningssträngar för Synapse SQL (förhandsgranskning)
+title: Anslutnings strängar för Synapse SQL (för hands version)
+description: Anslutnings strängar för Synapse SQL (för hands version)
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,19 +10,19 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: 8c1f13449c8ee5152e4e5b48af87f41004e599dc
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424561"
 ---
-# <a name="connection-strings-for-synapse-sql-preview"></a>Anslutningssträngar för Synapse SQL (förhandsgranskning)
+# <a name="connection-strings-for-synapse-sql-preview"></a>Anslutnings strängar för Synapse SQL (för hands version)
 
-Du kan ansluta till Synapse SQL (förhandsversion) med flera olika programprotokoll, till exempel [ADO.NET,](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx) [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)och [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Nedan följer några exempel på anslutningar strängar för varje protokoll. 
+Du kan ansluta till Synapse SQL (för hands version) med flera olika program protokoll som, [ADO.net](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [php](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)och [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Nedan visas några exempel på anslutnings strängar för varje protokoll. 
 
-Du kan också använda Azure-portalen för att skapa din anslutningssträng.  Om du vill skapa anslutningssträngen med Azure-portalen navigerar du till databasbladet under *Essentials* och klickar på *Visa databasanslutningssträngar*.
+Du kan också använda Azure Portal för att bygga anslutnings strängen.  Om du vill bygga anslutnings strängen med hjälp av Azure Portal navigerar du till bladet databas under *Essentials* och klickar på *Visa databas anslutnings strängar*.
 
-## <a name="sample-adonet-connection-string"></a>Exempel ADO.NET anslutningssträng
+## <a name="sample-adonet-connection-string"></a>Exempel på ADO.NET-anslutningssträng
 
 ```csharp
 Server=tcp:{your_server}.sql.azuresynapse.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
@@ -47,12 +47,12 @@ jdbc:sqlserver://yourserver.sql.azuresynapse.net:1433;database=yourdatabase;user
 ```
 
 > [!NOTE]
-> Överväg att ställa in tidsgränsen för anslutningen till 300 sekunder så att anslutningen kan överleva korta perioder av otillgänglighet.
+> Överväg att ange tids gränsen för anslutningen till 300 sekunder så att anslutningen kan överleva korta perioder med otillgänglighet.
 
 ## <a name="recommendations"></a>Rekommendationer
 
-För att köra **SQL on-demand-frågor** är rekommenderade verktyg [Azure Data Studio](get-started-azure-data-studio.md) och Azure Synapse Studio.
+Rekommenderade verktyg är [Azure Data Studio](get-started-azure-data-studio.md) och Azure Synapse Studio för att köra **SQL-frågor på begäran** .
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer om du vill börja fråga din analys med Visual Studio och andra program finns i [Fråga med Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Information om hur du börjar fråga din analys med Visual Studio och andra program finns i [fråga med Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

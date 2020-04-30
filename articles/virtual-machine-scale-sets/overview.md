@@ -1,5 +1,5 @@
 ---
-title: Översikt över azure-skalningsuppsättningar för virtuella datorer
+title: Översikt över skalnings uppsättningar för virtuella Azure-datorer
 description: Lär dig mer om VM-skalningsuppsättningar i Azure och hur du skalar dina program automatiskt
 author: mimckitt
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: mimckitt
 ms.openlocfilehash: 03e3c7b5c0696069729d3067faad8ceb91fc611f
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81272550"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Vad är VM-skalningsuppsättningar?
@@ -27,7 +27,7 @@ VM-skalningsuppsättningar i Azure ger hanteringsmöjligheter för program som k
 - **Enkelt att skapa och hantera flera virtuella datorer**
     - När du har många virtuella datorer som kör ditt program är det viktigt att bibehålla en konsekvent konfiguration i din miljö. Om ditt program ska ha garanterat tillförlitliga prestanda måste den virtuella datorns storlek, diskkonfigurationen och programinstallationerna matcha för samtliga virtuella datorer.
     - Med skalningsuppsättningar skapas alla VM-instanser från samma grundläggande OS-avbildning och konfiguration. Med den här metoden kan du enkelt hantera hundratals virtuella datorer utan att behöva bekymra dig om ytterligare konfigurationsåtgärder eller nätverkshantering.
-    - Skalningsuppsättningar stöder användningen av [Azure-belastningsutjämnaren](../load-balancer/load-balancer-overview.md) för grundläggande trafikdistribution med lager 4 och [Azure Application Gateway](../application-gateway/application-gateway-introduction.md) för mer avancerad trafikdistribution av layer-7 och TLS-avslutning.
+    - Skalnings uppsättningar har stöd för användning av [Azure Load Balancer](../load-balancer/load-balancer-overview.md) för grundläggande Layer-4-trafikdistribution och [Azure Application Gateway](../application-gateway/application-gateway-introduction.md) för mer avancerad Layer-7-trafik distribution och TLS-avslutning.
 
 - **Ger hög tillgänglighet och programåterhämtning**
     - Skalningsuppsättningar använder du för att köra flera instanser av ditt program. Om någon av dessa VM-instanser drabbas av problem har kunderna fortsatt åtkomst till ditt program via någon av de andra VM-instanserna, med minimalt driftstopp som följd.
@@ -38,7 +38,7 @@ VM-skalningsuppsättningar i Azure ger hanteringsmöjligheter för program som k
     - Autoskalning minskar också antalet onödiga VM-instanser som kör programmet när efterfrågan är låg, samtidigt som kunderna ändå kan åtnjuta en godtagbar prestandanivå när efterfrågan växer och ytterligare VM-instanser läggs till automatiskt. Den här möjligheten bidrar till att sänka kostnaderna och på ett effektivt sätt skapa de Azure-resurser som krävs.
 
 - **Fungerar i stor skala**
-    - En skalningsuppsättning har stöd för upp till 1 000 instanser av virtuella datorer. Om du skapar och laddar upp egna anpassade VM-avbildningar är gränsen 600 VM-instanser.
+    - En skalningsuppsättning har stöd för upp till 1 000 instanser av virtuella datorer. Om du skapar och laddar upp dina egna anpassade VM-avbildningar är gränsen 600 VM-instanser.
     - För att få bästa prestanda med produktionsarbetsbelastningar använder du [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
 
@@ -54,11 +54,11 @@ Skalningsuppsättningar skapas från virtuella datorer. Med skalningsuppsättnin
 
 Det tillkommer ingen extra kostnad för skalningsuppsättningar. Du betalar bara för de underliggande beräkningsresurserna som VM-instanser, lastbalanserare eller hanterad disklagring. Hanteringen och automatiseringen av funktioner, t.ex. autoskalning och redundans, medför inga ytterligare avgifter vid användningen av virtuella datorer.
 
-## <a name="how-to-monitor-your-scale-sets"></a>Så här övervakar du dina skalningsuppsättningar
+## <a name="how-to-monitor-your-scale-sets"></a>Så här övervakar du dina skalnings uppsättningar
 
-Använd [Azure Monitor för virtuella datorer](../azure-monitor/insights/vminsights-overview.md), som har en enkel introduktionsprocess och automatiserar insamlingen av viktiga processor-, minnes-, disk- och nätverksprestandaräknare från de virtuella datorerna i din skalningsuppsättning. Den innehåller också ytterligare övervakningsfunktioner och fördefinierade visualiseringar som hjälper dig att fokusera på tillgängligheten och prestandan för dina skalningsuppsättningar.
+Använd [Azure Monitor for VMS](../azure-monitor/insights/vminsights-overview.md), som har en enkel onboarding-process och automatiserar samlingen av viktiga prestanda räknare för processor, minne, disk och nätverk från de virtuella datorerna i din skalnings uppsättning. Den innehåller också ytterligare övervakningsfunktioner och fördefinierade visualiseringar som hjälper dig att fokusera på tillgänglighet och prestanda för dina skalnings uppsättningar.
 
-Aktivera övervakning för ditt program för [skalningsuppsättning](../azure-monitor/app/azure-vm-vmss-apps.md) för virtuella datorer med Application Insights för att samla in detaljerad information om ditt program, inklusive sidvisningar, programbegäranden och undantag. Ytterligare kontrollera tillgängligheten för ditt program genom att konfigurera ett [tillgänglighetstest](../azure-monitor/app/monitor-web-app-availability.md) för att simulera användartrafik.
+Aktivera övervakning av den [virtuella datorns skalnings uppsättnings program](../azure-monitor/app/azure-vm-vmss-apps.md) med Application Insights för att samla in detaljerad information om ditt program, till exempel sidvyer, program begär Anden och undantag. Kontrol lera att programmet är tillgängligt genom att konfigurera ett [tillgänglighets test](../azure-monitor/app/monitor-web-app-availability.md) för att simulera användar trafik.
 
 ## <a name="next-steps"></a>Nästa steg
 Kom igång genom att skapa din första VM-skalningsuppsättning i Azure Portal.

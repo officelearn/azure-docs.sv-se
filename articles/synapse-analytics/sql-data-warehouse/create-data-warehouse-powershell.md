@@ -1,6 +1,6 @@
 ---
 title: Skapa och fråga en Synapse SQL-pool med Azure PowerShell
-description: Skapa snabbt en logiska synaps-SQL-poolserver med en brandväggsregel på servernivå med Azure PowerShell.
+description: Skapa snabbt en logisk Synapse SQL-pool med en brand Väggs regel på server nivå med hjälp av Azure PowerShell.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,22 +12,22 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 57564e9dffd6022e1e4fe464b4b26a5bb8eb318b
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80631332"
 ---
-# <a name="quickstart-create-and-query-a-synapse-sql-pool-with-azure-powershell"></a>Snabbstart: Skapa och fråga en Synapse SQL-pool med Azure PowerShell
+# <a name="quickstart-create-and-query-a-synapse-sql-pool-with-azure-powershell"></a>Snabb start: skapa och fråga en Synapse SQL-pool med Azure PowerShell
 
-Skapa en Synapse SQL-pool (informationslager) i Azure Synapse Analytics med Azure PowerShell.
+Skapa en Synapse SQL-pool (informations lager) i Azure Synapse Analytics med hjälp av Azure PowerShell.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 > [!IMPORTANT]
-> Om du skapar en SQL-pool kan det leda till en ny fakturerbar tjänst.  Mer information finns i [Azure Synapse Analytics-priser](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Att skapa en SQL-pool kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -45,7 +45,7 @@ Om du vill se vilken prenumeration du använder kör du [Get-AzSubscription](/po
 Get-AzSubscription
 ```
 
-Om du behöver använda en annan prenumeration än standard kör du [Set-AzContext](/powershell/module/az.accounts/set-azcontext?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Om du behöver använda en annan prenumeration än standardinställningen kör du [set-AzContext](/powershell/module/az.accounts/set-azcontext?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
@@ -74,7 +74,7 @@ $databasename = "mySampleDataWarehouse"
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en [Azure-resursgrupp](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) med kommandot [New-AzResourceGroup.](/powershell/module/az.resources/new-azresourcegroup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westeurope`.
+Skapa en [Azure-resurs grupp](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) . En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westeurope`.
 
 ```powershell
 New-AzResourceGroup -Name $resourcegroupname -Location $location
@@ -82,7 +82,7 @@ New-AzResourceGroup -Name $resourcegroupname -Location $location
 
 ## <a name="create-a-logical-server"></a>Skapa en logisk server
 
-Skapa en [logiska Azure SQL-server](../../sql-database/sql-database-logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) med kommandot [New-AzSqlServer.](/powershell/module/az.sql/new-azsqlserver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) En logisk server innehåller en uppsättning databaser som hanteras som en grupp. I följande exempel skapas en slumpmässigt namngiven server `ServerAdmin` i resursgruppen `ChangeYourAdminPassword1`med en administratörsanvändare namngiven och ett lösenord för . Ersätt dessa fördefinierade värden efter behov.
+Skapa en [logisk Azure SQL-Server](../../sql-database/sql-database-logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) med kommandot [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) . En logisk server innehåller en uppsättning databaser som hanteras som en grupp. I följande exempel skapas en slumpvis namngiven server i resurs gruppen med en administratörs användare med `ServerAdmin` namnet och ett lösen `ChangeYourAdminPassword1`ord för. Ersätt dessa fördefinierade värden efter behov.
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $resourcegroupname `
@@ -93,7 +93,7 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>Konfigurera en serverbrandväggsregel
 
-Skapa en [brandväggsregel på Azure SQL-servernivå](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) med kommandot [New-AzSqlServerFirewallRule.](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) Med en brandväggsregel på servernivå kan ett externt program, till exempel SQL Server Management Studio eller SQLCMD-verktyget, ansluta till en SQL-pool via SQL-pooltjänstbrandväggen.
+Skapa en [brand Väggs regel för Azure SQL Server-nivå](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) med kommandot [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) . En brand Väggs regel på server nivå gör det möjligt för ett externt program, till exempel SQL Server Management Studio eller SQLCMD-verktyget att ansluta till en SQL-pool via SQL-poolens tjänst brand vägg.
 
 I följande exempel öppnas brandväggen bara för andra Azure-resurser. Aktivera extern anslutning, ändra IP-adressen till en adress som är lämplig för din miljö. Öppna alla IP-adresser genom att använda 0.0.0.0 som den första IP-adressen och 255.255.255.255 som slutadress.
 
@@ -104,12 +104,12 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> SQL-slutpunkter kommunicerar över port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 bli nekad av nätverkets brandvägg. I så fall kan du inte ansluta till din Azure SQL-server om inte IT-avdelningen öppnar port 1433.
+> SQL-slutpunkter kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 bli nekad av nätverkets brandvägg. I så fall kan du inte ansluta till din Azure SQL-Server om inte din IT-avdelning öppnar port 1433.
 >
 
 ## <a name="create-a-sql-pool"></a>Skapa en SQL-pool
 
-I följande exempel skapas en SQL-pool med hjälp av de tidigare definierade variablerna.  Den anger tjänstmålet som DW100c, vilket är en startpunkt för lägre kostnader för SQL-poolen.
+I följande exempel skapas en SQL-pool med hjälp av de tidigare definierade variablerna.  Det anger tjänst målet som DW100c, vilket är en lägre start punkt för SQL-poolen.
 
 ```Powershell
 New-AzSqlDatabase `
@@ -124,25 +124,25 @@ New-AzSqlDatabase `
 
 Erfordrade parametrar är:
 
-* **RequestedServiceObjectiveName**: Mängden [informationslagerenheter](what-is-a-data-warehouse-unit-dwu-cdwu.md) som du begär. Om du ökar det här beloppet ökar beräkningskostnaden. En lista över värden som stöds finns i [begränsningar för minne och samtidighet](memory-concurrency-limits.md).
-* **Databasnamn:** Namnet på den SQL-pool som du skapar.
-* **ServerNamn:** Namnet på den server som du använder för att skapa.
-* **ResourceGroupName**: Resursgrupp som du använder. Använd Get-AzureResource för att hitta tillgängliga resursgrupper i din prenumeration.
-* **Utgåva:** Måste vara "DataWarehouse" för att skapa en SQL-pool.
+* **RequestedServiceObjectiveName**: mängden [data lager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md) som du begär. Om du ökar värdet ökar beräknings kostnaden. En lista över värden som stöds finns i [minnes-och samtidiga gränser](memory-concurrency-limits.md).
+* **Databasename**: namnet på den SQL-pool som du skapar.
+* **Server**namn: namnet på den server som du använder för att skapa.
+* **ResourceGroupName**: resurs gruppen som du använder. Använd Get-AzureResource för att hitta tillgängliga resursgrupper i din prenumeration.
+* **Utgåva**: måste vara "DataWarehouse" för att skapa en SQL-pool.
 
 Valfria parametrar är:
 
-* **CollationName**: Standardsortering om inte annat anges är SQL_Latin1_General_CP1_CI_AS. Sortering kan inte ändras i en databas.
-* **MaxSizeBytes**: Standardstorleken för en databas är 240 TB. Maxstorleken begränsar radbutiksdata. Det finns obegränsad lagring för columnar-data.
+* **CollationName**: Standardsortering om inte annat anges är SQL_Latin1_General_CP1_CI_AS. Det går inte att ändra sorteringen för en databas.
+* **MaxSizeBytes**: standard Max storleken för en databas är 240TB. Max storleken begränsar rowstore-data. Det finns obegränsad lagring för kolumn data.
 
-Mer information om parameteralternativen finns i [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Mer information om parameter alternativen finns i [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 De andra snabbstartsguiderna i den här samlingen bygger på den här snabbstarten.
 
 > [!TIP]
-> Om du planerar att fortsätta att arbeta med senare snabbstartsstudier ska du inte rensa de resurser som skapas i den här snabbstarten. Om du inte planerar att fortsätta följer du följande steg för att ta bort alla resurser som skapats av den här snabbstarten i Azure-portalen.
+> Om du planerar att fortsätta att arbeta med senare snabb starts guider ska du inte rensa upp resurserna som du skapade i den här snabb starten. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla resurser som skapats i den här snabb starten i Azure Portal.
 >
 
 ```powershell
@@ -151,4 +151,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har nu skapat en SQL-pool, skapat en brandväggsregel, anslutit till din SQL-pool och kört några frågor. Om du vill veta mer fortsätter du till [artikeln Läs in data i SQL Pool.](load-data-from-azure-blob-storage-using-polybase.md)
+Nu har du skapat en SQL-pool, skapat en brand Väggs regel, anslutit till SQL-poolen och kört några frågor. Om du vill veta mer kan du fortsätta till artikeln [Läs in data i SQL-poolen](load-data-from-azure-blob-storage-using-polybase.md) .

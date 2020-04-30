@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa ett datavetenskapsexperiment'
+title: 'Snabb start: skapa ett data vetenskaps experiment'
 titleSuffix: ML Studio (classic) - Azure
 description: Den här snabbstarten om maskininlärning vägleder dig genom ett enkelt dataexperiment. Vi kommer förutsäga priset för en bil med hjälp av en regressionsalgoritm.
 services: machine-learning
@@ -11,19 +11,19 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
 ms.openlocfilehash: c4c50ba53bc40ad6ae6fc60b3992f9ab992eb268
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79204570"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Snabbstart: Skapa ditt första datavetenskapsexperiment i Azure Machine Learning Studio (klassiskt)
+# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Snabb start: skapa ditt första data vetenskaps experiment i Azure Machine Learning Studio (klassisk)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-I den här snabbstarten skapar du ett maskininlärningsexperiment i [Azure Machine Learning Studio (klassiskt)](what-is-ml-studio.md) som förutsäger priset på en bil baserat på olika variabler som märke och tekniska specifikationer.
+I den här snabb starten skapar du ett Machine Learning-experiment i [Azure Machine Learning Studio (klassisk)](what-is-ml-studio.md) som förutsäger priset på en bil baserat på olika variabler, till exempel tekniska specifikationer.
 
 Om maskininlärning är nytt för dig är videoserien [Datavetenskap för nybörjare](data-science-for-beginners-the-5-questions-data-science-answers.md) en bra introduktion som med enkelt språk förklarar vad maskininlärning är.
 
@@ -47,15 +47,15 @@ Den här snabbstarten följer standardarbetsflödet för ett experiment:
 ## <a name="get-the-data"></a>Hämta data
 
 Det första du behöver för maskininlärning är data.
-Det finns flera exempeldatauppsättningar som ingår i Studio (klassisk) som du kan använda, eller så kan du importera data från många källor. I det här exemplet kommer vi att använda exempeluppsättningen **Automobile price data (Raw)**, som ingår i arbetsytan.
+Det finns flera exempel data uppsättningar som ingår i Studio (klassisk) som du kan använda, eller så kan du importera data från många källor. I det här exemplet kommer vi att använda exempeluppsättningen **Automobile price data (Raw)**, som ingår i arbetsytan.
 Den här datauppsättningen innehåller poster för ett antal olika bilar, inklusive uppgifter om modell, tekniska specifikationer och pris.
 
 > [!TIP]
-> En arbetskopia av följande experiment finns i [Azure AI-galleriet](https://gallery.azure.ai). Gå till **[Ditt första datavetenskapsexperiment - Bilprisförutsägelse](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** och klicka på **Öppna i Studio** för att hämta en kopia av experimentet till din Machine Learning Studio -arbetsyta (klassisk).
+> En arbetskopia av följande experiment finns i [Azure AI-galleriet](https://gallery.azure.ai). Gå till **[ditt första data vetenskaps experiment – pris förutsägelse för bilbilar](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** och klicka på **Öppna i Studio** för att ladda ned en kopia av experimentet i arbets ytan Machine Learning Studio (klassisk).
 
 Så här gör du för att få datauppsättningen till experimentet.
 
-1. Skapa ett nytt experiment genom att klicka på **+NYTT** längst ned i machine learning studio -fönstret (klassiskt). Välj **EXPERIMENT** >  **Tomt experiment**.
+1. Skapa ett nytt experiment genom att klicka på **+ ny** längst ned i fönstret Machine Learning Studio (klassisk). Välj **experiment** >  **tomt experiment**.
 
 1. Experimentet får ett standardnamn som visas överst i arbetsytan. Markera texten och byt namn på den till ett mer beskrivande namn, exempelvis **Förutsägelse av bilpriser**. Namnet behöver inte vara unikt.
 
@@ -132,7 +132,7 @@ Nu när vi har rensat bort data kan vi ange vilka funktioner som vi vill använd
 
 ## <a name="define-features"></a>Definiera funktioner
 
-Inom maskininlärning är *funktionerna* individuella mätbara egenskaper hos något du är intresserad av. I vår datauppsättning representerar varje rad en bil och varje kolumn är en funktion i den bilen.
+I Machine Learning är *funktioner* enskilda mätbara egenskaper av något du är intresse rad av. I vår datauppsättning representerar varje rad en bil och varje kolumn är en funktion i den bilen.
 
 Det krävs en del experimenterande och kunskap om det problem som ska lösas för att hitta en bra uppsättning funktioner för att skapa en förutsägelsemodell. Vissa funktioner är bättre för att förutsäga målet än andra. Vissa funktioner har en stark korrelation med andra funktioner och kan tas bort. Till exempel är city-mpg och highway-mpg nära relaterade så att vi kan behålla en och ta bort den andra utan att förutsägelsen påverkas avsevärt.
 
@@ -242,7 +242,7 @@ För all felstatistik gäller att mindre är bättre. Ett mindre värde anger at
 I den här snabbstarten skapade du ett enkelt experiment med hjälp av en exempeldatamängd. Fortsätt till självstudien om en förutsägande lösning för att utforska processen med att skapa och distribuera en modell i närmare detalj.
 
 > [!div class="nextstepaction"]
-> [Handledning: Utveckla en prediktiv lösning i Studio (klassisk)](tutorial-part1-credit-risk.md)
+> [Självstudie: utveckla en förutsägelse lösning i Studio (klassisk)](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

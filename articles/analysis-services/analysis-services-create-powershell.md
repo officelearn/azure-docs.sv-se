@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – skapa Azure Analysis Services med PowerShell Azure Analysis Services | Microsoft-dokument
+title: Snabb start – skapa Azure Analysis Services med PowerShell-Azure Analysis Services | Microsoft Docs
 description: Lär dig hur du skapar en Azure Analysis Services-server med PowerShell
 author: minewiskan
 ms.service: azure-analysis-services
@@ -8,10 +8,10 @@ ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: e2b772ac060e55d21341626772667d56245542ca
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80409938"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Snabbstart: Skapa en server – PowerShell
@@ -72,6 +72,6 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 I den här snabbstarten har du lärt dig hur du skapar en server i Azure-prenumerationen med hjälp av PowerShell. Nu när du har en server kan du skydda den genom att konfigurera en serverbrandvägg (valfritt). Du kan även lägga till en grundläggande exempeldatamodell till servern direkt från portalen. Att använda en exempelmodell är en bra idé om du vill lära dig mer om hur man konfigurerar modelldatabasroller och testar klientanslutningar. Fortsätt till och lägg till en exempelmodell om du vill lära dig mer.
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Konfigurera serverbrandväggen - Portal](analysis-services-qs-firewall.md)      
+> [Snabb start: Konfigurera Server brand vägg – Portal](analysis-services-qs-firewall.md)      
 > [!div class="nextstepaction"]
 > [Självstudier: Lägg till en exempelmodell till servern](analysis-services-create-sample-model.md)

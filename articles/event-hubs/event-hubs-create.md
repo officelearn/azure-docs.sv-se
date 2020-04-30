@@ -1,5 +1,5 @@
 ---
-title: Azure Quickstart - Skapa en händelsehubb med Azure-portalen
+title: Azure snabb start – skapa en Event Hub med hjälp av Azure Portal
 description: I den här snabbstarten lär du dig hur du skapar en Azure-händelsehubb med hjälp av Azure Portal och hur du sedan skickar och tar emot händelser med hjälp av .NET Standard SDK.
 services: event-hubs
 documentationcenter: ''
@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 02/11/2020
 ms.author: spelluru
 ms.openlocfilehash: 5e80ab6d5ed0076e03f5378cbe975b15d0a28f47
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240998"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Snabbstart: Skapa en händelsehubb med hjälp av Azure Portal
@@ -41,7 +41,7 @@ En resursgrupp är en logisk samling Azure-resurser. Alla resurser distribueras 
 2. För **Prenumeration** väljer du namnet på den Azure-prenumeration som du vill skapa resursgruppen i.
 3. Ange ett unikt **namn på resursgruppen**. Systemet kontrollerar direkt om namnet är tillgängligt i den valda Azure-prenumerationen.
 4. Välj en **region** för resursgruppen.
-5. Välj **Granska + Skapa**.
+5. Välj **Granska + skapa**.
 
    ![Resursgrupp – skapa](./media/event-hubs-quickstart-portal/resource-groups2.png)
 6. Välj **Granska ** i fönstret **Granska + Skapa**. 
@@ -58,11 +58,11 @@ Ett Event Hubs-namnområde innehåller en unik omfattningscontainer som referera
 
    ![Knappen Lägg till](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. Gör följande på sidan **Skapa namnområde**:
-    1. Ange ett **namn** på namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
-    2. Välj **prisnivå** (Basic eller Standard).
-    3. Observera att **alternativet Aktivera Kafka** aktiveras automatiskt. Azure Event Hubs ger dig en Kafka-slutpunkt. Med den här slutpunkten kan namnområdet Event Hubs förstå [Apache Kafka-meddelandeprotokoll](https://kafka.apache.org/intro) och API:er. Med den här funktionen kan du kommunicera med dina händelsehubbar på samma sätt som med Kafka-ämnen utan att ändra dina protokollklienter eller köra egna kluster. Event Hubs stöder [Apache Kafka version 1.0](https://kafka.apache.org/10/documentation.html) och senare.
+    1. Ange ett **namn** för namn området. Systemet kontrollerar omedelbart om namnet är tillgängligt.
+    2. Välj **pris nivå** (Basic eller standard).
+    3. Observera att alternativet **Aktivera Kafka** aktive ras automatiskt. Azure Event Hubs ger dig en Kafka-slutpunkt. Den här slut punkten gör det möjligt för Event Hubs namn området att förstå [Apache Kafka](https://kafka.apache.org/intro) meddelande protokoll och API: er. Med den här funktionen kan du kommunicera med dina Event Hub på samma sätt som med Kafka-ämnen utan att ändra protokoll klienter eller köra egna kluster. Event Hubs stöder [Apache Kafka version 1,0](https://kafka.apache.org/10/documentation.html) och senare.
     4. Välj den **prenumeration** som du vill skapa namnområdet i.
-    5. Välj en befintlig **resursgrupp** eller skapa en ny resursgrupp. 
+    5. Välj en befintlig **resurs grupp** eller skapa en ny resurs grupp. 
     4. Välj en **plats** för namnområdet.
     5. Välj **Skapa**. Du kan behöva vänta några minuter på att systemet blir klar med att etablera resurserna.
 
@@ -93,12 +93,12 @@ Grattis! Du har skapat ett Event Hubs-namnområde och en händelsehubb i namnomr
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du skapat en resursgrupp, en Event Hubs-namnrymd och en händelsehubb. Stegvisa instruktioner för att skicka händelser till (eller) ta emot händelser från en händelsehubb finns i självstudiekurserna **Skicka och ta emot händelser:** 
+I den här artikeln har du skapat en resursgrupp, en Event Hubs-namnrymd och en händelsehubb. Stegvisa instruktioner för att skicka händelser till (eller) ta emot händelser från en händelsehubben finns i självstudierna **skicka och ta emot händelser** : 
 
 - [.NET Core](get-started-dotnet-standard-send-v2.md)
 - [Java](get-started-java-send-v2.md)
 - [Python](get-started-python-send-v2.md)
-- [Javascript](get-started-java-send-v2.md)
+- [JavaScript](get-started-java-send-v2.md)
 - [Kör](event-hubs-go-get-started-send.md)
 - [C (skickar endast)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (tar endast emot)](event-hubs-storm-getstarted-receive.md)

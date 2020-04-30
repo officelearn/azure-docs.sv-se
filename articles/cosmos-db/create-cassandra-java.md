@@ -1,5 +1,5 @@
 ---
-title: Skapa en Java-app med Azure Cosmos DB Cassandra API
+title: Bygg en Java-app med Azure Cosmos DB API för Cassandra
 description: Den här snabbstarten visar hur du använder Cassandra API i Azure Cosmos DB för att skapa ett profilprogram med Azure-portalen och Java
 ms.service: cosmos-db
 author: SnehaGunda
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 124bbcedceffca318367799441f66e330bc41fef
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/07/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80811325"
 ---
-# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data"></a>Snabbstart: Skapa en Java-app för att hantera Azure Cosmos DB Cassandra API-data
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data"></a>Snabb start: bygga en Java-app för att hantera Azure Cosmos DB API för Cassandra data
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -25,14 +25,14 @@ ms.locfileid: "80811325"
 > * [Python](create-cassandra-python.md)
 >  
 
-I den här snabbstarten skapar du ett Azure Cosmos DB Cassandra API-konto och använder en Cassandra Java-app som klonats från GitHub för att skapa en Cassandra-databas och behållare. Azure Cosmos DB är en databastjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckelvärde- och diagramdatabaser med globala distributions- och vågräta skalfunktioner.
+I den här snabb starten skapar du ett Azure Cosmos DB API för Cassandra konto och använder en Cassandra java-app som klonas från GitHub för att skapa en Cassandra-databas och-behållare. Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning.
 
 ## <a name="prerequisites"></a>Krav
 
-- Ett Azure-konto med en aktiv prenumeration. [Skapa en gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Eller [prova Azure Cosmos DB gratis](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration.
-- [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Peka `JAVA_HOME` din miljövariabel till mappen där JDK är installerat.
-- En [Maven binära arkiv](https://maven.apache.org/download.cgi). På Ubuntu, `apt-get install maven` kör för att installera Maven.
-- [Git](https://www.git-scm.com/downloads). På Ubuntu `sudo apt-get install git` kör du för att installera Git.
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration.
+- [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Peka `JAVA_HOME` miljö variabeln till den mapp där JDK är installerad.
+- Ett [binärt maven-Arkiv](https://maven.apache.org/download.cgi). Kör `apt-get install maven` för att installera maven på Ubuntu.
+- [Git](https://www.git-scm.com/downloads). Kör `sudo apt-get install git` för att installera git på Ubuntu.
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
@@ -64,9 +64,9 @@ Nu ska vi övergå till att arbeta med kod. Vi ska klona en Cassandra API-app fr
 
 ## <a name="review-the-code"></a>Granska koden
 
-Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). Dessa utdrag är alla hämtade från *filen src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java.*  
+Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). De här kodfragmenten hämtas från filen *src/main/Java/com/Azure/cosmosdb/Cassandra/util/CassandraUtils. java* .  
 
-* Alternativen Cassandra-värd,port, användarnamn, lösenord och TLS/SSL anges. Information om anslutningssträngen kommer från sidan med anslutningssträngen i Azure-portalen.
+* Alternativen Cassandra Host, port, användar namn, lösen ord och TLS/SSL är inställda. Information om anslutningssträngen kommer från sidan med anslutningssträngen i Azure-portalen.
 
    ```java
    cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
@@ -78,7 +78,7 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
     return cluster.connect();
     ```
 
-Följande utdrag kommer från filen *src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java.*
+Följande kodfragment är från filen *src/main/Java/com/Azure/cosmosdb/Cassandra/lagringsplats/UserRepository. java* .
 
 * Skapa ett nytt keyspace.
 
@@ -142,37 +142,37 @@ Följande utdrag kommer från filen *src/main/java/com/azure/cosmosdb/cassandra/
 
 Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen. Informationen i anslutningssträngen gör det möjligt för appen att kommunicera med den värdbaserade databasen.
 
-1. Välj **Anslutningssträng**i ditt Azure Cosmos DB-konto i [Azure-portalen](https://portal.azure.com/). 
+1. Välj **anslutnings sträng**i Azure Cosmos DB-kontot i [Azure Portal](https://portal.azure.com/). 
 
     ![Visa och kopiera ett användarnamn från Azure-portalen, sidan Anslutningssträng](./media/create-cassandra-java/copy-username-connection-string-azure-portal.png)
 
 2. Använd ![Knappen Kopiera](./media/create-cassandra-java/copy-button-azure-portal.png) knappen på höger sida av skärmen för att kopiera värdet KONTAKTPUNKT.
 
-3. Öppna filen *config.properties* från mappen *C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources.* 
+3. Öppna filen *config. Properties* från mappen *C:\git-samples\azure-cosmosdb-Cassandra-Java-Getting-started\java-examples\src\main\resources* . 
 
 3. Klistra in KONTAKTPUNKT-värdet från portalen över `<Cassandra endpoint host>` på rad 2.
 
-    Linje 2 av *config.properties* bör nu se ut ungefär som 
+    Rad 2 i *config. Properties* bör nu se ut ungefär så här 
 
     `cassandra_host=cosmos-db-quickstart.cassandra.cosmosdb.azure.com`
 
-3. Gå tillbaka till portalen och kopiera användarnamnet. Klistra in värdet för ANVÄNDARNAMN från portalen över `<cassandra endpoint username>` på rad 4.
+3. Gå tillbaka till portalen och kopiera värdet USERNAME. Klistra in värdet för ANVÄNDARNAMN från portalen över `<cassandra endpoint username>` på rad 4.
 
-    Linje 4 av *config.properties* bör nu se ut ungefär som 
+    Rad 4 i *config. Properties* bör nu se ut ungefär så här 
 
     `cassandra_username=cosmos-db-quickstart`
 
-4. Gå tillbaka till portalen och kopiera värdet LÖSENORD. Klistra in värdet för LÖSENORD från portalen över `<cassandra endpoint password>` på rad 5.
+4. Gå tillbaka till portalen och kopiera värdet för lösen ordet. Klistra in värdet för LÖSENORD från portalen över `<cassandra endpoint password>` på rad 5.
 
-    Linje 5 av *config.properties* bör nu se ut ungefär som 
+    Rad 5 i *config. Properties* bör nu se ut ungefär så här 
 
     `cassandra_password=2Ggkr662ifxz2Mg...==`
 
-5. På rad 6, om du vill använda ett specifikt `<SSL key store file location>` TLS/SSL-certifikat, ersätter du med platsen för TLS/SSL-certifikatet. Om inget värde anges kommer JDK-certifikatet som är installerat på <JAVA_HOME>/jre/lib/security/cacerts att användas. 
+5. Om du vill använda ett angivet TLS/SSL-certifikat på rad 6 ersätter `<SSL key store file location>` du med platsen för TLS/SSL-certifikatet. Om inget värde anges kommer JDK-certifikatet som är installerat på <JAVA_HOME>/jre/lib/security/cacerts att användas. 
 
-6. Om du har ändrat rad 6 för att använda ett specifikt TLS/SSL-certifikat uppdaterar du rad 7 för att använda lösenordet för certifikatet. 
+6. Om du har ändrat rad 6 för att använda ett angivet TLS/SSL-certifikat uppdaterar du rad 7 för att använda lösen ordet för certifikatet. 
 
-7. Spara filen *config.properties.*
+7. Spara filen *config. Properties* .
 
 ## <a name="run-the-java-app"></a>Kör Java-appen
 
@@ -196,11 +196,11 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
     Terminalfönstret visar aviseringar om att keyspace och tabell har skapats. Det markerar och returnerar sedan alla användare i tabellen och visar utdata, och väljer sedan ett rad-ID och visar värdet.  
 
-    Tryck på Ctrl+C för att stoppa körningen av programmet och stänga konsolfönstret.
+    Tryck på CTRL + C för att stoppa körningen av programmet och stänga konsol fönstret.
 
 4. I **Datautforskaren** på Azure-portalen kan du fråga, ändra och arbeta med dessa nya data. 
 
-    ![Visa data i Data Explorer - Azure Cosmos DB](./media/create-cassandra-java/view-data-explorer-java-app.png)
+    ![Visa data i Datautforskaren-Azure Cosmos DB](./media/create-cassandra-java/view-data-explorer-java-app.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 
@@ -212,7 +212,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten lärde du dig hur du skapar ett Azure Cosmos DB-konto med Cassandra API och kör en Cassandra Java-app som skapar en Cassandra-databas och behållare. Du kan nu importera ytterligare data till ditt Azure Cosmos DB-konto. 
+I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos DB konto med API för Cassandra och kör en Cassandra java-app som skapar en Cassandra-databas och-behållare. Nu kan du importera ytterligare data till ditt Azure Cosmos DB-konto. 
 
 > [!div class="nextstepaction"]
 > [Importera Cassandra-data till Azure Cosmos DB](cassandra-import-data.md)

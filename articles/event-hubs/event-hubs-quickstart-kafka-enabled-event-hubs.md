@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Datastreaming med Azure Event Hubs med Kafka-protokollet'
-description: 'Snabbstart: Den här artikeln innehåller information om hur du streamar till Azure Event Hubs med Kafka-protokollet och API:er.'
+title: 'Snabb start: data strömning med Azure Event Hubs med Kafka-protokollet'
+description: 'Snabb start: den här artikeln innehåller information om hur du strömmar till Azure Event Hubs med hjälp av Kafka-protokollet och API: erna.'
 services: event-hubs
 author: ShubhaVijayasarathy
 ms.author: shvija
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 02/12/2020
 ms.openlocfilehash: 67ee882acab22d977f08124591289e9cfc7cded1
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81261830"
 ---
-# <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Snabbstart: Datastreaming med eventhubbar med Kafka-protokollet
-Den här snabbstarten visar hur du streamar till eventhubbar utan att ändra dina protokollklienter eller köra egna kluster. Du lär dig hur du använder dina producenter och konsumenter för att prata med Event Hubs med bara en konfigurationsändring i dina program. Azure Event Hubs stöder [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
+# <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Snabb start: data strömning med Event Hubs med Kafka-protokollet
+Den här snabb starten visar hur du strömmar till Event Hubs utan att ändra protokoll klienter eller köra egna kluster. Du lär dig hur du använder dina producenter och användare för att prata med Event Hubs med bara en konfigurations ändring i dina program. Azure Event Hubs stöder [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
 
 > [!NOTE]
 > Det här exemplet finns på [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java)
@@ -33,10 +33,10 @@ För att kunna slutföra den här snabbstarten behöver du följande:
 
 
 ## <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
-När du skapar **ett** standardnivånamnområde för händelsehubbar aktiveras Kafka-slutpunkten för namnområdet automatiskt. Du kan strömma händelser från dina program som använder Kafka-protokollet till standardnivåhändelsehubbar. Följ steg-för-steg-instruktioner i [skapa en händelsehubb med Azure-portalen](event-hubs-create.md) för att skapa ett **standardnivånamnområde** för eventhubbar. 
+När du skapar en **standard** nivå Event Hubs-namnrymd aktive ras Kafka-slutpunkten för namn området automatiskt. Du kan strömma händelser från dina program som använder Kafka-protokollet till standard nivå Event Hubs. Följ steg-för-steg-instruktionerna i [skapa en Event Hub med Azure Portal](event-hubs-create.md) för att skapa ett **standard** -nivå Event Hubs-namnområde. 
 
 > [!NOTE]
-> Event Hubs för Kafka är endast tillgängligt på **standard-** och **dedikerade** nivåer. Den **grundläggande** nivån stöder inte Kafka på Event Hubs.
+> Event Hubs för Kafka är bara tillgängligt på **standard** -och **dedikerade** nivåer. **Basic** -nivån har inte stöd för Kafka på Event Hubs.
 
 ## <a name="send-and-receive-messages-with-kafka-in-event-hubs"></a>Skicka och ta emot meddelanden med Kafka i Event Hubs
 
@@ -54,7 +54,7 @@ När du skapar **ett** standardnivånamnområde för händelsehubbar aktiveras K
     sasl.mechanism=PLAIN
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
     ```
-    **Oauth:**
+    **Arbeta**
 
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -64,8 +64,8 @@ När du skapar **ett** standardnivånamnområde för händelsehubbar aktiveras K
     sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
     ```    
 
-    Du hittar källkoden för exempelhanterarklassen CustomAuthenticateCallbackHandler på GitHub [här](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/producer/src/main/java).
-4. Kör producentkoden och strömma händelser till Event Hubs:
+    Du hittar käll koden för exempel hanterarens klass CustomAuthenticateCallbackHandler på GitHub [här](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/producer/src/main/java).
+4. Kör Producer-koden och Stream-händelserna i Event Hubs:
    
     ```shell
     mvn clean package
@@ -85,7 +85,7 @@ När du skapar **ett** standardnivånamnområde för händelsehubbar aktiveras K
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
     ```
 
-    **Oauth:**
+    **Arbeta**
 
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -95,10 +95,10 @@ När du skapar **ett** standardnivånamnområde för händelsehubbar aktiveras K
     sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
     ``` 
 
-    Du hittar källkoden för exempelhanterarklassen CustomAuthenticateCallbackHandler på GitHub [här](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/consumer/src/main/java).
+    Du hittar käll koden för exempel hanterarens klass CustomAuthenticateCallbackHandler på GitHub [här](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/consumer/src/main/java).
 
-    Du hittar alla OAuth-exempel för Event Hubs för Kafka [här](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
-7. Kör konsumentkoden och bearbeta händelser från händelsehubben med kafka-klienterna:
+    Du kan hitta alla OAuth-exempel för Event Hubs för Kafka [här](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
+7. Kör konsument koden och process händelserna från händelsehubben med Kafka-klienterna:
 
     ```java
     mvn clean package
@@ -108,4 +108,4 @@ När du skapar **ett** standardnivånamnområde för händelsehubbar aktiveras K
 Om dina Kafka-kluster för Event Hubs har händelser börjar du nu att få dem från konsumenten.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln lärde du dig att strömma till eventhubbar utan att ändra dina protokollklienter eller köra egna kluster. Mer information finns i [Utvecklarhandboken för Apache Kafka för Azure Event Hubs](apache-kafka-developer-guide.md). 
+I den här artikeln har du lärt dig hur du strömmar till Event Hubs utan att ändra protokoll klienter eller köra egna kluster. Mer information finns i [Apache Kafka Developer Guide for Azure Event Hubs](apache-kafka-developer-guide.md). 

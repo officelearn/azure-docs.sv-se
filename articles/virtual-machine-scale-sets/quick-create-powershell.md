@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – Skapa en skalningsuppsättning för virtuella datorer med Azure PowerShell
-description: Kom igång med dina distributioner genom att lära dig hur du snabbt skapar en skala för virtuella datorer med Azure PowerShell.
+title: Snabb start – skapa en skalnings uppsättning för en virtuell dator med Azure PowerShell
+description: Kom igång med dina distributioner genom att lära dig hur du snabbt skapar en virtuell dators skala med Azure PowerShell.
 author: ju-shim
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: jushiman
 ms.openlocfilehash: ab5efc84ed88ef5ef245bfead2cc709405dc79ea
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81008666"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-azure-powershell"></a>Snabbstart: Skapa en VM-skalningsuppsättning med Azure PowerShell
@@ -27,7 +27,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 
 ## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
-Innan du kan skapa en skalningsuppsättning skapar du en resursgrupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på *eastus-platsen:*
+Innan du kan skapa en skalnings uppsättning skapar du en resurs grupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på platsen för *öster* :
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "EastUS"

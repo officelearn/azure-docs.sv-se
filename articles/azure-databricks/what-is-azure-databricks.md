@@ -11,10 +11,10 @@ ms.date: 04/10/2020
 ms.author: mamccrea
 ms.custom: mvc
 ms.openlocfilehash: 902486f7e19f2dfd7cc64e27589e192c57ef64e8
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81255523"
 ---
 # <a name="what-is-azure-databricks"></a>Vad är Azure Databricks?
@@ -37,7 +37,7 @@ Azure Databricks består av Apache Spark-klusterteknik och funktioner med helt �
 
 * **Strömning**: Realtidsbearbetning av data och analys för analysprogram och interaktiva program. Integreras med HDFS, Flume och Kafka.
 
-* **MLlib**: Machine Learning bibliotek bestående av vanliga lärande algoritmer och verktyg, inklusive klassificering, regression, klustring, samarbete filtrering, dimensionalitet minskning, samt underliggande optimering primitiver.
+* **MLlib**: Machine Learning bibliotek som består av vanliga Learning-algoritmer och-verktyg, inklusive klassificering, regression, klustring, samordnad filtrering, Dimensional reducering, samt underliggande optimerings primitiver.
 
 * **GraphX**: Diagram och diagramberäkning för ett brett omfång av användarfall, från kognitiv analys till datautforskning.
 
@@ -88,7 +88,7 @@ Azure Databricks ger Azure-säkerhet i företagsklass, inklusive integrering av 
 
 > [!IMPORTANT]
 >
-> Azure Databricks är en Microsoft Azure-tjänst i första part som distribueras på den globala Azure Public Cloud-infrastrukturen. All kommunikation mellan komponenter i tjänsten, inklusive mellan de offentliga IPs i kontrollplanet och kunddataplanet, ligger kvar i Microsoft Azure-nätverkets ryggrad. Se även [Microsofts globala nätverk](https://docs.microsoft.com/azure/networking/microsoft-global-network).
+> Azure Databricks är en Microsoft Azure tjänst från första part som distribueras i den globala Azures infrastruktur för offentliga moln. All kommunikation mellan komponenterna i tjänsten, inklusive mellan offentliga IP-adresser i kontroll planet och kundens data plan, ligger kvar inom Microsoft Azure nätverkets stamnät. Se även [Microsoft Global Network](https://docs.microsoft.com/azure/networking/microsoft-global-network).
 
 
 ## <a name="integration-with-azure-services"></a>Integrering med Azure-tjänster

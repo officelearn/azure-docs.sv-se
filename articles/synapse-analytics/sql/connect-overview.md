@@ -1,6 +1,6 @@
 ---
-title: Ansluta till Synapse SQL
-description: Anslut dig till Synapse SQL.
+title: Anslut till Synapse SQL
+description: Anslut till Synapse SQL.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,31 +10,31 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: 9748b0354ce09752296fb7d736e09af716f19351
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424610"
 ---
-# <a name="connect-to-synapse-sql"></a>Ansluta till Synapse SQL
-Anslut dig till Synapse SQL-funktionen i Azure Synapse Analytics.
+# <a name="connect-to-synapse-sql"></a>Anslut till Synapse SQL
+Anslut till SQL-funktionen Synapse i Azure Synapse Analytics.
 
-## <a name="supported-tools-for-sql-on-demand-preview"></a>Verktyg som stöds för SQL på begäran (förhandsgranskning)
+## <a name="supported-tools-for-sql-on-demand-preview"></a>Verktyg som stöds för SQL på begäran (för hands version)
 
-Det verktyg som stöds fullt ut är Azure Data Studio (förhandsversion).
+Det fullt stödda verktyget är Azure Data Studio (för hands version).
 
-SQL Server Management Studio stöds delvis från version 18.4. Det finns begränsade funktioner som anslutning och frågor.
+SQL Server Management Studio stöds delvis från version 18,4. Det finns begränsade funktioner som att ansluta och fråga.
 
 ## <a name="find-your-server-name"></a>Hitta servernamnet
 
-Servernamnet för SQL Pool i följande exempel är: showdemoweu.sql.azuresynapse.net.
-Servernamnet för SQL on-demand i följande exempel är: showdemoweu-ondemand.sql.azuresynapse.net.
+Server namnet för SQL-poolen i följande exempel är: showdemoweu.sql.azuresynapse.net.
+Server namnet för SQL på begäran i följande exempel är: showdemoweu-ondemand.sql.azuresynapse.net.
 
 För att hitta det fullständigt kvalificerade servernamnet:
 
-1. Gå till [Azure-portalen](https://portal.azure.com).
-2. Klicka på **Synapse arbetsytor**.
-3. Klicka på arbetsytan som du vill ansluta till.
+1. Gå till [Azure Portal](https://portal.azure.com).
+2. Klicka på **Synapse-arbetsytor**.
+3. Klicka på den arbets yta som du vill ansluta till.
 4. Gå till översikt.
 5. Leta upp det fullständiga servernamnet.
 
@@ -44,10 +44,10 @@ För att hitta det fullständigt kvalificerade servernamnet:
 
 ## <a name="sql-on-demand"></a>**SQL på begäran**
 
-![Fullständigt servernamn SQL på begäran](./media/connect-overview/server-connect-example-sqlod.png)
+![Fullständigt Server namn SQL på begäran](./media/connect-overview/server-connect-example-sqlod.png)
 
 ## <a name="supported-drivers-and-connection-strings"></a>Drivrutiner och anslutningssträngar som stöds
-Synapse SQL stöder [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)och [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). För att hitta den senaste versionen och dokumentationen, klicka på en av de föregående drivrutinerna. Om du vill generera anslutningssträngen automatiskt för drivrutinen som du använder från Azure-portalen klickar du på **anslutningssträngarna Visa databas** från föregående exempel. Nedan visas några exempel på hur en anslutningssträng kan se ut för respektive drivrutin.
+Synapse SQL stöder [ADO.net](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [php](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)och [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). Du hittar den senaste versionen och dokumentationen genom att klicka på någon av de föregående driv rutinerna. För att automatiskt generera anslutnings strängen för den driv rutin som du använder från Azure Portal, klickar du på **Visa databas anslutnings strängar** från föregående exempel. Nedan visas några exempel på hur en anslutningssträng kan se ut för respektive drivrutin.
 
 > [!NOTE]
 > Det kan vara bra att ange en tidsgräns på 300 sekunder för anslutningen så att den inte bryts vid korta perioder av inaktivitet.
@@ -77,7 +77,7 @@ jdbc:sqlserver://yourserver.sql.azuresynapse.net:1433;database=yourdatabase;user
 ```
 
 ## <a name="connection-settings"></a>Inställningar för anslutning
-Synapse SQL standardiserar vissa inställningar när anslutningen och objekt skapas. Dessa inställningar kan inte åsidosättas. Det gäller exempelvis:
+Synapse SQL standardiserar vissa inställningar under anslutning och objekt skapande. Dessa inställningar kan inte åsidosättas. Det gäller exempelvis:
 
 | Databasinställning | Värde |
 |:--- |:--- |
@@ -88,7 +88,7 @@ Synapse SQL standardiserar vissa inställningar när anslutningen och objekt ska
 
 ## <a name="recommendations"></a>Rekommendationer
 
-För att köra **SQL on-demand-frågor** är rekommenderade verktyg [Azure Data Studio](get-started-azure-data-studio.md) och Azure Synapse Studio.
+Rekommenderade verktyg är [Azure Data Studio](get-started-azure-data-studio.md) och Azure Synapse Studio för att köra **SQL-frågor på begäran** .
 
 ## <a name="next-steps"></a>Nästa steg
-Information om hur du ansluter och ställer frågor med Visual Studio finns i [Fråga med Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Mer information om autentiseringsalternativ finns i [Autentisering till Synapse SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Information om hur du ansluter och ställer frågor med Visual Studio finns i [Fråga med Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Mer information om autentiseringsalternativ finns i [autentisering till SYNAPSE SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

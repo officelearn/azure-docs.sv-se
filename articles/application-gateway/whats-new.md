@@ -1,6 +1,6 @@
 ---
-title: Nyheter i Azure Application Gateway
-description: Lär dig vad som är nytt med Azure Application Gateway, till exempel de senaste versionsanteckningarna, kända problem, buggfixar, inaktuella funktioner och kommande ändringar.
+title: Vad är nytt i Azure Application Gateway
+description: Lär dig mer om vad som är nytt med Azure Application Gateway, till exempel senaste versions information, kända problem, fel korrigeringar, inaktuella funktioner och kommande ändringar.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,15 +8,15 @@ ms.topic: overview
 ms.date: 03/24/2020
 ms.author: victorh
 ms.openlocfilehash: 70014b5ab37a07e01eaa2db3d729b7d8af520842
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/14/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81311767"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Vad är nytt i Azure Application Gateway?
 
-Azure Application Gateway uppdateras löpande. Om du vill hålla dig uppdaterad med den senaste utvecklingen ger den här artikeln information om:
+Azure Application Gateway uppdateras regelbundet. För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikeln information om:
 
 - De senaste versionerna
 - Kända problem
@@ -25,21 +25,21 @@ Azure Application Gateway uppdateras löpande. Om du vill hålla dig uppdaterad 
 
 ## <a name="new-features"></a>Nya funktioner
 
-|Funktion  |Beskrivning  |Datum tillagt  |
+|Funktion  |Beskrivning  |Tillagt den  |
 |---------|---------|---------|
-| Användardefinierade rutter (UDR) på v2 (förhandsgranskning) |Användardefinierade vägar stöds nu i vissa scenarier på Application Gateway v2 SKU:er. Mer information finns i [konfigurationsöversikt för Programgateway](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet). |Mars 2020 |
-|Affinitetscookie ändras |När cookie-baserad tillhörighet är aktiverad, använder Application Gateway en annan identisk cookie som kallas *ApplicationGatewayAffinityCORS* utöver den befintliga ApplicationGatewayAffinity cookien. *ApplicationGatewayAffinityCORS* har ytterligare två attribut tillagda i den (*SameSite=None; Säker*) så att klibbiga sessioner underhålls även för begäranden med flera ursprung. Mer information [finns i Application Gateway Cookie-baserad tillhörighet.](configuration-overview.md#cookie-based-affinity) |Februari 2020 |
-|Avsökningsförbättringar |Med anpassade avsökningsförbättringar i Application Gateway v2 SKU har vi förenklad [avsökningskonfiguration,](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku)underlättat [hälsotester för serverd-serverning på begäran](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe) och lagt till [mer diagnostikinformation](https://docs.microsoft.com/azure/application-gateway/application-gateway-backend-health-troubleshooting#error-messages) som hjälper dig att felsöka problem med serverda.  |Oktober 2019 |
-|Fler mätvärden |Vi har lagt till följande nya mått som hjälper dig att övervaka din Application Gateway v2 SKU: [Timing-relaterade mått,](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#timing-metrics)Serverd svarsstatus, mottagna byte, antal byte, skickade klient-TLS-protokoll och aktuella beräkningsenheter. Se [Mått som stöds av Application Gateway V2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku). |Augusti 2019 |
-|Anpassade WAF-regler |Application Gateway WAF_v2 stöder nu att skapa anpassade regler. Se [anpassade regler för Programgateway](custom-waf-rules-overview.md). |Juni 2019 |
-|Automatisk skalning, zonredundans, statisk VIP-stöd GA |Allmän tillgänglighet för v2 SKU, som stöder automatisk skalning, zonredundans, förbättra prestanda, statiska VIP-adresser, Nyckelvalv, Huvudredigerar. Se [dokumentation för automatisk skalning av Application Gateway](application-gateway-autoscaling-zone-redundant.md). |April 2019 |
-|Integrering av Nyckelvalv |Application Gateway stöder nu integrering med Key Vault (i offentlig förhandsversion) för servercertifikat som är kopplade till HTTPS-aktiverade lyssnare. Se [TLS-avslutning med Key Vault-certifikat](key-vault-certs.md). |April 2019 |
-|Crud/skriva om rubrik     |Du kan nu skriva om HTTP-huvuden. Se [självstudiekurs: Skapa en programgateway och skriv om HTTP-huvuden](tutorial-http-header-rewrite-powershell.md) för mer information.|December 2018|
-|WAF-konfigurations- och undantagslista     |Vi har lagt till fler alternativ som hjälper dig att konfigurera din WAF och minska falska positiva identifieringar. Mer information finns i [storleksbegränsningar och undantagslistor för webbprogram.](application-gateway-waf-configuration.md)|December 2018|
-|Automatisk skalning, zonredundans, statisk VIP-stöd      |Med v2 SKU finns det många förbättringar som automatisk skalning, förbättrad prestanda med mera. Se [Vad är Azure Application Gateway?](overview.md)|September 2018|
-|Anslutningstömning     |Anslutningsdränning gör att du kan ta bort medlemmar från backendpoolerna. Mer information finns i [Anslutningsdränning](features.md#connection-draining).|September 2018|
-|Anpassade felsidor     |Med anpassade felsidor kan du skapa en felsida i formatet för resten av dina webbplatser. Aktivera detta finns i [Skapa anpassade felsidor för programgateway](custom-error.md).|September 2018|
-|Förbättringar av mätvärden     |Du kan få en bättre bild av tillståndet för din Application Gateway med förbättrade mått. Om du vill aktivera mått på programgatewayen finns i [Backend-hälsa, diagnostikloggar och mått för Application Gateway](application-gateway-diagnostics.md).|Juni 2018|
+| Användardefinierade vägar (UDR) på v2 (för hands version) |Användardefinierade vägar stöds nu i vissa scenarier på Application Gateway v2-SKU: er. Mer information finns i [Application Gateway konfigurations översikt](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet). |Mars 2020 |
+|Tillhörighets-cookie-ändringar |När cookie-baserad tillhörighet är aktive rad, infogar Application Gateway en annan identisk cookie med namnet *ApplicationGatewayAffinityCORS* förutom den befintliga ApplicationGatewayAffinity-cookien. *ApplicationGatewayAffinityCORS* har två fler attribut som läggs till i den (*SameSite = none; Säker*) så att dina tröga sessioner upprätthålls även för frågor över andra ursprung. Mer information finns i [Application Gateway cookie-baserad tillhörighet](configuration-overview.md#cookie-based-affinity) . |Februari 2020 |
+|Avsöknings förbättringar |Med de anpassade avsöknings förbättringarna i Application Gateway v2 SKU: n, har vi förenklad [avsöknings konfiguration](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku), under lätta [Server dels hälsotest på begäran](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe) och ytterligare [diagnostikinformation](https://docs.microsoft.com/azure/application-gateway/application-gateway-backend-health-troubleshooting#error-messages) som hjälper dig att felsöka Server dels hälso problem.  |Oktober 2019 |
+|Fler mått |Vi har lagt till följande nya mått som hjälper dig att övervaka din Application Gateway v2-SKU: [tidsrelaterade mått](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#timing-metrics), status för Server del svar, mottagna byte, skickade byte, client TLS-protokoll och aktuella beräknings enheter. Se [mått som stöds av Application Gateway v2 SKU: n](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku). |Augusti 2019 |
+|Anpassade WAF-regler |Application Gateway WAF_v2 har nu stöd för att skapa anpassade regler. Se [Application Gateway anpassade regler](custom-waf-rules-overview.md). |Juni 2019 |
+|Automatisk skalning, zon redundans, statisk VIP-support GA |Allmän tillgänglighet för v2-SKU: n, som stöder automatisk skalning, zon redundans, bättre prestanda, statisk VIP, Key Vault, överskrivning av huvuden. Se [Application Gateway autoskalning-dokumentationen](application-gateway-autoscaling-zone-redundant.md). |April 2019 |
+|Key Vault-integrering |Application Gateway stöder nu integrering med Key Vault (i offentlig för hands version) för Server certifikat som är anslutna till HTTPS-aktiverade lyssnare. Se [TLS-avslutning med Key Vault certifikat](key-vault-certs.md). |April 2019 |
+|Rubrik CRUD/omskrivning     |Du kan nu skriva om HTTP-huvuden. Se [Självstudier: skapa en Application Gateway och skriv om HTTP-huvuden](tutorial-http-header-rewrite-powershell.md) för mer information.|December 2018|
+|WAF-konfiguration och exkluderings lista     |Vi har lagt till fler alternativ som hjälper dig att konfigurera din WAF och minska antalet falska positiva identifieringar. Mer information finns i [begäran om storleks gränser och undantags listor för WebApplication-brandvägg](application-gateway-waf-configuration.md).|December 2018|
+|Automatisk skalning, zon redundans, statisk VIP-support      |Med v2-SKU: n finns det många förbättringar som automatisk skalning, bättre prestanda och mycket annat. Se [Vad är Azure Application Gateway?](overview.md) för mer information.|September 2018|
+|Anslutningstömning     |Med anslutnings tömning kan du på ett smidigt sätt ta bort medlemmar från dina backend-pooler. Mer information finns i [anslutnings tömning](features.md#connection-draining).|September 2018|
+|Anpassade felsidor     |Med anpassade felsidor kan du skapa en felsida i formatet för resten av dina webbplatser. Information om hur du aktiverar detta finns i [skapa Application Gateway anpassade fel sidor](custom-error.md).|September 2018|
+|Mått förbättringar     |Du kan få en bättre översikt över statusen för din Application Gateway med förbättrade mått. Om du vill aktivera mått på Application Gateway, se [backend-hälsa, diagnostikloggar och mått för Application Gateway](application-gateway-diagnostics.md).|Juni 2018|
 
 ## <a name="next-steps"></a>Nästa steg
 

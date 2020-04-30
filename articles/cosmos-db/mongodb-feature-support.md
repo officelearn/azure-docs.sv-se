@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB:s API för MongoDB (3.2-version) stöds av funktioner och syntax
-description: Lär dig mer om Azure Cosmos DB:s API för MongoDB (3.2-version) som stöds funktioner och syntax.
+title: Azure Cosmos DB s API för MongoDB (3,2-version) som stöds av funktioner och syntax
+description: Läs mer om Azure Cosmos DBs API för MongoDB (3,2-version) som stöds av funktioner och syntax.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
@@ -8,10 +8,10 @@ ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
 ms.openlocfilehash: 94b65b4e7947bc02b1fdaae90c8f774ec216e7bb
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80981893"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>Azure Cosmos DB:s API för MongoDB (version 3.2): Funktioner och syntax som stöds
@@ -21,11 +21,11 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 Med hjälp av Azure Cosmos DB:s API för MongoDB kan du dra nytta av fördelarna med den MongoDB som du är van vid och alla de företagsfunktioner som Azure Cosmos DB erbjuder: [global distribution](distribute-data-globally.md), [automatisk horisontell positionering](partition-data.md), garantier avseende tillgänglighet och svarstid, automatisk indexering av varje fält, kryptering i vila, säkerhetskopior och mycket mer.
 
 > [!NOTE]
-> Den här artikeln är avsedd för Azure Cosmos DB:s API för MongoDB 3.2. För MongoDB 3.6 version, se [MongoDB 3.6 stöds funktioner och syntax](mongodb-feature-support-36.md).
+> Den här artikeln är för Azure Cosmos DB s API för MongoDB 3,2. MongoDB 3,6-versionen finns i [MongoDB 3,6 funktioner och syntax som stöds](mongodb-feature-support-36.md).
 
 ## <a name="protocol-support"></a>Protokollstöd
 
-Alla nya konton för Azure Cosmos DB:s API för MongoDB är kompatibla med MongoDB-serverversion **3.6**. Den här artikeln beskriver MongoDB version 3.2. De operatorer som stöds och eventuella begränsningar eller undantag anges nedan. Klientdrivrutiner som förstår dessa protokoll bör kunna ansluta till Cosmos DB:s API för MongoDB.
+Alla nya konton för Azure Cosmos DBs API för MongoDB är kompatibla med MongoDB Server version **3,6**. Den här artikeln beskriver MongoDB version 3.2. De operatorer som stöds och eventuella begränsningar eller undantag anges nedan. Klientdrivrutiner som förstår dessa protokoll bör kunna ansluta till Cosmos DB:s API för MongoDB.
 
 ## <a name="query-language-support"></a>Stöd för frågespråk
 
@@ -77,7 +77,7 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 ## <a name="aggregation-pipelinea"></a>Sammansättningspipeline</a>
 
-Cosmos DB stöder aggregering pipeline för MongoDB 3.2 i offentlig förhandsversion. Se [Azure-bloggen](https://azure.microsoft.com/blog/azure-cosmosdb-extends-support-for-mongodb-aggregation-pipeline-unique-indexes-and-more/) för anvisningar om hur du registrerar för den allmänna förhandsversionen.
+Cosmos DB stöder en agg regerings pipeline för MongoDB 3,2 i offentlig för hands version. Se [Azure-bloggen](https://azure.microsoft.com/blog/azure-cosmosdb-extends-support-for-mongodb-aggregation-pipeline-unique-indexes-and-more/) för anvisningar om hur du registrerar för den allmänna förhandsversionen.
 
 ### <a name="aggregation-commands"></a>Sammansättningskommandon
 
@@ -247,7 +247,7 @@ $type | `{ "Status": { $type: "string" } }`|  | -
 $mod | `{ "Elevation": { $mod: [ 4, 0 ] } }` |  | -
 $regex | `{ "Volcano Name": { $regex: "^Rain"} }`|  | -
 
-### <a name="notes"></a>Anteckningar
+### <a name="notes"></a>Obs!
 
 I $regex-frågor, tillåter vänsterförankrade uttryck indexsökning. Om du använder modifierarna i (skiftlägesokänsligt) och m (flera rader) så får du dock samlingsskanningen i alla uttryck.
 När det finns ett behov att inkludera $ eller | så är det bäst att skapa två (eller flera) regex-frågor.
@@ -308,7 +308,7 @@ Med åtgärden `findOneAndUpdate` kan du använda sorteringsåtgärder på ett e
 
 ## <a name="additional-operators"></a>Ytterligare operatorer
 
-Operator | Exempel | Anteckningar
+Operator | Exempel | Obs!
 --- | --- | --- |
 $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |
@@ -326,13 +326,13 @@ Följande metoder stöds:
 
 #### <a name="cursor-methods"></a>Markör-metoder
 
-Metod | Exempel | Anteckningar
+Metod | Exempel | Obs!
 --- | --- | --- |
 cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Dokument utan sorteringsnyckel returneras inte
 
 ## <a name="unique-indexes"></a>Unika index
 
-Cosmos DB indexerar som standard varje fält i dokument som skrivs till databasen. Unika index säkerställer att ett visst fält inte har dubblettvärden för alla dokument i en `_id` samling, ungefär som det sätt på vilket unikhet bevaras på standardnyckeln. Du kan skapa anpassade index i Cosmos DB med kommandot createIndex, inklusive det "unika" villkoret.
+Cosmos DB indexerar som standard varje fält i dokument som skrivs till databasen. Unika index säkerställer att ett särskilt fält inte har dubblettvärden i alla dokument i en samling, på liknande sätt som unika bevaras på standard `_id` nyckeln. Du kan skapa anpassade index i Cosmos DB med hjälp av kommandot createIndex, inklusive begränsningen "Unique".
 
 Unika index är tillgängliga för alla Cosmos-konton med hjälp av Azure Cosmos DB:s API för MongoDB.
 
@@ -354,7 +354,7 @@ Vissa program förlitar sig på en [Write Concern](https://docs.mongodb.com/manu
 
 ## <a name="sharding"></a>Horisontell partitionering
 
-Azure Cosmos DB stöder automatisk, horisontell partitionering på serversidan. Den hanterar fragment skapande, placering och balansering automatiskt. Azure Cosmos DB stöder inte manuella sharding-kommandon, vilket innebär att du inte behöver anropa kommandon som shardCollection, addShard, balancerStart, moveChunk etc. Du behöver bara ange fragmentnyckeln när du skapar behållarna eller frågar efter data.
+Azure Cosmos DB stöder automatisk, horisontell partitionering på serversidan. Den hanterar Shard skapande, placering och balansering automatiskt. Azure Cosmos DB stöder inte manuella horisontell partitionering-kommandon, vilket innebär att du inte behöver anropa kommandon som shardCollection, addShard, balancerStart, moveChunk osv. Du behöver bara ange nyckeln Shard när du skapar behållarna eller frågar efter data.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -362,4 +362,4 @@ Azure Cosmos DB stöder automatisk, horisontell partitionering på serversidan. 
 - Lär dig hur du [använder Robo 3T](mongodb-robomongo.md) med Azure Cosmos DB:s API för MongoDB.
 - Utforska MongoDB-[exempel](mongodb-samples.md) med Azure Cosmos DB:s API för MongoDB.
 
-<sup>Den här artikeln beskriver en funktion i Azure Cosmos DB som tillhandahåller kompatibilitet med trådprotokoll med MongoDB-databaser. Microsoft kör inte MongoDB-databaser för att tillhandahålla den här tjänsten. Azure Cosmos DB är inte anslutet till MongoDB, Inc.</sup>
+<sup>OBS! den här artikeln beskriver en funktion i Azure Cosmos DB som ger till gång till Wire Protocol-kompatibilitet med MongoDB-databaser. Microsoft kör inte MongoDB-databaser för att tillhandahålla den här tjänsten. Azure Cosmos DB är inte kopplad till MongoDB, Inc.</sup>

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Använd Azure Cache för Redis med Java'
+title: 'Snabb start: Använd Azure cache för Redis med Java'
 description: I den här snabbstarten skapar du en ny Java-app som använder Azure Cache for Redis
 author: yegu-ms
 ms.service: cache
@@ -9,20 +9,20 @@ ms.date: 05/23/2018
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: df8c827567e116e3be908221b9004eb455b24c8b
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81010791"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Snabbstart: Använd Azure Cache för Redis med Java
+# <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Snabb start: Använd Azure cache för Redis med Java
 
-I den här snabbstarten införlivar du Azure Cache for Redis i en Java-app med [Jedis](https://github.com/xetorthio/jedis) Redis-klienten för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure.
+I den här snabb starten införlivar du Azure cache för Redis i en Java-app med hjälp av [Jedis](https://github.com/xetorthio/jedis) Redis-klienten för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure.
 
 ## <a name="prerequisites"></a>Krav
 
-- Azure-prenumeration - [skapa en gratis](https://azure.microsoft.com/free/)
-- [Apache Maven](https://maven.apache.org/download.cgi)
+- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+- [Apache maven](https://maven.apache.org/download.cgi)
 
 ## <a name="create-an-azure-cache-for-redis"></a>Skapa en Azure Cache for Redis
 
@@ -59,7 +59,7 @@ mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -Darchetyp
     </dependency>
 ```
 
-Spara *filen pom.xml.*
+Spara filen *Pom. XML* .
 
 Öppna *App.java* och ersätt koden med följande kod:
 
@@ -128,7 +128,7 @@ mvn exec:java -D exec.mainClass=example.demo.App
 
 I exemplet nedan ser du att `Message`-nyckeln tidigare hade ett cachelagrat värde som angavs med Redis-konsolen i Azure Portal. Appen uppdatera det cachelagrade värdet. Appen körde även kommandona `PING` och `CLIENT LIST`.
 
-![Azure Cache för Redis-appen har slutförts](./media/cache-java-get-started/azure-cache-redis-complete.png)
+![Azure cache för Redis-appen har slutförts](./media/cache-java-get-started/azure-cache-redis-complete.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -142,11 +142,11 @@ Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna 
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och välj **Resursgrupper**.
 
-1. Skriv namnet på resursgruppen i textrutan **Filter efter namn.** Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. Välj **...** sedan **Ta bort resursgrupp**i resursgruppen i resultatlistan .
+1. Skriv namnet på din resurs grupp i text rutan **Filtrera efter namn** . Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. I resurs gruppen i resultat listan väljer du **...** och sedan **ta bort resurs grupp**.
 
-   ![Azure-resursgrupp har tagits bort](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
+   ![Azure-resurs gruppen har tagits bort](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
 
-1. Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på resursgruppen som du vill bekräfta och välj **Ta bort**.
+1. Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på resurs gruppen som ska bekräftas och välj **ta bort**.
 
 Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 

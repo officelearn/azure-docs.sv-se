@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa en arbetsbelastningsklassificerare - T-SQL'
-description: Använd T-SQL för att skapa en arbetsbelastningsklassificerare med stor prioritet.
+title: 'Snabb start: skapa en arbets belastnings klassificering-T-SQL'
+description: Använd T-SQL för att skapa en klassificering för arbets belastning med hög prioritet.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -12,26 +12,26 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ms.openlocfilehash: bcac6af9efd18ef8abeea7d82961fd8f2fe70ba3
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80633756"
 ---
-# <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Snabbstart: Skapa en arbetsbelastningsklassificerare med T-SQL
+# <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Snabb start: skapa en arbets belastnings klassificering med T-SQL
 
-I den här snabbstarten skapar du snabbt en arbetsbelastningsklassificerare med stor betydelse för VD:n för din organisation. Den här arbetsbelastningsklassificeraren gör det möjligt för VD-frågor att ha företräde framför andra frågor med lägre betydelse i kön.
+I den här snabb starten skapar du snabbt en arbets belastnings klassificering med stor betydelse för organisationens VD. Den här arbets belastnings klassificeraren gör det möjligt för VD-frågor att prioriteras över andra frågor med lägre prioritet i kön.
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 > [!NOTE]
-> Om du skapar en Synapse SQL-poolinstans i Azure Synapse Analytics kan det leda till en ny fakturerbar tjänst.  Mer information finns i [Azure Synapse Analytics-priser](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Att skapa en Synapse SQL-instans i Azure Synapse Analytics kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
 >
 
 ## <a name="prerequisites"></a>Krav
 
-Den här snabbstarten förutsätter att du redan har ett SQL Data Warehouse och att du har behörigheter för KONTROLLDATABAS. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
+Den här snabb starten förutsätter att du redan har en SQL Data Warehouse och att du har behörighet att kontrol lera databasen. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -39,7 +39,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-login-for-theceo"></a>Skapa inloggning för TheCEO
 
-Skapa en SQL Server-autentiseringsinloggning i `master` databasen med CREATE [LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för 'TheCEO'.
+Skapa en inloggning för SQL Server autentisering i `master` databasen med hjälp av [create login](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) for ' TheCEO '.
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.sql_logins WHERE name = 'TheCEO')
@@ -61,9 +61,9 @@ END
 ;
 ```
 
-## <a name="create-a-workload-classifier"></a>Skapa en arbetsbelastningsklassificerare
+## <a name="create-a-workload-classifier"></a>Skapa en klassificering för arbets belastning
 
-Skapa en [arbetsbelastningsklassificerare](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för "TheCEO" med stor betydelse.
+Skapa en [arbets belastnings klassificering](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för "TheCEO" med hög prioritet.
 
 ```sql
 DROP WORKLOAD CLASSIFIER [wgcTheCEO];
@@ -87,27 +87,27 @@ DROP USER [TheCEO]
 ;
 ```
 
-Du debiteras för informationslagerenheter och data som lagras i ditt informationslager. Dessa beräknings- och lagringsresurser debiteras separat.
+Du debiteras för data lager enheter och data som lagras i ditt informations lager. Dessa beräknings- och lagringsresurser debiteras separat.
 
-- Om du vill behålla data i lagringsutrymmet kan du pausa beräkningarna när du inte använder informationslagret. Genom att pausa beräkningen debiteras du bara för datalagring. När du är redo att arbeta med data återupptar du beräkningen.
+- Om du vill behålla data i lagringsutrymmet kan du pausa beräkningarna när du inte använder informationslagret. Genom att pausa beräkning debiteras du bara för data lagring. När du är redo att arbeta med data återupptar du beräkningen.
 - Om du vill undvika framtida avgifter kan du ta bort informationslagret.
 
-Följ dessa steg för att rensa resurser.
+Rensa resurserna genom att följa dessa steg.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com)och välj på ditt informationslager.
+1. Logga in på [Azure Portal](https://portal.azure.com)och välj på informations lagret.
 
     ![Rensa resurser](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Om du vill pausa beräkningen väljer du knappen **Pausa.** När informationslagret har pausats visas knappen **Starta**.  Om du vill återuppta beräkningen väljer du **Start**.
+2. Om du vill pausa beräkningen väljer du knappen **pausa** . När informationslagret har pausats visas knappen **Starta**.  Om du vill återuppta beräkningen väljer du **Start**.
 
-3. Om du vill ta bort informationslagret så att du inte debiteras för beräkning eller lagring väljer du **Ta bort**.
+3. Om du vill ta bort data lagret så att du inte debiteras för beräkning eller lagring väljer du **ta bort**.
 
-4. Om du vill ta bort den SQL-server som du skapade markerar du **mynewserver-20180430.database.windows.net** i föregående bild och väljer sedan **Ta bort**.  Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
+4. Om du vill ta bort den SQL-Server som du har skapat väljer du **mynewserver-20180430.Database.Windows.net** i föregående bild och väljer sedan **ta bort**.  Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
 
-5. Om du vill ta bort resursgruppen markerar du **myResourceGroup**och väljer sedan **Ta bort resursgrupp**.
+5. Om du vill ta bort resurs gruppen väljer du **myResourceGroup**och väljer sedan **ta bort resurs grupp**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Du har nu skapat en arbetsbelastningsklassificerare. Kör några frågor som TheCEO för att se hur de presterar. Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) om du vill visa frågor och den tilldelade betydelsen.
-- Mer information om Synapse SQL-arbetsbelastningshantering finns i [Arbetsbelastningsbetydning](sql-data-warehouse-workload-importance.md) och [arbetsbelastningsklassificering](sql-data-warehouse-workload-classification.md).
-- Se hur du gör-artiklar för att [konfigurera arbetsbelastningsbetydning](sql-data-warehouse-how-to-configure-workload-importance.md) och hur du [hanterar och övervakar arbetsbelastningshantering](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- Du har nu skapat en arbets belastnings klassificering. Kör några frågor som TheCEO för att se hur de fungerar. Se [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att visa frågor och prioriteten som tilldelats.
+- Mer information om Synapse SQL-arbetsbelastnings hantering finns i avsnittet om [arbets belastnings prioritet](sql-data-warehouse-workload-importance.md) och [arbets belastnings klassificering](sql-data-warehouse-workload-classification.md).
+- Se instruktions artiklar för att [Konfigurera arbets belastnings prioritet](sql-data-warehouse-how-to-configure-workload-importance.md) och hur du [hanterar och övervakar arbets belastnings hantering](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

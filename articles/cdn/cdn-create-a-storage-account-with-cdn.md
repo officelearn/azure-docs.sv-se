@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – integrera ett Azure-lagringskonto med Azure CDN
+title: Snabb start – integrera ett Azure Storage-konto med Azure CDN
 description: Lär dig hur man använder Azure Content Delivery Network (CDN) för att leverera innehåll med hög bandbredd genom att cachelagra blobbar från Azure Storage.
 services: cdn
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 05/24/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 35de327b4a6602bb5191157e3b3c4e56c9c091b5
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81254095"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Snabbstart: Integrera ett Azure Storage-konto med Azure CDN
@@ -55,9 +55,9 @@ Du kan använda flera metoder för att skapa ett lagringskonto, bl.a. Azure Port
    
     Det här värdet blir värdnamnet i den URI som används för att adressera prenumerationens blobb-, kö- eller tabellresurser. När du vill adressera en containerresurs i Blob Storage så använd en URI i följande format:
    
-    http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt; *
+    http://*&lt;-&gt;StorageAcountLabel*. blob.Core.Windows.net/*&lt;-behållare&gt; *
 
-    där * &lt;&gt; StorageAccountLabel* refererar till värdet som du angav i rutan **Namn.**
+    där * &lt;StorageAccountLabel&gt; * refererar till det värde som du angav i rutan **namn** .
    
     > [!IMPORTANT]    
     > URL-etiketten bildar underdomänen i lagringskontots URI och måste vara unika bland alla värdbaserade tjänster i Azure.
@@ -68,9 +68,9 @@ Du kan använda flera metoder för att skapa ett lagringskonto, bl.a. Azure Port
 
     | Inställning  | Värde |
     | -------- | ----- |
-    | **Distributionsmodell** | Använd standardvärdet. |
+    | **Distributions modell** | Använd standardvärdet. |
     | **Typ av konto** | Använd standardvärdet. |
-    | **Location**    | Välj **USA, centrala** i listrutan. |
+    | **Position**    | Välj **USA, centrala** i listrutan. |
     | **Replikering** | Använd standardvärdet. |
     | **Prestanda** | Använd standardvärdet. |
     | **Säker överföring krävs** | Använd standardvärdet. |
@@ -96,9 +96,9 @@ Du kan aktivera Azure CDN för ditt lagringskonto direkt från ditt lagringskont
 
     | Inställning  | Värde |
     | -------- | ----- |
-    | **CDN-profil** | Välj **Skapa nytt** och ange ditt profilnamn, till exempel *my-cdn-profile-123*. Det här namnet måste vara globalt unikt.  |
-    | **Prisnivå** | Välj **Standard Verizon** i listrutan. |
-    | **CDN-slutpunktsnamn** | Ange ditt slutpunktsvärdnamn, *dvs.* Det här namnet måste vara globalt unikt. Det här namnet används för att komma åt dina cachelagrade resurser vid _ &lt;domännamnet&gt;_.azureedge.net. |
+    | **CDN-profil** | Välj **Skapa ny** och ange ditt profil namn, till exempel *My-CDN-Profile-123*. Det här namnet måste vara globalt unikt.  |
+    | **Pris nivå** | Välj **Standard Verizon** i listrutan. |
+    | **CDN-slutpunktsnamn** | Ange slut punktens värdnamn, t. ex. *min-slutpunkt-123*. Det här namnet måste vara globalt unikt. Det här namnet används för att komma åt dina cachelagrade resurser på domänens _ &lt;slut punkts namn&gt;_. azureedge.net. |
     | **Ursprungets värdnamn** | En ny CDN-slutpunkt använder som standard lagringskontots värdnamn som ursprunglig server. |
 
 3. Välj **Skapa**. När slutpunkten har skapats visas den i listan med slutpunkter.
@@ -117,7 +117,7 @@ Om du vill ge begränsad åtkomst till privata lagringscontainrar kan du använd
 ## <a name="access-cdn-content"></a>Åtkomst till CDN-innehåll
 Använd CDN-URL som anges i portalen om du vill få åtkomst till cachelagrat innehåll på CDN. Adressen för en cachelagrad blobb har följande format:
 
-http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
+http://<*EndpointName*\>. azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 
 > [!NOTE]
 > När du aktiverar Azure CDN-åtkomst till ett lagringskonto är alla offentligt tillgängliga objekt berättigade för CDN POP-cachelagring. Om du ändrar ett objekt som för tillfället är cachelagrat i CDN blir det nya innehållet inte tillgängligt via Azure CDN förrän Azure CDN uppdaterar sitt innehåll efter det att det cachelagrade innehållets Time to Live-period har löpt ut.
@@ -125,7 +125,7 @@ http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 ## <a name="remove-content-from-azure-cdn"></a>Ta bort innehåll från Azure CDN
 Om du inte längre vill cachelagra ett objekt i Azure CDN kan du vidta något av följande steg:
 
-* Gör containern privat i stället för offentlig. Mer information finns i [Hantera anonym läsåtkomst till behållare och blobbar](../storage/blobs/storage-manage-access-to-resources.md).
+* Gör containern privat i stället för offentlig. Mer information finns i [Hantera anonym Läs behörighet till behållare och blobbar](../storage/blobs/storage-manage-access-to-resources.md).
 * Inaktivera eller ta bort CDN-slutpunkten med hjälp av Azure Portal.
 * Ändra din värdbaserade tjänst så att den inte längre svarar på förfrågningar för objektet.
 

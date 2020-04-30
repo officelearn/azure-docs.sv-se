@@ -1,7 +1,7 @@
 ---
-title: Fråga en SQL-databas med frågeredigeraren i Azure-portalen
-description: Lär dig hur du använder Frågeredigeraren för att köra Transact-SQL-frågor (T-SQL) mot en Azure SQL-databas.
-keywords: ansluta till SQL-databas,fråga sql-databas, Azure Portal, portal, frågeredigerare
+title: Fråga en SQL Database med hjälp av Frågeredigeraren i Azure Portal
+description: Lär dig hur du använder Frågeredigeraren för att köra Transact-SQL-frågor (T-SQL) mot en Azure SQL Database.
+keywords: ansluta till SQL Database, fråga SQL Database, Azure Portal, Portal, Frågeredigeraren
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -13,49 +13,49 @@ ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 03/12/2020
 ms.openlocfilehash: c072161db7a477b7973571a18d4f686b1b9c6202
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/09/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80985685"
 ---
-# <a name="quickstart-use-the-azure-portals-query-editor-to-query-a-sql-database"></a>Snabbstart: Använda Azure-portalens frågeredigerare för att fråga en SQL-databas
+# <a name="quickstart-use-the-azure-portals-query-editor-to-query-a-sql-database"></a>Snabb start: Använd Azure Portalens Frågeredigeraren för att fråga en SQL-databas
 
-Frågeredigeraren är ett verktyg i Azure-portalen för att köra SQL-frågor mot din Azure SQL-databas eller Azure SQL Data Warehouse. 
+Frågeredigeraren är ett verktyg i Azure Portal för att köra SQL-frågor mot din Azure SQL-databas eller Azure SQL Data Warehouse. 
 
-I den här snabbstarten ska du använda frågeredigeraren för att köra Transact-SQL-frågor (T-SQL) mot en Azure SQL-databas.
+I den här snabb starten använder du Frågeredigeraren för att köra Transact-SQL (T-SQL)-frågor mot en Azure SQL-databas.
 
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här snabbstarten krävs exempeldatabasen AdventureWorksLT. Om du inte har en fungerande kopia av AdventureWorksLT SQL-databasen skapas en snabbstart genom följande snabbstart:
+För att slutföra den här snabb starten krävs AdventureWorksLT-exempel databasen. Om du inte har en fungerande kopia av AdventureWorksLT SQL-databasen skapar följande snabb starts guide en:
 
-- [Snabbstart: Skapa en enda Azure SQL-databas med Azure-portalen, PowerShell eller Azure CLI](sql-database-single-database-get-started.md) 
+- [Snabb start: skapa en enda Azure SQL-databas med hjälp av Azure Portal, PowerShell eller Azure CLI](sql-database-single-database-get-started.md) 
 
 ### <a name="configure-network-settings"></a>Konfigurera nätverksinställningar
 
-Om du får något av följande fel i frågeredigeraren: *Dina lokala nätverksinställningar kan hindra Frågeredigeraren från att utfärda frågor. Klicka här för instruktioner om hur du konfigurerar nätverksinställningarna*eller *så gick det inte att upprätta en anslutning till servern. Detta kan tyda på ett problem med den lokala brandväggskonfigurationen eller nätverksproxyinställningarna,* följande viktiga information bör hjälpa dig att lösa:
+Om du får ett av följande fel i Frågeredigeraren: *dina lokala nätverks inställningar kanske hindrar Frågeredigeraren från att utfärda frågor. Klicka här för att få anvisningar om hur du konfigurerar nätverks inställningar*, eller *så gick det inte att upprätta en anslutning till servern. Detta kan tyda på ett problem med den lokala brand Väggs konfigurationen eller inställningarna för nätverks-proxyn*. följande viktiga information bör hjälpa dig att lösa problemet:
 
 > [!IMPORTANT]
-> Frågeredigeraren använder portarna 443 och 1443 för att kommunicera. Kontrollera att du har aktiverat utgående HTTPS-trafik på dessa portar. Du måste också lägga till [din utgående IP-adress i serverns tillåtna brandväggsregler](sql-database-server-level-firewall-rule.md) för att komma åt dina databaser och informationslager.
+> Frågeredigeraren använder portarna 443 och 1443 för att kommunicera. Se till att du har aktiverat utgående HTTPS-trafik på dessa portar. Du måste också [lägga till din utgående IP-adress till serverns tillåtna brand Väggs regler](sql-database-server-level-firewall-rule.md) för att få åtkomst till dina databaser och informations lager.
 
 
-## <a name="open-the-sql-database-query-editor"></a>Öppna SQL Database Query Editor
+## <a name="open-the-sql-database-query-editor"></a>Öppna Frågeredigeraren SQL Database
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/) och välj den SQL-databas som du vill fråga.
+1. Logga in på [Azure Portal](https://portal.azure.com/) och välj den SQL-databas som du vill fråga.
 
-2. På **SQL-databasmenyn** väljer du **Frågeredigeraren (förhandsgranskning)**.
+2. I menyn **SQL-databas** väljer du **Frågeredigeraren (för hands version)**.
 
     ![hitta frågeredigerare](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
 
 ## <a name="establish-a-connection-to-the-database"></a>Upprätta en anslutning till databasen
 
-Även om du är inloggad på portalen måste du fortfarande ange autentiseringsuppgifter för att komma åt SQL-databasen. Du kan ansluta med SQL-autentisering eller Azure Active Directory för att ansluta till databasen.
+Även om du är inloggad på portalen måste du ändå ange autentiseringsuppgifter för att få åtkomst till SQL-databasen. Du kan ansluta med SQL-autentisering eller Azure Active Directory för att ansluta till databasen.
 
 ### <a name="connect-using-sql-authentication"></a>Anslut med SQL-autentisering
 
-1. Ange en **inloggning** och **ett lösenord** för en användare som har åtkomst till databasen under **SQL-serverautentisering**på inloggningssidan. **Login** Om du är osäker använder du inloggningen och lösenordet för serveradministratören på databasens server.
+1. På **inloggnings** sidan under **SQL Server-autentisering**anger du ett **inloggnings namn** och **lösen ord** för en användare som har åtkomst till databasen. Om du inte är säker använder du inloggning och lösen ord för Server administratören för databasens Server.
 
     ![logga in](./media/sql-database-connect-query-portal/login-menu.png)
 
@@ -64,39 +64,39 @@ Om du får något av följande fel i frågeredigeraren: *Dina lokala nätverksin
 
 ### <a name="connect-using-azure-active-directory"></a>Ansluta med Azure Active Directory
 
-Genom att konfigurera en Azure Active Directory-administratör (Azure AD) kan du använda en enda identitet för att logga in på Azure-portalen och din SQL-databas. Om du vill ansluta till databasen med Azure AD följer du stegen nedan för att konfigurera en Azure AD-administratör för din SQL-server.
+Genom att konfigurera en Azure Active Directory (Azure AD)-administratör kan du använda en enda identitet för att logga in på Azure Portal och SQL-databasen. Om du vill ansluta till din databas med Azure AD följer du stegen nedan för att konfigurera en Azure AD-administratör för din SQL Server.
 
 > [!NOTE]
 > * E-postkonton (till exempel outlook.com, gmail.com, yahoo.com och så vidare) stöds ännu inte som Azure AD-administratörer. Se till att välja en användare som skapats internt i Azure AD eller som federerats till Azure AD.
 > * Azure AD-administratörsinloggning fungerar inte med konton som har tvåfaktorautentisering aktiverat.
 
-#### <a name="set-an-active-directory-admin-for-the-database-server"></a>Ange en Active Directory-administratör för databasservern
+#### <a name="set-an-active-directory-admin-for-the-database-server"></a>Ange en Active Directory administratör för databas servern
 
-1. Välj din SQL-server i Azure-portalen.
+1. I Azure Portal väljer du din SQL-Server.
 
-2. Välj **Active Directory-administratör**på **SQL-servermenyn** .
+2. Välj **Active Directory administratör**på **SQL Server** -menyn.
 
-3. I verktygsfältet **för administrationssidan för** SQL-servern väljer du Ange **administratör** och väljer användaren eller gruppen som Azure AD-administratör.
+3. På sidan SQL Server **Active Directory admin** väljer du **Ange administratör** och väljer användaren eller gruppen som din Azure AD-administratör.
 
     ![Välj active directory](./media/sql-database-connect-query-portal/select-active-directory.png)
 
-4. På sidan Lägg till administratör anger du en användare eller grupp som ska hittas på sidan Lägg till **administratör,** väljer den som administratör och väljer sedan knappen **Välj.**
+4. På sidan **Lägg till administratör** , i sökrutan, anger du en användare eller grupp som du vill söka efter, väljer den som administratör och väljer sedan knappen **Välj** .
 
-5. Välj **Spara**i verktygsfältet **Active Directory admin-administration** i SQL-servern.
+5. Gå tillbaka till verktygsfältet för SQL Server **Active Directory admin** och välj **Spara**.
 
 ### <a name="connect-to-the-database"></a>Ansluta till databasen
 
-6. Välj **SQL-databaser**på **SQL-server-menyn** och välj sedan DIN SQL-databas.
+6. Välj **SQL-databaser**på **SQL Server** -menyn och välj sedan din SQL-databas.
 
-7. På **SQL-databasmenyn** väljer du **Frågeredigeraren (förhandsgranskning)**. På **inloggningssidan,** under **Active Directory-autentiseringsetiketten,** visas ett meddelande som säger att du har loggat in om du är Azure AD-administratör. Välj sedan knappen **Fortsätt som** * \<användare eller grupp-ID>.* Om sidan visar att du inte har loggat in kan du behöva uppdatera sidan.
+7. I menyn **SQL-databas** väljer du **Frågeredigeraren (för hands version)**. På **inloggnings** sidan, under etiketten **Active Directory autentisering** , visas ett meddelande om att du har loggat in om du är en Azure AD-administratör. Välj sedan knappen **Fortsätt som** * \<ditt användar-eller grupp-ID>* . Om sidan indikerar att du inte har loggat in, kan du behöva uppdatera sidan.
 
 ## <a name="query-a-sql-database"></a>Fråga en SQL-databas
 
-Följande exempelfrågor bör köras mot exempeldatabasen AdventureWorksLT.
+Följande exempel frågor bör köras mot AdventureWorksLT-exempel databasen.
 
-### <a name="run-a-select-query"></a>Köra en SELECT-fråga
+### <a name="run-a-select-query"></a>Kör en URVALs fråga
 
-1. Klistra in följande fråga i frågeredigeraren:
+1. Klistra in följande fråga i Frågeredigeraren:
 
    ```sql
     SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -105,15 +105,15 @@ Följande exempelfrågor bör köras mot exempeldatabasen AdventureWorksLT.
     ON pc.productcategoryid = p.productcategoryid;
    ```
 
-2. Välj **Kör** och granska sedan utdata i **resultatfönstret.**
+2. Välj **Kör** och granska sedan utdata i **resultat** fönstret.
 
    ![resultat från frågeredigeraren](./media/sql-database-connect-query-portal/query-editor-results.png)
 
-3. Du kan också spara frågan som en SQL-fil eller exportera returnerade data som en .json-, CSV- eller .xml-fil.
+3. Alternativt kan du spara frågan som en. SQL-fil eller exportera returnerade data som en. JSON-,. csv-eller. XML-fil.
 
-### <a name="run-an-insert-query"></a>Köra en INSERT-fråga
+### <a name="run-an-insert-query"></a>Kör en INSERT-fråga
 
-Kör följande [INSERT](/sql/t-sql/statements/insert-transact-sql/) T-SQL-uttryck för att `SalesLT.Product` lägga till en ny produkt i tabellen.
+Kör följande [insert](/sql/t-sql/statements/insert-transact-sql/) T-SQL-uttryck för att lägga till en ny produkt `SalesLT.Product` i tabellen.
 
 1. Ersätt den tidigare frågan med denna.
 
@@ -138,12 +138,12 @@ Kör följande [INSERT](/sql/t-sql/statements/insert-transact-sql/) T-SQL-uttryc
    ```
 
 
-2. Välj **Kör** för att infoga en ny rad i tabellen `Product`. **Meddelandefönstret** visar **Frågan lyckades: Berörda rader: 1**.
+2. Välj **Kör** för att infoga en ny rad i tabellen `Product`. I fönstret **meddelanden** visas **frågan lyckades: rader som påverkas: 1**.
 
 
-### <a name="run-an-update-query"></a>Köra en UPDATE-fråga
+### <a name="run-an-update-query"></a>Kör en UPPDATERINGs fråga
 
-Kör följande [UPDATE](/sql/t-sql/queries/update-transact-sql/) T-SQL-uttryck för att ändra den nya produkten.
+Kör följande [Update](/sql/t-sql/queries/update-transact-sql/) T-SQL-uttryck för att ändra din nya produkt.
 
 1. Ersätt den tidigare frågan med denna.
 
@@ -153,11 +153,11 @@ Kör följande [UPDATE](/sql/t-sql/queries/update-transact-sql/) T-SQL-uttryck f
    WHERE Name = 'myNewProduct';
    ```
 
-2. Välj **Kör** för att uppdatera den angivna raden i tabellen `Product`. **Meddelandefönstret** visar **Frågan lyckades: Berörda rader: 1**.
+2. Välj **Kör** för att uppdatera den angivna raden i tabellen `Product`. I fönstret **meddelanden** visas **frågan lyckades: rader som påverkas: 1**.
 
-### <a name="run-a-delete-query"></a>Köra en DELETE-fråga
+### <a name="run-a-delete-query"></a>Kör en BORTTAGNINGs fråga
 
-Kör följande [DELETE](/sql/t-sql/statements/delete-transact-sql/) T-SQL-uttryck för att ta bort den nya produkten.
+Kör följande T-SQL-uttryck för att [ta bort din](/sql/t-sql/statements/delete-transact-sql/) nya produkt.
 
 1. Ersätt den föregående frågan med denna:
 
@@ -166,18 +166,18 @@ Kör följande [DELETE](/sql/t-sql/statements/delete-transact-sql/) T-SQL-uttryc
    WHERE Name = 'myNewProduct';
    ```
 
-2. Välj **Kör** för att ta bort den angivna raden i tabellen `Product`. **Meddelandefönstret** visar **Frågan lyckades: Berörda rader: 1**.
+2. Välj **Kör** för att ta bort den angivna raden i tabellen `Product`. I fönstret **meddelanden** visas **frågan lyckades: rader som påverkas: 1**.
 
 
 ## <a name="query-editor-considerations"></a>Överväganden för frågeredigeraren
 
 Det finns några saker du behöver veta när du arbetar med frågeredigeraren.
 
-* Frågeredigeraren använder portarna 443 och 1443 för att kommunicera. Kontrollera att du har aktiverat utgående HTTPS-trafik på dessa portar. Du måste också lägga till din utgående IP-adress på serverns tillåtna brandväggsregler för att komma åt dina databaser och informationslager.
+* Frågeredigeraren använder portarna 443 och 1443 för att kommunicera. Se till att du har aktiverat utgående HTTPS-trafik på dessa portar. Du måste också lägga till din utgående IP-adress till serverns tillåtna brand Väggs regler för att få åtkomst till dina databaser och informations lager.
 
-* Om du har en privat länkanslutning fungerar Frågeredigeraren utan att behöva lägga till klient-IP-adressen i SQL Database-brandväggen
+* Om du har en privat länk anslutning fungerar Frågeredigeraren utan att behöva lägga till klientens IP-adress i SQL Database brand väggen
 
-* Om du trycker på **F5** uppdateras frågeredigerarens sida och alla frågor som bearbetas går förlorade.
+* Om du trycker på **F5** uppdateras Frågeredigeraren och alla frågor som arbetar på förloras.
 
 * Frågeredigeraren stöder inte anslutning till databasen `master`.
 
@@ -185,11 +185,11 @@ Det finns några saker du behöver veta när du arbetar med frågeredigeraren.
 
 * Frågeredigeraren stöder endast cylindriska projektioner för geografidatatyper.
 
-* Det finns inget stöd för IntelliSense för databastabeller och vyer, men redigeraren stöder automatisk komplettering av namn som redan har skrivits.
+* Det finns inget stöd för IntelliSense för databas tabeller och vyer, men Redigeraren stöder komplettera automatiskt för namn som redan har skrivits.
 
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Transact-SQL (T-SQL) som stöds i Azure SQL-databaser finns i [Lösa Transact-SQL-skillnader under migreringen till SQL Database](sql-database-transact-sql-information.md).
+Mer information om Transact-SQL (T-SQL) som stöds i Azure SQL-databaser finns i [lösa skillnader i Transact-SQL vid migrering till SQL Database](sql-database-transact-sql-information.md).

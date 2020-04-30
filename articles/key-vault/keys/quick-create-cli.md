@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Ange och hämta en nyckel från Azure Key Vault'
-description: Snabbstart som visar hur du ställer in och hämtar en nyckel från Azure Key Vault med Azure CLI
+title: 'Snabb start: Ange och hämta en nyckel från Azure Key Vault'
+description: Snabb start visar hur du ställer in och hämtar en nyckel från Azure Key Vault med Azure CLI
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
 ms.openlocfilehash: defc5317c127d771786989748e404285ca0c0584
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424211"
 ---
-# <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-cli"></a>Snabbstart: Ange och hämta en nyckel från Azure Key Vault med Azure CLI
+# <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-cli"></a>Snabb start: Ange och hämta en nyckel från Azure Key Vault med Azure CLI
 
-I den här snabbstarten skapar du ett nyckelvalv i Azure Key Vault med Azure CLI. Azure Key Vault är en molntjänst som fungerar som säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Om du vill ha mer information om Key Vault kan du läsa [översikten](../general/overview.md). Med Azure-CLI:t kan du skapa och hantera Azure-resurser med hjälp av kommandon eller skript. När du har slutfört det, kommer du att lagra en nyckel.
+I den här snabb starten skapar du ett nyckel valv i Azure Key Vault med Azure CLI. Azure Key Vault är en molntjänst som fungerar som säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Mer information om Key Vault kan du läsa [översikten](../general/overview.md). Med Azure-CLI:t kan du skapa och hantera Azure-resurser med hjälp av kommandon eller skript. När du har slutfört det kommer du att lagra en nyckel.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
@@ -63,17 +63,17 @@ Utdata från denna cmdlet visar egenskaper för nyckelvalvet du precis skapade. 
 
 Nu är ditt Azure-konto det enda kontot med behörighet att utföra åtgärder i det nya valvet.
 
-## <a name="add-a-key-to-key-vault"></a>Lägga till en nyckel i Key Vault
+## <a name="add-a-key-to-key-vault"></a>Lägg till en nyckel i Key Vault
 
-Om du vill lägga till en nyckel i valvet behöver du bara vidta några ytterligare steg. Den här nyckeln kan användas av ett program. 
+Om du vill lägga till en nyckel i valvet behöver du bara göra några ytterligare steg. Den här nyckeln kan användas av ett program. 
 
-Skriv kommandona nedan för att skapa en så kallad **ExampleKey:**
+Skriv följande kommandon för att skapa en anropad **ExampleKey** :
 
 ```azurecli
 az keyvault key create --vault-name "Contoso-Vault2" -n ExampleKey --protection software
 ```
 
-Du kan nu referera till den här nyckeln som du har lagt till i Azure Key Vault med hjälp av dess URI. Används **https://Contoso-Vault2.vault.azure.net/keys/ExampleKey** för att hämta den aktuella versionen. 
+Nu kan du referera till den här nyckeln som du lade till Azure Key Vault med hjälp av dess URI. Används **https://Contoso-Vault2.vault.azure.net/keys/ExampleKey** för att hämta den aktuella versionen. 
 
 Så här visar du tidigare lagrad nyckel:
 
@@ -82,7 +82,7 @@ Så här visar du tidigare lagrad nyckel:
 az keyvault key show --name "ExampleKey" --vault-name "Contoso-Vault2"
 ```
 
-Nu har du skapat ett Key Vault, lagrat en nyckel och hämtat den.
+Nu har du skapat en Key Vault, lagrat en nyckel och hämtat den.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -95,8 +95,8 @@ az group delete --name ContosoResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du ett Nyckelvalv och sparade en nyckel i det. Om du vill veta mer om Key Vault och hur du integrerar det med dina program fortsätter du med artiklarna nedan.
+I den här snabb starten skapade du en Key Vault och sparade en nyckel i den. Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
 
-- Läs en [översikt över Azure Key Vault](../general/overview.md)
-- Se referensen för [Azure CLI az keyvault-kommandon](/cli/azure/keyvault?view=azure-cli-latest)
-- Granska [metodtips för Azure Key Vault](../general/best-practices.md)
+- Läs en [Översikt över Azure Key Vault](../general/overview.md)
+- Se referensen för [kommandon för Azure CLI-AZ](/cli/azure/keyvault?view=azure-cli-latest)
+- Granska [Azure Key Vault bästa praxis](../general/best-practices.md)

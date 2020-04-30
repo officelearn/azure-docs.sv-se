@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en Azure Data Factory med Python'
+title: 'Snabb start: skapa en Azure Data Factory med python'
 description: Skapa en Azure-datafabrik för att kopiera data från en plats i Azure Blob Storage till en annan plats.
 services: data-factory
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019
 ms.openlocfilehash: 85b61e03f1545b8a0e8263b799ac7a5b347be181
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81419144"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Snabbstart: Skapa en datafabrik och pipeline med Python
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Snabb start: skapa en data fabrik och pipeline med python
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -28,23 +28,23 @@ ms.locfileid: "81419144"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-I den här snabbstarten skapar du en datafabrik med hjälp av Python. Pipelinen i den här datafabriken kopierar data från en mapp till en annan mapp i Azure Blob-lagring.
+I den här snabb starten skapar du en data fabrik med hjälp av python. Pipelinen i den här data fabriken kopierar data från en mapp till en annan mapp i Azure Blob Storage.
 
-Azure Data Factory är en molnbaserad dataintegrationstjänst som gör att du kan skapa datadrivna arbetsflöden för att dirigera och automatisera dataförflyttning och dataomvandling. Med Hjälp av Azure Data Factory kan du skapa och schemalägga datadrivna arbetsflöden, så kallade pipelines.
+Azure Data Factory är en molnbaserad data integrerings tjänst som gör att du kan skapa data drivna arbets flöden för att dirigera och automatisera data förflyttning och data omvandling. Med hjälp av Azure Data Factory kan du skapa och schemalägga data drivna arbets flöden som kallas pipeliner.
 
-Pipelines kan inta data från olika datalager. Pipelines bearbetar eller omvandlar data med hjälp av beräkningstjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning. Pipelines publicerar utdata till datalager som Azure SQL Data Warehouse for Business Intelligence (BI) program.
+Pipelines kan mata in data från olika data lager. Pipelines bearbetar eller transformerar data med hjälp av beräknings tjänster som Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics och Azure Machine Learning. Pipelines publicerar utdata till data lager som Azure SQL Data Warehouse för Business Intelligence-program (BI).
 
 ## <a name="prerequisites"></a>Krav
 
-* Ett Azure-konto med en aktiv prenumeration. [Skapa en gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Python 3.4+](https://www.python.org/downloads/).
+* [Python 3.4 +](https://www.python.org/downloads/).
 
-* [Ett Azure Storage-konto](../storage/common/storage-account-create.md).
+* [Ett Azure Storage konto](../storage/common/storage-account-create.md).
 
 * [Azure Storage Explorer](https://storageexplorer.com/) (valfritt).
 
-* [Ett program i Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Anteckna följande värden som ska användas i senare steg: **program-ID,** **autentiseringsnyckel**och **klient-ID**. Tilldela programmet till **rollen Deltagare** genom att följa instruktionerna i samma artikel.
+* [Ett program i Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Anteckna följande värden som du kan använda i senare steg: **program-ID**, **autentiseringsnyckel**och **klient-ID**. Tilldela program rollen **deltagare** genom att följa anvisningarna i samma artikel.
 
 ## <a name="create-and-upload-an-input-file"></a>Skapa och ladda upp en indatafil
 

@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Ange och hämta en nyckel från Azure Key Vault'
-description: Snabbstart som visar hur du anger och hämtar en nyckel från Azure Key Vault med Azure PowerShell
+title: 'Snabb start: Ange och hämta en nyckel från Azure Key Vault'
+description: Snabb start visar hur du ställer in och hämtar en nyckel från Azure Key Vault med Azure PowerShell
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
 ms.openlocfilehash: c407c10327a80de6b3df18a3db3978468c9f8da0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81424190"
 ---
-# <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>Snabbstart: Ange och hämta en nyckel från Azure Key Vault med Azure PowerShell
+# <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-azure-powershell"></a>Snabb start: Ange och hämta en nyckel från Azure Key Vault med Azure PowerShell
 
-I den här snabbstarten skapar du ett nyckelvalv i Azure Key Vault med Azure PowerShell. Azure Key Vault är en molntjänst som fungerar som säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Om du vill ha mer information om Key Vault kan du läsa [översikten](../general/overview.md). Azure PowerShell används för att skapa och hantera Azure-resurser med hjälp av kommandon eller skript. När du har slutfört det, kommer du att lagra en nyckel.
+I den här snabb starten skapar du ett nyckel valv i Azure Key Vault med Azure PowerShell. Azure Key Vault är en molntjänst som fungerar som säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Mer information om Key Vault kan du läsa [översikten](../general/overview.md). Azure PowerShell används för att skapa och hantera Azure-resurser med hjälp av kommandon eller skript. När du har slutfört det kommer du att lagra en nyckel.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
@@ -44,11 +44,11 @@ New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
 
 Sedan skapar du ett nyckelvalv. När du utför det här steget behöver du en del information:
 
-Även om vi använder "Contoso KeyVault2" som namn för vårt Key Vault under hela den här snabbstarten, måste du använda ett unikt namn.
+Även om vi använder "contoso KeyVault2" som namn på vår Key Vault i den här snabb starten måste du använda ett unikt namn.
 
 - **Valvnamn** Contoso-Vault2.
-- **Namn på resursgrupp** ContosoResourceGroup.
-- **Plats** Östra USA.
+- **Resurs grupps namn** ContosoResourceGroup.
+- **Plats** USA, östra.
 
 ```azurepowershell-interactive
 New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
@@ -63,17 +63,17 @@ När du har skapat valvet så är ditt Azure-konto det enda kontot med behörigh
 
 ![Utdata när kommandot för att skapa Key Vault har slutförts](../media/quick-create-powershell/output-after-creating-keyvault.png)
 
-## <a name="add-a-key-to-key-vault"></a>Lägga till en nyckel i Key Vault
+## <a name="add-a-key-to-key-vault"></a>Lägg till en nyckel i Key Vault
 
-Om du vill lägga till en nyckel i valvet behöver du bara vidta några ytterligare steg. Den här nyckeln kan användas av ett program. 
+Om du vill lägga till en nyckel i valvet behöver du bara göra några ytterligare steg. Den här nyckeln kan användas av ett program. 
 
-Skriv kommandona nedan för att skapa en så kallad **ExampleKey:**
+Skriv följande kommandon för att skapa en anropad **ExampleKey** :
 
 ```azurepowershell-interactive
 Add-AzKeyVaultKey -VaultName 'Contoso-Vault2' -Name 'ExampleKey' -Destination 'Software'
 ```
 
-Du kan nu referera till den här nyckeln som du har lagt till i Azure Key Vault med hjälp av dess URI. Används **https://Contoso-Vault2.vault.azure.net/keys/ExampleKey** för att hämta den aktuella versionen. 
+Nu kan du referera till den här nyckeln som du lade till Azure Key Vault med hjälp av dess URI. Används **https://Contoso-Vault2.vault.azure.net/keys/ExampleKey** för att hämta den aktuella versionen. 
 
 Så här visar du tidigare lagrad nyckel:
 
@@ -81,12 +81,12 @@ Så här visar du tidigare lagrad nyckel:
 Get-AzKeyVaultKey -VaultName 'Contoso-Vault2' -KeyName 'ExampleKey'
 ```
 
-Nu har du skapat ett Key Vault, lagrat en nyckel och hämtat den.
+Nu har du skapat en Key Vault, lagrat en nyckel och hämtat den.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 De andra snabbstarterna och självstudierna i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta med efterföljande snabbstarter och självstudier kan du lämna kvar de här resurserna.
-När det inte längre behövs kan du använda kommandot [Ta bort AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resursgruppen och alla relaterade resurser. Så här tar du bort resurserna:
+När de inte längre behövs kan du använda kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resurs gruppen och alla relaterade resurser. Så här tar du bort resurserna:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name ContosoResourceGroup
@@ -94,8 +94,8 @@ Remove-AzResourceGroup -Name ContosoResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du ett Nyckelvalv och sparade ett certifikat i det. Om du vill veta mer om Key Vault och hur du integrerar det med dina program fortsätter du med artiklarna nedan.
+I den här snabb starten skapade du ett Key Vault och lagrat ett certifikat i det. Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
 
-- Läs en [översikt över Azure Key Vault](../general/overview.md)
-- Se referensen för [cmdlets](/powershell/module/az.keyvault/) för Azure PowerShell Key Vault
-- Granska [metodtips för Azure Key Vault](../general/best-practices.md)
+- Läs en [Översikt över Azure Key Vault](../general/overview.md)
+- Se referensen för [Azure PowerShell Key Vault-cmdletar](/powershell/module/az.keyvault/)
+- Granska [Azure Key Vault bästa praxis](../general/best-practices.md)

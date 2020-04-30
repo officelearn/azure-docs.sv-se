@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – Skapa en windows-skalningsuppsättning för virtuella datorer med en Azure-mall
+title: Snabb start – skapa en skalnings uppsättning för en virtuell Windows-dator med en Azure-mall
 description: Lär dig hur du snabbt skapar en skalningsuppsättning för virtuella Windows-datorer med en Azure Resource Manager-mall som distribuerar en exempelapp och konfigurerar regler för automatisk skalning
 author: ju-shim
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.custom: mvc,subject-armqs
 ms.date: 03/27/2020
 ms.author: jushiman
 ms.openlocfilehash: 030479a02b33a92c3917ba112d99c9bcef4f7f32
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81010451"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Snabbstart: Skapa en VM-skalningsuppsättning med en Azure-mall i Windows
@@ -29,30 +29,30 @@ Inga.
 
 ## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
 
-Du kan distribuera grupper av relaterade resurser med hjälp av Azure Resource Manager-mallar. Med en enda mall kan du skapa VM-skalningsuppsättningen, installera program och ange regler för automatisk skalning. Du kan återanvända mallen och använda variabler och parametrar till att uppdatera befintliga, eller skapa ytterligare, skalningsuppsättningar. Du kan distribuera mallar via Azure-portalen, Azure CLI, Azure PowerShell eller från kontinuerlig integrering/kontinuerlig leverans (CI/CD) pipelines.
+Du kan distribuera grupper av relaterade resurser med hjälp av Azure Resource Manager-mallar. Med en enda mall kan du skapa VM-skalningsuppsättningen, installera program och ange regler för automatisk skalning. Du kan återanvända mallen och använda variabler och parametrar till att uppdatera befintliga, eller skapa ytterligare, skalningsuppsättningar. Du kan distribuera mallar via Azure Portal, Azure CLI, Azure PowerShell eller från pipeliner för kontinuerlig integrering/kontinuerlig leverans (CI/CD).
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabbstarten kommer från [Azure Quickstart-mallar](https://azure.microsoft.com/resources/templates/201-vmss-windows-webapp-dsc-autoscale/).
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/201-vmss-windows-webapp-dsc-autoscale/).
 
 :::code language="json" source="~/quickstart-templates/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json" range="1-397" highlight="236-325":::
 
 Dessa resurser definieras i följande mallar:
 
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Network/publicIPAdresser**](/azure/templates/microsoft.network/publicipaddresses)
-- [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadbalancers)
+- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft. Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft. Network/belastningsutjämnare**](/azure/templates/microsoft.network/loadbalancers)
 - [**Microsoft.Compute/virtualMachineScaleSets**](/azure/templates/microsoft.compute/virtualmachinescalesets)
-- [**Microsoft.Insights/autoscaleSettings**](/azure/templates/microsoft.insights/autoscalesettings)
+- [**Microsoft. Insights/autoscaleSettings**](/azure/templates/microsoft.insights/autoscalesettings)
 
 #### <a name="define-a-scale-set"></a>Definiera en skalningsuppsättning
 
-Den markerade delen är resursdefinitionen för skalningsuppsättning. När du skapar en skalningsuppsättning med en mall definierar du lämpliga resurser. Huvuddelarna i resurstypen för VM-skalningsuppsättning:
+Den markerade delen är resurs definitionen för skalnings uppsättningen. När du skapar en skalningsuppsättning med en mall definierar du lämpliga resurser. Huvuddelarna i resurstypen för VM-skalningsuppsättning:
 
 | Egenskap                     | Egenskapsbeskrivning                                  | Exempelmallvärde                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
 | typ                         | Azure-resurstypen som ska skapas                            | Microsoft.Compute/virtualMachineScaleSets |
-| namn                         | Namnet på skalningsuppsättningen                                       | myScaleSet                                |
+| name                         | Namnet på skalningsuppsättningen                                       | myScaleSet                                |
 | location                     | Platsen där skalningsuppsättningen skapas                     | USA, östra                                   |
 | sku.name                     | VM-storleken för varje skalningsuppsättningsinstans                  | Standard_A1                               |
 | sku.capacity                 | Antal VM-instanser som skapas inledningsvis           | 2                                         |
@@ -62,7 +62,7 @@ Den markerade delen är resursdefinitionen för skalningsuppsättning. När du s
 | osProfile.adminUsername      | Användarnamn för varje VM-instans                        | azureuser                                 |
 | osProfile.adminPassword      | Lösenord för varje VM-instans                        | P@ssw0rd!                                 |
 
-Om du vill anpassa en skalningsuppsättningsmall kan du ändra den virtuella datorns storlek eller ursprungliga kapacitet. Ett annat alternativ är att använda en annan plattform eller en anpassad bild.
+Om du vill anpassa en mall för skalnings uppsättningar kan du ändra storleken på den virtuella datorn eller den ursprungliga kapaciteten. Ett annat alternativ är att använda en annan plattform eller en anpassad avbildning.
 
 #### <a name="add-a-sample-application"></a>Lägg till ett exempelprogram
 
@@ -80,11 +80,11 @@ Ett installationsskript hämtas från GitHub enligt definitionen i *url*. Tillä
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Du kan distribuera mallen genom att välja knappen **Distribuera till Azure.** Knappen öppnar Azure Portal, läser in hela mallen och frågar efter ett par parametrar, till exempel namn på skalningsuppsättningen, antal instanser och administratörsautentiseringsuppgifter.
+Du kan distribuera mallen genom att välja knappen **distribuera till Azure** . Knappen öppnar Azure Portal, läser in hela mallen och frågar efter ett par parametrar, till exempel namn på skalningsuppsättningen, antal instanser och administratörsautentiseringsuppgifter.
 
 [![Distribuera mall till Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-windows-webapp-dsc-autoscale%2Fazuredeploy.json)
 
-Du kan också distribuera en Resource Manager-mall med hjälp av Azure PowerShell:
+Du kan också distribuera en Resource Manager-mall genom att använda Azure PowerShell:
 
 ```azurepowershell-interactive
 # Create a resource group

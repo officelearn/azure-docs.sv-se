@@ -1,6 +1,6 @@
 ---
-title: Snabbstart - Skapa en skalningsuppsättning för virtuella datorer med Azure CLI
-description: Kom igång med dina distributioner genom att lära dig hur du snabbt skapar en skalningsuppsättning för virtuella datorer med Azure CLI.
+title: Snabb start – skapa en skalnings uppsättning för virtuella datorer med Azure CLI
+description: Kom igång med dina distributioner genom att lära dig hur du snabbt skapar en skalnings uppsättning för virtuella datorer med Azure CLI.
 author: ju-shim
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: jushiman
 ms.openlocfilehash: 392af4d96efc9b60cedc8488dc1cebbfd68a92c5
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/10/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81011335"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Snabbstart: Skapa en VM-skalningsuppsättning med Azure CLI
@@ -27,7 +27,7 @@ Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI 
 
 
 ## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
-Innan du kan skapa en skalningsuppsättning skapar du en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på *eastus-platsen:*
+Innan du kan skapa en skalningsuppsättning skapar du en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på platsen för *öster* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -97,7 +97,7 @@ Skriv den offentliga IP-adressen för lastbalanseraren i en webbläsare. Lastbal
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-När det inte längre behövs kan du använda [az-gruppborttagning](/cli/azure/group) för att ta bort resursgruppen, skalningsuppsättningen och alla relaterade resurser enligt följande. Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
+När de inte längre behövs kan du använda [AZ Group Delete](/cli/azure/group) för att ta bort resurs gruppen, skalnings uppsättningen och alla relaterade resurser på följande sätt. Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

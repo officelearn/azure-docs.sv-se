@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skicka händelser med C - Azure Event Hubs'
-description: 'Snabbstart: Den här artikeln innehåller en genomgång för att skapa ett C-program som skickar händelser till Azure Event Hubs.'
+title: 'Snabb start: skicka händelser med hjälp av C-Azure Event Hubs'
+description: 'Snabb start: den här artikeln innehåller en genom gång av hur du skapar ett C-program som skickar händelser till Azure Event Hubs.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -16,42 +16,42 @@ ms.custom: seodec18
 ms.date: 11/05/2019
 ms.author: shvija
 ms.openlocfilehash: 5bd4bb66b7e3c3ec37724f8684105befbc9132ff
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73720677"
 ---
-# <a name="quickstart-send-events-to-azure-event-hubs-using-c"></a>Snabbstart: Skicka händelser till Azure Event Hubs med C
+# <a name="quickstart-send-events-to-azure-event-hubs-using-c"></a>Snabb start: skicka händelser till Azure Event Hubs med C
 
 ## <a name="introduction"></a>Introduktion
 Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri som producerats av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
-I den här självstudien beskrivs hur du skickar händelser till en händelsehubb med hjälp av ett konsolprogram i C. 
+I den här självstudien beskrivs hur du skickar händelser till en Event Hub med ett konsol program i C. 
 
 ## <a name="prerequisites"></a>Krav
 För att kunna genomföra den här kursen behöver du följande:
 
-* En C-utvecklingsmiljö. Den här självstudien förutsätter gcc-stacken på en Virtuell Azure Linux-dator med Ubuntu 14.04.
+* En C-utvecklings miljö. Den här självstudien förutsätter gcc-stacken på en virtuell Azure Linux-dator med Ubuntu 14,04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
-* **Skapa ett namnområde för händelsehubbar och en händelsehubb**. Använd [Azure-portalen](https://portal.azure.com) för att skapa ett namnområde av typen Event Hubs och hämta de hanteringsautentiseringsuppgifter som ditt program behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). Hämta värdet för åtkomstnyckeln för händelsehubben genom att följa instruktionerna i artikeln: [Hämta anslutningssträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomstnyckeln i koden du skriver senare i den här självstudien. Standardnyckelnamnet är: **RootManageSharedAccessKey**.
+* **Skapa ett Event Hubs-namnområde och en Event Hub**. Använd [Azure Portal](https://portal.azure.com) för att skapa ett namn område av typen Event Hubs och hämta de autentiseringsuppgifter som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). Hämta värdet för åtkomst nyckeln för händelsehubben genom att följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomst nyckeln i koden som du skriver senare i den här självstudien. Standard nyckel namnet är: **RootManageSharedAccessKey**.
 
-## <a name="write-code-to-send-messages-to-event-hubs"></a>Skriv kod för att skicka meddelanden till eventhubbar
-I det här avsnittet visas hur du skriver en C-app för att skicka händelser till din händelsehubb. Koden använder Proton AMQP-biblioteket från [Apache Qpid-projektet](https://qpid.apache.org/). Detta är analogt med att använda Service Bus-köer och ämnen med AMQP från C som visas [i det här exemplet](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Mer information finns i [Qpid Proton-dokumentationen](https://qpid.apache.org/proton/index.html).
+## <a name="write-code-to-send-messages-to-event-hubs"></a>Skriva kod för att skicka meddelanden till Event Hubs
+I det här avsnittet visas hur du skriver en C-app för att skicka händelser till händelsehubben. Koden använder Proton AMQP-biblioteket från [Apache qpid-projektet](https://qpid.apache.org/). Detta är detsamma som att använda Service Bus köer och ämnen med AMQP från C som du ser [i det här exemplet](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Mer information finns i dokumentationen för [qpid Proton](https://qpid.apache.org/proton/index.html).
 
-1. På [Qpid AMQP Messenger-sidan](https://qpid.apache.org/proton/messenger.html)följer du instruktionerna för att installera Qpid Proton, beroende på din miljö.
-2. Så här kompilerar du Proton-biblioteket:
+1. På [sidan QPID AMQP Messenger](https://qpid.apache.org/proton/messenger.html)följer du anvisningarna för att installera qpid Proton, beroende på din miljö.
+2. För att kompilera Proton-biblioteket installerar du följande paket:
    
     ```shell
     sudo apt-get install build-essential cmake uuid-dev openssl libssl-dev
     ```
-3. Ladda ner [Qpid Proton-biblioteket](https://qpid.apache.org/proton/index.html)och extrahera det, t.ex.:
+3. Hämta [qpid Proton-biblioteket](https://qpid.apache.org/proton/index.html)och extrahera det, t. ex.:
    
     ```shell
     wget https://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
     tar xvfz qpid-proton-0.7.tar.gz
     ```
-4. Skapa en byggkatalog, kompilera och installera:
+4. Skapa en build-katalog, kompilera och installera:
    
     ```shell
     cd qpid-proton-0.7
@@ -60,7 +60,7 @@ I det här avsnittet visas hur du skriver en C-app för att skicka händelser ti
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. Skapa en ny fil som heter **sender.c** i arbetskatalogen med följande kod. Kom ihåg att ersätta värdena för DIN SAS-nyckel/namn, händelsenavnamn och namnområde. Du måste också ersätta en URL-kodad version av nyckeln för **SendRule** som skapats tidigare. Du kan URL-koda det [här](https://www.w3schools.com/tags/ref_urlencode.asp).
+5. I arbets katalogen skapar du en ny fil med namnet **Sender. c** med följande kod. Kom ihåg att ersätta värdena för din SAS-nyckel/namn, händelsehubben och namn område. Du måste också ersätta en URL-kodad version av nyckeln för **SendRule** som skapades tidigare. Du kan URL-koda den [här](https://www.w3schools.com/tags/ref_urlencode.asp).
    
     ```c
     #include "proton/message.h"
@@ -141,14 +141,14 @@ I det här avsnittet visas hur du skriver en C-app för att skicka händelser ti
         return 0;
     }
     ```
-6. Kompilera filen, förutsatt **gcc:**
+6. Kompilera filen, förutsatt att **gcc**:
    
     ```
     gcc sender.c -o sender -lqpid-proton
     ```
 
     > [!NOTE]
-    > Den här koden använder ett utgående fönster på 1 för att tvinga ut meddelandena så snart som möjligt. Vi rekommenderar att programmet försöker batchmeddelanden för att öka dataflödet. Se [Qpid AMQP Messenger-sidan](https://qpid.apache.org/proton/messenger.html) för information om hur du använder Qpid Proton-biblioteket i den här och andra miljöer och från plattformar för vilka bindningar tillhandahålls (för närvarande Perl, PHP, Python och Ruby).
+    > I den här koden används ett utgående fönster på 1 för att framtvinga meddelanden så snart som möjligt. Vi rekommenderar att ditt program försöker att använda batch-meddelanden för att öka data flödet. Se [sidan QPID AMQP Messenger](https://qpid.apache.org/proton/messenger.html) för information om hur du använder qpid Proton-biblioteket i den här miljön och i andra miljöer och från plattformar där bindningar tillhandahålls (för närvarande perl, php, python och ruby).
 
 Kör programmet för att skicka meddelanden till händelsehubben. 
 

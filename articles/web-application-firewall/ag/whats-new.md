@@ -1,6 +1,6 @@
 ---
-title: Nyheter i Azure Web Application Firewall
-description: Lär dig vad som är nytt med Azure Web Application Firewall, till exempel de senaste versionsanteckningarna, kända problem, buggfixar, inaktuella funktioner och kommande ändringar.
+title: Nyheter i brand väggen för Azure Web Application
+description: Lär dig vad som är nytt med Azures brand vägg för webbaserade program, till exempel senaste versions information, kända problem, fel korrigeringar, inaktuella funktioner och kommande ändringar.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -8,15 +8,15 @@ ms.topic: overview
 ms.date: 10/24/2019
 ms.author: victorh
 ms.openlocfilehash: 0e0e67bfb893e1bf141182e45ce4a49f5f6880ca
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73502249"
 ---
-# <a name="whats-new-in-azure-web-application-firewall"></a>Vad är nytt i Azure Web Application Firewall?
+# <a name="whats-new-in-azure-web-application-firewall"></a>Vad är nytt i brand väggen för Azure Web Application?
 
-Azure Web Application Firewall uppdateras löpande. För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikeln dig information om:
+Azure Web Application-brandväggen uppdateras regelbundet. För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikeln information om:
 
 - De senaste versionerna
 - Kända problem
@@ -25,14 +25,14 @@ Azure Web Application Firewall uppdateras löpande. För att hålla dig uppdater
 
 ## <a name="new-features"></a>Nya funktioner
 
-|Funktion  |Beskrivning  |Datum tillagt  |
+|Funktion  |Beskrivning  |Tillagt den  |
 |---------|---------|---------|
-|Bot Mitigation Ruleset (förhandsgranskning)|Du kan aktivera en Bot Mitigation-regeluppsättning, tillsammans med den CRS-regeluppsättning du väljer. | November 2019 |
-|GeoDB-integrering (förhandsgranskning)|Nu kan du skapa anpassade regler som begränsar trafiken efter ursprungsland. | November 2019 |
-|WAF per plats/URI-princip (förhandsgranskning)|WAF-v2 stöder nu att tillämpa en policy för lyssnare, samt sökvägsbaserade regler. Se [Skapa WAF-princip](create-waf-policy-ag.md). | November 2019 |
-|Anpassade WAF-regler |Application Gateway WAF_v2 stöder nu att skapa anpassade regler. Se [anpassade regler för Programgateway](custom-waf-rules-overview.md). |Juni 2019 |
-|WAF-konfigurations- och undantagslista     |Vi har lagt till fler alternativ som hjälper dig att konfigurera din WAF och minska falska positiva identifieringar. Mer information finns [i storleksbegränsningar för webbprogram brandväggsbegäran och undantagslistor.](application-gateway-waf-configuration.md)|December 2018|
+|Ruleset för bot-åtgärder (för hands version)|Du kan aktivera en bot-ruleset, tillsammans med den datoriserade boknings ruleset som du väljer. | November 2019 |
+|GeoDB-integration (för hands version)|Nu kan du skapa anpassade regler som begränsar trafiken efter ursprungsland. | November 2019 |
+|WAF per plats/per-URI-princip (för hands version)|WAF-v2 har nu stöd för att tillämpa en princip för lyssnare, samt Sök vägs baserade regler. Se [skapa WAF-princip](create-waf-policy-ag.md). | November 2019 |
+|Anpassade WAF-regler |Application Gateway WAF_v2 har nu stöd för att skapa anpassade regler. Se [Application Gateway anpassade regler](custom-waf-rules-overview.md). |Juni 2019 |
+|WAF-konfiguration och exkluderings lista     |Vi har lagt till fler alternativ som hjälper dig att konfigurera din WAF och minska antalet falska positiva identifieringar. Mer information finns i [brand väggens storleks gränser och undantags listor för webb program](application-gateway-waf-configuration.md) .|December 2018|
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om brandvägg för webbprogram i Application Gateway finns i [Azure Web Application Firewall på Azure Application Gateway](ag-overview.md).
+Mer information om brand vägg för webbaserade program på Application Gateway finns i [brand väggen för Azure-webbprogram på Azure Application Gateway](ag-overview.md).

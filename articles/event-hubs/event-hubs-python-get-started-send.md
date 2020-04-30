@@ -1,6 +1,6 @@
 ---
-title: Skicka eller ta emot händelser från Azure Event Hubs med Python (gammal)
-description: Den här genomgången visar hur du skapar och kör Python-skript som skickar händelser till eller ta emot händelser från Azure Event Hubs med det gamla azure-eventhub version 1-paketet.
+title: Skicka eller ta emot händelser från Azure Event Hubs med python (gammal)
+description: Den här genom gången visar hur du skapar och kör Python-skript som skickar händelser till eller tar emot händelser från Azure Event Hubs med hjälp av det gamla Azure-eventhub version 1-paketet.
 services: event-hubs
 author: spelluru
 manager: femila
@@ -10,44 +10,44 @@ ms.topic: quickstart
 ms.date: 01/15/2020
 ms.author: spelluru
 ms.openlocfilehash: 22f6b2aba36e560e9bd335baa92925fe9846c670
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77162607"
 ---
-# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>Snabbstart: Skicka och ta emot händelser med eventhubbar med Python (azure-eventhub version 1)
-Den här snabbstarten visar hur du skickar händelser till och ta emot händelser från en händelsehubb med **azure-eventhub version 1 Python-paketet.** 
+# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>Snabb start: skicka och ta emot händelser med Event Hubs med python (Azure-eventhub version 1)
+Den här snabb starten visar hur du skickar händelser till och tar emot händelser från en händelsehubben med **Azure-eventhub version 1** python-paketet. 
 
 > [!WARNING]
-> Den här snabbstarten använder det gamla azure-eventhub version 1-paketet. En snabbstart som använder den **senaste versionen 5** av paketet finns i [Skicka och ta emot händelser med azure-eventhub version 5](get-started-python-send-v2.md). Information om hur du flyttar programmet från att använda det gamla paketet till ett nytt finns i [guiden för att migrera från azure-eventhub version 1 till version 5](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
+> Den här snabb starten använder det gamla Azure-eventhub version 1-paketet. En snabb start som använder den senaste **versionen 5** av paketet finns i [skicka och ta emot händelser med Azure-eventhub version 5](get-started-python-send-v2.md). Information om hur du flyttar ditt program från att använda det gamla paketet till ett nytt finns i [guiden för att migrera från Azure-eventhub version 1 till version 5](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
  
 
 ## <a name="prerequisites"></a>Krav
-Om du inte har gjort det tidigare i Azure Event Hubs läser du [översikt över eventhubbar](event-hubs-about.md) innan du gör den här snabbstarten. 
+Om du är nybörjare på Azure Event Hubs, se [Event Hubs översikt](event-hubs-about.md) innan du gör den här snabb starten. 
 
 För att slutföra den här snabbstarten, behöver du följande förhandskrav:
 
-- **Microsoft Azure-prenumeration**. Om du vill använda Azure-tjänster, inklusive Azure Event Hubs, behöver du en prenumeration.  Om du inte har ett befintligt Azure-konto kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/) eller använda dina msdn-prenumerationsförmåner när du [skapar ett konto](https://azure.microsoft.com).
-- Python 3.4 eller `pip` senare, med installerat och uppdaterat.
-- Python-paketet för eventhubbar. Om du vill installera paketet kör du det här kommandot i en kommandotolk som har Python i sökvägen: 
+- **Microsoft Azure prenumeration**. Om du vill använda Azure-tjänster, inklusive Azure Event Hubs, behöver du en prenumeration.  Om du inte har ett befintligt Azure-konto kan du registrera dig för en [kostnads fri utvärderings version](https://azure.microsoft.com/free/) eller använda dina förmåner för MSDN-prenumeranter när du [skapar ett konto](https://azure.microsoft.com).
+- Python 3,4 eller senare, med `pip` installerad och uppdaterad.
+- Python-paketet för Event Hubs. Installera paketet genom att köra det här kommandot i en kommando tolk med python i sökvägen: 
   
   ```cmd
   pip install azure-eventhub==1.3.*
   ```
-- **Skapa ett namnområde för händelsehubbar och en händelsehubb**. Det första steget är att använda [Azure-portalen](https://portal.azure.com) för att skapa ett namnområde av typen Event Hubs och hämta de hanteringsautentiseringsuppgifter som ditt program behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). Hämta sedan värdet för åtkomstnyckeln för händelsehubben genom att följa instruktionerna från artikeln: [Hämta anslutningssträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomstnyckeln i koden du skriver senare i den här snabbstarten. Standardnyckelnamnet är: **RootManageSharedAccessKey**. 
+- **Skapa ett Event Hubs-namnområde och en Event Hub**. Det första steget är att använda [Azure Portal](https://portal.azure.com) för att skapa ett namn område av typen Event Hubs och hämta de autentiseringsuppgifter som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). Hämta sedan värdet för åtkomst nyckeln för händelsehubben genom att följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomst nyckeln i koden som du skriver senare i den här snabb starten. Standard nyckel namnet är: **RootManageSharedAccessKey**. 
 
 
 ## <a name="send-events"></a>Skicka händelser
 
-Så här skapar du ett Python-program som skickar händelser till en händelsehubb:
+Så här skapar du ett python-program som skickar händelser till en Event Hub:
 
 > [!NOTE]
-> I stället för att arbeta igenom snabbstarten kan du hämta och köra [exempelapparna](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) från GitHub. Ersätt `EventHubConnectionString` strängarna och `EventHubName` med dina händelsenavvärden.
+> I stället för att arbeta via snabb starten kan du ladda ned och köra [exempel apparna](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) från GitHub. Ersätt- `EventHubConnectionString` och `EventHubName` -strängarna med dina Event Hub-värden.
 
-1. Öppna din favorith python-redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/)
-2. Skapa en ny fil som heter *send.py*. Skriptet skickar 100 händelser till din händelsehubb.
-3. Klistra in följande kod i *send.py*, ersätta \<namnområdet Event Hubs \<>, eventhub \<>, AccessKeyName> \<och primärnyckelvärde> med dina värden: 
+1. Öppna din favorit-eller python-redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/)
+2. Skapa en ny fil med namnet *send.py*. Det här skriptet skickar 100-händelser till händelsehubben.
+3. Klistra in följande kod i *send.py* \<, Ersätt Event Hubs namn områdes> \<, eventhub- \<>, AccessKeyName> \<och primär nyckel värde> med dina värden: 
    
    ```python
    import sys
@@ -97,7 +97,7 @@ Så här skapar du ett Python-program som skickar händelser till en händelsehu
    
 4. Spara filen. 
 
-Om du vill köra skriptet, från katalogen där du sparade *send.py,* kör du det här kommandot:
+Kör skriptet från katalogen där du sparade *send.py*genom att köra det här kommandot:
 
 ```cmd
 start python send.py
@@ -107,10 +107,10 @@ Grattis! Du har nu skickat meddelanden till en händelsehubb.
 
 ## <a name="receive-events"></a>Ta emot händelser
 
-Så här skapar du ett Python-program som tar emot händelser från en händelsehubb:
+Så här skapar du ett python-program som tar emot händelser från en Event Hub:
 
-1. Skapa en fil som heter *recv.py*i Python-redigeraren .
-2. Klistra in följande kod i *recv.py*, \<ersätta namnområdet Event \<Hubs>, \<eventhub>, AccessKeyName \<> och primärnyckel värde> med dina värden: 
+1. Skapa en fil med namnet *Recv.py*i python-redigeraren.
+2. Klistra in följande kod i *Recv.py* \<, Ersätt Event Hubs namn områdes> \<, eventhub- \<>, AccessKeyName> \<och primär nyckel värde> med dina värden: 
    
    ```python
    import os
@@ -161,7 +161,7 @@ Så här skapar du ett Python-program som tar emot händelser från en händelse
    
 4. Spara filen.
 
-Om du vill köra skriptet, från katalogen där du sparade *recv.py*, kör du det här kommandot:
+Kör skriptet från katalogen där du sparade *Recv.py*genom att köra det här kommandot:
 
 ```cmd
 start python recv.py

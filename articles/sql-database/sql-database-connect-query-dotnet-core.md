@@ -1,5 +1,5 @@
 ---
-title: Använd .NET Core för att fråga
+title: Fråga med .NET Core
 description: Det här avsnittet beskriver hur du använder .NET Core till att skapa ett program som ansluter till en Azure SQL-databas och kör frågor mot den med hjälp av Transact-SQL-instruktioner.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/29/2019
 ms.openlocfilehash: 369c708fd3181076c6deb9d7ac9134c57a18f819
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73827097"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Snabbstart: Köra frågor mot en Azure SQL-databas med hjälp av .NET Core (C#)
@@ -23,7 +23,7 @@ ms.locfileid: "73827097"
 I den här snabbstarten använder du [.NET Core](https://www.microsoft.com/net/) och C#-kod för att ansluta till en Azure SQL-databas. Sedan kör du en Transact-SQL-instruktion för att fråga efter data.
 
 > [!TIP]
-> Följande Microsoft Learn-modul hjälper dig att lära dig kostnadsfritt hur du [utvecklar och konfigurerar ett ASP.NET program som frågar en Azure SQL-databas](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
+> Följande Microsoft Learn-modul hjälper dig att lära dig kostnads fritt hur du [utvecklar och konfigurerar ett ASP.NET-program som skickar frågor till en Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -33,13 +33,13 @@ Du behöver följande för den här självstudien:
 
   || Enskild databas | Hanterad instans |
   |:--- |:--- |:---|
-  | Skapa| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  | Skapa| [Portalen](sql-database-single-database-get-started.md) | [Portalen](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [Powershell](scripts/sql-database-create-and-configure-database-powershell.md) | [Powershell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
   |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
   |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Återställa eller importera Adventure Works från [BACPAC-filen](sql-database-import.md) från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) -filen från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
@@ -197,6 +197,6 @@ namespace sqltest
 ## <a name="next-steps"></a>Nästa steg
 
 - [Komma igång med .NET Core för Windows/Linux/macOS med hjälp av kommandoraden](/dotnet/core/tutorials/using-with-xplat-cli).
-- Lär dig hur du [ansluter och frågar en Azure SQL-databas med .NET Framework och Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
+- Lär dig hur du [ansluter och frågar en Azure SQL-databas med hjälp av .NET Framework och Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
 - Lär dig att [Utforma din första Azure SQL-databas med hjälp av SSMS](sql-database-design-first-database.md) eller [Utforma en Azure SQL-databas och anslut med C# och ADO.NET](sql-database-design-first-database-csharp.md).
 - Mer information om .NET finns i [.NET-dokumentationen](https://docs.microsoft.com/dotnet/).

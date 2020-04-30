@@ -1,6 +1,6 @@
 ---
 title: Azure Sakernas Internet (IoT)-tekniker och -lösningar
-description: Beskriver insamlingen av tekniker och tjänster som du kan använda för att skapa en Azure IoT-lösning.
+description: Beskriver en samling tekniker och tjänster som du kan använda för att bygga en Azure IoT-lösning.
 author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
@@ -8,87 +8,87 @@ ms.topic: overview
 ms.date: 01/15/2020
 ms.author: dobett
 ms.openlocfilehash: 0b04b5170c13f6f6c3fd74976461f03e4367060a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77046066"
 ---
-# <a name="azure-technologies-and-services-for-creating-iot-solutions"></a>Azure-tekniker och -tjänster för att skapa IoT-lösningar
+# <a name="azure-technologies-and-services-for-creating-iot-solutions"></a>Azure-tekniker och-tjänster för att skapa IoT-lösningar
 
-Azure IoT-tekniker och -tjänster ger dig alternativ för att skapa en mängd olika IoT-lösningar som möjliggör digital omvandling för din organisation. Du kan till exempel:
+Azure IoT-teknik och-tjänster ger dig alternativ för att skapa ett brett utbud av IoT-lösningar som möjliggör digital omvandling för din organisation. Du kan till exempel:
 
-- Använd [Azure IoT Central](https://apps.azureiotcentral.com), en hanterad IoT-programplattform, för att skapa och distribuera en säker IoT-lösning i företagsklass. IoT Central har en samling branschspecifika programmallar, till exempel detaljhandel och hälso- och sjukvård, för att påskynda din lösningsutvecklingsprocess.
-- Utöka den öppna källkodsbasen för en Azure [IoT-lösningsaccelerator](https://www.azureiotsolutions.com) för att implementera ett gemensamt IoT-scenario, till exempel fjärrövervakning eller förutsägande underhåll.
-- Använd Azure IoT-plattformstjänster som [Azure IoT Hub](../iot-hub/about-iot-hub.md) och [Azure IoT-enheten SDK:er](../iot-hub/iot-hub-devguide-sdks.md) för att skapa en anpassad IoT-lösning från grunden.
+- Använd [Azure IoT Central](https://apps.azureiotcentral.com), en hanterad IoT-programplattform, för att bygga och distribuera en säker IoT-lösning i företags klass. IoT Central innehåller en samling branschspecifika programmallar, till exempel detalj handel och sjukvård, för att påskynda utvecklings processen för lösningen.
+- Utöka kodbasen med öppen källkod för en Azure IoT [Solution Accelerator](https://www.azureiotsolutions.com) för att implementera ett gemensamt IoT-scenario, till exempel fjärrövervakning eller förutsägande underhåll.
+- Använd Azure IoT Platform-tjänster som [azure IoT Hub](../iot-hub/about-iot-hub.md) och SDK: er för [Azure IoT-enheter](../iot-hub/iot-hub-devguide-sdks.md) för att bygga en anpassad IoT-lösning från grunden.
 
-![Azure IoT-teknik, tjänster och lösningar](./media/iot-services-and-technologies/iot-technologies-services.png)
+![Azure IoT-tekniker,-tjänster och-lösningar](./media/iot-services-and-technologies/iot-technologies-services.png)
 
 ## <a name="azure-iot-central"></a>Azure IoT Central
 
-[IoT Central-applikationsplattformen](https://apps.azureiotcentral.com) minskar bördan och kostnaderna för att utveckla, hantera och underhålla IoT-lösningar i företagsklass. IoT Centrals anpassningsbara webbgränssnitt i gör att du kan övervaka enhetsvillkor, skapa regler och hantera miljontals enheter och deras data under hela livscykeln. API-ytan inom IoT Central ger dig programmatisk åtkomst för att konfigurera och interagera med din IoT-lösning.
+[IoT Central applikations plattform](https://apps.azureiotcentral.com) minskar belastningen och kostnaderna för att utveckla, hantera och underhålla IoT-lösningar i företags klass. Med IoT Centralens anpassningsbara webb gränssnitt i kan du övervaka enhets villkor, skapa regler och hantera miljon tals enheter och deras data under deras livs cykel. API-ytan i IoT Central ger dig programmatisk åtkomst till att konfigurera och interagera med din IoT-lösning.
 
-Azure IoT Central är en fullständigt hanterad programplattform som du kan använda för att skapa anpassade IoT-lösningar. IoT Central använder programmallar för att skapa lösningar. Det finns mallar för generiska lösningar och för specifika branscher som energi, hälso- och sjukvård, myndigheter och detaljhandel. Med IoT Central-programmallar kan du distribuera ett IoT Central-program på några minuter som du sedan kan anpassa med teman, instrumentpaneler och vyer.
+Azure IoT Central är en helt hanterad program plattform som du kan använda för att skapa anpassade IoT-lösningar. IoT Central använder programmallar för att skapa lösningar. Det finns mallar för allmänna lösningar och för vissa branscher, till exempel energi, sjukvård, myndigheter och åter försäljning. Med IoT Central programmallar kan du distribuera ett IoT Central-program på några minuter som sedan kan anpassas med teman, instrument paneler och vyer.
 
-Välj enheter från [Azure Certified for IoT-enhetskatalogen](https://catalog.azureiotsolutions.com) för att snabbt ansluta till din lösning. Använd webbgränssnittet i IoT Central för att övervaka och hantera dina enheter för att hålla dem felfria och anslutna. Använd kopplingar och API:er för att integrera ditt IoT Central-program med andra affärsprogram.
+Välj enheter från [Azure-certifierad för IoT-katalogen](https://catalog.azureiotsolutions.com) för att snabbt ansluta till din lösning. Använd IoT Central webb gränssnitt för att övervaka och hantera dina enheter för att hålla dem felfria och anslutna. Använd anslutningar och API: er för att integrera ditt IoT Central program med andra affärs program.
 
-Som en fullständigt hanterad applikationsplattform har IoT Central en enkel och förutsägbar prismodell.
+Som en helt hanterad program plattform är IoT Central en enkel, förutsägbar pris modell.
 
 ## <a name="azure-iot-solution-accelerators"></a>Azure IoT-lösningsacceleratorer
 
-[Azure IoT-lösningsacceleratorer](https://www.azureiotsolutions.com) är en samling anpassningsbara lösningar i företagsklass. Du kan distribuera dessa lösningar som de är eller utveckla en anpassad IoT-lösning med hjälp av Java- eller .NET-källkoden med öppen källkod.
+[Azure IoT Solution Accelerators](https://www.azureiotsolutions.com) är en samling anpassningsbara lösningar i företags klass. Du kan distribuera dessa lösningar som de är eller utveckla en anpassad IoT-lösning med hjälp av Java-eller .NET-källkoden med öppen källkod.
 
-Azure IoT-lösningsacceleratorer ger en hög nivå av kontroll över din IoT-lösning. Lösningsacceleratorerna innehåller färdiga lösningar för vanliga IoT-scenarier som du kan distribuera till din Azure-prenumeration på några minuter. Scenarierna omfattar:
+Azure IoT Solution-acceleratorer ger en hög kontroll över din IoT-lösning. Lösnings acceleratorer innehåller färdiga lösningar för vanliga IoT-scenarier som du kan distribuera till din Azure-prenumeration på några minuter. Scenarierna är:
 
   - Fjärrövervakning
   - Ansluten fabrik
   - Förebyggande underhåll
   - Enhetssimulering
 
-Bas för öppen källkod för alla lösningsacceleratorer finns på GitHub. Ladda ner koden för att anpassa en lösningsaccelerator för att uppfylla dina specifika IoT-krav.
+Kod basen med öppen källkod för alla lösnings acceleratorer finns på GitHub. Ladda ned koden för att anpassa en lösnings Accelerator så att den uppfyller dina särskilda IoT-krav.
 
-Lösningsacceleratorerna använder Azure-tjänster som Azure IoT Hub och Azure Storage som du måste hantera i din Azure-prenumeration.
+Lösnings acceleratorerna använder Azure-tjänster som Azure IoT Hub och Azure Storage som du måste hantera i din Azure-prenumeration.
 
 ## <a name="custom-solutions"></a>Anpassade lösningar
 
-Om du vill skapa en IoT-lösning från grunden eller utöka en lösning som skapats med IoT Central eller en lösningsaccelerator använder du en eller flera av följande Azure IoT-tekniker och -tjänster:
+Om du vill skapa en IoT-lösning från grunden eller utöka en lösning som skapats med hjälp av IoT Central eller en lösnings Accelerator, använder du en eller flera av följande Azure IoT-tekniker och-tjänster:
 
 ### <a name="devices"></a>Enheter
 
-Utveckla dina IoT-enheter med hjälp av ett av [Azure IoT Starter Kits](https://catalog.azureiotsolutions.com/kits) eller välj en enhet att använda från [Azure Certified for IoT-enhetskatalogen](https://catalog.azureiotsolutions.com). Implementera den inbäddade koden med [SDK:erna med](../iot-hub/iot-hub-devguide-sdks.md)öppen källkod . Enhetens SDK-filer stöder flera operativsystem, till exempel Linux, Windows och operativsystem i realtid. Det finns SDK:er för flera programmeringsspråk, till exempel [C,](https://github.com/Azure/azure-iot-sdk-c) [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp)och [Python](https://github.com/Azure/azure-iot-sdk-python).
+Utveckla dina IoT-enheter med hjälp av ett av [Azure IoT-Startpaketen](https://catalog.azureiotsolutions.com/kits) eller Välj en enhet som du vill använda från [Azure-certifierad för IoT-katalogen](https://catalog.azureiotsolutions.com). Implementera din inbäddade kod med hjälp av [enhets-SDK](../iot-hub/iot-hub-devguide-sdks.md): er med öppen källkod. Enhets-SDK: er har stöd för flera operativ system, till exempel Linux, Windows och real tids operativ system. Det finns SDK: er för flera programmeringsspråk, till exempel [C](https://github.com/Azure/azure-iot-sdk-c), [Node. js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.net](https://github.com/Azure/azure-iot-sdk-csharp)och [python](https://github.com/Azure/azure-iot-sdk-python).
 
-Du kan förenkla ytterligare hur du skapar den inbäddade koden för dina enheter med hjälp av tjänsten [IoT Plug and Play Preview.](../iot-pnp/overview-iot-plug-and-play.md) IoT Plug and Play gör det möjligt för lösningsutvecklare att integrera enheter med sina lösningar utan att skriva någon inbäddad kod. Kärnan i IoT Plug and Play är ett modellschema för _enhetskapacitet_ som beskriver enhetsfunktioner. Använd enhetskapacitetsmodellen för att generera din inbäddade enhetskod och konfigurera en molnbaserad lösning, till exempel ett IoT Central-program.
+Du kan förenkla hur du skapar den inbäddade koden för dina enheter genom att använda [IoT plug and Play Preview](../iot-pnp/overview-iot-plug-and-play.md) -tjänsten. IoT Plug and Play gör att lösnings utvecklare kan integrera enheter med sina lösningar utan att skriva någon inbäddad kod. I IoT-Plug and Play är det ett modell schema för _enhets kapacitet_ som beskriver enhets funktioner. Använd enhetens kapacitets modell för att generera din inbäddade enhets kod och konfigurera en molnbaserad lösning, till exempel ett IoT Central program.
 
-[Med Azure IoT Edge](../iot-edge/about-iot-edge.md) kan du avlasta delar av din IoT-arbetsbelastning från dina Azure-molntjänster till dina enheter. IoT Edge kan minska svarstiden i din lösning, minska mängden data som dina enheter utbyter med molnet och aktivera offlinescenarier. Du kan hantera IoT Edge-enheter från IoT Central och vissa lösningsacceleratorer.
+Med [Azure IoT Edge](../iot-edge/about-iot-edge.md) kan du avlasta delar av din IoT-arbetsbelastning från dina Azure Cloud Services till dina enheter. IoT Edge kan minska svars tiden i din lösning, minska mängden data som dina enheter utbyter med molnet och Aktivera offline-scenarier. Du kan hantera IoT Edge enheter från IoT Central och vissa lösnings acceleratorer.
 
-[Azure Sphere](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere) är en säker programplattform på hög nivå med inbyggda kommunikations- och säkerhetsfunktioner för internetanslutna enheter. Den innehåller en säker mikrokontrollerenhet, ett anpassat Linux-baserat operativsystem och en molnbaserad säkerhetstjänst som ger kontinuerlig, förnybar säkerhet.
+[Azure Sphere](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere) är en säker, högnivå applikations plattform med inbyggda kommunikations-och säkerhetsfunktioner för Internet-anslutna enheter. Den innehåller en säker mikrostyrenhet-enhet, ett anpassat Linux-baserat operativ system och en molnbaserad säkerhets tjänst som tillhandahåller kontinuerlig, förnybar säkerhet.
 
-### <a name="cloud-connectivity"></a>Molnanslutning
+### <a name="cloud-connectivity"></a>Moln anslutning
 
-[Azure IoT Hub-tjänsten](../iot-hub/about-iot-hub.md) möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan miljontals IoT-enheter och en molnbaserad lösning. [Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md) är en hjälptjänst för IoT Hub. Tjänsten ger zero-touch, just-in-time-etablering av enheter till rätt IoT-hubb utan att kräva mänsklig inblandning. Dessa funktioner gör det möjligt för kunder att tillhandahålla miljontals enheter på ett säkert och skalbart sätt.
+[Azure IoT Hub](../iot-hub/about-iot-hub.md) -tjänsten möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan miljon tals IoT-enheter och en molnbaserad lösning. [Azure IoT Hub Device Provisioning service](../iot-dps/about-iot-dps.md) är en hjälp tjänst för IoT Hub. Tjänsten ger dig noll touch, just-in-Time-etablering av enheter till rätt IoT Hub utan mänsklig inblandning. Dessa funktioner gör att kunderna kan etablera miljon tals enheter på ett säkert och skalbart sätt.
 
-IoT Hub är en kärnkomponent i lösningsacceleratorerna och du kan använda den för att möta IoT-implementeringsutmaningar som:
+IoT Hub är en kärn komponent i Solution Accelerators och du kan använda den för att uppfylla IoT-implementerings utmaningar som:
 
 * Omfattande enhetsanslutning och hantering.
 * Omfattande inmatning av telemetri.
 * Kontroll av enheter.
 * Tillämpning av enhetssäkerhet.
 
-### <a name="bridging-the-gap-between-the-physical-and-digital-worlds"></a>Överbrygga klyftan mellan de fysiska och digitala världarna
+### <a name="bridging-the-gap-between-the-physical-and-digital-worlds"></a>Överbrygga avståndet mellan det fysiska och digitala världar
 
-[Azure Digital Twins](../digital-twins/about-digital-twins.md) är en IoT-tjänst som gör att du kan modellera en fysisk miljö. Den använder en rumslig intelligens diagram för att modellera relationer mellan människor, utrymmen och enheter. Genom att kärna data över de digitala och fysiska världarna kan du skapa kontextuellt medvetna lösningar.
+[Azure Digitals dubbla](../digital-twins/about-digital-twins.md) är en IoT-tjänst som gör det möjligt att modellera en fysisk miljö. Den använder ett geografiskt informations diagram för att modellera relationerna mellan personer, utrymmen och enheter. Genom att samrelatera data över digitala och fysiska världar kan du skapa sammanhangsbaserade medvetna lösningar.
 
-Iot Central använder digitala tvillingar för att synkronisera enheter och data i den verkliga världen med de digitala modeller som gör det möjligt för användare att övervaka och hantera dessa anslutna enheter.
+IoT Central använder digitala enheter för att synkronisera enheter och data i den verkliga världen med de digitala modeller som gör det möjligt för användare att övervaka och hantera anslutna enheter.
 
 ### <a name="data-and-analytics"></a>Data och analys
 
-IoT-enheter genererar vanligtvis stora mängder tidsseriedata, till exempel temperaturavläsningar från sensorer. [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) kan ansluta till en IoT-hubb, läsa telemetriströmmen från dina enheter, lagra dessa data och göra att du kan fråga och visualisera den.
+IoT-enheter genererar vanligt vis stora mängder tids serie data, till exempel temperatur läsningar från sensorer. [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) kan ansluta till en IoT-hubb, läsa telemetri-dataströmmen från dina enheter, lagra dessa data och göra det möjligt att fråga och visualisera den.
 
-[Azure Maps](/azure/azure-maps) är en samling geospatiala tjänster som använder nya mappningsdata för att ge korrekt geografisk kontext till webb- och mobilappar. Du kan använda ett REST API, en webbaserad JavaScript-kontroll eller en Android SDK för att skapa dina program.
+[Azure Maps](/azure/azure-maps) är en samling geospatiala tjänster som använder nya mappnings data för att tillhandahålla korrekt geografisk kontext till webb-och mobil program. Du kan använda en REST API, en webbaserad JavaScript-kontroll eller en Android SDK för att bygga dina program.
 
 ## <a name="next-steps"></a>Nästa steg
 
-För en praktisk upplevelse kan du prova en av snabbstarterna:
+För en praktisk upplevelse kan du prova någon av snabb starterna:
 
 - [Skapa ett Azure IoT Central-program](../iot-central/core/quick-deploy-iot-central.md)
 - [Skicka telemetri från en enhet till en IoT-hubb](../iot-hub/quickstart-send-telemetry-cli.md)

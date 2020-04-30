@@ -1,6 +1,6 @@
 ---
 title: Skapa lösningar för myndigheter med Azure IoT Central
-description: Lär dig att skapa lösningar för smarta städer med hjälp av Azure IoT Central-programmallar.
+description: Lär dig att bygga smarta stads lösningar med hjälp av Azure IoT Central programmallar.
 author: miriambrus
 ms.author: miriamb
 ms.date: 10/23/2019
@@ -8,76 +8,76 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 159691ee101e586419d2fd8df314947af28219dd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77016518"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Skapa lösningar för myndigheter med Azure IoT Central
 
 
 
-Kom igång med att skapa lösningar för smarta städer med hjälp av Azure IoT Central-programmallar. Börja nu med **vattenkvalitet övervakning,** **vattenförbrukning övervakning,** och **ansluten avfallshantering**.
+Kom igång med att skapa smarta stads lösningar med hjälp av Azure IoT Central programmallar. Börja nu med **övervakning av vatten kvalitet**, **övervakning av vattenförbrukning**och **ansluten avfalls hantering**.
 
-## <a name="what-is-water-quality-monitoring-application-template"></a>Vad är programmall för vattenkvalitetsövervakning?   
+## <a name="what-is-water-quality-monitoring-application-template"></a>Vad är program mal len för övervakning av vatten kvalitet?   
 
-Traditionell vattenkvalitetsövervakning bygger på manuell provtagningsteknik och fältlaboratorieanalys, vilket är tidskrävande och kostsamt. Genom att fjärrövervaska vattenkvaliteten i realtid kan vattenkvalitetsfrågor hanteras innan medborgarna påverkas. Dessutom, med avancerad analys, vattenverk och miljöorgan kan agera på tidiga varningar om potentiella vattenkvalitetsfrågor och planera för vattenrening i förväg.  
+Traditionell kontroll av vatten kvalitet är beroende av manuella provtagnings metoder och analys av fält laboratorier, vilket är tids krävande och kostsamt. Genom att fjärrövervaka vatten kvaliteten i real tid kan vatten kvalitets problem hanteras innan medborgarna påverkas. Dessutom kan du med avancerade analyser, vatten verktyg och miljö myndigheter vidta åtgärder för att få tidiga varningar om potentiella vatten kvalitets problem och planera för vatten behandling i förväg.  
 
-Water Quality Monitoring app är en IoT Central app mall som hjälper dig att kickstarta din IoT lösning utveckling och göra det möjligt för vattenverk att digitalt övervaka vattenkvaliteten i smarta städer. 
+Appen för övervakning av vatten kvalitet är en IoT Central app-mall som hjälper dig att kickstart din IoT-lösning och göra det möjligt för vatten verktyg att digitalt övervaka vatten kvaliteten i smarta städer. 
 
-![Appmall för övervakning av vattenkvalitet](./media/overview-iotcentral-government/waterqualitymonitoring-dashboard-full.png)
+![App-mall för övervakning av vatten kvalitet](./media/overview-iotcentral-government/waterqualitymonitoring-dashboard-full.png)
 
-Appmallen består av:
-* Exempel på operatörsinstrumentpaneler
-* Exempel på mallar för övervakning av vattenkvalitet
-* Simulerade bildskärmsenheter för vattenkvalitet
+App-mallen består av:
+* Exempel instrument panels instrument paneler
+* Exempel på enhets mallar för övervakning av vatten kvalitet
+* Simulerade enheter för övervakning av vatten kvalitet
 * Förkonfigurerade regler och jobb
-* Branding med vit märkning 
+* Anpassning med hjälp av vita etiketter 
 
-Kom igång med ansökan om övervakning av [vattenkvalitet](./tutorial-water-quality-monitoring.md).
-
-
-## <a name="what-is-water-consumption-monitoring-application-template"></a>Vad är programmall för övervakning av vattenförbrukning? 
-
-Traditionell vattenförbrukning spårning bygger på vattenoperatörer manuellt läsa vattenförbrukning mätare på mätaren platser. Fler och fler städer ersätter traditionella mätare med avancerade smarta mätare som möjliggör fjärrövervakning av förbrukning och fjärrstyrning av ventiler för att styra vattenflödet. Övervakning av vattenförbrukningen i kombination med digitalt feedbackmeddelande till medborgarna kan öka medvetenheten och minska vattenförbrukningen. 
+Kom igång med [själv studie kursen om program kvalitets övervakning](./tutorial-water-quality-monitoring.md).
 
 
-Water Consumption Monitoring app är en IoT Central app mall som hjälper dig att kickstarta din IoT lösning utveckling för att göra det möjligt för vattenverk och städer att fjärrövervaka och kontrollera vattenflödet för att minska förbrukningen. 
+## <a name="what-is-water-consumption-monitoring-application-template"></a>Vad är program mal len för övervakning av vatten förbrukning? 
 
-  ![Appmall för övervakning av vattenförbrukning](./media/overview-iotcentral-government/waterconsumptionmonitoring-dashboardfull.png)
+Traditionell användnings spårning i vatten förlitar sig på vatten operatörer som läser in vattenförbruknings mätare manuellt på mätar platserna. Fler städer ersätter traditionella meter med avancerade smarta mätare som möjliggör fjärrövervakning av användning och fjärrstyrnde av ventiler till kontroll av vatten flödet. Övervakning av vattenförbrukningen tillsammans med meddelandet Digital feedback till medborgarna kan öka medvetenheten och minska vatten förbrukningen. 
 
-Appmallen För övervakning av vattenförbrukning består av förkonfigurerade:
-* Exempel på operatörsinstrumentpaneler
-* Exempel på mallar för övervakning av vattenkvalitet
-* Simulerade bildskärmsenheter för vattenkvalitet
+
+Appen för övervakning av vattenförbrukning är en IoT Central app-mall som hjälper dig att kickstart din IoT-lösning för att aktivera vatten verktyg och städer för att fjärrövervaka och kontrol lera vatten flödet för att minska förbrukningen. 
+
+  ![App-mall för övervakning av vatten förbrukning](./media/overview-iotcentral-government/waterconsumptionmonitoring-dashboardfull.png)
+
+App-mallen för övervakning av vattenförbrukning består av förkonfigurerade:
+* Exempel instrument panels instrument paneler
+* Exempel på enhets mallar för övervakning av vatten kvalitet
+* Simulerade enheter för övervakning av vatten kvalitet
 * Förkonfigurerade regler och jobb
-* Branding med vit märkning 
+* Anpassning med hjälp av vita etiketter 
 
- Kom igång med [ansökan om övervakning av vattenförbrukning](./tutorial-water-consumption-monitoring.md).
+ Kom igång med [självstudierna för övervakning av program förbrukning](./tutorial-water-consumption-monitoring.md).
 
-## <a name="what-is-connected-waste-management-application-template"></a>Vad är programmall för Connected Waste Management? 
+## <a name="what-is-connected-waste-management-application-template"></a>Vad är den anslutna program mal len för avfalls hantering? 
 
-Connected Waste Management App är en IoT Central app mall som hjälper dig att kickstarta din IoT lösning utveckling så att smarta städer att fjärrövervaka sig för att maximera effektiv avfallsinsamling. 
+Den anslutna appen för avfalls hantering är en IoT Central app-mall som hjälper dig att kickstart din IoT-lösning för att göra det möjligt för smarta städer att fjärrövervakas för att maximera en effektiv avfalls insamling. 
 
-![Mall för App för ansluten avfallshantering](media/overview-iotcentral-government/connectedwastemanagement-dashboard.png) 
+![App-mall för ansluten avfalls hantering](media/overview-iotcentral-government/connectedwastemanagement-dashboard.png) 
 
 
-Appmallen För hantering av ansluten avfallshantering består av förkonfigurerade:
-* Exempel på operatörsinstrumentpaneler
-* Exempel på anslutna mallar för avfallsbehållare
-* Simulerade anslutna avfallsbehållare
+Den anslutna mallen för avfalls hanterings program består av förkonfigurerade:
+* Exempel instrument panels instrument paneler
+* Exempel på anslutna pappers korgs fack enhets mallar
+* Simulerade anslutna avfalls lager enheter
 * Förkonfigurerade regler och jobb
-* Branding med vit märkning 
+* Anpassning med hjälp av vita etiketter 
 
-Kom igång med [självstudiekursen för programmet För hantering](./tutorial-connected-waste-management.md)av ansluten avfall .
+Kom igång med [självstudierna för anslutet hanterings program](./tutorial-connected-waste-management.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Prova någon av de statliga programmallarna i IoT Central gratis [skapa app](https://apps.azureiotcentral.com/build/government)
-* Lär dig mer om [koncept för övervakning av vattenkvalitet](./concepts-waterqualitymonitoring-architecture.md)
-* Lär dig mer om [koncept för övervakning av vattenförbrukning](./concepts-waterconsumptionmonitoring-architecture.md)
-* Läs mer om [koncept för hantering av uppkopplat avfall](./concepts-connectedwastemanagement-architecture.md)  
-* Läs mer om IoT Central, se [IoT Central översikt](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
+* Prova någon av de statliga Programmallarna i IoT Central för kostnads fri [skapa app](https://apps.azureiotcentral.com/build/government)
+* Lär dig mer om [begrepp för övervakning av vatten kvalitet](./concepts-waterqualitymonitoring-architecture.md)
+* Lär dig mer om [övervaknings koncept för vattenförbrukning](./concepts-waterconsumptionmonitoring-architecture.md)
+* Lär dig mer om [anslutna avfalls hanterings koncept](./concepts-connectedwastemanagement-architecture.md)  
+* Läs mer om IoT Central i [IoT Central översikt](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
  

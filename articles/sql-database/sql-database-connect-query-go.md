@@ -1,5 +1,5 @@
 ---
-title: Använd Gå till fråga
+title: Använd gå till fråga
 description: Använd Go för att skapa ett program som ansluter till en Azure SQL-databas, och använd Transact-SQL-uttryck för att köra frågor mot och ändra data.
 services: sql-database
 ms.service: sql-database
@@ -12,13 +12,13 @@ ms.author: craigg
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
 ms.openlocfilehash: 9b85b1bfb8935b5e311bb7d9503c17261a210127
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73827081"
 ---
-# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Snabbstart: Använda Golang för att fråga en Azure SQL-databas
+# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Snabb start: använda Golang för att fråga en Azure SQL-databas
 
 I den här snabbstarten kommer du att använda programmeringsspråket [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) för att ansluta till en Azure SQL-databas. Därefter kommer du att köra Transact-SQL-uttryck för att fråga och redigera data. [Golang](https://golang.org/) är ett programmeringsspråk med öppen källkod som gör det enkelt att skapa enkel, pålitlig och effektiv programvara.  
 
@@ -30,13 +30,13 @@ För att slutföra den här kursen behöver du:
 
   || Enskild databas | Hanterad instans |
   |:--- |:--- |:---|
-  | Skapa| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  | Skapa| [Portalen](sql-database-single-database-get-started.md) | [Portalen](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [Powershell](scripts/sql-database-create-and-configure-database-powershell.md) | [Powershell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
   |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
   |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Återställa eller importera Adventure Works från [BACPAC-filen](sql-database-import.md) från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) -filen från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
@@ -44,9 +44,9 @@ För att slutföra den här kursen behöver du:
 
 - Golang och relaterad programvara för ditt operativsystem installerat:
 
-  - **MacOS**: Installera Homebrew och Golang. Se [Steg 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
-  - **Ubuntu**: Installera Golang. Se [Steg 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
-  - **Windows**: Installera Golang. Se [Steg 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).
+  - **MacOS**: installera homebrew och Golang. Se [Steg 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
+  - **Ubuntu**: installera Golang. Se [Steg 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
+  - **Windows**: installera Golang. Se [Steg 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
@@ -327,7 +327,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Designa din första Azure SQL-databas](sql-database-design-first-database.md)
+- [Utforma din första Azure SQL-databas](sql-database-design-first-database.md)
 - [Golang-drivrutin för Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)
 - [Rapportera problem eller ställ frågor](https://github.com/denisenkom/go-mssqldb/issues)
 

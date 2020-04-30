@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: spelluru
 ms.openlocfilehash: 5e3c4622131528fc2c40a1510aeea3092018d182
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77474163"
 ---
 ### <a name="install-via-composer"></a>Installera via Composer
-1. Skapa en fil med namnet **composer.json** i projektets rot och lägg till följande kod i den:
+1. Skapa en fil med namnet **Compose. JSON** i roten i projektet och Lägg till följande kod i den:
    
     ```json
     {
@@ -21,14 +21,14 @@ ms.locfileid: "77474163"
       }
     }
     ```
-2. Ladda ner **[composer.phar][composer-phar]** i projektroten.
-3. Öppna en kommandotolk och kör följande kommando i projektroten
+2. Hämta **[Composer. Phar][composer-phar]** i projekt roten.
+3. Öppna en kommando tolk och kör följande kommando i projekt roten
    
     ```
     php composer.phar install
     ```
 
-Du kan också gå till [Azure Storage PHP-klientbiblioteket][php-sdk-github] på GitHub för att klona källkoden.
+Du kan också gå till [Azure Storage php-klientprogrammet][php-sdk-github] på GitHub för att klona käll koden.
 
 [php-sdk-github]: https://github.com/Azure/azure-storage-php
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git

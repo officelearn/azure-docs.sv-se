@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: 8c24c5f043d17b5f0e54ca1c2c6cf41a0d3fe9bc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68726358"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Ruby
@@ -113,7 +113,7 @@ blob_client.set_container_acl(container_name, "container")
 
 Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobar är vanligast och används i denna snabbstart.  
 
-Om du vill överföra en fil till en blob hämtar du filens fullständiga sökväg genom att slå ihop katalognamnet och filnamnet på den lokala enheten. Du kan sedan överföra filen till den angivna sökvägen med metoden **create\_block\_blob().** 
+Om du vill överföra en fil till en blob hämtar du filens fullständiga sökväg genom att slå ihop katalognamnet och filnamnet på den lokala enheten. Du kan sedan överföra filen till angiven sökväg med hjälp av metoden **create\_block\_BLOB ()** . 
 
 Exempelkoden skapar en lokal fil som ska användas för uppladdning och nedladdning, och lagrar filen som ska laddas upp som **file\_path\_to\_file** och namnet på bloben som **local\_file\_name**. I följande exempel överförs filen till containern med namnet **quickstartblobs**.
 
@@ -135,11 +135,11 @@ puts "\nUploading to Blob storage as blob" + local_file_name
 blob_client.create_block_blob(container.name, local_file_name, full_path_to_file)
 ```
 
-Om du vill utföra en partiell uppdatering av innehållet i en blockblob använder du metoden **skapa\_block\_list().** Blockblobar kan vara så stora som 4,7 TB och kan vara allt från Excel-kalkylblad till stora videofiler. Sidblobar används främst för VHD-filer som används för att säkerhetskopiera virtuella IaaS-datorer. Tilläggsblobar används för loggning, till exempel när du vill skriva till en fil och sedan fortsätta att lägga till mer information. Tilläggsblobar ska användas i en enskild skrivmodell. De flesta objekt som lagras i Blob Storage är blockblobar.
+Om du vill utföra en del uppdatering av innehållet i en Block-Blob använder **du\_metoden\_Create block List ()** . Blockblobar kan vara så stora som 4,7 TB och kan vara allt från Excel-kalkylblad till stora videofiler. Sidblobar används främst för VHD-filer som används för att säkerhetskopiera virtuella IaaS-datorer. Tilläggsblobar används för loggning, till exempel när du vill skriva till en fil och sedan fortsätta att lägga till mer information. Tilläggsblobar ska användas i en enskild skrivmodell. De flesta objekt som lagras i Blob Storage är blockblobar.
 
 ### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Du kan hämta en lista över filer i behållaren med metoden **list\_blobs().** Följande kod hämtar listan över blobar och går sedan igenom dem och visar namnen på de blobar som har påträffats i en container.  
+Du kan hämta en lista över filer i behållaren med hjälp av **list\_-blobar ()** -metoden. Följande kod hämtar listan över blobar och går sedan igenom dem och visar namnen på de blobar som har påträffats i en container.  
 
 ```ruby
 # List the blobs in the container
@@ -169,7 +169,7 @@ File.open(full_path_to_file2,"wb") {|f| f.write(content)}
 ```
 
 ### <a name="clean-up-resources"></a>Rensa resurser
-Om du inte längre behöver blobbar som överförs i den här snabbstarten kan du ta bort hela behållaren med metoden **delete\_container().** Om de filer som skapas inte längre behövs använder du metoden **ta bort\_blob()** för att ta bort filerna.
+Om du inte längre behöver blobarna som laddades upp i den här snabb starten kan du ta bort hela behållaren med hjälp av metoden **Delete\_container ()** . Om filerna som skapats inte längre behövs använder du metoden **Delete\_BLOB ()** för att ta bort filerna.
 
 ```ruby
 # Clean up resources. This includes the container and the temp files

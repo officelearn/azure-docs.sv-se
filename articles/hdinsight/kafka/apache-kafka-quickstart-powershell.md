@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa Apache Kafka med Azure PowerShell - HDInsight'
+title: 'Snabb start: skapa Apache Kafka med Azure PowerShell-HDInsight'
 description: I den här snabbstarten lär du dig hur du skapar ett Apache Kafka-kluster på Azure HDInsight med hjälp av Azure PowerShell. Du lär dig också om Kafka-ämnen, -prenumeranter och -konsumenter.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,13 +9,13 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.openlocfilehash: d14d8f38ff8a2bed01584d5c5fec56d254cede05
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73494750"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Snabbstart: Skapa Apache Kafka-kluster i Azure HDInsight med PowerShell
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Snabb start: skapa Apache Kafka kluster i Azure HDInsight med hjälp av PowerShell
 
 [Apache Kafka](https://kafka.apache.org/) är en distribuerad strömningsplattform med öppen källkod. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö. 
 
@@ -31,13 +31,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-* PowerShell [Az-modulen](https://docs.microsoft.com/powershell/azure/overview) är installerad.
+* PowerShell- [modulen för AZ](https://docs.microsoft.com/powershell/azure/overview) är installerad.
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på din `Connect-AzAccount` Azure-prenumeration med cmdleten och följ anvisningarna på skärmen.
+Logga in på din Azure-prenumeration med `Connect-AzAccount` cmdleten och följ anvisningarna på skärmen.
 
 ```azurepowershell-interactive
 # Login to your Azure subscription
@@ -62,12 +62,12 @@ $location = Read-Host -Prompt "Enter the Azure region to use"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Medan Kafka på HDInsight använder Azure-hanterade diskar för att lagra Kafka-data så använder klustret även Azure Storage för att lagra information, t.ex. loggar. Använd [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) för att skapa ett nytt lagringskonto.
+Medan Kafka på HDInsight använder Azure-hanterade diskar för att lagra Kafka-data så använder klustret även Azure Storage för att lagra information, t.ex. loggar. Använd [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) för att skapa ett nytt lagrings konto.
 
 > [!IMPORTANT]  
-> Lagringskontoslag `BlobStorage` kan endast användas som sekundär lagring för HDInsight-kluster.
+> Lagrings kontots typ `BlobStorage` kan bara användas som sekundär lagring för HDInsight-kluster.
 
 ```azurepowershell-interactive
 $storageName = Read-Host -Prompt "Enter the storage account name"
@@ -135,7 +135,7 @@ Det kan ta upp till 20 minuter att skapa HDInsight-klustret.
 
 Parametern `-DisksPerWorkerNode` konfigurerar Kafkas skalbarhet på HDInsight. Kafka på HDInsight använder de virtuella datorernas lokala diskar i klustret för att lagra data. Kafka är I/O-tungt, och därför används [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) för att tillhandahålla hög genomströmning och mer lagringsutrymme per nod.
 
-Typen av hanterade diskar kan vara antingen __Standard__ (HDD) eller __Premium__ (SSD). Vilken typ av disk som används beror på vilken VM-storlek arbetarnoderna (Kafka-mäklarna) använder. Premiumdiskar används automatiskt med virtuella datorer i DS- och GS-serien. Alla andra typer av virtuella dator använder standard. Du kan ange typ av virtuell dator med `-WorkerNodeSize`-parametern. Mer information om parametrar finns i dokumentationen [för New-AzHDInsightCluster.](/powershell/module/az.HDInsight/New-azHDInsightCluster)
+Typen av hanterade diskar kan vara antingen __Standard__ (HDD) eller __Premium__ (SSD). Vilken typ av disk som används beror på vilken VM-storlek arbetarnoderna (Kafka-mäklarna) använder. Premiumdiskar används automatiskt med virtuella datorer i DS- och GS-serien. Alla andra typer av virtuella dator använder standard. Du kan ange typ av virtuell dator med `-WorkerNodeSize`-parametern. Mer information om parametrar finns i dokumentationen om [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) .
 
 Om du planerar att använda mer än 32 arbetarnoder (antingen när klustret skapas eller genom att skala klustret när det har skapats) måste du använda `-HeadNodeSize`-parametern för att ange en VM-storlek med minst 8 kärnor och 14 GB RAM-minne. Mer information om nodstorlekar och relaterade kostnader finns i [HDInsight-prissättning](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -194,7 +194,7 @@ I det här avsnittet hämtar du värdinformation från om värden från Apache A
 
     Ange Kafka-klustrets namn när du uppmanas till detta.
 
-3. Om du vill ange en miljövariabel med Zookeeper-värdinformation använder du kommandot nedan. Kommandot hämtar alla Zookeeper värdar och sedan returnerar bara de två första posterna. Det beror på att det är bra att ha viss redundans ifall en värd inte kan nås.
+3. Använd kommandot nedan om du vill ange en miljö variabel med Zookeeper-värd information. Kommandot hämtar alla Zookeeper-värdar och returnerar sedan bara de första två posterna. Det beror på att det är bra att ha viss redundans ifall en värd inte kan nås.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
@@ -319,7 +319,7 @@ Du kan också programmässigt skapa producenter och konsumenter. Ett exempel på
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När det inte längre behövs kan du använda kommandot [Ta bort AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resursgruppen, HDInsight och alla relaterade resurser.
+När de inte längre behövs kan du använda kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resurs gruppen, HDInsight och alla relaterade resurser.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup

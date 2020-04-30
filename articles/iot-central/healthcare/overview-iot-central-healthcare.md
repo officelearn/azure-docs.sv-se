@@ -1,6 +1,6 @@
 ---
-title: Skapa hälso- och sjukvårdslösningar med Azure IoT Central | Microsoft-dokument
-description: Lär dig att skapa hälso- och sjukvårdslösning med hjälp av Azure IoT Central-programmallar.
+title: Bygg sjukvårds lösningar med Azure IoT Central | Microsoft Docs
+description: Lär dig att bygga sjukvårds lösningar med hjälp av Azure IoT Central programmallar.
 author: philmea
 ms.author: philmea
 ms.date: 09/24/2019
@@ -9,39 +9,39 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: 2aee5c56b267f9243b69a48dfd0f5f64196c5f23
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77021499"
 ---
 # <a name="building-healthcare-solutions-with-azure-iot-central"></a>Skapa lösningar för hälso- och sjukvården med Azure IoT Central 
 
 
 
-Lär dig att skapa hälso- och sjukvårdslösningar med Azure IoT Central med hjälp av programmallar.
+Lär dig att bygga sjukvårds lösningar med Azure IoT Central att använda programmallar.
 
-## <a name="what-is-continuous-patient-monitoring-template"></a>Vad är kontinuerlig patientövervakningsmall?
+## <a name="what-is-continuous-patient-monitoring-template"></a>Vad är en mall för kontinuerliga patient övervakning?
 
-Inom hälso- och sjukvårdens IoT-utrymme är kontinuerlig patientövervakning en av de viktigaste drivkrafterna för att minska risken för återtaganden, hantera kroniska sjukdomar mer effektivt och förbättra patientresultaten. Kontinuerlig patientövervakning kan delas in i två huvudkategorier:
+I IoT-området för sjukvård är kontinuerlig övervakning av patienter en av de viktigaste sätten att minska risken för återtagande, hantera kroniska sjukdomar och förbättra patient resultat. Kontinuerlig övervakning av patienter kan delas upp i två huvud kategorier:
 
-1. **Övervakning av patienter**: Med hjälp av medicinska wearables och andra enheter på sjukhuset kan vårdteam övervaka patientens vitala tecken och medicinska tillstånd utan att behöva skicka en sjuksköterska för att kontrollera en patient flera gånger om dagen. Vårdteam kan förstå det ögonblick då en patient behöver kritisk uppmärksamhet genom meddelanden och prioriterar sin tid effektivt.
-1. **Fjärrövervakning**av patienter : Genom att använda medicinska wearables och patientrapporterade resultat (PROs) för att övervaka patienter utanför sjukhuset kan risken för återtagande sänkas. Data från patienter med kronisk sjukdom och rehabiliteringspatienter kan samlas in för att säkerställa att patienterna följer vårdplaner och att varningar om patientförsämring kan tas upp på vårdteam innan de blir kritiska.
+1. **Pågående övervakning**: användning av medicinska wearables och andra enheter i sjukhus kan du övervaka patients viktiga tecken och medicinska villkor utan att behöva skicka en till gång för att checka in en patient flera gånger per dag. Vård team kan förstå hur lång tid en patient behöver tänka igenom meddelanden och prioriterar deras tid effektivt.
+1. **Fjärrövervakning av patienter**: genom att använda medicinska wearables och patienter som rapporterade resultat för att övervaka patienter utanför sjukhus kan risken för åter användning sänkas. Data från patienter för kroniska sjukdomar och upprustning-patienter kan samlas in för att säkerställa att patienter följer avtals planer och att aviseringar om patient försämring kan ställas på att kunna användas i teamet innan de blir kritiska.
 
-Denna applikationsmall kan användas för att skapa lösningar för båda kategorierna kontinuerlig patientövervakning. Fördelarna innefattar:
+Den här program mal len kan användas för att bygga lösningar för båda kategorierna av kontinuerlig patient övervakning. Fördelarna innefattar:
 
-* Sömlöst ansluta olika typer av medicinska wearables till en IoT Central instans.
-* Övervaka och hantera enheterna för att säkerställa att de förblir felfria.
-* Skapa anpassade regler kring enhetsdata för att utlösa lämpliga aviseringar.
-* Exportera dina patienthälsodata till Azure API för FHIR, ett kompatibelt datalager.
-* Exportera de aggregerade insikterna till befintliga eller nya affärsprogram.
+* Ansluta olika typer av medicinska wearables till en IoT Central-instans sömlöst.
+* Övervaka och hantera enheterna för att säkerställa att de är felfria.
+* Skapa anpassade regler runt enhets data för att utlösa lämpliga aviseringar.
+* Exportera dina patient hälso data till Azure API för FHIR, ett kompatibelt data lager.
+* Exportera sammanställda insikter till befintliga eller nya affärs program.
 
 >[!div class="mx-imgBorder"] 
->![CPM-instrumentpanel](media/in-patient-dashboard.png)
+>![CPM-instrument panel](media/in-patient-dashboard.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Så här kommer du igång med att bygga en kontinuerlig patientövervakningslösning:
+För att komma igång med att skapa en kontinuerlig övervaknings lösning för patienter:
 
-* [Distribuera programmallen](tutorial-continuous-patient-monitoring.md)
-* [Visa en exempelarkitektur](concept-continuous-patient-monitoring-architecture.md)
+* [Distribuera program mal len](tutorial-continuous-patient-monitoring.md)
+* [Se en exempel arkitektur](concept-continuous-patient-monitoring-architecture.md)

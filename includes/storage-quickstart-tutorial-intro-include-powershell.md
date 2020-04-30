@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 1f8f8d314a8bb37a08b3696f597b395a8a4beb8e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67187567"
 ---
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
@@ -35,7 +35,7 @@ $resourceGroup = "myResourceGroup"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Skapa ett standardmässigt lagringskonto för generell användning med LRS-replikering med hjälp av [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount). Hämta sedan lagringskontokontexten som definierar det lagringskonto som du vill använda. När du arbetar med lagringskonton refererar du till kontexten i stället för att ange autentiseringsuppgifterna flera gånger. Använd följande exempel för att skapa ett lagringskonto med namnet *mystorageaccount* med lokalt redundant lagring (LRS) och blobkryptering (aktiverat som standard).
 

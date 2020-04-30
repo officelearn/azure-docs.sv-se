@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: lbosq
 ms.openlocfilehash: e38f3e2029bdc8dc8c13ce330e37053d491317f3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68736651"
 ---
-# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Snabbstart: Skapa en diagramdatabas i Azure Cosmos DB med PHP och Azure-portalen
+# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Snabb start: skapa en diagram databas i Azure Cosmos DB med PHP och Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Gremlin-konsol](create-graph-gremlin-console.md)
@@ -23,7 +23,7 @@ ms.locfileid: "68736651"
 > * [Java](create-graph-java.md)
 > * [Node.js](create-graph-nodejs.md)
 > * [Python](create-graph-python.md)
-> * [Php](create-graph-php.md)
+> * [PHP](create-graph-php.md)
 >  
 
 Den här snabbstarten visar hur du använder [Gremlin API](graph-introduction.md) i PHP och Azure Cosmos DB för att skapa en konsolapp genom att klona ett exempel från GitHub. Denna snabbstart visar dig också hur man skapar ett Azure Cosmos DB-konto med hjälp av den webbaserade Azure-portalen.   
@@ -194,7 +194,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
    ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png)
 
-2. I listan **Resultat** kan du se nya användare som har lagts till i grafen. Välj **Ben** och lägg märke till att de är anslutna till Robin. Du kan flytta hörnen genom att dra och släppa, zooma in och ut genom att bläddra med mushjulet, och utöka diagrammets storlek med hjälp av dubbelpilen. 
+2. I listan **Resultat** kan du se nya användare som har lagts till i grafen. Välj **ben** och Lägg märke till att de är anslutna till tax. Du kan flytta hörnen genom att dra och släppa, zooma in och ut genom att bläddra med mushjulet, och utöka diagrammets storlek med hjälp av dubbelpilen. 
 
    ![Nya hörn i grafen i datautforskaren på Azure Portal](./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png)
 
@@ -204,11 +204,11 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 4. Ange en etikett för *person*.
 
-5. Klicka på Lägg till **egenskap** om du vill lägga till var och en av följande egenskaper. Tänk på att du kan skapa unika egenskaper för varje person i grafen. Endast **id-tangenten** krävs.
+5. Klicka på **Lägg till egenskap** för att lägga till var och en av följande egenskaper. Tänk på att du kan skapa unika egenskaper för varje person i grafen. Endast **ID-** nyckeln krävs.
 
-    Nyckel | Värde | Anteckningar
+    Nyckel | Värde | Obs!
     ----|----|----
-    **Id** | ashley | Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
+    **identitet** | ashley | Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
     **kön** | kvinna | 
     **teknik** | Java | 
 
@@ -223,9 +223,9 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 9. Klicka på **Lägg till egenskap** för att lägga till var och en av följande egenskaper:
     
-    Nyckel | Värde | Anteckningar
+    Nyckel | Värde | Obs!
     ----|----|----
-    **Id** | rakesh | Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
+    **identitet** | rakesh | Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
     **kön** | man | 
     **skola** | MIT | 
 

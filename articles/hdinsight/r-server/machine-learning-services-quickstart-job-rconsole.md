@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: R-skript på ML Services & R-konsol - Azure HDInsight'
-description: I snabbstarten kör du ett R-skript på ett ML Services-kluster i Azure HDInsight med R-konsolen.
+title: 'Snabb start: R-skript på ML-tjänster & R-konsolen – Azure HDInsight'
+description: I snabb starten kör du ett R-skript i ett ML Services-kluster i Azure HDInsight med R-konsolen.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,28 +9,28 @@ ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
 ms.openlocfilehash: af41a7569dedc9a56f67be8ae791d7185e0c7489
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73241593"
 ---
-# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>Snabbstart: Kör ett R-skript på ett ML Services-kluster i Azure HDInsight med R-konsolen
+# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>Snabb start: köra ett R-skript i ett ML Services-kluster i Azure HDInsight med R-konsolen
 
-ML Services på Azure HDInsight tillåter R-skript att använda Apache Spark och Apache Hadoop MapReduce för att köra distribuerade beräkningar. ML Services styr hur anrop körs genom att ange beräkningskontexten. Kantnoden i ett kluster är en praktisk plats för att ansluta till klustret och köra dina R-skript. Med en kantnod har du möjlighet att köra de parallelliserade distribuerade funktionerna i RevoScaleR över kärnorna på kantnodservern. Du kan också köra dem över noderna i klustret med hjälp av RevoScaleR:s Hadoop Map Reduce- eller Apache Spark-beräkningskontexter.
+Med ML-tjänster i Azure HDInsight kan R-skript använda Apache Spark och Apache Hadoop MapReduce för att köra distribuerade beräkningar. ML-tjänster styr hur anrop utförs genom att ange beräknings kontexten. Edge-noden i ett kluster är en praktisk plats för att ansluta till klustret och köra R-skript. Med en Edge-nod kan du välja att köra de parallella distribuerade funktionerna i RevoScaleR över kärnorna i Edge-nodens Server. Du kan också köra dem på noderna i klustret genom att använda RevoScaleR för att minska eller Apache Spark Compute-kontexter.
 
-I den här snabbstarten får du lära dig hur du kör ett R-skript med R-konsol som demonstrerar med Spark för distribuerade R-beräkningar. Du definierar en beräkningskontext för att utföra beräkningar lokalt på en kantnod och distribueras igen över noderna i HDInsight-klustret.
+I den här snabb starten får du lära dig hur du kör ett R-skript med R-konsolen som visar hur du använder Spark för distribuerade R-beräkningar. Du definierar en beräknings kontext för att utföra beräkningar lokalt på en Edge-nod och återigen distribuerade över noderna i HDInsight-klustret.
 
 ## <a name="prerequisites"></a>Krav
 
-* Ett ML Services-kluster på HDInsight. Se [Skapa Apache Hadoop-kluster med Azure-portalen](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **ML Services** för **klustertyp**.
+* Ett ML Services-kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj ml- **tjänster** för **kluster typ**.
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 ## <a name="connect-to-r-console"></a>Ansluta till R-konsolen
 
-1. Anslut till kantnoden för ett ML Services HDInsight-kluster med SSH. Redigera kommandot nedan `CLUSTERNAME` genom att ersätta med namnet på klustret och ange sedan kommandot:
+1. Anslut till Edge-noden i ett ML-tjänster HDInsight-kluster med SSH. Redigera kommandot nedan genom att ersätta `CLUSTERNAME` med namnet på klustret och ange sedan kommandot:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ed-ssh.azurehdinsight.net
@@ -47,7 +47,7 @@ I den här snabbstarten får du lära dig hur du kör ett R-skript med R-konsol 
 
 ## <a name="use-a-compute-context"></a>Använda en beräkningskontext
 
-1. Från frågan `>` kan du ange R-kod. Använd följande kod för att läsa in exempeldata i standardlagringen för HDInsight:
+1. Från frågan `>` kan du ange R-kod. Använd följande kod för att läsa in exempel data till standard lagring för HDInsight:
 
     ```R
     # Set the HDFS (WASB) location of example data
@@ -84,7 +84,7 @@ I den här snabbstarten får du lära dig hur du kör ett R-skript med R-konsol 
 
     Det här steget kan ta cirka 10 minuter att slutföra.
 
-1. Skapa viss datainformation och definiera två datakällor. Ange följande kod i R-konsolen:
+1. Skapa viss data information och definiera två data källor. Ange följande kod i R-konsolen:
 
     ```R
     # Define the HDFS (WASB) file system
@@ -111,7 +111,7 @@ I den här snabbstarten får du lära dig hur du kör ett R-skript med R-konsol 
      formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
     ```
 
-1. Kör en logistisk regression över data med hjälp av den **lokala** beräkningskontexten. Ange följande kod i R-konsolen:
+1. Kör en logistik regression över data med hjälp av den **lokala** beräknings kontexten. Ange följande kod i R-konsolen:
 
     ```R
     # Set a local compute context
@@ -126,7 +126,7 @@ I den här snabbstarten får du lära dig hur du kör ett R-skript med R-konsol 
      summary(modelLocal)
     ```
 
-    Beräkningarna bör slutföras om ca 7 minuter. Du bör se utdata som slutar med rader som liknar följande kodavsnitt:
+    Beräkningarna bör slutföras på ungefär 7 minuter. Du bör se utdata som slutar med rader som liknar följande kodfragment:
 
     ```output
     Data: airOnTimeDataLocal (RxTextData Data Source)
@@ -156,7 +156,7 @@ I den här snabbstarten får du lära dig hur du kör ett R-skript med R-konsol 
       Number of iterations: 7
     ```
 
-1. Kör samma logistiska regression med **spark-kontexten.** Spark-kontexten distribuerar bearbetningen mellan alla arbetsnoder i HDInsight-klustret. Ange följande kod i R-konsolen:
+1. Kör samma logistiska regression med **Spark** -kontexten. Spark-kontexten distribuerar bearbetningen mellan alla arbetsnoder i HDInsight-klustret. Ange följande kod i R-konsolen:
 
     ```R
     # Define the Spark compute context
@@ -174,7 +174,7 @@ I den här snabbstarten får du lära dig hur du kör ett R-skript med R-konsol 
      summary(modelSpark)
     ```
 
-    Beräkningarna bör slutföras om ca 5 minuter.
+    Beräkningarna bör utföras på ungefär 5 minuter.
 
 1. Om du vill avsluta R-konsolen, använder du följande kommando:
 
@@ -184,13 +184,13 @@ I den här snabbstarten får du lära dig hur du kör ett R-skript med R-konsol 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du har slutfört snabbstarten kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används.
+När du har slutfört snabb starten kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används.
 
-Information om hur du tar bort ett kluster finns i [Ta bort ett HDInsight-kluster med webbläsaren, PowerShell eller Azure CLI](../hdinsight-delete-cluster.md).
+Om du vill ta bort ett kluster läser du [ta bort ett HDInsight-kluster med hjälp av webbläsaren, PowerShell eller Azure CLI](../hdinsight-delete-cluster.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten lärde du dig köra ett R-skript med R-konsol som demonstrerade med Spark för distribuerade R-beräkningar.  Gå vidare till nästa artikel om du vill lära dig vilka alternativ som är tillgängliga för att ange om och hur körningen parallelliseras mellan kärnorna i kantnoden eller HDInsight-klustret.
+I den här snabb starten har du lärt dig hur du kör ett R-skript med R-konsolen som demonstreras med Spark för distribuerade R-beräkningar.  Gå vidare till nästa artikel för att lära dig vilka alternativ som är tillgängliga för att ange om och hur körningen ska vara parallell över kärnor i Edge-noden eller HDInsight-klustret.
 
 > [!div class="nextstepaction"]
->[Beräkna kontextalternativ för ML-tjänster på HDInsight](./r-server-compute-contexts.md)
+>[Alternativ för beräknings kontext för ML-tjänster i HDInsight](./r-server-compute-contexts.md)

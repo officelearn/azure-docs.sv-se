@@ -8,10 +8,10 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 95d7abca27ec9db46a72140bc8a61b2841c63fcb
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77598603"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Snabbstart: Skapa och hantera Azure-filresurser med hjälp av Azure CLI
@@ -28,7 +28,7 @@ Som standard returnerar Azure CLI-kommandon JavaScript Object Notation (JSON). J
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Om du inte redan har en Azure-resursgrupp kan du skapa en ny med kommandot [az group create](/cli/azure/group). 
 
-I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *västra USA 2:*
+I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på platsen *USA, västra 2* :
 
 ```azurecli-interactive 
 export resourceGroupName="myResourceGroup"
@@ -40,10 +40,10 @@ az group create \
     --output none
 ```
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 Ett lagringskonto är en delad lagringspool i vilken du kan distribuera en Azure-filresurs eller andra lagringsresurser, t.ex. blobar eller köer. Ett lagringskonto kan innehålla ett obegränsat antal filresurser. En resurs kan lagra ett obegränsat antal filer, upp till kapacitetsbegränsningen för lagringskontot.
 
-I följande exempel skapas ett lagringskonto med kommandot [az storage account create.](/cli/azure/storage/account) Lagringskontonamn måste vara unika så använd `$RANDOM` för att lägga till ett tal till namnet som gör det unikt.
+I följande exempel skapas ett lagrings konto med hjälp av kommandot [AZ Storage Account Create](/cli/azure/storage/account) . Lagringskontonamn måste vara unika så använd `$RANDOM` för att lägga till ett tal till namnet som gör det unikt.
 
 ```azurecli-interactive 
 export storageAccountName="mystorageacct$RANDOM"
@@ -59,7 +59,7 @@ az storage account create \
 ```
 
 > [!Note]  
-> Aktier som är större än 5 TiB (upp till maximalt 100 TiB per aktie) är endast tillgängliga i lokalt redundanta (LRS) och zon redundanta (ZRS) lagringskonton. Om du vill skapa ett geo redundant (GRS) eller ett gzrs-lagringskonto (geo-zone-redundant) tar du bort parametern. `--enable-large-file-share`
+> Resurser som är större än 5 TiB (upp till högst 100 TiB per resurs) är bara tillgängliga i lagrings konton lokalt redundant (LRS) och zon redundant (ZRS). Ta bort `--enable-large-file-share` parametern om du vill skapa ett geo-REDUNDANT (GRS) eller Geo-redundant lagrings konto (GZRS).
 
 ### <a name="get-the-storage-account-key"></a>Hämta lagringskontonyckeln
 Lagringskontonycklar styr åtkomsten till resurser i ett lagringskonto. Nycklarna skapas automatiskt när du skapar ett lagringskonto. Du kan hämta lagringskontonycklarna till lagringskontot med kommandot [az storage account keys list](/cli/azure/storage/account/keys): 
@@ -85,29 +85,29 @@ az storage share create \
     --output none
 ```
 
-Resursnamn får bara innehålla gemener, siffror och enskilda bindestreck (men får inte inledas med bindestreck). Fullständig information om namngivning av filresurser och filer finns i [Namnge och referera till resurser, kataloger, filer och metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Resursnamn får bara innehålla gemener, siffror och enskilda bindestreck (men får inte inledas med bindestreck). Fullständig information om namngivning av fil resurser och filer finns i [namnge och referera till resurser, kataloger, filer och metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ## <a name="use-your-azure-file-share"></a>Använda Azure-filresursen
 Azure Files har två metoder för att arbeta med filer och mappar i din Azure-filresurs: branschstandardprotokollen [SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) och [fil-REST](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
 
 Om du vill montera en filresurs med SMB läser du följande dokument baserat på ditt operativsystem:
 - [Linux](storage-how-to-use-files-linux.md)
-- [Macos](storage-how-to-use-files-mac.md)
+- [macOS](storage-how-to-use-files-mac.md)
 - [Windows](storage-how-to-use-files-windows.md)
 
 ### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>Använda en Azure-filresurs med fil-REST-protokollet 
-Det är möjligt att arbeta direkt med File REST-protokollet direkt (handcrafting REST HTTP-anrop själv), men det vanligaste sättet att använda File REST-protokollet är att använda Azure CLI, [Azure PowerShell-modulen](storage-how-to-use-files-powershell.md)eller en Azure Storage SDK, som alla ger en trevlig omslag runt File REST-protokollet i skript/programmeringsspråk som du väljer.  
+Det är möjligt att arbeta direkt med fil REST-protokollet direkt (handcrafting REST HTTP-anrop själv), men det vanligaste sättet att använda fil REST-protokollet är att använda Azure CLI, [Azure PowerShell-modulen](storage-how-to-use-files-powershell.md)eller en Azure Storage-SDK, som alla tillhandahåller en bra omslutning runt fil rest-protokollet i skript/programmeringsspråk som du väljer.  
 
 Vi förväntar att de flesta som använder Azure Files vill arbeta med sin Azure-filresurs via SMB-protokollet, eftersom det gör att de kan använda de befintliga programmen och verktygen som de förväntar sig att kunna använda. Men det finns flera anledningar till varför det är fördelaktigt att använda fil-REST-API:et istället för SMB, till exempel:
 
 - Du bläddrar efter filresursen från Azure Bash Cloud Shell (som inte kan montera filresurser via SMB).
 - Du utnyttjar serverlösa resurser såsom [Azure Functions](../../azure-functions/functions-overview.md). 
-- Du skapar en value-add-tjänst som interagerar med många Azure-filresurser, till exempel att utföra säkerhetskopiering eller antivirussökningar.
+- Du skapar en tjänst för värde tillägg som interagerar med många Azure-filresurser, till exempel säkerhets kopierings-eller antivirus genomsökningar.
 
 I följande exempel visas hur du använder Azure CLI till att ändra din Azure-filresurs med fil-REST-protokollet. 
 
 ### <a name="create-a-directory"></a>Skapa en katalog
-Om du vill skapa en ny katalog med namnet *myDirectory* i roten på din Azure-filresurs använder du kommandot: [`az storage directory create`](/cli/azure/storage/directory)
+Om du vill skapa en ny katalog med namnet min *katalog* i roten av Azure-filresursen [`az storage directory create`](/cli/azure/storage/directory) använder du kommandot:
 
 ```azurecli-interactive
 az storage directory create \
@@ -119,7 +119,7 @@ az storage directory create \
 ```
 
 ### <a name="upload-a-file"></a>Överför en fil
-Om du vill visa hur [`az storage file upload`](/cli/azure/storage/file) du laddar upp en fil med kommandot skapar du först en fil som ska laddas upp på Cloud Shell-scratch-enheten. I följande exempel ska du skapa och ladda upp filen:
+För att visa hur du laddar upp en fil med [`az storage file upload`](/cli/azure/storage/file) hjälp av kommandot måste du först skapa en fil som ska laddas upp på Cloud Shell Scratch-enheten. I följande exempel ska du skapa och ladda upp filen:
 
 ```azurecli-interactive
 cd ~/clouddrive/
@@ -135,7 +135,7 @@ az storage file upload \
 
 Om du använder Azure CLI lokalt kan du ersätta `~/clouddrive` med en sökväg som finns på din dator.
 
-När du har laddat upp [`az storage file list`](/cli/azure/storage/file) filen kan du använda kommandot för att se till att filen har överförts till din Azure-filresurs:
+När du har överfört filen kan du använda [`az storage file list`](/cli/azure/storage/file) kommandot för att kontrol lera att filen har överförts till Azure-filresursen:
 
 ```azurecli-interactive
 az storage file list \
@@ -147,7 +147,7 @@ az storage file list \
 ```
 
 ### <a name="download-a-file"></a>Hämta en fil
-Du kan [`az storage file download`](/cli/azure/storage/file) använda kommandot för att hämta en kopia av filen som du laddade upp till Cloud Shell scratch-enheten:
+Du kan använda [`az storage file download`](/cli/azure/storage/file) kommandot för att ladda ned en kopia av filen som du överförde till Cloud Shell Scratch-enhet:
 
 ```azurecli-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists, because you've run this example before
@@ -163,7 +163,7 @@ az storage file download \
 ```
 
 ### <a name="copy-files"></a>Kopiera filer
-En vanlig uppgift är att kopiera filer från en filresurs till en annan filresurs. Om du vill visa den här funktionen skapar du en ny resurs. Kopiera filen du laddade upp till den här nya resursen med kommandot [az storage file copy](/cli/azure/storage/file/copy): 
+En vanlig uppgift är att kopiera filer från en fil resurs till en annan fil resurs. Om du vill visa den här funktionen skapar du en ny resurs. Kopiera filen du laddade upp till den här nya resursen med kommandot [az storage file copy](/cli/azure/storage/file/copy): 
 
 ```azurecli-interactive
 otherShareName="myshare2"
@@ -202,16 +202,16 @@ az storage file list \
     --output table
 ```
 
-Även `az storage file copy start` om kommandot är praktiskt för filflyttningar mellan Azure-filresurser, `rsync` för migreringar `robocopy` och större datarörelser, rekommenderar vi på macOS och Linux och i Windows. `rsync`och `robocopy` använd SMB för att utföra datarörelserna i stället för FileREST API.
+Även om `az storage file copy start` kommandot är bekvämt för fil flyttningar mellan Azure-filresurser, för migrering och större data förflyttning, rekommenderar `rsync` vi att du använder MacOS `robocopy` och Linux och Windows. `rsync`och `robocopy` använder SMB för att utföra data förflyttningar i stället för det fileraste API: et.
 
 ## <a name="create-and-manage-share-snapshots"></a>Skapa och hantera ögonblicksbilder
 Ytterligare en användbar uppgift som du kan göra med en Azure-filresurs är att skapa resursögonblicksbilder. En ögonblicksbild bevarar en kopia vid en viss tidpunkt av en Azure-filresurs. Ögonblicksbilder av resurser liknar vissa av de operativsystemtekniker som du kanske redan är bekant med:
 
-- [Lvm-ögonblicksbilder (Logical Volume Manager)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) för Linux-system.
+- [LVM-ögonblicksbilder (Logical Volume Manager)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) för Linux-system.
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) ögonblicksbilder för macOS.
-- [VSS (Volume Shadow Copy Service)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) för Windows-filsystem, till exempel NTFS och ReFS.
+- [Tjänsten Volume Shadow Copy (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) för Windows-filsystem, till exempel NTFS och ReFS.
  
-Du kan skapa en ögonblicksbild [`az storage share snapshot`](/cli/azure/storage/share) av resursen med kommandot:
+Du kan skapa en resurs ögonblicks bild med [`az storage share snapshot`](/cli/azure/storage/share) hjälp av kommandot:
 
 ```azurecli-interactive
 snapshot=$(az storage share snapshot \
@@ -275,7 +275,7 @@ az storage file copy start \
 ```
 
 ### <a name="delete-a-share-snapshot"></a>Ta bort en resursögonblicksbild
-Du kan ta bort en [`az storage share delete`](/cli/azure/storage/share) ögonblicksbild av resursen med kommandot. Använd variabeln som innehåller referensen `$SNAPSHOT` till parametern `--snapshot`:
+Du kan ta bort en resurs ögonblicks bild [`az storage share delete`](/cli/azure/storage/share) med hjälp av kommandot. Använd variabeln som innehåller referensen `$SNAPSHOT` till parametern `--snapshot`:
 
 ```azurecli-interactive
 az storage share delete \
@@ -287,7 +287,7 @@ az storage share delete \
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-När du är klar kan [`az group delete`](/cli/azure/group) du använda kommandot för att ta bort resursgruppen och alla relaterade resurser: 
+När du är färdig kan du använda [`az group delete`](/cli/azure/group) kommandot för att ta bort resurs gruppen och alla relaterade resurser: 
 
 ```azurecli-interactive 
 az group delete --name $resourceGroupName

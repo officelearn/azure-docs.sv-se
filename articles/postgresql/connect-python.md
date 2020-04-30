@@ -1,6 +1,6 @@
 ---
-title: Anslut med Python - Azure Database för PostgreSQL - Single Server
-description: Den här snabbstarten innehåller Python-kodexempel som du kan använda för att ansluta och fråga data från Azure Database för PostgreSQL - Single Server.
+title: Ansluta med python – Azure Database for PostgreSQL-enskild server
+description: Den här snabb starten innehåller python-kod exempel som du kan använda för att ansluta och fråga efter data från Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -9,58 +9,58 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
 ms.openlocfilehash: 3694c0b74393068538a0c8f496444a1541d88fee
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76769073"
 ---
-# <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Snabbstart: Använda Python för att ansluta och fråga data i Azure Database för PostgreSQL - Single Server
+# <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Snabb start: Använd python för att ansluta och fråga efter data i Azure Database for PostgreSQL-enskild server
 
-I den här snabbstarten arbetar du med en Azure-databas för PostgreSQL med Python på macOS, Ubuntu Linux eller Windows. Snabbstarten visar hur du ansluter till databasen och använder SQL-uttryck för att fråga, infoga, uppdatera och ta bort data. Artikeln förutsätter att du är bekant med Python, men ny på att arbeta med Azure Database för PostgreSQL.
+I den här snabb starten arbetar du med en Azure Database for PostgreSQL med python på macOS, Ubuntu Linux eller Windows. Snabb starten visar hur du ansluter till databasen och använder SQL-uttryck för att fråga, infoga, uppdatera och ta bort data. Artikeln förutsätter att du är bekant med python, men att du inte har arbetat med Azure Database for PostgreSQL.
 
 ## <a name="prerequisites"></a>Krav
 
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- Slutförande av [snabbstart: Skapa en Azure-databas för PostgreSQL-server i Azure-portalen](quickstart-create-server-database-portal.md) eller [Snabbstart: Skapa en Azure-databas för PostgreSQL med Hjälp av Azure CLI](quickstart-create-server-database-azure-cli.md).
+- Slut för ande av [snabb start: skapa en Azure Database for postgresql-server i Azure Portal](quickstart-create-server-database-portal.md) eller [snabb start: skapa en Azure Database for PostgreSQL med hjälp av Azure CLI](quickstart-create-server-database-azure-cli.md).
   
-- [Python](https://www.python.org/downloads/) 2.7.9+ eller 3.4+.
+- [Python](https://www.python.org/downloads/) 2.7.9 + eller 3.4 +.
   
-- Senaste [pip](https://pip.pypa.io/en/stable/installing/) paketinstallationsprogrammet.
+- Senaste installations program för [pip](https://pip.pypa.io/en/stable/installing/) -paketet.
 
-## <a name="install-the-python-libraries-for-postgresql"></a>Installera Python-biblioteken för PostgreSQL
-[Psycopg2-modulen](https://pypi.python.org/pypi/psycopg2/) gör det möjligt att ansluta till och fråga en PostgreSQL-databas och finns som ett Linux-, macOS- eller [Windows-hjulpaket.](https://pythonwheels.com/) Installera den binära versionen av modulen, inklusive alla beroenden. Mer information `psycopg2` om installation och krav finns i [Installation](http://initd.org/psycopg/docs/install.html). 
+## <a name="install-the-python-libraries-for-postgresql"></a>Installera python-biblioteken för PostgreSQL
+Med modulen [psycopg2](https://pypi.python.org/pypi/psycopg2/) kan du ansluta till och fråga en PostgreSQL-databas och den är tillgänglig som Linux-, MacOS-eller Windows [Wheel](https://pythonwheels.com/) -paket. Installera den binära versionen av modulen, inklusive alla beroenden. Mer information om `psycopg2` installation och krav finns i [installation](http://initd.org/psycopg/docs/install.html). 
 
-Om `psycopg2`du vill installera öppnar du en `pip install psycopg2`terminal eller kommandotolk och kör kommandot .
+Installera `psycopg2`genom att öppna en terminal eller kommando tolk och köra kommandot `pip install psycopg2`.
 
-## <a name="get-database-connection-information"></a>Hämta information om databasanslutning
-För anslutning till en Azure-databas för PostgreSQL-databas krävs fullständigt kvalificerat servernamn och inloggningsuppgifter. Du kan hämta den här informationen från Azure-portalen.
+## <a name="get-database-connection-information"></a>Hämta information om databas anslutning
+Att ansluta till en Azure Database for PostgreSQL-databas kräver det fullständigt kvalificerade Server namnet och inloggnings uppgifterna. Du kan hämta den här informationen från Azure Portal.
 
-1. Sök [Azure portal](https://portal.azure.com/)efter och välj azure-databas för PostgreSQL-servernamn i Azure-portalen. 
-1. Kopiera det fullständigt kvalificerade **servernamnet** och **administratörsanvändarnamnet**på sidan **Översikt.** Det fullständigt kvalificerade **servernamnet** är alltid av formuläret * \<my-server-name>.postgres.database.azure.com*, och **administratörsanvändarnamnet** är alltid av formuläret * \<my-admin-username>@\<my-server-name>*. 
+1. I [Azure Portal](https://portal.azure.com/)söker du efter och väljer Azure Database for postgresql server namnet. 
+1. På sidan **Översikt** för servern kopierar du det fullständigt kvalificerade **Server namnet** och **administratörens användar namn**. Det fullständigt kvalificerade **Server namnet** är alltid i formatet * \<My-Server-Name>. postgres.Database.Azure.com*, och admin- **användarnamnet** har alltid formatet * \<min-admin-username> @\<My-Server-Name>*. 
    
-   Du behöver också ditt administratörslösenord. Om du glömmer det kan du återställa det från den här sidan. 
+   Du behöver också ditt administratörs lösen ord. Om du glömmer bort det kan du återställa det från den här sidan. 
    
    ![Azure Database for PostgreSQL-servernamn](./media/connect-python/1-connection-string.png)
 
-## <a name="how-to-run-the-python-examples"></a>Så här kör du Python-exemplen
+## <a name="how-to-run-the-python-examples"></a>Så här kör du python-exemplen
 
-För varje kodexempel i den här artikeln:
+För varje kod exempel i den här artikeln:
 
-1. Skapa en ny fil i en textredigerare. 
+1. Skapa en ny fil i en text redigerare. 
    
-1. Lägg till kodexemplet i filen. I koden ersätter du:
-   - `<server-name>`och `<admin-username>` med de värden som du kopierade från Azure-portalen.
-   - `<admin-password>`med ditt serverlösenord.
-   - `<database-name>`med namnet på din Azure-databas för PostgreSQL-databas. En standarddatabas med namnet *postgres* skapades automatiskt när du skapade servern. Du kan byta namn på databasen eller skapa en ny databas med hjälp av SQL-kommandon. 
+1. Lägg till kod exemplet i filen. I koden ersätter du:
+   - `<server-name>`och `<admin-username>` med de värden som du kopierade från Azure Portal.
+   - `<admin-password>`med lösen ordet för servern.
+   - `<database-name>`med namnet på din Azure Database for PostgreSQL-databas. En standard databas med namnet *postgres* skapades automatiskt när du skapade servern. Du kan byta namn på databasen eller skapa en ny databas med hjälp av SQL-kommandon. 
    
-1. Spara filen i projektmappen med ett *py-tillägg,* till exempel *postgres-insert.py*. För Windows kontrollerar du att UTF-8-kodningen är markerad när du sparar filen. 
+1. Spara filen i projektmappen med fil namns tillägget *. py* , till exempel *postgres-INSERT.py*. För Windows kontrollerar du att UTF-8-kodning är markerat när du sparar filen. 
    
-1. Om du vill köra filen ändrar du till projektmappen i ett kommandoradsgränssnitt och skriver `python` följt av filnamnet, till exempel `python postgres-insert.py`.
+1. Om du vill köra filen ändrar du till projektmappen i ett kommando rads gränssnitt och skriver `python` följt av fil namnet, till exempel. `python postgres-insert.py`
 
 ## <a name="create-a-table-and-insert-data"></a>Skapa en tabell och infoga data
-Följande kodexempel ansluter till din Azure-databas för PostgreSQL-databas med funktionen [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) och läser in data med ett SQL **INSERT-uttryck.** Funktionen [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) kör SQL-frågan mot databasen. 
+Följande kod exempel ansluter till Azure Database for PostgreSQL-databasen med hjälp av funktionen [psycopg2. Connect](http://initd.org/psycopg/docs/connection.html) och läser in data med en SQL **insert** -instruktion. Funktionen [cursor. Execute](http://initd.org/psycopg/docs/cursor.html#execute) kör SQL-frågan mot databasen. 
 
 ```Python
 import psycopg2
@@ -99,12 +99,12 @@ cursor.close()
 conn.close()
 ```
 
-När koden körs korrekt, den ger följande utdata:
+När koden körs skapas följande utdata:
 
 ![Kommandoradsutdata](media/connect-python/2-example-python-output.png)
 
 ## <a name="read-data"></a>Läsa data
-Följande kodexempel ansluter till din Azure-databas för PostgreSQL-databas och använder [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) med SQL **SELECT-uttrycket** för att läsa data. Den här funktionen accepterar en fråga och returnerar en resultatuppsättning för att iterera över med hjälp av [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 
+Följande kod exempel ansluter till Azure Database for PostgreSQL-databasen och använder [cursor. Execute](http://initd.org/psycopg/docs/cursor.html#execute) with SQL **Select** -instruktionen för att läsa data. Den här funktionen accepterar en fråga och returnerar en resultat uppsättning att iterera över med hjälp av [cursor. fetchall ()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 
 
 ```Python
 import psycopg2
@@ -138,7 +138,7 @@ conn.close()
 ```
 
 ## <a name="update-data"></a>Uppdatera data
-Följande kodexempel ansluter till din Azure-databas för PostgreSQL-databas och använder [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) med SQL **UPDATE-uttrycket** för att uppdatera data. 
+Följande kod exempel ansluter till Azure Database for PostgreSQL-databasen och använder [cursor. Execute](http://initd.org/psycopg/docs/cursor.html#execute) med SQL **Update** -instruktionen för att uppdatera data. 
 
 ```Python
 import psycopg2
@@ -168,7 +168,7 @@ conn.close()
 ```
 
 ## <a name="delete-data"></a>Ta bort data
-Följande kodexempel ansluter till din Azure-databas för PostgreSQL-databas och använder [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) med SQL **DELETE-satsen** för att ta bort en lagerartikel som du tidigare infogat. 
+Följande kod exempel ansluter till Azure Database for PostgreSQL-databasen och använder [cursor. Execute](http://initd.org/psycopg/docs/cursor.html#execute) with SQL **Delete** -instruktionen för att ta bort ett lager objekt som du har infogat tidigare. 
 
 ```Python
 import psycopg2

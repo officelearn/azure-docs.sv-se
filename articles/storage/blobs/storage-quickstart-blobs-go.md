@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: f4016349e354c84e9e096ac6d5072a4870e9ef29
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68726464"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Go
@@ -207,7 +207,7 @@ for marker := (azblob.Marker{}); marker.NotDone(); {
 
 ### <a name="download-the-blob"></a>Ladda ned bloben
 
-Ladda ned blobar med hjälp av **Download**-lågnivåfunktionen på en BlobURL. Detta returnerar struct-datatypen **DownloadResponse**. Kör funktionen **Body** på struct-datatypen för att få en **RetryReader**-ström för läsning av data. Om en anslutning misslyckas när du läser, kommer det att göra ytterligare begäranden för att återupprätta en anslutning och fortsätta behandlingen. Om du anger en RetryReaderOption med MaxRetryRequests inställt på 0 (standardvärdet) returneras den ursprungliga svarstexten, och det utförs inga nya försök. Alternativt kan du använda de högnivå-API:erna **DownloadBlobToBuffer** eller **DownloadBlobToFile** för att förenkla koden.
+Ladda ned blobar med hjälp av **Download**-lågnivåfunktionen på en BlobURL. Detta returnerar struct-datatypen **DownloadResponse**. Kör funktionen **Body** på struct-datatypen för att få en **RetryReader**-ström för läsning av data. Om anslutningen Miss lyckas under läsningen, kommer den att göra ytterligare förfrågningar för att återupprätta anslutningen och fortsätta att läsa. Om du anger en RetryReaderOption med MaxRetryRequests inställt på 0 (standardvärdet) returneras den ursprungliga svarstexten, och det utförs inga nya försök. Alternativt kan du använda de högnivå-API:erna **DownloadBlobToBuffer** eller **DownloadBlobToFile** för att förenkla koden.
 
 Följande kod laddar ned bloben med hjälp av funktionen **Download**. Blobens innehåll skrivs till en buffert och visas på konsolen.
 

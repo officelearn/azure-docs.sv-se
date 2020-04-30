@@ -15,15 +15,15 @@ ms.date: 04/24/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 81621a2b63eec804aaa7c74e1d77b06ef1adb79a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76844997"
 ---
 # <a name="what-is-azure-network-watcher"></a>Vad är Azure Network Watcher?
 
-I Azure Network Watcher finns verktyg för att övervaka, diagnostisera, visa mått samt aktivera eller inaktivera loggar för resurser i ett virtuellt Azure-nätverk. Network Watcher är utformad för att övervaka och reparera nätverkshälsan för IaaS (Infrastructure-as-a-Service) produkter som inkluderar virtuella datorer, virtuella nätverk, application gateways, lastjämförs, etc. Den är inte avsedd för och fungerar inte för PaaS-övervakning eller webbanalys. 
+I Azure Network Watcher finns verktyg för att övervaka, diagnostisera, visa mått samt aktivera eller inaktivera loggar för resurser i ett virtuellt Azure-nätverk. Network Watcher har utformats för att övervaka och reparera nätverks hälsan för IaaS-produkter (Infrastructure-as-a-Service) som innehåller Virtual Machines, virtuella nätverk, programgatewayer, belastnings utjämning osv. OBS! den är inte avsedd för och kommer inte att fungera för PaaS övervakning eller webb analys. 
 
 ## <a name="monitoring"></a>Övervakning
 

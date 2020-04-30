@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: RStudio Server & ML-tjänster för R - Azure HDInsight'
-description: I snabbstarten kör du ett R-skript på ett ML Services-kluster i Azure HDInsight med RStudio Server.
+title: 'Snabb start: RStudio Server & ML-tjänster för R-Azure HDInsight'
+description: I snabb starten kör du ett R-skript i ett ML Services-kluster i Azure HDInsight med hjälp av RStudio Server.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,39 +9,39 @@ ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
 ms.openlocfilehash: 8a6a204ee5080e3acf99c13ecba1e1c7664d68b4
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73241881"
 ---
-# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Snabbstart: Kör ett R-skript i ett ML Services-kluster i Azure HDInsight med RStudio Server
+# <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Snabb start: köra ett R-skript i ett ML Services-kluster i Azure HDInsight med RStudio-Server
 
-ML Services på Azure HDInsight tillåter R-skript att använda Apache Spark och Apache Hadoop MapReduce för att köra distribuerade beräkningar. ML Services styr hur anrop körs genom att ange beräkningskontexten. Kantnoden i ett kluster är en praktisk plats för att ansluta till klustret och köra dina R-skript. Med en kantnod har du möjlighet att köra de parallelliserade distribuerade funktionerna i RevoScaleR över kärnorna på kantnodservern. Du kan också köra dem över noderna i klustret med hjälp av RevoScaleR:s Hadoop Map Reduce- eller Apache Spark-beräkningskontexter.
+Med ML-tjänster i Azure HDInsight kan R-skript använda Apache Spark och Apache Hadoop MapReduce för att köra distribuerade beräkningar. ML-tjänster styr hur anrop utförs genom att ange beräknings kontexten. Edge-noden i ett kluster är en praktisk plats för att ansluta till klustret och köra R-skript. Med en Edge-nod kan du välja att köra de parallella distribuerade funktionerna i RevoScaleR över kärnorna i Edge-nodens Server. Du kan också köra dem på noderna i klustret genom att använda RevoScaleR för att minska eller Apache Spark Compute-kontexter.
 
-I den här snabbstarten får du lära dig hur du kör ett R-skript med RStudio Server som demonstrerar med Spark för distribuerade R-beräkningar. Du definierar en beräkningskontext för att utföra beräkningar lokalt på en kantnod och distribueras igen över noderna i HDInsight-klustret.
+I den här snabb starten får du lära dig hur du kör ett R-skript med RStudio-server som visar hur du använder Spark för distribuerade R-beräkningar. Du definierar en beräknings kontext för att utföra beräkningar lokalt på en Edge-nod och återigen distribuerade över noderna i HDInsight-klustret.
 
 ## <a name="prerequisite"></a>Krav
 
-Ett ML Services-kluster på HDInsight. Se [Skapa Apache Hadoop-kluster med Azure-portalen](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **ML Services** för **klustertyp**.
+Ett ML Services-kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj ml- **tjänster** för **kluster typ**.
 
 ## <a name="connect-to-rstudio-server"></a>Anslut till RStudio Server
 
-RStudio Server körs på klustrets kantnod. Gå till följande `CLUSTERNAME` URL där namnet på ML Services-klustret du skapade:
+RStudio-servern körs på klustrets Edge-nod. Gå till följande URL där `CLUSTERNAME` är namnet på det ml Services-kluster som du skapade:
 
 ```
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
 ```
 
-Första gången du loggar in måste du autentisera två gånger. För den första autentiseringsprompten anger `admin`du inloggning och lösenord för klusteradministratör, standard är . För den andra autentiseringsprompten anger `sshuser`du SSH-inloggning och lösenord, standard är . Efterföljande inloggningar kräver bara SSH-autentiseringsuppgifterna.
+Första gången du loggar in måste du autentisera dig två gånger. För den första autentiseringen anger du inloggning och lösen ord för kluster administratören. standard `admin`är. För den andra verifierings frågan anger du SSH-inloggning och lösen ord. `sshuser`standard är. Efterföljande inloggningar kräver bara SSH-autentiseringsuppgifter.
 
 När du är ansluten, bör din skärm likna följande skärmbild:
 
-![R studio webbkonsol översikter](./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png)
+![Översikt över R Studio-webbkonsoler](./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png)
 
 ## <a name="use-a-compute-context"></a>Använda en beräkningskontext
 
-1. Från RStudio Server använder du följande kod för att läsa in exempeldata i standardlagringen för HDInsight:
+1. Från RStudio Server använder du följande kod för att läsa in exempel data till standard lagringen för HDInsight:
 
     ```RStudio
     # Set the HDFS (WASB) location of example data
@@ -78,7 +78,7 @@ När du är ansluten, bör din skärm likna följande skärmbild:
 
     Det här steget kan ta cirka 8 minuter att slutföra.
 
-1. Skapa viss datainformation och definiera två datakällor. Ange följande kod i RStudio:
+1. Skapa viss data information och definiera två data källor. Ange följande kod i RStudio:
 
     ```RStudio
     # Define the HDFS (WASB) file system
@@ -105,7 +105,7 @@ När du är ansluten, bör din skärm likna följande skärmbild:
      formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
     ```
 
-1. Kör en logistisk regression över data med hjälp av den **lokala** beräkningskontexten. Ange följande kod i RStudio:
+1. Kör en logistik regression över data med hjälp av den **lokala** beräknings kontexten. Ange följande kod i RStudio:
 
     ```RStudio
     # Set a local compute context
@@ -120,7 +120,7 @@ När du är ansluten, bör din skärm likna följande skärmbild:
      summary(modelLocal)
     ```
 
-    Beräkningarna bör slutföras om ca 7 minuter. Du bör se utdata som slutar med rader som liknar följande kodavsnitt:
+    Beräkningarna bör slutföras på ungefär 7 minuter. Du bör se utdata som slutar med rader som liknar följande kodfragment:
 
     ```output
     Data: airOnTimeDataLocal (RxTextData Data Source)
@@ -150,7 +150,7 @@ När du är ansluten, bör din skärm likna följande skärmbild:
       Number of iterations: 7
     ```
 
-1. Kör samma logistiska regression med **spark-kontexten.** Spark-kontexten distribuerar bearbetningen mellan alla arbetsnoder i HDInsight-klustret. Ange följande kod i RStudio:
+1. Kör samma logistiska regression med **Spark** -kontexten. Spark-kontexten distribuerar bearbetningen mellan alla arbetsnoder i HDInsight-klustret. Ange följande kod i RStudio:
 
     ```RStudio
     # Define the Spark compute context
@@ -168,20 +168,20 @@ När du är ansluten, bör din skärm likna följande skärmbild:
      summary(modelSpark)
     ```
 
-    Beräkningarna bör slutföras om ca 5 minuter.
+    Beräkningarna bör utföras på ungefär 5 minuter.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du har slutfört snabbstarten kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används.
+När du har slutfört snabb starten kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används.
 
-Information om hur du tar bort ett kluster finns i [Ta bort ett HDInsight-kluster med webbläsaren, PowerShell eller Azure CLI](../hdinsight-delete-cluster.md).
+Om du vill ta bort ett kluster läser du [ta bort ett HDInsight-kluster med hjälp av webbläsaren, PowerShell eller Azure CLI](../hdinsight-delete-cluster.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten lärde du dig köra ett R-skript med RStudio Server som demonstrerade med Spark för distribuerade R-beräkningar.  Gå vidare till nästa artikel om du vill lära dig vilka alternativ som är tillgängliga för att ange om och hur körningen parallelliseras mellan kärnorna i kantnoden eller HDInsight-klustret.
+I den här snabb starten har du lärt dig hur du kör ett R-skript med RStudio-servern som demonstreras med Spark för distribuerade R-beräkningar.  Gå vidare till nästa artikel för att lära dig vilka alternativ som är tillgängliga för att ange om och hur körningen ska vara parallell över kärnor i Edge-noden eller HDInsight-klustret.
 
 > [!div class="nextstepaction"]
->[Beräkna kontextalternativ för ML-tjänster på HDInsight](./r-server-compute-contexts.md)
+>[Alternativ för beräknings kontext för ML-tjänster i HDInsight](./r-server-compute-contexts.md)
 
 > [!NOTE]
-> På den här sidan beskrivs funktionerna i RStudio-programvaran. Microsoft Azure HDInsight är inte anslutet till RStudio, Inc.
+> Den här sidan beskriver funktionerna i RStudio-programvaran. Microsoft Azure HDInsight är inte kopplad till RStudio, Inc.

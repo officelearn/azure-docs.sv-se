@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Konfigurera Azure NetApp-filer och NFS-volym'
-description: Snabbstart - Beskriver hur du snabbt konfigurerar Azure NetApp-filer och skapar en volym.
+title: 'Snabb start: Konfigurera Azure NetApp Files-och NFS-volym'
+description: Snabb start – beskriver hur du snabbt konfigurerar Azure NetApp Files och skapar en volym.
 author: b-juche
 ms.author: b-juche
 ms.service: azure-netapp-files
@@ -8,56 +8,56 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 12/01/2019
 ms.openlocfilehash: fc7f13fb7ffe1667aaeaa4a3cc1916c6049a98c1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75551666"
 ---
-# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Snabbstart: Konfigurera Azure NetApp-filer och skapa en NFS-volym 
+# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Snabb start: Konfigurera Azure NetApp Files och skapa en NFS-volym 
 
-Den här artikeln visar hur du snabbt konfigurerar Azure NetApp-filer och skapar en volym. 
+Den här artikeln visar hur du snabbt konfigurerar Azure NetApp Files och skapar en volym. 
 
-I den här snabbstarten ställer du in följande objekt:
+I den här snabb starten ska du konfigurera följande objekt:
 
-- Registrering för Azure NetApp-filer och NetApp-resursprovider
+- Registrering för Azure NetApp Files-och NetApp Resource Provider
 - Ett NetApp-konto
-- En kapacitetspool
-- En NFS-volym för Azure NetApp-filer
+- En kapacitets grupp
+- En NFS-volym för Azure NetApp Files
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar 
 
 > [!IMPORTANT] 
-> Du måste beviljas åtkomst till Azure NetApp Files-tjänsten.  Information om hur du begär åtkomst till tjänsten finns på [sidan för att skicka in en väntelista för Azure NetApp-filer](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u).  Du måste vänta på ett e-postmeddelande med en officiell bekräftelse från Azure NetApp Files-teamet innan du fortsätter. 
+> Du måste beviljas åtkomst till Azure NetApp Filess tjänsten.  Information om hur du begär åtkomst till tjänsten finns på sidan för att [skicka Azure NetApp Files Waitlist](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u).  Du måste vänta en officiell bekräftelse via e-post från Azure NetApp Files-teamet innan du fortsätter. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ---
 
-## <a name="register-for-azure-netapp-files-and-netapp-resource-provider"></a>Registrera dig för Azure NetApp-filer och NetApp-resursprovider
+## <a name="register-for-azure-netapp-files-and-netapp-resource-provider"></a>Registrera dig för Azure NetApp Files-och NetApp Resource Provider
 
 > [!NOTE]
 > Registreringsprocessen kan ta lite tid att slutföra.
 >
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
-Om du vill registrera steg med Portal öppnar du en Cloud Shell-session enligt ovan och följer de här Azure CLI-stegen:
+För registrerings steg med portalen öppnar du en Cloud Shell-session som anges ovan och följer dessa Azure CLI-steg:
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Den här how-to-artikeln kräver Azure PowerShell-modulen Az version 2.6.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta din nuvarande version. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du vill kan du använda Cloud Shell-konsolen i en PowerShell-session i stället.
+Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta din nuvarande version. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du vill kan du använda Cloud Shell-konsolen i en PowerShell-session i stället.
 
-1. I en PowerShell-kommandotolk (eller PowerShell Cloud Shell-session) anger du den prenumeration som har vitlistats för Azure NetApp-filer:
+1. I en PowerShell-kommandotolk (eller PowerShell Cloud Shell-session) anger du den prenumeration som har vit listas för Azure NetApp Files:
     ```powershell-interactive
     Select-AzSubscription -Subscription <subscriptionId>
     ```
 
-2. Registrera Azure Resource Provider:
+2. Registrera Azure-resurs leverantören:
     ```powershell-interactive
     Register-AzResourceProvider -ProviderNamespace Microsoft.NetApp
     ```
@@ -70,31 +70,31 @@ Den här how-to-artikeln kräver Azure PowerShell-modulen Az version 2.6.0 eller
 
 ## <a name="create-a-netapp-account"></a>Skapa ett NetApp-konto
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
-1. I sökrutan för Azure-portalen anger du **Azure NetApp-filer** och väljer sedan **Azure NetApp-filer** i listan som visas.
+1. Skriv **Azure NetApp Files** i sökrutan Azure Portal och välj sedan **Azure NetApp Files** i listan som visas.
 
-      ![Välj Azure NetApp-filer](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
+      ![Välj Azure NetApp Files](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
 
 2. Klicka på **+ Lägg till** för att skapa ett nytt NetApp-konto.
 
-     ![Skapa nytt NetApp-konto](../media/azure-netapp-files/azure-netapp-files-create-new-netapp-account.png)
+     ![Skapa ett nytt NetApp-konto](../media/azure-netapp-files/azure-netapp-files-create-new-netapp-account.png)
 
-3. Ange följande information i fönstret Nytt NetApp-konto: 
-   1. Ange **myaccount1** för kontonamnet. 
+3. I fönstret nytt NetApp-konto anger du följande information: 
+   1. Ange **myaccount1** som konto namn. 
    2. Välj din prenumeration.
-   3. Välj **Skapa ny** om du vill skapa en ny resursgrupp. Ange **myRG1** för resursgruppsnamnet. Klicka på **OK**. 
-   4. Välj kontoplats.  
+   3. Välj **Skapa ny** för att skapa en ny resurs grupp. Ange **myRG1** som resurs grupps namn. Klicka på **OK**. 
+   4. Välj din konto plats.  
 
-      ![Nytt netappkontofönster](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
+      ![Fönstret nytt NetApp-konto](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
 
-      ![Fönstret Resursgrupp](../media/azure-netapp-files/azure-netapp-files-resource-group-window.png)
+      ![Resurs grupps fönster](../media/azure-netapp-files/azure-netapp-files-resource-group-window.png)
 
-4. Klicka på **Skapa** om du vill skapa ditt nya NetApp-konto.
+4. Skapa ditt nya NetApp-konto genom att klicka på **skapa** .
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. Definiera några variabler så att vi kan hänvisa till dem i resten av exemplen:
+1. Definiera vissa variabler så att vi kan referera till dem i resten av exemplen:
 
     ```powershell-interactive
     $resourceGroup = "myRG1"
@@ -103,17 +103,17 @@ Den här how-to-artikeln kräver Azure PowerShell-modulen Az version 2.6.0 eller
     ``` 
 
     > [!NOTE]
-    > Se [Produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) för en lista över regioner som stöds.
-    > Om du vill få det regionnamn som stöds av våra kommandoradsverktyg kan du använda`Get-AzLocation | select Location`
+    > En lista över regioner som stöds finns i avsnittet [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) .
+    > Om du vill hämta regions namnet som stöds av våra kommando rads verktyg använder du`Get-AzLocation | select Location`
     >
 
-1. Skapa en ny resursgrupp med kommandot [New-AzResourceGroup:](/powershell/module/az.resources/new-azresourcegroup)
+1. Skapa en ny resurs grupp med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) :
 
     ```powershell-interactive
     New-AzResourceGroup -Name $resourceGroup -Location $location
     ```
 
-2. Skapa Azure NetApp-filer med kommandot [New-AzAppFilesAccount:](/powershell/module/az.netappfiles/New-AzNetAppFilesAccount)
+2. Skapa Azure NetApp Files-konto med kommandot [New-AzNetAppFilesAccount](/powershell/module/az.netappfiles/New-AzNetAppFilesAccount) :
    
     ```powershell-interactive
     New-AzNetAppFilesAccount -ResourceGroupName $resourceGroup -Location $location -Name $anfAccountName
@@ -121,7 +121,7 @@ Den här how-to-artikeln kräver Azure PowerShell-modulen Az version 2.6.0 eller
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. Definiera några variabler så att vi kan hänvisa till dem i resten av exemplen:
+1. Definiera vissa variabler så att vi kan referera till dem i resten av exemplen:
 
     ```azurecli-interactive
     RESOURCE_GROUP="myRG1"
@@ -130,11 +130,11 @@ Den här how-to-artikeln kräver Azure PowerShell-modulen Az version 2.6.0 eller
     ``` 
 
     > [!NOTE]
-    > Se [Produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) för en lista över regioner som stöds.
-    > Om du vill få det regionnamn som stöds av våra kommandoradsverktyg kan du använda`az account list-locations -query "[].{Region:name}" --out table`
+    > En lista över regioner som stöds finns i avsnittet [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) .
+    > Om du vill hämta regions namnet som stöds av våra kommando rads verktyg använder du`az account list-locations -query "[].{Region:name}" --out table`
     >
 
-2. Skapa en ny resursgrupp med kommandot [az group create:](/cli/azure/group#az-group-create)
+2. Skapa en ny resurs grupp med kommandot [AZ Group Create](/cli/azure/group#az-group-create) :
 
     ```azurecli-interactive
     az group create \
@@ -142,7 +142,7 @@ Den här how-to-artikeln kräver Azure PowerShell-modulen Az version 2.6.0 eller
         --location $LOCATION
     ```
 
-3. Skapa Azure NetApp Files-konto med kommandot [az netappfiles-konto skapa:](/cli/azure/netappfiles/account#az-netappfiles-account-create)
+3. Skapa Azure NetApp Files konto med kommandot [AZ netappfiles Account Create](/cli/azure/netappfiles/account#az-netappfiles-account-create) :
    
     ```azurecli-interactive
     az netappfiles account create \
@@ -154,30 +154,30 @@ Den här how-to-artikeln kräver Azure PowerShell-modulen Az version 2.6.0 eller
 
 ## <a name="set-up-a-capacity-pool"></a>Konfigurera en kapacitetspool
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
-1. Välj ditt NetApp-konto **(myaccount1)** från azure netapp-filhanteringsbladet .
+1. Från bladet Azure NetApp Files hantering väljer du ditt NetApp-konto (**myaccount1**).
 
     ![Välj NetApp-konto](../media/azure-netapp-files/azure-netapp-files-select-netapp-account.png)  
 
-2. Klicka på **Kapacitetspooler**i Azure NetApp-filhanteringsbladet för ditt NetApp-konto .
+2. Klicka på **kapacitets grupper**från bladet Azure NetApp Files hantering i NetApp-kontot.
 
-    ![Klicka på Kapacitetspooler](../media/azure-netapp-files/azure-netapp-files-click-capacity-pools.png)  
+    ![Klicka på kapacitets grupper](../media/azure-netapp-files/azure-netapp-files-click-capacity-pools.png)  
 
 3. Klicka på **+ Lägg till pooler**. 
 
     ![Klicka på Lägg till pooler](../media/azure-netapp-files/azure-netapp-files-click-add-pools.png)  
 
-4. Ge information om kapacitetspoolen: 
+4. Ange information för kapacitets gruppen: 
     1. Ange **mypool1** som poolnamn.
-    2. Välj **Premium** för servicenivån. 
-    3. Ange **4 (TiB)** som poolstorlek. 
+    2. Välj **Premium** för Service nivån. 
+    3. Ange **4 (TIB)** som pool-storlek. 
 
 5. Klicka på **OK**.
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. Definiera några nya variabler för framtida referens
+1. Definiera några nya variabler för framtida bruk
 
     ```powershell-interactive
     $poolName = "mypool1"
@@ -185,7 +185,7 @@ Den här how-to-artikeln kräver Azure PowerShell-modulen Az version 2.6.0 eller
     $serviceLevel = "Premium" # Valid values are Standard, Premium and Ultra
     ```
 
-1. Skapa en ny kapacitetspool med hjälp av [New-AzNetAppFilesPool](/powershell/module/az.netappfiles/new-aznetappfilespool)
+1. Skapa en ny kapacitets pool med hjälp av kommandot [New-AzNetAppFilesPool](/powershell/module/az.netappfiles/new-aznetappfilespool)
 
     ```powershell-interactive
     New-AzNetAppFilesPool -ResourceGroupName $resourceGroup -Location $location -AccountName $anfAccountName -Name $poolName -PoolSize $poolSizeBytes -ServiceLevel $serviceLevel
@@ -193,7 +193,7 @@ Den här how-to-artikeln kräver Azure PowerShell-modulen Az version 2.6.0 eller
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. Definiera några nya variabler för framtida referens
+1. Definiera några nya variabler för framtida bruk
 
     ```azurecli-interactive
     POOL_NAME="mypool1"
@@ -201,7 +201,7 @@ Den här how-to-artikeln kräver Azure PowerShell-modulen Az version 2.6.0 eller
     SERVICE_LEVEL="Premium" # Valid values are Standard, Premium and Ultra
     ```
 
-2. Skapa en ny kapacitetspool med hjälp av [az netappfiles-poolen skapa](/cli/azure/netappfiles/pool#az-netappfiles-pool-create) 
+2. Skapa en ny kapacitets pool med hjälp av [AZ netappfiles pool Create](/cli/azure/netappfiles/pool#az-netappfiles-pool-create) 
 
     ```azurecli-interactive
     az netappfiles pool create \
@@ -215,11 +215,11 @@ Den här how-to-artikeln kräver Azure PowerShell-modulen Az version 2.6.0 eller
 
 ---
 
-## <a name="create-nfs-volume-for-azure-netapp-files"></a>Skapa NFS-volym för Azure NetApp-filer
+## <a name="create-nfs-volume-for-azure-netapp-files"></a>Skapa NFS-volym för Azure NetApp Files
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
-1. Klicka på **Volymer**från azure netapp-filhanteringsbladet för ditt NetApp-konto .
+1. Från bladet Azure NetApp Files hantering i ditt NetApp-konto klickar du på **volymer**.
 
     ![Klicka på Volymer](../media/azure-netapp-files/azure-netapp-files-click-volumes.png)  
 
@@ -227,61 +227,61 @@ Den här how-to-artikeln kräver Azure PowerShell-modulen Az version 2.6.0 eller
 
     ![Klicka på Lägg till volymer](../media/azure-netapp-files/azure-netapp-files-click-add-volumes.png)  
 
-3. Ange information för volymen i fönstret Skapa en volym: 
-   1. Ange **myvol1** som volymnamn. 
-   2. Välj din kapacitetspool **(mypool1).**
+3. I fönstret Skapa en volym anger du information för volymen: 
+   1. Ange **myvol1** som volym namn. 
+   2. Välj din Capacity pool (**mypool1**).
    3. Använd standardvärdet för kvot. 
-   4. Under virtuellt nätverk klickar du på **Skapa ny** för att skapa ett nytt virtuellt Azure-nätverk (Vnet).  Fyll sedan i följande information:
-       * Ange **myvnet1** som Vnet-namn.
-       * Ange ett adressutrymme för din inställning, till exempel 10.7.0.0/16
-       * Ange **myANFsubnet** som undernätsnamn.
-       * Ange undernätsadressintervallet, till exempel 10.7.0.0/24. Du kan inte dela det dedikerade undernätet med andra resurser.
-       * Välj **Microsoft.NetApp/volymer** för undernätsdelegering.
-       * Klicka på **OK** för att skapa det virtuella nätverket.
-   5. I undernätet väljer du det nyskapade Vnet **(myvnet1**) som ombudsundernät.
+   4. Under virtuellt nätverk klickar du på **Skapa nytt** för att skapa ett nytt virtuellt Azure-nätverk (VNet).  Fyll sedan i följande information:
+       * Ange **myvnet1** som VNet-namn.
+       * Ange ett adress utrymme för inställningen, till exempel 10.7.0.0/16
+       * Ange **myANFsubnet** som under näts namn.
+       * Ange adress intervall för under nätet, till exempel 10.7.0.0/24. Du kan inte dela det dedikerade under nätet med andra resurser.
+       * Välj **Microsoft. NetApp/volymer** för under näts delegering.
+       * Klicka på **OK** för att skapa VNet.
+   5. I undernät väljer du det nyligen skapade VNet (**myvnet1**) som delegerat undernät.
 
-      ![Skapa ett volymfönster](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)  
+      ![Skapa ett volym fönster](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)  
 
-      ![Skapa fönstret Virtuellt nätverk](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
+      ![Fönstret Skapa virtuellt nätverk](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
-4. Klicka på **Protokoll**och slutför sedan följande åtgärder: 
-    * Välj **NFS** som protokolltyp för volymen.  
-    * Ange **myfilepath1** som den filsökväg som ska användas för att skapa exportsökvägen för volymen.  
-    * Välj NFS-versionen **(NFSv3** eller **NFSv4.1)** för volymen.  
+4. Klicka på **protokoll**och utför följande åtgärder: 
+    * Välj **NFS** som protokoll typ för volymen.  
+    * Ange **myfilepath1** som den fil Sök väg som ska användas för att skapa export Sök vägen för volymen.  
+    * Välj NFS-version (**NFSv3** eller **nfsv 4.1**) för volymen.  
       Se [överväganden](azure-netapp-files-create-volumes.md#considerations) och [bästa praxis](azure-netapp-files-create-volumes.md#best-practice) om NFS-versioner. 
       
-  ![Ange NFS-protokoll för snabbstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+  ![Ange NFS-protokoll för snabb start](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. Klicka på **Granska + skapa**.
 
     ![Granska och skapa fönster](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)  
 
-6. Granska informationen för volymen och klicka sedan på **Skapa**.  
-    Den skapade volymen visas i bladet Volymer.
+6. Granska informationen för volymen och klicka sedan på **skapa**.  
+    Den skapade volymen visas på bladet volymer.
 
-    ![Skapad volym](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)  
+    ![Volym skapad](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)  
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. Skapa en undernätsdelegering till "Microsoft.NetApp/volumes" med kommandot [New-AzDelegation.](/powershell/module/az.network/new-azdelegation)
+1. Skapa en under näts delegering till "Microsoft. NetApp/Volumes" med kommandot [New-AzDelegation](/powershell/module/az.network/new-azdelegation) .
 
     ```powershell-interactive
     $anfDelegation = New-AzDelegation -Name ([guid]::NewGuid().Guid) -ServiceName "Microsoft.NetApp/volumes"
     ```
 
-2. Skapa en undernätskonfiguration med kommandot [New-AzVirtualNetworkSubnetConfig.](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)
+2. Skapa en under näts konfiguration med kommandot [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) .
 
     ```powershell-interactive
     $subnet = New-AzVirtualNetworkSubnetConfig -Name "myANFSubnet" -AddressPrefix "10.7.0.0/24" -Delegation $anfDelegation
     ```
 
-3. Skapa det virtuella nätverket med kommandot [New-AzVirtualNetwork.](/powershell/module/az.network/new-azvirtualnetwork)
+3. Skapa det virtuella nätverket med kommandot [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) .
     
     ```powershell-interactive
     $vnet = New-AzVirtualNetwork -Name "myvnet1" -ResourceGroupName $resourceGroup -Location $location -AddressPrefix "10.7.0.0/16" -Subnet $subnet
     ```
 
-4. Skapa volymen med kommandot [New-AzNetAppFilesVolume.](/powershell/module/az.netappfiles/new-aznetappfilesvolume)
+4. Skapa volymen med kommandot [New-AzNetAppFilesVolume](/powershell/module/az.netappfiles/new-aznetappfilesvolume) .
    
     ```powershell-interactive
     $volumeSizeBytes = 1099511627776 # 100GiB
@@ -301,14 +301,14 @@ Den här how-to-artikeln kräver Azure PowerShell-modulen Az version 2.6.0 eller
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. Definiera vissa variabler för senare användning.
+1. Definiera några variabler för senare användning.
     
     ```azurecli-interactive
     VNET_NAME="myvnet1"
     SUBNET_NAME="myANFSubnet"
     ```
 
-1. Skapa virtuellt nätverk utan undernät med kommandot [az network vnet create.](/cli/azure/network/vnet#az-network-vnet-create)
+1. Skapa ett virtuellt nätverk utan undernät med hjälp av kommandot [AZ Network VNet Create](/cli/azure/network/vnet#az-network-vnet-create) .
     
     ```azurecli-interactive
     az network vnet create \
@@ -319,7 +319,7 @@ Den här how-to-artikeln kräver Azure PowerShell-modulen Az version 2.6.0 eller
 
     ```
 
-2. Skapa ett delegerat undernät med kommandot [az network vnet undernät.](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create)
+2. Skapa ett delegerat undernät genom att använda [AZ Network VNet Subnet Create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) kommandot.
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -330,7 +330,7 @@ Den här how-to-artikeln kräver Azure PowerShell-modulen Az version 2.6.0 eller
         --delegations "Microsoft.NetApp/volumes"
     ```
 
-3. Skapa volymen med hjälp av kommandot [az netappfiles volym create.](/cli/azure/netappfiles/volume#az-netappfiles-volume-create)
+3. Skapa volymen med kommandot [AZ netappfiles Volume Create](/cli/azure/netappfiles/volume#az-netappfiles-volume-create) .
    
     ```azurecli-interactive
     VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
@@ -356,38 +356,38 @@ Den här how-to-artikeln kräver Azure PowerShell-modulen Az version 2.6.0 eller
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portalen](#tab/azure-portal)
 
-När du är klar och om du vill kan du ta bort resursgruppen. Åtgärden att ta bort en resursgrupp är oåterkallelig.  
+När du är färdig och om du vill kan du ta bort resurs gruppen. Åtgärden att ta bort en resurs grupp går inte att ångra.  
 
 > [!IMPORTANT]
-> Alla resurser inom resursgrupperna tas bort permanent och kan inte ångras. 
+> Alla resurser i resurs grupperna tas bort permanent och kan inte återställas. 
 
-1. I sökrutan för Azure-portalen anger du **Azure NetApp-filer** och väljer sedan **Azure NetApp-filer** i listan som visas.
+1. Skriv **Azure NetApp Files** i sökrutan Azure Portal och välj sedan **Azure NetApp Files** i listan som visas.
 
-2. Klicka på den resursgrupp (myRG1) som du vill ta bort i listan över prenumerationer. 
+2. I listan över prenumerationer klickar du på resurs gruppen (myRG1) som du vill ta bort. 
 
-    ![Navigera till resursgrupper](../media/azure-netapp-files/azure-netapp-files-azure-navigate-to-resource-groups.png)
+    ![Navigera till resurs grupper](../media/azure-netapp-files/azure-netapp-files-azure-navigate-to-resource-groups.png)
 
 
-3. Klicka på **Ta bort resursgrupp**på resursgruppssidan.
+3. På sidan resurs grupp klickar du på **ta bort resurs grupp**.
 
     ![Ta bort resursgrupp](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
 
     Ett fönster öppnas och visar en varning om vilka resurser som tas bort med resursgruppen.
 
-4. Ange namnet på resursgruppen (myRG1) för att bekräfta att du vill ta bort resursgruppen och alla resurser permanent i den och klicka sedan på **Ta bort**.
+4. Ange namnet på resurs gruppen (myRG1) för att bekräfta att du vill ta bort resurs gruppen och alla resurser i den permanent och klicka sedan på **ta bort**.
 
     ![Ta bort resursgrupp](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
 
-# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-När du är klar och om du vill kan du ta bort resursgruppen. Åtgärden att ta bort en resursgrupp är oåterkallelig.  
+När du är färdig och om du vill kan du ta bort resurs gruppen. Åtgärden att ta bort en resurs grupp går inte att ångra.  
 
 > [!IMPORTANT]
-> Alla resurser inom resursgrupperna tas bort permanent och kan inte ångras.
+> Alla resurser i resurs grupperna tas bort permanent och kan inte återställas.
 
-1. Ta bort resursgruppen med kommandot [Ta bort AzResourceGroup.](/powershell/module/az.resources/remove-azresourcegroup)
+1. Ta bort resurs grupp med kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) .
    
     ```powershell-interactive
     Remove-AzResourceGroup -Name $resourceGroup
@@ -395,12 +395,12 @@ När du är klar och om du vill kan du ta bort resursgruppen. Åtgärden att ta 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-När du är klar och om du vill kan du ta bort resursgruppen. Åtgärden att ta bort en resursgrupp är oåterkallelig.  
+När du är färdig och om du vill kan du ta bort resurs gruppen. Åtgärden att ta bort en resurs grupp går inte att ångra.  
 
 > [!IMPORTANT]
-> Alla resurser inom resursgrupperna tas bort permanent och kan inte ångras.
+> Alla resurser i resurs grupperna tas bort permanent och kan inte återställas.
 
-1. Ta bort resursgruppen med kommandot [az group delete.](/cli/azure/group#az-group-delete)
+1. Ta bort resurs grupp med kommandot [AZ Group Delete](/cli/azure/group#az-group-delete) .
    
     ```azurecli-interactive
     az group delete \
@@ -411,4 +411,4 @@ När du är klar och om du vill kan du ta bort resursgruppen. Åtgärden att ta 
 ## <a name="next-steps"></a>Nästa steg  
 
 > [!div class="nextstepaction"]
-> [Hantera volymer med hjälp av Azure NetApp-filer](azure-netapp-files-manage-volumes.md)  
+> [Hantera volymer med hjälp av Azure NetApp Files](azure-netapp-files-manage-volumes.md)  

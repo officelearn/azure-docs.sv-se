@@ -8,20 +8,20 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: cfd0f8a9a3180b14b4da9dc61e252054fe06628c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78274178"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(INAKTUELL) Snabbstart – Distribuera Kubernetes-kluster för Linux-containrar
 
 > [!TIP]
-> Den uppdaterade versionen som används i Den här snabbstarten som använder Azure Kubernetes-tjänsten finns i [Snabbstart: Distribuera ett AKS-kluster (Azure Kubernetes Service).](../../aks/kubernetes-walkthrough.md)
+> Den uppdaterade versionen av den här snabb starten som använder Azure Kubernetes-tjänsten finns i [snabb start: Distribuera ett Azure Kubernetes service-kluster (AKS)](../../aks/kubernetes-walkthrough.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-I den här snabbstarten distribueras ett Kubernetes-kluster med Hjälp av Azure CLI. Därefter distribuerar vi och kör ett flercontainerprogram som består av en webbklientdel och en Redis-instans i klustret. När vi har gjort det kan programmet nås via Internet. 
+I den här snabb starten distribueras ett Kubernetes-kluster med hjälp av Azure CLI. Därefter distribuerar vi och kör ett flercontainerprogram som består av en webbklientdel och en Redis-instans i klustret. När vi har gjort det kan programmet nås via Internet. 
 
 Exempelprogrammet som används i det här dokumentet är skrivet i Python. Begreppen och anvisningarna här kan användas för att distribuera valfri containeravbildning till ett Kubernetes-kluster. Koden, Dockerfile, och befintliga Kubernetes-manifestfiler som hör till projektet, finns på [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git).
 
@@ -192,7 +192,7 @@ Du kan övervaka förloppet genom att använda kommandot [kubectl get service](h
 kubectl get service azure-vote-front --watch
 ```
 
-Inledningsvis visas **EXTERNAL-IP** för *azure-vote-front-tjänsten* som *väntande*. När EXTERNAL-IP-adressen har ändrats från *pending* till en *IP-adress* använder du `CTRL-C` för att stoppa kubectl-övervakningsprocessen. 
+Den **externa IP-adressen** för *Azure-röst-front-* tjänsten visas som *väntande*. När EXTERNAL-IP-adressen har ändrats från *pending* till en *IP-adress* använder du `CTRL-C` för att stoppa kubectl-övervakningsprocessen. 
   
 ```output
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s

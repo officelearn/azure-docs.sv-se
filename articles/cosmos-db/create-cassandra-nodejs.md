@@ -9,13 +9,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.openlocfilehash: ffc2681e487a51ce630d9433d6ded86961b5276c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77210385"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra-app med Node.js SDK och Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Snabb start: Bygg en Cassandra-app med Node. js SDK och Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -24,7 +24,7 @@ ms.locfileid: "77210385"
 > * [Python](create-cassandra-python.md)
 >  
 
-I den här snabbstarten skapar du ett Azure Cosmos DB Cassandra API-konto och använder en Cassandra Node.js-app som klonats från GitHub för att skapa en Cassandra-databas och behållare. Azure Cosmos DB är en databastjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckelvärde- och diagramdatabaser med globala distributions- och vågräta skalfunktioner.
+I den här snabb starten skapar du ett Azure Cosmos DB API för Cassandra konto och använder en Cassandra Node. js-app som klonas från GitHub för att skapa en Cassandra-databas och-behållare. Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -166,7 +166,7 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 
 Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen. Anslutningssträngen gör det möjligt för appen att kommunicera med den värdbaserade databasen.
 
-1. Välj **Anslutningssträng**i ditt Azure Cosmos DB-konto i [Azure-portalen](https://portal.azure.com/). 
+1. Välj **anslutnings sträng**i Azure Cosmos DB-kontot i [Azure Portal](https://portal.azure.com/). 
 
     Använd ![Knappen Kopiera](./media/create-cassandra-nodejs/copy.png) knappen på höger sida av skärmen för att kopiera det övre värdet, KONTAKTPUNKT.
 
@@ -196,7 +196,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
     
 ## <a name="use-the-x509-certificate"></a>Använda X509-certifikatet
 
-1. Ladda ner Baltimore CyberTrust Root-certifikatet lokalt från [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Byt namn på filen med filnamnstillägget `.cer`.
+1. Hämta Baltimore CyberTrust Root Certificate lokalt från [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Byt namn på filen med filnamnstillägget `.cer`.
 
    Certifikatet har serienummer `02:00:00:b9` och SHA1-fingeravtryck `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
@@ -205,30 +205,30 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 3. Spara `uprofile.js`.
 
 > [!NOTE]
-> Om det uppstår ett certifikatrelaterat fel i de senare stegen och körs på en Windows-dator kontrollerar du att du har följt processen för korrekt konvertering av en CRT-fil till Microsoft .cer-formatet nedan.
+> Om du får ett certifikat relaterat fel i de senare stegen och körs på en Windows-dator, måste du kontrol lera att du har följt processen för att konvertera en. CRT-fil korrekt till Microsoft. cer-formatet nedan.
 > 
-> Dubbelklicka på CRT-filen för att öppna den i certifikatvisningen. 
+> Dubbelklicka på. CRT-filen för att öppna den i certifikat visningen. 
 >
 > ![Visa och verifiera utdata](./media/create-cassandra-nodejs/crtcer1.gif)
 >
-> Tryck på Nästa i certifikatguiden. Välj Base-64 kodad X.509 (. CER), sedan Nästa.
+> Klicka på nästa i certifikat guiden. Välj Base-64-kodad X. 509 (. CER) och nästa.
 >
 > ![Visa och verifiera utdata](./media/create-cassandra-nodejs/crtcer2.gif)
 >
-> Välj Bläddra (om du vill hitta ett mål) och skriv in ett filnamn.
-> Välj Nästa och avslutas sedan.
+> Välj Bläddra (för att hitta ett mål) och ange ett fil namn.
+> Välj nästa när du är färdig.
 >
-> Du bör nu ha en korrekt formaterad .cer-fil. Kontrollera att sökvägen pekar på `uprofile.js` den här filen.
+> Nu bör du ha en korrekt formaterad. cer-fil. Se till att sökvägen i `uprofile.js` pekar på den här filen.
 
 ## <a name="run-the-nodejs-app"></a>Köra Node.js-appen
 
-1. Kontrollera att du är i exempelkatalogen som du klonade tidigare i git-terminalfönstret:
+1. I git-terminalfönstret kontrollerar du att du är i den exempel katalog som du har klonat tidigare:
 
     ```bash
     cd azure-cosmos-db-cassandra-nodejs-getting-started
     ```
 
-2. Kör `npm install` för att installera de npm-moduler som krävs.
+2. Kör `npm install` för att installera de NPM-moduler som krävs.
 
 3. Kör `node uprofile.js` för att starta nodprogrammet.
 
@@ -236,7 +236,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
     ![Visa och verifiera utdata](./media/create-cassandra-nodejs/output.png)
 
-    Tryck på CTRL+C för att stoppa körningen av programmet och stänga konsolfönstret. 
+    Tryck på CTRL + C för att stoppa körningen av programmet och stänga konsol fönstret. 
 
 5. I **Datautforskaren** på Azure-portalen kan du fråga, ändra och arbeta med dessa nya data. 
 
@@ -252,7 +252,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten lärde du dig hur du skapar ett Azure Cosmos DB-konto med Cassandra API och kör en Cassandra Node.js-app som skapar en Cassandra-databas och behållare. Du kan nu importera ytterligare data till ditt Azure Cosmos DB-konto. 
+I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos DB-konto med API för Cassandra och kör en Cassandra Node. js-app som skapar en Cassandra-databas och-behållare. Nu kan du importera ytterligare data till ditt Azure Cosmos DB-konto. 
 
 > [!div class="nextstepaction"]
 > [Importera Cassandra-data till Azure Cosmos DB](cassandra-import-data.md)

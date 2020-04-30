@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Använda Azure Cache för Redis med .NET Core-appar'
+title: 'Snabb start: Använd Azure cache för Redis med .NET Core-appar'
 description: I den här snabbstarten lär du dig att få tillgång till Azure Cache for Redis i dina .NET Core-appar
 author: yegu-ms
 ms.author: yegu
@@ -9,21 +9,21 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.openlocfilehash: d723ffc4e94dcdcb63d74d65c55288015931adad
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75413060"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Snabbstart: Använda Azure Cache för Redis med en .NET Core-app
+# <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Snabb start: Använd Azure cache för Redis med en .NET Core-app
 
-I den här snabbstarten införlivar du Azure Cache för Redis i en .NET Core-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure. Du använder specifikt [StackExchange.Redis-klienten](https://github.com/StackExchange/StackExchange.Redis) med C#-kod i en .NET Core-konsolapp.
+I den här snabb starten införlivar du Azure cache för Redis i en .NET Core-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure. Du använder särskilt [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) -klienten med C#-kod i en .net Core-konsolprogram.
 
 ## <a name="prerequisites"></a>Krav
 
-- Azure-prenumeration - [skapa en gratis](https://azure.microsoft.com/free/)
+- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
-- [.NET Framework 4 eller senare](https://www.microsoft.com/net/download/dotnet-framework-runtime), vilket krävs av StackEdchange.Redis-klienten.
+- [.NET Framework 4 eller högre](https://www.microsoft.com/net/download/dotnet-framework-runtime), vilket krävs av klienten StackEdchange. Redis.
 
 ## <a name="create-a-cache"></a>Skapa en cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]

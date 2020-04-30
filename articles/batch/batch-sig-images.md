@@ -4,10 +4,10 @@ description: Skapa en batch-pool med det delade avbildnings galleriet för att e
 ms.topic: article
 ms.date: 08/28/2019
 ms.openlocfilehash: 45f721dbdf11e0a6f58da71c644acf687dfadd49
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116527"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Använd det delade avbildnings galleriet för att skapa en anpassad pool
@@ -134,7 +134,7 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
 
 Använd följande steg för att skapa en pool från en delad avbildning i Azure Portal.
 
-1. Öppna [Azure-portalen](https://portal.azure.com).
+1. Öppna [Azure Portal](https://portal.azure.com).
 1. Gå till **batch-konton** och välj ditt konto.
 1. Välj **pooler** och **Lägg** sedan till för att skapa en ny pool.
 1. I avsnittet **avbildnings typ** väljer du **delat avbildnings Galleri**.

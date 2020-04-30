@@ -8,10 +8,10 @@ ms.date: 04/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b1c755176a62b7e362707da093a899ae96cfe69a
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82128876"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?

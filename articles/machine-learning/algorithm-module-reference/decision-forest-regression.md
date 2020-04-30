@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: bb7ebee67d65ab37dc037437b7c35d8c19c53096
-ms.sourcegitcommit: 1ed0230c48656d0e5c72a502bfb4f53b8a774ef1
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82137033"
 ---
 # <a name="decision-forest-regression-module"></a>Besluts skogs Regressions modul
@@ -24,7 +24,7 @@ Använd den här modulen för att skapa en Regressions modell som baseras på en
 
 När du har konfigurerat modellen måste du träna modellen med hjälp av en etikettad data uppsättning och modulen [träna modell](./train-model.md) . Den tränade modellen kan sedan användas för att göra förutsägelser. 
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 Besluts träd är icke-parameter modeller som utför en sekvens med enkla tester för varje instans, och som påbörjar en binär träd data struktur tills en lövnod (beslut) har nåtts.
 

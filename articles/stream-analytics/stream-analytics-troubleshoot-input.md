@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.custom: seodec18
 ms.openlocfilehash: 68fe7da136d744e1efa76a89061afe6995a75051
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133260"
 ---
 # <a name="troubleshoot-input-connections"></a>Felsöka indataanslutningar
@@ -62,7 +62,7 @@ Felet som visas när antalet mottagare överskrider det högsta värdet är:
 
 Följ dessa steg om du vill lägga till en ny konsument grupp i Event Hubs-instansen:
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 
 2. Leta upp Händelsehubben.
 

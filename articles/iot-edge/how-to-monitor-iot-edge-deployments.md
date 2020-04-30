@@ -10,13 +10,13 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: cc7c1fd1dff85908c96e2fd7b2276df3d833e37f
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82134317"
 ---
-# <a name="monitor-iot-edge-deployments"></a>Övervaka IoT Edge distributioner
+# <a name="monitor-iot-edge-deployments"></a>Övervaka IoT Edge-distributioner
 
 Azure IoT Edge ger rapporter som gör att du kan övervaka real tids information i de moduler som distribueras till dina IoT Edge-enheter. Tjänsten IoT Hub hämtar status från enheterna och gör dem tillgängliga för operatören. Övervakning är också viktigt för [distributioner som görs i skala](module-deployment-monitoring.md) , inklusive automatiska distributioner och lager distributioner.
 

@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.openlocfilehash: b169a067f05de422b714e18a4d7ebb9c9e7f0428
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133506"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Jämförelse av Azure Stream Analyticss funktion
@@ -29,22 +29,22 @@ Med Azure Stream Analytics kan du skapa strömmande lösningar i molnet och på 
 |Skript redigering     |Ja         |Ja         |Ja         |
 |IntelliSense för skript     |Markering av syntax         |Markering av syntax</br>Kod komplettering</br>Fel markör         |Markering av syntax</br>Kod komplettering</br>Fel markör         |
 |Definiera alla typer av indata, utdata och jobb konfiguration     |Ja         |Ja         |Ja         |
-|Källkontroll     |Inga         |Ja         |Ja         |
+|Källkontroll     |Nej         |Ja         |Ja         |
 |CI/CD-stöd     |Delvis         |Ja         |Ja         |
-|Dela indata och utdata över flera frågor     |Inga         |Ja         |Ja         |
+|Dela indata och utdata över flera frågor     |Nej         |Ja         |Ja         |
 |Fråga testning med en exempel fil     |Ja         |Ja        |Ja         |
-|Lokal testning av Live data     |Inga         |Ja       |Ja      |
+|Lokal testning av Live data     |Nej         |Ja       |Ja      |
 |Visa lista över jobb och Visa jobb enheter     |Ja         |Ja        |Ja         |
-|Exportera ett jobb till ett lokalt projekt     |Inga         |Ja         |Ja         |
+|Exportera ett jobb till ett lokalt projekt     |Nej         |Ja         |Ja         |
 |Skicka, starta och stoppa jobb     |Ja         |Ja         |Ja         |
 |Visa jobb mått och diagram     |Ja         |Ja         |Öppna i portalen         |
-|Visa jobb körnings fel     |Ja         |Ja         |Inga         |
-|Resursloggar     |Ja         |Inga         |Inga         |
-|Egenskaper för anpassat meddelande     |Ja         |Ja         |Inga       |
-|Anpassad kod funktion i C# och deserialiserare|Skrivskyddat läge|Ja|Inga|
+|Visa jobb körnings fel     |Ja         |Ja         |Nej         |
+|Resursloggar     |Ja         |Nej         |Nej         |
+|Egenskaper för anpassat meddelande     |Ja         |Ja         |Nej       |
+|Anpassad kod funktion i C# och deserialiserare|Skrivskyddat läge|Ja|Nej|
 |JavaScript UDF och UDA     |Ja         |Ja         |Endast Windows         |
-|Machine Learning Service     |Ja        |Ja         |Inga         |
-|Machine Learning Studio     |Ja, men det går inte att testa frågan        |Ja |Inga         |
+|Machine Learning Service     |Ja        |Ja         |Nej         |
+|Machine Learning Studio     |Ja, men det går inte att testa frågan        |Ja |Nej         |
 |Efterlevnadsnivå     |1.0</br>1.1</br>1,2 (standard)         |1.0</br>1.1</br>1,2 (standard)           |1.0</br>1.1</br>1,2 (standard)           |
 |Inbyggda ML-baserade avvikelse identifierings funktioner     |Ja         |Ja         |Ja         |
 |Inbyggda GeoSpatiala funktioner     |Ja         |Ja         |Ja         |
@@ -55,17 +55,17 @@ Med Azure Stream Analytics kan du skapa strömmande lösningar i molnet och på 
 
 |Funktion  |Portalen  |Visual Studio  |Visual Studio-koden  |
 |---------|---------|---------|---------|
-|Jobb redigering     |Ja         |Ja         |Inga         |
-|Källkontroll     |Inga         |Ja         |Inga         |
-|Exportera ett jobb till ett lokalt projekt     |Inga         |Ja         |Inga         |
-|Fråga testning med en exempel fil     |Ja         |Ja         |Inga         |
-|Dela indata och utdata över flera frågor     |Inga         |Ja         |Inga         |
-|UDF för C#     |Inga         |Ja         |Inga         |
-|Skicka jobb     |Ja         |Ja         |Inga         |
-|Visa lista över jobb och Visa jobb enheter     |Ja         |Ja         |Inga         |
-|Visa jobb mått och diagram     |Ja         |Delvis         |Inga         |
-|Visa jobb körnings fel     |Ja         |Delvis         |Inga         |
-|CI/CD-stöd     |Inga         |Inga         |Inga         |
+|Jobb redigering     |Ja         |Ja         |Nej         |
+|Källkontroll     |Nej         |Ja         |Nej         |
+|Exportera ett jobb till ett lokalt projekt     |Nej         |Ja         |Nej         |
+|Fråga testning med en exempel fil     |Ja         |Ja         |Nej         |
+|Dela indata och utdata över flera frågor     |Nej         |Ja         |Nej         |
+|UDF för C#     |Nej         |Ja         |Nej         |
+|Skicka jobb     |Ja         |Ja         |Nej         |
+|Visa lista över jobb och Visa jobb enheter     |Ja         |Ja         |Nej         |
+|Visa jobb mått och diagram     |Ja         |Delvis         |Nej         |
+|Visa jobb körnings fel     |Ja         |Delvis         |Nej         |
+|CI/CD-stöd     |Nej         |Nej         |Nej         |
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: aschhab
 ms.openlocfilehash: a4bc2dcfd1826623516a40be0aff7688d0b6168c
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82116697"
 ---
 # <a name="message-sessions"></a>Meddelandesessioner
@@ -89,7 +89,7 @@ Definitionen av leverans antal per meddelande i samband med sessioner skiljer si
 | Scenario | Är meddelandets leverans antal ökas |
 |----------|---------------------------------------------|
 | Sessionen godkänns, men sessions låset upphör att gälla (på grund av tids gräns) | Ja |
-| Sessionen godkänns, meddelandena i sessionen slutförs inte (även om de är låsta) och sessionen stängs | Inga |
+| Sessionen godkänns, meddelandena i sessionen slutförs inte (även om de är låsta) och sessionen stängs | Nej |
 | Sessionen godkänns, meddelanden slutförs och sedan stängs sessionen explicit | Ej tillämpligt (det är standard flödet. Meddelanden tas bort från sessionen) |
 
 ## <a name="request-response-pattern"></a>Mönster för begäran-svar

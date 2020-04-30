@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
 ms.openlocfilehash: 1fb30cc0634224213dc9a188a16902e07d379904
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82127777"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Välj en domän för ett Custom Vision-projekt
@@ -28,7 +28,7 @@ Från bladet inställningar för ditt Custom Vision-projekt kan du välja en dom
 |__Allmänna__| Optimerad för ett brett utbud av bild klassificerings aktiviteter. Om ingen av de andra domänerna är lämpliga, eller om du är osäker på vilken domän du väljer, väljer du den allmänna domänen.|
 |__Kost__|Optimerad för foton av rätter på samma sätt som du ser dem på en restaurang meny. Om du vill klassificera fotografier av enskilda frukter eller grönsaker använder du livsmedels domänen.|
 |__Landmärken__|Optimerad för identifierbara landmärken, både naturliga och artificiella. Den här domänen fungerar bäst när landmärket är tydligt synligt i fotografiet. Den här domänen fungerar även om landmärken är något som är något som står framför det.|
-|__Detaljhandeln__|Optimerad för avbildningar som finns i en shopping katalog eller shopping webbplats. Om du vill att hög precision ska klassificeras mellan dresses, Pants och skjortor använder du den här domänen.|
+|__Återförsäljning__|Optimerad för avbildningar som finns i en shopping katalog eller shopping webbplats. Om du vill att hög precision ska klassificeras mellan dresses, Pants och skjortor använder du den här domänen.|
 |__Komprimerade domäner__| Optimerad för begränsningar i real tids klassificering av gräns enheter.|
 
 ## <a name="object-detection"></a>Objektidentifiering
@@ -47,7 +47,7 @@ Modeller som genereras av komprimerade domäner kan exporteras för att köras l
 > [!NOTE]
 > De här talen omfattar inte förbehandling och postprocessing tid.
 
-|Aktivitet|Domain|Modell storlek|CPU-härlednings tid|GPU-härlednings tid|
+|Uppgift|Domain|Modell storlek|CPU-härlednings tid|GPU-härlednings tid|
 |---|---|---|---|---|
 |Klassificering|Allmän (kompakt)|5 MB|13 MS|5 MS|
 |Objektidentifiering|Allmän (kompakt)|45 MB|35 MS|5 MS|

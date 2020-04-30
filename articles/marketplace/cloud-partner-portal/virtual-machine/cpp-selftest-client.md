@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: dsindona
 ms.openlocfilehash: 9f16d26fa95254282e453cd7bf35d85f8b81ed73
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82143199"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Skapa en självtest-klient för att förverifiera en avbildning av en virtuell Azure-dator
@@ -70,7 +70,7 @@ I följande tabell beskrivs API-fälten.
 |  Auktorisering     |  Strängen "Bearer xxxx-xxxx-xxxx-xxxxx" innehåller den Azure Active Directory (AD)-klient-token som kan skapas med hjälp av PowerShell.          |
 |  DNSName           |  DNS-namnet på den virtuella dator som ska testas    |
 |  Användare              |  Användar namn för att logga in på den virtuella datorn         |
-|  lösenord          |  Lösen ord för att logga in på den virtuella datorn          |
+|  lösenordsinställning          |  Lösen ord för att logga in på den virtuella datorn          |
 |  Operativsystem                |  Operativ systemet på den virtuella datorn: `Linux` antingen eller`Windows`          |
 |  PortNo            |  Öppna port nummer för att ansluta till den virtuella datorn. Port numret är vanligt vis `22` för Linux och `5986` för Windows.          |
 |  |  |
@@ -272,7 +272,7 @@ Använd följande steg för att registrera klient programmet.
     ![Aktivera API-åtkomst för appen](./media/stclient-enable-api-access.png)
 
 14. Klicka på **Välj**.
-15. Välj **Done** (Klar).
+15. Välj **Klar**.
 16. Under **Inställningar** väljer du **Egenskaper**.
 17. Rulla ned till **flera klienter**under **Egenskaper**. Välj **Ja**.
 

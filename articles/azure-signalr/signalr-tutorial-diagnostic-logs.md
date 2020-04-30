@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
 ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82130997"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Resurs loggar för Azure SignalR service
@@ -27,7 +27,7 @@ Om du vill aktivera resurs loggar måste du lagra dina loggdata någonstans. I d
 
 Du kan visa resurs loggar för Azure SignalR-tjänsten. Dessa loggar ger en mer omfattande vy över anslutningen till din Azure SignalR-tjänstinstans. Resurs loggarna innehåller detaljerad information om varje anslutning. Till exempel grundläggande information (användar-ID, anslutnings-ID och transport typ och så vidare) och händelse information (Anslut, koppla från och Avbryt händelse och så vidare) för anslutningen. resurs loggar kan användas för problem identifiering, anslutnings spårning och analys.
 
-### <a name="enable-resource-logs"></a>Aktivera resurs loggar
+### <a name="enable-resource-logs"></a>Aktivera resursloggar
 
 Resurs loggar är inaktiverade som standard. Följ dessa steg om du vill aktivera resurs loggar:
 
@@ -68,7 +68,7 @@ Arkiv loggens JSON-strängar innehåller element som anges i följande tabeller:
 
 **Formatering**
 
-Namn | Beskrivning
+Name | Beskrivning
 ------- | -------
 time | Händelse tid för logg
 nivå | Logga händelse nivå
@@ -81,7 +81,7 @@ properties | Detaljerade egenskaper relaterade till den här logg händelsen. Me
 
 **Egenskaps tabell**
 
-Namn | Beskrivning
+Name | Beskrivning
 ------- | -------
 typ | Typ av logg händelse. För närvarande ger vi information om anslutningen till Azure SignalR-tjänsten. Endast `ConnectivityLogs` typen är tillgänglig
 samling | Samling av logg händelsen. Tillåtna värden är: `Connection` `Authorization` och`Throttling`
@@ -128,12 +128,12 @@ Följ dessa steg om du vill visa resurs loggar:
 
 Arkivera logg kolumner innehåller element som anges i följande tabell:
 
-Namn | Beskrivning
+Name | Beskrivning
 ------- | ------- 
 TimeGenerated | Händelse tid för logg
 Samling | Samling av logg händelsen. Tillåtna värden är: `Connection` `Authorization` och`Throttling`
 OperationName | Åtgärds namn för händelsen
-Location | Plats för Azure SignalR-tjänsten
+Plats | Plats för Azure SignalR-tjänsten
 Nivå | Logga händelse nivå
 CallerIpAddress | IP-adress för servern/klienten
 Meddelande | Detaljerat meddelande om logg händelse

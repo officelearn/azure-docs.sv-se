@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: labrenne
 ms.openlocfilehash: 674ee6c5b96c7aaf2926b51824488d03fc56d0a6
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115966"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Använd RDMA-eller GPU-instanser i batch-pooler
@@ -101,12 +101,12 @@ Om du vill köra CUDA-program på en pool med Windows NC-noder måste du install
 | Inställning | Värde |
 | ---- | ----- | 
 | **Avbildningstyp** | Marketplace (Linux/Windows) |
-| **Förläggare** | MicrosoftWindowsServer |
+| **Utgivare** | MicrosoftWindowsServer |
 | **Erbjudande** | WindowsServer |
 | **SKU** | 2016 – Data Center |
 | **Node-storlek** | FÖR nc6 standard |
 | **Referenser för programpaket** | GPUDriver, version 411,82 |
-| **Starta uppgift aktive rad** | True<br>**Kommando rad** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Användare identitet** -pool-autouser, admin<br/>**Vänta på framgång** – sant
+| **Starta uppgift aktive rad** | Sant<br>**Kommando rad** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Användare identitet** -pool-autouser, admin<br/>**Vänta på framgång** – sant
 
 ## <a name="example-nvidia-gpu-drivers-on-a-linux-nc-vm-pool"></a>Exempel: NVIDIA GPU-drivrutiner i en Linux NC VM-pool
 
@@ -143,7 +143,7 @@ Om du vill köra Windows MPI-program på en pool med virtuella Azure H16r-noder 
 | **Anpassad bild** | *Namn på avbildningen* |
 | **Node agent-SKU** | batch. Node. Windows amd64 |
 | **Node-storlek** | H16r standard |
-| **Kommunikation mellan noder är aktiverat** | True |
+| **Kommunikation mellan noder är aktiverat** | Sant |
 | **Maximalt antal aktiviteter per nod** | 1 |
 
 ## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>Exempel: Intel MPI på en Linux H16r VM-pool
@@ -155,11 +155,11 @@ Med hjälp av batch-API: erna eller Azure Portal skapar du en pool med hjälp av
 | Inställning | Värde |
 | ---- | ---- |
 | **Avbildningstyp** | Marketplace (Linux/Windows) |
-| **Förläggare** | OpenLogic |
+| **Utgivare** | OpenLogic |
 | **Erbjudande** | CentOS – HPC |
 | **SKU** | 7.4 |
 | **Node-storlek** | H16r standard |
-| **Kommunikation mellan noder är aktiverat** | True |
+| **Kommunikation mellan noder är aktiverat** | Sant |
 | **Maximalt antal aktiviteter per nod** | 1 |
 
 ## <a name="next-steps"></a>Nästa steg

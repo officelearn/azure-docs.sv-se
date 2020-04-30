@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
 ms.openlocfilehash: 495d0bce905a980f840527f4cc8cd9e2116e3e66
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133754"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Slut punkts principer för virtuella nätverks tjänster för Azure Storage
@@ -141,7 +141,7 @@ Följande begränsningar tillämpas på tjänstslutpunktsprinciper:
  |ServiceEndpintPoliciesPerSubnet|100 |
  |ServiceResourcesPerServiceEndpointPolicyDefinition|200 |
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Lär dig [hur du konfigurerar principer för tjänstslutpunkt för virtuellt nätverk](virtual-network-service-endpoint-policies-portal.md)
 - Läs mer om [tjänst slut punkter för virtuella nätverk](virtual-network-service-endpoints-overview.md)

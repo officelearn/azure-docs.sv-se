@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
 ms.openlocfilehash: b4a3aa4e92fcabf354de7d550ec53ead5872596d
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82144784"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Fliken Marketplace för IoT Edge modulen
@@ -32,7 +32,7 @@ I följande tabell beskrivs syftet med och innehållet i dessa fält. Obligatori
 
 |  **Field**                |     **Beskrivning**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Titel\***                 | Rubriken på erbjudandet. Den visas på ett framträdande sätt i Marketplace.  Maximal längd på 50 tecken. <!--ADD PICTURE IN ACTION-->|
+| **Avdelning\***                 | Rubriken på erbjudandet. Den visas på ett framträdande sätt i Marketplace.  Maximal längd på 50 tecken. <!--ADD PICTURE IN ACTION-->|
 | **Sammanfattning\***               | Kort sammanfattning av erbjudandet. Maximal längd på 100 tecken. <!--ADD PICTURE IN ACTION-->|
 | **Lång Sammanfattning\***          | Längre sammanfattning av erbjudandet (även om det kan vara samma som i **sammanfattningen**).  Maximal längd på 256 tecken. <!--ADD PICTURE IN ACTION-->|
 | **Beskrivning\***           | Beskrivning av erbjudandet.  Den maximala längden på 3000 tecken, stöder enkel HTML-formatering.<br/> Det måste innehålla ett stycke med *minsta maskin varu krav* längst ned. exempel: <br/> <p><u>Minsta maskin varu krav:</u> Linux x64 och ARM32 OS, 1 GB RAM, 500 MB lagrings utrymme</p>
@@ -169,7 +169,7 @@ I det här avsnittet kan du ange de två juridiska dokument som krävs för varj
 |  ---------                    |     ---------------                                                          |
 | **URL för sekretess policy\***      | URL till din publicerade sekretess policy                                            |
 | **Använd standard Constract\***  | Om standard mal len för Microsoft-kontrakt ska användas.  Mer information finns i [standard kontrakt](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
-| **Användningsvillkor\***            | *Användningsvillkor* som infogad enkel HTML eller länka till dina publicerade användnings villkors sidor     |
+| **Villkor för användning\***            | *Användningsvillkor* som infogad enkel HTML eller länka till dina publicerade användnings villkors sidor     |
 |  |  |
 
 

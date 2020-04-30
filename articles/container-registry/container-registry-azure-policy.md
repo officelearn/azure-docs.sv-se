@@ -4,10 +4,10 @@ description: Tilldela inbyggda principer i Azure Policy för att granska kompati
 ms.topic: article
 ms.date: 02/26/2020
 ms.openlocfilehash: a2bfdc18f4bbf16fe8fa6bcbcba7bab18aedabf1
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82145009"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Granska kompatibilitet för Azure Container register med hjälp av Azure Policy
@@ -19,7 +19,7 @@ I den här artikeln beskrivs inbyggda principer (för hands version) för Azure 
 Det kostar inget att använda Azure Policy.
 
 > [!IMPORTANT]
-> Den här funktionen är för närvarande en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Den här funktionen finns för närvarande som en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
 ## <a name="built-in-policy-definitions"></a>Inbyggda princip definitioner
 

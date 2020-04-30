@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
 ms.openlocfilehash: 9db01941c21dbd26d149f3623319557e4c625350
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82141800"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Fliken information för Power BI butik-app
@@ -70,7 +70,7 @@ Använd följande tabell för att fylla i fälten i det här avsnittet. Obligato
 | **Erbjudande logo typ (PNG-format, 216x216)\*** | Ladda upp en logo typ som ska visas på appens informations sida.  AppSource stöder endast PNG-format, med en upplösning på 216 x 216 BPT.  |
 | *Videor*                             |                                                                   |
 | **Namn**                             | Ange appens namn eller rubrik.                                          |
-| **URL**                              | Ange URL: en för en video som finns på YouTube eller Vimeo.                              |
+| **ADRESSER**                              | Ange URL: en för en video som finns på YouTube eller Vimeo.                              |
 | **Miniatyr**                        | Lägg till en miniatyr bild av appen.  AppSource stöder endast PNG-format, med en upplösning på 1280 x 720 BPT.   |
 | *Dokument*                          | Lägg till upp till tre dokument som ska visas på AppSource under rubriken **Läs mer** .  |
 | **Namn**                             | Ange ett stöd dokuments namn eller rubrik.                              |
@@ -97,7 +97,7 @@ Använd följande tabell för att fylla i fälten i det här avsnittet:
 |   Field                |   Beskrivning                           |
 |------------------------|--------------------------------------   |
 | **URL för sekretess policy\*** | URL för din publicerade sekretess policy       |
-| **Användningsvillkor\***       | Din användnings princip, formaterad som oformaterad text eller enkel HTML     |
+| **Villkor för användning\***       | Din användnings princip, formaterad som oformaterad text eller enkel HTML     |
 |  |  |
 
 
@@ -112,7 +112,7 @@ I avsnittet **ledar hantering** ställer du in ditt system för att samla in kun
 
 |    Field               |   Lead-mål                               |
 |------------------------|--------------------------------------            |
-|  **Inget**              | Samla inga leads. Detta är standard alternativet.  |
+|  **Inga**              | Samla inga leads. Detta är standard alternativet.  |
 | **Azure-Blob (inaktuell)** | Ange [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) med hjälp av ett behållar namn och en anslutnings sträng.  Det här alternativet är föråldrat. Använd **Azure-tabellen** i stället.  |
 | **Azure-tabell**        | Ange [Azure Table Storage](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) med hjälp av en anslutnings sträng.  |
 | **Dynamics CRM Online** | Ange [Dynamics 365](https://dynamics.microsoft.com/) genom att använda en URL och autentiseringsuppgifter för autentisering. |

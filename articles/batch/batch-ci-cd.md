@@ -6,10 +6,10 @@ ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: conceptual
 ms.openlocfilehash: 79c4e74086acc0f74bcc43f6b4543afe12916364
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82117394"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Använd Azure-pipelines för att bygga och distribuera HPC-lösningar
@@ -24,7 +24,7 @@ I det här exemplet ska vi skapa en pipeline för build och release för att dis
 
 ![Diagram över distributions flödet i vår pipeline](media/batch-ci-cd/DeploymentFlow.png)
 
-### <a name="setup"></a>Setup
+### <a name="setup"></a>Installation
 
 För att följa stegen i den här artikeln behöver du en Azure DevOps-organisation och ett grup projekt.
 

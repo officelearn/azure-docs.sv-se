@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: dsindona
 ms.openlocfilehash: ddedc15b41b2b163f85f5443275daf9fbb56bac8
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82143036"
 ---
 # <a name="power-bi-apps-offer-settings-tab"></a>Fliken Inställningar för att erbjuda Power BI appar
@@ -31,7 +31,7 @@ På fliken **erbjudande inställningar** måste du ange information i följande 
 |  Field        |  Beskrivning                                                               |
 |---------------|----------------------------------------------------------------------------|
 | **Erbjudande-ID\***  | En unik identifierare (inom en utgivar profil) för erbjudandet. Den här identifieraren visas i produkt-URL: er, Azure Resource Manager mallar och fakturerings rapporter. Den maximala längden är 50 tecken. Det får bara innehålla gemena alfanumeriska tecken och bindestreck (-). Det får inte sluta med ett bindestreck. Den här identifieraren kan inte ändras när ett erbjudande går live. Om contoso publicerar ett erbjudande med erbjudande-ID `sample-SvcApp`, tilldelas erbjudandet APPSOURCE-URL `https://appsource.microsoft.com/marketplace/apps/contoso.sample-SvcApp`.      |
-| **Förläggare\*** | Organisationens unika identifierare i [AppSource](https://appsource.microsoft.com). Alla dina erbjudanden bör associeras med ditt utgivar-ID. Det här värdet kan inte ändras när erbjudandet har sparats.                         |
+| **Utgivare\*** | Organisationens unika identifierare i [AppSource](https://appsource.microsoft.com). Alla dina erbjudanden bör associeras med ditt utgivar-ID. Det här värdet kan inte ändras när erbjudandet har sparats.                         |
 | **Name\***      | Ett visnings namn för ditt erbjudande. Det här namnet kommer att visas på AppSource och på Cloud Partner Portal. Den maximala längden är 50 tecken. Använd ett varumärkes namn som är igenkännligt för din produkt. Ta inte med din organisations namn här om inte appen marknadsförs med det namnet. Om du ger det här erbjudandet på andra webbplatser och publikationer, använder du samma namn i alla publikationer.    <br/>Om du släpper ett erbjudande under för hands versions perioden för Power BI appar lägger du `(Preview)` till strängen i slutet av programmets namn, så här: `Sample Scv App (Preview)`. |
 |     |     |
 

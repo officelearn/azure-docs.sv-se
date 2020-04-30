@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.openlocfilehash: 5c5da26935e489a1b9489f63b83af176921c3a5a
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82133810"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Azure Stream Analytics data fel
@@ -48,7 +48,7 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 * Logg information
    * Meddelande-ID för indatamängd. För Event Hub är identifieraren PartitionId, offset och Sequence Number.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "BriefMessage": "Unable to decompress events from resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt'. Please ensure compression setting fits the data being processed."
@@ -64,7 +64,7 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
    * Meddelande-ID för indatamängd. 
    * Faktisk nytto Last upp till några kilobyte.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "BriefMessage": "Invalid CSV Header for resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt'. Please make sure there are no duplicate field names."
@@ -81,7 +81,7 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
    * Namnen på kolumnerna som saknas. 
    * Faktisk nytto Last upp till några kilobyte.
 
-**Fel meddelanden**
+**Felmeddelanden**
 
 ```json
 "BriefMessage": "Could not deserialize the input event(s) from resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt' as Csv. Some possible reasons: 1) Malformed events 2) Input source configured with incorrect serialization format" 
@@ -101,7 +101,7 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
    * Meddelande-ID för indatamängd. 
    * Namnet på kolumnen och den förväntade typen.
 
-**Fel meddelanden**
+**Felmeddelanden**
 
 ```json
 "BriefMessage": "Could not deserialize the input event(s) from resource '''https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt ' as Csv. Some possible reasons: 1) Malformed events 2) Input source configured with incorrect serialization format" 
@@ -121,7 +121,7 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
    * Meddelande-ID för indatamängd. 
    * Faktisk nytto Last upp till några kilobyte.
 
-**Fel meddelanden**
+**Felmeddelanden**
 
 ```json
 "BriefMessage": "Json input stream should either be an array of objects or line separated objects. Found token type: String"
@@ -142,7 +142,7 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
    * Fel meddelande. 
    * Faktisk nytto Last upp till några kilobyte.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "BriefMessage": "Unable to get timestamp for resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt ' due to error 'Cannot convert string to datetime'"
@@ -157,7 +157,7 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 * Logg information
    * Den faktiska nytto lasten upp till några kilobyte.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "BriefMessage": "Unable to get value of TIMESTAMP BY OVER COLUMN"
@@ -173,7 +173,7 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
    * Tid för program och tid för införsel. 
    * Faktisk nytto Last upp till några kilobyte.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "BriefMessage": "Input event with application timestamp '2019-01-01' and arrival time '2019-01-02' was sent later than configured tolerance."
@@ -189,7 +189,7 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
    * Tid för program och tid för införsel. 
    * Faktisk nytto Last upp till några kilobyte.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "BriefMessage": "Input event arrival time '2019-01-01' is earlier than input event application timestamp '2019-01-02' by more than 5 minutes."
@@ -204,7 +204,7 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 * Logg information
    * Faktisk nytto Last upp till några kilobyte.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "Message": "Out of order event(s) received."
@@ -221,7 +221,7 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 * Logg information
    * Kolumnens namn och antingen post-ID eller del av posten.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "Message": "The output record does not contain primary key property: [deviceId] Ensure the query output contains the column [deviceId] with a unique non-empty string less than '255' characters."
@@ -236,7 +236,7 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 * Logg information
    * Kolumnens namn och antingen post-ID eller del av posten.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "Message": "Invalid property name #deviceIdValue. Please refer MSDN for Azure table property naming convention."
@@ -252,7 +252,7 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
    * Kolumnens namn.
    * Antingen post-ID eller del av posten.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "Message": "The column [id] value null or its type is invalid. Ensure to provide a unique non-empty string less than '255' characters."
@@ -267,7 +267,7 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 * Logg information
    * Antingen post-ID eller del av posten.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "BriefMessage": "Single output event exceeds the maximum message size limit allowed (262144 bytes) by Event Hub."

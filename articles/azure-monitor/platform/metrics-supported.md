@@ -8,10 +8,10 @@ ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
 ms.openlocfilehash: f2e3c03ba599128cc4552f64637ebd63efcb4578
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82128451"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
@@ -99,15 +99,15 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |OtherRequests|Andra gateway-begäranden (inaktuella)|Antal|Totalt|Antal andra gateway-begär Anden – Använd mått för flera dimensions begär Anden med GatewayResponseCodeCategory-dimensionen istället|Plats, värdnamn|
 |Varaktighet|Total varaktighet för gateway-begäranden|Millisekunder|Medel|Total varaktighet för gateway-begäranden i millisekunder|Plats, värdnamn|
 |BackendDuration|Varaktighet för backend-begäranden|Millisekunder|Medel|Varaktighet för backend-begäranden i millisekunder|Plats, värdnamn|
-|Kapacitet|Kapacitet|Procent|Medel|Användnings mått för API Management-tjänsten|Location|
-|EventHubTotalEvents|Totalt antal EventHub-händelser|Antal|Totalt|Antal händelser som skickats till EventHub|Location|
-|EventHubSuccessfulEvents|Lyckade EventHub-händelser|Antal|Totalt|Antal lyckade EventHub-händelser|Location|
-|EventHubTotalFailedEvents|Misslyckade EventHub-händelser|Antal|Totalt|Antal misslyckade EventHub-händelser|Location|
-|EventHubRejectedEvents|Avvisade EventHub-händelser|Antal|Totalt|Antal avvisade EventHub-händelser (felaktig konfiguration eller otillåten)|Location|
-|EventHubThrottledEvents|Begränsade EventHub-händelser|Antal|Totalt|Antal begränsade EventHub-händelser|Location|
-|EventHubTimedoutEvents|Tids gränsen nåddes för EventHub-händelser|Antal|Totalt|Antal inaktuella EventHub-händelser|Location|
-|EventHubDroppedEvents|Ignorerade EventHub-händelser|Antal|Totalt|Antalet händelser som hoppades över på grund av att gränsen för kös Tor lek har uppnåtts|Location|
-|EventHubTotalBytesSent|Storlek på EventHub-händelser|Byte|Totalt|Total storlek för EventHub-händelser i byte|Location|
+|Kapacitet|Kapacitet|Procent|Medel|Användnings mått för API Management-tjänsten|Plats|
+|EventHubTotalEvents|Totalt antal EventHub-händelser|Antal|Totalt|Antal händelser som skickats till EventHub|Plats|
+|EventHubSuccessfulEvents|Lyckade EventHub-händelser|Antal|Totalt|Antal lyckade EventHub-händelser|Plats|
+|EventHubTotalFailedEvents|Misslyckade EventHub-händelser|Antal|Totalt|Antal misslyckade EventHub-händelser|Plats|
+|EventHubRejectedEvents|Avvisade EventHub-händelser|Antal|Totalt|Antal avvisade EventHub-händelser (felaktig konfiguration eller otillåten)|Plats|
+|EventHubThrottledEvents|Begränsade EventHub-händelser|Antal|Totalt|Antal begränsade EventHub-händelser|Plats|
+|EventHubTimedoutEvents|Tids gränsen nåddes för EventHub-händelser|Antal|Totalt|Antal inaktuella EventHub-händelser|Plats|
+|EventHubDroppedEvents|Ignorerade EventHub-händelser|Antal|Totalt|Antalet händelser som hoppades över på grund av att gränsen för kös Tor lek har uppnåtts|Plats|
+|EventHubTotalBytesSent|Storlek på EventHub-händelser|Byte|Totalt|Total storlek för EventHub-händelser i byte|Plats|
 |Begäranden|Begäranden|Antal|Totalt|Mått för gateway-begäran med flera dimensioner|Plats, värdnamn, LastErrorReason, BackendResponseCode, GatewayResponseCode, BackendResponseCodeCategory, GatewayResponseCodeCategory|
 |NetworkConnectivity|Status för resurs för nätverks anslutning (förhands granskning)|Antal|Totalt|Nätverks anslutnings status för beroende resurs typer från API Management-tjänsten|Plats, ResourceType|
 
@@ -163,22 +163,22 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|CoreCount|Dedikerat antal kärnor|Antal|Totalt|Totalt antal dedikerade kärnor i batch-kontot|Ingen|
-|TotalNodeCount|Antal dedikerade noder|Antal|Totalt|Totalt antal dedikerade noder i batch-kontot|Ingen|
-|LowPriorityCoreCount|Antal LowPriority kärnor|Antal|Totalt|Totalt antal låg prioritets kärnor i batch-kontot|Ingen|
-|TotalLowPriorityNodeCount|Antal noder med låg prioritet|Antal|Totalt|Totalt antal noder med låg prioritet i batch-kontot|Ingen|
-|CreatingNodeCount|Antal noder skapas|Antal|Totalt|Antal noder som skapas|Ingen|
-|StartingNodeCount|Antalet noder startas|Antal|Totalt|Antal noder som börjar|Ingen|
-|WaitingForStartTaskNodeCount|Väntar på att starta aktiviteter antal noder|Antal|Totalt|Antal noder som väntar på att start aktiviteten ska slutföras|Ingen|
-|StartTaskFailedNodeCount|Starta aktivitet antal misslyckade noder|Antal|Totalt|Antal noder där start aktiviteten misslyckades|Ingen|
-|IdleNodeCount|Antal inaktiva noder|Antal|Totalt|Antal inaktiva noder|Ingen|
-|OfflineNodeCount|Antal offline-noder|Antal|Totalt|Antal offline-noder|Ingen|
-|RebootingNodeCount|Antalet noder startas om|Antal|Totalt|Antal omstarter av noder|Ingen|
-|ReimagingNodeCount|Antal noder för avbildning|Antal|Totalt|Antal avbildnings noder|Ingen|
-|RunningNodeCount|Antal noder som körs|Antal|Totalt|Antal noder som körs|Ingen|
-|LeavingPoolNodeCount|Antal noder för att lämna pooler|Antal|Totalt|Antal noder som lämnar poolen|Ingen|
-|UnusableNodeCount|Antal noder som inte kan användas|Antal|Totalt|Antal oanvändbara noder|Ingen|
-|PreemptedNodeCount|Antal misslyckade noder|Antal|Totalt|Antal misslyckade noder|Ingen|
+|CoreCount|Dedikerat antal kärnor|Antal|Totalt|Totalt antal dedikerade kärnor i batch-kontot|Inga|
+|TotalNodeCount|Antal dedikerade noder|Antal|Totalt|Totalt antal dedikerade noder i batch-kontot|Inga|
+|LowPriorityCoreCount|Antal LowPriority kärnor|Antal|Totalt|Totalt antal låg prioritets kärnor i batch-kontot|Inga|
+|TotalLowPriorityNodeCount|Antal noder med låg prioritet|Antal|Totalt|Totalt antal noder med låg prioritet i batch-kontot|Inga|
+|CreatingNodeCount|Antal noder skapas|Antal|Totalt|Antal noder som skapas|Inga|
+|StartingNodeCount|Antalet noder startas|Antal|Totalt|Antal noder som börjar|Inga|
+|WaitingForStartTaskNodeCount|Väntar på att starta aktiviteter antal noder|Antal|Totalt|Antal noder som väntar på att start aktiviteten ska slutföras|Inga|
+|StartTaskFailedNodeCount|Starta aktivitet antal misslyckade noder|Antal|Totalt|Antal noder där start aktiviteten misslyckades|Inga|
+|IdleNodeCount|Antal inaktiva noder|Antal|Totalt|Antal inaktiva noder|Inga|
+|OfflineNodeCount|Antal offline-noder|Antal|Totalt|Antal offline-noder|Inga|
+|RebootingNodeCount|Antalet noder startas om|Antal|Totalt|Antal omstarter av noder|Inga|
+|ReimagingNodeCount|Antal noder för avbildning|Antal|Totalt|Antal avbildnings noder|Inga|
+|RunningNodeCount|Antal noder som körs|Antal|Totalt|Antal noder som körs|Inga|
+|LeavingPoolNodeCount|Antal noder för att lämna pooler|Antal|Totalt|Antal noder som lämnar poolen|Inga|
+|UnusableNodeCount|Antal noder som inte kan användas|Antal|Totalt|Antal oanvändbara noder|Inga|
+|PreemptedNodeCount|Antal misslyckade noder|Antal|Totalt|Antal misslyckade noder|Inga|
 |TaskStartEvent|Aktivitetens start händelser|Antal|Totalt|Totalt antal aktiviteter som har startat|poolId, jobId|
 |TaskCompleteEvent|Uppgift slutförda händelser|Antal|Totalt|Totalt antal slutförda uppgifter|poolId, jobId|
 |TaskFailEvent|Aktivitet, misslyckade händelser|Antal|Totalt|Totalt antal uppgifter som har slutförts i felaktigt tillstånd|poolId, jobId|
@@ -262,166 +262,166 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |percentProcessorTime|Processor|Procent|Maximal||ShardId|
 |cacheLatency|Mikrosekunder för cache-fördröjning (för hands version)|Antal|Medel||ShardId|
 |fel|Fel|Antal|Maximal||ShardId,ErrorType|
-|connectedclients0|Anslutna klienter (Shard 0)|Antal|Maximal||Ingen|
-|totalcommandsprocessed0|Totalt antal åtgärder (Shard 0)|Antal|Totalt||Ingen|
-|cachehits0|Cacheträffar (Shard 0)|Antal|Totalt||Ingen|
-|cachemisses0|Cachemissar (Shard 0)|Antal|Totalt||Ingen|
-|getcommands0|Hämtar (Shard 0)|Antal|Totalt||Ingen|
-|setcommands0|Uppsättningar (Shard 0)|Antal|Totalt||Ingen|
-|operationsPerSecond0|Åtgärder per sekund (Shard 0)|Antal|Maximal||Ingen|
-|evictedkeys0|Avlägsnade nycklar (Shard 0)|Antal|Totalt||Ingen|
-|totalkeys0|Totalt antal nycklar (Shard 0)|Antal|Maximal||Ingen|
-|expiredkeys0|Utgångna nycklar (Shard 0)|Antal|Totalt||Ingen|
-|usedmemory0|Använt minne (Shard 0)|Byte|Maximal||Ingen|
-|usedmemoryRss0|Använt minne RSS (Shard 0)|Byte|Maximal||Ingen|
-|serverLoad0|Server belastning (Shard 0)|Procent|Maximal||Ingen|
-|cacheWrite0|Skrivcache (Shard 0)|BytesPerSecond|Maximal||Ingen|
-|cacheRead0|Läsning av cache (Shard 0)|BytesPerSecond|Maximal||Ingen|
-|percentProcessorTime0|PROCESSOR (Shard 0)|Procent|Maximal||Ingen|
-|connectedclients1|Anslutna klienter (Shard 1)|Antal|Maximal||Ingen|
-|totalcommandsprocessed1|Totalt antal åtgärder (Shard 1)|Antal|Totalt||Ingen|
-|cachehits1|Cacheträffar (Shard 1)|Antal|Totalt||Ingen|
-|cachemisses1|Cachemissar (Shard 1)|Antal|Totalt||Ingen|
-|getcommands1|Hämtar (Shard 1)|Antal|Totalt||Ingen|
-|setcommands1|Uppsättningar (Shard 1)|Antal|Totalt||Ingen|
-|operationsPerSecond1|Åtgärder per sekund (Shard 1)|Antal|Maximal||Ingen|
-|evictedkeys1|Avlägsnade nycklar (Shard 1)|Antal|Totalt||Ingen|
-|totalkeys1|Totalt antal nycklar (Shard 1)|Antal|Maximal||Ingen|
-|expiredkeys1|Utgångna nycklar (Shard 1)|Antal|Totalt||Ingen|
-|usedmemory1|Använt minne (Shard 1)|Byte|Maximal||Ingen|
-|usedmemoryRss1|RSS för använt minne (Shard 1)|Byte|Maximal||Ingen|
-|serverLoad1|Server belastning (Shard 1)|Procent|Maximal||Ingen|
-|cacheWrite1|Skrivcache (Shard 1)|BytesPerSecond|Maximal||Ingen|
-|cacheRead1|Läsning av cache (Shard 1)|BytesPerSecond|Maximal||Ingen|
-|percentProcessorTime1|PROCESSOR (Shard 1)|Procent|Maximal||Ingen|
-|connectedclients2|Anslutna klienter (Shard 2)|Antal|Maximal||Ingen|
-|totalcommandsprocessed2|Totalt antal åtgärder (Shard 2)|Antal|Totalt||Ingen|
-|cachehits2|Cacheträffar (Shard 2)|Antal|Totalt||Ingen|
-|cachemisses2|Cachemissar (Shard 2)|Antal|Totalt||Ingen|
-|getcommands2|Hämtar (Shard 2)|Antal|Totalt||Ingen|
-|setcommands2|Uppsättningar (Shard 2)|Antal|Totalt||Ingen|
-|operationsPerSecond2|Åtgärder per sekund (Shard 2)|Antal|Maximal||Ingen|
-|evictedkeys2|Avlägsnade nycklar (Shard 2)|Antal|Totalt||Ingen|
-|totalkeys2|Totalt antal nycklar (Shard 2)|Antal|Maximal||Ingen|
-|expiredkeys2|Utgångna nycklar (Shard 2)|Antal|Totalt||Ingen|
-|usedmemory2|Använt minne (Shard 2)|Byte|Maximal||Ingen|
-|usedmemoryRss2|Använt minne RSS (Shard 2)|Byte|Maximal||Ingen|
-|serverLoad2|Server belastning (Shard 2)|Procent|Maximal||Ingen|
-|cacheWrite2|Skrivcache (Shard 2)|BytesPerSecond|Maximal||Ingen|
-|cacheRead2|Läsning av cache (Shard 2)|BytesPerSecond|Maximal||Ingen|
-|percentProcessorTime2|PROCESSOR (Shard 2)|Procent|Maximal||Ingen|
-|connectedclients3|Anslutna klienter (Shard 3)|Antal|Maximal||Ingen|
-|totalcommandsprocessed3|Totalt antal åtgärder (Shard 3)|Antal|Totalt||Ingen|
-|cachehits3|Cacheträffar (Shard 3)|Antal|Totalt||Ingen|
-|cachemisses3|Cachemissar (Shard 3)|Antal|Totalt||Ingen|
-|getcommands3|Hämtar (Shard 3)|Antal|Totalt||Ingen|
-|setcommands3|Uppsättningar (Shard 3)|Antal|Totalt||Ingen|
-|operationsPerSecond3|Åtgärder per sekund (Shard 3)|Antal|Maximal||Ingen|
-|evictedkeys3|Avlägsnade nycklar (Shard 3)|Antal|Totalt||Ingen|
-|totalkeys3|Totalt antal nycklar (Shard 3)|Antal|Maximal||Ingen|
-|expiredkeys3|Utgångna nycklar (Shard 3)|Antal|Totalt||Ingen|
-|usedmemory3|Använt minne (Shard 3)|Byte|Maximal||Ingen|
-|usedmemoryRss3|Använt minne RSS (Shard 3)|Byte|Maximal||Ingen|
-|serverLoad3|Server belastning (Shard 3)|Procent|Maximal||Ingen|
-|cacheWrite3|Skrivcache (Shard 3)|BytesPerSecond|Maximal||Ingen|
-|cacheRead3|Läsning av cacheminne (Shard 3)|BytesPerSecond|Maximal||Ingen|
-|percentProcessorTime3|PROCESSOR (Shard 3)|Procent|Maximal||Ingen|
-|connectedclients4|Anslutna klienter (Shard 4)|Antal|Maximal||Ingen|
-|totalcommandsprocessed4|Totalt antal åtgärder (Shard 4)|Antal|Totalt||Ingen|
-|cachehits4|Cacheträffar (Shard 4)|Antal|Totalt||Ingen|
-|cachemisses4|Cachemissar (Shard 4)|Antal|Totalt||Ingen|
-|getcommands4|Hämtar (Shard 4)|Antal|Totalt||Ingen|
-|setcommands4|Uppsättningar (Shard 4)|Antal|Totalt||Ingen|
-|operationsPerSecond4|Åtgärder per sekund (Shard 4)|Antal|Maximal||Ingen|
-|evictedkeys4|Avlägsnade nycklar (Shard 4)|Antal|Totalt||Ingen|
-|totalkeys4|Totalt antal nycklar (Shard 4)|Antal|Maximal||Ingen|
-|expiredkeys4|Utgångna nycklar (Shard 4)|Antal|Totalt||Ingen|
-|usedmemory4|Använt minne (Shard 4)|Byte|Maximal||Ingen|
-|usedmemoryRss4|Använt minne RSS (Shard 4)|Byte|Maximal||Ingen|
-|serverLoad4|Server belastning (Shard 4)|Procent|Maximal||Ingen|
-|cacheWrite4|Skrivcache (Shard 4)|BytesPerSecond|Maximal||Ingen|
-|cacheRead4|Läsning av cacheminne (Shard 4)|BytesPerSecond|Maximal||Ingen|
-|percentProcessorTime4|PROCESSOR (Shard 4)|Procent|Maximal||Ingen|
-|connectedclients5|Anslutna klienter (Shard 5)|Antal|Maximal||Ingen|
-|totalcommandsprocessed5|Totalt antal åtgärder (Shard 5)|Antal|Totalt||Ingen|
-|cachehits5|Cacheträffar (Shard 5)|Antal|Totalt||Ingen|
-|cachemisses5|Cachemissar (Shard 5)|Antal|Totalt||Ingen|
-|getcommands5|Hämtar (Shard 5)|Antal|Totalt||Ingen|
-|setcommands5|Uppsättningar (Shard 5)|Antal|Totalt||Ingen|
-|operationsPerSecond5|Åtgärder per sekund (Shard 5)|Antal|Maximal||Ingen|
-|evictedkeys5|Avlägsnade nycklar (Shard 5)|Antal|Totalt||Ingen|
-|totalkeys5|Totalt antal nycklar (Shard 5)|Antal|Maximal||Ingen|
-|expiredkeys5|Utgångna nycklar (Shard 5)|Antal|Totalt||Ingen|
-|usedmemory5|Använt minne (Shard 5)|Byte|Maximal||Ingen|
-|usedmemoryRss5|Använt minne RSS (Shard 5)|Byte|Maximal||Ingen|
-|serverLoad5|Server belastning (Shard 5)|Procent|Maximal||Ingen|
-|cacheWrite5|Skrivcache (Shard 5)|BytesPerSecond|Maximal||Ingen|
-|cacheRead5|Läsning av cacheminne (Shard 5)|BytesPerSecond|Maximal||Ingen|
-|percentProcessorTime5|PROCESSOR (Shard 5)|Procent|Maximal||Ingen|
-|connectedclients6|Anslutna klienter (Shard 6)|Antal|Maximal||Ingen|
-|totalcommandsprocessed6|Totalt antal åtgärder (Shard 6)|Antal|Totalt||Ingen|
-|cachehits6|Cacheträffar (Shard 6)|Antal|Totalt||Ingen|
-|cachemisses6|Cachemissar (Shard 6)|Antal|Totalt||Ingen|
-|getcommands6|Hämtar (Shard 6)|Antal|Totalt||Ingen|
-|setcommands6|Uppsättningar (Shard 6)|Antal|Totalt||Ingen|
-|operationsPerSecond6|Åtgärder per sekund (Shard 6)|Antal|Maximal||Ingen|
-|evictedkeys6|Avlägsnade nycklar (Shard 6)|Antal|Totalt||Ingen|
-|totalkeys6|Totalt antal nycklar (Shard 6)|Antal|Maximal||Ingen|
-|expiredkeys6|Utgångna nycklar (Shard 6)|Antal|Totalt||Ingen|
-|usedmemory6|Använt minne (Shard 6)|Byte|Maximal||Ingen|
-|usedmemoryRss6|Använt minne RSS (Shard 6)|Byte|Maximal||Ingen|
-|serverLoad6|Server belastning (Shard 6)|Procent|Maximal||Ingen|
-|cacheWrite6|Skrivcache (Shard 6)|BytesPerSecond|Maximal||Ingen|
-|cacheRead6|Läsning av cache (Shard 6)|BytesPerSecond|Maximal||Ingen|
-|percentProcessorTime6|PROCESSOR (Shard 6)|Procent|Maximal||Ingen|
-|connectedclients7|Anslutna klienter (Shard 7)|Antal|Maximal||Ingen|
-|totalcommandsprocessed7|Totalt antal åtgärder (Shard 7)|Antal|Totalt||Ingen|
-|cachehits7|Cacheträffar (Shard 7)|Antal|Totalt||Ingen|
-|cachemisses7|Cachemissar (Shard 7)|Antal|Totalt||Ingen|
-|getcommands7|Hämtar (Shard 7)|Antal|Totalt||Ingen|
-|setcommands7|Uppsättningar (Shard 7)|Antal|Totalt||Ingen|
-|operationsPerSecond7|Åtgärder per sekund (Shard 7)|Antal|Maximal||Ingen|
-|evictedkeys7|Avlägsnade nycklar (Shard 7)|Antal|Totalt||Ingen|
-|totalkeys7|Totalt antal nycklar (Shard 7)|Antal|Maximal||Ingen|
-|expiredkeys7|Utgångna nycklar (Shard 7)|Antal|Totalt||Ingen|
-|usedmemory7|Använt minne (Shard 7)|Byte|Maximal||Ingen|
-|usedmemoryRss7|Använt minne RSS (Shard 7)|Byte|Maximal||Ingen|
-|serverLoad7|Server belastning (Shard 7)|Procent|Maximal||Ingen|
-|cacheWrite7|Skrivcache (Shard 7)|BytesPerSecond|Maximal||Ingen|
-|cacheRead7|Läsning av cache (Shard 7)|BytesPerSecond|Maximal||Ingen|
-|percentProcessorTime7|PROCESSOR (Shard 7)|Procent|Maximal||Ingen|
-|connectedclients8|Anslutna klienter (Shard 8)|Antal|Maximal||Ingen|
-|totalcommandsprocessed8|Totalt antal åtgärder (Shard 8)|Antal|Totalt||Ingen|
-|cachehits8|Cacheträffar (Shard 8)|Antal|Totalt||Ingen|
-|cachemisses8|Cachemissar (Shard 8)|Antal|Totalt||Ingen|
-|getcommands8|Hämtar (Shard 8)|Antal|Totalt||Ingen|
-|setcommands8|Uppsättningar (Shard 8)|Antal|Totalt||Ingen|
-|operationsPerSecond8|Åtgärder per sekund (Shard 8)|Antal|Maximal||Ingen|
-|evictedkeys8|Avlägsnade nycklar (Shard 8)|Antal|Totalt||Ingen|
-|totalkeys8|Totalt antal nycklar (Shard 8)|Antal|Maximal||Ingen|
-|expiredkeys8|Utgångna nycklar (Shard 8)|Antal|Totalt||Ingen|
-|usedmemory8|Använt minne (Shard 8)|Byte|Maximal||Ingen|
-|usedmemoryRss8|Använt minne RSS (Shard 8)|Byte|Maximal||Ingen|
-|serverLoad8|Server belastning (Shard 8)|Procent|Maximal||Ingen|
-|cacheWrite8|Skrivcache (Shard 8)|BytesPerSecond|Maximal||Ingen|
-|cacheRead8|Läsning av cache (Shard 8)|BytesPerSecond|Maximal||Ingen|
-|percentProcessorTime8|PROCESSOR (Shard 8)|Procent|Maximal||Ingen|
-|connectedclients9|Anslutna klienter (Shard 9)|Antal|Maximal||Ingen|
-|totalcommandsprocessed9|Totalt antal åtgärder (Shard 9)|Antal|Totalt||Ingen|
-|cachehits9|Cacheträffar (Shard 9)|Antal|Totalt||Ingen|
-|cachemisses9|Cachemissar (Shard 9)|Antal|Totalt||Ingen|
-|getcommands9|Hämtar (Shard 9)|Antal|Totalt||Ingen|
-|setcommands9|Uppsättningar (Shard 9)|Antal|Totalt||Ingen|
-|operationsPerSecond9|Åtgärder per sekund (Shard 9)|Antal|Maximal||Ingen|
-|evictedkeys9|Avlägsnade nycklar (Shard 9)|Antal|Totalt||Ingen|
-|totalkeys9|Totalt antal nycklar (Shard 9)|Antal|Maximal||Ingen|
-|expiredkeys9|Utgångna nycklar (Shard 9)|Antal|Totalt||Ingen|
-|usedmemory9|Använt minne (Shard 9)|Byte|Maximal||Ingen|
-|usedmemoryRss9|Använt minne RSS (Shard 9)|Byte|Maximal||Ingen|
-|serverLoad9|Server belastning (Shard 9)|Procent|Maximal||Ingen|
-|cacheWrite9|Skrivcache (Shard 9)|BytesPerSecond|Maximal||Ingen|
-|cacheRead9|Läsning av cacheminne (Shard 9)|BytesPerSecond|Maximal||Ingen|
-|percentProcessorTime9|PROCESSOR (Shard 9)|Procent|Maximal||Ingen|
+|connectedclients0|Anslutna klienter (Shard 0)|Antal|Maximal||Inga|
+|totalcommandsprocessed0|Totalt antal åtgärder (Shard 0)|Antal|Totalt||Inga|
+|cachehits0|Cacheträffar (Shard 0)|Antal|Totalt||Inga|
+|cachemisses0|Cachemissar (Shard 0)|Antal|Totalt||Inga|
+|getcommands0|Hämtar (Shard 0)|Antal|Totalt||Inga|
+|setcommands0|Uppsättningar (Shard 0)|Antal|Totalt||Inga|
+|operationsPerSecond0|Åtgärder per sekund (Shard 0)|Antal|Maximal||Inga|
+|evictedkeys0|Avlägsnade nycklar (Shard 0)|Antal|Totalt||Inga|
+|totalkeys0|Totalt antal nycklar (Shard 0)|Antal|Maximal||Inga|
+|expiredkeys0|Utgångna nycklar (Shard 0)|Antal|Totalt||Inga|
+|usedmemory0|Använt minne (Shard 0)|Byte|Maximal||Inga|
+|usedmemoryRss0|Använt minne RSS (Shard 0)|Byte|Maximal||Inga|
+|serverLoad0|Server belastning (Shard 0)|Procent|Maximal||Inga|
+|cacheWrite0|Skrivcache (Shard 0)|BytesPerSecond|Maximal||Inga|
+|cacheRead0|Läsning av cache (Shard 0)|BytesPerSecond|Maximal||Inga|
+|percentProcessorTime0|PROCESSOR (Shard 0)|Procent|Maximal||Inga|
+|connectedclients1|Anslutna klienter (Shard 1)|Antal|Maximal||Inga|
+|totalcommandsprocessed1|Totalt antal åtgärder (Shard 1)|Antal|Totalt||Inga|
+|cachehits1|Cacheträffar (Shard 1)|Antal|Totalt||Inga|
+|cachemisses1|Cachemissar (Shard 1)|Antal|Totalt||Inga|
+|getcommands1|Hämtar (Shard 1)|Antal|Totalt||Inga|
+|setcommands1|Uppsättningar (Shard 1)|Antal|Totalt||Inga|
+|operationsPerSecond1|Åtgärder per sekund (Shard 1)|Antal|Maximal||Inga|
+|evictedkeys1|Avlägsnade nycklar (Shard 1)|Antal|Totalt||Inga|
+|totalkeys1|Totalt antal nycklar (Shard 1)|Antal|Maximal||Inga|
+|expiredkeys1|Utgångna nycklar (Shard 1)|Antal|Totalt||Inga|
+|usedmemory1|Använt minne (Shard 1)|Byte|Maximal||Inga|
+|usedmemoryRss1|RSS för använt minne (Shard 1)|Byte|Maximal||Inga|
+|serverLoad1|Server belastning (Shard 1)|Procent|Maximal||Inga|
+|cacheWrite1|Skrivcache (Shard 1)|BytesPerSecond|Maximal||Inga|
+|cacheRead1|Läsning av cache (Shard 1)|BytesPerSecond|Maximal||Inga|
+|percentProcessorTime1|PROCESSOR (Shard 1)|Procent|Maximal||Inga|
+|connectedclients2|Anslutna klienter (Shard 2)|Antal|Maximal||Inga|
+|totalcommandsprocessed2|Totalt antal åtgärder (Shard 2)|Antal|Totalt||Inga|
+|cachehits2|Cacheträffar (Shard 2)|Antal|Totalt||Inga|
+|cachemisses2|Cachemissar (Shard 2)|Antal|Totalt||Inga|
+|getcommands2|Hämtar (Shard 2)|Antal|Totalt||Inga|
+|setcommands2|Uppsättningar (Shard 2)|Antal|Totalt||Inga|
+|operationsPerSecond2|Åtgärder per sekund (Shard 2)|Antal|Maximal||Inga|
+|evictedkeys2|Avlägsnade nycklar (Shard 2)|Antal|Totalt||Inga|
+|totalkeys2|Totalt antal nycklar (Shard 2)|Antal|Maximal||Inga|
+|expiredkeys2|Utgångna nycklar (Shard 2)|Antal|Totalt||Inga|
+|usedmemory2|Använt minne (Shard 2)|Byte|Maximal||Inga|
+|usedmemoryRss2|Använt minne RSS (Shard 2)|Byte|Maximal||Inga|
+|serverLoad2|Server belastning (Shard 2)|Procent|Maximal||Inga|
+|cacheWrite2|Skrivcache (Shard 2)|BytesPerSecond|Maximal||Inga|
+|cacheRead2|Läsning av cache (Shard 2)|BytesPerSecond|Maximal||Inga|
+|percentProcessorTime2|PROCESSOR (Shard 2)|Procent|Maximal||Inga|
+|connectedclients3|Anslutna klienter (Shard 3)|Antal|Maximal||Inga|
+|totalcommandsprocessed3|Totalt antal åtgärder (Shard 3)|Antal|Totalt||Inga|
+|cachehits3|Cacheträffar (Shard 3)|Antal|Totalt||Inga|
+|cachemisses3|Cachemissar (Shard 3)|Antal|Totalt||Inga|
+|getcommands3|Hämtar (Shard 3)|Antal|Totalt||Inga|
+|setcommands3|Uppsättningar (Shard 3)|Antal|Totalt||Inga|
+|operationsPerSecond3|Åtgärder per sekund (Shard 3)|Antal|Maximal||Inga|
+|evictedkeys3|Avlägsnade nycklar (Shard 3)|Antal|Totalt||Inga|
+|totalkeys3|Totalt antal nycklar (Shard 3)|Antal|Maximal||Inga|
+|expiredkeys3|Utgångna nycklar (Shard 3)|Antal|Totalt||Inga|
+|usedmemory3|Använt minne (Shard 3)|Byte|Maximal||Inga|
+|usedmemoryRss3|Använt minne RSS (Shard 3)|Byte|Maximal||Inga|
+|serverLoad3|Server belastning (Shard 3)|Procent|Maximal||Inga|
+|cacheWrite3|Skrivcache (Shard 3)|BytesPerSecond|Maximal||Inga|
+|cacheRead3|Läsning av cacheminne (Shard 3)|BytesPerSecond|Maximal||Inga|
+|percentProcessorTime3|PROCESSOR (Shard 3)|Procent|Maximal||Inga|
+|connectedclients4|Anslutna klienter (Shard 4)|Antal|Maximal||Inga|
+|totalcommandsprocessed4|Totalt antal åtgärder (Shard 4)|Antal|Totalt||Inga|
+|cachehits4|Cacheträffar (Shard 4)|Antal|Totalt||Inga|
+|cachemisses4|Cachemissar (Shard 4)|Antal|Totalt||Inga|
+|getcommands4|Hämtar (Shard 4)|Antal|Totalt||Inga|
+|setcommands4|Uppsättningar (Shard 4)|Antal|Totalt||Inga|
+|operationsPerSecond4|Åtgärder per sekund (Shard 4)|Antal|Maximal||Inga|
+|evictedkeys4|Avlägsnade nycklar (Shard 4)|Antal|Totalt||Inga|
+|totalkeys4|Totalt antal nycklar (Shard 4)|Antal|Maximal||Inga|
+|expiredkeys4|Utgångna nycklar (Shard 4)|Antal|Totalt||Inga|
+|usedmemory4|Använt minne (Shard 4)|Byte|Maximal||Inga|
+|usedmemoryRss4|Använt minne RSS (Shard 4)|Byte|Maximal||Inga|
+|serverLoad4|Server belastning (Shard 4)|Procent|Maximal||Inga|
+|cacheWrite4|Skrivcache (Shard 4)|BytesPerSecond|Maximal||Inga|
+|cacheRead4|Läsning av cacheminne (Shard 4)|BytesPerSecond|Maximal||Inga|
+|percentProcessorTime4|PROCESSOR (Shard 4)|Procent|Maximal||Inga|
+|connectedclients5|Anslutna klienter (Shard 5)|Antal|Maximal||Inga|
+|totalcommandsprocessed5|Totalt antal åtgärder (Shard 5)|Antal|Totalt||Inga|
+|cachehits5|Cacheträffar (Shard 5)|Antal|Totalt||Inga|
+|cachemisses5|Cachemissar (Shard 5)|Antal|Totalt||Inga|
+|getcommands5|Hämtar (Shard 5)|Antal|Totalt||Inga|
+|setcommands5|Uppsättningar (Shard 5)|Antal|Totalt||Inga|
+|operationsPerSecond5|Åtgärder per sekund (Shard 5)|Antal|Maximal||Inga|
+|evictedkeys5|Avlägsnade nycklar (Shard 5)|Antal|Totalt||Inga|
+|totalkeys5|Totalt antal nycklar (Shard 5)|Antal|Maximal||Inga|
+|expiredkeys5|Utgångna nycklar (Shard 5)|Antal|Totalt||Inga|
+|usedmemory5|Använt minne (Shard 5)|Byte|Maximal||Inga|
+|usedmemoryRss5|Använt minne RSS (Shard 5)|Byte|Maximal||Inga|
+|serverLoad5|Server belastning (Shard 5)|Procent|Maximal||Inga|
+|cacheWrite5|Skrivcache (Shard 5)|BytesPerSecond|Maximal||Inga|
+|cacheRead5|Läsning av cacheminne (Shard 5)|BytesPerSecond|Maximal||Inga|
+|percentProcessorTime5|PROCESSOR (Shard 5)|Procent|Maximal||Inga|
+|connectedclients6|Anslutna klienter (Shard 6)|Antal|Maximal||Inga|
+|totalcommandsprocessed6|Totalt antal åtgärder (Shard 6)|Antal|Totalt||Inga|
+|cachehits6|Cacheträffar (Shard 6)|Antal|Totalt||Inga|
+|cachemisses6|Cachemissar (Shard 6)|Antal|Totalt||Inga|
+|getcommands6|Hämtar (Shard 6)|Antal|Totalt||Inga|
+|setcommands6|Uppsättningar (Shard 6)|Antal|Totalt||Inga|
+|operationsPerSecond6|Åtgärder per sekund (Shard 6)|Antal|Maximal||Inga|
+|evictedkeys6|Avlägsnade nycklar (Shard 6)|Antal|Totalt||Inga|
+|totalkeys6|Totalt antal nycklar (Shard 6)|Antal|Maximal||Inga|
+|expiredkeys6|Utgångna nycklar (Shard 6)|Antal|Totalt||Inga|
+|usedmemory6|Använt minne (Shard 6)|Byte|Maximal||Inga|
+|usedmemoryRss6|Använt minne RSS (Shard 6)|Byte|Maximal||Inga|
+|serverLoad6|Server belastning (Shard 6)|Procent|Maximal||Inga|
+|cacheWrite6|Skrivcache (Shard 6)|BytesPerSecond|Maximal||Inga|
+|cacheRead6|Läsning av cache (Shard 6)|BytesPerSecond|Maximal||Inga|
+|percentProcessorTime6|PROCESSOR (Shard 6)|Procent|Maximal||Inga|
+|connectedclients7|Anslutna klienter (Shard 7)|Antal|Maximal||Inga|
+|totalcommandsprocessed7|Totalt antal åtgärder (Shard 7)|Antal|Totalt||Inga|
+|cachehits7|Cacheträffar (Shard 7)|Antal|Totalt||Inga|
+|cachemisses7|Cachemissar (Shard 7)|Antal|Totalt||Inga|
+|getcommands7|Hämtar (Shard 7)|Antal|Totalt||Inga|
+|setcommands7|Uppsättningar (Shard 7)|Antal|Totalt||Inga|
+|operationsPerSecond7|Åtgärder per sekund (Shard 7)|Antal|Maximal||Inga|
+|evictedkeys7|Avlägsnade nycklar (Shard 7)|Antal|Totalt||Inga|
+|totalkeys7|Totalt antal nycklar (Shard 7)|Antal|Maximal||Inga|
+|expiredkeys7|Utgångna nycklar (Shard 7)|Antal|Totalt||Inga|
+|usedmemory7|Använt minne (Shard 7)|Byte|Maximal||Inga|
+|usedmemoryRss7|Använt minne RSS (Shard 7)|Byte|Maximal||Inga|
+|serverLoad7|Server belastning (Shard 7)|Procent|Maximal||Inga|
+|cacheWrite7|Skrivcache (Shard 7)|BytesPerSecond|Maximal||Inga|
+|cacheRead7|Läsning av cache (Shard 7)|BytesPerSecond|Maximal||Inga|
+|percentProcessorTime7|PROCESSOR (Shard 7)|Procent|Maximal||Inga|
+|connectedclients8|Anslutna klienter (Shard 8)|Antal|Maximal||Inga|
+|totalcommandsprocessed8|Totalt antal åtgärder (Shard 8)|Antal|Totalt||Inga|
+|cachehits8|Cacheträffar (Shard 8)|Antal|Totalt||Inga|
+|cachemisses8|Cachemissar (Shard 8)|Antal|Totalt||Inga|
+|getcommands8|Hämtar (Shard 8)|Antal|Totalt||Inga|
+|setcommands8|Uppsättningar (Shard 8)|Antal|Totalt||Inga|
+|operationsPerSecond8|Åtgärder per sekund (Shard 8)|Antal|Maximal||Inga|
+|evictedkeys8|Avlägsnade nycklar (Shard 8)|Antal|Totalt||Inga|
+|totalkeys8|Totalt antal nycklar (Shard 8)|Antal|Maximal||Inga|
+|expiredkeys8|Utgångna nycklar (Shard 8)|Antal|Totalt||Inga|
+|usedmemory8|Använt minne (Shard 8)|Byte|Maximal||Inga|
+|usedmemoryRss8|Använt minne RSS (Shard 8)|Byte|Maximal||Inga|
+|serverLoad8|Server belastning (Shard 8)|Procent|Maximal||Inga|
+|cacheWrite8|Skrivcache (Shard 8)|BytesPerSecond|Maximal||Inga|
+|cacheRead8|Läsning av cache (Shard 8)|BytesPerSecond|Maximal||Inga|
+|percentProcessorTime8|PROCESSOR (Shard 8)|Procent|Maximal||Inga|
+|connectedclients9|Anslutna klienter (Shard 9)|Antal|Maximal||Inga|
+|totalcommandsprocessed9|Totalt antal åtgärder (Shard 9)|Antal|Totalt||Inga|
+|cachehits9|Cacheträffar (Shard 9)|Antal|Totalt||Inga|
+|cachemisses9|Cachemissar (Shard 9)|Antal|Totalt||Inga|
+|getcommands9|Hämtar (Shard 9)|Antal|Totalt||Inga|
+|setcommands9|Uppsättningar (Shard 9)|Antal|Totalt||Inga|
+|operationsPerSecond9|Åtgärder per sekund (Shard 9)|Antal|Maximal||Inga|
+|evictedkeys9|Avlägsnade nycklar (Shard 9)|Antal|Totalt||Inga|
+|totalkeys9|Totalt antal nycklar (Shard 9)|Antal|Maximal||Inga|
+|expiredkeys9|Utgångna nycklar (Shard 9)|Antal|Totalt||Inga|
+|usedmemory9|Använt minne (Shard 9)|Byte|Maximal||Inga|
+|usedmemoryRss9|Använt minne RSS (Shard 9)|Byte|Maximal||Inga|
+|serverLoad9|Server belastning (Shard 9)|Procent|Maximal||Inga|
+|cacheWrite9|Skrivcache (Shard 9)|BytesPerSecond|Maximal||Inga|
+|cacheRead9|Läsning av cacheminne (Shard 9)|BytesPerSecond|Maximal||Inga|
+|percentProcessorTime9|PROCESSOR (Shard 9)|Procent|Maximal||Inga|
 
 
 
@@ -437,13 +437,13 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|Procent CPU|Procent CPU|Procent|Medel|Procent andelen allokerade beräknings enheter som för närvarande används av den eller de virtuella datorerna.|Ingen|
-|Nätverk – inkommande|Nätverk – inkommande|Byte|Totalt|Antalet byte som tagits emot på alla nätverks gränssnitt av den eller de virtuella datorerna (inkommande trafik).|Ingen|
-|Nätverk – utgående|Nätverk – utgående|Byte|Totalt|Antalet byte ut i alla nätverks gränssnitt av den eller de virtuella datorerna (utgående trafik).|Ingen|
-|Disk-lästa byte/s|Disk läsning|BytesPerSecond|Medel|Genomsnittligt antal byte som lästs från disk under övervaknings perioden.|Ingen|
-|Disk-skrivna byte/s|Disk skrivning|BytesPerSecond|Medel|Genomsnittligt antal byte som skrivs till disk under övervaknings perioden.|Ingen|
-|Disk Läs åtgärder/SEK|Disk Läs åtgärder/SEK|CountPerSecond|Medel|Disk-Läs-IOPS.|Ingen|
-|Disk skrivnings åtgärder/SEK|Disk skrivnings åtgärder/SEK|CountPerSecond|Medel|Skriv IOPS för disk.|Ingen|
+|Procent CPU|Procent CPU|Procent|Medel|Procent andelen allokerade beräknings enheter som för närvarande används av den eller de virtuella datorerna.|Inga|
+|Nätverk – inkommande|Nätverk – inkommande|Byte|Totalt|Antalet byte som tagits emot på alla nätverks gränssnitt av den eller de virtuella datorerna (inkommande trafik).|Inga|
+|Nätverk – utgående|Nätverk – utgående|Byte|Totalt|Antalet byte ut i alla nätverks gränssnitt av den eller de virtuella datorerna (utgående trafik).|Inga|
+|Disk-lästa byte/s|Disk läsning|BytesPerSecond|Medel|Genomsnittligt antal byte som lästs från disk under övervaknings perioden.|Inga|
+|Disk-skrivna byte/s|Disk skrivning|BytesPerSecond|Medel|Genomsnittligt antal byte som skrivs till disk under övervaknings perioden.|Inga|
+|Disk Läs åtgärder/SEK|Disk Läs åtgärder/SEK|CountPerSecond|Medel|Disk-Läs-IOPS.|Inga|
+|Disk skrivnings åtgärder/SEK|Disk skrivnings åtgärder/SEK|CountPerSecond|Medel|Skriv IOPS för disk.|Inga|
 
 
 ## <a name="microsoftclassiccomputedomainnamesslotsroles"></a>Microsoft. ClassicCompute/domän namn/platser/roller
@@ -464,7 +464,7 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|UsedCapacity|Använd kapacitet|Byte|Medel|Kapacitet för använt konto|Ingen|
+|UsedCapacity|Använd kapacitet|Byte|Medel|Kapacitet för använt konto|Inga|
 |Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. I det här värdet räknas både lyckade och misslyckade förfrågningar samt förfrågningar som genererat fel. Använd ResponseType dimension för antalet olika typer av svar.|ResponseType, typ av typ, ApiName, autentisering|
 |Ingress|Ingress|Byte|Totalt|Mängden inkommande data, i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|Typ av typ, ApiName, autentisering|
 |Utgående|Utgående|Byte|Totalt|Mängden utgående data, i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|Typ av typ, ApiName, autentisering|
@@ -478,8 +478,8 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |---|---|---|---|---|---|
 |BlobCapacity|BLOB-kapacitet|Byte|Medel|Mängden lagrings utrymme som används av lagrings kontots Blob Service i byte.|BlobType,-nivå|
 |BlobCount|BLOB-antal|Antal|Medel|Antalet BLOB i lagrings kontots Blob Service.|BlobType,-nivå|
-|ContainerCount|Antal BLOB-behållare|Antal|Medel|Antalet behållare i lagrings kontots Blob Service.|Ingen|
-|IndexCapacity|Index kapacitet|Byte|Medel|Mängden lagrings utrymme som används av ADLS Gen2 (hierarkiskt) index i byte.|Ingen|
+|ContainerCount|Antal BLOB-behållare|Antal|Medel|Antalet behållare i lagrings kontots Blob Service.|Inga|
+|IndexCapacity|Index kapacitet|Byte|Medel|Mängden lagrings utrymme som används av ADLS Gen2 (hierarkiskt) index i byte.|Inga|
 |Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. I det här värdet räknas både lyckade och misslyckade förfrågningar samt förfrågningar som genererat fel. Använd ResponseType dimension för antalet olika typer av svar.|ResponseType, typ av typ, ApiName, autentisering|
 |Ingress|Ingress|Byte|Totalt|Mängden inkommande data, i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|Typ av typ, ApiName, autentisering|
 |Utgående|Utgående|Byte|Totalt|Mängden utgående data, i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|Typ av typ, ApiName, autentisering|
@@ -491,9 +491,9 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|TableCapacity|Tabell kapacitet|Byte|Medel|Mängden lagrings utrymme som används av lagrings kontots Table service i byte.|Ingen|
-|TableCount|Antal tabeller|Antal|Medel|Antalet tabeller i lagrings kontots Table service.|Ingen|
-|TableEntityCount|Antal tabell enheter|Antal|Medel|Antalet tabell enheter i lagrings kontots Table service.|Ingen|
+|TableCapacity|Tabell kapacitet|Byte|Medel|Mängden lagrings utrymme som används av lagrings kontots Table service i byte.|Inga|
+|TableCount|Antal tabeller|Antal|Medel|Antalet tabeller i lagrings kontots Table service.|Inga|
+|TableEntityCount|Antal tabell enheter|Antal|Medel|Antalet tabell enheter i lagrings kontots Table service.|Inga|
 |Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. I det här värdet räknas både lyckade och misslyckade förfrågningar samt förfrågningar som genererat fel. Använd ResponseType dimension för antalet olika typer av svar.|ResponseType, typ av typ, ApiName, autentisering|
 |Ingress|Ingress|Byte|Totalt|Mängden inkommande data, i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|Typ av typ, ApiName, autentisering|
 |Utgående|Utgående|Byte|Totalt|Mängden utgående data, i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|Typ av typ, ApiName, autentisering|
@@ -507,7 +507,7 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |---|---|---|---|---|---|
 |FileCapacity|Fil kapacitet|Byte|Medel|Mängden lagrings utrymme som används av lagrings kontots fil tjänst i byte.|FileShare|
 |FileCount|Antal filer|Antal|Medel|Antalet filer i lagrings kontots fil tjänst.|FileShare|
-|FileShareCount|Antal fil resurser|Antal|Medel|Antalet fil resurser i lagrings kontots fil tjänst.|Ingen|
+|FileShareCount|Antal fil resurser|Antal|Medel|Antalet fil resurser i lagrings kontots fil tjänst.|Inga|
 |FileShareSnapshotCount|Antal ögonblicks bilder av fil resurs|Antal|Medel|Antal ögonblicks bilder som finns på resursen i lagrings kontots fil tjänst.|FileShare|
 |FileShareSnapshotSize|Storlek på fil resursens ögonblicks bild|Byte|Medel|Mängden lagrings utrymme som används av ögonblicks bilderna i lagrings kontots fil tjänst i byte.|FileShare|
 |FileShareQuota|Fil resursens kvot storlek|Byte|Medel|Den övre gränsen för mängden lagrings utrymme som kan användas av Azure Files tjänsten i byte.|FileShare|
@@ -522,9 +522,9 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|QueueCapacity|Kös Kap kap.|Byte|Medel|Mängden lagrings utrymme som används av lagrings kontots Kötjänst i byte.|Ingen|
-|QueueCount|Antal köer|Antal|Medel|Antalet köer i lagrings kontots Kötjänst.|Ingen|
-|QueueMessageCount|Antal meddelanden i kö|Antal|Medel|Ungefärligt antal köa meddelanden i lagrings kontots Kötjänst.|Ingen|
+|QueueCapacity|Kös Kap kap.|Byte|Medel|Mängden lagrings utrymme som används av lagrings kontots Kötjänst i byte.|Inga|
+|QueueCount|Antal köer|Antal|Medel|Antalet köer i lagrings kontots Kötjänst.|Inga|
+|QueueMessageCount|Antal meddelanden i kö|Antal|Medel|Ungefärligt antal köa meddelanden i lagrings kontots Kötjänst.|Inga|
 |Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. I det här värdet räknas både lyckade och misslyckade förfrågningar samt förfrågningar som genererat fel. Använd ResponseType dimension för antalet olika typer av svar.|ResponseType, typ av typ, ApiName, autentisering|
 |Ingress|Ingress|Byte|Totalt|Mängden inkommande data, i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|Typ av typ, ApiName, autentisering|
 |Utgående|Utgående|Byte|Totalt|Mängden utgående data, i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|Typ av typ, ApiName, autentisering|
@@ -550,52 +550,52 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |CharactersTranslated|Översatta tecken|Antal|Totalt|Totalt antal tecken i begäran om inkommande text.|ApiName, OperationName, region|
 |CharactersTrained|Upptränade tecken|Antal|Totalt|Totalt antal tecken som har tränats.|ApiName, OperationName, region|
 |SpeechSessionDuration|Tal sessionens varaktighet|Sekunder|Totalt|Total varaktighet för talläget på några sekunder.|ApiName, OperationName, region|
-|TotalTransactions|Totalt antal transaktioner|Antal|Totalt|Totalt antal transaktioner.|Ingen|
+|TotalTransactions|Totalt antal transaktioner|Antal|Totalt|Totalt antal transaktioner.|Inga|
 |ProcessedImages|Bearbetade bilder|Antal|Totalt| Antal transaktioner för bild bearbetning.|ApiName, FeatureName, kanal, region|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|Procent CPU|Procent CPU|Procent|Medel|Procent andelen allokerade beräknings enheter som för närvarande används av den eller de virtuella datorerna|Ingen|
-|Nätverk – inkommande|Nätverk i fakturerbart (inaktuellt)|Byte|Totalt|Antalet fakturerbara byte som tagits emot på alla nätverks gränssnitt av den eller de virtuella datorerna (inkommande trafik) (inaktuell)|Ingen|
-|Nätverk – utgående|Fakturerbart för nätverk (inaktuellt)|Byte|Totalt|Antalet fakturerbara byte ut i alla nätverks gränssnitt av den eller de virtuella datorerna (utgående trafik) (inaktuell)|Ingen|
-|Lästa byte på disk|Lästa byte på disk|Byte|Totalt|Byte som lästs från disk under övervaknings perioden|Ingen|
-|Disk-skrivna byte|Disk-skrivna byte|Byte|Totalt|Byte som skrivits till disk under övervaknings perioden|Ingen|
-|Disk Läs åtgärder/SEK|Disk Läs åtgärder/SEK|CountPerSecond|Medel|Disk-Läs-IOPS|Ingen|
-|Disk skrivnings åtgärder/SEK|Disk skrivnings åtgärder/SEK|CountPerSecond|Medel|Skriv IOPS för disk|Ingen|
-|Återstående CPU-krediter|Återstående CPU-krediter|Antal|Medel|Totalt antal krediter som är tillgängliga för burst|Ingen|
-|Förbrukade CPU-krediter|Förbrukade CPU-krediter|Antal|Medel|Totalt antal krediter som konsumeras av den virtuella datorn|Ingen|
+|Procent CPU|Procent CPU|Procent|Medel|Procent andelen allokerade beräknings enheter som för närvarande används av den eller de virtuella datorerna|Inga|
+|Nätverk – inkommande|Nätverk i fakturerbart (inaktuellt)|Byte|Totalt|Antalet fakturerbara byte som tagits emot på alla nätverks gränssnitt av den eller de virtuella datorerna (inkommande trafik) (inaktuell)|Inga|
+|Nätverk – utgående|Fakturerbart för nätverk (inaktuellt)|Byte|Totalt|Antalet fakturerbara byte ut i alla nätverks gränssnitt av den eller de virtuella datorerna (utgående trafik) (inaktuell)|Inga|
+|Lästa byte på disk|Lästa byte på disk|Byte|Totalt|Byte som lästs från disk under övervaknings perioden|Inga|
+|Disk-skrivna byte|Disk-skrivna byte|Byte|Totalt|Byte som skrivits till disk under övervaknings perioden|Inga|
+|Disk Läs åtgärder/SEK|Disk Läs åtgärder/SEK|CountPerSecond|Medel|Disk-Läs-IOPS|Inga|
+|Disk skrivnings åtgärder/SEK|Disk skrivnings åtgärder/SEK|CountPerSecond|Medel|Skriv IOPS för disk|Inga|
+|Återstående CPU-krediter|Återstående CPU-krediter|Antal|Medel|Totalt antal krediter som är tillgängliga för burst|Inga|
+|Förbrukade CPU-krediter|Förbrukade CPU-krediter|Antal|Medel|Totalt antal krediter som konsumeras av den virtuella datorn|Inga|
 |Lästa byte per disk/SEK|Lästa byte på datadisk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden|SlotId|
 |Skrivna byte per disk/SEK|Skrivna byte på datadisk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden|SlotId|
 |Läs åtgärder per disk/SEK|Läs åtgärder för data disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden|SlotId|
 |Skriv åtgärder per disk/SEK|Skriv åtgärder för data disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Skriv IOPS från en enskild disk under övervaknings perioden|SlotId|
 |Per disk KÖDJUP|KÖDJUP för data disk [(inaktuellt)](portal-disk-metrics-deprecation.md)] (portal-disk-Metrics-deprecation.MD)|Antal|Medel|Data diskens ködjup (eller Kölängd)|SlotId|
-|Lästa byte per operativ system disk/SEK|Lästa byte för OS-disk/SEK [(inaktuell)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|Skrivna byte per operativ system disk/SEK|Skrivna byte per operativ system disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|Läs åtgärder för operativ system per disk/SEK|Läs åtgärder för operativ system disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|Skriv åtgärder för operativ system per disk/SEK|Skriv åtgärder för operativ system disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Skriv IOPS från en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|KÖDJUP för operativ system per disk|OS-KÖDJUP [(inaktuellt)](portal-disk-metrics-deprecation.md)|Antal|Medel|Ködjup i operativ systemets disk (eller Kölängd)|Ingen|
+|Lästa byte per operativ system disk/SEK|Lästa byte för OS-disk/SEK [(inaktuell)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|Skrivna byte per operativ system disk/SEK|Skrivna byte per operativ system disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|Läs åtgärder för operativ system per disk/SEK|Läs åtgärder för operativ system disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|Skriv åtgärder för operativ system per disk/SEK|Skriv åtgärder för operativ system disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Skriv IOPS från en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|KÖDJUP för operativ system per disk|OS-KÖDJUP [(inaktuellt)](portal-disk-metrics-deprecation.md)|Antal|Medel|Ködjup i operativ systemets disk (eller Kölängd)|Inga|
 |Lästa byte på datadisk/SEK|Lästa byte på datadisk/SEK (för hands version)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden|ENHETEN|
 |Skrivna byte på datadisk/SEK|Skrivna byte på datadisk/SEK (för hands version)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden|ENHETEN|
 |Läs åtgärder för data disk/SEK|Läs åtgärder för data disk/SEK (för hands version)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden|ENHETEN|
 |Skriv åtgärder för data disk/SEK|Skriv åtgärder för data disk/SEK (för hands version)|CountPerSecond|Medel|Skriv IOPS från en enskild disk under övervaknings perioden|ENHETEN|
 |Ködjup för datadisk|Data disk Queue djup (för hands version)|Antal|Medel|Data diskens ködjup (eller Kölängd)|ENHETEN|
-|Lästa byte för OS-disk/SEK|Lästa byte för operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|Skrivna byte per operativ system disk/SEK|Skrivna byte per operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|Läs åtgärder för operativ system disk/SEK|Läs åtgärder för operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|Skriv åtgärder för operativ system disk/SEK|Skriv åtgärder för operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Skriv IOPS från en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|Ködjup för OS-disk|Ködjup för OS-disk (för hands version)|Antal|Medel|Ködjup i operativ systemets disk (eller Kölängd)|Ingen|
-|Inkommande flöden|Inkommande flöden|Antal|Medel|Inkommande flöden är antalet aktuella flöden i den inkommande riktningen (trafik som går till den virtuella datorn)|Ingen|
-|Utgående flöden|Utgående flöden|Antal|Medel|Utgående flöden är antalet aktuella flöden i den utgående riktningen (trafik som går ut från den virtuella datorn)|Ingen|
-|Högsta skapande frekvens för inkommande flöden|Högsta skapande frekvens för inkommande flöden|CountPerSecond|Medel|Högsta skapande frekvens för inkommande flöden (trafik som går till den virtuella datorn)|Ingen|
-|Längsta skapande frekvens för utgående flöden|Längsta skapande frekvens för utgående flöden|CountPerSecond|Medel|Den maximala skapande frekvensen för utgående flöden (trafik som går ut från den virtuella datorn)|Ingen|
+|Lästa byte för OS-disk/SEK|Lästa byte för operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|Skrivna byte per operativ system disk/SEK|Skrivna byte per operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|Läs åtgärder för operativ system disk/SEK|Läs åtgärder för operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|Skriv åtgärder för operativ system disk/SEK|Skriv åtgärder för operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Skriv IOPS från en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|Ködjup för OS-disk|Ködjup för OS-disk (för hands version)|Antal|Medel|Ködjup i operativ systemets disk (eller Kölängd)|Inga|
+|Inkommande flöden|Inkommande flöden|Antal|Medel|Inkommande flöden är antalet aktuella flöden i den inkommande riktningen (trafik som går till den virtuella datorn)|Inga|
+|Utgående flöden|Utgående flöden|Antal|Medel|Utgående flöden är antalet aktuella flöden i den utgående riktningen (trafik som går ut från den virtuella datorn)|Inga|
+|Högsta skapande frekvens för inkommande flöden|Högsta skapande frekvens för inkommande flöden|CountPerSecond|Medel|Högsta skapande frekvens för inkommande flöden (trafik som går till den virtuella datorn)|Inga|
+|Längsta skapande frekvens för utgående flöden|Längsta skapande frekvens för utgående flöden|CountPerSecond|Medel|Den maximala skapande frekvensen för utgående flöden (trafik som går ut från den virtuella datorn)|Inga|
 |Läsning av Premium data disk-cache|Läsning av Premium data disk-cache (för hands version)|Procent|Medel|Läsning av Premium data disk-cache|ENHETEN|
 |Read missar i Premium data-diskcachen|Read missar i Premium data disk cache (för hands version)|Procent|Medel|Read missar i Premium data-diskcachen|ENHETEN|
-|Läsning av Premium OS-diskcachen|Läsning av Premium OS-diskcachen (för hands version)|Procent|Medel|Läsning av Premium OS-diskcachen|Ingen|
-|Read missar i Premium OS-diskcachen|Read missar i Premium OS-diskcachen (för hands version)|Procent|Medel|Read missar i Premium OS-diskcachen|Ingen|
-|Totalt nätverk|Totalt nätverk|Byte|Totalt|Antalet byte som tagits emot på alla nätverks gränssnitt av den eller de virtuella datorerna (inkommande trafik)|Ingen|
-|Totalt nätverk|Totalt nätverk|Byte|Totalt|Antalet byte ut i alla nätverks gränssnitt av den eller de virtuella datorerna (utgående trafik)|Ingen|
+|Läsning av Premium OS-diskcachen|Läsning av Premium OS-diskcachen (för hands version)|Procent|Medel|Läsning av Premium OS-diskcachen|Inga|
+|Read missar i Premium OS-diskcachen|Read missar i Premium OS-diskcachen (för hands version)|Procent|Medel|Read missar i Premium OS-diskcachen|Inga|
+|Totalt nätverk|Totalt nätverk|Byte|Totalt|Antalet byte som tagits emot på alla nätverks gränssnitt av den eller de virtuella datorerna (inkommande trafik)|Inga|
+|Totalt nätverk|Totalt nätverk|Byte|Totalt|Antalet byte ut i alla nätverks gränssnitt av den eller de virtuella datorerna (utgående trafik)|Inga|
 
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
@@ -609,18 +609,18 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |Disk-skrivna byte|Disk-skrivna byte|Byte|Totalt|Byte som skrivits till disk under övervaknings perioden|VMName|
 |Disk Läs åtgärder/SEK|Disk Läs åtgärder/SEK|CountPerSecond|Medel|Disk-Läs-IOPS|VMName|
 |Disk skrivnings åtgärder/SEK|Disk skrivnings åtgärder/SEK|CountPerSecond|Medel|Skriv IOPS för disk|VMName|
-|Återstående CPU-krediter|Återstående CPU-krediter|Antal|Medel|Totalt antal krediter som är tillgängliga för burst|Ingen|
-|Förbrukade CPU-krediter|Förbrukade CPU-krediter|Antal|Medel|Totalt antal krediter som konsumeras av den virtuella datorn|Ingen|
+|Återstående CPU-krediter|Återstående CPU-krediter|Antal|Medel|Totalt antal krediter som är tillgängliga för burst|Inga|
+|Förbrukade CPU-krediter|Förbrukade CPU-krediter|Antal|Medel|Totalt antal krediter som konsumeras av den virtuella datorn|Inga|
 |Lästa byte per disk/SEK|Lästa byte på datadisk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden|SlotId|
 |Skrivna byte per disk/SEK|Skrivna byte på datadisk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden|SlotId|
 |Läs åtgärder per disk/SEK|Läs åtgärder för data disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden|SlotId|
 |Skriv åtgärder per disk/SEK|Skriv åtgärder för data disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Skriv IOPS från en enskild disk under övervaknings perioden|SlotId|
 |Per disk KÖDJUP|KÖDJUP för data disk [(inaktuellt)](portal-disk-metrics-deprecation.md)|Antal|Medel|Data diskens ködjup (eller Kölängd)|SlotId|
-|Lästa byte per operativ system disk/SEK|Lästa byte för OS-disk/SEK [(inaktuell)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|Skrivna byte per operativ system disk/SEK|Skrivna byte per operativ system disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|Läs åtgärder för operativ system per disk/SEK|Läs åtgärder för operativ system disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|Skriv åtgärder för operativ system per disk/SEK|Skriv åtgärder för operativ system disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Skriv IOPS från en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|KÖDJUP för operativ system per disk|OS-KÖDJUP [(inaktuellt)](portal-disk-metrics-deprecation.md)|Antal|Medel|Ködjup i operativ systemets disk (eller Kölängd)|Ingen|
+|Lästa byte per operativ system disk/SEK|Lästa byte för OS-disk/SEK [(inaktuell)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|Skrivna byte per operativ system disk/SEK|Skrivna byte per operativ system disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|Läs åtgärder för operativ system per disk/SEK|Läs åtgärder för operativ system disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|Skriv åtgärder för operativ system per disk/SEK|Skriv åtgärder för operativ system disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Skriv IOPS från en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|KÖDJUP för operativ system per disk|OS-KÖDJUP [(inaktuellt)](portal-disk-metrics-deprecation.md)|Antal|Medel|Ködjup i operativ systemets disk (eller Kölängd)|Inga|
 |Lästa byte på datadisk/SEK|Lästa byte på datadisk/SEK (för hands version)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden|LUN, VMName|
 |Skrivna byte på datadisk/SEK|Skrivna byte på datadisk/SEK (för hands version)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden|LUN, VMName|
 |Läs åtgärder för data disk/SEK|Läs åtgärder för data disk/SEK (för hands version)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden|LUN, VMName|
@@ -647,45 +647,45 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|Procent CPU|Procent CPU|Procent|Medel|Procent andelen allokerade beräknings enheter som för närvarande används av den eller de virtuella datorerna|Ingen|
-|Nätverk – inkommande|Nätverk i fakturerbart (inaktuellt)|Byte|Totalt|Antalet fakturerbara byte som tagits emot på alla nätverks gränssnitt av den eller de virtuella datorerna (inkommande trafik) (inaktuell)|Ingen|
-|Nätverk – utgående|Fakturerbart för nätverk (inaktuellt)|Byte|Totalt|Antalet fakturerbara byte ut i alla nätverks gränssnitt av den eller de virtuella datorerna (utgående trafik) (inaktuell)|Ingen|
-|Lästa byte på disk|Lästa byte på disk|Byte|Totalt|Byte som lästs från disk under övervaknings perioden|Ingen|
-|Disk-skrivna byte|Disk-skrivna byte|Byte|Totalt|Byte som skrivits till disk under övervaknings perioden|Ingen|
-|Disk Läs åtgärder/SEK|Disk Läs åtgärder/SEK|CountPerSecond|Medel|Disk-Läs-IOPS|Ingen|
-|Disk skrivnings åtgärder/SEK|Disk skrivnings åtgärder/SEK|CountPerSecond|Medel|Skriv IOPS för disk|Ingen|
-|Återstående CPU-krediter|Återstående CPU-krediter|Antal|Medel|Totalt antal krediter som är tillgängliga för burst|Ingen|
-|Förbrukade CPU-krediter|Förbrukade CPU-krediter|Antal|Medel|Totalt antal krediter som konsumeras av den virtuella datorn|Ingen|
+|Procent CPU|Procent CPU|Procent|Medel|Procent andelen allokerade beräknings enheter som för närvarande används av den eller de virtuella datorerna|Inga|
+|Nätverk – inkommande|Nätverk i fakturerbart (inaktuellt)|Byte|Totalt|Antalet fakturerbara byte som tagits emot på alla nätverks gränssnitt av den eller de virtuella datorerna (inkommande trafik) (inaktuell)|Inga|
+|Nätverk – utgående|Fakturerbart för nätverk (inaktuellt)|Byte|Totalt|Antalet fakturerbara byte ut i alla nätverks gränssnitt av den eller de virtuella datorerna (utgående trafik) (inaktuell)|Inga|
+|Lästa byte på disk|Lästa byte på disk|Byte|Totalt|Byte som lästs från disk under övervaknings perioden|Inga|
+|Disk-skrivna byte|Disk-skrivna byte|Byte|Totalt|Byte som skrivits till disk under övervaknings perioden|Inga|
+|Disk Läs åtgärder/SEK|Disk Läs åtgärder/SEK|CountPerSecond|Medel|Disk-Läs-IOPS|Inga|
+|Disk skrivnings åtgärder/SEK|Disk skrivnings åtgärder/SEK|CountPerSecond|Medel|Skriv IOPS för disk|Inga|
+|Återstående CPU-krediter|Återstående CPU-krediter|Antal|Medel|Totalt antal krediter som är tillgängliga för burst|Inga|
+|Förbrukade CPU-krediter|Förbrukade CPU-krediter|Antal|Medel|Totalt antal krediter som konsumeras av den virtuella datorn|Inga|
 |Lästa byte per disk/SEK|Lästa byte på datadisk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden|SlotId|
 |Skrivna byte per disk/SEK|Skrivna byte på datadisk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden|SlotId|
 |Läs åtgärder per disk/SEK|Läs åtgärder för data disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden|SlotId|
 |Skriv åtgärder per disk/SEK|Skriv åtgärder för data disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Skriv IOPS från en enskild disk under övervaknings perioden|SlotId|
 |Per disk KÖDJUP|KÖDJUP för data disk [(inaktuellt)](portal-disk-metrics-deprecation.md)|Antal|Medel|Data diskens ködjup (eller Kölängd)|SlotId|
-|Lästa byte per operativ system disk/SEK|Lästa byte för OS-disk/SEK [(inaktuell)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|Skrivna byte per operativ system disk/SEK|Skrivna byte per operativ system disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|Läs åtgärder för operativ system per disk/SEK|Läs åtgärder för operativ system disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|Skriv åtgärder för operativ system per disk/SEK|Skriv åtgärder för operativ system disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Skriv IOPS från en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|KÖDJUP för operativ system per disk|OS-KÖDJUP [(inaktuellt)](portal-disk-metrics-deprecation.md)|Antal|Medel|Ködjup i operativ systemets disk (eller Kölängd)|Ingen|
+|Lästa byte per operativ system disk/SEK|Lästa byte för OS-disk/SEK [(inaktuell)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|Skrivna byte per operativ system disk/SEK|Skrivna byte per operativ system disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|Läs åtgärder för operativ system per disk/SEK|Läs åtgärder för operativ system disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|Skriv åtgärder för operativ system per disk/SEK|Skriv åtgärder för operativ system disk/SEK [(inaktuellt)](portal-disk-metrics-deprecation.md)|CountPerSecond|Medel|Skriv IOPS från en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|KÖDJUP för operativ system per disk|OS-KÖDJUP [(inaktuellt)](portal-disk-metrics-deprecation.md)|Antal|Medel|Ködjup i operativ systemets disk (eller Kölängd)|Inga|
 |Lästa byte på datadisk/SEK|Lästa byte på datadisk/SEK (för hands version)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden|ENHETEN|
 |Skrivna byte på datadisk/SEK|Skrivna byte på datadisk/SEK (för hands version)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden|ENHETEN|
 |Läs åtgärder för data disk/SEK|Läs åtgärder för data disk/SEK (för hands version)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden|ENHETEN|
 |Skriv åtgärder för data disk/SEK|Skriv åtgärder för data disk/SEK (för hands version)|CountPerSecond|Medel|Skriv IOPS från en enskild disk under övervaknings perioden|ENHETEN|
 |Ködjup för datadisk|Data disk Queue djup (för hands version)|Antal|Medel|Data diskens ködjup (eller Kölängd)|ENHETEN|
-|Lästa byte för OS-disk/SEK|Lästa byte för operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|Skrivna byte per operativ system disk/SEK|Skrivna byte per operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|Läs åtgärder för operativ system disk/SEK|Läs åtgärder för operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|Skriv åtgärder för operativ system disk/SEK|Skriv åtgärder för operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Skriv IOPS från en enskild disk under övervaknings perioden för operativ system disken|Ingen|
-|Ködjup för OS-disk|Ködjup för OS-disk (för hands version)|Antal|Medel|Ködjup i operativ systemets disk (eller Kölängd)|Ingen|
-|Inkommande flöden|Inkommande flöden|Antal|Medel|Inkommande flöden är antalet aktuella flöden i den inkommande riktningen (trafik som går till den virtuella datorn)|Ingen|
-|Utgående flöden|Utgående flöden|Antal|Medel|Utgående flöden är antalet aktuella flöden i den utgående riktningen (trafik som går ut från den virtuella datorn)|Ingen|
-|Högsta skapande frekvens för inkommande flöden|Högsta skapande frekvens för inkommande flöden|CountPerSecond|Medel|Högsta skapande frekvens för inkommande flöden (trafik som går till den virtuella datorn)|Ingen|
-|Längsta skapande frekvens för utgående flöden|Längsta skapande frekvens för utgående flöden|CountPerSecond|Medel|Den maximala skapande frekvensen för utgående flöden (trafik som går ut från den virtuella datorn)|Ingen|
+|Lästa byte för OS-disk/SEK|Lästa byte för operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|Skrivna byte per operativ system disk/SEK|Skrivna byte per operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|Läs åtgärder för operativ system disk/SEK|Läs åtgärder för operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|Skriv åtgärder för operativ system disk/SEK|Skriv åtgärder för operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Skriv IOPS från en enskild disk under övervaknings perioden för operativ system disken|Inga|
+|Ködjup för OS-disk|Ködjup för OS-disk (för hands version)|Antal|Medel|Ködjup i operativ systemets disk (eller Kölängd)|Inga|
+|Inkommande flöden|Inkommande flöden|Antal|Medel|Inkommande flöden är antalet aktuella flöden i den inkommande riktningen (trafik som går till den virtuella datorn)|Inga|
+|Utgående flöden|Utgående flöden|Antal|Medel|Utgående flöden är antalet aktuella flöden i den utgående riktningen (trafik som går ut från den virtuella datorn)|Inga|
+|Högsta skapande frekvens för inkommande flöden|Högsta skapande frekvens för inkommande flöden|CountPerSecond|Medel|Högsta skapande frekvens för inkommande flöden (trafik som går till den virtuella datorn)|Inga|
+|Längsta skapande frekvens för utgående flöden|Längsta skapande frekvens för utgående flöden|CountPerSecond|Medel|Den maximala skapande frekvensen för utgående flöden (trafik som går ut från den virtuella datorn)|Inga|
 |Läsning av Premium data disk-cache|Läsning av Premium data disk-cache (för hands version)|Procent|Medel|Läsning av Premium data disk-cache|ENHETEN|
 |Read missar i Premium data-diskcachen|Read missar i Premium data disk cache (för hands version)|Procent|Medel|Read missar i Premium data-diskcachen|ENHETEN|
-|Läsning av Premium OS-diskcachen|Läsning av Premium OS-diskcachen (för hands version)|Procent|Medel|Läsning av Premium OS-diskcachen|Ingen|
-|Read missar i Premium OS-diskcachen|Read missar i Premium OS-diskcachen (för hands version)|Procent|Medel|Read missar i Premium OS-diskcachen|Ingen|
-|Totalt nätverk|Totalt nätverk|Byte|Totalt|Antalet byte som tagits emot på alla nätverks gränssnitt av den eller de virtuella datorerna (inkommande trafik)|Ingen|
-|Totalt nätverk|Totalt nätverk|Byte|Totalt|Antalet byte ut i alla nätverks gränssnitt av den eller de virtuella datorerna (utgående trafik)|Ingen|
+|Läsning av Premium OS-diskcachen|Läsning av Premium OS-diskcachen (för hands version)|Procent|Medel|Läsning av Premium OS-diskcachen|Inga|
+|Read missar i Premium OS-diskcachen|Read missar i Premium OS-diskcachen (för hands version)|Procent|Medel|Read missar i Premium OS-diskcachen|Inga|
+|Totalt nätverk|Totalt nätverk|Byte|Totalt|Antalet byte som tagits emot på alla nätverks gränssnitt av den eller de virtuella datorerna (inkommande trafik)|Inga|
+|Totalt nätverk|Totalt nätverk|Byte|Totalt|Antalet byte ut i alla nätverks gränssnitt av den eller de virtuella datorerna (utgående trafik)|Inga|
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft. ContainerInstance/containerGroups
 
@@ -693,26 +693,26 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |---|---|---|---|---|---|
 |CpuUsage|CPU-användning|Antal|Medel|CPU-användning på alla kärnor i millicores.|containerName|
 |MemoryUsage|Minnesanvändning|Byte|Medel|Total minnes användning i byte.|containerName|
-|NetworkBytesReceivedPerSecond|Mottagna nätverks byte per sekund|Byte|Medel|Mottagna nätverks byte per sekund.|Ingen|
-|NetworkBytesTransmittedPerSecond|Överförda nätverks byte per sekund|Byte|Medel|Överförda nätverks byte per sekund.|Ingen|
+|NetworkBytesReceivedPerSecond|Mottagna nätverks byte per sekund|Byte|Medel|Mottagna nätverks byte per sekund.|Inga|
+|NetworkBytesTransmittedPerSecond|Överförda nätverks byte per sekund|Byte|Medel|Överförda nätverks byte per sekund.|Inga|
 
 ## <a name="microsoftcontainerregistryregistries"></a>Microsoft. ContainerRegistry/register
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|TotalPullCount|Totalt antal hämtningar|Antal|Medel|Totalt antal bild hämtningar|Ingen|
-|SuccessfulPullCount|Antal lyckade pull-överföringar|Antal|Medel|Antal lyckade bild hämtningar|Ingen|
-|TotalPushCount|Totalt antal push-meddelanden|Antal|Medel|Totalt antal push-meddelanden för avbildningar|Ingen|
-|SuccessfulPushCount|Antal lyckade push-meddelanden|Antal|Medel|Antal lyckade avbildnings push-meddelanden|Ingen|
-|RunDuration|Körnings tid|Millisekunder|Totalt|Körnings tid i millisekunder|Ingen|
+|TotalPullCount|Totalt antal hämtningar|Antal|Medel|Totalt antal bild hämtningar|Inga|
+|SuccessfulPullCount|Antal lyckade pull-överföringar|Antal|Medel|Antal lyckade bild hämtningar|Inga|
+|TotalPushCount|Totalt antal push-meddelanden|Antal|Medel|Totalt antal push-meddelanden för avbildningar|Inga|
+|SuccessfulPushCount|Antal lyckade push-meddelanden|Antal|Medel|Antal lyckade avbildnings push-meddelanden|Inga|
+|RunDuration|Körnings tid|Millisekunder|Totalt|Körnings tid i millisekunder|Inga|
 
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft. container service/managedClusters
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|kube_node_status_allocatable_cpu_cores|Totalt antal tillgängliga processor kärnor i ett hanterat kluster|Antal|Medel|Totalt antal tillgängliga processor kärnor i ett hanterat kluster|Ingen|
-|kube_node_status_allocatable_memory_bytes|Total mängd tillgängligt minne i ett hanterat kluster|Byte|Medel|Total mängd tillgängligt minne i ett hanterat kluster|Ingen|
+|kube_node_status_allocatable_cpu_cores|Totalt antal tillgängliga processor kärnor i ett hanterat kluster|Antal|Medel|Totalt antal tillgängliga processor kärnor i ett hanterat kluster|Inga|
+|kube_node_status_allocatable_memory_bytes|Total mängd tillgängligt minne i ett hanterat kluster|Byte|Medel|Total mängd tillgängligt minne i ett hanterat kluster|Inga|
 |kube_pod_status_ready|Antal poddar i klart läge|Antal|Medel|Antal poddar i klart läge|namnrymd, Pod|
 |kube_node_status_condition|Status för olika nod villkor|Antal|Medel|Status för olika nod villkor|villkor, status, status2, nod|
 |kube_pod_status_phase|Antal poddar per fas|Antal|Medel|Antal poddar per fas|fas, namnrymd, Pod|
@@ -735,11 +735,11 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |CloudReadThroughputPerShare|Data flöde för moln hämtning (resurs)|BytesPerSecond|Medel|Ladda ned data flödet till Azure från en resurs under rapporterings perioden.|Dela|
 |CloudUploadThroughputPerShare|Moln överförings data flöde (resurs)|BytesPerSecond|Medel|Ladda upp data flödet till Azure från en resurs under rapporterings perioden.|Dela|
 |BytesUploadedToCloudPerShare|Överförda moln byte (resurs)|Byte|Medel|Det totala antalet byte som överförs till Azure från en resurs under rapporterings perioden.|Dela|
-|Enhet|Total kapacitet|Byte|Medel|Total kapacitet|Ingen|
-|Availablecapacity;)|Tillgänglig kapacitet|Byte|Medel|Tillgänglig kapacitet i byte under rapporterings perioden.|Ingen|
-|CloudUploadThroughput|Moln överförings data flöde|BytesPerSecond|Medel|Moln överförings data flödet till Azure under rapporterings perioden.|Ingen|
-|CloudReadThroughput|Data flöde för moln hämtning|BytesPerSecond|Medel|Molnet Ladda ned data flödet till Azure under rapporterings perioden.|Ingen|
-|BytesUploadedToCloud|Överförda moln byte (enhet)|Byte|Medel|Det totala antalet byte som överförs till Azure från en enhet under rapporterings perioden.|Ingen|
+|Enhet|Total kapacitet|Byte|Medel|Total kapacitet|Inga|
+|Availablecapacity;)|Tillgänglig kapacitet|Byte|Medel|Tillgänglig kapacitet i byte under rapporterings perioden.|Inga|
+|CloudUploadThroughput|Moln överförings data flöde|BytesPerSecond|Medel|Moln överförings data flödet till Azure under rapporterings perioden.|Inga|
+|CloudReadThroughput|Data flöde för moln hämtning|BytesPerSecond|Medel|Molnet Ladda ned data flödet till Azure under rapporterings perioden.|Inga|
+|BytesUploadedToCloud|Överförda moln byte (enhet)|Byte|Medel|Det totala antalet byte som överförs till Azure från en enhet under rapporterings perioden.|Inga|
 |HyperVVirtualProcessorUtilization|Edge Compute-procent CPU|Procent|Medel|CPU-användning i procent|InstanceName|
 |HyperVMemoryUtilization|Edge Compute-minnes användning|Procent|Medel|Mängden RAM-minne som används|InstanceName|
 
@@ -750,12 +750,12 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |---|---|---|---|---|---|
 |AssetDistributionByClassification|Till gångs distribution efter klassificering|Antal|Totalt|Anger antalet till gångar med en viss klassificering som tilldelas, d.v.s. de klassificeras med den etiketten.|Klassificering, källa|
 |AssetDistributionByStorageType|Till gångs distribution efter lagrings typ|Antal|Totalt|Anger antalet till gångar med en viss lagrings typ.|StorageType|
-|NumberOfAssetsWithClassifications|Antal till gångar med minst en klassificering|Antal|Medel|Anger antalet till gångar med minst en etikett klassificering.|Ingen|
-|ScanCancelled|Skanningen avbröts|Antal|Totalt|Anger antalet avsökningar som har avbrutits.|Ingen|
-|ScanCompleted|Sökningen är klar|Antal|Totalt|Anger hur många genomsökningar som har slutförts.|Ingen|
-|ScanFailed|Sökningen misslyckades|Antal|Totalt|Anger antalet misslyckade genomsökningar.|Ingen|
-|ScanTimeTaken|Tids åtgång för genomsökning|Sekunder|Totalt|Anger den totala genomsöknings tiden i sekunder.|Ingen|
-|CatalogActiveUsers|Dagliga aktiva användare|Antal|Totalt|Antal aktiva användare varje dag|Ingen|
+|NumberOfAssetsWithClassifications|Antal till gångar med minst en klassificering|Antal|Medel|Anger antalet till gångar med minst en etikett klassificering.|Inga|
+|ScanCancelled|Skanningen avbröts|Antal|Totalt|Anger antalet avsökningar som har avbrutits.|Inga|
+|ScanCompleted|Sökningen är klar|Antal|Totalt|Anger hur många genomsökningar som har slutförts.|Inga|
+|ScanFailed|Sökningen misslyckades|Antal|Totalt|Anger antalet misslyckade genomsökningar.|Inga|
+|ScanTimeTaken|Tids åtgång för genomsökning|Sekunder|Totalt|Anger den totala genomsöknings tiden i sekunder.|Inga|
+|CatalogActiveUsers|Dagliga aktiva användare|Antal|Totalt|Antal aktiva användare varje dag|Inga|
 |CatalogUsage|Användnings distribution per åtgärd|Antal|Totalt|Ange antalet åtgärds användare som gör till katalogen, t. ex. åtkomst, sökning, ord lista.|Åtgärd|
 
 
@@ -785,33 +785,33 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |IntegrationRuntimeAverageTaskPickupDelay|Varaktighet för integration runtime-kö|Sekunder|Medel||IntegrationRuntimeName|
 |IntegrationRuntimeQueueLength|Kölängd för integration runtime|Antal|Medel||IntegrationRuntimeName|
 |IntegrationRuntimeAvailableNodeNumber|Antal tillgängliga noder för integration runtime|Antal|Medel||IntegrationRuntimeName|
-|MaxAllowedResourceCount|Maximalt antal tillåtna entiteter|Antal|Maximal||Ingen|
-|MaxAllowedFactorySizeInGbUnits|Högsta tillåtna fabriks storlek (GB enhet)|Antal|Maximal||Ingen|
-|ResourceCount|Totalt antal entiteter|Antal|Maximal||Ingen|
-|FactorySizeInGbUnits|Total fabriks storlek (GB enhet)|Antal|Maximal||Ingen|
+|MaxAllowedResourceCount|Maximalt antal tillåtna entiteter|Antal|Maximal||Inga|
+|MaxAllowedFactorySizeInGbUnits|Högsta tillåtna fabriks storlek (GB enhet)|Antal|Maximal||Inga|
+|ResourceCount|Totalt antal entiteter|Antal|Maximal||Inga|
+|FactorySizeInGbUnits|Total fabriks storlek (GB enhet)|Antal|Maximal||Inga|
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft. DataLakeAnalytics/konton
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|JobEndedSuccess|Slutförda jobb|Antal|Totalt|Antal lyckade jobb.|Ingen|
-|JobEndedFailure|Misslyckade jobb|Antal|Totalt|Antal misslyckade jobb.|Ingen|
-|JobEndedCancelled|Avbrutna jobb|Antal|Totalt|Antal avbrutna jobb.|Ingen|
-|JobAUEndedSuccess|Lyckad AU-tid|Sekunder|Totalt|Total AU-tid för lyckade jobb.|Ingen|
-|JobAUEndedFailure|Misslyckad AU-tid|Sekunder|Totalt|Total AU-tid för misslyckade jobb.|Ingen|
-|JobAUEndedCancelled|Tid för avbruten AU|Sekunder|Totalt|Total AU-tid för avbrutna jobb.|Ingen|
-|JobStage|Jobb i steg|Antal|Totalt|Antal jobb i varje steg.|Ingen|
+|JobEndedSuccess|Slutförda jobb|Antal|Totalt|Antal lyckade jobb.|Inga|
+|JobEndedFailure|Misslyckade jobb|Antal|Totalt|Antal misslyckade jobb.|Inga|
+|JobEndedCancelled|Avbrutna jobb|Antal|Totalt|Antal avbrutna jobb.|Inga|
+|JobAUEndedSuccess|Lyckad AU-tid|Sekunder|Totalt|Total AU-tid för lyckade jobb.|Inga|
+|JobAUEndedFailure|Misslyckad AU-tid|Sekunder|Totalt|Total AU-tid för misslyckade jobb.|Inga|
+|JobAUEndedCancelled|Tid för avbruten AU|Sekunder|Totalt|Total AU-tid för avbrutna jobb.|Inga|
+|JobStage|Jobb i steg|Antal|Totalt|Antal jobb i varje steg.|Inga|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft. DataLakeStore/konton
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|TotalStorage|Totalt lagringsutrymme|Byte|Maximal|Den totala mängden data som lagras i kontot.|Ingen|
-|DataWritten|Skrivna data|Byte|Totalt|Total mängd data som skrivs till kontot.|Ingen|
-|DataRead|Lästa data|Byte|Totalt|Total mängd data som lästs från kontot.|Ingen|
-|WriteRequests|Skriv förfrågningar|Antal|Totalt|Antal data skrivnings begär anden till kontot.|Ingen|
-|ReadRequests|Läs begär Anden|Antal|Totalt|Antal data läsnings begär anden till kontot.|Ingen|
+|TotalStorage|Totalt lagringsutrymme|Byte|Maximal|Den totala mängden data som lagras i kontot.|Inga|
+|DataWritten|Skrivna data|Byte|Totalt|Total mängd data som skrivs till kontot.|Inga|
+|DataRead|Lästa data|Byte|Totalt|Total mängd data som lästs från kontot.|Inga|
+|WriteRequests|Skriv förfrågningar|Antal|Totalt|Antal data skrivnings begär anden till kontot.|Inga|
+|ReadRequests|Läs begär Anden|Antal|Totalt|Antal data läsnings begär anden till kontot.|Inga|
 
 
 ## <a name="microsoftdatashareaccounts"></a>Microsoft. DataShare/konton
@@ -820,105 +820,105 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |---|---|---|---|---|---|
 |ShareCount|Skickade resurser|Antal|Maximal|Antal skickade resurser i kontot|Resurs|
 |ShareSubscriptionCount|Mottagna resurser|Antal|Maximal|Antal mottagna resurser i kontot|ShareSubscriptionName|
-|SucceededShareSynchronizations|Slutförda ögonblicks bilder av skickade resurser|Antal|Antal|Antal skickade delade resurser i kontot|Ingen|
-|FailedShareSynchronizations|Misslyckade ögonblicks bilder av skickade resurser|Antal|Antal|Antal skickade resurs misslyckade ögonblicks bilder i kontot|Ingen|
-|SucceededShareSubscriptionSynchronizations|Mottagna delade ögonblicks bilder|Antal|Antal|Antal mottagna delade ögonblicks bilder i kontot|Ingen|
-|FailedShareSubscriptionSynchronizations|Mottagna ögonblicks bilder av resurs misslyckades|Antal|Antal|Antal mottagna resurs misslyckade ögonblicks bilder i kontot|Ingen|
+|SucceededShareSynchronizations|Slutförda ögonblicks bilder av skickade resurser|Antal|Antal|Antal skickade delade resurser i kontot|Inga|
+|FailedShareSynchronizations|Misslyckade ögonblicks bilder av skickade resurser|Antal|Antal|Antal skickade resurs misslyckade ögonblicks bilder i kontot|Inga|
+|SucceededShareSubscriptionSynchronizations|Mottagna delade ögonblicks bilder|Antal|Antal|Antal mottagna delade ögonblicks bilder i kontot|Inga|
+|FailedShareSubscriptionSynchronizations|Mottagna ögonblicks bilder av resurs misslyckades|Antal|Antal|Antal mottagna resurs misslyckade ögonblicks bilder i kontot|Inga|
 
 
 ## <a name="microsoftdbformariadbservers"></a>Microsoft. DBforMariaDB/servers
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Ingen|
-|memory_percent|Minnes procent|Procent|Medel|Minnes procent|Ingen|
-|io_consumption_percent|I/o procent|Procent|Medel|I/o procent|Ingen|
-|storage_percent|Lagrings procent|Procent|Medel|Lagrings procent|Ingen|
-|storage_used|Använt lagrings utrymme|Byte|Medel|Använt lagrings utrymme|Ingen|
-|storage_limit|Lagrings gräns|Byte|Maximal|Lagrings gräns|Ingen|
-|serverlog_storage_percent|Server logg lagrings procent|Procent|Medel|Server logg lagrings procent|Ingen|
-|serverlog_storage_usage|Server logg lagring används|Byte|Medel|Server logg lagring används|Ingen|
-|serverlog_storage_limit|Server logg lagrings gräns|Byte|Medel|Server logg lagrings gräns|Ingen|
-|active_connections|Aktiva anslutningar|Antal|Medel|Aktiva anslutningar|Ingen|
-|connections_failed|Misslyckade anslutningar|Antal|Totalt|Misslyckade anslutningar|Ingen|
-|seconds_behind_master|Fördröjning för replikering på några sekunder|Antal|Maximal|Fördröjning för replikering på några sekunder|Ingen|
-|backup_storage_used|Lagring av säkerhets kopior som används|Byte|Medel|Lagring av säkerhets kopior som används|Ingen|
-|network_bytes_egress|Nätverk – utgående|Byte|Totalt|Nätverk ut över aktiva anslutningar|Ingen|
-|network_bytes_ingress|Nätverk – inkommande|Byte|Totalt|Nätverk i över aktiva anslutningar|Ingen|
+|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga|
+|memory_percent|Minnes procent|Procent|Medel|Minnes procent|Inga|
+|io_consumption_percent|I/o procent|Procent|Medel|I/o procent|Inga|
+|storage_percent|Lagrings procent|Procent|Medel|Lagrings procent|Inga|
+|storage_used|Använt lagrings utrymme|Byte|Medel|Använt lagrings utrymme|Inga|
+|storage_limit|Lagrings gräns|Byte|Maximal|Lagrings gräns|Inga|
+|serverlog_storage_percent|Server logg lagrings procent|Procent|Medel|Server logg lagrings procent|Inga|
+|serverlog_storage_usage|Server logg lagring används|Byte|Medel|Server logg lagring används|Inga|
+|serverlog_storage_limit|Server logg lagrings gräns|Byte|Medel|Server logg lagrings gräns|Inga|
+|active_connections|Aktiva anslutningar|Antal|Medel|Aktiva anslutningar|Inga|
+|connections_failed|Misslyckade anslutningar|Antal|Totalt|Misslyckade anslutningar|Inga|
+|seconds_behind_master|Fördröjning för replikering på några sekunder|Antal|Maximal|Fördröjning för replikering på några sekunder|Inga|
+|backup_storage_used|Lagring av säkerhets kopior som används|Byte|Medel|Lagring av säkerhets kopior som används|Inga|
+|network_bytes_egress|Nätverk – utgående|Byte|Totalt|Nätverk ut över aktiva anslutningar|Inga|
+|network_bytes_ingress|Nätverk – inkommande|Byte|Totalt|Nätverk i över aktiva anslutningar|Inga|
 
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft. DBforMySQL/servers
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Ingen|
-|memory_percent|Minnes procent|Procent|Medel|Minnes procent|Ingen|
-|io_consumption_percent|I/o procent|Procent|Medel|I/o procent|Ingen|
-|storage_percent|Lagrings procent|Procent|Medel|Lagrings procent|Ingen|
-|storage_used|Använt lagrings utrymme|Byte|Medel|Använt lagrings utrymme|Ingen|
-|storage_limit|Lagrings gräns|Byte|Maximal|Lagrings gräns|Ingen|
-|serverlog_storage_percent|Server logg lagrings procent|Procent|Medel|Server logg lagrings procent|Ingen|
-|serverlog_storage_usage|Server logg lagring används|Byte|Medel|Server logg lagring används|Ingen|
-|serverlog_storage_limit|Server logg lagrings gräns|Byte|Maximal|Server logg lagrings gräns|Ingen|
-|active_connections|Aktiva anslutningar|Antal|Medel|Aktiva anslutningar|Ingen|
-|connections_failed|Misslyckade anslutningar|Antal|Totalt|Misslyckade anslutningar|Ingen|
-|seconds_behind_master|Fördröjning för replikering på några sekunder|Antal|Maximal|Fördröjning för replikering på några sekunder|Ingen|
-|backup_storage_used|Lagring av säkerhets kopior som används|Byte|Medel|Lagring av säkerhets kopior som används|Ingen|
-|network_bytes_egress|Nätverk – utgående|Byte|Totalt|Nätverk ut över aktiva anslutningar|Ingen|
-|network_bytes_ingress|Nätverk – inkommande|Byte|Totalt|Nätverk i över aktiva anslutningar|Ingen|
+|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga|
+|memory_percent|Minnes procent|Procent|Medel|Minnes procent|Inga|
+|io_consumption_percent|I/o procent|Procent|Medel|I/o procent|Inga|
+|storage_percent|Lagrings procent|Procent|Medel|Lagrings procent|Inga|
+|storage_used|Använt lagrings utrymme|Byte|Medel|Använt lagrings utrymme|Inga|
+|storage_limit|Lagrings gräns|Byte|Maximal|Lagrings gräns|Inga|
+|serverlog_storage_percent|Server logg lagrings procent|Procent|Medel|Server logg lagrings procent|Inga|
+|serverlog_storage_usage|Server logg lagring används|Byte|Medel|Server logg lagring används|Inga|
+|serverlog_storage_limit|Server logg lagrings gräns|Byte|Maximal|Server logg lagrings gräns|Inga|
+|active_connections|Aktiva anslutningar|Antal|Medel|Aktiva anslutningar|Inga|
+|connections_failed|Misslyckade anslutningar|Antal|Totalt|Misslyckade anslutningar|Inga|
+|seconds_behind_master|Fördröjning för replikering på några sekunder|Antal|Maximal|Fördröjning för replikering på några sekunder|Inga|
+|backup_storage_used|Lagring av säkerhets kopior som används|Byte|Medel|Lagring av säkerhets kopior som används|Inga|
+|network_bytes_egress|Nätverk – utgående|Byte|Totalt|Nätverk ut över aktiva anslutningar|Inga|
+|network_bytes_ingress|Nätverk – inkommande|Byte|Totalt|Nätverk i över aktiva anslutningar|Inga|
 
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft. DBforPostgreSQL/servers
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Ingen|
-|memory_percent|Minnes procent|Procent|Medel|Minnes procent|Ingen|
-|io_consumption_percent|I/o procent|Procent|Medel|I/o procent|Ingen|
-|storage_percent|Lagrings procent|Procent|Medel|Lagrings procent|Ingen|
-|storage_used|Använt lagrings utrymme|Byte|Medel|Använt lagrings utrymme|Ingen|
-|storage_limit|Lagrings gräns|Byte|Maximal|Lagrings gräns|Ingen|
-|serverlog_storage_percent|Server logg lagrings procent|Procent|Medel|Server logg lagrings procent|Ingen|
-|serverlog_storage_usage|Server logg lagring används|Byte|Medel|Server logg lagring används|Ingen|
-|serverlog_storage_limit|Server logg lagrings gräns|Byte|Maximal|Server logg lagrings gräns|Ingen|
-|active_connections|Aktiva anslutningar|Antal|Medel|Aktiva anslutningar|Ingen|
-|connections_failed|Misslyckade anslutningar|Antal|Totalt|Misslyckade anslutningar|Ingen|
-|backup_storage_used|Lagring av säkerhets kopior som används|Byte|Medel|Lagring av säkerhets kopior som används|Ingen|
-|network_bytes_egress|Nätverk – utgående|Byte|Totalt|Nätverk ut över aktiva anslutningar|Ingen|
-|network_bytes_ingress|Nätverk – inkommande|Byte|Totalt|Nätverk i över aktiva anslutningar|Ingen|
-|pg_replica_log_delay_in_seconds|Replik fördröjning|Sekunder|Maximal|Replik fördröjning i sekunder|Ingen|
-|pg_replica_log_delay_in_bytes|Maximal fördröjning mellan repliker|Byte|Maximal|Fördröjning i byte för den flesta isolerings repliken|Ingen|
+|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga|
+|memory_percent|Minnes procent|Procent|Medel|Minnes procent|Inga|
+|io_consumption_percent|I/o procent|Procent|Medel|I/o procent|Inga|
+|storage_percent|Lagrings procent|Procent|Medel|Lagrings procent|Inga|
+|storage_used|Använt lagrings utrymme|Byte|Medel|Använt lagrings utrymme|Inga|
+|storage_limit|Lagrings gräns|Byte|Maximal|Lagrings gräns|Inga|
+|serverlog_storage_percent|Server logg lagrings procent|Procent|Medel|Server logg lagrings procent|Inga|
+|serverlog_storage_usage|Server logg lagring används|Byte|Medel|Server logg lagring används|Inga|
+|serverlog_storage_limit|Server logg lagrings gräns|Byte|Maximal|Server logg lagrings gräns|Inga|
+|active_connections|Aktiva anslutningar|Antal|Medel|Aktiva anslutningar|Inga|
+|connections_failed|Misslyckade anslutningar|Antal|Totalt|Misslyckade anslutningar|Inga|
+|backup_storage_used|Lagring av säkerhets kopior som används|Byte|Medel|Lagring av säkerhets kopior som används|Inga|
+|network_bytes_egress|Nätverk – utgående|Byte|Totalt|Nätverk ut över aktiva anslutningar|Inga|
+|network_bytes_ingress|Nätverk – inkommande|Byte|Totalt|Nätverk i över aktiva anslutningar|Inga|
+|pg_replica_log_delay_in_seconds|Replik fördröjning|Sekunder|Maximal|Replik fördröjning i sekunder|Inga|
+|pg_replica_log_delay_in_bytes|Maximal fördröjning mellan repliker|Byte|Maximal|Fördröjning i byte för den flesta isolerings repliken|Inga|
 
 
 ## <a name="microsoftdbforpostgresqlserversv2"></a>Microsoft. DBforPostgreSQL/serversv2
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Ingen|
-|memory_percent|Minnes procent|Procent|Medel|Minnes procent|Ingen|
-|IOPS|IOPS|Antal|Medel|I/o-åtgärder per sekund|Ingen|
-|storage_percent|Lagrings procent|Procent|Medel|Lagrings procent|Ingen|
-|storage_used|Använt lagrings utrymme|Byte|Medel|Använt lagrings utrymme|Ingen|
-|active_connections|Aktiva anslutningar|Antal|Medel|Aktiva anslutningar|Ingen|
-|network_bytes_egress|Nätverk – utgående|Byte|Totalt|Nätverk ut över aktiva anslutningar|Ingen|
-|network_bytes_ingress|Nätverk – inkommande|Byte|Totalt|Nätverk i över aktiva anslutningar|Ingen|
+|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga|
+|memory_percent|Minnes procent|Procent|Medel|Minnes procent|Inga|
+|IOPS|IOPS|Antal|Medel|I/o-åtgärder per sekund|Inga|
+|storage_percent|Lagrings procent|Procent|Medel|Lagrings procent|Inga|
+|storage_used|Använt lagrings utrymme|Byte|Medel|Använt lagrings utrymme|Inga|
+|active_connections|Aktiva anslutningar|Antal|Medel|Aktiva anslutningar|Inga|
+|network_bytes_egress|Nätverk – utgående|Byte|Totalt|Nätverk ut över aktiva anslutningar|Inga|
+|network_bytes_ingress|Nätverk – inkommande|Byte|Totalt|Nätverk i över aktiva anslutningar|Inga|
 
 
 ## <a name="microsoftdbforpostgresqlsingleservers"></a>Microsoft. DBforPostgreSQL/singleservers
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Ingen|
-|memory_percent|Minnes procent|Procent|Medel|Minnes procent|Ingen|
-|IOPS|IOPS|Antal|Medel|I/o-åtgärder per sekund|Ingen|
-|storage_percent|Lagrings procent|Procent|Medel|Lagrings procent|Ingen|
-|storage_used|Använt lagrings utrymme|Byte|Medel|Använt lagrings utrymme|Ingen|
-|active_connections|Aktiva anslutningar|Antal|Medel|Aktiva anslutningar|Ingen|
-|network_bytes_egress|Nätverk – utgående|Byte|Totalt|Nätverk ut över aktiva anslutningar|Ingen|
-|network_bytes_ingress|Nätverk – inkommande|Byte|Totalt|Nätverk i över aktiva anslutningar|Ingen|
-|connections_failed|Misslyckade anslutningar|Antal|Totalt|Misslyckade anslutningar|Ingen|
-|connections_succeeded|Lyckade anslutningar|Antal|Totalt|Lyckade anslutningar|Ingen|
-|maximum_used_transactionIDs|Högsta antal använda transaktions-ID: n|Antal|Medel|Högsta antal använda transaktions-ID: n|Ingen|
+|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga|
+|memory_percent|Minnes procent|Procent|Medel|Minnes procent|Inga|
+|IOPS|IOPS|Antal|Medel|I/o-åtgärder per sekund|Inga|
+|storage_percent|Lagrings procent|Procent|Medel|Lagrings procent|Inga|
+|storage_used|Använt lagrings utrymme|Byte|Medel|Använt lagrings utrymme|Inga|
+|active_connections|Aktiva anslutningar|Antal|Medel|Aktiva anslutningar|Inga|
+|network_bytes_egress|Nätverk – utgående|Byte|Totalt|Nätverk ut över aktiva anslutningar|Inga|
+|network_bytes_ingress|Nätverk – inkommande|Byte|Totalt|Nätverk i över aktiva anslutningar|Inga|
+|connections_failed|Misslyckade anslutningar|Antal|Totalt|Misslyckade anslutningar|Inga|
+|connections_succeeded|Lyckade anslutningar|Antal|Totalt|Lyckade anslutningar|Inga|
+|maximum_used_transactionIDs|Högsta antal använda transaktions-ID: n|Antal|Medel|Högsta antal använda transaktions-ID: n|Inga|
 
 
 
@@ -928,73 +928,73 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|D2C. telemetri. ingress. allProtocol|Skicka försök för telemetri|Antal|Totalt|Antalet telemetri från enhet till molnet försökte skickas till din IoT-hubb|Ingen|
-|D2C. telemetri. ingress. lyckades|Meddelande om telemetri|Antal|Totalt|Antal telemetri om enhet till molnet har skickats till din IoT-hubb|Ingen|
-|C2D. commands. utgående. Complete. lyckades|C2D meddelande leveranser har slutförts|Antal|Totalt|Antalet meddelande leveranser från moln till enhet har slutförts av enheten|Ingen|
-|C2D. commands. utgående. Abandon. lyckades|Övergivna C2D-meddelanden|Antal|Totalt|Antal meddelanden från moln till enhet som har övergivits av enheten|Ingen|
-|C2D. commands. rekasta. Success|Avvisade C2D-meddelanden|Antal|Totalt|Antal meddelanden från moln till enhet som avvisats av enheten|Ingen|
-|C2DMessagesExpired|C2D meddelanden har förfallit (förhands granskning)|Antal|Totalt|Antal utgångna meddelanden från moln till enhet|Ingen|
-|enheter. totalDevices|Totalt antal enheter (inaktuella)|Antal|Totalt|Antal enheter som har registrerats för din IoT-hubb|Ingen|
-|Devices. connectedDevices. allProtocol|Anslutna enheter (inaktuella) |Antal|Totalt|Antal enheter som är anslutna till din IoT-hubb|Ingen|
-|D2C. telemetri. utgående. lyckades|Routning: telemetri meddelanden levereras|Antal|Totalt|Antalet gånger som meddelanden har levererats till alla slut punkter med hjälp av IoT Hub routning. Om ett meddelande dirigeras till flera slut punkter ökar det här värdet med ett för varje lyckad leverans. Om ett meddelande skickas till samma slut punkt flera gånger ökar det här värdet med ett för varje lyckad leverans.|Ingen|
-|D2C. telemetri. utgående.|Routning: telemetri ignoreras |Antal|Totalt|Antalet gånger som meddelanden släpptes genom IoT Hub routning på grund av död slut punkter. Det här värdet räknar inte meddelanden som levereras till återställnings vägen eftersom ignorerade meddelanden inte levereras där.|Ingen|
-|D2C. telemetri. utgående. överblivna|Routning: telemetri-meddelanden har överblivna |Antal|Totalt|Antalet gånger som meddelanden har överblivnas av IoT Hub routning eftersom de inte matchade några routningsregler (inklusive återställnings regeln). |Ingen|
-|D2C. telemetri. utgående. ogiltig|Routning: telemetri-meddelanden är inkompatibla|Antal|Totalt|Antalet gånger IoT Hub routningen kunde inte leverera meddelanden på grund av inkompatibilitet med slut punkten. Det här värdet omfattar inte återförsök.|Ingen|
-|D2C. telemetri. utgående. fallback|Routning: meddelanden levererade till reserv|Antal|Totalt|Antalet gånger IoT Hub vidarebefordran av meddelanden till slut punkten som är kopplad till återställnings vägen.|Ingen|
-|D2C. endpoints. utgående. eventHubs|Routning: meddelanden levererade till Händelsehubben|Antal|Totalt|Antal gånger IoT Hub routning har levererat meddelanden till Event Hub-slutpunkter.|Ingen|
-|D2C. endpoints. latens. eventHubs|Routning: meddelande fördröjning för Event Hub|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och meddelande intränger till en Event Hub-slutpunkt.|Ingen|
-|D2C. endpoints. utgående. serviceBusQueues|Routning: meddelanden levererade till Service Bus kö|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till Service Bus-köns slut punkter.|Ingen|
-|D2C. endpoints. latens. serviceBusQueues|Routning: meddelande fördröjning för Service Bus kö|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelanden intränger i en Service Bus Queue-slutpunkt.|Ingen|
-|D2C. endpoints. utgående. serviceBusTopics|Routning: meddelanden levererade till Service Bus ämnet|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till Service Bus ämnes slut punkter.|Ingen|
-|D2C. endpoints. latens. serviceBusTopics|Routning: meddelande fördröjning för Service Bus ämne|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelande intränger i en Service Bus avsnitts slut punkt.|Ingen|
-|D2C. endpoints. utgående. Builtity. events|Routning: meddelanden som levereras till meddelanden/händelser|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till den inbyggda slut punkten (meddelanden/händelser).|Ingen|
-|D2C. endpoints. latens. Builtin. events|Routning: meddelande fördröjning för meddelanden/händelser|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och telemetri intränger in i den inbyggda slut punkten (meddelanden/händelser).|Ingen|
-|D2C. endpoints. utgående. Storage|Routning: meddelanden som levereras till lagring|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till lagrings slut punkter.|Ingen|
-|D2C. endpoints. svars tid. Storage|Routning: meddelande fördröjning för lagring|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelanden intränger i en lagrings slut punkt.|Ingen|
-|D2C. endpoints. utgående. Storage. byte|Routning: data som levereras till lagring|Byte|Totalt|Mängden data (byte) IoT Hub routning som levereras till lagrings slut punkter.|Ingen|
-|D2C. endpoints. utgående. Storage. blob|Routning: blobbar levererade till lagring|Antal|Totalt|Antal gånger IoT Hub som levererade blobbar till lagrings slut punkter.|Ingen|
+|D2C. telemetri. ingress. allProtocol|Skicka försök för telemetri|Antal|Totalt|Antalet telemetri från enhet till molnet försökte skickas till din IoT-hubb|Inga|
+|D2C. telemetri. ingress. lyckades|Meddelande om telemetri|Antal|Totalt|Antal telemetri om enhet till molnet har skickats till din IoT-hubb|Inga|
+|C2D. commands. utgående. Complete. lyckades|C2D meddelande leveranser har slutförts|Antal|Totalt|Antalet meddelande leveranser från moln till enhet har slutförts av enheten|Inga|
+|C2D. commands. utgående. Abandon. lyckades|Övergivna C2D-meddelanden|Antal|Totalt|Antal meddelanden från moln till enhet som har övergivits av enheten|Inga|
+|C2D. commands. rekasta. Success|Avvisade C2D-meddelanden|Antal|Totalt|Antal meddelanden från moln till enhet som avvisats av enheten|Inga|
+|C2DMessagesExpired|C2D meddelanden har förfallit (förhands granskning)|Antal|Totalt|Antal utgångna meddelanden från moln till enhet|Inga|
+|enheter. totalDevices|Totalt antal enheter (inaktuella)|Antal|Totalt|Antal enheter som har registrerats för din IoT-hubb|Inga|
+|Devices. connectedDevices. allProtocol|Anslutna enheter (inaktuella) |Antal|Totalt|Antal enheter som är anslutna till din IoT-hubb|Inga|
+|D2C. telemetri. utgående. lyckades|Routning: telemetri meddelanden levereras|Antal|Totalt|Antalet gånger som meddelanden har levererats till alla slut punkter med hjälp av IoT Hub routning. Om ett meddelande dirigeras till flera slut punkter ökar det här värdet med ett för varje lyckad leverans. Om ett meddelande skickas till samma slut punkt flera gånger ökar det här värdet med ett för varje lyckad leverans.|Inga|
+|D2C. telemetri. utgående.|Routning: telemetri ignoreras |Antal|Totalt|Antalet gånger som meddelanden släpptes genom IoT Hub routning på grund av död slut punkter. Det här värdet räknar inte meddelanden som levereras till återställnings vägen eftersom ignorerade meddelanden inte levereras där.|Inga|
+|D2C. telemetri. utgående. överblivna|Routning: telemetri-meddelanden har överblivna |Antal|Totalt|Antalet gånger som meddelanden har överblivnas av IoT Hub routning eftersom de inte matchade några routningsregler (inklusive återställnings regeln). |Inga|
+|D2C. telemetri. utgående. ogiltig|Routning: telemetri-meddelanden är inkompatibla|Antal|Totalt|Antalet gånger IoT Hub routningen kunde inte leverera meddelanden på grund av inkompatibilitet med slut punkten. Det här värdet omfattar inte återförsök.|Inga|
+|D2C. telemetri. utgående. fallback|Routning: meddelanden levererade till reserv|Antal|Totalt|Antalet gånger IoT Hub vidarebefordran av meddelanden till slut punkten som är kopplad till återställnings vägen.|Inga|
+|D2C. endpoints. utgående. eventHubs|Routning: meddelanden levererade till Händelsehubben|Antal|Totalt|Antal gånger IoT Hub routning har levererat meddelanden till Event Hub-slutpunkter.|Inga|
+|D2C. endpoints. latens. eventHubs|Routning: meddelande fördröjning för Event Hub|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och meddelande intränger till en Event Hub-slutpunkt.|Inga|
+|D2C. endpoints. utgående. serviceBusQueues|Routning: meddelanden levererade till Service Bus kö|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till Service Bus-köns slut punkter.|Inga|
+|D2C. endpoints. latens. serviceBusQueues|Routning: meddelande fördröjning för Service Bus kö|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelanden intränger i en Service Bus Queue-slutpunkt.|Inga|
+|D2C. endpoints. utgående. serviceBusTopics|Routning: meddelanden levererade till Service Bus ämnet|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till Service Bus ämnes slut punkter.|Inga|
+|D2C. endpoints. latens. serviceBusTopics|Routning: meddelande fördröjning för Service Bus ämne|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelande intränger i en Service Bus avsnitts slut punkt.|Inga|
+|D2C. endpoints. utgående. Builtity. events|Routning: meddelanden som levereras till meddelanden/händelser|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till den inbyggda slut punkten (meddelanden/händelser).|Inga|
+|D2C. endpoints. latens. Builtin. events|Routning: meddelande fördröjning för meddelanden/händelser|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och telemetri intränger in i den inbyggda slut punkten (meddelanden/händelser).|Inga|
+|D2C. endpoints. utgående. Storage|Routning: meddelanden som levereras till lagring|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till lagrings slut punkter.|Inga|
+|D2C. endpoints. svars tid. Storage|Routning: meddelande fördröjning för lagring|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelanden intränger i en lagrings slut punkt.|Inga|
+|D2C. endpoints. utgående. Storage. byte|Routning: data som levereras till lagring|Byte|Totalt|Mängden data (byte) IoT Hub routning som levereras till lagrings slut punkter.|Inga|
+|D2C. endpoints. utgående. Storage. blob|Routning: blobbar levererade till lagring|Antal|Totalt|Antal gånger IoT Hub som levererade blobbar till lagrings slut punkter.|Inga|
 |EventGridDeliveries|Event Grid leveranser (för hands version)|Antal|Totalt|Antalet IoT Hub-händelser som publicerats till Event Grid. Använd resultat dimensionen för antalet lyckade och misslyckade förfrågningar. EventType-dimensionen visar händelse typen (https://aka.ms/ioteventgrid).|ResourceId, resultat, EventType|
 |EventGridLatency|Event Grid svars tid (för hands version)|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) från när IoT Hub-händelsen genererades till när händelsen publicerades till Event Grid. Det här talet är ett medelvärde mellan alla händelse typer. Använd EventType-dimensionen för att se svars tiden för en speciell typ av händelse.|ResourceId, EventType|
 |RoutingDeliveries|Dirigera leveranser (för hands version)|Millisekunder|Totalt|Antalet gånger IoT Hub försökte leverera meddelanden till alla slut punkter med hjälp av routning. Använd resultat dimensionen för att se antalet lyckade eller misslyckade försök. Om du vill se orsaken till fel, som ogiltig, släppt eller föräldralös, använder du FailureReasonCategory-dimensionen. Du kan också använda dimensionerna EndpointName och EndpointType för att förstå hur många meddelanden som levererats till dina olika slut punkter. Mått värdet ökar med ett för varje leverans försök, inklusive om meddelandet levereras till flera slut punkter eller om meddelandet levereras till samma slut punkt flera gånger.|ResourceId, EndpointType, EndpointName, FailureReasonCategory, result, RoutingSource|
 |RoutingDeliveryLatency|Leverans svars tid för routning (för hands version)|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelanden intränger i en slut punkt. Du kan använda dimensionerna EndpointName och EndpointType för att förstå svars tiden för dina olika slut punkter.|ResourceId, EndpointType, EndpointName, RoutingSource|
-|D2C. delad. lyckades|Lyckades dubbla läsningar från enheter|Antal|Totalt|Antalet framgångs rika enhets uppinitierade dubbla läsningar.|Ingen|
-|D2C. delad.|Misslyckade dubbla läsningar från enheter|Antal|Totalt|Antalet misslyckade, dubbla läsningar som initierats av enheten.|Ingen|
-|D2C., delad. storlek|Svars storlek för dubbla läsningar från enheter|Byte|Medel|Genomsnitt, min och Max för alla lyckade, dubbla läsningar som initierats av enheten.|Ingen|
-|D2C. delad. Update. lyckades|Lyckade dubbla uppdateringar från enheter|Antal|Totalt|Antalet lyckade, dubbla uppdateringar som initierats av enheten.|Ingen|
-|D2C. delad. Update. Failure|Misslyckade dubbla uppdateringar från enheter|Antal|Totalt|Antalet misslyckade, dubbla uppdateringar som initierats av enheten.|Ingen|
-|D2C. dubbla. Update. size|Storlek på dubbla uppdateringar från enheter|Byte|Medel|Genomsnitt, min och Max storlek för alla lyckade, dubbla uppdateringar som initierats av enheten.|Ingen|
-|C2D. Methods. Success|Direkta metod anrop|Antal|Totalt|Antalet lyckade direkta metod anrop.|Ingen|
-|C2D. Methods. Failure|Misslyckade direkta metod anrop|Antal|Totalt|Antalet misslyckade direkta metod anrop.|Ingen|
-|C2D. Methods. requestSize|Begär ande storlek för direkta metod anrop|Byte|Medel|Genomsnitt, min och Max för alla lyckade direkta metod begär Anden.|Ingen|
-|C2D. Methods. responseSize|Svars storlek för direkta metod anrop|Byte|Medel|Medelvärde, min och Max för alla lyckade direkta metod svar.|Ingen|
-|C2D. delad. lyckades|Lyckades dubbla läspaket från Server delen|Antal|Totalt|Antalet dubbla läsningar som initierats av alla lyckade.|Ingen|
-|C2D. delad.|Det gick inte att dubbla läsningar från Server delen|Antal|Totalt|Antalet dubbla läsningar som initierats av alla misslyckade backend-slutpunkter.|Ingen|
-|C2D., delad. storlek|Svars storlek för dubbla läsningar från Server delen|Byte|Medel|Genomsnitt, min och Max för alla lyckade, dubbla läsningar som initieras i slut punkt.|Ingen|
-|C2D. delad. Update. lyckades|Lyckades dubbla uppdateringar från Server delen|Antal|Totalt|Antalet fullständiga uppdateringar som initierats av alla lyckade backend-uppdateringar.|Ingen|
-|C2D. delad. Update. Failure|Misslyckade dubbla uppdateringar från Server delen|Antal|Totalt|Antalet dubbla uppdateringar som initierats av alla misslyckade backend-slutpunkter.|Ingen|
-|C2D. dubbla. Update. size|Storlek på dubbla uppdateringar från Server delen|Byte|Medel|Genomsnitt, min och Max storlek för alla lyckade, dubbla uppdateringar som initieras.|Ingen|
-|twinQueries. lyckades|Lyckades dubbla frågor|Antal|Totalt|Antalet lyckade dubbla frågor.|Ingen|
-|twinQueries. Failure|Misslyckade dubbla frågor|Antal|Totalt|Antalet misslyckade dubbla frågor.|Ingen|
-|twinQueries.resultSize|Resultat storlek för dubbla frågor|Byte|Medel|Genomsnitt, min och Max för resultat storleken för alla lyckade dubbla frågor.|Ingen|
-|Jobs. createTwinUpdateJob. lyckades|Skapandet av dubbla uppdaterings jobb lyckades|Antal|Totalt|Antalet slutförda skapandet av dubbla uppdaterings jobb.|Ingen|
-|Jobs. createTwinUpdateJob. Failure|Det gick inte att skapa dubbla uppdaterings jobb|Antal|Totalt|Antalet misslyckade skapandet av dubbla uppdaterings jobb.|Ingen|
-|Jobs. createDirectMethodJob. lyckades|Lyckade skapande av metod anrops jobb|Antal|Totalt|Antalet slutförda skapande av direkta metod anrops jobb.|Ingen|
-|Jobs. createDirectMethodJob. Failure|Det gick inte att skapa metod anrops jobb|Antal|Totalt|Antalet misslyckade skapande av direkta anrops jobb för metoden.|Ingen|
-|Jobs. listJobs. lyckades|Lyckade anrop till List jobb|Antal|Totalt|Antalet lyckade anrop till List jobb.|Ingen|
-|Jobs. listJobs. Failure|Misslyckade anrop till List jobb|Antal|Totalt|Antalet misslyckade anrop till List jobb.|Ingen|
-|Jobs. cancelJob. lyckades|Slutförda jobb avbokningar|Antal|Totalt|Antalet lyckade anrop för att avbryta ett jobb.|Ingen|
-|Jobs. cancelJob. Failure|Misslyckade jobb-annulleringar|Antal|Totalt|Antalet misslyckade anrop för att avbryta ett jobb.|Ingen|
-|Jobs. queryJobs. lyckades|Slutförda jobb frågor|Antal|Totalt|Antalet lyckade anrop för att köra frågor mot jobb.|Ingen|
-|Jobs. queryJobs. Failure|Misslyckade jobb frågor|Antal|Totalt|Antalet misslyckade anrop till jobb för frågor.|Ingen|
-|jobb. slutfört|Slutförda jobb|Antal|Totalt|Antalet slutförda jobb.|Ingen|
-|jobb. misslyckades|Misslyckade jobb|Antal|Totalt|Antalet misslyckade jobb.|Ingen|
-|D2C. telemetri. ingress. sendThrottle|Antal begränsnings fel|Antal|Totalt|Antal begränsnings fel som beror på begränsning av enhetens data flöde|Ingen|
-|dailyMessageQuotaUsed|Totalt antal meddelanden som används|Antal|Medel|Antal sammanlagt antal meddelanden som använts idag|Ingen|
-|deviceDataUsage|Total användning av enhets data|Byte|Totalt|Överförda byte till och från alla enheter som är anslutna till IotHub|Ingen|
-|deviceDataUsageV2|Total användning av enhets data (för hands version)|Byte|Totalt|Överförda byte till och från alla enheter som är anslutna till IotHub|Ingen|
-|totalDeviceCount|Totalt antal enheter (förhands granskning)|Antal|Medel|Antal enheter som har registrerats för din IoT-hubb|Ingen|
-|connectedDeviceCount|Anslutna enheter (förhands granskning)|Antal|Medel|Antal enheter som är anslutna till din IoT-hubb|Ingen|
-|konfigurationer|Konfigurations mått|Antal|Totalt|Mått för konfigurations åtgärder|Ingen|
+|D2C. delad. lyckades|Lyckades dubbla läsningar från enheter|Antal|Totalt|Antalet framgångs rika enhets uppinitierade dubbla läsningar.|Inga|
+|D2C. delad.|Misslyckade dubbla läsningar från enheter|Antal|Totalt|Antalet misslyckade, dubbla läsningar som initierats av enheten.|Inga|
+|D2C., delad. storlek|Svars storlek för dubbla läsningar från enheter|Byte|Medel|Genomsnitt, min och Max för alla lyckade, dubbla läsningar som initierats av enheten.|Inga|
+|D2C. delad. Update. lyckades|Lyckade dubbla uppdateringar från enheter|Antal|Totalt|Antalet lyckade, dubbla uppdateringar som initierats av enheten.|Inga|
+|D2C. delad. Update. Failure|Misslyckade dubbla uppdateringar från enheter|Antal|Totalt|Antalet misslyckade, dubbla uppdateringar som initierats av enheten.|Inga|
+|D2C. dubbla. Update. size|Storlek på dubbla uppdateringar från enheter|Byte|Medel|Genomsnitt, min och Max storlek för alla lyckade, dubbla uppdateringar som initierats av enheten.|Inga|
+|C2D. Methods. Success|Direkta metod anrop|Antal|Totalt|Antalet lyckade direkta metod anrop.|Inga|
+|C2D. Methods. Failure|Misslyckade direkta metod anrop|Antal|Totalt|Antalet misslyckade direkta metod anrop.|Inga|
+|C2D. Methods. requestSize|Begär ande storlek för direkta metod anrop|Byte|Medel|Genomsnitt, min och Max för alla lyckade direkta metod begär Anden.|Inga|
+|C2D. Methods. responseSize|Svars storlek för direkta metod anrop|Byte|Medel|Medelvärde, min och Max för alla lyckade direkta metod svar.|Inga|
+|C2D. delad. lyckades|Lyckades dubbla läspaket från Server delen|Antal|Totalt|Antalet dubbla läsningar som initierats av alla lyckade.|Inga|
+|C2D. delad.|Det gick inte att dubbla läsningar från Server delen|Antal|Totalt|Antalet dubbla läsningar som initierats av alla misslyckade backend-slutpunkter.|Inga|
+|C2D., delad. storlek|Svars storlek för dubbla läsningar från Server delen|Byte|Medel|Genomsnitt, min och Max för alla lyckade, dubbla läsningar som initieras i slut punkt.|Inga|
+|C2D. delad. Update. lyckades|Lyckades dubbla uppdateringar från Server delen|Antal|Totalt|Antalet fullständiga uppdateringar som initierats av alla lyckade backend-uppdateringar.|Inga|
+|C2D. delad. Update. Failure|Misslyckade dubbla uppdateringar från Server delen|Antal|Totalt|Antalet dubbla uppdateringar som initierats av alla misslyckade backend-slutpunkter.|Inga|
+|C2D. dubbla. Update. size|Storlek på dubbla uppdateringar från Server delen|Byte|Medel|Genomsnitt, min och Max storlek för alla lyckade, dubbla uppdateringar som initieras.|Inga|
+|twinQueries. lyckades|Lyckades dubbla frågor|Antal|Totalt|Antalet lyckade dubbla frågor.|Inga|
+|twinQueries. Failure|Misslyckade dubbla frågor|Antal|Totalt|Antalet misslyckade dubbla frågor.|Inga|
+|twinQueries.resultSize|Resultat storlek för dubbla frågor|Byte|Medel|Genomsnitt, min och Max för resultat storleken för alla lyckade dubbla frågor.|Inga|
+|Jobs. createTwinUpdateJob. lyckades|Skapandet av dubbla uppdaterings jobb lyckades|Antal|Totalt|Antalet slutförda skapandet av dubbla uppdaterings jobb.|Inga|
+|Jobs. createTwinUpdateJob. Failure|Det gick inte att skapa dubbla uppdaterings jobb|Antal|Totalt|Antalet misslyckade skapandet av dubbla uppdaterings jobb.|Inga|
+|Jobs. createDirectMethodJob. lyckades|Lyckade skapande av metod anrops jobb|Antal|Totalt|Antalet slutförda skapande av direkta metod anrops jobb.|Inga|
+|Jobs. createDirectMethodJob. Failure|Det gick inte att skapa metod anrops jobb|Antal|Totalt|Antalet misslyckade skapande av direkta anrops jobb för metoden.|Inga|
+|Jobs. listJobs. lyckades|Lyckade anrop till List jobb|Antal|Totalt|Antalet lyckade anrop till List jobb.|Inga|
+|Jobs. listJobs. Failure|Misslyckade anrop till List jobb|Antal|Totalt|Antalet misslyckade anrop till List jobb.|Inga|
+|Jobs. cancelJob. lyckades|Slutförda jobb avbokningar|Antal|Totalt|Antalet lyckade anrop för att avbryta ett jobb.|Inga|
+|Jobs. cancelJob. Failure|Misslyckade jobb-annulleringar|Antal|Totalt|Antalet misslyckade anrop för att avbryta ett jobb.|Inga|
+|Jobs. queryJobs. lyckades|Slutförda jobb frågor|Antal|Totalt|Antalet lyckade anrop för att köra frågor mot jobb.|Inga|
+|Jobs. queryJobs. Failure|Misslyckade jobb frågor|Antal|Totalt|Antalet misslyckade anrop till jobb för frågor.|Inga|
+|jobb. slutfört|Slutförda jobb|Antal|Totalt|Antalet slutförda jobb.|Inga|
+|jobb. misslyckades|Misslyckade jobb|Antal|Totalt|Antalet misslyckade jobb.|Inga|
+|D2C. telemetri. ingress. sendThrottle|Antal begränsnings fel|Antal|Totalt|Antal begränsnings fel som beror på begränsning av enhetens data flöde|Inga|
+|dailyMessageQuotaUsed|Totalt antal meddelanden som används|Antal|Medel|Antal sammanlagt antal meddelanden som använts idag|Inga|
+|deviceDataUsage|Total användning av enhets data|Byte|Totalt|Överförda byte till och från alla enheter som är anslutna till IotHub|Inga|
+|deviceDataUsageV2|Total användning av enhets data (för hands version)|Byte|Totalt|Överförda byte till och från alla enheter som är anslutna till IotHub|Inga|
+|totalDeviceCount|Totalt antal enheter (förhands granskning)|Antal|Medel|Antal enheter som har registrerats för din IoT-hubb|Inga|
+|connectedDeviceCount|Anslutna enheter (förhands granskning)|Antal|Medel|Antal enheter som är anslutna till din IoT-hubb|Inga|
+|konfigurationer|Konfigurations mått|Antal|Totalt|Mått för konfigurations åtgärder|Inga|
 
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft. Devices/provisioningServices
@@ -1023,9 +1023,9 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |CassandraTableDelete|Cassandra-tabellen har tagits bort|Antal|Antal|Cassandra-tabellen har tagits bort|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, OperationType|
 |CassandraTableThroughputUpdate|Cassandra tabell data flöde har uppdaterats|Antal|Antal|Cassandra tabell data flöde har uppdaterats|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest|
 |CassandraTableUpdate|Cassandra-tabellen har uppdaterats|Antal|Antal|Cassandra-tabellen har uppdaterats|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest|
-|CreateAccount|Kontot har skapats|Antal|Antal|Kontot har skapats|Ingen|
+|CreateAccount|Kontot har skapats|Antal|Antal|Kontot har skapats|Inga|
 |DataUsage|Dataanvändning|Byte|Totalt|Total data användning rapporterad med 5 minuters precision|Samlings namn, DatabaseName, region|
-|DeleteAccount|Kontot har tagits bort|Antal|Antal|Kontot har tagits bort|Ingen|
+|DeleteAccount|Kontot har tagits bort|Antal|Antal|Kontot har tagits bort|Inga|
 |DocumentCount|Antal dokument|Antal|Totalt|Totalt antal dokument som har rapporter ATS med 5 minuters precision|Samlings namn, DatabaseName, region|
 |DocumentQuota|Dokument kvot|Byte|Totalt|Total lagrings kvot som rapporter ATS med 5 minuters precision|Samlings namn, DatabaseName, region|
 |GremlinDatabaseDelete|Gremlin-databasen har tagits bort|Antal|Antal|Gremlin-databasen har tagits bort|ResourceName, ApiKind, ApiKindResourceType, OperationType|
@@ -1051,11 +1051,11 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |MongoRequestsUpdate|Frekvens för mongo uppdaterings begär Anden|CountPerSecond|Medel|Mongo för begär ande uppdatering per sekund|DatabaseName, samlings namn, region, CommandName, ErrorCode|
 |NormalizedRUConsumption|Normaliserad RU-förbrukning|Procent|Maximal|Max procent per minut för RU-förbrukning|Samlings namn, DatabaseName, region|
 |ProvisionedThroughput|Etablerat dataflöde|Antal|Maximal|Etablerat dataflöde|DatabaseName, samlings namn|
-|RegionFailover|Regionen har redundansväxlats|Antal|Antal|Regionen har redundansväxlats|Ingen|
+|RegionFailover|Regionen har redundansväxlats|Antal|Antal|Regionen har redundansväxlats|Inga|
 |RemoveRegion|Region borttagen|Antal|Antal|Region borttagen|Region|
 |ReplicationLatency|Fördröjning för P99-replikering|Millisekunder|Medel|P99 för replikering i käll-och mål regioner för geo-aktiverat konto|SourceRegion,TargetRegion|
 |ServerSideLatency|Svars tid på Server Sidan|Millisekunder|Medel|Svars tid på Server Sidan|DatabaseName, samlings namn, region, ConnectionMode, OperationType, PublicAPIType|
-|ServiceAvailability|Tjänst tillgänglighet|Procent|Medel|Konto begär tillgänglighet på en timme, dag eller månads kornig het|Ingen|
+|ServiceAvailability|Tjänst tillgänglighet|Procent|Medel|Konto begär tillgänglighet på en timme, dag eller månads kornig het|Inga|
 |SqlContainerDelete|SQL-behållare borttagen|Antal|Antal|SQL-behållare borttagen|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, OperationType|
 |SqlContainerThroughputUpdate|SQL container data flöde uppdaterat|Antal|Antal|SQL container data flöde uppdaterat|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest|
 |SqlContainerUpdate|SQL-behållare har uppdaterats|Antal|Antal|SQL-behållare har uppdaterats|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest|
@@ -1068,8 +1068,8 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |TotalRequestUnits|Totalt antal enheter för programbegäran|Antal|Totalt|Förbrukade enheter för begär Ande|DatabaseName, samlings namn, region, StatusCode, OperationType, status|
 |TotalRequests|Totalt antal förfrågningar|Antal|Antal|Antal begär Anden som gjorts|DatabaseName, samlings namn, region, StatusCode, OperationType, status|
 |UpdateAccountKeys|Konto nycklar har uppdaterats|Antal|Antal|Konto nycklar har uppdaterats|KeyType|
-|UpdateAccountNetworkSettings|Kontots nätverks inställningar har uppdaterats|Antal|Antal|Kontots nätverks inställningar har uppdaterats|Ingen|
-|UpdateAccountReplicationSettings|Kontots replikeringsinställningar har uppdaterats|Antal|Antal|Kontots replikeringsinställningar har uppdaterats|Ingen|
+|UpdateAccountNetworkSettings|Kontots nätverks inställningar har uppdaterats|Antal|Antal|Kontots nätverks inställningar har uppdaterats|Inga|
+|UpdateAccountReplicationSettings|Kontots replikeringsinställningar har uppdaterats|Antal|Antal|Kontots replikeringsinställningar har uppdaterats|Inga|
 |UpdateDiagnosticsSettings|Inställningarna för konto diagnostik har uppdaterats|Antal|Antal|Inställningarna för konto diagnostik har uppdaterats|DiagnosticSettingsName, ResourceGroupName|
 
 
@@ -1087,9 +1087,9 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|PublishSuccessCount|Publicerade händelser|Antal|Totalt|Totalt antal händelser som publicerats i det här avsnittet|Hjälpavsnitt|
+|PublishSuccessCount|Publicerade händelser|Antal|Totalt|Totalt antal händelser som publicerats i det här avsnittet|Ämne|
 |PublishFailCount|Publicera misslyckade händelser|Antal|Totalt|Totalt antal händelser som inte publicerats till det här avsnittet|Ämne, ErrorType, fel|
-|PublishSuccessLatencyInMs|Slutför svars tid för publicering|Millisekunder|Totalt|Publicera lyckad svars tid i millisekunder|Ingen|
+|PublishSuccessLatencyInMs|Slutför svars tid för publicering|Millisekunder|Totalt|Publicera lyckad svars tid i millisekunder|Inga|
 |MatchedEventCount|Matchade händelser|Antal|Totalt|Totalt antal händelser som matchar den här händelse prenumerationen|Ämne, EventSubscriptionName, DomainEventSubscriptionName|
 |DeliveryAttemptFailCount|Misslyckade leverans händelser|Antal|Totalt|Totalt antal händelser som inte levererades till den här händelse prenumerationen|Ämne, EventSubscriptionName, DomainEventSubscriptionName, fel, ErrorType|
 |DeliverySuccessCount|Levererade händelser|Antal|Totalt|Totalt antal händelser levererade till den här händelse prenumerationen|Ämne, EventSubscriptionName, DomainEventSubscriptionName|
@@ -1101,10 +1101,10 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|PublishSuccessCount|Publicerade händelser|Antal|Totalt|Totalt antal händelser som publicerats i det här avsnittet|Ingen|
+|PublishSuccessCount|Publicerade händelser|Antal|Totalt|Totalt antal händelser som publicerats i det här avsnittet|Inga|
 |PublishFailCount|Publicera misslyckade händelser|Antal|Totalt|Totalt antal händelser som inte publicerats till det här avsnittet|ErrorType, fel|
-|UnmatchedEventCount|Omatchade händelser|Antal|Totalt|Totalt antal händelser som inte matchar någon av händelse prenumerationerna för det här avsnittet|Ingen|
-|PublishSuccessLatencyInMs|Slutför svars tid för publicering|Millisekunder|Totalt|Publicera lyckad svars tid i millisekunder|Ingen|
+|UnmatchedEventCount|Omatchade händelser|Antal|Totalt|Totalt antal händelser som inte matchar någon av händelse prenumerationerna för det här avsnittet|Inga|
+|PublishSuccessLatencyInMs|Slutför svars tid för publicering|Millisekunder|Totalt|Publicera lyckad svars tid i millisekunder|Inga|
 |MatchedEventCount|Matchade händelser|Antal|Totalt|Totalt antal händelser som matchar den här händelse prenumerationen|EventSubscriptionName|
 |DeliveryAttemptFailCount|Misslyckade leverans händelser|Antal|Totalt|Totalt antal händelser som inte levererades till den här händelse prenumerationen|Fel, ErrorType, EventSubscriptionName|
 |DeliverySuccessCount|Levererade händelser|Antal|Totalt|Totalt antal händelser levererade till den här händelse prenumerationen|EventSubscriptionName|
@@ -1116,10 +1116,10 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|PublishSuccessCount|Publicerade händelser|Antal|Totalt|Totalt antal händelser som publicerats i det här avsnittet|Ingen|
+|PublishSuccessCount|Publicerade händelser|Antal|Totalt|Totalt antal händelser som publicerats i det här avsnittet|Inga|
 |PublishFailCount|Publicera misslyckade händelser|Antal|Totalt|Totalt antal händelser som inte publicerats till det här avsnittet|ErrorType, fel|
-|UnmatchedEventCount|Omatchade händelser|Antal|Totalt|Totalt antal händelser som inte matchar någon av händelse prenumerationerna för det här avsnittet|Ingen|
-|PublishSuccessLatencyInMs|Slutför svars tid för publicering|Millisekunder|Totalt|Publicera lyckad svars tid i millisekunder|Ingen|
+|UnmatchedEventCount|Omatchade händelser|Antal|Totalt|Totalt antal händelser som inte matchar någon av händelse prenumerationerna för det här avsnittet|Inga|
+|PublishSuccessLatencyInMs|Slutför svars tid för publicering|Millisekunder|Totalt|Publicera lyckad svars tid i millisekunder|Inga|
 |MatchedEventCount|Matchade händelser|Antal|Totalt|Totalt antal händelser som matchar den här händelse prenumerationen|EventSubscriptionName|
 |DeliveryAttemptFailCount|Misslyckade leverans händelser|Antal|Totalt|Totalt antal händelser som inte levererades till den här händelse prenumerationen|Fel, ErrorType, EventSubscriptionName|
 |DeliverySuccessCount|Levererade händelser|Antal|Totalt|Totalt antal händelser levererade till den här händelse prenumerationen|EventSubscriptionName|
@@ -1131,10 +1131,10 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|MatchedEventCount|Matchade händelser|Antal|Totalt|Totalt antal händelser som matchar den här händelse prenumerationen|Ingen|
+|MatchedEventCount|Matchade händelser|Antal|Totalt|Totalt antal händelser som matchar den här händelse prenumerationen|Inga|
 |DeliveryAttemptFailCount|Misslyckade leverans händelser|Antal|Totalt|Totalt antal händelser som inte levererades till den här händelse prenumerationen|Fel, ErrorType|
-|DeliverySuccessCount|Levererade händelser|Antal|Totalt|Totalt antal händelser levererade till den här händelse prenumerationen|Ingen|
-|DestinationProcessingDurationInMs|Varaktighet för mål bearbetning|Millisekunder|Medel|Varaktighet för mål bearbetning i millisekunder|Ingen|
+|DeliverySuccessCount|Levererade händelser|Antal|Totalt|Totalt antal händelser levererade till den här händelse prenumerationen|Inga|
+|DestinationProcessingDurationInMs|Varaktighet för mål bearbetning|Millisekunder|Medel|Varaktighet för mål bearbetning i millisekunder|Inga|
 |DroppedEventCount|Ignorerade händelser|Antal|Totalt|Totalt antal ignorerade händelser som matchar den här händelse prenumerationen|DropReason|
 |DeadLetteredCount|Obeställbara, Brevade händelser|Antal|Totalt|Totalt antal inloggade obeställbara meddelanden som matchar den här händelse prenumerationen|DeadLetterReason|
 
@@ -1142,10 +1142,10 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|PublishSuccessCount|Publicerade händelser|Antal|Totalt|Totalt antal händelser som publicerats i det här avsnittet|Ingen|
+|PublishSuccessCount|Publicerade händelser|Antal|Totalt|Totalt antal händelser som publicerats i det här avsnittet|Inga|
 |PublishFailCount|Publicera misslyckade händelser|Antal|Totalt|Totalt antal händelser som inte publicerats till det här avsnittet|ErrorType, fel|
-|UnmatchedEventCount|Omatchade händelser|Antal|Totalt|Totalt antal händelser som inte matchar någon av händelse prenumerationerna för det här avsnittet|Ingen|
-|PublishSuccessLatencyInMs|Slutför svars tid för publicering|Millisekunder|Totalt|Publicera lyckad svars tid i millisekunder|Ingen|
+|UnmatchedEventCount|Omatchade händelser|Antal|Totalt|Totalt antal händelser som inte matchar någon av händelse prenumerationerna för det här avsnittet|Inga|
+|PublishSuccessLatencyInMs|Slutför svars tid för publicering|Millisekunder|Totalt|Publicera lyckad svars tid i millisekunder|Inga|
 
 
 
@@ -1164,30 +1164,30 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |OutgoingMessages|Utgående meddelanden|Antal|Totalt|Utgående meddelanden för Microsoft. EventHub.|Entitetsnamnet|
 |IncomingBytes|Inkommande byte.|Byte|Totalt|Inkommande byte för Microsoft. EventHub.|Entitetsnamnet|
 |OutgoingBytes|Utgående byte.|Byte|Totalt|Utgående byte för Microsoft. EventHub.|Entitetsnamnet|
-|ActiveConnections|ActiveConnections|Antal|Medel|Totalt antal aktiva anslutningar för Microsoft. EventHub.|Ingen|
+|ActiveConnections|ActiveConnections|Antal|Medel|Totalt antal aktiva anslutningar för Microsoft. EventHub.|Inga|
 |ConnectionsOpened|Öppna anslutningar.|Antal|Medel|Anslutningar som har öppnats för Microsoft. EventHub.|Entitetsnamnet|
 |ConnectionsClosed|Stängda anslutningar.|Antal|Medel|Stängda anslutningar för Microsoft. EventHub.|Entitetsnamnet|
 |CaptureBacklog|Samla in efter släpning.|Antal|Totalt|Avbilda efter släpning för Microsoft. EventHub.|Entitetsnamnet|
 |CapturedMessages|Fångade meddelanden.|Antal|Totalt|Fångade meddelanden för Microsoft. EventHub.|Entitetsnamnet|
 |CapturedBytes|Hämtade byte.|Byte|Totalt|Hämtade byte för Microsoft. EventHub.|Entitetsnamnet|
 |Storlek|Storlek|Byte|Medel|Storlek på en EventHub i byte.|Entitetsnamnet|
-|INREQS|Inkommande begär Anden (inaktuellt)|Antal|Totalt|Totalt antal inkommande sändnings begär Anden för en namnrymd (inaktuell)|Ingen|
-|SUCCREQ|Lyckade förfrågningar (inaktuellt)|Antal|Totalt|Totalt antal slutförda begär Anden för en namnrymd (inaktuell)|Ingen|
-|FAILREQ|Misslyckade förfrågningar (inaktuellt)|Antal|Totalt|Totalt antal misslyckade begär Anden för en namnrymd (inaktuell)|Ingen|
-|SVRBSY|Serverns upptaget fel (inaktuellt)|Antal|Totalt|Totalt antal upptagen server-fel för en namnrymd (inaktuell)|Ingen|
-|MELLAN|Interna Server fel (inaktuellt)|Antal|Totalt|Totalt antal interna Server fel för en namnrymd (inaktuell)|Ingen|
-|MISCERR|Andra fel (inaktuellt)|Antal|Totalt|Totalt antal misslyckade begär Anden för en namnrymd (inaktuell)|Ingen|
-|INMSGS|Inkommande meddelanden (inaktuella)|Antal|Totalt|Totalt antal inkommande meddelanden för ett namn område. Måttet är föråldrat. Använd måtten inkommande e-postmeddelanden i stället (inaktuellt)|Ingen|
-|EHINMSGS|Inkommande meddelanden (inaktuellt)|Antal|Totalt|Totalt antal inkommande meddelanden för en namnrymd (inaktuell)|Ingen|
-|OUTMSGS|Utgående meddelanden (inaktuella)|Antal|Totalt|Totalt antal utgående meddelanden för ett namn område. Måttet är föråldrat. Använd utgående meddelande mått i stället (inaktuellt)|Ingen|
-|EHOUTMSGS|Utgående meddelanden (inaktuellt)|Antal|Totalt|Totalt antal utgående meddelanden för en namnrymd (inaktuell)|Ingen|
-|EHINMBS|Inkommande byte (inaktuell) (inaktuell)|Byte|Totalt|Inkommande meddelande data flöde för Event Hub för ett namn område. Måttet är föråldrat. Använd måttet inkommande byte i stället (inaktuellt)|Ingen|
-|EHINBYTES|Inkommande byte (inaktuellt)|Byte|Totalt|Inkommande meddelande data flöde för Event Hub för en namnrymd (inaktuell)|Ingen|
-|EHOUTMBS|Utgående byte (inaktuell) (inaktuell)|Byte|Totalt|Data flöde för utgående meddelande i Event Hub för en namnrymd. Måttet är föråldrat. Använd utgående byte-mått i stället (inaktuellt)|Ingen|
-|EHOUTBYTES|Utgående byte (inaktuellt)|Byte|Totalt|Data flöde för utgående meddelande i Event Hub för en namnrymd (inaktuell)|Ingen|
-|EHABL|Arkivera efter släpning meddelanden (inaktuellt)|Antal|Totalt|Event Hub arkivera meddelanden i efter släpning för en namnrymd (inaktuell)|Ingen|
-|EHAMSGS|Arkivera meddelanden (inaktuellt)|Antal|Totalt|Arkiverade meddelanden i Event Hub i ett namn område (inaktuellt)|Ingen|
-|EHAMBS|Arkiv meddelande genom strömning (inaktuellt)|Byte|Totalt|Det arkiverade meddelande flödet i Event Hub i ett namn område (inaktuellt)|Ingen|
+|INREQS|Inkommande begär Anden (inaktuellt)|Antal|Totalt|Totalt antal inkommande sändnings begär Anden för en namnrymd (inaktuell)|Inga|
+|SUCCREQ|Lyckade förfrågningar (inaktuellt)|Antal|Totalt|Totalt antal slutförda begär Anden för en namnrymd (inaktuell)|Inga|
+|FAILREQ|Misslyckade förfrågningar (inaktuellt)|Antal|Totalt|Totalt antal misslyckade begär Anden för en namnrymd (inaktuell)|Inga|
+|SVRBSY|Serverns upptaget fel (inaktuellt)|Antal|Totalt|Totalt antal upptagen server-fel för en namnrymd (inaktuell)|Inga|
+|MELLAN|Interna Server fel (inaktuellt)|Antal|Totalt|Totalt antal interna Server fel för en namnrymd (inaktuell)|Inga|
+|MISCERR|Andra fel (inaktuellt)|Antal|Totalt|Totalt antal misslyckade begär Anden för en namnrymd (inaktuell)|Inga|
+|INMSGS|Inkommande meddelanden (inaktuella)|Antal|Totalt|Totalt antal inkommande meddelanden för ett namn område. Måttet är föråldrat. Använd måtten inkommande e-postmeddelanden i stället (inaktuellt)|Inga|
+|EHINMSGS|Inkommande meddelanden (inaktuellt)|Antal|Totalt|Totalt antal inkommande meddelanden för en namnrymd (inaktuell)|Inga|
+|OUTMSGS|Utgående meddelanden (inaktuella)|Antal|Totalt|Totalt antal utgående meddelanden för ett namn område. Måttet är föråldrat. Använd utgående meddelande mått i stället (inaktuellt)|Inga|
+|EHOUTMSGS|Utgående meddelanden (inaktuellt)|Antal|Totalt|Totalt antal utgående meddelanden för en namnrymd (inaktuell)|Inga|
+|EHINMBS|Inkommande byte (inaktuell) (inaktuell)|Byte|Totalt|Inkommande meddelande data flöde för Event Hub för ett namn område. Måttet är föråldrat. Använd måttet inkommande byte i stället (inaktuellt)|Inga|
+|EHINBYTES|Inkommande byte (inaktuellt)|Byte|Totalt|Inkommande meddelande data flöde för Event Hub för en namnrymd (inaktuell)|Inga|
+|EHOUTMBS|Utgående byte (inaktuell) (inaktuell)|Byte|Totalt|Data flöde för utgående meddelande i Event Hub för en namnrymd. Måttet är föråldrat. Använd utgående byte-mått i stället (inaktuellt)|Inga|
+|EHOUTBYTES|Utgående byte (inaktuellt)|Byte|Totalt|Data flöde för utgående meddelande i Event Hub för en namnrymd (inaktuell)|Inga|
+|EHABL|Arkivera efter släpning meddelanden (inaktuellt)|Antal|Totalt|Event Hub arkivera meddelanden i efter släpning för en namnrymd (inaktuell)|Inga|
+|EHAMSGS|Arkivera meddelanden (inaktuellt)|Antal|Totalt|Arkiverade meddelanden i Event Hub i ett namn område (inaktuellt)|Inga|
+|EHAMBS|Arkiv meddelande genom strömning (inaktuellt)|Byte|Totalt|Det arkiverade meddelande flödet i Event Hub i ett namn område (inaktuellt)|Inga|
 
 ## <a name="microsofteventhubclusters"></a>Microsoft. EventHub/Clusters
 
@@ -1198,17 +1198,17 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |UserErrors|Användar fel.|Antal|Totalt|Användar fel för Microsoft. EventHub.|OperationResult under pågående|
 |QuotaExceededErrors|Kvoten överskreds.|Antal|Totalt|Kvoten överskred fel för Microsoft. EventHub.|OperationResult under pågående|
 |ThrottledRequests|Begränsade begär Anden.|Antal|Totalt|Begränsade begär Anden för Microsoft. EventHub.|OperationResult under pågående|
-|IncomingRequests|Inkommande begär Anden|Antal|Totalt|Inkommande begär Anden för Microsoft. EventHub.|Ingen|
-|IncomingMessages|Inkommande meddelanden|Antal|Totalt|Inkommande meddelanden för Microsoft. EventHub.|Ingen|
-|OutgoingMessages|Utgående meddelanden|Antal|Totalt|Utgående meddelanden för Microsoft. EventHub.|Ingen|
-|IncomingBytes|Inkommande byte.|Byte|Totalt|Inkommande byte för Microsoft. EventHub.|Ingen|
-|OutgoingBytes|Utgående byte.|Byte|Totalt|Utgående byte för Microsoft. EventHub.|Ingen|
-|ActiveConnections|ActiveConnections|Antal|Medel|Totalt antal aktiva anslutningar för Microsoft. EventHub.|Ingen|
-|ConnectionsOpened|Öppna anslutningar.|Antal|Medel|Anslutningar som har öppnats för Microsoft. EventHub.|Ingen|
-|ConnectionsClosed|Stängda anslutningar.|Antal|Medel|Stängda anslutningar för Microsoft. EventHub.|Ingen|
-|CaptureBacklog|Samla in efter släpning.|Antal|Totalt|Avbilda efter släpning för Microsoft. EventHub.|Ingen|
-|CapturedMessages|Fångade meddelanden.|Antal|Totalt|Fångade meddelanden för Microsoft. EventHub.|Ingen|
-|CapturedBytes|Hämtade byte.|Byte|Totalt|Hämtade byte för Microsoft. EventHub.|Ingen|
+|IncomingRequests|Inkommande begär Anden|Antal|Totalt|Inkommande begär Anden för Microsoft. EventHub.|Inga|
+|IncomingMessages|Inkommande meddelanden|Antal|Totalt|Inkommande meddelanden för Microsoft. EventHub.|Inga|
+|OutgoingMessages|Utgående meddelanden|Antal|Totalt|Utgående meddelanden för Microsoft. EventHub.|Inga|
+|IncomingBytes|Inkommande byte.|Byte|Totalt|Inkommande byte för Microsoft. EventHub.|Inga|
+|OutgoingBytes|Utgående byte.|Byte|Totalt|Utgående byte för Microsoft. EventHub.|Inga|
+|ActiveConnections|ActiveConnections|Antal|Medel|Totalt antal aktiva anslutningar för Microsoft. EventHub.|Inga|
+|ConnectionsOpened|Öppna anslutningar.|Antal|Medel|Anslutningar som har öppnats för Microsoft. EventHub.|Inga|
+|ConnectionsClosed|Stängda anslutningar.|Antal|Medel|Stängda anslutningar för Microsoft. EventHub.|Inga|
+|CaptureBacklog|Samla in efter släpning.|Antal|Totalt|Avbilda efter släpning för Microsoft. EventHub.|Inga|
+|CapturedMessages|Fångade meddelanden.|Antal|Totalt|Fångade meddelanden för Microsoft. EventHub.|Inga|
+|CapturedBytes|Hämtade byte.|Byte|Totalt|Hämtade byte för Microsoft. EventHub.|Inga|
 |Processor|Processor|Procent|Maximal|CPU-användning för Event Hub-klustret i procent|Roll|
 |AvailableMemory|Tillgängligt minne|Procent|Maximal|Tillgängligt minne för Event Hub-klustret som en procent andel av det totala minnet.|Roll|
 |Storlek|Storlek på en EventHub i byte.|Byte|Medel|Storlek på en EventHub i byte.|Roll|
@@ -1229,7 +1229,7 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |---|---|---|---|---|---|
 |ObservedMetricValue|Observerat mått värde|Antal|Medel|Det värde som beräknas genom autoskalning vid körning|MetricTriggerSource|
 |MetricThreshold|Mätnings tröskel|Antal|Medel|Det konfigurerade tröskelvärdet för autoskalning vid autoskalning kördes.|MetricTriggerRule|
-|ObservedCapacity|Observerad kapacitet|Antal|Medel|Kapaciteten som rapporteras till autoskalning när den kördes.|Ingen|
+|ObservedCapacity|Observerad kapacitet|Antal|Medel|Kapaciteten som rapporteras till autoskalning när den kördes.|Inga|
 |ScaleActionsInitiated|Initierade skalnings åtgärder|Antal|Totalt|Riktningen för skalnings åtgärden.|ScaleDirection|
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft. Insights/komponenter
@@ -1239,11 +1239,11 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |availabilityResults/availabilityPercentage|Tillgänglighet|Procent|Medel|Procent slutförda tillgänglighets test har slutförts|availabilityResult/namn, availabilityResult/plats|
 |availabilityResults/antal|Tillgänglighetstester|Antal|Antal|Antal tillgänglighets test|availabilityResult/namn, availabilityResult/plats, availabilityResult/lyckad|
 |availabilityResults/varaktighet|Tillgänglighets testets varaktighet|Millisekunder|Medel|Tillgänglighets testets varaktighet|availabilityResult/namn, availabilityResult/plats, availabilityResult/lyckad|
-|browserTimings/networkDuration|Nätverks anslutnings tid för sid inläsning|Millisekunder|Medel|Tid mellan användar förfrågan och nätverks anslutning. Inkluderar DNS-sökning och transport anslutning.|Ingen|
-|browserTimings/processingDuration|Klient bearbetnings tid|Millisekunder|Medel|Tiden mellan att ta emot sista byten i ett dokument tills DOM har lästs in. Asynkrona begär Anden kan fortfarande bearbetas.|Ingen|
-|browserTimings/receiveDuration|Tar emot svars tid|Millisekunder|Medel|Tiden mellan den första och sista byten, eller till från koppling.|Ingen|
-|browserTimings/sendDuration|Tid för att skicka begäran|Millisekunder|Medel|Tiden mellan nätverks anslutning och mottagande av den första byten.|Ingen|
-|browserTimings/totalDuration|Sid inläsnings tid för webbläsare|Millisekunder|Medel|Tid från användar förfrågan tills DOM, formatmallar, skript och bilder har lästs in.|Ingen|
+|browserTimings/networkDuration|Nätverks anslutnings tid för sid inläsning|Millisekunder|Medel|Tid mellan användar förfrågan och nätverks anslutning. Inkluderar DNS-sökning och transport anslutning.|Inga|
+|browserTimings/processingDuration|Klient bearbetnings tid|Millisekunder|Medel|Tiden mellan att ta emot sista byten i ett dokument tills DOM har lästs in. Asynkrona begär Anden kan fortfarande bearbetas.|Inga|
+|browserTimings/receiveDuration|Tar emot svars tid|Millisekunder|Medel|Tiden mellan den första och sista byten, eller till från koppling.|Inga|
+|browserTimings/sendDuration|Tid för att skicka begäran|Millisekunder|Medel|Tiden mellan nätverks anslutning och mottagande av den första byten.|Inga|
+|browserTimings/totalDuration|Sid inläsnings tid för webbläsare|Millisekunder|Medel|Tid från användar förfrågan tills DOM, formatmallar, skript och bilder har lästs in.|Inga|
 |beroenden/antal|Beroende anrop|Antal|Antal|Antal anrop gjorda av programmet till externa resurser.|beroende/typ, beroende/performanceBucket, beroende/lyckades, beroende/Target, beroende/resultCode, åtgärd/syntetisk, Cloud/roleInstance, Cloud/roleName|
 |beroenden/varaktighet|Beroende varaktighet|Millisekunder|Medel|Varaktigheten för anrop gjorda av programmet till externa resurser.|beroende/typ, beroende/performanceBucket, beroende/lyckades, beroende/Target, beroende/resultCode, åtgärd/syntetisk, Cloud/roleInstance, Cloud/roleName|
 |beroenden/misslyckades|Beroende anrops problem|Antal|Antal|Antal misslyckade beroende anrop gjorda av programmet till externa resurser.|beroende/typ, beroende/performanceBucket, beroende/lyckades, beroende/Target, beroende/resultCode, åtgärd/syntetisk, Cloud/roleInstance, Cloud/roleName|
@@ -1272,15 +1272,15 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|connectedDeviceCount|Totalt antal anslutna enheter|Antal|Medel|Antal enheter som är anslutna till IoT Central|Ingen|
-|C2D. Property. Read. lyckades|Lyckad enhets egenskaps läsning från IoT Central|Antal|Totalt|Antalet lyckade egenskaps läsningar som initierats från IoT Central|Ingen|
-|C2D. Property. Read. Failure|Det gick inte att läsa enhets egenskapen från IoT Central|Antal|Totalt|Antal misslyckade egenskaps läsningar som initierats från IoT Central|Ingen|
-|D2C. Property. Read. lyckades|Lyckad enhets egenskap läser från enheter|Antal|Totalt|Antalet lyckade egenskaps läsningar som initierats från enheter|Ingen|
-|D2C. Property. Read. Failure|Det gick inte att läsa enhets egenskapen från enheterna|Antal|Totalt|Antalet misslyckade egenskaps läsningar som initierats från enheter|Ingen|
-|C2D. Property. Update. lyckades|Lyckade uppdateringar av enhets egenskapen från IoT Central|Antal|Totalt|Antalet lyckade egenskaps uppdateringar som initierats från IoT Central|Ingen|
-|C2D. Property. Update. Failure|Det gick inte att uppdatera enhets egenskapen från IoT Central|Antal|Totalt|Antalet misslyckade egenskaps uppdateringar som initierats från IoT Central|Ingen|
-|D2C. Property. Update. lyckades|Lyckade uppdateringar av enhets egenskapen från enheter|Antal|Totalt|Antalet lyckade egenskaps uppdateringar som initierats från enheter|Ingen|
-|D2C. Property. Update. Failure|Misslyckade uppdateringar av enhets egenskapen från enheter|Antal|Totalt|Antalet misslyckade egenskaps uppdateringar som initierats från enheter|Ingen|
+|connectedDeviceCount|Totalt antal anslutna enheter|Antal|Medel|Antal enheter som är anslutna till IoT Central|Inga|
+|C2D. Property. Read. lyckades|Lyckad enhets egenskaps läsning från IoT Central|Antal|Totalt|Antalet lyckade egenskaps läsningar som initierats från IoT Central|Inga|
+|C2D. Property. Read. Failure|Det gick inte att läsa enhets egenskapen från IoT Central|Antal|Totalt|Antal misslyckade egenskaps läsningar som initierats från IoT Central|Inga|
+|D2C. Property. Read. lyckades|Lyckad enhets egenskap läser från enheter|Antal|Totalt|Antalet lyckade egenskaps läsningar som initierats från enheter|Inga|
+|D2C. Property. Read. Failure|Det gick inte att läsa enhets egenskapen från enheterna|Antal|Totalt|Antalet misslyckade egenskaps läsningar som initierats från enheter|Inga|
+|C2D. Property. Update. lyckades|Lyckade uppdateringar av enhets egenskapen från IoT Central|Antal|Totalt|Antalet lyckade egenskaps uppdateringar som initierats från IoT Central|Inga|
+|C2D. Property. Update. Failure|Det gick inte att uppdatera enhets egenskapen från IoT Central|Antal|Totalt|Antalet misslyckade egenskaps uppdateringar som initierats från IoT Central|Inga|
+|D2C. Property. Update. lyckades|Lyckade uppdateringar av enhets egenskapen från enheter|Antal|Totalt|Antalet lyckade egenskaps uppdateringar som initierats från enheter|Inga|
+|D2C. Property. Update. Failure|Misslyckade uppdateringar av enhets egenskapen från enheter|Antal|Totalt|Antalet misslyckade egenskaps uppdateringar som initierats från enheter|Inga|
 
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft. nyckel valv/-valv
@@ -1297,106 +1297,106 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|CacheUtilization|Användning av cache|Procent|Medel|Användnings nivå i kluster omfånget|Ingen|
+|CacheUtilization|Användning av cache|Procent|Medel|Användnings nivå i kluster omfånget|Inga|
 |QueryDuration|Frågans varaktighet|Millisekunder|Medel|Frågornas varaktighet i sekunder|QueryStatus|
-|IngestionUtilization|Förbruknings användning|Procent|Medel|Förhållandet mellan använda inmatnings platser i klustret|Ingen|
-|KeepAlive|Behåll Alive|Antal|Medel|Sanity check anger att klustret svarar på frågor|Ingen|
+|IngestionUtilization|Förbruknings användning|Procent|Medel|Förhållandet mellan använda inmatnings platser i klustret|Inga|
+|KeepAlive|Behåll Alive|Antal|Medel|Sanity check anger att klustret svarar på frågor|Inga|
 |IngestionVolumeInMB|Inmatnings volym (i MB)|Antal|Totalt|Total mängd inmatade data till klustret (i MB)|Databas|
-|IngestionLatencyInSeconds|Inmatnings svars tid (i sekunder)|Sekunder|Medel|Hämtnings tiden från källan (t. ex. meddelandet är i EventHub) till klustret på några sekunder|Ingen|
+|IngestionLatencyInSeconds|Inmatnings svars tid (i sekunder)|Sekunder|Medel|Hämtnings tiden från källan (t. ex. meddelandet är i EventHub) till klustret på några sekunder|Inga|
 |EventsProcessedForEventHubs|Bearbetade händelser (för Event/IoT-hubbar)|Antal|Totalt|Antal händelser som bearbetas av klustret vid inmatning från händelse/IoT Hub|EventStatus|
 |IngestionResult|Inmatnings resultat|Antal|Antal|Antal inmatnings åtgärder|IngestionResultDetails|
-|Processor|Processor|Procent|Medel|PROCESSOR användnings nivå|Ingen|
+|Processor|Processor|Procent|Medel|PROCESSOR användnings nivå|Inga|
 |ContinuousExportNumOfRecordsExported|Kontinuerlig export – antal exporterade poster|Antal|Totalt|Antal exporterade poster, utlöst för varje lagrings artefakt som skrivits under export åtgärden|ContinuousExportName, databas|
-|ExportUtilization|Exportera användning|Procent|Maximal|Exportera användning|Ingen|
-|ContinuousExportPendingCount|Antal väntande pågående export|Antal|Maximal|Antal väntande kontinuerliga export jobb som är klara för körning|Ingen|
-|ContinuousExportMaxLatenessMinutes|Kontinuerlig export, maximal försening|Antal|Maximal|Försenad (i minuter) som rapporteras av de kontinuerliga export jobben i klustret|Ingen|
+|ExportUtilization|Exportera användning|Procent|Maximal|Exportera användning|Inga|
+|ContinuousExportPendingCount|Antal väntande pågående export|Antal|Maximal|Antal väntande kontinuerliga export jobb som är klara för körning|Inga|
+|ContinuousExportMaxLatenessMinutes|Kontinuerlig export, maximal försening|Antal|Maximal|Försenad (i minuter) som rapporteras av de kontinuerliga export jobben i klustret|Inga|
 |ContinuousExportResult|Resultat av kontinuerlig export|Antal|Antal|Anger om kontinuerlig export lyckades eller misslyckades|ContinuousExportName, resultat, databas|
-|StreamingIngestDuration|Hämtnings tid för strömning|Millisekunder|Medel|Hämtnings tid för strömning i millisekunder|Ingen|
-|StreamingIngestDataRate|Data hastighet för strömnings intag|Antal|Medel|Strömnings data hastighet (MB per sekund)|Ingen|
-|SteamingIngestRequestRate|Begär ande frekvens för strömning|Antal|RateRequestsPerSecond|Hastighet för strömnings inmatnings begäran (begär Anden per sekund)|Ingen|
+|StreamingIngestDuration|Hämtnings tid för strömning|Millisekunder|Medel|Hämtnings tid för strömning i millisekunder|Inga|
+|StreamingIngestDataRate|Data hastighet för strömnings intag|Antal|Medel|Strömnings data hastighet (MB per sekund)|Inga|
+|SteamingIngestRequestRate|Begär ande frekvens för strömning|Antal|RateRequestsPerSecond|Hastighet för strömnings inmatnings begäran (begär Anden per sekund)|Inga|
 |StreamingIngestResults|Resultat av strömnings inmatning|Antal|Medel|Resultat av strömnings inmatning|Resultat|
-|TotalNumberOfConcurrentQueries|Totalt antal samtidiga frågor|Antal|Totalt|Totalt antal samtidiga frågor|Ingen|
-|TotalNumberOfThrottledQueries|Totalt antal begränsade frågor|Antal|Totalt|Totalt antal begränsade frågor|Ingen|
+|TotalNumberOfConcurrentQueries|Totalt antal samtidiga frågor|Antal|Totalt|Totalt antal samtidiga frågor|Inga|
+|TotalNumberOfThrottledQueries|Totalt antal begränsade frågor|Antal|Totalt|Totalt antal begränsade frågor|Inga|
 |TotalNumberOfThrottledCommands|Totalt antal begränsade kommandon|Antal|Totalt|Totalt antal begränsade kommandon|CommandType|
-|TotalNumberOfExtents|Totalt antal omfattningar|Antal|Totalt|Totalt antal data omfattningar|Ingen|
-|InstanceCount|Antal instanser|Antal|Medel|Totalt antal instanser|Ingen|
+|TotalNumberOfExtents|Totalt antal omfattningar|Antal|Totalt|Totalt antal data omfattningar|Inga|
+|InstanceCount|Antal instanser|Antal|Medel|Totalt antal instanser|Inga|
 
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft. Logic/arbets flöden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|RunsStarted|Startade körningar|Antal|Totalt|Antal startade arbets flödes körningar.|Ingen|
-|RunsCompleted|Slutförda körningar|Antal|Totalt|Antal slutförda arbets flödes körningar.|Ingen|
-|RunsSucceeded|Lyckade körningar|Antal|Totalt|Antal slutförda arbets flödes körningar.|Ingen|
-|RunsFailed|Misslyckade körningar|Antal|Totalt|Antal misslyckade arbets flödes körningar.|Ingen|
-|RunsCancelled|Avbrutna körningar|Antal|Totalt|Antal avbrutna arbets flödes körningar.|Ingen|
-|RunLatency|Körnings fördröjning|Sekunder|Medel|Svars tiden för slutförda arbets flödes körningar.|Ingen|
-|RunSuccessLatency|Kör svars tid|Sekunder|Medel|Svars tiden för slutfört arbets flöde körs.|Ingen|
-|RunThrottledEvents|Kör begränsade händelser|Antal|Totalt|Antal arbets flödes åtgärder eller utlösa begränsade händelser.|Ingen|
-|RunStartThrottledEvents|Kör starta begränsade händelser|Antal|Totalt|Antal händelser som startar begränsning av arbets flödes körning.|Ingen|
-|RunFailurePercentage|Procent körnings avbrott|Procent|Totalt|Procent andel av arbets flödes körningen misslyckades.|Ingen|
-|ActionsStarted|Startade åtgärder |Antal|Totalt|Antal startade arbets flödes åtgärder.|Ingen|
-|ActionsCompleted|Slutförda åtgärder |Antal|Totalt|Antal slutförda arbets flödes åtgärder.|Ingen|
-|ActionsSucceeded|Genomförda åtgärder |Antal|Totalt|Antal slutförda arbets flödes åtgärder.|Ingen|
-|ActionsFailed|Misslyckade åtgärder |Antal|Totalt|Antalet misslyckade arbets flödes åtgärder.|Ingen|
-|ActionsSkipped|Åtgärder hoppades över |Antal|Totalt|Antal överhoppade arbets flödes åtgärder.|Ingen|
-|ActionLatency|Åtgärds svars tid |Sekunder|Medel|Svars tid för slutförda arbets flödes åtgärder.|Ingen|
-|ActionSuccessLatency|Svars tid för åtgärd |Sekunder|Medel|Svars tid för slutförda arbets flödes åtgärder.|Ingen|
-|ActionThrottledEvents|Åtgärds begränsade händelser|Antal|Totalt|Antal begränsade händelser för arbets flödes åtgärd..|Ingen|
-|TriggersStarted|Startade utlösare |Antal|Totalt|Antal startade arbets flödes utlösare.|Ingen|
-|TriggersCompleted|Slutförda utlösare |Antal|Totalt|Antal slutförda arbets flödes utlösare.|Ingen|
-|TriggersSucceeded|Lyckade utlösare |Antal|Totalt|Antal slutförda arbets flödes utlösare.|Ingen|
-|TriggersFailed|Misslyckade utlösare |Antal|Totalt|Antalet misslyckade arbets flödes utlösare.|Ingen|
-|TriggersSkipped|Ignorerade utlösare|Antal|Totalt|Antal överhoppade arbets flödes utlösare.|Ingen|
-|TriggersFired|Utlöst utlösare |Antal|Totalt|Antal utlösta arbets flödes utlösare.|Ingen|
-|TriggerLatency|Utlös fördröjning |Sekunder|Medel|Latens för slutförda arbets flödes utlösare.|Ingen|
-|TriggerFireLatency|Utlös brand fördröjning |Sekunder|Medel|Fördröjning för utlösta arbets flödes utlösare.|Ingen|
-|TriggerSuccessLatency|Utlös svars tid för lyckade |Sekunder|Medel|Svars tid för lyckade arbets flödes utlösare.|Ingen|
-|TriggerThrottledEvents|Utlös begränsade händelser|Antal|Totalt|Antal begränsade händelser för arbets flödes utlösare.|Ingen|
-|BillableActionExecutions|Fakturerbara åtgärds körningar|Antal|Totalt|Antal körningar av arbets flödes åtgärder som faktureras.|Ingen|
-|BillableTriggerExecutions|Fakturerbara Utlösar-körningar|Antal|Totalt|Antal körningar av arbets flödes utlösare som faktureras.|Ingen|
-|TotalBillableExecutions|Totalt antal fakturerbara körningar|Antal|Totalt|Antal arbets flödes körningar som faktureras.|Ingen|
-|BillingUsageNativeOperation|Fakturerings användning för intern åtgärds körningar|Antal|Totalt|Antal körningar av interna åtgärder som debiteras.|Ingen|
-|BillingUsageStandardConnector|Fakturerings användning för standard kopplings körningar|Antal|Totalt|Antal standard kopplings körningar som faktureras.|Ingen|
-|BillingUsageStorageConsumption|Fakturerings användning för lagrings förbruknings körningar|Antal|Totalt|Antal lagrings förbruknings körningar som faktureras.|Ingen|
+|RunsStarted|Startade körningar|Antal|Totalt|Antal startade arbets flödes körningar.|Inga|
+|RunsCompleted|Slutförda körningar|Antal|Totalt|Antal slutförda arbets flödes körningar.|Inga|
+|RunsSucceeded|Lyckade körningar|Antal|Totalt|Antal slutförda arbets flödes körningar.|Inga|
+|RunsFailed|Misslyckade körningar|Antal|Totalt|Antal misslyckade arbets flödes körningar.|Inga|
+|RunsCancelled|Avbrutna körningar|Antal|Totalt|Antal avbrutna arbets flödes körningar.|Inga|
+|RunLatency|Körnings fördröjning|Sekunder|Medel|Svars tiden för slutförda arbets flödes körningar.|Inga|
+|RunSuccessLatency|Kör svars tid|Sekunder|Medel|Svars tiden för slutfört arbets flöde körs.|Inga|
+|RunThrottledEvents|Kör begränsade händelser|Antal|Totalt|Antal arbets flödes åtgärder eller utlösa begränsade händelser.|Inga|
+|RunStartThrottledEvents|Kör starta begränsade händelser|Antal|Totalt|Antal händelser som startar begränsning av arbets flödes körning.|Inga|
+|RunFailurePercentage|Procent körnings avbrott|Procent|Totalt|Procent andel av arbets flödes körningen misslyckades.|Inga|
+|ActionsStarted|Startade åtgärder |Antal|Totalt|Antal startade arbets flödes åtgärder.|Inga|
+|ActionsCompleted|Slutförda åtgärder |Antal|Totalt|Antal slutförda arbets flödes åtgärder.|Inga|
+|ActionsSucceeded|Genomförda åtgärder |Antal|Totalt|Antal slutförda arbets flödes åtgärder.|Inga|
+|ActionsFailed|Misslyckade åtgärder |Antal|Totalt|Antalet misslyckade arbets flödes åtgärder.|Inga|
+|ActionsSkipped|Åtgärder hoppades över |Antal|Totalt|Antal överhoppade arbets flödes åtgärder.|Inga|
+|ActionLatency|Åtgärds svars tid |Sekunder|Medel|Svars tid för slutförda arbets flödes åtgärder.|Inga|
+|ActionSuccessLatency|Svars tid för åtgärd |Sekunder|Medel|Svars tid för slutförda arbets flödes åtgärder.|Inga|
+|ActionThrottledEvents|Åtgärds begränsade händelser|Antal|Totalt|Antal begränsade händelser för arbets flödes åtgärd..|Inga|
+|TriggersStarted|Startade utlösare |Antal|Totalt|Antal startade arbets flödes utlösare.|Inga|
+|TriggersCompleted|Slutförda utlösare |Antal|Totalt|Antal slutförda arbets flödes utlösare.|Inga|
+|TriggersSucceeded|Lyckade utlösare |Antal|Totalt|Antal slutförda arbets flödes utlösare.|Inga|
+|TriggersFailed|Misslyckade utlösare |Antal|Totalt|Antalet misslyckade arbets flödes utlösare.|Inga|
+|TriggersSkipped|Ignorerade utlösare|Antal|Totalt|Antal överhoppade arbets flödes utlösare.|Inga|
+|TriggersFired|Utlöst utlösare |Antal|Totalt|Antal utlösta arbets flödes utlösare.|Inga|
+|TriggerLatency|Utlös fördröjning |Sekunder|Medel|Latens för slutförda arbets flödes utlösare.|Inga|
+|TriggerFireLatency|Utlös brand fördröjning |Sekunder|Medel|Fördröjning för utlösta arbets flödes utlösare.|Inga|
+|TriggerSuccessLatency|Utlös svars tid för lyckade |Sekunder|Medel|Svars tid för lyckade arbets flödes utlösare.|Inga|
+|TriggerThrottledEvents|Utlös begränsade händelser|Antal|Totalt|Antal begränsade händelser för arbets flödes utlösare.|Inga|
+|BillableActionExecutions|Fakturerbara åtgärds körningar|Antal|Totalt|Antal körningar av arbets flödes åtgärder som faktureras.|Inga|
+|BillableTriggerExecutions|Fakturerbara Utlösar-körningar|Antal|Totalt|Antal körningar av arbets flödes utlösare som faktureras.|Inga|
+|TotalBillableExecutions|Totalt antal fakturerbara körningar|Antal|Totalt|Antal arbets flödes körningar som faktureras.|Inga|
+|BillingUsageNativeOperation|Fakturerings användning för intern åtgärds körningar|Antal|Totalt|Antal körningar av interna åtgärder som debiteras.|Inga|
+|BillingUsageStandardConnector|Fakturerings användning för standard kopplings körningar|Antal|Totalt|Antal standard kopplings körningar som faktureras.|Inga|
+|BillingUsageStorageConsumption|Fakturerings användning för lagrings förbruknings körningar|Antal|Totalt|Antal lagrings förbruknings körningar som faktureras.|Inga|
 
 ## <a name="microsoftlogicintegrationserviceenvironments"></a>Microsoft. Logic/integrationServiceEnvironments
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|RunsStarted|Startade körningar|Antal|Totalt|Antal startade arbets flödes körningar.|Ingen|
-|RunsCompleted|Slutförda körningar|Antal|Totalt|Antal slutförda arbets flödes körningar.|Ingen|
-|RunsSucceeded|Lyckade körningar|Antal|Totalt|Antal slutförda arbets flödes körningar.|Ingen|
-|RunsFailed|Misslyckade körningar|Antal|Totalt|Antal misslyckade arbets flödes körningar.|Ingen|
-|RunsCancelled|Avbrutna körningar|Antal|Totalt|Antal avbrutna arbets flödes körningar.|Ingen|
-|RunLatency|Körnings fördröjning|Sekunder|Medel|Svars tiden för slutförda arbets flödes körningar.|Ingen|
-|RunSuccessLatency|Kör svars tid|Sekunder|Medel|Svars tiden för slutfört arbets flöde körs.|Ingen|
-|RunThrottledEvents|Kör begränsade händelser|Antal|Totalt|Antal arbets flödes åtgärder eller utlösa begränsade händelser.|Ingen|
-|RunStartThrottledEvents|Kör starta begränsade händelser|Antal|Totalt|Antal händelser som startar begränsning av arbets flödes körning.|Ingen|
-|RunFailurePercentage|Procent körnings avbrott|Procent|Totalt|Procent andel av arbets flödes körningen misslyckades.|Ingen|
-|ActionsStarted|Startade åtgärder |Antal|Totalt|Antal startade arbets flödes åtgärder.|Ingen|
-|ActionsCompleted|Slutförda åtgärder |Antal|Totalt|Antal slutförda arbets flödes åtgärder.|Ingen|
-|ActionsSucceeded|Genomförda åtgärder |Antal|Totalt|Antal slutförda arbets flödes åtgärder.|Ingen|
-|ActionsFailed|Misslyckade åtgärder |Antal|Totalt|Antalet misslyckade arbets flödes åtgärder.|Ingen|
-|ActionsSkipped|Åtgärder hoppades över |Antal|Totalt|Antal överhoppade arbets flödes åtgärder.|Ingen|
-|ActionLatency|Åtgärds svars tid |Sekunder|Medel|Svars tid för slutförda arbets flödes åtgärder.|Ingen|
-|ActionSuccessLatency|Svars tid för åtgärd |Sekunder|Medel|Svars tid för slutförda arbets flödes åtgärder.|Ingen|
-|ActionThrottledEvents|Åtgärds begränsade händelser|Antal|Totalt|Antal begränsade händelser för arbets flödes åtgärd..|Ingen|
-|TriggersStarted|Startade utlösare |Antal|Totalt|Antal startade arbets flödes utlösare.|Ingen|
-|TriggersCompleted|Slutförda utlösare |Antal|Totalt|Antal slutförda arbets flödes utlösare.|Ingen|
-|TriggersSucceeded|Lyckade utlösare |Antal|Totalt|Antal slutförda arbets flödes utlösare.|Ingen|
-|TriggersFailed|Misslyckade utlösare |Antal|Totalt|Antalet misslyckade arbets flödes utlösare.|Ingen|
-|TriggersSkipped|Ignorerade utlösare|Antal|Totalt|Antal överhoppade arbets flödes utlösare.|Ingen|
-|TriggersFired|Utlöst utlösare |Antal|Totalt|Antal utlösta arbets flödes utlösare.|Ingen|
-|TriggerLatency|Utlös fördröjning |Sekunder|Medel|Latens för slutförda arbets flödes utlösare.|Ingen|
-|TriggerFireLatency|Utlös brand fördröjning |Sekunder|Medel|Fördröjning för utlösta arbets flödes utlösare.|Ingen|
-|TriggerSuccessLatency|Utlös svars tid för lyckade |Sekunder|Medel|Svars tid för lyckade arbets flödes utlösare.|Ingen|
-|TriggerThrottledEvents|Utlös begränsade händelser|Antal|Totalt|Antal begränsade händelser för arbets flödes utlösare.|Ingen|
-|IntegrationServiceEnvironmentWorkflowProcessorUsage|Användning av arbets flödes processor för Integration Service Environment|Procent|Medel|Användning av arbets flödes processor för integrerings tjänst miljö.|Ingen|
-|IntegrationServiceEnvironmentWorkflowMemoryUsage|Minnes användning för arbets flöde för Integration Service Environment|Procent|Medel|Arbets flödets minnes användning för integrerings tjänst miljön.|Ingen|
-|IntegrationServiceEnvironmentConnectorProcessorUsage|Anslutnings processor användning för Integration Service Environment|Procent|Medel|Anslutnings processor användning för integrerings tjänst miljön.|Ingen|
-|IntegrationServiceEnvironmentConnectorMemoryUsage|Anslutnings minnes användning för Integration Service Environment|Procent|Medel|Anslutnings minnes användning för integrerings tjänst miljön.|Ingen|
+|RunsStarted|Startade körningar|Antal|Totalt|Antal startade arbets flödes körningar.|Inga|
+|RunsCompleted|Slutförda körningar|Antal|Totalt|Antal slutförda arbets flödes körningar.|Inga|
+|RunsSucceeded|Lyckade körningar|Antal|Totalt|Antal slutförda arbets flödes körningar.|Inga|
+|RunsFailed|Misslyckade körningar|Antal|Totalt|Antal misslyckade arbets flödes körningar.|Inga|
+|RunsCancelled|Avbrutna körningar|Antal|Totalt|Antal avbrutna arbets flödes körningar.|Inga|
+|RunLatency|Körnings fördröjning|Sekunder|Medel|Svars tiden för slutförda arbets flödes körningar.|Inga|
+|RunSuccessLatency|Kör svars tid|Sekunder|Medel|Svars tiden för slutfört arbets flöde körs.|Inga|
+|RunThrottledEvents|Kör begränsade händelser|Antal|Totalt|Antal arbets flödes åtgärder eller utlösa begränsade händelser.|Inga|
+|RunStartThrottledEvents|Kör starta begränsade händelser|Antal|Totalt|Antal händelser som startar begränsning av arbets flödes körning.|Inga|
+|RunFailurePercentage|Procent körnings avbrott|Procent|Totalt|Procent andel av arbets flödes körningen misslyckades.|Inga|
+|ActionsStarted|Startade åtgärder |Antal|Totalt|Antal startade arbets flödes åtgärder.|Inga|
+|ActionsCompleted|Slutförda åtgärder |Antal|Totalt|Antal slutförda arbets flödes åtgärder.|Inga|
+|ActionsSucceeded|Genomförda åtgärder |Antal|Totalt|Antal slutförda arbets flödes åtgärder.|Inga|
+|ActionsFailed|Misslyckade åtgärder |Antal|Totalt|Antalet misslyckade arbets flödes åtgärder.|Inga|
+|ActionsSkipped|Åtgärder hoppades över |Antal|Totalt|Antal överhoppade arbets flödes åtgärder.|Inga|
+|ActionLatency|Åtgärds svars tid |Sekunder|Medel|Svars tid för slutförda arbets flödes åtgärder.|Inga|
+|ActionSuccessLatency|Svars tid för åtgärd |Sekunder|Medel|Svars tid för slutförda arbets flödes åtgärder.|Inga|
+|ActionThrottledEvents|Åtgärds begränsade händelser|Antal|Totalt|Antal begränsade händelser för arbets flödes åtgärd..|Inga|
+|TriggersStarted|Startade utlösare |Antal|Totalt|Antal startade arbets flödes utlösare.|Inga|
+|TriggersCompleted|Slutförda utlösare |Antal|Totalt|Antal slutförda arbets flödes utlösare.|Inga|
+|TriggersSucceeded|Lyckade utlösare |Antal|Totalt|Antal slutförda arbets flödes utlösare.|Inga|
+|TriggersFailed|Misslyckade utlösare |Antal|Totalt|Antalet misslyckade arbets flödes utlösare.|Inga|
+|TriggersSkipped|Ignorerade utlösare|Antal|Totalt|Antal överhoppade arbets flödes utlösare.|Inga|
+|TriggersFired|Utlöst utlösare |Antal|Totalt|Antal utlösta arbets flödes utlösare.|Inga|
+|TriggerLatency|Utlös fördröjning |Sekunder|Medel|Latens för slutförda arbets flödes utlösare.|Inga|
+|TriggerFireLatency|Utlös brand fördröjning |Sekunder|Medel|Fördröjning för utlösta arbets flödes utlösare.|Inga|
+|TriggerSuccessLatency|Utlös svars tid för lyckade |Sekunder|Medel|Svars tid för lyckade arbets flödes utlösare.|Inga|
+|TriggerThrottledEvents|Utlös begränsade händelser|Antal|Totalt|Antal begränsade händelser för arbets flödes utlösare.|Inga|
+|IntegrationServiceEnvironmentWorkflowProcessorUsage|Användning av arbets flödes processor för Integration Service Environment|Procent|Medel|Användning av arbets flödes processor för integrerings tjänst miljö.|Inga|
+|IntegrationServiceEnvironmentWorkflowMemoryUsage|Minnes användning för arbets flöde för Integration Service Environment|Procent|Medel|Arbets flödets minnes användning för integrerings tjänst miljön.|Inga|
+|IntegrationServiceEnvironmentConnectorProcessorUsage|Anslutnings processor användning för Integration Service Environment|Procent|Medel|Anslutnings processor användning för integrerings tjänst miljön.|Inga|
+|IntegrationServiceEnvironmentConnectorMemoryUsage|Anslutnings minnes användning för Integration Service Environment|Procent|Medel|Anslutnings minnes användning för integrerings tjänst miljön.|Inga|
 
 ## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft. MachineLearningServices/arbets ytor
 
@@ -1458,15 +1458,15 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|AssetQuota|Till gångs kvot|Antal|Medel|Hur många till gångar som tillåts för det aktuella Media Service-kontot|Ingen|
-|AssetCount|Antal till gångar|Antal|Medel|Hur många till gångar som redan har skapats i det aktuella medie tjänst kontot|Ingen|
-|AssetQuotaUsedPercentage|Använd procent andel till till gångs kvot|Procent|Medel|Procent andel till gång som används i det aktuella medie tjänst kontot|Ingen|
-|ContentKeyPolicyQuota|Kvot för innehålls nyckel princip|Antal|Medel|Hur många innehålls nyckel principer som tillåts för det aktuella Media Service-kontot|Ingen|
-|ContentKeyPolicyCount|Antal nyckel principer för innehåll|Antal|Medel|Hur många innehålls nyckel principer som redan har skapats i det aktuella medie tjänst kontot|Ingen|
-|ContentKeyPolicyQuotaUsedPercentage|Procent andel av nyckel princip för innehåll|Procent|Medel|Procent andel av nyckel princip för innehåll i det aktuella medie tjänst kontot|Ingen|
-|StreamingPolicyQuota|Kvot för strömmande princip|Antal|Medel|Hur många strömmande principer som tillåts för det aktuella Media Service-kontot|Ingen|
-|StreamingPolicyCount|Antal strömmande principer|Antal|Medel|Hur många strömmande principer som redan har skapats i det aktuella medie tjänst kontot|Ingen|
-|StreamingPolicyQuotaUsedPercentage|Använd procent andel av princip för strömning|Procent|Medel|Procentuell strömnings princip som används i det aktuella medie tjänst kontot|Ingen|
+|AssetQuota|Till gångs kvot|Antal|Medel|Hur många till gångar som tillåts för det aktuella Media Service-kontot|Inga|
+|AssetCount|Antal till gångar|Antal|Medel|Hur många till gångar som redan har skapats i det aktuella medie tjänst kontot|Inga|
+|AssetQuotaUsedPercentage|Använd procent andel till till gångs kvot|Procent|Medel|Procent andel till gång som används i det aktuella medie tjänst kontot|Inga|
+|ContentKeyPolicyQuota|Kvot för innehålls nyckel princip|Antal|Medel|Hur många innehålls nyckel principer som tillåts för det aktuella Media Service-kontot|Inga|
+|ContentKeyPolicyCount|Antal nyckel principer för innehåll|Antal|Medel|Hur många innehålls nyckel principer som redan har skapats i det aktuella medie tjänst kontot|Inga|
+|ContentKeyPolicyQuotaUsedPercentage|Procent andel av nyckel princip för innehåll|Procent|Medel|Procent andel av nyckel princip för innehåll i det aktuella medie tjänst kontot|Inga|
+|StreamingPolicyQuota|Kvot för strömmande princip|Antal|Medel|Hur många strömmande principer som tillåts för det aktuella Media Service-kontot|Inga|
+|StreamingPolicyCount|Antal strömmande principer|Antal|Medel|Hur många strömmande principer som redan har skapats i det aktuella medie tjänst kontot|Inga|
+|StreamingPolicyQuotaUsedPercentage|Använd procent andel av princip för strömning|Procent|Medel|Procentuell strömnings princip som används i det aktuella medie tjänst kontot|Inga|
 
 
 ## <a name="microsoftmixedrealityremoterenderingaccounts"></a>Microsoft. MixedReality/remoteRenderingAccounts
@@ -1480,28 +1480,28 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|AverageReadLatency|Genomsnittlig Läs fördröjning|Millisekunder|Medel|Genomsnittlig Läs fördröjning i millisekunder per åtgärd|Ingen|
-|AverageWriteLatency|Genomsnittlig Skriv fördröjning|Millisekunder|Medel|Genomsnittlig Skriv fördröjning i millisekunder per åtgärd|Ingen|
-|VolumeLogicalSize|Storlek på förbrukad volym|Byte|Medel|Den logiska storleken på volymen (använda byte)|Ingen|
-|VolumeSnapshotSize|Storlek på volym ögonblicks bild|Byte|Medel|Storlek på alla ögonblicks bilder i volymen|Ingen|
-|ReadIops|Läs IOPS|CountPerSecond|Medel|Läs-/ut-åtgärder per sekund|Ingen|
-|WriteIops|Skriv IOPS|CountPerSecond|Medel|Skriv in/ut-åtgärder per sekund|Ingen|
+|AverageReadLatency|Genomsnittlig Läs fördröjning|Millisekunder|Medel|Genomsnittlig Läs fördröjning i millisekunder per åtgärd|Inga|
+|AverageWriteLatency|Genomsnittlig Skriv fördröjning|Millisekunder|Medel|Genomsnittlig Skriv fördröjning i millisekunder per åtgärd|Inga|
+|VolumeLogicalSize|Storlek på förbrukad volym|Byte|Medel|Den logiska storleken på volymen (använda byte)|Inga|
+|VolumeSnapshotSize|Storlek på volym ögonblicks bild|Byte|Medel|Storlek på alla ögonblicks bilder i volymen|Inga|
+|ReadIops|Läs IOPS|CountPerSecond|Medel|Läs-/ut-åtgärder per sekund|Inga|
+|WriteIops|Skriv IOPS|CountPerSecond|Medel|Skriv in/ut-åtgärder per sekund|Inga|
 
 ## <a name="microsoftnetappnetappaccountscapacitypools"></a>Microsoft. NetApp/netAppAccounts/capacityPools
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|VolumePoolAllocatedUsed|Pool allokerad till volym storlek|Byte|Medel|Allokerad använt storlek på poolen|Ingen|
-|VolumePoolTotalLogicalSize|Förbrukad pool storlek|Byte|Medel|Summan av den logiska storleken för alla volymer som tillhör poolen|Ingen|
+|VolumePoolAllocatedUsed|Pool allokerad till volym storlek|Byte|Medel|Allokerad använt storlek på poolen|Inga|
+|VolumePoolTotalLogicalSize|Förbrukad pool storlek|Byte|Medel|Summan av den logiska storleken för alla volymer som tillhör poolen|Inga|
 
 ## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft. Network/networkInterfaces
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|BytesSentRate|Skickade byte|Byte|Totalt|Antal byte som nätverks gränssnittet har skickats|Ingen|
-|BytesReceivedRate|Mottagna byte|Byte|Totalt|Antal byte som nätverks gränssnittet har tagits emot|Ingen|
-|PacketsSentRate|Skickade paket|Antal|Totalt|Antal paket som nätverks gränssnittet har skickats|Ingen|
-|PacketsReceivedRate|Mottagna paket|Antal|Totalt|Antal paket som nätverks gränssnittet har fått|Ingen|
+|BytesSentRate|Skickade byte|Byte|Totalt|Antal byte som nätverks gränssnittet har skickats|Inga|
+|BytesReceivedRate|Mottagna byte|Byte|Totalt|Antal byte som nätverks gränssnittet har tagits emot|Inga|
+|PacketsSentRate|Skickade paket|Antal|Totalt|Antal paket som nätverks gränssnittet har skickats|Inga|
+|PacketsReceivedRate|Mottagna paket|Antal|Totalt|Antal paket som nätverks gränssnittet har fått|Inga|
 
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft. Network/belastningsutjämnare
 
@@ -1520,37 +1520,37 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|QueryVolume|Fråga volym|Antal|Totalt|Antal frågor som hanteras för en DNS-zon|Ingen|
-|RecordSetCount|Antal post uppsättningar|Antal|Maximal|Antal post uppsättningar i en DNS-zon|Ingen|
-|RecordSetCapacityUtilization|Kapacitets användning för post uppsättning|Procent|Maximal|Procent av post uppsättnings kapaciteten som används av en DNS-zon|Ingen|
+|QueryVolume|Fråga volym|Antal|Totalt|Antal frågor som hanteras för en DNS-zon|Inga|
+|RecordSetCount|Antal post uppsättningar|Antal|Maximal|Antal post uppsättningar i en DNS-zon|Inga|
+|RecordSetCapacityUtilization|Kapacitets användning för post uppsättning|Procent|Maximal|Procent av post uppsättnings kapaciteten som används av en DNS-zon|Inga|
 
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft. Network/publicIPAddresses
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|PacketsInDDoS|DDoS för inkommande paket|CountPerSecond|Maximal|DDoS för inkommande paket|Ingen|
-|PacketsDroppedDDoS|Inkommande paket som släppts DDoS|CountPerSecond|Maximal|Inkommande paket som släppts DDoS|Ingen|
-|PacketsForwardedDDoS|Vidarebefordrade inkommande paket DDoS|CountPerSecond|Maximal|Vidarebefordrade inkommande paket DDoS|Ingen|
-|TCPPacketsInDDoS|DDoS inkommande TCP-paket|CountPerSecond|Maximal|DDoS inkommande TCP-paket|Ingen|
-|TCPPacketsDroppedDDoS|Inkommande TCP-paket ignorerade DDoS|CountPerSecond|Maximal|Inkommande TCP-paket ignorerade DDoS|Ingen|
-|TCPPacketsForwardedDDoS|Inkommande TCP-paket, vidarebefordrade DDoS|CountPerSecond|Maximal|Inkommande TCP-paket, vidarebefordrade DDoS|Ingen|
-|UDPPacketsInDDoS|DDoS för inkommande UDP-paket|CountPerSecond|Maximal|DDoS för inkommande UDP-paket|Ingen|
-|UDPPacketsDroppedDDoS|Ignorerade inkommande UDP-paket DDoS|CountPerSecond|Maximal|Ignorerade inkommande UDP-paket DDoS|Ingen|
-|UDPPacketsForwardedDDoS|Vidarebefordrade inkommande UDP-paket DDoS|CountPerSecond|Maximal|Vidarebefordrade inkommande UDP-paket DDoS|Ingen|
-|BytesInDDoS|DDoS för inkommande byte|BytesPerSecond|Maximal|DDoS för inkommande byte|Ingen|
-|BytesDroppedDDoS|Ignorerade inkommande byte DDoS|BytesPerSecond|Maximal|Ignorerade inkommande byte DDoS|Ingen|
-|BytesForwardedDDoS|Inkommande byte, vidarebefordrade DDoS|BytesPerSecond|Maximal|Inkommande byte, vidarebefordrade DDoS|Ingen|
-|TCPBytesInDDoS|DDoS för inkommande TCP-byte|BytesPerSecond|Maximal|DDoS för inkommande TCP-byte|Ingen|
-|TCPBytesDroppedDDoS|Inkommande TCP-byte utelämnade DDoS|BytesPerSecond|Maximal|Inkommande TCP-byte utelämnade DDoS|Ingen|
-|TCPBytesForwardedDDoS|Inkommande TCP byte-vidarebefordrade DDoS|BytesPerSecond|Maximal|Inkommande TCP byte-vidarebefordrade DDoS|Ingen|
-|UDPBytesInDDoS|DDoS för inkommande UDP-byte|BytesPerSecond|Maximal|DDoS för inkommande UDP-byte|Ingen|
-|UDPBytesDroppedDDoS|Inkommande UDP-byte utelämnade DDoS|BytesPerSecond|Maximal|Inkommande UDP-byte utelämnade DDoS|Ingen|
-|UDPBytesForwardedDDoS|Inkommande UDP byte vidarebefordrade DDoS|BytesPerSecond|Maximal|Inkommande UDP byte vidarebefordrade DDoS|Ingen|
-|IfUnderDDoSAttack|Under DDoS-attack eller inte|Antal|Maximal|Under DDoS-attack eller inte|Ingen|
-|DDoSTriggerTCPPackets|Inkommande TCP-paket för att utlösa DDoS-minskning|CountPerSecond|Maximal|Inkommande TCP-paket för att utlösa DDoS-minskning|Ingen|
-|DDoSTriggerUDPPackets|Ingående UDP-paket för att utlösa DDoS-minskning|CountPerSecond|Maximal|Ingående UDP-paket för att utlösa DDoS-minskning|Ingen|
-|DDoSTriggerSYNPackets|Inkommande SYN paket för att utlösa DDoS-minskning|CountPerSecond|Maximal|Inkommande SYN paket för att utlösa DDoS-minskning|Ingen|
+|PacketsInDDoS|DDoS för inkommande paket|CountPerSecond|Maximal|DDoS för inkommande paket|Inga|
+|PacketsDroppedDDoS|Inkommande paket som släppts DDoS|CountPerSecond|Maximal|Inkommande paket som släppts DDoS|Inga|
+|PacketsForwardedDDoS|Vidarebefordrade inkommande paket DDoS|CountPerSecond|Maximal|Vidarebefordrade inkommande paket DDoS|Inga|
+|TCPPacketsInDDoS|DDoS inkommande TCP-paket|CountPerSecond|Maximal|DDoS inkommande TCP-paket|Inga|
+|TCPPacketsDroppedDDoS|Inkommande TCP-paket ignorerade DDoS|CountPerSecond|Maximal|Inkommande TCP-paket ignorerade DDoS|Inga|
+|TCPPacketsForwardedDDoS|Inkommande TCP-paket, vidarebefordrade DDoS|CountPerSecond|Maximal|Inkommande TCP-paket, vidarebefordrade DDoS|Inga|
+|UDPPacketsInDDoS|DDoS för inkommande UDP-paket|CountPerSecond|Maximal|DDoS för inkommande UDP-paket|Inga|
+|UDPPacketsDroppedDDoS|Ignorerade inkommande UDP-paket DDoS|CountPerSecond|Maximal|Ignorerade inkommande UDP-paket DDoS|Inga|
+|UDPPacketsForwardedDDoS|Vidarebefordrade inkommande UDP-paket DDoS|CountPerSecond|Maximal|Vidarebefordrade inkommande UDP-paket DDoS|Inga|
+|BytesInDDoS|DDoS för inkommande byte|BytesPerSecond|Maximal|DDoS för inkommande byte|Inga|
+|BytesDroppedDDoS|Ignorerade inkommande byte DDoS|BytesPerSecond|Maximal|Ignorerade inkommande byte DDoS|Inga|
+|BytesForwardedDDoS|Inkommande byte, vidarebefordrade DDoS|BytesPerSecond|Maximal|Inkommande byte, vidarebefordrade DDoS|Inga|
+|TCPBytesInDDoS|DDoS för inkommande TCP-byte|BytesPerSecond|Maximal|DDoS för inkommande TCP-byte|Inga|
+|TCPBytesDroppedDDoS|Inkommande TCP-byte utelämnade DDoS|BytesPerSecond|Maximal|Inkommande TCP-byte utelämnade DDoS|Inga|
+|TCPBytesForwardedDDoS|Inkommande TCP byte-vidarebefordrade DDoS|BytesPerSecond|Maximal|Inkommande TCP byte-vidarebefordrade DDoS|Inga|
+|UDPBytesInDDoS|DDoS för inkommande UDP-byte|BytesPerSecond|Maximal|DDoS för inkommande UDP-byte|Inga|
+|UDPBytesDroppedDDoS|Inkommande UDP-byte utelämnade DDoS|BytesPerSecond|Maximal|Inkommande UDP-byte utelämnade DDoS|Inga|
+|UDPBytesForwardedDDoS|Inkommande UDP byte vidarebefordrade DDoS|BytesPerSecond|Maximal|Inkommande UDP byte vidarebefordrade DDoS|Inga|
+|IfUnderDDoSAttack|Under DDoS-attack eller inte|Antal|Maximal|Under DDoS-attack eller inte|Inga|
+|DDoSTriggerTCPPackets|Inkommande TCP-paket för att utlösa DDoS-minskning|CountPerSecond|Maximal|Inkommande TCP-paket för att utlösa DDoS-minskning|Inga|
+|DDoSTriggerUDPPackets|Ingående UDP-paket för att utlösa DDoS-minskning|CountPerSecond|Maximal|Ingående UDP-paket för att utlösa DDoS-minskning|Inga|
+|DDoSTriggerSYNPackets|Inkommande SYN paket för att utlösa DDoS-minskning|CountPerSecond|Maximal|Inkommande SYN paket för att utlösa DDoS-minskning|Inga|
 |VipAvailability|Tillgänglighet för data Sök väg|Antal|Medel|Genomsnittlig tillgänglighet för IP-adress per tids längd|Port|
 |ByteCount|Antal byte|Antal|Totalt|Totalt antal byte som skickats inom tids perioden|Port, riktning|
 |PacketCount|Antal paket|Antal|Totalt|Totalt antal överförda paket inom tids perioden|Port, riktning|
@@ -1573,28 +1573,28 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |ApplicationRuleHit|Antal träffar för program regler|Antal|Totalt|Antal gånger som program regler träffades|Status, orsak, protokoll|
 |NetworkRuleHit|Antal träffar för nätverks regler|Antal|Totalt|Antal gånger som nätverks regler träffades|Status, orsak, protokoll|
 |FirewallHealth|Hälso tillstånd för brand vägg|Procent|Medel|Hälso tillstånd för brand vägg|Status, orsak|
-|DataProcessed|Bearbetade data|Byte|Totalt|Total mängd data som bearbetas av brand väggen|Ingen|
-|SNATPortUtilization|SNAT-port användning|Procent|Medel|SNAT-port användning|Ingen|
+|DataProcessed|Bearbetade data|Byte|Totalt|Total mängd data som bearbetas av brand väggen|Inga|
+|SNATPortUtilization|SNAT-port användning|Procent|Medel|SNAT-port användning|Inga|
 
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft. Network/applicationGateways
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|Dataflöde|Dataflöde|BytesPerSecond|Medel|Antal byte per sekund som Application Gateway har betjänat|Ingen|
+|Dataflöde|Dataflöde|BytesPerSecond|Medel|Antal byte per sekund som Application Gateway har betjänat|Inga|
 |UnhealthyHostCount|Antal felaktiga värdar|Antal|Medel|Antal värdar för skadade Server delar|BackendSettingsPool|
 |HealthyHostCount|Antal felfria värdar|Antal|Medel|Antal felfria Server dels värdar|BackendSettingsPool|
 |TotalRequests|Totalt antal förfrågningar|Antal|Totalt|Antal lyckade förfrågningar som Application Gateway har betjänat|BackendSettingsPool|
 |AvgRequestCountPerHealthyHost|Begär Anden per minut per felfri värd|Antal|Medel|Genomsnittligt antal begär Anden per minut per felfri backend-värd i en pool|BackendSettingsPool|
 |FailedRequests|Misslyckade begäranden|Antal|Totalt|Antal misslyckade förfrågningar som Application Gateway har betjänat|BackendSettingsPool|
 |ResponseStatus|Svars status|Antal|Totalt|Http-svarets status returnerades av Application Gateway|HttpStatusGroup|
-|CurrentConnections|Aktuella anslutningar|Antal|Totalt|Antal aktuella anslutningar som upprättats med Application Gateway|Ingen|
-|NewConnectionsPerSecond|Nya anslutningar per sekund|CountPerSecond|Medel|Nya anslutningar per sekund som upprättats med Application Gateway|Ingen|
-|CpuUtilization|PROCESSOR användning|Procent|Medel|Aktuell processor användning för Application Gateway|Ingen|
-|CapacityUnits|Aktuella kapacitets enheter|Antal|Medel|Förbrukade kapacitets enheter|Ingen|
-|FixedBillableCapacityUnits|Fast fakturerbar kapacitets enhet|Antal|Medel|Lägsta kapacitets enhet som ska debiteras|Ingen|
-|EstimatedBilledCapacityUnits|Uppskattade enheter för fakturerings kapacitet|Antal|Medel|Uppskattade kapacitets enheter som ska debiteras|Ingen|
-|ComputeUnits|Aktuella beräknings enheter|Antal|Medel|Förbrukade beräknings enheter|Ingen|
+|CurrentConnections|Aktuella anslutningar|Antal|Totalt|Antal aktuella anslutningar som upprättats med Application Gateway|Inga|
+|NewConnectionsPerSecond|Nya anslutningar per sekund|CountPerSecond|Medel|Nya anslutningar per sekund som upprättats med Application Gateway|Inga|
+|CpuUtilization|CPU-användning|Procent|Medel|Aktuell processor användning för Application Gateway|Inga|
+|CapacityUnits|Aktuella kapacitets enheter|Antal|Medel|Förbrukade kapacitets enheter|Inga|
+|FixedBillableCapacityUnits|Fasta fakturerbara kapacitetsenheter|Antal|Medel|Lägsta kapacitets enhet som ska debiteras|Inga|
+|EstimatedBilledCapacityUnits|Uppskattade enheter för fakturerings kapacitet|Antal|Medel|Uppskattade kapacitets enheter som ska debiteras|Inga|
+|ComputeUnits|Aktuella beräknings enheter|Antal|Medel|Förbrukade beräknings enheter|Inga|
 |BackendResponseStatus|Svars status för Server del|Antal|Totalt|Antalet HTTP-svars koder som genereras av Server dels medlemmar. Detta omfattar inte några svars koder som genereras av Application Gateway.|BackendServer, BackendPool, BackendHttpSetting, HttpStatusGroup|
 |TlsProtocol|Klientens TLS-protokoll|Antal|Totalt|Antalet TLS-och icke-TLS-begäranden som initieras av klienten som upprättade anslutningen till Application Gateway. Om du vill visa TLS-protokollets distribution filtrerar du efter dimension TLS-protokollet.|Lyssnare, TlsProtocol|
 |Bytes sent|Skickade byte|Byte|Totalt|Det totala antalet byte som har skickats av Application Gateway till klienterna|Lyssnare|
@@ -1606,15 +1606,15 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |BackendLastByteResponseTime|Svars tid för senaste byte för Server delen|Millisekunder|Medel|Tidsintervall mellan början av att upprätta en anslutning till backend-servern och ta emot den sista byten i svars texten|Lyssnare, BackendServer, BackendPool, BackendHttpSetting|
 |MatchedCount|Brand vägg för webbaserade program v1 totalt regel distribution|Antal|Totalt|Brand vägg för webbaserade program v1 total regel distribution för inkommande trafik|RuleGroup, RuleId|
 |BlockedCount|Distribution av brand vägg för webbaserade program v1 blockerade begär Anden|Antal|Totalt|Distribution av brand vägg för webbaserade program v1 blockerade begär Anden|RuleGroup, RuleId|
-|BlockedReqCount|Antal blockerade begär Anden för brand vägg för webbaserade program|Antal|Totalt|Antal blockerade begär Anden för brand vägg för webbaserade program|Ingen|
+|BlockedReqCount|Antal blockerade begär Anden för brand vägg för webbaserade program|Antal|Totalt|Antal blockerade begär Anden för brand vägg för webbaserade program|Inga|
 
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft. Network/virtualNetworkGateways
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|AverageBandwidth|Gatewayens S2S-bandbredd|BytesPerSecond|Medel|Genomsnittlig bandbredd för plats-till-plats för en gateway i byte per sekund|Ingen|
-|P2SBandwidth|Gateway P2S-bandbredd|BytesPerSecond|Medel|Genomsnittlig punkt-till-plats-bandbredd för en gateway i byte per sekund|Ingen|
+|AverageBandwidth|Gatewayens S2S-bandbredd|BytesPerSecond|Medel|Genomsnittlig bandbredd för plats-till-plats för en gateway i byte per sekund|Inga|
+|P2SBandwidth|Gateway P2S-bandbredd|BytesPerSecond|Medel|Genomsnittlig punkt-till-plats-bandbredd för en gateway i byte per sekund|Inga|
 |P2SConnectionCount|Antal P2S-anslutningar|Antal|Maximal|Antal anslutningar punkt-till-plats för en gateway|Protokoll|
 |TunnelAverageBandwidth|Tunnel bandbredd|BytesPerSecond|Medel|Genomsnittlig bandbredd för en tunnel i byte per sekund|ConnectionName, RemoteIP|
 |TunnelEgressBytes|Utgående byte i tunnel|Byte|Totalt|Utgående byte för en tunnel|ConnectionName, RemoteIP|
@@ -1648,22 +1648,22 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |GlobalReachBitsOutPerSecond|GlobalReachBitsOutPerSecond|CountPerSecond|Medel|BITS utgående Azure per sekund|PeeredCircuitSKey|
 |BgpAvailability|BGP-tillgänglighet|Procent|Medel|BGP-tillgänglighet från MSEE: N till alla peer-datorer.|PeeringType, peer|
 |ArpAvailability|ARP-tillgänglighet|Procent|Medel|ARP-tillgänglighet från MSEE: N till alla peer-datorer.|PeeringType, peer|
-|QosDropBitsInPerSecond|DroppedInBitsPerSecond|CountPerSecond|Medel|Ingress BITS av data som ignoreras per sekund|Ingen|
-|QosDropBitsOutPerSecond|DroppedOutBitsPerSecond|CountPerSecond|Medel|Utgående bitar med data som ignoreras per sekund|Ingen|
+|QosDropBitsInPerSecond|DroppedInBitsPerSecond|CountPerSecond|Medel|Ingress BITS av data som ignoreras per sekund|Inga|
+|QosDropBitsOutPerSecond|DroppedOutBitsPerSecond|CountPerSecond|Medel|Utgående bitar med data som ignoreras per sekund|Inga|
 
 ## <a name="microsoftnetworkexpressroutecircuitspeerings"></a>Microsoft. Network/expressRouteCircuits/peering
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Medel|BITS inkommande Azure per sekund|Ingen|
-|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Medel|BITS utgående Azure per sekund|Ingen|
+|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Medel|BITS inkommande Azure per sekund|Inga|
+|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Medel|BITS utgående Azure per sekund|Inga|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft. Network/Connections
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Medel|BITS inkommande Azure per sekund|Ingen|
-|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Medel|BITS utgående Azure per sekund|Ingen|
+|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Medel|BITS inkommande Azure per sekund|Inga|
+|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Medel|BITS utgående Azure per sekund|Inga|
 
 ## <a name="microsoftnetworkexpressroutegateways"></a>Microsoft. Network/expressRouteGateways
 
@@ -1685,8 +1685,8 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|ProbesFailedPercent|% Avsökningar misslyckades|Procent|Medel|% av anslutnings övervaknings avsökningarna misslyckades|Ingen|
-|AverageRoundtripMs|Genomsnittlig tid för fördröjning (MS)|Millisekunder|Medel|Genomsnittlig tid för nätverks fördröjning (MS) för anslutnings övervaknings avsökningar som skickas mellan källa och mål|Ingen|
+|ProbesFailedPercent|% Avsökningar misslyckades|Procent|Medel|% av anslutnings övervaknings avsökningarna misslyckades|Inga|
+|AverageRoundtripMs|Genomsnittlig tid för fördröjning (MS)|Millisekunder|Medel|Genomsnittlig tid för nätverks fördröjning (MS) för anslutnings övervaknings avsökningar som skickas mellan källa och mål|Inga|
 |ChecksFailedPercent|Misslyckade kontroller i procent (för hands version)|Procent|Medel|% av kontrollerna för anslutnings övervakning misslyckades|SourceAddress, SourceName, SourceResourceId, SourceType, Protocol, DestinationAddress, DestinationName, DestinationResourceId, DestinationType, destination port, TestGroupName, TestConfigurationName|
 |RoundTripTimeMs|Tur och retur tid (MS) (för hands version)|Millisekunder|Medel|Svars tid i millisekunder för kontrollerna för anslutnings övervakning|SourceAddress, SourceName, SourceResourceId, SourceType, Protocol, DestinationAddress, DestinationName, DestinationResourceId, DestinationType, destination port, TestGroupName, TestConfigurationName|
 
@@ -1700,7 +1700,7 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |ResponseSize|Svars storlek|Byte|Totalt|Antalet byte som skickats som svar från HTTP/S-proxy till klienter|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
 |BillableResponseSize|Fakturerbart svars storlek|Byte|Totalt|Antalet fakturerbara byte (minsta 2KB per begäran) som skickats som svar från HTTP/S-proxy till klienter.|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
 |BackendRequestCount|Antal Server dels begär Anden|Antal|Totalt|Antalet förfrågningar som skickats från HTTP/S-proxyn till Server delar|HttpStatus, HttpStatusGroup, Server del|
-|BackendRequestLatency|Svars tid för Server del|Millisekunder|Medel|Tiden som beräknas från när begäran skickades av HTTP/S-proxyn till Server delen tills HTTP/S-proxyn fick den senaste svars byten från Server delen|Backend|
+|BackendRequestLatency|Svars tid för Server del|Millisekunder|Medel|Tiden som beräknas från när begäran skickades av HTTP/S-proxyn till Server delen tills HTTP/S-proxyn fick den senaste svars byten från Server delen|Serverdel|
 |TotalLatency|Total svars tid|Millisekunder|Medel|Den tid som beräknas från när klientbegäran togs emot av HTTP/S-proxy tills klienten bekräftade den senaste svars byten från HTTP/S-proxyn|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
 |BackendHealthPercentage|Server delens hälso procent|Procent|Medel|Procent andelen lyckade hälso avsökningar från HTTP/S-proxyn till Server delar|Backend, BackendPool|
 |WebApplicationFirewallRequestCount|Antal begär Anden om webb programs brand vägg|Antal|Totalt|Antalet klient begär Anden som bearbetats av brand väggen för webbaserade program|PolicyName, RuleName, åtgärd|
@@ -1710,80 +1710,80 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|QueryVolume|Fråga volym|Antal|Totalt|Antal frågor som hanteras för en Privat DNS zon|Ingen|
-|RecordSetCount|Antal post uppsättningar|Antal|Maximal|Antal post uppsättningar i en Privat DNS zon|Ingen|
-|RecordSetCapacityUtilization|Kapacitets användning för post uppsättning|Procent|Maximal|Procent av post uppsättnings kapaciteten som används av en Privat DNS zon|Ingen|
-|VirtualNetworkLinkCount|Antal Virtual Network länkar|Antal|Maximal|Antal virtuella nätverk som är länkade till en Privat DNS zon|Ingen|
-|VirtualNetworkLinkCapacityUtilization|Virtual Network länka kapacitets användning|Procent|Maximal|Procent andel Virtual Network länk kapacitet som används av en Privat DNS zon|Ingen|
-|VirtualNetworkWithRegistrationLinkCount|Antal Virtual Network registrerings länkar|Antal|Maximal|Antal virtuella nätverk som är länkade till en Privat DNS zon med automatisk registrering aktive rad|Ingen|
-|VirtualNetworkWithRegistrationCapacityUtilization|Virtual Network kapacitets användning för registrerings länk|Procent|Maximal|Procent av Virtual Network-länk med automatisk registrerings kapacitet som används av en Privat DNS zon|Ingen|
+|QueryVolume|Fråga volym|Antal|Totalt|Antal frågor som hanteras för en Privat DNS zon|Inga|
+|RecordSetCount|Antal post uppsättningar|Antal|Maximal|Antal post uppsättningar i en Privat DNS zon|Inga|
+|RecordSetCapacityUtilization|Kapacitets användning för post uppsättning|Procent|Maximal|Procent av post uppsättnings kapaciteten som används av en Privat DNS zon|Inga|
+|VirtualNetworkLinkCount|Antal Virtual Network länkar|Antal|Maximal|Antal virtuella nätverk som är länkade till en Privat DNS zon|Inga|
+|VirtualNetworkLinkCapacityUtilization|Virtual Network länka kapacitets användning|Procent|Maximal|Procent andel Virtual Network länk kapacitet som används av en Privat DNS zon|Inga|
+|VirtualNetworkWithRegistrationLinkCount|Antal Virtual Network registrerings länkar|Antal|Maximal|Antal virtuella nätverk som är länkade till en Privat DNS zon med automatisk registrering aktive rad|Inga|
+|VirtualNetworkWithRegistrationCapacityUtilization|Virtual Network kapacitets användning för registrerings länk|Procent|Maximal|Procent av Virtual Network-länk med automatisk registrerings kapacitet som används av en Privat DNS zon|Inga|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft. NotificationHubs/Namespaces/NotificationHubs
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|registrering. alla|Registrerings åtgärder|Antal|Totalt|Antalet lyckade registrerings åtgärder (skapar uppdateringar av frågor och borttagningar). |Ingen|
-|registrering. skapa|Skapa åtgärder för registrering|Antal|Totalt|Antalet lyckade registreringar som skapas.|Ingen|
-|registrering. Update|Registrera uppdaterings åtgärder|Antal|Totalt|Antalet lyckade registrerings uppdateringar.|Ingen|
-|registrering. Hämta|Läs åtgärder för registrering|Antal|Totalt|Antalet lyckade registrerings frågor.|Ingen|
-|registrering. Delete|Åtgärder för att ta bort registrering|Antal|Totalt|Antalet lyckade registrerings borttagningar.|Ingen|
-|inkommande|Inkommande meddelanden|Antal|Totalt|Antalet lyckade sändnings-API-anrop. |Ingen|
-|inkommande. schemalagd|Schemalagda push-meddelanden har skickats|Antal|Totalt|Schemalagda push-meddelanden har avbrutits|Ingen|
-|inkommande. schemalagd. Avbryt|Schemalagda push-meddelanden har avbrutits|Antal|Totalt|Schemalagda push-meddelanden har avbrutits|Ingen|
-|schemalagt. väntar|Väntande schemalagda meddelanden|Antal|Totalt|Väntande schemalagda meddelanden|Ingen|
-|installation. alla|Installations hanterings åtgärder|Antal|Totalt|Installations hanterings åtgärder|Ingen|
-|installation. get|Hämta installations åtgärder|Antal|Totalt|Hämta installations åtgärder|Ingen|
-|installation. upsert|Skapa eller uppdatera installations åtgärder|Antal|Totalt|Skapa eller uppdatera installations åtgärder|Ingen|
-|installation. patch|Installation av korrigerings åtgärder|Antal|Totalt|Installation av korrigerings åtgärder|Ingen|
-|installation. Delete|Ta bort installations åtgärder|Antal|Totalt|Ta bort installations åtgärder|Ingen|
-|utgående. allpns. lyckades|Lyckade aviseringar|Antal|Totalt|Antalet lyckade aviseringar.|Ingen|
-|utgående. allpns. invalidpayload|Nytto Last fel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom PNS returnerade ett felaktigt nytto Last fel.|Ingen|
-|utgående. allpns. pnserror|Fel i externt meddelande system|Antal|Totalt|Antal push-meddelanden som misslyckades på grund av ett problem med att kommunicera med PNS (exkluderar autentiseringsproblem).|Ingen|
-|utgående. allpns. channelerror|Kanal fel|Antal|Totalt|Antal push-meddelanden som inte har misslyckats på grund av att kanalen var ogiltig och som inte är associerad med rätt app-begränsning eller upphörde att gälla.|Ingen|
-|utgående. allpns. badorexpiredchannel|Dåliga eller utgångna kanal fel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom kanal/token/registrationId i registreringen har upphört att gälla eller är ogiltiga.|Ingen|
-|utgående. WNS. lyckades|WNS slutförda meddelanden|Antal|Totalt|Antalet lyckade aviseringar.|Ingen|
-|utgående. WNS. invalidcredentials|WNS-auktoriseringsfel (ogiltiga autentiseringsuppgifter)|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna, eller om autentiseringsuppgifterna blockeras. (Windows Live känner inte igen autentiseringsuppgifterna).|Ingen|
-|utgående. WNS. badchannel|WNS felaktigt kanal fel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom ChannelURI i registreringen inte kändes igen (WNS-status: 404 hittades inte).|Ingen|
-|utgående. WNS. expiredchannel|WNS utgången kanal fel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom ChannelURI har upphört att gälla (WNS-status: 410 borta).|Ingen|
-|utgående. WNS. begränsad|WNS-begränsade meddelanden|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom WNS begränsar den här appen (WNS-status: 406 är inte acceptabel).|Ingen|
-|utgående. WNS. tokenproviderunreachable|WNS-auktoriseringsfel (kan inte kontaktas)|Antal|Totalt|Windows Live är inte tillgängligt.|Ingen|
-|utgående. WNS. invalidtoken|WNS-auktoriseringsfel (ogiltig token)|Antal|Totalt|Den token som angetts för WNS är inte giltig (WNS-status: 401 otillåten).|Ingen|
-|utgående. WNS. wrongtoken|WNS-auktoriseringsfel (fel token)|Antal|Totalt|Den token som angetts för WNS är giltig men för ett annat program (WNS-status: 403 förbjuden). Detta kan inträffa om ChannelURI i registreringen är kopplad till en annan app. Kontrol lera att klient programmet är associerat med samma app vars autentiseringsuppgifter finns i Notification Hub.|Ingen|
-|utgående. WNS. invalidnotificationformat|WNS ogiltigt meddelande format|Antal|Totalt|Meddelandets format är ogiltigt (WNS-status: 400). Observera att WNS inte avvisar alla ogiltiga nytto laster.|Ingen|
-|utgående. WNS. invalidnotificationsize|WNS ogiltig meddelande storleks fel|Antal|Totalt|Meddelande nytto lasten är för stor (WNS-status: 413).|Ingen|
-|utgående. WNS. channelthrottled|WNS-kanalen är begränsad|Antal|Totalt|Meddelandet utelämnades eftersom ChannelURI i registreringen är begränsat (WNS-svars huvud: X-WNS-NotificationStatus: channelThrottled).|Ingen|
-|utgående. WNS. channeldisconnected|WNS-kanalen är frånkopplad|Antal|Totalt|Meddelandet utelämnades eftersom ChannelURI i registreringen är begränsat (WNS-svars huvud: X-WNS-DeviceConnectionStatus: frånkopplat).|Ingen|
-|utgående. WNS. släppt|WNS borttagna meddelanden|Antal|Totalt|Meddelandet utelämnades eftersom ChannelURI i registreringen är begränsat (X-WNS-NotificationStatus: släppt men inte X-WNS-DeviceConnectionStatus: frånkopplat).|Ingen|
-|utgående. WNS. pnserror|WNS-fel|Antal|Totalt|Meddelandet levererades inte på grund av fel vid kommunikation med WNS.|Ingen|
-|utgående. WNS. authenticationerror|WNS-autentiseringsfel|Antal|Totalt|Meddelandet levererades inte på grund av fel vid kommunikation med ogiltiga Windows Live-autentiseringsuppgifter eller felaktigt token.|Ingen|
-|utgående. APN. lyckades|APN-lyckade meddelanden|Antal|Totalt|Antalet lyckade aviseringar.|Ingen|
-|utgående. APN. invalidcredentials|APN-auktoriseringsfel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna, eller om autentiseringsuppgifterna blockeras.|Ingen|
-|utgående. APN. badchannel|APN dåligt kanal fel|Antal|Totalt|Antal push-meddelanden som misslyckades på grund av att token är ogiltig (APN-status kod: 8).|Ingen|
-|utgående. APN. expiredchannel|APN utgånget i kanal fel|Antal|Totalt|Antalet token som ogiltig förklarades av APNS-feedback-kanalen.|Ingen|
-|utgående. APN. invalidnotificationsize|APN ogiltigt meddelande storleks fel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom nytto lasten var för stor (APN-status kod: 7).|Ingen|
-|utgående. APN. pnserror|APN-fel|Antal|Totalt|Antal push-meddelanden som misslyckades på grund av fel vid kommunikation med APN.|Ingen|
-|utgående. GCM. lyckades|GCM slutförda meddelanden|Antal|Totalt|Antalet lyckade aviseringar.|Ingen|
-|utgående. GCM. invalidcredentials|GCM-auktoriseringsfel (ogiltiga autentiseringsuppgifter)|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna, eller om autentiseringsuppgifterna blockeras.|Ingen|
-|utgående. GCM. badchannel|GCM felaktigt kanal fel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom registrationId i registreringen inte kändes igen (GCM-resultat: ogiltig registrering).|Ingen|
-|utgående. GCM. expiredchannel|GCM utgången kanal fel|Antal|Totalt|Antal push-meddelanden som misslyckades på grund av att registrationId i registreringen har upphört att gälla (GCM-resultat: NotRegistered).|Ingen|
-|utgående. GCM. begränsad|GCM-begränsade meddelanden|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom GCM begränsade till den här appen (GCM-status kod: 501-599 eller resultat: ej tillgängligt).|Ingen|
-|utgående. GCM. invalidnotificationformat|GCM ogiltigt meddelande format|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom nytto lasten inte formaterades korrekt (GCM-resultat: InvalidDataKey eller InvalidTtl).|Ingen|
-|utgående. GCM. invalidnotificationsize|GCM ogiltig meddelande storleks fel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom nytto lasten var för stor (GCM-resultat: MessageTooBig).|Ingen|
-|utgående. GCM. wrongchannel|GCM fel kanal fel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom registrationId i registreringen inte är kopplad till den aktuella appen (GCM result: InvalidPackageName).|Ingen|
-|utgående. GCM. pnserror|GCM-fel|Antal|Totalt|Antal push-meddelanden som misslyckades på grund av fel vid kommunikation med GCM.|Ingen|
-|utgående. GCM. authenticationerror|GCM-autentiseringsfel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna som autentiseringsuppgifterna är blockerade eller om SenderId inte har kon figurer ATS korrekt i appen (GCM result: MismatchedSenderId).|Ingen|
-|utgående. MPNS. lyckades|MPNS slutförda meddelanden|Antal|Totalt|Antalet lyckade aviseringar.|Ingen|
-|utgående. MPNS. invalidcredentials|MPNS ogiltiga autentiseringsuppgifter|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna, eller om autentiseringsuppgifterna blockeras.|Ingen|
-|utgående. MPNS. badchannel|MPNS felaktigt kanal fel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom ChannelURI i registreringen inte kändes igen (MPNS-status: 404 hittades inte).|Ingen|
-|utgående. MPNS. begränsad|MPNS-begränsade meddelanden|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom MPNS begränsar den här appen (WNS MPNS: 406 är inte acceptabel).|Ingen|
-|utgående. MPNS. invalidnotificationformat|MPNS ogiltigt meddelande format|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom nytto lasten för meddelandet var för stor.|Ingen|
-|utgående. MPNS. channeldisconnected|MPNS-kanalen är frånkopplad|Antal|Totalt|Antal push-meddelanden som misslyckades på grund av att ChannelURI i registreringen var frånkopplad (MPNS status: 412 hittades inte).|Ingen|
-|utgående. MPNS. släppt|MPNS borttagna meddelanden|Antal|Totalt|Antal push-meddelanden som släppts av MPNS (MPNS-svars huvud: X-NotificationStatus: QueueFull eller undertrycks).|Ingen|
-|utgående. MPNS. pnserror|MPNS-fel|Antal|Totalt|Antal push-meddelanden som misslyckades på grund av fel vid kommunikation med MPNS.|Ingen|
-|utgående. MPNS. authenticationerror|MPNS-autentiseringsfel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna, eller om autentiseringsuppgifterna blockeras.|Ingen|
-|notificationhub. push-meddelanden|Alla utgående meddelanden|Antal|Totalt|Alla utgående aviseringar för Notification Hub|Ingen|
-|inkommande. alla. förfrågningar|Alla inkommande begär Anden|Antal|Totalt|Totalt antal inkommande begär Anden för en Notification Hub|Ingen|
-|inkommande. alla. failedrequests|Alla inkommande misslyckade förfrågningar|Antal|Totalt|Totalt antal inkommande misslyckade begär Anden för en Notification Hub|Ingen|
+|registrering. alla|Registrerings åtgärder|Antal|Totalt|Antalet lyckade registrerings åtgärder (skapar uppdateringar av frågor och borttagningar). |Inga|
+|registrering. skapa|Skapa åtgärder för registrering|Antal|Totalt|Antalet lyckade registreringar som skapas.|Inga|
+|registrering. Update|Registrera uppdaterings åtgärder|Antal|Totalt|Antalet lyckade registrerings uppdateringar.|Inga|
+|registrering. Hämta|Läs åtgärder för registrering|Antal|Totalt|Antalet lyckade registrerings frågor.|Inga|
+|registrering. Delete|Åtgärder för att ta bort registrering|Antal|Totalt|Antalet lyckade registrerings borttagningar.|Inga|
+|inkommande|Inkommande meddelanden|Antal|Totalt|Antalet lyckade sändnings-API-anrop. |Inga|
+|inkommande. schemalagd|Schemalagda push-meddelanden har skickats|Antal|Totalt|Schemalagda push-meddelanden har avbrutits|Inga|
+|inkommande. schemalagd. Avbryt|Schemalagda push-meddelanden har avbrutits|Antal|Totalt|Schemalagda push-meddelanden har avbrutits|Inga|
+|schemalagt. väntar|Väntande schemalagda meddelanden|Antal|Totalt|Väntande schemalagda meddelanden|Inga|
+|installation. alla|Installations hanterings åtgärder|Antal|Totalt|Installations hanterings åtgärder|Inga|
+|installation. get|Hämta installations åtgärder|Antal|Totalt|Hämta installations åtgärder|Inga|
+|installation. upsert|Skapa eller uppdatera installations åtgärder|Antal|Totalt|Skapa eller uppdatera installations åtgärder|Inga|
+|installation. patch|Installation av korrigerings åtgärder|Antal|Totalt|Installation av korrigerings åtgärder|Inga|
+|installation. Delete|Ta bort installations åtgärder|Antal|Totalt|Ta bort installations åtgärder|Inga|
+|utgående. allpns. lyckades|Lyckade aviseringar|Antal|Totalt|Antalet lyckade aviseringar.|Inga|
+|utgående. allpns. invalidpayload|Nytto Last fel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom PNS returnerade ett felaktigt nytto Last fel.|Inga|
+|utgående. allpns. pnserror|Fel i externt meddelande system|Antal|Totalt|Antal push-meddelanden som misslyckades på grund av ett problem med att kommunicera med PNS (exkluderar autentiseringsproblem).|Inga|
+|utgående. allpns. channelerror|Kanal fel|Antal|Totalt|Antal push-meddelanden som inte har misslyckats på grund av att kanalen var ogiltig och som inte är associerad med rätt app-begränsning eller upphörde att gälla.|Inga|
+|utgående. allpns. badorexpiredchannel|Dåliga eller utgångna kanal fel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom kanal/token/registrationId i registreringen har upphört att gälla eller är ogiltiga.|Inga|
+|utgående. WNS. lyckades|WNS slutförda meddelanden|Antal|Totalt|Antalet lyckade aviseringar.|Inga|
+|utgående. WNS. invalidcredentials|WNS-auktoriseringsfel (ogiltiga autentiseringsuppgifter)|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna, eller om autentiseringsuppgifterna blockeras. (Windows Live känner inte igen autentiseringsuppgifterna).|Inga|
+|utgående. WNS. badchannel|WNS felaktigt kanal fel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom ChannelURI i registreringen inte kändes igen (WNS-status: 404 hittades inte).|Inga|
+|utgående. WNS. expiredchannel|WNS utgången kanal fel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom ChannelURI har upphört att gälla (WNS-status: 410 borta).|Inga|
+|utgående. WNS. begränsad|WNS-begränsade meddelanden|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom WNS begränsar den här appen (WNS-status: 406 är inte acceptabel).|Inga|
+|utgående. WNS. tokenproviderunreachable|WNS-auktoriseringsfel (kan inte kontaktas)|Antal|Totalt|Windows Live är inte tillgängligt.|Inga|
+|utgående. WNS. invalidtoken|WNS-auktoriseringsfel (ogiltig token)|Antal|Totalt|Den token som angetts för WNS är inte giltig (WNS-status: 401 otillåten).|Inga|
+|utgående. WNS. wrongtoken|WNS-auktoriseringsfel (fel token)|Antal|Totalt|Den token som angetts för WNS är giltig men för ett annat program (WNS-status: 403 förbjuden). Detta kan inträffa om ChannelURI i registreringen är kopplad till en annan app. Kontrol lera att klient programmet är associerat med samma app vars autentiseringsuppgifter finns i Notification Hub.|Inga|
+|utgående. WNS. invalidnotificationformat|WNS ogiltigt meddelande format|Antal|Totalt|Meddelandets format är ogiltigt (WNS-status: 400). Observera att WNS inte avvisar alla ogiltiga nytto laster.|Inga|
+|utgående. WNS. invalidnotificationsize|WNS ogiltig meddelande storleks fel|Antal|Totalt|Meddelande nytto lasten är för stor (WNS-status: 413).|Inga|
+|utgående. WNS. channelthrottled|WNS-kanalen är begränsad|Antal|Totalt|Meddelandet utelämnades eftersom ChannelURI i registreringen är begränsat (WNS-svars huvud: X-WNS-NotificationStatus: channelThrottled).|Inga|
+|utgående. WNS. channeldisconnected|WNS-kanalen är frånkopplad|Antal|Totalt|Meddelandet utelämnades eftersom ChannelURI i registreringen är begränsat (WNS-svars huvud: X-WNS-DeviceConnectionStatus: frånkopplat).|Inga|
+|utgående. WNS. släppt|WNS borttagna meddelanden|Antal|Totalt|Meddelandet utelämnades eftersom ChannelURI i registreringen är begränsat (X-WNS-NotificationStatus: släppt men inte X-WNS-DeviceConnectionStatus: frånkopplat).|Inga|
+|utgående. WNS. pnserror|WNS-fel|Antal|Totalt|Meddelandet levererades inte på grund av fel vid kommunikation med WNS.|Inga|
+|utgående. WNS. authenticationerror|WNS-autentiseringsfel|Antal|Totalt|Meddelandet levererades inte på grund av fel vid kommunikation med ogiltiga Windows Live-autentiseringsuppgifter eller felaktigt token.|Inga|
+|utgående. APN. lyckades|APN-lyckade meddelanden|Antal|Totalt|Antalet lyckade aviseringar.|Inga|
+|utgående. APN. invalidcredentials|APN-auktoriseringsfel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna, eller om autentiseringsuppgifterna blockeras.|Inga|
+|utgående. APN. badchannel|APN dåligt kanal fel|Antal|Totalt|Antal push-meddelanden som misslyckades på grund av att token är ogiltig (APN-status kod: 8).|Inga|
+|utgående. APN. expiredchannel|APN utgånget i kanal fel|Antal|Totalt|Antalet token som ogiltig förklarades av APNS-feedback-kanalen.|Inga|
+|utgående. APN. invalidnotificationsize|APN ogiltigt meddelande storleks fel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom nytto lasten var för stor (APN-status kod: 7).|Inga|
+|utgående. APN. pnserror|APN-fel|Antal|Totalt|Antal push-meddelanden som misslyckades på grund av fel vid kommunikation med APN.|Inga|
+|utgående. GCM. lyckades|GCM slutförda meddelanden|Antal|Totalt|Antalet lyckade aviseringar.|Inga|
+|utgående. GCM. invalidcredentials|GCM-auktoriseringsfel (ogiltiga autentiseringsuppgifter)|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna, eller om autentiseringsuppgifterna blockeras.|Inga|
+|utgående. GCM. badchannel|GCM felaktigt kanal fel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom registrationId i registreringen inte kändes igen (GCM-resultat: ogiltig registrering).|Inga|
+|utgående. GCM. expiredchannel|GCM utgången kanal fel|Antal|Totalt|Antal push-meddelanden som misslyckades på grund av att registrationId i registreringen har upphört att gälla (GCM-resultat: NotRegistered).|Inga|
+|utgående. GCM. begränsad|GCM-begränsade meddelanden|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom GCM begränsade till den här appen (GCM-status kod: 501-599 eller resultat: ej tillgängligt).|Inga|
+|utgående. GCM. invalidnotificationformat|GCM ogiltigt meddelande format|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom nytto lasten inte formaterades korrekt (GCM-resultat: InvalidDataKey eller InvalidTtl).|Inga|
+|utgående. GCM. invalidnotificationsize|GCM ogiltig meddelande storleks fel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom nytto lasten var för stor (GCM-resultat: MessageTooBig).|Inga|
+|utgående. GCM. wrongchannel|GCM fel kanal fel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom registrationId i registreringen inte är kopplad till den aktuella appen (GCM result: InvalidPackageName).|Inga|
+|utgående. GCM. pnserror|GCM-fel|Antal|Totalt|Antal push-meddelanden som misslyckades på grund av fel vid kommunikation med GCM.|Inga|
+|utgående. GCM. authenticationerror|GCM-autentiseringsfel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna som autentiseringsuppgifterna är blockerade eller om SenderId inte har kon figurer ATS korrekt i appen (GCM result: MismatchedSenderId).|Inga|
+|utgående. MPNS. lyckades|MPNS slutförda meddelanden|Antal|Totalt|Antalet lyckade aviseringar.|Inga|
+|utgående. MPNS. invalidcredentials|MPNS ogiltiga autentiseringsuppgifter|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna, eller om autentiseringsuppgifterna blockeras.|Inga|
+|utgående. MPNS. badchannel|MPNS felaktigt kanal fel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom ChannelURI i registreringen inte kändes igen (MPNS-status: 404 hittades inte).|Inga|
+|utgående. MPNS. begränsad|MPNS-begränsade meddelanden|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom MPNS begränsar den här appen (WNS MPNS: 406 är inte acceptabel).|Inga|
+|utgående. MPNS. invalidnotificationformat|MPNS ogiltigt meddelande format|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom nytto lasten för meddelandet var för stor.|Inga|
+|utgående. MPNS. channeldisconnected|MPNS-kanalen är frånkopplad|Antal|Totalt|Antal push-meddelanden som misslyckades på grund av att ChannelURI i registreringen var frånkopplad (MPNS status: 412 hittades inte).|Inga|
+|utgående. MPNS. släppt|MPNS borttagna meddelanden|Antal|Totalt|Antal push-meddelanden som släppts av MPNS (MPNS-svars huvud: X-NotificationStatus: QueueFull eller undertrycks).|Inga|
+|utgående. MPNS. pnserror|MPNS-fel|Antal|Totalt|Antal push-meddelanden som misslyckades på grund av fel vid kommunikation med MPNS.|Inga|
+|utgående. MPNS. authenticationerror|MPNS-autentiseringsfel|Antal|Totalt|Antal push-meddelanden som misslyckades eftersom PNS inte accepterade de angivna autentiseringsuppgifterna, eller om autentiseringsuppgifterna blockeras.|Inga|
+|notificationhub. push-meddelanden|Alla utgående meddelanden|Antal|Totalt|Alla utgående aviseringar för Notification Hub|Inga|
+|inkommande. alla. förfrågningar|Alla inkommande begär Anden|Antal|Totalt|Totalt antal inkommande begär Anden för en Notification Hub|Inga|
+|inkommande. alla. failedrequests|Alla inkommande misslyckade förfrågningar|Antal|Totalt|Totalt antal inkommande misslyckade begär Anden för en Notification Hub|Inga|
 
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft. OperationalInsights/arbets ytor
 
@@ -1920,9 +1920,9 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|SearchLatency|Sök svars tid|Sekunder|Medel|Genomsnittlig Sök fördröjning för Sök tjänsten|Ingen|
-|SearchQueriesPerSecond|Sök frågor per sekund|CountPerSecond|Medel|Sök efter frågor per sekund för Sök tjänsten|Ingen|
-|ThrottledSearchQueriesPercentage|Begränsade Sök frågor i procent|Procent|Medel|Procent andel Sök frågor som har begränsats för Sök tjänsten|Ingen|
+|SearchLatency|Sök svars tid|Sekunder|Medel|Genomsnittlig Sök fördröjning för Sök tjänsten|Inga|
+|SearchQueriesPerSecond|Sök frågor per sekund|CountPerSecond|Medel|Sök efter frågor per sekund för Sök tjänsten|Inga|
+|ThrottledSearchQueriesPercentage|Begränsade Sök frågor i procent|Procent|Medel|Procent andel Sök frågor som har begränsats för Sök tjänsten|Inga|
 
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft. Service Bus/namnrymder
@@ -1936,7 +1936,7 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |IncomingRequests|Inkommande begär Anden|Antal|Totalt|Inkommande begär Anden för Microsoft. Service Bus.|Entitetsnamnet|
 |IncomingMessages|Inkommande meddelanden|Antal|Totalt|Inkommande meddelanden för Microsoft. Service Bus.|Entitetsnamnet|
 |OutgoingMessages|Utgående meddelanden|Antal|Totalt|Utgående meddelanden för Microsoft. Service Bus.|Entitetsnamnet|
-|ActiveConnections|ActiveConnections|Antal|Totalt|Totalt antal aktiva anslutningar för Microsoft. Service Bus.|Ingen|
+|ActiveConnections|ActiveConnections|Antal|Totalt|Totalt antal aktiva anslutningar för Microsoft. Service Bus.|Inga|
 |ConnectionsOpened|Öppna anslutningar.|Antal|Medel|Anslutningar som öppnats för Microsoft. Service Bus.|Entitetsnamnet|
 |ConnectionsClosed|Stängda anslutningar.|Antal|Medel|Stängda anslutningar för Microsoft. Service Bus.|Entitetsnamnet|
 |Storlek|Storlek|Byte|Medel|Storlek på en kö/ett ämne i byte.|Entitetsnamnet|
@@ -1971,11 +1971,11 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |ConnectionCount|Antal anslutningar|Antal|Maximal|Mängden användar anslutning.|Slutpunkt|
-|MessageCount|Antal meddelanden|Antal|Totalt|Den totala mängden meddelanden.|Ingen|
-|InboundTraffic|Inkommande trafik|Byte|Totalt|Inkommande trafik trafik för tjänsten|Ingen|
-|OutboundTraffic|Utgående trafik|Byte|Totalt|Utgående trafik för tjänsten|Ingen|
-|UserErrors|Användar fel|Procent|Maximal|Procent andel användar fel|Ingen|
-|SystemErrors|Systemfel|Procent|Maximal|Procent andelen system fel|Ingen|
+|MessageCount|Antal meddelanden|Antal|Totalt|Den totala mängden meddelanden.|Inga|
+|InboundTraffic|Inkommande trafik|Byte|Totalt|Inkommande trafik trafik för tjänsten|Inga|
+|OutboundTraffic|Utgående trafik|Byte|Totalt|Utgående trafik för tjänsten|Inga|
+|UserErrors|Användar fel|Procent|Maximal|Procent andel användar fel|Inga|
+|SystemErrors|Systemfel|Procent|Maximal|Procent andelen system fel|Inga|
 
 
 
@@ -1983,56 +1983,56 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Ingen|
-|physical_data_read_percent|Data IO-procent|Procent|Medel|Data IO-procent|Ingen|
-|log_write_percent|Logg IO-procent|Procent|Medel|Logg IO-procent. Ej tillämpligt för data lager.|Ingen|
-|dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent. Gäller för DTU-baserade databaser.|Ingen|
-|storage|Använt data utrymme|Byte|Maximal|Använt data utrymme. Ej tillämpligt för data lager.|Ingen|
-|connection_successful|Lyckade anslutningar|Antal|Totalt|Lyckade anslutningar|Ingen|
-|connection_failed|Misslyckade anslutningar|Antal|Totalt|Misslyckade anslutningar|Ingen|
-|blocked_by_firewall|Blockerad av brand väggen|Antal|Totalt|Blockerad av brand väggen|Ingen|
-|hamn|Låsningar|Antal|Totalt|Låsningar. Ej tillämpligt för data lager.|Ingen|
-|storage_percent|Använt data utrymme i procent|Procent|Maximal|Data utrymme som används i procent. Ej tillämpligt för data lager eller storskaliga databaser.|Ingen|
-|xtp_storage_percent|Minnes intern OLTP-lagring i procent|Procent|Medel|Minnes intern OLTP-lagring i procent. Ej tillämpligt för data lager.|Ingen|
-|workers_percent|Arbetare i procent|Procent|Medel|Arbetare i procent. Ej tillämpligt för data lager.|Ingen|
-|sessions_percent|Sessioner i procent|Procent|Medel|Sessioner i procent. Ej tillämpligt för data lager.|Ingen|
-|dtu_limit|DTU-gräns|Antal|Medel|DTU-gräns. Gäller för DTU-baserade databaser.|Ingen|
-|dtu_used|Använt DTU|Antal|Medel|DTU används. Gäller för DTU-baserade databaser.|Ingen|
-|cpu_limit|PROCESSOR gräns|Antal|Medel|PROCESSOR gräns. Gäller för vCore-baserade databaser.|Ingen|
-|cpu_used|Använd CPU|Antal|Medel|Använd CPU. Gäller för vCore-baserade databaser.|Ingen|
-|dwu_limit|DWU-gräns|Antal|Maximal|DWU-gräns. Gäller endast för data lager.|Ingen|
-|dwu_consumption_percent|DWU procent|Procent|Maximal|DWU procent. Gäller endast för data lager.|Ingen|
-|dwu_used|DWU som används|Antal|Maximal|DWU som används. Gäller endast för data lager.|Ingen|
-|cache_hit_percent|Procent andel cacheträffar|Procent|Maximal|Procent av cacheträffar. Gäller endast för data lager.|Ingen|
-|cache_used_percent|Procent andel som används|Procent|Maximal|Procent andel som används. Gäller endast för data lager.|Ingen|
-|sqlserver_process_core_percent<sup>1</sup> |SQL Server process kärn procent|Procent|Maximal|PROCESSOR användning i procent för SQL Server processen, mätt av operativ systemet.|Ingen|
-|sqlserver_process_memory_percent<sup>1</sup> |SQL Server process minne i procent|Procent|Maximal|Minnes användnings procent för SQL Server processen, mätt av operativ systemet.|Ingen|
-|tempdb_data_size<sup>2</sup> |Data fil storlek i tempdb i KB|Antal|Maximal|Data fil storlek för tempdb i KB.|Ingen|
-|tempdb_log_size<sup>2</sup> |TempDB-logg fils storlek kilobyte|Antal|Maximal|TempDB-logg fils storlek kilobyte.|Ingen|
-|tempdb_log_used_percent<sup>2</sup> |Procent använt tempdb-logg|Procent|Maximal|TempDB procent logg används.|Ingen|
-|local_tempdb_usage_percent|Lokal tempdb-procent|Procent|Medel|Lokal tempdb-procent. Gäller endast för data lager.|Ingen|
-|app_cpu_billed|App-CPU fakturerad|Antal|Totalt|App-CPU fakturerad. Gäller databaser utan server.|Ingen|
-|app_cpu_percent|CPU-procent för app|Procent|Medel|CPU-procent för app. Gäller databaser utan server.|Ingen|
-|app_memory_percent|Minnes procent för appar|Procent|Medel|Minnes procent för appar. Gäller databaser utan server.|Ingen|
-|allocated_data_storage|Allokerat data utrymme|Byte|Medel|Allokerad data lagring. Ej tillämpligt för data lager.|Ingen|
-|memory_usage_percent|Minnes procent|Procent|Maximal|Minnes procent. Gäller endast för data lager.|Ingen|
-|dw_backup_size_gb|Data lagrings storlek|Antal|Totalt|Data lagrings storleken består av storleken på dina data och transaktions loggen. Måttet räknas till lagrings delen av din faktura. Gäller endast för data lager.|Ingen|
-|dw_snapshot_size_gb|Storlek för ögonblicks bild lagring|Antal|Totalt|Storlek för ögonblicks bild lagring är storleken på de stegvisa ändringar som fångas av ögonblicks bilder för att skapa användardefinierade och automatiska återställnings punkter. Måttet räknas till lagrings delen av din faktura. Gäller endast för data lager.|Ingen|
-|dw_geosnapshot_size_gb|Lagrings storlek för katastrof återställning|Antal|Totalt|Lagrings storleken för haveri beredskap visas som "haveri beredskaps lagring" på din faktura. Gäller endast för data lager.|Ingen|
+|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga|
+|physical_data_read_percent|Data IO-procent|Procent|Medel|Data IO-procent|Inga|
+|log_write_percent|Logg IO-procent|Procent|Medel|Logg IO-procent. Ej tillämpligt för data lager.|Inga|
+|dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent. Gäller för DTU-baserade databaser.|Inga|
+|storage|Använt data utrymme|Byte|Maximal|Använt data utrymme. Ej tillämpligt för data lager.|Inga|
+|connection_successful|Lyckade anslutningar|Antal|Totalt|Lyckade anslutningar|Inga|
+|connection_failed|Misslyckade anslutningar|Antal|Totalt|Misslyckade anslutningar|Inga|
+|blocked_by_firewall|Blockerad av brand väggen|Antal|Totalt|Blockerad av brand väggen|Inga|
+|hamn|Låsningar|Antal|Totalt|Låsningar. Ej tillämpligt för data lager.|Inga|
+|storage_percent|Använt data utrymme i procent|Procent|Maximal|Data utrymme som används i procent. Ej tillämpligt för data lager eller storskaliga databaser.|Inga|
+|xtp_storage_percent|Minnes intern OLTP-lagring i procent|Procent|Medel|Minnes intern OLTP-lagring i procent. Ej tillämpligt för data lager.|Inga|
+|workers_percent|Arbetare i procent|Procent|Medel|Arbetare i procent. Ej tillämpligt för data lager.|Inga|
+|sessions_percent|Sessioner i procent|Procent|Medel|Sessioner i procent. Ej tillämpligt för data lager.|Inga|
+|dtu_limit|DTU-gräns|Antal|Medel|DTU-gräns. Gäller för DTU-baserade databaser.|Inga|
+|dtu_used|Använt DTU|Antal|Medel|DTU används. Gäller för DTU-baserade databaser.|Inga|
+|cpu_limit|PROCESSOR gräns|Antal|Medel|PROCESSOR gräns. Gäller för vCore-baserade databaser.|Inga|
+|cpu_used|Använd CPU|Antal|Medel|Använd CPU. Gäller för vCore-baserade databaser.|Inga|
+|dwu_limit|DWU-gräns|Antal|Maximal|DWU-gräns. Gäller endast för data lager.|Inga|
+|dwu_consumption_percent|DWU procent|Procent|Maximal|DWU procent. Gäller endast för data lager.|Inga|
+|dwu_used|DWU som används|Antal|Maximal|DWU som används. Gäller endast för data lager.|Inga|
+|cache_hit_percent|Procent andel cacheträffar|Procent|Maximal|Procent av cacheträffar. Gäller endast för data lager.|Inga|
+|cache_used_percent|Procent andel som används|Procent|Maximal|Procent andel som används. Gäller endast för data lager.|Inga|
+|sqlserver_process_core_percent<sup>1</sup> |SQL Server process kärn procent|Procent|Maximal|PROCESSOR användning i procent för SQL Server processen, mätt av operativ systemet.|Inga|
+|sqlserver_process_memory_percent<sup>1</sup> |SQL Server process minne i procent|Procent|Maximal|Minnes användnings procent för SQL Server processen, mätt av operativ systemet.|Inga|
+|tempdb_data_size<sup>2</sup> |Data fil storlek i tempdb i KB|Antal|Maximal|Data fil storlek för tempdb i KB.|Inga|
+|tempdb_log_size<sup>2</sup> |TempDB-logg fils storlek kilobyte|Antal|Maximal|TempDB-logg fils storlek kilobyte.|Inga|
+|tempdb_log_used_percent<sup>2</sup> |Procent använt tempdb-logg|Procent|Maximal|TempDB procent logg används.|Inga|
+|local_tempdb_usage_percent|Lokal tempdb-procent|Procent|Medel|Lokal tempdb-procent. Gäller endast för data lager.|Inga|
+|app_cpu_billed|App-CPU fakturerad|Antal|Totalt|App-CPU fakturerad. Gäller databaser utan server.|Inga|
+|app_cpu_percent|CPU-procent för app|Procent|Medel|CPU-procent för app. Gäller databaser utan server.|Inga|
+|app_memory_percent|Minnes procent för appar|Procent|Medel|Minnes procent för appar. Gäller databaser utan server.|Inga|
+|allocated_data_storage|Allokerat data utrymme|Byte|Medel|Allokerad data lagring. Ej tillämpligt för data lager.|Inga|
+|memory_usage_percent|Minnes procent|Procent|Maximal|Minnes procent. Gäller endast för data lager.|Inga|
+|dw_backup_size_gb|Data lagrings storlek|Antal|Totalt|Data lagrings storleken består av storleken på dina data och transaktions loggen. Måttet räknas till lagrings delen av din faktura. Gäller endast för data lager.|Inga|
+|dw_snapshot_size_gb|Storlek för ögonblicks bild lagring|Antal|Totalt|Storlek för ögonblicks bild lagring är storleken på de stegvisa ändringar som fångas av ögonblicks bilder för att skapa användardefinierade och automatiska återställnings punkter. Måttet räknas till lagrings delen av din faktura. Gäller endast för data lager.|Inga|
+|dw_geosnapshot_size_gb|Lagrings storlek för katastrof återställning|Antal|Totalt|Lagrings storleken för haveri beredskap visas som "haveri beredskaps lagring" på din faktura. Gäller endast för data lager.|Inga|
 |wlg_allocation_relative_to_system_percent|Allokering av arbets belastnings grupp efter system procent|Procent|Maximal|Tilldelad procent andel resurser i förhållande till hela systemet per arbets belastnings grupp. Gäller endast för data lager.|WorkloadGroupName,IsUserDefined|
 |wlg_allocation_relative_to_wlg_effective_cap_percent|Allokering av arbets belastnings grupp per Cap-resurs procent|Procent|Maximal|Tilldelad procent andel resurser i förhållande till de angivna Cap-resurserna per arbets belastnings grupp. Gäller endast för data lager.|WorkloadGroupName,IsUserDefined|
 |wlg_active_queries|Aktiva frågor för arbets belastnings grupp|Antal|Totalt|Aktiva frågor inom arbets belastnings gruppen. Gäller endast för data lager.|WorkloadGroupName,IsUserDefined|
 |wlg_queued_queries|Köade frågor i arbets belastnings gruppen|Antal|Totalt|Köade frågor i arbets belastnings gruppen. Gäller endast för data lager.|WorkloadGroupName,IsUserDefined|
-|active_queries|Aktiva frågor|Antal|Totalt|Aktiva frågor för alla arbets belastnings grupper. Gäller endast för data lager.|Ingen|
-|queued_queries|Köade frågor|Antal|Totalt|Köade frågor över alla arbets belastnings grupper. Gäller endast för data lager.|Ingen|
+|active_queries|Aktiva frågor|Antal|Totalt|Aktiva frågor för alla arbets belastnings grupper. Gäller endast för data lager.|Inga|
+|queued_queries|Köade frågor|Antal|Totalt|Köade frågor över alla arbets belastnings grupper. Gäller endast för data lager.|Inga|
 |wlg_active_queries_timeouts|Fråge tids gränser för arbets belastnings grupp|Antal|Totalt|Frågor som har nått tids gränsen för arbets belastnings gruppen. Gäller endast för data lager.|WorkloadGroupName,IsUserDefined|
 |wlg_effective_min_resource_percent|Effektiv minsta resurs procent|Procent|Maximal|Lägsta procent andel av resurser som är reserverade och isolerade för arbets belastnings gruppen, med hänsyn till den lägsta Service nivån. Gäller endast för data lager.|WorkloadGroupName,IsUserDefined|
 |wlg_effective_cap_resource_percent|Effektiv tak resurs procent|Procent|Maximal|En hård gräns för procent andelen av resurser som tillåts för arbets belastnings gruppen, med hänsyn till den lägsta resurs procent som allokerats för andra arbets belastnings grupper. Gäller endast för data lager.|WorkloadGroupName,IsUserDefined|
-|full_backup_size_bytes|Lagrings storlek för fullständig säkerhets kopia|Byte|Maximal|Ackumulerad lagrings storlek för fullständig säkerhets kopia. Gäller för vCore-baserade databaser. Gäller inte för storskaliga databaser.|Ingen|
-|diff_backup_size_bytes|Lagrings storlek för differentiell säkerhets kopia|Byte|Maximal|Kumulativ lagrings storlek för differentiell säkerhets kopia. Gäller för vCore-baserade databaser. Gäller inte för storskaliga databaser.|Ingen|
-|log_backup_size_bytes|Logg lagrings storlek för logg säkerhets kopia|Byte|Maximal|Sammanlagd lagrings storlek för logg säkerhets kopia. Gäller för vCore-baserade och storskaliga databaser.|Ingen|
-|snapshot_backup_size_bytes|Lagrings storlek för ögonblicks bild säkerhets kopia|Byte|Maximal|Lagrings storlek för kumulativ ögonblicks bild. Gäller för storskaliga databaser.|Ingen|
-|base_blob_size_bytes|Bas för Blob Storage-storlek|Byte|Maximal|Bas för Blob Storage-storlek. Gäller för storskaliga databaser.|Ingen|
+|full_backup_size_bytes|Lagrings storlek för fullständig säkerhets kopia|Byte|Maximal|Ackumulerad lagrings storlek för fullständig säkerhets kopia. Gäller för vCore-baserade databaser. Gäller inte för storskaliga databaser.|Inga|
+|diff_backup_size_bytes|Lagrings storlek för differentiell säkerhets kopia|Byte|Maximal|Kumulativ lagrings storlek för differentiell säkerhets kopia. Gäller för vCore-baserade databaser. Gäller inte för storskaliga databaser.|Inga|
+|log_backup_size_bytes|Logg lagrings storlek för logg säkerhets kopia|Byte|Maximal|Sammanlagd lagrings storlek för logg säkerhets kopia. Gäller för vCore-baserade och storskaliga databaser.|Inga|
+|snapshot_backup_size_bytes|Lagrings storlek för ögonblicks bild säkerhets kopia|Byte|Maximal|Lagrings storlek för kumulativ ögonblicks bild. Gäller för storskaliga databaser.|Inga|
+|base_blob_size_bytes|Bas för Blob Storage-storlek|Byte|Maximal|Bas för Blob Storage-storlek. Gäller för storskaliga databaser.|Inga|
 
 <sup>1</sup> det här måttet är tillgängligt för databaser som använder vCore inköps modell med 2 virtuella kärnor och högre, eller 200 DTU och högre för DTU-baserade inköps modeller. 
 
@@ -2042,38 +2042,38 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Ingen|
+|cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga|
 |database_cpu_percent|CPU-procent|Procent|Medel|CPU-procent|DatabaseResourceId|
-|physical_data_read_percent|Data IO-procent|Procent|Medel|Data IO-procent|Ingen|
+|physical_data_read_percent|Data IO-procent|Procent|Medel|Data IO-procent|Inga|
 |database_physical_data_read_percent|Data IO-procent|Procent|Medel|Data IO-procent|DatabaseResourceId|
-|log_write_percent|Logg IO-procent|Procent|Medel|Logg IO-procent|Ingen|
+|log_write_percent|Logg IO-procent|Procent|Medel|Logg IO-procent|Inga|
 |database_log_write_percent|Logg IO-procent|Procent|Medel|Logg IO-procent|DatabaseResourceId|
-|dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent. Gäller för DTU-baserade elastiska pooler.|Ingen|
+|dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent. Gäller för DTU-baserade elastiska pooler.|Inga|
 |database_dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent|DatabaseResourceId|
-|storage_percent|Använt data utrymme i procent|Procent|Medel|Använt data utrymme i procent|Ingen|
-|workers_percent|Arbetare i procent|Procent|Medel|Arbetare i procent|Ingen|
+|storage_percent|Använt data utrymme i procent|Procent|Medel|Använt data utrymme i procent|Inga|
+|workers_percent|Arbetare i procent|Procent|Medel|Arbetare i procent|Inga|
 |database_workers_percent|Arbetare i procent|Procent|Medel|Arbetare i procent|DatabaseResourceId|
-|sessions_percent|Sessioner i procent|Procent|Medel|Sessioner i procent|Ingen|
+|sessions_percent|Sessioner i procent|Procent|Medel|Sessioner i procent|Inga|
 |database_sessions_percent|Sessioner i procent|Procent|Medel|Sessioner i procent|DatabaseResourceId|
-|eDTU_limit|eDTU-gräns|Antal|Medel|eDTU-gräns. Gäller för DTU-baserade elastiska pooler.|Ingen|
-|storage_limit|Max storlek för data|Byte|Medel|Max storlek för data|Ingen|
-|eDTU_used|eDTU använt|Antal|Medel|eDTU används. Gäller för DTU-baserade elastiska pooler.|Ingen|
+|eDTU_limit|eDTU-gräns|Antal|Medel|eDTU-gräns. Gäller för DTU-baserade elastiska pooler.|Inga|
+|storage_limit|Max storlek för data|Byte|Medel|Max storlek för data|Inga|
+|eDTU_used|eDTU använt|Antal|Medel|eDTU används. Gäller för DTU-baserade elastiska pooler.|Inga|
 |database_eDTU_used|eDTU använt|Antal|Medel|eDTU använt|DatabaseResourceId|
-|storage_used|Använt data utrymme|Byte|Medel|Använt data utrymme|Ingen|
+|storage_used|Använt data utrymme|Byte|Medel|Använt data utrymme|Inga|
 |database_storage_used|Använt data utrymme|Byte|Medel|Använt data utrymme|DatabaseResourceId|
-|xtp_storage_percent|Minnes intern OLTP-lagring i procent|Procent|Medel|Minnes intern OLTP-lagring i procent|Ingen|
-|cpu_limit|PROCESSOR gräns|Antal|Medel|PROCESSOR gräns. Gäller vCore-baserade elastiska pooler.|Ingen|
+|xtp_storage_percent|Minnes intern OLTP-lagring i procent|Procent|Medel|Minnes intern OLTP-lagring i procent|Inga|
+|cpu_limit|PROCESSOR gräns|Antal|Medel|PROCESSOR gräns. Gäller vCore-baserade elastiska pooler.|Inga|
 |database_cpu_limit|PROCESSOR gräns|Antal|Medel|PROCESSOR gräns|DatabaseResourceId|
-|cpu_used|Använd CPU|Antal|Medel|Använd CPU. Gäller vCore-baserade elastiska pooler.|Ingen|
+|cpu_used|Använd CPU|Antal|Medel|Använd CPU. Gäller vCore-baserade elastiska pooler.|Inga|
 |database_cpu_used|Använd CPU|Antal|Medel|Använd CPU|DatabaseResourceId|
-|sqlserver_process_core_percent<sup>1</sup>|SQL Server process kärn procent|Procent|Maximal|PROCESSOR användning i procent för SQL Server processen, mätt av operativ systemet. Gäller elastiska pooler. |Ingen|
-|sqlserver_process_memory_percent<sup>1</sup>|SQL Server process minne i procent|Procent|Maximal|Minnes användnings procent för SQL Server processen, mätt av operativ systemet. Gäller elastiska pooler. |Ingen|
-|tempdb_data_size<sup>2</sup>|Data fil storlek i tempdb i KB|Antal|Maximal|Data fil storlek för tempdb i KB.|Ingen|
-|tempdb_log_size<sup>2</sup>|TempDB-logg fils storlek kilobyte|Antal|Maximal|TempDB-logg fils storlek kilobyte. |Ingen|
-|tempdb_log_used_percent<sup>2</sup>|Procent använt tempdb-logg|Procent|Maximal|TempDB procent logg används.|Ingen|
-|allocated_data_storage|Allokerat data utrymme|Byte|Medel|Allokerat data utrymme|Ingen|
+|sqlserver_process_core_percent<sup>1</sup>|SQL Server process kärn procent|Procent|Maximal|PROCESSOR användning i procent för SQL Server processen, mätt av operativ systemet. Gäller elastiska pooler. |Inga|
+|sqlserver_process_memory_percent<sup>1</sup>|SQL Server process minne i procent|Procent|Maximal|Minnes användnings procent för SQL Server processen, mätt av operativ systemet. Gäller elastiska pooler. |Inga|
+|tempdb_data_size<sup>2</sup>|Data fil storlek i tempdb i KB|Antal|Maximal|Data fil storlek för tempdb i KB.|Inga|
+|tempdb_log_size<sup>2</sup>|TempDB-logg fils storlek kilobyte|Antal|Maximal|TempDB-logg fils storlek kilobyte. |Inga|
+|tempdb_log_used_percent<sup>2</sup>|Procent använt tempdb-logg|Procent|Maximal|TempDB procent logg används.|Inga|
+|allocated_data_storage|Allokerat data utrymme|Byte|Medel|Allokerat data utrymme|Inga|
 |database_allocated_data_storage|Allokerat data utrymme|Byte|Medel|Allokerat data utrymme|DatabaseResourceId|
-|allocated_data_storage_percent|Allokerat data utrymme i procent|Procent|Maximal|Allokerat data utrymme i procent|Ingen|
+|allocated_data_storage_percent|Allokerat data utrymme i procent|Procent|Maximal|Allokerat data utrymme i procent|Inga|
 
 <sup>1</sup> det här måttet är tillgängligt för databaser som använder vCore inköps modell med 2 virtuella kärnor och högre, eller 200 DTU och högre för DTU-baserade inköps modeller. 
 
@@ -2094,13 +2094,13 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|virtual_core_count|Antal virtuella kärnor|Antal|Medel|Antal virtuella kärnor|Ingen|
-|avg_cpu_percent|Genomsnittlig CPU-procent|Procent|Medel|Genomsnittlig CPU-procent|Ingen|
-|reserved_storage_mb|Reserverat lagrings utrymme|Antal|Medel|Reserverat lagrings utrymme|Ingen|
-|storage_space_used_mb|Använt lagrings utrymme|Antal|Medel|Använt lagrings utrymme|Ingen|
-|io_requests|Antal IO-begäranden|Antal|Medel|Antal IO-begäranden|Ingen|
-|io_bytes_read|Lästa IO-byte|Byte|Medel|Lästa IO-byte|Ingen|
-|io_bytes_written|Skrivna IO-byte|Byte|Medel|Skrivna IO-byte|Ingen|
+|virtual_core_count|Antal virtuella kärnor|Antal|Medel|Antal virtuella kärnor|Inga|
+|avg_cpu_percent|Genomsnittlig CPU-procent|Procent|Medel|Genomsnittlig CPU-procent|Inga|
+|reserved_storage_mb|Reserverat lagrings utrymme|Antal|Medel|Reserverat lagrings utrymme|Inga|
+|storage_space_used_mb|Använt lagrings utrymme|Antal|Medel|Använt lagrings utrymme|Inga|
+|io_requests|Antal IO-begäranden|Antal|Medel|Antal IO-begäranden|Inga|
+|io_bytes_read|Lästa IO-byte|Byte|Medel|Lästa IO-byte|Inga|
+|io_bytes_written|Skrivna IO-byte|Byte|Medel|Skrivna IO-byte|Inga|
 
 
 
@@ -2108,7 +2108,7 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|UsedCapacity|Använd kapacitet|Byte|Medel|Kapacitet för använt konto|Ingen|
+|UsedCapacity|Använd kapacitet|Byte|Medel|Kapacitet för använt konto|Inga|
 |Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. I det här värdet räknas både lyckade och misslyckade förfrågningar samt förfrågningar som genererat fel. Använd ResponseType dimension för antalet olika typer av svar.|ResponseType, typ av typ, ApiName, autentisering|
 |Ingress|Ingress|Byte|Totalt|Mängden inkommande data, i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|Typ av typ, ApiName, autentisering|
 |Utgående|Utgående|Byte|Totalt|Mängden utgående data, i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|Typ av typ, ApiName, autentisering|
@@ -2122,8 +2122,8 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |---|---|---|---|---|---|
 |BlobCapacity|BLOB-kapacitet|Byte|Medel|Mängden lagrings utrymme som används av lagrings kontots Blob Service i byte.|BlobType,-nivå|
 |BlobCount|BLOB-antal|Antal|Medel|Antalet BLOB i lagrings kontots Blob Service.|BlobType,-nivå|
-|ContainerCount|Antal BLOB-behållare|Antal|Medel|Antalet behållare i lagrings kontots Blob Service.|Ingen|
-|IndexCapacity|Index kapacitet|Byte|Medel|Mängden lagrings utrymme som används av ADLS Gen2 (hierarkiskt) index i byte.|Ingen|
+|ContainerCount|Antal BLOB-behållare|Antal|Medel|Antalet behållare i lagrings kontots Blob Service.|Inga|
+|IndexCapacity|Index kapacitet|Byte|Medel|Mängden lagrings utrymme som används av ADLS Gen2 (hierarkiskt) index i byte.|Inga|
 |Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. I det här värdet räknas både lyckade och misslyckade förfrågningar samt förfrågningar som genererat fel. Använd ResponseType dimension för antalet olika typer av svar.|ResponseType, typ av typ, ApiName, autentisering|
 |Ingress|Ingress|Byte|Totalt|Mängden inkommande data, i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|Typ av typ, ApiName, autentisering|
 |Utgående|Utgående|Byte|Totalt|Mängden utgående data, i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|Typ av typ, ApiName, autentisering|
@@ -2135,9 +2135,9 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|TableCapacity|Tabell kapacitet|Byte|Medel|Mängden lagrings utrymme som används av lagrings kontots Table service i byte.|Ingen|
-|TableCount|Antal tabeller|Antal|Medel|Antalet tabeller i lagrings kontots Table service.|Ingen|
-|TableEntityCount|Antal tabell enheter|Antal|Medel|Antalet tabell enheter i lagrings kontots Table service.|Ingen|
+|TableCapacity|Tabell kapacitet|Byte|Medel|Mängden lagrings utrymme som används av lagrings kontots Table service i byte.|Inga|
+|TableCount|Antal tabeller|Antal|Medel|Antalet tabeller i lagrings kontots Table service.|Inga|
+|TableEntityCount|Antal tabell enheter|Antal|Medel|Antalet tabell enheter i lagrings kontots Table service.|Inga|
 |Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. I det här värdet räknas både lyckade och misslyckade förfrågningar samt förfrågningar som genererat fel. Använd ResponseType dimension för antalet olika typer av svar.|ResponseType, typ av typ, ApiName, autentisering|
 |Ingress|Ingress|Byte|Totalt|Mängden inkommande data, i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|Typ av typ, ApiName, autentisering|
 |Utgående|Utgående|Byte|Totalt|Mängden utgående data, i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|Typ av typ, ApiName, autentisering|
@@ -2151,7 +2151,7 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |---|---|---|---|---|---|
 |FileCapacity|Fil kapacitet|Byte|Medel|Mängden lagrings utrymme som används av lagrings kontots fil tjänst i byte.|FileShare|
 |FileCount|Antal filer|Antal|Medel|Antalet filer i lagrings kontots fil tjänst.|FileShare|
-|FileShareCount|Antal fil resurser|Antal|Medel|Antalet fil resurser i lagrings kontots fil tjänst.|Ingen|
+|FileShareCount|Antal fil resurser|Antal|Medel|Antalet fil resurser i lagrings kontots fil tjänst.|Inga|
 |FileShareSnapshotCount|Antal ögonblicks bilder av fil resurs|Antal|Medel|Antal ögonblicks bilder som finns på resursen i lagrings kontots fil tjänst.|FileShare|
 |FileShareSnapshotSize|Storlek på fil resursens ögonblicks bild|Byte|Medel|Mängden lagrings utrymme som används av ögonblicks bilderna i lagrings kontots fil tjänst i byte.|FileShare|
 |FileShareQuota|Fil resursens kvot storlek|Byte|Medel|Den övre gränsen för mängden lagrings utrymme som kan användas av Azure Files tjänsten i byte.|FileShare|
@@ -2166,9 +2166,9 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|QueueCapacity|Kös Kap kap.|Byte|Medel|Mängden lagrings utrymme som används av lagrings kontots Kötjänst i byte.|Ingen|
-|QueueCount|Antal köer|Antal|Medel|Antalet köer i lagrings kontots Kötjänst.|Ingen|
-|QueueMessageCount|Antal meddelanden i kö|Antal|Medel|Ungefärligt antal köa meddelanden i lagrings kontots Kötjänst.|Ingen|
+|QueueCapacity|Kös Kap kap.|Byte|Medel|Mängden lagrings utrymme som används av lagrings kontots Kötjänst i byte.|Inga|
+|QueueCount|Antal köer|Antal|Medel|Antalet köer i lagrings kontots Kötjänst.|Inga|
+|QueueMessageCount|Antal meddelanden i kö|Antal|Medel|Ungefärligt antal köa meddelanden i lagrings kontots Kötjänst.|Inga|
 |Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. I det här värdet räknas både lyckade och misslyckade förfrågningar samt förfrågningar som genererat fel. Använd ResponseType dimension för antalet olika typer av svar.|ResponseType, typ av typ, ApiName, autentisering|
 |Ingress|Ingress|Byte|Totalt|Mängden inkommande data, i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|Typ av typ, ApiName, autentisering|
 |Utgående|Utgående|Byte|Totalt|Mängden utgående data, i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|Typ av typ, ApiName, autentisering|
@@ -2184,17 +2184,17 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|ClientIOPS|Totalt antal klient-IOPS|Antal|Medel|Frekvensen av klient fil åtgärder som bearbetas av cachen.|Ingen|
-|ClientLatency|Genomsnittlig klient latens|Millisekunder|Medel|Genomsnittlig svars tid för klient fil åtgärder till Storage cache.|Ingen|
-|ClientReadIOPS|Klient läsnings-IOPS|CountPerSecond|Medel|Klient Läs åtgärder per sekund.|Ingen|
-|ClientReadThroughput|Genomsnittligt cache-läst data flöde|BytesPerSecond|Medel|Överföringshastighet för klient läsnings data.|Ingen|
-|ClientWriteIOPS|Klient skrivnings-IOPS|CountPerSecond|Medel|Klient skrivnings åtgärder per sekund.|Ingen|
-|ClientWriteThroughput|Genomsnittligt cacheminne Skriv data flöde|BytesPerSecond|Medel|Data överförings takt för klient skrivning.|Ingen|
-|ClientMetadataReadIOPS|Lästa IOPS för klientens metadata|CountPerSecond|Medel|Frekvensen av klient fil åtgärder som skickas till cachen, exklusive data läsningar som inte ändrar beständigt tillstånd.|Ingen|
-|ClientMetadataWriteIOPS|Klientens metadata Skriv IOPS|CountPerSecond|Medel|Frekvensen av klient fil åtgärder som skickas till cachen, exklusive data skrivningar, som ändrar beständigt tillstånd.|Ingen|
-|ClientLockIOPS|Klient lås IOPS|CountPerSecond|Medel|Klient fil låsnings åtgärder per sekund.|Ingen|
-|StorageTargetHealth|Lagrings mål hälsa|Antal|Medel|Booleska resultat för anslutnings test mellan cache-och lagrings målen.|Ingen|
-|Drift tid|Drift tid|Antal|Medel|Booleska resultat för anslutnings test mellan cache-och övervaknings systemet.|Ingen|
+|ClientIOPS|Totalt antal klient-IOPS|Antal|Medel|Frekvensen av klient fil åtgärder som bearbetas av cachen.|Inga|
+|ClientLatency|Genomsnittlig klient latens|Millisekunder|Medel|Genomsnittlig svars tid för klient fil åtgärder till Storage cache.|Inga|
+|ClientReadIOPS|Klient läsnings-IOPS|CountPerSecond|Medel|Klient Läs åtgärder per sekund.|Inga|
+|ClientReadThroughput|Genomsnittligt cache-läst data flöde|BytesPerSecond|Medel|Överföringshastighet för klient läsnings data.|Inga|
+|ClientWriteIOPS|Klient skrivnings-IOPS|CountPerSecond|Medel|Klient skrivnings åtgärder per sekund.|Inga|
+|ClientWriteThroughput|Genomsnittligt cacheminne Skriv data flöde|BytesPerSecond|Medel|Data överförings takt för klient skrivning.|Inga|
+|ClientMetadataReadIOPS|Lästa IOPS för klientens metadata|CountPerSecond|Medel|Frekvensen av klient fil åtgärder som skickas till cachen, exklusive data läsningar som inte ändrar beständigt tillstånd.|Inga|
+|ClientMetadataWriteIOPS|Klientens metadata Skriv IOPS|CountPerSecond|Medel|Frekvensen av klient fil åtgärder som skickas till cachen, exklusive data skrivningar, som ändrar beständigt tillstånd.|Inga|
+|ClientLockIOPS|Klient lås IOPS|CountPerSecond|Medel|Klient fil låsnings åtgärder per sekund.|Inga|
+|StorageTargetHealth|Lagrings mål hälsa|Antal|Medel|Booleska resultat för anslutnings test mellan cache-och lagrings målen.|Inga|
+|Drift tid|Drift tid|Antal|Medel|Booleska resultat för anslutnings test mellan cache-och övervaknings systemet.|Inga|
 |StorageTargetIOPS|Totalt antal StorageTarget IOPS|Antal|Medel|Frekvensen för alla fil åtgärder som cachen skickar till en viss StorageTarget.|StorageTarget|
 |StorageTargetWriteIOPS|StorageTarget Skriv IOPS|Antal|Medel|Hastigheten för fil skrivnings åtgärder som cachen skickar till en viss StorageTarget.|StorageTarget|
 |StorageTargetAsyncWriteThroughput|StorageTarget asynkron skrivning av data flöde|BytesPerSecond|Medel|Hastigheten cachen skriver data asynkront till en viss StorageTarget. Detta är Opportunistic skrivningar som inte gör att klienter blockerar.|StorageTarget|
@@ -2277,28 +2277,28 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |OrchestrationTriggersEnded|Slutförda utlösare|Antal|Totalt|Antal Dirigerings utlösare som lyckades, misslyckades eller avbröts|Resultat, FailureType, utlösare|
 |SQLOnDemandLoginAttempts|Inloggnings försök|Antal|Totalt|Antal inloggnings försök som distribuerats eller misslyckats|Resultat|
 |SQLOnDemandQueriesEnded|Avslutade frågor|Antal|Totalt|Antal frågor som har lyckats, misslyckats eller avbrutits|Resultat|
-|SQLOnDemandQueryProcessedBytes|Bearbetade data|Byte|Totalt|Mängden data som bearbetas av frågor|Ingen|
+|SQLOnDemandQueryProcessedBytes|Bearbetade data|Byte|Totalt|Mängden data som bearbetas av frågor|Inga|
 
 ## <a name="microsoftsynapseworkspacesbigdatapools"></a>Microsoft. Synapse/arbets ytor/bigDataPools
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |SparkJobsEnded|Avslutade program|Antal|Totalt|Antal avslutade program|JobType, JobResult|
-|CoresCapacity|Kärnor kapacitet|Antal|Maximal|Kärnor kapacitet|Ingen|
-|MemoryCapacityGB|Minnes kapacitet (GB)|Antal|Maximal|Minnes kapacitet (GB)|Ingen|
+|CoresCapacity|Kärnor kapacitet|Antal|Maximal|Kärnor kapacitet|Inga|
+|MemoryCapacityGB|Minnes kapacitet (GB)|Antal|Maximal|Minnes kapacitet (GB)|Inga|
 
 ## <a name="microsoftsynapseworkspacessqlpools"></a>Microsoft. Synapse/arbets ytor/sqlPools
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|DWULimit|DWU-gräns|Antal|Maximal|SQL-poolens service nivå mål|Ingen|
-|DWUUsed|DWU som används|Antal|Maximal|Representerar en övergripande representation av användningen i SQL-poolen. Uppmätt av DWU-gränsen * DWU procent|Ingen|
-|DWUUsedPercent|Procent Använd DWU|Procent|Maximal|Representerar en övergripande representation av användningen i SQL-poolen. Mäts genom att dra max värdet mellan CPU-procent och data IO-procent|Ingen|
-|ConnectionsBlockedByFirewall|Anslutningar blockerade av brand väggen|Antal|Totalt|Antal anslutningar blockeras av brand Väggs regler. Gå tillbaka till principer för åtkomst kontroll för SQL-poolen och övervaka dessa anslutningar om antalet är högt|Ingen|
-|AdaptiveCacheHitPercent|Procentuellt antal träffar i adaptiv cache|Procent|Maximal|Mäter hur bra arbets belastningar använder adaptiv cache. Använd det här måttet med värdet för cache träff i procent för att avgöra om du vill skala för ytterligare kapacitet eller köra arbets belastningar på nytt för att utföra cachen|Ingen|
-|AdaptiveCacheUsedPercent|Procentuell användning av adaptiv cache|Procent|Maximal|Mäter hur bra arbets belastningar använder adaptiv cache. Använd det här måttet med den cachelagrade procentens mått för att avgöra om du vill skala för ytterligare kapacitet eller köra arbets belastningar på nytt för att utföra cachen|Ingen|
-|LocalTempDBUsedPercent|Lokal tempdb Använd procent|Procent|Maximal|Lokal tempdb-användning över alla Compute-noder – värden genereras var femte minut|Ingen|
-|MemoryUsedPercent|Använt minne i procent|Procent|Maximal|Minnes användning för alla noder i SQL-poolen|Ingen|
+|DWULimit|DWU-gräns|Antal|Maximal|SQL-poolens service nivå mål|Inga|
+|DWUUsed|DWU som används|Antal|Maximal|Representerar en övergripande representation av användningen i SQL-poolen. Uppmätt av DWU-gränsen * DWU procent|Inga|
+|DWUUsedPercent|Procent Använd DWU|Procent|Maximal|Representerar en övergripande representation av användningen i SQL-poolen. Mäts genom att dra max värdet mellan CPU-procent och data IO-procent|Inga|
+|ConnectionsBlockedByFirewall|Anslutningar blockerade av brand väggen|Antal|Totalt|Antal anslutningar blockeras av brand Väggs regler. Gå tillbaka till principer för åtkomst kontroll för SQL-poolen och övervaka dessa anslutningar om antalet är högt|Inga|
+|AdaptiveCacheHitPercent|Procentuellt antal träffar i adaptiv cache|Procent|Maximal|Mäter hur bra arbets belastningar använder adaptiv cache. Använd det här måttet med värdet för cache träff i procent för att avgöra om du vill skala för ytterligare kapacitet eller köra arbets belastningar på nytt för att utföra cachen|Inga|
+|AdaptiveCacheUsedPercent|Procentuell användning av adaptiv cache|Procent|Maximal|Mäter hur bra arbets belastningar använder adaptiv cache. Använd det här måttet med den cachelagrade procentens mått för att avgöra om du vill skala för ytterligare kapacitet eller köra arbets belastningar på nytt för att utföra cachen|Inga|
+|LocalTempDBUsedPercent|Lokal tempdb Använd procent|Procent|Maximal|Lokal tempdb-användning över alla Compute-noder – värden genereras var femte minut|Inga|
+|MemoryUsedPercent|Använt minne i procent|Procent|Maximal|Minnes användning för alla noder i SQL-poolen|Inga|
 |Anslutningar|Anslutningar|Antal|Totalt|Totalt antal inloggningar till SQL-poolen|Resultat|
 |WLGActiveQueries|Aktiva frågor för arbets belastnings grupp|Antal|Totalt|Aktiva frågor i arbets belastnings gruppen. Om du använder det här måttet ofiltrerad och unsplit visas alla aktiva frågor som körs i systemet|IsUserDefined,WorkloadGroup|
 |WLGActiveQueriesTimeouts|Fråge tids gränser för arbets belastnings grupp|Antal|Totalt|Frågor för arbets belastnings gruppen som har nått tids gränsen. Tids gränser för frågor som rapporteras av detta mått sker bara när frågan har börjat köras (den innehåller inte vänte tid på grund av låsning eller väntande resurs avbrott)|IsUserDefined,WorkloadGroup|
@@ -2312,15 +2312,15 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|IngressReceivedMessages|Ingress mottagna meddelanden|Antal|Totalt|Antal meddelanden som lästs från alla händelse källor för Event Hub eller IoT Hub|Ingen|
-|IngressReceivedInvalidMessages|Inkommande mottagna ogiltiga meddelanden|Antal|Totalt|Antal ogiltiga meddelanden som lästs från alla händelse källor för Event Hub eller IoT Hub|Ingen|
-|IngressReceivedBytes|Inkommande mottagna byte|Byte|Totalt|Antal byte som lästs från alla händelse källor|Ingen|
-|IngressStoredBytes|Inkommande lagrade byte|Byte|Totalt|Total storlek på händelser som har bearbetats och är tillgängliga för fråga|Ingen|
-|IngressStoredEvents|Ingress lagrade händelser|Antal|Totalt|Antal förenklade händelser som har bearbetats och är tillgängliga för fråga|Ingen|
-|IngressReceivedMessagesTimeLag|Ta emot mottagna meddelanden tids fördröjning|Sekunder|Maximal|Skillnaden mellan den tid som meddelandet står i kö i händelse källan och tiden det bearbetas i ingress|Ingen|
-|IngressReceivedMessagesCountLag|Antal inkommande mottagna meddelanden antal fördröjning|Antal|Medel|Skillnad mellan sekvensnumret i det senaste köade meddelandet i en partition för händelse källan och sekvensnummer för meddelanden som bearbetas i ingress|Ingen|
-|WarmStorageMaxProperties|Maximalt antal egenskaper för varmt lagring|Antal|Maximal|Maximalt antal egenskaper som används av miljön för S1/S2 SKU och maximalt antal egenskaper som tillåts av varmt Arkiv för PAYG SKU|Ingen|
-|WarmStorageUsedProperties|Egenskaper för varm lagring som används |Antal|Maximal|Antalet egenskaper som används av miljön för S1/S2 SKU och antalet egenskaper som används av varmt Arkiv för PAYG SKU|Ingen|
+|IngressReceivedMessages|Ingress mottagna meddelanden|Antal|Totalt|Antal meddelanden som lästs från alla händelse källor för Event Hub eller IoT Hub|Inga|
+|IngressReceivedInvalidMessages|Inkommande mottagna ogiltiga meddelanden|Antal|Totalt|Antal ogiltiga meddelanden som lästs från alla händelse källor för Event Hub eller IoT Hub|Inga|
+|IngressReceivedBytes|Inkommande mottagna byte|Byte|Totalt|Antal byte som lästs från alla händelse källor|Inga|
+|IngressStoredBytes|Inkommande lagrade byte|Byte|Totalt|Total storlek på händelser som har bearbetats och är tillgängliga för fråga|Inga|
+|IngressStoredEvents|Ingress lagrade händelser|Antal|Totalt|Antal förenklade händelser som har bearbetats och är tillgängliga för fråga|Inga|
+|IngressReceivedMessagesTimeLag|Ta emot mottagna meddelanden tids fördröjning|Sekunder|Maximal|Skillnaden mellan den tid som meddelandet står i kö i händelse källan och tiden det bearbetas i ingress|Inga|
+|IngressReceivedMessagesCountLag|Antal inkommande mottagna meddelanden antal fördröjning|Antal|Medel|Skillnad mellan sekvensnumret i det senaste köade meddelandet i en partition för händelse källan och sekvensnummer för meddelanden som bearbetas i ingress|Inga|
+|WarmStorageMaxProperties|Maximalt antal egenskaper för varmt lagring|Antal|Maximal|Maximalt antal egenskaper som används av miljön för S1/S2 SKU och maximalt antal egenskaper som tillåts av varmt Arkiv för PAYG SKU|Inga|
+|WarmStorageUsedProperties|Egenskaper för varm lagring som används |Antal|Maximal|Antalet egenskaper som används av miljön för S1/S2 SKU och antalet egenskaper som används av varmt Arkiv för PAYG SKU|Inga|
 
 
 
@@ -2328,39 +2328,39 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|IngressReceivedMessages|Ingress mottagna meddelanden|Antal|Totalt|Antal meddelanden som lästs från händelse källan|Ingen|
-|IngressReceivedInvalidMessages|Inkommande mottagna ogiltiga meddelanden|Antal|Totalt|Antal ogiltiga meddelanden som lästs från händelse källan|Ingen|
-|IngressReceivedBytes|Inkommande mottagna byte|Byte|Totalt|Antal byte som lästs från händelse källan|Ingen|
-|IngressStoredBytes|Inkommande lagrade byte|Byte|Totalt|Total storlek på händelser som har bearbetats och är tillgängliga för fråga|Ingen|
-|IngressStoredEvents|Ingress lagrade händelser|Antal|Totalt|Antal förenklade händelser som har bearbetats och är tillgängliga för fråga|Ingen|
-|IngressReceivedMessagesTimeLag|Ta emot mottagna meddelanden tids fördröjning|Sekunder|Maximal|Skillnaden mellan den tid som meddelandet står i kö i händelse källan och tiden det bearbetas i ingress|Ingen|
-|IngressReceivedMessagesCountLag|Antal inkommande mottagna meddelanden antal fördröjning|Antal|Medel|Skillnad mellan sekvensnumret i det senaste köade meddelandet i en partition för händelse källan och sekvensnummer för meddelanden som bearbetas i ingress|Ingen|
-|WarmStorageMaxProperties|Maximalt antal egenskaper för varmt lagring|Antal|Maximal|Maximalt antal egenskaper som används av miljön för S1/S2 SKU och maximalt antal egenskaper som tillåts av varmt Arkiv för PAYG SKU|Ingen|
-|WarmStorageUsedProperties|Egenskaper för varm lagring som används |Antal|Maximal|Antalet egenskaper som används av miljön för S1/S2 SKU och antalet egenskaper som används av varmt Arkiv för PAYG SKU|Ingen|
+|IngressReceivedMessages|Ingress mottagna meddelanden|Antal|Totalt|Antal meddelanden som lästs från händelse källan|Inga|
+|IngressReceivedInvalidMessages|Inkommande mottagna ogiltiga meddelanden|Antal|Totalt|Antal ogiltiga meddelanden som lästs från händelse källan|Inga|
+|IngressReceivedBytes|Inkommande mottagna byte|Byte|Totalt|Antal byte som lästs från händelse källan|Inga|
+|IngressStoredBytes|Inkommande lagrade byte|Byte|Totalt|Total storlek på händelser som har bearbetats och är tillgängliga för fråga|Inga|
+|IngressStoredEvents|Ingress lagrade händelser|Antal|Totalt|Antal förenklade händelser som har bearbetats och är tillgängliga för fråga|Inga|
+|IngressReceivedMessagesTimeLag|Ta emot mottagna meddelanden tids fördröjning|Sekunder|Maximal|Skillnaden mellan den tid som meddelandet står i kö i händelse källan och tiden det bearbetas i ingress|Inga|
+|IngressReceivedMessagesCountLag|Antal inkommande mottagna meddelanden antal fördröjning|Antal|Medel|Skillnad mellan sekvensnumret i det senaste köade meddelandet i en partition för händelse källan och sekvensnummer för meddelanden som bearbetas i ingress|Inga|
+|WarmStorageMaxProperties|Maximalt antal egenskaper för varmt lagring|Antal|Maximal|Maximalt antal egenskaper som används av miljön för S1/S2 SKU och maximalt antal egenskaper som tillåts av varmt Arkiv för PAYG SKU|Inga|
+|WarmStorageUsedProperties|Egenskaper för varm lagring som används |Antal|Maximal|Antalet egenskaper som används av miljön för S1/S2 SKU och antalet egenskaper som används av varmt Arkiv för PAYG SKU|Inga|
 
 ## <a name="microsoftvmwarecloudsimplevirtualmachines"></a>Microsoft. VMwareCloudSimple/virtualMachines
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|DiskReadBytesPerSecond|Disk-lästa byte/s|BytesPerSecond|Medel|Genomsnittligt disk data flöde på grund av Läs åtgärder under exempel perioden.|Ingen|
-|DiskWriteBytesPerSecond|Disk-skrivna byte/s|BytesPerSecond|Medel|Genomsnittligt disk data flöde på grund av Skriv åtgärder under exempel perioden.|Ingen|
-|Lästa byte på disk|Lästa byte på disk|Byte|Totalt|Totalt disk data flöde på grund av Läs åtgärder under exempel perioden.|Ingen|
-|Disk-skrivna byte|Disk-skrivna byte|Byte|Totalt|Totalt disk data flöde på grund av Skriv åtgärder under exempel perioden.|Ingen|
-|DiskReadOperations|Disk Läs åtgärder|Antal|Totalt|Antalet Läs åtgärder i IO i föregående exempel period. Observera att dessa åtgärder kan vara varierande storlek.|Ingen|
-|DiskWriteOperations|Disk skrivnings åtgärder|Antal|Totalt|Antalet i/o-Skriv åtgärder i föregående exempel period. Observera att dessa åtgärder kan vara varierande storlek.|Ingen|
-|Disk Läs åtgärder/SEK|Disk Läs åtgärder/SEK|CountPerSecond|Medel|Genomsnittligt antal Läs åtgärder i IO i föregående exempel period. Observera att dessa åtgärder kan vara varierande storlek.|Ingen|
-|Disk skrivnings åtgärder/SEK|Disk skrivnings åtgärder/SEK|CountPerSecond|Medel|Genomsnittligt antal i/o-Skriv åtgärder i föregående exempel period. Observera att dessa åtgärder kan vara varierande storlek.|Ingen|
-|DiskReadLatency|Läs fördröjning för disk|Millisekunder|Medel|Total Läs fördröjning. Summan av Läs fördröjningen för enheten och kärnan.|Ingen|
-|DiskWriteLatency|Skriv fördröjning för disk|Millisekunder|Medel|Total Skriv fördröjning. Summan av Skriv fördröjningarna för enheten och kärnan.|Ingen|
-|NetworkInBytesPerSecond|Nätverk i byte/s|BytesPerSecond|Medel|Genomsnittligt nätverks data flöde för mottagen trafik.|Ingen|
-|NetworkOutBytesPerSecond|Nätverks-out-byte/SEK|BytesPerSecond|Medel|Genomsnittligt nätverks data flöde för överförd trafik.|Ingen|
-|Nätverk – inkommande|Nätverk – inkommande|Byte|Totalt|Totalt nätverks data flöde för mottagen trafik.|Ingen|
-|Nätverk – utgående|Nätverk – utgående|Byte|Totalt|Totalt nätverks data flöde för överförd trafik.|Ingen|
-|MemoryUsed|Använt minne|Byte|Medel|Mängden dator minne som används av den virtuella datorn.|Ingen|
-|MemoryGranted|Beviljat minne|Byte|Medel|Mängden minne som har beviljats för den virtuella datorn av värden. Minnet beviljas inte för värden förrän den är påslagen en gång och beviljat minne kan växlas ut eller visas borta om VMkernel behöver minnet.|Ingen|
-|MemoryActive|Aktivt minne|Byte|Medel|Mängden minne som används av den virtuella datorn i det tidigare lilla tids fönstret. Detta är "true"-antalet hur mycket minne som den virtuella datorn för närvarande behöver. Ytterligare, oanvänt minne kan växlas ut eller visas utan att påverka gästens prestanda.|Ingen|
-|Procent CPU|Procent CPU|Procent|Medel|PROCESSOR användningen. Det här värdet rapporteras med 100% som representerar alla processor kärnor i systemet. Till exempel är en 2-vägs virtuell dator som använder 50% av ett system med fyra kärnor fullständigt med två kärnor.|Ingen|
-|PercentageCpuReady|Procent andel CPU klar|Millisekunder|Totalt|Ready Time är den tid som väntar på att CPU: er ska bli tillgängliga under det tidigare uppdaterings intervallet.|Ingen|
+|DiskReadBytesPerSecond|Disk-lästa byte/s|BytesPerSecond|Medel|Genomsnittligt disk data flöde på grund av Läs åtgärder under exempel perioden.|Inga|
+|DiskWriteBytesPerSecond|Disk-skrivna byte/s|BytesPerSecond|Medel|Genomsnittligt disk data flöde på grund av Skriv åtgärder under exempel perioden.|Inga|
+|Lästa byte på disk|Lästa byte på disk|Byte|Totalt|Totalt disk data flöde på grund av Läs åtgärder under exempel perioden.|Inga|
+|Disk-skrivna byte|Disk-skrivna byte|Byte|Totalt|Totalt disk data flöde på grund av Skriv åtgärder under exempel perioden.|Inga|
+|DiskReadOperations|Disk Läs åtgärder|Antal|Totalt|Antalet Läs åtgärder i IO i föregående exempel period. Observera att dessa åtgärder kan vara varierande storlek.|Inga|
+|DiskWriteOperations|Disk skrivnings åtgärder|Antal|Totalt|Antalet i/o-Skriv åtgärder i föregående exempel period. Observera att dessa åtgärder kan vara varierande storlek.|Inga|
+|Disk Läs åtgärder/SEK|Disk Läs åtgärder/SEK|CountPerSecond|Medel|Genomsnittligt antal Läs åtgärder i IO i föregående exempel period. Observera att dessa åtgärder kan vara varierande storlek.|Inga|
+|Disk skrivnings åtgärder/SEK|Disk skrivnings åtgärder/SEK|CountPerSecond|Medel|Genomsnittligt antal i/o-Skriv åtgärder i föregående exempel period. Observera att dessa åtgärder kan vara varierande storlek.|Inga|
+|DiskReadLatency|Läs fördröjning för disk|Millisekunder|Medel|Total Läs fördröjning. Summan av Läs fördröjningen för enheten och kärnan.|Inga|
+|DiskWriteLatency|Skriv fördröjning för disk|Millisekunder|Medel|Total Skriv fördröjning. Summan av Skriv fördröjningarna för enheten och kärnan.|Inga|
+|NetworkInBytesPerSecond|Nätverk i byte/s|BytesPerSecond|Medel|Genomsnittligt nätverks data flöde för mottagen trafik.|Inga|
+|NetworkOutBytesPerSecond|Nätverks-out-byte/SEK|BytesPerSecond|Medel|Genomsnittligt nätverks data flöde för överförd trafik.|Inga|
+|Nätverk – inkommande|Nätverk – inkommande|Byte|Totalt|Totalt nätverks data flöde för mottagen trafik.|Inga|
+|Nätverk – utgående|Nätverk – utgående|Byte|Totalt|Totalt nätverks data flöde för överförd trafik.|Inga|
+|MemoryUsed|Använt minne|Byte|Medel|Mängden dator minne som används av den virtuella datorn.|Inga|
+|MemoryGranted|Beviljat minne|Byte|Medel|Mängden minne som har beviljats för den virtuella datorn av värden. Minnet beviljas inte för värden förrän den är påslagen en gång och beviljat minne kan växlas ut eller visas borta om VMkernel behöver minnet.|Inga|
+|MemoryActive|Aktivt minne|Byte|Medel|Mängden minne som används av den virtuella datorn i det tidigare lilla tids fönstret. Detta är "true"-antalet hur mycket minne som den virtuella datorn för närvarande behöver. Ytterligare, oanvänt minne kan växlas ut eller visas utan att påverka gästens prestanda.|Inga|
+|Procent CPU|Procent CPU|Procent|Medel|PROCESSOR användningen. Det här värdet rapporteras med 100% som representerar alla processor kärnor i systemet. Till exempel är en 2-vägs virtuell dator som använder 50% av ett system med fyra kärnor fullständigt med två kärnor.|Inga|
+|PercentageCpuReady|Procent andel CPU klar|Millisekunder|Totalt|Ready Time är den tid som väntar på att CPU: er ska bli tillgängliga under det tidigare uppdaterings intervallet.|Inga|
 
 ## <a name="microsoftwebserverfarms"></a>Microsoft. Web/Server grupper
 
@@ -2427,7 +2427,7 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |Gen1Collections|Skräp insamling för gen 1|Antal|Totalt|Skräp insamling för gen 1|Instans|
 |Gen2Collections|Gen 2 skräp insamling|Antal|Totalt|Gen 2 skräp insamling|Instans|
 |HealthCheckStatus|Hälso kontroll status|Antal|Medel|Hälso kontroll status|Instans|
-|FileSystemUsage|Fil system användning|Byte|Medel|Fil system användning|Ingen|
+|FileSystemUsage|Fil system användning|Byte|Medel|Fil system användning|Inga|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft. Web/Sites (Functions)
 
@@ -2458,7 +2458,7 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |Gen1Collections|Skräp insamling för gen 1|Antal|Totalt|Skräp insamling för gen 1|Instans|
 |Gen2Collections|Gen 2 skräp insamling|Antal|Totalt|Gen 2 skräp insamling|Instans|
 |HealthCheckStatus|Hälso kontroll status|Antal|Medel|Hälso kontroll status|Instans|
-|FileSystemUsage|Fil system användning|Byte|Medel|Fil system användning|Ingen|
+|FileSystemUsage|Fil system användning|Byte|Medel|Fil system användning|Inga|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft. Web/Sites/lotss
 
@@ -2501,7 +2501,7 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |Gen1Collections|Skräp insamling för gen 1|Antal|Totalt|Skräp insamling för gen 1|Instans|
 |Gen2Collections|Gen 2 skräp insamling|Antal|Totalt|Gen 2 skräp insamling|Instans|
 |HealthCheckStatus|Hälso kontroll status|Antal|Medel|Hälso kontroll status|Instans|
-|FileSystemUsage|Fil system användning|Byte|Medel|Fil system användning|Ingen|
+|FileSystemUsage|Fil system användning|Byte|Medel|Fil system användning|Inga|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft. Web/hostingEnvironments/multiRolePools
 
@@ -2525,18 +2525,18 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |DiskQueueLength|Diskkölängd|Antal|Medel|Diskkölängd|Instans|
 |HttpQueueLength|Längd på http-kö|Antal|Medel|Längd på http-kö|Instans|
 |ActiveRequests|Aktiva begär Anden|Antal|Totalt|Aktiva begär Anden|Instans|
-|TotalFrontEnds|Totalt antal klient delar|Antal|Medel|Totalt antal klient delar|Ingen|
-|SmallAppServicePlanInstances|Små App Service planera arbetare|Antal|Medel|Små App Service planera arbetare|Ingen|
-|MediumAppServicePlanInstances|Medel App Service planera arbetare|Antal|Medel|Medel App Service planera arbetare|Ingen|
-|LargeAppServicePlanInstances|Stora App Service planera arbetare|Antal|Medel|Stora App Service planera arbetare|Ingen|
+|TotalFrontEnds|Totalt antal klient delar|Antal|Medel|Totalt antal klient delar|Inga|
+|SmallAppServicePlanInstances|Små App Service planera arbetare|Antal|Medel|Små App Service planera arbetare|Inga|
+|MediumAppServicePlanInstances|Medel App Service planera arbetare|Antal|Medel|Medel App Service planera arbetare|Inga|
+|LargeAppServicePlanInstances|Stora App Service planera arbetare|Antal|Medel|Stora App Service planera arbetare|Inga|
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft. Web/hostingEnvironments/workerPools
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|WorkersTotal|Totalt antal arbetare|Antal|Medel|Totalt antal arbetare|Ingen|
-|WorkersAvailable|Tillgängliga arbetare|Antal|Medel|Tillgängliga arbetare|Ingen|
-|WorkersUsed|Använda arbetare|Antal|Medel|Använda arbetare|Ingen|
+|WorkersTotal|Totalt antal arbetare|Antal|Medel|Totalt antal arbetare|Inga|
+|WorkersAvailable|Tillgängliga arbetare|Antal|Medel|Tillgängliga arbetare|Inga|
+|WorkersUsed|Använda arbetare|Antal|Medel|Använda arbetare|Inga|
 |CpuPercentage|CPU-procent|Procent|Medel|CPU-procent|Instans|
 |MemoryPercentage|Minnes procent|Procent|Medel|Minnes procent|Instans|
 ## <a name="next-steps"></a>Nästa steg

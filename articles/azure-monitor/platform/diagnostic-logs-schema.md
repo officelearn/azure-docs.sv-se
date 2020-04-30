@@ -5,10 +5,10 @@ ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
 ms.openlocfilehash: 7183c0b268342d08fe7c0ed79c7fa589e3e28afe
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82128473"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Tjänster, scheman och kategorier som stöds för Azure-resurs loggar
@@ -22,7 +22,7 @@ En kombination av resurs typen (tillgänglig i `resourceId` egenskapen) och `cat
 
 ## <a name="top-level-resource-logs-schema"></a>Schema för resurs loggar på högsta nivån
 
-| Namn | Obligatorisk/valfri | Beskrivning |
+| Name | Obligatorisk/valfri | Beskrivning |
 |---|---|---|
 | time | Krävs | Tids stämplingen (UTC) för händelsen. |
 | resourceId | Krävs | Resurs-ID för den resurs som har orsakat händelsen. För klient tjänster är detta av formatet/Tenants/Tenant-ID/providers/Provider-Name. |
@@ -74,7 +74,7 @@ Schemat för resurs diagnostiska loggar varierar beroende på resurs-och logg ka
 | DDOS-skydd | [Hantera Azure DDoS Protection standard](../../virtual-network/manage-ddos-protection.md) |
 | Dedikerad Power BI | [Loggning för Power BI Embedded i Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Data modell för Azure Backup](../../backup/backup-azure-reports-data-model.md)|
-| Search |[Aktivera och använda Sök Trafikanalys](../../search/search-traffic-analytics.md) |
+| Sök |[Aktivera och använda Sök Trafikanalys](../../search/search-traffic-analytics.md) |
 | Service Bus |[Azure Service Bus loggar](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database loggning](../../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[Jobbloggar](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
@@ -311,7 +311,7 @@ Vissa kategorier kan bara användas för vissa typer av resurser. Det här är e
 |Microsoft. Web/Sites/lotss|AppServiceFileAuditLogs|Gransknings loggar för ändring av webbplats innehåll|
 |Microsoft. Web/Sites/lotss|AppServiceAuditLogs|Åtkomst gransknings loggar|
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Läs mer om resurs loggar](../../azure-monitor/platform/platform-logs-overview.md)
 * [Strömma resurs resurs loggar till **Event Hubs**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)

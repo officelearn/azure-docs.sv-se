@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d4caaf8704f2ee49f8f094ad22065ae462154be
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82143925"
 ---
 # <a name="combined-security-information-registration-overview"></a>Översikt över kombinerad säkerhets informations registrering
@@ -48,15 +48,15 @@ Kombinerad registrering stöder följande autentiseringsmetoder och åtgärder:
 
 |   | Registrera dig | Ändra | Ta bort |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Ja (högst 5) | Inga | Ja |
-| Annan Authenticator-app | Ja (högst 5) | Inga | Ja |
-| Maskinvaru-token | Inga | Inga | Ja |
+| Microsoft Authenticator | Ja (högst 5) | Nej | Ja |
+| Annan Authenticator-app | Ja (högst 5) | Nej | Ja |
+| Maskinvaru-token | Nej | Nej | Ja |
 | Telefon | Ja | Ja | Ja |
 | Alternativ telefon | Ja | Ja | Ja |
-| Arbetstelefon | Inga | Inga | Inga |
+| Arbetstelefon | Nej | Nej | Nej |
 | E-post | Ja | Ja | Ja |
-| Säkerhetsfrågor | Ja | Inga | Ja |
-| Applösenord | Ja | Inga | Ja |
+| Säkerhetsfrågor | Ja | Nej | Ja |
+| Applösenord | Ja | Nej | Ja |
 | FIDO2 säkerhets nycklar<br />*Endast hanterat läge från sidan [säkerhets information](https://mysignins.microsoft.com/security-info)*| Ja | Ja | Ja |
 
 > [!NOTE]

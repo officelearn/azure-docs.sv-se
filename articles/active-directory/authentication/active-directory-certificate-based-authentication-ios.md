@@ -11,10 +11,10 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ede7ddb81bae69d92983e787e779ee9d410bd87
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82144075"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Azure Active Directory certifikatbaserad autentisering på iOS
@@ -30,7 +30,7 @@ Den här artikeln beskriver kraven och de scenarier som stöds för att konfigur
 
 ## <a name="microsoft-mobile-applications-support"></a>Stöd för Microsoft Mobile Applications
 
-| Program | Support |
+| Appar | Support |
 | --- | --- |
 | Azure Information Protection app |![Bock för att ange stöd för det här programmet][1] |
 | Intune Företagsportal |![Bock för att ange stöd för det här programmet][1] |

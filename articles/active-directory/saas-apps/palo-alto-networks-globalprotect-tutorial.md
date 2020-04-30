@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med Palo Alto Networks - GlobalProtect | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory enkel inloggning (SSO) med Palo-nätverk – GlobalProtect | Microsoft Docs'
 description: Läs hur du konfigurerar enkel inloggning mellan Azure Active Directory och Palo Alto Networks – GlobalProtect.
 services: active-directory
 documentationCenter: na
@@ -17,32 +17,32 @@ ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8faa1d0ecfec629487c9cddee6a01fb9f809393f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "70166417"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-palo-alto-networks---globalprotect"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med Palo Alto Networks - GlobalProtect
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-palo-alto-networks---globalprotect"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Palo-nätverk – GlobalProtect
 
-I den här självstudien får du lära dig hur du integrerar Palo Alto Networks - GlobalProtect med Azure Active Directory (Azure AD). När du integrerar Palo Alto Networks - GlobalProtect med Azure AD kan du:
+I den här självstudien får du lära dig att integrera Palo-nätverk – GlobalProtect med Azure Active Directory (Azure AD). När du integrerar Palo-nätverk – GlobalProtect med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till Palo Alto Networks - GlobalProtect.
-* Gör att användarna automatiskt loggas in i Palo Alto Networks - GlobalProtect med sina Azure AD-konton.
-* Hantera dina konton på en central plats - Azure-portalen.
+* Kontroll i Azure AD som har till gång till Palo-nätverk – GlobalProtect.
+* Gör det möjligt för användarna att logga in automatiskt till Palo-GlobalProtect-nätverk – med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* Palo Alto Networks - GlobalProtect enkel inloggning (SSO) aktiverad prenumeration.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Palo-nätverk – GlobalProtect-prenumeration med enkel inloggning (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Palo Alto Networks – GlobalProtect stöder **SP**-initierad enkel inloggning
 * Palo Alto Networks – GlobalProtect stöder **just-in-time**-användaretablering
@@ -51,37 +51,37 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö
 
 Om du vill konfigurera integrering av Palo Alto Networks – GlobalProtect till Azure AD så behöver du lägga till Palo Alto Networks – GlobalProtect från galleriet till din lista över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
-1. Navigera till **företagsprogram** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **Palo Alto Networks - GlobalProtect** i sökrutan i avsnittet **Lägg till från galleriet.**
-1. Välj **Palo Alto Networks - GlobalProtect** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , Skriv **Palo-GlobalProtect Networks-** i sökrutan.
+1. Välj **Palo-nätverk – GlobalProtect** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-palo-alto-networks---globalprotect"></a>Konfigurera och testa en enda Azure AD-inloggning för Palo Alto Networks - GlobalProtect
+## <a name="configure-and-test-azure-ad-single-sign-on-for-palo-alto-networks---globalprotect"></a>Konfigurera och testa enkel inloggning med Azure AD för Palo-GlobalProtect
 
-Konfigurera och testa Azure AD SSO med Palo Alto Networks - GlobalProtect med en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i Palo Alto Networks - GlobalProtect.
+Konfigurera och testa Azure AD SSO med Palo-nätverk – GlobalProtect med hjälp av en test användare som kallas **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Palo-nätverk – GlobalProtect.
 
-Så här konfigurerar och testar du Azure AD SSO med Palo Alto Networks – GlobalProtect:
+Om du vill konfigurera och testa Azure AD SSO med Palo-nätverk – GlobalProtect, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
-    1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
-1. **[Konfigurera Palo Alto Networks - GlobalProtect SSO](#configure-palo-alto-networks---globalprotect-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
-    1. **[Skapa Palo Alto Networks - GlobalProtect-testanvändare](#create-palo-alto-networks---globalprotect-test-user)** - för att ha en motsvarighet till B.Simon i Palo Alto Networks - GlobalProtect som är länkad till Azure AD-representationen av användaren.
-1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera Palo-nätverk – GLOBALPROTECT SSO](#configure-palo-alto-networks---globalprotect-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa Palo-nätverk – GlobalProtect test User](#create-palo-alto-networks---globalprotect-test-user)** – om du vill ha en motsvarighet till B. Simon i Palo-Networks-GlobalProtect som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I [Azure-portalen](https://portal.azure.com/)på sidan **Palo Alto Networks - GlobalProtect-programintegrering,** hitta avsnittet **Hantera** och välj **enkel inloggning**.
-1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan **Palo-nätverk – GlobalProtect** program integration och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. Ange värdena för följande fält i avsnittet **Grundläggande SAML-konfiguration:**
+1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<Customer Firewall URL>`
 
@@ -90,45 +90,45 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Palo Alto Networks – GlobalProtect-klientens supportteam](https://support.paloaltonetworks.com/support) för att få de värdena. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** i avsnittet **SAML-signeringscertifikat** hittar du **XML för federationsmetadata** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-1. Kopiera lämpliga webbadresser baserat på dina krav i avsnittet **Konfigurera Palo Alto-nätverk – GlobalProtect.**
+1. I avsnittet **Konfigurera Palo-nätverk-GlobalProtect** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
-1. Välj **Ny användare** högst upp på skärmen.
-1. Gör så här i egenskaperna **Användare:**
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B.Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Palo Alto Networks - GlobalProtect.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Palo-GlobalProtect-nätverk.
 
-1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
-1. Välj **Palo Alto Networks - GlobalProtect i**programlistan .
-1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **Palo-nätverk-GlobalProtect**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
-## <a name="configure-palo-alto-networks---globalprotect-sso"></a>Konfigurera Palo Alto-nätverk – GlobalProtect SSO
+## <a name="configure-palo-alto-networks---globalprotect-sso"></a>Konfigurera Palo-nätverk – GlobalProtect SSO
 
 1. Öppna admingränssnittet för Palo Alto Networks-brandväggen som en administratör i ett annat webbläsarfönster.
 
@@ -152,7 +152,7 @@ I det här avsnittet ska du aktivera B.Simon för att använda Azure enkel inlog
 
 ### <a name="create-palo-alto-networks---globalprotect-test-user"></a>Skapa Palo Alto Networks – GlobalProtect-testanvändare
 
-I det här avsnittet skapas en användare som heter B.Simon i Palo Alto Networks - GlobalProtect. Palo Alto Networks – GlobalProtect stöder just-in-time-användaretablering som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns en användare i Palo Alto Networks – GlobalProtect så skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som heter B. Simon i Palo-nätverk – GlobalProtect. Palo Alto Networks – GlobalProtect stöder just-in-time-användaretablering som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns en användare i Palo Alto Networks – GlobalProtect så skapas en ny efter autentisering.
 
 ## <a name="test-sso"></a>Testa SSO 
 
@@ -168,4 +168,4 @@ När du klickar på Palo Alto Networks – GlobalProtect-panelen i åtkomstpanel
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Prova Palo Alto Networks - GlobalProtect med Azure AD](https://aad.portal.azure.com/)
+- [Prova Palo-nätverk – GlobalProtect med Azure AD](https://aad.portal.azure.com/)

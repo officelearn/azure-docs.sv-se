@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med nämligen | Microsoft-dokument'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Namely.
+title: 'Självstudie: Azure Active Directory integration med nämligen | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och dvs.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: a9ec54ce27b4d058938e688ec671709e09391cce
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73160361"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-namely"></a>Självstudiekurs: Azure Active Directory-integrering med Nämligen
+# <a name="tutorial-azure-active-directory-integration-with-namely"></a>Självstudie: Azure Active Directory integrering med, nämligen
 
-I den här självstudien får du lära dig hur du integrerar Nämligen med Azure Active Directory (Azure AD).
-Att integrera nämligen med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig att integrera, nämligen med Azure Active Directory (Azure AD).
+Integrering med Azure AD ger följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Nämligen.
-* Du kan aktivera dina användare automatiskt inloggade på Nämligen (Enkel inloggning) med sina Azure AD-konton.
+* Du kan styra i Azure AD som har åtkomst till, nämligen.
+* Du kan göra det möjligt för användarna att logga in automatiskt till, nämligen (enkel inloggning) med deras Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-För att konfigurera Azure AD-integrering med Nämligen behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med, måste du ha följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Nämligen enkel inloggning aktiverad prenumeration
+* Enkel prenumeration som är aktive rad för enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Nämligen stöder **SP** initierade SSO
+* Nämligen stöder **SP** -INITIERAd SSO
 
-## <a name="adding-namely-from-the-gallery"></a>Lägga nämligen från galleriet
+## <a name="adding-namely-from-the-gallery"></a>Lägga till i, nämligen från galleriet
 
-För att konfigurera integreringen av Nämligen i Azure AD måste du lägga till nämligen från galleriet till din lista över hanterade SaaS-appar.
+Om du vill konfigurera integrationen av, i Azure AD, måste du lägga till nämligen från galleriet till listan över hanterade SaaS-appar.
 
-**Om du vill lägga till Nämligen från galleriet utför du följande steg:**
+**Gör så här om du vill lägga till från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ För att konfigurera integreringen av Nämligen i Azure AD måste du lägga till
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **Nämligen**, välj **Nämligen** från resultatpanelen och klicka sedan på **Lägg** till knappen för att lägga till programmet.
+4. I rutan Sök skriver du **nämligen** **, dvs. Välj från resultat** panelen och klicka sedan på knappen **Lägg till** för att lägga till programmet.
 
-     ![Nämligen i resultatlistan](common/search-new-app.png)
+     ![Nämligen i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du Azure AD enkel inloggning med Nämligen baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Nämligen upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med, baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i.
 
-Om du vill konfigurera och testa en enkel inloggning i Azure AD med Nämligen måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Azure AD med nämligen, måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Nämligen Enkel inloggning](#configure-namely-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera enkel inloggning](#configure-namely-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Nämligen testanvändare](#create-namely-test-user)** - att ha en motsvarighet till Britta Simon i Nämligen som är kopplad till Azure AD-representationen av användaren.
+5. **[Skapa som-test användare](#create-namely-test-user)** – för att få en motsvarighet till Britta Simon i, d.v.s. som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Signering av Azure AD med Nämligen:
+Utför följande steg för att konfigurera enkel inloggning med Azure AD med:
 
-1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **Nämligen** **programintegrering**.
+1. I [Azure Portal](https://portal.azure.com/)väljer du **enkel inloggning**på sidan **för program integrering** .
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,20 +103,20 @@ Så här konfigurerar du en enkel Signering av Azure AD med Nämligen:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Nämligen domän- och webbadresser med enkel inloggning](common/sp-identifier.png)
+    ![Nämligen information om enkel inloggning för domäner och URL: er](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<subdomain>.namely.com`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<subdomain>.namely.com/saml/metadata`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Nämligen Client support team](https://www.namely.com/contact/) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta: [klient support teamet](https://www.namely.com/contact/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera nämligen.**
+6. I avsnittet **Konfigurera** a, kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -126,11 +126,11 @@ Så här konfigurerar du en enkel Signering av Azure AD med Nämligen:
 
     c. Utloggnings-URL
 
-### <a name="configure-namely-single-sign-on"></a>Konfigurera nämligen enkel inloggning
+### <a name="configure-namely-single-sign-on"></a>Konfigurera enkel inloggning
 
-1. I ett annat webbläsarfönster loggar du in på din nämligen företagets webbplats som administratör.
+1. Logga in på företagets plats som administratör i ett annat webbläsarfönster.
 
-2. Klicka på **Företag**i verktygsfältet högst upp .
+2. I verktygsfältet högst upp klickar du på **företag**.
    
     ![Konfigurera enkel inloggning](./media/namely-tutorial/tutorial_namely_06.png) 
 
@@ -142,15 +142,15 @@ Så här konfigurerar du en enkel Signering av Azure AD med Nämligen:
    
     ![Konfigurera enkel inloggning](./media/namely-tutorial/tutorial_namely_08.png) 
 
-5. Gör följande på sidan **SAML-inställningar:**
+5. Utför följande steg på sidan **SAML-inställningar** :
    
     ![Konfigurera enkel inloggning](./media/namely-tutorial/tutorial_namely_09.png)
  
     a. Klicka på **Aktivera SAML**. 
 
-    b. Klistra in värdet **för inloggnings-URL**i textrutan **för identitetsprovider SSO-url** , som du har kopierat från Azure-portalen.
+    b. I text rutan **URL för identitetsprovider** , klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
     
-    c. Öppna det nedladdade certifikatet i Anteckningar, kopiera innehållet och klistra sedan in det i textrutan **för identitetsprovidercertifikat.**
+    c. Öppna det hämtade certifikatet i anteckningar, kopiera innehållet och klistra in det i text rutan för **identitets leverantörs certifikat** .
      
     d. Klicka på **Spara**.
 
@@ -162,7 +162,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -172,7 +172,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -181,15 +181,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Nämligen.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till alltså.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Nämligen**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan, **nämligen**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I programlistan väljer du **Nämligen**.
+2. I listan program väljer du **nämligen**.
 
-    ![Nämligen länken i programlistan](common/all-applications.png)
+    ![Nämligen-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -201,23 +201,23 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-namely-test-user"></a>Skapa Nämligen testanvändare
+### <a name="create-namely-test-user"></a>Skapa, nämligen test användare
 
-Syftet med detta avsnitt är att skapa en användare som heter Britta Simon i Nämligen.
+Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i nämligen.
 
-**Så här skapar du en användare som heter Britta Simon i Nämligen följande steg:**
+**Gör så här för att skapa en användare som heter Britta Simon i:**
 
-1. Logga in på din nämligen företagets webbplats som administratör.
+1. Logga in på din företags plats som administratör.
 
-2. Klicka på **Personer**i verktygsfältet högst upp .
+2. I verktygsfältet högst upp klickar du på **personer**.
    
     ![Konfigurera enkel inloggning](./media/namely-tutorial/tutorial_namely_10.png) 
 
-3. Klicka på fliken **Katalog.**
+3. Klicka på fliken **katalog** .
    
     ![Konfigurera enkel inloggning](./media/namely-tutorial/tutorial_namely_11.png) 
 
@@ -225,13 +225,13 @@ Syftet med detta avsnitt är att skapa en användare som heter Britta Simon i N�
 
     ![Konfigurera enkel inloggning](./media/namely-tutorial/tutorial_namely_12.png)
 
-5. Gör följande i dialogrutan **Lägg till ny person:**
+5. I dialog rutan **Lägg till ny person** utför du följande steg:
 
-    a. Skriv **Britta**i textrutan **Förnamn** .
+    a. I text rutan för det **första namnet** skriver du **Britta**.
 
-    b. Skriv **Simon**i textrutan **Efternamn** .
+    b. Skriv **Simon**i text rutan **efter namn** .
 
-    c. Skriv **e-postadressen** till BrittaSimon i **textrutan e-post.**
+    c. Skriv **e-postadressen** för BrittaSimon i text rutan för **e-post** .
 
     d. Klicka på **Spara**.
 
@@ -239,13 +239,13 @@ Syftet med detta avsnitt är att skapa en användare som heter Britta Simon i N�
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på nämligenpanelen i åtkomstpanelen ska du automatiskt loggas in på den nämligen för vilken du ställer in SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen ensamt i åtkomst panelen, bör du loggas in automatiskt på den så att du kan konfigurera SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

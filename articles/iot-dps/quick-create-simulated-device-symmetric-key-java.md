@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – Använd symmetrisk nyckel för att etablera simulerad enhet till Azure IoT Hub med Java
-description: I den här snabbstarten kommer du att använda Java-enheten SDK för att skapa en simulerad enhet som använder symmetrisk nyckel med Azure IoT Hub Device Provisioning Service (DPS)
+title: Snabb start – Använd symmetrisk nyckel för att etablera simulerad enhet till Azure IoT Hub med Java
+description: I den här snabb starten ska du använda Java Device SDK för att skapa en simulerad enhet som använder symmetrisk nyckel med Azure-IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/30/2020
@@ -10,17 +10,17 @@ services: iot-dps
 manager: eliotgra
 ms.custom: mvc
 ms.openlocfilehash: aaa1a4423363255536db7d53a1f8f8fa9ba686ff
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76941404"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Snabbstart: Etablera en simulerad enhet med symmetriska nycklar
 
-I den här snabbstarten får lära dig att skapa och köra en enhetssimulator på en Windows-utvecklingsdator. Du konfigurerar den här simulerade enheten så att den använder en symmetrisk nyckel för att autentisera med en DPS-instans (Device Provisioning Service) och tilldelas en IoT-hubb. Exempelkod från [Microsoft Azure IoT SDK:er för Java](https://github.com/Azure/azure-iot-sdk-java) används för att simulera en startsekvens för enheten som initierar etablering. Enheten identifieras baserat på en enskild registrering med en DPS-tjänstinstans och tilldelas en IoT-hubb.
+I den här snabbstarten får lära dig att skapa och köra en enhetssimulator på en Windows-utvecklingsdator. Du konfigurerar den här simulerade enheten för att använda en symmetrisk nyckel för att autentisera med en tjänst för enhets etablerings tjänsten (DPS) och tilldelas till en IoT-hubb. Exempel kod från [Microsoft Azure IoT SDK: er för Java](https://github.com/Azure/azure-iot-sdk-java) används för att simulera en startsekvens för enheten som initierar etablering. Enheten kommer att identifieras baserat på en enskild registrering med en DPS-tjänstinstans och tilldelas till en IoT-hubb.
 
-Även om den här artikeln visar etablering med en enskild registrering kan du använda registreringsgrupper. Det finns vissa skillnader när du använder registreringsgrupper. Du måste till exempel använda en härledd enhetsnyckel med ett unikt registrerings-ID för enheten. Även om registreringsgrupper för symmetrisk nyckel inte är begränsade till äldre enheter finns det ett exempel för registreringsgrupper i avsnittet om [hur du etablerar äldre enheter med symmetrisk nyckelattestering](how-to-legacy-device-symm-key.md). Mer information finns i avsnittet om [gruppregistreringar för symmetrisk nyckelattestering](concepts-symmetric-key-attestation.md#group-enrollments).
+Även om den här artikeln visar etablering med en enskild registrering kan du använda registrerings grupper. Det finns vissa skillnader när du använder registrerings grupper. Du måste till exempel använda en härledd enhets nyckel med ett unikt registrerings-ID för enheten. Även om registreringsgrupper för symmetrisk nyckel inte är begränsade till äldre enheter finns det ett exempel för registreringsgrupper i avsnittet om [hur du etablerar äldre enheter med symmetrisk nyckelattestering](how-to-legacy-device-symm-key.md). Mer information finns i avsnittet om [gruppregistreringar för symmetrisk nyckelattestering](concepts-symmetric-key-attestation.md#group-enrollments).
 
 Om du inte känner till processen för automatisk etablering bör du gå igenom [Begrepp inom automatisk etablering](concepts-auto-provisioning.md). 
 
@@ -34,7 +34,7 @@ Den här artikeln riktar sig till en Windows-arbetsstation. Du kan dock utföra 
 
 ## <a name="prerequisites"></a>Krav
 
-* Se till att du har [Java SE Development Kit 8](https://aka.ms/azure-jdks) eller senare installerat på din maskin.
+* Kontrol lera att du har [Java se Development Kit 8](https://aka.ms/azure-jdks) eller senare installerat på datorn.
 
 * Ladda ned och installera [Maven](https://maven.apache.org/install.html).
 
@@ -51,52 +51,52 @@ Den här artikeln riktar sig till en Windows-arbetsstation. Du kan dock utföra 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
-3. Navigera till `azure-iot-sdk-java` rotkatalogen och bygg projektet för att hämta alla nödvändiga paket.
+3. Navigera till rot `azure-iot-sdk-java` katalogen och bygg projektet för att ladda ned alla nödvändiga paket.
    
    ```cmd/sh
    cd azure-iot-sdk-java
    mvn install -DskipTests=true
    ```
 
-## <a name="create-a-device-enrollment"></a>Skapa en enhetsregistrering
+## <a name="create-a-device-enrollment"></a>Skapa en enhets registrering
 
-1. Logga in på [Azure-portalen,](https://portal.azure.com)välj knappen **Alla resurser** på menyn till vänster och öppna DPS-instansen (Device Provisioning Service).
+1. Logga in på [Azure Portal](https://portal.azure.com), Välj knappen **alla resurser** i den vänstra menyn och öppna DPS-instansen (Device Provisioning service).
 
-2. Välj fliken **Hantera registreringar** och välj sedan knappen **Lägg till individuell registrering** högst upp. 
+2. Välj fliken **Hantera registreringar** och välj sedan knappen **Lägg till individuell registrering** överst. 
 
-3. Ange följande information på panelen **Lägg till registrering** och tryck på knappen **Spara.**
+3. Ange följande information på panelen **Lägg till registrering** och tryck på knappen **Spara** .
 
    - **Mekanism:** välj **Symmetrisk nyckel** som identitetsattesterings*mekanism*.
 
-   - **Generera nycklar automatiskt:** Markera den här rutan.
+   - **Generera nycklar automatiskt**: Markera den här kryss rutan.
 
-   - **Registrerings-ID**: Ange ett registrerings-ID för att identifiera registreringen. Använd endast alfanumeriska gemener och bindestreck (”-”). Till exempel **symm-key-java-device-007**.
+   - **Registrerings-ID**: Ange ett registrerings-ID för att identifiera registreringen. Använd endast alfanumeriska gemener och bindestreck (”-”). Till exempel **symm-Key-Java-Device-007**.
 
-   - **Enhets-ID för IoT Hub:** Ange en enhetsidentifierare. Till exempel **java-device-007**.
+   - **Enhets-ID för IoT Hub:** Ange en enhetsidentifierare. Till exempel **Java-Device-007**.
 
      ![Lägga till en enskild registrering för symmetrisk nyckelattestering i portalen](./media/quick-create-simulated-device-symm-key-java/create-individual-enrollment-java.png)
 
-4. När du har sparat registreringen genereras **primärnyckeln** och **sekundärnyckeln** och läggs till i registreringsposten. Registreringen av den symmetriska nyckelenheten visas som **symm-key-java-device-007** under kolumnen *Registrerings-ID* på fliken *Enskilda registreringar.* 
+4. När du har sparat registreringen genereras **primär nyckeln** och den **sekundära nyckeln** och läggs till i registrerings posten. Den symmetriska nyckeln enhets registrering visas som **symm-Key-Java-Device-007** under kolumnen *registrerings-ID* på fliken *enskilda* registreringar. 
 
-    Öppna registreringen och kopiera värdet för din genererade **primärnyckel**. Du kommer att använda det här nyckelvärdet och **registrerings-ID** senare när du uppdaterar Java-koden för enheten.
+    Öppna registreringen och kopiera värdet för din genererade **primärnyckel**. Du kommer att använda det här nyckelvärdet och **registrerings-ID: t** senare när du uppdaterar Java-koden för enheten.
 
 
 
 <a id="firstbootsequence"></a>
 
-## <a name="simulate-device-boot-sequence"></a>Simulera startsekvens för enheten
+## <a name="simulate-device-boot-sequence"></a>Simulera startsekvens för enhet
 
-I det här avsnittet uppdaterar du enhetsexemplingskoden för att skicka enhetens startsekvens till DPS-instansen. Den här startsekvensen gör att enheten identifieras, autentiseras och tilldelas en IoT-hubb som är länkad till DPS-instansen.
+I det här avsnittet ska du uppdatera enhets exempel koden för att skicka enhetens startsekvens till din DPS-instans. Den här startsekvensen gör att enheten kan identifieras, autentiseras och tilldelas till en IoT-hubb som är länkad till DPS-instansen.
 
-1. På menyn Tjänst för enhetsetablering väljer du **Översikt** och noterar din globala slutpunkt för _ID-scope_ _och etableringstjänst_.
+1. Från menyn enhets etablerings tjänst väljer du **Översikt** och noterar ditt _ID-omfång_ och en _Global slut punkt för etablerings tjänsten_.
 
     ![Tjänstinformation](./media/java-quick-create-simulated-device-x509/extract-dps-endpoints.png)
 
-2. Öppna exempelkoden för Java-enheten för redigering. Den fullständiga sökvägen till enhetens exempelkod är:
+2. Öppna exempel koden för Java-enheten för redigering. Den fullständiga sökvägen till enhets exempel koden är:
 
     `azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-symmetrickey-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningSymmetricKeySampleSample.java`
 
-   - Lägg till _ID-scopet_ och _etableringstjänstens globala slutpunkt_ för din DPS-instans. Inkludera även den primära symmetriska nyckeln och registrerings-ID:et som du valde för din individuella registrering. Spara ändringarna. 
+   - Lägg till _ID-omfånget_ och den _globala slut punkten för etablerings tjänsten_ för din DPS-instans. Inkludera även den primära symmetriska nyckeln och det registrerings-ID som du har valt för din enskilda registrering. Spara ändringarna. 
 
       ```java
         private static final String SCOPE_ID = "[Your scope ID here]";
@@ -105,13 +105,13 @@ I det här avsnittet uppdaterar du enhetsexemplingskoden för att skicka enheten
         private static final String REGISTRATION_ID = "[Enter your Registration ID here]";
       ```
 
-3. Öppna en kommandotolk för att skapa. Navigera till exempelprojektmappen för etablerandet i Java SDK-databasen.
+3. Öppna en kommando tolk för att skapa. Navigera till mappen etablerings exempel projekt i Java SDK-lagringsplatsen.
 
     ```cmd/sh
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-symmetrickey-sample
     ```
 
-4. Skapa exemplet och navigera `target` sedan till mappen för att köra den skapade JAR-filen.
+4. Skapa exemplet och navigera sedan till `target` mappen för att köra den skapade. jar-filen.
 
     ```cmd/sh
     mvn clean install
@@ -119,7 +119,7 @@ I det här avsnittet uppdaterar du enhetsexemplingskoden för att skicka enheten
     java -jar ./provisioning-symmetrickey-sample-{version}-with-deps.jar
     ```
 
-5. Den förväntade produktionen bör se ut ungefär så här:
+5. Förväntade utdata bör se ut ungefär så här:
 
     ```cmd/sh
       Starting...
@@ -132,7 +132,7 @@ I det här avsnittet uppdaterar du enhetsexemplingskoden för att skicka enheten
       Message received! Response status: OK_EMPTY
     ```
 
-6. I Azure Portal går du till den IoT-hubb som är kopplad till din etableringstjänst och öppnar bladet **Device Explorer**. När den simulerade symmetriska nyckelenheten har etablerats till navet visas dess enhets-ID på **bladet Device Explorer,** med *STATUS* som **aktiverat**.  Du kan behöva trycka på **knappen Uppdatera** högst upp om du redan har öppnat bladet innan du kör exempelenhetsprogrammet. 
+6. I Azure Portal går du till den IoT-hubb som är kopplad till din etableringstjänst och öppnar bladet **Device Explorer**. Efter lyckad etablering av den simulerade symmetriska nyckel enheten i hubben visas dess enhets-ID på bladet **Device Explorer** , *STATUS* med status **aktive rad**.  Du kan behöva klicka på knappen **Uppdatera** längst upp om du redan har öppnat bladet innan du kör programmet för enhets exempel. 
 
     ![Enheten är registrerad på IoT-hubben](./media/quick-create-simulated-device-symm-key-java/hubregistration-java.png) 
 
@@ -143,15 +143,15 @@ I det här avsnittet uppdaterar du enhetsexemplingskoden för att skicka enheten
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att fortsätta arbeta med och utforska enhetsklientexemplet ska du inte rensa de resurser som skapas i den här snabbstarten. Om du inte planerar att fortsätta använder du följande steg för att ta bort alla resurser som skapats av den här snabbstarten.
+Om du planerar att fortsätta att arbeta med och utforska enhets klient exemplet ska du inte rensa upp resurserna som du skapade i den här snabb starten. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla resurser som skapats i den här snabb starten.
 
 1. Stäng utdatafönstret för enhetsklientexemplet på datorn.
-1. På menyn till vänster i Azure-portalen väljer du **Alla resurser** och väljer sedan din enhetsetableringstjänst. Öppna **Hantera registreringar** för tjänsten och markera sedan fliken **Enskilda registreringar.** *REGISTRATION ID* **Delete** 
-1. På menyn till vänster i Azure-portalen väljer du **Alla resurser** och väljer sedan din IoT-hubb. Öppna **IoT-enheter** för din hubb, markera kryssrutan bredvid *DEVICE-ID för* den enhet som du registrerade i den här snabbstarten och tryck sedan på knappen **Ta bort** högst upp i fönstret.
+1. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan enhets etablerings tjänsten. Öppna **Hantera registreringar** för din tjänst och välj sedan fliken **enskilda registreringar** . Markera kryss rutan bredvid *registrerings-ID* för den enhet som du har registrerat i den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret. 
+1. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan din IoT Hub. Öppna **IoT-enheter** för navet, markera kryss rutan bredvid *enhets-ID* för enheten som du registrerade i den här snabb starten och tryck sedan på knappen **ta bort** högst upp i fönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat en simulerad enhet på din Windows-dator och etablerat den i din IoT-hubb med symmetrisk nyckel med Azure IoT Hub Device Provisioning Service på portalen. Om du vill veta hur du registrerar enheten programmässigt fortsätter du till snabbstarten för programmatisk registrering av X.509-enheter. 
+I den här snabb starten har du skapat en simulerad enhet på Windows-datorn och allokerat den till IoT-hubben med hjälp av symmetrisk nyckel med Azure-IoT Hub Device Provisioning Service på portalen. Om du vill lära dig hur du registrerar enheten program mässigt fortsätter du till snabb starten för program mässig registrering av X. 509-enheter. 
 
 > [!div class="nextstepaction"]
-> [Snabbstart i Azure – Registrera X.509-enheter till Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)
+> [Azure snabb start – registrera X. 509-enheter till Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)

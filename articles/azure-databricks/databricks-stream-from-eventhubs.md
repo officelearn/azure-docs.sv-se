@@ -11,10 +11,10 @@ ms.workload: Active
 ms.date: 12/08/2019
 ms.author: alehall
 ms.openlocfilehash: fa5568a5af483a61b4e0854cbc7c2ade3b8dc4b1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75889150"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Självstudie: Strömma data till Azure Databricks med Event Hubs
@@ -25,7 +25,7 @@ I slutet av den här självstudien har du strömmat tweets från Twitter som inn
 
 Följande bild visar programflödet:
 
-![Azure Databricks med eventhubbar](./media/databricks-stream-from-eventhubs/databricks-eventhubs-tutorial.png "Azure Databricks med eventhubbar")
+![Azure Databricks med Event Hubs](./media/databricks-stream-from-eventhubs/databricks-eventhubs-tutorial.png "Azure Databricks med Event Hubs")
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -38,11 +38,11 @@ Den här självstudien omfattar följande uppgifter:
 > * Skicka tweets till Event Hubs
 > * Läs tweets från Event Hubs
 
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 > [!Note]
-> Den här självstudien kan inte utföras med **Azure Free Trial Subscription**.
-> Om du har ett gratis konto går du till din profil och ändrar din prenumeration **på användningsbaserad betalning.** Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgiftsgränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)och [begär en kvotökning](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks-arbetsyta kan du välja prisnivån **Utvärderingsversion (Premium – 14 dagar gratis dbUs)** för att ge arbetsytan åtkomst till kostnadsfria Premium Azure Databricks DBUs i 14 dagar.
+> Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
+> Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -62,9 +62,9 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
-1. I Azure-portalen väljer du **Skapa en resursdata** > **+ Azure** > **Databricks**för resurser .
+1. I Azure Portal väljer du **skapa en resurs** > **data och analys** > **Azure Databricks**.
 
-    ![Databricks på Azure-portalen](./media/databricks-stream-from-eventhubs/azure-databricks-on-portal.png "Databricks på Azure-portalen")
+    ![Databricks på Azure Portal](./media/databricks-stream-from-eventhubs/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
 3. Under **Azure Databricks-tjänst** anger du värden för att skapa en Databricks-arbetsyta.
 
@@ -77,14 +77,14 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
     |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/management/overview.md). |
-    |**Location**     | Välj **USA, östra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
-    |**Prisnivå**     |  Välj mellan **Standard** och **Premium**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Position**     | Välj **USA, östra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
+    |**Pris nivå**     |  Välj mellan **Standard** och **Premium**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Välj **Fäst på instrumentpanelen** och välj sedan **Skapa**.
 
 4. Det tar några minuter att skapa kontot. När kontot skapas i portalen visas panelen för att **skicka distribution för Azure Databricks** på höger sida. Du kan behöva rulla åt höger på instrumentpanelen för att se panelen. En förloppsindikator visas även längst upp på skärmen. Båda dessa områden visar förloppet.
 
-    ![Databricks distributionspanel](./media/databricks-stream-from-eventhubs/databricks-deployment-tile.png "Databricks distributionspanel")
+    ![Databricks distributions panel](./media/databricks-stream-from-eventhubs/databricks-deployment-tile.png "Databricks distributions panel")
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Skapa ett Spark-kluster i Databricks
 
@@ -101,10 +101,10 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     Godkänn alla övriga standardvärden, förutom följande:
 
    * Ange ett namn för klustret.
-   * Skapa ett kluster med **6.0-körning** i den här artikeln.
-   * Markera kryssrutan **Avsluta efter \_ \_ minuter av inaktivitet.** Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
+   * I den här artikeln skapar du ett kluster med **6,0** Runtime.
+   * Se till att markera kryss rutan **Avsluta efter \_ \_ minuter av inaktivitet** . Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
 
-   Välj klusterarbetare- och drivrutinsnodstorlek som passar dina tekniska kriterier och [din budget](https://azure.microsoft.com/pricing/details/databricks/).
+   Välj den kluster arbetare och den driv rutins nod som passar dina tekniska kriterier och [budget](https://azure.microsoft.com/pricing/details/databricks/).
 
      Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
 
@@ -112,42 +112,42 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
 Om du vill få en dataström med tweets skapar du ett program i Twitter. Följ anvisningarna för att skapa ett Twitter-program och registrera de värden som du behöver för självstudien.
 
-1. Gå till [Twitter för utvecklare](https://developer.twitter.com/en/apps)i en webbläsare och välj Skapa en **app**. Du kan se ett meddelande om att du måste ansöka om ett Twitter-utvecklarkonto. Känn dig fri att göra det, och efter att din ansökan har godkänts bör du se en bekräftelse via e-post. Det kan ta flera dagar att godkännas för ett utvecklarkonto.
+1. I en webbläsare går du till [Twitter för utvecklare](https://developer.twitter.com/en/apps)och väljer **skapa en app**. Du kan se ett meddelande om att du måste använda för ett Twitter-konto för utvecklare. Det är kostnads fritt att göra det och när ditt program har godkänts bör du se ett bekräftelse meddelande. Det kan ta flera dagar att godkännas för ett Developer-konto.
 
-    ![Bekräftelse av twitterutvecklares konto](./media/databricks-stream-from-eventhubs/databricks-twitter-dev-confirmation.png "Bekräftelse av twitterutvecklares konto")
+    ![Konto bekräftelse för Twitter-utvecklare](./media/databricks-stream-from-eventhubs/databricks-twitter-dev-confirmation.png "Konto bekräftelse för Twitter-utvecklare")
 
 2. På sidan **Skapa ett program** anger du information om den nya appen. Välj sedan **Create your Twitter application** (Skapa ditt Twitter-program).
 
-    ![Twitter ansökan detaljer](./media/databricks-stream-from-eventhubs/databricks-provide-twitter-app-details.png "Twitter ansökan detaljer")
+    ![Information om Twitter-program](./media/databricks-stream-from-eventhubs/databricks-provide-twitter-app-details.png "Information om Twitter-program")
 
-    ![Twitter ansökan detaljer](./media/databricks-stream-from-eventhubs/databricks-provide-twitter-app-details-create.png "Twitter ansökan detaljer")
+    ![Information om Twitter-program](./media/databricks-stream-from-eventhubs/databricks-provide-twitter-app-details-create.png "Information om Twitter-program")
 
-3. På programsidan väljer du fliken Nycklar och token och **kopierar** värdena för **konsument-API-nyckel** och **hemlig konsument-API-nyckel**. Välj också **Skapa** under **Åtkomsttoken och Åtkomsttokenhemlig** för att generera åtkomsttoken. Kopiera värdena för **åtkomsttoken** och **åtkomsttokenhemligheten**.
+3. På sidan program väljer du fliken **nycklar och tokens** och kopierar värdena för klient-API- **nyckel** och **hemlig nyckel för konsument-API**. Välj också **skapa** under **åtkomst-token och åtkomst till token Secret** för att generera åtkomsttoken. Kopiera värdena för **åtkomsttoken** och **åtkomsttokenhemligheten**.
 
-    ![Twitter ansökan detaljer](./media/databricks-stream-from-eventhubs/twitter-app-key-secret.png "Twitter ansökan detaljer")
+    ![Information om Twitter-program](./media/databricks-stream-from-eventhubs/twitter-app-key-secret.png "Information om Twitter-program")
 
 Spara de värden som du hämtade för Twitter-programmet. Du behöver dem senare i självstudien.
 
 ## <a name="attach-libraries-to-spark-cluster"></a>Bifoga bibliotek till Spark-kluster
 
-I den här självstudien använder du Twitter-API:er för att skicka tweets till Event Hubs. Du använder också [Apache Spark Event Hubs-anslutningsprogram](https://github.com/Azure/azure-event-hubs-spark) för att läsa och skriva data till Azure Event Hubs. Om du vill använda dessa API:er som en del av klustret lägger du till dem som bibliotek i Azure Databricks och associerar dem med Spark-klustret. Följande instruktioner visar hur du lägger till ett bibliotek.
+I den här självstudien använder du Twitter-API:er för att skicka tweets till Event Hubs. Du använder också [Apache Spark Event Hubs-anslutningsprogram](https://github.com/Azure/azure-event-hubs-spark) för att läsa och skriva data till Azure Event Hubs. Om du vill använda dessa API: er som en del av klustret lägger du till dem som bibliotek i Azure Databricks och kopplar dem till ditt Spark-kluster. Följande instruktioner visar hur du lägger till ett bibliotek.
 
-1. Välj **Kluster**på arbetsytan Azure Databricks och välj ditt befintliga Spark-kluster. Välj **Bibliotek** på klustermenyn och klicka på **Installera ny**.
+1. I arbets ytan Azure Databricks väljer du **kluster**och sedan ditt befintliga Spark-kluster. I kluster-menyn väljer du **bibliotek** och klickar på **installera ny**.
 
-   ![Dialogrutan Lägg till bibliotek](./media/databricks-stream-from-eventhubs/databricks-add-library-locate-cluster.png "Lägg till bibliotekssökningskluster")
+   ![Dialog rutan Lägg till bibliotek](./media/databricks-stream-from-eventhubs/databricks-add-library-locate-cluster.png "Lägg till bibliotek hitta kluster")
 
-   ![Dialogrutan Lägg till bibliotek](./media/databricks-stream-from-eventhubs/databricks-add-library-install-new.png "Lägg till ny biblioteksinstallation")
+   ![Dialog rutan Lägg till bibliotek](./media/databricks-stream-from-eventhubs/databricks-add-library-install-new.png "Lägg till bibliotek installera ny")
 
-2. Välj **Maven**för **Käll** på sidan Nytt bibliotek . Ange följande koordinater för Spark Event Hubs-kopplingen och Twitter-API:et i **koordinater**.
+2. På sidan nytt bibliotek för **källa** väljer du **maven**. Ange följande koordinater för Spark Event Hubs-anslutningen och Twitter-API: et i **koordinaterna**individuellt.
 
    * Spark Event Hubs-anslutningsprogram – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.12`
    * Twitter-API – `org.twitter4j:twitter4j-core:4.0.7`
 
 3. Välj **Installera**.
 
-4. Kontrollera att båda biblioteken är installerade och anslutna på klustermenyn.
+4. Kontrol lera att båda biblioteken är installerade och bifogas korrekt i kluster menyn.
 
-    ![Kontrollera bibliotek](./media/databricks-stream-from-eventhubs/databricks-add-library-check.png "Kontrollera bibliotek")
+    ![Kontrol lera bibliotek](./media/databricks-stream-from-eventhubs/databricks-add-library-check.png "Kontrol lera bibliotek")
 
 6. Upprepa dessa steg för Twitter-paketet `twitter4j-core:4.0.7`.
 
@@ -160,11 +160,11 @@ I det här avsnittet skapar du två anteckningsböcker i Databricks-arbetsytan m
 
 1. Välj **Arbetsyta** i det vänstra fönstret. I listrutan **Arbetsyta** väljer du **Skapa** > **Anteckningsbok**.
 
-    ![Skapa anteckningsbok i Databricks](./media/databricks-stream-from-eventhubs/databricks-create-notebook.png "Skapa anteckningsbok i Databricks")
+    ![Skapa antecknings bok i Databricks](./media/databricks-stream-from-eventhubs/databricks-create-notebook.png "Skapa antecknings bok i Databricks")
 
 2. I dialogrutan **Skapa anteckningsbok** anger du **SendTweetsToEventHub**, väljer **Scala** som språk och väljer det Spark-kluster som du skapade tidigare.
 
-    ![Skapa anteckningsbok i Databricks](./media/databricks-stream-from-eventhubs/databricks-notebook-details.png "Skapa anteckningsbok i Databricks")
+    ![Skapa antecknings bok i Databricks](./media/databricks-stream-from-eventhubs/databricks-notebook-details.png "Skapa antecknings bok i Databricks")
 
     Välj **Skapa**.
 
@@ -175,7 +175,7 @@ I det här avsnittet skapar du två anteckningsböcker i Databricks-arbetsytan m
 I anteckningsboken **SendTweetsToEventHub** klistrar du in följande kod och ersätter platshållarna med värden för Event Hubs-namnrymden och det Twitter-program som du skapade tidigare. Anteckningsboken strömmar tweets med nyckelordet ”Azure” till Event Hubs i realtid.
 
 > [!NOTE]
-> Twitter API har vissa begränsningar och [kvoter](https://developer.twitter.com/en/docs/basics/rate-limiting.html)för begäran . Om du inte är nöjd med standardräntebegränsning i Twitter API kan du generera textinnehåll utan att använda Twitter API i det här exemplet. För att göra det, `test` ange `twitter` variabel **dataKälla** till i stället för och fylla i listan **testKälla** med önskad testindata.
+> Twitter API har vissa begränsningar och [kvoter](https://developer.twitter.com/en/docs/basics/rate-limiting.html)för begäran. Om du inte är nöjd med standard hastighets begränsning i Twitter-API kan du generera text innehåll utan att använda Twitter-API i det här exemplet. Det gör du genom att ställa in variabel `test` **data källa** till i stället för `twitter` och fylla i listan **testSource** med önskade test indata.
 
 ```scala
     import scala.collection.JavaConverters._
@@ -406,7 +406,7 @@ När du är klar med självstudien kan du avsluta klustret. Detta gör du genom 
 
 ![Stoppa ett Databricks-kluster](./media/databricks-stream-from-eventhubs/terminate-databricks-cluster.png "Stoppa ett Databricks-kluster")
 
-Om du inte avslutar klustret manuellt stoppas det automatiskt, förutsatt att du har markerat kryssrutan **Avsluta efter \_ \_ minuter av inaktivitet** när du skapade klustret. I dessa fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
+Om du inte avslutar klustret manuellt stoppas det automatiskt, förutsatt att du har markerat kryss rutan **Avsluta efter \_ \_ minuter av inaktivitet** när klustret skapades. I dessa fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen lärde du dig att:
@@ -420,7 +420,7 @@ I den här självstudiekursen lärde du dig att:
 > * Skicka tweets till Event Hubs
 > * Läs tweets från Event Hubs
 
-Gå vidare till nästa självstudiekurs om du vill lära dig mer om hur du utför sentimentanalys på strömmade data med Hjälp av Azure Databricks och [Cognitive Services API](../cognitive-services/text-analytics/overview.md).
+Gå vidare till nästa självstudie om du vill lära dig hur du utför sentiment-analys på strömmade data med hjälp av Azure Databricks och [COGNITIVE Services API](../cognitive-services/text-analytics/overview.md).
 
 > [!div class="nextstepaction"]
 >[Sentimentanalys på strömmade data med hjälp av Azure Databricks](databricks-sentiment-analysis-cognitive-services.md)

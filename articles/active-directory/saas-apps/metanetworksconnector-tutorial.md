@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Meta Networks Connector | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med meta Networks Connector | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Meta Networks Connector.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.openlocfilehash: a09eda25e8c7cc087770210cdfbe7e2bc9832acf
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73160636"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Självstudiekurs: Azure Active Directory-integrering med Meta Networks Connector
+# <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Självstudie: Azure Active Directory integrering med meta Networks Connector
 
 I den här självstudien lär du dig att integrera Meta Networks Connector med Azure Active Directory (AD Azure).
 Integreringen av Meta Networks Connector med Azure AD medför följande fördelar:
@@ -32,7 +32,7 @@ Integreringen av Meta Networks Connector med Azure AD medför följande fördela
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -103,37 +103,37 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Meta 
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
+4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
     ![Information om enkel inloggning med Meta Networks Connector-domän och URL:er](common/idp-intiated.png)
 
-    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
+    a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster:`https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
 
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`
+    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     ![Information om enkel inloggning med Meta Networks Connector-domän och URL:er](common/both-advanced-urls.png)
 
-    a. Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
+    a. I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
 
     b. I textrutan **Vidarebefordransstatus** skriver du en URL med följande mönster: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk identifierare, svars-URL och inloggnings-URL. Detta förklaras senare i självstudien.
 
-6. Meta Networks Connector-programmet förväntar sig SAML-försäkringarna i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i din konfiguration av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon om du vill öppna dialogrutan **Användarattribut.**
+6. Meta Networks Connector-programmet förväntar sig SAML-försäkringarna i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i din konfiguration av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon för att öppna dialog rutan **användarattribut** .
 
     ![image](common/edit-attribute.png)
     
 7. Utöver ovanstående förväntar sig Meta Networks Connector-programmet att några fler attribut skickas tillbaka i SAML-svaret. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
     
-    | Namn | Källattribut | Namnområde|
+    | Name | Källattribut | Namnområde|
     | ---------------| --------------- | -------- |
     | förnamn | user.givenname | |
     | efternamn | user.surname | |
     | emailaddress| user.mail| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-    | namn | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | name | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | phone | user.telephonenumber | |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
@@ -150,7 +150,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Meta 
 
     e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-    f. Klicka på **Ok**
+    f. Klicka på **OK**
 
     g. Klicka på **Spara**.
 
@@ -173,7 +173,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Meta 
 1. Öppna en ny flik i webbläsaren och logga in på ditt Meta Networks Connector-administratörskonto.
     
     > [!NOTE]
-    > Meta Networks Connector är ett säkert system. Så innan du öppnar deras portal måste du få din offentliga IP-adress läggas till en tillåt lista på deras sida. Hämta din offentliga IP-adress genom att följa den länk som anges [här](https://whatismyipaddress.com/). Skicka din IP-adress till [Supportteamet](mailto:support@metanetworks.com) för Meta Networks Connector Client för att få din IP-adress tillagd i en tillåt-lista.
+    > Meta Networks Connector är ett säkert system. Innan du får åtkomst till portalen måste du hämta din offentliga IP-adress till en lista över tillåtna på sidan. Hämta din offentliga IP-adress genom att följa den länk som anges [här](https://whatismyipaddress.com/). Skicka IP-adressen till [klient support teamet för meta Networks Connector](mailto:support@metanetworks.com) för att hämta din IP-adress till en lista över tillåtna.
     
 2. Gå till **Administratör** och välj **Inställningar**.
     
@@ -219,7 +219,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -227,9 +227,9 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Dialogrutan Användare](common/user-properties.png)
 
-    a. Ange **BrittaSimon**i fältet **Namn** .
+    a. I fältet **namn** anger du **BrittaSimon**.
   
-    b. Skriv **brittasimon\@ditt företaganydomain.extension** i fältet **Användarnamn**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -258,9 +258,9 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-7. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+7. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
 ### <a name="create-meta-networks-connector-test-user"></a>Skapa testanvändare för Meta Networks Connector
 
@@ -279,7 +279,7 @@ När du klickar på Meta Networks Connector-panelen i åtkomstpanelen bör du au
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

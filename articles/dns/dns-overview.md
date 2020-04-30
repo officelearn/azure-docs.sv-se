@@ -7,17 +7,17 @@ ms.topic: overview
 ms.date: 3/21/2019
 ms.author: rohink
 ms.openlocfilehash: 1543c0daae7d637730a5f8f9da2305423ba7f84e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76932408"
 ---
 # <a name="what-is-azure-dns"></a>Vad är Azure DNS?
 
 Azure DNS är en värdtjänst för DNS-domäner som ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med hjälp av samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster.
 
-Du kan inte använda Azure DNS för att köpa ett domännamn. För en årlig avgift så kan du köpa ett domännamn med hjälp av [App Service-domäner](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain#buy-the-domain) eller en domännamnsregistrator från tredje part. Dina domäner kan sedan hanteras i Azure DNS för posthantering. Mer information finns i [Delegera en domän till Azure DNS](dns-domain-delegation.md).
+Du kan inte använda Azure DNS för att köpa ett domännamn. För en årlig avgift så kan du köpa ett domännamn med hjälp av [App Service-domäner](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain#buy-the-domain) eller en domännamnsregistrator från tredje part. Dina domäner kan sedan hanteras i Azure DNS för posthantering. Mer information finns i [delegera en domän till Azure DNS](dns-domain-delegation.md).
 
 Följande funktioner ingår med Azure DNS.
 
@@ -37,9 +37,9 @@ DNS-domäner i Azure DNS finns på Azures globala nätverk med DNS-namnservrar. 
 
 Mer information finns i [Så skyddar du DNS-zoner och -poster](dns-protect-zones-recordsets.md). 
 
-## <a name="dnssec"></a>Dnssec
+## <a name="dnssec"></a>DNSSEC
 
-Azure DNS stöder för närvarande inte DNSSEC. I de flesta fall kan du minska behovet av DNSSEC genom att konsekvent använda HTTPS/TLS i dina program. Om DNSSEC är ett viktigt krav för dina DNS-zoner kan du vara värd för dessa zoner med tredjeparts-DNS-värdleverantörer.
+Azure DNS stöder för närvarande inte DNSSEC. I de flesta fall kan du minska behovet av DNSSEC genom att konsekvent använda HTTPS/TLS i dina program. Om DNSSEC är ett kritiskt krav för dina DNS-zoner kan du vara värd för dessa zoner med DNS-leverantörer från tredje part.
 
 ## <a name="ease-of-use"></a>Användbarhet
 
@@ -57,9 +57,9 @@ Mer information finns på sidan om att [använda Azure DNS för privata domäner
 
 ## <a name="alias-records"></a>Aliasposter
 
-Azure DNS stöder aliaspostuppsättningar. Du kan använda en aliaspostuppsättning för att referera till en Azure-resurs, till exempel en offentlig Azure-IP-adress, en Azure Traffic Manager-profil eller en CDN-slutpunkt (Azure Content Delivery Network). Om IP-adressen för den underliggande resursen ändras uppdateras aliaspostuppsättningen sömlöst under DNS-matchningen. Aliaspostuppsättningen pekar på tjänstinstansen och tjänstinstansen associeras med en IP-adress.
+Azure DNS stöder aliaspostuppsättningar. Du kan använda en aliasuppsättning för att referera till en Azure-resurs, till exempel en offentlig Azure-IP-adress, en Azure Traffic Manager-profil eller en Azure Content Delivery Network-slutpunkt (CDN). Om IP-adressen för den underliggande resursen ändras uppdateras aliaspostuppsättningen sömlöst under DNS-matchningen. Aliaspostuppsättningen pekar på tjänstinstansen och tjänstinstansen associeras med en IP-adress.
 
-Du kan nu också peka din apex eller naken domän på en Traffic Manager-profil eller CDN-slutpunkt med hjälp av en aliaspost. Ett exempel kan vara contoso.com.
+Du kan nu peka din Apex eller en blott-domän till en Traffic Manager profil eller CDN-slutpunkt med hjälp av en aliasresurspost. Ett exempel kan vara contoso.com.
 
 Mer information finns i [översikten över Azure DNS-aliasposter](dns-alias.md).
 

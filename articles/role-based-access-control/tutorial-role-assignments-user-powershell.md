@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Bevilja användaråtkomst till Azure-resurser med RBAC och Azure PowerShell'
-description: Lär dig hur du ger en användare åtkomst till Azure-resurser med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure PowerShell i den här självstudien.
+title: 'Självstudie: bevilja användar åtkomst till Azure-resurser med RBAC och Azure PowerShell'
+description: Lär dig hur du beviljar en användare åtkomst till Azure-resurser med hjälp av rollbaserad åtkomst kontroll (RBAC) och Azure PowerShell i den här självstudien.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -14,17 +14,17 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.openlocfilehash: f4ba56bf79d707200bf361ab4c717bb63d081953
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77138233"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Självstudiekurs: Bevilja en användare åtkomst till Azure-resurser med RBAC och Azure PowerShell
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Självstudie: ge en användare åtkomst till Azure-resurser med RBAC och Azure PowerShell
 
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) är det du använder för att hantera åtkomst till Azure-resurser. I den här självstudien kommer du at ge en användare åtkomst för att visa allt i en prenumeration och hantera allt innehåll i en resursgrupp med hjälp av Azure PowerShell.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Beviljar åtkomst till en användare med olika omfång

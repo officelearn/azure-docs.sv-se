@@ -1,23 +1,23 @@
 ---
-title: 'Mönster: Definitioner av grupppolicyer med initiativ'
-description: Det här Azure-principmönstret är ett exempel på hur du grupperar principdefinitioner i ett initiativ
+title: 'Mönster: grup princip definitioner med initiativ'
+description: Detta Azure Policy mönster ger ett exempel på hur du kan gruppera princip definitioner i ett initiativ
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: 41c2b0cf3b8f677cdc408e85088c3ca6c2049d6b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77172858"
 ---
-# <a name="azure-policy-pattern-group-policy-definitions"></a>Azure-principmönster: definitioner av grupprinciper
+# <a name="azure-policy-pattern-group-policy-definitions"></a>Azure Policy mönster: grup princip definitioner
 
-Ett initiativ är en grupp politiska definitioner. Genom att gruppera relaterade principdefinitioner i ett enda objekt kan du skapa en enskild tilldelning som skulle ha varit flera tilldelningar.
+Ett initiativ är en grupp princip definitioner. Genom att gruppera relaterade princip definitioner till ett enda objekt kan du skapa en enskild tilldelning som har varit flera tilldelningar.
 
-## <a name="sample-initiative-definition"></a>Definition av exempelinitiativ
+## <a name="sample-initiative-definition"></a>Exempel på initiativ definition
 
-Det här initiativet distribuerar två principdefinitioner, som var och en tar **parametrarna tagName** och **tagValue.** Själva initiativet har två parametrar: **costCenterValue** och **productNameValue**.
-Dessa initiativparametrar tillhandahålls var och en av de grupperade principdefinitionerna. Den här designen maximerar återanvändningen av befintliga principdefinitioner samtidigt som antalet tilldelningar som skapats för att implementera dem begränsas efter behov.
+Det här initiativet distribuerar två princip definitioner, som var och en tar parametrarna **TagName** och **tagValue** . Själva initiativet har två parametrar: **costCenterValue** och **productNameValue**.
+Dessa initiativ parametrar är de som anges för var och en av de grupperade princip definitionerna. Den här designen maximerar åter användning av befintliga princip definitioner och begränsar antalet tilldelningar som har skapats för att implementera dem efter behov.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-group-with-initiative.json":::
 
@@ -25,14 +25,14 @@ Dessa initiativparametrar tillhandahålls var och en av de grupperade principdef
 
 #### <a name="initiative-parameters"></a>Initiativparametrar
 
-Ett initiativ kan definiera egna parametrar som sedan skickas till de grupperade principdefinitionerna.
-I det här exemplet definieras både **costCenterValue** och **productNameValue** som initiativparametrar. Värdena anges när initiativet tilldelas.
+Ett initiativ kan definiera egna parametrar som sedan skickas till de grupperade princip definitionerna.
+I det här exemplet definieras både **costCenterValue** och **productNameValue** som initiativ parametrar. Värdena anges när initiativet tilldelas.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-group-with-initiative.json" range="5-18":::
 
-#### <a name="includes-policy-definitions"></a>Innehåller principdefinitioner
+#### <a name="includes-policy-definitions"></a>Innehåller princip definitioner
 
-Varje inkluderad principdefinition måste ange **principDefinitionId** och en **parametermatris** om principdefinitionen accepterar parametrar. I kodavsnittet nedan tar den medföljande principdefinitionen två parametrar: **tagName** och **tagValue**. **tagName** definieras med en litteral, men **tagValue** använder parametern **costCenterValue** som definieras av initiativet. Den här genomströmningen av värden förbättrar återanvändningen.
+Varje princip definition som ingår måste tillhandahålla **policyDefinitionId** och en **parameter** mat ris om princip definitionen accepterar parametrar. I kodfragmentet nedan tar den inkluderade princip definitionen två parametrar: **TagName** och **tagValue**. **TagName** definieras med en literal, men **TagValue** använder parametern **costCenterValue** som definieras av initiativet. Den här genom strömningen av värden förbättrar åter användningen.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-group-with-initiative.json" range="30-40":::
 

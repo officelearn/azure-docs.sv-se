@@ -1,5 +1,5 @@
 ---
-title: Uppdatera ett program på ett kluster i sfctl
+title: Uppdatera ett program i ett kluster i sfctl
 description: Skriptexempel för Service Fabric CLI – Uppdatera ett program med en ny version. Det här exemplet uppgraderar också ett distribuerat program med de nya bitarna.
 services: service-fabric
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.date: 12/06/2017
 ms.author: atsenthi
 ms.custom: ''
 ms.openlocfilehash: 34f2ae6f3a2ff3adc35794d6e7dfd682640c646b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75614731"
 ---
-# <a name="update-an-application-using-the-service-fabric-cli"></a>Uppdatera ett program med Service Fabric CLI
+# <a name="update-an-application-using-the-service-fabric-cli"></a>Uppdatera ett program med hjälp av Service Fabric CLI
 
 Exempelskriptet laddar upp en ny version av ett befintligt program och uppgraderar sedan ett distribuerat program med de nya bitarna.
 

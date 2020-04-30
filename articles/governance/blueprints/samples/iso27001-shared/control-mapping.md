@@ -1,217 +1,217 @@
 ---
-title: ISO 27001 Exempelkontroller för delade tjänster
-description: Kontrollmappning av skissexemplet ISO 27001 Shared Services. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärdering.
+title: ISO 27001-skisser för delade tjänster
+description: Kontroll mappning för ISO 27001-skiss exemplet för delade tjänster. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
 ms.date: 01/13/2020
 ms.topic: sample
 ms.openlocfilehash: 6c03da7d5d4caada9ef47a828163a79a003bea93
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75922525"
 ---
-# <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Kontrollmappning av skissexemplet ISO 27001 Shared Services
+# <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Kontroll mappning för ISO 27001-skiss exemplet för delade tjänster
 
-I följande artikel beskrivs hur azure blueprints ISO 27001 Shared Services-skissen mappas till ISO 27001-kontrollerna. Mer information om kontrollerna finns i [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
+Följande artikel beskriver hur Azure-ritningar ISO 27001 Shared Services skiss-exemplet mappar till ISO 27001-kontrollerna. Mer information om kontrollerna finns i [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
 
-Följande mappningar är till **ISO 27001:2013-kontrollerna.** Använd navigeringen till höger för att hoppa direkt till en specifik kontrollmappning. Många av de mappade kontrollerna implementeras med ett [Azure Policy-initiativ.](../../../policy/overview.md) Om du vill granska hela initiativet öppnar du **Princip** i Azure-portalen och väljer sidan **Definitioner.** Leta sedan reda på och välj ** \[kontrollerna\] Förhandsgranska granskning ISO 27001:2013 och distribuera specifika vm-tillägg för att stödja inbyggda** principinitiativ för granskningskrav.
+Följande mappningar är till **ISO 27001:2013** -kontrollerna. Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på ** \[och välj gransknings\] Visa ISO 27001:2013-kontroller och distribuera särskilda VM-tillägg för att ge stöd för det inbyggda princip initiativet för gransknings krav** .
 
 > [!IMPORTANT]
-> Varje kontroll nedan är associerad med en eller flera [Azure-principdefinitioner.](../../../policy/overview.md) Dessa policyer kan hjälpa dig att [bedöma efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta inte en 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan refererar **kompatibel** i Azure-princip endast till principerna själva. Detta säkerställer inte att du är helt kompatibel med alla krav på en kontroll. Dessutom innehåller efterlevnadsstandarden kontroller som inte åtgärdas av några Azure-principdefinitioner just nu. Därför är efterlevnad i Azure Policy bara en partiell bild av din övergripande efterlevnadsstatus. Associationerna mellan kontroller och Azure-principdefinitioner för det härmplet för efterlevnadsritning kan ändras med tiden. Om du vill visa ändringshistoriken läser du [GitHub Commit-historiken](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-shared/control-mapping.md).
+> Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden. Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-shared/control-mapping.md).
 
-## <a name="a612-segregation-of-duties"></a>A.6.1.2 Ansvarsfördelning
+## <a name="a612-segregation-of-duties"></a>En. 6.1.2-ansvars fördelning
 
-Att bara ha en Azure-prenumerationsägare tillåter inte administrativ redundans. Omvänt kan för många Azure-prenumerationsägare öka risken för ett intrång via ett komprometterat ägarkonto. Den här skissen hjälper dig att underhålla ett lämpligt antal Azure-prenumerationsägare genom att tilldela två [Azure-principdefinitioner](../../../policy/overview.md) som granskar antalet ägare för Azure-prenumerationer. Genom att hantera prenumerationsägare kan du implementera lämplig åtskillnad mellan uppgifter.
+Att ha bara en Azure-prenumerations ägare tillåter inte administrativ redundans. Att ha för många Azure-prenumerationer kan däremot öka risken för intrång via ett komprometterat ägar konto. Den här skissen hjälper dig att underhålla ett lämpligt antal prenumerations ägare i Azure genom att tilldela två [Azure policy](../../../policy/overview.md) definitioner som granskar antalet ägare för Azure-prenumerationer. Hantering av prenumerations ägarens behörigheter kan hjälpa dig att implementera lämplig uppdelning av uppgifter.
 
-- \[Förhandsversion\]: Granska minsta antal ägare för en prenumeration
-- \[Förhandsversion\]: Granska maximalt antal ägare för en prenumeration
+- \[För\]hands version: granska minsta antal ägare för en prenumeration
+- \[För\]hands version: granska det högsta antalet ägare för en prenumeration
 
-## <a name="a821-classification-of-information"></a>A.8.2.1 Klassificering av information
+## <a name="a821-classification-of-information"></a>En. 8.2.1-klassificering av information
 
-Azures [SQL Vulnerability Assessment-tjänst](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) kan hjälpa dig att identifiera känsliga data som lagras i dina databaser och innehåller rekommendationer för att klassificera dessa data. Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) för granskning att säkerhetsproblem som identifierats vid SQL Vulnerability Assessment-genomsökningen åtgärdas.
+Azures [tjänst för SQL sårbarhets bedömning](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) kan hjälpa dig att identifiera känsliga data som lagras i dina databaser och innehåller rekommendationer för att klassificera dessa data. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition för att granska att sårbarheter som identifieras under genomsökningen av SQL sårbarhets bedömning åtgärdas.
 
-- \[Förhandsversion\]: Övervaka SQL-sårbarhetsbedömningsresultat i Azure Security Center
+- \[För\]hands version: övervaka resultat av SQL sårbarhets bedömning i Azure Security Center
 
-## <a name="a912-access-to-networks-and-network-services"></a>A.9.1.2 Tillgång till nät och nätverkstjänster
+## <a name="a912-access-to-networks-and-network-services"></a>En. 9.1.2-åtkomst till nätverk och nätverks tjänster
 
-Azure implementerar [rollbaserad åtkomstkontroll](../../../../role-based-access-control/overview.md) (RBAC) för att hantera vem som har åtkomst till Azure-resurser. Den här skissen hjälper dig att kontrollera åtkomsten till Azure-resurser genom att tilldela sju [Azure-principdefinitioner.](../../../policy/overview.md) Dessa principer granskar användningen av resurstyper och konfigurationer som kan ge mer tillåtande åtkomst till resurser.
-Att förstå resurser som bryter mot dessa principer kan hjälpa dig att vidta korrigerande åtgärder för att säkerställa att åtkomsten till Azure-resurser är begränsad till behöriga användare.
+Azure implementerar [rollbaserad åtkomst kontroll](../../../../role-based-access-control/overview.md) (RBAC) för att hantera vem som har åtkomst till Azure-resurser. Den här skissen hjälper dig att styra åtkomsten till Azure-resurser genom att tilldela sju [Azure policy](../../../policy/overview.md) definitioner. Dessa principer granskar användningen av resurs typer och konfigurationer som kan tillåta mer åtkomst till resurser.
+Att förstå resurser som strider mot dessa principer kan hjälpa dig att vidta lämpliga åtgärder för att säkerställa åtkomst till Azure-resurser som är begränsade till behöriga användare.
 
-- \[Preview:\]Distribuera VM-tillägg för granskning av Linux VM-konton utan lösenord
-- \[Preview\]: Distribuera VM-tillägg för att granska Linux VM så att fjärranslutningar från konton utan lösenord
-- \[Preview:\]Granska Linux VM-konton utan lösenord
-- \[Preview\]: Audit Linux VM tillåter fjärranslutningar från konton utan lösenord
-- Granskningsanvändning av klassiska lagringskonton
-- Granskningsanvändning av klassiska virtuella datorer
+- \[För\]hands version: Distribuera VM-tillägg för att granska Linux VM-konton utan lösen ord
+- \[För\]hands version: Distribuera VM-tillägg för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
+- \[För\]hands version: granska Linux VM-konton utan lösen ord
+- \[För\]hands version: granska Linux VM som tillåter fjärr anslutningar från konton utan lösen ord
+- Granska användningen av klassiska lagrings konton
+- Granska användning av klassiska virtuella datorer
 - Granska virtuella datorer som inte använder hanterade diskar
 
-## <a name="a923-management-of-privileged-access-rights"></a>A.9.2.3 Hantering av rättigheter för privilegierad tillgång
+## <a name="a923-management-of-privileged-access-rights"></a>En. 9.2.3-hantering av privilegierade behörigheter
 
-Den här skissen hjälper dig att begränsa och kontrollera privilegierade åtkomsträttigheter genom att tilldela fyra [Azure-principdefinitioner](../../../policy/overview.md) för att granska externa konton med ägare och/eller skrivbehörighet och konton med ägare och/eller skrivbehörighet som inte har multifaktorautentisering aktiverat. Azure implementerar rollbaserad åtkomstkontroll (RBAC) för att hantera vem som har åtkomst till Azure-resurser. Den här skissen tilldelar också tre Azure-principdefinitioner för granskning av Azure Active Directory-autentisering för SQL-servrar och tjänstinfrastruktur. Med Hjälp av Azure Active Directory-autentisering möjliggör förenklad behörighetshantering och centraliserad identitetshantering för databasanvändare och andra Microsoft-tjänster. Den här skissen tilldelar också en Azure-principdefinition för att granska användningen av anpassade RBAC-regler. Att förstå var anpassade RBAC-regler implementeras kan hjälpa dig att verifiera behov och korrekt implementering, eftersom anpassade RBAC-regler är felbenägna.
+Den här skissen hjälper dig att begränsa och kontrol lera privilegierade åtkomst rättigheter genom att tilldela fyra [Azure policy](../../../policy/overview.md) -definitioner för att granska externa konton med ägare och/eller Skriv behörigheter och konton med ägare och/eller Skriv behörigheter som inte har Multi-Factor Authentication aktiverat. Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hantera vem som har åtkomst till Azure-resurser. Den här skissen tilldelar också tre Azure Policy definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar och Service Fabric. Med hjälp av Azure Active Directory-autentisering möjliggörs förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster. Den här skissen tilldelar också en Azure Policy-definition för att granska användningen av anpassade RBAC-regler. Att förstå var anpassade RBAC-regler implementeras kan hjälpa dig att kontrol lera behovet och korrekt implementering eftersom anpassade RBAC-regler är fel känsliga.
 
-- \[Förhandsgranska\]: Granskningskonton med ägarbehörigheter som inte är MFA-aktiverade på en prenumeration
-- \[Förhandsgranska\]: Granskningskonton med skrivbehörigheter som inte är MFA-aktiverade på en prenumeration
-- \[Förhandsgranska\]: Granska externa konton med ägarbehörigheter för en prenumeration
-- \[Förhandsgranska\]: Granska externa konton med skrivbehörigheter för en prenumeration
-- Granskningsetablering av en Azure Active Directory-administratör för SQL-server
+- \[För\]hands version: granska konton med ägar behörigheter som inte är MFA-aktiverade för en prenumeration
+- \[För\]hands version: granska konton med Skriv behörighet som inte är MFA-aktiverade för en prenumeration
+- \[För\]hands version: granska externa konton med ägar behörigheter för en prenumeration
+- \[För\]hands version: granska externa konton med Skriv behörighet för en prenumeration
+- Granska etablering av en Azure Active Directory administratör för SQL Server
 - Granska användning av Azure Active Directory för klientautentisering i Service Fabric
-- Granskningsanvändning av anpassade RBAC-regler
+- Granska användningen av anpassade RBAC-regler
 
-## <a name="a924-management-of-secret-authentication-information-of-users"></a>A.9.2.4 Hantering av hemlig autentiseringsinformation för användare
+## <a name="a924-management-of-secret-authentication-information-of-users"></a>En. 9.2.4-hantering av information om hemlig autentisering av användare
 
-Den här skissen tilldelar tre [Azure-principdefinitioner](../../../policy/overview.md) till granskningskonton som inte har multifaktorautentisering aktiverat. Multifaktorautentisering hjälper till att skydda konton även om en del av autentiseringsinformationen äventyras. Genom att övervaka konton utan multifaktorautentisering aktiverat kan du identifiera konton som kan vara mer benägna att komprometteras. Den här skissen tilldelar också två Azure Policy-definitioner som granskar lösenordsfiler för Linux VM för att avisera om de är felaktigt inställda. Med den här inställningen kan du vidta korrigerande åtgärder för att säkerställa att autentiserare inte äventyras.
+Den här skissen tilldelar tre [Azure policy](../../../policy/overview.md) definitioner för granskning av konton som inte har Multi-Factor Authentication aktiverat. Multi-Factor Authentication hjälper till att skydda konton även om en viss autentiseringsinformation komprometteras. Genom att övervaka konton utan att Multi-Factor Authentication har Aktiver ATS kan du identifiera konton som kan vara sannolikare. Den här skissen tilldelar också två Azure Policy definitioner som granskar virtuella Linux-lösenords lösen ords fil behörigheter för att varna om de är felaktigt inställda. Med den här inställningen kan du vidta lämpliga åtgärder för att säkerställa att autentiserare inte komprometteras.
 
-- \[Förhandsgranska\]: Granskningskonton med ägarbehörigheter som inte är MFA-aktiverade på en prenumeration
-- \[Förhandsgranska\]: Granskningskonton med läsbehörigheter som inte är MFA-aktiverade på en prenumeration
-- \[Förhandsgranska\]: Granskningskonton med skrivbehörigheter som inte är MFA-aktiverade på en prenumeration
-- \[Förhandsversion:\]Distribuera VM-tillägg för granskning av Linux VM-passwd-filbehörigheter
-- \[Preview:\]Audit Linux VM /etc/passwd-filbehörigheter är inställda på 0644
+- \[För\]hands version: granska konton med ägar behörigheter som inte är MFA-aktiverade för en prenumeration
+- \[För\]hands version: granska konton med Läs behörighet som inte är MFA-aktiverade för en prenumeration
+- \[För\]hands version: granska konton med Skriv behörighet som inte är MFA-aktiverade för en prenumeration
+- \[För\]hands version: Distribuera VM-tillägg till granska Linux VM passwd-filbehörighet
+- \[För\]hands version: granska virtuella Linux-/etc/passwd fil behörigheter har angetts till 0644
 
-## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 Granskning av användaråtkomsträttigheter
+## <a name="a925-review-of-user-access-rights"></a>En. 9.2.5-granskning av användar behörighet
 
-Azure implementerar [rollbaserad åtkomstkontroll](../../../../role-based-access-control/overview.md) (RBAC) som hjälper dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure-portalen kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelar fyra [Azure-principdefinitioner](../../../policy/overview.md) till granskningskonton som ska prioriteras för granskning, inklusive avskrivna konton och externa konton med förhöjda behörigheter.
+Azure implementerar [rollbaserad åtkomst kontroll](../../../../role-based-access-control/overview.md) (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelar fyra [Azure policy](../../../policy/overview.md) definitioner till gransknings konton som ska prioriteras för granskning, inklusive avskrivna konton och externa konton med utökade behörigheter.
 
-- \[Förhandsgranskning\]: Granska inaktuella konton för en prenumeration
-- \[Förhandsgranskning\]: Granska inaktuella konton med ägarbehörigheter för en prenumeration
-- \[Förhandsgranska\]: Granska externa konton med ägarbehörigheter för en prenumeration
-- \[Förhandsgranska\]: Granska externa konton med skrivbehörigheter för en prenumeration
+- \[För\]hands version: granska föråldrade konton på en prenumeration
+- \[För\]hands version: granska föråldrade konton med ägar behörigheter för en prenumeration
+- \[För\]hands version: granska externa konton med ägar behörigheter för en prenumeration
+- \[För\]hands version: granska externa konton med Skriv behörighet för en prenumeration
 
-## <a name="a926-removal-or-adjustment-of-access-rights"></a>A.9.2.6 Borttagning eller justering av nyttjanderätter
+## <a name="a926-removal-or-adjustment-of-access-rights"></a>A. 9.2.6 borttagning eller justering av åtkomst rättigheter
 
-Azure implementerar [rollbaserad åtkomstkontroll](../../../../role-based-access-control/overview.md) (RBAC) som hjälper dig att hantera vem som har åtkomst till resurser i Azure. Med Hjälp av [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) och RBAC kan du uppdatera användarroller för att återspegla organisationsändringar. Vid behov kan konton blockeras från att logga in (eller tas bort), vilket omedelbart tar bort åtkomsträttigheter till Azure-resurser. Den här skissen tilldelar två [Azure-principdefinitioner](../../../policy/overview.md) för granskning av det avskrivna kontot som bör beaktas för borttagning.
+Azure implementerar [rollbaserad åtkomst kontroll](../../../../role-based-access-control/overview.md) (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) och RBAC kan du uppdatera användar roller för att återspegla organisations ändringar. Vid behov kan konton blockeras från att logga in (eller tas bort), vilket omedelbart tar bort åtkomst behörighet till Azure-resurser. Den här skissen tilldelar två [Azure policy](../../../policy/overview.md) definitioner för att granska avskrivet konto som bör tas bort.
 
-- \[Förhandsgranskning\]: Granska inaktuella konton för en prenumeration
-- \[Förhandsgranskning\]: Granska inaktuella konton med ägarbehörigheter för en prenumeration
+- \[För\]hands version: granska föråldrade konton på en prenumeration
+- \[För\]hands version: granska föråldrade konton med ägar behörigheter för en prenumeration
 
-## <a name="a942-secure-log-on-procedures"></a>A.9.4.2 Säkra inloggningsprocedurer
+## <a name="a942-secure-log-on-procedures"></a>9.4.2 säkra inloggnings procedurer
 
-Den här skissen tilldelar tre Azure-principdefinitioner till granskningskonton som inte har multifaktorautentisering aktiverat. Azure Multi-Factor Authentication ger ytterligare säkerhet genom att kräva en andra form av autentisering och ger stark autentisering. Genom att övervaka konton utan multifaktorautentisering aktiverat kan du identifiera konton som kan vara mer benägna att komprometteras.
+Den här skissen tilldelar tre Azure Policy definitioner för granskning av konton som inte har Multi-Factor Authentication aktiverat. Azure Multi-Factor Authentication ger ytterligare säkerhet genom att kräva en andra form av autentisering och ger stark autentisering. Genom att övervaka konton utan att Multi-Factor Authentication har Aktiver ATS kan du identifiera konton som kan vara sannolikare.
 
-- \[Förhandsgranska\]: Granskningskonton med ägarbehörigheter som inte är MFA-aktiverade på en prenumeration
-- \[Förhandsgranska\]: Granskningskonton med läsbehörigheter som inte är MFA-aktiverade på en prenumeration
-- \[Förhandsgranska\]: Granskningskonton med skrivbehörigheter som inte är MFA-aktiverade på en prenumeration
+- \[För\]hands version: granska konton med ägar behörigheter som inte är MFA-aktiverade för en prenumeration
+- \[För\]hands version: granska konton med Läs behörighet som inte är MFA-aktiverade för en prenumeration
+- \[För\]hands version: granska konton med Skriv behörighet som inte är MFA-aktiverade för en prenumeration
 
-## <a name="a943-password-management-system"></a>A.9.4.3 System för lösenordshantering
+## <a name="a943-password-management-system"></a>Ett. 9.4.3 lösen ords hanterings system
 
-Den här skissen hjälper dig att framtvinga starka lösenord genom att tilldela 10 [Azure-principdefinitioner](../../../policy/overview.md) som granskar virtuella datorer i Windows som inte tillämpar minsta styrka och andra lösenordskrav. Medvetenhet om virtuella datorer i strid med principen om lösenordsstyrka hjälper dig att vidta korrigerande åtgärder för att säkerställa att lösenord för alla vm-användarkonton är kompatibla med principen.
+Den här skissen hjälper dig att använda starka lösen ord genom att tilldela 10 [Azure policy](../../../policy/overview.md) -definitioner som granskar virtuella Windows-datorer som inte uppfyller minimi kraven för styrka och andra lösen ord. Om de virtuella datorerna strider mot principen för lösen ords säkerhet kan du vidta åtgärder för att säkerställa att lösen ord för alla VM-användarkonton är kompatibla med principen.
 
-- \[Förhandsversion:\]Distribuera VM-tillägg för granskning av Windows VM framtvingar krav på lösenordskomplexitet
-- \[Förhandsversion:\]Distribuera VM-tillägg för granskning av högsta lösenordsålder för Windows VM 70 dagar
-- \[Förhandsversion:\]Distribuera VM-tillägg för granskning av windows VM-minimilösenordålder 1 dag
-- \[Förhandsversion:\]Distribuera VM-tillägg för granskning av lösenord för Windows VM måste vara minst 14 tecken
-- \[Förhandsversion:\]Distribuera VM-tillägg för granskning Windows VM bör inte tillåta tidigare 24 lösenord
-- \[Förhandsversion:\]Granska Windows VM tillämpar krav på lösenordskomplexitet
-- \[Preview:\]Granska Windows VM högsta lösenord ålder 70 dagar
-- \[Preview:\]Granska Windows VM lägsta lösenord ålder 1 dag
-- \[Förhandsgranskning:\]Audit Windows VM-lösenord måste vara minst 14 tecken
-- \[Preview\]: Granska Windows VM bör inte tillåta tidigare 24 lösenord
+- \[För\]hands version: Distribuera VM-tillägg för att granska virtuell Windows-dator krav på lösen ords komplexitet
+- \[För\]hands version: Distribuera VM-tillägg till granska Windows VM högsta lösen ord ålder 70 dagar
+- \[För\]hands version: Distribuera VM-tillägg till granska Windows VM lägsta lösen ord ålder för lösen ord 1 dag
+- \[För\]hands version: Distribuera VM-tillägg för granskning av virtuella Windows-lösenord måste vara minst 14 tecken
+- \[För\]hands version: Distribuera VM-tillägg för granskning av Windows VM ska inte tillåta tidigare 24 lösen ord
+- \[För\]hands version: granska virtuell Windows-dator Kräv krav på lösen ords komplexitet
+- \[För\]hands version: granska den virtuella Windows-datorn högsta ålder för lösen ord 70 dagar
+- \[För\]hands version: granska Windows VM lägsta lösen ord ålder 1 dag
+- \[För\]hands version: granska Windows VM-lösenord måste vara minst 14 tecken
+- \[För\]hands version: granska virtuell Windows-dator ska inte tillåta tidigare 24 lösen ord
 
-## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>A.10.1.1 Policy för användning av kryptografiska kontroller
+## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>En. 10.1.1-princip för användning av kryptografiska kontroller
 
-Den här skissen hjälper dig att tillämpa din princip om användningen av kryptografkontroller genom att tilldela 13 [Azure-principdefinitioner](../../../policy/overview.md) som framtvingar specifika kryptografkontroller och granskningsanvändning av svaga kryptografiska inställningar.
-Om du förstår var dina Azure-resurser kan ha icke-optimala kryptografiska konfigurationer kan du vidta korrigerande åtgärder för att säkerställa att resurser konfigureras i enlighet med din informationssäkerhetsprincip. De principer som tilldelas av den här skissen kräver kryptering för blob-lagringskonton och lagringskonton för datasjöar. kräver transparent datakryptering i SQL-databaser. Granska kryptering som saknas på lagringskonton, SQL-databaser, virtuella datordiskar och automatiseringskontovariabler. granska osäkra anslutningar till lagringskonton, funktionsappar, webbappar, API-appar och Redis-cache. granska svag kryptering av lösenord för virtuella datorer. och granska okrypterad service fabric-kommunikation.
+Den här skissen hjälper dig att genomdriva principen om användningen av kryptografiska kontroller genom att tilldela 13 [Azure policy](../../../policy/overview.md) definitioner som tillämpar vissa kryptografiska kontroller och gransknings användningen av svaga krypterings inställningar.
+Att förstå var dina Azure-resurser kan ha icke-optimala kryptografiska konfigurationer kan hjälpa dig att vidta korrigerande åtgärder för att säkerställa att resurserna konfigureras i enlighet med din informations säkerhets princip. Mer specifikt kräver principerna som tilldelats av den här skissen kryptering för Blob Storage-konton och data Lake Storage-konton. Kräv transparent data kryptering på SQL-databaser; granska saknad kryptering på lagrings konton, SQL-databaser, virtuella dator diskar och variabler för Automation-konton. granska oskyddade anslutningar till lagrings konton, Function-appar, webbappar, API Apps och Redis Cache; granska svag kryptering av lösen ord för virtuella datorer; och granska okrypterad Service Fabric kommunikation.
 
-- \[Förhandsversion:\]Granska HTTPS endast åtkomst för en funktionsapp
-- \[Förhandsgranska:\]Granska HTTPS endast åtkomst för ett webbprogram
-- \[Förhandsversion:\]Granska HTTPS endast åtkomst för en API-app
-- \[Förhandsversion\]: Granskning saknas blob-kryptering för lagringskonton
-- \[Preview\]: Distribuera VM-tillägg för granskning Windows VM bör inte lagra lösenord med reversibel kryptering
-- \[Preview\]: Granska Windows VM bör inte lagra lösenord med reversibla kryptering
-- \[Förhandsversion:\]Övervaka okrypterade VM-diskar i Azure Security Center
-- Granskningsaktivering av kryptering av automationskontovariabler
-- Granskning som aktiverar endast säkra anslutningar till Redis-cachen
-- Granska säker överföring till lagringskonton
-- Granska inställningen för egenskapen ClusterProtectionLevel för att kryptera OchSign i service fabric
+- \[För\]hands version: granska https endast åtkomst för en Funktionsapp
+- \[För\]hands version: granska https endast åtkomst för ett webb program
+- \[För\]hands version: granska https endast åtkomst för en API-app
+- \[För\]hands version: granska saknad BLOB-kryptering för lagrings konton
+- \[För\]hands version: Distribuera VM-tillägg för granskning av Windows VM ska inte lagra lösen ord med omvänd kryptering
+- \[För\]hands version: granska virtuell Windows-dator ska inte lagra lösen ord med omvänd kryptering
+- \[För\]hands version: övervaka OKRYPTERADE virtuella dator diskar i Azure Security Center
+- Granska aktivering av kryptering av variabler för Automation-konton
+- Granska aktivering av endast säkra anslutningar till din Redis Cache
+- Granska säker överföring till lagrings konton
+- Granska inställningen för egenskapen ClusterProtectionLevel till EncryptAndSign i Service Fabric
 - Granska status för transparent datakryptering
-- Transparent datakryptering i SQL-databaser bör aktiveras
+- transparent datakryptering på SQL-databaser ska aktive ras
 
-## <a name="a1241-event-logging"></a>A.12.4.1 Loggning av evenemang
+## <a name="a1241-event-logging"></a>Händelse loggning för 12.4.1
 
-Den här skissen hjälper dig att se till att systemhändelser loggas genom att tilldela sju [Azure-principdefinitioner](../../../policy/overview.md) som granskar logginställningar på Azure-resurser.
-Diagnostikloggar ger insikt i åtgärder som utfördes inom Azure-resurser.
+Den här skissen hjälper dig att se till att system händelser loggas genom att tilldela sju [Azure policy](../../../policy/overview.md) definitioner som granskar logg inställningar på Azure-resurser.
+Diagnostikloggar ger inblick i åtgärder som utfördes i Azure-resurser.
 
-- \[Förhandsversion\]: Distribution av granskningsberoendeagent – OS-avbildning (VM)
-- \[Förhandsversion:\]Distribution av granskningsberoendeagent i VMSS - VM-avbildning (OS) olistad
-- \[Förhandsversion:\]Distribution av granskningslogganalysagent – OS-avbildning (VM)
-- \[Förhandsversion:\]Distribution av granskningslogganalysagent i VMSS - VM-avbildning (OS) olistad
+- \[För\]hands version: granska Dependency agent distribution-VM-avbildning (OS) har inte listats
+- \[För\]hands version: granska Dependency agent distribution i VMSS – VM-avbildningen (OS) har inte listats
+- \[För\]hands version: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
+- \[För\]hands version: granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
 - Granska diagnostikinställning
-- Granska granskningsinställningar på SQL-servernivå
-- Granskning bör aktiveras vid avancerade datasäkerhetsinställningar på SQL Server
+- Granska gransknings inställningar för SQL Server-nivå
+- Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
 
-## <a name="a1243-administrator-and-operator-logs"></a>A.12.4.3 Administratörs- och operatörsloggar
+## <a name="a1243-administrator-and-operator-logs"></a>En. 12.4.3-administratör och operatörs loggar
 
-Den här skissen hjälper dig att se till att systemhändelser loggas genom att tilldela sju Azure-principdefinitioner som granskar logginställningar på Azure-resurser. Diagnostikloggar ger insikt i åtgärder som utfördes inom Azure-resurser.
+Den här skissen hjälper dig att se till att system händelser loggas genom att tilldela sju Azure Policy definitioner som granskar logg inställningar på Azure-resurser. Diagnostikloggar ger inblick i åtgärder som utfördes i Azure-resurser.
 
-- \[Förhandsversion\]: Distribution av granskningsberoendeagent – OS-avbildning (VM)
-- \[Förhandsversion:\]Distribution av granskningsberoendeagent i VMSS - VM-avbildning (OS) olistad
-- \[Förhandsversion:\]Distribution av granskningslogganalysagent – OS-avbildning (VM)
-- \[Förhandsversion:\]Distribution av granskningslogganalysagent i VMSS - VM-avbildning (OS) olistad
+- \[För\]hands version: granska Dependency agent distribution-VM-avbildning (OS) har inte listats
+- \[För\]hands version: granska Dependency agent distribution i VMSS – VM-avbildningen (OS) har inte listats
+- \[För\]hands version: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
+- \[För\]hands version: granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
 - Granska diagnostikinställning
-- Granska granskningsinställningar på SQL-servernivå
-- Granskning bör aktiveras vid avancerade datasäkerhetsinställningar på SQL Server
+- Granska gransknings inställningar för SQL Server-nivå
+- Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
 
-## <a name="a1244-clock-synchronization"></a>A.12.4.4 Klocksynkronisering
+## <a name="a1244-clock-synchronization"></a>Synkronisering av 12.4.4-klockor
 
-Den här skissen hjälper dig att se till att systemhändelser loggas genom att tilldela sju Azure-principdefinitioner som granskar logginställningar på Azure-resurser. Azure-loggar förlitar sig på synkroniserade interna klockor för att skapa en tidsrelerad post av händelser över resurser.
+Den här skissen hjälper dig att se till att system händelser loggas genom att tilldela sju Azure Policy definitioner som granskar logg inställningar på Azure-resurser. Azure-loggar förlitar sig på synkroniserade interna klockor för att skapa en tidskorrelerad post av händelser mellan resurser.
 
-- \[Förhandsversion\]: Distribution av granskningsberoendeagent – OS-avbildning (VM)
-- \[Förhandsversion:\]Distribution av granskningsberoendeagent i VMSS - VM-avbildning (OS) olistad
-- \[Förhandsversion:\]Distribution av granskningslogganalysagent – OS-avbildning (VM)
-- \[Förhandsversion:\]Distribution av granskningslogganalysagent i VMSS - VM-avbildning (OS) olistad
+- \[För\]hands version: granska Dependency agent distribution-VM-avbildning (OS) har inte listats
+- \[För\]hands version: granska Dependency agent distribution i VMSS – VM-avbildningen (OS) har inte listats
+- \[För\]hands version: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
+- \[För\]hands version: granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
 - Granska diagnostikinställning
-- Granska granskningsinställningar på SQL-servernivå
-- Granskning bör aktiveras vid avancerade datasäkerhetsinställningar på SQL Server
+- Granska gransknings inställningar för SQL Server-nivå
+- Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
 
-## <a name="a1251-installation-of-software-on-operational-systems"></a>A.12.5.1 Installation av programvara på driftsystem
+## <a name="a1251-installation-of-software-on-operational-systems"></a>En. 12.5.1-installation av program vara på operativa system
 
-Adaptiv programkontroll är en lösning från Azure Security Center som hjälper dig att styra vilka program som kan köras på dina virtuella datorer i Azure. Den här skissen tilldelar en Azure-principdefinition som övervakar ändringar i uppsättningen tillåtna program. Den här funktionen hjälper dig att styra installation av programvara och program på virtuella Azure-datorer.
+Anpassningsbar program kontroll är en lösning från Azure Security Center som hjälper dig att styra vilka program som kan köras på dina virtuella datorer i Azure. Den här skissen tilldelar en Azure Policy-definition som övervakar ändringar i uppsättningen tillåtna program. Den här funktionen hjälper dig att styra installationen av program vara och program på virtuella Azure-datorer.
 
-- \[Förhandsversion\]: Övervaka möjlig app vitlistning i Azure Security Center
+- \[För\]hands version: övervaka möjliga appar vit listning i Azure Security Center
 
-## <a name="a1261-management-of-technical-vulnerabilities"></a>A.12.6.1 Hantering av tekniska sårbarheter
+## <a name="a1261-management-of-technical-vulnerabilities"></a>En. 12.6.1-hantering av tekniska sårbarheter
 
-Den här skissen hjälper dig att hantera sårbarheter i informationssystem genom att tilldela fem [Azure-principdefinitioner](../../../policy/overview.md) som övervakar systemuppdateringar som saknas, sårbarheter i operativsystemet, SQL-sårbarheter och sårbarheter för virtuella datorer i Azure Security Center. Azure Security Center tillhandahåller rapporteringsfunktioner som gör att du kan ha insikt i realtid om säkerhetstillståndet för distribuerade Azure-resurser.
+Den här skissen hjälper dig att hantera problem med informations systemet genom att tilldela fem [Azure policy](../../../policy/overview.md) definitioner som övervakar saknade system uppdateringar, sårbarheter för operativ system, sårbarheter i SQL och virtuella dator sårbarheter i Azure Security Center. Azure Security Center tillhandahåller rapporterings funktioner som gör att du kan få inblick i real tid i säkerhets läget för distribuerade Azure-resurser.
 
-- \[Förhandsversion:\]Övervakare som saknas slutpunktsskydd i Azure Security Center
-- \[Förhandsversion:\]Övervaka saknade systemuppdateringar i Azure Security Center
-- \[Förhandsversion:\]Övervaka os-sårbarheter i Azure Security Center
-- \[Förhandsversion\]: Övervaka SQL-sårbarhetsbedömningsresultat i Azure Security Center
-- \[Förhandsversion:\]Övervaka vm-sårbarheter i Azure Security Center
+- \[För\]hands version: övervaka saknade Endpoint Protection i Azure Security Center
+- \[För\]hands version: övervaka system uppdateringar som saknas i Azure Security Center
+- \[För\]hands version: övervaka OS-sårbarheter i Azure Security Center
+- \[För\]hands version: övervaka resultat av SQL sårbarhets bedömning i Azure Security Center
+- \[För\]hands version: övervaka säkerhets risker i virtuella datorer i Azure Security Center
 
-## <a name="a1262-restrictions-on-software-installation"></a>A.12.6.2 Begränsningar för installation av programvara
+## <a name="a1262-restrictions-on-software-installation"></a>12.6.2-begränsningar för program varu installation
 
-Adaptiv programkontroll är en lösning från Azure Security Center som hjälper dig att styra vilka program som kan köras på dina virtuella datorer i Azure. Den här skissen tilldelar en Azure-principdefinition som övervakar ändringar i uppsättningen tillåtna program. Begränsningar för programvaruinstallation kan hjälpa dig att minska sannolikheten för att programvaran ska införas.
+Anpassningsbar program kontroll är en lösning från Azure Security Center som hjälper dig att styra vilka program som kan köras på dina virtuella datorer i Azure. Den här skissen tilldelar en Azure Policy-definition som övervakar ändringar i uppsättningen tillåtna program. Begränsningar för program varu installation kan hjälpa dig att minska sannolikheten för att program varu sårbarheter införs.
 
-- \[Förhandsversion\]: Övervaka möjlig app vitlistning i Azure Security Center
+- \[För\]hands version: övervaka möjliga appar vit listning i Azure Security Center
 
-## <a name="a1311-network-controls"></a>A.13.1.1 Nätverkskontroller
+## <a name="a1311-network-controls"></a>13.1.1 nätverks kontroller
 
-Den här skissen hjälper dig att hantera och kontrollera nätverk genom att tilldela en [Azure Policy-definition](../../../policy/overview.md) som övervakar nätverkssäkerhetsgrupper med tillåtande regler. Regler som är alltför tillåtande kan tillåta oavsiktlig nätverksåtkomst och bör ses över. Den här skissen tilldelar också tre Azure-principdefinitioner som övervakar oskyddade slutpunkter, program och lagringskonton. Slutpunkter och program som inte skyddas av en brandvägg och lagringskonton med obegränsad åtkomst kan ge oavsiktlig åtkomst till information som finns i informationssystemet.
+Den här skissen hjälper dig att hantera och styra nätverk genom att tilldela en [Azure policy](../../../policy/overview.md) definition som övervakar nätverks säkerhets grupper med tillåtna regler. Regler som är för tillåtelse kan tillåta oönskad nätverks åtkomst och bör granskas. Den här skissen tilldelar också tre Azure Policy definitioner som övervakar oskyddade slut punkter, program och lagrings konton. Slut punkter och program som inte skyddas av en brand vägg och lagrings konton med obegränsad åtkomst kan ge oavsiktlig åtkomst till information som finns i informations systemet.
 
-- \[Förhandsversion\]: Övervaka tillåtande nätverksåtkomst i Azure Security Center
-- \[Förhandsversion\]: Övervaka oskyddade nätverksslutpunkter i Azure Security Center
-- \[Förhandsversion\]: Övervaka oskyddat webbprogram i Azure Security Center
-- Granska obegränsad nätverksåtkomst till lagringskonton
+- \[För\]hands version: övervaka åtkomst till nätverks åtkomst i Azure Security Center
+- \[För\]hands version: övervaka oskyddade nätverks slut punkter i Azure Security Center
+- \[För\]hands version: övervaka oskyddat webb program i Azure Security Center
+- Granska obegränsad nätverks åtkomst till lagrings konton
 
-## <a name="a1321-information-transfer-policies-and-procedures"></a>A.13.2.1 Riktlinjer och förfaranden för informationsöverföring
+## <a name="a1321-information-transfer-policies-and-procedures"></a>13.2.1 information överförings principer och procedurer
 
-Skissen hjälper dig att se till att informationsöverföring med Azure-tjänster är säker genom att tilldela två [Azure-principdefinitioner](../../../policy/overview.md) för att granska osäkra anslutningar till lagringskonton och Redis-cache.
+Skissen hjälper dig att se till att informations överföring med Azure-tjänster är säker genom att tilldela två [Azure policy](../../../policy/overview.md) definitioner för att granska oskyddade anslutningar till lagrings konton och Redis cache.
 
-- Granskning som aktiverar endast säkra anslutningar till Redis-cachen
-- Granska säker överföring till lagringskonton
+- Granska aktivering av endast säkra anslutningar till din Redis Cache
+- Granska säker överföring till lagrings konton
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har granskat kontrollmappningen av skissen för ISO 27001 Shared Services kan du läsa följande artiklar om arkitekturen och hur du distribuerar det här exemplet:
+Nu när du har granskat kontroll mappningen av ritningen ISO 27001 Shared Services kan du gå till följande artiklar om du vill lära dig mer om arkitekturen och hur du distribuerar det här exemplet:
 
 > [!div class="nextstepaction"]
-> [Skiss för delade tjänster i ISO 27001 – översikten](./index.md)
-> [för skissen för delade tjänster i ISO 27001 – driftsättningssteg](./deploy.md)
+> [ISO 27001 delade tjänster skiss – översikt](./index.md)
+> [ISO 27001 delade tjänster skiss – distribuera steg](./deploy.md)
 
 Ytterligare artiklar om skisser och hur de används:
 
-- Läs mer om [skisslivscykeln](../../concepts/lifecycle.md).
+- Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).
-- Lär dig att anpassa [ordningsföljden för skisssekvensering](../../concepts/sequencing-order.md).
-- Ta reda på hur du använder [skiss resurs låsning](../../concepts/resource-locking.md).
+- Lär dig hur du anpassar [sekvensordningen för en skiss](../../concepts/sequencing-order.md).
+- Lär dig hur du använder [resurslåsning för en skiss](../../concepts/resource-locking.md).
 - Lär dig hur du [uppdaterar befintliga tilldelningar](../../how-to/update-existing-assignments.md).

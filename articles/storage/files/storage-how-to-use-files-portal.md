@@ -8,10 +8,10 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: fef3daf6e9e535736002e309e3d27491364dc553
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71260293"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Snabbstart: Skapa och hantera Azure-filresurser med Azure-portalen 
@@ -19,7 +19,7 @@ ms.locfileid: "71260293"
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 [!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
 
 ## <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
@@ -29,7 +29,7 @@ Skapa en Azure-filresurs:
 2. På sidan för lagringskontot i avsnittet **Tjänster** väljer du **Filer**.
     ![En skärmbild av avsnittet Tjänster i lagringskontot; välj Filtjänst](media/storage-how-to-use-files-portal/create-file-share-1.png)
 
-3. Klicka på **Fildelning**högst upp på sidan **Arkivtjänst.** Sidan **Ny filresurs** rullas ned.
+3. Klicka på **fil resurs**på menyn överst på sidan **fil tjänst** . Sidan **Ny filresurs** rullas ned.
 4. I **namn** skriver du *myshare*.
 5. Klicka på **OK** för att skapa Azure-filresursen.
 
@@ -41,12 +41,12 @@ Azure Files har två metoder för att arbeta med filer och mappar i din Azure-fi
 Om du vill montera en filresurs med SMB läser du följande dokument baserat på ditt operativsystem:
 - [Windows](storage-how-to-use-files-windows.md)
 - [Linux](storage-how-to-use-files-linux.md)
-- [Macos](storage-how-to-use-files-mac.md)
+- [macOS](storage-how-to-use-files-mac.md)
 
 ### <a name="using-an-azure-file-share-from-the-azure-portal"></a>Använda en Azure-filresurs via Azure-portalen
-Alla begäranden som görs via Azure Portal görs med REST API-filen så att du kan skapa, ändra och ta bort filer och kataloger på klienter utan SMB-åtkomst. Det är möjligt att arbeta direkt med File REST-protokollet (det vill säga handcrafting REST HTTP-anrop själv), men det vanligaste sättet (utöver att använda Azure-portalen) att använda file REST-protokollet är att använda [Azure PowerShell-modulen,](storage-how-to-use-files-powershell.md) [Azure CLI](storage-how-to-use-files-cli.md)eller en Azure Storage SDK, som alla ger en trevlig omslag runt File REST-protokollet i skript/programmeringsspråk som du väljer. 
+Alla begäranden som görs via Azure Portal görs med REST API-filen så att du kan skapa, ändra och ta bort filer och kataloger på klienter utan SMB-åtkomst. Det är möjligt att arbeta direkt med fil REST-protokollet (det vill säga handcrafting REST HTTP-anrop själv), men det vanligaste sättet (utöver att använda Azure Portal) för att använda fil REST-protokollet är att använda [modulen Azure PowerShell](storage-how-to-use-files-powershell.md), [Azure CLI](storage-how-to-use-files-cli.md)eller ett Azure Storage-SDK, som alla tillhandahåller en bra omslutning runt fil rest-protokollet i skript/programmeringsspråk som du väljer. 
 
-Vi förväntar oss att de flesta användare av Azure Files kommer att vilja arbeta med sin Azure-filresurs över SMB-protokollet, eftersom detta gör det möjligt för dem att använda befintliga program och verktyg som de förväntar sig att kunna använda, men det finns flera skäl till varför det är fördelaktigt att använda File REST API snarare än SMB, till exempel:
+Vi förväntar oss att de flesta användare av Azure Files vill arbeta med sin Azure-filresurs via SMB-protokollet, eftersom det gör det möjligt för dem att använda befintliga program och verktyg som de förväntar sig kunna använda, men det finns flera orsaker till att det är fördelaktigt att använda filen REST API i stället för SMB, till exempel:
 
 - Du måste göra en snabb ändring av Azure-filresursen i farten, till exempel via en bärbar dator utan SMB-åtkomst, en surfplatta eller en mobil enhet.
 - Du måste köra ett skript eller program från en klient som inte kan montera en SMB-resurs, till exempel lokala klienter, som inte har port 445 avblockerad.

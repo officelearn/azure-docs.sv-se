@@ -1,6 +1,6 @@
 ---
 title: Hur frågar man efter tabelldata SQL i Azure Cosmos DB?
-description: Lär dig hur du frågar data som lagras i Azure Cosmos DB Table API-konto med hjälp av OData-filter och LINQ-frågor
+description: Lär dig hur du frågar data som lagras i Azure Cosmos DB Tabell-API-kontot med hjälp av OData-filter och LINQ-frågor
 author: sakash279
 ms.author: akshanka
 ms.service: cosmos-db
@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 8f31ace0045dad2f038a1eded52a41ffb1932f99
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76770486"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Självstudie: Fråga Azure Cosmos DB med hjälp av tabell-API

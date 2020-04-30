@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Skapa en söktjänst i portalen'
+title: 'Snabb start: skapa en Sök tjänst i portalen'
 titleSuffix: Azure Cognitive Search
-description: I den här portalens snabbstart får du lära dig hur du konfigurerar en Azure Cognitive Search-resurs i Azure-portalen. Välj resursgrupper, regioner, samt SKU eller prisnivå.
+description: I den här snabb starten av portalen lär du dig hur du konfigurerar en Azure Kognitiv sökning-resurs i Azure Portal. Välj resursgrupper, regioner, samt SKU eller prisnivå.
 manager: nitinme
 author: tchristiani
 ms.author: terrychr
@@ -9,21 +9,21 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.openlocfilehash: 3bc3edcd0e75d8f6e3e4d6f9b200032909318040
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77209366"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Snabbstart: Skapa en Azure Cognitive Search-tjänst i portalen
+# <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Snabb start: skapa en Azure Kognitiv sökning-tjänst i portalen
 
-Azure Cognitive Search är en fristående resurs som används för att koppla en sökupplevelse till anpassade appar. Azure Cognitive Search integreras enkelt med andra Azure-tjänster, med appar på nätverksservrar eller med programvara som körs på andra molnplattformar.
+Azure Kognitiv sökning är en fristående resurs som används för att koppla en Sök upplevelse till anpassade appar. Azure Kognitiv sökning integreras enkelt med andra Azure-tjänster, med appar på nätverks servrar eller med program vara som körs på andra moln plattformar.
 
-I den här artikeln får du lära dig hur du skapar en resurs i [Azure-portalen](https://portal.azure.com/).
+I den här artikeln får du lära dig hur du skapar en resurs i [Azure Portal](https://portal.azure.com/).
 
 [![Animerad GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
-Föredrar du PowerShell? Använd [tjänstmallen](https://azure.microsoft.com/resources/templates/101-azure-search-create/) för Azure Resource Manager. Mer information om hur du kommer igång finns i [Hantera Azure Cognitive Search med PowerShell](search-manage-powershell.md).
+Föredrar du PowerShell? Använd [tjänstmallen](https://azure.microsoft.com/resources/templates/101-azure-search-create/) för Azure Resource Manager. Hjälp med att komma igång finns i [Hantera Azure kognitiv sökning med PowerShell](search-manage-powershell.md).
 
 ## <a name="subscribe-free-or-paid"></a>Prenumerera (kostnadsfritt eller betalt)
 
@@ -31,92 +31,92 @@ Föredrar du PowerShell? Använd [tjänstmallen](https://azure.microsoft.com/res
 
 Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Med en MSDN-prenumeration får du krediter varje månad som du kan använda Azure-betaltjänster. 
 
-## <a name="find-azure-cognitive-search"></a>Hitta Azure Cognitive Search
+## <a name="find-azure-cognitive-search"></a>Hitta Azure-Kognitiv sökning
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på plustecknet (”+ Skapa resurs”) i det övre vänstra hörnet.
-3. Använd sökfältet för att hitta "Azure Cognitive Search" eller navigera till resursen via **Web** > **Azure Cognitive Search**.
+3. Använd Sök fältet för att hitta "Azure kognitiv sökning" eller navigera till resursen via **Web** > **Azure kognitiv sökning**.
 
 ![Skapa en resurs i portalen](./media/search-create-service-portal/find-search3.png "Skapa en resurs i portalen")
 
 ## <a name="choose-a-subscription"></a>Välj en prenumeration
 
-Om du har fler än en prenumeration väljer du en för söktjänsten.
+Om du har mer än en prenumeration väljer du en för Sök tjänsten.
 
-## <a name="set-a-resource-group"></a>Ange en resursgrupp
+## <a name="set-a-resource-group"></a>Ange en resurs grupp
 
-En resursgrupp är en behållare som innehåller relaterade resurser för din Azure-lösning. Det krävs för söktjänsten. Det är också användbart för att hantera resurser all-up, inklusive kostnader. En resursgrupp kan bestå av en tjänst eller flera tjänster som används tillsammans. Om du till exempel använder Azure Cognitive Search för att indexera en Azure Cosmos DB-databas kan du göra båda tjänsterna till en del av samma resursgrupp för hanteringsändamål. 
+En resurs grupp är en behållare som innehåller relaterade resurser för din Azure-lösning. Det krävs för Sök tjänsten. Det är också användbart för att hantera alla resurser, inklusive kostnader. En resurs grupp kan bestå av en tjänst eller flera tjänster som används tillsammans. Om du till exempel använder Azure Kognitiv sökning för att indexera en Azure Cosmos DB databas kan du göra båda tjänsterna i samma resurs grupp i hanterings syfte. 
 
-Om du inte kombinerar resurser till en enda grupp, eller om befintliga resursgrupper är fyllda med resurser som används i orelaterade lösningar, skapar du en ny resursgrupp bara för din Azure Cognitive Search-resurs. 
+Om du inte kombinerar resurser till en enda grupp, eller om befintliga resurs grupper är fyllda med resurser som används i orelaterade lösningar, skapar du en ny resurs grupp för din Azure Kognitiv sökning-resurs. 
 
-![Skapa en ny resursgrupp](./media/search-create-service-portal/new-resource-group.png "Skapa en ny resursgrupp")
+![Skapa en ny resurs grupp](./media/search-create-service-portal/new-resource-group.png "Skapa en ny resursgrupp")
 
-Med tiden kan du spåra aktuella och beräknade kostnader helt och främst eller visa avgifter för enskilda resurser. Följande skärmbild visar vilken typ av kostnadsinformation du kan förvänta dig när du kombinerar flera resurser till en grupp.
+Med tiden kan du spåra aktuella och projicerade kostnader hela tiden, eller så kan du Visa avgifter för enskilda resurser. Följande skärm bild visar vilken typ av kostnads information som du kan se när du kombinerar flera resurser i en grupp.
 
-![Hantera kostnader på resursgruppsnivå](./media/search-create-service-portal/resource-group-cost-management.png "Hantera kostnader på resursgruppsnivå")
+![Hantera kostnader på resurs grupps nivå](./media/search-create-service-portal/resource-group-cost-management.png "Hantera kostnader på resurs grupps nivå")
 
 > [!TIP]
-> Resursgrupper förenklar rensningen eftersom det tar bort alla tjänster i den om du tar bort en grupp. Om du har ett prototypprojekt som använder flera tjänster kan du placera dem i samma resursgrupp. Då är det lättare att rensa upp när projektet är slutfört.
+> Resurs grupper fören klar rensningen eftersom borttagning av en grupp tar bort alla tjänster i den. Om du har ett prototypprojekt som använder flera tjänster kan du placera dem i samma resursgrupp. Då är det lättare att rensa upp när projektet är slutfört.
 
 ## <a name="name-the-service"></a>Namnge tjänsten
 
-Ange ett tjänstnamn i **fältet URL** i instansinformation. Namnet är en del av URL-slutpunkten som `https://your-service-name.search.windows.net`API-anrop utfärdas mot: . Till exempel, om du vill att slutpunkten ska vara `https://myservice.search.windows.net`, anger du `myservice`.
+I instans information anger du ett tjänst namn i **URL** -fältet. Namnet är en del av URL-slutpunkten mot vilken API-anrop `https://your-service-name.search.windows.net`utfärdas:. Till exempel, om du vill att slutpunkten ska vara `https://myservice.search.windows.net`, anger du `myservice`.
 
 Kraven för tjänstnamn:
 
 * Det måste vara unikt inom namnområdet search.windows.net
-* Det måste vara mellan 2 och 60 tecken i längd
-* Du måste använda gemener, siffror eller streck ("-")
-* Använd inte streck ("-") i de första två tecknen eller som det sista enskilda tecknet
-* Du får inte använda på varandra följande streck ("--") någonstans
+* Det måste vara mellan 2 och 60 tecken långt
+* Du måste använda små bokstäver, siffror eller bindestreck ("-")
+* Använd inte bindestreck ("-") i de första 2 tecknen eller som det sista enkla tecknet
+* Du får inte använda flera bindestreck ("--") var som helst
 
 > [!TIP]
-> Om du tror att du använder flera tjänster rekommenderar vi att regionen (eller platsen) i tjänstnamnet inkluderas som en namngivningskonvention. Tjänster inom samma region kan utbyta data utan kostnad, så om Azure Cognitive Search finns i västra `mysearchservice-westus` USA och du har andra tjänster även i västra USA kan ett namn som kan spara en resa till egenskapssidan när du bestämmer hur du ska kombinera eller koppla resurser.
+> Om du tror att du kommer att använda flera tjänster rekommenderar vi att du inkluderar regionen (eller platsen) i tjänst namnet som en namngivnings konvention. Tjänster inom samma region kan utbyta data utan kostnad, så om Azure Kognitiv sökning är i västra USA och du har andra tjänster även i västra USA `mysearchservice-westus` kan du spara en resa på sidan Egenskaper när du bestämmer hur du ska kombinera eller bifoga resurser.
 
 ## <a name="choose-a-location"></a>Välj en plats
 
-Som en Azure-tjänst kan Azure Cognitive Search finnas i datacenter runt om i världen. Listan över regioner som stöds finns på [prissidan](https://azure.microsoft.com/pricing/details/search/). 
+Som Azure-tjänst kan Azure Kognitiv sökning ligga i Data Center över hela världen. Du hittar en lista över regioner som stöds på [sidan med priser](https://azure.microsoft.com/pricing/details/search/). 
 
-Du kan minimera eller undvika bandbreddsavgifter genom att välja samma plats för flera tjänster. Om du till exempel indexerar data som tillhandahålls av en annan Azure-tjänst (Azure storage, Azure Cosmos DB, Azure SQL Database) undviker du bandbreddsavgifter när du skapar din Azure Cognitive Search-tjänst i samma region (det finns inga avgifter för utgående data när tjänster finns i samma region).
+Du kan minimera eller undvika bandbredds avgifter genom att välja samma plats för flera tjänster. Om du till exempel indexerar data som tillhandahålls av en annan Azure-tjänst (Azure Storage, Azure Cosmos DB Azure SQL Database) skapar du en Azure Kognitiv sökning-tjänst i samma region för att undvika bandbredds avgifter (det kostar inga avgifter för utgående data när tjänsterna är i samma region).
 
-Om du använder AI-anrikning skapar du söktjänsten i samma region som Cognitive Services. *Samlokalisering av Azure Cognitive Search och Cognitive Services i samma region är ett krav för AI-anrikning*.
+Om du använder AI-anrikning skapar du din Sök tjänst i samma region som Cognitive Services. *Samplacering av Azure kognitiv sökning och Cognitive Services i samma region är ett krav för AI-berikning*.
 
 > [!Note]
-> Centrala Indien är för närvarande inte tillgängligt för nya tjänster. För tjänster som redan finns i centrala Indien kan du skala upp utan begränsningar och din tjänst stöds fullt ut i den regionen. Begränsningen av denna region är tillfällig och begränsad till nya tjänster. Vi tar bort den här anteckningen när begränsningen inte längre gäller.
+> Centrala Indien är för närvarande inte tillgängligt för nya tjänster. För tjänster som redan finns i Central Indien kan du skala upp utan begränsningar och tjänsten stöds fullt ut i den regionen. Begränsningen i den här regionen är temporär och begränsad till endast nya tjänster. Vi tar bort den här anteckningen när begränsningen inte längre gäller.
 
-## <a name="choose-a-pricing-tier-sku"></a>Välj en prisnivå (SKU)
+## <a name="choose-a-pricing-tier-sku"></a>Välj en pris nivå (SKU)
 
-[Azure Cognitive Search erbjuds för närvarande i flera prisnivåer:](https://azure.microsoft.com/pricing/details/search/)Gratis, Basic eller Standard. Nivåerna har olika [kapacitet och begränsningar](search-limits-quotas-capacity.md). Mer information finns i [Välj en prisnivå nivå eller SKU](search-sku-tier.md).
+[Azure kognitiv sökning erbjuds för närvarande på flera pris nivåer](https://azure.microsoft.com/pricing/details/search/): kostnads fri, Basic eller standard. Nivåerna har olika [kapacitet och begränsningar](search-limits-quotas-capacity.md). Mer information finns i [Välj en prisnivå nivå eller SKU](search-sku-tier.md).
 
-Basic och Standard är de vanligaste alternativen för produktionsarbetsbelastningar, men de flesta kunder börjar med den kostnadsfria tjänsten. Viktiga skillnader mellan nivåer är partitionsstorlek och hastighet och gränser för antalet objekt som du kan skapa.
+Basic och standard är de vanligaste alternativen för produktions arbets belastningar, men de flesta kunder börjar med den kostnads fria tjänsten. Viktiga skillnader mellan nivåer är partitionens storlek och hastighet och begränsningar för antalet objekt som du kan skapa.
 
-Kom ihåg att en prisnivå inte kan ändras när tjänsten har skapats. Om du behöver en högre eller lägre nivå måste du återskapa tjänsten.
+Kom ihåg att det inte går att ändra pris nivån när tjänsten har skapats. Om du behöver en högre eller lägre nivå måste du återskapa tjänsten.
 
 ## <a name="create-your-service"></a>Skapa din tjänst
 
-När du har angett de nödvändiga indata, gå vidare och skapa tjänsten. 
+När du har angett nödvändiga indata kan du gå vidare och skapa tjänsten. 
 
 ![Granska och skapa tjänsten](./media/search-create-service-portal/new-service3.png "Granska och skapa tjänsten")
 
-Din tjänst distribueras inom några minuter. Du kan övervaka förloppet via Azure-meddelanden. Överväg att fästa tjänsten på instrumentpanelen för enkel åtkomst i framtiden.
+Tjänsten distribueras på några minuter. Du kan övervaka förloppet via Azure-meddelanden. Överväg att fästa tjänsten på instrument panelen för enkel åtkomst i framtiden.
 
-![Övervaka och fästa tjänsten](./media/search-create-service-portal/monitor-notifications.png "Övervaka och fästa tjänsten")
+![Övervaka och fäst tjänsten](./media/search-create-service-portal/monitor-notifications.png "Övervaka och fäst tjänsten")
 
 ## <a name="get-a-key-and-url-endpoint"></a>Hämta en nyckel och URL-slutpunkt
 
-Om du inte använder portalen kräver programmatisk åtkomst till den nya tjänsten att du anger URL-slutpunkten och en api-nyckel för autentisering.
+Om du inte använder portalen kräver program mässig åtkomst till din nya tjänst att du anger URL-slutpunkten och en API-nyckel för autentisering.
 
-1. Leta reda på och kopiera URL-slutpunkten till höger på sidan på sidan **Översikt.**
+1. På sidan **Översikt** letar du upp och kopierar URL-slutpunkten på höger sida av sidan.
 
-2. Kopiera någon av administratörsnycklarna på sidan **Nycklar** (de är likvärdiga). API-administratörsnycklarna krävs för att skapa, uppdatera och ta bort objekt i tjänsten. Frågenycklar ger däremot läsbehörighet till indexinnehåll.
+2. På sidan **nycklar** kopierar du antingen en av administratörs nycklarna (de är likvärdiga). API-administratörsnycklarna krävs för att skapa, uppdatera och ta bort objekt i tjänsten. Som kontrast ger frågeinställningar Läs åtkomst till index innehåll.
 
-   ![Sidan Serviceöversikt med URL-slutpunkt](./media/search-create-service-portal/get-url-key.png "URL-slutpunkt och annan tjänstinformation")
+   ![Översikts sida för tjänsten med URL-slutpunkt](./media/search-create-service-portal/get-url-key.png "URL-slutpunkt och annan tjänst information")
 
-Det behövs ingen slutpunkt eller nyckel för portalbaserade uppgifter. Portalen är redan länkad till din Azure Cognitive Search-resurs med administratörsrättigheter. För en portalgenomgång börjar du med [Snabbstart: Skapa ett Azure Cognitive Search-index i portalen](search-get-started-portal.md).
+Det behövs ingen slutpunkt eller nyckel för portalbaserade uppgifter. Portalen är redan länkad till din Azure Kognitiv sökning-resurs med administratörs behörighet. För en portal genom gång börjar du med [snabb start: skapa ett Azure kognitiv sökning-index i portalen](search-get-started-portal.md).
 
 ## <a name="scale-your-service"></a>Skala din tjänst
 
-När tjänsten har etablerats kan du skala den så att den passar dina behov. Om du väljer standardnivån för din Azure Cognitive Search-tjänst kan du skala tjänsten i två dimensioner: repliker och partitioner. Om du hade valt Basic-nivån hade du bara kunnat lägga till repliker. Skalning är inte tillgängligt om du etablerar tjänsten utan kostnad.
+När tjänsten har etablerats kan du skala den så att den passar dina behov. Om du väljer standard nivån för din Azure Kognitiv sökning-tjänst kan du skala din tjänst i två dimensioner: repliker och partitioner. Om du hade valt Basic-nivån hade du bara kunnat lägga till repliker. Skalning är inte tillgängligt om du etablerar tjänsten utan kostnad.
 
 Med ***Partitioner*** kan tjänsten lagra och söka igenom fler dokument.
 
@@ -128,32 +128,32 @@ Om du lägger till resurser blir din månatliga faktura större. [Priskalkylator
 > En tjänst måste ha [2 repliker för skrivskyddad SLA och 3 repliker för läs-/skriv-SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Gå till söktjänstsidan i Azure-portalen.
-2. Välj **Inställningar** > **skala**i fönstret till vänster .
+2. I det vänstra navigerings fönstret väljer du **Inställningar** > **skala**.
 3. Använd reglaget om du vill lägga till resurser av endera typ.
 
-![Lägg till kapacitet](./media/search-create-service-portal/settings-scale.png "Lägga till kapacitet via repliker och partitioner")
+![Lägg till kapacitet](./media/search-create-service-portal/settings-scale.png "Lägg till kapacitet via repliker och partitioner")
 
 > [!Note]
-> Lagring och hastighet per partition ökar på högre nivåer. Mer information finns i [kapacitet och begränsningar](search-limits-quotas-capacity.md).
+> Lagring och hastighet per partition ökar med högre nivåer. Mer information finns i [kapacitet och begränsningar](search-limits-quotas-capacity.md).
 
 ## <a name="when-to-add-a-second-service"></a>När ska du lägga till en andra tjänst?
 
-De flesta kunder använder bara en tjänst som etablerats på en nivå som har [rätt resursbalans](search-sku-tier.md). En tjänst kan vara värd för flera index i enlighet med [gränsvärdena för den nivå du väljer](search-capacity-planning.md), med indexen isolerade från varandra. I Azure Cognitive Search kan begäranden endast dirigeras till ett index, vilket minimerar risken för oavsiktlig eller avsiktlig datahämtning från andra index i samma tjänst.
+De flesta kunder använder bara en tjänst som etablerats på en nivå som har [rätt resursbalans](search-sku-tier.md). En tjänst kan vara värd för flera index i enlighet med [gränsvärdena för den nivå du väljer](search-capacity-planning.md), med indexen isolerade från varandra. I Azure Kognitiv sökning kan begär Anden bara dirigeras till ett index, vilket minimerar risken för oavsiktlig eller avsiktlig data hämtning från andra index i samma tjänst.
 
 Även om de flesta kunder bara använder en tjänst kan det vara nödvändigt med tjänstredundans om de operativa kraven omfattar följande:
 
-* Haveriberedskap (avbrott i datacenter). Azure Cognitive Search ger inte omedelbar redundans i händelse av ett avbrott. Mer information och rekommendationer finns i [Tjänstadministration](search-manage.md).
+* Haveriberedskap (avbrott i datacenter). Azure Kognitiv sökning ger inte omedelbar redundans vid ett avbrott. Mer information och rekommendationer finns i [Tjänstadministration](search-manage.md).
 * Din undersökning av modeller med flera klientorganisationer har fastställt att ytterligare tjänster är den optimala designen. Mer information finns i [Design för flera klientorganisationer](search-modeling-multitenant-saas-applications.md).
-* För globalt distribuerade program kan du kräva en instans av Azure Cognitive Search i flera regioner för att minimera svarstiden för programmets internationella trafik.
+* För globalt distribuerade program kan du behöva en instans av Azure Kognitiv sökning i flera regioner för att minimera svars tiden för programmets internationella trafik.
 
 > [!NOTE]
-> I Azure Cognitive Search kan du inte segregera indexerings- och frågeåtgärder. Därför skulle du aldrig skapa flera tjänster för segregerade arbetsbelastningar. Index tillfrågas alltid om vilken tjänst den skapades i (du kan inte skapa ett index i en tjänst och kopiera den till en annan).
+> I Azure Kognitiv sökning kan du inte åtskilja indexering och frågor om åtgärder. Därför skulle du aldrig skapa flera tjänster för åtskiljda arbets belastningar. Index tillfrågas alltid om vilken tjänst den skapades i (du kan inte skapa ett index i en tjänst och kopiera den till en annan).
 
-Det behövs ingen andra tjänst för hög tillgänglighet. Hög tillgänglighet för frågor uppnås när du använder minst 2 repliker i samma tjänst. Replikuppdateringar är sekventiella, vilket innebär att minst en är i drift när en tjänstuppdatering distribueras. Mer information om drifttid finns i [Servicenivåavtal](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+Det behövs ingen andra tjänst för hög tillgänglighet. Hög tillgänglighet för frågor uppnås när du använder minst 2 repliker i samma tjänst. Replik uppdateringar är sekventiella, vilket innebär att minst en fungerar när en tjänst uppdatering distribueras. Mer information om drift tid finns i [service nivå avtal](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har etablerat en tjänst kan du fortsätta i portalen för att skapa ditt första index.
+När du har slutfört en tjänst kan du fortsätta i portalen för att skapa ditt första index.
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Skapa ett Azure Cognitive Search-index i portalen](search-get-started-portal.md)
+> [Snabb start: skapa ett Azure Kognitiv sökning-index i portalen](search-get-started-portal.md)

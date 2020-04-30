@@ -14,10 +14,10 @@ ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: dd5ce117645ef2b368bbf8f0e441770d6e746b5b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "70881072"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>Vad är Dedikerad HSM i Azure?
@@ -68,7 +68,7 @@ Azure dedikerad HSM lämpar sig bäst för ”lift and shift”-scenarier som kr
 
 ### <a name="not-a-fit"></a>Passar inte
 
-AzureDedic HSM passar inte bra för följande typ av scenario: Microsofts molntjänster som stöder kryptering med kundhanterade nycklar (till exempel Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store, Azure Storage, Azure SQL Databas och kundnyckel för Office 365) som inte är integrerade med Azure Dedicated HSM.
+Azure Dedicated HSM passar inte bra för följande typer av scenario: Microsofts moln tjänster som stöder kryptering med Kundhanterade nycklar (till exempel Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store, Azure Storage, Azure SQL Database och kund nyckel för Office 365) som inte är integrerade med Azure Dedicated HSM.
 
 ### <a name="it-depends"></a>Det beror på
 

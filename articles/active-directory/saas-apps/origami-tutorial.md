@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Origami | Microsoft-dokument'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Origami.
+title: 'Självstudie: Azure Active Directory integrering med origami | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och origami.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: fd347f4eb5f77dacc3c9fd61d0e885e9b3ee7959
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67095638"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-origami"></a>Självstudiekurs: Azure Active Directory-integrering med Origami
+# <a name="tutorial-azure-active-directory-integration-with-origami"></a>Självstudie: Azure Active Directory integrering med origami
 
-I den här självstudien får du lära dig hur du integrerar Origami med Azure Active Directory (Azure AD).
-Genom att integrera Origami med Azure AD får du följande fördelar:
+I den här självstudien får du lära dig hur du integrerar origami med Azure Active Directory (Azure AD).
+Genom att integrera origami med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Origami.
-* Du kan aktivera dina användare så att de automatiskt loggas in på Origami (Enkel inloggning) med sina Azure AD-konton.
+* Du kan styra i Azure AD som har åtkomst till origami.
+* Du kan göra det möjligt för användarna att logga in automatiskt till origami (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Origami behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med origami behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Origami enkel inloggning aktiverad prenumeration
+* Origami-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Origami stöder **SP** initierade SSO
+* Origami stöder **SP** -INITIERAd SSO
 
-## <a name="adding-origami-from-the-gallery"></a>Lägga till Origami från galleriet
+## <a name="adding-origami-from-the-gallery"></a>Lägga till origami från galleriet
 
-Om du vill konfigurera integreringen av Origami i Azure AD måste du lägga till Origami från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av origami i Azure AD måste du lägga till origami från galleriet i listan över hanterade SaaS-appar.
 
-**Så här lägger du till Origami från galleriet:**
+**Utför följande steg för att lägga till origami från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av Origami i Azure AD måste du lägga till
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **Origami**i sökrutan och välj **Origami** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
+4. I rutan Sök skriver du **origami**, väljer **origami** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Origami i resultatlistan](common/search-new-app.png)
+     ![Origami i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med Origami baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Origami upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med origami baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i origami upprättas.
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med Origami måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med origami i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Origami Single Sign-On](#configure-origami-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera origami-enkel inloggning](#configure-origami-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Origami-testanvändare](#create-origami-test-user)** – om du vill ha en motsvarighet till Britta Simon i Origami som är länkad till Azure AD-representationen av användaren.
+5. **[Skapa origami test User](#create-origami-test-user)** – om du vill ha en motsvarighet till Britta Simon i origami som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med Origami:
+Utför följande steg för att konfigurera enkel inloggning med origami i Azure AD:
 
-1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan Programintegrering av Origami på sidan **Origami-program.** **Single sign-on**
+1. Välj **enkel inloggning**på sidan **origami** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,18 +103,18 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Origami:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Origami Domän och WEBBADRESSER enkel inloggningsinformation](common/sp-signonurl.png)
+    ![Information om enkel inloggning för origami-domän och URL: er](common/sp-signonurl.png)
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://live.origamirisk.com/origami/account/login?account=<companyname>`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://live.origamirisk.com/origami/account/login?account=<companyname>`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Origami Client supportteam](https://wordpress.org/support/theme/origami) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [origami client support team](https://wordpress.org/support/theme/origami) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera Origami.**
+6. I avsnittet **Konfigurera origami** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -124,25 +124,25 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Origami:
 
     c. Utloggnings-URL
 
-### <a name="configure-origami-single-sign-on"></a>Konfigurera Origami Enkel inloggning
+### <a name="configure-origami-single-sign-on"></a>Konfigurera origami enkel inloggning
 
-1. Logga in på Origami-kontot med administratörsrättigheter.
+1. Logga in på origami-kontot med administratörs behörighet.
 
 2. På menyn längst upp klickar du på **Admin**.
    
     ![Konfigurera enkel inloggning](./media/origami-tutorial/tutorial_origami_51.png)
 
-3. Gör följande på dialogrutan Enkel inloggningsinställningar:
+3. Utför följande steg på sidan installation av enkel inloggnings konfiguration:
    
     ![Konfigurera enkel inloggning](./media/origami-tutorial/tutorial_origami_531.png)
 
-    a. Välj **Aktivera enkel inloggning**.
+    a. Välj **aktivera enkel inloggning**.
 
-    b. Klistra in värdet för **inloggnings-URL-textrutan i identitetsleverantörens url för inloggningssida** som du har kopierat från Azure-portalen. **Login URL**
+    b. I text rutan **URL för identitets leverantörens inloggnings sida** klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
 
-    c. I **url-textrutan för utloggning av inloggningssida** klistrar du in värdet **för url för utloggning**, som du har kopierat från Azure-portalen.
+    c. I text rutan **URL för identitets leverantörens URL** klistrar du in värdet för **Logga ut URL**, som du har kopierat från Azure Portal.
 
-    d. Klicka på **Bläddra** om du vill ladda upp certifikatet som du har hämtat från Azure-portalen.
+    d. Klicka på **Bläddra** för att ladda upp det certifikat som du har laddat ned från Azure Portal.
 
     e. Klicka på **Spara ändringar**.
 
@@ -154,7 +154,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -173,15 +173,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Origami.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till origami.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Origami**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **origami**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **Origami**i programlistan .
+2. I listan program väljer du **origami**.
 
-    ![Länken Origami i programlistan](common/all-applications.png)
+    ![Origami-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -193,21 +193,21 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-origami-test-user"></a>Skapa Origami-testanvändare
+### <a name="create-origami-test-user"></a>Skapa origami test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i Origami. 
+I det här avsnittet skapar du en användare som heter Britta Simon i origami. 
 
-1. Logga in på Origami-kontot med administratörsrättigheter.
+1. Logga in på origami-kontot med administratörs behörighet.
 
 2. På menyn längst upp klickar du på **Admin**.
    
     ![Konfigurera enkel inloggning](./media/origami-tutorial/tutorial_origami_51.png)
 
-3. Klicka på **Användare och säkerhet** i dialogrutan **Användare**och säkerhet .
+3. I dialog rutan **användare och säkerhet** klickar du på **användare**.
    
     ![Konfigurera enkel inloggning](./media/origami-tutorial/tutorial_origami_54.png)
 
@@ -215,25 +215,25 @@ I det här avsnittet skapar du en användare som heter Britta Simon i Origami.
    
     ![Konfigurera enkel inloggning](./media/origami-tutorial/tutorial_origami_55.png)
 
-5. Gör följande i dialogrutan Lägg till ny användare:
+5. I dialog rutan Lägg till ny användare utför du följande steg:
    
     ![Konfigurera enkel inloggning](./media/origami-tutorial/tutorial_origami_56.png)
 
-    a. I textrutan **Användarnamn** anger du e-post för användare som **brittasimon\@contoso.com**.
+    a. I text rutan **användar namn** anger du e-postadressen till användaren, t. ex. **brittasimon\@contoso.com**.
 
-    b. Skriv ett lösenord i textrutan **Lösenord.**
+    b. Skriv ett lösen ord i text rutan **lösen ord** .
 
-    c. Skriv lösenordet igen i textrutan **Bekräfta lösenord.**
+    c. Skriv lösen ordet igen i text rutan **Bekräfta lösen ord** .
 
     d. I textrutan **Förnamn** skriver du förnamnet på användaren som **Britta**.
 
-    e. Ange efternamn för användaren som **Simon**i textrutan **Efternamn** .
+    e. I text rutan **efter namn** anger du det senaste namnet på användaren som **Simon**.
 
     f. Klicka på **Spara**.
    
     ![Konfigurera enkel inloggning](./media/origami-tutorial/tutorial_origami_57.png)
 
-6. Tilldela **användarroller** och **klientåtkomst** till användaren. 
+6. Tilldela användar **roller** och **klient åtkomst** till användaren. 
    
     ![Konfigurera enkel inloggning](./media/origami-tutorial/tutorial_origami_58.png)
 
@@ -241,13 +241,13 @@ I det här avsnittet skapar du en användare som heter Britta Simon i Origami.
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Origami på åtkomstpanelen ska du automatiskt loggas in på den Origami som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen origami på åtkomst panelen, bör du loggas in automatiskt på den origami som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

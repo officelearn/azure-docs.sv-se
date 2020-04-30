@@ -3,16 +3,16 @@ title: 'Köra flera beroende tjänster: .NET Core & Visual Studio Code'
 services: azure-dev-spaces
 ms.date: 11/21/2018
 ms.topic: tutorial
-description: Den här självstudien visar hur du använder Azure Dev Spaces och Visual Studio Code för att felsöka ett MULTI-Service .NET Core-program på Azure Kubernetes Service
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, servicenät, routning av tjänstnät, kubectl, k8s
+description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka ett .NET Core-program med flera tjänster i Azure Kubernetes service
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 ms.openlocfilehash: 0bbb1aefe517c45207160b83b89f7207e8909666
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75438317"
 ---
-# <a name="running-multiple-dependent-services-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Köra flera beroende tjänster: .NET Core och Visual Studio Code med Azure Dev Spaces
+# <a name="running-multiple-dependent-services-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Köra flera beroende tjänster: .NET Core och Visual Studio Code med Azure dev Spaces
 
 I den här självstudien lär du dig att utveckla program för flera tjänster med hjälp av Azure Dev Spaces samt några av de fördelar som finns i Dev Spaces.
 
@@ -28,8 +28,8 @@ För enkelhetens skull laddar vi ned exempelkoden från en GitHub-databas. Gå t
 ### <a name="run-mywebapi"></a>Kör *mywebapi*
 1. Öppna mappen `mywebapi` i ett *separat VS Code-fönster*.
 1. Öppna **Kommandopaletten** (med hjälp av menyn **Visa | Kommandopalett**) och använd automatisk komplettering för att ange och välja det här kommandot: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. Det här kommandot ska inte förväxlas med kommandot `azds prep` som konfigurerar projektet för distribution.
-1. Tryck på F5 och vänta tills tjänsten har skapats och distribuerats. Du vet att den är klar när *programmet startade. Stäng av genom att trycka på Ctrl+C.* visas i felsökningskonsolen.
-1. Slutpunktens URL ser ut ungefär så här: `http://localhost:<portnumber>`. **Vs-kodens statusfält blir orange och visar en klickbar webbadress.** Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklarmiljön i Azure. localhost-adressen beror på att `mywebapi` inte har definierat några offentliga slutpunkter och endast kan nås från Kubernetes-instansen. För enkelhetens skull, och för att underlätta interaktionen med den privata tjänsten från den lokala datorn, skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure.
+1. Tryck på F5 och vänta tills tjänsten har skapats och distribuerats. Du vet att det är klart när *programmet har startats. Tryck på CTRL + C för att stänga av.* meddelande visas i fel söknings konsolen.
+1. Slutpunktens URL ser ut ungefär så här: `http://localhost:<portnumber>`. **Tips! statusfältet för VS-koden blir orange och visar en klicknings bar URL.** Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklarmiljön i Azure. localhost-adressen beror på att `mywebapi` inte har definierat några offentliga slutpunkter och endast kan nås från Kubernetes-instansen. För enkelhetens skull, och för att underlätta interaktionen med den privata tjänsten från den lokala datorn, skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure.
 1. När `mywebapi` är redo öppnar du webbläsaren på localhost-adressen. Lägg till `/api/values` i URL:en för att anropa standard-GET-API:et för `ValuesController`.
 1. Om alla steg lyckades bör du se ett svar från `mywebapi`-tjänsten.
 
@@ -65,8 +65,8 @@ I föregående kodexempel vidarebefordras rubriken `azds-route-as` från den ink
 
 ### <a name="debug-across-multiple-services"></a>Felsöka över flera tjänster
 1. I detta läge bör `mywebapi` fortfarande köras med felsökaren. Om inte trycker du på F5 i `mywebapi`-projektet.
-1. Ange en brytpunkt `Get(int id)` inuti metoden `api/values/{id}` som hanterar GET-begäranden. Detta är runt [linje 23 i *controllers/valuesController.cs* fil](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/mywebapi/Controllers/ValuesController.cs#L23).
-1. I `webfrontend`-projektet lägger du till en brytpunkt precis innan en GET-begäran skickas till `mywebapi/api/values`. Detta är runt linje 32 i [ *controllers/homecontroller.cs-filen* ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs) som du har ändrat i föregående avsnitt.
+1. Ange en Bryt punkt inuti `Get(int id)` metoden som hanterar `api/values/{id}` get-begäranden. Detta är runt [rad 23 i filen *controllers/ValuesController. cs* ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/mywebapi/Controllers/ValuesController.cs#L23).
+1. I `webfrontend`-projektet lägger du till en brytpunkt precis innan en GET-begäran skickas till `mywebapi/api/values`. Detta är runt rad 32 i filen [ *controllers/HomeController. cs* ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs) som du ändrade i föregående avsnitt.
 1. Tryck på F5 i `webfrontend`-projektet.
 1. Anropa webbappen och stega igenom koden i båda tjänsterna.
 1. I webbappen visar sidan Om ett sammanslaget meddelande från de båda tjänsterna: ”Hello from webfrontend and Hello from mywebapi”.

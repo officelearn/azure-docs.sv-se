@@ -1,6 +1,6 @@
 ---
 title: Fråga data med Azure Cosmos DB:s API för MongoDB
-description: Lär dig hur du frågar data från Azure Cosmos DB:s API för MongoDB med hjälp av MongoDB-skalkommandon
+description: Lär dig hur du frågar efter data från Azure Cosmos DBs API för MongoDB med hjälp av MongoDB Shell-kommandon
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 5b9bc78f6af833d89a3404de0295ddad78ebdf20
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74870147"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Fråga data med Azure Cosmos DB:s API för MongoDB
@@ -62,11 +62,11 @@ Frågorna i den här artikeln använder följande exempeldokument.
 
 Med exemplet på familjedokumentet ovan returnerar följande fråga dokument där ID-fältet matchar `WakefieldFamily`.
 
-**Fråga**
+**Söka i data**
     
     db.families.find({ id: "WakefieldFamily"})
 
-**Results**
+**Resultat**
 
     {
     "_id": "ObjectId(\"58f65e1198f3a12c7090e68c\")",
@@ -112,11 +112,11 @@ Med exemplet på familjedokumentet ovan returnerar följande fråga dokument dä
 
 Nästa fråga returnerar alla underordnade i familjen. 
 
-**Fråga**
+**Söka i data**
     
     db.families.find( { id: "WakefieldFamily" }, { children: true } )
 
-**Results**
+**Resultat**
 
     {
     "_id": "ObjectId("58f65e1198f3a12c7090e68c")",
@@ -145,7 +145,7 @@ Nästa fråga returnerar alla underordnade i familjen.
 
 Nästa fråga returnerar alla familjer som är registrerade. 
 
-**Fråga**
+**Söka i data**
     
     db.families.find( { "isRegistered" : true })
 **Resultat** Inget dokument returneras. 
@@ -154,10 +154,10 @@ Nästa fråga returnerar alla familjer som är registrerade.
 
 Nästa fråga returnerar alla familjer som inte är registrerade. 
 
-**Fråga**
+**Söka i data**
     
     db.families.find( { "isRegistered" : false })
-**Results**
+**Resultat**
 
      {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
@@ -198,11 +198,11 @@ Nästa fråga returnerar alla familjer som inte är registrerade.
 
 Nästa fråga returnerar alla familjer med statusen NY som inte är registrerade. 
 
-**Fråga**
+**Söka i data**
     
      db.families.find( { "isRegistered" : false, "address.state" : "NY" })
 
-**Results**
+**Resultat**
 
      {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
@@ -244,11 +244,11 @@ Nästa fråga returnerar alla familjer med statusen NY som inte är registrerade
 
 Nästa fråga returnerar alla familjer där värdet för underordnade klasser är 8.
 
-**Fråga**
+**Söka i data**
   
      db.families.find( { children : { $elemMatch: { grade : 8 }} } )
 
-**Results**
+**Resultat**
 
      {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
@@ -289,11 +289,11 @@ Nästa fråga returnerar alla familjer där värdet för underordnade klasser ä
 
 Nästa fråga returnerar alla familjer där den underordnade matrisens storlek är 3.
 
-**Fråga**
+**Söka i data**
   
       db.Family.find( {children: { $size:3} } )
 
-**Results**
+**Resultat**
 
 Inga resultat returneras eftersom det inte finns några familjer med fler än två underordnade. Endast när parametern är 2 kommer frågan att lyckas och returnera det fullständiga dokumentet.
 

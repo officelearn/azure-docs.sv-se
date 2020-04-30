@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med BorrowBox | Microsoft-dokument'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och BorrowBox.
+title: 'Självstudie: Azure Active Directory integrering med lån | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och lån.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,43 +17,43 @@ ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b11ce4ba21a6fd4db047c75104729737956699c4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73157630"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Självstudiekurs: Azure Active Directory-integrering med BorrowBox
+# <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Självstudie: Azure Active Directory integrering med lån
 
-I den här självstudien får du lära dig hur du integrerar BorrowBox med Azure Active Directory (Azure AD).
-Genom att integrera BorrowBox med Azure AD får du följande fördelar:
+I den här självstudien får du lära dig hur du integrerar lån med Azure Active Directory (Azure AD).
+Att integrera lån med Azure AD ger följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till BorrowBox.
-* Du kan aktivera dina användare så att de automatiskt loggas in på BorrowBox (Enkel inloggning) med sina Azure AD-konton.
+* Du kan kontrol lera i Azure AD vem som har åtkomst till lån.
+* Du kan göra det möjligt för användarna att vara automatiskt inloggade till lån (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med BorrowBox behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med låna behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Lånarbox enkel inloggning aktiverad prenumeration
+* Aktive rad prenumeration för enkel inloggning för lån
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* BorrowBox stöder **SP och IDP** initierade SSO
-* BorrowBox stöder just in time-användaretablering **Just In Time**
+* Lånat stöd för **SP-och IDP** -INITIERAd SSO
+* Låna stöder **just-in-Time** User-etablering
 
-## <a name="adding-borrowbox-from-the-gallery"></a>Lägga till BorrowBox från galleriet
+## <a name="adding-borrowbox-from-the-gallery"></a>Lägga till en låna från galleriet
 
-Om du vill konfigurera integreringen av BorrowBox i Azure AD måste du lägga till BorrowBox från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera en upplånings integrering i Azure AD måste du lägga till en låna från galleriet till listan över hanterade SaaS-appar.
 
-**Så här lägger du till BorrowBox från galleriet:**
+**Utför följande steg för att lägga till en upplåning från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -67,31 +67,31 @@ Om du vill konfigurera integreringen av BorrowBox i Azure AD måste du lägga ti
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **BorrowBox**i sökrutan och välj **BorrowBox** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
+4. I rutan Sök skriver du **låna**, väljer **låna** från resultat panelen och klickar sedan på knappen **Lägg till** för att lägga till programmet.
 
-     ![BorrowBox i resultatlistan](common/search-new-app.png)
+     ![Låna i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du Azure AD enkel inloggning med BorrowBox baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i BorrowBox upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med låna baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den tillhör ande användaren i lånas rätt upprättas.
 
-Om du vill konfigurera och testa azure AD-enkel inloggning med BorrowBox måste du slutföra följande byggstenar:
+För att konfigurera och testa enkel inloggning med Azure AD med låna måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera BorrowBox Single Sign-On](#configure-borrowbox-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera enkel inloggning för lån](#configure-borrowbox-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa BorrowBox-testanvändare](#create-borrowbox-test-user)** - om du vill ha en motsvarighet till Britta Simon i BorrowBox som är länkad till Azure AD-representationen av användaren.
+5. **[Skapa en test användare på lån](#create-borrowbox-test-user)** -för att få en motsvarighet till Britta Simon i en lånare som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med BorrowBox:
+Utför följande steg för att konfigurera enkel inloggning med Azure AD med låna:
 
-1. Välj Enkel inloggning på sidan BorrowBox-programintegration på [Azure-portalen](https://portal.azure.com/). **BorrowBox** **Single sign-on**
+1. I [Azure Portal](https://portal.azure.com/)väljer du **enkel inloggning**på sidan **upplånings** program integrering.
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -111,12 +111,12 @@ Så här konfigurerar du en enkel Azure AD-inloggning med BorrowBox:
 
     ![Information om [Programnamn]-domän och URL:er med enkel inloggning](common/metadata-upload-additional-signon.png)
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://fe.bolindadigital.com/wldcs_bol_fo/b2i/mainPage.html?b2bSite=<ID>`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://fe.bolindadigital.com/wldcs_bol_fo/b2i/mainPage.html?b2bSite=<ID>`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [BorrowBox Client supportteam](mailto:borrowbox@bolinda.com) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [låne support teamet](mailto:borrowbox@bolinda.com) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. Ditt BorrowBox-program förväntar sig SAML-påståenden i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. BorrowBox-programmet förväntar sig att **namnidentifieraren** mappas med **user.mail**, så du måste redigera attributmappningen genom att klicka på **Redigera-ikonen** och ändra attributmappningen.
+6. Ditt lån i lånet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. Låne programmet förväntar sig att **NameIdentifier** mappas med **User. mail**, så du måste redigera mappningen av attribut genom att klicka på ikonen **Redigera** och ändra attributet mappning.
 
     ![image](common/edit-attribute.png)
 
@@ -124,7 +124,7 @@ Så här konfigurerar du en enkel Azure AD-inloggning med BorrowBox:
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-8. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera BorrowBox.**
+8. I avsnittet **Konfigurera lån** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -134,9 +134,9 @@ Så här konfigurerar du en enkel Azure AD-inloggning med BorrowBox:
 
     c. Utloggnings-URL
 
-### <a name="configure-borrowbox-single-sign-on"></a>Konfigurera BorrowBox enkel inloggning
+### <a name="configure-borrowbox-single-sign-on"></a>Konfigurera enkel inloggning för lån
 
-Om du vill konfigurera enkel inloggning på **BorrowBox-sidan** måste du skicka den nedladdade **XML-koden för federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [BorrowBox-supportteamet](mailto:borrowbox@bolinda.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **upplånings** sidan måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för upplåning](mailto:borrowbox@bolinda.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -146,7 +146,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -156,7 +156,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -165,15 +165,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till BorrowBox.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till lån.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **BorrowBox**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **låna**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **BorrowBox**i programlistan .
+2. I listan program väljer du **låna**.
 
-    ![Länken BorrowBox i listan Program](common/all-applications.png)
+    ![Länken låna i listan program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -185,27 +185,27 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-borrowbox-test-user"></a>Skapa BorrowBox-testanvändare
+### <a name="create-borrowbox-test-user"></a>Skapa en test användare i låntagaren
 
-I det här avsnittet skapas en användare som heter Britta Simon i BorrowBox. BorrowBox stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i BorrowBox skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som heter Britta Simon i lån. Lånat stöd för just-in-Time User-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i lån skapas en ny efter autentiseringen.
 
 > [!Note]
-> Om du behöver skapa en användare manuellt kontaktar du [BorrowBox supportteam](mailto:borrowbox@bolinda.com).
+> Kontakta [låne support teamet](mailto:borrowbox@bolinda.com)om du behöver skapa en användare manuellt.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Lånad bricka på åtkomstpanelen ska du automatiskt loggas in på den BorrowBox som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen lån i åtkomst panelen, bör du loggas in automatiskt till den lån för vilken du ställer in SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

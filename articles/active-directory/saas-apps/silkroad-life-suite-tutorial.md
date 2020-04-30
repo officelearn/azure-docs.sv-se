@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med SilkRoad Life Suite | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integration med SilkRoad Life Suite | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SilkRoad Life Suite.
 services: active-directory
 documentationCenter: na
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 63165da69815c77afb8692e1e68c1710beb8df8c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67090826"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Självstudiekurs: Azure Active Directory-integrering med SilkRoad Life Suite
+# <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Självstudie: Azure Active Directory integrering med SilkRoad Life Suite
 
-I den här självstudien får du lära dig hur du integrerar SilkRoad Life Suite med Azure Active Directory (Azure AD).
+I den här självstudien får du lära dig att integrera SilkRoad Life Suite med Azure Active Directory (Azure AD).
 Genom att integrera SilkRoad Life Suite med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har tillgång till SilkRoad Life Suite.
-* Du kan aktivera dina användare så att de automatiskt loggas in på SilkRoad Life Suite (Enkel inloggning) med sina Azure AD-konton.
+* Du kan styra Azure AD som har åtkomst till SilkRoad Life Suite.
+* Du kan göra det möjligt för användarna att logga in automatiskt till SilkRoad Life Suite (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med SilkRoad Life Suite behöver du följande:
+Om du vill konfigurera Azure AD-integrering med SilkRoad Life Suite behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* SilkRoad Life Suite enkel inloggning aktiverad prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* SilkRoad Life Suite-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* SilkRoad Life Suite stöder **SP** initierade SSO
+* SilkRoad Life Suite stöder **SP** -INITIERAd SSO
 
-## <a name="adding-silkroad-life-suite-from-the-gallery"></a>Lägga SilkRoad Life Suite från galleriet
+## <a name="adding-silkroad-life-suite-from-the-gallery"></a>Lägga till SilkRoad Life Suite från galleriet
 
-Om du vill konfigurera integreringen av SilkRoad Life Suite i Azure AD måste du lägga till SilkRoad Life Suite från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera SilkRoad Life Suite till Azure AD måste du lägga till SilkRoad Life Suite från galleriet till listan över hanterade SaaS-appar.
 
-**Så här lägger du till SilkRoad Life Suite från galleriet:**
+**Utför följande steg för att lägga till SilkRoad Life Suite från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av SilkRoad Life Suite i Azure AD måste du
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **SilkRoad Life Suite**, väljer **SilkRoad Life Suite** från resultatpanelen och klickar sedan på **Lägg** till knappen för att lägga till programmet.
+4. I rutan Sök skriver du **SilkRoad Life Suite**, väljer **SilkRoad Life Suite** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-    ![SilkRoad Life Suite i resultatlistan](common/search-new-app.png)
+    ![SilkRoad Life-Svit i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du azure AD enkel inloggning med SilkRoad Life Suite baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning till jobbet måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i SilkRoad Life Suite upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med SilkRoad Life Suite baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och en relaterad användare i SilkRoad Life Suite.
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med SilkRoad Life Suite måste du slutföra följande byggstenar:
+Om du vill konfigurera och testa enkel inloggning med SilkRoad Life Suite i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera SilkRoad Life Suite Enkel inloggning](#configure-silkroad-life-suite-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera SilkRoad Life Suite enkel inloggning](#configure-silkroad-life-suite-single-sign-on)** – så här konfigurerar du inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa SilkRoad Life Suite-testanvändare](#create-silkroad-life-suite-test-user)** – om du vill ha en motsvarighet till Britta Simon i SilkRoad Life Suite som är länkad till Azure AD-representationen av användaren.
+5. **[Skapa SilkRoad Life Suite test User](#create-silkroad-life-suite-test-user)** – om du vill ha en motsvarighet till Britta Simon i SilkRoad Life Suite som är länkat till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med SilkRoad Life Suite:
+Utför följande steg för att konfigurera enkel inloggning för Azure AD med SilkRoad Life Suite:
 
-1. Välj Enkel inloggning på sidan SilkRoad Life Suite-programintegrering **på** [Sidan](https://portal.azure.com/) **För Programmet SilkRoad Life Suite** .
+1. I [Azure Portal](https://portal.azure.com/)på sidan **SilkRoad Life Suite** Application Integration väljer du **enkel inloggning**.
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -104,7 +104,7 @@ Så här konfigurerar du en enkel Azure AD-inloggning med SilkRoad Life Suite:
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg om du har **metadatafilen för tjänstleverantör**:
 
     > [!NOTE]
-    > Du kommer att få **Service Provider metadatafilen** förklaras senare i den här självstudien.
+    > Du får en förklarad **fil för tjänst leverantören** som beskrivs senare i den här självstudien.
 
     a. Klicka på **Ladda upp metadatafil**.
 
@@ -114,20 +114,20 @@ Så här konfigurerar du en enkel Azure AD-inloggning med SilkRoad Life Suite:
 
     ![image](common/browse-upload-metadata.png)
 
-    c. När metadatafilen har överförts fylls **URL-värdena identifierare** och **svar** i i fyllas i automatiskt i avsnittet Grundläggande SAML-konfiguration:
+    c. När metadatafilen har laddats upp, fylls **ID** och **svars-URL** -värden automatiskt i avsnittet grundläggande SAML-konfiguration:
 
     ![image](common/sp-identifier-reply.png)
 
     > [!Note]
     > Om värdena **Identifierare** och **Svars-URL** inte fylls i automatiskt fyller du i värdena manuellt enligt dina krav.
 
-    d. Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<subdomain>.silkroad-eng.com/Authentication/`
+    d. I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<subdomain>.silkroad-eng.com/Authentication/`
 
-5. Om du inte har **metadatafilen för Service Provider**i avsnittet Grundläggande **SAML-konfiguration** gör du följande:
+5. I avsnittet **grundläggande SAML-konfiguration** , om du inte har en **metadata-fil för tjänst leverantören**, utför följande steg:
 
-    ![SilkRoad Life Suite Domän och webbadresser enkel inloggningsinformation](common/sp-identifier-reply.png)
+    ![Information om SilkRoad Life Suite-domän och URL: er för enkel inloggning](common/sp-identifier-reply.png)
 
-    a. Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<subdomain>.silkroad-eng.com/Authentication/`
+    a. I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<subdomain>.silkroad-eng.com/Authentication/`
 
     b. I rutan **Identifierare** skriver du en URL med följande mönster:
 
@@ -144,13 +144,13 @@ Så här konfigurerar du en enkel Azure AD-inloggning med SilkRoad Life Suite:
     | `https://<subdomain>.silkroad.com/Authentication/`|
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [SilkRoad Life Suite Client supportteam](https://www.silkroad.com/locations/) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [SilkRoad Life Suite-klientens support team](https://www.silkroad.com/locations/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-7. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera SilkRoad Life Suite.**
+7. I avsnittet **Konfigurera SilkRoad Life Suite** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -160,64 +160,64 @@ Så här konfigurerar du en enkel Azure AD-inloggning med SilkRoad Life Suite:
 
     c. Utloggnings-URL
 
-### <a name="configure-silkroad-life-suite-single-sign-on"></a>Konfigurera SilkRoad Life Suite Enkel inloggning
+### <a name="configure-silkroad-life-suite-single-sign-on"></a>Konfigurera SilkRoad Life Suite enkel inloggning
 
-1. Logga in på din SilkRoad-företagswebbplats som administratör.
+1. Logga in på din SilkRoad företags webbplats som administratör.
 
     > [!NOTE]
-    > Om du vill få åtkomst till SilkRoad Life Suite Authentication-programmet för att konfigurera federation med Microsoft Azure AD kontaktar du SilkRoad Support eller din SilkRoad Services-representant.
+    > För att få åtkomst till SilkRoad Life Suite Authentication Application för att konfigurera Federation med Microsoft Azure AD, kontakta SilkRoad-supporten eller din SilkRoad Services-representant.
 
-1. Gå till **Tjänsteleverantör**och klicka sedan på **Federationsinformation**.
+1. Gå till **tjänst leverantör**och klicka sedan på **Federations information**.
 
-    ![Enkel azure AD-inloggning](./media/silkroad-life-suite-tutorial/tutorial_silkroad_06.png)
+    ![Enkel inloggning för Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_06.png)
 
-1. Klicka på **Hämta federationsmetadata**och spara sedan metadatafilen på datorn. Använd hämtade federationsmetadata som en **tjänstprovidermetadatafil** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+1. Klicka på **Ladda ned federationsmetadata**och spara sedan metadatafilen på datorn. Använd hämtade federationsmetadata som en fil för en **tjänst leverantörs-metadata** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
-    ![Enkel azure AD-inloggning](./media/silkroad-life-suite-tutorial/tutorial_silkroad_07.png)
+    ![Enkel inloggning för Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_07.png)
 
-1. Klicka på **Autentiseringskällor**i programmet **SilkRoad** .
+1. I ditt **Silkroad** -program klickar du på **källor för autentisering**.
 
-    ![Enkel azure AD-inloggning](./media/silkroad-life-suite-tutorial/tutorial_silkroad_08.png) 
+    ![Enkel inloggning för Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_08.png) 
 
-1. Klicka på **Lägg till autentiseringskälla**.
+1. Klicka på **Lägg till källa för autentisering**.
 
-    ![Enkel azure AD-inloggning](./media/silkroad-life-suite-tutorial/tutorial_silkroad_09.png)
+    ![Enkel inloggning för Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_09.png)
 
-1. Gör följande i avsnittet **Lägg till autentiseringskälla:**
+1. I avsnittet **Lägg till autentiserings källa** utför du följande steg:
 
-    ![Enkel azure AD-inloggning](./media/silkroad-life-suite-tutorial/tutorial_silkroad_10.png)
+    ![Enkel inloggning för Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_10.png)
   
-    a. Under **Alternativ 2 - Metadatafil**klickar du på **Bläddra** för att ladda upp den nedladdade metadatafilen från Azure-portalen.
+    a. Under **Alternativ 2 – metadatafil**klickar du på **Bläddra** för att ladda upp den hämtade Metadata-filen från Azure Portal.
   
-    b. Klicka på **Skapa identitetsprovider med hjälp av Fildata**.
+    b. Klicka på **skapa identitets leverantör med fildata**.
 
-1. Klicka på **Redigera**i avsnittet **Autentiseringskällor** .
+1. I avsnittet **autentiseringsnivåer** klickar du på **Redigera**.
 
-    ![Enkel azure AD-inloggning](./media/silkroad-life-suite-tutorial/tutorial_silkroad_11.png)
+    ![Enkel inloggning för Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_11.png)
 
-1. Gör följande i dialogrutan **Redigera autentiseringskälla:**
+1. Utför följande steg i dialog rutan **Redigera Authentication source** :
 
-    ![Enkel azure AD-inloggning](./media/silkroad-life-suite-tutorial/tutorial_silkroad_12.png)
+    ![Enkel inloggning för Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_12.png)
 
-    a. Som **aktiverat**väljer du **Ja**.
+    a. Välj **Ja**som **aktive rad**.
 
-    b. I textrutan **EntityId** klistrar du in värdet för **Azure AD-identifierare** som du har kopierat från Azure-portalen.
+    b. I text rutan **EntityId** klistrar du in värdet för **Azure AD-identifieraren** som du kopierade från Azure Portal.
 
-    c. Skriv en beskrivning för konfigurationen i textrutan **IdP-beskrivning** (till exempel *Azure AD SSO*).
+    c. I text rutan **Beskrivning av IDP** anger du en beskrivning av konfigurationen (till exempel: *Azure AD SSO*).
 
-    d. Ladda upp **metadatafilen** som du har hämtat från Azure-portalen i textrutan **Metadatafil.**
+    d. I text rutan **metadatafil** laddar du upp den **metadatafil** som du laddade ned från Azure Portal.
   
-    e. Skriv ett namn som är specifikt för din konfiguration i textrutan för **IdP-namn** (till exempel *Azure SP*).
+    e. I text rutan **namn på IDP** anger du ett namn som är särskilt för din konfiguration (till exempel: *Azure SP*).
   
-    f. Klistra in värdet för **url-URL för utloggning** som du har kopierat från Azure-portalen i **textrutan Logout Service** URL.
+    f. I text rutan för **utloggnings tjänstens URL** klistrar du in värdet för den **utloggnings-URL** som du kopierade från Azure Portal.
 
-    g. Klistra in värdet för **inloggningsadressen** som du har kopierat från Azure-portalen i textrutan **för tjänstens webbloggning.**
+    g. I text rutan **inloggnings tjänstens URL** klistrar du in värdet för **inloggnings-URL: en** som du har kopierat från Azure Portal.
 
     h. Klicka på **Spara**.
 
-1. Inaktivera alla andra autentiseringskällor.
+1. Inaktivera alla andra källor för autentisering.
 
-    ![Enkel azure AD-inloggning](./media/silkroad-life-suite-tutorial/tutorial_silkroad_13.png)
+    ![Enkel inloggning för Azure AD](./media/silkroad-life-suite-tutorial/tutorial_silkroad_13.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -227,7 +227,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -246,15 +246,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till SilkRoad Life Suite.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till SilkRoad Life Suite.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **SilkRoad Life Suite**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **SilkRoad Life Suite**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **SilkRoad Life Suite**i programlistan .
+2. I listan program väljer du **SilkRoad Life Suite**.
 
-    ![Länken SilkRoad Life Suite i programlistan](common/all-applications.png)
+    ![SilkRoad Life Suite-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -266,24 +266,24 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-silkroad-life-suite-test-user"></a>Skapa SilkRoad Life Suite-testanvändare
+### <a name="create-silkroad-life-suite-test-user"></a>Skapa SilkRoad Life Suite test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i SilkRoad Life Suite. Arbeta med [SilkRoad Life Suite Client supportteam](https://www.silkroad.com/locations/) för att lägga till användarna i SilkRoad Life Suite-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon i SilkRoad Life Suite. Arbeta med [support teamet för SilkRoad Life Suite](https://www.silkroad.com/locations/) för att lägga till användarna i SilkRoad Life Suite-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen SilkRoad Life Suite i åtkomstpanelen ska du automatiskt loggas in på Den SilkRoad Life Suite som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen SilkRoad Life Suite på åtkomst panelen, bör du loggas in automatiskt till SilkRoad-tidssviten som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -1,16 +1,16 @@
 ---
-title: Exempel på Azure PowerShell-skript – distribuera ett hanterat program
-description: Innehåller exempel på Azure PowerShell-exempelskript som distribuerar en hanterad programdefinition till prenumerationen.
+title: Azure PowerShell skript exempel – distribuera ett hanterat program
+description: Innehåller Azure PowerShell exempel skript som distribuerar en definition för ett hanterat program till prenumerationen.
 author: tfitzmac
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: e076128a5be453028635b1657bf3f90980863148
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75650172"
 ---
 # <a name="deploy-a-managed-application-for-a-service-catalog-with-powershell"></a>Distribuera ett hanterat program för en tjänstkatalog med PowerShell
@@ -31,7 +31,7 @@ Det här skriptet distribuerar en definition för hanterade program från tjäns
 
 Det här skriptet använder följande kommando för att distribuera det hanterade programmet. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [New-AzManagedApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplication) | Skapa ett hanterat program. Ange definitions-ID och parametrar för mallen. |
 

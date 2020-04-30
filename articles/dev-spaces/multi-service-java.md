@@ -1,18 +1,18 @@
 ---
-title: 'Köra flera beroende tjänster: Java & Visual Studio-kod'
+title: 'Köra flera beroende tjänster: Java & Visual Studio Code'
 services: azure-dev-spaces
 ms.date: 11/21/2018
 ms.topic: tutorial
-description: Den här självstudien visar hur du använder Azure Dev Spaces och Visual Studio Code för att felsöka ett Java-program med flera tjänster på Azure Kubernetes Service
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, servicenät, routning av tjänstnät, kubectl, k8s
+description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka ett Java-program med flera tjänster på Azure Kubernetes service
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 ms.openlocfilehash: beab91964cab9938a5d63584089326bb408f6efc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75438335"
 ---
-# <a name="running-multiple-dependent-services-java-and-visual-studio-code-with-azure-dev-spaces"></a>Köra flera beroende tjänster: Java- och Visual Studio-kod med Azure Dev Spaces
+# <a name="running-multiple-dependent-services-java-and-visual-studio-code-with-azure-dev-spaces"></a>Köra flera beroende tjänster: Java och Visual Studio Code med Azure dev Spaces
 
 I den här självstudien lär du dig att utveckla program för flera tjänster med hjälp av Azure Dev Spaces samt några av de fördelar som finns i Dev Spaces.
 
@@ -28,13 +28,13 @@ För enkelhetens skull laddar vi ned exempelkoden från en GitHub-databas. Gå t
 ### <a name="run-mywebapi"></a>Kör *mywebapi*
 1. Öppna mappen `mywebapi` i ett *separat VS Code-fönster*.
 1. Öppna **Kommandopaletten** (med hjälp av menyn **Visa | Kommandopalett**) och använd automatisk komplettering för att ange och välja det här kommandot: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
-1. Tryck på F5 och vänta tills tjänsten har skapats och distribuerats. Du vet att det är klart när ett meddelande som liknar nedan visas i felsökningskonsolen:
+1. Tryck på F5 och vänta tills tjänsten har skapats och distribuerats. Du vet att det är klart när ett meddelande som liknar nedan visas i fel söknings konsolen:
 
     ```cmd
     2019-03-11 17:02:35.935  INFO 216 --- [           main] com.ms.sample.mywebapi.Application       : Started Application in 8.164 seconds (JVM running for 9.272)
     ```
 
-1. Slutpunktens URL ser ut ungefär så här: `http://localhost:<portnumber>`. **Vs-kodens statusfält blir orange och visar en klickbar webbadress.** Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklarmiljön i Azure. localhost-adressen beror på att `mywebapi` inte har definierat några offentliga slutpunkter och endast kan nås från Kubernetes-instansen. För enkelhetens skull, och för att underlätta interaktionen med den privata tjänsten från den lokala datorn, skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure.
+1. Slutpunktens URL ser ut ungefär så här: `http://localhost:<portnumber>`. **Tips! statusfältet för VS-koden blir orange och visar en klicknings bar URL.** Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklarmiljön i Azure. localhost-adressen beror på att `mywebapi` inte har definierat några offentliga slutpunkter och endast kan nås från Kubernetes-instansen. För enkelhetens skull, och för att underlätta interaktionen med den privata tjänsten från den lokala datorn, skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure.
 1. När `mywebapi` är redo öppnar du webbläsaren på localhost-adressen.
 1. Om alla steg lyckades bör du se ett svar från `mywebapi`-tjänsten.
 
@@ -65,7 +65,7 @@ I föregående kodexempel vidarebefordras rubriken `azds-route-as` från den ink
 
 ### <a name="debug-across-multiple-services"></a>Felsöka över flera tjänster
 1. I detta läge bör `mywebapi` fortfarande köras med felsökaren. Om inte trycker du på F5 i `mywebapi`-projektet.
-1. Ange en brytpunkt `index()` i metoden `mywebapi` för projektet, på [rad 19 `Application.java` i](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/mywebapi/src/main/java/com/ms/sample/mywebapi/Application.java#L19)
+1. Ange en Bryt punkt i `index()` `mywebapi` projektets metod på [rad 19 i `Application.java` ](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/mywebapi/src/main/java/com/ms/sample/mywebapi/Application.java#L19)
 1. I `webfrontend`-projektet lägger du till en brytpunkt precis innan en GET-begäran skickas till `mywebapi` på raden som börjar med `try`.
 1. Tryck på F5 i `webfrontend`-projektet (eller starta om felsökningsprogrammet om det körs).
 1. Anropa webbappen och stega igenom koden i båda tjänsterna.

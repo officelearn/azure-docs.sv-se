@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Kantega SSO för sammanflödet | Microsoft-dokument'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Kantega SSO för sammanflödet.
+title: 'Självstudie: Azure Active Directory integrering med Kantega SSO för Confluence | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Kantega SSO för Confluence.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 27fa0567eefbb50907c0ed6952333230e874c21d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67099044"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-confluence"></a>Självstudiekurs: Azure Active Directory-integrering med Kantega SSO för sammanflödet
+# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-confluence"></a>Självstudie: Azure Active Directory integrering med Kantega SSO för Confluence
 
-I den här självstudien får du lära dig hur du integrerar Kantega SSO för sammanflödet med Azure Active Directory (Azure AD).
-Genom att integrera Kantega SSO for Confluence med Azure AD får du följande fördelar:
+I den här självstudien får du lära dig att integrera Kantega SSO för Confluence med Azure Active Directory (Azure AD).
+Genom att integrera Kantega SSO för Confluence med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Kantega SSO för sammanflödet.
-* Du kan aktivera dina användare så att de automatiskt loggas in på Kantega SSO for Confluence (Single Sign-On) med sina Azure AD-konton.
+* Du kan styra Azure AD som har åtkomst till Kantega SSO för Confluence.
+* Du kan göra det möjligt för användarna att logga in automatiskt till Kantega SSO för Confluence (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Kantega SSO för sammanflödet behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Kantega SSO för Confluence behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Kantega SSO för sammanflödet enkel inloggning aktiverad prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* Kantega SSO för Confluence enkel inloggning aktive rad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Kantega SSO for Confluence stöder **SP och IDP** initierade SSO
+* Kantega SSO för Confluence stöder **SP-och IDP** -INITIERAd SSO
 
-## <a name="adding-kantega-sso-for-confluence-from-the-gallery"></a>Lägga kantega SSO för sammanflödet från galleriet
+## <a name="adding-kantega-sso-for-confluence-from-the-gallery"></a>Lägga till Kantega SSO för Confluence från galleriet
 
-Om du vill konfigurera integreringen av Kantega SSO for Confluence i Azure AD måste du lägga till Kantega SSO för sammanflödet från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integrationen av Kantega SSO för Confluence i Azure AD måste du lägga till Kantega SSO för Confluence från galleriet till listan över hanterade SaaS-appar.
 
-**Så här lägger du till Kantega SSO for Confluence från galleriet:**
+**Utför följande steg för att lägga till Kantega SSO för Confluence från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av Kantega SSO for Confluence i Azure AD m�
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **Kantega SSO för sammanflödet**i sökrutan och välj **Kantega SSO för sammanflödet** från resultatpanelen och klicka sedan på **Lägg** till knappen för att lägga till programmet.
+4. I sökrutan skriver du **KANTEGA SSO för Confluence**, väljer **Kantega SSO för Confluence** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-    ![Kantega SSO för sammanflödet i resultatlistan](common/search-new-app.png)
+    ![Kantega SSO för Confluence i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du Azure AD enkel inloggning med Kantega SSO for Confluence baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Kantega SSO for Confluence upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Kantega SSO för Confluence baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Kantega SSO för Confluence upprättas.
 
-Om du vill konfigurera och testa en azure AD-inloggning med Kantega SSO for Confluence måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning i Azure AD med Kantega SSO för Confluence måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Kantega SSO för sammanflödet enkel inloggning](#configure-kantega-sso-for-confluence-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera KANTEGA SSO för Confluence enkel inloggning](#configure-kantega-sso-for-confluence-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Kantega SSO för sammanflödet testanvändare](#create-kantega-sso-for-confluence-test-user)** - att ha en motsvarighet till Britta Simon i Kantega SSO för sammanflödet som är kopplad till Azure AD-representationen av användaren.
+5. **[Skapa KANTEGA SSO för Confluence test User](#create-kantega-sso-for-confluence-test-user)** – om du vill ha en motsvarighet till Britta Simon i Kantega SSO för Confluence som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med Kantega SSO för sammanflödet:
+Utför följande steg för att konfigurera enkel inloggning för Azure AD med Kantega SSO för Confluence:
 
-1. I [Azure-portalen](https://portal.azure.com/)väljer du **Enkel inloggning**på sidan **Kantega SSO för sammanflödet** av programintegration .
+1. I [Azure Portal](https://portal.azure.com/)på sidan **Kantega SSO för Confluence** program integration väljer du **enkel inloggning**.
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -101,19 +101,19 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Kantega SSO för samma
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
+4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Kantega SSO för sammanflödet domän och webbadresser enkel inloggningsinformation](common/idp-intiated.png)
+    ![Information om enkel inloggning för Kantega SSO för Confluence-domän och URL: er](common/idp-intiated.png)
 
-    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster:`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Kantega SSO för sammanflödet domän och webbadresser enkel inloggningsinformation](common/metadata-upload-additional-signon.png)
+    ![Information om enkel inloggning för Kantega SSO för Confluence-domän och URL: er](common/metadata-upload-additional-signon.png)
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Dessa värden tas emot under konfigurationen av Confluence-pluginprogrammet, som beskrivs senare i självstudien.
@@ -122,7 +122,7 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Kantega SSO för samma
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-7. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera Kantega SSO för sammanflödet.**
+7. I avsnittet **Konfigurera KANTEGA SSO för Confluence** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -132,9 +132,9 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Kantega SSO för samma
 
     c. Utloggnings-URL
 
-### <a name="configure-kantega-sso-for-confluence-single-sign-on"></a>Konfigurera Kantega SSO för sammanflödet enkel inloggning
+### <a name="configure-kantega-sso-for-confluence-single-sign-on"></a>Konfigurera Kantega SSO för enkel inloggning med Confluence
 
-1. I ett annat webbläsarfönster loggar du in på **administratörsportalen för Sammanflödet** som administratör.
+1. Logga in på din **Confluence-administratörs Portal** som administratör i ett annat webbläsarfönster.
 
 1. Hovra över kugghjulet och klicka på **Tillägg**.
 
@@ -144,7 +144,7 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Kantega SSO för samma
 
     ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon.png)
 
-1. Sök **Kantega SSO för sammanflödet SAML Kerberos** och klicka på **Installera** knappen för att installera den nya SAML plugin.
+1. Sök i **KANTEGA SSO för Confluence SAML Kerberos** och klicka på knappen **Installera** för att installera det nya SAML-plugin-programmet.
 
     ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon2.png)
 
@@ -168,47 +168,47 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Kantega SSO för samma
 
     ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon36.png)
 
-1. I **SAML** SAML-sektionen. Välj **Azure Active Directory (Azure AD)** i listrutan Lägg till **identitetsprovider.**
+1. I **SAML** -avsnittet. Välj **Azure Active Directory (Azure AD)** i list rutan **Lägg till identitets leverantör** .
 
     ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon4.png)
 
-1. Välj prenumerationsnivå som **Grundläggande**.
+1. Välj prenumerations nivå som **Basic**.
 
     ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon5.png)
 
-1. Gör följande i avsnittet **Appegenskaper:**
+1. I avsnittet **app Properties** utför du följande steg:
 
     ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon6.png)
 
-    a. Kopiera **app-ID-URI-värdet** och använd det som **identifierare, svars-URL och inloggnings-URL** på avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    a. Kopiera **app-ID-URI** -värdet och Använd det som **identifierare, svars-URL och INLOGGNINGs-URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
     b. Klicka på **Nästa**.
 
-1. Gör följande i avsnittet **Importera metadata:** 
+1. I avsnittet **metadata-import** utför du följande steg: 
 
     ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon7.png)
 
-    a. Välj **Metadata-fil på min dator**och ladda upp metadatafilen som du har hämtat från Azure-portalen.
+    a. Välj **metadatafil på den här datorn**och ladda upp metadatafilen, som du har laddat ned från Azure Portal.
 
     b. Klicka på **Nästa**.
 
-1. Gör följande i avsnittet **Namn och SSO-plats:**
+1. I avsnittet **namn och SSO-plats** utför du följande steg:
 
     ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon8.png)
 
-    a. Lägg till namnet på identitetsprovidern i **identitetsproviderns namntextruta** (t.ex.
+    a. Lägg till namnet på identitets leverantören i text rutan för **identitets leverantörs namn** (t. ex. Azure AD).
 
     b. Klicka på **Nästa**.
 
-1. Verifiera signeringscertifikatet och klicka på **Nästa**.
+1. Verifiera signerings certifikatet och klicka på **Nästa**.
 
     ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon9.png)
 
-1. Gör följande i avsnittet **Sammanflödet av användarkonton:**
+1. Utför följande steg i avsnittet **Confluence User Accounts** :
 
     ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon10.png)
 
-    a. Välj **Skapa användare i Confluences interna katalog om det behövs** och ange lämpligt namn på gruppen för användare (kan vara flera nej. grupper åtskilda av kommatecken).
+    a. Välj **skapa användare i Confluence interna katalog om det behövs** och ange rätt namn på gruppen för användare (kan vara flera). av grupper åtskilda med kommatecken).
 
     b. Klicka på **Nästa**.
 
@@ -216,13 +216,13 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Kantega SSO för samma
 
     ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon11.png)
 
-1. På avsnittet **Kända domäner för Azure AD** utför du följande steg: 
+1. Utför följande steg på avsnittet **kända domäner för Azure AD** : 
 
     ![Konfigurera enkel inloggning](./media/kantegassoforconfluence-tutorial/addon12.png)
 
-    a. Välj **Kända domäner** på sidans vänstra panel.
+    a. Välj **kända domäner** i den vänstra panelen på sidan.
 
-    b. Ange domännamn i textrutan **Kända domäner.**
+    b. Ange domän namn i text rutan för **kända domäner** .
 
     c. Klicka på **Spara**.
 
@@ -234,7 +234,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -253,15 +253,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Kantega SSO för sammanflödet.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Kantega SSO för Confluence.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Kantega SSO för sammanflödet**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Kantega SSO för Confluence**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **Kantega SSO för sammanflödet i**programlistan .
+2. I listan program väljer du **KANTEGA SSO för Confluence**.
 
-    ![Länken Kantega SSO for Confluence i listan Program](common/all-applications.png)
+    ![Länken Kantega SSO för Confluence i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -273,23 +273,23 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-kantega-sso-for-confluence-test-user"></a>Skapa Kantega SSO för sammanflödet testanvändare
+### <a name="create-kantega-sso-for-confluence-test-user"></a>Skapa Kantega SSO för Confluence test User
 
-Om du vill att Azure AD-användare ska kunna logga in på Sammanflödet måste de etableras i Sammanflödet. När det gäller Kantega SSO för sammanflödet är etablering en manuell aktivitet.
+Om du vill att Azure AD-användare ska kunna logga in på Confluence måste de tillhandahållas i Confluence. När det gäller Kantega SSO för Confluence är etableringen en manuell uppgift.
 
 **Gör följande för att etablera ett användarkonto:**
 
-1. Logga in på webbplatsen Kantega SSO for Confluence som administratör.
+1. Logga in på din Kantega SSO för Confluence-företags webbplats som administratör.
 
 1. Hovra över kugghjulet och klicka på **Användarhantering**.
 
     ![Lägga till medarbetare](./media/kantegassoforconfluence-tutorial/user1.png)
 
-1. Klicka på Fliken Lägg till användare under avsnittet **Användare.** Gör följande på dialogrutan **Lägg till en användare:**
+1. Under avsnittet användare klickar du på fliken **Lägg till användare** . Utför följande steg på dialog sidan **Lägg till en användare** :
 
     ![Lägga till medarbetare](./media/kantegassoforconfluence-tutorial/user2.png)
 
@@ -299,7 +299,7 @@ Om du vill att Azure AD-användare ska kunna logga in på Sammanflödet måste d
 
     c. I textrutan **E-post** skriver du e-postadressen för användaren: Brittasimon@contoso.com.
 
-    d. Skriv lösenordet för användaren i textrutan **Lösenord.**
+    d. I text rutan **lösen ord** skriver du lösen ordet för användaren.
 
     e. Klicka på **Bekräfta lösenord** för att ange lösenordet igen.
 
@@ -309,13 +309,13 @@ Om du vill att Azure AD-användare ska kunna logga in på Sammanflödet måste d
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Kantega SSO for Confluence i åtkomstpanelen ska du automatiskt loggas in på Den Kantega SSO för sammanflödet som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Kantega SSO för confluence på åtkomst panelen, bör du loggas in automatiskt på Kantega SSO för Confluence som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med FreshDesk | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med FreshDesk | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och FreshDesk.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e75a45bc4ccd2614520fda39e09996c2286bdbd0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74227617"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Självstudiekurs: Azure Active Directory-integrering med FreshDesk
+# <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Självstudie: Azure Active Directory integrering med FreshDesk
 
 I den här självstudien lär du dig att integrera FreshDesk med Azure Active Directory (AD Azure).
 Genom att integrera FreshDesk med Azure AD får du följande fördelar:
@@ -33,7 +33,7 @@ Genom att integrera FreshDesk med Azure AD får du följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -119,7 +119,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Fresh
 
 6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
     
-    | Namn | Källattribut |
+    | Name | Källattribut |
     | ---------------| --------------- |
     | Unik användaridentifierare | user.mail |
 
@@ -137,7 +137,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Fresh
 
     e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
 
-    f. Klicka på **Ok**
+    f. Klicka på **OK**
 
     g. Klicka på **Spara**.
 
@@ -192,7 +192,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -202,7 +202,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -231,7 +231,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -258,7 +258,7 @@ När det gäller FreshDesk är etablering en manuell aktivitet.
 
 5. I dialogrutan Agentinformation utför du följande steg:
 
-    ![Information om ombud](./media/freshdesk-tutorial/IC776775.png "Information om ombud")
+    ![Agent information](./media/freshdesk-tutorial/IC776775.png "Agent information")
 
     a. I textrutan **E-post** skriver du in Azure AD-e-postadressen för det Azure AD-konto som du vill etablera.
 
@@ -272,7 +272,7 @@ När det gäller FreshDesk är etablering en manuell aktivitet.
     >Azure AD-kontoinnehavaren får ett e-postmeddelande som innehåller en länk för att bekräfta kontot innan det aktiveras.
     >
     >[!NOTE]
-    >Du kan använda andra verktyg eller API:er för att skapa nya konton för att etablera Azure AD-användarkonton till FreshDesk.
+    >Du kan använda andra verktyg för FreshDesk av användar konton eller API: er som tillhandahålls av FreshDesk för att etablera Azure AD-användarkonton till FreshDesk.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
@@ -284,7 +284,7 @@ När du klickar på FreshDesk-panelen i åtkomstpanelen bör du automatiskt logg
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

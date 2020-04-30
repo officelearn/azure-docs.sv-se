@@ -1,21 +1,21 @@
 ---
-title: Skapa infrastruktur för ett kluster på virtuella Azure-datorer
-description: I den här självstudien får du lära dig hur du konfigurerar Azure VM-infrastrukturen för att köra ett Service Fabric-kluster.
+title: Skapa en infrastruktur för ett kluster på virtuella Azure-datorer
+description: I den här självstudien får du lära dig hur du konfigurerar Azure VM-infrastrukturen för att köra ett Service Fabric kluster.
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75614017"
 ---
-# <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Självstudiekurs: Skapa Azure VM-infrastruktur för att vara värd för ett Service Fabric-kluster
+# <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Självstudie: skapa en Azure VM-infrastruktur som värd för ett Service Fabric kluster
 
-Med fristående Service Fabric-kluster kan du välja en egen miljö och skapa ett kluster som en del av metoden ”valfritt operativsystem, valfritt moln” som används i Service Fabric. I den här självstudieserien skapar du ett fristående kluster som finns på virtuella Azure-datorer och installerar ett program på den.
+Med fristående Service Fabric-kluster kan du välja en egen miljö och skapa ett kluster som en del av metoden ”valfritt operativsystem, valfritt moln” som används i Service Fabric. I den här själv studie serien skapar du ett fristående kluster som finns på virtuella Azure-datorer och installerar ett program på den.
 
-Den här självstudien ingår i en serie. I den här artikeln genererar du azure VM-resurser som krävs för att vara värd för ditt fristående kluster av Service Fabric. I kommande artiklar måste du installera det fristående Service Fabric-paketet, installera ett exempelprogram i klustret och slutligen rensa klustret.
+Den här självstudien ingår i en serie. I den här artikeln skapar du de Azure VM-resurser som krävs för att vara värd för ditt fristående kluster med Service Fabric. I kommande artiklar måste du installera det fristående Service Fabric-paketet, installera ett exempelprogram i klustret och slutligen rensa klustret.
 
 I del ett i den här serien lärde du dig att:
 
@@ -27,61 +27,61 @@ I del ett i den här serien lärde du dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen.  Om du inte redan har ett konto går du till [Azure-portalen](https://portal.azure.com) för att skapa ett.
+Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen.  Om du inte redan har ett konto går du till [Azure Portal](https://portal.azure.com) för att skapa ett.
 
-## <a name="create-azure-virtual-machine-instances"></a>Skapa Azure-instanser för virtuella datorer
+## <a name="create-azure-virtual-machine-instances"></a>Skapa instanser av virtuella Azure-datorer
 
-1. Logga in på Azure-portalen och välj **Virtuella datorer** (inte virtuella datorer (klassisk)).
+1. Logga in på Azure Portal och välj **virtuella datorer** (inte Virtual Machines (klassisk)).
 
-   ![Virtuell Azure-portal][az-console]
+   ![Azure Portal VM][az-console]
 
-2. Välj knappen **Lägg till,** som öppnar formuläret **Skapa en virtuell dator.**
+2. Välj knappen **Lägg till** som öppnar formuläret **skapa en virtuell dator** .
 
-3. På fliken **Grunderna** måste du välja den prenumerations- och resursgrupp du vill använda (med hjälp av en ny resursgrupp rekommenderas).
+3. På fliken **grundläggande** , se till att välja den prenumeration och resurs grupp du vill använda (med en ny resurs grupp rekommenderas).
 
-4. Ändra **avbildningstypen** till **Windows Server 2016 Datacenter**. 
+4. Ändra **avbildnings** typen till **Windows Server 2016 Data Center**. 
  
-5. Ändra **instansstorleken** till **Standard DS2 v2**. Ange ett **användarnamn** och **lösenord för**administratörer och notera vad de är.
+5. Ändra instans **storleken** till **standard DS2 v2**. Ange ett administratörs **användar namn** och **lösen ord**och notera vad de är.
 
-6. Lämna **reglerna** för inkommande port blockerade för tillfället. vi kommer att konfigurera dem i nästa avsnitt.
+6. Lämna **reglerna för inkommande port** blockerade för tillfället. de kommer att konfigureras i nästa avsnitt.
 
-7. På fliken **Nätverk** skapar du ett nytt **virtuellt nätverk** och tar del av namnet.
+7. På fliken **nätverk** skapar du en ny **Virtual Network** och noterar dess namn.
 
-8. Ange sedan **säkerhetsgruppen** för nätverkskort till **Avancerat**. Skapa en ny säkerhetsgrupp, notera dess namn och skapa följande regler för att tillåta TCP-trafik från valfri källa:
+8. Ställ sedan in nätverkskortets **nätverks säkerhets grupp** på **Avancerat**. Skapa en ny säkerhets grupp med namnet och skapa följande regler för att tillåta TCP-trafik från vilken källa som helst:
 
-   ![sf-inkommande][sf-inbound]
+   ![SF-inkommande][sf-inbound]
 
-   * port `3389`för RDP och ICMP (grundläggande anslutning).
-   * Portar `19000-19003`, för serviceinfrastruktur.
-   * Portar `19080-19081`, för serviceinfrastruktur.
-   * Port `8080`, för webbläsarbegäranden.
+   * Port `3389`, för RDP och ICMP (grundläggande anslutning).
+   * Portar `19000-19003`, för Service Fabric.
+   * Portar `19080-19081`, för Service Fabric.
+   * Port `8080`för webb läsar begär Anden.
 
    > [!TIP]
-   > För att du ska kunna ansluta dina virtuella datorer tillsammans i Service Fabric, måste de virtuella datorer som är värd för din infrastruktur ha samma autentiseringsuppgifter.  Det finns två vanliga metoder för att få likadana autentiseringsuppgifter: Anslut dem till samma domän, eller ange samma administratörslösenord på varje virtuell dator. Lyckligtvis tillåter Azure alla virtuella datorer i samma **virtuella nätverk** att enkelt ansluta, så vi kommer att se till att ha alla våra instanser i samma nätverk.
+   > För att du ska kunna ansluta dina virtuella datorer tillsammans i Service Fabric, måste de virtuella datorer som är värd för din infrastruktur ha samma autentiseringsuppgifter.  Det finns två vanliga metoder för att få likadana autentiseringsuppgifter: Anslut dem till samma domän, eller ange samma administratörslösenord på varje virtuell dator. Lyckligt vis tillåter Azure att alla virtuella datorer i samma **virtuella nätverk** är lätta att ansluta, så vi ska se till att ha alla våra instanser i samma nätverk.
 
-9. Lägg till en annan regel. Ange att källan ska vara **Service Tag** och ange källtjänsttaggen till **VirtualNetwork**. Service Fabric kräver att följande portar är öppna för kommunikation i klustret: 135 137-139 445 20001-20031 20606-20861.
+9. Lägg till en annan regel. Ange att källan ska vara **service tag** och ange käll tjänst tag gen till **VirtualNetwork**. Service Fabric kräver att följande portar är öppna för kommunikation i klustret: 135137-139, 445, 20001-20031, 20606-20861.
 
-   ![vnet-inkommande][vnet-inbound]
+   ![VNet-inkommande][vnet-inbound]
 
-10. Resten av alternativen är godtagbara i standardtillståndet. Granska dem om du vill och starta sedan den virtuella datorn.
+10. Resten av alternativen är acceptabla i sitt standard tillstånd. Granska dem om du vill och starta sedan den virtuella datorn.
 
-## <a name="creating-more-instances-for-your-service-fabric-cluster"></a>Skapa fler instanser för service fabric-klustret
+## <a name="creating-more-instances-for-your-service-fabric-cluster"></a>Skapa fler instanser för ditt Service Fabric-kluster
 
-Starta ytterligare två **virtuella datorer**, se till att behålla samma inställningar som beskrivs i föregående avsnitt. Särskilt underhålla samma administratörsanvändarnamn och lösenord. Säkerhetsgruppen **för virtuellt nätverk** och **nätverkskort** bör inte återskapas. välj de som du redan har skapat på rullgardinsmenyn. Det kan ta några minuter innan var och en av dina instanser distribueras.
+Starta ytterligare två **Virtual Machines**, se till att behålla samma inställningar som beskrivs i föregående avsnitt. I synnerhet behåller du samma administratörs användar namn och lösen ord. **Nätverks säkerhets gruppen** **Virtual Network** och NIC bör inte återskapas. Välj de som du redan har skapat från List menyn. Det kan ta några minuter innan varje instans kan distribueras.
 
 ## <a name="connect-to-your-instances"></a>Anslut till dina instanser
 
-1. Välj en av dina instanser i avsnittet **Virtuell dator.**
+1. Välj en av instanserna från avsnittet **virtuell dator** .
 
-2. På fliken **Översikt** bör du ta del av den *privata* IP-adressen. Klicka sedan på **Anslut**.
+2. På fliken **Översikt** noterar du den *privata* IP-adressen. Klicka sedan på **Anslut**.
 
-3. På fliken **RDP** bör du tänka på att vi använder den offentliga IP-adressen och port 3389, som vi specifikt öppnade tidigare. Hämta RDP-filen.
+3. På fliken **RDP** noterar du att vi använder den offentliga IP-adressen och port 3389, som vi har öppnat tidigare. Ladda ned RDP-filen.
  
-4. Öppna RDP-filen och ange det användarnamn och lösenord som du angav i vm-installationen när du uppmanas att ange det användarnamn och lösenord som du angav.
+4. Öppna RDP-filen och ange användar namn och lösen ord som du angav i VM-installationen när du uppmanas att göra det.
 
-5. När du är ansluten till en instans måste du verifiera att fjärrregistret kördes, aktivera SMB och öppna nödvändiga portar för SMB och fjärrregister.
+5. När du är ansluten till en instans måste du verifiera att fjärrregistret kördes, Aktivera SMB och öppna de nödvändiga portarna för SMB och fjär registret.
 
-   Så här aktiverar du SMB:
+   Detta är PowerShell-kommandot för att aktivera SMB:
 
    ```powershell
    netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
@@ -93,13 +93,13 @@ Starta ytterligare två **virtuella datorer**, se till att behålla samma instä
    New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
    ```
 
-7. Upprepa den här processen för dina andra instanser och notera de privata IP-adresserna igen.
+7. Upprepa den här processen för andra instanser och notera de privata IP-adresserna.
 
 ## <a name="verify-your-settings"></a>Verifiera dina inställningar
 
-1. Om du vill validera den grundläggande anslutningen ansluter du till en av de virtuella datorerna med RDP.
+1. Om du vill verifiera den grundläggande anslutningen ansluter du till en av de virtuella datorerna med hjälp av RDP.
 
-2. Öppna **kommandotolken** inifrån den virtuella datorn och använd sedan ping-kommandot för att ansluta från en virtuell dator till en annan och ersätta under IP-adressen med en av de privata IP-adresser som du noterade tidigare (inte IP-adressen för den virtuella datorn som du redan är ansluten till).
+2. Öppna **kommando tolken** inifrån den virtuella datorn och Använd Ping-kommandot för att ansluta från en virtuell dator till en annan, och ersätt IP-adressen nedan med en av de privata IP-adresser som du antecknade tidigare (inte IP-adressen för den virtuella datorn som du är ansluten till redan).
 
    ```
    ping 172.31.20.163
@@ -116,14 +116,14 @@ Starta ytterligare två **virtuella datorer**, se till att behålla samma instä
    `Drive Z: is now connected to \\172.31.20.163\c$.` ska returneras som utdata.
 
 
-   Nu är dina instanser ordentligt förberedda för Service Fabric.
+   Nu är dina instanser korrekt för beredda för Service Fabric.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I del ett av serien har du lärt dig hur du startar tre Azure VM-instanser och konfigurerade dem för Installationen av Service Fabric:
+I del ett av serien har du lärt dig hur du startar tre Azure VM-instanser och får dem konfigurerade för den Service Fabric installationen:
 
 > [!div class="checklist"]
-> * Skapa en uppsättning Azure VM-instanser
+> * Skapa en uppsättning virtuella Azure-instanser
 > * Ändra säkerhetsgruppen
 > * Logga in på någon av instanserna
 > * Förbereda instansen för Service Fabric

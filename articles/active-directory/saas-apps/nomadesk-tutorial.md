@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Nomadesk | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med Nomadesk | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Nomadesk.
 services: active-directory
 documentationCenter: na
@@ -16,44 +16,44 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
 ms.openlocfilehash: f1b00f0e9094cf92714cb2454ce04adf7a79dc54
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73160298"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>Självstudiekurs: Azure Active Directory-integrering med Nomadesk
+# <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>Självstudie: Azure Active Directory integrering med Nomadesk
 
 I den här självstudien får du lära dig hur du integrerar Nomadesk med Azure Active Directory (Azure AD).
 Genom att integrera Nomadesk med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Nomadesk.
-* Du kan aktivera dina användare så att de automatiskt loggas in på Nomadesk (Enkel inloggning) med sina Azure AD-konton.
+* Du kan göra det möjligt för användarna att logga in automatiskt till Nomadesk (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Nomadesk behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Nomadesk enkel inloggning aktiverad prenumeration
+* Nomadesk-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Nomadesk stöder **SP** initierade SSO
+* Nomadesk stöder **SP** -INITIERAd SSO
 
-* Nomadesk stöder just in time-användaretablering **Just In Time**
+* Nomadesk stöder **just-in-Time** User-etablering
 
 ## <a name="adding-nomadesk-from-the-gallery"></a>Lägga till Nomadesk från galleriet
 
 Om du vill konfigurera integreringen av Nomadesk i Azure AD måste du lägga till Nomadesk från galleriet i listan över hanterade SaaS-appar.
 
-**Så här lägger du till Nomadesk från galleriet:**
+**Utför följande steg för att lägga till Nomadesk från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -67,31 +67,31 @@ Om du vill konfigurera integreringen av Nomadesk i Azure AD måste du lägga til
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **Nomadesk**i sökrutan och välj **Nomadesk** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
+4. I rutan Sök skriver du **Nomadesk**, väljer **Nomadesk** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Nomadesk i resultatlistan](common/search-new-app.png)
+     ![Nomadesk i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med Nomadesk baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Nomadesk upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Nomadesk baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Nomadesk upprättas.
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med Nomadesk måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Nomadesk i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Nomadesk Single Sign-On](#configure-nomadesk-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera Nomadesk-enkel inloggning](#configure-nomadesk-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Nomadesk-testanvändare](#create-nomadesk-test-user)** – om du vill ha en motsvarighet till Britta Simon i Nomadesk som är länkad till Azure AD-representationen av användaren.
+5. **[Skapa Nomadesk test User](#create-nomadesk-test-user)** – om du vill ha en motsvarighet till Britta Simon i Nomadesk som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med Nomadesk:
+Utför följande steg för att konfigurera enkel inloggning med Nomadesk i Azure AD:
 
-1. Välj Enkel inloggning på sidan **Nomadesk-programintegration** på [Azure-portalen](https://portal.azure.com/). **Single sign-on**
+1. Välj **enkel inloggning**på sidan **Nomadesk** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -105,20 +105,20 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Nomadesk:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Nomadesk Domän och webbadresser enkel inloggningsinformation](common/sp-identifier.png)
+    ![Information om enkel inloggning för Nomadesk-domän och URL: er](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://mynomadesk.com/logon/saml/<TENANTID>`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://secure.nomadesk.com/saml/<instancename>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Nomadesk Client supportteam](mailto:support@nomadesk.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Nomadesk client support team](mailto:support@nomadesk.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera Nomadesk.**
+6. I avsnittet **Konfigurera Nomadesk** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -128,9 +128,9 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Nomadesk:
 
     c. Utloggnings-URL
 
-### <a name="configure-nomadesk-single-sign-on"></a>Konfigurera Nomadesk Enkel inloggning
+### <a name="configure-nomadesk-single-sign-on"></a>Konfigurera Nomadesk enkel inloggning
 
-Om du vill konfigurera enkel inloggning på **Nomadesk-sidan** måste du skicka det nedladdade **certifikatet (Base64)** och lämpliga kopierade url:er från Azure-portalen till [Nomadesk-supportteamet](mailto:support@nomadesk.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Nomadesk** sida måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för Nomadesk](mailto:support@nomadesk.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -140,7 +140,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -150,7 +150,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -159,15 +159,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Nomadesk.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Nomadesk.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Nomadesk**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Nomadesk**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **Nomadesk**i programlistan .
+2. I listan program väljer du **Nomadesk**.
 
-    ![Länken Nomadesk i listan Program](common/all-applications.png)
+    ![Nomadesk-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -179,28 +179,28 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-nomadesk-test-user"></a>Skapa Nomadesk-testanvändare
+### <a name="create-nomadesk-test-user"></a>Skapa Nomadesk test användare
 
-I det här avsnittet skapas en användare som heter Britta Simon i Nomadesk. Nomadesk stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Nomadesk skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som kallas Britta Simon i Nomadesk. Nomadesk stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Nomadesk skapas en ny efter autentiseringen.
 
 >[!NOTE]
->Om du behöver skapa en användare manuellt måste du kontakta [Nomadesks supportteam](mailto:support@nomadesk.com).
+>Om du behöver skapa en användare manuellt måste du kontakta [Nomadesk support-teamet](mailto:support@nomadesk.com).
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på nomadesk-panelen på åtkomstpanelen ska du automatiskt loggas in på den Nomadesk som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Nomadesk på åtkomst panelen, bör du loggas in automatiskt på den Nomadesk som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

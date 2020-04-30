@@ -1,6 +1,6 @@
 ---
-title: Skapa ett service fabric-kluster i Powershell
-description: Azure PowerShell Script Sample - Skapa ett Service Fabric-kluster som skyddas med ett X.509-certifikat.
+title: Skapa ett Service Fabric kluster i PowerShell
+description: Azure PowerShell skript exempel – skapa ett Service Fabric-kluster som skyddas med ett X. 509-certifikat.
 services: service-fabric
 documentationcenter: ''
 author: athinanthny
@@ -15,10 +15,10 @@ ms.date: 01/19/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: f8e1a0ca86f9346cf07c87a738d48cb56f6d7d57
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75614782"
 ---
 # <a name="create-a-service-fabric-cluster"></a>Skapa ett Service Fabric-kluster
@@ -46,9 +46,9 @@ Remove-AzResourceGroup -Name $groupname -Force
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
-| [Ny-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) | Skapar ett nytt Service Fabric-kluster. |
+| [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) | Skapar ett nytt Service Fabric-kluster. |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 12/30/2019
 ms.author: kgremban
 ms.openlocfilehash: f63510771e4bd71a3ab6cf048bc5fb5296042a4d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75564839"
 ---
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
 
-I den här självstudien använder du Azure IoT Tools-tillägget för att skapa en modul och skapa en **behållaravbildning** från filerna. Sedan pushar du avbildningen till ett **register** som lagrar och hanterar dina avbildningar. Slutligen, distribuerar du din avbildning från ditt register så det kör på din IoT Edge-enhet.
+I den här självstudien använder du tillägget Azure IoT-verktyg för att skapa en modul och skapa en **behållar avbildning** från filerna. Sedan pushar du avbildningen till ett **register** som lagrar och hanterar dina avbildningar. Slutligen, distribuerar du din avbildning från ditt register så det kör på din IoT Edge-enhet.
 
 Du kan använda valfritt Docker-kompatibelt register för att lagra dina containeravbildningar. Två populära Docker-registertjänster är [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) och [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). I den här kursen använder vi Azure Container Registry.
 
@@ -28,14 +28,14 @@ Om du inte redan har ett containerregister följer du dessa steg för att skapa 
    | Registernamn | Ange ett unikt namn. |
    | Prenumeration | Välj en prenumeration i listrutan. |
    | Resursgrupp | Vi rekommenderar att du använder samma resursgrupp för alla testresurser som du skapar i snabbstarterna och självstudierna om IoT Edge. Till exempel **IoTEdgeResources**. |
-   | Location | Välj en plats i närheten av dig. |
+   | Plats | Välj en plats i närheten av dig. |
    | Administratörsanvändare | Ändra värdet till **Aktivera**. |
-   | SKU | Välj **Grundläggande**. |
+   | SKU | Välj **Basic**. |
 
 3. Välj **Skapa**.
 
-4. När behållarregistret har skapats bläddrar du till det och väljer i den vänstra rutan **Access-tangenterna** på menyn under **Inställningar**.
+4. När du har skapat behållar registret, bläddrar du till det och väljer **åtkomst nycklar** från menyn som finns under **Inställningar**i den vänstra rutan.
 
-5. Kopiera värdena för **inloggningsserver**, **användarnamn**och **lösenord** och spara dem någonstans bekvämt. Du använder dessa värden i hela den här självstudien för att ge åtkomst till behållarregistret.
+5. Kopiera värdena för **inloggnings Server**, **användar namn**och **lösen ord** och spara dem på ett praktiskt ställe. Du använder dessa värden i den här självstudien för att ge åtkomst till behållar registret.
 
-   ![Kopiera inloggningsserver, användarnamn och lösenord för behållarregistret](./media/iot-edge-create-container-registry/registry-access-key.png)
+   ![Kopiera inloggnings Server, användar namn och lösen ord för container Registry](./media/iot-edge-create-container-registry/registry-access-key.png)

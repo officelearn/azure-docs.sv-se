@@ -1,54 +1,54 @@
 ---
 title: Skapa en RESTful-slutpunkt
-description: Den här självstudien visar hur du skapar en RESTful-slutpunkt för anpassade leverantörer. Den beskriver hur du hanterar begäranden och svar för de RESTful HTTP-metoder som stöds.
+description: I den här självstudien visas hur du skapar en RESTful-slutpunkt för anpassade providers. Den beskriver hur du hanterar begär Anden och svar för RESTful HTTP-metoder som stöds.
 author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: d7f6c51211ce0572797ade659b9316003502da1f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75650025"
 ---
-# <a name="author-a-restful-endpoint-for-custom-providers"></a>Skapa en RESTful-slutpunkt för anpassade leverantörer
+# <a name="author-a-restful-endpoint-for-custom-providers"></a>Redigera en RESTful-slutpunkt för anpassade providers
 
-En anpassad provider är ett kontrakt mellan Azure och en slutpunkt. Med anpassade leverantörer kan du anpassa arbetsflöden på Azure. Den här självstudien visar hur du skapar en anpassad leverantör RESTful slutpunkt. Om du inte känner till Azure Custom Providers läser du [översikten över anpassade resursleverantörer](overview.md).
+En anpassad Provider är ett kontrakt mellan Azure och en slut punkt. Med anpassade providers kan du anpassa arbets flöden i Azure. Den här självstudien visar hur du skapar en anpassad RESTful-slutpunkt för provider. Om du inte är bekant med Azure-anpassade leverantörer kan du läsa [Översikt över anpassade resurs leverantörer](overview.md).
 
 > [!NOTE]
-> Den här självstudien bygger på självstudien [Konfigurera Azure-funktioner för Azure Custom Providers](./tutorial-custom-providers-function-setup.md). Några av stegen i den här självstudien fungerar bara om en Azure-funktionsapp har konfigurerats för att fungera med anpassade leverantörer.
+> Den här självstudien bygger på självstudien [som konfigurerar Azure Functions för Azure-anpassade leverantörer](./tutorial-custom-providers-function-setup.md). Några av stegen i den här självstudien fungerar bara om en Azure Function-app har kon figurer ATS för att fungera med anpassade providers.
 
 ## <a name="work-with-custom-actions-and-custom-resources"></a>Arbeta med anpassade åtgärder och anpassade resurser
 
-I den här självstudien uppdaterar du funktionsappen så att den fungerar som en RESTful-slutpunkt för din anpassade leverantör. Resurser och åtgärder i Azure modelleras efter följande grundläggande RESTful-specifikation:
+I den här självstudien uppdaterar du Function-appen så att den fungerar som en RESTful-slutpunkt för din anpassade Provider. Resurser och åtgärder i Azure modelleras efter följande grundläggande RESTful-specifikation:
 
-- **PUT**: Skapa en ny resurs
-- **GET (instans)**: Hämta en befintlig resurs
-- **DELETE**: Ta bort en befintlig resurs
-- **POST**: Utlösa en åtgärd
-- **GET (samling)**: Lista alla befintliga resurser
+- **Lägg**till: skapa en ny resurs
+- **Hämta (instans)**: Hämta en befintlig resurs
+- **Ta bort**: ta bort en befintlig resurs
+- **Post**: utlöser en åtgärd
+- **Hämta (samling)**: lista alla befintliga resurser
 
- För den här självstudien använder du Azure Table storage. Men alla databaser eller lagringstjänster kan fungera.
+ I den här självstudien använder du Azure Table Storage. Men alla databaser och lagrings tjänster kan fungera.
 
 ## <a name="partition-custom-resources-in-storage"></a>Partitionera anpassade resurser i lagring
 
-Eftersom du skapar en RESTful-tjänst måste du lagra de skapade resurserna. För Azure Table-lagring måste du generera partitions- och radnycklar för dina data. För anpassade leverantörer bör data partitioneras till den anpassade providern. När en inkommande begäran skickas till den anpassade `x-ms-customproviders-requestpath` providern lägger den anpassade providern till huvudet i utgående begäranden till slutpunkten.
+Eftersom du skapar en RESTful-tjänst måste du lagra de skapade resurserna. För Azure Table Storage måste du generera partitions-och rad nycklar för dina data. För anpassade providers bör data partitioneras till den anpassade providern. När en inkommande begäran skickas till den anpassade providern lägger den anpassade providern till `x-ms-customproviders-requestpath` rubriken i utgående begär anden till slut punkten.
 
-I följande exempel `x-ms-customproviders-requestpath` visas ett sidhuvud för en anpassad resurs:
+I följande exempel visas en `x-ms-customproviders-requestpath` rubrik för en anpassad resurs:
 
 ```
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{myResourceType}/{myResourceName}
 ```
 
-Baserat på exemplets `x-ms-customproviders-requestpath` rubrik kan du skapa parametern *partitionKey* och *rowKey* för lagring enligt följande tabell:
+Baserat på exemplets `x-ms-customproviders-requestpath` rubrik kan du skapa parametrarna *partitionKey* och *rowKey* för ditt lagrings utrymme som visas i följande tabell:
 
 Parameter | Mall | Beskrivning
 ---|---|---
-*partitionKey (partitionKey)* | `{subscriptionId}:{resourceGroupName}:{resourceProviderName}` | Parametern *partitionKey* anger hur data partitioneras. Vanligtvis partitioneras data av den anpassade providerinstansen.
-*radNyckel* | `{myResourceType}:{myResourceName}` | Parametern *rowKey* anger den enskilda identifieraren för data. Vanligtvis är identifieraren namnet på resursen.
+*partitionKey* | `{subscriptionId}:{resourceGroupName}:{resourceProviderName}` | Parametern *partitionKey* anger hur data partitioneras. Vanligt vis partitioneras data av den anpassade Provider-instansen.
+*rowKey* | `{myResourceType}:{myResourceName}` | Parametern *rowKey* anger den enskilda identifieraren för data. Vanligt vis är identifieraren namnet på resursen.
 
-Du måste också skapa en ny klass för att modellera din anpassade resurs. I den här självstudien lägger du till följande **CustomResource-klass** i funktionsappen:
+Du måste också skapa en ny klass för att modellera din anpassade resurs. I den här självstudien lägger du till följande **CustomResource** -klass i din Function-app:
 
 ```csharp
 // Custom Resource Table Entity
@@ -57,20 +57,20 @@ public class CustomResource : TableEntity
     public string Data { get; set; }
 }
 ```
-**CustomResource** är en enkel, allmän klass som accepterar alla indata. Den är baserad på **TableEntity**, som används för att lagra data. Klassen **CustomResource** ärver två egenskaper från **TableEntity:** **partitionKey** och **rowKey**.
+**CustomResource** är en enkel, generisk klass som accepterar indata. Den baseras på **TableEntity**, som används för att lagra data. Klassen **CustomResource** ärver två egenskaper från **TableEntity**: **partitionKey** och **rowKey**.
 
-## <a name="support-custom-provider-restful-methods"></a>Stöd för restful-metoder för anpassad leverantör
+## <a name="support-custom-provider-restful-methods"></a>Stöd för anpassade Provider RESTful-metoder
 
 > [!NOTE]
-> Om du inte kopierar koden direkt från den här självstudien måste `Content-Type` svarsinnehållet vara giltigt JSON som anger rubriken till `application/json`.
+> Om du inte kopierar koden direkt från den här självstudien måste svars innehållet vara ett giltigt JSON som `Content-Type` anger sidhuvudet till `application/json`.
 
-Nu när du har ställt in datapartitionering skapar du de grundläggande CRUD- och utlösa metoderna för anpassade resurser och anpassade åtgärder. Eftersom anpassade leverantörer fungerar som proxyservrar måste DEN RESTful-slutpunkten modellera och hantera begäran och svaret. Följande kodavsnitt visar hur du hanterar de grundläggande RESTful-åtgärderna.
+Nu när du har konfigurerat data partitionering skapar du de grundläggande CRUD och utlöser metoder för anpassade resurser och anpassade åtgärder. Eftersom anpassade providrar fungerar som proxyservrar måste RESTful-slutpunkten modellera och hantera begäran och svar. Följande kodfragment visar hur du hanterar grundläggande RESTful-åtgärder.
 
-### <a name="trigger-a-custom-action"></a>Utlösa en anpassad åtgärd
+### <a name="trigger-a-custom-action"></a>Utlös en anpassad åtgärd
 
-För anpassade leverantörer utlöses en anpassad åtgärd via POST-begäranden. En anpassad åtgärd kan eventuellt acceptera en begärandetext som innehåller en uppsättning indataparametrar. Åtgärden returnerar sedan ett svar som signalerar resultatet av åtgärden och om den lyckades eller misslyckades.
+För anpassade leverantörer utlöses en anpassad åtgärd via POST-begäranden. En anpassad åtgärd kan alternativt acceptera en begär ande text som innehåller en uppsättning indataparametrar. Åtgärden returnerar sedan ett svar som signalerar resultatet av åtgärden och huruvida det lyckades eller misslyckades.
 
-Lägg till följande **TriggerCustomAction-metod** i funktionsappen:
+Lägg till följande **TriggerCustomAction** -Metod i din Function-app:
 
 ```csharp
 /// <summary>
@@ -90,13 +90,13 @@ public static async Task<HttpResponseMessage> TriggerCustomAction(HttpRequestMes
 }
 ```
 
-**Metoden TriggerCustomAction** accepterar en inkommande begäran och ekar helt enkelt tillbaka svaret med en statuskod.
+Metoden **TriggerCustomAction** accepterar en inkommande begäran och upprepar bara svaret med en status kod.
 
 ### <a name="create-a-custom-resource"></a>Skapa en anpassad resurs
 
-För anpassade leverantörer skapas en anpassad resurs via PUT-begäranden. Den anpassade providern accepterar en JSON-begärandetext, som innehåller en uppsättning egenskaper för den anpassade resursen. Resurser i Azure följer en RESTful-modell. Du kan använda samma URL för begäran för att skapa, hämta eller ta bort en resurs.
+För anpassade providers skapas en anpassad resurs genom att skicka begär Anden. Den anpassade providern accepterar en JSON-begärantext, som innehåller en uppsättning egenskaper för den anpassade resursen. Resurser i Azure följer en RESTful modell. Du kan använda samma URL för begäran för att skapa, hämta eller ta bort en resurs.
 
-Lägg till följande **CreateCustomResource-metod** för att skapa nya resurser:
+Lägg till följande **CreateCustomResource** -Metod för att skapa nya resurser:
 
 ```csharp
 /// <summary>
@@ -132,21 +132,21 @@ public static async Task<HttpResponseMessage> CreateCustomResource(HttpRequestMe
 }
 ```
 
-Metoden **CreateCustomResource** uppdaterar den inkommande begäran så att den innehåller Azure-specifika **fält-ID,** **namn**och **typ**. Dessa fält är egenskaper på högsta nivå som används av tjänster i Azure. De låter den anpassade providern samverka med andra tjänster som Azure Policy, Azure Resource Manager-mallar och Azure Activity Log.
+Metoden **CreateCustomResource** uppdaterar inkommande begäran om du vill inkludera de Azure-/regionsspecifika fält **-ID**, **namn**och **typ**. Dessa fält är toppnivå egenskaper som används av tjänster i Azure. De gör att den anpassade providern samverkar med andra tjänster som Azure Policy, Azure Resource Manager mallar och Azure aktivitets logg.
 
 Egenskap | Exempel | Beskrivning
 ---|---|---
 **Namn** | {myCustomResourceName} | Namnet på den anpassade resursen
-**Typ** | Microsoft.CustomProviders/resourceProviders/{resourceTypeName} | Namnområdet för resurstyp
-**Id** | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>leverantörer/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>{resourceTypeName}/{myCustomResourceName} | Resurs-ID:et
+**bastyp** | Microsoft. CustomProviders/resourceProviders/{resourceTypeName} | Namn området resurs typ
+**identitet** | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft. CustomProviders/resourceProviders/{resourceProviderName}/<br>{resourceTypeName}/{myCustomResourceName} | Resurs-ID
 
-Förutom att lägga till egenskaperna har du även sparat JSON-dokumentet i Azure Table Storage.
+Förutom att lägga till egenskaperna, sparade du även JSON-dokumentet till Azure Table Storage.
 
 ### <a name="retrieve-a-custom-resource"></a>Hämta en anpassad resurs
 
-För anpassade leverantörer hämtas en anpassad resurs via GET-begäranden. En anpassad provider accepterar *inte* en JSON-begärandetext. För GET-begäranden använder `x-ms-customproviders-requestpath` slutpunkten huvudet för att returnera den redan skapade resursen.
+För anpassade leverantörer hämtas en anpassad resurs via GET-begäranden. En anpassad Provider accepterar *inte* en JSON-begärans text. För GET-begäranden använder slut punkten `x-ms-customproviders-requestpath` rubriken för att returnera den resurs som redan har skapats.
 
-Lägg till följande **Metoden RetrieveCustomResource** för att hämta befintliga resurser:
+Lägg till följande **RetrieveCustomResource** -Metod för att hämta befintliga resurser:
 
 ```csharp
 /// <summary>
@@ -173,13 +173,13 @@ public static async Task<HttpResponseMessage> RetrieveCustomResource(HttpRequest
 }
 ```
 
-I Azure följer resurser en RESTful-modell. Url:en för begäran som skapar en resurs returnerar också resursen om en GET-begäran utförs.
+I Azure följer resurserna en RESTful modell. URL: en för begäran som skapar en resurs returnerar även resursen om en GET-begäran utförs.
 
 ### <a name="remove-a-custom-resource"></a>Ta bort en anpassad resurs
 
-För anpassade leverantörer tas en anpassad resurs bort via DELETE-begäranden. En anpassad provider accepterar *inte* en JSON-begärandetext. För en DELETE-begäran använder `x-ms-customproviders-requestpath` slutpunkten huvudet för att ta bort den redan skapade resursen.
+För anpassade providers tas en anpassad resurs bort via DELETE-begäranden. En anpassad Provider accepterar *inte* en JSON-begärans text. För en DELETE-begäran använder slut punkten `x-ms-customproviders-requestpath` rubriken för att ta bort den redan skapade resursen.
 
-Lägg till följande **Metoden RemoveCustomResource** för att ta bort befintliga resurser:
+Lägg till följande **RemoveCustomResource** -Metod för att ta bort befintliga resurser:
 
 ```csharp
 /// <summary>
@@ -206,13 +206,13 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 }
 ```
 
-I Azure följer resurser en RESTful-modell. Url:en för begäran som skapar en resurs tar också bort resursen om en DELETE-begäran utförs.
+I Azure följer resurserna en RESTful modell. URL: en för begäran som skapar en resurs tar också bort resursen om en begäran om borttagning utförs.
 
 ### <a name="list-all-custom-resources"></a>Lista alla anpassade resurser
 
-För anpassade leverantörer kan du räkna upp en lista över befintliga anpassade resurser med hjälp av hämta GET-begäranden. En anpassad provider accepterar *inte* en JSON-begärandetext. För en samling GET-begäranden använder `x-ms-customproviders-requestpath` slutpunkten huvudet för att räkna upp de redan skapade resurserna.
+För anpassade providers kan du räkna upp en lista över befintliga anpassade resurser med hjälp av hämtnings begär Anden. En anpassad Provider accepterar *inte* en JSON-begärans text. För en samling av GET-begäranden använder slut punkten `x-ms-customproviders-requestpath` rubriken för att räkna upp de redan skapade resurserna.
 
-Lägg till följande **metod För UppräkningAllCustomResources** för att räkna upp befintliga resurser:
+Lägg till följande **EnumerateAllCustomResources** -Metod för att räkna upp befintliga resurser:
 
 ```csharp
 /// <summary>
@@ -249,13 +249,13 @@ public static async Task<HttpResponseMessage> EnumerateAllCustomResources(HttpRe
 ```
 
 > [!NOTE]
-> Syntaxen för RowKey QueryComparisons.GreaterThan och QueryComparisons.LessThan är Azure Table Storage-syntax för att utföra en "startswith"-fråga för strängar.
+> RowKey QueryComparisons. GreaterThan och QueryComparisons. LessThan är Azure Table Storage-syntax för att utföra en "StartsWith"-fråga för strängar.
 
-Om du vill visa en lista över alla befintliga resurser genererar du en Azure Table-lagringsfråga som säkerställer att resurserna finns under din anpassade providerpartition. Frågan kontrollerar sedan att radnyckeln `{myResourceType}` börjar med samma värde.
+Om du vill visa en lista över alla befintliga resurser genererar du en Azure Table Storage-fråga som säkerställer att resurserna finns under den anpassade providerns partition. Frågan kontrollerar sedan att rad nyckeln börjar med samma `{myResourceType}` värde.
 
 ## <a name="integrate-restful-operations"></a>Integrera RESTful-åtgärder
 
-När alla RESTful-metoder har lagts till i funktionsappen uppdaterar du **huvudkörningsmetoden** som anropar funktionerna för att hantera de olika REST-begäranden:
+När alla RESTful-metoder har lagts till i Function-appen uppdaterar du huvud **körnings** metoden som anropar funktionerna för att hantera olika rest-begäranden:
 
 ```csharp
 /// <summary>
@@ -338,11 +338,11 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 }
 ```
 
-Den uppdaterade **körmetoden** innehåller nu tableStorage-indatabindningen som du har lagt till för Azure Table storage. *tableStorage* Den första delen av `x-ms-customproviders-requestpath` metoden läser `Microsoft.Azure.Management.ResourceManager.Fluent` huvudet och använder biblioteket för att tolka värdet som ett resurs-ID. Huvudet `x-ms-customproviders-requestpath` skickas av den anpassade providern och anger sökvägen till den inkommande begäran.
+Den uppdaterade **körnings** metoden innehåller nu den *tableStorage* -databindning som du har lagt till för Azure Table Storage. Den första delen av metoden läser `x-ms-customproviders-requestpath` rubriken och använder `Microsoft.Azure.Management.ResourceManager.Fluent` biblioteket för att parsa värdet som ett resurs-ID. `x-ms-customproviders-requestpath` Rubriken skickas av den anpassade providern och anger sökvägen till den inkommande begäran.
 
-Genom att använda det tolkade resurs-ID:t kan du generera **partitionKey-** och **rowKey-värdena** för att data ska slå upp eller lagra anpassade resurser.
+Med hjälp av det parsade resurs-ID: t kan du generera **partitionKey** -och **rowKey** -värden för data för att söka efter eller lagra anpassade resurser.
 
-När du har lagt till metoder och klasser måste du uppdatera **med metoderna** för funktionsappen. Lägg till följande kod högst upp i C#-filen:
+När du har lagt till metoder och klasser måste du uppdatera **using** -metoderna för Function-appen. Lägg till följande kod överst i C#-filen:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -366,8 +366,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
 
-Om du går vilse vid någon tidpunkt i den här självstudien kan du hitta det fullständiga kodexemplet i den [anpassade providern C# RESTful endpoint reference](./reference-custom-providers-csharp-endpoint.md). När du är klar med funktionsappen sparar du funktionsappens URL. Den kan användas för att utlösa funktionsappen i senare självstudier.
+Om du går förlorad när som helst i den här självstudien hittar du det fullständiga kod exemplet i den [anpassade providern C# RESTful Endpoint Reference](./reference-custom-providers-csharp-endpoint.md). När du är klar med Function-appen sparar du appens URL för funktionen. Den kan användas för att utlösa Function-appen i senare självstudier.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du skapat en RESTful-slutpunkt för att arbeta med en slutpunkt för Azure Custom Provider. Om du vill veta hur du skapar en anpassad leverantör går du till artikeln [Självstudiekurs: Skapa en anpassad leverantör](./tutorial-custom-providers-create.md).
+I den här artikeln skapade du en RESTful-slutpunkt för att arbeta med en Azure-anpassad Provider-slutpunkt. Information om hur du skapar en anpassad Provider finns i artikeln [Självstudier: skapa en anpassad Provider](./tutorial-custom-providers-create.md).

@@ -1,5 +1,5 @@
 ---
-title: Azure SignalR Service serverlös snabbstart - Python
+title: Azure SignalR service utan snabb start – python
 description: En snabbstart för att använda Azure SignalR Service och Azure Functions för att skapa ett chattrum.
 author: anthonychu
 ms.service: signalr
@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: antchu
 ms.openlocfilehash: 0cf8705cf2567a60129681c2db41b0868f8fe182
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75392157"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Snabbstart: Skapa ett chattrum med Azure Functions och SignalR-tjänst med Python
+# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Snabb start: skapa ett chattrum med Azure Functions-och SignalR-tjänsten med python
 
 Med Azure SignalR Service kan du enkelt lägga till realtidsfunktioner i ditt program. Azure Functions är en serverlös plattform som gör att du kan köra din kod utan att behöva hantera någon infrastruktur. I den här snabbstarten lär du dig hur du använder SignalR Service och Functions för att skapa ett serverlöst realtidschattprogram.
 
@@ -24,9 +24,9 @@ Den här snabbstarten kan köras på macOS, Windows eller Linux.
 
 Se till att du har en kodredigerare såsom [Visual Studio Code](https://code.visualstudio.com/) installerad.
 
-Installera [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (version 2.7.1505 eller senare) för att köra Python Azure-funktionsappar lokalt.
+Installera [Azure Functions Core tools](https://github.com/Azure/azure-functions-core-tools#installing) (version 2.7.1505 eller högre) för att köra python Azure Function Apps lokalt.
 
-Azure Functions kräver [Python 3.6 eller 3.7](https://www.python.org/downloads/).
+Azure Functions kräver [Python 3,6 eller 3,7](https://www.python.org/downloads/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -50,9 +50,9 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
     ![Skapa SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. Öppna *mappen src/chat/python* i den klonade databasen i kodredigeraren.
+1. I kod redigeraren öppnar du mappen *src/Chat/python* i den klonade lagrings platsen.
 
-1. Om du vill utveckla och testa Python-funktioner lokalt måste du arbeta i en Python 3.6- eller 3.7-miljö. Kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv`.
+1. För att lokalt utveckla och testa python-funktioner måste du arbeta i en python 3,6-eller 3,7-miljö. Kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv`.
 
     **Linux eller macOS:**
 
@@ -61,7 +61,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
     source .venv/bin/activate
     ```
 
-    **Windows:**
+    **Aktivitets**
 
     ```powershell
     py -3.7 -m venv .venv
@@ -72,12 +72,12 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
 1. I **local.settings.json** klistrar du in anslutningssträngen i värdet för inställningen **AzureSignalRConnectionString**. Spara filen.
 
-1. Python-funktioner är ordnade i mappar. I varje mapp finns två filer: *function.json* definierar bindningar som används i funktionen, och * \_ \_\_\_init .py* är kraften i funktionen. Det finns två HTTP-utlösta funktioner i den här funktionsappen:
+1. Python-funktioner ordnas i mappar. I varje mapp finns två filer: *Function. JSON* definierar de bindningar som används i funktionen och * \_ \_init\_\_. py* är bröd texten i funktionen. Det finns två HTTP-utlösta funktioner i den här funktionsappen:
 
     - **negotiate** (förhandla) – använder indatabindningen *SignalRConnectionInfo* för att skapa och returnera giltig anslutningsinformation.
     - **messages** (meddelanden) – tar emot ett chattmeddelande i begärandetexten och använder utdatabindningen *SignalR* för att skicka meddelandet till alla anslutna klientprogram.
 
-1. I terminalen med den virtuella miljön aktiverad, se till att du är i *mappen src/chat/python.* Installera de nödvändiga Python-paketen med PIP.
+1. I terminalen med aktive rad virtuell miljö, se till att du är i mappen *src/Chat/python* . Installera de nödvändiga python-paketen med hjälp av PIP.
 
     ```bash
     python -m pip install -r requirements.txt
@@ -89,7 +89,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
     func start
     ```
 
-    ![Kör funktionsapp](media/signalr-quickstart-azure-functions-python/signalr-quickstart-run-application.png)
+    ![Kör Function-app](media/signalr-quickstart-azure-functions-python/signalr-quickstart-run-application.png)
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
@@ -97,7 +97,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat och kört ett serverlöst program i realtid i VS-kod. Som nästa steg ska du lära dig mer om hur du distribuerar Azure Functions via VS Code.
+I den här snabb starten har du skapat och kört ett program utan server i real tid i VS Code. Som nästa steg ska du lära dig mer om hur du distribuerar Azure Functions via VS Code.
 
 > [!div class="nextstepaction"]
 > [Distribuera Azure Functions med VS Code](/azure/javascript/tutorial-vscode-serverless-node-01)

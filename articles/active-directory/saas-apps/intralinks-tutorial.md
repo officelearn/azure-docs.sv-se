@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med intralänkar | Microsoft-dokument'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Intralinks.
+title: 'Självstudie: Azure Active Directory integrering med Intralinks | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och IntraLinks.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: b4a3b525cd2f9c4f28ad27154be2590fa6a96691
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67099883"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Självstudiekurs: Azure Active Directory-integrering med intralänkar
+# <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Självstudie: Azure Active Directory integrering med Intralinks
 
-I den här självstudien får du lära dig hur du integrerar intralänkar med Azure Active Directory (Azure AD).
-Genom att integrera intralänkar med Azure AD får du följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Intralinks med Azure Active Directory (Azure AD).
+Genom att integrera Intralinks med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Intralänkar.
-* Du kan aktivera dina användare så att de automatiskt loggas in på Intralänkar (Enkel inloggning) med sina Azure AD-konton.
+* Du kan styra i Azure AD som har åtkomst till IntraLinks.
+* Du kan göra det möjligt för användarna att logga in automatiskt till IntraLinks (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med intralänkar behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Intralinks behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Intralänkar enkel inloggning aktiverad prenumeration
+* IntraLinks-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Intralänkar stöder **SP** initierad SSO
+* IntraLinks stöder **SP** -INITIERAd SSO
 
-## <a name="adding-intralinks-from-the-gallery"></a>Lägga till intralänkar från galleriet
+## <a name="adding-intralinks-from-the-gallery"></a>Lägga till IntraLinks från galleriet
 
-Om du vill konfigurera integreringen av Intralänkar i Azure AD måste du lägga till intralänkar från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av IntraLinks i Azure AD måste du lägga till IntraLinks från galleriet i listan över hanterade SaaS-appar.
 
-**Så här lägger du till intralänkar från galleriet:**
+**Utför följande steg för att lägga till IntraLinks från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av Intralänkar i Azure AD måste du lägga
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **Intralänkar**i sökrutan och välj **Intralänkar** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
+4. I rutan Sök skriver du **IntraLinks**, väljer **IntraLinks** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Intralänkar i resultatlistan](common/search-new-app.png)
+     ![IntraLinks i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med Intralänkar baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Intralinks upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Intralinks baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Intralinks upprättas.
 
-Om du vill konfigurera och testa en enkel Azure AD-inloggning med Intralänkar måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Intralinks i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera intralänkar enkel inloggning](#configure-intralinks-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera IntraLinks-enkel inloggning](#configure-intralinks-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa intralänkstestanvändare](#create-intralinks-test-user)** – om du vill ha en motsvarighet till Britta Simon i intralänkar som är länkad till Azure AD-representationen av användaren.
+5. **[Skapa IntraLinks test User](#create-intralinks-test-user)** – om du vill ha en motsvarighet till Britta Simon i Intralinks som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med Intralänkar:
+Utför följande steg för att konfigurera enkel inloggning med Intralinks i Azure AD:
 
-1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **Intralänks-programintegration** . **Single sign-on**
+1. Välj **enkel inloggning**på sidan **IntraLinks** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,18 +103,18 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Intralänkar:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Intralänkar Domän och WEBBADRESSER enkel inloggningsinformation](common/sp-signonurl.png)
+    ![Information om enkel inloggning för IntraLinks-domän och URL: er](common/sp-signonurl.png)
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<company name>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<AzureADTenantID>`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<company name>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<AzureADTenantID>`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Intralinks Client support team](https://www.intralinks.com/contact) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [IntraLinks client support team](https://www.intralinks.com/contact) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera intralänkar.**
+6. I avsnittet **Konfigurera IntraLinks** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -124,9 +124,9 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Intralänkar:
 
     c. Utloggnings-URL
 
-### <a name="configure-intralinks-single-sign-on"></a>Konfigurera intralänkar enkel inloggning
+### <a name="configure-intralinks-single-sign-on"></a>Konfigurera IntraLinks enkel inloggning
 
-Om du vill konfigurera enkel inloggning på **intralänksidan** måste du skicka den nedladdade **XML-koden för federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Intralänkar](https://www.intralinks.com/contact). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **IntraLinks** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för IntraLinks](https://www.intralinks.com/contact). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -136,7 +136,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -155,15 +155,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Intralänks.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till IntraLinks.
 
-1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Intralänkar**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **IntraLinks**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **Intralänkar**i programlistan .
+2. I listan program väljer du **IntraLinks**.
 
-    ![Länken Intralänkar i programlistan](common/all-applications.png)
+    ![IntraLinks-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -175,24 +175,24 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-intralinks-test-user"></a>Skapa testanvändare för intralänkar
+### <a name="create-intralinks-test-user"></a>Skapa IntraLinks test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i Intralänkar. Arbeta med [Intralinks supportteam](https://www.intralinks.com/contact) för att lägga till användarna i intralänks-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Intralinks. Arbeta med [IntraLinks support team](https://www.intralinks.com/contact) för att lägga till användare i Intralinks-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Intralänks på åtkomstpanelen bör du automatiskt loggas in på de intralänkar som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen IntraLinks på åtkomst panelen, bör du loggas in automatiskt på den IntraLinks som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

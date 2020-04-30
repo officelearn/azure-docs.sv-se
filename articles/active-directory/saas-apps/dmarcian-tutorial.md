@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med dmarcian | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med dmarcian | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och dmarcian.
 services: active-directory
 documentationCenter: na
@@ -17,32 +17,32 @@ ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 602c885deca429b56417181971ced495831ba5d3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "68823691"
 ---
-# <a name="tutorial-integrate-dmarcian-with-azure-active-directory"></a>Självstudiekurs: Integrera dmarcian med Azure Active Directory
+# <a name="tutorial-integrate-dmarcian-with-azure-active-directory"></a>Självstudie: integrera dmarcian med Azure Active Directory
 
 I den här självstudien får du lära dig hur du integrerar dmarcian med Azure Active Directory (Azure AD). När du integrerar dmarcian med Azure AD kan du:
 
 * Kontroll i Azure AD som har åtkomst till dmarcian.
-* Gör att användarna automatiskt loggas in på dmarcian med sina Azure AD-konton.
-* Hantera dina konton på en central plats - Azure-portalen.
+* Gör det möjligt för användarna att logga in automatiskt till dmarcian med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* dmarcian single sign-on (SSO) aktiverad prenumeration.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* dmarcian för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * dmarcian har stöd för **SP- och IDP**-initierad enkel inloggning
 
@@ -50,38 +50,38 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö
 
 För att konfigurera integrering av dmarcian i Azure AD behöver du lägga till dmarcian från galleriet till din lista över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
-1. Navigera till **företagsprogram** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **dmarcian** i sökrutan i avsnittet **Lägg till från galleriet.**
-1. Välj **dmarcian** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **dmarcian** i sökrutan.
+1. Välj **dmarcian** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-Konfigurera och testa Azure AD SSO med dmarcian med en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i dmarcian.
+Konfigurera och testa Azure AD SSO med dmarcian med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i dmarcian.
 
-Om du vill konfigurera och testa Azure AD SSO med dmarcian slutför du följande byggblock:
+Om du vill konfigurera och testa Azure AD SSO med dmarcian, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera dmarcian SSO](#configure-dmarcian-sso)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
-5. **[Skapa dmarcian testanvändare](#create-dmarcian-test-user)** - att ha en motsvarighet till B.Simon i dmarcian som är kopplad till Azure AD-representationen av användaren.
-6. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
+2. **[Konfigurera DMARCIAN SSO](#configure-dmarcian-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+4. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+5. **[Skapa dmarcian test User](#create-dmarcian-test-user)** -om du vill ha en motsvarighet till B. Simon i dmarcian som är länkad till Azure AD-representation av användare.
+6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. Leta reda på avsnittet **dmarcian** Hantera på sidan Hantera på sidan [Azure-portalen](https://portal.azure.com/)och välj **Enkel inloggning**. **Manage**
-1. På sidan **Välj en enskild inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **dmarcian** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
+4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
 
@@ -118,15 +118,15 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
 ### <a name="configure-dmarcian-sso"></a>Konfigurera dmarcian SSO
 
-1. Om du vill automatisera konfigurationen inom dmarcian måste du installera **webbläsartillägget My Apps Secure Sign-in** genom att klicka på **Installera tillägget**.
+1. Om du vill automatisera konfigurationen i dmarcian måste du installera **Mina appar säker inloggnings webb läsar tillägg** genom att klicka på **installera tillägget**.
 
-    ![Tillägg för mina appar](common/install-myappssecure-extension.png)
+    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
 
-2. När du har lagt till tillägget i webbläsaren, klicka på **Setup dmarcian** kommer att leda dig till dmarcian ansökan. Därifrån anger du administratörsautentiseringsuppgifterna för att logga in på dmarcian. Webbläsartillägget konfigurerar automatiskt programmet åt dig och automatiserar steg 3-6.
+2. När du har lagt till tillägg i webbläsaren, klickar du på **installations dmarcian** för att dirigera dig till dmarcian-programmet. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på dmarcian. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-6.
 
-    ![Konfiguration av installationsprogrammet](common/setup-sso.png)
+    ![Konfigurera konfiguration](common/setup-sso.png)
 
-3. Om du vill konfigurera dmarcian manuellt öppnar du ett nytt webbläsarfönster och loggar in på webbplatsen för det dmarcian företaget som administratör och utför följande steg:
+3. Om du vill konfigurera dmarcian manuellt öppnar du ett nytt webbläsarfönster och loggar in på din dmarcian-företags webbplats som administratör och utför följande steg:
 
 4. Klicka på **Profil** i det övre högra hörnet och navigera till **Inställningar**.
 
@@ -157,33 +157,33 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
-1. Välj **Ny användare** högst upp på skärmen.
-1. Gör så här i egenskaperna **Användare:**
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till dmarcian.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till dmarcian.
 
-1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
 1. I programlistan väljer du **dmarcian**.
-1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
 ### <a name="create-dmarcian-test-user"></a>Skapa dmarcian-testanvändare
 
@@ -205,7 +205,7 @@ För att göra det möjligt för Azure AD-användare att logga in i dmarcian må
 
     ![Den nya användaren](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
-    a. I textrutan **Ny användare e-post** anger du e-post för användare som **\@brittasimon contoso.com**.
+    a. I text rutan **ny användarens e-post** anger du e-postmeddelandet som **\@brittasimon contoso.com**.
 
     b. Om du vill ge administratörsrättigheter till användaren väljer du **Make User an Admin** (Gör användaren till administratör).
 

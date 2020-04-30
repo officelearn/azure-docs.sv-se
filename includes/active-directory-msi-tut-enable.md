@@ -9,13 +9,13 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.custom: include file
 ms.openlocfilehash: ab6e3426096f6fbaf7dfa44984a26c939f3b91fc
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75971851"
 ---
-Att aktivera en systemtilldelad hanterad identitet är en upplevelse med ett klick. Du kan antingen aktivera den när en virtuell dator skapas eller i egenskaperna för en befintlig virtuell dator.
+Att aktivera en systemtilldelad hanterad identitet är en upplevelse med ett klick. Du kan antingen aktivera det när du skapar en virtuell dator eller i egenskaperna för en befintlig virtuell dator.
 
 ![Skapa ett nytt lagringskonto](./media/active-directory-msi-tut-enable/identity.png)
 

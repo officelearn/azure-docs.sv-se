@@ -10,10 +10,10 @@ ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
 ms.openlocfilehash: 1a27d748e16f892a748cf18569c13ca3f9ead1dd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71309518"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Vad är Azure IoT-lösningsacceleratorer?
@@ -38,7 +38,7 @@ Använd [acceleratorn för fjärrövervakningslösning](iot-accelerators-remote-
 
 Du kan använda instrumentpanelen för fjärrövervakning för att visa telemetri från dina anslutna enheter, etablera nya enheter eller uppgradera den inbyggda programvaran på de anslutna enheterna:
 
-[![Instrumentpanel för fjärrövervakningslösning](./media/about-iot-accelerators/rm-dashboard-inline.png)](./media/about-iot-accelerators/rm-dashboard-expanded.png#lightbox)
+[![Instrument panel för fjärr styrnings lösning](./media/about-iot-accelerators/rm-dashboard-inline.png)](./media/about-iot-accelerators/rm-dashboard-expanded.png#lightbox)
 
 ### <a name="connected-factory"></a>Ansluten fabrik
 
@@ -46,7 +46,7 @@ Använd den [Fabriksanslutna lösningsacceleratorn](iot-accelerators-connected-f
 
 Du kan använda instrumentpanelen för ansluten fabrik för att övervaka och hantera dina industrienheter:
 
-[![Instrumentpanel för ansluten fabrikslösning](./media/about-iot-accelerators/cf-dashboard-inline.png)](./media/about-iot-accelerators/cf-dashboard-expanded.png#lightbox)
+[![Instrument panel för ansluten fabriks lösning](./media/about-iot-accelerators/cf-dashboard-inline.png)](./media/about-iot-accelerators/cf-dashboard-expanded.png#lightbox)
 
 ### <a name="predictive-maintenance"></a>Förutsägande underhåll
 
@@ -54,7 +54,7 @@ Använd [Lösningsacceleratorn för förutsägande underhåll](iot-accelerators-
 
 Du kan använda instrumentpanelen för förutsägande underhåll för att visa analyser för förutsägande underhåll:
 
-[![Instrumentpanel för ansluten fabrikslösning](./media/about-iot-accelerators/pm-dashboard-inline.png)](./media/about-iot-accelerators/pm-dashboard-expanded.png#lightbox)
+[![Instrument panel för ansluten fabriks lösning](./media/about-iot-accelerators/pm-dashboard-inline.png)](./media/about-iot-accelerators/pm-dashboard-expanded.png#lightbox)
 
 ### <a name="device-simulation"></a>Enhetssimulering
 
@@ -62,7 +62,7 @@ Använd [Lösningsacceleratorn för enhetssimulering](iot-accelerators-device-si
 
 Du kan använda webbappen för enhetssimulering för att konfigurera och köra simuleringar:
 
-[![Instrumentpanel för ansluten fabrikslösning](./media/about-iot-accelerators/ds-dashboard-inline.png)](./media/about-iot-accelerators/ds-dashboard-expanded.png#lightbox)
+[![Instrument panel för ansluten fabriks lösning](./media/about-iot-accelerators/ds-dashboard-inline.png)](./media/about-iot-accelerators/ds-dashboard-expanded.png#lightbox)
 
 ## <a name="design-principles"></a>Designprinciper
 

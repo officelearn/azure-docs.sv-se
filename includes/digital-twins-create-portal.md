@@ -10,27 +10,27 @@ ms.topic: include
 ms.date: 01/07/2020
 ms.custom: include file
 ms.openlocfilehash: 9ccdc7a438d1dade534d39dc97a39a3bdae37dc4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75895439"
 ---
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Markera fältet på hemmasidan och sedan **+ Skapa en resurs**. 
+1. Välj fältet start sida och sedan **+ skapa en resurs**. 
 
-   [![Expandera startsidan och välj sedan + Skapa en resurs](./media/create-digital-twins-portal/azure-portal-create-a-resource.png)](./media/create-digital-twins-portal/azure-portal-create-a-resource.png#lightbox)
+   [![Expandera fältet start sida och välj sedan + skapa en resurs](./media/create-digital-twins-portal/azure-portal-create-a-resource.png)](./media/create-digital-twins-portal/azure-portal-create-a-resource.png#lightbox)
 
-1. Sök efter **Digitala tvillingar**och välj **Digitala tvillingar.** 
+1. Sök efter **digitala dubbla**och välj **digitala dubbla**. 
 
    [![Val för att skapa en ny Digital Twins-instans](./media/create-digital-twins-portal/azure-portal-create-digital-twins.png)](./media/create-digital-twins-portal/azure-portal-create-digital-twins.png#lightbox)
 
-   Du kan också välja **Sakernas Internet**och välja **Digitala tvillingar (förhandsgranskning)**.
+   Du kan också välja **Sakernas Internet**och välja **digitala dubbla (för hands version)**.
 
 1. Välj **Skapa** för att starta distributionsprocessen.
 
-   [![Skapa och bekräfta resursdistributionen](./media/create-digital-twins-portal/azure-create-and-confirm-resource.png)](./media/create-digital-twins-portal/azure-create-and-confirm-resource.png#lightbox)
+   [![Skapa och bekräfta distributionen av resursen](./media/create-digital-twins-portal/azure-create-and-confirm-resource.png)](./media/create-digital-twins-portal/azure-create-and-confirm-resource.png#lightbox)
 
 1. I fönstret **Digital Twins** anger du följande information:
    * **Resursnamn**: Skapa ett unikt namn på Digital Twins-instansen.
@@ -42,13 +42,13 @@ ms.locfileid: "75895439"
 
 1. Granska din Digital Twins-information och välj sedan **Skapa**. Det kan ta några minuter för Digital Twins-instansen att skapas. Du kan övervaka förloppet i **meddelandefönstret**.
 
-1. Öppna **översiktsfönstret** för Digital Twins-instansen. Observera länken under **Hanterings-API**. Api-URL:en för **hantering** är formaterad som: 
+1. Öppna **översiktsfönstret** för Digital Twins-instansen. Observera länken under **Hanterings-API**. URL: en för **hanterings-API** : n formateras som: 
    
    ```URL
    https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger
    ```
    
-   Denna URL tar dig till dokumentationen för Azure Digital Twins REST API som gäller för din instans. Läs om [hur du använder Azure Digital Twins Swagger](../articles/digital-twins/how-to-use-swagger.md) för att få reda på hur du läser och använder den här API-dokumentationen. Kopiera och ändra **URL:en för hanterings-API** till det här formatet: 
+   Denna URL tar dig till dokumentationen för Azure Digital Twins REST API som gäller för din instans. Läs om [hur du använder Azure Digital Twins Swagger](../articles/digital-twins/how-to-use-swagger.md) för att få reda på hur du läser och använder den här API-dokumentationen. Kopiera och ändra **hanterings-API** -URL: en till det här formatet: 
     
    ```URL
    https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/
@@ -56,4 +56,4 @@ ms.locfileid: "75895439"
     
    Programmet använder den ändra URL:en som bas-URL för att få åtkomst till instansen. Kopiera denna ändrade URL till en temporär fil. Du behöver URL:en i nästa avsnitt.
 
-   [![Översikt över API för hantering](./media/create-digital-twins-portal/digital-twins-management-api.png)](./media/create-digital-twins-portal/digital-twins-management-api.png#lightbox)
+   [![Översikt över hanterings-API](./media/create-digital-twins-portal/digital-twins-management-api.png)](./media/create-digital-twins-portal/digital-twins-management-api.png#lightbox)

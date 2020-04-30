@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Menlo Security | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory-integrering med Menlo-säkerhet | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Menlo Security.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.openlocfilehash: 172fe6a6b5b8e7c649adc58e69e71c54a0f8bde9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73160719"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>Självstudiekurs: Azure Active Directory-integrering med Menlo Security
+# <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>Självstudie: Azure Active Directory-integrering med Menlo-säkerhet
 
 I den här självstudien lär du dig att integrera Menlo Security med Azure Active Directory (AD Azure).
 Integreringen av Menlo Security med Azure AD medför följande fördelar:
@@ -32,7 +32,7 @@ Integreringen av Menlo Security med Azure AD medför följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -140,11 +140,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Menlo
 
     c. Under **SAML Provider** väljer du **Azure Active Directory**.
 
-    d. **SAML 2.0 Slutpunkt:** Klistra in **inloggnings-URL:en** som du har kopierat från Azure-portalen.
+    d. **SAML 2,0-slutpunkt** : klistra in **inloggnings-URL: en** som du har kopierat från Azure Portal.
 
-    e. **Service identifier (Issuer):** Klistra in **Azure AD-identifieraren** som du har kopierat från Azure-portalen.
+    e. **Tjänst identifierare (utfärdare)** : klistra in **Azure AD-identifieraren** som du kopierade från Azure Portal.
 
-    f. **X.509-certifikat:** Öppna **certifikatet (Base64)** som hämtats från Azure Portal i anteckningar och klistra in det i den här rutan.
+    f. **X. 509-certifikat** : öppna **certifikatet (base64)** som hämtats från Azure Portal i anteckningar och klistra in det i den här rutan.
 
     g. Spara inställningarna genom att klicka på **Spara**.
 
@@ -156,7 +156,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -166,7 +166,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -195,7 +195,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -213,7 +213,7 @@ När du klickar på Menlo Security-panelen i åtkomstpanelen bör du automatiskt
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

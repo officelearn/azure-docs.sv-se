@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Utforma en Azure-databas för PostgreSQL - Single Server - Azure-portal'
-description: Den här självstudien visar hur du utformar din första Azure-databas för PostgreSQL - Single Server med Azure-portalen.
+title: 'Självstudie: utforma en Azure Database for PostgreSQL-enskild server – Azure Portal'
+description: Den här självstudien visar hur du utformar din första Azure Database for PostgreSQL-enskild server med hjälp av Azure Portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,13 +8,13 @@ ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: d7ddb286285de9be089c0a5176e33b7108021c77
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75459948"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Självstudiekurs: Utforma en Azure-databas för PostgreSQL – Single Server med Azure-portalen
+# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Självstudie: utforma en Azure Database for PostgreSQL-enskild server med hjälp av Azure Portal
 
 Azure Database för PostgreSQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. I Azure-portalen kan du enkelt hantera servern och utforma en databas.
 
@@ -29,36 +29,36 @@ I den här självstudien använder du Azure-portalen till att:
 > * Återställa data
 
 ## <a name="prerequisites"></a>Krav
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="create-an-azure-database-for-postgresql"></a>Skapa en Azure Database för PostgreSQL
 
 En Azure Database för PostgreSQL-server skapas med en definierad uppsättning [compute- och lagringsresurser](./concepts-compute-unit-and-storage.md). Servern skapas inom en [Azure-resursgrupp](../azure-resource-manager/management/overview.md).
 
 Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
-1. Klicka på **Skapa en resurs** i det övre vänstra hörnet av Azure-portalen.
+1. Klicka på **skapa en resurs** i det övre vänstra hörnet av Azure Portal.
 2. Välj **databaser** från sidan **Nytt** och välj **Azure Database för PostgreSQL** från sidan **databaser**.
    ![Azure Database för PostgreSQL – Skapa databasen](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
-3. Välj alternativet **Distribution av en server.**
+3. Välj distributions alternativet **enskild server** .
 
-   ![Välj Azure-databas för PostgreSQL - Distributionsalternativ för en server](./media/tutorial-design-database-using-azure-portal/select-deployment-option.png)
+   ![Välj Azure Database for PostgreSQL – distributions alternativ för enskild server](./media/tutorial-design-database-using-azure-portal/select-deployment-option.png)
 
-4. Fyll i formuläret **Grunderna** med följande information:
+4. Fyll i formuläret **grundläggande** med följande information:
 
     ![Skapa en server](./media/tutorial-design-database-using-azure-portal/create-basics.png)
 
-    Inställning|Föreslaget värde|Beskrivning
+    Inställningen|Föreslaget värde|Beskrivning
     ---|---|---
     Prenumeration|Ditt prenumerationsnamn|Den Azure-prenumeration som ska användas för servern. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
-    Resursgrupp|*myresourcegroup myresourcegroup myresourcegroup myre*| Ett nytt resursgruppnamn eller ett befintligt namn i prenumerationen.
+    Resursgrupp|*myresourcegroup*| Ett nytt resursgruppnamn eller ett befintligt namn i prenumerationen.
     servernamn |*mydemoserver*|Ett unikt namn som identifierar Azure Database för PostgreSQL-servern. Domännamnet *postgres.database.azure.com* läggs till i det servernamn du anger. Servernamnet får bara innehålla gemener, siffror och bindestreck (-). Det måste innehålla minst 3 och upp till 63 tecken.
-    Datakälla | *Inget* | Välj *Ingen* om du vill skapa en ny server från grunden. (Du väljer *Säkerhetskopiering* om du skapar en server från en geo-säkerhetskopia av en befintlig Azure Database for PostgreSQL-server).
-    Administratörsanvändarnamn |*myadmin*| Ett eget inloggningskonto att använda när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser,****azure_pg_admin,****admin,****administrator,****root,****guest,** eller **public**. Det får inte börja med **pg_**.
-    lösenord |Ditt lösenord| Ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0 till och med 9) och icke-alfanumeriska tecken (!, $, #, % osv.).
-    Location|Den region som är närmast dina användare| Den plats som är närmast dina användare.
+    Datakälla | *Inga* | Välj *ingen* om du vill skapa en ny server från grunden. (Du väljer *Säkerhetskopiering* om du skapar en server från en geo-säkerhetskopia av en befintlig Azure Database for PostgreSQL-server).
+    Administratörens användar namn |*myadmin*| Ett eget inloggningskonto att använda när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser,****azure_pg_admin,****admin,****administrator,****root,****guest,** eller **public**. Det får inte börja med **pg_**.
+    lösenordsinställning |Ditt lösenord| Ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0 till och med 9) och icke-alfanumeriska tecken (!, $, #, % osv.).
+    Plats|Den region som är närmast dina användare| Den plats som är närmast dina användare.
     Version|Senaste huvudversion| Den senaste PostgreSQL-huvudversionen, om du inte har andra särskilda krav.
-    Beräkning och lagring | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Konfigurera server**. Välj sedan fliken Allmänt *Gen 5* **ändamål.** *4 vCores* *100 GB* *7 days* **Compute Generation** **vCore** **Storage** **Backup Retention Period** Du kan lämna skjutreglagen som de är eller justera dem. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
+    Beräkning och lagring | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Konfigurera Server**. Välj sedan fliken **generell användning** . *gen 5*, *4 virtuella kärnor*, *100 GB*och *7 dagar* är standardvärden för **beräknings generering**, **vCore**, **lagring**och **bevarande period för säkerhets kopior**. Du kan lämna skjutreglagen som de är eller justera dem. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
 
    > [!NOTE]
    > Överväg att använda prisnivån Basic om lätt beräkning och I/O är lämpligt för din arbetsbelastning. Observera att servrar som skapas på prisnivån Basic inte senare kan skalas till Generell användning eller Minnesoptimerad. Mer information finns på [sidan med priser](https://azure.microsoft.com/pricing/details/postgresql/).
@@ -67,9 +67,9 @@ Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
     ![Fönstret ”Prisnivå”](./media/quickstart-create-database-portal/2-pricing-tier.png)
 
     > [!TIP]
-    > Med **automatisk tillväxt** aktiverad ökar servern lagringsutrymmet när du närmar dig den allokerade gränsen, utan att påverka din arbetsbelastning.
+    > När den **automatiska tillväxten** är aktive rad ökar lagringen när du närmar dig den tilldelade gränsen, utan att påverka arbets belastningen.
 
-5. Välj **Granska + skapa** om du vill granska dina val. Välj **Skapa** för att etablera servern. Den här åtgärden kan ta några minuter.
+5. Välj **Granska + skapa** för att granska dina val. Välj **Skapa** för att etablera servern. Den här åtgärden kan ta några minuter.
 
 6. Välj ikonen **Aviseringar** (en bjällra) i verktygsfältet för att övervaka distributionsprocessen. När distributionen är färdig kan du välja **Fäst på instrumentpanelen**. Då skapas en panel för den här servern på instrumentpanelen i Azure Portal som fungerar som en genväg till serverns **översiktssida**. Om du väljer **Gå till resurs** öppnas serverns **översiktssida**.
 
@@ -88,11 +88,11 @@ Azure Database for PostgreSQL-tjänsten använder en brandvägg på servernivå.
 
 2. På serversidan väljer du **Anslutningssäkerhet**. 
 
-3. Klicka i textrutan under **Regelnamn** och lägg till en ny brandväggsregel för att ange IP-intervallet för anslutning. Ange IP-adressintervall. Klicka på **Spara**.
+3. Klicka i text rutan under **regel namn** och Lägg till en ny brand Väggs regel för att ange IP-intervallet för anslutning. Ange IP-adressintervall. Klicka på **Spara**.
 
    ![Azure Database för PostgreSQL – Skapa brandväggsregel](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 
-4. Klicka på **Spara** och sedan på **X** för att stänga **säkerhetssidan Anslutningar.**
+4. Klicka på **Spara** och sedan på **X** för att stänga sidan **anslutnings säkerhet** .
 
    > [!NOTE]
    > Azure PostgreSQL-servern kommunicerar via port 5432. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 5432 bli nekad av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 5432.
@@ -128,7 +128,7 @@ Om din klientdator har PostgreSQL installerat kan du använda en lokal instans a
    ```
 
    > [!TIP]
-   > Om du föredrar att använda en URL-sökväg för att ansluta till `%40`Postgres kodar URL@-inloggningen med . Till exempel anslutningssträngen för psql skulle vara,
+   > Om du föredrar att använda en URL-sökväg för att ansluta till postgres, kodar URL @-tecknet i användar `%40`namnet med. Anslutnings strängen för psql skulle exempelvis vara,
    > ```
    > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
    > ```

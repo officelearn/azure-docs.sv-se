@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Jive | Microsoft-dokument'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Jive.
+title: 'Självstudie: Azure Active Directory integrering med jives | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och jives.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,73 +16,73 @@ ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ccdab373be4bab876ef52ba478076b6a8b6e0845
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76291183"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jive"></a>Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med Jive
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jive"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med jives
 
-I den här självstudien får du lära dig hur du integrerar Jive med Azure Active Directory (Azure AD). När du integrerar Jive med Azure AD kan du:
+I den här självstudien får du lära dig hur du integrerar jives med Azure Active Directory (Azure AD). När du integrerar jives med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till Jive.
-* Gör att användarna automatiskt loggas in på Jive med sina Azure AD-konton.
-* Hantera dina konton på en central plats - Azure-portalen.
+* Kontroll i Azure AD som har åtkomst till jives.
+* Gör det möjligt för användarna att logga in automatiskt till jives med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* Jive enkel inloggning (SSO) aktiverad prenumeration.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Jives för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Jive stöder **SP** initierade SSO
-* Jive stöder [ **automatisk** användaretablering](jive-provisioning-tutorial.md)
-* När du har konfigurerat Jive kan du framtvinga sessionskontroller, som skyddar exfiltrering och infiltration av organisationens känsliga data i realtid. Sessionskontrollerna sträcker sig från villkorlig åtkomst. [Lär dig hur du tillämpar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Jives stöder **SP** -INITIERAd SSO
+* Jives har stöd för [ **Automatisk** användar etablering](jive-provisioning-tutorial.md)
+* När du har konfigurerat jives kan du framtvinga sessionsnycklar som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Sessions kontroller utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
-## <a name="adding-jive-from-the-gallery"></a>Lägga till Jive från galleriet
+## <a name="adding-jive-from-the-gallery"></a>Lägga till jives från galleriet
 
-Om du vill konfigurera integreringen av Jive i Azure AD måste du lägga till Jive från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av jives i Azure AD måste du lägga till jives från galleriet i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
-1. Navigera till **företagsprogram** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **Jive** i sökrutan i avsnittet **Lägg till från galleriet.**
-1. Välj **Jive** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **jives** i sökrutan.
+1. Välj **jives** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-jive"></a>Konfigurera och testa en azure AD-inloggning för Jive
+## <a name="configure-and-test-azure-ad-single-sign-on-for-jive"></a>Konfigurera och testa enkel inloggning med Azure AD för jives
 
-Konfigurera och testa Azure AD SSO med Jive med en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i Jive.
+Konfigurera och testa Azure AD SSO med jives med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i jives.
 
-Om du vill konfigurera och testa Azure AD SSO med Jive slutför du följande byggblock:
+Om du vill konfigurera och testa Azure AD SSO med jives, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    * **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
-    * **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
-1. **[Konfigurera Jive SSO](#configure-jive-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
-    * **[Skapa Jive-testanvändare](#create-jive-test-user)** – om du vill ha en motsvarighet till B.Simon i Jive som är länkad till Azure AD-representationen av användaren.
-1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
+    * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera JIVES SSO](#configure-jive-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    * **[Skapa jives test User](#create-jive-test-user)** -om du vill ha en motsvarighet till B. Simon i jives som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. Leta reda på avsnittet **Jive** Hantera på sidan **Hantera** på sidan [Azure-portalen](https://portal.azure.com/)och välj **enkel inloggning**.
-1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **jives** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. Ange värdena för följande fält i avsnittet **Grundläggande SAML-konfiguration:**
+1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
 a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<instance name>.jivecustom.com`
 
@@ -96,7 +96,7 @@ a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `h
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera Jive.**
+6. I avsnittet **Konfigurera jives** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -108,75 +108,75 @@ a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `h
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
-1. Välj **Ny användare** högst upp på skärmen.
-1. Gör så här i egenskaperna **Användare:**
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Jive.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till jives.
 
-1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
-1. Välj **Jive**i programlistan .
-1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **jives**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
-## <a name="configure-jive-sso"></a>Konfigurera Jive SSO
+## <a name="configure-jive-sso"></a>Konfigurera jives SSO
 
-1. Om du vill konfigurera enkel inloggning på **Jive-sidan** loggar du in på din Jive-klientorganisation som administratör.
+1. Om du vill konfigurera enkel inloggning på **jives** -sidan loggar du in på jives-klienten som administratör.
 
-1. Klicka på **SAML**på menyn högst upp .
+1. Klicka på **SAML**på menyn högst upp.
 
     ![Konfigurera enkel inloggning på appsidan](./media/jive-tutorial/tutorial_jive_002.png)
 
-    a. Välj **Aktiverad** under fliken **Allmänt.**
+    a. Välj **aktive rad** på fliken **Allmänt** .
 
-    b. Klicka på knappen **SPARA ALLA SAML-INSTÄLLNINGAR.**
+    b. Klicka på knappen **Spara alla SAML-inställningar** .
 
-1. Navigera till fliken **IDP METADATA.**
+1. Gå till fliken **IDP metadata** .
 
     ![Konfigurera enkel inloggning på appsidan](./media/jive-tutorial/tutorial_jive_003.png)
 
-    a. Kopiera innehållet i den nedladdade metadata-XML-filen och klistra sedan in den i textrutan **Identitetsprovider (IDP).**
+    a. Kopiera innehållet i XML-filen med hämtade metadata och klistra sedan in den i text rutan **identitets leverantör (IdP) metadata** .
 
-    b. Klicka på knappen **SPARA ALLA SAML-INSTÄLLNINGAR.**
+    b. Klicka på knappen **Spara alla SAML-inställningar** .
 
-1. Välj fliken **MAPPNING AV ANVÄNDARATTRIBUT.**
+1. Välj fliken **Mappning av användar-attribut** .
 
     ![Konfigurera enkel inloggning på appsidan](./media/jive-tutorial/tutorial_jive_004.png)
 
-    a. Kopiera och klistra in attributnamnet för **e-postvärdet** i **textrutan e-post.**
+    a. Kopiera och klistra in attributnamnet för **e** -postvärdet i text rutan **e-post** .
 
-    b. Kopiera och klistra in attributnamnet **för givenname-värdet** i textrutan **Förnamn.**
+    b. Kopiera och klistra in attributnamnet för **givenName** -värde i text rutan för **förnamn** .
 
-    c. Kopiera och klistra in attributnamnet **för efternamnsvärdet** i textrutan **Efternamn.**
+    c. I text rutan **efter namn** kopierar och klistrar du in attributnamnet för **värdet efter namn.**
 
-### <a name="create-jive-test-user"></a>Skapa Jive-testanvändare
+### <a name="create-jive-test-user"></a>Skapa jives test användare
 
-Syftet med detta avsnitt är att skapa en användare som heter Britta Simon i Jive. Jive stöder automatisk användaretablering, vilket är aktiverat som standard. Du hittar mer information [här](jive-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
+Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i jives. Jives stöder automatisk användar etablering, som är aktiverat som standard. Du hittar mer information [här](jive-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
 
-Om du behöver skapa användaren manuellt kan du arbeta med [Jive Client support team](https://www.jivesoftware.com/services-support/) för att lägga till användarna i Jive-plattformen.
+Om du behöver skapa användare manuellt arbetar du med [jives-klientens support team](https://www.jivesoftware.com/services-support/) för att lägga till användarna i jives-plattformen.
 
 ## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Jive på åtkomstpanelen ska du automatiskt loggas in på den Jive som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen jives på åtkomst panelen, bör du loggas in automatiskt på den jives som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -186,10 +186,10 @@ När du klickar på panelen Jive på åtkomstpanelen ska du automatiskt loggas i
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Prova Jive med Azure AD](https://aad.portal.azure.com/)
+- [Prova jives med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Konfigurera etablering av användare](jive-provisioning-tutorial.md)
+- [Konfigurera användar etablering](jive-provisioning-tutorial.md)
 
-- [Hur man skyddar Jive med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Så här skyddar du jives med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

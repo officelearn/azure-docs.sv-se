@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Mimecast Admin Console | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integration med Mimecast-administratörskonsolen | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Mimecast Admin Console.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9edadd6462052f82f92c05c1678f845ece856cfb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73160666"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Självstudiekurs: Azure Active Directory-integrering med Mimecast-administratörskonsolen
+# <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Självstudie: Azure Active Directory integrering med Mimecast-administratörskonsolen
 
 I den här självstudien får du lära dig hur du integrerar Mimecast Admin Console med Azure Active Directory (AD Azure).
 Integreringen av Mimecast Admin Console med Azure AD medför följande fördelar:
@@ -33,7 +33,7 @@ Integreringen av Mimecast Admin Console med Azure AD medför följande fördelar
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -140,15 +140,15 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Mimec
 
 3. Klicka på **Autentiseringsprofiler**.
 
-    ![Autentiseringsprofiler](./media/mimecast-admin-console-tutorial/ic794999.png "Autentiseringsprofiler")
+    ![Autentiseringsinställningar](./media/mimecast-admin-console-tutorial/ic794999.png "Autentiseringsinställningar")
     
 4. Klicka på **Ny autentiseringsprofil**.
 
-    ![Nya autentiseringsprofiler](./media/mimecast-admin-console-tutorial/ic795000.png "Nya autentiseringsprofiler")
+    ![Nya autentiseringsinställningar](./media/mimecast-admin-console-tutorial/ic795000.png "Nya autentiseringsinställningar")
 
 5. Utför följande steg i avsnittet **Autentiseringsprofil**:
 
-    ![Autentiseringsprofil](./media/mimecast-admin-console-tutorial/ic795015.png "Autentiseringsprofil")
+    ![Autentiseringsidentitet](./media/mimecast-admin-console-tutorial/ic795015.png "Autentiseringsidentitet")
     
     a. Ange ett namn för din konfiguration i textrutan **Beskrivning**.
     
@@ -165,7 +165,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Mimec
     >[!NOTE]
     >Värdet för inloggnings-URL:en och värdet för utloggnings-URL:en är samma för Mimecast Admin Console.
     
-    g. Öppna ditt bas-64-certifikat som hämtats från Azure-portalen i anteckningar, ta bort den första raden ("*--*") och den sista raden ("*--*"), kopiera det återstående innehållet i det i Urklipp och klistra sedan in det i textrutan **identitetsprovidercertifikat (Metadata).**
+    g. Öppna ditt bas-64-certifikat som hämtats från Azure Portal i anteckningar, ta bort den*--* första raden ("") och den*--* sista raden (""), kopiera det återstående innehållet i den till Urklipp och klistra sedan in den i text rutan för **identitets leverantörens certifikat (metadata)** .
     
     h. Välj **Tillåt enkel inloggning**.
     
@@ -179,7 +179,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -189,7 +189,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -218,7 +218,7 @@ I det här avsnittet ska du göra det möjligt för Britta Simon att använda en
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -265,7 +265,7 @@ När du klickar på panelen för Mimecast Admin Console på åtkomstpanelen bör
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

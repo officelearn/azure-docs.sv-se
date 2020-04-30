@@ -8,10 +8,10 @@ ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
 ms.openlocfilehash: 0a228f6d8b4f72acd3783f27bf192fe6bd13f988
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75392154"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Skapa en Azure SignalR Service-instans
@@ -26,18 +26,18 @@ Din app ansluter till en SignalR Service-instans i Azure.
 
 1. Ange följande inställningar.
 
-    | Inställning      | Föreslaget värde  | Beskrivning                                        |
+    | Inställningen      | Föreslaget värde  | Beskrivning                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Resursnamn** | Globalt unikt namn | Namn som identifierar din nya SignalR Service-instans. Giltiga tecken är `a-z`, `0-9` och `-`.  | 
+    | **Resurs namn** | Globalt unikt namn | Namn som identifierar din nya SignalR Service-instans. Giltiga tecken är `a-z`, `0-9` och `-`.  | 
     | **Prenumeration** | Din prenumeration | Prenumerationen som den här nya SignalR Service-instansen har skapats i. | 
-    | **[Resursgrupp](../../azure-resource-manager/management/overview.md)** |  myResourceGroup | Namnet på den nya resursgruppen som SignalR Service-instansen ska skapas i. | 
-    | **Location** | USA, västra | Välj en [region](https://azure.microsoft.com/regions/) nära dig. |
-    | **Prisnivå** | Kostnadsfri | Prova Azure SignalR Service kostnadsfritt. |
+    | **[Resurs grupp](../../azure-resource-manager/management/overview.md)** |  myResourceGroup | Namnet på den nya resursgruppen som SignalR Service-instansen ska skapas i. | 
+    | **Position** | USA, västra | Välj en [region](https://azure.microsoft.com/regions/) nära dig. |
+    | **Pris nivå** | Kostnadsfri | Prova Azure SignalR Service kostnadsfritt. |
     | **Antal enheter** |  Inte tillämpligt | Antal enheter anger hur många anslutningar som SignalR Service-instansen kan acceptera. Det kan bara konfigureras på Standard-nivån. |
-    | **Serviceläge** |  Utan server | För användning med Azure Functions eller REST API. |
+    | **Tjänst läge** |  Utan server | För användning med Azure Functions eller REST API. |
 
     ![Skapa SignalR Service](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 
 1. Välj **Skapa** för att börja distribuera SignalR Service-instansen.
 
-1. När instansen har distribuerats öppnar du den i portalen och letar reda på sidan Inställningar. Ändra inställningen Tjänstläge till *Serverlös* endast om du använder Azure SignalR-tjänsten via Azure Functions bindning eller REST API. Lämna den i *Klassisk* eller *Standard* på annat sätt.
+1. När instansen har distribuerats öppnar du den i portalen och letar upp dess inställnings sida. Ändra inställningen för tjänst läge till endast *Server* om du använder Azure SignalR-tjänsten via Azure Functions bindning eller REST API. Lämna det i *klassiskt* eller *i* annat fall.

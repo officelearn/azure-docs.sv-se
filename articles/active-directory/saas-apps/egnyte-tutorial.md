@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Egnyte | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med Egnyte | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Egnyte.
 services: active-directory
 documentationCenter: na
@@ -16,46 +16,46 @@ ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f8eb0f0d566d656436da11141ea7f6c521b7b82
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "76983732"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egnyte"></a>Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med Egnyte
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egnyte"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Egnyte
 
 I den här självstudien får du lära dig hur du integrerar Egnyte med Azure Active Directory (Azure AD). När du integrerar Egnyte med Azure AD kan du:
 
 * Kontroll i Azure AD som har åtkomst till Egnyte.
-* Gör att användarna automatiskt loggas in på Egnyte med sina Azure AD-konton.
-* Hantera dina konton på en central plats - Azure-portalen.
+* Gör det möjligt för användarna att logga in automatiskt till Egnyte med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
-* Egnyte enkel inloggning (SSO) aktiverat prenumeration.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Egnyte för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
 * Egnyte stöder **SP**-initierad enkel inloggning
-* När du har konfigurerat Egnyte kan du framtvinga sessionskontroll, som skyddar exfiltration och infiltration av organisationens känsliga data i realtid. Sessionskontrollen sträcker sig från villkorlig åtkomst. [Lär dig hur du tillämpar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* När du har konfigurerat Egnyte kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-egnyte-from-the-gallery"></a>Lägga till Egnyte från galleriet
 
 För att konfigurera integrering av Egnyte i Azure AD behöver du lägga till Egnyte från galleriet i din lista över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
-1. Navigera till **företagsprogram** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **Egnyte** i sökrutan i avsnittet **Lägg till från galleriet.**
-1. Välj **Egnyte** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **Egnyte** i sökrutan.
+1. Välj **Egnyte** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
@@ -64,14 +64,14 @@ För att enkel inloggning ska fungera så måste en länkrelation mellan en Azur
 
 För att konfigurera och testa enkel inloggning med Azure AD för Egnyte, måste du utföra följande:
 
-Om du vill konfigurera och testa Azure AD SSO med Egnyte slutför du följande byggblock:
+Om du vill konfigurera och testa Azure AD SSO med Egnyte, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
-    1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
-1. **[Konfigurera Egnyte SSO](#configure-egnyte-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
-    1. **[Skapa Egnyte-testanvändare](#create-egnyte-test-user)** – om du vill ha en motsvarighet till B.Simon i Egnyte som är länkad till Azure AD-representationen av användaren.
-1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera EGNYTE SSO](#configure-egnyte-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa Egnyte test User](#create-egnyte-test-user)** -om du vill ha en motsvarighet till B. Simon i Egnyte som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
@@ -95,7 +95,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Egnyt
 
     ![Information om enkel inloggning med Egnyte-domäner och -URL:er](common/sp-signonurl.png)
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<companyname>.egnyte.com`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<companyname>.egnyte.com`
 
     > [!NOTE]
     > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [supportteamet för Egnyte-klienten](https://www.egnyte.com/corp/contact_egnyte.html) för att få det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -122,7 +122,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -132,7 +132,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -161,13 +161,13 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
 ## <a name="configure-egnyte-sso"></a>Konfigurera Egnyte SSO
 
-1. I ett annat webbläsarfönster loggar du in på din Egnyte-företagswebbplats som administratör.
+1. Logga in på din Egnyte-företags webbplats som administratör i ett annat webbläsarfönster.
 
 2. Klicka på **Inställningar**.
    
@@ -183,7 +183,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. Gör följande i avsnittet **Enkel inloggningsautentisering**:
 
-    ![Enkel inloggningsautentisering](./media/egnyte-tutorial/ic787822.png "Enkel inloggningsautentisering")   
+    ![Autentisering med enkel inloggning](./media/egnyte-tutorial/ic787822.png "Autentisering med enkel inloggning")   
     
     a. För **Enkel inloggningsautentisering** väljer du **SAML 2.0**.
    
@@ -203,11 +203,11 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 ### <a name="create-egnyte-test-user"></a>Skapa Egnyte-testanvändare
 
-Om du vill att Azure AD-användare ska kunna logga in på Egnyte måste de etableras i Egnyte. Etablering utförs manuellt med Egnyte.
+Om du vill att Azure AD-användare ska kunna logga in på Egnyte måste de tillhandahållas i Egnyte. Etablering utförs manuellt med Egnyte.
 
 **Utför följande steg för att tillhandahålla ett användarkonto:**
 
-1. Logga in på din **Egnyte-företagswebbplats** som administratör.
+1. Logga in på din **Egnyte** företags webbplats som administratör.
 
 2. Gå till **Settings (Inställningar) \> Users & Groups (Användare och grupper)**.
 
@@ -217,9 +217,9 @@ Om du vill att Azure AD-användare ska kunna logga in på Egnyte måste de etabl
 
 4. I avsnittet **New Power User** (Ny privilegierad användare) utför du följande steg:
     
-    ![Ny standardanvändare](./media/egnyte-tutorial/ic787825.png "Ny standardanvändare")   
+    ![Ny standard användare](./media/egnyte-tutorial/ic787825.png "Ny standard användare")   
 
-    a. I **Textrutan E-post** anger du e-post för användare som **Brittasimon\@contoso.com**.
+    a. I text rutan **e-postadress** anger du e-postmeddelandet som **\@Brittasimon contoso.com**.
 
     b. I textrutan för **användarnamn** anger du användarnamnet för användaren, till exempel **Brittasimon**.
 
@@ -232,7 +232,7 @@ Om du vill att Azure AD-användare ska kunna logga in på Egnyte måste de etabl
     >
 
 >[!NOTE]
->Du kan använda andra verktyg eller API:er för att skapa Egnyte-användarkonton för att etablera Azure AD-användarkonton.
+>Du kan använda andra verktyg för Egnyte av användar konton eller API: er som tillhandahålls av Egnyte för att etablera Azure AD-användarkonton.
 >
 
 ### <a name="test-sso"></a>Testa SSO
@@ -245,8 +245,8 @@ När du klickar på Egnyte-panelen i åtkomstpanelen bör du automatiskt loggas 
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

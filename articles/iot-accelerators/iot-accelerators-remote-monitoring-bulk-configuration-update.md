@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: philmea
 ms.openlocfilehash: eaca93ac8a4e8c660be9618aefb27921a4e0a2eb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77565586"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Självstudie: Hantera dina anslutna enheter i grupp
@@ -71,11 +71,11 @@ Klicka sedan på **Starta** på panelen för den accelerator för fjärrövervak
 
 För att den inbyggda programvaran ska uppdateras automatiskt på en grupp med enheter måste enheterna vara medlemmar i en enhetsgrupp i fjärrövervakningslösningen:
 
-1. På sidan **Enheter** markerar du alla de **IoT DevKit**-enheter som du har anslutit till lösningsacceleratorn. Klicka sedan på **Jobb**.
+1. På sidan **Enheter** markerar du alla de **IoT DevKit**-enheter som du har anslutit till lösningsacceleratorn. Klicka sedan på **jobb**.
 
-1. På **jobbpanelen** väljer du **Taggar,** anger jobbnamnet till **AddDevKitTag**och lägger sedan till en texttagg med namnet **IsDevKitDevice** med värdet **Y**. Klicka sedan på **Använd**.
+1. I panelen **jobb** väljer du **taggar**, anger jobb namnet till **AddDevKitTag**och lägger sedan till en text-tagg med namnet **IsDevKitDevice** med värdet **Y**. Klicka sedan på **Använd**.
 
-1. Nu kan du använda taggvärdena till att skapa en enhetsgrupp. Klicka på Hantera **enhetsgrupper**på sidan **Enheter** .
+1. Nu kan du använda taggvärdena till att skapa en enhetsgrupp. På sidan **enheter** klickar du på **Hantera enhets grupper**.
 
 1. Skapa ett textfilter som använder taggnamnet **IsDevKitDevice** och värdet **Y** i villkoret. Spara enhetsgruppen som **IoT DevKit devices**.
 

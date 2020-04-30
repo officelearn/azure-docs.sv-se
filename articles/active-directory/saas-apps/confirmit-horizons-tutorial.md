@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Confirmit Horizons | Microsoft-dokument'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Confirmit Horizons.
+title: 'Självstudie: Azure Active Directory integrering med Confirmit-horisonter | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Confirmit-horisonter.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,44 +16,44 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 6127f149141db275c4b13c25fd6fbd0241b3e404
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67105037"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-confirmit-horizons"></a>Självstudiekurs: Azure Active Directory-integrering med Confirmit Horizons
+# <a name="tutorial-azure-active-directory-integration-with-confirmit-horizons"></a>Självstudie: Azure Active Directory integrering med Confirmit-horisonter
 
-I den här självstudien får du lära dig hur du integrerar Confirmit Horizons med Azure Active Directory (Azure AD).
-Genom att integrera Confirmit Horizons med Azure AD får du följande fördelar:
+I den här självstudien får du lära dig att integrera Confirmit-horisonter med Azure Active Directory (Azure AD).
+Genom att integrera Confirmit-horisonter med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Confirmit Horizons.
-* Du kan aktivera dina användare så att de automatiskt loggas in på Confirmit Horizons (Enkel inloggning) med sina Azure AD-konton.
+* Du kan styra Azure AD som har åtkomst till Confirmit-horisonter.
+* Du kan låta dina användare bli automatiskt inloggade för att Confirmit horisonter (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Confirmit Horizons behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Confirmit-horisonter behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Bekräfta en prenumeration på horizons-inloggning
+* Confirmit, enkel inloggning aktive rad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Confirmit Horizons stöder **SP och IDP** initierad SSO
+* Confirmit-horisonter stöder **SP-och IDP** -INITIERAd SSO
 
-* Confirmit Horizons stöder just **in time-användares** etablering
+* Confirmit-horisonter har stöd **för just vid tidpunkten för** användar etablering
 
-## <a name="adding-confirmit-horizons-from-the-gallery"></a>Lägga till Confirmit Horizons från galleriet
+## <a name="adding-confirmit-horizons-from-the-gallery"></a>Lägga till Confirmit-horisonter från galleriet
 
-Om du vill konfigurera integreringen av Confirmit Horizons i Azure AD måste du lägga till Confirmit Horizons från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Confirmit-horisonter i Azure AD måste du lägga till Confirmit-horisonter från galleriet i listan över hanterade SaaS-appar.
 
-**Så här lägger du till Confirmit Horizons från galleriet:**
+**Utför följande steg för att lägga till Confirmit-horisonter från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -67,31 +67,31 @@ Om du vill konfigurera integreringen av Confirmit Horizons i Azure AD måste du 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. Skriv **Bekräfta vyer**i sökrutan och välj Bekräfta **dina horisonter** från resultatpanelen och klicka sedan på **Lägg** till-knappen för att lägga till programmet.
+4. I rutan Sök skriver du **Confirmit-horisonter**, väljer **Confirmit-horisonter** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Bekräfta Horizons i resultatlistan](common/search-new-app.png)
+     ![Confirmit-horisonter i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med Confirmit Horizons baserat på en testanvändare som heter **Britta Simon**.
-För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Confirmit Horizons upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med Confirmit-horisonter baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Confirmit-horisonter upprättas.
 
-Om du vill konfigurera och testa en azure AD-inloggning med Confirmit Horizons måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Confirmit-horisonter i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Confirmit Horizons Single Sign-On](#configure-confirmit-horizons-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera Confirmit-horisonter enkel inloggning](#configure-confirmit-horizons-single-sign-on)** – så här konfigurerar du inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Confirmit Horizons-testanvändare](#create-confirmit-horizons-test-user)** – om du vill ha en motsvarighet till Britta Simon i Confirmit Horizons som är länkad till Azure AD-representationen av användaren.
+5. **[Skapa Confirmit-horisonter testa användare](#create-confirmit-horizons-test-user)** – om du vill ha en motsvarighet till Britta Simon i Confirmit-horisonter som är länkade till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Så här konfigurerar du en enkel Azure AD-inloggning med Confirmit Horizons:
+Utför följande steg för att konfigurera enkel inloggning med Confirmit-horisonter i Azure AD:
 
-1. Välj [Azure portal](https://portal.azure.com/)Enkel inloggning på sidan **Confirmit Horizons-programintegrering** på sidan Bekräftarevisitprogram. **Single sign-on**
+1. I [Azure Portal](https://portal.azure.com/)på sidan **Confirmit horisonter** program integration väljer du **enkel inloggning**.
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,9 +103,9 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Confirmit Horizons:
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
+4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Bekräfta domänen och webbadresserna för en enda inloggning](common/idp-intiated.png)
+    ![Confirmit-horisont, domän och URL-information för enkel inloggning](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
 
@@ -131,7 +131,7 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Confirmit Horizons:
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Bekräfta domänen och webbadresserna för en enda inloggning](common/metadata-upload-additional-signon.png)
+    ![Confirmit-horisont, domän och URL-information för enkel inloggning](common/metadata-upload-additional-signon.png)
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster:
 
@@ -145,15 +145,15 @@ Så här konfigurerar du en enkel Azure AD-inloggning med Confirmit Horizons:
     | | 
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta Supportteamet för [Confirmit Horizons-klienten](mailto:support@confirmit.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Confirmits horisonter support team](mailto:support@confirmit.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 4. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-### <a name="configure-confirmit-horizons-single-sign-on"></a>Konfigurera bekräftande horisonter enkel inloggning
+### <a name="configure-confirmit-horizons-single-sign-on"></a>Konfigurera enkel inloggning för Confirmit-Horisont
 
-Om du vill konfigurera enkel inloggning på **Confirmit Horizons-sidan** måste du skicka **url:en för appfederationens metadata** till [Confirmit Horizons supportteam](mailto:support@confirmit.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Confirmit-horisonter** måste du skicka **URL: en för appens Federation Metadata** till [support teamet för Confirmit-horisonter](mailto:support@confirmit.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -163,7 +163,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -171,9 +171,9 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Dialogrutan Användare](common/user-properties.png)
 
-    a. Ange **BrittaSimon**i fältet **Namn** .
+    a. I fältet **namn** anger du **BrittaSimon**.
   
-    b. Skriv i fältet **Användarnamn****brittasimon@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du**brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -182,15 +182,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Confirmit Horizons.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Confirmit-horisonter.
 
-1. I Azure-portalen väljer du **Företagsprogram**, väljer **Alla program**och väljer sedan **Bekräfta vyer**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Confirmit-horisonter**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **Bekräftarhorisonter**i programlistan .
+2. I listan program väljer du **Confirmit-horisonter**.
 
-    ![Länken Bekräftande horisonter i listan Program](common/all-applications.png)
+    ![Länken Confirmit-horisonter i listan program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -202,25 +202,25 @@ I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel 
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-7. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+7. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
-### <a name="create-confirmit-horizons-test-user"></a>Skapa testanvändare för Bekräftade horisonter
+### <a name="create-confirmit-horizons-test-user"></a>Skapa Confirmit-horisonter test användare
 
-I det här avsnittet skapas en användare som heter Britta Simon i Confirmit Horizons. Confirmit Horizons stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Confirmit Horizons skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som kallas Britta Simon i Confirmit-horisonter. Confirmit-horisonter har stöd för just-in-Time User-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Confirmit-horisonter skapas en ny efter autentiseringen.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Bekräfta horisonter på åtkomstpanelen ska du automatiskt loggas in på de Bekräftande horisonter som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen för Confirmit-horisonter på åtkomst panelen, bör du loggas in automatiskt på de Confirmit-horisonter som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

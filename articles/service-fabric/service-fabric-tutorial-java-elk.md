@@ -7,10 +7,10 @@ ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: b283982e11449d234da966f15b86cc5b638a026c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75376670"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Självstudie: Övervaka dina Service Fabric-program med ELK
@@ -140,7 +140,7 @@ Du kan använda en förkonfigurerad ELK-miljö för den här självstudiekursen,
     curl 'localhost:9200/_cat/indices?v'
     ```
 
-8. Öppna din Kibana-instrumentpanel på **http:\//SERVER-IP** och ange användarnamn och lösenord för Kibana. Har du använt ELK-avbildningen i Azure så är standardanvändarnamnet 'user', och lösenordet är det som du hämtade från **Startdiagnostik**.
+8. Öppna Kibana-instrumentpanelen på **http\/:/Server-IP** och ange användar namn och lösen ord för Kibana. Har du använt ELK-avbildningen i Azure så är standardanvändarnamnet 'user', och lösenordet är det som du hämtade från **Startdiagnostik**.
 
     ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
 

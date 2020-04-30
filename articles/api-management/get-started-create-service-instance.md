@@ -13,10 +13,10 @@ ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: acfa10ea506e063bf6b230386ca0722f1c959d18
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75442565"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Skapa en ny Azure API Management-tjänstinstans
@@ -27,7 +27,7 @@ I den här snabbstarten beskrivs stegen för att skapa en ny API Management-inst
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-![API-hanteringsinstans](./media/get-started-create-service-instance/get-started-create-service-instance-created.png)
+![API Management instans](./media/get-started-create-service-instance/get-started-create-service-instance-created.png)
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -35,27 +35,27 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-a-new-service"></a>Skapa en ny tjänst
 
-1. På Portal-menyn i Azure väljer du **Skapa en resurs**. Du kan också välja **Skapa en resurs** på Startsidan **för** Azure. 
+1. Från Azure Portal-menyn väljer du **skapa en resurs**. Du kan också välja **skapa en resurs** på Azures **Start** sida. 
    
    ![Välj Skapa en resurs](./media/get-started-create-service-instance/00-CreateResource-01.png)
    
-1. På skärmen **Nytt** väljer du **Integrering** och väljer sedan **API Management**.
+1. På den **nya** skärmen väljer du **integration** och väljer sedan **API Management**.
    
    ![Ny Azure API Management-instans](./media/get-started-create-service-instance/00-CreateResource-02.png)
    
-1. Ange inställningar på **api management-tjänstens** skärm.
+1. I fönstret **API Management tjänst** anger du inställningar.
    
    ![ny instans](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
    
-   | Inställning                 | Föreslaget värde                               | Beskrivning                                                                                                                                                                                                                                                                                                                         |
+   | Inställningen                 | Föreslaget värde                               | Beskrivning                                                                                                                                                                                                                                                                                                                         |
 |-------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Namn**                | Ett unikt namn för din API Management-tjänst | Namnet kan inte ändras senare. Tjänstens namn används för att generera en ett standarddomännamn med formatet of *{name}.azure-api.net.* Om du vill använda ett anpassat domännamn läser du [Konfigurera ett anpassat domännamn](configure-custom-domain.md). <br/> Tjänstens namn används för att referera till tjänsten och motsvarande Azure-resurs. |
 | **Prenumeration**        | Din prenumeration                             | Den prenumeration som den här nya tjänstinstansen kommer att skapas för. Du kan välja prenumeration bland de olika Azure-prenumerationer som du har åtkomst till.                                                                                                                                                            |
-| **Resursgrupp**      | *apimResourceGroup*                           | Du kan välja en ny eller befintlig resurs. En resursgrupp är en samling resurser som delar livscykel, behörigheter och principer. Läs mer [här](../azure-resource-manager/management/overview.md#resource-groups).                                                                                                  |
-| **Location**            | *USA, västra*                                    | Välj den geografiska regionen närmast dig. Endast de tillgängliga API Management-regionerna visas i listrutan.                                                                                                                                                                                                          |
+| **Resurs grupp**      | *apimResourceGroup*                           | Du kan välja en ny eller befintlig resurs. En resursgrupp är en samling resurser som delar livscykel, behörigheter och principer. Läs mer [här](../azure-resource-manager/management/overview.md#resource-groups).                                                                                                  |
+| **Position**            | *USA, västra*                                    | Välj den geografiska regionen närmast dig. Endast de tillgängliga API Management-regionerna visas i listrutan.                                                                                                                                                                                                          |
 | **Organisationens namn**   | Namnet på din organisation                 | Namnet används på ett antal platser, däribland titeln på utvecklarportalen och avsändaren av e-postmeddelanden.                                                                                                                                                                                                             |
-| **E-postadress för administratör** | *admin\@org.com*                               | Ange den e-postadress som alla meddelanden från **API Management** ska skickas från.                                                                                                                                                                                                                                              |
-| **Prisnivå**        | *Developer*                                   | Ställ in nivån **Developer** för att utvärdera tjänsten. Den här nivån ska inte användas för produktion. Mer information om att skala API Management-nivåerna finns i avsnittet [Uppgradera och skala](upgrade-and-scale.md).                                                                                                                                    |
+| **E-postadress för administratör** | *admin\@-org.com*                               | Ange den e-postadress som alla meddelanden från **API Management** ska skickas från.                                                                                                                                                                                                                                              |
+| **Pris nivå**        | *Developer*                                   | Ställ in nivån **Developer** för att utvärdera tjänsten. Den här nivån ska inte användas för produktion. Mer information om att skala API Management-nivåerna finns i avsnittet [Uppgradera och skala](upgrade-and-scale.md).                                                                                                                                    |
 
 3. Välj **Skapa**.
 
@@ -68,17 +68,17 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 När den inte längre behövs kan följande steg användas för att ta bort resursgruppen och alla relaterade resurser:
 
-1. Sök efter och välj **Resursgrupper**i Azure-portalen . Du kan också välja **Resursgrupper** på **startsidan.** 
+1. I Azure Portal söker du efter och väljer **resurs grupper**. Du kan också välja **resurs grupper** på **Start** sidan. 
 
    ![Navigering för resursgrupper](./media/get-started-create-service-instance/00-DeleteResource-01.png)
 
-1. Välj resursgruppen på sidan **Resursgrupper.**
+1. På sidan **resurs grupper** väljer du din resurs grupp.
 
    ![Navigering för resursgrupper](./media/get-started-create-service-instance/00-DeleteResource-02.png)
 
-1. På resursgruppssidan väljer du **Ta bort resursgrupp**. 
+1. På sidan resurs grupp väljer du **ta bort resurs grupp**. 
    
-1. Skriv namnet på resursgruppen och välj sedan **Ta bort**.
+1. Skriv namnet på resurs gruppen och välj sedan **ta bort**.
 
    ![Ta bort resursgrupp](./media/get-started-create-service-instance/00-DeleteResource-03.png)
 

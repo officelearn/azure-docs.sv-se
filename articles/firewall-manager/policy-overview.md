@@ -1,5 +1,5 @@
 ---
-title: Översikt över förhandsprinciper för Azure Firewall Manager
+title: Översikt över Azure Firewall Manager Preview-princip
 description: Lär dig mer om Azure Firewall Manager-principer
 author: vhorne
 ms.service: firewall-manager
@@ -8,59 +8,59 @@ ms.topic: overview
 ms.date: 02/18/2020
 ms.author: victorh
 ms.openlocfilehash: 1308f4ba3335f2fd2633f6e39a679cd6477a4b5c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77445023"
 ---
-# <a name="azure-firewall-manager-preview-policy-overview"></a>Översikt över förhandsprinciper för Azure Firewall Manager
+# <a name="azure-firewall-manager-preview-policy-overview"></a>Översikt över Azure Firewall Manager Preview-princip
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-Brandväggsprincipen är en Azure-resurs som innehåller SAMLINGAR FÖR NAT-, nätverks- och programregel samt inställningar för hotinformation. Det är en global resurs som kan användas i flera Azure-brandväggsinstanser i säkra virtuella hubbar och virtuella hubbnätverk. Principer fungerar mellan regioner och prenumerationer.
+Brand Väggs principen är en Azure-resurs som innehåller samlingar för NAT, nätverk och program regler samt hot information-inställningar. Det är en global resurs som kan användas i flera Azure Firewall-instanser i säkra virtuella hubbar och virtuella hubb nätverk. Principer fungerar mellan regioner och prenumerationer.
 
-![Azure-brandväggshanterarens princip](media/policy-overview/policy-overview.png)
+![Azure Firewall Manager-princip](media/policy-overview/policy-overview.png)
 
-## <a name="policy-creation-and-association"></a>Skapande och föreningsförening för politik
+## <a name="policy-creation-and-association"></a>Skapa och associera princip
 
-En princip kan skapas och hanteras på flera sätt, inklusive Azure-portalen, REST API, mallar, Azure PowerShell och CLI.
+En princip kan skapas och hanteras på flera sätt, inklusive Azure Portal, REST API, mallar, Azure PowerShell och CLI.
 
-Du kan också migrera befintliga regler från Azure-brandväggen med hjälp av portalen eller Azure PowerShell för att skapa principer. Mer information finns i [Så här migrerar du Azure-brandväggskonfigurationer till Azure Firewall Policy (förhandsversion).](migrate-to-policy.md) 
+Du kan också migrera befintliga regler från Azure-brandväggen med hjälp av portalen eller Azure PowerShell för att skapa principer. Mer information finns i [så här migrerar du Azure Firewall-konfigurationer till en Azure Firewall-princip (för hands version)](migrate-to-policy.md). 
 
-Principer kan associeras med en eller flera virtuella hubbar eller virtuella nätverk. Brandväggen kan finnas i alla prenumerationer som är kopplade till ditt konto och i alla regioner.
+Principer kan associeras med en eller flera virtuella nav eller virtuella nätverk. Brand väggen kan finnas i alla prenumerationer som är kopplade till ditt konto och i vilken region som helst.
 
 ## <a name="hierarchical-policies"></a>Hierarkiska principer
 
-Nya principer kan skapas från grunden eller ärvs från befintliga principer. Arv gör det möjligt för DevOps att skapa lokala brandväggsprinciper ovanpå den organisationsuppdragade basprincipen.
+Nya principer kan skapas från grunden eller ärvas från befintliga principer. Arv gör att DevOps kan skapa lokala brand Väggs principer överst i organisationen som har tilldelats bas principen.
 
-Principer som skapats med icke-tomma överordnade principer ärver alla regelsamlingar från den överordnade principen. Nätverksregelsamlingar som ärvs från en överordnad princip prioriteras alltid ovanför nätverksregelsamlingar som definieras som en del av en ny princip. Samma logik gäller även för programregelsamlingar. Nätverksregelsamlingar bearbetas dock alltid före programregelsamlingar oavsett arv.
+Principer som skapats med icke-tomma överordnade principer ärver alla regel samlingar från den överordnade principen. Nätverks regel samlingarna som ärvs från en överordnad princip prioriteras alltid ovanför nätverks regel samlingar som definierats som en del av en ny princip. Samma logik gäller även för program regel samlingar. Nätverks regel samlingar bearbetas dock alltid innan program regel samlingar, oavsett arv.
 
-Hot Intelligence-läget ärvs också från den överordnade principen. Du kan ställa in hot Intelligence-läget till ett annat värde för att åsidosätta det här beteendet, men du kan inte stänga av det. Det är bara möjligt att åsidosätta med ett strängare värde. Om den överordnade principen till exempel är inställd **på Avisering kan**du konfigurera den här lokala principen så att **den aviseras och nekas**.
+Hot informations läget ärvs också från den överordnade principen. Du kan ställa in ditt hot informations läge på ett annat värde om du vill åsidosätta det här beteendet, men du kan inte inaktivera det. Det går bara att åsidosätta med ett striktare värde. Om din överordnade princip till exempel är inställd på **endast avisering**, kan du konfigurera den här lokala principen för att **Varna och neka**.
 
-NAT-regelsamlingar ärvs inte eftersom de är specifika för en viss brandvägg.
+NAT-regel samlingar ärvs inte eftersom de är specifikt för en specifik brand vägg.
 
-Med arv tillämpas alla ändringar i den överordnade principen automatiskt ned på associerade underordnade principer för brandvägg.
+Med arv tillämpas eventuella ändringar i den överordnade principen automatiskt ned till associerade underordnade brand Väggs principer.
 
-## <a name="traditional-rules-and-policies"></a>Traditionella regler och policyer
+## <a name="traditional-rules-and-policies"></a>Traditionella regler och principer
 
-Azure Firewall stöder både traditionella regler och principer. I följande tabell jämförs principer och regler:
+Azure-brandväggen stöder både traditionella regler och principer. I följande tabell jämförs principer och regler:
 
 
 |         |Princip  |Regler  |
 |---------|---------|---------|
-|Innehåller     |INSTÄLLNINGAR FÖR NAT, Nätverk, Program och Hot Intelligence|NAT-, nätverks- och programregler |
-|Skyddar     |Virtuella nav och virtuella nätverk|Endast virtuella nätverk|
-|Portalmiljö     |Central hantering med hjälp av Brandväggshanteraren|Fristående brandväggsupplevelse|
-|Stöd för flera brandväggar     |Brandväggsprincipen är en separat resurs som kan användas i brandväggar|Exportera och importera regler manuellt eller använda hanteringslösningar från tredje part |
-|Prissättning     |Faktureras baserat på brandväggsassociation. Se [Priser](#pricing).|Kostnadsfri|
-|Distributionsmekanismer som stöds     |Portal, REST API, mallar, Azure PowerShell och CLI|Portal, REST API, mallar, PowerShell och CLI. |
-|Frisläppningsstatus     |Offentlig förhandsversion|Allmän tillgänglighet|
+|Innehåller     |Inställningar för NAT, nätverk, program regler och hot information|Regler för NAT, nätverk och program |
+|Skyddar     |Virtuella hubbar och virtuella nätverk|Endast virtuella nätverk|
+|Portalmiljö     |Central hantering med hjälp av brand Väggs hanteraren|Fristående brand Väggs upplevelse|
+|Stöd för flera brand väggar     |Brand Väggs principen är en separat resurs som kan användas i olika brand väggar|Exportera och importera regler manuellt eller med hjälp av hanterings lösningar från tredje part |
+|Prissättning     |Faktureras baserat på brand Väggs Association. Se [prissättning](#pricing).|Kostnadsfri|
+|Distributions metoder som stöds     |Portal, REST API, mallar, Azure PowerShell och CLI|Portal, REST API, mallar, PowerShell och CLI. |
+|Versions status     |Offentlig för hands version|Allmän tillgänglighet|
 
 ## <a name="pricing"></a>Prissättning
 
-Principer faktureras baserat på brandväggsassociationer. En policy med noll eller en brandväggsförening är gratis. En princip med flera brandväggsassociationer faktureras med en fast hastighet. Mer information finns i [Prissättningen för Azure Firewall Manager](https://azure.microsoft.com/pricing/details/firewall-manager/).
+Principer faktureras baserat på brand Väggs associationer. En princip med noll eller en brand Väggs koppling är kostnads fri. En princip med flera brand Väggs associationer debiteras enligt ett fast pris. Mer information finns i [priser för Azure Firewall Manager](https://azure.microsoft.com/pricing/details/firewall-manager/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du distribuerar en Azure-brandvägg finns i [Självstudiekurs: Skydda molnnätverket med förhandsversionen av Azure Firewall Manager med Azure-portalen](secure-cloud-network.md).
+Information om hur du distribuerar en Azure-brandvägg finns i [Självstudier: skydda ditt moln nätverk med för hands versionen av Azure Firewall Manager med hjälp av Azure Portal](secure-cloud-network.md).

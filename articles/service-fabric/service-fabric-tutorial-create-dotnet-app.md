@@ -5,17 +5,17 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.custom: mvc
 ms.openlocfilehash: cbfae89ffa446ca3915129fd9add2701ac21d837
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75465470"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Självstudie: Skapa och distribuera en app med en ASP.NET Core Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst
 
 Den här självstudien ingår i en serie.  Du får se hur du skapar ett Azure Service Fabric-program med en ASP.NET Core Web API-klientdel och en tillståndskänslig serverdelstjänst för att lagra dina data. När du är klar har du ett röstningsprogam med ASP.NET Core-webbklient som sparar röstningsresultat i en tillståndskänslig backend-tjänst i klustret. Om du inte vill skapa röstningsprogrammet manuellt kan du [ladda ned källkoden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) för det färdiga programmet och gå vidare till [Gå igenom exempelprogrammet för röstning](#walkthrough_anchor).  Om du vill kan du visa en [videogenomgång](https://channel9.msdn.com/Events/Connect/2017/E100) av den här kursen.
 
-![AngularJS+ASP.NET API Front End, Ansluta till en tillståndskänslig serverdelstjänst på Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![AngularJS + ASP. NET API-klient del, ansluta till en tillstånds känslig Server dels tjänst på Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 I del ett i den här serien lärde du dig att:
 
@@ -27,7 +27,7 @@ I del ett i den här serien lärde du dig att:
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * Skapa ett .NET Service Fabric-program
-> * [Distribuera programmet till ett fjärrkluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [Distribuera programmet till ett fjärran slutet kluster](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Lägga till en HTTPS-slutpunkt i en klienttjänst i ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * [Konfigurera CI/CD med hjälp av Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md)
@@ -36,7 +36,7 @@ I den här självstudieserien får du lära du dig att:
 
 Innan du börjar den här självstudien:
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Installera Visual Studio 2019](https://www.visualstudio.com/) version 15.5 eller senare med **Azure-utvecklings-** och **ASP.NET- och webbutvecklingsarbetsbelastningar.**
+* [Installera Visual Studio 2019](https://www.visualstudio.com/) version 15,5 eller senare med arbets belastningarna **Azure Development** och **ASP.net och webb utveckling** .
 * [Installera Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Skapa en ASP.NET Core Web API-tjänst som en tillförlitlig tjänst
@@ -45,7 +45,7 @@ Skapa först webbklientdelen i röstningsprogrammet med ASP.NET Core. ASP.NET Co
 
 1. Starta Visual Studio som **administratör**.
 
-2. Skapa ett projekt med **File**->**New**->**Project**.
+2. Skapa ett projekt med **filen**->**nytt**->**projekt**.
 
 3. Klicka på **Moln > Service Fabric-program** i dialogrutan **Nytt projekt**.
 
@@ -300,7 +300,7 @@ namespace VotingWeb.Controllers
 
 När klientdelstjänsten VotingWeb skapas väljer Visual Studio slumpmässigt en port där tjänsten ska lyssna.  VotingWeb-tjänsten fungerar som klientdel för det här programmet och godkänner extern trafik, så vi kopplar den tjänsten till en fast och välkänd port.  I [tjänstmanifestet](service-fabric-application-and-service-manifests.md) anges tjänstens slutpunkter.
 
-Öppna *VotingWeb/PackageRoot/ServiceManifest.xml*i Solution Explorer .  Leta rätt på elementet **Endpoint** i avsnittet **Resources** och ändra värdet för **Port** till **8080**. Om du vill distribuera och köra programmet lokalt måste programmets lyssningsport vara öppen och tillgänglig på datorn.
+I Solution Explorer öppnar du *VotingWeb/PackageRoot/ServiceManifest. XML*.  Leta rätt på elementet **Endpoint** i avsnittet **Resources** och ändra värdet för **Port** till **8080**. Om du vill distribuera och köra programmet lokalt måste programmets lyssningsport vara öppen och tillgänglig på datorn.
 
 ```xml
 <Resources>
@@ -455,7 +455,7 @@ I den här självstudien använder du [ASP.NET Core Web API](service-fabric-reli
         ],
 ```
 Porten för omvänd proxy som används i det lokala utvecklingsklustret visar elementet **HttpApplicationGatewayEndpoint** i det lokala Service Fabric-klustermanifestet:
-1. Öppna ett webbläsarfönster och\/navigera till http: /localhost:19080 för att öppna verktyget Service Fabric Explorer.
+1. Öppna ett webbläsarfönster och gå till http:\//localhost: 19080 för att öppna Service Fabric Explorer-verktyget.
 2. Välj **Kluster -> Manifest**.
 3. Anteckna porten för elementet HttpApplicationGatewayEndpoint. Den bör vara 19081. Om den inte är 19081 måste du ändra porten i metoden GetProxyAddress i följande VotesController.cs-kod.
 

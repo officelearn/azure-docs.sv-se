@@ -1,16 +1,16 @@
 ---
-title: Skapa definierad av hanterade program – Azure PowerShell
-description: Innehåller ett Azure PowerShell-skriptexempel som skapar en hanterad programdefinition i Azure-prenumerationen.
+title: Skapa definition av hanterade program – Azure PowerShell
+description: Innehåller ett Azure PowerShell skript exempel som skapar en definition för ett hanterat program i Azure-prenumerationen.
 author: tfitzmac
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: 09fe1455f0dba57fd23aeeb66acb1f99fc2513d4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75650207"
 ---
 # <a name="create-a-managed-application-definition-with-powershell"></a>Skapa en definition för ett hanterat program med PowerShell
@@ -30,7 +30,7 @@ Det här skriptet publicerar en definition för hanterade program i en tjänstka
 
 Det här skriptet använder följande kommando för att skapa definitionen för det hanterade programmet. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [New-AzManagedApplicationDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplicationdefinition) | Skapa en definition för det hanterade programmet. Ange det paket som innehåller filerna som krävs. |
 

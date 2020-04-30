@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/07/2018
 ms.author: alkohli
 ms.openlocfilehash: e4b366075cb16f62a0e16b5b06da6fb19ffefdb9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67188008"
 ---
 1. Logga in på Data Box-enheten. Se till att den är upplåst.
@@ -19,7 +19,7 @@ ms.locfileid: "67188008"
 
     ![Data Box-instrumentpanel](media/data-box-add-device-ip/data-box-connect-via-rest-2.png)
 
-3. Gå till **Anslut och kopiera** och klicka på **Vila**.
+3. Gå till **Anslut och kopiera** och klicka på **rest**.
 
     ![Data Box-instrumentpanel](media/data-box-add-device-ip/data-box-connect-via-rest-3.png)
 

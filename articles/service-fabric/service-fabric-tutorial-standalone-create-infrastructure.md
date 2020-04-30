@@ -1,5 +1,5 @@
 ---
-title: Skapa infrastruktur för ett kluster på AWS
+title: Skapa en infrastruktur för ett kluster på AWS
 description: I den här självstudien lär du dig att konfigurera AWS-infrastrukturen till att köra ett Service Fabric-kluster.
 author: dkkapur
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: b6348d9fdcd4133a4fa69aac3ccf5494e904094e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75613983"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Självstudie: Skapa en AWS-infrastruktur som är värd för ett Service Fabric-kluster
@@ -33,7 +33,7 @@ Du behöver ett AWS-konto för att kunna slutföra den här självstudien.  Om d
 
 ## <a name="create-ec2-instances"></a>Skapa EC2-instanser
 
-Logga in på AWS Console > Enter **EC2** i sökrutan > **virtuella EC2-servrar i molnet**
+Logga in på AWS-konsolen > ange **EC2** i rutan Sök > **EC2 virtuella servrar i molnet**
 
 ![AWS-konsolsökning][aws-console]
 

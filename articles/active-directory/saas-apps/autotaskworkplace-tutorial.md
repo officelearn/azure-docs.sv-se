@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Autotask Workplace | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med arbets plats för AutoTask | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Autotask Workplace.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 01/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97a68fd74449ea34438348cbc4c9d09c06d46d71
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73157806"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Självstudiekurs: Azure Active Directory-integrering med Autotask Workplace
+# <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Självstudie: Azure Active Directory integrering med arbets plats för AutoTask
 
 I den här självstudien lär du dig att integrera Autotask Workplace med Azure Active Directory (Azure AD).
 Integreringen av Autotask Workplace med Azure AD medför följande fördelar:
@@ -33,7 +33,7 @@ Integreringen av Autotask Workplace med Azure AD medför följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -106,19 +106,19 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Au
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
+4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
     ![Autotask Workplace-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
 
-    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata`
+    a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster:`https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata`
 
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<subdomain>.awp.autotask.net/singlesignon/saml/SSO`
+    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<subdomain>.awp.autotask.net/singlesignon/saml/SSO`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     ![Autotask Workplace-domän och information om URL:er för enkel inloggning](common/metadata-upload-additional-signon.png)
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<subdomain>.awp.autotask.net/loginsso`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<subdomain>.awp.autotask.net/loginsso`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [kundsupporten för Autotask Workplace](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -144,7 +144,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Au
     > [!Note]
     > När du konfigurerar IdP måste en underdomän anges. För att fastställa rätt underdomän loggar du in på Workplace Online. När du loggat in bör du anteckna underdomänen i URL:en. Underdomänen är delen mellan ”https://” och ”.awp.autotask.net/” och ska vara us, eu, ca eller au.
 
-2. Gå till **Konfiguration** > **enkel inloggning** och utför följande steg:
+2. Gå till **konfiguration** > **enkel inloggning** och utför följande steg:
 
     ![Konfiguration av enkel inloggning för Autotask](./media/autotaskworkplace-tutorial/tutorial_autotaskssoconfig1.png)
 
@@ -169,7 +169,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -179,7 +179,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -208,7 +208,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -226,6 +226,6 @@ När du klickar på Autotask Workplace-panelen i åtkomstpanelen bör du automat
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

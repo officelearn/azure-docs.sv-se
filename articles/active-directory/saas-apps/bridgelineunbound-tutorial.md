@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med Bridgeline Unbound | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory integrering med bridgeline obundet | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Bridgeline Unbound.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 641b3ee0dd2f6e232d2f36d08bda5b1f2cf80102
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73157590"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bridgeline-unbound"></a>Självstudiekurs: Azure Active Directory-integrering med Bridgeline Obunden
+# <a name="tutorial-azure-active-directory-integration-with-bridgeline-unbound"></a>Självstudie: Azure Active Directory integrering med bridgeline obundet
 
 I den här självstudien lär du dig att integrera Bridgeline Unbound med Azure Active Directory (AD Azure).
 Integreringen av Bridgeline Unbound med Azure AD medför följande fördelar:
@@ -33,7 +33,7 @@ Integreringen av Bridgeline Unbound med Azure AD medför följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -103,19 +103,19 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Bridg
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
+4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
     ![Information om enkel inloggning med Bridgeline Unbound-domän och -URL:er](common/idp-intiated.png)
 
-    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`iApps_UPSTT_<ENVIRONMENTNAME>`
+    a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster:`iApps_UPSTT_<ENVIRONMENTNAME>`
 
-    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<SUBDOMAIN>.iapps.com/SAMLAssertionService.aspx`
+    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<SUBDOMAIN>.iapps.com/SAMLAssertionService.aspx`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     ![Information om enkel inloggning med Bridgeline Unbound-domän och -URL:er](common/metadata-upload-additional-signon.png)
 
-    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<SUBDOMAIN>.iapps.com/CommonLogin/login?<INSTANCENAME>`
+    I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<SUBDOMAIN>.iapps.com/CommonLogin/login?<INSTANCENAME>`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [kundsupporten för Bridgeline Unbound](mailto:support@iapps.com) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -146,7 +146,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** högst upp på skärmen.
+2. Välj **ny användare** överst på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -156,7 +156,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. Skriv **brittasimon\@ditt företaganydomain.extension** i fältet **Användarnamn**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -183,11 +183,11 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+5. I dialog rutan **användare och grupper** väljer du **Britta Simon** i listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig ett roll värde i SAML-kontrollen väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-7. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
+7. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
 ### <a name="create-bridgeline-unbound-test-user"></a>Skapa Bridgeline Unbound-testanvändare
 
@@ -206,6 +206,6 @@ När du klickar på Bridgeline Unbound-panelen på åtkomstpanelen bör du autom
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

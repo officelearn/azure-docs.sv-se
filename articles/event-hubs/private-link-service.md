@@ -8,10 +8,10 @@ ms.date: 03/12/2020
 ms.service: event-hubs
 ms.topic: article
 ms.openlocfilehash: fb8fc93174345d0bdb09e4308a4206a65ed2270a
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82148206"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link-preview"></a>Integrera Azure Event Hubs med Azure Private Link (för hands version)
@@ -202,14 +202,14 @@ Det finns fyra etablerings tillstånd:
 
 | Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
 |--|--|--|
-| Ingen | Väntande åtgärder | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
+| Inga | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
 | Avvisa | Avvisad | Anslutningen avvisades av ägaren till den privata länk resursen. |
 | Ta bort | Frånkopplad | Anslutningen togs bort av ägaren till den privata länk resursen, den privata slut punkten blir informativ och bör tas bort för rensning. |
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Godkänn, avvisa eller ta bort en privat slut punkts anslutning
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 2. I Sök fältet skriver du i **Event Hub**.
 3. Välj det **namn område** som du vill hantera.
 4. Välj fliken **nätverk** .

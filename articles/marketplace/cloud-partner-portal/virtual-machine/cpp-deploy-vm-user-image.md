@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dsindona
 ms.openlocfilehash: e3bad2dc63f6a75f52c537aabfa6e85d1846ef15
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82147922"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Distribuera en virtuell Azure-dator från en användar-VHD
@@ -34,7 +34,7 @@ Kopiera Azure Resource Manager-mallen för [VHD-distribution](cpp-deploy-json-te
 | userStorageAccountName     | Namn på lagrings kontot                                                    |
 | sNameForPublicIP           | DNS-namn för den offentliga IP-adressen. Måste vara gemener                                  |
 | subscriptionId             | Prenumerations-ID för Azure                                                  |
-| Location                   | Standard Azure-geografisk plats för resurs gruppen                       |
+| Plats                   | Standard Azure-geografisk plats för resurs gruppen                       |
 | vmName                     | Namn på den virtuella datorn                                                    |
 | vaultName                  | Nyckel valvets namn                                                          |
 | vaultResourceGroup         | Nyckel valvets resurs grupp

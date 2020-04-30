@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
 ms.openlocfilehash: 97d78b5bc77fef30bf7e3ad082a70f16a2ec74d1
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146602"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Tilldela flera IP-adresser till virtuella datorer med hjälp av Azure Portal

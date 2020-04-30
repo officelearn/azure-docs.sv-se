@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 06/25/2019
 ms.custom: mvc
 ms.openlocfilehash: de46eeb20f3c99eb7a459965d17e2dd55728a9db
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82146647"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Snabb start: skapa en Azure Database for PostgreSQL-enskild server med Azure CLI
@@ -52,7 +52,7 @@ Skapa en [Azure Database för PostgreSQL-server](overview.md) med kommandot [az 
 
 **Inställning** | **Exempelvärde** | **Beskrivning**
 ---|---|---
-namn | mydemoserver | Välj ett unikt namn för Azure Database för PostgreSQL-server. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
+name | mydemoserver | Välj ett unikt namn för Azure Database för PostgreSQL-server. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
 resource-group | myresourcegroup | Ange namnet på Azure-resursgruppen.
 sku-name | GP_Gen5_2 | Namnet på SKU:n. Följer konventionen {prisnivå}\_{beräkningsgenerering}\_{vCores} i snabbformat. Se under tabellen för mer information om parametern sku-name.
 backup-retention | 7 | Hur länge en säkerhetskopia ska behållas. Enheten är dagar. Intervallet är 7–35. 
@@ -184,7 +184,7 @@ pgAdmin är ett verktyg med öppen källkod som används med PostgreSQL. Du kan 
     Port | 5432 | Porten som ska användas när du ansluter till Azure Database för PostgreSQL-servern. 
     Underhållsdatabas | *postgres* | Systemgenererat standardnamn för databasen.
     Användarnamn | Inloggningsnamn för serveradministratör | Ange det användarnamn för serveradministratörsinloggning som du angav tidigare när du skapade Azure Database för PostgreSQL-server. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *användar namn\@Server*namn.
-    lösenord | Ditt administratörslösenord | Det lösenord du angav när du skapade servern tidigare i den här snabbstarten.
+    lösenordsinställning | Ditt administratörslösenord | Det lösenord du angav när du skapade servern tidigare i den här snabbstarten.
     Roll | Lämna tomt | Du behöver inte ange ett rollnamn nu. Lämna fältet tomt.
     SSL-läge | *Kräv* | Du kan ställa in TLS/SSL-läget på SSL-fliken i pgAdmin. Som standard skapas alla Azure Database for PostgreSQL-servrar med TLS tvingande aktiverat. Om du vill inaktivera TLS-framtvingande, se [Konfigurera verk ställande av TLS](./concepts-ssl-connection-security.md#configure-enforcement-of-tls).
     

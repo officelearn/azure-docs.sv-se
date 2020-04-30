@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/27/2020
 ms.openlocfilehash: 332be9cb0f31119e7d2f2d9fe2d3dc1f73e6d3ab
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82146728"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Självstudie: automatisera uppgifter för att bearbeta e-postmeddelanden med hjälp av Azure Logic Apps, Azure Functions och Azure Storage
@@ -62,7 +62,7 @@ Du kan spara inkommande e-postmeddelanden och blobar i en [Azure-lagringscontain
    | **Prenumeration** | <*Azure-prenumeration-namn*> | Azure-prenumerationens namn |  
    | **Resursgrupp** | <*Azure-resurs-grupp*> | Namnet på den [Azure-resursgrupp](../azure-resource-manager/management/overview.md) som används för att organisera och hantera relaterade resurser. I det här exemplet används "LA-självstudie-RG". <p>**Obs!** En resursgrupp finns i en viss region. Trots att objekten i den här självstudien kanske inte är tillgängliga i alla regioner ska du försöka att använda samma region när det är möjligt. |
    | **Lagrings konto namn** | <*Azure-Storage – konto-namn*> | Ditt lagrings konto namn, som måste innehålla 3-24 tecken och får bara innehålla gemena bokstäver och siffror. I det här exemplet används "attachmentstorageacct". |
-   | **Location** | <*Azure-region*> | Den region där du vill lagra information om ditt lagrings konto. I det här exemplet används "västra USA". |
+   | **Position** | <*Azure-region*> | Den region där du vill lagra information om ditt lagrings konto. I det här exemplet används "västra USA". |
    | **Prestanda** | Standard | Den här inställningen anger datatyper som stöds och media för att lagra data. Se [Typer av lagringskonton](../storage/common/storage-introduction.md#types-of-storage-accounts). |
    | **Typ av konto** | Generellt syfte | [Lagringskontotyp](../storage/common/storage-introduction.md#types-of-storage-accounts) |
    | **Replikering** | Lokalt redundant lagring (LRS) | Den här inställningen anger hur dina data kopieras, lagras, hanteras och synkroniseras. Se [LRS (lokalt redundant lagring): låg kostnads data redundans för Azure Storage](../storage/common/storage-redundancy-lrs.md). |
@@ -143,12 +143,12 @@ Använd nu kodfragmentet som tillhandahålls via de här stegen för att skapa e
 
    | Inställning | Värde | Beskrivning |
    | ------- | ----- | ----------- |
-   | **Appnamn** | <*funktion-App-Name*> | Appens funktions namn, som måste vara globalt unikt i Azure. I det här exemplet används redan "CleanTextFunctionApp", så ange ett annat namn, till exempel "MyCleanTextFunctionApp-<*ditt-name*>" |
+   | **App-namn** | <*funktion-App-Name*> | Appens funktions namn, som måste vara globalt unikt i Azure. I det här exemplet används redan "CleanTextFunctionApp", så ange ett annat namn, till exempel "MyCleanTextFunctionApp-<*ditt-name*>" |
    | **Prenumeration** | <*ditt-Azure-prenumerations namn*> | Samma Azure-prenumeration som du tidigare använt |
    | **Resurs grupp** | LA-Tutorial-RG | Samma Azure-resursgrupp som du tidigare använt |
    | **Operativsystem** | <*ditt operativ system*> | Välj det operativ system som stöder ditt favorit funktions programmeringsspråk. I det här exemplet väljer du **Windows**. |
    | **Värdplan** | Förbrukningsplan | Den här inställningen avgör hur resurser ska allokeras och skalas, som datorkraft, för att köra din funktionsapp. Se [jämförelse av värdplaner](../azure-functions/functions-scale.md). |
-   | **Location** | USA, västra | Samma region som du tidigare använt |
+   | **Position** | USA, västra | Samma region som du tidigare använt |
    | **Körnings stack** | Önskat språk | Välj en körning som stöder ditt favorit funktions programmeringsspråk. Välj **.net** för C# och F # functions. |
    | **Storage** | cleantextfunctionstorageacct | Skapa ett lagringskonto för din funktionsapp. Använd bara gemena bokstäver och siffror. <p>**Obs:** Det här lagrings kontot innehåller dina funktions program och skiljer sig från ditt tidigare skapade lagrings konto för e-postbilagor. |
    | **Application Insights** | Inaktivera | Aktiverar program övervakning med [Application Insights](../azure-monitor/app/app-insights-overview.md), men i den här självstudien väljer du **inaktivera** > **Använd**. |
@@ -601,7 +601,7 @@ Lägg sedan till en åtgärd så att logikappen skickar e-post för att granska 
 
    Om du inte hittar ett förväntat fält i listan med dynamiskt innehåll väljer du **Visa fler** bredvid **när ett nytt e-postmeddelande kommer**.
 
-   | Inställning | Värde | Anteckningar |
+   | Inställning | Värde | Obs! |
    | ------- | ----- | ----- |
    | **Att** | <*mottagare-e-postadress*> | I testsyfte kan du använda din egen e-postadress. |
    | **Subjekt**  | ```ASAP - Review applicant for position:``` **Subjekt** | E-postämnet du vill ha. Klicka i den här rutan, ange exempeltexten och välj fältet **Subject** (Ämne) under **When a new email arrives** (När ett nytt e-postmeddelande kommer). |

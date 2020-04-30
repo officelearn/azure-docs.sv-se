@@ -8,10 +8,10 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
 ms.openlocfilehash: 9aa19dfa0626ff0726911815addbb03945ee36f1
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82144852"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Börja övervaka din ASP.NET Core-webbapp
@@ -53,7 +53,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar appen du övervakar |
    | **Resurs grupp**     | myResourceGroup      | Namn för den nya resurs gruppen som värd för App Insights-data. Du kan skapa en ny resursgrupp eller välja en befintlig. |
-   | **Location** | USA, östra | Välj en plats nära dig eller nära där appen finns |
+   | **Position** | USA, östra | Välj en plats nära dig eller nära där appen finns |
 
 2. Klicka på **Skapa**.
 

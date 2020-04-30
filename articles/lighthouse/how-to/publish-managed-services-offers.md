@@ -4,10 +4,10 @@ description: Lär dig hur du publicerar ett hanterat tjänst erbjudande som regi
 ms.date: 04/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: 19c4d1a4bd0ffd7c0162cbf7f20c49a5b219b9bc
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146747"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicera ett hanterat tjänst erbjudande på Azure Marketplace
@@ -65,7 +65,7 @@ Slutför följande avsnitt i avsnittet med **plan information** :
 
 |Field  |Beskrivning  |
 |---------|---------|
-|**Titel**     | Eget namn på planen för visning. Maximal längd på 50 tecken.        |
+|**Avdelning**     | Eget namn på planen för visning. Maximal längd på 50 tecken.        |
 |**Sammanfattning**     | Kortfattad beskrivning av planen för visning under rubriken. Maximal längd på 100 tecken.        |
 |**Beskrivning**     | Beskrivnings text som ger en mer detaljerad förklaring av planen.         |
 |**Faktureringsmodell**     | Det finns två fakturerings modeller som visas här, men du måste välja **Bring Your Own License** för Managed Services-erbjudanden. Det innebär att du debiteras kunderna direkt för kostnader som rör erbjudandet, och Microsoft debiterar inte några avgifter till dig.   |
@@ -112,7 +112,7 @@ Fyll i följande fält i **översikts** avsnittet:
 
 |Field  |Beskrivning  |
 |---------|---------|
-|**Titel**     |  Rubriken på erbjudandet, ofta det långa, formella namnet. Den här rubriken visas på ett framträdande sätt i Marketplace. Maximal längd på 50 tecken. I de flesta fall ska detta vara detsamma som det **namn** som du angav i avsnittet **erbjudande inställningar** .       |
+|**Avdelning**     |  Rubriken på erbjudandet, ofta det långa, formella namnet. Den här rubriken visas på ett framträdande sätt i Marketplace. Maximal längd på 50 tecken. I de flesta fall ska detta vara detsamma som det **namn** som du angav i avsnittet **erbjudande inställningar** .       |
 |**Sammanfattning**     | Kort syfte eller funktion för ditt erbjudande. Detta visas vanligt vis under rubriken. Maximal längd på 100 tecken.        |
 |**Lång Sammanfattning**     | En längre sammanfattning av ditt erbjudandes syfte eller funktion. Maximal längd på 256 tecken.        |
 |**Beskrivning**     | Mer information om ditt erbjudande. Det här fältet innehåller den maximala längden på 3000 tecken och stöder enkel HTML-formatering. Du måste inkludera orden "hanterad tjänst" eller "hanterade tjänster" någonstans i beskrivningen.       |

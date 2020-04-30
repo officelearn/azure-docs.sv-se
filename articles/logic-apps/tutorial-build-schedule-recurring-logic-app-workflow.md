@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
 ms.openlocfilehash: 5d4990fd806aed75d9b5e5ddd3e9a615631d9d65
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82146512"
 ---
 # <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Självstudie: skapa automatiserade, schemabaserade, återkommande arbets flöden med hjälp av Azure Logic Apps
@@ -62,7 +62,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifte
    | **Namn** | LA-TravelTime | Din Logic Apps namn, som endast får innehålla bokstäver, siffror,`-`bindestreck (), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "LA-TravelTime". |
    | **Prenumeration** | <*ditt-Azure-prenumerations namn*> | Ditt Azure-prenumerations namn |
    | **Resursgrupp** | LA-TravelTime-RG | Namnet på Azure- [resurs gruppen](../azure-resource-manager/management/overview.md)som används för att organisera relaterade resurser. I det här exemplet används "LA-TravelTime-RG". |
-   | **Location** | USA, västra | Tdet region där du kan lagra information om din Logic Apps. I det här exemplet används "västra USA". |
+   | **Position** | USA, västra | Tdet region där du kan lagra information om din Logic Apps. I det här exemplet används "västra USA". |
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. |
    ||||
 
@@ -165,9 +165,9 @@ Nu när du har en utlösare lägger du till en [åtgärd](../logic-apps/logic-ap
    |----------|----------|-------|-------------|
    | **Waypoint 1** (Platsmarkör 1) | Ja | <*Start-location*> | Startpunkt för resvägen |
    | **Waypoint 2** (Platsmarkör 2) | Ja | <*slut punkt*> | Slutpunkten för resvägen |
-   | **Optimera** | Inga | timeWithTraffic | En parameter för att optimera färdvägen, till exempel avstånd, restid med aktuell trafik med mera. Välj parametern "timeWithTraffic". |
-   | **Avståndsenhet** | Inga | <*dina inställningar*> | Avståndsenhet för din resväg. I det här exemplet används "mil" som enhet. |
-   | **Travel mode** (Färdsätt) | Inga | Driving (Bil) | Färdsättet för din resväg. Välj "kör"-läge. |
+   | **Optimera** | Nej | timeWithTraffic | En parameter för att optimera färdvägen, till exempel avstånd, restid med aktuell trafik med mera. Välj parametern "timeWithTraffic". |
+   | **Avståndsenhet** | Nej | <*dina inställningar*> | Avståndsenhet för din resväg. I det här exemplet används "mil" som enhet. |
+   | **Travel mode** (Färdsätt) | Nej | Driving (Bil) | Färdsättet för din resväg. Välj "kör"-läge. |
    ||||
 
    Mer information om dessa parametrar finns [Calculate a route](https://docs.microsoft.com/bingmaps/rest-services/routes/calculate-a-route) (Beräkna en resväg).
@@ -196,7 +196,7 @@ Som standard returnerar den föregående åtgärden **Hämta väg** den aktuella
    |----------|----------|-------|-------------|
    | **Namn** | Ja | travelTime | Namnet på variabeln. I det här exemplet används "travelTime". |
    | **Typ** | Ja | Integer | Datatypen för variabeln |
-   | **Värde** | Inga| Ett uttryck som omvandlar den aktuella restiden från sekunder till minuter (se stegen under den här tabellen). | Det inledande värdet för variabeln |
+   | **Värde** | Nej| Ett uttryck som omvandlar den aktuella restiden från sekunder till minuter (se stegen under den här tabellen). | Det inledande värdet för variabeln |
    ||||
 
    1. Skapa uttrycket för egenskapen **Value** genom att klicka i rutan så att listan med dynamiskt innehåll visas. Du kan behöva öka webbläsarens bredd för att kunna se listan. I listan med dynamiskt innehåll väljer du **uttryck**.

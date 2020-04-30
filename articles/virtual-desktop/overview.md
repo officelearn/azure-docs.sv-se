@@ -9,10 +9,10 @@ ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 3dd971cec33fa9f840a48e597fb3bed9a7965895
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82160025"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
@@ -106,13 +106,13 @@ I följande tabell visas valfria URL: er som dina virtuella Azure-datorer kan ha
 
 |Adress|Utgående TCP-port|Syfte|Service tag|
 |---|---|---|---|
-|*.microsoftonline.com|443|Autentisering till MS Online Services|Ingen|
-|*. events.data.microsoft.com|443|Telemetri-tjänst|Ingen|
-|www.msftconnecttest.com|443|Identifierar om operativ systemet är anslutet till Internet|Ingen|
-|*. prod.do.dsp.mp.microsoft.com|443|Windows Update|Ingen|
-|login.windows.net|443|Logga in på MS Online Services, Office 365|Ingen|
-|*. sfx.ms|443|Uppdateringar för OneDrive-klientprogramvara|Ingen|
-|*. digicert.com|443|Återkallnings kontroll av certifikat|Ingen|
+|*.microsoftonline.com|443|Autentisering till MS Online Services|Inga|
+|*. events.data.microsoft.com|443|Telemetri-tjänst|Inga|
+|www.msftconnecttest.com|443|Identifierar om operativ systemet är anslutet till Internet|Inga|
+|*. prod.do.dsp.mp.microsoft.com|443|Windows Update|Inga|
+|login.windows.net|443|Logga in på MS Online Services, Office 365|Inga|
+|*. sfx.ms|443|Uppdateringar för OneDrive-klientprogramvara|Inga|
+|*. digicert.com|443|Återkallnings kontroll av certifikat|Inga|
 
 
 >[!NOTE]
@@ -183,13 +183,13 @@ Tillgängliga alternativ för Automation och distribution beror på vilket opera
 |Operativsystem|Azures avbildnings Galleri|Manuell distribution av virtuella datorer|Azure Resource Manager mall-integrering|Etablera värdbaserade pooler på Azure Marketplace|Uppdateringar av Windows Virtual Desktop agent|
 |--------------------------------------|:------:|:------:|:------:|:------:|:------:|
 |Windows 10 multi-session, version 1903|Ja|Ja|Ja|Ja|Automatisk|
-|Windows 10 multi-session, version 1809|Ja|Ja|Inga|Inga|Automatisk|
+|Windows 10 multi-session, version 1809|Ja|Ja|Nej|Nej|Automatisk|
 |Windows 10 Enterprise, version 1903|Ja|Ja|Ja|Ja|Automatisk|
-|Windows 10 Enterprise, version 1809|Ja|Ja|Inga|Inga|Automatisk|
-|Windows 7 Enterprise|Ja|Ja|Inga|Inga|Manuell|
-|Windows Server 2019|Ja|Ja|Inga|Inga|Automatisk|
+|Windows 10 Enterprise, version 1809|Ja|Ja|Nej|Nej|Automatisk|
+|Windows 7 Enterprise|Ja|Ja|Nej|Nej|Manuell|
+|Windows Server 2019|Ja|Ja|Nej|Nej|Automatisk|
 |Windows Server 2016|Ja|Ja|Ja|Ja|Automatisk|
-|Windows Server 2012 R2|Ja|Ja|Inga|Inga|Automatisk|
+|Windows Server 2012 R2|Ja|Ja|Nej|Nej|Automatisk|
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: dsindona
 ms.openlocfilehash: 2c3d316d0d2810cb2a25ffd3bc4e34cf3454c10d
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82146864"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Fliken Marketplace för virtuell dator
@@ -31,7 +31,7 @@ I följande tabell beskrivs syftet med och innehållet i dessa fält. Obligatori
 
 |  **Field**                |     **Beskrivning**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Titel\***                 | Rubriken på erbjudandet, ofta det långa, formella namnet. Den här rubriken visas på ett framträdande sätt i Marketplace.  Maximal längd på 50 tecken. |
+| **Avdelning\***                 | Rubriken på erbjudandet, ofta det långa, formella namnet. Den här rubriken visas på ett framträdande sätt i Marketplace.  Maximal längd på 50 tecken. |
 | **Sammanfattning\***               | Kort syfte eller funktion i lösningen.  Maximal längd på 100 tecken. |
 | **Lång Sammanfattning\***          | Syfte eller funktion i lösningen.  Maximal längd på 256 tecken. |
 | **Beskrivning\***           | Beskrivning av lösning.  Den maximala längden på 3000 tecken, stöder enkel HTML-formatering. |
@@ -125,7 +125,7 @@ I det sista avsnittet kan du ange de juridiska dokument som krävs för varje er
 |  ---------                    |     ---------------                                        |
 | **URL för sekretess policy\***      | URL till din publicerade sekretess policy                          |
 | **Använd standard kontrakt?\***  |   |
-| **Användningsvillkor\***            | princip som oformaterad text eller enkel HTML.                       |
+| **Villkor för användning\***            | princip som oformaterad text eller enkel HTML.                       |
 |  |  |
 
 

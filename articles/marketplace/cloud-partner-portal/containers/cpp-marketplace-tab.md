@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: dsindona
 ms.openlocfilehash: 724c2ffebd34b838c19f3296363c38c83e142b96
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82148244"
 ---
 # <a name="container-marketplace-tab"></a>Fliken container Marketplace
@@ -31,7 +31,7 @@ I följande tabell beskrivs syftet med och innehållet i dessa fält. Obligatori
 
 |    Field                  |       Beskrivning                                                            |
 |  ---------                |     ---------------                                                          |
-| **Titel\***                 | Rubriken på erbjudandet. Den visas på ett framträdande sätt i Marketplace.  Maximal längd är 50 tecken. |
+| **Avdelning\***                 | Rubriken på erbjudandet. Den visas på ett framträdande sätt i Marketplace.  Maximal längd är 50 tecken. |
 | **Sammanfattning\***               | Kort sammanfattning av erbjudandet. Maximal längd är 100 tecken. |
 | **Lång Sammanfattning\***          | Längre sammanfattning av erbjudandet (även om det kan vara samma som i **sammanfattningen**).  Maximal längd är 256 tecken. |
 | **Beskrivning\***           | Beskrivning av erbjudandet.  Maximal längd är 3000 tecken, stöder enkel HTML-formatering.

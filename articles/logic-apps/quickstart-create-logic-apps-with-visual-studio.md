@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
 ms.openlocfilehash: 3311d1143c0eca0c2b57e89e98dc22ab14fd9308
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82147725"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snabb start: skapa automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps-Visual Studio
@@ -112,12 +112,12 @@ När du har ett Azure-resurs grupps projekt skapar du din Logic app med den **to
 
    ![Välj Azure-prenumeration, resursgrupp och plats för resurser](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
-   | Inställning | Exempelvärde | Beskrivning |
+   | Inställningen | Exempelvärde | Beskrivning |
    | ------- | ------------- | ----------- |
    | Användar konto | Fabrikam <br> sophia-owen@fabrikam.com | Det konto som du använde när du loggade in i Visual Studio |
    | **Prenumeration** | Betala per användning <br> (sophia-owen@fabrikam.com) | Namnet på din Azure-prenumeration och det associerade kontot |
    | **Resurs grupp** | MyLogicApp-RG <br> (USA, västra) | Azures resurs grupp och plats för att lagra och distribuera din Logic Apps resurser |
-   | **Location** | **Samma som resurs grupp** | Plats typen och en bestämd plats för att distribuera din Logic app. Plats typen är antingen en Azure-region eller en befintlig [integrerings tjänst miljö (ISE)](connect-virtual-network-vnet-isolated-environment.md). <p>I den här snabb starten ska du se till att plats typen är **region** och att platsen är inställd på **samma som resurs gruppen**. <p>**Obs!** när du har skapat ett resurs grupps projekt kan du [ändra plats typen och platsen](manage-logic-apps-with-visual-studio.md#change-location), men olika platstyp påverkar din Logic app på olika sätt. |
+   | **Position** | **Samma som resurs grupp** | Plats typen och en bestämd plats för att distribuera din Logic app. Plats typen är antingen en Azure-region eller en befintlig [integrerings tjänst miljö (ISE)](connect-virtual-network-vnet-isolated-environment.md). <p>I den här snabb starten ska du se till att plats typen är **region** och att platsen är inställd på **samma som resurs gruppen**. <p>**Obs!** när du har skapat ett resurs grupps projekt kan du [ändra plats typen och platsen](manage-logic-apps-with-visual-studio.md#change-location), men olika platstyp påverkar din Logic app på olika sätt. |
    ||||
 
 1. Logic Apps designer öppnar en sida som visar en introduktions video och ofta använda utlösare. Rulla ned förbi videon och utlösarna till **mallar**och välj **Tom Logic app**.

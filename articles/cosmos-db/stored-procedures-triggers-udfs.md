@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 13256377b8a8aaebf59196df57eef67d3b960cb8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010553"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509677"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Lagrade procedurer, utlösare och användardefinierade funktioner
 
@@ -64,6 +64,9 @@ Transaktioner integreras internt i Azure Cosmos DB JavaScript-programmerings mod
 ### <a name="data-consistency"></a>Datakonsekvens
 
 Lagrade procedurer och utlösare körs alltid på den primära repliken av en Azure Cosmos-behållare. Den här funktionen garanterar att läsningar från lagrade procedurer ger [stark konsekvens](consistency-levels-tradeoffs.md). Frågor som använder användardefinierade funktioner kan köras på den primära eller sekundära repliken. Lagrade procedurer och utlösare är avsedda att stödja transaktions skrivningar – ingångs bara Läs logik är bäst implementerad som logik på program sidan och frågor med hjälp av [Azure Cosmos DB SQL API SDK](sql-api-dotnet-samples.md): er, vilket hjälper dig att fylla databas data flödet. 
+
+> [!TIP]
+> Frågor som körs i en lagrad procedur eller utlösare kanske inte ser ändringar av objekt som gjorts av samma skript transaktion. Den här instruktionen gäller både SQL-frågor, `getContent().getCollection.queryDocuments()`till exempel, och även integrerade språk frågor, till `getContext().getCollection().filter()`exempel.
 
 ## <a name="bounded-execution"></a>Begränsad körning
 

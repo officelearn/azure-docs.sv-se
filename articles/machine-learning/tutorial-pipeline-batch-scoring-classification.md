@@ -10,18 +10,18 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: laobri
 ms.date: 03/11/2020
-ms.openlocfilehash: 1ccd7a7f33c6ee5cab8b7173d8eb93365b6cb587
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 41d68c58c43262b36b93af0008e7d35de13dff4d
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79472228"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562278"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Självstudie: Bygg en Azure Machine Learning pipeline för batch-Poäng
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Lär dig hur du skapar en pipeline i Azure Machine Learning att köra ett batch-bedömnings jobb. Maskin inlärnings pipeliner optimerar arbets flödet med hastighet, portabilitet och åter användning, så att du kan fokusera på maskin inlärning i stället för infrastruktur och automatisering. När du har skapat och publicerat en pipeline konfigurerar du en REST-slutpunkt som du kan använda för att utlösa pipelinen från alla HTTP-bibliotek på vilken plattform som helst. 
+I den här avancerade självstudien får du lära dig hur du skapar en pipeline i Azure Machine Learning att köra ett batch-bedömnings jobb. Maskin inlärnings pipeliner optimerar arbets flödet med hastighet, portabilitet och åter användning, så att du kan fokusera på maskin inlärning i stället för infrastruktur och automatisering. När du har skapat och publicerat en pipeline konfigurerar du en REST-slutpunkt som du kan använda för att utlösa pipelinen från alla HTTP-bibliotek på vilken plattform som helst. 
 
 Exemplet använder en förtränad in(convolutionalt neurala [-](https://arxiv.org/abs/1512.00567) nätverks modell som implementerats i Tensorflow för att klassificera omärkta bilder. [Läs mer om maskin inlärnings pipeliner](concept-ml-pipelines.md).
 

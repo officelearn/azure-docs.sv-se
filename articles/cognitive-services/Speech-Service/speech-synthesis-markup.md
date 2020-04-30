@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: dc11d26c73c52b5e6c4d8e05cc27dd6ebce0c5d8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eb3db23189cbfd07362b1bd5be9aaa181064a2d6
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399825"
+ms.locfileid: "82583217"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Förbättra syntesen med SSML (Speech syntes Markup Language)
 
@@ -274,7 +274,7 @@ Använd `break` elementet för att infoga pauser (eller brytningar) mellan ord, 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-AriaNeural">
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
 </speak>
@@ -469,7 +469,7 @@ Eftersom prosodic-attributvärden kan variera över ett brett intervall, tolkar 
 | Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `pitch` | Anger textens bas linje bredd. Du kan uttrycka bredden som:<ul><li>Ett absolut värde, uttryckt som ett tal följt av "Hz" (Hertz). Till exempel 600 Hz.</li><li>Ett relativt värde, uttryckt som ett tal som föregås av "+" eller "-" och följt av "Hz" eller "St", som anger ett belopp för att ändra bredden. Till exempel: + 80 Hz eller-2st. "St" anger att ändrings enheten är semitone, som är hälften av en ton (ett halv steg) i standard skalan för diatonic.</li><li>Ett konstant värde:<ul><li>x-låg</li><li>börjar</li><li>medel</li><li>hög</li><li>x – hög</li><li>standard</li></ul></li></ul>. | Valfri |
-| `contour` | Kontur stöds inte för neurala-röster. Kontur representerar ändringar i färgdjup. Dessa ändringar visas som en matris med mål vid angivna tids positioner i tal utmatningen. Varje mål definieras av uppsättningar av parameter par. Ett exempel: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Det första värdet i varje parameter uppsättning anger platsen för bredd ändringen som en procent andel av längden på texten. Det andra värdet anger hur mycket du vill höja eller sänka avståndet med ett relativt värde eller ett uppräknings värde för färgdjup (se `pitch`). | Valfri |
+| `contour` |Kon turen stöder nu både neurala-och standard röster. Kontur representerar ändringar i färgdjup. Dessa ändringar visas som en matris med mål vid angivna tids positioner i tal utmatningen. Varje mål definieras av uppsättningar av parameter par. Ett exempel: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Det första värdet i varje parameter uppsättning anger platsen för bredd ändringen som en procent andel av längden på texten. Det andra värdet anger hur mycket du vill höja eller sänka avståndet med ett relativt värde eller ett uppräknings värde för färgdjup (se `pitch`). | Valfri |
 | `range` | Ett värde som representerar text områdets avstånd. Du kan uttrycka `range` använda samma absoluta värden, relativa värden eller uppräknings värden som används för att `pitch`beskriva. | Valfri |
 | `rate` | Anger textens tal hastighet. Du kan uttrycka `rate` som:<ul><li>Ett relativt värde, uttryckt som ett tal som fungerar som en multiplikator för standardvärdet. Värdet *1* resulterar till exempel i ingen ändring av hastigheten. Värdet *0,5* resulterar i en halving av hastigheten. Värdet *3* resulterar i en rese frekvens.</li><li>Ett konstant värde:<ul><li>x – långsam</li><li>långsam</li><li>medel</li><li>snabb</li><li>x-fast</li><li>standard</li></ul></li></ul> | Valfri |
 | `duration` | Tids perioden som ska förflyta när tal syntes tjänsten läser texten, i sekunder eller millisekunder. Till exempel *2s* eller *1800ms*. | Valfri |
@@ -477,13 +477,13 @@ Eftersom prosodic-attributvärden kan variera över ett brett intervall, tolkar 
 
 ### <a name="change-speaking-rate"></a>Ändra tal hastighet
 
-Tal frekvensen kan tillämpas på standard-röster på ord-eller menings nivå. Tal frekvensen kan endast tillämpas på neurala-röster på menings nivå.
+Tal frekvensen kan tillämpas på neurala-röster och standard röster på ord-eller menings nivå. 
 
 **Exempel**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-Guy24kRUS">
+    <voice name="en-US-GuyNeural">
         <prosody rate="+30.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -524,15 +524,15 @@ Du kan ändra bredden på standard-röster på ord-eller menings nivå. Föränd
 ### <a name="change-pitch-contour"></a>Ändra bredd för kontur
 
 > [!IMPORTANT]
-> Höjd kon tur ändringar stöds inte med neurala röster.
+> Förändringar av kon tur kon turen stöds nu med neurala-röster.
 
 **Exempel**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
-        <prosody contour="(80%,+20%) (90%,+30%)" >
-            Good morning.
+    <voice name="en-US-AriaNeural">
+        <prosody contour="(60%,-60%) (100%,+80%)" >
+            Were you the only person in the room? 
         </prosody>
     </voice>
 </speak>

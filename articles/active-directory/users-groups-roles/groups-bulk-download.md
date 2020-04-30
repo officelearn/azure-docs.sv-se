@@ -1,6 +1,6 @@
 ---
-title: Ladda ned en lista över grupper i Azure Active Directory-portalen | Microsoft-dokument
-description: Hämta gruppegenskaper i grupp i Azure-administrationscentret i Azure Active Directory.
+title: Hämta en lista med grupper i Azure Active Directory Portal | Microsoft Docs
+description: Hämta grupp egenskaper i grupp i Azure administrations centret i Azure Active Directory.
 services: active-directory
 author: curtand
 ms.author: curtand
@@ -14,35 +14,35 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59983678c1b14d6aa87a7b500605e3abeb6a9b85
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81533554"
 ---
-# <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Masshämtning en lista över grupper i Azure Active Directory
+# <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Hämta en lista över grupper i Azure Active Directory
 
-Med Azure Active Directory(Azure AD) portal kan du massladda ner listan över alla grupper i organisationen till en kommaavgränsad värden (CSV) fil.
+Med hjälp av Azure Active Directory-portalen (Azure AD) kan du hämta en lista över alla grupper i organisationen till en fil med kommaavgränsade värden (CSV).
 
-## <a name="to-download-a-list-of-groups"></a>Så här hämtar du en lista över grupper
+## <a name="to-download-a-list-of-groups"></a>Hämta en lista över grupper
 
-1. Logga in [på Azure-portalen](https://portal.azure.com) med ett administratörskonto i organisationen.
-1. I Azure AD väljer du > **Grupperhämtningsgrupper**. **Groups**
-1. På **hämtningssidan för grupper** väljer du **Start** för att få en CSV-fil med dina grupper.
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett administratörs konto i organisationen.
+1. I Azure AD väljer du **grupper** > **hämtnings grupper**.
+1. På sidan **hämtning av grupper** väljer du **Start** för att ta emot en CSV-fil som visar dina grupper.
 
-   ![Kommandot Hämta grupper finns på sidan Alla grupper](./media/groups-bulk-download/bulk-download.png)
+   ![Kommandot ladda ned grupper finns på sidan alla grupper](./media/groups-bulk-download/bulk-download.png)
 
-## <a name="check-download-status"></a>Kontrollera nedladdningsstatus
+## <a name="check-download-status"></a>Kontrol lera hämtnings status
 
-Du kan se status för alla väntande massbegäranden på sidan **Massåtgärdsresultat.**
+Du kan se statusen för alla väntande Mass förfrågningar på resultat sidan för **Mass åtgärder** .
 
 [![](media/groups-bulk-download/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-download/bulk-center.png#lightbox)
 
-## <a name="bulk-download-service-limits"></a>Begränsningar för masshämtningstjänsten
+## <a name="bulk-download-service-limits"></a>Begränsningar för Mass nedladdnings tjänst
 
-Varje massaktivitet för att hämta en grupplista kan köras i upp till en timme. På så sätt kan du hämta en lista med minst 300 000 grupper.
+Varje Mass aktivitet för att hämta en grupp lista kan köras i upp till en timme. På så sätt kan du ladda ned en lista med minst 300 000 grupper.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Massborttagning av gruppmedlemmar](groups-bulk-remove-members.md)
+- [Mass borttagning av grupp medlemmar](groups-bulk-remove-members.md)
 - [Ladda ned medlemmar i en grupp](groups-bulk-download-members.md)

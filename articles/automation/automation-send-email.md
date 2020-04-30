@@ -1,44 +1,44 @@
 ---
-title: Skicka ett e-postmeddelande från en Azure Automation-runbook
-description: Läs om hur du använder SendGrid för att skicka ett e-postmeddelande från en runbook.
+title: Skicka ett e-postmeddelande från en Azure Automation Runbook
+description: Lär dig hur du använder SendGrid för att skicka ett e-postmeddelande inifrån en Runbook.
 services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: tutorial
 ms.openlocfilehash: d4b35458c76da82b33dfcb530cfdc71ee3da3bb6
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81604786"
 ---
-# <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>Självstudiekurs: Skicka ett e-postmeddelande från en Azure Automation-runbook
+# <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>Självstudie: Skicka ett e-postmeddelande från en Azure Automation Runbook
 
-Du kan skicka ett e-postmeddelande från en runbook med [SendGrid](https://sendgrid.com/solutions) med PowerShell. I den här guiden får du lära dig att:
+Du kan skicka ett e-postmeddelande från en Runbook med [SendGrid](https://sendgrid.com/solutions) med hjälp av PowerShell. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
-> * Skapa ett Azure Key Vault.
-> * Lagra `SendGrid` DIN API-nyckel i nyckelvalvet.
-> * Skapa en återanvändbar runbook som hämtar din API-nyckel och skickar ett e-postmeddelande med hjälp av en API-nyckel som lagras i [Azure Key Vault](/azure/key-vault/).
+> * Skapa en Azure Key Vault.
+> * Lagra din `SendGrid` API-nyckel i nyckel valvet.
+> * Skapa en återanvändbar Runbook som hämtar din API-nyckel och skickar ett e-postmeddelande med hjälp av en API-nyckel som lagras i [Azure Key Vault](/azure/key-vault/).
 
 >[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installationsinstruktioner för Az-modul på hybridkörningsarbetaren finns [i Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](automation-update-azure-modules.md).
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="prerequisites"></a>Krav
 
 Följande krävs för att genomföra kursen:
 
-* Azure-prenumeration: Om du inte har en ännu kan du [aktivera dina msdn-prenumerationsförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Azure-prenumeration: om du inte har någon än kan du [aktivera din MSDN-prenumerations förmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Skapa ett SendGrid-konto](/azure/sendgrid-dotnet-how-to-send-email#create-a-sendgrid-account).
-* [Automation-konto](automation-offering-get-started.md) med **Az-moduler** och [Kör som-anslutning](automation-create-runas-account.md)för att lagra och köra runbooken.
+* [Automation-konto](automation-offering-get-started.md) med **AZ** -moduler och [Kör som-anslutning](automation-create-runas-account.md)för att lagra och köra runbooken.
 
 ## <a name="create-an-azure-key-vault"></a>Skapa ett Azure Key Vault
 
-Du kan skapa ett Azure Key Vault med följande PowerShell-skript. Ersätt variabelvärdena med värden som är specifika för din miljö. Använd det inbäddade Azure Cloud Shell via **knappen Prova,** som finns längst upp till höger i kodblocket. Du kan också kopiera och köra koden lokalt om du har [Azure PowerShell-modulen](/powershell/azure/install-az-ps) installerad på din lokala dator.
+Du kan skapa en Azure Key Vault med hjälp av följande PowerShell-skript. Ersätt variabel värden med värden som är speciella för din miljö. Använd den inbäddade Azure Cloud Shell via knappen **prova** , som finns i det övre högra hörnet av kod blocket. Du kan också kopiera och köra koden lokalt om du har installerat [Azure PowerShell-modulen](/powershell/azure/install-az-ps) på den lokala datorn.
 
 > [!NOTE]
-> Om du vill hämta DIN API-nyckel använder du stegen i [Hitta din SendGrid API-nyckel](/azure/sendgrid-dotnet-how-to-send-email#to-find-your-sendgrid-api-key).
+> Hämta din API-nyckel genom att använda stegen i [hitta din SENDGRID API-nyckel](/azure/sendgrid-dotnet-how-to-send-email#to-find-your-sendgrid-api-key).
 
 ```azurepowershell-interactive
 $SubscriptionId  =  "<subscription ID>"
@@ -71,35 +71,35 @@ $appID = $connection.FieldDefinitionValues.ApplicationId
 Set-AzKeyVaultAccessPolicy -VaultName $VaultName -ServicePrincipalName $appID -PermissionsToSecrets Set, Get
 ```
 
-Andra sätt att skapa ett Azure Key Vault och lagra en hemlighet finns i [Snabbstartar för Key Vault](/azure/key-vault/).
+För andra sätt att skapa en Azure Key Vault och lagra en hemlighet, se [Key Vault snabb starter](/azure/key-vault/).
 
-## <a name="import-required-modules-to-your-automation-account"></a>Importera nödvändiga moduler till ditt Automation-konto
+## <a name="import-required-modules-to-your-automation-account"></a>Importera obligatoriska moduler till ditt Automation-konto
 
-Om du vill använda Azure Key Vault i en runbook behöver ditt Automation-konto följande moduler:
+För att kunna använda Azure Key Vault i en Runbook behöver ditt Automation-konto följande moduler:
 
 * [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile)
 * [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault)
 
-Klicka på **Distribuera till Azure Automation** på fliken Azure Automation under **Installationsalternativ**. Den här åtgärden öppnar Azure-portalen. På sidan Importera väljer du ditt Automation-konto och klickar på **OK**.
+Klicka på **distribuera för att Azure Automation** på fliken Azure Automation under **installations alternativ**. Den här åtgärden öppnar Azure Portal. På sidan Importera väljer du ditt Automation-konto och klickar på **OK**.
 
-Mer information om hur du lägger till de moduler som krävs finns i [Importera moduler](/azure/automation/shared-resources/modules#importing-modules).
+Ytterligare metoder för att lägga till nödvändiga moduler finns i [importera moduler](/azure/automation/shared-resources/modules#importing-modules).
 
-## <a name="create-the-runbook-to-send-an-email"></a>Skapa runbooken för att skicka ett e-postmeddelande
+## <a name="create-the-runbook-to-send-an-email"></a>Skapa en Runbook för att skicka ett e-postmeddelande
 
-När du har skapat ett `SendGrid` nyckelvalv och lagrat API-nyckeln är det dags att skapa runbooken som hämtar API-nyckeln och skickar ett e-postmeddelande.
+När du har skapat ett nyckel valv och sparat `SendGrid` API-nyckeln är det dags att skapa den Runbook som hämtar API-nyckeln och skickar ett e-postmeddelande.
 
-Den här `AzureRunAsConnection` runbooken använder som ett [Run As-konto](automation-create-runas-account.md) för att autentisera med Azure för att hämta hemligheten från Azure Key Vault.
+Denna Runbook använder `AzureRunAsConnection` som ett [Kör som-konto](automation-create-runas-account.md) för att autentisera med Azure för att hämta hemligheten från Azure Key Vault.
 
-Använd det här exemplet om du vill skapa en runbook som heter **Send-GridMailMessage**. Du kan ändra PowerShell-skriptet och återanvända det för olika scenarier.
+Använd det här exemplet för att skapa en Runbook med namnet **send-GridMailMessage**. Du kan ändra PowerShell-skriptet och återanvända det för olika scenarier.
 
 1. Gå till ditt Azure Automation-konto.
-2. Under **Processautomatisering**väljer du **Runbooks**.
-3. Högst upp i listan över runbooks väljer du **+ Skapa en runbook**.
-4. På sidan **Lägg till runbook** anger du **Send-GridMailMessage** för runbook-namnet. För runbook-typen väljer du **PowerShell**. Välj sedan **Create** (Skapa).
-   ![Skapa runbook](./media/automation-send-email/automation-send-email-runbook.png)
+2. Under **process automatisering**väljer du **Runbooks**.
+3. Längst upp i listan över Runbooks väljer du **+ skapa en Runbook**.
+4. På sidan **Lägg till Runbook** anger du **send-GridMailMessage** som Runbook-namn. För Runbook-typen väljer du **PowerShell**. Välj sedan **Create** (Skapa).
+   ![Skapa Runbook](./media/automation-send-email/automation-send-email-runbook.png)
 5. Runbooken skapas och sidan **Redigera PowerShell-runbook** öppnas.
-   ![Redigera runbooken](./media/automation-send-email/automation-send-email-edit.png)
-6. Kopiera följande PowerShell-exempel till sidan **Redigera.** Kontrollera att `$VaultName` det är det namn du angav när du skapade nyckelvalvet.
+   ![Redigera Runbook](./media/automation-send-email/automation-send-email-edit.png)
+6. Kopiera följande PowerShell-exempel till sidan **Redigera** . Se till att `$VaultName` det är det namn du angav när du skapade nyckel valvet.
 
     ```powershell-interactive
     Param(
@@ -148,16 +148,16 @@ Använd det här exemplet om du vill skapa en runbook som heter **Send-GridMailM
     $response = Invoke-RestMethod -Uri https://api.sendgrid.com/v3/mail/send -Method Post -Headers $headers -Body $bodyJson
     ```
 
-7. Välj **Publicera** om du vill spara och publicera runbooken.
+7. Välj **publicera** för att spara och publicera runbooken.
 
-Om du vill kontrollera att runbooken körs kan du följa stegen under [Testa en runbook](manage-runbooks.md#testing-a-runbook) eller [Starta en runbook](start-runbooks.md).
-Om du inte först ser din test-e-post kontrollerar du **dina** **skräppostmappar.**
+För att kontrol lera att runbooken körs korrekt kan du följa stegen under [testa en Runbook](manage-runbooks.md#testing-a-runbook) eller [starta en Runbook](start-runbooks.md).
+Om du inte först ser ditt test-e-postmeddelande kontrollerar du mapparna för **skräp post** och **skräp** post.
 
 ## <a name="clean-up"></a>Rensa
 
 Ta bort din runbook när den inte längre behövs. Det gör du genom att markera runbooken i runbooklistan och klicka på **Ta bort**.
 
-Ta bort nyckelvalvet med hjälp av cmdleten [Remove-AzKeyVault.](https://docs.microsoft.com/powershell/module/az.keyvault/remove-azkeyvault?view=azps-3.7.0)
+Ta bort nyckel valvet med cmdleten [Remove-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/remove-azkeyvault?view=azps-3.7.0) .
 
 ```azurepowershell-interactive
 $VaultName = "<your KeyVault name>"
@@ -167,7 +167,7 @@ Remove-AzKeyVault -VaultName $VaultName -ResourceGroupName $ResourceGroupName
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Problem med att skapa eller starta runbooken finns i [Felsöka fel med runbooks](./troubleshoot/runbooks.md).
-* Information om hur du uppdaterar moduler i ditt Automation-konto finns i [Så här uppdaterar du Azure PowerShell-moduler i Azure Automation](automation-update-azure-modules.md)].
-* Information om hur du övervakar körning av runbook finns i [Vidarebefordra jobbstatus och jobbströmmar från Automatisering till Azure Monitor-loggar](automation-manage-send-joblogs-log-analytics.md).
-* Information om hur du utlöser en runbook med hjälp av en avisering finns i [Använda en avisering för att utlösa en Azure Automation-runbook](automation-create-alert-triggered-runbook.md).
+* Information om problem med att skapa eller starta din Runbook finns i [Felsöka fel med Runbooks](./troubleshoot/runbooks.md).
+* Information om hur du uppdaterar moduler i ditt Automation-konto finns i [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](automation-update-azure-modules.md)].
+* Om du vill övervaka Runbook-körningen, se [vidarebefordra jobb status och jobb strömmar från Automation till Azure Monitor loggar](automation-manage-send-joblogs-log-analytics.md).
+* Information om hur du utlöser en Runbook med en avisering finns i [använda en avisering för att utlösa en Azure Automation Runbook](automation-create-alert-triggered-runbook.md).

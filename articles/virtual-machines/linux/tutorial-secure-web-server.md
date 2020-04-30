@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Skydda en Linux-webbserver med TLS/SSL-certifikat i Azure'
+title: 'Självstudie: skydda en Linux-webbserver med TLS/SSL-certifikat i Azure'
 description: I den här självstudien får du lära dig hur du använder Azure CLI till att skydda en virtuell Linux-dator som kör webbservern NGINX med SSL-certifikat som lagras i Azure Key Vault.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,22 +15,22 @@ ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: ac581b45f3aefe7a386f25c978bfc09adda4e39f
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81460485"
 ---
-# <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Självstudiekurs: Skydda en webbserver på en virtuell Linux-dator i Azure med TLS/SSL-certifikat lagrade i Key Vault
-För att skydda webbservrar, en TLS (Transport Layer Security), som tidigare kallades SSL (Secure Sockets Layer), kan certifikat användas för att kryptera webbtrafik. Dessa TLS/SSL-certifikat kan lagras i Azure Key Vault och tillåta säkra distributioner av certifikat till virtuella Linux-datorer (VIRTUELLA datorer) i Azure. I den här guiden får du lära du dig hur man:
+# <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Självstudie: skydda en webb server på en virtuell Linux-dator i Azure med TLS/SSL-certifikat som lagras i Key Vault
+För att skydda webb servrar, en Transport Layer Security (TLS), som tidigare kallades Secure Sockets Layer (SSL), kan du använda certifikat för att kryptera webb trafik. Dessa TLS/SSL-certifikat kan lagras i Azure Key Vault och tillåta säker distribution av certifikat till virtuella Linux-datorer (VM: ar) i Azure. I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Key Vault
 > * Generera eller ladda upp ett certifikat till Key Vault
 > * Skapa en virtuell dator och installera NGINX-webbservern
-> * Injicera certifikatet i den virtuella datorn och konfigurera NGINX med en TLS-bindning
+> * Mata in certifikatet i den virtuella datorn och konfigurera NGINX med en TLS-bindning
 
-Den här självstudien använder CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som ständigt uppdateras till den senaste versionen. Om du vill öppna Cloud Shell väljer du **Prova det** överst i alla kodblock.
+I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
 Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -48,7 +48,7 @@ Innan du kan skapa ett Key Vault och certifikat skapar du en resursgrupp med [az
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Därefter skapar du ett Key Vault med [az keyvault create](/cli/azure/keyvault) och aktiverar den för användning när du distribuerar en virtuell dator. För varje Key Vault krävs ett unikt namn som ska skrivas med gemener. Ersätt * \<mykeyvault>* i följande exempel med ditt eget unika Key Vault-namn:
+Därefter skapar du ett Key Vault med [az keyvault create](/cli/azure/keyvault) och aktiverar den för användning när du distribuerar en virtuell dator. För varje Key Vault krävs ett unikt namn som ska skrivas med gemener. Ersätt * \<mittkeyvault>* i följande exempel med ditt eget unika Key Vault namn:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -135,7 +135,7 @@ az vm open-port \
 
 
 ### <a name="test-the-secure-web-app"></a>Testa den säkra webbappen
-Nu kan du öppna en webbläsare och ange *https:\/\/\<publicIpAddress>* i adressfältet. Ange din offentliga IP-adress från skapandeprocessen av den virtuella datorn. Om du använder ett självsignerat certifikat ska du acceptera säkerhetsvarningen:
+Nu kan du öppna en webbläsare och ange *https:\/\/\<publicIpAddress>* i adress fältet. Ange din offentliga IP-adress från skapandeprocessen av den virtuella datorn. Om du använder ett självsignerat certifikat ska du acceptera säkerhetsvarningen:
 
 ![Acceptera webbläsarens säkerhetsvarning](./media/tutorial-secure-web-server/browser-warning.png)
 
@@ -146,13 +146,13 @@ Din skyddade NGINX-webbplats visas sedan som i exemplet nedan:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du säkrat en NGINX-webbserver med ett TLS/SSL-certifikat som lagras i Azure Key Vault. Du har lärt dig att:
+I den här självstudien har du skyddat en NGINX-webbserver med ett TLS/SSL-certifikat som lagras i Azure Key Vault. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Key Vault
 > * Generera eller ladda upp ett certifikat till Key Vault
 > * Skapa en virtuell dator och installera NGINX-webbservern
-> * Injicera certifikatet i den virtuella datorn och konfigurera NGINX med en TLS-bindning
+> * Mata in certifikatet i den virtuella datorn och konfigurera NGINX med en TLS-bindning
 
 Klicka på den här länken om du vill se inbyggda skriptexempel för virtuella datorer.
 

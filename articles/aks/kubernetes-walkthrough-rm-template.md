@@ -1,20 +1,20 @@
 ---
 title: Snabbstart – Skapa ett AKS-kluster (Azure Kubernetes Service)
-description: Lär dig hur du snabbt skapar ett Kubernetes-kluster med hjälp av en Azure Resource Manager-mall och distribuerar ett program i Azure Kubernetes Service (AKS)
+description: Lär dig hur du snabbt skapar ett Kubernetes-kluster med hjälp av en Azure Resource Manager-mall och distribuera ett program i Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
 ms.custom: mvc,subject-armqs
 ms.openlocfilehash: bbe5d9ac21ae9e03d629a1667567a915c8653a8a
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81602636"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Snabbstart: Distribuera ett AKS-kluster (Azure Kubernetes Service) med hjälp av en Azure Resource Manager-mall
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Snabb start: Distribuera ett Azure Kubernetes service-kluster (AKS) med hjälp av en Azure Resource Manager-mall
 
-Azure Kubernetes Service (AKS) är en hanterad Kubernetes-tjänst som gör att du snabbt kan distribuera och hantera kluster. I den här snabbstarten distribuerar du ett AKS-kluster med hjälp av en Azure Resource Manager-mall. Ett flerbehållarprogram som består av en webbklientdel och en Redis-instans körs sedan i klustret.
+Azure Kubernetes Service (AKS) är en hanterad Kubernetes-tjänst som gör att du snabbt kan distribuera och hantera kluster. I den här snabb starten distribuerar du ett AKS-kluster med hjälp av en Azure Resource Manager-mall. Ett flerbehållarprogram som består av en webbklientdel och en Redis-instans körs sedan i klustret.
 
 ![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
@@ -26,29 +26,29 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver den här snabbstarten att du kör Azure CLI version 2.0.61 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+Om du väljer att installera och använda CLI lokalt kräver den här snabb starten att du kör Azure CLI-version 2.0.61 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill skapa ett AKS-kluster med hjälp av en Resource Manager-mall tillhandahåller du en SSH-allmän nyckel och Azure Active Directory-tjänsthuvudnamn.  Du kan också använda en [hanterad identitet](use-managed-identity.md) i stället för ett tjänsthuvudnamn för behörigheter. Om du behöver någon av dessa resurser läser du följande avsnitt. Hoppa annars till avsnittet [Skapa ett AKS-kluster.](#create-an-aks-cluster)
+Om du vill skapa ett AKS-kluster med en Resource Manager-mall anger du en offentlig SSH-nyckel och Azure Active Directory tjänstens huvud namn.  Alternativt kan du använda en [hanterad identitet](use-managed-identity.md) i stället för ett tjänst huvud namn för behörigheter. Om du behöver någon av dessa resurser kan du läsa mer i följande avsnitt: Annars hoppar du till avsnittet [skapa ett AKS-kluster](#create-an-aks-cluster) .
 
 ### <a name="create-an-ssh-key-pair"></a>Skapa ett SSH-nyckelpar
 
-Om du vill komma åt AKS-noder ansluter du med ett SSH-nyckelpar. Använd `ssh-keygen` kommandot för att generera SSH offentliga och privata nyckelfiler. Som standard skapas dessa filer i katalogen *~/.ssh.* Om ett SSH-nyckelpar med samma namn finns på den angivna platsen skrivs filerna över.
+Om du vill komma åt AKS-noder ansluter du med ett SSH-nyckelpar. Använd `ssh-keygen` kommandot för att generera offentliga och privata SSH-nyckelfiler. Som standard skapas de här filerna i katalogen *~/.ssh* . Om det finns ett SSH-nyckelpar med samma namn på den aktuella platsen, skrivs filerna över.
 
-Gå [https://shell.azure.com](https://shell.azure.com) till för att öppna Cloud Shell i din webbläsare.
+Gå till [https://shell.azure.com](https://shell.azure.com) för att öppna Cloud Shell i webbläsaren.
 
-Följande kommando skapar ett SSH-nyckelpar med RSA-kryptering och en bitlängd på 2048:
+Följande kommando skapar ett SSH-nyckelpar med RSA-kryptering och en bit-längd på 2048:
 
 ```console
 ssh-keygen -t rsa -b 2048
 ```
 
-Mer information om hur du skapar SSH-nycklar finns i [Skapa och hantera SSH-nycklar för autentisering i Azure][ssh-keys].
+Mer information om hur du skapar SSH-nycklar finns i [skapa och hantera SSH-nycklar för autentisering i Azure][ssh-keys].
 
 ### <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
-Om ett AKS-kluster ska kunna interagera med andra Azure-resurser behövs ett huvudnamn för tjänsten i Azure Active Directory. Skapa ett huvudnamn för tjänsten med kommandot [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. Parametern `--skip-assignment` gör att inga ytterligare behörigheterna tilldelas. Som standard är tjänstens huvudnamn giltigt i ett år. Observera att du kan använda en hanterad identitet i stället för ett tjänsthuvudnamn. Mer information finns i [Använda hanterade identiteter](use-managed-identity.md).
+Om ett AKS-kluster ska kunna interagera med andra Azure-resurser behövs ett huvudnamn för tjänsten i Azure Active Directory. Skapa ett huvudnamn för tjänsten med kommandot [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. Parametern `--skip-assignment` gör att inga ytterligare behörigheterna tilldelas. Som standard är tjänstens huvudnamn giltigt i ett år. Observera att du kan använda en hanterad identitet i stället för ett huvud namn för tjänsten. Mer information finns i [använda hanterade identiteter](use-managed-identity.md).
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -72,11 +72,11 @@ Anteckna värdena för *appId* och *password*. De här värdena används i senar
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabbstarten kommer från [Azure Quickstart-mallar](https://azure.microsoft.com/resources/templates/101-aks/).
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-aks/).
 
 :::code language="json" source="~/quickstart-templates/101-aks/azuredeploy.json" range="1-126" highlight="86-118":::
 
-Mer AKS-exempel finns på webbplatsen [för AKS-snabbstartsmallar.][aks-quickstart-templates]
+Fler AKS-exempel finns på webbplatsen för [AKS snabb starts mallar][aks-quickstart-templates] .
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -86,20 +86,20 @@ Mer AKS-exempel finns på webbplatsen [för AKS-snabbstartsmallar.][aks-quicksta
 
 2. Välj eller ange följande värden.
 
-    För den här snabbstarten lämnar du standardvärdena för *OS Diskstorlek GB*, *Agent Count*, *Agent VM-storlek,* *OS-typ*och *Kubernetes Version*. Ange dina egna värden för följande mallparametrar:
+    I den här snabb starten lämnar du standardvärdena *för OS-diskens storlek GB*, *antal agenter*, *virtuell dator storlek för virtuell dator*, *OS-typ*och Kubernetes- *version*. Ange dina egna värden för följande mallparametrar:
 
     * **Prenumeration**: Välj en Azure-prenumeration.
-    * **Resursgrupp**: Välj **Skapa ny**. Ange ett unikt namn för resursgruppen, till exempel *myResourceGroup,* och välj sedan **OK**.
-    * **Plats**: Välj en plats, till exempel **östra USA.**
-    * **Klusternamn**: Ange ett unikt namn för AKS-klustret, till exempel *myAKSCluster*.
-    * **DNS-prefix:** Ange ett unikt DNS-prefix för klustret, till exempel *myakscluster*.
-    * **Linux Admin Användarnamn:** Ange ett användarnamn för att ansluta med SSH, till exempel *azureuser*.
-    * **SSH RSA Public Key:** Kopiera och klistra in den *offentliga* delen av SSH-nyckelparet (som standard, innehållet i *~/.ssh/id_rsa.pub*).
-    * **Klient-ID för tjänstens huvudnamn**: Kopiera och `az ad sp create-for-rbac` klistra in *appId* för tjänstens huvudnamn från kommandot.
-    * **Service Principal Client Secret**: Kopiera och klistra `az ad sp create-for-rbac` in *lösenordet* för din tjänst huvudnamn från kommandot.
-    * **Jag godkänner villkoren ovan:** Markera den här rutan för att komma överens.
+    * **Resurs grupp**: Välj **Skapa ny**. Ange ett unikt namn för resurs gruppen, till exempel *myResourceGroup*, och välj sedan **OK**.
+    * **Plats**: Välj en plats, t. ex. **USA, östra**.
+    * **Kluster namn**: Ange ett unikt namn för AKS-klustret, till exempel *myAKSCluster*.
+    * **DNS-prefix**: Ange ett unikt DNS-prefix för klustret, till exempel *myakscluster*.
+    * **Användar namn för Linux-administratör**: Ange ett användar namn för att ansluta med SSH, till exempel *azureuser*.
+    * **Offentlig SSH RSA-nyckel**: kopiera och klistra in den *offentliga* delen av ditt SSH-nyckelpar (som standard innehåller innehållet på *~/.ssh/id_rsa. pub*).
+    * **Tjänstens huvud namn för klient-ID**: kopiera och klistra in *appId* för tjänstens huvud namn från `az ad sp create-for-rbac` kommandot.
+    * **Tjänstens huvud namn, klient hemlighet**: kopiera och klistra in *lösen ordet* för tjänstens huvud namn från `az ad sp create-for-rbac` kommandot.
+    * **Jag godkänner villkors tillståndet ovan**: Markera den här rutan om du vill acceptera.
 
-    ![Resource Manager-mall för att skapa ett Azure Kubernetes Service-kluster i portalen](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
+    ![Resource Manager-mall för att skapa ett Azure Kubernetes service-kluster i portalen](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
 3. Välj **Köp**.
 
@@ -127,7 +127,7 @@ Du kan kontrollera anslutningen till klustret genom att köra kommandot [kubectl
 kubectl get nodes
 ```
 
-I följande exempelutdata visas de noder som skapats i föregående steg. Kontrollera att statusen för alla noder är *Klar:*
+Följande exempel på utdata visar de noder som skapades i föregående steg. Kontrol lera att status för alla noder är *klar*:
 
 ```output
 NAME                       STATUS   ROLES   AGE     VERSION
@@ -281,7 +281,7 @@ az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> När du tar bort klustret tas Azure Active Directory-tjänstens huvudnamn, som används av AKS-klustret, inte bort. Stegvisa instruktioner om hur du tar bort tjänstens huvudnamn finns i dokumentationen om [viktiga överväganden och borttagning av AKS-tjänsten][sp-delete]. Om du har använt en hanterad identitet hanteras identiteten av plattformen och kräver inte borttagning.
+> När du tar bort klustret tas Azure Active Directory-tjänstens huvudnamn, som används av AKS-klustret, inte bort. Stegvisa instruktioner om hur du tar bort tjänstens huvudnamn finns i dokumentationen om [viktiga överväganden och borttagning av AKS-tjänsten][sp-delete]. Om du använde en hanterad identitet hanteras identiteten av plattformen och kräver inte borttagning.
 
 ## <a name="get-the-code"></a>Hämta koden
 
@@ -291,7 +291,7 @@ I den här snabbstarten har fördefinierade containeravbildningar användes för
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstartsguiden distribuerade du ett Kubernetes-kluster och distribuerade sedan ett flercontainerprogram till det. [Öppna Kubernetes webbinstrumentpanel][kubernetes-dashboard] för klustret som du skapade.
+I den här snabbstartsguiden distribuerade du ett Kubernetes-kluster och distribuerade sedan ett flercontainerprogram till det. [Öppna Kubernetes-webbinstrumentpanelen][kubernetes-dashboard] för det kluster som du skapade.
 
 Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig distributionskod, fortsätter du till självstudiekursen om Kubernetes-kluster.
 

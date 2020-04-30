@@ -1,6 +1,6 @@
 ---
 title: Nätverk för skalningsuppsättningar för virtuella Azure-datorer
-description: Konfigurera några av de mer avancerade nätverksegenskaperna för Azure-skalningsuppsättningar för virtuella datorer.
+description: Så här konfigurerar du några av de mer avancerade nätverks egenskaperna för skalnings uppsättningar för virtuella Azure-datorer.
 author: mimckitt
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: mimckitt
 ms.openlocfilehash: efe3a39008361fdf76d80a0c8e7e2e30b061117d
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81461367"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Nätverk för skalningsuppsättningar för virtuella Azure-datorer
@@ -41,27 +41,27 @@ Azure accelererat nätverk förbättrar nätverkets prestanda genom att aktivera
 }
 ```
 
-## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Skala azure-datorskalauppsättningar med Azure Load Balancer
+## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Skalnings uppsättningar för virtuella Azure-datorer med Azure Load Balancer
 
-När du arbetar med skaluppsättningar för virtuella datorer och belastningsutjämnare bör följande beaktas:
+När du arbetar med skalnings uppsättningar och belastningsutjämnare för virtuella datorer bör du tänka på följande:
 
-* **Flera skaluppsättningar för virtuella datorer kan inte använda samma belastningsutjämnare**.
-* **Port forwarding och inkommande NAT regler:**
-  * Varje skalauppsättning för virtuell dator måste ha en inkommande NAT-regel.
-  * När skalningsuppsättningen har skapats kan serverdaporten inte ändras för en belastningsutjämningsregel som används av en hälsoavsökning av belastningsutjämnaren. Om du vill ändra porten kan du ta bort hälsoavsökningen genom att uppdatera Azure-skalauppsättningen för virtuella datorer, uppdatera porten och sedan konfigurera hälsoavsökningen igen.
-  * När du använder den virtuella datorn skala som i serverda poolen av lastbalanseraren standard inkommande NAT regler skapas automatiskt.
-* **Regler för belastningsutjämning:**
-  * När du använder den virtuella datorn skala som i serverda poolen av lastbalanseraren standard belastningsutjämning regeln skapas automatiskt.
-* **Regler för utgående:**
-  *  Om du vill skapa utgående regel för en backend-pool som redan refereras av en belastningsutjämningsregel måste du först markera **"Skapa implicita utgående regler"** som **Nej** i portalen när regeln för utjämning av inkommande belastning skapas.
+* **Flera skalnings uppsättningar för virtuella datorer kan inte använda samma belastningsutjämnare**.
+* **Port vidarebefordring och inkommande NAT-regler**:
+  * Varje skalnings uppsättning för virtuella datorer måste ha en inkommande NAT-regel.
+  * När skalnings uppsättningen har skapats kan Server dels porten inte ändras för en belastnings Utjämnings regel som används av en hälso avsökning av belastningsutjämnaren. Om du vill ändra porten kan du ta bort hälso avsökningen genom att uppdatera skalnings uppsättningen för den virtuella Azure-datorn, uppdatera porten och sedan konfigurera hälso avsökningen igen.
+  * När du använder skalnings uppsättningen för den virtuella datorn i belastningsutjämnaren för belastningsutjämnaren skapas standard reglerna för inkommande NAT automatiskt.
+* **Belastnings Utjämnings regler**:
+  * När du använder skalnings uppsättningen för den virtuella datorn i den fjärranslutna poolen för belastningsutjämnaren skapas standard regeln för belastnings utjämning automatiskt.
+* **Utgående regler**:
+  *  Om du vill skapa en utgående regel för en backend-pool som redan refereras till av en belastnings Utjämnings regel måste du först markera **"skapa implicit utgående regler"** som **Nej** i portalen när den inkommande belastnings Utjämnings regeln skapas.
 
-  :::image type="content" source="./media/vmsslb.png" alt-text="Skapa genereringsregel för belastningsutjämning" border="true":::
+  :::image type="content" source="./media/vmsslb.png" alt-text="Skapa belastnings Utjämnings regel" border="true":::
 
-Följande metoder kan användas för att distribuera en skalningsuppsättning för virtuella datorer med en befintlig Azure-belastningsutjämnare.
+Följande metoder kan användas för att distribuera en skalnings uppsättning för virtuella datorer med en befintlig Azure Load Balancer.
 
-* [Konfigurera en skalningsuppsättning för virtuella datorer med en befintlig Azure Load Balancer med Azure-portalen](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-portal).
-* [Konfigurera en skalningsuppsättning för virtuella datorer med en befintlig Azure Load Balancer med Azure PowerShell](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-powershell).
-* [Konfigurera en skalningsuppsättning för virtuella datorer med en befintlig Azure Load Balancer med Azure CLI](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-cli).
+* [Konfigurera en skalnings uppsättning för en virtuell dator med en befintlig Azure Load Balancer med hjälp av Azure Portal](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-portal).
+* [Konfigurera en skalnings uppsättning för virtuella datorer med en befintlig Azure Load Balancer att använda Azure PowerShell](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-powershell).
+* [Konfigurera en skalnings uppsättning för virtuella datorer med en befintlig Azure Load Balancer med hjälp av Azure CLI](https://docs.microsoft.com/azure/load-balancer/configure-vm-scale-set-cli).
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Skapa en skalningsuppsättning som refererar till en programgateway
 Om du vill skapa en skalningsuppsättning som använder en programgateway refererar du till programgatewayens backend-adresspool i avsnittet ipConfigurations i skaluppsättningen, som i den här ARM-mallkonfigurationen:
@@ -104,7 +104,7 @@ Om du vill konfigurera anpassade DNS-servrar i en Azure-mall lägger du till en 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Skapa en skalningsuppsättning med konfigurerbara domännamn för virtuella datorer
 För att skapa en skalningsuppsättning med ett anpassat DNS-namn för virtuella datorer med CLI lägger du till argumentet **--vm-domain-name** till kommandot **virtual machine scale set create** följt av en sträng som representerar domännamnet.
 
-Om du vill ange domännamnet i en Azure-mall lägger du till en **dnsSettings-egenskap** i avsnittet scale set **networkInterfaceConfigurations.** Ett exempel:
+Om du vill ange domän namnet i en Azure-mall lägger du till en **dnsSettings** -egenskap i avsnittet skalnings uppsättning **networkInterfaceConfigurations** . Ett exempel:
 
 ```json
 "networkProfile": {
@@ -150,7 +150,7 @@ Men vissa scenarier kräver att skalningsuppsättningarna för virtuella datorer
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Skapa en skalningsuppsättning med en offentlig IP per virtuell dator
 För att skapa en skalningsuppsättning som tilldelar varje virtuell dator en offentlig IP-adress med hjälp av CLI lägger du till parametern **--public-ip-per-vm** till kommandot **vmss create**. 
 
-Om du vill skapa en skalningsuppsättning med en Azure-mall kontrollerar du att API-versionen av Microsoft.Compute/virtualMachineScaleSets-resursen är minst **2017-03-30**och lägger till en **publicIpAddressConfiguration** JSON-egenskap i avsnittet skaluppsättning ipConfigurations. Ett exempel:
+Om du vill skapa en skalnings uppsättning med hjälp av en Azure-mall ser du till att API-versionen av Microsoft. Compute/virtualMachineScaleSets-resursen är minst **2017-03-30**och lägger till en **publicIpAddressConfiguration** JSON-egenskap i avsnittet för skalnings uppsättningen ipConfigurations. Ett exempel:
 
 ```json
 "publicIpAddressConfiguration": {

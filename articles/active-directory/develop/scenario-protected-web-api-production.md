@@ -13,13 +13,13 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 86e897547869c917313deeb8d71b361c9e16798b
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81537193"
 ---
-# <a name="protected-web-api---move-to-production"></a>Skyddat webb-API - flytta till produktion
+# <a name="protected-web-api---move-to-production"></a>Skyddat webb-API – flytta till produktion
 
 Nu när du vet hur du skyddar ditt webb-API kan du flytta det till produktion.
 
@@ -27,18 +27,18 @@ Nu när du vet hur du skyddar ditt webb-API kan du flytta det till produktion.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs om hur du anropar ett nedströms-API.
+Lär dig att anropa ett underordnat API.
 
 > [!div class="nextstepaction"]
-> [Scenario - Webb-API-anrop nedströms API:er](scenario-web-api-call-api-overview.md)
+> [Scenario – webb-API-anrop underordnade API: er](scenario-web-api-call-api-overview.md)
 
-Läs mer med självstudier och exempel.
-
-> [!div class="nextstepaction"]
-> [Anropa ett skyddat API med hjälp av en demon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
+Lär dig mer med självstudier och exempel.
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core web API-självstudiekurs](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
+> [Anropa en skyddad API med hjälp av en daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
 
 > [!div class="nextstepaction"]
-> [ASP.NET webb-API-exempel](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
+> [Själv studie kurs om ASP.NET Core Web API](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
+
+> [!div class="nextstepaction"]
+> [ASP.NET-webb-API-exempel](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)

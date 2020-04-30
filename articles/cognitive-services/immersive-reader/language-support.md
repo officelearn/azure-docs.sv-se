@@ -1,7 +1,7 @@
 ---
-title: Språkstöd - Uppslukande läsare
+title: Språk stöd – fördjupad läsare
 titleSuffix: Azure Cognitive Services
-description: Läs mer om de mänskliga språk som är tillgängliga med Immersive Reader.
+description: Lär dig mer om de mänskliga språken som är tillgängliga med avancerad läsare.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -11,54 +11,54 @@ ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metan
 ms.openlocfilehash: c4dae18a5040d475c246d244ea7702ccfdf85cd9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81538749"
 ---
-# <a name="language-support-for-immersive-reader"></a>Språkstöd för Immersive Reader
+# <a name="language-support-for-immersive-reader"></a>Språk stöd för avancerad läsare
 
-I den här artikeln visas mänskliga språk som stöds för Immersive Reader-funktioner.
+Den här artikeln innehåller stöd för mänskliga språk för funktioner i avancerad läsare.
 
 
 ## <a name="text-to-speech"></a>Text till tal
 
 | Språk | Tagga |
 |----------|-----|
-| Arabiska (egyptiska) | ar-EG |
+| Arabiska (egyptiska) | ar-tex |
 | Arabiska (Saudiarabien) | ar-SA |
-| Bulgariska | Bg |
+| Bulgariska | Bulgarien |
 | Bulgariska (Bulgarien) | bg-BG |
 | Katalanska | ca-ES |
-| Kinesiska | Zh |
+| Kinesiska | zh |
 | Kinesiska (Kina) | zh-CN |
 | Kinesiska (Hongkong) | zh-HK |
 | Kinesiska (Macao) | zh-MO |
 | Kinesiska (Singapore) | zh-SG |
 | Kinesiska (Taiwan) | zh-TW |
-| Kinesiska, förenklad | zh-Hans |
-| Förenklad kinesiska (Kina) | zh-Hans-CN |
-| Förenklad kinesiska (Singapore) | zh-Hans-SG |
+| Kinesiska, förenklad | zh-hans |
+| Förenklad kinesiska (Kina) | zh-hans-CN |
+| Förenklad kinesiska (Singapore) | zh-hans-SG |
 | Kinesiska, traditionell | zh-Hant-CN |
-| Traditionell kinesiska (Hongkong) | zh-Hant-HK |
-| Traditionell kinesiska (Macao) | zh-Hant-MO |
+| Traditionell kinesiska (Hongkong) | zh-Hant – HK |
+| Traditionell kinesiska (Macao) | zh-Hant – MO |
 | Traditionell kinesiska (Taiwan) | zh-Hant-TW |
 | Kroatiska | tim |
 | Kroatiska (Kroatien) | hr-HR |
-| Tjeckiska | Cs |
+| Tjeckiska | östasiatisk |
 | Tjeckiska (Tjeckien) | cs-CZ |
 | Danska | da |
 | Danska (Danmark) | da-DK |
 | Nederländska | nl |
 | Nederländska (Nederländerna) | nl-NL |
 | Svenska | en |
-| Engelska (Australien) | sv-AU |
-| Engelska (Kanada) | sv-CA |
-| Engelska (Hongkong SAR) | sv-HK |
-| Engelska (Indien) | sv-IN |
-| Engelska (Irland) | sv-IE |
-| Engelska (Nya Zeeland) | sv-NZ |
+| Engelska (Australien) | en – AU |
+| Engelska (Kanada) | en-CA |
+| Engelska (Hongkong SAR) | en – HK |
+| Engelska (Indien) | en-IN |
+| Engelska (Irland) | en-IE |
+| Engelska (Nya Zeeland) | en-NZ |
 | Engelska (Storbritannien) | en-GB |
 | Engelska (USA) | sv-SE |
 | Finska | fi |
@@ -66,18 +66,18 @@ I den här artikeln visas mänskliga språk som stöds för Immersive Reader-fun
 | Franska | fr |
 | Franska (Kanada) | fr-CA |
 | Franska (Frankrike) | fr-FR |
-| Franska (Schweiz) | fr-CH |
+| Franska (Schweiz) | Frankrike-CH |
 | Tyska | de |
-| Tyska (Österrike) | av-AT |
+| Tyska (Österrike) | avinstallation |
 | Tyska (Tyskland) | de-DE |
-| Tyska (Schweiz)| de-CH (olika) |
+| Tyska (Schweiz)| de-CH |
 | Grekiska | El |
 | Grekiska (Grekland) | el-GR |
-| Hebreiska | Han |
+| Hebreiska | producenten |
 | Hebreiska (Israel) | he-IL |
 | Hindi | Hej |
 | Hindi (Indien) | hi-IN |
-| Ungerska | Hu |
+| Ungerska | HU |
 | Ungerska (Ungern) | hu-HU |
 | Indonesiska | id |
 | Indonesiska (Indonesien) | id-ID |
@@ -87,225 +87,225 @@ I den här artikeln visas mänskliga språk som stöds för Immersive Reader-fun
 | Japanska (Japan) | ja-JP |
 | Koreansk | Ko |
 | Koreanska (Korea) | ko-KR |
-| Malajiska | Ms |
+| Malajiska | millisekund |
 | Malajiska (Malaysia) | ms-MY |
-| Norska Bokmal| Nb |
-| Norska Bokmal (Norge) | nb-NO |
-| Polska | Pl |
+| Norska bokmål| Anm |
+| Norska bokmål (Norge) | nb-NO |
+| Polska | pl |
 | Polska (Polen) | pl-PL |
 | Portugisiska | pt |
 | Portugisiska (Brasilien) | pt-BR |
 | Portugisiska (Portugal) | pt-PT |  
-| Rumänska | Ro |
+| Rumänska | ro |
 | Rumänska (Rumänien) | ro-RO |
 | Ryska | ru |
 | Ryska (Ryssland) | ru-RU |
-| Slovakiska | Sk |
+| Slovakiska | sk |
 | Slovakiska (Slovakien) | sk-SK |
-| Slovenska | Sl |
-| Slovenska (Slovenien) | sl-SL |
+| Slovenska | SL |
+| Slovenska (Slovenien) | SL-SL |
 | Spanska | ES |
-| Spanska (Latinamerika) | es-419 |
-| Spanska (Mexiko) | es-MX |
+| Spanska (Latinamerika) | ES – 419 |
+| Spanska (Mexiko) | ES – MX |
 | Spanska (Spanien) | es-ES |
 | Svenska | sv |
 | Svenska (Sverige) | sv-SE |
-| Tamilska | ta |
-| Tamil (Indien) | ta-in |
-| Telugu | te |
+| Tamilska | layout |
+| Tamiliska (Indien) | ta med |
+| Telugu | & |
 | Telugu (Indien) | te-IN |
-| Thailändska | Th |
+| Thailändska | i:te |
 | Thailändska (Thailand) | th-TH |
-| Turkiska | Tr |
+| Turkiska | TR |
 | Turkiska (Turkiet) | tr-TR |
-| Vietnamesiska | vi |
+| Vietnamesiska | Vi |
 | Vietnamesiska (Vietnam) | vi-VN |
 
 ## <a name="translation"></a>Översättning
 
 | Språk | Tagga |
 |----------|-----|
-| Afrikaans | Af |
-| Arabiska (egyptiska) | ar-EG |
+| Afrikaans | AF |
+| Arabiska (egyptiska) | ar-tex |
 | Arabiska (Saudiarabien) | ar-SA |
-| Bangla | Bn |
-| Bosniska | Bs |
-| Bulgariska | Bg |
+| Bangla | bn |
+| Bosniska | BS |
+| Bulgariska | Bulgarien |
 | Bulgariska (Bulgarien) | bg-BG |
 | Katalanska | ca-ES |
-| Kinesiska | Zh |
+| Kinesiska | zh |
 | Kinesiska (Kina) | zh-CN |
 | Kinesiska (Hongkong) | zh-HK |
 | Kinesiska (Macao) | zh-MO |
 | Kinesiska (Singapore) | zh-SG |
 | Kinesiska (Taiwan) | zh-TW |
-| Kinesiska, förenklad | zh-Hans |
-| Förenklad kinesiska (Kina) | zh-Hans-CN |
-| Förenklad kinesiska (Singapore) | zh-Hans-SG |
+| Kinesiska, förenklad | zh-hans |
+| Förenklad kinesiska (Kina) | zh-hans-CN |
+| Förenklad kinesiska (Singapore) | zh-hans-SG |
 | Kinesiska, traditionell | zh-Hant-CN |
-| Traditionell kinesiska (Hongkong) | zh-Hant-HK |
-| Traditionell kinesiska (Macao) | zh-Hant-MO |
+| Traditionell kinesiska (Hongkong) | zh-Hant – HK |
+| Traditionell kinesiska (Macao) | zh-Hant – MO |
 | Traditionell kinesiska (Taiwan) | zh-Hant-TW |
 | Kroatiska | tim |
 | Kroatiska (Kroatien) | hr-HR |
-| Tjeckiska | Cs |
+| Tjeckiska | östasiatisk |
 | Tjeckiska (Tjeckien) | cs-CZ |
 | Danska | da |
 | Danska (Danmark) | da-DK |
 | Nederländska | nl |
 | Nederländska (Nederländerna) | nl-NL |
 | Svenska | en |
-| Engelska (Australien) | sv-AU |
-| Engelska (Kanada) | sv-CA |
-| Engelska (Hongkong SAR) | sv-HK |
-| Engelska (Indien) | sv-IN |
-| Engelska (Irland) | sv-IE |
-| Engelska (Nya Zeeland) | sv-NZ |
+| Engelska (Australien) | en – AU |
+| Engelska (Kanada) | en-CA |
+| Engelska (Hongkong SAR) | en – HK |
+| Engelska (Indien) | en-IN |
+| Engelska (Irland) | en-IE |
+| Engelska (Nya Zeeland) | en-NZ |
 | Engelska (Storbritannien) | en-GB |
 | Engelska (USA) | sv-SE |
-| Estniska | Et |
-| Fijianska | Fj |
-| Filipino | fil (fil) |
+| Estniska | ge |
+| Fijian | fj |
+| Filipino | fil |
 | Finska | fi |
 | Finska (Finland) | fi-FI |
 | Franska | fr |
 | Franska (Kanada) | fr-CA |
 | Franska (Frankrike) | fr-FR |
-| Franska (Schweiz) | fr-CH |
+| Franska (Schweiz) | Frankrike-CH |
 | Tyska | de |
-| Tyska (Österrike) | av-AT |
+| Tyska (Österrike) | avinstallation |
 | Tyska (Tyskland) | de-DE |
-| Tyska (Schweiz)| de-CH (olika) |
+| Tyska (Schweiz)| de-CH |
 | Grekiska | El |
 | Grekiska (Grekland) | el-GR |
-| Haitiska (kreolska) | Ht |
-| Hebreiska | Han |
+| Haitian (Creole) | teknik |
+| Hebreiska | producenten |
 | Hebreiska (Israel) | he-IL |
 | Hindi | Hej |
 | Hindi (Indien) | hi-IN |
-| Hmong Daw | mww (mww) |
-| Ungerska | Hu |
+| Hmong Daw | mww |
+| Ungerska | HU |
 | Ungerska (Ungern) | hu-HU |
 | Isländska | är |
 | Indonesiska | id |
 | Indonesiska (Indonesien) | id-ID |
-| Iriska | Ga |
+| Iriska | ga |
 | Italienska | it |
 | Italienska (Italien) | it-IT |
 | Japanska | ja |
 | Japanska (Japan) | ja-JP |
-| Kannada | Kn |
-| Kiswahili | Sw |
+| Kannada | 5,0 |
+| Swahili | sv |
 | Koreansk | Ko |
 | Koreanska (Korea) | ko-KR |
-| Lettiska | Lv |
-| Litauiska | Lt |
-| Madagaskiska | Mg |
-| Malajiska | Ms |
+| Lettiska | LV |
+| Litauiska | långsiktiga |
+| Madagaskisk | MB |
+| Malajiska | millisekund |
 | Malajiska (Malaysia) | ms-MY |
-| Malayalam | Ml |
-| Maltesiska | Mt |
+| Malayalam | ml |
+| Maltesiska | MT |
 | Maori | mi |
-| Norska Bokmal| Nb |
-| Norska Bokmal (Norge) | nb-NO |
-| Persiska | Fa |
-| Polska | Pl |
+| Norska bokmål| Anm |
+| Norska bokmål (Norge) | nb-NO |
+| Persiska | bokförda |
+| Polska | pl |
 | Polska (Polen) | pl-PL |
 | Portugisiska | pt |
 | Portugisiska (Brasilien) | pt-BR |
 | Portugisiska (Portugal) | pt-PT |  
-| Punjabi | Pa |
-| Querétaro Otomi | otq (0) |
-| Rumänska | Ro |
+| Punjabi | PA |
+| Querétaro Otomi | otq |
+| Rumänska | ro |
 | Rumänska (Rumänien) | ro-RO |
 | Ryska | ru |
 | Ryska (Ryssland) | ru-RU |
-| Samoanska | sm |
-| Serbiska | Sr |
-| Serbiska (kyrilliska) | sr-Cyrl |
-| Serbiska (latinsk) (Serbien) | sr-Latn |
-| Slovakiska | Sk |
+| Samoan | sm |
+| Serbiska | uppdateringen |
+| Serbiska (kyrillisk) | sr-cyrl |
+| Serbiska (latinsk) (Serbien) | SR-latn |
+| Slovakiska | sk |
 | Slovakiska (Slovakien) | sk-SK |
-| Slovenska | Sl |
-| Slovenska (Slovenien) | sl-SL |
+| Slovenska | SL |
+| Slovenska (Slovenien) | SL-SL |
 | Spanska | ES |
-| Spanska (Latinamerika) | es-419 |
-| Spanska (Mexiko) | es-MX |
+| Spanska (Latinamerika) | ES – 419 |
+| Spanska (Mexiko) | ES – MX |
 | Spanska (Spanien) | es-ES |
 | Svenska | sv |
 | Svenska (Sverige) | sv-SE |
 | Tahitian | ty |
-| Tamilska | ta |
-| Tamil (Indien) | ta-in |
-| Telugu | te |
+| Tamilska | layout |
+| Tamiliska (Indien) | ta med |
+| Telugu | & |
 | Telugu (Indien) | te-IN |
-| Thailändska | Th |
+| Thailändska | i:te |
 | Thailändska (Thailand) | th-TH |
-| Tongan (ton) | till |
-| Turkiska | Tr |
+| Tonganska | till |
+| Turkiska | TR |
 | Turkiska (Turkiet) | tr-TR |
 | Ukrainska | Storbritannien |
-| Urdu | Din |
-| Vietnamesiska | vi |
+| Urdu | vilken |
+| Vietnamesiska | Vi |
 | Vietnamesiska (Vietnam) | vi-VN |
-| Walesiska | Cy |
-| Yucatec Maya | yua (yua) |
-| Yue kinesiska | Yue |
+| Walesiska | CY |
+| Yucatec Maya | yua |
+| Yue kinesiska | yue |
 
 
 ## <a name="language-detection"></a>Språkidentifiering
 
 | Språk | Tagga |
 |----------|-----|
-| Arabiska (egyptiska) | ar-EG |
+| Arabiska (egyptiska) | ar-tex |
 | Arabiska (Saudiarabien) | ar-SA |
-| Baskiska | Eu |
-| Bulgariska | Bg |
+| Baskiska | gemenskaps |
+| Bulgariska | Bulgarien |
 | Bulgariska (Bulgarien) | bg-BG |
 | Katalanska | ca-ES |
-| Kinesiska, förenklad | zh-Hans |
-| Förenklad kinesiska (Kina) | zh-Hans-CN |
-| Förenklad kinesiska (Singapore) | zh-Hans-SG |
+| Kinesiska, förenklad | zh-hans |
+| Förenklad kinesiska (Kina) | zh-hans-CN |
+| Förenklad kinesiska (Singapore) | zh-hans-SG |
 | Kinesiska, traditionell | zh-Hant-CN |
-| Traditionell kinesiska (Hongkong) | zh-Hant-HK |
-| Traditionell kinesiska (Macao) | zh-Hant-MO |
+| Traditionell kinesiska (Hongkong) | zh-Hant – HK |
+| Traditionell kinesiska (Macao) | zh-Hant – MO |
 | Traditionell kinesiska (Taiwan) | zh-Hant-TW |
 | Kroatiska | tim |
 | Kroatiska (Kroatien) | hr-HR |
-| Tjeckiska | Cs |
+| Tjeckiska | östasiatisk |
 | Tjeckiska (Tjeckien) | cs-CZ |
 | Danska | da |
 | Danska (Danmark) | da-DK |
 | Nederländska | nl |
 | Nederländska (Nederländerna) | nl-NL |
 | Svenska | en |
-| Engelska (Australien) | sv-AU |
-| Engelska (Kanada) | sv-CA |
-| Engelska (Hongkong SAR) | sv-HK |
-| Engelska (Indien) | sv-IN |
-| Engelska (Irland) | sv-IE |
-| Engelska (Nya Zeeland) | sv-NZ |
+| Engelska (Australien) | en – AU |
+| Engelska (Kanada) | en-CA |
+| Engelska (Hongkong SAR) | en – HK |
+| Engelska (Indien) | en-IN |
+| Engelska (Irland) | en-IE |
+| Engelska (Nya Zeeland) | en-NZ |
 | Engelska (Storbritannien) | en-GB |
 | Engelska (USA) | sv-SE |
-| Estniska | Et |
+| Estniska | ge |
 | Finska | fi |
 | Finska (Finland) | fi-FI |
 | Franska | fr |
 | Franska (Kanada) | fr-CA |
 | Franska (Frankrike) | fr-FR |
-| Franska (Schweiz) | fr-CH |
-| Galiciska | Gl |
+| Franska (Schweiz) | Frankrike-CH |
+| Galiciska | huvud |
 | Tyska | de |
-| Tyska (Österrike) | av-AT |
+| Tyska (Österrike) | avinstallation |
 | Tyska (Tyskland) | de-DE |
-| Tyska (Schweiz)| de-CH (olika) |
+| Tyska (Schweiz)| de-CH |
 | Grekiska | El |
 | Grekiska (Grekland) | el-GR |
-| Hebreiska | Han |
+| Hebreiska | producenten |
 | Hebreiska (Israel) | he-IL |
 | Hindi | Hej |
 | Hindi (Indien) | hi-IN |
-| Ungerska | Hu |
+| Ungerska | HU |
 | Ungerska (Ungern) | hu-HU |
 | Isländska | är |
 | Indonesiska | id |
@@ -314,128 +314,128 @@ I den här artikeln visas mänskliga språk som stöds för Immersive Reader-fun
 | Italienska (Italien) | it-IT |
 | Japanska | ja |
 | Japanska (Japan) | ja-JP |
-| Kazakiska | Kk |
+| Kazakiska | kk |
 | Koreansk | Ko |
 | Koreanska (Korea) | ko-KR |
-| Lettiska | Lv |
-| Litauiska | Lt |
-| Malajiska | Ms |
+| Lettiska | LV |
+| Litauiska | långsiktiga |
+| Malajiska | millisekund |
 | Malajiska (Malaysia) | ms-MY |
-| Norska Bokmal| Nb |
-| Norska Bokmal (Norge) | nb-NO |
-| Norska Nynorsk | nn |
-| Polska | Pl |
+| Norska bokmål| Anm |
+| Norska bokmål (Norge) | nb-NO |
+| Norska, Nynorsk | nn |
+| Polska | pl |
 | Polska (Polen) | pl-PL |
 | Portugisiska | pt |
 | Portugisiska (Brasilien) | pt-BR |
 | Portugisiska (Portugal) | pt-PT |  
-| Rumänska | Ro |
+| Rumänska | ro |
 | Rumänska (Rumänien) | ro-RO |
 | Ryska | ru |
 | Ryska (Ryssland) | ru-RU |
-| Serbiska (kyrilliska) | sr-Cyrl |
-| Serbiska (latinsk) (Serbien) | sr-Latn |
-| Slovakiska | Sk |
+| Serbiska (kyrillisk) | sr-cyrl |
+| Serbiska (latinsk) (Serbien) | SR-latn |
+| Slovakiska | sk |
 | Slovakiska (Slovakien) | sk-SK |
-| Slovenska | Sl |
-| Slovenska (Slovenien) | sl-SL |
+| Slovenska | SL |
+| Slovenska (Slovenien) | SL-SL |
 | Spanska | ES |
-| Spanska (Latinamerika) | es-419 |
-| Spanska (Mexiko) | es-MX |
+| Spanska (Latinamerika) | ES – 419 |
+| Spanska (Mexiko) | ES – MX |
 | Spanska (Spanien) | es-ES |
 | Svenska | sv |
 | Svenska (Sverige) | sv-SE |
-| Tamilska | ta |
-| Tamil (Indien) | ta-in |
-| Telugu | te |
+| Tamilska | layout |
+| Tamiliska (Indien) | ta med |
+| Telugu | & |
 | Telugu (Indien) | te-IN |
-| Thailändska | Th |
+| Thailändska | i:te |
 | Thailändska (Thailand) | th-TH |
-| Turkiska | Tr |
+| Turkiska | TR |
 | Turkiska (Turkiet) | tr-TR |
 | Ukrainska | Storbritannien |
-| Vietnamesiska | vi |
+| Vietnamesiska | Vi |
 | Vietnamesiska (Vietnam) | vi-VN |
-| Walesiska | Cy |
+| Walesiska | CY |
 
-## <a name="syllabification"></a>Kursplaner
+## <a name="syllabification"></a>Syllabification
 
 | Språk | Tagga |
 |----------|-----|
-| Baskiska | Eu |
-| Bulgariska | Bg |
+| Baskiska | gemenskaps |
+| Bulgariska | Bulgarien |
 | Bulgariska (Bulgarien) | bg-BG |
 | Katalanska | ca-ES |
 | Kroatiska | tim |
 | Kroatiska (Kroatien) | hr-HR |
-| Tjeckiska | Cs |
+| Tjeckiska | östasiatisk |
 | Tjeckiska (Tjeckien) | cs-CZ |
 | Danska | da |
 | Danska (Danmark) | da-DK |
 | Nederländska | nl |
 | Nederländska (Nederländerna) | nl-NL |
 | Svenska | en |
-| Engelska (Australien) | sv-AU |
-| Engelska (Kanada) | sv-CA |
-| Engelska (Hongkong SAR) | sv-HK |
-| Engelska (Indien) | sv-IN |
-| Engelska (Irland) | sv-IE |
-| Engelska (Nya Zeeland) | sv-NZ |
+| Engelska (Australien) | en – AU |
+| Engelska (Kanada) | en-CA |
+| Engelska (Hongkong SAR) | en – HK |
+| Engelska (Indien) | en-IN |
+| Engelska (Irland) | en-IE |
+| Engelska (Nya Zeeland) | en-NZ |
 | Engelska (Storbritannien) | en-GB |
 | Engelska (USA) | sv-SE |
-| Estniska | Et |
+| Estniska | ge |
 | Finska | fi |
 | Finska (Finland) | fi-FI |
 | Franska | fr |
 | Franska (Kanada) | fr-CA |
 | Franska (Frankrike) | fr-FR |
-| Franska (Schweiz) | fr-CH |
-| Galiciska | Gl |
+| Franska (Schweiz) | Frankrike-CH |
+| Galiciska | huvud |
 | Tyska | de |
-| Tyska (Österrike) | av-AT |
+| Tyska (Österrike) | avinstallation |
 | Tyska (Tyskland) | de-DE |
-| Tyska (Schweiz)| de-CH (olika) |
+| Tyska (Schweiz)| de-CH |
 | Grekiska | El |
 | Grekiska (Grekland) | el-GR |
-| Ungerska | Hu |
+| Ungerska | HU |
 | Ungerska (Ungern) | hu-HU |
 | Isländska | är |
 | Italienska | it |
 | Italienska (Italien) | it-IT |
-| Kazakiska | Kk |
-| Lettiska | Lv |
-| Litauiska | Lt |
-| Norska Bokmal| Nb |
-| Norska Bokmal (Norge) | nb-NO |
-| Norska Nynorsk | nn |
-| Polska | Pl |
+| Kazakiska | kk |
+| Lettiska | LV |
+| Litauiska | långsiktiga |
+| Norska bokmål| Anm |
+| Norska bokmål (Norge) | nb-NO |
+| Norska, Nynorsk | nn |
+| Polska | pl |
 | Polska (Polen) | pl-PL |
 | Portugisiska | pt |
 | Portugisiska (Brasilien) | pt-BR |
 | Portugisiska (Portugal) | pt-PT |  
-| Rumänska | Ro |
+| Rumänska | ro |
 | Rumänska (Rumänien) | ro-RO |
 | Ryska | ru |
 | Ryska (Ryssland) | ru-RU |
-| Serbiska | Sr |
-| Serbiska (kyrilliska) | sr-Cyrl |
-| Serbiska (latinsk) (Serbien) | sr-Latn |
-| Slovakiska | Sk |
+| Serbiska | uppdateringen |
+| Serbiska (kyrillisk) | sr-cyrl |
+| Serbiska (latinsk) (Serbien) | SR-latn |
+| Slovakiska | sk |
 | Slovakiska (Slovakien) | sk-SK |
-| Slovenska | Sl |
-| Slovenska (Slovenien) | sl-SL |
+| Slovenska | SL |
+| Slovenska (Slovenien) | SL-SL |
 | Spanska | ES |
-| Spanska (Latinamerika) | es-419 |
-| Spanska (Mexiko) | es-MX |
+| Spanska (Latinamerika) | ES – 419 |
+| Spanska (Mexiko) | ES – MX |
 | Spanska (Spanien) | es-ES |
 | Svenska | sv |
 | Svenska (Sverige) | sv-SE |
-| Turkiska | Tr |
+| Turkiska | TR |
 | Turkiska (Turkiet) | tr-TR |
 | Ukrainska | Storbritannien |
-| Walesiska | Cy |
+| Walesiska | CY |
 
-## <a name="picture-dictionary"></a>Bildordlista
+## <a name="picture-dictionary"></a>Bild ord lista
 
 | Språk | Tagga |
 |----------|-----|
@@ -444,12 +444,12 @@ I den här artikeln visas mänskliga språk som stöds för Immersive Reader-fun
 | Nederländska | nl |
 | Nederländska (Nederländerna) | nl-NL |
 | Svenska | en |
-| Engelska (Australien) | sv-AU |
-| Engelska (Kanada) | sv-CA |
-| Engelska (Hongkong SAR) | sv-HK |
-| Engelska (Indien) | sv-IN |
-| Engelska (Irland) | sv-IE |
-| Engelska (Nya Zeeland) | sv-NZ |
+| Engelska (Australien) | en – AU |
+| Engelska (Kanada) | en-CA |
+| Engelska (Hongkong SAR) | en – HK |
+| Engelska (Indien) | en-IN |
+| Engelska (Irland) | en-IE |
+| Engelska (Nya Zeeland) | en-NZ |
 | Engelska (Storbritannien) | en-GB |
 | Engelska (USA) | sv-SE |
 | Finska | fi |
@@ -457,28 +457,28 @@ I den här artikeln visas mänskliga språk som stöds för Immersive Reader-fun
 | Franska | fr |
 | Franska (Kanada) | fr-CA |
 | Franska (Frankrike) | fr-FR |
-| Franska (Schweiz) | fr-CH |
+| Franska (Schweiz) | Frankrike-CH |
 | Tyska | de |
-| Tyska (Österrike) | av-AT |
+| Tyska (Österrike) | avinstallation |
 | Tyska (Tyskland) | de-DE |
-| Tyska (Schweiz)| de-CH (olika) |
+| Tyska (Schweiz)| de-CH |
 | Italienska | it |
 | Italienska (Italien) | it-IT |
 | Japanska | ja |
 | Japanska (Japan) | ja-JP |
 | Koreansk | Ko |
 | Koreanska (Korea) | ko-KR |
-| Norska Bokmal| Nb |
-| Norska Bokmal (Norge) | nb-NO |
-| Polska | Pl |
+| Norska bokmål| Anm |
+| Norska bokmål (Norge) | nb-NO |
+| Polska | pl |
 | Polska (Polen) | pl-PL |
 | Portugisiska | pt |
 | Portugisiska (Brasilien) | pt-BR |
 | Ryska | ru |
 | Ryska (Ryssland) | ru-RU |
 | Spanska | ES |
-| Spanska (Latinamerika) | es-419 |
-| Spanska (Mexiko) | es-MX |
+| Spanska (Latinamerika) | ES – 419 |
+| Spanska (Mexiko) | ES – MX |
 | Spanska (Spanien) | es-ES |
 | Svenska | sv |
 | Svenska (Sverige) | sv-SE |
@@ -487,19 +487,19 @@ I den här artikeln visas mänskliga språk som stöds för Immersive Reader-fun
 
 | Språk | Tagga |
 |----------|-----|
-| Arabiska (egyptiska) | ar-EG |
+| Arabiska (egyptiska) | ar-tex |
 | Arabiska (Saudiarabien) | ar-SA |
 | Danska | da |
 | Danska (Danmark) | da-DK |
 | Nederländska | nl |
 | Nederländska (Nederländerna) | nl-NL |
 | Svenska | en |
-| Engelska (Australien) | sv-AU |
-| Engelska (Kanada) | sv-CA |
-| Engelska (Hongkong SAR) | sv-HK |
-| Engelska (Indien) | sv-IN |
-| Engelska (Irland) | sv-IE |
-| Engelska (Nya Zeeland) | sv-NZ |
+| Engelska (Australien) | en – AU |
+| Engelska (Kanada) | en-CA |
+| Engelska (Hongkong SAR) | en – HK |
+| Engelska (Indien) | en-IN |
+| Engelska (Irland) | en-IE |
+| Engelska (Nya Zeeland) | en-NZ |
 | Engelska (Storbritannien) | en-GB |
 | Engelska (USA) | sv-SE |
 | Finska | fi |
@@ -507,29 +507,29 @@ I den här artikeln visas mänskliga språk som stöds för Immersive Reader-fun
 | Franska | fr |
 | Franska (Kanada) | fr-CA |
 | Franska (Frankrike) | fr-FR |
-| Franska (Schweiz) | fr-CH |
+| Franska (Schweiz) | Frankrike-CH |
 | Tyska | de |
-| Tyska (Österrike) | av-AT |
+| Tyska (Österrike) | avinstallation |
 | Tyska (Tyskland) | de-DE |
-| Tyska (Schweiz)| de-CH (olika) |
+| Tyska (Schweiz)| de-CH |
 | Italienska | it |
 | Italienska (Italien) | it-IT |
 | Japanska | ja |
 | Japanska (Japan) | ja-JP |
 | Koreansk | Ko |
 | Koreanska (Korea) | ko-KR |
-| Norska Bokmal| Nb |
-| Norska Bokmal (Norge) | nb-NO |
-| Norska Nynorsk | nn |
-| Polska | Pl |
+| Norska bokmål| Anm |
+| Norska bokmål (Norge) | nb-NO |
+| Norska, Nynorsk | nn |
+| Polska | pl |
 | Polska (Polen) | pl-PL |
 | Portugisiska | pt |
 | Portugisiska (Brasilien) | pt-BR |
 | Ryska | ru |
 | Ryska (Ryssland) | ru-RU |
 | Spanska | ES |
-| Spanska (Latinamerika) | es-419 |
-| Spanska (Mexiko) | es-MX |
+| Spanska (Latinamerika) | ES – 419 |
+| Spanska (Mexiko) | ES – MX |
 | Spanska (Spanien) | es-ES |
 | Svenska | sv |
 | Svenska (Sverige) | sv-SE |
@@ -539,25 +539,25 @@ I den här artikeln visas mänskliga språk som stöds för Immersive Reader-fun
 | Språk | Tagga |
 |----------|-----|
 | Svenska | en |
-| Engelska (Australien) | sv-AU |
-| Engelska (Kanada) | sv-CA |
-| Engelska (Hongkong SAR) | sv-HK |
-| Engelska (Indien) | sv-IN |
-| Engelska (Irland) | sv-IE |
-| Engelska (Nya Zeeland) | sv-NZ |
+| Engelska (Australien) | en – AU |
+| Engelska (Kanada) | en-CA |
+| Engelska (Hongkong SAR) | en – HK |
+| Engelska (Indien) | en-IN |
+| Engelska (Irland) | en-IE |
+| Engelska (Nya Zeeland) | en-NZ |
 | Engelska (Storbritannien) | en-GB |
 | Engelska (USA) | sv-SE |
 | Franska | fr |
 | Franska (Kanada) | fr-CA |
 | Franska (Frankrike) | fr-FR |
-| Franska (Schweiz) | fr-CH |
+| Franska (Schweiz) | Frankrike-CH |
 | Tyska | de |
-| Tyska (Österrike) | av-AT |
+| Tyska (Österrike) | avinstallation |
 | Tyska (Tyskland) | de-DE |
-| Tyska (Schweiz)| de-CH (olika) |
+| Tyska (Schweiz)| de-CH |
 | Italienska | it |
 | Italienska (Italien) | it-IT |
 | Spanska | ES |
-| Spanska (Latinamerika) | es-419 |
-| Spanska (Mexiko) | es-MX |
+| Spanska (Latinamerika) | ES – 419 |
+| Spanska (Mexiko) | ES – MX |
 | Spanska (Spanien) | es-ES |

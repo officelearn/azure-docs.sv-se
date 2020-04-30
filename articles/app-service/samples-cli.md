@@ -1,16 +1,16 @@
 ---
 title: CLI-exempel
-description: Hitta Azure CLI-exempel för några av de vanliga App Service-scenarierna. Läs om hur du automatiserar distributions- eller hanteringsuppgifterna för App Service.
+description: Hitta Azure CLI-exempel för några vanliga App Service scenarier. Lär dig hur du automatiserar App Service distributions-eller hanterings uppgifter.
 tags: azure-service-management
 ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 12/12/2017
 ms.custom: mvc
 ms.openlocfilehash: 499bf25f06030ae9fc5c1f8381ef4cd6ff6873dc
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81535629"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>CLI-exempel för Azure App Service
@@ -28,12 +28,12 @@ Följande tabell innehåller länkar till bash-skript som skapats med hjälp av 
 | [Skapa en ASP.NET Core-app i en Docker-container](./scripts/cli-linux-docker-aspnetcore.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service-app i Linux och läser in en Docker-avbildning från Docker Hub. |
 |**Konfigurera app**||
 | [Mappa en anpassad domän till en app](./scripts/cli-configure-custom-domain.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service-app och mappar ett anpassat domännamn till den. |
-| [Binda ett anpassat TLS/SSL-certifikat till en app](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service-app och binder TLS/SSL-certifikatet för ett anpassat domännamn till den. |
+| [Binda ett anpassat TLS/SSL-certifikat till en app](./scripts/cli-configure-ssl-certificate.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service-app och binder TLS/SSL-certifikatet för ett anpassat domän namn till den. |
 |**Skalningsapp**||
 | [Skala en app manuellt](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en App Service-app och skalar den över 2 instanser. |
 | [Skala en app globalt med en arkitektur för hög tillgänglighet](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar två App Service-appar i två olika geografiska regioner och gör dem tillgängliga via en enskild slutpunkt med Azure Traffic Manager. |
-|**Skydda appen**||
-| [Integrera med Azure Application Gateway](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en App Service-app och integrerar den med Application Gateway med hjälp av tjänstslutpunkt och åtkomstbegränsningar. |
+|**Skydda app**||
+| [Integrera med Azure Application Gateway](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en App Service app och integrerar den med Application Gateway med hjälp av tjänst slut punkt och åtkomst begränsningar. |
 |**Anslut app till resurser**||
 | [Anslut en webbapp till en SQL-databas](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service-app och en SQL-databas och lägger sedan till dataanslutningssträngen till appinställningarna. |
 | [Anslut en app till ett lagringskonto](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Skapar en App Service-app och ett lagringskonto och lägger sedan till lagringsanslutningssträngen till appinställningarna. |

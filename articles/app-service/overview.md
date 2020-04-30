@@ -6,17 +6,17 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.custom: mvc, seodec18
 ms.openlocfilehash: f8449c516bce3f3ab949e88808f73c7240995f99
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81535646"
 ---
 # <a name="app-service-overview"></a>Översikt över App Service
 
-*Azure App Service* är en HTTP-baserad tjänst för värd för webbprogram, REST-API:er och mobila bakåtslutningar. Du kan utveckla i det språk du föredrar, oavsett om det är .NET, .NET Core, Java, Ruby, Node.js, PHP eller Python. Program körs och skalas enkelt i både Windows- och Linux-baserade miljöer. Mer information om Linux-baserade miljöer finns i [App Service i Linux](containers/app-service-linux-intro.md). 
+*Azure App Service* är en HTTP-baserad tjänst som är värd för webb program, REST API: er och mobila Server delar. Du kan utveckla i det språk du föredrar, oavsett om det är .NET, .NET Core, Java, Ruby, Node.js, PHP eller Python. Program körs och skalas enkelt i både Windows- och Linux-baserade miljöer. Mer information om Linux-baserade miljöer finns i [App Service i Linux](containers/app-service-linux-intro.md). 
 
-App Services lägger inte bara till kraften hos Microsoft Azure i ditt program, t.ex. säkerhet, belastningsutjämning, automatisk skalning och automatiserad hantering. Du kan också dra nytta av dess DevOps-funktioner, till exempel kontinuerlig distribution från Azure DevOps, GitHub, Docker Hub och andra källor, pakethantering, mellanlagringsmiljöer, anpassade domäner och TLS/SSL-certifikat. 
+App Services lägger inte bara till kraften hos Microsoft Azure i ditt program, t.ex. säkerhet, belastningsutjämning, automatisk skalning och automatiserad hantering. Du kan också dra nytta av dess DevOps-funktioner, till exempel kontinuerlig distribution från Azure DevOps, GitHub, Docker Hub och andra källor, paket hantering, mellanlagrings miljöer, anpassad domän och TLS/SSL-certifikat. 
 
 Med App Service betalar du för de Azure-beräkningsresurer du använder. De beräkningsresurser du använder fastställs av den _App Service-plan_ som du använder för att köra appar på. Mer information finns i [Översikt över Azure App Service planer](overview-hosting-plans.md).
 
@@ -62,4 +62,4 @@ Skapa din första webbapp.
 > [Python (på Linux)](containers/quickstart-python.md)
 
 > [!div class="nextstepaction"]
-> [Html](app-service-web-get-started-html.md)
+> [-](app-service-web-get-started-html.md)

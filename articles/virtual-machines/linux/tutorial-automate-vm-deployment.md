@@ -1,6 +1,6 @@
 ---
-title: Självstudiekurs - Anpassa en Virtuell Linux-dator med cloud-init i Azure
-description: I den här självstudien får du lära dig hur du använder cloud-init och Key Vault för att anpassa Virtuella Linux-datorer första gången de startar i Azure
+title: Självstudie – anpassa en virtuell Linux-dator med Cloud-Init i Azure
+description: I den här självstudien får du lära dig hur du använder Cloud-Init och Key Vault för att anpassa virtuella Linux-datorer första gången de startas i Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,10 +15,10 @@ ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: d2a6568b0d62c880a688160cf981fb33083ae02e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81461488"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Självstudiekurs – Så här använder du cloud-init för att anpassa en virtuell Linux-dator i Azure vid den första starten
@@ -41,21 +41,21 @@ Cloud-init fungerar med olika distributioner. Du använder till exempel inte **a
 
 Vi arbetar med våra partners och försöker göra så att cloud-init inkluderas och fungerar i de avbildningar de tillhandahåller till Azure. Den här tabellen beskriver den aktuella tillgängligheten när det gäller cloud-init på Azure plattformsavbildningar:
 
-| Utgivare | Erbjudande | SKU | Version | moln-init redo |
+| Utgivare | Erbjudande | SKU | Version | moln-init Ready |
 |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04-LTS |senaste |ja | 
+|Canonical |UbuntuServer |18,04 – LTS |senaste |ja | 
 |Canonical |UbuntuServer |16.04-LTS |senaste |ja | 
 |Canonical |UbuntuServer |14.04.5-LTS |senaste |ja |
 |CoreOS |CoreOS |Stable |senaste |ja |
-|OpenLogic 7.6 |CentOS |7-CI |senaste |förhandsgranska |
+|OpenLogic 7,6 |CentOS |7-CI |senaste |preview |
 |RedHat 7,6 |RHEL |7-RAW-CI |7.6.2019072418 |ja |
-|RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 |förhandsgranska |
+|RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 |preview |
 
 
 ## <a name="create-cloud-init-config-file"></a>Skapa en cloud-init-konfigurationsfil
 Om du vill se hur cloud-init fungerar i praktiken skapar du en virtuell dator som installerar NGINX och kör en enkel ”Hello World” Node.js-app. Den här cloud-init-konfigurationen installerar de paket som krävs, skapar en Node.js-app och initierar och startar appen.
 
-Vid din bash-prompt eller i Cloud Shell skapar du en fil med namnet *cloud-init.txt* och klistrar in följande konfiguration. Skriv `sensible-editor cloud-init.txt` till exempel för att skapa filen och visa en lista över tillgängliga redigerare. Se till att hela cloud-init-filen kopieras korrekt, särskilt den första raden:
+I bash-prompten eller på Cloud Shell skapar du en fil med namnet *init. txt* och klistrar in följande konfiguration. Skriv `sensible-editor cloud-init.txt` till exempel om du vill skapa filen och visa en lista över tillgängliga redigerare. Se till att hela cloud-init-filen kopieras korrekt, särskilt den första raden:
 
 ```bash
 #cloud-config
@@ -108,7 +108,7 @@ Innan du kan skapa en virtuell dator skapar du en resursgrupp med [az group crea
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Skapa nu en virtuell dator med [az vm create](/cli/azure/vm#az-vm-create). Använd parametern `--custom-data` för att skicka in din cloud-init-konfigurationsfil. Ange den fullständiga sökvägen till *cloud-init.txt* om du sparat filen utanför din aktuella arbetskatalog. I följande exempel skapas en virtuell dator med namnet *myVM:*
+Skapa nu en virtuell dator med [az vm create](/cli/azure/vm#az-vm-create). Använd parametern `--custom-data` för att skicka in din cloud-init-konfigurationsfil. Ange den fullständiga sökvägen till *cloud-init.txt* om du sparat filen utanför din aktuella arbetskatalog. I följande exempel skapas en virtuell dator med namnet *myVM*:
 
 ```azurecli-interactive
 az vm create \
@@ -129,7 +129,7 @@ az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myAuto
 ```
 
 ## <a name="test-web-app"></a>Testa webbappen
-Nu kan du öppna en webbläsare och ange *http:\/\/\<publicIpAddress>* i adressfältet. Ange din offentliga IP-adress från skapandeprocessen av den virtuella datorn. Din Node.js-app visas som den visas i det här exemplet:
+Nu kan du öppna en webbläsare och ange *http:\/\/\<publicIpAddress>* i adress fältet. Ange din offentliga IP-adress från skapandeprocessen av den virtuella datorn. Din Node.js-app visas som den visas i det här exemplet:
 
 ![Visa NGINX-webbplats som körs](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -183,7 +183,7 @@ vm_secret=$(az vm secret format --secret "$secret" --output json)
 ### <a name="create-cloud-init-config-to-secure-nginx"></a>Skapa en cloud-init-konfiguration för att skydda NGINX
 När du skapar en virtuella dator lagras certifikat och nycklar i den skyddade katalogen */var/lib/waagent/*. Om du vill automatisera inmatningen av certifikatet i den virtuella datorn och konfigurera NGINX kan du använda en uppdaterad cloud-init-konfigurationsfil från föregående exempel.
 
-Skapa en fil med namnet *cloud-init-secured.txt* och klistra in följande konfiguration. Om du använder Cloud Shell skapar du molninit-config-filen där och inte på din lokala dator. Skriv `sensible-editor cloud-init-secured.txt` till exempel för att skapa filen och visa en lista över tillgängliga redigerare. Se till att hela cloud-init-filen kopieras korrekt, särskilt den första raden:
+Skapa en fil med namnet *cloud-init-secured.txt* och klistra in följande konfiguration. Om du använder Cloud Shell skapar du konfigurations filen för Cloud-Init där och inte på den lokala datorn. Skriv `sensible-editor cloud-init-secured.txt` till exempel om du vill skapa filen och visa en lista över tillgängliga redigerare. Se till att hela cloud-init-filen kopieras korrekt, särskilt den första raden:
 
 ```yaml
 #cloud-config
@@ -260,7 +260,7 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>Testa säker webbapp
-Nu kan du öppna en webbläsare och ange *https:\/\/\<publicIpAddress>* i adressfältet. Ange din egen offentliga IP-adress som visas i utdata från den tidigare Skapa virtuell dator-processen. Om du använder ett självsignerat certifikat ska du acceptera säkerhetsvarningen:
+Nu kan du öppna en webbläsare och ange *https:\/\/\<publicIpAddress>* i adress fältet. Ange din egen offentliga IP-adress som visas i utdata från den tidigare Skapa virtuell dator-processen. Om du använder ett självsignerat certifikat ska du acceptera säkerhetsvarningen:
 
 ![Acceptera webbläsarens säkerhetsvarning](./media/tutorial-automate-vm-deployment/browser-warning.png)
 

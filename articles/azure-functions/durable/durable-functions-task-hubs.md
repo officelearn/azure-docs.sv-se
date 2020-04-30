@@ -1,49 +1,49 @@
 ---
-title: Aktivitetshubbar i varaktiga funktioner - Azure
-description: Lär dig vad en aktivitetsnav är i tillägget Varaktiga funktioner för Azure Functions. Läs om hur du konfigurerar aktivitetshubbar.
+title: Aktivitets nav i Durable Functions – Azure
+description: Läs om vad en aktivitets hubb är i Durable Functions-tillägget för Azure Functions. Lär dig hur du konfigurerar aktivitets nav.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 427ab6c4e0e769ab881af0af3023d514c1b092c6
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81604616"
 ---
-# <a name="task-hubs-in-durable-functions-azure-functions"></a>Aktivitetshubbar i varaktiga funktioner (Azure-funktioner)
+# <a name="task-hubs-in-durable-functions-azure-functions"></a>Aktivitets nav i Durable Functions (Azure Functions)
 
-En *aktivitetsnav* i [Varaktiga funktioner](durable-functions-overview.md) är en logisk behållare för Azure Storage-resurser som används för orkestreringar. Orchestrator- och aktivitetsfunktioner kan bara interagera med varandra när de tillhör samma aktivitetsnav.
+En *aktivitets hubb* i [Durable Functions](durable-functions-overview.md) är en logisk behållare för Azure Storage resurser som används för dirigering. Orchestrator-och aktivitets funktioner kan bara samverka med varandra när de tillhör samma aktivitets nav.
 
-Om flera funktionsappar delar ett lagringskonto *måste* varje funktionsapp konfigureras med ett separat aktivitetsnavnamn. Ett lagringskonto kan innehålla flera aktivitetshubbar. Följande diagram illustrerar en aktivitetsnav per funktionsapp i delade och dedikerade lagringskonton.
+Om flera Functions-appar delar ett lagrings konto, *måste* varje funktions app konfigureras med ett separat aktivitets nav namn. Ett lagrings konto kan innehålla flera aktivitets nav. Följande diagram illustrerar en aktivitets hubb per Function-app i delade och dedikerade lagrings konton.
 
-![Diagram som visar delade och dedikerade lagringskonton.](./media/durable-functions-task-hubs/task-hubs-storage.png)
+![Diagram som visar delade och dedikerade lagrings konton.](./media/durable-functions-task-hubs/task-hubs-storage.png)
 
-## <a name="azure-storage-resources"></a>Azure Storage-resurser
+## <a name="azure-storage-resources"></a>Azure Storage resurser
 
-En aktivitetsnav består av följande lagringsresurser:
+En aktivitets hubb består av följande lagrings resurser:
 
-* En eller flera kontrollköer.
-* En arbetsartikelkö.
-* Ett historikbord.
-* En instanstabell.
-* En lagringsbehållare som innehåller en eller flera låneblobar.
-* En förvaringsbehållare som innehåller stora meddelandenyttolaster, om tillämpligt.
+* En eller flera kontroll köer.
+* En kö för arbets objekt.
+* En historik tabell.
+* Tabell med en instans.
+* En lagrings behållare som innehåller en eller flera blobar för lån.
+* En lagrings behållare som innehåller stora nytto Last meddelanden, om tillämpligt.
 
-Alla dessa resurser skapas automatiskt i standardkontot för Azure Storage när orchestrator-, entitets- eller aktivitetsfunktioner körs eller är schemalagda att köras. I artikeln [Prestanda och skala](durable-functions-perf-and-scale.md) beskrivs hur dessa resurser används.
+Alla dessa resurser skapas automatiskt i standard Azure Storages kontot när Orchestrator-, Entity-eller aktivitets funktioner körs eller är schemalagda att köras. I artikeln om [prestanda och skala](durable-functions-perf-and-scale.md) förklaras hur dessa resurser används.
 
-## <a name="task-hub-names"></a>Namn på aktivitetsnav
+## <a name="task-hub-names"></a>Namn på uppgifts hubb
 
-Aktivitetshubbar identifieras med ett namn som följer dessa regler:
+Aktivitets nav identifieras med ett namn som följer dessa regler:
 
-* Innehåller endast alfanumeriska tecken
+* Innehåller bara alfanumeriska tecken
 * Börjar med en bokstav
-* Har en minsta längd på 3 tecken, maximal längd på 45 tecken
+* Får bestå av minst 3 tecken, högst 45 tecken
 
-Aktivitetsnavnamnet deklareras i *filen host.json,* vilket visas i följande exempel:
+Namnet på aktivitets navet deklareras i *Host. JSON* -filen, som visas i följande exempel:
 
-### <a name="hostjson-functions-20"></a>host.json (Funktioner 2.0)
+### <a name="hostjson-functions-20"></a>Host. JSON (Functions 2,0)
 
 ```json
 {
@@ -56,7 +56,7 @@ Aktivitetsnavnamnet deklareras i *filen host.json,* vilket visas i följande exe
 }
 ```
 
-### <a name="hostjson-functions-1x"></a>host.json (Funktioner 1.x)
+### <a name="hostjson-functions-1x"></a>Host. JSON (funktion 1. x)
 
 ```json
 {
@@ -66,9 +66,9 @@ Aktivitetsnavnamnet deklareras i *filen host.json,* vilket visas i följande exe
 }
 ```
 
-Aktivitetshubbar kan också konfigureras med hjälp av `host.json` appinställningar, vilket visas i följande exempelfil:
+Aktivitets nav kan också konfigureras med hjälp av appinställningar, som du ser i `host.json` följande exempel fil:
 
-### <a name="hostjson-functions-10"></a>host.json (Funktioner 1.0)
+### <a name="hostjson-functions-10"></a>Host. JSON (Functions 1,0)
 
 ```json
 {
@@ -78,7 +78,7 @@ Aktivitetshubbar kan också konfigureras med hjälp av `host.json` appinställni
 }
 ```
 
-### <a name="hostjson-functions-20"></a>host.json (Funktioner 2.0)
+### <a name="hostjson-functions-20"></a>Host. JSON (Functions 2,0)
 
 ```json
 {
@@ -91,7 +91,7 @@ Aktivitetshubbar kan också konfigureras med hjälp av `host.json` appinställni
 }
 ```
 
-Aktivitetsnavnamnet ställs in på `MyTaskHub` värdet för appinställningen. Följande `local.settings.json` visar hur du `MyTaskHub` definierar `samplehubname`inställningen som:
+Aktivitets navets namn anges till värdet för `MyTaskHub` appens inställning. Följande `local.settings.json` visar hur du definierar `MyTaskHub` inställningen som: `samplehubname`
 
 ```json
 {
@@ -102,7 +102,7 @@ Aktivitetsnavnamnet ställs in på `MyTaskHub` värdet för appinställningen. F
 }
 ```
 
-Följande kod visar hur du skriver en funktion som använder [orchestration-klientbindningen](durable-functions-bindings.md#orchestration-client) för att arbeta med en aktivitetsnav som är konfigurerad som en appinställning:
+Följande kod visar hur du skriver en funktion som använder [Dirigerings klient bindningen](durable-functions-bindings.md#orchestration-client) för att arbeta med en aktivitets hubb som är konfigurerad som en app-inställning:
 
 # <a name="c"></a>[C #](#tab/csharp)
 
@@ -125,11 +125,11 @@ public static async Task<HttpResponseMessage> Run(
 ```
 
 > [!NOTE]
-> Det föregående C#-exemplet är för varaktiga funktioner 2.x. För varaktiga funktioner 1.x `DurableOrchestrationContext` måste `IDurableOrchestrationContext`du använda i stället för . Mer information om skillnaderna mellan versioner finns i artikeln [Över huvudversioner för varaktiga funktioner.](durable-functions-versions.md)
+> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Egenskapen task hub `function.json` i filen anges via Appinställning:
+Egenskapen aktivitets nav i `function.json` filen anges via appens inställning:
 
 ```json
 {
@@ -142,19 +142,19 @@ Egenskapen task hub `function.json` i filen anges via Appinställning:
 
 ---
 
-Aktivitetsnavnamn måste börja med en bokstav och bestå av endast bokstäver och siffror. Om inget anges används ett standardnamn för aktivitetsnav som visas i följande tabell:
+Namn på uppgifts hubbar måste börja med en bokstav och får bara bestå av bokstäver och siffror. Om inget värde anges används ett standard namn för aktivitets navet som visas i följande tabell:
 
-| Hållbar tilläggsversion | Namn på standardaktivitetsnav |
+| Beständig tilläggs version | Namn på standard aktivitets hubb |
 | - | - |
-| 2.x | När aktivitetsnavnamnet distribueras i Azure härleds det från namnet på _funktionsappen_. När du kör utanför Azure är `TestHubName`standardaktivitetsnavets namn . |
-| 1.x | Standardaktivitetsnavets namn för `DurableFunctionsHub`alla miljöer är . |
+| 2x | När det distribueras i Azure härleds aktivitets hubbens namn från namnet på Function- _appen_. När du kör utanför Azure är `TestHubName`standard namnet på aktivitets navet. |
+| 1.x | Standard namnet för aktivitets hubben för alla miljöer `DurableFunctionsHub`är. |
 
-Mer information om skillnaderna mellan tilläggsversioner finns i artikeln [Över huvudversioner av varaktiga funktioner.](durable-functions-versions.md)
+Mer information om skillnaderna mellan tilläggs versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
 > [!NOTE]
-> Namnet är det som skiljer en aktivitetsnav från en annan när det finns flera aktivitetshubbar i ett delat lagringskonto. Om du har flera funktionsappar som delar ett delat lagringskonto måste du uttryckligen konfigurera olika namn för varje aktivitetsnav i *host.json-filerna.* Annars kommer flera funktionsappar att konkurrera med varandra om meddelanden, vilket kan resultera i odefinierat `Pending` beteende, inklusive orkestreringar som oväntat "fastnar" i tillståndet eller. `Running`
+> Namnet är det som skiljer en aktivitets hubb från en annan när det finns flera aktivitets nav i ett delat lagrings konto. Om du har flera Function-appar som delar ett delat lagrings konto måste du uttryckligen konfigurera olika namn för varje aktivitets nav i *Host. JSON* -filer. Annars konkurrerar flera Function-appar med varandra för meddelanden, vilket kan resultera i odefinierat beteende, inklusive dirigeringar som förväntas "fastnar" i läget `Pending` eller. `Running`
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du hanterar orkestreringsversionering](durable-functions-versioning.md)
+> [Lär dig hur du hanterar Orchestration-versioner](durable-functions-versioning.md)

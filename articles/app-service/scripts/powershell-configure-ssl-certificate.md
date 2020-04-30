@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Ladda upp och binda TLS/SSL'
+title: 'PowerShell: Ladda upp och bind TLS/SSL'
 description: Lär dig hur du använder Azure PowerShell för att automatisera distribution och hantering av App Service. Det här exemplet visar hur du binder ett anpassat TLS/SSL-certifikat till en app.
 author: msangapu-msft
 tags: azure-service-management
@@ -8,21 +8,21 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 5116585b701717a82b757cae70f938c321a1f7d1
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81532569"
 ---
-# <a name="bind-a-custom-tlsssl-certificate-to-a-web-app-using-powershell"></a>Binda ett anpassat TLS/SSL-certifikat till en webbapp med PowerShell
+# <a name="bind-a-custom-tlsssl-certificate-to-a-web-app-using-powershell"></a>Binda ett anpassat TLS/SSL-certifikat till en webbapp med hjälp av PowerShell
 
-Det här exempelskriptet skapar en webbapp i App Service med sina relaterade resurser och binder sedan TLS/SSL-certifikatet för ett anpassat domännamn till den. 
+Det här exempel skriptet skapar en webbapp i App Service med dess relaterade resurser och binder sedan TLS/SSL-certifikatet för ett anpassat domän namn till den. 
 
-Om det behövs installerar du Azure PowerShell med hjälp av instruktionen som finns i [Azure PowerShell-guiden](/powershell/azure/overview)och kör `Connect-AzAccount` sedan för att skapa en anslutning med Azure. Se också till att:
+Om det behövs installerar du Azure PowerShell med hjälp av den instruktion som finns i [Azure PowerShell-guiden](/powershell/azure/overview)och `Connect-AzAccount` kör sedan för att skapa en anslutning till Azure. Se också till att:
 
 - En anslutning har skapats med Azure med hjälp av kommandot `az login`.
 - Du har åtkomst till din domänregistrators DNS-konfigurationssida.
-- Du har en giltig . PFX-filen och dess lösenord för TLS/SSL-certifikatet som du vill ladda upp och binda.
+- Du är giltig. PFX-fil och lösen ord för det TLS/SSL-certifikat som du vill ladda upp och binda.
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -42,14 +42,14 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Skapar en App Service-plan. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Skapar en webbapp. |
 | [Set-AzAppServicePlan](/powershell/module/az.websites/set-azappserviceplan) | Ändrar en App Service-plan för att ändra prisnivån. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Ändrar konfigurationen för en webbapp. |
-| [New-AzWebAppSSLBinding](/powershell/module/az.websites/new-azwebappsslbinding) | Skapar en TLS/SSL-certifikatbindning för en webbapp. |
+| [New-AzWebAppSSLBinding](/powershell/module/az.websites/new-azwebappsslbinding) | Skapar en TLS/SSL-certifikat bindning för en webbapp. |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,7 +1,7 @@
 ---
-title: Funktioner - LUIS
+title: Funktioner – LUIS
 titleSuffix: Azure Cognitive Services
-description: Lägg till funktioner i en språkmodell för att ge tips om hur du känner igen indata som du vill märka eller klassificera.
+description: Lägg till funktioner i en språk modell för att ge tips om hur du identifierar indatatyper som du vill etikettera eller klassificera.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,84 +12,84 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: diberry
 ms.openlocfilehash: 5b8257e24cf52d01be8065d97db17fd685aa316d
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81531906"
 ---
-# <a name="machine-learned-features"></a>Maskininlärda funktioner
+# <a name="machine-learned-features"></a>Funktioner som har lästs av datorn
 
-I maskininlärning är en _funktion_ ett särskiljande drag eller attribut för data som ditt system observerar & lär sig igenom. I Language Understanding (LUIS) beskriver och förklarar en funktion vad som är viktigt med dina avsikter och entiteter.
+I Machine Learning är en _funktion_ en särskiljande egenskaps-eller dataattribut som systemet iakttar & lär sig igenom. I Language Understanding (LUIS) beskriver en funktion och förklarar vad som är viktigt om dina avsikter och entiteter.
 
-I [luis-portalen för förhandsversionen](https://preview.luis.ai)är funktionerna _beskrivningar_ eftersom de används för att _beskriva_ avsikten eller entiteten.
+I [Luis-portalen för förhands granskning](https://preview.luis.ai)är funktioner _Descriptor_ eftersom de används för att _beskriva_ avsikten eller entiteten.
 
-## <a name="features-_descriptors_-in-language-understanding"></a>Funktioner _(deskriptorer)_ i språk understanding
+## <a name="features-_descriptors_-in-language-understanding"></a>Funktioner (_beskrivningar_) i language Understanding
 
-Funktioner, även kallade deskriptorer, beskriver ledtrådar för att hjälpa Språkförståelse att identifiera exempelyttranden. Funktionerna omfattar:
+Funktioner, även kallade beskrivningar, beskriver LED trådar för att hjälpa Language Understanding att identifiera exemplet yttranden. Funktionerna omfattar:
 
-* Fraslista som en funktion i avsikter eller entiteter
-* Entiteter som funktioner i avsikter eller entiteter
+* Fras lista som en funktion till avsikter eller entiteter
+* Entiteter som funktioner till avsikter eller entiteter
 
-Funktioner bör betraktas som en nödvändig del av schemat för modellförsprutning.
+Funktioner bör betraktas som en nödvändig del av ditt schema för modells sammansättning.
 
-## <a name="what-is-a-phrase-list"></a>Vad är en fraslista
+## <a name="what-is-a-phrase-list"></a>Vad är en fras lista
 
-En fraslista är en lista med ord, fraser, siffror eller andra tecken som hjälper till att identifiera det koncept du försöker identifiera. Listan är skiftlägesokänslig.
+En fras lista är en lista över ord, fraser, siffror eller andra tecken som hjälper dig att identifiera det koncept som du försöker identifiera. Listan är Skift läges okänslig.
 
-## <a name="when-to-use-a-phrase-list"></a>När ska en fraslista användas
+## <a name="when-to-use-a-phrase-list"></a>När du ska använda en fras lista
 
-Med en fraslista tar LUIS hänsyn till kontext och generaliserar för att identifiera objekt som liknar, men inte en exakt textmatchning. Om du behöver LUIS-appen för att kunna generalisera och identifiera nya objekt använder du en fraslista.
+Med en fras lista anser LUIS kontext och generalizes för att identifiera objekt som liknar, men inte en exakt text matchning. Använd en fras lista om du behöver LUIS-appen för att kunna generalisera och identifiera nya objekt.
 
-När du vill kunna känna igen nya instanser, till exempel en mötesschemaläggare som ska känna igen namnen på nya kontakter eller en lagerapp som ska känna igen nya produkter, börjar du med en datorinlärd entitet. Skapa sedan en fraslista som hjälper LUIS att hitta ord med liknande innebörd. Den här fraslistan vägleder LUIS att känna igen exempel genom att lägga till ytterligare betydelse för värdet av dessa ord.
+När du vill kunna identifiera nya instanser, till exempel en schemaläggare för möten som ska identifiera namnen på nya kontakter eller en inventerings app som ska identifiera nya produkter, börjar du med en enhet som har lärts från enheten. Skapa sedan en fras lista som hjälper LUIS att hitta ord med liknande betydelse. Den här frasen visar en lista över LUIS som hjälper dig att identifiera exempel genom att lägga till ytterligare betydelse för värdet av dessa ord.
 
-Fraslistor är som domänspecifika ordförråd som hjälper till att förbättra kvaliteten på förståelsen av både avsikter och entiteter.
+Fras listor är som domänbaserad vokabulär som hjälper till att förbättra kvaliteten på både avsikter och entiteter.
 
-## <a name="considerations-when-using-a-phrase-list"></a>Överväganden när du använder en fraslista
+## <a name="considerations-when-using-a-phrase-list"></a>Att tänka på när du använder en fras lista
 
-En fraslista används som standard på alla modeller i appen. Detta kommer att fungera för fraslistor som kan korsa alla avsikter och entiteter. För förmultning bör du använda en fraslista på endast de modeller som den är relevant för.
+En fras lista används som standard för alla modeller i appen. Detta fungerar för fras listor som kan korsa alla avsikter och entiteter. För desammansättning kan du använda en fras lista för att bara de modeller som är relevanta för.
 
-Om du skapar en fraslista (skapad globalt som standard) och sedan senare använder den som en deskriptor (funktion) på en viss modell tas den bort från de andra modellerna. Den här borttagningen lägger till relevans i fraslistan för modellen som den tillämpas på, vilket bidrar till att förbättra noggrannheten som den ger i modellen.
+Om du skapar en fras lista (som skapas globalt som standard), tillämpas den senare som en beskrivning (funktion) till en speciell modell, tas den bort från de andra modellerna. Den här borttagningen lägger till relevans för fras listan för den modell som den tillämpas på, vilket ger bättre noggrannhet i modellen.
 
-Flaggan `enabledForAllModels` styr den här modellens scope i API:et.
+`enabledForAllModels` Flaggan styr det här modell omfånget i API: et.
 
 <a name="how-to-use-phrase-lists"></a>
 
-### <a name="how-to-use-a-phrase-list"></a>Så här använder du en fraslista
+### <a name="how-to-use-a-phrase-list"></a>Så här använder du en fras lista
 
-[Skapa en fraslista](luis-how-to-add-features.md) när din avsikt eller entitet har ord eller fraser som är viktiga, till exempel:
+[Skapa en fras lista](luis-how-to-add-features.md) när avsikten eller entiteten innehåller ord eller fraser som är viktiga, till exempel:
 
-* branschtermer
-* Slang
-* Förkortningar
-* företagsspecifikt språk
-* språk som kommer från ett annat språk men som ofta används i appen
+* bransch villkor
+* slang
+* förkortningar
+* företagsspecifika språk
+* språk som är från ett annat språk men som ofta används i din app
 * nyckelord och fraser i ditt exempel yttranden
 
-Lägg **inte** till alla möjliga ord eller fraser. Lägg i stället till några ord eller fraser i taget och sedan träna om och publicera. När listan växer med tiden kan vissa termer finnas många formulär (synonymer). Dela upp de här i en annan lista.
+Lägg **inte** till varje möjligt ord eller fras. Lägg i stället till några ord eller fraser i taget, och sedan träna och publicera. När listan växer med tiden kan det hända att vissa termer har många former (synonymer). Dela upp dessa i en annan lista.
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## <a name="when-to-use-an-entity-as-a-feature"></a>När ska en entitet användas som funktion
+## <a name="when-to-use-an-entity-as-a-feature"></a>När du ska använda en entitet som en funktion
 
-En entitet kan läggas till som en funktion på avsikts- eller entitetsnivå.
+En entitet kan läggas till som en funktion på avsikts-eller enhets nivå.
 
-### <a name="entity-as-a-feature-to-an-intent"></a>Entitet som en funktion i avsikt
+### <a name="entity-as-a-feature-to-an-intent"></a>Entitet som en funktion till ett avsikts sätt
 
-Lägg till en entitet som en deskriptor (funktion) i en avsikt när identifieringen av den entiteten är viktig för avsikten.
+Lägg till en entitet som en beskrivning (funktion) i avsikt när identifieringen av den enheten är signifikant för avsikten.
 
-Om avsikten till exempel är att boka en flygning och enheten är biljettinformation (till exempel antalet platser, ursprung och destination) ska du hitta entiteten för biljettinformation lägga vikt vid förutsägelsen av bokens flygavsikt.
+Om avsikten exempelvis är att boka en flygning och entiteten är biljett information (t. ex. antalet platser, ursprung och mål), ska du söka efter entiteten med biljett information genom att lägga till vikt till förutsägelsen av bokens flyg avsikt.
 
 ### <a name="entity-as-a-feature-to-another-entity"></a>Entitet som en funktion till en annan entitet
 
-En entitet (A) ska läggas till som en funktion i en annan enhet (B) när detektionen av den enheten (A) är betydande för förutsägelsen av entitet (B).
+En entitet (A) bör läggas till som en funktion till en annan entitet (B) när entitetens identifiering (A) är signifikant för förutsägelsen av entiteten (B).
 
-Om gatuadressentiteten (A) till exempel identifieras lägger gatuadressen (A) vikt till förutsägelsen för leveransadressentiteten (B).
+Om t. ex. entiteten gatuadress (A) har identifierats lägger du till en vikt till förutsägelsen för entiteten leverans adress (B) genom att söka efter gatuadressen (A).
 
 ## <a name="best-practices"></a>Bästa praxis
-Läs [bästa praxis](luis-concept-best-practices.md).
+Lär dig [metod tips](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Utöka](schema-change-prediction-runtime.md) dina appmodeller vid förutsägelsekörning
-* Se [Lägg till funktioner](luis-how-to-add-features.md) om du vill veta mer om hur du lägger till funktioner i LUIS-appen.
+* [Utöka](schema-change-prediction-runtime.md) dina program modeller vid förutsägelse körning
+* Se [Lägg till funktioner](luis-how-to-add-features.md) för att lära dig mer om hur du lägger till funktioner i Luis-appen.

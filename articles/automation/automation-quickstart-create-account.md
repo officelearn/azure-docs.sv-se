@@ -7,17 +7,17 @@ ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
 ms.openlocfilehash: 7704f080b7c1878f2fa2b079a1f242c8c2cc87a9
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81536989"
 ---
 # <a name="create-an-azure-automation-account"></a>Skapa ett Azure Automation-konto
 
-Du kan skapa ett Azure Automation-konto via Azure med hjälp av Azure-portalen, ett webbläsarbaserat användargränssnitt som tillåter åtkomst till ett antal resurser. Ett Automation-konto kan hantera resurser i alla regioner och prenumerationer för en viss klient. 
+Du kan skapa ett Azure Automation konto via Azure, med hjälp av Azure Portal, ett webbläsarbaserat användar gränssnitt som ger åtkomst till ett antal resurser. Ett Automation-konto kan hantera resurser i alla regioner och prenumerationer för en specifik klient. 
 
-Den här snabbstarten hjälper dig att skapa ett Automation-konto och köra en runbook i kontot. Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+I den här snabb starten får du hjälp med att skapa ett Automation-konto och köra en Runbook i kontot. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -25,23 +25,23 @@ Den här snabbstarten hjälper dig att skapa ett Automation-konto och köra en r
 
 ## <a name="create-automation-account"></a>Skapa ett Automation-konto
 
-1. Välj ett namn för ditt Azure-konto. Automation-kontonamn är unika per region och resursgrupp. Namn för Automation-konton som har tagits bort kanske inte är omedelbart tillgängliga.
+1. Välj ett namn för ditt Azure-konto. Namn på Automation-konton är unika per region och resurs grupp. Namn på Automation-konton som har tagits bort kanske inte är omedelbart tillgängliga.
 
     > [!NOTE]
-    > Du kan inte ändra kontonamnet när det har angetts i användargränssnittet. 
+    > Du kan inte ändra konto namnet när det har angetts i användar gränssnittet. 
 
-2. Klicka på knappen **Skapa en resurs** som finns i det övre vänstra hörnet av Azure-portalen.
+2. Klicka på knappen **skapa en resurs** som finns i det övre vänstra hörnet i Azure Portal.
 
-3. Välj **IT-& hanteringsverktyg**och välj sedan **Automation**.
+3. Välj **den & hanterings verktyg**och välj sedan **Automation**.
 
-4. Ange kontoinformationen, inklusive det valda kontonamnet. För **Skapa Kör som-konto i Azure**, väljer du **Ja** så att artefakterna för att förenkla autentisering till Azure aktiveras automatiskt. När informationen är klar klickar du på **Skapa** för att starta distributionen av Automation-konto.
+4. Ange konto informationen, inklusive det valda konto namnet. För **Skapa Kör som-konto i Azure**, väljer du **Ja** så att artefakterna för att förenkla autentisering till Azure aktiveras automatiskt. När informationen är klar klickar du på **skapa** för att starta distributionen av Automation-kontot.
 
     ![Ange information om ditt Automation-konto på sidan](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
     > [!NOTE]
-    > En uppdaterad lista över platser som du kan distribuera ett Automation-konto till finns i [Produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
+    > En uppdaterad lista över platser som du kan distribuera ett Automation-konto till finns i [produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
 
-5. När distributionen är klar klickar du på **Alla tjänster**.
+5. När distributionen har slutförts klickar du på **alla tjänster**.
 
 6. Välj **Automation-konton** och välj sedan det Automation-konto som du har skapat.
 
@@ -51,7 +51,7 @@ Den här snabbstarten hjälper dig att skapa ett Automation-konto och köra en r
 
 Kör en självstudierunbook.
 
-1. Klicka på **Runbooks** under **ProcessAutomation**. En lista med runbooks visas. Som standard är flera självstudieprogram aktiverade i kontot.
+1. Klicka på **Runbooks** under **process automatisering**. En lista med runbooks visas. Som standard är flera själv studie-Runbooks aktiverade i kontot.
 
     ![Runbook-lista för Automation-konto](./media/automation-quickstart-create-account/automation-runbooks-overview.png)
 
@@ -63,7 +63,7 @@ Kör en självstudierunbook.
 
     ![Sida för Runbook-jobb](./media/automation-quickstart-create-account/automation-tutorial-script-job.png)
 
-1. När jobbstatusen `Running`har blivit klickar du på **Utdata** eller **Alla loggar** för att visa utdata för runbook-jobb. För denna självstudierunbook är utdata en lista över dina Azure-resurser.
+1. När jobbets status blir `Running`klickar du på **utdata** eller **alla loggar** för att visa utdata från Runbook-jobbet. För denna självstudierunbook är utdata en lista över dina Azure-resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 

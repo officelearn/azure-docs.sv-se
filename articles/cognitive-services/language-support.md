@@ -1,7 +1,7 @@
 ---
 title: Stöd för språk
 titleSuffix: Azure Cognitive Services
-description: Med Azure Cognitive Services kan du skapa program som ser, hör, talar med och förstår dina användare. Mellan dessa tjänster stöds mer än tre dussin språk, vilket gör att användarna kan kommunicera med ditt program på naturliga sätt.
+description: Med Azure Cognitive Services kan du bygga program som kan se, höra, tala med och förstå dina användare. Mellan dessa tjänster stöds fler än tre dussin språk, så att användarna kan kommunicera med ditt program på naturliga sätt.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,17 +11,17 @@ ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: d103b22338672f031fa4f91349a8376f86b703c8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81530987"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Stöd för naturligt språk för Azure Cognitive Services
 
-Med Azure Cognitive Services kan du skapa program som ser, hör, talar med och förstår dina användare. Mellan dessa tjänster stöds mer än tre dussin språk, vilket gör att användarna kan kommunicera med ditt program på naturliga sätt. Använd länkarna nedan för att visa språktillgänglighet efter tjänst.
+Med Azure Cognitive Services kan du skapa program som kan se, höra, tala med och förstå dina användare. Mellan dessa tjänster stöds fler än tre dussin språk, så att användarna kan kommunicera med ditt program på naturliga sätt. Använd länkarna nedan för att Visa språk tillgängligheten per tjänst.
 
-Dessa kognitiva tjänster är språkagnostiker och har inga begränsningar baserat på mänskligt språk.
+Dessa Cognitive Services är språk oberoende och har inga begränsningar baserade på human språk.
 
 * [Avvikelseidentifiering (förhandsversion)](./anomaly-detector/index.yml)
 * [Custom Vision](./Custom-Vision-Service/index.yml)
@@ -45,9 +45,9 @@ Dessa kognitiva tjänster är språkagnostiker och har inga begränsningar baser
 
 ## <a name="speech"></a>Tal
 
-* [Taltjänst: Tal-till-text](./speech-service/supported-languages.md#speech-to-text)
-* [Taltjänst:Text-till-tal](./speech-service/supported-languages.md#text-to-speech)
-* [Taltjänst: Talöversättning](./speech-service/supported-languages.md#speech-translation)
+* [Speech service: tal-till-text](./speech-service/supported-languages.md#speech-to-text)
+* [Speech service: text till tal](./speech-service/supported-languages.md#text-to-speech)
+* [Speech service: tal Översättning](./speech-service/supported-languages.md#speech-translation)
 
 ## <a name="search"></a>Search
 
@@ -65,5 +65,5 @@ Dessa kognitiva tjänster är språkagnostiker och har inga begränsningar baser
 
 ## <a name="see-also"></a>Se även
 
-* [Vilka är de kognitiva tjänsterna?](welcome.md)
+* [Vad är Cognitive Services?](welcome.md)
 * [Skapa ett konto](cognitive-services-apis-create-account.md)

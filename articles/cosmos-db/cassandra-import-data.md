@@ -1,6 +1,6 @@
 ---
-title: Migrera dina data till ett Cassandra API-konto i Azure Cosmos DB- Tutorial
-description: I den här självstudien kan du lära dig hur du använder kommandot CQL Copy & Spark för att kopiera data från Apache Cassandra till ett Cassandra API-konto i Azure Cosmos DB
+title: Migrera data till ett API för Cassandra konto i Azure Cosmos DB – självstudier
+description: I den här självstudien får du lära dig hur du använder CQL Copy-kommandot & Spark för att kopiera data från Apache Cassandra till ett API för Cassandra konto i Azure Cosmos DB
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -11,10 +11,10 @@ ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
 ms.openlocfilehash: d94ad56508d5e5f1e28a24e82460a68ffce5592f
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80666890"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Självstudie: Migrera data till ett Cassandra API-konto i Azure Cosmos DB
@@ -25,13 +25,13 @@ Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
 > * Planera för migrering
-> * Förutsättningar för migrering
+> * Krav för migrering
 > * Migrera data med hjälp av COPY-kommandot i cqlsh
 > * Migrera data med Spark
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites-for-migration"></a>Förutsättningar för migrering
+## <a name="prerequisites-for-migration"></a>Krav för migrering
 
 * **Beräkna dina dataflödesbehov:** Innan du migrerar data till Cassandra-API-kontot i Azure Cosmos DB bör du beräkna dataflödesbehoven för din arbetsbelastning. I allmänhet rekommenderar vi att du börjar med ett genomsnittligt dataflöde som krävs av CRUD-åtgärderna och att du sedan lägger till det ytterligare dataflödet som krävs för ETL-åtgärder (Extract Transform Load) eller vid belastningstoppar. Du behöver följande information för att planera för migreringen: 
 
@@ -67,7 +67,7 @@ Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https:
 
 * **Öka dataflödet:** Hur lång tid datamigreringen tar beror på hur stort dataflöde du etablerade för tabellerna i Azure Cosmos DB. Öka dataflödet under migreringen. Med ett högre dataflöde kan du undvika begränsningar och migrera snabbare. När du har slutfört migreringen minskar du dataflödet för att spara kostnader. Vi rekommenderar också att du har ett Azure Cosmos-konto i samma region som din källdatabas. 
 
-* **Aktivera TLS:** Azure Cosmos DB har strikta säkerhetskrav och standarder. Var noga med att aktivera TLS när du interagerar med ditt konto. När du använder CQL med SSH har du möjlighet att ange TLS-information.
+* **Aktivera TLS:** Azure Cosmos DB har strikta säkerhets krav och standarder. Se till att aktivera TLS när du interagerar med ditt konto. När du använder CQL med SSH har du ett alternativ för att tillhandahålla TLS-information.
 
 ## <a name="options-to-migrate-data"></a>Alternativ för att migrera data
 

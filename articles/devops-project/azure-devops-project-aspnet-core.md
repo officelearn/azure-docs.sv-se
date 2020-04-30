@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa en CI/CD-pipeline för .NET med Azure DevOps Projects'
-description: Azure DevOps Projects gör det enkelt att komma igång med Azure. Det hjälper dig att starta en .NET-app på en Azure-tjänst med några enkla få steg.
+title: 'Snabb start: skapa en CI/CD-pipeline för .NET med Azure DevOps starter'
+description: Med Azure DevOps Starter är det enkelt att komma igång med Azure. Det hjälper dig att starta en .NET-app på en Azure-tjänst med några enkla få steg.
 ms.prod: devops
 ms.technology: devops-cicd
 services: azure-devops-project
@@ -12,92 +12,87 @@ ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 07/09/2018
+ms.date: 03/24/2020
 ms.author: mlearned
 ms.custom: mvc
-monikerRange: vsts
-ms.openlocfilehash: 7d2ccdfa1fe553d0795a82856dd255f4a54138bf
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 3f0d937737cb261fb81dc4cdad3579ee593b5981
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "70898027"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233318"
 ---
-# <a name="create-a-cicd-pipeline-for-net-with-azure-devops-projects"></a>Skapa en CI/CD-pipeline för .NET med Azure DevOps Projects
+# <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Skapa en CI/CD-pipeline för .NET med Azure DevOps starter
 
-Konfigurera kontinuerlig integrering (CI) och kontinuerlig leverans (CD) för ditt .NET Core- eller ASP.NET-program med DevOps Projects. DevOps Projects förenklar den initiala konfigurationen av en bygg- och versionspipeline i Azure Pipelines.
+Konfigurera kontinuerlig integrering (CI) och kontinuerlig leverans (CD) för ditt .NET Core-eller ASP.NET-program med DevOps starter. DevOps starter fören klar den inledande konfigurationen av en pipeline för build och release i Azure pipelines.
 
 Om du inte har en Azure-prenumeration kan du skaffa en kostnadsfritt via [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-DevOps Projects skapar en CI/CD-pipeline i Azure DevOps. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps Projects skapar även Azure-resurser i den Azure-prenumeration som du väljer.
+DevOps starter skapar en CI/CD-pipeline i Azure DevOps. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps starter skapar också Azure-resurser i den Azure-prenumeration du väljer.
 
 1. Logga in på [Microsoft Azure Portal](https://portal.azure.com).
 
-1. I den vänstra fönsterrutan väljer du ikonen **Skapa en resurs** i det vänstra navigeringsfältet och söker sedan efter **DevOps Projects**.  
+1. I rutan Sök skriver du **DevOps starter**och väljer sedan. Klicka på **Lägg till** för att skapa en ny. 
 
-3.  Välj **Skapa**.
-
-    ![Startar kontinuerlig leverans](_img/azure-devops-project-aspnet-core/fullbrowser.png)
+    ![DevOps starter-instrumentpanelen](_img/azure-devops-starter-aks/search-devops-starter.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Välj ett exempelprogram och en Azure-tjänst
 
 1. Välj **.NET**-exempelprogrammet. .NET-exempel innehåller antingen ASP.NET-ramverket med öppen källkod eller det plattformsoberoende .NET Core-ramverket.
 
-   ![.NET-ramverk](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
+   ![.NET-ramverk](_img/azure-devops-project-aspnet-core/select-dotnet.png)
 
-2. Det här exemplet är ett ASP.NET Core MVC-program. Välj **.NET** Core-programramverket och välj sedan **Nästa**.    
+2. Det här exemplet är ett ASP.NET Core MVC-program. Välj **.net Core** Application Framework och välj sedan **Nästa**.    
     
-3. Välj **Windows Web App** som ett distributionsmål och välj sedan **Nästa**. Du kan också välja andra Azure-tjänster för distributionen. Programramverket, som du valde tidigare, dikterar vilken typ av Azure-tjänstdistributionsmålet som är tillgängligt här.
+3. Välj **Windows-webbapp** som distributions mål och välj sedan **Nästa**. Du kan också välja andra Azure-tjänster för din distribution. Program ramverket som du valde tidigare avgör vilken typ av distributions mål för Azure-tjänsten som är tillgänglig här.
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Konfigurera Azure DevOps och en Azure-prenumeration 
 
-1. Ange ett **projektnamn**.
+1. Ange ett **projekt namn**.
 
-2. Skapa en ny kostnadsfri **Azure DevOps-organisation** eller välj en befintlig organisation i listrutan.
+2. Skapa en ny kostnads fri **Azure DevOps-organisation** eller Välj en befintlig organisation i list rutan.
 
-3. Välj din **Azure-prenumeration,** ange ett namn för **din webbapp** eller ta standard och välj sedan **Klar**. Efter några minuter visas distributionsöversikten för DevOps-projekt i Azure-portalen. 
+3. Välj din **Azure-prenumeration**, ange ett namn för din **webbapp** eller gör standardvärdet och välj sedan **slutfört**. Efter några minuter visas översikten DevOps starter Deployment i Azure Portal. 
 
-4. Välj **Gå till resurs** om du vill visa instrumentpanelen DevOps Project. I det övre högra hörnet fäster du **Project** på instrumentpanelen för snabb åtkomst. En exempelapp har konfigurerats i en repo i din **Azure DevOps-organisation**. En version körs och din app distribueras till Azure.
+4. Välj **gå till resurs** för att Visa DevOps starter-instrumentpanelen. I det övre högra hörnet fäster du **projektet** på instrument panelen för snabb åtkomst. En exempel app har kon figurer ATS i en lagrings platsen i din **Azure DevOps-organisation**. En version körs och din app distribueras till Azure.
 
-5. Instrumentpanelen ger insyn i kodlagringsplatsen, CI/CD-pipelinen och appen i Azure. Till höger under Azure-resurser väljer du **Bläddra** för att visa din app som körs.
+5. Instrumentpanelen ger insyn i kodlagringsplatsen, CI/CD-pipelinen och appen i Azure. Välj **Bläddra** till höger under Azure-resurser för att Visa appen som körs.
 
    ![Instrumentpanelsvy](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Genomför ändringar i koden och kör CI/CD
 
-DevOps Projects skapade en Git-lagringsplats i Azure Repos eller GitHub. Visa lagringsplatsen och gör kodändringar i programmet genom att utföra följande:
+DevOps starter skapade en git-lagringsplats i Azure databaser eller GitHub. Visa lagringsplatsen och gör kodändringar i programmet genom att utföra följande:
 
-1. Till vänster om instrumentpanelen DevOps Projects **master** väljer du länken för huvudgrenen. Den här länken öppnar en vy till den nyligen skapade Git-lagringsplatsen.
+1. Till vänster om instrument panelen för DevOps starter väljer du länken för din **huvud** gren. Den här länken öppnar en vy till den nyligen skapade Git-lagringsplatsen.
 
-2. I de följande stegen kan du använda webbläsaren för att göra **master** och genomföra kodändringar direkt till huvudgrenen. Du kan också klona din Git-databas i din favorit-IDE genom att välja **Klona** längst upp till höger på databassidan. 
+2. I de följande stegen kan du använda webbläsaren för att göra och bekräfta kod ändringar direkt till **huvud** grenen. Du kan också klona git-lagringsplatsen i din favorit-IDE genom att välja **klona** från det övre högra hörnet på sidan databas. 
 
-3. Till vänster navigerar du i programfilstrukturen till **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**.
+3. Till vänster navigerar du program fil strukturen till **Application/ASPNET-Core-dotNet-Core/pages/index. cshtml**.
 
-4. Välj **Redigera** och gör en ändring i h2-rubriken. Du kan till exempel skriva **Komma igång direkt med Azure DevOps Projects** eller göra någon annan ändring.
+4. Välj **Redigera** och gör en ändring i h2-rubriken. Skriv till exempel **Kom igång direkt med Azure DevOps-Startstarter** eller gör några andra ändringar.
 
       ![Ändringar i koden](_img/azure-devops-project-aspnet-core/codechange.png)
 
-5. Välj **Commit**, lämna en kommentar och välj **Commit** igen.
+5. Välj **genomför**, lämna en kommentar och välj **genomför** igen.
 
-6. I webbläsaren går du till instrumentpanelen för Azure DevOps-projektet.  Du bör nu se att en version håller på att skapas. De ändringar du utfört skapas och distribueras automatiskt via en CI/CD-pipeline.
+6. Gå till Start-instrumentpanelen för Azure DevOps i webbläsaren.  Du bör nu se att en version håller på att skapas. De ändringar du utfört skapas och distribueras automatiskt via en CI/CD-pipeline.
 
 ## <a name="examine-the-cicd-pipeline"></a>Granska CI/CD-pipelinen
 
-I föregående steg konfigurerade Azure DevOps Projects automatiskt en fullständig CI/CD-pipeline. Utforska och anpassa pipelinen efter behov. Bekanta dig med Azure DevOps-bygg- och versionspipelines genom att utföra följande steg.
+I föregående steg konfigurerade Azure DevOps starter automatiskt en fullständigt CI/CD-pipeline. Utforska och anpassa pipelinen efter behov. Bekanta dig med Azure DevOps-bygg- och versionspipelines genom att utföra följande steg.
 
-1. Välj **Skapa pipelines** längst upp på DevOps Projects-instrumentpanelen.  
-Länken öppnar en webbläsarflik och Azure DevOps-bygg-pipelinen för det nya projektet.
+1. Välj **Bygg pipelines**överst på DevOps starter-instrumentpanelen. Länken öppnar en webbläsarflik och Azure DevOps-bygg-pipelinen för det nya projektet.
 
-1. Välj ellipsen (...).  Den här åtgärden öppnar en meny där du kan starta flera aktiviteter, till exempel att köa en ny version, pausa en version och redigera byggpipelinen.
+1. Välj ellipsen (...).  Den här åtgärden öppnar en meny där du kan starta flera aktiviteter, till exempel köa en ny version, göra en paus och redigera build-pipeline.
 
 1. Välj **Redigera**.
 
     ![Bygg-pipeline](_img/azure-devops-project-aspnet-core/builddef.png)
 
-1. I den här fönsterrutan kan du granska de olika uppgifterna för bygg-pipelinen.  
- Versionen utför olika uppgifter som att hämta källor från Git-lagringsplatsen, återställa beroenden och publicera utdata som används för distributioner.
+1. I den här fönsterrutan kan du granska de olika uppgifterna för bygg-pipelinen. Versionen utför olika uppgifter som att hämta källor från Git-lagringsplatsen, återställa beroenden och publicera utdata som används för distributioner.
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
 
@@ -106,42 +101,32 @@ Länken öppnar en webbläsarflik och Azure DevOps-bygg-pipelinen för det nya p
 1. Under ditt bygg-pipelinenamn väljer du **Historik**.   
 I fönsterrutan **Historik** ser du en spårningslogg över de senaste ändringarna för versionen.  Azure Pipelines spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
 
-1. Välj **Utlösare**.  
-DevOps Projects skapade automatiskt en CI-utlösare, och varje incheckning till lagringsplatsen startar en ny version.  Du kan välja att inkludera eller exkludera grenar från CI-processen.
+1. Välj **Utlösare**. DevOps starter skapade automatiskt en CI-utlösare och varje incheckning till databasen startar en ny version. Du kan välja att inkludera eller exkludera grenar från CI-processen.
 
-1. Välj **Kvarhållning**.  
-Beroende på ditt scenario kan du ange principer för att behålla eller ta bort ett visst antal versioner.
+1. Välj **Kvarhållning**. Beroende på ditt scenario kan du ange principer för att behålla eller ta bort ett visst antal versioner.
 
 1. Välj **Byggen och versioner** och sedan **Versioner**.  
-DevOps Projects skapar en versionspipeline för att hantera distributioner till Azure.
+DevOps starter skapar en versions pipeline för att hantera distributioner till Azure.
 
-1.  Välj ellipsen (...) till vänster intill din versionspipeline och välj sedan **Redigera**.  
-Versionspipelinen innehåller en pipeline som definierar versionsprocessen.  
+1.  Välj ellipsen (...) till vänster intill din versionspipeline och välj sedan **Redigera**. Versionspipelinen innehåller en pipeline som definierar versionsprocessen.  
 
-1. Under **Artefakter** väljer du **Släpp**.  Den bygg-pipeline du undersökte i de föregående stegen skapar de utdata som används för artefakten. 
+1. Under **Artefakter** väljer du **Släpp**. Den bygg-pipeline du undersökte i de föregående stegen skapar de utdata som används för artefakten. 
 
-1. Intill ikonen **Släpp** väljer du **Utlösare av kontinuerlig distribution**.  
-Den här versionspipelinen har en aktiverad CD-utlösare som kör en distribution varje gång en ny versionsartefakt är tillgänglig. Du kan även inaktivera utlösaren så att dina distributioner kräver manuell körning.  
+1. Intill ikonen **Släpp** väljer du **Utlösare av kontinuerlig distribution**. Den här versionspipelinen har en aktiverad CD-utlösare som kör en distribution varje gång en ny versionsartefakt är tillgänglig. Du kan även inaktivera utlösaren så att dina distributioner kräver manuell körning.  
 
-1. Till vänster väljer du **Uppgifter**.   
-Uppgifter är de aktiviteter som distributionsprocessen utför. I det här exemplet skapades en uppgift för att distribuera till Azure App-tjänsten.
+1. Till vänster väljer du **Uppgifter**.  Uppgifter är de aktiviteter som distributionsprocessen utför. I det här exemplet skapades en uppgift för att distribuera till Azure App-tjänsten.
 
 1. Till höger väljer du alternativet för att **visa versioner**. Den här vyn visar en historik över versioner.
 
-1. Välj ellipsen (...) bredvid en av dina versioner och välj sedan **Öppna**.  
-Det finns flera menyer att utforska, till exempel en versionssammanfattning, tillhörande arbetsobjekt och tester.
+1. Välj ellipsen (...) bredvid någon av dina versioner och välj sedan **Öppna**. Det finns flera menyer att utforska, till exempel en versionssammanfattning, tillhörande arbetsobjekt och tester.
 
+1. Välj **Incheckningar**. Den här vyn visar kodincheckningar som är associerade med den specifika distributionen. 
 
-1. Välj **Incheckningar**.   
-Den här vyn visar kodincheckningar som är associerade med den specifika distributionen. 
-
-1. Välj **Loggar**.  
-Loggarna innehåller användbar information om distributionsprocessen. De kan visas både under och efter distributionerna.
-
+1. Välj **loggar**. Loggarna innehåller användbar information om distributionsprocessen. De kan visas både under och efter distributionerna.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan ta bort Azure App Service och andra relaterade resurser som du skapade när de inte längre behövs. Använd funktionen **Ta bort** på DevOps Projects-instrumentpanelen.
+Du kan ta bort Azure App Service och andra relaterade resurser som du skapade när de inte längre behövs. Använd **borttagnings** funktionen på DevOps starter-instrumentpanelen.
 
 ## <a name="next-steps"></a>Nästa steg
 

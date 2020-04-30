@@ -11,18 +11,18 @@ ms.topic: include
 ms.reviewer: hux
 ms.custom: include file
 ms.openlocfilehash: fc5f4d2c10cac23600025a72fedf7fe2cec5a34e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81684081"
 ---
-Om du vill läsa data i arkivlagring måste du först ändra nivå för din blob till frekvent eller lågfrekvent. Denna process kallas rehydrering och kan ta timmar att slutföra. Vi rekommenderar stora blobstorlekar för optimal rehydreringsprestanda. Återställning av flera små blobbar samtidigt kan ta ännu längre tid. Det finns för närvarande två rehydriska prioriteter, Hög och Standard, som kan ställas in via egenskapen *x-ms-rehydrate-priority* för en [ange Blob-nivå](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) eller [kopiera blob-åtgärd.](https://docs.microsoft.com/rest/api/storageservices/copy-blob)
+Om du vill läsa data i arkivlagring måste du först ändra nivå för din blob till frekvent eller lågfrekvent. Den här processen kallas ÅTERUPPVÄCKNING och kan ta timmar att slutföra. Vi rekommenderar stora BLOB-storlekar för optimal ÅTERUPPVÄCKNING-prestanda. Återställning av flera små blobbar samtidigt kan ta ännu längre tid. Det finns för närvarande två rehydratisera-prioriteter, hög och standard, som kan ställas in via den valfria egenskapen *x-MS-rehydratiseraable-Priority* på en [set BLOB-nivå](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) eller [Kopiera BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob) -åtgärd.
 
-* **Standardprioritet:** Begäran om rehydrering kommer att behandlas i den ordning den togs emot och kan ta upp till 15 timmar.
-* **Hög prioritet:** Rehydreringsbegäran prioriteras framför standardbegäranden och kan avslutas på under 1 timme. Hög prioritet kan ta längre tid än 1 timme, beroende på blob storlek och aktuell efterfrågan. Begäranden med hög prioritet garanteras att prioriteras framför standardprioritetbegäranden.
+* **Standard prioritet**: ÅTERUPPVÄCKNING-begäran kommer att bearbetas i den ordning som den togs emot och kan ta upp till 15 timmar.
+* **Hög prioritet**: ÅTERUPPVÄCKNING-begäran prioriteras via Standardbegäran och kan slutföras under en timme. Hög prioritet kan ta längre tid än en timme, beroende på BLOB-storlek och aktuell efter frågan. Begär Anden med hög prioritet garanteras att prioriteras över förfrågningar om standard prioritet.
 
 > [!NOTE]
-> Standardprioritet är standardalternativet rehydrering för arkiv. Hög prioritet är ett snabbare alternativ som kommer att kosta mer än standardprioritet rehydrering och är vanligtvis reserverad för användning i nödsituationer data restaurering situationer.
+> Standard prioritet är standard alternativet ÅTERUPPVÄCKNING för arkiv. Hög prioritet är ett snabbare alternativ som kommer att kosta mer än ÅTERUPPVÄCKNING med standard prioritet och är vanligt vis reserverat för användning i situationer med nöd Data återställning.
 
-När en rehydreringsbegäran har initierats kan den inte avbrytas. Under rehydreringsprocessen fortsätter *blob-egenskapen x-ms-access-tier* att visas som arkiv tills återfuktning har slutförts till en onlinenivå. För att bekräfta rehydreringsstatus och förlopp kan du anropa [Get Blob-egenskaper](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties) för att kontrollera *x-ms-archive-status* och *x-ms-rehydrate-priority* blob-egenskaperna. Arkivstatusen kan läsa "rehydrate-pending-to-hot" eller "rehydrate-pending-to-cool" beroende på rehydrera målnivån. Den rehydriska prioriteten anger hastigheten på "Hög" eller "Standard". När du är klar tas arkivstatus och rehydrera prioritetsegenskaper bort, och åtkomstnivå blob-egenskapen uppdateras för att återspegla den valda aktiva eller svala nivån.
+När en ÅTERUPPVÄCKNING-begäran har initierats kan den inte avbrytas. Under ÅTERUPPVÄCKNING-processen kommer BLOB *-egenskapen x-MS-Access-Tier* att fortsätta att visas som arkiv tills ÅTERUPPVÄCKNING har slutförts till en onlinenivå. För att bekräfta ÅTERUPPVÄCKNING status och förlopp kan du anropa [Get BLOB-egenskaper](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties) för att kontrol lera BLOB-egenskaperna *x-MS-Archive-status* och *x-MS-rehydratiserad-Priority* . Status för arkivet kan läsa "rehydratisera-Pending-to-hett" eller "rehydratisera-Pending-to-kylning" beroende på den omhaltiga mål nivån. Den rehydratiserade prioriteten anger hastigheten "hög" eller "standard". När du är klar tas egenskaperna Arkiv status och rehydratiserad Priority bort och åtkomst nivåns BLOB-egenskap kommer att uppdateras för att avspegla den valda frekvent eller låg frekventa nivån.

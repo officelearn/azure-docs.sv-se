@@ -1,438 +1,438 @@
 ---
-title: Apache Ambari för att optimera klusterkonfigurationer - Azure HDInsight
+title: Apache Ambari för optimering av klusterkonfigurationer – Azure HDInsight
 description: Använd webbgränssnittet Apache Ambari för att konfigurera och optimera Azure HDInsight-kluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/16/2020
-ms.openlocfilehash: c88882175ff256300dee486e680a9b63e9a65c99
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/28/2020
+ms.openlocfilehash: 54f65f9ef4af2c0d96dd80156eab81c49e5e52a6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532540"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232878"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Använda Apache Ambari för att optimera HDInsight-klusterkonfigurationer
 
-HDInsight tillhandahåller [Apache Hadoop-kluster](./hadoop/apache-hadoop-introduction.md) för storskaliga databehandlingsprogram. Det kan vara svårt att hantera, övervaka och optimera dessa komplexa kluster med flera noder. [Apache Ambari](https://ambari.apache.org/) är ett webbgränssnitt för att hantera och övervaka HDInsight Linux-kluster.  Använd [Ambari REST API för Windows-kluster](hdinsight-hadoop-manage-ambari-rest-api.md).
+HDInsight tillhandahåller Apache Hadoop kluster för storskaliga data bearbetnings program. Det kan vara svårt att hantera, övervaka och optimera dessa komplexa kluster med flera noder. Apache Ambari är ett webb gränssnitt för att hantera och övervaka HDInsight Linux-kluster.  För Windows-kluster använder du [Ambari-REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
-En introduktion till hur du använder webbgränssnittet i Ambari finns i [Hantera HDInsight-kluster med hjälp av webbgränssnittet Apache Ambari](hdinsight-hadoop-manage-ambari.md)
+En introduktion till att använda Ambari-webbgränssnittet finns i [Hantera HDInsight-kluster med hjälp av Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
 
-Logga in på Ambari med `https://CLUSTERNAME.azurehdidnsight.net` dina klusterreferenser. Den första skärmen visar en översiktsinstrumentpanel.
+Logga in på Ambari på `https://CLUSTERNAME.azurehdidnsight.net` med dina autentiseringsuppgifter för klustret. Den första skärmen visar en översikts instrument panel.
 
-![Apache Ambari-användarinstrumentpanel visas](./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png)
+![Användarens instrument panel för Apache Ambari visas](./media/hdinsight-changing-configs-via-ambari/apache-ambari-dashboard.png)
 
-Webbgränssnittet Ambari används för att hantera värdar, tjänster, aviseringar, konfigurationer och vyer. Ambari kan inte användas för att skapa ett HDInsight-kluster eller uppgraderingstjänster. Det går inte heller att hantera stackar och versioner, inaktivera eller återförbehöra värdar eller lägga till tjänster i klustret.
+Ambari-webbgränssnittet används för att hantera värdar, tjänster, aviseringar, konfigurationer och vyer. Ambari kan inte användas för att skapa ett HDInsight-kluster eller uppgradera tjänster. Det går inte heller att hantera stackar och versioner, deprovision eller reprovision Hosts eller lägga till tjänster i klustret.
 
 ## <a name="manage-your-clusters-configuration"></a>Hantera klustrets konfiguration
 
-Konfigurationsinställningar hjälper till att ställa in en viss tjänst. Om du vill ändra en tjänsts konfigurationsinställningar väljer du tjänsten i sidofältet **Tjänster** (till vänster). Navigera sedan till fliken **Configs** på sidan Serviceinformation.
+Konfigurations inställningar hjälper dig att finjustera en viss tjänst. Om du vill ändra konfigurations inställningarna för en tjänst väljer du tjänsten på sid panelen för **tjänster** (till vänster). Gå sedan till fliken **configs** på sidan tjänst information.
 
-![Apache Ambari Tjänster sidofält](./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png)
+![Apache Ambari Services-sidofält](./media/hdinsight-changing-configs-via-ambari/ambari-services-sidebar.png)
 
-### <a name="modify-namenode-java-heap-size"></a>Ändra NameNode Java heap storlek
+### <a name="modify-namenode-java-heap-size"></a>Ändra NameNode Java-Heap-storlek
 
-Namnnoden Java heap-storlek beror på många faktorer, till exempel belastningen på klustret. Dessutom antalet filer och antalet block. Standardstorleken på 1 GB fungerar bra med de flesta kluster, även om vissa arbetsbelastningar kan kräva mer eller mindre minne.
+NameNode Java-heap-storleken beror på många faktorer, till exempel belastningen på klustret. Dessutom är antalet filer och antalet block. Standard storleken på 1 GB fungerar bra med de flesta kluster, men vissa arbets belastningar kan kräva mer eller mindre minne.
 
-Så här ändrar du storleken namenode Java heap:
+Ändra NameNode Java-Heap-storlek:
 
-1. Välj **HDFS** i sidofältet Tjänster och navigera till fliken **Configs.**
+1. Välj **HDFS** från panelen tjänster och navigera till fliken **konfigurationer** .
 
     ![Apache Ambari HDFS-konfiguration](./media/hdinsight-changing-configs-via-ambari/ambari-apache-hdfs-config.png)
 
-1. Hitta inställningen **NameNode Java heap storlek**. Du kan också använda **filtertextrutan** för att skriva och hitta en viss inställning. Välj **pennikonen** bredvid inställningsnamnet.
+1. Hitta inställningen **NameNode Java-Heap-storlek**. Du kan också använda text rutan **filter** för att skriva och söka efter en viss inställning. Välj **Penn** ikonen bredvid inställnings namnet.
 
-    ![Apache Ambari NamnNode Java högstorlek](./media/hdinsight-changing-configs-via-ambari/ambari-java-heap-size.png)
+    ![Apache Ambari NameNode Java-Heap-storlek](./media/hdinsight-changing-configs-via-ambari/ambari-java-heap-size.png)
 
-1. Skriv det nya värdet i textrutan och tryck sedan **på Retur** för att spara ändringen.
+1. Skriv det nya värdet i text rutan och tryck sedan på **RETUR** för att spara ändringen.
 
-    ![Ambari Redigera NamnNode Java högstorlek1](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit1.png)
+    ![Ambari Edit NameNode Java heap size1](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit1.png)
 
-1. NameNode Java heap-storleken ändras till 1 GB från 2 GB.
+1. Storleken på NameNode Java-heap ändras till 1 GB från 2 GB.
 
-    ![Redigerad nameNode Java heap size2](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
+    ![Redigerad NameNode Java-heap SIZE2](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
-1. Spara ändringarna genom att klicka på den gröna **spara-knappen** högst upp på konfigurationsskärmen.
+1. Spara ändringarna genom att klicka på den gröna knappen **Spara** överst på konfigurations skärmen.
 
-    !["Apache Ambari spara konfigurationer"](./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png)
+    ![' Apache Ambari Save Configurations '](./media/hdinsight-changing-configs-via-ambari/ambari-save-changes1.png)
 
 ## <a name="apache-hive-optimization"></a>Apache Hive optimering
 
-I följande avsnitt beskrivs konfigurationsalternativ för att optimera den övergripande Apache Hive-prestandan.
+I följande avsnitt beskrivs konfigurations alternativ för att optimera övergripande Apache Hive prestanda.
 
-1. Om du vill ändra konfigurationsparametrar för Hive väljer du **Hive** i sidofältet Tjänster.
-1. Navigera till fliken **Configs.**
+1. Om du vill ändra konfigurations parametrar för Hive väljer du **Hive** från tjänsternas sid List.
+1. Navigera till fliken **konfigurationer** .
 
-### <a name="set-the-hive-execution-engine"></a>Ställ in Hive-körningsmotorn
+### <a name="set-the-hive-execution-engine"></a>Ange körnings motor för Hive
 
-Hive ger två utförande motorer: [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) och [Apache TEZ](https://tez.apache.org/). Tez är snabbare än MapReduce. HDInsight Linux-kluster har Tez som standardkörningsmotor. Så här ändrar du utförandemotorn:
+Hive innehåller två körnings motorer: Apache Hadoop MapReduce och Apache TEZ. Tez är snabbare än MapReduce. HDInsight Linux-kluster har Tez som standard körnings motor. Ändra körnings motorn:
 
-1. Skriv **körningsmotorn** i filterrutan på fliken Hive **Configs.**
+1. Skriv **körnings motor** i rutan filter på fliken Hive- **konfigurationer** .
 
-    ![Apache Ambari Sökmotor](./media/hdinsight-changing-configs-via-ambari/ambari-search-execution.png)
+    ![Ambari för att söka körnings motor för Apache](./media/hdinsight-changing-configs-via-ambari/ambari-search-execution.png)
 
-1. **Standardvärdet för optimeringsegenskapen** är **Tez**.
+1. Standardvärdet för egenskapen **Optimization** är **Tez**.
 
-    ![Optimering - Apache Tez motor](./media/hdinsight-changing-configs-via-ambari/optimization-apache-tez.png)
+    ![Optimering – Apache Tez-motor](./media/hdinsight-changing-configs-via-ambari/optimization-apache-tez.png)
 
-### <a name="tune-mappers"></a>Justera mappers
+### <a name="tune-mappers"></a>Finjustera mappningar
 
-Hadoop försöker dela upp (*karta*) en enda fil i flera filer och bearbeta de resulterande filerna parallellt. Antalet mappers beror på antalet delningar. Följande två konfigurationsparametrar driver antalet delningar för Tez-körningsmotorn:
+Hadoop försöker dela (*Mappa*) en enskild fil i flera filer och bearbeta de resulterande filerna parallellt. Antalet mappningar beror på antalet delningar. Följande två konfigurations parametrar driver antalet delningar för Tez körnings motor:
 
-* `tez.grouping.min-size`: Lägre gräns för storleken på en grupperad split, med ett standardvärde på 16 MB (16 777 216 byte).
-* `tez.grouping.max-size`: Övre gräns för storleken på en grupperad delning, med ett standardvärde på 1 GB (1 073 741 824 byte).
+* `tez.grouping.min-size`: Sänk gränsen för en grupperad delnings storlek med standardvärdet 16 MB (16 777 216 byte).
+* `tez.grouping.max-size`: Den övre gränsen för en grupperad delnings storlek med standardvärdet 1 GB (1 073 741 824 byte).
 
-Som en prestandariktlinje, sänka båda dessa parametrar för att förbättra svarstiden, öka för mer dataflöde.
+Som en prestanda rikt linje sänker du båda parametrarna för att förbättra svars tiden, öka för mer data flöde.
 
-Om du till exempel vill ange fyra mapperuppgifter för en datastorlek på 128 MB anger du båda parametrarna till 32 MB vardera (33 554 432 byte).
+Om du till exempel vill ange fyra Mapper-uppgifter för en data storlek på 128 MB anger du båda parametrarna till 32 MB vardera (33 554 432 byte).
 
-1. Om du vill ändra gränsparametrarna navigerar du till fliken **Configs** i tjänsten Tez. Expandera panelen **Allmänt** och `tez.grouping.max-size` leta `tez.grouping.min-size` reda på parametrarna och.
+1. Om du vill ändra gräns parametrarna navigerar du till fliken **configs** i Tez-tjänsten. Expandera panelen **Allmänt** och leta upp parametrarna `tez.grouping.max-size` och. `tez.grouping.min-size`
 
-1. Ställ in båda parametrarna på **33 554 432** byte (32 MB).
+1. Ange båda parametrarna till **33 554 432** byte (32 MB).
 
-    ![Apache Ambari Tez gruppering storlekar](./media/hdinsight-changing-configs-via-ambari/apache-tez-grouping-size.png)
+    ![Apache Ambari Tez-grupperingsinställningar](./media/hdinsight-changing-configs-via-ambari/apache-tez-grouping-size.png)
 
-Dessa ändringar påverkar alla Tez-jobb på servern. Välj lämpliga parametervärden för att få ett optimalt resultat.
+Dessa ändringar påverkar alla Tez-jobb på servern. Om du vill få ett optimalt resultat väljer du lämpliga parameter värden.
 
-### <a name="tune-reducers"></a>Trimma reducerare
+### <a name="tune-reducers"></a>Finjustera dämpare
 
-[Apache ORC](https://orc.apache.org/) och [Snappy](https://google.github.io/snappy/) båda erbjuder hög prestanda. Hive kan dock ha för få reducerare som standard, vilket orsakar flaskhalsar.
+Apache ORC och fästfunktionen ger både höga prestanda. Hive kan dock ha för få Minskare som standard, vilket orsakar Flask halsar.
 
-Anta till exempel att du har en indatastorlek på 50 GB. Dessa data i ORC-format med Snappy komprimering är 1 GB. Hive uppskattar antalet reducerare som behövs som: (antal byte `hive.exec.reducers.bytes.per.reducer`indata till mappers / ).
+Anta till exempel att du har en indata-storlek på 50 GB. Dessa data i ORC-format med Fästnings komprimering är 1 GB. Hive beräknar antalet dereducerare som behövs som: (antal byte indata till Mapper/ `hive.exec.reducers.bytes.per.reducer`).
 
 Med standardinställningarna är det här exemplet fyra reducerare.
 
-Parametern `hive.exec.reducers.bytes.per.reducer` anger antalet byte som bearbetas per reducer. Standardvärdet är 64 MB. Om du justerar ned det här värdet ökar parallellismen och prestandan förbättras. Justera den för lågt kan också ge för många reducerare, vilket kan påverka prestanda negativt. Den här parametern baseras på dina specifika datakrav, komprimeringsinställningar och andra miljöfaktorer.
+`hive.exec.reducers.bytes.per.reducer` Parametern anger antalet byte som bearbetas per minskning. Standardvärdet är 64 MB. Att justera det här värdet nedåt ökar parallellt och kan förbättra prestandan. Om du finjusterar för lågt kan du också skapa för många reducerare, vilket kan påverka prestanda negativt. Den här parametern baseras på dina specifika data krav, komprimerings inställningar och andra miljö faktorer.
 
-1. Om du vill ändra parametern navigerar du till fliken Hive **Configs** och hittar parametern **Data per reducer** på sidan Inställningar.
+1. Om du vill ändra parametern navigerar du till fliken Hive- **konfiguration** och letar upp **data per minsknings** parameter på sidan Inställningar.
 
-    ![Apache Ambari-data per reducer](./media/hdinsight-changing-configs-via-ambari/ambari-data-per-reducer.png)
+    ![Apache Ambari-data per minskning](./media/hdinsight-changing-configs-via-ambari/ambari-data-per-reducer.png)
 
-1. Välj **Redigera** om du vill ändra värdet till 128 MB (134 217 728 byte) och tryck sedan på **Retur** för att spara.
+1. Välj **Redigera** för att ändra värdet till 128 MB (134 217 728 byte) och tryck sedan på **RETUR** för att spara.
 
-    ![Ambari Data per reducer - redigerad](./media/hdinsight-changing-configs-via-ambari/data-per-reducer-edited.png)
+    ![Ambari data per minsknings-redige rad](./media/hdinsight-changing-configs-via-ambari/data-per-reducer-edited.png)
   
-    Med en indatastorlek på 1 024 MB, med 128 MB data per reducer, finns det åtta reducerare (1024/128).
+    Med en indata storlek på 1 024 MB, med 128 MB data per minskning, finns det åtta Minskare (1024/128).
 
-1. Ett felaktigt värde för parametern **Data per reducer** kan resultera i ett stort antal reducerare som påverkar frågeprestanda negativt. Om du vill begränsa det maximala `hive.exec.reducers.max` antalet reducerare anger du ett lämpligt värde. Standardvärdet är 1009.
+1. Ett felaktigt värde för **data per minsknings** parameter kan resultera i ett stort antal avreducerare, vilket negativt påverkar frågans prestanda. Ange `hive.exec.reducers.max` ett lämpligt värde om du vill begränsa det maximala antalet avreducerare. Standardvärdet är 1009.
 
 ### <a name="enable-parallel-execution"></a>Aktivera parallell körning
 
-En Hive-fråga körs i ett eller flera steg. Om de oberoende faserna kan köras parallellt ökar frågeprestanda.
+En Hive-fråga körs i en eller flera steg. Om de oberoende faserna kan köras parallellt ökar frågans prestanda.
 
-1. Om du vill aktivera parallell körning av frågor navigerar `hive.exec.parallel` du till fliken Hive **Config** och söker efter egenskapen. Standardvärdet är false. Ändra värdet till sant och tryck sedan **på Retur** för att spara värdet.
+1. Om du vill aktivera parallell frågekörningen går du till fliken Hive- **konfiguration** och söker efter `hive.exec.parallel` egenskapen. Standardvärdet är false. Ändra värdet till sant och spara värdet genom att trycka på **RETUR** .
 
-1. Om du vill begränsa antalet jobb som `hive.exec.parallel.thread.number` ska köras parallellt ändrar du egenskapen. Standardvärdet är 8.
+1. Om du vill begränsa antalet jobb som ska köras parallellt ändrar du `hive.exec.parallel.thread.number` egenskapen. Standardvärdet är 8.
 
-    ![Apache Hive exec parallell display](./media/hdinsight-changing-configs-via-ambari/apache-hive-exec-parallel.png)
+    ![Parallell visning för Apache Hive exec](./media/hdinsight-changing-configs-via-ambari/apache-hive-exec-parallel.png)
 
-### <a name="enable-vectorization"></a>Aktivera vektorisering
+### <a name="enable-vectorization"></a>Aktivera vectorization
 
-Hive bearbetar data rad för rad. Vectorization leder Hive att bearbeta data i block med 1 024 rader i stället för en rad i taget. Vektorisering är endast tillämpligt på ORC-filformatet.
+Hive bearbetar data rad för rad. Vectorization dirigerar Hive för att bearbeta data i block om 1 024 rader i stället för en rad i taget. Vectorization kan bara användas för fil formatet ORC.
 
-1. Om du vill aktivera en vektoriserad frågekörning navigerar `hive.vectorized.execution.enabled` du till fliken Hive **Configs** och söker efter parametern. Standardvärdet gäller för Hive 0.13.0 eller senare.
+1. Om du vill aktivera en Vector-frågekörningen navigerar du till fliken Hive- **konfiguration** och söker efter `hive.vectorized.execution.enabled` -parametern. Standardvärdet är true för Hive 0.13.0 eller senare.
 
-1. Om du vill aktivera vektoriserad körning `hive.vectorized.execution.reduce.enabled` för att minska sidan av frågan anger du parametern till true. Standardvärdet är false.
+1. Om du vill aktivera vektorbaserad körning för frågans minsknings sida anger du `hive.vectorized.execution.reduce.enabled` parametern till true. Standardvärdet är false.
 
-    ![Apache Hive vektoriserad körning](./media/hdinsight-changing-configs-via-ambari/hive-vectorized-execution.png)
+    ![Apache Hive vektorbaserad körning](./media/hdinsight-changing-configs-via-ambari/hive-vectorized-execution.png)
 
-### <a name="enable-cost-based-optimization-cbo"></a>Aktivera kostnadsbaserad optimering (CBO)
+### <a name="enable-cost-based-optimization-cbo"></a>Aktivera kostnads baserad optimering (CBO)
 
-Som standard följer Hive en uppsättning regler för att hitta en optimal frågekörningsplan. Kostnadsbaserad optimering (CBO) utvärderar flera planer för att köra en fråga. Och tilldelar en kostnad till varje plan och bestämmer sedan den billigaste planen för att köra en fråga.
+Som standard följer Hive en uppsättning regler för att hitta en optimal plan för frågekörningen. Kostnads baserad optimering (CBO) utvärderar flera planer för att köra en fråga. Och tilldelar varje plan en kostnad och bestämmer sedan billigaste-planen för att köra en fråga.
 
-Om du vill aktivera CBO navigerar du till Inställningarna för > **Hive-konfigurationer** > **Settings** och hittar **Aktivera kostnadsbaserad optimerare**och växlar sedan växlingsknappen till **På**. **Hive**
+Om du vill aktivera CBO navigerar du till**Inställningar** för **Hive** > **konfiguration** > och letar reda på **Aktivera kostnads baserad optimering**och byter sedan växlings knappen till **på**.
 
-![HDInsight kostnadsbaserad optimizer](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
+![Kostnads baserad, HDInsight-baserad optimering](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
-Följande ytterligare konfigurationsparametrar ökar Hive-frågeprestanda när CBO är aktiverat:
+Följande ytterligare konfigurations parametrar ökar prestanda för Hive-frågor när CBO är aktiverat:
 
 * `hive.compute.query.using.stats`
 
-    När den är inställd på true använder Hive statistik som `count(*)`lagras i metabutiken för att svara på enkla frågor som .
+    När värdet är true använder Hive statistik som lagrats i dess metaarkiv för att besvara enkla `count(*)`frågor som.
 
-    ![Apache Hive-beräkningsfråga med hjälp av statistik](./media/hdinsight-changing-configs-via-ambari/hive-compute-query-using-stats.png)
+    ![Apache Hive beräknings fråga med statistik](./media/hdinsight-changing-configs-via-ambari/hive-compute-query-using-stats.png)
 
 * `hive.stats.fetch.column.stats`
 
-    Kolumnstatistik skapas när CBO är aktiverat. Hive använder kolumnstatistik, som lagras i metabutik, för att optimera frågor. Det tar längre tid att hämta kolumnstatistik för varje kolumn när antalet kolumner är högt. När den här inställningen är inställd på false inaktiveras hämtningskolumnstatistik från metabutiken.
+    Kolumn statistik skapas när CBO är aktive rad. Hive använder kolumn statistik, som lagras i metaarkiv, för att optimera frågor. Att hämta kolumn statistik för varje kolumn tar längre tid när antalet kolumner är högt. Om värdet är false inaktiverar den här inställningen hämtning av kolumn statistik från metaarkiv.
 
-    ![Apache Hive statistik som kolumn statistik](./media/hdinsight-changing-configs-via-ambari/hive-stats-fetch-column-stats.png)
+    ![Kolumn statistik för Apache Hive stats uppsättning](./media/hdinsight-changing-configs-via-ambari/hive-stats-fetch-column-stats.png)
 
 * `hive.stats.fetch.partition.stats`
 
-    Grundläggande partitionsstatistik som antal rader, datastorlek och filstorlek lagras i metabutiken. Om den är inställd på true hämtas partitionsstatistiken från metabutiken. När det är falskt hämtas filstorleken från filsystemet. Och antalet rader hämtas från radschemat.
+    Grundläggande standardpartitions statistik, till exempel antal rader, data storlek och fil storlek, lagras i metaarkiv. Om värdet är true hämtas partitionsstrukturen från metaarkiv. När värdet är false hämtas fil storleken från fil systemet. Antalet rader hämtas från radens schema.
 
-    ![Hive statistik som partition statistik](./media/hdinsight-changing-configs-via-ambari/hive-stats-fetch-partition-stats.png)
+    ![Registrerings statistik för Hive-uppsättning](./media/hdinsight-changing-configs-via-ambari/hive-stats-fetch-partition-stats.png)
 
 ### <a name="enable-intermediate-compression"></a>Aktivera mellanliggande komprimering
 
-Kartuppgifter skapar mellanliggande filer som används av reducer-uppgifterna. Mellanliggande komprimering krymper den mellanliggande filstorleken.
+Kart aktiviteter skapar mellanliggande filer som används av minsknings aktiviteterna. Mellanliggande komprimering minskar storleken på mellanliggande fil.
 
-Hadoop jobb är oftast I / O flaskhals. Komprimera data kan påskynda I/O och den totala nätverksöverföringen.
+Hadoop-jobb är vanligt vis I/O-Flask halsar. Komprimering av data kan påskynda I/O och övergripande nätverks överföring.
 
-De tillgängliga komprimeringstyperna är:
+De tillgängliga komprimerings typerna är:
 
-| Format | Verktyg | Algoritm | Filtillägg | Splittable? |
+| Format | Verktyg | Integritetsalgoritm | Fil namns tillägg | Delbara? |
 | --- | --- | --- | --- | --- |
-| Gzip | Gzip | Tömma | `.gz` | Inga |
-| Bzip2 (av )Bzip2 Bzip | Bzip2 (av )Bzip2 Bzip | Bzip2 (av )Bzip2 Bzip |`.bz2` | Ja |
-| Lzo | `Lzop` | Lzo | `.lzo` | Ja, om indexeras |
-| Snappy | Ej tillämpligt | Snappy | Snappy | Inga |
+| Gzip | Gzip | DEFLATE | `.gz` | Nej |
+| Bzip2 | Bzip2 | Bzip2 |`.bz2` | Ja |
+| LZO | `Lzop` | LZO | `.lzo` | Ja, om det är indexerat |
+| Snappy | Ej tillämpligt | Snappy | Snappy | Nej |
 
-Som en allmän regel, med komprimeringsmetod splittable är viktigt, annars några mappers kommer att skapas. Om indata är `bzip2` text är det bästa alternativet. För ORC-format är Snappy det snabbaste komprimeringsalternativet.
+Som en allmän regel är det viktigt att det går att dela upp komprimerings metoden, annars får några av mapparna skapats. Om indata är text, `bzip2` är det bästa alternativet. För ORC-format är fästfunktionen det snabbaste komprimerings alternativet.
 
-1. Om du vill aktivera mellanliggande komprimering navigerar `hive.exec.compress.intermediate` du till fliken Hive **Configs** och ställer sedan in parametern på true. Standardvärdet är false.
+1. Om du vill aktivera mellanliggande komprimering navigerar du till fliken Hive- **konfigurationer** och `hive.exec.compress.intermediate` anger sedan parametern till true. Standardvärdet är false.
 
-    !["Hive exec komprimera mellanliggande"](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
+    ![Hive exec komprimera mellanliggande](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
     > [!NOTE]  
-    > Om du vill komprimera mellanliggande filer väljer du en komprimeringscodec med lägre CPU-kostnad, även om codec inte har en hög komprimeringsutgång.
+    > Om du vill komprimera mellanliggande filer väljer du en komprimerings-codec med lägre CPU-kostnad, även om codecen inte har en hög komprimerings effekt.
 
-1. Om du vill ange mellankomprimeringskodc lägger du till den anpassade egenskapen `mapred.map.output.compression.codec` i `hive-site.xml` filen eller. `mapred-site.xml`
+1. Om du vill ange den mellanliggande komprimerings- `mapred.map.output.compression.codec` codecen `hive-site.xml` lägger `mapred-site.xml` du till den anpassade egenskapen i filen eller.
 
 1. Så här lägger du till en anpassad inställning:
 
-    a. Navigera till **Hive** > **Configs** > **Advanced** > Custom**hive-site**.
+    a. Navigera till **Hive** > -**konfigurationar** > **Avancerad** > **anpassad Hive-plats**.
 
-    b. Välj **Lägg till egenskap...** längst ned i fönstret Anpassad registreringsfilt.
+    b. Välj **Lägg till egenskap...** längst ned i fönstret för den anpassade Hive-platsen.
 
-    c. I fönstret Lägg till `mapred.map.output.compression.codec` egenskap anger `org.apache.hadoop.io.compress.SnappyCodec` du som nyckel och som värde.
+    c. I fönstret Lägg till egenskap anger `mapred.map.output.compression.codec` du som nyckel och `org.apache.hadoop.io.compress.SnappyCodec` som värde.
 
     d. Välj **Lägg till**.
 
-    !["Apache Hive anpassad egenskap lägga till"](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
+    ![Apache Hive anpassad egenskap Lägg till](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
-    Den här inställningen komprimerar mellanliggande fil med snappy-komprimering. När egenskapen har lagts till visas den i fönstret Anpassad registreringsfila.
+    Den här inställningen komprimerar den mellanliggande filen med hjälp av Fästnings komprimering. När egenskapen har lagts till visas den i fönstret anpassad Hive-webbplats.
 
     > [!NOTE]  
-    > Den här proceduren `$HADOOP_HOME/conf/hive-site.xml` ändrar filen.
+    > Den här proceduren ändrar `$HADOOP_HOME/conf/hive-site.xml` filen.
 
-### <a name="compress-final-output"></a>Komprimera slutlig utmatning
+### <a name="compress-final-output"></a>Komprimera slutgiltiga utdata
 
-Den slutliga Hive-utgången kan också komprimeras.
+Den slutliga Hive-utdata kan också komprimeras.
 
-1. Om du vill komprimera den slutliga Hive-utdata navigerar du `hive.exec.compress.output` till fliken Hive **Configs** och ställer sedan in parametern på true. Standardvärdet är false.
+1. Om du vill komprimera den slutliga Hive-utdata navigerar du till fliken Hive- **konfiguration** och anger `hive.exec.compress.output` sedan parametern till true. Standardvärdet är false.
 
-1. Om du vill välja utdatakomprimeringskodifieringskodex lägger du till den `mapred.output.compression.codec` anpassade egenskapen i fönstret Anpassad registreringsfilial, enligt beskrivningen i föregående avsnitts steg 3.
+1. Om du vill välja komprimerings-codecen `mapred.output.compression.codec` för utdata lägger du till den anpassade egenskapen i fönstret anpassad Hive-plats, enligt beskrivningen i föregående avsnitt: steg 3.
 
-    ![Apache Hive anpassad egenskap add2](./media/hdinsight-changing-configs-via-ambari/hive-custom-property2.png)
+    ![Apache Hive anpassad egenskap ADD2](./media/hdinsight-changing-configs-via-ambari/hive-custom-property2.png)
 
 ### <a name="enable-speculative-execution"></a>Aktivera spekulativ körning
 
-Spekulativ körning startar ett visst antal dubblettaktiviteter för att identifiera och neka lista den långsamma aktivitetsspåraren. Samtidigt som du förbättrar den övergripande jobbkörningen genom att optimera enskilda aktivitetsresultat.
+Spekulativ körning startar ett visst antal dubbla aktiviteter för att identifiera och neka en lista över den långsamma aktivitetens spårare. Förbättra den övergripande jobb körningen genom att optimera enskilda aktivitets resultat.
 
-Spekulativ körning bör inte aktiveras för långvariga MapReduce-uppgifter med stora mängder indata.
+Spekulativ körning bör inte aktive ras för långvariga MapReduce-uppgifter med stora mängder ingångar.
 
-* Om du vill aktivera spekulativ körning navigerar du till `hive.mapred.reduce.tasks.speculative.execution` fliken Hive **Configs** och ställer sedan in parametern på true. Standardvärdet är false.
+* Om du vill aktivera spekulativ körning navigerar du till fliken Hive- **konfiguration** och anger sedan `hive.mapred.reduce.tasks.speculative.execution` parametern till true. Standardvärdet är false.
 
-    !["Hive mapred minska uppgifter spekulativa utförande"](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
+    ![Hive-mapred minskar antalet aktiviteter för spekulativ körning](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
-### <a name="tune-dynamic-partitions"></a>Justera dynamiska partitioner
+### <a name="tune-dynamic-partitions"></a>Finjustera dynamiska partitioner
 
-Hive gör det möjligt att skapa dynamiska partitioner när du infogar poster i en tabell, utan att fördefiniera varje partition. Denna förmåga är en kraftfull funktion. Även om det kan resultera i skapandet av ett stort antal partitioner. Och ett stort antal filer för varje partition.
+Hive gör det möjligt att skapa dynamiska partitioner när poster infogas i en tabell, utan att fördefiniera varje partition. Den här möjligheten är en kraftfull funktion. Även om det kan resultera i att ett stort antal partitioner skapas. Och ett stort antal filer för varje partition.
 
-1. För att Hive ska kunna `hive.exec.dynamic.partition` göra dynamiska partitioner bör parametervärdet vara sant (standardvärdet).
+1. För att Hive ska kunna utföra dynamiska partitioner `hive.exec.dynamic.partition` ska parametervärdet vara sant (standardvärdet).
 
-1. Ändra det dynamiska partitionsläget till *strikt*. I strikt läge måste minst en partition vara statisk. Den här inställningen förhindrar frågor utan partitionsfiltret i WHERE-satsen, det vill än *strikt,* förhindrar frågor som söker igenom alla partitioner. Navigera till fliken Hive **Configs** `hive.exec.dynamic.partition.mode` och ange sedan **strikt**. Standardvärdet är **nonstrict**.
+1. Ändra läget för dynamisk partition till *strict*. I strikt läge måste minst en partition vara statisk. Den här inställningen förhindrar frågor utan partitions filtret i WHERE-satsen, det vill säga *strikt* förhindrar frågor som genomsöker alla partitioner. Gå till fliken Hive- **konfiguration** och ange `hive.exec.dynamic.partition.mode` sedan **strikt**. Standardvärdet är icke- **strikt**.
 
-1. Om du vill begränsa antalet dynamiska partitioner `hive.exec.max.dynamic.partitions` som ska skapas ändrar du parametern. Standardvärdet är 5000.
+1. Ändra `hive.exec.max.dynamic.partitions` parametern om du vill begränsa antalet dynamiska partitioner som ska skapas. Standardvärdet är 5000.
 
-1. Om du vill begränsa det totala antalet `hive.exec.max.dynamic.partitions.pernode`dynamiska partitioner per nod ändrar du . Standardvärdet är 2000.
+1. Om du vill begränsa det totala antalet dynamiska partitioner per nod ändrar `hive.exec.max.dynamic.partitions.pernode`du. Standardvärdet är 2000.
 
 ### <a name="enable-local-mode"></a>Aktivera lokalt läge
 
-Lokalt läge gör det möjligt för Hive att utföra alla uppgifter i ett jobb på en enda dator. Eller ibland i en enda process. Den här inställningen förbättrar frågeprestanda om indata är små. Och omkostnaderna för att starta aktiviteter för frågor förbrukar en betydande procentandel av den totala frågekörningen.
+Lokalt läge gör det möjligt för Hive att utföra alla aktiviteter för ett jobb på en enskild dator. Eller ibland i en enda process. Den här inställningen förbättrar frågans prestanda om indata är små. När du startar uppgifter för frågor förbrukar vi en betydande del av den övergripande körningen av frågan.
 
-Om du vill aktivera `hive.exec.mode.local.auto` lokalt läge lägger du till parametern på panelen Anpassad registreringsplats, vilket förklaras i steg 3 i avsnittet [Aktivera mellanliggande komprimering.](#enable-intermediate-compression)
+Om du vill aktivera lokalt läge lägger `hive.exec.mode.local.auto` du till parametern i den anpassade Hive-plats panelen, enligt beskrivningen i steg 3 i avsnittet [Aktivera mellanliggande komprimering](#enable-intermediate-compression) .
 
-![Apache Hive exec-läge lokal auto](./media/hdinsight-changing-configs-via-ambari/hive-exec-mode-local-auto.png)
+![Apache Hive exec-läge lokalt Auto](./media/hdinsight-changing-configs-via-ambari/hive-exec-mode-local-auto.png)
 
-### <a name="set-single-mapreduce-multigroup-by"></a>Ange enstaka MapReduce MultiGROUP BY
+### <a name="set-single-mapreduce-multigroup-by"></a>Ange Single MapReduce GROUP BY
 
-När den här egenskapen är true genererar en MultiGROUP BY-fråga med vanliga grupp-för-nycklar ett enda MapReduce-jobb.  
+När den här egenskapen har angetts till True genererar en multigroup BY-fråga med vanliga Group-by-nycklar ett enda MapReduce-jobb.  
 
-Om du vill aktivera `hive.multigroupby.singlereducer` det här beteendet lägger du till parametern i fönstret Anpassad registreringsplats, vilket förklaras i steg 3 i avsnittet [Aktivera mellanliggande komprimering.](#enable-intermediate-compression)
+Om du vill aktivera det här beteendet lägger du till `hive.multigroupby.singlereducer` parametern i fönstret anpassad Hive-plats, enligt beskrivningen i steg 3 i avsnittet [Aktivera mellanliggande komprimering](#enable-intermediate-compression) .
 
-![Hive set enda MapReduce MultiGROUP BY](./media/hdinsight-changing-configs-via-ambari/hive-multigroupby-singlereducer.png)
+![Hive-uppsättning enkel MapReduce multigroup BY](./media/hdinsight-changing-configs-via-ambari/hive-multigroupby-singlereducer.png)
 
-### <a name="additional-hive-optimizations"></a>Ytterligare Hive optimeringar
+### <a name="additional-hive-optimizations"></a>Ytterligare Hive-optimeringar
 
 I följande avsnitt beskrivs ytterligare Hive-relaterade optimeringar som du kan ange.
 
-#### <a name="join-optimizations"></a>Gå med optimeringar
+#### <a name="join-optimizations"></a>Delta i optimeringar
 
-Standardkopplingstypen i Hive är en *shuffle-koppling*. I Hive läser särskilda mappers indata och avger ett kopplingsnyckel/värdepar till en mellanliggande fil. Hadoop sorterar och sammanfogar dessa par i en shuffle-fas. Denna shuffle skede är dyrt. Om du väljer rätt koppling baserat på dina data kan prestanda förbättras avsevärt.
+Standard kopplings typen i Hive är en *blandad koppling*. I Hive läser särskilda mappningar indata och genererar ett kopplings nyckel/värde-par till en mellanliggande fil. Hadoop sorterar och sammanfogar dessa par i en blandad fas. Den här blandade fasen är dyr. Om du väljer höger koppling baserat på dina data kan du förbättra prestanda avsevärt.
 
-| Koppla till typ | När | Hur | Inställningar för Hive | Kommentarer |
+| Kopplings typ | När | Hur | Hive-inställningar | Kommentarer |
 | --- | --- | --- | --- | --- |
-| Blanda koppling | <ul><li>Standardalternativ</li><li>Fungerar alltid</li></ul> | <ul><li>Läser från en del av en av tabellerna</li><li>Buckets och sorterar på Kopplingsnyckel</li><li>Skickar en bucket till varje minska</li><li>Kopplingen sker på reduce-sidan</li></ul> | Ingen signifikant Hive-inställning behövs | Fungerar varje gång |
-| Karta Gå | <ul><li>En tabell får plats i minnet</li></ul> | <ul><li>Läser liten tabell i minneshh-tabellen</li><li>Strömmar genom en del av den stora filen</li><li>Sammanfogar varje post från hash-tabellen</li><li>Kopplingar är enbart av mappern</li></ul> | `hive.auto.confvert.join=true` | Snabb, men begränsad |
-| Sortera kopplingsgrupp | Om båda tabellerna är: <ul><li>Sorterade på samma sätt</li><li>Skopa samma</li><li>Sammanfoga i den sorterade/bucketed kolumnen</li></ul> | Varje process: <ul><li>Läser en bucket från varje tabell</li><li>Bearbetar raden med det lägsta värdet</li></ul> | `hive.auto.convert.sortmerge.join=true` | Effektiv |
+| Blanda koppling | <ul><li>Standard alternativ</li><li>Fungerar alltid</li></ul> | <ul><li>Läser från en del av en av tabellerna</li><li>Buckets och sorteras efter kopplings nyckel</li><li>Skickar en Bucket till varje minskning</li><li>Kopplingen görs på den minimerade Sidan</li></ul> | Ingen väsentlig registrerings inställning krävs | Fungerar varje gång |
+| Kart koppling | <ul><li>En tabell får plats i minnet</li></ul> | <ul><li>Läser liten tabell i hash-tabellen för minnet</li><li>Strömmar genom en del av den stora filen</li><li>Kopplar varje post från hash-tabellen</li><li>Kopplingar är endast av mapper</li></ul> | `hive.auto.confvert.join=true` | Snabb, men begränsad |
+| Sortera sammanslagnings Bucket | Om båda tabellerna är: <ul><li>Sorterade samma</li><li>Bucket samma</li><li>Ansluter till den sorterade/Bucket kolumnen</li></ul> | Varje process: <ul><li>Läser en Bucket från varje tabell</li><li>Bearbetar raden med det lägsta värdet</li></ul> | `hive.auto.convert.sortmerge.join=true` | Friktionskoefficienten |
 
-#### <a name="execution-engine-optimizations"></a>Optimering av utförandemotor
+#### <a name="execution-engine-optimizations"></a>Optimeringar för körnings motor
 
-Ytterligare rekommendationer för att optimera Hive-körningsmotorn:
+Ytterligare rekommendationer för att optimera Hive-körnings motorn:
 
-| Inställning | Rekommenderas | Standard för HDInsight |
+| Inställningen | Rekommenderas | HDInsight-standard |
 | --- | --- | --- |
-| `hive.mapjoin.hybridgrace.hashtable` | Sant = säkrare, långsammare; falskt = snabbare | false |
-| `tez.am.resource.memory.mb` | 4 GB övre bunden för de flesta | Justerad automatiskt |
-| `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
-| `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
-| `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
+| `hive.mapjoin.hybridgrace.hashtable` | Sant = säkrare, långsammare; falskt = snabbare | falskt |
+| `tez.am.resource.memory.mb` | 4 GB övre gränser för de flesta | Automatiskt justerad |
+| `tez.session.am.dag.submit.timeout.secs` | 300 och | 300 |
+| `tez.am.container.idle.release-timeout-min.millis` | 20000 + | 10000 |
+| `tez.am.container.idle.release-timeout-max.millis` | 40000 + | 20000 |
 
-## <a name="apache-pig-optimization"></a>Apache Pig optimering
+## <a name="apache-pig-optimization"></a>Apache gris-optimering
 
-[Apache Pig](https://pig.apache.org/) egenskaper kan ändras från Ambari webbgränssnitt för att ställa pig frågor. Om du ändrar Pig-egenskaper från Ambari `/etc/pig/2.4.2.0-258.0/pig.properties` ändras pigegenskaperna direkt i filen.
+Apache gris-egenskaper kan ändras från Ambari-webbgränssnittet för att justera gris-frågor. Om du ändrar egenskaper för gris från Ambari ändras egenskaperna för svinen `/etc/pig/2.4.2.0-258.0/pig.properties` direkt i filen.
 
-1. Om du vill ändra egenskaper för Gris navigerar du till fliken **Griskonfiguration och** expanderar sedan fönstret **Avancerade grisegenskaper.**
+1. Om du vill ändra egenskaper för gris navigerar du till fliken **konfigurations** inställningar för svin och expanderar sedan fönstret **Avancerat gris-Properties** .
 
-1. Hitta, ta bort kommentet och ändra värdet på den egenskap som du vill ändra.
+1. Hitta, ta bort kommentar och ändra värdet för den egenskap som du vill ändra.
 
-1. Välj **Spara** längst upp till höger i fönstret för att spara det nya värdet. Vissa egenskaper kan kräva en omstart av tjänsten.
+1. Välj **Spara** längst upp till höger i fönstret för att spara det nya värdet. Vissa egenskaper kan kräva att tjänsten startas om.
 
-    ![Avancerade apachegrisegenskaper](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
+    ![Avancerade egenskaper för Apache-gris](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
 
 > [!NOTE]  
-> Alla inställningar på sessionsnivå åsidosätter egenskapsvärden `pig.properties` i filen.
+> Alla inställningar för sessionsbaserade åsidosätter egenskaps värden i `pig.properties` filen.
 
-### <a name="tune-execution-engine"></a>Trimma körningsmotor
+### <a name="tune-execution-engine"></a>Justera körnings motor
 
-Två utförande motorer är tillgängliga för att köra Pig skript: MapReduce och Tez. Tez är en optimerad motor och är mycket snabbare än MapReduce.
+Det finns två körnings motorer tillgängliga för att köra gris-skript: MapReduce och Tez. Tez är en optimerad motor och är mycket snabbare än MapReduce.
 
-1. Om du vill ändra körningsmotorn hittar du `exectype`egenskapen i fönstret **Avancerade grisegenskaper** .
+1. Om du vill ändra körnings motorn går du till fönstret **Avancerat gris-Properties** och letar `exectype`upp egenskapen.
 
 1. Standardvärdet är **MapReduce**. Ändra den till **Tez**.
 
 ### <a name="enable-local-mode"></a>Aktivera lokalt läge
 
-I likhet med Hive används lokalt läge för att snabba jobb med relativt mindre mängder data.
+På samma sätt som Hive, används lokalt läge för att påskynda jobb med relativt mindre mängd data.
 
-1. Om du vill aktivera `pig.auto.local.enabled` det lokala läget ställer du in **på true**. Standardvärdet är false.
+1. Aktivera lokalt läge genom att ange `pig.auto.local.enabled` **True**. Standardvärdet är false.
 
-1. Jobb med en indatastorlek `pig.auto.local.input.maxbytes` som är mindre än egenskapsvärdet anses vara små jobb. Standardvärdet är 1 GB.
+1. Jobb med en indata-storlek som är `pig.auto.local.input.maxbytes` mindre än egenskap svärdet anses vara små jobb. Standardvärdet är 1 GB.
 
-### <a name="copy-user-jar-cache"></a>Kopiera cacheminne för användarburk
+### <a name="copy-user-jar-cache"></a>Kopiera användarens jar-cache
 
-Pig kopierar JAR-filer som krävs av UDF till en distribuerad cache för att göra dem tillgängliga för aktivitetsnoder. Dessa burkar ändras inte ofta. Om den aktiveras tillåter `pig.user.cache.enabled` inställningen att burkar placeras i en cache för att återanvända dem för jobb som körs av samma användare. Den här inställningen resulterar i en mindre ökning av jobbprestanda.
+Gris kopierar JAR-filerna som krävs av UDF: er till en distribuerad cache för att göra dem tillgängliga för aktiviteter. Dessa JAR v7 ändras inte ofta. Om `pig.user.cache.enabled` inställningen är aktive rad kan jar v7 placeras i ett cacheminne för att återanvända dem för jobb som körs av samma användare. Den här inställningen resulterar i en mindre ökning av jobbets prestanda.
 
-1. Om du `pig.user.cache.enabled` vill aktivera ställer du in på true. Standardvärdet är falskt.
+1. Om du vill aktivera `pig.user.cache.enabled` anger du True. Standardvärdet är false.
 
-1. Om du vill ställa in bassökvägen `pig.user.cache.location` för de cachelagrade burkarna ställer du in på bassökvägen. Standardvärdet är `/tmp`.
+1. Om du vill ange bas Sök vägen för den cachelagrade `pig.user.cache.location` jar v7 anger du bas Sök vägen. Standardvärdet är `/tmp`.
 
-### <a name="optimize-performance-with-memory-settings"></a>Optimera prestanda med minnesinställningar
+### <a name="optimize-performance-with-memory-settings"></a>Optimera prestanda med minnes inställningar
 
-Följande minnesinställningar kan hjälpa till att optimera Pig-skriptprestanda.
+Följande minnes inställningar kan hjälpa till att optimera skript prestanda för gris.
 
-* `pig.cachedbag.memusage`: Mängden minne som ges till en påse. En påse är samling av tupplar. En tuppel är en ordnad uppsättning fält och ett fält är en del data. Om data i en påse är bortom det givna minnet, det spills till disk. Standardvärdet är 0,2, vilket motsvarar 20 procent av det tillgängliga minnet. Det här minnet delas över alla påsar i ett program.
+* `pig.cachedbag.memusage`: Mängden minne som tilldelats en påse. En påse är en samling av tupler. En tupel är en ordnad uppsättning fält och ett fält är en del av data. Om data i en påse överskrider det tilldelade minnet, så spiller det till disk. Standardvärdet är 0,2, vilket motsvarar 20 procent av tillgängligt minne. Det här minnet delas i alla väskor i ett program.
 
-* `pig.spill.size.threshold`: Väskor som är större än denna spillstorlekströskel (i byte) spills till disken. Standardvärdet är 5 MB.
+* `pig.spill.size.threshold`: Väskor som är större än den här tröskelvärdet för spill storlek (i byte) spillas till disken. Standardvärdet är 5 MB.
 
 ### <a name="compress-temporary-files"></a>Komprimera temporära filer
 
-Gris genererar temporära filer under jobbkörningen. Om du komprimerar de temporära filerna ökar prestandaökningen när filer läss eller skrivs till disk. Följande inställningar kan användas för att komprimera temporära filer.
+Gris genererar temporära filer under jobb körningen. Komprimering av de temporära filerna resulterar i ökad prestanda när filer läses eller skrivs till disk. Följande inställningar kan användas för att komprimera temporära filer.
 
-* `pig.tmpfilecompression`: När värdet är true aktiverar den tillfälliga filkomprimeringen. Standardvärdet är false.
+* `pig.tmpfilecompression`: När värdet är true, aktiverar temporär fil komprimering. Standardvärdet är false.
 
-* `pig.tmpfilecompression.codec`: Komprimeringskodifieringen som ska användas för att komprimera de temporära filerna. De rekommenderade komprimeringskoderna är [LZO](https://www.oberhumer.com/opensource/lzo/) och Snappy för lägre CPU-användning.
+* `pig.tmpfilecompression.codec`: Den komprimerings-codec som används för att komprimera de temporära filerna. De rekommenderade komprimerings-codecarna är LZO och fästfunktionen för lägre CPU-användning.
 
-### <a name="enable-split-combining"></a>Aktivera delad kombination
+### <a name="enable-split-combining"></a>Aktivera delnings kombination
 
-När det är aktiverat kombineras små filer för färre kartuppgifter. Den här inställningen förbättrar effektiviteten i jobb med många små filer. Om du `pig.noSplitCombination` vill aktivera ställer du in på true. Standardvärdet är false.
+När den är aktive rad kombineras små filer för färre kart aktiviteter. Den här inställningen förbättrar effektiviteten hos jobb med många små filer. Om du vill aktivera `pig.noSplitCombination` anger du True. Standardvärdet är false.
 
-### <a name="tune-mappers"></a>Justera mappers
+### <a name="tune-mappers"></a>Finjustera mappningar
 
-Antalet mappers styrs genom att `pig.maxCombinedSplitSize`ändra egenskapen . Den här egenskapen anger storleken på de data som ska bearbetas av en enda kartaktivitet. Standardvärdet är filsystemets standardblockstorlek. Om du ökar det här värdet resulterar det i ett lägre antal mappningsuppgifter.
+Antalet Mapper styrs genom att egenskapen `pig.maxCombinedSplitSize`ändras. Den här egenskapen anger storleken på de data som ska bearbetas av en enskild kart aktivitet. Standardvärdet är fil systemets standard block storlek. Att öka det här värdet resulterar i ett lägre antal Mapper-aktiviteter.
 
-### <a name="tune-reducers"></a>Trimma reducerare
+### <a name="tune-reducers"></a>Finjustera dämpare
 
-Antalet reducerare beräknas baserat på `pig.exec.reducers.bytes.per.reducer`parametern . Parametern anger antalet byte som bearbetas per reducer, som standard 1 GB. Om du vill begränsa det maximala `pig.exec.reducers.max` antalet reducerare anger du egenskapen som standard 999.
+Antalet dereducerare beräknas baserat på parametern `pig.exec.reducers.bytes.per.reducer`. Parametern anger antalet byte som bearbetas per minskning, som standard 1 GB. Om du vill begränsa det maximala antalet avreducerare ställer `pig.exec.reducers.max` du in egenskapen som standard 999.
 
-## <a name="apache-hbase-optimization-with-the-ambari-web-ui"></a>Apache HBase optimering med Ambari webbgränssnitt
+## <a name="apache-hbase-optimization-with-the-ambari-web-ui"></a>Apache HBase-optimering med Ambari-webbgränssnittet
 
-[Apache HBase-konfigurationen](https://hbase.apache.org/) ändras från fliken **HBase Configs.** I följande avsnitt beskrivs några av de viktiga konfigurationsinställningarna som påverkar HBase-prestanda.
+Apache HBase-konfigurationen har ändrats från fliken **HBase-konfigurationer** . I följande avsnitt beskrivs några av de viktiga konfigurations inställningar som påverkar HBase prestanda.
 
-### <a name="set-hbase_heapsize"></a>Ställ in HBASE_HEAPSIZE
+### <a name="set-hbase_heapsize"></a>Ange HBASE_HEAPSIZE
 
-HBase heap-storleken anger den maximala mängden heap som ska användas i megabyte per *region* och *huvudservrar.* Standardvärdet är 1 000 MB. Det här värdet bör justeras för klusterarbetsbelastningen.
+HBase-heap-storleken anger den maximala mängd heap som ska användas i megabyte efter *region* och *huvud* servrar. Standardvärdet är 1 000 MB. Det här värdet bör justeras för klustrets arbets belastning.
 
-1. Om du vill ändra navigerar du till fönstret **Avancerat HBase-env** `HBASE_HEAPSIZE` på fliken HBase **Configs** och sedan efter inställningen.
+1. Om du vill ändra går du till fönstret **Avancerat HBase-miljö** på fliken HBase- **konfiguration** och letar sedan upp `HBASE_HEAPSIZE` inställningen.
 
 1. Ändra standardvärdet till 5 000 MB.
 
-    !["Apache Ambari HBase minne heapsize"](./media/hdinsight-changing-configs-via-ambari/ambari-hbase-heapsize.png)
+    !["Apache Ambari HBase Memory heapsize"](./media/hdinsight-changing-configs-via-ambari/ambari-hbase-heapsize.png)
 
-### <a name="optimize-read-heavy-workloads"></a>Optimera lästunga arbetsbelastningar
+### <a name="optimize-read-heavy-workloads"></a>Optimera Läs frekventa arbets belastningar
 
-Följande konfigurationer är viktiga för att förbättra prestanda för lästunga arbetsbelastningar.
+Följande konfigurationer är viktiga för att förbättra prestandan för Läs intensiva arbets belastningar.
 
-#### <a name="block-cache-size"></a>Blockera cachestorlek
+#### <a name="block-cache-size"></a>Block cachestorlek
 
-Blockcachen är läscachen. Dess storlek styrs `hfile.block.cache.size` av parametern. Standardvärdet är 0,4, vilket är 40 procent av det totala regionserverminnet. Ju större blockcachestorlek, desto snabbare blir slumpmässiga läsningar.
+Block-cachen är Read cache. Dess storlek styrs av `hfile.block.cache.size` parametern. Standardvärdet är 0,4, vilket är 40 procent av det totala region Server minnet. Ju större block-cache-storlek, desto snabbare blir de slumpmässiga läsningarna.
 
-1. Om du vill ändra den här parametern navigerar du till fliken **Inställningar** på fliken HBase **Configs** och letar sedan reda på **% av RegionServer som allokerats till läsbuffertar**.
+1. Om du vill ändra den här parametern går du till fliken **Inställningar** på fliken HBase **configs** och letar sedan upp **% av RegionServer som har allokerats för att läsa buffertar**.
 
-    ![Apache HBase minnesblock cachestorlek](./media/hdinsight-changing-configs-via-ambari/hbase-block-cache-size.png)
+    ![Cachestorlek för Apache HBase-minnes block](./media/hdinsight-changing-configs-via-ambari/hbase-block-cache-size.png)
 
-1. Om du vill ändra värdet markerar du ikonen **Redigera.**
+1. Om du vill ändra värdet väljer du **redigerings** ikonen.
 
-#### <a name="memstore-size"></a>Memstore storlek
+#### <a name="memstore-size"></a>Memstores-storlek
 
-Alla redigeringar lagras i minnesbufferten, som kallas *en Memstore*. Den här bufferten ökar den totala mängden data som kan skrivas till disken i en enda åtgärd. Det snabbar också åtkomsten till de senaste ändringarna. Memstore-storleken definieras av följande två parametrar:
+Alla redigeringar lagras i minnesbufferten, som kallas en *memstores*. Den här bufferten ökar den totala mängden data som kan skrivas till disk i en enda åtgärd. Den påskyndar också åtkomsten till de senaste redigeringarna. Memstores storlek definieras av följande två parametrar:
 
-* `hbase.regionserver.global.memstore.UpperLimit`: Definierar den maximala procentandelen av regionservern som Memstore kombinerade kan använda.
+* `hbase.regionserver.global.memstore.UpperLimit`: Definierar den maximala procent andelen av den region server som Memstores kombinerat kan använda.
 
-* `hbase.regionserver.global.memstore.LowerLimit`: Definierar den minsta procentandel av regionservern som Memstore kombinerade kan använda.
+* `hbase.regionserver.global.memstore.LowerLimit`: Definierar den minsta procent andelen av den region server som Memstores kombinerat kan använda.
 
 Om du vill optimera för slumpmässiga läsningar kan du minska Memstores övre och nedre gränser.
 
-#### <a name="number-of-rows-fetched-when-scanning-from-disk"></a>Antal rader som hämtas vid skanning från disk
+#### <a name="number-of-rows-fetched-when-scanning-from-disk"></a>Antal rader som hämtades vid genomsökning från disk
 
-Inställningen `hbase.client.scanner.caching` definierar antalet rader som läs avstÃ¤r från disken `next` när metoden anropas på en skanner.  Standardvärdet är 100. Ju högre siffra, desto färre fjärranrop som görs från klienten till regionservern, vilket resulterar i snabbare genomsökningar. Den här inställningen ökar dock också minnestrycket på klienten.
+`hbase.client.scanner.caching` Inställningen definierar antalet rader som läses från disken när `next` metoden anropas på en skanner.  Standardvärdet är 100. Ju högre siffra, desto färre fjärran rop som görs från klienten till region servern, vilket resulterade i snabbare genomsökningar. Den här inställningen kommer dock även att öka minnes belastningen på klienten.
 
-![Apache HBase antal rader som hämtats](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
+![Apache HBase antal hämtade rader](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
 
 > [!IMPORTANT]  
-> Ange inte värdet så att tiden mellan anrop av nästa metod på en skanner är större än skannertidsgränsen. Tidsgränsen för skannern `hbase.regionserver.lease.period` bestäms av egenskapen.
+> Ange inte värdet så att tiden mellan anrop av nästa metod på en skanner är större än tids gränsen för skannern. Tids gränsen för skannerns varaktighet definieras av `hbase.regionserver.lease.period` egenskapen.
 
-### <a name="optimize-write-heavy-workloads"></a>Optimera skrivtunga arbetsbelastningar
+### <a name="optimize-write-heavy-workloads"></a>Optimera Skriv tunga arbets belastningar
 
-Följande konfigurationer är viktiga för att förbättra prestanda för skrivtunga arbetsbelastningar.
+Följande konfigurationer är viktiga för att förbättra prestandan för Skriv tunga arbets belastningar.
 
-#### <a name="maximum-region-file-size"></a>Maximal regionfilstorlek
+#### <a name="maximum-region-file-size"></a>Maximal region fil storlek
 
-HBase lagrar data i ett internt filformat, kallat *HFile*. Egenskapen `hbase.hregion.max.filesize` definierar storleken på en enda HFile för en region.  En region är uppdelad i två regioner om summan av alla HFiles i en region är större än den här inställningen.
+HBase lagrar data i ett internt fil format som kallas *HFile*. Egenskapen `hbase.hregion.max.filesize` definierar storleken på en enskild HFile för en region.  En region delas upp i två regioner om summan av alla HFiles i en region är större än den här inställningen.
 
-!["Apache HBase HRegion max filesize"](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-max-filesize.png)
+![' Apache HBase HRegion Max FILESIZE '](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-max-filesize.png)
 
-Ju större regionfilstorlek, desto mindre antal delar. Du kan öka filstorleken för att bestämma ett värde som resulterar i den maximala skrivprestanda.
+Ju större region fil storlek, desto mindre är antalet delningar. Du kan öka fil storleken för att fastställa ett värde som resulterar i maximal skriv prestanda.
 
-#### <a name="avoid-update-blocking"></a>Undvik uppdateringsblockering
+#### <a name="avoid-update-blocking"></a>Undvik att blockera uppdateringar
 
-* Egenskapen `hbase.hregion.memstore.flush.size` definierar storleken på vilken Memstore spolas till disk. Standardstorleken är 128 MB.
+* Egenskapen `hbase.hregion.memstore.flush.size` definierar storleken som memstores töms på disk. Standard storleken är 128 MB.
 
-* HBase-regionblockmultiplikatorn `hbase.hregion.memstore.block.multiplier`definieras av . Standardvärdet är 4. Det högsta tillåtna är 8.
+* HBase region Blocks multiplikator definieras av `hbase.hregion.memstore.block.multiplier`. Standardvärdet är 4. Det högsta tillåtna värdet är 8.
 
-* HBase blockerar uppdateringar om Memstore är (`hbase.hregion.memstore.flush.size` * `hbase.hregion.memstore.block.multiplier`) byte.
+* HBase blockerar uppdateringar om memstores är (`hbase.hregion.memstore.flush.size` * `hbase.hregion.memstore.block.multiplier`) byte.
 
-    Med standardvärdena för spolstorlek och blockmultiplikator blockeras uppdateringar när Memstore är 128 * 4 = 512 MB i storlek. Om du vill minska antalet uppdateringsblockering ökar du `hbase.hregion.memstore.block.multiplier`värdet för .
+    Med standardvärdet för tömnings storlek och block multiplikatorer blockeras uppdateringar när Memstores är 128 * 4 = 512 MB i storlek. Öka värdet för `hbase.hregion.memstore.block.multiplier`om du vill minska antalet blockerade uppdateringar.
 
-![Apache HBase-regionblockmultiplikator](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-block-multiplier.png)
+![Apache HBase region block multiplikator](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-block-multiplier.png)
 
-### <a name="define-memstore-size"></a>Definiera Memstore-storlek
+### <a name="define-memstore-size"></a>Definiera Memstores-storlek
 
-Memstore storlek definieras `hbase.regionserver.global.memstore.UpperLimit` av `hbase.regionserver.global.memstore.LowerLimit` och parametrar. Om du ställer in dessa värden som är lika med varandra minskar pauserna under skrivningar (vilket också orsakar mer frekvent spolning) och resulterar i ökad skrivprestanda.
+Memstores-storlek definieras av parametrarna `hbase.regionserver.global.memstore.UpperLimit` och `hbase.regionserver.global.memstore.LowerLimit` . Att ställa in dessa värden på samma sätt minskar pauserna under skrivningar (även om de orsakar frekvent tömning) och ger ökad skriv prestanda.
 
-### <a name="set-memstore-local-allocation-buffer"></a>Ange memstore lokal allokeringsbuffert
+### <a name="set-memstore-local-allocation-buffer"></a>Ange Memstores Local Allocation buffer
 
-Memstore lokal allokeringsbuffertanvändning bestäms av egenskapen `hbase.hregion.memstore.mslab.enabled`. När den är aktiverad (true) förhindrar den här inställningen heap-fragmentering under tung skrivåtgärd. Standardvärdet är True.
+Memstores för lokal allokering bestäms av egenskapen `hbase.hregion.memstore.mslab.enabled`. När aktive rad (true) förhindrar den här inställningen en heap-fragmentering under tung Skriv åtgärd. Standardvärdet är True.
 
-![hbase.hregion.memstore.mslab.enabled hbase.hregion.memstore.mslab.enabled hbase.hregion.memstore.mslab.enabled hbase](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
+![HBase. hregion. memstores. mslab. Enabled](./media/hdinsight-changing-configs-via-ambari/hbase-hregion-memstore-mslab-enabled.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera HDInsight-kluster med apache Ambari-webbgränssnittet](hdinsight-hadoop-manage-ambari.md)
-* [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Hantera HDInsight-kluster med webbgränssnittet Apache Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Apache Ambari-REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

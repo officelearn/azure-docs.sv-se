@@ -14,12 +14,12 @@ ms.date: 04/23/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46f6c77916c7be62247c69b12dff1982e5781aff
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 1f8d41fb3e6233d319725cac924c0c0ed41b7ce4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82112226"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82234306"
 ---
 # <a name="start-using-privileged-identity-management"></a>Börja använda Privileged Identity Management
 
@@ -69,8 +69,8 @@ När Privileged Identity Management har kon figurer ATS kan du lära dig hur du 
 | **Mina förfrågningar** | Visar väntande begär Anden om att aktivera kvalificerade roll tilldelningar. |
 | **Godkänna förfrågningar** | Visar en lista med begär Anden om att aktivera berättigade roller av användare i din katalog som du är behörig att godkänna. |
 | **Granska åtkomst** | Visar en lista över aktiva åtkomst granskningar som du har tilldelats, oavsett om du granskar åtkomst åt dig själv eller någon annan. |
-| **Azure AD-roller** | Visar en instrument panel och inställningar för privilegierade roll administratörer för att hantera roll tilldelningar för Azure AD. Instrumentpanelen är inaktiverad för alla som inte är en privilegierad rolladministratör. De här användarna har åtkomst till en särskild instrumentpanel som heter My view (Min vy). Instrumentpanelen My view (Min vy) visar endast information om användaren som har åtkomst till instrumentpanelen, inte hela klientorganisationen. |
-| **Azure-resurser** | Visar en instrument panel och inställningar för privilegierade roll administratörer för hantering av roll tilldelningar för Azure-resurser. Instrumentpanelen är inaktiverad för alla som inte är en privilegierad rolladministratör. De här användarna har åtkomst till en särskild instrumentpanel som heter My view (Min vy). Instrumentpanelen My view (Min vy) visar endast information om användaren som har åtkomst till instrumentpanelen, inte hela klientorganisationen. |
+| **Azure AD-roller** | Visar en instrument panel och inställningar för privilegierade roll administratörer för att hantera roll tilldelningar för Azure AD. Instrumentpanelen är inaktiverad för alla som inte är en privilegierad rolladministratör. De här användarna har åtkomst till en särskild instrumentpanel som heter My view (Min vy). På instrument panelen för min vy visas endast information om användaren som har åtkomst till instrument panelen, inte hela organisationen. |
+| **Azure-resurser** | Visar en instrument panel och inställningar för privilegierade roll administratörer för hantering av roll tilldelningar för Azure-resurser. Instrumentpanelen är inaktiverad för alla som inte är en privilegierad rolladministratör. De här användarna har åtkomst till en särskild instrumentpanel som heter My view (Min vy). På instrument panelen för min vy visas endast information om användaren som har åtkomst till instrument panelen, inte hela organisationen. |
 
 ## <a name="add-a-pim-tile-to-the-dashboard"></a>Lägg till en PIM-panel på instrument panelen
 

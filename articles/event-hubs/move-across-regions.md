@@ -1,5 +1,5 @@
 ---
-title: Flytta ett namnområde för Azure Event Hubs till en annan region | Microsoft-dokument
+title: Flytta ett Azure Event Hubs-namnområde till en annan region | Microsoft Docs
 description: Den här artikeln visar hur du flyttar ett Azure Event Hubs-namnområde från den aktuella regionen till en annan region.
 services: event-hubs
 author: spelluru
@@ -10,46 +10,46 @@ ms.date: 04/14/2020
 ms.author: spelluru
 ms.reviewer: shvija
 ms.openlocfilehash: 2dfc9c517605bbb48bee0b306fb275464cfebe39
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606813"
 ---
-# <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Flytta ett namnområde för Azure Event Hubs till en annan region
-Det finns olika scenarier där du vill flytta ditt befintliga namnområde för eventhubbar från en region till en annan. Du kanske till exempel vill skapa ett namnområde med samma konfiguration för testning. Du kanske också vill skapa ett sekundärt namnområde i en annan region som en del av [katastrofåterställningsplanering](event-hubs-geo-dr.md#setup-and-failover-flow).
+# <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Flytta ett Azure Event Hubs-namnområde till en annan region
+Det finns olika scenarier där du vill flytta ditt befintliga Event Hubs-namnområde från en region till en annan. Du kanske till exempel vill skapa ett namn område med samma konfiguration för testning. Du kanske också vill skapa ett sekundärt namn område i en annan region som en del av [Disaster Recovery-planeringen](event-hubs-geo-dr.md#setup-and-failover-flow).
 
 > [!NOTE]
-> Den här artikeln visar hur du exporterar en Azure Resource Manager-mall för ett befintligt namnområde för eventhubbar och sedan använder mallen för att skapa ett namnområde med samma konfigurationsinställningar i en annan region. Den här processen flyttar dock inte händelser som inte har bearbetats ännu. Du måste bearbeta händelserna från det ursprungliga namnområdet innan du tar bort det.
+> Den här artikeln visar hur du exporterar en Azure Resource Manager mall för ett befintligt Event Hubs-namnområde och sedan använder mallen för att skapa ett namn område med samma konfigurations inställningar i en annan region. Den här processen flyttar dock inte händelser som inte bearbetas än. Du måste bearbeta händelserna från det ursprungliga namn området innan du tar bort det.
 
 ## <a name="prerequisites"></a>Krav
 
-- Kontrollera att de tjänster och funktioner som ditt konto använder stöds i målregionen.
-- För förhandsgranskningsfunktioner kontrollerar du att din prenumeration är vitlistad för målregionen.
-- Om du har **hämtningsfunktion** aktiverad för händelsehubbar i namnområdet flyttar du [Azure Storage eller Azure Data Lake Store Gen 2-](../storage/common/storage-account-move.md) eller Azure Data Lake Store Gen [1-konton](../data-lake-store/data-lake-store-migration-cross-region.md) innan du flyttar namnområdet Event Hubs. Du kan också flytta resursgruppen som innehåller namnområden för både lagrings- och händelsehubbar till den andra regionen genom att följa stegen som liknar de som beskrivs i den här artikeln. 
-- Om namnområdet Event Hubs finns i ett **eventhubs-kluster** [skapar du ett dedikerat kluster](event-hubs-dedicated-cluster-create-portal.md) i **målregionen** innan du går igenom stegen i den här artikeln. 
+- Kontrol lera att tjänsterna och funktionerna som ditt konto använder stöds i mål regionen.
+- För för hands versions funktioner ser du till att din prenumeration är vit listas för mål regionen.
+- Om du har aktiverat **funktionen** för händelse hubbar i namn området flyttar du [Azure Storage eller Azure Data Lake Store gen 2](../storage/common/storage-account-move.md) eller [Azure Data Lake Store gen 1](../data-lake-store/data-lake-store-migration-cross-region.md) -konton innan du flyttar Event Hubs namn området. Du kan också flytta resurs gruppen som innehåller både lagrings utrymmet och Event Hubs namn områden till den andra regionen genom att följa stegen som beskrivs i den här artikeln. 
+- Om Event Hubs namn området finns i ett **Event Hubs kluster** [skapar du ett dedikerat kluster](event-hubs-dedicated-cluster-create-portal.md) i **mål regionen** innan du går igenom stegen i den här artikeln. 
 
 ## <a name="prepare"></a>Förbereda
-Du kan komma igång genom att exportera en Resource Manager-mall. Den här mallen innehåller inställningar som beskriver namnområdet Händelserhubbar.
+Kom igång genom att exportera en Resource Manager-mall. Den här mallen innehåller inställningar som beskriver ditt Event Hubs namn område.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Välj **Alla resurser** och välj sedan namnområdet Event Hubs.
+2. Välj **alla resurser** och välj sedan din Event Hubs namn område.
 
-3. Välj**mallen** **Exportera inställningar** > > inställningar .
+3. Välj**Exportera mall**för > **Inställningar** > .
 
-4. Välj **Hämta** på sidan **Exportera mall.**
+4. Välj **Hämta** på sidan **Exportera mall** .
 
-    ![Hämta resurshanteraren-mall](./media/move-across-regions/download-template.png)
+    ![Ladda ned Resource Manager-mall](./media/move-across-regions/download-template.png)
 
-5. Leta reda på ZIP-filen som du hämtade från portalen och packa upp filen till en valfri mapp.
+5. Leta upp zip-filen som du laddade ned från portalen och zippa upp filen till en valfri mapp.
 
-   Den här zip-filen innehåller DE Json-filer som innehåller mallen och skripten för att distribuera mallen.
+   Den här zip-filen innehåller JSON-filerna som innehåller mallen och skripten för att distribuera mallen.
 
 
 ## <a name="move"></a>Flytta
 
-Distribuera mallen för att skapa ett namnområde för händelsehubbar i målregionen. 
+Distribuera mallen för att skapa ett Event Hubs-namnområde i mål regionen. 
 
 
 1. I Azure-portalen väljer du **Skapa en resurs**.
@@ -62,56 +62,56 @@ Distribuera mallen för att skapa ett namnområde för händelsehubbar i målreg
 
 5. Välj alternativet för att **skapa din egen mall i redigeringsprogrammet**.
 
-6. Välj **Läs in filen**och följ sedan instruktionerna för att läsa in filen **template.json** som du hämtade i det sista avsnittet.
+6. Välj **Läs in fil**och följ sedan anvisningarna för att läsa in filen **Template. JSON** som du laddade ned i det sista avsnittet.
 
-7. Välj **Spara** om du vill spara mallen. 
+7. Spara mallen genom att välja **Spara** . 
 
-8. Gör så här på sidan **Anpassad distribution:** 
+8. Följ dessa steg på sidan **Anpassad distribution** : 
 
-    1. Välj en **Azure-prenumeration**. 
+    1. Välj en Azure- **prenumeration**. 
 
-    2. Markera en befintlig **resursgrupp** eller skapa en. Om källnamnområdet fanns i ett Event Hubs-kluster väljer du den resursgrupp som innehåller kluster i målregionen. 
+    2. Välj en befintlig **resurs grupp** eller skapa en. Om käll namn området fanns i ett Event Hubs kluster väljer du den resurs grupp som innehåller klustret i mål regionen. 
 
-    3. Välj **målplats** eller målregion. Om du har markerat en befintlig resursgrupp är den här inställningen skrivskyddad. 
+    3. Välj **målplats eller region** . Om du har valt en befintlig resurs grupp är den här inställningen skrivskyddad. 
 
-    4. Gör följande i avsnittet **INSTÄLLNINGAR:**
+    4. Utför följande steg i avsnittet **Inställningar** :
     
-        1. ange det nya **namnområdesnamnet**. 
+        1. Ange det nya namn **områdets namn**. 
 
-            ![Distribuera Resurshanteraren-mall](./media/move-across-regions/deploy-template.png)
+            ![Distribuera Resource Manager-mall](./media/move-across-regions/deploy-template.png)
 
-        2. Om källnamnområdet fanns i ett **eventhubs-kluster**anger du namn på **resursgrupp** och **eventhubbar** som en del av **externt ID**. 
+        2. Om käll namn området fanns i ett **Event Hubs kluster**, anger du namn på **resurs grupp** och **Event Hubs kluster** som en del av ett **externt ID**. 
 
               ```
               /subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<CLUSTER'S RESOURCE GROUP>/providers/Microsoft.EventHub/clusters/<CLUSTER NAME>
               ```   
-        3. Om händelsehubben i namnområdet använder ett lagringskonto för att hämta händelser `StorageAccounts_<original storage account name>_external` anger du resursgruppsnamnet och lagringskontot för fältet. 
+        3. Om händelsehubben i namn rymden använder ett lagrings konto för att fånga händelser anger du resurs gruppens namn och lagrings kontot `StorageAccounts_<original storage account name>_external` för fältet. 
             
             ```
             /subscriptions/0000000000-0000-0000-0000-0000000000000/resourceGroups/<STORAGE'S RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>
             ```    
-    5. Välj **kryssrutan Jag godkänner de villkor som anges ovan.** 
+    5. Markera kryss rutan **Jag accepterar villkoren som anges ovan** . 
     
-    6. Välj nu **Köp** för att starta distributionsprocessen. 
+    6. Nu väljer du **Välj Köp** för att starta distributions processen. 
 
-## <a name="discard-or-clean-up"></a>Ignorera eller rensa
-Om du vill börja om efter distributionen kan du ta bort **namnområdet målhändelsehubbar**och upprepa stegen som beskrivs i avsnittet [Förbered](#prepare) och [flytta](#move) i den här artikeln.
+## <a name="discard-or-clean-up"></a>Ta bort eller rensa
+Efter distributionen kan du, om du vill börja om, ta bort **mål Event Hubs namn området**och upprepa stegen som beskrivs i avsnittet [förbereda](#prepare) och [Flytta](#move) i den här artikeln.
 
-Om du vill genomföra ändringarna och slutföra flytten av ett namnområde för händelsehubbar tar du bort **namnområdet för källhubbar**. Kontrollera att du har bearbetat alla händelser i namnområdet innan du tar bort namnområdet. 
+Om du vill genomföra ändringarna och slutföra flyttningen av en Event Hubs-namnrymd tar du bort **käll Event Hubs namn området**. Se till att du bearbetade alla händelser i namn området innan du tar bort namn området. 
 
-Så här tar du bort ett namnområde för händelsehubbar (källa eller mål) med hjälp av Azure-portalen:
+Så här tar du bort ett Event Hubs-namnområde (källa eller mål) med hjälp av Azure Portal:
 
-1. Skriv **Event Hubs**i sökfönstret högst upp i Azure-portalen och välj **Händelsehubbar** från sökresultat. Namnområdena Event Hubs visas i en lista.
+1. I fönstret Sök högst upp i Azure Portal skriver du **Event Hubs**och väljer **Event Hubs** från Sök resultat. Du ser Event Hubs namnrum i en lista.
 
-2. Markera det målnamnområde som ska tas bort och välj **Ta bort** i verktygsfältet. 
+2. Välj det mål namn område som ska tas bort och välj **ta bort** från verktygsfältet. 
 
-    ![Knappen Ta bort namnområde - knappen](./media/move-across-regions/delete-namespace-button.png)
+    ![Ta bort namn område – knapp](./media/move-across-regions/delete-namespace-button.png)
 
-3. På sidan **Ta bort resurser*** kontrollerar du de markerade resurserna och bekräftar borttagningen genom att skriva **ja**och välj sedan **Ta bort**. 
+3. På sidan **ta bort resurser*** kontrollerar du de markerade resurserna och bekräftar borttagningen genom att skriva **Ja**och väljer sedan **ta bort**. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien flyttade du ett Azure Event Hubs-namnområde från en region till en annan och rensade källresurserna.  Mer information om hur du flyttar resurser mellan regioner och haveriberedskap i Azure finns i:
+I den här självstudien flyttade du ett Azure Event Hubs-namnområde från en region till en annan och rensade käll resurserna.  Mer information om hur du flyttar resurser mellan regioner och haveri beredskap i Azure finns i:
 
 
 - [Flytta resurser till en ny resursgrupp eller prenumeration](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)

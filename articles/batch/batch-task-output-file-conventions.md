@@ -4,12 +4,12 @@ description: Lär dig hur du använder Azure Batch fil konventions bibliotek fö
 ms.topic: article
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e835b4e4ace344de65bc5d037b99afdf811ed4bb
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: 2d7988ef4339280bd729cc1acaa1b7fb2c33b6b9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116442"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232708"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Spara jobb-och uppgifts data till Azure Storage med bibliotek för batch-fil konventioner för .NET
 
@@ -182,7 +182,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>Visa utdatafiler i Azure Portal
 
-I Azure Portal visas Uppgiftsutdata och loggar som är beständiga till ett länkat Azure Storage-konto med hjälp av [satserna för fil konventioner som standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Du kan implementera dessa konventioner själv på valfritt språk, eller så kan du använda biblioteket fil konventioner i dina .NET-program.
+I Azure Portal visas Uppgiftsutdata och loggar som är beständiga till ett länkat Azure Storage-konto med hjälp av [satserna för fil konventioner som standard](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). Du kan implementera dessa konventioner själv på valfritt språk, eller så kan du använda biblioteket fil konventioner i dina .NET-program.
 
 Om du vill aktivera visning av dina utdatafiler i portalen måste du uppfylla följande krav:
 

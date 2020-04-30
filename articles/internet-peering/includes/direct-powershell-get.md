@@ -9,19 +9,19 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: c84cd8b1d7850576eb608d88ba91c3079edb0d68
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81680820"
 ---
-Om du vill hämta listan över peerings kör du kommandot **Get-AzPeering.**
+Kör kommandot **Get-AzPeering** för att hämta listan över peer-kopplingar.
 
 ```powershell
 $directPeering = Get-AzPeering -ResourceGroupName "PeeringResourceGroup" -Name "SeattleDirectPeering"
 ```
 
-I följande exempel visas svaret när etablering från till på sluten tid slutfördes.
+I följande exempel visas svaret när end-to-end-etableringen har slutförts.
 
 ```powershell
     Name                 : SeattleDirectPeering

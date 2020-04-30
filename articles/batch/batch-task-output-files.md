@@ -4,12 +4,12 @@ description: Lär dig hur du använder batch-tjänstens API för att spara batch
 ms.topic: article
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5fbbf75defcfe976e59d38ae76341e71feee9f53
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: d9c6465a553e5652ecab5dcd167bb4058ff5cc08
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82116476"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82234289"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Spara uppgifts data till Azure Storage med batch-tjänstens API
 
@@ -26,7 +26,7 @@ Azure Batch innehåller fler än ett sätt att spara Uppgiftsutdata. Att använd
 - Du vill skriva kod för att spara Uppgiftsutdata från ditt klient program, utan att ändra det program som aktiviteten körs på.
 - Du vill spara utdata från batch-uppgifter och jobb Manager-aktiviteter i pooler som skapats med den virtuella dator konfigurationen.
 - Du vill spara utdata till en Azure Storage behållare med ett godtyckligt namn.
-- Du vill spara utdata till en Azure Storage-behållare med namnet enligt [satserna i satsen för fil konventioner som standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
+- Du vill spara utdata till en Azure Storage-behållare med namnet enligt [satserna i satsen för fil konventioner som standard](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). 
 
 Om ditt scenario skiljer sig från de som anges ovan kan du behöva överväga en annan metod. Batch-tjänstens API stöder till exempel inte strömmande utdata till Azure Storage medan aktiviteten körs. Om du vill strömma utdata kan du använda biblioteket med kommando fils konventioner, som är tillgängligt för .NET. För andra språk måste du implementera din egen lösning. Mer information om andra alternativ för att spara Uppgiftsutdata finns i [Spara jobb-och Uppgiftsutdata till Azure Storage](batch-task-output.md).
 
@@ -155,7 +155,7 @@ Hämtnings förloppet för `fileuploadout.txt` fil loggar. Du kan granska den h�
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Använd batch-tjänstens API med standard satserna för sats fil konvention
 
-När du sparar Uppgiftsutdata med batch-tjänstens API kan du namnge din mål behållare och blobar som du vill. Du kan också välja att namnge dem enligt [satserna i satsen för fil konventioner som standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Standard för fil konventioner bestämmer namnen på mål behållaren och blobben i Azure Storage för en utdatafil baserat på namnet på jobbet och uppgiften. Om du använder fil konventions standarden för namngivning av utdatafiler är utdatafilerna tillgängliga för visning i [Azure Portal](https://portal.azure.com).
+När du sparar Uppgiftsutdata med batch-tjänstens API kan du namnge din mål behållare och blobar som du vill. Du kan också välja att namnge dem enligt [satserna i satsen för fil konventioner som standard](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). Standard för fil konventioner bestämmer namnen på mål behållaren och blobben i Azure Storage för en utdatafil baserat på namnet på jobbet och uppgiften. Om du använder fil konventions standarden för namngivning av utdatafiler är utdatafilerna tillgängliga för visning i [Azure Portal](https://portal.azure.com).
 
 Om du utvecklar i C# kan du använda de metoder som är inbyggda i [biblioteket med kommando fils konventioner för .net](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files). Det här biblioteket skapar de korrekt namngivna behållare och blob-sökvägar åt dig. Du kan till exempel anropa API: et för att få rätt namn för behållaren, baserat på jobbets namn:
 

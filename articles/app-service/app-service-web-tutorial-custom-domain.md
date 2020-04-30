@@ -5,14 +5,14 @@ keywords: app service, azure app service, domain mapping, domain name, existing 
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/06/2019
+ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: adc9b60ce1c31076a91ec44b9656752b464e024d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: 116ec218b1f3947b85b4ab865df30477f05c601a
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "80811780"
+ms.locfileid: "82559926"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Självstudie: mappa ett befintligt anpassat DNS-namn till Azure App Service
 
@@ -93,6 +93,12 @@ När du ser följande meddelande har skalningsåtgärden slutförts.
 
 <a name="cname" aria-hidden="true"></a>
 
+## <a name="get-domain-verification-id"></a>Hämta ID för domän verifiering
+
+Om du vill lägga till en anpassad domän i din app måste du verifiera din ägande av domänen genom att lägga till ett verifierings-ID som en TXT-post med din domän leverantör. I det vänstra navigerings fönstret på din app-sida klickar du på **resurs läsaren** under **utvecklingsverktyg**och klickar sedan på **gå**.
+
+I JSON-vyn för appens egenskaper söker du efter `customDomainVerificationId`och kopierar dess värde inuti de dubbla citat tecknen. Du behöver det här verifierings-ID: t för nästa steg.
+
 ## <a name="map-your-domain"></a>Mappa din domän
 
 Du kan mappa ett anpassat DNS-namn till App Service med antingen en **CNAME-post** eller en **A-post**. Följ respektive steg:
@@ -114,11 +120,14 @@ I kursexemplet lägger du till en CNAME-post för `www`-underdomänen (till exem
 
 #### <a name="create-the-cname-record"></a>Skapa CNAME-posten
 
-Lägg till en CNAME-post för att mappa en under domän till appens standard domän`<app_name>.azurewebsites.net`namn ( `<app_name>` där är namnet på din app).
+Mappa en under domän till appens standard domän namn (`<app_name>.azurewebsites.net`där `<app_name>` är namnet på din app). Skapa en CNAME-mappning för `www` under domänen genom att skapa två poster:
 
-För `www.contoso.com`-domänexemplet lägger du till en CNAME-post som mappar namnet `www` till `<app_name>.azurewebsites.net`.
+| Posttyp | Värd | Värde | Kommentarer |
+| - | - | - |
+| CNAME | `www` | `<app_name>.azurewebsites.net` | Själva domän mappningen. |
+| TXT | `asuid.www` | [Verifierings-ID: t som du fick tidigare](#get-domain-verification-id) | App Service använder `asuid.<subdomain>` txt-posten för att verifiera din ägande av den anpassade domänen. |
 
-När du har lagt till CNAME ser sidan med DNS-poster ut så här:
+När du har lagt till CNAME-och TXT-posterna ser sidan DNS-poster ut som i följande exempel:
 
 ![Portalnavigering till Azure-app](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
@@ -183,17 +192,12 @@ På sidan **Anpassade domäner** kopierar du appens IP-adress.
 
 #### <a name="create-the-a-record"></a>Skapa en A-post
 
-När du mappar en A-post till en app i App Service behöver du **två** DNS-poster:
+För att mappa en A-post till en app, vanligt vis till rot domänen, skapar du två poster:
 
-- En **A**-post för att mappa till appens IP-adress.
-- En **txt** -post som ska mappas till appens standard `<app_name>.azurewebsites.net`domän namn. Den här posten används av App Service endast vid konfigurationen, för att verifiera att du äger den anpassade domänen. När din anpassade domän har verifierats och konfigurerats i App Service kan du ta bort TXT-posten.
-
-För `contoso.com`-domänexemplet skapar du A-posten och TXT-posten enligt följande tabell (`@` representerar vanligtvis rotdomänen).
-
-| Posttyp | Värd | Värde |
+| Posttyp | Värd | Värde | Kommentarer |
 | - | - | - |
-| A | `@` | IP-adress från [Kopiera appens IP-adress](#info) |
-| TXT | `@` | `<app_name>.azurewebsites.net` |
+| A | `@` | IP-adress från [Kopiera appens IP-adress](#info) | Själva domän mappningen (`@` representerar vanligt vis rot domänen). |
+| TXT | `asuid` | [Verifierings-ID: t som du fick tidigare](#get-domain-verification-id) | App Service använder `asuid.<subdomain>` txt-posten för att verifiera din ägande av den anpassade domänen. Använd `asuid`för rot domänen. |
 
 > [!NOTE]
 > Om du vill lägga till en underdomän (t.ex. `www.contoso.com`) med en A-post i stället för en rekommenderad [CNAME-post](#map-a-cname-record) bör A-posten och TXT-posten se ut som följande tabell i stället:
@@ -201,7 +205,7 @@ För `contoso.com`-domänexemplet skapar du A-posten och TXT-posten enligt följ
 > | Posttyp | Värd | Värde |
 > | - | - | - |
 > | A | `www` | IP-adress från [Kopiera appens IP-adress](#info) |
-> | TXT | `www` | `<app_name>.azurewebsites.net` |
+> | TXT | `asuid.www` | `<app_name>.azurewebsites.net` |
 >
 
 När posterna har lagts till ser sidan för DNS-poster ut som i följande exempel:

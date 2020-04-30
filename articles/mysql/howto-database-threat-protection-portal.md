@@ -1,17 +1,17 @@
 ---
 title: Avancerat skydd – Azure Portal-Azure Database for MySQL
 description: Lär dig hur du konfigurerar Avancerat skydd för att identifiera avvikande databas aktiviteter som indikerar potentiella säkerhetshot mot databasen.
-author: bolzmj
-ms.author: mbolz
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 8eec40006a280b69387e14a5841360da65616ca5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4936f765052d6993e5a372bde6336e00b19a24f6
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062345"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509269"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Avancerat skydd för Azure Database for MySQL
 

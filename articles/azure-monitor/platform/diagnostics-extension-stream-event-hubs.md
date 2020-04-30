@@ -1,49 +1,49 @@
 ---
-title: Skicka data från Windows Azure-diagnostiktillägg till Azure Event Hubs
-description: Konfigurera diagnostiktillägg i Azure Monitor för att skicka data till Azure Event Hub så att du kan vidarebefordra det till platser utanför Azure.
+title: Skicka data från Windows Azure Diagnostics-tillägget till Azure Event Hubs
+description: Konfigurera Diagnostics extension i Azure Monitor att skicka data till Azure Event Hub så att du kan vidarebefordra det till platser utanför Azure.
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
-ms.openlocfilehash: 5e5034e99d37d3681192c2ad066f28acd1c4aeeb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 979535b1f9a237f6975908178fb1e5ed819181b0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672539"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233473"
 ---
-# <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Skicka data från Windows Azure-diagnostiktillägg till Azure Event Hubs
-Azure Diagnostics-tillägget är en agent i Azure Monitor som samlar in övervakningsdata från gästoperativsystemet och arbetsbelastningar för virtuella Azure-datorer och andra beräkningsresurser. I den här artikeln beskrivs hur du skickar data från Windows Azure Diagnostic-tillägget (WAD) till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) så att du kan vidarebefordra till platser utanför Azure.
+# <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Skicka data från Windows Azure Diagnostics-tillägget till Azure Event Hubs
+Tillägget Azure Diagnostics är en agent i Azure Monitor som samlar in övervaknings data från gäst operativ systemet och arbets belastningar på virtuella Azure-datorer och andra beräknings resurser. Den här artikeln beskriver hur du skickar data från WAD (Windows Azure Diagnostic Extension) till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) så att du kan vidarebefordra till platser utanför Azure.
 
 ## <a name="supported-data"></a>Data som stöds
 
-De data som samlas in från gästoperativsystemet som kan skickas till Event Hubs innehåller följande. Andra datakällor som samlas in av WAD, inklusive IIS-loggar och kraschdumpar, kan inte skickas till Event Hubs.
+De data som samlas in från gäst operativ systemet som kan skickas till Event Hubs innehåller följande. Andra data källor som samlas in av WAD, inklusive IIS-loggar och krasch dum par, kan inte skickas till Event Hubs.
 
 * ETW-händelser (Event Tracing for Windows)
 * Prestandaräknare
-* Windows-händelseloggar, inklusive programloggar i Windows-händelseloggen
+* Händelse loggar i Windows, inklusive program loggar i Windows-händelseloggen
 * Azure Diagnostics-infrastrukturloggar
 
 ## <a name="prerequisites"></a>Krav
 
-* Windows diagnostiktillägg 1.6 eller senare. Se [Azure Diagnostics-schemaversioner för tilläggskonfiguration och historik](diagnostics-extension-versions.md) för en versionshistorik och [Azure Diagnostics-tilläggsöversikt](diagnostics-extension-overview.md) för resurser som stöds.
-* Namnområdet Event Hubs måste alltid etableras. Mer information [finns i Komma igång med eventhubbar.](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+* Windows Diagnostics-tillägget 1,6 eller högre. Se [Azure-diagnostik tilläggs konfiguration schema versioner och historik](diagnostics-extension-versions.md) för en versions historik och [Översikt över Azure-diagnostik tillägg](diagnostics-extension-overview.md) för resurser som stöds.
+* Event Hubs namn området måste alltid vara etablerad. Mer information finns i [Kom igång med Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) .
 
 
-## <a name="configuration-schema"></a>Konfigurationsschema
-Se [Installera och konfigurera Windows Azure diagnostics extension (WAD)](diagnostics-extension-windows-install.md) för olika alternativ för att aktivera och konfigurera [konfigurationsschemat](diagnostics-extension-schema-windows.md) för diagnostiktillägg och Azure Diagnostics för en referens till konfigurationsschemat. I resten av den här artikeln beskrivs hur du använder den här konfigurationen för att skicka data till en händelsehubb. 
+## <a name="configuration-schema"></a>Konfigurations schema
+Se [Installera och konfigurera Windows Azure Diagnostics Extension (wad)](diagnostics-extension-windows-install.md) för olika alternativ för att aktivera och Konfigurera diagnostik-tillägget och [Azure-diagnostik konfigurations schema](diagnostics-extension-schema-windows.md) för en referens för konfigurations schemat. Resten av den här artikeln beskriver hur du använder den här konfigurationen för att skicka data till en Event Hub. 
 
-Azure Diagnostics skickar alltid loggar och mått till ett Azure Storage-konto. Du kan konfigurera en eller flera *datamottagare* som skickar data till ytterligare platser. Varje mottagare definieras i [sinksConfig-elementet](diagnostics-extension-schema-windows.md#sinksconfig-element) i den offentliga konfigurationen med känslig information i den privata konfigurationen. Den här konfigurationen för händelsehubbar använder värdena i följande tabell.
+Azure-diagnostik skickar alltid loggar och mått till ett Azure Storage-konto. Du kan konfigurera en eller flera *data mottagare* som skickar data till ytterligare platser. Varje mottagare definieras i SinksConfig- [elementet](diagnostics-extension-schema-windows.md#sinksconfig-element) i den offentliga konfigurationen med känslig information i den privata konfigurationen. Den här konfigurationen för Event Hub använder värdena i följande tabell.
 
 | Egenskap | Beskrivning |
 |:---|:---|
-| Namn | Beskrivande namn för diskbänken. Används i konfigurationen för att ange vilka datakällor som ska skickas till diskhon. |
-| URL  | Url till händelsehubben \<i formulärhändelse-hubbar-namnområdet\>\<.servicebus.windows.net/ händelse-hubb-namn\>.          |
-| SharedAccessKeyName | Namn på en princip för delad åtkomst **Send** för händelsehubben som har minst Skicka-behörighet. |
-| SharedAccessKey     | Primär eller sekundär nyckel från principen för delad åtkomst för händelsehubben. |
+| Name | Beskrivande namn för mottagaren. Används i konfigurationen för att ange vilka data källor som ska skickas till mottagaren. |
+| URL  | URL för \<händelsehubben i formatet Event-Hubbs-namespace\>. ServiceBus.Windows.net/\<Event-hubb-Name.\>          |
+| SharedAccessKeyName | Namnet på en delad åtkomst princip för händelsehubben som har minst en **send** -auktoritet. |
+| SharedAccessKey     | Primär eller sekundär nyckel från den delade åtkomst principen för händelsehubben. |
 
-Exempel på offentliga och privata konfigurationer visas nedan. Detta är en minimal konfiguration med en enda prestandaräknare och händelselogg för att illustrera hur du konfigurerar och använder händelsehubbdatamottagaren. Se [Azure Diagnostics konfigurationsschema](diagnostics-extension-schema-windows.md) för ett mer komplext exempel.
+Exempel på offentliga och privata konfigurationer visas nedan. Detta är en minimal konfiguration med en enda prestanda räknare och händelse logg för att illustrera hur du konfigurerar och använder data mottagaren för Event Hub. Se [Azure-diagnostik konfigurations schema](diagnostics-extension-schema-windows.md) för ett mer komplext exempel.
 
 ### <a name="public-configuration"></a>Offentlig konfiguration
 
@@ -51,26 +51,26 @@ Exempel på offentliga och privata konfigurationer visas nedan. Detta är en min
 {
     "WadCfg": {
         "DiagnosticMonitorConfiguration": {
-            "overallQuotaInMB": 5120
-        },
-        "PerformanceCounters": {
-            "scheduledTransferPeriod": "PT1M",
-            "sinks": "myEventHub",
-            "PerformanceCounterConfiguration": [
-                {
-                    "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                    "sampleRate": "PT3M"
-                }
-            ]
-        },
-        "WindowsEventLog": {
-            "scheduledTransferPeriod": "PT1M",
-            "sinks": "myEventHub",
-                "DataSource": [
-                {
-                    "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
-                }
-            ]
+            "overallQuotaInMB": 5120,
+            "PerformanceCounters": {
+                "scheduledTransferPeriod": "PT1M",
+                "sinks": "myEventHub",
+                "PerformanceCounterConfiguration": [
+                    {
+                        "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+                        "sampleRate": "PT3M"
+                    }
+                ]
+            },
+            "WindowsEventLog": {
+                "scheduledTransferPeriod": "PT1M",
+                "sinks": "myEventHub",
+                    "DataSource": [
+                    {
+                        "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
+                    }
+                ]
+            }
         },
         "SinksConfig": {
             "Sink": [
@@ -107,7 +107,7 @@ Exempel på offentliga och privata konfigurationer visas nedan. Detta är en min
 
 
 ## <a name="configuration-options"></a>Konfigurationsalternativ
-Om du vill skicka data till en datamottagare anger du **attributet sinks** på datakällans nod. Var du **placerar attributet sinks** bestämmer tilldelningens omfattning. I följande exempel definieras **attributet sinks** till noden **PerformanceCounters,** vilket gör att alla underordnade prestandaräknare skickas till händelsehubben.
+Om du vill skicka data till en data mottagare anger du attributet **Sinks** på data källans nod. Där du placerar **Sinks** -attributet bestämmer tilldelningens omfattning. I följande exempel definieras attributet **Sinks** för **PerformanceCounters** -noden som gör att alla underordnade prestanda räknare skickas till Event Hub.
 
 ```JSON
 "PerformanceCounters": {
@@ -131,7 +131,7 @@ Om du vill skicka data till en datamottagare anger du **attributet sinks** på d
 ```
 
 
-I följande exempel tillämpas **attributet sinks** direkt på tre räknare som gör att endast dessa prestandaräknare skickas till händelsehubben. 
+I följande exempel används attributet **Sinks** direkt på tre räknare, vilket innebär att endast de prestanda räknare skickas till händelsehubben. 
 
 ```JSON
 "PerformanceCounters": {
@@ -164,15 +164,15 @@ I följande exempel tillämpas **attributet sinks** direkt på tre räknare som 
 }
 ```
 
-## <a name="validating-configuration"></a>Validera konfiguration
-Du kan använda en mängd olika metoder för att verifiera att data skickas till händelsehubben. ne enkel metod är att använda Händelsehubbar fånga som beskrivs i [Capture händelser via Azure Event Hubs i Azure Blob Storage eller Azure Data Lake Storage](../../event-hubs/event-hubs-capture-overview.md). 
+## <a name="validating-configuration"></a>Verifierar konfiguration
+Du kan använda en mängd olika metoder för att verifiera att data skickas till Event Hub. den enklaste metoden är att använda Event Hubs avbildning som beskrivs i [avbilda händelser via azure Event Hubs i azure Blob Storage eller Azure Data Lake Storage](../../event-hubs/event-hubs-capture-overview.md). 
 
 
-## <a name="troubleshoot-event-hubs-sinks"></a>Felsöka sänkor för händelsehubbar
+## <a name="troubleshoot-event-hubs-sinks"></a>Felsöka Event Hubs-mottagare
 
-- Titta på Azure Storage-tabellen **WADDiagnosticInfrastructureLogsTable** som innehåller loggar och fel för Azure Diagnostics själv. Ett alternativ är att använda ett verktyg som [Azure Storage Explorer](https://www.storageexplorer.com) för att ansluta till det här lagringskontot, visa den här tabellen och lägga till en fråga för Tidsstämpel under de senaste 24 timmarna. Du kan använda verktyget för att exportera en CSV-fil och öppna den i ett program som Microsoft Excel. Excel gör det enkelt att söka efter telefonkortssträngar, till exempel **EventHubs,** för att se vilket fel som rapporteras.  
+- Titta på Azure Storage Table- **WADDiagnosticInfrastructureLogsTable** som innehåller loggar och fel för Azure-diagnostik. Ett alternativ är att använda ett verktyg som [Azure Storage Explorer](https://www.storageexplorer.com) för att ansluta till det här lagrings kontot, Visa den här tabellen och lägga till en fråga för timestamp under de senaste 24 timmarna. Du kan använda verktyget för att exportera en. csv-fil och öppna den i ett program, till exempel Microsoft Excel. Excel gör det enkelt att söka efter telefon korts strängar, till exempel **EventHubs**, för att se vilket fel som rapporteras.  
 
-- Kontrollera att händelsehubben har etablerats. All anslutningsinformation i avsnittet **PrivateConfig** i konfigurationen måste matcha värdena för din resurs som visas i portalen. Kontrollera att du har definierat en SAS-princip *(SendRule* i exemplet) i portalen och att *Send-behörighet* beviljas.  
+- Kontrol lera att händelsehubben har kon figurer ATS. All anslutnings information i **PrivateConfig** -avsnittet i konfigurationen måste matcha värdena för din resurs som visas i portalen. Se till att du har definierat en SAS-princip (*SendRule* i exemplet) i portalen och att *send* -behörighet beviljas.  
 
 ## <a name="next-steps"></a>Nästa steg
 

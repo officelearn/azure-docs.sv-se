@@ -12,19 +12,19 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/14/2020
-ms.openlocfilehash: 2564fd0ffd980dae4ca1835f4211fee0a0cf040c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 1fedf889fa8d39a926067eb227b895d4fe1e3c39
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380925"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509354"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Hantera Azure SQL Database långsiktig kvarhållning av säkerhets kopior
 
 I Azure SQL Database kan du konfigurera en enskild databas eller en pool med en [långsiktig säkerhets kopierings](sql-database-long-term-retention.md) princip (LTR) för att automatiskt behålla databas säkerhets kopiorna i separata Azure Blob Storage-behållare i upp till 10 år. Du kan sedan återställa en databas med hjälp av de här säkerhets kopiorna med hjälp av Azure Portal eller PowerShell.
 
 > [!IMPORTANT]
-> Den [hanterade instansen av Azure SQL Database](sql-database-managed-instance.md) stöder för närvarande inte långsiktig kvarhållning av säkerhets kopior.
+> För Azure SQL Database-Hanterad instans, se [LTR-stöd för hanterade instanser](sql-database-long-term-retention.md#managed-instance-support).
 
 ## <a name="using-azure-portal"></a>Använda Azure Portal
 

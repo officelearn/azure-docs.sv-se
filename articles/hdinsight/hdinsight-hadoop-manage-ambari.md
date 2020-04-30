@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: 53d8da3f5ff715fa34f007272214823ed60e6326
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c0e95b71ec21b384f17a44ebf5cfd4f33b45f0f
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192067"
+ms.locfileid: "82232861"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari-webbgränssnittet
 
@@ -135,7 +135,7 @@ Om du väljer någon av dessa länkar öppnas en ny flik i webbläsaren som visa
 
 ### <a name="ambari-users-groups-and-permissions"></a>Ambari användare, grupper och behörigheter
 
-Att arbeta med användare, grupper och behörigheter stöds när du använder ett domänanslutna HDInsight-kluster. Information om hur du använder gränssnittet för hantering av Ambari på ett domänanslutet kluster finns i [Hantera domänanslutna HDInsight-kluster](./domain-joined/hdinsight-security-overview.md).
+Det finns stöd för att arbeta med användare, grupper och behörigheter. För lokal administration, se [auktorisera användare för Apache Ambari views](./hdinsight-authorize-users-to-ambari.md). För domänanslutna kluster, se [Hantera domänanslutna HDInsight-kluster](./domain-joined/hdinsight-security-overview.md).
 
 > [!WARNING]  
 > Ändra inte lösen ordet för Ambari-hdinsightwatchdog () på ditt Linux-baserade HDInsight-kluster. Om du ändrar lösen ordet bryts möjligheten att använda skript åtgärder eller utföra skalnings åtgärder med klustret.

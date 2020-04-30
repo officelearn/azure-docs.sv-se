@@ -1,6 +1,6 @@
 ---
-title: E-postmeddelanden i PIM - Azure Active Directory | Microsoft-dokument
-description: Beskriver e-postmeddelanden i Azure AD Privileged Identity Management (PIM).
+title: E-postmeddelanden i PIM – Azure Active Directory | Microsoft Docs
+description: Beskriver e-postaviseringar i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -11,107 +11,107 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 04/21/2020
+ms.date: 04/28/2020
 ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 201abd24bc4056337f1ffecd2dabd002ae352c74
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 02fbfc83c16cb13376cce820f19b247a7cd7db59
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81866426"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232316"
 ---
 # <a name="email-notifications-in-pim"></a>E-postmeddelanden i PIM
 
-Pim (Privileged Identity Management) talar om när viktiga händelser inträffar i din Azure Active Directory -organisation (Azure AD), till exempel när en roll tilldelas eller aktiveras. Privilegierad identitetshantering håller dig informerad genom att skicka e-postmeddelanden till dig och andra deltagare. Dessa e-postmeddelanden kan också innehålla länkar till relevanta uppgifter, till exempel aktivera eller förnya en roll. I den här artikeln beskrivs hur dessa e-postmeddelanden ser ut, när de skickas och vem som tar emot dem.
+Privileged Identity Management (PIM) kan du se när viktiga händelser inträffar i din Azure Active Directory (Azure AD)-organisation, till exempel när en roll tilldelas eller aktive ras. Privileged Identity Management håller dig informerad genom att skicka e-postmeddelanden till dig och andra deltagare. Dessa e-postmeddelanden kan också innehålla länkar till relevanta uppgifter, t. ex. aktivering eller förnyelse av en roll. Den här artikeln beskriver vad dessa e-postmeddelanden ser ut när de skickas och vem som tar emot dem.
 
-## <a name="sender-email-address-and-subject-line"></a>E-postadress och ämnesrad avsändare
+## <a name="sender-email-address-and-subject-line"></a>Avsändar-e-postadress och ämnesrad
 
-E-postmeddelanden som skickas från Privilegierad identitetshantering för både Azure AD- och Azure-resursroller har följande e-postadress för avsändaren:
+E-postmeddelanden som skickas från Privileged Identity Management för både Azure AD och Azures resurs roller har följande avsändar-e-post adress:
 
-- E-postadress: **\@azure-noreply microsoft.com**
-- Visningsnamn: Microsoft Azure
+- E-post adress: **Azure-\@noreply Microsoft.com**
+- Visnings namn: Microsoft Azure
 
-Dessa e-postmeddelanden innehåller ett **PIM-prefix** i ämnesraden. Här är ett exempel:
+Dessa e-postmeddelanden innehåller ett **PIM** -prefix på ämnes raden. Här är ett exempel:
 
-- PIM: Alain Charon tilldelades rollen backup reader permanent
+- PIM: Alain Charon har tilldelats permanent rollen som säkerhets kopierings läsare
 
-## <a name="notifications-for-azure-ad-roles"></a>Meddelanden för Azure AD-roller
+## <a name="notifications-for-azure-ad-roles"></a>Aviseringar för Azure AD-roller
 
-Privilegierad identitetshantering skickar e-post när följande händelser inträffar för Azure AD-roller:
+Privileged Identity Management skickar e-postmeddelanden när följande händelser inträffar för Azure AD-roller:
 
-- När en privilegierad rollaktivering väntar på godkännande
-- När en privilegierad rollaktiveringsbegäran har slutförts
+- När en aktivering av privilegierade roller väntar på godkännande
+- När en aktiverings förfrågan för en privilegie rad roll har slutförts
 - När Azure AD Privileged Identity Management är aktiverat
 
-Vem som tar emot dessa e-postmeddelanden för Azure AD-roller beror på din roll, händelsen och inställningen för aviseringar:
+Vem som får dessa e-postmeddelanden för Azure AD-roller beror på din roll, händelsen och meddelande inställningen:
 
-| Användare | Rollaktivering väntar på godkännande | Begäran om rollaktivering har slutförts | PIM är aktiverat |
+| Användare | Roll aktiveringen väntar på godkännande | Begäran om roll aktivering har slutförts | PIM är aktiverat |
 | --- | --- | --- | --- |
-| Administratör för privilegierad roll</br>(Aktiverad/stödberättigande) | Ja</br>(endast om inga explicita godkännare har angetts) | Ja* | Ja |
-| Säkerhetsadministratör</br>(Aktiverad/stödberättigande) | Inga | Ja* | Ja |
-| Global administratör</br>(Aktiverad/stödberättigande) | Inga | Ja* | Ja |
+| Privilegie rad roll administratör</br>(Aktive rad/berättigad) | Ja</br>(endast om inga uttryckliga god kännare har angetts) | Ja* | Ja |
+| Säkerhetsadministratör</br>(Aktive rad/berättigad) | Nej | Ja* | Ja |
+| Global administratör</br>(Aktive rad/berättigad) | Nej | Ja* | Ja |
 
-\*Om [inställningen **Meddelanden** ](pim-how-to-change-default-settings.md#notifications) är inställd **på Aktivera**.
+\*Om inställningen [ **meddelanden** ](pim-how-to-change-default-settings.md#notifications) är inställd på **Aktivera**.
 
-Följande visar ett exempel på e-post som skickas när en användare aktiverar en Azure AD-roll för den fiktiva Contoso-organisationen.
+Följande visar ett exempel på ett e-postmeddelande som skickas när en användare aktiverar en Azure AD-roll för den fiktiva Contoso-organisationen.
 
-![Ny e-post för privilegierad identitetshantering för Azure AD-roller](./media/pim-email-notifications/email-directory-new.png)
+![Nytt Privileged Identity Management e-postmeddelande för Azure AD-roller](./media/pim-email-notifications/email-directory-new.png)
 
-### <a name="weekly-privileged-identity-management-digest-email-for-azure-ad-roles"></a>Veckovis sammanfattad hantering av privilegierad identitetshantering för Azure AD-roller
+### <a name="weekly-privileged-identity-management-digest-email-for-azure-ad-roles"></a>Veckovis Privileged Identity Management sammandrag av e-post för Azure AD-roller
 
-Ett veckovis e-postmeddelande om privilegierad identitetshantering för Azure AD-roller skickas till privilegierade rolladministratörer, säkerhetsadministratörer och globala administratörer som har aktiverat privilegierad identitetshantering. Det här e-postmeddelandet varje vecka innehåller en ögonblicksbild av aktiviteter för privilegierad identitetshantering för veckan samt privilegierade rolltilldelningar. Den är endast tillgänglig för klienter i det offentliga molnet. Här är ett exempel på e-post:
+Ett vecko Privileged Identity Management Sammanfattning av e-post för Azure AD-roller skickas till privilegierade roll administratörer, säkerhets administratörer och globala administratörer som har aktiverat Privileged Identity Management. Detta vecko Visa e-postmeddelande ger en ögonblicks bild av Privileged Identity Management aktiviteter för veckan samt privilegierade roll tilldelningar. Den är endast tillgänglig för Azure AD-organisationer i det offentliga molnet. Här är ett exempel på ett e-postmeddelande:
 
-![Veckovis sammanfattad hantering av privilegierad identitetshantering för Azure AD-roller](./media/pim-email-notifications/email-directory-weekly.png)
+![Veckovis Privileged Identity Management sammandrag av e-post för Azure AD-roller](./media/pim-email-notifications/email-directory-weekly.png)
 
 E-postmeddelandet innehåller fyra paneler:
 
 | Panel | Beskrivning |
 | --- | --- |
-| **Användare aktiverade** | Antal gånger användare aktiverat sin kvalificerade roll i klienten. |
-| **Användare som gjorts permanenta** | Antal gånger användare med en berättigad tilldelning görs permanent. |
-| **Rolltilldelningar i Privilegierad identitetshantering** | Antal gånger användare tilldelas en kvalificerad roll i Privilegierad identitetshantering. |
-| **Rolltilldelningar utanför PIM** | Antal gånger användare tilldelas en permanent roll utanför Privilegierad identitetshantering (i Azure AD). |
+| **Användare aktiverade** | Antal gånger som användare har aktiverat sin berättigade roll i organisationen. |
+| **Användare som gjorts permanenta** | Antalet gånger som användare med en berättigad tilldelning görs permanenta. |
+| **Roll tilldelningar i Privileged Identity Management** | Antal gånger som användare tilldelas en berättigad roll i Privileged Identity Management. |
+| **Roll tilldelningar utanför PIM** | Antal gånger som användare tilldelas en permanent roll utanför Privileged Identity Management (i Azure AD). |
 
-I avsnittet **Översikt över dina topproller** visas de fem översta rollerna i din klientorganisation baserat på det totala antalet permanenta och kvalificerade administratörer för varje roll. Länken **Vidta åtgärd** öppnar [PIM-guiden](pim-security-wizard.md) där du kan konvertera permanenta administratörer till kvalificerade administratörer i batchar.
+I avsnittet **Översikt över dina främsta roller** visas de fem främsta rollerna i din organisation baserat på det totala antalet permanenta och kvalificerade administratörer för varje roll. Länken **ta åtgärd** öppnar PIM- [guiden](pim-security-wizard.md) där du kan konvertera permanenta administratörer till berättigade administratörer i batchar.
 
-## <a name="email-timing-for-activation-approvals"></a>E-posttid för aktiveringsgodkännanden
+## <a name="email-timing-for-activation-approvals"></a>E-posttiming för aktiverings godkännanden
 
-När användare aktiverar sin roll och rollinställningen kräver godkännande får godkännare tre e-postmeddelanden för varje godkännande:
+När användarna aktiverar sin roll och roll inställningen kräver godkännande, får god kännare tre e-postmeddelanden för varje godkännande:
 
-- Begäran om att godkänna eller neka användarens aktiveringsbegäran (skickas av begäran approval engine)
-- Användarens begäran godkänns (skickas av begäran godkännande motor)
-- Användarens roll aktiveras (skickas av Privilegierad identitetshantering)
+- Begäran om att godkänna eller neka användarens aktiverings förfrågan (som skickats av motorn för förfrågnings godkännande)
+- Användarens begäran har godkänts (skickas av motorn för förfrågnings godkännande)
+- Användarens roll aktive ras (skickas av Privileged Identity Management)
 
-De två första e-postmeddelandena som skickas av begäran godkännande motorn kan fördröjas. För närvarande tar 90% av e-postmeddelanden tre till tio minuter, men för 1% kunder kan det vara mycket längre, upp till femton minuter.
+De första två e-postmeddelanden som skickas av motorn för godkännande av begär Ande kan vara fördröjda. För närvarande tar 90% av e-postmeddelanden tre till tio minuter, men för 1%-kunder kan det vara mycket längre, upp till femton minuter.
 
-Om en godkännandebegäran godkänns i Azure-portalen innan det första e-postmeddelandet skickas, kommer det första e-postmeddelandet inte längre att utlösas och andra godkännare meddelas inte via e-post om godkännandebegäran. Det kan verka som om de inte fick ett e-postmeddelande men det är det förväntade beteendet.
+Om en begäran om godkännande godkänns i Azure Portal innan den första e-postmeddelandet skickas, utlöses inte det första e-postmeddelandet och andra god kännare kommer inte att meddelas via e-post för begäran om godkännande. Det kan visas som om de inte fick något e-postmeddelande, men det är det förväntade beteendet.
 
-## <a name="pim-emails-for-azure-resource-roles"></a>PIM-e-postmeddelanden för Azure-resursroller
+## <a name="pim-emails-for-azure-resource-roles"></a>PIM-e-post för Azures resurs roller
 
-Privilegierad identitetshantering skickar e-post till ägare och användaråtkomstadministratörer när följande händelser inträffar för Azure-resursroller:
+Privileged Identity Management skickar e-post till ägare och användar åtkomst administratörer när följande händelser inträffar för Azure-resurs roller:
 
-- När en rolltilldelning väntar på godkännande
+- När en roll tilldelning väntar på godkännande
 - När en roll tilldelas
-- När en roll snart ska löpa ut
-- När en roll kan förlängas
-- När en roll förnyas av en slutanvändare
-- När en rollaktiveringsbegäran har slutförts
+- När en roll snart upphör att gälla
+- När en roll är kvalificerad att utöka
+- När en roll förnyas av en användare
+- När en begäran om att aktivera en roll är slutförd
 
-Privilegierad identitetshantering skickar e-post till slutanvändare när följande händelser inträffar för Azure-resursroller:
+Privileged Identity Management skickar e-post till slutanvändare när följande händelser inträffar för Azure-resurs roller:
 
-- När en roll tilldelas användaren
+- När en roll tilldelas till användaren
 - När en användares roll har upphört att gälla
 - När en användares roll utökas
-- När en användares rollaktiveringsbegäran har slutförts
+- När en användares roll aktiverings förfrågan har slutförts
 
-Följande visar ett exempel e-post som skickas när en användare tilldelas en Azure-resursroll för den fiktiva Contoso-organisationen.
+Följande visar ett exempel på ett e-postmeddelande som skickas när en användare tilldelas en Azure-resurs roll för den fiktiva Contoso-organisationen.
 
-![E-post för ny privilegierad identitetshantering för Azure-resursroller](./media/pim-email-notifications/email-resources-new.png)
+![Nytt Privileged Identity Management e-post för Azures resurs roller](./media/pim-email-notifications/email-resources-new.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera Azure AD-rollinställningar i privilegierad identitetshantering](pim-how-to-change-default-settings.md)
-- [Godkänna eller neka begäranden om Azure AD-roller i privilegierad identitetshantering](azure-ad-pim-approval-workflow.md)
+- [Konfigurera inställningar för Azure AD-roller i Privileged Identity Management](pim-how-to-change-default-settings.md)
+- [Godkänn eller neka begär Anden för Azure AD-roller i Privileged Identity Management](azure-ad-pim-approval-workflow.md)

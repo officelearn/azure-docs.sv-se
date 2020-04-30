@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 82e42580f5d934af96b4fad57dde1573b9c30ef5
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.openlocfilehash: f4989f8dce32e2340357e30541548b3e7e9d8a44
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82098772"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508895"
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -34,10 +34,10 @@ I följande tabell sammanfattas de samplings typer som är tillgängliga för va
 |-|-|-|-|
 | ASP.NET | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-aspnet-applications) | [Ja](#configuring-fixed-rate-sampling-for-aspnet-applications) | Endast om ingen annan sampling gäller |
 | ASP.NET Core | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Ja](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Endast om ingen annan sampling gäller |
-| Azure Functions | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-azure-functions) | Inga | Endast om ingen annan sampling gäller |
-| Java | Inga | [Ja](#configuring-fixed-rate-sampling-for-java-applications) | Endast om ingen annan sampling gäller |
-| Python | Inga | [Ja](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Endast om ingen annan sampling gäller |
-| Alla andra | Inga | Inga | [Ja](#ingestion-sampling) |
+| Azure Functions | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-azure-functions) | Nej | Endast om ingen annan sampling gäller |
+| Java | Nej | [Ja](#configuring-fixed-rate-sampling-for-java-applications) | Endast om ingen annan sampling gäller |
+| Python | Nej | [Ja](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Endast om ingen annan sampling gäller |
+| Alla andra | Nej | Nej | [Ja](#ingestion-sampling) |
 
 > [!NOTE]
 > Informationen på de flesta av den här sidan gäller för de aktuella versionerna av Application Insights SDK: er. Mer information om äldre versioner av SDK: er [finns i avsnittet nedan](#older-sdk-versions).
@@ -310,7 +310,7 @@ Som standard är ingen sampling aktive rad i Java-agenten och SDK. För närvara
 
 #### <a name="configuring-java-agent"></a>Konfigurera Java-agent
 
-1. Hämta [applicationinsights-agent-3.0.0-Preview. 3. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.3/applicationinsights-agent-3.0.0-PREVIEW.3.jar)
+1. Ladda ned [applicationinsights-agent-3.0.0-Preview. 4. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
 
 1. Om du vill aktivera sampling lägger du till `ApplicationInsights.json` följande i filen:
 

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 85992224edd10c0a0f233de9f6274cc77e109b22
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9cf012df65560a921f2c9f12f6c0362a033300be
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60757794"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561648"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Självstudie: etablera Azure Data Box Gateway i VMware
 
@@ -21,7 +21,7 @@ ms.locfileid: "60757794"
 
 I den här självstudien beskrivs hur du etablerar Data Box Gateway på ett värdsystem som kör VMware ESXi 6.0, 6.5 eller 6.7. 
 
-Du måste ha administratörsbehörighet för att etablera och ansluta till en virtuell enhet. Etableringen och den inledande installationen kan ta ungefär 10 minuter att slutföra.
+Du måste ha administratörsbehörighet för att etablera och ansluta till en virtuell enhet. Etableringen och den inledande installationen kan ta ungefär 10 minuter att slutföra. 
 
 I den här guiden får du lära dig att:
 

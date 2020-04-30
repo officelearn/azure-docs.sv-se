@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: b75e0c1e53f1e00579de73897197cdd2f14d79af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ae9d219c376aa704be34088a4f7c48c35baa9669
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81455418"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509507"
 ---
 # <a name="virtual-network-service-endpoints"></a>Tjänstslutpunkter för virtuellt nätverk
 
@@ -43,7 +43,7 @@ Den här funktionen är tillgänglig för följande Azure-tjänster och-regioner
 
 **Offentlig för hands version**
 
-- **[Azure Container Registry](../container-registry/container-registry-vnet.md)** (*Microsoft. ContainerRegistry*): förhands granskning tillgänglig i alla Azure-regioner där Azure Container Registry är tillgängligt.
+- **[Azure Container Registry](../container-registry/container-registry-vnet.md)** (*Microsoft. ContainerRegistry*): för hands version tillgänglig i begränsade Azure-regioner där Azure Container Registry är tillgängligt.
 
 De mest uppdaterade meddelandena finns på sidan för [Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 

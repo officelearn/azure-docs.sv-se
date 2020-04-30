@@ -13,20 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: c32fdc67c74e100e0e31dad3afde128c05c356d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 219681351159de6ac6bb48ff979cc68aa4ee18d3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335978"
+ms.locfileid: "82233490"
 ---
 # <a name="azure-api-management-faqs"></a>Vanliga frågor och svar om Azure API Management
 Få svar på vanliga frågor, mönster och metod tips för Azure API Management.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="contact-us"></a>Kontakta oss
-* [Hur kan jag be Microsoft Azure API Management teamet om en fråga?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 * [Vad betyder det när en funktion är i för hands version?](#what-does-it-mean-when-a-feature-is-in-preview)
@@ -48,15 +45,8 @@ Få svar på vanliga frågor, mönster och metod tips för Azure API Management.
 * [Kan jag flytta en API Management-tjänst från en prenumeration till en annan?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
 * [Finns det begränsningar för eller kända problem med att importera mitt API?](#are-there-restrictions-on-or-known-issues-with-importing-my-api)
 
-### <a name="how-can-i-ask-the-microsoft-azure-api-management-team-a-question"></a>Hur kan jag be Microsoft Azure API Management teamet om en fråga?
-Du kan kontakta oss med något av följande alternativ:
-
-* Publicera dina frågor i vårt [API Management MSDN-forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azureapimgmt).
-* Skicka ett e-postmeddelande till <mailto:apimgmt@microsoft.com>.
-* Skicka oss en funktions förfrågan i [Azure feedback-forumet](https://feedback.azure.com/forums/248703-api-management).
-
 ### <a name="what-does-it-mean-when-a-feature-is-in-preview"></a>Vad betyder det när en funktion är i för hands version?
-När en funktion är i för hands version innebär det att vi aktivt söker efter feedback om hur funktionen fungerar. En funktion i förhands granskningen är funktionellt slutförd, men det är möjligt att vi gör en större ändring som svar på kundfeedback. Vi rekommenderar att du inte är beroende av en funktion som är i för hands version i din produktions miljö. Om du har kommentarer om för hands versions funktioner kan du berätta för oss om ett av kontakt alternativen i [Hur kan jag be Microsoft Azure API Management teamet om en fråga?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question).
+När en funktion är i för hands version innebär det att vi aktivt söker efter feedback om hur funktionen fungerar. En funktion i förhands granskningen är funktionellt slutförd, men det är möjligt att vi gör en större ändring som svar på kundfeedback. Vi rekommenderar att du inte är beroende av en funktion som är i för hands version i din produktions miljö.
 
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>Hur kan jag skydda anslutningen mellan API Management-gatewayen och mina backend-tjänster?
 Du har flera alternativ för att skydda anslutningen mellan API Management Gateway och backend-tjänsterna. Du kan:

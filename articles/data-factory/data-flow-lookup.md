@@ -1,6 +1,6 @@
 ---
-title: Uppslagstransformation vid mappning av dataflöde
-description: Referensdata från en annan källa med hjälp av uppslagsomvandlingen vid mappning av dataflöde.
+title: Söknings omvandling i data flöde för mappning
+description: Referens data från en annan källa med hjälp av uppslags omvandlingen i mappnings data flödet.
 author: kromerm
 ms.reviewer: daperlov
 ms.author: makromer
@@ -8,58 +8,58 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/23/2020
-ms.openlocfilehash: 24fe11610d2a91fcdb0f09b8e45ea6ff4b81bd70
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: af4e33e2653aebe5d1c979aa314463e4beb7b0d7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81606386"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233405"
 ---
-# <a name="lookup-transformation-in-mapping-data-flow"></a>Uppslagstransformation vid mappning av dataflöde
+# <a name="lookup-transformation-in-mapping-data-flow"></a>Söknings omvandling i data flöde för mappning
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Använd uppslagsomvandlingen för att referera till data från en annan källa i en dataflödesström. Uppslagsomvandlingen lägger till kolumner från matchade data till källdata.
+Använd lookup-omvandlingen för att referera till data från en annan källa i en data flödes ström. Uppslags omvandlingen lägger till kolumner från matchade data till dina källdata.
 
-En uppslagsomvandling liknar en vänster yttre koppling. Alla rader från den primära strömmen finns i utdataströmmen med ytterligare kolumner från uppslagsströmmen. 
+En uppslags omvandling liknar en vänster yttre koppling. Alla rader från den primära data strömmen finns i utdataströmmen med ytterligare kolumner från Sök strömmen. 
 
 ## <a name="configuration"></a>Konfiguration
 
-![Omvandling av uppslag](media/data-flow/lookup1.png "Sökning")
+![Sök omvandling](media/data-flow/lookup1.png "Sökning")
 
-**Primär ström:** Den inkommande dataströmmen. Den här strömmen motsvarar den vänstra sidan av en koppling.
+**Primär ström:** Inkommande data ström. Den här strömmen motsvarar vänster sida av en koppling.
 
-**Uppslagsström:** De data som läggs till i den primära strömmen. Vilka data som läggs till bestäms av uppslagsvillkoren. Den här strömmen motsvarar den högra sidan av en koppling.
+**Sök ström:** De data som läggs till i den primära data strömmen. Vilka data som läggs till bestäms av Sök villkoren. Den här strömmen motsvarar den högra sidan i en koppling.
 
-**Matcha flera rader:** Om det är aktiverat returneras flera rader med flera matchningar i den primära strömmen. Annars returneras endast en enda rad baserat på villkoret "Matcha på".
+**Matcha flera rader:** Om den är aktive rad returnerar en rad med flera matchningar i den primära data strömmen flera rader. Annars returneras bara en rad som baseras på villkoret "matcha on".
 
-**Match på:** Visas bara om "Matcha flera rader" är aktiverat. Välj om du vill matcha på en rad, den första matchen eller den sista matchen. Alla rader rekommenderas när den körs snabbast. Om första raden eller sista raden är markerad måste du ange sorteringsvillkor.
+**Matcha på:** Endast synlig om ' matcha flera rader ' är aktiverat. Välj om du vill matcha på alla rader, den första matchningen eller den sista matchningen. Alla rader rekommenderas eftersom de körs snabbast. Om den första raden eller sista raden är markerad, måste du ange sorterings villkor.
 
-**Uppslagsvillkor:** Välj vilka kolumner som ska matchas. Om likhetsvillkoret uppfylls betraktas raderna som en matchning. Hovra och välj "Beräknad kolumn" för att extrahera ett värde med hjälp av [dataflödesuttrycksspråket](data-flow-expression-functions.md).
+**Sök villkor:** Välj vilka kolumner som ska matchas. Om likhets villkoret är uppfyllt, kommer raderna att anses vara en matchning. Hovra och välj beräknad kolumn för att extrahera ett värde med hjälp av [data flödets uttrycks språk](data-flow-expression-functions.md).
 
-Uppslagsomvandlingen stöder bara likhetsmatchningar. Om du vill anpassa uppslagsuttrycket så att det omfattar andra operatorer, till exempel större än, rekommenderas att använda en [korskoppling i kopplingsomvandlingen](data-flow-join.md#custom-cross-join). En korskoppling undviker eventuella cartesianska produktfel vid utförande.
+Lookup-omvandlingen stöder bara likhets matchningar. Om du vill anpassa uppslags uttrycket så att det innehåller andra operatorer, till exempel större än, rekommenderar vi att du använder en [kors koppling i Join-omvandlingen](data-flow-join.md#custom-cross-join). En kors koppling gör att det inte går att kartesiska produkt fel vid körning.
 
-Alla kolumner från båda strömmarna ingår i utdata. Om du vill släppa dubbletter eller oönskade kolumner lägger du till en [markera omformning](data-flow-select.md) efter uppslagsomvandlingen. Kolumner kan också tas bort eller döpas om i en sink-omformning.
+Alla kolumner från båda strömmarna ingår i utdata. Om du vill släppa dubbletter eller oönskade kolumner lägger du till en [Select-omvandling](data-flow-select.md) efter sökningens omvandling. Kolumner kan också tas bort eller byta namn i en Sink-omvandling.
 
 ## <a name="analyzing-matched-rows"></a>Analysera matchade rader
 
-Efter uppslagsomvandlingen `isMatch()` kan funktionen användas för att se om sökningen matchas för enskilda rader.
+Efter uppslags omvandlingen kan funktionen `isMatch()` användas för att se om sökningen matchar enskilda rader.
 
-![Uppslagsmönster](media/data-flow/lookup111.png "Uppslagsmönster")
+![Sök mönster](media/data-flow/lookup111.png "Sök mönster")
 
-Ett exempel på det här mönstret är `isMatch()` att använda den villkorliga delningsomformningen för att dela på funktionen. I exemplet ovan går matchande rader genom den översta strömmen och ```NoMatch``` rader som inte matchar flödar genom strömmen.
+Ett exempel på det här mönstret är att använda den villkorliga delnings omvandlingen `isMatch()` för att dela upp funktionen. I exemplet ovan går matchande rader genom den översta strömmen och icke-matchande rader flödar genom ```NoMatch``` data strömmen.
 
-## <a name="testing-lookup-conditions"></a>Testa uppslagsvillkor
+## <a name="testing-lookup-conditions"></a>Testa Sök villkor
 
-När du testar uppslagsomvandlingen med förhandsgranskning av data i felsökningsläge använder du en liten uppsättning kända data. När du provar rader från en stor datauppsättning kan du inte förutsäga vilka rader och nycklar som ska läsas för testning. Resultatet är icke-deterministiskt, vilket innebär att dina kopplingsvillkor kanske inte returnerar några matchningar.
+När du testar lookup-omvandlingen med data förhands granskning i fel söknings läge, använder du en liten uppsättning kända data. När du samplar rader från en stor data uppsättning kan du inte förutsäga vilka rader och nycklar som ska läsas för testning. Resultatet är icke-deterministiskt, vilket innebär att dina kopplings villkor inte kan returnera några träffar.
 
-## <a name="broadcast-optimization"></a>Sändningsoptimering
+## <a name="broadcast-optimization"></a>Sändnings optimering
 
-I Azure Data Factory körs dataflöden i utskalade Spark-miljöer. Om datauppsättningen får plats i minnesutrymmet för arbetsnoder kan uppslagsprestanda optimeras genom att aktivera sändning.
+![Sändnings anslutning](media/data-flow/broadcast.png "Sändnings anslutning")
 
-![Sända koppling](media/data-flow/broadcast.png "Sända koppling")
+I kopplingar, sökningar och exists-omvandling, om en eller båda data strömmar får plats i arbetsnodens minne, kan du optimera prestandan genom att aktivera **sändning**. Som standard bestämmer Spark-motorn om en sida ska sändas automatiskt eller inte. Välj **fast**om du vill välja vilken sida som ska sändas manuellt.
 
-Om du aktiverar sändningssändningar skjuts hela datauppsättningen in i minnet. För mindre datauppsättningar som bara innehåller några tusen rader kan sändning avsevärt förbättra uppslagsprestandan. För stora datauppsättningar kan det här alternativet leda till ett undantag för på minne.
+Vi rekommenderar inte att du inaktiverar sändning via alternativet **inaktivera** om inte dina kopplingar körs i tids gräns fel.
 
 ## <a name="data-flow-script"></a>Dataflödesskript
 
@@ -72,24 +72,24 @@ Om du aktiverar sändningssändningar skjuts hela datauppsättningen in i minnet
         multiple: { true | false },
         pickup: { 'first' | 'last' | 'any' },  ## Only required if false is selected for multiple
         { desc | asc }( <sortColumn>, { true | false }), ## Only required if 'first' or 'last' is selected. true/false determines whether to put nulls first
-        broadcast: { 'none' | 'left' | 'right' | 'both' }
+        broadcast: { 'auto' | 'left' | 'right' | 'both' | 'off' }
     ) ~> <lookupTransformationName>
 ```
 ### <a name="example"></a>Exempel
 
-![Omvandling av uppslag](media/data-flow/lookup-dsl-example.png "Sökning")
+![Sök omvandling](media/data-flow/lookup-dsl-example.png "Sökning")
 
-Dataflödesskriptet för ovanstående uppslagskonfiguration finns i kodavsnittet nedan.
+Data flödes skriptet för ovanstående uppslags konfiguration finns i kodfragmentet nedan.
 
 ```
 SQLProducts, DimProd lookup(ProductID == ProductKey,
     multiple: false,
     pickup: 'first',
     asc(ProductKey, true),
-    broadcast: 'none')~> LookupKeys
+    broadcast: 'auto')~> LookupKeys
 ```
 ## 
 Nästa steg
 
-* Kopplingen [join](data-flow-join.md) och [finns](data-flow-exists.md) omvandlingar både ta i flera strömmande ingångar
-* Använd en villkorlig ```isMatch()``` [delningsomformning](data-flow-conditional-split.md) med för att dela rader på matchande och icke-matchande värden
+* Transformeringarna [Join](data-flow-join.md) och [exists](data-flow-exists.md) tar båda i flera Stream-indata
+* Använd en [villkorlig Split](data-flow-conditional-split.md) -omvandling ```isMatch()``` med för att dela upp rader för matchande och icke-matchande värden

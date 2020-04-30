@@ -1,83 +1,87 @@
 ---
-title: Felsöka tillgänglighetstester för Azure Application Insights
-description: Felsöka webbtester i Azure Application Insights. Få aviseringar om en webbplats blir otillgänglig eller svarar långsamt.
+title: Felsöka Azure Application Insights-tillgänglighets test
+description: Felsök webbtester i Azure Application insikter. Få aviseringar om en webbplats blir otillgänglig eller svarar långsamt.
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 09/19/2019
+ms.date: 04/28/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 94b00a36445b0f4284caba218f6416db726611eb
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 8f03099cf2890882a1c1d4ba9d69fcb64d0db600
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81255455"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233966"
 ---
 # <a name="troubleshooting"></a>Felsökning
 
-Den här artikeln hjälper dig att felsöka vanliga problem som kan uppstå när du använder tillgänglighetsövervakning.
+Den här artikeln hjälper dig att felsöka vanliga problem som kan uppstå när du använder tillgänglighets övervakning.
 
 ## <a name="ssltls-errors"></a>SSL/TLS-fel
 
-|Meddelande om symptom/felmeddelande| Möjliga orsaker|
+|Symtom/fel meddelande| Möjliga orsaker|
 |--------|------|
-|Det gick inte att skapa SSL/TLS Secure Channel  | SSL-version. Endast TLS 1.0, 1.1 och 1.2 stöds. **SSLv3 stöds inte.**
-|TLSv1.2 Postlager: Alert (Nivå: Fatal, Beskrivning: Bad Record MAC)| Se StackExchange tråd för [mer information](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake).
-|URL som misslyckas är till en CDN (Content Delivery Network) | Detta kan bero på en felaktig konfiguration på cdn-skivan |  
+|Det gick inte att skapa säker kanal för SSL/TLS  | SSL-version. Endast TLS 1,0, 1,1 och 1,2 stöds. **SSLv3 stöds inte.**
+|TLSv 1.2-post lager: varning (nivå: allvarligt, beskrivning: felaktig post MAC)| [Mer information](https://security.stackexchange.com/questions/39844/getting-ssl-alert-write-fatal-bad-record-mac-during-openssl-handshake)finns i stackexchange-tråden.
+|URL: en som inte fungerar är till ett CDN (Content Delivery Network) | Detta kan bero på en felaktig konfiguration i CDN |  
 
 ### <a name="possible-workaround"></a>Möjlig lösning
 
-* Om webbadresserna som har problem alltid är beroende resurser, rekommenderas att **inaktivera tolkningsberoende begäranden** för webbtestet.
+* Om de webb adresser som upplever problemet alltid är beroende av resurser, rekommenderar vi att du inaktiverar **parsa beroende begär Anden** för webb testet.
 
-## <a name="test-fails-only-from-certain-locations"></a>Testet misslyckas bara från vissa platser
+## <a name="test-fails-only-from-certain-locations"></a>Testet Miss lyckas endast från vissa platser
 
-|Meddelande om symptom/felmeddelande| Möjliga orsaker|
+|Symtom/fel meddelande| Möjliga orsaker|
 |----|---------|
-|Ett anslutningsförsök misslyckades eftersom den anslutna parten inte svarade korrekt efter en viss tid  | Testagenter på vissa platser blockeras av en brandvägg.|
-|    |Omdirigering av vissa IP-adresser sker via (belastningsutjämnare, geotrafikhanterare, Azure Express Route.) 
-|    |Om du använder Azure ExpressRoute finns det scenarier där paket kan tas bort i fall där [asymmetrisk routning inträffar](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing).|
+|Ett anslutnings försök misslyckades på grund av att den anslutna parten inte svarade korrekt efter en tids period  | Test agenter på vissa platser blockeras av en brand vägg.|
+|    |Omdirigering av vissa IP-adresser sker via (belastnings utjämning, geo Traffic Manager, Azure Express Route.) 
+|    |Om du använder Azure ExpressRoute finns det scenarier där paket kan släppas i fall där [asymmetrisk routning sker](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing).|
 
-## <a name="test-failure-with-a-protocol-violation-error"></a>Testfel med ett fel vid fel vid fel vid fel vid protokollbrott
+## <a name="test-failure-with-a-protocol-violation-error"></a>Test fel med ett protokoll fel
 
-|Meddelande om symptom/felmeddelande| Möjliga orsaker| Möjliga lösningar |
+|Symtom/fel meddelande| Möjliga orsaker| Möjliga lösningar |
 |----|---------|-----|
-|Servern har begått ett protokollfel. Section=ResponseHeader Detail=CR måste följas av LF | Detta inträffar när felaktiga rubriker upptäcks. Vissa rubriker kanske inte använder CRLF för att ange slutet av raden, vilket bryter mot HTTP-specifikationen. Application Insights tillämpar den här HTTP-specifikationen och misslyckas med svar med felaktiga rubriker.| a. Kontakta webbplats värd leverantör / CDN leverantör för att åtgärda felaktiga servrar. <br> b. Om misslyckade begäranden är resurser (t.ex. formatfiler, bilder, skript) kan du överväga att inaktivera tolkningen av beroende begäranden. Tänk på, om du gör detta kommer du att förlora möjligheten att övervaka tillgängligheten för dessa filer).
+|Servern genomförde ett protokoll fel. Section = ResponseHeader detail = CR måste följas av LF | Detta inträffar när felaktiga rubriker identifieras. Mer specifikt kanske vissa huvuden inte använder CRLF för att ange slutet på raden, vilket strider mot HTTP-specifikationen. Application Insights tillämpar den här HTTP-specifikationen och Miss lyckas svar med felaktiga huvuden.| a. Kontakta värd leverantören för webbplatsen/CDN-providern för att åtgärda de felande servrarna. <br> b. Om de misslyckade förfrågningarna är resurser (t. ex. formatfiler, bilder, skript) kan du överväga att inaktivera parsningen av beroende begär Anden. Tänk på att om du gör detta kommer du att förlora möjligheten att övervaka tillgängligheten för dessa filer.
 
 > [!NOTE]
-> URL:en kanske inte misslyckas i webbläsare som har en avslappnad validering av HTTP-huvuden. I det här blogginlägget finns en detaljerad förklaring av felet: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+> URL: en kan inte Miss lyckas i webbläsare som har en avslappnad verifiering av HTTP-huvuden. I det här blogginlägget finns en detaljerad förklaring av felet: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
 
-## <a name="common-troubleshooting-questions"></a>Vanliga felsökningsfrågor
+## <a name="common-troubleshooting-questions"></a>Vanliga fel söknings frågor
 
-### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>Webbplatsen ser bra ut men testet är felaktigt? Varför varnar Application Insights mig?
+### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>Webbplatsen ser bra ut men testet är felaktigt? Varför är Application Insights Avisera mig?
 
-   * Har ditt test **parsa beroende begäranden** aktiverat? Det resulterar i en strikt kontroll av resurser som skript, bilder etc. Dessa typer av fel kanske inte märks i en webbläsare. Kontrollera alla bilder, skript, formatmallar och andra filer som lästs in av sidan. Om någon av dem misslyckas rapporteras testet som misslyckat, även om huvud-HTML-sidan läses in utan problem. Om du vill inaktivera testet till sådana resursfel avmarkerar du helt enkelt parse-beroende begäranden från testkonfigurationen.
+   * Har testet en **analys av beroende begär Anden** aktiverade? Detta resulterar i en strikt kontroll av resurser, till exempel skript, bilder osv. Dessa typer av problem kanske inte märks i en webbläsare. Kontrollera alla bilder, skript, formatmallar och andra filer som lästs in av sidan. Om någon av dem Miss lyckas rapporteras testet som misslyckat, även om huvud-HTML-sidan läses in utan problem. Om du vill desensitize testet till sådana resurs haverier avmarkerar du bara parsa beroende begär Anden från test konfigurationen.
 
-   * För att minska oddsen för buller från tillfälliga nätverkslypsar etc., se till att aktivera återförsök för testfel konfiguration kontrolleras. Du kan också testa från fler platser och hantera tröskelvärdet för varningsregel i enlighet med detta för att förhindra platsspecifika problem som orsakar onödiga aviseringar.
+   * För att minska strider av brus från tillfälliga nätverks signaler osv. kontrol lera att aktivera återförsök för konfiguration av test Miss lyckas. Du kan också testa från fler platser och hantera tröskelvärdet för varnings regeln för att förhindra att platsspecifika problem orsakar onödiga aviseringar.
 
-   * Klicka på någon av de röda punkterna från tillgänglighetsupplevelsen, eller något tillgänglighetsfel från sökutforskaren för att se information om varför vi rapporterade felet. Testresultatet, tillsammans med den korrelerade telemetrin på serversidan (om den är aktiverad) bör hjälpa till att förstå varför testet misslyckades. Vanliga orsaker till tillfälliga problem är nätverks- eller anslutningsproblem.
+   * Klicka på någon av de röda punkterna från tillgänglighets upplevelsen eller eventuella tillgänglighets problem från Sök Utforskaren för att se information om varför vi rapporterade problemet. Test resultatet, tillsammans med den korrelerade Telemetrin på Server sidan (om det är aktiverat) bör hjälpa till att förstå varför testet misslyckades. Vanliga orsaker till tillfälliga problem är nätverks-eller anslutnings problem.
 
-   * Tog testet time-out? Vi avbryter testerna efter 2 minuter. Om ditt ping- eller flerstegstest tar längre tid än 2 minuter rapporterar vi det som ett fel. Överväg att dela upp testet i flera som kan slutföras under kortare tid.
+   * Gjorde tids gränsen för testet? Vi avbryter tester efter 2 minuter. Om ditt ping-eller multi-Step-Test tar längre tid än två minuter rapporterar vi det som ett haveri. Överväg att bryta testet till flera som kan slutföras inom kortare varaktighet.
 
-   * Rapporterade alla platser fel, eller bara några av dem? Om bara vissa rapporterade fel kan bero på problem med nätverk/CDN. Återigen, klicka på de röda prickarna bör hjälpa till att förstå varför platsen rapporterade fel.
+   * Rapporterades alla platser eller bara några av dem? Om det bara finns rapporterade fel kan det bero på problem med nätverket/CDN. Återigen bör du ta reda på varför platsen rapporterade fel genom att klicka på de röda punkterna.
 
-### <a name="i-did-not-get-an-email-when-the-alert-triggered-or-resolved-or-both"></a>Jag fick inte ett e-postmeddelande när aviseringen utlöses, eller löst eller båda?
+### <a name="i-did-not-get-an-email-when-the-alert-triggered-or-resolved-or-both"></a>Jag fick inget e-postmeddelande när aviseringen utlöstes eller matchades eller båda?
 
-Kontrollera konfigurationen för klassiska aviseringar för att bekräfta att din e-post visas direkt, eller så är en distributionslista som du är på konfigurerad för att ta emot meddelanden. Om så är fallet kontrollerar du distributionslistekonfigurationen för att bekräfta att den kan ta emot externa e-postmeddelanden. Kontrollera också om e-postadministratören kan ha konfigurerat principer som kan orsaka problemet.
+Kontrol lera den klassiska aviserings konfigurationen för att bekräfta att ditt e-postmeddelande visas direkt eller att en distributions lista som du är på är konfigurerad för att ta emot meddelanden. Om så är fallet kontrollerar du konfigurationen av distributions listan för att bekräfta att den kan ta emot externa e-postmeddelanden. Kontrol lera också om din e-postadministratör kan ha några konfigurerade principer som kan orsaka det här problemet.
 
-### <a name="i-did-not-receive-the-webhook-notification"></a>Jag fick inte webhook anmälan?
+### <a name="i-did-not-receive-the-webhook-notification"></a>Jag fick inte webhook-meddelandet?
 
-Kontrollera att programmet som tar emot webhook-meddelandet är tillgängligt och bearbetar webhook-begäranden. Se [detta](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) för mer information.
+Kontrol lera att det program som tar emot webhook-meddelandet är tillgängligt och att webhook-begärandena bearbetas. Se [det här](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) för mer information.
+
+### <a name="i-am-getting--403-forbidden-errors-what-does-this-mean"></a>Jag får 403 förbjudna fel, vad innebär det?
+
+Det här felet indikerar att du behöver lägga till brand Väggs undantag för att tillåta tillgänglighets agenter att testa mål-URL: en. En fullständig lista över vilka agent-IP-adresser som tillåts finns i [artikeln om IP-undantag](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
 
 ### <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Tillfälligt test misslyckades med ett protokollfel?
 
-Felet (”protokollfel... CR måste följas av LF ”) anger ett problem med servern (eller beroenden). Detta händer när felaktiga huvuden är inställda i svaret. Detta kan orsakas av lastbalanserare eller andra CDN-lösningar. Vissa rubriker kanske inte använder CRLF för att ange slutet av raden, vilket bryter mot HTTP-specifikationen och därför misslyckas validering på .NET WebRequest-nivån. Kontrollera svaret på dekorhuvuden, som kan vara i strid.
+Felet (”protokollfel... CR måste följas av LF ”) anger ett problem med servern (eller beroenden). Detta händer när felaktiga huvuden är inställda i svaret. Detta kan orsakas av lastbalanserare eller andra CDN-lösningar. Mer specifikt kanske vissa huvuden inte använder CRLF för att indikera slut på rad, vilket strider mot HTTP-specifikationen och därför inte kan verifiera verifieringen på .NET-webbegäran-nivån. Kontrol lera svaret på dekor rubriker, vilket kan vara en överträdelse.
 
 > [!NOTE]
-> URL:en kanske inte misslyckas i webbläsare som har en avslappnad validering av HTTP-huvuden. I det här blogginlägget finns en detaljerad förklaring av felet: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+> URL: en kan inte Miss lyckas i webbläsare som har en avslappnad verifiering av HTTP-huvuden. I det här blogginlägget finns en detaljerad förklaring av felet: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
 
-### <a name="i-dont-see-any-related-server-side-telemetry-to-diagnose-test-failures"></a>Jag ser ingen relaterad telemetri på serversidan för att diagnostisera testfel?*
+### <a name="i-dont-see-any-related-server-side-telemetry-to-diagnose-test-failures"></a>Jag kan inte se någon relaterad telemetri på Server sidan för att diagnostisera test fel? *
 
-Om du har konfigurerat Application Insights för din app på serversidan kan detta bero på att [sampling](../../azure-monitor/app/sampling.md) pågår. Välj ett annat tillgänglighetsresultat.
+Om du har konfigurerat Application Insights för din app på serversidan kan detta bero på att [sampling](../../azure-monitor/app/sampling.md) pågår. Välj ett annat tillgänglighets resultat.
 
 ### <a name="can-i-call-code-from-my-web-test"></a>Kan jag anropa kod från mitt webbtest?
 
@@ -93,11 +97,11 @@ De är synonyma begrepp. Tillgänglighetstest är ett mer allmänt begrepp som i
    Det finns två möjliga lösningar:
 
    * Konfigurera din brandvägg att tillåta inkommande förfrågningar från [IP-adresserna för webbtestagenter](../../azure-monitor/app/ip-addresses.md).
-   * Skriv koden för att regelbundet testa din interna server. Kör koden i bakgrunden på en testserver bakom brandväggen. Testprocessen kan skicka resultaten till Application Insights med [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API i core-SDK-paketet. Detta kräver att din testserver har utgående åtkomst till Application Insights slutpunkt för inmatning, men detta utgör en mycket mindre säkerhetsrisk än alternativet att tillåta inkommande förfrågningar. Resultaten kommer att visas i tillgänglighet webbtester blad även om upplevelsen kommer att förenklas något från vad som är tillgängligt för tester som skapas via portalen. Anpassade tillgänglighetstester visas också som tillgänglighetsresultat i Analytics, Sök och Mått.
+   * Skriv koden för att regelbundet testa din interna server. Kör koden i bakgrunden på en testserver bakom brandväggen. Testprocessen kan skicka resultaten till Application Insights med [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) API i core-SDK-paketet. Detta kräver att din testserver har utgående åtkomst till Application Insights slutpunkt för inmatning, men detta utgör en mycket mindre säkerhetsrisk än alternativet att tillåta inkommande förfrågningar. Resultaten visas på bladet tillgänglighet för webbtester, även om upplevelsen kommer att vara något förenklad från vad som är tillgängligt för test som skapats via portalen. Tester av anpassad tillgänglighet visas också som tillgänglighets resultat i analys, sökning och mått.
 
 ### <a name="uploading-a-multi-step-web-test-fails"></a>Det går inte att överföra ett webbtest med flera steg
 
-Några orsaker till detta kan hända:
+Några orsaker till detta kan inträffa:
    * Det finns en storleksgräns på 300 kB.
    * Loopar stöds inte.
    * Referenser till andra webbtester stöds inte.
@@ -105,28 +109,28 @@ Några orsaker till detta kan hända:
 
 ### <a name="my-multi-step-test-doesnt-complete"></a>Mitt test med flera steg slutförs inte
 
-Det finns en gräns på 100 förfrågningar per test. Dessutom stoppas testet om det körs längre än två minuter.
+Det finns en gräns på 100 förfrågningar per test. Testet stoppas också om det körs längre än två minuter.
 
 ### <a name="how-can-i-run-a-test-with-client-certificates"></a>Hur kan jag köra ett test med klientcertifikat?
 
-Detta stöds för närvarande inte.
+Detta stöds inte för närvarande.
 
-## <a name="who-receives-the-classic-alert-notifications"></a>Vem får (klassiska) varningsmeddelanden?
+## <a name="who-receives-the-classic-alert-notifications"></a>Vem får aviseringarna (klassisk)?
 
-Det här avsnittet gäller endast klassiska aviseringar och hjälper dig att optimera dina aviseringar för att säkerställa att endast önskade mottagare får aviseringar. Om du vill förstå mer om skillnaden mellan [klassiska aviseringar](../platform/alerts-classic.overview.md)och den nya aviseringar upplevelsen hänvisas till [varningsöversiktsartikeln](../platform/alerts-overview.md). Om du vill styra aviseringsmeddelandet i de nya aviseringarna använder du [åtgärdsgrupper](../platform/action-groups.md).
+Det här avsnittet gäller endast för klassiska varningar och hjälper dig att optimera dina aviserings aviseringar så att endast dina mottagare får aviseringar. Om du vill veta mer om skillnaden mellan [klassiska aviseringar](../platform/alerts-classic.overview.md)och den nya aviserings upplevelsen läser du [artikeln aviserings översikt](../platform/alerts-overview.md). Om du vill kontrol lera aviseringar i den nya aviserings upplevelsen använder du [Åtgärds grupper](../platform/action-groups.md).
 
-* Vi rekommenderar att du använder specifika mottagare för klassiska varningsmeddelanden.
+* Vi rekommenderar att du använder vissa mottagare för klassisk aviserings aviseringar.
 
-* För aviseringar om fel från X från Y-platser skickas kryssrutan **bulk/grupp,** om det är aktiverat, till användare med administratörs-/medadministratörsroller.  I stort _sett alla_ administratörer av _prenumerationen_ kommer att få meddelanden.
+* För aviseringar vid haverier från X av Y-platser visas kryss rutan **Mass-/grupp** alternativ, om aktive rad, skickas till användare med administratörs-och medadministratörs roller.  I princip får _alla_ administratörer av _prenumerationen_ meddelanden.
 
-* För aviseringar om tillgänglighetsmått skickas kryssrutan **bulk/grupp** om det är aktiverat, till användare med ägar-, deltagar- eller läsarroller i prenumerationen. I själva verket är _alla_ användare med åtkomst till prenumerationen Application Insights resurs i omfattning och kommer att få meddelanden. 
+* För varningar om tillgänglighets mått är kryss rutan **Mass-/grupp** alternativ om aktive rad, skickas till användare med rollen ägare, deltagare eller läsare i prenumerationen. I praktiken är _alla_ användare som har åtkomst till prenumerationen Application Insightss resursen inom räckvidden och får meddelanden. 
 
 > [!NOTE]
-> Om du för närvarande använder kryssrutan **bulk/grupp** och inaktiverar det kan du inte återställa ändringen.
+> Om du för närvarande använder alternativet **Mass-/grupp** incheckning, och inaktiverar det, kommer du inte att kunna återställa ändringen.
 
-Använd den nya aviseringsupplevelsen/aviseringar i nära realtid om du behöver meddela användarna baserat på deras roller. Med [åtgärdsgrupper](../platform/action-groups.md)kan du konfigurera e-postmeddelanden till användare med någon av rollerna deltagare/ägare/läsare (inte kombineras tillsammans som ett enda alternativ).
+Använd aviseringarna nya aviseringar/nästan-real tid om du behöver meddela användarna baserat på deras roller. Med [Åtgärds grupper](../platform/action-groups.md)kan du konfigurera e-postaviseringar till användare med någon av rollerna deltagare/ägare/läsare (som inte kombineras tillsammans som ett enda alternativ).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Webbtestning i flera steg](availability-multistep.md)
-* [URL ping tester](monitor-web-app-availability.md)
+* [Webb testning med flera steg](availability-multistep.md)
+* [Ping-test för URL](monitor-web-app-availability.md)

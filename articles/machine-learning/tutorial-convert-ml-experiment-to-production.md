@@ -1,20 +1,22 @@
 ---
-title: Konvertera experiment kod för maskin inlärning till produktions kod
+title: Konvertera Notebook-kod till Python-skript
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du konverterar experimentell kod för maskin inlärning till produktions kod med MLOpsPython-kod mal len.
+description: Sätt igång dina Machine Learning-experiment med en produktions klar kod med hjälp av kod mal len MLOpsPython. Du kan sedan testa, distribuera och automatisera koden.
 author: bjcmit
 ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 03/13/2020
-ms.openlocfilehash: e3c9b16ae3d2b06ec19ecd29d15762a065c0c1ae
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/30/2020
+ms.openlocfilehash: a0b66f233de9e1bfdc6d011b65489884a1049a12
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521444"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559672"
 ---
-# <a name="tutorial-convert-ml-experimental-code-to-production-code"></a>Självstudie: konvertera ML experimentell kod till produktions kod
+# <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Självstudie: konvertera ML experiment till produktion python-kod
+
+I den här självstudien får du lära dig hur du konverterar Juptyer-anteckningsböcker till Python-skript som gör det lättare att testa och automatisera dem med hjälp av MLOpsPython-kod mal len och Azure Machine Learning. Normalt används den här processen för att ta experiment/tränings kod från en Juptyer Notebook och konvertera den till Python-skript. Dessa skript kan sedan användas för att testa och CI/CD-automatisering i produktions miljön. 
 
 Ett Machine Learning-projekt kräver experimentering där Hypotheses testas med flexibla verktyg som Jupyter Notebook med hjälp av verkliga data uppsättningar. När modellen är redo för produktion ska modell koden placeras i en produktions kod lagrings plats. I vissa fall måste modell koden konverteras till Python-skript som ska placeras i produktions kod lagrings platsen. I den här självstudien beskrivs en rekommenderad metod för att exportera experiment kod till Python-skript.
 

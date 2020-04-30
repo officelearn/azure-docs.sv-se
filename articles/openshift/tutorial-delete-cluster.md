@@ -1,79 +1,63 @@
 ---
-title: Självstudiekurs - Ta bort ett Azure Red Hat OpenShift-kluster
-description: I den här självstudien kan du läsa om hur du tar bort ett Azure Red Hat OpenShift-kluster med Azure CLI
-author: jimzim
-ms.author: jzim
+title: Självstudie – ta bort ett Azure Red Hat OpenShift-kluster
+description: I den här självstudien får du lära dig hur du tar bort ett Azure Red Hat OpenShift-kluster med Azure CLI
+author: sakthi-vetrivel
+ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
-ms.date: 05/06/2019
-ms.openlocfilehash: c335236a2b0b05f03bef1ebef37f1129a5d0352b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 04/24/2020
+ms.openlocfilehash: 2de60b90eb6fb75ef013a2fd8785f1b8b616fba6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76278774"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82232146"
 ---
-# <a name="tutorial-delete-an-azure-red-hat-openshift-cluster"></a>Självstudiekurs: Ta bort ett Azure Red Hat OpenShift-kluster
+# <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>Självstudie: ta bort ett Azure Red Hat OpenShift 4-kluster
 
-Det här är slutet av självstudiekursen. När du är klar med testningen av exempelklustret gör du så här för att ta bort det och dess associerade resurser så att du inte debiteras för det du inte använder.
-
-I den tredje delen i serien får du lära dig att:
+I den här självstudien, som är del tre av tre, är ett kluster med OpenShift i Azure Red Hat som kör OpenShift 4 borttaget. Lär dig att:
 
 > [!div class="checklist"]
 > * Ta bort ett Azure Red Hat OpenShift-kluster
 
-I den här självstudieserien får du lära du dig att:
-> [!div class="checklist"]
-> * [Skapa ett Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md)
-> * [Skala ett Azure Red Hat OpenShift-kluster](tutorial-scale-cluster.md)
-> * Ta bort ett Azure Red Hat OpenShift-kluster
 
-## <a name="prerequisites"></a>Krav
+## <a name="before-you-begin"></a>Innan du börjar
 
-Innan du börjar den här självstudien:
+I tidigare självstudier skapade du ett Azure Red Hat OpenShift-kluster och anslöt till med hjälp av webb konsolen OpenShift. Om du inte har gjort dessa steg och vill följa med, börjar du med [självstudie 1 – Skapa ett Azure Red Hat OpenShift 4-kluster.](tutorial-create-cluster.md)
 
-* Skapa ett kluster genom att följa [självstudien Skapa ett Azure Red Hat OpenShift-kluster.](tutorial-create-cluster.md)
+Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.0.75 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="step-1-sign-in-to-azure"></a>Steg 1: Logga in på Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Om du kör Azure CLI lokalt `az login` kan du köra för att logga in på Azure.
+Om du kör Azure CLI lokalt kan du köra `az login` för att logga in på Azure.
 
 ```bash
 az login
 ```
 
-Om du har åtkomst till `az account set -s {subscription ID}` flera `{subscription ID}` prenumerationer kör du ersättning med den prenumeration du vill använda.
+Om du har åtkomst till flera prenumerationer kan `az account set -s {subscription ID}` du `{subscription ID}` köra Ersätt med den prenumeration som du vill använda.
 
-## <a name="step-2-delete-the-cluster"></a>Steg 2: Ta bort klustret
+## <a name="delete-the-cluster"></a>Ta bort klustret
 
-Öppna en Bash-terminal och ange variabeln CLUSTER_NAME till namnet på klustret:
-
-```bash
-CLUSTER_NAME=yourclustername
-```
-
-Ta nu bort klustret:
+I tidigare självstudier angav du följande variabler. 
 
 ```bash
-az openshift delete --resource-group $CLUSTER_NAME --name $CLUSTER_NAME
+CLUSTER=yourclustername
+RESOURCE_GROUP=yourresourcegroup
 ```
 
-Du tillfrågas om du vill ta bort klustret. När du `y`har bekräftat med det tar det flera minuter att ta bort klustret. När kommandot är klart tas hela resursgruppen och alla resurser i det, inklusive klustret, bort.
+Ta bort klustret med dessa värden:
 
-## <a name="deleting-a-cluster-using-the-azure-portal"></a>Ta bort ett kluster med Azure-portalen
+```bash
+az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
+```
 
-Alternativt kan du ta bort den associerade resursgruppen i klustret via Azure-portalen online. Namnet på resursgruppen är detsamma som klusternamnet.
-
-För närvarande `Microsoft.ContainerService/openShiftManagedClusters` är resursen som skapas när du skapar klustret dold i Azure-portalen. Kontrollera `Resource group` om du `Show hidden types` vill visa resursgruppen i vyn.
-
-![Skärmbild av kryssrutan dold text](./media/aro-portal-hidden-type.png)
-
-Om du tar bort resursgruppen tas alla relaterade resurser som skapas när du skapar ett Azure Red Hat OpenShift-kluster bort.
+Sedan uppmanas du att bekräfta om du vill ta bort klustret. När du har bekräftat `y`med, tar det flera minuter att ta bort klustret. När kommandot har slutförts tas hela resurs gruppen och alla resurser i den, inklusive klustret, bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiedelen lärde du dig att:
 > [!div class="checklist"]
-> * Ta bort ett Azure Red Hat OpenShift-kluster
+> * Ta bort ett Azure Red Hat OpenShift 4-kluster
 
-Läs mer om hur du använder OpenShift med den officiella [Red Hat OpenShift-dokumentationen](https://docs.openshift.com/aro/welcome/index.html)
+Lär dig mer om att använda OpenShift med den officiella [Red Hat OpenShift-dokumentationen](https://www.openshift.com/try)

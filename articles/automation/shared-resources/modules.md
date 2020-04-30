@@ -8,12 +8,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c8d22e63be880c0cef0c4072e99ab85bf3250a1c
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.openlocfilehash: d036733c023417af3ef038bb9abc278ec91e665c
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82114282"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508963"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Använda moduler i Azure Automation
 
@@ -21,8 +21,9 @@ Med Azure Automation kan du importera PowerShell-moduler för att aktivera cmdle
 
 * [Azure PowerShell AZ. Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0)
 * [Azure PowerShell AzureRM. Automation](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-6.13.0)
-* Intern `Orchestrator.AssetManagement.Cmdlets` modul för Log Analytics agent för Windows
 * Andra PowerShell-moduler
+* Intern `Orchestrator.AssetManagement.Cmdlets` modul
+* Python 2-moduler
 * Anpassade moduler som du skapar 
 
 När du skapar ett Automation-konto importerar Azure Automation vissa moduler som standard. Se [standardmoduler](#default-modules).
@@ -82,7 +83,7 @@ I följande tabell definieras de interna cmdletarna som stöds av `Orchestrator.
 >[!NOTE]
 >De interna cmdletarna är bara tillgängliga när du kör Runbooks i Azure sandbox-miljön eller på en Windows-Hybrid Runbook Worker. 
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |
@@ -96,9 +97,13 @@ Observera att de interna cmdletarna skiljer sig från namn från AZ-och AzureRM-
 
 Vi rekommenderar att du använder AZ-eller AzureRM-cmdletar för att manipulera Azure Automation resurser utanför kontexten för en Runbook. 
 
-## <a name="module-supporting-get-automationpscredential"></a>Modul som stöder get-AutomationPSCredential
+## <a name="orchestratorassetmanagementcmdlets-module"></a>Orchestrator. AssetManagement. cmdlets-modul
 
-`Get-AutomationPSCredential` Cmdleten är en del av modulen `Orchestrator.AssetManagement.Cmdlets`. Den här cmdleten `PSCredential` returnerar ett objekt, vilket förväntas av de flesta PowerShell-cmdletar som fungerar med autentiseringsuppgifter. Om du vill veta mer om hur du använder autentiseringsuppgifter i Azure Automation, se [inloggnings till gångar i Azure Automation](credentials.md).
+Azure Automation stöder den interna `Orchestrator.AssetManagement.Cmdlets` modulen för Log Analytics agent för Windows, som installeras som standard. `Get-AutomationPSCredential` Cmdleten i den här modulen används ofta i Runbooks för att hämta `PSCredential` ett objekt, vilket förväntas av de flesta PowerShell-cmdletar som fungerar med autentiseringsuppgifter. Om du vill veta mer om hur du använder autentiseringsuppgifter i Azure Automation, se [inloggnings till gångar i Azure Automation](credentials.md).
+
+## <a name="python-modules"></a>Python-moduler
+
+Du kan skapa python 2-Runbooks i Azure Automation. Information om python-moduler finns [i hantera python 2-paket i Azure Automation](../python-packages.md).
 
 ## <a name="migrating-to-az-modules"></a>Migrera till AZ-moduler
 
@@ -117,7 +122,7 @@ Om du importerar en AZ-modul till ditt Automation-konto importeras modulen inte 
 * När en Runbook anropar en cmdlet från en modul
 * När en Runbook importerar modulen explicit med cmdleten [import-module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-7)
 * När en Runbook importerar en annan beroende modul
-    
+
 #### <a name="testing-for-your-runbooks-and-dsc-configurations-prior-to-module-migration"></a>Testa dina runbooks och DSC-konfigurationer innan du migrerar en modul
 
 Se till att testa alla Runbooks och DSC-konfigurationer noggrant i ett separat Automation-konto innan du migrerar till AZ-modulerna. 

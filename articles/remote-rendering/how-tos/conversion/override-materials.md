@@ -1,28 +1,28 @@
 ---
-title: Åsidosätt material under modellkonvertering
-description: Förklarar det material som åsidosätter arbetsflödet vid konvertering
+title: Åsidosätta material under modellkonverteringen
+description: Förklarar det material som åsidosätter arbets flödet vid konverterings tillfället
 author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: how-to
 ms.openlocfilehash: 90653db4c572877a728964851a99beebf2e823a4
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80681485"
 ---
-# <a name="override-materials-during-model-conversion"></a>Åsidosätt material under modellkonvertering
+# <a name="override-materials-during-model-conversion"></a>Åsidosätta material under modellkonverteringen
 
-Under konverteringen används materialinställningarna i källmodellen för att definiera de [PBR-material](../../overview/features/pbr-materials.md) som används av renderaren.
-Ibland ger [standardkonverteringen](../../reference/material-mapping.md) inte önskat resultat och du måste göra ändringar.
-När en modell konverteras för användning i Azure Remote Rendering kan du tillhandahålla en material-åsidosättningsfil för att anpassa hur materialkonvertering görs per material.
-Avsnittet om [konvertering av modeller](configure-model-conversion.md) innehåller instruktioner för hur du deklarerar filnamnet för material åsidosättning.
+Under konverteringen används material inställningarna i käll modellen för att definiera det PBR- [material](../../overview/features/pbr-materials.md) som används av åter givningen.
+Ibland ger [standard konverteringen](../../reference/material-mapping.md) inga önskade resultat och du måste göra ändringar.
+När en modell konverteras för användning i Azure-fjärrrendering kan du ange en material-åsidosättande fil för att anpassa hur material konvertering sker per material.
+Avsnittet om hur du [konfigurerar modell konvertering](configure-model-conversion.md) har instruktioner för att deklarera fil namnet för åsidosättning av material.
 
-## <a name="the-override-file-used-during-conversion"></a>Åsidosättningsfilen som används under konverteringen
+## <a name="the-override-file-used-during-conversion"></a>Den åsidosättande fil som används under konverteringen
 
-Som ett enkelt exempel, låt oss säga att en låda modell har ett enda material, som kallas "Standard". Albedofärgen måste justeras för användning i ARR.
-I det här `box_materials_override.json` fallet kan en fil skapas på följande sätt:
+Ett enkelt exempel är att anta att en box-modell har ett enda material, som kallas "default". Albedo-färgen måste justeras för användning i ARR.
+I det här fallet kan `box_materials_override.json` en fil skapas på följande sätt:
 
 ```json
 [
@@ -38,7 +38,7 @@ I det här `box_materials_override.json` fallet kan en fil skapas på följande 
 ]
 ```
 
-Filen `box_materials_override.json` placeras i indatabehållaren `ConversionSettings.json` och en `box.fbx`läggs till bredvid , som talar om för konverteringen var åsidosättningsfilen ska hittas (se [Konfigurera modellkonverteringen):](configure-model-conversion.md)
+`box_materials_override.json` Filen placeras i behållaren för indata och en `ConversionSettings.json` läggs till bredvid `box.fbx`, vilket anger att konverteringen ska hitta åsidosättning-filen (se [Konfigurera modell konverteringen](configure-model-conversion.md)):
 
 ```json
 {
@@ -46,13 +46,13 @@ Filen `box_materials_override.json` placeras i indatabehållaren `ConversionSett
 }
 ```
 
-När modellen konverteras gäller de nya inställningarna.
+När modellen konverteras används de nya inställningarna.
 
 ### <a name="color-materials"></a>Färgmaterial
 
-[Färgmaterialmodellen](../../overview/features/color-materials.md) beskriver en ständigt skuggad yta som är oberoende av belysning.
-Detta är användbart för tillgångar som gjorts av Photogrammetry-algoritmer, till exempel.
-I material åsidosättningsfiler kan ett material deklareras `unlit` `true`som ett färgmaterial genom att ställa in på .
+[Färg Materials](../../overview/features/color-materials.md) modellen beskriver en konstant skuggad yta som är oberoende av belysningen.
+Detta är användbart för till gångar som görs av Photogrammetry-algoritmer, till exempel.
+Vid åsidosättning av materialiserade filer kan ett material deklareras som ett färg material genom att `unlit` ställa `true`in på.
 
 ```json
 [
@@ -67,11 +67,11 @@ I material åsidosättningsfiler kan ett material deklareras `unlit` `true`som e
 ]
 ```
 
-### <a name="ignore-specific-texture-maps"></a>Ignorera specifika texturkartor
+### <a name="ignore-specific-texture-maps"></a>Ignorera vissa textur kartor
 
-Ibland kanske du vill att konverteringsprocessen ska ignorera specifika texturmappningar. Detta kan vara fallet när din modell genererades av ett verktyg som genererar speciella kartor som inte förstås korrekt av renderaren. Till exempel en "OpacitetMap" som används för att definiera något annat än opacitet, eller en modell där "NormalMap" lagras som "BumpMap". (I det senare fallet vill du ignorera "NormalMap", vilket gör att konverteraren att använda "BumpMap" som "NormalMap".)
+Ibland kanske du vill att konverterings processen ska ignorera vissa textur kartor. Detta kan vara fallet när modellen genererades av ett verktyg som genererar särskilda Maps som inte tolkas korrekt av åter givningen. Till exempel en "OpacityMap" som används för att definiera något annat än ogenomskinlighet, eller en modell där "NormalMap" lagras som "BumpMap". (I det senare fallet vill du ignorera "NormalMap", vilket innebär att konverteraren använder "BumpMap" som "NormalMap".)
 
-Principen är enkel. Lägg bara till `ignoreTextureMaps` en egenskap som heter och lägga till någon textur karta du vill ignorera:
+Principen är enkel. Lägg bara till en egenskap `ignoreTextureMaps` som heter och Lägg till eventuella textur scheman som du vill ignorera:
 
 ```json
 [
@@ -82,11 +82,11 @@ Principen är enkel. Lägg bara till `ignoreTextureMaps` en egenskap som heter o
 ]
 ```
 
-Den fullständiga listan över texturkartor som du kan ignorera finns i JSON-schemat nedan.
+En fullständig lista över textur mappningar som du kan ignorera finns i JSON-schemat nedan.
 
 ## <a name="json-schema"></a>JSON-schema
 
-Det fullständiga JSON-schemat för materialfiler ges här. Med undantag `unlit` för `ignoreTextureMaps`och är de tillgängliga egenskaperna en delmängd av de egenskaper som beskrivs i avsnitten på [färgmaterial-](../../overview/features/color-materials.md) och [PBR-materialmodellerna.](../../overview/features/pbr-materials.md)
+Det fullständiga JSON-schemat för material-filer anges här. Med undantag `unlit` för `ignoreTextureMaps`och, är tillgängliga egenskaper en delmängd av egenskaperna som beskrivs i avsnitten om [färg material](../../overview/features/color-materials.md) -och PBR- [materialets](../../overview/features/pbr-materials.md) modeller.
 
 ```json
 {

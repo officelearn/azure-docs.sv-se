@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Federera en enda AD-skogsmiljö till Azure | Microsoft-dokument'
+title: 'Självstudie: federera en enda AD-skogs miljö till Azure | Microsoft Docs'
 description: Visar hur du ställer in en hybrididentitetsmiljö med federation.
 services: active-directory
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3a17eb7fdde6840ce04fb0cbce13ec3f1a121e0
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80673707"
 ---
-# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Självstudiekurs: Mata en enda AD-skogsmiljö till molnet
+# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Självstudie: federera en enda AD-skogs miljö i molnet
 
 ![Skapa](media/tutorial-federation/diagram.png)
 
@@ -206,7 +206,7 @@ Nu ska vi skapa en Azure AD-klientorganisation så att vi kan synkronisera våra
 3. Välj **Azure Active Directory** i sökresultatet.
 4. Välj **Skapa**.</br>
 ![Skapa](media/tutorial-password-hash-sync/create1.png)</br>
-5. Ange ett **namn på organisationen** tillsammans med det **ursprungliga domännamnet**. Välj sedan **Skapa**. Detta skapar din katalog.
+5. Ange ett **namn på organisationen** tillsammans med det **ursprungliga domännamnet**. Välj sedan **skapa**. Detta skapar din katalog.
 6. När det här har slutförts klickar du på den **här** länken för att hantera katalogen.
 
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Skapa en global administratör i Azure AD
@@ -287,9 +287,9 @@ Vi kommer nu att verifiera att de användare som vi hade i vår lokala katalog h
 
 Du har nu har installerat en hybrididentitetsmiljö som du kan använda för att testa och bekanta dig med allt som Azure har att erbjuda.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
-- [Hårdvara och förutsättningar](how-to-connect-install-prerequisites.md) 
+- [Maskin vara och krav](how-to-connect-install-prerequisites.md) 
 - [Anpassade inställningar](how-to-connect-install-custom.md)
 - [Azure AD Connect och federation](how-to-connect-fed-whatis.md)
 

@@ -5,36 +5,36 @@ ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
 ms.openlocfilehash: 62c317843c275531286eeb2ae616d79ad76c6f99
-ms.sourcegitcommit: 67addb783644bafce5713e3ed10b7599a1d5c151
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/05/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80671593"
 ---
 ## <a name="prerequisites"></a>Krav
 
-Innan du börjar måste du:
+Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
-> * [Skapa en Azure Speech-resurs](~/articles/cognitive-services/speech-service/get-started.md)
-> * [Ställ in utvecklingsmiljön och skapa ett tomt projekt](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
-> * Skapa en robot som är ansluten till [direktlinjetalskanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
-> * Se till att du har tillgång till en mikrofon för ljudinspelning
+> * [Skapa en Azure tal-resurs](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=uwp&pivots=programming-language-csharp)
+> * Skapa en robot som är ansluten till den [direkta linjens tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 > 
   > [!NOTE]
-  > Se [listan över regioner som stöds för röstassistenter](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) och se till att dina resurser distribueras i en av dessa regioner.
+  > Se [listan över regioner som stöds för röst assistenter](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) och se till att dina resurser distribueras i någon av dessa regioner.
 
 ## <a name="open-your-project-in-visual-studio"></a>Öppna projektet i Visual Studio
 
 Det första steget är att se till att projektet är öppet i Visual Studio.
 
-## <a name="start-with-some-boilerplate-code"></a>Börja med en standardkod
+## <a name="start-with-some-boilerplate-code"></a>Börja med viss exempel kod
 
-Låt oss lägga till lite kod som fungerar som ett skelett för vårt projekt.
+Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt.
 
-1. Öppna i Solution `MainPage.xaml` **Explorer**.
+1. Öppna **Solution Explorer** `MainPage.xaml`i Solution Explorer.
 
-1. I designerns XAML-vy ersätter du hela innehållet med följande kodavsnitt som definierar ett rudimentärt användargränssnitt:
+1. I designerns XAML-vy ersätter du hela innehållet med följande kod avsnitt som definierar ett elementära-användar gränssnitt:
 
     ```xml
     <Page
@@ -81,16 +81,16 @@ Låt oss lägga till lite kod som fungerar som ett skelett för vårt projekt.
     </Page>
     ```
 
-Designvyn uppdateras för att visa programmets användargränssnitt.
+Vyn Design uppdateras för att Visa programmets användar gränssnitt.
 
-1. Öppna **Solution Explorer**den bakomgående källfilen `MainPage.xaml.cs`för kod bakom i Solution Explorer . (Den är grupperad `MainPage.xaml`under .) Ersätt innehållet i den här filen med nedanstående, vilket inkluderar:
+1. Öppna **Solution Explorer**käll filen `MainPage.xaml.cs`bakomliggande kod i Solution Explorer. (Det är grupperat `MainPage.xaml`under.) Ersätt innehållet i den här filen med följande, som innehåller:
 
-- `using`satser `Speech` för `Speech.Dialog` och namnområden
-- Ett enkelt genomförande för att säkerställa mikrofonåtkomst, kopplad till en knapphanterare
-- Grundläggande gränssnittshjälpare för att presentera meddelanden och fel i programmet
-- En landningsplats för initieringskodsökvägen som ska fyllas i senare
-- En hjälpare att spela upp text-till-tal (utan stöd för direktuppspelning)
-- En tom knapphanterare för att börja lyssna som kommer att fyllas i senare
+- `using`instruktioner för namn `Speech` områdena `Speech.Dialog` och
+- En enkel implementering för att säkerställa mikrofon åtkomst, kabelansluten till en knapp hanterare
+- Grundläggande användar gränssnitt hjälper dig att presentera meddelanden och fel i programmet
+- En landnings punkt för den initierings kod Sök väg som kommer att fyllas i senare
+- En hjälpare som kan spela upp text till tal (utan strömnings stöd)
+- En tom knapp hanterare för att starta lyssningen som kommer att fyllas i senare
 
     ```csharp
     using Microsoft.CognitiveServices.Speech;
@@ -259,7 +259,7 @@ Designvyn uppdateras för att visa programmets användargränssnitt.
         }
     }
     ```
-1. Lägg till följande kodavsnitt i metodtexten `InitializeDialogServiceConnector`i . Den här koden `DialogServiceConnector` skapar med din prenumerationsinformation.
+1. Lägg till följande kodfragment i metod texten i `InitializeDialogServiceConnector`. Den här koden skapar `DialogServiceConnector` med din prenumerations information.
 
     ```csharp
     // Create a BotFrameworkConfig by providing a Speech service subscription key
@@ -273,14 +273,14 @@ Designvyn uppdateras för att visa programmets användargränssnitt.
     ```
 
    > [!NOTE]
-   > Se [listan över regioner som stöds för röstassistenter](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) och se till att dina resurser distribueras i en av dessa regioner.
+   > Se [listan över regioner som stöds för röst assistenter](~/articles/cognitive-services/speech-service/regions.md#voice-assistants) och se till att dina resurser distribueras i någon av dessa regioner.
 
    > [!NOTE]
-   > Information om hur du konfigurerar roboten finns i botramsdokumentationen för [direktlinjetalskanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
+   > Information om hur du konfigurerar din bot finns i dokumentationen till bot Framework för [den direkta rad igenkännings kanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
-1. Ersätt strängarna `YourSpeechSubscriptionKey` `YourServiceRegion` och med dina egna värden för din talprenumeration och [-region](~/articles/cognitive-services/speech-service/regions.md).
+1. Ersätt strängarna `YourSpeechSubscriptionKey` och `YourServiceRegion` med dina egna värden för din tal prenumeration och [region](~/articles/cognitive-services/speech-service/regions.md).
 
-1. Lägg till följande kodavsnitt i slutet av metodtexten `InitializeDialogServiceConnector`i . Den här koden ställer in hanterare `DialogServiceConnector` för händelser som åberopas av att kommunicera sina botaktiviteter, taligenkänningsresultat och annan information.
+1. Lägg till följande kodfragment i slutet av metod texten i `InitializeDialogServiceConnector`. Den här koden konfigurerar hanterare för händelser som förlitar sig `DialogServiceConnector` på att kommunicera med sina robot aktiviteter, tal igenkännings resultat och annan information.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client 
@@ -335,7 +335,7 @@ Designvyn uppdateras för att visa programmets användargränssnitt.
     };
     ```
 
-1. Lägg till följande kodavsnitt i `ListenButton_ButtonClicked` metodens brödtext i `MainPage` klassen. Den här `DialogServiceConnector` koden konfigureras för att lyssna, eftersom du redan har upprättat konfigurationen och registrerat händelsehanterarna.
+1. Lägg till följande kodfragment i bröd texten i- `ListenButton_ButtonClicked` metoden i- `MainPage` klassen. Den här koden ställs `DialogServiceConnector` in för att lyssna, eftersom du redan har upprättat konfigurationen och registrerat händelse hanterare.
 
     ```csharp
     if (connector == null)
@@ -366,19 +366,19 @@ Designvyn uppdateras för att visa programmets användargränssnitt.
     
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 
-Nu är du redo att skapa din app och testa din anpassade röstassistent med hjälp av taltjänsten.
+Nu är du redo att bygga din app och testa din anpassade röst assistent med hjälp av tal tjänsten.
 
-1. Välj **Bygg** > **bygglösning på** menyraden för att skapa programmet. Koden bör nu kompileras utan fel.
+1. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
 
-1. Välj **Felsökning** > **Avsökstarts felsökning** (eller tryck på **F5**) för att starta programmet. **Helloworld fönstret** visas.
+1. Starta programmet genom att välja **Felsök** > **Starta fel sökning** (eller tryck på **F5**). Fönstret **HelloWorld** visas.
 
-   ![Exempel på UWP röstassistentprogram i C# - snabbstart](~/articles/cognitive-services/Speech-Service/media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
+   ![Exempel på UWP röst assistent program i C# – snabb start](~/articles/cognitive-services/Speech-Service/media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
-1. Välj **Aktivera mikrofon**och när åtkomstbehörighetsbegäran dyker upp väljer du **Ja**.
+1. Välj **aktivera mikrofon**och när åtkomst behörighets förfrågan öppnas, Välj **Ja**.
 
-   ![Begäran om åtkomstbehörighet för mikrofon](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
+   ![Åtkomst behörighets förfrågan för mikrofon](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. Välj **Prata med din robot**och tala en engelsk fras eller mening i enhetens mikrofon. Ditt tal överförs till direktlinjetalskanalen och transkriberas till text, som visas i fönstret.
+1. Välj **prata med din robot**och tala om en engelsk fras eller mening i enhetens mikrofon. Ditt tal överförs till den direkta linjens tal kanal och skrivs till text, som visas i fönstret.
 
 ## <a name="next-steps"></a>Nästa steg
 

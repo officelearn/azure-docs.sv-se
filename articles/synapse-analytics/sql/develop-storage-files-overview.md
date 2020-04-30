@@ -1,6 +1,6 @@
 ---
-title: Fråga lagringsfiler med SQL on-demand (preview) i Synapse SQL
-description: Beskriver frågor om lagringsfiler med hjälp av SQL on-demand (preview) resurser inom Synapse SQL.
+title: Fråga Storage-filer med SQL on-demand (för hands version) i Synapse SQL
+description: Beskriver hur du frågar lagrings filer med hjälp av SQL on-demand-resurser (för hands version) i Synapse SQL.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,57 +10,57 @@ ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 2126996620d6f891dde4e7530c057d2c7f31a996
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81676679"
 ---
-# <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Fråga lagringsfiler med SQL on-demand (preview) resurser inom Synapse SQL
+# <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Fråga Storage-filer med hjälp av SQL on-demand-resurser (för hands version) i Synapse SQL
 
-Med SQL on-demand (förhandsversion) kan du fråga data i datasjön. Den erbjuder en T-SQL-frågeyta som rymmer halvstrukturerade och ostrukturerade datafrågor.
+SQL på begäran (för hands version) gör det möjligt att fråga efter data i data Lake. Den innehåller en fråge yta för T-SQL-frågor som hanterar halv strukturerade och ostrukturerade data frågor.
 
 För frågor stöds följande T-SQL-aspekter:
 
-- Full [SELECT yta,](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) inklusive majoriteten av SQL-funktioner, operatörer och så vidare.
-- SKAPA EXTERN TABELL SOM SELECT ([CETAS](develop-tables-cetas.md)) skapar en [extern tabell](develop-tables-external-tables.md) och exporterar sedan parallellt resultaten av en Transact-SQL SELECT-sats till Azure Storage.
+- Fullständigt [val](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) av yta, inklusive majoriteten av SQL functions, operatorer och så vidare.
+- Skapa extern tabell som SELECT ([CETAS](develop-tables-cetas.md)) skapar en [extern tabell](develop-tables-external-tables.md) och sedan exporterar parallellt resultatet av en Transact-SQL SELECT-instruktion till Azure Storage.
 
-Mer information om vad som är kontra vad som för närvarande inte stöds finns i översiktsartikeln [för SQL on-demand.](on-demand-workspace-overview.md)
+Mer information om vad är vs. vad som inte stöds för närvarande finns i [översikts artikeln om SQL på begäran](on-demand-workspace-overview.md) .
 
-När Azure AD-användare kör frågor är standardinställningen för lagringskonton som ska nås med azure AD-direktautentiseringsprotokollet. Som sådan kommer användare att personifieras och behörigheter kontrolleras på lagringsnivå. Du kan [styra lagringsåtkomsten](develop-storage-files-storage-access-control.md) efter dina behov.
+När Azure AD-användare kör frågor är standardvärdet för lagrings konton som ska nås med hjälp av Azure AD-vidarekoppling. Det innebär att användarna personifieras och att behörigheter kontrol leras på lagrings nivå. Du kan [kontrol lera lagrings åtkomsten](develop-storage-files-storage-access-control.md) så att den passar dina behov.
 
 ## <a name="extensions"></a>Tillägg
 
-För att stödja en smidig upplevelse för att fråga efter data som finns i Azure Storage-filer använder SQL on-demand [OPENROWSET-funktionen](develop-openrowset.md) med ytterligare funktioner:
+För att ge stöd för en smidig upplevelse för att skicka frågor till data som finns i Azure Storage filer, använder SQL på begäran funktionen [OpenRowSet](develop-openrowset.md) med ytterligare funktioner:
 
-- [Fråga flera filer eller mappar](#query-multiple-files-or-folders)
-- [PARETT filformat](#parquet-file-format)
-- [Ytterligare alternativ för att arbeta med avgränsad text (fältterminering, radsluter, escape-tecken)](#additional-options-for-working-with-delimited-text)
-- [Läsa en vald delmängd av kolumner](#read-a-chosen-subset-of-columns)
-- [Inferens för schema](#schema-inference)
-- [funktionen filnamn](#filename-function)
-- [funktionen filsöka](#filepath-function)
-- [Arbeta med komplexa typer och kapslade eller upprepade datastrukturer](#work-with-complex-types-and-nested-or-repeated-data-structures)
+- [Fråga efter flera filer eller mappar](#query-multiple-files-or-folders)
+- [PARQUET-filformat](#parquet-file-format)
+- [Ytterligare alternativ för att arbeta med avgränsad text (fält avslutning, rad avslutning, escape-tecken)](#additional-options-for-working-with-delimited-text)
+- [Läs en vald delmängd av kolumner](#read-a-chosen-subset-of-columns)
+- [Schema härledning](#schema-inference)
+- [funktionen filename](#filename-function)
+- [funktionen filsökväg](#filepath-function)
+- [Arbeta med komplexa typer och kapslade eller upprepade data strukturer](#work-with-complex-types-and-nested-or-repeated-data-structures)
 
-### <a name="query-multiple-files-or-folders"></a>Fråga flera filer eller mappar
+### <a name="query-multiple-files-or-folders"></a>Fråga efter flera filer eller mappar
 
-Om du vill köra en T-SQL-fråga över en uppsättning filer i en mapp eller uppsättning mappar när du behandlar dem som en enda entitet eller raduppsättning anger du en sökväg till en mapp eller ett mönster (med jokertecken) över en uppsättning filer eller mappar.
+Om du vill köra en T-SQL-fråga över en uppsättning filer i en mapp eller en uppsättning mappar samtidigt som du behandlar dem som en enda enhet eller rad uppsättning, anger du en sökväg till en mapp eller ett mönster (med jokertecken) över en uppsättning filer eller mappar.
 
 Följande regler gäller:
 
-- Mönster kan visas antingen i en del av en katalogsökväg eller i ett filnamn.
-- Flera mönster kan visas i samma katalogsteg eller filnamn.
-- Om det finns flera jokertecken inkluderas filer i alla matchande sökvägar i den resulterande filuppsättningen.
+- Mönster kan visas antingen som en del av en katalog Sök väg eller i ett fil namn.
+- Flera mönster kan visas i samma katalog steg eller fil namn.
+- Om det finns flera jokertecken tas filer i alla matchande sökvägar med i den resulterande fil uppsättningen.
 
 ```
 N'https://myaccount.blob.core.windows.net/myroot/*/mysubfolder/*.csv'
 ```
 
-Mer information finns [i Frågemappar och flera filer.](query-folders-multiple-csv-files.md)
+Se [fråge mappar och flera filer](query-folders-multiple-csv-files.md) för användnings exempel.
 
-### <a name="parquet-file-format"></a>PARETT filformat
+### <a name="parquet-file-format"></a>PARQUET-filformat
 
-Om du vill fråga om parkettkällasdata använder du FORMAT = "PARKETT"
+Om du vill fråga Parquet-källdata använder du FORMAT = ' PARQUET '
 
 ```syntaxsql
 OPENROWSET
@@ -74,11 +74,11 @@ AS table_alias(column_alias,...n)
 [ , FORMAT = {'CSV' | 'PARQUET'} ]
 ```
 
-Läs artikeln [Query Parquet Files](query-parquet-files.md) för användningsexempel.
+Granska artikeln [query Parquet-filer](query-parquet-files.md) för användnings exempel.
 
 ### <a name="additional-options-for-working-with-delimited-text"></a>Ytterligare alternativ för att arbeta med avgränsad text
 
-Dessa ytterligare parametrar introduceras för att arbeta med CSV-filer (avgränsad text) filer:
+Dessa ytterligare parametrar införs för att arbeta med CSV-filer (avgränsad text):
 
 ```syntaxsql
 <bulk_options> ::=
@@ -89,17 +89,17 @@ Dessa ytterligare parametrar introduceras för att arbeta med CSV-filer (avgrän
 ...
 ```
 
-- ESCAPE_CHAR = 'char' Anger tecknet i filen som används för att fly från sig själv och alla avgränsare värden i filen. Om escape-tecknet följs av antingen ett annat värde än sig själv eller något av avgränsarvärdena, tas escape-tecknet bort när värdet läses.
-Parametern ESCAPE_CHAR tillämpas oavsett om FIELDQUOTE är eller inte är aktiverad. Det kommer inte att användas för att undkomma citattecken. Citattecknet escapes med dubbla citattecken i linje med Excel CSV-beteendet.
-- FIELDTERMINATOR ='field_terminator' Anger den fältterminering som ska användas. Standardterminatorn för fält är ett kommatecken ("**,**")
-- ROWTERMINATOR ='row_terminator' Anger den radterminer som ska användas. Standardslutaren är ett nyradstecken: **\r\n**.
+- ESCAPE_CHAR = char anger det tecken i filen som används för att undanta sig själv och alla avgränsare värden i filen. Om escape-tecken följs av antingen ett annat värde än sig själv eller någon av avgränsarna, ignoreras escape-tecken vid läsning av värdet.
+Parametern ESCAPE_CHAR tillämpas oavsett om FIELDQUOTE är eller inte är aktive rad. Det kommer inte att användas för att undanta citat tecken. Citat tecken är avbrotts bara med dubbla citat tecken i justering med Excel CSV-beteende.
+- FIELDTERMINATOR = ' field_terminator ' anger vilken fält avslutning som ska användas. Standard fält avslutning är ett kommatecken ("**,**")
+- ROWTERMINATOR = ' row_terminator ' anger rad avslutningen som ska användas. Standard rads avgränsaren är ett rad matnings tecken: **\r\n**.
 
-### <a name="read-a-chosen-subset-of-columns"></a>Läsa en vald delmängd av kolumner
+### <a name="read-a-chosen-subset-of-columns"></a>Läs en vald delmängd av kolumner
 
-Om du vill ange kolumner som du vill läsa kan du ange en valfri WITH-sats i OPENROWSET-satsen.
+Om du vill ange kolumner som du vill läsa kan du ange en valfri WITH-sats i OpenRowSet-instruktionen.
 
-- Om det finns CSV-datafiler anger du kolumnnamn och deras datatyper om du vill läsa alla kolumner. Om du vill ha en delmängd av kolumner använder du ordningstal för att välja kolumnerna från de ursprungliga datafilerna efter ordningsman. Kolumnerna binds av ordningsbeteckningen.
-- Om det finns parquetdatafiler anger du kolumnnamn som matchar kolumnnamnen i de ursprungliga datafilerna. Kolumnerna är bundna av namn.
+- Om det finns CSV-datafiler kan du läsa alla kolumner genom att ange kolumn namn och deras data typer. Om du vill använda en delmängd av kolumner använder du ordnings tal för att välja kolumner från de ursprungliga datafilerna enligt ordnings tal. Kolumnerna binds enligt ordnings beteckningen.
+- Om det finns Parquet-datafiler, anger du kolumn namn som matchar kolumn namnen i de ursprungliga datafilerna. Kolumnerna kommer att bindas efter namn.
 
 ```syntaxsql
 OPENROWSET
@@ -109,42 +109,42 @@ OPENROWSET
 ) AS table_alias(column_alias,...n) | WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 ```
 
-Exempel finns i [Läsa CSV-filer utan att ange alla kolumner](query-single-csv-file.md#returning-subset-of-columns).
+Exempel finns i [läsa CSV-filer utan att ange alla kolumner](query-single-csv-file.md#returning-subset-of-columns).
 
-### <a name="schema-inference"></a>Inferens för schema
+### <a name="schema-inference"></a>Schema härledning
 
-Genom att utelämna WITH-satsen från OPENROWSET-satsen kan du instruera tjänsten att automatiskt identifiera (dra slutsatsen) schemat från underliggande filer.
+Genom att utelämna satsen WITH från OpenRowSet kan du instruera tjänsten att automatiskt identifiera (Härled) schemat från underliggande filer.
 
 > [!NOTE]
-> Detta fungerar för närvarande endast för PARQUET filformat.
+> Detta fungerar för närvarande endast för PARQUET-filformat.
 
 ```sql
 OPENROWSET(
 BULK N'path_to_file(s)', FORMAT='PARQUET');
 ```
 
-### <a name="filename-function"></a>Funktionen Filnamn
+### <a name="filename-function"></a>Funktionen filename
 
-Den här funktionen returnerar filnamnet som raden kommer från.
+Den här funktionen returnerar fil namnet som raden kommer från.
 
-Om du vill fråga efter specifika filer läser du avsnittet Filnamn i artikeln [Fråga specifika filer.](query-specific-files.md#filename)
+Om du vill fråga efter vissa filer läser du avsnittet filename i artikeln [query Specific Files](query-specific-files.md#filename) .
 
-### <a name="filepath-function"></a>Funktionen Filsökväg
+### <a name="filepath-function"></a>Funktionen filsökväg
 
-Den här funktionen returnerar en hel sökväg eller en del av banan:
+Den här funktionen returnerar en fullständig sökväg eller en del av sökvägen:
 
-- När den anropas utan parameter returnerar du den fullständiga filsökvägen som en rad kommer från.
-- När den anropas med parametern returneras en del av sökvägen som matchar jokertecknet på den position som anges i parametern. Parametervärde 1 returnerar till exempel en del av sökvägen som matchar det första jokertecknet.
+- När den anropas utan parameter returnerar den fullständiga fil Sök vägen som en rad kommer från.
+- När den anropas med parameter, returnerar den en del av sökvägen som matchar jokertecknet i den position som anges i parametern. Parameter värde 1 skulle till exempel returnera en del av sökvägen som matchar det första jokertecknet.
 
-Mer information finns i avsnittet Filsökväg i artikeln [Frågespecifika filer.](query-specific-files.md#filepath)
+Mer information finns i avsnittet sökväg i artikeln [query Specific Files](query-specific-files.md#filepath) .
 
-### <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Arbeta med komplexa typer och kapslade eller upprepade datastrukturer
+### <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Arbeta med komplexa typer och kapslade eller upprepade data strukturer
 
-För att möjliggöra en smidig upplevelse när du arbetar med data som lagras i kapslade eller upprepade datatyper, till exempel i [parettfiler,](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) har SQL on-demand lagt till tilläggen nedan.
+Om du vill aktivera en smidig upplevelse när du arbetar med data som lagras i kapslade eller upprepade data typer, t. ex. i [Parquet](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) -filer har SQL på begäran lagt till tilläggen nedan.
 
 #### <a name="project-nested-or-repeated-data"></a>Projekt kapslade eller upprepade data
 
-Om du vill projicera data kör du en SELECT-sats över parettfilen som innehåller kolumner med kapslade datatyper. Vid utdata serialiseras kapslade värden till JSON och returneras som en VARchar(8000) SQL-datatyp.
+Om du vill projicera data kör du ett SELECT-uttryck över Parquet-filen som innehåller kolumner med kapslade data typer. Vid utdata serialiseras kapslade värden i JSON och returneras som en SQL-datatyp av typen VARCHAR (8000).
 
 ```sql
     SELECT * FROM
@@ -154,13 +154,13 @@ Om du vill projicera data kör du en SELECT-sats över parettfilen som innehåll
     [AS alias]
 ```
 
-Mer detaljerad information finns i avsnittet Projekt kapslade eller upprepade data i artikeln [Frågeparkettkapslade typer.](query-parquet-nested-types.md#project-nested-or-repeated-data)
+Mer detaljerad information finns i avsnittet projekt-kapslade eller upprepade data i artikeln [fråga Parquet kapslade typer](query-parquet-nested-types.md#project-nested-or-repeated-data) .
 
-#### <a name="access-elements-from-nested-columns"></a>Komma åt element från kapslade kolumner
+#### <a name="access-elements-from-nested-columns"></a>Få åtkomst till element från kapslade kolumner
 
-Om du vill komma åt kapslade element från en kapslad kolumn, till exempel Struct, använder du "punktatering" för att sammanfoga fältnamn i banan. Ange sökvägen som column_name i FUNKTIONEN MED i OPENROWSET-funktionen.
+Om du vill komma åt kapslade element från en kapslad kolumn, till exempel struct, använder du "punkt notation" för att sammanfoga fält namn i sökvägen. Ange sökvägen som column_name i WITH-satsen i funktionen OpenRowSet.
 
-Syntaxfragmentexempelet är följande:
+Exempel på syntaxfel är följande:
 
 ```syntaxsql
     OPENROWSET
@@ -171,30 +171,30 @@ Syntaxfragmentexempelet är följande:
     'column_name' ::= '[field_name.] field_name'
 ```
 
-Som standard matchar openrowset-funktionen källfältsnamnet och sökvägen med kolumnnamnen i WITH-satsen. Element som finns på olika kapslingsnivåer inom samma källa Parquet fil kan nås via WITH-satsen.
+Som standard matchar OpenRowSet-funktionen käll fält namn och sökväg med kolumn namnen som anges i WITH-satsen. Element som finns på olika kapslings nivåer i samma käll Parquet-fil kan nås via WITH-satsen.
 
 **Returvärden**
 
-- Funktionen returnerar ett skalärvärde, till exempel int, decimal och varchar, från det angivna elementet och på den angivna banan för alla parketttyper som inte finns i gruppen Kapslade typ.
-- Om banan pekar på ett element av kapslad typ returnerar funktionen ett JSON-fragment som börjar från det översta elementet på den angivna banan. JSON-fragmentet är av typen varchar(8000).
-- Om egenskapen inte kan hittas vid den angivna column_name returnerar funktionen ett fel.
-- Om egenskapen inte kan hittas vid den angivna column_path, beroende på [banläge,](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE)returnerar funktionen ett fel när den är i strikt läge eller null när den är i släppläge.
+- Funktionen returnerar ett skalärt värde, till exempel int, decimal och varchar, från det angivna elementet och på den angivna sökvägen för alla Parquet typer som inte finns i den kapslade typ gruppen.
+- Om sökvägen pekar på ett element som är av en kapslad typ returnerar funktionen ett JSON-fragment som börjar från det översta elementet på den angivna sökvägen. JSON-fragmentet är av typen VARCHAR (8000).
+- Om egenskapen inte kan hittas på den angivna column_name, returnerar funktionen ett fel.
+- Om egenskapen inte kan hittas på den angivna column_path, beroende på [Sök vägs läge](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE), returnerar funktionen ett fel när det är i strikt läge eller null i lax-läge.
 
-För frågeexempel läser du avsnittet Access-element från kapslade kolumner i artikeln [Frågeparkettkapslade typer.](query-parquet-nested-types.md#access-elements-from-nested-columns)
+Läs avsnittet åtkomst element från kapslade kolumner i artikeln [fråga Parquet kapslade typer](query-parquet-nested-types.md#access-elements-from-nested-columns) för fråge exempel.
 
-#### <a name="access-elements-from-repeated-columns"></a>Komma åt element från upprepade kolumner
+#### <a name="access-elements-from-repeated-columns"></a>Få åtkomst till element från upprepade kolumner
 
-Om du vill komma åt element från en upprepad kolumn, till exempel ett element i en array eller karta, använder [du JSON_VALUE-funktionen](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för varje skalärelement som du behöver projicera och tillhandahålla:
+För att få åtkomst till element från en upprepad kolumn, t. ex. ett element i en matris eller karta, använder du funktionen [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för varje skalärt element som du behöver för att projicera och tillhandahålla:
 
-- Kapslad eller upprepad kolumn, som den första parametern
-- En [JSON-sökväg](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) som anger vilket element eller egenskap som ska komma åt, som en andra parameter
+- Kapslad eller upprepad kolumn som den första parametern
+- En [JSON-sökväg](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) som anger det element eller den egenskap som ska kommas åt, som en andra parameter
 
-Om du vill komma åt icke-skalärelement från en upprepad kolumn använder du [JSON_QUERY-funktionen](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för varje icke-skalär element som du behöver för att projicera och tillhandahålla:
+Om du vill komma åt icke-skalära element från en upprepad kolumn använder du funktionen [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för varje icke-skalärt element som du behöver för att projicera och tillhandahålla:
 
-- Kapslad eller upprepad kolumn, som den första parametern
-- En [JSON-sökväg](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) som anger vilket element eller egenskap som ska komma åt, som en andra parameter
+- Kapslad eller upprepad kolumn som den första parametern
+- En [JSON-sökväg](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) som anger det element eller den egenskap som ska kommas åt, som en andra parameter
 
-Se syntaxfragment nedan:
+Se syntaxen nedan:
 
 ```syntaxsql
     SELECT
@@ -207,16 +207,16 @@ Se syntaxfragment nedan:
     [AS alias]
 ```
 
-Du kan hitta frågeexempel för åtkomst till element från upprepade kolumner i artikeln [Frågeparkettkapslade typer.](query-parquet-nested-types.md#access-elements-from-repeated-columns)
+Du kan hitta exempel på frågor för att komma åt element från upprepade kolumner i artikeln [fråga Parquet kapslade typer](query-parquet-nested-types.md#access-elements-from-repeated-columns) .
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om hur du frågar olika filtyper och skapar och använder vyer finns i följande artiklar:
 
-- [Fråga en enda CSV-fil](query-single-csv-file.md)
+- [Fråga en enkel CSV-fil](query-single-csv-file.md)
 - [Efterfråga Parquet-filer](query-parquet-files.md)
 - [Efterfråga JSON-filer](query-json-files.md)
 - [Efterfråga kapslade Parquet-typer](query-parquet-nested-types.md)
 - [Fråga mappar och flera CSV-filer](query-folders-multiple-csv-files.md)
-- [Använda filmetadata i frågor](query-specific-files.md)
+- [Använda fil-metadata i frågor](query-specific-files.md)
 - [Skapa och använda vyer](create-use-views.md)

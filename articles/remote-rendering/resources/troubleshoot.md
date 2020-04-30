@@ -1,108 +1,108 @@
 ---
 title: Felsöka
-description: Felsöka information för Azure Remote Rendering
+description: Felsöknings information för Azure Remote rendering
 author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: b86af2ff8fad3793fc47cec9399fd499c1cabba7
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81681858"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
-På den här sidan visas vanliga problem som stör Azure Remote Rendering och sätt att lösa dem.
+Den här sidan listar vanliga problem som stör Azure-fjärrrendering och sätt att lösa dem.
 
 ## <a name="client-cant-connect-to-server"></a>Klienten kan inte ansluta till servern
 
-Se till att brandväggarna (på enheten, inuti routrar osv.) inte blockerar följande portar:
+Se till att brand väggarna (på enheten, i routrarna osv.) inte blockerar följande portar:
 
-* **50051 (TCP)** - krävs för första anslutning (HTTP-handslag)
-* **8266 (TCP+UDP)** - krävs för dataöverföring
-* **5000 (TCP)**, **5433 (TCP)**, **8443 (TCP)** - krävs för [ArrInspector](tools/arr-inspector.md)
+* **50051 (TCP)** – krävs för inledande anslutning (http-handskakning)
+* **8266 (TCP + UDP)** – krävs för data överföring
+* **5000 (TCP)**, **5433 (tcp)**, **8443 (TCP)** – krävs för [ArrInspector](tools/arr-inspector.md)
 
-## <a name="error-disconnected-videoformatnotavailable"></a>Felet "Frånkopplad: VideoformatIntevampbar"
+## <a name="error-disconnected-videoformatnotavailable"></a>Fel ' frånkopplad: VideoFormatNotAvailable '
 
-Kontrollera att din GPU stöder avkodning av maskinvaruvideo. Se [Development PC](../overview/system-requirements.md#development-pc).
+Kontrol lera att GPU: n stöder maskinvarubaserad video avkodning. Se [Development PC](../overview/system-requirements.md#development-pc).
 
-Om du arbetar på en bärbar dator med två GPU: er, är det möjligt att GPU du kör på som standard, inte ger hårdvara video avkodning funktionalitet. Om så är fallet, försök att tvinga din app att använda den andra GPU. Detta är ofta möjligt i GPU-drivrutinsinställningarna.
+Om du arbetar på en bärbar dator med två GPU: er, är det möjligt att den GPU som du kör på som standard inte tillhandahåller funktioner för avkodning av maskin varu video. I så fall kan du försöka tvinga appen att använda den andra GPU: n. Detta är ofta möjligt i inställningarna för GPU-drivrutinen.
 
-## <a name="h265-codec-not-available"></a>H265 codec är inte tillgängligt
+## <a name="h265-codec-not-available"></a>H265-codec är inte tillgänglig
 
-Det finns två orsaker till att servern kan vägra att ansluta till en **codec inte tillgängligt** fel.
+Det finns två orsaker till varför servern kan neka att ansluta till en **codec som inte är tillgänglig** .
 
-**H265-codec:et är inte installerat:**
+**H265-codecen är inte installerad:**
 
-Se först till att installera **HEVC Video Extensions** som nämns i [avsnittet Programvara](../overview/system-requirements.md#software) i systemkraven.
+Se först till att installera **hevc video-tillägg** som anges i [program varu](../overview/system-requirements.md#software) delen av system kraven.
 
-Om du fortfarande stöter på problem, se till att ditt grafikkort stöder H265 och du har den senaste grafikdrivrutinen installerad. Se avsnittet [Utvecklingsdator](../overview/system-requirements.md#development-pc) i systemkraven för leverantörsspecifik information.
+Om du fortfarande stöter på problem kontrollerar du att grafik kortet har stöd för H265 och att du har den senaste grafik driv rutinen installerad. Se avsnittet [Development PC](../overview/system-requirements.md#development-pc) i system krav för leverantörsspecifik information.
 
-**Codec är installerad, men kan inte användas:**
+**Codecen installeras, men kan inte användas:**
 
-Orsaken till det här problemet är en felaktig säkerhetsinställning på DLL:erna. Det här problemet visas inte när du försöker titta på videor kodade med H265. Om du installerar om codec-koden löser du inte heller problemet. Utför i stället följande steg:
+Orsaken till det här problemet är en felaktig säkerhets inställning på DLL-filerna. Det här problemet visas inte när du försöker titta på videor som är kodade med H265. Problemet behöver inte åtgärdas om du installerar om codec: en. Utför i stället följande steg:
 
-1. Öppna ett **PowerShell med administratörsrättigheter** och kör
+1. Öppna en **PowerShell med administratörs behörighet** och kör
 
     ```PowerShell
     Get-AppxPackage -Name Microsoft.HEVCVideoExtension
     ```
   
-    Det kommandot bör `InstallLocation` mata ut kodc, något i stil med:
+    Det kommandot ska utdata `InstallLocation` från codecen, något som liknar:
   
     ```cmd
     InstallLocation   : C:\Program Files\WindowsApps\Microsoft.HEVCVideoExtension_1.0.23254.0_x64__5wasdgertewe
     ```
 
 1. Öppna mappen i Utforskaren
-1. Det bör finnas en **x86** och en **x64** undermapp. Högerklicka på en av mapparna och välj **Egenskaper**
-    1. Välj fliken **Säkerhet** och klicka på knappen **Avancerade** inställningar
-    1. Klicka på **Ändra** för **ägaren**
-    1. Skriva **administratörer** i textfältet
-    1. Klicka på **Kontrollera namn** och **OK**
+1. Det bör finnas en **x86** -och en **x64** -undermapp. Högerklicka på en av mapparna och välj **Egenskaper**
+    1. Välj fliken **säkerhet** och klicka på knappen **avancerade** inställningar
+    1. Klicka på **ändra** för **ägaren**
+    1. Skriv **Administratörer** i textfältet
+    1. Klicka på **kontrol lera namn** och **OK**
 1. Upprepa stegen ovan för den andra mappen
-1. Upprepa också stegen ovan på varje DLL-fil i båda mapparna. Det bör finnas fyra DLL helt och hållet.
+1. Upprepa också stegen ovan på varje DLL-fil i båda mapparna. Det bör finnas fyra DLL-filer helt och hållet.
 
-Gör så här för var och en av de fyra DLL:erna för att kontrollera att inställningarna nu är korrekta:
+Kontrol lera att inställningarna är korrekta genom att göra detta för var och en av de fyra DLL-filerna:
 
-1. Välj **egenskaper > >-redigera**
-1. Gå igenom listan över alla **grupper / användare** och se till att var och en har Läs & **Kör** rätt uppsättning (bocken i **tillåt** kolumnen måste kryssas)
+1. Välj **egenskaper > säkerhets > redigera**
+1. Gå igenom listan över alla **grupper/användare** och kontrol lera att var och en har behörigheten **läsa & att köra** rätt uppsättning (bocken i kolumnen **Tillåt** måste vara kryssad)
 
-## <a name="low-video-quality"></a>Låg videokvalitet
+## <a name="low-video-quality"></a>Låg video kvalitet
 
-Videokvaliteten kan äventyras antingen av nätverkskvalitet eller den saknade H265-videocodecen.
+Video kvaliteten kan komprometteras antingen av nätverks kvaliteten eller den saknade video-codecen för H265.
 
-* Se stegen för att [identifiera nätverksproblem](#unstable-holograms).
-* Se [systemkraven](../overview/system-requirements.md#development-pc) för installation av den senaste grafikdrivrutinen.
+* Se stegen för att [identifiera nätverks problem](#unstable-holograms).
+* Se [system kraven](../overview/system-requirements.md#development-pc) för att installera den senaste grafik driv rutinen.
 
-## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>Video inspelad med MRC återspeglar inte kvaliteten på liveupplevelsen
+## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>Video som spelas in med MRC visar inte kvaliteten på Live-upplevelsen
 
-En video kan spelas in på Hololens genom [Mixed Reality Capture (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). Men den resulterande videon har sämre kvalitet än live-upplevelsen av två skäl:
-* Video framerate är begränsad till 30 Hz i motsats till 60 Hz.
-* Videobilderna går inte igenom det [sena steget för omprojection](../overview/features/late-stage-reprojection.md) bearbetning, så videon verkar vara choppier.
+En video kan spelas in på HoloLens genom en [MRC-avbildning (Mixed Reality Capture)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). Den resulterande videon har dock sämre kvalitet än Live-upplevelsen av två orsaker:
+* Video hastigheten är en gräns på 30 Hz i stället för 60 Hz.
+* Video bilderna går inte genom bearbetnings steget för [försenad fas](../overview/features/late-stage-reprojection.md) bearbetning, så videon verkar vara choppier.
 
-Båda är inneboende begränsningar av inspelningstekniken.
+Båda är olika begränsningar i inspelnings tekniken.
 
-## <a name="black-screen-after-successful-model-loading"></a>Svart skärm efter lyckad modellinläsning
+## <a name="black-screen-after-successful-model-loading"></a>Svart skärm efter lyckad modell inläsning
 
-Om du är ansluten till renderingskörningen och har läst in en modell framgångsrikt, men bara ser en svart skärm efteråt, kan detta ha några olika orsaker.
+Om du är ansluten till åter givnings körningen och läste in en modell, men bara ser en svart skärm senare, kan detta ha några distinkta orsaker.
 
 Vi rekommenderar att du testar följande saker innan du gör en mer djupgående analys:
 
-* Är H265 codec installerad? Även om det bör finnas en återgång till H264 codec, har vi sett fall där denna reserv inte fungerade korrekt. Se [systemkraven](../overview/system-requirements.md#development-pc) för installation av den senaste grafikdrivrutinen.
-* När du använder ett Unity-projekt stänger du Unity, tar bort det tillfälliga *biblioteket* och *obj-mapparna* i projektkatalogen och läser in/bygger projektet igen. I vissa fall cachelagrade data orsakade provet att inte fungera korrekt utan någon uppenbar anledning.
+* Är H265-kodeken installerad? Även om det bör finnas en återgång till H264,-kodeken har vi sett fall där den här återställningen inte fungerade korrekt. Se [system kraven](../overview/system-requirements.md#development-pc) för att installera den senaste grafik driv rutinen.
+* När du använder ett Unity-projekt stänger du Unity, tar bort de tillfälliga *biblioteks* -och *OBJ* -mapparna i projekt katalogen och läser in/bygger projektet igen. I vissa fall orsakade cachelagrade data att exemplet inte fungerar korrekt utan uppenbar anledning.
 
-Om dessa två steg inte hjälpte, är det nödvändigt att ta reda på om videobildrutor tas emot av klienten eller inte. Detta kan efterfrågas programmässigt enligt beskrivningen i kapitlet om [prestandafrågor på serversidan.](../overview/features/performance-queries.md) Har `FrameStatistics struct` en medlem som anger hur många videobildrutor som har tagits emot. Om det här antalet är större än 0 och ökar med tiden tar klienten emot faktiska videobildrutor från servern. Följaktligen måste det vara ett problem på klientsidan.
+Om dessa två steg inte var hjälp, krävs det att ta reda på om video ramar tas emot av klienten eller inte. Detta kan frågas program mässigt enligt beskrivningen i kapitlet [prestanda frågor på Server sidan](../overview/features/performance-queries.md) . Har `FrameStatistics struct` en medlem som anger hur många video bild rutor som har tagits emot. Om det här värdet är större än 0 och ökar med tiden tar klienten emot faktiska video ramar från servern. Det måste därför vara ett problem på klient sidan.
 
-### <a name="common-client-side-issues"></a>Vanliga problem på klientsidan
+### <a name="common-client-side-issues"></a>Vanliga problem på klient Sidan
 
-**Modellen är inte inne i vyn frustum:**
+**Modellen finns inte i vyn Frustum:**
 
-I många fall visas modellen korrekt men ligger utanför kamerans frustum. En vanlig orsak är att modellen har exporterats med en långt utanför centrum pivot så det klipps av kamerans långt klippning plan. Det hjälper till att fråga modellens markeringsram programmässigt och visualisera rutan med Unity som en linjeruta eller skriva ut dess värden till felsökningsloggen.
+I många fall visas modellen korrekt men finns utanför kamerans Frustum. En vanlig orsak är att modellen har exporter ATS med en avlägsen Pivot-of-Center-Pivot så att den klipps av kamerans avlägsen urklipps plan. Det hjälper dig att fråga modellens markerings ruta program mässigt och visualisera rutan med enhets uppdelad som en linje eller skriva ut dess värden till fel söknings loggen.
 
-Dessutom genererar konverteringsprocessen en [utdatajisonfil](../how-tos/conversion/get-information.md) tillsammans med den konverterade modellen. För att felsöka modellpositioneringsproblem är `boundingBox` det värt att titta på posten i [avsnittet outputStatistics:](../how-tos/conversion/get-information.md#the-outputstatistics-section)
+Dessutom genererar konverterings processen en [utgående JSON-fil](../how-tos/conversion/get-information.md) tillsammans med den konverterade modellen. För att felsöka problem med modell placeringen är det värt att `boundingBox` titta på posten i [outputStatistics-avsnittet](../how-tos/conversion/get-information.md#the-outputstatistics-section):
 
 ```JSON
 {
@@ -125,31 +125,31 @@ Dessutom genererar konverteringsprocessen en [utdatajisonfil](../how-tos/convers
 }
 ```
 
-Markeringsramen beskrivs som `min` `max` en och placera i 3D-rymden, i meter. Så en koordinat på 1000,0 betyder att det är 1 kilometer från ursprunget.
+Begränsnings rutan beskrivs som en `min` och `max` position i 3D-rymden, i meter. En koordinat på 1000,0 betyder att den är 1 kilometer bort från ursprunget.
 
-Det kan finnas två problem med denna begränsningsram som leder till osynlig geometri:
-* **Lådan kan vara långt borta,** så objektet klipps helt på grund av långt plan klippning. Värdena `boundingBox` i det här fallet `min = [-2000, -5,-5], max = [-1990, 5,5]`skulle se ut så här: , med en stor förskjutning på x-axeln som ett exempel här. Lös den här typen av `recenterToOrigin` problem genom att aktivera alternativet i [modellkonverteringskonfigurationen](../how-tos/conversion/configure-model-conversion.md).
-* **Lådan kan centrerats men vara storleksordningar för stor**. Det innebär att även om kameran startar i mitten av modellen, är dess geometri klippt i alla riktningar. Typiska `boundingBox` värden i det här `min = [-1000,-1000,-1000], max = [1000,1000,1000]`fallet skulle se ut så här: . Orsaken till den här typen av problem är vanligtvis en enhetsskala som inte stämmer överens. Om du vill kompensera anger du ett [skalningsvärde under konverteringen](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) eller markerar källmodellen med rätt enheter. Skalning kan också tillämpas på rotnoden när modellen läses in under körning.
+Det kan finnas två problem med den här avgränsnings rutan som leder till osynlig geometri:
+* **Rutan kan vara för långt bort**, så att objektet klipps ut helt på grund av ett långt plan Urklipp. `boundingBox` Värdena i det här fallet skulle se ut så här `min = [-2000, -5,-5], max = [-1990, 5,5]`:, med en stor förskjutning på x-axeln som ett exempel här. Du kan lösa den här typen av problem genom `recenterToOrigin` att aktivera alternativet i [modell konverterings konfigurationen](../how-tos/conversion/configure-model-conversion.md).
+* **Rutan kan centreras men vara av en storlek som är för stor**. Det innebär att låt kameran starta i mitten av modellen, att dess geometri klipps i alla riktningar. Typiska `boundingBox` värden i det här fallet skulle se ut så `min = [-1000,-1000,-1000], max = [1000,1000,1000]`här:. Orsaken till den här typen av problem är vanligt vis en enhets skalnings konflikt. Kompensera genom att ange ett [skalnings värde under konverteringen](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) eller markera käll modellen med rätt enheter. Skalning kan också tillämpas på rotnoden vid inläsning av modellen vid körning.
 
-**Unity-renderingspipelinen innehåller inte renderingskrokarna:**
+**Pipeline-renderingen omfattar inte åter givnings hookarna:**
 
-Azure Remote Rendering krokar i Unity återge pipeline för att göra ramen sammansättning med videon, och att göra reprojection. Om du vill kontrollera att dessa krokar finns öppnar du menyn *Fönster > Analys > Ramfelfelbugger*. Aktivera den och se till att `HolographicRemotingCallbackPass` det finns två poster för på gång:
+Azure Remote rendering-hookar i Unity Render-pipeline för att göra en ram komposition med videon och för att göra omprojektionen. Om du vill kontrol lera att dessa hookar finns öppnar du Meny *fönstret > analys > ram fel sökning*. Aktivera det och se till att det finns två poster för `HolographicRemotingCallbackPass` i pipelinen:
 
-![Felsökare för enhetsram](./media/troubleshoot-unity-pipeline.png)
+![Unity Frame debugger](./media/troubleshoot-unity-pipeline.png)
 
-## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Enhetskod med api:et för fjärråtergivning kompileras inte
+## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Uniting-kod som använder API för fjärrrendering kompileras inte
 
-Växla *byggtypen* för Unity-lösningen till **Debug**. När du testar ARR i `UNITY_EDITOR` Unity-redigeraren är definiera endast tillgängligt i "Debug" builds. Observera att detta inte är relaterat till den byggtyp som används för [distribuerade program,](../quickstarts/deploy-to-hololens.md)där du bör föredra "Release" bygger.
+Byt *build-typ* för unions lösningen till **Felsök**. När du testar ARR i Unity-redigeraren är definiera `UNITY_EDITOR` endast tillgänglig i "debug"-versioner. Observera att detta inte är relaterat till den build-typ som används för [distribuerade program](../quickstarts/deploy-to-hololens.md), där du bör föredra versions versioner.
 
 ## <a name="unstable-holograms"></a>Instabila hologram
 
-Om renderade objekt verkar röra sig tillsammans med huvudrörelser, kan du stöta på problem med *Sent skede Reprojection* (LSR). Se avsnittet om [om omprojektering](../overview/features/late-stage-reprojection.md) i slutet av scenen för vägledning om hur man ska hantera en sådan situation.
+Om återgivna objekt ser ut att flyttas tillsammans med huvud förflyttningar, kan det hända att du stöter på problem med LSR ( *sent Stage-projektion* ). Se avsnittet om [omprojektion av sena steg](../overview/features/late-stage-reprojection.md) för vägledning om hur du kan använda en sådan situation.
 
-En annan orsak till instabila hologram (wobbling, skevhet, jittering eller hoppning hologram) kan vara dålig nätverksanslutning, i synnerhet otillräcklig nätverksbandbredd, eller för hög latens. En bra indikator för kvaliteten på nätverksanslutningen `ARRServiceStats.VideoFramesReused`är [prestandastatistikvärdet](../overview/features/performance-queries.md) . Återanvända bildrutor anger situationer där en gammal videobildruta behövde återanvändas på klientsidan eftersom ingen ny videobildruta var tillgänglig , till exempel på grund av paketförlust eller på grund av variationer i nätverksfördröjning. Om `ARRServiceStats.VideoFramesReused` är ofta större än noll, indikerar detta ett nätverksproblem.
+En annan orsak till instabila hologram (wobbling, tänjning, Darr eller hopp) kan vara dåligt nätverks anslutning, särskilt otillräcklig nätverks bandbredd eller för hög latens. En bra indikator för nätverks anslutningens kvalitet är [prestanda statistik](../overview/features/performance-queries.md) svärdet `ARRServiceStats.VideoFramesReused`. Återanvändade ramar visar situationer där en gammal video RAM behövs återanvändas på klient sidan eftersom ingen ny video RAM var tillgänglig, till exempel på grund av paket förlust eller på grund av variationer i nätverks fördröjningen. Om `ARRServiceStats.VideoFramesReused` är ofta större än noll tyder detta på ett nätverks problem.
 
-Ett annat värde `ARRServiceStats.LatencyPoseToReceiveAvg`att titta på är . Det bör konsekvent vara under 100 ms. Om du ser högre värden betyder det att du är ansluten till ett datacenter som är för långt bort.
+Ett annat värde att titta på `ARRServiceStats.LatencyPoseToReceiveAvg`är. Det bör ständigt vara under 100 MS. Om du ser högre värden betyder det att du är ansluten till ett Data Center som är för långt bort.
 
-En lista över möjliga minskningar finns i [riktlinjerna för nätverksanslutning](../reference/network-requirements.md#guidelines-for-network-connectivity).
+En lista över eventuella begränsningar finns i [rikt linjerna för nätverks anslutning](../reference/network-requirements.md#guidelines-for-network-connectivity).
 
 ## <a name="next-steps"></a>Nästa steg
 

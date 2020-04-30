@@ -1,6 +1,6 @@
 ---
-title: Pivotomvandling vid mappning av dataflöde
-description: Pivotdata från rader till kolumner med hjälp av Azure Data Factory-mappningsdataflöde Pivot transformation
+title: Pivot-transformering i data flöde för mappning
+description: Pivotera data från rader till kolumner med Azure Data Factory mappa data flödets Pivot-transformering
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -8,76 +8,76 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
 ms.openlocfilehash: a58444f81f60b48f9c2c76f13257a6a2431158a8
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686460"
 ---
-# <a name="pivot-transformation-in-mapping-data-flow"></a>Pivotomvandling vid mappning av dataflöde
+# <a name="pivot-transformation-in-mapping-data-flow"></a>Pivot-transformering i data flöde för mappning
 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Använd pivotomvandlingen för att skapa flera kolumner från de unika radvärdena i en enskild kolumn. Pivot är en aggregeringsomformning där du markerar grupp efter kolumner och genererar pivotkolumner med hjälp av [mängdfunktioner](data-flow-expression-functions.md#aggregate-functions).
+Använd Pivot-transformeringen för att skapa flera kolumner från de unika rad värdena för en enskild kolumn. Pivot är en agg regerings omvandling där du väljer gruppera efter kolumner och genererar Pivot-kolumner med [mängd funktioner](data-flow-expression-functions.md#aggregate-functions).
 
 ## <a name="configuration"></a>Konfiguration
 
-Pivotomvandlingen kräver tre olika indata: gruppera efter kolumner, pivottangenten och hur du genererar de pivoterade kolumnerna
+Pivot-transformeringen kräver tre olika indata: Gruppera efter kolumner, pivot-tangenten och hur du genererar de pivoterade kolumnerna
 
 ### <a name="group-by"></a>Gruppera efter
 
 ![Gruppera efter alternativ](media/data-flow/pivot2.png "[Gruppera efter alternativ")
 
-Markera vilka kolumner som ska aggregeras över de pivoterade kolumnerna. Utdata grupperar alla rader med samma grupp efter värden i en rad. Aggregeringen som görs i den pivoterade kolumnen sker över varje grupp.
+Välj vilka kolumner som ska aggregera de pivoterade kolumnerna. Utdata kommer att gruppera alla rader med samma grupp efter värden till en rad. Agg regeringen som görs i den pivoterade kolumnen görs över varje grupp.
 
-Det här avsnittet är valfritt. Om ingen grupp efter kolumner markeras sammanställs hela dataströmmen och endast en rad skrivs ut.
+Det här avsnittet är valfritt. Om ingen grupp efter kolumner har marker ATS aggregeras hela data strömmen och bara en rad returneras.
 
-### <a name="pivot-key"></a>Pivot-tangenten
+### <a name="pivot-key"></a>Pivot-nyckel
 
-![Pivot-tangenten](media/data-flow/pivot3.png "Pivot-tangenten")
+![Pivot-nyckel](media/data-flow/pivot3.png "Pivot-nyckel")
 
-Pivottangenten är den kolumn vars radvärden vrids till nya kolumner. Som standard skapar pivotomvandlingen en ny kolumn för varje unikt radvärde.
+Pivot-tangenten är den kolumn vars rad värden får pivoteras i nya kolumner. Som standard skapas en ny kolumn för varje unikt rad värde i Pivot-transformeringen.
 
-I avsnittet **Värde**kan du ange specifika radvärden som ska pivoteras. Endast de radvärden som anges i det här avsnittet pivoteras. Om du aktiverar **Null-värdet** skapas en pivoterad kolumn för null-värdena i kolumnen.
+I avsnittet med namnet **värde**kan du ange vissa rad värden som ska pivoteras. Endast de rad värden som anges i det här avsnittet kommer att pivoteras. Om **null-värdet** aktive ras skapas en pivotad kolumn för null-värden i kolumnen.
 
 ### <a name="pivoted-columns"></a>Pivoterade kolumner
 
 ![Pivoterade kolumner](media/data-flow/pivot4.png "Pivoterade kolumner")
 
-För varje unikt pivotnyckelvärde som blir en kolumn genererar du ett aggregerat radvärde för varje grupp. Du kan skapa flera kolumner per pivotnyckel. Varje pivotkolumn måste innehålla minst en [mängdfunktion](data-flow-expression-functions.md#aggregate-functions).
+Generera ett sammanställt rad värde för varje grupp för varje unikt värde för Pivot-nyckel som blir en kolumn. Du kan skapa flera kolumner per Pivot-nyckel. Varje Pivot-kolumn måste innehålla minst en [mängd funktion](data-flow-expression-functions.md#aggregate-functions).
 
-**Namnmönster för kolumn:** Välj hur kolumnnamnet för varje pivotkolumn ska formateras. Det utdataade kolumnnamnet är en kombination av pivotnyckelvärdet, kolumnprefixet och valfritt prefix, räcker, mellantecken. 
+**Kolumn namns mönster:** Välj hur du vill formatera kolumn namnet för varje Pivot-kolumn. Namnet på den inkluderade kolumnen är en kombination av värdet för Pivot-tangenten, kolumn prefixet och valfritt prefix, tillräckligt, mellan tecken. 
 
-**Kolumn arrangemang:** Om du genererar mer än en pivotkolumn per pivotnyckel väljer du hur du vill att kolumnerna ska ordnas. 
+**Kolumn ordning:** Om du genererar fler än en pivot-kolumn per Pivot-nyckel väljer du hur du vill att kolumnerna ska sorteras. 
 
-**Kolumnprefix:** Om du genererar mer än en pivotkolumn per pivotnyckel anger du ett kolumnprefix för varje kolumn. Den här inställningen är valfri om du bara har en pivoterad kolumn.
+**Kolumn-prefix:** Om du genererar fler än en pivot-kolumn per Pivot-nyckel anger du ett kolumn-prefix för varje kolumn. Den här inställningen är valfri om du bara har en pivoterad kolumn.
 
-## <a name="help-graphic"></a>Hjälpbild
+## <a name="help-graphic"></a>Hjälp bild
 
-Hjälpbilden nedan visar hur de olika pivotkomponenterna interagerar med varandra
+I hjälp bilden nedan visas hur olika Pivot-komponenter interagerar med varandra
 
-![Pivot-hjälpgrafik](media/data-flow/pivot5.png "Pivot-hjälpbild")
+![Pivotera hjälp grafik](media/data-flow/pivot5.png "Hjälp bild för Pivot")
 
-## <a name="pivot-metadata"></a>Pivot metadata
+## <a name="pivot-metadata"></a>Pivotera metadata
 
-Om inga värden anges i pivotnyckelkonfigurationen genereras de pivoterade kolumnerna dynamiskt vid körning. Antalet pivoterade kolumner är lika med antalet unika pivotnyckelvärden multiplicerat med antalet pivotkolumner. Eftersom detta kan vara ett föränderligt nummer kommer användarupplevelsen inte att visa kolumnmetadata på fliken **Inspektera** och det blir ingen kolumnspridning. Om du vill omvandla dessa kolumner använder du [kolumnmönsterfunktionerna](concepts-data-flow-column-pattern.md) för att mappa dataflöde. 
+Om inga värden anges i konfiguration av Pivot-nyckel kommer de pivoterade kolumnerna att genereras dynamiskt vid körning. Antalet pivoterade kolumner motsvarar antalet unika värden för Pivot-nycklar multiplicerat med antalet pivottabeller. Eftersom detta kan vara ett ändrat nummer, visar UX inte kolumnens metadata på fliken **Granska** och det kommer inte att finnas någon kolumn spridning. Om du vill omvandla dessa kolumner använder du [kolumn mönster](concepts-data-flow-column-pattern.md) funktionerna i mappa data flöde. 
 
-Om specifika pivotnyckelvärden har angetts visas de pivoterade kolumnerna i metadata.e kolumnnamn kommer att vara tillgängliga för dig i mappningen Inspektera och sänk.
+Om de angivna värdena för en piltangent anges visas de pivoterade kolumnerna i metadata. e kolumn namn kommer att vara tillgängliga för dig i inspektions-och mottagar mappningen.
 
-### <a name="generate-metadata-from-drifted-columns"></a>Generera metadata från borttrollade kolumner
+### <a name="generate-metadata-from-drifted-columns"></a>Generera metadata från inaktiverade kolumner
 
-Pivot genererar nya kolumnnamn dynamiskt baserat på radvärden. Du kan lägga till dessa nya kolumner i de metadata som kan refereras senare i dataflödet. Det gör du genom att använda [den snabbåtgärd](concepts-data-flow-schema-drift.md#map-drifted-columns-quick-action) som utlöstes av kartan i förhandsgranskningen av data. 
+Pivot genererar nya kolumn namn dynamiskt baserat på rad värden. Du kan lägga till dessa nya kolumner i metadata som kan refereras till senare i ditt data flöde. Om du vill göra det använder du åtgärden [Mappa](concepts-data-flow-schema-drift.md#map-drifted-columns-quick-action) åtgärdad snabb åtgärd i data förhands granskning. 
 
-![Pivotera kolumner](media/data-flow/newpivot1.png "Kartdriven pivotkolumner")
+![Pivotera kolumner](media/data-flow/newpivot1.png "Mappa uppstaplade Pivot-kolumner")
 
-### <a name="sinking-pivoted-columns"></a>Sjunkande pivoterade kolumner
+### <a name="sinking-pivoted-columns"></a>Handfat med pivoterade kolumner
 
-Även om pivoterade kolumner är dynamiska kan de fortfarande skrivas in i måldatalagret. Aktivera **Tillåt schemadrift** i sink-inställningarna. På så sätt kan du skriva kolumner som inte ingår i metadata. din kolumn metadata, men schemat drift alternativet gör att du kan landa data.
+Även om pivoterade kolumner är dynamiska kan de fortfarande skrivas till mål data lagret. Aktivera **Tillåt schema avvikelse** i mottagar inställningarna. På så sätt kan du skriva kolumner som inte ingår i metadata. metadata för kolumnen, men med alternativet schema avvikelse kan du ange data på ett land.
 
-### <a name="rejoin-original-fields"></a>Återansluta till ursprungliga fält
+### <a name="rejoin-original-fields"></a>Koppla från ursprungliga fält
 
-Pivotomvandlingen projicerar bara gruppen efter och pivoterade kolumner. Om du vill att utdata ska innehålla andra indatakolumner använder du ett [självkopplingsmönster.](data-flow-join.md#self-join)
+Pivot-transformeringen kommer bara att projicera kolumnerna Group by och pivoted. Använd ett [själv kopplings](data-flow-join.md#self-join) mönster om du vill att dina utdata ska innehålla andra inmatnings kolumner.
 
 ## <a name="data-flow-script"></a>Dataflödesskript
 
@@ -94,7 +94,7 @@ Pivotomvandlingen projicerar bara gruppen efter och pivoterade kolumner. Om du v
 ```
 ### <a name="example"></a>Exempel
 
-Skärmarna som visas i konfigurationsavsnittet har följande dataflödesskript:
+Skärmarna som visas i konfigurations avsnittet har följande data flödes skript:
 
 ```
 BasketballPlayerStats pivot(groupBy(Tm),
@@ -107,4 +107,4 @@ BasketballPlayerStats pivot(groupBy(Tm),
 
 ## <a name="next-steps"></a>Nästa steg
 
-Prova den [unpivot-omvandlingen](data-flow-unpivot.md) för att omvandla kolumnvärden till radvärden. 
+Prova [unpivot-transformeringen](data-flow-unpivot.md) för att omvandla kolumn värden till rad värden. 

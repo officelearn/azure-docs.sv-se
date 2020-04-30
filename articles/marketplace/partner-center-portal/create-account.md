@@ -1,6 +1,6 @@
 ---
-title: Skapa ett kommersiellt marketplace-konto i Partner Center
-description: Läs om hur du skapar ett kommersiellt marketplace-konto i Partner Center.
+title: Skapa ett kommersiellt marknads plats konto i Partner Center
+description: Lär dig hur du skapar ett kommersiellt marknads plats konto i Partner Center.
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
@@ -8,174 +8,174 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 04/14/2020
 ms.openlocfilehash: 1bd71a4fb150d544125703679cf0fa0b8951e1eb
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81684140"
 ---
-# <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Skapa ett kommersiellt marketplace-konto i Partner Center
+# <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Skapa ett kommersiellt marknads plats konto i Partner Center
 
-Om du vill publicera dina erbjudanden på [Azure Marketplace](https://azuremarketplace.microsoft.com/) eller [Microsoft AppSource](https://appsource.microsoft.com/)måste du skapa ett konto i det kommersiella marketplace-programmet i Partner Center. I den här artikeln beskriver vi hur du skapar ett Partner Center-konto och hur du lägger till nya utgivare i programmet Commercial Marketplace.
+Om du vill publicera dina erbjudanden till [Azure Marketplace](https://azuremarketplace.microsoft.com/) eller [Microsoft AppSource](https://appsource.microsoft.com/)måste du skapa ett konto i det kommersiella Marketplace-programmet i Partner Center. I den här artikeln får du lära dig hur du skapar ett partner Center-konto och hur du lägger till nya utgivare i programmet för kommersiella marknads platser.
 
 >[!IMPORTANT]
->Om du har ett konto i [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com) som har flyttats till Partner Center behöver du inte skapa ett nytt konto. Mer information finns i [Publishers som flyttar från CPP.](#publishers-moving-from-cpp)
+>Om du har ett konto i [Cloud Partner Portal (cpp)](https://cloudpartner.azure.com) som har flyttats till Partner Center behöver du inte skapa ett nytt konto. Mer information finns i [utgivare som flyttar från cpp](#publishers-moving-from-cpp) .
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Om du vill skapa ett konto i Partner center kontrollerar du att du har:
+Kontrol lera att du har följande för att skapa ett konto på Partner Center:
 
-- befogenhet att underteckna juridiska avtal för ditt företags räkning.
-- Ditt företags juridiska företagsnamn, adress och primära kontakt (det kan vara du).
+- Myndighet för att signera juridiska avtal på ditt företags vägnar.
+- Ditt företags juridiska företags namn, adress och primär kontakt (detta kan vara du).
 
-Vi verifierar den här informationen under processen för att skapa kontot.
+Vi ska kontrol lera den här informationen när kontot skapas.
 
 Det finns två sätt att skapa ett konto:
 
-- Om du inte har använt Partner Center tidigare och inte har ett Microsoft-nätverkskonto skapar du ditt konto med [skapa ett konto med registreringssidan för Partnercenter](#create-an-account-using-the-partner-center-enrollment-page).
-- Om du redan är registrerad i Microsoft Partner Network skapar du ett konto direkt från Partner center med [Skapa ett konto med befintliga Microsoft Partner Center-registreringar](#create-an-account-using-existing-microsoft-partner-center-enrollments).
+- Om du är nybörjare på Partner Center och inte har ett Microsoft-konto kan du skapa ett konto med hjälp av [skapa ett konto med hjälp av sidan för registrering av Partner Center](#create-an-account-using-the-partner-center-enrollment-page).
+- Om du redan har registrerat dig i Microsoft Partner Network skapar du ett konto direkt från Partner Center med hjälp av [skapa ett konto med hjälp av befintliga Microsoft Partner Center-registreringar](#create-an-account-using-existing-microsoft-partner-center-enrollments).
 
-## <a name="create-an-account-using-the-partner-center-enrollment-page"></a>Skapa ett konto med registreringssidan för Partner center
+## <a name="create-an-account-using-the-partner-center-enrollment-page"></a>Skapa ett konto med hjälp av sidan för registrering av Partner Center
 
-Använd den här metoden om du inte har använt Partner Center tidigare och inte är registrerad i Microsoft Partner Network. I det här avsnittet beskrivs hur du skapar ett nytt Partner Center-konto, inklusive hur du:
+Använd den här metoden om du är nybörjare på Partner Center och inte är registrerad i Microsoft Partner Network. Det här avsnittet beskriver hur du skapar ett nytt Partner Center-konto, inklusive hur du:
 
-- [Registrera dig på registreringssidan för Partner center](#register-on-the-partner-center-enrollment-page)
-- [Logga in med ett arbetskonto](#sign-in-with-a-work-account)
-- [Godkänn villkoren](#agree-to-terms-and-conditions)
-- [Ange din utgivarprofil](#provide-your-publisher-profile)
+- [Registrera dig på sidan för registrering av Partner Center](#register-on-the-partner-center-enrollment-page)
+- [Logga in med ett arbets konto](#sign-in-with-a-work-account)
+- [Godkänn de allmänna villkoren](#agree-to-terms-and-conditions)
+- [Ange din utgivar profil](#provide-your-publisher-profile)
 
 >[!IMPORTANT]
->Om du har ett konto i [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com) som har flyttats till Partner Center behöver du inte skapa ett nytt konto. Mer information finns i [Publishers som flyttar från CPP.](#publishers-moving-from-cpp)
+>Om du har ett konto i [Cloud Partner Portal (cpp)](https://cloudpartner.azure.com) som har flyttats till Partner Center behöver du inte skapa ett nytt konto. Mer information finns i [utgivare som flyttar från cpp](#publishers-moving-from-cpp) .
 
-### <a name="register-on-the-partner-center-enrollment-page"></a>Registrera dig på registreringssidan för Partner center
+### <a name="register-on-the-partner-center-enrollment-page"></a>Registrera dig på sidan för registrering av Partner Center
 
-Granska informationen på registreringssidan [**Välkommen till Microsoft Partner Center**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) och registrera dig sedan för ett konto.
+Läs informationen på sidan [**Välkommen till Microsoft Partner Center**](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) -registrering och registrera dig för ett konto.
 
-### <a name="sign-in-with-a-work-account"></a>Logga in med ett arbetskonto
+### <a name="sign-in-with-a-work-account"></a>Logga in med ett arbets konto
 
-Logga in med ett arbetskonto så att du kan länka företagets e-postkontodomän för arbete till ditt nya Partner Center-konto. Genom att associera dessa konton kan företagets anställda logga in på Partner Center med sina användarnamn och lösenord för arbetskonton.
+Logga in med ett arbets konto så att du kan koppla företagets jobb-e-postkonto till ditt nya partner Center-konto. Genom att associera dessa konton kan företagets anställda logga in på Partner Center med sitt arbets konto användar namn och lösen ord.
 
 >[!NOTE]
->Om du vill kontrollera om ditt företag redan har ett arbetskonto, hur du skapar ett nytt arbetskonto eller hur du ställer in flera arbetskonton som ska användas med Partner center besöker du [Ditt företags arbetskonto och Partnercenter](./company-work-accounts.md).
+>Om du vill kontrol lera om ditt företag redan har ett arbets konto, hur du skapar ett nytt arbets konto eller hur du konfigurerar flera arbets konton som ska användas med partner Center, kan du gå till [ditt företags arbets konto och partner Center](./company-work-accounts.md).
 
-### <a name="agree-to-terms-and-conditions"></a>Gå med på villkor
+### <a name="agree-to-terms-and-conditions"></a>Godkänn de allmänna villkoren
 
-Du måste godkänna villkoren i Microsoft [Marketplace Publisher-avtalet](https://go.microsoft.com/fwlink/?LinkID=699560).
+Du måste godkänna de allmänna villkoren i [Microsoft Marketplace Publisher-avtalet](https://go.microsoft.com/fwlink/?LinkID=699560).
 
-### <a name="provide-your-publisher-profile"></a>Ange din utgivarprofil
+### <a name="provide-your-publisher-profile"></a>Ange din utgivar profil
 
-Din utgivarprofil innehåller ditt företagsnamn och MPN-ID. Om du ännu inte har gjort det måste du gå med i [Microsoft Partner Network](https://partner.microsoft.com/commercial). När du har gå med i Microsoft Partner Network får du ett MPN-ID.
+Din utgivar profil innehåller ditt företags namn och ditt MPN-ID. Om du ännu inte har gjort det måste du gå med i [Microsoft Partner Network](https://partner.microsoft.com/commercial). När du har anslutit till Microsoft Partner Network får du ett MPN-ID.
 
-Skapa ett Publisher-ID. Ditt Publisher-ID identifierar ditt företag och dina erbjudanden på Marketplace och AppSource unikt.
+Skapa ett utgivar-ID. Ditt utgivar-ID identifierar ditt företag och dina erbjudanden i Marketplace och AppSource.
 
-När du har bekräftat din profilinformation för utgivare godkänner du villkoren och skapar ditt Partner Center-konto genom att välja **Acceptera och fortsätta**.
+När du har bekräftat din utgivar profil information godkänner du villkoren och skapar ditt partner Center-konto genom att välja **Godkänn och fortsätt**.
 
 >[!IMPORTANT]
->*Du måste ha rätt att agera för ditt företags räkning för att acceptera dessa villkor.*
+>*Du måste ha behörighet att agera på företagets vägnar för att kunna godkänna dessa villkor.*
 
-När du har registrerat dig tas du till sidan Översikt över kommersiella marknadsplatser. **Commercial Marketplace** visas i det vänstra navigeringsfältet. Om du väljer **Inställningar** > **Partner Settings** > **Program**ser du att Commercial Marketplace är registrerat.
+När du har registrerat dig kommer du till översikts sidan för den kommersiella Marketplace. Den **kommersiella marknads platsen** visas i det vänstra navigerings fältet. Om du väljer **Inställningar** > **partner inställningar** > **program**, ser du att den kommersiella Marketplace är listad som registrerad.
 
-Tack för att du skapar ett kommersiellt Marketplace-konto på Partner Center! Mer information finns i [översikt över kommersiella marknadsplatser](./commercial-marketplace-overview.md). Information om hur du lägger till utgivare finns [i Lägga till nya utgivare på den kommersiella marknadsplatsen](#add-new-publishers-to-the-commercial-marketplace-program).
+Tack för att du skapar ett kommersiellt marknads plats konto på Partner Center! Mer hjälp finns i [Översikt över kommersiella marknads platser](./commercial-marketplace-overview.md). Information om hur du lägger till utgivare finns i [lägga till nya utgivare på den kommersiella marknads platsen](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## <a name="create-an-account-using-existing-microsoft-partner-center-enrollments"></a>Skapa ett konto med befintliga Microsoft Partner Center-registreringar
 
-Använd det här avsnittet om du vill skapa ett kommersiellt Marketplace-konto om du redan har en registrering i Microsoft Partner Center.
+Använd det här avsnittet om du vill skapa ett kommersiellt marknads plats konto om du redan har en registrering i Microsoft Partner Center.
 
-Det finns två typer av befintliga registreringar som du kan använda för att konfigurera ditt Kommersiella Marketplace-konto. Välj den som gäller för dig:
+Det finns två typer av befintliga registreringar som du kan använda för att konfigurera ditt kommersiella Marketplace-konto. Välj den som gäller dig:
 
-- Om du har en befintlig Microsoft Partner Network-registrering skapar du ditt konto med [Registrerad i Microsoft Partner Network](#enrolled-in-the-microsoft-partner-network).
-- Om du har en befintlig registrering av utvecklarprogram skapar du ditt konto med hjälp av [Inskriven i ett utvecklarprogram](#enrolled-in-a-developer-program).
+- Om du har en befintlig Microsoft Partner Network registrering ska du skapa ditt konto med hjälp av [registreringen i Microsoft Partner Network](#enrolled-in-the-microsoft-partner-network).
+- Om du har ett befintligt program för utvecklare kan du skapa ett konto med hjälp av [registreringen i ett program för utvecklare](#enrolled-in-a-developer-program).
 
-För båda metoderna ska du använda följande steg:
+För båda metoderna kommer du att använda de här stegen:
 
 - Logga in på Partner Center med dina befintliga autentiseringsuppgifter
-- Ange din publiceringsprofilinformation
+- Ange information om publicerings profilen
 
-Se till att ha din kontoinformation till hands.
+Se till att du har din konto information till hands.
 
 >[!IMPORTANT]
->Om du har ett konto i [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com/) som har flyttats till Partner Center behöver du inte skapa ett nytt konto. Mer information finns i [Publishers som flyttar från CPP.](#publishers-moving-from-cpp)
+>Om du har ett konto i [Cloud Partner Portal (cpp)](https://cloudpartner.azure.com/) som har flyttats till Partner Center behöver du inte skapa ett nytt konto. Mer information finns i [utgivare som flyttar från cpp](#publishers-moving-from-cpp) .
 
 ### <a name="enrolled-in-the-microsoft-partner-network"></a>Registrerad i Microsoft Partner Network
 
-Om du redan är registrerad i Microsoft Partner Network kan du använda det här avsnittet för att skapa ditt konto direkt från Partner center.
+Om du redan har registrerat dig i Microsoft Partner Network kan du använda det här avsnittet för att skapa ditt konto direkt från Partner Center.
 
-Logga in [på Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) med ditt Microsoft Partner Network-konto så att du länkar företagets e-postkontodomän för arbete till ditt nya Partner Center-konto. Genom att associera dessa konton kan företagets anställda logga in på Partner Center med sina användarnamn och lösenord för arbetskonton.
-
->[!NOTE]
->Om du vill kontrollera om ditt företag redan har ett partnercenterarbetskonto, hur du skapar ett nytt arbetskonto eller hur du ställer in flera arbetskonton som ska användas med Partner center besöker du [Ditt företagsarbetskonto och Partnercenter](./company-work-accounts.md).
-
-När du har loggat in använder du följande steg för att slutföra inrättandet av ditt konto.
+Logga in på [partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) med ditt Microsoft Partner Network-konto så att du kan länka ditt företags jobb för e-postkontot till ditt nya partner Center-konto. Genom att associera dessa konton kan företagets anställda logga in på Partner Center med sina arbets konto användar namn och lösen ord.
 
 >[!NOTE]
-> Du måste ha en **kontoadministratör** eller en **global administratörsroll** för att kunna logga in på Microsoft Partner Network.
+>Om du vill kontrol lera om ditt företag redan har ett arbets konto för partner Center, hur du skapar ett nytt arbets konto eller hur du konfigurerar flera arbets konton som ska användas med partner Center, kan du gå till [ditt företags arbets konto och partner Center](./company-work-accounts.md).
 
-1. Välj **Inställningar** > Partner Inställningar**Program** > **Komma igång**i**Partnercenter** > . [Partner Center](https://partner.microsoft.com/)
-2. Microsoft Partner Network identifierar din prenumeration och visar utgivarprofilsidan så att du kan ange ditt företagsnamn och MPN-ID.
-3. Läs villkoren i [Microsoft Marketplace Publisher-avtalet](https://go.microsoft.com/fwlink/?LinkID=699560)och välj sedan **Acceptera och fortsätta** att slutföra registreringen.
+När du har loggat in använder du följande steg för att slutföra konfigurationen av ditt konto.
+
+>[!NOTE]
+> Du måste ha en **konto administratör** eller en **Global administratörs** roll för att kunna logga in på Microsoft Partner Network.
+
+1. Från [partner Center](https://partner.microsoft.com/)väljer du **Inställningar** > **partner inställningar** > **program** > **Kom igång**.
+2. Microsoft Partner Network identifierar din prenumeration och visar sidan Publisher-profil där du kan ange företagets namn och MPN-ID.
+3. Läs villkoren i [Microsoft Marketplace utgivar avtalet](https://go.microsoft.com/fwlink/?LinkID=699560)och välj sedan **Godkänn och fortsätt** för att slutföra registreringen.
 
     >[!IMPORTANT]
-    >*Du måste ha rätt att agera för ditt företags räkning för att acceptera dessa villkor.*
+    >*Du måste ha behörighet att agera på företagets vägnar för att kunna godkänna dessa villkor.*
 
-När du har registrerat dig tas du till sidan Översikt över kommersiella marknadsplatser. **Commercial Marketplace** visas i det vänstra navigeringsfältet. Om du väljer **Inställningar** > **Partner Settings** > **Program**ser du att Commercial Marketplace är registrerat.
+När du har registrerat dig kommer du till översikts sidan för den kommersiella Marketplace. Den **kommersiella marknads platsen** visas i det vänstra navigerings fältet. Om du väljer **Inställningar** > **partner inställningar** > **program**, ser du att den kommersiella Marketplace är listad som registrerad.
 
-Tack för att du skapar ett konto på Partner Center! Mer information finns i [översikt över kommersiella marknadsplatser](./commercial-marketplace-overview.md). Information om hur du lägger till utgivare finns [i Lägga till nya utgivare på den kommersiella marknadsplatsen](#add-new-publishers-to-the-commercial-marketplace-program).
+Tack för att du skapar ett konto på Partner Center! Mer hjälp finns i [Översikt över kommersiella marknads platser](./commercial-marketplace-overview.md). Information om hur du lägger till utgivare finns i [lägga till nya utgivare på den kommersiella marknads platsen](#add-new-publishers-to-the-commercial-marketplace-program).
 
-### <a name="enrolled-in-a-developer-program"></a>Inskrivna i ett utvecklarprogram
+### <a name="enrolled-in-a-developer-program"></a>Registrerad i ett program för utvecklare
 
-Om du redan är registrerad i ett partnercenterutvecklare använder du det här avsnittet för att skapa ditt konto direkt från Partner Center.
+Om du redan är registrerad i ett partner Center Developer-program kan du använda det här avsnittet för att skapa ditt konto direkt från Partner Center.
 
 >[!NOTE]
->Om du vill registrera dig för den kommersiella marknadsplatsen under samma konto som du är inloggad som måste du ha registrerat dig på Partner Center med ett företagskonto. Om du har registrerat dig med ett enskilt konto visas din commercial marketplace-registrering under ett nytt konto.
+>För att registrera dig för den kommersiella marknads platsen under samma konto som du är inloggad som måste du ha registrerat dig på Partner Center med ett företags konto. Om du har registrerat dig med ett enskilt konto kommer din marknads plats registrering att visas under ett nytt konto.
 >
->Enskilda konton är för enskilda utvecklare som arbetar på egen hand. Företagskonton är för organisationer och företag. Företagskonton ger dig åtkomst till att skicka appar med ytterligare funktioner. Vi kräver större verifiering för företagskonton när du har registrerat dig för att bekräfta att du har behörighet att skapa kontot för ditt företag. Den här verifieringen kan ta från några dagar till ett par veckor och innehåller ofta ett telefonsamtal till ditt företag. Med båda typerna av konton kan du skicka in appar, tillägg och tjänster. Mer information finns i [Kontotyper, platser och avgifter](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
+>Enskilda konton är för enskilda utvecklare som arbetar på egen hand. Företags konton är för organisationer och företag. Företags konton ger dig åtkomst till att skicka appar med ytterligare funktioner. Vi kräver större verifiering för företags konton när du har registrerat dig för att bekräfta att du har behörighet att konfigurera kontot för ditt företag. Den här verifieringen kan ta några dagar till några veckor och innehåller ofta ett telefonsamtal till ditt företag. Med båda typerna av konton kan du skicka appar, tillägg och tjänster. Mer information finns i [konto typer, platser och avgifter](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
 
-Logga in [på Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) med ditt Microsoft Partner Center-konto för att registrera dig i programmet Commercial Marketplace under samma konto. Genom att registrera dig för Commercial Marketplace med samma konto kan du se både dina befintliga programregistreringar och Kommersiella marknadsplatser i menyn för partnercenter till vänster.
+Logga in på [partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) med ditt Microsoft Partner Center-konto för att registrera dig på det kommersiella Marketplace-programmet under samma konto. Genom att registrera dig för kommersiell marknads plats med samma konto kan du se både befintliga program registreringar och kommersiella marknads platser på den vänstra navigerings menyn i Partner Center.
 
-När du har loggat in använder du följande steg för att slutföra inrättandet av ditt konto:
+När du har loggat in använder du följande steg för att slutföra konfigurationen av ditt konto:
 
-1. Välj **Inställningar** > **för utvecklarinställningarsprogram** > **Programs** > **Komma igång**i Partnercenter och ange din e-postadress för arbetet.
-2. Fyll i informationen på förlagets profilsida.
-3. Läs villkoren i [Microsoft Marketplace Publisher-avtalet](https://go.microsoft.com/fwlink/?LinkID=699560)och välj sedan **Acceptera och fortsätta** att slutföra registreringen.
+1. Från Partner Center väljer du **Inställningar inställningar** > för**program** > varu**utvecklare** > **komma igång**och anger din e-postadress till arbetet.
+2. Slutför informationen på utgivarens profil sida.
+3. Läs villkoren i [Microsoft Marketplace utgivar avtalet](https://go.microsoft.com/fwlink/?LinkID=699560)och välj sedan **Godkänn och fortsätt** för att slutföra registreringen.
 
     >[!Important]
-    >*Du måste ha rätt att agera för ditt företags räkning för att acceptera dessa villkor.*
+    >*Du måste ha behörighet att agera på företagets vägnar för att kunna godkänna dessa villkor.*
 
-När du har registrerat dig tas du till sidan Översikt över kommersiella marknadsplatser. **Commercial Marketplace** visas i det vänstra navigeringsfältet. Om du väljer **Inställningar** > **Förarutvecklarinställningar** > **Program,** ser du att Commercial Marketplace är registrerat.
+När du har registrerat dig kommer du till översikts sidan för den kommersiella Marketplace. Den **kommersiella marknads platsen** visas i det vänstra navigerings fältet. Om du väljer **Inställningar för inställningar** > **för utvecklare** > **ser du**att den kommersiella Marketplace visas som registrerad.
 
-Tack för att du skapar ett konto på Partner Center! Mer information finns i [översikt över kommersiella marknadsplatser](./commercial-marketplace-overview.md). Information om hur du lägger till utgivare finns [i Lägga till nya utgivare på den kommersiella marknadsplatsen](#add-new-publishers-to-the-commercial-marketplace-program).
+Tack för att du skapar ett konto på Partner Center! Mer hjälp finns i [Översikt över kommersiella marknads platser](./commercial-marketplace-overview.md). Information om hur du lägger till utgivare finns i [lägga till nya utgivare på den kommersiella marknads platsen](#add-new-publishers-to-the-commercial-marketplace-program).
 
-## <a name="publishers-moving-from-cpp"></a>Utgivare flyttar från CPP
+## <a name="publishers-moving-from-cpp"></a>Utgivare som flyttar från CPP
 
-Om ditt konto har migrerats från [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com)behöver du inte skapa ett nytt Partner Center-konto. Du borde ha fått en anpassad länk till ditt nya Partner Center-konto i e-post och i en banneravisering efter inloggning till ditt befintliga CPP-konto.
+Om ditt konto har migrerats från [Cloud Partner Portal (cpp)](https://cloudpartner.azure.com)behöver du inte skapa ett nytt Partner Center-konto. Du bör ha fått en anpassad länk till ditt nya partner Center-konto i e-postmeddelandet och i ett informations meddelande efter att du loggat in på ditt befintliga CPP-konto.
 
-När du har aktiverat ditt nya Partner Center-konto genom att besöka den här anpassade länken kan du gå tillbaka till ditt konto genom att besöka [instrumentpanelen](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) för kommersiella marknadsplatser i Partner Center.
+När du har aktiverat ditt nya partner Center-konto genom att gå till den här anpassade länken kan du gå tillbaka till ditt konto genom att gå till [instrument panelen för kommersiellt marknads platser](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) i Partner Center.
 
-Publiceringsavtalet och företagsprofilinformationen migreras till ditt nya Partner Center-konto, tillsammans med alla tidigare konfigurerade kontoutbetalningsprofilinformation, användarkonton och behörigheter samt aktiva erbjudanden som är kopplade till ditt CPP-konto.
+Publicerings avtalet och företags profil informationen kommer att migreras till ditt nya partner Center-konto, tillsammans med tidigare konfigurerade profil information för konto utbetalning, användar konton och behörigheter samt aktiva erbjudanden som är associerade med ditt CPP-konto.
 
-När kontoinformationen har flyttats från CPP till Partner Center använder du inte längre CPP för att skapa kontouppdateringar eller hantera användare, behörigheter och fakturering. Under en begränsad tid uppdateras alla kontouppdateringar som du gör i Partner Center automatiskt i ditt skrivskyddade CPP-konto tills CPP-portalen så småningom är inaktuell.
+När din konto information har flyttats från CPP till Partner Center använder du inte längre CPP för att göra konto uppdateringar eller hantera användare, behörigheter och fakturering. Under en begränsad tid uppdateras eventuella konto uppdateringar som du gör i Partner Center automatiskt i ditt skrivskyddade CPP-konto tills CPP-portalen slutligen är föråldrad.
 
-## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Lägga till nya utgivare i Commercial Marketplace-programmet
+## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>Lägga till nya utgivare i programmet för kommersiella marknads platser
 
-En organisation kan ha flera utgivare kopplade till ett kommersiellt Marketplace-konto. En befintlig användare kan lägga till fler Utgivare när de har loggat in på Partner Center genom att välja**Lägg** > **till Publisher**för **kontoinställningar.** > 
+En organisation kan ha flera utgivare som är kopplade till ett kommersiellt marknads plats konto. En befintlig användare kan lägga till fler utgivare efter att ha loggat in på Partner Center genom att välja **konto inställningar** > **utgivare** > **Lägg till utgivare**.
 
 >[!NOTE]
->Innan du lägger till en ny utgivare bör du granska dina befintliga utgivare genom att logga in på Partner center och välja**Utgivare** för **kontoinställningar** > för att se en lista över befintliga utgivare.
+>Innan du lägger till en ny utgivare granskar du dina befintliga utgivare genom att logga in på Partner Center och välja **konto inställnings** > **utgivare** för att se en lista över befintliga utgivare.
 
-En annan användare från samma Azure Active Directory-klient kan lägga till en ny utgivare genom att följa stegen nedan:
+En annan användare från samma Azure Active Directory klient organisation kan lägga till en ny utgivare genom att följa stegen nedan:
 
-1. Starta registreringsflödet på [Microsoft Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership).
-2. Välj **Logga in med ett arbetskonto** och ange din e-postadress för arbetet.
-3. Välj knappen **Lägg till Publisher.**
-4. Välj det MPN-ID som du vill associera till utgivaren.
-5. Uppdatera information om **utgivaren** i formuläret .
+1. Starta registrerings flödet på [Microsoft Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership).
+2. Välj **Logga in med ett arbets konto** och ange din e-postadress till arbetet.
+3. Välj knappen **Lägg till utgivare** .
+4. Välj det MPN-ID som du vill koppla till utgivaren.
+5. Uppdatera **utgivar informationen** i formuläret.
 
-   1. **Utgivarens namn**: Namnet som visas på den kommersiella marknadsplatsen med erbjudandet.
-   1. **PublisherID**: En identifierare som används av Partner Center för att unikt identifiera utgivaren. Standardvärdet för det här fältet `PublisherID` mappar till en befintlig och unik i systemet, som inte kan återanvändas, och därför måste det här fältet uppdateras.
-   1. **Kontaktinformation**: Uppdatera kontaktinformationen vid behov.
+   1. **Utgivar namn**: det namn som visas på den kommersiella marknads platsen med erbjudandet.
+   1. **PublisherID**: en identifierare som används av Partner Center för att identifiera utgivaren unikt. Standardvärdet för det här fältet mappar till ett befintligt `PublisherID` och unikt i systemet, som inte kan återanvändas, och därför måste det här fältet uppdateras.
+   1. **Kontakt information**: uppdatera kontakt uppgifterna när det behövs.
 
-När du har slutfört processen kan du hantera din nyskapade utgivare genom att gå till programmet **Commercial Marketplace** som visas i menyn för vänster navigering. Om du inte ser programmet **Kommersiell marknadsplats** uppdaterar du sidan. Den nya utgivaren visas i listan **Utgivare.**
+När du har slutfört processen kan du hantera din nyligen skapade utgivare genom att gå till det **kommersiella Marketplace** -programmet som visas i den vänstra navigerings menyn. Om du inte ser det **kommersiella Marketplace** -programmet uppdaterar du sidan. Den nya utgivaren kommer att visas i listan **utgivare** .
 
 ## <a name="next-step"></a>Nästa steg
 
-- [Hantera ditt kommersiella marketplace-konto i Partner Center](./manage-account.md)
+- [Hantera ditt kommersiella Marketplace-konto i Partner Center](./manage-account.md)

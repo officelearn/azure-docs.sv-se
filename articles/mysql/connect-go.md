@@ -1,5 +1,5 @@
 ---
-title: Ansluta med Go - Azure Database för MySQL
+title: Anslut med go-Azure Database for MySQL
 description: I den här snabbstarten finns flera kodexempel i Go som du kan använda för att ansluta till och fråga efter data från Azure Database för MySQL.
 author: ajlam
 ms.author: andrela
@@ -9,10 +9,10 @@ ms.devlang: go
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.openlocfilehash: 3b9b18585aac4e31af05218ff732569912508ce9
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81681881"
 ---
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Azure Database för MySQL: Använda språket Go för att ansluta och fråga efter data
@@ -60,7 +60,7 @@ Installera [Go](https://golang.org/doc/install) och [go-sql-driver for MySQL](ht
    ```
 
 ### <a name="apple-macos"></a>Apple macOS
-1. Ladda ner och installera Gå enligt [de installationsanvisningar](https://golang.org/doc/install) som matchar din plattform. 
+1. Hämta och installera go enligt [installationsinstruktionerna](https://golang.org/doc/install) som matchar din plattform. 
 2. Starta Bash-gränssnittet.
 3. Skapa en mapp för ditt projekt i arbetskatalogen, t.ex `mkdir -p ~/go/src/mysqlgo/`.
 4. ’Ändra katalogen till mappen, till exempel `cd ~/go/src/mysqlgo/`.
@@ -86,7 +86,7 @@ Skaffa den information som du behöver för att ansluta till Azure Database för
    
 
 ## <a name="build-and-run-go-code"></a>Skapa och köra Go-kod 
-1. Om du vill skriva Golang-kod kan du använda en enkel textredigerare, som Anteckningar i Microsoft Windows, [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5)eller [Nano](https://www.nano-editor.org/) i Ubuntu eller TextEdit i macOS. Om du föredrar en rikare interaktiv utvecklingsmiljö (IDE), prova [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, eller [Atom](https://atom.io/).
+1. Om du vill skriva Golang-kod kan du använda en enkel textredigerare, som Anteckningar i Microsoft Windows, [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5)eller [Nano](https://www.nano-editor.org/) i Ubuntu eller TextEdit i macOS. Om du föredrar en mer omfattande IDE (Interactive Development Environment) kan du prova [Gogland](https://www.jetbrains.com/go/) från JetBrains, [Visual Studio Code](https://code.visualstudio.com/) från Microsoft eller [Atom](https://atom.io/).
 2. Klistra in Go-koden från avsnitten nedan i textfilerna och spara dem sedan i en projektmapp med filtillägget \*.go (till exempel Windows-sökvägen `%USERPROFILE%\go\src\mysqlgo\createtable.go` eller Linux-sökvägen `~/go/src/mysqlgo/createtable.go`).
 3. Leta upp konstanterna `HOST`, `DATABASE`, `USER` och `PASSWORD` i koden och ersätt sedan exempelvärdena med dina egna värden. 
 4. Starta kommandotolken eller Bash-gränssnittet. Ändra katalog till din projektmapp. I Windows kan du till exempel använda `cd %USERPROFILE%\go\src\mysqlgo\`. I Linux kan du använda `cd ~/go/src/mysqlgo/`.  Några av de IDE-redigerare som nämns erbjuder funktioner för felsökning och körning utan att kräva shell-kommandon.

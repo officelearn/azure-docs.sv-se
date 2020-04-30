@@ -1,7 +1,7 @@
 ---
-title: Snabbstart - Skapa en profil och slutpunkt med Resource Manager-mallar
+title: Snabb start – skapa en profil och en slut punkt med Resource Manager-mallar
 titleSuffix: Azure Content Delivery Network
-description: Lär dig hur du skapar en profil och slutpunkt för Azure Content Deliver Network med Resource Manager-mallar
+description: Lär dig hur du skapar ett Azure-innehåll leverera nätverks profil och slut punkt med Resource Manager-mallar
 services: cdn
 documentationcenter: ''
 author: senthuransivananthan
@@ -17,30 +17,30 @@ ms.date: 03/05/2019
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: dfd7b933502b96c0952a24dbee563e9b537dcdd8
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81683477"
 ---
-# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Snabbstart: Skapa en Azure CDN-profil och slutpunkt med hjälp av Resource Manager-mallen
+# <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Snabb start: skapa en Azure CDN profil och slut punkt med Resource Manager-mall
 
-I den här snabbstarten distribuerar du en Azure Resource Manager-mall med CLI. Mallen som du skapar distribuerar en CDN-profil och CDN-slutpunkt för att fronta webbprogrammet.
-Det bör ta ungefär tio minuter att slutföra dessa steg.
+I den här snabb starten distribuerar du en Azure Resource Manager-mall med hjälp av CLI. Mallen som du skapar distribuerar en CDN-profil och CDN-slutpunkt för att placera ditt webb program.
+Det bör ta cirka tio minuter att slutföra de här stegen.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prequisites"></a>Prequisites (Prequisites)
+## <a name="prequisites"></a>Prequisites
 
-För den här snabbstarten måste du ha ett webbprogram som ska användas som ursprung. Det exempel webbprogram som användes i den här snabbstarten har distribuerats tillhttps://cdndemo.azurewebsites.net
+I den här snabb starten måste du ha ett webb program som ska användas som ursprung. Exempel webb programmet som används i den här snabb starten distribuerades tillhttps://cdndemo.azurewebsites.net
 
-Mer information finns [i Skapa en statisk HTML-webbapp i Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html).
+Mer information finns i [skapa en statisk HTML-webbapp i Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Alla resurser måste distribueras i samma resursgrupp.
+Alla resurser måste distribueras i samma resurs grupp.
 
-Skapa resursgruppen på den plats som du väljer. I det här exemplet visas skapandet av en resursgrupp med namnet cdn på platsen i östra USA.
+Skapa resurs gruppen på den plats som du väljer. I det här exemplet visas hur du skapar en resurs grupp med namnet CDN på platsen USA, östra.
 
 ```azurecli-interactive
 az group create --name cdn --location eastus
@@ -52,11 +52,11 @@ az group create --name cdn --location eastus
 
 I det här steget skapar du en mallfil som distribuerar resurserna.
 
-Det här exemplet går igenom ett allmänt webbplatsaccelerationsscenario, men det finns många andra inställningar som kan konfigureras. Dessa inställningar är tillgängliga i mallreferensen för Azure Resource Manager. Se referenser för [CDN-profil](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles) och [CDN-profilslutpunkt](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
+Det här exemplet går igenom ett allmänt scenario för webbplats acceleration, men det finns många andra inställningar som kan konfigureras. De här inställningarna är tillgängliga i referensen till Azure Resource Manager mal len. Se referenser för [CDN-profil](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles) och [CDN-profil slut punkt](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
 
-Observera att Microsoft CDN inte stöder ändring av innehållstypslistan.
+Observera att Microsoft CDN inte stöder ändring av listan över innehålls typer.
 
-Spara mallen som **resurshanterare-cdn.json**.
+Spara mallen som **Resource Manager-CDN. JSON**.
 
 ```json
 {
@@ -178,22 +178,22 @@ Spara mallen som **resurshanterare-cdn.json**.
 
 ## <a name="create-the-resources"></a>Skapa resurserna
 
-Distribuera mallen med Azure CLI. Du kommer att bli tillfrågad om 2 ingångar:
+Distribuera mallen med hjälp av Azure CLI. Du blir ombedd att ange 2 indata:
 
-**cdnProfileSku** - cdn-providern som du vill använda. Alternativen är:
+**cdnProfileSku** – CDN-providern som du vill använda. Alternativen är:
 
 * Standard_Microsoft
 * Standard_Akamai
 * Standard_Verizon
 * Premium_Verizon.
 
-**endpointOriginHostName** - slutpunkten som ska visas via CDN, till exempel cdndemo.azurewebsites.net.
+**endpointOriginHostName** – slut punkten som ska hanteras via CDN, till exempel cdndemo.azurewebsites.net.
 
 ```azurecli-interactive
 az group deployment create --resource-group cdn --template-file arm-cdn.json
 ```
 
-![Distribuera resurshanterarens mall](./media/create-profile-resource-manager-template/cdn-deploy-resource-manager.png)
+![Distribuera Resource Manager-mall](./media/create-profile-resource-manager-template/cdn-deploy-resource-manager.png)
 
 ## <a name="view-the-cdn-profile"></a>Visa CDN-profilen
 
@@ -203,7 +203,7 @@ az cdn profile list --resource-group cdn -o table
 
 ![Visa CDN-profil](./media/create-profile-resource-manager-template/cdn-view-profile.png)
 
-## <a name="view-the-cdn-endpoint-for-the-profile-standard-microsoft"></a>Visa CDN-slutpunkten för profilen standard-microsoft
+## <a name="view-the-cdn-endpoint-for-the-profile-standard-microsoft"></a>Visa CDN-slutpunkten för profilen standard – Microsoft
 
 ```azurecli-interactive
 az cdn endpoint list --profile-name standard-microsoft --resource-group cdn -o table
@@ -211,22 +211,22 @@ az cdn endpoint list --profile-name standard-microsoft --resource-group cdn -o t
 
 ![Visa CDN-slutpunkt](./media/create-profile-resource-manager-template/cdn-view-endpoint.png)
 
-Använd HostName för att visa innehållet. Åtkomst till https:\//cdndemo-azurewebsites-net.azureedge.net med hjälp av din webbläsare.
+Använd värd namnet för att visa innehållet. Till exempel åtkomst till https:\//cdndemo-azurewebsites-net.azureedge.net med din webbläsare.
 
 ## <a name="clean-up"></a>Rensa
 
-Om du tar bort resursgruppen tas alla resurser som har distribuerats i resursgruppen automatiskt bort.
+Om du tar bort resurs gruppen tas alla resurser som har distribuerats bort automatiskt.
 
 ```azurecli-interactive
 az group delete --name cdn
 ```
 
-![Ta bort resursgrupp](./media/create-profile-resource-manager-template/cdn-delete-resource-group.png)
+![Ta bort resurs grupp](./media/create-profile-resource-manager-template/cdn-delete-resource-group.png)
 
 ## <a name="references"></a>Referenser
 
-* CDN-profil – [Mallreferens för Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles)
-* CDN-slutpunkt - [Referensdokumentation för Mallreferens för Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
+* CDN-profil – [referens för Azure Resource Manager mall](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles)
+* CDN-slutpunkt – [referens dokumentation för Azure Resource Manager Template](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -16,10 +16,10 @@ ms.date: 04/18/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2231d70e6c4368a7c896f9063b58cc97ee292f53
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81682580"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Vad är hanterade identiteter för Azure-resurser?
@@ -39,9 +39,9 @@ Funktionen Hanterade identiteter för Azure-resurser är kostnadsfri med Azure A
 
 Följande termer används i de hanterade identiteterna för Azure-resursernas dokumentationsuppsättning:
 
-- **Klient-ID** - en unik identifierare som genereras av Azure AD och som är knuten till ett program och tjänsthuvudnamn under den första etableringen.
+- **Klient-ID** – en unik identifierare som genererats av Azure AD och som är kopplad till ett program och tjänstens huvud namn under dess första etablering.
 - **Ägar-ID** – Objekt-ID för tjänstens huvudnamnsobjekt för din hanterade identitet som används för att bevilja rollbaserad åtkomst till en Azure-resurs.
-- **Azure Instance Metadata Service (IMDS)** - en REST-slutpunkt som är tillgänglig för alla virtuella IaaS-datorer som skapats via Azure Resource Manager. Slutpunkten är tillgänglig på en välkänd icke-dirigerbar IP-adress (169.254.169.254), som endast kan nås från den virtuella datorn.
+- **Azure instance metadata service (IMDS)** – en REST-slutpunkt som är tillgänglig för alla IaaS-VM: ar som skapats via Azure Resource Manager. Slutpunkten är tillgänglig på en välkänd icke-dirigerbar IP-adress (169.254.169.254), som endast kan nås från den virtuella datorn.
 
 ## <a name="how-does-the-managed-identities-for-azure-resources-work"></a>Hur fungerar hanterade identiteter för Azure-resurser?
 
@@ -50,13 +50,13 @@ Det finns två typer av hanterade identiteter:
 - En **systemtilldelad hanterad identitet** aktiveras direkt på en instans av Azure-tjänsten. När identiteten har aktiverats skapar Azure en identitet för instansen i den Azure AD-klientorganisation som är betrodd av prenumerationen för instansen. När identiteten har skapats etableras autentiseringsuppgifterna till instansen. Livscykeln för en systemtilldelad identitet är direkt knuten till den tjänstinstans i Azure som den är aktiverad på. Om instansen tas bort rensar Azure automatiskt autentiseringsuppgifterna och identiteten i Azure AD.
 - En **användartilldelad hanterad identitet** skapas som en fristående Azure-resurs. När den skapas skapar Azure en identitet i den Azure AD-klientorganisation som är betrodd av den prenumeration som används. När identiteten har skapats kan den tilldelas till en eller flera tjänstinstanser i Azure. Livscykeln för en användartilldelad identitet hanteras separat från livscykeln för de Azure-tjänstinstanser som den är tilldelad till.
 
-Internt är hanterade identiteter tjänsthuvudnamn av en speciell typ, som är låsta för att endast användas med Azure-resurser. När den hanterade identiteten tas bort tas motsvarande tjänsthuvudnamn bort automatiskt.
-När en användartilldelad eller systemtilldelad identitet skapas utfärdar MSRP (Managed Identity Resource Provider) ett certifikat internt till den identiteten. 
+Internt är hanterade identiteter tjänstens huvud namn av en särskild typ, som är låsta för att endast användas med Azure-resurser. När den hanterade identiteten tas bort tas motsvarande tjänst objekt bort automatiskt.
+När en användardefinierad eller systemtilldelad identitet skapas, utfärdar MSRP (Managed Identity Resource Provider) ett certifikat internt till identiteten. 
 
 Din kod kan använda en hanterad identitet för att begära åtkomsttoken för tjänster som stöder Azure AD-autentisering. Azure tar hand om de autentiseringsuppgifter som används av tjänstinstansen. 
 
-## <a name="credential-rotation"></a>Rotation av autentiseringsuppgifter
-Autentiseringsrotationen styrs av resursleverantören som är värd för Azure-resursen. Standardrotationen för autentiseringsuppgifterna sker var 46:e dag. Det är upp till resursleverantören att ringa efter nya autentiseringsuppgifter, så att resursleverantören kan vänta längre än 46 dagar.
+## <a name="credential-rotation"></a>Rotation av autentiseringsuppgift
+Rotationen för autentiseringsuppgifter styrs av resurs leverantören som är värd för Azure-resursen. Standard rotationen för autentiseringsuppgiften sker var 46: e dag. Det är upp till resurs leverantören att anropa nya autentiseringsuppgifter, så resurs leverantören kan vänta mer än 46 dagar.
 
 Följande diagram visar hur hanterade tjänstidentiteter fungerar med virtuella datorer i Azure (VM):
 
@@ -64,10 +64,10 @@ Följande diagram visar hur hanterade tjänstidentiteter fungerar med virtuella 
 
 |  Egenskap    | Systemtilldelad hanterad identitet | Användartilldelad hanterad identitet |
 |------|----------------------------------|--------------------------------|
-| Skapa |  Skapad som en del av en Azure-resurs (till exempel en virtuell Azure-dator eller Azure App Service) | Skapad som en fristående Azure-resurs |
-| Livscykel | Delad livscykel med Den Azure-resurs som den hanterade identiteten skapas med. <br/> När den överordnade resursen tas bort tas även den hanterade identiteten bort. | Oberoende livscykel. <br/> Måste uttryckligen tas bort. |
-| Delning mellan Azure-resurser | Det går inte att dela. <br/> Det kan bara associeras med en enda Azure-resurs. | Kan delas <br/> Samma användartilldelade hanterade identitet kan associeras med mer än en Azure-resurs. |
-| Vanliga användarsituationer | Arbetsbelastningar som finns i en enda Azure-resurs <br/> Arbetsbelastningar som du behöver oberoende identiteter för. <br/> Ett program som körs på en enda virtuell dator | Arbetsbelastningar som körs på flera resurser och som kan dela en enda identitet. <br/> Arbetsbelastningar som behöver förhandsauktorisering till en säker resurs som en del av ett etableringsflöde. <br/> Arbetsbelastningar där resurser återvinns ofta, men behörigheter bör vara konsekventa. <br/> Till exempel en arbetsbelastning där flera virtuella datorer behöver komma åt samma resurs |
+| Skapa |  Skapas som en del av en Azure-resurs (till exempel en virtuell Azure-dator eller Azure App Service) | Skapas som fristående Azure-resurs |
+| Livscykel | Delad livs cykel med den Azure-resurs som den hanterade identiteten skapas med. <br/> När den överordnade resursen tas bort, tas även den hanterade identiteten bort. | Oberoende livs cykel. <br/> Måste tas bort explicit. |
+| Dela mellan Azure-resurser | Kan inte delas. <br/> Den kan bara kopplas till en enda Azure-resurs. | Kan delas <br/> Samma användare-tilldelade hanterade identitet kan associeras med fler än en Azure-resurs. |
+| Vanliga användarsituationer | Arbets belastningar som finns i en enda Azure-resurs <br/> Arbets belastningar för vilka du behöver oberoende identiteter. <br/> Till exempel ett program som körs på en enskild virtuell dator | Arbets belastningar som körs på flera resurser och som kan dela en enda identitet. <br/> Arbets belastningar som behöver förautentisering till en säker resurs som en del av ett etablerings flöde. <br/> Arbets belastningar där resurser återvinns ofta, men behörigheter bör vara konsekventa. <br/> Till exempel en arbets belastning där flera virtuella datorer behöver åtkomst till samma resurs |
 
 ### <a name="how-a-system-assigned-managed-identity-works-with-an-azure-vm"></a>Så här fungerar en systemtilldelad hanterad identitet med en virtuell dator i Azure
 
@@ -75,11 +75,11 @@ Följande diagram visar hur hanterade tjänstidentiteter fungerar med virtuella 
 
 2. Azure Resource Manager skapar ett huvudnamn för tjänsten i Azure AD som representerar den virtuella datorns identitet. Tjänstens huvudnamn skapas i den Azure AD-klientorganisation som är betrodd av prenumerationen.
 
-3. Azure Resource Manager konfigurerar identiteten på den virtuella datorn genom att uppdatera identitetsslutpunkten för Azure Instance Metadata Service med tjänstens huvudklient-ID och certifikat.
+3. Azure Resource Manager konfigurerar identiteten på den virtuella datorn genom att uppdatera Azure Instance Metadata Service Identity-slutpunkten med klient-ID och certifikat för tjänstens huvud namn.
 
 4. När den virtuella datorn har fått en identitet använder du informationen om tjänstens huvudnamn för att ge den virtuella datorn åtkomst till Azure-resurser. Använd rollbaserad åtkomstkontroll (RBAC) i Azure AD när du anropar Azure Resource Manager för att tilldela lämplig roll till tjänstens huvudnamn för den virtuella datorn. Ge din kod åtkomst till den specifika hemligheten eller nyckeln i Key Vault när du anropar Key Vault.
 
-5. Koden som körs på den virtuella datorn kan begära en token från tjänstslutpunkten för Azure Instance Metadata, endast tillgänglig från den virtuella datorn:`http://169.254.169.254/metadata/identity/oauth2/token`
+5. Din kod som körs på den virtuella datorn kan begära en token från Azure instance metadata service-slutpunkt, som endast kan nås från den virtuella datorn:`http://169.254.169.254/metadata/identity/oauth2/token`
     - Resursparametern anger vilken tjänst som token ska skickas till. Använd `resource=https://management.azure.com/` för att autentisera mot Azure Resource Manager.
     - API-versionsparametern anger IMDS-versionen, använd api-version=2018-02-01 eller högre.
 
@@ -93,14 +93,14 @@ Följande diagram visar hur hanterade tjänstidentiteter fungerar med virtuella 
 
 2. Azure Resource Manager skapar ett huvudnamn för tjänsten i Azure AD som representerar den användartilldelade hanterade identiteten. Tjänstens huvudnamn skapas i den Azure AD-klientorganisation som är betrodd av prenumerationen.
 
-3. Azure Resource Manager får en begäran om att konfigurera den användartilldelade hanterade identiteten på en virtuell dator och uppdaterar identitetsslutpunkten för Azure Instance Metadata Service med klient-ID och certifikat för den användartilldelade klient-ID:et för hanterade identitetstjänstens huvudkund och certifikat.
+3. Azure Resource Manager tar emot en begäran om att konfigurera den tilldelade hanterade identiteten på en virtuell dator och uppdaterar slut punkten för Azure Instance Metadata Service-identiteten med klient-ID och certifikat för den användardefinierade hanterade identitets tjänstens huvud namn.
 
 4. När den användartilldelade hanterade identiteten har skapats använder du informationen om tjänstens huvudnamn för att ge identiteten åtkomst till Azure-resurser. Använd rollbaserad åtkomstkontroll (RBAC) i Azure AD när du anropar Azure Resource Manager för att tilldela lämplig roll till tjänstens huvudnamn för den användartilldelade identiteten. Ge din kod åtkomst till den specifika hemligheten eller nyckeln i Key Vault när du anropar Key Vault.
 
    > [!Note]
    > Du kan även utföra det här steget före steg 3.
 
-5. Koden som körs på den virtuella datorn kan begära en token från identitetsslutpunkten för Azure Instance Metadata Service, endast tillgänglig från den virtuella datorn:`http://169.254.169.254/metadata/identity/oauth2/token`
+5. Din kod som körs på den virtuella datorn kan begära en token från Azure-Instance Metadata Service identitetens slut punkt, endast tillgänglig från den virtuella datorn:`http://169.254.169.254/metadata/identity/oauth2/token`
     - Resursparametern anger vilken tjänst som token ska skickas till. Använd `resource=https://management.azure.com/` för att autentisera mot Azure Resource Manager.
     - Parametern för klient-ID anger den identitet som token har begärts för. Det här värdet krävs för att lösa tvetydigheter om mer än en användartilldelad identitet finns på samma virtuella dator.
     - Parametern för API-version anger Azure Instance Metadata Service-versionen. Använd `api-version=2018-02-01` eller senare.

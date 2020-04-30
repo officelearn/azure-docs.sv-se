@@ -1,7 +1,7 @@
 ---
-title: Skapa eller ändra en direkt peering med powershell
+title: Skapa eller ändra en direkt peering med hjälp av PowerShell
 titleSuffix: Azure
-description: Skapa eller ändra en direkt peering med powershell
+description: Skapa eller ändra en direkt peering med hjälp av PowerShell
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 7639499aaef8d479c2552849b2124e709c46fd36
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81680794"
 ---
-# <a name="create-or-modify-a-direct-peering-by-using-powershell"></a>Skapa eller ändra en direkt peering med powershell
+# <a name="create-or-modify-a-direct-peering-by-using-powershell"></a>Skapa eller ändra en direkt peering med hjälp av PowerShell
 
-I den här artikeln beskrivs hur du skapar en Microsoft Direct-peering med hjälp av PowerShell-cmdlets och Azure Resource Manager-distributionsmodellen. Den här artikeln visar också hur du kontrollerar status för resursen, uppdaterar den eller tar bort och avetableras.
+Den här artikeln beskriver hur du skapar en Microsoft Direct-peering med hjälp av PowerShell-cmdletar och Azure Resource Manager distributions modell. Den här artikeln visar också hur du kontrollerar status för resursen, uppdaterar den eller tar bort och avetablerar den.
 
-Om du vill kan du slutföra den här guiden med hjälp av [Azure-portalen](howto-direct-portal.md).
+Om du vill kan du slutföra den här guiden med hjälp av Azure [Portal](howto-direct-portal.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
-* Granska [förutsättningarna](prerequisites.md) och direkt [peer-genomgången](walkthrough-direct-all.md) innan du börjar konfigurera.
-* Om du redan har direkt peering-anslutningar med Microsoft som inte konverteras till Azure-resurser läser [du Konvertera en äldre Direkt-peering till en Azure-resurs med hjälp av PowerShell](howto-legacy-direct-powershell.md).
+* Granska [kraven](prerequisites.md) och [genom gången direkt peering](walkthrough-direct-all.md) innan du påbörjar konfigurationen.
+* Om du redan har direkt peering-anslutningar med Microsoft som inte har konverterats till Azure-resurser kan du läsa mer i [konvertera en äldre direkt peering till en Azure-resurs med hjälp av PowerShell](howto-legacy-direct-powershell.md).
 
 ### <a name="work-with-azure-powershell"></a>Arbeta med Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
@@ -39,7 +39,7 @@ Om du vill kan du slutföra den här guiden med hjälp av [Azure-portalen](howto
 ### <a name="create-a-direct-peering"></a><a name=create></a>Skapa en direkt peering
 [!INCLUDE [direct-peering](./includes/direct-powershell-create-connection.md)]
 
-### <a name="verify-direct-peering"></a><a name=get></a>Verifiera direkt peer-peering
+### <a name="verify-direct-peering"></a><a name=get></a>Verifiera direkt peering
 [!INCLUDE [peering-direct-get](./includes/direct-powershell-get.md)]
 
 ## <a name="modify-a-direct-peering"></a><a name="modify"></a>Ändra en direkt peering
@@ -50,7 +50,7 @@ Om du vill kan du slutföra den här guiden med hjälp av [Azure-portalen](howto
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa eller ändra Exchange-peering med powershell](howto-exchange-powershell.md)
+* [Skapa eller ändra Exchange-peering med hjälp av PowerShell](howto-exchange-powershell.md)
 * [Konvertera en äldre Exchange-peering till en Azure-resurs med hjälp av PowerShell](howto-legacy-exchange-powershell.md)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
@@ -60,4 +60,4 @@ Du kan få detaljerade beskrivningar av alla parametrar genom att köra följand
 Get-Help Get-AzPeering -detailed
 ```
 
-Mer information finns i [Vanliga frågor och frågor om Internet-peering](faqs.md).
+Mer information finns i [vanliga frågor och svar om Internet-peering](faqs.md).

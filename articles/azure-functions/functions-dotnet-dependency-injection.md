@@ -1,39 +1,39 @@
 ---
 title: Använda beroendeinmatning i .NET Azure Functions
-description: Lär dig hur du använder beroendeinjektion för att registrera och använda tjänster i .NET-funktioner
+description: Lär dig hur du använder beroende inmatning för att registrera och använda tjänster i .NET Functions
 author: craigshoemaker
 ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
 ms.openlocfilehash: a1ff8e0aedce5d3a6acc9a39084cf0839efdd88e
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81678442"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Använda beroendeinmatning i .NET Azure Functions
 
-Azure Functions stöder beroendeinjektion (DI) programdesignmönster, vilket är en teknik för att uppnå [inversion av kontroll (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) mellan klasser och deras beroenden.
+Azure Functions stöder design mönstret för program beroende insprutning (DI), vilket är en teknik för att uppnå [inversion av kontrollen (IoC)](https://docs.microsoft.com/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) mellan klasser och deras beroenden.
 
-- Beroendeinjektion i Azure Functions bygger på funktionerna för .NET Core Dependency Dependency Injection. Förtrogenhet med [.NET Core beroende injektion](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) rekommenderas. Det finns skillnader i hur du åsidosätter beroenden och hur konfigurationsvärden läss med Azure-funktioner i förbrukningsplanen.
+- Beroende inmatning i Azure Functions bygger på funktionerna för .NET Core-beroende inmatning. Det rekommenderas att du är bekant med [.net Core-beroende inmatning](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) . Det finns skillnader i hur du åsidosätter beroenden och hur konfigurations värden läses med Azure Functions i förbruknings planen.
 
-- Stöd för beroendeinjektion börjar med Azure Functions 2.x.
+- Stöd för beroende inmatning börjar med Azure Functions 2. x.
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du kan använda beroendeinjektion måste du installera följande NuGet-paket:
+Innan du kan använda beroende inmatning måste du installera följande NuGet-paket:
 
-- [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
+- [Microsoft. Azure. functions. Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
-- [Microsoft.NET.Sdk.Functions paketversion](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) 1.0.28 eller senare
+- [Microsoft. net. SDK. Functions-paket](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) version 1.0.28 eller senare
 
 ## <a name="register-services"></a>Registrera tjänster
 
-Om du vill registrera tjänster skapar du `IFunctionsHostBuilder` en metod för att konfigurera och lägga till komponenter i en instans.  Azure Functions-värden skapar en `IFunctionsHostBuilder` instans av och skickar den direkt till din metod.
+Registrera tjänster genom att skapa en metod för att konfigurera och lägga till komponenter `IFunctionsHostBuilder` i en instans.  Azure Functions-värden skapar en instans av `IFunctionsHostBuilder` och skickar den direkt till din metod.
 
-Om du vill registrera `FunctionsStartup` metoden lägger du till sammansättningsattributet som anger det typnamn som används vid start.
+Registrera-metoden genom att lägga till `FunctionsStartup` attributet Assembly som anger typ namnet som används vid start.
 
 ```csharp
 using System;
@@ -64,17 +64,17 @@ namespace MyNamespace
 
 ### <a name="caveats"></a>Varningar
 
-En serie registreringssteg körs före och efter körningen bearbetar startklassen. Tänk därför på följande:
+En serie registrerings steg som körs före och efter körningen bearbetar start klassen. Tänk därför på följande saker:
 
-- *Startklassen är endast avsedd för installation och registrering.* Undvik att använda tjänster som registrerats vid start under startprocessen. Försök till exempel inte att logga ett meddelande i en logger som registreras under start. Denna punkt i registreringsprocessen är för tidigt för dina tjänster att vara tillgängliga för användning. När `Configure` metoden har körts fortsätter körningen Funktioner att registrera ytterligare beroenden, vilket kan påverka hur tjänsterna fungerar.
+- *Start klassen är endast avsedd för installation och registrering.* Undvik att använda tjänster som registrerats vid start under start processen. Försök till exempel inte att logga ett meddelande i en loggad logg som registreras under start. Den här tidpunkten för registrerings processen är för tidig för att tjänsterna ska kunna användas. När `Configure` metoden har körts fortsätter funktions körningen att registrera ytterligare beroenden, vilket kan påverka hur dina tjänster fungerar.
 
-- *Behållaren för beroendeinsprutning innehåller endast explicit registrerade typer*. De enda tjänster som är tillgängliga som `Configure` injicerbara typer är vad som är inställningar i metoden. Därför är funktioner-specifika typer `BindingContext` `ExecutionContext` som och inte tillgängliga under installationen eller som injicerbara typer.
+- *Den beroende injektions behållaren innehåller bara explicit registrerade typer*. De enda tjänster som är tillgängliga som inmatnings bara typer är vad `Configure` som ställts in i-metoden. Därför är funktions typerna som `BindingContext` och `ExecutionContext` inte tillgängliga under installationen eller som inmatnings bara typer.
 
-## <a name="use-injected-dependencies"></a>Använda injicerade beroenden
+## <a name="use-injected-dependencies"></a>Använda inmatade beroenden
 
-Konstruktorinjektion används för att göra dina beroenden tillgängliga i en funktion. Användning av konstruktorinjektion kräver att du inte använder statiska klasser.
+Konstruktorn för konstruktorn används för att göra beroenden tillgängliga i en funktion. Användningen av konstruktorn för konstruktorn kräver att du inte använder statiska klasser.
 
-Följande exempel visar hur `IMyService` `HttpClient` beroenden och injiceras i en HTTP-utlöst funktion. I det här exemplet används det [Microsoft.Extensions.Http-paket](https://www.nuget.org/packages/Microsoft.Extensions.Http/) som krävs för att registrera ett `HttpClient` vid start.
+Följande exempel visar hur `IMyService` och `HttpClient` beroenden matas in i en http-utlöst funktion. I det här exemplet används paketet [Microsoft. Extensions. http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) som krävs `HttpClient` för att registrera ett vid start.
 
 ```csharp
 using System;
@@ -115,27 +115,27 @@ namespace MyNamespace
 }
 ```
 
-## <a name="service-lifetimes"></a>Livslängd för tjänsten
+## <a name="service-lifetimes"></a>Livs längd för tjänsten
 
-Azure Functions-appar ger samma livslängd som [ASP.NET beroendeinjektion](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes). För en functions-app fungerar de olika tjänstlivslängderna på följande sätt:
+Azure Functions appar ger samma tjänste livstid som ASP.NET- [beroende inmatning](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes). För en Functions-app beter sig de olika livs längderna för tjänsten enligt följande:
 
-- **Övergående**: Tillfälliga tjänster skapas på varje begäran av tjänsten.
-- **Scoped**: Den begränsade tjänstens livstid matchar en livstid för funktionskörning. Begränsade tjänster skapas en gång per körning. Senare begäranden för den tjänsten under körningen återanvända den befintliga tjänstinstansen.
-- **Singleton**: Singleton-tjänstens livstid matchar värdens livstid och återanvänds över funktionskörningar på den instansen. Singleton livstid tjänster rekommenderas för anslutningar och `SqlConnection` `HttpClient` klienter, till exempel eller instanser.
+- **Tillfälliga**: tillfälliga tjänster skapas vid varje begäran av tjänsten.
+- **Omfattning**: livs längden för omfattnings tjänsten matchar en livs längd för funktions körning. Omfångs tjänster skapas en gång per körning. Senare begär Anden för tjänsten under körningen återanvänder den befintliga tjänst instansen.
+- **Singleton**: singleton-tjänstens livs längd motsvarar värdens livstid och återanvänds över funktions körningar på den instansen. Singleton livstids tjänster rekommenderas för anslutningar och klienter, till exempel `SqlConnection` eller `HttpClient` instanser.
 
-Visa eller hämta ett [exempel på olika tjänstlivslängder](https://aka.ms/functions/di-sample) på GitHub.
+Visa eller hämta ett [exempel på olika livs längder för tjänsten](https://aka.ms/functions/di-sample) på GitHub.
 
-## <a name="logging-services"></a>Loggningstjänster
+## <a name="logging-services"></a>Loggnings tjänster
 
-Om du behöver en egen loggningsleverantör `ILoggerProvider` registrerar du en anpassad typ som en instans. Application Insights läggs till av Azure Functions automatiskt.
+Om du behöver en egen Logging-Provider registrerar du en anpassad typ som `ILoggerProvider` en instans. Application Insights läggs till av Azure Functions automatiskt.
 
 > [!WARNING]
-> - Lägg inte `AddApplicationInsightsTelemetry()` till tjänsteinsamlingen eftersom den registrerar tjänster som står i konflikt med tjänster som tillhandahålls av miljön.
-> - Registrera inte din `TelemetryConfiguration` `TelemetryClient` egen eller om du använder den inbyggda Application Insights-funktionen. Om du behöver konfigurera `TelemetryClient` din egen instans kan `TelemetryConfiguration` du skapa en via det injicerade som visas i [Övervaka Azure-funktioner](./functions-monitoring.md#version-2x-and-later-2).
+> - Lägg `AddApplicationInsightsTelemetry()` inte till i samlingen tjänster när den registrerar tjänster som står i konflikt med tjänster som tillhandahålls av miljön.
+> - Registrera inte din egen `TelemetryConfiguration` eller `TelemetryClient` om du använder de inbyggda Application Insights funktionerna. Om du behöver konfigurera en egen `TelemetryClient` instans skapar du en via den inmatade `TelemetryConfiguration` som visas i [övervaka Azure Functions](./functions-monitoring.md#version-2x-and-later-2).
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> och ILoggerFactory
 
-Värden kommer `ILogger<T>` att `ILoggerFactory` injicera och tjänster i konstruktörer.  Som standard filtreras dock dessa nya loggningsfilter ut ur funktionsloggarna.  Du måste ändra `host.json` filen för att välja ytterligare filter och kategorier.  Följande exempel visar att `ILogger<HttpTrigger>` du lägger till en med-loggar som ska exponeras av värden.
+Värden kommer att `ILogger<T>` injiceras `ILoggerFactory` och tjänster till konstruktörer.  Dessa nya loggnings filter kommer dock att filtreras bort från funktions loggarna som standard.  Du måste ändra `host.json` filen om du vill välja ytterligare filter och kategorier.  Följande exempel visar hur du lägger `ILogger<HttpTrigger>` till en med-loggar som kommer att exponeras av värden.
 
 ```csharp
 namespace MyNamespace
@@ -160,7 +160,7 @@ namespace MyNamespace
 }
 ```
 
-Och `host.json` en fil som lägger till loggfiltret.
+Och en `host.json` fil som lägger till logg filtret.
 
 ```json
 {
@@ -179,28 +179,28 @@ Och `host.json` en fil som lägger till loggfiltret.
 }
 ```
 
-## <a name="function-app-provided-services"></a>Tjänster för funktionsapp som tillhandahålls
+## <a name="function-app-provided-services"></a>Function-appen tillhandahåller tjänster
 
-Funktionsvärden registrerar många tjänster. Följande tjänster är säkra att ta som ett beroende i ditt program:
+Funktions värden registrerar många tjänster. Följande tjänster är säkra att ta med i ditt program:
 
-|Typ av tjänst|Livstid|Beskrivning|
+|Typ av tjänst|Giltighet|Beskrivning|
 |--|--|--|
-|`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|Konfiguration för körning|
-|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|Ansvarig för att tillhandahålla ID för värdinstansen|
+|`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|Körnings konfiguration|
+|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|Ansvarar för att tillhandahålla ID för värd instansen|
 
-Om det finns andra tjänster som du vill vara beroende av [skapar du ett problem och föreslår dem på GitHub](https://github.com/azure/azure-functions-host).
+Om det finns andra tjänster som du vill ta ett beroende på, [skapar du ett ärende och föreslår dem på GitHub](https://github.com/azure/azure-functions-host).
 
-### <a name="overriding-host-services"></a>Övergripande värdtjänster
+### <a name="overriding-host-services"></a>Åsidosätta värd tjänster
 
-Åsidosättningstjänster som tillhandahålls av värden stöds för närvarande inte.  Om det finns tjänster som du vill åsidosätta [skapar du ett problem och föreslår dem på GitHub](https://github.com/azure/azure-functions-host).
+Det finns för närvarande inte stöd för att åsidosätta tjänster som tillhandahålls av värden.  Om det finns tjänster som du vill åsidosätta [skapar du ett ärende och föreslår dem på GitHub](https://github.com/azure/azure-functions-host).
 
 ## <a name="working-with-options-and-settings"></a>Arbeta med alternativ och inställningar
 
-Värden som definieras i [appinställningarna](./functions-how-to-use-azure-function-app-settings.md#settings) är tillgängliga i en `IConfiguration` instans, vilket gör att du kan läsa värden för appinställningar i startklassen.
+Värden som definieras i [appinställningar](./functions-how-to-use-azure-function-app-settings.md#settings) är tillgängliga i en `IConfiguration` instans, vilket gör att du kan läsa inställningarna för appens inställningar i Start klassen.
 
-Du kan extrahera `IConfiguration` värden från förekomsten till en anpassad typ. Genom att kopiera värdena för appinställningarna till en anpassad typ kan det enkelt testa dina tjänster genom att göra dessa värden injicerbara. Inställningar som läss in i konfigurationsinstansen måste vara enkla nyckel-/värdepar.
+Du kan extrahera värden från `IConfiguration` instansen till en anpassad typ. Genom att kopiera inställningarna för appen till en anpassad typ gör det enkelt att testa dina tjänster genom att göra dessa värden inmatnings bara. Inställningar som läses in i konfigurations instansen måste vara enkla nyckel/värde-par.
 
-Tänk på följande klass som innehåller en egenskap som heter som överensstämmer med en appinställning:
+Överväg följande klass som innehåller en egenskap som heter konsekvent med en app-inställning:
 
 ```csharp
 public class MyOptions
@@ -209,7 +209,7 @@ public class MyOptions
 }
 ```
 
-Och `local.settings.json` en fil som kan strukturera den anpassade inställningen enligt följande:
+Och en `local.settings.json` fil som kan strukturera den anpassade inställningen enligt följande:
 ```json
 {
   "IsEncrypted": false,
@@ -219,7 +219,7 @@ Och `local.settings.json` en fil som kan strukturera den anpassade inställninge
 }
 ```
 
-Inifrån `Startup.Configure` metoden kan du extrahera `IConfiguration` värden från förekomsten till din anpassade typ med hjälp av följande kod:
+Inifrån- `Startup.Configure` metoden kan du extrahera värden från `IConfiguration` instansen till din anpassade typ med hjälp av följande kod:
 
 ```csharp
 builder.Services.AddOptions<MyOptions>()
@@ -229,9 +229,9 @@ builder.Services.AddOptions<MyOptions>()
                                            });
 ```
 
-Anropa `Bind` kopierar värden som har matchande egenskapsnamn från konfigurationen till den anpassade instansen. Alternativinstansen är nu tillgänglig i IoC-behållaren för att injicera i en funktion.
+Anropar `Bind` kopierings värden som har matchande egenskaps namn från konfigurationen till den anpassade instansen. Alternativ instansen är nu tillgänglig i IoC-behållaren för inmatning i en funktion.
 
-Alternativobjektet injiceras i funktionen som en `IOptions` förekomst av det allmänna gränssnittet. Använd `Value` egenskapen för att komma åt de värden som finns i konfigurationen.
+Options-objektet matas in i funktionen som en instans av det generiska `IOptions` gränssnittet. Använd `Value` egenskapen för att få åtkomst till de värden som finns i konfigurationen.
 
 ```csharp
 using System;
@@ -248,14 +248,14 @@ public class HttpTrigger
 }
 ```
 
-Se [alternativ mönster i ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) för mer information om hur du arbetar med alternativ.
+Mer information om hur du arbetar med alternativ finns [i alternativ mönster i ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) .
 
 > [!WARNING]
-> Undvik att försöka läsa värden från filer som *local.settings.json* eller *appsettings.{ miljö}.json* i förbrukningsplanen. Värden som läs av dessa filer som är relaterade till utlösande anslutningar är inte tillgängliga eftersom appen skalas eftersom värdinfrastrukturen inte har åtkomst till konfigurationsinformationen.
+> Undvik att försöka läsa värden från filer som *Local. Settings. JSON* eller *appSettings. { miljö}. JSON* i förbruknings planen. Värden som läses från dessa filer som rör utlösnings anslutningar är inte tillgängliga eftersom appen skalas eftersom värd infrastrukturen inte har åtkomst till konfigurations informationen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information finns i följande resurser:
 
-- [Så här övervakar du din funktionsapp](functions-monitoring.md)
-- [Metodtips för funktioner](functions-best-practices.md)
+- [Så här övervakar du din Function-app](functions-monitoring.md)
+- [Metod tips för functions](functions-best-practices.md)

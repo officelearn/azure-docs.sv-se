@@ -1,6 +1,6 @@
 ---
-title: Azure Data Box Gateway gränser | Microsoft-dokument
-description: Beskriver systemgränser och rekommenderade storlekar för Microsoft Azure Data Box Gateway.
+title: Azure Data Box Gateway gränser | Microsoft Docs
+description: Beskriver system begränsningar och rekommenderade storlekar för Microsoft Azure Data Box Gateway.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,32 +9,32 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
 ms.openlocfilehash: 641d7410e414be2adae2a83840c90a680aedd2fc
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81683356"
 ---
 # <a name="azure-data-box-gateway-limits"></a>Azure Data Box Gateway gränser
 
-Tänk på dessa gränser när du distribuerar och använder din Microsoft Azure Data Box Gateway-lösning. 
+Tänk på följande begränsningar när du distribuerar och använder Microsoft Azure Data Box Gateway-lösningen. 
 
-## <a name="data-box-gateway-service-limits"></a>Servicegränser för Data Box Gateway
+## <a name="data-box-gateway-service-limits"></a>Data Box Gateway tjänst gränser
 
 [!INCLUDE [data-box-edge-gateway-service-limits](../../includes/data-box-edge-gateway-service-limits.md)]
 
-## <a name="data-box-gateway-device-limits"></a>Enhetsgränser för Data Box Gateway
+## <a name="data-box-gateway-device-limits"></a>Data Box Gateway enhets gränser
 
-I följande tabell beskrivs gränserna för databoxgatewayenheten.
+I följande tabell beskrivs gränserna för den Data Box Gateway enheten.
 
 | Beskrivning | Värde |
 |---|---|
-|Nej. filer per enhet |100 miljoner <br> För varje 25 miljoner filer som läggs till (med maximal gräns på 100 miljoner) bör du lägga till 2 TB diskutrymme, 8 GB RAM och 4 kärnor av CPU. |
-|Nej. av aktier per enhet |24 |
-|Nej. av resurser per Azure-lagringsbehållare |1 |
-|Maximal filstorlek som skrivits till en resurs|För en virtuell enhet på 2 TB är den maximala filstorleken 500 GB. <br> Den maximala filstorleken ökar med datadiskstorleken i föregående förhållande tills den når högst 5 TB. |
+|Nej. av filer per enhet |100 000 000 <br> För varje 25 000 000-filer som läggs till (med max gränsen på 100 000 000), ska du lägga till 2 TB disk utrymme, 8 GB RAM och 4 kärnor av processor. |
+|Nej. av resurser per enhet |24 |
+|Nej. av resurser per Azure Storage-behållare |1 |
+|Maximal fil storlek som skrivs till en resurs|För en virtuell enhet på 2 TB är den maximala fil storleken 500 GB. <br> Den maximala fil storleken ökar med data disk storleken i föregående förhållande tills den når högst 5 TB. |
 
-## <a name="azure-storage-limits"></a>Azure-lagringsgränser
+## <a name="azure-storage-limits"></a>Azure Storage-gränser
 
 [!INCLUDE [data-box-edge-gateway-storage-limits](../../includes/data-box-edge-gateway-storage-limits.md)]
 
@@ -42,11 +42,11 @@ I följande tabell beskrivs gränserna för databoxgatewayenheten.
 
 [!INCLUDE [data-box-edge-gateway-storage-data-upload-caveats](../../includes/data-box-edge-gateway-storage-data-upload-caveats.md)]
 
-## <a name="azure-storage-account-size-and-object-size-limits"></a>Storleksbegränsningar för Azure-lagringskonto och objektstorlek
+## <a name="azure-storage-account-size-and-object-size-limits"></a>Storleks gränser för Azure Storage-konto och objekt storlek
 
 [!INCLUDE [data-box-edge-gateway-storage-acct-limits](../../includes/data-box-edge-gateway-storage-acct-limits.md)]
 
-## <a name="azure-object-size-limits"></a>Storleksbegränsningar för Azure-objekt
+## <a name="azure-object-size-limits"></a>Storleks gränser för Azure-objekt
 
 [!INCLUDE [data-box-edge-gateway-storage-object-limits](../../includes/data-box-edge-gateway-storage-object-limits.md)]
 

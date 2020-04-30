@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Text Analytics v3-klientbibliotek för Java | Microsoft-dokument'
-description: Kom igång med v3 Text Analytics-klientbiblioteket för Java.
+title: 'Snabb start: Textanalys v3-klient bibliotek för Java | Microsoft Docs'
+description: Kom igång med v3-Textanalys klient biblioteket för Java.
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
@@ -10,29 +10,29 @@ ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
 ms.openlocfilehash: 31afb7bc00250887841adccc8c3cc4dc69462d55
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81642893"
 ---
 <a name="HOLTop"></a>
 
-[Referensdokumentation](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [Bibliotekskod](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [Paketprover](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics) [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4) | 
+[Referens dokumentation](https://aka.ms/azsdk-java-textanalytics-ref-docs) | [bibliotek käll kod](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | [paket](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4) | [exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 ## <a name="prerequisites"></a>Krav
 
-* Azure-prenumeration - [Skapa en gratis](https://azure.microsoft.com/free/)
-* [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) med version 8 eller högre
-* När du har din <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Azure-prenumeration"  target="_blank">skapar Skapa en <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Text Analytics-resurs en Text Analytics-resurs i Azure-portalen för att hämta din nyckel och slutpunkt.  När den har distribuerats klickar du på **Gå till resurs**.
-    * Du behöver nyckeln och slutpunkten från den resurs du skapar för att ansluta ditt program till Text Analytics API. Du klistrar in nyckeln och slutpunkten i koden nedan senare i snabbstarten.
-    * Du kan använda den`F0`kostnadsfria prisnivån ( ) för att prova tjänsten och uppgradera senare till en betald nivå för produktion.
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) med version 8 eller senare
+* När du har en Azure <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="-prenumeration skapar du en textanalys"  target="_blank">resurs skapa en textanalys <span class="docon docon-navigate-external x-hidden-focus"></span> </a> resurs i Azure Portal för att hämta din nyckel och slut punkt.  När den har distribuerats klickar **du på gå till resurs**.
+    * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till API för textanalys. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
+    * Du kan använda den kostnads fria pris nivån`F0`() för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
 
-## <a name="setting-up"></a>Inrätta
+## <a name="setting-up"></a>Konfigurera
 
-### <a name="add-the-client-library"></a>Lägga till klientbiblioteket
+### <a name="add-the-client-library"></a>Lägg till klient biblioteket
 
-Skapa ett Maven-projekt i önskad IDE- eller utvecklingsmiljö. Lägg sedan till följande beroende i projektets *pom.xml-fil.* Du hittar implementeringssyntaxen [för andra byggverktyg](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4) online.
+Skapa ett Maven-projekt i önskad IDE-eller utvecklings miljö. Lägg sedan till följande beroende i projektets *Pom. XML-* fil. Du kan hitta implementations-syntaxen [för andra build-verktyg](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4) online.
 
 ```xml
 <dependencies>
@@ -45,9 +45,9 @@ Skapa ett Maven-projekt i önskad IDE- eller utvecklingsmiljö. Lägg sedan till
 ```
 
 > [!TIP]
-> Vill du visa hela snabbstartskodfilen på en gång? Du hittar den [på GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/TextAnalytics/TextAnalyticsSamples.java), som innehåller kodexemplen i den här snabbstarten. 
+> Vill du Visa hela snabb starts kod filen samtidigt? Du kan hitta den [på GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/TextAnalytics/TextAnalyticsSamples.java), som innehåller kod exemplen i den här snabb starten. 
 
-Skapa en Java-fil med namnet `TextAnalyticsSamples.java`. Öppna filen och lägg `import` till följande satser:
+Skapa en Java-fil `TextAnalyticsSamples.java`med namnet. Öppna filen och Lägg till följande `import` -uttryck:
 
 ```java
 import com.azure.core.credential.AzureKeyCredential;
@@ -56,7 +56,7 @@ import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
 import com.azure.ai.textanalytics.TextAnalyticsClient;
 ```
 
-Lägg till en ny klass i java-filen och lägg till din azure-resursnyckel och slutpunkt enligt nedan.
+I Java-filen lägger du till en ny klass och lägger till Azure-resursens nyckel och slut punkt enligt nedan.
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
@@ -67,7 +67,7 @@ public class TextAnalyticsSamples {
 }
 ```
 
-Lägg till följande huvudmetod i klassen. Du kommer att definiera de metoder som kallas här senare.
+Lägg till följande huvud metod i-klassen. Du definierar de metoder som anropas här senare.
 
 ```java
 public static void main(String[] args) {
@@ -82,22 +82,22 @@ public static void main(String[] args) {
 }
 ```
 
-## <a name="object-model"></a>Objektmodell
+## <a name="object-model"></a>Objekt modell
 
-Text Analytics-klienten `TextAnalyticsClient` är ett objekt som autentiserar till Azure med hjälp av nyckeln och tillhandahåller funktioner för att acceptera text som enstaka strängar eller som en batch. Du kan skicka text till API-programmet synkront eller asynkront. Svarsobjektet innehåller analysinformationen för varje dokument som du skickar. 
+Textanalys-klienten är ett `TextAnalyticsClient` objekt som autentiserar till Azure med hjälp av din nyckel och ger funktioner för att acceptera text som enkla strängar eller som en batch. Du kan skicka text till API: et synkront eller asynkront. Objektet Response kommer att innehålla analys informationen för varje dokument som du skickar. 
 
 ## <a name="code-examples"></a>Kodexempel
 
 * [Autentisera klienten](#authenticate-the-client)
-* [Sentiment analys](#sentiment-analysis) 
-* [Språkidentifiering](#language-detection)
-* [Namngiven entitetsigenkänning](#named-entity-recognition-ner) 
-* [Entitetslänkning](#entity-linking)
-* [Extrahering av nyckelfraser](#key-phrase-extraction)
+* [Attitydanalys](#sentiment-analysis) 
+* [Språk identifiering](#language-detection)
+* [Igenkänning av namngiven entitet](#named-entity-recognition-ner) 
+* [Länkning av entitet](#entity-linking)
+* [Extrahering av nyckel fraser](#key-phrase-extraction)
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-Skapa en metod för `TextAnalyticsClient` att instansiera objektet med nyckeln och slutpunkten för din Text Analytics-resurs.
+Skapa en metod för att instansiera `TextAnalyticsClient` objektet med nyckeln och slut punkten för din textanalys-resurs.
 
 ```java
 static TextAnalyticsClient authenticateClient(String key, String endpoint) {
@@ -108,11 +108,11 @@ static TextAnalyticsClient authenticateClient(String key, String endpoint) {
 }
 ```
 
-Anropa autentiseringsmetoden i programmets `main()` metod för att instansiera klienten.
+Anropa autentiseringsmetoden i program `main()` metoden för att instansiera klienten.
 
 ## <a name="sentiment-analysis"></a>Sentimentanalys
 
-Skapa en ny `sentimentAnalysisExample()` funktion som anropas som tar `analyzeSentiment()` klienten som du skapade tidigare och anropa dess funktion. `AnalyzeSentimentResult` Det returnerade objektet `documentSentiment` `sentenceSentiments` kommer att innehålla `errorMessage` och om det lyckas, eller en om inte. 
+Skapa en ny funktion som `sentimentAnalysisExample()` anropar den klient som du skapade tidigare och anropa dess `analyzeSentiment()` funktion. Det returnerade `AnalyzeSentimentResult` objektet kommer `documentSentiment` att `sentenceSentiments` innehålla och om det lyckas `errorMessage` , eller ett IF-not. 
 
 ```java
 static void sentimentAnalysisExample(TextAnalyticsClient client)
@@ -149,10 +149,10 @@ Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.7
 
 ## <a name="language-detection"></a>Språkidentifiering
 
-Skapa en ny `detectLanguageExample()` funktion som anropas som tar `detectLanguage()` klienten som du skapade tidigare och anropa dess funktion. Det returnerade `DetectLanguageResult` objektet kommer att innehålla ett primärt språk som `errorMessage` har upptäckts, en lista över andra språk som har identifierats om det lyckas eller ett om inte.
+Skapa en ny funktion som `detectLanguageExample()` anropar den klient som du skapade tidigare och anropa dess `detectLanguage()` funktion. Det returnerade `DetectLanguageResult` objektet kommer att innehålla ett primärt språk som identifierats, en lista med andra språk som `errorMessage` har identifierats om det lyckas, eller om det inte.
 
 > [!Tip]
-> I vissa fall kan det vara svårt att disambiguate språk baserat på indata. Du kan `countryHint` använda parametern för att ange en landskod med två bokstäver. Som standard api använder "USA" som standardlandInta, för att ta bort detta beteende kan `countryHint = ""`du återställa den här parametern genom att ställa in det här värdet till tom sträng . Om du vill ange `TextAnalyticsClientOptions.DefaultCountryHint` en annan standard anger du egenskapen och skickar den under klientens initiering.
+> I vissa fall kan det vara svårt att disambiguate språk baserat på indatamängden. Du kan använda- `countryHint` parametern för att ange en landskod på 2 bokstäver. Som standard använder API: t "US" som standard-countryHint, för att ta bort det här alternativet kan du återställa den här parametern genom att ange värdet `countryHint = ""`till en tom sträng. Om du vill ange en annan standard ställer `TextAnalyticsClientOptions.DefaultCountryHint` du in egenskapen och skickar den under klient initieringen.
 
 ```java
 static void detectLanguageExample(TextAnalyticsClient client)
@@ -173,14 +173,14 @@ static void detectLanguageExample(TextAnalyticsClient client)
 ```console
 Detected primary language: French, ISO 6391 name: fr, score: 1.00.
 ```
-## <a name="named-entity-recognition-ner"></a>Namngiven entitetsigenkänning (NER)
+## <a name="named-entity-recognition-ner"></a>Igenkänning av namngivna enheter (NER)
 
 > [!NOTE]
-> I `3.0-preview`version :
-> * NER innehåller separata metoder för att upptäcka personlig information. 
-> * Entitetslänkning är en separat begäran än NER.
+> I version `3.0-preview`:
+> * NER innehåller separata metoder för att identifiera personlig information. 
+> * Enhets länkning är en separat begäran än NER.
 
-Skapa en ny `recognizeEntitiesExample()` funktion som anropas som tar `recognizeEntities()` klienten som du skapade tidigare och anropa dess funktion. Det returnerade `RecognizeEntitiesResult` objektet innehåller `NamedEntity` en lista över `errorMessage` om det lyckas, eller en om inte.
+Skapa en ny funktion som `recognizeEntitiesExample()` anropar den klient som du skapade tidigare och anropa dess `recognizeEntities()` funktion. Det returnerade `RecognizeEntitiesResult` objektet kommer att innehålla en `NamedEntity` lista över om det lyckades `errorMessage` , eller en IF-not.
 
 ```java
 static void recognizeEntitiesExample(TextAnalyticsClient client)
@@ -206,9 +206,9 @@ Recognized entity: Seattle, entity category: Location, entity sub-category: GPE,
 Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, score: 0.8.
 ```
 
-## <a name="entity-linking"></a>Entitetslänkning
+## <a name="entity-linking"></a>Länkning av entitet
 
-Skapa en ny `recognizeLinkedEntitiesExample()` funktion som anropas som tar `recognizeLinkedEntities()` klienten som du skapade tidigare och anropa dess funktion. Det returnerade `RecognizeLinkedEntitiesResult` objektet innehåller `LinkedEntity` en lista över `errorMessage` om det lyckas, eller en om inte. Eftersom länkade entiteter identifieras unikt grupperas förekomster `LinkedEntity` av samma `LinkedEntityMatch` entitet under ett objekt som en lista över objekt.
+Skapa en ny funktion som `recognizeLinkedEntitiesExample()` anropar den klient som du skapade tidigare och anropa dess `recognizeLinkedEntities()` funktion. Det returnerade `RecognizeLinkedEntitiesResult` objektet kommer att innehålla en `LinkedEntity` lista över om det lyckades `errorMessage` , eller en IF-not. Eftersom länkade entiteter identifieras unikt, grupperas förekomster av samma entitet under ett `LinkedEntity` objekt som en lista med `LinkedEntityMatch` objekt.
 
 ```java
 static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
@@ -264,7 +264,7 @@ Text: BASIC, Score: 0.28
 ```
 ## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
 
-Skapa en ny `extractKeyPhrasesExample()` funktion som anropas som tar `extractKeyPhrases()` klienten som du skapade tidigare och anropa dess funktion. Det returnerade `ExtractKeyPhraseResult` objektet innehåller en lista med nyckelfraser om det lyckas, eller en `errorMessage` om inte.
+Skapa en ny funktion som `extractKeyPhrasesExample()` anropar den klient som du skapade tidigare och anropa dess `extractKeyPhrases()` funktion. Det returnerade `ExtractKeyPhraseResult` objektet kommer att innehålla en lista över nyckel fraser om det lyckas `errorMessage` eller inte.
 
 ```java
 static void extractKeyPhrasesExample(TextAnalyticsClient client)

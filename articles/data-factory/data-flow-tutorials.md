@@ -1,103 +1,103 @@
 ---
 title: Videokurser för dataflödesmappning
-description: En lista över videotutorialer som förklarar kartläggning av dataflödesbegrepp
+description: En lista med video kurser som förklarar kart data flödes koncept
 author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 04/17/2020
 ms.openlocfilehash: 4dba719453546337f9e5657cbe56755ac1ac9149
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81686242"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Videokurser för dataflödesmappning
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Nedan finns en lista över mappning dataflöde handledning videor som skapats av Azure Data Factory team. 
+Nedan visas en lista över videor för data flödes självstudie som skapats av Azure Data Factorys teamet. 
 
-Eftersom uppdateringar ständigt görs i produkten har vissa funktioner lagt till eller olika funktioner i den aktuella Azure Data Factory-användarupplevelsen.
+När uppdateringar ständigt görs till produkten har vissa funktioner lagts till eller andra funktioner i den aktuella Azure Data Factory användar upplevelsen.
 
 ## <a name="getting-started"></a>Komma igång
 
-[Komma igång med att mappa dataflöden i Azure Data Factory](http://youtu.be/MFw7t_8tuV4)
+[Komma igång med att mappa data flöden i Azure Data Factory](http://youtu.be/MFw7t_8tuV4)
 
-## <a name="debugging-and-developing-mapping-data-flows"></a>Felsöka och utveckla kartläggningsdataflöden
+## <a name="debugging-and-developing-mapping-data-flows"></a>Felsöka och utveckla mappnings data flöden
 
-[Felsökning och testning av mappningsdataflöden](https://www.youtube.com/watch?v=3ANxyvDGfjA).
+[Fel sökning och testning av mappnings data flöden](https://www.youtube.com/watch?v=3ANxyvDGfjA).
 
-[Datautforskning](https://www.youtube.com/watch?v=En1ztyh5GaA)
+[Data utforskning](https://www.youtube.com/watch?v=En1ztyh5GaA)
 
-[Snabbåtgärder för förhandsversion av data](https://www.youtube.com/watch?v=CP0TnNmaLA0)
+[Snabb åtgärder för data förhands granskning](https://www.youtube.com/watch?v=CP0TnNmaLA0)
 
-[Övervaka och hantera dataflödesprestanda för mappning](https://www.youtube.com/watch?v=fktIWdJiqTk)
+[Övervaka och hantera prestanda för data flödes mappning](https://www.youtube.com/watch?v=fktIWdJiqTk)
 
-[Referenstider](http://youtu.be/6CSbWm4lRhw?hd=1)
+[Benchmark-tider](http://youtu.be/6CSbWm4lRhw?hd=1)
 
-## <a name="transformation-overviews"></a>Översikt över omvandling
+## <a name="transformation-overviews"></a>Omvandlings översikter
 
-[Aggregerad omvandling](http://youtu.be/jdL75xIr98I)
+[Sammanställd transformering](http://youtu.be/jdL75xIr98I)
 
-[Ändra radomvandling](https://www.youtube.com/watch?v=4ktoohwptmQ)
+[Transformering av Alter Row](https://www.youtube.com/watch?v=4ktoohwptmQ)
 
-[Härledd kolumnomvandling](https://www.youtube.com/watch?v=FFCbU4ujCiY)
+[Transformering av härledd kolumn](https://www.youtube.com/watch?v=FFCbU4ujCiY)
 
-[Gå med i omvandlingen](https://www.youtube.com/watch?v=zukwayEXRtg)
+[Koppla omvandling](https://www.youtube.com/watch?v=zukwayEXRtg)
 
-[Självkopplingsmönster](https://www.youtube.com/watch?v=Dx1kANfnvmk&feature=youtu.be&hd=1)
+[Själv kopplings mönster](https://www.youtube.com/watch?v=Dx1kANfnvmk&feature=youtu.be&hd=1)
 
-[Uppslagstransformation](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
+[Sök omvandling](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 
-[Pivot omvandling](https://www.youtube.com/watch?v=Tua14ZQA3F8&t=34s)
+[Pivot-transformering](https://www.youtube.com/watch?v=Tua14ZQA3F8&t=34s)
 
-[Pivotomvandling: mappa borttrevna kolumner](https://youtu.be/5MygzCX0wnM)
+[Pivot-transformering: mappa ingångna kolumner](https://youtu.be/5MygzCX0wnM)
 
-[Välj omformning](http://youtu.be/F9VjQ_YyRyU?hd=1)
+[Välj omvandling](http://youtu.be/F9VjQ_YyRyU?hd=1)
 
-[Välj omvandling: Regelbaserad mappning](https://youtu.be/5lf1lh1qMwU)
+[Välj omvandling: regel-baserad mappning](https://youtu.be/5lf1lh1qMwU)
 
-[Omvandling av surrogatnyckel](https://www.youtube.com/watch?v=ISpegL9CbTM)
+[Transformering av surrogat nyckel](https://www.youtube.com/watch?v=ISpegL9CbTM)
 
-[Unionens omvandling](http://youtu.be/_Et6mg1tEr8?hd=1)
+[Union-transformering](http://youtu.be/_Et6mg1tEr8?hd=1)
 
-[Omvandling av obalans](http://youtu.be/KFYkxcpB8b0?hd=1)
+[Avpivotera transformering](http://youtu.be/KFYkxcpB8b0?hd=1)
 
-[Fönsteromvandling](https://www.youtube.com/watch?v=m6zgbtY5AYQ)
+[Fönster omvandling](https://www.youtube.com/watch?v=m6zgbtY5AYQ)
 
-[Filtrera omformning](https://youtu.be/OhbKDOXSfeE)
+[Filtrera omvandling](https://youtu.be/OhbKDOXSfeE)
 
-[Villkorlig delningsomvandling](http://youtu.be/W1lQHojhKZw?hd=1)
+[Omvandling med villkorlig delning](http://youtu.be/W1lQHojhKZw?hd=1)
 
-[Finns omvandling](http://youtu.be/GS8JVgNBMfs?hd=1)
+[Exists-transformering](http://youtu.be/GS8JVgNBMfs?hd=1)
 
-[Dynamiska kopplingar och dynamiska uppslag](https://youtu.be/CMOPPie9bXM)
+[Dynamiska kopplingar och dynamiska sökningar](https://youtu.be/CMOPPie9bXM)
 
-[Förenkla omformning](https://youtu.be/VY2tFQJoAXE)
+[Förenkla omvandling](https://youtu.be/VY2tFQJoAXE)
 
-## <a name="source-and-sink"></a>Källa och diskbänk
+## <a name="source-and-sink"></a>Källa och mottagare
 
-[Läsa och skriva JSONs](https://www.youtube.com/watch?v=yY5aB7Kdhjg)
+[Läsa och skriva JSON](https://www.youtube.com/watch?v=yY5aB7Kdhjg)
 
-[Parkett- och avgränsade textfiler](https://youtu.be/V_2a60j2Kjo)
+[Parquet och avgränsade textfiler](https://youtu.be/V_2a60j2Kjo)
 
 [CosmosDB-anslutning](http://youtu.be/plp1etT2ftY?hd=1)
 
-[Dra slutsatser om datatyper i avgränsade textfiler](https://www.youtube.com/watch?v=nJjRzlFktlA)
+[Härled data typer i avgränsade textfiler](https://www.youtube.com/watch?v=nJjRzlFktlA)
 
 [Läsa och skriva partitionerade filer](https://www.youtube.com/watch?v=7Q-db4Qgc4M)
 
-[Omvandla och skapa flera SQL-tabeller](https://www.youtube.com/watch?v=Sj15Yjwai1A)
+[Transformera och skapa flera SQL-tabeller](https://www.youtube.com/watch?v=Sj15Yjwai1A)
 
-[Partitionera dina filer i datasjön](https://youtu.be/VNWv-MvLQ_0)
+[Partitionera dina filer i data Lake](https://youtu.be/VNWv-MvLQ_0)
 
-[Inläsningsmönster för datalager](https://www.youtube.com/watch?v=7mLqwtmeQFg)
+[Inläsnings mönster för data lager](https://www.youtube.com/watch?v=7mLqwtmeQFg)
 
-[Utdataalternativ för datasjöfil](https://www.youtube.com/watch?v=NAPSbjvSQA8)
+[Utdataalternativ för data Lake-fil](https://www.youtube.com/watch?v=NAPSbjvSQA8)
 
-## <a name="optimizing-mapping-data-flows"></a>Optimera mappningsdataflöden
+## <a name="optimizing-mapping-data-flows"></a>Optimerar mappnings data flöden
 
 [Dataursprung](https://www.youtube.com/watch?v=5KvqYF-y93s)
 
@@ -105,58 +105,58 @@ Eftersom uppdateringar ständigt görs i produkten har vissa funktioner lagt til
 
 [Iterera filer med parametrar](http://youtu.be/uEgz0ptYRDM?hd=1)
 
-[Minska starttider](https://youtu.be/FFCbU4ujCiY?t=528)
+[Minska start tiderna](https://youtu.be/FFCbU4ujCiY?t=528)
 
 [SQL DB-prestanda](https://youtu.be/iyZT5CY3V_4)
 
 [Loggning och granskning](https://www.youtube.com/watch?v=UC__LOyuf8M)
 
-[Optimera klusterstorleken dynamiskt vid körning](https://www.youtube.com/watch?v=jWSkJdtiJNM)
+[Optimera data flödets kluster storlek dynamiskt vid körning](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
-[Optimera starttider för dataflödet](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
+[Optimera start tider för data flöde](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
-## <a name="mapping-data-flow-scenarios"></a>Mappa scenarier för dataflöde
+## <a name="mapping-data-flow-scenarios"></a>Mappa data flödes scenarier
 
-[Luddiga uppslag](http://youtu.be/7gdwExjHBbw)
+[Fuzzy-uppslag](http://youtu.be/7gdwExjHBbw)
 
-[Datamönster för mellanlagring](https://youtu.be/mZLKdyoL3Mo)
+[Mönster för mellanlagring av data](https://youtu.be/mZLKdyoL3Mo)
 
-[Mönster för rena adresser](https://youtu.be/axEYbuU3lmw)
+[Mönster för Rensa adresser](https://youtu.be/axEYbuU3lmw)
 
 [Deduplicering](https://www.youtube.com/watch?v=OLenvYwg__I)
 
 [Sammanfoga filer](http://youtu.be/WbDTBAyYte8)
 
-[Ändra dimensioner som ändras långsamt typ 1: skriva över](http://youtu.be/Rz2zx5GRbrA)
+[Långsam ändrad dimension typ 1: Skriv över](http://youtu.be/Rz2zx5GRbrA)
 
-[Långsamt ändra mått typ 2: historia](http://youtu.be/123CptslKvU)
+[Långsam ändrad dimensions typ 2: historik](http://youtu.be/123CptslKvU)
 
-[Faktatabell lastning](http://youtu.be/ABG3X9pgFPQ)
+[Inläsning av fakta tabell](http://youtu.be/ABG3X9pgFPQ)
 
-[Omvandla SQL Server on-prem med deltadatainläsningsmönster](https://youtu.be/IN-4v0e7UIs)
+[Transformering av SQL Server lokal med delta data inläsnings mönster](https://youtu.be/IN-4v0e7UIs)
 
 [Parameterisering](https://www.youtube.com/watch?v=vpuuQcFojt8)
 
-[Distinkt rad & radantal](https://youtu.be/ryYo8UFUgTI)
+[Distinkt rad antal & rad antal](https://youtu.be/ryYo8UFUgTI)
 
-[Hantera trunkeringsfel](http://youtu.be/sPpcSiKQz34)
+[Fel vid hantering av trunkering](http://youtu.be/sPpcSiKQz34)
 
-[Intelligent dataroutning](https://youtu.be/PIGw-Z-0upw)
+[Intelligent data routning](https://youtu.be/PIGw-Z-0upw)
 
-[Datamaskering för känsliga data](https://www.youtube.com/watch?v=OFd4LeiTmfs)
+[Data maskning för känsliga data](https://www.youtube.com/watch?v=OFd4LeiTmfs)
 
 [Logiska modeller kontra fysiska modeller](http://youtu.be/K5tgzLjEE9Q)
 
-[Identifiera ändringar av källdata](http://youtu.be/CaxIlI7oXfI?hd=1)
+[Identifiera ändringar av käll data](http://youtu.be/CaxIlI7oXfI?hd=1)
 
-## <a name="data-flow-expressions"></a>Dataflödesuttryck
+## <a name="data-flow-expressions"></a>Uttryck för data flöde
 
-[Datum-/tidsuttryck](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
+[Datum/tid-uttryck](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
 
-[Dela matriser och ärendeutdrag](https://www.youtube.com/watch?v=DHNH8ZO7YjI)
+[Dela upp matriser och Case-uttryck](https://www.youtube.com/watch?v=DHNH8ZO7YjI)
 
-[Kul med stränginterpolering och parametrar](https://youtu.be/hb3-cn2CMgM)
+[Roligt med String-interpolation och parametrar](https://youtu.be/hb3-cn2CMgM)
 
-[Intro för dataflödesskript: Kopiera, klistra in, kodavsnitt](https://www.youtube.com/watch?v=3_1I4XdoBKQ)
+[Data Flow skript Intro: kopiera, klistra in, kodfragment](https://www.youtube.com/watch?v=3_1I4XdoBKQ)
 
-[Uttryck för datakvalitet](https://www.youtube.com/watch?v=O8gmv5-lXhs)
+[Data kvalitets uttryck](https://www.youtube.com/watch?v=O8gmv5-lXhs)

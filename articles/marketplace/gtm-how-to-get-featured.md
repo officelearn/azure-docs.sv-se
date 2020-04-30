@@ -1,6 +1,6 @@
 ---
-title: Go-To-Market Services - Hur man får med på marknaden | Azure Marketplace
-description: Go-To-Market Services – I det här avsnittet beskrivs hur du får en lista med i Azure Marketplace
+title: Go-to-Marketing-tjänster – hur man kommer igång på Marketplace | Azure Marketplace
+description: Go-to-Marketing-tjänster – det här avsnittet beskriver hur du hämtar en lista på Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,44 +8,44 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
 ms.openlocfilehash: fe18ca41942ff58b8d9eefef3122c90980029766
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81684610"
 ---
-# <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Så här visas du i AppSource och Azure Marketplace
+# <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Så här kommer du igång i AppSource och Azure Marketplace
 
-Azure Marketplace och AppSource har **utvalda appavsnitt** där du kan få din app presenterad:
+Avsnittet om appar i Azure Marketplace och AppSource har **aktuella appar** , där du kan få appen aktuell:
 
-* Om du har ett PROV- eller TRANSAKTIONSERBJUDANDE kan du först använda din "kategorikampanj"-förmån genom [kommersiella marknadsplatsförmåner.](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)
-* För det andra, granska listan över bästa praxis och kriterier nedan för att tjäna en plats.
+* Först, om du har en UTVÄRDERINGs-eller TRANSAKTIONs erbjudande, kan du använda din "kategori befordran"-förmån genom [fördelarna med kommersiell marknads](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)plats.
+* Sedan kan du gå igenom listan med bästa praxis och kriterier nedan för att få en punkt.
 
-Den utvalda apps val algoritm genererar en poäng till en app av Microsoft, precis som en persons kredit värdering i USA.  Veckovalet av utvalda appar baseras på en beräkning av appens och tjänstens prestanda.
+Algoritmen för val av aktuella appar genererar en poäng till en app av Microsoft, precis som en persons kredit Poäng i USA.  Vecko valet av aktuella appar kommer att baseras på en beräkning av appens och tjänstens prestanda.
 
-## <a name="steps-to-take"></a>Åtgärder för att ta
+## <a name="steps-to-take"></a>Steg att vidta
 
-Du kan vidta följande åtgärdsobjekt för att förbättra dina poäng:
+Du kan vidta följande åtgärder för att förbättra dina poäng:
 
-1. *Kontrollera att appen eller tjänsten kategoriseras på rätt sätt*: välj tre kategorier som representerar appens eller tjänstens funktioner.
-2. *Azure Marketplace Apps: utöka din Azure-förbrukning månad för månad.* Om du kan uppnå 1 000 timmars Azure-användning per månad ökar du risken för att bli presenterad.
-3. *AppSource Apps: öka förvärv som kommer till ditt erbjudande.* Om du har möjlighet att uppnå 10 förvärv per månad, kommer du att kraftigt öka dina chanser att vara med. 
-4. *Uppnå Co-Sell redo status:* slutföra kraven för co-sälj redo.
-5. *Förbättra kvaliteten på ditt erbjudande:* se riktlinjer för [innehållsuppgift](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation) för information om hur du ändrar ditt erbjudande
-6. Vill du publicera flera erbjudanden på Marketplace: visas alla dina kärnappar och tjänster? Har du en provupplevelse?
-7. Uppmuntra dina kunder att skriva recensioner.
+1. *Kontrol lera att din app eller tjänst är korrekt kategoriserad*: Välj tre kategorier som representerar appen eller tjänstens funktioner.
+2. *Azure Marketplace-appar: öka din användnings månad i Azure.* Om du kan uppnå 1 000 timmars Azure-användning per månad ökar du kraftigt.
+3. *AppSource-appar: öka de förvärv som kommer till ditt erbjudande.* Om du kan uppnå 10 anskaffningar per månad ökar du kraftigt. 
+4. Ge *Medförsäljnings klar status*: slutför kraven för medförsäljnings klar.
+5. *Förbättra kvaliteten på ditt erbjudande*: information om hur du ändrar ditt erbjudande finns i [rikt linjer för innehålls registrering](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation)
+6. Publicera flera erbjudanden på Marketplace: är alla dina viktigaste appar och tjänster angivna? Har du en utvärderings version?
+7. Uppmuntra kunderna att skriva recensioner.
 
-Kampanjer för utvalda appar fungerar separat från sökalgoritmen.
+Kampanjer för aktuella appar körs separat från sökalgoritmen.
 
 >[!Note]
->Om din lösning inte visas korrekt i sökresultaten filar du en supportbiljett via hjälpmenyn i [Partnercenter](https://partner.microsoft.com/).
+>Om din lösning inte visas korrekt i Sök resultaten, File a Support Ticket via Hjälp-menyn i [partner Center](https://partner.microsoft.com/).
 
-Ditt GTM-stöd innehåller också ett komplett bibliotek med självhjälpsmallar, webbinnehåll, utbildning och verktyg som hjälper dig att ytterligare marknadsföra dina uppgifter och ditt företag.
+GTM-supporten innehåller också ett helt bibliotek med mallar för självhjälp, webb innehåll, utbildning och verktyg som hjälper dig att ytterligare marknadsföra dina listor och din verksamhet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om dina [kommersiella marknadsplatsfördelar.](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)
+Lär dig mer om dina [kommersiella marknads förmåner](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 
-Logga in [på Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa och konfigurera erbjudandet.
+Logga in på [partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa och konfigurera ditt erbjudande.
 
 ---

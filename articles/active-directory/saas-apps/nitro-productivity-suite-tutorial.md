@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med Nitro Productivity Suite | Microsoft-dokument'
+title: 'Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med Nitro Productivity Suite | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Nitro Productivity Suite.
 services: active-directory
 documentationCenter: na
@@ -16,157 +16,157 @@ ms.date: 04/02/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ca675e43f4d20898d9f97c175da71f8d5c59e4f
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81676924"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nitro-productivity-suite"></a>Självstudiekurs: Azure Active Directory-integrering med enkel inloggning (SSO) med Nitro Productivity Suite
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nitro-productivity-suite"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Nitro Productivity Suite
 
-I den här självstudien får du lära dig hur du integrerar Nitro Productivity Suite med Azure Active Directory (Azure AD). När du integrerar Nitro Productivity Suite med Azure AD kan du:
+I den här självstudien får du lära dig att integrera Nitro Productivity Suite med Azure Active Directory (Azure AD). När du integrerar Nitro Productivity Suite med Azure AD kan du:
 
 * Kontroll i Azure AD som har åtkomst till Nitro Productivity Suite.
-* Gör det möjligt för användarna att automatiskt loggas in på Nitro Productivity Suite med sina Azure AD-konton.
-* Hantera dina konton på en central plats: Azure-portalen.
+* Gör det möjligt för användarna att logga in automatiskt till Nitro Productivity Suite med sina Azure AD-konton.
+* Hantera dina konton på en central plats: Azure Portal.
 
-Mer information om integrering av SaaS-appar (Software as a Service) med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att komma igång:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 * En Nitro Productivity Suite [Enterprise-prenumeration](https://www.gonitro.com/pricing).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Nitro Productivity Suite stöder **SP** och **IDP** initierade SSO.
-* Nitro Productivity Suite stöder just in time-användaretablering. **Just In Time**
-* När du har konfigurerat Nitro Productivity Suite kan du framtvinga sessionskontroll, som skyddar exfiltration och infiltration av organisationens känsliga data i realtid. Sessionskontrollen sträcker sig från villkorlig åtkomst. Mer information finns i [Lär dig hur du framtvingar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Nitro Productivity Suite stöder **SP** -och **IDP** -initierad SSO.
+* Nitro Productivity Suite stöder **just-in-Time** User-etablering.
+* När du har konfigurerat Nitro Productivity Suite kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. Mer information finns i [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-nitro-productivity-suite-from-the-gallery"></a>Lägg till Nitro Productivity Suite från galleriet
 
-Om du vill konfigurera integreringen av Nitro Productivity Suite i Azure AD måste du lägga till Nitro Productivity Suite från galleriet i listan över hanterade SaaS-appar.
+Om du vill konfigurera integrationen av Nitro Productivity Suite i Azure AD måste du lägga till Nitro Productivity Suite från galleriet till din lista över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med hjälp av antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. Välj Azure Active **Directory**i den vänstra rutan .
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I den vänstra rutan väljer du **Azure Active Directory**.
 1. Gå till **Företagsprogram** och välj sedan **Alla program**.
-1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
-1. Skriv **Nitro Productivity Suite** i sökrutan i avsnittet Lägg till från **galleriet.**
-1. Välj **Nitro Productivity Suite** bland resultaten och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** skriver du **Nitro Productivity Suite** i sökrutan.
+1. Välj **Nitro Productivity Suite** från resultaten och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-nitro-productivity-suite"></a>Konfigurera och testa en enda Azure AD-inloggning för Nitro Productivity Suite
+## <a name="configure-and-test-azure-ad-single-sign-on-for-nitro-productivity-suite"></a>Konfigurera och testa enkel inloggning med Azure AD för Nitro Productivity Suite
 
-Konfigurera och testa Azure AD SSO med Nitro Productivity Suite med hjälp av en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkad relation mellan en Azure AD-användare och den relaterade användaren i Nitro Productivity Suite.
+Konfigurera och testa Azure AD SSO med Nitro Productivity Suite genom att använda en test användare som kallas **B. Simon**. För att SSO ska fungera måste du upprätta en länkad relation mellan en Azure AD-användare och den relaterade användaren i Nitro Productivity Suite.
 
-Om du vill konfigurera och testa Azure AD SSO med Nitro Productivity Suite slutför du följande byggblock:
+Om du vill konfigurera och testa Azure AD SSO med Nitro Productivity Suite slutför du följande Bygg stenar:
 
 1. [Konfigurera Azure AD SSO](#configure-azure-ad-sso) så att användarna kan använda den här funktionen.
-    1. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) för att testa Azure AD enkel inloggning med B.Simon.
-    1. [Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user) för att aktivera B.Simon att använda Azure AD enkel inloggning.
-1. [Konfigurera Nitro Productivity Suite SSO](#configure-nitro-productivity-suite-sso) för att konfigurera de enskilda inloggningsinställningarna på programsidan.
-    1. [Skapa en Nitro Productivity Suite-testanvändare](#create-a-nitro-productivity-suite-test-user) för att ha en motsvarighet till B.Simon i Nitro Productivity Suite, kopplad till Azure AD-representationen för användaren.
-1. [Testa SSO](#test-sso) för att kontrollera om konfigurationen fungerar.
+    1. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) för att testa enkel inloggning i Azure AD med B. Simon.
+    1. [Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user) att aktivera B. Simon för att använda enkel inloggning i Azure AD.
+1. [Konfigurera Nitro Productivity Suite SSO](#configure-nitro-productivity-suite-sso) för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. [Skapa en Nitro Productivity Suite-test](#create-a-nitro-productivity-suite-test-user) för att få en motsvarighet till B. Simon i Nitro Productivity Suite som är länkat till användarens Azure AD-representation.
+1. [Testa SSO](#test-sso) för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. Leta reda på avsnittet Hantera på sidan Nitro Productivity Suite-programintegrering på **Nitro Productivity Suite** [Azure-portalen.](https://portal.azure.com/) **Manage** Välj **enkel inloggning**.
-1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
-1. Leta reda på **certifikat (Base64)** i avsnittet **SAML-signeringscertifikat** . Välj **Hämta** om du vill hämta certifikatet och spara det på datorn.
+1. Leta upp avsnittet **Hantera** i [Azure Portal](https://portal.azure.com/)på sidan **Nitro Productivity Suite** Application Integration. Välj **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. I avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)**. Välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
-    ![Skärmbild av avsnittet SAML-signeringscertifikat, med länken Hämta markerad](common/certificatebase64.png)
+    ![Skärm bild av avsnittet SAML-signerings certifikat med hämtnings länken markerad](common/certificatebase64.png)
     
-1. I avsnittet **Konfigurera Nitro Productivity Suite** väljer du kopieringsikonen bredvid **Inloggningsadressen**.
+1. I avsnittet **Konfigurera Nitro Productivity Suite** väljer du kopierings ikonen bredvid **inloggnings-URL**.
     
-    ![Skärmbild av avsnittet Konfigurera Nitro Productivity Suite, med webbadresser och kopieringsikoner markerade](common/copy-configuration-urls.png)
+    ![Skärm bild av avsnittet Konfigurera Nitro Productivity Suite med URL: er och kopierings ikoner markerade](common/copy-configuration-urls.png)
     
-1. Leta reda [på](https://admin.gonitro.com/)avsnittet Enkel **inloggning** på sidan Inställningar för Företag på sidan **Företagsinställningar.** Välj **Konfigurera SAML SSO**.
+1. I [Nitro administrations Portal](https://admin.gonitro.com/)går du till sidan **företags inställningar** och letar reda på avsnittet **enkel inloggning** . Välj **Konfigurera SAML SSO**.
 
-    a. Klistra in **inloggningsadressen** från föregående steg i fältet **Logga in URL.**
+    a. Klistra in **inloggnings-URL:** en från föregående steg i fältet för **inloggnings-URL** .
     
-    b. Ladda upp **certifikatet (Base64)** från det tidigare steget i fältet **X509 Signeringscertifikat.**
+    b. Ladda upp **certifikatet (base64)** från det tidigare steget i fältet **X509 signerings certifikat** .
     
     c. Välj **Skicka**.
     
-    d. Välj **Aktivera enkel inloggning**.
+    d. Välj **aktivera enkel inloggning**.
 
 
-1. Gå tillbaka till [Azure-portalen](https://portal.azure.com/). På sidan **Konfigurera enkel inloggning med SAML** väljer du pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
+1. Gå tillbaka till [Azure Portal](https://portal.azure.com/). På sidan **Konfigurera enkel inloggning med SAML** väljer du Penn ikonen för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-   ![Skärmbild av Konfigurera enkel inloggning med SAML-sida, med pennikonen markerad](common/edit-urls.png)
+   ![Skärm bild som visar hur du konfigurerar enkel inloggning med SAML Page med Penn ikonen markerad](common/edit-urls.png)
 
-1. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** anger du värdena för följande fält:
+1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, anger du värdena för följande fält:
 
-    a. Kopiera och klistra in **fältet SAML Entitets-ID** i textrutan **Identifierare** från [Nitro Admin-portalen](https://admin.gonitro.com/). Det bör ha följande mönster:`urn:auth0:gonitro-prod:<ENVIRONMENT>`
+    a. I text rutan **identifierare** kopierar du och klistrar in fältet **SAML-entitets-ID** från [administrations portalen för Nitro](https://admin.gonitro.com/). Den bör ha följande mönster:`urn:auth0:gonitro-prod:<ENVIRONMENT>`
 
-    b. Kopiera och klistra in **URL-fältet för ACS** i textrutan **Svara** URL från [Nitro Admin-portalen](https://admin.gonitro.com/). Det bör ha följande mönster:`https://gonitro-prod.eu.auth0.com/login/callback?connection=<ENVIRONMENT>`
+    b. I text rutan **svars-URL** kopierar och klistrar du in URL-fältet för **ACS** från [Nitro-administrations portalen](https://admin.gonitro.com/). Den bör ha följande mönster:`https://gonitro-prod.eu.auth0.com/login/callback?connection=<ENVIRONMENT>`
 
-1. Välj **Ange ytterligare webbadresser**och utför följande steg om du vill konfigurera programmet i **återupptan** av SP-initierat läge:
+1. Välj **Ange ytterligare URL: er**och utför följande steg om du vill konfigurera programmet i **SP** -initierat läge:
 
     I rutan **Inloggnings-URL** anger du följande URL: `https://sso.gonitro.com/login`
 
 1. Välj **Spara**.
 
-1. Nitro Productivity Suite-programmet förväntar sig att SAML-påståendena är i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut.
+1. Nitro Productivity Suite-programmet förväntar sig att SAML-intygen ska vara i ett särskilt format, vilket kräver att du lägger till anpassade attribut mappningar i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
-    ![Skärmbild av standardattribut](common/default-attributes.png)
+    ![Skärm bild av standardattribut](common/default-attributes.png)
 
-1. Förutom de föregående attributen förväntar sig Nitro Productivity Suite-programmet att ytterligare några attribut skickas tillbaka i SAML-svaret. Dessa attribut är förifyllda, men du kan granska dem enligt dina krav.
+1. Förutom föregående attribut förväntar sig Nitro Productivity Suite-programmet några fler attribut att skickas tillbaka i SAML-svaret. Dessa attribut fylls i i förväg, men du kan granska dem efter dina behov.
     
-    | Namn  |  Källattribut|
+    | Name  |  Källattribut|
     | ---------------| --------------- |
-    | medarbetareAntal |  user.objectid |
+    | employeeNumber |  user.objectid |
 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du en testanvändare i Azure-portalen som heter B.Simon.
+I det här avsnittet skapar du en test användare i Azure Portal som kallas B. Simon.
 
-1. Välj Azure Active Directory**Users** > **All-användare**i den vänstra rutan i **Azure-portalen** > .
-1. Välj **Ny användare** högst upp på skärmen.
-1. Gör så här i egenskaperna **Användare:**
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory** > **användare** > **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
-   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned lösenordet.
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryss rutan **Visa lösen ord** och skriv sedan lösen ordet.
    1. Välj **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet kan du aktivera B.Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Nitro Productivity Suite.
+I det här avsnittet aktiverar du B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Nitro Productivity Suite.
 
-1. I Azure-portalen väljer du Alla**program för** >  **företagsprogram**.
-1. Välj Nitro Productivity **Suite**i programlistan .
-1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
+1. I Azure Portal väljer du **företags program** > **alla program**.
+1. I listan program väljer du **Nitro Productivity Suite**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Skärmbild av avsnittet Hantera, med användare och grupper markerade](common/users-groups-blade.png)
+   ![Skärm bild av avsnittet hantera där användare och grupper är markerade](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**. Välj sedan **Användare och grupper**i dialogrutan Lägg till **tilldelning** .
+1. Välj **Lägg till användare**. I dialog rutan **Lägg till tilldelning** väljer du sedan **användare och grupper**.
 
-    ![Skärmbild av sidan Användare och grupper, med Lägg till användare markerad](common/add-assign-user.png)
+    ![Skärm bild av sidan användare och grupper där Lägg till användare är markerat](common/add-assign-user.png)
 
-1. Välj **B.Simon** i listan över användare **och grupper.** Välj sedan **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll.** Välj sedan **Välj** längst ned på skärmen.
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan över användare. Välj sedan **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML-intyget väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** . Välj sedan **Välj** längst ned på skärmen.
 1. I dialogrutan **Lägg till tilldelning** väljer du **Tilldela**.
 
 ## <a name="configure-nitro-productivity-suite-sso"></a>Konfigurera Nitro Productivity Suite SSO
 
-Om du vill konfigurera enkel inloggning på Nitro Productivity Suite-sidan skickar du det nedladdade **certifikatet (Base64)** och lämpliga kopierade url:er från Azure-portalen till [Nitro Productivity Suite-supportteamet](https://www.gonitro.com/support). Supportteamet ser till att SAML SSO-anslutningen är korrekt inställd på båda sidor.
+Om du vill konfigurera enkel inloggning på Nitro Productivity Suite-sidan skickar du det nedladdade **certifikatet (base64)** och lämpliga kopierade URL: er från Azure Portal till [support teamet för Nitro Productivity Suite](https://www.gonitro.com/support). Support teamet ser till att SAML SSO-anslutningen är korrekt inställd på båda sidor.
 
-### <a name="create-a-nitro-productivity-suite-test-user"></a>Skapa en nitro produktivitetssvit testanvändare
+### <a name="create-a-nitro-productivity-suite-test-user"></a>Skapa en Nitro Productivity Suite-test användare
 
-Nitro Productivity Suite stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns ingen ytterligare åtgärd för dig att vidta. Om en användare inte redan finns i Nitro Productivity Suite skapas en ny efter autentisering.
+Nitro Productivity Suite stöder just-in-Time-etablering av användare, som är aktiverat som standard. Det finns ingen ytterligare åtgärd att vidta. Om en användare inte redan finns i Nitro Productivity Suite skapas en ny efter autentiseringen.
 
 ## <a name="test-sso"></a>Testa SSO 
 
-I det här avsnittet testar du din Azure AD-konfiguration med hjälp av Åtkomstpanelen.
+I det här avsnittet testar du konfigurationen av enkel inloggning med Azure AD med hjälp av åtkomst panelen.
 
-När du väljer panelen Nitro Productivity Suite på Åtkomstpanelen loggas du automatiskt in på Nitro Productivity Suite som du konfigurerar SSO för. Mer information finns [i Logga in och starta appar från portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer Nitro Productivity Suite-panelen i åtkomst panelen loggas du automatiskt in till Nitro Productivity Suite som du ställer in SSO för. Mer information finns i [Logga in och starta appar från portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -176,9 +176,9 @@ När du väljer panelen Nitro Productivity Suite på Åtkomstpanelen loggas du a
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Prova Nitro Productivity Suite med Azure AD](https://aad.portal.azure.com/)
+- [Testa Nitro Productivity Suite med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Skydda Nitro Productivity Suite med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 

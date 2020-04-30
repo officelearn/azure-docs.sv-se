@@ -1,47 +1,47 @@
 ---
 title: Importera och exportera ritningar med PowerShell
-description: Lär dig hur du arbetar med dina skissdefinitioner som kod. Dela, källkontroll och hantera dem med hjälp av export- och importkommandona.
+description: Lär dig hur du arbetar med dina skiss definitioner som kod. Dela, käll kontroll och hantera dem med hjälp av export-och import kommandona.
 ms.date: 09/03/2019
 ms.topic: how-to
 ms.openlocfilehash: dcdf48f8941198591b39d6cf89ec5e6dac7ba94c
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81686842"
 ---
-# <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importera och exportera skissdefinitioner med PowerShell
+# <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importera och exportera skiss definitioner med PowerShell
 
-Azure Blueprints kan hanteras fullständigt via Azure-portalen. När organisationer avancerar i sin användning av Azure Blueprints bör de börja tänka på skissdefinitioner som hanterad kod. Detta begrepp kallas ofta infrastruktur som kod (IaC). Att behandla dina skissdefinitioner som kod ger ytterligare fördelar utöver vad Azure Portal erbjuder. Dessa fördelar inkluderar:
+Azure-ritningar kan hanteras fullständigt via Azure Portal. När organisationer förflyttar sig i sin användning av Azure-ritningar bör de börja tänka på skiss definitioner som hanterad kod. Det här konceptet kallas ofta infrastruktur som kod (IaC). Genom att behandla dina skiss definitioner som kod får du ytterligare fördelar utöver vad Azure Portal erbjuder. Följande fördelar är:
 
-- Dela ritningsdefinitioner
-- Säkerhetskopiera dina ritningsdefinitioner
-- Återanvända skissdefinitioner i olika klienter eller prenumerationer
-- Placera ritningsdefinitionerna i källkontrollen
-  - Automatiserad testning av skissdefinitioner i testmiljöer
-  - Stöd för kontinuerlig integrering och kontinuerlig utbyggnad (CI/CD) rörledningar
+- Dela skiss definitioner
+- Säkerhetskopiera dina skiss definitioner
+- Återanvända skiss definitioner i olika klienter eller prenumerationer
+- Placera skiss definitionerna i käll kontrollen
+  - Automatiserad testning av skiss definitioner i test miljöer
+  - Stöd för kontinuerlig integrering och för kontinuerlig distribution (CI/CD)
 
-Oavsett dina skäl, hantera din skiss definitioner som kod har fördelar. Den här artikeln visar `Import-AzBlueprintWithArtifact` `Export-AzBlueprintWithArtifact` hur du använder kommandona och i modulen [Az.Blueprint.](https://powershellgallery.com/packages/Az.Blueprint/)
+Vad dina skäl har, kan du hantera dina skiss definitioner som kod har fördelar. Den här artikeln visar hur du använder `Import-AzBlueprintWithArtifact` - `Export-AzBlueprintWithArtifact` och-kommandona i modulen [AZ. skiss](https://powershellgallery.com/packages/Az.Blueprint/) .
 
 ## <a name="prerequisites"></a>Krav
 
-Den här artikeln förutsätter en måttlig arbetskunskap om Azure Blueprints. Om du inte har gjort det ännu kan du gå igenom följande artiklar:
+Den här artikeln förutsätter en måttlig arbets kunskap för Azure-ritningar. Om du inte har gjort det, kan du arbeta igenom följande artiklar:
 
 - [Skapa en skiss i portalen](../create-blueprint-portal.md)
-- Läs om [distributionsfaser](../concepts/deployment-stages.md) och [skisslivscykeln](../concepts/lifecycle.md)
-- [Skapa](../create-blueprint-powershell.md) och [hantera](./manage-assignments-ps.md) skissdefinitioner och tilldelningar med PowerShell
+- Läs om [distributions faser](../concepts/deployment-stages.md) och [skissens livs cykel](../concepts/lifecycle.md)
+- [Skapa](../create-blueprint-powershell.md) och [Hantera](./manage-assignments-ps.md) skiss definitioner och tilldelningar med PowerShell
 
-Om den inte redan är installerad följer du instruktionerna i [Lägg till az.blueprint-modulen](./manage-assignments-ps.md#add-the-azblueprint-module) för att installera och validera **Az.Blueprint-modulen** från PowerShell-galleriet.
+Om den inte redan är installerad följer du anvisningarna i [Lägg till modulen AZ. skiss](./manage-assignments-ps.md#add-the-azblueprint-module) för att installera och validera modulen **AZ. skiss** från PowerShell-galleriet.
 
-## <a name="folder-structure-of-a-blueprint-definition"></a>Mappstruktur för en skissdefinition
+## <a name="folder-structure-of-a-blueprint-definition"></a>Mappstruktur för en skiss definition
 
-Innan du tittar på att exportera och importera ritningar, låt oss titta på hur de filer som utgör skissdefinitionen är strukturerade. En skissdefinition bör lagras i en egen mapp.
+Innan du tittar på att exportera och importera ritningar ska vi titta på hur filerna som utgör skiss definitionen är strukturerade. En skiss definition ska lagras i en egen mapp.
 
 > [!IMPORTANT]
-> Om inget värde skickas till parametern **Name** för `Import-AzBlueprintWithArtifact` cmdleten används namnet på mappen som skissdefinitionen lagras i.
+> Om inget värde skickas till **namn** parametern för `Import-AzBlueprintWithArtifact` cmdleten, används namnet på mappen som skiss definitionen är lagrad i.
 
-Tillsammans med skissdefinitionen, som `blueprint.json`måste namnges, är de artefakter som skissdefinitionen består av. Varje artefakt måste finnas `artifacts`i undermappen .
-Tillsammans bör strukturen för din skiss definition som JSON filer i mappar ser ut så här:
+Tillsammans med skiss definitionen, som måste namnges `blueprint.json`, är de artefakter som skiss definitionen består av. Varje artefakt måste finnas i undermappen med namnet `artifacts`.
+Tillsammans bör strukturen för skiss definitionen som JSON-filer i mappar se ut så här:
 
 ```text
 .
@@ -56,20 +56,20 @@ Tillsammans bör strukturen för din skiss definition som JSON filer i mappar se
 
 ```
 
-## <a name="export-your-blueprint-definition"></a>Exportera ritningsdefinitionen
+## <a name="export-your-blueprint-definition"></a>Exportera skiss definitionen
 
-Stegen för att exportera ritningsdefinitionen är enkla. Exportera skissdefinitionen kan vara användbart för delning, säkerhetskopiering eller placering i källkontroll.
+Stegen för att exportera skiss definitionen är enkla. Det kan vara praktiskt att exportera skiss definitionen för att dela, säkerhetskopiera eller placera i käll kontrollen.
 
 - **Skiss** [krävs]
-  - Anger skissdefinitionen
-  - Används `Get-AzBlueprint` för att hämta referensobjektet
-- **OutputPath** [obligatoriskt]
-  - Anger sökvägen för att spara JSON-filerna för skissdefinitionen
-  - Utdatafilerna är i en undermapp med namnet på skissdefinitionen
+  - Anger skiss definitionen
+  - Används `Get-AzBlueprint` för att hämta referens objekt
+- **OutputPath** [krävs]
+  - Anger sökvägen för att spara skiss definitionens JSON-filer till
+  - Utdatafilerna finns i en undermapp med namnet på skiss definitionen
 - **Version** (valfritt)
-  - Anger den version som **Blueprint** ska matas ut om skissreferensobjektet innehåller referenser till mer än en version.
+  - Anger versionen som ska matas om **skiss** referens-objektet innehåller referenser till mer än en version.
 
-1. Hämta en referens till skissdefinitionen för att `{subId}`exportera från prenumerationen representerad som :
+1. Hämta en referens till skiss definitionen som ska exporteras från prenumerationen som visas `{subId}`som:
 
    ```azurepowershell-interactive
    # Login first with Connect-AzAccount if not using Cloud Shell
@@ -78,31 +78,31 @@ Stegen för att exportera ritningsdefinitionen är enkla. Exportera skissdefinit
    $bpDefinition = Get-AzBlueprint -SubscriptionId '{subId}' -Name 'MyBlueprint' -Version '1.1'
    ```
 
-1. Använd `Export-AzBlueprintWithArtifact` cmdlet för att exportera den angivna skissdefinitionen:
+1. Använd `Export-AzBlueprintWithArtifact` cmdleten för att exportera den angivna skiss definitionen:
 
    ```azurepowershell-interactive
    Export-AzBlueprintWithArtifact -Blueprint $bpDefinition -OutputPath 'C:\Blueprints'
    ```
 
-## <a name="import-your-blueprint-definition"></a>Importera ritningsdefinitionen
+## <a name="import-your-blueprint-definition"></a>Importera skiss definitionen
 
-När du har antingen en [exporterad skissdefinition](#export-your-blueprint-definition) eller har en manuellt skapad skissdefinition i den [mappstruktur som krävs](#folder-structure-of-a-blueprint-definition)kan du importera skissdefinitionen till en annan hanteringsgrupp eller prenumeration.
+När du har antingen en [exporterad skiss definition](#export-your-blueprint-definition) eller en manuellt skapad skiss definition i den [begärda mappstrukturen](#folder-structure-of-a-blueprint-definition), kan du importera skiss definitionen till en annan hanterings grupp eller prenumeration.
 
-Exempel på inbyggda skissdefinitioner finns i [Azure Blueprint GitHub repo](https://github.com/Azure/azure-blueprints/tree/master/samples/001-builtins).
+Exempel på inbyggda skiss definitioner finns i [Azure Blueprint GitHub lagrings platsen](https://github.com/Azure/azure-blueprints/tree/master/samples/001-builtins).
 
 - **Namn** [obligatoriskt]
-  - Anger namnet på den nya skissdefinitionen
-- **InputPath** [obligatoriskt]
-  - Anger sökvägen för att skapa skissdefinitionen från
-  - Måste matcha den [mappstruktur som krävs](#folder-structure-of-a-blueprint-definition)
+  - Anger namnet på den nya skiss definitionen
+- **InputPath** [krävs]
+  - Anger sökvägen för att skapa skiss definitionen från
+  - Måste matcha den [nödvändiga mappstrukturen](#folder-structure-of-a-blueprint-definition)
 - **ManagementGroupId** (valfritt)
-  - Hanteringsgrupp-ID för att spara skissdefinitionen till om inte den aktuella kontexten är standard
-  - Antingen **ManagementGroupId** eller **SubscriptionId** måste anges
+  - Hanterings gruppens ID för att spara skiss definitionen till om inte den aktuella kontexten är standard
+  - Du måste ange antingen **ManagementGroupId** eller **SubscriptionId**
 - **SubscriptionId** (valfritt)
-  - Prenumerations-ID för att spara skissdefinitionen till om inte den aktuella kontexten standard
-  - Antingen **ManagementGroupId** eller **SubscriptionId** måste anges
+  - Prenumerations-ID för att spara skiss definitionen till om inte den aktuella kontexten är standard
+  - Du måste ange antingen **ManagementGroupId** eller **SubscriptionId**
 
-1. Använd `Import-AzBlueprintWithArtifact` cmdlet för att importera den angivna skissdefinitionen:
+1. Använd `Import-AzBlueprintWithArtifact` cmdleten för att importera den angivna skiss definitionen:
 
    ```azurepowershell-interactive
    # Login first with Connect-AzAccount if not using Cloud Shell
@@ -110,13 +110,13 @@ Exempel på inbyggda skissdefinitioner finns i [Azure Blueprint GitHub repo](htt
    Import-AzBlueprintWithArtifact -Name 'MyBlueprint' -ManagementGroupId 'DevMG' -InputPath 'C:\Blueprints\MyBlueprint'
    ```
 
-När skissdefinitionen har importerats [tilldelar du den med PowerShell](./manage-assignments-ps.md#create-blueprint-assignments).
+När du har importerat skiss definitionen [tilldelar du den med PowerShell](./manage-assignments-ps.md#create-blueprint-assignments).
 
-Information om hur du skapar avancerade skissdefinitioner finns i följande artiklar:
+Information om hur du skapar avancerade skiss definitioner finns i följande artiklar:
 
 - Använd [statiska och dynamiska parametrar](../concepts/parameters.md).
-- Anpassa [ordningsföljningen för skisssekvensering](../concepts/sequencing-order.md).
-- Skydda distributioner med [skissresurslåsning](../concepts/resource-locking.md).
+- Anpassa ordningsföljden [för skiss ordning](../concepts/sequencing-order.md).
+- Skydda distributioner med [skiss resurs låsning](../concepts/resource-locking.md).
 - [Hantera ritningar som kod](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
 ## <a name="next-steps"></a>Nästa steg

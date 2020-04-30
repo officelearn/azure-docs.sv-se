@@ -1,6 +1,6 @@
 ---
-title: Felsökning och vanliga frågor och svar om administrativa enheter – Azure Active Directory | Microsoft-dokument
-description: Undersök administrativa enheter för att bevilja behörigheter med begränsat scope i Azure Active Directory.
+title: Fel sökning och vanliga frågor och svar om administrativa enheter – Azure Active Directory | Microsoft Docs
+description: Undersök administrativa enheter för att bevilja behörigheter med begränsad omfattning i Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,63 +15,63 @@ ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 022658306d6e4d69174cc616d230cfe4892f1204
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81684859"
 ---
-# <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Administrativa Azure AD-enheter: Felsökning och vanliga frågor och svar
+# <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Azure AD-administrativa enheter: fel sökning och vanliga frågor och svar
 
-För mer detaljerad administrativ kontroll i Azure Active Directory (Azure AD) kan du tilldela användare till en Azure AD-roll med ett scope som är begränsat till en eller flera administrativa enheter (AUs). Exempel på PowerShell-skript för vanliga uppgifter finns i [Arbeta med administrativa enheter](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0).
+För mer detaljerad administrativ kontroll i Azure Active Directory (Azure AD) kan du tilldela användare till en Azure AD-roll med en omfattning som är begränsad till en eller flera administrativa enheter (Australien). Exempel på PowerShell-skript för vanliga aktiviteter finns i [arbeta med administrativa enheter](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0).
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **F: Varför kan jag inte skapa en administrativ enhet?**
 
-**A.** Endast en *global administratör* eller *privilegierad rolladministratör* kan skapa en administrativ enhet i Azure AD. Kontrollera att användaren som försöker skapa den administrativa enheten tilldelas rollen *global administratör* eller administratör *för privilegierad roll.*
+**A:** Endast en *Global administratör* eller en *privilegie rad roll administratör* kan skapa en administrativ enhet i Azure AD. Kontrol lera att den användare som försöker skapa den administrativa enheten tilldelas antingen rollen *Global administratör* eller *administratör för privilegie rad roll* .
 
-**F: Jag har lagt till en grupp i den administrativa enheten. Varför dyker inte gruppmedlemmarna upp där?**
+**F: Jag har lagt till en grupp i den administrativa enheten. Varför visas inte grupp medlemmarna?**
 
-**A.** När du lägger till en grupp i den administrativa enheten, resulterar det inte i att alla gruppens medlemmar läggs till i den. Användare måste tilldelas direkt till den administrativa enheten.
+**A:** När du lägger till en grupp till den administrativa enheten innebär det inte att alla grupp medlemmar läggs till i den. Användarna måste tilldelas direkt till den administrativa enheten.
 
-**F: Jag har precis lagt till (eller tagit bort) en medlem av den administrativa enheten. Varför visas inte medlemmen (eller dyker fortfarande upp) i användargränssnittet?**
+**F: Jag har precis lagt till (eller tagit bort) en medlem i den administrativa enheten. Varför visas inte medlemmen (eller fortfarande visas) i användar gränssnittet?**
 
-**A.** Ibland kan det ta några minuter att bearbeta eller ta bort en eller flera medlemmar av den administrativa enheten för att återspegla på sidan **Administrativa enheter.** Du kan också gå direkt till den associerade resursens egenskaper och se om åtgärden har slutförts. Mer information om användare och grupper i RU finns i [Lista administrativa enheter för en användare](roles-admin-units-add-manage-users.md) och Lista administrativa enheter för en [grupp](roles-admin-units-add-manage-groups.md).
+**A:** Ibland kan bearbetningen av tillägg eller borttagning av en eller flera medlemmar av den administrativa enheten ta några minuter innan de visas på sidan **administrativa enheter** . Alternativt kan du gå direkt till den associerade resursens egenskaper och se om åtgärden har slutförts. Mer information om användare och grupper i Australien finns i [lista administrativa enheter för en användares](roles-admin-units-add-manage-users.md) och [lista över administrativa enheter för en grupp](roles-admin-units-add-manage-groups.md).
 
-**F: Jag är en delegerad lösenordsadministratör på en administrativ enhet. Varför kan jag inte återställa en viss användares lösenord?**
+**F: Jag är en delegerad lösen ords administratör för en administrativ enhet. Varför kan jag inte återställa en speciell användares lösen ord?**
 
-**A.** Som administratör för en administrativ enhet kan du bara återställa lösenord för användare som har tilldelats din administrativa enhet. Kontrollera att den användare vars lösenordsåterställning inte hör till den administrativa enhet som du har tilldelats. Om användaren tillhör samma administrativa enhet men du fortfarande inte kan återställa lösenordet kontrollerar du de roller som tilldelats användaren. 
+**A:** Som administratör för en administrativ enhet kan du bara återställa lösen ord för användare som har tilldelats din administrativa enhet. Se till att användaren vars lösen ords återställning inte fungerar tillhör den administrativa enhet som du har tilldelats. Om användaren tillhör samma administrativa enhet men du fortfarande inte kan återställa lösen ordet, kontrollerar du de roller som är tilldelade till användaren. 
 
-För att förhindra en behörighetshöjning kan en administratör för begränsad administrationsenhet inte återställa lösenordet för en användare som har tilldelats en roll med ett organisationsomfattande scope.
+En administrativ enhets begränsad administratör kan inte återställa lösen ordet för en användare som har tilldelats en roll med en företagsomfattande omfattning för att förhindra en behörighets höjning.
 
-**F: Varför behövs administrativa enheter? Kan vi inte ha använt säkerhetsgrupper som ett sätt att definiera ett scope?**
+**F: Varför krävs administrativa enheter? Gick det inte att använda säkerhets grupper som ett sätt att definiera ett omfång?**
 
-**A.** Säkerhetsgrupper har en befintlig syftes- och auktoriseringsmodell. En *användaradministratör*, till exempel, kan hantera medlemskap i alla säkerhetsgrupper i Azure AD-organisationen. Rollen kan använda grupper för att hantera åtkomst till program som Salesforce. En *användaradministratör* bör inte kunna hantera själva delegeringsmodellen, vilket skulle bli resultatet om säkerhetsgrupper utvidgades till att stödja scenarier för resursgruppering. Administrativa enheter, till exempel organisationsenheter i Active Directory i Windows Server, är avsedda att tillhandahålla ett sätt att begränsa administrationen av ett brett spektrum av katalogobjekt. Säkerhetsgrupper själva kan vara medlemmar i resursomfattningar. Om du använder säkerhetsgrupper för att definiera uppsättningen säkerhetsgrupper som en administratör kan hantera kan det bli förvirrande att använda säkerhetsgrupper för att definiera den uppsättning säkerhetsgrupper som en administratör kan hantera.
+**A:** Säkerhets grupper har ett befintligt syfte och en befintlig auktoriserings modell. En *användar administratör*kan till exempel hantera medlemskap i alla säkerhets grupper i Azure AD-organisationen. Rollen kan använda grupper för att hantera åtkomst till program som Salesforce. En *användar administratör* bör inte kunna hantera Delegerings modellen själva, vilket skulle innebära att säkerhets grupper har utökats till stöd för "resurs gruppering"-scenarier. Administrativa enheter, t. ex. organisationsenheter i Windows Server Active Directory, är avsedda att ge ett sätt att administrera en mängd olika katalog objekt. Själva säkerhets grupperna kan vara medlemmar i resurs omfång. Att använda säkerhets grupper för att definiera en uppsättning säkerhets grupper som en administratör kan hantera kan bli förvirrande.
 
-**F: Vad innebär det att lägga till en grupp i en administrativ enhet?**
+**F: Vad betyder det att lägga till en grupp i en administrativ enhet?**
 
-**A.** Om du lägger till en grupp i en administrativ enhet hamnar själva gruppen i hanteringsomfånget för alla *användaradministratörer* som också är begränsade till den administrativa enheten. Användaradministratörer för den administrativa enheten kan hantera namn och medlemskap för själva gruppen. Användaradministratören beviljas inte *behörigheten för* den administrativa enheten att hantera användarna av gruppen (till exempel för att återställa deras lösenord). För att *ge användaradministratören* möjlighet att hantera användare måste användarna vara direkta medlemmar i den administrativa enheten.
+**A:** Om du lägger till en grupp i en administrativ enhet får du själva gruppen i hanterings omfånget för alla *användar administratörer* som också har begränsad till den administrativa enheten. Användar administratörer för den administrativa enheten kan hantera namnet och medlemskapet i själva gruppen. Den ger inte *användarens administratör* behörighet att hantera användare av gruppen (till exempel för att återställa sina lösen ord). För att ge *användar administratören* möjlighet att hantera användare måste användarna vara direkt medlemmar i den administrativa enheten.
 
-**F: Kan en resurs (användare eller grupp) vara medlem i mer än en administrativ enhet?**
+**F: kan en resurs (användare eller grupp) vara medlem i fler än en administrativ enhet?**
 
-**A.** Ja, en resurs kan vara medlem i mer än en administrativ enhet. Resursen kan hanteras av alla organisationsomfattande och administrativa enhetsbeskådeadministratörer som har behörighet över resursen.
+**A:** Ja, en resurs kan vara medlem i mer än en administrativ enhet. Resursen kan hanteras av alla organisations omfattande och administrativa enhets administratörer som har behörigheter över resursen.
 
-**F: Är administrativa enheter tillgängliga i B2C-organisationer?**
+**F: är administrativa enheter tillgängliga i B2C-organisationer?**
 
-**A.** Nej, administrativa enheter är inte tillgängliga för B2C-organisationer.
+**A:** Nej, administrativa enheter är inte tillgängliga för B2C-organisationer.
 
-**F: Stöds kapslade administrativa enheter?**
+**F: är kapslade administrativa enheter som stöds?**
 
-**A.** Nej, kapslade administrativa enheter stöds inte.
+**A:** Nej, kapslade administrativa enheter stöds inte.
 
-**F: Stöds administrativa enheter i PowerShell och Graph API?**
+**F: är administrativa enheter som stöds i PowerShell och Graph API?**
 
-**S:** Ja. Du hittar stöd för administrativa enheter i [PowerShell cmdlet-dokumentation](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0-preview) och [exempelskript](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview). 
+**S:** Ja. Du hittar stöd för administrativa enheter i [PowerShell-cmdlet-dokumentation](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0-preview) och [exempel skript](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview). 
 
-Hitta stöd för [resurstypen administrationUnit](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/administrativeunit) i Microsoft Graph.
+Hitta stöd för [resurs typen administrativeUnit](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/administrativeunit) i Microsoft Graph.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Begränsa utrymme för roller med hjälp av administrativa enheter](directory-administrative-units.md)
+- [Begränsa omfång för roller med hjälp av administrativa enheter](directory-administrative-units.md)
 - [Hantera administrativa enheter](roles-admin-units-manage.md)

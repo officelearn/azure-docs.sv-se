@@ -1,6 +1,6 @@
 ---
-title: 'Självstudiekurs: Konfigurera Juno Journey för automatisk användaretablering med Azure Active Directory | Microsoft-dokument'
-description: Läs om hur du automatiskt etablerar och avserar användarkonton från Azure AD till Juno Journey.
+title: 'Självstudie: Konfigurera Juno-resan för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du automatiskt etablerar och avetablerar användar konton från Azure AD till Juno resan.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,149 +16,149 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: Zhchia
 ms.openlocfilehash: 08de07a52d1e43dea91e6684d33027d8bcad61fc
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81641854"
 ---
-# <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera Juno Journey för automatisk användaretablering
+# <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Juno-resan för automatisk användar etablering
 
-I den här självstudien beskrivs de steg du behöver utföra i både Juno Journey och Azure Active Directory (Azure AD) för att konfigurera automatisk användaretablering. När azure AD är konfigurerat avsersättningar och avsersättningar avsättningar till [Juno Journey](https://www.junojourney.com/) med hjälp av Azure AD-etableringstjänsten. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera etablering av användare och avetablering till SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md). 
+I den här självstudien beskrivs de steg du behöver utföra i både Juno-resan och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD har kon figurer ATS, etablerar och avetablerar Azure AD automatiskt användare och grupper i [Juno resan](https://www.junojourney.com/) med Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funktioner som stöds
 > [!div class="checklist"]
-> * Skapa användare i Juno Journey
-> * Ta bort användare i Juno Journey när de inte längre behöver åtkomst
-> * Synkronisera användarattribut mellan Azure AD och Juno Journey
-> * [Enkel inloggning till](https://docs.microsoft.com/azure/active-directory/saas-apps/juno-journey-tutorial) Juno Journey (rekommenderas)
+> * Skapa användare i Juno resan
+> * Ta bort användare i Juno-resan när de inte behöver åtkomst längre
+> * Behåll användarattribut synkroniserade mellan Azure AD och Juno resan
+> * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/juno-journey-tutorial) till Juno-resa (rekommenderas)
 
 ## <a name="prerequisites"></a>Krav
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande förutsättningar:
+Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * [En Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Ett användarkonto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör). 
-*  En [Juno Journey hyresgäst](https://www.junojourney.com/getstartedwithjuno).
-*  Ett användarkonto i Juno Journey med administratörsbehörighet.
+* Ett användar konto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (t. ex. program administratör, moln program administratör, program ägare eller global administratör). 
+*  En [Juno resan-klient](https://www.junojourney.com/getstartedwithjuno).
+*  Ett användar konto i Juno-resan med administratörs behörighet.
 
-## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera distributionen av etableringen
-1. Läs mer om [hur etableringstjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Bestäm vem som ska vara i [omfång för etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Bestäm vilka data som ska [mappas mellan Azure AD och Juno Journey](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablerings distributionen
+1. Läs om [hur etablerings tjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Ta reda på vem som kommer att vara inom [omfånget för etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Bestäm vilka data som ska [mappas mellan Azure AD och Juno resan](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-juno-journey-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera Juno Journey för att stödja etablering med Azure AD
+## <a name="step-2-configure-juno-journey-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera Juno-resan för att ge stöd för etablering med Azure AD
 
-1. För **hemlig token** och **klient-URL** kontakta support@the-juno.comJuno Journey supportteam på . Det här värdet anges i url-fälten **Hemlig token** respektive **klient** i fliken Etablering i ditt Juno Journey-program i Azure-portalen. 
+1. För den **hemliga token** och **klient webb adressen** kontaktar du support support@the-juno.comteamet för Juno resan på. Det här värdet anges i fälten för **hemliga token** och **klient-URL: er** på fliken etablering i ditt Juno-resa-program i Azure Portal. 
 
-## <a name="step-3-add-juno-journey-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till Juno Journey från Azure AD-programgalleriet
+## <a name="step-3-add-juno-journey-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till Juno-resa från Azure AD-programgalleriet
 
-Lägg till Juno Journey från Azure AD-programgalleriet för att börja hantera etablering till Juno Journey. Om du tidigare har konfigurerat Juno Journey för SSO kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integrationen från början. Läs mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Lägg till Juno-resan från Azure AD-programgalleriet för att börja hantera etablering till Juno-resan. Om du tidigare har konfigurerat Juno-resan för enkel inloggning kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen från början. Lär dig mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Steg 4. Definiera vem som ska vara i utrymme för etablering 
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Steg 4. Definiera vem som ska finnas inom omfånget för etablering 
 
-Azure AD-etableringstjänsten gör att du kan begränsa vem som ska etableras baserat på tilldelning till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att begränsa vem som ska etableras i din app baserat på tilldelning kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att begränsa vem som ska etableras enbart baserat på attribut för användaren eller gruppen kan du använda ett omfångsfilter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+Med Azure AD Provisioning-tjänsten kan du definiera omfång som ska tillhandahållas baserat på tilldelning till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska tillhandahållas till din app baserat på tilldelning kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget som endast ska tillhandahållas baserat på attribut för användaren eller gruppen kan du använda ett omfångs filter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* När du tilldelar användare och grupper till Juno Journey måste du välja en annan roll än **Standardåtkomst**. Användare med rollen Standardåtkomst är undantagna från etablering och markeras som inte effektivt berättigade i etableringsloggarna. Om den enda roll som är tillgänglig för programmet är standardåtkomstrollen kan du [uppdatera programmanifestet](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) för att lägga till ytterligare roller. 
+* När du tilldelar användare och grupper till Juno-resan måste du välja en annan roll än **standard åtkomst**. Användare med standard åtkomst rollen undantas från etablering och markeras som inte faktiskt berättigade i etablerings loggarna. Om den enda rollen som är tillgänglig i programmet är standard åtkomst rollen kan du [Uppdatera applikations manifestet](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) för att lägga till ytterligare roller. 
 
-* Börja i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När omfång för etablering är inställt på tilldelade användare och grupper kan du styra detta genom att tilldela en eller två användare eller grupper till appen. När scopet är inställt på alla användare och grupper kan du ange ett [attributbaserat omfångsfilter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Starta litet. Testa med en liten uppsättning användare och grupper innan de distribueras till alla. När omfång för etablering har angetts till tilldelade användare och grupper kan du styra detta genom att tilldela en eller två användare eller grupper till appen. När omfång är inställt på alla användare och grupper kan du ange ett [omfångs filter för attribut](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
 
-## <a name="step-5-configure-automatic-user-provisioning-to-juno-journey"></a>Steg 5. Konfigurera automatisk användaretablering till Juno Journey 
+## <a name="step-5-configure-automatic-user-provisioning-to-juno-journey"></a>Steg 5. Konfigurera automatisk användar etablering till Juno-resa 
 
-I det här avsnittet får du hjälp med stegen för att konfigurera Azure AD-etableringstjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i TestApp baserat på användar- och/eller grupptilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i TestApp baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-juno-journey-in-azure-ad"></a>Så här konfigurerar du automatisk användaretablering för Juno Journey i Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-juno-journey-in-azure-ad"></a>Konfigurera automatisk användar etablering för Juno-resan i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram**och välj sedan **Alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **Juno Journey**i programlistan .
+2. I listan program väljer du **Juno resan**.
 
-    ![Länken Juno Journey i programlistan](common/all-applications.png)
+    ![Juno resa-länken i program listan](common/all-applications.png)
 
-3. Välj fliken **Etablering.**
+3. Välj fliken **etablering** .
 
-    ![Fliken Etablering](common/provisioning.png)
+    ![Fliken etablering](common/provisioning.png)
 
-4. Ställ in **etableringsläget** på **Automatiskt**.
+4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![Fliken Etablering](common/provisioning-automatic.png)
+    ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **Administratörsautentiseringsuppgifter** anger du klient-URL-värdet som hämtats tidigare i **klient-URL.** Mata in det hemliga tokenvärdet som hämtats tidigare i **hemlig token**. Klicka på **Testa anslutning** för att säkerställa att Azure AD kan ansluta till Juno Journey. Om anslutningen misslyckas kontrollerar du att ditt Juno Journey-konto har administratörsbehörighet och försöker igen.
+5. Under avsnittet **admin credentials** kan du mata in klient webb adressen som hämtades tidigare i **klient-URL: en**. Mata in det hemliga token-värdet som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Juno-resan. Om anslutningen Miss lyckas kontrollerar du att ditt Juno-konto har administratörs behörighet och försöker igen.
 
-    ![Etableringen](./media/juno-journey-provisioning-tutorial/provisioning.png)
+    ![etablerings](./media/juno-journey-provisioning-tutorial/provisioning.png)
 
-6. I fältet **E-post för meddelanden** anger du e-postadressen till en person eller grupp som ska få meddelanden om etableringsfel och markerar kryssrutan **Skicka ett e-postmeddelande när ett fel inträffar.**
+6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan **Skicka ett e-postmeddelande när ett fel inträffar** .
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
 7. Välj **Spara**.
 
-8. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory-användare till Juno-färd**.
+8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare för att Juno resan**.
 
-9. Granska användarattributen som synkroniseras från Azure AD till Juno Journey i avsnittet **Attributmappning.** De attribut som valts som **matchande** egenskaper används för att matcha användarkontona i Juno Journey för uppdateringsåtgärder. Om du väljer att ändra [det matchande målattributet](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)måste du se till att Api:et för Juno Journey stöder filtrering av användare baserat på det attributet. Välj knappen **Spara** om du vill utföra eventuella ändringar.
+9. Granska de användarattribut som synkroniseras från Azure AD till Juno-resan i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Juno-resan för uppdaterings åtgärder. Om du väljer att ändra det [matchande målattributet](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)måste du kontrol lera att Juno transport-API: et stöder filtrering av användare baserat på detta attribut. Välj knappen **Spara** för att spara ändringarna.
 
    |Variabel|Typ|
    |---|---|
    |userName|Sträng|
-   |externt|Sträng|
+   |externalId|Sträng|
    |displayName|Sträng|
    |title|Sträng|
    |aktiv|Boolesk|
    |preferredLanguage|Sträng|
-   |e-postmeddelanden[typ eq "arbete"].värde|Sträng|
-   |adresser[typ eq "arbete"].land|Sträng|
-   |adresser[typ eq "arbete"].region|Sträng|
-   |adresser[typ eq "work"].locality|Sträng|
-   |adresser[typ eq "arbete"].postalCode|Sträng|
-   |adresser[skriv eq "work"].formaterad|Sträng|
-   |adresser[typ eq "work"].streetAddress|Sträng|
-   |name.givenName|Sträng|
-   |name.familyName|Sträng|
-   |name.middleName|Sträng|
-   |name.formatted|Sträng|
-   |phoneNumbers[typ eq "fax"].värde|Sträng|
-   |phoneNumbers[typ eq "mobil"].värde|Sträng|
-   |phoneNumbers[typ eq "arbete"].värde|Sträng|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|Sträng|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|Sträng|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|Sträng|
-   urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|Sträng|
-   urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Sträng|
-   urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|Sträng|
+   |e-postmeddelanden [typ EQ "Work"]. värde|Sträng|
+   |adresser [Type EQ "Work"]. land|Sträng|
+   |adresser [Type EQ "Work"]. region|Sträng|
+   |adresser [Type EQ "Work"]. plats|Sträng|
+   |adresser [Type EQ "Work"]. Postnr|Sträng|
+   |adresser [Type EQ "Work"]. formaterad|Sträng|
+   |adresser [Type EQ "Work"]. streetAddress|Sträng|
+   |Name. givenName|Sträng|
+   |Name. familyName|Sträng|
+   |Name. middleName|Sträng|
+   |namn. formaterad|Sträng|
+   |phoneNumbers [Type EQ "fax"]. värde|Sträng|
+   |phoneNumbers [Type EQ "Mobile"]. värde|Sträng|
+   |phoneNumbers [typ EQ "Work"]. värde|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: avdelning|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: employeeNumber|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: costCenter|Sträng|
+   urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Division|Sträng|
+   urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager|Sträng|
+   urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: organisation|Sträng|
 
 
-10. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudiefilatkursen För att visa omfånget](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Om du vill aktivera Azure AD-etableringstjänsten för Juno Journey ändrar **du etableringsstatusen** till **På** i avsnittet **Inställningar.**
+11. Om du vill aktivera Azure AD Provisioning-tjänsten för Juno transport ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Etableringsstatus växlad på](common/provisioning-toggle-on.png)
+    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
 
-12. Definiera de användare och/eller grupper som du vill etablera till Juno Journey genom att välja önskade värden i **Scope** i avsnittet **Inställningar.**
+12. Definiera de användare och/eller grupper som du vill etablera för att Juno resan genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
-    ![Etableringsomfång](common/provisioning-scope.png)
+    ![Etablerings omfång](common/provisioning-scope.png)
 
 13. När du är redo att etablera klickar du på **Spara**.
 
-    ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
+    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den inledande synkroniseringscykeln för alla användare och grupper som **definierats** i Scope i avsnittet **Inställningar.** Den inledande cykeln tar längre tid att utföra än efterföljande cykler, som inträffar ungefär var 40:e minut så länge Azure AD-etableringstjänsten körs. 
+Den här åtgärden startar den första synkroniseringen av alla användare och grupper som definierats i **omfånget** i avsnittet **Inställningar** . Den första cykeln tar längre tid att utföra än efterföljande cykler, vilket inträffar ungefär var 40: e minut, förutsatt att Azure AD Provisioning-tjänsten körs. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Steg 6. Övervaka distributionen
 När du har konfigurerat etableringen använder du följande resurser för att övervaka distributionen:
 
-* Använd [etableringsloggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att avgöra vilka användare som har etablerats eller utan framgång
-* Kontrollera [förloppsindikatorn](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etableringscykeln och hur nära den är till slutförande
-* Om etableringskonfigurationen verkar vara i feltillstånd kommer programmet att placeras i karantän. Läs mer om karantäntillstånd [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+* Använd [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att avgöra vilka användare som har etablerats eller har misslyckats
+* Kontrol lera [förlopps indikatorn](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etablerings cykeln och hur nära den är att slutföras
+* Om etablerings konfigurationen verkar vara i ett ohälsosamt tillstånd, kommer programmet att placeras i karantän. Lär dig mer om karantän tillstånd [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera etablering av användarkonton för Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs om hur du granskar loggar och hämtar rapporter om etableringsaktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)

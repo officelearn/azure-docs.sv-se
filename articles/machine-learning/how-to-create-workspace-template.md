@@ -1,7 +1,7 @@
 ---
-title: Skapa en arbetsyta med Azure Resource Manager-mall
+title: Skapa en arbets yta med Azure Resource Manager mall
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder en Azure Resource Manager-mall för att skapa en ny Azure Machine Learning-arbetsyta.
+description: Lär dig hur du använder en Azure Resource Manager mall för att skapa en ny Azure Machine Learning arbets yta.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,79 +11,79 @@ author: Blackmist
 ms.date: 03/05/2020
 ms.custom: seoapril2019
 ms.openlocfilehash: b802a9c9df7e7f0c44ea66ee0061efb517b80050
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81682765"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 <br>
 
-# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Använda en Azure Resource Manager-mall för att skapa en arbetsyta för Azure Machine Learning
+# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Använd en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning
 
-I den här artikeln lär du dig flera sätt att skapa en Azure Machine Learning-arbetsyta med Azure Resource Manager-mallar. En Resource Manager-mall gör det enkelt att skapa resurser som en enda samordnad åtgärd. En mall är ett JSON-dokument som definierar de resurser som behövs för en distribution. Det kan också ange distributionsparametrar. Parametrar används för att ange indatavärden när du använder mallen.
+I den här artikeln får du lära dig flera sätt att skapa en Azure Machine Learning arbets yta med Azure Resource Manager-mallar. En Resource Manager-mall gör det enkelt att skapa resurser som en enda, koordinerad åtgärd. En mall är ett JSON-dokument som definierar de resurser som behövs för en distribution. Den kan också ange distributions parametrar. Parametrar används för att ange indatavärden när du använder mallen.
 
-Mer information finns i [Distribuera ett program med Azure Resource Manager-mall](../azure-resource-manager/templates/deploy-powershell.md).
+Mer information finns i [distribuera ett program med Azure Resource Manager-mall](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="prerequisites"></a>Krav
 
-* En **Azure-prenumeration**. Om du inte har någon provar du den [kostnadsfria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+* En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Om du vill använda en mall från en CLI behöver du antingen [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="resource-manager-template"></a>Resource Manager-mall
 
-Följande Resource Manager-mall kan användas för att skapa en Azure Machine Learning-arbetsyta och associerade Azure-resurser:
+Följande Resource Manager-mall kan användas för att skapa en Azure Machine Learning arbets yta och associerade Azure-resurser:
 
 [!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
 
 Den här mallen skapar följande Azure-tjänster:
 
-* Azure-resursgrupp
+* Azure-resurs grupp
 * Azure Storage-konto
 * Azure Key Vault
 * Azure Application Insights
 * Azure Container Registry
 * Azure Machine Learning-arbetsyta
 
-Resursgruppen är den behållare som innehåller tjänsterna. De olika tjänsterna krävs av arbetsytan Azure Machine Learning.
+Resurs gruppen är den behållare som innehåller tjänsterna. De olika tjänsterna krävs av Azure Machine Learning-arbetsytan.
 
-Exempelmallen har två parametrar:
+Exempel mal len har två parametrar:
 
-* Den **plats** där resursgruppen och resurstjänsterna ska skapas.
+* Den **plats** där resurs gruppen och tjänsterna ska skapas.
 
-    Mallen använder den plats du väljer för de flesta resurser. Undantaget är application insights-tjänsten, som inte är tillgänglig på alla platser som de andra tjänsterna är. Om du väljer en plats där den inte är tillgänglig skapas tjänsten på platsen för södra centrala USA.
+    Mallen kommer att använda den plats du väljer för de flesta resurser. Undantaget är Application Insights tjänst, som inte är tillgänglig på alla platser som de andra tjänsterna är. Om du väljer en plats där den inte är tillgänglig kommer tjänsten att skapas på platsen södra centrala USA.
 
-* **Arbetsytans namn**, som är det egna namnet på arbetsytan Azure Machine Learning.
+* **Namnet på arbets ytan**, som är det egna namnet på Azure Machine Learning arbets ytan.
 
     > [!NOTE]
-    > Arbetsytans namn är skiftlägesokänsligt.
+    > Namnet på arbets ytan är Skift läges okänsligt.
 
     Namnen på de andra tjänsterna genereras slumpmässigt.
 
 > [!TIP]
-> Medan mallen som är associerad med det här dokumentet skapar ett nytt Azure-behållarregister, kan du också skapa en ny arbetsyta utan att skapa ett behållarregister. En skapas när du utför en åtgärd som kräver ett behållarregister. Till exempel utbildning eller distribution av en modell.
+> Även om mallen som är associerad med det här dokumentet skapar en ny Azure Container Registry, kan du också skapa en ny arbets yta utan att skapa ett behållar register. En kommer att skapas när du utför en åtgärd som kräver ett behållar register. Till exempel utbildning eller distribution av en modell.
 >
-> Du kan också referera till ett befintligt behållarregister eller lagringskonto i Azure Resource Manager-mallen i stället för att skapa ett nytt.
+> Du kan också referera till ett befintligt behållar register eller lagrings konto i Azure Resource Manager mall, i stället för att skapa ett nytt.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 Mer information om mallar finns i följande artiklar:
 
-* [Författare Azure Resource Manager-mallar](../azure-resource-manager/templates/template-syntax.md)
-* [Distribuera ett program med Azure Resource Manager-mallar](../azure-resource-manager/templates/deploy-powershell.md)
-* [Microsoft.MachineLearningServices resurstyper](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [Redigera Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md)
+* [Distribuera ett program med Azure Resource Manager mallar](../azure-resource-manager/templates/deploy-powershell.md)
+* [Resurs typer för Microsoft. MachineLearningServices](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
 ### <a name="advanced-template"></a>Avancerad mall
 
-Följande exempelmall visar hur du skapar en arbetsyta med tre inställningar:
+Följande exempel-mall visar hur du skapar en arbets yta med tre inställningar:
 
-* Aktivera inställningar för hög sekretess för arbetsytan
-* Aktivera kryptering för arbetsytan
-* Använder ett befintligt Azure Key Vault för att hämta kundhanterade nycklar
+* Aktivera inställningar för hög konfidentialitet för arbets ytan
+* Aktivera kryptering för arbets ytan
+* Använder en befintlig Azure Key Vault för att hämta Kundhanterade nycklar
 
-Mer information finns i Kryptering i [vila](concept-enterprise-security.md#encryption-at-rest).
+Mer information finns i avsnittet om [kryptering i vilo](concept-enterprise-security.md#encryption-at-rest)läge.
 
 ```json
 {
@@ -265,40 +265,40 @@ Mer information finns i Kryptering i [vila](concept-enterprise-security.md#encry
 }
 ```
 
-Om du vill ha ID:t för Key Vault och den viktiga URI som behövs i den här mallen kan du använda Azure CLI. Följande kommando hämtar Key Vault ID:
+Om du vill hämta ID för Key Vault och nyckel-URI: n som behövs för den här mallen kan du använda Azure CLI. Följande kommando hämtar Key Vault-ID:
 
 ```azurecli-interactive
 az keyvault show --name mykeyvault --resource-group myresourcegroup --query "id"
 ```
 
-Det här kommandot returnerar ett värde som liknar `"/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault"`.
+Det här kommandot returnerar ett värde som `"/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault"`liknar.
 
-Om du vill hämta URI för den hanterade nyckeln för kunden använder du följande kommando:
+Använd följande kommando för att hämta URI: n för den hanterade nyckeln för kunden:
 
 ```azurecli-interactive
 az keyvault key show --vault-name mykeyvault --name mykey --query "key.kid"
 ```
 
-Det här kommandot returnerar ett värde som liknar `"https://mykeyvault.vault.azure.net/keys/mykey/{guid}"`.
+Det här kommandot returnerar ett värde som `"https://mykeyvault.vault.azure.net/keys/mykey/{guid}"`liknar.
 
 > [!IMPORTANT]
-> När en arbetsyta har skapats kan du inte ändra inställningarna för konfidentiella data, kryptering, nyckelvalvs-ID eller nyckelidentifierare. Om du vill ändra dessa värden måste du skapa en ny arbetsyta med de nya värdena.
+> När en arbets yta har skapats kan du inte ändra inställningarna för konfidentiella data, kryptering, nyckel valv-ID eller nyckel identifierare. Om du vill ändra dessa värden måste du skapa en ny arbets yta med de nya värdena.
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-1. Följ stegen i [Distribuera resurser från anpassad mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). När du kommer till __skärmen Redigera mall__ klistrar du in mallen från det här dokumentet.
-1. Välj __Spara__ om du vill använda mallen. Ange följande information och godkänn villkoren i listan:
+1. Följ stegen i [distribuera resurser från den anpassade mallen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). När du kommer till skärmen __Redigera mall__ klistrar du in mallen från det här dokumentet.
+1. Välj __Spara__ för att använda mallen. Ange följande information och godkänn de allmänna villkor som anges:
 
    * Prenumeration: Välj den Azure-prenumeration som ska användas för dessa resurser.
-   * Resursgrupp: Välj eller skapa en resursgrupp som innehåller tjänsterna.
-   * Arbetsytans namn: Namnet som ska användas för arbetsytan Azure Machine Learning som ska skapas. Arbetsytans namn måste vara mellan 3 och 33 tecken. Den får endast innehålla alfanumeriska tecken och '-'.
+   * Resurs grupp: Välj eller skapa en resurs grupp som ska innehålla tjänsterna.
+   * Namn på arbets yta: namnet som ska användas för Azure Machine Learning arbets ytan som ska skapas. Arbets ytans namn måste innehålla mellan 3 och 33 tecken. Det får bara innehålla alfanumeriska tecken och "-".
    * Plats: Välj den plats där resurserna ska skapas.
 
-Mer information finns i [Distribuera resurser från anpassad mall](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+Mer information finns i [distribuera resurser från en anpassad mall](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 ## <a name="use-azure-powershell"></a>Använda Azure PowerShell
 
-Det här exemplet förutsätter att du har `azuredeploy.json` sparat mallen i en fil som heter i den aktuella katalogen:
+I det här exemplet förutsätter vi att du har sparat mallen till `azuredeploy.json` en fil med namnet i den aktuella katalogen:
 
 ```powershell
 New-AzResourceGroup -Name examplegroup -Location "East US"
@@ -307,11 +307,11 @@ new-azresourcegroupdeployment -name exampledeployment `
   -templatefile .\azuredeploy.json -workspaceName "exampleworkspace" -sku "basic"
 ```
 
-Mer information finns i [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) och distribuera privat Resource [Manager-mall med SAS-token och Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
+Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) och [distribuera en privat Resource Manager-mall med SAS-token och Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI
 
-Det här exemplet förutsätter att du har `azuredeploy.json` sparat mallen i en fil som heter i den aktuella katalogen:
+I det här exemplet förutsätter vi att du har sparat mallen till `azuredeploy.json` en fil med namnet i den aktuella katalogen:
 
 ```azurecli-interactive
 az group create --name examplegroup --location "East US"
@@ -322,35 +322,35 @@ az group deployment create \
   --parameters workspaceName=exampleworkspace location=eastus sku=basic
 ```
 
-Mer information finns i [Distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md) och Distribuera privat Resource [Manager-mall med SAS-token och Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).
+Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md) och [distribuera en privat Resource Manager-mall med SAS-token och Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## <a name="troubleshooting"></a>Felsökning
 
-### <a name="resource-provider-errors"></a>Resursproviderfel
+### <a name="resource-provider-errors"></a>Resurs leverantörs fel
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
-### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure Key Vault-åtkomstprincip och Azure Resource Manager-mallar
+### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Azure Key Vault åtkomst princip och Azure Resource Manager mallar
 
-När du använder en Azure Resource Manager-mall för att skapa arbetsytan och tillhörande resurser (inklusive Azure Key Vault), flera gånger. Till exempel använda mallen flera gånger med samma parametrar som en del av en kontinuerlig integration och distribution pipeline.
+När du använder en Azure Resource Manager mall för att skapa arbets ytan och associerade resurser (inklusive Azure Key Vault), flera gånger. Du kan till exempel använda mallen flera gånger med samma parametrar som en del av en kontinuerlig integrering och distributions pipeline.
 
-De flesta resursskapande åtgärder via mallar är idempotenta, men Key Vault rensar åtkomstprinciperna varje gång mallen används. Om du rensar åtkomstprinciperna bryts åtkomsten till Nyckelvalvet för alla befintliga arbetsytor som använder den. Till exempel kan stop/create-funktioner för Azure Notebooks VM misslyckas.  
+De flesta åtgärder för att skapa resurser via mallar är idempotenta, men Key Vault rensar åtkomst principerna varje gång mallen används. Om du rensar åtkomst principerna bryts åtkomsten till Key Vault för en befintlig arbets yta som använder den. Till exempel kan stoppa/skapa-funktioner i Azure Notebooks virtuella datorn Miss lyckas.  
 
-För att undvika det här problemet rekommenderar vi något av följande tillvägagångssätt:
+För att undvika det här problemet rekommenderar vi en av följande metoder:
 
-* Distribuera inte mallen mer än en gång för samma parametrar. Eller ta bort befintliga resurser innan du använder mallen för att återskapa dem.
+* Distribuera inte mallen mer än en gång för samma parametrar. Eller ta bort de befintliga resurserna innan du använder mallen för att återskapa dem.
 
-* Undersök åtkomstprinciperna för Nyckelvalv och använd `accessPolicies` sedan dessa principer för att ange mallens egenskap. Om du vill visa åtkomstprinciperna använder du följande Azure CLI-kommando:
+* Granska Key Vault åtkomst principer och Använd sedan dessa principer för att ange mallens `accessPolicies` egenskap. Om du vill visa åtkomst principerna använder du följande Azure CLI-kommando:
 
     ```azurecli-interactive
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
-    Mer information om `accessPolicies` hur du använder avsnittet i mallen finns i [objektreferensen AccessPolicyEntry](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
+    Mer information om hur du `accessPolicies` använder avsnittet i mallen finns i referens för [AccessPolicyEntry-objekt](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
 
-* Kontrollera om key vault-resursen redan finns. Om den gör det ska du inte återskapa den via mallen. Om du till exempel vill använda det befintliga nyckelvalvet i stället för att skapa ett nytt gör du följande ändringar i mallen:
+* Kontrol lera om Key Vault resursen redan finns. Om det gör det, ska du inte återskapa det via mallen. Om du till exempel vill använda den befintliga Key Vault i stället för att skapa en ny, gör du följande ändringar i mallen:
 
-    * **Lägg till** en parameter som accepterar ID:et för en befintlig Key Vault-resurs:
+    * **Lägg till** en parameter som godkänner ID: t för en befintlig Key Vault-resurs:
 
         ```json
         "keyVaultId":{
@@ -381,7 +381,7 @@ För att undvika det här problemet rekommenderar vi något av följande tillvä
         },
         ```
 
-    * **Ta** `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` bort raden `dependsOn` från avsnittet på arbetsytan. Ändra **Change** även `keyVault` posten `properties` i avsnittet på arbetsytan `keyVaultId` för att referera till parametern:
+    * **Ta bort** `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` raden från `dependsOn` avsnittet i arbets ytan. **Ändra** också `keyVault` posten i `properties` avsnittet i arbets ytan så att den `keyVaultId` refererar till parametern:
 
         ```json
         {
@@ -409,9 +409,9 @@ För att undvika det här problemet rekommenderar vi något av följande tillvä
         }
         ```
 
-    Efter dessa ändringar kan du ange ID för den befintliga Key Vault-resursen när du kör mallen. Mallen återanvänds sedan nyckelvalvet `keyVault` genom att ange arbetsytans egenskap på dess ID.
+    Efter dessa ändringar kan du ange ID: t för den befintliga Key Vault-resursen när du kör mallen. Mallen återanvänds sedan Key Vault genom att ställa in arbets `keyVault` ytans egenskap till dess ID.
 
-    Om du vill hämta ID:t för Key Vault kan du referera till utdata för den ursprungliga mallkörningen eller använda Azure CLI. Följande kommando är ett exempel på hur du använder Azure CLI för att hämta resurs-ID:t Key Vault-
+    Om du vill hämta ID: t för Key Vault kan du referera till utdata från den ursprungliga mallen, köra eller använda Azure CLI. Följande kommando är ett exempel på hur du använder Azure CLI för att hämta Key Vault resurs-ID:
 
     ```azurecli-interactive
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query id
@@ -425,5 +425,5 @@ För att undvika det här problemet rekommenderar vi något av följande tillvä
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Distribuera resurser med Resource Manager-mallar och RESURSHANTERARENS REST API](../azure-resource-manager/templates/deploy-rest.md).
-* [Skapa och distribuera Azure-resursgrupper via Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
+* [Distribuera resurser med Resource Manager-mallar och Resource Manager-REST API](../azure-resource-manager/templates/deploy-rest.md).
+* [Skapa och Distribuera Azure-resurs grupper via Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

@@ -1,6 +1,6 @@
 ---
-title: Data som ska samlas in när du öppnar ett ärende för Microsoft Azure Automation| Microsoft-dokument
-description: I den här artikeln beskrivs en del av den information som du bör samla in innan du öppnar ett ärende för Azure Automation med Microsoft Azure Support.
+title: Data som ska samlas in när du öppnar ett ärende för Microsoft Azure Automation | Microsoft Docs
+description: I den här artikeln beskrivs en del av den information som du ska samla in innan du öppnar ett ärende för Azure Automation med Microsoft Azure stöd.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: v-miegge
@@ -14,83 +14,83 @@ ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: v-miegge
 ms.openlocfilehash: e1d5d791a58f301991819b41757b9021f6e30fc0
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81679407"
 ---
 # <a name="data-to-collect-when-you-open-a-case-for-microsoft-azure-automation"></a>Data som du behöver samla in när du öppnar ett ärende för Microsoft Azure Automation
 
-I den här artikeln beskrivs en del av den information som du bör samla in innan du öppnar ett ärende för Azure Automation med Microsoft Azure Support. Denna information krävs inte för att öppna ärendet. Det kan dock hjälpa Microsoft att lösa problemet snabbare. Du kan också bli tillfrågad om dessa data av supportteknikern när du har öppnat ärendet.
+I den här artikeln beskrivs en del av den information som du ska samla in innan du öppnar ett ärende för Azure Automation med Microsoft Azure stöd. Den här informationen krävs inte för att öppna ärendet. Det kan dock hjälpa Microsoft att lösa problemet snabbare. Du kan också uppmanas att utföra dessa data av support teknikern när du har öppnat ärendet.
 
 ## <a name="basic-data"></a>Grundläggande data
 
-Samla in grundläggande data som beskrivs i knowledge [base-artikeln 4034605 – så här samlar du in diagnostik med Azure Automation-skript](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
+Samla in de grundläggande data som beskrivs i Knowledge Base [-artikeln 4034605 – hur du samlar in Azure Automation-skriptbaserad diagnostik](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
-## <a name="data-for-update-management-issues-on-linux"></a>Data för problem med uppdateringshantering på Linux
+## <a name="data-for-update-management-issues-on-linux"></a>Data för Uppdateringshantering problem i Linux
 
-1. Förutom de objekt som visas i KB [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics)kör du följande logginsamlingsverktyg:
+1. Utöver de objekt som listas i KB [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics)kör du följande verktyg för logg insamling:
 
-   [OMS Linux Agent Logg Collector](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md)
+   [Logg insamlare för OMS Linux-Agent](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md)
  
-2. Komprimera innehållet i mappen **/var/opt/microsoft/omsagent/run/automationworker/och** skicka sedan den komprimerade filen till Azure Support.
+2. Komprimera innehållet i mappen **/var/opt/Microsoft/omsagent/Run/automationworker/** och skicka sedan den komprimerade filen till Azure-supporten.
  
-3. Kontrollera att ID:n för arbetsytan som Log Analytics-agenten för Linux rapporterar är samma som ID:n för arbetsytan som övervakas för uppdateringar.
+3. Kontrol lera att ID: t för arbets ytan som Log Analytics agent för Linux-rapporter är samma som ID: t för arbets ytan som övervakas för uppdateringar.
 
-## <a name="data-for-update-management-issues-on-windows"></a>Problem med data för uppdateringshantering i Windows
+## <a name="data-for-update-management-issues-on-windows"></a>Data för Uppdateringshantering problem i Windows
 
-1. Samla in data för de objekt som anges i [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
+1. Samla in data för objekten som anges i [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
-2. Exportera följande händelseloggar till EVTX-formatet:
+2. Exportera följande händelse loggar till EVTX-formatet:
 
    * System
    * Program
    * Säkerhet
    * Operations Manager
-   * Microsoft-SMA/Drift
+   * Microsoft-SMA/Operational
 
-3. Kontrollera att ID:n för arbetsytan som agenten rapporterar till är samma som ID:n för arbetsytan som övervakas av Windows-uppdateringar.
+3. Kontrol lera att ID: t för arbets ytan som agenten rapporterar till är samma som ID: t för arbets ytan som övervakas av Windows-uppdateringar.
 
-## <a name="data-for-job-issues"></a>Data för jobbproblem
+## <a name="data-for-job-issues"></a>Data för jobb problem
 
-1. Samla in data för de objekt som anges i [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
+1. Samla in data för objekten som anges i [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics).
 
-2. Samla in jobb-ID:et för jobbet som har ett problem:
+2. Samla in jobb-ID för jobbet som har ett problem:
 
-   1. Gå till **Automation-konton**i Azure-portalen .
-   2. Välj det Automation-konto som du felsöker och anteckna namnet.
-   3. Välj **Jobb**.
+   1. I Azure Portal går du till **Automation-konton**.
+   2. Välj det Automation-konto som du felsöker och Anteckna namnet.
+   3. Välj **jobb**.
    4. Välj det jobb som du felsöker.
-   5. Leta efter GUID-värdet i **Jobb-ID**i fönstret Projektsammanfattning .
+   5. I fönstret jobb Sammanfattning söker du efter GUID-värdet i **jobb-ID**.
 
-   ![Jobb-ID i fönstret Projektsammanfattning](media/collect-data-microsoft-azure-automation-case/job-summary-job-id.png)
+   ![Jobb-ID i fönstret jobb Sammanfattning](media/collect-data-microsoft-azure-automation-case/job-summary-job-id.png)
 
-3. Samla in ett exempel på skriptet som du kör.
+3. Samla in ett exempel på det skript som du kör.
 
 4. Samla in loggfilerna:
 
-   1. Gå till **Automation-konton**i Azure-portalen .
+   1. I Azure Portal går du till **Automation-konton**.
    2. Välj det Automation-konto som du felsöker.
-   3. Välj **Jobb**.
+   3. Välj **jobb**.
    4. Välj det jobb som du felsöker.
-   5. Välj **Alla loggar**.
-   6. Samla in data i den resulterande rutan.
+   5. Välj **alla loggar**.
+   6. Samla in data i fönstret som visas.
 
-   ![Data som visas under Alla loggar](media/collect-data-microsoft-azure-automation-case/all-logs-data.png)
+   ![Data som listas under alla loggar](media/collect-data-microsoft-azure-automation-case/all-logs-data.png)
 
-## <a name="data-for-module-issues"></a>Data för modulproblem
+## <a name="data-for-module-issues"></a>Data för modul problem
 
-Förutom de [grundläggande dataobjekten](#basic-data)samlar du in följande information:
+Förutom de [grundläggande data posterna](#basic-data)samlar du in följande information:
 
-* De steg du har följt, så att problemet kan återskapas.
-* Skärmbilder av eventuella felmeddelanden.
-* Skärmdumpar av de aktuella modulerna och deras versionsnummer.
+* De steg du har följt, så att problemet kan reproduceras.
+* Skärm dum par av eventuella fel meddelanden.
+* Skärm bilder av aktuella moduler och deras versions nummer.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Om du behöver mer hjälp:
 
-* Få svar från Azure-experter via [Azure Forum](https://azure.microsoft.com/support/forums/).
-* Anslut [@AzureSupport](https://twitter.com/azuresupport)med , det officiella Microsoft Azure-kontot för att förbättra kundupplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
-* Arkivera en Azure-supportincident. Gå till [Azure-supportwebbplatsen](https://azure.microsoft.com/support/options/) och välj **Hämta support**.
+* Få svar från Azure-experter via [Azure-forum](https://azure.microsoft.com/support/forums/).
+* Anslut till [@AzureSupport](https://twitter.com/azuresupport), det officiella Microsoft Azure kontot för att förbättra kund upplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
+* Filen en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.

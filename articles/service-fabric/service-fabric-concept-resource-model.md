@@ -1,105 +1,105 @@
 ---
-title: Azure Service Fabric-programresursmodell
+title: Resurs modell för Azure Service Fabric-program
 description: Den här artikeln innehåller en översikt över hur du hanterar ett Azure Service Fabric-program med hjälp av Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: sfrev
 ms.openlocfilehash: 7a9f59e3e44d3302ac19c7a9e7e77beb51947ce4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81682631"
 ---
-# <a name="service-fabric-application-resource-model"></a>Resursmodell för tjänst fabric-program
+# <a name="service-fabric-application-resource-model"></a>Service Fabric program resurs modell
 
-Du har flera alternativ för att distribuera Azure Service Fabric-program i ditt Service Fabric-kluster. Vi rekommenderar att du använder Azure Resource Manager. Om du använder Resource Manager kan du beskriva program och tjänster i JSON och sedan distribuera dem i samma Resource Manager-mall som klustret. Till skillnad från att använda PowerShell eller Azure CLI för att distribuera och hantera program behöver du inte vänta på att klustret är klart om du använder Resource Manager. programregistrering, etablering och distribution kan alla ske i ett steg. Att använda Resource Manager är det bästa sättet att hantera programmets livscykel i klustret. Mer information finns i [Metodtips: Infrastruktur som kod](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources).
+Du har flera alternativ för att distribuera Azure Service Fabric-program på ditt Service Fabric-kluster. Vi rekommenderar att du använder Azure Resource Manager. Om du använder Resource Manager kan du beskriva program och tjänster i JSON och sedan distribuera dem i samma Resource Manager-mall som klustret. Till skillnad från att använda PowerShell eller Azure CLI för att distribuera och hantera program, behöver du inte vänta tills klustret är klart om du använder Resource Manager. program registrering, etablering och distribution kan alla ske i ett enda steg. Att använda Resource Manager är det bästa sättet att hantera programmets livs cykel i klustret. Mer information finns i [metod tips: infrastruktur som kod](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources).
 
-Genom att hantera dina program som resurser i Resource Manager kan du få förbättringar inom dessa områden:
+Att hantera dina program som resurser i Resource Manager kan hjälpa dig att få förbättringar inom följande områden:
 
-* Granskningsspårning: Resource Manager granskar varje åtgärd och behåller en detaljerad aktivitetslogg. En aktivitetslogg kan hjälpa dig att spåra alla ändringar som gjorts i programmen och till klustret.
-* Rollbaserad åtkomstkontroll: Du kan hantera åtkomst till kluster och program som distribueras i klustret med samma Resource Manager-mall.
-* Hanteringseffektivitet: Med Hjälp av Resource Manager får du en enda plats (Azure-portalen) för hantering av kluster- och kritiska programdistributioner.
+* Gransknings logg: Resource Manager granskar varje åtgärd och bevarar en detaljerad aktivitets logg. En aktivitets logg kan hjälpa dig att spåra ändringar som gjorts i programmen och i klustret.
+* Rollbaserad åtkomst kontroll: du kan hantera åtkomst till kluster och program som distribueras i klustret med hjälp av samma Resource Manager-mall.
+* Hanterings effektivitet: med hjälp av Resource Manager får du en enda plats (Azure Portal) för hantering av klustret och viktiga program distributioner.
 
-I det här dokumentet får du lära dig hur du:
+I det här dokumentet får du lära dig att:
 
 > [!div class="checklist"]
 >
-> * Distribuera programresurser med hjälp av Resource Manager.
-> * Uppgradera programresurser med hjälp av Resource Manager.
-> * Ta bort programresurser.
+> * Distribuera program resurser med hjälp av Resource Manager.
+> * Uppgradera program resurser med hjälp av Resource Manager.
+> * Ta bort program resurser.
 
-## <a name="deploy-application-resources"></a>Distribuera programresurser
+## <a name="deploy-application-resources"></a>Distribuera program resurser
 
-De åtgärder på hög nivå som du vidtar för att distribuera ett program och dess tjänster med hjälp av resurshanterarens programresursmodell är:
-1. Paketera programkoden.
+De övergripande steg som du utför för att distribuera ett program och dess tjänster med Resource Manager-programmets resurs modell är:
+1. Paketera program koden.
 1. Ladda upp paketet.
-1. Referera till paketets plats i en Resource Manager-mall som en programresurs. 
+1. Referera till paketets plats i en Resource Manager-mall som en program resurs. 
 
-Mer information finns [i Paketera ett program](service-fabric-package-apps.md#create-an-sfpkg).
+Om du vill ha mer information kan du Visa [Paketera ett program](service-fabric-package-apps.md#create-an-sfpkg).
 
-Sedan skapar du en Resource Manager-mall, uppdaterar parameterfilen med programinformation och distribuerar mallen i Service Fabric-klustret. [Utforska exempel](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM).
+Sedan skapar du en Resource Manager-mall, uppdaterar parameter filen med programinformation och distribuerar mallen på Service Fabric klustret. [Utforska exempel](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM).
 
 ### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Om du vill distribuera ett program från en Resource Manager-mall måste du ha ett lagringskonto. Lagringskontot används för att arrangera programavbildningen. 
+Om du vill distribuera ett program från en Resource Manager-mall måste du ha ett lagrings konto. Lagrings kontot används för att mellanlagra program avbildningen. 
 
-Du kan återanvända ett befintligt lagringskonto eller skapa ett nytt lagringskonto för mellanlagring av dina program. Om du använder ett befintligt lagringskonto kan du hoppa över det här steget. 
+Du kan återanvända ett befintligt lagrings konto eller så kan du skapa ett nytt lagrings konto för att mellanlagra dina program. Om du använder ett befintligt lagrings konto kan du hoppa över det här steget. 
 
 ![skapar ett lagringskonto][CreateStorageAccount]
 
-### <a name="configure-your-storage-account"></a>Konfigurera ditt lagringskonto
+### <a name="configure-your-storage-account"></a>Konfigurera ditt lagrings konto
 
-När lagringskontot har skapats skapar du en blob-behållare där programmen kan mellanlagras. Gå till Azure Storage-kontot där du vill lagra dina program i Azure-portalen. Välj **Blobbar** > **Lägg till behållare**. 
+När lagrings kontot har skapats skapar du en BLOB-behållare där programmen kan mellanlagras. I Azure Portal går du till det Azure Storage konto där du vill lagra programmen. Välj **blobbar** > **Lägg till behållare**. 
 
-Resurser i klustret kan skyddas genom att ställa in den offentliga åtkomstnivån till **privat**. Du kan bevilja åtkomst på flera sätt:
+Resurser i klustret kan skyddas genom att ange den offentliga åtkomst nivån till **privat**. Du kan bevilja åtkomst på flera sätt:
 
-* Auktorisera åtkomst till blobbar och köer med hjälp av [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
-* Bevilja åtkomst till Azure-blob och ködata med hjälp av [RBAC i Azure-portalen](../storage/common/storage-auth-aad-rbac-portal.md).
+* Ge åtkomst till blobbar och köer med hjälp av [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
+* Bevilja åtkomst till Azure blob-och Queue-data genom [att använda RBAC i Azure Portal](../storage/common/storage-auth-aad-rbac-portal.md).
 * Delegera åtkomst med hjälp av en [signatur för delad åtkomst](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
-I exemplet i följande skärmbild används anonym läsåtkomst för blobbar.
+I exemplet på följande skärm bild används anonym Läs åtkomst för blobbar.
 
-![Skapa blob][CreateBlob]
+![Skapa BLOB][CreateBlob]
 
-### <a name="stage-the-application-in-your-storage-account"></a>Arrangera programmet i ditt lagringskonto
+### <a name="stage-the-application-in-your-storage-account"></a>Mellanlagra programmet i ditt lagrings konto
 
-Innan du kan distribuera ett program måste du iscensätta programmet i blob-lagring. I den här självstudien skapar vi programpaketet manuellt. Tänk på att det här steget kan automatiseras. Mer information finns i [Paketera ett program](service-fabric-package-apps.md#create-an-sfpkg). 
+Innan du kan distribuera ett program måste du mellanlagra programmet i Blob Storage. I den här självstudien skapar vi programpaketet manuellt. Tänk på att det här steget kan automatiseras. Mer information finns i [Paketera ett program](service-fabric-package-apps.md#create-an-sfpkg). 
 
-I den här [självstudien](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart)använder vi exempelprogrammet Röstning .
+I den här självstudien använder vi [röstnings exempel programmet](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart).
 
-1. Högerklicka på **röstningsprojektet** i Visual Studio och välj sedan **Paket**.
+1. I Visual Studio högerklickar du på **röstnings** projektet och väljer sedan **paket**.
 
-   ![Paketansökan][PackageApplication]  
-1. Gå till katalogen *.\service-fabric-dotnet-quickstart\Voting\pkg\Debug.* Zip innehållet i en fil som heter *Voting.zip*. *Filen ApplicationManifest.xml* ska vara roten i zip-filen.
+   ![Paket program][PackageApplication]  
+1. Gå till *.\Service-Fabric-dotNet-quickstart\Voting\pkg\Debug* -katalogen. Zip-innehållet i en fil med namnet *röstning. zip*. Filen *ApplicationManifest. XML* ska finnas i roten i zip-filen.
 
    ![Zip-program][ZipApplication]  
-1. Byt namn på filen om du vill ändra tillägget från .zip till *.sfpkg*.
+1. Byt namn på filen för att ändra tillägget från. zip till *. sfpkg*.
 
-1. I **appbehållaren** för ditt lagringskonto i Azure-portalen väljer du **Ladda upp**och överför sedan **Voting.sfpkg**. 
+1. I Azure Portal, i behållaren **appar** för ditt lagrings konto, väljer du **Ladda upp**och laddar upp **röstning. sfpkg**. 
 
    ![Ladda upp appaket][UploadAppPkg]
 
-Nu är programmet nu iscensatt och du kan skapa Resource Manager-mallen för att distribuera programmet.
+Nu kommer programmet nu att mellanlagras och du kan skapa Resource Manager-mallen för att distribuera programmet.
 
 ### <a name="create-the-resource-manager-template"></a>Skapa Resource Manager-mallen
 
-Exempelprogrammet innehåller [Azure Resource Manager-mallar](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) som du kan använda för att distribuera programmet. Mallfilnamnen är *UserApp.json* och *UserApp.Parameters.json*.
+Exempel programmet innehåller [Azure Resource Manager mallar](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) som du kan använda för att distribuera programmet. Mallens fil namn är *UserApp. JSON* och *UserApp. Parameters. JSON*.
 
 > [!NOTE]
-> *Filen UserApp.Parameters.json* måste uppdateras med namnet på klustret.
+> Filen *UserApp. Parameters. JSON* måste uppdateras med namnet på klustret.
 >
 >
 
 | Parameter              | Beskrivning                                 | Exempel                                                      | Kommentarer                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| clusterName            | Namnet på det kluster som du distribuerar till | sf-kluster123                                                |                                                              |
+| clusterName            | Namnet på det kluster som du distribuerar till | SF-cluster123                                                |                                                              |
 | program            | Namnet på programmet                 | Röstning                                                       |
-| applicationTypeName (applicationTypeName)    | Programmets typnamn           | VotingType (Röstningstyp)                                                   | Måste matcha ApplicationManifest.xml                 |
-| applicationTypeVersion (applicationTypeVersion) | Versionen av programtypen         | 1.0.0                                                        | Måste matcha ApplicationManifest.xml                 |
-| Tjänstnamn            | Namnet på tjänsten         | Röstning ~ VotingWeb                                             | Måste vara i formatet ApplicationName~ServiceType            |
-| serviceTypeName        | Tjänstens typnamn                | VotingWeb                                                    | Måste matcha ServiceManifest.xml                 |
-| appPackageUrl          | Programmets url för blob-lagring     | https:\//servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | URL:en för programpaketet i blob storage (proceduren för att ange URL beskrivs senare i artikeln) |
+| applicationTypeName    | Typ namnet för programmet           | VotingType                                                   | Måste matcha ApplicationManifest. XML                 |
+| applicationTypeVersion | Versionen av program typen         | 1.0.0                                                        | Måste matcha ApplicationManifest. XML                 |
+| serviceName            | Namnet på tjänsten         | Röstning ~ VotingWeb                                             | Måste vara i formatet ApplicationName ~ ServiceType            |
+| serviceTypeName        | Typ namnet för tjänsten                | VotingWeb                                                    | Måste matcha ServiceManifest. XML                 |
+| appPackageUrl          | Blob Storage-URL: en för programmet     | https:\//servicefabricapps.blob.Core.Windows.net/Apps/Voting.sfpkg | URL: en för programpaketet i Blob Storage (proceduren för att ange URL beskrivs senare i artikeln) |
 
 ```json
 {
@@ -130,17 +130,17 @@ Exempelprogrammet innehåller [Azure Resource Manager-mallar](https://github.com
 
 ### <a name="deploy-the-application"></a>Distribuera programmet
 
-Kör cmdleten **New-AzResourceGroupDeployment** för att distribuera programmet till resursgruppen som innehåller klustret:
+Kör cmdleten **New-AzResourceGroupDeployment** för att distribuera programmet till resurs gruppen som innehåller klustret:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParameterFile ".\UserApp.Parameters.json" -TemplateFile ".\UserApp.json" -Verbose
 ```
 
-## <a name="upgrade-the-service-fabric-application-by-using-resource-manager"></a>Uppgradera Service Fabric-programmet med Hjälp av Resource Manager
+## <a name="upgrade-the-service-fabric-application-by-using-resource-manager"></a>Uppgradera Service Fabric program med hjälp av Resource Manager
 
-Du kan uppgradera ett program som redan har distribuerats till ett Service Fabric-kluster av något av följande skäl:
+Du kan uppgradera ett program som redan har distribuerats till ett Service Fabric-kluster av någon av följande anledningar:
 
-* En ny tjänst läggs till i programmet. En tjänstdefinition måste läggas till *i service-manifest.xml-* och *application-manifest.xml-filer* när en tjänst läggs till i programmet. Om du vill återspegla en ny version av ett program måste du också ändra programtypsversionen från 1.0.0 till 1.0.1 i [UserApp.Parameters.json](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json):
+* En ny tjänst läggs till i programmet. En tjänst definition måste läggas till i *service-manifest. XML-* och *Application-manifest. XML-* filer när en tjänst läggs till i programmet. Om du vill visa en ny version av ett program måste du även ändra program typ versionen från 1.0.0 till 1.0.1 i [UserApp. Parameters. JSON](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json):
 
     ```json
     "applicationTypeVersion": {
@@ -154,7 +154,7 @@ Du kan uppgradera ett program som redan har distribuerats till ett Service Fabri
     }
     ```
 
-* En ny version av en befintlig tjänst läggs till i programmet. Exempel på detta är ändringar av programkod och uppdateringar av apptypsversion och namn. För den här uppgraderingen uppdaterar du UserApp.Parameters.json så här:
+* En ny version av en befintlig tjänst läggs till i programmet. Exempel på detta är program kod ändringar och uppdateringar till typ version och namn för appen. För den här uppgraderingen uppdaterar du UserApp. Parameters. JSON så här:
 
     ```json
      "applicationTypeVersion": {
@@ -162,17 +162,17 @@ Du kan uppgradera ett program som redan har distribuerats till ett Service Fabri
     },
     ```
 
-## <a name="delete-application-resources"></a>Ta bort programresurser
+## <a name="delete-application-resources"></a>Ta bort program resurser
 
-Så här tar du bort ett program som har distribuerats med hjälp av programresursmodellen i Resource Manager:
+Ta bort ett program som har distribuerats med hjälp av program resurs modellen i Resource Manager:
 
-1. Använd cmdleten [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource?view=azps-2.5.0) för att hämta resurs-ID:a
+1. Använd cmdleten [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource?view=azps-2.5.0) för att hämta resurs-ID: t för programmet:
 
     ```powershell
     Get-AzResource  -Name <String> | f1
     ```
 
-1. Använd [cmdleten Remove-AzResource](https://docs.microsoft.com/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) för att ta bort programresurserna:
+1. Använd cmdleten [Remove-AzResource](https://docs.microsoft.com/powershell/module/az.resources/remove-azresource?view=azps-2.5.0) för att ta bort program resurserna:
 
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
@@ -180,11 +180,11 @@ Så här tar du bort ett program som har distribuerats med hjälp av programresu
 
 ## <a name="next-steps"></a>Nästa steg
 
-Få information om programresursmodellen:
+Hämta information om program resurs modellen:
 
 * [Modellera ett program i Service Fabric](service-fabric-application-model.md)
-* [Program- och tjänstmanifest för Service Fabric](service-fabric-application-and-service-manifests.md)
-* [Metodtips: Infrastruktur som kod](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources)
+* [Service Fabric program-och tjänst manifest](service-fabric-application-and-service-manifests.md)
+* [Metod tips: infrastruktur som kod](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources)
 * [Hantera program och tjänster som Azure-resurser](service-fabric-best-practices-infrastructure-as-code.md)
 
 

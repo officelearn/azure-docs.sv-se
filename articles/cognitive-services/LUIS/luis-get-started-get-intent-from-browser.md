@@ -1,45 +1,45 @@
 ---
-title: 'Snabbstart: Fråga efter förutsägelse med webbläsare - LUIS'
-description: I den här snabbstarten använder du en tillgänglig offentlig LUIS-app för att avgöra en användares avsikt från konversationstext i en webbläsare.
+title: 'Snabb start: fråga efter förutsägelse med webb läsar LUIS'
+description: I den här snabb starten använder du en tillgänglig offentlig LUIS-app för att fastställa en användares avsikt från konversations text i en webbläsare.
 ms.topic: quickstart
 ms.date: 04/21/2020
 ms.openlocfilehash: 5ba86882ebf3cb538ad6b865382342fcbd43d27c
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81769969"
 ---
-# <a name="quickstart-query-prediction-runtime-with-user-text"></a>Snabbstart: Körning för frågeförutsägelse med användartext
+# <a name="quickstart-query-prediction-runtime-with-user-text"></a>Snabb start: fråga förutsägelse körning med användar text
 
 Om du vill förstå vad som returneras från en LUIS-slutpunkt för förutsägelser kan du granska resultatet i en webbläsare.
 
 ## <a name="prerequisites"></a>Krav
 
-För att kunna fråga en offentlig app behöver du:
+Du behöver följande för att kunna skicka frågor till en offentlig app:
 
-* Information om din språk understanding (LUIS) :
-    * **Prognosnyckel** - som kan erhållas från [LUIS Portal](https://www.luis.ai/). Om du inte redan har en prenumeration för att skapa en nyckel kan du registrera dig för ett [gratis konto](https://azure.microsoft.com/free/).
-    * **Underdomänen Förutsägelseslutpunkt** – underdomänen är också **namnet** på LUIS-resursen.
-* Ett LUIS-app-ID – använd det offentliga `df67dcdb-c37d-46af-88e1-8b97951ca1c2`IoT-app-ID:et för . Användarfrågan som används i snabbstartskoden är specifik för den appen.
+* Din Language Understanding (LUIS) resurs information:
+    * **Förutsägelse nyckel** – som kan hämtas från [Luis-portalen](https://www.luis.ai/). Om du inte redan har en prenumeration för att skapa en nyckel kan du registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+    * Under **domän för förutsägelse slut punkt** – under domänen är även **namnet** på din Luis-resurs.
+* Ett LUIS app-ID – Använd ID: t för `df67dcdb-c37d-46af-88e1-8b97951ca1c2`den offentliga IoT-appen. Den användar fråga som används i snabb starts koden är speciell för den appen.
 
 ## <a name="use-the-browser-to-see-predictions"></a>Använd webbläsaren för att se förutsägelser
 
 1. Öppna en webbläsare.
-1. Använd de fullständiga webbadresserna `YOUR-KEY` nedan och ersätt med din egen LUIS Prediction-nyckel. Begäranden är GET-begäranden och inkluderar auktoriseringen, med luis-förutsägelsenyckeln, som en frågesträngparameter.
+1. Använd de fullständiga URL: erna nedan `YOUR-KEY` och Ersätt med din egen Luis-förutsägelse nyckel. Begär Anden är GET-begäranden och inkluderar auktoriseringen med LUIS-förutsägelse nyckeln som en frågesträngparametern.
 
-    #### <a name="v3-prediction-request"></a>[Begäran om V3-förutsägelse](#tab/V3-1-1)
+    #### <a name="v3-prediction-request"></a>[V3 förutsägelse förfrågan](#tab/V3-1-1)
 
 
-    Formatet på V3-URL:en för en **GET-slutpunktsbegäran** (efter fack) är:
+    Formatet på v3-URL: en för en begäran om **hämtning** av slut punkt (per fack) är:
 
     `
     https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-LUIS-PREDICTION-KEY
     `
 
-    #### <a name="v2-prediction-request"></a>[Begäran om V2-förutsägelse](#tab/V2-1-2)
+    #### <a name="v2-prediction-request"></a>[V2 förutsägelse förfrågan](#tab/V2-1-2)
 
-    Formatet på V2-URL:en för en **GET-slutpunktsbegäran** är:
+    Formatet på v2-URL: en för en begäran om att **Hämta** slut punkter är:
 
     `
     https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=YOUR-LUIS-PREDICTION-KEY&q=turn on all lights
@@ -91,11 +91,11 @@ För att kunna fråga en offentlig app behöver du:
 
     * * *
 
-1. Om du vill visa alla avsikter lägger du till lämplig frågesträngparameter.
+1. Om du vill se alla avsikter lägger du till lämplig frågesträngparametern.
 
-    #### <a name="v3-prediction-endpoint"></a>[Slutpunkt för V3-förutsägelse](#tab/V3-3-1)
+    #### <a name="v3-prediction-endpoint"></a>[V3 förutsägelse slut punkt](#tab/V3-3-1)
 
-    Lägg `show-all-intents=true` till i slutet av frågesträngen för att **visa alla avsikter:**
+    Lägg `show-all-intents=true` till i slutet av QueryString för att **Visa alla avsikter**:
 
     `
     https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/predict/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-LUIS-PREDICTION-KEY&show-all-intents=true
@@ -126,9 +126,9 @@ För att kunna fråga en offentlig app behöver du:
     }
     ```
 
-    #### <a name="v2-prediction-endpoint"></a>[Slutpunkt för V2-förutsägelse](#tab/V2)
+    #### <a name="v2-prediction-endpoint"></a>[V2-förutsägelse slut punkt](#tab/V2)
 
-    Lägg `verbose=true` till i slutet av frågesträngen för att **visa alla avsikter:**
+    Lägg `verbose=true` till i slutet av QueryString för att **Visa alla avsikter**:
 
     `
     https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn on all lights&subscription-key=YOUR-LUIS-PREDICTION-KEY&verbose=true
@@ -170,8 +170,8 @@ För att kunna fråga en offentlig app behöver du:
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om:
-* [Slutpunkt för V3-förutsägelse](luis-migration-api-v3.md)
-* [Anpassade underdomäner](../cognitive-services-custom-subdomains.md)
+* [V3 förutsägelse slut punkt](luis-migration-api-v3.md)
+* [Anpassade under domäner](../cognitive-services-custom-subdomains.md)
 
 > [!div class="nextstepaction"]
 > [Skapa en app i LUIS-portalen](get-started-portal-build-app.md)

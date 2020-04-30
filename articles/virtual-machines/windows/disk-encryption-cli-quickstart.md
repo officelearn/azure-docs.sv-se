@@ -1,6 +1,6 @@
 ---
 title: Skapa och kryptera en virtuell Windows-dator med Azure CLI
-description: I den här snabbstarten får du lära dig hur du använder Azure CLI för att skapa och kryptera en virtuell Windows-dator
+description: I den här snabb starten får du lära dig hur du använder Azure CLI för att skapa och kryptera en virtuell Windows-dator
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: virtual-machines-windows
@@ -8,25 +8,25 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.openlocfilehash: aa0dd0bf55d51800d6a9b4283aa9e653887bf2f1
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82082806"
 ---
-# <a name="quickstart-create-and-encrypt-a-windows-vm-with-the-azure-cli"></a>Snabbstart: Skapa och kryptera en Windows-virtuell dator med Azure CLI
+# <a name="quickstart-create-and-encrypt-a-windows-vm-with-the-azure-cli"></a>Snabb start: skapa och kryptera en virtuell Windows-dator med Azure CLI
 
-Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten visar hur du använder Azure CLI för att skapa och kryptera en virtuell dator (Windows Server 2016) (VM).
+Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabb starten visar hur du använder Azure CLI för att skapa och kryptera en virtuell Windows Server 2016-dator (VM).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda Azure CLI lokalt kräver den här snabbstarten att du kör Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda Azure CLI lokalt kräver den här snabb starten att du kör Azure CLI-version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på *eastus-platsen:*
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resurs grupp med namnet *myResourceGroup* på platsen för *öster* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -60,11 +60,11 @@ Det tar några minuter att skapa den virtuella datorn och stödresurser. Utdatar
 }
 ```
 
-## <a name="create-a-key-vault-configured-for-encryption-keys"></a>Skapa ett nyckelvalv som konfigurerats för krypteringsnycklar
+## <a name="create-a-key-vault-configured-for-encryption-keys"></a>Skapa en Key Vault konfigurerad för krypterings nycklar
 
-Azure-diskkryptering lagrar sin krypteringsnyckel i ett Azure Key Vault. Skapa ett nyckelvalv med [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create). Om du vill aktivera Nyckelvalvet för att lagra krypteringsnycklar använder du parametern --enabled-for-disk-encryption.
+Azure Disk Encryption lagrar sin krypterings nyckel i en Azure Key Vault. Skapa en Key Vault med [AZ-valv skapa](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create). Om du vill aktivera Key Vault att lagra krypterings nycklar använder du parametern--enabled-for-Disk-Encryption.
 > [!Important]
-> Varje Key Vault måste ha ett unikt namn. I följande exempel skapas ett nyckelvalv med namnet *myKV*, men du måste namnge ditt något annat.
+> Varje Key Vault måste ha ett unikt namn. I följande exempel skapas en Key Vault med namnet *myKV*, men du måste namnge något annat.
 
 ```azurecli-interactive
 az keyvault create --name "myKV" --resource-group "myResourceGroup" --location eastus --enabled-for-disk-encryption
@@ -72,19 +72,19 @@ az keyvault create --name "myKV" --resource-group "myResourceGroup" --location e
 
 ## <a name="encrypt-the-virtual-machine"></a>Kryptera den virtuella datorn
 
-Kryptera din virtuella dator med [az vm-kryptering](/cli/azure/vm/encryption?view=azure-cli-latest)och ange ditt unika Key Vault-namn till parametern --disk-encryption-keyvault.
+Kryptera din virtuella dator med [AZ VM-kryptering](/cli/azure/vm/encryption?view=azure-cli-latest)och ange ditt unika Key Vault namn till parametern--Disk-Encryption-nyckel.
 
 ```azurecli-interactive
 az vm encryption enable -g MyResourceGroup --name MyVM --disk-encryption-keyvault myKV
 ```
 
-Du kan kontrollera att kryptering är aktiverat på din virtuella dator med [az vm show](/cli/azure/vm/encryption#az-vm-encryption-show)
+Du kan kontrol lera att kryptering är aktiverat på den virtuella datorn med [AZ VM show](/cli/azure/vm/encryption#az-vm-encryption-show)
 
 ```azurecli-interactive
 az vm show --name MyVM -g MyResourceGroup
 ```
 
-Följande visas i den returnerade utdata:
+Följande visas i utdata som returneras:
 
 ```
 "EncryptionOperation": "EnableEncryption"
@@ -92,7 +92,7 @@ Följande visas i den returnerade utdata:
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När det inte längre behövs kan du använda kommandot [az-gruppborttagning](/cli/azure/group) för att ta bort resursgruppen, den virtuella datorn och nyckelvalvet.
+När de inte längre behövs kan du använda kommandot [AZ Group Delete](/cli/azure/group) för att ta bort resurs gruppen, den virtuella datorn och Key Vault.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -100,7 +100,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du en virtuell dator, skapade ett Nyckelvalv som var aktiverat för krypteringsnycklar och krypterade den virtuella datorn.  Gå vidare till nästa artikel om du vill veta mer om Azure Disk Encryption-förhandskrav för virtuella IaaS-datorer.
+I den här snabb starten skapade du en virtuell dator, skapade en Key Vault som aktiverades för krypterings nycklar och krypterade den virtuella datorn.  Gå vidare till nästa artikel om du vill veta mer om Azure Disk Encryption-förhandskrav för virtuella IaaS-datorer.
 
 > [!div class="nextstepaction"]
-> [Översikt över Azure Disk-kryptering](disk-encryption-overview.md)
+> [Översikt över Azure Disk Encryption](disk-encryption-overview.md)

@@ -1,80 +1,80 @@
 ---
-title: Använda Visual Studio-kod för att ansluta till Azure Blockchain Service
-description: Ansluta till ett Azure Blockchain Service-konsortiumnätverk med Azure Blockchain Development Kit for Ethereum-tillägget i Visual Studio Code
+title: Använd Visual Studio Code för att ansluta till Azure blockchain-tjänsten
+description: Ansluta till ett Azure blockchain service Consortium-nätverk med Azure blockchain Development Kit for Ethereum-tillägget i Visual Studio Code
 ms.date: 04/22/2020
 ms.topic: quickstart
 ms.reviewer: caleteet
 ms.openlocfilehash: 8b502966317c5d07e89de4ae70ff72b899e963e6
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82084846"
 ---
-# <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>Snabbstart: Använda Visual Studio-kod för att ansluta till ett Azure Blockchain Service-konsortiumnätverk
+# <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>Snabb start: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk
 
-I den här snabbstarten installerar och använder du tillägget Azure Blockchain Development Kit for Ethereum Visual Studio Code (VS Code) för att koppla till ett konsortium på Azure Blockchain Service. Azure Blockchain Development Kit förenklar hur du skapar, ansluter, bygger och distribuerar smarta kontrakt på Ethereum blockchain-liggare.
+I den här snabb starten installerar och använder du tillägget Azure blockchain Development Kit för Ethereum Visual Studio Code (VS Code) för att ansluta till ett konsortium på Azure blockchain-tjänsten. Azure blockchain Development Kit fören klar hur du skapar, ansluter, bygger och distribuerar smarta kontrakt på Ethereum blockchain-redovisning.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Krav
 
-* Fullständig [snabbstart: Skapa en blockchain-medlem med Azure-portalen](create-member.md) eller [Snabbstart: Skapa en Blockchain Blockchain-tjänst-blockkedjemedlem med Azure CLI](create-member-cli.md)
+* Slutför [snabb start: skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md) eller [snabb start: skapa en Azure blockchain service blockchain-medlem med Azure CLI](create-member-cli.md)
 * [Visual Studio-koden](https://code.visualstudio.com/Download)
-* [Azure Blockchain Development Kit för Ethereum-tillägg](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
-* [Nod.js 10.15.x eller högre](https://nodejs.org)
-* [Git 2.10.x eller högre](https://git-scm.com)
-* [Python 2.7.15](https://www.python.org/downloads/release/python-2715/) Lägg till python.exe på sökvägen. Att ha Python version 2.7.15 i din sökväg krävs för Azure Blockchain Development Kit.
-* [Tryffel 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
-* [Ganache CLI 6.0.0](https://github.com/trufflesuite/ganache-cli)
+* [Azure blockchain Development Kit för Ethereum-tillägg](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
+* [Node. js-10.15. x eller högre](https://nodejs.org)
+* [Git 2.10. x eller högre](https://git-scm.com)
+* [Python-2.7.15](https://www.python.org/downloads/release/python-2715/) Lägg till python. exe i sökvägen. Att ha python-version 2.7.15 i din sökväg krävs för Azure blockchain Development Kit.
+* [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
+* [Ganache CLI-6.0.0](https://github.com/trufflesuite/ganache-cli)
 
-I Windows krävs en installerad C++-kompilator för nod-gyp-modulen. Du kan använda MSBuild-verktygen:
+I Windows krävs en installerad C++-kompilator för Node-Gyp-modulen. Du kan använda MSBuild-verktygen:
 
-* Om Visual Studio 2017 är installerat konfigurerar du npm för att använda MSBuild-verktygen med kommandot`npm config set msvs_version 2017 -g`
-* Om Visual Studio 2019 är installerat ställer du in sökvägen ms build tools för npm. Till exempel, `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
-* Annars installerar du de fristående VS `npm install --global windows-build-tools` Build-verktygen med hjälp av ett upphöjt *kommandoskal för körning som administratör.*
+* Om Visual Studio 2017 är installerat konfigurerar du NPM att använda MSBuild-verktygen med kommandot`npm config set msvs_version 2017 -g`
+* Om Visual Studio 2019 är installerat ställer du in sökvägen för MS build-verktyg för NPM. Till exempel, `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
+* Annars installerar du fristående VS build-verktyg med `npm install --global windows-build-tools` i ett förhöjdt *Kör som administratörs* kommando gränssnitt.
 
-Mer information om nod-gyp finns i [nod-gyp-databasen på GitHub](https://github.com/nodejs/node-gyp).
+Mer information om Node-Gyp finns i [nod-Gyp-lagringsplatsen på GitHub](https://github.com/nodejs/node-gyp).
 
-### <a name="verify-azure-blockchain-development-kit-environment"></a>Verifiera Azure Blockchain Development Kit-miljön
+### <a name="verify-azure-blockchain-development-kit-environment"></a>Kontrol lera Azure blockchain Development Kit-miljön
 
-Azure Blockchain Development Kit verifierar att dina utvecklingsmiljöförutny förutsättningar har uppfyllts. Så här verifierar du utvecklingsmiljön:
+Azure blockchain Development Kit verifierar att utvecklings miljö kraven är uppfyllda. För att verifiera utvecklings miljön:
 
-Välj **Azure Blockchain: Visa välkomstsida**på kommandopaletten VS-kod .
+Från kommando paletten VS Code väljer du **Azure blockchain: Visa välkomst sida**.
 
-Azure Blockchain Development Kit kör ett valideringsskript som tar ungefär en minut att slutföra. Du kan visa utdata genom att välja **Terminal > Ny terminal**. I terminalmenyraden väljer du fliken **Utdata** och **Azure Blockchain** i listrutan. Lyckad validering ser ut som följande bild:
+Azure blockchain Development Kit kör ett verifierings skript som tar ungefär en minut att slutföra. Du kan visa utdata genom att välja **Terminal > ny terminal**. I meny raden i terminalen väljer du fliken **utdata** och **Azure-blockchain** i list rutan. Lyckad verifiering ser ut som på följande bild:
 
-![Giltig utvecklingsmiljö](./media/connect-vscode/valid-environment.png)
+![Giltig utvecklings miljö](./media/connect-vscode/valid-environment.png)
 
- Om du saknar ett obligatoriskt verktyg visas de verktyg som krävs med namnet **Azure Blockchain Development Kit – Preview.**
+ Om du saknar ett nödvändigt verktyg, en ny flik som heter **Azure blockchain Development Kit** , visar en lista över de verktyg som krävs för att ladda ned länkar.
 
-![Dev kit krävs apps](./media/connect-vscode/required-apps.png)
+![Appar som krävs av dev kit](./media/connect-vscode/required-apps.png)
 
-Installera eventuella nödvändiga krav som saknas innan du fortsätter med snabbstarten.
+Installera eventuella krav som saknas innan du fortsätter med snabb starten.
 
-## <a name="connect-to-consortium-member"></a>Anslut till konsortiemedlem
+## <a name="connect-to-consortium-member"></a>Anslut till konsortiet medlem
 
-Du kan ansluta till konsortiemedlemmar med azure blockchain development kit VS-kodtillägget. När du är ansluten till ett konsortium kan du kompilera, skapa och distribuera smarta kontrakt till en Azure Blockchain Service-konsortiummedlem.
+Du kan ansluta till medlemmar i konsortiet med hjälp av tillägget Azure blockchain Development Kit VS Code. När du har anslutit till ett konsortium kan du kompilera, bygga och distribuera smarta kontrakt till en Azure blockchain service Consortium-medlem.
 
-Om du inte har tillgång till en Azure Blockchain Service-konsortiemedlem slutför du den nödvändiga [snabbstarten: Skapa en blockchain-medlem med Azure-portalen](create-member.md) eller [Snabbstart: Skapa en Azure Blockchain Service blockchain-medlem med Azure CLI](create-member-cli.md).
+Om du inte har åtkomst till en Azure blockchain service Consortium-medlem måste du slutföra den nödvändiga [snabb starten: skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md) eller [snabb start: skapa en Azure blockchain service blockchain-medlem med Azure CLI](create-member-cli.md).
 
-1. Expandera **Azure Blockchain-tillägget** i fönstret VS-kodutforskaren.
+1. I fönstret VS Code-Utforskaren expanderar du tillägget **Azure blockchain** .
 1. Välj **Anslut till nätverk**.
 
-   ![Ansluta till nätverket](./media/connect-vscode/connect-consortium.png)
+   ![Anslut till nätverk](./media/connect-vscode/connect-consortium.png)
 
     Om du uppmanas att ange Azure-autentisering följer du anvisningarna för att autentisera med hjälp av en webbläsare.
-1. Välj **Azure Blockchain-tjänst** i kommandopalettens listruta.
-1. Välj den prenumerations- och resursgrupp som är associerad med din Azure Blockchain Service-konsortiemedlem.
-1. Välj ditt konsortium i listan.
+1. Välj **Azure blockchain-tjänsten** i list rutan kommando för palett.
+1. Välj den prenumeration och resurs grupp som är kopplad till din Azure blockchain service Consortium-medlem.
+1. Välj konsortiet i listan.
 
-Konsortie- och blockchain-medlemmarna finns listade i sidofältet VS Code Explorer.
+Konsortiet och blockchain-medlemmarna visas i det högra fältet i VS Code Explorer.
 
-![Konsortiet visas i explorer](./media/connect-vscode/consortium-node.png)
+![Konsortiet som visas i Utforskaren](./media/connect-vscode/consortium-node.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten använde du Azure Blockchain Development Kit för Ethereum VS-kodtillägg för att koppla till ett konsortium på Azure Blockchain Service. Prova nästa självstudiekurs för att använda Azure Blockchain Development Kit för Ethereum för att skapa, skapa, distribuera och köra en smart kontraktsfunktion via en transaktion.
+I den här snabb starten använde du Azure blockchain Development Kit för Ethereum VS Code Extension för att ansluta till ett konsortium på Azure blockchain-tjänsten. Testa nästa självstudie för att använda Azure blockchain Development Kit för Ethereum för att skapa, bygga, distribuera och köra en smart kontrakts funktion via en transaktion.
 
 > [!div class="nextstepaction"]
-> [Skapa, skapa och distribuera smarta kontrakt på Azure Blockchain Service](send-transaction.md)
+> [Skapa, skapa och distribuera smarta avtal i Azure blockchain-tjänsten](send-transaction.md)

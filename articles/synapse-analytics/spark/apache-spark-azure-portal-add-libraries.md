@@ -10,33 +10,33 @@ ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 80414ccd6d5797614dd15bd61af8f37b3d2be05c
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81870368"
 ---
 # <a name="add-and-manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Lägga till och hantera bibliotek för Apache Spark i Azure Synapse Analytics
 
-Apache Spark är beroende av många bibliotek för att tillhandahålla funktioner. Dessa bibliotek kan utökas eller ersättas med ytterligare bibliotek eller uppdaterade versioner av äldre.
+Apache Spark är beroende av många bibliotek för att tillhandahålla funktioner. Dessa bibliotek kan utökas eller ersättas med ytterligare bibliotek eller uppdaterade versioner av äldre versioner.
 
-Python-paket kan läggas till på Spark-poolnivå (förhandsversion) och .jar-baserade paket kan läggas till på spark-jobbdefinitionsnivå.
+Python-paket kan läggas till på nivån Spark-pool (för hands version) och. jar-baserade paket kan läggas till på jobb definitions nivån Spark.
 
-## <a name="adding-or-updating-python-libraries"></a>Lägga till eller uppdatera Python-bibliotek
+## <a name="adding-or-updating-python-libraries"></a>Lägga till eller uppdatera python-bibliotek
 
-Apache Spark i Azure Synapse Analytics har en fullständig Anacondas-installation plus ytterligare bibliotek. Den fullständiga bibliotekslistan finns på [Apache Spark version support](apache-spark-version-support.md).
+Apache Spark i Azure Synapse Analytics har en fullständig Anacondas-installation plus ytterligare bibliotek. Du hittar den fullständiga biblioteks listan på [Apache Spark versions stöd](apache-spark-version-support.md).
 
-När en Spark-instans startar skapas en ny virtuell miljö med den här installationen som bas. Dessutom kan en *requirements.txt-fil* `pip freeze` (utdata från kommandot) användas för att uppgradera den virtuella miljön. Paketen som anges i den här filen för installation eller uppgradering hämtas från PyPi vid tidpunkten för klusterstart. Den här kravfilen används varje gång en Spark-instans skapas från sparkpoolen.
+När en spark-instans startar skapas en ny virtuell miljö med den här installationen som bas. Dessutom kan en *Requirements. txt* -fil (utdata från `pip freeze` kommandot) användas för att uppgradera den virtuella miljön. Paketen som anges i den här filen för installation eller uppgradering laddas ned från PyPi vid tidpunkten för klustrets start. Den här krav filen används varje gång en spark-instans skapas från den Spark-poolen.
 
 > [!IMPORTANT]
 >
-> - Om paketet du installerar är stort eller tar lång tid att installera, påverkar detta Spark-instansens starttid.
-> - Paket som kräver kompilatorstöd vid installation, till exempel GCC, stöds inte.
+> - Om paketet som du installerar är stort eller tar lång tid att installera, påverkar detta start tiden för Spark-instansen.
+> - Paket som kräver stöd för kompilator vid installations tillfället, till exempel GCC, stöds inte.
 > - Paket kan inte nedgraderas, bara läggas till eller uppgraderas.
 
-### <a name="requirements-format"></a>Format för krav
+### <a name="requirements-format"></a>Krav format
 
-Följande kodavsnitt visar formatet för kravfilen. PyPi-paketnamnet visas tillsammans med en exakt version. Den här filen följer det format som beskrivs i referensdokumentationen [för pipfrysning.](https://pip.pypa.io/en/stable/reference/pip_freeze/) Det här exemplet fäster en viss version. Du kan också ange "inte större än" och "mindre än" versioner i den här filen.
+I följande kodfragment visas formatet för krav filen. PyPi-paketets namn visas tillsammans med en exakt version. Den här filen följer formatet som beskrivs i referens dokumentationen för [pip Freeze](https://pip.pypa.io/en/stable/reference/pip_freeze/) . Det här exemplet fäster en speciell version. Du kan också ange versionerna "inte större än" och "mindre än" i den här filen.
 
 ```
 absl-py==0.7.0
@@ -46,17 +46,17 @@ adal==1.2.1
 alabaster==0.7.10
 ```
 
-### <a name="python-library-user-interface"></a>Användargränssnitt för Python-bibliotek
+### <a name="python-library-user-interface"></a>Användar gränssnitt för python-bibliotek
 
-Användargränssnittet för att lägga till bibliotek finns på fliken **Ytterligare inställningar** på **poolsidan Skapa Apache Spark** på Azure-portalen.
+Användar gränssnittet för att lägga till bibliotek finns på fliken **ytterligare inställningar** på sidan **skapa Apache Spark pool** på Azure Portal.
 
-Ladda upp **konfigurationsfilen** för miljön med hjälp av filväljaren i avsnittet Paket på sidan.
+Ladda upp miljö konfigurations filen med fil väljaren i avsnittet **paket** på sidan.
 
 ![Lägg till Python-bibliotek](./media/apache-spark-azure-portal-add-libraries/add-python-libraries.png "Lägg till Python-bibliotek")
 
-### <a name="verifying-installed-libraries"></a>Verifiera installerade bibliotek
+### <a name="verifying-installed-libraries"></a>Verifierar installerade bibliotek
 
-För att kontrollera om rätt versioner av rätt bibliotek är installerade kör följande kod
+Kontrol lera att rätt versioner av rätt bibliotek är installerade genom att köra följande kod
 
 ```python
 import pip #needed to use the pip functions
@@ -67,4 +67,4 @@ for i in pip.get_installed_distributions(local_only=True):
 ## <a name="next-steps"></a>Nästa steg
 
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
-- [Apache Spark-dokumentation](https://spark.apache.org/docs/2.4.4/)
+- [Apache Spark dokumentation](https://spark.apache.org/docs/2.4.4/)

@@ -1,7 +1,7 @@
 ---
-title: Auktorisera utvecklarkonton med hjälp av Azure Active Directory
+title: Auktorisera utvecklares konton genom att använda Azure Active Directory
 titleSuffix: Azure API Management
-description: Lär dig hur du auktoriserar användare med hjälp av Azure Active Directory i API Management.
+description: Lär dig hur du auktoriserar användare genom att använda Azure Active Directory i API Management.
 services: api-management
 documentationcenter: API Management
 author: miaojiang
@@ -14,127 +14,127 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 41f9f267880d199d2e221453eea5c3584ce96881
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81868401"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Auktorisera utvecklarkonton med Azure Active Directory i Azure API Management
 
-I den här artikeln visas hur du aktiverar åtkomst till utvecklarportalen för användare från Azure Active Directory (Azure AD). Den här guiden visar också hur du hanterar grupper av Azure AD-användare genom att lägga till externa grupper som innehåller användarna.
+Den här artikeln visar hur du aktiverar åtkomst till Developer-portalen för användare från Azure Active Directory (Azure AD). Den här guiden visar också hur du hanterar grupper med Azure AD-användare genom att lägga till externa grupper som innehåller användarna.
 
 ## <a name="prerequisites"></a>Krav
 
-- Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
-- Importera och publicera en Azure API Management-instans. Mer information finns i [Importera och publicera](import-and-publish.md).
+- Slutför följande snabb start: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
+- Importera och publicera en Azure API Management-instans. Mer information finns i [import och publicering](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
-## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Auktorisera utvecklarkonton med hjälp av Azure AD
+## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Auktorisera Developer-konton med hjälp av Azure AD
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 2. Välj ![arrow](./media/api-management-howto-aad/arrow.png).
-3. Skriv **api** i sökrutan.
-4. Välj **API Management-tjänster**.
+3. Skriv **API** i sökrutan.
+4. Välj **API Management tjänster**.
 5. Välj API Management-tjänstinstansen.
-6. Under **Utvecklarportal**väljer du **Identiteter**.
-7. Välj **+Lägg till** högst upp.
+6. Välj **identiteter**under **Developer Portal**.
+7. Välj **+ Lägg till** överst.
 
     Fönstret **Lägg till identitetsprovider** visas till höger.
-8. Under **Providertyp**väljer du **Azure Active Directory**.
+8. Under **providertyp**väljer du **Azure Active Directory**.
 
-    Kontroller som gör att du kan ange annan nödvändig information visas i fönstret. Kontrollerna omfattar **klient-ID** och **klienthemlighet**. (Du får information om dessa kontroller senare i artikeln.)
-9. Anteckna innehållet i **URL:en omdirigering**.
+    Kontroller som gör att du kan ange annan information som krävs visas i fönstret. Kontrollerna omfattar **klient-ID** och **klient hemlighet**. (Du får information om de här kontrollerna senare i artikeln.)
+9. Anteckna innehållet i **omdirigerings-URL:** en.
     
-   ![Steg för att lägga till en identitetsprovider i Azure-portalen](./media/api-management-howto-aad/api-management-with-aad001.png)  
+   ![Steg för att lägga till en identitets leverantör i Azure Portal](./media/api-management-howto-aad/api-management-with-aad001.png)  
 10. Öppna en annan flik i webbläsaren. 
-11. Navigera till [Azure-portalen - Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) för att registrera en app i Active Directory.
+11. Navigera till [Azure Portal-Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) för att registrera en App i Active Directory.
 12. Under **Hantera**väljer du **Appregistreringar**.
-13. Välj **Ny registrering**. På sidan **Registrera ett program** anger du värdena på följande sätt:
+13. Välj **ny registrering**. På sidan **Registrera ett program** ställer du in värdena enligt följande:
     
-    * Ange **namn** till ett meningsfullt namn. t.ex. *utvecklare-portal*
-    * Ange **kontotyper som stöds** till konton i den här **organisationskatalogen**. 
-    * Ange **Redirect URI** till det värde du fick från steg 9. 
+    * Ange ett beskrivande namn som **namn** . t. ex. *Developer – Portal*
+    * Ange **konto typer som stöds** till **konton endast i den här organisations katalogen**. 
+    * Ange **omdirigerings-URI** till värdet som du fick från steg 9. 
     * Välj **Registrera**. 
 
-14.  När programmet har registrerats kopierar du **program-ID:t (klient)från** sidan **Översikt.** 
-15. Gå tillbaka till API Management-instansen. Klistra in värdet **Program -ID i** rutan **Klient-ID** i fönstret Lägg **till identitetsprovider.**
+14.  När programmet har registrerats kopierar du **program-ID: t (klient)-ID: t** från **översikts** sidan. 
+15. Gå tillbaka till API Management-instansen. I fönstret **Lägg till identitetsprovider** klistrar du in **programmets (klient) ID-** värde i rutan **klient-ID** .
 16. Växla tillbaka till Azure AD-konfigurationen, Välj **certifikat & hemligheter** under **Hantera**. Klicka på knappen **Ny klienthemlighet**. Ange ett värde i **Beskrivning**, välj ett alternativ för **Förfaller** och välj **Lägg till**. Kopiera klientens hemliga värde innan du lämnar sidan. Du behöver den i nästa steg. 
-17. Under **Hantera**väljer du **Autentisering** och väljer sedan **ID-token** under **Implicit grant**
-18. Gå tillbaka till API Management-instansen och klistra in hemligheten i **klienthemligheten.**
+17. Under **Hantera**väljer du **autentisering** och väljer sedan **ID-token** under **implicit beviljande**
+18. Gå tillbaka till API Management instansen och klistra in hemligheten i rutan **klient hemlighet** .
 
     > [!IMPORTANT]
-    > Se till att uppdatera **klienthemligheten** innan nyckeln går ut. 
+    > Var noga med att uppdatera **klient hemligheten** innan nyckeln upphör att gälla. 
     >  
     >
 
-19. Fönstret **Lägg till identitetsprovider** innehåller också textrutan **Tillåtna klienter.** Där anger du domänerna för Azure AD-instanser som du vill bevilja åtkomst till API:erna för API Management-tjänstinstansen. Du kan avgränsa flera domäner med nyalinjer, blanksteg eller kommatecken.
+19. Fönstret **Lägg till identitetsprovider** innehåller också text rutan **tillåtna innehavare** . Där anger du domänerna för de Azure AD-instanser som du vill bevilja åtkomst till API: erna för API Management tjänst instansen. Du kan separera flera domäner med newlines, blank steg eller kommatecken.
 
     > [!NOTE]
-    > Du kan ange flera domäner i avsnittet **Tillåtna klienter.** Innan en användare kan logga in från en annan domän än den ursprungliga domänen där programmet registrerades, måste en global administratör för den olika domänen bevilja behörighet för programmet att komma åt katalogdata. För att bevilja behörighet bör den globala administratören: a. Gå `https://<URL of your developer portal>/aadadminconsent` till (till https://contoso.portal.azure-api.net/aadadminconsent)exempel .
-    > b. Skriv in domännamnet för Azure AD-klienten som de vill ge åtkomst till.
+    > Du kan ange flera domäner i avsnittet **tillåtna innehavare** . Innan en användare kan logga in från en annan domän än den ursprungliga domän där programmet registrerades måste en global administratör för den andra domänen ge behörighet för programmet för att få åtkomst till katalog data. För att bevilja behörighet bör den globala administratören: a. Gå till `https://<URL of your developer portal>/aadadminconsent` (till exempel https://contoso.portal.azure-api.net/aadadminconsent).
+    > b. Skriv in domän namnet för den Azure AD-klient som de vill ge åtkomst till.
     > c. Välj **Skicka**. 
 
 20.  När du har angett önskad konfiguration väljer du **Lägg till**.
 
-När ändringarna har sparats kan användare i den angivna Azure AD-instansen logga in på utvecklarportalen genom att följa stegen i [Logga in på utvecklarportalen med hjälp av ett Azure AD-konto](#log_in_to_dev_portal).
+När ändringarna har sparats kan användare i den angivna Azure AD-instansen logga in på Developer-portalen genom att följa stegen i [Logga in på Developer-portalen med ett Azure AD-konto](#log_in_to_dev_portal).
 
-## <a name="add-an-external-azure-ad-group"></a>Lägga till en extern Azure AD-grupp
+## <a name="add-an-external-azure-ad-group"></a>Lägg till en extern Azure AD-grupp
 
-När du har aktiverat åtkomst för användare i en Azure AD-klient kan du lägga till Azure AD-grupper i API Management. Därför kan du styra produktsynligheten med Azure AD-grupper.
+När du har aktiverat åtkomst för användare i en Azure AD-klient kan du lägga till Azure AD-grupper i API Management. Det innebär att du kan kontrol lera produkt synlighet med hjälp av Azure AD-grupper.
 
-Om du vill lägga till en extern Azure AD-grupp i APIM måste du först fylla i föregående avsnitt. Dessutom måste programmet du registrerade beviljas åtkomst till Microsoft `Directory.Read.All` Graph API med tillstånd genom att följa dessa steg: 
+Om du vill lägga till en extern Azure AD-grupp i APIM måste du först slutföra det föregående avsnittet. Dessutom måste det program som du har registrerat beviljas åtkomst till Microsoft Graph-API: `Directory.Read.All` et med behörighet genom att följa dessa steg: 
 
-1. Gå tillbaka till din appregistrering som skapades i föregående avsnitt.
-2. Välj **API-behörigheter**och klicka sedan på **+Lägg till en behörighet**. 
-3. I fönstret **Begär API-behörigheter** markerar du fliken **Microsoft API:er** och väljer sedan microsoft **graph-panelen.** Välj **Programbehörigheter**, sök efter **katalog**och välj sedan behörigheten **Directory.Read.All.** 
-4. Klicka på **Lägg till behörigheter** längst ned i fönstret och klicka sedan på **Bevilja administratörsmedgivande för {klientnamn}** så att du beviljar åtkomst för alla användare i den här katalogen. 
+1. Gå tillbaka till din app-registrering som skapades i föregående avsnitt.
+2. Välj **API-behörigheter**och klicka sedan på **+ Lägg till en behörighet**. 
+3. I rutan **begär API-behörigheter** väljer du fliken **Microsoft API: er** och väljer sedan panelen **Microsoft Graph** . Välj **program behörigheter**, Sök efter **katalog**och välj sedan **katalogen. Read. all** behörighet. 
+4. Klicka på **Lägg till behörigheter** längst ned i fönstret och klicka sedan på **bevilja administrativt medgivande för {tenantname}** så att du beviljar åtkomst för alla användare i den här katalogen. 
 
-Nu kan du lägga till externa Azure AD-grupper från fliken **Grupper** i din API Management-instans.
+Nu kan du lägga till externa Azure AD-grupper från fliken **grupper** i API Management-instansen.
 
 1. Välj fliken **Grupper**.
-2. Välj **knappen Lägg till AAD-grupp.**
-    ![Knappen "Lägg till AAD-grupp"](./media/api-management-howto-aad/api-management-with-aad008.png)
-3. Markera den grupp som du vill lägga till.
-4. Tryck på **knappen Välj.**
+2. Välj knappen **Lägg till AAD-grupp** .
+    ![Knappen Lägg till AAD-grupp](./media/api-management-howto-aad/api-management-with-aad008.png)
+3. Välj den grupp som du vill lägga till.
+4. Tryck på knappen **Välj** .
 
-När du har lagt till en extern Azure AD-grupp kan du granska och konfigurera dess egenskaper. Välj namnet på gruppen på fliken **Grupper.** Härifrån kan du redigera **namn-** och **beskrivningsinformation** för gruppen.
+När du har lagt till en extern Azure AD-grupp kan du granska och konfigurera dess egenskaper. Välj namnet på gruppen från fliken **grupper** . Härifrån kan du redigera **namn** och **beskrivnings** information för gruppen.
  
-Användare från den konfigurerade Azure AD-instansen kan nu logga in på utvecklarportalen. De kan visa och prenumerera på alla grupper som de har synlighet för.
+Användare från den konfigurerade Azure AD-instansen kan nu logga in på Developer-portalen. De kan visa och prenumerera på grupper som de har synlighet för.
 
-## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/>Utvecklarportalen – lägg till autentisering av Azure AD-konton
+## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/>Utvecklings Portal – Lägg till Azure AD-konto-autentisering
 
-I utvecklarportalen är inloggning med AAD möjlig med **inloggningsknappen: OAuth-widgeten.** Widgeten finns redan på inloggningssidan för standardportalens innehåll för utvecklarportalen.
+I Developer-portalen är det möjligt att logga in med AAD med **inloggnings knappen: OAuth-** widgeten. Widgeten är redan inkluderad på inloggnings sidan för standard innehållet i Developer-portalen.
 
-Även om ett nytt konto skapas automatiskt när en ny användare loggar in med AAD, kan du överväga att lägga till samma widget på registreringssidan.
+Även om ett nytt konto skapas automatiskt när en ny användare loggar in med AAD, kan du överväga att lägga till samma widget på registrerings sidan.
 
-**Registreringsformuläret: OAuth-widgeten** representerar ett formulär som används för att registrera dig med OAuth.
+**Registrerings formuläret: OAuth** widget representerar ett formulär som används för att registrera sig med OAuth.
 
 > [!IMPORTANT]
-> Du måste [publicera om portalen](api-management-howto-developer-portal-customize.md#publish) för att AAD-ändringarna ska börja gälla.
+> Du måste [publicera portalen](api-management-howto-developer-portal-customize.md#publish) igen för att ändringarna i AAD ska börja gälla.
 
-## <a name="legacy-developer-portal---how-to-sign-in-with-azure-ad"></a>Äldre utvecklarportal – så här loggar du in med Azure AD
+## <a name="legacy-developer-portal---how-to-sign-in-with-azure-ad"></a>Äldre utvecklares Portal – så här loggar du in med Azure AD
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-Så här loggar du in på utvecklarportalen med hjälp av ett Azure AD-konto som du har konfigurerat i föregående avsnitt:
+Logga in på Developer-portalen genom att använda ett Azure AD-konto som du konfigurerade i föregående avsnitt:
 
-1. Öppna ett nytt webbläsarfönster med hjälp av inloggnings-URL:en från Active Directory-programkonfigurationen och välj **Azure Active Directory**.
+1. Öppna ett nytt webbläsarfönster genom att använda inloggnings-URL: en från Active Directory program konfigurationen och välj **Azure Active Directory**.
 
-   ![Inloggningssida][api-management-dev-portal-signin]
+   ![Inloggnings sida][api-management-dev-portal-signin]
 
-1. Ange autentiseringsuppgifterna för en av användarna i Azure AD och välj **Logga in**.
+1. Ange autentiseringsuppgifterna för en av användarna i Azure AD och välj **Logga**in.
 
-   ![Logga in med användarnamn och lösenord][api-management-aad-signin]
+   ![Logga in med användar namn och lösen ord][api-management-aad-signin]
 
-1. Du kan bli tillfrågad med ett registreringsformulär om ytterligare information krävs. Fyll i registreringsformuläret och välj **Registrera dig**.
+1. Du kan uppmanas att ange ett registrerings formulär om det krävs ytterligare information. Fyll i registrerings formuläret och välj **Registrera dig**.
 
-   !["Registrera dig"-knappen på registreringsformuläret][api-management-complete-registration]
+   ![Knappen "Registrera dig" i registrerings formuläret][api-management-complete-registration]
 
-Användaren är nu inloggad på utvecklarportalen för din API Management-tjänstinstans.
+Användaren är nu inloggad på Developer-portalen för din API Management tjänst instans.
 
-![Utvecklarportalen efter att registreringen är klar][api-management-registration-complete]
+![Developer-portalen när registreringen är klar][api-management-registration-complete]
 
 [api-management-dev-portal-signin]: ./media/api-management-howto-aad/api-management-dev-portal-signin.png
 [api-management-aad-signin]: ./media/api-management-howto-aad/api-management-aad-signin.png

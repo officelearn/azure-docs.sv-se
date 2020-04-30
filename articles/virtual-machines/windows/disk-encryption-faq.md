@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor och svar – Azure Diskkryptering för virtuella Windows-datorer
-description: Den här artikeln innehåller svar på vanliga frågor om virtuella datorer för Microsoft Azure Disk-kryptering för Windows IaaS.
+title: Vanliga frågor och svar – Azure Disk Encryption för virtuella Windows-datorer
+description: Den här artikeln innehåller svar på vanliga frågor om Microsoft Azure disk kryptering för virtuella Windows IaaS-datorer.
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
@@ -9,141 +9,141 @@ ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
 ms.openlocfilehash: b71384e0a42af5481af7b17b91cd0b1d0ed82ee8
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82082602"
 ---
-# <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Vanliga frågor och svar om Azure Disk Encryption för virtuella Datorer i Windows
+# <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Vanliga frågor och svar om Azure Disk Encryption för virtuella Windows-datorer
 
-Den här artikeln innehåller svar på vanliga frågor och svar om Azure Disk Encryption för virtuella windows-datorer. Mer information om den här tjänsten finns i [Översikt över Azure Disk Encryption](disk-encryption-overview.md).
+Den här artikeln innehåller svar på vanliga frågor och svar om Azure Disk Encryption för virtuella Windows-datorer. Mer information om den här tjänsten finns i [Azure Disk Encryption översikt](disk-encryption-overview.md).
 
 ## <a name="what-is-azure-disk-encryption-for-windows-vms"></a>Vad är Azure Disk Encryption för virtuella Windows-datorer?
 
-Azure Disk Encryption för Windows virtuella datorer använder Bitlocker-funktionen i Windows för att tillhandahålla fullständig diskkryptering av OS-disken och datadiskarna. Dessutom ger det kryptering av den tillfälliga resursdisken när [parametern VolumeType är All](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  Innehållet flödar krypterat från den virtuella datorn till lagrings-backend. Därmed ger slutpunkt till slutpunkt kryptering med en kundhanterad nyckel.
+Azure Disk Encryption för virtuella Windows-datorer använder BitLocker-funktionen i Windows för att tillhandahålla fullständig disk kryptering av OS-disken och data diskar. Dessutom innehåller den kryptering av den tillfälliga resurs disken när [VolumeType-parametern är all](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  Innehållet flödar från den virtuella datorn till lagrings Server delen. Därmed kan du tillhandahålla kryptering från slut punkt till slut punkt med en kundhanterad nyckel.
  
-Se [Virtuella datorer och operativsystem som stöds](disk-encryption-overview.md#supported-vms-and-operating-systems).
+Se [virtuella datorer och operativ system som stöds](disk-encryption-overview.md#supported-vms-and-operating-systems).
  
-## <a name="where-is-azure-disk-encryption-in-general-availability-ga"></a>Var är Azure Disk Encryption i allmän tillgänglighet (GA)?
+## <a name="where-is-azure-disk-encryption-in-general-availability-ga"></a>Var är Azure Disk Encryption allmänt tillgänglig (GA)?
 
-Azure Disk Encryption är i allmän tillgänglighet i alla offentliga Azure-regioner.
+Azure Disk Encryption är allmänt tillgänglig i alla offentliga Azure-regioner.
 
-## <a name="what-user-experiences-are-available-with-azure-disk-encryption"></a>Vilka användarupplevelser är tillgängliga med Azure Disk Encryption?
+## <a name="what-user-experiences-are-available-with-azure-disk-encryption"></a>Vilka användar upplevelser är tillgängliga med Azure Disk Encryption?
 
-Azure Disk Encryption GA stöder Azure Resource Manager-mallar, Azure PowerShell och Azure CLI. De olika användarupplevelserna ger dig flexibilitet. Du har tre olika alternativ för att aktivera diskkryptering för dina virtuella datorer. Mer information om användarupplevelsen och steg-för-steg-vägledning som är tillgänglig i Azure Disk Encryption finns i [Azure Disk Encryption-scenarier för Windows](disk-encryption-windows.md).
+Azure Disk Encryption GA stöder Azure Resource Manager mallar, Azure PowerShell och Azure CLI. De olika användar upplevelserna ger dig flexibilitet. Du har tre olika alternativ för att aktivera disk kryptering för dina virtuella datorer. Mer information om användar upplevelsen och stegvisa vägledningar som är tillgängliga i Azure Disk Encryption finns i [Azure Disk Encryption scenarier för Windows](disk-encryption-windows.md).
 
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Hur mycket kostar Azure Disk Encryption?
 
-Det finns ingen avgift för att kryptera VM-diskar med Azure Disk Encryption, men det finns avgifter som är associerade med användningen av Azure Key Vault. Mer information om Azure Key Vault-kostnader finns på [prissidan för Key Vault.](https://azure.microsoft.com/pricing/details/key-vault/)
+Det kostar inget att kryptera virtuella dator diskar med Azure Disk Encryption, men det finns kostnader som är kopplade till användningen av Azure Key Vault. Mer information om Azure Key Vault kostnader finns på sidan för [Key Vault priser](https://azure.microsoft.com/pricing/details/key-vault/) .
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Hur kan jag börja använda Azure Disk Encryption?
 
-Information om hur du kommer igång läser du [översikten över Azure Disk Encryption](disk-encryption-overview.md).
+Läs [Azure Disk Encryption översikt](disk-encryption-overview.md)för att komma igång.
 
-## <a name="what-vm-sizes-and-operating-systems-support-azure-disk-encryption"></a>Vilka vm-storlekar och operativsystem stöder Azure Disk Encryption?
+## <a name="what-vm-sizes-and-operating-systems-support-azure-disk-encryption"></a>Vilka VM-storlekar och operativ system stöder Azure Disk Encryption?
 
-I översiktsartikeln [för Azure Disk Encryption](disk-encryption-overview.md) visas de [vm-storlekar](disk-encryption-overview.md#supported-vms) och [vm-operativsystem](disk-encryption-overview.md#supported-operating-systems) som stöder Azure Disk Encryption.
+I artikeln [Azure Disk Encryption översikt](disk-encryption-overview.md) visas de [VM-storlekar](disk-encryption-overview.md#supported-vms) och [virtuella dator operativ system](disk-encryption-overview.md#supported-operating-systems) som stöder Azure Disk Encryption.
 
-## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Kan jag kryptera både start- och datavolymer med Azure Disk Encryption?
+## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Kan jag kryptera både start-och data volymer med Azure Disk Encryption?
 
-Du kan kryptera både start- och datavolymer, men du kan inte kryptera data utan att först kryptera OS-volymen.
+Du kan kryptera både start-och data volymer, men du kan inte kryptera data utan att först kryptera operativ system volymen.
 
-När du har krypterat OS-volymen stöds inte inaktivering av kryptering på OS-volymen.
+När du har krypterat operativ system volymen stöds inte kryptering på operativ system volymen.
 
-## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>Kan jag kryptera en omonterad volym med Azure Disk Encryption?
+## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>Kan jag kryptera en demonterad volym med Azure Disk Encryption?
 
 Nej, Azure Disk Encryption krypterar bara monterade volymer.
 
-## <a name="what-is-storage-server-side-encryption"></a>Vad är kryptering på lagringsserversidan?
+## <a name="what-is-storage-server-side-encryption"></a>Vad är kryptering av lagring på Server Sidan?
 
-Kryptering på lagringsserversidan krypterar Azure-hanterade diskar i Azure Storage. Hanterade diskar krypteras som standard med serverkryptering med en plattformshanterad nyckel (från och med den 10 juni 2017). Du kan hantera kryptering av hanterade diskar med dina egna nycklar genom att ange en kundhanterad nyckel. Mer information finns i [Kryptering på serversidan av Azure-hanterade diskar](disk-encryption.md).
+Kryptering av lagring på Server sidan krypterar Azure Managed disks i Azure Storage. Hanterade diskar krypteras som standard med kryptering på Server sidan med en plattforms-hanterad nyckel (från och med den 10 juni 2017). Du kan hantera kryptering av hanterade diskar med dina egna nycklar genom att ange en kundhanterad nyckel. Mer information finns i [kryptering på Server sidan av Azure Managed disks](disk-encryption.md).
  
-## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>Hur skiljer sig Azure Disk Encryption från kryptering på lagringsserversidan med kundhanterad nyckel och när ska jag använda varje lösning?
+## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>Hur skiljer sig Azure Disk Encryption från lagrings Server sidans kryptering med kundhanterad nyckel och när ska jag använda varje lösning?
 
-Azure Disk Encryption tillhandahåller end-to-end-kryptering för OS-disken, datadiskar och den tillfälliga resursdisken med en kundhanterad nyckel.
+Azure Disk Encryption tillhandahåller kryptering från slut punkt till slut punkt för OS-disken, data diskarna och den tillfälliga resurs disken med en kundhanterad nyckel.
 
-- Om dina krav omfattar kryptering av alla ovanstående och end-to-end-kryptering använder du Azure Disk Encryption. 
-- Om dina krav omfattar kryptering endast av data i vila med kundhanterad nyckel använder du [kryptering på serversidan med kundhanterade nycklar](disk-encryption.md). Du kan inte kryptera en disk med både Azure Disk Encryption och Storage server-side kryptering med kundhanterade nycklar.
-- Om du använder ett scenario som [anropas](disk-encryption-windows.md#unsupported-scenarios)i scenarier som inte stöds för Windows bör du överväga kryptering på [serversidan med kundhanterade nycklar](disk-encryption.md). 
-- Om din organisations princip tillåter dig att kryptera innehåll i vila med en Azure-hanterad nyckel behövs ingen åtgärd - innehållet krypteras som standard. För hanterade diskar krypteras innehållet i lagringen som standard med kryptering på serversidan med plattformshanterad nyckel. Nyckeln hanteras av Azure Storage-tjänsten. 
+- Om dina krav omfattar kryptering av alla ovanstående och kryptering från slut punkt till slut punkt använder du Azure Disk Encryption. 
+- Om dina krav inkluderar kryptering av endast data i vila med kundhanterad nyckel använder du [kryptering på Server sidan med Kundhanterade nycklar](disk-encryption.md). Det går inte att kryptera en disk med både Azure Disk Encryption-och kryptering av lagring på Server sidan med Kundhanterade nycklar.
+- Om du använder ett scenario som kallas i [scenarier som inte stöds för Windows](disk-encryption-windows.md#unsupported-scenarios)kan du överväga [kryptering på Server sidan med Kundhanterade nycklar](disk-encryption.md). 
+- Om din organisations princip tillåter att du krypterar innehåll i vila med en Azure-hanterad nyckel krävs ingen åtgärd – innehållet krypteras som standard. För hanterade diskar krypteras innehållet i lagrings utrymmet som standard med kryptering på Server sidan med en plattforms-hanterad nyckel. Nyckeln hanteras av Azure Storages tjänsten. 
 
-## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Hur roterar jag hemligheter eller krypteringsnycklar?
+## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Hur gör jag för att rotera hemligheter eller krypterings nycklar?
 
-Om du vill rotera hemligheter anropar du bara samma kommando som du använde ursprungligen för att aktivera diskkryptering och anger ett annat Nyckelvalv. Om du vill rotera nyckelkrypteringsnyckeln anropar du samma kommando som du använde ursprungligen för att aktivera diskkryptering och anger den nya nyckelkrypteringen. 
+Om du vill rotera hemligheter anropar du bara samma kommando som du använde ursprungligen för att aktivera disk kryptering, vilket anger en annan Key Vault. Om du vill rotera nyckel krypterings nyckeln anropar du samma kommando som du använde ursprungligen för att aktivera disk kryptering och anger den nya nyckel krypteringen. 
 
 >[!WARNING]
-> - Om du tidigare har använt [Azure Disk Encryption med Azure AD-app](disk-encryption-windows-aad.md) genom att ange Azure AD-autentiseringsuppgifter för att kryptera den här virtuella datorn, måste du fortsätta använda det här alternativet för att kryptera din virtuella dator. Du kan inte använda Azure Disk Encryption på den här krypterade virtuella datorn eftersom det inte är ett scenario som stöds, vilket innebär att det inte stöds att byta från AAD-program för den här krypterade virtuella datorn ännu.
+> - Om du tidigare har använt [Azure Disk Encryption med Azure AD-appen](disk-encryption-windows-aad.md) genom att ange autentiseringsuppgifter för Azure AD för att kryptera den här virtuella datorn måste du fortsätta använda det här alternativet för att kryptera den virtuella datorn. Du kan inte använda Azure Disk Encryption på den här krypterade virtuella datorn eftersom detta inte stöds, vilket innebär att det inte finns stöd för att växla bort från AAD-program för den här krypterade virtuella datorn än.
 
-## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Hur lägger jag till eller tar bort en nyckelkrypteringsnyckel om jag inte använde en?
+## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Hur gör jag för att lägga till eller ta bort en nyckel krypterings nyckel om jag inte ursprungligen använde den?
 
-Om du vill lägga till en nyckelkrypteringsnyckel anropar du kommandot Enable igen och skickar parametern för nyckelkrypteringsnyckeln. Om du vill ta bort en nyckelkrypteringsnyckel anropar du kommandot Enable igen utan parametern för nyckelkrypteringsnyckel.
+Om du vill lägga till en nyckel krypterings nyckel anropar du kommandot Aktivera igen och skickar nyckel krypterings nyckel parametern. Om du vill ta bort en nyckel krypterings nyckel anropar du kommandot Aktivera igen utan parametern nyckel krypterings nyckel.
 
-## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok"></a>Gör Azure Disk Encryption att du kan ta med din egen nyckel (BYOK)?
+## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok"></a>Tillåter Azure Disk Encryption att du kan ta med din egen nyckel (BYOK)?
 
-Ja, du kan ange dina egna nyckelkrypteringsnycklar. Dessa nycklar skyddas i Azure Key Vault, som är nyckelarkivet för Azure Disk Encryption. Mer information om stödscenarierna för nyckelkrypteringsnycklar finns i [Skapa och konfigurera ett nyckelvalv för Azure Disk Encryption](disk-encryption-key-vault.md).
+Ja, du kan ange dina egna nyckel krypterings nycklar. Nycklarna skyddas i Azure Key Vault, som är nyckel lagret för Azure Disk Encryption. Mer information om nyckel krypterings nycklarna stöder scenarier finns i [skapa och konfigurera ett nyckel valv för Azure Disk Encryption](disk-encryption-key-vault.md).
 
-## <a name="can-i-use-an-azure-created-key-encryption-key"></a>Kan jag använda en Azure-skapad nyckelkrypteringsnyckel?
+## <a name="can-i-use-an-azure-created-key-encryption-key"></a>Kan jag använda en nyckel krypterings nyckel som skapats av Azure?
 
-Ja, du kan använda Azure Key Vault för att generera en nyckelkrypteringsnyckel för Azure-diskkrypteringsanvändning. Dessa nycklar skyddas i Azure Key Vault, som är nyckelarkivet för Azure Disk Encryption. Mer information om nyckelkrypteringsnyckeln finns i [Skapa och konfigurera ett nyckelvalv för Azure Disk Encryption](disk-encryption-key-vault.md).
+Ja, du kan använda Azure Key Vault för att generera en nyckel krypterings nyckel för användning av Azure Disk Encryption. Nycklarna skyddas i Azure Key Vault, som är nyckel lagret för Azure Disk Encryption. Mer information om nyckel krypterings nyckeln finns i [skapa och konfigurera ett nyckel valv för Azure Disk Encryption](disk-encryption-key-vault.md).
 
-## <a name="can-i-use-an-on-premises-key-management-service-or-hsm-to-safeguard-the-encryption-keys"></a>Kan jag använda en lokal nyckelhanteringstjänst eller HSM för att skydda krypteringsnycklarna?
+## <a name="can-i-use-an-on-premises-key-management-service-or-hsm-to-safeguard-the-encryption-keys"></a>Kan jag använda en lokal nyckel hanterings tjänst eller HSM för att skydda krypterings nycklarna?
 
-Du kan inte använda den lokala nyckelhanteringstjänsten eller HSM för att skydda krypteringsnycklarna med Azure Disk Encryption. Du kan bara använda Azure Key Vault-tjänsten för att skydda krypteringsnycklarna. Mer information om nyckelkrypteringsnyckelns supportscenarier finns i [Skapa och konfigurera ett nyckelvalv för Azure Disk Encryption](disk-encryption-key-vault.md).
+Du kan inte använda lokal nyckel hanterings tjänst eller HSM för att skydda krypterings nycklarna med Azure Disk Encryption. Du kan bara använda tjänsten Azure Key Vault för att skydda krypterings nycklarna. Mer information om stöd scenarier för nyckel krypterings nyckel finns i [skapa och konfigurera ett nyckel valv för Azure Disk Encryption](disk-encryption-key-vault.md).
 
-## <a name="what-are-the-prerequisites-to-configure-azure-disk-encryption"></a>Vilka är förutsättningarna för att konfigurera Azure Disk Encryption?
+## <a name="what-are-the-prerequisites-to-configure-azure-disk-encryption"></a>Vilka är kraven för att konfigurera Azure Disk Encryption?
 
-Det finns förutsättningar för Azure Disk Encryption. Se artikeln [Skapa och konfigurera ett nyckelvalv för Azure Disk Encryption för](disk-encryption-key-vault.md) att skapa ett nytt nyckelvalv eller konfigurera ett befintligt nyckelvalv för diskkrypteringsåtkomst för kryptering och skydda hemligheter och nycklar. Mer information om nyckelkrypteringsnyckelns supportscenarier finns i [Skapa och konfigurera ett nyckelvalv för Azure Disk Encryption](disk-encryption-key-vault.md).
+Det finns förutsättningar för Azure Disk Encryption. Se Skapa [och konfigurera ett nyckel valv för Azure Disk Encryption](disk-encryption-key-vault.md) artikel om du vill skapa ett nytt nyckel valv, eller konfigurera ett befintligt nyckel valv för disk krypterings åtkomst för att aktivera kryptering och skydda hemligheter och nycklar. Mer information om stöd scenarier för nyckel krypterings nyckel finns i [skapa och konfigurera ett nyckel valv för Azure Disk Encryption](disk-encryption-key-vault.md).
 
-## <a name="what-are-the-prerequisites-to-configure-azure-disk-encryption-with-an-azure-ad-app-previous-release"></a>Vilka är förutsättningarna för att konfigurera Azure Disk Encryption med en Azure AD-app (tidigare version)?
+## <a name="what-are-the-prerequisites-to-configure-azure-disk-encryption-with-an-azure-ad-app-previous-release"></a>Vilka är kraven för att konfigurera Azure Disk Encryption med en Azure AD-App (tidigare version)?
 
-Det finns förutsättningar för Azure Disk Encryption. Se [Azure Disk Encryption med Azure AD-innehåll](disk-encryption-windows-aad.md) för att skapa ett Azure Active Directory-program, skapa ett nytt nyckelvalv eller konfigurera ett befintligt nyckelvalv för diskkrypteringsåtkomst för kryptering och skydda hemligheter och nycklar. Mer information om nyckelkrypteringsnyckelns supportscenarier finns i [Skapa och konfigurera ett nyckelvalv för Azure Disk Encryption med Azure AD](disk-encryption-key-vault-aad.md).
+Det finns förutsättningar för Azure Disk Encryption. Se [Azure Disk Encryption med Azure AD](disk-encryption-windows-aad.md) -innehåll för att skapa ett Azure Active Directory program, skapa ett nytt nyckel valv eller konfigurera ett befintligt nyckel valv för disk krypterings åtkomst för att aktivera kryptering och skydda hemligheter och nycklar. Mer information om stöd scenarier för nyckel krypterings nyckel finns i [skapa och konfigurera ett nyckel valv för Azure Disk Encryption med Azure AD](disk-encryption-key-vault-aad.md).
 
-## <a name="is-azure-disk-encryption-using-an-azure-ad-app-previous-release-still-supported"></a>Stöds Azure Disk Encryption med en Azure AD-app (tidigare version) fortfarande?
-Ja. Diskkryptering med hjälp av en Azure AD-app stöds fortfarande. När du krypterar nya virtuella datorer rekommenderar vi dock att du använder den nya metoden i stället för att kryptera med en Azure AD-app. 
+## <a name="is-azure-disk-encryption-using-an-azure-ad-app-previous-release-still-supported"></a>Stöds Azure Disk Encryption med en Azure AD-App (tidigare version)?
+Ja. Disk kryptering med hjälp av en Azure AD-app stöds fortfarande. Men när du krypterar nya virtuella datorer rekommenderar vi att du använder den nya metoden i stället för att kryptera med en Azure AD-App. 
 
-## <a name="can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app"></a>Kan jag migrera virtuella datorer som krypterats med en Azure AD-app till kryptering utan en Azure AD-app?
-  För närvarande finns det inte en direkt migreringssökväg för datorer som krypterades med en Azure AD-app till kryptering utan en Azure AD-app. Dessutom finns det inte en direkt sökväg från kryptering utan en Azure AD-app till kryptering med en AD-app. 
+## <a name="can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app"></a>Kan jag migrera virtuella datorer som har krypterats med en Azure AD-App till kryptering utan en Azure AD-App?
+  För närvarande finns det ingen sökväg för direkt migrering för datorer som har krypterats med en Azure AD-App till kryptering utan en Azure AD-App. Det finns dessutom ingen direkt sökväg från kryptering utan en Azure AD-App för kryptering med en AD-App. 
 
 ## <a name="what-version-of-azure-powershell-does-azure-disk-encryption-support"></a>Vilken version av Azure PowerShell stöder Azure Disk Encryption?
 
-Använd den senaste versionen av Azure PowerShell SDK för att konfigurera Azure Disk Encryption. Hämta den senaste versionen av [Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Azure Disk Encryption stöds *inte* av Azure SDK version 1.1.0.
+Använd den senaste versionen av Azure PowerShell SDK för att konfigurera Azure Disk Encryption. Ladda ned den senaste versionen av [Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Azure Disk Encryption stöds *inte* av Azure SDK-versionen 1.1.0.
 
-## <a name="what-is-the-disk-bek-volume-or-mntazure_bek_disk"></a>Vad är skivan "Bek Volume" eller "/mnt/azure_bek_disk"?
+## <a name="what-is-the-disk-bek-volume-or-mntazure_bek_disk"></a>Vad är disken "Bek Volume" eller "/mnt/azure_bek_disk"?
 
-"Bek-volymen" är en lokal datavolym som på ett säkert sätt lagrar krypteringsnycklarna för krypterade virtuella Azure-datorer.
+"Bek Volume" är en lokal data volym som lagrar krypterings nycklarna på ett säkert sätt för krypterade virtuella Azure-datorer.
 
 > [!NOTE]
-> Ta inte bort eller redigera något innehåll på den här disken. Avmontera inte disken eftersom krypteringsnyckelnärvaron behövs för alla krypteringsåtgärder på IaaS VM.
+> Ta inte bort eller redigera något innehåll på disken. Demontera inte disken eftersom det krävs krypterings nyckel närvaro för alla krypterings åtgärder på den virtuella IaaS-datorn.
 
-## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>Vilken krypteringsmetod använder Azure Disk Encryption?
+## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>Vilken krypterings metod använder Azure Disk Encryption?
 
-Azure Disk Encryption väljer krypteringsmetoden i BitLocker baserat på windowsversionen enligt följande:
+Azure Disk Encryption väljer krypterings metoden i BitLocker baserat på Windows-versionen enligt följande:
 
-| Windows-versioner                 | Version | Krypteringsmetod        |
+| Windows-versioner                 | Version | Krypterings metod        |
 |----------------------------------|--------|--------------------------|
-| Windows Server 2012, Windows 10 eller senare  | >=1511 |XTS-AES 256 bitar           |
-| Windows Server 2012, Windows 8, 8.1, 10 | < 1511 |AES 256 bitar *              |
-| Windows Server 2008R2            |        |AES 256 bitars med diffusor |
+| Windows Server 2012, Windows 10 eller senare  | >= 1511 |XTS-AES 256-bit           |
+| Windows Server 2012, Windows 8, 8,1, 10 | < 1511 |AES 256-bit *              |
+| Windows Server-2008R2            |        |AES 256-bit med diffuser |
 
-\*AES 256-bitars med Diffusor stöds inte i Windows 2012 och senare.
+\*AES 256-bitar med diffuser stöds inte i Windows 2012 och senare.
 
-Om du vill ta reda på Windows OS-versionen kör du verktyget "winver" i den virtuella datorn.
+Du fastställer Windows OS-versionen genom att köra verktyget winver på den virtuella datorn.
 
-## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Om jag använder EncryptFormatAll och ange alla volymtyper, kommer det att radera data på de dataenheter som vi redan krypterat?
-Nej, data raderas inte från dataenheter som redan är krypterade med Azure Disk Encryption. På samma sätt som EncryptFormatAll inte krypterade om OS-enheten, krypterar den inte om den redan krypterade dataenheten. 
+## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Om jag använder EncryptFormatAll och anger alla volym typer, kommer den att radera data på de data enheter som vi redan har krypterat?
+Nej, data raderas inte från data enheter som redan är krypterade med Azure Disk Encryption. På liknande sätt som EncryptFormatAll inte krypterade om OS-enheten, krypterar den inte om den redan krypterade data enheten. 
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Kan jag säkerhetskopiera och återställa en krypterad virtuell dator? 
 
-Azure Backup tillhandahåller en mekanism för säkerhetskopiering och återställning av krypterade virtuella datorer inom samma prenumeration och region.  Instruktioner finns i [Säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup](../../backup/backup-azure-vms-encryption.md).  Det går för närvarande inte att återställa en krypterad virtuell dator till en annan region.  
+Azure Backup tillhandahåller en mekanism för att säkerhetskopiera och återställa krypterade virtuella datorer i samma prenumeration och region.  Anvisningar finns i [säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup](../../backup/backup-azure-vms-encryption.md).  Det finns för närvarande inte stöd för att återställa en krypterad virtuell dator till en annan region.  
 
-## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Var kan jag gå för att ställa frågor eller ge feedback?
+## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Var kan jag ställa frågor eller lämna feedback?
 
-Du kan ställa frågor eller ge feedback på [Azure Disk Encryption-forumet](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
+Du kan ställa frågor eller ge feedback i [Azure Disk Encryption-forumet](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet har du lärt dig mer om de vanligaste frågorna om Azure Disk Encryption. Mer information om den här tjänsten finns i följande artiklar:
+I det här dokumentet har du lärt dig mer om de vanligaste frågorna som rör Azure Disk Encryption. Mer information om den här tjänsten finns i följande artiklar:
 
 - [Översikt av Azure Disk Encryption](disk-encryption-overview.md)
-- [Använda diskkryptering i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Azure-datakryptering i vila](../../security/fundamentals/encryption-atrest.md)
+- [Använd disk kryptering i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
+- [Azure Data Encryption i vila](../../security/fundamentals/encryption-atrest.md)

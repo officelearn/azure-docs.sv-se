@@ -1,6 +1,6 @@
 ---
-title: 'Azure ExpressRoute: Exempel på routerkonfiguration'
-description: Den här sidan innehåller router config prover för Cisco och Juniper routrar.
+title: 'Azure-ExpressRoute: exempel på router-konfiguration'
+description: Den här sidan innehåller konfigurations exempel för routern för Cisco-och Juniper-routrar.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,52 +8,52 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: osamaz
 ms.openlocfilehash: 3603bc45b920dc62eb8bf6f2eb8557f98e21638e
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82024820"
 ---
-# <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Exempel på routerkonfiguration för att konfigurera och hantera routning
-Den här sidan innehåller gränssnitts- och routningskonfigurationsexempel för Routrar i Cisco IOS-XE- och Juniper MX-serien när du arbetar med Azure ExpressRoute.
+# <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Konfigurations exempel för routern för att konfigurera och hantera routning
+Den här sidan innehåller konfigurations exempel för gränssnitt och routning för routrar med Cisco IOS-XE och Juniper MX-serien när du arbetar med Azure ExpressRoute.
 
 > [!IMPORTANT]
-> Exempel på denna sida är enbart för vägledning. Du måste arbeta med leverantörens försäljnings-/tekniska team och ditt nätverksteam för att hitta lämpliga konfigurationer som uppfyller dina behov. Microsoft stöder inte problem relaterade till konfigurationer som anges på den här sidan. Kontakta enhetsleverantören för supportproblem.
+> Exempel på den här sidan är helt för vägledning. Du måste arbeta med leverantörens försäljnings-/teknik team och nätverks teamet för att hitta lämpliga konfigurationer som passar dina behov. Microsoft stöder inte problem som rör konfigurationer som anges på den här sidan. Kontakta enhets leverantören för support ärenden.
 > 
 > 
 
-## <a name="mtu-and-tcp-mss-settings-on-router-interfaces"></a>MTU- och TCP MSS-inställningar på routergränssnitt
-Den maximala överföringsenheten (MTU) för ExpressRoute-gränssnittet är 1500, vilket är den typiska standardvärdet MTU för ett Ethernet-gränssnitt på en router. Om inte routern har en annan MTU som standard behöver du inte ange ett värde i routergränssnittet.
+## <a name="mtu-and-tcp-mss-settings-on-router-interfaces"></a>Inställningar för MTU-och TCP-MSS på routergränssnitt
+Den högsta överförings enheten (MTU) för ExpressRoute-gränssnittet är 1500, vilket är den typiska standard-MTUen för ett Ethernet-gränssnitt på en router. Om inte din router har en annan MTU som standard, behöver du inte ange något värde i routergränssnitten.
 
-Till skillnad från en Azure VPN-gateway behöver inte TCP:s maximala segmentstorlek (MSS) för en ExpressRoute-krets anges.
+Till skillnad från en Azure VPN-gateway behöver TCP maximal segment storlek (MSS) för en ExpressRoute-krets inte anges.
 
-Exempel på routerkonfiguration i den här artikeln gäller för alla peerings. Granska [ExpressRoute-peerings](expressroute-circuit-peerings.md) och [ExpressRoute-routningskrav](expressroute-routing.md) för mer information om routning.
+Konfigurations exemplen för routern i den här artikeln gäller alla peer-kopplingar. Granska [ExpressRoute-peering](expressroute-circuit-peerings.md) och [krav för ExpressRoute-routning](expressroute-routing.md) för mer information om routning.
 
 
-## <a name="cisco-ios-xe-based-routers"></a>Cisco IOS-XE-baserade routrar
-Exemplen i det här avsnittet gäller alla routrar som kör IOS-XE OS-familjen.
+## <a name="cisco-ios-xe-based-routers"></a>Cisco IOS – XE-baserade routrar
+Exemplen i det här avsnittet gäller för alla routrar som kör IOS-XE OS-familjen.
 
-### <a name="configure-interfaces-and-subinterfaces"></a>Konfigurera gränssnitt och undergränssnitt
-Du behöver ett undergränssnitt per peering i varje router som du ansluter till Microsoft. Ett undergränssnitt kan identifieras med ett VLAN-ID eller ett staplat par VLAN-ID:er och en IP-adress.
+### <a name="configure-interfaces-and-subinterfaces"></a>Konfigurera gränssnitt och under gränssnitt
+Du behöver ett under gränssnitt per peering i varje router som du ansluter till Microsoft. Ett under gränssnitt kan identifieras med ett VLAN-ID eller ett stackat par med VLAN-ID: n och en IP-adress.
 
 **Definition av Dot1Q-gränssnitt**
 
-Det här exemplet innehåller undergränssnittsdefinitionen för ett undergränssnitt med ett enda VLAN-ID. VLAN-ID:et är unikt per peering. Den sista oktetten på din IPv4-adress kommer alltid att vara ett udda nummer.
+Det här exemplet tillhandahåller del gränssnitts definitionen för ett under gränssnitt med ett enda VLAN-ID. VLAN-ID: t är unikt per peering. Den sista oktetten i IPv4-adressen är alltid ett udda nummer.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <VLAN_ID>
      ip address <IPv4_Address><Subnet_Mask>
 
-**QinQ-gränssnittsdefinition**
+**Definition av QinQ-gränssnitt**
 
-Det här exemplet innehåller undergränssnittsdefinitionen för ett undergränssnitt med två VLAN-ID:er. Det yttre VLAN-ID:t (s-taggen), om det används, förblir detsamma för alla peerings. Det inre VLAN-ID:t (c-taggen) är unikt per peering. Den sista oktetten på din IPv4-adress kommer alltid att vara ett udda nummer.
+Det här exemplet tillhandahåller del gränssnitts definitionen för ett under gränssnitt med två VLAN-ID: n. Det yttre VLAN-ID: t (s-tag), om det används, är detsamma för alla peer-kopplingar. Det interna VLAN-ID: t (c-tag) är unikt per peering. Den sista oktetten i IPv4-adressen är alltid ett udda nummer.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
      ip address <IPv4_Address><Subnet_Mask>
 
 ### <a name="set-up-ebgp-sessions"></a>Konfigurera eBGP-sessioner
-Du måste konfigurera en BGP-session med Microsoft för varje peering. Konfigurera en BGP-session med hjälp av följande exempel. Om IPv4-adressen som du använde för ditt undergränssnitt var a.b.c.d blir IP-adressen för BGP-grannen (Microsoft) a.b.c.d+1. Den sista oktetten för BGP-grannens IPv4-adress kommer alltid att vara ett jämnt nummer.
+Du måste konfigurera en BGP-session med Microsoft för varje peering. Konfigurera en BGP-session med hjälp av följande exempel. Om IPv4-adressen som du använde för under gränssnittet var a. b. c. d, kommer IP-adressen för BGP-grannen (Microsoft) att vara a. b. c. d + 1. Den sista oktetten i BGP-grannens IPv4-adress är alltid ett jämnt tal.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -64,8 +64,8 @@ Du måste konfigurera en BGP-session med Microsoft för varje peering. Konfigure
      exit-address-family
     !
 
-### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>Konfigurera prefix som ska annonseras över BGP-sessionen
-Konfigurera routern så att den annonserar välja prefix till Microsoft med hjälp av följande exempel.
+### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>Konfigurera prefix som ska annonseras via BGP-sessionen
+Konfigurera routern så att den annonserar valda prefix till Microsoft med hjälp av följande exempel.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -77,8 +77,8 @@ Konfigurera routern så att den annonserar välja prefix till Microsoft med hjä
      exit-address-family
     !
 
-### <a name="route-maps"></a>Kartor över rutt
-Använd ruttkartor och prefixlistor för att filtrera prefix som sprids i nätverket. Se följande exempel och se till att du har konfigurerat lämpliga prefixlistor.
+### <a name="route-maps"></a>Väg kartor
+Använd listorna Route Maps och prefix för att filtrera prefix som sprids till nätverket. Se följande exempel och se till att du har rätt prefix listor konfigurerade.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -96,7 +96,7 @@ Använd ruttkartor och prefixlistor för att filtrera prefix som sprids i nätve
 
 ### <a name="configure-bfd"></a>Konfigurera BFD
 
-Du konfigurerar BFD på två ställen: en på gränssnittsnivå och en annan på BGP-nivå. Exemplet här är för QinQ-gränssnittet. 
+Du konfigurerar BFD på två platser: en på gränssnitts nivå och en annan på BGP-nivå. Exemplet här är för QinQ-gränssnittet. 
 
     interface GigabitEthernet<Interface_Number>.<Number>
      bfd interval 300 min_rx 300 multiplier 3
@@ -114,14 +114,14 @@ Du konfigurerar BFD på två ställen: en på gränssnittsnivå och en annan på
     !
 
 
-## <a name="juniper-mx-series-routers"></a>Routrar i Juniper MX-serien
-Exemplen i det här avsnittet gäller för alla Juniper MX-seriens router.
+## <a name="juniper-mx-series-routers"></a>Juniper MX-serie routrar
+Exemplen i det här avsnittet gäller för alla Juniper MX Series-routrar.
 
-### <a name="configure-interfaces-and-subinterfaces"></a>Konfigurera gränssnitt och undergränssnitt
+### <a name="configure-interfaces-and-subinterfaces"></a>Konfigurera gränssnitt och under gränssnitt
 
 **Definition av Dot1Q-gränssnitt**
 
-Det här exemplet innehåller undergränssnittsdefinitionen för ett undergränssnitt med ett enda VLAN-ID. VLAN-ID:et är unikt per peering. Den sista oktetten på din IPv4-adress kommer alltid att vara ett udda nummer.
+Det här exemplet tillhandahåller del gränssnitts definitionen för ett under gränssnitt med ett enda VLAN-ID. VLAN-ID: t är unikt per peering. Den sista oktetten i IPv4-adressen är alltid ett udda nummer.
 
     interfaces {
         vlan-tagging;
@@ -136,9 +136,9 @@ Det här exemplet innehåller undergränssnittsdefinitionen för ett undergräns
     }
 
 
-**QinQ-gränssnittsdefinition**
+**Definition av QinQ-gränssnitt**
 
-Det här exemplet innehåller undergränssnittsdefinitionen för ett undergränssnitt med två VLAN-ID:er. Det yttre VLAN-ID:t (s-taggen), om det används, förblir detsamma för alla peerings. Det inre VLAN-ID:t (c-taggen) är unikt per peering. Den sista oktetten på din IPv4-adress kommer alltid att vara ett udda nummer.
+Det här exemplet tillhandahåller del gränssnitts definitionen för ett under gränssnitt med två VLAN-ID: n. Det yttre VLAN-ID: t (s-tag), om det används, är detsamma för alla peer-kopplingar. Det interna VLAN-ID: t (c-tag) är unikt per peering. Den sista oktetten i IPv4-adressen är alltid ett udda nummer.
 
     interfaces {
         <Interface_Number> {
@@ -153,7 +153,7 @@ Det här exemplet innehåller undergränssnittsdefinitionen för ett undergräns
     }                           
 
 ### <a name="set-up-ebgp-sessions"></a>Konfigurera eBGP-sessioner
-Du måste konfigurera en BGP-session med Microsoft för varje peering. Konfigurera en BGP-session med hjälp av följande exempel. Om IPv4-adressen som du använde för ditt undergränssnitt var a.b.c.d blir IP-adressen för BGP-grannen (Microsoft) a.b.c.d+1. Den sista oktetten för BGP-grannens IPv4-adress kommer alltid att vara ett jämnt nummer.
+Du måste konfigurera en BGP-session med Microsoft för varje peering. Konfigurera en BGP-session med hjälp av följande exempel. Om IPv4-adressen som du använde för under gränssnittet var a. b. c. d, kommer IP-adressen för BGP-grannen (Microsoft) att vara a. b. c. d + 1. Den sista oktetten i BGP-grannens IPv4-adress är alltid ett jämnt tal.
 
     routing-options {
         autonomous-system <Customer_ASN>;
@@ -168,8 +168,8 @@ Du måste konfigurera en BGP-session med Microsoft för varje peering. Konfigure
         }                                   
     }
 
-### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>Konfigurera prefix som ska annonseras över BGP-sessionen
-Konfigurera routern så att den annonserar välja prefix till Microsoft med hjälp av följande exempel.
+### <a name="set-up-prefixes-to-be-advertised-over-the-bgp-session"></a>Konfigurera prefix som ska annonseras via BGP-sessionen
+Konfigurera routern så att den annonserar valda prefix till Microsoft med hjälp av följande exempel.
 
     policy-options {
         policy-statement <Policy_Name> {
@@ -194,8 +194,8 @@ Konfigurera routern så att den annonserar välja prefix till Microsoft med hjä
     }
 
 
-### <a name="route-policies"></a>Ruttprinciper
-Du kan använda ruttkartor och prefixlistor för att filtrera prefix som sprids i nätverket. Se följande exempel och se till att du har rätt prefixlistor inställda.
+### <a name="route-policies"></a>Flödes principer
+Du kan använda listorna Route Maps och prefix för att filtrera prefix som sprids till nätverket. Se följande exempel och se till att du har rätt prefix listor konfigurerade.
 
     policy-options {
         prefix-list MS_Prefixes {
@@ -225,7 +225,7 @@ Du kan använda ruttkartor och prefixlistor för att filtrera prefix som sprids 
     }
 
 ### <a name="configure-bfd"></a>Konfigurera BFD
-Konfigurera endast BFD under protokollets BGP-avsnitt.
+Konfigurera BFD under protokollet BGP-avsnitt.
 
     protocols {
         bgp { 

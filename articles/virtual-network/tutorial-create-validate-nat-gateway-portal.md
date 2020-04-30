@@ -1,7 +1,7 @@
 ---
-title: 'Självstudiekurs: Skapa och testa en NAT Gateway - Azure-portal'
+title: 'Självstudie: skapa och testa en NAT-gateway – Azure Portal'
 titlesuffix: Azure Virtual Network NAT
-description: Den här självstudien visar hur du skapar en NAT-gateway med Azure-portalen och testar NAT-tjänsten
+description: Den här självstudien visar hur du skapar en NAT-gateway med hjälp av Azure Portal och testar NAT-tjänsten
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
 ms.openlocfilehash: ceadbb4297ad0c5ce28470dd75b3f3496c9c5152
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82084751"
 ---
-# <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Självstudiekurs: Skapa en NAT-gateway med Azure-portalen och testa NAT-tjänsten
+# <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Självstudie: skapa en NAT-gateway med hjälp av Azure Portal och testa NAT-tjänsten
 
-I den här självstudien skapar du en NAT-gateway för att tillhandahålla utgående anslutning för virtuella datorer i Azure. Om du vill testa NAT-gatewayen distribuerar du en virtuell dator för källa och mål. Du ska testa NAT-gatewayen genom att skapa utgående anslutningar till en offentlig IP-adress från källan till den virtuella måldatorn.  Den här självstudien distribuerar källa och mål i två olika virtuella nätverk i samma resursgrupp endast för enkelhetens skull.
+I den här självstudien skapar du en NAT-gateway för att tillhandahålla utgående anslutning för virtuella datorer i Azure. Om du vill testa NAT-gatewayen distribuerar du en virtuell käll-och mål dator. Du testar NAT-gatewayen genom att göra utgående anslutningar till en offentlig IP-adress från källan till den virtuella mål datorn.  I den här självstudien distribueras källa och mål i två olika virtuella nätverk i samma resurs grupp för enkelhetens skull.
 
 Om du vill kan du utföra de här stegen med hjälp av [Azure CLI](tutorial-create-validate-nat-gateway-cli.md) eller [Azure PowerShell](tutorial-create-validate-nat-gateway-powershell.md) i stället för portalen.
 
@@ -31,120 +31,120 @@ Om du vill kan du utföra de här stegen med hjälp av [Azure CLI](tutorial-crea
 
 Logga in på [Azure-portalen](https://portal.azure.com).
 
-## <a name="prepare-the-source-for-outbound-traffic"></a>Förbereda källan för utgående trafik
+## <a name="prepare-the-source-for-outbound-traffic"></a>Förbered källan för utgående trafik
 
-Vi guidar dig genom konfiguration av en fullständig testmiljö och genomförandet av själva testerna i nästa steg. Vi börjar med källan, som kommer att använda NAT gateway-resurs som vi skapar i senare steg.
+Vi vägleder dig genom konfigurationen av en fullständig test miljö och körningen av testerna i nästa steg. Vi kommer att börja med källan, som använder NAT-gatewayens resurs som vi skapar i senare steg.
 
 ## <a name="virtual-network-and-parameters"></a>Virtuellt nätverk och parametrar
 
-Innan du distribuerar en virtuell dator och kan använda din NAT-gateway måste vi skapa resursgruppen och det virtuella nätverket.
+Innan du distribuerar en virtuell dator och kan använda din NAT-gateway måste du skapa resurs gruppen och det virtuella nätverket.
 
 I det här avsnittet måste du ersätta följande parametrar i stegen med informationen nedan:
 
 | Parameter                   | Värde                |
 |-----------------------------|----------------------|
-| **\<resursgruppnamn>**  | myResourceGroupNAT |
-| **\<>virtuellt nätverksnamn** | myVNetsource          |
-| **\<regionnamn>**          | USA, östra 2      |
-| **\<IPv4-adress-utrymme>**   | 192.168.0.0/16          |
-| **\<>i>**          | mySubnetsource        |
-| **\<>för>** | 192.168.0.0/24          |
+| **\<resurs grupp-namn>**  | myResourceGroupNAT |
+| **\<virtuell-nätverks namn>** | myVNetsource          |
+| **\<region namn>**          | USA, östra 2      |
+| **\<IPv4-adress utrymme>**   | 192.168.0.0/16          |
+| **\<under näts namn>**          | mySubnetsource        |
+| **\<undernät-adress – intervall>** | 192.168.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-## <a name="create-source-virtual-machine"></a>Skapa virtuell källdator
+## <a name="create-source-virtual-machine"></a>Skapa virtuell käll dator
 
-Vi ska nu skapa en virtuell dator för att använda NAT-tjänsten. Den här virtuella datorn har en offentlig IP att använda som en offentlig IP på instansnivå så att du kan komma åt den virtuella datorn. NAT-tjänsten är flödesriktningsmedveten och ersätter standardmålet för Internet i undernätet. Den virtuella datorns offentliga IP-adress används inte för utgående anslutningar.
+Nu ska vi skapa en virtuell dator för att använda NAT-tjänsten. Den här virtuella datorn har en offentlig IP-adress som kan användas som en offentlig IP-adress på instans nivå för att få åtkomst till den virtuella datorn. NAT-tjänsten är en flödes riktning som är medveten om och kommer att ersätta standard målet för Internet i ditt undernät. Den virtuella datorns offentliga IP-adress används inte för utgående anslutningar.
 
-Om du vill testa NAT-gatewayen tilldelar vi en offentlig IP-adressresurs som en offentlig IP-ip på instansnivå för åtkomst till den här virtuella datorn utifrån. Den här adressen används endast för att komma åt den för testet.  Vi visar hur NAT-tjänsten har företräde framför andra utgående alternativ.
+För att testa NAT-gatewayen tilldelar vi en offentlig IP-adressresurs som en offentlig IP-adress på instans nivå för att få åtkomst till den här virtuella datorn från utsidan. Den här adressen används bara för att komma åt den för testet.  Vi visar hur NAT-tjänsten prioriteras över andra utgående alternativ.
 
-Du kan också skapa den här virtuella datorn utan en offentlig IP och skapa en annan virtuell dator som ska användas som en jumpbox utan en offentlig IP som en övning.
+Du kan också skapa den här virtuella datorn utan en offentlig IP-adress och skapa en annan virtuell dator som du kan använda som en hoppning utan en offentlig IP-adress som en övning.
 
-1. På portalens övre vänstra sida väljer du **Skapa en resurs** > **Compute** > **Ubuntu Server 18.04 LTS**eller sök efter **Ubuntu Server 18.04 LTS** i Marketplace-sökningen.
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs** > **Compute** > **Ubuntu Server 18,04 LTS**eller söker efter **Ubuntu Server 18,04 LTS** i Marketplace-sökningen.
 
-2. Ange eller välj följande värden på fliken **Grunderna** i **Skapa en virtuell dator:**
-   - **Subscription** > **Prenumerationsresursgrupp:** Välj **myResourceGroupNAT**.
-   - **Instansinformation** > **Virtuell datornamn:** ange **myVMsource**.
-   - **Instance Details** > Region för**instansinformation** > väljer **östra USA 2**.
-   - **Administratörskonto** > **Autentisering ange:** Välj **lösenord**.
-   - **Administratörskontot** > ange **information om användarnamn,** **lösenord**och **bekräfta lösenord.**
-   - **Regler för inkommande portar** > **Offentliga inkommande portar**: Välj Tillåt valda **portar**.
-   - **Regler för inkommande port** > **Välj inkommande portar**: Välj **SSH (22)**
+2. I **skapa en virtuell dator**anger eller väljer du följande värden på fliken **grundläggande** :
+   - **Prenumerations** > **resurs grupp**: Välj **myResourceGroupNAT**.
+   - **Instans information** > **namn på virtuell dator**: ange **myVMsource**.
+   - **Instans information** > **region** > Välj **USA, östra 2**.
+   - **Autentisering av administratörs konto** > **Ange**: Välj **lösen ord**.
+   - **Administratörs konto** > ange **användar namn**, **lösen ord**och **Bekräfta lösen ords** information.
+   - **Inkommande port regler** > **offentliga inkommande portar**: Välj **Tillåt valda portar**.
+   - **Regler** > för inkommande**portar Välj inkommande portar**: Välj **SSH (22)**
    - Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**.
 
-3. Kontrollera att följande är markerade på fliken **Nätverk:**
-   - **Virtuellt nätverk:** **myVnetsource**
+3. På fliken **nätverk** ser du till att följande är markerat:
+   - **Virtuellt nätverk**: **myVnetsource**
    - **Undernät**: **mySubnetsource**
-   - **Offentliga IP->** Välj **Skapa ny**.  I fönstret **Skapa offentlig IP-adress** anger du **myPublicIPsourceVM** i fältet **Namn.** Välj **Standard** för **SKU**. Lämna resten vid standardinställningarna och klicka på **OK**.
-   - **Säkerhetsgrupp för nätverksnätverk:** Välj **Grundläggande**.
-   - **Inkommande inkommande portar**: Välj **Tillåt valda portar**.
-   - **Välj inkommande portar**: Bekräfta att **SSH** är markerat.
+   - **Offentlig IP** > Välj **Skapa ny**.  I fönstret **skapa offentlig IP-adress** anger du **MyPublicIPsourceVM** i fältet **namn** . Välj **standard** för **SKU: n**. Lämna kvar resten av standardinställningarna och klicka på **OK**.
+   - **NIC-nätverks säkerhets grupp**: Välj **Basic**.
+   - **Offentliga inkommande portar**: Välj **Tillåt valda portar**.
+   - **Välj inkommande portar**: bekräfta **SSH** är markerat.
 
-4. Ange **Startdiagnostik** på **Av**under **Övervakning**på fliken **Hantering** .
+4. På fliken **hantering** , under **övervakning**, ställer du in **startdiagnostik** på **av**.
 
 5. Välj **Granska + skapa**.
 
-6. Granska inställningarna och klicka på **Skapa**.
+6. Granska inställningarna och klicka på **skapa**.
 
 ## <a name="create-the-nat-gateway"></a>Skapa NAT-gatewayen
 
-Du kan använda en eller flera offentliga IP-adressresurser, offentliga IP-prefix eller båda med NAT-gateway. Vi lägger till en offentlig IP-resurs, offentligt IP-prefix och en NAT-gatewayresurs.
+Du kan använda en eller flera offentliga IP-adressresurser, offentliga IP-prefix eller både och med NAT-gateway. Vi ska lägga till en offentlig IP-resurs, ett offentligt IP-prefix och en NAT-gateway-resurs.
 
-I det här avsnittet beskrivs hur du kan skapa och konfigurera följande komponenter i NAT-tjänsten med hjälp av NAT-gatewayresursen:
-  - En offentlig IP-pool och offentligt IP-prefix som ska användas för utgående flöden som översätts av NAT-gatewayresursen.
-  - Ändra tidsgränsen för inaktiv tid från standardvärdet 4 minuter till 10 minuter.
+I det här avsnittet beskrivs hur du kan skapa och konfigurera följande komponenter i NAT-tjänsten med hjälp av NAT-gateway-resursen:
+  - En offentlig IP-pool och ett offentligt IP-prefix som används för utgående flöden som översätts av NAT gateway-resursen.
+  - Ändra tids gränsen för inaktivitet från standardvärdet 4 minuter till 10 minuter.
 
 ### <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
 
-1. På portalens övre vänstra sida väljer du Skapa en offentlig**IP-adress**för > **nätverknätverk** > eller sök efter **offentlig IP-adress** i Marketplace-sökningen. **Create a resource** 
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs** > **nätverkets** > **offentliga IP-adress**eller söker efter **offentlig IP-adress** i Marketplace-sökningen. 
 
-2. Ange eller välj den här informationen i **Skapa offentlig IP-adress:**
+2. I **skapa offentlig IP-adress**anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
     | IP-version | Välj **IPv4**.
-    | SKU | Välj **Standard**.
-    | Namn | Ange **myPublicIPsource**. |
+    | SKU | Välj **standard**.
+    | Name | Ange **myPublicIPsource**. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **myResourceGroupNAT**. |
-    | Location | Välj **USA, östra 2**.|
+    | Plats | Välj **USA, östra 2**.|
 
 3. Lämna resten av standardinställningarna och välj **Skapa**.
 
 ### <a name="create-a-public-ip-prefix"></a>Skapa ett offentligt IP-prefix
 
-1. På portalens övre vänstra sida väljer du Skapa ett**offentligt IP-resursprefix**för **nätverknätverk** > **Networking** > eller sök efter **offentligt IP-prefix** i Marketplace-sökningen.
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs** > **nätverk** > **offentlig IP-prefix**eller söker efter **offentliga IP-prefix** i Marketplace-sökningen.
 
-2. Ange eller markera följande värden på fliken **Grunderna** i **Skapa ett offentligt IP-prefix:**
-   - **Subscription** > **Prenumerationsresursgrupp:** Välj **myResourceGroupNAT**>
-   - **Förekomstinformation** > **Namn:** ange **myPublicIPprefixsource**.
-   - **Instansinformation** > **Region:** Välj **Östra USA 2**.
-   - **Instansinformation** > **Prefixstorlek**: Välj **/31 (2 adresser)**
+2. I **skapa ett offentligt IP-prefix**anger eller väljer du följande värden på fliken **grundläggande** :
+   - **Prenumerations** > **resurs grupp**: Välj **myResourceGroupNAT**>
+   - **Instans informations** > **namn**: ange **myPublicIPprefixsource**.
+   - **Instans informations** > **region**: Välj **USA, östra 2**.
+   - **Instans information** > **prefixlängd**: Välj **/31 (2 adresser)**
 
-3. Lämna resten standardvärdena och välj **Granska + skapa**.
+3. Lämna resten av standardinställningarna och välj **Granska + skapa**.
 
 4. Granska inställningarna och välj sedan **Skapa**.
 
 
-### <a name="create-a-nat-gateway-resource"></a>Skapa en NAT-gatewayresurs
+### <a name="create-a-nat-gateway-resource"></a>Skapa en NAT-gateway-resurs
 
-1. På portalens övre vänstra sida väljer du Skapa en**NAT-gateway**för > **nätverknätverk** > eller sök efter **NAT-gateway** i Marketplace-sökningen. **Create a resource**
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs** > **nätverk** > **NAT gateway**eller söker efter **NAT-gateway** i Marketplace-sökningen.
 
-2. Ange eller välj följande värden på fliken Grunderna i **Skapa nätverksadressöversättning (NAT):In Create network address translation (NAT) gateway**, enter or select the following values in the **Basics** tab:
-   - **Subscription** > **Prenumerationsresursgrupp:** Välj **myResourceGroupNAT**.
-   - **Instansinformation** > **NAT gateway namn:** ange **myNATgateway**.
-   - **Instansinformation** > **Region:** Välj **Östra USA 2**.
-   - **Instansinformation** > **Inaktiv timeout (minuter):** ange **10**.
-   - Välj fliken **Offentlig IP** eller välj **Nästa: Offentlig IP**.
+2. I **skapa Network Address Translation (NAT) Gateway**anger eller väljer du följande värden på fliken **grundläggande** :
+   - **Prenumerations** > **resurs grupp**: Välj **myResourceGroupNAT**.
+   - **Instans information** > **NAT-gatewayens namn**: ange **myNATgateway**.
+   - **Instans informations** > **region**: Välj **USA, östra 2**.
+   - **Instance details** > **Inaktiv tids gräns för instans information (minuter)**: ange **10**.
+   - Välj fliken **offentlig IP-adress** eller Välj **Nästa: offentlig IP**.
 
-3. Ange eller välj följande värden på fliken **Offentlig IP:**
-   - **Offentliga IP-adresser:** Välj **myPublicIPsource**.
-   - **Offentliga IP-prefix:** Välj **myPublicIPprefixsource**.
-   - Välj fliken **Undernät** eller välj **Nästa: Undernät**.
+3. På fliken **offentlig IP** anger eller väljer du följande värden:
+   - **Offentliga IP-adresser**: Välj **myPublicIPsource**.
+   - **Offentliga IP-prefix**: Välj **myPublicIPprefixsource**.
+   - Välj fliken **undernät** eller Välj **Nästa: undernät**.
 
-4. Ange eller välj följande värden på fliken **Undernät:**
-   - **Virtuellt nätverk:** Välj **myResourceGroupNAT** > **myVnetsource**.
-   - **Undernätsnamn**: Markera rutan bredvid **mySubnetsource**.
+4. På fliken **undernät** anger eller väljer du följande värden:
+   - **Virtual Network**: Välj **myResourceGroupNAT** > **myVnetsource**.
+   - **Under näts namn**: Markera kryss rutan bredvid **mySubnetsource**.
 
 5. Välj **Granska + skapa**.
 
@@ -153,71 +153,71 @@ I det här avsnittet beskrivs hur du kan skapa och konfigurera följande kompone
 All utgående trafik till Internet-destinationer använder nu NAT-tjänsten.  Det är inte nödvändigt att konfigurera en UDR.
 
 
-## <a name="prepare-destination-for-outbound-traffic"></a>Förbered destination för utgående trafik
+## <a name="prepare-destination-for-outbound-traffic"></a>Förbered mål för utgående trafik
 
-Vi skapar nu en destination för den utgående trafik som översätts av NAT-tjänsten så att du kan testa den.
+Nu ska vi skapa ett mål för den utgående trafik som översätts av NAT-tjänsten så att du kan testa den.
 
 
 ## <a name="virtual-network-and-parameters-for-destination"></a>Virtuellt nätverk och parametrar för mål
 
-Innan du distribuerar en virtuell dator för målet måste vi skapa ett virtuellt nätverk där den virtuella måldatorn kan finnas. Följande är samma steg som för källdatorn med några små ändringar för att exponera målslutpunkten.
+Innan du distribuerar en virtuell dator för målet måste vi skapa ett virtuellt nätverk där den virtuella mål datorn kan finnas. Följande är samma steg som för den virtuella käll datorn med några små ändringar för att exponera mål slut punkten.
 
 I det här avsnittet måste du ersätta följande parametrar i stegen med informationen nedan:
 
 | Parameter                   | Värde                |
 |-----------------------------|----------------------|
-| **\<resursgruppnamn>**  | myResourceGroupNAT |
-| **\<>virtuellt nätverksnamn** | myVNetdestination          |
-| **\<regionnamn>**          | USA, östra 2      |
-| **\<IPv4-adress-utrymme>**   | 192.168.0.0/16          |
-| **\<>i>**          | mySubnetdestination        |
-| **\<>för>** | 192.168.0.0/24          |
+| **\<resurs grupp-namn>**  | myResourceGroupNAT |
+| **\<virtuell-nätverks namn>** | myVNetdestination          |
+| **\<region namn>**          | USA, östra 2      |
+| **\<IPv4-adress utrymme>**   | 192.168.0.0/16          |
+| **\<under näts namn>**          | mySubnetdestination        |
+| **\<undernät-adress – intervall>** | 192.168.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-## <a name="create-destination-virtual-machine"></a>Skapa virtuell måldator
+## <a name="create-destination-virtual-machine"></a>Skapa en virtuell mål dator
 
-1. På portalens övre vänstra sida väljer du **Skapa en resurs** > **Compute** > **Ubuntu Server 18.04 LTS**eller sök efter **Ubuntu Server 18.04 LTS** i Marketplace-sökningen.
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs** > **Compute** > **Ubuntu Server 18,04 LTS**eller söker efter **Ubuntu Server 18,04 LTS** i Marketplace-sökningen.
 
-2. Ange eller välj följande värden på fliken **Grunderna** i **Skapa en virtuell dator:**
-   - **Subscription** > **Prenumerationsresursgrupp:** Välj **myResourceGroupNAT**.
-   - **Instansinformation** > **Virtuell datornamn:** ange **myVMdestination**.
-   - **Instance Details** > Region för**instansinformation** > väljer **östra USA 2**.
-   - **Administratörskonto** > **Autentisering ange:** Välj **lösenord**.
-   - **Administratörskontot** > ange **information om användarnamn,** **lösenord**och **bekräfta lösenord.**
-   - **Regler för inkommande portar** > **Offentliga inkommande portar**: Välj Tillåt valda **portar**.
-   - **Regler för inkommande port** > **Välj inkommande portar**: Välj **SSH (22)** och **HTTP (80)**.
+2. I **skapa en virtuell dator**anger eller väljer du följande värden på fliken **grundläggande** :
+   - **Prenumerations** > **resurs grupp**: Välj **myResourceGroupNAT**.
+   - **Instans information** > **namn på virtuell dator**: ange **myVMdestination**.
+   - **Instans information** > **region** > Välj **USA, östra 2**.
+   - **Autentisering av administratörs konto** > **Ange**: Välj **lösen ord**.
+   - **Administratörs konto** > ange **användar namn**, **lösen ord**och **Bekräfta lösen ords** information.
+   - **Inkommande port regler** > **offentliga inkommande portar**: Välj **Tillåt valda portar**.
+   - **Regler** > för inkommande**portar Välj inkommande portar**: Välj **SSH (22)** och **http (80)**.
    - Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**.
 
-3. Kontrollera att följande är markerade på fliken **Nätverk:**
+3. På fliken **nätverk** ser du till att följande är markerat:
    - **Virtuellt nätverk**: **myVnetdestination**
    - **Undernät**: **mySubnetdestination**
-   - **Offentliga IP->** Välj **Skapa ny**.  I fönstret **Skapa offentlig IP-adress** anger du **myPublicIPdestinationVM** i fältet **Namn.** Välj **Standard** för **SKU**. Lämna resten vid standardinställningarna och klicka på **OK**.
-   - **Säkerhetsgrupp för nätverksnätverk:** Välj **Grundläggande**.
-   - **Inkommande inkommande portar**: Välj **Tillåt valda portar**.
-   - **Välj inkommande portar**: Bekräfta **att SSH** och **HTTP** är markerat.
+   - **Offentlig IP** > Välj **Skapa ny**.  I fönstret **skapa offentlig IP-adress** anger du **MyPublicIPdestinationVM** i fältet **namn** . Välj **standard** för **SKU**. Lämna kvar resten av standardinställningarna och klicka på **OK**.
+   - **NIC-nätverks säkerhets grupp**: Välj **Basic**.
+   - **Offentliga inkommande portar**: Välj **Tillåt valda portar**.
+   - **Välj inkommande portar**: bekräfta **SSH** och **http** är markerat.
 
-4. Ange **Startdiagnostik** på **Av**under **Övervakning**på fliken **Hantering** .
+4. På fliken **hantering** , under **övervakning**, ställer du in **startdiagnostik** på **av**.
 
 5. Välj **Granska + skapa**.
 
 6. Granska inställningarna och välj sedan **Skapa**.
 
-## <a name="prepare-a-web-server-and-test-payload-on-destination-vm"></a>Förbereda en webbserver och testa nyttolasten på måldatorn
+## <a name="prepare-a-web-server-and-test-payload-on-destination-vm"></a>Förbered en webb server och testa nytto lasten på den virtuella mål datorn
 
-Först måste vi upptäcka IP-adressen för målet VM. 
+Först måste vi identifiera IP-adressen för den virtuella mål datorn. 
 
-1. Välj **Resursgrupper**till vänster i portalen .
+1. Välj **resurs grupper**på vänster sida av portalen.
 2. Välj **myResourceGroupNAT**.
 3. Välj **myVMdestination**.
-4. Kopiera värdet för den **offentliga IP-adressen** i **Översikt**och klistra in det i anteckningar så att du kan använda det för att komma åt den virtuella datorn.
+4. I **Översikt**, kopierar du värdet för den **offentliga IP-adressen** och klistrar in i anteckningar så att du kan använda det för att få åtkomst till den virtuella datorn.
 
 >[!IMPORTANT]
->Kopiera den offentliga IP-adressen och klistra sedan in den i ett anteckningsblock så att du kan använda den i efterföljande steg. Ange att det här är den virtuella måldatorn.
+>Kopiera den offentliga IP-adressen och klistra in den i ett anteckningar så att du kan använda den i efterföljande steg. Ange det här är den virtuella mål datorn.
 
-### <a name="sign-in-to-destination-vm"></a>Logga in på mål-VM
+### <a name="sign-in-to-destination-vm"></a>Logga in på den virtuella mål datorn
 
-Öppna ett [Azure Cloud Shell](https://shell.azure.com) i webbläsaren. Använd IP-adressen som hämtades i föregående steg till SSH till den virtuella datorn.
+Öppna en [Azure Cloud Shell](https://shell.azure.com) i webbläsaren. Använd IP-adressen som hämtades i föregående steg för SSH till den virtuella datorn.
 
 ```azurecli-interactive
 ssh <username>@<ip-address-destination>
@@ -238,31 +238,31 @@ sudo rm /var/www/html/index.nginx-debian.html && \
 sudo dd if=/dev/zero of=/var/www/html/100k bs=1024 count=100
 ```
 
-Dessa kommandon uppdaterar din virtuella dator, installerar nginx och skapar en 100-KBytes-fil. Den här filen hämtas från källdatorn med NAT-tjänsten.
+De här kommandona kommer att uppdatera den virtuella datorn, installera nginx och skapa en 100-KByte-fil. Den här filen kommer att hämtas från den virtuella käll datorn med hjälp av NAT-tjänsten.
 
-Stäng SSH-sessionen med den virtuella måldatorn.
+Stäng SSH-sessionen med den virtuella mål datorn.
 
-## <a name="prepare-test-on-source-vm"></a>Förbereda test på käll-VM
+## <a name="prepare-test-on-source-vm"></a>Förbered testet på den virtuella käll datorn
 
-Först måste vi upptäcka IP-adressen för käll-VM.
+Först måste vi identifiera IP-adressen för den virtuella käll datorn.
 
-1. Välj **Resursgrupper**till vänster i portalen .
+1. Välj **resurs grupper**på vänster sida av portalen.
 2. Välj **myResourceGroupNAT**.
 3. Välj **myVMsource**.
-4. Kopiera värdet för den **offentliga IP-adressen** i **Översikt**och klistra in det i anteckningar så att du kan använda det för att komma åt den virtuella datorn.
+4. I **Översikt**, kopierar du värdet för den **offentliga IP-adressen** och klistrar in i anteckningar så att du kan använda det för att få åtkomst till den virtuella datorn.
 
 >[!IMPORTANT]
->Kopiera den offentliga IP-adressen och klistra sedan in den i ett anteckningsblock så att du kan använda den i efterföljande steg. Ange att det här är den virtuella datorn för källan.
+>Kopiera den offentliga IP-adressen och klistra in den i ett anteckningar så att du kan använda den i efterföljande steg. Ange det här är den virtuella käll datorn.
 
-### <a name="log-into-source-vm"></a>Logga in på käll-VM
+### <a name="log-into-source-vm"></a>Logga in på den virtuella käll datorn
 
-Öppna en ny flik för [Azure Cloud Shell](https://shell.azure.com) i webbläsaren.  Använd IP-adressen som hämtades i föregående steg till SSH till den virtuella datorn. 
+Öppna en ny flik för [Azure Cloud Shell](https://shell.azure.com) i webbläsaren.  Använd IP-adressen som hämtades i föregående steg för SSH till den virtuella datorn. 
 
 ```azurecli-interactive
 ssh <username>@<ip-address-source>
 ```
 
-Kopiera och klistra in följande kommandon för att förbereda för testning av NAT-tjänsten.
+Kopiera och klistra in följande kommandon för att förbereda för att testa NAT-tjänsten.
 
 ```bash
 sudo apt-get -y update && \
@@ -278,42 +278,42 @@ go get -u github.com/rakyll/hey
 
 ```
 
-Det här kommandot uppdaterar din virtuella dator, installerar go, installerar [hey](https://github.com/rakyll/hey) från GitHub och uppdaterar skalmiljön.
+Det här kommandot kommer att uppdatera den virtuella datorn, installera Go, installera [Hej](https://github.com/rakyll/hey) från GitHub och uppdatera din gränssnitts miljö.
 
-Du är nu redo att testa NAT-tjänsten.
+Nu är du redo att testa NAT-tjänsten.
 
-## <a name="validate-nat-service"></a>Validera NAT-tjänsten
+## <a name="validate-nat-service"></a>Verifiera NAT-tjänst
 
-När du är inloggad på källdatorn kan du använda **curl** and **hey** för att generera begäranden till mål-IP-adressen.
+När du har loggat in på den virtuella käll datorn kan du använda **sväng** och **Hej** för att generera begär anden till målets IP-adress.
 
-Använd curl för att hämta filen 100-KBytes.  Ersätt ** \<ip-adress-mål>** i exemplet nedan med den mål-IP-adress som du tidigare har kopierat.  Parametern **--output** anger att den hämtade filen kommer att ignoreras.
+Använd sväng för att hämta filen 100-KByte.  Ersätt ** \<IP-Address-destination>** i exemplet nedan med mål-IP-adressen som du tidigare har kopierat.  Parametern **--output** anger att den hämtade filen kommer att tas bort.
 
 ```bash
 curl http://<ip-address-destination>/100k --output /dev/null
 ```
 
-Du kan också generera en serie begäranden med **hey**. Återigen, ersätta ** \<ip-adress-mål>** med målet IP-adress som du tidigare har kopierat.
+Du kan också skapa en serie förfrågningar med hjälp av **Hej**. Ersätt igen IP ** \<-Address-destination>** med mål-IP-adressen som du tidigare har kopierat.
 
 ```bash
 hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k
 ```
 
-Det här kommandot genererar 100 begäranden, 10 samtidigt, med en timeout på 30 sekunder och utan att återanvända TCP-anslutningen.  Varje begäran hämtar 100 Kbyte.  I slutet av körningen, **hey** kommer att rapportera en del statistik om hur bra NAT-tjänsten gjorde.
+Det här kommandot genererar 100-begär Anden, 10 samtidigt, med en tids gräns på 30 sekunder och utan att återanvända TCP-anslutningen.  Varje begäran kommer att hämta 100 kByte.  I slutet av körningen rapporterar **Hej** viss statistik om hur bra NAT-tjänsten gjorde.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När det inte längre behövs tar du bort resursgruppen, NAT-gatewayen och alla relaterade resurser. Markera resursgruppen **myResourceGroupNAT** som innehåller NAT-gatewayen och välj sedan **Ta bort**.
+Ta bort resurs gruppen, NAT-gatewayen och alla relaterade resurser när de inte längre behövs. Välj den resurs grupp **myResourceGroupNAT** som innehåller NAT-gatewayen och välj sedan **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien skapade du en NAT-gateway, skapade en käll- och mål-VM och testade sedan NAT-gatewayen.
+I den här självstudien har du skapat en NAT-gateway, skapat en källa och en virtuell måldator och testat NAT-gatewayen.
 
-Granska mått i Azure Monitor för att se nat-tjänsten fungera. Diagnostisera problem som resursutmattning av tillgängliga SNAT-portar.  Resursutmattning av SNAT-portar åtgärdas enkelt genom att lägga till ytterligare offentliga IP-adressresurser eller offentliga IP-prefixresurser eller båda.
+Granska mått i Azure Monitor för att se hur NAT-tjänsten fungerar. Diagnostisera problem som resurs utbelastning av tillgängliga SNAT-portar.  Resurs överbelastning av SNAT-portar kan enkelt åtgärdas genom att lägga till ytterligare offentliga IP-adressresurser eller resurser för offentliga IP-prefix eller båda.
 
-- Lär dig mer om [NAT för virtuellt nätverk](./nat-overview.md)
-- Lär dig mer om [NAT-gatewayresurs](./nat-gateway-resource.md).
-- Snabbstart för distribution av [NAT-gatewayresurs med Azure CLI](./quickstart-create-nat-gateway-cli.md).
-- Snabbstart för distribution av [NAT-gatewayresurs med Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
-- Snabbstart för distribution av [NAT-gatewayresurs med Azure-portalen](./quickstart-create-nat-gateway-portal.md).
+- Läs mer om [Virtual Network NAT](./nat-overview.md)
+- Lär dig om [NAT gateway-resurs](./nat-gateway-resource.md).
+- Snabb start för att distribuera [NAT gateway-resurs med hjälp av Azure CLI](./quickstart-create-nat-gateway-cli.md).
+- Snabb start för att distribuera [NAT gateway-resurs med hjälp av Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
+- Snabb start för att distribuera [NAT gateway-resurs med hjälp av Azure Portal](./quickstart-create-nat-gateway-portal.md).
 
 > [!div class="nextstepaction"]
 

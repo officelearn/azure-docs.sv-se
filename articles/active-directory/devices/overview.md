@@ -1,6 +1,6 @@
 ---
-title: Vad är enhetsidentitet i Azure Active Directory?
-description: Lär dig hur enhetsidentitetshantering kan hjälpa dig att hantera de enheter som har åtkomst till resurser i din miljö.
+title: Vad är enhets identitet i Azure Active Directory?
+description: Lär dig hur enhets identitets hantering kan hjälpa dig att hantera enheter som har åtkomst till resurser i din miljö.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,32 +12,32 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ba0630474224c34eb96429cd7592028362e03381
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82024446"
 ---
 # <a name="what-is-a-device-identity"></a>Vad är en enhetsidentitet?
 
-Med spridningen av enheter av alla former och storlekar och Bring Your Own Device (BYOD) koncept, IT-proffs står inför två något motsatta mål:
+Med spridning av enheter av alla former och storlekar och BYOD-konceptet (ta med din egen enhet) är IT-proffsen riktade mot två lite motsatta mål:
 
-- Låt slutanvändarna vara produktiva var och när
-- Skydda organisationens tillgångar
+- Tillåt slutanvändare att vara produktiva var och när
+- Skydda organisationens till gångar
 
-För att skydda dessa tillgångar måste IT-personal först hantera enhetsidentiteterna. IT-personal kan bygga vidare på enhetens identitet med verktyg som Microsoft Intune för att säkerställa att standarder för säkerhet och efterlevnad uppfylls. Azure Active Directory (Azure AD) möjliggör enkel inloggning på enheter, appar och tjänster var som helst via dessa enheter.
+För att skydda dessa till gångar måste IT-personalen först hantera enhetens identiteter. IT-personalen kan bygga på enhets identiteten med verktyg som Microsoft Intune för att säkerställa att standarder för säkerhet och efterlevnad är uppfyllda. Azure Active Directory (Azure AD) möjliggör enkel inloggning till enheter, appar och tjänster från var som helst via dessa enheter.
 
-- Användarna får åtkomst till organisationens tillgångar de behöver. 
+- Dina användare får till gång till din organisations till gångar som de behöver. 
 - IT-personalen får de kontroller de behöver för att skydda din organisation.
 
-Enhetsidentitetshantering är grunden för [enhetsbaserad villkorlig åtkomst](../conditional-access/require-managed-devices.md). Med enhetsbaserade principer för villkorlig åtkomst kan du se till att åtkomst till resurser i din miljö endast är möjlig med hanterade enheter.
+Enhets identitets hantering är grunden för [enhets-baserad villkorlig åtkomst](../conditional-access/require-managed-devices.md). Med enhets principer för villkorlig åtkomst kan du se till att åtkomsten till resurser i din miljö bara är möjlig med hanterade enheter.
 
 ## <a name="getting-devices-in-azure-ad"></a>Hämta enheter i Azure AD
 
 För att få en enhet i Azure AD har du flera alternativ:
 
 - **Azure AD-registrerad**
-   - Enheter som är Azure AD-registrerade ägs vanligtvis personligen eller mobila enheter och är inloggade med ett personligt Microsoft-konto eller ett annat lokalt konto.
+   - Enheter som är registrerade i Azure AD är vanligt vis personligt ägda eller mobila enheter och är inloggade med en personlig Microsoft-konto eller ett annat lokalt konto.
       - Windows 10
       - iOS
       - Android
@@ -45,53 +45,53 @@ För att få en enhet i Azure AD har du flera alternativ:
 - **Azure AD-ansluten**
    - Enheter som är Azure AD-anslutna ägs av en organisation och är inloggade med ett Azure AD-konto som tillhör den organisationen. De finns bara i molnet.
       - Windows 10 
-      - Windows Server 2019 (Serverkärna stöds inte)
+      - Windows Server 2019 (Server Core stöds inte)
 - **Hybrid Azure AD-ansluten**
    - Enheter som är hybrid Azure AD-anslutna ägs av en organisation och är inloggade med ett Azure AD-konto som tillhör den organisationen. De finns i molnet och lokalt.
-      - Windows 7, 8.1 eller 10
-      - Windows Server 2008 eller nyare
+      - Windows 7, 8,1 eller 10
+      - Windows Server 2008 eller senare
 
-![Enheter som visas i azure AD-enheter](./media/overview/azure-active-directory-devices-all-devices.png)
+![Enheter som visas på bladet Azure AD-enheter](./media/overview/azure-active-directory-devices-all-devices.png)
 
 > [!NOTE]
-> Ett hybridtillstånd refererar till mer än bara tillståndet för en enhet. För att ett hybridtillstånd ska vara giltigt krävs även en giltig Azure AD-användare.
+> Ett hybrid tillstånd refererar till mer än bara en enhets tillstånd. För att ett hybrid tillstånd ska vara giltigt krävs också en giltig Azure AD-användare.
 
 ## <a name="device-management"></a>Enhetshantering
 
-Enheter i Azure AD kan hanteras med hjälp av MDM-verktyg (Mobile Device Management) som Microsoft Intune, Microsoft Endpoint Configuration Manager, Group Policy (hybrid Azure AD join), MAM-verktyg (Mobile Application Management) eller andra verktyg från tredje part.
+Enheter i Azure AD kan hanteras med verktyg för hantering av mobila enheter (MDM) som Microsoft Intune, Microsoft Endpoint Configuration Manager, grupprincip (hybrid Azure AD-anslutning), verktyg för hantering av mobil program (MAM) eller andra verktyg från tredje part.
 
-## <a name="resource-access"></a>Tillgång till resurser
+## <a name="resource-access"></a>Resurs åtkomst
 
-Om du registrerar och ansluter till enheter till Azure AD får användarna sömlös inloggning (SSO) till molnresurser. Den här processen ger också administratörer möjlighet att tillämpa principer för villkorlig åtkomst på resurser baserat på den enhet de används från. 
+Att registrera och ansluta enheter till Azure AD ger användarna sömlös inloggning (SSO) till moln resurser. Den här processen gör det också möjligt för administratörer att tillämpa principer för villkorlig åtkomst till resurser baserat på den enhet som de nås från. 
 
 > [!NOTE]
-> Enhetsbaserade principer för villkorlig åtkomst kräver antingen hybrid Azure AD-anslutna enheter eller kompatibla Azure AD-anslutna eller Azure AD-registrerade enheter.
+> Enhets principer för villkorlig åtkomst kräver antingen hybrid Azure AD-anslutna enheter eller kompatibla Azure AD-anslutna eller registrerade Azure AD-enheter.
 
-Den primära uppdateringstoken (PRT) innehåller information om enheten och krävs för SSO. Om du har en enhetsbaserad princip för villkorlig åtkomst inställd på ett program, utan PRT, nekas åtkomst. Principer för hybrid villkorlig åtkomst kräver en hybridtillståndsenhet och en giltig användare som är inloggad.
+Den primära uppdateringstoken (PRT) innehåller information om enheten och krävs för SSO. Om du har en enhets-baserad princip för villkorlig åtkomst som angetts i ett program, utan PRT, nekas åtkomst. Hybrid principer för villkorlig åtkomst kräver en hybrid tillstånds enhet och en giltig användare som är inloggad.
 
-Enheter som är Azure AD-anslutna eller hybrid Azure AD-anslutna dra nytta av SSO till organisationens lokala resurser samt molnresurser. Mer information finns i artikeln, [Hur SSO till lokala resurser fungerar på Azure AD-anslutna enheter](azuread-join-sso.md).
+Enheter som är Azure AD-anslutna eller hybrid Azure AD-anslutna fördelar från SSO till din organisations lokala resurser samt moln resurser. Mer information finns i artikeln [hur SSO till lokala resurser fungerar på Azure AD-anslutna enheter](azuread-join-sso.md).
 
 ## <a name="device-security"></a>Enhetssäkerhet
 
-- **Azure AD-registrerade enheter** använder ett konto som hanteras av slutanvändaren, det här kontot är antingen ett Microsoft-konto eller en annan lokalt hanterad autentiseringsuppgifter som skyddas med ett eller flera av följande.
-   - lösenord
+- **Registrerade Azure AD-enheter** använder ett konto som hanteras av slutanvändaren. det här kontot är antingen en Microsoft-konto eller en annan lokalt hanterad autentiseringsuppgift som skyddas med ett eller flera av följande.
+   - lösenordsinställning
    - PIN-KOD
    - Mönster
    - Windows Hello
-- **Azure AD-anslutna eller hybrid-Azure AD-anslutna enheter** använder ett organisationskonto i Azure AD som skyddas med ett eller flera av följande.
-   - lösenord
+- **Azure AD-anslutna eller hybrid Azure AD-anslutna enheter** använder ett organisations konto i Azure AD som skyddas med en eller flera av följande.
+   - lösenordsinställning
    - Windows Hello för företag
 
 ## <a name="provisioning"></a>Etablering
 
-Att hämta enheter till Azure AD kan göras på ett självbetjäningssätt eller en kontrollerad etableringsprocess av administratörer.
+Att hämta enheter i till Azure AD kan göras i ett självbetjänings sätt eller en kontrollerad etablerings process av administratörer.
 
 ## <a name="summary"></a>Sammanfattning
 
-Med enhetsidentitetshantering i Azure AD kan du:
+Med enhets identitets hantering i Azure AD kan du:
 
-- Förenkla processen för att ta med och hantera enheter i Azure AD
-- Ge användarna enkel åtkomst till organisationens molnbaserade resurser
+- Förenkla processen att sätta och hantera enheter i Azure AD
+- Ge dina användare en lättanvänd åtkomst till organisationens molnbaserade resurser
 
 ## <a name="license-requirements"></a>Licenskrav
 
@@ -99,8 +99,8 @@ Med enhetsidentitetshantering i Azure AD kan du:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [Azure AD-registrerade enheter](concept-azure-ad-register.md)
+- Läs mer om [registrerade Azure AD-enheter](concept-azure-ad-register.md)
 - Läs mer om [Azure AD-anslutna enheter](concept-azure-ad-join.md)
-- Läs mer om [hybrid-Azure AD-anslutna enheter](concept-azure-ad-join-hybrid.md)
-- Information om hur du hanterar enhetsidentiteter i Azure-portalen finns i [Hantera enhetsidentiteter med Azure-portalen](device-management-azure-portal.md).
-- Mer information om enhetsbaserad villkorlig åtkomst finns i [Konfigurera Azure Active Directory-enhetsbaserade principer för villkorlig åtkomst](../conditional-access/require-managed-devices.md).
+- Läs mer om [Azure AD-anslutna enheter](concept-azure-ad-join-hybrid.md)
+- För att få en översikt över hur du hanterar enhets identiteter i Azure Portal, se [Hantera enhets identiteter med hjälp av Azure Portal](device-management-azure-portal.md).
+- Mer information om enhets villkorliga åtkomst finns i [Konfigurera Azure Active Directory enhet-baserade principer för villkorlig åtkomst](../conditional-access/require-managed-devices.md).

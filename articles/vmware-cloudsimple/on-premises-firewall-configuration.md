@@ -1,7 +1,7 @@
 ---
-title: Få tillgång till Azure VMware-lösning via CloudSimple från lokala
+title: Få åtkomst till Azure VMware-lösningen från CloudSimple lokalt
 titleSuffix: Azure VMware Solution by CloudSimple
-description: Komma åt din Azure VMware-lösning från CloudSimple från ditt lokala nätverk via en brandvägg
+description: Få åtkomst till din Azure VMware-lösning från CloudSimple från ditt lokala nätverk via en brand vägg
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/08/2019
@@ -10,56 +10,56 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 539665c4756a7dc87078922421b45a88404f58f1
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81868150"
 ---
-# <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Komma åt din CloudSimple Private Cloud-miljö och program från lokala
+# <a name="accessing-your-cloudsimple-private-cloud-environment-and-applications-from-on-premises"></a>Åtkomst till din CloudSimple privata moln miljö och program från lokala platser
 
-En anslutning kan konfigureras från lokalt nätverk till CloudSimple med Azure ExpressRoute eller Site-to-Site VPN.  Få tillgång till ditt CloudSimple Private Cloud vCenter och alla arbetsbelastningar som du kör på det privata molnet med anslutningen.  Du kan styra vilka portar som öppnas i anslutningen med hjälp av en brandvägg i det lokala nätverket.  I den här artikeln beskrivs några av de typiska kraven för programport.  För alla andra program, se ansökningsdokumentationen för portkrav.
+En anslutning kan konfigureras från det lokala nätverket till CloudSimple med hjälp av Azure ExpressRoute eller plats-till-plats-VPN.  Få åtkomst till din CloudSimple privata moln vCenter och alla arbets belastningar som du kör i det privata molnet med hjälp av anslutningen.  Du kan styra vilka portar som ska öppnas på anslutningen med hjälp av en brand vägg i ditt lokala nätverk.  I den här artikeln beskrivs några av de typiska programmens port krav.  För andra program finns det information om Port krav i program dokumentationen.
 
 ## <a name="ports-required-for-accessing-vcenter"></a>Portar som krävs för åtkomst till vCenter
 
-För att komma åt din Private Cloud vCenter och NSX-T-hanterare måste portar som definieras i tabellen nedan öppnas i den lokala brandväggen.  
+För att få åtkomst till ditt privata moln vCenter-och NSX-chef måste portarna som definieras i tabellen nedan öppnas i den lokala brand väggen.  
 
 | Port       | Källa                           | Mål                      | Syfte                                                                                                                |
 |------------|----------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| 53 (UDP)   | Lokala DNS-servrar          | Privata DNS-servrar i molnet        | Krävs för att vidarebefordra DNS-sökning *av az.cloudsimple.io* till privata DNS-servrar i molnet från lokalt nätverk.       |
-| 53 (UDP)   | Privata DNS-servrar i molnet        | Lokala DNS-servrar          | Krävs för att vidarebefordra DNS-sökning av lokala domännamn från Private Cloud vCenter till lokala DNS-servrar. |
-| 80 (TCP)   | Lokalt nätverk              | Privata molnhanteringsnätverk | Krävs för att omdirigera vCenter-URL från *http* till *https*.                                                           |
-| 443 (TCP)  | Lokalt nätverk              | Privata molnhanteringsnätverk | Krävs för att komma åt vCenter och NSX-T-hanteraren från lokalt nätverk.                                             |
-| 8000 (TCP) | Lokalt nätverk              | Privata molnhanteringsnätverk | Krävs för vMotion av virtuella datorer från lokalt till privat moln.                                            |
-| 8000 (TCP) | Privata molnhanteringsnätverk | Lokalt nätverk              | Krävs för vMotion av virtuella datorer från privat moln till lokalt.                                            |
+| 53 (UDP)   | Lokala DNS-servrar          | DNS-servrar för privata moln        | Krävs för att vidarebefordra DNS-sökning av *AZ.cloudsimple.io* till privata MOLNETS DNS-servrar från det lokala nätverket.       |
+| 53 (UDP)   | DNS-servrar för privata moln        | Lokala DNS-servrar          | Krävs för att vidarebefordra DNS-sökning efter lokala domän namn från privata moln vCenter till lokala DNS-servrar. |
+| 80 (TCP)   | Lokalt nätverk              | Nätverk för hantering av privata moln | Krävs för omdirigering av vCenter-URL från *http* till *https*.                                                           |
+| 443 (TCP)  | Lokalt nätverk              | Nätverk för hantering av privata moln | Krävs för åtkomst till vCenter och NSX-T Manager från det lokala nätverket.                                             |
+| 8000 (TCP) | Lokalt nätverk              | Nätverk för hantering av privata moln | Krävs för vMotion av virtuella datorer från lokal plats till privat moln.                                            |
+| 8000 (TCP) | Nätverk för hantering av privata moln | Lokalt nätverk              | Krävs för vMotion av virtuella datorer från privat moln till lokalt.                                            |
 
-## <a name="ports-required-for-using-on-premises-active-directory-as-an-identity-source"></a>Portar som krävs för att använda lokal active directory som identitetskälla
+## <a name="ports-required-for-using-on-premises-active-directory-as-an-identity-source"></a>Portar som krävs för att använda lokala Active Directory som identitets källa
 
-Om du vill konfigurera lokal active directory som en identitetskälla på Private Cloud vCenter måste portar som definierats i tabellen öppnas.  Se [Använda Azure AD som identitetsleverantör för vCenter på CloudSimple Private Cloud](https://docs.microsoft.com/azure/vmware-cloudsimple/azure-ad/) för konfigurationssteg.
+Om du vill konfigurera lokal Active Directory som identitets källa i privat moln-vCenter, måste portarna som definierats i tabellen öppnas.  Se [använda Azure AD som identitets leverantör för vCenter på CloudSimple privata moln](https://docs.microsoft.com/azure/vmware-cloudsimple/azure-ad/) för konfigurations steg.
 
 | Port         | Källa                           | Mål                                         | Syfte                                                                                                                                          |
 |--------------|----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-| 53 (UDP)      | Privata DNS-servrar i molnet        | Lokala DNS-servrar                             | Krävs för att vidarebefordra DNS-sökning av lokala active directory-domännamn från Private Cloud vCenter till lokala DNS-servrar.          |
-| 389 (TCP/UDP) | Privata molnhanteringsnätverk | Lokala active directory-domänkontrollanter     | Krävs för LDAP-kommunikation från Private Cloud vCenter-server till active directory-domänkontrollanter för användarautentisering.                |
-| 636 (TCP)     | Privata molnhanteringsnätverk | Lokala active directory-domänkontrollanter     | Krävs för säker LDAP-kommunikation (LDAPS) från Private Cloud vCenter-server till active directory-domänkontrollanter för användarautentisering. |
-| 3268 (TCP)    | Privata molnhanteringsnätverk | Lokala globala katalogservrar i active directory | Krävs för LDAP-kommunikation i en distribution av flera domänkontrollanter.                                                                        |
-| 3269 (TCP)    | Privata molnhanteringsnätverk | Lokala globala katalogservrar i active directory | Krävs för LDAPS-kommunikation i en distribution av flera domänkontrollanter.                                                                       |                                           |
+| 53 (UDP)      | DNS-servrar för privata moln        | Lokala DNS-servrar                             | Krävs för att vidarebefordra DNS-sökning efter lokala Active Directory-domännamn från privata moln vCenter till lokala DNS-servrar.          |
+| 389 (TCP/UDP) | Nätverk för hantering av privata moln | Lokala Active Directory-domänkontrollanter     | Krävs för LDAP-kommunikation från privat moln vCenter-Server till Active Directory-domänkontrollanter för användarautentisering.                |
+| 636 (TCP)     | Nätverk för hantering av privata moln | Lokala Active Directory-domänkontrollanter     | Krävs för säker LDAP-kommunikation (LDAP) från privat moln vCenter-Server till Active Directory-domänkontrollanter för användarautentisering. |
+| 3268 (TCP)    | Nätverk för hantering av privata moln | Lokala Active Directory-globala katalog servrar | Krävs för LDAP-kommunikation i en distribution med flera domänkontrollanter.                                                                        |
+| 3269 (TCP)    | Nätverk för hantering av privata moln | Lokala Active Directory-globala katalog servrar | Krävs för LDAP-kommunikation i en distribution av flera domänkontrollanter.                                                                       |                                           |
 
-## <a name="common-ports-required-for-accessing-workload-virtual-machines"></a>Vanliga portar som krävs för åtkomst till virtuella arbetsbelastningsdatorer
+## <a name="common-ports-required-for-accessing-workload-virtual-machines"></a>Vanliga portar som krävs för att komma åt virtuella arbets belastnings datorer
 
-Åtkomst till virtuella arbetsbelastningsdatorer som körs på Private Cloud kräver att portar öppnas i din lokala brandvägg.  Tabellen nedan visar några av de gemensamma portar som krävs och deras syfte.  För alla programspecifika portkrav, se programdokumentationen.
+Åtkomst till arbets belastnings datorer som körs i privata moln kräver att portar öppnas i den lokala brand väggen.  I tabellen nedan visas några av de vanliga portarna som krävs och deras syfte.  Information om alla programspecifika port krav finns i program dokumentationen.
 
 | Port         | Källa                         | Mål                          | Syfte                                                                              |
 |--------------|--------------------------------|--------------------------------------|--------------------------------------------------------------------------------------|
-| 22 (TCP)      | Lokalt nätverk            | Privata molnarbetsbelastningsnätverk       | Säker skalåtkomst till virtuella Linux-datorer som körs på Private Cloud.              |
-| 3389 (TCP)    | Lokalt nätverk            | Privata molnarbetsbelastningsnätverk       | Fjärrskrivbord till virtuella windows-datorer som körs på Private Cloud.                 |
-| 80 (TCP)      | Lokalt nätverk            | Privata molnarbetsbelastningsnätverk       | Få tillgång till alla webbservrar som distribueras på virtuella datorer som körs på Private Cloud.        |
-| 443 (TCP)     | Lokalt nätverk            | Privata molnarbetsbelastningsnätverk       | Få tillgång till alla säkra webbservrar som distribueras på virtuella datorer som körs på Private Cloud. |
-| 389 (TCP/UDP) | Privata molnarbetsbelastningsnätverk | Lokalt active directory-nätverk | Ansluta virtuella datorer för Windows-arbetsbelastning till lokal active directory-domän.       |
-| 53 (UDP)      | Privata molnarbetsbelastningsnätverk | Lokalt nätverk                  | DNS-tjänståtkomst för virtuella arbetsbelastningsdatorer till lokala DNS-servrar.         |
+| 22 (TCP)      | Lokalt nätverk            | Privat moln arbets belastnings nätverk       | Säker shell-åtkomst till virtuella Linux-datorer som körs i ett privat moln.              |
+| 3389 (TCP)    | Lokalt nätverk            | Privat moln arbets belastnings nätverk       | Fjärr skrivbord till virtuella Windows-datorer som körs i ett privat moln.                 |
+| 80 (TCP)      | Lokalt nätverk            | Privat moln arbets belastnings nätverk       | Åtkomst till alla webb servrar som distribueras på virtuella datorer som körs i ett privat moln.        |
+| 443 (TCP)     | Lokalt nätverk            | Privat moln arbets belastnings nätverk       | Åtkomst till alla säkra webb servrar som distribueras på virtuella datorer som körs i ett privat moln. |
+| 389 (TCP/UDP) | Privat moln arbets belastnings nätverk | Lokalt Active Directory-nätverk | Anslut virtuella datorer med Windows-arbetsbelastning till en lokal Active Directory-domän.       |
+| 53 (UDP)      | Privat moln arbets belastnings nätverk | Lokalt nätverk                  | Åtkomst till DNS-tjänsten för virtuella arbets belastnings datorer till lokala DNS-servrar.         |
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa och hantera VLAN och undernät](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/)
-* [Ansluta till lokalt nätverk med Azure ExpressRoute](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-connection/)
-* [Konfigurera plats-till-plats-VPN från lokalt](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway/)
+* [Ansluta till ett lokalt nätverk med hjälp av Azure ExpressRoute](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-connection/)
+* [Konfigurera plats-till-plats-VPN från lokal plats](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway/)

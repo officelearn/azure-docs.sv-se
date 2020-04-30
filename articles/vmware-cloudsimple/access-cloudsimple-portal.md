@@ -1,5 +1,5 @@
 ---
-title: Få tillgång till Azure VMware-lösning via CloudSimple - Portal
+title: Få åtkomst till Azure VMware-lösningen av CloudSimple-Portal
 description: Beskriver hur du kommer åt portalen för VMware Solution by CloudSimple via Azure Portal
 author: sharaths-cs
 ms.author: b-shsury
@@ -9,21 +9,21 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 91d3dd2eee6f771df23b72eae7a33122c42f1690
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81869336"
 ---
-# <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Få tillgång till VMware-lösningen via CloudSimple-portalen från Azure-portalen
+# <a name="access-the-vmware-solution-by-cloudsimple-portal-from-the-azure-portal"></a>Få åtkomst till VMware-lösningen från CloudSimple-portalen från Azure Portal
 
-Enkel inloggning stöds för åtkomst till CloudSimple-portalen. När du har loggat in på Azure-portalen kan du komma åt CloudSimple-portalen utan att logga in igen. Första gången du öppnar CloudSimple-portalen uppmanas du att auktorisera [CloudSimple-tjänstauktoriseringsprogrammet.](#consent-to-cloudsimple-service-authorization-application)  Auktorisering är en engångsåtgärd.
+Enkel inloggning stöds för åtkomst till CloudSimple-portalen. När du har loggat in på Azure Portal kan du komma åt CloudSimple-portalen utan att logga in igen. Första gången du öppnar CloudSimple-portalen uppmanas du att auktorisera [CloudSimple](#consent-to-cloudsimple-service-authorization-application) .  Auktorisering är en engångs åtgärd.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Användare med inbyggda **ägar-** och **deltagarroller** kan komma åt CloudSimple-portalen.  Rollerna måste konfigureras i resursgruppen där CloudSimple-tjänsten distribueras.  Rollerna kan också konfigureras på CloudSimple-tjänstobjektet.  Mer information om hur du kontrollerar din roll finns i [artikeln Visa rolltilldelningar.](https://docs.microsoft.com/azure/role-based-access-control/check-access) Endast användare med inbyggda **ägar-** och **deltagarroller** kan komma åt CloudSimple-portalen.  Rollerna måste konfigureras för prenumerationen.  Mer information om hur du kontrollerar din roll finns i [artikeln Visa rolltilldelningar.](https://docs.microsoft.com/azure/role-based-access-control/check-access)
+Användare med rollen fördefinierad **ägare** och **deltagare** har åtkomst till CloudSimple-portalen.  Rollerna måste konfigureras i resurs gruppen där CloudSimple-tjänsten har distribuerats.  Rollerna kan också konfigureras för CloudSimple-serviceobjektet.  Mer information om hur du kontrollerar din roll finns i artikeln [Visa roll tilldelningar](https://docs.microsoft.com/azure/role-based-access-control/check-access) . Endast användare med inbyggda **ägare** och **deltagar** roller kan komma åt CloudSimple-portalen.  Rollerna måste konfigureras för prenumerationen.  Mer information om hur du kontrollerar din roll finns i artikeln [Visa roll tilldelningar](https://docs.microsoft.com/azure/role-based-access-control/check-access) .
 
-Om du använder anpassade roller bör rollen ha någon ```Actions```av följande åtgärder under .  Mer information om anpassade roller finns i [Anpassade roller för Azure-resurser](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  Om någon av åtgärderna är ```NotActions```en del av kan användaren inte komma åt CloudSimple-portalen.
+Om du använder anpassade roller bör rollen ha någon av följande åtgärder under ```Actions```.  Mer information om anpassade roller finns i [anpassade roller för Azure-resurser](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  Om någon av åtgärderna är en del av ```NotActions```, kan användaren inte komma åt CloudSimple-portalen.
 
 ```
 Microsoft.VMwareCloudSimple/*
@@ -40,36 +40,36 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 1. Välj **Alla tjänster**.
 
-2. Sök efter **CloudSimple Services**.
+2. Sök efter **CloudSimple-tjänster**.
 
 3. Välj den CloudSimple-tjänst som du vill skapa ditt privata moln på.
 
-4. Klicka på Gå **till CloudSimple-portalen**på sidan **Översikt** .  Om du använder CloudSimple-portalen från Azure-portalen för första gången uppmanas du att auktorisera [CloudSimple-tjänstauktoriseringsprogrammet.](#consent-to-cloudsimple-service-authorization-application) 
+4. På sidan **Översikt** klickar du på **gå till CloudSimple-portalen**.  Om du har åtkomst till CloudSimple-portalen från Azure Portal för första gången uppmanas du att auktorisera [CloudSimple](#consent-to-cloudsimple-service-authorization-application) . 
 
     ![Starta CloudSimple-portalen](media/launch-cloudsimple-portal.png)
 
 > [!NOTE]
-> Om du väljer en privat molnåtgärd (till exempel skapa eller expandera ett privat moln) direkt från Azure-portalen öppnas CloudSimple-portalen till den angivna sidan.
+> Om du väljer en privat moln åtgärd (t. ex. genom att skapa eller expandera ett privat moln) direkt från Azure Portal, öppnas CloudSimple-portalen på den angivna sidan.
 
-I CloudSimple-portalen väljer du **Hem** på sidomenyn för att visa sammanfattande information om dina privata moln. Resurserna och kapaciteten för dina privata moln visas, tillsammans med aviseringar och aktiviteter som kräver uppmärksamhet. Om du vill ha vanliga uppgifter klickar du på de namngivna ikonerna högst upp på sidan.
+I CloudSimple-portalen väljer du **Start** på sido menyn för att Visa sammanfattnings information om dina privata moln. Resurserna och kapaciteten för dina privata moln visas, tillsammans med aviseringar och uppgifter som kräver åtgärder. För vanliga uppgifter klickar du på de namngivna ikonerna överst på sidan.
 
-![Hemsida](media/cloudsimple-portal-home.png)
+![Start sida](media/cloudsimple-portal-home.png)
 
-## <a name="consent-to-cloudsimple-service-authorization-application"></a>Samtycke till CloudSimple Service Auktoriseringsprogram
+## <a name="consent-to-cloudsimple-service-authorization-application"></a>Medgivande till CloudSimple-program för programauktorisering
 
-Om du startar CloudSimple-portalen från Azure-portalen för första gången krävs ditt samtycke för CloudSimple-tjänstauktoriseringsprogrammet.  Välj Acceptera om du **vill** bevilja begärda behörigheter och komma åt CloudSimple-portalen.
+Att starta CloudSimple-portalen från Azure Portal för första gången kräver ditt medgivande för CloudSimple-tjänstens Authorization-program.  Välj **acceptera** för att bevilja de begärda behörigheterna och få åtkomst till CloudSimple-portalen.
 
-![Samtycke till CloudSimple Service Authorization - administratörer](media/cloudsimple-azure-consent.png)
+![Medgivande till CloudSimple-auktorisering av tjänst – administratörer](media/cloudsimple-azure-consent.png)
 
-Om du har global administratörsbehörighet kan du godkänna din organisation.  Välj **Samtyck åt din organisation**.
+Om du har global administratörs behörighet kan du godkänna din organisation.  Välj **Samtyck åt din organisation**.
 
-![Samtycke till CloudSimple Service Authorization - global administratör](media/cloudsimple-azure-consent-global-admin.png)
+![Medgivande till CloudSimple-tjänstens auktorisering – global administratör](media/cloudsimple-azure-consent-global-admin.png)
 
-Om dina behörigheter inte tillåter åtkomst till CloudSimple-portalen kontaktar du den globala administratören för din klient för att bevilja nödvändiga behörigheter.  En global administratör kan medgivande för din organisation.
+Om dina behörigheter inte tillåter åtkomst till CloudSimple-portalen kontaktar du den globala administratören för din klient organisation för att bevilja nödvändiga behörigheter.  En global administratör kan samtycka åt din organisation.
 
-![Samtycke till CloudSimple Service Authorization - kräver administratörer](media/cloudsimple-azure-consent-requires-administrator.png)
+![Medgivande till CloudSimple-tjänstens auktorisering – kräver administratörer](media/cloudsimple-azure-consent-requires-administrator.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du [skapar ett privat moln](https://docs.microsoft.com/azure/vmware-cloudsimple/create-private-cloud/)
-* Lär dig hur du [konfigurerar en privat molnmiljö](quickstart-create-private-cloud.md)
+* Lär dig hur du [konfigurerar en privat moln miljö](quickstart-create-private-cloud.md)

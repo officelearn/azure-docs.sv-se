@@ -9,17 +9,17 @@ ms.date: 12/20/2019
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 25003269fb6e00cadcc14d2356308cae54c70bf7
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82085354"
 ---
-Skapa en apptjänstplan i resursgruppen med [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) kommandot i Cloud Shell.
+I Cloud Shell skapar du en App Service plan i resurs gruppen med [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) kommandot.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-I följande exempel skapas en `myAppServicePlan` apptjänstplan som`--sku F1`heter på den`--is-linux` **kostnadsfria** prisnivån ( ) och i en Linux-behållare ( ).
+I följande exempel skapas en App Service plan med `myAppServicePlan` namnet på den **kostnads fria** pris`--sku F1`nivån () och i en Linux`--is-linux`-behållare ().
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku F1 --is-linux

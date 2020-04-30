@@ -1,6 +1,6 @@
 ---
-title: Arbeta med säkerhetsprinciper | Microsoft-dokument
-description: I den här artikeln beskrivs hur du arbetar med säkerhetsprinciper i Azure Security Center.
+title: Arbeta med säkerhets principer | Microsoft Docs
+description: Den här artikeln beskriver hur du arbetar med säkerhets principer i Azure Security Center.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -15,120 +15,120 @@ ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: c98ae7c95ac3fc186786612dd3d8d8bd55fa816f
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82024888"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetsprinciper
 
-I den här artikeln beskrivs hur säkerhetsprinciper konfigureras och hur du visar dem i Security Center. 
+Den här artikeln förklarar hur du konfigurerar säkerhets principer och hur du visar dem i Security Center. 
 
-## <a name="introduction-to-security-policies"></a>Introduktion till säkerhetsprinciper
+## <a name="introduction-to-security-policies"></a>Introduktion till säkerhets principer
 
-En säkerhetsprincip definierar den önskade konfigurationen av dina arbetsbelastningar och hjälper till att säkerställa att du uppfyller säkerhetskraven för ditt företag eller tillsynsmyndigheter.
+En säkerhets princip definierar den önskade konfigurationen av dina arbets belastningar och hjälper dig att se till att du följer säkerhets kraven för ditt företag eller din regulator.
 
-Azure Security Center gör sina säkerhetsrekommendationer baserat på dina valda principer. Security Center-principer baseras på principinitiativ som skapats i Azure Policy. Du kan använda [Azure Policy](../governance/policy/overview.md) för att hantera dina principer och ange principer för hanteringsgrupper och flera prenumerationer.
+Azure Security Center gör säkerhets rekommendationerna baserade på dina valda principer. Security Center principer baseras på princip initiativ som skapats i Azure Policy. Du kan använda [Azure policy](../governance/policy/overview.md) för att hantera principer och ange principer över hanterings grupper och över flera prenumerationer.
 
-Security Center erbjuder följande alternativ för att arbeta med säkerhetsprinciper:
+Security Center erbjuder följande alternativ för att arbeta med säkerhets principer:
 
-* **Visa och redigera den inbyggda standardprincipen** - När du aktiverar Security Center tilldelas ett inbyggt initiativ med namnet ASC-standard automatiskt till alla Security Center-registrerade prenumerationer (kostnadsfria eller standardnivåer). Om du vill anpassa det här initiativet kan du aktivera eller inaktivera enskilda principer i det. Se listan över [inbyggda säkerhetsprinciper](security-center-policy-definitions.md) för att förstå vilka alternativ som är tillgängliga direkt.
+* **Visa och redigera den inbyggda standard principen** – när du aktiverar Security Center tilldelas en inbyggd initiativ med namnet "ASC default" automatiskt till alla Security Center registrerade prenumerationer (kostnads fria eller standard nivåer). Du kan anpassa det här initiativet genom att aktivera eller inaktivera enskilda principer i den. Se listan över [inbyggda säkerhets principer](security-center-policy-definitions.md) för att förstå alternativen som är tillgängliga direkt.
 
-* **Lägg till egna anpassade principer** – Om du vill anpassa de säkerhetsinitiativ som tillämpas på din prenumeration kan du göra det i Security Center. Du får sedan rekommendationer om dina datorer inte följer de principer du skapar. Instruktioner om hur du skapar och tilldelar anpassade principer finns i [Använda anpassade säkerhetsprinciper](custom-security-policies.md).
+* **Lägg till egna anpassade principer** – om du vill anpassa de säkerhets initiativ som tillämpas på din prenumeration kan du göra det i Security Center. Du får sedan rekommendationer om datorerna inte följer de principer som du skapar. Anvisningar om hur du skapar och tilldelar anpassade principer finns i [använda anpassade säkerhets principer](custom-security-policies.md).
 
-* **Lägg till principer för regelefterlevnad** – Security Centers instrumentpanel för regelefterlevnad visar status för alla utvärderingar i din miljö i samband med en viss standard eller förordning (till exempel Azure CIS, NIST SP 800-53 R4, SWIFT CSP CSCF-v2020). Mer information finns i [Förbättra regelefterlevnad.](security-center-compliance-dashboard.md)
+* **Lägg till regler för efterlevnadsprinciper** -Security Centers instrument panelen för kontroll av efterlevnad visar status för alla utvärderingar i din miljö i samband med en viss standard eller regel (till exempel Azure CIS, NIST SP 800-53 R4, Swift CSP CSCF-v2020). Mer information finns i [förbättra din regelefterlevnad](security-center-compliance-dashboard.md).
 
 
-## <a name="managing-your-security-policies"></a>Hantera dina säkerhetsprinciper
+## <a name="managing-your-security-policies"></a>Hantera dina säkerhets principer
 
 Visa dina säkerhetsprinciper i Security Center:
 
-1. Välj **Säkerhetsprincipen**på instrumentpanelen **i Säkerhetscenter** .
+1. I instrument panelen **Security Center** väljer du **säkerhets princip**.
 
     ![Fönstret för principhantering](./media/security-center-policies/security-center-policy-mgt.png)
 
-   På skärmen **Principhantering** kan du se antalet hanteringsgrupper, prenumerationer och arbetsytor samt din hanteringsgruppstruktur.
+   På skärmen **princip hantering** kan du se antalet hanterings grupper, prenumerationer och arbets ytor samt hanterings gruppens struktur.
 
-1. Välj den prenumeration eller hanteringsgrupp vars principer du vill visa.
+1. Välj den prenumeration eller hanterings grupp vars principer du vill visa.
 
-1. Säkerhetsprincipsidan för den prenumerations- eller hanteringsgruppen visas. Den visar tillgängliga och tilldelade principer.
+1. Sidan säkerhets princip för den prenumerationen eller hanterings gruppen visas. Den visar de tillgängliga och tilldelade principerna.
 
-   ![skärmen princip](./media/tutorial-security-policy/security-policy-page.png)
+   ![princip skärm](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
-    > Om det finns en etikett "MG Ärvd" tillsammans med standardprincipen betyder det att principen har tilldelats en hanteringsgrupp och ärvts av prenumerationen du visar.
+    > Om det finns en etikett "MG ärvd" tillsammans med standard principen, innebär det att principen har tilldelats till en hanterings grupp och ärvts av den prenumeration som du visar.
 
 
 1. Välj bland de tillgängliga alternativen på den här sidan:
 
-    1. Om du vill arbeta med branschpolicyer väljer du **Lägg till fler standarder**. Mer information finns i [Uppdatera till dynamiska efterlevnadspaket](update-regulatory-compliance-packages.md).
+    1. Om du vill arbeta med bransch principer väljer du **Lägg till fler standarder**. Mer information finns i [Uppdatera till dynamiska Compliance-paket](update-regulatory-compliance-packages.md).
 
-    1. Om du vill tilldela och hantera anpassade initiativ väljer du **Lägg till anpassade initiativ**. Mer information finns i [Använda anpassade säkerhetsprinciper](custom-security-policies.md).
+    1. Om du vill tilldela och hantera anpassade initiativ väljer du **Lägg till anpassade initiativ**. Mer information finns i [använda anpassade säkerhets principer](custom-security-policies.md).
 
-    1. Om du vill visa och redigera standardprincipen väljer du **Visa effektiv princip** och fortsätter enligt beskrivningen nedan. 
+    1. Om du vill visa och redigera standard principen väljer du **Visa gällande princip** och fortsätter enligt beskrivningen nedan. 
 
-       ![skärmen princip](./media/security-center-policies/policy-screen.png)
+       ![princip skärm](./media/security-center-policies/policy-screen.png)
        
-       Den här **säkerhetsprincipskärmen** visar de åtgärder som vidtas av de principer som tilldelats den prenumeration eller hanteringsgrupp som du har valt.
+       Den här **säkerhets princip** skärmen visar den åtgärd som vidtas av de principer som har tilldelats den prenumeration eller hanterings grupp du valt.
        
-       * Använd länkarna högst upp för att öppna en **principtilldelning** som gäller för prenumerationen eller hanteringsgruppen. Med de här länkarna kan du komma åt tilldelningen och redigera eller inaktivera principen. Om du till exempel ser att en viss principtilldelning effektivt nekar slutpunktsskydd använder du länken för att redigera eller inaktivera principen.
+       * Använd länkarna överst för att öppna en princip **tilldelning** som gäller för prenumerationen eller hanterings gruppen. Med dessa länkar kan du komma åt tilldelningen och redigera eller inaktivera principen. Om du till exempel ser att en viss princip tilldelning på ett effektivt sätt nekar Endpoint Protection använder du länken för att redigera eller inaktivera principen.
        
-       * I listan över principer kan du se ett effektivt program för principen för din prenumeration eller hanteringsgrupp. Inställningarna för varje princip som gäller för omfånget beaktas och det kumulativa resultatet av åtgärder som vidtas av principen visas. Om till exempel i en tilldelning av principen är inaktiverad, men i en annan är inställd på AuditIfNotExist, tillämpar den kumulativa effekten AuditIfNotExist. Den mer aktiva effekten har alltid företräde.
+       * I listan över principer kan du se det effektiva tillämpnings programmet för principen i din prenumeration eller hanterings grupp. Inställningarna för varje princip som gäller för omfånget beaktas och det ackumulerade resultatet av de åtgärder som vidtagits av principen visas. Om till exempel en tilldelning av principen är inaktive rad, men i en annan som är inställd på AuditIfNotExist, gäller den kumulativa påverkan AuditIfNotExist. Den mer aktiva effekter har alltid företräde.
        
-       * Policyns effekt kan vara: Lägg till, Granska, AuditIfNotExists, Deny, DeployIfNotExists, Disabled. Mer information om hur effekter tillämpas finns i [Förstå principeffekter](../governance/policy/concepts/effects.md).
+       * Principens inverkan kan vara: tillägg, granskning, AuditIfNotExists, Deny, DeployIfNotExists, disabled. Mer information om hur effekter tillämpas finns i [Förstå princip effekter](../governance/policy/concepts/effects.md).
 
        > [!NOTE]
-       > När du visar tilldelade principer kan du se flera tilldelningar och du kan se hur varje tilldelning konfigureras på egen hand.
+       > När du visar tilldelade principer kan du se flera tilldelningar och du kan se hur varje tilldelning har kon figurer ATS på egen hand.
 
 
-## <a name="who-can-edit-security-policies"></a>Vem kan redigera säkerhetsprinciper?
+## <a name="who-can-edit-security-policies"></a>Vem kan redigera säkerhets principer?
 
-Du kan redigera säkerhetsprinciper via Azure Policy-portalen, via REST API eller med Windows PowerShell.
+Du kan redigera säkerhets principer via Azure Policy-portalen via REST API eller med hjälp av Windows PowerShell.
 
-I Security Center används rollbaserad åtkomstkontroll, vilket innebär att det finns förinställda roller som kan tilldelas användare, grupper och tjänster i Azure. När användare öppnar Security Center ser de bara information som är relaterad till resurser som de har åtkomst till. Vilket innebär att användarna tilldelas rollen som *ägare,* *deltagare*eller *läsare* till resursens prenumeration. Förutom dessa roller finns det två specifika Security Center-roller:
+I Security Center används rollbaserad åtkomstkontroll, vilket innebär att det finns förinställda roller som kan tilldelas användare, grupper och tjänster i Azure. När användarna öppnar Security Center ser de bara information som är relaterad till de resurser som de har åtkomst till. Det innebär att användarna tilldelas rollen som *ägare*, *deltagare*eller *läsare* till resursens prenumeration. Det finns två olika Security Center roller och dessa roller:
 
-- **Säkerhetsläsare**: Har vyrättigheter till Security Center, som innehåller rekommendationer, aviseringar, princip och hälsotillstånd, men de kan inte göra ändringar.
-- **Säkerhetsadministratör**: Har samma vyrättigheter som *säkerhetsläsare*, och de kan också uppdatera säkerhetsprincipen och avvisa rekommendationer och aviseringar.
+- **Säkerhets läsare**: har behörighet att Security Center, som innehåller rekommendationer, aviseringar, principer och hälsa, men som inte kan göra ändringar.
+- **Säkerhets administratör**: har samma visnings rättigheter som *säkerhets läsaren*, och de kan också uppdatera säkerhets principen och stänga rekommendationer och aviseringar.
 
 
-## <a name="disable-security-policies"></a>Inaktivera säkerhetsprinciper
-Om standardsäkerhetsprincipen genererar en rekommendation som inte är relevant för din miljö kan du stoppa den genom att inaktivera principdefinitionen som skickar rekommendationen.
-Mer information om rekommendationer finns i [Hantera säkerhetsrekommendationer](security-center-recommendations.md).
+## <a name="disable-security-policies"></a>Inaktivera säkerhets principer
+Om standard säkerhets principen genererar en rekommendation som inte är relevant för din miljö kan du stoppa den genom att inaktivera den princip definition som skickar rekommendationen.
+Mer information om rekommendationer finns i [hantera säkerhets rekommendationer](security-center-recommendations.md).
 
-1. Välj **Säkerhetsprincip**i avsnittet **Princip & i** Security Center .
+1. I Security Center går du till avsnittet **princip & efterlevnad** och väljer **säkerhets princip**.
 
-   ![policyhantering](./media/tutorial-security-policy/policy-management.png)
+   ![princip hantering](./media/tutorial-security-policy/policy-management.png)
 
-2. Välj den prenumeration eller hanteringsgrupp som du vill inaktivera rekommendationen för.
+2. Välj den prenumeration eller hanterings grupp som du vill inaktivera rekommendationen för.
 
    > [!NOTE]
    > Kom ihåg att en hanteringsgrupp tillämpar sina policyer på prenumerationerna i den. Om du inaktiverar en policy för en prenumeration och prenumerationen tillhör en hanteringsgrupp som fortfarande använder samma policy så fortsätter du att få tillhörande rekommendationer. Policyn tillämpas fortfarande från hanteringsnivån och rekommendationerna fortsätter att genereras.
 
-1. Välj **Visa effektiv princip**.
+1. Välj **Visa gällande princip**.
 
-   ![inaktivera princip](./media/tutorial-security-policy/view-effective-policy.png)
+   ![Inaktivera princip](./media/tutorial-security-policy/view-effective-policy.png)
 
 1. Välj den tilldelade principen.
 
-   ![inaktivera princip](./media/tutorial-security-policy/security-policy.png)
+   ![Inaktivera princip](./media/tutorial-security-policy/security-policy.png)
 
-1. I avsnittet **PARAMETRAR** söker du efter den princip som anropar den rekommendation som du vill inaktivera och väljer Inaktiverad i listrutan och väljer **Inaktiverad** i listrutan
+1. I avsnittet **parametrar** söker du efter principen som anropar rekommendationen som du vill inaktivera. Välj **inaktive rad** i list rutan.
 
-   ![inaktivera princip](./media/tutorial-security-policy/disable-policy.png)
+   ![Inaktivera princip](./media/tutorial-security-policy/disable-policy.png)
 
 1. Välj **Spara**.
 
    > [!NOTE]
-   > Ändringarna av inaktivera princip kan ta upp till 12 timmar att börja gälla.
+   > Det kan ta upp till 12 timmar innan ändringar av principen inaktive ras.
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du lärt dig mer om säkerhetsprinciper. Relaterad information finns i följande artiklar:
+I den här artikeln har du lärt dig om säkerhets principer. Relaterad information finns i följande artiklar:
 
-* Instruktioner om hur du anger principer med PowerShell finns i [Snabbstart: Skapa en principtilldelning för att identifiera icke-kompatibla resurser med Azure PowerShell-modulen](../governance/policy/assign-policy-powershell.md)
+* Instruktioner för hur du anger principer med hjälp av PowerShell finns i [snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med hjälp av modulen Azure PowerShell](../governance/policy/assign-policy-powershell.md)
 
-* Instruktioner om hur du redigerar en säkerhetsprincip i Azure Policy finns i [Skapa och hantera principer för att tillämpa efterlevnad](../governance/policy/tutorials/create-and-manage.md).
+* Instruktioner för hur du redigerar en säkerhets princip i Azure Policy finns i [skapa och hantera principer för att genomdriva efterlevnad](../governance/policy/tutorials/create-and-manage.md).
 
-* Instruktioner om hur du anger en princip för prenumerationer eller hanteringsgrupper som använder Azure Policy finns i [Vad är Azure Policy?](../governance/policy/overview.md)
+* Instruktioner för hur du ställer in en princip över prenumerationer eller på hanterings grupper med hjälp av Azure Policy finns [Azure policy?](../governance/policy/overview.md)

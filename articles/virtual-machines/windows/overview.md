@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: e304841d09913aac59f5e6ba082d3e76ec791e81
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81869349"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Virtuella Windows-datorer i Azure
@@ -59,13 +59,13 @@ Azure har tillkännagivit ett branschledande serviceavtal på 99,9 % för virtue
 ## <a name="vm-size"></a>Storlek på virtuell dator
 [Storleken](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) på den virtuella datorn som du använder bestäms av den arbetsbelastning som du vill köra. Storleken som du väljer avgör sedan faktorer som processorkraft, minne och lagringskapacitet. Azure erbjuder en rad olika storlekar för att passa en mängd olika användningar.
 
-Azure debiterar ett [timpris](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) baserat på den virtuella datorns storlek och operativsystem. För delar av timmar tar Azure bara betalt för användningen per minut. Lagringsutrymme prissätts och debiteras separat.
+Azure debiterar ett [Tim pris](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) baserat på den virtuella datorns storlek och operativ system. För delar av timmar tar Azure bara betalt för användningen per minut. Lagringsutrymme prissätts och debiteras separat.
 
 ## <a name="vm-limits"></a>Begränsningar för den virtuella datorn
 Prenumerationen har [standardkvotgränser](../../azure-resource-manager/management/azure-subscription-service-limits.md) som kan påverka ditt projekt om många virtuella datorer distribueras. Den aktuella gränsen på basis av per prenumeration är 20 virtuella datorer per region. Begränsningen kan ökas om du [anmäler ett supportärende och begär en ökning](../../azure-portal/supportability/resource-manager-core-quotas-request.md)
 
 ### <a name="operating-system-disks-and-images"></a>Operativsystemsdiskar och avbildningar
-Virtuella datorer använder [virtuella hårddiskar (VHD)](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för att lagra sitt operativsystem (OS) och data. VHD:ar används också för de avbildningar du kan välja mellan för att installera ett operativsystem. 
+Virtuella datorer använder [virtuella hård diskar (VHD: er)](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) för att lagra sitt operativ system (OS) och data. VHD:ar används också för de avbildningar du kan välja mellan för att installera ett operativsystem. 
 
 Azure tillhandahåller många [Marketplace-avbildningar](https://azure.microsoft.com/marketplace/virtual-machines/) som kan användas med olika versioner och typer av Windows Server-operativsystem. Marketplace-avbildningar identifieras av avbildningens utgivare, erbjudande, sku och version (vanligtvis anges versionen som den senaste). Endast 64-bitars operativsystem stöds. Mer information om kompatibla gästoperativsystem, roller och funktioner finns i [Microsoft serverprogramvarusupport för Microsoft virtuella Azure-datorer](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
@@ -76,7 +76,7 @@ I den här tabellen hittar du några olika sätt för att hitta informationen om
 | Azure Portal |Värdena anges automatiskt åt dig när du väljer en avbildning som du vill använda. |
 | Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
 | REST API:er |[Lista över avbildningsutgivare](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Lista över avbildningserbjudanden](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Lista över avbildnings-SKU:er](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure CLI |[az vm bildlista-utgivare](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --plats *plats*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location location --publisher publisherName az vm image list-offers --location location --publisher publisherName az vm image list-offers --location *location* --publisher *publisherName* az vm<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest) --location location --publisher publisherName --offer offerName az vm image list-skus --location location --publisher publisherName --offer offerName az vm image list-skus --location *location* --publisher *publisherName* --offername *az* vm image|
+| Azure CLI |[AZ VM Image List-Publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *location*<BR>[AZ VM Image List-erbjudanden](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *location* --Publisher *publisherName*<BR>[AZ VM Image List-SKU](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest) --location *location* --Publisher *publisherName* --erbjudande *offerName*|
 
 Du kan välja att [ladda upp och använda en egen avbildning](upload-generalized-managed.md). Om du gör det används inte utgivarnamn, erbjudande och sku.
 
@@ -97,13 +97,13 @@ Resurserna i den här tabellen används av den virtuella datorn och måste finna
 | [Resursgrupp](../../azure-resource-manager/management/overview.md) |Ja |Den virtuella datorn måste ingå i en resursgrupp. |
 | [Lagringskonto](../../storage/common/storage-create-storage-account.md) |Ja |Den virtuella datorn behöver lagringskontot för att kunna lagra sina virtuella hårddiskar. |
 | [Virtuellt nätverk](../../virtual-network/virtual-networks-overview.md) |Ja |Den virtuella datorn måste ingå i ett virtuellt nätverk. |
-| [Offentlig IP-adress](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Inga |Den virtuella datorn kan tilldelas en offentlig IP-adress för att möjliggöra fjärråtkomst till den. |
-| [Nätverksgränssnitt](../../virtual-network/virtual-network-network-interface.md) |Ja |Den virtuella datorn behöver nätverksgränssnittet för att kunna kommunicera i nätverket. |
-| [Datadiskar](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Inga |Den virtuella datorn kan innehålla datadiskar för att expandera lagringskapaciteten. |
+| [Offentlig IP-adress](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Nej |Den virtuella datorn kan tilldelas en offentlig IP-adress för att möjliggöra fjärråtkomst till den. |
+| [Nätverks gränssnitt](../../virtual-network/virtual-network-network-interface.md) |Ja |Den virtuella datorn behöver nätverksgränssnittet för att kunna kommunicera i nätverket. |
+| [Datadiskar](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Nej |Den virtuella datorn kan innehålla datadiskar för att expandera lagringskapaciteten. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Skapa din första VM!
+Skapa din första virtuella dator!
 
 - [Portalen](quick-create-portal.md)
 - [PowerShell](quick-create-powershell.md)

@@ -1,7 +1,7 @@
 ---
-title: SQL-språkreferens för frågeacceleration (förhandsgranskning)
+title: Språk referens för Query acceleration SQL (för hands version)
 titleSuffix: Azure Storage
-description: Lär dig hur du använder sql-syntax för frågeacceleration.
+description: Lär dig hur du använder SQL-syntax för frågekörning.
 services: storage
 author: normesta
 ms.service: storage
@@ -11,44 +11,44 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
 ms.openlocfilehash: cea5fb507225f063e2d48c56fae254e123a8f72b
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81772124"
 ---
-# <a name="query-acceleration-sql-language-reference-preview"></a>SQL-språkreferens för frågeacceleration (förhandsgranskning)
+# <a name="query-acceleration-sql-language-reference-preview"></a>Språk referens för Query acceleration SQL (för hands version)
 
-Frågeacceleration stöder ett ANSI SQL-liknande språk för att uttrycka frågor över blob-innehåll.  Frågeacceleration SQL dialekt är en delmängd av ANSI SQL, med en begränsad uppsättning datatyper som stöds, operatorer, etc., men det expanderar också på ANSI SQL för att stödja frågor över hierarkiska semi-strukturerade dataformat som JSON. 
+Query acceleration stöder ett ANSI SQL-liknande språk för att uttrycka frågor över BLOB-innehåll.  SQL-dialekten för frågekörning är en delmängd av ANSI SQL, med en begränsad uppsättning data typer, operatorer osv., men den utökas också på ANSI SQL för att ge stöd för frågor över hierarkiskt strukturerade data format, t. ex. JSON. 
 
 > [!NOTE]
-> Frågeaccelerationfunktionen är i offentlig förhandsversion och är tillgänglig i regionerna Kanada Central och France Central. Information om hur du granskar begränsningar finns i artikeln [Kända problem.](data-lake-storage-known-issues.md) Om du vill registrera dig i förhandsgranskningen läser du [det här formuläret](https://aka.ms/adls/qa-preview-signup). 
+> Funktionen för acceleration av frågor finns i offentlig för hands version och är tillgänglig i regionerna Kanada, centrala och Frankrike, centrala. Information om hur du granskar begränsningar finns i artikeln om [kända problem](data-lake-storage-known-issues.md) . Information om hur du registrerar i för hands versionen finns i [det här formuläret](https://aka.ms/adls/qa-preview-signup). 
 
-## <a name="select-syntax"></a>MARKERA Syntax
+## <a name="select-syntax"></a>Välj syntax
 
-Det enda SQL-uttryck som stöds av frågeacceleration är SELECT-uttrycket. Det här exemplet returnerar varje rad som uttrycket returnerar sant.
+Det enda SQL-uttryck som stöds av frågans acceleration är SELECT-instruktionen. Det här exemplet returnerar alla rader för vilka uttrycket returnerar true.
 
 ```sql
 SELECT * FROM table [WHERE expression] [LIMIT limit]
 ```
 
-För CSV-formaterade data *table* måste `BlobStorage`tabellen vara .  Det innebär att frågan körs mot vilken blob som angavs i REST-anropet.
-För JSON-formaterade data är *tabellen* en "tabellbeskrivare".   Se avsnittet [Tabellbeskrivningar](#table-descriptors) i den här artikeln.
+För CSV-formaterade data måste *tabellen* vara `BlobStorage`.  Det innebär att frågan kommer att köras mot den angivna blobben i REST-anropet.
+För JSON-formaterade data är *tabellen* en "Tabell Beskrivning".   Se avsnittet [tabell beskrivningar](#table-descriptors) i den här artikeln.
 
-I följande exempel returnerar den här uttrycket en ny rad som görs från utvärderingen av vart och ett av projektionsuttrycken för varje rad som returneras i *WHERE-uttrycket.*
+I följande exempel, för varje rad där WHERE- *uttrycket* returnerar true, returnerar den här instruktionen en ny rad som görs från utvärderingen av varje projektions uttryck.
 
 
 ```sql
 SELECT expression [, expression …] FROM table [WHERE expression] [LIMIT limit]
 ```
 
-I följande exempel returneras en mängdberäkning (till exempel medelvärdet för en viss kolumn) över var och en av de rader för vilka *uttrycket* returnerar sant. 
+I följande exempel returneras en mängd beräkning (till exempel medelvärdet för en viss kolumn) över varje rad som *uttrycket* returnerar true. 
 
 ```sql
 SELECT aggregate_expression FROM table [WHERE expression] [LIMIT limit]
 ```
 
-I följande exempel returneras lämpliga förskjutningar för att dela upp en CSV-formaterad blob.  Se avsnittet [Sys.Split](#sys-split) i den här artikeln.
+I följande exempel returneras lämpliga förskjutningar för delning av en CSV-formaterad blob.  Se avsnittet [sys. Split](#sys-split) i den här artikeln.
 
 ```sql
 SELECT sys.split(split_size)FROM BlobStorage
@@ -60,41 +60,41 @@ SELECT sys.split(split_size)FROM BlobStorage
 
 |Datatyp|Beskrivning|
 |---------|-------------------------------------------|
-|INT      |64-bitars signerat heltal.                     |
-|Flyta    |64-bitars ("dubbel precision") flyttals.|
-|Sträng   |Unicode-sträng med variabel längd.            |
+|INT      |64-bitars heltal.                     |
+|FLYTA    |64-bitars ("dubbel precision") svävande punkt.|
+|NOLLÄNGD   |Unicode-sträng med variabel längd.            |
 |TIMESTAMP|En tidpunkt.                           |
-|Boolean  |Sant eller falskt.                             |
+|BOOLESKT  |Sant eller falskt.                             |
 
-När du läser värden från CSV-formaterade data läses alla värden som strängar.  Strängvärden kan konverteras till andra typer med CAST-uttryck.  Värden kan implicit kastas till andra typer beroende på kontext. Mer information finns i [Datatypsprioritet (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
+När du läser värden från CSV-formaterade data läses alla värden som strängar.  Sträng värden kan konverteras till andra typer med hjälp av CAST-uttryck.  Värden kan vara implicit omvandlas till andra typer beroende på kontext. Mer information finns i [data typs prioritet (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
 
 ## <a name="expressions"></a>Uttryck
 
-### <a name="referencing-fields"></a>Referera till fält
+### <a name="referencing-fields"></a>Referens fält
 
-För JSON-formaterade data, eller CSV-formaterade data med en rubrikrad, kan fält refereras med namn.  Fältnamn kan citeras eller tas bort. Citerade fältnamn omges av dubbla citattecken ("), kan innehålla blanksteg och är skiftlägeskänsliga.  Ocierade fältnamn är skiftlägesokänsliga och får inte innehålla några specialtecken.
+För JSON-formaterade data, eller CSV-formaterade data med en rubrik rad, kan fält refereras till efter namn.  Fält namn kan anges i citat tecken eller citat tecken. Fält namn som omges av dubbla citat tecken ("), kan innehålla blank steg och är Skift läges känsliga.  Ej citerade fält namn är Skift läges okänsliga och får inte innehålla specialtecken.
 
-I CSV-formaterade data kan fält också refereras av ordningsfält, som föregås av ett understreck (_) tecken.  Det första fältet kan till exempel refereras till _1, eller så kan det elfte fältet refereras till _11.  Att referera till fält efter ordningsordning är användbart för CSV-formaterade data som inte innehåller en rubrikrad, i vilket fall det enda sättet att referera till ett visst fält är genom ordningstid.
+I CSV-formaterade data kan fält också refereras till av ordnings tal, som föregås av ett under streck (_).  Till exempel kan det första fältet refereras som _1, eller så kan det elfte fältet refereras som _11.  Att referera till fält efter ordnings tal är användbart för CSV-formaterade data som inte innehåller någon rubrik rad, i vilket fallet är det enda sättet att referera till ett visst fält enligt ordnings tal.
 
 ### <a name="operators"></a>Operatorer
 
-Följande standard-SQL-operatörer stöds:
+Följande standard-SQL-operatorer stöds:
 
 ``=``, ``!=``, ``<>``, ``<``, ``<=``, ``>``, ``>=``, ``+``, ``-``, ``/``, ``*``, ``%``, ``AND``, ``OR``, ``NOT``, ``CAST``, ``BETWEEN``, ``IN``, ``NULLIF``, ``COALESCE``
 
-Om datatyperna till vänster och höger om en operator är olika utförs automatisk konvertering enligt de regler som anges här: [Datatypsprioritet (Transact-SQL).](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017)
+Om data typer till vänster och höger om en operator skiljer sig åt kommer den automatiska konverteringen att utföras enligt de regler som anges här: [data typs prioritet (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
 
-SQL-språket för frågeacceleration stöder endast en mycket liten delmängd av de datatyper som beskrivs i den artikeln.  Se avsnittet [Datatyper](#data-types) i den här artikeln.
+SQL-språket för Query acceleration stöder bara en liten del av de data typer som beskrivs i artikeln.  Se avsnittet [data typer](#data-types) i den här artikeln.
 
-### <a name="casts"></a>Kastar
+### <a name="casts"></a>Sändningar
 
-SQL-språket för frågeacceleration stöder CAST-operatorn enligt reglerna här: [Datatypskonvertering (databasmotor)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine?view=sql-server-2017).  
+SQL-språket för frågespråk stöder CAST-operatorn, enligt reglerna här: [data typs konvertering (databas motor)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine?view=sql-server-2017).  
 
-SQL-språket för frågeacceleration stöder endast en liten delmängd av de datatyper som beskrivs i den artikeln.  Se avsnittet [Datatyper](#data-types) i den här artikeln.
+SQL-språket för frågespråk stöder bara en liten delmängd av de data typer som beskrivs i artikeln.  Se avsnittet [data typer](#data-types) i den här artikeln.
 
 ### <a name="string-functions"></a>Strängfunktioner
 
-SQL-språket för frågeacceleration stöder följande vanliga SQL-strängfunktioner:
+SQL-språket för frågespråk stöder följande SQL-standardfunktioner:
 
 ``LIKE``, ``CHAR_LENGTH``, ``CHARACTER_LENGTH``, ``LOWER``, ``UPPER``, ``SUBSTRING``, ``TRIM``, ``LEADING``, ``TRAILING``.
 
@@ -109,7 +109,7 @@ Här är några exempel:
 |SUBSTRING|``SUBSTRING('123456789', 1, 5)``|``23456``|
 |TRIM|``TRIM(BOTH '123' FROM '1112211Microsoft22211122')``|``Microsoft``|
 
-[Funktionen LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) hjälper dig att söka efter ett mönster. Här är några exempel som använder funktionen [GILLA](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i ``för att söka i datasträngen .
+Funktionen [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) hjälper dig att söka efter ett mönster. Här följer några exempel som använder funktionen [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) för att söka i data strängen ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i ``.
 
 |Söka i data|Exempel|
 |--|--|
@@ -121,15 +121,15 @@ Här är några exempel:
 
 ### <a name="date-functions"></a>Datumfunktioner
 
-Följande standardfunktioner för SQL-datum stöds:
+Följande SQL-datum stöds i standard:
 
 ``DATE_ADD``, ``DATE_DIFF``, ``EXTRACT``, ``TO_STRING``, ``TO_TIMESTAMP``.
 
-För närvarande konverterar vi alla [datumformat av standard IS08601](https://www.w3.org/TR/NOTE-datetime). 
+För närvarande konverterar vi alla [datum format för standard-IS08601](https://www.w3.org/TR/NOTE-datetime). 
 
 #### <a name="date_add-function"></a>DATE_ADD funktion
 
-Frågeacceleration SQL-språket stöder år, månad, dag, timme, minut, sekund för ``DATE_ADD`` funktionen.
+SQL-språket för frågespråk stöder år, månad, dag, timme, minut, sekund för ``DATE_ADD`` funktionen.
 
 Exempel:
 
@@ -140,16 +140,16 @@ DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
 
 #### <a name="date_diff-function"></a>DATE_DIFF funktion
 
-Frågeacceleration SQL-språket stöder år, månad, dag, timme, minut, sekund för ``DATE_DIFF`` funktionen.
+SQL-språket för frågespråk stöder år, månad, dag, timme, minut, sekund för ``DATE_DIFF`` funktionen.
 
 ```sql
 DATE_DIFF(datepart, timestamp, timestamp)
 DATE_DIFF('hour','2018-11-09T00:00+05:30','2018-11-09T01:00:23-08:00') 
 ```
 
-#### <a name="extract-function"></a>FUNKTIONEN EXTRACT
+#### <a name="extract-function"></a>EXTRAHERA funktion
 
-För EXTRA än datumdel ``DATE_ADD`` som stöds för funktionen stöder SQL-språket för frågeacceleration timezone_hour och timezone_minute som datumdel.
+För att EXTRAHERA andra än den datum del som ``DATE_ADD`` stöds för funktionen stöder frågespråket SQL-språket timezone_hour och timezone_minute som datum del.
 
 Exempel:
 
@@ -167,37 +167,37 @@ TO_STRING(TimeStamp , format)
 TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
 ```
 
-I den här tabellen beskrivs strängar som du ``TO_STRING`` kan använda för att ange utdataformatet för funktionen.
+I den här tabellen beskrivs strängar som du kan använda för att ange utdataformatet ``TO_STRING`` för funktionen.
 
-|Sträng för format    |Resultat                               |
+|Format sträng    |Resultat                               |
 |-----------------|-------------------------------------|
-|yy               |År i tvåsiffrigt format – 1999 som "99"|
-|y                |År i fyrsiffrigt format               |
-|yyyy             |År i fyrsiffrigt format               |
-|M                |Månad på året – 1                    |
-|MM               |Noll vadderad månad – 01               |
-|MMM              |Abbr. månad år -JAN            |
-|MMMM             |Hel månad – maj                      |
+|yy               |År i 2-siffrigt format – 1999 som "99"|
+|y                |År med 4 siffer format               |
+|yyyy             |År med 4 siffer format               |
+|M                |Månad på år – 1                    |
+|MM               |Noll utfylld månad – 01               |
+|MMM              |Förkortning. månad på år – JAN            |
+|MMMM             |Fullständig månad – kan                      |
 |d                |Dag i månaden (1-31)                  |
-|dd               |Noll vadderad dag i månaden (01-31)     |
-|a                |AM eller PM                             |
+|dd               |Noll i utfylld dag i månad (01-31)     |
+|a                |FM eller EM                             |
 |h                |Timme på dagen (1-12)                   |
-|hh               |Noll vadderade timmar od dag (01-12)     |
+|hh               |Noll utfyllda timmar OD-dagen (01-12)     |
 |H                |Timme på dagen (0-23)                   |
-|HH               |Noll vadderad timme på dagen (00-23)      |
-|m                |Minut (0-59)                |
-|mm               |Noll vadderad minut (00-59)           |
-|s                |Andra av protokollet (0-59)             |
-|ss               |Noll vadderade sekunder (00-59)          |
-|S                |Bråkdel av sekunder (0,1-0,9)        |
-|SS               |Bråkdel av sekunder (0,01-0,99)      |
-|Sss              |Bråkdel av sekunder (0,001-0,999)    |
+|HH               |Noll i utfylld timme på dagen (00-23)      |
+|m                |Minut i timmen (0-59)                |
+|mm               |Noll i utfyllt minut (00-59)           |
+|s                |Sekund i minuter (0-59)             |
+|ss               |Noll utfyllnad i sekunder (00-59)          |
+|S                |Bråkdel av sekunder (0,1 – 0,9)        |
+|SS               |Del av sekunder (0,01-0,99)      |
+|LAGRING              |Bråkdel av sekunder (0,001-0.999)    |
 |X                |Förskjutning i timmar                      |
-|XX eller XXXX       |Förskjutning i timmar och minuter (+0430)  |
+|XX eller XXXX       |Förskjutning i timmar och minuter (+ 0430)  |
 |XXX eller XXXXX     |Förskjutning i timmar och minuter (-07:00) |
 |x                |Förskjutning i timmar (7)                  |
-|xx eller xxxx       |Förskjutning i timme och minut (+0530)    |
-|Xxx eller xxxxx     |Förskjutning i timme och minut (+05:30)   |
+|xx eller xxxx       |Förskjutning i timma och minut (+ 0530)    |
+|XXX eller xxxxx     |Förskjutning i timma och minut (+ 05:30)   |
 
 #### <a name="to_timestamp-function"></a>TO_TIMESTAMP funktion
 
@@ -211,31 +211,31 @@ TO_TIMESTAMP('2007T')
 ```
 
 > [!NOTE]
-> Du kan också ``UTCNOW`` använda funktionen för att få systemtiden.
+> Du kan också använda ``UTCNOW`` funktionen för att hämta system tiden.
 
 
-## <a name="aggregate-expressions"></a>Aggregera uttryck
+## <a name="aggregate-expressions"></a>Mängd uttryck
 
-En SELECT-sats kan innehålla antingen ett eller flera projektionsuttryck eller ett enda aggregerat uttryck.  Följande aggregerade uttryck stöds:
+Ett SELECT-uttryck kan innehålla antingen ett eller flera projektioner eller ett enda agg regerings uttryck.  Följande agg regerings uttryck stöds:
 
 |Uttryck|Beskrivning|
 |--|--|
-|[ANTAL(\*)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Returnerar antalet poster som matchade predikatuttrycket.|
-|[ANTAL(uttryck)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Returnerar antalet poster för vilka uttrycket inte är null.|
-|[MEDEL(uttryck)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql?view=sql-server-ver15)    |Returnerar medelvärdet av de icke-null-värden för uttrycket.|
-|[MIN(uttryck)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql?view=sql-server-ver15)    |Returnerar uttryckets lägsta icke-null-värde.|
-|[MAX(uttryck)](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql?view=sql-server-ver15)    |Returnerar uttryckets högsta icke-null-värde.|
-|[SUMMA(uttryck)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql?view=sql-server-ver15)    |Returnerar summan av alla icke-null-värden för uttryck.|
+|[COUNT (\*)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Returnerar antalet poster som matchade predikatet-uttrycket.|
+|[COUNT (uttryck)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Returnerar antalet poster för vilka uttrycket inte är null.|
+|[MEDEL (uttryck)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql?view=sql-server-ver15)    |Returnerar medelvärdet av uttryck som inte är null-värden.|
+|[MIN (uttryck)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql?view=sql-server-ver15)    |Returnerar det minsta värdet för uttrycket som inte är null.|
+|[Max (uttryck](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql?view=sql-server-ver15))    |Returnerar det högsta värdet för uttrycket som inte är null.|
+|[SUM (uttryck)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql?view=sql-server-ver15)    |Returnerar summan av alla värden som inte är null i uttrycket.|
 
-### <a name="missing"></a>Saknas
+### <a name="missing"></a>INGEN
 
-Operatorn ``IS MISSING`` är den enda icke-standard som frågeacceleration SQL-språket stöder.  Om ett fält saknas i en viss indatapost ``IS MISSING`` för JSON-data utvärderas uttrycksfältet till det booleska värdet true.
+``IS MISSING`` Operatorn är den enda icke-standard som stöds av frågespråket SQL-språket.  För JSON-data, om ett fält saknas i en viss inmatnings post, kommer ``IS MISSING`` uttrycks fältet att utvärderas till det booleska värdet true.
 
 <a id="table-descriptors" />
 
-## <a name="table-descriptors"></a>Tabellbeskrivningar
+## <a name="table-descriptors"></a>Tabell beskrivningar
 
-För CSV-data är tabellnamnet alltid `BlobStorage`.  Ett exempel:
+Tabell namnet är alltid `BlobStorage`för CSV-data.  Ett exempel:
 
 ```sql
 SELECT * FROM BlobStorage
@@ -247,13 +247,13 @@ För JSON-data finns ytterligare alternativ:
 SELECT * FROM BlobStorage[*].path
 ```
 
-Detta gör det möjligt att fråga över delmängder av JSON-data.
+Detta tillåter frågor över del mängder av JSON-data.
 
-För JSON-frågor kan du nämna sökvägen i en del av FROM-satsen. Dessa sökvägar hjälper till att tolka delmängden av JSON-data. Dessa banor kan referera till JSON-matris- och objektvärden.
+För JSON-frågor kan du nämna sökvägen i en del av FROM-satsen. Dessa sökvägar kommer att hjälpa till att parsa delmängd av JSON-data. Dessa sökvägar kan referera till JSON-matris-och objekt värden.
 
-Låt oss ta ett exempel för att förstå detta mer i detalj.
+Låt oss ta ett exempel på att förstå detta i mer detalj.
 
-Detta är våra exempeldata:
+Detta är våra exempel data:
 
 ```json
 {
@@ -279,7 +279,7 @@ Detta är våra exempeldata:
 }
 ```
 
-Du kanske bara är `warehouses` intresserad av JSON-objektet från ovanstående data. Objektet `warehouses` är en JSON-matristyp, så du kan nämna detta i FROM-satsen. Exempelfrågan kan se ut ungefär så här.
+Du kanske bara är intresse rad av `warehouses` JSON-objektet från ovanstående data. `warehouses` Objektet är en JSON-mat ris typ, så du kan nämna detta i from-satsen. Exempel frågan kan se ut ungefär så här.
 
 ```sql
 SELECT latitude FROM BlobStorage[*].warehouses[*]
@@ -287,42 +287,42 @@ SELECT latitude FROM BlobStorage[*].warehouses[*]
 
 Frågan hämtar alla fält men väljer bara latitud.
 
-Om du bara vill `dimensions` komma åt JSON-objektvärdet kan du använda referera till objektet i frågan. Ett exempel:
+Om du bara vill komma åt `dimensions` JSON-cellvärdet kan du använda referera till objektet i din fråga. Ett exempel:
 
 ```sql
 SELECT length FROM BlobStorage[*].dimensions
 ```
 
-Detta begränsar också din åtkomst `dimensions` till medlemmar i objektet. Om du vill komma åt andra medlemmar i JSON-fält och inre värden för JSON-objekt kan du använda en fråga som visas i följande exempel:
+Detta begränsar också åtkomsten till medlemmar i `dimensions` objektet. Om du vill komma åt andra medlemmar i JSON-fält och inre värden för JSON-objekt kan du använda en fråga som visas i följande exempel:
 
 ```sql
 SELECT weight,warehouses[0].longitude,id,tags[1] FROM BlobStorage[*]
 ```
 
 > [!NOTE]
-> BlobStorage och BlobStorage båda\*hänvisar till hela objektet. Men om du har en sökväg i FROM-satsen måste du\*använda BlobStorage[ ].path
+> BlobStorage och BlobStorage [\*] refererar båda till hela objektet. Men om du har en sökväg i FROM-satsen måste du använda BlobStorage [\*]. Path
 
 <a id="sys-split" />
 
-## <a name="syssplit"></a>Sys.Dela
+## <a name="syssplit"></a>Sys. Split
 
-Detta är en särskild form av SELECT-satsen, som endast är tillgänglig för CSV-formaterade data.
+Detta är en särskild form av SELECT-instruktionen, som endast är tillgänglig för CSV-formaterade data.
 
 ```sql
 SELECT sys.split(split_size)FROM BlobStorage
 ```
 
-Använd den här uttryckssatsen i fall där du vill hämta och sedan bearbeta CSV-dataposter i batchar. På så sätt kan du bearbeta poster parallellt i stället för att behöva ladda ner alla poster på en gång. Den här policyn returnerar inte poster från CSV-filen. I stället returneras en samling batchstorlekar. Du kan sedan använda varje batchstorlek för att hämta en bunt dataposter. 
+Använd den här instruktionen i fall där du vill hämta och bearbeta CSV-dataposter i batchar. På så sätt kan du bearbeta poster parallellt i stället för att behöva ladda ned alla poster på en gång. Den här instruktionen returnerar inte poster från CSV-filen. I stället returnerar den en samling batch-storlekar. Du kan sedan använda varje batch-storlek för att hämta en batch med data poster. 
 
-Använd parametern *split_size* för att ange hur många byte som du vill att varje batch ska innehålla. Om du till exempel bara vill bearbeta 10 MB data åt gången skulle `SELECT sys.split(10485760)FROM BlobStorage` du se ut så här: eftersom 10 MB är lika med 10 485 760 byte. Varje batch innehåller så många poster som kan passa in i dessa 10 MB. 
+Använd parametern *split_size* för att ange antalet byte som du vill att varje batch ska innehålla. Om du till exempel bara vill bearbeta 10 MB data i taget skulle du se så här: `SELECT sys.split(10485760)FROM BlobStorage` eftersom 10 MB är lika med 10 485 760 byte. Varje batch kommer att innehålla så många poster som får plats i de 10 MB. 
 
-I de flesta fall är storleken på varje batch något högre än det tal som du anger. Det beror på att en batch inte kan innehålla en partiell post. Om den sista posten i en batch startar före slutet av tröskelvärdet blir batchen större så att den kan innehålla den fullständiga posten. Storleken på den sista batchen kommer sannolikt att vara mindre än den storlek som du anger.
+I de flesta fall är storleken på varje grupp något högre än det tal som du anger. Det beror på att en batch inte kan innehålla en partiell post. Om den sista posten i en batch startar före slutet av ditt tröskelvärde blir batchen större så att den kan innehålla hela posten. Storleken på den senaste batchen kommer förmodligen att vara mindre än den storlek som du anger.
 
 >[!NOTE]
-> Den split_size måste vara minst 10 MB (10485760).
+> Split_size måste vara minst 10 MB (10485760).
 
 ## <a name="see-also"></a>Se även
 
-- [Azure Data Lake Storage-frågeacceleration (förhandsgranskning)](data-lake-storage-query-acceleration.md)
-- [Filtrera data med hjälp av Azure Data Lake Storage-frågeacceleration (förhandsgranskning)](data-lake-storage-query-acceleration-how-to.md)
+- [Azure Data Lake Storage fråga om acceleration (för hands version)](data-lake-storage-query-acceleration.md)
+- [Filtrera data med hjälp av Azure Data Lake Storage fråga acceleration (för hands version)](data-lake-storage-query-acceleration-how-to.md)
 

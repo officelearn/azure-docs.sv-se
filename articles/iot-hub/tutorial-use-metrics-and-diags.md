@@ -1,6 +1,6 @@
 ---
 title: Konfigurera och använda mått och diagnostikloggar med Azure IoT Hub
-description: Lär dig hur du konfigurerar och använder mått och diagnostikloggar med en Azure IoT-hubb. Detta kommer att ge data som kan analyseras för att diagnostisera problem som navet kan ha.
+description: Lär dig hur du konfigurerar och använder mått och diagnostikloggar med en Azure IoT Hub. Detta ger data som ska analyseras för att hjälpa till att diagnostisera problem som navet kan ha.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -11,13 +11,13 @@ ms.custom:
 - mvc
 - mqtt
 ms.openlocfilehash: 3eda4cd8dc10bd9128186b2ff4f8d6ac0254fe5d
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81770598"
 ---
-# <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Självstudiekurs: Konfigurera och använda mått och diagnostikloggar med en IoT-hubb
+# <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Självstudie: Konfigurera och Använd mått och diagnostikloggar med IoT Hub
 
 Om du har en IoT Hub-lösning som körs i produktionsmiljön ska du konfigurera vissa mått och aktivera diagnostikloggar. Om ett problem uppstår har du sedan data att titta på som hjälper dig att diagnostisera problemet och åtgärda problemet snabbare. I den här artikeln ser du hur du aktiverar diagnostikloggarna och hur du kontrollerar dem efter fel. Du kan också ställa in några mått att titta på och aviseringar som utlöses när måtten når en viss gräns. Du kan till exempel ha ett e-postmeddelande som skickats till dig när antalet skickade telemetrimeddelanden överskrider en viss gräns, eller när antalet meddelanden som används närmar sig kvoten av meddelanden som tillåts per dag för IoT-hubben. 
 
@@ -44,7 +44,7 @@ I den här självstudien utför du följande åtgärder:
 
 - Ett e-postkonto som kan ta emot e-post.
 
-- Kontrollera att port 8883 är öppen i brandväggen. Enhetsexemplet i den här självstudien använder MQTT-protokollet, som kommunicerar över port 8883. Den här porten kan vara blockerad i vissa företags- och utbildningsnätverksmiljöer. Mer information och sätt att lösa problemet finns i [Ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+- Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här självstudien använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -55,7 +55,7 @@ För den är självstudien använder du en IoT-hubb, ett lagringskonto och en si
 
 Det här är steg som krävs.
 
-1. Skapa en [resursgrupp](../azure-resource-manager/management/overview.md). 
+1. Skapa en [resurs grupp](../azure-resource-manager/management/overview.md). 
 
 2. Skapa en IoT-hubb.
 
@@ -120,7 +120,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 ```
 
 >[!NOTE]
->När du skapar enhetsidentiteten kan du få följande fel: *Inga nycklar hittades för princip iothubowner för IoT Hub ContosoTestHub*. Åtgärda felet genom att uppdatera IoT-tillägget för Azure CLI och kör de senaste två kommandona i skriptet igen. 
+>När du skapar enhets identiteten kan du få följande fel: *inga nycklar hittades för principen iothubowner för IoT Hub ContosoTestHub*. Åtgärda felet genom att uppdatera IoT-tillägget för Azure CLI och kör de senaste två kommandona i skriptet igen. 
 >
 >Här är kommandot för att uppdatera tillägget. Kör det i Cloud Shell-instansen.
 >
@@ -139,7 +139,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
    ![Skärmbild som visar diagnostikinställningar för en del av IoT Hub-bladet.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
 
 
-3. Kontrollera att prenumerationen och resursgruppen är korrekta. Under **Resurstyp** avmarkerar du **Markera alla** och letar upp och markerar **IoT Hub**. (Markera *alla* kan bara ignoreras.) Välj hubbnamnet under **Resurs.** Skärmen bör se ut som på bilden: 
+3. Kontrollera att prenumerationen och resursgruppen är korrekta. Under **Resurstyp** avmarkerar du **Markera alla** och letar upp och markerar **IoT Hub**. (Om du *väljer alla* igen, ignoreras markeringen.) Under **resurs**väljer du hubbens namn. Skärmen bör se ut som på bilden: 
 
    ![Skärmbild som visar diagnostikinställningar för en del av IoT Hub-bladet.](./media/tutorial-use-metrics-and-diags/02-diagnostic-settings-start.png)
 
@@ -200,25 +200,25 @@ IoT Hub har inte migrerats till den [mått i Azure Monitor](/azure/azure-monitor
 
     Fyll i fälten: 
 
-    **Prenumeration**: Lämna det här fältet inställt på din aktuella prenumeration.
+    **Prenumeration**: lämna fältet inställt på din aktuella prenumeration.
 
-    **Källa**: Ställ in det här fältet *på Mått*.
+    **Källa**: Ange det här fältet till *mått*.
 
-    **Resursgrupp**: Ange det här fältet till din aktuella resursgrupp, *ContosoResources*. 
+    **Resurs grupp**: Ange det här fältet till din aktuella resurs grupp, *ContosoResources*. 
 
-    **Resurstyp**: Ange det här fältet till IoT Hub. 
+    **Resurs typ**: Ange det här fältet till IoT Hub. 
 
-    **Resurs:** Välj din IoT-hubb, *ContosoTestHub*.
+    **Resurs**: Välj din IoT Hub, *ContosoTestHub*.
 
 3. Klicka på **Lägg till måttavisering (klassisk)** för att ställa in en ny avisering.
 
     Fyll i fälten:
 
-    **Namn**: Ange ett namn för varningsregeln, till exempel *telemetrimeddelanden*.
+    **Namn**: Ange ett namn för aviserings regeln, till exempel *telemetri-meddelanden*.
 
-    **Beskrivning**: Ge en beskrivning av aviseringen, till exempel *avisering när 1000 telemetrimeddelanden skickas*. 
+    **Beskrivning**: Ange en beskrivning av din avisering, t. ex. *avisering när det finns 1000 telemetri meddelanden som skickas*. 
 
-    **Källa**: Ställ in detta *på mått*.
+    **Källa**: ange detta till *mått*.
 
     **Prenumeration**, **Resursgrupp** och **Resurs** ska vara inställda på de värden som du valde på skärmen **Visa klassiska aviseringar**. 
 
@@ -228,13 +228,13 @@ IoT Hub har inte migrerats till den [mått i Azure Monitor](/azure/azure-monitor
 
 4. Efter diagrammet anger du följande fält:
 
-   **Villkor**: Inställt på *större än*.
+   **Villkor**: Ange till *större än*.
 
-   **Tröskel:** Satt till 1000.
+   **Tröskelvärde**: inställt på 1000.
 
-   **Period**: Ställ in *på Under de senaste 5 minuterna*.
+   **Period**: inställt på *över de senaste 5 minuterna*.
 
-   **E-postmottagare**för meddelanden : Placera din e-postadress här. 
+   **E-postmottagare**: Lägg till din e-postadress här. 
 
    ![Skärmbild som visar nedre halvan av skärmen för aviseringar.](./media/tutorial-use-metrics-and-diags/11-alerts-add-rule-bottom.png)
 
@@ -244,11 +244,11 @@ IoT Hub har inte migrerats till den [mått i Azure Monitor](/azure/azure-monitor
 
    På skärmen **Visa klassiska aviseringar** klickar du på **Lägg till måttavisering (klassisk)** och fyller därefter i fälten i fönstret **Lägg till regel**.
 
-   **Namn**: Ange ett namn för *varningsregeln,* till exempel antal meddelanden som används .
+   **Namn**: Ange ett namn för aviserings regeln, till exempel *antal meddelanden som används*.
 
-   **Beskrivning**: Ge en beskrivning av aviseringen, till exempel *avisering när du närmar dig kvoten*.
+   **Beskrivning**: Ange en beskrivning av aviseringen, till exempel *aviseringar när du får nära kvoten*.
 
-   **Källa**: Ställ in det här fältet *på Mått*.
+   **Källa**: Ange det här fältet till *mått*.
 
     **Prenumeration**, **Resursgrupp** och **Resurs** ska vara inställda på de värden som du valde på skärmen **Visa klassiska aviseringar**. 
 
@@ -256,13 +256,13 @@ IoT Hub har inte migrerats till den [mått i Azure Monitor](/azure/azure-monitor
 
 6. Under diagrammet fyller du i följande fält:
 
-   **Villkor**: Inställt på *större än*.
+   **Villkor**: Ange till *större än*.
 
-   **Tröskel:** Satt till 1000.
+   **Tröskelvärde**: inställt på 1000.
 
-   **Period**: Ställ in det här fältet *på Under de senaste 5 minuterna*. 
+   **Period**: Ange det här fältet till *under de senaste 5 minuterna*. 
 
-   **E-postmottagare**för meddelanden : Placera din e-postadress här. 
+   **E-postmottagare**: Lägg till din e-postadress här. 
 
    Spara regeln genom att klicka på **OK**. 
 
@@ -278,7 +278,7 @@ IoT Hub har inte migrerats till den [mått i Azure Monitor](/azure/azure-monitor
 
 Tidigare i avsnittet om skriptkonfiguration konfigurerade du en enhet för att använda en IoT-enhet. I det här avsnittet ska du ladda ned en .NET-konsolapp som simulerar en enhet som skickar ”enhet till molnet”-meddelanden till en IoT Hub.  
 
-Ladda ned lösningen för [IoT-enhetssimuleringen](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Denna länk hämtar en repo med flera program i den; lösningen du letar efter är i iot-hub/Tutorials/Routing/.
+Ladda ned lösningen för [IoT-enhetssimuleringen](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Den här länken laddar ned en lagrings platsen med flera program. lösningen som du söker efter finns i IoT-Hub/självstudier/routing/.
 
 Dubbelklicka på lösningsfilen (SimulatedDevice.sln) för att öppna koden i Visual Studio och öppna sedan Program.cs. Ersätt `{iot hub hostname}` med IoT-hubbens värdnamn. Formatet för IoT-hubbens värdnamn är **{iot-hub-name}.azure-devices.net**. För den här självstudien är hubbens värdnamn **ContosoTestHub.azure-devices.net**. Ersätt därefter `{device key}` med enhetsnyckeln du sparade tidigare när du konfigurerade den simulerade enheten. 
 

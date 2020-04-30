@@ -1,5 +1,5 @@
 ---
-title: Eskalera privata molnbehörigheter
+title: Eskalera privata moln privilegier
 titleSuffix: Azure VMware Solution by CloudSimple
 description: Beskriver hur du eskalerar privilegier i ditt privata moln för administrativa funktioner i vCenter
 author: sharaths-cs
@@ -10,20 +10,20 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 63dc18c522a1e2e3b03bdf806945e0be67774b18
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81870474"
 ---
-# <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Eskalera privata moln vCenter-privilegier från CloudSimple-portalen
+# <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Eskalera behörigheter för privat moln vCenter från CloudSimple-portalen
 
-För administrativ åtkomst till ditt privata moln vCenter kan du tillfälligt eskalera dina CloudSimple-privilegier.  Med förhöjda privilegier kan du installera VMware-lösningar, lägga till identitetskällor och hantera användare.
+För administrativ åtkomst till ditt privata moln vCenter kan du tillfälligt eskalera dina CloudSimple-privilegier.  Med utökade privilegier kan du installera VMware-lösningar, lägga till identitets källor och hantera användare.
 
-Nya användare kan skapas på vCenter SSO-domänen och få åtkomst till vCenter.  När du skapar nya användare lägger du till dem i CloudSimple-inbyggda grupper för åtkomst till vCenter.  Mer information finns i [CloudSimple Private Cloud-behörighetsmodellen för VMware vCenter](https://docs.microsoft.com/azure/vmware-cloudsimple/learn-private-cloud-permissions/).
+Nya användare kan skapas i vCenter SSO-domänen och tilldelas åtkomst till vCenter.  När du skapar nya användare lägger du till dem i CloudSimple-Builtin-grupperna för åtkomst till vCenter.  Mer information finns i [behörighets modellen för CloudSimple-privata moln i VMware vCenter](https://docs.microsoft.com/azure/vmware-cloudsimple/learn-private-cloud-permissions/).
 
 > [!CAUTION]
-> Gör inga konfigurationsändringar för hanteringskomponenter. Åtgärder som vidtas under det eskalerade privilegierade tillståndet kan påverka systemet negativt eller orsaka att systemet blir otillgängligt.
+> Gör inga konfigurations ändringar för hanterings komponenter. Åtgärder som vidtas under det eskalerade privilegierade läget kan påverka systemet negativt eller kan orsaka att systemet blir otillgängligt.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -31,62 +31,62 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="escalate-privileges"></a>Eskalera privilegier
 
-1. Öppna [CloudSimple-portalen](access-cloudsimple-portal.md).
+1. Få åtkomst till [CloudSimple-portalen](access-cloudsimple-portal.md).
 
-2. Öppna sidan **Resurser,** välj det privata moln som du vill eskalera privilegier för.
+2. Öppna sidan **resurser** , Välj det privata moln som du vill eskalera privilegier för.
 
-3. Klicka på **Eskalera**längst ned på sidan Sammanfattning under **Ändra vSphere-behörigheter**.
+3. Klicka på **eskalera**längst ned på sidan Sammanfattning under **ändra vSphere-privilegier**.
 
     ![Ändra vSphere-behörighet](media/escalate-private-cloud-privilege.png)
 
-4. Välj användartypen vSphere.  Endast `CloudOwner@cloudsimple.local` den lokala användaren kan eskaleras.
+4. Välj användar typen vSphere.  Endast `CloudOwner@cloudsimple.local` lokal användare kan eskaleras.
 
-5. Välj det eskalerande tidsintervallet i listrutan. Välj den kortaste period som gör att du kan slutföra uppgiften.
+5. Välj intervallet för eskalerad tid i list rutan. Välj den kortaste perioden som gör att du kan slutföra uppgiften.
 
-6. Markera kryssrutan för att bekräfta att du förstår riskerna.
+6. Markera kryss rutan för att bekräfta att du förstår riskerna.
 
-    ![Dialogrutan Eskalera behörighet](media/escalate-private-cloud-privilege-dialog.png)
+    ![Dialog rutan eskalera privilegier](media/escalate-private-cloud-privilege-dialog.png)
 
 7. Klicka på **OK**.
 
-8. Eskaleringsprocessen kan ta ett par minuter. När du är klar klickar du på **OK**.
+8. Det kan ta några minuter att eskalera processen. När du är klar klickar du på **OK**.
 
-Privilegiet eskalering börjar och varar fram till slutet av det valda intervallet.  Du kan logga in på ditt privata moln vCenter för att utföra administrativa uppgifter.
+Behörighets eskaleringen börjar och varar tills det valda intervallet har slutförts.  Du kan logga in på ditt privata moln vCenter för att utföra administrativa uppgifter.
 
 > [!IMPORTANT]
-> Endast en användare kan ha eskalerade privilegier.  Du måste de-eskalera användarens behörigheter innan du kan eskalera en annan användares behörigheter.
+> Endast en användare kan ha eskalerade privilegier.  Du måste ta bort användarens behörigheter innan du kan eskalera en annan användares privilegier.
 
 > [!CAUTION]
-> Nya användare får endast läggas till *i Cloud-Owner-Group,* *Cloud-Global-Cluster-Admin-Group,* *Cloud-Global-Storage-Admin-Group,* *Cloud-Global-Network-Admin-Group* eller *Cloud-Global-VM-Admin-Group*.  Användare som läggs till i gruppen *Administratörer* tas bort automatiskt.  Endast tjänstkonton får läggas till *i grupp-* och tjänstkonton för administratörer får inte användas för att logga in på vSphere-webbgränssnittet.
+> Nya användare får endast läggas till i *moln-ägar-grupp*, *Cloud-global-Cluster-admin-Group*, *Cloud-Global-Storage-admin-Group*, *Cloud-Global-Network-admin-Group* eller, *Cloud-global-VM-admin-Group*.  Användare som lagts till i gruppen *Administratörer* tas då bort automatiskt.  Endast tjänst konton måste läggas till i *Administratörs* gruppen och tjänst kontona får inte användas för att logga in på vSphere-webbgränssnittet.
 
 ## <a name="extend-privilege-escalation"></a>Utöka eskalering av privilegier
 
-Om du behöver ytterligare tid för att slutföra dina uppgifter kan du förlänga eskaleringsperioden för privilegiet.  Välj det extra intervall för eskalerande tid som gör att du kan slutföra de administrativa uppgifterna.
+Om du behöver ytterligare tid för att slutföra dina uppgifter kan du utöka behörighets eskalerings perioden.  Välj det ytterligare eskalerade tidsintervall som gör att du kan slutföra de administrativa uppgifterna.
 
-1. På **de privata molnen Resurser** > **Private Clouds** i CloudSimple-portalen väljer du det privata moln som du vill utöka eskalering av privilegier.
+1. På **resursens** > **privata moln** i CloudSimple-portalen väljer du det privata moln som du vill utöka behörighets eskaleringen för.
 
-2. Klicka på **Utöka eskalering**av privilegier längst ned på fliken Sammanfattning.
+2. Nästan längst ned på fliken Sammanfattning klickar du på **utöka eskalering av privilegier**.
 
     ![Utöka eskalering av privilegier](media/de-escalate-private-cloud-privilege.png)
 
-3. Välj ett eskalerande tidsintervall i listrutan. Granska den nya eskaleringssluttiden.
+3. Välj ett intervall för eskalering i list rutan. Granska den nya slut tiden för eskalering.
 
-4. Klicka på **Spara** om du vill förlänga intervallet.
+4. Klicka på **Spara** för att utöka intervallet.
 
-## <a name="de-escalate-privileges"></a>De-eskalera privilegier
+## <a name="de-escalate-privileges"></a>Ta bort behörigheter för att eskalera
 
-När dina administrativa uppgifter är slutförda bör du de-eskalera dina privilegier.  
+När dina administrativa uppgifter har slutförts bör du eskalera dina privilegier.  
 
-1. På **de privata molnen Resurser** > **Private Clouds** i CloudSimple-portalen väljer du det privata moln som du vill de-eskalera privilegier för.
+1. På **resursens** > **privata moln** i CloudSimple-portalen väljer du det privata moln som du vill ta bort behörigheter för.
 
-2. Klicka på **De-eskalera**.
+2. Klicka på **eskalera**.
 
 3. Klicka på **OK**.
 
 > [!IMPORTANT]
-> Undvik eventuella fel genom att logga ut från vCenter och logga in igen efter de-eskalerande privilegier.
+> Undvik eventuella fel genom att logga ut från vCenter och logga in igen efter att de eskalerats.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera vCenter-identitetskällor för att använda Active Directory](https://docs.microsoft.com/azure/vmware-cloudsimple/set-vcenter-identity/)
-* Installera säkerhetskopieringslösning för att [arbetsbelastningsdatorer för säkerhetskopiering](https://docs.microsoft.com/azure/vmware-cloudsimple/backup-workloads-veeam/)
+* [Konfigurera vCenter-identitets källor som ska använda Active Directory](https://docs.microsoft.com/azure/vmware-cloudsimple/set-vcenter-identity/)
+* Installera säkerhets kopierings lösning för [säkerhets kopiering av virtuella datorer i arbets belastning](https://docs.microsoft.com/azure/vmware-cloudsimple/backup-workloads-veeam/)

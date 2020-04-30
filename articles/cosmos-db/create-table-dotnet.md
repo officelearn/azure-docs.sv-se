@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
 ms.openlocfilehash: df26021a3718c17d72f0fdb25588487043918732
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82084115"
 ---
-# <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell-API-app med .NET SDK och Azure Cosmos DB 
+# <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Snabb start: Bygg en Tabell-API-app med .NET SDK och Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -28,7 +28,7 @@ Den här snabbstarten visar hur du använder [tabell-API](table-introduction.md)
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte redan har Installerat Visual Studio 2019 kan du ladda ned och använda den **kostnadsfria** [Visual Studio 2019 Community Edition.](https://www.visualstudio.com/downloads/) Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
+Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -66,7 +66,7 @@ Nu ska vi klona en Table-app från GitHub, ange anslutningssträngen och köra a
    git clone https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started.git
    ```
 
-> ! -Jag har inte tid med det här. En mer detaljerad genomgång av liknande kod finns i [exempelartikeln för Cosmos DB Table API.](table-storage-how-to-use-dotnet.md)
+> ! Beskrivning En mer detaljerad genom gång av liknande kod finns i artikeln [Cosmos DB tabell-API exempel](table-storage-how-to-use-dotnet.md) .
 
 ## <a name="open-the-sample-application-in-visual-studio"></a>Öppna exempelappen i Visual Studio
 
@@ -74,7 +74,7 @@ Nu ska vi klona en Table-app från GitHub, ange anslutningssträngen och köra a
 
    ![Öppna lösningen](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
 
-2. Navigera till mappen där du klonade exempelprogrammet och öppnar filen TableStorage.sln.
+2. Navigera till den mapp där du klonade exempel programmet och öppna filen TableStorage. SLN.
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
@@ -84,9 +84,9 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
    ![Visa och kopiera PRIMÄR ANSLUTNINGSSTRÄNG i fönstret Anslutningssträng](./media/create-table-dotnet/connection-string.png)
 
-2. Öppna filen **Settings.json** i Visual Studio. 
+2. Öppna filen **Settings. JSON** i Visual Studio. 
 
-3. Klistra in **den primära anslutningssträngen** från portalen i storageconnectionstring-värdet. Klistra in strängen innanför citattecknen.
+3. Klistra in den **primära ANSLUTNINGS strängen** från portalen i StorageConnectionString-värdet. Klistra in strängen innanför citattecknen.
 
    ```csharp
    {
@@ -94,27 +94,27 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
    }
    ```
 
-4. Spara filen **Settings.json** genom att trycka på CTRL+S.
+4. Tryck på CTRL + S för att spara filen **Settings. JSON** .
 
 Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
 
 ## <a name="build-and-deploy-the-app"></a>Skapa och distribuera appen
 
-1. Högerklicka på **Projektet CosmosTableSamples** i Solution **Explorer** i Visual Studio och klicka sedan på **Hantera NuGet-paket**. 
+1. I Visual Studio högerklickar du på projektet **CosmosTableSamples** i **Solution Explorer** och klickar sedan på **Hantera NuGet-paket**. 
 
    ![Hantera NuGet-paket](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
 
-2. Skriv Microsoft.Azure.Cosmos.Table i rutan NuGet **Bläddra.** Därmed hittas klientbiblioteket Cosmos DB Table API. Observera att det här biblioteket för närvarande är tillgängligt för .NET Framework och .NET Standard. 
+2. Skriv Microsoft. Azure. Cosmos. table i rutan NuGet **Browse** . Därmed hittas klientbiblioteket Cosmos DB Table API. Observera att det här biblioteket för närvarande är tillgängligt för .NET Framework och .NET standard. 
    
    ![Fliken Bläddra i NuGet](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 
-3. Klicka på **Installera** om du vill installera biblioteket **Microsoft.Azure.Cosmos.Table.** Därmed installeras Azure Cosmos DB Table API-paketet och alla beroenden.
+3. Klicka på **Installera** för att installera **Microsoft. Azure. Cosmos. table** -biblioteket. Därmed installeras Azure Cosmos DB Table API-paketet och alla beroenden.
 
-4. När du kör hela appen infogas exempeldata i tabellentiteten och tas bort i slutet så att du inte ser några data infogas om du kör hela exemplet. Du kan dock infoga vissa brytpunkter för att visa data. Öppna BasicSamples.cs fil och högerklicka på rad 52, välj **Brytpunkt**och välj sedan **Infoga brytpunkt**. Infoga en annan brytpunkt på rad 55.
+4. När du kör hela appen infogas exempel data i entiteten tabell och tas bort i slutet så att du inte ser några data som infogas om du kör hela exemplet. Du kan dock infoga vissa Bryt punkter för att visa data. Öppna BasicSamples.cs-filen och högerklicka på rad 52, Välj **Bryt punkt**och välj sedan **Infoga Bryt punkt**. Infoga en annan brytpunkt på rad 55.
 
    ![Lägga till en brytpunkt](media/create-table-dotnet/azure-cosmosdb-breakpoint.png) 
 
-5. Tryck på F5 för att köra appen. Konsolfönstret visar namnet på den nya tabelldatabasen (i det här fallet demoa13b1) i Azure Cosmos DB. 
+5. Tryck på F5 för att köra appen. Konsol fönstret visar namnet på den nya tabell databasen (i det här fallet demoa13b1) i Azure Cosmos DB. 
     
    ![Konsolutdata](media/create-table-dotnet/azure-cosmosdb-console.png)
 
@@ -122,7 +122,7 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 
    ![Ny entitet](media/create-table-dotnet/azure-cosmosdb-entity.png)
     
-   Om du får ett felmeddelande om att filen Settings.json inte kan hittas när du kör projektet kan du lösa det genom att lägga till följande XML-post i projektinställningarna. Högerklicka på CosmosTableSamples, välj Redigera CosmosTableSamples.csproj och lägg till följande itemGroup: 
+   Om du får ett fel meddelande om att det inte går att hitta filen Settings. JSON när du kör projektet kan du lösa det genom att lägga till följande XML-post i projekt inställningarna. Högerklicka på CosmosTableSamples, Välj Redigera CosmosTableSamples. CSPROJ och Lägg till följande itemGroup: 
 
    ```csharp
      <ItemGroup>
@@ -132,7 +132,7 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
      </ItemGroup>
    ```
 
-6. Stäng fliken **Entiteter** i Data Explorer.
+6. Stäng fliken **entiteter** i datautforskaren.
     
 7. Tryck på F5 för att köra appen till nästa brytpunkt. 
 

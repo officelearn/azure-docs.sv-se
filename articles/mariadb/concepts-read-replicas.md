@@ -1,159 +1,159 @@
 ---
-title: Läs repliker - Azure Database för MariaDB
-description: 'Lär dig mer om att läsa repliker i Azure Database för MariaDB: välja regioner, skapa repliker, ansluta till repliker, övervaka replikering och stoppa replikering.'
+title: Läsa repliker – Azure Database for MariaDB
+description: 'Lär dig mer om att läsa repliker i Azure Database for MariaDB: välja regioner, skapa repliker, ansluta till repliker, övervaka replikering och stoppa replikering.'
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/21/2020
 ms.openlocfilehash: 9129cb308a364a3ed0654055f8afe9dd8c89010a
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82024633"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Skrivskyddad replik i Azure Database for MariaDB
 
-Med funktionen för skrivskyddade repliker kan du replikera data från en Azure Database for MariaDB-server till en skrivskyddad server. Du kan replikera från huvudservern till upp till fem repliker. Repliker uppdateras asynkront med hjälp av MariaDB-motorns binära loggfil (binlog) positionsbaserad replikeringsteknik med globalt transaktions-ID (GTID). Mer information om binlog-replikering finns i [översikten över binlogreplikering](https://mariadb.com/kb/en/library/replication-overview/).
+Med funktionen för skrivskyddade repliker kan du replikera data från en Azure Database for MariaDB-server till en skrivskyddad server. Du kan replikera från huvudservern till upp till fem repliker. Repliker uppdateras asynkront med MariaDB-motorns binära logg (BinLog)-baserad teknik för replikering med globalt transaktions-ID (GTID). Mer information om BinLog-replikering finns i [Översikt över BinLog-replikering](https://mariadb.com/kb/en/library/replication-overview/).
 
-Repliker är nya servrar som du hanterar liknar vanliga Azure-databas för MariaDB-servrar. För varje läsreplik faktureras du för den etablerade beräkningen i virtuella kärnor och lagring i GB/månad.
+Repliker är nya servrar som du hanterar precis som vanliga Azure Database for MariaDB-servrar. För varje Läs replik debiteras du för den etablerade beräkningen i virtuella kärnor och lagring i GB/månad.
 
-Mer information om GTID-replikering finns i [Dokumentationen för MariaDB-replikering](https://mariadb.com/kb/en/library/gtid/).
+Mer information om GTID-replikering finns i [dokumentationen för MariaDB-replikering](https://mariadb.com/kb/en/library/gtid/).
 
-## <a name="when-to-use-a-read-replica"></a>När ska en läsreplik användas
+## <a name="when-to-use-a-read-replica"></a>När du ska använda en Läs replik
 
-Läsreplikfunktionen hjälper till att förbättra prestanda och skala för läsintensiva arbetsbelastningar. Läsarbetsbelastningar kan isoleras till replikerna, medan skrivarbetsbelastningar kan dirigeras till huvudhanteraren.
+Funktionen Läs replik hjälper till att förbättra prestanda och skalning för Läs intensiva arbets belastningar. Läs arbets belastningar kan isoleras till replikerna, medan Skriv arbets belastningar kan dirigeras till huvud servern.
 
-Ett vanligt scenario är att bi- och analysarbetsbelastningar ska använda läsrepliken som datakälla för rapportering.
+Ett vanligt scenario är att låta BI och analytiska arbets belastningar använda Läs repliken som data källa för rapportering.
 
-Eftersom repliker är skrivskyddade minskar de inte direkt skrivkapacitetsbördorna på bakgrunden. Den här funktionen är inte inriktad på skrivintensiva arbetsbelastningar.
+Eftersom repliker är skrivskyddade kan de inte direkt minska Skriv kapacitets bördan på huvud servern. Den här funktionen är inte riktad mot Skriv intensiva arbets belastningar.
 
-Funktionen läsreplik använder asynkron replikering. Funktionen är inte avsedd för synkrona replikeringsscenarier. Det kommer att finnas en mätbar fördröjning mellan huvud- och repliken. Data på repliken blir så småningom konsekventa med data på huvudhanteraren. Använd den här funktionen för arbetsbelastningar som kan hantera den här fördröjningen.
+Funktionen Läs replik använder asynkron replikering. Funktionen är inte avsedd för synkrona scenarier för replikering. Det kommer att bli en mätbar fördröjning mellan huvud servern och repliken. Data på repliken kommer slutligen att bli konsekventa med data i huvud servern. Använd den här funktionen för arbets belastningar som kan hantera denna fördröjning.
 
 ## <a name="cross-region-replication"></a>Replikering mellan regioner
-Du kan skapa en läsreplik i en annan region än huvudservern. Replikering mellan regioner kan vara till hjälp för scenarier som planering av haveriberedskap eller föra data närmare användarna.
+Du kan skapa en Läs replik i en annan region än huvud servern. Replikering mellan regioner kan vara användbart för scenarier som haveri beredskap planering eller för att hämta data närmare dina användare.
 
-Du kan ha en huvudserver i valfri [Azure-databas för MariaDB-region](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  En huvudserver kan ha en replik i den parade regionen eller de universella replikregionerna. Bilden nedan visar vilka replikområden som är tillgängliga beroende på huvudregionen.
+Du kan ha en huvud server i valfri [Azure Database for MariaDB region](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  En huvud server kan ha en replik i dess kopplade region eller Universal Replica-regioner. I bilden nedan visas vilka replik regioner som är tillgängliga beroende på din huvud region.
 
-[![Läsa replikområden](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[![Läs replik regioner](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
-### <a name="universal-replica-regions"></a>Universella replikregioner
-Du kan skapa en läsreplik i något av följande områden, oavsett var huvudservern finns. De universella replikregioner som stöds är:
+### <a name="universal-replica-regions"></a>Universal Replica-regioner
+Du kan skapa en Läs replik i någon av följande regioner, oavsett var huvud servern finns. De Universal Replica-regioner som stöds är:
 
-Australien Östra, Australien Sydost, Centrala USA, Östasien, Östra USA, Östra USA 2, Östra Japan, Japan Väst, Korea Central, Korea Syd, Norra centrala USA, Norra Europa, Södra centrala USA, Sydostasien, Storbritannien Syd, Storbritannien Väst, Västeuropa, Västra USA.
+Östra Australien, sydöstra Australien, centrala USA, Asien, östra, östra USA, östra USA 2, Östra Japan, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Storbritannien, västra, Västeuropa, västra USA.
 
-*Västra US 2 är inte tillgänglig för tillfället som en replikplats för flera regioner.
+* Västra USA 2 är tillfälligt otillgängligt som en replikerings plats mellan regioner.
 
 ### <a name="paired-regions"></a>Länkade regioner
-Förutom de universella replikregionerna kan du skapa en läsreplik i azure-parade regionen på huvudservern. Om du inte känner till regionens par kan du läsa mer av [artikeln Azure Paired Regions](../best-practices-availability-paired-regions.md).
+Förutom Universal Replica-regioner kan du skapa en Läs replik i den Azure-kopplade regionen på huvud servern. Om du inte känner till din regions par kan du läsa mer i [artikeln Azure-kopplade regioner](../best-practices-availability-paired-regions.md).
 
-Om du använder repliker över flera regioner för planering av haveriberedskap rekommenderar vi att du skapar repliken i den parade regionen i stället för en av de andra regionerna. Parade regioner undviker samtidiga uppdateringar och prioriterar fysisk isolering och datahemvist.  
+Om du använder repliker över flera regioner för att planera haveri beredskap rekommenderar vi att du skapar repliken i den kopplade regionen i stället för någon av de andra regionerna. Kopplade regioner förhindrar samtidiga uppdateringar och prioriterar fysisk isolering och data placering.  
 
 Det finns dock begränsningar att tänka på: 
 
-* Regional tillgänglighet: Azure Database för MariaDB är tillgängligt i västra USA 2, France Central, UAE North och Germany Central. Deras parade regioner är dock inte tillgängliga.
+* Regional tillgänglighet: Azure Database for MariaDB är tillgänglig i USA, västra 2, Frankrike, centrala, Förenade Arabemiraten nord och Tyskland, centrala. De kopplade regionerna är dock inte tillgängliga.
     
-* Uni-directional par: Vissa Azure-regioner är bara ihopkopplade i en riktning. Dessa regioner inkluderar Västra Indien, Södra Brasilien och US Gov Virginia. 
-   Det innebär att en huvudserver i västra Indien kan skapa en replik i södra Indien. En huvudserver i södra Indien kan dock inte skapa en replik i västra Indien. Detta beror på att Västra Indiens sekundära region är södra Indien, men södra Indiens sekundära region är inte västra Indien.
+* Enkelriktade par: vissa Azure-regioner är bara kopplade till en riktning. I dessa regioner ingår västra Indien, södra Brasilien och US Gov, Virginia. 
+   Det innebär att en huvud server i västra Indien kan skapa en replik i södra Indien. En huvud server i södra Indien kan dock inte skapa en replik i västra Indien. Detta beror på att den sekundära regionen västra Indien är södra Indien, men den sekundära regionen i södra Indien är inte västra Indien.
 
 ## <a name="create-a-replica"></a>Skapa en replik
 
-Om en huvudserver inte har några befintliga replikservrar startas befälhavaren först om för att förbereda sig för replikering.
+Om en huvud server inte har några befintliga replik servrar startar originalet om första gången för att förbereda sig för replikering.
 
-När du startar arbetsflödet för att skapa replik skapas en tom Azure-databas för MariaDB-server. Den nya servern är fylld med data som fanns på huvudservern. Skapandetiden beror på mängden data på huvudhanteraren och tiden sedan den senaste veckovisa fullständiga säkerhetskopieringen. Tiden kan variera från några minuter till flera timmar.
+När du startar arbets flödet skapa replik skapas en tom Azure Database for MariaDB-Server. Den nya servern fylls med de data som fanns på huvud servern. Skapande tiden beror på mängden data i huvud servern och tiden sedan den senaste veckovis fullständiga säkerhets kopieringen. Tiden kan vara från några minuter till flera timmar.
 
 > [!NOTE]
-> Om du inte har konfigurerat en lagringsvarning på servrarna rekommenderar vi att du gör det. Aviseringen informerar dig när en server närmar sig sin lagringsgräns, vilket påverkar replikeringen.
+> Om du inte har en lagrings avisering som kon figurer ATS på dina servrar, rekommenderar vi att du gör det. Aviseringen informerar dig när en server närmar sig lagrings gränsen, vilket kommer att påverka replikeringen.
 
-Lär dig hur du [skapar en läsreplik i Azure-portalen](howto-read-replicas-portal.md).
+Lär dig hur du [skapar en Läs replik i Azure Portal](howto-read-replicas-portal.md).
 
-## <a name="connect-to-a-replica"></a>Ansluta till en replik
+## <a name="connect-to-a-replica"></a>Anslut till en replik
 
-När en replik skapas ärver en replik huvudserverns brandväggsregler. Därefter är dessa regler oberoende av huvudservern.
+Vid skapandet ärver en replik brand Väggs reglerna för huvud servern. Därefter är dessa regler oberoende av huvud servern.
 
-Repliken ärver administratörskontot från huvudservern. Alla användarkonton på huvudservern replikeras till läsreplikerna. Du kan bara ansluta till en läsreplik med hjälp av de användarkonton som är tillgängliga på huvudservern.
+Repliken ärver administratörs kontot från huvud servern. Alla användar konton på huvud servern replikeras till läsa repliker. Du kan bara ansluta till en Läs replik med hjälp av de användar konton som är tillgängliga på huvud servern.
 
-Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användarkonto, som du skulle på en vanlig Azure-databas för MariaDB-server. För en server som heter **myreplica** med admin användarnamn **myadmin**, kan du ansluta till repliken med hjälp av mysql CLI:
+Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användar konto, precis som på en vanlig Azure Database for MariaDB Server. För en server med namnet **unreplica** med administratörs **användar namnet administratör kan**du ansluta till repliken med hjälp av MySQL CLI:
 
 ```bash
 mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
 ```
 
-Ange lösenordet för användarkontot vid prompten.
+Ange lösen ordet för användar kontot vid prompten.
 
 ## <a name="monitor-replication"></a>Övervaka replikering
 
-Azure Database för MariaDB tillhandahåller **fördröjningen för replikering i sekunder** i Azure Monitor. Det här måttet är endast tillgängligt för repliker.
+Azure Database for MariaDB anger måttet för **replikeringsfördröjning i sekunder** i Azure Monitor. Måttet är endast tillgängligt för repliker.
 
-Det här måttet `seconds_behind_master` beräknas med hjälp av `SHOW SLAVE STATUS` det mått som är tillgängligt i MariaDB:s kommando.
+Måttet beräknas med hjälp av `seconds_behind_master` måttet som är tillgängligt `SHOW SLAVE STATUS` i MariaDB-kommandot.
 
-Ställ in en avisering för att informera dig när replikeringsfördröjningen når ett värde som inte är acceptabelt för din arbetsbelastning.
+Ange en avisering för att meddela dig när fördröjningen för replikering når ett värde som inte är acceptabelt för din arbets belastning.
 
 ## <a name="stop-replication"></a>Stoppa replikering
 
-Du kan stoppa replikeringen mellan en huvudsida och en replik. När repliken har stoppats mellan en huvudserver och en läsreplik blir repliken en fristående server. Data i den fristående servern är de data som var tillgängliga på repliken när kommandot stop replication startades. Den fristående servern hinner inte ikapp huvudservern.
+Du kan stoppa replikering mellan en huvud server och en replik. När replikeringen har stoppats mellan en huvud server och en Läs replik blir repliken en fristående server. Data i den fristående servern är de data som var tillgängliga på repliken när kommandot stoppa replikering startades. Den fristående servern är inte uppfångad med huvud servern.
 
-När du väljer att stoppa replikeringen till en replik förlorar den alla länkar till dess tidigare huvud och andra repliker. Det finns ingen automatisk redundans mellan en huvudhanterare och dess replik.
+När du väljer att stoppa replikeringen till en replik förlorar den alla länkar till den tidigare repliken och andra repliker. Det finns ingen automatisk redundans mellan en huvud server och dess replik.
 
 > [!IMPORTANT]
 > Den fristående servern kan inte göras till en replik igen.
-> Innan du stoppar replikeringen på en läsreplik kontrollerar du att repliken har alla data som du behöver.
+> Innan du stoppar replikeringen på en Läs replik måste du se till att repliken har alla data som du behöver.
 
-Lär dig hur du [stoppar replikeringen till en replik](howto-read-replicas-portal.md).
+Lär dig hur du [stoppar replikering till en replik](howto-read-replicas-portal.md).
 
 ## <a name="considerations-and-limitations"></a>Överväganden och begränsningar
 
 ### <a name="pricing-tiers"></a>Prisnivåer
 
-Läsrepliker är för närvarande endast tillgängliga på prisnivåerna Allmänt ändamål och Minne optimerad.
+Läs repliker är för närvarande endast tillgängliga i Generell användning och minnesoptimerade pris nivåer.
 
-### <a name="master-server-restart"></a>Omstart av huvudservern
+### <a name="master-server-restart"></a>Omstart av Master Server
 
-När du skapar en replik för en huvudhanterare som inte har några befintliga repliker startar huvuduppsättningen först om för att förbereda sig för replikering. Ta hänsyn till detta och utföra dessa operationer under en lågtrafikperiod.
+När du skapar en replik för en huvud server som inte har några befintliga repliker, startar originalet om först för att förbereda sig för replikering. Ta detta i beaktande och utför dessa åtgärder under en låg belastnings period.
 
 ### <a name="new-replicas"></a>Nya repliker
 
-En läsreplik skapas som en ny Azure-databas för MariaDB-server. Det går inte att skapa en befintlig server till en replik. Du kan inte skapa en replik av en annan läsreplik.
+En Läs replik skapas som en ny Azure Database for MariaDB Server. Det går inte att göra en befintlig server till en replik. Du kan inte skapa en replik av en annan Läs replik.
 
-### <a name="replica-configuration"></a>Konfiguration av replik
+### <a name="replica-configuration"></a>Replik konfiguration
 
-En replik skapas med samma serverkonfiguration som huvudprogrammet. När en replik har skapats kan flera inställningar ändras oberoende av huvudservern: beräkningsgenerering, virtuella kärnor, lagring, lagringsperiod för säkerhetskopiering och MariaDB-motorversion. Prisnivån kan också ändras oberoende av dem, förutom till eller från basic-nivån.
+En replik skapas med samma server konfiguration som huvud servern. När en replik har skapats kan flera inställningar ändras oberoende från huvud servern: beräknings generation, virtuella kärnor, lagring, kvarhållning av säkerhets kopior och MariaDB motor version. Pris nivån kan också ändras oberoende, förutom till eller från Basic-nivån.
 
 > [!IMPORTANT]
 > Uppdatera replikkonfigurationen till samma eller högre värden innan en huvudserverkonfiguration uppdateras till nya värden. På så sätt säkerställer du att repliken klarar alla ändringar som görs på huvudservern.
 
-Brandväggsregler och parameterinställningar ärvs från huvudservern till repliken när repliken skapas. Efteråt är replikens regler oberoende.
+Brand Väggs regler och parameter inställningar ärvs från huvud servern till repliken när repliken skapas. Därefter är replikens regler oberoende av varandra.
 
 ### <a name="stopped-replicas"></a>Stoppade repliker
 
-Om du stoppar replikeringen mellan en huvudserver och en läsreplik blir den stoppade repliken en fristående server som accepterar både läsningar och skrivningar. Den fristående servern kan inte göras till en replik igen.
+Om du stoppar replikeringen mellan en huvud server och en Läs replik blir den stoppade repliken en fristående server som accepterar både läsning och skrivning. Den fristående servern kan inte göras till en replik igen.
 
-### <a name="deleted-master-and-standalone-servers"></a>Borttagna huvudservrar och fristående servrar
+### <a name="deleted-master-and-standalone-servers"></a>Borttagna huvud servrar och fristående servrar
 
-När en huvudserver tas bort stoppas replikeringen till alla lästa repliker. Dessa repliker blir automatiskt fristående servrar och kan acceptera både läsningar och skrivningar. Själva huvudservern tas bort.
+När en huvud server tas bort, stoppas replikeringen till alla Läs repliker. Dessa repliker blir automatiskt fristående servrar och kan acceptera både läsningar och skrivningar. Själva huvud servern tas bort.
 
 ### <a name="user-accounts"></a>Användarkonton
 
-Användare på huvudservern replikeras till läsreplikerna. Du kan bara ansluta till en läsreplik med hjälp av de användarkonton som är tillgängliga på huvudservern.
+Användare på huvud servern replikeras till läsa repliker. Du kan bara ansluta till en Läs replik med de användar konton som är tillgängliga på huvud servern.
 
 ### <a name="server-parameters"></a>Serverparametrar
 
 I syfte att förhindra att data blir osynkroniserade samt att undvika potentiell dataförlust eller skadade data är vissa serverparametrar låsta från att uppdateras vid användning av skrivskyddade repliker.
 
-Följande serverparametrar är låsta på både huvud- och replikservrarna:
+Följande Server parametrar är låsta på både huvud-och replik servern:
 - [`innodb_file_per_table`](https://mariadb.com/kb/en/library/innodb-system-variables/#innodb_file_per_table) 
 - [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
-Parametern [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) är låst på replikservrarna.
+[`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) Parametern är låst på replik servrarna.
 
 ### <a name="other"></a>Annat
 
-- Det går inte att skapa en replik av en replik.
-- Minnestabeller kan leda till att repliker inte synkroniseras. Detta är en begränsning av MariaDB-replikeringstekniken.
-- Kontrollera att huvudservertabellerna har primära nycklar. Brist på primärnycklar kan resultera i replikeringsfördröjning mellan huvud- och replikerna.
+- Det finns inte stöd för att skapa en replik av en replik.
+- InMemory-tabeller kan orsaka att repliker blir osynkroniserade. Detta är en begränsning av MariaDB-replikerings teknik.
+- Se till att huvud server tabellerna har primära nycklar. Brist på primär nycklar kan leda till replikeringsfördröjning mellan huvud-och replikerna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [skapar och hanterar läsande repliker med Azure-portalen](howto-read-replicas-portal.md)
-- Lär dig hur du [skapar och hanterar läsande repliker med Hjälp av Azure CLI- och REST API](howto-read-replicas-cli.md)
+- Lär dig hur du [skapar och hanterar Läs repliker med hjälp av Azure Portal](howto-read-replicas-portal.md)
+- Lär dig hur du [skapar och hanterar Läs repliker med hjälp av Azure CLI och REST API](howto-read-replicas-cli.md)

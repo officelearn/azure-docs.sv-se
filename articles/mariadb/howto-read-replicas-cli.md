@@ -1,120 +1,120 @@
 ---
-title: Hantera läsande repliker - Azure CLI, REST API - Azure Database för MariaDB
-description: I den här artikeln beskrivs hur du konfigurerar och hanterar läsande repliker i Azure Database för MariaDB med hjälp av Azure CLI och REST API.
+title: Hantera Läs repliker – Azure CLI, REST API – Azure Database for MariaDB
+description: Den här artikeln beskriver hur du konfigurerar och hanterar Läs repliker i Azure Database for MariaDB med hjälp av Azure CLI och REST API.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 4/21/2020
 ms.openlocfilehash: c5062bce572fbeda4143902ae6a04b31b9a89754
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82025058"
 ---
-# <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Så här skapar och hanterar du läsande repliker i Azure Database för MariaDB med Azure CLI- och REST API
+# <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-cli-and-rest-api"></a>Skapa och hantera Läs repliker i Azure Database for MariaDB med hjälp av Azure CLI och REST API
 
-I den här artikeln får du lära dig hur du skapar och hanterar läsande repliker i Azure Database for MariaDB-tjänsten med hjälp av Azure CLI och REST API.
+I den här artikeln får du lära dig hur du skapar och hanterar Läs repliker i Azure Database for MariaDB-tjänsten med hjälp av Azure CLI och REST API.
 
 ## <a name="azure-cli"></a>Azure CLI
-Du kan skapa och hantera läsande repliker med Hjälp av Azure CLI.
+Du kan skapa och hantera Läs repliker med hjälp av Azure CLI.
 
 ### <a name="prerequisites"></a>Krav
 
 - [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-- En [Azure-databas för MariaDB-server](quickstart-create-mariadb-server-database-using-azure-portal.md) som ska användas som huvudserver. 
+- En [Azure Database for MariaDB-Server](quickstart-create-mariadb-server-database-using-azure-portal.md) som ska användas som huvud server. 
 
 > [!IMPORTANT]
-> Funktionen läsreplik är endast tillgänglig för Azure Database för MariaDB-servrar på prisnivåerna Allmänt ändamål eller Minne Optimerad. Kontrollera att huvudservern finns på en av dessa prisnivåer.
+> Funktionen Läs replik är bara tillgänglig för Azure Database for MariaDB servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att huvud servern är i någon av dessa pris nivåer.
 
-### <a name="create-a-read-replica"></a>Skapa en läsreplik
+### <a name="create-a-read-replica"></a>Skapa en Läs replik
 
-En läsreplikserver kan skapas med följande kommando:
+Du kan skapa en Läs replik server med följande kommando:
 
 ```azurecli-interactive
 az mariadb server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup
 ```
 
-Kommandot `az mariadb server replica create` kräver följande parametrar:
+`az mariadb server replica create` Kommandot kräver följande parametrar:
 
-| Inställning | Exempelvärde | Beskrivning  |
+| Inställningen | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Resursgruppen där replikservern ska skapas till.  |
-| namn | mydemoreplicaserver (på väg till) | Namnet på den nya replikservern som skapas. |
-| source-server | mydemoserver | Namnet eller ID:t för den befintliga huvudservern som ska replikeras från. |
+| resource-group |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
+| name | mydemoreplicaserver | Namnet på den nya replik servern som skapas. |
+| source-server | mydemoserver | Namnet eller ID: t för den befintliga huvud server som ska replikeras från. |
 
-Om du vill skapa en `--location` läsreplik för korsområde använder du parametern. 
+Använd parametern om du vill skapa en skrivskyddad replik `--location` av en kors region. 
 
-CLI-exemplet nedan skapar repliken i västra USA.
+CLI-exemplet nedan skapar repliken i USA, västra.
 
 ```azurecli-interactive
 az mariadb server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
 
 > [!NOTE]
-> Mer information om vilka regioner du kan skapa en replik i finns i [artikeln läsreplikbegrepp](concepts-read-replicas.md). 
+> Om du vill veta mer om vilka regioner du kan skapa en replik i går du till [artikeln Läs replik begrepp](concepts-read-replicas.md). 
 
 > [!NOTE]
-> Läsrepliker skapas med samma serverkonfiguration som huvudprogrammet. Replikserverkonfigurationen kan ändras när den har skapats. Vi rekommenderar att replikserverns konfiguration ska hållas på lika med eller större värden än huvudprogrammet för att säkerställa att repliken kan hålla jämna steg med huvudprogrammet.
+> Läs repliker skapas med samma server konfiguration som huvud servern. Replik Server konfigurationen kan ändras efter att den har skapats. Vi rekommenderar att replik serverns konfiguration måste vara lika med eller större än huvud värden, för att repliken ska kunna fortsätta med huvud servern.
 
-### <a name="list-replicas-for-a-master-server"></a>Lista repliker för en huvudserver
+### <a name="list-replicas-for-a-master-server"></a>Lista repliker för en huvud server
 
-Om du vill visa alla repliker för en viss huvudserver kör du följande kommando: 
+Om du vill visa alla repliker för en specifik huvud server kör du följande kommando: 
 
 ```azurecli-interactive
 az mariadb server replica list --server-name mydemoserver --resource-group myresourcegroup
 ```
 
-Kommandot `az mariadb server replica list` kräver följande parametrar:
+`az mariadb server replica list` Kommandot kräver följande parametrar:
 
-| Inställning | Exempelvärde | Beskrivning  |
+| Inställningen | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Resursgruppen där replikservern ska skapas till.  |
-| server-name | mydemoserver | Namnet eller ID:t för huvudservern. |
+| resource-group |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
+| server-name | mydemoserver | Namn eller ID för huvud servern. |
 
-### <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replikserver
+### <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replik Server
 
 > [!IMPORTANT]
-> Att stoppa replikering till en server är oåterkalleligt. När replikeringen har stoppats mellan en huvudsida och replik kan den inte ångras. Replikservern blir sedan en fristående server och stöder nu både läsning och skrivning. Den här servern kan inte göras till en replik igen.
+> Att stoppa replikeringen till en server går inte att ångra. När replikeringen har stoppats mellan en huvud server och en replik kan den inte återställas. Replik servern blir sedan en fristående server och stöder nu både läsning och skrivning. Den här servern kan inte göras till en replik igen.
 
-Replikeringen till en läsreplikserver kan stoppas med följande kommando:
+Replikering till en Läs replik Server kan stoppas med hjälp av följande kommando:
 
 ```azurecli-interactive
 az mariadb server replica stop --name mydemoreplicaserver --resource-group myresourcegroup
 ```
 
-Kommandot `az mariadb server replica stop` kräver följande parametrar:
+`az mariadb server replica stop` Kommandot kräver följande parametrar:
 
-| Inställning | Exempelvärde | Beskrivning  |
+| Inställningen | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Resursgruppen där replikservern finns.  |
-| namn | mydemoreplicaserver (på väg till) | Namnet på replikservern som replikservern ska stoppa replikeringen på. |
+| resource-group |  myresourcegroup |  Resurs gruppen där replik servern finns.  |
+| name | mydemoreplicaserver | Namnet på replik servern där replikeringen ska stoppas. |
 
-### <a name="delete-a-replica-server"></a>Ta bort en replikserver
+### <a name="delete-a-replica-server"></a>Ta bort en replik Server
 
-Ta bort en läsreplikserver kan göras genom att köra kommandot **[az mariadb-server delete.](/cli/azure/mariadb/server)**
+Du kan ta bort en Läs replik Server genom att köra kommandot **[AZ MariaDB Server Delete](/cli/azure/mariadb/server)** .
 
 ```azurecli-interactive
 az mariadb server delete --resource-group myresourcegroup --name mydemoreplicaserver
 ```
 
-### <a name="delete-a-master-server"></a>Ta bort en huvudserver
+### <a name="delete-a-master-server"></a>Ta bort en huvud server
 
 > [!IMPORTANT]
 > Om du tar bort en huvudserver stoppas replikeringen till alla replikservrar och själva huvudservern tas bort. Replikservrar blir fristående servrar som nu stöder både läsningar och skrivningar.
 
-Om du vill ta bort en huvudserver kan du köra kommandot **[az mariadb server delete.](/cli/azure/mariadb/server)**
+Om du vill ta bort en huvud server kan du köra kommandot **[AZ MariaDB Server Delete](/cli/azure/mariadb/server)** .
 
 ```azurecli-interactive
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
 ## <a name="rest-api"></a>REST-API
-Du kan skapa och hantera läsande repliker med Hjälp av [Azure REST API](/rest/api/azure/).
+Du kan skapa och hantera Läs repliker med hjälp av [Azure REST API](/rest/api/azure/).
 
-### <a name="create-a-read-replica"></a>Skapa en läsreplik
-Du kan skapa en läsreplik med hjälp av [api:et:](/rest/api/mariadb/servers/create)
+### <a name="create-a-read-replica"></a>Skapa en Läs replik
+Du kan skapa en Läs replik med hjälp av [create API](/rest/api/mariadb/servers/create):
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{replicaName}?api-version=2017-12-01
@@ -131,27 +131,27 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ```
 
 > [!NOTE]
-> Mer information om vilka regioner du kan skapa en replik i finns i [artikeln läsreplikbegrepp](concepts-read-replicas.md). 
+> Om du vill veta mer om vilka regioner du kan skapa en replik i går du till [artikeln Läs replik begrepp](concepts-read-replicas.md). 
 
-Om du inte har `azure.replication_support` angett parametern till **REPLIK** på en general purpose- eller minnesoptimerad huvudserver och startat om servern visas ett felmeddelande. Slutför dessa två steg innan du skapar en replik.
+Om du inte har angett `azure.replication_support` parametern till **replik** på en generell användning eller en minnesoptimerade huvud server och startat om servern, visas ett fel meddelande. Utför dessa två steg innan du skapar en replik.
 
-En replik skapas med samma beräknings- och lagringsinställningar som huvudsã¤nde. När en replik har skapats kan flera inställningar ändras oberoende av huvudservern: beräkningsgenerering, virtuella kärnor, lagring och säkerhetskopieringsperiod. Prisnivån kan också ändras oberoende av dem, förutom till eller från basic-nivån.
+En replik skapas med samma beräknings-och lagrings inställningar som huvud servern. När en replik har skapats kan flera inställningar ändras oberoende från huvud servern: beräknings generation, virtuella kärnor, lagring och säkerhets kopierings perioden. Pris nivån kan också ändras oberoende, förutom till eller från Basic-nivån.
 
 
 > [!IMPORTANT]
-> Innan en huvudserverinställning uppdateras till ett nytt värde uppdaterar du replikinställningen till ett lika stort eller större värde. Den här åtgärden hjälper repliken att hålla jämna steg med alla ändringar som gjorts i bakgrunden.
+> Innan en huvud server inställning uppdateras till ett nytt värde uppdaterar du replik inställningen till ett lika eller högre värde. Den här åtgärden hjälper repliken att hålla sig uppdaterad med alla ändringar som görs i huvud repliken.
 
 ### <a name="list-replicas"></a>Lista repliker
-Du kan visa listan över repliker av en huvudserver med hjälp av [repliklistan API:](/rest/api/mariadb/replicas/listbyserver)
+Du kan visa listan över repliker av en huvud server med hjälp av [replik listans API](/rest/api/mariadb/replicas/listbyserver):
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
-### <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replikserver
-Du kan stoppa replikeringen mellan en huvudserver och en läsreplik med hjälp av [uppdaterings-API:et](/rest/api/mariadb/servers/update).
+### <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replik Server
+Du kan stoppa replikeringen mellan en huvud server och en Läs replik med hjälp av [uppdaterings-API: et](/rest/api/mariadb/servers/update).
 
-När du har stoppat replikeringen till en huvudserver och en läsreplik kan den inte ångras. Läsrepliken blir en fristående server som stöder både läsningar och skrivningar. Den fristående servern kan inte göras till en replik igen.
+När du har stoppat replikering till en huvud server och en Läs replik kan du inte göra det. Läs repliken blir en fristående server som stöder både läsning och skrivning. Den fristående servern kan inte göras till en replik igen.
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{masterServerName}?api-version=2017-12-01
@@ -165,10 +165,10 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-### <a name="delete-a-master-or-replica-server"></a>Ta bort en huvud- eller replikserver
-Om du vill ta bort en huvud- eller replikserver använder du [borttagnings-API:et:](/rest/api/mariadb/servers/delete)
+### <a name="delete-a-master-or-replica-server"></a>Ta bort en huvud-eller replik Server
+Om du vill ta bort en huvud server eller replik Server använder du [borttagnings-API: et](/rest/api/mariadb/servers/delete):
 
-När du tar bort en huvudserver stoppas replikeringen till alla lästa repliker. Läsrepliker blir fristående servrar som nu stöder både läsningar och skrivningar.
+När du tar bort en huvud server stoppas replikeringen till alla Läs repliker. De skrivskyddade replikerna blir fristående servrar som nu stöder både läsning och skrivning.
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMariaDB/servers/{serverName}?api-version=2017-12-01
@@ -177,4 +177,4 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [läsrepliker](concepts-read-replicas.md)
+- Läs mer om [Läs repliker](concepts-read-replicas.md)

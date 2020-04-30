@@ -13,17 +13,17 @@ ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
 ms.openlocfilehash: e42b403717eb83db06a9f719a6451cbca74c2929
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81770049"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Självstudier: Använda en simulerad enhet för att testa anslutningen till din IoT-hubb
 
 I den här kursen använder du Azure IoT Hub-portalverktyg och Azure CLI-kommandon för att testa anslutningen för enheten. Den här kursen använder också en enkel enhetssimulator som du kör på din stationära dator.
 
-Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -44,9 +44,9 @@ az extension add --name azure-iot
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-Enhetssimulatorprogrammet som körs i den här självstudiekursen har skrivits med Node.js. Du behöver Node.js v10.x.x eller senare på din utvecklingsmaskin.
+Enhetssimulatorprogrammet som körs i den här självstudiekursen har skrivits med Node.js. Du behöver Node. js v10. x. x eller senare på din utvecklings dator.
 
-Du kan hämta Node.js för flera plattformar från [nodejs.org](https://nodejs.org).
+Du kan hämta Node. js för flera plattformar från [NodeJS.org](https://nodejs.org).
 
 Du kan kontrollera den aktuella versionen av Node.js på utvecklingsdatorn med följande kommando:
 
@@ -56,7 +56,7 @@ node --version
 
 Ladda ned exempelprojektet för Node.js från https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip och extrahera ZIP-arkivet.
 
-Kontrollera att port 8883 är öppen i brandväggen. Enhetsexemplet i den här självstudien använder MQTT-protokollet, som kommunicerar över port 8883. Den här porten kan vara blockerad i vissa företags- och utbildningsnätverksmiljöer. Mer information och sätt att lösa problemet finns i [Ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här självstudien använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -183,7 +183,7 @@ Först måste du hämta den aktuella anslutningssträngen för den simulerade en
 az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
-Om du vill köra en simulerad enhet som skickar meddelanden navigerar du till mappen **iot-hub\Tutorials\ConnectivityTests** i koden du hämtade.
+Om du vill köra en simulerad enhet som skickar meddelanden går du till mappen **IoT-hub\Tutorials\ConnectivityTests** i den kod som du laddade ned.
 
 Installera de bibliotek som krävs för det simulerade enhetsprogrammet genom att köra följande kommandon i terminalfönstret:
 
@@ -196,7 +196,7 @@ Terminalfönstret visar information när det skickar telemetri till din hubb:
 
 ![Simulerade enhet som skickar meddelanden](media/tutorial-connectivity/sim-3-sending.png)
 
-Du kan använda **mått** i portalen för att kontrollera att telemetrimeddelandena når din IoT-hubb. Välj IoT-hubb i listrutan **Resurs**, välj **Skickade telemetrimeddelanden** som mått och ange **Senaste timmen** som tidsintervall. Diagrammet visar det sammanlagda antalet meddelanden som har skickats av den simulerade enheten:
+Du kan använda **mått** i portalen för att kontrol lera att telemetri-meddelandena når din IoT Hub. Välj IoT-hubb i listrutan **Resurs**, välj **Skickade telemetrimeddelanden** som mått och ange **Senaste timmen** som tidsintervall. Diagrammet visar det sammanlagda antalet meddelanden som har skickats av den simulerade enheten:
 
 ![Visa mått för IoT-hubb](media/tutorial-connectivity/metrics-portal.png)
 

@@ -3,76 +3,76 @@ title: Utveckla ett program med ett befintligt Helm-diagram på Kubernetes
 services: azure-dev-spaces
 ms.date: 04/21/2020
 ms.topic: quickstart
-description: Den här snabbstarten visar hur du använder Azure Dev Spaces och kommandoraden för att utveckla ett program med ett befintligt Helm-diagram på Azure Kubernetes Service
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, servicenät, routning av tjänstnät, kubectl, k8s
+description: Den här snabb starten visar hur du använder Azure dev Spaces och kommando raden för att utveckla ett program med ett befintligt Helm-diagram på Azure Kubernetes-tjänsten
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
 ms.openlocfilehash: e767b1ade2a80882ee33ff1fdd718c691dcefcf3
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82033566"
 ---
-# <a name="quickstart-develop-an-application-with-an-existing-helm-chart-on-kubernetes---azure-dev-spaces"></a>Snabbstart: Utveckla ett program med ett befintligt Helm-diagram på Kubernetes - Azure Dev Spaces
+# <a name="quickstart-develop-an-application-with-an-existing-helm-chart-on-kubernetes---azure-dev-spaces"></a>Snabb start: utveckla ett program med ett befintligt Helm-diagram på Kubernetes – Azure dev Spaces
 I den här guiden får du lära dig hur du:
 
 - Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
-- Kör ett program med ett befintligt Helm-diagram i AKS med Azure Dev Spaces på kommandoraden.
+- Kör ett program med ett befintligt Helm-diagram i AKS med hjälp av Azure dev Spaces på kommando raden.
 
 ## <a name="prerequisites"></a>Krav
 
-- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
+- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free).
 - [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes-tjänstkluster
+## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes service-kluster
 
-Du måste skapa ett AKS-kluster i en [region som stöds][supported-regions]. Kommandona nedan skapar en resursgrupp som heter *MyResourceGroup* och ett AKS-kluster som heter *MyAKS*.
+Du måste skapa ett AKS-kluster i en [region som stöds][supported-regions]. Kommandona nedan skapar en resurs grupp med namnet *MyResourceGroup* och ett AKS-kluster som kallas *MyAKS*.
 
 ```azurecli
 az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
 
-## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Aktivera Azure Dev Spaces i AKS-klustret
+## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Aktivera Azure dev Spaces i ditt AKS-kluster
 
-Använd `use-dev-spaces` kommandot för att aktivera dev spaces i AKS-klustret och följ anvisningarna. Kommandot nedan aktiverar Dev Spaces i *MyAKS-klustret* i gruppen *MyResourceGroup* och skapar ett dev-utrymme som kallas *dev*.
+Använd `use-dev-spaces` kommandot för att aktivera dev Spaces på ditt AKS-kluster och följ anvisningarna. Kommandot nedan aktiverar dev Spaces i *MyAKS* -klustret i gruppen *MyResourceGroup* och skapar ett dev-utrymme som heter *dev*.
 
 > [!NOTE]
-> Kommandot `use-dev-spaces` kommer också att installera Azure Dev Spaces CLI om det inte redan är installerat. Du kan inte installera AZURE Dev Spaces CLI i Azure Cloud Shell.
+> `use-dev-spaces` Kommandot installerar även Azure dev Spaces CLI om det inte redan är installerat. Det går inte att installera Azure dev Spaces CLI i Azure Cloud Shell.
 
 ```azurecli
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space dev --yes
 ```
 
-## <a name="get-sample-application-code"></a>Hämta exempelprogramkod
+## <a name="get-sample-application-code"></a>Hämta exempel program kod
 
-I den här artikeln använder du [exempelprogrammet Azure Dev Spaces](https://github.com/Azure/dev-spaces) för att demonstrera med Azure Dev Spaces.
+I den här artikeln använder du [exempel programmet Azure dev Spaces](https://github.com/Azure/dev-spaces) för att demonstrera användningen av Azure dev Spaces.
 
-Klona programmet från GitHub och navigera till katalogen *dev-spaces/samples/python/getting-started/webfrontend:*
+Klona programmet från GitHub och navigera till katalogen *dev-Spaces/samples/python/kom-start/webfrontend* :
 
 ```cmd
 git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/python/getting-started/webfrontend
 ```
 
-## <a name="prepare-the-application"></a>Förbered programmet
+## <a name="prepare-the-application"></a>Förbereda programmet
 
-För att kunna köra ditt program på Azure Dev Spaces behöver du ett Dockerfile- och Helm-diagram. För vissa språk, till exempel [Java,][java-quickstart] [.NET core][netcore-quickstart]och [Node.js,][nodejs-quickstart]kan Azure Dev Spaces-klientverktyget generera alla tillgångar du behöver. För många andra språk, till exempel Go, PHP och Python, kan klientverktyget generera Helm-diagrammet så länge du kan tillhandahålla en giltig Dockerfile. I det här fallet har exempelprogrammet ett befintligt Dockerfile- och Helm-diagram
+För att kunna köra ditt program på Azure dev Spaces behöver du ett Dockerfile-och Helm-diagram. För vissa språk, till exempel [Java][java-quickstart], [.net Core][netcore-quickstart]och [Node. js][nodejs-quickstart], kan Azure dev Spaces client-verktyget generera alla de till gångar du behöver. För många andra språk, till exempel Go, PHP och python, kan klient verktyget generera Helm-diagrammet så länge du kan ange en giltig Dockerfile. I det här fallet har exempel programmet ett befintligt Dockerfile-och Helm-diagram
 
-Generera konfigurationen för att köra programmet med Azure Dev Spaces med `azds prep` det befintliga Helm-diagrammet och Dockerfile med kommandot:
+Generera konfigurationen för att köra programmet med Azure dev Spaces med det befintliga Helm-diagrammet och Dockerfile med `azds prep` hjälp av kommandot:
 
 ```cmd
 azds prep --enable-ingress --chart webfrontend/
 ```
 
-Du måste `prep` köra kommandot från katalogen *dev-spaces/samples/python/getting-started/webfrontend* och ange `--chart`platsen för Helm-diagrammet med .
+Du måste köra `prep` kommandot från katalogen *dev-Spaces/samples/python/kom-start/webfrontend* och ange platsen för Helm-diagrammet med hjälp `--chart`av.
 
 > [!NOTE]
-> Varning: *Varning: Dockerfile kunde inte genereras på grund av språk som inte stöds.* när `azds prep`du kör . Kommandot `azds prep` försöker generera [ett Dockerfile- och Helm-diagram](how-dev-spaces-works-prep.md#prepare-your-code) för projektet, men skriver inte över några befintliga Dockerfiles- eller Helm-diagram.
+> Varningen kan visas: *Varning: Dockerfile kunde inte genereras på grund av ett språk som inte stöds.* När du `azds prep`kör. `azds prep` Kommandot försöker generera [ett Dockerfile-och Helm-diagram](how-dev-spaces-works-prep.md#prepare-your-code) för projektet, men kommer inte att skriva över några befintliga Dockerfiles-eller Helm-diagram.
 
 ## <a name="build-and-run-code-in-kubernetes"></a>Skapa och köra kod i Kubernetes
 
-Skapa och kör koden i `azds up` AKS med kommandot:
+Skapa och kör koden i AKS med hjälp av `azds up` kommandot:
 
 ```cmd
 $ azds up
@@ -96,26 +96,26 @@ Press Ctrl+C to detach
 ...
 ```
 
-Du kan se tjänsten som körs genom att öppna den offentliga `azds up` URL:en, som visas i utdata från kommandot. I det här exemplet *http://dev.service.1234567890abcdef1234.eus.azds.io/* är den offentliga WEBBADRESSEN .
+Du kan se den tjänst som körs genom att öppna den offentliga URL: en, som visas i utdata `azds up` från kommandot. I det här exemplet är *http://dev.service.1234567890abcdef1234.eus.azds.io/* den offentliga URL: en.
 
 > [!NOTE]
-> När du navigerar till `azds up`tjänsten när du kör visas http-begäran `azds up` spårningar också i utdata från kommandot. Dessa spår kan hjälpa dig att felsöka och felsöka din tjänst. Du kan inaktivera dessa `--disable-http-traces` spårningar när du kör `azds up`.
+> När du navigerar till tjänsten när du `azds up`kör, visas även spårningen av HTTP-begäranden i `azds up` kommandots utdata. De här spårningarna kan hjälpa dig att felsöka och felsöka tjänsten. Du kan inaktivera dessa spårningar `--disable-http-traces` med när `azds up`du kör.
 
-Om du `azds up` stoppar kommandot med *Ctrl+c*fortsätter tjänsten att köras i AKS och den offentliga url:en förblir tillgänglig.
+Om du avbryter `azds up` kommandot med *CTRL + c*fortsätter tjänsten att köras i AKS och den offentliga URL: en är tillgänglig.
 
 ## <a name="update-code"></a>Uppdatera kod
 
-Om du vill distribuera en uppdaterad version av tjänsten kan du `azds up` uppdatera alla filer i projektet och köra kommandot igen. Ett exempel:
+Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra `azds up` kommandot igen. Ett exempel:
 
-1. Om `azds up` det fortfarande körs trycker du på *Ctrl+c*.
-1. Uppdatera [linje 13 `webfrontend.py` in](https://github.com/Azure/dev-spaces/blob/master/samples/python/getting-started/webfrontend/webfrontend.py#L13) till:
+1. Om `azds up` körs fortfarande trycker du på *CTRL + c*.
+1. Uppdatera [rad 13 i `webfrontend.py` ](https://github.com/Azure/dev-spaces/blob/master/samples/python/getting-started/webfrontend/webfrontend.py#L13) till:
     
     ```javascript
         res.send('Hello from webfrontend in Azure');
     ```
 
 1. Spara ändringarna.
-1. Kör kommandot `azds up` igen:
+1. Kör `azds up` kommandot igen:
 
     ```cmd
     $ azds up
@@ -126,8 +126,8 @@ Om du vill distribuera en uppdaterad version av tjänsten kan du `azds up` uppda
     ...    
     ```
 
-1. Navigera till din körtjänst och observera dina ändringar.
-1. Tryck på *Ctrl+c* för att stoppa `azds up` kommandot.
+1. Navigera till den tjänst som körs och observera dina ändringar.
+1. Tryck på *CTRL + c* för att `azds up` stoppa kommandot.
 
 ## <a name="clean-up-your-azure-resources"></a>Rensa dina Azure-resurser
 
@@ -137,10 +137,10 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om hur Azure Dev Spaces hjälper dig att utveckla mer komplexa program över flera behållare och hur du kan förenkla samarbete genom att arbeta med olika versioner eller grenar av koden i olika utrymmen.
+Lär dig hur Azure dev Spaces hjälper dig att utveckla mer komplexa program över flera behållare och hur du kan förenkla samarbets utveckling genom att arbeta med olika versioner eller grenar av koden i olika utrymmen.
 
 > [!div class="nextstepaction"]
-> [Teamutveckling i Azure Dev Spaces][team-quickstart]
+> [Grupp utveckling i Azure dev Spaces][team-quickstart]
 
 [java-quickstart]: quickstart-java.md
 [nodejs-quickstart]: quickstart-nodejs.md

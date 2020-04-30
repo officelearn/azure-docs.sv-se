@@ -1,6 +1,6 @@
 ---
-title: Konfigurera leadhantering med hjälp av en HTTPS-slutpunkt | Azure Marketplace
-description: Lär dig hur du använder en HTTP-slutpunkt för att hantera Microsoft AppSource- och Azure Marketplace-leads.
+title: Konfigurera hantering av leads med en HTTPS-slutpunkt | Azure Marketplace
+description: Lär dig hur du använder en HTTP-slutpunkt för att hantera Microsoft AppSource och Azure Marketplace-leads.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,105 +8,105 @@ ms.topic: conceptual
 ms.date: 04/21/2020
 ms.author: dsindona
 ms.openlocfilehash: f56cc5aaad7d77ff8dc753115ef1becb08ddde73
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81770204"
 ---
-# <a name="configure-lead-management-using-an-https-endpoint"></a>Konfigurera leadhantering med hjälp av en HTTPS-slutpunkt
+# <a name="configure-lead-management-using-an-https-endpoint"></a>Konfigurera hantering av leads med en HTTPS-slutpunkt
 
-Du kan använda en HTTPS-slutpunkt för att hantera Microsoft AppSource- och Azure Marketplace-leads. Dessa leads kan skrivas till ett CRM-system (Customer Relationship Management) eller skickas som ett e-postmeddelande. I den här artikeln beskrivs hur du använder automatiseringstjänsten [Microsoft Power Automate](https://powerapps.microsoft.com/automate-processes/) för att konfigurera leadhantering.
+Du kan använda en HTTPS-slutpunkt för att hantera Microsoft AppSource och Azure Marketplace-leads. Dessa leads kan skrivas till ett CRM-system (Customer Relations hip Management) eller skickas som ett e-postmeddelande. Den här artikeln beskriver hur du konfigurerar hantering av leads med hjälp av [Microsoft Power](https://powerapps.microsoft.com/automate-processes/) Automation Automation-tjänsten.
 
-## <a name="create-a-flow-using-microsoft-power-automate"></a>Skapa ett flöde med Microsoft Power Automate
+## <a name="create-a-flow-using-microsoft-power-automate"></a>Skapa ett flöde med Microsoft Power automatisering
 
-1. Öppna webbsidan [Power Automate.](https://flow.microsoft.com/) Välj **Logga in** eller välj Registrera dig **gratis** för att skapa ett fritt Flow-konto.
+1. Öppna webb sidan [automatiserad start](https://flow.microsoft.com/) . Välj **Logga** in eller Välj **Registrera dig kostnads fritt** om du vill skapa ett kostnads fritt flödes konto.
 
-1. Logga in och välj **Mina flöden** i menyraden.
+1. Logga in och välj **mina flöden** på Meny raden.
     > [!div class="mx-imgBorder"]
     > ![Mina flöden](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows.png)
 
-1. Under **+ Nytt**väljer du + Instant – från **tom**.
+1. Under **+ ny**väljer du **+ snabb – från Tom**.
     > [!div class="mx-imgBorder"]
-    > ![Skapa från tomt](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-create-fromblank.png)
+    > ![Skapa från Tom](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
-1. Namnge flödet och välj sedan **När en HTTP-begäran tas emot**under Välj hur det här flödet ska **utlösas**.
+1. Namnge ditt flöde och välj sedan **när en HTTP-begäran tas emot**under **Välj hur det här flödet ska utlösas**.
 
     > [!div class="mx-imgBorder"]
     > ![Välj den mottagna HTTP-begäran-utlösaren](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
 
-1. Klicka på flödessteget för att expandera det.
+1. Klicka på flödes steget för att expandera det.
 
     > [!div class="mx-imgBorder"]
-    > ![Expandera flödessteget](./media/cloud-partner-portal-lead-management-instructions-https/expand-flow-step.png)
+    > ![Expandera flödes steget](./media/cloud-partner-portal-lead-management-instructions-https/expand-flow-step.png)
 
-1. Använd någon av följande metoder för att konfigurera **JSON-schemat för begäranden:**
+1. Använd någon av följande metoder för att konfigurera **begär ande texten JSON-schema**:
 
-   - Kopiera [JSON-schemat](#json-schema) i slutet av den här artikeln till textrutan **Begärandetext JSON Schema.**
-   - Välj **Generera schemat genom att använda en exempelnyttolast**. Klistra in i [JSON-exemplet](#json-example)i textrutan Retur eller klistra in ett exempel på **nyttolast.** Välj **Klar** om du vill skapa schemat.
+   - Kopiera [JSON-schemat](#json-schema) i slutet av den här artikeln till text rutan JSON- **schema för begär ande** text.
+   - Välj **Generera schemat genom att använda en exempelnyttolast**. Klistra in i [JSON-exemplet](#json-example)i text rutan **Ange eller klistra in en JSON-nyttolast i exemplet** . Välj **färdig** för att skapa schemat.
 
    >[!Note]
-   >Vid denna punkt i flödet kan du antingen ansluta till ett CRM-system eller konfigurera ett e-postmeddelande.
+   >I det här flödet kan du antingen ansluta till ett CRM-system eller konfigurera ett e-postmeddelande.
 
 ### <a name="to-connect-to-a-crm-system"></a>Så här ansluter du till ett CRM-system
 
 1. Välj **+ Nytt steg**.
-2. Välj det CRM-system som du väljer med åtgärden för att skapa en ny post. Följande skärminspelning visar **Dynamics 365 - Skapa en ny post** som ett exempel.
+2. Välj det CRM-system som du väljer med åtgärden för att skapa en ny post. Följande skärm bild visar **Dynamics 365 – skapa en ny post** som exempel.
 
     ![Skapa en ny post](./media/cloud-partner-portal-lead-management-instructions-https/https-image009.png)
 
-3. Ange **organisationsnamnet** som är anslutningsingångarna för kopplingen. Välj **Leads** i listrutan **Enhetsnamn.**
+3. Ange **organisations namnet** som är anslutnings indata för din anslutning. Välj **leads** i list rutan **entitetsnamn** .
 
     ![Välj leads](./media/cloud-partner-portal-lead-management-instructions-https/https-image011.png)
 
-4. Flödet visar ett formulär för att tillhandahålla leadinformation. Du kan mappa objekt från indatabegäran genom att välja att lägga till dynamiskt innehåll. Följande skärmdump visar **OfferTitle** som ett exempel.
+4. Flow visar ett formulär för att tillhandahålla lead-information. Du kan mappa objekt från Indataporten genom att välja att lägga till dynamiskt innehåll. Följande skärm bild visar **OfferTitle** som ett exempel.
 
     ![Lägg till dynamiskt innehåll](./media/cloud-partner-portal-lead-management-instructions-https/https-image013.png)
 
-5. Mappa de fält du vill använda och välj sedan **Spara** för att spara flödet.
+5. Mappa de fält som du vill använda och välj sedan **Spara** för att spara ditt flöde.
 
-6. En HTTP POST-URL skapas i begäran. Kopiera den här URL:en och använd den som HTTPS-slutpunkt.
+6. En HTTP POST-URL skapas i begäran. Kopiera denna URL och Använd den som HTTPS-slutpunkt.
 
-    ![URL för HTTP-inlägg](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-get-post-url.png)
+    ![HTTP post-URL](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-get-post-url.png)
 
-### <a name="to-set-up-email-notification"></a>Så här konfigurerar du e-postmeddelande
+### <a name="to-set-up-email-notification"></a>Konfigurera e-postavisering
 
 1. Välj **+ Nytt steg**.
-2. Under **Välj en åtgärd**väljer du **Åtgärder**.
+2. Under **Välj en åtgärd**väljer du **åtgärder**.
 3. Gå till **Åtgärder** och välj **Skicka ett e-postmeddelande**.
 
-    ![Lägga till en e-poståtgärd](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-add-email-action.png)
+    ![Lägg till en e-poståtgärd](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-add-email-action.png)
 
-4. Konfigurera följande obligatoriska fält i **Skicka ett e-postmeddelande:**
+4. I **Skicka ett e-postmeddelande**konfigurerar du följande obligatoriska fält:
 
-   - **Till** - Ange minst en giltig e-postadress.
-   - **Ämne** - Flow ger dig möjlighet att lägga till dynamiskt innehåll, som **LeadSource** i följande skärmdump.
+   - Ange minst en giltig **e-postadress** .
+   - **Subject** -Flow ger dig möjlighet att lägga till dynamiskt innehåll, som **LeadSource** i följande skärm bild.
 
-     ![Lägga till en e-poståtgärd med dynamiskt innehåll](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-dynamic-content.png)
+     ![Lägg till en e-poståtgärd med dynamiskt innehåll](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-dynamic-content.png)
 
-   - **Brödtext** - Lägg till den information du vill ha i brödtexten i e-postmeddelandet i listan Över dynamiskt innehåll. Till exempel Efternamn, Förnamn, E-post och Företag.
+   - **Brödtext** – från listan med dynamiskt innehåll lägger du till den information som du vill ha i e-postmeddelandets brödtext. Till exempel LastName, FirstName, E-mail och Company.
 
-   När du är klar med att konfigurera e-postmeddelandet ser det ut som exemplet i följande skärmdump.
+   När du är klar med att konfigurera e-postmeddelandet ser det ut som i exemplet på följande skärm bild.
 
-   ![Lägga till en e-poståtgärd](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-action.png)
+   ![Lägg till en e-poståtgärd](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-action.png)
 
-5. Välj **Spara** för att slutföra flödet.
+5. Välj **Spara** för att slutföra ditt flöde.
 
-6. En HTTP POST-URL skapas i begäran. Kopiera den här URL:en och använd den som HTTPS-slutpunkt.
+6. En HTTP POST-URL skapas i begäran. Kopiera denna URL och Använd den som HTTPS-slutpunkt.
 
-    ![URL för HTTP-inlägg](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-get-post-url.png)
+    ![HTTP post-URL](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-get-post-url.png)
 
-## <a name="configure-your-offer-to-send-leads-to-the-https-endpoint"></a>Konfigurera erbjudandet för att skicka leads till HTTPS-slutpunkten
+## <a name="configure-your-offer-to-send-leads-to-the-https-endpoint"></a>Konfigurera ditt erbjudande för att skicka leads till HTTPS-slutpunkten
 
-När du konfigurerar leadhanteringsinformationen för erbjudandet väljer du **HTTPS-slutpunkt** för **leadmålet** och klistrar in den HTTP POST-URL som du kopierade i föregående steg.  
+När du konfigurerar information om lead-hantering för ditt erbjudande väljer du **https-slutpunkt** för lead- **målet** och klistrar in den http post-URL som du kopierade i föregående steg.  
 
 ![Lägg till dynamiskt innehåll](./media/cloud-partner-portal-lead-management-instructions-https/https-image017.png)
 
-När leads genereras skickar Microsoft leads till ditt Power Automate-flöde, som dirigeras till CRM-systemet eller e-postadressen som du har konfigurerat.
+När leads skapas skickar Microsoft leads till ditt energi automatiserade flöde, som dirigeras till CRM-systemet eller e-postadressen som du har konfigurerat.
 
-## <a name="json-schema-and-example"></a>JSON schema och exempel
+## <a name="json-schema-and-example"></a>JSON-schema och exempel
 
-I JSON-testexemplet används följande schema:
+Exemplet på JSON-test använder följande schema:
 
 ### <a name="json-schema"></a>JSON-schema
 
@@ -171,9 +171,9 @@ I JSON-testexemplet används följande schema:
 }
 ```
 
-Du kan kopiera och redigera följande JSON-exempel som du kan använda som ett test i flödet.
+Du kan kopiera och redigera följande JSON-exempel för att använda som ett test i ditt flöde.
 
-### <a name="json-example"></a>JSON exempel
+### <a name="json-example"></a>JSON-exempel
 
 ```json
 {
@@ -195,4 +195,4 @@ Du kan kopiera och redigera följande JSON-exempel som du kan använda som ett t
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte redan har gjort det konfigurerar du [kundleads](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) i Cloud Partner Portal.
+Om du inte redan har gjort det konfigurerar du kund [leads](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) i Cloud Partner Portal.

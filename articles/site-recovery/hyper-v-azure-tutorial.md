@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 9a2bb636ba749cae50195cefeb8e7237d382fb99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82182352"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Konfigurera haveriberedskap för lokala virtuella Hyper-V-datorer till Azure
@@ -137,10 +137,10 @@ Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringsk
 ## <a name="enable-replication"></a>Aktivera replikering
 
 1. I **Replikera program**väljer du **källa**.
-2. I **Källa** väljer du platsen **ContosoHyperVSite**. Välj **OK**.
+2. I **Källa** väljer du platsen **ContosoHyperVSite**. Välj sedan **OK**.
 3. I **mål**kontrollerar du målet (Azure), valv prenumerationen och distributions modellen för **Resource Manager** .
 4. Om du använder själv studie inställningarna väljer du det lagrings konto för **contosovmsacct1910171607** som skapades i föregående självstudie för replikerade data. Välj också det **ContosoASRnet** -nätverk där virtuella Azure-datorer ska finnas efter redundansväxlingen.
-5. I **virtuella datorer** > **väljer**du den virtuella dator som du vill replikera. Välj **OK**.
+5. I **virtuella datorer** > **väljer**du den virtuella dator som du vill replikera. Välj sedan **OK**.
 
    Du kan följa förloppet för åtgärden **Aktivera skydd** under **Jobb** > **Site Recovery-jobb**. När jobbet **Slutför skydd** är klart slutförs den inledande replikeringen och den virtuella datorn är klar för redundans.
 

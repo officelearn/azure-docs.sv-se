@@ -91,6 +91,8 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Begrepp
   items:
+    - name: Planera och hantera kostnader
+      href: concept-plan-manage-cost.md
     - name: Arbetsyta
       href: concept-workspace.md
     - name: Miljöer
@@ -156,6 +158,8 @@
               href: how-to-use-azure-ad-identity.md
             - name: Återskapa åtkomstnycklar för lagring
               href: how-to-change-storage-access-key.md
+            - name: Använda Azure Firewall
+              href: how-to-access-azureml-behind-firewall.md
         - name: Konfigurera autentisering
           displayName: 'authentication, auth, oauth'
           href: how-to-setup-authentication.md

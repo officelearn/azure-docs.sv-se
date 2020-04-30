@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.custom: seoapr2020
 ms.date: 04/24/2020
 ms.openlocfilehash: 41482af619ad94ee059fc11a74581fa30c2e7011
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82190239"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Självstudie: skapa Apache Hadoop kluster på begäran i HDInsight med Azure Data Factory
@@ -198,7 +198,7 @@ I den här artikeln konfigurerar du Hive-aktiviteten för att skapa ett HDInsigh
     |Version | Lämna vid **v2**. |
     |Prenumeration | Välj din Azure-prenumeration. |
     |Resursgrupp | Välj den resurs grupp som du skapade med PowerShell-skriptet. |
-    |Location | Platsen anges automatiskt till den plats som du angav när du skapade resurs gruppen tidigare. I den här självstudien anges platsen till **USA, östra**. |
+    |Plats | Platsen anges automatiskt till den plats som du angav när du skapade resurs gruppen tidigare. I den här självstudien anges platsen till **USA, östra**. |
     |Aktivera GIT|Avmarkera den här kryss rutan.|
 
     ![Skapa Azure Data Factory med Azure Portal](./media/hdinsight-hadoop-create-linux-clusters-adf/azure-portal-create-data-factory.png "Skapa Azure Data Factory med Azure Portal")

@@ -4,10 +4,10 @@ description: Använd Azure Resource Graph för att köra vissa startfrågor sås
 ms.date: 04/27/2020
 ms.topic: sample
 ms.openlocfilehash: fc499f466d61fb665cc31075a2c310372d993f2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82185871"
 ---
 # <a name="starter-resource-graph-query-samples"></a>Exempel på Start resurs diagram fråga

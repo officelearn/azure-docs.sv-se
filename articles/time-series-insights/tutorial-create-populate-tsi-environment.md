@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: seodec18
 ms.openlocfilehash: 47cee660114ba0b19b952015b1fecff8c85d2c25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
@@ -101,7 +101,7 @@ Skapa sedan en Time Series Insights-miljö i din Azure-prenumeration.
    **Miljönamn** | Välj ett unikt namn för Time Series Insightss miljön. Namnen används av Time Series Insights Explorer och API: er för [frågor](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
    **Prenumeration** | Prenumerationer är containrar för Azure-resurser. Välj en prenumeration för att skapa Time Series Insightss miljön.
    **Resursgrupp** | En resursgrupp är en container för Azure-resurser. Välj en befintlig resurs grupp eller skapa en ny för resursen Time Series Insightss miljö.
-   **Location** | Välj en data Center region för din Time Series Insightss miljö. Om du vill undvika ytterligare svars tid skapar du Time Series Insightss miljön i samma region som andra IoT-resurser.
+   **Position** | Välj en data Center region för din Time Series Insightss miljö. Om du vill undvika ytterligare svars tid skapar du Time Series Insightss miljön i samma region som andra IoT-resurser.
    **Nivå** | Välj det genomflöde som behövs. Välj **S1**.
    **Kapaciteten** | Kapaciteten är multiplikatorn som tillämpas på den ingångs takt och lagrings kapacitet som är kopplad till den valda SKU: n. Du kan ändra kapaciteten när du har skapat den. Välj en kapacitet på **1**.
 

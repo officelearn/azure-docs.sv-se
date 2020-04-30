@@ -6,10 +6,10 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 06d948b44064f029e00a2ef089077e9b55246545
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82184970"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Självstudie: distribuera tillägg för virtuella datorer med ARM-mallar

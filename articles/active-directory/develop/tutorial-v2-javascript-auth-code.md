@@ -14,7 +14,7 @@ ms.date: 04/22/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: ee156c8118a67061d0a000867ee64fe1f3ebd18c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
@@ -23,7 +23,7 @@ ms.locfileid: "82182141"
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa---msaljs-20"></a>Logga in användare och anropa Microsoft Graph-API: et från ett Java Script-program med en enda sida (SPA)-MSAL. js 2,0
 
 > [!IMPORTANT]
-> Den här funktionen är för närvarande en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av den här funktionen kan ändras före allmän tillgänglighet (GA).
+> Den här funktionen finns för närvarande som en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av den här funktionen kan ändras före allmän tillgänglighet (GA).
 
 I den här självstudien används en version av MSAL. js som använder OAuth 2,0-Authorization Code Flow med PKCE. Om du vill läsa mer om det här protokollet, samt skillnaderna mellan implicit flöde och kod flöde för auktoriseringskod, se [dokumentationen](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow). Om du letar efter en själv studie kurs som använder det implicita flödet kan du läsa [självstudien om MSAL. js v1](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-spa).
 

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive,mvc,seoapr2020
 ms.topic: overview
 ms.date: 04/17/2020
 ms.openlocfilehash: e933d48a60a01bdbf00205a389778b9a3befeede
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82188233"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Vad är Apache Spark i Azure HDInsight
@@ -103,7 +103,7 @@ Du kan använda följande artiklar om du vill veta mer om Apache Spark i HDInsig
 * [Självstudie: Machine Learning med hjälp av Apache Spark](./apache-spark-ipython-notebook-machine-learning.md)
 * [Självstudie: skapa ett Scala maven-program med hjälp av IntelliJ](./apache-spark-create-standalone-application.md)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 I den här översikten får du viss grundläggande förståelse för Apache Spark i Azure HDInsight. Lär dig hur du skapar ett HDInsight Spark-kluster och kör några Spark SQL-frågor:
 

@@ -10,10 +10,10 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
 ms.openlocfilehash: d4e7077c338586298c5e7f0805c3d47b08a7a108
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82184341"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Snabb start: fordonsbaserad Azure Sentinel
@@ -41,7 +41,7 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
  
 ## <a name="enable-azure-sentinel"></a>Aktivera Azure Sentinel<a name="enable"></a>
 
-1. Logga in på Azure Portal. Kontrol lera att den prenumeration där Azure Sentinel har skapats har valts.
+1. Logga in på Azure-portalen. Kontrol lera att den prenumeration där Azure Sentinel har skapats har valts.
 
 1. Sök efter och välj **Azure Sentinel**.
 

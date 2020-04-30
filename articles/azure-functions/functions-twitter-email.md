@@ -8,7 +8,7 @@ ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: f6698bcc8125cd00dcb1cd6c86a8d69153242b35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
@@ -55,10 +55,10 @@ API:erna för Cognitive Services är tillgängliga i Azure som enskilda resurser
 
     ![Skapa Cognitive-resurssida](media/functions-twitter-email/01-create-text-analytics.png)
 
-    | Inställning      |  Föreslaget värde   | Beskrivning                                        |
+    | Inställningen      |  Föreslaget värde   | Beskrivning                                        |
     | --- | --- | --- |
     | **Namn** | MyCognitiveServicesAccnt | Välj ett unikt kontonamn. |
-    | **Location** | USA, västra | Använd platsen som är närmast dig. |
+    | **Position** | USA, västra | Använd platsen som är närmast dig. |
     | **Pris nivå** | F0 | Börja med den lägsta nivån. Om du får slut på anrop skalar du till en högre nivå.|
     | **Resursgrupp** | myResourceGroup | Använd samma resursgrupp för alla tjänster i självstudien.|
 
@@ -141,11 +141,11 @@ Nu har du en funktion som kategoriserar sentimentpoäng. Därefter skapar du en 
 
     ![Skapa logikapp i Azure-portalen](./media/functions-twitter-email/08-logic-app-create.png)
 
-    | Inställning      |  Föreslaget värde   | Beskrivning                                        |
+    | Inställningen      |  Föreslaget värde   | Beskrivning                                        |
     | ----------------- | ------------ | ------------- |
     | **Namn** | TweetSentiment | Välj ett lämpligt namn för din app. |
     | **Resursgrupp** | myResourceGroup | Välj samma befintliga resursgrupp som tidigare. |
-    | **Location** | USA, östra | Välj en plats i närheten av dig. |    
+    | **Position** | USA, östra | Välj en plats i närheten av dig. |    
 
 4. När du har angett rätt inställningsvärden klickar du på **Skapa** för att skapa logikappen. 
 
@@ -165,7 +165,7 @@ Skapa först en anslutning till ditt Twitter-konto. Logikappen söker efter twee
 
     ![Twitter-anslutningsinställningar](media/functions-twitter-email/10-tweet-settings.png)
 
-    | Inställning      |  Föreslaget värde   | Beskrivning                                        |
+    | Inställningen      |  Föreslaget värde   | Beskrivning                                        |
     | ----------------- | ------------ | ------------- |
     | **Genomsöka text** | #Azure | Använd en hashtagg som är tillräckligt populär för att generera nya tweets i det valda intervallet. När du använder den kostnadsfria nivån och din hashtagg är för populär kan du snabbt förbruka transaktionskvoten i din Cognitive Services-API. |
     | **Intervall** | 15 | Tiden som går mellan Twitter-begäran, i frekvensenheter. |
@@ -236,7 +236,7 @@ Den sista delen av arbetsflödet är att utlösa ett e-postmeddelande när senti
 
     ![Konfigurera e-postmeddelandet för åtgärden skicka ett e-postmeddelande.](media/functions-twitter-email/21-configure-email.png)
     
-| Inställning      |  Föreslaget värde   | Beskrivning  |
+| Inställningen      |  Föreslaget värde   | Beskrivning  |
 | ----------------- | ------------ | ------------- |
 | **Att** | Skriv din e-postadress | E-postadressen som tar emot ett meddelande. |
 | **Subjekt** | Negativt tweetsentiment identifierat  | E-postmeddelandets ämnesrad.  |

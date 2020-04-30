@@ -10,14 +10,8 @@
   items:
     - name: Prova Content Moderator på webben
       href: quick-start.md
-    - name: Använda klient-SDK
-      items:
-        - name: Använda .NET SDK
-          href: dotnet-sdk-quickstart.md
-        - name: Använda Python SDK
-          href: python-sdk-quickstart.md
-        - name: Använda Java SDK
-          href: java-sdk-quickstart.md
+    - name: Använda klientbiblioteket
+      href: client-libraries.md
 - name: Självstudier
   items:
     - name: Moderera bilder för e-handel
@@ -26,7 +20,7 @@
       href: facebook-post-moderation.md
     - name: Moderering av videor och avskrifter
       href: video-transcript-moderation-review-tutorial-dotnet.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Bildmoderering
       href: image-moderation-api.md
@@ -34,15 +28,15 @@
       href: text-moderation-api.md
     - name: Videomoderering
       href: video-moderation-human-review.md
-    - name: Granskningsverktyget
+    - name: Granskningsverktyg
       href: Review-Tool-User-Guide/human-in-the-loop.md
     - name: 'Granskningar, arbetsflöden och jobb'
       href: review-api.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Moderera innehåll
       items:
-        - name: REST API
+        - name: REST-API
           items:
             - name: Avbildningar – API-konsol
               href: try-image-api.md
@@ -64,7 +58,7 @@
       items:
         - name: Granskningsverktyg (webbläsare)
           href: Review-Tool-User-Guide/Review-Moderated-Images.md
-        - name: REST API
+        - name: REST-API
           href: try-review-api-review.md
         - name: Videogranskningar (.NET)
           href: video-reviews-quickstart-dotnet.md
@@ -74,11 +68,11 @@
       items:
         - name: Granskningsverktyg (webbläsare)
           href: Review-Tool-User-Guide/Workflows.md
-        - name: REST API
+        - name: REST-API
           href: try-review-api-workflow.md
     - name: Definiera och använda jobb
       items:
-        - name: REST API
+        - name: REST-API
           href: try-review-api-job.md
         - name: .NET SDK
           href: moderation-jobs-quickstart-dotnet.md

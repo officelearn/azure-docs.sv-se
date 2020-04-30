@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 04/23/2020
 ms.author: lbosq
 ms.openlocfilehash: ba3b20f263f37d85389bb11c0674584408a0c223
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82161647"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Stöd för Azure Cosmos DB Gremlin-diagram
@@ -23,7 +23,7 @@ I den här artikeln ger vi en snabb genom gång av Gremlin och räknar upp de Gr
 
 Följande tabell visar populära Gremlin-drivrutiner som du kan använda mot Azure Cosmos DB:
 
-| Ladda ned | Källa | Komma igång | Version av anslutningsappen som stöds |
+| Hämta | Källa | Komma igång | Version av anslutningsappen som stöds |
 | --- | --- | --- | --- |
 | [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET på GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Skapa diagram med .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Skapa diagram med Java](create-graph-java.md) | 3.2.0+ |
@@ -37,7 +37,7 @@ TinkerPop är en standard som omfattar en mängd olika diagramtekniker. Därför
 
 Följande tabell visar den TinkerPop-funktioner som implementeras av Azure Cosmos DB: 
 
-| Kategori | Azure Cosmos DB-implementering |  Anteckningar | 
+| Kategori | Azure Cosmos DB-implementering |  Obs! | 
 | --- | --- | --- |
 | Diagramfunktioner | Ger beständighet och ConcurrentAccess. Designad att stödja transaktioner | Datormetoder kan implementeras via Spark-anslutningsappen. |
 | Variabla funktioner | Stöder boolesk, heltal, byte, dubbel, flyttal, heltal, lång, sträng | Har stöd för primitiva typer, är kompatibel med komplexa typer via datamodellen |

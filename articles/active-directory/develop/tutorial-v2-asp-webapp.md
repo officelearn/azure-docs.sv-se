@@ -13,7 +13,7 @@ ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 4b9dac92f0cff213622f0087b281814251f06ffd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
@@ -422,7 +422,7 @@ När du bläddrar till vyn kontrollant bör du se en tabell som innehåller grun
 |**Namn** |Användarens fullständiga namn | Användarens förnamn och efternamn
 |**Användar** |användarvänlig<span>@domain.com</span> | Det användar namn som används för att identifiera användaren|
 |**Subjekt** |Subjekt |En sträng som unikt identifierar användaren på webben|
-|**Klient-ID:t** |GUID | Ett **GUID** som unikt representerar användarens Azure AD-organisation|
+|**Klientorganisations-ID** |GUID | Ett **GUID** som unikt representerar användarens Azure AD-organisation|
 
 Dessutom bör du se en tabell över alla anspråk som finns i autentiseringsbegäran. Mer information finns i [listan över anspråk som finns i en ID-token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 

@@ -14,17 +14,17 @@ ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 8d7fa8b8119ddf1769b36bcb55831047d6242470
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79240368"
 ---
 # <a name="about-api-management"></a>Om API Management
 
 API Management (APIM) är ett snabbt sätt att skapa enhetliga och moderna API-gatewayer för befintliga serverdelstjänster.
 
-API Management hjälper organisationer att publicera API:er till externa, partner- och interna utvecklare för att frigöra potentialen för deras data och tjänster. Företag överallt vill utöka sin närvaro som digital plattform, skapa nya kanaler, hitta nya kunder och fördjupa relationerna med befintliga kunder. API Management lägger grunden till ett effektivt API-program genom engagerade utvecklare, affärsinsikter, analyser, hög säkerhet och skydd. Med Azure API Management kan du välja valfri serverdel och köra ett fullvärdigt API-program baserat på den.
+API Management hjälper organisationer att publicera API: er till externa, partner och interna utvecklare för att låsa upp potentiella data och tjänster. Företag överallt vill utöka sin närvaro som digital plattform, skapa nya kanaler, hitta nya kunder och fördjupa relationerna med befintliga kunder. API Management lägger grunden till ett effektivt API-program genom engagerade utvecklare, affärsinsikter, analyser, hög säkerhet och skydd. Med Azure API Management kan du välja valfri serverdel och köra ett fullvärdigt API-program baserat på den.
 
 Den här artikeln innehåller en översikt över vanliga scenarier som innefattar APIM.  Det ger också en kort översikt över APIM-systemets huvudkomponenter. Artikeln ger sedan en detaljerad översikt över varje komponent.
 
@@ -53,7 +53,7 @@ Systemet består av följande komponenter:
   * Konfigurera principer som kvoter eller transformationer i API:erna.
   * Få insikter från analyser.
   * Hantera användare.
-* **Utvecklarportalen** fungerar som den huvudsakliga webbnärvaron för utvecklare, där de kan:
+* **Developer-portalen** fungerar som den huvudsakliga webb förekomsten för utvecklare, där de kan:
   
   * Få tillgång till API-dokumentation.
   * Testa ett API via den interaktiva konsolen.
@@ -99,7 +99,7 @@ När utvecklare prenumererar på en produkt får de tillgång till den primära 
 
 Mer information finns i [Skapa eller bjuda in utvecklare][How to create or invite developers] och [Associera grupper med utvecklare][How to associate groups with developers].
 
-## <a name="policies"></a><a name="policies"> </a> Politik
+## <a name="policies"></a><a name="policies"> </a> Principer
 Principer är en kraftfull funktion i API Management som gör att Azure-portalen kan konfigurera om API:ets beteende. Principer är en samling instruktioner som körs sekventiellt på begäran av eller efter ett svar från ett API. Exempel på populära instruktioner är formatkonvertering från XML till JSON och begränsning av anropsfrekvensen för att begränsa antalet inkommande anrop från en utvecklare. Många andra principer är också tillgängliga.
 
 Principuttryck kan användas som attributvärden eller textvärden i API Management-principer, under förutsättning att principen tillåter det. Vissa principer som [Kontrollflöde](/azure/api-management/api-management-advanced-policies#choose) och [Ange variabel](/azure/api-management/api-management-advanced-policies#set-variable) baseras på principuttryck. Mer information finns i [Avancerade principer](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) och [Principuttryck](/azure/api-management/api-management-policy-expressions).
@@ -108,7 +108,7 @@ Principuttryck kan användas som attributvärden eller textvärden i API Managem
 En fullständig lista över API Management-principer finns i [Principreferens][Policy reference]. Mer information om hur du använder och konfigurerar principer finns i [API Management-principer][API Management policies]. En självstudiekurs om hur du skapar en produkt med principer för frekvensbegränsning och kvoter finns i [Skapa och konfigurera avancerade produktinställningar][How create and configure advanced product settings].
 
 
-## <a name="developer-portal"></a><a name="developer-portal"> </a> Utvecklarportal
+## <a name="developer-portal"></a><a name="developer-portal"> </a> Utvecklings Portal
 På utvecklarportalen kan utvecklare lära sig mer om dina API:er, visa och anropa åtgärder och prenumerera på produkter. Potentiella kunder kan besöka utvecklarportalen, visa API:er och åtgärder och registrera sig. URL:en för din utvecklarportal finns på instrumentpanelen i Azure Portal för din API Management-tjänstinstans.
 
 Du kan anpassa utvecklingsportalen genom att lägga till eget innehåll, anpassa format eller lägga till varumärkesanpassad design.

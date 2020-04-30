@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Routningskrav'
+title: 'Azure-ExpressRoute: krav för routning'
 description: Den här sidan innehåller detaljerade krav för att konfigurera och hantera routning för ExpressRoute-kretsar.
 services: expressroute
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
 ms.openlocfilehash: 3eafb8aff5525f668e6fe0bddb261b1117b5e38b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273051"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
@@ -39,7 +39,7 @@ Du kan antingen använda privata IP-adresser eller offentliga IP-adresser för a
   * Du måste konfigurera båda BGP-sessionerna för att vårt [tillgänglighets-SLA](https://azure.microsoft.com/support/legal/sla/) ska vara giltigt.  
 
 #### <a name="example-for-private-peering"></a>Exempel på privat peering
-Om du väljer att använda a.b.c.d/29 för att konfigurera peeringen delas den upp i två /30-undernät. I följande exempel märker du hur undernätet a.b.c.d/29 används:
+Om du väljer att använda a.b.c.d/29 för att konfigurera peeringen delas den upp i två /30-undernät. I följande exempel ser du hur ett. b. c. d/29-undernät används:
 
 * a.b.c.d/29 delas upp till a.b.c.d/30 och a.b.c.d+4/30 samt skickas till Microsoft via etablerings-API:er.
   * Du använder a.b.c.d+1 som VRF IP för din primära PE och Microsoft kommer att använda a.b.c.d+2 som VRF IP för den primära MSEE:n.
@@ -83,7 +83,7 @@ Du måste använda offentliga IP-adresser som du äger när du konfigurerar BGP-
 Du kan välja att använda offentliga eller privata IPv4-adresser för privat peering. Vi erbjuder isolering av din trafik från slutpunkt till slutpunkt, vilket innebär att adressöverlappning med andra kunder inte är möjligt med privat peering. De här adresserna annonseras inte till Internet. 
 
 ### <a name="microsoft-peering"></a>Microsoft-peering
-Med Microsofts peering-sökväg kan du ansluta till Microsofts molntjänster. Listan över tjänster omfattar Office 365-tjänster, till exempel Exchange Online, SharePoint Online, Skype för företag och Microsoft Teams. Microsoft stöder dubbelriktade anslutningar för Microsoft-peering. Trafik till Microsofts molntjänster måste använda giltiga offentliga IPv4-adresser innan de kommer in i Microsoft-nätverket.
+Med Microsoft peering-sökvägen kan du ansluta till Microsofts moln tjänster. Listan över tjänster innehåller Office 365-tjänster, till exempel Exchange Online, SharePoint Online, Skype för företag och Microsoft Teams. Microsoft stöder dubbelriktade anslutningar för Microsoft-peering. Trafik till Microsofts molntjänster måste använda giltiga offentliga IPv4-adresser innan de kommer in i Microsoft-nätverket.
 
 Kontrollera att din IP-adress och ditt AS-nummer är registrerade på dig i något av följande register:
 
@@ -100,11 +100,11 @@ Om dina prefixer och AS-nummer inte har tilldelats till dig i registren ovan må
 Ett privat AS-nummer tillåts med Microsoft-peering men kommer också att kräva manuell verifiering. Dessutom tar vi bort privata AS-nummer i AS PATH för de mottagna prefixen. Som ett resultat av detta kan du inte lägga till privata AS-nummer i AS PATH som [påverkar routningen för Microsoft-peering](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> Annonsera inte samma offentliga IP-väg till det offentliga Internet och över ExpressRoute. För att minska risken för felaktig konfiguration som orsakar asymmetrisk routning rekommenderar vi starkt att [NAT IP-adresser](expressroute-nat.md) som annonseras till Microsoft via ExpressRoute kommer från ett intervall som inte alls annonseras till internet. Om detta inte är möjligt att uppnå, är det viktigt att se till att du annonserar ett mer specifikt intervall över ExpressRoute än den på Internet-anslutning. Förutom den offentliga vägen för NAT kan du även annonsera via ExpressRoute de offentliga IP-adresser som används av servrarna i det lokala nätverket som kommunicerar med Office 365-slutpunkter i Microsoft. 
+> Annonsera inte samma offentliga IP-väg till det offentliga Internet och över ExpressRoute. För att minska risken för felaktig konfiguration som orsakar asymmetrisk routning, rekommenderar vi starkt att [NAT-IP-adresserna](expressroute-nat.md) som annonseras till Microsoft via ExpressRoute kommer från ett intervall som inte annonseras till Internet alls. Om detta inte är möjligt är det viktigt att se till att du annonserar ett mer särskilt intervall över ExpressRoute än det som finns på Internet-anslutningen. Förutom den offentliga vägen för NAT kan du även annonsera över ExpressRoute de offentliga IP-adresser som används av servrarna i ditt lokala nätverk som kommunicerar med Office 365-slutpunkter inom Microsoft. 
 > 
 > 
 
-### <a name="public-peering-deprecated---not-available-for-new-circuits"></a>Offentlig peering (föråldrad - inte tillgänglig för nya kretsar)
+### <a name="public-peering-deprecated---not-available-for-new-circuits"></a>Offentlig peering (inaktuellt-inte tillgängligt för nya kretsar)
 Med Azures offentliga peeringsökväg kan du ansluta till alla tjänster som finns i Azure med deras offentliga IP-adresser. Det inkluderar tjänster som finns i listan [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md) och tjänster med ISV:er i Microsoft Azure. Anslutningen till Microsoft Azure-tjänster vid offentlig peering initieras alltid från ditt nätverk till Microsoft-nätverket. Du måste använda offentliga IP-adresser för trafik till Microsoft-nätverk.
 
 > [!IMPORTANT]
@@ -119,7 +119,7 @@ Routningsutbytet kommer att ske via EBGP-protokollet. EBGP-sessioner upprättas 
 ## <a name="autonomous-system-numbers"></a>Autonoma systemnummer
 Microsoft använder AS 12076 för offentliga Azure, privata Azure och Microsofts peering. Vi har reserverat ASN:er från 65515 till 65520 för intern användning. Både 16- och 32-bitars AS-nummer stöds.
 
-Det finns inga krav på symmetri vid dataöverföring. Sökvägar vid vidarebefordran och retur kan passera olika routerpar. Identiska rutter måste annonseras från båda sidor över flera kretspar som tillhör dig. Vägmåtten behöver inte vara identiska.
+Det finns inga krav på symmetri vid dataöverföring. Sökvägar vid vidarebefordran och retur kan passera olika routerpar. Identiska vägar måste annonseras från båda sidor över flera krets par som tillhör dig. Vägmåtten behöver inte vara identiska.
 
 ## <a name="route-aggregation-and-prefix-limits"></a>Vägsammanställning och begränsningar för prefix
 Vi stöder upp till 4 000 prefix som annonseras till oss via Azures privata peering. Detta kan utökas upp till 10 000 prefix om ExpressRoute-premiumtillägget är aktiverat. Vi kan acceptera upp till 200 prefix per BGP-session för Azures offentliga och Microsofts peering. 
@@ -134,7 +134,7 @@ Standardvägar tillåts bara i Azures privata peeringsessioner. I dessa fall kom
 
  Om du vill aktivera anslutningar till andra Azure-tjänster och infrastrukturtjänster, måste något av följande objekt finnas på plats:
 
-* Offentlig Azure-peering är aktiverad för att dirigera trafik till offentliga slutpunkter.
+* Offentlig Azure-peering är aktiverat för att dirigera trafik till offentliga slut punkter.
 * Du använder användardefinierad routning för att tillåta anslutning till Internet för varje undernät som kräver Internetanslutning.
 
 > [!NOTE]
@@ -151,9 +151,9 @@ Om du exempelvis har anslutit till Microsoft i Amsterdam via ExpressRoute, komme
 
 Se sidan [ExpressRoute-partners och peeringplatser](expressroute-locations.md) för en detaljerad lista med geopolitiska regioner, associerade Azure-regioner och motsvarande ExpressRoute-peeringplatser.
 
-Du kan köpa mer än en ExpressRoute-krets per geopolitisk region. Att ha flera anslutningar ger dig betydande fördelar med hög tillgänglighet tack vare den geografiska redundansen. Om du har flera ExpressRoute-kretsar får du samma uppsättning prefix som annonseras från Microsoft på Microsofts peering- och offentliga peering-sökvägar. Det innebär att du har flera sökvägar från ditt nätverk till Microsoft. Detta kan eventuellt medföra att icke-optimala beslut om routning tas i nätverket. Därmed kan du få icke-optimala anslutningsupplevelser till andra tjänster. Du kan använda community-värden för att fatta rätt beslut om routning och erbjuda [optimal routning till användare](expressroute-optimize-routing.md).
+Du kan köpa mer än en ExpressRoute-krets per geopolitisk region. Att ha flera anslutningar ger dig betydande fördelar med hög tillgänglighet tack vare den geografiska redundansen. I de fall där du har flera ExpressRoute-kretsar får du samma uppsättning prefix som annonseras från Microsoft på Microsoft peering och offentliga peering-sökvägar. Det innebär att du har flera sökvägar från ditt nätverk till Microsoft. Detta kan eventuellt medföra att icke-optimala beslut om routning tas i nätverket. Därmed kan du få icke-optimala anslutningsupplevelser till andra tjänster. Du kan använda community-värden för att fatta rätt beslut om routning och erbjuda [optimal routning till användare](expressroute-optimize-routing.md).
 
-| **Microsoft Azure-region** | **Regional BGP-gemenskap** | **BGP-community för lagring** | **SQL BGP-community** | **Cosmos DB BGP gemenskap** |
+| **Microsoft Azure-region** | **Regional BGP-community** | **Storage BGP-community** | **SQL BGP-community** | **Cosmos DB BGP-community** |
 | --- | --- | --- | --- | --- |
 | **Nordamerika** | |
 | USA, östra | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
@@ -175,12 +175,12 @@ Du kan köpa mer än en ExpressRoute-krets per geopolitisk region. Att ha flera 
 | Storbritannien, västra | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
 | Frankrike, centrala | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
 | Frankrike, södra | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
-| Schweiz Norr | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 
-| Schweiz Väst | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
-| Tyskland Norra | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 
-| Tyskland Västra Central | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
-| Norge Öst | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 
-| Norge Väst | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
+| Schweiz, norra | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 
+| Schweiz, västra | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
+| Tyskland, norra | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 
+| Tyskland, västra centrala | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
+| Östra Norge | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 
+| Norge, väst | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
 | **Asien och stillahavsområdet** | |
 | Asien, östra | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
 | Sydostasien | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
@@ -201,11 +201,11 @@ Du kan köpa mer än en ExpressRoute-krets per geopolitisk region. Att ha flera 
 | Sydkorea, södra | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
 | Sydkorea, centrala | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
 | **Sydafrika**| |
-| Sydafrika North | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
-| Sydafrika Väst | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
+| Sydafrika, norra | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
+| Sydafrika, västra | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
 | **UAE**| |
-| Uae Norra | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
-| Centrala Förenade Arabemiraten | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
+| Förenade Arabemiraten, norra | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
+| Förenade Arabemiraten Central | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
 
 
 Alla vägar som annonseras från Microsoft taggas med lämpligt community-värde. 
@@ -215,22 +215,22 @@ Alla vägar som annonseras från Microsoft taggas med lämpligt community-värde
 > 
 > 
 
-### <a name="service-to-bgp-community-value"></a>Värde för service till BGP-community
-Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst de tillhör. Detta gäller endast för Microsoft-peering. Tabellen nedan innehåller en mappning av tjänsten till community-värden för BGP. Du kan köra cmdleten Get-AzBgpServiceCommunity för en fullständig lista över de senaste värdena.
+### <a name="service-to-bgp-community-value"></a>Tjänst till BGP community-värde
+Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst de tillhör. Detta gäller endast för Microsoft-peering. Tabellen nedan innehåller en mappning av tjänsten till community-värden för BGP. Du kan köra cmdleten "Get-AzBgpServiceCommunity" om du vill se en fullständig lista över de senaste värdena.
 
 | **Tjänst** | **BGP-community värde** |
 | --- | --- |
-| Byt online** | 12076:5010 |
-| SharePoint Online** | 12076:5020 |
-| Skype för företag – online** | 12076:5030 |
-| CRM online *** |12076:5040 |
-| Azure Global Services* | 12076:5050 |
+| Exchange Online * * | 12076:5010 |
+| SharePoint Online * * | 12076:5020 |
+| Skype för företag – Online * * | 12076:5030 |
+| CRM Online * * * |12076:5040 |
+| Globala Azure-tjänster * | 12076:5050 |
 | Azure Active Directory |12076:5060 |
-| Andra Office 365 Online-tjänster** | 12076:5100 |
+| Andra Office 365 Online Services * * | 12076:5100 |
 
-*Azure Global Services innehåller endast Azure DevOps just nu.\
-** Auktorisering krävs från Microsoft, se [Konfigurera flödesfilter för Microsoft Peering](how-to-routefilter-portal.md)\
-CRM Online stöder Dynamics v8.2 och lägre. För högre versioner väljer du den regionala communityn för dina Dynamics-distributioner.
+* Globala Azure-tjänster innehåller bara Azure-DevOps just nu. \
+* * Auktorisering krävs från Microsoft, se [Konfigurera väg filter för Microsoft-peering](how-to-routefilter-portal.md)\
+CRM Online stöder Dynamics v 8.2 och nedan. För högre versioner väljer du den regionala communityn för dina Dynamics-distributioner.
 
 > [!NOTE]
 > Microsoft använder inte några community-värden för BGP som du har angett för vägar som annonseras till Microsoft.
@@ -262,5 +262,5 @@ CRM Online stöder Dynamics v8.2 och lägre. För högre versioner väljer du de
 * Konfigurera ExpressRoute-anslutningen.
   
   * [Skapa och ändra en krets](expressroute-howto-circuit-arm.md)
-  * [Skapa och ändra peering-konfigurationen](expressroute-howto-routing-arm.md)
+  * [Skapa och ändra peering-konfiguration](expressroute-howto-routing-arm.md)
   * [Länka ett VNet till en ExpressRoute-krets](expressroute-howto-linkvnet-arm.md)

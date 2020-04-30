@@ -1,222 +1,222 @@
 ---
 title: Generera kartor
-description: I den här artikeln beskrivs hur du skapar kartor i Azure FarmBeats.
+description: Den här artikeln beskriver hur du genererar kartor i Azure FarmBeats.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 92228c691c323bc0b9621dfc7413d86c5c2669e7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271777"
 ---
 # <a name="generate-maps"></a>Generera kartor
 
-Med Hjälp av Azure FarmBeats kan du generera följande kartor med hjälp av satellitbilder och sensordataindata. Kartor hjälper dig att se den geografiska platsen för din servergrupp och identifiera lämplig plats för dina enheter.
+Med hjälp av Azure FarmBeats kan du generera följande Maps med hjälp av satellit-bilder och indata från sensorer. Maps hjälper dig att se den geografiska platsen för Server gruppen och identifiera lämplig plats för dina enheter.
 
-  - **Sensorplaceringskarta:** Ger rekommendationer om hur många sensorer som ska användas och var de ska placeras på en gård.
-  - **Satellitindex karta:** Visar vegetation index och vatten index för en gård.
-  - **Värmekarta för jordfukt:** Visar markfuktfördelning genom att smälta satellitdata och sensordata.
+  - **Sensor placerings karta**: ger rekommendationer om hur många sensorer som ska användas och var de ska placeras i en grupp.
+  - **Karta över satellit**index: visar vegetations indexet och vatten indexet för en Server grupp.
+  - **Jord-fukt termisk karta**: visar jord fuktighets distribution av fusing satellit data och sensor data.
 
-## <a name="sensor-placement-map"></a>Karta över sensorplacering
+## <a name="sensor-placement-map"></a>Sensor placerings karta
 
-En FarmBeats Sensor Placering karta hjälper dig med placeringen av mark fuktsensorer. Kartutdata består av en lista över koordinater för sensordistribution. Ingångarna från dessa sensorer används tillsammans med satellitbilder för att generera värmekartan För jordfukt.
+En FarmBeats sensor placerings karta hjälper dig med placeringen av jord fukts sensorer. Kart resultatet består av en lista över koordinater för sensor distribution. Indata från dessa sensorer används tillsammans med satellit-bilder för att skapa jordens vatten termisk karta.
 
-Denna karta härleds genom att segmentera baldakinen sett över flera datum under hela året. Även bar jord och byggnader är en del av baldakinen. Du kan ta bort sensorer som inte behövs på platsen. Den här kartan är för vägledning, och du kan ändra position och siffror något baserat på din anpassade kunskap. Lägga sensorer kommer inte att gå tillbaka mark fukt heatmap resultat, men det finns en risk för försämring av heatmap noggrannhet om sensorn antalet minskas.
+Den här kartan härleds genom att segmentera Canopy som visas under flera datum under året. Även Bare jordmån och byggnader är en del av Canopy. Du kan ta bort sensorer som inte behövs på platsen. Den här kartan är till för vägledning och du kan ändra position och siffror något beroende på din anpassade kunskap. Att lägga till sensorer regress inte termisk karta resultat, men det är möjligt att minska risken för termisk karta om sensor numret minskar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Uppfylla följande förutsättningar innan du försöker skapa en karta över sensorplacering:
+Uppfylla följande krav innan du försöker skapa en sensor placerings karta:
 
-- Gårdens storlek måste vara mer än ett tunnland.
-- Antalet molnfria Sentinel-scener måste vara fler än sex för det valda datumintervallet.
-- Minst sex molnfria Sentinel-scener måste ha ett normaliserat vegetationsindex (NDVI) som är större än eller lika med 0,3.
+- Server gruppens storlek måste vara större än en Acre.
+- Antalet moln fria kontroll scener måste vara större än sex för det valda datum intervallet.
+- Minst sex moln fria kontroll scener måste ha en normaliserad differens vegetations index (NDVI) som är större än eller lika med 0,3.
 
     > [!NOTE]
-    > Sentinel tillåter endast två samtidiga trådar per användare. Därför hamnar jobb i kö och det kan ta längre tid att slutföra.
+    > Kontroll bara tillåter två samtidiga trådar per användare. Därför hämtas jobben i kö och kan ta längre tid att slutföra.
 
-### <a name="dependencies-on-sentinel"></a>Beroenden på Sentinel
+### <a name="dependencies-on-sentinel"></a>Beroenden för kontroll
 
-Följande beroenden gäller Sentinel:
+Följande beroenden gäller kontroll:
 
-- Vi är beroende av Sentinels prestanda för att ladda ner satellitbilder. Kontrollera Sentinels prestandastatus och [underhållsaktiviteter](https://scihub.copernicus.eu/twiki/do/view/SciHubNews/WebHome).
-- Sentinel tillåter endast två samtidiga [nedladdningar trådar](https://sentinels.copernicus.eu/web/sentinel/sentinel-data-access/typologies-and-services) per användare.
-- Precision kartgenerering påverkas av [Sentinel täckning och återkomma frekvens]( https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/revisit-coverage).
+- Vi är beroende av Sentinel-prestanda för nedladdning av satellit avbildningar. Kontrol lera prestanda status och underhålls [aktiviteter](https://scihub.copernicus.eu/twiki/do/view/SciHubNews/WebHome)för Sentinel.
+- Kontroll bara tillåter två samtidiga [hämtnings trådar](https://sentinels.copernicus.eu/web/sentinel/sentinel-data-access/typologies-and-services) per användare.
+- Generering av precisions kartor påverkas av [kontroll täckning och]( https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/revisit-coverage)besöks frekvens.
 
-## <a name="create-a-sensor-placement-map"></a>Skapa en karta över sensorplacering
-I det här avsnittet beskrivs procedurerna för att skapa kartor för sensorplacering.
+## <a name="create-a-sensor-placement-map"></a>Skapa en sensor placerings karta
+I det här avsnittet beskrivs procedurerna för att skapa sensor placerings kartor.
 
 > [!NOTE]
-> Du kan initiera en kartkarta för sensorplacering från sidan **Kartor** eller från listrutan **Generera precisionskartor** på sidan **Servergruppsinformation.**
+> Du kan initiera en sensor placerings karta från sidan **kartor** eller från List rutan **generera precisions kartor** på sidan **Server grupps information** .
 
 Följ de här stegen.
 
-1. Gå till **Kartor** från den vänstra navigeringsmenyn på startsidan.
-2. Välj **Skapa kartor**och välj **Sensorplacering** på den nedrullningsbara menyn.
+1. Gå till **kartor** från den vänstra navigerings menyn på Start sidan.
+2. Välj **skapa kartor**och välj **sensor placering** på den nedrullningsbara menyn.
 
-    ![Välj sensorplacering](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-1.png)
+    ![Välj sensor placering](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-1.png)
 
-3. När du har valt **Sensorplacering**visas **fönstret Sensorplacering.**
+3. När du har valt **sensor placering**visas **sensor placerings** fönstret.
 
-    ![Fönstret Placering av sensor](./media/get-sensor-data-from-sensor-partner/sensor-placement-1.png)
+    ![Sensor placerings fönster](./media/get-sensor-data-from-sensor-partner/sensor-placement-1.png)
 
-4. Välj en servergrupp på listrutan **Servering.**
-   Om du vill söka efter och markera servergruppen kan du antingen rulla i listrutan eller ange namnet på servergruppen i textrutan.
-5. Om du vill generera en karta för det senaste året väljer du **Rekommenderat**.
-6. Om du vill skapa en karta för ett anpassat datumintervall väljer du alternativet **Välj datumintervall**. Ange start- och slutdatum som du vill generera kartan För sensorplacering.
-7. Välj **Generera kartor**.
- Ett bekräftelsemeddelande med jobbinformation visas.
+4. Välj en Server grupp på den nedrullningsbara menyn **Server grupp** .
+   Om du vill söka efter och välja Server gruppen kan du antingen bläddra i list rutan eller ange namnet på Server gruppen i text rutan.
+5. Om du vill generera en karta för det senaste året väljer du **rekommenderat**.
+6. Om du vill generera en karta för ett anpassat datum intervall väljer du alternativet **Välj datum intervall**. Ange start-och slutdatum för vilket du vill generera sensor placerings kartan.
+7. Välj **generera kartor**.
+ Ett bekräftelse meddelande med jobb information visas.
 
-  Information om jobbstatus finns i avsnittet **Visa jobb**. Om jobbstatusen visas *Misslyckades*visas ett detaljerat felmeddelande i verktygstipset för statusen *Misslyckades.* Upprepa föregående steg i så fall och försök igen.
+  Information om jobb status finns i avsnittet **Visa jobb**. Om jobb *statusen visas visas*ett detaljerat fel meddelande i knapp beskrivningen för statusen *misslyckades* . I det här fallet upprepar du föregående steg och försöker igen.
 
-  Om problemet kvarstår läser [du avsnittet Felsöka](troubleshoot-azure-farmbeats.md) eller kontaktar [Azure FarmBeats-forumet för support](https://aka.ms/FarmBeatsMSDN) med relevanta loggar.
+  Om problemet kvarstår kan du läsa avsnittet [fel sökning](troubleshoot-azure-farmbeats.md) eller kontakta [Azure FarmBeats-forumet för support](https://aka.ms/FarmBeatsMSDN) med relevanta loggar.
 
-### <a name="view-and-download-a-sensor-placement-map"></a>Visa och ladda ner en karta över sensorplacering
+### <a name="view-and-download-a-sensor-placement-map"></a>Visa och ladda ned en sensor placerings karta
 
 Följ de här stegen.
 
-1. Gå till **Kartor** från den vänstra navigeringsmenyn på startsidan.
+1. Gå till **kartor** från den vänstra navigerings menyn på Start sidan.
 
-    ![Välj Kartor på den vänstra navigeringsmenyn](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
+    ![Välj kartor från den vänstra navigerings menyn](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
 
-2. Välj **Filter** från fönstrets vänstra navigering.
-  I **fönstret Filter** visas sökvillkor.
+2. Välj **filter** i det vänstra fönstrets navigerings fönster.
+  **Filter** fönstret visar Sök villkor.
 
-    ![Fönstret Filter](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
+    ![Filter fönster](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
-3. Välj **Värdena Typ,** **Datum**och **Namn** på de nedrullningsbara menyerna. Välj sedan **Använd** för att söka efter den karta som du vill visa.
+3. Välj **typ**-, **datum**-och **namn** värden på de nedrullningsbara menyerna. Välj sedan **Använd** för att söka efter den karta som du vill visa.
   Det datum då jobbet skapades visas i formatet type_farmname_YYYY-MM-DD.
-4. Bläddra igenom listan med kartor som är tillgängliga med hjälp av navigeringsfälten i slutet av sidan.
-5. Markera den karta som du vill visa. I ett popup-fönster visas förhandsgranskningen för den valda kartan.
-6. Välj **Hämta**och hämta GeoJSON-filen med sensorkoordinater.
+4. Bläddra igenom listan över Maps som är tillgängliga genom att använda navigerings fälten i slutet av sidan.
+5. Välj den karta som du vill visa. Ett popup-fönster visar förhands granskningen för den valda kartan.
+6. Välj **Ladda ned**och ladda ned den interjson-fil med sensor koordinater.
 
-    ![Förhandsgranskning av förhandsgranskning av kartan för sensorplacering](./media/get-sensor-data-from-sensor-partner/download-sensor-placement-map-1.png)
+    ![För hands version av sensor placerings karta](./media/get-sensor-data-from-sensor-partner/download-sensor-placement-map-1.png)
 
-## <a name="satellite-indices-map"></a>Karta över satellitindex
+## <a name="satellite-indices-map"></a>Karta över satellit index
 
-I följande avsnitt beskrivs de förfaranden som är involverade i att skapa och visa en satellitindexkarta.
-
-> [!NOTE]
-> Du kan initiera en satellitindexkarta från sidan **Kartor** eller från listrutan **Generera precisionskartor** på sidan **Servergruppsinformation.**
-
-FarmBeats ger dig möjlighet att generera NDVI, Enhanced Vegetation Index (EVI) och Normalized Difference Water Index (NDWI) kartor för gårdar. Dessa index hjälper till att avgöra hur grödan för närvarande växer, eller har vuxit tidigare, och de representativa vattennivåerna i marken.
-
+I följande avsnitt beskrivs de procedurer som ingår i att skapa och visa en satellit index karta.
 
 > [!NOTE]
-> En Sentinel-bild krävs för de dagar som kartan genereras för.
+> Du kan initiera en satellit index karta från sidan **kartor** eller från List menyn **generera precisions kartor** på sidan **Server grupps information** .
+
+FarmBeats ger dig möjlighet att generera NDVI, förbättrat vegetations index (EVI) och (normaliserad differens vatten index) för Server grupper. Dessa index hjälper till att fastställa hur grödan för närvarande växer eller har vuxit tidigare och de representativa vatten nivåerna i marken.
 
 
-## <a name="create-a-satellite-indices-map"></a>Skapa en karta över satellitindex
+> [!NOTE]
+> Det krävs en kontroll avbildning för de dagar då kartan genereras.
+
+
+## <a name="create-a-satellite-indices-map"></a>Skapa en satellit index karta
 
 Följ de här stegen.
 
-1. Gå till **Kartor** från den vänstra navigeringsmenyn på startsidan.
-2. Välj **Skapa kartor**och välj Satellitindex på den nedrullningsbara menyn. **Satellite Indices**
+1. Gå till **kartor** från den vänstra navigerings menyn på Start sidan.
+2. Välj **skapa kartor**och välj **satellit index** på den nedrullningsbara menyn.
 
-    ![Välj Satellitindex på rullgardinsmenyn](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-satellite-indices-1.png)
+    ![Välj satellit index på den nedrullningsbara menyn](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-satellite-indices-1.png)
 
-3. När du har valt **Satellitindex**visas fönstret **Satellitindex.**
+3. När du har valt **satellit index**visas fönstret **satellit index** .
 
-    ![Fönstret Satellitindex](./media/get-sensor-data-from-sensor-partner/satellitte-indices-1.png)
+    ![Satellit index-fönstret](./media/get-sensor-data-from-sensor-partner/satellitte-indices-1.png)
 
-4. Välj en servergrupp på den nedrullningsbara menyn.
-   Om du vill söka efter och välja din servergrupp kan du antingen bläddra i listrutan eller ange namnet på servergruppen.   
-5. Om du vill generera en karta för den senaste veckan väljer du **Den här veckan**.
-6. Om du vill skapa en karta för ett anpassat datumintervall väljer du alternativet **Välj datumintervall**. Ange start- och slutdatum som du vill generera kartan Satellitindex för.
-7. Välj **Generera kartor**.
-    Ett bekräftelsemeddelande med jobbinformation visas.
+4. Välj en Server grupp på den nedrullningsbara menyn.
+   Om du vill söka efter och välja din server grupp kan du antingen bläddra i list rutan eller ange namnet på Server gruppen.   
+5. Om du vill generera en karta för den senaste veckan väljer du **den här veckan**.
+6. Om du vill generera en karta för ett anpassat datum intervall väljer du alternativet **Välj datum intervall**. Ange start-och slutdatum för vilket du vill generera kartan för satellit index.
+7. Välj **generera kartor**.
+    Ett bekräftelse meddelande med jobb information visas.
 
-    ![Bekräftelsemeddelande för satellitindex kartbekräftelse](./media/get-sensor-data-from-sensor-partner/successful-satellitte-indices-1.png)
+    ![Bekräftelse meddelande för satellit index karta](./media/get-sensor-data-from-sensor-partner/successful-satellitte-indices-1.png)
 
-    Information om jobbstatus finns i avsnittet **Visa jobb**. Om jobbstatusen visas *Misslyckades*visas ett detaljerat felmeddelande i verktygstipset för statusen *Misslyckades.* Upprepa föregående steg i så fall och försök igen.
+    Information om jobb status finns i avsnittet **Visa jobb**. Om jobb *statusen visas visas*ett detaljerat fel meddelande i knapp beskrivningen för statusen *misslyckades* . I det här fallet upprepar du föregående steg och försöker igen.
 
-    Om problemet kvarstår läser [du avsnittet Felsöka](troubleshoot-azure-farmbeats.md) eller kontaktar [Azure FarmBeats-forumet för support](https://aka.ms/FarmBeatsMSDN) med relevanta loggar.
+    Om problemet kvarstår kan du läsa avsnittet [fel sökning](troubleshoot-azure-farmbeats.md) eller kontakta [Azure FarmBeats-forumet för support](https://aka.ms/FarmBeatsMSDN) med relevanta loggar.
 
-### <a name="view-and-download-a-map"></a>Visa och ladda ner en karta
+### <a name="view-and-download-a-map"></a>Visa och ladda ned en karta
 
 Följ de här stegen.
 
-1. Gå till **Kartor** från den vänstra navigeringsmenyn på startsidan.
+1. Gå till **kartor** från den vänstra navigerings menyn på Start sidan.
 
     ![Välj kartor](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
 
-2. Välj **Filter** från fönstrets vänstra navigering. I **fönstret Filter** visas sökvillkor.
+2. Välj **filter** i det vänstra fönstrets navigerings fönster. **Filter** fönstret visar Sök villkor.
 
-    ![Filterfönstret visar sökvillkor](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
+    ![Filter fönstret visar Sök villkor](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
 
-3. Välj **Värdena Typ,** **Datum**och **Namn** på de nedrullningsbara menyerna. Välj sedan **Använd** för att söka efter den karta som du vill visa.
+3. Välj **typ**-, **datum**-och **namn** värden på de nedrullningsbara menyerna. Välj sedan **Använd** för att söka efter den karta som du vill visa.
   Det datum då jobbet skapades visas i formatet type_farmname_YYYY-MM-DD.
 
-4. Bläddra igenom listan med kartor som är tillgängliga med hjälp av navigeringsfälten i slutet av sidan.
-5. För varje kombination av **servergruppsnamn** och **datum**finns följande tre kartor tillgängliga:
-    - NDVI (NDVI)
-    - Evi
-    - NDWI (på andra sätt)
-6. Markera den karta som du vill visa. I ett popup-fönster visas förhandsgranskningen för den valda kartan.
-7. Välj **Hämta** på rullgardinsmenyn för att välja nedladdningsformat. Kartan hämtas och lagras i din lokala mapp på datorn.
+4. Bläddra igenom listan över Maps som är tillgängliga genom att använda navigerings fälten i slutet av sidan.
+5. För varje kombination av namn och **datum**för **Server gruppen** är följande tre Maps tillgängliga:
+    - NDVI
+    - EVI
+    - NDWI
+6. Välj den karta som du vill visa. Ett popup-fönster visar förhands granskningen för den valda kartan.
+7. Välj **Ladda ned** på den nedrullningsbara menyn för att välja nedladdnings formatet. Kartan laddas ned och lagras i din lokala mapp på din dator.
 
-    ![Förhandsgranskning av karta för markerade satellitindex](./media/get-sensor-data-from-sensor-partner/download-satellite-indices-map-1.png)
+    ![Förhands granskning av den valda satellit index kartan](./media/get-sensor-data-from-sensor-partner/download-satellite-indices-map-1.png)
 
-## <a name="soil-moisture-heatmap"></a>Värmekarta för jordfukt
+## <a name="soil-moisture-heatmap"></a>Jord-fukt termisk karta
 
-Markfukt är vattnet som hålls i utrymmena mellan jordpartiklar.Soil Moisture heatmap hjälper dig att förstå marken fukt data på alla djup, med hög upplösning inom din gård. För att generera en korrekt och användbar heatm-värmekarta för markfukt krävs en enhetlig användning av sensorer. Alla sensorer måste komma från samma leverantör. Olika leverantörer har skillnader i hur markfukt mäts tillsammans med skillnader i kalibrering. Värmekartan genereras för ett visst djup med hjälp av de sensorer som används på det djupet.
+Jord fukt är det vatten som hålls i utrymmet mellan jord partiklar.Jord-fuktens termisk karta hjälper dig att förstå jord fukts data i djupet med hög upplösning i Server gruppen. För att kunna generera en korrekt och användbar jord fukt termisk karta krävs en enhetlig distribution av sensorer. Alla sensorer måste vara från samma provider. Olika leverantörer har skillnader i hur jord fukten mäts tillsammans med skillnader i kalibreringen. Termisk karta genereras för ett visst djup genom att använda sensorer som distribueras på det djupet.
 
 ### <a name="before-you-begin"></a>Innan du börjar
 
-Uppfylla följande förutsättningar innan du försöker generera en värmekarta för jordfukt:
+Uppfylla följande krav innan du försöker skapa en jord-fukt termisk karta:
 
-- Minst tre markfuktsensorer måste sättas in. Försök inte att skapa en värmekarta för jordfukt innan sensorer sätts in och associeras med gården.
-- Generera en Soil Moisture heatmap påverkas av Sentinel väg täckning, molntäcke och moln skugga. Minst en molnfri Sentinel Scene måste vara tillgänglig för de senaste 120 dagarna, från den dag då Soil Moisture heatmap begärdes.
-- Minst hälften av sensorerna som distribueras på servergruppen måste vara online och ha data som direktuppspelar till datahub.
-- Värmekartan måste genereras med hjälp av sensormått från samma leverantör.
+- Minst tre jord fuktighets sensorer måste distribueras. Försök inte att skapa en jord Fukts termisk karta innan sensorer distribueras och är kopplade till Server gruppen.
+- Att skapa en jord Fukts termisk karta påverkas av kontrollens Sök vägs täckning, moln höljet och moln skugga. Minst en indikator för en moln fri indikator måste vara tillgänglig under de senaste 120 dagarna, från den dag då jordens vatten termisk karta begärdes.
+- Minst hälften av sensorer som distribuerats i Server gruppen måste vara online och ha data strömning till Datahub.
+- Termisk karta måste genereras med hjälp av sensor mått från samma provider.
 
 
-## <a name="create-a-soil-moisture-heatmap"></a>Skapa en värmekarta för jordfukt
-
-Följ de här stegen.
-
-1. På startsidan går du till **Kartor** från den vänstra navigeringsmenyn för att visa **sidan Kartor.**
-2. Välj **Skapa kartor**och välj **Markfukt på** rullgardinsmenyn.
-
-    ![Välj Jordfukt på rullgardinsmenyn](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-soil-moisture-1.png)
-
-3. När du har valt **Jordfukt**visas fönstret **Jordfukt.**
-
-    ![Fönster i jordfukt](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
-
-4. Välj en servergrupp på listrutan **Servering.**
-   Om du vill söka och välja din servergrupp kan du antingen bläddra i listrutan eller ange namnet på servergruppen på listrutan **Välj servergrupp.**
-5. På rullgardinsmenyn **Välj markfuktsensor Mät** väljer du det markfuktsensormått (djup) som du vill generera kartan för.
-För att hitta sensormåttet, gå till **Sensorer**och välj någon markfuktsensor. Använd sedan värdet i **Måttnamn**under avsnittet **Sensoregenskaper** .
-6. Om du vill skapa en karta för **Idag** eller **Den här veckan**väljer du ett av alternativen.
-7. Om du vill skapa en karta för ett anpassat datumintervall väljer du alternativet **Välj datumintervall**. Ange start- och slutdatum som du vill generera värmekartan för jordfukt.
-8. Välj **Generera kartor**.
- Ett bekräftelsemeddelande med jobbinformation visas.
-
-   ![Bekräftelsemeddelande för jordfuktskarta](./media/get-sensor-data-from-sensor-partner/successful-soil-moisture-1.png)
-
-    Information om jobbstatus finns i avsnittet **Visa jobb**. Om jobbstatusen visas *Misslyckades*visas ett detaljerat felmeddelande i verktygstipset för statusen *Misslyckades.* Upprepa föregående steg i så fall och försök igen.
-
-    Om problemet kvarstår läser [du avsnittet Felsöka](troubleshoot-azure-farmbeats.md) eller kontaktar [Azure FarmBeats-forumet för support](https://aka.ms/FarmBeatsMSDN) med relevanta loggar.
-
-### <a name="view-and-download-a-map"></a>Visa och ladda ner en karta
+## <a name="create-a-soil-moisture-heatmap"></a>Skapa en jord-fukt termisk karta
 
 Följ de här stegen.
 
-1. Gå till **Kartor** från den vänstra navigeringsmenyn på startsidan.
+1. På Start sidan går du till **kartor** från den vänstra navigerings menyn för att visa sidan **kartor** .
+2. Välj **skapa kartor**och välj **jord fukt** på den nedrullningsbara menyn.
 
-    ![Gå till Kartor](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
+    ![Välj jord fukt på den nedrullningsbara menyn](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-soil-moisture-1.png)
 
-2. Välj **Filter** från fönstrets vänstra navigering. **Filterfönstret** visas varifrån du kan söka efter kartor.
+3. När du har valt **jord fukt**visas fönstret **jord fukt** .
 
-    ![Välj Filter från vänster navigering](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
+    ![Jord Fukts fönster](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
-3.  Välj **Värdena Typ,** **Datum**och **Namn** på de nedrullningsbara menyerna. Välj sedan **Använd** för att söka efter den karta som du vill visa. Det datum då jobbet skapades visas i formatet type_farmname_YYYY-MM-DD.
-4. Välj ikonen **Sortera** bredvid tabellrubrikerna som ska sorteras efter **Servergrupp,** **Datum**, **Skapad på,** **Jobb-ID**och **Jobbtyp**.
-5. Bläddra igenom listan med kartor som är tillgängliga med hjälp av navigeringsknapparna i slutet av sidan.
-6. Markera den karta som du vill visa. I ett popup-fönster visas förhandsgranskningen för den valda kartan.
-7. Välj **Hämta** på rullgardinsmenyn för att välja nedladdningsformat. Kartan hämtas och lagras i den angivna mappen.
+4. Välj en Server grupp på den nedrullningsbara menyn **Server grupp** .
+   Om du vill söka efter och välja din server grupp, kan du antingen bläddra i list rutan eller ange namnet på Server gruppen på list menyn **Välj grupp** .
+5. På den Välj den nedrullningsbara menyn **Välj jord fuktighets sensor** väljer du det djup som du vill generera kartan för.
+Om du vill hitta sensor måttet går du till **sensorer**och väljer en jord fuktighets sensor. I avsnittet **sensor egenskaper** använder du värdet i **måttnamn**.
+6. Välj ett av alternativen om du vill generera en karta för **idag** eller **den här veckan**.
+7. Om du vill generera en karta för ett anpassat datum intervall väljer du alternativet **Välj datum intervall**. Ange start-och slutdatum för vilken du vill skapa jordens fukt termisk karta.
+8. Välj **generera kartor**.
+ Ett bekräftelse meddelande med jobb information visas.
 
-    ![Förhandsgranskning av värmekarta för värmekarta för markfukt](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)
+   ![Bekräftelse meddelande för jord Fukts karta](./media/get-sensor-data-from-sensor-partner/successful-soil-moisture-1.png)
+
+    Information om jobb status finns i avsnittet **Visa jobb**. Om jobb *statusen visas visas*ett detaljerat fel meddelande i knapp beskrivningen för statusen *misslyckades* . I det här fallet upprepar du föregående steg och försöker igen.
+
+    Om problemet kvarstår kan du läsa avsnittet [fel sökning](troubleshoot-azure-farmbeats.md) eller kontakta [Azure FarmBeats-forumet för support](https://aka.ms/FarmBeatsMSDN) med relevanta loggar.
+
+### <a name="view-and-download-a-map"></a>Visa och ladda ned en karta
+
+Följ de här stegen.
+
+1. Gå till **kartor** från den vänstra navigerings menyn på Start sidan.
+
+    ![Gå till Maps](./media/get-sensor-data-from-sensor-partner/view-download-sensor-placement-map-1.png)
+
+2. Välj **filter** i det vänstra fönstrets navigerings fönster. **Filter** fönstret visar var du kan söka efter kartor.
+
+    ![Välj filter i det vänstra navigerings fältet](./media/get-sensor-data-from-sensor-partner/view-download-filter-1.png)
+
+3.  Välj **typ**-, **datum**-och **namn** värden på de nedrullningsbara menyerna. Välj sedan **Använd** för att söka efter den karta som du vill visa. Det datum då jobbet skapades visas i formatet type_farmname_YYYY-MM-DD.
+4. Välj **sorterings** ikonen bredvid tabell rubrikerna för att sortera efter **Server grupp**, **datum**, **skapad**, **jobb-ID**och **Jobbtyp**.
+5. Bläddra igenom listan över Maps som är tillgängliga genom att använda navigerings knapparna i slutet av sidan.
+6. Välj den karta som du vill visa. Ett popup-fönster visar förhands granskningen för den valda kartan.
+7. Välj **Ladda ned** på den nedrullningsbara menyn för att välja nedladdnings formatet. Kartan laddas ned och lagras i den angivna mappen.
+
+    ![För hands version av jord fukt termisk karta](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)

@@ -1,6 +1,6 @@
 ---
-title: Övervaka en Azure Cloud-tjänst | Microsoft-dokument
-description: Beskriver vad övervakning av en Azure Cloud-tjänst innebär och vilka alternativ du har.
+title: Övervaka en Azure-moln tjänst | Microsoft Docs
+description: Beskriver vad som övervakar en Azure-molnbaserad tjänst och vilka alternativ som finns.
 services: cloud-services
 documentationcenter: ''
 author: tgore03
@@ -9,58 +9,58 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
 ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79273103"
 ---
-# <a name="introduction-to-cloud-service-monitoring"></a>Introduktion till övervakning av molntjänster
+# <a name="introduction-to-cloud-service-monitoring"></a>Introduktion till moln tjänst övervakning
 
-Du kan övervaka nyckelprestandamått för alla molntjänster. Varje molntjänstroll samlar in minimala data: CPU-användning, nätverksanvändning och diskanvändning. Om molntjänsten har `Microsoft.Azure.Diagnostics` tillägget tillämpas på en roll, kan den rollen samla in ytterligare datapunkter. Den här artikeln innehåller en introduktion till Azure Diagnostics for Cloud Services.
+Du kan övervaka viktiga prestanda mått för alla moln tjänster. Varje moln tjänst roll samlar in minimala data: CPU-användning, nätverks användning och disk användning. Om `Microsoft.Azure.Diagnostics` tillägget används för en roll i moln tjänsten kan den rollen samla in ytterligare data punkter. Den här artikeln innehåller en introduktion till Azure-diagnostik för Cloud Services.
 
-Med grundläggande övervakning samplas prestandaräknaredata från rollinstanser och samlas in med 3-minutersintervall. Dessa grundläggande övervakningsdata lagras inte i ditt lagringskonto och har ingen extra kostnad kopplad till den.
+Med grundläggande övervakning samplas prestanda räknar data från roll instanser och samlas in med 3 minuters intervall. Dessa grundläggande övervaknings data lagras inte i ditt lagrings konto och har ingen ytterligare kostnad kopplad till sig.
 
-Med avancerad övervakning samplas och samlas ytterligare mått in med intervall på 5 minuter, 1 timme och 12 timmar. Aggregerade data lagras i ett lagringskonto, i tabeller och rensas efter 10 dagar. Det lagringskonto som används konfigureras av rollen. Du kan använda olika lagringskonton för olika roller. Detta konfigureras med en anslutningssträng i [CSDEF-](cloud-services-model-and-package.md#servicedefinitioncsdef) och [CSCFG-filerna.](cloud-services-model-and-package.md#serviceconfigurationcscfg)
+Med avancerad övervakning samplas ytterligare mått och samlas in i intervall om 5 minuter, 1 timme och 12 timmar. De aggregerade data lagras i ett lagrings konto i tabeller och rensas efter 10 dagar. Det använda lagrings kontot har kon figurer ATS av rollen. Du kan använda olika lagrings konton för olika roller. Detta konfigureras med en anslutnings sträng i [. csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) -och [. cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) -filerna.
 
 
 ## <a name="basic-monitoring"></a>Grundläggande övervakning
 
-Som anges i inledningen samlar en molntjänst automatiskt in grundläggande övervakningsdata från den virtuella värddatorn. Dessa data inkluderar CPU-procent, nätverk in/ut och diskläsning/skrivning. De insamlade övervakningsdata visas automatiskt på översikts- och måttsidorna för molntjänsten i Azure-portalen. 
+Som anges i introduktionen samlar en moln tjänst automatiskt in grundläggande övervaknings data från den virtuella värd datorn. Dessa data omfattar processor procent, nätverk in/ut och läsning/skrivning till disk. Insamlade övervaknings data visas automatiskt på sidan Översikt och mått i moln tjänsten i Azure Portal. 
 
-Grundläggande övervakning kräver inget lagringskonto. 
+Grundläggande övervakning kräver inte något lagrings konto. 
 
-![grundläggande molntjänstövervakningspaneler](media/cloud-services-how-to-monitor/basic-tiles.png)
+![grundläggande övervaknings paneler i Cloud service](media/cloud-services-how-to-monitor/basic-tiles.png)
 
 ## <a name="advanced-monitoring"></a>Avancerad övervakning
 
-Avancerad övervakning innebär att använda **Azure Diagnostics-tillägget** (och eventuellt Application Insights SDK) på den roll du vill övervaka. Diagnostiktillägget använder en config-fil (per roll) med namnet **diagnostics.wadcfgx** för att konfigurera diagnostikmåtten som övervakas. Azure Diagnostic-tillägget samlar in och lagrar data i ett Azure Storage-konto. Dessa inställningar konfigureras i **filerna .wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef)och [.cscfg.](cloud-services-model-and-package.md#serviceconfigurationcscfg) Detta innebär att det finns en extra kostnad i samband med avancerad övervakning.
+Avancerad övervakning innebär att använda **Azure-diagnostik** tillägget (och eventuellt Application Insights SDK) för den roll som du vill övervaka. Tillägget för diagnostik använder en konfigurations fil (per roll) med namnet **Diagnostics. wadcfgx** för att konfigurera de diagnostik mått som övervakas. Azure Diagnostic-tillägget samlar in och lagrar data i ett Azure Storage-konto. Dessa inställningar konfigureras i **. wadcfgx**-, [. csdef](cloud-services-model-and-package.md#servicedefinitioncsdef)-och [. cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) -filerna. Det innebär att det finns en extra kostnad som är kopplad till avancerad övervakning.
 
-När varje roll skapas lägger Visual Studio till Azure Diagnostics-tillägget i det. Det här diagnostiktillägget kan samla in följande typer av information:
+När varje roll skapas lägger Visual Studio till Azure-diagnostik-tillägget till den. Det här diagnostikprogrammet-tillägget kan samla in följande typer av information:
 
-* Anpassade prestandaräknare
-* Programloggar
+* Anpassade prestanda räknare
+* Program loggar
 * Windows-händelseloggar
-* .NET-händelsekälla
+* .NET-händelse källa
 * IIS-loggar
 * Manifestbaserat ETW
 * Kraschdumpar
-* Kundfelloggar
+* Kund fel loggar
 
 > [!IMPORTANT]
-> Alla dessa data sammanställs i lagringskontot, men portalen tillhandahåller **inte** ett eget sätt att kartlägga data. Vi rekommenderar starkt att du integrerar en annan tjänst, till exempel Application Insights, i ditt program.
+> Även om alla dessa data sammanställs i lagrings kontot, ger portalen **inget** inbyggt sätt att skapa diagram över data. Vi rekommenderar starkt att du integrerar en annan tjänst, t. ex. Application Insights, i ditt program.
 
-## <a name="setup-diagnostics-extension"></a>Tillägg för installation av diagnostik
+## <a name="setup-diagnostics-extension"></a>Konfigurera diagnostik-tillägg
 
-Om du inte har ett **klassiskt** lagringskonto [skapar du först ett](../storage/common/storage-account-create.md). Kontrollera att lagringskontot skapas med den angivna **klassiska distributionsmodellen.**
+Börja med att [skapa ett](../storage/common/storage-account-create.md) **klassiskt** lagrings konto om du inte har det. Kontrol lera att lagrings kontot har skapats med den **klassiska distributions modellen** angiven.
 
-Navigera sedan till resursen **Lagringskonto (klassiskt).** Välj **Inställningar** > **Access-nycklar** och kopiera värdet för den **primära anslutningssträngen.** Du behöver det här värdet för molntjänsten. 
+Gå sedan till **lagrings konto resursen (klassisk)** . Välj **Inställningar** > **åtkomst nycklar** och kopiera värdet för **primär anslutnings sträng** . Du behöver det här värdet för moln tjänsten. 
 
-Det finns två config filer som du måste ändra för avancerad diagnostik som ska aktiveras, **ServiceDefinition.csdef** och **ServiceConfiguration.cscfg**.
+Det finns två konfigurationsfiler du måste ändra för att avancerad diagnostik ska vara aktive rad, **service definition. csdef** och **ServiceConfiguration. cscfg**.
 
-### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
+### <a name="servicedefinitioncsdef"></a>Service definition. csdef
 
-Lägg till en ny inställning som heter `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` för varje roll som använder avancerad diagnostik i filen **ServiceDefinition.csdef.** Visual Studio tillför det här värdet i filen när du skapar ett nytt projekt. Om det saknas kan du lägga till det nu. 
+I filen **service definition. csdef** lägger du till en ny inställning som `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` heter för varje roll som använder avancerad diagnostik. Visual Studio lägger till det här värdet i filen när du skapar ett nytt projekt. Om det saknas kan du lägga till det nu. 
 
 ```xml
 <ServiceDefinition name="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -69,9 +69,9 @@ Lägg till en ny inställning som heter `Microsoft.WindowsAzure.Plugins.Diagnost
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
-Detta definierar en ny inställning som måste läggas till i varje **ServiceConfiguration.cscfg-fil.** 
+Detta definierar en ny inställning som måste läggas till i varje **ServiceConfiguration. cscfg** -fil. 
 
-Troligtvis har du två **CSCFG-filer,** en med namnet **ServiceConfiguration.cloud.cscfg** för distribution till Azure och en med namnet **ServiceConfiguration.local.cscfg** som används för lokala distributioner i den emulerade miljön. Öppna och ändra varje **CSCFG-fil.** Lägg till `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`en inställning med namnet . Ange värdet till den **primära anslutningssträngen** för det klassiska lagringskontot. Om du vill använda det lokala lagringsutrymmet `UseDevelopmentStorage=true`på utvecklingsmaskinen använder du .
+Förmodligen har du två **. cscfg** -filer, en med namnet **ServiceConfiguration. Cloud. cscfg** för att distribuera till Azure och en namngiven **ServiceConfiguration. local. cscfg** som används för lokala distributioner i den emulerade miljön. Öppna och ändra varje **. cscfg** -fil. Lägg till en inställning `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`med namnet. Ange värdet till den **primära anslutnings strängen** för det klassiska lagrings kontot. Använd `UseDevelopmentStorage=true`om du vill använda den lokala lagrings platsen på din utvecklings dator.
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
@@ -85,17 +85,17 @@ Troligtvis har du två **CSCFG-filer,** en med namnet **ServiceConfiguration.clo
       -->
 ```
 
-## <a name="use-application-insights"></a>Använda programinsikter
+## <a name="use-application-insights"></a>Använd Application Insights
 
-När du publicerar molntjänsten från Visual Studio får du möjlighet att skicka diagnostikdata till Application Insights. Du kan skapa Azure-programmet Application Insights vid den tidpunkten eller skicka data till en befintlig Azure-resurs. Din molntjänst kan övervakas av Application Insights för tillgänglighet, prestanda, fel och användning. Anpassade diagram kan läggas till i Application Insights så att du kan se de data som är viktigast. Rollinstansdata kan samlas in med hjälp av Application Insights SDK i ditt molntjänstprojekt. Mer information om hur du integrerar Application Insights finns i [Application Insights med Cloud Services](../azure-monitor/app/cloudservices.md).
+När du publicerar moln tjänsten från Visual Studio får du möjlighet att skicka diagnostikdata till Application Insights. Du kan skapa Application Insights Azure-resursen vid den tiden eller skicka data till en befintlig Azure-resurs. Din moln tjänst kan övervakas av Application Insights för tillgänglighet, prestanda, haverier och användning. Du kan lägga till anpassade diagram i Application Insights så att du kan se de data som är mest viktiga. Roll instans data kan samlas in med hjälp av Application Insights SDK i moln tjänst projektet. Mer information om hur du integrerar Application Insights finns [Application Insights med Cloud Services](../azure-monitor/app/cloudservices.md).
 
-Observera att även om du kan använda Application Insights för att visa prestandaräknare (och de andra inställningar) som du har angett via tillägget Windows Azure Diagnostics, får du bara en rikare upplevelse genom att integrera SDK för Programinsikter i ditt arbetar- och webbroller.
+Observera att du kan använda Application Insights för att visa prestanda räknarna (och de andra inställningarna) som du har angett via Windows Azure-diagnostik-tillägget, men du får bara en rikare upplevelse genom att integrera Application Insights SDK i din arbets plats och dina webb roller.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Läs mer om programinsikter med Molntjänster](../azure-monitor/app/cloudservices.md)
-- [Ställ in prestandaräknare](diagnostics-performance-counters.md)
+- [Lär dig mer om Application Insights med Cloud Services](../azure-monitor/app/cloudservices.md)
+- [Konfigurera prestanda räknare](diagnostics-performance-counters.md)
 
 
 

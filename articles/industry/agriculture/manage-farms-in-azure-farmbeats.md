@@ -1,82 +1,82 @@
 ---
-title: Hantera gårdar
-description: Beskriver hur du hanterar gårdar
+title: Hantera Server grupper
+description: Beskriver hur du hanterar Server grupper
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79271725"
 ---
 # <a name="manage-farms"></a>Hantera lantbruk
 
-Du kan hantera dina gårdar i Azure FarmBeats. Den här artikeln innehåller information om hur du skapar gårdar, installerar enheter, sensorer och drönare som hjälper dig att hantera dina gårdar.
+Du kan hantera dina Server grupper i Azure FarmBeats. Den här artikeln innehåller information om hur du skapar grupper, installerar enheter, sensorer och drönare som hjälper dig att hantera dina grupper.
 
-## <a name="create-farms"></a>Skapa gårdar
+## <a name="create-farms"></a>Skapa Server grupper
 
 Använd följande steg:
 
-1. Logga in på Farm Accelerator, visar **farms** sidan.
-    På sidan **Gårdar** visas listan över grupper om de redan har skapats i prenumerationen.
+1. Logga in på Server grupps acceleratorn visas sidan **grupper** .
+    Sidan **Server grupper** visar listan över Server grupper, om de redan har skapats i prenumerationen.
 
-    Här är exempelbilden:
+    Här är exempel bilden:
 
-    ![Projekt Farm Beats](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
+    ![Taktslag i projekt grupp](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
 
 
-2. Välj **Skapa servergrupp** och ange **namn,** **grödor** och **adress**.
-3. Välj **markera på karta** eller Klistra in **GeoJSON-kod**i fältet **Definiera servergruppsgräns**.
+2. Välj **skapa Server grupp** och ange **namn**, **grödor** och **adress**.
+3. I **definiera server gruppens gränser**(obligatoriskt fält) väljer du antingen **mark på Map** eller **Klistra in interjson-kod**.
 
-Här är de två sätten att definiera en gårdsgräns:
+Här är två sätt att definiera en server grupps gränser:
 
-1. **Markera på karta:** Använd kartkontrollverktyget för att rita och markera gränsen för servergruppen. Om du vill ![markera gränserna](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) markerar Project Farm Beats och markerar de exakta gränserna.
+1. **Markering på kartan**: Använd kart kontroll verktyget för att rita och markera Server gruppens gränser. För att markera gränser, ![taktslag](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) i projekt gruppen och markera de exakta gränserna.
 
-    ![Projekt Farm Beats](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
+    ![Taktslag i projekt grupp](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 
-2. **Klistra in GeoJson-kod:** GeoJSON är ett format för kodning av geografiska datastrukturer med JavaScript Object Notation (JSON). Det här alternativet visar en textruta där en GeoJSON-sträng kan anges för att markera servergruppsgränserna. Du kan också skapa GeoJSON-kod från GeoJSON.io.
-Använd verktygstipsen för att fylla i informationen.
+2. **Klistra in geografiskt JSON-kod**: geografin är ett format för kodning av geografiska data strukturer med hjälp av JavaScript Object Notation (JSON). Det här alternativet visar en text ruta där en interjson-sträng kan anges för att markera Server gruppens gränser. Du kan också skapa en interjson-kod från GeoJSON.io.
+Fyll i informationen med hjälp av knapp beskrivningarna.
 
-    ![Projekt Farm Beats](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
+    ![Taktslag i projekt grupp](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
 
-3.  Välj **Skicka** om du vill skapa en servergrupp. En ny servergrupp skapas och visas på sidan **Gårdar.**
+3.  Välj **Skicka** för att skapa en Server grupp. En ny grupp skapas och visas på sidan **Server grupper** .
 
-## <a name="view-farm"></a>Visa servergrupp
+## <a name="view-farm"></a>Visa Server grupp
 
-På listsidan i servergruppen visas en lista över skapade grupper. Välj en grupp om du vill visa listan över:
+Sidan Server grupp lista visar en lista över skapade Server grupper. Välj en grupp för att visa listan över:
 
- - **Enhetsantal** – visar antalet och statusen för enheter som distribueras i servergruppen.
- - **Karta** – karta över servergruppen med de enheter som distribueras i servergruppen.
- - **Telemetri** – visar telemetrin från sensorerna som distribueras i servergruppen.
- - **Senaste Precision Maps** - visar den senaste Satellit Index karta (EVI, NDWI), Soil Moisture Heatmap och Sensor Placement karta.
+ - **Antal enheter** – visar antal och status för enheter som har distribuerats i Server gruppen.
+ - **Karta** – karta över Server gruppen med de enheter som distribueras i Server gruppen.
+ - **Telemetri** – visar Telemetrin från sensorer som distribuerats i Server gruppen.
+ - **Senaste precision Maps** – visar den senaste satellit index kartan (Evi, NDWI), jord-fuktens termisk karta och sensor placerings karta.
 
-## <a name="edit-farm"></a>Redigera servergrupp
+## <a name="edit-farm"></a>Redigera Server grupp
 
-På sidan **Gårdar** visas en lista över skapade grupper.
+Sidan **grupper** visar en lista över skapade Server grupper.
 
-1.  Välj en servergrupp om du vill visa och redigera servergruppen.
-2.  Välj **Redigera servergrupp** om du vill redigera servergruppsinformationen. I fönstret **Serverningsinformation** kan du redigera **fälten Namn,** **Grödor**, **Adress**och definiera **fälten Servergruppsgräns.**
+1.  Välj en Server grupp för att visa och redigera Server gruppen.
+2.  Välj **Redigera server** grupp för att redigera Server grupps informationen. I fönstret **Server grupps information** kan du redigera fält för **namn**, **grödor**, **adress**och definiera **Server grupps gränser** .
 
-    ![Projekt Farm Beats](./media/create-farms-in-azure-farmbeats/edit-farm-1.png)
+    ![Taktslag i projekt grupp](./media/create-farms-in-azure-farmbeats/edit-farm-1.png)
 
-3. Välj **Skicka** om du vill spara informationen som redigerats.
+3. Välj **Skicka** för att spara informationen som redige ras.
 
-## <a name="delete-farm"></a>Ta bort servergrupp
+## <a name="delete-farm"></a>Ta bort Server grupp
 
-På sidan **Gårdar** visas en lista över skapade grupper. Så här tar du bort en servergrupp:
+Sidan **grupper** visar en lista över skapade grupper. Använd följande steg för att ta bort en Server grupp:
 
-1.  Välj en servergrupp i listan om du vill ta bort servergruppsinformation.
-2.  Välj **Ta bort servergrupp** om du vill ta bort servergruppen.
+1.  Välj en Server grupp i listan om du vill ta bort Server grupps information.
+2.  Välj **ta bort Server grupp** för att ta bort Server gruppen.
 
-    ![Projekt Farm Beats](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
+    ![Taktslag i projekt grupp](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
 
     > [!NOTE]
-    > När du tar bort en servergrupp tas inte de enheter och kartor som är associerade med servergruppen bort. All servergruppsinformation som är kopplad till enheten och kartor är inte relevant. Du kan fortsätta att visa enheter, telemetri och kartor från FarmBeats-tjänsten.
+    > När du tar bort en Server grupp tas inte enheterna och mapparna som är associerade med gruppen bort. All Server grupp information som är kopplad till enheten och kartor är inte relevant. Du kan fortsätta att visa enheter, telemetri och kartor från FarmBeats-tjänsten.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har skapat din gård kan du lära dig hur [du får sensordata](get-sensor-data-from-sensor-partner.md) att flöda in i din servergrupp.
+Nu när du har skapat din server grupp, lär du dig hur du [hämtar sensor data](get-sensor-data-from-sensor-partner.md) som flödar till Server gruppen.

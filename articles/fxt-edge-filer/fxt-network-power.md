@@ -1,168 +1,168 @@
 ---
-title: 'Självstudiekurs: Anslut kablar till en Azure FXT Edge Filer'
-description: Så här kabelr du nätverksportarna och ansluter ström för Azure FXT Edge Filer-maskinvara
+title: 'Självstudie: ansluta kablar till en Azure FXT Edge-filer'
+description: Så här kabelansluter du nätverks portarna och ansluter kraften för Azure FXT Edge-maskin vara
 author: ekpgh
 ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: 1e3c60fd955bd899955c46b7670acd3f088d0f86
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79239786"
 ---
-# <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Självstudiekurs: Skapa nätverksanslutningar och strömförsörjning till Azure FXT Edge Filer-noden
+# <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Självstudie: skapa nätverks anslutningar och tillhandahålla kraft till Azure FXT Edge-noden
 
-Den här självstudien lär dig hur du kabel nätverksanslutningar för en Azure FXT Edge Filer hårdvara nod.
+I den här självstudien lär du dig att ansluta nätverks anslutningarna för en Azure FXT Edge-nod.
 
 I den här kursen lär du dig: 
 
 > [!div class="checklist"]
-> * Så här väljer du vilken typ av nätverkskabel för din miljö
-> * Så här ansluter du en Azure FXT Edge Filer-nod till ditt datacenternätverk
-> * Hur man kan dra kablar genom kabelhanteringsarmen (CMA)
-> * Så här ansluter du ström till den rackade enheten och slår på den
+> * Så här väljer du typ av nätverks kabel för din miljö
+> * Så här ansluter du en Azure FXT Edge-nod till ditt data Center nätverk
+> * Så här dirigerar du kablar genom kabel hanterings arm (CMA)
+> * Så här ansluter du kraften till den rackmonterade enheten och slår på den
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du startar den här självstudien bör Azure FXT Edge Filer installeras i ett standardprogram för utrustning. CMA ska installeras på filer-noden. 
+Innan du påbörjar den här självstudien ska Azure FXT Edge-filer installeras i ett standard utrustnings rack. CMA bör installeras på noden filer. 
 
 ## <a name="identify-ports"></a>Identifiera portar
 
-Identifiera de olika portarna på baksidan av dina Azure FXT Edge Filer. 
+Identifiera de olika portarna på bak sidan av dina Azure FXT Edge-filer. 
  
-![Baksidan av en kabelanordning](media/fxt-back-annotated.png)
+![Tillbaka till en kabelansluten enhet](media/fxt-back-annotated.png)
 
 ## <a name="cable-the-device"></a>Kabelansluta enheten
 
-* Anslut RJ-45-portarna till datacentrets nätverkskälla enligt beskrivningen i [Nätverksportar](#network-ports).  
-* Anslut [iDRAC-porten](#idrac-port) på ett säkert sätt till ett separat nätverk med en säker DHCP-server. 
-* Använd USB-portarna och VGA-porten för att ansluta ett tangentbord och bildskärm till noden för första installationen. Du måste starta noden och [ange ett första lösenord](fxt-node-password.md) för att aktivera nodens andra portar. Läs [Ange inledande lösenord](fxt-node-password.md) för mer information. 
+* Anslut RJ-45-portarna till data centrets nätverks källa enligt beskrivningen i [nätverks portar](#network-ports).  
+* Anslut [Idrac-porten](#idrac-port) säkert till ett separat nätverk med en säker DHCP-server. 
+* Använd USB-portarna och VGA-porten för att ansluta ett tangent bord och övervaka till noden för den inledande installationen. Du måste starta noden och [Ange ett start lösen ord](fxt-node-password.md) för att aktivera nodens andra portar. Läs [Ange de ursprungliga lösen orden](fxt-node-password.md) för mer information. 
 
-I den här artikeln beskrivs också hur du [ansluter växelström](#connect-power-cables) för noden. 
+Den här artikeln beskriver också hur du [ansluter AC-kraften](#connect-power-cables) för noden. 
 
-I den här artikeln beskrivs också hur du ansluter till nodens [seriella port](#serial-port-only-when-necessary)om det behövs för specialiserad felsökning. 
+Den här artikeln beskriver också hur du ansluter till nodens [serie port](#serial-port-only-when-necessary), om det behövs för specialiserad fel sökning. 
 
 ### <a name="network-ports"></a>Nätverksportar 
 
-Varje Azure FXT Edge Filer-nod innehåller följande nätverksportar: 
+Varje Azure FXT Edge-nod innehåller följande nätverks portar: 
 
-* Sex höghastighetsdataportar med 25 GbE/10 GbE med dubbla hastigheter: 
+* Sex data portar med hög hastighet 25GbE/10 GbE: 
 
-  * Fyra portar med två plug-in-nätverkskort med dubbla portar
-  * Två portar från moderkortet mezzanine nätverkskort 
+  * Fyra portar som tillhandahålls av två nätverkskort med dual-port-plugin-program
+  * Två portar från moder kortet mezzaninfil nätverkskort 
 
-* Två 1GbE-portar från moderkortet mezzanine nätverkskort 
+* Två 1GbE-portar som tillhandahålls av Moder kortet mezzaninfil nätverkskort 
 
-De snabba 25 GbE/10GbE-dataportarna har standard-SFP28-kompatibla burar. Om du vill använda optiska kablar måste du installera optiska SFP28-sändtagaremoduler (medföljer ej).
+25GbE-dataportarna med hög hastighet har SFP28-kompatibla burar. Om du vill använda optiska kablar måste du installera SFP28 Optical sänded-moduler (ej angivet).
 
-1 GbE-portarna har standard-RJ-45-kontakter.
+1GbE-portarna har standard RJ-45-anslutningar.
 
-En fullständig lista över kablar, brytare och sändtagare som stöds finns i [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
+En fullständig lista över kablar, växlar och Sänd tagare som stöds finns i interoperabilitet med [Cavium FastlinQ 41000-serien](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
 
-Vilken typ av anslutningar som ska användas för systemet beror på din datacentermiljö.
+Vilken typ av anslutningar som ska användas för systemet beror på din data Center miljö.
 
-* Om du ansluter till ett 25 GbE-nätverk kabel varje höghastighetsdataportar med någon av följande kabeltyper:
+* Om du ansluter till ett 25GbE-nätverk kan du ansluta var och en av de höghastighets data portarna med någon av följande kabel typer:
 
-  * Optisk kabel och SFP28 optisk sändtagare med 25 GbE eller dubbel hastighet 25GbE/10GbE kapacitet
-  * SFP28 typ 25GbE-kompatibel direkt anslutning twinaxial kabel
+  * Optisk kabel och SFP28 optisk Sänd tagare med 25GbE eller dubbla Rate-funktioner för 25GbE/GbE
+  * SFP28-typ 25GbE-kompatibel Direct Attach twinaxial-kabel
 
-* Om du ansluter till ett 10 GbE-nätverk kabel var och en av höghastighetsdataportarna med något av följande: 
+* Om du ansluter till ett GbE-nätverk kan du ansluta varje höghastighets data port med något av följande: 
 
-  * Optisk kabel och SFP28 optisk sändtagare med 10GbE eller dubbla hastighet 25GbE/10GbE kapacitet.
-  * SFP28 typ 25GbE-kompatibel direkt anslutning twinaxial kabel
-  * SFP28 typ 10GbE-kompatibel direkt anslutning twinaxial kabel
+  * Optisk kabel och SFP28 optisk Sänd tagare med en 25GbE/10-och-kapacitet med dubbla hastigheter.
+  * SFP28-typ 25GbE-kompatibel Direct Attach twinaxial-kabel
+  * SFP28 typ-kompatibel twinaxial-kabel
 
-* 1 GbE-nätverksportarna används för klusterhanteringstrafik. Kontrollera alternativet **Använd 1 Gb mgmt-nätverk** när du skapar klustret om du vill skapa ett fysiskt separat nätverk för klusterkonfiguration (beskrivs i [Konfigurera hanteringsnätverket](fxt-cluster-create.md#configure-the-management-network)). Kabel portarna med standard Cat5 eller bättre kabel som beskrivs i listan över kablar som stöds.
+* Nätverks portarna för 1GbE används för kluster hanterings trafik. Markera alternativet **Använd 1 GB hanterings nätverk** när du skapar klustret om du vill skapa ett fysiskt separat nätverk för kluster konfiguration (beskrivs i [Konfigurera hanterings nätverket](fxt-cluster-create.md#configure-the-management-network)). Kabelanslut portarna med standard CAT5 eller bättre kabel enligt beskrivningen i listan över kablar som stöds.
 
-  Du kan lämna 1 GbE-portarna oerbara om du planerar att använda höghastighetsportar för all trafik. Som standard används inte 1 GbE-nätverksportarna om det finns en dataport med högre hastighet.  
+  Du kan lämna 1GbE-portarna utan kabel om du planerar att använda höghastighets portarna för all trafik. Som standard används inte 1GbE-nätverks portarna om en data port med högre hastighet är tillgänglig.  
 
 ### <a name="idrac-port"></a>iDRAC-port  
 
-Porten märkt iDRAC är en 1Gb-anslutning som möjliggör kommunikation med en fjärråtkomststyrenhet som används för maskinvaruhantering och övervakning. FXT-programvaran använder IPMI (Intelligent Platform Management Interface) med den här styrenheten för felsökning och återställning. Du kan använda det inbyggda [iDRAC-gränssnittet](https://www.dell.com/support/manuals/idrac9-lifecycle-controller-v3.30.30.30/idrac_3.30.30.30_ug/) för att övervaka maskinvaran via den här porten. iDRAC- och IPMI-åtkomst är aktiverade som standard. 
+Porten med namnet iDRAC är en 1 GB-anslutning som möjliggör kommunikation med en styrenhet för fjärråtkomst som används för maskin varu hantering och övervakning. FXT-programvaran använder Intelligent Platform Management Interface (IPMI) med den här styrenheten för fel sökning och återställning. Du kan använda det inbyggda Idrac- [gränssnittet](https://www.dell.com/support/manuals/idrac9-lifecycle-controller-v3.30.30.30/idrac_3.30.30.30_ug/) för att övervaka maskin vara via den här porten. iDRAC-och IPMI-åtkomst är aktiverat som standard. 
 
 > [!Note]
-> IDRAC-porten kan kringgå operativsystemet och interagera direkt med maskinvaran på noden. 
+> IDRAC-porten kan kringgå operativ systemet och interagera direkt med maskin vara på noden. 
 
-Använd dessa säkerhetsstrategier när du ansluter och konfigurerar iDRAC-porten:
+Använd de här säkerhets strategierna när du ansluter och konfigurerar iDRAC-porten:
 
-* Anslut endast iDRAC-portar till ett nätverk som är fysiskt separerat från det datanätverk som används för att komma åt klustret.
-* Ange ett säkert iDRAC-administratörslösenord på varje nod. Du måste ange det här lösenordet för att aktivera maskinvaran – följ instruktionerna i [Ange maskinvarulösenord](fxt-node-password.md).
-* Standardkonfigurationen för iDRAC-port använder DHCP och IPv4 för IP-adresstilldelning. Kontrollera att DHCP-miljön är väl skyddad och att anslutningarna är begränsade mellan DHCP-klienter och DHCP-servern. (Klusterkontrollpanelen innehåller inställningar för att ändra nodernas adresskonfigurationsmetod när du har skapat klustret.)
-* Lämna iDRAC-porten inställd på "dedikerat läge" (standard), vilket begränsar iDRAC/IPMI-nätverkstrafiken till den dedikerade RJ-45-porten.
+* Anslut endast iDRAC-portar till ett nätverk som är fysiskt avskilt från det data nätverk som används för att komma åt klustret.
+* Ange ett säkert iDRAC administratörs lösen ord på varje nod. Du måste ange det här lösen ordet för att aktivera maskin varans Följ anvisningarna i [Ange maskin varu lösen ord](fxt-node-password.md).
+* Standard port konfigurationen för iDRAC använder DHCP och IPv4 för tilldelning av IP-adresser. Kontrol lera att din DHCP-miljö är väl skyddad och att anslutningarna är begränsade mellan DHCP-klienter och DHCP-servern. (Kluster kontroll panelen innehåller inställningar för att ändra nodens adress konfiguration när du har skapat klustret.)
+* Lämna iDRAC-porten inställt på "dedikerat läge" (standard), vilket begränsar iDRAC/IPMI-nätverkstrafik till den dedikerade RJ-45-porten.
 
-IDRAC-porten kräver ingen höghastighetsanslutning.
+IDRAC-porten kräver ingen nätverks anslutning med hög hastighet.
   
 ### <a name="serial-port-only-when-necessary"></a>Seriell port (endast vid behov)
 
-I vissa situationer kan Microsoft Service och support tala om för dig att ansluta en terminal till en nods seriella port för att diagnostisera ett problem.  
+I vissa situationer kan Microsoft service och support be dig att ansluta en terminal till en nods seriella port för att diagnosticera ett problem.  
 
-Så här ansluter du konsolen:
+Så här kopplar du konsolen:
 
-1. Leta reda på den seriella (COM1) porten på baksidan av FXT Edge Filer-noden.
-1. Använd en null-modemkabel för att ansluta den seriella porten till en terminal som konfigurerats för ANSI-115200-8N1.
-1. Logga in på konsolen och vidta andra åtgärder enligt anvisningar från supportpersonalen.
+1. Leta reda på serie porten (COM1) på bak sidan av FXT Edge-noden.
+1. Använd en nollmodemkabel för att ansluta den seriella porten till en Terminal som kon figurer ATS för ANSI-115200-8N1.
+1. Logga in på-konsolen och vidta andra åtgärder som riktas till support personal.
 
-## <a name="route-cables-in-the-cable-management-arm-cma"></a>Dra kablar i kabelhanteringsarmen (CMA)
+## <a name="route-cables-in-the-cable-management-arm-cma"></a>Dirigera kablar i kabel hanterings arm (CMA)
 
-Varje Azure FXT Edge Filer-nod levereras med en kabelhanteringsarm som tillval. CMA förenklar kabeldragningen och ger enklare åtkomst till baksidan av chassit utan att behöva koppla bort kablar. 
+Varje Azure FXT Edge-nod har en valfri kabel hanterings arm. CMA fören klar kabel Routning och ger enklare åtkomst till chassits bak utan att behöva koppla från kablar. 
 
-Följ dessa instruktioner för att dra kablarna genom CMA: 
+Följ de här anvisningarna för att dirigera kablarna genom CMA: 
 
-1. Med hjälp av de medföljande slipswraparna buntar du ihop kablarna när de kommer in i och ut ur korgarna så att de inte stör intilliggande system (1).
-1. Med CMA i serviceläge, dra kabelbunten genom de inre och yttre korgarna (2).
-1. Använd de förinstallerade krok- och ögelbanden i vardera änden av korgarna för att säkra kablarna (3).
-1. Svinga CMA på plats på facket (4).
-1. Installera statusindikatorkabeln på baksidan av systemet och säkra kabeln genom att dra den genom CMA. Fäst den andra änden av kabeln i hörnet av den yttre CMA-korgen (5). 
+1. Med hjälp av anknyterna binder kan du bunta ihop kablarna när de går in och avsluta korgarna, så att de inte stör närliggande system (1).
+1. Med CMA i tjänst positionen dirigerar du kabel paketet genom de inre och de yttre korgarna (2).
+1. Använd den förinstallerade hooken och looparna i endera änden av korgarna för att skydda kablarna (3).
+1. Sväng CMA igen på plats i facket (4).
+1. Installera status indikator kabeln på bak sidan av systemet och skydda kabeln genom att dirigera den via CMA. Koppla den andra änden av kabeln till hörnet av den yttre CMA-korgen (5). 
 
    > [!CAUTION]
-   > För att undvika eventuella skador från utskjutande kablar, säkra eventuellt slack i statusindikatorkabeln efter att ha dirigerat kabeln genom CMA. 
+   > Undvik potentiella skador från att skjuta ut kablar genom att skydda eventuella slack i status indikator kabeln när du har dirigerat den här kabeln genom CMA. 
 
-![Illustration av CMA med installerade kablar](media/fxt-install/cma-cabling-400.png)
+![Bild av CMA med installerade kablar](media/fxt-install/cma-cabling-400.png)
 
 > [!NOTE]
->  Om du inte har installerat CMA, använd de två krok- och ögelbanden som finns i järnvägssatsen för att dra kablarna på baksidan av systemet.
+>  Om du inte har installerat CMA kan du använda de två Hook-och loop-banden som finns i järnvägs paketet för att dirigera kablarna på bak sidan av systemet.
 > 
->  1. Placera de yttre CMA-fästena på insidan av båda rackflänsarna.
->  2. Bunta kablarna försiktigt och dra dem bort från systemkontakterna till vänster och höger sida.
->  3. Trä haken och öglan remmar genom de verktygsstysnlor på de yttre CMA fästen på varje sida av systemet för att säkra kabelbuntar.
+>  1. Leta upp de yttre CMA hakparenteserna på insidan av båda rackets flänsar.
+>  2. Paketera kablarna försiktigt och ta bort dem från system kopplingarna till vänster och höger sida.
+>  3. Koppla Hook-och loop-bandet genom de verktyg som finns på de yttre CMA hakparenteserna på varje sida av systemet för att skydda kabel paketen.
 > 
->     ![Kablar som dras utan CMA](media/fxt-install/fxt-route-cables-no-cma-400.png)
+>     ![Kablar som dirigeras utan en CMA](media/fxt-install/fxt-route-cables-no-cma-400.png)
 
-## <a name="about-ip-address-requirements"></a>Om IP-adresskrav
+## <a name="about-ip-address-requirements"></a>Om krav för IP-adress
 
-För maskinvarunoder i en Azure FXT Edge Filer hybridlagringscache hanteras IP-adresser av klusterprogramvaran.
+För maskinvarukonfigurationer i en Azure FXT Edge-baserad hybrid Storage cache hanteras IP-adresser av kluster program varan.
 
-Varje nod kräver minst en IP-adress, men nodadresser tilldelas när noder läggs till eller tas bort från klustret. 
+Varje nod kräver minst en IP-adress, men nodadresser tilldelas när noder läggs till i eller tas bort från klustret. 
 
-Det totala antalet IP-adresser som krävs beror på antalet noder i cacheminnet. 
+Det totala antalet IP-adresser som krävs beror på antalet noder som utgör din cache. 
 
-Konfigurera IP-adressintervallet med hjälp av Kontrollpanelens programvara när noderna har installerats. Mer information finns [i Samla in information för klustret](fxt-cluster-create.md#gather-information-for-the-cluster).  
+Konfigurera IP-adressintervallet genom att använda program varan på kontroll panelen efter att noderna har installerats. Läs mer i [samla in information om klustret](fxt-cluster-create.md#gather-information-for-the-cluster).  
 
-## <a name="connect-power-cables"></a>Anslut strömkablar
+## <a name="connect-power-cables"></a>Anslut strömförsörjnings kablar
 
-Varje Azure FXT Edge Filer-nod använder två nätaggregat. 
+Varje Azure FXT Edge-nod använder två Power Supply-enheter (PSUs). 
 
 > [!TIP] 
-> Om du vill dra nytta av de två redundanta nätaggregaten ansluter du varje nätkabel till en kraftdistributionsenhet (PDU) på en oberoende grenkrets.  
+> Om du vill dra nytta av de två redundanta PSUs ansluter du varje ström sladd till en Power distributions enhet (PDU) på en oberoende gren krets.  
 > 
-> Du kan använda en UPS för att driva pdus för extra skydd. 
+> Du kan använda en UPS för att driva PDU: en för extra skydd. 
 
-1. Anslut de medföljande nätsladdarna till nätaggregaten i chassit. Se till att sladdar och nätaggregat sitter helt. 
-1. Fäst nätsladdarna på kraftfördelningsenheterna på utrustningsstället. Använd om möjligt två separata strömkällor för de två sladdarna. 
+1. Anslut de inkluderade ström sladdarna till PSUs i chassit. Kontrol lera att kablarna och PSUs är helt isatta. 
+1. Koppla ström sladdarna till strömförsörjnings enheterna på utrustnings racket. Använd om möjligt två separata ström källor för de två kablarna. 
  
-### <a name="power-on-an-azure-fxt-edge-filer-node"></a>Ström på en Azure FXT Edge Filer-nod
+### <a name="power-on-an-azure-fxt-edge-filer-node"></a>Starta en Azure FXT Edge-nod
 
-För att driva upp noden trycker du på strömbrytaren på systemets framsida. Knappen är på kontrollpanelen på höger sida. 
+Om du vill starta noden trycker du på strömbrytaren framför systemet. Knappen är på höger sida i kontroll panelen. 
 
-### <a name="power-off-an-azure-fxt-edge-filer-node"></a>Stänga av en Azure FXT Edge Filer-nod
+### <a name="power-off-an-azure-fxt-edge-filer-node"></a>Stäng av en Azure FXT Edge-nod
 
-Strömbrytaren kan användas för att stänga av systemet under testningen och innan du lägger till det i ett kluster. Men när en Azure FXT Edge Filer-nod används som en del av ett kluster bör du använda klusterkontrollpanelens programvara för att stänga av maskinvaran. Läs [så här stänger du av Azure FXT Edge Filer-maskinvara](fxt-power-off.md) på ett säkert sätt för mer information. 
+Strömbrytaren kan användas för att stänga av systemet vid testning och innan du lägger till det i ett kluster. När en Azure FXT Edge-nod används som en del av ett kluster bör du dock använda program varan i kluster kontroll panelen för att stänga av maskin varan. Läs om [hur du säkert stänger av maskin vara från Azure FXT Edge](fxt-power-off.md) -information. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har kabeldragning maskinvaran slår du på var och en av noderna och initierar dem genom att ange deras rotlösenord. 
+När du har avslutat kablaget för maskin varan kan du slå på varje nod och initiera dem genom att ange sina rot lösen ord. 
 > [!div class="nextstepaction"]
-> [Ange inledande lösenord](fxt-node-password.md)
+> [Ange ursprungliga lösen ord](fxt-node-password.md)

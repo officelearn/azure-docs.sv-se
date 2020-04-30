@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Apache Kafka Producent & Konsument API: er - Azure HDInsight'
+title: 'Självstudie: Apache Kafka tillverkare & konsument-API: er – Azure HDInsight'
 description: Lär dig att använda Apache Kafka-producenten och konsument-API:er med Kafka i HDInsight. I självstudien får du lära dig att använda dessa API:er med Kafka i HDInsight från ett Java-program.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 10/08/2019
 ms.openlocfilehash: 5a7d4d1917f65cd3d836db83600937a3e3d89de6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79239541"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Självstudie: Använda Apache Kafka-producenten och konsument-API:er
@@ -21,7 +21,7 @@ Lär dig att använda Apache Kafka-producenten och konsument-API:er med Kafka i 
 
 Kafka-producentens API tillåter att program skickar dataströmmar till Kafka-klustret. Kafka-konsumentens API tillåter att program läser dataströmmar från klustret.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Krav
@@ -33,20 +33,20 @@ Mer information om API:er finns i Apache-dokumentationen i [Producent-API](https
 
 ## <a name="prerequisites"></a>Krav
 
-* Apache Kafka på HDInsight-klustret. Mer information om hur du skapar klustret finns i [Börja med Apache Kafka på HDInsight](apache-kafka-get-started.md).
-* [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks) eller motsvarande, till exempel OpenJDK.
-* [Apache Maven](https://maven.apache.org/download.cgi) korrekt [installerad](https://maven.apache.org/install.html) enligt Apache.  Maven är ett projektbyggsystem för Java-projekt.
-* En SSH-klient som Putty. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Apache Kafka på HDInsight-kluster. Information om hur du skapar klustret finns i [starta med Apache Kafka på HDInsight](apache-kafka-get-started.md).
+* [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks) eller motsvarande, till exempel openjdk.
+* [Apache maven](https://maven.apache.org/download.cgi) korrekt [installerat](https://maven.apache.org/install.html) enligt Apache.  Maven är ett projekt versions system för Java-projekt.
+* En SSH-klient som SparaTillFil. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-Exempelprogrammet finns på [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), `Producer-Consumer` i underkatalogen. Om du använder **ESP-klustret (Enterprise Security Package)** bör du använda programversionen som finns i underkatalogen. `DomainJoined-Producer-Consumer`
+Exempel programmet [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)finns i i `Producer-Consumer` under katalogen. Om du använder **Enterprise Security Package (ESP)** aktiverat Kafka-kluster bör du använda program versionen som finns i under `DomainJoined-Producer-Consumer` katalogen.
 
 Programmet består i huvudsak av fyra filer:
 * `pom.xml`: Den här filen definierar projektberoenden, Java-version och paketeringsmetoder.
 * `Producer.java`: Den här filen skickar slumpmässiga meningar till Kafka med producent-API:et.
 * `Consumer.java`: Den här filen använder konsument-API:n till att läsa data från Kafka och generera den till STDOUT.
-* `AdminClientWrapper.java`: Den här filen använder administratörs-API:et för att skapa, beskriva och ta bort Kafka-ämnen.
+* `AdminClientWrapper.java`: Den här filen använder admin API för att skapa, beskriva och ta bort Kafka ämnen.
 * `Run.java`: Kommandoradsgränssnittet används för att köra producent- och konsumentkoden.
 
 ### <a name="pomxml"></a>Pom.xml
@@ -73,7 +73,7 @@ Viktiga saker att förstå i `pom.xml`-filen är:
 
 ### <a name="producerjava"></a>Producer.java
 
-Producenten kommunicerar med värdar för Kafka-meddelandeköer (arbetarnoder) och skickar data till ett Kafka-ämne. Följande kodavsnitt kommer från filen [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) från [GitHub-databasen](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) och visar hur du ställer in producentegenskaperna:
+Producenten kommunicerar med värdar för Kafka-meddelandeköer (arbetarnoder) och skickar data till ett Kafka-ämne. Följande kodfragment kommer från filen [Producer. java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) från [GitHub-lagringsplatsen](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) och visar hur du ställer in producentens egenskaper:
 
 ```java
 Properties properties = new Properties();
@@ -111,15 +111,15 @@ I den här koden är konsumenten konfigurerad att läsa från början av ämnet 
 
 ### <a name="runjava"></a>Run.java
 
-Filen [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) tillhandahåller ett kommandoradsgränssnitt som kör antingen producent- eller konsumentkoden. Du måste ange värdinformationen om Kafka-meddelandeköerna som en parameter. Du kan också inkludera ett grupp-ID-värde som används av konsumentprocessen. Om du skapar flera konsumentinstanser med samma grupp-ID läses de in från ämnet.
+[Run. java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) -filen innehåller ett kommando rads gränssnitt som kör antingen producent-eller konsument koden. Du måste ange värdinformationen om Kafka-meddelandeköerna som en parameter. Du kan också inkludera ett grupp-ID-värde som används av konsument processen. Om du skapar flera konsument instanser med samma grupp-ID läser de belastnings utjämning från ämnet.
 
 ## <a name="build-and-deploy-the-example"></a>Skapa och distribuera exemplet
 
-Om du vill hoppa över det här steget kan fördefinierade `Prebuilt-Jars` burkar hämtas från underkatalogen. Ladda ner kafka-producent-consumer.jar. Om klustret är **aktiverat för Företagssäkerhetspaket (ESP)** använder du kafka-producent-konsument-esp.jar. Kör steg 3 för att kopiera burken till ditt HDInsight-kluster.
+Om du vill hoppa över det här steget kan färdiga jar v7 laddas ned från `Prebuilt-Jars` under katalogen. Ladda ned Kafka-Producer-Consumer. jar. Om klustret är **Enterprise Security Package (ESP)** aktiverat använder du Kafka-Producer-Consumer-ESP. jar. Kör steg 3 för att kopiera jar till ditt HDInsight-kluster.
 
-1. Ladda ner och [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)extrahera exemplen från .
+1. Hämta och extrahera exemplen från [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
-2. Ange den aktuella katalogen `hdinsight-kafka-java-get-started\Producer-Consumer` till platsen för katalogen. Om du använder **ESP-kluster (Enterprise Security Package)** bör du ange `DomainJoined-Producer-Consumer`platsen till underkatalog. Använd följande kommando för att skapa programmet:
+2. Ange din aktuella katalog som `hdinsight-kafka-java-get-started\Producer-Consumer` katalogens plats. Om du använder **Enterprise Security Package (ESP)** aktiverat Kafka-kluster ska du ange platsen till `DomainJoined-Producer-Consumer`under katalogen. Använd följande kommando för att bygga programmet:
 
     ```cmd
     mvn clean package
@@ -127,7 +127,7 @@ Om du vill hoppa över det här steget kan fördefinierade `Prebuilt-Jars` burka
 
     Det här kommandot skapar en katalog med namnet `target`, som innehåller en fil med namnet `kafka-producer-consumer-1.0-SNAPSHOT.jar`.
 
-3. Ersätt `sshuser` med SSH-användare för klustret och ersätt `CLUSTERNAME` med namnet på klustret. Ange följande kommando för `kafka-producer-consumer-1.0-SNAPSHOT.jar` att kopiera filen till HDInsight-klustret. Ange lösenordet för SSH-användaren när du uppmanas till det.
+3. Ersätt `sshuser` med SSH-användare för klustret och ersätt `CLUSTERNAME` med namnet på klustret. Ange följande kommando för att kopiera `kafka-producer-consumer-1.0-SNAPSHOT.jar` filen till HDInsight-klustret. Ange lösenordet för SSH-användaren när du uppmanas till det.
 
     ```cmd
     scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
@@ -141,7 +141,7 @@ Om du vill hoppa över det här steget kan fördefinierade `Prebuilt-Jars` burka
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. För att få Kafka mäklare värdar, ersätta värdena för `<clustername>` och `<password>` i följande kommando och köra den. Använd samma hölje `<clustername>` för som visas i Azure-portalen. Ersätt `<password>` med lösenordet för klusterinloggning och kör sedan:
+1. Du hämtar värdarna för Kafka-Broker genom att ersätta `<clustername>` värdena `<password>` för och i följande kommando och köra den. Använd samma Skift läge `<clustername>` som visas i Azure Portal. Ersätt `<password>` med klustrets inloggnings lösen ord och kör sedan:
 
     ```bash
     sudo apt -y install jq
@@ -151,9 +151,9 @@ Om du vill hoppa över det här steget kan fördefinierade `Prebuilt-Jars` burka
     ```
 
     > [!Note]  
-    > Det här kommandot kräver Ambari-åtkomst. Om klustret ligger bakom en NSG kör du det här kommandot från en dator som kan komma åt Ambari.
+    > Det här kommandot kräver Ambari-åtkomst. Om klustret ligger bakom en NSG kör du det här kommandot från en dator som har åtkomst till Ambari.
 
-1. Skapa Kafka-ämne `myTest`genom att ange följande kommando:
+1. Skapa Kafka-ämne `myTest`, genom att ange följande kommando:
 
     ```bash
     java -jar kafka-producer-consumer.jar create myTest $KAFKABROKERS
@@ -195,14 +195,14 @@ tmux new-session 'java -jar kafka-producer-consumer.jar consumer myTest $KAFKABR
 \; attach
 ```
 
-Detta kommando använder `tmux` till att dela terminalen i två kolumner. En konsument startas i varje kolumn med samma ID-värde för gruppen. När konsumenterna har läst färdigt kan du se att de bara läst en del av posterna. Använd __Ctrl +__ C `tmux`två gånger för att avsluta .
+Detta kommando använder `tmux` till att dela terminalen i två kolumner. En konsument startas i varje kolumn med samma ID-värde för gruppen. När konsumenterna har läst färdigt kan du se att de bara läst en del av posterna. Använd __CTRL + C__ två gånger för `tmux`att avsluta.
 
 Förbrukning av klienter i samma grupp hanteras via partitionerna för ämnet. I det här kodexemplet har `test`-ämnet som skapades tidigare åtta partitioner. Om du startar åtta konsumenter läser varje konsument poster från en enda partition i ämnet.
 
 > [!IMPORTANT]  
 > Det får inte finnas flera instanser av konsumenten i en konsumentgrupp än partitioner. I det här exemplet kan en konsumentgrupp innehålla upp till åtta konsumenter, eftersom det är antalet partitioner i ämnet. Du kan även ha flera konsumentgrupper med högst åtta konsumenter vardera.
 
-Poster som lagras i Kafka lagras i den ordning de tas emot i en partition. För att uppnå sorterad leverans av poster *inom en partition* skapar du en konsumentgrupp där antalet konsumentinstanser matchar antalet partitioner. För att uppnå sorterad leverans av poster *i ämnet* skapar du en konsumentgrupp med bara en konsumentinstans.
+Poster som lagras i Kafka lagras i den ordning som de tas emot i en partition. För att uppnå sorterad leverans av poster *inom en partition* skapar du en konsumentgrupp där antalet konsumentinstanser matchar antalet partitioner. För att uppnå sorterad leverans av poster *i ämnet* skapar du en konsumentgrupp med bara en konsumentinstans.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -218,5 +218,5 @@ Ta bort en resursgrupp med Azure Portal:
 
 I det här dokumentet har du lärt dig att använda Apache Kafka-producent- och konsument-API:et med Kafka i HDInsight. Använd följande för att lära dig mer om att arbeta med Kafka:
 
-* [Använd Kafka REST Proxy](rest-proxy.md)
+* [Använd Kafka REST proxy](rest-proxy.md)
 * [Analysera Apache Kafka-loggar](apache-kafka-log-analytics-operations-management.md)

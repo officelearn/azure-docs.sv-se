@@ -1,45 +1,45 @@
 ---
 title: Hantera anslutningar i Azure Functions
-description: Lär dig hur du undviker prestandaproblem i Azure Functions med hjälp av statiska anslutningsklienter.
+description: Lär dig att undvika prestanda problem i Azure Functions genom att använda statiska anslutnings klienter.
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.openlocfilehash: 872ad9a1b8f0a7da6fe410e68f08469ac11045a5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79276457"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Hantera anslutningar i Azure Functions
 
-Funktioner i en funktionsapp delar resurser. Bland dessa delade resurser finns anslutningar: HTTP-anslutningar, databasanslutningar och anslutningar till tjänster som Azure Storage. När många funktioner körs samtidigt är det möjligt att få på tillgängliga anslutningar. I den här artikeln beskrivs hur du kodar dina funktioner för att undvika att använda fler anslutningar än de behöver.
+Funktioner i en Function-app delar resurser. Bland de delade resurserna är anslutningar: HTTP-anslutningar, databas anslutningar och anslutningar till tjänster som Azure Storage. När många funktioner körs samtidigt är det möjligt att köra slut på tillgängliga anslutningar. Den här artikeln förklarar hur du kan koda dina funktioner för att undvika att använda fler anslutningar än de behöver.
 
-## <a name="connection-limit"></a>Anslutningsgräns
+## <a name="connection-limit"></a>Anslutnings gräns
 
-Antalet tillgängliga anslutningar är begränsat delvis på grund av att en funktionsapp körs i en [sandbox-miljö](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). En av de begränsningar som i sandlådan medför för koden är en gräns för antalet utgående anslutningar, som för närvarande är 600 aktiva (totalt 1 200) anslutningar per instans. När du når den här gränsen skriver funktionerna körtiden `Host thresholds exceeded: Connections`följande meddelande till loggarna: . Mer information finns i [funktionstjänstgränserna](functions-scale.md#service-limits).
+Antalet tillgängliga anslutningar är begränsat delvis eftersom en Function-App körs i en [sandbox-miljö](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). En av de begränsningar som används i den begränsade koden är en gräns för antalet utgående anslutningar, som för närvarande är 600 aktiva (totalt 1 200) anslutningar per instans. När du når den här gränsen skriver funktions körningen följande meddelande till loggarna: `Host thresholds exceeded: Connections`. Mer information finns i [funktions tjänst begränsningarna](functions-scale.md#service-limits).
 
-Den här gränsen är per instans. När [skalningsstyrenheten lägger till funktionsappinstanser](functions-scale.md#how-the-consumption-and-premium-plans-work) för att hantera fler begäranden har varje instans en oberoende anslutningsgräns. Det innebär att det inte finns någon global anslutningsgräns och du kan ha mycket mer än 600 aktiva anslutningar i alla aktiva instanser.
+Den här gränsen är per instans. När [skalnings styrenheten lägger till Function App-instanser](functions-scale.md#how-the-consumption-and-premium-plans-work) för att hantera fler begär Anden, har varje instans en oberoende anslutnings gräns. Det innebär att det inte finns någon global anslutnings gräns och du kan ha mycket fler än 600 aktiva anslutningar över alla aktiva instanser.
 
-När du felsöker kontrollerar du att du har aktiverat Application Insights för din funktionsapp. Med Application Insights kan du visa mått för dina funktionsappar som körningar. Mer information finns [i Visa telemetri i Application Insights](functions-monitoring.md#view-telemetry-in-application-insights).  
+Kontrol lera att du har aktiverat Application Insights för din Function-app vid fel sökning. Med Application Insights kan du visa mått för dina funktions program som körningar. Mer information finns i [Visa telemetri i Application Insights](functions-monitoring.md#view-telemetry-in-application-insights).  
 
 ## <a name="static-clients"></a>Statiska klienter
 
-Om du vill undvika att hålla fler anslutningar än nödvändigt kan du återanvända klientinstanser i stället för att skapa nya med varje funktionsanrop. Vi rekommenderar att du återanvänder klientanslutningar för alla språk som du kan skriva din funktion i. .NET-klienter som [httpclient-,](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) [DocumentClient-](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
-)och Azure Storage-klienterna kan till exempel hantera anslutningar om du använder en enda statisk klient.
+För att undvika att rymma fler anslutningar än nödvändigt kan du återanvända klient instanser i stället för att skapa nya med varje funktions anrop. Vi rekommenderar att du använder klient anslutningar för alla språk som du kan skriva din funktion i. Till exempel kan .NET-klienter som [httpclient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx), [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
+)och Azure Storage klienter hantera anslutningar om du använder en enda statisk klient.
 
-Här är några riktlinjer som du kan följa när du använder en tjänstspecifik klient i ett Azure Functions-program:
+Här följer några rikt linjer som du följer när du använder en tjänst specifik klient i ett Azure Functions program:
 
-- *Skapa inte* en ny klient med varje funktionsyrop.
-- *Skapa* en enda, statisk klient som varje funktionsyrop kan använda.
-- *Överväg* att skapa en enda statisk klient i en delad hjälpklass om olika funktioner använder samma tjänst.
+- Skapa *inte* en ny klient med varje funktions anrop.
+- *Skapa en* enda statisk klient som varje funktion anrop kan använda.
+- *Överväg att* skapa en enda statisk klient i en delad hjälp klass om olika funktioner använder samma tjänst.
 
-## <a name="client-code-examples"></a>Exempel på klientkod
+## <a name="client-code-examples"></a>Klient kod exempel
 
-Det här avsnittet innehåller metodtips för att skapa och använda klienter från funktionskoden.
+Det här avsnittet visar metod tips för att skapa och använda klienter från din funktions kod.
 
 ### <a name="httpclient-example-c"></a>HttpClient-exempel (C#)
 
-Här är ett exempel på C#-funktionskod som skapar en statisk [HttpClient-förekomst:](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)
+Här är ett exempel på en C#-funktions kod som skapar en statisk [httpclient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) -instans:
 
 ```cs
 // Create a single, static HttpClient
@@ -52,19 +52,19 @@ public static async Task Run(string input)
 }
 ```
 
-En vanlig fråga om [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) i .NET är "Ska jag göra mig av med min klient?" I allmänhet gör du dig `IDisposable` av med objekt som implementeras när du är klar med dem. Men du gör dig inte av med en statisk klient eftersom du inte är klar med den när funktionen slutar. Du vill att den statiska klienten ska leva under hela programmet.
+En vanlig fråga om [httpclient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) i .net är "vill jag ta bort min klient?" I allmänhet tar du bort objekt som implementeras `IDisposable` när du är klar med dem. Men du tar inte bort en statisk klient eftersom du inte är färdig med den när funktionen avslutas. Du vill att den statiska klienten ska vara i drift för programmets varaktighet.
 
-### <a name="http-agent-examples-javascript"></a>HTTP-agentexempel (JavaScript)
+### <a name="http-agent-examples-javascript"></a>Exempel på HTTP-agent (Java Script)
 
-Eftersom det ger bättre alternativ för anslutningshantering bör du använda den [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) `node-fetch` inbyggda klassen i stället för icke-inbyggda metoder, till exempel modulen. Anslutningsparametrar konfigureras `http.agent` via alternativ för klassen. Detaljerade alternativ som är tillgängliga med HTTP-agenten finns i [nya agentalternativ\[\]](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options).
+Eftersom det ger bättre anslutnings hanterings alternativ bör du använda den inbyggda [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) klassen i stället för icke-ursprungliga metoder, till exempel `node-fetch` modulen. Anslutnings parametrarna konfigureras via alternativen i `http.agent` klassen. Detaljerade alternativ som är tillgängliga med HTTP-agenten finns i [New\[agent\](alternativ)](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options).
 
-Den `http.globalAgent` globala klassen `http.request()` som används av har alla dessa värden inställda på sina respektive standardvärden. Det rekommenderade sättet att konfigurera anslutningsgränser i Funktioner är att ange ett maximalt antal globalt. I följande exempel anges det maximala antalet sockets för funktionsappen:
+Den globala `http.globalAgent` klass som används `http.request()` av har alla dessa värden inställda på sina respektive standardvärden. Det rekommenderade sättet att konfigurera anslutnings gränser i functions är att ange ett högsta antal globalt. I följande exempel anges det maximala antalet Sockets för Function-appen:
 
 ```js
 http.globalAgent.maxSockets = 200;
 ```
 
- I följande exempel skapas en ny HTTP-begäran med en anpassad HTTP-agent endast för den begäran:
+ I följande exempel skapas en ny HTTP-begäran med en anpassad HTTP-agent för denna begäran:
 
 ```js
 var http = require('http');
@@ -74,10 +74,10 @@ options.agent = httpAgent;
 http.request(options, onResponseCallback);
 ```
 
-### <a name="documentclient-code-example-c"></a>Exempel på DocumentClient-kod (C#)
+### <a name="documentclient-code-example-c"></a>DocumentClient kod exempel (C#)
 
 [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
-) ansluter till en Azure Cosmos DB-instans. Azure Cosmos DB-dokumentationen rekommenderar att du [använder en Azure Cosmos DB-klient för singleton-Azure Cosmos DB-klienten under programmets livstid](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage). I följande exempel visas ett mönster för att göra det i en funktion:
+) ansluter till en Azure Cosmos DB-instans. Azure Cosmos DB-dokumentationen rekommenderar att du [använder en singleton-Azure Cosmos DB-klient för programmets livs längd](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage). I följande exempel visas ett mönster för att göra det i en funktion:
 
 ```cs
 #r "Microsoft.Azure.Documents.Client"
@@ -105,8 +105,8 @@ public static async Task Run(string input)
 }
 ```
 
-### <a name="cosmosclient-code-example-javascript"></a>Exempel på CosmosClient-kod (JavaScript)
-[CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) ansluter till en Azure Cosmos DB-instans. Azure Cosmos DB-dokumentationen rekommenderar att du [använder en Azure Cosmos DB-klient för singleton-Azure Cosmos DB-klienten under programmets livstid](../cosmos-db/performance-tips.md#sdk-usage). I följande exempel visas ett mönster för att göra det i en funktion:
+### <a name="cosmosclient-code-example-javascript"></a>CosmosClient Code-exempel (Java Script)
+[CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) ansluter till en Azure Cosmos DB-instans. Azure Cosmos DB-dokumentationen rekommenderar att du [använder en singleton-Azure Cosmos DB-klient för programmets livs längd](../cosmos-db/performance-tips.md#sdk-usage). I följande exempel visas ett mönster för att göra det i en funktion:
 
 ```javascript
 const cosmos = require('@azure/cosmos');
@@ -126,14 +126,14 @@ module.exports = async function (context) {
 
 ## <a name="sqlclient-connections"></a>SqlClient-anslutningar
 
-Din funktionskod kan använda .NET Framework Data Provider för SQL Server ([SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx)) för att skapa anslutningar till en SQL-relationsdatabas. Detta är också den underliggande leverantören för dataramverk som är beroende av ADO.NET, till exempel [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Till skillnad från [HttpClient-](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) och [DocumentClient-anslutningar](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
-) implementerar ADO.NET anslutningspoolning som standard. Men eftersom du fortfarande kan få på anslutningar bör du optimera anslutningarna till databasen. Mer information finns i [SQL Server Connection Pooling (ADO.NET).](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
+Funktions koden kan använda .NET Framework Data Provider för SQL Server ([SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx)) för att upprätta anslutningar till en SQL Relations databas. Detta är även den underliggande providern för data ramverk som förlitar sig på ADO.NET, t. ex. [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Till skillnad från [httpclient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) -och [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
+) -anslutningar implementerar ADO.net anslutningspoolen som standard. Men eftersom du fortfarande kan ta slut på anslutningar bör du optimera anslutningar till databasen. Mer information finns i [SQL Server anslutningspoolen (ADO.net)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling).
 
 > [!TIP]
-> Vissa dataramverk, till exempel Entitetsramverk, hämtar vanligtvis anslutningssträngar från avsnittet **ConnectionStrings** i en konfigurationsfil. I det här fallet måste du uttryckligen lägga till SQL-databasanslutningssträngar i samlingen **Anslutningssträngar** för funktionsappinställningarna och i [filen local.settings.json](functions-run-local.md#local-settings-file) i det lokala projektet. Om du skapar en instans av [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) i funktionskoden bör du lagra anslutningssträngvärdet i **Programinställningar med** dina andra anslutningar.
+> Vissa data ramverk, till exempel Entity Framework, hämtar vanligt vis anslutnings strängar från avsnittet **connectionStrings** i en konfigurations fil. I det här fallet måste du uttryckligen lägga till anslutnings strängar för SQL Database i samlingen **anslutnings strängar** för dina funktioner och i den [lokala. Settings. JSON-filen](functions-run-local.md#local-settings-file) i det lokala projektet. Om du skapar en instans av [SQLConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) i funktions koden bör du lagra värdet för anslutnings strängen i **program inställningarna** med dina andra anslutningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om varför vi rekommenderar statiska klienter finns i [Felaktig instansieringsantimönster](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/).
+För ytterligare information om varför vi rekommenderar statiska klienter, se [felaktigt mönster för instansiering](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/).
 
-Fler prestandatips för Azure Functions finns i [Optimera prestanda och tillförlitlighet för Azure Functions](functions-best-practices.md).
+Mer Azure Functions prestanda tips finns i [optimera prestanda och tillförlitlighet för Azure Functions](functions-best-practices.md).

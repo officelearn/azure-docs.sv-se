@@ -1,19 +1,19 @@
 ---
-title: 'Självstudiekurs: Appen Node.js med MongoDB'
-description: Lär dig hur du får en Node.js-app att fungera i Azure, med anslutning till en MongoDB-databas i Azure (Cosmos DB). MEAN.js används i handledningen.
+title: 'Självstudie: Node. js-app med MongoDB'
+description: Lär dig hur du hämtar en Node. js-app som fungerar i Azure med anslutning till en MongoDB-databas i Azure (Cosmos DB). MEAN. js används i självstudien.
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
 ms.custom: mvc, cli-validate, seodec18
 ms.openlocfilehash: 5dd99d9aa7e63066ac4801282e548f2995e57e67
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82085631"
 ---
-# <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Självstudiekurs: Skapa en Node.js- och MongoDB-app i Azure
+# <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Självstudie: Bygg en Node. js-och MongoDB-app i Azure
 
 > [!NOTE]
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en Node.js- och MongoDB-app i Azure App Service på Linux](./containers/tutorial-nodejs-mongodb-app.md).
@@ -89,9 +89,9 @@ När appen har lästs in helt ser du något som liknar följande meddelande:
 
 <pre>
 --
-Menar. JS - Utvecklingsmiljö
+Anses. JS-utvecklings miljö
 
-Miljö: development http://0.0.0.0:3000 Server: Databas: mongodb://localhost/mean-dev App version: 0.5.0 MEAN. JS version: 0.5.0 --
+Miljö: utvecklings Server: http://0.0.0.0:3000 databas: MongoDB://localhost/Mean-dev app version: 0.5.0 Mean. JS-version: 0.5.0--
 </pre>
 
 Gå till `http://localhost:3000` i en webbläsare. Klicka på alternativet för att **registrera** på den översta menyn och skapa en testanvändare. 
@@ -127,7 +127,7 @@ För MongoDB använder den här självstudien [Azure Cosmos DB](/azure/documentd
 
 Skapa ett Cosmos DB-konto med [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) kommandot i Cloud Shell.
 
-I följande kommando ersätter du ett unikt Cosmos DB-namn för * \<cosmosdb_name>* platshållare. Det här namnet används som en del av Cosmos DB-slutpunkten `https://<cosmosdb_name>.documents.azure.com/`, så namnet måste vara unikt för alla Cosmos DB-konton i Azure. Namnet får endast innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken långt.
+I följande kommando ersätter du * \<* ett unikt Cosmos db namn för cosmosdb_name>plats hållaren. Det här namnet används som en del av Cosmos DB-slutpunkten `https://<cosmosdb_name>.documents.azure.com/`, så namnet måste vara unikt för alla Cosmos DB-konton i Azure. Namnet får endast innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken långt.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
@@ -159,7 +159,7 @@ I det här steget, ansluter du ditt MEAN.js-exempelprogram till en Cosmos DB-dat
 
 ### <a name="retrieve-the-database-key"></a>Hämta databasnyckeln
 
-För att ansluta till en Cosmos DB-databas behöver du databasnyckeln. I Cloud Shell använder [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) du kommandot för att hämta primärnyckeln.
+För att ansluta till en Cosmos DB-databas behöver du databasnyckeln. I Cloud Shell använder du [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) kommandot för att hämta den primära nyckeln.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -183,7 +183,7 @@ Kopiera värdet för `primaryMasterKey`. Du behöver den här informationen i n�
 
 I din lokala MEAN.js-lagringsplats skapar du en fil som heter _local-production.js_ i mappen _config/env/_. Som standard konfigureras _.gitignore_ för att hålla filen utanför lagringsplatsen. 
 
-Kopiera följande kod till den. Var noga med * \<* att ersätta de två cosmosdb_name>platshållare med cosmos DB-databasnamnet och ersätta * \<primary_master_key>* platshållare med nyckeln som du kopierade i föregående steg.
+Kopiera följande kod till den. Se till att ersätta de två * \<* plats hållarna för cosmosdb_name>med namnet på din Cosmos DB databas och ersätt plats hållaren * \<primary_master_key>* med den nyckel som du kopierade i föregående steg.
 
 ```javascript
 module.exports = {
@@ -193,7 +193,7 @@ module.exports = {
 };
 ```
 
-Alternativet `ssl=true` krävs på grund av [anslutningssträngkrav](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
+`ssl=true` Alternativet krävs på grund av [anslutnings Strängs krav](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
 
 Spara ändringarna.
 
@@ -222,9 +222,9 @@ När appen är inläst ska du kontrollera att den körs i produktionsmiljön:
 
 <pre>
 --
-Menar. Js
+Anses. JS
 
-Miljö: http://0.0.0.0:8443 produktionsserver: Databas: mongodb://&lt;&gt;&lt;cosmosdb_name:&gt;@&lt;primary_master_key cosmosdb_name&gt;.documents.azure.com:10250/mean?ssl=true&sslverifycertificate=false App version: 0.5.0 MEAN. JS version: 0.5.0
+Miljö: produktions server: http://0.0.0.0:8443 databas: MongoDB://&lt;cosmosdb_name&gt;:&lt;primary_master_key&gt;@&lt;cosmosdb_name&gt;. Documents.Azure.com:10250/Mean?SSL=True&sslverifycertificate = false app version: 0.5.0 medelvärde. JS-version: 0.5.0
 </pre>
 
 Gå till `http://localhost:8443` i en webbläsare. Klicka på alternativet för att **registrera** på den översta menyn och skapa en testanvändare. Om du lyckas skapa en användare och logga in skriver appen data till Cosmos DB-databasen i Azure. 
@@ -252,9 +252,9 @@ I det här steget distribuerar du ditt MongoDB-anslutna Node.js-program till Azu
 
 Som standard håller MEAN.js-projektet _config/env/local-production.js_ utanför Git-lagringsplatsen. Så för Azure-appen använder du appinställningar för att definiera MongoDB-anslutningssträngen.
 
-Om du vill ange [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) appinställningar använder du kommandot i Cloud Shell. 
+Om du vill ange appinställningar använder du [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) kommandot i Cloud Shell. 
 
-I följande exempel konfigureras appinställningen `MONGODB_URI` i Azure-appen. Ersätt * \<app_name>, * * \<cosmosdb_name>* och * \<primary_master_key>* platshållare.
+I följande exempel konfigureras appinställningen `MONGODB_URI` i Azure-appen. Ersätt * \<APP_NAME>*, * \<cosmosdb_name>* och * \<primary_master_key* plats hållare.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -456,7 +456,7 @@ Om du lade till några artiklar tidigare kan du fortfarande se dem. Befintliga d
 
 När Node.js-appen körs i Azure App Service kan du skicka konsolloggarna till din terminal. På så sätt kan du få samma diagnostikmeddelanden för att felsöka programfel.
 
-Om du vill starta [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) loggströmning använder du kommandot i Cloud Shell.
+Om du vill starta logg strömningen [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) använder du kommandot i Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

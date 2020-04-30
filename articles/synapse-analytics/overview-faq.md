@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar – Azure Synapse Analytics
+title: Vanliga frågor och svar om Azure Synapse
 description: Vanliga frågor och svar om Azure Synapse Analytics
 services: synapse-analytics
 author: ArnoMicrosoft
@@ -10,15 +10,15 @@ ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
 ms.openlocfilehash: 00a98fdeb4b8febbcb9d1183fabffc7298cc9e4c
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81770729"
 ---
-# <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Vanliga frågor och svar i Azure Synapse Analytics (förhandsversion av arbetsytan)
+# <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Synapse Analytics (förhandsgranska arbets yta)
 
-I den här guiden hittar du de vanligaste frågorna för Synapse Analytics.
+I den här guiden hittar du de vanligaste frågorna för Synapse-analys.
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
@@ -26,86 +26,86 @@ I den här guiden hittar du de vanligaste frågorna för Synapse Analytics.
 
 ### <a name="q-what-is-azure-synapse-analytics"></a>F: Vad är Azure Synapse Analytics
 
-S: Azure Synapse är en integrerad dataplattform för BI, AI och kontinuerlig intelligens. Den ansluter olika analyskörningar som SQL och Spark via en enda plattform som ger ett enhetligt sätt att:
+A: Azure Synapse är en integrerad data plattform för BI, AI och kontinuerlig intelligens. Den ansluter olika analys körningar som SQL och Spark genom en enda plattform som ger ett enhetligt sätt att:
 
-- Skydda dina analysresurser, inklusive nätverk, hantera enkel inloggningsåtkomst till pool-, data- och utvecklingsartefakter.
-- Övervaka enkelt och optimera, reagera och felsöka händelser som händer i dina aktiviteter på arbetsytan i alla lager.
-- Hantera dina metadata mellan motorer. Skapa en Spark-tabell så blir den automatiskt tillgänglig i dina Azure Synapse-databaser.
-- Interagera med data genom en enhetlig användarupplevelse. Synapse Studio tar big data utvecklare, dataingenjörer, DBAs, dataanalytiker och dataforskare på samma plattform.
+- Skydda dina analys resurser, inklusive nätverk, hantering av enkel inloggning för att få åtkomst till pooler, data och utvecklings artefakter.
+- Du kan enkelt övervaka och snabbt optimera, reagera och felsöka händelser i dina arbets ytans aktiviteter i valfritt lager.
+- Hantera dina metadata i olika motorer. Skapa en spark-tabell så blir den automatiskt tillgänglig i dina Azure Synapse-databaser.
+- Interagera med data via en enhetlig användar upplevelse. Synapse Studio ger stor data utvecklare, data tekniker, databas administratörer, data analytiker och data experter på samma plattform.
 
-### <a name="q-how-do-i-get-started-with-azure-synapse-analytics"></a>F: Hur kommer jag igång med Azure Synapse Analytics
+### <a name="q-how-do-i-get-started-with-azure-synapse-analytics"></a>F: Hur gör jag för att kom igång med Azure Synapse Analytics
 
-S: Om du vill börja använda Azure Synapse Analytics skapar du en [Synapse-arbetsyta](https://portal.azure.com) (den är kostnadsfri!) och skapar de resurser som du vill ha under arbetsytan. Du kan följa en av våra snabbstartshandledningar, till exempel [Skapa en Synapse SQL-pool](quickstart-create-sql-pool.md) eller [Skapa en arbetsyta](quickstart-create-workspace.md), som hjälper dig att använda enkla användningsfall. 
+S: du börjar använda Azure Synapse Analytics genom att skapa en [Synapse-arbetsyta](https://portal.azure.com) (den är gratis!) och skapa de resurser som du vill ha under den arbets ytan. Du kan följa en av våra snabb starts guider, till exempel [skapa en SYNAPSE SQL-pool](quickstart-create-sql-pool.md) eller [skapa en arbets yta](quickstart-create-workspace.md), som vägleder dig genom ett enkelt användnings fall. 
 
-Du kan också hitta exempel anteckningsböcker och SQL-skript i vår [databas](https://github.com/Azure/azure-synapse-analytics/tree/master/samples). Om du behöver ansluta till en offentlig datauppsättning skapar du en ny länkad tjänst med följande attribut:
+Du kan också hitta exempel på bärbara datorer och SQL-skript i vår [lagrings plats](https://github.com/Azure/azure-synapse-analytics/tree/master/samples). Om du behöver ansluta till en offentlig data uppsättning skapar du en ny länkad tjänst med följande attribut:
 
 - azure_storage_account_name = "azureopendatastorage"
-- azure_storage_sas_token = "" (skriv **""**)
+- azure_storage_sas_token = "" (Skriv **""**)
 
-### <a name="q-what-are-the-main-components-of-azure-synapse-analytics"></a>F: Vilka är huvudkomponenterna i Azure Synapse Analytics
+### <a name="q-what-are-the-main-components-of-azure-synapse-analytics"></a>F: vilka är huvud komponenterna i Azure Synapse Analytics
 
-S: Azure Synapse har följande funktioner:
+A: Azure Synapse har följande funktioner:
 
-- Analytics-funktioner erbjuds via SQL-pool eller SQL on-demand (preview) (Serverless).
-- Apache Spark-pool (förhandsversion) med fullt stöd för Scala, Python, SparkSQL och C #
-- Dataflöde som erbjuder en kodfri upplevelse för omvandling av stordata
-- Dataintegration & Orchestration för att integrera dina data och operationalisera all din kodutveckling
-- Studio för att komma åt alla dessa funktioner via ett enda webbgränssnitt
+- Analys funktioner erbjuds via SQL-pool eller SQL på begäran (för hands version) (utan server).
+- Apache Spark pool (för hands version) med fullständigt stöd för Scala, python, SparkSQL och C #
+- Data flöde erbjuder en kod fri transformering av Big data Transformation
+- Data integrering & Orchestration för att integrera dina data och operationalisera all kod utveckling
+- Studio för att få åtkomst till alla dessa funktioner via ett enda webb gränssnitt
 
 ### <a name="q-how-does-azure-synapse-analytics-relate-to-azure-sql-data-warehouse"></a>F: Hur relaterar Azure Synapse Analytics till Azure SQL Data Warehouse
 
-S: Azure Synapse Analytics är en utveckling av Azure SQL Data Warehouse till en analysplattform, som inkluderar SQL-pool som informationslagerlösning. Den här plattformen kombinerar datautforskning, inmatning, omvandling, förberedelse och ett serveringsanalyslager.
+A: Azure Synapse Analytics är en utveckling av Azure SQL Data Warehouse i en analys plattform, som innehåller SQL-pool som data lager lösning. Den här plattformen kombinerar data utforskning, inmatning, omvandling, förberedelse och ett betjänande analys lager.
 
 ## <a name="use-cases"></a>Användningsfall
 
-### <a name="q-what-is-a-good-use-case-for-synapse-sql-pool"></a>F: Vad är ett bra användningsfall för Synapse SQL-pool
+### <a name="q-what-is-a-good-use-case-for-synapse-sql-pool"></a>F: Vad är ett bra användnings fall för Synapse SQL-pool
 
-S: SQL-poolen är hjärtat i dina informationslagerbehov. Det är den ledande datalagerlösningen i [pris/prestanda.](https://azure.microsoft.com/services/sql-data-warehouse/compare/) SQL-pool är den branschledande molninformationslagerlösningen eftersom du kan:
+A: SQL-poolen är hjärtat i ditt informations lager behov. Det är den ledande informations lager lösningen i [pris/prestanda](https://azure.microsoft.com/services/sql-data-warehouse/compare/). SQL-poolen är den branschledande moln informations lager lösningen eftersom du kan:
 
-- betjäna en stor och blandad mängd arbetsbelastningar utan inverkan på prestanda tack vare hög samtidighet och arbetsbelastningsisolering
-- enkelt skydda dina data genom avancerade funktioner som sträcker sig från nätverkssäkerhet till åtkomst till finkornig
-- dra nytta av ett brett utbud av ekosystem
+- hantera en stor och blandad mängd arbets belastningar utan påverkan på prestanda tack vare hög samtidighet och arbets belastnings isolering
+- skydda dina data enkelt genom avancerade funktioner som sträcker sig från nätverks säkerhet till detaljerad åtkomst
+- Dra nytta av ett brett spektrum av eko system
 
-### <a name="q-what-is-a-good-use-case-for-spark-in-synapse"></a>F: Vad är ett bra användningsfall för Spark i Synapse
+### <a name="q-what-is-a-good-use-case-for-spark-in-synapse"></a>F: Vad är ett bra användnings fall för Spark i Synapse
 
-S: Vårt första mål är att ge en bra datateknikupplevelse för att omvandla data över sjön i batch eller ström. Dess snäva och enkla integration till vår dataorkestrering gör operationalization av ditt utvecklingsarbete enkelt.
+A: vårt första mål är att tillhandahålla en bra data teknik för att transformera data över sjön i batch eller Stream. Den nära och enkla integrationen med vår datadirigering gör driftsättning av utvecklings arbetet enkelt.
 
-Ett annat användningsfall för Spark är att en datavetenskapare:
+Ett annat användnings fall för Spark är att en data expert:
 
 - extrahera en funktion
 - utforska data
 - träna en modell
 
-### <a name="q-what-is-a-good-use-case-for-sql-on-demand-in-synapse"></a>F: Vad är ett bra användningsfall för SQL on-demand i Synapse
+### <a name="q-what-is-a-good-use-case-for-sql-on-demand-in-synapse"></a>F: Vad är ett bra användnings fall för SQL på begäran i Synapse
 
-S: SQL on-demand är en frågetjänst över data i datasjön. Det gör att du kan demokratisera åtkomsten till alla dina data genom att tillhandahålla en välbekant T-SQL-syntax för att fråga data på plats, utan att behöva kopiera eller läsa in data i ett specialiserat arkiv.
+A: SQL på begäran är en fråga till tjänsten över data i data Lake. Det ger dig möjlighet att demokratisera identifieringen av åtkomst till alla dina data genom att tillhandahålla en välbekant T-SQL-syntax för att skicka frågor till data på plats, utan att behöva kopiera eller läsa in data i ett specialiserat lager.
 
-Exempel på användningsfall är följande:
+Exempel på användnings exempel är följande:
 
-- grundläggande upptäckt och utforskning - ger dataanalytiker, nya datavetare och dataingenjörer en enkel väg till första inblick i data som lever i deras datasjö med schema på lästa T-SQL-frågor
-- logisk informationslager - dataanalytiker kan köra fullständig uttrycksfullhet i T-SQL-språk för att direkt fråga och analysera data som finns i Azure Storage och använda välbekanta BI-verktyg (t.ex. Azure Analyses Services, Power BI Premium, etc.) för att uppdatera instrumentpaneler genom att köra Starlight Query-frågor igen
-- "single query" ETL - gör det möjligt för datatekniker att omvandla Azure Storage-baserade data från ett format till ett annat, filtrera, aggregera, etc. på ett massivt parallellt bearbetningssätt, beständiga frågeresultat till Azure Storage och göra dem omedelbart tillgängliga för vidare bearbetning i Starlight Query eller andra tjänster av intresse
+- grundläggande identifiering och utforskning – tillhandahåller dataanalytiker, nya data forskare och data tekniker med en enkel väg till insikter om data boende i data Lake med schema för Läs-T-SQL-frågor
+- det logiska informations lagret – data analytiker kan köra hela Expressiveness för T-SQL-språk för att direkt fråga och analysera data som finns i Azure Storage och använda välkända BI-verktyg (t. ex. Azures analys tjänster, Power BI Premium osv.) för att uppdatera instrument paneler genom att köra frågor om Starlight frågor
+- "enskild fråga" ETL – gör det möjligt för data tekniker att transformera Azure Storage baserade data från ett format till ett annat, filter, agg regering osv. i massivt parallell bearbetnings sätt, spara frågeresultat för att Azure Storage och göra dem omedelbart tillgängliga för vidare bearbetning i Starlight-fråga eller andra tjänster av intresse
 
-### <a name="q-what-is-a-good-use-case-for-data-flow-in-synapse"></a>F: Vad är ett bra användningsfall för dataflöde i Synapse
+### <a name="q-what-is-a-good-use-case-for-data-flow-in-synapse"></a>F: Vad är ett bra användnings fall för data flödet i Synapse
 
-S: Dataflödet gör det möjligt för datatekniker att utveckla grafisk dataomvandlingslogik utan att skriva kod. De resulterande dataflödena körs som aktiviteter inom dataintegration & Orchestration. Dataflödesaktiviteter kan operationaliseras via befintliga schemaläggnings-, kontroll-, flödes- och övervakningsfunktioner.
+A: data flödet gör det möjligt för data tekniker att utveckla grafisk data omvandlings logik utan att skriva kod. De resulterande data flödena körs som aktiviteter i data integration & Orchestration. Data flödes aktiviteter kan användas via befintliga funktioner för schemaläggning, kontroll, flöde och övervakning.
 
 ## <a name="security-and-access"></a>Säkerhet och åtkomst
 
-S: End-to-end enkel inloggningsupplevelse är en viktig autentiseringsprocess i Synapse Analytics. Att hantera och överföra identiteten via en fullständig AAD-integration är ett måste.
+A: slut punkt till slut punkt för enkel inloggning är en viktig autentiseringsprocess i Synapse Analytics. Att hantera och skicka identiteten via via en fullständig AAD-integrering måste vara en.
 
-### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adlsg2"></a>F: Hur får jag tillgång till filer och mappar i ADLSg2
+### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adlsg2"></a>F: Hur gör jag för att få åtkomst till filer och mappar i mappen ADLSg2
 
-S: Åtkomst till filer och mappar hanteras för närvarande via ADLSg2. Mer information finns i [DataSjölagringsåtkomstkontroll](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+A: åtkomst till filer och mappar hanteras för närvarande via ADLSg2. Mer information finns i [data Lake Storage Access Control](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-### <a name="q-can-i-use-third-party-business-intelligence-tools-to-access-azure-synapse-analytics"></a>F: Kan jag använda business intelligence-verktyg från tredje part för att komma åt Azure Synapse Analytics
+### <a name="q-can-i-use-third-party-business-intelligence-tools-to-access-azure-synapse-analytics"></a>F: kan jag använda Business Intelligence-verktyg från tredje part för att få åtkomst till Azure Synapse Analytics
 
-S: Ja, du kan använda dina affärsprogram från tredje part, till exempel Tableau och Power BI, för att ansluta till SQL-pool och SQL på begäran. Spark stöder IntelliJ.
+A: Ja, du kan använda företags program från tredje part, t. ex. Tableau och Power BI, för att ansluta till SQL-poolen och SQL på begäran. Spark stöder IntelliJ.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Skapa en arbetsyta](quickstart-create-workspace.md)
-- [Använd Synapse Studio](quickstart-synapse-studio.md)
+- [Använda Synapse Studio](quickstart-synapse-studio.md)
 - [Skapa en SQL-pool](quickstart-create-sql-pool.md)
 - [Använda SQL på begäran](quickstart-sql-on-demand.md)
-- [Skapa en Apache Spark-pool](quickstart-create-apache-spark-pool.md) 
+- [Skapa en Apache Spark pool](quickstart-create-apache-spark-pool.md) 

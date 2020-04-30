@@ -1,6 +1,6 @@
 ---
-title: Vad är privilegierad identitetshantering? - Azure AD | Microsoft-dokument
-description: Ger en översikt över Azure AD Privileged Identity Management (PIM).
+title: Vad är Privileged Identity Management? – Azure AD | Microsoft Docs
+description: Innehåller en översikt över Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,23 +15,23 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bfb0cc61b61328df86c27498a1007f2372fb9548
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81867451"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Vad är Azure AD Privileged Identity Management?
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) är en tjänst som du kan använda för att hantera, kontrollera och övervaka åtkomst till viktiga resurser i din organisation. Dessa resurser omfattar resurser i Azure AD, Azure och andra Microsoft Online-tjänster som Office 365 eller Microsoft Intune.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) är en tjänst som du kan använda för att hantera, kontrollera och övervaka åtkomst till viktiga resurser i din organisation. Resurserna omfattar resurser i Azure AD, Azure och andra Microsoft Online-tjänster som Office 365 eller Microsoft Intune.
 
 ## <a name="reasons-to-use"></a>Skäl att använda
 
 Organisationer behöver minimera antalet personer som har åtkomst till skyddad information eller skyddade resurser för att därigenom minska risken för att användare som vill vålla skada får åtkomst till informationen eller att behöriga användare oavsiktligt påverkar känsliga resurser. Användare måste emellertid fortfarande kunna utföra privilegierade åtgärder i Azure AD, Azure, Office 365 och SaaS-appar. Organisationer kan ge användare privilegierad just-in-time-åtkomst (JIT) till Azure-resurser och Azure AD. Det finns ofta behov av att övervaka vad användarna gör med sina administratörsprivilegier.
 
-## <a name="what-does-it-do"></a>Vad gör den?
+## <a name="what-does-it-do"></a>Vad gör det?
 
-Privilegierad identitetshantering ger tidsbaserad och godkännandebaserad rollaktivering för att minska riskerna för överdriven, onödig eller missbrukad åtkomstbehörigheter för resurser som du bryr dig om. Här är några av de viktigaste funktionerna i Privilegierad identitetshantering:
+Privileged Identity Management tillhandahåller tidsbaserad och godkännande-baserad roll aktivering för att minimera riskerna med alltför stora, onödiga eller felanvända åtkomst behörigheter för resurser som du bryr dig om. Här följer några av de viktigaste funktionerna i Privileged Identity Management:
 
 - Ge privilegierad **just-in-time**-åtkomst till Azure AD och Azure-resurser
 - Tilldela **tidsbunden** åtkomst till resurser med hjälp av start- och slutdatum
@@ -42,35 +42,35 @@ Privilegierad identitetshantering ger tidsbaserad och godkännandebaserad rollak
 - Utför **åtkomstgranskningar** för att se till att användare fortfarande behöver ha vissa roller
 - Ladda ned **granskningshistorik** för intern eller extern granskning
 
-## <a name="what-can-i-do-with-it"></a>Vad kan jag göra med den?
+## <a name="what-can-i-do-with-it"></a>Vad kan jag göra med det?
 
-När du har konfigurerat Privilegierad identitetshantering visas alternativ **för Uppgifter,** **Hantera**och **Aktivitet** på den vänstra navigeringsmenyn. Som administratör kan du välja mellan att hantera **Azure AD-roller** och **Azure-resurs**-roller. När du väljer vilken typ av roll du vill hantera visas en liknande uppsättning med alternativ för den rolltypen.
+När du har konfigurerat Privileged Identity Management visas alternativ för **aktiviteter**, **hantering**och **aktivitet** på den vänstra navigerings menyn. Som administratör kan du välja mellan att hantera **Azure AD-roller** och **Azure-resurs**-roller. När du väljer vilken typ av roll du vill hantera visas en liknande uppsättning med alternativ för den rolltypen.
 
-![Skärmbild av privilegierad identitetshantering i Azure-portalen](./media/pim-configure/pim-quickstart.png)
+![Skärm bild av Privileged Identity Management i Azure Portal](./media/pim-configure/pim-quickstart.png)
 
 ## <a name="who-can-do-what"></a>Vem kan göra vad?
 
-För Azure AD-roller i Privilegierad identitetshantering kan endast en användare som är i rollen Privilegierad roll eller Global administratör hantera tilldelningar för andra administratörer. Du kan [bevilja åtkomst till andra administratörer för att hantera privilegierad identitetshantering](pim-how-to-give-access-to-pim.md). Globala administratörer, säkerhetsadministratörer, globala läsare och säkerhetsläsare kan också visa tilldelningar till Azure AD-roller i privilegierad identitetshantering.
+För Azure AD-roller i Privileged Identity Management kan endast en användare som är i rollen privilegierad roll administratör eller global administratör hantera tilldelningar för andra administratörer. Du kan [bevilja åtkomst till andra administratörer för att hantera Privileged Identity Management](pim-how-to-give-access-to-pim.md). Globala administratörer, säkerhets administratörer, globala läsare och säkerhets läsare kan också visa tilldelningar till Azure AD-roller i Privileged Identity Management.
 
-För Azure-resursroller i Privilegierad identitetshantering kan endast en prenumerationsadministratör, en resursägare eller en administratör för användaråtkomst för resurser hantera tilldelningar för andra administratörer. Användare som är privilegierade rolladministratörer, säkerhetsadministratörer eller säkerhetsläsare har som standard inte åtkomst till att visa tilldelningar till Azure-resursroller i Privilegierad identitetshantering.
+För Azures resurs roller i Privileged Identity Management kan endast en prenumerations administratör, en resurs ägare eller en resurs användares åtkomst administratör hantera tilldelningar för andra administratörer. Användare som är privilegierade roll administratörer, säkerhets administratörer eller säkerhets läsare har som standard inte åtkomst att visa tilldelningar till Azures resurs roller i Privileged Identity Management.
 
 ## <a name="scenarios"></a>Scenarier
 
 Privileged Identity Management stöder följande scenarier:
 
-### <a name="privileged-role-administrator-permissions"></a>Behörigheter för privilegierad rolladministratör
+### <a name="privileged-role-administrator-permissions"></a>Administratörs behörighet för privilegie rad roll
 
 - aktivera godkännande för specifika roller
-- Ange godkännare användare eller grupper för att godkänna begäranden
+- Ange användare eller grupper som ska godkännas för att godkänna begär Anden
 - visa historik för begäranden och godkännanden för alla privilegierade roller.
 
-### <a name="approver-permissions"></a>Behörigheter för godkännare
+### <a name="approver-permissions"></a>Behörighet för god kännare
 
 - visa väntande godkännanden (begäranden)
-- Godkänna eller avvisa begäranden om rollhöjning (enkel och mass)
-- Motivera mitt godkännande eller avslag
+- Godkänn eller avvisa begär Anden om roll höjning (enstaka och bulk)
+- Ange motivering för mitt godkännande eller avvisande
 
-### <a name="eligible-role-user-permissions"></a>Kvalificerade rollanvändarbehörigheter
+### <a name="eligible-role-user-permissions"></a>Kvalificerade roll användar behörigheter
 
 - begära aktivering av roller som kräver godkännande
 - visa status för begäran att aktivera
@@ -78,7 +78,7 @@ Privileged Identity Management stöder följande scenarier:
 
 ## <a name="terminology"></a>Terminologi
 
-Om du vill bättre förstå Privilegierad identitetshantering och dess dokumentation bör du granska följande villkor.
+För att bättre förstå Privileged Identity Management och dess dokumentation bör du läsa följande villkor.
 
 | Term eller begrepp | Kategori för rolltilldelning | Beskrivning |
 | --- | --- | --- |
@@ -98,10 +98,10 @@ Om du vill bättre förstå Privilegierad identitetshantering och dess dokumenta
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-Information om licenser för användare finns i [Licenskrav för att använda Privilegierad identitetshantering](subscription-requirements.md).
+Information om licenser för användare finns i [licens krav för att använda Privileged Identity Management](subscription-requirements.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Licenskrav för att använda privilegierad identitetshantering](subscription-requirements.md)
+- [Licens krav för att använda Privileged Identity Management](subscription-requirements.md)
 - [Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 - [Distribuera Privileged Identity Management](pim-deployment-plan.md)

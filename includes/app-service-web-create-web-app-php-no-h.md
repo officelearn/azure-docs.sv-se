@@ -9,15 +9,15 @@ ms.date: 02/02/2018
 ms.author: msangapu
 ms.custom: include file
 ms.openlocfilehash: 14b84c27140c7aebf83684d7c80dfbae5713850b
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82085276"
 ---
-Skapa en [webbapp](../articles/app-service/containers/app-service-linux-intro.md) i `myAppServicePlan` App Service-planen. 
+Skapa en [webbapp](../articles/app-service/containers/app-service-linux-intro.md) i `myAppServicePlan` App Service plan. 
 
-I Cloud Shell kan du [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) använda kommandot. Ersätt `<app-name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. Körningen har angetts till `PHP|7.3`. Kör [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)om du vill visa alla runtimes som stöds . 
+I Cloud Shell kan du använda [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) kommandot. Ersätt `<app-name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. Körningen har angetts till `PHP|7.3`. Om du vill se alla körningar som [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)stöds kör du. 
 
 ```azurecli-interactive
 # Bash

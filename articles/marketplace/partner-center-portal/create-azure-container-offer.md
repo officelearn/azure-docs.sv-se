@@ -1,433 +1,436 @@
 ---
-title: Skapa ett Azure-behållarerbjudande i Partner Center - Azure Marketplace
-description: I den här artikeln beskrivs hur du skapar och publicerar ett behållarerbjudande för Azure Marketplace.
+title: Skapa ett Azure Container-erbjudande i Partner Center – Azure Marketplace
+description: Den här artikeln beskriver hur du skapar och publicerar ett behållar erbjudande för Azure Marketplace.
 author: mingshen
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/07/2020
-ms.openlocfilehash: b96fe12ccc0292bb5f689fbecabd53d2af54846e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 3170849955485c0d098ed9f39c22332456e46fe4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81266323"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "81867366"
 ---
 # <a name="create-an-azure-container-offer"></a>Skapa ett Azure Container-erbjudande
 
 > [!IMPORTANT]
-> Vi flyttar hanteringen av dina Azure Container-erbjudanden från Cloud Partner Portal till Partner Center. Tills dina erbjudanden har migrerats följer du instruktionerna i [Containers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) for Cloud Partner Portal för att hantera dina erbjudanden.
+> Vi flyttar hantering av Azure Container-erbjudanden från Cloud Partner Portal till Partner Center. Innan du har migrerat dina erbjudanden följer du anvisningarna i [behållare](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) för Cloud Partner Portal att hantera dina erbjudanden.
 
-I den här artikeln beskrivs hur du skapar och publicerar ett behållarerbjudande för Azure Marketplace. Innan du börjar [skapar du ett kommersiellt Marketplace-konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+Den här artikeln beskriver hur du skapar och publicerar ett behållar erbjudande för Azure Marketplace. [Skapa ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)innan du börjar.
 
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
-1. Logga in i [Partnercenter](https://partner.microsoft.com/dashboard/home)och välj sedan **Instrumentpanel**på den övre menyn .
-2. Välj **Kommersiell marknadsplats**på den vänstra menyn och sedan **Översikt**.
-3. På sidan **Översikt** väljer du **+ Nytt erbjudande**och sedan Azure **Container**. Dialogrutan **Nytt erbjudande** visas.
+1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home)och välj **instrument panel**i den översta menyn.
+2. På den vänstra menyn väljer du **kommersiell Marketplace**och sedan **Översikt**.
+3. På sidan **Översikt** väljer du **+ nytt erbjudande**, sedan **Azure Container**. Dialog rutan **nytt erbjudande** visas.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-new-container.png" alt-text="Illustrerade översiktssidan i Partnercenter. Knappen Nytt erbjudande och Erbjudandet om konsulttjänster är markerade.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-new-container.png" alt-text="Illustrerar översikts sidan i Partner Center. Den nya erbjudande knappen och konsult tjänst erbjudandet markeras.":::
 
 > [!TIP]
-> När ett erbjudande har publicerats visas ändringar som görs i Partner center endast i skyltfönster efter att erbjudandet har publicerats på nytt. Se till att du alltid publicerar om när du har gjort ändringar.
+> När ett erbjudande har publicerats visas bara ändringar som gjorts i Partner Center i butiker efter publiceringen av erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
 
 ### <a name="offer-id-and-alias"></a>Erbjudande-ID och alias
 
 Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
 
-- Det här ID:t kan ses av kunder i webbadressen för marketplace-erbjudandet och Azure Resource Manager-mallar, om tillämpligt.
-- Använd bara gemena bokstäver och siffror. Den kan innehålla bindestreck och understreck, men inga blanksteg och är begränsad till 50 tecken. Om du till exempel anger **test-erbjudande-1**blir `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`erbjudandewebbadressen .
-- Erbjudande-ID:t kan inte ändras när du har valt **Skapa**.
+- Detta ID kan ses av kunder i webb adressen för Marketplace-erbjudandet och Azure Resource Manager mallar, om tillämpligt.
+- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
 
-**Ange ett offeralias** **Offer alias**. Det här är namnet som används för att referera till erbjudandet i Partner Center.
+**Ange ett** **erbjudande alias**. Detta är det namn som används för att referera till erbjudandet i Partner Center.
 
-- Det här namnet används inte på marknadsplatsen och skiljer sig från erbjudandenamnet och andra värden som visas för kunderna.
-- Detta kan inte ändras när du har valt **Skapa**.
+- Det här namnet används inte på Marketplace och skiljer sig från namnet på erbjudandet och andra värden som visas för kunderna.
+- Detta kan inte ändras när du har valt **skapa**.
 
-Välj **Skapa** innan du fortsätter.
+Välj **skapa** innan du fortsätter.
 
-## <a name="offer-overview"></a>Översikt över erbjudandet
+## <a name="offer-overview"></a>Erbjudande översikt
 
-**Översiktssidan Erbjudande** visar en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
+På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-På den här sidan visas olika länkar baserat på erbjudandets aktuella status. Ett exempel:
+Den här sidan visar olika länkar baserat på erbjudandet aktuella status. Ett exempel:
 
-- Om erbjudandet är ett utkast - [Ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- Om erbjudandet är live - [Sluta sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- Om erbjudandet är i förhandsgranskning - [Go-live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- Om du inte har slutfört utgivningsut logga ut - [Avbryt publicering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- Om erbjudandet är ett utkast – [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
+- Om erbjudandet är Live- [sluta att sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
+- Om erbjudandet är i för hands version- [Go-Live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
+- Om du inte har slutfört Publisher-utloggning – [Avbryt publicering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
 
-## <a name="offer-setup"></a>Inställningar för erbjudande
+## <a name="offer-setup"></a>Erbjudande konfiguration
 
-Följ dessa steg för att ställa in ditt erbjudande.
+Följ dessa steg för att konfigurera erbjudandet.
 
-### <a name="connect-lead-management--optional"></a>Anslut leadhantering – tillval
+### <a name="connect-lead-management--optional"></a>Anslut lead management – valfritt
 
-När du publicerar ditt erbjudande på marknadsplatsen med Partner Center kan du ansluta det till ditt CRM-system (Customer Relationship Management). På så sätt kan du få information om kundkontakter så snart någon uttrycker intresse för eller använder din produkt.
+När du publicerar ditt erbjudande till Marketplace med partner Center kan du ansluta det till ditt CRM-system (Customer Relations hip Management). På så sätt kan du ta emot kund kontakt information så snart någon uttrycker intresse för eller använder produkten.
 
-1. **Välj en leaddestination där du vill att vi ska skicka kundleads.** Partner Center stöder följande CRM-system:
+1. **Välj ett mål för lead där du vill att vi ska skicka kund leads**. Partner Center stöder följande CRM-system:
 
-- [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) för kundengagemang
+- [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) för kund engagemang
 - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
 - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
 > [!NOTE]
-> Om ditt CRM-system inte visas ovan använder du [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) eller [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) för att lagra leaddata för kunder och exporterar sedan data till CRM-systemet.
+> Om ditt CRM-system inte finns med i listan ovan använder du [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) eller [https-slutpunkten](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) för att lagra kundens lead-data och sedan exportera data till CRM-systemet.
 
-2. Anslut ditt erbjudande till leaddestinationen när du publicerar i Partner Center.
-3. Bekräfta att anslutningen till leadmålet är korrekt konfigurerad. När du har publicerat den i Partner Center validerar vi anslutningen och skickar en testledare till dig. Medan du förhandsgranskar erbjudandet innan det visas kan du också testa din leadanslutning genom att försöka köpa erbjudandet själv i förhandsversionen.
-4. Se till att anslutningen till leaddestinationen förblir uppdaterad så att du inte förlorar några leads.
+2. Anslut ditt erbjudande till lead-målet när du publicerar i Partner Center.
+3. Bekräfta att anslutningen till lead-målet har kon figurer ATS korrekt. När du har publicerat den i Partner Center kommer vi att validera anslutningen och skicka ett test lead. Medan du för hands Grans kar erbjudandet innan det blir Live kan du också testa din lead-anslutning genom att försöka köpa erbjudandet själv i för hands versionen.
+4. Se till att anslutningen till målet för målet förblir uppdaterad så att du inte förlorar några leads.
 
-Här är några ytterligare lead hanteringsresurser:
+Här följer några ytterligare resurser för ledar hantering:
 
-- [Översikt över leadhantering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
+- [Översikt över ledar hantering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Leadhantering – vanliga frågor och svar](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
 - [Vanliga fel för leadkonfiguration](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Översikt över leadhantering](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Kontrollera att popup-blockeraren är avstängd)
+- [Översikt över ledar hantering](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (kontrol lera att blockeringen av popup-fönster är inaktive rad)
 
-Välj **Spara utkast** innan du fortsätter till nästa avsnitt, Egenskaper.
+Välj **Spara utkast** innan du fortsätter till nästa avsnitt, egenskaper.
 
 ### <a name="properties"></a>Egenskaper
 
-På den här sidan kan du definiera de kategorier som används för att gruppera ditt erbjudande på marknadsplatsen och de juridiska kontrakt som stöder ditt erbjudande.
+På den här sidan kan du definiera de kategorier som används för att gruppera ditt erbjudande på Marketplace och de juridiska kontrakt som har stöd för ditt erbjudande.
 
 #### <a name="category"></a>Kategori
 
-Välj minst en och högst fem kategorier. Dessa kategorier används för att placera ditt erbjudande i lämpliga marknadsplatssökområden och visas på sidan med erbjudandeinformation. Förklara i erbjudandebeskrivningen hur ditt erbjudande stöder dessa kategorier. Behållare visas under **Behållare** och sedan kategorin **Behållarbilder.**
+Välj minst en och högst fem kategorier. Dessa kategorier används för att placera ditt erbjudande i lämpliga sökområden för Marketplace och visas på sidan med erbjudande information. I erbjudande beskrivningen förklarar du hur ditt erbjudande stöder dessa kategorier. Behållare visas under **behållare** och sedan kategorin **behållar avbildningar** .
 
 #### <a name="legal"></a>Juridisk information
 
 Du måste ange villkor för erbjudandet. Det finns två alternativ:
 
-- Använd standardkontraktet för Microsofts kommersiella marknadsplats.
-- Ange dina egna villkor.
+- Använd standard kontraktet för Microsofts kommersiella marknads plats.
+- Ange egna villkor.
 
-##### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Standardkontrakt för Microsofts kommersiella marknadsplats
+##### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Standard kontrakt för Microsofts kommersiella marknads plats
 
-Vi erbjuder en standardavtalsmall för att underlätta transaktioner på den kommersiella marknaden. Du kan välja att erbjuda din lösning enligt standardavtalet, som kunderna bara behöver kontrollera och acceptera en gång. Detta är ett bra alternativ om du inte vill skapa anpassade villkor.
+Vi erbjuder en standard kontrakts mal len som hjälper till att under lätta transaktioner i den kommersiella marknads platsen. Du kan välja att erbjuda din lösning under standard kontraktet, som kunder bara behöver kontrol lera och godkänna en gång. Det här är ett bra alternativ om du inte vill skapa anpassade villkor.
 
-Mer information om standardkontraktet finns i [Standardkontrakt för Microsofts kommersiella marknadsplats](https://docs.microsoft.com/azure/marketplace/standard-contract). Du kan också ladda ner [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (se till att popup-blockeraren är avstängd).
+Mer information om standard kontraktet finns i standard- [kontrakt för Microsoft Commercial Marketplace](https://docs.microsoft.com/azure/marketplace/standard-contract). Du kan också ladda ned [standard kontraktet](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (se till att blockering av popup-fönster är inaktiverat).
 
-Om du vill använda standardkontraktet markerar du kryssrutan **Använd standardkontraktet för Microsofts kommersiella marknadsplats** och klickar sedan på **Acceptera**.
-
-> [!NOTE]
-> När du har publicerat ett erbjudande med standardkontraktet för Microsofts kommersiella marknadsplats kan du inte använda dina egna anpassade villkor. Antingen erbjuda din lösning enligt standardavtalet eller enligt dina egna villkor.
-
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-1-standard-contract.png" alt-text="Illustrerar kryssrutan Använda standardkontraktet för Microsofts kommersiella marknadsplats.":::
-
-##### <a name="your-own-terms-and-conditions"></a>Dina egna villkor
-
-Om du vill ange dina egna anpassade villkor anger du dem i rutan **Regler och villkor.** Du kan ange ett obegränsat antal tecken text i den här rutan. Kunderna måste acceptera dessa villkor innan de kan prova ditt erbjudande.
-
-Välj **Spara utkast** innan du fortsätter till nästa avsnitt, Offer list.
-
-## <a name="offer-listing"></a>Lista över erbjudande
-
-På den här sidan kan du definiera erbjudandeinformation som visas på den kommersiella marknadsplatsen. Detta inkluderar erbjudandets namn, beskrivning och bilder.
+Om du vill använda standard kontraktet markerar du kryss rutan **Använd standard kontraktet för Microsofts kommersiella Marketplace** och klickar sedan på **acceptera**.
 
 > [!NOTE]
-> Erbjudandeinformation behöver inte vara på engelska om erbjudandebeskrivningen börjar med frasen"Denna ansökan är endast tillgänglig på [icke-engelska]." Det är också okej att tillhandahålla en användbar länk för att erbjuda innehåll på ett språk som skiljer sig från det som används i erbjudandena.
+> När du har publicerat ett erbjudande med standard kontraktet för Microsoft Marketplace kan du inte använda dina egna anpassade villkor. Erbjud antingen lösningen enligt standard kontraktet eller enligt dina egna villkor.
 
-### <a name="name"></a>Namn
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-1-standard-contract.png" alt-text="Illustrerar kryss rutan Använd standard kontraktet för Microsofts kommersiella Marketplace.":::
 
-Namnet du anger här visas som titeln på ditt erbjudande. Det här fältet är förfyllt med den text som du angav i rutan **Erbjudandealias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
+##### <a name="your-own-terms-and-conditions"></a>Egna villkor
+
+Om du vill ange egna anpassade villkor anger du dem i rutan **allmänna** villkor. Du kan ange en obegränsad mängd tecken text i den här rutan. Kunderna måste acceptera dessa villkor innan de kan testa ditt erbjudande.
+
+Välj **Spara utkast** innan du fortsätter till nästa avsnitt, erbjud listan.
+
+## <a name="offer-listing"></a>Erbjudande lista
+
+På den här sidan kan du definiera information om erbjudandet som visas på den kommersiella marknads platsen. Detta inkluderar namn, beskrivning och avbildningar för erbjudandet.
+
+> [!NOTE]
+> Erbjudande information krävs inte på engelska om erbjudande beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [icke-engelska]". Det går också att tillhandahålla en användbar länk för att erbjuda innehåll på ett annat språk än det som används i listan med erbjudande information.
+
+### <a name="name"></a>Name
+
+Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 
 Namnet:
 
-- Kan vara varumärkesskyddade (och du kan inkludera varumärkes- och upphovsrättssymboler).
-- Kan inte vara mer än 50 tecken lång.
+- Kan vara ett varumärke (och du kan inkludera varumärkes-och Copyright-symboler).
+- Får inte vara mer än 50 tecken långt.
 - Det går inte att inkludera emojis.
 
-### <a name="search-results-summary"></a>Sammanfattning av sökresultat
+### <a name="search-results-summary"></a>Sammanfattning av Sök Resultat
 
-En kort beskrivning av ditt erbjudande. Detta kan vara upp till 100 tecken långt och används i marketplace-sökresultat.
+En kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="long-summary"></a>Lång sammanfattning
+### <a name="long-summary"></a>Lång Sammanfattning
 
-En mer detaljerad beskrivning av ditt erbjudande. Detta kan vara upp till 256 tecken lång och används i marketplace sökresultat.
+En mer detaljerad beskrivning av ditt erbjudande. Detta kan vara upp till 256 tecken långt och används i Sök resultaten för Marketplace.
 
 ### <a name="description"></a>Beskrivning
 
-Ge en längre beskrivning av ditt erbjudande, upp till 3000 tecken. Detta visas för kunder i översikten för marknadsplatsannonser.
+Ange en längre Beskrivning av erbjudandet, upp till 3 000 tecken. Detta visas för kunder i Översikt över Marketplace-registrering.
 
-Inkludera ett eller flera av följande i beskrivningen:
+Inkludera ett eller flera av följande i din beskrivning:
 
-- Värdet och de viktigaste fördelarna med ditt erbjudande ger
-- Kategori- eller branschorganisationer, eller båda
-- Köpmöjligheter i appen
-- Alla nödvändiga upplysningar
+- Värdet och viktiga fördelar som ditt erbjudande ger
+- Kategori-eller bransch kopplingar, eller båda
+- Köp möjligheter i appen
+- Eventuella upplysningar som krävs
 
-Här är några tips för att skriva din beskrivning:
+Här följer några tips om hur du skriver beskrivningen:
 
-- Beskriv tydligt värdet av ditt erbjudande i de första meningarna i din beskrivning. Inkludera följande:
+- Beskriv tydligt värdet för ditt erbjudande i de första meningarna i beskrivningen. Ta med följande objekt:
   - Beskrivning av erbjudandet.
-  - Den typ av användare som drar nytta av erbjudandet
-  - Kundens behov eller utfärdar erbjudandeadresserna.
-- Kom ihåg att de första meningarna kan visas i sökresultaten.
-- Lita inte på funktioner och funktioner för att sälja din produkt. Fokusera istället på det värde som ditt erbjudande ger.
-- Försök att använda branschspecifika ordförråd eller förmånsbaserad ordalydelse.
+  - Typ av användare som fördelar från erbjudandet
+  - Kunden behöver eller utfärdar erbjudandena adresser.
+- Kom ihåg att de första meningarna kan visas i Sök resultaten.
+- Förlita dig inte på funktioner och funktioner för att sälja produkten. I stället fokuserar du på det värde som erbjudandet erbjuder.
+- Försök att använda branschspecifika vokabulär eller kunskapsbaserade orda lydelse.
 
-Om du vill göra **erbjudandebeskrivningen** mer engagerande använder du RTF-redigeraren för att formatera beskrivningen. med numrering, punkter, fetstil, kursiv stil och indrag för att göra din beskrivning mer läsbar.
+Om du vill göra din erbjudande **Beskrivning** mer engagerande använder du RTF-redigeraren för att formatera beskrivningen. med numrering, punkter, fet stil, kursiv stil och indrag för att göra din beskrivning lättare att läsa.
 
-:::image type="content" source="media/text-editor2.png" alt-text="Illustrerar RTF-redigeraren." border="false" :::
+:::image type="content" source="media/text-editor2.png" alt-text="Visar Rich Text Editor." border="false" :::
 
-- Använd den här listrutan om du vill använda ett styckeformat på text.
+- Använd den här List rutan om du vill använda ett stycke format för text.
 
-    :::image type="content" source="media/text-editor3.png" alt-text="Illustrerar textformatkontrollen i RTF-redigeraren." border="false":::
+    :::image type="content" source="media/text-editor3.png" alt-text="Visar text stil kontrollen i Rich Text Editor." border="false":::
 
-- Använd dessa ikoner för att använda numrering eller punkter på text.
+- Använd dessa ikoner för att tillämpa numrering eller punkter på text.
 
-     :::image type="content" source="media/text-editor4.png" alt-text="Illustrerar kontrollerna för punktlistor och nummerlistor i RTF-redigeraren." border="false":::
+     :::image type="content" source="media/text-editor4.png" alt-text="Visar kontrollerna för punkt listor och siffror i text redigeraren." border="false":::
 
-- Använd dessa ikoner för att lägga till eller ta bort indrag i eller från text.
+- Använd dessa ikoner för att lägga till eller ta bort indrag till eller från text.
 
-    :::image type="content" source="media/text-editor5.png" alt-text="Illustrerar indragskontrollerna i RTF-redigeraren." border="false":::
+    :::image type="content" source="media/text-editor5.png" alt-text="Visar indrags kontrollerna i Rich Text Editor." border="false":::
 
-#### <a name="privacy-policy-link"></a>Länk till sekretesspolicy
+#### <a name="privacy-policy-link"></a>Länk till sekretess policy
 
-Ange webbadressen till organisationens sekretesspolicy. Du är ansvarig för att ditt erbjudande följer sekretesslagar och sekretessregler. Du är också ansvarig för att publicera en giltig sekretesspolicy på din webbplats.
+Ange webb adressen till din organisations sekretess policy. Du är ansvarig för att se till att ditt erbjudande uppfyller sekretess lagar och föreskrifter. Du ansvarar också för att publicera en giltig sekretess policy på din webbplats.
 
 #### <a name="useful-links"></a>Användbara länkar
 
-Tillhandahålla kompletterande onlinedokument om ditt erbjudande. Du kan lägga till upp till 25 länkar. Om du vill lägga till en länk väljer du **+ Lägg till en länk** och fyller sedan i följande fält:
+Ge kompletterande online-dokument om ditt erbjudande. Du kan lägga till upp till 25 länkar. Om du vill lägga till en länk väljer du **+ Lägg till en länk** och fyller sedan i följande fält:
 
-- **Titel** – Kunderna ser detta på ditt erbjudandes informationssida.
-- **Länk (URL)** – Ange en länk så att kunderna kan visa ditt onlinedokument. Länken måste börja med http:// eller https://.
+- **Title** – kunderna kommer att se detta på ditt erbjudandes informations sida.
+- **Länk (URL)** – ange en länk till kunder för att visa ditt online-dokument. Länken måste börja med http://eller https://.
 
 ### <a name="contact-information"></a>Kontaktinformation
 
-Du måste ange namn, e-post och telefonnummer för en **supportkontakt** och en **teknisk kontakt.** Den här informationen visas inte för kunder men är tillgänglig för Microsoft. Det kan också tillhandahållas till CSP-partner (Cloud Solution Provider).
+Du måste ange namn, e-postadress och telefonnummer för en **support kontakt** och en **teknisk kontakt**. Den här informationen visas inte för kunder, men den är tillgänglig för Microsoft. Den kan också tillhandahållas av CSP-partner (Cloud Solution Provider).
 
-- Supportkontakt (obligatoriskt): För allmänna supportfrågor.
-- Teknisk kontakt (krävs): För tekniska frågor och certifieringsfrågor.
-- CSP-programkontakt (valfritt): För återförsäljarfrågor relaterade till CSP-programmet.
+- Support kontakt (krävs): för allmänna supportfrågor.
+- Teknisk kontakt (krävs): för tekniska frågor och certifierings problem.
+- Kontakta CSP-programmet (valfritt): för åter försäljar frågor som är relaterade till CSP-programmet.
 
-I avsnittet **Supportkontakt** anger du **supportwebbplatsen** där partner kan hitta support för ditt erbjudande baserat på om erbjudandet är tillgängligt i globala Azure, Azure Government eller båda.
+I avsnittet **support kontakt** anger du **Support webbplatsen** där partner kan hitta support för ditt erbjudande baserat på om erbjudandet är tillgängligt i Global Azure, Azure Government eller båda.
 
-I **kontaktsektionen för CSP-programmet** anger du länken **(CSP Program Marketing Materials)** där CSP-partner kan hitta marknadsföringsmaterial för ditt erbjudande.
+I avsnittet för **CSP** -programavsnittet anger du länken ( **CSP-programmet marknadsförings material** ) där CSP-partner kan hitta marknadsförings material för ditt erbjudande.
 
-#### <a name="additional-marketplace-listing-resources"></a>Ytterligare resurser för marknadsplatsnotering
+#### <a name="additional-marketplace-listing-resources"></a>Ytterligare platser för Marketplace-lista
 
-Mer information om hur du skapar erbjudanden finns i [Bästa praxis för erbjudandebeskrivning](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+Om du vill veta mer om att skapa erbjudande listor, se [erbjudande lista med bästa praxis](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
-### <a name="marketplace-images"></a>Marketplace-bilder
+### <a name="marketplace-images"></a>Marketplace-avbildningar
 
-Ange logotyper och bilder som du kan använda med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder kommer att avvisas.
+Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder kommer att avvisas.
 
-#### <a name="store-logos"></a>Lagra logotyper
+>[!Note]
+>Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar https://upload.xboxlive.com tjänsten som används av Partner Center.
 
- Ange PNG-filer av erbjudandets logotyp i var och en av följande fyra pixelstorlekar:
+#### <a name="store-logos"></a>Butiks logo typer
+
+ Ange PNG-filer för ditt erbjudandes logo typ i var och en av följande fyra pixel storlekar:
 
 - **Liten** (48 x 48)
-- **Medium** (90 X 90)
+- **Medel** (90 X 90)
 - **Stor** (216 x 216)
 - **Bred** (255 X 115)
 
-Alla fyra logotyper krävs och används på olika platser på marknadsplatsen notering.
+Alla fyra logo typer krävs och används på olika platser i Marketplace-listan.
 
-#### <a name="screenshots-optional"></a>Skärmdumpar (valfritt)
+#### <a name="screenshots-optional"></a>Skärm dum par (valfritt)
 
-Lägg till upp till fem skärmbilder som visar hur erbjudandet fungerar. Var och en måste vara 1280 x 720 pixlar i storlek och i PNG-format.
+Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Var och en måste vara 1280 x 720 pixlar i storlek och i PNG-format.
 
 #### <a name="videos-optional"></a>Videor (valfritt)
 
-Lägg till upp till fem videor som visar ditt erbjudande. Ange videons namn, dess webbadress och en PNG-miniatyrbild av videon med en storlek på 1 280 x 720 pixlar.
+Lägg till upp till fem videor som demonstrerar ditt erbjudande. Ange videons namn, webb adressen och en miniatyr bild av videon med 1280 x 720 pixlar i storlek.
 
 #### <a name="offer-examples"></a>Exempel på erbjudanden
 
-Följande exempel visar hur listningsfälten för erbjudande visas på olika ställen i erbjudandet.
+I följande exempel visas hur fälten för erbjudande listan visas på olika ställen i erbjudandet.
 
-Detta visar sidan **Erbjudandelistning** på Azure Marketplace:
+Visar sidan för **erbjudande listan** på Azure Marketplace:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Illustrerar sidan Erbjudandelistning på Azure Marketplace." :::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Visar sidan med erbjudande listan i Azure Marketplace." :::
 
-Detta visar sökresultat på Azure Marketplace:
+Detta visar Sök resultat på Azure Marketplace:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Illustrerar sökresultaten på Azure Marketplace.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Visar Sök resultatet i Azure Marketplace.":::
 
-Detta visar sidan **Erbjudandelistning** i Azure-portalen:
+Visar sidan för **erbjudande listan** i Azure Portal:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Illustrerar sidan Erbjudandelistning i Azure-portalen.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Visar sidan med erbjudande listan i Azure Portal.":::
 
-Detta visar sökresultat i Azure-portalen:
+Detta visar Sök resultat i Azure Portal:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Illustrerar sökresultaten i Azure-portalen.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Visar Sök resultatet i Azure Portal.":::
 
 ## <a name="preview"></a>Förhandsversion
 
-På fliken Förhandsgranska kan du välja en begränsad målgrupp för **att** validera erbjudandet innan du publicerar det live.
+På fliken förhands granskning kan du välja en begränsad **förhands gransknings grupp** för att verifiera ditt erbjudande innan du publicerar det Live.
 
 > [!IMPORTANT]
-> När du har visat erbjudandet i **förhandsversion**måste du välja **Gå live** för att publicera ditt erbjudande för allmänheten.
+> När du har granskat erbjudandet i för **hands versionen**måste du välja **Go Live** för att publicera ditt erbjudande till allmänheten.
 
-Ange din förhandsgranskningsmålgrupp med azure-prenumerations-ID-GUID: er, tillsammans med en valfri beskrivning för varje. Inget av dessa fält kan ses av kunder.
-
-> [!NOTE]
-> Du hittar ditt Azure-prenumerations-ID på sidan Prenumerationer i Azure-portalen.
-
-Lägg till minst ett Azure-prenumerations-ID, antingen individuellt (upp till 10) eller genom att ladda upp en CSV-fil (upp till 100). Genom att lägga till dessa prenumerations-ID:er bestämmer du vem som kan förhandsgranska erbjudandet innan det publiceras live. Om ditt erbjudande redan är live kan du välja en målgrupp för förhandsversionen för att testa ändringar eller uppdateringar av erbjudandet.
+Ange din förhands gransknings mål med ID: n för Azure-prenumerations-ID, tillsammans med en valfri beskrivning av varje. Inget av dessa fält kan ses av kunder.
 
 > [!NOTE]
-> Förhandsgranskningspubliken skiljer sig från en privat målgrupp. En **förhandsgranskningsmål** kan se och bekräfta alla erbjudandeplaner innan de visas på marknadsplatsen, inklusive de som endast publiceras för en **privat** målgrupp (som anges på fliken Tillgänglighet).
+> Du hittar ditt prenumerations-ID för Azure på sidan prenumerationer i Azure Portal.
+
+Lägg till minst ett Azure-prenumerations-ID, antingen individuellt (upp till 10) eller genom att ladda upp en CSV-fil (upp till 100). Genom att lägga till dessa prenumerations-ID: n bestämmer du vem som kan förhandsgranska ditt erbjudande innan det publiceras Live. Om ditt erbjudande redan är Live kan du välja en förhands gransknings grupp för att testa ändringar eller uppdateringar av ditt erbjudande.
+
+> [!NOTE]
+> Förhands gransknings publiken skiljer sig från en privat publik. En **förhands gransknings** grupp kan se och bekräfta alla erbjudande planer innan de är Live på Marketplace, inklusive de som bara publiceras till en **privat** mål grupp (på fliken tillgänglighet).
 
 Välj **Spara utkast** innan du fortsätter.
 
-### <a name="plan-overview"></a>Översikt över plan
+### <a name="plan-overview"></a>Plan översikt
 
-På den här fliken kan du ange olika planalternativ i samma erbjudande. Dessa planer kallades tidigare SKU:er eller lagerhållningsenheter. Planer kan skilja sig åt när det gäller vilka moln som är tillgängliga, till exempel globala moln, regeringsmoln och bilden som refereras av planen. Om du vill lista ditt erbjudande på den kommersiella marknaden måste du ställa in minst en plan.
+På den här fliken kan du ange olika prenumerations alternativ i samma erbjudande. Dessa planer kallades tidigare för SKU: er eller lager enheter. Planer kan variera beroende på vilka moln som är tillgängliga, till exempel globala moln, offentliga moln och den avbildning som planen refererar till. Du måste konfigurera minst en plan för att få en lista över erbjudandet i den kommersiella marknads platsen.
 
-När du har skapat dina planer visas på fliken **Planera översikt:**
+När du har skapat dina planer visas fliken **plan översikt** :
 
 - Planera namn
 - Prismodell
-- Molntillgänglighet (global eller myndighet)
-- Aktuell publiceringsstatus
+- Moln tillgänglighet (global eller myndigheter)
+- Aktuell publicerings status
 - Alla tillgängliga åtgärder
 
-Vilka åtgärder som är tillgängliga i översikten Planera varierar beroende på planens aktuella status. De omfattar:
+Vilka åtgärder som är tillgängliga i plan översikten varierar beroende på planens aktuella status. De omfattar:
 
-- **Ta bort utkast** – Om planstatusen är ett utkast.
-- **Stoppa säljplan** – Om planens status publiceras live.
+- **Ta bort utkast** – om planens status är ett utkast.
+- **Stoppa Sälj plan** – om plan statusen publiceras Live.
 
 #### <a name="create-new-plan"></a>Skapa ny plan
 
-Välj **Skapa ny plan**. Dialogrutan **Ny plan** visas.
+Välj **Skapa ny plan**. Dialog rutan **nytt plan** visas.
 
-Skapa en unik planidentifierare för varje plan i det här erbjudandet i rutan **Plan-ID.** Detta ID kommer att vara synligt för kunder i produktens webbadress. Använd bara gemener och siffror, streck eller understreck och högst 50 tecken.
+I rutan **plan-ID** skapar du en unik plan identifierare för varje plan i det här erbjudandet. Detta ID visas för kunder i produktens webb adress. Använd bara gemena bokstäver och siffror, bindestreck eller under streck och högst 50 tecken.
 
 > [!NOTE]
-> Det går inte att ändra plan-ID:t när du har valt **Skapa**.
+> Det går inte att ändra plan-ID när du har valt **skapa**.
 
-Ange ett namn för den här planen i rutan **Plannamn.** Kunderna ser det här namnet när de bestämmer vilken plan som ska väljas inom ditt erbjudande. Skapa ett unikt namn för varje plan i det här erbjudandet. Du kan till exempel använda ett erbjudandenamn på **Windows Server** med abonnemangen Windows **Server 2016** och **Windows Server 2019**.
+I rutan **plan namn** anger du ett namn för den här planen. Kunderna ser det här namnet när du bestämmer vilken plan du vill välja i erbjudandet. Skapa ett unikt namn för varje plan i det här erbjudandet. Du kan till exempel använda ett erbjudande namn för **Windows Server** med planer för **Windows Server 2016** och **Windows Server 2019**.
 
-### <a name="plan-setup"></a>Planera inställningar
+### <a name="plan-setup"></a>Planera installationen
 
-På den här fliken kan du välja vilka moln planen är tillgänglig i. Dina svar på den här fliken påverkar vilka fält som visas på andra flikar.
+På den här fliken kan du välja vilka moln som planen är tillgänglig i. Dina svar på den här fliken påverkar vilka fält som visas på andra flikar.
 
-#### <a name="cloud-availability"></a>Molntillgänglighet
+#### <a name="cloud-availability"></a>Moln tillgänglighet
 
 Din plan måste vara tillgänglig i minst ett moln.
 
-Välj alternativet **Azure Global** så att din plan kan användas av kunder i alla globala Azure-regioner som använder den kommersiella marknadsplatsen. Mer information finns i [Geografisk tillgänglighet och valutastöd](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Välj det **globala Azure** -alternativet så att din plan kan användas av kunder i alla globala Azure-regioner som använder den kommersiella marknads platsen. Mer information finns i [stöd för geografisk tillgänglighet och valuta](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Välj alternativet [**Azure Government Cloud**](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) för att få din lösning att visas här. Detta är en regering gemenskap moln med kontrollerad åtkomst för kunder från amerikanska federala, statliga och lokala eller tribal myndigheter, samt partner som är berättigade att betjäna dem. Som utgivare är du ansvarig för alla efterlevnadskontroller, säkerhetsåtgärder och metodtips för den här molncommunityn. Azure Government använder fysiskt isolerade datacenter och nätverk (endast i USA).
+Välj alternativet [**Azure Government molnet**](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) så att din lösning visas här. Det här är ett offentligt community-moln med kontrollerad till gång för kunder från amerikanska federala, statliga och lokala myndigheter eller stambaserad myndigheter, samt partner som är berättigade att betjäna dem. Som utgivare är du ansvarig för alla kontroller, säkerhets åtgärder och bästa praxis för moln gruppen. Azure Government använder fysiskt isolerade Data Center och nätverk (som finns i USA).
 
-Innan [du publicerar](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) till Azure Government testar och bekräftar du din lösning inom det området eftersom resultaten kan vara annorlunda. Om du vill skapa och testa din lösning begär du ett utvärderingskonto från [testversionen](https://azure.microsoft.com/global-infrastructure/government/request/)av Microsoft Azure Government .
+Innan du [publicerar](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) till Azure Government ska du testa och bekräfta din lösning inom det här avsnittet eftersom resultatet kan skilja sig. Du kan skapa och testa din lösning genom att begära ett utvärderings konto från [Microsoft Azure Government utvärderings version](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
-> När ditt abonnemang har publicerats och är tillgängligt i ett visst moln kan du inte ta bort molnet.
+> När planen har publicerats och är tillgänglig i ett särskilt moln kan du inte ta bort det molnet.
 
-#### <a name="azure-government-cloud-certifications"></a>Azure Government Cloud-certifieringar
+#### <a name="azure-government-cloud-certifications"></a>Azure Government moln certifieringar
 
-Det här alternativet kan bara ses om **Azure Government Cloud** har valts under **Molntillgänglighet**.
+Det här alternativet kan bara visas om **Azure Government Cloud** är valt under **moln tillgänglighet**.
 
-Azure Government-tjänster hanterar data som omfattas av vissa myndighetsregler och krav. FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 och CJIS.
+Azure Government Services hanterar data som omfattas av vissa myndighets bestämmelser och krav. Till exempel FedRAMP, NIST 800,171 (DIB), ITAR, IRS 1075, DoD L4 och CJIS.
 
-Om du vill visa dina certifieringar för dessa program kan du tillhandahålla upp till 100 länkar som beskriver dem. Dessa kan vara länkar till dina listor på programmet direkt eller till din egen webbplats. Dessa länkar är endast synliga för Azure Government-kunder.
+Om du vill visa dina certifieringar för dessa program kan du ange upp till 100 länkar som beskriver dem. Det kan vara länkar till dina program tablåer direkt eller till din egen webbplats. Dessa länkar är bara synliga för Azure Government kunder.
 
-## <a name="plan-listing"></a>Planera listning
+## <a name="plan-listing"></a>Plan lista
 
-På den här fliken visas specifik information för varje plan inom det aktuella erbjudandet.
+På den här fliken visas särskild information för varje plan i det aktuella erbjudandet.
 
-### <a name="plan-name"></a>Plannamn
+### <a name="plan-name"></a>Plan namn
 
-Detta är förfyllt med namnet du gav din plan när du skapade den. Du kan ändra det här namnet efter behov. Det kan vara upp till 50 tecken lång. Det här namnet visas som titeln på den här planen i Azure Marketplace och Azure-portalen. Den används som standardmodulnamn när planen är klar att användas.
+Detta är ifyllt med det namn som du gav din plan när du skapade det. Du kan ändra det här namnet efter behov. Det kan vara upp till 50 tecken långt. Det här namnet visas som rubrik för den här planen i Azure Marketplace och Azure Portal. Den används som standardmodulens namn när planen är klar att användas.
 
-### <a name="plan-summary"></a>Sammanfattning av planen
+### <a name="plan-summary"></a>Plan Sammanfattning
 
-En kort sammanfattning av din programvara plan (inte erbjudandet). Den här sammanfattningen visas i Azure Marketplace-sökresultat och kan innehålla upp till 100 tecken.
+En kort sammanfattning av din program varu plan (inte erbjudandet). Den här sammanfattningen visas i Sök resultaten i Azure Marketplace och kan innehålla upp till 100 tecken.
 
-### <a name="plan-description"></a>Beskrivning av planen
+### <a name="plan-description"></a>Beskrivning av plan
 
-Beskriv vad som gör denna programvaruplan unik, samt skillnader mellan planer inom ditt erbjudande. Beskriv inte erbjudandet, bara planen. Den här beskrivningen visas i Azure Marketplace och i Azure-portalen på sidan **Erbjudandelistning.** Det kan vara samma innehåll som du angav i plansammanfattningen och innehålla upp till 2 000 tecken.
+Beskriv vad som gör den här program varu planen unik, samt skillnader mellan planer i erbjudandet. Beskriv inte erbjudandet, bara planen. Den här beskrivningen visas på Azure Marketplace och i Azure Portal på sidan **erbjudande lista** . Det kan vara samma innehåll som du angav i plan sammanfattningen och innehåller upp till 2 000 tecken.
 
-Välj **Spara** när du har slutfört dessa fält.
+Välj **Spara** när du är klar med fälten.
 
 #### <a name="plan-examples"></a>Planera exempel
 
-Följande exempel visar hur fälten för listning av planer visas i olika vyer.
+I följande exempel visas hur plan List fälten visas i olika vyer.
 
-Det här är fälten på Azure Marketplace när du visar planinformation:
+Detta är fälten på Azure Marketplace när du visar plan information:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Illustrerar de fält du ser när du visar planinformation i Azure Marketplace.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Visar de fält som visas när du visar plan information på Azure Marketplace.":::
 
-Det här är planinformation på Azure-portalen:
+Detta är plan information på Azure Portal:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Illustrerar planinformation på Azure-portalen.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Visar plan information på Azure Portal.":::
 
 ## <a name="plan-availability"></a>Planera tillgänglighet
 
-Om du vill dölja ditt publicerade erbjudande så att kunderna inte kan söka, bläddra eller köpa det på marknadsplatsen markerar du kryssrutan **Dölj abonnemang** på fliken **Tillgänglighet.**
+Om du vill dölja ditt publicerade erbjudande så att kunder inte kan söka, bläddra i eller köpa det på Marketplace, markerar du kryss rutan **Dölj plan** på fliken **tillgänglighet** .
 
 Det här fältet används när:
 
-- Erbjudandet är avsett att användas indirekt när det refereras till genom ett annat program.
+- Erbjudandet är avsett att användas indirekt när det hänvisas till ett annat program.
 - Erbjudandet ska inte köpas individuellt.
 - Planen användes för inledande testning och är inte längre relevant.
-- Planen användes för tillfälliga eller säsongsbetonade erbjudanden och bör inte längre erbjudas.
+- Planen användes för tillfälliga eller säsongs erbjudanden och bör inte längre erbjudas.
 
 ## <a name="technical-configuration"></a>Teknisk konfiguration
 
-Behållaravbildningar måste finnas i ett privat [Azure-behållarregister](https://azure.microsoft.com/services/container-registry/). På fliken **Teknisk konfiguration** anger du referensinformation för behållaravbildningsdatabasen i Azure Container Registry.
+Behållar avbildningar måste ligga i ett privat [Azure Container Registry](https://azure.microsoft.com/services/container-registry/). På fliken **teknisk konfiguration** anger du referensinformation för din behållar avbildnings lagrings plats i Azure Container Registry.
 
-När erbjudandet har publicerats kopieras behållaravbildningen till Azure Marketplace i ett specifikt offentligt behållarregister. Alla begäranden om att använda behållaravbildningen visas från Azure Marketplaces offentliga behållarregister, inte från ditt privata. Mer information finns i [Förbereda dina tekniska resurser för Azure Container](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
+När erbjudandet har publicerats kopieras din behållar avbildning till Azure Marketplace i ett särskilt offentligt behållar register. Alla begär Anden att använda behållar avbildningen hanteras från Azure Marketplace offentlig behållar register, inte ditt privata namn. Mer information finns i [förbereda Azure Container Technical-tillgångar](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
 
-### <a name="image-repository-details"></a>Information om bilddatabas
+### <a name="image-repository-details"></a>Information om avbildnings lager
 
-Ange följande information på fliken **Information om bilddatabasen.**
+Ange följande information på fliken **avbildnings lagrings information** .
 
-**Azure-prenumerations-ID** – Ange prenumerations-ID där användning rapporteras och tjänster faktureras för Azure Container Registry som innehåller din behållaravbildning. Du hittar det här ID:t på [sidan Prenumerationer](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i Azure-portalen.
+**Azure-prenumerations-ID** – ange det PRENUMERATIONS-ID där användning rapporteras och tjänster debiteras för den Azure Container Registry som innehåller din behållar avbildning. Du hittar detta ID på [sidan prenumerationer](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i Azure Portal.
 
-**Azure-resursgruppsnamn** – Ange [resursgruppnamnet](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) som innehåller Azure Container-registret med behållaravbildningen. Resursgruppen måste vara tillgänglig i prenumerations-ID (ovan). Du hittar namnet på sidan [Resursgrupper](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) i Azure-portalen.
+**Namn på Azure-resurs grupp** – ange namnet på den [resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) som innehåller Azure Container Registry med din behållar avbildning. Resurs gruppen måste vara tillgänglig i prenumerations-ID (ovan). Du hittar namnet på sidan [resurs grupper](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) i Azure Portal.
 
-**Azure Container Registry name** – Ange namnet på [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro) som har din behållaravbildning. Behållarregistret måste finnas i den Azure-resursgrupp som du angav tidigare. Inkludera endast registernamnet, inte det fullständiga inloggningsservernamnet. Var noga med att utelämna **azurecr.io** från namnet. Du hittar registernamnet på [sidan Behållarregister](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) i Azure-portalen.
+**Azure Container Registry namn** – ange namnet på den [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro) som har behållar avbildningen. Behållar registret måste finnas i Azure-resurs gruppen du angav tidigare. Inkludera bara register namnet, inte det fullständiga inloggnings Server namnet. Var noga med att utelämna **azurecr.io** från namnet. Du hittar register namnet på [sidan behållar register](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) i Azure Portal.
 
-**Administratörsanvändarnamn för Azure Container Registry** – Ange [administratörsanvändarnamnet](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) som är länkat till Azure Container-registret som har din behållaravbildning. Användarnamnet och lösenordet krävs för att säkerställa att ditt företag har tillgång till registret. Om du vill hämta administratörsanvändarnamnet och lösenordet anger du egenskapen **för adminaktiverad** till **True** med hjälp av AZURE Command-Line Interface (CLI). Du kan också ange **admin-användare** till **Aktivera** i Azure-portalen.
+**Administratörens användar namn för Azure Container Registry** – ange [Administratörs användar namnet](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) som är länkat till Azure Container Registry som har behållar avbildningen. Användar namn och lösen ord krävs för att se till att ditt företag har åtkomst till registret. Om du vill hämta administratörens användar namn och lösen ord anger du egenskapen **admin-Enabled** till **True** med Azure Command-Line Interface (CLI). Alternativt kan du ange **Administratörs användare** som ska **aktive ras** i Azure Portal.
 
- :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Illustrerar dialogrutan Uppdatera behållarregister.":::
+ :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Visar dialog rutan uppdatera container Registry.":::
 
-**Lösenord för Azure Container Registry** – Ange lösenordet för administratörsanvändarnamnet som är associerat med Azure Container Registry och har din behållaravbildning. Användarnamnet och lösenordet krävs för att säkerställa att ditt företag har tillgång till registret. Du kan hämta lösenordet från Azure-portalen genom att gå till **Container Registry** > **Access Keys** eller med Azure CLI med kommandot [Visa](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
+**Lösen ord för Azure Container Registry** – ange lösen ordet för det administratörs användar namn som är associerat med Azure Container Registry och har behållar avbildningen. Användar namn och lösen ord krävs för att se till att ditt företag har åtkomst till registret. Du kan hämta lösen ordet från Azure Portal genom att gå till **container Registry** > **åtkomst nycklar** eller med Azure CLI med [Kommandot show](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Illustrerar menyn Åtkomstnyckel.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Visar menyn snabb tangent.":::
 
-**Databasnamn i Azure Container Registry**. Ange namnet på azure container-registerdatabasen som har avbildningen. Inkludera namnet på databasen när du skickar avbildningen till registret. Du hittar namnet på databasen genom att gå till sidan [Behållarregisterdatabaser.](https://azure.microsoft.com/services/container-registry/) > **Repositories** Mer information finns i [Visa behållarregisterdatabaser i Azure Portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories).
+**Databas namn inom Azure Container Registry**. Ange namnet på Azure Container Registry lagrings platsen som innehåller din avbildning. Inkludera namnet på lagrings platsen när du push-överför avbildningen till registret. Du kan hitta namnet på lagrings platsen genom att gå till sidan [container Registry](https://azure.microsoft.com/services/container-registry/) > -**databaser** . Mer information finns i [Visa behållare register Arkiv i Azure Portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories).
 
 > [!NOTE]
-> När namnet har angetts kan det inte ändras. Använd ett unikt namn för varje erbjudande i ditt konto.
+> När du har angett namnet kan du inte ändra det. Använd ett unikt namn för varje erbjudande i ditt konto.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Bildtaggar för nya versioner av ditt erbjudande
 
-Kunder måste kunna hämta uppdateringar automatiskt från Azure Marketplace när du publicerar en uppdatering. Om de inte vill uppdatera måste de kunna behålla en viss version av bilden. Du kan göra detta genom att lägga till nya bildtaggar varje gång du gör en uppdatering av bilden.
+Kunderna måste kunna hämta uppdateringar automatiskt från Azure Marketplace när du publicerar en uppdatering. Om de inte vill uppdatera måste de kunna stanna kvar på en angiven version av avbildningen. Du kan göra detta genom att lägga till nya avbildnings etiketter varje gången du gör en uppdatering av avbildningen.
 
 ### <a name="image-tag"></a>Bildtagg
 
-Det här fältet måste innehålla en **senaste** tagg som pekar på den senaste versionen av avbildningen på alla plattformar som stöds. Den måste också innehålla en versionstagg (till exempel från xx.xx.xx, där xx är ett tal). Kunder bör använda [manifesttaggar](https://github.com/estesp/manifest-tool) för att rikta in sig på flera plattformar. Alla taggar som refereras av en manifesttagg måste också läggas till så att vi kan ladda upp dem.
+Det här fältet måste innehålla en **senaste** tagg som pekar på den senaste versionen av avbildningen på alla plattformar som stöds. Det måste också innehålla en versions tagg (till exempel från xx. xx. xx, där xx är ett tal). Kunderna bör använda [manifest Taggar](https://github.com/estesp/manifest-tool) för att rikta in sig på flera plattformar. Alla Taggar som en manifest tag refererar till måste också läggas till så att vi kan ladda upp dem.
 
-Alla manifesttaggar (utom den senaste taggen) **-** måste börja med antingen X.Y eller X.Y.Z- där X, Y och Z är heltal. Om till exempel en **senaste** tagg pekar på 1.0.1-linux-x64, 1.0.1-linux-arm32 och 1.0.1-windows-arm32, måste dessa sex taggar läggas till i det här fältet. Mer information finns i [Förbereda dina tekniska resurser för Azure Container](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
+Alla manifest Taggar (förutom den senaste taggen) måste börja med antingen X. Y **-** eller X. y. Z – där X, y och Z är heltal. Om till exempel en **senaste** tagg pekar på 1.0.1-linux-x64, 1.0.1-Linux-ARM32 och 1.0.1-Windows-ARM32, måste dessa sex Taggar läggas till i det här fältet. Mer information finns i [förbereda Azure Container Technical-tillgångar](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
 
 > [!NOTE]
-> Kom ihåg att lägga till en testtagg i bilden så att du kan identifiera bilden under testningen.
+> Kom ihåg att lägga till en test-tagg till din avbildning så att du kan identifiera avbildningen under testningen.
 
 ## <a name="review-and-publish"></a>Granska och publicera
 
-När du har slutfört alla nödvändiga avsnitt i erbjudandet kan du skicka in det för att granska och publicera.
+När du har slutfört alla obligatoriska avsnitt i erbjudandet kan du skicka det till granskning och publicering.
 
-I det övre högra hörnet på portalen väljer du **Granska och** **publicera**.
+I det övre högra hörnet av portalen väljer du **Granska och** **publicera**.
 
-På granskningssidan kan du:
+På sidan Granska kan du:
 
-- Se slutförandestatusen för varje avsnitt i erbjudandet. Du kan inte publicera förrän alla avsnitt i erbjudandet har markerats som slutförd.
-  - **Inte startat** – Har inte startats och måste slutföras.
-  - **Ofullständig** – Har fel som måste åtgärdas eller kräver att du ger mer information. Mer hjälp finns i avsnitten tidigare i det här dokumentet.
-  - **Slutför** – Innehåller alla nödvändiga data utan fel. Alla delar av erbjudandet måste vara fullständiga innan du kan skicka erbjudandet.
-- Ge testinstruktioner till certifieringsteamet för att säkerställa att ditt erbjudande testas korrekt. Också, ge eventuella kompletterande anteckningar som är till hjälp för att förstå ditt erbjudande.
+- Se slut för ande status för varje avsnitt i erbjudandet. Du kan inte publicera förrän alla avsnitt i erbjudandet har marker ATS som slutförda.
+  - **Inte startat** – har inte startats och måste slutföras.
+  - **Ofullständig** – innehåller fel som behöver åtgärdas eller som kräver att du anger mer information. Se avsnittet tidigare i det här dokumentet för hjälp.
+  - **Complete** – innehåller alla data som krävs utan fel. Alla avsnitt i erbjudandet måste slutföras innan du kan skicka in erbjudandet.
+- Tillhandahåll test instruktioner till certifierings teamet för att se till att ditt erbjudande testas korrekt. Ange också eventuella kompletterande kommentarer som hjälper dig att förstå ditt erbjudande.
 
-Om du vill skicka erbjudandet för publicering väljer du **Publicera**.
+Om du vill skicka publicerings erbjudandet väljer du **publicera**.
 
-Vi skickar ett e-postmeddelande till dig när en förhandsversion av erbjudandet finns tillgänglig för granskning och godkännande.
+Vi skickar dig ett e-postmeddelande för att meddela dig när en för hands version av erbjudandet kan granskas och godkännas.
 
-Om du vill publicera ditt erbjudande för allmänheten (eller om ett privat erbjudande, till en privat målgrupp) går du till Partnercenter och väljer **Go-live**.
+Om du vill publicera erbjudandet till allmänheten (eller om ett privat erbjudande till en privat mål grupp) går du till Partner Center och väljer **Go-Live**.
 
 ## <a name="next-step"></a>Nästa steg
 

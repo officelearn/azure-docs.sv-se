@@ -1,33 +1,33 @@
 ---
-title: Skyddat innehåll i Azure Media Player
-description: Azure Media Player stöder för närvarande AES-128-bitars kuvert krypterat innehåll och vanligt krypterat innehåll.
+title: Azure Media Player skyddat innehåll
+description: Azure Media Player stöder för närvarande AES-128-bitars krypterat innehåll och vanligt krypterat innehåll.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
 ms.openlocfilehash: 64414d3ec31e8763b7c576af93374bf514141fd4
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81726496"
 ---
 # <a name="protected-content"></a>Skyddat innehåll #
 
-Azure Media Player stöder för närvarande AES-128-bitars kuvert krypterat innehåll och vanligt krypterat innehåll (via PlayReady och Widevine) eller krypterat innehåll via FairPlay. För att kunna spela upp skyddat innehåll på rätt `protectionInfo`sätt måste du tala om för Azure Media Player . Den här informationen finns per källa `<source>` och kan `data-setup`läggas till direkt på taggen via .  Du kan också `protectionInfo` lägga till direkt som en parameter om du ställer in källan dynamiskt.
+Azure Media Player stöder för närvarande AES-128-bitars krypterat innehåll och gemensamt krypterat innehåll (via PlayReady och Widevine) eller krypterat innehåll via FairPlay. För att kunna spela upp skyddat innehåll korrekt måste du tala om `protectionInfo`Azure Media Player. Den här informationen finns per källa och kan läggas till direkt i `<source>` taggen via `data-setup`.  Du kan också lägga till `protectionInfo` direkt som en parameter om du anger källan dynamiskt.
 
-`protectionInfo`accepterar ett JSON-objekt och innehåller:
+`protectionInfo`accepterar ett JSON-objekt och inkluderar:
 
-- `type`: `AES` `PlayReady` eller `Widevine` eller eller`FairPlay`
-- `certificateUrl`: Detta bör vara en direkt länk till din värd FairPlay cert
+- `type`: `AES` eller `PlayReady` `Widevine` eller`FairPlay`
+- `certificateUrl`: det här ska vara en direkt länk till ditt värdbaserade FairPlay-certifikat
 
-- `authenticationToken`: Det här är ett alternativfält för att lägga till en okodad autentiseringstoken
+- `authenticationToken`: det här är ett alternativ fält för att lägga till en kodad autentiseringstoken
 
 > [!IMPORTANT]
-> **CertifikatObjektet** behövs bara för FairPlay DRM.***
+> **CertificateUrl** -objektet behövs bara för Fairplay DRM. * * *
 >[!NOTE]
-> StandardteknikenOrder har ändrats för att `html5FairPlayHLS` rymma den nya tekniken, särskilt för att spela upp FairPlay-innehåll internt i webbläsare som stöder det (Safari på OSX 8+). Om du har FairPlay-innehåll att spela upp **och** du har ändrat standardteknikordern till en anpassad i programmet måste du lägga till den här nya tekniken i ditt techOrder-objekt. Vi rekommenderar att du inkluderar det före silverlightSS så att ditt innehåll inte spelas upp via PlayReady.
+> Standard-techOrder har ändrats för att hantera den nya Tech- `html5FairPlayHLS` enheten för att spela upp Fairplay innehåll internt i webbläsare som stöder det (Safari på OSX 8 +). Om du har FairPlay innehåll till uppspelning **och** du har ändrat standard-techOrder till en anpassad i ditt program, måste du lägga till den nya Tech-filen i techOrder-objektet. Vi rekommenderar att du inkluderar det före Silverlight så att innehållet inte spelas upp via PlayReady.
 
 ## <a name="code-sample"></a>Kodexempel ##
 
@@ -79,10 +79,10 @@ eller, med flera DRM
 ```
 
 > [!NOTE]
-> Alla webbläsare/plattformar kan inte spela upp skyddat innehåll. Mer information om vad som stöds finns i avsnittet [Uppspelningsteknik.](azure-media-player-playback-technology.md)
+> Inte alla webbläsare/plattformar kan spela upp skyddat innehåll. Mer information om vad som stöds finns i avsnittet [uppspelnings teknik](azure-media-player-playback-technology.md) .
 > [!IMPORTANT]
-> Token som skickas till spelaren är avsedd för skyddat innehåll och används endast för autentiserade användare. Det antas att programmet använder SSL eller någon annan form av säkerhetsåtgärd. Dessutom är slutanvändaren assummed att lita på att inte missbruka token; Om så inte är fallet, vänligen involvera dina säkerhetsexperter.
+> Den token som skickades till spelaren är avsedd för skyddat innehåll och används endast för autentiserade användare. Det förutsätts att programmet använder SSL eller någon annan form av säkerhets mått. Slutanvändaren måste också vara betrodd för att inte missbruka token. om så inte är fallet, kan du inkludera dina säkerhets experter.
 
 ## <a name="next-steps"></a>Nästa steg ##
 
-- [Snabbstart för Azure Media Player](azure-media-player-quickstart.md)
+- [Azure Media Player snabb start](azure-media-player-quickstart.md)

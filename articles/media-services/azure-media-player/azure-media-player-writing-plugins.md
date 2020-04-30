@@ -1,25 +1,25 @@
 ---
-title: Skriva plugins för Azure Media Player
-description: Lär dig hur du skriver en plugin med Azure Media Player med JavaScript
+title: Skriver plugin-program för Azure Media Player
+description: Lär dig hur du skriver ett plugin-program med Azure Media Player med Java Script
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.openlocfilehash: b7aac80b19a7c30d994f3c14e19047583d5334ac
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81727117"
 ---
-# <a name="writing-plugins-for-azure-media-player"></a>Skriva plugins för Azure Media Player #
+# <a name="writing-plugins-for-azure-media-player"></a>Skriver plugin-program för Azure Media Player #
 
-En plugin är JavaScript skriven för att förlänga eller förbättra spelaren. Du kan skriva plugins som ändrar Azure Media Player utseende, dess funktionalitet eller ens har det gränssnitt med andra tjänster. Du kan göra detta i två enkla steg:
+Ett plugin-program är ett JavaScript-skript som skrivs för att utöka eller förbättra spelaren. Du kan skriva plugin-program som ändrar Azure Media Playerens utseende, dess funktioner eller även har IT-gränssnittet med andra tjänster. Du kan göra detta i två enkla steg:
 
 ## <a name="step-1"></a>Steg 1 ##
 
-Skriv ditt JavaScript i en funktion som så:
+Skriv java script i en funktion så här:
 
 ```javascript
 
@@ -33,7 +33,7 @@ Skriv ditt JavaScript i en funktion som så:
     }).call(this);
 ```
 
-Du kan skriva koden direkt på `<script>` HTML-sidan i taggar eller i en extern JavaScript-fil. Om du gör det senare måste du inkludera `<head>` JavaScript-filen på HTML-sidan *efter* AMP-skriptet.
+Du kan skriva koden direkt i HTML-sidan i `<script>` taggar eller i en extern JavaScript-fil. Om du gör det senare, se till att du inkluderar JavaScript-filen på `<head>` HTML-sidan *efter* amp-skriptet.
 
 Exempel:
 
@@ -47,7 +47,7 @@ Exempel:
 ```
 
 ## <a name="step-2"></a>Steg 2 ##
-Initiera plugin med JavaScript på ett av två sätt:
+Initiera plugin-programmet med Java Script på något av följande sätt:
 
 Metod 1:
 
@@ -74,21 +74,21 @@ Metod 2:
     video.yourPluginName({[your plugins option]: [example option]});
 ```
 
-Plugin alternativ krävs inte, inklusive dem bara tillåter utvecklare som använder din plugin för att konfigurera sitt beteende utan att behöva ändra källkoden.
+Plugin-alternativ krävs inte, även om de bara tillåter utvecklare att använda ditt plugin-program för att konfigurera dess beteende utan att behöva ändra käll koden.
 
-För inspiration och fler exempel på att skapa en plugin ta en titt på vårt [galleri](azure-media-player-plugin-gallery.md)
+För inspiration och fler exempel på hur du skapar ett plugin-program kan du ta en titt på vårt [Galleri](azure-media-player-plugin-gallery.md)
 
 >[!NOTE]
-> Plugin-kod ändrar dynamiskt objekt i DOM under livslängden för betraktarens spelarupplevelse, gör det aldrig permanenta ändringar i spelarens källkod. Det är här en förståelse för din webbläsares utvecklarverktyg kommer väl till pass. Om du till exempel vill ändra utseendet på ett element i spelaren kan du hitta html-elementet efter klassnamn och sedan lägga till eller ändra attribut därifrån. Här är en bra resurs för [att ändra HTML-attribut.](http://www.w3schools.com/js/js_htmldom_html.asp)
+> Kod för plugin-programmet ändrar dynamiskt objekt i DOM under visnings förloppets spel upplevelse, men gör det aldrig permanenta ändringar i spelarens källkod. Det är här som det är praktiskt att förstå webbläsarens utvecklingsverktyg. Om du till exempel vill ändra utseendet på ett element i spelaren kan du hitta dess HTML-element med klass namnet och sedan lägga till eller ändra attribut därifrån. Här är en bra resurs vid [ändring av HTML-attribut.](http://www.w3schools.com/js/js_htmldom_html.asp)
 
-### <a name="integrated-plugins"></a>Integrerade insticksprogram ###
+### <a name="integrated-plugins"></a>Integrerade plugin-program ###
 
- Det finns för närvarande två plugins bakade i AMP: [time-tip](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timetip/example.html) och [snabbtangenter](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/hotkeys/example.html). Dessa plugins utvecklades ursprungligen för att vara modulära plugins för spelaren men ingår nu i spelarens källkod.
+ Det finns för närvarande två plugin-bakade till AMP: [tids tips](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timetip/example.html) och [snabb tangenter](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/hotkeys/example.html). Dessa plugin-program utvecklades ursprungligen för att vara modulära plugin-program för spelaren, men ingår nu i käll koden för Player.
 
-### <a name="plugin-gallery"></a>Plugin Galleri ###
+### <a name="plugin-gallery"></a>Plugin-Galleri ###
 
-[Plugin-galleriet](http//:aka.ms/ampplugins) har flera plugins som communityn redan har bidragit med för funktioner som tidsbaserade markörer, zoom, analys med mera. Sidan ger åtkomst till plugins och instruktioner om hur man ställer in den samt en demo som visar plugin i aktion. Om du skapar en cool plugin som du tycker ska ingå i vårt galleri, gärna lämna in den så att vi kan kolla upp det.
+[Plugin-galleriet](http//:aka.ms/ampplugins) har flera plugin-program som communityn redan har bidragit med för funktioner som tids linje markörer, zoomning, analyser och mer. Sidan ger till gång till plugin-programmet och instruktioner om hur du konfigurerar det och en demonstration som visar plugin-programmet i praktiken. Om du skapar ett coolbar-plugin-program som du tror ska ingå i vårt galleri kan du skicka det så att vi kan checka ut det.
 
 ## <a name="next-steps"></a>Nästa steg ##
 
-- [Snabbstart för Azure Media Player](azure-media-player-quickstart.md)
+- [Azure Media Player snabb start](azure-media-player-quickstart.md)

@@ -1,31 +1,31 @@
 ---
-title: Uppspelningsteknik för Azure Media Player
-description: Läs mer om uppspelningstekniken som används för att spela upp videon eller ljudet.
+title: Azure Media Player uppspelnings teknik
+description: Lär dig mer om uppspelnings tekniken som används för att spela upp videon eller ljudet.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
 ms.openlocfilehash: 85eaa04836774b838da67e073017f4af3d2fe179
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81726489"
 ---
-# <a name="playback-technology-tech"></a>Uppspelningsteknik ("tech") #
+# <a name="playback-technology-tech"></a>Uppspelnings teknik ("Tech") #
 
-Uppspelningsteknik avser den specifika webbläsar- eller plugin-teknik som används för att spela upp videon eller ljudet.
+Uppspelnings teknik avser den speciella webbläsare eller plugin-teknik som används för att spela upp videon eller ljudet.
 
-- **azureHtml5JS**: använder MSE- och EME-standarder tillsammans med videoelementet för plugin-mindre baserad uppspelning av DASH-innehåll med stöd för AES-128-bitars kuvertkrypterat innehåll eller DRM gemensamt krypterat innehåll (via PlayReady och Widevine när webbläsaren stöder det) från Azure Media Services
-- **flashSS:** använder Flash Player-teknik för att spela upp Smooth-innehåll med stöd för AES-128-bitars kuvertdekrypning från Azure Media Services - kräver Flash-version av 11,4 eller senare
-- **html5FairPlayHLS**: använder Safari specifikt i webbläsarbaserad uppspelningsteknik via HLS med videoelementet. Den här tekniken kräver att du spelar upp FairPlay-skyddat innehåll från Azure Media Services och lades till i techOrder från och med 10/19/16
-- **silverlightSS**: använder silverlight-teknik för att spela upp Smooth-innehåll med stöd för PlayReady-skyddat innehåll från Azure Media Services.
-- **html5**: använder i webbläsarbaserad uppspelningsteknik med videoelementet.  När du är på en Apple iOS- eller Android-enhet tillåter den här tekniken uppspelning av HLS-strömmar med visst grundläggande stöd för AES-128-bitars kuvertkryptering eller DRM-innehåll (via FairPlay när webbläsaren stöder det).
+- **azureHtml5JS**: använder MSE-och EME-standarder tillsammans med video elementet för plugin-mindre baserat uppspelning av streck innehåll med stöd för AES-128-bitars krypterat innehåll eller DRM-vanligt krypterat innehåll (via PlayReady och Widevine när webbläsaren stöder det) från Azure Media Services
+- **blixt**: använder Flash Player-teknik för att spela upp smidigt innehåll med stöd för AES-128 bitars dekryptering från Azure Media Services – kräver Flash-version av 11,4 eller högre
+- **html5FairPlayHLS**: använder Safari som är särskilt i webbläsarbaserad uppspelnings teknik via HLS med video elementet. Den här techen kräver att FairPlay-skyddat innehåll spelas upp från Azure Media Services och har lagts till i techOrder från och med 10/19/16
+- **Silverlight**: använder Silverlight-teknik för att spela upp smidigt innehåll med stöd för PlayReady-skyddat innehåll från Azure Media Services.
+- **HTML5**: använder i webbläsarbaserad uppspelnings teknik med video elementet.  När du använder en Apple iOS-eller Android-enhet, tillåter den här Tech uppspelning av HLS-strömmar med vissa grundläggande stöd för AES-128-bitars kryptering eller DRM-innehåll (via FairPlay när webbläsaren stöder det).
 
-## <a name="tech-order"></a>Teknisk order ##
+## <a name="tech-order"></a>Teknisk ordning ##
 
-För att säkerställa att din tillgång kan spelas på en mängd olika enheter rekommenderas följande `techOrder: ["azureHtml5JS", "flashSS", "html5FairPlayHLS","silverlightSS", "html5"]` tekniska ordning och `<video>` är standard om: och kan ställas in direkt på eller programatiskt i alternativen:
+För att säkerställa att din till gång kan spelas upp på en mängd olika enheter rekommenderas följande tekniska ordning och är standard om: `techOrder: ["azureHtml5JS", "flashSS", "html5FairPlayHLS","silverlightSS", "html5"]` och kan anges direkt på `<video>` eller program mässigt i alternativen:
 
 `<video data-setup='{"techOrder": ["azureHtml5JS", "flashSS", "html5FairPlayHLS, "silverlightSS", "html5"]}`
 
@@ -37,37 +37,37 @@ eller
     });
 ```
 
-## <a name="compatibility-matrix"></a>Kompatibilitetsmatris ##
+## <a name="compatibility-matrix"></a>Kompatibilitet mat ris ##
 
-Med tanke på den rekommenderade tekniska ordern med strömmande innehåll från Azure Media Services förväntas följande kompatibilitetsuppspelningsmatris
+Med den rekommenderade tekniska ordningen med strömmande innehåll från Azure Media Services förväntas följande matris för kompatibilitets uppspelning
 
 | Webbläsare        | Operativsystem                                                       | Förväntad teknik (klar)  | Förväntad teknik (AES)  | Förväntad teknik (DRM)          |
 |----------------|----------------------------------------------------------|------------------------|----------------------|------------------------------|
-| EdgeIE 11 (På andra)      | Windows 10, Windows 8.1, Windows Phone 101               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (PlayReady)     |
-| Dvs 11IE 9-101  | Windows 7, Windows Vista<sup>1</sup>                     | blinkAR                | blinkAR              | silverlightSS (PlayReady)    |
+| Kant 11      | Windows 10, Windows 8,1, Windows Phone 101               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (PlayReady)     |
+| IE 11IE 9-101  | Windows 7, Windows Vista<sup>1</sup>                     | blixt                | blixt              | Silverlight (PlayReady)    |
 | Internet Explorer 11          | Windows Phone 8.1                                        | azureHtml5JS           | azureHtml5JS         | stöds inte                |
-| Edge           | Xbox One<sup>1</sup> (uppdatering nov 2015)                   | azureHtml5JS           | azureHtml5JS         | stöds inte                |
-| Chrome 37+     | Windows 10, Windows 8.1, macOS X Yosemite<sup>1</sup>   | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (Widevine)      |
-| Firefox 47+    | Windows 10, Windows 8.1, macOS X Yosemite+<sup>1</sup>  | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (Widevine)      |
-| Firefox 42-46  | Windows 10, Windows 8.1, macOS X Yosemite+<sup>1</sup>  | azureHtml5JS           | azureHtml5JS         | silverlightSS (PlayReady)    |
-| Firefox 35-41  | Windows 10, Windows 8.1                                  | blinkAR                | blinkAR              | silverlightSS (PlayReady)    |
-| Safari         | iOS 6+                                                   | html5 (på andra)                  | html5 (ingen token)3    | stöds inte                |
-| Safari 8+      | OS X Yosemite+                                           | azureHtml5JS           | azureHtml5JS         | html5FairPlayHLS (FairPlay)  |
-| Safari 6       | OS X Mountain Lion<sup>1</sup>                           | blinkAR                | blinkAR              | silverlightSS (PlayReady)    |
-| Chrome 37+     | Android 4.4.4+<sup>2</sup>                               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (Widevine)      |
-| Chrome 37+     | Android 4.02                                             | html5 (på andra)                  | html5 (ingen token)<sup>3</sup>    | stöds inte                |
-| Firefox 42+    | Android 5.0+<sup>2</sup>                                 | azureHtml5JS           | azureHtml5JS         | stöds inte                |
-| Dvs 8           | Windows                                                  | stöds inte          | stöds inte        | stöds inte                |
+| Edge           | Xbox One<sup>1</sup> (nov 2015-uppdatering)                   | azureHtml5JS           | azureHtml5JS         | stöds inte                |
+| Chrome 37 +     | Windows 10, Windows 8,1, macOS X Yosemite<sup>1</sup>   | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (Widevine)      |
+| Firefox 47 +    | Windows 10, Windows 8,1, macOS X Yosemite +<sup>1</sup>  | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (Widevine)      |
+| Firefox 42-46  | Windows 10, Windows 8,1, macOS X Yosemite +<sup>1</sup>  | azureHtml5JS           | azureHtml5JS         | Silverlight (PlayReady)    |
+| Firefox 35-41  | Windows 10, Windows 8,1                                  | blixt                | blixt              | Silverlight (PlayReady)    |
+| Safari         | iOS 6+                                                   | HTML5                  | HTML5 (ingen token) 3    | stöds inte                |
+| Safari 8 +      | OS X Yosemite +                                           | azureHtml5JS           | azureHtml5JS         | html5FairPlayHLS (FairPlay)  |
+| Safari 6       | OS X Mountain Lion<sup>1</sup>                           | blixt                | blixt              | Silverlight (PlayReady)    |
+| Chrome 37 +     | Android-4.4.4 +<sup>2</sup>                               | azureHtml5JS           | azureHtml5JS         | azureHtml5JS (Widevine)      |
+| Chrome 37 +     | Android 4,02                                             | HTML5                  | HTML5 (ingen token)<sup>3</sup>    | stöds inte                |
+| Firefox 42 +    | Android 5.0 +<sup>2</sup>                                 | azureHtml5JS           | azureHtml5JS         | stöds inte                |
+| IE 8           | Windows                                                  | stöds inte          | stöds inte        | stöds inte                |
 
-<sup>1</sup> Konfiguration stöds eller testas inte; som referens för slutförande.
+<sup>1</sup> konfiguration stöds inte eller testas. listad som referens för slut för ande.
 
-<sup>2</sup> Lyckad uppspelning på Android-enheter kräver en kombination av enhetsfunktioner, grafikstöd, codec-rendering, OS-stöd med mera. Eftersom Android är en plattform med öppen källkod som gör det möjligt för telefontillverkare att ändra Vanilla Android OS som tillhandahålls av Google, orsakar detta viss fragmentering i Android-utrymmet, och vissa enheter kanske inte stöds på grund av brist på funktioner. Dessutom har vissa Android-enheter inte stöd för alla codec-enheter.  
+<sup>2</sup> lyckad uppspelning på Android-enheter kräver en kombination av enhets funktioner, grafik stöd, codec-åter GIVNING, OS-support med mera. Eftersom Android är en plattform med öppen källkod som gör det möjligt för telefon tillverkare att ändra vanilj Android OS som tillhandahålls av Google, detta orsakar fragmentering i Android-utrymmet, och vissa enheter kanske inte stöds på grund av brist på funktioner. Vissa Android-enheter har inte heller stöd för alla codecenheter.  
 
-<sup>3</sup> I de fall där det inte finns något stöd för token kan en proxy användas för att lägga till den här funktionen. Kolla in den här [bloggen](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) för att lära dig mer om den här lösningen.
+<sup>3</sup> i de fall där det inte finns något stöd för token kan du använda en proxy för att lägga till den här funktionen. Ta en titt på den här [bloggen](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) om du vill veta mer om den här lösningen.
 
 > [!NOTE]
-> Om den förväntade teknik som valts kräver att en plugin installeras, som Flash, och som inte är installerad på användarens dator, kommer AMP att fortsätta att kontrollera funktionerna i nästa teknik, tillsammans med källtyper och skyddsinformation, i tekniklistan. Om du till exempel försöker visa en oskyddad ström på begäran i Safari 8 på OS X Yosemite och både Flash och Silverlight inte är installerade, väljer AMP den inbyggda Html5-tekniken för uppspelning.<br/><br/>Ny webbläsarteknik växer fram dagligen, och som sådan kan påverka denna matris.
+> Om den förväntade Tech som valts kräver att ett plugin-program installeras, t. ex. Flash, och inte är installerat på användarens dator, fortsätter AMP att kontrol lera funktionerna i nästa Tech, tillsammans med käll typer och skydds information, i Tech-listan. Om du till exempel försöker visa en oskyddad data ström i Safari 8 på OS X Yosemite, och både Flash och Silverlight inte är installerade, väljer AMP den inbyggda HTML5-Tech för uppspelning.<br/><br/>Nya webb läsar tekniker håller på att bli nya dagligen och kan påverka denna matris.
 
 ## <a name="next-steps"></a>Nästa steg ##
 
-- [Snabbstart för Azure Media Player](azure-media-player-quickstart.md)
+- [Azure Media Player snabb start](azure-media-player-quickstart.md)

@@ -1,6 +1,6 @@
 ---
-title: Övervakning och avisering av Azure Key Vault | Microsoft-dokument
-description: Skapa en instrumentpanel för att övervaka hälsotillståndet för nyckelvalvet och konfigurera aviseringar.
+title: Azure Key Vault övervakning och aviseringar | Microsoft Docs
+description: Skapa en instrument panel för att övervaka hälso tillståndet för ditt nyckel valv och konfigurera aviseringar.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -12,203 +12,203 @@ ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
 ms.openlocfilehash: cc0d969ff6eb76732768dfed2826762920ae9e62
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81726948"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Övervakning och avisering för Azure Key Vault
 
 ## <a name="overview"></a>Översikt
 
-När du har börjat använda nyckelvalv för att lagra dina produktionshemligheter är det viktigt att övervaka hälsan hos ditt nyckelvalv för att se till att tjänsten fungerar som avsett. När du börjar skala din tjänst kommer antalet förfrågningar som skickas till ditt nyckelvalv att öka. Detta kan öka svarstiden för dina begäranden och i extrema fall, orsaka dina begäranden som begränsas vilket kommer att påverka prestanda för din tjänst. Du måste också bli aviserad om nyckelvalvet skickar ovanligt många felkoder, så att du snabbt kan meddelas om eventuella problem med åtkomstprinciper eller brandväggskonfiguration. Det här dokumentet innehåller följande avsnitt:
+När du har börjat använda Key Vault för att lagra dina produktions hemligheter är det viktigt att du övervakar hälso tillståndet för nyckel valvet för att se till att tjänsten fungerar som den ska. När du börjar skala din tjänst kommer antalet förfrågningar som skickas till ditt nyckel valv att öka. Detta har möjlighet att öka svars tiden för dina begär Anden och i extrema fall, orsaka att dina förfrågningar begränsas som påverkar tjänstens prestanda. Du måste också vara aviserad om nyckel valvet skickar ett ovanligt antal felkoder, så att du snabbt kan få aviseringar om eventuella åtkomst principer eller brand Väggs konfigurations problem. I det här dokumentet behandlas följande ämnen:
 
-+ Grundläggande key vault-mått för att övervaka
-+ Konfigurera mått och skapa en instrumentpanel 
++ Grundläggande Key Vault mått som ska övervakas
++ Konfigurera mått och skapa en instrument panel 
 + Så här skapar du aviseringar vid angivna tröskelvärden 
 
-## <a name="basic-key-vault-metrics-to-monitor"></a>Grundläggande key vault-mått för att övervaka
+## <a name="basic-key-vault-metrics-to-monitor"></a>Grundläggande Key Vault mått som ska övervakas
 
-+ Arkiv Tillgänglighet  
-+ Valv Mättnad 
-+ Svarstid för tjänstens API 
-+ Totalt antal service-API-träffar (filter efter aktivitetstyp) 
-+ Felkoder (Filtrera efter statuskod) 
++ Valv tillgänglighet  
++ Valvets mättnad 
++ Service API-svars tid 
++ Totalt antal tjänst-API-träffar (filtrera efter aktivitets typ) 
++ Felkoder (filtrera efter status kod) 
 
-**Arkiv tillgänglighet** - Det här måttet bör alltid vara på 100% detta är ett viktigt mått att övervaka, eftersom det snabbt kan visa dig om din nyckel valv upplevt ett avbrott. 
+**Valv tillgänglighet** – måttet ska alltid vara på 100% det här är ett viktigt mått att övervaka, eftersom det snabbt kan visa dig om ditt nyckel valv har råkat ut för ett avbrott. 
 
-**Valv mättnad** – Antalet begäranden per sekund som ett nyckelvalv kan tjäna baseras på vilken typ av åtgärd som utförs. Vissa valvåtgärder har ett lägre tröskelvärde för begäranden per sekund. Det här måttet sammanställer den totala användningen av nyckelvalvet för alla åtgärdstyper för att komma med ett procentvärde som anger din aktuella nyckelvalvsanvändning. En fullständig lista över servicegränser för nyckelvalv finns i följande dokument. [Begränsningar för tjänsten Azure Key Vault](service-limits.md)
+**Valvets mättnad** – antalet begär Anden per sekund som ett nyckel valv kan betjäna baseras på den typ av åtgärd som utförs. Vissa valv åtgärder har lägre tröskelvärde per sekund. Det här måttet aggregerar den totala användningen av ditt nyckel valv över alla åtgärds typer för att komma upp med ett procent värde som anger din aktuella nyckel valvs användning. En fullständig lista över begränsningar för Key Vault-tjänsten finns i följande dokument. [Begränsningar för tjänsten Azure Key Vault](service-limits.md)
 
-**Svarstid för tjänst-API** - Det här måttet visar den genomsnittliga svarstiden för ett anrop till nyckelvalv. Även om nyckelvalvet kan ligga inom tjänstgränserna kan ett högt utnyttjande av nyckelvalvet införa svarstid som gör att program nedströms misslyckas. 
+**Svars tid för service API** – det här måttet visar den genomsnittliga svars tiden för ett anrop till Key Vault. Även om nyckel valvet kan ligga inom tjänstens gränser, kan en hög användning av Key Vault introducera svars tid som gör att program upphör att fungera. 
 
-**Totalt antal API-träffar** - Det här måttet visar alla anrop som görs till ditt nyckelvalv. Detta hjälper dig att identifiera vilka program som anropar ditt nyckelvalv. 
+**Totalt antal API-träffar** – det här måttet visar alla anrop som gjorts till ditt nyckel valv. Detta hjälper dig att identifiera vilka program som anropar ditt nyckel valv. 
 
-**Felkoder** – Det här måttet visar dig om ditt nyckelvalv har en ovanlig mängd fel. En fullständig lista över felkoder och felsökningsvägledning finns i följande dokument. [AZURE Key Vault REST API-felkoder](rest-error-codes.md)
+**Felkoder** – det här måttet visar om ditt nyckel valv har drabbats av en ovanlig mängd fel. En fullständig lista över felkoder och fel söknings vägledning finns i följande dokument. [Fel koder för Azure Key Vault REST API](rest-error-codes.md)
 
-## <a name="how-to-configure-metrics-and-create-a-dashboard"></a>Konfigurera mått och skapa en instrumentpanel
+## <a name="how-to-configure-metrics-and-create-a-dashboard"></a>Konfigurera mått och skapa en instrument panel
 
 1. Logga in på Azure-portalen
-2. Navigera till key vault
-3. Välj **mått** under **Övervakning** 
+2. Navigera till din Key Vault
+3. Välj **mått** under **övervakning** 
 
 > [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-1.png)
+> ![Skärm bild av Azure Portal](../media/alert-1.png)
 
-4. Uppdatera diagrammets rubrik till vad du vill se på instrumentpanelen. 
-5. Välj scope. I det här exemplet väljer vi ett enda nyckelvalv. 
-6. Välj **måttöver hela valvtillgänglighet** och aggregeringsavg **Avg** 
-7. Uppdatera tidsintervallet till de senaste 24 timmarna och uppdatera tidsgranulariteten till 1 minut. 
+4. Uppdatera rubriken för diagrammet till det du vill se på instrument panelen. 
+5. Välj en omfattning. I det här exemplet ska vi välja ett enda nyckel valv. 
+6. Välj måttets **övergripande tillgänglighet för valv** och sammansättning **Genomsnittligt** 
+7. Uppdatera tidsintervallet till de senaste 24 timmarna och uppdatera tids kornigheten till 1 minut. 
 
 > [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-2.png)
+> ![Skärm bild av Azure Portal](../media/alert-2.png)
 
-8. Upprepa stegen ovan för måtten för svarstider för arkivsatturer och service-API. Välj **Fäst på instrumentpanelen** om du vill spara mätvärdena i en instrumentpanel. 
+8. Upprepa stegen ovan för måtten för valv-mättnad och service API-fördröjning. Välj **Fäst på instrument panelen** för att spara dina mått på en instrument panel. 
 
 > [!IMPORTANT]
-> Välj "Fäst på instrumentpanelen" och spara alla mått som du konfigurerar. Om du lämnar sidan och återgår till den utan att spara kommer dina konfigurationsändringar att gå förlorade. 
+> Välj Fäst på instrument panelen och spara varje mått som du konfigurerar. Om du lämnar sidan och återgår till den utan att spara, kommer konfigurations ändringarna att gå förlorade. 
 
-9. Om du vill övervaka alla typer av åtgärder i nyckelvalvet använder du måttet **Totalt service-API träffar** och väljer **Använd delning efter aktivitetstyp**
-
-> [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-3.png)
-
-10. Om du vill övervaka felkoder i nyckelvalvet använder du måttet **Totalt service-API-resultat** och väljer **Använd delning efter aktivitetstyp**
+9. Om du vill övervaka alla typer av åtgärder i nyckel valvet använder du måttet **Total service API-träffar** och väljer **tillämpa delning efter aktivitets typ**
 
 > [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-4.png)
+> ![Skärm bild av Azure Portal](../media/alert-3.png)
 
-Nu har du en instrumentpanel som ser ut så här. Du kan klicka på de tre punkterna längst upp till höger på varje bricka och du kan ordna om och ändra storlek på brickorna som du behöver. 
-
-När du har sparat och publicerat instrumentpanelen skapas en ny resurs i din Azure-prenumeration. Du kommer att kunna se det när som helst genom att söka efter "delad instrumentpanel". 
+10. Om du vill övervaka fel koderna i nyckel valvet använder du måttet **Total service API-resultat** och väljer **Använd delning efter aktivitets typ**
 
 > [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-5.png)
+> ![Skärm bild av Azure Portal](../media/alert-4.png)
 
-## <a name="how-to-configure-alerts-on-your-key-vault"></a>Konfigurera aviseringar i key vault 
+Nu har du en instrument panel som ser ut så här. Du kan klicka på de tre punkterna längst upp till höger i varje panel och du kan arrangera om och ändra storlek på panelerna efter behov. 
 
-Det här avsnittet visar hur du konfigurerar aviseringar i nyckelvalvet så att du kan varna ditt team att vidta åtgärder omedelbart om nyckelvalvet är i feltillstånd. Du kan konfigurera aviseringar som skickar ett e-postmeddelande, helst till ett team DL, avfyra ett händelserutnätsmeddelande eller ringa eller skicka ett telefonnummer till ett telefonnummer. Du kan också välja statiska aviseringar baserat på ett fast värde, eller en dynamisk avisering som varnar dig om ett övervakat mått överskrider den genomsnittliga gränsen för ditt nyckelvalv ett visst antal gånger inom ett definierat tidsintervall. 
+När du har sparat och publicerat instrument panelen kommer den att skapa en ny resurs i din Azure-prenumeration. Du kommer att kunna se det när som helst genom att söka efter "delad instrument panel". 
+
+> [!div class="mx-imgBorder"]
+> ![Skärm bild av Azure Portal](../media/alert-5.png)
+
+## <a name="how-to-configure-alerts-on-your-key-vault"></a>Så här konfigurerar du aviseringar på Key Vault 
+
+I det här avsnittet visas hur du konfigurerar aviseringar i nyckel valvet så att du kan varna ditt team att vidta åtgärder omedelbart om nyckel valvet är i ett ohälsosamt tillstånd. Du kan konfigurera aviseringar som skickar ett e-postmeddelande, helst till en team DL, utlösa ett evenemangs rutnäts meddelande eller anropa eller text ett telefonnummer. Du kan också välja statiska aviseringar baserat på ett fast värde eller en dynamisk avisering som varnar dig om ett övervakat mått överskrider genomsnitts gränsen för nyckel valvet ett visst antal gånger inom ett angivet tidsintervall. 
 
 > [!IMPORTANT]
-> Observera att det kan ta upp till 10 minuter för nykonfigurerade aviseringar att börja skicka meddelanden. 
+> Observera att det kan ta upp till 10 minuter innan nyligen konfigurerade aviseringar börjar skicka meddelanden. 
 
-### <a name="configure-an-action-group"></a>Konfigurera en åtgärdsgrupp 
+### <a name="configure-an-action-group"></a>Konfigurera en åtgärds grupp 
 
-En åtgärdsgrupp är en konfigurerbar lista över meddelanden och egenskaper.
+En åtgärds grupp är en konfigurerbar lista över meddelanden och egenskaper.
 
 1. Logga in på Azure-portalen
 2. Sök efter **aviseringar** i sökrutan
 3. Välj **Hantera åtgärder**
 
 > [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-6.png)
+> ![Skärm bild av Azure Portal](../media/alert-6.png)
 
-4. Välj **+ Lägg till åtgärdsgrupp**
-
-> [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-7.png)
-
-5. Välj **åtgärdstyp** för din åtgärdsgrupp. I det här exemplet skapar vi en e-postavisering.
+4. Välj **+ Lägg till åtgärds grupp**
 
 > [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-8.png)
+> ![Skärm bild av Azure Portal](../media/alert-7.png)
+
+5. Välj **Åtgärds typ** för din åtgärds grupp. I det här exemplet ska vi skapa en e-postavisering.
 
 > [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-9.png)
+> ![Skärm bild av Azure Portal](../media/alert-8.png)
 
-6. Klicka på **OK** längst ned på sidan. Du har skapat en åtgärdsgrupp. 
+> [!div class="mx-imgBorder"]
+> ![Skärm bild av Azure Portal](../media/alert-9.png)
 
-Nu när du har konfigurerat en åtgärdsgrupp konfigurerar vi tröskelvärdena för nyckelvalvsavisering. 
+6. Klicka på **OK** längst ned på sidan. Du har skapat en åtgärds grupp. 
+
+Nu när du har konfigurerat en åtgärds grupp kommer vi att konfigurera tröskelvärden för nyckel valvs aviseringar. 
 
 ### <a name="configure-alert-thresholds"></a>Konfigurera tröskelvärden för aviseringar 
 
-1. Välj din nyckelvalvresurs i Azure-portalen och välj **Aviseringar** under **Övervakning**
+1. Välj din Key Vault-resurs i Azure Portal och välj **aviseringar** under **övervakning**
 
 > [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-10.png)
+> ![Skärm bild av Azure Portal](../media/alert-10.png)
 
-2. Välj **ny varningsregel**
+2. Välj **ny aviserings regel**
 
 > [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-11.png)
+> ![Skärm bild av Azure Portal](../media/alert-11.png)
 
-3. Välj omfattningen av varningsregeln. Du kan välja ett enda valv eller flera. 
+3. Välj omfattningen för aviserings regeln. Du kan välja ett enda valv eller flera. 
 
 > [!IMPORTANT]
-> Observera att när du väljer flera valv för omfattningen av dina aviseringar måste alla valda valv finnas i samma region. Du måste konfigurera separata varningsregler för valv i olika regioner. 
+> Observera att alla valda valv måste finnas i samma region när du väljer flera valv för aviseringens omfattning. Du måste konfigurera separata varnings regler för valv i olika regioner. 
 
 > [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-12.png)
+> ![Skärm bild av Azure Portal](../media/alert-12.png)
 
-4. Välj villkoren för dina aviseringar. Du kan välja någon av följande signaler och definiera din logik för aviseringar. Key Vault-teamet rekommenderar att du konfigurerar följande tröskelvärden för aviseringar. 
+4. Välj villkor för dina aviseringar. Du kan välja någon av följande signaler och definiera din logik för aviseringar. Key Vaults teamet rekommenderar att du konfigurerar följande tröskelvärden för aviseringar. 
 
-    + Tillgängligheten för nyckelvalv sjunker under 100 % (statiskt tröskelvärde)
-    + Svarstiden för nyckelvalv är större än 500 ms (statiskt tröskelvärde) 
-    + Total valvmättnad är större än 75 % (statiskt tröskelvärde) 
-    + Total valvsmättnad överstiger medelvärdet (dynamiskt tröskelvärde)
-    + Totalt antal felkoder som är högre än genomsnittet (dynamiskt tröskelvärde) 
+    + Key Vault tillgänglighet sjunker under 100% (statisk tröskel)
+    + Key Vault svars tiden är större än 500ms (statiskt tröskelvärde) 
+    + Den övergripande överbeläggningen för valvet är större än 75% (statisk tröskel) 
+    + Den övergripande överbeläggningen för valvet överskrider genomsnittet (dynamiskt tröskelvärde)
+    + Totalt antal felkoder som är större än genomsnittet (dynamiskt tröskelvärde) 
 
 > [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-13.png)
+> ![Skärm bild av Azure Portal](../media/alert-13.png)
 
-### <a name="example-1-configuring-a-static-alert-threshold-for-latency"></a>Exempel 1: Konfigurera ett statiskt tröskelvärde för svarstid för svarstid
+### <a name="example-1-configuring-a-static-alert-threshold-for-latency"></a>Exempel 1: Konfigurera en statisk aviserings tröskel för svars tid
 
-Välj **Total service-API-svarstid** som signalnamn
+Välj **övergripande service API-latens** som signal namn
 > [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-14.png)
+> ![Skärm bild av Azure Portal](../media/alert-14.png)
 
-Se följande konfigurationsparametrar.
+Se följande konfigurations parametrar.
 
-+ Ange tröskelvärdet till **statisk** 
-+ Ställ in operatören **på Större än**
-+ Ange aggregeringstypen till **Medelvärde**
++ Ange tröskelvärdet som **statiskt** 
++ Ange att operatorn ska vara **större än**
++ Ange agg regerings typ till **genomsnitt**
 + Ange tröskelvärdet till **500**
-+ Ange aggregeringsperiod till **5 minuter**
-+ Ställ in utvärderingsfrekvensen på **1 minut**
-+ Välj **Klar**  
++ Ställ in agg regerings period på **5 minuter**
++ Ange utvärderings frekvensen till **1 minut**
++ Välj **färdig**  
 
 > [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-15.png)
+> ![Skärm bild av Azure Portal](../media/alert-15.png)
 
-### <a name="example-2-configuring-a-dynamic-alert-threshold-for-vault-saturation"></a>Exempel 2: Konfigurera ett dynamiskt tröskelvärde för valvmättnad 
+### <a name="example-2-configuring-a-dynamic-alert-threshold-for-vault-saturation"></a>Exempel 2: Konfigurera ett tröskelvärde för dynamisk avisering för valvets mättnad 
 
-När du använder en dynamisk avisering kan du se historiska data för nyckelvalvet som du har valt. Det blå området representerar den genomsnittliga användningen av ditt nyckelvalv. Det röda området visar toppar som skulle ha utlöst en avisering förutsatt att andra villkor i aviseringskonfigurationen är uppfyllda. De röda punkterna visar förekomster av överträdelser där kriterierna för aviseringen uppfylldes under det aggregerade tidsfönstret. Du kan ställa in en avisering för brand efter ett visst antal överträdelser inom en viss tid. Om du inte vill inkludera tidigare data finns det ett alternativ för att utesluta gamla data nedan i avancerade inställningar. 
+När du använder en dynamisk avisering kommer du att kunna se historiska data för det nyckel valv som du har valt. Det blå utrymmet representerar den genomsnittliga användningen av ditt nyckel valv. Det röda fältet visar toppar som skulle ha utlöst en avisering om att andra kriterier i aviserings konfigurationen är uppfyllda. De röda punkterna visar instanser av överträdelser där villkoren för aviseringen uppfylldes under den sammanställda tids perioden. Du kan ställa in en avisering för brand efter ett visst antal överträdelser inom en angiven tid. Om du inte vill inkludera tidigare data kan du välja att undanta gamla data nedan i avancerade inställningar. 
 
 > [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-16.png)
+> ![Skärm bild av Azure Portal](../media/alert-16.png)
 
-Se följande konfigurationsparametrar.
+Se följande konfigurations parametrar.
 
 + Ange tröskelvärdet till **dynamisk** 
-+ Ställ in operatören **på Större än**
-+ Ange aggregeringstypen till **Medelvärde**
-+ Ange tröskelkänsligheten till **medium**
-+ Ange aggregeringsperiod till **5 minuter**
-+ Ställ in utvärderingsfrekvensen på **1 minut**
++ Ange att operatorn ska vara **större än**
++ Ange agg regerings typ till **genomsnitt**
++ Ange tröskelvärdet känslighet för **medel**
++ Ställ in agg regerings period på **5 minuter**
++ Ange utvärderings frekvensen till **1 minut**
 + **Valfritt** Konfigurera avancerade inställningar 
-+ Välj **Klar**
++ Välj **färdig**
 
 > [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-17.png)
+> ![Skärm bild av Azure Portal](../media/alert-17.png)
 
-5. Lägga till den åtgärdsgrupp som du har konfigurerat
-
-> [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-18.png)
-
-6. Aktivera aviseringen och tilldela en allvarlighetsgrad
+5. Lägg till den åtgärds grupp som du har konfigurerat
 
 > [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-19.png)
+> ![Skärm bild av Azure Portal](../media/alert-18.png)
+
+6. Aktivera aviseringen och tilldela en allvarlighets grad
+
+> [!div class="mx-imgBorder"]
+> ![Skärm bild av Azure Portal](../media/alert-19.png)
 
 7. Skapa aviseringen 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Grattis, du har nu skapat en övervakningsinstrumentpanel och konfigurerat aviseringar för ditt nyckelvalv! När du har följt alla steg ovan bör du få e-postaviseringar när nyckelvalvet uppfyller de varningsvillkor som du har konfigurerat. Ett exempel på detta visas nedan. Använd de verktyg som du har ställt in i den här artikeln för att aktivt övervaka hälsotillståndet för nyckelvalvet. 
+Grattis, nu har du skapat en övervaknings instrument panel och konfigurerat aviseringar för nyckel valvet! När du har följt alla steg ovan bör du få e-postaviseringar när nyckel valvet uppfyller de aviserings villkor som du har konfigurerat. Ett exempel på detta visas nedan. Använd de verktyg som du har skapat i den här artikeln för att aktivt övervaka hälso tillståndet för ditt nyckel valv. 
 
 ### <a name="example-email-alert"></a>Exempel på e-postavisering 
 
 > [!div class="mx-imgBorder"]
-> ![Skärmbild av Azure-portalen](../media/alert-20.png)
+> ![Skärm bild av Azure Portal](../media/alert-20.png)

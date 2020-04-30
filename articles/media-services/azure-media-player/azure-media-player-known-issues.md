@@ -1,5 +1,5 @@
 ---
-title: Kända problem med Azure Media Player
+title: Azure Media Player kända problem
 description: Den aktuella versionen har följande kända problem.
 author: IngridAtMicrosoft
 ms.author: inhenkel
@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: ff8dc58b9122e5173a9a6065e2efdbc5697be0d7
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81727221"
 ---
 # <a name="known-issues"></a>Kända problem #
@@ -19,96 +19,96 @@ Den aktuella versionen har följande kända problem:
 
 ## <a name="azure-media-player"></a>Azure Media Player ##
 
-- Felaktigt konfigurerade kodare kan orsaka problem med uppspelning
-- Strömmar med tidsstämplar som är större än 2^53 kan ha uppspelningsproblem.
-  - Begränsning: Använd 90 kHz-video och 44,1 kHz ljudtidsskalor
-- Inget spela automatiskt på mobila enheter utan användarinteraktion. Den är blockerad av plattformen.
-- Om du söker nära avbrott kan det leda till att uppspelningen misslyckas.
-- Hämtning av stora presentationer kan leda till att användargränssnittet låss.
-- Det går inte att automatiskt spela upp samma källa igen efter att presentationen avslutats.
-  - För att spela upp en källa igen, måste den ställa in källan igen.
+- Felaktigt konfigurerade kodare kan orsaka problem med uppspelningen
+- Strömmar med tidsstämplar som är större än 2 ^ 53 kan ha uppspelnings problem.
+  - Minskning: Använd 90-kHz video-och 44,1-kHz-ljudskala
+- Ingen automatisk uppspelning på mobila enheter utan användar interaktion. Den blockeras av plattformen.
+- Att söka nära discontinuities kan orsaka uppspelnings fel.
+- Hämtning av stora presentationer kan leda till att användar gränssnittet låser sig.
+- Det går inte att automatiskt spela upp samma källa igen när presentationen har slutförts.
+  - Om du vill spela upp en källa igen efter att den har avslut ATS, måste du ange källan igen.
 - Tomma manifest kan orsaka problem med spelaren.
-  - Det här problemet kan uppstå när du startar en livestream och inte tillräckligt många bitar finns i manifestet.
-- Uppspelningsposition kanske utanför UI seekbar.
-- Händelsebeställning är inte konsekvent för alla tekniker.
-- Buffrad egenskap är inte konsekvent mellan tekniker.
-- nativeControlsForTouch måste vara falskt (standard) för att undvika "Objektet stöder inte egenskap eller metod 'setControls'"
-- Affischer måste nu vara absoluta webbadresser
-- Mindre estetiska problem kan uppstå i användargränssnittet när du använder enhetens högkontrastläge
-- Webbadresser som innehåller "%" eller "+" i den helt avkodade strängen kan ha problem med att ange källan
+  - Det här problemet kan uppstå när du startar en Live-ström och inte tillräckligt många segment finns i manifestet.
+- Uppspelnings position är kanske utanför UI-SeekBar.
+- Händelse ordningen är inte konsekvent i alla tech.
+- Den buffrade egenskapen är inte konsekvent i Techs.
+- nativeControlsForTouch måste vara false (standard) för att undvika att objektet inte stöder egenskapen eller metoden setControls
+- Affischer måste nu vara absoluta URL: er
+- Mindre stötande problem kan uppstå i användar gränssnittet när enheten använder hög kontrast läge
+- URL: er som innehåller "%" eller "+" i den fullständigt avkodade strängen kan ha problem med att ställa in källan
 
-## <a name="ad-insertion"></a>Insättning av annons ##
+## <a name="ad-insertion"></a>AD-infogning ##
 
-- Annonser kan ha problem som infogas (på begäran eller live) när en annonsblockerare installeras i webbläsaren
+- Annonser kan ha problem som infogas (vid behov eller Live) när en Ad-Blocker installeras i webbläsaren
 - Mobila enheter kan ha problem med att spela upp annonser.
 
 ## <a name="azurehtml5js"></a>AzureHtml5JS ##
 
-- I DVR-fönstret med liveinnehåll fortsätter tidslinjen att växa tills du söker till området eller når slutet av presentationen.
-- Live presentationer i Firefox med MSE aktiverat har vissa problem
-- Tillgångar som bara är ljud eller video spelas inte upp via AzureHtml5JS-tekniken.
-  - Om du vill spela upp resurser utan ljud eller video kan du göra det genom att infoga tomt ljud eller video med [verktyget Azure Media Services Explorer](https://aka.ms/amse)
-    - Instruktioner om hur du sätter in tyst ljud finns [här](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
+- När innehållet är klart i DVR-fönstret i Live-innehåll fortsätter tids linjen att växa tills den söker efter det eller når slutet av presentationen.
+- Live-presentationer i Firefox med MSE aktiverat har problem
+- Till gångar som endast är ljud eller video spelas inte tillbaka via AzureHtml5JS-Tech.
+  - Om du vill spela upp till gångar utan ljud eller video kan du göra det genom att infoga tom ljud eller video med hjälp av [verktyget Azure Media Services Explorer](https://aka.ms/amse)
+    - Anvisningar om hur du infogar tyst ljud finns [här](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
 
-## <a name="flash"></a>Flash ##
+## <a name="flash"></a>Utvecklingsverktyget ##
 
-- AES-innehåll spelas inte upp i Flash version 30.0.0.134 på grund av en bugg i Adobes cachelagringslogik. Adobe har åtgärdat problemet och släppt den i 30.0.0.154
-- Tech och http-fel (till exempel 404 nätverkstidsutskrifter) tar det längre tid för spelaren att återställa än andra tekniker.
-- Klicka på videoområde med flashSS tech kommer inte att spela / pausa spelaren.
-- Om användaren har Flash installerat men inte ger tillstånd att ladda den på webbplatsen, kan oändlig spinning uppstå. Detta beror på att spelaren tror att plugin är installerat och tillgängligt och det tror att plugin kör innehållet. JavaScript-kod har skickats men webbläsarinställningarna har blockerat insticksprogrammet från att köra tills användaren accepterar uppmaningen att tillåta plugin. Detta kan inträffa i alla webbläsare.  
+- AES-innehåll spelas inte upp i Flash version 30.0.0.134 på grund av ett fel i Adobes caching-logik. Adobe har åtgärdat problemet och släppt det i 30.0.0.154
+- Tekniska och HTTP-fel (t. ex. 404 nätverks-timeout) tar spelaren längre tid att återställa än andra tekniker.
+- Klicka på video områden med blixt Tech spelar inte upp/pausa spelaren.
+- Om användaren har installerat Flash men inte har behörighet att läsa in den på webbplatsen kan oändlig spinning ske. Detta beror på att Windows Media Player ser till att plugin-programmet är installerat och tillgängligt och att plugin-programmet håller på att köra innehållet. JavaScript-kod har skickats men webb läsar inställningarna har blockerat plugin-programmet från att köras tills användaren har accepterat meddelandet för att tillåta plugin-programmet. Detta kan inträffa i alla webbläsare.  
 
 ## <a name="silverlight"></a>Silverlight ##
 
 - Funktioner som saknas
-- Tech och http-fel (till exempel 404 nätverkstidsutskrifter) tar det längre tid för spelaren att återställa än andra tekniker.
-- Safari och Firefox på Mac-uppspelning med `"http://` `https://` Silverlight kräver att uttryckligen definiera eller för källan.
-- Om ett API saknas för den här tekniken returneras null.
-- Om användaren har Flash installerat men inte ger tillstånd att ladda den på webbplatsen, kan oändlig spinning uppstå. Detta beror på att spelaren tror att plugin är installerat och tillgängligt och det tror att plugin kör innehållet. JavaScript-kod har skickats men webbläsarinställningarna har blockerat insticksprogrammet från att köra tills användaren accepterar uppmaningen att tillåta plugin. Detta kan inträffa i alla webbläsare.  
+- Tekniska och HTTP-fel (t. ex. 404 nätverks-timeout) tar spelaren längre tid att återställa än andra tekniker.
+- Safari och Firefox på Mac-uppspelning med Silverlight måste uttryckligen `"http://` definiera `https://` eller för källan.
+- Om ett API saknas för den här Tech, returnerar det vanligt vis null.
+- Om användaren har installerat Flash men inte har behörighet att läsa in den på webbplatsen kan oändlig spinning ske. Detta beror på att Windows Media Player ser till att plugin-programmet är installerat och tillgängligt och att plugin-programmet håller på att köra innehållet. JavaScript-kod har skickats men webb läsar inställningarna har blockerat plugin-programmet från att köras tills användaren har accepterat meddelandet för att tillåta plugin-programmet. Detta kan inträffa i alla webbläsare.  
 
 ## <a name="native-html5"></a>Inbyggd HTML5 ##
 
-- Html5 tech är bara att skicka canplaythrough händelse för första uppsättning källa.
-- Denna teknik stöder bara vad webbläsaren har genomfört.  Vissa funktioner kan saknas i den här tekniken.  
-- Om ett API saknas för den här tekniken returneras null.
-- Det finns problem med bildtexter och undertexter på denna teknik. De kanske eller kanske inte är tillgängliga eller kan visas på denna teknik.
-- Med begränsad bandbredd i HLS/ Html5 tech scenario resulterar i ljuduppspelning utan video.
+- HTML5-Tech skickar endast canplaythrough-händelse för första uppsättnings källan.
+- Den här Tech-tekniken stöder bara vad webbläsaren har implementerat.  Vissa funktioner kan saknas i den här Tech-tekniken.  
+- Om ett API saknas för den här Tech, returnerar det vanligt vis null.
+- Det finns problem med under texter och under texter på den här Tech-tekniken. De kanske inte är tillgängliga eller kan visas på den här Tech-tekniken.
+- Att ha begränsad bandbredd i HLS/HTML5-Tech-scenariot resulterar i ljud uppspelning utan video.
 
 ### <a name="microsoft"></a>Microsoft ###
 
-- IE8-uppspelning fungerar för närvarande inte på grund av inkompatibilitet med ECMAScript 5
-- I IE och vissa versioner av Edge kan helskärm inte anges genom att tabb till knappen och välja den eller använda F/f-snabbnyckeln.
+- IE8-uppspelning fungerar inte för närvarande på grund av inkompatibilitet med ECMAScript 5
+- I IE och vissa versioner av Edge kan du inte ange hel skärms läge genom att Tabba till knappen och välja den eller använda F/f-kortkommandot.
 
 ## <a name="google"></a>Google ##
 
-- Flera kodningsprofiler i samma manifest har vissa uppspelningsproblem i Chrome och rekommenderas inte.
-- Chrome kan inte spela upp HE-AAC med AzureHtml5JS. Följ information om [felspåraren](https://bugs.chromium.org/p/chromium/issues/detail?id=534301).
-- Från och med Chrome v58 måste widevine-innehåll laddas/spelas upp via https://-protokollet annars misslyckas uppspelningen.
+- Flera kodnings profiler i samma manifest har vissa uppspelnings problem i Chrome och rekommenderas inte.
+- Chrome kan inte spela upp HE-AAC med AzureHtml5JS. Följ informationen i [fel spåraren](https://bugs.chromium.org/p/chromium/issues/detail?id=534301).
+- Från och med Chrome V58, måste Widevine-innehåll läsas in/spelas upp via https://-protokollet annars kommer uppspelningen att Miss Miss läge.
 
 ## <a name="mozilla"></a>Mozilla ##
 
-- Ljudströmsväxeln kräver att ljudströmmar har samma codec-privata data när du använder AzureHtml5JS. Firefox-plattformen kräver detta.
+- Ljud Ströms växeln kräver att ljud strömmar har samma codec-privata data när du använder AzureHtml5JS. Firefox-plattformen kräver detta.
 
 ## <a name="apple"></a>Apple ##
 
-- Safari på Mac möjliggör ofta Energisparläge som standard med inställningen "Stop plug-ins to save power", som blockerar plugins som Flash och Silverlight när de tror att det inte är för användaren. Detta block blockerar inte plugin's existent, bara funktioner. Med tanke på standardteknikenOrder kan detta orsaka problem när du försöker spela upp
-  - Begränsning 1: Om videospelaren är "fram- och mitten" (inom en gräns på 3 000 x 3 000 pixlar som börjar i det övre vänstra hörnet av dokumentet), bör den fortfarande spelas upp.
-  - Begränsning 2: Ändra techOrder för Safari vara ["azureHtml5JS", "html5"]. Den här begränsningen har en konsekvens av att inte få alla funktioner som är tillgängliga i FlashSS-tekniken.
-- PlayReady-innehåll via Silverlight kan ha problem med att spela upp i Safari.
-- AES och begränsat tokeninnehåll spelas inte upp med iOS och äldre Android-enheter.
-  - För att uppnå det här scenariot måste en proxy läggas till i din tjänst.
-- Standardskal för iOS Phone visas igenom.
-- iPhone-uppspelning sker alltid i den inbyggda spelarens helskärm.
-  - Funktioner, inklusive bildtexter, kanske inte finns kvar i den här icke-infogade uppspelningen.
-- När livepresentationen avslutas kommer iOS-enheter inte att avsluta presentationen korrekt.
+- Safari på Mac aktiverar ofta energi spar läge som standard med inställningen "stoppa plugin-program för att spara energi", vilket blockerar plugin-program som Flash och Silverlight när de tror att de inte prioriteras för användaren. Det här blocket blockerar inte plugin-programmets befintliga funktioner. Med den här standard techOrder kan detta orsaka problem vid försök att spela upp igen
+  - Minskning 1: om Videos pelaren är "framtill" eller "centrera" (inom en ram på 3000 x 3000 pixlar som börjar i det övre vänstra hörnet av dokumentet) ska det fortfarande spelas upp.
+  - Minskning 2: ändra techOrder för Safari till ["azureHtml5JS", "HTML5"]. Den här lösningen har indirekt inte alla funktioner som är tillgängliga i Flash-Tech.
+- PlayReady-innehåll via Silverlight kan ha problem som spelas upp i Safari.
+- Innehåll för AES och begränsad token spelas inte upp med iOS och äldre Android-enheter.
+  - För att uppnå det här scenariot måste du lägga till en proxy i din tjänst.
+- Standard Skin för iOS-telefon visas genom.
+- iPhone-uppspelning sker alltid i den inbyggda skärm spelaren.
+  - Funktioner, inklusive under texter, får inte finnas kvar i den här icke-inline-uppspelningen.
+- När Live-presentationen upphör kommer iOS-enheter inte att sluta fungera korrekt.
 - iOS tillåter inte DVR-funktioner.
-- iOS audio stream switch kan bara göras om iOS native player UI och kräver ljudströmmar för att ha samma codec privata data
-- Äldre versioner av Safari kan eventuellt ha problem med att spela upp livestreamar.
+- Det går bara att göra en ljud Ströms växling för iOS, även om gränssnittet för iOSs inbyggda spelare och kräver att ljud strömmar har samma codec-privata data
+- Äldre versioner av Safari kan eventuellt innehålla problem som spelas upp direkt strömmar.
 
 ## <a name="older-android"></a>Äldre Android ##
 
-- AES och begränsat tokeninnehåll spelas inte upp med iOS och äldre Android-enheter.
-  - För att uppnå det här scenariot måste en proxy läggas till i din tjänst.
+- Innehåll för AES och begränsad token spelas inte upp med iOS och äldre Android-enheter.
+  - För att uppnå det här scenariot måste du lägga till en proxy i din tjänst.
 
 ## <a name="next-steps"></a>Nästa steg ##
 
-- [Snabbstart för Azure Media Player](azure-media-player-quickstart.md)
+- [Azure Media Player snabb start](azure-media-player-quickstart.md)

@@ -1,42 +1,42 @@
 ---
-title: Fullständiga inställningar för Azure Media Player
-description: Läs om hur du konfigurerar Azure Media Player.
+title: Azure Media Player fullständig installation
+description: Lär dig hur du konfigurerar Azure Media Player.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.openlocfilehash: d4c2dc58ca341db7ba17dbaf6a5ce7c009983379
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81727247"
 ---
-# <a name="azure-media-player-full-setup"></a>Full installation av Azure Media Player #
+# <a name="azure-media-player-full-setup"></a>Fullständig installation av Azure Media Player #
 
-Azure Media Player är enkelt att konfigurera. Det tar bara en liten stund att få grundläggande uppspelning av medieinnehåll direkt från ditt Azure Media Services-konto. [Prover](https://github.com/Azure-Samples/azure-media-player-samples) finns också i exempelkatalogen för frisläppandet.
+Azure Media Player är enkelt att konfigurera. Det tar bara en liten stund att få en grundläggande uppspelning av medie innehåll direkt från ditt Azure Media Services-konto. [Exempel](https://github.com/Azure-Samples/azure-media-player-samples) finns också i katalogen samples i versionen.
 
 
-## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Steg 1: Inkludera JavaScript- och CSS-filerna i sidhuvudet ##
+## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Steg 1: inkludera JavaScript-och CSS-filerna i sidhuvudet på din sida ##
 
-Med Azure Media Player kan du komma åt skripten från CDN-värdversionen. Det rekommenderas ofta nu att sätta JavaScript `<body>` före slutet `<head>`kroppen taggen i stället för , men Azure Media Player innehåller en "HTML5 Shiv", som måste vara i huvudet för äldre IE-versioner att respektera videotaggen som ett giltigt element.
+Med Azure Media Player kan du komma åt skripten från den värdbaserade CDN-versionen. Vi rekommenderar ofta att du lägger till java script före taggen `<body>` end Body i stället för `<head>`, men Azure Media Player innehåller en HTML5-Shiv, som måste finnas i huvudet för äldre IE-versioner för att det ska gå att följa video tag gen som ett giltigt element.
 
 > [!NOTE]
-> Om du redan använder en HTML5-shiv som [Modernizr](http://modernizr.com/) kan du inkludera JavaScript för Azure Media Player var som helst. Men se till att din version av Modernizr innehåller kniv för video.
+> Om du redan använder en HTML5-Shiv som [Modernizr](http://modernizr.com/) kan du ta med Azure Media Player Java Script var som helst. Se dock till att din version av Modernizr innehåller Shiv för video.
 
 ### <a name="cdn-version"></a>CDN-version ###
     <link href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
     <script src= "//amp.azure.net/libs/amp/latest/azuremediaplayer.min.js"></script>
 
 > [!IMPORTANT]
-> Du **NOT** bör INTE `latest` använda den version i produktion, eftersom detta kan ändras på begäran. Ersätt `latest` med en version av Azure Media Player. Ersätt till `latest` exempel `2.1.1`med . Azure Media Player-versioner kan efterfrågas [härifrån](azure-media-player-changelog.md).
+> Du bör **inte** använda `latest` versionen i produktion eftersom det kan komma att ändras på begäran. Ersätt `latest` med en version av Azure Media Player. Ersätt `latest` till exempel med `2.1.1`. Azure Media Player versioner kan frågas [härifrån.](azure-media-player-changelog.md)
 
 > [!NOTE]
-> Eftersom `1.2.0` versionen är det inte längre nödvändigt att inkludera platsen till reservteknikerna (den hämtar automatiskt platsen från den relativa sökvägen till azuremediaplayer.min.js-filen). Du kan ändra platsen för reservtekniker genom att `<head>` lägga till följande skript i skriptet efter ovanstående.
+> Sedan `1.2.0` versionen är inte längre nödvändig för att inkludera platsen för reserv teknikerna (den hämtar automatiskt platsen från den relativa sökvägen för azuremediaplayer. min. js-filen). Du kan ändra platsen för reserv teknikerna genom att lägga till följande skript i `<head>` efter ovanstående skript.
 
 > [!NOTE]
-> På grund av den typ av Flash och Silverlight plugins, swf och xap filer bör vara värd på en domän utan känslig information eller data - detta automatiskt tas hand om för dig med Azure CDN värdversion.
+> På grund av typen av plugin-program och Silverlight-plugin-program bör SWF-och XAP-filerna finnas på en domän utan känslig information eller data – detta tar automatiskt hand om dig med den Azure CDN värdbaserade versionen.
 
 ```javascript
     <script>
@@ -45,21 +45,21 @@ Med Azure Media Player kan du komma åt skripten från CDN-värdversionen. Det r
     </script>
 ```
 
-## <a name="step-2-add-an-html5-video-tag-to-your-page"></a>Steg 2: Lägga till en HTML5-videotagg på sidan ##
+## <a name="step-2-add-an-html5-video-tag-to-your-page"></a>Steg 2: Lägg till en HTML5-video-tagg på sidan ##
 
-Med Azure Media Player kan du använda en HTML5-videotagg för att bädda in en video. Azure Media Player kommer sedan att läsa taggen och få den att fungera i alla webbläsare, inte bara de som stöder HTML5-video. Utöver den grundläggande markeringen behöver Azure Media Player några extra bitar.
+Med Azure Media Player kan du använda en HTML5-video tag för att bädda in en video. Azure Media Player kommer sedan att läsa taggen och göra den fungerar i alla webbläsare, inte bara för de som stöder HTML5-video. Utöver Basic-koden behöver Azure Media Player några extra delar.
 
-1. Attributet `<data-setup>` på `<video>` talar om för Azure Media Player att automatiskt ställa in videon när sidan är klar och läsa alla (i JSON-format) från attributet.
-1. Attributet: `id` Ska användas och unikt för varje video på samma sida.
-1. Attributet `class` innehåller två klasser:
-    - `azuremediaplayer`tillämpar format som krävs för Azure Media Player-gränssnittsfunktioner
-    - `amp-default-skin`använder standardskalet på HTML5-kontrollerna
-1. Den `<source>` innehåller två obligatoriska attribut
-    - `src`attribut kan innehålla en **.ism/manifestfil* från Azure Media Services läggs till, Azure Media Player lägger automatiskt till url:erna för DASH, SMOOTH och HLS i spelaren
-    - `type`är den nödvändiga MIME-typen av dataströmmen. MIME-typen som associeras med *".ism/manifest"* är *"application/vnd.ms-sstr+xml"*
-1. Det *valfria attributet* `<data-setup>` på `<source>` talar om för Azure Media Player om det finns några unika leveransprinciper för strömmen från Azure Media Services, inklusive, men inte begränsat till, krypteringstyp (AES eller PlayReady, Widevine eller FairPlay) och token.
+1. `<data-setup>` Attributet i `<video>` instruerar Azure Media Player att automatiskt konfigurera videon när sidan är klar och läsa eventuella (i JSON-format) från attributet.
+1. `id` Attributet: ska användas och vara unikt för varje video på samma sida.
+1. `class` Attributet innehåller två klasser:
+    - `azuremediaplayer`använder format som krävs för Azure Media Player UI-funktioner
+    - `amp-default-skin`tillämpar standard skalet på HTML5-kontrollerna
+1. `<source>` Innehåller två obligatoriska attribut
+    - `src`attribut kan innehålla en **. ISM/manifest-* fil från Azure Media Services läggs till, Azure Media Player lägger automatiskt till URL: er för streck, mjuk och HLS i spelaren
+    - `type`attribut är den nödvändiga MIME-typen för data strömmen. MIME-typen som är associerad med *". ISM/manifest"* är *"Application/VND. MS-sstr + XML"*
+1. Det *valfria* `<data-setup>` attributet på `<source>` visar Azure Media Player om det finns några unika leverans principer för strömmen från Azure Media Services, inklusive, men inte begränsat till, krypterings typ (AES eller PlayReady, Widevine eller Fairplay) och token.
 
-Inkludera/exkludera attribut, inställningar, källor och spår precis som för HTML5-video.
+Inkludera/exkludera attribut, inställningar, källor och spår exakt som för HTML5-video.
 
 ```html
     <video id="vid1" class="azuremediaplayer amp-default-skin" autoplay controls width="640" height="400" poster="poster.jpg" data-setup='{"techOrder": ["azureHtml5JS", "flashSS", "html5FairPlayHLS","silverlightSS", "html5"], "nativeControlsForTouch": false}'>
@@ -70,11 +70,11 @@ Inkludera/exkludera attribut, inställningar, källor och spår precis som för 
     </video>
 ```
 
-Som standard finns den stora uppspelningsknappen i det övre vänstra hörnet så att den inte täcker upp de intressanta delarna av affischen. Om du föredrar att centrera den stora uppspelningsknappen kan du lägga till ytterligare ett `amp-big-play-centered` `class` element. `<video>`
+Som standard är den stora uppspelnings knappen i det övre vänstra hörnet så att den inte tar upp några intressanta delar av affischen. Om du föredrar att centrera den stora uppspelnings knappen kan du lägga till ytterligare `amp-big-play-centered` `class` en till ditt `<video>` -element.
 
-### <a name="alternative-setup-for-dynamically-loaded-html"></a>Alternativ installation för dynamiskt inläst HTML ###
+### <a name="alternative-setup-for-dynamically-loaded-html"></a>Alternativ inställning för dynamiskt inläst HTML ###
 
-Om din webbsida eller ditt program läser in videotaggen dynamiskt (ajax, adddChild, etc.), så att den inte kan finnas när sidan läses in, vill du manuellt ställa in spelaren istället för att förlita sig på attributet data-setup. För att göra detta, först ta bort data-setup attributet från taggen så det finns ingen förvirring runt när spelaren initieras. Kör sedan följande JavaScript en tid efter att Javascript för Azure Media Player har lästs in och efter att videotaggen har lästs in i DOM.
+Om din webb sida eller ditt program läser in video tag gen dynamiskt (Ajax, appendChild osv.), så att den kanske inte finns när sidan läses in, vill du konfigurera spelaren manuellt i stället för att förlita dig på attributet data-setup. För att göra detta måste du först ta bort attributet data-setup från taggen, så att det inte finns någon förvirring kring när spelaren initieras. Kör sedan följande Java Script lite tid efter att Azure Media Player Java Script har lästs in och när video tag gen har lästs in i DOM.
 
 ```javascript
     var myPlayer = amp('vid1', { /* Options */
@@ -99,11 +99,11 @@ Om din webbsida eller ditt program läser in videotaggen dynamiskt (ajax, adddCh
     }]);
 ```
 
-Det första argumentet `amp` i funktionen är ID:t för videotaggen. Byt ut den mot din egen.
+Det första argumentet i `amp` funktionen är ID: t för video tag gen. Ersätt det med ditt eget.
 
-Det andra argumentet är ett alternativobjekt. Det låter dig ange ytterligare alternativ som du kan med attributet datainställningar.
+Det andra argumentet är ett alternativ-objekt. Det gör att du kan ange ytterligare alternativ som du kan med attributet data konfiguration.
 
-Det tredje argumentet är en "klar" motringning. När Azure Media Player har initierats anropas den här funktionen. I det färdiga motringningsobjektet refererar "detta" till spelarförekomsten.
+Det tredje argumentet är en Ready-motringning. När Azure Media Player har initierats anropas den här funktionen. I det redo motringning refererar objektet till Player-instansen.
 
 I stället för att använda ett element-ID kan du också skicka en referens till själva elementet.
 
@@ -117,4 +117,4 @@ I stället för att använda ett element-ID kan du också skicka en referens til
 
 ## <a name="next-steps"></a>Nästa steg ##
 
-- [Snabbstart för Azure Media Player](azure-media-player-quickstart.md)
+- [Azure Media Player snabb start](azure-media-player-quickstart.md)

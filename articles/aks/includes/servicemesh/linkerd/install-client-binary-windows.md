@@ -4,15 +4,15 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 1a023475de1ce2891916807632d9ee15e382326c
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81736812"
 ---
-## <a name="download-and-install-the-linkerd-linkerd-client-binary"></a>Ladda ner och installera Linkerd linkerd-klienten binär
+## <a name="download-and-install-the-linkerd-linkerd-client-binary"></a>Hämta och installera Linkerd Linkerd-klientens binärfil
 
-I ett PowerShell-baserat skal `Invoke-WebRequest` på Windows kan du använda för att hämta Linkerd-versionen enligt följande:
+I ett PowerShell-baserat gränssnitt i Windows använder `Invoke-WebRequest` du för att ladda ned Linkerd-versionen på följande sätt:
 
 ```powershell
 # Specify the Linkerd version that will be leveraged throughout these instructions
@@ -23,7 +23,7 @@ $LINKERD_VERSION="stable-2.6.0"
 $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/linkerd/linkerd2/releases/download/$LINKERD_VERSION/linkerd2-cli-$LINKERD_VERSION-windows.exe" -OutFile "linkerd2-cli-$LINKERD_VERSION-windows.exe"
 ```
 
-Klientbinären `linkerd` körs på klientmaskinen och låter dig interagera med Linkerd-tjänstnätet. Använd följande kommandon för att installera `linkerd` Linkerd-klientens binära i ett PowerShell-baserat skal i Windows. Dessa kommandon kopierar klientbinären `linkerd` till en Linkerd-mapp och gör den sedan tillgänglig både omedelbart `PATH`(i aktuellt skal) och permanent (över omstarter skalet) via din . Du behöver inte förhöjda (Admin) privilegier för att köra dessa kommandon och du behöver inte starta om skalet.
+`linkerd` Klientens binärfil körs på klient datorn och gör att du kan interagera med Linkerd-tjänstens nät. Använd följande kommandon för att installera Linkerd `linkerd` -klientens binärfil i ett PowerShell-baserat gränssnitt i Windows. Dessa kommandon kopierar `linkerd` klientens binärfil till en Linkerd-mapp och gör den tillgänglig både direkt (i aktuellt gränssnitt) och permanent (mellan omstarter av gränssnittet) via `PATH`. Du behöver inte utökade privilegier (admin) för att köra dessa kommandon och du behöver inte starta om gränssnittet.
 
 ```powershell
 # Copy linkerd.exe to C:\Linkerd

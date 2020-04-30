@@ -1,50 +1,50 @@
 ---
-title: Lokalisering av Azure Media Player
-description: Flera språkstöd för användare av icke-engelska språk.
+title: Azure Media Player lokalisering
+description: Stöd för flera språk för användare av andra språk än engelska.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 34805c4eaae5d969fc2338c24f9f92404e065d15
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81727182"
 ---
 # <a name="localization"></a>Lokalisering #
 
-Stöd för flera språk gör det möjligt för användare av icke-engelska språk att interagera med spelaren. Azure Media Player instansierar med en global ordlista med språk, vilket lokaliserar felmeddelandena baserat på sidspråket. En utvecklare kan också skapa en spelarinstans med ett påtvingat inställt språk. Standardspråket är engelska (sv).
+Stöd för flera språk gör att användare av andra språk än engelska kan interagera med spelaren internt. Azure Media Player instansieras med en global ord lista med språk, vilket kommer att lokalisera fel meddelandena baserat på sid språket. En utvecklare kan också skapa en Player-instans med ett tvingat set-språk. Standard språket är engelska (en).
 
 > [!NOTE]
-> Den här funktionen genomgår fortfarande vissa tester och är därför föremål för buggar.
+> Den här funktionen kommer fortfarande att gå igenom vissa tester och kan vara beroende av buggar.
 
 ```html
     <video id="vid1" class="azuremediaplayer amp-default-skin" data-setup='{"language":"es"}'>...</video>
 ```
 
-Azure Media Player stöder för närvarande följande språk med motsvarande språkkoder:
+Azure Media Player stöder för närvarande följande språk koder:
 
 | Språk            | Kod | Språk                | Kod   | Språk                | Kod         |
 |---------------------|------|-------------------------|--------|-------------------------|--------------|
-| Engelska {standard}   | en   | Kroatiska                | tim     | Rumänska                | Ro           |
-| Arabiska              | Ar   | Ungerska               | Hu     | Slovakiska                  | Sk           |
-| Bulgariska           | Bg   | Indonesiska              | id     | Slovenska                 | Sl           |
-| Katalanska             | ca ( ca )   | Isländska               | är     | Serbiska - kyrilliska      | sr-cyrl-cs   |
-| Tjeckiska               | Cs   | Italienska                 | it     | Serbiska - latin         | sr-latn-rs   |
+| Engelska {standard}   | en   | Kroatiska                | tim     | Rumänska                | ro           |
+| Arabiska              | bakre   | Ungerska               | HU     | Slovakiska                  | sk           |
+| Bulgariska           | Bulgarien   | Indonesiska              | id     | Slovene                 | SL           |
+| Katalanska             | onlinecertifikatutfärdare   | Isländska               | är     | Serbiska-kyrilliska      | sr-cyrl-CS   |
+| Tjeckiska               | östasiatisk   | Italienska                 | it     | Serbiska-Latin         | sr-latn-rs   |
 | Danska              | da   | Japanska                | ja     | Ryska                 | ru           |
-| Tyska              | de   | Kazakiska                  | Kk     | Svenska                 | sv           |
-| Grekiska               | El   | Koreansk                  | Ko     | Thailändska                    | Th           |
-| Spanska             | ES   | Litauiska              | Lt     | Tagalog                 | Tl           |
-| Estniska            | Et   | Lettiska                 | Lv     | Turkiska                 | Tr           |
-| Baskiska              | Eu   | Malaysiska               | Ms     | Ukrainska               | Storbritannien           |
-| Persiska               | Fa   | Norska - BokmÃ¥l     | Nb     | Urdu                    | Din           |
-| Finska             | fi   | Nederländska                   | nl     | Vietnamesiska              | vi           |
-| Franska              | fr   | Norska - Nynorsk     | nn     | Kinesiska - förenklad    | zh-hans (olikartade)      |
-| Galiciska            | Gl   | Polska                  | Pl     | Kinesiska - traditionella   | zh-hant (olika)      |
-| Hebreiska              | Han   | Portugisiska – Brasilien     | pt-br  |                         |              |
-| Hindi               | Hu   | Portugisiska – Portugal   | pt-pt  |                         |              |
+| Tyska              | de   | Kazakiska                  | kk     | Svenska                 | sv           |
+| Grekiska               | El   | Koreansk                  | Ko     | Thailändska                    | i:te           |
+| Spanska             | ES   | Litauiska              | långsiktiga     | Tagalog                 | TL           |
+| Estniska            | ge   | Lettiska                 | LV     | Turkiska                 | TR           |
+| Baskiska              | gemenskaps   | Malaysia               | millisekund     | Ukrainska               | Storbritannien           |
+| Farsi               | bokförda   | Norska-BokmÃ ¥ l     | Anm     | Urdu                    | vilken           |
+| Finska             | fi   | Nederländska                   | nl     | Vietnamesiska              | Vi           |
+| Franska              | fr   | Norska-Nynorsk     | nn     | Kinesiska – Förenklad    | zh-hans      |
+| Galiciska            | huvud   | Polska                  | pl     | Kinesiska (traditionell)   | zh-Hant      |
+| Hebreiska              | producenten   | Portugisiska – Brasilien     | pt-br  |                         |              |
+| Hindi               | HU   | Portugisiska – Portugal   | pt-pt  |                         |              |
 
 
 > [!NOTE]
@@ -52,4 +52,4 @@ Azure Media Player stöder för närvarande följande språk med motsvarande spr
 
 ## <a name="next-steps"></a>Nästa steg ##
 
-- [Snabbstart för Azure Media Player](azure-media-player-quickstart.md)
+- [Azure Media Player snabb start](azure-media-player-quickstart.md)

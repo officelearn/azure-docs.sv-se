@@ -1,70 +1,70 @@
 ---
-title: Funktionslista för Azure Media Player
-description: En funktionsreferens för Azure Media Player.
+title: Azure Media Player funktions lista
+description: En funktions referens för Azure Media Player.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: e5595620a2f888b06ad5b35d2e8a008f23861463
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81727234"
 ---
 # <a name="feature-list"></a>Funktionslista #
-Här är listan över testade funktioner och funktioner som inte stöds:
+Här är en lista över funktioner som har testats och funktioner som inte stöds:
 
-|                                         | Testade | DELVIS TESTAD | Oprövad | Unsupported | ANTECKNINGAR                                                                                                                |
+|                                         | UTFÖR | DELVIS TESTAD | Inte TESTat | SOM inte stöds | ANTECKNINGAR                                                                                                                |
 |:----------------------------------------|--------|------------------|----------|-------------|:---------------------------------------------------------------------------------------------------------------------|
 | Uppspelning                                |        |                  |          |             |                                                                                                                      |
-| Grundläggande uppspelning på begäran                | X      |                  |          |             | Stöder endast strömmar från Azure Media Services                                                                      |
-| Grundläggande liveuppspelning                     | X      |                  |          |             | Stöder endast strömmar från Azure Media Services                                                                      |
+| Grundläggande uppspelning på begäran                | X      |                  |          |             | Stöder strömmar enbart från Azure Media Services                                                                      |
+| Grundläggande direktsänd uppspelning                     | X      |                  |          |             | Stöder strömmar enbart från Azure Media Services                                                                      |
 | AES                                     | X      |                  |          |             | Stöder Azure Media Services Key Delivery Service                                                                   |
 | Multi-DRM                               |        | X                |          |             |                                                                                                                      |
 | PlayReady                               | X      |                  |          |             | Stöder Azure Media Services Key Delivery Service                                                                   |
-| Widevine                                |        | X                |          |             | Stöder Widevine PSSH-rutor som beskrivs i manifest                                                                    |
+| Widevine                                |        | X                |          |             | Stöder Widevine PSSH-rutor som beskrivs i manifestet                                                                    |
 | FairPlay                                |        | X                |          |             | Stöder Azure Media Services Key Delivery Service                                                                   |
-| Techs                                   |        |                  |          |             |                                                                                                                      |
+| Teknik                                   |        |                  |          |             |                                                                                                                      |
 | MSE/EME (AzureHtml5JS)                  | X      |                  |          |             |                                                                                                                      |
-| Flash Reserv (blinkar)                | X      |                  |          |             | Alla funktioner är inte tillgängliga på den här tekniken.                                                                         |
-| Silverlight Reserv SilverlightsS      | X      |                  |          |             | Alla funktioner är inte tillgängliga på den här tekniken.                                                                         |
-| Inbyggt HLS-genomströmning (Html5)         |        | X                |          |             | Alla funktioner är inte tillgängliga på den här tekniken på grund av plattformsbegränsningar.                                            |
+| Återställnings punkt (blixt)                | X      |                  |          |             | Alla funktioner är inte tillgängliga på den här Tech-tekniken.                                                                         |
+| Silverlight-återgångsreglerna      | X      |                  |          |             | Alla funktioner är inte tillgängliga på den här Tech-tekniken.                                                                         |
+| Intern HLS-vidarekoppling (HTML5)         |        | X                |          |             | Alla funktioner är inte tillgängliga på den här Tech-tekniken på grund av plattforms begränsningar.                                            |
 | Funktioner                                |        |                  |          |             |                                                                                                                      |
-| API-stöd                             | X      |                  |          |             | Se listan över kända problem                                                                                                |
-| Grundläggande användargränssnitt                                | X      |                  |          |                                                                                                                                    |
-| Initiering via JavaScript       | X      |                  |          |             |                                                                                                                      |
-| Initiering via videotagg        |        | X                |          |             |                                                                                                                      |
-| Segmentadressering - Tidsbaserad         | X      |                  |          |             |                                                                                                                      |
-| Segmentadressering - Indexbaserad        |        |                  |          | X           |                                                                                                                      |
-| Segmentadressering - Byte Baserat         |        |                  |          | X           |                                                                                                                      |
-| Url-brännare för Azure Media Services       |        | X                |          |             |                                                                                                                      |
-| Tillgänglighet - Bildtexter och undertexter  |        | X                |          |             |  WebVTT stöds för on demand, live CEA 708 delvis testad                                                       |
-| Hjälpmedel - Snabbtangenter                 | X      |                  |          |             |                                                                                                                      |
-| Tillgänglighet - hög kontrast           |        | X                |          |             |                                                                                                                      |
-| Hjälpmedel - Flikfokus               |        | X                |          |             |                                                                                                                      |
-| Felmeddelanden                         |        | X                |          |             | Felmeddelanden är inkonsekventa mellan tekniker                                                                         |
-| Utlösande händelse                        | X      |                  |          |             |                                                                                                                      |
-| Diagnostik                             |        | X                |          |             | Diagnostikinformation är endast tillgänglig på AzureHtml5JS-tekniken och delvis tillgänglig på SilverlightSS-tekniken. |
-| Anpassningsbar teknisk order                 |        | X                |          |             |                                                                                                                      |
-| Heuristik - Grundläggande                      | X      |                  |          |             |                                                                                                                      |
-| Heuristik - Anpassning              |        |                  | X        |             | Anpassning är endast tillgänglig med AzureHtml5JS-tekniken.                                                          |
-| Avbrott                         | X      |                  |          |             |                                                                                                                      |
-| Välj bithastighet                          | X      |                  |          |             | Det här API:et är endast tillgängligt på AzureHtml5JS- och FlashSS-teknikerna.                                                    |
-| Ström med flera ljud                      |        | X                |          |             | Programmatisk ljudväxling stöds på AzureHtml5JS- och FlashSS-teknikerna och är tillgängligt via UI-val på AzureHtml5JS, FlashSS och native Html5 (i Safari).  De flesta plattformar kräver samma codec privata data för att byta ljudströmmar (samma codec, kanal, samplingsfrekvens, etc.). |
-| Lokalisering av användargränssnitt                         |        | X                |          |             |                                                                                                                      |
-| Uppspelning av flera instanser                 |        |                  |          | X           | Det här scenariot kan fungera för vissa tekniker men stöds för närvarande inte och är oprövat. Du kan också få detta att fungera med iframes |
-| Stöd för annonser                             |        | x                |          |             | AMP stöder införandet av linjära annonser före och efter kastet från VAST-kompatibla annonsservrar för VOD i AzureHtml5JS-tekniken |
-| Analytics                               |        | X                |          |             | AMP ger möjlighet att lyssna på analys- och diagnostikhändelser för att skicka till en Analytics-serverning som du väljer.  Alla händelser och egenskaper är inte tillgängliga för tekniker på grund av plattformsbegränsningar.                                                                            |
-| Anpassade skal                            |        |                  | X        |             | Aktivera inställningskontroller till false i AMP och använda din egen HTML och CSS.           |
-| Sök Bar Skrubbning                      |        |                  |          | X           |                                                                                                                      |
-| Trick-Play                              |        |                  |          | X           |                                                                                                                      |
-| Endast ljud                              |        |                  |          | X           | Kan fungera i vissa tekniker för adaptiv streaming men stöds för närvarande inte och fungerar inte i AzureHtml5JS. Progressiv MP3-uppspelning kan fungera med HTML5-tekniken om plattformen stöder den.                                                                                                        |
-| Endast video                              |        |                  |          | X           | Kan fungera i vissa tekniker för adaptiv streaming men stöds för närvarande inte och fungerar inte i AzureHtml5JS.      |
+| API-stöd                             | X      |                  |          |             | Visa lista med kända problem                                                                                                |
+| Grundläggande användar gränssnitt                                | X      |                  |          |                                                                                                                                    |
+| Initiera genom Java Script       | X      |                  |          |             |                                                                                                                      |
+| Initiera genom video tag gen        |        | X                |          |             |                                                                                                                      |
+| Segment adressering-tid baserat         | X      |                  |          |             |                                                                                                                      |
+| Segment adressering-index baserat        |        |                  |          | X           |                                                                                                                      |
+| Segment adressering-byte baserat         |        |                  |          | X           |                                                                                                                      |
+| Azure Media Services URL-Rewriter       |        | X                |          |             |                                                                                                                      |
+| Hjälpmedel – bild texter och under texter  |        | X                |          |             |  WebVTT-stöd för on-demand, Live CEA 708, delvis testat                                                       |
+| Hjälpmedel – snabb tangenter                 | X      |                  |          |             |                                                                                                                      |
+| Hjälpmedel – Högkontrast           |        | X                |          |             |                                                                                                                      |
+| Hjälpmedel – TABB-fokus               |        | X                |          |             |                                                                                                                      |
+| Fel meddelanden                         |        | X                |          |             | Fel meddelanden är inkonsekventa i Techs                                                                         |
+| Händelse utlöst                        | X      |                  |          |             |                                                                                                                      |
+| Diagnostik                             |        | X                |          |             | Diagnostikinformation är bara tillgänglig på AzureHtml5JS-Tech och delvis tillgänglig i Silverlight-Tech. |
+| Anpassningsbar teknisk ordning                 |        | X                |          |             |                                                                                                                      |
+| Heuristik – grundläggande                      | X      |                  |          |             |                                                                                                                      |
+| Heuristik – anpassning              |        |                  | X        |             | Anpassning är endast tillgängligt med AzureHtml5JS-Tech.                                                          |
+| Discontinuities                         | X      |                  |          |             |                                                                                                                      |
+| Välj bit hastighet                          | X      |                  |          |             | Det här API: et är bara tillgängligt i AzureHtml5JS-och Flash-teknikerna.                                                    |
+| Data ström för flera ljud                      |        | X                |          |             | Program mässig ljud växel stöds på AzureHtml5JS-och blixt tekniska teknik och är tillgänglig via val av användar gränssnitt på AzureHtml5JS, blixt och inbyggd HTML5 (i Safari).  De flesta plattformar kräver samma codec-privata data för att växla ljud strömmar (samma codec, kanal, samplings frekvens osv.). |
+| Lokalisering av användar gränssnitt                         |        | X                |          |             |                                                                                                                      |
+| Uppspelning med flera instanser                 |        |                  |          | X           | Det här scenariot kan fungera för vissa tekniker, men det finns för närvarande inte stöd för och är inte testat. Du kan också få detta att fungera med iframes |
+| Stöd för Ads                             |        | x                |          |             | AMP har stöd för infogning av linjära annonseringar före mitten och efter valsning från enorma kompatibla AD-servrar för VOD i AzureHtml5JS-Tech |
+| Analytics                               |        | X                |          |             | Med AMP kan du lyssna på analyser och diagnostiska händelser så att du kan skicka till en analys Server del som du väljer.  Alla händelser och egenskaper är inte tillgängliga i Tech på grund av plattforms begränsningar.                                                                            |
+| Anpassade skal                            |        |                  | X        |             | Aktivera inställningen för kontroller till falskt i AMP och Använd din egen HTML och CSS.           |
+| Rensning av SeekBar-fält                      |        |                  |          | X           |                                                                                                                      |
+| Lura-Play                              |        |                  |          | X           |                                                                                                                      |
+| Endast ljud                              |        |                  |          | X           | Kan fungera i vissa tekniker för anpassad direkt uppspelning men stöds för närvarande inte och fungerar inte i AzureHtml5JS. Progressiv MP3-uppspelning kan fungera med HTML5-Tech om plattformen stöder det.                                                                                                        |
+| Endast video                              |        |                  |          | X           | Kan fungera i vissa tekniker för anpassad direkt uppspelning men stöds för närvarande inte och fungerar inte i AzureHtml5JS.      |
 | Presentation med flera perioder               |        |                  |          | X                                                                                                                                  |
-| Flera kameravinklar                  |        |                  |          | X           |                                                                                                                      |
-| Uppspelningshastighet                          |        | X                |          |             | Uppspelningshastighet stöds i de flesta scenarier utom det mobila fallet på grund av en partiell bugg i Chrome                 |
+| Flera kamera vinklar                  |        |                  |          | X           |                                                                                                                      |
+| Uppspelnings hastighet                          |        | X                |          |             | Uppspelnings hastigheten stöds i de flesta scenarier, förutom det mobila fallet på grund av ett delvis fel i Chrome                 |
 
 ## <a name="next-steps"></a>Nästa steg ##
-- [Snabbstart för Azure Media Player](azure-media-player-quickstart.md)
+- [Azure Media Player snabb start](azure-media-player-quickstart.md)

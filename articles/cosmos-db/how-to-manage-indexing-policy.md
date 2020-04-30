@@ -1,27 +1,27 @@
 ---
 title: Hantera indexeringsprinciper i Azure Cosmos DB
-description: Lär dig hur du hanterar indexeringsprinciper, inkluderar eller utesluter en egenskap från indexering, hur du definierar indexering med olika Azure Cosmos DB SDK:er
-author: ThomasWeiss
+description: 'Lär dig hur du hanterar indexerings principer, tar med eller undantar en egenskap från indexering, hur du definierar indexering med hjälp av olika Azure Cosmos DB SDK: er'
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: thweiss
-ms.openlocfilehash: 58a1ee13afa76b152723cb71d4037f9c31cc8d4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 04/28/2020
+ms.author: tisande
+ms.openlocfilehash: bdd5d986752e9d80d2967a8f5fd32491154fa236
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79252082"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82233918"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Hantera indexeringsprinciper i Azure Cosmos DB
 
-I Azure Cosmos DB indexeras data efter [indexeringsprinciper](index-policy.md) som har definierats för varje behållare. Standardprincipen för indexering för nyligen skapade containrar framtvingar intervallindex för strängar eller nummer. Du kan åsidosätta den här principen med din egen anpassade indexeringsprincip.
+I Azure Cosmos DB indexeras data efter [indexerings principer](index-policy.md) som definierats för varje behållare. Standardprincipen för indexering för nyligen skapade containrar framtvingar intervallindex för strängar eller nummer. Du kan åsidosätta den här principen med din egen anpassade indexeringsprincip.
 
 ## <a name="indexing-policy-examples"></a>Exempel på indexeringsprincip
 
-Här är några exempel på indexeringsprinciper som visas i [deras JSON-format](index-policy.md#include-exclude-paths), vilket är hur de exponeras på Azure-portalen. Samma parametrar kan ställas in via Azure CLI eller valfri SDK.
+Här följer några exempel på indexerings principer som visas i [deras JSON-format](index-policy.md#include-exclude-paths), vilket är hur de exponeras på Azure Portal. Samma parametrar kan ställas in via Azure CLI eller SDK.
 
-### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Opt-out-princip för att selektivt utesluta vissa egenskapssökvägar
+### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Opt-out-princip för att selektivt utesluta vissa egenskaps Sök vägar
 
 ```json
     {
@@ -42,7 +42,7 @@ Här är några exempel på indexeringsprinciper som visas i [deras JSON-format]
     }
 ```
 
-Den här indexeringsprincipen motsvarar den nedanför ```dataType```som ```precision``` manuellt anger ```kind```, och deras standardvärden. Dessa egenskaper är inte längre nödvändiga för att uttryckligen ange och du kan utelämna dem från indexeringsprincipen helt (som visas i exemplet ovan).
+Den här indexerings principen motsvarar den som anges nedan och som manuellt ```kind```ställer ```dataType```in, ```precision``` och till standardvärdena. De här egenskaperna är inte längre nödvändiga för att uttryckligen anges och du kan utesluta dem från din indexerings princip helt (se exemplet ovan).
 
 ```json
     {
@@ -75,7 +75,7 @@ Den här indexeringsprincipen motsvarar den nedanför ```dataType```som ```preci
     }
 ```
 
-### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>Opt-in-policy för att selektivt inkludera vissa egenskapssökvägar
+### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>Opt-in-princip för att selektivt inkludera vissa egenskaps Sök vägar
 
 ```json
     {
@@ -96,7 +96,7 @@ Den här indexeringsprincipen motsvarar den nedanför ```dataType```som ```preci
     }
 ```
 
-Den här indexeringsprincipen motsvarar den nedanför ```dataType```som ```precision``` manuellt anger ```kind```, och deras standardvärden. Dessa egenskaper är inte längre nödvändiga för att uttryckligen ange och du kan utelämna dem från indexeringsprincipen helt (som visas i exemplet ovan).
+Den här indexerings principen motsvarar den som anges nedan och som manuellt ```kind```ställer ```dataType```in, ```precision``` och till standardvärdena. De här egenskaperna är inte längre nödvändiga för att uttryckligen anges och du kan utesluta dem från din indexerings princip helt (se exemplet ovan).
 
 ```json
     {
@@ -137,10 +137,10 @@ Den här indexeringsprincipen motsvarar den nedanför ```dataType```som ```preci
     }
 ```
 
-> [!NOTE] 
-> Det rekommenderas vanligtvis att använda en **opt-out** indexeringsprincip för att låta Azure Cosmos DB proaktivt indexera alla nya egenskaper som kan läggas till din modell.
+> [!NOTE]
+> Vi rekommenderar vanligt vis att du använder en **opt-out-** indexerings princip för att låta Azure Cosmos DB indexera alla nya egenskaper som kan läggas till i din modell proaktivt.
 
-### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Endast använda ett rumsligt index på en viss egenskapssökväg
+### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Använda ett rums index för en speciell egenskaps Sök väg
 
 ```json
 {
@@ -170,11 +170,14 @@ Den här indexeringsprincipen motsvarar den nedanför ```dataType```som ```preci
 }
 ```
 
-## <a name="composite-indexing-policy-examples"></a>Exempel på sammansatt indexeringsprincip
+## <a name="composite-indexing-policy-examples"></a>Exempel på sammansatta indexerings principer
 
-Förutom att inkludera eller utesluta banor för enskilda egenskaper kan du också ange ett sammansatt index. Om du vill utföra en fråga `ORDER BY` som har en sats för flera egenskaper krävs ett [sammansatt index](index-policy.md#composite-indexes) för dessa egenskaper. Dessutom har sammansatta index en prestandafördel för frågor som har ett filter och har en ORDER BY-sats på olika egenskaper.
+Förutom att inkludera eller exkludera sökvägar för enskilda egenskaper kan du också ange ett sammansatt index. Om du vill utföra en fråga som har en `ORDER BY` sats för flera egenskaper, krävs ett [sammansatt index](index-policy.md#composite-indexes) för dessa egenskaper. Dessutom får sammansatta index en prestanda förmån för frågor som har ett filter och har en ORDER BY-sats för olika egenskaper.
 
-### <a name="composite-index-defined-for-name-asc-age-desc"></a>Sammansatt index definierat för (namn asc, age desc):
+> [!NOTE]
+> Sammansatta sökvägar `/?` har ett implicit eftersom endast det skalära värdet på den sökvägen indexeras. `/*` Jokertecknet stöds inte i sammansatta sökvägar. Du bör inte `/?` ange `/*` eller i en sammansatt sökväg.
+
+### <a name="composite-index-defined-for-name-asc-age-desc"></a>Sammansatt index definierat för (namn ASC, ålders DESC):
 
 ```json
     {  
@@ -201,7 +204,7 @@ Förutom att inkludera eller utesluta banor för enskilda egenskaper kan du ocks
     }
 ```
 
-Ovanstående sammansatta index för namn och ålder krävs för Query #1 och Query #2:
+Det sammansatta indexet för namn och ålder krävs för fråga #1 och fråga #2:
 
 Fråga #1:
 
@@ -219,7 +222,7 @@ Fråga #2:
     ORDER BY c.name DESC, c.age ASC
 ```
 
-Det här sammansatta indexet kommer att gynna Query #3 och Query #4 och optimera filtren:
+Det sammansatta indexet kommer att dra nytta av frågan #3 och fråga #4 och optimera filtren:
 
 Fråga #3:
 
@@ -238,9 +241,9 @@ FROM c
 WHERE c.name = "Tim" AND c.age > 18
 ```
 
-### <a name="composite-index-defined-for-name-asc-age-asc-and-name-asc-age-desc"></a>Sammansatt index definierat för (namn ASC, ålder ASC) och (namn ASC, ålder DESC):
+### <a name="composite-index-defined-for-name-asc-age-asc-and-name-asc-age-desc"></a>Sammansatt index definierat för (namn ASC, ålder ASC) och (namn ASC, ålders DESC):
 
-Du kan definiera flera olika sammansatta index inom samma indexeringsprincip.
+Du kan definiera flera olika sammansatta index i samma indexerings princip.
 
 ```json
     {  
@@ -279,7 +282,7 @@ Du kan definiera flera olika sammansatta index inom samma indexeringsprincip.
 
 ### <a name="composite-index-defined-for-name-asc-age-asc"></a>Sammansatt index definierat för (namn ASC, ålder ASC):
 
-Det är valfritt att ange ordern. Om inget anges stiger ordningen uppåt.
+Det är valfritt att ange ordningen. Om detta inte anges, är ordningen stigande.
 
 ```json
 {  
@@ -304,9 +307,9 @@ Det är valfritt att ange ordern. Om inget anges stiger ordningen uppåt.
 }
 ```
 
-### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Exklusive alla egenskapssökvägar men hålla indexeringen aktiv
+### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Exkludera alla egenskaps Sök vägar men behålla indexering aktiv
 
-Den här principen kan användas i situationer där [TTL-funktionen (Time-to-Live)](time-to-live.md) är aktiv men inget sekundärt index krävs (för att använda Azure Cosmos DB som ett rent nyckelvärdesarkiv).
+Den här principen kan användas i situationer där [TTL-funktionen (Time-to-Live)](time-to-live.md) är aktiv men inget sekundärt index krävs (för att använda Azure Cosmos DB som ett rent nyckel värdes lager).
 
 ```json
     {
@@ -320,7 +323,7 @@ Den här principen kan användas i situationer där [TTL-funktionen (Time-to-Liv
 
 ### <a name="no-indexing"></a>Ingen indexering
 
-Den här principen inaktiverar indexeringen. Om `indexingMode` är `none`inställt på kan du inte ange en TTL på behållaren.
+Med den här principen stängs indexeringen av. Om `indexingMode` är inställt på `none`kan du inte ange ett TTL-värde för behållaren.
 
 ```json
     {
@@ -328,33 +331,33 @@ Den här principen inaktiverar indexeringen. Om `indexingMode` är `none`instäl
     }
 ```
 
-## <a name="updating-indexing-policy"></a>Uppdatera indexeringsprincipen
+## <a name="updating-indexing-policy"></a>Uppdaterar indexerings princip
 
-I Azure Cosmos DB kan indexeringsprincipen uppdateras med någon av nedanstående metoder:
+I Azure Cosmos DB kan indexerings principen uppdateras med någon av metoderna nedan:
 
-- från Azure-portalen
+- från Azure Portal
 - använda Azure CLI
 - använda PowerShell
-- använda en av SDK:erna
+- använda en av SDK: erna
 
-En [indexeringsprincipuppdatering](index-policy.md#modifying-the-indexing-policy) utlöser en indexomvandling. Förloppet för den här omvandlingen kan också spåras från SDK:erna.
+En [indexerings princip uppdatering](index-policy.md#modifying-the-indexing-policy) utlöser en index omvandling. Förloppet för den här omvandlingen kan också spåras från SDK: er.
 
 > [!NOTE]
-> När du uppdaterar indexeringsprincipen kommer skrivningar till Azure Cosmos DB att vara oavbrutna. Under omindexering kan frågor returnera partiella resultat när indexet uppdateras.
+> När du uppdaterar indexerings principen avbryts skrivningen till Azure Cosmos DB. Vid Omindexering kan frågor returnera partiella resultat när indexet uppdateras.
 
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
-Azure Cosmos-behållare lagrar sin indexeringsprincip som ett JSON-dokument som azure-portalen låter dig redigera direkt.
+Azure Cosmos-behållare lagrar sin indexerings princip som ett JSON-dokument som Azure Portal gör att du kan redigera den direkt.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Skapa ett nytt Azure Cosmos DB-konto eller välj ett befintligt konto.
 
-1. Öppna fönstret **Data explorer** och markera den behållare som du vill arbeta med.
+1. Öppna fönstret **datautforskaren** och välj den behållare som du vill arbeta med.
 
-1. Klicka på **Skala & inställningar**.
+1. Klicka på **skala & inställningar**.
 
-1. Ändra JSON-dokumentet för indexeringsprincipen (se exempel [nedan)](#indexing-policy-examples)
+1. Ändra JSON-dokumentet för indexerings principen (se exemplen [nedan](#indexing-policy-examples))
 
 1. Klicka på **Spara** när du är klar.
 
@@ -362,15 +365,15 @@ Azure Cosmos-behållare lagrar sin indexeringsprincip som ett JSON-dokument som 
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI
 
-Om du vill skapa en behållare med en anpassad indexeringsprincip finns [i Skapa en behållare med en anpassad indexprincip med CLI](manage-with-cli.md#create-a-container-with-a-custom-index-policy)
+Om du vill skapa en behållare med en anpassad indexerings princip går du till [skapa en behållare med en anpassad index princip med hjälp av CLI](manage-with-cli.md#create-a-container-with-a-custom-index-policy)
 
 ## <a name="use-powershell"></a>Använd PowerShell
 
-Om du vill skapa en behållare med en anpassad indexeringsprincip finns [i Skapa en behållare med en anpassad indexprincip med Powershell](manage-with-powershell.md#create-container-custom-index)
+Om du vill skapa en behållare med en anpassad indexerings princip går du till [skapa en behållare med en anpassad index princip med hjälp av PowerShell](manage-with-powershell.md#create-container-custom-index)
 
-## <a name="use-the-net-sdk-v2"></a>Använda .NET SDK V2
+## <a name="use-the-net-sdk-v2"></a>Använda .NET SDK v2
 
-Objektet `DocumentCollection` från [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) `IndexingPolicy` visar en egenskap `IndexingMode` som gör `IncludedPaths` att `ExcludedPaths`du kan ändra och lägga till eller ta bort och .
+`DocumentCollection` Objektet från [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) visar en `IndexingPolicy` egenskap som gör att du kan ändra `IndexingMode` och lägga till eller ta bort `IncludedPaths` och `ExcludedPaths`.
 
 ```csharp
 // Retrieve the container's details
@@ -389,7 +392,7 @@ containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<Co
 await client.ReplaceDocumentCollectionAsync(containerResponse.Resource);
 ```
 
-Om du vill spåra indexomvandlingen skickar du ett `RequestOptions` objekt som anger egenskapen `PopulateQuotaInfo` till `true`.
+Om du vill spåra omvandlings förloppet för `RequestOptions` indexet skickar du `PopulateQuotaInfo` ett objekt `true`som anger egenskapen till.
 
 ```csharp
 // retrieve the container's details
@@ -398,9 +401,9 @@ ResourceResponse<DocumentCollection> container = await client.ReadDocumentCollec
 long indexTransformationProgress = container.IndexTransformationProgress;
 ```
 
-## <a name="use-the-net-sdk-v3"></a>Använda .NET SDK V3
+## <a name="use-the-net-sdk-v3"></a>Använd .NET SDK v3
 
-Objektet `ContainerProperties` från [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (se [den här snabbstarten](create-sql-api-dotnet.md) om dess användning) visar en `IndexingPolicy` egenskap som gör att du kan ändra `IndexingMode` och lägga till eller ta bort `IncludedPaths` och `ExcludedPaths`.
+`ContainerProperties` Objektet från [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (se [den här snabb](create-sql-api-dotnet.md) starten om användningen) visar `IndexingPolicy` en egenskap som gör att du kan ändra `IndexingMode` och lägga till eller ta `IncludedPaths` bort `ExcludedPaths`och.
 
 ```csharp
 // Retrieve the container's details
@@ -424,7 +427,7 @@ containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<Co
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-Om du vill spåra indexomvandlingen skickar du ett `RequestOptions` objekt som anger egenskapen `PopulateQuotaInfo` till `true`och hämtar sedan värdet från svarshuvudet. `x-ms-documentdb-collection-index-transformation-progress`
+Om du vill spåra omvandlings förloppet för `RequestOptions` indexet skickar du `PopulateQuotaInfo` ett objekt `true`som anger egenskapen till och hämtar sedan `x-ms-documentdb-collection-index-transformation-progress` värdet från svars huvudet.
 
 ```csharp
 // retrieve the container's details
@@ -433,7 +436,7 @@ ContainerResponse containerResponse = await client.GetContainer("database", "con
 long indexTransformationProgress = long.Parse(containerResponse.Headers["x-ms-documentdb-collection-index-transformation-progress"]);
 ```
 
-När du definierar en anpassad indexeringsprincip när du skapar en ny behållare kan du skriva den här definitionen på ett koncist och effektivt sätt när du skapar en ny behållare:
+När du definierar en anpassad indexerings princip när du skapar en ny behållare kan du med SDK V3's Fluent API skriva den här definitionen på ett koncist och effektivt sätt:
 
 ```csharp
 await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
@@ -457,7 +460,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
 
 ## <a name="use-the-java-sdk"></a>Använda Java SDK
 
-Objektet `DocumentCollection` från [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) (se [denna Snabbstart](create-sql-api-java.md) om `getIndexingPolicy()` `setIndexingPolicy()` dess användning) exponerar och metoder. Med `IndexingPolicy` objektet som de manipulerar kan du ändra indexeringsläget och lägga till eller ta bort inkluderade och uteslutna banor.
+`DocumentCollection` Objektet från [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) (se [den här snabb](create-sql-api-java.md) starten om användningen) visar `getIndexingPolicy()` och `setIndexingPolicy()` metoder. Med `IndexingPolicy` objektet som de ändrar, kan du ändra indexerings läget och lägga till eller ta bort inkluderade och undantagna sökvägar.
 
 ```java
 // Retrieve the container's details
@@ -523,7 +526,7 @@ indexingPolicy.setCompositeIndexes(compositeIndexes);
 });
 ```
 
-Om du vill spåra indexomvandlingsförloppet på en behållare skickar du ett `RequestOptions` objekt `x-ms-documentdb-collection-index-transformation-progress` som begär att kvotinformationen ska fyllas i och hämtar sedan värdet från svarshuvudet.
+Om du vill spåra omvandlings förloppet för index omvandlingen på `RequestOptions` en behållare, skickar du ett objekt som begär kvot informationen och hämtar sedan värdet från `x-ms-documentdb-collection-index-transformation-progress` svars huvudet.
 
 ```java
 // set the RequestOptions object
@@ -537,23 +540,23 @@ containerResponse.subscribe(result -> {
 });
 ```
 
-## <a name="use-the-nodejs-sdk"></a>Använda Node.js SDK
+## <a name="use-the-nodejs-sdk"></a>Använd Node. js SDK
 
-Gränssnittet `ContainerDefinition` från [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) (se [den här snabbstarten](create-sql-api-nodejs.md) när det gäller dess användning) visar en `indexingPolicy` egenskap som låter dig ändra `indexingMode` och lägga till eller ta bort `includedPaths` och `excludedPaths`.
+`ContainerDefinition` Gränssnittet från [Node. js SDK](https://www.npmjs.com/package/@azure/cosmos) (se [den här snabb](create-sql-api-nodejs.md) starten om användningen) visar `indexingPolicy` en egenskap som gör att du kan ändra `indexingMode` och lägga till eller `includedPaths` ta `excludedPaths`bort och.
 
-Hämta informationen i behållaren
+Hämta behållarens information
 
 ```javascript
 const containerResponse = await client.database('database').container('container').read();
 ```
 
-Ställa in indexeringsläget på konsekvent
+Ange att indexerings läget ska vara konsekvent
 
 ```javascript
 containerResponse.body.indexingPolicy.indexingMode = "consistent";
 ```
 
-Lägg till inkluderad sökväg inklusive ett rumsligt index
+Lägg till inkluderad sökväg inklusive ett rums index
 
 ```javascript
 containerResponse.body.indexingPolicy.includedPaths.push({
@@ -584,7 +587,7 @@ containerResponse.body.indexingPolicy.includedPaths.push({
   });
 ```
 
-Lägga till utesluten bana
+Lägg till undantagen sökväg
 
 ```javascript
 containerResponse.body.indexingPolicy.excludedPaths.push({ path: '/name/*' });
@@ -596,7 +599,7 @@ Uppdatera behållaren med ändringar
 const replaceResponse = await client.database('database').container('container').replace(containerResponse.body);
 ```
 
-Om du vill spåra indexomvandlingsstatusen `populateQuotaInfo` för `true`en behållare skickar du `x-ms-documentdb-collection-index-transformation-progress` ett `RequestOptions` objekt som anger egenskapen till och hämtar sedan värdet från svarshuvudet.
+Om du vill spåra omvandlings förloppet för indexet i `RequestOptions` en behållare, skickar `populateQuotaInfo` du ett `true`objekt som anger egenskapen till och hämtar `x-ms-documentdb-collection-index-transformation-progress` sedan värdet från svars huvudet.
 
 ```javascript
 // retrieve the container's details
@@ -607,24 +610,24 @@ const containerResponse = await client.database('database').container('container
 const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-collection-index-transformation-progress'];
 ```
 
-## <a name="use-the-python-sdk-v3"></a>Använda Python SDK V3
+## <a name="use-the-python-sdk-v3"></a>Använd python SDK v3
 
-När du använder [Python SDK V3](https://pypi.org/project/azure-cosmos/) (se [den här snabbstarten](create-sql-api-python.md) när det gäller dess användning) hanteras behållarkonfigurationen som en ordlista. Från den här ordlistan är det möjligt att komma åt indexeringsprincipen och alla dess attribut.
+När du använder [python SDK v3](https://pypi.org/project/azure-cosmos/) (se [den här snabb](create-sql-api-python.md) starten om användningen) hanteras behållar konfigurationen som en ord lista. Från den här ord listan är det möjligt att komma åt indexerings principen och alla dess attribut.
 
-Hämta informationen i behållaren
+Hämta behållarens information
 
 ```python
 containerPath = 'dbs/database/colls/collection'
 container = client.ReadContainer(containerPath)
 ```
 
-Ställa in indexeringsläget på konsekvent
+Ange att indexerings läget ska vara konsekvent
 
 ```python
 container['indexingPolicy']['indexingMode'] = 'consistent'
 ```
 
-Definiera en indexeringsprincip med en inkluderad bana och ett rumsligt index
+Definiera en indexerings princip med en inkluderad sökväg och ett rums index
 
 ```python
 container["indexingPolicy"] = {
@@ -638,7 +641,7 @@ container["indexingPolicy"] = {
 }
 ```
 
-Definiera en indexeringsprincip med en utesluten bana
+Definiera en indexerings princip med en undantagen sökväg
 
 ```python
 container["indexingPolicy"] = {
@@ -648,7 +651,7 @@ container["indexingPolicy"] = {
 }
 ```
 
-Lägga till ett sammansatt index
+Lägg till ett sammansatt index
 
 ```python
 container['indexingPolicy']['compositeIndexes'] = [
@@ -671,11 +674,11 @@ Uppdatera behållaren med ändringar
 response = client.ReplaceContainer(containerPath, container)
 ```
 
-## <a name="use-the-python-sdk-v4"></a>Använda Python SDK V4
+## <a name="use-the-python-sdk-v4"></a>Använd python SDK v4
 
-När du använder [Python SDK V4](https://pypi.org/project/azure-cosmos/)hanteras behållarkonfigurationen som en ordlista. Från den här ordlistan är det möjligt att komma åt indexeringsprincipen och alla dess attribut.
+När du använder [python SDK v4](https://pypi.org/project/azure-cosmos/)hanteras behållar konfigurationen som en ord lista. Från den här ord listan är det möjligt att komma åt indexerings principen och alla dess attribut.
 
-Hämta informationen i behållaren
+Hämta behållarens information
 
 ```python
 database_client = cosmos_client.get_database_client('database')
@@ -683,7 +686,7 @@ container_client = database_client.get_container_client('container')
 container = container_client.read()
 ```
 
-Ställa in indexeringsläget på konsekvent
+Ange att indexerings läget ska vara konsekvent
 
 ```python
 indexingPolicy = {
@@ -691,7 +694,7 @@ indexingPolicy = {
 }
 ```
 
-Definiera en indexeringsprincip med en inkluderad bana och ett rumsligt index
+Definiera en indexerings princip med en inkluderad sökväg och ett rums index
 
 ```python
 indexingPolicy = {
@@ -704,7 +707,7 @@ indexingPolicy = {
 }
 ```
 
-Definiera en indexeringsprincip med en utesluten bana
+Definiera en indexerings princip med en undantagen sökväg
 
 ```python
 indexingPolicy = {
@@ -714,7 +717,7 @@ indexingPolicy = {
 }
 ```
 
-Lägga till ett sammansatt index
+Lägg till ett sammansatt index
 
 ```python
 indexingPolicy['compositeIndexes'] = [
@@ -741,5 +744,5 @@ response = database_client.replace_container(container_client, container['partit
 
 Läs mer om indexering i följande artiklar:
 
-- [Översikt över indexering](index-overview.md)
-- [Indexeringsprincip](index-policy.md)
+- [Indexeringsöversikt](index-overview.md)
+- [Indexerings princip](index-policy.md)

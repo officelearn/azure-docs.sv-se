@@ -3,12 +3,12 @@ title: Övervaka Java-program på valfri miljö – Azure Monitor Application In
 description: Övervakning av program prestanda för Java-program som körs i en miljö utan att behöva instrumentera appen. Distribuerad spårning och program karta.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: b9c1a52051e63beee9a784714a7bb1a6a79e8759
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 591cfad0f4719595835f212b9205354aad7cb9e8
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687722"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508079"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Java-kodad program övervakning Azure Monitor Application Insights – offentlig för hands version
 
@@ -24,11 +24,11 @@ Du kan fortfarande skicka anpassad telemetri från ditt program. 3,0-agenten sp�
 
 **1. Ladda ned agenten**
 
-Hämta [applicationinsights-agent-3.0.0-Preview. 3. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.3/applicationinsights-agent-3.0.0-PREVIEW.3.jar)
+Ladda ned [applicationinsights-agent-3.0.0-Preview. 4. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
 
 **2. peka JVM till agenten**
 
-Lägg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.3.jar` till i programmets JVM-argument
+Lägg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.4.jar` till i programmets JVM-argument
 
 Typiska JVM-argument `-Xmx512m` inkluderar `-XX:+UseG1GC`och. Så om du vet var du vill lägga till dessa, vet du redan var du ska lägga till det.
 
@@ -44,7 +44,7 @@ Peka agenten till Application Insights resurs, antingen genom att ange en miljö
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Eller genom att skapa en konfigurations `ApplicationInsights.json`fil med namnet och placera den i samma katalog `applicationinsights-agent-3.0.0-PREVIEW.3.jar`som, med följande innehåll:
+Eller genom att skapa en konfigurations `ApplicationInsights.json`fil med namnet och placera den i samma katalog `applicationinsights-agent-3.0.0-PREVIEW.4.jar`som, med följande innehåll:
 
 ```json
 {
@@ -117,7 +117,7 @@ Se information på [3,0 offentlig för hands version: konfigurations alternativ]
 
 ### <a name="metrics"></a>Mått
 
-* Micrometer
+* Micrometer (inklusive egenskaper för vårens start motstånd)
 * JMX mått
 
 ## <a name="sending-custom-telemetry-from-your-application"></a>Skicka anpassad telemetri från ditt program

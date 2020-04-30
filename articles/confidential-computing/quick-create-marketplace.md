@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 90e8aa4da88542648bec612553282ffe11b09eda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 62ee8ddb03c00ba7d6ae495ee360c708b00c615c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192288"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82208643"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-marketplace"></a>Snabb start: Distribuera en virtuell Azure-dator med konfidentiella data behandling på Marketplace
 
@@ -107,7 +107,6 @@ ssh azureadmin@40.55.55.555
 
 Du hittar den offentliga IP-adressen för den virtuella datorn i Azure Portal i avsnittet Översikt på den virtuella datorn.
 
-[!div class="mx-imgBorder"]
 ![IP-adress i Azure Portal](media/quick-create-portal/public-ip-virtual-machine.png)
 
 Om du kör på Windows och inte har något BASH-gränssnitt kan du installera en SSH-klient som t.ex. PuTTY.

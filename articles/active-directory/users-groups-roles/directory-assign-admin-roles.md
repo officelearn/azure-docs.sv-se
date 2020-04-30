@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2403faf23294afbba539c7240e842f928fed83dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 8033122601077945790005e23ec728911c3a4e1f
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181298"
+ms.locfileid: "82207538"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -1823,12 +1823,12 @@ Administratör för CRM-tjänsten | Dynamics 365-administratör | 44367163-eba1-
 Åtkomst god kännare för kund lås | Customer Lockbox åtkomst god kännare | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 Administratör för Skriv bords analys | Administratör för Skriv bords analys | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 Enhetsadministratörer | Enhets administratörer | 9f06204d-73c1-4d4c-880a-6edb90606fd8
-Enhets anslutning | Enhets anslutning | 9c094953-4995-41c8-84c8-3ebb9b32c93f
-Enhets hanterare | Enhets hanterare | 2b499bcd-da44-4968-8aec-78e1674fa64d
-Enhets användare | Enhets användare | d405c6df-0af8-4e3b-95e4-4d06e542189e
+Enhets anslutning | Inaktuell | 9c094953-4995-41c8-84c8-3ebb9b32c93f
+Enhets hanterare | Inaktuell | 2b499bcd-da44-4968-8aec-78e1674fa64d
+Enhets användare | Inaktuell | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Katalog läsare | Katalog läsare | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
-Konton för katalog synkronisering | Konton för katalog synkronisering | d29b2b05-8046-44ba-8758-1e26182fcf32
-Katalog skrivare | Katalog skrivare | 9360feb5-F418-4baa-8175-e2a00bac4301
+Konton för katalog synkronisering | Visas inte eftersom det inte ska användas | d29b2b05-8046-44ba-8758-1e26182fcf32
+Katalog skrivare | Visas inte eftersom det inte ska användas | 9360feb5-F418-4baa-8175-e2a00bac4301
 Exchange service-administratör | Exchange-administratör | 29232cdf-9323-42fd-ade2-1d097af3e4de
 Administratör för extern identitetsprovider | Administratör för extern identitetsprovider | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Global läsare | Global läsare | f2ef992c-3afb-46b9-b7cf-a126ee74c451
@@ -1844,8 +1844,8 @@ Meddelande Center sekretess läsare | Meddelande Center sekretess läsare | ac16
 Meddelande Center läsare | Meddelande Center läsare | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 Nätverks administratör | Nätverks administratör | d37c8bed-0711-4417-ba38-b4abe66ce4c2
 Office Apps-administratör | Office Apps-administratör | 2b745bdf-0803-4d80-aa65-822c4493daac
-Support för partner 1 | Support för partner 1 | 4ba39ca4-527c-499a-b93d-d9b492c50246
-Support för partner – nivå 2 | Support för partner – nivå 2 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
+Support för partner 1 | Visas inte eftersom det inte ska användas | 4ba39ca4-527c-499a-b93d-d9b492c50246
+Support för partner – nivå 2 | Visas inte eftersom det inte ska användas | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Lösen ords administratör | Lösenordsadministratör | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Power BI-tjänstadministratör | Power BI administratör | a9ea8996-122f-4c74-9520-8edcd192826c
 Power Platform-administratör | Power-plattform administratör | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
@@ -1865,9 +1865,9 @@ Team kommunikations administratör | Team kommunikations administratör | baf37b
 Support tekniker för Teams kommunikation | Support tekniker för Teams kommunikation | f70938a0-fc10-4177-9e90-2178f8765737
 Support specialist för Teams kommunikation | Support specialist för Teams kommunikation | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Team tjänst administratör | Team tjänst administratör | 69091246-20e8-4a56-aa4d-066075b2a7a8
-Användare | Användare | a0b1b346-4d3e-4e8b-98f8-753987be4970
+Användare | Visas inte eftersom det inte kan användas | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Administratör för användar konton | Användar administratör | fe930be7-5e62-47db-91af-98c3a49a38b1
-Anslutning till arbets plats enhet | Anslutning till arbets plats enhet | c34f683f-4d5a-4403-affd-6615e00e3a7f
+Anslutning till arbets plats enhet | Inaktuell | c34f683f-4d5a-4403-affd-6615e00e3a7f
 
 ## <a name="deprecated-roles"></a>Föråldrade roller
 
@@ -1885,7 +1885,7 @@ Följande roller ska inte användas. De är inaktuella och kommer att tas bort f
 
 Alla roller som returneras av PowerShell eller MS Graph API visas i Azure Portal. I följande tabell ordnas skillnaderna.
 
-API-namn | Azure Portal namn | Anteckningar
+API-namn | Azure Portal namn | Obs!
 -------- | ------------------- | -------------
 Företagsadministratör | Global administratör | [Namnet ändrades för bättre klarhet](directory-assign-admin-roles.md#role-template-ids)
 Administratör för CRM-tjänsten | Dynamics 365-administratör | [Visar aktuell produkt anpassning](directory-assign-admin-roles.md#role-template-ids)

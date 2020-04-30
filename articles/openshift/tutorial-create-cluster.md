@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 32069d9594d4579bd18ec3fd0e76af7bdc69f4d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: d9b02c11c055b4b072c5f8a1ff47e44001ec4580
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232163"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509728"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Självstudie: skapa ett Azure Red Hat OpenShift 4-kluster
 
@@ -80,7 +80,7 @@ Härnäst ska du skapa ett virtuellt nätverk som innehåller två tomma undern�
 
    ```console
    LOCATION=eastus                 # the location of your cluster
-   RESOURCEGROUP="v4-$LOCATION"    # the name of the resource group where you want to create your cluster
+   RESOURCEGROUP=aro-rg            # the name of the resource group where you want to create your cluster
    CLUSTER=cluster                 # the name of your cluster
    ```
 
@@ -89,7 +89,7 @@ Härnäst ska du skapa ett virtuellt nätverk som innehåller två tomma undern�
     En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. När du skapar en resursgrupp uppmanas du att ange en plats. Den här platsen är den plats där resurs gruppens metadata lagras, men det är även där dina resurser körs i Azure om du inte anger någon annan region när du skapar en resurs. Skapa en resurs grupp med kommandot [AZ Group Create] [AZ-Group-Create].
 
     ```azurecli-interactive
-    az group create --name $CLUSTER --location $LOCATION
+    az group create --name $RESOURCEGROUP --location $LOCATION
     ```
 
     Följande exempelutdata visar den resursgrupp som skapats:

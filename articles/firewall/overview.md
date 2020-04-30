@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 04/23/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: a3a81513773ef6d826ad354d47a3e7ec83e75d65
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: 81adf005c2e39d9bb585c005f51ab3f89e4c8ff0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106652"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82209136"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -40,12 +40,12 @@ Du kan också associera Azure-brandväggen till en speciell zon, precis för nä
 
 Det kostar inget extra att distribuera en brand vägg i en tillgänglighets zon. Det finns dock ytterligare kostnader för inkommande och utgående data överföringar som är kopplade till Tillgänglighetszoner. Mer information finns i [pris information om bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-Azure Firewall-Tillgänglighetszoner är tillgängliga i regioner som stöder Tillgänglighetszoner. Mer information finns i [Vad är Tillgänglighetszoner i Azure?](../availability-zones/az-overview.md#services-support-by-region)
+Azure Firewall-Tillgänglighetszoner är tillgängliga i regioner som stöder Tillgänglighetszoner. Mer information finns i [regioner som stöder Tillgänglighetszoner i Azure](../availability-zones/az-region.md)
 
 > [!NOTE]
 > Tillgänglighetszoner kan bara konfigureras under distributionen. Du kan inte konfigurera en befintlig brand vägg att inkludera Tillgänglighetszoner.
 
-Mer information om Tillgänglighetszoner finns [i vad är Tillgänglighetszoner i Azure?](../availability-zones/az-overview.md)
+Mer information om Tillgänglighetszoner finns [i regioner och Tillgänglighetszoner i Azure](../availability-zones/az-overview.md)
 
 ## <a name="unrestricted-cloud-scalability"></a>Obegränsad molnskalbarhet
 

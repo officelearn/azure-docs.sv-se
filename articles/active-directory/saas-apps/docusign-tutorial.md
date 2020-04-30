@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02b0d8290e279b6ed4de08d074597154208cac6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b827c2e949502ad8bd19378a84ea89947929459d
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82184000"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509371"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med DocuSign
 
@@ -221,7 +221,7 @@ I det här avsnittet beviljar du B. Simon-åtkomst till DocuSign så att den hä
        
        1. Kopiera **URL: en till tjänste leverantörens intyg om försäkrans konsument tjänst**och klistra in den i rutan **svars-URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
        
-       1. Kopiera **inloggnings-URL: en för tjänst leverantören**och klistra in den i rutan för **INLOGGNINGs-URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
+       1. Kopiera **inloggnings-URL: en för tjänst leverantören**och klistra in den i rutan för **INLOGGNINGs-URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal. I slutet av **inloggnings-URL: en för tjänst leverantören** får du IDPID-värdet.
 
        1. Välj **Stäng**.
 

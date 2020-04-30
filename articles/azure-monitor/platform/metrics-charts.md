@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2df1e0bb7d586edb13dc86e163f0e5728608d2a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d15c217f2e65877ea3baa18f6ba847492bc7fa1
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80371604"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509830"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Avancerade funktioner i Azure Metrics Explorer
 
@@ -47,6 +47,25 @@ Klicka på **Lägg till diagram** och skapa ett annat diagram med ett annat måt
 ### <a name="order-or-delete-multiple-charts"></a>Ordna eller ta bort flera diagram
 
 Om du vill ordna eller ta bort flera diagram klickar du på ellipsen ( **...** )-symbolen för att öppna Diagram-menyn och välja lämpligt meny alternativ för **Flytta upp**, **Flytta ned**eller **ta bort**.
+
+## <a name="changing-aggregation"></a>Ändrar agg regering
+
+När du lägger till ett mått i ett diagram väljer Metric Explorer automatiskt sin standard agg regering. Standardvärdet är meningsfullt i de grundläggande scenarierna, men du kan använda en annan agg regering för att få ytterligare insikter om måttet. Om du visar olika agg regeringar i ett diagram måste du förstå hur Mät Utforskaren hanterar dem. 
+
+Mått är den serie av mått (eller "mått värden") som har hämtats under tids perioden. När du ritar ett diagram sammanställs värdena för de valda måtten separat under *tids kornig het*. Du väljer storleken på tidskornigt på [panelen Metrics Explorer tids väljare](metrics-getting-started.md#select-a-time-range). Om du inte gör ett explicit val av tids kornig het väljs tids kornig het automatiskt utifrån det valda tidsintervallet. När tids kornigheten har fastställts sammanställs Mät värdena som fångades under varje tids kornig het och placeras i diagrammet-en Datapoint per tids kornig het.
+
+Anta till exempel att diagrammet visar värdet för **Server svars tid** med hjälp av den **genomsnittliga** agg regeringen under de **senaste 24 timmarna** tids rymden:
+
+- Om tids kornigheten har angetts till 30 minuter ritas diagrammet från 48-aggregerade Datapoints (t. ex. linje diagrammet ansluter 48 punkter i diagrammets rityta). Det vill säga 24 timmar x 2 Datapoints per timme. Varje Datapoint representerar *genomsnittet* av alla uppfångade svars tider för server begär Anden som inträffat under de 30 min tids perioderna.
+- Om du växlar tids kornig het till 15 minuter får du 96 sammanställd datapoints.  Det vill säga 24 timmar x 4 Datapoints per timme.
+
+Det finns fem grundläggande agg regerings typer i mått Utforskaren: **Sum**, **Count**, **min**, **Max**och **Average**. **Sum** -aggregering kallas ibland **Total** aggregation. För många mått kommer Metrics Explorer dölja de agg regeringar som är helt irrelevanta och inte kan användas.
+
+- **Sum** – summan av alla värden som har samlats in under samlings intervallet
+- **Count** – antalet mått som har hämtats över samlings intervallet. Observera att **Count** motsvarar **Sum** i det fall då måttet alltid fångas med värdet 1. Detta är vanligt när måttet spårar antalet distinkta händelser och varje mått representerar en händelse (d.v.s. koden inaktive ras en mått post varje gång en ny begäran kommer in)
+- **Genomsnitt** – medelvärdet av mått värden som har samlats in över samlings intervallet
+- **Min** – det minsta värdet som fångas över agg regerings intervallet
+- **Max** – det största värdet som har fångats över samlings intervallet
 
 ## <a name="apply-filters-to-charts"></a>Tillämpa filter på diagram
 

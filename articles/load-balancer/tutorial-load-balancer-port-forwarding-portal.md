@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Konfigurera vidarebefordran av portar – Azure-portal'
+title: 'Självstudie: Konfigurera port vidarebefordring – Azure Portal'
 titleSuffix: Azure Load Balancer
 description: Den här kursen visar hur du konfigurerar vidarebefordrade portar med Azure Load Balancer för att skapa en anslutning till virtuella datorer i Azure-nätverk.
 services: load-balancer
@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: e740a65d453a69a987e938a5170ae8e04c7bfe40
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: dcb151c8be0ab3a2393d0659b75985a92ac60507
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78249883"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82207895"
 ---
-# <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Självstudiekurs: Konfigurera vidarebefordran av portar i Azure Load Balancer med hjälp av portalen
+# <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Självstudie: Konfigurera vidarebefordran av portar i Azure Load Balancer med hjälp av portalen
 
 Med portvidarebefordran kan du ansluta till virtuella datorer (VM) i Azure-nätverk med hjälp av en offentliga IP-adress och ett offentligt port nummer för Azure Load Balancer. 
 
@@ -38,29 +38,29 @@ I den här självstudien får du ställa in portvidarebefordran i Azure Load Bal
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
 
-För alla steg i den här självstudien loggar du in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+För alla steg i den här självstudien loggar du in på [https://portal.azure.com](https://portal.azure.com)Azure Portal på.
 
 ## <a name="create-a-standard-load-balancer"></a>Skapa en standardlastbalanserare
 
 Börja med att skapa en offentlig standardlastbalanserare som kan balansera trafik över virtuella datorer. En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du skapar en Standard Load Balancer, och även måste skapa en ny offentlig IP-standardadress som är konfigurerad som klientdelen med namnet **LoadBalancerFrontend** som standard. 
 
-1. Klicka på **Skapa en resurs** > **Nätverksbelastningsutjämnare****Networking** > längst upp till vänster på skärmen .
+1. Klicka på **skapa en resurs** > **nätverk** > **Load Balancer**på den övre vänstra sidan av skärmen.
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
-    | Namn                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
-    | SKU           | Välj **Standard**.                          |
+    | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
     |Tillgänglighetszon| Välj **Zonredundant**.    |
      
     >[!NOTE]
-     >Se till att skapa en Load Balancer och alla resurser för den på en plats som har stöd för tillgänglighetszoner. Mer information finns i [regioner som har stöd för tillgänglighetszoner](../availability-zones/az-overview.md#services-support-by-region). 
+     >Se till att skapa en Load Balancer och alla resurser för den på en plats som har stöd för tillgänglighetszoner. Mer information finns i [regioner som har stöd för tillgänglighetszoner](../availability-zones/az-region.md). 
 
 3. På fliken **Granska + skapa** klickar du på **Skapa**.  
   
@@ -74,31 +74,31 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 
 | Parameter                   | Värde                |
 |-----------------------------|----------------------|
-| **\<resursgruppnamn>**  | myResourceGroupLB (Välj befintlig resursgrupp) |
-| **\<>virtuellt nätverksnamn** | myVNet          |
-| **\<regionnamn>**          | Europa, västra      |
-| **\<IPv4-adress-utrymme>**   | 10.3.0.0\16          |
-| **\<>i>**          | myBackendSubnet        |
-| **\<>för>** | 10.3.0.0\24          |
+| **\<resurs grupp-namn>**  | myResourceGroupLB (Välj en befintlig resurs grupp) |
+| **\<virtuell-nätverks namn>** | myVNet          |
+| **\<region namn>**          | Europa, västra      |
+| **\<IPv4-adress utrymme>**   | 10.3.0.0 \ 16          |
+| **\<under näts namn>**          | myBackendSubnet        |
+| **\<undernät-adress – intervall>** | 10.3.0.0 \ 24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-vms-and-add-them-to-the-load-balancer-back-end-pool"></a>Skapa virtuella datorer och lägg till dem i lastbalanseraren för serverdelsadresspoolen
 
-1. På portalens övre vänstra sida väljer du Skapa ett > **resursberäkningscenter** > för**Windows Server 2016**. **Create a resource** 
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs** > **Compute** > **Windows Server 2016 Data Center**. 
    
 1. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
-   - **Subscription** > **Prenumerationsresursgrupp:** Släpp ned och välj **MyResourceGroupLB**.
-   - **Namn på virtuell dator:** Skriv *MyVM1*.
-   - **Region**: Välj **Västeuropa**. 
-   - **Användarnamn**: Typ *azureuser*.
-   - **Lösenord**: Typ *Azure1234567*. 
+   - **Prenumerations** > **resurs grupp**: listruta och välj **MyResourceGroupLB**.
+   - **Namn på virtuell dator**: Skriv *MyVM1*.
+   - **Region**: Välj **Europa, västra**. 
+   - **Användar namn**: Skriv *azureuser*.
+   - **Lösen ord**: Skriv *Azure1234567*. 
      Skriv lösenordet på nytt i fältet **Bekräfta lösenord**.
    
 1. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**. 
    
    Kontrollera att följande har valts:
-   - **Virtuellt nätverk:** **MyVNet**
+   - **Virtuellt nätverk**: **MyVNet**
    - **Undernät**: **MyBackendSubnet**
    
 1. Välj **Skapa ny** och sedan **Standard** för **Offentlig IP-adress** på sidan **Skapa offentlig IP-adress** och välj sedan **OK**. 
@@ -112,7 +112,7 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
    
 1. Lägg till den virtuella datorn till en lastbalanserares serverdelpool som du har skapat:
    
-   1. Under **BELASTNINGSUTJÄMNING** > Placera den här virtuella datorn **Yes**bakom en**befintlig belastningsutjämningslösning?** 
+   1. Under **belastnings utjämning** > **placerar du den virtuella datorn bakom en befintlig belastnings Utjämnings lösning?** väljer du **Ja**. 
    1. Välj **Azure-lastbalanserare** i listrutan för **lastbalanseringsalternativ**. 
    1. För **Välj lastbalanserare** väljer du **MyLoadBalancer** i listrutan. 
    1. Under **Välj en serverdelspool** väljer du **Skapa nytt** och skriver *MyBackendPool*. Välj **Skapa**. 
@@ -169,7 +169,7 @@ Du skapade din serverdelspool för lastbalanseraren och lade till virtuella dato
 
 1. Välj **Alla resurser** på den vänstra menyn och välj sedan **MyLoadBalancer** i resurslistan.
    
-1. Under **Inställningar**väljer du **Backend-pooler**.
+1. Under **Inställningar**väljer du **backend-pooler**.
    
 1. På sidan **Serverdelspooler** expanderar du **MyBackendPool** och kontrollerar att både **VM1** och **VM2** visas.
 
@@ -234,15 +234,15 @@ Skapa en inkommande NAT-regel för lastbalanseraren för att vidarebefordra traf
 1. På sidan **Lägg till inkommande NAT-regel** skriver eller väljer du följande värden:
    
    - **Namn**: Skriv *MyNATRuleVM1*.
-   - **Port:** Typ *4221*.
-   - **Mål virtuell dator:** Välj **MyVM1** i listrutan.
-   - **Nätverks-IP-konfiguration:** Välj **ipconfig1** från listrutan.
-   - **Portmappning:** Välj **Anpassad**.
-   - **Målport:** Typ *3389*.
+   - **Port**: typ *4221*.
+   - **Virtuell mål dator**: Välj **MyVM1** i list rutan.
+   - **IP-konfiguration för nätverk**: Välj **ipconfig1** i list rutan.
+   - **Port mappning**: Välj **anpassad**.
+   - **Målport**: typ *3389*.
    
 1. Välj **OK**.
    
-1. Upprepa stegen för att lägga till en inkommande NAT-regel med namnet *MyNATRuleVM2*med **Port:** *4222* och **Target virtuell dator:** **MyVM2**.
+1. Upprepa stegen för att lägga till en inkommande NAT-regel med namnet *MyNATRuleVM2*, med hjälp av **porten**: *4222* och den **virtuella mål datorn**: **MyVM2**.
 
 ## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
 

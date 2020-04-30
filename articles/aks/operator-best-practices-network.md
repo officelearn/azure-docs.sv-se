@@ -5,12 +5,12 @@ description: Lär dig metod tips för kluster operatörer för virtuella nätver
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: d887f084ae329be30579b3400b4dc6cfb22c64ca
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 560a832821f5e5ff2fbbc2d66252945951d69511
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82145441"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208065"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Metodtips för nätverksanslutning och säkerhet i Azure Kubernetes Service (AKS)
 
@@ -45,7 +45,7 @@ När du använder Azure CNI-nätverk finns den virtuella nätverks resursen i en
 
 Mer information om delegering av AKS tjänst objekt finns i [Delegera åtkomst till andra Azure-resurser][sp-delegation]. I stället för ett huvud namn för tjänsten kan du också använda systemtilldelad hanterad identitet för behörigheter. Mer information finns i [använda hanterade identiteter](use-managed-identity.md).
 
-När varje nod och Pod tar emot sin egen IP-adress ska du planera ut adress intervallen för AKS-undernätet. Under nätet måste vara tillräckligt stort för att tillhandahålla IP-adresser för varje nod, poddar och nätverks resurser som du distribuerar. Varje AKS-kluster måste placeras i sitt eget undernät. Använd inte IP-adressintervall som överlappar befintliga nätverks resurser för att tillåta anslutning till lokala eller peer-anslutna nätverk i Azure. Det finns standard gränser för antalet poddar som varje nod kör med både Kubernetes och Azure CNI-nätverk. Om du vill hantera utskalning av händelser eller kluster uppgraderingar behöver du också ytterligare IP-adresser som är tillgängliga för användning i det tilldelade under nätet. Det här ytterligare adress utrymmet är särskilt viktigt om du använder Windows Server-behållare (för närvarande i för hands version i AKS), eftersom de noderna kräver en uppgradering för att tillämpa de senaste säkerhets korrigeringarna. Mer information om Windows Server-noder finns [i uppgradera en Node-pool i AKS][nodepool-upgrade].
+När varje nod och Pod tar emot sin egen IP-adress ska du planera ut adress intervallen för AKS-undernätet. Under nätet måste vara tillräckligt stort för att tillhandahålla IP-adresser för varje nod, poddar och nätverks resurser som du distribuerar. Varje AKS-kluster måste placeras i sitt eget undernät. Använd inte IP-adressintervall som överlappar befintliga nätverks resurser för att tillåta anslutning till lokala eller peer-anslutna nätverk i Azure. Det finns standard gränser för antalet poddar som varje nod kör med både Kubernetes och Azure CNI-nätverk. Om du vill hantera utskalning av händelser eller kluster uppgraderingar behöver du också ytterligare IP-adresser som är tillgängliga för användning i det tilldelade under nätet. Det här ytterligare adress utrymmet är särskilt viktigt om du använder Windows Server-behållare, eftersom de noderna kräver en uppgradering för att tillämpa de senaste säkerhets korrigeringarna. Mer information om Windows Server-noder finns [i uppgradera en Node-pool i AKS][nodepool-upgrade].
 
 Information om vilka IP-adresser som krävs finns i [Konfigurera Azure cni Networking i AKS][advanced-networking].
 
@@ -99,7 +99,7 @@ spec:
 
 En ingångs kontroll är en daemon som körs på en AKS-nod och som söker efter inkommande begär Anden. Trafiken distribueras sedan baserat på de regler som definierats i ingress-resursen. Den vanligaste ingångs styrenheten baseras på [nginx]. AKS begränsar dig till en speciell kontrollant, så du kan använda andra kontrollanter som till exempel [kontur][contour], [haproxy][haproxy]eller [Traefik][traefik].
 
-Ingångs styrenheter måste schemaläggas på en Linux-nod. Windows Server-noder (för närvarande i för hands version i AKS) behöver inte köra ingångs styrenheten. Använd en Node-selektor i YAML-manifestet eller Helm diagram distributionen för att ange att resursen ska köras på en Linux-baserad nod. Mer information finns i [använda Node Selector för att styra var poddar schemaläggs i AKS][concepts-node-selectors].
+Ingångs styrenheter måste schemaläggas på en Linux-nod. Windows Server-noder bör inte köra ingresskontrollanten. Använd en Node-selektor i YAML-manifestet eller Helm diagram distributionen för att ange att resursen ska köras på en Linux-baserad nod. Mer information finns i [använda Node Selector för att styra var poddar schemaläggs i AKS][concepts-node-selectors].
 
 Det finns många scenarier för ingress, inklusive följande instruktions guider:
 

@@ -1,6 +1,6 @@
 ---
-title: Skapa och ladda upp en SUSE Linux VHD i Azure
-description: Lär dig att skapa och ladda upp en virtuell Azure-hårddisk (VHD) som innehåller ett SUSE Linux-operativsystem.
+title: Skapa och ladda upp en SUSE Linux-hårddisk i Azure
+description: Lär dig att skapa och ladda upp en virtuell Azure-hård disk (VHD) som innehåller ett SUSE Linux-operativsystem.
 author: gbowerman
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -9,96 +9,96 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: guybo
 ms.openlocfilehash: 032b49631c6adb30d4b25f8b82d35dab49ffd3a2
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81757666"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Förbereda en virtuell SLES- eller openSUSE-dator för Azure
 
 
-Den här artikeln förutsätter att du redan har installerat ett SUSE- eller openSUSE Linux-operativsystem på en virtuell hårddisk. Det finns flera verktyg för att skapa VHD-filer, till exempel en virtualiseringslösning som Hyper-V. Instruktioner finns [i Installera Hyper-V-rollen och Konfigurera en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
+Den här artikeln förutsätter att du redan har installerat ett SUSEt eller openSUSE Linux-operativsystem till en virtuell hård disk. Det finns flera verktyg för att skapa. VHD-filer, till exempel en virtualiseringslösning som Hyper-V. Anvisningar finns i [Installera Hyper-V-rollen och konfigurera en virtuell dator](https://technet.microsoft.com/library/hh846766.aspx).
 
-## <a name="sles--opensuse-installation-notes"></a>SLES / openSUSE installationsanteckningar
-* Se även [Allmänna Linux-installationsanteckningar](create-upload-generic.md#general-linux-installation-notes) för fler tips om hur du förbereder Linux för Azure.
-* VHDX-formatet stöds inte i Azure, endast **fast virtuell hårddisk**.  Du kan konvertera disken till VHD-format med Hyper-V-hanteraren eller cmdleten konvertera-vhd.
-* När du installerar Linux-systemet rekommenderas att du använder standardpartitioner i stället för LVM (ofta standard för många installationer). Detta kommer att undvika LVM namnkonflikter med klonade virtuella datorer, särskilt om en OS-disk någonsin måste kopplas till en annan virtuell dator för felsökning. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kan användas på datadiskar om så önskas.
-* Konfigurera inte en växlingspartition på OS-disken. Linux-agenten kan konfigureras för att skapa en växlingsfil på den temporära resursdisken.  Mer information om detta finns i stegen nedan.
-* Alla virtuella hårddiskar på Azure måste ha en virtuell storlek justerad till 1 MB. När du konverterar från en rådisk till virtuell hårddisk måste du se till att raw-diskstorleken är en multipel av 1 MB före konvertering. Mer information finns i [Linux Installationsanteckningar.](create-upload-generic.md#general-linux-installation-notes)
+## <a name="sles--opensuse-installation-notes"></a>Installations information för SLES/openSUSE
+* Se även [allmänna Linux-Installationsinstruktioner](create-upload-generic.md#general-linux-installation-notes) för mer information om hur du förbereder Linux för Azure.
+* VHDX-formatet stöds inte i Azure, endast **fast virtuell hård disk**.  Du kan konvertera disken till VHD-format med hjälp av Hyper-V Manager eller cmdleten Convert-VHD.
+* När du installerar Linux-systemet rekommenderar vi att du använder standardpartitioner snarare än LVM (vanligt vis som standard för många installationer). På så sätt undviker du LVM namn konflikter med klonade virtuella datorer, särskilt om en OS-disk någonsin måste kopplas till en annan virtuell dator för fel sökning. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kan användas på data diskar om det är lämpligt.
+* Konfigurera inte en swap-partition på OS-disken. Linux-agenten kan konfigureras för att skapa en växlings fil på den tillfälliga resurs disken.  Mer information om detta finns i stegen nedan.
+* Alla virtuella hård diskar på Azure måste ha en virtuell storlek som är justerad till 1 MB. När du konverterar från en RAW-disk till VHD måste du se till att den råa disk storleken är en multipel av 1 MB före konverteringen. Mer information finns i [installations information för Linux](create-upload-generic.md#general-linux-installation-notes) .
 
-## <a name="use-suse-studio"></a>Använd SUSE Studio
-[SUSE Studio](http://www.susestudio.com) kan enkelt skapa och hantera dina SLES- och openSUSE-avbildningar för Azure och Hyper-V. Detta är den rekommenderade metoden för att anpassa dina egna SLES och openSUSE-bilder.
+## <a name="use-suse-studio"></a>Använda SUSE Studio
+[SUSE Studio](http://www.susestudio.com) kan enkelt skapa och hantera dina SLES-och openSUSE-avbildningar för Azure och Hyper-V. Detta är den rekommenderade metoden för att anpassa dina egna SLES-och openSUSE-avbildningar.
 
-Som ett alternativ till att bygga din egen VHD publicerar SUSE också BYOS (Bring Your Own Subscription) bilder för SLES på [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
+Som ett alternativ till att skapa en egen virtuell hård disk publicerar SUSE också BYOS-avbildningar (ta med din egen prenumeration) för SLES på [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
 ## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>Förbered SUSE Linux Enterprise Server 11 SP4
-1. Välj den virtuella datorn i mittrutan i Hyper-V-hanteraren.
+1. I mittenfönstret i Hyper-V Manager väljer du den virtuella datorn.
 2. Klicka på **Anslut** för att öppna fönstret för den virtuella datorn.
-3. Registrera ditt SUSE Linux Enterprise-system så att det kan hämta uppdateringar och installera paket.
-4. Uppdatera systemet med de senaste korrigeringsfilerna:
+3. Registrera ditt SUSE Linux Enterprise-system så att det kan ladda ned uppdateringar och installera paket.
+4. Uppdatera systemet med de senaste korrigeringarna:
    
         # sudo zypper update
-5. Installera Azure Linux-agenten från SLES-databasen:
+5. Installera Azure Linux-agenten från SLES-lagringsplatsen:
    
         # sudo zypper install python-azure-agent
-6. Kontrollera om waagent är inställt på "på" i chkconfig, och om inte, aktivera den för autostart:
+6. Kontrol lera om waagent är inställt på "on" i chkconfig och aktivera det för Autostart:
    
         # sudo chkconfig waagent on
-7. Kontrollera om waagent tjänsten körs, och om inte, starta den: 
+7. Kontrol lera om waagent-tjänsten körs och starta annars den: 
    
         # sudo service waagent start
-8. Ändra kärnstartlinjen i grub-konfigurationen för att inkludera ytterligare kärnparametrar för Azure. För att göra detta öppet "/boot/grub/menu.lst" i en textredigerare och se till att standardkärnan innehåller följande parametrar:
+8. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Det gör du genom att öppna "/boot/grub/menu.lst" i en text redigerare och se till att standard kärnan innehåller följande parametrar:
    
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300
    
-    Detta säkerställer att alla konsolmeddelanden skickas till den första seriella porten, vilket kan hjälpa Azure-stöd med felsökningsproblem.
-9. Bekräfta att /boot/grub/menu.lst och /etc/fstab båda refererar till disken med hjälp av dess UUID (by-uuid) i stället för disk-ID (by-id). 
+    Detta säkerställer att alla konsol meddelanden skickas till den första serie porten, vilket kan hjälpa Azure-support med fel söknings problem.
+9. Bekräfta att både/boot/grub/menu.lst och/etc/fstab refererar till disken med dess UUID (by-UUID) i stället för disk-ID (med-ID). 
    
-    Hämta UUID för disk
+    Hämta disk-UUID
    
         # ls /dev/disk/by-uuid/
    
-    Om /dev/disk/by-id/ används uppdaterar du både /boot/grub/menu.lst och /etc/fstab med rätt by-uuid-värde
+    Om/dev/disk/by-ID/används uppdaterar du både/boot/grub/menu.lst och/etc/fstab med rätt by-UUID-värde
    
     Före ändring
    
         root=/dev/disk/by-id/SCSI-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx-part1
    
-    Efter förändring
+    Efter ändring
    
         root=/dev/disk/by-uuid/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-10. Ändra udev-regler för att undvika att generera statiska regler för Ethernet-gränssnitten.Modify udev rules to avoid generating static rules for the Ethernet interface(s). Dessa regler kan orsaka problem vid kloning av en virtuell dator i Microsoft Azure eller Hyper-V:
+10. Ändra udev-regler för att undvika att skapa statiska regler för Ethernet-gränssnitten. Dessa regler kan orsaka problem när du klonar en virtuell dator i Microsoft Azure eller Hyper-V:
     
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
-11. Vi rekommenderar att du redigerar filen "/etc/sysconfig/network/dhcp" och ändrar parametern `DHCLIENT_SET_HOSTNAME` till följande:
+11. Vi rekommenderar att du redigerar filen "/etc/sysconfig/Network/DHCP" och ändrar `DHCLIENT_SET_HOSTNAME` parametern till följande:
     
-     DHCLIENT_SET_HOSTNAME="nej"
+     DHCLIENT_SET_HOSTNAME = "nej"
 12. I "/etc/sudoers", kommentera ut eller ta bort följande rader om de finns:
     
     ```
      Defaults targetpw   # ask for the password of the target user i.e. root
      ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
      ```
-13. Kontrollera att SSH-servern är installerad och konfigurerad för att starta vid start.  Detta är vanligtvis standard.
-14. Skapa inte växlingsutrymme på OS-disken.
+13. Se till att SSH-servern är installerad och konfigurerad för start vid start.  Detta är vanligt vis standardvärdet.
+14. Skapa inte växlings utrymme på OS-disken.
     
-    Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisken som är kopplad till den virtuella datorn efter etablering på Azure. Observera att den lokala resursdisken är en *tillfällig* disk och kan tömmas när den virtuella datorn avetableras. När du har installerat Azure Linux Agent (se föregående steg), ändra följande parametrar i /etc/waagent.conf på lämpligt sätt:
+    Azure Linux-agenten kan automatiskt konfigurera växlings utrymme med hjälp av den lokala resurs disk som är kopplad till den virtuella datorn efter etableringen på Azure. Observera att den lokala resurs disken är en *temporär* disk och kan tömmas när den virtuella datorn avetableras. När du har installerat Azure Linux-agenten (se föregående steg) ändrar du följande parametrar i/etc/waagent.conf på lämpligt sätt:
     
-     ResourceDisk.Format=y ResourceDisk.Filesystem=ext4 ResourceDisk.MountPoint=/mnt/resource ResourceDisk.EnableSwap=y ResourceDisk.SwapSizeMB=2048 ## OBS: Ställ in det här på vad du vill att det ska vara.
+     ResourceDisk. format = y ResourceDisk. filesystem = ext4 ResourceDisk. monterings punkt =/mnt/Resource ResourceDisk. EnableSwap = y ResourceDisk. SwapSizeMB = 2048 # # Obs! ange det så att du behöver det.
 15. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering på Azure:
     
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
-16. Klicka på **Åtgärd -> stäng av** i Hyper-V-hanteraren. Din virtuella Linux-hårddisk är nu klar att överföras till Azure.
+16. Klicka på **åtgärd-> stänga av** i Hyper-V Manager. Din Linux-VHD är nu redo att laddas upp till Azure.
 
 ---
-## <a name="prepare-opensuse-131"></a>Förbered openSUSE 13.1+
-1. Välj den virtuella datorn i mittrutan i Hyper-V-hanteraren.
+## <a name="prepare-opensuse-131"></a>Förbered openSUSE 13.1 +
+1. I mittenfönstret i Hyper-V Manager väljer du den virtuella datorn.
 2. Klicka på **Anslut** för att öppna fönstret för den virtuella datorn.
-3. Kör kommandot ' 'på`zypper lr`skalet. Om det här kommandot returnerar utdata som liknar följande, konfigureras databaserna som förväntade – inga justeringar är nödvändiga (observera att versionsnumren kan variera):
+3. Kör kommandot`zypper lr`på gränssnittet. Om det här kommandot returnerar utdata som liknar följande, konfigureras databaserna som förväntat – inga justeringar krävs (Observera att versions numren kan variera):
    
         # | Alias                 | Name                  | Enabled | Refresh
         --+-----------------------+-----------------------+---------+--------
@@ -106,35 +106,35 @@ Som ett alternativ till att bygga din egen VHD publicerar SUSE också BYOS (Brin
         2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | Yes     | Yes
         3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | Yes     | Yes
    
-    Om kommandot returnerar "Inga databaser definierade..." Använd sedan följande kommandon för att lägga till dessa repor:
+    Om kommandot returnerar "inga databaser har definierats..." Använd sedan följande kommandon för att lägga till dessa databaser:
    
         # sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_13.1 Cloud:Tools_13.1
         # sudo zypper ar -f https://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
         # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
    
-    Du kan sedan kontrollera att databaserna har lagts`zypper lr`till genom att köra kommandot ' ' igen. Om något av de relevanta uppdateringsdatabaserna inte är aktiverat aktiverar du det med följande kommando:
+    Du kan sedan kontrol lera att databaserna har lagts till genom att köra`zypper lr`kommandot igen. Om en av relevanta uppdaterings databaser inte är aktive rad aktiverar du den med följande kommando:
    
         # sudo zypper mr -e [NUMBER OF REPOSITORY]
-4. Uppdatera kärnan till den senaste tillgängliga versionen:
+4. Uppdatera kerneln till den senaste tillgängliga versionen:
    
         # sudo zypper up kernel-default
    
-    Eller för att uppdatera systemet med alla de senaste patcharna:
+    Eller för att uppdatera systemet med alla de senaste korrigeringarna:
    
         # sudo zypper update
 5. Installera Azure Linux-agenten.
    
         # sudo zypper install WALinuxAgent
-6. Ändra kärnstartlinjen i grub-konfigurationen för att inkludera ytterligare kärnparametrar för Azure. För att göra detta, öppna "/boot/grub/menu.lst" i en textredigerare och se till att standardkärnan innehåller följande parametrar:
+6. Ändra start raden för kernel i grub-konfigurationen för att inkludera ytterligare kernel-parametrar för Azure. Det gör du genom att öppna "/boot/grub/menu.lst" i en text redigerare och se till att standard kärnan innehåller följande parametrar:
    
-     console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+     Console = ttyS0 earlyprintk = ttyS0 rootdelay = 300
    
-   Detta säkerställer att alla konsolmeddelanden skickas till den första seriella porten, vilket kan hjälpa Azure-stöd med felsökningsproblem. Ta dessutom bort följande parametrar från kärnstartlinjen om de finns:
+   Detta säkerställer att alla konsol meddelanden skickas till den första serie porten, vilket kan hjälpa Azure-support med fel söknings problem. Ta dessutom bort följande parametrar från kernelns start rad om de finns:
    
-     libata.atapi_enabled=0 reserv=0x1f0,0x8
-7. Vi rekommenderar att du redigerar filen "/etc/sysconfig/network/dhcp" och ändrar parametern `DHCLIENT_SET_HOSTNAME` till följande:
+     libata. atapi_enabled = 0 reserverad = 0x1f0, 0x8
+7. Vi rekommenderar att du redigerar filen "/etc/sysconfig/Network/DHCP" och ändrar `DHCLIENT_SET_HOSTNAME` parametern till följande:
    
-     DHCLIENT_SET_HOSTNAME="nej"
+     DHCLIENT_SET_HOSTNAME = "nej"
 8. **Viktigt:** I "/etc/sudoers", kommentera ut eller ta bort följande rader om de finns:
      
      ```
@@ -142,21 +142,21 @@ Som ett alternativ till att bygga din egen VHD publicerar SUSE också BYOS (Brin
      ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
      ```
 
-9. Kontrollera att SSH-servern är installerad och konfigurerad för att starta vid start.  Detta är vanligtvis standard.
-10. Skapa inte växlingsutrymme på OS-disken.
+9. Se till att SSH-servern är installerad och konfigurerad för start vid start.  Detta är vanligt vis standardvärdet.
+10. Skapa inte växlings utrymme på OS-disken.
     
-    Azure Linux Agent kan automatiskt konfigurera växlingsutrymme med hjälp av den lokala resursdisken som är kopplad till den virtuella datorn efter etablering på Azure. Observera att den lokala resursdisken är en *tillfällig* disk och kan tömmas när den virtuella datorn avetableras. När du har installerat Azure Linux Agent (se föregående steg), ändra följande parametrar i /etc/waagent.conf på lämpligt sätt:
+    Azure Linux-agenten kan automatiskt konfigurera växlings utrymme med hjälp av den lokala resurs disk som är kopplad till den virtuella datorn efter etableringen på Azure. Observera att den lokala resurs disken är en *temporär* disk och kan tömmas när den virtuella datorn avetableras. När du har installerat Azure Linux-agenten (se föregående steg) ändrar du följande parametrar i/etc/waagent.conf på lämpligt sätt:
     
-     ResourceDisk.Format=y ResourceDisk.Filesystem=ext4 ResourceDisk.MountPoint=/mnt/resource ResourceDisk.EnableSwap=y ResourceDisk.SwapSizeMB=2048 ## OBS: Ställ in det här på vad du vill att det ska vara.
+     ResourceDisk. format = y ResourceDisk. filesystem = ext4 ResourceDisk. monterings punkt =/mnt/Resource ResourceDisk. EnableSwap = y ResourceDisk. SwapSizeMB = 2048 # # Obs! ange det så att du behöver det.
 11. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering på Azure:
     
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
-12. Se till att Azure Linux Agent körs vid start:
+12. Se till att Azure Linux-agenten körs vid start:
     
         # sudo systemctl enable waagent.service
-13. Klicka på **Åtgärd -> stäng av** i Hyper-V-hanteraren. Din virtuella Linux-hårddisk är nu klar att överföras till Azure.
+13. Klicka på **åtgärd-> stänga av** i Hyper-V Manager. Din Linux-VHD är nu redo att laddas upp till Azure.
 
 ## <a name="next-steps"></a>Nästa steg
-Du är nu redo att använda den virtuella hårddisken SUSE Linux för att skapa nya virtuella datorer i Azure. Om det är första gången du överför VHD-filen till Azure läser du [Skapa en virtuell Linux-dator från en anpassad disk](upload-vhd.md#option-1-upload-a-vhd).
+Du är nu redo att använda din virtuella SUSE Linux-hårddisk för att skapa nya virtuella datorer i Azure. Om det är första gången du laddar upp VHD-filen till Azure, se [skapa en virtuell Linux-dator från en anpassad disk](upload-vhd.md#option-1-upload-a-vhd).

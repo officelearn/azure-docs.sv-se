@@ -1,96 +1,96 @@
 ---
-title: Azure Monitor kundhanterad nyckelkonfiguration
-description: Information och steg för att konfigurera CUSTOMER-Managed Key (CMK) för att kryptera data i dina Log Analytics-arbetsytor med hjälp av en Azure Key Vault-nyckel.
+title: Azure Monitor kundhanterad nyckel konfiguration
+description: Information och steg för att konfigurera kundhanterad nyckel (CMK) för att kryptera data i dina Log Analytics arbets ytor med hjälp av en Azure Key Vault nyckel.
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 04/12/2020
 ms.openlocfilehash: 25fdb0aefacbdd9c2630a69981a67821ac155786
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758816"
 ---
-# <a name="azure-monitor-customer-managed-key-configuration"></a>Azure Monitor kundhanterad nyckelkonfiguration 
+# <a name="azure-monitor-customer-managed-key-configuration"></a>Azure Monitor kundhanterad nyckel konfiguration 
 
-Den här artikeln innehåller bakgrundsinformation och steg för att konfigurera CMK (Customer-Managed Keys) för komponenterna Log Analytics och Application Insights. När alla data som skickas till dina arbetsytor eller komponenter har konfigurerats krypteras de med nyckeln Azure Key Vault.
+Den här artikeln innehåller bakgrunds information och steg för att konfigurera Kundhanterade nycklar (CMK) för dina Log Analytics-arbetsytor och Application Insights-komponenter. När de har kon figurer ATS krypteras alla data som skickas till dina arbets ytor eller komponenter med din Azure Key Vault nyckel.
 
-Vi rekommenderar att du granskar [begränsningar och begränsningar](#limitations-and-constraints) nedan innan konfigurationen.
+Vi rekommenderar att du granskar [begränsningar och](#limitations-and-constraints) begränsningar nedan före konfigurationen.
 
 ## <a name="disclaimers"></a>Ansvarsfriskrivningar
 
-- Azure Monitor CMK är en tidig åtkomstfunktion och aktiverad för registrerade prenumerationer.
+- Azure Monitor CMK är en funktion för tidig åtkomst som är aktive rad för registrerade prenumerationer.
 
-- CMK-distributionen som beskrivs i den här artikeln levereras i produktionskvalitet och stöds som sådan även om det är en tidig åtkomstfunktion.
+- CMK-distributionen som beskrivs i den här artikeln levereras i produktions kvalitet och stöds, även om det är en tidig åtkomst funktion.
 
-- CMK-funktionen levereras på ett dedikerat datalagringskluster, som är ett ADX-kluster (Azure Data Explorer) och som är lämpligt för kunder som skickar 1 TB per dag eller mer. 
+- CMK-funktionen levereras på ett dedikerat data lager-kluster, som är ett Azure Datautforskaren-kluster (ADX) och är lämpligt för kunder som skickar 1 TB per dag eller mer. 
 
-- CMK-prismodellen är inte tillgänglig för tillfället och den beskrivs inte i den här artikeln. En prismodell för dedikerat ADX-kluster förväntas under det andra kvartalet av kalenderåret (CY) 2020 och kommer att gälla för alla befintliga CMK-distributioner.
+- Pris sättnings modellen för CMK är inte tillgänglig för närvarande och omfattas inte av den här artikeln. En pris modell för dedikerat ADX-kluster förväntas under det andra kvartalet av kalender året (CY) 2020 och gäller för alla befintliga CMK-distributioner.
 
-- I den här artikeln beskrivs CMK-konfigurationen för Log Analytics-arbetsytor. CMK för Application Insights-komponenter stöds också med den här artikeln medan skillnader visas i tillägget.
+- I den här artikeln beskrivs CMK-konfigurationen för Log Analytics-arbetsytor. CMK för Application Insights-komponenter stöds också med hjälp av den här artikeln och skillnaderna visas i bilagan.
 
 > [!NOTE]
-> Log Analytics och Application Insights använder samma datalagringsplattform och frågemotor.
-> Vi sammanför dessa två butiker via integrering av Application Insights i Log Analytics för att skapa ett enda enhetligt loggar-arkiv under Azure Monitor. Ändringen är planerad till det andra kvartalet kalenderåret 2020. Om du inte behöver distribuera CMK för dina Application Insights-data då rekommenderar vi att du väntar på att konsolideringen ska slutföras eftersom sådana distributioner kommer att störas av konsolideringen och du måste konfigurera om CMK efter migreringen till Log Analytics-arbetsytan. Minimumet på 1 TB per dag gäller på klusternivå och tills konsolideringen är klar under andra kvartalet kräver Application Insights och Log Analytics separata kluster.
+> Log Analytics och Application Insights använder samma plattform för data lagring och frågemotor.
+> Vi samlar dessa två butiker genom att integrera Application Insights i Log Analytics för att skapa ett enda enhetligt logg lager under Azure Monitor. Den här ändringen planeras för det andra kvartalet för kalender året 2020. Om du inte behöver distribuera CMK för dina Application Insights data, rekommenderar vi att du väntar på att konsolideringen ska slutföras eftersom distributionerna avbryts av konsolideringen och du måste konfigurera om CMK efter migreringen till Log Analytics arbets yta. Minst 1 TB per dag gäller för kluster nivån och tills konsolideringen har slutförts under andra kvartalet, Application Insights och Log Analytics kräver separata kluster.
 
 ## <a name="customer-managed-key-cmk-overview"></a>Översikt över kundhanterad nyckel (CMK)
 
-[Kryptering på vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) är ett vanligt integritets- och säkerhetskrav i organisationer. Du kan låta Azure hantera kryptering helt i vila, medan du har olika alternativ för att noggrant hantera krypterings- eller krypteringsnycklar.
+[Kryptering i vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) är ett gemensamt sekretess-och säkerhets krav i organisationer. Du kan låta Azure helt hantera kryptering i vila, medan du har olika alternativ för att hantera krypterings-eller krypterings nycklar.
 
-Azure Monitor-datalagringen säkerställer att alla data krypteras i vila med Hjälp av Azure-hanterade nycklar medan de lagras i Azure Storage. Azure Monitor tillhandahåller också ett alternativ för datakryptering med din egen nyckel som lagras i ditt [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview), som används med hjälp av systemtilldelad [autentisering av hanterade identiteter.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) Den här nyckeln kan vara antingen [programvara eller hårdvara-HSM skyddad](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
-Azure Monitor-användningen av kryptering är identisk med hur [Azure Storage-kryptering](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption) fungerar.
+Azure Monitor data lagringen säkerställer att alla data som krypteras i vila med hjälp av Azure-hanterade nycklar när de lagras i Azure Storage. Azure Monitor innehåller också ett alternativ för data kryptering med hjälp av din egen nyckel som lagras i din [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview), som används med systemtilldelad autentisering med [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) . Den här nyckeln kan vara antingen [program vara eller maskin vara-HSM skyddad](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Azure Monitor användningen av kryptering är identisk med hur [Azure Storage kryptering](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption) fungerar.
 
-Frekvensen som Azure Monitor Storage har åtkomst till Key Vault för inrbryt- och uppbrytaråtgärder är mellan 6 och 60 sekunder.Azure Monitor Storage respekterar alltid ändringar i nyckelbehörigheter inom en timme.
+Den frekvens som Azure Monitor lagrings åtkomst Key Vault för omslutning och unwrap-åtgärder är mellan 6 och 60 sekunder.Azure Monitor Storage respekterar alltid ändringar i nyckel behörigheter inom en timme.
 
-Intas data under de senaste 14 dagarna hålls också i hot-cache (SSD-backed) för effektiv frågemotordrift. Dessa data förblir krypterade med Microsoft-nycklar oavsett CMK-konfiguration, men vi arbetar för att få SSD-kodat med CMK under första halvåret 2020.
+Inmatade data under de senaste 14 dagarna behålls också i frekvent cache (SSD-backad) för effektiv Operations Engine-åtgärd. Dessa data förblir krypterade med Microsoft-nycklar oavsett CMK-konfiguration, men vi arbetar med att ha SSD krypterat med CMK i första hälften av 2020.
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>Så här fungerar CMK i Azure Monitor
 
-Azure Monitor utnyttjar systemtilldelade hanterade identitet för att bevilja åtkomst till ditt Azure Key Vault.Systemtilldelade hanterade identitet kan bara associeras med en enda Azure-resurs. Identiteten för Azure Monitor data-store (ADX-kluster) stöds på klusternivå och detta dikterar att CMK-funktionen levereras på ett dedikerat ADX-kluster. För att stödja CMK på flera arbetsytor fungerar en ny Log Analytics-resurs (*Cluster*) som en mellanliggande identitetsanslutning mellan Key Vault och dina Log Analytics-arbetsytor. Det här konceptet överensstämmer med den systemtilldelade identitetsbegränsningen och identiteten upprätthålls mellan ADX-klustret och *log analytics-klusterresursen,* medan data för alla associerade arbetsytor skyddas med nyckeln Key Vault. Adx-klusterlagringen underlag använder\'den hanterade identitet som är associerad med *klusterresursen* för att autentisera och komma åt ditt Azure Key Vault via Azure Active Directory.
+Azure Monitor utnyttjar systemtilldelad hanterad identitet för att ge åtkomst till din Azure Key Vault.Systemtilldelad hanterad identitet kan bara kopplas till en enda Azure-resurs. Identiteten för Azure Monitor data lager (ADX-kluster) stöds på kluster nivå och detta anger att CMK-funktionen levereras i ett dedikerat ADX-kluster. För att stödja CMK på flera arbets ytor fungerar en ny Log Analytics resurs (*kluster*) som en mellanliggande identitets anslutning mellan din Key Vault och dina Log Analytics arbets ytor. Det här konceptet följer den systemtilldelade identitets begränsningen och identiteten upprätthålls mellan ADX-klustret och Log Analytics *kluster* resurs, medan data för alla associerade arbets ytor skyddas med din Key Vault-nyckel. Underlay ADX kluster lagring använder den hanterade identitet som\'är kopplad till *kluster* resursen för att autentisera och komma åt din Azure Key Vault via Azure Active Directory.
 
-![CMK Översikt](media/customer-managed-keys/cmk-overview-8bit.png)
-1.    Kundens nyckelvalv.
-2.    Kundens Log Analytics *Cluster-resurs* som har hanterad identitet med behörighet till Key Vault – Identiteten stöds på ADX-klusternivå (Data Store).
-3.    Azure Monitor-dedikerat ADX-kluster.
-4.    Kundens arbetsytor som är associerade till *klusterresurs* för CMK-kryptering.
+![Översikt över CMK](media/customer-managed-keys/cmk-overview-8bit.png)
+1.    Kundens Key Vault.
+2.    Kundens Log Analytics *kluster* resurs har hanterad identitet med behörighet att Key Vault – identiteten stöds på nivån data lager (ADX Cluster).
+3.    Azure Monitor dedikerat ADX-kluster.
+4.    Kundens arbets ytor som är kopplade till *kluster* RESURSEN för CMK-kryptering.
 
-## <a name="encryption-keys-management"></a>Hantering av krypteringsnycklar
+## <a name="encryption-keys-management"></a>Hantering av krypterings nycklar
 
-Det finns 3 typer av nycklar som är involverade i lagringsdatakryptering:
+Det finns tre typer av nycklar som ingår i kryptering av lagrings data:
 
-- **KEK** - Nyckelkrypteringsnyckel (CMK)
-- **AEK** - Krypteringsnyckel för konton
-- **DEK** - Data krypteringsnyckel
+- Nyckel krypterings nyckel för **KEK** (CMK)
+- Krypterings nyckel för **AEK** -konto
+- **DEK** – data krypterings nyckel
 
 Följande regler gäller:
 
-- ADX-lagringskontona genererar unik krypteringsnyckel för varje lagringskonto, som kallas AEK.
+- ADX lagrings konton genererar unik krypterings nyckel för varje lagrings konto, vilket kallas för AEK.
 
-- AEK används för att härleda DEK:er, som är de nycklar som används för att kryptera varje datablock som skrivs till disk.
+- AEK används för att härleda DEKs, vilket är de nycklar som används för att kryptera varje data block som skrivs till disk.
 
-- När du konfigurerar nyckeln i Key Vault och refererar till den i *klusterresursen* skickar Azure Storage begäranden till ditt Azure Key Vault för att radbryta och packa upp AEK för att utföra datakrypterings- och dekrypteringsåtgärder.
+- När du konfigurerar din nyckel i Key Vault och refererar till den i *kluster* resursen, skickar Azure Storage begär anden till Azure Key Vault för att omsluta och packa upp AEK för att utföra data kryptering och dekryptering.
 
-- Kek lämnar aldrig key vault och när det gäller en HSM-nyckel lämnar den aldrig maskinvaran.
+- Din KEK lämnar aldrig Key Vault och om det finns en HSM-nyckel lämnar den aldrig maskin varan.
 
-- Azure Storage använder den hanterade identitet som är associerad med *klusterresursen* för att autentisera och komma åt Azure Key Vault via Azure Active Directory.
+- Azure Storage använder den hanterade identitet som är kopplad till *kluster* resursen för att autentisera och komma åt Azure Key Vault via Azure Active Directory.
 
-## <a name="cmk-provisioning-procedure"></a>CMK-etableringsförfarande
+## <a name="cmk-provisioning-procedure"></a>Etablerings procedur för CMK
 
-För CMK-konfiguration för Application Insights följer du tilläggsinnehållet för steg 3 och 6.
+För Application Insights CMK-konfiguration följer du tillägget för innehållet i steg 3 och 6.
 
-1. Prenumeration vitlista - detta krävs för denna tidig tillgång funktionen
+1. Prenumerations-vit listning – detta krävs för den här funktionen för tidig åtkomst
 2. Skapa Azure Key Vault och lagra nyckel
-3. Skapa en *klusterresurs*
-4. Adx-kluster (Azure Monitor data-store)
-5. Bevilja behörigheter till key vault
-6. Associera log analytics-arbetsytor
+3. Skapa en *kluster* resurs
+4. Etablering av Azure Monitor data lager (ADX-kluster)
+5. Bevilja behörighet till din Key Vault
+6. Associera Log Analytics-arbetsytor
 
-Proceduren stöds inte i användargränssnittet för närvarande och etableringsprocessen utförs via REST API.
+Proceduren stöds för närvarande inte i användar gränssnittet och etablerings processen utförs via REST API.
 
 > [!IMPORTANT]
-> Alla API-begäranden måste innehålla en innehavarauktoriseringstoken i begäranhuvudet.
+> Alla API-förfrågningar måste innehålla en token Authorization-token i begär ande huvudet.
 
 Ett exempel:
 
@@ -99,25 +99,25 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 Authorization: Bearer eyJ0eXAiO....
 ```
 
-Där *eyJ0eXAiO....* representerar den fullständiga auktoriseringstoken. 
+Där *eyJ0eXAiO..* . representerar hela autentiseringstoken. 
 
-Du kan hämta token med någon av dessa metoder:
+Du kan hämta token med någon av följande metoder:
 
-1. Använd metoden [Appregistreringar.](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens)
+1. Använd [Appregistreringar](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens) metod.
 2. I Azure-portalen
-    1. Navigera till Azure-portalen i "utvecklarverktyg" (F12)
-    1. Leta efter auktoriseringssträng under "Begär rubriker" i en av instanserna "batch?api-version". Det ser ut som: "tillstånd: Bearer eyJ0eXAiO ....". 
-    1. Kopiera och lägg till det i ditt API-anrop enligt exemplen nedan.
-3. Navigera till Azure REST-dokumentationswebbplatsen. Tryck på "Prova" på alla API och kopiera Innehavartoken.
+    1. Navigera till Azure Portal medan du är i "utvecklarverktyg" (F12)
+    1. Sök efter Authorization-sträng under "begärandehuvuden" i någon av instanserna "batch? API-version". Det ser ut så här: "auktorisering: Bearer-eyJ0eXAiO....". 
+    1. Kopiera och Lägg till det i API-anropet enligt exemplen nedan.
+3. Gå till webbplatsen för Azure REST-dokumentation. Tryck på "prova" på alla API: er och kopiera Bearer-token.
 
-### <a name="asynchronous-operations-and-status-check"></a>Asynkrona åtgärder och statuskontroll
+### <a name="asynchronous-operations-and-status-check"></a>Asynkrona åtgärder och status kontroll
 
-Vissa av åtgärderna i den här konfigurationsproceduren körs asynkront eftersom de inte kan slutföras snabbt. Svaret för asynkron åtgärd returnerar inledningsvis en HTTP-statuskod 200 (OK) och ett huvud med egenskapen *Azure-AsyncOperation* när den godkänns:
+Några av åtgärderna i den här konfigurations proceduren körs asynkront eftersom de inte kan slutföras snabbt. Svaret för asynkron åtgärd returnerar ursprungligen HTTP-statuskod 200 (OK) och rubriken med *Azure-AsyncOperation-* egenskapen när den godkänns:
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-03-01-preview"
 ```
 
-Du kan kontrollera status för den asynkrona åtgärden genom att skicka en *GET-begäran till azure-AsyncOperation-huvudvärdet:*
+Du kan kontrol lera statusen för den asynkrona åtgärden genom att skicka en GET-begäran till värdet för *Azure-AsyncOperation-* huvudet:
 ```rst
 GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-03-01-preview
 Authorization: Bearer <token>
@@ -125,7 +125,7 @@ Authorization: Bearer <token>
 
 Svaret innehåller information om åtgärden och dess *status*. Det kan vara något av följande:
 
-Operationen pågår
+Åtgärden pågår
 ```json
 {
     "id": "Azure-AsyncOperation URL value from the GET operation",
@@ -135,7 +135,7 @@ Operationen pågår
 }
 ```
 
-Åtgärden är slutförd
+Åtgärden har slutförts
 ```json
 {
     "id": "Azure-AsyncOperation URL value from the GET operation",
@@ -161,30 +161,30 @@ Operationen pågår
 }
 ```
 
-### <a name="subscription-whitelisting"></a>Vitlistning av prenumeration
+### <a name="subscription-whitelisting"></a>Vit listning för prenumeration
 
-CMK-funktionen är en funktion för tidig åtkomst. Prenumerationerna där du planerar att skapa *klusterresurser* måste vitlistas i förväg av Azure-produktgruppen. Använd dina kontakter till Microsoft för att ange dina prenumerations-ID:er.
+CMK-funktionen är en funktion för tidig åtkomst. De prenumerationer där du planerar att skapa *kluster* resurser måste vit listas i förväg av Azures produkt grupp. Använd dina kontakter i Microsoft för att tillhandahålla dina prenumerations-ID: n.
 
 > [!IMPORTANT]
-> CMK-kapaciteten är regional. Dina Azure Key *Vault,Klusterresurs* och associerade Log Analytics-arbetsytor måste finnas i samma region, men de kan finnas i olika prenumerationer.
+> CMK-funktionen är regional. Din Azure Key Vault, *kluster* resurs och associerade Log Analytics arbets ytor måste finnas i samma region, men de kan finnas i olika prenumerationer.
 
-### <a name="storing-encryption-key-kek"></a>Lagra krypteringsnyckel (KEK)
+### <a name="storing-encryption-key-kek"></a>Lagra krypterings nyckel (KEK)
 
-Skapa eller använd ett Azure Key Vault som du redan måste generera eller importera en nyckel som ska användas för datakryptering. Azure Key Vault måste konfigureras som återställningsbara för att skydda din nyckel och åtkomsten till dina data i Azure Monitor. Du kan verifiera den här konfigurationen under egenskaper i Key Vault, både *Mjukt borttagnings-* och *rensningsskydd* ska aktiveras.
+Skapa eller Använd en Azure Key Vault som du redan har för att skapa eller importera en nyckel som ska användas för data kryptering. Azure Key Vault måste konfigureras som rekonstruerbar för att skydda din nyckel och åtkomsten till dina data i Azure Monitor. Du kan kontrol lera den här konfigurationen under egenskaper i Key Vault, både *mjuk borttagnings* -och *rensnings skydd* ska vara aktiverat.
 
-![Inställningar för mjuk borttagning och rensning av skydd](media/customer-managed-keys/soft-purge-protection.png)
+![Mjuk borttagning och rensning av skydds inställningar](media/customer-managed-keys/soft-purge-protection.png)
 
-Dessa inställningar är tillgängliga via CLI och PowerShell:
+De här inställningarna är tillgängliga via CLI och PowerShell:
 - [Mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-- [Rensa skydd](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) vakter mot kraft radering av den hemliga / valv även efter mjuk bort
+- [Rensa skydds skydd](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) mot Force borttagning av hemligheten/valvet även efter mjuk borttagning
 
-### <a name="create-cluster-resource"></a>Skapa *klusterresurs*
+### <a name="create-cluster-resource"></a>Skapa *kluster* resurs
 
-Den här resursen används som en mellanliggande identitetsanslutning mellan Key Vault och dina Log Analytics-arbetsytor. När du har fått en bekräftelse på att dina prenumerationer har vitlistats skapar du en Log Analytics *Cluster-resurs* i den region där dina arbetsytor finns. Application Insights och Log *Cluster* Analytics kräver separata klusterresursertyper. Typ av *klusterresurs* definieras vid skapandetid genom att ange *egenskapen clusterType* till antingen *LogAnalytics*eller *ApplicationInsights*. Klusterresurstypen kan inte ändras efter.
+Den här resursen används som en mellanliggande identitets anslutning mellan din Key Vault och dina Log Analytics arbets ytor. När du har fått en bekräftelse på att dina prenumerationer har vit listas skapar du en Log Analytics *kluster* resurs i den region där dina arbets ytor finns. Application Insights och Log Analytics kräver separata *kluster* resurs typer. *Kluster* resursens typ definieras när du skapar den genom att ange egenskapen *ClusterType* till antingen *LogAnalytics*eller *ApplicationInsights*. Kluster resurs typen kan inte ändras efter.
 
-För CMK-konfiguration för Application Insights följer du tilläggsinnehållet.
+För Application Insights CMK-konfiguration följer du innehållet i bilagan.
 
-Du måste ange kapacitetsreservationsnivån (sku) när du skapar en *klusterresurs.* Kapacitetsreserveringsnivån kan ligga i intervallet 1 000 till 2 000 GB per dag och du kan uppdatera den i steg om 100 senare. Om du behöver kapacitetsreserveringsnivå som är högre än 2 000 GB per dag kontaktar du din Microsoft-kontakt för att aktivera den. Den här egenskapen påverkar inte faktureringen för tillfället – när prismodellen för dedikerat kluster har introducerats gäller fakturering för alla befintliga CMK-distributioner.
+Du måste ange kapacitets reservations nivå (SKU) när du skapar en *kluster* resurs. Kapacitets reservations nivån kan ligga inom intervallet 1 000 till 2 000 GB per dag och du kan uppdatera den i steg om 100 senare. Om du behöver kapacitets reservations nivån högre än 2 000 GB per dag kan du kontakta din Microsoft-kontakt för att aktivera den. Den här egenskapen påverkar inte faktureringen för närvarande – när pris modellen för dedikerat kluster införs, kommer faktureringen att gälla för alla befintliga CMK-distributioner.
 
 **Skapa**
 
@@ -209,18 +209,18 @@ Content-type: application/json
   "location": "<region-name>",
 }
 ```
-Identiteten tilldelas *klusterresursen* när den skapas.
+Identiteten tilldelas till *kluster* resursen vid skapande tillfället.
 
 **Svar**
 
-200 OK och header.
-Under funktionens tidiga åtkomstperiod etableras ADX-klustret manuellt. Det tar visserligen att etablera det underliggande ADX-klustret ett tag att slutföra, men du kan kontrollera etableringstillståndet på två sätt:
-1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [statuskontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
-2. Skicka en GET-begäran på *klusterresursen* och titta på *etableringstatsvärdet.* Det är *etableringKonto vid* etablering och lyckades när den har *slutförts.*
+200 OK och rubrik.
+Under den tidigaste åtkomst perioden för funktionen, allokeras ADX-klustret manuellt. När den tar etablering av det ADX klustret a När ska slutföras, kan du kontrol lera etablerings statusen på två sätt:
+1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
+2. Skicka en GET-begäran på *kluster* resursen och titta på *provisioningState* -värdet. Den är *ProvisioningAccount* medan *etableringen har slutförts och* slutförts.
 
-### <a name="azure-monitor-data-store-adx-cluster-provisioning"></a>Adx-kluster (Azure Monitor data-store)
+### <a name="azure-monitor-data-store-adx-cluster-provisioning"></a>Etablering av Azure Monitor data lager (ADX-kluster)
 
-Under funktionens tidiga åtkomstperiod etableras ADX-klustret manuellt av produktteamet när de föregående stegen har slutförts. Använd Microsoft-kanalen för det *Cluster* här steget och ange klusterresurssvaret. 
+Under den tidigaste åtkomst perioden för funktionen, allokeras ADX-klustret manuellt av produkt teamet när föregående steg har slutförts. Använd Microsoft-kanalen för det här steget och ange ett *kluster* resurs svar. 
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
@@ -228,7 +228,7 @@ Authorization: Bearer <token>
 ```
 
 > [!IMPORTANT]
-> Kopiera och spara svaret eftersom du behöver informationen i nästa steg.
+> Kopiera och spara svaret eftersom du kommer att behöva informationen i nästa steg.
 
 **Svar**
 
@@ -256,35 +256,35 @@ Authorization: Bearer <token>
 }
 ```
 
-GUID för "principalId" genereras av den *Cluster* hanterade identitetstjänsten för klusterresursen.
+GUID för "principalId" genereras av den hanterade identitets tjänsten för *kluster* resursen.
 
-### <a name="grant-key-vault-permissions"></a>Bevilja behörigheter för nyckelvalv
+### <a name="grant-key-vault-permissions"></a>Bevilja Key Vault behörigheter
 
-Uppdatera key vault med en ny åtkomstprincip som ger behörighet till *klusterresursen.* Dessa behörigheter används av underlag Azure Monitor Storage för datakryptering. Öppna key vault i Azure-portalen och klicka på "Åtkomstprinciper" och sedan "+ Lägg till åtkomstprincip" för att skapa en princip med följande inställningar:
+Uppdatera din Key Vault med en ny åtkomst princip som ger behörighet till *kluster* resursen. Dessa behörigheter används av Underlay Azure Monitor Storage för data kryptering. Öppna din Key Vault i Azure Portal och klicka på "åtkomst principer" och sedan "+ Lägg till åtkomst princip" för att skapa en princip med följande inställningar:
 
-- Viktiga behörigheter: välj behörigheterna Hämta, Radbryt nyckel och Ta bort nyckel.
-- Välj huvudnamn: Ange huvud-ID-värdet som returnerades i svaret i föregående steg.
+- Nyckel behörigheter: Välj get-, wrap-och unwrap Key-behörigheter.
+- Välj huvud namn: Ange det huvud-ID-värde som returnerades i svaret i föregående steg.
 
-![bevilja behörigheter för Nyckelvalv](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
+![bevilja Key Vault behörigheter](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
-*Behörigheten Hämta* krävs för att verifiera att ditt Key Vault har konfigurerats som återställningsbart för att skydda din nyckel och åtkomsten till dina Azure Monitor-data.
+Get-behörighet krävs för att verifiera att Key Vault har kon figurer ATS för att kunna *återskapas* för att skydda din nyckel och till gång till dina Azure Monitor data.
 
-### <a name="update-cluster-resource-with-key-identifier-details"></a>Uppdatera klusterresurs med information om nyckelidentifierare
+### <a name="update-cluster-resource-with-key-identifier-details"></a>Uppdatera kluster resurs med information om nyckel identifierare
 
-Det här steget utförs under de första och framtida nyckelversionsuppdateringarna i key vault.This step performed during initial and in future key version updates in your Key Vault. Den informerar Azure Monitor Storage om nyckelversionen som ska användas för datakryptering. När den uppdateras används den nya nyckeln för att figursluta och packa upp till lagringsnyckeln (AEK).
+Det här steget utförs under initial och i framtida viktiga versions uppdateringar i din Key Vault. Det informerar Azure Monitor lagring om den nyckel version som ska användas för data kryptering. När den uppdateras används den nya nyckeln för att packa upp och packa upp till lagrings nyckeln (AEK).
 
-Om du vill uppdatera *klusterresursen* med information om key *vault-nyckelinformation* väljer du den aktuella versionen av din nyckel i Azure Key Vault för att få information om nyckelidentifierare.
+Om du vill uppdatera *kluster* resursen med information om Key Vault *nyckel identifierare* väljer du den aktuella versionen av nyckeln i Azure Key Vault för att hämta information om nyckel identifieraren.
 
-![Bevilja behörigheter för nyckelvalv](media/customer-managed-keys/key-identifier-8bit.png)
+![Bevilja Key Vault behörigheter](media/customer-managed-keys/key-identifier-8bit.png)
 
-Uppdatera *klusterresursen* KeyVaultProperties med information om nyckelidentifierare.
+Uppdatera *kluster* resursens KeyVaultProperties med information om nyckel identifierare.
 
 **Uppdatera**
 
-Den här Resource Manager-begäran är asynkron åtgärd när du uppdaterar information om nyckelidentifierare, medan den är synkron när kapacitetsvärdet uppdateras.
+Den här Resource Manager-begäran är asynkron åtgärd vid uppdatering av nyckel-ID-information, medan den är synkron vid uppdatering av kapacitet svärdet.
 
 > [!Warning]
-> Du måste ange en hel *brödtext* i klusterresursuppdatering som innehåller *identitet*, *sku*, *KeyVaultProperties* och *plats*. Om du saknar *keyVaultProperties-informationen* tas nyckelidentifieraren bort från *klusterresursen* och [orsaka nyckelåterkallelse](#cmk-kek-revocation).
+> Du måste ange en fullständig brödtext i *kluster* resurs uppdateringen som innehåller *identitet*, *SKU*, *KeyVaultProperties* och *plats*. Om du saknar *KeyVaultProperties* -information tas nyckel identifieraren bort från *kluster* resursen och [återkalls av nyckeln](#cmk-kek-revocation).
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -309,16 +309,16 @@ Content-type: application/json
    "location":"<region-name>"
 }
 ```
-"KeyVaultProperties" innehåller nyckelidentifieraren För nyckelvalvet.
+"KeyVaultProperties" innehåller information om Key Vault-nyckel-ID.
 
 **Svar**
 
-200 OK och header.
-Det tar att sprida nyckelidentifieraren några minuter att slutföra. Du kan kontrollera uppdateringstillståndet på två sätt:
-1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [statuskontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
-2. Skicka en GET-begäran på *klusterresursen* och titta på egenskaperna *KeyVaultProperties.* Din nyligen uppdaterade nyckelidentifierare bör returneras i svaret.
+200 OK och rubrik.
+Det tar några minuter att slutföra spridningen av nyckel identifieraren. Du kan kontrol lera uppdaterings statusen på två sätt:
+1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
+2. Skicka en GET-begäran på *kluster* resursen och titta på *KeyVaultProperties* -egenskaperna. Den senast uppdaterade informationen om nyckel identifieraren ska returneras i svaret.
 
-Ett svar på GET-begäran på *klusterresursen* ska se ut så här när uppdateringen av nyckelidentifieraren är klar:
+Ett svar på GET-begäran på *kluster* resursen bör se ut så här när nyckel identifierarens uppdatering är slutförd:
 
 ```json
 {
@@ -349,18 +349,18 @@ Ett svar på GET-begäran på *klusterresursen* ska se ut så här när uppdater
 }
 ```
 
-### <a name="workspace-association-to-cluster-resource"></a>Arbetsyteasasociation till *klusterresurs*
-För CMK-konfiguration för Application Insights följer du tilläggsinnehållet för det här steget.
+### <a name="workspace-association-to-cluster-resource"></a>Arbets ytans koppling till *kluster* resurs
+För Application Insights CMK-konfiguration följer du tillägget för det här steget.
 
-Du måste ha "skriv"-behörigheter till både arbetsytan och *klusterresursen* för att utföra den här åtgärden, vilket inkluderar följande åtgärder:
+Du måste ha behörigheten "Skriv" till både din arbets yta och *kluster* resurs för att utföra den här åtgärden, bland annat följande åtgärder:
 
-- På arbetsytan: Microsoft.OperationalInsights/workspaces/write
-- I *klusterresurs:* Microsoft.OperationalInsights/kluster/skrivning
+- På arbets ytan: Microsoft. OperationalInsights/arbets ytor/Write
+- I *kluster* resurs: Microsoft. OperationalInsights/kluster/Write
 
 > [!IMPORTANT]
-> Det här steget bör endast utföras efter ADX-klusteretablering. Om du associerar arbetsytor och intar data före etableringen tas intjesterade data bort och kan inte återställas.
+> Det här steget ska endast utföras efter ADX kluster etablering. Om du associerar arbets ytor och matar in data före etableringen tas inmatade data bort och går inte att återskapa.
 
-**Associera en arbetsyta**
+**Koppla en arbets yta**
 
 Den här Resource Manager-begäran är asynkron åtgärd.
 
@@ -378,10 +378,10 @@ Content-type: application/json
 
 **Svar**
 
-200 OK och header.
-Intövda data lagras krypterade med din hanterade nyckel efter associationsåtgärden, vilket kan ta upp till 90 minuter att slutföra. Du kan kontrollera arbetsytssocieringstillståndet på två sätt:
-1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [statuskontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
-2. Skicka en [arbetsyta – Hämta](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) begäran och observera svaret, associerad arbetsyta kommer att ha en clusterResourceId under "funktioner".
+200 OK och rubrik.
+Inmatade data lagras krypterade med din hanterade nyckel efter Associations åtgärd, vilket kan ta upp till 90 minuter att slutföra. Du kan kontrol lera associerings tillstånd för arbets ytan på två sätt:
+1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
+2. Skicka en [arbets yta – Hämta](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) begäran och observera svaret, den associerade arbets ytan har en clusterResourceId under "funktioner".
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
@@ -419,60 +419,60 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 }
 ```
 
-## <a name="cmk-kek-revocation"></a>CMK (KEK) återkallelse
+## <a name="cmk-kek-revocation"></a>CMK (KEK) åter kallelse
 
-Du kan återkalla din åtkomst till dina data genom att inaktivera nyckeln eller ta bort åtkomstprincipen *för klusterresurser* i key vault.You can revoke your access to your data by inaktivera din key or borttagning the Cluster resource access policy in your Key Vault. Azure Monitor Storage respekterar alltid ändringar i nyckelbehörigheter inom en timme, normalt tidigare, och Lagring blir otillgänglig. Alla data som förtärs till arbetsytor som är associerade med *klusterresursen* tas bort och frågor misslyckas. Tidigare inmatade data förblir otillgängliga i Azure Monitor Storage så länge du är din *klusterresurs* och dina arbetsytor inte tas bort. Otillgängliga data styrs av datalagringsprincipen och rensas när lagringen nås.
+Du kan återkalla åtkomsten till dina data genom att inaktivera nyckeln eller ta bort *kluster* resurs åtkomst principen i Key Vault. Azure Monitor-lagringen kommer alltid att respektera ändringar i nyckel behörigheter inom en timme, vanligt vis snart, och lagring kommer att bli otillgänglig. Data som hämtas till arbets ytor som är associerade med din *kluster* resurs släpps och frågor kommer att Miss förväntas. Tidigare inmatade data är inte tillgängliga i Azure Monitor lagring så länge som du är *kluster* resurs och dina arbets ytor inte tas bort. Otillgängliga data regleras av data bevarande principen och kommer att rensas när kvarhållning har nåtts.
 
-Lagring kommer regelbundet att avsöka key vault för att försöka packa upp krypteringsnyckeln och när åtkomst, datainmatning och fråga återupptas inom 30 minuter.
+Lagringen avsöker regelbundet din Key Vault för att försöka att packa upp krypterings nyckeln och en gång till, men data inmatningen och frågan återupptas inom 30 minuter.
 
-## <a name="cmk-kek-rotation"></a>CMK -rotation (KEK)
+## <a name="cmk-kek-rotation"></a>CMK (KEK) rotation
 
-Rotation av CMK kräver explicit uppdatering av *klusterresursen* med den nya nyckelversionen i Azure Key Vault. Om du vill uppdatera Azure Monitor med den nya nyckelversionen följer du anvisningarna i steget Uppdatera *klusterresurs* med information om nyckelidentifierare. Om du uppdaterar nyckelversionen i Key Vault och inte uppdaterar den nya nyckelidentifieraren i *klusterresursen* fortsätter Azure Monitor Storage att använda din tidigare nyckel.
-Alla dina data är tillgängliga efter nyckelrotationen, inklusive data som intas före rotationen och efter den, eftersom alla data förblir krypterade av Account Encryption Key (AEK) medan AEK nu krypteras av din nya KEK-version (Key Encryption Key.
+Rotationen av CMK kräver en explicit uppdatering av *kluster* resursen med den nya nyckel versionen i Azure Key Vault. Om du vill uppdatera Azure Monitor med din nya nyckel version följer du anvisningarna i steget uppdatera *kluster* resurs med information om nyckel identifierare. Om du uppdaterar din nyckel version i Key Vault och inte uppdaterar informationen om den nya nyckel identifieraren i *kluster* resursen, kommer Azure Monitor Storage att fortsätta använda din tidigare nyckel.
+Alla dina data är tillgängliga efter nyckel rotations åtgärden, inklusive data som matats in före rotationen och efter det, eftersom alla data förblir krypterade av konto krypterings nyckeln (AEK) medan AEK nu krypteras av din nya KEK-version (Key Encryption Key).
 
 ## <a name="limitations-and-constraints"></a>Begränsningar och begränsningar
 
-- CMK-funktionen stöds på ADX-klusternivå och kräver ett dedikerat AZURE Monitor ADX-kluster med krav på att skicka 1 TB per dag eller mer.
+- Funktionen CMK stöds på ADX kluster nivå och kräver ett dedikerat Azure Monitor ADX-kluster med kravet att skicka 1 TB per dag eller mer.
 
-- Maxantal *klusterresurser* per prenumeration är begränsat till 2
+- Det högsta antalet *kluster* resurser per prenumeration är begränsat till 2
 
-- *Cluster* Klusterresursasociation till arbetsytan ska endast utföras när du har verifierat att ADX-klusteretablering har slutförts. Data som skickas till arbetsytan innan etableringen har slutförts kommer att tas bort och kan inte återställas.
+- *Kluster* resurs associationen till arbets ytan ska endast utföras när du har verifierat att kluster ETABLERINGEN för ADX har slutförts. Data som skickas till din arbets yta innan etableringen slutförs kommer att tas bort och kan inte återskapas.
 
-- CMK-kryptering gäller för nyligen intjesterade data efter CMK-konfigurationen. Data som intas före CMK-konfigurationen förblir krypterade med Microsoft-nyckeln. Du kan fråga data som förtärs före och efter CMK-konfigurationen sömlöst.
+- CMK-kryptering gäller nyligen inmatade data efter CMK-konfigurationen. Data som matats in före CMK-konfigurationen förblir krypterade med Microsoft-nyckeln. Du kan fråga efter data som matats in före och efter CMK-konfigurationen sömlöst.
 
-- Du kan av associera en arbetsyta från en *klusterresurs* när du bestämmer dig för att CMK inte krävs för en viss arbetsyta. Nya inmatade data efter att de-association-åtgärden har lagrats i delad *Cluster* Log Analytics-lagring som den var innan den associerades till klusterresursen. Du kan fråga data som intas före och efter avasocieringen sömlöst om *klusterresursen* har etablerats och konfigurerats med giltig Key Vault-nyckel.
+- Du kan ta bort en arbets yta från en *kluster* resurs när du bestämmer att CMK inte krävs för en viss arbets yta. Nya inmatade data efter det att associationen har lagrats i delad Log Analytics-lagring som den var innan den var kopplad till *kluster* resursen. Du kan fråga efter data som matats in före och efter att associationen är sömlös om *kluster* resursen är etablerad och konfigurerad med giltig Key Vault nyckel.
 
-- Azure Key Vault måste konfigureras som återställningsbart. Dessa egenskaper är inte aktiverade som standard och bör konfigureras med CLI eller PowerShell:
+- Azure Key Vault måste konfigureras som återställnings Bart. Dessa egenskaper är inte aktiverade som standard och ska konfigureras med CLI eller PowerShell:
 
-  - [Mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) måste vara aktiverat
-  - [Rensa skydd](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) bör slås på för att skydda mot kraft radering av den hemliga / valv även efter mjuk bort
+  - [Mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) måste aktive ras
+  - [Rensnings skyddet](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) bör vara aktiverat för att skydda mot Force borttagning av hemligheten/valvet även efter mjuk borttagning
 
-- Application Insights och Log Analytics kräver separata *klusterresurser.* Klusterresursens *Cluster* typ definieras vid skapandetillfället genom att ange egenskapen "clusterType" på antingen LogAnalytics eller ApplicationInsights. Det *går* inte att ändra klusterresurstypen.
+- Application Insights och Log Analytics kräver separata *kluster* resurser. *Kluster* resursens typ definieras när du skapar den genom att ange egenskapen "clusterType" till antingen "LogAnalytics" eller "ApplicationInsights". Det går inte att ändra *kluster* resurs typen.
 
-- *Klusterresursflytta* till en annan resursgrupp eller prenumeration stöds inte för närvarande.
+- Det finns för närvarande inte stöd för att flytta *kluster* resurser till en annan resurs grupp eller prenumeration.
 
-- Din Azure Key Vault, *klusterresurs* och associerade arbetsytor måste finnas i samma region och i samma Azure Active Directory (Azure AD) klient, men de kan finnas i olika prenumerationer.
+- Dina Azure Key Vault, *kluster* resursen och de associerade arbets ytorna måste finnas i samma region och i samma Azure Active Directory-klient (Azure AD), men de kan finnas i olika prenumerationer.
 
-- Arbetsyteasasociationen till *klusterresursen* misslyckas om den är associerad med en annan *klusterresurs*
+- Associationen för arbets ytan till *kluster* resursen kommer inte att fungera om den är kopplad till en annan *kluster* resurs
 
-## <a name="troubleshooting-and-management"></a>Felsökning och hantering
+## <a name="troubleshooting-and-management"></a>Fel sökning och hantering
 
-- Tillgänglighet för Nyckelvalv
-    - Vid normal drift – Lagring cachelagrar AEK under korta tidsperioder och går tillbaka till Key Vault för att packa upp med jämna mellanrum.
+- Key Vault tillgänglighet
+    - I normal drift – Storage cache-AEK under korta tids perioder och går tillbaka till Key Vault för att packa med jämna mellanrum.
     
-    - Tillfälliga anslutningsfel – Lagring hanterar tillfälliga fel (timeout, anslutningsfel, DNS-problem) genom att låta nycklarna stanna kvar i cacheminnet en kort stund längre och detta övervinner alla små blips i tillgänglighet. Fråge- och inmatningsfunktionerna fortsätter utan avbrott.
+    - Tillfälliga anslutnings fel – lagring hanterar tillfälliga fel (timeout, anslutnings fel, DNS-problem) genom att tillåta att nycklar hålls kvar i cacheminnet för kort, samtidigt som den överkommer till alla små signaler i tillgänglighet. Funktionerna för fråga och inmatning fortsätter utan avbrott.
     
-    - Live site – otillgänglighet på cirka 30 minuter gör att lagringskontot blir otillgängligt. Frågefunktionen är inte tillgänglig och intövda data cachelagras i flera timmar med Microsoft-tangenten för att undvika dataförlust. När åtkomsten till Key Vault återställs blir frågan tillgänglig och de tillfälliga cachelagrade data förtärs till datalagret och krypteras med CMK.
+    - Live site – otillgänglig cirka 30 minuter kommer lagrings kontot att bli otillgängligt. Fråge funktionen är inte tillgänglig och inmatade data cachelagras i flera timmar med Microsoft-nyckeln för att undvika data förlust. När åtkomsten till Key Vault återställs blir frågan tillgänglig och temporära cachelagrade data matas in i data lagringen och krypteras med CMK.
 
-- Om du skapar en *klusterresurs* och anger KeyVaultProperties omedelbart kan åtgärden misslyckas eftersom åtkomstprincipen inte kan definieras förrän systemidentiteten har tilldelats *klusterresursen.*
+- Om du skapar en *kluster* resurs och anger KeyVaultProperties omedelbart kan åtgärden Miss lyckas eftersom det inte går att definiera åtkomst principen förrän system identiteten har tilldelats till *kluster* resursen.
 
-- Om du uppdaterar befintlig *klusterresurs* med KeyVaultProperties och "Get" nyckelåtkomstprincip saknas i Key Vault, misslyckas åtgärden.
+- Om du uppdaterar en befintlig *kluster* resurs med KeyVaultProperties och get nyckel åtkomst principen saknas i Key Vault, Miss kommer åtgärden.
 
-- Om du försöker ta bort en *klusterresurs* som är associerad med en arbetsyta misslyckas borttagningen.
+- Om du försöker ta bort en *kluster* resurs som är kopplad till en arbets yta kommer borttagnings åtgärden att Miss förväntas.
 
-- Om du får konfliktfel när du skapar en *klusterresurs* – Det kan bero på att du har tagit bort *klusterresursen* under de senaste 14 dagarna och att den är i en mjuk borttagningsperiod. *Klusterresursnamnet* förblir reserverat under den mjuka borttagningsperioden och du kan inte skapa ett nytt kluster med det namnet. Namnet släpps efter den mjuka borttagningsperioden när *klusterresursen* tas bort permanent.
+- Om du får ett konflikt fel när du skapar en *kluster* resurs – det kan bero på att du har tagit bort *kluster* resursen under de senaste 14 dagarna och att den är i en mjuk borttagnings period. *Kluster* resurs namnet är reserverat under den mjuka borttagnings perioden och du kan inte skapa ett nytt kluster med det namnet. Namnet släpps efter den mjuka borttagnings perioden när *kluster* resursen tas bort permanent.
 
-- Hämta alla *klusterresurser* för en resursgrupp:
+- Hämta alla *kluster* resurser för en resurs grupp:
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -514,7 +514,7 @@ Alla dina data är tillgängliga efter nyckelrotationen, inklusive data som inta
   }
   ```
 
-- Hämta alla *klusterresurser* för en prenumeration:
+- Hämta alla *kluster* resurser för en prenumeration:
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -523,11 +523,11 @@ Alla dina data är tillgängliga efter nyckelrotationen, inklusive data som inta
     
   **Svar**
     
-  Samma svar som för*klusterresurser* för en resursgrupp, men i prenumerationsomfång.
+  Samma svar som för "*kluster* resurser för en resurs grupp", men i prenumerations omfånget.
 
-- Uppdatera *kapacitetsreservationen* i *klusterresurs* – när datavolymen till dina associerade arbetsytor ändras och du vill uppdatera kapacitetsreserveringsnivån för faktureringsöverväganden följer du [ *uppdateringsklusterresursen* ](#update-cluster-resource-with-key-identifier-details) och anger det nya kapacitetsvärdet. Kapacitetsreserveringsnivån kan ligga i intervallet 1 000 till 2 000 GB per dag och i steg om 100. För nivå som är högre än 2 000 GB per dag kontaktar du din Microsoft-kontakt för att aktivera den.
+- Uppdatera *kapacitets reservationen* i *kluster* resurs – när data volymen till dina associerade arbets ytor ändras och du vill uppdatera kapacitets reservations nivån för fakturerings överväganden, följer du [uppdaterings *kluster* resursen](#update-cluster-resource-with-key-identifier-details) och anger ditt nya kapacitets värde. Kapacitets reservations nivån kan ligga inom intervallet 1 000 till 2 000 GB per dag och i steg om 100. För högre nivå än 2 000 GB per dag når du din Microsoft-kontakt för att aktivera den.
 
-- Ta bort *klusterresursen* – en mjuk borttagningsåtgärd utförs för att tillåta återställning av *klusterresursen,* inklusive dess data inom 14 dagar, oavsett om borttagningen var oavsiktlig eller avsiktlig. *Klusterresursnamnet* förblir reserverat under den mjuka borttagningsperioden och du kan inte skapa ett nytt kluster med det namnet. Efter den mjuka borttagningsperioden släpps *klusterresursnamnet,* *klusterresursen* och data tas bort permanent och kan inte återställas. Alla associerade arbetsytar avförs från *klusterresursen* vid borttagning. Ny intämda data lagras i delad Log Analytics-lagring och krypteras med Microsoft-nyckel. Den avaförde åtgärden för arbetsytor är asynkron.
+- Ta bort *kluster* resursen – en mjuk borttagnings åtgärd utförs för att tillåta återställning av *kluster* resursen, inklusive data inom 14 dagar, om borttagningen var oavsiktlig eller avsiktlig. *Kluster* resurs namnet är reserverat under den mjuka borttagnings perioden och du kan inte skapa ett nytt kluster med det namnet. Efter den mjuka borttagnings perioden släpps *kluster* resurs namnet, *kluster* resursen och data tas bort permanent och går inte att återställa. Alla associerade arbets ytor tas bort från *kluster* resursen vid borttagnings åtgärden. Nya inmatade data lagras i delad Log Analytics lagring och krypteras med Microsoft-nyckel. Den tillhör ande arbets ytan har en asynkron åtgärd.
 
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -538,30 +538,30 @@ Alla dina data är tillgängliga efter nyckelrotationen, inklusive data som inta
 
   200 OK
 
-- Återställa *klusterresursen* och dina data – En *klusterresurs* som har tagits bort under de senaste 14 dagarna är i mjukt borttagningsläge och kan återställas. Detta utförs manuellt av produktgruppen för närvarande. Använd Din Microsoft-kanal för återställningsbegäranden.
+- Återställ *kluster* resursen och dina data – en *kluster* resurs som togs bort under de senaste 14 dagarna är i läget för mjuk borttagning och kan återställas. Detta utförs manuellt av produkt gruppen för närvarande. Använd din Microsoft-kanal för återställnings begär Anden.
 
 ## <a name="appendix"></a>Bilaga
 
-Programstatistik customer managed key (CMK) stöds också, men du bör överväga följande ändring för att hjälpa dig att planera distributionen av CMK för dina Application Insight-komponenter.
+Application Insights kundens hanterade nyckel (CMK) stöds också, men du bör överväga följande ändring för att hjälpa dig att planera distributionen av CMK för dina program insikter-komponenter.
 
-Log Analytics och Application Insights använder samma datalagringsplattform och frågemotor. Vi sammanför dessa två butiker via integrering av Application Insights i Log Analytics för att tillhandahålla ett enda enhetligt loggar-butik under Azure Monitor under andra kvartalet
-2020. Den här ändringen kommer att föra in dina Application Insight-data i Log Analytics-arbetsytor och göra frågor, insikter och andra förbättringar möjliga medan konfigurationen av CMK på arbetsytan, gäller även för dina Application Insights-data.
+Log Analytics och Application Insights använder samma plattform för data lagring och frågemotor. Vi samlar dessa två butiker genom att integrera Application Insights i Log Analytics för att tillhandahålla ett enda enhetligt logg lager under Azure Monitor av det andra kvartalet
+2020. Den här ändringen kommer att överföra insikter om program till Log Analytics arbets ytor och göra frågor, insikter och andra förbättringar som kan uppstå medan konfigurationen av CMK på din arbets yta används även för dina Application Insights data.
 
 > [!NOTE]
-> Om du inte behöver distribuera CMK för dina Application Insight-data före integreringen rekommenderar vi att du väntar med Application Insights CMK eftersom sådana distributioner kommer att störas av integrationen och du måste konfigurera om CMK efter migreringen till Log Analytics-arbetsytan. Minimumet på 1 TB per dag gäller på klusternivå och tills konsolideringen är klar under andra kvartalet kräver Application Insights och Log Analytics separata kluster.
+> Om du inte behöver distribuera CMK för dina program insikter innan du implementerar den, rekommenderar vi att du väntar med Application Insights CMK eftersom sådana distributioner avbryts av integreringen och du måste konfigurera CMK igen efter migreringen till Log Analytics arbets yta. Minst 1 TB per dag gäller för kluster nivån och tills konsolideringen har slutförts under andra kvartalet, Application Insights och Log Analytics kräver separata kluster.
 
-## <a name="application-insights-cmk-configuration"></a>CMK-konfiguration för programinsikter
+## <a name="application-insights-cmk-configuration"></a>Application Insights CMK-konfiguration
 
-Konfigurationen av Application Insights CMK är identisk med den process som illustreras i den här artikeln, inklusive begränsningar och felsökning förutom följande steg:
+Konfigurationen av Application Insights CMK är identisk med processen som illustreras i den här artikeln, inklusive begränsningar och fel sökning, förutom dessa steg:
 
-- Skapa en *klusterresurs*
-- Associera en komponent till en *klusterresurs*
+- Skapa en *kluster* resurs
+- Associera en komponent till en *kluster* resurs
 
-När du konfigurerar CMK för application insights följer du dessa steg i stället för de som anges ovan.
+När du konfigurerar CMK för Application Insights använder du de här stegen i stället för de som anges ovan.
 
-### <a name="create-a-cluster-resource"></a>Skapa en *klusterresurs*
+### <a name="create-a-cluster-resource"></a>Skapa en *kluster* resurs
 
-Den här resursen används som mellanliggande identitetsanslutning mellan Key Vault och dina komponenter. När du har fått en bekräftelse på att dina prenumerationer har vitlistats skapar du en Log Analytics *Cluster-resurs* i den region där komponenterna finns. Typ av *klusterresurs* definieras vid skapandetid genom att ange *egenskapen clusterType* till antingen *LogAnalytics*eller *ApplicationInsights*. Det bör vara *ApplicationInsights* för Application Insights CMK. *Klastypinställningen* kan inte ändras efter konfigurationen.
+Den här resursen används som mellanliggande identitets anslutning mellan din Key Vault och dina komponenter. När du har fått en bekräftelse på att dina prenumerationer var vit listas skapar du en Log Analytics *kluster* resurs i den region där dina komponenter finns. *Kluster* resursens typ definieras när du skapar den genom att ange egenskapen *ClusterType* till antingen *LogAnalytics*eller *ApplicationInsights*. Den bör vara *ApplicationInsights* för Application Insights CMK. *ClusterType* -inställningen kan inte ändras efter konfigurationen.
 
 **Skapa**
 
@@ -589,21 +589,21 @@ Content-type: application/json
 
 **Svar**
 
-200 OK och header.
-Under funktionens tidiga åtkomstperiod etableras ADX-klustret manuellt. Det tar visserligen att etablera det underliggande ADX-klustret ett tag att slutföra, men du kan kontrollera etableringstillståndet på två sätt:
-1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [statuskontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
-2. Skicka en GET-begäran på *klusterresursen* och titta på *etableringstatsvärdet.* Det är *etableringKonto vid* etablering och lyckades när den har *slutförts.*
+200 OK och rubrik.
+Under den tidigaste åtkomst perioden för funktionen, allokeras ADX-klustret manuellt. När den tar etablering av det ADX klustret a När ska slutföras, kan du kontrol lera etablerings statusen på två sätt:
+1. Kopiera URL-värdet för Azure-AsyncOperation från svaret och följ [status kontrollen asynkrona åtgärder](#asynchronous-operations-and-status-check).
+2. Skicka en GET-begäran på *kluster* resursen och titta på *provisioningState* -värdet. Den är *ProvisioningAccount* medan *etableringen har slutförts och* slutförts.
 
-### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>Associera en komponent till en *klusterresurs* med [komponenter – Skapa eller uppdatera](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
+### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>Associera en komponent till en *kluster* resurs med hjälp av [komponenter – skapa eller uppdatera](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate) API
 
-Du måste ha skrivbehörighet för både komponenten och *klusterresursen* för att utföra den här åtgärden, vilket inkluderar följande åtgärder:
+Du måste ha behörigheten "Skriv" både för din komponent och *kluster* resurs för att utföra den här åtgärden, vilket innefattar följande åtgärder:
 
-- Komponent: Microsoft.Insights/component/write
-- I *klusterresurs:* Microsoft.OperationalInsights/kluster/skrivning
+- I komponent: Microsoft. Insights/komponent/Skriv
+- I *kluster* resurs: Microsoft. OperationalInsights/kluster/Write
 
 > [!IMPORTANT]
-> Det här steget bör endast utföras efter ADX-klusteretablering. Om du associerar komponenter och hämtar data före etableringen tas intjesterade data bort och kan inte återställas.
-> Om du vill kontrollera att ADX-klustret är etablerat kör du *klusterresursen* Hämta REST API och kontrollera att *etableringstate-värdet* *har lyckats*.
+> Det här steget ska endast utföras efter ADX kluster etablering. Om du kopplar komponenter och matar in data före etableringen kommer inmatade data att tas bort och går inte att återskapa.
+> Verifiera att ADX-klustret är etablerad genom att köra *kluster* resursen get REST API och kontrol lera att *provisioningState* -värdet har *slutförts*.
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -641,7 +641,7 @@ Authorization: Bearer <token>
 ```
 
 > [!IMPORTANT]
-> Kopiera och behåll svaret eftersom du behöver det i nästa steg.
+> Kopiera och behåll svaret eftersom du kommer att behöva det i nästa steg.
 
 **Associera en komponent**
 
@@ -659,7 +659,7 @@ Content-type: application/json
 }
 ```
 "clusterDefinitionId" är värdet "clusterId" som anges i svaret från föregående steg.
-"typ" exempel är "web".
+"Natura"-exemplet är "Web".
 
 **Svar**
 
@@ -692,6 +692,6 @@ Content-type: application/json
   }
 }
 ```
-"clusterDefinitionId" är *Cluster* klusterresurs-ID som är associerat med den här komponenten.
+"clusterDefinitionId" är det *kluster* resurs-ID som är kopplat till den här komponenten.
 
-Efter associationen lagras data som skickas till dina komponenter krypterade med den hanterade nyckeln.
+Efter associationen lagras data som skickas till dina komponenter krypterade med din hanterade nyckel.

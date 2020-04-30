@@ -1,6 +1,6 @@
 ---
-title: Självstudiekurs - Anslut en allmän Python-klientapp till Azure IoT Central | Microsoft-dokument
-description: Den här självstudien visar hur du som enhetsutvecklare ansluter en enhet som kör en Python-klientapp till ditt Azure IoT Central-program. Du skapar en enhetsmall genom att importera en enhetskapacitetsmodell och lägga till vyer som gör att du kan interagera med en ansluten enhet
+title: Självstudie – ansluta en generisk python-app till Azure IoT Central | Microsoft Docs
+description: Den här självstudien visar hur du, som enhets utvecklare, ansluter en enhet som kör en python-app till ditt Azure IoT Central-program. Du skapar en enhets mall genom att importera en enhets kapacitets modell och lägga till vyer som gör att du kan interagera med en ansluten enhet
 author: dominicbetts
 ms.author: dobett
 ms.date: 03/24/2020
@@ -8,55 +8,55 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: d6c44c81db78fa76eeaf4b7181cca34fb8e81523
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81758181"
 ---
-# <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Självstudiekurs: Skapa och ansluta ett klientprogram till ditt Azure IoT Central-program (Python)
+# <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>Självstudie: skapa och ansluta ett klient program till ditt Azure IoT Central-program (python)
 
 [!INCLUDE [iot-central-selector-tutorial-connect](../../../includes/iot-central-selector-tutorial-connect.md)]
 
-*Den här artikeln gäller lösningsbyggare och enhetsutvecklare.*
+*Den här artikeln gäller lösnings byggare och enhets utvecklare.*
 
-Den här självstudien visar hur du som enhetsutvecklare ansluter ett Python-klientprogram till ditt Azure IoT Central-program. Python-programmet simulerar beteendet hos en miljösensorenhet. Du använder en _exempelenhetsfunktionsmodell_ för att skapa en _enhetsmall_ i IoT Central. Du lägger till vyer i enhetsmallen så att en operatör kan interagera med en enhet.
+Den här självstudien visar hur du, som enhets utvecklare, ansluter ett python-klientprogram till ditt Azure IoT Central-program. Python-programmet simulerar beteendet för en miljö sensor enhet. Du kan använda ett exempel på _enhets kapacitets modell_ för att skapa en _enhets mal len_ i IoT Central. Du lägger till vyer i enhets mal len för att låta en operatör interagera med en enhet.
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Importera en enhetsfunktionsmodell för att skapa en enhetsmall.
-> * Lägg till standardvyer och anpassade vyer i en enhetsmall.
-> * Publicera en enhetsmall och lägg till en riktig enhet i ditt IoT Central-program.
-> * Skapa och kör Python-enhetskoden och se den ansluta till ditt IoT Central-program.
-> * Visa den simulerade telemetrin som skickas från enheten.
-> * Använd en vy för att hantera enhetsegenskaper.
+> * Importera en enhets kapacitets modell för att skapa en enhets mall.
+> * Lägg till standard-och anpassade vyer i en enhets mall.
+> * Publicera en enhets mall och Lägg till en riktig enhet i IoT Central programmet.
+> * Skapa och kör python-enhets koden och se hur den ansluter till ditt IoT Central-program.
+> * Visa den simulerade telemetri som skickas från enheten.
+> * Använd en vy för att hantera enhets egenskaper.
 > * Anropa synkrona och asynkrona kommandon för att styra enheten.
 
 ## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-* Ett Azure IoT Central-program som skapats med hjälp av den **anpassade programmallen.** Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
-* En utvecklingsmaskin med [Python](https://www.python.org/) version 3.7 eller senare installerad. Du kan `python3 --version` köra på kommandoraden för att kontrollera din version. Python är tillgängligt för en mängd olika operativsystem. Instruktionerna i den här självstudien förutsätter att du kör **python3-kommandot** i Kommandotolken i Windows.
+* Ett Azure IoT Central-program som skapats med hjälp av den **anpassade program** mal len. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
+* En utvecklings dator med [python](https://www.python.org/) version 3,7 eller senare installerad. Du kan köra `python3 --version` på kommando raden för att kontrol lera din version. Python är tillgängligt för många olika operativ system. Anvisningarna i den här självstudien förutsätter att du kör kommandot **python3** i kommando tolken i Windows.
 
 [!INCLUDE [iot-central-add-environmental-sensor](../../../includes/iot-central-add-environmental-sensor.md)]
 
 ### <a name="create-a-python-application"></a>Skapa ett Python-program
 
-Följande steg visar hur du skapar ett Python-klientprogram som ansluter till den verkliga enheten som du har lagt till i programmet. Detta Python-program simulerar beteendet hos en riktig enhet.
+Följande steg visar hur du skapar ett python-klientprogram som ansluter till den riktiga enhet som du har lagt till i programmet. Det här python-programmet simulerar beteendet för en riktig enhet.
 
-1. I kommandoradsmiljön navigerar `environmental-sensor` du till mappen som du skapade tidigare.
+1. I din kommando rads miljö navigerar du till `environmental-sensor` mappen som du skapade tidigare.
 
-1. Om du vill installera de bibliotek som krävs kör du följande kommandon:
+1. Kör följande kommandon för att installera de bibliotek som krävs:
 
     ```cmd
     pip install azure-iot-device
     ```
 
-1. Skapa en fil som heter **environmental_sensor.py** i `environmental-sensor` mappen.
+1. Skapa en fil med namnet **environmental_sensor. py** i `environmental-sensor` mappen.
 
-1. Lägg till `import` följande satser i början av filen **environmental_sensor.py:**
+1. Lägg till följande `import` -instruktioner i början av filen **environmental_sensor. py** :
 
     ```python
     import asyncio
@@ -71,7 +71,7 @@ Följande steg visar hur du skapar ett Python-klientprogram som ansluter till de
     from azure.iot.device import Message
     ```
 
-1. Lägg till följande asynkrona `main` funktions- och variabeldeklarationer i filen:
+1. Lägg till följande asynkrona `main` funktion och variabel deklarationer i filen:
 
     ```python
     async def main():
@@ -90,11 +90,11 @@ Följande steg visar hur du skapar ett Python-klientprogram som ansluter till de
     asyncio.run(main())
     ```
 
-    Uppdatera platshållarna `{your Scope ID}` `{your Device ID}`och `{your Primary Key}` med de värden som du har noterat tidigare. I ett riktigt program, inte hårt koda denna information i programmet.
+    Uppdatera plats hållarna `{your Scope ID}`, `{your Device ID}`och `{your Primary Key}` med de värden som du antecknade tidigare. I ett verkligt program bör du inte hårdkoda den här informationen i programmet.
 
-    Alla följande funktionsdefinitioner och kod `main` är kapslade i funktionen.
+    Alla följande funktions definitioner och kod kapslas i `main` funktionen.
 
-1. Lägg till följande två `main` funktioner i funktionen för att registrera enheten och ansluta den till ditt IoT Central-program. Registreringen använder Azure Device Provisioning Service:
+1. Lägg till följande två funktioner i- `main` funktionen för att registrera enheten och ansluta den till ditt IoT Central-program. Registrering använder Azure Device Provisioning-tjänsten:
 
     ```python
       async def register_device():
@@ -128,7 +128,7 @@ Följande steg visar hur du skapar ett Python-klientprogram som ansluter till de
           return device_client
     ```
 
-1. Lägg till följande `main` funktion i funktionen för att skicka telemetri till ditt IoT Central-program:
+1. Lägg till följande funktion i `main` funktionen för att skicka telemetri till ditt IoT Central-program:
 
     ```python
       async def send_telemetry():
@@ -143,9 +143,9 @@ Följande steg visar hur du skapar ett Python-klientprogram som ansluter till de
           await asyncio.sleep(delay)
     ```
 
-    Namnen på telemetriobjekten`temp` ( `humid`och ) måste matcha de namn som används i enhetsmallen.
+    Namnen på telemetri-objekten (`temp` och `humid`) måste matcha namnen som används i enhets mal len.
 
-1. Lägg till följande `main` funktioner i funktionen för att hantera kommandon som anropas från ditt IoT Central-program:
+1. Lägg till följande funktioner i `main` funktionen för att hantera kommandon som anropas från ditt IoT Central-program:
 
     ```python
       async def blink_command(request):
@@ -199,9 +199,9 @@ Följande steg visar hur du skapar ett Python-klientprogram som ansluter till de
           await commands[method_request.name](method_request)
     ```
 
-    Namnen på kommandona`blink`( `turnon` `turnoff`, `rundiagnostics`, och ) måste matcha de namn som används i enhetsmallen.
+    Namnen på kommandona`blink`(, `turnon`, `turnoff`och `rundiagnostics`) måste matcha namnen som används i enhets mal len.
 
-    För närvarande använder IoT Central inte det svarsschema som definierats i enhetskapacitetsmodellen. För ett synkront kommando kan svarsnyttolasten vara vilken giltig JSON som helst. För ett asynkront kommando bör enheten returnera ett 202-svar omedelbart, följt av rapporterad egenskapsuppdatering när arbetet är klart. Formatet för den rapporterade egenskapsuppdateringen är:
+    För närvarande använder IoT Central inte det svars schema som definierats i enhetens kapacitets modell. För ett synkront kommando kan svars nytto lasten vara vilken giltig JSON som helst. För ett asynkront kommando ska enheten returnera ett 202-svar omedelbart följt av den rapporterande egenskaps uppdateringen när arbetet är klart. Formatet för den rapporterade egenskaps uppdateringen är:
 
     ```json
     {
@@ -211,9 +211,9 @@ Följande steg visar hur du skapar ett Python-klientprogram som ansluter till de
     }
     ```
 
-    En operatör kan visa svarsnyttolasten i kommandohistoriken.
+    En operatör kan visa svars nytto lasten i kommando historiken.
 
-1. Lägg till följande `main` funktioner i funktionen för att hantera egenskapsuppdateringar som skickas från ditt IoT Central-program:
+1. Lägg till följande funktioner i `main` funktionen för att hantera egenskaps uppdateringar som skickas från ditt IoT Central-program:
 
     ```python
         async def name_setting(value, version):
@@ -241,11 +241,11 @@ Följande steg visar hur du skapar ett Python-klientprogram som ansluter till de
             )
     ```
 
-    När operatören anger en skrivbar egenskap i IoT Central-programmet använder programmet en enhetstvilling önskad egenskap för att skicka värdet till enheten. Enheten svarar sedan med hjälp av en enhetstvillingrapporterad egenskap. När IoT Central tar emot det rapporterade egenskapsvärdet uppdateras egenskapsvyn med statusen **synkroniserad**.
+    När operatorn ställer in en skrivbar egenskap i IoT Central-programmet använder programmet en enhet med dubbla önskade egenskaper för att skicka värdet till enheten. Enheten svarar sedan med en enhets dubbla rapporterad egenskap. När IoT Central tar emot det rapporterade egenskap svärdet uppdateras egenskaps läget med statusen **synkroniserad**.
 
-    Namnen på egenskaperna`name` ( `brightness`och ) måste matcha de namn som används i enhetsmallen.
+    Namnen på egenskaperna (`name` och `brightness`) måste matcha namnen som används i enhets mal len.
 
-1. Lägg till följande `main` funktioner i funktionen för att styra programmet:
+1. Lägg till följande funktioner i- `main` funktionen för att kontrol lera programmet:
 
     ```python
       # Define behavior for halting the application
@@ -283,34 +283,34 @@ Följande steg visar hur du skapar ett Python-klientprogram som ansluter till de
         print('Device could not connect')
     ```
 
-1. Spara filen **environmental_sensor.py.**
+1. Spara filen **environmental_sensor. py** .
 
-## <a name="run-your-python-application"></a>Kör ditt Python-program
+## <a name="run-your-python-application"></a>Kör din python-app
 
-Om du vill starta enhetsklientprogrammet kör du följande kommando i kommandoradsmiljön:
+Starta enhets klient programmet genom att köra följande kommando i din kommando rads miljö:
 
 ```cmd
 python3 environmental_sensor.py
 ```
 
-Du kan se enheten ansluter till ditt Azure IoT Central-program och börjar skicka telemetri:
+Du kan se att enheten ansluter till ditt Azure IoT Central-program och börjar skicka telemetri:
 
-![Kör klientprogrammet](media/tutorial-connect-device-python/run-application.png)
+![Kör klient programmet](media/tutorial-connect-device-python/run-application.png)
 
 [!INCLUDE [iot-central-monitor-environmental-sensor](../../../includes/iot-central-monitor-environmental-sensor.md)]
 
-Du kan se hur enheten svarar på kommandon och egenskapsuppdateringar:
+Du kan se hur enheten svarar på kommandon och egenskaps uppdateringar:
 
-![Observera klientprogrammet](media/tutorial-connect-device-python/run-application-2.png)
+![Observera klient programmet](media/tutorial-connect-device-python/run-application-2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Som enhetsutvecklare, nu när du har lärt dig grunderna i hur du skapar en enhet med Node.js, några föreslagna nästa steg är att:
+Som en enhets utvecklare nu har du lärt dig grunderna för hur du skapar en enhet med hjälp av Node. js, men vissa föreslagna nästa steg är att:
 
-- Lär dig hur du ansluter en riktig enhet till IoT Central i [Connect an MXChip IoT DevKit-enheten till din Azure IoT Central-program](./howto-connect-devkit.md) how-to-artikel.
-- Läs [Anslut till Azure IoT Central](./concepts-get-connected.md) om du vill veta mer om hur du registrerar enheter med IoT Central och hur IoT Central skyddar enhetsanslutningar.
+- Lär dig hur du ansluter en riktig enhet till IoT Central i [ansluta en MXChip IoT DevKit-enhet till Azure IoT Central Application](./howto-connect-devkit.md) instruktion-artikeln.
+- Läs [bli ansluten till Azure IoT Central](./concepts-get-connected.md) om du vill veta mer om hur du registrerar enheter med IoT Central och hur IoT Central skyddar enhets anslutningar.
 
-Om du föredrar att fortsätta genom uppsättningen IoT Central tutorials och lära sig mer om att bygga en IoT Central lösning, se:
+Om du föredrar att fortsätta med en uppsättning IoT Central själv studie kurser och lära dig mer om hur du skapar en IoT Central lösning, se:
 
 > [!div class="nextstepaction"]
 > [Mall för att skapa en gateway-enhet](./tutorial-define-gateway-device-type.md)

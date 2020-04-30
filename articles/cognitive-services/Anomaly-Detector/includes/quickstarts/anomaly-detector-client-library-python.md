@@ -1,5 +1,5 @@
 ---
-title: Snabbstart för avvikelsedetektorns pythonklientbibliotek
+title: Snabb start för avvikelse detektor python-klient bibliotek
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,106 +9,106 @@ ms.topic: include
 ms.date: 04/16/2020
 ms.author: aahi
 ms.openlocfilehash: a51025245e5b02b89126afd886bc89fb1cefdef4
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759995"
 ---
-Kom igång med klientbiblioteket Avvikelsedetektor för Python. Följ dessa steg för att installera paketet och prova exempelkoden för grundläggande uppgifter. Med tjänsten Avvikelsedetektor kan du hitta avvikelser i dina tidsseriedata genom att automatiskt använda de bäst passande modellerna på den, oavsett bransch, scenario eller datavolym.
+Kom igång med klient biblioteket för avvikelse detektor för python. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Med tjänsten avvikelse detektor kan du hitta avvikelser i dina Time Series-data genom att automatiskt använda de bästa passnings modellerna, oavsett bransch, scenario eller data volym.
 
-Använd klientbiblioteket avvikelsedetektor för Python för att:
+Använd klient biblioteket för avvikelse detektor för python för att:
 
-* Identifiera avvikelser i hela tidsseriedatauppsättningen, som en batchbegäran
-* Identifiera avvikelsestatus för den senaste datapunkten i tidsserien
+* Identifiera avvikelser i data uppsättningen för tids serier, som en batch-begäran
+* Identifiera avvikelse status för den senaste data punkten i din tids serie
 
-[Biblioteksreferensdokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [Bibliotekskodpaket](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [(PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | Hitta[exempelkoden på GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/python-sdk-sample.py)
+[Biblioteks referens dokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [paket (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [hitta exempel koden på GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/python-sdk-sample.py)
 
 ## <a name="prerequisites"></a>Krav
 
-* Azure-prenumeration - [Skapa en gratis](https://azure.microsoft.com/free/)
-* En avvikelsedetektornyckel och slutpunkt
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* En avvikelse nyckel och slut punkt
 * [Python 3.x](https://www.python.org/)
-* [Pandas dataanalysbibliotek](https://pandas.pydata.org/)
+* [Pandas data analys bibliotek](https://pandas.pydata.org/)
  
-## <a name="setting-up"></a>Inrätta
+## <a name="setting-up"></a>Konfigurera
 
-### <a name="create-an-anomaly-detector-resource"></a>Skapa en avvikelsedetektorresurs
+### <a name="create-an-anomaly-detector-resource"></a>Skapa en resurs för avvikelse detektor
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-### <a name="create-a-new-python-application"></a>Skapa ett nytt pythonprogram
+### <a name="create-a-new-python-application"></a>Skapa ett nytt python-program
 
- Skapa en ny Python-fil och importera följande bibliotek.
+ Skapa en ny python-fil och importera följande bibliotek.
 
 [!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
 
-Skapa variabler för din nyckel som en miljövariabel, sökvägen till en tidsseriedatafil och den azurblå platsen för din prenumeration. Till exempel `westus2`. 
+Skapa variabler för din nyckel som en miljö variabel, sökvägen till en tids serie data fil och Azure-platsen för din prenumeration. Till exempel `westus2`. 
 
 [!code-python[Vars for the key, path location and data path](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=initVars)]
 
-### <a name="install-the-client-library"></a>Installera klientbiblioteket
+### <a name="install-the-client-library"></a>Installera klient biblioteket
 
-När du har installerat Python kan du installera klientbiblioteket med:
+När du har installerat python kan du installera klient biblioteket med:
 
 ```console
 pip install --upgrade azure-cognitiveservices-anomalydetector
 ```
 
-## <a name="object-model"></a>Objektmodell
+## <a name="object-model"></a>Objekt modell
 
-Anomaly Detector-klienten är ett [AnomalyDetectorClient-objekt](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python) som autentiserar till Azure med hjälp av nyckeln. Klienten innehåller två metoder för avvikelseidentifiering: På en hel datauppsättning med [entire_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#entire-detect-body--custom-headers-none--raw-false----operation-config-)och på den senaste datapunkten med [Last_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-). 
+Klienten för avvikelse detektor är ett [AnomalyDetectorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python) -objekt som autentiserar till Azure med hjälp av din nyckel. Klienten tillhandahåller två metoder för avvikelse identifiering: på en hel data uppsättning med hjälp av [entire_detect ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#entire-detect-body--custom-headers-none--raw-false----operation-config-)och på den senaste data punkten med [Last_detect ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-). 
 
-Tidsseriedata skickas som en serie [punkter](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.point(class)?view=azure-python) i ett [begärandeobjekt.](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.request(class)?view=azure-python) Objektet `Request` innehåller egenskaper för att beskriva data ([granularitet](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.granularity?view=azure-python) till exempel) och parametrar för avvikelseidentifiering. 
+Time Series-data skickas som en serie [punkter](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.point(class)?view=azure-python) i ett [Request](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.request(class)?view=azure-python) -objekt. Objektet innehåller egenskaper för att beskriva data (till exempel granularitet) och parametrar för avvikelse identifiering.[Granularity](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.granularity?view=azure-python) `Request` 
 
-Avvikelsedetektorsvaret är ett [LastDetectResponse-](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) eller [EntireDetectResponse-objekt](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python) beroende på vilken metod som används. 
+Avvikelse detektorns svar är ett [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) -eller [EntireDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python) -objekt beroende på vilken metod som används. 
 
 ## <a name="code-examples"></a>Kodexempel 
 
-Dessa kodavsnitt visar hur du gör följande med klientbiblioteket Avvikelsedetektor för Python:
+Dessa kodfragment visar hur du gör följande med klient biblioteket för avvikelse detektor för python:
 
 * [Autentisera klienten](#authenticate-the-client)
-* [Läsa in en tidsseriedatauppsättning från en fil](#load-time-series-data-from-a-file)
-* [Identifiera avvikelser i hela datauppsättningen](#detect-anomalies-in-the-entire-data-set) 
-* [Identifiera avvikelsestatus för den senaste datapunkten](#detect-the-anomaly-status-of-the-latest-data-point)
+* [Läs in en tids serie data uppsättning från en fil](#load-time-series-data-from-a-file)
+* [Identifiera avvikelser i hela data uppsättningen](#detect-anomalies-in-the-entire-data-set) 
+* [Identifiera avvikelse statusen för den senaste data punkten](#detect-the-anomaly-status-of-the-latest-data-point)
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-Lägg till din azure-platsvariabel till slutpunkten och autentisera klienten med din nyckel.
+Lägg till din Azure location-variabel i slut punkten och autentisera klienten med din nyckel.
 
 [!code-python[Client authentication](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=client)]
 
-## <a name="load-time-series-data-from-a-file"></a>Läsa in tidsseriedata från en fil
+## <a name="load-time-series-data-from-a-file"></a>Läsa in tids serie data från en fil
 
-Hämta exempeldata för den här snabbstarten från [GitHub:](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv)
-1. Högerklicka på **Raw**i webbläsaren .
+Hämta exempel data för den här snabb starten från [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv):
+1. Högerklicka på **RAW**i webbläsaren.
 2. Klicka på **Spara länk som**.
-3. Spara filen i programkatalogen som en CSV-fil.
+3. Spara filen i program katalogen som en CSV-fil.
 
-Den här tidsseriedata är formaterad som en CSV-fil och skickas till API:et för avvikelsedetektor.
+Denna tids serie data formateras som en. csv-fil och skickas till API: t för avvikelse identifiering.
 
-Ladda din datafil med Pandas-bibliotekets `read_csv()` metod och gör en tom listvariabel för att lagra dina dataserier. Iterera genom filen och lägga till data som ett [Point-objekt.](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.point%28class%29?view=azure-python) Det här objektet innehåller tidsstämpeln och det numeriska värdet från raderna i CSV-datafilen. 
+Läs in data filen med Pandas-bibliotekets `read_csv()` Metod och gör en tom List variabel för att lagra din data serie. Iterera igenom filen och Lägg till data som ett [punkt](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.point%28class%29?view=azure-python) objekt. Det här objektet kommer att innehålla tidstämpeln och det numeriska värdet från raderna i CSV-datafilen. 
 
 [!code-python[Load the data file](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=loadDataFile)]
 
-Skapa ett [begärandeobjekt](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.request%28class%29?view=azure-python) med tidsserierna och [detaljrikingen](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.granularity?view=azure-python) (eller periodiciteten) för dess datapunkter. Till exempel `Granularity.daily`.
+Skapa ett [Request](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.request%28class%29?view=azure-python) -objekt med din tids serie och [granularitet](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.granularity?view=azure-python) (eller periodiciteten) för dess data punkter. Till exempel `Granularity.daily`.
 
 [!code-python[Create the request object](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=request)]
 
-## <a name="detect-anomalies-in-the-entire-data-set"></a>Identifiera avvikelser i hela datauppsättningen 
+## <a name="detect-anomalies-in-the-entire-data-set"></a>Identifiera avvikelser i hela data uppsättningen 
 
-Anropa API:et för att identifiera avvikelser genom hela tidsseriedata med hjälp av klientens [entire_detect()-metod.](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#entire-detect-body--custom-headers-none--raw-false----operation-config-) Lagra det returnerade [EntireDetectResponse-objektet.](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python) Iterera genom svarslistan `is_anomaly` och skriv ut `true` index för eventuella värden. Dessa värden motsvarar index för avvikande datapunkter, om några hittades.
+Anropa API: et för att identifiera avvikelser genom hela tids serie data med hjälp av klientens [entire_detect ()-](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#entire-detect-body--custom-headers-none--raw-false----operation-config-) metod. Lagra det returnerade [EntireDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python) -objektet. Upprepa i svars `is_anomaly` listan och skriv ut indexet för alla `true` värden. Dessa värden motsvarar indexet för avvikande data punkter, om sådana hittades.
 
 [!code-python[Batch anomaly detection sample](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=detectAnomaliesBatch)]
 
-## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Identifiera avvikelsestatus för den senaste datapunkten
+## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Identifiera avvikelse statusen för den senaste data punkten
 
-Anropa API:et för avvikelsedetektor för att avgöra om den senaste datapunkten är en avvikelse med klientens [last_detect()-metod](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-) och lagra det returnerade [LastDetectResponse-objektet.](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) Svarets `is_anomaly` värde är en boolesk som anger den punktens avvikelsestatus.  
+Anropa API: t för avvikelse detektor för att avgöra om den senaste data punkten är en avvikelse med hjälp av klientens [last_detect ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-) -Metod och lagra det returnerade [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) -objektet. Svarets `is_anomaly` värde är ett booleskt värde som anger den punktens avvikelse status.  
 
 [!code-python[Batch anomaly detection sample](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=latestPointDetection)]
 
 ## <a name="run-the-application"></a>Köra appen
 
-Kör programmet med `python` kommandot och ditt filnamn.
+Kör programmet med `python` kommandot och ditt fil namn.
  
 [!INCLUDE [anomaly-detector-next-steps](../quickstart-cleanup-next-steps.md)]

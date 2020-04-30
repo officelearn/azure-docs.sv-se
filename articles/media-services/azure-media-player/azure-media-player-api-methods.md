@@ -1,34 +1,34 @@
 ---
-title: API-metoder för Azure Media Player
-description: Med Azure Media Player-API:et kan du interagera med videon via JavaScript, oavsett om webbläsaren spelar upp videon via HTML5-video, Flash, Silverlight eller någon annan uppspelningsteknik som stöds.
+title: Azure Media Player API-metoder
+description: 'Med Azure Media Player-API: et kan du interagera med videon via Java Script, oavsett om webbläsaren spelar videon via HTML5-video, Flash, Silverlight eller någon annan uppspelnings tekniker som stöds.'
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: d1ad0cbe30ce20e61a31f0534a47fe031f6f257b
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81727273"
 ---
 # <a name="api"></a>API #
 
-Med Azure Media Player-API:et kan du interagera med videon via JavaScript, oavsett om webbläsaren spelar upp videon via HTML5-video, Flash, Silverlight eller någon annan uppspelningsteknik som stöds.
+Med Azure Media Player-API: et kan du interagera med videon via Java Script, oavsett om webbläsaren spelar videon via HTML5-video, Flash, Silverlight eller någon annan uppspelnings tekniker som stöds.
 
-## <a name="referencing-the-player"></a>Refererar till spelaren ##
+## <a name="referencing-the-player"></a>Referera till spelaren ##
 
-Om du vill använda API-funktionerna behöver du åtkomst till spelarobjektet. Lyckligtvis är det lätt att få. Du behöver bara se till att din videotagg har ett ID. Exempelinbäddningskoden har `vid1`ett ID på . Om du har flera videor på en sida kontrollerar du att varje videotagg har ett unikt ID.
+Om du vill använda API-funktioner måste du ha åtkomst till Player-objektet. Som tur är är det enkelt att hämta. Du behöver bara se till att video tag gen har ett ID. Exemplet inbäddnings kod har ett ID för `vid1`. Om du har flera videor på en sida ser du till att alla video etiketter har ett unikt ID.
 
 `var myPlayer = amp('vid1');`
 
 > [!NOTE]
-> Om spelaren inte har initierats ännu via attributet data-setup eller någon annan metod, kommer detta också att initiera spelaren.
+> Om spelaren inte har initierats än via attributet data konfiguration eller någon annan metod initieras även spelaren.
 
-## <a name="wait-until-the-player-is-ready"></a>Vänta tills spelaren är redo ##
+## <a name="wait-until-the-player-is-ready"></a>Vänta tills spelaren är klar ##
 
-Hur tid det tar för Azure Media Player att konfigurera videon och API:et varierar beroende på vilken uppspelningsteknik som används. HTML5 kommer ofta att vara mycket snabbare att ladda än Flash eller Silverlight. Av den anledningen bör spelarens "färdiga" funktion användas för att utlösa alla koder som kräver spelarens API.
+Hur lång tid det tar Azure Media Player att konfigurera videon och API: et beror på vilken uppspelnings teknik som används. HTML5 är ofta mycket snabbare att läsa in än Flash eller Silverlight. Av den anledningen ska spelarens färdiga funktion användas för att utlösa all kod som kräver spelarens API.
 
 ```javacript
     amp("vid_1").ready(function(){
@@ -49,7 +49,7 @@ ELLER
 
 ## <a name="api-methods"></a>API-metoder ##
 
-Nu när du har tillgång till en färdig spelare kan du styra videon, få värden eller svara på videohändelser. Api-funktionsnamnen för Azure Media Player försöker följa [HTML5-medie-API:et](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html). Den största skillnaden är att getter/setter-funktioner används för videoegenskaper.
+Nu när du har åtkomst till en färdig spelare kan du styra videon, hämta värden eller svara på video händelser. De Azure Media Player API-funktions namnen försöker följa [HTML5-medie-API: et](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html). Den största skillnaden är att get-/set-funktionerna används för video egenskaper.
 
 ```javacript
     // setting a property on a bare HTML5 video element
@@ -59,8 +59,8 @@ Nu när du har tillgång till en färdig spelare kan du styra videon, få värde
     myPlayer.currentTime(120);
 ```
 
-## <a name="registering-for-events"></a>Registrering för evenemang ##
-Händelser bör registreras direkt efter att ha initierat spelaren för första gången för att säkerställa att alla händelser rapporteras på lämpligt sätt till programmet, och bör göras utanför den färdiga händelsen.
+## <a name="registering-for-events"></a>Registrera för händelser ##
+Händelser bör registreras direkt efter att spelaren har initierats för första gången för att säkerställa att alla händelser rapporteras korrekt till programmet och bör utföras utanför den färdiga händelsen.
 
 ```javacript
     var myPlayer = amp("vid_1", myOptions, function(){
@@ -73,4 +73,4 @@ Händelser bör registreras direkt efter att ha initierat spelaren för första 
 ## <a name="next-steps"></a>Nästa steg ##
 
 <!---Some context for the following links goes here--->
-- [Snabbstart för Azure Media Player](azure-media-player-quickstart.md)
+- [Azure Media Player snabb start](azure-media-player-quickstart.md)

@@ -1,6 +1,6 @@
 ---
-title: Skapa en ögonblicksbild av en virtuell hårddisk i Azure
-description: Lär dig hur du skapar en kopia av en virtuell hårddisk i Azure som en säkerhetskopia eller för felsökningsproblem.
+title: Skapa en ögonblicks bild av en virtuell hård disk i Azure
+description: Lär dig hur du skapar en kopia av en virtuell hård disk i Azure som en säkerhets kopiering eller för fel söknings problem.
 author: roygara
 manager: twooley
 ms.service: virtual-machines
@@ -10,23 +10,23 @@ ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: f2d905d041198bd35c4657052bf18d981904dc44
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758386"
 ---
 # <a name="create-a-snapshot"></a>Skapa en ögonblicksbild 
 
-Ta en ögonblicksbild av ett operativsystem eller en datadisk för säkerhetskopiering eller för att felsöka problem med virtuella datorer. En ögonblicksbild är en fullständig, skrivskyddad kopia av en virtuell hårddisk. 
+Ta en ögonblicks bild av ett operativ system eller en data disk för säkerhets kopiering eller för att felsöka problem med virtuella datorer. En ögonblicks bild är en fullständig skrivskyddad kopia av en virtuell hård disk. 
 
 ## <a name="use-azure-cli"></a>Använda Azure CLI 
 
-Följande exempel kräver att du använder [Cloud Shell](https://shell.azure.com/bash) eller har Azure CLI installerat.
+I följande exempel krävs att du använder [Cloud Shell](https://shell.azure.com/bash) eller har Azure CLI installerat.
 
-Följande steg visar hur du tar en ögonblicksbild med kommandot **az snapshot create** med parametern **--source-disk.** I följande exempel förutsätts att det finns en virtuell dator som heter *myVM* i resursgruppen *myResourceGroup.*
+Följande steg visar hur du tar en ögonblicks bild med kommandot **AZ Snapshot Create** med parametern **--Source-disk** . I följande exempel förutsätts att det finns en virtuell dator som heter *myVM* i resurs gruppen *myResourceGroup* .
 
-Hämta disk-ID med [az vm show](/cli/azure/vm#az-vm-show).
+Hämta disk-ID med [AZ VM show](/cli/azure/vm#az-vm-show).
 
 ```azurecli-interactive
 osDiskId=$(az vm show \
@@ -36,7 +36,7 @@ osDiskId=$(az vm show \
    -o tsv)
 ```
 
-Ta en ögonblicksbild med namnet *osDisk-backup* med [az snapshot create](/cli/azure/snapshot#az-snapshot-create).
+Ta en ögonblicks bild med namnet *osDisk-backup* med [AZ Snapshot Create](/cli/azure/snapshot#az-snapshot-create).
 
 ```azurecli-interactive
 az snapshot create \
@@ -46,9 +46,9 @@ az snapshot create \
 ```
 
 > [!NOTE]
-> Om du vill lagra ögonblicksbilden i zontålig lagring måste du skapa den i en region som stöder [tillgänglighetszoner](../../availability-zones/az-overview.md) och inkludera parametern **--sku Standard_ZRS.**
+> Om du vill lagra din ögonblicks bild i en zon fri lagring måste du skapa den i en region som har stöd för [tillgänglighets zoner](../../availability-zones/az-overview.md) och inkludera parametern **--SKU Standard_ZRS** .
 
-Du kan se en lista över ögonblicksbilder med [az snapshot-lista](/cli/azure/snapshot#az-snapshot-list).
+Du kan se en lista över ögonblicks bilderna med [AZ Snapshot List](/cli/azure/snapshot#az-snapshot-list).
 
 ```azurecli-interactive
 az snapshot list \
@@ -59,16 +59,16 @@ az snapshot list \
 ## <a name="use-azure-portal"></a>Använda Azure-portalen 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Börja längst upp till vänster, klicka på **Skapa en resurs** och sök efter **ögonblicksbild**. Välj **Ögonblicksbild** i sökresultaten.
-3. Klicka på **Skapa**i bladet **Ögonblicksbild** .
-4. Ange ett **namn** för ögonblicksbilden.
-5. Välj en befintlig resursgrupp eller skriv namnet på en ny. 
-7. För **källdisk**väljer du den hanterade disken som ska ögonblicksbild.
-8. Välj den **kontotyp** som ska användas för att lagra ögonblicksbilden. Använd **standard hdd** om du inte behöver den lagrad på en högpresterande SSD.
+2. Börja i det övre vänstra hörnet, klicka på **skapa en resurs** och Sök efter **ögonblicks bild**. Välj **ögonblicks bild** från Sök resultaten.
+3. Klicka på **skapa**på bladet **ögonblicks bild** .
+4. Ange ett **namn** för ögonblicks bilden.
+5. Välj en befintlig resurs grupp eller Skriv namnet på en ny resurs grupp. 
+7. För **käll disk**väljer du den hanterade disk som ska avbildas.
+8. Välj den **Kontotyp** som ska användas för att lagra ögonblicks bilden. Använd **standard HDD** om du inte behöver den lagrad på ett högt presterande SSD.
 9. Klicka på **Skapa**.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
- Skapa en virtuell dator från en ögonblicksbild genom att skapa en hanterad disk från ögonblicksbilden och sedan koppla den nya hanterade disken som OS-disken. Mer information finns i [Skapa en virtuell dator från ett ögonblicksbildskript.](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json)
+ Skapa en virtuell dator från en ögonblicks bild genom att skapa en hanterad disk från ögonblicks bilden och sedan ansluta den nya hanterade disken som operativ system disk. Mer information finns i [skapa en virtuell dator från ett ögonblicks bild](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) skript.
 

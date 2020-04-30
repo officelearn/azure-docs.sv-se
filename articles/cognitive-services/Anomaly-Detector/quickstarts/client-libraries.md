@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Använd klientbiblioteket för avvikelsedetektor'
+title: 'Snabb start: Använd klient biblioteket för avvikelse detektor'
 titleSuffix: Azure Cognitive Services
-description: Api:et för avvikelsedetektorer erbjuder klientbibliotek för att identifiera avvikelser i dataserien, antingen som en batch eller på strömmande data.
+description: 'API: t för avvikelse detektor erbjuder klient bibliotek för att identifiera avvikelser i din data serie antingen som en batch eller vid strömmande data.'
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.date: 04/16/2020
 ms.author: aahi
 ms.openlocfilehash: 7a48992ab5978824f1ffb4b2c3ac0670f40c1424
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759981"
 ---
-# <a name="quickstart-use-the-anomaly-detector-client-library"></a>Snabbstart: Använd klientbiblioteket för avvikelsedetektor
+# <a name="quickstart-use-the-anomaly-detector-client-library"></a>Snabb start: Använd klient biblioteket för avvikelse detektor
 
 ::: zone pivot="programming-language-csharp"
 

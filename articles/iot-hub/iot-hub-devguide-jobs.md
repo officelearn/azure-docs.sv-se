@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure IoT Hub-jobb | Microsoft-dokument
-description: Utvecklarguide – schemalägga jobb för att köras på flera enheter som är anslutna till din IoT-hubb. Jobb kan uppdatera taggar och önskade egenskaper och anropa direkta metoder på flera enheter.
+title: Förstå Azure IoT Hub-jobb | Microsoft Docs
+description: Guide för utvecklare – schemalägga jobb som ska köras på flera enheter som är anslutna till din IoT Hub. Jobb kan uppdatera Taggar och önskade egenskaper och anropa direkta metoder på flera enheter.
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -10,34 +10,34 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: mqtt
 ms.openlocfilehash: 5c14e8cfcbf8df86b0f71d6b12025594d2e648c4
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81730113"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Schemalägga jobb på flera enheter
 
-Azure IoT Hub aktiverar ett antal byggstenar som [enhetstvillingegenskaper och taggar](iot-hub-devguide-device-twins.md) och [direkta metoder](iot-hub-devguide-direct-methods.md). Vanligtvis gör backend-appar det möjligt för enhetsadministratörer och operatörer att uppdatera och interagera med IoT-enheter i grupp och vid en schemalagd tidpunkt. Jobb kör enhetstvillinguppdateringar och direkta metoder mot en uppsättning enheter vid en schemalagd tidpunkt. En operatör använder till exempel en backend-app som initierar och spårar ett jobb för att starta om en uppsättning enheter i byggnad 43 och våning 3 i taget som inte skulle störa byggnadens verksamhet.
+Azure IoT Hub möjliggör ett antal bygg stenar som [enhets dubbla egenskaper och taggar](iot-hub-devguide-device-twins.md) och [direkta metoder](iot-hub-devguide-direct-methods.md). Server dels appar gör det vanligt att enhets administratörer och operatörer kan uppdatera och interagera med IoT-enheter i bulk och vid en schemalagd tidpunkt. Jobb kör enhetens dubbla uppdateringar och direkta metoder mot en uppsättning enheter vid en schemalagd tidpunkt. En operatör skulle till exempel kunna använda en backend-app som initierar och spårar ett jobb för att starta om en uppsättning enheter i byggnad 43 och våning 3 vid en tidpunkt som inte skulle störa driften av byggnaden.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Överväg att använda jobb när du behöver schemalägga och spåra förloppet någon av följande aktiviteter på en uppsättning enheter:
+Överväg att använda jobb när du behöver schemalägga och spåra förloppet för följande aktiviteter på en uppsättning enheter:
 
 * Uppdatera önskade egenskaper
-* Uppdatera taggar
-* Anropa direkta metoder
+* Uppdatera Taggar
+* Anropa direkt metoder
 
-## <a name="job-lifecycle"></a>Livscykel för jobb
+## <a name="job-lifecycle"></a>Jobb livs cykel
 
-Jobb initieras av lösningens backend och underhålls av IoT Hub. Du kan initiera ett jobb via en`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30`tjänstinriktad URI ( ) och fråga efter förlopp på ett körjobb via en tjänstinriktad URI (`GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30`). Om du vill uppdatera statusen för att köra jobb när ett jobb har initierats kör du en jobbfråga.
+Jobb initieras av lösningens Server del och underhålls av IoT Hub. Du kan starta ett jobb via en tjänst som är riktad`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30`till en URI () och fråga efter förloppet för ett jobb som körs via en`GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30`service Facing URI (). Kör en jobb fråga om du vill uppdatera statusen för jobb som körs när ett jobb har initierats.
 
 > [!NOTE]
-> När du initierar ett jobb kan egenskapsnamn och värden bara innehålla alfanumeriskt utskrivbart för USA-ASCII, förutom i följande uppsättning:`$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
+> När du startar ett jobb kan egenskaps namn och värden bara innehålla US ASCII-utskrivbar alfanumerisk, förutom i följande uppsättning:`$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
 
 ## <a name="jobs-to-execute-direct-methods"></a>Jobb för att köra direkta metoder
 
-Följande kodavsnitt visar information om HTTPS 1.1-begäran om körning av en [direkt metod](iot-hub-devguide-direct-methods.md) på en uppsättning enheter som använder ett jobb:
+Följande fragment visar information om HTTPS 1,1-begäran för att köra en [direkt metod](iot-hub-devguide-direct-methods.md) på en uppsättning enheter med ett jobb:
 
 ```
 PUT /jobs/v2/<jobId>?api-version=2018-06-30
@@ -59,7 +59,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Frågevillkoret kan också finnas på ett enda enhets-ID eller i en lista över enhets-ID:er som visas i följande exempel:
+Frågevillkor kan också finnas på ett enda enhets-ID eller en lista med enhets-ID: n som visas i följande exempel:
 
 ```
 "queryCondition" = "deviceId = 'MyDevice1'"
@@ -67,9 +67,9 @@ Frågevillkoret kan också finnas på ett enda enhets-ID eller i en lista över 
 "queryCondition" = "deviceId IN ['MyDevice1']"
 ```
 
-[IoT Hub Query Language](iot-hub-devguide-query-language.md) täcker IoT Hub-frågespråket i detalj.
+[IoT Hub frågespråk](iot-hub-devguide-query-language.md) täcker IoT Hub frågespråket i ytterligare information.
 
-Följande kodavsnitt visar begäran och svaret för ett jobb som schemalagts att anropa en direkt metod med namnet testMethod på alla enheter på contoso-hub-1:
+I följande kodfragment visas begäran och svaret för ett jobb som är schemalagt att anropa en direkt metod med namnet testMethod på alla enheter på Contoso-Hub-1:
 
 ```
 PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job01?api-version=2018-06-30 HTTP/1.1
@@ -101,9 +101,9 @@ Date: Fri, 03 May 2019 01:46:18 GMT
 {"jobId":"job01","type":"scheduleDeviceMethod","status":"queued"}
 ```
 
-## <a name="jobs-to-update-device-twin-properties"></a>Jobb för att uppdatera enhetstvillingegenskaper
+## <a name="jobs-to-update-device-twin-properties"></a>Jobb för att uppdatera enhetens dubbla egenskaper
 
-Följande kodavsnitt visar information om https 1.1-begäran om uppdatering av enhetstvillingegenskaper med hjälp av ett jobb:
+Följande fragment visar information om HTTPS 1,1-begäran om att uppdatera enhetens dubbla egenskaper med ett jobb:
 
 ```
 PUT /jobs/v2/<jobId>?api-version=2018-06-30
@@ -124,7 +124,7 @@ Content-Type: application/json; charset=utf-8
 > [!NOTE]
 > Egenskapen *updateTwin* kräver en giltig etag-matchning. till exempel `etag="*"`.
 
-Följande kodavsnitt visar begäran och svaret för ett jobb som schemalagts för att uppdatera enhetstvillingegenskaper för testenhet på contoso-hub-1:
+Följande fragment visar begäran och svar för ett jobb som har schemalagts att uppdatera enhetens dubbla egenskaper för test-Device på Contoso-Hub-1:
 
 ```
 PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job02?api-version=2018-06-30 HTTP/1.1
@@ -161,7 +161,7 @@ Date: Fri, 03 May 2019 22:45:13 GMT
 
 ## <a name="querying-for-progress-on-jobs"></a>Fråga efter förlopp för jobb
 
-Följande kodavsnitt visar information om https 1.1-begäran om frågor för jobb:
+Följande fragment visar information om HTTPS 1,1-begäran för att fråga efter jobb:
 
 ```
 GET /jobs/v2/query?api-version=2018-06-30[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
@@ -170,53 +170,53 @@ Authorization: <config.sharedAccessSignature>
 Content-Type: application/json; charset=utf-8
 ```
 
-Fortsättningen Är från svaret.
+ContinuationToken tillhandahålls från svaret.
 
-Du kan fråga efter jobbkörningsstatus på varje enhet med [frågespråket IoT Hub för enhetstvillingar, jobb och meddelanderoutning](iot-hub-devguide-query-language.md).
+Du kan fråga efter jobb körnings statusen på varje enhet med hjälp av [IoT Hub frågespråk för enhets dubbla, jobb och](iot-hub-devguide-query-language.md)meddelanderoutning.
 
-## <a name="jobs-properties"></a>Egenskaper för jobb
+## <a name="jobs-properties"></a>Jobb egenskaper
 
-I följande lista visas egenskaper och motsvarande beskrivningar, som kan användas vid frågor om jobb eller jobbresultat.
+I följande lista visas egenskaper och motsvarande beskrivningar, som du kan använda när du frågar efter jobb eller jobb resultat.
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| **jobId (jobbId)** |Ansökan som tillhandahålls ID för jobbet. |
-| **startTime** |Ansökan som starttid (ISO-8601) för jobbet. |
-| **endTime** |IoT Hub anges datum (ISO-8601) för när jobbet slutförts. Gäller först när jobbet har slutförts. |
-| **Typ** |Typer av jobb: |
-| | **scheduleUpdateTwin**: Ett jobb som används för att uppdatera en uppsättning önskade egenskaper eller taggar. |
-| | **scheduleDeviceMethod**: Ett jobb som används för att anropa en enhetsmetod på en uppsättning enhetstvillingar. |
-| **Status** |Aktuellt tillstånd för jobbet. Möjliga värden för status: |
-| | **väntar**: Schemalagd och väntar på att hämtas av jobbtjänsten. |
-| | **schemalagd:** Schemalagd för en tid i framtiden. |
-| | **köra**: För närvarande aktivt jobb. |
-| | **har avbrutits:** Jobbet har avbrutits. |
-| | **misslyckades**: Jobbet misslyckades. |
-| | **:** Jobbet har slutförts. |
-| **deviceJobStatistics** |Statistik om jobbets utförande. |
-| | **deviceJobStatistics** egenskaper: |
-| | **deviceJobStatistics.deviceCount**: Antal enheter i jobbet. |
-| | **deviceJobStatistics.failedCount**: Antal enheter där jobbet misslyckades. |
-| | **deviceJobStatistics.succeededCount**: Antal enheter där jobbet lyckades. |
-| | **deviceJobStatistics.runningCount**: Antal enheter som för närvarande kör jobbet. |
-| | **deviceJobStatistics.pendingCount**: Antal enheter som väntar på att köra jobbet. |
+| **jobId** |ID för programbegäran för jobbet. |
+| **startTime** |Den angivna start tiden för programmet (ISO-8601) för jobbet. |
+| **endTime** |IoT Hub det angivna datumet (ISO-8601) för när jobbet har slutförts. Endast giltigt efter att jobbet har nått status ' slutfört '. |
+| **bastyp** |Typer av jobb: |
+| | **scheduleUpdateTwin**: ett jobb som används för att uppdatera en uppsättning av önskade egenskaper eller taggar. |
+| | **scheduleDeviceMethod**: ett jobb som används för att anropa en enhets metod på en uppsättning enheter. |
+| **statusfältet** |Jobbets aktuella tillstånd. Möjliga värden för status: |
+| | **väntar**: schemalagd och väntar på att hämtas av jobb tjänsten. |
+| | **schemalagt**: schemalagd för en gång i framtiden. |
+| | **Kör**: aktivt jobb pågår. |
+| | **avbruten**: jobbet har avbrutits. |
+| | **misslyckades**: det gick inte att utföra jobbet. |
+| | **slutfört**: jobbet har slutförts. |
+| **deviceJobStatistics** |Statistik om jobb körningen. |
+| | **deviceJobStatistics** -egenskaper: |
+| | **deviceJobStatistics. deviceCount**: antal enheter i jobbet. |
+| | **deviceJobStatistics. failedCount**: antalet enheter där jobbet misslyckades. |
+| | **deviceJobStatistics. succeededCount**: antalet enheter där jobbet lyckades. |
+| | **deviceJobStatistics. runningCount**: antal enheter som kör jobbet för tillfället. |
+| | **deviceJobStatistics. pendingCount**: antal enheter som väntar på att köra jobbet. |
 
-### <a name="additional-reference-material"></a>Ytterligare referensmaterial
+### <a name="additional-reference-material"></a>Ytterligare referens material
 
-Andra referensavsnitt i utvecklarhandboken för IoT Hub är:
+Andra referens ämnen i IoT Hub Developer Guide är:
 
-* [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md) beskriver de olika slutpunkter som varje IoT-hubb exponerar för körnings- och hanteringsåtgärder.
+* [IoT Hub slut punkter](iot-hub-devguide-endpoints.md) beskriver de olika slut punkter som varje IoT-hubb visar för körnings-och hanterings åtgärder.
 
-* [Begränsning och kvoter](iot-hub-devguide-quotas-throttling.md) beskriver de kvoter som gäller för IoT Hub-tjänsten och begränsningsbeteendet som du kan förvänta dig när du använder tjänsten.
+* [Begränsning och kvoter](iot-hub-devguide-quotas-throttling.md) beskriver de kvoter som gäller för den IoT Hub tjänsten och begränsnings beteendet som kan förväntas när du använder tjänsten.
 
-* [Azure IoT-enhet och tjänst SDK visar](iot-hub-devguide-sdks.md) de olika språk SDK:er som du kan använda när du utvecklar både enhets- och tjänstappar som interagerar med IoT Hub.
+* [Azure IoT-enhet och tjänst-SDK](iot-hub-devguide-sdks.md) : er listar de olika språk-SDK: er som du kan använda när du utvecklar både enhets-och tjänst program som samverkar IoT Hub med
 
-* [IoT Hub-frågespråk för enhetstvillingar, jobb och meddelanderoutning](iot-hub-devguide-query-language.md) beskriver frågespråket IoT Hub. Använd det här frågespråket för att hämta information från IoT Hub om dina enhetstvillingar och jobb.
+* [IoT Hub frågespråk för enhets dubbla, jobb och meddelanderoutning](iot-hub-devguide-query-language.md) beskriver IoT Hub frågespråk. Använd det här frågespråket för att hämta information från IoT Hub om din enhets dubblare och jobb.
 
-* [IoT Hub MQTT-stöd](iot-hub-mqtt-support.md) ger mer information om IoT Hub-stöd för MQTT-protokollet.
+* [IoT Hub MQTT-support](iot-hub-mqtt-support.md) innehåller mer information om IoT Hub-stöd för MQTT-protokollet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du provar några av de begrepp som beskrivs i den här artikeln finns i följande IoT Hub-självstudiekurs:
+Om du vill testa några av de begrepp som beskrivs i den här artikeln kan du läsa följande IoT Hub själv studie kurs:
 
 * [Schemalägga och sända jobb](iot-hub-node-node-schedule-jobs.md)

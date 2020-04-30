@@ -1,5 +1,5 @@
 ---
-title: Optimera prestanda på virtuella Azure Lsv2-serie - Lagring
+title: Optimera prestanda för virtuella datorer i Azure Lsv2-serien – lagring
 description: Lär dig hur du optimerar prestanda för din lösning på virtuella datorer i Lsv2-serien.
 services: virtual-machines-linux
 author: laurenhughes
@@ -11,103 +11,103 @@ ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
 ms.openlocfilehash: 7a0d5e29097bc9a672e142fcffb0ebe879fe2475
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81757681"
 ---
-# <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Optimera prestanda på virtuella datorer i Lsv2-serien
+# <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Optimera prestanda för virtuella datorer i Lsv2-serien
 
-Virtuella datorer i Lsv2-serien stöder en mängd olika arbetsbelastningar som kräver hög I/O och dataflöde på lokal lagring i ett brett spektrum av program och branscher.  Lsv2-serien är idealisk för Big Data-, SQL-databaser, NoSQL-databaser, datalagring och stora transaktionsdatabaser, inklusive Cassandra, MongoDB, Cloudera och Redis.
+Virtuella datorer i Lsv2-serien har stöd för en mängd arbets belastningar som kräver höga I/O och data flöden i lokal lagring i en mängd olika program och branscher.  Lsv2-serien är idealisk för Big data, SQL, NoSQL-databaser, data lager hantering och stora transaktions databaser, inklusive Cassandra, MongoDB, Cloudera och Redis.
 
-Utformningen av virtuella datorer i Lsv2-serien maximerar AMD EPYC™ 7551-processorn för att ge bästa prestanda mellan processorn, minnet, NVMe-enheterna och de virtuella datorerna. I samarbete med partners i Linux finns flera versioner tillgängliga Azure Marketplace som är optimerade för prestanda i Lsv2-serien och som för närvarande inkluderar:
+Utformningen av Lsv2-serien Virtual Machines (VM) maximerar AMD EPYC™ 7551-processorn för att ge bästa möjliga prestanda mellan processor, minne, NVMe-enheter och de virtuella datorerna. Att arbeta med partner i Linux är flera versioner tillgängliga Azure Marketplace som är optimerade för Lsv2-serie prestanda och som för närvarande omfattar:
 
 - Ubuntu 18.04
 - Ubuntu 16.04
-- RHEL 8.0
+- RHEL 8,0
 - Debian 9
 - Debian 10
 
-Den här artikeln innehåller tips och förslag för att säkerställa att dina arbetsbelastningar och program uppnår maximal prestanda som utformats i de virtuella datorerna. Informationen på den här sidan uppdateras kontinuerligt när fler Lsv2-optimerade avbildningar läggs till på Azure Marketplace.
+Den här artikeln innehåller tips och förslag på hur du kan se till att dina arbets belastningar och program uppnår högsta möjliga prestanda för de virtuella datorerna. Informationen på den här sidan uppdateras kontinuerligt eftersom mer Lsv2 optimerade avbildningar läggs till i Azure Marketplace.
 
-## <a name="amd-eypc-chipset-architecture"></a>AMD EYPC™ kretsuppsättning arkitektur
+## <a name="amd-eypc-chipset-architecture"></a>Arkitektur för AMD EYPC™ chipset
 
-Virtuella datorer i Lsv2-serien använder AMD EYPC™ serverprocessorer baserade på Zen-mikroarkitekturen. AMD utvecklade Infinity Fabric (IF) för EYPC™ som skalbar sammanlänkning för sin NUMA-modell som kan användas för on-die, on-package och multi-package communications. Jämfört med QPI (Quick-Path Interconnect) och UPI (Ultra-Path Interconnect) som används på Intels moderna monolitiska monolitiska processorer kan AMD:s många-NUMA-small-die-arkitektur medföra både prestandafördelar och utmaningar. Den faktiska effekten av minnesbandbredd och svarstidsbegränsningar kan variera beroende på vilken typ av arbetsbelastningar som körs.
+Virtuella datorer i Lsv2-serien använder AMD-EYPC™ Server processorer baserat på Zen mikroarkitektur. AMD utvecklade Oändlighets infrastruktur (om) för EYPC™ som skalbara Interconnect för den NUMA-modell som kan användas för on-die-, paket-och multi-Pack-kommunikation. Jämfört med QPI (Quick-Path Interconnect) och UPI (Ultra-Path Interconnect) som används på Intel moderna monolitisk-Die-processorer kan AMD: s många-NUMA-arkitektur ha både prestanda-och utmaningar. Den faktiska effekten av minnes bandbredd och latens begränsningar kan variera beroende på vilken typ av arbets belastningar som körs.
 
 ## <a name="tips-to-maximize-performance"></a>Tips för att maximera prestanda
 
-* Om du laddar upp en anpassad Linux GuestOS för din arbetsbelastning, observera att Accelerated Networking kommer att vara **OFF** som standard. Om du tänker aktivera Accelererat nätverk aktiverar du det när den virtuella datorn skapas för bästa prestanda.
+* Observera att accelererat nätverk är **inaktiverat** som standard om du överför en anpassad Linux-gäst för din arbets belastning. Om du vill aktivera accelererat nätverk aktiverar du det när du skapar den virtuella datorn för bästa prestanda.
 
-* Maskinvaran som driver virtuella datorer i Lsv2-serien använder NVMe-enheter med åtta I/O-köpar (QP)s. Varje NVMe-enhets-I/O-kö är faktiskt ett par: en inlämningskön och en slutförandekö. NVMe-drivrutinen är inställd för att optimera utnyttjandet av dessa åtta I/O-QPs genom att distribuera I/O:er i ett round robin-schema. Kör åtta jobb per enhet för att matcha för att få max prestanda.
+* Maskin varan som ger de virtuella datorerna i Lsv2-serien använder NVMe-enheter med åtta I/O-ködjup (QP) s. Varje NVMe-enhet I/O-kö är faktiskt ett par: en sändnings kö och en slut för ande kö. NVMe-drivrutinen har kon figurer ATS för att optimera användningen av dessa åtta I/O-frågor per sekund genom att distribuera i/O i ett schema med resursallokering (Round Robin). För att få högsta prestanda kan du köra åtta jobb per enhet för att matcha.
 
-* Undvik att blanda NVMe-administratörskommandon (till exempel NVMe SMART-informationsfråga osv.) med NVMe I/O-kommandon under aktiva arbetsbelastningar. Lsv2 NVMe-enheter backas upp av Hyper-V NVMe Direct-teknik, som växlar till "långsamt läge" när alla NVMe-administratörskommandon väntar. Lsv2-användare kan se en dramatisk prestandanedgång i NVMe I/O-prestanda om det händer.
+* Undvik att blanda NVMe-administratörs kommandon (t. ex. en SMART informations fråga för NVMe, osv.) med kommandona I/O för NVMe under aktiva arbets belastningar. Lsv2 NVMe-enheter backas upp av Hyper-V NVMe Direct-teknik, som växlar till "långsamt läge" när några NVMe-administratörs kommandon väntar. Lsv2-användare kan se en dramatisk prestanda minskning i i/O-prestanda i NVMe om det händer.
 
-* Lsv2-användare bör inte förlita sig på enhet NUMA-information (alla 0) som rapporteras inifrån den virtuella datorn för dataenheter för att bestämma NUMA-tillhörigheten för sina appar. Det rekommenderade sättet för bättre prestanda är att sprida arbetsbelastningar över processorer om möjligt.
+* Lsv2-användare bör inte förlita sig på enhetens NUMA-information (all 0) som rapporteras från den virtuella datorn för data enheter för att bestämma NUMA-tillhörighet för sina appar. Det rekommenderade sättet för bättre prestanda är att sprida arbets belastningar mellan CPU: er om det är möjligt.
 
-* Det maximala ködjupet som stöds per I/O-köpar för Lsv2 VM NVMe-enhet är 1024 (jämfört med Amazon i3 QD 32-gräns). Lsv2-användare bör begränsa sina (syntetiska) benchmarking arbetsbelastningar till ködjup 1024 eller lägre för att undvika att utlösa kö fullständiga villkor, vilket kan minska prestanda.
+* Det maximala ködjup som stöds per I/O-ködjup för Lsv2 VM NVMe-enhet är 1024 (vs. Amazon i3 KÖDJUP 32 Limit). Lsv2-användare bör begränsa sina (syntetiska) arbets belastningar till ködjup 1024 eller lägre för att undvika att utlösa kön med fullständiga villkor, vilket kan minska prestandan.
 
-## <a name="utilizing-local-nvme-storage"></a>Använda lokal NVMe-lagring
+## <a name="utilizing-local-nvme-storage"></a>Använd lokal NVMe-lagring
 
-Lokal lagring på 1,92 TB NVMe-disken på alla virtuella Lsv2-datorer är efemär. Under en lyckad standardomstart av den virtuella datorn kommer data på den lokala NVMe-disken att finnas kvar. Data kommer inte att finnas kvar på NVMe om den virtuella datorn distribueras om, avallokeras eller tas bort. Data kvarstår inte om ett annat problem gör att den virtuella datorn, eller maskinvaran som körs på, blir felaktig. När detta inträffar raderas alla data på den gamla värden på ett säkert sätt.
+Den lokala lagringen på 1,92 TB NVMe-disken på alla virtuella Lsv2-datorer är tillfällig. Vid en lyckad standard omstart av den virtuella datorn kommer data på den lokala NVMe-disken att bevaras. Data bevaras inte i NVMe om den virtuella datorn distribueras om, avallokeras eller tas bort. Data bevaras inte om ett annat problem gör att den virtuella datorn eller den maskin vara som körs på inte är felfri. När detta händer raderas alla data på den gamla värden på ett säkert sätt.
 
-Det kommer också att finnas fall när den virtuella datorn måste flyttas till en annan värddator, till exempel under en planerad underhållsåtgärd. Planerade underhållsåtgärder och vissa maskinvarufel kan förutses med [schemalagda händelser](scheduled-events.md). Schemalagda händelser bör användas för att hålla dig uppdaterad om eventuella förväntade underhålls- och återställningsåtgärder.
+Det kan också finnas fall då den virtuella datorn måste flyttas till en annan värddator, till exempel under en planerad underhålls åtgärd. Planerade underhålls åtgärder och vissa maskin varu problem kan förväntas med [schemalagda händelser](scheduled-events.md). Schemalagda händelser bör användas för att uppdatera för förväntade underhålls-och återställnings åtgärder.
 
-Om en planerad underhållshändelse kräver att den virtuella datorn återskapas på en ny värd med tomma lokala diskar, måste data synkroniseras om (igen, med alla data på den gamla värden som raderas på ett säkert sätt). Detta beror på att virtuella datorer i Lsv2-serien för närvarande inte stöder direktmigrering på den lokala NVMe-disken.
+Om en planerad underhålls händelse kräver att den virtuella datorn återskapas på en ny värd med tomma lokala diskar, måste data synkroniseras igen (återigen, med data på den gamla värden på ett säkert sätt raderas). Detta beror på att virtuella datorer i Lsv2-serien inte har stöd för Direktmigrering på den lokala NVMe-disken.
 
 Det finns två lägen för planerat underhåll.
 
-### <a name="standard-vm-customer-controlled-maintenance"></a>Standard-VM kundkontrollerat underhåll
+### <a name="standard-vm-customer-controlled-maintenance"></a>Standard kund styrt underhåll av virtuell dator
 
-- Den virtuella datorn flyttas till en uppdaterad värd under ett 30-dagarsfönster.
-- Lsv2 lokala lagringsdata kan gå förlorade, så säkerhetskopieringsdata före händelsen rekommenderas.
+- Den virtuella datorn flyttas till en uppdaterad värd under en 30-dagars period.
+- Lsv2 lokala lagrings data kan gå förlorade, så säkerhets kopiering av data före händelsen rekommenderas.
 
 ### <a name="automatic-maintenance"></a>Automatiskt underhåll
 
-- Inträffar om kunden inte utför kundkontrollerat underhåll eller i händelse av nödprocedurer, till exempel en säkerhets-zero-day-händelse.
-- Avsedd att bevara kunddata, men det finns en liten risk för en vm-frysning eller omstart.
-- Lsv2 lokala lagringsdata kan gå förlorade, så säkerhetskopieringsdata före händelsen rekommenderas.
+- Inträffar om kunden inte utför kundstyrt underhåll, eller i händelse av nöd procedurer som ett värdepapper som är noll dagar.
+- Avsedd för att bevara kund information, men det finns en liten risk för en VM-frysning eller omstart.
+- Lsv2 lokala lagrings data kan gå förlorade, så säkerhets kopiering av data före händelsen rekommenderas.
 
-För kommande servicehändelser använder du den kontrollerade underhållsprocessen för att välja en tid som passar dig bäst för uppdateringen. Före evenemanget kan du säkerhetskopiera dina data i premiumlagring. När underhållshändelsen är klar kan du returnera dina data till den uppdaterade virtuella Lsv2-virtuella datorernas lokala NVMe-lagring.
+För alla kommande tjänste händelser använder du den kontrollerade underhålls processen för att välja en tid som är mest praktisk för uppdateringen. Före händelsen kan du säkerhetskopiera dina data i Premium Storage. När underhålls händelsen har slutförts kan du returnera dina data till den uppdaterade Lsv2 VMS lokalt NVMe-lagring.
 
-Scenarier som underhåller data på lokala NVMe-diskar är:
+Scenarier som upprätthåller data på lokala NVMe-diskar är:
 
 - Den virtuella datorn körs och är felfri.
-- Den virtuella datorn startas om på plats (av dig eller Azure).
-- Den virtuella datorn pausas (stoppas utan avallokering).
-- Huvuddelen av de planerade underhållsserviceerna.
+- Den virtuella datorn har startats om på plats (av dig eller Azure).
+- Den virtuella datorn har pausats (Stoppad utan att ta bort tilldelningen).
+- Merparten av de planerade underhålls åtgärderna för underhåll.
 
-Scenarier som på ett säkert sätt raderar data för att skydda kunden är:
+Scenarier som skyddar kunderna på ett säkert sätt är:
 
 - Den virtuella datorn distribueras om, stoppas (avallokeras) eller tas bort (av dig).
-- Den virtuella datorn blir felaktig och måste tjänsten läka till en annan nod på grund av ett maskinvaruproblem.
-- Ett litet antal av de planerade underhållsserviceåtgärder som kräver att den virtuella datorn omfördelas till en annan värd för service.
+- Den virtuella datorn blir ohälsosam och måste serva till en annan nod på grund av ett maskin varu problem.
+- Ett litet antal planerade underhålls åtgärder som kräver att den virtuella datorn allokeras om till en annan värd för underhåll.
 
-Mer information om alternativ för säkerhetskopiering av data i lokal lagring finns i [Säkerhetskopiering och haveriberedskap för Azure IaaS-diskar](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+Mer information om alternativ för att säkerhetskopiera data i lokal lagring finns i [säkerhets kopiering och haveri beredskap för Azure IaaS-diskar](backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-* **Hur börjar jag distribuera virtuella datorer i Lsv2-serien?**  
-   Precis som alla andra virtuella datorer använder du [Portal,](quick-create-portal.md) [Azure CLI](quick-create-cli.md)eller [PowerShell](quick-create-powershell.md) för att skapa en virtuell dator.
+* **Hur gör jag för att du börja distribuera virtuella datorer i Lsv2-serien?**  
+   På samma sätt som andra virtuella datorer kan du använda [portalen](quick-create-portal.md), [Azure CLI](quick-create-cli.md)eller [PowerShell](quick-create-powershell.md) för att skapa en virtuell dator.
 
-* **Kommer ett enda NVMe-diskfel att alla virtuella datorer på värden misslyckas?**  
-   Om ett diskfel upptäcks på maskinvarunoden är maskinvaran i ett feltillstånd. När detta inträffar avlegerar sig alla virtuella datorer på noden automatiskt och flyttas till en felfri nod. För virtuella datorer i Lsv2-serien innebär detta att kundens data på den felaktiga noden också raderas säkert och måste återskapas av kunden på den nya noden. Som nämnts, innan livemigrering blir tillgänglig på Lsv2, kommer data på den felaktiga noden att flyttas proaktivt med de virtuella datorerna när de överförs till en annan nod.
+* **Kommer en enskild NVMe-disk orsaka att alla virtuella datorer på värden Miss lyckas?**  
+   Om ett diskfel upptäcks på den fjärrnoden, är maskin varan i ett felaktigt tillstånd. När detta inträffar är alla virtuella datorer i noden automatiskt avallokerade och flyttas till en felfri nod. För virtuella datorer i Lsv2-serien innebär detta att kundens data på den misslyckade noden också raderas på ett säkert sätt och att de måste återskapas av kunden på den nya noden. Innan Direktmigrering blir tillgängligt på Lsv2, kommer data på den felaktiga noden att proaktivt flyttas med de virtuella datorerna när de överförs till en annan nod.
 
-* **Måste jag göra några justeringar för att rq_affinity för prestanda?**  
-   Inställningen rq_affinity är en mindre justering när du använder de absolut maximala in-/utdataoperationerna per sekund (IOPS). När allt annat fungerar bra, sedan försöka ställa in rq_affinity till 0 för att se om det gör någon skillnad.
+* **Behöver jag göra några ändringar i rq_affinity för prestanda?**  
+   Inställningen rq_affinity är en mindre justering när du använder absoluta maximala in-/utdata-åtgärder per sekund (IOPS). När allt annat fungerar bra kan du försöka ange rq_affinity till 0 för att se om det är en skillnad.
 
-* **Måste jag ändra blk_mq inställningar?**  
-   RHEL/CentOS 7.x använder automatiskt blk-mq för NVMe-enheterna. Inga konfigurationsändringar eller inställningar är nödvändiga. Inställningen scsi_mod.use_blk_mq är endast för SCSI och användes under Lsv2 Preview eftersom NVMe-enheterna var synliga i gäst-virtuella datorer som SCSI-enheter. För närvarande är NVMe-enheterna synliga som NVMe-enheter, så SCSI blk-mq-inställningen är irrelevant.
+* **Måste jag ändra blk_mq inställningarna?**  
+   RHEL/CentOS 7. x använder automatiskt BLK-MQ för NVMe-enheter. Inga konfigurations ändringar eller inställningar krävs. Inställningen scsi_mod. use_blk_mq är endast för SCSI och användes vid för hands versionen av Lsv2 eftersom NVMe-enheterna är synliga i de virtuella gäst datorerna som SCSI-enheter. För närvarande visas NVMe-enheterna som NVMe-enheter, så inställningen för SCSI-BLK är irrelevant.
 
-* **Behöver jag ändra "fio"?**  
-   För att få maximal IOPS med ett prestandamätningsverktyg som "fio" i storlekarna L64v2 och L80v2 VM ställer du in "rq_affinity" till 0 på varje NVMe-enhet.  Den här kommandoraden anger till exempel "rq_affinity" till noll för alla 10 NVMe-enheter i en virtuell L80v2-dator:
+* **Måste jag ändra "FIO"?**  
+   Om du vill få högsta IOPS med ett prestanda Mät verktyg som "FIO" i L64v2 och L80v2 VM-storlekar, anger du "rq_affinity" till 0 på varje NVMe-enhet.  Den här kommando raden kommer till exempel att ange "rq_affinity" till noll för alla 10 NVMe-enheter i en virtuell L80v2-dator:
 
    ```console
    for i in `seq 0 9`; do echo 0 >/sys/block/nvme${i}n1/queue/rq_affinity; done
    ```
 
-   Observera också att bästa prestanda erhålls när I / O görs direkt till var och en av de råa NVMe-enheter utan partitionering, inga filsystem, ingen RAID 0 config, etc. Innan du startar en testsession, se till att konfigurationen är i ett känt färskt/rent tillstånd genom att köras `blkdiscard` på var och en av NVMe-enheterna.
+   Observera också att bästa prestanda erhålls när I/O görs direkt till var och en av RAW NVMe-enheter utan partitionering, inga fil system, ingen RAID 0-konfiguration osv. Innan du startar en testsession ska du se till att konfigurationen är i ett känt tillstånd för att `blkdiscard` rensa och rensa genom att köra på varje NVMe-enhet.
    
 ## <a name="next-steps"></a>Nästa steg
 
-* Se specifikationer för alla [virtuella datorer som är optimerade för lagringsprestanda](sizes-storage.md) på Azure
+* Se specifikationer för alla [virtuella datorer som är optimerade för lagrings prestanda](sizes-storage.md) på Azure

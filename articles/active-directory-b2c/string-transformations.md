@@ -1,7 +1,7 @@
 ---
-title: Exempel på omvandling av stränganspråk för anpassade principer
+title: Transformerings exempel för sträng anspråk för anpassade principer
 titleSuffix: Azure AD B2C
-description: Stränganspråksomvandlingsexempel för IEF-schemat (Identity Experience Framework) i Azure Active Directory B2C.
+description: Exempel på sträng anspråk för IEF-schemat (Identity Experience Framework) för Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,34 +12,34 @@ ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f08107874598a68fb5ce2a1a8a98b6a81d7b94d4
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81756788"
 ---
-# <a name="string-claims-transformations"></a>Omvandling av stränganspråk
+# <a name="string-claims-transformations"></a>Transformeringar av sträng anspråk
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den här artikeln innehåller exempel på hur du använder stränganspråksomvandlingarna i Identity Experience Framework-schemat i Azure Active Directory B2C (Azure AD B2C). Mer information finns i [ClaimsTransformations](claimstransformations.md).
+Den här artikeln innehåller exempel på hur du använder sträng anspråks omvandlingar i ett Ramverks schema för identitets miljö i Azure Active Directory B2C (Azure AD B2C). Mer information finns i [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="assertstringclaimsareequal"></a>AssertStringClaimsAreEqual
 
-Jämför två anspråk och kasta ett undantag om de inte är lika enligt den angivna jämförelseindatanClaim1, inputClaim2 och stringComparison.
+Jämför två anspråk och Utlös ett undantag om de inte är lika enligt de angivna jämförelse inputClaim1, inputClaim2 och stringComparison.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | ingångClaim1 | sträng | Första anspråkets typ, som ska jämföras. |
-| InputClaim | ingångClaim2 | sträng | Andra fordran typ, som skall jämföras. |
-| InputParameter | strängKomprodera | sträng | strängjämn, ett av värdena: Ordinal, OrdinalIgnoreCase. |
+| InputClaim | inputClaim1 | sträng | Första anspråkets typ, som ska jämföras. |
+| InputClaim | inputClaim2 | sträng | Andra anspråkets typ, som ska jämföras. |
+| InputParameter | stringComparison | sträng | sträng jämförelse, ett av värdena: ordinal, OrdinalIgnoreCase. |
 
-**AssertStringClaimsAreEqual-anspråksomvandlingen** utförs alltid från en [teknisk valideringsprofil](validation-technical-profile.md) som anropas av en [självpåtrerad teknisk profil](self-asserted-technical-profile.md)eller en [DisplayConrtol](display-controls.md). Metadata `UserMessageIfClaimsTransformationStringsAreNotEqual` för en självförsäkrad teknisk profil styr felmeddelandet som visas för användaren. Felmeddelandena kan [lokaliseras](localization-string-ids.md#claims-transformations-error-messages).
+Omvandlingen av **AssertStringClaimsAreEqual** -anspråk körs alltid från en [teknisk verifierings profil](validation-technical-profile.md) som anropas av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md)eller en [DisplayConrtol](display-controls.md). `UserMessageIfClaimsTransformationStringsAreNotEqual` Metadata för en självkontrollerad teknisk profil styr det fel meddelande som visas för användaren. Fel meddelandena kan [lokaliseras](localization-string-ids.md#claims-transformations-error-messages).
 
 
-![AssertStringClaimsAreEqual utförande](./media/string-transformations/assert-execution.png)
+![AssertStringClaimsAreEqual-körning](./media/string-transformations/assert-execution.png)
 
-Du kan använda den här anspråksomvandlingen för att se till att två ClaimTypes har samma värde. Om inte, genereras ett felmeddelande. I följande exempel kontrolleras att **strongAuthenticationEmailAddress** ClaimType är lika med **e-post** ClaimType. Annars genereras ett felmeddelande.
+Du kan använda den här anspråks omvandlingen för att se till att två ClaimTypes har samma värde. Annars genereras ett fel meddelande. I följande exempel kontrol leras att **strongAuthenticationEmailAddress** claimType är lika med **e-** postclaimtype. Annars genereras ett fel meddelande.
 
 ```XML
 <ClaimsTransformation Id="AssertEmailAndStrongAuthenticationEmailAddressAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
@@ -54,7 +54,7 @@ Du kan använda den här anspråksomvandlingen för att se till att två ClaimTy
 ```
 
 
-Den tekniska profilen för **inloggningsbaserad** validering anropar **AssertEmailAndStrongAuthenticationEmailAddressAreEqual** hävdar omvandling.
+Den tekniska profilen för inloggning som inte är **interaktiv** anropar **AssertEmailAndStrongAuthenticationEmailAddressAreEqual** Claims-transformeringen.
 ```XML
 <TechnicalProfile Id="login-NonInteractive">
   ...
@@ -64,7 +64,7 @@ Den tekniska profilen för **inloggningsbaserad** validering anropar **AssertEma
 </TechnicalProfile>
 ```
 
-Den självsäkra tekniska profilen anropar den tekniska profilen för **valideringslogisan-NonInteractive.**
+Den självkontrollerade tekniska profilen anropar verifierings **inloggningen-inaktiv** teknisk profil.
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
@@ -79,24 +79,24 @@ Den självsäkra tekniska profilen anropar den tekniska profilen för **valideri
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
+- Inmatade anspråk:
   - **inputClaim1**:someone@contoso.com
   - **inputClaim2**:someone@outlook.com
 - Indataparametrar:
   - **stringComparison**: ordinalIgnoreCase
-- Resultat: Fel uppstod
+- Resultat: fel utlöst
 
-## <a name="changecase"></a>Ändringsärende
+## <a name="changecase"></a>ChangeCase
 
-Ändrar fallet med det tillhandahållna påståendet att gemener eller versaler beror på operatören.
+Ändrar Skift läget för det angivna anspråket till lägre eller versaler beroende på operatören.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | ingångClaim1 | sträng | Den ClaimType som ska ändras. |
-| InputParameter | toCase (tillFalla) | sträng | Ett av följande `LOWER` värden: eller `UPPER`. |
-| OutputClaim | outputClaim | sträng | Den ClaimType som produceras efter att den här anspråksomvandlingen har anropats. |
+| InputClaim | inputClaim1 | sträng | Den ClaimType som ska ändras. |
+| InputParameter | toCase | sträng | Ett av följande värden: `LOWER` eller. `UPPER` |
+| OutputClaim | outputClaim | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
 
-Använd den här anspråksomvandlingen om du vill ändra en sträng claimtype till gemener eller versaler.
+Använd den här anspråks omvandlingen för att ändra sträng-ClaimType till lägre eller versaler.
 
 ```XML
 <ClaimsTransformation Id="ChangeToLower" TransformationMethod="ChangeCase">
@@ -114,23 +114,23 @@ Använd den här anspråksomvandlingen om du vill ändra en sträng claimtype ti
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
-  - **e-post:**SomeOne@contoso.com
+- Inmatade anspråk:
+  - **e-post**:SomeOne@contoso.com
 - Indataparametrar:
-    - **toCase**: LÄGRE
-- Utdataanspråk:
-  - **e-post:**someone@contoso.com
+    - **toCase**: lägre
+- Utgående anspråk:
+  - **e-post**:someone@contoso.com
 
-## <a name="createstringclaim"></a>SkapaStringClaim
+## <a name="createstringclaim"></a>CreateStringClaim
 
-Skapar ett stränganspråk från den angivna indataparametern i omvandlingen.
+Skapar ett sträng anspråk från den angivna Indataparametern i omvandlingen.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | värde | sträng | Strängen som ska ställas in. Den här indataparametern stöder [stränganspråkstransformationsuttryck](string-transformations.md#string-claim-transformations-expressions). |
-| OutputClaim | skapadeClaim | sträng | Den ClaimType som produceras efter att den här anspråksomvandlingen har anropats, med det värde som anges i indataparametern. |
+| InputParameter | värde | sträng | Strängen som ska anges. Den här Indataparametern stöder [omvandlings uttryck för sträng anspråk](string-transformations.md#string-claim-transformations-expressions). |
+| OutputClaim | createdClaim | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats, med det angivna värdet i indataparametern. |
 
-Använd den här anspråksomvandlingen för att ange ett string ClaimType-värde.
+Använd den här anspråks omvandlingen för att ange ett sträng värde för ClaimType.
 
 ```XML
 <ClaimsTransformation Id="CreateTermsOfService" TransformationMethod="CreateStringClaim">
@@ -146,23 +146,23 @@ Använd den här anspråksomvandlingen för att ange ett string ClaimType-värde
 ### <a name="example"></a>Exempel
 
 - Indataparameter:
-    - **värde**: Contoso användarvillkor...
-- Utdataanspråk:
-    - **createdClaim**: TOS ClaimType innehåller "Contoso användarvillkor..." Värde.
+    - **värde**: contoso-villkor för tjänsten...
+- Utgående anspråk:
+    - **createdClaim**: TOS-claimType innehåller "användar villkoren för contoso..." värde.
 
-## <a name="compareclaims"></a>JämförClaims
+## <a name="compareclaims"></a>CompareClaims
 
-Ta reda på om ett stränganspråk är lika med ett annat. Resultatet är en ny boolesk ClaimType med värdet `true` eller `false`.
+Avgör om ett sträng anspråk är lika med ett annat. Resultatet är en ny boolesk ClaimType med värdet `true` eller. `false`
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | ingångClaim1 | sträng | Första anspråkstypen, som ska jämföras. |
-| InputClaim | ingångClaim2 | sträng | Andra anspråkstypen, som ska jämföras. |
-| InputParameter | operator | sträng | Möjliga `EQUAL` värden: `NOT EQUAL`eller . |
-| InputParameter | ignoreCase (ignoreraFall) | boolean | Anger om den här jämförelsen ska ignorera fallet med de strängar som jämförs. |
-| OutputClaim | outputClaim | boolean | Den ClaimType som produceras efter att den här anspråksomvandlingen har anropats. |
+| InputClaim | inputClaim1 | sträng | Första anspråks typen, som ska jämföras. |
+| InputClaim | inputClaim2 | sträng | Andra anspråks typen, som ska jämföras. |
+| InputParameter | operator | sträng | Möjliga värden: `EQUAL` eller `NOT EQUAL`. |
+| InputParameter | ignoreCase | boolean | Anger om jämförelsen ska ignorera Skift läget för strängarna som jämförs. |
+| OutputClaim | outputClaim | boolean | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
 
-Använd den här anspråksomvandlingen för att kontrollera om ett anspråk är lika med ett annat anspråk. Följande anspråksomvandling kontrollerar till exempel om värdet för **e-postanspråket** är lika med anspråket **Verified.Email.**
+Använd den här anspråks omvandlingen för att kontrol lera om ett anspråk är lika med ett annat anspråk. Till exempel kontrollerar följande anspråksbaserad omvandling om värdet för **e-** postanspråket är lika med det **verifierade. e-** postanspråket.
 
 ```XML
 <ClaimsTransformation Id="CheckEmail" TransformationMethod="CompareClaims">
@@ -182,28 +182,28 @@ Använd den här anspråksomvandlingen för att kontrollera om ett anspråk är 
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
+- Inmatade anspråk:
   - **inputClaim1**:someone@contoso.com
   - **inputClaim2**:someone@outlook.com
 - Indataparametrar:
-    - **operator**: INTE LIKA
+    - **operator**: inte lika med
     - **ignoreCase**: sant
-- Utdataanspråk:
+- Utgående anspråk:
     - **outputClaim**: sant
 
-## <a name="compareclaimtovalue"></a>JämförClaimToValue
+## <a name="compareclaimtovalue"></a>CompareClaimToValue
 
-Avgör om ett anspråksvärde är lika med indataparametervärdet.
+Anger om ett anspråks värde är lika med värdet för indataparametern.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | ingångClaim1 | sträng | Påståendets typ, som ska jämföras. |
-| InputParameter | operator | sträng | Möjliga `EQUAL` värden: `NOT EQUAL`eller . |
-| InputParameter | jämförTill | sträng | strängjämn, ett av värdena: Ordinal, OrdinalIgnoreCase. |
-| InputParameter | ignoreCase (ignoreraFall) | boolean | Anger om den här jämförelsen ska ignorera fallet med de strängar som jämförs. |
-| OutputClaim | outputClaim | boolean | Den ClaimType som produceras efter att den här anspråksomvandlingen har anropats. |
+| InputClaim | inputClaim1 | sträng | Anspråkets typ, som ska jämföras. |
+| InputParameter | operator | sträng | Möjliga värden: `EQUAL` eller `NOT EQUAL`. |
+| InputParameter | compareTo | sträng | sträng jämförelse, ett av värdena: ordinal, OrdinalIgnoreCase. |
+| InputParameter | ignoreCase | boolean | Anger om jämförelsen ska ignorera Skift läget för strängarna som jämförs. |
+| OutputClaim | outputClaim | boolean | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
 
-Du kan använda den här anspråksomvandlingen för att kontrollera om ett anspråk är lika med ett värde som du har angett. Följande anspråksomvandling kontrollerar till exempel om värdet för **termernaOfUseConsentVersion-anspråk** är lika med `v1`.
+Du kan använda den här anspråks omvandlingen för att kontrol lera om ett anspråk motsvarar ett värde som du har angett. Till exempel kontrollerar följande anspråksbaserad omvandling om värdet för **termsOfUseConsentVersion** -anspråket är lika med `v1`.
 
 ```XML
 <ClaimsTransformation Id="IsTermsOfUseConsentRequiredForVersion" TransformationMethod="CompareClaimToValue">
@@ -222,29 +222,29 @@ Du kan använda den här anspråksomvandlingen för att kontrollera om ett anspr
 ```
 
 ### <a name="example"></a>Exempel
-- Ingående anspråk:
+- Inmatade anspråk:
     - **inputClaim1**: v1
 - Indataparametrar:
-    - **jämförTill:** V1
-    - **operatör**: EQUAL
+    - **compareTo**: v1
+    - **operator**: lika med
     - **ignoreCase**: sant
-- Utdataanspråk:
+- Utgående anspråk:
     - **outputClaim**: sant
 
-## <a name="createrandomstring"></a>SkapaRandomString
+## <a name="createrandomstring"></a>CreateRandomString
 
-Skapar en slumpmässig sträng med hjälp av slumptalsgeneratorn. Om slumptalsgeneratorn `integer`är av typen kan en fröparameter och ett högsta antal anges. En valfri strängformatsparameter gör att utdata kan formateras med den, och en valfri parameter för base64 anger om utdata är base64-kodad randomGeneratorType [guid, heltal] outputClaim (String).
+Skapar en slumpmässig sträng med slump tals generatorn. Om slump tals generatorn är av typen `integer`kan du ange en start parameter och ett maximalt antal. Med en valfri sträng format parameter kan utdata formateras med den, och en valfri base64-parameter anger om utdata är Base64-kodad randomGeneratorType [GUID, Integer] outputClaim (sträng).
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| InputParameter | randomGeneratorType | sträng | Anger det slumpmässiga värde `GUID` som ska genereras ,(globalt unikt ID) eller `INTEGER` (ett tal). |
-| InputParameter | strängFormat | sträng | [Valfritt] Formatera det slumpmässiga värdet. |
-| InputParameter | base64 | boolean | [Valfritt] Konvertera det slumpmässiga värdet till base64. Om strängformat används kodas värdet efter strängformat till base64. |
-| InputParameter | maximumNumber (maxAntal) | int | [Valfritt] Endast `INTEGER` för randomGeneratorType. Ange det maximala antalet. |
-| InputParameter | Utsäde  | int | [Valfritt] Endast `INTEGER` för randomGeneratorType. Ange utsöndrna för det slumpmässiga värdet. Samma frö ger samma sekvens av slumptal. |
-| OutputClaim | outputClaim | sträng | De ClaimTypes som kommer att produceras efter att den här anspråksomvandlingen har anropats. Det slumpmässiga värdet. |
+| InputParameter | randomGeneratorType | sträng | Anger det slumpmässiga värdet som ska genereras, `GUID` (globalt unikt ID) eller `INTEGER` (ett tal). |
+| InputParameter | stringFormat | sträng | Valfritt Formatera det slumpmässiga värdet. |
+| InputParameter | base64 | boolean | Valfritt Omvandla det slumpmässiga värdet till base64. Om sträng format används kodas värdet efter sträng format till base64. |
+| InputParameter | maximumNumber | int | Valfritt Endast `INTEGER` för randomGeneratorType. Ange det maximala antalet. |
+| InputParameter | dirigeringsrouter  | int | Valfritt Endast `INTEGER` för randomGeneratorType. Ange start värde för det slumpmässiga värdet. Obs! samma utsäde ger samma sekvens med slumpmässiga tal. |
+| OutputClaim | outputClaim | sträng | Den ClaimTypes som ska skapas efter att den här anspråks omvandlingen har anropats. Det slumpmässiga värdet. |
 
-I det här exemplet genereras ett globalt unikt ID. Den här anspråksomvandlingen används för att skapa det slumpmässiga UPN (användarnamnet).
+I följande exempel skapas ett globalt unikt ID. Den här anspråks omvandlingen används för att skapa det slumpmässiga UPN-namnet (användar Principens namn).
 
 ```XML
 <ClaimsTransformation Id="CreateRandomUPNUserName" TransformationMethod="CreateRandomString">
@@ -260,10 +260,10 @@ I det här exemplet genereras ett globalt unikt ID. Den här anspråksomvandling
 
 - Indataparametrar:
     - **randomGeneratorType**: GUID
-- Utdataanspråk:
-    - **outputClaim**: bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
+- Utgående anspråk:
+    - **outputClaim**: bc8bedd2-AAA3-411E-bdee-2f1810b73dfc
 
-I det här exemplet genereras ett heltalssvabbt värde mellan 0 och 1000. Värdet är formaterat till OTP_{slumpmässigt värde}.
+I följande exempel genereras ett heltals slump värde mellan 0 och 1000. Värdet är formaterat till OTP_ {slump värde}.
 
 ```XML
 <ClaimsTransformation Id="SetRandomNumber" TransformationMethod="CreateRandomString">
@@ -282,25 +282,25 @@ I det här exemplet genereras ett heltalssvabbt värde mellan 0 och 1000. Värde
 ### <a name="example"></a>Exempel
 
 - Indataparametrar:
-    - **randomGeneratorType**: INTEGER
+    - **randomGeneratorType**: heltal
     - **maximumNumber**: 1000
     - **stringFormat**: OTP_{0}
     - **base64**: falskt
-- Utdataanspråk:
+- Utgående anspråk:
     - **outputClaim**: OTP_853
 
 
 ## <a name="formatstringclaim"></a>FormatStringClaim
 
-Formatera ett anspråk enligt den angivna formatsträngen. Den här omvandlingen `String.Format` använder C#-metoden.
+Formatera ett anspråk enligt den angivna format strängen. Den här omvandlingen använder C# `String.Format` -metoden.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim |sträng |Den ClaimType som fungerar {0} som parameter för strängformat. |
-| InputParameter | strängFormat | sträng | Strängformatet, inklusive {0} parametern. Den här indataparametern stöder [stränganspråkstransformationsuttryck](string-transformations.md#string-claim-transformations-expressions).  |
-| OutputClaim | outputClaim | sträng | Den ClaimType som produceras efter att den här anspråksomvandlingen har anropats. |
+| InputClaim | inputClaim |sträng |Den ClaimType som fungerar som sträng format {0} parameter. |
+| InputParameter | stringFormat | sträng | Sträng formatet, inklusive {0} parametern. Den här Indataparametern stöder [omvandlings uttryck för sträng anspråk](string-transformations.md#string-claim-transformations-expressions).  |
+| OutputClaim | outputClaim | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
 
-Använd den här anspråksomvandlingen {0}om du vill formatera en sträng med en parameter . I följande exempel skapas ett **userPrincipalName**. Alla tekniska profiler för den `Facebook-OAUTH` sociala identitetsprovidern, till exempel **anropar CreateUserPrincipalName** för att generera ett **userPrincipalName**.
+Använd den här anspråks omvandlingen för att formatera en {0}sträng med en parameter. I följande exempel skapas ett **userPrincipalName**. Alla tekniska profiler för sociala identitets leverantörer, till `Facebook-OAUTH` exempel anropar **CreateUserPrincipalName** för att generera ett **userPrincipalName**.
 
 ```XML
 <ClaimsTransformation Id="CreateUserPrincipalName" TransformationMethod="FormatStringClaim">
@@ -318,25 +318,25 @@ Använd den här anspråksomvandlingen {0}om du vill formatera en sträng med en
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
+- Inmatade anspråk:
     - **inputClaim**: 5164db16-3eee-4629-bfda-dcc3326790e9
 - Indataparametrar:
-    - **stringFormat**: cpim_{0}@{RelyingPartyTenantId}
-- Utdataanspråk:
+    - **stringFormat**: cpim_{0}@ {RelyingPartyTenantId}
+- Utgående anspråk:
   - **outputClaim**:cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
-## <a name="formatstringmultipleclaims"></a>FormateraStringMultipleClaims
+## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
-Formatera två anspråk enligt den angivna formatsträngen. Den här omvandlingen `String.Format` använder C#-metoden.
+Formatera två anspråk enligt den angivna format strängen. Den här omvandlingen använder C# `String.Format` -metoden.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim |sträng | Den ClaimType som fungerar {0} som parameter för strängformat. |
-| InputClaim | inputClaim | sträng | Den ClaimType som fungerar {1} som parameter för strängformat. |
-| InputParameter | strängFormat | sträng | Strängformatet, {0} inklusive {1} och parametrarna. Den här indataparametern stöder [stränganspråkstransformationsuttryck](string-transformations.md#string-claim-transformations-expressions).   |
-| OutputClaim | outputClaim | sträng | Den ClaimType som produceras efter att den här anspråksomvandlingen har anropats. |
+| InputClaim | inputClaim |sträng | Den ClaimType som fungerar som sträng format {0} parameter. |
+| InputClaim | inputClaim | sträng | Den ClaimType som fungerar som sträng format {1} parameter. |
+| InputParameter | stringFormat | sträng | Sträng formatet, inklusive parametrarna {0} och. {1} Den här Indataparametern stöder [omvandlings uttryck för sträng anspråk](string-transformations.md#string-claim-transformations-expressions).   |
+| OutputClaim | outputClaim | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
 
-Använd den här anspråksomvandlingen {0} för {1}att formatera en sträng med två parametrar och . I följande exempel skapas ett **displayName** med det angivna formatet:
+Använd den här anspråks omvandlingen för att formatera en sträng {0} med {1}två parametrar och. I följande exempel skapas ett **DisplayName** med det angivna formatet:
 
 ```XML
 <ClaimsTransformation Id="CreateDisplayNameFromFirstNameAndLastName" TransformationMethod="FormatStringMultipleClaims">
@@ -355,33 +355,33 @@ Använd den här anspråksomvandlingen {0} för {1}att formatera en sträng med 
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
-    - **inputClaim1**: Joe
+- Inmatade anspråk:
+    - **inputClaim1**: Johan
     - **inputClaim2**: Fernando
 - Indataparametrar:
-    - **stringFormat** {0} :{1}
-- Utdataanspråk:
-    - **outputClaim**: Joe Fernando
+    - **stringFormat**: {0}{1}
+- Utgående anspråk:
+    - **outputClaim**: Johan Fernando
 
 ## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation
 
 Kopierar lokaliserade strängar till anspråk.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| OutputClaim | Namnet på den lokaliserade strängen | sträng | Lista över anspråkstyper som produceras efter att den här anspråksomvandlingen har anropats. |
+| OutputClaim | Namnet på den lokaliserade strängen | sträng | Lista med anspråks typer som skapas efter att den här anspråks omvandlingen har anropats. |
 
-Så här använder du anspråkstransformationen GetLocalizedStringsTransformation:
+Så här använder du omvandling av GetLocalizedStringsTransformation-anspråk:
 
-1. Definiera en [lokaliseringssträng](localization.md) och associera den med en [självbekände-teknisk profil](self-asserted-technical-profile.md).
-1. Elementet `ElementType` `LocalizedString` måste ställas in `GetLocalizedStringsTransformationClaimType`på .
-1. Det `StringId` är en unik identifierare som du definierar och använder den senare i anspråksomvandlingen.
-1. I anspråksomvandlingen anger du listan över anspråk som ska anges med den lokaliserade strängen. Är `ClaimTypeReferenceId` en referens till en ClaimType som redan definierats i avsnittet ClaimsSchema i principen. Namnet `TransformationClaimType` på den lokaliserade strängen som `StringId` definieras `LocalizedString` i elementet.
-1. I en [självpåförd teknisk profil](self-asserted-technical-profile.md), eller en [visningskontroll](display-controls.md) indata eller utdata anspråk omvandling, göra en hänvisning till dina anspråk omvandling.
+1. Definiera en [lokaliserings sträng](localization.md) och koppla den till en [självkontrollerad teknisk profil](self-asserted-technical-profile.md).
+1. `ElementType` För `LocalizedString` elementet måste anges till `GetLocalizedStringsTransformationClaimType`.
+1. `StringId` Är en unik identifierare som du definierar och använder den senare i din anspråks omvandling.
+1. I omvandling för anspråk anger du listan över anspråk som ska ställas in med den lokaliserade strängen. `ClaimTypeReferenceId` Är en referens till en claimType som redan har definierats i ClaimsSchema-avsnittet i principen. `TransformationClaimType` Är namnet på den lokaliserade strängen som definieras i `StringId` `LocalizedString` elementet.
+1. I en [självkontrollerad teknisk profil](self-asserted-technical-profile.md), eller en transformering av [visnings kontroll](display-controls.md) indata eller utgående anspråk, gör du en referens till din anspråks omvandling.
 
 ![GetLocalizedStringsTransformation](./media/string-transformations/get-localized-strings-transformation.png)
 
-I följande exempel visas e-postämnet, brödtexten, kodmeddelandet och e-postmeddelandets signatur från lokaliserade strängar. Dessa anspråk används senare av anpassad e-postverifieringsmall.
+I följande exempel visas e-postmeddelandets ämne, brödtext, ditt kod meddelande och signaturen för e-postmeddelandet, från lokaliserade strängar. Dessa anspråk används senare av mallen för anpassad e-postverifiering.
 
 Definiera lokaliserade strängar för engelska (standard) och spanska.
 
@@ -411,7 +411,7 @@ Definiera lokaliserade strängar för engelska (standard) och spanska.
 </Localization>
 ```
 
-Anspråksomvandlingen anger värdet för anspråkstypsämnet med värdet *subject* för `StringId` *email_subject*.
+Transformationen Claims anger värdet för anspråks typen som *omfattas* av värdet för `StringId` *email_subject*.
 
 ```XML
 <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
@@ -426,23 +426,23 @@ Anspråksomvandlingen anger värdet för anspråkstypsämnet med värdet *subjec
 
 ### <a name="example"></a>Exempel
 
-- Utdataanspråk:
-  - **ämne:** Contoso konto e-verifieringskod
-  - **meddelande:** Tack för att verifiera ditt konto!
-  - **codeIntro:** Din kod är
-  - **signatur**: Med vänliga hälsningar
+- Utgående anspråk:
+  - **ämne**: e-postverifierings kod för Contoso-konto
+  - **meddelande**: Tack för att du verifierar ditt konto!
+  - **codeIntro**: din kod är
+  - **signatur**: vänliga hälsningar
 
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
 
-Slå upp ett objekt från en **anspråksbegränsningssamling.**
+Söker efter ett objekt från en **begränsnings** samling för anspråk.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | kartaFrånClaim | sträng | Påståendet som innehåller den text som ska tas upp i **begränsningenValueClaim** hävdar med **begränsningsamlingen.**  |
-| OutputClaim | begränsningValueClaim | sträng | Påståendet som innehåller **begränsningssamlingen.** När anspråksomvandlingen har anropats innehåller värdet för det här anspråket värdet för det markerade objektet. |
+| InputClaim | mapFromClaim | sträng | Det anspråk som innehåller den text som ska slås upp i **restrictionValueClaim** -anspråk med **begränsnings** samlingen.  |
+| OutputClaim | restrictionValueClaim | sträng | Det anspråk som innehåller **begränsnings** samlingen. När anspråks omvandlingen har anropats innehåller värdet för det här anspråket värdet för det valda objektet. |
 
-I följande exempel visas felmeddelandebeskrivningen baserat på felnyckeln. **SvaretMsg-anspråket** innehåller en samling felmeddelanden som ska visas för slutanvändaren eller som ska skickas till den förlitande parten.
+Följande exempel söker efter beskrivningen av fel meddelandet baserat på fel nyckeln. **ResponseMsg** -anspråket innehåller en samling fel meddelanden som ska visas för slutanvändaren eller som skickas till den förlitande parten.
 
 ```XML
 <ClaimType Id="responseMsg">
@@ -456,7 +456,7 @@ I följande exempel visas felmeddelandebeskrivningen baserat på felnyckeln. **S
   </Restriction>
 </ClaimType>
 ```
-Anspråksomvandlingen slår upp texten i objektet och returnerar dess värde. Om begränsningen är `<LocalizedCollection>`lokaliserad med hjälp returnerar anspråksomvandlingen det lokaliserade värdet.
+Transformationen Claims söker efter texten i objektet och returnerar dess värde. Om begränsningen lokaliseras med hjälp `<LocalizedCollection>`av anspråks omvandlingen returnerar det lokaliserade värdet.
 
 ```XML
 <ClaimsTransformation Id="GetResponseMsgMappedToResponseCode" TransformationMethod="GetMappedValueFromLocalizedCollection">
@@ -471,23 +471,23 @@ Anspråksomvandlingen slår upp texten i objektet och returnerar dess värde. Om
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
+- Inmatade anspråk:
     - **mapFromClaim**: B2C_V1_90001
-- Utdataanspråk:
-    - **restrictionValueClaim**: Du kan inte logga in eftersom du är minderårig.
+- Utgående anspråk:
+    - **restrictionValueClaim**: det går inte att logga in eftersom du är en mindre.
 
-## <a name="lookupvalue"></a>Slå uppVärde
+## <a name="lookupvalue"></a>LookupValue
 
-Slå upp ett anspråksvärde från en lista med värden baserat på värdet av ett annat anspråk.
+Leta upp ett anspråks värde från en lista med värden baserat på värdet för ett annat anspråk.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputParameterId | sträng | Påståendet som innehåller uppslagsvärdet |
-| InputParameter | |sträng | Insamling av ingångArmometer. |
-| InputParameter | errorOnFailedLookup | boolean | Styra om ett fel returneras när ingen matchande sökning. |
-| OutputClaim | inputParameterId | sträng | De ClaimTypes som kommer att produceras efter att den här anspråksomvandlingen har anropats. Värdet på matchandet `Id`. |
+| InputClaim | inputParameterId | sträng | Det anspråk som innehåller uppslags värdet |
+| InputParameter | |sträng | Insamling av indataparametrar. |
+| InputParameter | errorOnFailedLookup | boolean | Kontrollerar om ett fel returneras när det inte finns någon matchande sökning. |
+| OutputClaim | inputParameterId | sträng | Den ClaimTypes som ska skapas efter att den här anspråks omvandlingen har anropats. Värdet för matchningen `Id`. |
 
-I följande exempel slår du upp domännamnet i en av indataParameters-samlingarna. Anspråksomvandlingen slår upp domännamnet i identifieraren och returnerar dess värde (ett program-ID).
+I följande exempel söker du efter domän namnet i en av indataparametrar-samlingarna. Omvandlingen av anspråk söker upp domän namnet i identifieraren och returnerar dess värde (ett program-ID).
 
 ```XML
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
@@ -508,21 +508,21 @@ I följande exempel slår du upp domännamnet i en av indataParameters-samlingar
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
+- Inmatade anspråk:
     - **inputParameterId**: test.com
 - Indataparametrar:
     - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-    - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **Microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
     - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
     - **errorOnFailedLookup**: falskt
-- Utdataanspråk:
+- Utgående anspråk:
     - **outputClaim**: c7026f88-4299-4cdb-965d-3f166464b8a9
 
-När `errorOnFailedLookup` indataparametern är inställd `true`på körs alltid omvandlingen av **uppslagsvärdesanspråk** från en [teknisk verifieringsprofil](validation-technical-profile.md) som anropas av en [självpåtrerad teknisk profil](self-asserted-technical-profile.md)eller en [DisplayConrtol](display-controls.md). Metadata `LookupNotFound` för en självförsäkrad teknisk profil styr felmeddelandet som visas för användaren.
+När `errorOnFailedLookup` Indataparametern är inställt `true`på, utförs omvandlingen av **sökanspråk alltid** från en [teknisk verifierings profil](validation-technical-profile.md) som anropas av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md)eller en [DisplayConrtol](display-controls.md). `LookupNotFound` Metadata för en självkontrollerad teknisk profil styr det fel meddelande som visas för användaren.
 
-![AssertStringClaimsAreEqual utförande](./media/string-transformations/assert-execution.png)
+![AssertStringClaimsAreEqual-körning](./media/string-transformations/assert-execution.png)
 
-I följande exempel slår du upp domännamnet i en av indataParameters-samlingarna. Anspråksomvandlingen slår upp domännamnet i identifieraren och returnerar dess värde (ett program-ID) eller ger upphov till ett felmeddelande.
+I följande exempel söker du efter domän namnet i en av indataparametrar-samlingarna. Transformationen Claims letar upp domän namnet i identifieraren och returnerar dess värde (ett program-ID) eller genererar ett fel meddelande.
 
 ```XML
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
@@ -543,26 +543,26 @@ I följande exempel slår du upp domännamnet i en av indataParameters-samlingar
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
-    - **inputParameterId**: live.com
+- Inmatade anspråk:
+    - **inputParameterId**: Live.com
 - Indataparametrar:
     - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-    - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **Microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
     - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
-    - **errorOnFailedLookup**: true
+    - **errorOnFailedLookup**: sant
 - Fel:
-    - Ingen matchning hittades för värdet för indataanspråk i listan över indataparameter-ID:n och errorOnFailedLookup är sant.
+    - Ingen matchning hittades för det angivna anspråks värdet i listan med ID: n för indataparametrar och errorOnFailedLookup är true.
 
 
-## <a name="nullclaim"></a>NullClaim (nullClaim)
+## <a name="nullclaim"></a>NullClaim
 
-Rensa värdet på en viss fordran.
+Rensa värdet för ett angivet anspråk.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
 | OutputClaim | claim_to_null | sträng | Anspråkets värde är inställt på NULL. |
 
-Använd den här anspråksomvandlingen för att ta bort onödiga data från egenskapspåsen för anspråk så att sessionscookien blir mindre. I följande exempel tas värdet `TermsOfService` för anspråkstypen bort.
+Använd den här anspråks omvandlingen för att ta bort onödiga data från egenskaps påsen för anspråk så att sessionens cookie blir mindre. I följande exempel tas värdet för `TermsOfService` anspråks typen bort.
 
 ```XML
 <ClaimsTransformation Id="SetTOSToNull" TransformationMethod="NullClaim">
@@ -572,21 +572,21 @@ Använd den här anspråksomvandlingen för att ta bort onödiga data från egen
 </ClaimsTransformation>
 ```
 
-- Ingående anspråk:
-    - **outputClaim**: Välkommen till Contoso App. Om du fortsätter att surfa och använda denna webbplats, samtycker du till att följa och vara bunden av följande villkor ...
-- Utdataanspråk:
-    - **outputClaim**: NULL
+- Inmatade anspråk:
+    - **outputClaim**: Välkommen till contoso-appen. Om du fortsätter att söka efter och använda den här webbplatsen, samtycker du till att följa och vara bindande för följande villkor...
+- Utgående anspråk:
+    - **outputClaim**: null
 
-## <a name="parsedomain"></a>ParseDomain (avtolkning)
+## <a name="parsedomain"></a>ParseDomain
 
-Hämtar domändelen av en e-postadress.
+Hämtar domän delen av en e-postadress.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Emailaddress | sträng | Den ClaimType som innehåller e-postadressen. |
-| OutputClaim | domän | sträng | Den ClaimType som produceras efter att den här anspråksomvandlingen har anropats - domänen. |
+| InputClaim | emailAddress | sträng | Den ClaimType som innehåller e-postadressen. |
+| OutputClaim | domän | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats – domänen. |
 
-Använd den här anspråksomvandlingen för att tolka domännamnet efter @-symbolen för användaren. Följande anspråksomvandling visar hur domännamnet tolkas från ett **e-postanspråk.**
+Använd den här anspråks omvandlingen för att parsa domän namnet efter användarens @-symbol. Följande anspråks omvandling visar hur du kan parsa domän namnet från ett **e-** postanspråk.
 
 ```XML
 <ClaimsTransformation Id="SetDomainName" TransformationMethod="ParseDomain">
@@ -601,28 +601,28 @@ Använd den här anspråksomvandlingen för att tolka domännamnet efter @-symbo
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
-  - **e-postadress:**joe@outlook.com
-- Utdataanspråk:
-    - **domän**: outlook.com
+- Inmatade anspråk:
+  - **EmailAddress**:joe@outlook.com
+- Utgående anspråk:
+    - **domän**: Outlook.com
 
 ## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatch
 
-Kontrollerar att `claimToMatch` en `matchTo` stränganspråks- och indataparameter är `outputClaimIfMatched` lika och anger utdataanspråken med det `true` `false` värde som finns i indataparametern, tillsammans med jämför resultatutdataanspråk, som ska anges som eller baseras på resultatet av jämförelsen.
+Kontrollerar `claimToMatch` att en sträng anspråks-och `matchTo` indataparameter är lika, och anger de utgående anspråken med `outputClaimIfMatched` värdet som finns i indataparametern, tillsammans med jämförelse resultat för utgående anspråk, som ska `true` anges `false` som eller baserat på resultatet av jämförelsen.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | claimToMatch | sträng | Anspråkstypen, som ska jämföras. |
-| InputParameter | matchaTill | sträng | Det reguljära uttrycket som ska matchas. |
-| InputParameter | outputClaimIfMatched | sträng | Det värde som ska anges om strängarna är lika. |
-| InputParameter | extraheraGrupper | boolean | [Valfritt] Anger om Regex-matchningen ska extrahera gruppvärden. Möjliga värden: `true` `false` , eller (standard). | 
-| OutputClaim | outputClaim | sträng | Om reguljärt uttryck matchas innehåller det `outputClaimIfMatched` här utdataanspråket värdet för indataparametern. Eller null, om ingen matchning. |
-| OutputClaim | regexCompareResultClaim | boolean | Anspråkstypen för svar om resultatet för `true` reguljära uttryck matchar resultatutdatatypen, som ska anges som eller `false` baseras på resultatet av matchningen. |
-| OutputClaim| Namnet på fordran| sträng | Om indataparametern extractGroups är true, visas en lista över anspråkstyper som produceras efter att den här anspråksomvandlingen har anropats. Namnet på claimType måste matcha Regex-gruppens namn. | 
+| inputClaim | claimToMatch | sträng | Anspråks typen, som ska jämföras. |
+| InputParameter | matchTo | sträng | Det reguljära uttrycket som ska matchas. |
+| InputParameter | outputClaimIfMatched | sträng | Värdet som ska anges om strängarna är lika. |
+| InputParameter | extractGroups | boolean | Valfritt Anger om regex matchningen ska extrahera grupp värden. Möjliga värden: `true`, eller `false` (standard). | 
+| OutputClaim | outputClaim | sträng | Om reguljärt uttryck matchar, innehåller det här utgående anspråket `outputClaimIfMatched` värdet för indataparametern. Eller null, om ingen matchning. |
+| OutputClaim | regexCompareResultClaim | boolean | Den reguljära uttrycks typen för resultat av utgående anspråk, som ska `true` anges `false` som eller baserat på resultatet av matchningen. |
+| OutputClaim| Anspråkets namn| sträng | Om extractGroups-Indataparametern har angetts till true, är listan över anspråks typer som skapas efter att den här anspråks omvandlingen har anropats. Namnet på claimType måste matcha regex-gruppens namn. | 
 
 ### <a name="example-1"></a>Exempel 1
 
-Kontrollerar om det angivna telefonnumret är giltigt, baserat på mönstret för reguljära uttryck för telefonnummer.
+Kontrollerar om det angivna telefonnumret är giltigt, baserat på vanligt uttrycks mönster för telefonnummer.
 
 ```XML
 <ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="SetClaimsIfRegexMatch">
@@ -640,12 +640,12 @@ Kontrollerar om det angivna telefonnumret är giltigt, baserat på mönstret fö
 </ClaimsTransformation>
 ```
 
-- Ingående anspråk:
+- Inmatade anspråk:
     - **claimToMatch**: "64854114520"
 - Indataparametrar:
-    - **matchTo**: "^[0-9]{4,16}$"
+    - **matchTo**: "^ [0-9]{4,16}$"
     - **outputClaimIfMatched**: "isPhone"
-- Utdataanspråk:
+- Utgående anspråk:
     - **outputClaim**: "isPhone"
     - **regexCompareResultClaim**: sant
 
@@ -671,33 +671,33 @@ Kontrollerar om den angivna e-postadressen är giltig och returnerar e-postalias
 </ClaimsTransformation>
 ```
 
-- Ingående anspråk:
-    - **claimToMatch**:emily@contoso.com" "
+- Inmatade anspråk:
+    - **claimToMatch**: "emily@contoso.com"
 - Indataparametrar:
     - **matchTo**:`(?&lt;mailAlias&gt;.*)@(.*)$`
     - **outputClaimIfMatched**: "isEmail"
-    - **extractGroups**: true
-- Utdataanspråk:
+    - **extractGroups**: sant
+- Utgående anspråk:
     - **outputClaim**: "isEmail"
     - **regexCompareResultClaim**: sant
-    - **mailAlias**: Emily
+    - **köalias**: Emily
     
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
-Kontrollerar att en `matchTo` stränganspråks- och indataparameter är `stringMatchMsg` `stringMatchMsgCode` lika och anger utdataanspråken med värdet `true` som `false` finns i och indataparametrar, tillsammans med jämför resultatutdataanspråk, som ska anges som eller baseras på resultatet av jämförelsen.
+Kontrollerar `matchTo` att en sträng anspråks-och indataparameter är lika, och anger de utgående anspråken med `stringMatchMsg` värdet `stringMatchMsgCode` som finns i parametrarna och indataparametrarna, tillsammans med jämförelse resultat för utgående anspråk, `true` som `false` ska anges som eller baserat på resultatet av jämförelsen.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | sträng | Anspråkstypen, som ska jämföras. |
-| InputParameter | matchaTill | sträng | Strängen som ska `inputClaim`jämföras med . |
-| InputParameter | strängKomprodera | sträng | Möjliga `Ordinal` värden: `OrdinalIgnoreCase`eller . |
+| InputClaim | inputClaim | sträng | Anspråks typen, som ska jämföras. |
+| InputParameter | matchTo | sträng | Strängen som ska jämföras med `inputClaim`. |
+| InputParameter | stringComparison | sträng | Möjliga värden: `Ordinal` eller `OrdinalIgnoreCase`. |
 | InputParameter | stringMatchMsg | sträng | Det första värdet som ska anges om strängarna är lika. |
 | InputParameter | stringMatchMsgCode | sträng | Det andra värdet som ska anges om strängarna är lika. |
-| OutputClaim | outputClaim1 | sträng | Om strängar är lika med innehåller det här `stringMatchMsg` utdataanspråket värdet för indataparametern. |
-| OutputClaim | outputClaim2 | sträng | Om strängar är lika med innehåller det här `stringMatchMsgCode` utdataanspråket värdet för indataparametern. |
-| OutputClaim | strängCompareResultClaim | boolean | Jämförelseresultatutdataanspråkstypen, som `true` ska `false` anges som eller baseras på resultatet av jämförelsen. |
+| OutputClaim | outputClaim1 | sträng | Om strängarna är lika med, innehåller det här utgående anspråket värdet för `stringMatchMsg` indataparametern. |
+| OutputClaim | outputClaim2 | sträng | Om strängarna är lika med, innehåller det här utgående anspråket värdet för `stringMatchMsgCode` indataparametern. |
+| OutputClaim | stringCompareResultClaim | boolean | Anspråks typen jämför resultat, som ska anges som `true` eller `false` baserat på jämförelse resultatet. |
 
-Du kan använda den här anspråksomvandlingen för att kontrollera om ett anspråk är lika med det värde som du har angett. Följande anspråksomvandling kontrollerar till exempel om värdet för **termernaOfUseConsentVersion-anspråk** är lika med `v1`. Om ja ändrar `v2`du värdet till .
+Du kan använda den här anspråks omvandlingen för att kontrol lera om ett anspråk motsvarar det värde som du har angett. Till exempel kontrollerar följande anspråksbaserad omvandling om värdet för **termsOfUseConsentVersion** -anspråket är lika med `v1`. Om ja, ändra värdet till `v2`.
 
 ```XML
 <ClaimsTransformation Id="CheckTheTOS" TransformationMethod="SetClaimsIfStringsAreEqual">
@@ -719,32 +719,32 @@ Du kan använda den här anspråksomvandlingen för att kontrollera om ett anspr
 ```
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
+- Inmatade anspråk:
     - **inputClaim**: v1
 - Indataparametrar:
-    - **matchTo**: V1
+    - **matchTo**: v1
     - **stringComparison**: ordinalIgnoreCase
     - **stringMatchMsg**: B2C_V1_90005
-    - **stringMatchMsgCode:** TOS uppgraderas till v2
-- Utdataanspråk:
+    - **stringMatchMsgCode**: TOS uppgraderas till v2
+- Utgående anspråk:
     - **outputClaim1**: B2C_V1_90005
-    - **outputClaim2:** TOS uppgraderas till v2
+    - **outputClaim2**: TOS uppgraderas till v2
     - **stringCompareResultClaim**: sant
 
 ## <a name="setclaimsifstringsmatch"></a>SetClaimsIfStringsMatch
 
-Kontrollerar att en `matchTo` stränganspråks- och indataparameter är `outputClaimIfMatched` lika och anger utdataanspråken med det `true` `false` värde som finns i indataparametern, tillsammans med jämför resultatutdataanspråk, som ska anges som eller baseras på resultatet av jämförelsen.
+Kontrollerar att en sträng anspråks `matchTo` -och indataparameter är lika, och anger de utgående anspråken med `outputClaimIfMatched` värdet som finns i indataparametern, tillsammans med jämförelse resultat för utgående anspråk, som ska `true` anges `false` som eller baserat på resultatet av jämförelsen.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | claimToMatch | sträng | Anspråkstypen, som ska jämföras. |
-| InputParameter | matchaTill | sträng | Strängen som ska jämföras med inputClaim. |
-| InputParameter | strängKomprodera | sträng | Möjliga `Ordinal` värden: `OrdinalIgnoreCase`eller . |
-| InputParameter | outputClaimIfMatched | sträng | Det värde som ska anges om strängarna är lika. |
-| OutputClaim | outputClaim | sträng | Om strängar är lika med innehåller det här `outputClaimIfMatched` utdataanspråket värdet för indataparametern. Eller null, om strängarna inte matchar. |
-| OutputClaim | strängCompareResultClaim | boolean | Jämförelseresultatutdataanspråkstypen, som `true` ska `false` anges som eller baseras på resultatet av jämförelsen. |
+| InputClaim | claimToMatch | sträng | Anspråks typen, som ska jämföras. |
+| InputParameter | matchTo | sträng | Strängen som ska jämföras med inputClaim. |
+| InputParameter | stringComparison | sträng | Möjliga värden: `Ordinal` eller `OrdinalIgnoreCase`. |
+| InputParameter | outputClaimIfMatched | sträng | Värdet som ska anges om strängarna är lika. |
+| OutputClaim | outputClaim | sträng | Om strängarna är lika med, innehåller det här utgående anspråket värdet för `outputClaimIfMatched` indataparametern. Eller null, om strängarna inte matchar. |
+| OutputClaim | stringCompareResultClaim | boolean | Anspråks typen jämför resultat, som ska anges som `true` eller `false` baserat på jämförelse resultatet. |
 
-Följande anspråksomvandling kontrollerar till exempel om värdet `Minor`för **ageGroup-anspråket** är lika med . Om ja returnerar `B2C_V1_90001`du värdet till .
+Till exempel kontrollerar följande anspråksbaserad omvandling om värdet för **ageGroup** -anspråk är lika med `Minor`. Om ja, returnerar du värdet till `B2C_V1_90001`.
 
 ```XML
 <ClaimsTransformation Id="SetIsMinor" TransformationMethod="SetClaimsIfStringsMatch">
@@ -765,29 +765,29 @@ Följande anspråksomvandling kontrollerar till exempel om värdet `Minor`för *
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
-    - **claimToMatch**: Minor
+- Inmatade anspråk:
+    - **claimToMatch**: mindre
 - Indataparametrar:
-    - **matchTo**: Minor
+    - **matchTo**: mindre
     - **stringComparison**: ordinalIgnoreCase
     - **outputClaimIfMatched**: B2C_V1_90001
-- Utdataanspråk:
-    - **isMinorResponseCode:** B2C_V1_90001
+- Utgående anspråk:
+    - **isMinorResponseCode**: B2C_V1_90001
     - **isMinor**: sant
 
 
 ## <a name="stringcontains"></a>StringContains
 
-Bestäm om en angiven delsträng inträffar i indataanspråket. Resultatet är en ny boolesk ClaimType med värdet `true` eller `false`. `true`om värdeparametern förekommer i `false`den här strängen, annars .
+Avgör om en angiven under sträng inträffar inom det inmatade anspråket. Resultatet är en ny boolesk ClaimType med värdet `true` eller. `false` `true`om värde parametern förekommer i den här strängen, annars, `false`.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | sträng | Anspråkstypen, som ska genomsökas. |
-|InputParameter|innehåller|sträng|Värdet att söka.|
-|InputParameter|ignoreCase (ignoreraFall)|sträng|Anger om den här jämförelsen ska ignorera fallet med strängen som jämförs.|
-| OutputClaim | outputClaim | sträng | Den ClaimType som produceras efter att den här ClaimsTransformation har anropats. En boolesk indikator om delsträngen inträffar i indataanspråket. |
+| InputClaim | inputClaim | sträng | Anspråks typen, som ska genomsökas. |
+|InputParameter|innehåller|sträng|Det värde som ska genomsökas.|
+|InputParameter|ignoreCase|sträng|Anger om jämförelsen ska ignorera Skift läge för strängen som jämförs.|
+| OutputClaim | outputClaim | sträng | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. En boolesk indikator om under strängen inträffar i det inmatade anspråket. |
 
-Använd den här anspråksomvandlingen för att kontrollera om en stränganspråkstyp innehåller en delsträng. I det här `roles` exemplet kontrollerar du om stränganspråkstypen innehåller värdet **för administratören**.
+Använd den här anspråks omvandlingen för att kontrol lera om en sträng anspråks typ innehåller en under sträng. Följande exempel kontrollerar om `roles` sträng anspråks typen innehåller värdet **administratör**.
 
 ```XML
 <ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains">
@@ -806,26 +806,26 @@ Använd den här anspråksomvandlingen för att kontrollera om en strängansprå
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
-    - **inputClaim**: "Admin, Godkännare, Redaktör"
+- Inmatade anspråk:
+    - **inputClaim**: "admin, god kännare, redigerare"
 - Indataparametrar:
-    - **innehåller**: "admin",
+    - **innehåller**: "admin"
     - **ignoreCase**: sant
-- Utdataanspråk:
+- Utgående anspråk:
     - **outputClaim**: sant
 
-## <a name="stringsubstring"></a>SträngarSubstring
+## <a name="stringsubstring"></a>StringSubstring
 
-Extraherar delar av en stränganspråkstyp, med början vid tecknet på den angivna positionen, och returnerar det angivna antalet tecken.
+Extraherar delar av en sträng anspråks typ, med början vid tecknet vid den angivna positionen och returnerar det angivna antalet tecken.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | sträng | Anspråkstypen, som innehåller strängen. |
-| InputParameter | startIndex (startIndex) | int | Den nollbaserade startteckenpositionen för en delsträng i den här instansen. |
-| InputParameter | length | int | Antalet tecken i delsträngen. |
-| OutputClaim | outputClaim | boolean | En sträng som motsvarar delsträngen för längden som börjar vid startIndex i den här instansen, eller Töm om startIndex är lika med längden på den här instansen och längden är noll. |
+| InputClaim | inputClaim | sträng | Anspråks typen, som innehåller strängen. |
+| InputParameter | Start | int | Den nollbaserade start tecken positionen för en under sträng i den här instansen. |
+| InputParameter | length | int | Antalet tecken i under strängen. |
+| OutputClaim | outputClaim | boolean | En sträng som motsvarar den del sträng som börjar vid start index i denna instans, eller tom om start index är lika med längden på den här instansen och längden är noll. |
 
-Du kan till exempel hämta landsprefixet för telefonnummer.
+Hämta till exempel telefonnumret till Country.
 
 
 ```XML
@@ -844,26 +844,26 @@ Du kan till exempel hämta landsprefixet för telefonnummer.
 ```
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
-    - **inputClaim**: "+1644114520"
+- Inmatade anspråk:
+    - **inputClaim**: "+ 1644114520"
 - Indataparametrar:
-    - **startIndex**: 0
+    - **Start index**: 0
     - **längd**: 2
-- Utdataanspråk:
-    - **outputClaim**: "+1"
+- Utgående anspråk:
+    - **outputClaim**: "+ 1"
 
 ## <a name="stringreplace"></a>StringReplace
 
-Söker efter en formulärsträng för ett angivet värde och returnerar en ny anspråkstypssträng där alla förekomster av en angiven sträng i den aktuella strängen ersätts med en annan angiven sträng.
+Söker efter en anspråks typ sträng för ett angivet värde och returnerar en ny anspråks typ sträng där alla förekomster av en angiven sträng i den aktuella strängen ersätts med en annan angiven sträng.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | sträng | Anspråkstypen, som innehåller strängen. |
-| InputParameter | gamlaVärdera | sträng | Strängen som ska genomsökas. |
-| InputParameter | newValue (nyaValue) | sträng | Strängen för att ersätta alla förekomster av`oldValue` |
-| OutputClaim | outputClaim | boolean | En sträng som motsvarar den aktuella strängen förutom att alla förekomster av oldValue ersätts med newValue. Om oldValue inte hittas i den aktuella instansen returnerar metoden den aktuella instansen oförändrad. |
+| InputClaim | inputClaim | sträng | Anspråks typen, som innehåller strängen. |
+| InputParameter | Gammalt | sträng | Strängen som ska genomsökas. |
+| InputParameter | newValue | sträng | Strängen som ska ersätta alla förekomster av`oldValue` |
+| OutputClaim | outputClaim | boolean | En sträng som motsvarar den aktuella strängen, förutom att alla instanser av oldValue ersätts med newValue. Om oldValue inte hittas i den aktuella instansen returnerar metoden den aktuella instansen oförändrad. |
 
-Till exempel normalisera ett telefonnummer genom `-` att ta bort tecknen
+Du kan till exempel normalisera ett telefonnummer genom att `-` ta bort tecknen
 
 
 ```XML
@@ -882,25 +882,25 @@ Till exempel normalisera ett telefonnummer genom `-` att ta bort tecknen
 ```
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
-    - **inputClaim**: "+164-411-452-054"
+- Inmatade anspråk:
+    - **inputClaim**: "+ 164-411-452-054"
 - Indataparametrar:
-    - **oldValue**: "-"
+    - **OldValue**: "-"
     - **längd**: ""
-- Utdataanspråk:
-    - **outputClaim**: "+164411452054"
+- Utgående anspråk:
+    - **outputClaim**: "+ 164411452054"
 
 ## <a name="stringjoin"></a>StringJoin
 
-Sammanfogar elementen i en angiven strängsamlingsanspråkstyp med hjälp av den angivna avgränsaren mellan varje element eller medlem.
+Sammanfogar elementen i en angiven typ av sträng samlings anspråk med hjälp av den angivna avgränsaren mellan varje element eller medlem.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | strängInsamling | En samling som innehåller strängarna att sammanfoga. |
-| InputParameter | avgränsare | sträng | Strängen som ska användas som avgränsare, till exempel komma `,`. |
-| OutputClaim | outputClaim | sträng | En sträng som består av `inputClaim` medlemmarna i strängsamlingen, `delimiter` avgränsad av indataparametern. |
+| InputClaim | inputClaim | stringCollection | En samling som innehåller de strängar som ska sammanfogas. |
+| InputParameter | avgränsare | sträng | Strängen som ska användas som avgränsare, till exempel `,`kommatecken. |
+| OutputClaim | outputClaim | sträng | En sträng som består av medlemmarna i `inputClaim` sträng samlingen, avgränsade med `delimiter` indataparametern. |
 
-I följande exempel tar du en strängsamling med användarroller och konverterar den till en kommaavgränsaresträng. Du kan använda den här metoden för att lagra en strängsamling i Azure AD-användarkonto. Senare, när du läser kontot från `StringSplit` katalogen, använder du för att konvertera kommatecknet avgränsare strängen tillbaka till strängsamling.
+I följande exempel används en sträng uppsättning med användar roller och konverterar den till en kommaavgränsad sträng. Du kan använda den här metoden för att lagra en sträng samling i Azure AD-användarkontot. Senare, när du läser kontot från katalogen, använder `StringSplit` du för att konvertera kommatecken sträng tillbaka till sträng samling.
 
 ```XML
 <ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">
@@ -918,25 +918,25 @@ I följande exempel tar du en strängsamling med användarroller och konverterar
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
-  - **inputClaim**: [ "Admin", "Författare", "Reader" ]
+- Inmatade anspråk:
+  - **inputClaim**: ["admin", "författare", "läsare"]
 - Indataparametrar:
   - **avgränsare**: ","
-- Utdataanspråk:
-  - **outputClaim**: "Admin,Författare,Reader"
+- Utgående anspråk:
+  - **outputClaim**: "admin, Author, Reader"
 
 
-## <a name="stringsplit"></a>StringSplit (Str.
+## <a name="stringsplit"></a>StringSplit
 
-Returnerar en strängmatris som innehåller de delsträngar i den här instansen som avgränsas av element i en angiven sträng.
+Returnerar en sträng mat ris som innehåller under strängarna i den här instansen som är avgränsade med element i en angiven sträng.
 
-| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| Objekt | TransformationClaimType | Datatyp | Obs! |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | sträng | En stränganspråkstyp som innehåller de understrängar som ska delas. |
-| InputParameter | avgränsare | sträng | Strängen som ska användas som avgränsare, till exempel komma `,`. |
-| OutputClaim | outputClaim | strängInsamling | En strängsamling vars element innehåller delsträngarna i den här `delimiter` strängen som avgränsas av indataparametern. |
+| InputClaim | inputClaim | sträng | En sträng anspråks typ som innehåller de under strängar som ska delas. |
+| InputParameter | avgränsare | sträng | Strängen som ska användas som avgränsare, till exempel `,`kommatecken. |
+| OutputClaim | outputClaim | stringCollection | En sträng samling vars element innehåller del strängarna i den här strängen som avgränsas med `delimiter` indataparametern. |
 
-I följande exempel tar du en kommaavgränsare sträng med användarroller och konverterar den till en strängsamling.
+I följande exempel används en kommaavgränsad sträng för användar roller och konverterar den till en sträng samling.
 
 ```XML
 <ClaimsTransformation Id="ConvertRolesToStringCollection" TransformationMethod="StringSplit">
@@ -954,18 +954,18 @@ I följande exempel tar du en kommaavgränsare sträng med användarroller och k
 
 ### <a name="example"></a>Exempel
 
-- Ingående anspråk:
-  - **inputClaim:**"Admin,Författare,Reader"
+- Inmatade anspråk:
+  - **inputClaim**: "admin, Author, Reader"
 - Indataparametrar:
   - **avgränsare**: ","
-- Utdataanspråk:
-  - **outputClaim**: [ "Admin", "Författare", "Reader" ]
+- Utgående anspråk:
+  - **outputClaim**: ["admin", "författare", "läsare"]
 
-## <a name="string-claim-transformations-expressions"></a>Stränganspråksomformningerar uttryck
-Anspråksomvandlingsuttryck i Azure AD B2C-anpassade principer ger kontextinformation om klient-ID och tekniskt profil-ID.
+## <a name="string-claim-transformations-expressions"></a>Uttryck för omvandling av sträng anspråk
+Anspråk omvandlings uttryck i Azure AD B2C anpassade principer ger Sammanhangs information om klient-ID och ID för teknisk profil.
 
   | Uttryck | Beskrivning | Exempel |
  | ----- | ----------- | --------|
- | `{TechnicalProfileId}` | Den tekniska profilenIdnamn. | Facebook-OAUTH |
- | `{RelyingPartyTenantId}` | Klient-ID för den förlitande partens princip. | your-tenant.onmicrosoft.com |
- | `{TrustFrameworkTenantId}` | Klient-ID för förtroenderamverket. | your-tenant.onmicrosoft.com |
+ | `{TechnicalProfileId}` | Det tekniska profil-namnet. | Facebook – OAUTH |
+ | `{RelyingPartyTenantId}` | Klient-ID för den förlitande part principen. | your-tenant.onmicrosoft.com |
+ | `{TrustFrameworkTenantId}` | Klient-ID för förtroende ramverket. | your-tenant.onmicrosoft.com |

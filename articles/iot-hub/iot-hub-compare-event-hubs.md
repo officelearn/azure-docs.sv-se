@@ -1,6 +1,6 @@
 ---
-title: Jämför Azure IoT Hub med Azure Event Hubs | Microsoft-dokument
-description: En jämförelse av Azure-tjänsterna i IoT Hub och Event Hubs som belyser funktionella skillnader och användningsfall. Jämförelsen omfattar protokoll som stöds, enhetshantering, övervakning och filöverföringar.
+title: Jämför Azure IoT Hub till Azure Event Hubs | Microsoft Docs
+description: En jämförelse av IoT Hub och Event Hubs Azure-tjänster som markerar funktions skillnader och användnings fall. Jämförelsen omfattar protokoll, enhets hantering, övervakning och fil överföringar som stöds.
 author: kgremban
 manager: philmea
 ms.service: iot-hub
@@ -12,42 +12,42 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 7aa59f8181ad60b3d43846a3f4f1f471a050b238
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733445"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Ansluta IoT-enheter till Azure: IoT Hub och Event Hubs
 
-Azure tillhandahåller tjänster som är särskilt utvecklade för olika typer av anslutning och kommunikation som hjälper dig att ansluta dina data till molnets kraft. Både Azure IoT Hub och Azure Event Hubs är molntjänster som kan inta stora mängder data och bearbeta eller lagra dessa data för affärsinsikter. De två tjänsterna är likartade genom att de båda stöder inmatning av data med låg latens och hög tillförlitlighet, men de är utformade för olika ändamål. IoT Hub har utvecklats för att hantera de unika kraven för att ansluta IoT-enheter till Azure-molnet medan Event Hubs har utformats för stordatastreaming. Microsoft rekommenderar att du använder Azure IoT Hub för att ansluta IoT-enheter till Azure
+Azure tillhandahåller tjänster som har utvecklats specifikt för olika typer av anslutningar och kommunikation för att hjälpa dig att ansluta dina data till molnets kraft. Både Azure IoT Hub och Azure Event Hubs är moln tjänster som kan mata in stora mängder data och bearbeta eller lagra data för affärs insikter. De två tjänsterna liknar de båda tjänsterna och har stöd för inmatning av data med låg latens och hög tillförlitlighet, men de är utformade för olika syfte. IoT Hub utvecklades för att hantera de unika kraven för att ansluta IoT-enheter till Azure-molnet medan Event Hubs har utformats för stor data strömning. Microsoft rekommenderar att du använder Azure IoT Hub för att ansluta IoT-enheter till Azure
 
-Azure IoT Hub är molngatewayen som ansluter IoT-enheter för att samla in data och driva affärsinsikter och automatisering. Dessutom innehåller IoT Hub funktioner som berikar relationen mellan dina enheter och dina backend-system. Dubbelriktade kommunikationsfunktioner innebär att du även kan skicka tillbaka kommandon och principer till enheter medan du får data från enheter. Du kan till exempel använda meddelanden från molnet till enheten för att uppdatera egenskaper eller anropa enhetshanteringsåtgärder. Kommunikation mellan molnet och enheten gör det också möjligt att skicka molninformation till dina edge-enheter med Azure IoT Edge. Den unika identiteten på enhetsnivå som tillhandahålls av IoT Hub hjälper dig att bättre skydda din IoT-lösning från potentiella attacker. 
+Azure IoT Hub är den moln-gateway som ansluter IoT-enheter för att samla in data och driva affärs insikter och automatisering. Dessutom innehåller IoT Hub funktioner som utökningen av relationen mellan dina enheter och dina Server dels system. Dubbelriktade kommunikations funktioner innebär att när du tar emot data från enheter kan du också skicka kommandon och principer tillbaka till enheter. Du kan till exempel använda meddelanden från molnet till enheten för att uppdatera egenskaper eller aktivera enhets hanterings åtgärder. Med kommunikation från moln till enhet kan du också skicka Cloud Intelligence till dina gräns enheter med Azure IoT Edge. Den unika identiteten på enhets nivå som tillhandahålls av IoT Hub hjälper till att bättre skydda din IoT-lösning mot potentiella attacker. 
 
-[Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) är Azures tjänst för direktuppspelning av stordata. Den är utformad för scenarier med högt dataflöde där kunder kan skicka miljontals begäranden per dag. Event Hubs använder en partitionerad konsumentmodell för att skala ut strömmen och är integrerad i stordata- och analystjänsterna i Azure, till exempel Databricks, Stream Analytics, ADLS och HDInsight. Med funktioner som Capture Event Hubs och Auto-Inflate är den här tjänsten utformad för att stödja dina stordataappar och lösningar. Dessutom använder IoT Hub Event Hubs för sin telemetriflödessökväg, så din IoT-lösning drar också nytta av den enorma kraften i Event Hubs.
+[Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) är den stora data strömnings tjänsten i Azure. Den är utformad för scenarier med högt dataflöde där kunder kan skicka miljontals begäranden per dag. Event Hubs använder en partitionerad konsumentmodell för att skala ut strömmen och är integrerad i stordata- och analystjänsterna i Azure, till exempel Databricks, Stream Analytics, ADLS och HDInsight. Med funktioner som Event Hubs avbildning och automatisk ökning, är den här tjänsten utformad för att stödja dina Big data-appar och-lösningar. Dessutom använder IoT Hub Event Hubs för vägen för telemetri flödet, så din IoT-lösning har också nytta av den fantastiska kraften i Event Hubs.
 
-Sammanfattningsvis är båda lösningarna utformade för datainmatning i stor skala. Endast IoT Hub tillhandahåller de omfattande IoT-specifika funktioner som är utformade för att maximera affärsvärdet för att ansluta dina IoT-enheter till Azure-molnet.  Om din IoT-resa har precis börjat, kommer du från och med IoT Hub att stödja dina scenarier för datainmatning att du har omedelbar åtkomst till de fullständiga IoT-funktionerna när ditt företag och tekniska behov kräver dem.
+För att sammanfatta är båda lösningarna utformade för data inmatning i en enorm skala. Endast IoT Hub ger de omfattande IoT-specifika funktioner som är utformade för att maximera affärs värdet för att ansluta dina IoT-enheter till Azure-molnet.  Om din IoT-resa bara är igång, från och med IoT Hub för att stödja dina data inmatnings scenarier, garanterar du att du har direkt åtkomst till de fullständiga IoT-funktionerna när dina affärs-och teknik behov kräver det.
 
-I följande tabell finns information om hur de två nivåerna i IoT Hub jämför med eventhubbar när du utvärderar dem för IoT-funktioner. Mer information om standard- och grundläggande nivåer i IoT Hub finns i [Så här väljer du rätt IoT Hub-nivå](iot-hub-scaling.md).
+Följande tabell innehåller information om hur de två nivåerna av IoT Hub jämför med Event Hubs när du utvärderar dem för IoT-funktioner. Mer information om standard-och Basic-nivåerna för IoT Hub finns i [så här väljer du rätt IoT Hub nivå](iot-hub-scaling.md).
 
-| IoT-kapacitet | Standardnivå för IoT Hub | Grundläggande nivå för IoT Hub | Event Hubs |
+| IoT-kapacitet | IoT Hub standard nivå | IoT Hub Basic-nivå | Event Hubs |
 | --- | --- | --- | --- |
 | Meddelanden från enhet till moln | ![Markera][checkmark] | ![Markera][checkmark] | ![Markera][checkmark] |
-| Protokoll: HTTPS, AMQP, AMQP över webSockets | ![Markera][checkmark] | ![Markera][checkmark] | ![Markera][checkmark] |
-| Protokoll: MQTT, MQTT över webSockets | ![Markera][checkmark] | ![Markera][checkmark] |  |
+| Protokoll: HTTPS, AMQP, AMQP över WebSockets | ![Markera][checkmark] | ![Markera][checkmark] | ![Markera][checkmark] |
+| Protokoll: MQTT, MQTT över WebSockets | ![Markera][checkmark] | ![Markera][checkmark] |  |
 | Identitet per enhet | ![Markera][checkmark] | ![Markera][checkmark] |  |
-| Filuppladdning från enheter | ![Markera][checkmark] | ![Markera][checkmark] |  |
-| Tjänst för etablering av enhet | ![Markera][checkmark] | ![Markera][checkmark] |  |
-| Meddelanden från molnet till enheten | ![Markera][checkmark] |  |  |
-| Hantering av enhetstvilling och enhet | ![Markera][checkmark] |  |  |
-| Enhetsströmmar (förhandsgranskning) | ![Markera][checkmark] |  |  |
+| Fil uppladdning från enheter | ![Markera][checkmark] | ![Markera][checkmark] |  |
+| Enhets etablerings tjänst | ![Markera][checkmark] | ![Markera][checkmark] |  |
+| Meddelanden från moln till enhet | ![Markera][checkmark] |  |  |
+| Enhets-och enhets hantering | ![Markera][checkmark] |  |  |
+| Enhets strömmar (förhands granskning) | ![Markera][checkmark] |  |  |
 | IoT Edge | ![Markera][checkmark] |  |  |
 
-Även om det enda användningsfallet är datainmatning från enhet till moln rekommenderar vi starkt att du använder IoT Hub eftersom det tillhandahåller en tjänst som är utformad för IoT-enhetsanslutning. 
+Även om det enda användnings fallet är data inmatningen från enheten till molnet rekommenderar vi starkt att du använder IoT Hub eftersom det tillhandahåller en tjänst som är utformad för IoT-enhets anslutning. 
 
 ### <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du utforskar funktionerna i IoT Hub finns i [utvecklarhandboken för IoT Hub](iot-hub-devguide.md).
+Mer information om funktionerna i IoT Hub finns i [IoT Hub Developer Guide](iot-hub-devguide.md).
 
 <!-- This one reference link is used over and over. --robinsh -->
 [checkmark]: ./media/iot-hub-compare-event-hubs/ic195031.png

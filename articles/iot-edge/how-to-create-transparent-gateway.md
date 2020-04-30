@@ -1,6 +1,6 @@
 ---
-title: Skapa transparent gateway-enhet – Azure IoT Edge | Microsoft-dokument
-description: Använda en Azure IoT Edge-enhet som en transparent gateway som kan bearbeta information från underordnade enheter
+title: Skapa transparent gateway-enhet – Azure IoT Edge | Microsoft Docs
+description: Använd en Azure IoT Edge enhet som en transparent gateway som kan bearbeta information från underordnade enheter
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -12,66 +12,66 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: e563e67b5e951b43e5782f8c845c8ec46ff3e9bb
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687166"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurera en IoT Edge-enhet till att fungera som en transparent gateway
 
-Den här artikeln innehåller detaljerade instruktioner för hur du konfigurerar en IoT Edge-enhet så att den fungerar som en transparent gateway för andra enheter att kommunicera med IoT Hub. I den här artikeln används termen *IoT Edge-gateway* för att referera till en IoT Edge-enhet som konfigurerats som en transparent gateway. Mer information finns i [Hur en IoT Edge-enhet kan användas som en gateway](./iot-edge-as-gateway.md).
+Den här artikeln innehåller detaljerade anvisningar för hur du konfigurerar en IoT Edge-enhet så att den fungerar som en transparent Gateway för andra enheter att kommunicera med IoT Hub. I den här artikeln används termen *IoT Edge Gateway* för att referera till en IoT Edge enhet som kon figurer ATS som en transparent Gateway. Mer information finns i [så här kan en IoT Edge enhet användas som en gateway](./iot-edge-as-gateway.md).
 
 >[!NOTE]
->För närvarande:
+>Öppet
 >
-> * Edge-aktiverade enheter kan inte ansluta till IoT Edge-gateways.
-> * Nedströmsenheter kan inte använda filöverföring.
+> * Edge-aktiverade enheter kan inte ansluta till IoT Edge gatewayer.
+> * Underordnade enheter kan inte använda fil uppladdning.
 
-Det finns tre allmänna steg för att konfigurera en lyckad transparent gateway-anslutning. Den här artikeln beskriver det första steget:
+Det finns tre allmänna steg för att konfigurera en lyckad transparent Gateway-anslutning. Den här artikeln beskriver det första steget:
 
-1. **Gateway-enheten måste kunna ansluta till nedströmsenheter på ett säkert sätt, ta emot kommunikation från nedströmsenheter och dirigera meddelanden till rätt mål.**
-2. Nedströmsenheten måste ha en enhetsidentitet för att kunna autentisera med IoT Hub och veta att kommunicera via sin gateway-enhet. Mer information finns i [Autentisera en nedströmsenhet till Azure IoT Hub](how-to-authenticate-downstream-device.md).
-3. Nedströmsenheten måste ansluta till gatewayenheten på ett säkert sätt. Mer information finns i [Ansluta en nedströmsenhet till en Azure IoT Edge-gateway](how-to-connect-downstream-device.md).
+1. **Gateway-enheten måste kunna ansluta till underordnade enheter på ett säkert sätt, ta emot kommunikation från underordnade enheter och dirigera meddelanden till rätt mål.**
+2. Den underordnade enheten måste ha en enhets identitet för att kunna autentisera med IoT Hub och kunna kommunicera via dess gateway-enhet. Mer information finns i [autentisera en underordnad enhet till Azure IoT Hub](how-to-authenticate-downstream-device.md).
+3. Den underordnade enheten måste ansluta till sin gateway-enhet på ett säkert sätt. Mer information finns i [ansluta en underordnad enhet till en Azure IoT Edge Gateway](how-to-connect-downstream-device.md).
 
-För att en enhet ska fungera som en gateway måste den kunna ansluta till sina nedströmsenheter på ett säkert sätt. Med Azure IoT Edge kan du använda en infrastruktur för offentliga nycklar (PKI) för att konfigurera säkra anslutningar mellan enheter. I det här fallet tillåter vi en nedströms enhet att ansluta till en IoT Edge-enhet som fungerar som en transparent gateway. För att upprätthålla rimlig säkerhet bör nedströmsenheten bekräfta gateway-enhetens identitet. Den här identitetskontrollen hindrar dina enheter från att ansluta till potentiellt skadliga gateways.
+För att en enhet ska fungera som en gateway måste den kunna ansluta till dess underordnade enheter på ett säkert sätt. Med Azure IoT Edge kan du använda en PKI (Public Key Infrastructure) för att konfigurera säkra anslutningar mellan enheter. I det här fallet låter vi en underordnad enhet ansluta till en IoT Edge-enhet som fungerar som en transparent Gateway. För att upprätthålla rimlig säkerhet bör den underordnade enheten bekräfta gateway-enhetens identitet. Den här identitets kontrollen förhindrar att enheterna ansluter till potentiellt skadliga gatewayer.
 
-En nedströmsenhet i ett transparent gateway-scenario kan vara alla program eller plattformar som har en identitet som skapats med [Azure IoT](https://docs.microsoft.com/azure/iot-hub) Hub-molntjänsten. I många fall använder dessa program [Azure IoT-enheten SDK](../iot-hub/iot-hub-devguide-sdks.md). För alla praktiska ändamål kan en nedströmsenhet till och med vara ett program som körs på själva IoT Edge-gatewayenheten. En IoT Edge-enhet kan dock inte vara nedströms en IoT Edge-gateway.
+En underordnad enhet i ett scenario med transparent Gateway kan vara vilket program eller vilken plattform som helst som har en identitet som skapats med [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) Cloud service. I många fall använder dessa program [Azure IoT-enhetens SDK](../iot-hub/iot-hub-devguide-sdks.md). I alla praktiska syfte kan en underordnad enhet även vara ett program som körs på själva IoT Edge gateway-enheten. En IoT Edge enhet kan dock inte underordnas IoT Edge Gateway.
 
-Du kan skapa alla certifikatinfrastrukturer som aktiverar det förtroende som krävs för din enhetsgatewaytop. I den här artikeln antar vi samma certifikatinställningar som du använder för att aktivera [X.509 CA-säkerhet](../iot-hub/iot-hub-x509ca-overview.md) i IoT Hub, vilket innebär ett X.509 CA-certifikat som är associerat till en specifik IoT-hubb (IoT-hubbrotscertifikatutfärdaren), en serie certifikat som har signerats med den här certifikatutfärdaren och en certifikatutfärdare för IoT Edge-enheten.
+Du kan skapa en certifikat infrastruktur som aktiverar det förtroende som krävs för din enhets-Gateway-topologi. I den här artikeln förutsätter vi samma certifikat inställningar som du använde för att aktivera [x. 509 ca-säkerhet](../iot-hub/iot-hub-x509ca-overview.md) i IoT Hub, vilket inbegriper ett X. 509 CA-certifikat som är kopplat till en speciell IoT-hubb (IoT Hub rot certifikat utfärdare), en serie med certifikat som har signerats med denna certifikat utfärdare och en certifikat utfärdare för IoT Edges enheten.
 
-![Konfigurera gatewaycertifikat](./media/how-to-create-transparent-gateway/gateway-setup.png)
+![Konfiguration av Gateway-certifikat](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 >[!NOTE]
->Termen "root CA" som används i hela den här artikeln refererar till det högsta myndighetsutfärdarcertifikatet för PKI-certifikatkedjan och inte nödvändigtvis certifikatroten för en syndikerad certifikatutfärdare. I många fall är det faktiskt ett offentligt certifikat för den mellanliggande certifikatutfärdaren.
+>Termen "rot certifikat utfärdare" som används i den här artikeln avser det offentliga auktoritets certifikatet för PKI-certifikat kedjan och inte nödvändigt vis certifikat roten för en syndikerad certifikat utfärdare. I många fall är det faktiskt ett offentligt certifikat för certifikat utfärdare.
 
-Säkerhetsdemonen IoT Edge använder certifikatet för IoT Edge-enhetscertifikatutfärdare för att signera ett certifikat för arbetsbelastningscertifikat för certifikatutfärdare, vilket i sin tur signerar ett servercertifikat för IoT Edge-hubb. Gatewayen visar sitt servercertifikat för nedströmsenheten under anslutningens initiering. Nedströmsenheten kontrollerar att servercertifikatet är en del av en certifikatkedja som summerar rotcertifikatutfärdarcertifikatet. Den här processen gör det möjligt för nedströmsenheten att bekräfta att gatewayen kommer från en betrodd källa. Mer information finns i [Förstå hur Azure IoT Edge använder certifikat](iot-edge-certs.md).
+IoT Edge Security daemon använder IoT Edge enhetens CA-certifikat för att signera ett CA-certifikat för arbets belastning, vilket i sin tur signerar ett Server certifikat för IoT Edge Hub. Gatewayen visar sitt Server certifikat för den underordnade enheten under initieringen av anslutningen. Den underordnade enheten kontrollerar att Server certifikatet är en del av en certifikat kedja som slås samman till rot certifikat utfärdarens certifikat. Den här processen gör att den underordnade enheten kan bekräfta att gatewayen kommer från en betrodd källa. Mer information finns i [förstå hur Azure IoT Edge använder certifikat](iot-edge-certs.md).
 
-Följande steg går igenom processen att skapa certifikaten och installera dem på rätt ställen i gatewayen. Du kan använda vilken dator som helst för att generera certifikaten och sedan kopiera dem till din IoT Edge-enhet.
+Följande steg vägleder dig genom processen att skapa certifikaten och installera dem på rätt plats på gatewayen. Du kan använda vilken dator som helst för att generera certifikaten och sedan kopiera dem till din IoT Edge-enhet.
 
 ## <a name="prerequisites"></a>Krav
 
-En Azure IoT Edge-enhet som konfigurerats med [produktionscertifikat](how-to-manage-device-certificates.md).
+En Azure IoT Edge enhet som kon figurer ATS med [produktions certifikat](how-to-manage-device-certificates.md).
 
 ## <a name="deploy-edgehub-to-the-gateway"></a>Distribuera edgeHub till gatewayen
 
-När du först installerar IoT Edge på en enhet startar endast en systemmodul automatiskt: IoT Edge-agenten. När du har skapat den första distributionen mer startas även den andra systemmodulen, IoT Edge-hubben.
+Första gången du installerar IoT Edge på en enhet startar bara en systemmodul automatiskt: IoT Edge agenten. När du har skapat den första distributionen av mer än en enhet, startas den andra systemmodulen, IoT Edge hubben, också.
 
-IoT Edge-hubben ansvarar för att ta emot inkommande meddelanden från nedströmsenheter och dirigera dem till nästa mål. Om **edgeHub-modulen** inte körs på enheten skapar du en första distribution för enheten. Distributionen ser tom ut eftersom du inte lägger till några moduler, men det kommer att se till att båda systemmodulerna körs.
+IoT Edge Hub ansvarar för att ta emot inkommande meddelanden från underordnade enheter och dirigera dem till nästa mål. Om modulen **edgeHub** inte körs på enheten skapar du en första distribution för enheten. Distributionen kommer att se Tom ut eftersom du inte lägger till några moduler, men det ser till att båda systemmodulerna körs.
 
-Du kan kontrollera vilka moduler som körs på en enhet genom att kontrollera dess enhetsinformation i Azure-portalen, `iotedge list` visa enhetsstatus i Visual Studio eller Visual Studio-kod eller genom att köra kommandot på själva enheten.
+Du kan kontrol lera vilka moduler som körs på en enhet genom att kontrol lera enhets informationen i Azure Portal, Visa enhets status i Visual Studio eller Visual Studio Code eller genom att köra `iotedge list` kommandot på själva enheten.
 
-Om **edgeAgent-modulen** körs utan **edgeHub-modulen** gör du följande:
+Om modulen **edgeAgent** körs utan modulen **edgeHub** använder du följande steg:
 
 1. Gå till din IoT-hubb på Azure Portal.
 
-2. Gå till **IoT Edge** och välj din IoT Edge-enhet som du vill använda som en gateway.
+2. Gå till **IoT Edge** och välj IoT Edge enheten som du vill använda som en gateway.
 
 3. Välj **Ange moduler**.
 
 4. Välj **Nästa**.
 
-5. På sidan **Ange vägar** bör du ha en standardväg som skickar alla meddelanden från alla moduler till IoT Hub. Om du inte har det lägger du till följande kod och väljer sedan **Nästa**.
+5. På sidan **Ange vägar** ska du ha en standard väg som skickar alla meddelanden från alla moduler till IoT Hub. Om du inte har det lägger du till följande kod och väljer sedan **Nästa**.
 
    ```JSON
    {
@@ -81,27 +81,27 @@ Om **edgeAgent-modulen** körs utan **edgeHub-modulen** gör du följande:
    }
    ```
 
-6. På **sidan Granska mall** väljer du **Skicka**.
+6. På sidan **Granska mall** väljer du **Skicka**.
 
 ## <a name="open-ports-on-gateway-device"></a>Öppna portar på gateway-enhet
 
-Standard-IoT Edge-enheter behöver ingen inkommande anslutning för att fungera, eftersom all kommunikation med IoT Hub sker via utgående anslutningar. Gateway-enheter är olika eftersom de måste ta emot meddelanden från sina underordnade enheter. Om en brandvägg är mellan nedströmsenheterna och gateway-enheten måste kommunikationen också vara möjlig via brandväggen.
+Standard IoT Edge enheter behöver ingen inkommande anslutning för att fungera eftersom all kommunikation med IoT Hub görs via utgående anslutningar. Gateway-enheter skiljer sig åt eftersom de måste ta emot meddelanden från deras underordnade enheter. Om en brand vägg är mellan de efterföljande enheterna och gateway-enheten, behöver kommunikationen också vara möjlig genom brand väggen.
 
-För att ett gateway-scenario ska fungera måste minst ett av IoT Edge-hubbens protokoll som stöds vara öppet för inkommande trafik från nedströmsenheter. Protokoll som stöds är MQTT, AMQP, HTTPS, MQTT över WebSockets och AMQP över WebSockets.
+För att ett Gateway-scenario ska fungera måste minst ett av de protokoll som stöds av IoT Edge Hub vara öppet för inkommande trafik från efterföljande enheter. De protokoll som stöds är MQTT, AMQP, HTTPS, MQTT över WebSockets och AMQP för WebSockets.
 
 | Port | Protokoll |
 | ---- | -------- |
 | 8883 | MQTT |
 | 5671 | AMQP |
-| 443 | HTTPS <br> MQTT+WS <br> AMQP+WS |
+| 443 | HTTPS <br> MQTT + WS <br> AMQP + WS |
 
-## <a name="route-messages-from-downstream-devices"></a>Dirigera meddelanden från nedströmsenheter
+## <a name="route-messages-from-downstream-devices"></a>Dirigera meddelanden från underordnade enheter
 
-IoT Edge-körningen kan dirigera meddelanden som skickas från nedströmsenheter precis som meddelanden som skickas av moduler. Med den här funktionen kan du utföra analyser i en modul som körs på gatewayen innan du skickar data till molnet.
+IoT Edge runtime kan dirigera meddelanden som skickas från underordnade enheter precis som meddelanden som skickas av moduler. Med den här funktionen kan du utföra analyser i en modul som körs på gatewayen innan du skickar data till molnet.
 
-För närvarande är det sätt som du dirigerar meddelanden som skickas av nedströms enheter genom att skilja dem från meddelanden som skickas av moduler. Meddelanden som skickas av moduler innehåller alla en systemegenskap som kallas **connectionModuleId,** men meddelanden som skickas av underordnade enheter inte. Du kan använda WHERE-satsen i flödet för att utesluta meddelanden som innehåller den systemegenskapen.
+För närvarande är det hur du dirigerar meddelanden som skickas av underordnade enheter genom att skilja dem från meddelanden som skickas av moduler. Meddelanden som skickas av moduler innehåller alla system egenskaper som heter **connectionModuleId** men meddelanden som skickas av underordnade enheter gör inte det. Du kan använda WHERE-satsen för vägen för att undanta eventuella meddelanden som innehåller system egenskapen.
 
-Nedanstående väg är ett exempel som skulle skicka meddelanden från `ai_insights`alla nedströmsenheter till en modul med namnet och sedan från `ai_insights` till IoT Hub.
+Nedanstående väg är ett exempel som skickar meddelanden från en underordnad enhet till en modul med `ai_insights`namnet och sedan från `ai_insights` till IoT Hub.
 
 ```json
 {
@@ -112,16 +112,16 @@ Nedanstående väg är ett exempel som skulle skicka meddelanden från `ai_insig
 }
 ```
 
-Mer information om meddelanderoutning finns i [Distribuera moduler och upprätta vägar](./module-composition.md#declare-routes).
+Mer information om meddelanderoutning finns i [distribuera moduler och upprätta vägar](./module-composition.md#declare-routes).
 
-## <a name="enable-extended-offline-operation"></a>Aktivera utökad offlineåtgärd
+## <a name="enable-extended-offline-operation"></a>Aktivera utökad offline-åtgärd
 
-Från och med [v1.0.4-versionen](https://github.com/Azure/azure-iotedge/releases/tag/1.0.4) av IoT Edge-körningen kan gateway-enheten och nedströmsenheter som ansluter till den konfigureras för utökad offlinedrift.
+Från och med [v 1.0.4-versionen](https://github.com/Azure/azure-iotedge/releases/tag/1.0.4) av IoT Edge runtime kan gateway-enheten och underordnade enheter som ansluter till den konfigureras för utökad offline-åtgärd.
 
-Med den här funktionen kan lokala moduler eller nedströmsenheter omauktisera med IoT Edge-enheten efter behov och kommunicera med varandra med meddelanden och metoder även när de kopplas från IoT-hubben. Mer information finns i [Förstå utökade offlinefunktioner för IoT Edge-enheter, moduler och underordnade enheter](offline-capabilities.md).
+Med den här funktionen kan lokala moduler eller underordnade enheter återautentiseras med den IoT Edge enheten vid behov och kommunicera med varandra med hjälp av meddelanden och metoder, även när de är frånkopplade från IoT Hub. Mer information finns i [förstå utökade offline-funktioner för IoT Edge enheter, moduler och underordnade enheter](offline-capabilities.md).
 
-Om du vill aktivera utökade offlinefunktioner upprättar du en överordnad och underordnad relation mellan en IoT Edge-gatewayenhet och underordnade enheter som ansluter till den. Dessa steg förklaras mer i detalj i [Autentisera en nedströmsenhet till Azure IoT Hub](how-to-authenticate-downstream-device.md).
+Om du vill aktivera utökade offline-funktioner upprättar du en överordnad-underordnad relation mellan en IoT Edge gateway-enhet och underordnade enheter som ska ansluta till den. Dessa steg beskrivs i detalj i [autentisera en underordnad enhet till Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har en IoT Edge-enhet som fungerar som en transparent gateway måste du konfigurera dina nedströmsenheter för att lita på gatewayen och skicka meddelanden till den. Fortsätt att [autentisera en nedströmsenhet till Azure IoT Hub](how-to-authenticate-downstream-device.md) för nästa steg i att konfigurera ditt transparenta gatewayscenario.
+Nu när du har en IoT Edge-enhet som fungerar som en transparent Gateway måste du konfigurera de underordnade enheterna så att de litar på gatewayen och skicka meddelanden till den. Fortsätt med att [autentisera en underordnad enhet till Azure IoT Hub](how-to-authenticate-downstream-device.md) för nästa steg i konfigurationen av scenariot för transparent Gateway.

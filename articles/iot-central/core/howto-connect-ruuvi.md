@@ -1,6 +1,6 @@
 ---
-title: Anslut en RuuviTag i Azure IoT Central | Microsoft-dokument
-description: Lär dig hur du ansluter en RuuviTag-miljösensor till ditt IoT Central-program.
+title: Ansluta en RuuviTag i Azure IoT Central | Microsoft Docs
+description: Lär dig hur du ansluter en RuuviTag-miljö sensor till ditt IoT Central-program.
 services: iot-central
 ms.service: iot-central
 ms.topic: how-to
@@ -11,72 +11,72 @@ ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
 ms.openlocfilehash: 93e4d3d0bed9090573d2b6ee87a29b86ccd72e42
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758953"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Ansluta en RuuviTag-sensor till ditt Azure IoT Central-program
 
-*Den här artikeln gäller lösningsbyggare och enhetsutvecklare.*
+*Den här artikeln gäller lösnings byggare och enhets utvecklare.*
 
-I den här artikeln beskrivs hur du som lösningsbyggare kan ansluta en RuuviTag-sensor till ditt Microsoft Azure IoT Central-program.
+I den här artikeln beskrivs hur du kan ansluta en RuuviTag-sensor till ditt Microsoft Azure IoT Central program med hjälp av Solution Builder.
 
 Vad är en Ruuvi-tagg?
 
-RuuviTag är en avancerad plattform för sensorfyr med öppen källkod utformad för att tillgodose behoven hos företagskunder, utvecklare, beslutsfattare, studenter och hobbyister. Enheten är inställd på att fungera så fort du tar den ur lådan och är redo för dig att distribuera den där du behöver den. Det är en Bluetooth LE beacon med en miljösensor och accelerometer inbyggd.
+RuuviTag är en avancerad sensor för öppen källkod som är utformad för att uppfylla behoven hos företags kunder, utvecklare, tillverkare, studenter och hobbyer. Enheten ställs in så att den fungerar så snart du tar den i sin låda och är redo att distribuera den där du behöver den. Det är en Bluetooth LE-Beacon med en miljö sensor och en accelerometer inbyggd.
 
-RuuviTag kommunicerar via BLE (Bluetooth Low Energy) och kräver en gateway-enhet för att prata med Azure IoT Central. Se till att du har en gateway-enhet, till exempel Rigado Cascade 500, installation för att aktivera en RuuviTag för att ansluta till IoT Central.
+RuuviTag kommunicerar via Bell (Bluetooth Low Energy) och kräver en gateway-enhet för att kommunicera med Azure IoT Central. Se till att du har en gateway-enhet, t. ex. Rigado kaskad 500, för att aktivera en RuuviTag för att ansluta till IoT Central.
 
-Följ [instruktionerna här](./howto-connect-rigado-cascade-500.md) om du vill ställa in en Rigado Cascade 500 gateway enhet.
+Följ [anvisningarna här](./howto-connect-rigado-cascade-500.md) om du vill konfigurera en Rigado kaskad 500-gateway-enhet.
 
 ## <a name="prerequisites"></a>Krav
 
 För att ansluta RuuviTag-sensorer behöver du följande resurser:
 
-* En RuuviTag-sensor. För mer information, besök [RuuviTag](https://ruuvi.com/).
-* En Rigado Cascade 500 enhet eller en annan BLE gateway. För mer information, besök [Rigado](https://www.rigado.com/).
-* Ett Azure IoT Central-program. Mer information finns i [skapa ett nytt program](./quick-deploy-iot-central.md).
+* En RuuviTag-sensor. Mer information finns på [RuuviTag](https://ruuvi.com/).
+* En Rigado kaskad 500-enhet eller en annan Bell-Gateway. Mer information finns på [Rigado](https://www.rigado.com/).
+* Ett Azure IoT Central-program. Mer information finns i avsnittet [skapa ett nytt program](./quick-deploy-iot-central.md).
 
-## <a name="add-a-ruuvitag-device-template"></a>Lägga till en RuuviTag-enhetsmall
+## <a name="add-a-ruuvitag-device-template"></a>Lägg till en mall för RuuviTag-enhet
 
-Om du vill gå in på en RuuviTag-sensor i din Azure IoT Central-programinstans måste du konfigurera en motsvarande enhetsmall i ditt program.
+Om du vill publicera en RuuviTag-sensor i din Azure IoT Central-programinstans måste du konfigurera en motsvarande enhets mall i ditt program.
 
-Så här lägger du till en RuuviTag-enhetsmall:
+Så här lägger du till en RuuviTag enhets mal len:
 
-1. Navigera till fliken ***Enhetsmallar*** i den vänstra ![rutan,](./media/howto-connect-ruuvi/devicetemplate-new.png) välj **+ Ny:** Skapa ny enhetsmall Sidan ger dig ett alternativ för att ***skapa en anpassad mall*** eller Använda en ***förkonfigurerad enhetsmall***
-1. Välj enhetsmallen RuuviTag i listan över förkonfigurerade ![enhetsmallar som visas nedan: Välj RuuviTag-enhetsmall](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
-1. Välj ***Nästa: Anpassa*** för att fortsätta till nästa steg.
-1. På nästa skärm väljer du ***Skapa*** för att gå in på C500-enhetsmallen i ditt IoT Central-program.
+1. Gå till fliken ***mallar*** i det vänstra fönstret och välj **+ ny**: ![skapa ny enhets mall](./media/howto-connect-ruuvi/devicetemplate-new.png) sidan ger dig ett alternativ för att ***skapa en anpassad mall*** eller ***använda en förkonfigurerad enhets mall***
+1. Välj enhets mal len RuuviTag i listan med förkonfigurerade enhetsspecifika mallar enligt nedan: ![Välj enhets mal len för RuuviTag](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
+1. Välj ***Nästa: anpassa*** för att fortsätta till nästa steg.
+1. På nästa skärm väljer du ***skapa*** för att publicera enhets mal len C500 i ditt IoT Central-program.
 
-## <a name="connect-a-ruuvitag-sensor"></a>Anslut en RuuviTag-sensor
+## <a name="connect-a-ruuvitag-sensor"></a>Ansluta en RuuviTag-sensor
 
-Som tidigare nämnts, för att ansluta RuuviTag med din IoT Central ansökan, måste du ställa in en gateway-enhet. Stegen nedan förutsätter att du har konfigurerat en Rigado Cascade 500 gateway-enhet.  
+Som tidigare nämnts måste du konfigurera en gateway-enhet för att ansluta RuuviTag med ditt IoT Central-program. Stegen nedan förutsätter att du har konfigurerat en Rigado kaskad 500-gateway-enhet.  
 
-1. Slå på din Rigado Cascade 500-enhet och anslut den till din nätverksanslutning (via Ethernet eller trådlöst)
-1. Pop locket av RuuviTag och dra plast fliken för att säkra anslutningen med batteriet.
-1. Placera RuuviTag nära en Rigado Cascade 500 gateway som redan är konfigurerad i din IoT Central ansökan.
-1. På bara några sekunder ska din RuuviTag visas i din lista över enheter inom IoT Central.  
-    ![RuuviTag enhetslista](./media/howto-connect-ruuvi/ruuvi-devicelist.png)
+1. Slå på din Rigado kaskad 500-enhet och Anslut den till din nätverks anslutning (via Ethernet eller trådlöst)
+1. Stäng av RuuviTag och hämta fliken plast för att skydda anslutningen till batteriet.
+1. Placera RuuviTagen nära en Rigado kaskad 500-gateway som redan har kon figurer ATS i IoT Central-programmet.
+1. På bara några sekunder bör din RuuviTag visas i listan över enheter i IoT Central.  
+    ![Lista över RuuviTag-enheter](./media/howto-connect-ruuvi/ruuvi-devicelist.png)
 
-Du kan nu använda denna RuuviTag i din IoT Central ansökan.  
+Du kan nu använda den här RuuviTag i ditt IoT Central-program.  
 
 ## <a name="create-a-simulated-ruuvitag"></a>Skapa en simulerad RuuviTag
 
-Om du inte har en fysisk RuuviTag-enhet kan du skapa en simulerad RuuviTag-sensor som ska användas för testning i ditt Azure IoT Central-program.
+Om du inte har någon fysisk RuuviTag-enhet kan du skapa en simulerad RuuviTag sensor som används för testning i ditt Azure IoT Central-program.
 
 Så här skapar du en simulerad RuuviTag:
 
 1. Välj **enheter > RuuviTag**.
-1. Välj **+ Nytt**.
-1. Ange ett unikt **enhets-ID** och ett eget **enhetsnamn**.  
-1. Aktivera den **simulerade** inställningen.
+1. Välj **+ ny**.
+1. Ange ett unikt **enhets-ID** och ett eget **enhets namn**.  
+1. Aktivera **simulerad** inställning.
 1. Välj **Skapa**.  
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
-Om du är enhetsutvecklare är några föreslagna nästa steg att:
+Om du är enhets utvecklare är några förslag på nästa steg att:
 
-- Läs om [enhetsanslutning i Azure IoT Central](./concepts-get-connected.md)
-- Lär dig hur du [övervakar enhetsanslutning med Azure CLI](./howto-monitor-devices-azure-cli.md)
+- Läs om [enhets anslutning i Azure IoT Central](./concepts-get-connected.md)
+- Lär dig hur du [övervakar enhets anslutningar med hjälp av Azure CLI](./howto-monitor-devices-azure-cli.md)

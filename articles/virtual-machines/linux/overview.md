@@ -9,10 +9,10 @@ ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 83676850a58da4e4bd3c549d9d0c6ac25ae20f83
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81759423"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Virtuella Linux-datorer i Azure
@@ -58,7 +58,7 @@ Azure har tillkännagivit ett branschledande serviceavtal på 99,9 % för virtue
 ## <a name="vm-size"></a>Storlek på virtuell dator
 [Storleken](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) på den virtuella datorn som du använder bestäms av den arbetsbelastning som du vill köra. Storleken som du väljer avgör sedan faktorer som processorkraft, minne och lagringskapacitet. Azure erbjuder en rad olika storlekar för att passa en mängd olika användningar.
 
-Azure debiterar ett [timpris](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) baserat på den virtuella datorns storlek och operativsystem. För delar av timmar tar Azure bara betalt för användningen per minut. Lagringsutrymme prissätts och debiteras separat.
+Azure debiterar ett [Tim pris](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) baserat på den virtuella datorns storlek och operativ system. För delar av timmar tar Azure bara betalt för användningen per minut. Lagringsutrymme prissätts och debiteras separat.
 
 ## <a name="vm-limits"></a>Begränsningar för den virtuella datorn
 Prenumerationen har [standardkvotgränser](../../azure-resource-manager/management/azure-subscription-service-limits.md) som kan påverka ditt projekt om många virtuella datorer distribueras. Den aktuella gränsen på basis av per prenumeration är 20 virtuella datorer per region. Begränsningen kan ökas om du [anmäler ett supportärende och begär en ökning](../../azure-portal/supportability/resource-manager-core-quotas-request.md)
@@ -92,12 +92,12 @@ Microsoft har ett nära samarbete med partner för att se till att de tillgängl
 
 ## <a name="cloud-init"></a>Cloud-init 
 
-All infrastruktur måste vara kod för att uppnå en korrekt DevOps-kultur.  När all infrastruktur lever i kod kan den enkelt återskapas.  Azure fungerar med alla större automatiseringsverktyg som Ansible, Chef, SaltStack och Puppet.  Azure har även en egen verktygsuppsättning för automatisering:
+All infrastruktur måste vara kod för att uppnå en korrekt DevOps-kultur.  När all infrastruktur finns i kod kan den enkelt återskapas.  Azure fungerar med alla större automatiseringsverktyg som Ansible, Chef, SaltStack och Puppet.  Azure har även en egen verktygsuppsättning för automatisering:
 
 * [Azure-mallar](create-ssh-secured-vm-from-template.md)
 * [Azure VMAccess](using-vmaccess-extension.md)
 
-Azure stöder för [cloud-init](https://cloud-init.io/) över de flesta Linux-distributioner som stöder det.  Vi arbetar aktivt med våra godkända Linux-distributioner för att ha moln-init-aktiverade avbildningar tillgängliga på Azure-marknadsplatsen. Dessa avbildningar gör att dina molninitdistributioner och konfigurationer fungerar sömlöst med virtuella datorer och skalningsuppsättningar för virtuella datorer.
+Azure har stöd för [Cloud-Init](https://cloud-init.io/) i de flesta Linux-distributioner som har stöd för det.  Vi arbetar aktivt med våra godkända Linux distribution-partner för att få moln-init-aktiverade avbildningar tillgängliga på Azure Marketplace. De här avbildningarna gör att dina Cloud-Init-distributioner och-konfigurationer fungerar sömlöst med virtuella datorer och skalnings uppsättningar för virtuella datorer.
 
 * [Använda cloud-init på virtuella Azure Linux-datorer](using-cloud-init.md)
 
@@ -115,7 +115,7 @@ Azure stöder för [cloud-init](https://cloud-init.io/) över de flesta Linux-di
 
 ## <a name="next-steps"></a>Nästa steg
 
-Skapa din första VM!
+Skapa din första virtuella dator!
 
 - [Portalen](quick-create-portal.md)
 - [Azure CLI](quick-create-cli.md)

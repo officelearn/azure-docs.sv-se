@@ -1,6 +1,6 @@
 ---
-title: Konfigurera lokala kodare när du använder Azure Media Services för att skapa flerbitriga strömmar | Microsoft-dokument
-description: I det här avsnittet visas lokala live-kodare som du kan använda för att fånga dina livehändelser och skicka en enda bitrate live stream till AMS-kanaler (som är aktiverat för live-kodning) för vidare bearbetning. Avsnittet länkar till självstudier som visar hur du konfigurerar listade kodare.
+title: Konfigurera lokala kodare när du använder Azure Media Services för att skapa data strömmar med flera bit hastigheter | Microsoft Docs
+description: Det här avsnittet innehåller en lista över lokala Live-kodare som du kan använda för att avbilda dina Live-händelser och skicka en enda bit Ströms direkt ström till AMS-kanaler (som är aktive rad i real tid) för vidare bearbetning. Avsnittet innehåller länkar till självstudier som visar hur du konfigurerar förtecknade kodare.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 5a17f98d69cb2196f92e19b66fc23dcd89bce188
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687149"
 ---
-# <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Konfigurera lokala kodare när du använder Azure Media Services för att skapa flerbitratströmmar
-I det här avsnittet visas lokala live-kodare som du kan använda för att fånga dina livehändelser och skicka en enda bitrate live stream till AMS-kanaler (som är aktiverat för live-kodning) för vidare bearbetning. Avsnittet länkar också till självstudier som visar hur du konfigurerar listade kodare.
+# <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Så här konfigurerar du lokala kodare när du använder Azure Media Services för att skapa data strömmar med flera bit hastigheter
+Det här avsnittet innehåller en lista över lokala Live-kodare som du kan använda för att avbilda dina Live-händelser och skicka en enda bit Ströms direkt ström till AMS-kanaler (som är aktive rad i real tid) för vidare bearbetning. Avsnittet innehåller också länkar till självstudier som visar hur du konfigurerar kodare i listan.
 
 > [!NOTE]
 > Vid direktuppspelning via RTMP ska du kontrollera inställningarna för brandvägg och /eller proxy för att bekräfta att de utgående TCP-portarna 1935 och 1936 är öppna.
 
 ## <a name="haivision-kb-encoder"></a>Haivision KB-kodare
-Information om hur du [konfigurerar Haivision KB Encoder-kodaren](https://www.haivision.com/products/kb-series/) för att skicka en enda bithastighets direktuppspelning till en AMS-kanal finns i [Konfigurera Haivision KB-kodare](media-services-configure-kb-live-encoder.md).
+Information om hur du konfigurerar [HAIVISION KB Encoder](https://www.haivision.com/products/kb-series/) Encoder för att skicka en enda bit Ströms bit ström till en AMS-kanal finns i [Konfigurera Haivision KB-kodare](media-services-configure-kb-live-encoder.md).
 
-## <a name="telestream-wirecast"></a>Telestream Wirecast
-Information om hur du konfigurerar [Telestream Wirecast-kodaren](https://www.telestream.net/wirecast/overview.htm) för att skicka en enda bithastighets direktuppspelning till en AMS-kanal finns i [Konfigurera Wirecast](media-services-configure-wirecast-live-encoder.md).
+## <a name="telestream-wirecast"></a>Wirecast för strömning
+Information om hur du konfigurerar [NetStream Wirecast](https://www.telestream.net/wirecast/overview.htm) -kodaren för att skicka en enda bit Ströms bit ström till en AMS-kanal finns i [Konfigurera Wirecast](media-services-configure-wirecast-live-encoder.md).
 
 ## <a name="elemental-live"></a>Elemental Live
-Mer information finns i [Elemental Live](https://www.elemental.com/products/aws-elemental-appliances-software/#elemental-live).
+Mer information finns i [grundämne Live](https://www.elemental.com/products/aws-elemental-appliances-software/#elemental-live).
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -44,5 +44,5 @@ Mer information finns i [Elemental Live](https://www.elemental.com/products/aws-
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Livestreaming med Azure Media Services för att skapa multibitrate-strömmar](media-services-manage-live-encoder-enabled-channels.md).
+[Direkt uppspelning med Azure Media Services för att skapa data strömmar med flera bit](media-services-manage-live-encoder-enabled-channels.md)hastigheter.
 

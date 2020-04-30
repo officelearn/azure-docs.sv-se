@@ -1,41 +1,41 @@
 ---
-title: Hjälpmedel för Azure Media Player
-description: Läs mer om tillgänglighetsinställningarna för Azure Media Player.
+title: Azure Media Player hjälpmedel
+description: Läs mer om de Azure Media Player inställningarna för hjälpmedel.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
 ms.openlocfilehash: 2231c2969bbfce1668002ad4f5f719e0b8e13de5
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81726559"
 ---
 # <a name="accessibility"></a>Hjälpmedel #
 
-Azure Media Player fungerar med skärmläsare funktioner som Windows Skärmläsaren och Apple OSX / iOS VoiceOver. Alternativa taggar är tillgängliga för gränssnittsknapparna och skärmläsaren kan läsa dessa alternativa taggar när användaren navigerar till dem. Ytterligare konfigurationer kan ställas in på operativsystemsnivå.
+Azure Media Player fungerar med skärm läsar funktioner som Windows skärm läsaren och Apple OSX/iOS VoiceOver. Alternativa taggar är tillgängliga för GRÄNSSNITTs knapparna och skärm läsaren kan läsa dessa alternativa Taggar när användaren navigerar till dem. Ytterligare konfigurationer kan ställas in på operativ system nivå.
 
-## <a name="captions-and-subtitles"></a>Bildtexter och undertexter ##
+## <a name="captions-and-subtitles"></a>Under texter och under texter ##
 
-För närvarande stöder Azure Media Player bildtexter för endast on-demand-händelser med WebVTT-format och live-händelser med CEA 708. TTML-format stöds för närvarande inte. Med undertextning kan spelaren tillgodose och hjälpa en bredare publik, till exempel personer med nedsatt hörsel eller användare som vill kunna läsa med på ett annat språk. Undertexter även öka engagemanget video, förbättra förståelsen och göra det möjligt att visa videon i ljudkänsliga miljöer, t.ex. på en arbetsplats.  
+För tillfället stöder Azure Media Player för närvarande endast textning för händelser på begäran med WebVTT-format och Live-händelser med CEA 708. TTML-formatet stöds inte för tillfället. Med undertextning kan spelaren tillgodose och hjälpa en bredare publik, till exempel personer med nedsatt hörsel eller användare som vill kunna läsa med på ett annat språk. Undertexter även öka engagemanget video, förbättra förståelsen och göra det möjligt att visa videon i ljudkänsliga miljöer, t.ex. på en arbetsplats.  
 
-## <a name="high-contrast-mode"></a>Högkontrastläge ##
+## <a name="high-contrast-mode"></a>Hög kontrast läge ##
 
-Standardgränssnittet i Azure Media Player är kompatibelt med de flesta lägen för hög kontrastlägen för enheter/webbläsare. Konfigurationer kan ställas in på operativsystemsnivå.
+Standard gränssnittet i Azure Media Player är kompatibelt med de flesta visnings lägena enhet/webbläsare med hög kontrast. Konfigurationer kan ställas in på operativ system nivå.
 
-## <a name="mobility-options"></a>Alternativ för rörlighet ##
+## <a name="mobility-options"></a>Mobilitets alternativ ##
 
-### <a name="tabbing-focus"></a>Tabbing fokus ###
+### <a name="tabbing-focus"></a>Fokusera på flikar ###
 
-Tabbing fokus, som tillhandahålls av allmänna HTML-standarder, är tillgänglig i Azure Media Player. För att aktivera flikfokusering måste du lägga till `tabindex=0` (eller ett annat värde `<video>` om du `<video ... tabindex=0>...</video>`förstår hur tabbordning påverkas i HTML) i HTML så här: . På vissa plattformar kan fokus för kontrollerna endast finnas om kontrollerna är synliga och om plattformen stöder dessa funktioner.
+Fokus fokus, som tillhandahålls av allmänna HTML-standarder, är tillgänglig i Azure Media Player. För att kunna aktivera TABB-fokusering måste du lägga `tabindex=0` till (eller ett annat värde om du förstår hur TABB-ordningen påverkas i HTML) till `<video>` HTML-koden `<video ... tabindex=0>...</video>`så här:. På vissa plattformar kan fokus för kontrollerna bara finnas om kontrollerna är synliga och om plattformen stöder dessa funktioner.
 
-När tabbing fokus är aktiverat, slutanvändaren kan effektivt navigera och styra videospelaren utan att vara beroende av deras mus. Varje snabbmeny eller kontrollerbart element kan navigeras till genom att trycka på flikknappen och markeras med enter eller mellanslag. Genom att trycka enter eller mellanslag på en snabbmeny utökas den så att slutanvändaren kan fortsätta tabbning genom att välja ett menyalternativ. När du befinner dig i det sammanhang där det önskade objektet finns trycker du på retur eller blanksteg för att välja det.
+När tabbordningen är aktive rad kan slutanvändaren effektivt navigera och kontrol lera Videos pelaren utan att behöva göra något med musen. Varje snabb meny eller ett element som kan kontrol leras kan navigera till genom att trycka på TABB-knappen och markera med RETUR eller blank steg. Genom att trycka på RETUR eller blank steg på en snabb meny expanderar du den så att slutanvändaren kan fortsätta tabba genom att välja ett meny alternativ. När du befinner dig i det sammanhang där det önskade objektet finns trycker du på retur eller blanksteg för att välja det.
 
-### <a name="hotkeys"></a>Snabbtangenter ###
+### <a name="hotkeys"></a>Snabb tangenter ###
 
-Azure Media Player stöder styrning via tangentbordstangentbord. I en webbläsare är det enda sättet att kontrollera det underliggande videoelementet genom att fokusera på spelaren. När det finns fokus på spelaren kan het tangenter styra spelarens funktionalitet.  I tabellen nedan beskrivs olika snabbtangenter och deras associerade beteende:
+Azure Media Player stöder styrning via tangent bords snabb tangent. I en webbläsare är det enda sättet att styra det underliggande video elementet genom att fokusera på spelaren. När den är i fokus på spelaren kan snabb tangenterna styra spelarens funktion.  I tabellen nedan beskrivs olika snabbtangenter och deras associerade beteende:
 
 | Snabbtangent              | Beteende                                                                |
 |----------------------|-------------------------------------------------------------------------|
@@ -43,10 +43,10 @@ Azure Media Player stöder styrning via tangentbordstangentbord. I en webbläsar
 | M/m                  | Slå på/av ljud för spelaren                                          |
 | Upp- och nedpil.    | Spelarens volym kommer öka/minska                                    |
 | Vänster och höger pil | Videoförloppet ökar/minskar                                  |
-| 0,1,2,3,4,5,6,7,8,9  | Videoframsteg ändras till\- 0% 90% beroende på vilken tangent som trycks |
-| Klicka på Åtgärd         | Videon spelas upp/pausar                                                   |
+| 0,1,2,3,4,5,6,7,8,9  | Video förloppet ändras till 0%\- 90% beroende på vilken nyckel som trycks ned |
+| Klicka på åtgärd         | Videon spelas upp/pausar                                                   |
 
 ## <a name="next-steps"></a>Nästa steg
 
 <!---Some context for the following links goes here--->
-- [Snabbstart för Azure Media Player](azure-media-player-quickstart.md)
+- [Azure Media Player snabb start](azure-media-player-quickstart.md)

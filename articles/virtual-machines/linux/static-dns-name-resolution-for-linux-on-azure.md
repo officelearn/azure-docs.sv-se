@@ -1,6 +1,6 @@
 ---
-title: Använd intern DNS för VM-namnmatchning med Azure CLI
-description: Så här skapar du virtuella nätverkskort och använder intern DNS för VM-namnmatchning på Azure med Azure CLI.
+title: Använd intern DNS för matchning av namn på virtuella datorer med Azure CLI
+description: Så här skapar du nätverkskort för virtuella nätverkskort och använder interna DNS för namn matchning för virtuella datorer på Azure med Azure CLI.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: networking
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: cynthn
 ms.openlocfilehash: 07a78e4987a844627824ac5034046cf6a393ad8d
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81757840"
 ---
-# <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Skapa virtuella nätverkskort och använd intern DNS för VM-namnmatchning på Azure
+# <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Skapa nätverkskort för virtuella nätverkskort och Använd interna DNS för namn matchning för virtuella datorer på Azure
 
-Den här artikeln visar hur du ställer in statiska interna DNS-namn för virtuella Linux-datorer med virtuella nätverkskort (vNics) och DNS-etikettnamn med Azure CLI. Statiska DNS-namn används för permanenta infrastrukturtjänster som en Jenkins-byggserver, som används för det här dokumentet eller en Git-server.
+Den här artikeln visar hur du ställer in statiska interna DNS-namn för virtuella Linux-datorer med hjälp av virtuella nätverks gränssnitts kort (virtuella nätverkskort) och DNS-etikett namn med Azure CLI. Statiska DNS-namn används för permanenta infrastruktur tjänster som en Jenkins build-Server, som används för det här dokumentet eller en git-Server.
 
 Kraven är:
 
@@ -25,12 +25,12 @@ Kraven är:
 * [offentliga och privata SSH-nyckelfiler](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="quick-commands"></a>Snabbkommandon
-Om du snabbt behöver utföra uppgiften beskrivs följande avsnitt de kommandon som behövs. Mer detaljerad information och sammanhang för varje steg finns i resten av dokumentet, [med början här](#detailed-walkthrough). För att kunna utföra dessa steg behöver du den senaste [Azure CLI](/cli/azure/install-az-cli2) installerad och inloggad på ett Azure-konto med [az-inloggning](/cli/azure/reference-index).
+Om du snabbt behöver utföra uppgiften kan du använda följande avsnitt för att få information om de kommandon som behövs. Mer detaljerad information och kontext för varje steg finns i resten av dokumentet, med [början här](#detailed-walkthrough). För att utföra de här stegen måste du ha den senaste versionen av [Azure CLI](/cli/azure/install-az-cli2) installerat och inloggad på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index).
 
-Förkrav: Resursgrupp, virtuellt nätverk och undernät, Nätverkssäkerhetsgrupp med SSH-inkommande.
+Före krav: resurs grupp, virtuellt nätverk och undernät, nätverks säkerhets grupp med SSH inkommande.
 
-### <a name="create-a-virtual-network-interface-card-with-a-static-internal-dns-name"></a>Skapa ett virtuellt nätverkskort med ett statiskt internt DNS-namn
-Skapa vNic med [az nätverk nic skapa](/cli/azure/network/nic). `--internal-dns-name` CLI-flaggan är till för att ange DNS-etiketten, som ger det statiska DNS-namnet för det virtuella nätverkskortet (vNic). I följande exempel skapas `myNic`en vNic med `myVnet` namnet , ansluter den till det `jenkins`virtuella nätverket och en intern DNS-namnpost med namnet :
+### <a name="create-a-virtual-network-interface-card-with-a-static-internal-dns-name"></a>Skapa ett virtuellt nätverks gränssnitts kort med ett statiskt internt DNS-namn
+Skapa vNic med [AZ Network NIC Create](/cli/azure/network/nic). `--internal-dns-name` CLI-flaggan är för att ställa in DNS-etiketten, som tillhandahåller det statiska DNS-namnet för det virtuella nätverkskortet (vNic). I följande exempel skapas en vNic med `myNic`namnet, ansluter den till `myVnet` det virtuella nätverket och skapar en intern DNS-namnserver som `jenkins`heter:
 
 ```azurecli
 az network nic create \
@@ -41,8 +41,8 @@ az network nic create \
     --internal-dns-name jenkins
 ```
 
-### <a name="deploy-a-vm-and-connect-the-vnic"></a>Distribuera en virtuell dator och ansluta vNic
-Skapa en virtuell dator med [az vm create](/cli/azure/vm). Flaggan `--nics` ansluter vNic till den virtuella datorn under distributionen till Azure. I följande exempel skapas `myVM` en virtuell dator med namnet Azure `myNic` Managed Disks och vNic namnges från föregående steg:
+### <a name="deploy-a-vm-and-connect-the-vnic"></a>Distribuera en virtuell dator och Anslut vNic
+Skapa en virtuell dator med [az vm create](/cli/azure/vm). `--nics` Flaggan ansluter vNic till den virtuella datorn under distributionen till Azure. I följande exempel skapas en virtuell dator `myVM` med namnet med Azure Managed disks och bifogas vNic `myNic` med namnet från föregående steg:
 
 ```azurecli
 az vm create \
@@ -56,14 +56,14 @@ az vm create \
 
 ## <a name="detailed-walkthrough"></a>Detaljerad genomgång
 
-En fullständig kontinuerlig integration och kontinuerlig distribution (CiCd) infrastruktur på Azure kräver vissa servrar att vara statiska eller långlivade servrar. Vi rekommenderar att Azure-resurser som virtuella nätverk och nätverkssäkerhetsgrupper är statiska och långlivade resurser som sällan distribueras. När ett virtuellt nätverk har distribuerats kan det återanvändas av nya distributioner utan några negativa effekter på infrastrukturen. Du kan senare lägga till en Git-databasserver eller en Jenkins-automatiseringsserver som levererar CiCd till det här virtuella nätverket för utvecklings- eller testmiljöer.  
+En fullständig infrastruktur för kontinuerlig integrering och kontinuerlig distribution (CiCd) i Azure kräver att vissa servrar är statiska eller långvariga servrar. Vi rekommenderar att Azure-till gångar som virtuella nätverk och nätverks säkerhets grupper är statiska och långvariga resurser som sällan distribueras. När ett virtuellt nätverk har distribuerats kan det återanvändas av nya distributioner utan att något skadligt påverkar infrastrukturen. Du kan senare lägga till en git-lagringsplats eller en Jenkins Automation-server som levererar CiCd till det här virtuella nätverket för dina utvecklings-eller test miljöer.  
 
-Interna DNS-namn kan bara lösas i ett virtuellt Azure-nätverk. Eftersom DNS-namnen är interna kan de inte lösas upp till externt internet, vilket ger ytterligare säkerhet till infrastrukturen.
+Interna DNS-namn kan bara matchas i ett virtuellt Azure-nätverk. Eftersom DNS-namnen är interna kan de inte matchas mot den externa Internet, vilket ger ytterligare säkerhet i infrastrukturen.
 
-I följande exempel ersätter du exempelparameternamn med dina egna värden. Exempel på `myResourceGroup`parameternamn är , `myNic`och `myVM`.
+Ersätt exempel parameter namn med dina egna värden i följande exempel. Exempel på parameter namn `myResourceGroup`är `myNic`, och `myVM`.
 
 ## <a name="create-the-resource-group"></a>Skapa en resursgrupp
-Skapa först resursgruppen med [az-gruppge](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westus`:
+Skapa först en resurs grupp med [AZ Group Create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westus`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -71,9 +71,9 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
 
-Nästa steg är att bygga ett virtuellt nätverk för att starta de virtuella datorerna till. Det virtuella nätverket innehåller ett undernät för den här genomgången. Mer information om virtuella Azure-nätverk finns i [Skapa ett virtuellt nätverk](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). 
+Nästa steg är att bygga ett virtuellt nätverk för att starta de virtuella datorerna i. Det virtuella nätverket innehåller ett undernät för den här genom gången. Mer information om virtuella Azure-nätverk finns i [skapa ett virtuellt nätverk](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). 
 
-Skapa det virtuella nätverket med [az nätverk vnet skapa](/cli/azure/network/vnet). I följande exempel skapas `myVnet` ett virtuellt `mySubnet`nätverk med namnet och undernätet med namnet :
+Skapa det virtuella nätverket med [AZ Network VNet Create](/cli/azure/network/vnet). I följande exempel skapas ett virtuellt nätverk med `myVnet` namnet och under `mySubnet`nätet med namnet:
 
 ```azurecli
 az network vnet create \
@@ -84,10 +84,10 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-## <a name="create-the-network-security-group"></a>Skapa nätverkssäkerhetsgruppen
-Azure Network Security Groups motsvarar en brandvägg på nätverkslagret. Mer information om nätverkssäkerhetsgrupper finns i [Så här skapar du NSG:er i Azure CLI](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+## <a name="create-the-network-security-group"></a>Skapa nätverks säkerhets gruppen
+Azure nätverks säkerhets grupper motsvarar en brand vägg på nätverks nivån. Mer information om nätverks säkerhets grupper finns i [så här skapar du NSG: er i Azure CLI](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
-Skapa nätverkssäkerhetsgruppen med [az network nsg create](/cli/azure/network/nsg). I följande exempel skapas en `myNetworkSecurityGroup`nätverkssäkerhetsgrupp med namnet :
+Skapa nätverks säkerhets gruppen med [AZ Network NSG Create](/cli/azure/network/nsg). I följande exempel skapas en nätverks säkerhets grupp med `myNetworkSecurityGroup`namnet:
 
 ```azurecli
 az network nsg create \
@@ -95,8 +95,8 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-## <a name="add-an-inbound-rule-to-allow-ssh"></a>Lägga till en inkommande regel för att tillåta SSH
-Lägg till en inkommande regel för nätverkssäkerhetsgruppen med [az-nätverks nsg-regel skapa](/cli/azure/network/nsg/rule). I följande exempel skapas `myRuleAllowSSH`en regel med namnet :
+## <a name="add-an-inbound-rule-to-allow-ssh"></a>Lägg till en regel för inkommande trafik som tillåter SSH
+Lägg till en regel för inkommande trafik för nätverks säkerhets gruppen med [AZ Network NSG Rule Create](/cli/azure/network/nsg/rule). I följande exempel skapas en regel med `myRuleAllowSSH`namnet:
 
 ```azurecli
 az network nsg rule create \
@@ -113,8 +113,8 @@ az network nsg rule create \
     --access allow
 ```
 
-## <a name="associate-the-subnet-with-the-network-security-group"></a>Associera undernätet med nätverkssäkerhetsgruppen
-Om du vill associera undernätet med nätverkssäkerhetsgruppen använder du [az network vnet subnet update](/cli/azure/network/vnet/subnet). I följande exempel associeras `mySubnet` undernätsnamnet med `myNetworkSecurityGroup`nätverkssäkerhetsgruppen:
+## <a name="associate-the-subnet-with-the-network-security-group"></a>Koppla under nätet till nätverks säkerhets gruppen
+Om du vill koppla under nätet till nätverks säkerhets gruppen använder du [AZ Network VNet Subnet Update](/cli/azure/network/vnet/subnet). I följande exempel associeras under nätets namn `mySubnet` med nätverks säkerhets gruppen `myNetworkSecurityGroup`med namnet:
 
 ```azurecli
 az network vnet subnet update \
@@ -125,10 +125,10 @@ az network vnet subnet update \
 ```
 
 
-## <a name="create-the-virtual-network-interface-card-and-static-dns-names"></a>Skapa det virtuella nätverkskortet och statiska DNS-namn
-Azure är mycket flexibelt, men för att använda DNS-namn för VM-namnmatchning måste du skapa virtuella nätverkskort (vNics) som innehåller en DNS-etikett. vNics är viktiga eftersom du kan återanvända dem genom att ansluta dem till olika virtuella datorer under infrastrukturlivscykeln. Den här metoden behåller vNic som en statisk resurs medan de virtuella datorerna kan vara tillfälliga. Genom att använda DNS-märkning på vNic kan vi aktivera enkel namnmatchning från andra virtuella datorer i det virtuella nätverket. Med hjälp av lösbara namn kan andra virtuella datorer `Jenkins` komma åt automatiseringsservern med DNS-namnet eller Git-servern som `gitrepo`.  
+## <a name="create-the-virtual-network-interface-card-and-static-dns-names"></a>Skapa det virtuella nätverks gränssnitts kortet och statiska DNS-namn
+Azure är mycket flexibelt, men om du vill använda DNS-namn för VM-namnmatchning måste du skapa virtuella nätverks gränssnitts kort (virtuella nätverkskort) som innehåller en DNS-etikett. Virtuella nätverkskort är viktiga eftersom du kan återanvända dem genom att ansluta dem till olika virtuella datorer över infrastrukturens livs cykel. Den här metoden behåller vNic som en statisk resurs medan de virtuella datorerna kan vara tillfälliga. Genom att använda DNS-märkning på vNic kan vi aktivera enkel namn matchning från andra virtuella datorer i det virtuella nätverket. Med hjälp av matchade namn kan andra virtuella datorer få åtkomst till Automation-servern `Jenkins` via DNS-namnet eller `gitrepo`git-servern som.  
 
-Skapa vNic med [az nätverk nic skapa](/cli/azure/network/nic). I följande exempel skapas `myNic`en vNic med `myVnet` namnet `myVnet`, ansluter den till det `jenkins`virtuella nätverket med namnet och en intern DNS-namnpost med namnet :
+Skapa vNic med [AZ Network NIC Create](/cli/azure/network/nic). I följande exempel skapas en vNic med `myNic`namnet, ansluter den till `myVnet` det virtuella nätverket `myVnet`med namnet och skapar en intern DNS-namnserver `jenkins`som heter:
 
 ```azurecli
 az network nic create \
@@ -139,10 +139,10 @@ az network nic create \
     --internal-dns-name jenkins
 ```
 
-## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>Distribuera den virtuella datorn i den virtuella nätverksinfrastrukturen
-Vi har nu ett virtuellt nätverk och undernät, en network security group som fungerar som en brandvägg för att skydda vårt undernät genom att blockera all inkommande trafik utom port 22 för SSH och en vNic. Du kan nu distribuera en virtuell dator i den befintliga nätverksinfrastrukturen.
+## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>Distribuera den virtuella datorn till infrastrukturen för virtuellt nätverk
+Nu har vi ett virtuellt nätverk och undernät, en nätverks säkerhets grupp som fungerar som en brand vägg för att skydda vårt undernät genom att blockera all inkommande trafik utom port 22 för SSH, och en vNic. Nu kan du distribuera en virtuell dator i den här befintliga nätverks infrastrukturen.
 
-Skapa en virtuell dator med [az vm create](/cli/azure/vm). I följande exempel skapas `myVM` en virtuell dator med namnet Azure `myNic` Managed Disks och vNic namnges från föregående steg:
+Skapa en virtuell dator med [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator `myVM` med namnet med Azure Managed disks och bifogas vNic `myNic` med namnet från föregående steg:
 
 ```azurecli
 az vm create \
@@ -154,8 +154,8 @@ az vm create \
     --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-Genom att använda CLI-flaggorna för att anropa befintliga resurser instruerar vi Azure att distribuera den virtuella datorn i det befintliga nätverket. Om du vill upprepa, när ett virtuellt nätverk och undernät har distribuerats, kan de lämnas som statiska eller permanenta resurser i din Azure-region.  
+Genom att använda CLI-flaggorna för att anropa befintliga resurser instruerar vi Azure att distribuera den virtuella datorn i det befintliga nätverket. För att upprepa igen när ett VNet och ett undernät har distribuerats kan de lämnas som statiska eller permanenta resurser i din Azure-region.  
 
 ## <a name="next-steps"></a>Nästa steg
 * [Skapa en egen anpassad miljö för en virtuell Linux-dator med hjälp av Azure CLI-kommandon](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Skapa en virtuell Linux-dator på Azure med mallar](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Skapa en virtuell Linux-dator i Azure med hjälp av mallar](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

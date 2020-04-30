@@ -1,30 +1,30 @@
 ---
-title: Självstudiekurs - Använd IntelliJ för att distribuera Azure Spring Cloud-program
-description: Använd IntelliJ för att distribuera program till Azure Spring Cloud.
+title: Självstudie – använda IntelliJ för att distribuera Azure våren Cloud-program
+description: Använd IntelliJ för att distribuera program till Azure våren Cloud.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.openlocfilehash: 8e473a5692c3fa2be3b0f2d823d2a36ba768d661
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81731362"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Använda IntelliJ för att distribuera Azure Spring Cloud-program
-IntelliJ-plugin-programmet för Azure Spring Cloud stöder programdistribution från IntelliJ IDEA.  
+IntelliJ-plugin-programmet för Azure våren Cloud stöder program distribution från IntelliJ-idén.  
 
 ## <a name="prerequisites"></a>Krav
 * [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable)
-* [Maven 3.5.0+](https://maven.apache.org/download.cgi)
-* [IntelliJ IDEA, Community/Ultimate Edition, version 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
+* [Maven 3.5.0 +](https://maven.apache.org/download.cgi)
+* [IntelliJ idé, community/Ultimate-utgåva, version 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## <a name="install-the-plug-in"></a>Installera plugin-programmet
-Du kan lägga till Azure Toolkit för IntelliJ IDEA 3.35.0 från IntelliJ Plugins-användargränssnittet. **Plugins**
+Du kan lägga till Azure Toolkit for IntelliJ idé 3.35.0 från IntelliJ **plugin** -gränssnittet.
 
-1. Starta IntelliJ.  Om du har öppnat ett projekt tidigare stänger du projektet för att visa välkomstdialogrutan. Välj **Konfigurera** från länken längst ned till höger och klicka sedan på **Plugins** för att öppna dialogrutan för plugin-program och välj **Installera insticksprogram från disk**.
+1. Starta IntelliJ.  Om du har öppnat ett projekt tidigare stänger du projektet för att Visa välkomst dialog rutan. Välj **Konfigurera** från länk nedre högra och klicka sedan på **plugin** -program för att öppna dialog rutan konfiguration av plugin-programmet och välj **Installera plugin-program från disk**.
 
     ![Välj Konfigurera](media/spring-cloud-intellij-howto/configure-plugin-1.png)
 
@@ -32,71 +32,71 @@ Du kan lägga till Azure Toolkit för IntelliJ IDEA 3.35.0 från IntelliJ Plugin
 
     ![Installera plugin-program](media/spring-cloud-intellij-howto/install-plugin.png)
 
-1. Klicka på **Starta om IDE**.
+1. Klicka på **starta om IDE**.
 
-## <a name="tutorial-procedures"></a>Rutiner för handledning
-Följande procedurer distribuerar ett Hello World-program med IntelliJ IDEA.
+## <a name="tutorial-procedures"></a>Själv studie procedurer
+Följande procedurer distribuerar ett Hello World-program med hjälp av IntelliJ-idén.
 
-* Öppet gs-fjäderstartprojekt
-* Distribuera till Azure Spring Cloud
+* Öppna GS-våren-Boot-projekt
+* Distribuera till Azure våren Cloud
 * Visa strömmande loggar
 
-## <a name="open-gs-spring-boot-project"></a>Öppet gs-fjäderstartprojekt
+## <a name="open-gs-spring-boot-project"></a>Öppna GS-våren-Boot-projekt
 
-1. Hämta och packa upp källarkivet för den här självstudien, eller klona den med Git: git klonhttps://github.com/spring-guides/gs-spring-boot.git 
-1. cd till gs-spring-boot\complete.
-1. Öppna dialogrutan Välkommen **till** IntelliJ och välj **Importera projekt** för att öppna importguiden.
+1. Ladda ned och zippa upp käll databasen för den här själv studie kursen eller klona den med git: git-kloninghttps://github.com/spring-guides/gs-spring-boot.git 
+1. CD till GS-Spring-boot\complete.
+1. Öppna dialog rutan **Välkommen** IntelliJ, Välj **Importera projekt** för att öppna import guiden.
 1. Välj `gs-spring-boot\complete` mapp.
 
     ![Importera projekt](media/spring-cloud-intellij-howto/import-project-1.png)
 
-## <a name="deploy-to-azure-spring-cloud"></a>Distribuera till Azure Spring Cloud
-För att kunna distribuera till Azure måste du logga in med ditt Azure-konto och välja din prenumeration.  Information om inloggning finns i [Installation och inloggning](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+## <a name="deploy-to-azure-spring-cloud"></a>Distribuera till Azure våren Cloud
+För att kunna distribuera till Azure måste du logga in med ditt Azure-konto och välja din prenumeration.  Information om inloggning finns i [installation och inloggning](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
-1. Högerklicka på projektet i IntelliJ-projektutforskaren och välj **Azure** -> **Deploy till Azure Spring Cloud**.
+1. Högerklicka på projektet i IntelliJ Project Explorer och välj **Azure** -> **Deploy till Azure våren Cloud**.
 
     ![Distribuera till Azure 1](media/spring-cloud-intellij-howto/deploy-to-azure-1.png)
 
-1. Acceptera namnet på appen i fältet **Namn.** **Namn** refererar till konfigurationen, inte appnamnet. Användare behöver vanligtvis inte ändra det.
+1. Godkänn namnet på appen i fältet **namn** . **Namnet** avser konfigurationen, inte appens namn. Användarna behöver vanligt vis inte ändra det.
 1. Acceptera identifieraren från projektet för **artefakten**.
-1. Välj **App:** klicka sedan på **Skapa app...**.
+1. Välj **app:** klicka sedan på **skapa app...**.
 
     ![Distribuera till Azure 2](media/spring-cloud-intellij-howto/deploy-to-azure-2.png)
 
-1. Ange **appnamn**och klicka sedan på **OK**.
+1. Ange **ett namn på appen**och klicka sedan på **OK**.
 
     ![Distribuera till Azure OK](media/spring-cloud-intellij-howto/deploy-to-azure-2a.png)
 
-1. Starta distributionen genom att klicka på **Knappen Kör.** 
+1. Starta distributionen genom att klicka på knappen **Kör** . 
 
     ![Distribuera till Azure 3](media/spring-cloud-intellij-howto/deploy-to-azure-3.png)
 
-1. Plugin-programmet kör kommandot `mvn package` i projektet och skapar sedan den nya appen `package` och distribuerar burken som genereras av kommandot.
+1. Plugin-programmet kör kommandot `mvn package` på projektet och skapar sedan den nya appen och distribuerar jar som genereras av `package` kommandot.
 
-1. Om app-URL:en inte visas i utdatafönstret hämtar du den från Azure-portalen. Navigera från din resursgrupp till instansen av Azure Spring Cloud.  Klicka sedan på **Appar**.  Den löpappen visas.
+1. Om App-URL: en inte visas i utdatafönstret hämtar du den från Azure Portal. Navigera från resurs gruppen till instansen av Azure våren Cloud.  Klicka sedan på **appar**.  Appen som körs visas i listan.
 
     ![Hämta test-URL](media/spring-cloud-intellij-howto/get-test-url.png)
 
-1. Navigera till webbadressen i webbläsaren.
+1. Navigera till URL: en i webbläsaren.
 
     ![Navigera i webbläsare 2](media/spring-cloud-intellij-howto/navigate-in-browser-2.png)
 
 ## <a name="show-streaming-logs"></a>Visa strömmande loggar
-Så här hämtar du loggarna:
-1. Välj **Azure Explorer**och sedan Spring **Cloud**.
-1. Högerklicka på den löpapp som körs.
-1. Välj **Strömmande loggar** i listrutan.
+Hämta loggarna:
+1. Välj **Azure Explorer**och sedan **våren Cloud**.
+1. Högerklicka på appen som körs.
+1. Välj **strömmande loggar** från den nedrullningsbara listan.
 
     ![Välj strömmande loggar](media/spring-cloud-intellij-howto/streaming-logs.png)
 
 1. Välj instans.
 
-    ![Välj förekomst](media/spring-cloud-intellij-howto/select-instance.png)
+    ![Välj instans](media/spring-cloud-intellij-howto/select-instance.png)
 
-1. Strömningsloggen visas i utdatafönstret.
+1. Direkt uppspelnings loggen visas i fönstret utdata.
 
-    ![Utdata för strömmande logg](media/spring-cloud-intellij-howto/streaming-log-output.png)
+    ![Strömmande logg utdata](media/spring-cloud-intellij-howto/streaming-log-output.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* [Förbered spring-program för Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
-* [Läs mer om Azure Toolkit för IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/)
+* [Förbered våren-program för Azure våren Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
+* [Läs mer om Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/)

@@ -1,6 +1,6 @@
 ---
-title: Ändra radomvandling i mappning av dataflöde
-description: Så här uppdaterar du databasmålet med hjälp av ändringsradsomvandlingen i mappningsdataflödet
+title: Alter Row-transformering i mappnings data flödet
+description: Så här uppdaterar du databas målet med hjälp av Alter Row-omvandlingen i mappnings data flödet
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,51 +9,51 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/20/2020
 ms.openlocfilehash: 6b353967c9b9c7517f1a42581717c6394c0e6374
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81729145"
 ---
-# <a name="alter-row-transformation-in-mapping-data-flow"></a>Ändra radomvandling i mappning av dataflöde
+# <a name="alter-row-transformation-in-mapping-data-flow"></a>Alter Row-transformering i mappnings data flödet
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Använd omvandlingen Ändra rad för att ange principer för infogning, borttagning, uppdatering och upsert på rader. Du kan lägga till 1:1:00 villkor som uttryck. Dessa villkor bör anges i prioritetsordning, eftersom varje rad markeras med den princip som motsvarar det första matchande uttrycket. Vart och ett av dessa villkor kan resultera i att en rad (eller rader) infogas, uppdateras, tas bort eller upserted. Alter Row kan producera både DDL-& DML-åtgärder mot databasen.
+Använd transformeringen Alter Row för att ange INSERT-, DELETE-, Update-och upsert-principer på rader. Du kan lägga till ett-till-många-villkor som uttryck. Dessa villkor måste anges i prioritetsordning, eftersom varje rad markeras med principen som motsvarar det första matchnings uttrycket. Vart och ett av dessa villkor kan resultera i att en rad (eller rader) infogas, uppdateras, tas bort eller upserted. Alter Row kan producera både DDL-& DML-åtgärder mot databasen.
 
-![Ändra radinställningar](media/data-flow/alter-row1.png "Ändra radinställningar")
+![Ändra rad inställningar](media/data-flow/alter-row1.png "Ändra rad inställningar")
 
-Alter Row transformationer fungerar bara på databas eller CosmosDB sänkor i ditt dataflöde. De åtgärder som du tilldelar rader (infoga, uppdatera, ta bort, upsert) inträffar inte under felsökningssessioner. Kör en körningsdataflödesaktivitet i en pipeline för att anta ändringsradsprinciperna i databastabellerna.
+Alter Row-transformeringar fungerar bara på databas-eller CosmosDB-mottagare i ditt data flöde. De åtgärder som du tilldelar till rader (Insert, Update, DELETE, upsert) sker inte under debug-sessioner. Kör en aktivitet för att köra data flöde i en pipeline för att införa Alter Row-principerna på dina databas tabeller.
 
-## <a name="specify-a-default-row-policy"></a>Ange en standardradprincip
+## <a name="specify-a-default-row-policy"></a>Ange en standard rads princip
 
-Skapa en Alter Row-omformning och `true()`ange en radprincip med villkoret . Varje rad som inte matchar något av de tidigare definierade uttrycken markeras för den angivna radprincipen. Som standard markeras varje rad som inte matchar `Insert`något villkorsuttryck för .
+Skapa en Alter Row-omvandling och ange en rad princip med villkoret `true()`. Varje rad som inte matchar något av de tidigare definierade uttrycken kommer att markeras för den angivna rad principen. Som standard markeras varje rad som inte matchar ett villkors uttryck för `Insert`.
 
-![Ändra radprincip](media/data-flow/alter-row4.png "Ändra radprincip")
-
-> [!NOTE]
-> Om du vill markera alla rader med en princip kan du `true()`skapa ett villkor för den principen och ange villkoret som .
-
-## <a name="view-policies-in-data-preview"></a>Visa principer i förhandsgranskning av data
-
-Använd [felsökningsläge](concepts-data-flow-debug-mode.md) för att visa resultatet av dina ändringsradsprinciper i förhandsgranskningsfönstret för data. En dataförhandsvisning av en ändringsradsomvandling ger inte DDL- eller DML-åtgärder mot ditt mål.
-
-![Ändra radprinciper](media/data-flow/alter-row3.png "Ändra radprinciper")
-
-Varje ändringsradsprincip representeras av en ikon som anger om en infoga, uppdatera, upsert eller borttagen åtgärd ska utföras. Det övre huvudet visar hur många rader som påverkas av varje princip i förhandsgranskningen.
-
-## <a name="allow-alter-row-policies-in-sink"></a>Tillåt ändring av radprinciper i diskhon
-
-För att ändringsradsprinciperna ska fungera måste dataströmmen skriva till en databas eller Cosmos-diskho. Aktivera vilka ändringsradsprinciper som tillåts för diskbänken på fliken **Inställningar** i diskhon.
-
-![Ändra radfländning](media/data-flow/alter-row2.png "Ändra radfländning")
-
-Standardbeteendet är att endast tillåta infogningar. Om du vill tillåta uppdateringar, upserts eller borttagningar markerar du rutan i diskhon som motsvarar det villkoret. Om uppdateringar, upserts eller borttagningar är aktiverade måste du ange vilka nyckelkolumner i diskhon som ska matchas.
+![Ändra rad princip](media/data-flow/alter-row4.png "Ändra rad princip")
 
 > [!NOTE]
-> Om dina infogningar, uppdateringar eller upserts ändrar schemat för måltabellen i diskhon, misslyckas dataflödet. Om du vill ändra målschemat i databasen väljer du **Återskapa tabell** som tabellåtgärd. Detta kommer att släppa och återskapa tabellen med den nya schemadefinitionen.
+> Om du vill markera alla rader med en princip kan du skapa ett villkor för principen och ange villkoret som `true()`.
 
-Sink-omvandlingen kräver antingen en enda nyckel eller en serie nycklar för unik radidentifiering i måldatabasen. För SQL-diskhoar anger du tangenterna på fliken sink-inställningar. För CosmosDB ställer du in partitionsnyckeln i inställningarna och ställer även in CosmosDB-systemfältet "id" i diskhonmappningen. För CosmosDB är det obligatoriskt att inkludera systemkolumnen "id" för uppdateringar, upserts och deletes.
+## <a name="view-policies-in-data-preview"></a>Visa principer i förhands granskning av data
+
+Använd [fel söknings läge](concepts-data-flow-debug-mode.md) för att visa resultatet av dina Alter Row-principer i fönstret för förhands granskning. En data förhands granskning av en Alter Row-omvandling genererar inte DDL-eller DML-åtgärder mot målet.
+
+![Ändra rad principer](media/data-flow/alter-row3.png "Ändra rad principer")
+
+Varje Alter Row-princip representeras av en ikon som anger om åtgärden INSERT, Update, upsert eller Delete ska utföras. Den översta rubriken visar hur många rader som påverkas av varje princip i förhands granskningen.
+
+## <a name="allow-alter-row-policies-in-sink"></a>Tillåt Alter Row-principer i mottagare
+
+För att Alter Row-principerna ska fungera måste data strömmen skriva till en databas eller Cosmos-mottagare. På fliken **Inställningar** i din mottagare aktiverar du vilka Alter Row-principer som tillåts för mottagaren.
+
+![Ändra rad mottagare](media/data-flow/alter-row2.png "Ändra rad mottagare")
+
+Standard beteendet är att endast tillåta infogningar. Om du vill tillåta uppdateringar, upsertar eller borttagningar markerar du kryss rutan i den mottagare som motsvarar det villkoret. Om uppdateringar, upsertar eller, borttagningar är aktiverade, måste du ange vilka nyckel kolumner i sinken som ska matchas.
+
+> [!NOTE]
+> Om dina infogningar, uppdateringar eller upsertar ändrar schemat för mål tabellen i sinken kommer data flödet inte att fungera. Om du vill ändra mål schema i databasen väljer du **Återskapa tabell** som tabell åtgärd. Detta tar bort och återskapar din tabell med den nya schema definitionen.
+
+Omvandlingen av mottagare kräver antingen en enskild nyckel eller en serie nycklar för unik rad identifiering i mål databasen. För SQL-mottagare anger du nycklarna på fliken mottagar inställningar. För CosmosDB anger du partitionsnyckel i inställningarna och anger även CosmosDB system fält "ID" i mottagar mappningen. För CosmosDB är det obligatoriskt att inkludera system kolumnen "ID" för uppdateringar, upsertar och borttagningar.
 
 ## <a name="data-flow-script"></a>Dataflödesskript
 
@@ -71,13 +71,13 @@ Sink-omvandlingen kräver antingen en enda nyckel eller en serie nycklar för un
 
 ### <a name="example"></a>Exempel
 
-Exemplet nedan är en ändringsradsomvandling som tar `CleanData` en inkommande ström `SpecifyUpsertConditions` och skapar tre ändra radvillkor. I föregående omformning `alterRowCondition` beräknas en kolumn med namnet som avgör om en rad infogas, uppdateras eller tas bort i databasen. Om värdet för kolumnen har ett strängvärde som matchar ändringsradsregeln tilldelas den principen.
+Exemplet nedan är en Alter Row-omvandling med `CleanData` namnet som tar en inkommande `SpecifyUpsertConditions` data ström och skapar tre Alter Row-villkor. I den föregående omvandlingen beräknas en kolumn med `alterRowCondition` namnet som avgör om en rad infogas, uppdateras eller tas bort i databasen. Om värdet för kolumnen har ett sträng värde som matchar Alter Row-regeln tilldelas den principen.
 
-I Data Factory UX ser den här omvandlingen ut som bilden nedan:
+I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
 
-![Ändra radexempel](media/data-flow/alter-row4.png "Ändra radexempel")
+![Exempel på Alter Row](media/data-flow/alter-row4.png "Exempel på Alter Row")
 
-Dataflödesskriptet för den här omvandlingen finns i kodavsnittet nedan:
+Data flödes skriptet för den här omvandlingen är i kodfragmentet nedan:
 
 ```
 SpecifyUpsertConditions alterRow(insertIf(alterRowCondition == 'insert'),
@@ -87,4 +87,4 @@ SpecifyUpsertConditions alterRow(insertIf(alterRowCondition == 'insert'),
 
 ## <a name="next-steps"></a>Nästa steg
 
-Efter omvandlingen Ändra rad kanske du vill [sänka data till ett måldatalager](data-flow-sink.md).
+Efter omvandlingen av Alter Row kanske du vill lägga till [data i ett mål data lager](data-flow-sink.md).

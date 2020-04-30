@@ -1,6 +1,6 @@
 ---
-title: Azure IoT-enhet SDK för C - Serializer | Microsoft-dokument
-description: Så här använder du Serializer-biblioteket i Azure IoT-enheten SDK för C för att skapa enhetsappar som kommunicerar med en IoT-hubb.
+title: Azure IoT-enhetens SDK för C-serialiserare | Microsoft Docs
+description: Så här använder du serialiseraren i Azure IoT Device SDK för C för att skapa enhets program som kommunicerar med en IoT-hubb.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -10,29 +10,29 @@ ms.date: 09/06/2016
 ms.author: robinsh
 ms.custom: amqp
 ms.openlocfilehash: d4916d651638f0d1dbb4f10e0e0732f5c330d300
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81767024"
 ---
-# <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT-enhet SDK för C – mer om serialiserare
+# <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT-enhetens SDK för C – mer om serialiserare
 
-Den första artikeln i den här serien introducerade [Introduktion till Azure IoT-enhet SDK för C](iot-hub-device-sdk-c-intro.md). Nästa artikel gav en mer detaljerad beskrivning av [Azure IoT-enheten SDK för C -- IoTHubClient](iot-hub-device-sdk-c-iothubclient.md). Den här artikeln slutför täckningen av SDK genom att ge en mer detaljerad beskrivning av den återstående komponenten: **serializerbiblioteket.**
+Den första artikeln i serien introducerade [introduktionen till Azure IoT-enhetens SDK för C](iot-hub-device-sdk-c-intro.md). Nästa artikel innehöll en mer detaljerad beskrivning av [Azure IoT-enhetens SDK för C--IoTHubClient](iot-hub-device-sdk-c-iothubclient.md). I den här artikeln slutförs täckningen av SDK genom att tillhandahålla en mer detaljerad beskrivning av den återstående komponenten: **serialiserar** bibliotek.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-I den inledande artikeln beskrivs hur du använder **serialiserarbiblioteket** för att skicka händelser till och ta emot meddelanden från IoT Hub. I den här artikeln utökar vi den diskussionen genom att ge en mer fullständig förklaring av hur du modellerar dina data med **serialiserarens** makrospråk. Artikeln innehåller också mer information om hur biblioteket serialiserar meddelanden (och i vissa fall hur du kan styra serialiseringsbeteendet). Vi beskriver också några parametrar som du kan ändra som avgör storleken på de modeller du skapar.
+Den inledande artikeln beskriver hur du använder **serialiserar** -biblioteket för att skicka händelser till och ta emot meddelanden från IoT Hub. I den här artikeln utökar vi diskussionen genom att tillhandahålla en mer fullständig förklaring av hur dina data modelleras med hjälp av makro språket för **serialiseraren** . Artikeln innehåller också mer information om hur biblioteket serialiserar meddelanden (och i vissa fall hur du kan styra Serialiseringens beteende). Vi beskriver också vissa parametrar som du kan ändra som bestämmer storleken på de modeller som du skapar.
 
-Slutligen återbesöker artikeln några ämnen som behandlats i tidigare artiklar, till exempel meddelande- och egenskapshantering. Som vi får reda på, dessa funktioner fungerar på samma sätt med **serialiserare** biblioteket som de gör med **IoTHubClient** biblioteket.
+Slutligen kommer artikeln att gå vidare till vissa avsnitt som beskrivs i föregående artiklar, till exempel meddelande-och egenskaps hantering. Som vi lär dig fungerar dessa funktioner på samma sätt med hjälp av **serialiserar** -biblioteket som i **IoTHubClient** -biblioteket.
 
-Allt som beskrivs i den här artikeln är baserat på **serialiseraren** SDK-exempel. Om du vill följa med, se **simplesample\_amqp** och **simplesample\_http-program** som ingår i Azure IoT-enheten SDK för C.
+Allt som beskrivs i den här artikeln baseras på SDK-exemplen för **serialiseraren** . Om du vill följa med, se **simplesample\_-AMQP** och **simplesample\_http-** program som ingår i Azure IoT-enhetens SDK för C.
 
-Du hittar [**Azure IoT-enheten SDK för C**](https://github.com/Azure/azure-iot-sdk-c) GitHub-databasen och visa information om API i [C API-referensen](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
+Du hittar [**Azure IoT-enhetens SDK för c**](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen och visar information om API: et i [C API-referensen](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
 
-## <a name="the-modeling-language"></a>Modelleringsspråket
+## <a name="the-modeling-language"></a>Modell språket
 
-[Azure IoT-enheten SDK för C-artikeln](iot-hub-device-sdk-c-intro.md) i den här serien introducerade Azure **IoT-enheten SDK för C-modellering** via exemplet i **simplesample\_amqp-programmet:**
+[Azure IoT-enhetens SDK för c](iot-hub-device-sdk-c-intro.md) -artikeln i den här serien introducerade **Azure IoT-enhetens SDK för c** -modellerings språk genom exemplet som finns i **simplesample\_AMQP** -programmet:
 
 ```C
 BEGIN_NAMESPACE(WeatherStation);
@@ -48,41 +48,41 @@ WITH_ACTION(SetAirResistance, int, Position)
 END_NAMESPACE(WeatherStation);
 ```
 
-Som du kan se är modelleringsspråket baserat på C-makron. Du börjar alltid din definition med **BEGIN\_NAMESPACE** och slutar alltid med **\_END NAMESPACE**. Det är vanligt att namnge namnområdet för ditt företag eller, som i det här exemplet, det projekt som du arbetar med.
+Som du kan se baseras modell språket på C-makron. Du börjar alltid med att inleda din definition med **BEGIN\_namespace** och slutar alltid med **End\_namespace**. Det är vanligt att namnge namn området för ditt företag eller, som i det här exemplet, det projekt som du arbetar med.
 
-Det som finns i namnområdet är modelldefinitioner. I det här fallet finns det en enda modell för en anemometer. Återigen kan modellen namnges vad som helst, men vanligtvis är modellen uppkallad efter den enhet eller typ av data som du vill utbyta med IoT Hub.  
+Det som går inuti namn området är modell definitioner. I det här fallet finns det en enda modell för en anemometer. När du har fått en gång till modellen kan du namnge allt, men vanligt vis används modellen för den enhet eller typ av data som du vill byta till IoT Hub.  
 
-Modeller innehåller en definition av de händelser som du kan gå in på IoT Hub *(data)* samt de meddelanden du kan ta emot från IoT Hub *(åtgärderna*). Som du kan se i exemplet har händelser en typ och ett namn. åtgärder har ett namn och valfria parametrar (var och en med en typ).
+Modeller innehåller en definition av de händelser som du kan komma in på att IoT Hub ( *data*) samt de meddelanden som du kan ta emot från IoT Hub ( *åtgärderna*). Som du kan se från exemplet har händelser en typ och ett namn. åtgärder har ett namn och valfria parametrar (var och en med en typ).
 
-Det som inte visas i det här exemplet är ytterligare datatyper som stöds av SDK. Vi tar det nästa gång.
+Vad som inte visas i det här exemplet är ytterligare data typer som stöds av SDK: n. Vi tar den härnäst.
 
 > [!NOTE]
-> IoT Hub refererar till de data som en enhet skickar till den som *händelser,* medan modelleringsspråket refererar till dem som *data* (definierat med **WITH_DATA**). På samma sätt refererar IoT Hub till de data du skickar till enheter som *meddelanden*, medan modelleringsspråket refererar till dem som *åtgärder* (definieras med **WITH_ACTION**). Tänk på att dessa termer kan användas omväxlande i den här artikeln.
+> IoT Hub refererar till de data som en enhet skickar till den som *händelser*, medan modell språket refererar till den som *data* (definieras med **WITH_DATA**). På samma sätt refererar IoT Hub till de data som du skickar till enheter som *meddelanden*, medan modellerings språket refererar till den som *åtgärder* (definieras med **WITH_ACTION**). Tänk på att dessa villkor kan användas utbytbart i den här artikeln.
 > 
 > 
 
-## <a name="supported-data-types"></a>Datatyper som stöds
+## <a name="supported-data-types"></a>Data typer som stöds
 
-Följande datatyper stöds i modeller som skapats med **serialiseringsbiblioteket:**
+Följande data typer stöds i modeller som har skapats med **serialiserar** -biblioteket:
 
 | Typ | Beskrivning |
 | --- | --- |
-| double |flyttalsnummer med dubbel precision |
+| double |Double precision flytt ALS nummer |
 | int |32-bitars heltal |
-| float |flyttalsnummer med en precision |
+| float |flytt ALS nummer med enkel precision |
 | long |långt heltal |
-| int8\_t |8-bitars heltal |
-| int16\_t |16-bitars heltal |
-| int32\_t |32-bitars heltal |
-| int64\_t |64-bitars heltal |
-| bool |boolean |
-| ascii\_\_röding ptr |ASCII-sträng |
-| EDM-DATUM\_\_TID\_FÖRSKJUTNING |datum tidsförskjutning |
-| EDM\_GUID |GUID |
-| EDM\_BINÄR |binary |
-| DEKLARERA\_STRUKTUR |komplex datatyp |
+| Int8\_t |8-bitars heltal |
+| Int16\_t |16-bitars heltal |
+| Int32\_t |32-bitars heltal |
+| Int64\_t |64-bitars heltal |
+| boolesk |boolean |
+| ASCII\_-\_tecken PTR |ASCII-sträng |
+| tids\_\_förskjutning\_för EDM-datum |datum/tid för förskjutning |
+| EDM\_-GUID |GUID |
+| EDM\_-binär |binary |
+| DEKLARERA\_struct |komplex data typ |
 
-Låt oss börja med den sista datatypen. **Med\_DECLARE STRUCT** kan du definiera komplexa datatyper som grupperar av andra primitiva typer. Dessa grupperingar tillåter oss att definiera en modell som ser ut så här:
+Vi börjar med den senaste data typen. Med **Declare\_-struct** kan du definiera komplexa data typer, som är grupperingar av andra primitiva typer. Med dessa grupperingar kan vi definiera en modell som ser ut så här:
 
 ```C
 DECLARE_STRUCT(TestType,
@@ -107,9 +107,9 @@ WITH_DATA(TestType, Test)
 );
 ```
 
-Vår modell innehåller en enda datahändelse av typen **TestType**. **TestType** är en komplex typ som innehåller flera medlemmar, som tillsammans visar de primitiva typer som stöds av **serialiserarens** modelleringsspråk.
+Vår modell innehåller en enskild data händelse av typen **TestType**. **TestType** är en komplex typ som innehåller flera medlemmar, som sammanvisar de primitiva typer som stöds av språket för **serialiserade** modeller.
 
-Med en modell som denna kan vi skriva kod för att skicka data till IoT Hub som visas på följande sätt:
+Med en modell som detta kan vi skriva kod för att skicka data till IoT Hub som visas på följande sätt:
 
 ```C
 TestModel* testModel = CREATE_MODEL_INSTANCE(MyThermostat, TestModel);
@@ -140,7 +140,7 @@ testModel->Test.aBinary = binaryData;
 SendAsync(iotHubClientHandle, (const void*)&(testModel->Test));
 ```
 
-I grund och botten tilldelar vi ett värde till varje medlem i **teststrukturen** och anropar sedan **SendAsync** för att skicka **testdatahändelsen** till molnet. **SendAsync** är en hjälpfunktion som skickar en enda datahändelse till IoT Hub:
+I princip tilldelar vi ett värde till varje medlem i **test** strukturen och anropar sedan **SendAsync** för att skicka **test** data händelsen till molnet. **SendAsync** är en hjälp funktion som skickar en enskild data händelse till IoT Hub:
 
 ```C
 void SendAsync(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const void *dataEvent)
@@ -169,9 +169,9 @@ void SendAsync(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const void *dataEvent
 }
 ```
 
-Den här funktionen serialiserar den angivna datahändelsen och skickar den till IoT Hub med **IoTHubClient\_SendEventAsync**. Detta är samma kod som diskuterats i tidigare artiklar (**SendAsync** kapslar in logiken i en bekväm funktion).
+Den här funktionen serialiserar den aktuella data händelsen och skickar den till IoT Hub med hjälp av **IoTHubClient\_SendEventAsync**. Detta är samma kod som beskrivs i föregående artiklar (**SendAsync** kapslar in logiken i en praktisk funktion).
 
-En annan hjälpfunktion som används i den tidigare koden är **GetDateTimeOffset**. Den här funktionen omvandlar den angivna tiden till ett värde av typen **EDM\_DATE\_TIME\_OFFSET:**
+En annan hjälp funktion som används i föregående kod är **GetDateTimeOffset**. Den här funktionen omvandlar den aktuella tiden till ett värde av typen **EDM\_-datum\_och\_tids förskjutning**:
 
 ```C
 EDM_DATE_TIME_OFFSET GetDateTimeOffset(time_t time)
@@ -195,25 +195,25 @@ Om du kör den här koden skickas följande meddelande till IoT Hub:
 {"aDouble":1.100000000000000, "aInt":2, "aFloat":3.000000, "aLong":4, "aInt8":5, "auInt8":6, "aInt16":7, "aInt32":8, "aInt64":9, "aBool":true, "aAsciiCharPtr":"ascii string 1", "aDateTimeOffset":"2015-09-14T21:18:21Z", "aGuid":"00010203-0405-0607-0809-0A0B0C0D0E0F", "aBinary":"AQID"}
 ```
 
-Observera att serialiseringen finns i JSON, vilket är det format som genereras av **serialiserarbiblioteket.** Observera också att varje medlem i det serialiserade JSON-objektet matchar medlemmarna i **TestType** som vi definierade i vår modell. Värdena matchar också exakt de som används i koden. Observera dock att binära data är base64-kodade: "AQID" är base64-kodningen av {0x01, 0x02, 0x03}.
+Observera att serialiseringen är i JSON, vilket är det format som genereras av **serialiserar** -biblioteket. Observera också att varje medlem i det serialiserade JSON-objektet matchar medlemmarna i **TestType** som vi definierade i vår modell. Värdena matchar också exakt de som används i koden. Observera dock att binära data är base64-kodade: "AQID" är base64-kodningen för {0x01, protokollnumret 0x02, 0x03}.
 
-Det här exemplet visar fördelen med att använda **serialiserarbiblioteket** - det gör det möjligt för oss att skicka JSON till molnet, utan att uttryckligen behöva hantera serialisering i vårt program. Allt vi behöver oroa oss för är att ange värden för datahändelser i vår modell och sedan ringa enkla API:er för att skicka dessa händelser till molnet.
+Det här exemplet visar fördelen med att använda **serialiseraren** – det gör att vi kan skicka JSON till molnet utan att behöva hantera serialisering i vårt program. Allt vi behöver bekymra dig om är att ställa in värdena för data händelser i vår modell och sedan anropa enkla API: er för att skicka dessa händelser till molnet.
 
-Med den här informationen kan vi definiera modeller som innehåller olika datatyper som stöds, inklusive komplexa typer (vi kan även inkludera komplexa typer inom andra komplexa typer). Den serialiserade JSON som genereras av exemplet ovan tar dock upp en viktig punkt. *Hur* vi skickar data med **serialiserarbiblioteket** avgör exakt hur JSON bildas. Just den punkten är vad vi ska täcka härnäst.
+Med den här informationen kan vi definiera modeller som innehåller intervallet av data typer som stöds, inklusive komplexa typer (vi kan till och med använda komplexa typer i andra komplexa typer). Den serialiserade JSON som genereras av exemplet ovan ger dock en viktig punkt. *Hur* vi skickar data med **serialiserar** biblioteket bestämmer exakt hur JSON-filen bildas. Den specifika punkten är det vi ska se härnäst.
 
 ## <a name="more-about-serialization"></a>Mer om serialisering
 
-I föregående avsnitt beskrivs ett exempel på utdata som genereras av **serialiserarbiblioteket.** I det här avsnittet förklarar vi hur biblioteket serialiserar data och hur du kan styra det beteendet med hjälp av serialiserings-API:erna.
+I föregående avsnitt beskrivs ett exempel på utdata som genereras av **serialiseraren** . I det här avsnittet förklarar vi hur biblioteket serialiserar data och hur du kan styra beteendet med hjälp av API: erna för serialisering.
 
-För att föra diskussionen om serialisering, kommer vi att arbeta med en ny modell baserad på en termostat. Låt oss först ge lite bakgrund om det scenario vi försöker ta itu med.
+Vi samarbetar med en ny modell som baseras på en termostat för att gå vidare med diskussionen om serialisering. Börja med att ge en bakgrund på det scenario vi försöker åtgärda.
 
-Vi vill modellera en termostat som mäter temperatur och luftfuktighet. Varje del av data kommer att skickas till IoT Hub på olika sätt. Som standard inträder termostaten en temperaturhändelse en gång varannan minut. en fuktighetshändelse inträder en gång var 15:e minut. När någon av händelser är ingående måste den innehålla en tidsstämpel som visar den tid då motsvarande temperatur eller luftfuktighet mättes.
+Vi vill modellera en termostat som mäter temperatur och fuktighet. Varje data del kommer att skickas till IoT Hub olika. Som standard tar termostat ingress en temperatur händelse var 2: e minut; en fuktighets händelse inträffar en gång var 15: e minut. När någon händelse har inträffat måste den innehålla en tidsstämpel som visar den tid då motsvarande temperatur eller fuktighet mättes.
 
-Med tanke på det här scenariot visar vi två olika sätt att modellera data, och vi kommer att förklara vilken effekt modelleringen har på den serialiserade utdata.
+Med tanke på det här scenariot demonstrerar vi två olika sätt att modellera data, och vi förklarar den effekt som modelleringen har på den serialiserade utmatningen.
 
 ### <a name="model-1"></a>Modell 1
 
-Här är den första versionen av en modell som stöder föregående scenario:
+Här är den första versionen av en modell som stöder det tidigare scenariot:
 
 ```C
 BEGIN_NAMESPACE(Contoso);
@@ -234,9 +234,9 @@ WITH_DATA(HumidityEvent, Humidity)
 END_NAMESPACE(Contoso);
 ```
 
-Observera att modellen innehåller två datahändelser: **Temperatur** och **luftfuktighet**. Till skillnad från tidigare exempel är typen av varje händelse en struktur som definieras med **DECLARE\_STRUCT**. **TemperatureEvent** innehåller en temperaturmätning och en tidsstämpel; **HumidityEvent** innehåller en fuktmätning och en tidsstämpel. Denna modell ger oss ett naturligt sätt att modellera data för det scenario som beskrivs ovan. När vi skickar en händelse till molnet skickar vi antingen en temperatur/tidsstämpel eller ett fuktighets-/tidsstämpelpar.
+Observera att modellen innehåller två data händelser: **temperatur** och **fuktighet**. Till skillnad från tidigare exempel är typen av varje händelse en struktur som definieras med **Declare\_-struct**. **TemperatureEvent** omfattar en temperatur mätning och en tidsstämpel. **HumidityEvent** innehåller en fuktighets mätning och en tidsstämpel. Den här modellen ger oss ett naturligt sätt att modellera data för det scenario som beskrivs ovan. När vi skickar en händelse till molnet skickar vi antingen ett temperatur-/tidsstämpel-eller tids stämplings-/tidsstämpel-par.
 
-Vi kan skicka en temperaturhändelse till molnet med hjälp av kod som följande:
+Vi kan skicka en temperatur händelse till molnet med hjälp av kod som följande:
 
 ```C
 time_t now;
@@ -252,9 +252,9 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature) == IOT_AG
 }
 ```
 
-Vi använder hårdkodade värden för temperatur och fuktighet i exempelkoden, men föreställ dig att vi faktiskt hämtar dessa värden genom att prova motsvarande sensorer på termostaten.
+Vi använder hårdkodade värden för temperatur och fuktighet i exempel koden, men tänk på att vi faktiskt hämtar dessa värden genom att sampla motsvarande sensorer på termostat.
 
-Koden ovan använder **GetDateTimeOffset-hjälpen** som introducerades tidigare. Av skäl som kommer att bli tydliga senare, separerar den här koden uttryckligen uppgiften att serialisera och skicka händelsen. Den tidigare koden serialiserar temperaturhändelsen till en buffert. Sedan är **sendMessage** en hjälpfunktion (ingår i **simplesample\_amqp)** som skickar händelsen till IoT Hub:
+I koden ovan används **GetDateTimeOffset** -hjälpen som introducerades tidigare. Av orsaker som kommer att rensas senare, separerar koden uttryckligen uppgiften att serialisera och skicka händelsen. Föregående kod serialiserar temperatur händelsen i en buffert. Sedan är **SendMessage** en hjälp funktion (ingår i **simplesample\_AMQP**) som skickar händelsen till IoT Hub:
 
 ```C
 static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
@@ -271,17 +271,17 @@ static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned 
 }
 ```
 
-Den här koden är en delmängd av **SendAsync-hjälpen** som beskrivs i föregående avsnitt, så vi går inte igenom den igen här.
+Den här koden är en delmängd av **SendAsync** -hjälpen som beskrivs i föregående avsnitt, så vi går inte över den igen.
 
-När vi kör den tidigare koden för att skicka händelsen Temperatur skickas den här serialiserade formen av händelsen till IoT Hub:
+När vi kör föregående kod för att skicka temperatur händelsen skickas denna serialiserade form av händelsen till IoT Hub:
 
 ```C
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-Vi skickar en temperatur, som är av typen **TemperatureEvent**, och den konstruktionen innehåller en **temperatur-** och **tidsmedlem.** Detta återspeglas direkt i serialiserade data.
+Vi skickar en temperatur som är av typen **TemperatureEvent**och den strukturen innehåller en **temperatur** och en **tids** medlem. Detta återspeglas direkt i serialiserade data.
 
-På samma sätt kan vi skicka en fuktighetshändelse med den här koden:
+På samma sätt kan vi skicka en fuktighets händelse med den här koden:
 
 ```C
 thermostat->Humidity.Humidity = 45;
@@ -292,21 +292,21 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Humidity) == IOT_AGENT
 }
 ```
 
-Det serialiserade formulär som skickas till IoT Hub visas på följande sätt:
+Det serialiserade formuläret som skickas till IoT Hub visas på följande sätt:
 
 ```C
 {"Humidity":45, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-Återigen, detta är som förväntat.
+Detta är som förväntat.
 
-Med den här modellen kan du föreställa dig hur ytterligare händelser enkelt kan läggas till. Du definierar fler strukturer med **DEKLARERA\_STRUCT**och inkluderar motsvarande händelse i modellen med **MED DATA\_**.
+Med den här modellen kan du föreställa dig hur du enkelt kan lägga till ytterligare händelser. Du definierar fler strukturer med hjälp av **\_declare struct**och inkluderar motsvarande händelse i modellen med hjälp **av\_data**.
 
 Nu ska vi ändra modellen så att den innehåller samma data men med en annan struktur.
 
 ### <a name="model-2"></a>Modell 2
 
-Tänk på denna alternativa modell till en ovan:
+Överväg den här alternativa modellen till en ovan:
 
 ```C
 DECLARE_MODEL(Thermostat,
@@ -316,9 +316,9 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-I det här fallet har vi eliminerat **DECLARE\_STRUCT-makrona** och definierar helt enkelt dataobjekten från vårt scenario med enkla typer från modelleringsspråket.
+I det här fallet har vi eliminerat **deklarerar\_** vi åtgärds-makron och definierar bara data objekt från vårt scenario med enkla typer från modellerings språket.
 
-Bara för tillfället, ignorera **Time** händelsen. Med det åt sidan, här är koden för att ingående **temperatur:**
+För tillfället ska du ignorera **tids** händelsen. Det här är koden för att ingressa **temperatur**:
 
 ```C
 time_t now;
@@ -339,7 +339,7 @@ Den här koden skickar följande serialiserade händelse till IoT Hub:
 {"Temperature":75}
 ```
 
-Och koden för att skicka händelsen Luftfuktighet visas på följande sätt:
+Och koden för att skicka händelsen fuktighet visas på följande sätt:
 
 ```C
 thermostat->Humidity = 45;
@@ -349,15 +349,15 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Humidity) == IOT_AGENT
 }
 ```
 
-Den här koden skickar detta till IoT Hub:
+Den här koden skickar den till IoT Hub:
 
 ```C
 {"Humidity":45}
 ```
 
-Än så länge finns det inga överraskningar. Nu ska vi ändra hur vi använder SERIALIZE makro.
+Så långt finns det fortfarande inga överraskningar. Nu ska vi ändra hur vi använder det SERIELLa makrot.
 
-**Serialize-makrot** kan ta flera datahändelser som argument. Detta gör det möjligt **Temperature** för oss att serialisera temperatur **och luftfuktighet** händelsen tillsammans och skicka dem till IoT Hub i ett samtal:
+Det går att använda flera data händelser som argument i det **seriella** makrot. På så sätt kan vi serialisera **temperatur** -och **fuktighets** händelser tillsammans och skicka dem till IoT Hub i ett samtal:
 
 ```C
 if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermostat->Humidity) == IOT_AGENT_OK)
@@ -366,15 +366,15 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermosta
 }
 ```
 
-Du kan gissa att resultatet av den här koden är att två datahändelser skickas till IoT Hub:
+Du kan gissa att resultatet av den här koden är att två data händelser skickas till IoT Hub:
 
-[ {"Temperatur":75}, {"Luftfuktighet":45} ]
+[{"Temperatur": 75}, {"fuktighet": 45}]
 
-Med andra ord kan du förvänta dig att den här koden är densamma som att skicka **temperatur** **och luftfuktighet** separat. Det är bara en bekvämlighet att skicka båda händelserna till **SERIALIZE** i samma samtal. Men så är inte fallet. I stället skickar koden ovan den här enskilda datahändelsen till IoT Hub:
+Med andra ord kan du tro att den här koden är densamma som att skicka **temperatur** och **fuktighet** separat. Det är bara en bekvämlighet att skicka båda händelserna för att **serialiseras** i samma anrop. Men det är inte fallet. I stället skickar koden ovan denna enstaka data händelse till IoT Hub:
 
-{"Temperatur":75, "Luftfuktighet":45}
+{"Temperatur": 75, "fuktighet": 45}
 
-Detta kan verka konstigt eftersom vår modell definierar **temperatur** och **luftfuktighet** som två *separata* händelser:
+Detta kan verka konstigt eftersom vår modell definierar **temperatur** och **fuktighet** som två *separata* händelser:
 
 ```C
 DECLARE_MODEL(Thermostat,
@@ -384,7 +384,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-Mer till den punkt, vi har inte modellera dessa händelser där **temperatur** och **luftfuktighet** är i samma struktur:
+Ännu mer till den här punkten modellerade vi inte dessa händelser där **temperatur** och **fuktighet** är i samma struktur:
 
 ```C
 DECLARE_STRUCT(TemperatureAndHumidityEvent,
@@ -397,9 +397,9 @@ WITH_DATA(TemperatureAndHumidityEvent, TemperatureAndHumidity),
 );
 ```
 
-Om vi använde den här modellen skulle det vara lättare att förstå hur **temperatur** och **luftfuktighet** skulle skickas i samma serialiserade meddelande. Men det kanske inte är klart varför det fungerar på det sättet när du skickar båda datahändelserna till **SERIALIZE** med hjälp av modell 2.
+Om vi använde den här modellen skulle det vara lättare att förstå hur **temperatur** och **fuktighet** skickas i samma serialiserade meddelande. Det kan dock vara uppenbart att det fungerar på det sättet när du skickar båda data händelserna till att **serialiseras** med hjälp av modell 2.
 
-Detta är lättare att förstå om du vet de antaganden som **serialiserarbiblioteket** gör. För att förstå detta, låt oss gå tillbaka till vår modell:
+Det här beteendet är enklare att förstå om du känner till de antaganden som **serialiserar** biblioteket gör. För att göra detta kan vi gå tillbaka till vår modell:
 
 ```C
 DECLARE_MODEL(Thermostat,
@@ -409,9 +409,9 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-Tänk på den här modellen i objektorienterade termer. I det här fallet modellerar vi en fysisk enhet (en termostat) och den enheten innehåller attribut som **temperatur** och **luftfuktighet**.
+Tänk på den här modellen i objektorienterade termer. I det här fallet utformar vi en fysisk enhet (en termostat) och enheten inkluderar attribut som **temperatur** och **fuktighet**.
 
-Vi kan skicka hela tillståndet i vår modell med kod som följande:
+Vi kan skicka hela statusen för vår modell med kod som följande:
 
 ```C
 if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermostat->Humidity, thermostat->Time) == IOT_AGENT_OK)
@@ -420,37 +420,37 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermosta
 }
 ```
 
-Om du antar att värdena för temperatur, luftfuktighet och tid är inställda, skulle vi se en händelse som denna skickas till IoT Hub:
+Förutsatt att värdena för temperatur, fuktighet och tid anges visas en händelse som detta skickat till IoT Hub:
 
 ```C
 {"Temperature":75, "Humidity":45, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-Ibland kanske du bara vill skicka *vissa* egenskaper för modellen till molnet (detta gäller särskilt om din modell innehåller ett stort antal datahändelser). Det är användbart att bara skicka en delmängd av datahändelser, till exempel i vårt tidigare exempel:
+Ibland kanske du bara vill skicka *vissa* egenskaper för modellen till molnet (Detta gäller särskilt om din modell innehåller ett stort antal data händelser). Det är praktiskt att bara skicka en delmängd data händelser, t. ex. i vårt tidigare exempel:
 
 ```C
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-Detta genererar exakt samma serialiserade händelse som om vi hade definierat en **TemperatureEvent** med en **Temperatur** och **Tid** medlem, precis som vi gjorde med modell 1. I det här fallet kunde vi generera exakt samma serialiserade händelse med hjälp av en annan modell (modell 2) eftersom vi kallade **SERIALIZE** på ett annat sätt.
+Detta genererar exakt samma serialiserade händelse som om vi hade definierat en **TemperatureEvent** med en **temperatur** och en **tids** medlem, precis som vi gjorde med modell 1. I det här fallet kunde vi generera exakt samma serialiserade händelse genom att använda en annan modell (modell 2) eftersom vi anropade **serialisering** på ett annat sätt.
 
-Den viktiga punkten är att om du skickar flera datahändelser till **SERIALIZE,** antar den att varje händelse är en egenskap i ett enda JSON-objekt.
+Den viktiga punkten är att om du skickar flera data händelser som ska **serialiseras** antar det att varje händelse är en egenskap i ett enda JSON-objekt.
 
-Det bästa tillvägagångssättet beror på dig och hur du tänker om din modell. Om du skickar "händelser" till molnet och varje händelse innehåller en definierad uppsättning egenskaper, gör den första metoden mycket mening. I så fall använder du **DECLARE\_STRUCT** för att definiera strukturen för varje händelse och sedan inkludera dem i din modell med makrot **\_MED DATA.** Sedan skickar du varje händelse som vi gjorde i det första exemplet ovan. I den här metoden skulle du bara skicka en enda datahändelse till **SERIALIZER**.
+Den bästa metoden beror på dig och hur du tycker om din modell. Om du skickar "händelser" till molnet och varje händelse innehåller en definierad uppsättning egenskaper, är den första metoden mycket obegriplig. I så fall kan du använda **deklarera\_struct** för att definiera strukturen för varje händelse och sedan ta med dem i din modell med **data\_makrot med data** . Sedan skickar du varje händelse som vi gjorde i det första exemplet ovan. I den här metoden skickar du bara en enskild data händelse till **serialiseraren**.
 
-Om du tänker på din modell på ett objektorienterat sätt, då den andra metoden kan passa dig. I det här fallet är de element som definieras med **MED DATA\_** objektets "egenskaper". Du skickar den delmängd av händelser **som** du vill, beroende på hur mycket av ditt "objekts" tillstånd du vill skicka till molnet.
+Om du tycker om din modell i ett objektorienterat sätt kan den andra metoden passa dig. I det här fallet är de element som definieras med hjälp av **med\_data** "egenskaper" för ditt objekt. Du skickar olika delmängd av händelser så att de kan **serialiseras** som du vill, beroende på hur mycket av ditt "objekt"-tillstånd som du vill skicka till molnet.
 
-Nedre tillvägagångssätt är rätt eller fel. Tänk bara på hur **serialiserarbiblioteket** fungerar och välj den modelleringsmetod som bäst passar dina behov.
+Nether-metoden är rätt eller fel. Du behöver bara känna till hur **serialiserar** biblioteket fungerar och välja den modellerings metod som passar dina behov bäst.
 
 ## <a name="message-handling"></a>Meddelandehantering
 
-Hittills har den här artikeln bara diskuterat att skicka händelser till IoT Hub och har inte adresserat mottagningsmeddelanden. Anledningen till detta är att det vi behöver veta om att ta emot meddelanden till stor del har tagits upp i artikeln [Azure IoT-enhet SDK för C](iot-hub-device-sdk-c-intro.md). Återkalla från den artikeln att du bearbetar meddelanden genom att registrera en meddelandeåterringsfunktion:
+Hittills har den här artikeln endast diskuterat att skicka händelser till IoT Hub och har inte adresserat emot meddelanden. Orsaken till detta är att det som vi behöver veta om att ta emot meddelanden i stort sett har beskrivits i artikeln [Azure IoT-enhetens SDK för C](iot-hub-device-sdk-c-intro.md). Kom ihåg från artikeln att du bearbetar meddelanden genom att registrera en motringnings funktion för meddelanden:
 
 ```C
 IoTHubClient_SetMessageCallback(iotHubClientHandle, IoTHubMessage, myWeather)
 ```
 
-Du skriver sedan den motringningsfunktion som anropas när ett meddelande tas emot:
+Sedan skriver du callback-funktionen som anropas när ett meddelande tas emot:
 
 ```C
 static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -488,7 +488,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE mess
 }
 ```
 
-Den här implementeringen av **IoTHubMessage anropar** den specifika funktionen för varje åtgärd i din modell. Om modellen till exempel definierar den här åtgärden:
+Den här implementeringen av **IoTHubMessage** anropar den speciella funktionen för varje åtgärd i din modell. Om din modell till exempel definierar den här åtgärden:
 
 ```C
 WITH_ACTION(SetAirResistance, int, Position)
@@ -507,23 +507,23 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 **SetAirResistance** anropas sedan när meddelandet skickas till enheten.
 
-Vad vi inte har förklarat ännu är vad den serialiserade versionen av meddelandet ser ut. Med andra ord, om du vill skicka ett **SetAirResistance-meddelande** till din enhet, hur ser det ut?
+Det som vi inte har förklarat än är vad den serialiserade versionen av meddelandet ser ut. Vad ser det som om du vill skicka ett **SetAirResistance** -meddelande till din enhet?
 
-Om du skickar ett meddelande till en enhet gör du det via Azure IoT-tjänsten SDK. Du behöver fortfarande veta vilken sträng du ska skicka för att anropa en viss åtgärd. Det allmänna formatet för att skicka ett meddelande visas på följande sätt:
+Om du skickar ett meddelande till en enhet gör du det via Azure IoT service SDK. Du måste fortfarande veta vilken sträng som ska skickas för att anropa en viss åtgärd. Det allmänna formatet för att skicka ett meddelande visas på följande sätt:
 
 ```C
 {"Name" : "", "Parameters" : "" }
 ```
 
-Du skickar ett serialiserat JSON-objekt med två egenskaper: **Namn** är namnet på åtgärden (meddelandet) och **Parametrar** innehåller parametrarna för den åtgärden.
+Du skickar ett serialiserat JSON-objekt med två egenskaper: **namn** är namnet på åtgärden (meddelandet) och **parametrarna** innehåller parametrarna för den åtgärden.
 
-Om du till exempel vill anropa **SetAirResistance** kan du skicka det här meddelandet till en enhet:
+Om du till exempel vill anropa **SetAirResistance** kan du skicka meddelandet till en enhet:
 
 ```C
 {"Name" : "SetAirResistance", "Parameters" : { "Position" : 5 }}
 ```
 
-Åtgärdsnamnet måste exakt matcha en åtgärd som definierats i modellen. Parameternamnen måste också matchas. Notera även skiftlägeskänslighet. **Namn** och **parametrar** är alltid versaler. Se till att matcha fallet med ditt åtgärdsnamn och parametrar i din modell. I det här exemplet är åtgärdsnamnet "SetAirResistance" och inte "setairresistance".
+Åtgärds namnet måste exakt matcha en åtgärd som definierats i din modell. Parameter namnen måste också matcha varandra. Observera också Skift läges känslighet. **Namn** och **parametrar** är alltid versaler. Se till att matcha Skift läget för ditt åtgärds namn och parametrar i din modell. I det här exemplet är åtgärds namnet "SetAirResistance" och inte "SetAirResistance".
 
 De två andra åtgärderna **TurnFanOn** och **TurnFanOff** kan anropas genom att skicka dessa meddelanden till en enhet:
 
@@ -532,45 +532,45 @@ De två andra åtgärderna **TurnFanOn** och **TurnFanOff** kan anropas genom at
 {"Name" : "TurnFanOff", "Parameters" : {}}
 ```
 
-I det här avsnittet beskrivs allt du behöver veta när du skickar händelser och tar emot meddelanden med **serialiserarbiblioteket.** Innan vi går vidare ska vi täcka några parametrar som du kan konfigurera som styr hur stor din modell är.
+I det här avsnittet beskrivs allt du behöver veta när du skickar händelser och tar emot meddelanden med **serialiserar** -biblioteket. Innan du fortsätter tar vi upp några parametrar som du kan konfigurera som styr hur stor din modell är.
 
-## <a name="macro-configuration"></a>Makrokonfiguration
+## <a name="macro-configuration"></a>Makro konfiguration
 
-Om du använder **Serializer-biblioteket** finns en viktig del av SDK för att vara medveten om i azure-c-shared-utility-biblioteket.
+Om du använder **serialiseraren** finns en viktig del av SDK för att vara medveten om i Azure-c-Shared Utility-biblioteket.
 
-Om du har klonat Azure-iot-sdk-c-databasen från GitHub och utfärdat `git submodule update --init` kommandot hittar du det här delade verktygsbiblioteket här:
+Om du har klonat Azure-IoT-SDK-c-lagringsplatsen från GitHub och utfärdat `git submodule update --init` kommandot kommer du att hitta det här delade verktygs biblioteket här:
 
 ```C
 .\\c-utility
 ```
 
-Om du inte har klonat biblioteket hittar du det [här.](https://github.com/Azure/azure-c-shared-utility)
+Om du inte har klonat biblioteket kan du hitta det [här](https://github.com/Azure/azure-c-shared-utility).
 
-I det delade verktygsbiblioteket hittar du följande mapp:
+I biblioteket för delade verktyg hittar du följande mapp:
 
 ```C
 azure-c-shared-utility\\macro\_utils\_h\_generator.
 ```
 
-Den här mappen innehåller en Visual Studio-lösning som kallas **macro\_utils\_h\_generator.sln**:
+Den här mappen innehåller en Visual Studio-lösning som kallas **Macro\_utils\_h\_Generator. SLN**:
 
-  ![Skärmbild av Visual Studio-lösningen maco_utils_h_generator](media/iot-hub-device-sdk-c-serializer/01-macro_utils_h_generator.png)
+  ![Skärm bild av Visual Studio-lösningen maco_utils_h_generator](media/iot-hub-device-sdk-c-serializer/01-macro_utils_h_generator.png)
 
-Programmet i den här lösningen genererar **filen macro\_utils.h.** Det finns en\_standardfil i makroutils.h som ingår i SDK. Med den här lösningen kan du ändra vissa parametrar och sedan återskapa huvudfilen baserat på dessa parametrar.
+Programmet i den här lösningen genererar **makro\_filen utils. h** . Det finns en standard-\_fil för makro-utils. h som ingår i SDK. Med den här lösningen kan du ändra vissa parametrar och sedan återskapa rubrik filen baserat på dessa parametrar.
 
-De två nyckelparametrar som ska behandlas är **nAritmetiska** och **nMacroParametrar**\_, som definieras i dessa två rader som finns i makro utils.tt:
+De två nyckel parametrarna som ska vara aktuella för är **nArithmetic** och **nMacroParameters**, som definieras i följande två rader i Macro\_utils.tt:
 
 ```C
 <#int nArithmetic=1024;#>
 <#int nMacroParameters=124;/*127 parameters in one macro deﬁnition in C99 in chapter 5.2.4.1 Translation limits*/#>
 ```
 
-Dessa värden är standardparametrarna som ingår i SDK. Varje parameter har följande betydelse:
+Dessa värden är standard parametrarna som ingår i SDK: n. Varje parameter har följande betydelse:
 
-* nMacroParameters – Styr hur många parametrar\_du kan ha i en DECLARE MODELL makrodefinition.
-* nAritmetisk – Styr det totala antalet medlemmar som tillåts i en modell.
+* nMacroParameters – styr hur många parametrar du kan ha i en DEKLARERAd\_modell makro definition.
+* nArithmetic – styr det totala antalet medlemmar som tillåts i en modell.
 
-Anledningen till att dessa parametrar är viktiga är att de styr hur stor din modell kan vara. Tänk dig till exempel den här modelldefinitionen:
+Anledningen är att dessa parametrar är viktiga eftersom de styr hur stor din modell kan vara. Anta till exempel den här modell definitionen:
 
 ```C
 DECLARE_MODEL(MyModel,
@@ -578,61 +578,61 @@ WITH_DATA(int, MyData)
 );
 ```
 
-Som tidigare **nämnts,\_DECLARE MODELL** är bara ett C-makro. Namnen på modellen och **\_WITH DATA-satsen** (ännu ett makro) är parametrar **för DECLARE\_MODEL**. **nMacroParameters** definierar hur många parametrar som kan inkluderas i **\_DECLARE MODEL**. Effektivt definierar detta hur många datahändelse- och åtgärdsdeklarationer du kan ha. Med standardgränsen 124 innebär det därför att du kan definiera en modell med en kombination av cirka 60 åtgärder och datahändelser. Om du försöker överskrida den här gränsen visas kompilatorfel som liknar följande:
+Som tidigare nämnts **är\_deklarera modell** bara ett C-makro. Namnen på modellen och **with\_data** -instruktionen (ännu ett annat makro) är parametrar för **Declare\_-modellen**. **nMacroParameters** definierar hur många parametrar som kan tas med **i\_declare-modellen**. Detta definierar effektivt hur många data händelse-och åtgärds deklarationer som du kan ha. Med standard gränsen på 124 innebär det att du kan definiera en modell med en kombination av om 60 åtgärder och data händelser. Om du försöker överskrida den här gränsen får du kompilator fel som ser ut ungefär så här:
 
-  ![Skärmbild av kompilatorfel för makroparametrar](media/iot-hub-device-sdk-c-serializer/02-nMacroParametersCompilerErrors.png)
+  ![Skärm bild av fel i kompilatorn för makro parametrar](media/iot-hub-device-sdk-c-serializer/02-nMacroParametersCompilerErrors.png)
 
-Den **nAritmetiska** parametern handlar mer om makrospråkets interna funktion än ditt program.  Den styr det totala antalet medlemmar du kan ha i din modell, inklusive **DECLARE_STRUCT** makron. Om du börjar se kompilatorfel som detta, bör du försöka öka **nAritmetiska:**
+Parametern **nArithmetic** är mer om det interna arbetet i makro språket än ditt program.  Det styr det totala antalet medlemmar som du kan ha i din modell, inklusive **DECLARE_STRUCT** makron. Om du börjar se kompilator fel som detta bör du försöka med att öka **nArithmetic**:
 
-   ![Skärmbild av aritmetiska kompilatorfel](media/iot-hub-device-sdk-c-serializer/03-nArithmeticCompilerErrors.png)
+   ![Skärm bild av aritmetiska kompilator fel](media/iot-hub-device-sdk-c-serializer/03-nArithmeticCompilerErrors.png)
 
-Om du vill ändra dessa parametrar ändrar\_du värdena i makrot\_utils.tt\_filen, kompilerar om makroutils h\_generator.sln-lösningen och kör det kompilerade programmet. När du gör det\_genereras en ny makroutils.h-fil och placeras i . \\gemensam\\inkl-katalog.
+Om du vill ändra de här parametrarna ändrar du värdena i\_makrots utils.tt-fil, kompilerar om Macro\_\_-filen\_med SLN-generatorn och kör det kompilerade programmet. När du gör det skapas en ny.\_h-fil för makron skapas och placeras i. \\gemensamma\\Inc-katalogen.
 
-För att kunna använda den\_nya versionen av macro utils.h tar du bort **serialiseraren** NuGet-paketet från din lösning och i dess ställe inkluderar **serialiseraren** Visual Studio-projektet. Detta gör att koden kan kompileras mot källkoden för serialiserarbiblioteket. Detta inkluderar det\_uppdaterade makroutils.h. Om du vill göra detta för **simplesample\_amqp**, börja med att ta bort NuGet paketet för serialiserare biblioteket från lösningen:
+För att kunna använda den nya versionen av Macro\_utils. h tar du bort **serialiseraren** NuGet-paketet från din lösning och i dess ställe ingår **serialiseraren** Visual Studio-projektet. Detta gör att din kod kan kompileras mot käll koden i serialiseraren. Detta inkluderar det uppdaterade makrots\_utils. h. Om du vill göra detta för **simplesample\_-AMQP**börjar du med att ta bort NuGet-paketet för serialiseraren från lösningen:
 
-   ![Skärmbild av Ta bort NuGet-paketet för serialiserarbiblioteket](media/iot-hub-device-sdk-c-serializer/04-serializer-github-package.png)
+   ![Skärm bild av borttagning av NuGet-paketet för serialiserar-biblioteket](media/iot-hub-device-sdk-c-serializer/04-serializer-github-package.png)
 
-Lägg sedan till det här projektet i Visual Studio-lösningen:
+Lägg sedan till det här projektet i din Visual Studio-lösning:
 
-> . \\c\\\\serializer\\\\bygga windows serializer.vcxproj
+> . \\c\\-\\serialiseraren\\build\\Windows serialiserare. vcxproj
 > 
 > 
 
 När du är klar bör din lösning se ut så här:
 
-   ![Skärmbild av simplesample_amqp Visual Studio-lösningen](media/iot-hub-device-sdk-c-serializer/05-serializer-project.png)
+   ![Skärm bild av simplesample_amqp Visual Studio-lösningen](media/iot-hub-device-sdk-c-serializer/05-serializer-project.png)
 
-Nu när du kompilerar\_din lösning, den uppdaterade makro utils.h ingår i din binära.
+Nu när du kompilerar din lösning ingår det uppdaterade\_makrots utils. h i binärfilen.
 
-Observera att en ökning av dessa värden tillräckligt högt kan överskrida kompilatorgränserna. Till denna punkt är **nMacroParameters** den viktigaste parametern som ska berörs. C99-specifikationen anger att minst 127 parametrar tillåts i en makrodefinition. Microsoft-kompilatorn följer spec exakt (och har en gräns på 127), så att du inte kommer att kunna öka **nMacroParameters** utöver standard. Andra kompilatorer kan tillåta dig att göra det (till exempel stöder GNU-kompilatorn en högre gräns).
+Observera att om du ökar värdena tillräckligt högt kan det överskrida kompilator gränserna. I det här läget är **nMacroParameters** den huvudsakliga parameter som ska vara berörd. C99-specifikationen anger att minst 127 parametrar tillåts i en makro definition. Microsoft compiler följer specifikationen exakt (och har en gräns på 127), så du kan inte öka **nMacroParameters** utöver standardvärdet. Andra kompilatorer kan göra det (till exempel GNU-kompilatorn stöder en högre gräns).
 
-Hittills har vi täckt nästan allt du behöver veta om hur man skriver kod med **serialiserare** biblioteket. Innan du avslutar, låt oss återkomma till några ämnen från tidigare artiklar som du kanske undrar över.
+Hittills har vi täckt bara allt du behöver veta om hur man skriver kod med **serialiserar** -biblioteket. Innan du börjar kan vi gå tillbaka till några ämnen från föregående artiklar som du kanske undrar om.
 
-## <a name="the-lower-level-apis"></a>Api:erna på lägre nivå
-Exempelprogrammet som den här artikeln fokuserade på är **simplesample\_amqp**. Det här exemplet använder API:er på högre nivå **(icke-LL)** för att skicka händelser och ta emot meddelanden. Om du använder dessa API:er körs en bakgrundstråd som tar hand om både skicka händelser och ta emot meddelanden. Du kan dock använda API:er på lägre nivå (LL) för att eliminera den här bakgrundstråden och ta explicit kontroll över när du skickar händelser eller tar emot meddelanden från molnet.
+## <a name="the-lower-level-apis"></a>API: er på lägre nivå
+Det exempel program som den här artikeln fokuserar på **är\_simplesample AMQP**. I det här exemplet används de högre (icke-**lla**) API: erna för att skicka händelser och ta emot meddelanden. Om du använder dessa API: er körs en bakgrunds tråd som tar hand om att skicka händelser och ta emot meddelanden. Du kan dock använda de lågnivå-API: erna för att eliminera den här bakgrunds tråden och ta direkt kontroll över när du skickar händelser eller tar emot meddelanden från molnet.
 
-Som beskrivs i en [tidigare artikel](iot-hub-device-sdk-c-iothubclient.md)finns det en uppsättning funktioner som består av API:er på högre nivå:
+Som det beskrivs i [föregående artikel](iot-hub-device-sdk-c-iothubclient.md)finns en uppsättning funktioner som består av API: er på högre nivå:
 
-* IoTHubClient\_skapafrånConnectionString
+* IoTHubClient\_CreateFromConnectionString
 * IoTHubClient\_SendEventAsync
 * IoTHubClient\_SetMessageCallback
-* IoTHubClient\_förstör
+* IoTHubClient\_att förstöra
 
-Dessa API:er visas i **simplesample\_amqp**.
+Dessa API: er visas **i\_simplesample AMQP**.
 
-Det finns också en liknande uppsättning api:er på lägre nivå.
+Det finns också en analog uppsättning med lågnivå-API: er.
 
-* IoTHubClient\_LL\_CreateFromConnectionString
-* IoTHubClient\_LL\_SendEventAsync
-* IoTHubClient\_LL\_SetMessageCallback
-* IoTHubClient\_\_LL Förstör
+* IoTHubClient\_lla\_CreateFromConnectionString
+* IoTHubClient\_lla\_SendEventAsync
+* IoTHubClient\_lla\_SetMessageCallback
+* IoTHubClient\_lla\_att förstöra
 
-Observera att api:erna på lägre nivå fungerar på exakt samma sätt som beskrivs i föregående artiklar. Du kan använda den första uppsättningen API:er om du vill ha en bakgrundstråd för att hantera sändningshändelser och ta emot meddelanden. Du använder den andra uppsättningen API:er om du vill ha explicit kontroll över när du skickar och ta emot data från IoT Hub. Båda uppsättning API:er fungerar lika bra med **serialiseringsbiblioteket.**
+Observera att de lågnivå-API: erna fungerar exakt på samma sätt som beskrivs i föregående artiklar. Du kan använda den första uppsättningen med API: er om du vill att en bakgrunds tråd ska hantera sändning av händelser och ta emot meddelanden. Du använder den andra uppsättningen API: er om du vill ha en direkt kontroll över när du skickar och tar emot data från IoT Hub. Antingen fungerar Uppsättnings-API: er lika bra med **serialiserar** -biblioteket.
 
-Ett exempel på hur api:er på lägre nivå används med **serialiserarbiblioteket** finns i programmet **simplesample\_http.**
+Ett exempel på hur de lågnivå-API: erna används med **serialiserar** -biblioteket finns i **\_simplesample http-** programmet.
 
 ## <a name="additional-topics"></a>Ytterligare information
-Några andra ämnen som är värda att nämna igen är egenskapshantering, med alternativa enhetsautentiseringsuppgifter och konfigurationsalternativ. Dessa är alla ämnen som behandlas i en [tidigare artikel](iot-hub-device-sdk-c-iothubclient.md). Den viktigaste punkten är att alla dessa funktioner fungerar på samma sätt med **serialiserarbiblioteket** som de gör med **IoTHubClient-biblioteket.** Om du till exempel vill koppla egenskaper till en händelse från din modell använder du **egenskaper för\_IoTHubMessage** och **Map**\_**AddorUpdate**, på samma sätt som tidigare beskrivits:
+Några andra avsnitt som är värda att nämnas är egenskaps hantering, med alternativa autentiseringsuppgifter för enhet och konfigurations alternativ. Detta är alla ämnen som beskrivs i [föregående artikel](iot-hub-device-sdk-c-iothubclient.md). Huvud punkten är att alla dessa funktioner fungerar på samma sätt med **serialiserar** -biblioteket som med **IoTHubClient** -biblioteket. Om du till exempel vill bifoga egenskaper till en händelse från din modell använder du **IoTHubMessage\_-egenskaper** och **mappar**\_**AddorUpdate**, på samma sätt som tidigare beskrivits:
 
 ```C
 MAP_HANDLE propMap = IoTHubMessage_Properties(message.messageHandle);
@@ -640,13 +640,13 @@ sprintf_s(propText, sizeof(propText), "%d", i);
 Map_AddOrUpdate(propMap, "SequenceNumber", propText);
 ```
 
-Om händelsen har genererats från **serialiserarbiblioteket** eller skapades manuellt med **IoTHubClient-biblioteket** spelar ingen roll.
+Huruvida händelsen genererades från **serialiserar** biblioteket eller skapats manuellt med **IoTHubClient** -biblioteket spelar ingen roll.
 
-För alternativa enhetsautentiseringsuppgifter fungerar **ioTHubClient\_LL\_Create** lika bra som **IoTHubClient\_CreateFromConnectionString** för allokering av en **IOTHUB-klientreferens\_\_**.
+För de alternativa autentiseringsuppgifterna för enheten, **skapar\_IoTHubClient\_lla** både och **IoTHubClient\_CreateFromConnectionString** för att allokera en **IOTHUB\_\_klient referens**.
 
-Slutligen, om du använder **serializer-biblioteket,** kan du ange konfigurationsalternativ med **\_IoTHubClient LL\_SetOption** precis som du gjorde när du använder **IoTHubClient-biblioteket.**
+Slutligen, om du använder **serialiseraren** , kan du ange konfigurations alternativ med **IoTHubClient\_\_lla SetOption** precis som du gjorde när du använde **IoTHubClient** -biblioteket.
 
-En funktion som är unik för **serializerbiblioteket** är initierings-API:erna. Innan du kan börja arbeta med biblioteket måste du anropa **serialiseraren\_init:**
+En funktion som är unik för **serialiserar** -biblioteket är initierings-API: erna. Innan du kan börja arbeta med biblioteket måste du anropa **serialiseraren\_init**:
 
 ```C
 serializer_init(NULL);
@@ -654,20 +654,20 @@ serializer_init(NULL);
 
 Detta görs precis innan du anropar **IoTHubClient\_CreateFromConnectionString**.
 
-På samma sätt, när du är klar med att arbeta med biblioteket, det sista samtalet du gör är att **serialiserare\_deinit:**
+När du har arbetat med biblioteket är det sista anropet som du gör till **serialiseraren\_deinit**:
 
 ```C
 serializer_deinit();
 ```
 
-Annars fungerar alla andra funktioner som anges ovan på samma sätt i **serialiserarbiblioteket** som de gör i **IoTHubClient-biblioteket.** Mer information om något av dessa avsnitt finns i [föregående artikel](iot-hub-device-sdk-c-iothubclient.md) i den här serien.
+Annars fungerar alla andra funktioner som anges ovan i **serialiserar** -biblioteket som i **IoTHubClient** -biblioteket. Mer information om något av dessa ämnen finns i [föregående artikel](iot-hub-device-sdk-c-iothubclient.md) i den här serien.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln beskrivs i detalj de unika aspekterna av **serialiserarbiblioteket** i **Azure IoT-enheten SDK för C**. Med den information som ges bör du ha en god förståelse för hur man använder modeller för att skicka händelser och ta emot meddelanden från IoT Hub.
+Den här artikeln beskriver i detalj vilka unika aspekter av **serialiserar** -biblioteket som finns i **Azure IoT-enhetens SDK för C**. Med den information som tillhandahålls bör du ha en god förståelse för hur du använder modeller för att skicka händelser och ta emot meddelanden från IoT Hub.
 
-Detta avslutar också serien i tre delar om hur du utvecklar program med **Azure IoT-enheten SDK för C**. Detta bör vara tillräckligt med information för att inte bara komma igång utan ger dig en grundlig förståelse för hur API: er fungerar. För ytterligare information finns det några exempel i SDK som inte omfattas här. Annars är [Azure IoT SDK-dokumentationen](https://github.com/Azure/azure-iot-sdk-c) en bra resurs för ytterligare information.
+Detta avslutar även serien i tre delar om hur du utvecklar program med **Azure IoT-enhetens SDK för C**. Detta bör vara tillräckligt med information för att inte bara komma igång utan ger dig en grundlig förståelse för hur API: erna fungerar. För ytterligare information finns det några exempel i SDK som inte beskrivs här. I annat fall är [Azure IoT SDK-dokumentationen](https://github.com/Azure/azure-iot-sdk-c) en lämplig resurs för ytterligare information.
 
-Mer information om hur du utvecklar för IoT Hub finns i [Azure IoT SDK:er](iot-hub-devguide-sdks.md).
+Mer information om hur du utvecklar för IoT Hub finns i [Azure IoT SDK](iot-hub-devguide-sdks.md): er.
 
-Mer information om hur du utforskar funktionerna i IoT Hub finns i [Distribuera AI till kantenheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+För att ytterligare utforska funktionerna i IoT Hub, se [distribuera AI till gräns enheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).

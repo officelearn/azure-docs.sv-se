@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – skapa ett Azure Stream Analytics-jobb med Visual Studio
+title: Snabb start – skapa ett Azure Stream Analytics jobb med Visual Studio
 description: Den här snabbstarten visar hur du kommer igång genom att skapa ett Stream Analytics-jobb, konfigurerar indata och utdata samt definierar en fråga med Visual Studio.
 author: mamccrea
 ms.author: mamccrea
@@ -7,26 +7,26 @@ ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.openlocfilehash: 5e654fe5d31a225a855da8477e073ceeb1a68634
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81767235"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Snabbstart: Skapa ett Azure Stream Analytics-jobb med hjälp av Visual Studio
+# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Snabb start: skapa ett Azure Stream Analytics jobb med hjälp av Visual Studio
 
 Den här snabbstarten visar hur du skapar och kör ett Stream Analytics-jobb med hjälp av Azure Stream Analytics-verktyg för Visual Studio. Exempeljobbet läser strömmande data från en IoT Hub-enhet. Du definierar ett jobb som beräknar medeltemperaturen när den överstiger 27° och skriver utdatahändelser till en ny fil i Blob Storage.
 
 > [!NOTE]
-> Visual Studio och Visual Studio Code-verktyg stöder inte jobb i Regionerna China East, China North, Germany Central och Germany NorthEast.
+> Visual Studio-och Visual Studio Code-verktyg stöder inte jobb i regionerna Kina, östra, Kina, norra, Tyskland, centrala och Tyskland nordöstra.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 
 * Logga in på [Azure-portalen](https://portal.azure.com/).
 
-* Installera Visual Studio 2019, Visual Studio 2015 eller Visual Studio 2013 Update 4. Versionerna Enterprise (Ultimate/Premium), Professional och Community stöds. Versionen Express stöds inte.
+* Installera Visual Studio 2019, Visual Studio 2015 eller Visual Studio 2013 uppdatering 4. Versionerna Enterprise (Ultimate/Premium), Professional och Community stöds. Versionen Express stöds inte.
 
 * Följ [installationsanvisningarna](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) för att installera Stream Analytics-verktygen för Visual Studio.
 
@@ -36,7 +36,7 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senar
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-2. Välj Skapa ett**resurs-Internet** >  **Create a resource** > för**saker IoT Hub**.
+2. Välj **skapa en resurs** > **Sakernas Internet** > **IoT Hub**.
 
 3. I rutan **IoT-hubb** anger du följande information:
    
@@ -67,7 +67,7 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senar
 
 ## <a name="create-blob-storage"></a>Skala bloblagring
 
-1. Välj Skapa ett > **resurslagringslagringskonto** > **Storage account** **Create a resource**i det övre vänstra hörnet i Azure-portalen .
+1. I det övre vänstra hörnet av Azure Portal väljer du **skapa ett resurs** > **lagrings** > **lagrings konto**.
 
 2. I fönsterrutan **Skapa lagringskonto** anger du namn, plats och resursgrupp för lagringskonto. Välj samma plats och resursgrupp som den IoT-hubb som du skapade. Klicka sedan på **Granska + skapa** för att skapa kontot.
 

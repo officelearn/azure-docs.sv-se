@@ -1,6 +1,6 @@
 ---
 title: Prestandajustering med cachelagring av resultatuppsättningar
-description: Översikt över cachelagring av resultatuppsättning för Synapse SQL-pool i Azure Synapse Analytics
+description: Översikt över cachelagring av resultat uppsättningar för SQL-poolen Synapse i Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -12,43 +12,43 @@ ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
 ms.openlocfilehash: eadbe13269ce1259b4560af117f5b15b3b294151
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81730590"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Prestandajustering med cachelagring av resultatuppsättningar
 
-När cachelagring av resultatuppsättning är aktiverat cachelagrar SQL Analytics automatiskt frågeresultat i användardatabasen för upprepad användning.  Detta gör att efterföljande frågekörningar kan hämta resultat direkt från den beständiga cachen så att omdämning inte behövs.   Cachelagring av resultat ger resultat förbättrar frågeprestanda och minskar beräkningsresursanvändningen.  Dessutom använder frågor som använder cachelagrade resultatuppsättning inte några samtidighetsplatser och räknas därför inte mot befintliga samtidighetsgränser. För säkerhet kan användare bara komma åt de cachelagrade resultaten om de har samma behörigheter för dataåtkomst som de användare som skapar de cachelagrade resultaten.  
+När cachelagring av resultat uppsättningar är aktiverat cachelagrar SQL Analytics automatiskt frågeresultat i användar databasen för upprepad användning.  Detta gör att efterföljande fråge körningar kan hämta resultat direkt från det sparade cacheminnet så att omberäkning inte behövs.   Cachelagring av resultat uppsättningar förbättrar prestanda för frågor och minskar användningen av beräknings resurser.  Dessutom använder frågor som använder cachelagrade resultat uppsättningar inte några samtidiga platser och räknas därför inte över mot befintliga samtidighets gränser. Användare kan bara komma åt de cachelagrade resultaten om de har samma data åtkomst behörigheter som de användare som skapar de cachelagrade resultaten.  
 
-## <a name="key-commands"></a>Kommandon för nyckel
+## <a name="key-commands"></a>Nyckel kommandon
 
-[Aktivera/av resultatuppsättning cachelagring för en användardatabas](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+[Aktivera/inaktivera cachelagring av resultat uppsättningar för en användar databas](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-[Aktivera/av resultatuppsättning cachelagring för en användardatabas](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+[Aktivera/inaktivera cachelagring av resultat uppsättningar för en användar databas](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-[Aktivera/av resultatuppsättning för en session](/sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+[Aktivera/inaktivera cachelagring av resultat uppsättningar för en session](/sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-[Kontrollera storleken på cachelagrade resultatuppsättning](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
+[Kontrol lera storleken på den cachelagrade resultat uppsättningen](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
 
 [Rensa cacheminnet](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="whats-not-cached"></a>Vad är inte cachelagrat  
 
-När cachelagring av resultatuppsättning har aktiverats för en databas cachelagras resultaten för alla frågor tills cacheminnet är fullt, med undantag för dessa frågor:
+När cachelagring av resultat uppsättningar har Aktiver ATS för en databas cachelagras resultaten för alla frågor tills cachen är full, förutom följande frågor:
 
-- Frågor som använder icke-deterministiska funktioner som DateTime.Now()
+- Frågor som använder icke-deterministiska funktioner som DateTime. Now ()
 - Frågor med användardefinierade funktioner
-- Frågor som använder tabeller med säkerhet på radnivå eller kolumnnivå aktiverad
-- Frågor som returnerar data med radstorlek som är större än 64KB
+- Frågor som använder tabeller med säkerhet på radnivå eller på kolumn nivå har Aktiver ATS
+- Frågor som returnerar data med en rad storlek som är större än 64 KB
 - Frågor som returnerar stora data i storlek (>10 GB) 
 
 > [!IMPORTANT]
-> Åtgärderna för att skapa resultatuppsättningscachen och hämta data från cacheminnet sker på kontrollnoden för en Synapse SQL-poolinstans.
-> När cachelagring av resultatuppsättning är aktiverat kan frågor som returnerar stora resultatuppsättningar (till exempel >1 GB) orsaka hög begränsning på kontrollnoden och sakta ned det övergripande frågesvaret på instansen.  Dessa frågor används ofta under datautforskning eller ETL-åtgärder. För att undvika att framtämda kontrollnoden och orsaka prestandaproblem bör användare inaktivera avresultatuppsättningscachening i databasen innan de körs av dessa typer av frågor.  
+> Åtgärderna för att skapa en resultat uppsättning cache och hämta data från cachen sker på noden kontroll i en Synapse SQL-instans.
+> När cachelagring av resultat uppsättningar är aktiverat kan frågor som returnerar stor resultat uppsättning (till exempel >1 GB) orsaka hög begränsning på noden och sakta ned det övergripande fråge svaret på instansen.  Frågorna används ofta vid data utforskning eller ETL-åtgärder. För att undvika att kontrol lera noden och orsaka prestanda problem bör användarna stänga av resultat uppsättningens cachelagring i databasen innan du kör dessa typer av frågor.  
 
-Kör den här frågan för den tid det tar för resultatuppsättningens cachelagringsåtgärder för en fråga:
+Kör den här frågan för den tid som krävs för cachelagring av resultat uppsättningar för en fråga:
 
 ```sql
 SELECT step_index, operation_type, location_type, status, total_elapsed_time, command
@@ -56,23 +56,23 @@ FROM sys.dm_pdw_request_steps
 WHERE request_id  = <'request_id'>;
 ```
 
-Här är ett exempel på utdata för en fråga som körs med resultatuppsättningens cachelagring inaktiverad.
+Här är ett exempel på utdata för en fråga som körs med mellanlagring av resultat uppsättning inaktive rad.
 
-![Frågesteg med-rsc-inaktiverad](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
+![Fråga – steg-med-RSC-inaktive rad](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
 
-Här är ett exempel på utdata för en fråga som körs med resultatuppsättningscacheaktivt.
+Här är ett exempel på utdata för en fråga som körs med cachelagring av resultat uppsättningar aktiverat.
 
-![Frågesteg-med-rsc-aktiverad](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
+![Fråga – steg-för-RSC-aktiverat](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
 
 ## <a name="when-cached-results-are-used"></a>När cachelagrade resultat används
 
-Cachelagrade resultatuppsättning återanvänds för en fråga om alla följande krav är uppfyllda:
+Den cachelagrade resultat uppsättningen återanvänds för en fråga om alla följande krav är uppfyllda:
 
 - Användaren som kör frågan har åtkomst till alla tabeller som refereras i frågan.
-- Det finns en exakt matchning mellan den nya frågan och den föregående frågan som genererade resultatuppsättningscachen.
-- Det finns inga data- eller schemaändringar i tabellerna där den cachelagrade resultatuppsättningen genererades från.
+- Det finns en exakt matchning mellan den nya frågan och den föregående frågan som genererade resultat uppsättningens cacheminne.
+- Det finns inga data eller schema ändringar i tabellerna där den cachelagrade resultat uppsättningen genererades.
 
-Kör det här kommandot för att kontrollera om en fråga har körts med en resultatcacheträff eller miss. Kolumnen result_cache_hit returnerar 1 för cacheträff, 0 för cachemiss och negativa värden av skäl till varför cachelagring av resultatuppsättning inte användes. Mer information finns [i sys.dm_pdw_exec_requests.](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Kör det här kommandot för att kontrol lera om en fråga kördes med en resultat-cacheträffar eller missar. I kolumnen result_cache_hit returneras 1 för cacheträff, 0 för cache-missar och negativa värden av skäl varför cachelagring av resultat uppsättningar inte användes. Mer information finns i [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .
 
 ```sql
 SELECT request_id, command, result_cache_hit FROM sys.dm_pdw_exec_requests
@@ -81,20 +81,20 @@ WHERE request_id = <'Your_Query_Request_ID'>
 
 ## <a name="manage-cached-results"></a>Hantera cachelagrade resultat
 
-Den maximala storleken på resultatuppsättningscachen är 1 TB per databas.  De cachelagrade resultaten ogiltigförklaras automatiskt när de underliggande frågedata ändras.  
+Den maximala storleken för cache för resultat uppsättning är 1 TB per databas.  De cachelagrade resultaten blir automatiskt ogiltiga när den underliggande frågans data ändras.  
 
-Cachevräkningen hanteras automatiskt av SQL Analytics enligt det här schemat:
+Cache-avtagningen hanteras av SQL Analytics enligt följande schema:
 
-- Var 48:e timme om resultatuppsättningen inte har använts eller har ogiltigförklarats.
-- När resultatuppsättningen närmar sig den maximala storleken.
+- Var 48: e timme om resultat uppsättningen inte har använts eller har ogiltig förklarats.
+- När cachen för resultat uppsättningen närmar sig den maximala storleken.
 
-Användare kan tömma hela resultatuppsättningscachen manuellt med något av följande alternativ:
+Användare kan manuellt tömma hela resultat uppsättningens cacheminne genom att använda något av följande alternativ:
 
-- Inaktivera cachefunktionen för resultatuppsättningen för databasen
-- Kör DBCC DROPRESULTSETCACHE när du är ansluten till databasen
+- Inaktivera funktionen för cachelagring av resultat uppsättningar för databasen
+- Kör DBCC DROPRESULTSETCACHE medan du är ansluten till databasen
 
-Om du pausar en databas töms inte cachelagrade resultatuppsättningen.  
+Om du pausar en databas töms inte cachelagrad resultat uppsättning.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fler utvecklingstips finns i [utvecklingsöversikt](sql-data-warehouse-overview-develop.md).
+Mer utvecklings tips finns i [utvecklings översikt](sql-data-warehouse-overview-develop.md).

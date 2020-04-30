@@ -1,6 +1,6 @@
 ---
 title: Optimera din virtuella Linux-dator på Azure
-description: Lär dig några optimeringstips för att se till att du har konfigurerat din Virtuella Linux-dator för optimal prestanda på Azure
+description: Lär dig några optimerings tips för att se till att du har konfigurerat din virtuella Linux-dator för optimala prestanda på Azure
 author: rickstercdn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -9,56 +9,56 @@ ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
 ms.openlocfilehash: 87776c14e45ff4bb3cce6661323d74a1315c8ab2
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81757100"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimera din virtuella Linux-dator på Azure
-Det är enkelt att skapa en virtuell Linux-dator (VM) från kommandoraden eller från portalen. Den här självstudien visar hur du säkerställer att du har konfigurerat den för att optimera prestanda på Microsoft Azure-plattformen. Det här avsnittet använder en virtuell Ubuntu Server-dator, men du kan också skapa virtuella Linux-datorer med [dina egna avbildningar som mallar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
+Det är enkelt att skapa en virtuell Linux-dator (VM) från kommando raden eller från portalen. Den här självstudien visar hur du ser till att du har konfigurerat för att optimera prestandan på Microsoft Azures plattformen. I det här avsnittet används en virtuell Ubuntu-Server, men du kan också skapa en virtuell Linux-dator med [dina egna avbildningar som mallar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## <a name="prerequisites"></a>Krav
-Det här avsnittet förutsätter att du redan har en fungerande Azure-prenumeration ([kostnadsfri utvärderingskorrigering)](https://azure.microsoft.com/pricing/free-trial/)och redan har etablerat en virtuell dator i din Azure-prenumeration. Se till att du har den senaste [Azure CLI](/cli/azure/install-az-cli2) installerat och inloggad på din Azure-prenumeration med [az-inloggning](/cli/azure/reference-index) innan du [skapar en virtuell dator](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Det här avsnittet förutsätter att du redan har en fungerande Azure-prenumeration ([kostnads fri utvärderings version](https://azure.microsoft.com/pricing/free-trial/)) och redan har etablerad en virtuell dator till din Azure-prenumeration. Kontrol lera att du har det senaste [Azure CLI](/cli/azure/install-az-cli2) installerat och inloggat i din Azure-prenumeration med [AZ-inloggning](/cli/azure/reference-index) innan du [skapar en virtuell dator](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Azure OS-disk
-När du har skapat en Virtuell Linux-dator i Azure har den två diskar som är associerade med den. **/dev/sda** är din OS-disk, **/dev/sdb** är din temporära disk.  Använd inte huvud-OS-disken (**/dev/sda**) för något annat än operativsystemet eftersom det är optimerat för snabb vm-starttid och inte ger bra prestanda för dina arbetsbelastningar. Du vill koppla en eller flera diskar till den virtuella datorn för att få beständig och optimerad lagring för dina data. 
+När du har skapat en virtuell Linux-dator i Azure har den två diskar kopplade till sig. **/dev/SDA** är din OS-disk, **/dev/SDB** är den tillfälliga disken.  Använd inte **/dev/SDA**(Main OS disk) för något annat än operativ systemet eftersom det är optimerat för snabb start av virtuell dator och inte ger dig höga prestanda för dina arbets belastningar. Du vill koppla en eller flera diskar till din virtuella dator för att få beständig och optimerad lagring för dina data. 
 
-## <a name="adding-disks-for-size-and-performance-targets"></a>Lägga till diskar för storleks- och prestandamål
-Baserat på den virtuella datorns storlek kan du koppla upp till 16 ytterligare diskar på en A-serie, 32 diskar på en D-serie och 64 diskar på en G-seriemaskin – vardera upp till 32 TB i storlek. Du lägger till extra diskar efter behov enligt ditt space och IOps krav. Varje disk har ett prestandamål på 500 IOps för standardlagring och upp till 20 000 IOps per disk för Premium Storage.
+## <a name="adding-disks-for-size-and-performance-targets"></a>Lägga till diskar för storleks-och prestanda mål
+Baserat på storleken på den virtuella datorn kan du ansluta upp till 16 ytterligare diskar på en A-serien, 32 diskar på en D-serie och 64-diskar på en dator i G-serien – varje upp till 32 TB i storlek. Du lägger till extra diskar efter behov enligt dina krav på ditt space och IOps. Varje disk har ett prestanda mål på 500 IOps för standard lagring och upp till 20 000 IOps per disk för Premium Storage.
 
-För att uppnå de högsta IOps på Premium Storage-diskar där deras cacheinställningar har ställts in på antingen **ReadOnly** eller **Ingen**måste du inaktivera **hinder** när du monterar filsystemet i Linux. Du behöver inga hinder eftersom skrivningarna till Premium Storage-säkerhetskopierade diskar är hållbara för dessa cacheinställningar.
+För att uppnå högsta IOps på Premium Storage diskar där deras cacheinställningar har angetts till antingen **ReadOnly** eller **ingen**, måste du inaktivera **barriärer** när du monterar fil systemet i Linux. Du behöver inte hinder eftersom skrivningarna till Premium Storage de säkerhetskopierade diskarna är varaktiga för dessa cacheinställningar.
 
-* Om du använder **reiserFS**inaktiverar `barrier=none` du hinder med monteringsalternativet (För att aktivera hinder, använd) `barrier=flush`
-* Om du använder **ext3/ext4**inaktiverar `barrier=0` du hinder med monteringsalternativet (För att aktivera hinder, använd `barrier=1`)
-* Om du använder **XFS**inaktiverar `nobarrier` du hinder med monteringsalternativet `barrier`(Använd alternativet )
+* Om du använder **reiserFS**inaktiverar du barriärer med hjälp av `barrier=none` monterings alternativet (för att `barrier=flush`Aktivera hinder, användning)
+* Om du använder **EXT3/Ext4**inaktiverar du barriärer med hjälp av `barrier=0` monterings alternativet (för att `barrier=1`Aktivera hinder, användning)
+* Om du använder **xfs**inaktiverar du barriärer med hjälp av `nobarrier` monterings alternativet (för att aktivera hinder `barrier`använder du alternativet)
 
-## <a name="unmanaged-storage-account-considerations"></a>Överväganden för ohanterat lagringskonto
-Standardåtgärden när du skapar en virtuell dator med Azure CLI är att använda Azure Managed Disks.  Dessa diskar hanteras av Azure-plattformen och kräver inga förberedelser eller platser för att lagra dem.  Ohanterat diskar kräver ett lagringskonto och har några ytterligare prestandaöverväganden.  Mer information om hanterade diskar finns i [Översikt över Azure Managed Disks](../windows/managed-disks-overview.md).  I följande avsnitt beskrivs prestandaöverväganden endast när du använder ohanterade diskar.  Återigen är standard- och rekommenderade lagringslösningen att använda hanterade diskar.
+## <a name="unmanaged-storage-account-considerations"></a>Överväganden vid ohanterat lagrings konto
+Standard åtgärden när du skapar en virtuell dator med Azure CLI är att använda Azure Managed Disks.  Diskarna hanteras av Azure-plattformen och kräver inte någon förberedelse eller plats för att lagra dem.  Ohanterade diskar kräver ett lagrings konto och några ytterligare prestanda överväganden.  Mer information om hanterade diskar finns i [Översikt över Azure Managed Disks](../windows/managed-disks-overview.md).  I följande avsnitt beskrivs prestanda överväganden bara när du använder ohanterade diskar.  Standardvärdet och den rekommenderade lagrings lösningen är att använda hanterade diskar.
 
-Om du skapar en virtuell dator med ohanterat diskar kontrollerar du att du kopplar diskar från lagringskonton som finns i samma region som den virtuella datorn för att säkerställa närhet och minimera nätverksfördröjningen.  Varje standardlagringskonto har högst 20 k IOps och en kapacitet på 500 TB.  Den här gränsen fungerar till cirka 40 hårt använda diskar, inklusive både OS-disken och alla datadiskar som du skapar. För Premium Storage-konton finns det ingen maximal IOps-gräns, men det finns en storleksgräns på 32 TB. 
+Om du skapar en virtuell dator med ohanterade diskar, se till att du kopplar diskar från lagrings konton som finns i samma region som din virtuella dator för att säkerställa nära närhet och minimera nätverks fördröjningen.  Varje standard lagrings konto har högst 20 000 IOps och 500 TB storleks kapacitet.  Den här gränsen fungerar på ungefär 40 mycket använda diskar, inklusive både OS-disken och alla data diskar som du skapar. För Premium Storage-konton finns det ingen maximal IOps-gräns, men det finns en storleks gräns på 32 TB. 
 
-När du hanterar hög IOps-arbetsbelastning och du har valt Standardlagring för dina diskar kan du behöva dela diskarna över flera lagringskonton för att se till att du inte har nått gränsen på 20 000 IOps för standardlagringskonton. Den virtuella datorn kan innehålla en blandning av diskar från olika lagringskonton och lagringskontotyper för att uppnå din optimala konfiguration.
+När du hanterar höga IOps-arbetsbelastningar och du har valt standard lagring för diskarna kan du behöva dela upp diskarna över flera lagrings konton för att se till att du inte har nått 20 000 IOps-gränsen för standard lagrings konton. Din virtuella dator kan innehålla en blandning av diskar från olika lagrings konton och lagrings konto typer för att uppnå den optimala konfigurationen.
  
 
-## <a name="your-vm-temporary-drive"></a>Tillfällig hårddisk för den virtuella datorn
-Som standard när du skapar en virtuell dator, azure ger dig en OS-disk (**/dev/sda**) och en tillfällig disk (**/dev/sdb**).  Alla ytterligare diskar som du lägger till visas som **/dev/sdc**, **/dev/sdd**, **/dev/sde** och så vidare. Alla data på den temporära disken (**/dev/sdb**) är inte hållbara och kan gå förlorade om specifika händelser som storleksändring, omfördelning av virtuella datorer eller underhåll tvingar en omstart av den virtuella datorn.  Storleken och typen på den tillfälliga disken är relaterad till den virtuella datorstorlek som du valde vid distributionen. Alla virtuella premiumstorleks-datorer (DS, G och DS_V2-serien) den tillfälliga enheten backas upp av en lokal SSD för ytterligare prestanda på upp till 48 k IOps. 
+## <a name="your-vm-temporary-drive"></a>VM-temporär enhet
+Som standard när du skapar en virtuell dator ger Azure dig en OS-disk (**/dev/SDA**) och en tillfällig disk (**/dev/SDB**).  Alla ytterligare diskar som du lägger till visas som **/dev/SDC**, **/dev/SDD**, **/dev/SDE** och så vidare. Alla data på din temporära disk (**/dev/SDB**) är inte varaktiga och kan gå förlorade om vissa händelser som storleks ändring av virtuella datorer, omdistribution eller underhåll tvingar fram en omstart av den virtuella datorn.  Den temporära diskens storlek och typ är relaterad till den VM-storlek som du valde vid distributions tillfället. Alla virtuella datorer med Premium storlek (DS, G och DS_V2 serien) den tillfälliga enheten backas upp av en lokal SSD för ytterligare prestanda på upp till 48k IOps. 
 
-## <a name="linux-swap-partition"></a>Linux Swap Partition
-Om din virtuella Azure-dator kommer från en Ubuntu- eller CoreOS-avbildning kan du använda CustomData för att skicka en molnkonfiguration till cloud-init. Om du [har laddat upp en anpassad Linux-avbildning](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) som använder cloud-init konfigurerar du även växlingspartitioner med cloud-init.
+## <a name="linux-swap-partition"></a>Linux-växlings partition
+Om din virtuella Azure-dator är från en Ubuntu-eller Core-avbildning kan du använda CustomData för att skicka en Cloud-config till Cloud-init. Om du har [överfört en anpassad Linux-avbildning](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) som använder Cloud-Init kan du också konfigurera växla partitioner med Cloud-init.
 
-På Ubuntu Cloud Images måste du använda cloud-init för att konfigurera växlingspartitionen. Mer information finns i [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
+I Ubuntu Cloud-avbildningar måste du använda Cloud-Init för att konfigurera växlings partition. Mer information finns i [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
-För avbildningar utan molninitstöd har VM-avbildningar som distribueras från Azure Marketplace en VM Linux-agent integrerad med operativsystemet. Med den här agenten kan den virtuella datorn interagera med olika Azure-tjänster. Förutsatt att du har distribuerat en standardavbildning från Azure Marketplace måste du göra följande för att konfigurera inställningarna för Linux-växlingsfilen på rätt sätt:
+För avbildningar utan stöd för Cloud-Init har VM-avbildningar som distribueras från Azure Marketplace en VM Linux-Agent integrerad med operativ systemet. Den här agenten gör det möjligt för den virtuella datorn att samverka med olika Azure-tjänster. Förutsatt att du har distribuerat en standard avbildning från Azure Marketplace måste du göra följande för att konfigurera inställningarna för Linux-växlings filen på rätt sätt:
 
-Leta upp och ändra två poster i filen **/etc/waagent.conf.** De kontrollerar förekomsten av en särskild växlingsfil och storleken på växlingsfilen. De parametrar du behöver `ResourceDisk.EnableSwap` verifiera är och`ResourceDisk.SwapSizeMB` 
+Leta upp och ändra två poster i **/etc/waagent.conf** -filen. De styr förekomsten av en dedikerad växlings fil och storlek på växlings filen. De parametrar du behöver verifiera är `ResourceDisk.EnableSwap` och`ResourceDisk.SwapSizeMB` 
 
-Om du vill aktivera en korrekt aktiverad disk och monterad växlingsfil kontrollerar du att parametrarna har följande inställningar:
+Om du vill aktivera en korrekt aktive rad disk och monterad växlings fil kontrollerar du att parametrarna har följande inställningar:
 
-* ResourceDisk.EnableSwap=Y
-* ResourceDisk.SwapSizeMB={storlek i MB för att uppfylla dina behov} 
+* ResourceDisk. EnableSwap = Y
+* ResourceDisk. SwapSizeMB = {size i MB för att uppfylla dina behov} 
 
-När du har gjort ändringen måste du starta om waagent eller starta om din Virtuella Linux-dator för att återspegla dessa ändringar.  Du vet att ändringarna har implementerats och en växlingsfil har skapats när du använder `free` kommandot för att visa ledigt utrymme. Följande exempel har en 512 MB växlingsfil som skapats som ett resultat av att ändra **filen waagent.conf:**
+När du har gjort ändringen måste du starta om waagent eller starta om den virtuella Linux-datorn för att avspegla ändringarna.  Du vet att ändringarna har implementerats och att växlings filen har skapats när du använder `free` kommandot för att Visa ledigt utrymme. I följande exempel finns en växlings fil med 512 MB som skapats som ett resultat av en ändring av filen **waagent. conf** :
 
 ```bash
 azuseruser@myVM:~$ free
@@ -68,23 +68,23 @@ Mem:       3525156     804168    2720988        408       8428     633192
 Swap:       524284          0     524284
 ```
 
-## <a name="io-scheduling-algorithm-for-premium-storage"></a>I/O-schemaläggningsalgoritm för Premium Storage
-Med Linux-kärnan på 2.6.18 ändrades standardalgoritmen för I/O-schemaläggning från Deadline till CFQ (Helt rättvis köalgoritm). För I/O-mönster med slumpmässig åtkomst finns det försumbara skillnader i prestandaskillnader mellan CFQ och Deadline.  För SSD-baserade diskar där disk-I/O-mönstret huvudsakligen är sekventiellt kan växla tillbaka till NOOP- eller Deadline-algoritmen uppnå bättre I/O-prestanda.
+## <a name="io-scheduling-algorithm-for-premium-storage"></a>I/O-schemaläggnings algoritm för Premium Storage
+Med 2.6.18 Linux-kärnan ändrades standardalgoritmen för I/O-schemaläggning från tids gränsen till CFQ (helt korrekt kö). För slumpmässiga åtkomst-I/O-mönster är det försumbar skillnad i prestanda skillnader mellan CFQ och tids gräns.  För SSD-baserade diskar där diskens I/O-mönster är sekventiellt sekventiella, kan du få bättre I/O-prestanda om du växlar tillbaka till NOOP eller tids gräns algoritmen.
 
-### <a name="view-the-current-io-scheduler"></a>Visa aktuell I/O-schemaläggare
+### <a name="view-the-current-io-scheduler"></a>Visa den aktuella I/O-Schemaläggaren
 Ange följande kommando:  
 
 ```bash
 cat /sys/block/sda/queue/scheduler
 ```
 
-Du ser följande utdata, vilket indikerar den aktuella schemaläggaren.  
+Du ser följande utdata, som anger den aktuella Schemaläggaren.  
 
 ```bash
 noop [deadline] cfq
 ```
 
-### <a name="change-the-current-device-devsda-of-io-scheduling-algorithm"></a>Ändra den aktuella enheten (/dev/sda) för I/O-schemaläggningsalgoritm
+### <a name="change-the-current-device-devsda-of-io-scheduling-algorithm"></a>Ändra den aktuella enheten (/dev/SDA) för I/O-schemaläggnings algoritmen
 Använd följande kommandon:  
 
 ```bash
@@ -95,9 +95,9 @@ root@myVM:~# update-grub
 ```
 
 > [!NOTE]
-> Det är inte användbart att använda den här inställningen för **/dev/sda.** Ställ in på alla datadiskar där sekventiell I/O dominerar I/O-mönstret.  
+> Det är inte praktiskt att använda den här inställningen för **/dev/SDA** ensamt. Ange på alla data diskar där sekventiella I/O dominerar i/O-mönstret.  
 
-Du bör se följande utdata, vilket anger att **grub.cfg** har byggts om och att standardschemaläggaren har uppdaterats till NOOP.  
+Du bör se följande utdata, vilket indikerar att **grub. cfg** har återskapats och att standard Scheduler har uppdaterats till Noop.  
 
 ```bash
 Generating grub configuration file ...
@@ -110,21 +110,21 @@ Found memtest86+ image: /memtest86+.bin
 done
 ```
 
-För Red Hat-distributionsfamiljen behöver du bara följande kommando:   
+För Red Hat-distributions familjen behöver du bara följande kommando:   
 
 ```bash
 echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
 
-## <a name="using-software-raid-to-achieve-higher-iops"></a>Använda Software RAID för att uppnå högre I/Ops
-Om dina arbetsbelastningar kräver fler IOps än en enda disk kan ge, måste du använda en programvara RAID-konfiguration av flera diskar. Eftersom Azure redan utför diskåtersåtershantering på det lokala infrastrukturlagret uppnår du högsta prestandanivå från en RAID-0-striping-konfiguration.  Etablera och skapa diskar i Azure-miljön och koppla dem till din Virtuella Linux-dator innan du partitionerar, formaterar och monterar enheterna.  Mer information om hur du konfigurerar en programvara RAID-installation på din Linux VM i Azure finns i **[konfigurera Software RAID på Linux-dokument.](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+## <a name="using-software-raid-to-achieve-higher-iops"></a>Använda programvaru-RAID för att uppnå högre I/OPS
+Om dina arbets belastningar kräver mer IOps än en enskild disk kan du behöva använda en RAID-konfiguration på flera diskar. Eftersom Azure redan utför disk återhämtning på det lokala Fabric-lagret, uppnår du den högsta prestanda nivån från en konfiguration för RAID-0-skiktning.  Etablera och skapa diskar i Azure-miljön och koppla dem till din virtuella Linux-dator innan partitionering, formatering och montering av enheterna.  Mer information om hur du konfigurerar en programvaru-RAID-installation på din virtuella Linux-dator i Azure finns i **[Konfigurera programvaru-RAID på Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** -dokument.
 
-Som ett alternativ till en traditionell RAID-konfiguration kan du också välja att installera Logisk volymhanterare (LVM) för att konfigurera ett antal fysiska diskar i en enda randig logisk lagringsvolym. I den här konfigurationen distribueras läsningar och skrivningar till flera diskar i volymgruppen (liknande RAID0). Av prestandaskäl är det troligt att du kommer att vilja randa dina logiska volymer så att läser och skriver använder alla dina bifogade datadiskar.  Mer information om hur du konfigurerar en stripe-logisk volym på din Virtuella Linux-dator i Azure finns i **[Konfigurera LVM på en Virtuell Linux-dator i](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** Azure-dokument.
+Som ett alternativ till en traditionell RAID-konfiguration kan du också välja att installera Logical Volume Manager (LVM) för att konfigurera ett antal fysiska diskar i en enda stripe-volym för logisk lagring. I den här konfigurationen distribueras läsningar och skrivningar till flera diskar som ingår i volym gruppen (liknar RAID0). Av prestanda skäl är det troligt att du vill ta bort dina logiska volymer så att läsningar och skrivningar använder alla dina anslutna data diskar.  Mer information om hur du konfigurerar en striped logisk volym på din virtuella Linux-dator i Azure finns i **[Konfigurera LVM på en virtuell Linux-dator i Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** -dokument.
 
-## <a name="next-steps"></a>Efterföljande moment
-Kom ihåg, som med alla optimeringsdiskussioner, måste du utföra tester före och efter varje ändring för att mäta effekten ändringen har.  Optimering är en steg för steg process som har olika resultat mellan olika datorer i din miljö.  Vad som fungerar för en konfiguration kanske inte fungerar för andra.
+## <a name="next-steps"></a>Nästa steg
+Kom ihåg, precis som med alla optimerings diskussioner, måste du utföra tester före och efter varje ändring för att mäta effekten av ändringen.  Optimering är en steg-för-steg-process som har olika resultat på olika datorer i din miljö.  Det som fungerar för en konfiguration kanske inte fungerar för andra.
 
 Några användbara länkar till ytterligare resurser:
 
 * [Användarguide för Azure Linux-agenten](../extensions/agent-linux.md)
-* [Konfigurera Software RAID på Linux](configure-raid.md)
+* [Konfigurera programvaru-RAID på Linux](configure-raid.md)

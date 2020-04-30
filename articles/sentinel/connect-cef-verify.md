@@ -1,6 +1,6 @@
 ---
-title: Validera anslutning till Azure Sentinel | Microsoft-dokument
-description: Verifiera anslutningen av din säkerhetslösning för att se till att FSE-meddelanden vidarebefordras till Azure Sentinel.
+title: Verifiera anslutningen till Azure Sentinel | Microsoft Docs
+description: Verifiera anslutningen till din säkerhetslösning för att se till att CEF-meddelanden vidarebefordras till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,38 +15,38 @@ ms.workload: na
 ms.date: 04/19/2020
 ms.author: yelevin
 ms.openlocfilehash: 6b91e36ee09aa855c119add2c0eb268cf8b97393
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81731819"
 ---
-# <a name="step-3-validate-connectivity"></a>STEG 3: Validera anslutningen
+# <a name="step-3-validate-connectivity"></a>STEG 3: verifiera anslutningen
 
-När du har distribuerat logg vidarebefordraren (i steg 1) och konfigurerat din säkerhetslösning för att skicka den FSE-meddelanden (i steg 2), följer du dessa instruktioner för att verifiera anslutningen mellan din säkerhetslösning och Azure Sentinel. 
+När du har distribuerat din logg vidarebefordrare (i steg 1) och konfigurerat din säkerhetslösning för att skicka CEF-meddelanden (i steg 2) följer du dessa anvisningar för att kontrol lera anslutningen mellan din säkerhets lösning och Azure Sentinel. 
 
 ## <a name="prerequisites"></a>Krav
 
-- Du måste ha förhöjda behörigheter (sudo) på din logg vidarebefordrare maskin.
+- Du måste ha förhöjd behörighet (sudo) på logg vidarebefordraren.
 
-- Du måste ha Python installerat på logg vidarebefordrarens dator.<br>
-Använd `python –version` kommandot för att kontrollera.
+- Du måste ha python installerat på logg vidarebefordraren.<br>
+Använd `python –version` kommandot för att kontrol lera.
 
-## <a name="how-to-validate-connectivity"></a>Så här validerar du anslutningen
+## <a name="how-to-validate-connectivity"></a>Så här verifierar du anslutningen
 
-1. Öppna Loggar på **navigeringsmenyn i**Azure Sentinel . Kör en fråga med **CommonSecurityLog-schemat** för att se om du tar emot loggar från säkerhetslösningen.<br>
-Tänk på att det kan ta cirka 20 minuter innan loggarna börjar visas i **Log Analytics**. 
+1. Öppna **loggar**på navigerings menyn i Azure Sentinel. Kör en fråga med **CommonSecurityLog** -schemat för att se om du får loggar från säkerhets lösningen.<br>
+Tänk på att det kan ta ungefär 20 minuter tills loggarna börjar visas i **Log Analytics**. 
 
-1. Om du inte ser några resultat från frågan kontrollerar du att händelser genereras från säkerhetslösningen eller försöker generera vissa och verifiera att de vidarebefordras till syslog-vidarebefordrarens dator som du har angett. 
+1. Om du inte ser några resultat från frågan kontrollerar du att händelser genereras från din säkerhetslösning, eller försöker att generera några, och kontrollerar att de vidarebefordras till den syslog forwarder-dator som du har angett. 
 
-1. Kör följande skript på logg vidarebefordraren för att kontrollera anslutningen mellan din säkerhetslösning, logg vidarebefordraren och Azure Sentinel. Det här skriptet kontrollerar att demonen lyssnar på rätt portar, att vidarebefordran är korrekt konfigurerad och att ingenting blockerar kommunikationen mellan demonen och Log Analytics-agenten. Det skickar också falska meddelanden "TestCommonEventFormat" för att kontrollera end-to-end-anslutning. <br>
+1. Kör följande skript på logg vidarebefordraren för att kontrol lera anslutningen mellan säkerhets lösningen, logg vidarebefordraren och Azure Sentinel. Det här skriptet kontrollerar att daemon lyssnar på rätt portar, att vidarebefordran har kon figurer ATS korrekt och att ingenting blockerar kommunikationen mellan daemonen och den Log Analytics agenten. Den skickar även de blå meddelandena "TestCommonEventFormat" för att kontrol lera anslutning från slut punkt till slut punkt. <br>
  `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
 
-## <a name="validation-script-explained"></a>Valideringsskript förklaras
+## <a name="validation-script-explained"></a>Förklaring av validerings skript
 
-Valideringsskriptet utför följande kontroller:
+Verifierings skriptet utför följande kontroller:
 
-# <a name="rsyslog-daemon"></a>[rsyslog demon](#tab/rsyslog)
+# <a name="rsyslog-daemon"></a>[rsyslog daemon](#tab/rsyslog)
 
 1. Kontrollerar att filen<br>
     `/etc/opt/microsoft/omsagent/[WorkspaceID]/conf/omsagent.d/security_events.conf`<br>
@@ -70,25 +70,25 @@ Valideringsskriptet utför följande kontroller:
             type filter_syslog_security
         </filter>
 
-1. Kontrollerar om det finns några säkerhetsförbättringar på datorn som kan blockera nätverkstrafik (till exempel en värdbrandvägg).
+1. Kontrollerar om det finns några säkerhets förbättringar på datorn som kan blockera nätverks trafik (till exempel en värd brand vägg).
 
-1. Kontrollerar att syslog-demonen (rsyslog) är korrekt konfigurerad för att skicka meddelanden som den identifierar som FSE (med hjälp av en regex) till Log Analytics-agenten i TCP-port 25226:
+1. Kontrollerar att syslog-daemonen (rsyslog) är korrekt konfigurerad för att skicka meddelanden som identifieras som CEF (med ett regex) till Log Analytics agent på TCP-port 25226:
 
-    - Konfigurationsfil:`/etc/rsyslog.d/security-config-omsagent.conf`
+    - Konfigurations fil:`/etc/rsyslog.d/security-config-omsagent.conf`
 
             :rawmsg, regex, "CEF\|ASA" ~
             *.* @@127.0.0.1:25226
 
-1. Kontrollerar att syslog-demonen tar emot data om port 514
+1. Kontrollerar att syslog-daemon tar emot data på port 514
 
-1. Kontrollerar att nödvändiga anslutningar har upprättats: tcp 514 för att ta emot data, tcp 25226 för intern kommunikation mellan syslog daemon och Log Analytics-agenten
+1. Kontrollerar att de nödvändiga anslutningarna har upprättats: TCP 514 för att ta emot data, TCP 25226 för intern kommunikation mellan syslog-daemon och Log Analytics agent
 
-1. Skickar MOCK-data till port 514 på localhost. Dessa data bör kunna observeras i Azure Sentinel-arbetsytan genom att köra följande fråga:
+1. Skickar blå data till port 514 på localhost. Dessa data bör vara synliga på Azure Sentinel-arbetsytan genom att köra följande fråga:
 
         CommonSecurityLog
         | where DeviceProduct == "MOCK"
 
-# <a name="syslog-ng-daemon"></a>[syslog-ng demon](#tab/syslogng)
+# <a name="syslog-ng-daemon"></a>[syslog-ng-daemon](#tab/syslogng)
 
 1. Kontrollerar att filen<br>
     `/etc/opt/microsoft/omsagent/[WorkspaceID]/conf/omsagent.d/security_events.conf`<br>
@@ -112,21 +112,21 @@ Valideringsskriptet utför följande kontroller:
             type filter_syslog_security
         </filter>
 
-1. Kontrollerar om det finns några säkerhetsförbättringar på datorn som kan blockera nätverkstrafik (till exempel en värdbrandvägg).
+1. Kontrollerar om det finns några säkerhets förbättringar på datorn som kan blockera nätverks trafik (till exempel en värd brand vägg).
 
-1. Kontrollerar att syslog-demonen (syslog-ng) är korrekt konfigurerad för att skicka meddelanden som den identifierar som FSE (med hjälp av en regex) till Log Analytics-agenten i TCP-port 25226:
+1. Kontrollerar att syslog-demon (syslog-ng) är korrekt konfigurerad för att skicka meddelanden som identifieras som CEF (med ett regex) till Log Analytics agent på TCP-port 25226:
 
-    - Konfigurationsfil:`/etc/syslog-ng/conf.d/security-config-omsagent.conf`
+    - Konfigurations fil:`/etc/syslog-ng/conf.d/security-config-omsagent.conf`
 
             filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
             destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
             log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
 
-1. Kontrollerar att syslog-demonen tar emot data om port 514
+1. Kontrollerar att syslog-daemon tar emot data på port 514
 
-1. Kontrollerar att nödvändiga anslutningar har upprättats: tcp 514 för att ta emot data, tcp 25226 för intern kommunikation mellan syslog daemon och Log Analytics-agenten
+1. Kontrollerar att de nödvändiga anslutningarna har upprättats: TCP 514 för att ta emot data, TCP 25226 för intern kommunikation mellan syslog-daemon och Log Analytics agent
 
-1. Skickar MOCK-data till port 514 på localhost. Dessa data bör kunna observeras i Azure Sentinel-arbetsytan genom att köra följande fråga:
+1. Skickar blå data till port 514 på localhost. Dessa data bör vara synliga på Azure Sentinel-arbetsytan genom att köra följande fråga:
 
         CommonSecurityLog
         | where DeviceProduct == "MOCK"
@@ -135,7 +135,7 @@ Valideringsskriptet utför följande kontroller:
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du ansluter CEF-enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
-- Läs om hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
-- [Använd arbetsböcker](tutorial-monitor-your-data.md) för att övervaka dina data.
+- [Använd arbets böcker](tutorial-monitor-your-data.md) för att övervaka dina data.
 

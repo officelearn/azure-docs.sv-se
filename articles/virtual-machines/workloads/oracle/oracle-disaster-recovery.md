@@ -1,6 +1,6 @@
 ---
-title: Översikt över ett scenario med oracle-haveriberedskap i din Azure-miljö | Microsoft-dokument
-description: Ett katastrofåterställningsscenario för en Oracle Database 12c-databas i din Azure-miljö
+title: Översikt över ett Oracle Disaster Recovery-scenario i Azure-miljön | Microsoft Docs
+description: Ett katastrof återställnings scenario för en Oracle Database 12C-databas i din Azure-miljö
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: BorisB2015
@@ -15,25 +15,25 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
 ms.openlocfilehash: adf4c54d4f43f806ae985f7c1523303cf574b4c1
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687469"
 ---
-# <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Haveriberedskap för en Oracle Database 12c-databas i en Azure-miljö
+# <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Haveri beredskap för en Oracle Database 12C-databas i en Azure-miljö
 
 ## <a name="assumptions"></a>Antaganden
 
-- Du har en förståelse för Oracle Data Guard-design och Azure-miljöer.
+- Du har en förståelse för Oracle data Guard-design och Azure-miljöer.
 
 
 ## <a name="goals"></a>Mål
 - Utforma topologin och konfigurationen som uppfyller dina DR-krav (Disaster Recovery).
 
-## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Scenario 1: Primära och DR-platser på Azure
+## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Scenario 1: primära och DR-platser på Azure
 
-En kund har en Oracle-databas konfigurerad på den primära platsen. En DR-plats finns i en annan region. Kunden använder Oracle Data Guard för snabb återställning mellan dessa platser. Den primära platsen har också en sekundär databas för rapportering och andra användningsområden. 
+En kund har konfigurerat en Oracle-databas på den primära platsen. En DR-plats finns i en annan region. Kunden använder Oracle data Guard för snabb återställning mellan dessa platser. Den primära platsen har också en sekundär databas för rapportering och annan användning. 
 
 ### <a name="topology"></a>Topologi
 
@@ -41,25 +41,25 @@ Här är en sammanfattning av Azure-installationen:
 
 - Två platser (en primär plats och en DR-plats)
 - Två virtuella nätverk
-- Två Oracle-databaser med Data Guard (primär och standby)
-- Två Oracle-databaser med Golden Gate eller Data Guard (endast primär plats)
-- Två programtjänster, en primär och en på DR-platsen
-- En *tillgänglighetsuppsättning* som används för databas- och programtjänst på den primära platsen
-- En jumpbox på varje plats, vilket begränsar åtkomsten till det privata nätverket och endast tillåter inloggning av en administratör
-- En jumpbox, programtjänst, databas och VPN-gateway på separata undernät
-- NSG tillämpas på program och databas undernät
+- Två Oracle-databaser med data Guard (primär och vänte läge)
+- Två Oracle-databaser med gyllene grind eller data skydd (endast primär plats)
+- Två program tjänster, en primär plats och en på DR-platsen
+- En *tillgänglighets uppsättning* som används för databasen och program tjänsten på den primära platsen
+- En hoppsida på varje plats, som begränsar åtkomsten till det privata nätverket och tillåter endast inloggning av en administratör
+- En hopp, program tjänst, databas och VPN-gateway på separata undernät
+- NSG framtvingas på program-och databas under nät
 
-![Skärmbild av dr-topologisidan](./media/oracle-disaster-recovery/oracle_topology_01.png)
+![Skärm bild av sidan DR-topologi](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
-## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Scenario 2: Primär plats lokalt och DR-plats på Azure
+## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Scenario 2: lokal plats för lokal och DR-webbplats på Azure
 
-En kund har en lokal Oracle-databaskonfiguration (primär plats). En DR-plats finns på Azure. Oracle Data Guard används för snabb återställning mellan dessa platser. Den primära platsen har också en sekundär databas för rapportering och andra användningsområden. 
+En kund har en lokal installation av Oracle Database (primär plats). En DR-webbplats finns på Azure. Oracle data Guard används för snabb återställning mellan dessa platser. Den primära platsen har också en sekundär databas för rapportering och annan användning. 
 
-Det finns två metoder för den här inställningen.
+Det finns två metoder för den här installationen.
 
-### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Metod 1: Direkta anslutningar mellan lokala och Azure, vilket kräver öppna TCP-portar i brandväggen 
+### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Metod 1: direkta anslutningar mellan lokala platser och Azure som kräver öppna TCP-portar i brand väggen 
 
-Vi rekommenderar inte direkta anslutningar eftersom de exponerar TCP-portarna för omvärlden.
+Vi rekommenderar inte direkta anslutningar eftersom de exponerar TCP-portarna för världen utanför.
 
 #### <a name="topology"></a>Topologi
 
@@ -67,18 +67,18 @@ Följande är en sammanfattning av Azure-installationen:
 
 - En DR-plats 
 - Ett virtuellt nätverk
-- En Oracle-databas med Data Guard (aktiv)
-- En programtjänst på DR-platsen
-- En jumpbox, som begränsar åtkomsten till det privata nätverket och endast tillåter inloggning av en administratör
-- En jumpbox, programtjänst, databas och VPN-gateway på separata undernät
-- NSG tillämpas på program och databas undernät
-- En NSG-princip/regel som tillåter inkommande TCP-port 1521 (eller en användardefinierad port)
-- En NSG-princip/regel för att begränsa endast IP-adressen/adresserna lokalt (DB eller program) för att komma åt det virtuella nätverket
+- En Oracle-databas med data Guard (aktiv)
+- En program tjänst på DR-platsen
+- En hoppsida som begränsar åtkomsten till det privata nätverket och tillåter endast inloggning av en administratör
+- En hopp, program tjänst, databas och VPN-gateway på separata undernät
+- NSG framtvingas på program-och databas under nät
+- En NSG-princip/-regel som tillåter inkommande TCP-port 1521 (eller en användardefinierad port)
+- En NSG-princip/-regel som begränsar enbart IP-adress/adresser lokalt (databas eller program) för åtkomst till det virtuella nätverket
 
-![Skärmbild av dr-topologisidan](./media/oracle-disaster-recovery/oracle_topology_02.png)
+![Skärm bild av sidan DR-topologi](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
-### <a name="approach-2-site-to-site-vpn"></a>Metod 2: VPN från plats till plats
-Site-to-site VPN är ett bättre tillvägagångssätt. Mer information om hur du konfigurerar ett VPN finns i [Skapa ett virtuellt nätverk med en VPN-anslutning från plats till plats med CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
+### <a name="approach-2-site-to-site-vpn"></a>Metod 2: VPN för plats-till-plats
+VPN för plats-till-plats är ett bättre tillvägagångs sätt. Mer information om hur du konfigurerar en VPN-anslutning finns i [skapa ett virtuellt nätverk med en VPN-anslutning från plats till plats med CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
 
 #### <a name="topology"></a>Topologi
 
@@ -86,24 +86,24 @@ Följande är en sammanfattning av Azure-installationen:
 
 - En DR-plats 
 - Ett virtuellt nätverk 
-- En Oracle-databas med Data Guard (aktiv)
-- En programtjänst på DR-platsen
-- En jumpbox, som begränsar åtkomsten till det privata nätverket och endast tillåter inloggning av en administratör
-- En jumpbox, programtjänst, databas och VPN-gateway finns på separata undernät
-- NSG tillämpas på program och databas undernät
+- En Oracle-databas med data Guard (aktiv)
+- En program tjänst på DR-platsen
+- En hoppsida som begränsar åtkomsten till det privata nätverket och tillåter endast inloggning av en administratör
+- En hopp, program tjänst, databas och VPN-gateway finns i separata undernät
+- NSG framtvingas på program-och databas under nät
 - Plats-till-plats-VPN-anslutning mellan lokalt och Azure
 
-![Skärmbild av dr-topologisidan](./media/oracle-disaster-recovery/oracle_topology_03.png)
+![Skärm bild av sidan DR-topologi](./media/oracle-disaster-recovery/oracle_topology_03.png)
 
 ## <a name="additional-reading"></a>Ytterligare läsning
 
-- [Designa och implementera en Oracle-databas på Azure](oracle-design.md)
+- [Utforma och implementera en Oracle-databas på Azure](oracle-design.md)
 - [Konfigurera Oracle Data Guard](configure-oracle-dataguard.md)
-- [Konfigurera Oracle Golden Gate](configure-oracle-golden-gate.md)
-- [Oracle säkerhetskopiering och återställning](oracle-backup-recovery.md)
+- [Konfigurera den gyllene Oracle-grinden](configure-oracle-golden-gate.md)
+- [Säkerhets kopiering och återställning i Oracle](oracle-backup-recovery.md)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudiekurs: Skapa virtuella datorer med hög tillgång](../../linux/create-cli-complete.md)
+- [Självstudie: skapa virtuella datorer med hög tillgänglighet](../../linux/create-cli-complete.md)
 - [Utforska Azure CLI-exempel för VM-distribution](../../linux/cli-samples.md)

@@ -1,6 +1,6 @@
 ---
 title: Kontinuerlig integrering och leverans i Azure Data Factory
-description: Lär dig hur du använder kontinuerlig integrering och leverans för att flytta Data Factory-pipelines från en miljö (utveckling, test, produktion) till en annan.
+description: Lär dig hur du använder kontinuerlig integrering och leverans för att flytta Data Factory pipelines från en miljö (utveckling, testning, produktion) till en annan.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -12,10 +12,10 @@ manager: jroth
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.openlocfilehash: 6aad01808ad155b745b614d8de6009386f0d2914
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81687967"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
@@ -24,11 +24,11 @@ ms.locfileid: "81687967"
 
 ## <a name="overview"></a>Översikt
 
-Kontinuerlig integrering är praxis att testa varje ändring som görs i din kodbas automatiskt och så tidigt som möjligt.Kontinuerlig leverans följer de tester som sker under kontinuerlig integrering och driver ändringar till ett mellanlagrings- eller produktionssystem.
+Kontinuerlig integrering är en metod för att testa varje ändring av kodbasen automatiskt och så tidigt som möjligt.Kontinuerlig leverans följer testerna som sker under kontinuerlig integrering och skickar ändringar till ett mellanlagrings-eller produktions system.
 
-I Azure Data Factory innebär kontinuerlig integrering och leverans (CI/CD) att datafabrikspipelor flyttas från en miljö (utveckling, test, produktion) till en annan. Du kan använda Data Factory UX-integrering med Azure Resource Manager-mallar för att göra CI/CD.
+I Azure Data Factory innebär kontinuerlig integrering och leverans (CI/CD) flytt av Data Factory pipelines från en miljö (utveckling, testning, produktion) till en annan. Du kan använda Data Factory UX-integrering med Azure Resource Manager mallar för att göra CI/CD.
 
-I Data Factory UX kan du generera en Resource Manager-mall från **listrutan ARM-mall.** När du väljer **Exportera ARM-mall**genererar portalen Resource Manager-mallen för datafabriken och en konfigurationsfil som innehåller alla anslutningssträngar och andra parametrar. Sedan skapar du en konfigurationsfil för varje miljö (utveckling, test, produktion). Mallfilen för huvudresurshanteraren förblir densamma för alla miljöer.
+I Data Factory UX kan du skapa en Resource Manager-mall från den nedrullningsbara menyn **arm-mall** . När du väljer **Exportera arm-mall**genererar portalen Resource Manager-mallen för data fabriken och en konfigurations fil som innehåller alla anslutnings strängar och andra parametrar. Sedan skapar du en konfigurations fil för varje miljö (utveckling, test, produktion). Den huvudsakliga Resource Manager-mallfilen är densamma för alla miljöer.
 
 För en nio minuters introduktion till den här funktionen och en demonstration, titta på den här videon:
 
@@ -38,121 +38,121 @@ För en nio minuters introduktion till den här funktionen och en demonstration,
 
 ## <a name="cicd-lifecycle"></a>CI/CD-livscykel
 
-Nedan följer en exempelöversikt över CI/CD-livscykeln i en Azure-datafabrik som är konfigurerad med Azure Repos Git. Mer information om hur du konfigurerar en Git-databas finns [i Källkontroll i Azure Data Factory](source-control.md).
+Nedan visas ett exempel på en översikt över CI/CD-livscykeln i en Azure-datafabrik som är konfigurerad med Azure databaser git. Mer information om hur du konfigurerar en git-lagringsplats finns i [käll kontroll i Azure Data Factory](source-control.md).
 
-1.  En utvecklingsdatafabrik skapas och konfigureras med Azure Repos Git. Alla utvecklare bör ha behörighet att skapa Data Factory-resurser som pipelines och datauppsättningar.
+1.  En utvecklings data fabrik skapas och konfigureras med Azure databaser git. Alla utvecklare måste ha behörighet att redigera Data Factory resurser som pipelines och data uppsättningar.
 
-1.  När utvecklarna gör ändringar i sina funktionsgrenar felsöker de sina pipeline-körningar med sina senaste ändringar. Mer information om hur du felsöker en pipeline-körning finns i [Iterativ utveckling och felsökning med Azure Data Factory](iterative-development-debugging.md).
+1.  När utvecklare gör ändringar i sina funktions grenar, så att de kan felsöka sina pipeliner med de senaste ändringarna. Mer information om hur du felsöker en pipeline-körning finns i [iterativ utveckling och fel sökning med Azure Data Factory](iterative-development-debugging.md).
 
-1.  När utvecklarna är nöjda med sina ändringar skapar de en pull-begäran från sin funktionsgren till huvud- eller samarbetsgrenen för att få sina ändringar granskade av peer-datorer.
+1.  När utvecklarna är nöjd med sina ändringar, skapar de en pull-begäran från sina funktions grenar till huvud-eller samarbets grenen för att få sina ändringar granskade av peer-datorer.
 
-1.  När en pull-begäran har godkänts och ändringar slås samman i huvudgrenen kan ändringarna publiceras i utvecklingsfabriken.
+1.  När en pull-begäran har godkänts och ändringar slås samman i huvud grenen, kan ändringarna publiceras i utvecklings fabriken.
 
-1.  När teamet är redo att distribuera ändringarna till testfabriken och sedan till produktionsfabriken exporterar teamet resurshanteraren-mallen från huvudgrenen.
+1.  När teamet är redo att distribuera ändringarna till test fabriken och sedan till produktions fabriken, exporterar teamet Resource Manager-mallen från huvud grenen.
 
-1.  Mallen exporterad Resurshanteraren distribueras med olika parameterfiler till testfabriken och produktionsfabriken.
+1.  Den exporterade Resource Manager-mallen distribueras med olika parameterstyrda filer till test fabriken och produktions fabriken.
 
 ## <a name="create-a-resource-manager-template-for-each-environment"></a>Skapa en Resource Manager-mall för varje miljö
 
-1. I listan **ARM-mall** väljer du **Exportera ARM-mall** för att exportera resurshanterarens mall för datafabriken i utvecklingsmiljön.
+1. I listan **arm-mall** väljer du **Exportera arm** -mall för att exportera Resource Manager-mallen för din data fabrik i utvecklings miljön.
 
    ![Exportera en Resource Manager-mall](media/continuous-integration-deployment/continuous-integration-image1.png)
 
-1. I test- och produktionsdatafabrikerna väljer du **Importera ARM-mall**. Den här åtgärden tar dig till Azure-portalen, där du kan importera den exporterade mallen. Välj **Skapa en egen mall i redigeraren** för att öppna Mallredigeraren för Resurshanteraren.
+1. I test-och produktions data fabrikerna väljer du **Importera arm-mall**. Den här åtgärden tar dig till Azure Portal, där du kan importera den exporterade mallen. Välj **skapa en egen mall i redigeraren** för att öppna Principeditorn i Resource Manager.
 
-   ![Skapa din egen mall](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
+   ![Bygg en egen mall](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
-1. Välj **Läs in fil**och välj sedan den genererade Resource Manager-mallen. Det här är **filen arm_template.json** som finns i zip-filen som exporteras i steg 1.
+1. Välj **Läs in fil**och välj sedan den genererade Resource Manager-mallen. Detta är den **arm_template. JSON** -fil som finns i. zip-filen som exporterades i steg 1.
 
    ![Redigera mall](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
-1. I inställningsavsnittet anger du konfigurationsvärdena, till exempel länkade tjänstautentiseringsuppgifter. När du är klar väljer du **Inköp** för att distribuera Resource Manager-mallen.
+1. I avsnittet inställningar anger du konfigurations värden, t. ex. länkade tjänst uppgifter. När du är klar väljer du **köp** för att distribuera Resource Manager-mallen.
 
    ![Avsnittet Inställningar](media/continuous-integration-deployment/continuous-integration-image5.png)
 
 ### <a name="connection-strings"></a>Anslutningssträngar
 
-Information om hur du konfigurerar anslutningssträngar finns i kopplingens artikel. För Azure SQL Database finns till exempel [Kopiera data till eller från Azure SQL Database med hjälp av Azure Data Factory](connector-azure-sql-database.md). Om du vill verifiera en anslutningssträng kan du öppna kodvyn för resursen i Data Factory UX. I kodvyn tas lösenords- eller kontonyckeldelen av anslutningssträngen bort. Om du vill öppna kodvyn markerar du ikonen som är markerad här:
+Information om hur du konfigurerar anslutnings strängar finns i Connector-artikeln. Till exempel, för Azure SQL Database, se [Kopiera data till eller från Azure SQL Database med Azure Data Factory](connector-azure-sql-database.md). Om du vill verifiera en anslutnings sträng kan du öppna vyn kod för resursen i Data Factory UX. I kodvyn tas lösen ordet eller konto nyckel delen av anslutnings strängen bort. Öppna kodvyn genom att välja ikonen som marker ATS här:
 
-![Öppna kodvyn för att se anslutningssträngen](media/continuous-integration-deployment/continuous-integration-codeview.png)
+![Öppna kodvyn för att se anslutnings strängen](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
-## <a name="automate-continuous-integration-by-using-azure-pipelines-releases"></a>Automatisera kontinuerlig integrering med hjälp av Azure Pipelines-versioner
+## <a name="automate-continuous-integration-by-using-azure-pipelines-releases"></a>Automatisera kontinuerlig integrering med hjälp av Azure pipelines-versioner
 
-Nedan följer en guide för att konfigurera en Azure Pipelines-version, som automatiserar distributionen av en datafabrik till flera miljöer.
+Nedan följer en guide för hur du konfigurerar en version av en Azure-pipeline, som automatiserar distributionen av en data fabrik till flera miljöer.
 
-![Diagram över kontinuerlig integrering med Azure Pipelines](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Diagram över kontinuerlig integrering med Azure-pipelines](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Krav
 
--   En Azure-prenumeration som är länkad till Visual Studio Team Foundation Server eller Azure Repos som använder slutpunkten för [Azure Resource Manager-tjänsten](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
+-   En Azure-prenumeration som är länkad till Visual Studio Team Foundation Server eller Azure-databaser som använder [Azure Resource Manager tjänstens slut punkt](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
 
--   En datafabrik som konfigurerats med Azure Repos Git-integrering.
+-   En data fabrik som kon figurer ATS med Azure databaser git-integrering.
 
--   Ett [Azure-nyckelvalv](https://azure.microsoft.com/services/key-vault/) som innehåller hemligheterna för varje miljö.
+-   Ett [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) som innehåller hemligheterna för varje miljö.
 
-### <a name="set-up-an-azure-pipelines-release"></a>Konfigurera en Azure Pipelines-version
+### <a name="set-up-an-azure-pipelines-release"></a>Konfigurera en version av Azure pipelines
 
-1.  Öppna projektet som konfigureras med datafabriken i [Azure DevOps.](https://dev.azure.com/)
+1.  Öppna det projekt som har kon figurer ATS med din data fabrik i [Azure-DevOps](https://dev.azure.com/).
 
-1.  Till vänster på sidan väljer du **Pipelines**och väljer sedan **Releases**.
+1.  Välj **pipelines**på vänster sida av sidan och välj sedan **versioner**.
 
-    ![Välj pipelines, versioner](media/continuous-integration-deployment/continuous-integration-image6.png)
+    ![Välj pipeliner, versioner](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-1.  Välj **Ny pipeline**eller, om du har befintliga pipelines, välj **Ny** och sedan **Ny versionspipeline**.
+1.  Välj **ny pipeline**eller, om du har befintliga pipeliner, väljer du **ny** och sedan **ny versions pipeline**.
 
-1.  Välj mallen **Tomt jobb.**
+1.  Välj den **tomma jobb** mal len.
 
-    ![Välj Tomt jobb](media/continuous-integration-deployment/continuous-integration-image13.png)
+    ![Välj tomt jobb](media/continuous-integration-deployment/continuous-integration-image13.png)
 
-1.  Ange namnet på miljön i rutan **Scennamn.**
+1.  I rutan **scen namn** anger du namnet på din miljö.
 
-1.  Välj **Lägg till artefakt**och välj sedan den databas som konfigurerats med datafabriken. Välj **adf_publish** för **standardgrenen**. För **standardversionen**väljer du **Senaste från standardgrenen**.
+1.  Välj **Lägg till artefakt**och välj sedan den databas som kon figurer ATS med din data fabrik. Välj **adf_publish** för **standard grenen**. Välj **senaste från standard gren**för **standard versionen**.
 
     ![Lägg till en artefakt](media/continuous-integration-deployment/continuous-integration-image7.png)
 
-1.  Lägga till en distributionsaktivitet för Azure Resource Manager:
+1.  Lägg till en Azure Resource Manager distributions uppgift:
 
-    a.  Välj **Visa fasaktiviteter**i scenvyn .
+    a.  I vyn fas väljer du **Visa fas aktiviteter**.
 
-    ![Scenvy](media/continuous-integration-deployment/continuous-integration-image14.png)
+    ![Vyn fas](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Skapa en ny uppgift. Sök efter **Azure Resource Group Deployment**och välj sedan Lägg **till**.
+    b.  Skapa en ny uppgift. Sök efter **Azure Resource Group-distribution**och välj sedan **Lägg till**.
 
-    c.  I distributionsaktiviteten väljer du prenumeration, resursgrupp och plats för måldatafabriken. Ange autentiseringsuppgifter om det behövs.
+    c.  I distributions aktiviteten väljer du prenumeration, resurs grupp och plats för mål data fabriken. Ange autentiseringsuppgifter om det behövs.
 
-    d.  Välj Skapa eller **uppdatera resursgrupp** **i** åtgärdslistan .
+    d.  I listan **åtgärd** väljer du **skapa eller uppdatera resurs grupp**.
 
-    e.  Välj ellipsknappen (**...**) bredvid rutan **Mall.** Bläddra efter azure Resource Manager-mallen som du har skapat med hjälp av **Importera ARM-mall** i [mallen Skapa en Resurshanteraren för varje miljöavsnitt](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment) i den här artikeln. Leta efter den <FactoryName> här filen i mappen för adf_publish grenen.
+    e.  Välj knappen med tre punkter (**...**) bredvid rutan **mall** . Bläddra till Azure Resource Manager mall som du skapade med hjälp av **Importera arm-mall** i avsnittet [skapa en Resource Manager-mall för varje miljö](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment) i den här artikeln. Leta efter den här filen i <FactoryName> mappen i adf_publish grenen.
 
-    f.  Välj **...** bredvid rutan **Mallparametrar** för att välja parameterfilen. Vilken fil du väljer beror på om du har skapat en kopia eller använder standardfilen ARMTemplateParametersForFactory.json.
+    f.  Välj **...** bredvid rutan **mallparametrar** för att välja parameter filen. Vilken fil du väljer beror på om du har skapat en kopia eller använder standard filen ARMTemplateParametersForFactory. JSON.
 
-    g.  Välj **...** bredvid rutan **Åsidosätt mallparametrar** och ange informationen för måldatafabriken. För autentiseringsuppgifter som kommer från Azure Key Vault anger du hemlighetens namn mellan dubbla citattecken. Om hemlighetens namn till exempel är cred1 anger du **"$(cred1)"** för det här värdet.
+    g.  Välj **...** bredvid rutan **Åsidosätt mallparametrar** och ange informationen för mål data fabriken. För autentiseringsuppgifter som kommer från Azure Key Vault anger du hemlighetens namn mellan dubbla citat tecken. Om t. ex. hemlighetens namn är cred1 anger du **"$ (cred1)"** för det här värdet.
 
-    h. Välj **Inkrementellt** för **distributionsläget**.
+    h. Välj **stegvis** för **distributions läget**.
 
     > [!WARNING]
-    > Om du väljer **Slutför** för **distributionsläget**kan befintliga resurser tas bort, inklusive alla resurser i målresursgruppen som inte har definierats i resource manager-mallen.
+    > Om du väljer **Slutför** för **distributions läget**kan befintliga resurser tas bort, inklusive alla resurser i mål resurs gruppen som inte har definierats i Resource Manager-mallen.
 
-    ![Distribution av datafabriksprod](media/continuous-integration-deployment/continuous-integration-image9.png)
+    ![Data Factory Prod. distribution](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-1.  Spara releasepipelinen.
+1.  Spara versions pipelinen.
 
 1. Om du vill utlösa en version väljer du **Skapa version**.
 
    ![Välj Skapa version](media/continuous-integration-deployment/continuous-integration-image10.png)
 
 > [!IMPORTANT]
-> I CI/CD-scenarier måste iR-typen (Integration runtime) i olika miljöer vara densamma. Om du till exempel har en självvärd i utvecklingsmiljön måste samma IR också vara av typen självvärd i andra miljöer, till exempel test och produktion. Om du delar integrationskörningar i flera steg måste du konfigurera integrationskörningarna som länkade självvärderade i alla miljöer, till exempel utveckling, test och produktion.
+> I CI/CD-scenarier måste integrerings körnings typen (IR) i olika miljöer vara densamma. Om du till exempel har en lokal IR-anslutning i utvecklings miljön, måste samma IR också vara av typen egen värd i andra miljöer, till exempel test och produktion. Om du däremot delar integrerings körningar över flera steg, måste du konfigurera integration runtime som länkad egen värd i alla miljöer, till exempel utveckling, testning och produktion.
 
-### <a name="get-secrets-from-azure-key-vault"></a>Få hemligheter från Azure Key Vault
+### <a name="get-secrets-from-azure-key-vault"></a>Hämta hemligheter från Azure Key Vault
 
-Om du har hemligheter att skicka i en Azure Resource Manager-mall rekommenderar vi att du använder Azure Key Vault med Azure Pipelines-versionen.
+Om du har hemligheter som ska skickas i en Azure Resource Manager-mall rekommenderar vi att du använder Azure Key Vault med Azure pipelines-versionen.
 
 Det finns två sätt att hantera hemligheter:
 
-1.  Lägg till hemligheterna i parameterfilen. Mer information finns i [Använda Azure Key Vault för att skicka säkert parametervärde under distributionen](../azure-resource-manager/templates/key-vault-parameter.md).
+1.  Lägg till filen hemligheter till Parameters. Mer information finns i [använda Azure Key Vault för att skicka ett säkert parameter värde under distributionen](../azure-resource-manager/templates/key-vault-parameter.md).
 
-    Skapa en kopia av parameterfilen som överförs till publiceringsgrenen. Ange värden för de parametrar som du vill hämta från Key Vault med det här formatet:
+    Skapa en kopia av parameter filen som överförs till publicerings grenen. Ange värdena för de parametrar som du vill hämta från Key Vault med det här formatet:
 
     ```json
     {
@@ -169,31 +169,31 @@ Det finns två sätt att hantera hemligheter:
     }
     ```
 
-    När du använder den här metoden hämtas hemligheten automatiskt från nyckelvalvet.
+    När du använder den här metoden hämtas hemligheten automatiskt från nyckel valvet.
 
-    Parameterfilen måste också finnas i publiceringsgrenen.
+    Parameter filen måste också finnas i publicerings grenen.
 
-1. Lägg till en [Azure Key Vault-aktivitet](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) före distributionsaktiviteten för Azure Resource Manager som beskrivs i föregående avsnitt:
+1. Lägg till en [Azure Key Vault aktivitet](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) före Azure Resource Manager distributions aktivitet som beskrivs i föregående avsnitt:
 
-    1.  Skapa en ny uppgift på fliken **Uppgifter.** Sök efter **Azure Key Vault** och lägg till det.
+    1.  På fliken **aktiviteter** skapar du en ny uppgift. Sök efter **Azure Key Vault** och Lägg till det.
 
-    1.  I key vault-uppgiften väljer du den prenumeration där du skapade nyckelvalvet. Ange autentiseringsuppgifter om det behövs och välj sedan nyckelvalvet.
+    1.  I Key Vault aktiviteten väljer du den prenumeration där du skapade nyckel valvet. Ange autentiseringsuppgifter om det behövs och välj sedan nyckel valvet.
 
-    ![Lägga till en key vault-uppgift](media/continuous-integration-deployment/continuous-integration-image8.png)
+    ![Lägg till en Key Vault uppgift](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-#### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Bevilja behörigheter till Azure Pipelines-agenten
+#### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Bevilja behörighet till Azure pipelines-agenten
 
-Azure Key Vault-aktiviteten kan misslyckas med ett åtkomst nekat fel om rätt behörigheter inte har angetts. Hämta loggarna för versionen och leta reda på PS1-filen som innehåller kommandot för att ge behörighet till Azure Pipelines-agenten. Du kan köra kommandot direkt. Du kan också kopiera huvud-ID:t från filen och lägga till åtkomstprincipen manuellt i Azure-portalen. `Get`och `List` är de minsta behörigheter som krävs.
+Azure Key Vault aktiviteten kan Miss Miss kan ett fel meddelande om nekad åtkomst om rätt behörigheter inte har angetts. Hämta loggarna för versionen och leta upp den. ps1-fil som innehåller kommandot för att ge behörighet till Azure pipelines-agenten. Du kan köra kommandot direkt. Du kan också kopiera ägar-ID: t från filen och lägga till åtkomst principen manuellt i Azure Portal. `Get`och `List` är de lägsta behörigheter som krävs.
 
 ### <a name="update-active-triggers"></a>Uppdatera aktiva utlösare
 
-Distributionen kan misslyckas om du försöker uppdatera aktiva utlösare. Om du vill uppdatera aktiva utlösare måste du stoppa dem manuellt och sedan starta om dem efter distributionen. Du kan göra detta med hjälp av en Azure PowerShell-uppgift:
+Distributionen kan inte utföras om du försöker uppdatera aktiva utlösare. Om du vill uppdatera aktiva utlösare måste du stoppa dem manuellt och sedan starta om dem efter distributionen. Du kan göra detta med hjälp av en Azure PowerShell uppgift:
 
-1.  Lägg till en **Azure PowerShell-uppgift** på fliken **Uppgifter** i versionen. Välj uppgiftsversion 4.*. 
+1.  Lägg till en **Azure PowerShell** aktivitet på fliken **aktiviteter** i versionen. Välj aktivitet version 4. *. 
 
-1.  Välj den prenumeration som fabriken är i.
+1.  Välj den prenumeration som din fabrik är i.
 
-1.  Välj **Script File Path** som skripttyp. Detta kräver att du sparar PowerShell-skriptet i databasen. Följande PowerShell-skript kan användas för att stoppa utlösare:
+1.  Välj **skript fil Sök väg** som skript typ. Detta kräver att du sparar ditt PowerShell-skript i din lagrings plats. Följande PowerShell-skript kan användas för att stoppa utlösare:
 
     ```powershell
     $triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
@@ -201,24 +201,24 @@ Distributionen kan misslyckas om du försöker uppdatera aktiva utlösare. Om du
     $triggersADF | ForEach-Object { Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
-Du kan slutföra liknande `Start-AzDataFactoryV2Trigger` steg (med funktionen) för att starta om utlösarna efter distributionen.
+Du kan slutföra liknande steg (med `Start-AzDataFactoryV2Trigger` funktionen) för att starta om utlösarna efter distributionen.
 
-### <a name="sample-pre--and-post-deployment-script"></a>Exempel på skript före och efter distribution
+### <a name="sample-pre--and-post-deployment-script"></a>Exempel skript för för-och efter distribution
 
-Följande exempelskript kan användas för att stoppa utlösare innan distributionen och starta om dem efteråt. Skriptet innehåller också kod för att ta bort resurser som har tagits bort. Spara skriptet i en Azure DevOps git-databas och referera till det via en Azure PowerShell-uppgift med version 4.*.
+Följande exempel skript kan användas för att stoppa utlösare före distribution och starta om dem efteråt. Skriptet innehåller också kod för att ta bort resurser som har tagits bort. Spara skriptet i en Azure DevOps git-lagringsplats och referera till den via en Azure PowerShell aktivitet som använder version 4. *.
 
-När du kör ett skript före distribution måste du ange en variant av följande parametrar i fältet **Skriptargument.**
+När du kör ett skript för för distribution måste du ange en variant av följande parametrar i fältet **skript argument** .
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $true -deleteDeployment $false`
 
 
-När du kör ett skript efter distributionen måste du ange en variant av följande parametrar i fältet **Skriptargument.**
+När du kör ett skript efter distribution måste du ange en variant av följande parametrar i fältet **skript argument** .
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 
-![Azure PowerShell-uppgift](media/continuous-integration-deployment/continuous-integration-image11.png)
+![Azure PowerShell aktivitet](media/continuous-integration-deployment/continuous-integration-image11.png)
 
-Här är skriptet som kan användas för före och efter distributionen. Den står för borttagna resurser och resursreferenser.
+Här är det skript som kan användas för för-och-distribution. IT-konton för borttagna resurser och resurs referenser.
 
 ```powershell
 param
@@ -484,35 +484,35 @@ else {
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Använda anpassade parametrar med Resource Manager-mallen
 
-Om du är i GIT-läge kan du åsidosätta standardegenskaperna i Resurshanterarens mall för att ange egenskaper som är parameteriserade i mallen och egenskaper som är hårdkodade. Du kanske vill åsidosätta standardparametimeringsmallen i följande scenarier:
+Om du är i GIT-läge kan du åsidosätta standard egenskaperna i Resource Manager-mallen för att ange egenskaper som är parameterstyrda i mallen och de egenskaper som är hårdkodade. Du kanske vill åsidosätta standard mal len för parameterisering i följande scenarier:
 
-* Du använder automatisk CI/CD och vill ändra vissa egenskaper under Resurshanterarens distribution, men egenskaperna är inte parameteriserade som standard.
-* Fabriken är så stor att standardmallen För Resurshanteraren är ogiltig eftersom den har fler än de högsta tillåtna parametrarna (256).
+* Du använder automatiserad CI/CD och du vill ändra vissa egenskaper under distributionen av Resource Manager, men egenskaperna är inte parameterstyrda som standard.
+* Fabriken är så stor att Resource Manager-standardmallen är ogiltig eftersom den har fler än det högsta tillåtna antalet parametrar (256).
 
-Under dessa förhållanden, för att åsidosätta standardparameteriseringsmallen, skapa en fil med namnet **arm-template-parameters-definition.json** i mappen som anges som rotmapp för datafabrikens git-integrering. Du måste använda det exakta filnamnet. Data Factory läser den här filen från vilken gren du för närvarande befinner dig i Azure Data Factory-portalen, inte bara från samarbetsgrenen. Du kan skapa eller redigera filen från en privat gren, där du kan testa ändringarna genom att välja **Exportera ARM-mall** i användargränssnittet. Du kan sedan sammanfoga filen till samarbetsgrenen. Om ingen fil hittas används standardmallen.
+Om du under dessa omständigheter vill åsidosätta standard mal len Parameterisering skapar du en fil med namnet **arm-Template-Parameters-definition. JSON** i mappen som anges som rotmapp för git-integreringen för Data Factory. Du måste använda det exakta fil namnet. Data Factory läser filen från den gren som du är närvarande på i Azure Data Factory portalen, inte bara från samarbets grenen. Du kan skapa eller redigera filen från en privat gren, där du kan testa dina ändringar genom att välja **Exportera arm-mall** i användar gränssnittet. Sedan kan du slå samman filen till samarbets grenen. Om ingen fil hittas används standard mal len.
 
 > [!NOTE]
-> En anpassad parameteriseringsmall ändrar inte arm-mallparametergränsen på 256. Det låter dig välja och minska antalet parameteriserade egenskaper.
+> En anpassad Parameterisering-mall ändrar inte gränsen för ARM-mallparameter på 256. Du kan välja och minska antalet parameter egenskaper.
 
-### <a name="syntax-of-a-custom-parameters-file"></a>Syntax för en anpassad parameterfil
+### <a name="syntax-of-a-custom-parameters-file"></a>Syntax för en anpassad parameter fil
 
-Följande är några riktlinjer att följa när du skapar den anpassade parameterfilen. Filen består av ett avsnitt för varje entitetstyp: utlösare, pipeline, länkad tjänst, datauppsättning, integrationskörning och så vidare.
-* Ange egenskapssökvägen under relevant entitetstyp.
-* Ange ett egenskapsnamn så att `*` det anges att du vill parameterisera alla egenskaper under det (bara ner till den första nivån, inte rekursivt). Du kan också ange undantag från den här konfigurationen.
-* Om du anger värdet för en egenskap som en sträng betyder det att du vill parametriera egenskapen. Använd formatet `<action>:<name>:<stype>`.
-   *  `<action>` kan vara ett av följande tecken:
-      * `=` innebär att behålla det aktuella värdet som standardvärde för parametern.
-      * `-` betyder att inte behålla standardvärdet för parametern.
-      * `|` är ett specialfall för hemligheter från Azure Key Vault för anslutningssträngar eller nycklar.
-   * `<name>` är namnet på parametern. Om den är tom får den namnet på egenskapen. Om värdet börjar `-` med ett tecken förkortas namnet. Till exempel `AzureStorage1_properties_typeProperties_connectionString` skulle förkortas `AzureStorage1_connectionString`till .
-   * `<stype>` är typen av parameter. Om `<stype>` är tom är `string`standardtypen . Värden som `string` `bool`stöds: `object`, `securestring`, `number`, och .
-* Om du anger en matris i definitionsfilen betyder det att den matchande egenskapen i mallen är en matris. Data Factory itererar igenom alla objekt i matrisen med hjälp av den definition som anges i matrisens integrationskörningsobjekt. Det andra objektet, en sträng, blir namnet på egenskapen, som används som namn för parametern för varje iteration.
-* En definition kan inte vara specifik för en resursinstans. Alla definitioner gäller för alla resurser av den typen.
-* Som standard parametriiseras alla säkra strängar, till exempel Key Vault-hemligheter, och säkra strängar, till exempel anslutningssträngar, nycklar och token.
+Nedan följer några rikt linjer som du följer när du skapar filen med anpassade parametrar. Filen består av ett avsnitt för varje entitetstyp: utlösare, pipeline, länkad tjänst, data uppsättning, integration Runtime och så vidare.
+* Ange sökvägen till egenskapen under den relevanta entitetstypen.
+* Om du anger ett egenskaps namn för `*` att ange att du vill Parameterisera alla egenskaper under den (enbart till den första nivån, inte rekursivt). Du kan också ange undantag för den här konfigurationen.
+* Att ange värdet för en egenskap som en sträng anger att du vill Parameterisera egenskapen. Använd formatet `<action>:<name>:<stype>`.
+   *  `<action>` kan vara något av följande tecken:
+      * `=` betyder att det aktuella värdet ska vara standardvärdet för parametern.
+      * `-` innebär att inte behålla standardvärdet för parametern.
+      * `|` är ett specialfall för hemligheter från Azure Key Vault för anslutnings strängar eller nycklar.
+   * `<name>` är namnet på parametern. Om det är tomt tar det med namnet på egenskapen. Om värdet börjar med ett `-` Character förkortas namnet. Till exempel `AzureStorage1_properties_typeProperties_connectionString` skulle kortas till `AzureStorage1_connectionString`.
+   * `<stype>` är typen av parameter. Om `<stype>` är tomt är `string`standard typen. Värden som stöds `string`: `bool`, `number` `object`,, och `securestring`.
+* Att ange en matris i definitions filen anger att den matchande egenskapen i mallen är en matris. Data Factory itererar igenom alla objekt i matrisen med hjälp av definitionen som anges i integration runtime-objektet i matrisen. Det andra objektet, en sträng, blir namnet på egenskapen, som används som namn för parametern för varje iteration.
+* En definition kan inte vara unik för en resurs instans. Alla definitioner gäller för alla resurser av den typen.
+* Som standard är alla säkra strängar, som Key Vault hemligheter och säkra strängar, som anslutnings strängar, nycklar och tokens, parameterstyrda.
  
-### <a name="sample-parameterization-template"></a>Exempel på parameteriseringsmall
+### <a name="sample-parameterization-template"></a>Exempel på Parameterisering-mall
 
-Här är ett exempel på hur en parameteriseringsmall kan se ut:
+Här är ett exempel på hur en Parameterisering-mall kan se ut så här:
 
 ```json
 {
@@ -573,35 +573,35 @@ Här är ett exempel på hur en parameteriseringsmall kan se ut:
     }
 }
 ```
-Här är en förklaring av hur den föregående mallen är konstruerad, uppdelad efter resurstyp.
+Här är en förklaring av hur föregående mall skapas, uppdelat efter resurs typ.
 
 #### <a name="pipelines"></a>Pipelines
     
-* Alla egenskaper i `activities/typeProperties/waitTimeInSeconds` sökvägen är parameteriserade. Alla aktiviteter i en pipeline som har `waitTimeInSeconds` en egenskap `Wait` på kodnivå med namnet (till exempel aktiviteten) parameteriseras som ett tal med ett standardnamn. Men det har inget standardvärde i mallen Resurshanteraren. Det blir en obligatorisk indata under Resurshanteraren-distributionen.
-* På samma sätt `headers` parametrieras en `Web` egenskap som anropas `object` (till exempel i en aktivitet) med typen (JObject). Den har ett standardvärde, vilket är samma värde som källfabriken.
+* Alla egenskaper i sökvägen `activities/typeProperties/waitTimeInSeconds` är parameterstyrda. Alla aktiviteter i en pipeline som har en kod nivå egenskap med namnet `waitTimeInSeconds` (till exempel `Wait` aktiviteten) är parameterstyrda som ett tal med ett standard namn. Men det finns inget standardvärde i Resource Manager-mallen. Det är en obligatorisk Indatatyp under distributionen av Resource Manager.
+* På samma sätt är en egenskap `headers` som kallas (t. ex `Web` . i en aktivitet) parameterstyrda med `object` typen (JObject). Det har ett standardvärde, vilket är samma värde som käll fabriken.
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-* Alla egenskaper under `typeProperties` sökvägen parametriseras med sina respektive standardvärden. Det finns till exempel `IntegrationRuntimes` två egenskaper `computeProperties` `ssisProperties`under typegenskaper: och . Båda egenskapstyperna skapas med sina respektive standardvärden och standardtyper (Objekt).
+* Alla egenskaper under sökvägen `typeProperties` är parameterstyrda med respektive standardvärden. Det finns till exempel två egenskaper under `IntegrationRuntimes` typ egenskaper: `computeProperties` och. `ssisProperties` Båda egenskaps typerna skapas med deras respektive standardvärden och typer (objekt).
 
 #### <a name="triggers"></a>Utlösare
 
-* Under `typeProperties`parametrin är två egenskaper parameteriserade. Den första `maxConcurrency`är , som har angetts ha ett`string`standardvärde och är av typen . Den har standardparameternamnet `<entityName>_properties_typeProperties_maxConcurrency`.
-* Egenskapen `recurrence` är också parameteriserad. Under den anges alla egenskaper på den nivån som parameteriserades som strängar, med standardvärden och parameternamn. Ett undantag `interval` är egenskapen, som `number`är parameteriserad som typ . Parameternamnet är suffixed `<entityName>_properties_typeProperties_recurrence_triggerSuffix`med . På samma `freq` sätt är egenskapen en sträng och är parameteriserad som en sträng. Egenskapen `freq` är dock parameteriserad utan standardvärde. Namnet förkortas och suffixeras. Till exempel `<entityName>_freq`.
+* Under `typeProperties`, har två egenskaper parametriserade. Det första är `maxConcurrency`, som har angetts att ha ett standardvärde och är av typen`string`. Den har standard parameter namnet `<entityName>_properties_typeProperties_maxConcurrency`.
+* `recurrence` Egenskapen är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är `interval` egenskapen, som är parameterstyrda som typ `number`. Parameter namnet har suffix `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. På samma sätt är `freq` egenskapen en sträng och är parameterstyrda som en sträng. `freq` Egenskapen är dock parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Till exempel `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
-* Länkade tjänster är unika. Eftersom länkade tjänster och datauppsättningar har ett brett spektrum av typer kan du tillhandahålla typspecifik anpassning. I det här exemplet används `AzureDataLakeStore`en specifik mall för alla länkade tjänster av typen. För alla andra `*`(via), en annan mall kommer att tillämpas.
-* Egenskapen `connectionString` kommer att parameteriseras som ett `securestring` värde. Det kommer inte att ha ett standardvärde. Det kommer att ha en förkortad parameter namn `connectionString`som är suffixed med .
-* Fastigheten `secretAccessKey` råkar vara `AzureKeyVaultSecret` en (till exempel i en Amazon S3 länkad tjänst). Den är automatiskt parameteriserad som en Azure Key Vault hemlighet och hämtas från den konfigurerade nyckel valv. Du kan också parametriera själva nyckelvalvet.
+* Länkade tjänster är unika. Eftersom länkade tjänster och data uppsättningar har en mängd olika typer, kan du ange en typ bestämd anpassning. I det här exemplet används en speciell mall för alla `AzureDataLakeStore`länkade tjänster av typen. En annan mall används för `*`alla andra (via).
+* `connectionString` Egenskapen är parameterstyrda som ett `securestring` värde. Det har inget standardvärde. Det kommer att ha ett förkortat parameter namn med `connectionString`suffix.
+* Egenskapen `secretAccessKey` inträffar som en `AzureKeyVaultSecret` (till exempel i en länkad Amazon S3-tjänst). Den är automatiskt parameterstyrda som en Azure Key Vault hemlighet och hämtas från det konfigurerade nyckel valvet. Du kan också Parameterisera själva nyckel valvet.
 
 #### <a name="datasets"></a>Datauppsättningar
 
-* Även om typspecifik anpassning är tillgänglig för datauppsättningar kan \*du tillhandahålla konfiguration utan att uttryckligen ha en konfiguration på -nivå. I föregående exempel parametrieras alla `typeProperties` datauppsättningsegenskaper under.
+* Även om typ specifik anpassning är tillgänglig för data uppsättningar kan du ange konfiguration utan att uttryckligen ha en \*-nivå-konfiguration. I föregående exempel är alla data uppsättnings egenskaper `typeProperties` under parameterstyrda.
 
-### <a name="default-parameterization-template"></a>Standardparametimeringsmall
+### <a name="default-parameterization-template"></a>Standard Parameterisering-mall
 
-Följande är den aktuella standardparametriiseringsmallen. Om du bara behöver lägga till några parametrar kan det vara en bra idé att redigera mallen direkt eftersom du inte förlorar den befintliga parameterstrukturn.
+Följande är den aktuella standard Parameterisering-mallen. Om du bara behöver lägga till några få parametrar kan det vara en bra idé att redigera mallen direkt eftersom du inte förlorar den befintliga Parameterisering-strukturen.
 
 ```json
 {
@@ -711,7 +711,7 @@ Följande är den aktuella standardparametriiseringsmallen. Om du bara behöver 
 }
 ```
 
-I följande exempel visas hur du lägger till ett enda värde i standardparametimeringsmallen. Vi vill bara lägga till ett befintligt Azure Databricks interaktivt kluster-ID för en Databricks-länkad tjänst till parameterfilen. Observera att den här filen är samma som `existingClusterId` den föregående filen `Microsoft.DataFactory/factories/linkedServices`förutom tillägg av under egenskapsfältet i .
+I följande exempel visas hur du lägger till ett enda värde i standard mal len Parameterisering. Vi vill bara lägga till ett befintligt Azure Databricks interaktiva kluster-ID: t för en länkad Databricks-tjänst till parameter filen. Observera att filen är samma som föregående fil, förutom att du kan lägga till `existingClusterId` under fältet egenskaper i. `Microsoft.DataFactory/factories/linkedServices`
 
 ```json
 {
@@ -822,64 +822,64 @@ I följande exempel visas hur du lägger till ett enda värde i standardparameti
 }
 ```
 
-## <a name="linked-resource-manager-templates"></a>Mallar för länkade resurshanteraren
+## <a name="linked-resource-manager-templates"></a>Länkade Resource Manager-mallar
 
-Om du har konfigurerat CI/CD för dina datafabriker kan du överskrida mallgränserna för Azure Resource Manager när din fabrik blir större. En gräns är till exempel det maximala antalet resurser i en Resource Manager-mall. För att rymma stora fabriker samtidigt som den fullständiga Resource Manager-mallen för en fabrik genereras, data factory, nu länkade Resource Manager-mallar. Med den här funktionen är hela fabriksnyttolasten uppdelad i flera filer så att du inte begränsas av gränserna.
+Om du har konfigurerat CI/CD för dina data fabriker kan du överskrida gränserna för Azure Resource Manager mal len när fabriken växer större. Till exempel är en gräns det maximala antalet resurser i en Resource Manager-mall. För att kunna hantera stora fabriker samtidigt som du skapar en fullständig Resource Manager-mall för en fabrik, skapar Data Factory nu länkade Resource Manager-mallar. Med den här funktionen delas hela fabriks nytto lasten upp i flera filer så att du inte begränsas av gränserna.
 
-Om du har konfigurerat Git genereras och sparas de länkade mallarna tillsammans med de fullständiga Resource Manager-mallarna i adf_publish grenen i en ny mapp som kallas linkedTemplates:
+Om du har konfigurerat git skapas och sparas de länkade mallarna tillsammans med de fullständiga Resource Manager-mallarna i adf_publish grenen i en ny mapp med namnet linkedTemplates:
 
-![Mapp med länkade resurshanteraren-mallar](media/continuous-integration-deployment/linked-resource-manager-templates.png)
+![Mapp för länkade Resource Manager-mallar](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 
-Mallarna för länkade Resurshanteraren består vanligtvis av en huvudmall och en uppsättning underordnade mallar som är länkade till bakgrunden. Den överordnade mallen kallas ArmTemplate_master.json och underordnade mallar namnges med mönstret ArmTemplate_0.json, ArmTemplate_1.json och så vidare. 
+De länkade Resource Manager-mallarna består vanligt vis av en huvud mal len och en uppsättning underordnade mallar som är länkade till huvud servern. Den överordnade mallen kallas ArmTemplate_master. JSON och underordnade mallar får namnet med mönstret ArmTemplate_0. JSON, ArmTemplate_1. JSON och så vidare. 
 
-Om du vill använda länkade mallar i stället för den fullständiga Resource Manager-mallen uppdaterar du CI/CD-aktiviteten så att den pekar på ArmTemplate_master.json i stället för ArmTemplateForFactory.json (den fullständiga Resource Manager-mallen). Resource Manager kräver också att du laddar upp länkade mallar till ett lagringskonto så att Azure kan komma åt dem under distributionen. Mer information finns i [Distribuera länkade Resource Manager-mallar med VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+Om du vill använda länkade mallar i stället för den fullständiga Resource Manager-mallen uppdaterar du CI/CD-aktiviteten så att den pekar på ArmTemplate_master. json i stället för ArmTemplateForFactory. JSON (fullständig Resource Manager-mall). Resource Manager kräver också att du överför de länkade mallarna till ett lagrings konto så att Azure kan komma åt dem under distributionen. Mer information finns i [distribuera länkade Resource Manager-mallar med VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
 
-Kom ihåg att lägga till Data Factory-skripten i CI/CD-pipelinen före och efter distributionsuppgiften.
+Kom ihåg att lägga till Data Factory skript i CI/CD-pipeline innan och efter distributions aktiviteten.
 
-Om du inte har konfigurerat Git kan du komma åt de länkade mallarna via **Export ARM-mallen** i **ARM-malllistan.**
+Om du inte har git konfigurerat kan du komma åt de länkade mallarna via **export arm-mallen** i listan **arm-mall** .
 
-## <a name="hotfix-production-branch"></a>Produktionsgren för snabbkorrigering
+## <a name="hotfix-production-branch"></a>Produktions gren för snabb korrigeringar
 
-Om du distribuerar en fabrik till produktion och inser att det finns ett fel som måste åtgärdas direkt, men du inte kan distribuera den aktuella samarbetsgrenen, kan du behöva distribuera en snabbkorrigering. Den här metoden kallas quick-fix engineering eller QFE.
+Om du distribuerar en fabrik till produktion och inser att det finns en bugg som måste åtgärdas direkt, men du inte kan distribuera den aktuella samarbets grenen, kan du behöva distribuera en snabb korrigering. Den här metoden kallas snabb korrigerings teknik eller QFE.
 
-1.    Gå till versionen som distribuerades till produktion i Azure DevOps. Hitta det senaste åtagandet som har distribuerats.
+1.    I Azure DevOps går du till den version som distribuerades till produktionen. Hitta den senaste incheckning som har distribuerats.
 
-2.    Från meddelandet commit får du commit-ID:et för samarbetsgrenen.
+2.    Hämta genomförande-ID: t för samarbets grenen från bekräftelse meddelandet.
 
-3.    Skapa en ny snabbkorrigeringsgren från den commit.
+3.    Skapa en ny gren för snabb korrigeringar från det genomförandet.
 
-4.    Gå till Azure Data Factory UX och växla till snabbkorrigeringsgrenen.
+4.    Gå till Azure Data Factory UX och växla till snabb korrigerings grenen.
 
-5.    Lös felet genom att använda Azure Data Factory UX. Testa dina ändringar.
+5.    Åtgärda felet genom att använda Azure Data Factory UX. Testa dina ändringar.
 
-6.    När korrigeringen har verifierats väljer du **Exportera ARM-mall** för att hämta snabbkorrigeringsresurshanterarens mall.
+6.    När korrigeringen har verifierats väljer du **Exportera arm-mall** för att hämta mallen för snabb korrigeringar för Resource Manager.
 
-7.    Kontrollera den här versionen manuellt i adf_publish grenen.
+7.    Kontrol lera den här versionen manuellt i adf_publish grenen.
 
-8.    Om du har konfigurerat versionspipelinen för att automatiskt utlösa baserat på adf_publish incheckningar startar en ny version automatiskt. Annars köar du manuellt en version.
+8.    Om du har konfigurerat din versions pipeline så att den automatiskt utlöses baserat på adf_publish incheckningar startar en ny version automatiskt. Annars måste du köa en version manuellt.
 
-9.    Distribuera snabbkorrigeringsversionen till test- och produktionsfabrikerna. Den här versionen innehåller den tidigare produktionsnyttolasten plus den korrigering som du gjorde i steg 5.
+9.    Distribuera snabb korrigerings versionen till test-och produktions fabrikerna. Den här versionen innehåller föregående produktions nytto Last plus den korrigering som du gjorde i steg 5.
 
-10.    Lägg till ändringarna från snabbkorrigeringen i utvecklingsgrenen så att senare versioner inte innehåller samma fel.
+10.    Lägg till ändringarna från snabb korrigeringen till utvecklings grenen så att senare versioner inte tar med samma fel.
 
-## <a name="best-practices-for-cicd"></a>Metodtips för CI/CD
+## <a name="best-practices-for-cicd"></a>Metod tips för CI/CD
 
-Om du använder Git-integrering med din datafabrik och har en CI/CD-pipeline som flyttar dina ändringar från utveckling till test och sedan till produktion rekommenderar vi följande metodtips:
+Om du använder git-integrering med din data fabrik och har en CI/CD-pipeline som flyttar dina ändringar från utveckling till test och sedan till produktion, rekommenderar vi följande metod tips:
 
--   **Git integration**. Du behöver bara konfigurera din utvecklingsdatafabrik med Git-integrering. Ändringar i test och produktion distribueras via CI/CD och behöver inte Git-integrering.
+-   **Git-integrering**. Du behöver bara konfigurera din utvecklings data fabrik med git-integrering. Ändringar av test och produktion distribueras via CI/CD och kräver inte git-integrering.
 
--   **Ci/CD-skript för datafabrik.** Innan resurshanterarens distributionssteg i CI/CD måste du slutföra vissa uppgifter, till exempel stoppa och starta om utlösare och utföra rensning. Vi rekommenderar att du använder PowerShell-skript före och efter distributionen. Mer information finns i [Uppdatera aktiva utlösare](#update-active-triggers).
+-   **Data Factory CI/CD-skript**. Innan du utför distributions steget i Resource Manager i CI/CD måste du slutföra vissa åtgärder, t. ex. stoppa och starta om utlösare och rensning. Vi rekommenderar att du använder PowerShell-skript före och efter distributionen. Mer information finns i [Uppdatera aktiva utlösare](#update-active-triggers).
 
--   **Integrationskörningar och delning**. Integrationskörningtider ändras inte ofta och är likartade i alla steg i DIN CI/CD. Så Data Factory förväntar sig att du har samma namn och typ av integration runtime i alla stadier av CI / CD. Om du vill dela integrationskörningar i alla steg bör du överväga att använda en ternära fabrik bara för att innehålla de delade integrationskörningarna. Du kan använda den här delade fabriken i alla miljöer som en länkad integrationskörningstyp.
+-   **Integrerings körningar och delning**. Integrerings körningar ändras inte ofta och liknar varandra i alla steg i CI/CD. Så Data Factory förväntar dig att du har samma namn och typ av integration runtime i alla stadier av CI/CD. Om du vill dela integrerings körningar i alla faser bör du överväga att använda en ternär fabrik som bara innehåller de delade integrerings körningarna. Du kan använda den här delade fabriken i alla dina miljöer som en länkad integration runtime-typ.
 
--   **Nyckelvalvet**. När du använder länkade tjänster baserat på Azure Key Vault kan du dra nytta av dem ytterligare genom att hålla separata nyckelvalv för olika miljöer. Du kan också konfigurera separata behörighetsnivåer för varje nyckelvalv. Du kanske till exempel inte vill att gruppmedlemmarna ska ha behörighet till produktionshemligheter. Om du följer den här metoden rekommenderar vi att du behåller samma hemliga namn i alla steg. Om du behåller samma namn behöver du inte ändra Resource Manager-mallarna i CI/CD-miljöer eftersom det enda som ändras är nyckelvalvets namn, som är en av Resource Manager-mallparametrarna.
+-   **Key Vault**. När du använder länkade tjänster baserat på Azure Key Vault kan du dra nytta av dem ytterligare genom att hålla separata nyckel valv för olika miljöer. Du kan också konfigurera separata behörighets nivåer för varje nyckel valv. Till exempel kanske du inte vill att dina team medlemmar ska ha behörighet till produktions hemligheter. Om du följer den här metoden rekommenderar vi att du behåller samma hemliga namn i alla steg. Om du behåller samma namn behöver du inte ändra dina Resource Manager-mallar i CI/CD-miljöer eftersom det enda som ändras är nyckel valvets namn, vilket är en av parametrarna för Resource Manager-mallen.
 
 ## <a name="unsupported-features"></a>Funktioner som inte stöds
 
-- Data Factory tillåter inte att resurser plockas russinen eller selektiv publicering av resurser. Publiceringar kommer att innehålla alla ändringar som gjorts i datafabriken.
+- Enligt design tillåter Data Factory inte körsbär-plockning av incheckningar eller selektiv publicering av resurser. Publiceringar tar med alla ändringar som gjorts i data fabriken.
 
-    - Data fabrik entiteter beror på varandra. Utlösare beror till exempel på pipelines och pipelines är beroende av datauppsättningar och andra pipelines. Selektiv publicering av en delmängd av resurser kan leda till oväntade beteenden och fel.
-    - I sällsynta fall när du behöver selektiv publicering bör du överväga att använda en snabbkorrigering. Mer information finns i [Produktionsgren för snabbkorrigering](#hotfix-production-branch).
+    - Data Factory-entiteter är beroende av varandra. Utlösare är exempelvis beroende av pipeliner och pipeliner beror på data uppsättningar och andra pipeliner. Selektiv publicering av en del av resurser kan leda till oväntade beteenden och fel.
+    - Vid sällsynta tillfällen när du behöver selektiv publicering bör du överväga att använda en snabb korrigering. Mer information finns i avsnittet om [snabb korrigeringar för produktions gren](#hotfix-production-branch).
 
 -   Du kan inte publicera från privata grenar.
 

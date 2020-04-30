@@ -1,6 +1,6 @@
 ---
-title: Anslut IoT DevKit AZ3166 till en Azure IoT-hubb
-description: I den här självstudien kan du lära dig hur du konfigurerar och ansluter IoT DevKit AZ3166 till Azure IoT Hub så att den kan skicka data till Azure-molnplattformen.
+title: Ansluta IoT DevKit-AZ3166 till en Azure-IoT Hub
+description: I den här självstudien får du lära dig att konfigurera och ansluta IoT DevKit-AZ3166 till Azure IoT Hub så att den kan skicka data till Azures moln plattform.
 author: wesmc7777
 ms.service: iot-hub
 services: iot-hub
@@ -10,59 +10,59 @@ ms.date: 06/25/2019
 ms.author: wesmc
 ms.custom: mqtt
 ms.openlocfilehash: 1c6af4f44cd16405d1ef12ae909085220b0d072d
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733584"
 ---
-# <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Anslut IoT DevKit AZ3166 till Azure IoT Hub
+# <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ansluta IoT DevKit-AZ3166 till Azure IoT Hub
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-Du kan använda [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) för att utveckla och prototypen av Sakernas Internet (IoT) lösningar som utnyttjar Microsoft Azure-tjänster. Den innehåller en Arduino-kompatibel styrelse med omfattande kringutrustning och sensorer, en öppen källkod ombord paket och ett rikt [prov galleri](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/).
+Du kan använda [MXChip IoT-DevKit](https://microsoft.github.io/azure-iot-developer-kit/) för att utveckla och prototyp lösningar för Sakernas Internet (IoT) som drar nytta av Microsoft Azure-tjänster. Den innehåller en Arduino-kompatibel tavla med omfattande kring utrustning och sensorer, ett paket med öppen källkod och ett omfattande [exempel Galleri](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/).
 
 ## <a name="what-you-learn"></a>Detta får du får lära dig
 
-* Så här skapar du en IoT-hubb och registrerar en enhet för MXChip IoT DevKit.
-* Så här ansluter du IoT DevKit till Wi-Fi och konfigurerar anslutningssträngen för IoT Hub.
-* Så här skickar du telemetridata för DevKit-sensorn till din IoT-hubb.
-* Hur man förbereder utvecklingsmiljön och utvecklar applikation för IoT DevKit.
+* Så här skapar du en IoT-hubb och registrerar en enhet för MXChip IoT-DevKit.
+* Så här ansluter du IoT-DevKit till Wi-Fi och konfigurerar anslutnings strängen för IoT Hub.
+* Så här skickar du DevKit-sensorns telemetridata till IoT Hub.
+* Förbereda utvecklings miljön och utveckla program för IoT-DevKit.
 
-Har du ingen DevKit än? Prova [DevKit-simulatorn](https://azure-samples.github.io/iot-devkit-web-simulator/) eller [köp en DevKit](https://aka.ms/iot-devkit-purchase).
+Har du inte någon DevKit än? Prova [DevKit-simulatorn](https://azure-samples.github.io/iot-devkit-web-simulator/) eller [Köp en DevKit](https://aka.ms/iot-devkit-purchase).
 
-Du hittar källkoden för alla DevKit tutorials från [kodexempel galleri](https://docs.microsoft.com/samples/browse/?term=mxchip).
+Du hittar käll koden för alla DevKit-självstudier från [galleriet kod exempel](https://docs.microsoft.com/samples/browse/?term=mxchip).
 
 ## <a name="what-you-need"></a>Vad du behöver
 
-* En MXChip IoT DevKit styrelse med en Micro-USB-kabel. [Ta den nu.](https://aka.ms/iot-devkit-purchase)
-* En dator med Windows 10, macOS 10.10+ eller Ubuntu 18.04+.
-* En aktiv Azure-prenumeration. [Aktivera ett kostnadsfritt 30-dagars testversionskonto för Microsoft Azure](https://azureinfo.microsoft.com/us-freetrial.html).
+* Ett MXChip IoT DevKit-kort med en mikrousb-kabel. [Hämta nu](https://aka.ms/iot-devkit-purchase).
+* En dator som kör Windows 10, macOS 10.10 + eller Ubuntu 18.04 +.
+* En aktiv Azure-prenumeration. [Aktivera ett kostnads fritt 30-dagars utvärderings Microsoft Azure konto](https://azureinfo.microsoft.com/us-freetrial.html).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
   
-## <a name="prepare-your-hardware"></a>Förbered maskinvaran
+## <a name="prepare-your-hardware"></a>Förbered maskin varan
 
-Anslut följande maskinvara till datorn:
+Koppla samman följande maskin vara till datorn:
 
-* DevKit styrelse
-* Mikro-USB-kabel
+* DevKit-tavlan
+* Mikrousb-kabel
 
-![Nödvändig maskinvara](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/hardware.jpg)
+![Nödvändig maskin vara](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/hardware.jpg)
 
-Så här ansluter du DevKit till datorn:
+Följ dessa steg om du vill ansluta DevKit till datorn:
 
 1. Anslut USB-änden till datorn.
 
-2. Anslut Micro-USB-änden till DevKit.
+2. Anslut Micro-USB-slutet till DevKit.
 
-3. Den gröna lysdioden för ström bekräftar anslutningen.
+3. Den gröna INDIKATORn för ström bekräftar anslutningen.
 
-   ![Maskinvaruanslutningar](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connect.jpg)
+   ![Maskin varu anslutningar](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connect.jpg)
 
-## <a name="quickstart-send-telemetry-from-devkit-to-an-iot-hub"></a>Snabbstart: Skicka telemetri från DevKit till en IoT-hubb
+## <a name="quickstart-send-telemetry-from-devkit-to-an-iot-hub"></a>Snabb start: skicka telemetri från DevKit till en IoT Hub
 
-Snabbstarten använder förkompilerad DevKit firmware för att skicka telemetrin till IoT Hub. Innan du kör den skapar du en IoT-hubb och registrerar en enhet med navet.
+Snabb starten använder förkompilerad DevKit-programvara för att skicka telemetri till IoT Hub. Innan du kör det skapar du en IoT-hubb och registrerar en enhet med hubben.
 
 ### <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -72,19 +72,19 @@ Snabbstarten använder förkompilerad DevKit firmware för att skicka telemetrin
 
 En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den här snabbstarten använder du Azure Cloud Shell till att registrera en simulerad enhet.
 
-1. Kör följande kommando i Azure Cloud Shell för att skapa enhetsidentiteten.
+1. Kör följande kommando i Azure Cloud Shell för att skapa enhets identiteten.
 
    **YourIoTHubName** : Ersätt platshållaren nedan med det namn du väljer för din IoT-hubb.
 
-   **MyNodeDevice**: Namnet på enheten du registrerar. Använd **MyNodeDevice** såsom det visas. Om du väljer ett annat namn för enheten behöver du använda det namnet i hela artikeln och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
+   **MyNodeDevice**: namnet på enheten som du registrerar. Använd **MyNodeDevice** såsom det visas. Om du väljer ett annat namn för enheten behöver du använda det namnet i hela artikeln och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
 
    > [!NOTE]
-   > Om du får `device-identity`ett fel som körs installerar du [Azure IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md).
-   > Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI i din Cloud Shell-instans. IoT-tillägget lägger till kommandon som är specifika för IoT Hub, IoT Edge och IoT Device Provisioning Service (DPS) i Azure CLI.
+   > Om du får ett fel som `device-identity`kör installerar du [Azure IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md).
+   > Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IoT-tillägget lägger till kommandon som är speciella för IoT Hub, IoT Edge och IoT Device Provisioning-tjänsten (DPS) till Azure CLI.
    > 
    > ```azurecli-interactive
    > az extension add --name azure-iot
@@ -107,49 +107,49 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 ### <a name="send-devkit-telemetry"></a>Skicka DevKit-telemetri
 
-DevKit ansluter till en enhetsspecifik slutpunkt på din IoT-hubb och skickar telemetri för temperatur och luftfuktighet.
+DevKit ansluter till en enhetsspecifika slut punkt på din IoT-hubb och skickar in temperatur-och fuktighets telemetri.
 
-1. Ladda ner den senaste versionen av [GetStarted firmware](https://aka.ms/devkit/prod/getstarted/latest) för IoT DevKit.
+1. Ladda ned den senaste versionen av [GetStarted firmware](https://aka.ms/devkit/prod/getstarted/latest) för IoT DevKit.
 
-1. Kontrollera att IoT DevKit ansluter till datorn via USB. Öppna Utforskaren finns det en USB-masslagringsenhet som heter **AZ3166**.
+1. Se till att IoT DevKit ansluter till din dator via USB. Öppna Utforskaren det finns en USB-enhet för Mass lagring som heter **AZ3166**.
 
     ![Öppna Utforskaren](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/az3166-usb.png)
 
-1. Dra och släpp firmware bara laddas ner till masslagring enheten och det kommer att blinka automatiskt.
+1. Dra och släpp den inbyggda program varan som bara laddats ned till Mass lagrings enheten och den kommer att blinka automatiskt.
 
-    ![Kopiera inbyggd programvara](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/copy-firmware.png)
+    ![Kopiera inbyggd program vara](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/copy-firmware.png)
 
-1. På DevKit håller du ned knapp **B,** trycker och släpper **återställningsknappen** och släpper sedan knappen **B**. DevKit går in i AP-läge. För att bekräfta visar skärmen tjänstuppsättningsidentifieraren (SSID) för DevKit och konfigurationsportalens IP-adress.
+1. På DevKit, håller du ned knapp **B**, push och släpper knappen **Återställ** och släpper sedan knappen **b**. Din DevKit går in i AP-läge. För att bekräfta, visar skärmen tjänst uppsättnings identifieraren (SSID) för DevKit och IP-adressen för konfigurations portalen.
 
-    ![Knappen Återställ, knapp B och SSID](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/wifi-ap.jpg)
+    ![Återställ knapp, knapp B och SSID](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/wifi-ap.jpg)
 
-    ![Ställ in AP-läge](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/set-ap-mode.gif)
+    ![Ange AP-läge](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/set-ap-mode.gif)
 
-1. Använd en webbläsare på en annan Wi-Fi-aktiverad enhet (dator eller mobiltelefon) för att ansluta till IoT DevKit SSID som visas i föregående steg. Om den ber om ett lösenord lämnar du det tomt.
+1. Använd en webbläsare på en annan Wi-Fi-aktiverad enhet (dator eller mobil telefon) för att ansluta till IoT DevKit SSID som visas i föregående steg. Lämna det tomt om det frågar efter ett lösen ord.
 
     ![Anslut SSID](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/connect-ssid.png)
 
-1. Öppna **192.168.0.1** i webbläsaren. Välj det Wi-Fi som du vill att IoT DevKit ska ansluta till, skriv Wi-Fi-lösenordet och klistra sedan in enhetsanslutningssträngen som du har noterat tidigare. Klicka sedan på spara.
+1. Öppna **192.168.0.1** i webbläsaren. Välj det Wi-Fi-nätverk som du vill att IoT-DevKit ska ansluta till, ange Wi-Fi-lösenordet och klistra sedan in enhets anslutnings strängen som du antecknade tidigare. Klicka sedan på spara.
 
-    ![Konfigurationsgränssnitt](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/configuration-ui.png)
-
-    > [!NOTE]
-    > IoT DevKit stöder endast 2,4 GHz-nätverk. Kolla [faq](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#wi-fi-configuration) för mer information.
-
-1. WiFi-information och enhetsanslutningssträng lagras i IoT DevKit när du ser resultatsidan.
-
-    ![Konfigurationsresultat](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/configuration-ui-result.png)
+    ![Konfigurations gränssnitt](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/configuration-ui.png)
 
     > [!NOTE]
-    > När Wi-Fi har konfigurerats finns dina autentiseringsuppgifter kvar på enheten för den anslutningen, även om enheten är frånkopplad.
+    > IoT-DevKit har bara stöd för 2,4 GHz-nätverk. Mer information finns i [vanliga frågor och svar](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#wi-fi-configuration) .
 
-1. IoT DevKit startar om några sekunder. På DevKit-skärmen ser du IP-adressen för DevKit följer av telemetridata, inklusive temperatur- och fuktighetsvärde med meddelandeantal som skickas till Azure IoT Hub.
+1. Anslutnings strängen för WiFi-information och-enhet kommer att lagras i IoT-DevKit när du ser resultat sidan.
+
+    ![Konfigurations resultat](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/configuration-ui-result.png)
+
+    > [!NOTE]
+    > När Wi-Fi har kon figurer ATS behålls dina autentiseringsuppgifter på enheten för anslutningen, även om enheten är frånkopplad.
+
+1. IoT-DevKit omstartar om några sekunder. På DevKit-skärmen ser du IP-adressen för DevKit som följer efter telemetridata, inklusive temperatur-och fuktighets värde med antal meddelanden som skickas till Azure IoT Hub.
 
     ![WiFi IP](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/wifi-ip.jpg)
 
-    ![Skicka data](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/sending-data.jpg)
+    ![Skickar data](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/sending-data.jpg)
 
-1. Om du vill verifiera telemetridata som skickas till Azure kör du följande kommando i Azure Cloud Shell:
+1. För att verifiera telemetri-data som skickas till Azure kör du följande kommando i Azure Cloud Shell:
 
     ```azurecli
     az iot hub monitor-events --hub-name YourIoTHubName --output table
@@ -157,33 +157,33 @@ DevKit ansluter till en enhetsspecifik slutpunkt på din IoT-hubb och skickar te
 
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön
 
-Följ dessa steg för att förbereda utvecklingsmiljön för DevKit:
+Följ de här stegen för att förbereda utvecklings miljön för DevKit:
 
-### <a name="install-visual-studio-code-with-azure-iot-tools-extension-package"></a>Installera Visual Studio-kod med azure IoT Tools-tilläggspaket
+### <a name="install-visual-studio-code-with-azure-iot-tools-extension-package"></a>Installera Visual Studio Code med Azure IoT tools-tilläggs paketet
 
-1. Installera [Arduino IDE](https://www.arduino.cc/en/Main/Software). Det ger den nödvändiga verktygskedjan för att sammanställa och ladda upp Arduino-kod.
-    * **Windows**: Använd Windows Installer-versionen. Installera inte från App Store.
-    * **macOS**: Dra och släpp den extraherade `/Applications` **Arduino.app** i mappen.
-    * **Ubuntu**: Packa upp den i mappen såsom`$HOME/Downloads/arduino-1.8.8`
+1. Installera [ARDUINO IDE](https://www.arduino.cc/en/Main/Software). Det ger den nödvändiga verktygskedjan för att kompilera och ladda upp Arduino-kod.
+    * **Windows**: Använd Windows Installer version. Installera inte från App Store.
+    * **MacOS**: Dra och släpp den extraherade **Arduino. app** i `/Applications` mappen.
+    * **Ubuntu**: zippa upp den till en mapp som`$HOME/Downloads/arduino-1.8.8`
 
-2. Installera [Visual Studio Code](https://code.visualstudio.com/), en plattformsoberoende källkodsredigerare med kraftfull intellisense, kodkomplettering och felsökning stöd samt rika tillägg kan installeras från marketplace.
+2. Installera [Visual Studio Code](https://code.visualstudio.com/), en plattforms kods redigerare mellan plattformar med kraftfulla IntelliSense, kod komplettering och fel söknings support, samt omfattande tillägg kan installeras från Marketplace.
 
-3. Starta VS Code, leta efter **Arduino** i förlängningen marknadsplats och installera den. Denna förlängning ger förbättrade upplevelser för utveckling på Arduino plattform.
+3. Starta VS Code, Sök efter **Arduino** i tillägg Marketplace och installera det. Det här tillägget ger förbättrade upplevelser för att utveckla på Arduino-plattformen.
 
     ![Installera Arduino](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-arduino.png)
 
-4. Leta efter [Azure IoT Tools](https://aka.ms/azure-iot-tools) på tilläggsmarknadsplatsen och installera det.
+4. Leta efter [Azure IoT-verktyg](https://aka.ms/azure-iot-tools) på Marketplace för tillägg och installera det.
 
     ![Installera Azure IoT-verktyg](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
 
-    Eller kopiera och klistra in webbadressen i ett webbläsarfönster:`vscode:extension/vsciot-vscode.azure-iot-tools`
+    Eller kopiera och klistra in URL: en i ett webbläsarfönster:`vscode:extension/vsciot-vscode.azure-iot-tools`
 
     > [!NOTE]
-    > Azure IoT Tools-tilläggspaketet innehåller [Azure IoT Device Workbench](https://aka.ms/iot-workbench) som används för att utveckla och felsöka på olika IoT-devkit-enheter. [Azure IoT Hub-tillägget](https://aka.ms/iot-toolkit), som också ingår i Azure IoT Tools-tilläggspaketet, används för att hantera och interagera med Azure IoT Hubs.
+    > Tillägget Azure IoT-verktyg innehåller [Azure IoT Device Workbench](https://aka.ms/iot-workbench) som används för att utveckla och felsöka på olika IoT devkit-enheter. [Azure IoT Hub-tillägget](https://aka.ms/iot-toolkit), som också ingår i tillägget Azure IoT tools, används för att hantera och interagera med Azure IoT-hubbar.
 
-5. Konfigurera VS-kod med Arduino-inställningar.
+5. Konfigurera VS Code med Arduino-inställningar.
 
-    I Visual Studio-kod klickar du på **Inställningar för fil > > inställningar** (på macOS, Kod > inställningar > **Inställningar**). Klicka sedan på ikonen **Öppna inställningar (JSON)** i det övre högra hörnet på sidan *Inställningar.*
+    I Visual Studio Code klickar du på **fil > inställningar > inställningar** (på MacOS, **kod > inställningar > inställningar**). Klicka sedan på ikonen **Öppna inställningar (JSON)** i det övre högra hörnet på sidan *Inställningar* .
 
     ![Installera Azure IoT-verktyg](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/user-settings-arduino.png)
 
@@ -205,24 +205,24 @@ Följ dessa steg för att förbereda utvecklingsmiljön för DevKit:
 
     * **Ubuntu**:
 
-        Ersätt **platshållaren {användarnamn}** nedan med ditt användarnamn.
+        Byt ut plats hållaren **{username}** nedan med ditt användar namn.
 
         ```json
         "arduino.path": "/home/{username}/Downloads/arduino-1.8.8",
         "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
         ```
 
-6. Klicka `F1` här om du vill öppna kommandopaletten skriver du och väljer **Arduino: Board Manager**. Sök efter **AZ3166** och installera den senaste versionen.
+6. Klicka `F1` för att öppna paletten kommando, skriv och välj **Arduino: Board Manager**. Sök efter **AZ3166** och installera den senaste versionen.
 
     ![Installera DevKit SDK](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-az3166-sdk.png)
 
 ### <a name="install-st-link-drivers"></a>Installera ST-Link-drivrutiner
 
-[ST-Link/V2](https://www.st.com/en/development-tools/st-link-v2.html) är DET USB-gränssnitt som IoT DevKit använder för att kommunicera med din utvecklingsmaskin. Du måste installera den på Windows för att blinka den kompilerade enhetskoden till DevKit. Följ de OS-specifika stegen för att ge datorn åtkomst till enheten.
+[St-Link/v2](https://www.st.com/en/development-tools/st-link-v2.html) är det USB-gränssnitt som IoT DevKit använder för att kommunicera med din utvecklings dator. Du måste installera den i Windows för att kunna blinka den kompilerade enhets koden i DevKit. Följ de OS-/regionsspecifika stegen för att ge datorn åtkomst till enheten.
 
-* **Windows**: Ladda ner och installera USB-drivrutin från [STMicroelectronics hemsida](https://www.st.com/en/development-tools/stsw-link009.html).
-* **macOS**: Ingen drivrutin krävs för macOS.
-* **Ubuntu**: Kör kommandona i terminalen och logga ut och logga in för att gruppändringen ska börja gälla:
+* **Windows**: Hämta och installera USB-drivrutiner från [STMicroelectronics-webbplatsen](https://www.st.com/en/development-tools/stsw-link009.html).
+* **MacOS**: ingen driv rutin krävs för MacOS.
+* **Ubuntu**: kör kommandona i Terminal och logga ut och logga in för att grupp ändringen ska börja gälla:
 
     ```bash
     # Copy the default rules. This grants permission to the group 'plugdev'
@@ -234,150 +234,150 @@ Följ dessa steg för att förbereda utvecklingsmiljön för DevKit:
     sudo usermod -a -G plugdev $(whoami)
     ```
 
-Nu är du redo med att förbereda och konfigurera din utvecklingsmiljö. Låt oss bygga GetStarted-provet som du just körde.
+Nu är allt klart med att förbereda och konfigurera utvecklings miljön. Låt oss bygga GetStarted-exemplet som du precis körde.
 
 ## <a name="build-your-first-project"></a>Bygg ditt första projekt
 
-### <a name="open-sample-code-from-sample-gallery"></a>Öppna exempelkod från exempelgalleriet
+### <a name="open-sample-code-from-sample-gallery"></a>Öppna exempel kod från exempel galleriet
 
-IoT DevKit innehåller ett omfattande galleri med exempel som du kan använda för att lära dig ansluta DevKit till olika Azure-tjänster.
+IoT-DevKit innehåller ett omfattande galleri med exempel som du kan använda för att lära dig att ansluta DevKit till olika Azure-tjänster.
 
-1. Kontrollera att din IoT DevKit inte är **ansluten** till datorn. Starta VS-koden först och anslut sedan DevKit till datorn.
+1. Se till att din IoT-DevKit **inte är ansluten** till din dator. Starta VS Code först och Anslut sedan DevKit till datorn.
 
-1. Klicka `F1` här om du vill öppna kommandopaletten, skriv och välj **Azure IoT Device Workbench: Öppna exempel...**. Välj sedan **IoT DevKit** som anslagstavla.
+1. Klicka `F1` för att öppna paletten kommando, skriv och välj **Azure IoT Device Workbench: öppna exempel.**.. Välj sedan **IoT DevKit** som tavla.
 
-1. Leta reda på **Kom igång** på sidan IoT Workbench-exempel och klicka på **Öppna exempel**. Väljer sedan standardsökvägen för att hämta exempelkoden.
+1. På sidan IoT Workbench-exempel hittar du **Kom igång** och klickar på **Öppna exempel**. Sedan väljer du standard Sök vägen för att ladda ned exempel koden.
 
     ![Öppna exempel](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/open-sample.png)
 
-### <a name="provision-azure-iot-hub-and-device"></a>Etablera Azure IoT-hubb och enhet
+### <a name="provision-azure-iot-hub-and-device"></a>Etablera Azure-IoT Hub och-enhet
 
-I stället för att etablera Azure IoT Hub och enhet från Azure-portalen kan du göra det i VS-koden utan att lämna utvecklingsmiljön.
+I stället för att tillhandahålla Azure-IoT Hub och-enhet från Azure Portal kan du göra det i VS-koden utan att lämna utvecklings miljön.
 
-1. I det nya öppnade `F1` projektfönstret klickar du för att öppna kommandopaletten, skriver och väljer **Azure IoT Device Workbench: Provision Azure Services...**. Följ steg för steg guide för att slutföra etableringen av din Azure IoT Hub och skapa IoT Hub-enheten.
+1. I fönstret nytt öppnat projekt klickar `F1` du för att öppna paletten kommando, skriver och väljer **Azure IoT Device Workbench: etablera Azure-tjänster...**. Följ steg för steg-guiden för att slutföra etableringen av Azure-IoT Hub och skapa IoT Hub-enheten.
 
-    ![Kommandot Etablera](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/provision.png)
+    ![Etablera kommando](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/provision.png)
 
     > [!NOTE]
-    > Om du inte har loggat in i Azure. Följ popup-meddelandet för inloggning.
+    > Om du inte har loggat in på Azure. Följ popup-meddelandet för att logga in.
 
 1. Ange den prenumeration som du vill använda.
 
-    ![Välj under](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-subscription.png)
+    ![Markera under](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-subscription.png)
 
-1. Välj eller skapa sedan en ny [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#terminology).
+1. Välj eller skapa en ny [resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#terminology).
 
     ![Välj resursgrupp](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-resource-group.png)
 
-1. I den resursgrupp som du angav följer du guiden för att välja eller skapa en ny Azure IoT Hub.
+1. I den resurs grupp som du har angett följer du guiden för att välja eller skapa en ny Azure-IoT Hub.
 
-    ![Välj IoT Hub-steg](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-hub-provision.png)
+    ![Välj IoT Hub steg](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-hub-provision.png)
 
-    ![Välj IoT-hubb](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-iot-hub.png)
+    ![Välj IoT Hub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-iot-hub.png)
 
-    ![Vald IoT-hubb](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-hub-selected.png)
+    ![Valda IoT Hub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-hub-selected.png)
 
-1. I utdatafönstret ser du Azure IoT Hub-etableringen.
+1. I fönstret Utdata visas Azure IoT Hub etablerad.
 
-    ![IoT Hub-etablerat](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-hub-provisioned.png)
+    ![IoT Hub etablerad](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-hub-provisioned.png)
 
-1. Välj eller skapa en ny enhet i Azure IoT Hub som du har etablerat.
+1. Välj eller skapa en ny enhet i Azure IoT Hub som du har etablerad.
 
-    ![Välj steg för IoT-enhet](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-device-provision.png)
+    ![Välj IoT-enhets steg](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/iot-device-provision.png)
 
     ![Välj IoT-enhet etablerad](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-iot-device.png)
 
-1. Nu har du Azure IoT Hub etablerat och enhet skapas i den. Även enheten anslutning strängen kommer att sparas i VS-kod för att konfigurera IoT DevKit senare.
+1. Nu har du Azure IoT Hub etablerad och en enhet som skapats i den. Dessutom sparas enhets anslutnings strängen i VS Code för att konfigurera IoT-DevKit senare.
 
-    ![Avsättningen har gjorts](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/provision-done.png)
+    ![Etableringen utförs](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/provision-done.png)
 
-### <a name="configure-and-compile-device-code"></a>Konfigurera och kompilera enhetskod
+### <a name="configure-and-compile-device-code"></a>Konfigurera och kompilera enhets kod
 
-1. I det nedre högra statusfältet kontrollerar du att **MXCHIP AZ3166** visas som vald anslagstavla och serieport med **STMicroelectronics** används.
+1. I det nedre högra statusfältet kontrollerar du att MXCHIP- **AZ3166** visas som vald tavla och seriell port med **STMicroelectronics** används.
 
-    ![Välj anslagstavla och COM](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-com.png)
+    ![Välj tavla och COM](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-com.png)
 
-1. Klicka `F1` här om du vill öppna kommandopaletten skriver du och väljer **Azure IoT Device Workbench: Konfigurera enhetsinställningar...** och välj sedan **Anslutningssträng för konfigurationsenhet > Välj IoT Hub Device Connection String**.
+1. Klicka `F1` för att öppna paletten kommando, skriv och välj **Azure IoT enhet Workbench: Konfigurera enhets inställningar...** och välj sedan **konfigurera anslutnings sträng för enhet > väljer IoT Hub enhets anslutnings sträng**.
 
-1. På DevKit håller du ned **knapp A,** trycker och släpper **återställningsknappen** och släpper sedan **knappen A**. DevKit går in i konfigurationsläge och sparar anslutningssträngen.
+1. På DevKit trycker du på **knappen a**, push och släpper knappen **Återställ** och släpper sedan **knappen A**. Din DevKit går in i konfigurations läge och sparar anslutnings strängen.
 
     ![Anslutningssträng](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connection-string.png)
 
-1. Klicka `F1` igen, skriv och välj **Azure IoT Device Workbench: Ladda upp enhetskod**. Det börjar kompilera och ladda upp koden till DevKit.
+1. Klicka `F1` på igen, skriv och välj **Azure IoT enhet Workbench: Ladda upp enhets kod**. Den börjar kompilera och ladda upp koden till DevKit.
 
-    ![Arduino ladda upp](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/arduino-upload.png)
+    ![Arduino uppladdning](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/arduino-upload.png)
 
 DevKit startar om och börjar köra koden.
 
 > [!NOTE]
-> Om det finns några fel eller avbrott kan du alltid återställa genom att köra kommandot igen.
+> Om det uppstår fel eller avbrott kan du alltid återställa genom att köra kommandot igen.
 
 ## <a name="test-the-project"></a>Testa projektet
 
-### <a name="view-the-telemetry-sent-to-azure-iot-hub"></a>Visa telemetrin som skickas till Azure IoT Hub
+### <a name="view-the-telemetry-sent-to-azure-iot-hub"></a>Visa telemetri som skickats till Azure IoT Hub
 
-Klicka på ikonen för stickkontakt i statusfältet för att öppna serieövervakaren:
+Klicka på Power plugg-ikonen i statusfältet för att öppna den seriella övervakaren:
 
-![Seriell bildskärm](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/serial-monitor.png)
+![Seriell övervakare](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/serial-monitor.png)
 
-Exempelprogrammet körs när följande resultat visas:
+Exempel programmet körs utan problem när följande resultat visas:
 
-* Serieförvakaren visar meddelandet som skickas till IoT Hub.
-* Lysdioden på MXChip IoT DevKit blinkar.
+* Den seriella övervakaren visar meddelandet som skickas till IoT Hub.
+* LYSDIODen på MXChip IoT-DevKit blinkar.
 
-![Seriell bildskärmsutgång](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/result-serial-output.png)
+![Utdata för seriell övervakare](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/result-serial-output.png)
 
 > [!NOTE]
-> Du kan stöta på ett fel under testning där lysdioden inte blinkar, Azure-portalen visar inte inkommande data från enheten, men enhetens OLED-skärm visas som **Running...**. För att lösa problemet i Azure-portalen går du till enheten i IoT-hubben och skickar ett meddelande till enheten. Om du ser följande svar i den seriella bildskärmen i VS-kod är det möjligt att direkt kommunikation från enheten blockeras på routernivå. Kontrollera brandväggs- och routerregler som är konfigurerade för anslutningsenheterna. Se också till att utgående port 1833 är öppen.
+> Du kan stöta på ett fel vid testning i vilken INDIKATORn inte blinkar, Azure Portal inte visar inkommande data från enheten, men enheten OLED-skärmen visas som **körs...**. Lös problemet genom att gå till enheten i IoT-hubben i Azure Portal och skicka ett meddelande till enheten. Om du ser följande svar i den seriella övervakaren i VS Code, är det möjligt att direkt kommunikation från enheten blockeras på router-nivå. Kontrol lera brand Väggs-och routergränssnitt som har kon figurer ATS för de anslutande enheterna. Se också till att den utgående porten 1833 är öppen.
 > 
-> FEL: mqtt_client.c (ln 454): Fel: fel vid öppnande av anslutningen till slutpunkten  
-> INFO: >>>Anslutningsstatus: frånkopplad  
-> FEL: tlsio_mbedtls.c (ln 604): Underliggande IO-öppen misslyckades  
-> FEL: mqtt_client.c (ln 1042): Fel: io_open misslyckades  
-> FEL: iothubtransport_mqtt_common.c (ln 2283): fel anslutning till adress atcsliothub.azure-devices.net.  
-> INFO: >>>Anslut igen.  
-> INFO: IoThub Version: 1.3.6  
+> FEL: mqtt_client. c (LN 454): fel: det gick inte att öppna anslutningen till slut punkten  
+> INFORMATION:  >>>anslutnings status: frånkopplad  
+> FEL: tlsio_mbedtls. c (LN 604): underliggande IO-öppning misslyckades  
+> FEL: mqtt_client. c (LN 1042): fel: io_open misslyckades  
+> FEL: iothubtransport_mqtt_common. c (LN 2283): det gick inte att ansluta till adressen atcsliothub.azure-devices.net.  
+> INFO:  >>>att ansluta igen.  
+> INFO: IoThub-version: 1.3.6  
 
-### <a name="view-the-telemetry-received-by-azure-iot-hub"></a>Visa telemetrin som tagits emot av Azure IoT Hub
+### <a name="view-the-telemetry-received-by-azure-iot-hub"></a>Visa telemetri som tagits emot av Azure IoT Hub
 
-Du kan använda [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) för att övervaka D2C-meddelanden (Device-to-cloud) i IoT Hub.
+Du kan använda [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) för att övervaka enhets-till-moln-meddelanden (D2C) i IoT Hub.
 
-1. Logga in [Azure-portalen,](https://portal.azure.com/)hitta IoT Hub du skapade.
+1. Logga in [Azure Portal](https://portal.azure.com/), leta upp IoT Hub som du har skapat.
 
     ![Azure Portal](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)
 
-1. I fönstret **Principer för delad åtkomst** klickar du på **iothubowner-principen**och skriver ned anslutningssträngen för IoT-hubben.
+1. I fönstret **principer för delad åtkomst** klickar du på **iothubowner-principen**och skriver ned anslutnings strängen för din IoT Hub.
 
-    ![Anslutningssträng för Azure IoT Hub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-portal-conn-string.png)
+    ![Anslutnings sträng för Azure IoT Hub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-portal-conn-string.png)
 
-1. I VS-kod `F1`klickar du på , skriver och väljer **Azure IoT Hub: Ange IoT Hub Connection String**. Kopiera anslutningssträngen till den.
+1. I VS Code, klickar `F1`du på, skriver och väljer **Azure IoT Hub: Ange IoT Hub anslutnings sträng**. Kopiera anslutnings strängen till den.
 
-    ![Ange Azure IoT Hub-anslutningssträng](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/set-iothub-connection-string.png)
+    ![Ange anslutnings sträng för Azure IoT Hub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/set-iothub-connection-string.png)
 
-1. Expandera fönstret **AZURE IOT HUB DEVICES** till höger, högerklicka på enhetsnamnet du skapade och välj Starta övervakning inbyggd **händelseslutpunkt**.
+1. Expandera fönstret **Azure IoT Hub-enheter** till höger, högerklicka på enhets namnet som du skapade och välj **starta övervakning inbyggd händelse slut punkt**.
 
     ![Övervaka D2C-meddelande](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/monitor-d2c.png)
 
-1. I fönstret **UTDATA** kan du se inkommande D2C-meddelanden till IoT Hub.
+1. I fönstret **utdata** kan du se inkommande D2C-meddelanden till IoT Hub.
 
     ![D2C-meddelande](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
 
 ## <a name="review-the-code"></a>Granska koden
 
-Den `GetStarted.ino` är den viktigaste Arduino skiss fil.
+`GetStarted.ino` Är huvud ritnings filen för Arduino.
 
 ![D2C-meddelande](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/code.png)
 
-Om du vill se hur enhetstelemetri skickas till `utility.cpp` Azure IoT Hub öppnar du filen i samma mapp. Visa [API-referens](https://microsoft.github.io/azure-iot-developer-kit/docs/apis/arduino-language-reference/) om du vill lära dig hur du använder sensorer och kringutrustning på IoT DevKit.
+Om du vill se hur enhetens telemetri skickas till Azure-IoT Hub öppnar `utility.cpp` du filen i samma mapp. Visa [API-referens](https://microsoft.github.io/azure-iot-developer-kit/docs/apis/arduino-language-reference/) för att lära dig hur du använder sensorer och kring utrustning på IoT DevKit.
 
-Den `DevKitMQTTClient` använda är ett omslag av **iothub_client** från [Microsoft Azure IoT SDK:er och bibliotek för C för](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client) att interagera med Azure IoT Hub.
+`DevKitMQTTClient` Används är en omslutning av **Iothub_client** från [Microsoft Azure IoT SDK: er och bibliotek för C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client) för att interagera med Azure-IoT Hub.
 
 ## <a name="problems-and-feedback"></a>Problem och feedback
 
-Om du stöter på problem kan du söka efter en lösning i [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) eller nå ut till oss från [Gitter](https://gitter.im/Microsoft/azure-iot-developer-kit). Du kan också ge oss feedback genom att lämna en kommentar på denna sida.
+Om du stöter på problem kan du söka efter en lösning i [IoT DEVKIT FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) eller kontakta oss från [gitter](https://gitter.im/Microsoft/azure-iot-developer-kit). Du kan också ge oss feedback genom att lämna en kommentar på den här sidan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har anslutit en MXChip IoT DevKit till din IoT-hubb och du har skickat de infångade sensordata till din IoT-hubb.
+Du har anslutit en MXChip IoT-DevKit till din IoT-hubb och har skickat de fångade sensor data till din IoT-hubb.
 
 [!INCLUDE [iot-hub-get-started-az3166-next-steps](../../includes/iot-hub-get-started-az3166-next-steps.md)]

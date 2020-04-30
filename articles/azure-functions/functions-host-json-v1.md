@@ -1,33 +1,33 @@
 ---
-title: host.json-referens för Azure Functions 1.x
-description: Referensdokumentation för Azure Functions host.json-filen med v1-körningen.
+title: Host. JSON-referens för Azure Functions 1. x
+description: Referens dokumentation för Azure Functions Host. JSON-fil med v1-körning.
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81757511"
 ---
-# <a name="hostjson-reference-for-azure-functions-1x"></a>host.json-referens för Azure Functions 1.x
+# <a name="hostjson-reference-for-azure-functions-1x"></a>Host. JSON-referens för Azure Functions 1. x
 
-> [!div class="op_single_selector" title1="Välj den version av Azure Functions-körningen som du använder: "]
+> [!div class="op_single_selector" title1="Välj den version av Azure Functions runtime som du använder: "]
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2](functions-host-json.md)
 
-Metadatafilen *host.json* innehåller globala konfigurationsalternativ som påverkar alla funktioner för en funktionsapp. I den här artikeln visas de inställningar som är tillgängliga för v1-körningen. JSON-schemat är http://json.schemastore.org/hostpå .
+*Host. JSON* -metadatafilen innehåller globala konfigurations alternativ som påverkar alla funktioner för en Function-app. I den här artikeln visas de inställningar som är tillgängliga för v1-körningen. JSON-schemat är på http://json.schemastore.org/host.
 
 > [!NOTE]
-> Den här artikeln är avsedd för Azure Functions 1.x.  En referens för host.json i Functions 2.x och senare finns i [host.json-referens för Azure Functions 2.x](functions-host-json.md).
+> Den här artikeln är för Azure Functions 1. x.  En referens för Host. json i functions 2. x och senare finns i [Host. JSON-referens för Azure Functions 2. x](functions-host-json.md).
 
-Andra funktionsappkonfigurationsalternativ hanteras i [appinställningarna](functions-app-settings.md).
+Andra konfigurations alternativ för Function-appar hanteras i dina [app-inställningar](functions-app-settings.md).
 
-Vissa host.json-inställningar används bara när de körs lokalt i filen [local.settings.json.](functions-run-local.md#local-settings-file)
+Vissa värden. JSON-inställningar används bara när de körs lokalt i den [lokala. Settings. JSON](functions-run-local.md#local-settings-file) -filen.
 
-## <a name="sample-hostjson-file"></a>Exempel på värd.json-fil
+## <a name="sample-hostjson-file"></a>Exempel på Host. JSON-fil
 
-Följande *exempelvärd.json-filer* har alla möjliga alternativ angivna.
+Följande exempel på *Host. JSON* -filer har alla möjliga alternativ angivna.
 
 
 ```json
@@ -110,19 +110,19 @@ Följande *exempelvärd.json-filer* har alla möjliga alternativ angivna.
 }
 ```
 
-I följande avsnitt i den här artikeln beskrivs varje egenskap på den översta nivån. Alla är frivilliga om inte annat anges.
+I följande avsnitt i den här artikeln beskrivs varje toppnivå egenskap. Alla är valfria om inget annat anges.
 
-## <a name="aggregator"></a>Nyhetsläsare
+## <a name="aggregator"></a>aggregera
 
 [!INCLUDE [aggregator](../../includes/functions-host-json-aggregator.md)]
 
-## <a name="applicationinsights"></a>programInsikter
+## <a name="applicationinsights"></a>applicationInsights
 
 [!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
 
 ## <a name="documentdb"></a>DocumentDB
 
-Konfigurationsinställningar för [Azure Cosmos DB-utlösaren och bindningarna](functions-bindings-cosmosdb.md).
+Konfigurations inställningar för [Azure Cosmos DB utlösare och bindningar](functions-bindings-cosmosdb.md).
 
 ```json
 {
@@ -136,11 +136,11 @@ Konfigurationsinställningar för [Azure Cosmos DB-utlösaren och bindningarna](
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------|
-|GatewayMode (GatewayMode)|Gateway|Anslutningsläget som används av funktionen när du ansluter till Azure Cosmos DB-tjänsten. Alternativen `Direct` är och`Gateway`|
-|Protokoll|Https( https)|Anslutningsprotokollet som används av funktionen vid anslutning till Azure Cosmos DB-tjänsten.  Läs [här för en förklaring av båda lägena](../cosmos-db/performance-tips.md#networking)|
-|leasa Förefix|Saknas|Prefix för lån som ska användas för alla funktioner i en app.|
+|GatewayMode|Gateway|Anslutnings läget som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten. Alternativen är `Direct` och`Gateway`|
+|Protokoll|Https|Anslutnings protokollet som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten.  Läs [här om du vill ha en förklaring av båda lägena](../cosmos-db/performance-tips.md#networking)|
+|leasePrefix|saknas|Lease-prefix som ska användas för alla funktioner i en app.|
 
 ## <a name="durabletask"></a>durableTask
 
@@ -148,11 +148,11 @@ Konfigurationsinställningar för [Azure Cosmos DB-utlösaren och bindningarna](
 
 ## <a name="eventhub"></a>eventHub
 
-Konfigurationsinställningar för [utlösare och bindningar i eventhubben](functions-bindings-event-hubs-trigger.md#functions-1x).
+Konfigurations inställningar för [Event Hub-utlösare och bindningar](functions-bindings-event-hubs-trigger.md#functions-1x).
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>funktionen
 
-En lista över funktioner som jobbvärden kör. En tom matris innebär att köra alla funktioner. Avsedd endast för användning när [du kör lokalt](functions-run-local.md). I funktionsappar i Azure bör du i stället följa stegen i Så här inaktiverar du [funktioner i Azure-funktioner](disable-function.md) för att inaktivera specifika funktioner i stället för att använda den här inställningen.
+En lista med funktioner som jobb värden kör. En tom matris innebär att köra alla-funktioner. Endast avsedd att användas när du [Kör lokalt](functions-run-local.md). I Function-appar i Azure bör du i stället följa stegen i [så här inaktiverar du funktioner i Azure Functions](disable-function.md) för att inaktivera vissa funktioner i stället för att använda den här inställningen.
 
 ```json
 {
@@ -160,9 +160,9 @@ En lista över funktioner som jobbvärden kör. En tom matris innebär att köra
 }
 ```
 
-## <a name="functiontimeout"></a>funktionTimeout
+## <a name="functiontimeout"></a>functionTimeout
 
-Anger tidsgränsen för alla funktioner. I en serverlös förbrukningsplan är det giltiga intervallet från 1 sekund till 10 minuter och standardvärdet är 5 minuter. I en apptjänstplan finns det ingen total gräns och standardvärdet är _null_, vilket indikerar ingen timeout.
+Anger varaktigheten för alla funktioner. I en server lös förbruknings plan är det giltiga intervallet från 1 sekund till 10 minuter och standardvärdet är 5 minuter. I en App Service plan finns det ingen övergripande gräns och standardvärdet är _Null_, vilket innebär att ingen tids gräns anges.
 
 ```json
 {
@@ -170,9 +170,9 @@ Anger tidsgränsen för alla funktioner. I en serverlös förbrukningsplan är d
 }
 ```
 
-## <a name="healthmonitor"></a>hälsaMonitor
+## <a name="healthmonitor"></a>healthMonitor
 
-Konfigurationsinställningar för [hälsa övervakare av värd .](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor)
+Konfigurations inställningar för [övervakaren av värd hälsa](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
 
 ```
 {
@@ -186,17 +186,17 @@ Konfigurationsinställningar för [hälsa övervakare av värd .](https://github
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
-|enabled|true|Anger om funktionen är aktiverad. | 
-|hälsaKontrolleraInterval|10 sekunder|Tidsintervallet mellan de periodiska hälsokontrollerna i bakgrunden. | 
-|hälsaKontrolleraFönster|2 minuter|Ett skjuttidsfönster som `healthCheckThreshold` används tillsammans med inställningen.| 
-|hälsaKontrollerAReshold|6|Maximalt antal gånger hälsokontrollen kan misslyckas innan en värdåtervinning initieras.| 
-|counterThreshold (300)|0,80|Det tröskelvärde vid vilket en prestandaräknare betraktas som ohälsosam.| 
+|enabled|true|Anger om funktionen är aktive rad. | 
+|healthCheckInterval|10 sekunder|Tidsintervallet mellan de regelbundna hälso kontrollerna i bakgrunden. | 
+|healthCheckWindow|2 minuter|Ett glidande tids fönster som används tillsammans med `healthCheckThreshold` inställningen.| 
+|healthCheckThreshold|6|Maximalt antal gånger som hälso kontrollen kan återställas innan en återkallning av en värd initieras.| 
+|counterThreshold|0,80|Tröskelvärdet som en prestanda räknare kommer att anses vara ohälsosam.| 
 
 ## <a name="http"></a>http
 
-Konfigurationsinställningar för [http-utlösare och bindningar](functions-bindings-http-webhook.md).
+Konfigurations inställningar för [http-utlösare och bindningar](functions-bindings-http-webhook.md).
 
 ```json
 {
@@ -209,18 +209,18 @@ Konfigurationsinställningar för [http-utlösare och bindningar](functions-bind
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
-|dynamicThrottlesEnabled|false|När den här inställningen är aktiverad gör den att rörledningen för begäran bearbetning regelbundet kontrollera systemprestandaräknare som anslutningar /trådar/processer/minne/cpu/etc. och om någon av dessa räknare är över ett inbyggt högt tröskelvärde (80%), begäranden kommer att avvisas med ett 429 "För upptagen" svar tills räknarna(er) återgår till normala nivåer.|
-|maxConcurrentRequests|obunden (`-1`)|Det maximala antalet HTTP-funktioner som ska köras parallellt. På så sätt kan du styra samtidighet, vilket kan hjälpa till att hantera resursutnyttjande. Du kan till exempel ha en HTTP-funktion som använder många systemresurser (minne/cpu/sockets) så att det orsakar problem när samtidigheten är för hög. Eller så kan du ha en funktion som gör utgående förfrågningar till en tjänst från tredje part, och dessa samtal måste vara begränsad. I dessa fall kan det vara till hjälp att använda en gasrep här.|
-|maxOutstandingRequests|obunden (`-1`)|Det maximala antalet utestående begäranden som hålls vid en viss tidpunkt. Den här gränsen inkluderar begäranden som står i kö men inte har börjat köras, samt eventuella pågående körningar. Alla inkommande begäranden över den här gränsen avvisas med ett 429 "För upptagen"-svar. Det gör att de som ringer kan använda tidsbaserade strategier för återförsök och hjälper dig också att kontrollera maximal begärandenlighet. Detta styr bara kö som uppstår i skriptvärdkörningssökvägen. Andra köer som ASP.NET förfrågan-kön kommer fortfarande att gälla och påverkas inte av den här inställningen.|
-|routePrefix|api|Flödesprefixet som gäller för alla vägar. Använd en tom sträng för att ta bort standardprefixet. |
+|dynamicThrottlesEnabled|falskt|När den här inställningen är aktive rad kommer pipelinen för bearbetning av begär Anden att regelbundet kontrol lera system prestanda räknare som anslutningar/trådar/processer/minne/processor/osv. om någon av dessa räknare är över en inbyggd hög tröskel (80%), avvisas begär Anden med en 429 "upptagen"-svar tills räknarna återgår till normala nivåer.|
+|maxConcurrentRequests|obunden (`-1`)|Maximalt antal HTTP-funktioner som ska köras parallellt. På så sätt kan du kontrol lera samtidighet, vilket kan hjälpa dig att hantera resursutnyttjande. Du kan till exempel ha en HTTP-funktion som använder många system resurser (minne/processor/Sockets) så att den orsakar problem när samtidigheten är för hög. Eller så kanske du har en funktion som gör utgående begär anden till en tjänst från tredje part, och dessa anrop måste vara begränsade. I dessa fall kan det hjälpa att tillämpa en begränsning.|
+|maxOutstandingRequests|obunden (`-1`)|Det maximala antalet väntande begär Anden som innehas vid en specifik tidpunkt. Den här gränsen omfattar begär Anden som har placerats i kö, men som inte har börjat köras, samt alla pågående körningar. Inkommande begär anden över den här gränsen avvisas med ett svar på 429 "för upptagen". Det gör det möjligt för anropare att använda tidsbaserade återförsöks strategier och hjälper dig också att kontrol lera maximal fördröjning för begäran. Detta styr endast köer som inträffar inom skript värdens körnings Sök väg. Andra köer, t. ex. ASP.NET, kommer fortfarande att gälla och påverkas inte av den här inställningen.|
+|routePrefix|api|Det väg-prefix som gäller för alla vägar. Använd en tom sträng för att ta bort standardprefixet. |
 
 ## <a name="id"></a>id
 
-Det unika ID:t för en jobbvärd. Kan vara ett gemens GUID med streck borttagna. Krävs när du kör lokalt. När du kör i Azure rekommenderar vi att du inte anger ett ID-värde. Ett ID genereras automatiskt i `id` Azure när utelämnas. 
+Unikt ID för en jobb värd. Kan vara ett GUID för gemener/versaler med streck borttagna. Krävs när du kör lokalt. När du kör i Azure rekommenderar vi att du inte anger något ID-värde. Ett ID genereras automatiskt i Azure när `id` har utelämnats. 
 
-Om du delar ett lagringskonto över flera funktionsappar `id`kontrollerar du att varje funktionsapp har en annan . Du kan utelämna `id` egenskapen eller manuellt ställa `id` in varje funktionsapp till ett annat värde. Timerutlösaren använder ett lagringslås för att säkerställa att det bara finns en timerinstans när en funktionsapp skalas ut till flera instanser. Om två funktionsappar delar samma `id` och var och en använder en timerutlösare körs bara en timer.
+Om du delar ett lagrings konto över flera Function-appar, se till att varje Function-app `id`har en annan. Du kan utelämna `id` egenskapen eller manuellt ange varje funktions program `id` till ett annat värde. Timer-utlösaren använder ett lagrings lås för att säkerställa att det bara kommer att finnas en timer-instans när en Function-app skalar ut till flera instanser. Om två Functions-appar delar `id` samma och var och en använder en timer-utlösare, kommer bara en timer att köras.
 
 ```json
 {
@@ -228,9 +228,9 @@ Om du delar ett lagringskonto över flera funktionsappar `id`kontrollerar du att
 }
 ```
 
-## <a name="logger"></a>Logger
+## <a name="logger"></a>loggar
 
-Styr filtrering för loggar skrivna av ett [ILogger-objekt](functions-monitoring.md#write-logs-in-c-functions) eller [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
+Styr filtrering av loggar som skrivits av ett [ILogger-objekt](functions-monitoring.md#write-logs-in-c-functions) eller av [context. log](functions-monitoring.md#write-logs-in-javascript-functions).
 
 ```json
 {
@@ -247,15 +247,15 @@ Styr filtrering för loggar skrivna av ett [ILogger-objekt](functions-monitoring
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
-|kategoriFilter|Saknas|Anger filtrering efter kategori| 
-|standardNivå|Information|För alla kategorier som `categoryLevels` inte anges i matrisen skickar du loggar på den här nivån och uppåt till Application Insights.| 
-|kategoriLevels|Saknas|En matris med kategorier som anger den lägsta loggnivån som ska skickas till Application Insights för varje kategori. Den kategori som anges här styr alla kategorier som börjar med samma värde, och längre värden har företräde. I föregående *exempelvärd.json-fil* loggar alla kategorier som börjar med "Host.Aggregator" på `Information` nivå. Alla andra kategorier som börjar med "Host", till exempel `Error` "Host.Executor", loggar på nivå.| 
+|categoryFilter|saknas|Anger filtrering efter kategori| 
+|defaultLevel|Information|För alla kategorier som inte anges i `categoryLevels` matrisen skickar du loggar på denna nivå och över till Application Insights.| 
+|categoryLevels|saknas|En matris med kategorier som anger den minsta logg nivå som ska skickas till Application Insights för varje kategori. Den kategori som anges här styr alla kategorier som börjar med samma värde och värden som är längre prioriterade. I föregående exempel *Host. JSON* -fil är alla kategorier som börjar med "Host. aggregator"- `Information` logg på nivå. Alla andra kategorier som börjar med "Host", till exempel "Host. utförar", log på `Error` nivå.| 
 
-## <a name="queues"></a>Köer
+## <a name="queues"></a>kön
 
-Konfigurationsinställningar för [utlösare och bindningar i lagringskön](functions-bindings-storage-queue.md).
+Konfigurations inställningar för [utlösare och bindningar i lagrings kön](functions-bindings-storage-queue.md).
 
 ```json
 {
@@ -269,17 +269,17 @@ Konfigurationsinställningar för [utlösare och bindningar i lagringskön](func
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
-|maxPollingInterval|60000|Det maximala intervallet i millisekunder mellan köavsökningar.| 
-|synlighetTimeout|0|Tidsintervallet mellan återförsöken när bearbetningen av ett meddelande misslyckas.| 
-|batchSize|16|Antalet kömeddelanden som funktioner körs samtidigt och bearbetar parallellt. När numret som bearbetas kommer `newBatchThreshold`ner till , körtiden får en annan batch och börjar bearbeta dessa meddelanden. Så det maximala antalet samtidiga meddelanden som bearbetas `batchSize` `newBatchThreshold`per funktion är plus . Den här gränsen gäller separat för varje köutlöst funktion. <br><br>Om du vill undvika parallell körning för meddelanden som `batchSize` tas emot i en kö kan du ställa in 1. Den här inställningen eliminerar dock samtidighet endast så länge som din funktionsapp körs på en enda virtuell dator (VM). Om funktionsappen skalas ut till flera virtuella datorer kan varje virtuell dator köra en instans av varje köutlöst funktion.<br><br>Den `batchSize` maximala är 32. | 
-|maxDequeueCount|5|Antalet gånger för att försöka bearbeta ett meddelande innan du flyttar det till giftkön.| 
-|nyaBatchThreshold|batchSize/2|När antalet meddelanden som bearbetas samtidigt kommer ner till det här numret, hämtar körningen en annan batch.| 
+|maxPollingInterval|60000|Det maximala intervallet i millisekunder mellan Queue-avsökningar.| 
+|visibilityTimeout|0|Tidsintervall mellan återförsök vid bearbetning av ett meddelande Miss lyckas.| 
+|batchSize|16|Antalet köa meddelanden som funktions körningen hämtar samtidigt och processer parallellt. När antalet som bearbetas `newBatchThreshold`går ned till kör körningen en annan batch och börjar bearbeta dessa meddelanden. Det maximala antalet samtidiga meddelanden som bearbetas per `batchSize` funktion `newBatchThreshold`är plus. Den här gränsen gäller separat för varje funktion som utlöses av kön. <br><br>Om du vill undvika parallell körning av meddelanden som tas emot i en kö kan du ange `batchSize` 1. Den här inställningen eliminerar dock ingen samtidighet så länge som din funktions App körs på en enda virtuell dator (VM). Om Function-appen skalar ut till flera virtuella datorer kan varje virtuell dator köra en instans av varje funktion som utlöses av kön.<br><br>Det maximala `batchSize` värdet är 32. | 
+|maxDequeueCount|5|Antal försök att bearbeta ett meddelande innan det flyttas till en Poison-kö.| 
+|newBatchThreshold|batchSize/2|När antalet meddelanden som bearbetas samtidigt går till det här talet, hämtar körningen en annan batch.| 
 
 ## <a name="sendgrid"></a>SendGrid
 
-Konfigurationsinställning för [SendGrind-utdatabindningen](functions-bindings-sendgrid.md)
+Konfigurations inställning för [SendGrind utgående bindning](functions-bindings-sendgrid.md)
 
 ```json
 {
@@ -288,13 +288,13 @@ Konfigurationsinställning för [SendGrind-utdatabindningen](functions-bindings-
     }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
-|Från|Saknas|Avsändarens e-postadress för alla funktioner.| 
+|Från|saknas|Avsändarens e-postadress för alla funktioner.| 
 
-## <a name="servicebus"></a>serviceBus
+## <a name="servicebus"></a>Service Bus
 
-Konfigurationsinställning för [Service Bus-utlösare och bindningar](functions-bindings-service-bus.md).
+Konfigurations inställning för [Service Bus utlösare och bindningar](functions-bindings-service-bus.md).
 
 ```json
 {
@@ -306,15 +306,15 @@ Konfigurationsinställning för [Service Bus-utlösare och bindningar](functions
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
-|maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till motringningen som meddelandepumpen ska initiera. Som standard bearbetar funktionskörningen flera meddelanden samtidigt. Om du vill att körningen ska bearbeta endast ett `maxConcurrentCalls` enskilt kö- eller ämnesmeddelande åt gången anger du till 1. | 
-|prefetchCount (prefetchCount)|Saknas|StandardprefetchCount som ska användas av den underliggande MessageReceiver.| 
-|autoRenewTimeout|00:05:00|Den maximala varaktighet inom vilken meddelandelåset förnyas automatiskt.| 
+|maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till motringning som meddelande pumpen ska initiera. Som standard bearbetar Functions-körningen flera meddelanden samtidigt. Om du vill dirigera körningen så att den bara behandlar en enskild kö eller ett ämnes meddelande `maxConcurrentCalls` i taget, anger du 1. | 
+|prefetchCount|saknas|Standard-PrefetchCount som ska användas av den underliggande MessageReceiver.| 
+|autoRenewTimeout|00:05:00|Den längsta tid som meddelande låset ska förnyas automatiskt.| 
 
 ## <a name="singleton"></a>Singleton
 
-Konfigurationsinställningar för Singleton-låsbeteende. Mer information finns i [GitHub-problemet om singleton-stöd](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
+Konfigurations inställningar för beteendet singleton lock. Mer information finns i [GitHub problem med singleton-stöd](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
 ```json
 {
@@ -328,19 +328,19 @@ Konfigurationsinställningar för Singleton-låsbeteende. Mer information finns 
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
-|lockPeriod|00:00:15|Den period som funktionsnivålås tas för. Låsen förnyas automatiskt.| 
-|lyssnareLockPeriod|00:01:00|Den period som lyssnarlås tas för.| 
-|lyssnareLockRecoveryPollingInterval|00:01:00|Tidsintervallet som används för återställning av lyssnarlås om ett lyssnarlås inte kunde hämtas vid start.| 
-|lockAcquisitionTimeout|00:01:00|Den maximala tiden som körningen försöker hämta ett lås.| 
-|lockAcquisitionPollingInterval|Saknas|Intervallet mellan låsförvärvförsök.| 
+|lockPeriod|00:00:15|Den period som funktions nivå lås utförs för. Lås automatisk förnyelse.| 
+|listenerLockPeriod|00:01:00|Den period som lyssnarens lås tas för.| 
+|listenerLockRecoveryPollingInterval|00:01:00|Det tidsintervall som används för återställning av lyssnar lås om det inte gick att hämta ett lyssnar lås vid start.| 
+|lockAcquisitionTimeout|00:01:00|Den maximala tid som körningen kommer att försöka hämta ett lås.| 
+|lockAcquisitionPollingInterval|saknas|Intervallet mellan lås försök.| 
 
-## <a name="tracing"></a>Spårning
+## <a name="tracing"></a>spårning
 
-*Version 1.x*
+*Version 1. x*
 
-Konfigurationsinställningar för loggar som du `TraceWriter` skapar med hjälp av ett objekt. Se [C# Loggning](functions-reference-csharp.md#logging) och [Node.js Loggning](functions-reference-node.md#writing-trace-output-to-the-console).
+Konfigurations inställningar för loggar som du skapar med hjälp `TraceWriter` av ett objekt. Se [C#-loggning](functions-reference-csharp.md#logging) och [Node. js-loggning](functions-reference-node.md#writing-trace-output-to-the-console).
 
 ```json
 {
@@ -351,14 +351,14 @@ Konfigurationsinställningar för loggar som du `TraceWriter` skapar med hjälp 
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
-|konsolLevel|information|Spårningsnivån för konsolloggning. `off`Alternativen är: `error` `warning`, `info`, `verbose`, och .|
-|filLoggingMode|felsökaOnt|Spårningsnivån för filloggning. Alternativen `never`är `always` `debugOnly`, , .| 
+|consoleLevel|information|Spårnings nivån för konsol loggning. Alternativen är: `off`, `error`, `warning` `info`, och `verbose`.|
+|fileLoggingMode|debugOnly|Spårnings nivån för fil loggning. Alternativen är `never`, `always`, `debugOnly`.| 
 
-## <a name="watchdirectories"></a>watchDirectories (watchDirectories)
+## <a name="watchdirectories"></a>watchDirectories
 
-En uppsättning [delade kodkataloger](functions-reference-csharp.md#watched-directories) som ska övervakas för ändringar.  Säkerställer att när koden i dessa kataloger ändras, hämtas ändringarna av dina funktioner.
+En uppsättning [delade kod kataloger](functions-reference-csharp.md#watched-directories) som ska övervakas för ändringar.  Säkerställer att när kod i dessa kataloger ändras, hämtas ändringarna av funktionerna.
 
 ```json
 {
@@ -369,7 +369,7 @@ En uppsättning [delade kodkataloger](functions-reference-csharp.md#watched-dire
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du uppdaterar filen host.json](functions-reference.md#fileupdate)
+> [Lär dig hur du uppdaterar Host. JSON-filen](functions-reference.md#fileupdate)
 
 > [!div class="nextstepaction"]
 > [Se globala inställningar i miljövariabler](functions-app-settings.md)

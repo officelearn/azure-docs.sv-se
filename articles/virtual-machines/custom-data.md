@@ -1,6 +1,6 @@
 ---
-title: Anpassade data och virtuella Azure-datorer
-description: Information om hur du använder anpassade data och Cloud-Init på virtuella Azure-datorer
+title: Anpassade data och Azure-Virtual Machines
+description: Information om hur du använder anpassade data och Cloud-Init på Azure Virtual Machines
 services: virtual-machines
 author: mimckitt
 ms.service: virtual-machines
@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 03/06/2020
 ms.author: mimckitt
 ms.openlocfilehash: 9497e665d024b583c261ade3e6fb5393a9322ce0
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759133"
 ---
-# <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Anpassade data och Cloud-Init på virtuella Azure-datorer
+# <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Anpassade data och Cloud-Init på Azure Virtual Machines
 
 ## <a name="what-is-custom-data"></a>Vad är anpassade data?
 
-Kunder frågar ofta hur de kan injicera ett skript eller andra metadata i en virtuell Microsoft Azure-dator vid etableringstillfället.  I andra moln kallas det här konceptet ofta för användardata.  I Microsoft Azure har vi en liknande funktion som kallas anpassade data. 
+Kunder frågar ofta hur de kan mata in ett skript eller andra metadata i en Microsoft Azure virtuell dator med etablerings tid.  I andra moln kallas det här konceptet ofta användar data.  I Microsoft Azure har vi en liknande funktion som kallas anpassade data. 
 
-Anpassade data görs endast tillgängliga för den virtuella datorn under första start/första installationen, vi kallar detta "etablering". Etablering är den process där VM Skapa parametrar (till exempel värdnamn, användarnamn, lösenord, certifikat, anpassade data, nycklar etc.) görs tillgängliga för den virtuella datorn och en etablering agent bearbetar dem, till exempel [Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) och [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init). 
+Anpassade data görs bara tillgängliga för den virtuella datorn under den första starten/första installationen. vi kallar denna "etablering". Etablering är den process där virtuella dator parametrar (till exempel värdnamn, användar namn, lösen ord, certifikat, anpassade data, nycklar osv.) görs tillgängliga för den virtuella datorn och en etablerings agent bearbetar dem, till exempel [Linux-agenten](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) och [Cloud-Init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init). 
 
 
-## <a name="passing-custom-data-to-the-vm"></a>Överföra anpassade data till den virtuella datorn
-Om du vill använda anpassade data måste du basera64-koda innehållet först innan du skickar det till API:et, såvida du inte använder ett CLI-verktyg som gör konverteringen åt dig, till exempel AZ CLI. Storleken får inte överstiga 64 kB.
+## <a name="passing-custom-data-to-the-vm"></a>Skickar anpassade data till den virtuella datorn
+Om du vill använda anpassade data måste du base64 koda innehållet först innan du skickar det till API: et, om du inte använder ett CLI-verktyg som gör konverteringen åt dig, till exempel AZ CLI. Storleken får inte överstiga 64 KB.
 
-I CLI kan du skicka dina anpassade data som en fil, och den konverteras till base64.
+I CLI kan du skicka dina anpassade data som en fil och den kommer att konverteras till base64.
 ```bash
 az vm create \
   --resource-group myResourceGroup \
@@ -36,7 +36,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-I Azure Resource Manager (ARM) finns en [base64-funktion](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-functions-string#base64).
+I Azure Resource Manager (ARM) finns en Base64- [funktion](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-functions-string#base64).
 
 ```json
 "name": "[parameters('virtualMachineName')]",
@@ -58,40 +58,40 @@ I Azure Resource Manager (ARM) finns en [base64-funktion](https://docs.microsoft
         },
 ```
 
-## <a name="processing-custom-data"></a>Bearbeta anpassade data
-De etableringsagenter som är installerade på de virtuella datorerna hanterar gränssnitt med plattformen och placerar den på filsystemet. 
+## <a name="processing-custom-data"></a>Bearbetar anpassade data
+De etablerings agenter som är installerade på de virtuella datorerna hanterar interaktivt med plattformen och placerar dem i fil systemet. 
 
 ### <a name="windows"></a>Windows
-Anpassade data placeras i *%SYSTEMDRIVE%\AzureData\CustomData.bin* som en binär fil, men den bearbetas inte. Om du vill bearbeta den här filen måste du skapa en anpassad avbildning och skriva kod för att bearbeta CustomData.bin.
+Anpassade data placeras i *%systemdrive%\AzureData\CustomData.bin* som en binär fil, men bearbetas inte. Om du vill bearbeta den här filen måste du skapa en anpassad avbildning och skriva kod för att bearbeta CustomData. bin.
 
 ### <a name="linux"></a>Linux  
-På Linux OS skickas anpassade data till den virtuella datorn via filen ovf-env.xml, som kopieras till katalogen */var/lib/waagent* under etableringen.  Nyare versioner av Microsoft Azure Linux Agent kopierar också base64-kodade data till */var/lib/waagent/CustomData* också för enkelhetens skull.
+På Linux-operativsystem skickas anpassade data till den virtuella datorn via filen OVF-ENV. XML, som kopieras till */var/lib/waagent* -katalogen under etableringen.  Nyare versioner av Microsoft Azure Linux-agenten kommer också att kopiera base64-kodade data till */var/lib/waagent/CustomData* för bekvämlighet.
 
-Azure stöder för närvarande två etableringsagenter:
-* Linux Agent - Som standard agenten inte kommer att behandla anpassade data, måste du bygga en anpassad avbildning med den aktiverad. De relevanta inställningarna, enligt [dokumentationen](https://github.com/Azure/WALinuxAgent#configuration) är:
-    * Provisioning.DecodeCustomData
-    * Etablering.ExecuteCustomData
+Azure har för närvarande stöd för två etablerings agenter:
+* Linux-Agent – som standard kommer agenten inte att bearbeta anpassade data. du måste bygga en anpassad avbildning med den aktive rad. De relevanta inställningarna enligt [dokumentationen](https://github.com/Azure/WALinuxAgent#configuration) är:
+    * Etablering. DecodeCustomData
+    * Etablering. ExecuteCustomData
 
-När du aktiverar anpassade data och kör ett skript försenas den virtuella datorns rapportering som är klar eller att etableringen har lyckats tills skriptet har slutförts. Om skriptet överskrider den totala vm-etableringstiden på 40 minuter misslyckas den virtuella datorns skapad. Om skriptet inte körs, eller fel under körningen, anses det inte vara ett allvarligt etableringsfel, måste du skapa en meddelandesökväg för att varna dig för skriptets slutförandetillstånd.
+När du aktiverar anpassade data och kör ett skript, kommer det att fördröja den VM-rapportering som är klar eller att etableringen har slutförts tills skriptet har slutförts. Om skriptet överskrider den totala tids gränsen för VM-etablering på 40 minuter kommer den virtuella datorns skapande att Miss klaras. Obs! Om skriptet inte kan köras eller fel under körningen, betraktas det inte som ett oåterkalleligt etablerings fel. du måste skapa en meddelande Sök väg för att varna dig om skriptets slut för ande tillstånd.
 
-Om du vill felsöka anpassad datakörning granskar du */var/log/waagent.log*
+Om du vill felsöka anpassad data körning granskar du */var/log/waagent.log*
 
-* cloud-init - Som standard kommer att behandla anpassade data som standard, cloud-init accepterar [flera format](https://cloudinit.readthedocs.io/en/latest/topics/format.html) av anpassade data, såsom cloud-init konfiguration, skript etc. Liknar Linux-agenten när cloud-init bearbetar anpassade data. Om det finns fel under körningen av konfigurationsbearbetningen eller skripten anses det inte vara ett allvarligt etableringsfel och du måste skapa en meddelandesökväg för att varna dig för skriptets slutförandetillstånd. Men skiljer sig från Linux-agenten, cloud-init väntar inte på användarens anpassade datakonfigurationer för att slutföra innan du rapporterar till den plattform som den virtuella datorn är klar. Mer information om cloud-init på azure finns i [dokumentationen](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init).
+* Cloud-Init-som standard bearbetar anpassade data som standard, Cloud-Init accepterar [flera format](https://cloudinit.readthedocs.io/en/latest/topics/format.html) för anpassade data, till exempel Cloud-Init-konfiguration, skript osv. Liknar Linux-agenten, när Cloud-Init bearbetar anpassade data. Om det uppstår fel under körningen av konfigurations bearbetningen eller skripten, betraktas det inte som ett oåterkalleligt etablerings fel och du måste skapa en meddelande Sök väg för att varna dig om skriptets slut för ande tillstånd. Men annorlunda för Linux-agenten väntar Cloud-Init inte på användarens anpassade datakonfigurationer som ska slutföras innan rapportering till den plattform som den virtuella datorn är klar för. Läs [dokumentationen](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)om du vill ha mer information om Cloud-Init på Azure.
 
 
-Om du vill felsöka anpassad datakörning läser du [felsökningsdokumentationen](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init).
+Om du vill felsöka anpassad data körning läser du fel söknings [dokumentationen](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init#troubleshooting-cloud-init).
 
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 ### <a name="can-i-update-custom-data-after-the-vm-has-been-created"></a>Kan jag uppdatera anpassade data när den virtuella datorn har skapats?
-För enskilda virtuella datorer kan anpassade data i VM-modellen inte uppdateras, men för VMSS kan du uppdatera ANPASSADE VMSS-data via REST API (gäller inte för PS- eller AZ CLI-klienter). När du uppdaterar anpassade data i VMSS-modellen:
-* Befintliga instanser i VMSS kommer inte att få uppdaterade anpassade data, bara tills de är omgjorda.
-* Befintliga instanser i VMSS som uppgraderas får inte de uppdaterade anpassade data.
+För enskilda virtuella datorer går det inte att uppdatera anpassade data i VM-modellen, men för VMSS kan du uppdatera VMSS anpassade data via REST API (inte tillämpligt för PS-eller AZ CLI-klienter). När du uppdaterar anpassade data i VMSS-modellen:
+* Befintliga instanser i VMSS kommer inte att hämta uppdaterade anpassade data, bara tills de har återställts på avbildningen.
+* Befintliga instanser i VMSS som uppgraderas kommer inte att hämta uppdaterade anpassade data.
 * Nya instanser får nya anpassade data.
 
 ### <a name="can-i-place-sensitive-values-in-custom-data"></a>Kan jag placera känsliga värden i anpassade data?
-Vi rekommenderar att **du inte** lagrar känsliga data i anpassade data. Mer information finns i [metodtips för Azure Security och kryptering](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices).
+Vi rekommenderar att du **inte** lagrar känsliga data i anpassade data. Mer information finns i [metod tips för Azure-säkerhet och kryptering](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices).
 
 
-### <a name="is-custom-data-made-available-in-imds"></a>Är anpassade data tillgängliga i IMDS?
+### <a name="is-custom-data-made-available-in-imds"></a>Är anpassade data som görs tillgängliga i IMDS?
 Nej, den här funktionen är inte tillgänglig för tillfället.

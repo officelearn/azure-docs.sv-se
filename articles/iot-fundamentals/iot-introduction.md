@@ -11,44 +11,44 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 73eb0b3164a386bb270e42ceba56d5dc7045af1c
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81728994"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Vad är Azure Sakernas Internet (IoT)?
 
-Azure Sakernas Internet (IoT) är en samling Microsoft-hanterade molntjänster som ansluter, övervakar och styr miljontals IoT-resurser. Enklare termer består en IoT-lösning av en eller flera IoT-enheter som kommunicerar med en eller flera backend-tjänster som finns i molnet. 
+Azure Sakernas Internet (IoT) är en samling Microsoft-hanterade molntjänster som ansluter, övervakar och styr miljontals IoT-resurser. I enklare termer består en IoT-lösning av en eller flera IoT-enheter som kommunicerar med en eller flera Server dels tjänster som finns i molnet. 
 
 ## <a name="iot-devices"></a>IoT-enheter
 
-En IoT-enhet består vanligtvis av ett kretskort med sensorer anslutna som använder WiFi för att ansluta till Internet. Ett exempel:
+En IoT-enhet består vanligt vis av en kretskort med exponerade sensorer som använder WiFi för att ansluta till Internet. Ett exempel:
 
-* En trycksensor på en fjärroljepump.
-* Temperatur- och fuktighetsgivare i en luftkonditioneringsenhet.
+* En tryck sensor på en fjärran sluten olje pump.
+* Temperatur-och fuktighets sensorer i en luft Konditionerings enhet.
 * En accelerometer i en hiss.
-* Närvarosensorer i ett rum.
+* Närvaro sensorer i ett rum.
 
-Det finns ett brett utbud av enheter tillgängliga från olika tillverkare för att bygga din lösning. En lista över enheter som är certifierade för att fungera med Azure IoT Hub finns i [Azure Certified for IoT-enhetskatalogen](https://catalog.azureiotsolutions.com/alldevices). För prototyper kan du använda enheter som en [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/) eller en [Raspberry Pi](https://www.raspberrypi.org/). Devkit har inbyggda sensorer för temperatur, tryck, luftfuktighet och gyroskop, accelerometer och magnetometer. Raspberry Pi låter dig fästa många olika typer av sensor. 
+Det finns en mängd olika enheter som är tillgängliga från olika tillverkare för att bygga din lösning. En lista över enheter som har certifierats för att fungera med Azure IoT Hub finns i [enhets katalogen för Azure Certified för IoT](https://catalog.azureiotsolutions.com/alldevices). För prototyper kan du använda enheter som till exempel en [MXChip IoT-DevKit](https://microsoft.github.io/azure-iot-developer-kit/) eller en [Raspberry Pi](https://www.raspberrypi.org/). Devkit har inbyggda sensorer för temperatur, tryck, fuktighet och en Gyroscope, accelerometer och magnetometer. Med Raspberry Pi kan du koppla flera olika typer av sensorer. 
 
-Microsoft tillhandahåller [enhetsdYkar](../iot-hub/iot-hub-devguide-sdks.md) med öppen källkod som du kan använda för att skapa de appar som körs på dina enheter. Dessa [SDK förenklar och påskyndar](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/) utvecklingen av dina IoT-lösningar.
+Microsoft tillhandahåller [enhets-SDK](../iot-hub/iot-hub-devguide-sdks.md) : er med öppen källkod som du kan använda för att skapa appar som körs på dina enheter. Dessa [SDK: er fören klar och påskyndar](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/) utvecklingen av IoT-lösningar.
 
 ## <a name="communication"></a>Kommunikation
 
-Vanligtvis skickar IoT-enheter telemetri från sensorerna till backend-tjänster i molnet. Andra typer av kommunikation är dock möjliga, till exempel en backend-tjänst som skickar kommandon till dina enheter. Följande är några exempel på kommunikation mellan enheter och molnet till enheten:
+Vanligt vis skickar IoT-enheter telemetri från sensorer till backend-tjänster i molnet. Andra typer av kommunikation är dock möjligt, till exempel en backend-tjänst som skickar kommandon till dina enheter. Här följer några exempel på enhets-till-moln-och moln-till-enhet-kommunikation:
 
-* En mobil kylbil skickar temperatur var 5:e minut till en IoT Hub. 
+* En bilkylnings Truck skickar temperatur var 5: e minut till en IoT Hub. 
 
-* Backend-tjänsten skickar ett kommando till en enhet för att ändra hur ofta den skickar telemetri för att diagnostisera ett problem. 
+* Backend-tjänsten skickar ett kommando till en enhet för att ändra den frekvens som den skickar telemetri till för att hjälpa till att diagnostisera ett problem. 
 
-* En enhet skickar aviseringar baserat på de värden som läs avst läs från dess sensorer. En enhet som övervakar en batchreaktor i en kemisk anläggning skickar till exempel en varning när temperaturen överstiger ett visst värde.
+* En enhet skickar aviseringar baserat på de värden som läses från dess sensorer. Till exempel en enhet som övervakar en batch reaktor i en kemisk anläggning, skickar en avisering när temperaturen överskrider ett visst värde.
 
-* Dina enheter skickar information för att visas på en instrumentpanel för visning av mänskliga operatörer. Ett kontrollrum i ett raffinaderi kan till exempel visa temperatur-, tryck- och flödesvolymerna i varje rör, vilket gör det möjligt för operatörerna att övervaka anläggningen. 
+* Dina enheter skickar information som ska visas på en instrument panel för visning av mänskliga operatörer. Till exempel kan ett kontroll rum i en fin justering Visa temperatur, tryck och Flow-volymer i varje rörledning, vilket gör det möjligt för operatörer att övervaka anläggningen. 
 
-[IoT-enhetSDK:er](../iot-hub/iot-hub-devguide-sdks.md) och IoT Hub stöder vanliga [kommunikationsprotokoll](../iot-hub/iot-hub-devguide-protocols.md) som HTTP, MQTT och AMQP.
+[IoT-enhetens SDK](../iot-hub/iot-hub-devguide-sdks.md) : er och IoT Hub stödja vanliga [kommunikations protokoll](../iot-hub/iot-hub-devguide-protocols.md) som http, MQTT och AMQP.
 
-IoT-enheter har olika egenskaper jämfört med andra klienter som webbläsare och mobilappar. Enhetens SDK:er hjälper dig att hantera utmaningarna med att ansluta enheter på ett säkert och tillförlitligt sätt till din backend-tjänst.  IoT-enheter är mer specifikt:
+IoT-enheter har olika egenskaper jämfört med andra klienter, till exempel webbläsare och mobilappar. Enhets-SDK: er hjälper dig att lösa utmaningarna med att ansluta enheter på ett säkert och tillförlitligt sätt till Server dels tjänsten.  IoT-enheter är mer specifikt:
 
 * Ofta inbyggda system utan mänskliga operatörer (till skillnad från en telefon).
 * Kan distribueras på avlägsna platser, där fysisk åtkomst är dyr.
@@ -59,20 +59,20 @@ IoT-enheter har olika egenskaper jämfört med andra klienter som webbläsare oc
 
 ## <a name="back-end-services"></a>Serverdelstjänster 
 
-I en IoT-lösning tillhandahåller backend-tjänsten funktioner som:
+I en IoT-lösning tillhandahåller Server dels tjänsten funktioner som:
 
 * Ta emot stora mängder telemetri från dina enheter och bestämma hur telemetridata bearbetas och lagras.
 * Analysera telemetri för att ge insikter, oavsett om de skickas i realtid eller i efterhand.
 * Skicka kommandon från molnet till en specifik enhet. 
-* Etablera enheter och styra vilka enheter som kan ansluta till din infrastruktur.
-* Styra tillståndet för dina enheter och övervaka deras aktiviteter.
-* Hantera den inbyggda programvaran som är installerad på dina enheter.
+* Konfigurera enheter och kontrol lera vilka enheter som kan ansluta till din infrastruktur.
+* Kontrol lera status för enheterna och övervakning av deras aktiviteter.
+* Hantering av den inbyggda program varan på dina enheter.
 
-I en fjärrövervakningslösning för en oljepumpstation använder molnbakdelen telemetri från pumparna för att identifiera avvikande beteende. När backend-tjänsten identifierar en avvikelse kan den automatiskt skicka ett kommando tillbaka till enheten för att vidta en korrigerande åtgärd. Den här processen skapar en automatisk feedback-loop mellan enheten och molnet som ökar effektiviteten för lösningen dramatiskt.
+I en lösning för fjärrövervakning för en olje pump Station, använder till exempel Server delen telemetri från pumpar för att identifiera avvikande beteende. När backend-tjänsten identifierar en avvikelse kan den automatiskt skicka tillbaka ett kommando till enheten för att vidta en lämplig åtgärd. Den här processen skapar en automatisk feedback-loop mellan enheten och molnet som ökar effektiviteten för lösningen dramatiskt.
 
-## <a name="azure-iot-examples"></a>Azure IoT-exempel
+## <a name="azure-iot-examples"></a>Exempel på Azure IoT
 
-För verkliga exempel på hur organisationer använder Azure IoT finns i [Microsoft Technical Case Studies for IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
+I verkliga exempel på hur organisationer använder Azure IoT, se tekniska fallstudier från [Microsoft för IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -80,6 +80,6 @@ För verkliga affärsfall och vilken arkitektur som använts finns i avsnittet o
 
 Vissa exempelprojekt som du kan prova med en IoT DevKit finns i [IoT DevKit-katalogen](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/). 
 
-En mer omfattande förklaring av de olika tjänsterna och hur de används finns i [Azure IoT-tjänster och -tekniker](iot-services-and-technologies.md).
+En mer omfattande förklaring av de olika tjänsterna och hur de används finns i [Azure IoT-tjänster och-tekniker](iot-services-and-technologies.md).
 
 En detaljerad beskrivning av IoT-arkitekturen finns i [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (Referensarkitektur för Microsoft Azure IoT).

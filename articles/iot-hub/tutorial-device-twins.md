@@ -1,6 +1,6 @@
 ---
 title: Synkronisera enhetens tillstånd från Azure IoT Hub | Microsoft Docs
-description: Lär dig hur du använder enhetstvillingar för att konfigurera dina enheter från molnet och ta emot status- och efterlevnadsdata från dina enheter.
+description: Lär dig hur du använder enhets dubbla för att konfigurera dina enheter från molnet och ta emot status-och efterlevnadsprinciper från dina enheter.
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc
@@ -12,10 +12,10 @@ ms.custom:
 - mvc
 - mqtt
 ms.openlocfilehash: a7e68999bf516bffa08fb97eb8c88f2f8abb428d
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81767820"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
@@ -41,9 +41,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="prerequisites"></a>Krav
 
-De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node.js v10.x.x eller senare på din utvecklingsmaskin.
+De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node. js v10. x. x eller senare på din utvecklings dator.
 
-Du kan hämta Node.js för flera plattformar från [nodejs.org](https://nodejs.org).
+Du kan hämta Node. js för flera plattformar från [NodeJS.org](https://nodejs.org).
 
 Du kan kontrollera den aktuella versionen av Node.js på utvecklingsdatorn med följande kommando:
 
@@ -53,7 +53,7 @@ node --version
 
 Ladda ned exempelprojektet för Node.js från https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip och extrahera ZIP-arkivet.
 
-Kontrollera att port 8883 är öppen i brandväggen. Enhetsexemplet i den här självstudien använder MQTT-protokollet, som kommunicerar över port 8883. Den här porten kan vara blockerad i vissa företags- och utbildningsnätverksmiljöer. Mer information och sätt att lösa problemet finns i [Ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här självstudien använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="set-up-azure-resources"></a>Ställa in Azure-resurser
 
@@ -240,7 +240,7 @@ Följande skärmbild visar utdata från det simulerade enhetsprogrammet och visa
 
 ![Simulerad enhet](./media/tutorial-device-twins/SimulatedDevice2.png)
 
-Följande skärmbild visar utdata från backend-programmet och belyser hur den tar emot och bearbetar en rapporterad egenskapsuppdatering från en enhet:
+Följande skärm bild visar utdata från Server dels programmet och visar hur den tar emot och bearbetar en rapporterad egenskaps uppdatering från en enhet:
 
 ![Serverdelsprogram](./media/tutorial-device-twins/BackEnd2.png)
 

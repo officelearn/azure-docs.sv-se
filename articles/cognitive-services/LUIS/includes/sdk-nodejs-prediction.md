@@ -11,110 +11,110 @@ ms.topic: include
 ms.custom: include file
 ms.author: diberry
 ms.openlocfilehash: 9c15e4217c5331346c5a95329bae7e2a4f0e0841
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81732084"
 ---
-Använd klientbiblioteket Språk understanding (LUIS) för Node.js för att:
+Använd klient biblioteket Language Understanding (LUIS) för körning av Node. js för att:
 
-* Förutsägelse efter kortplats
+* Förutsägelse per plats
 * Förutsägelse efter version
 
-[Referensdokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest) | [Ursprungskod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime) | [Körningspaket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [Exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_prediction.js)
+[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest) | [bibliotek Source Code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime) | [runtime Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_prediction.js)
 
 ## <a name="prerequisites"></a>Krav
 
-* Körningsresurs för språk understanding: [Skapa en i Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+* Language Understanding runtime-resurs: [skapa en i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 * [Node.js](https://nodejs.org)
-* Ett LUIS-app-ID – använd det offentliga `df67dcdb-c37d-46af-88e1-8b97951ca1c2`IoT-app-ID:et för . Användarfrågan som används i snabbstartskoden är specifik för den appen.
+* Ett LUIS app-ID – Använd ID: t för `df67dcdb-c37d-46af-88e1-8b97951ca1c2`den offentliga IoT-appen. Den användar fråga som används i snabb starts koden är speciell för den appen.
 
-## <a name="setting-up"></a>Inrätta
+## <a name="setting-up"></a>Konfigurera
 
-### <a name="get-your-language-understanding-luis-runtime-key"></a>Få din körtidsnyckel (Language Understanding)
+### <a name="get-your-language-understanding-luis-runtime-key"></a>Hämta din Language Understanding (LUIS) körnings nyckel
 
-Hämta [din körningsnyckel](../luis-how-to-azure-subscription.md) genom att skapa en LUIS-körningsresurs. Behåll nyckeln och slutpunkten för nyckeln för nästa steg.
+Hämta din [körnings nyckel](../luis-how-to-azure-subscription.md) genom att skapa en Luis runtime-resurs. Behåll din nyckel och slut punkten för nyckeln för nästa steg.
 
 [!INCLUDE [Set up environment variables for prediction quickstart](sdk-prediction-environment-variables.md)]
 
-### <a name="create-a-new-javascript-nodejs-file"></a>Skapa en ny JavaScript-fil (Node.js)
+### <a name="create-a-new-javascript-nodejs-file"></a>Skapa en ny JavaScript-fil (Node. js)
 
-Skapa en ny JavaScript-fil i önskad `luis_prediction.js`redigerare eller IDE med namnet .
+Skapa en ny JavaScript-fil i önskat redigerings program eller IDE, `luis_prediction.js`med namnet.
 
-### <a name="install-the-npm-library-for-the-luis-runtime"></a>Installera NPM-biblioteket för LUIS-körningen
+### <a name="install-the-npm-library-for-the-luis-runtime"></a>Installera NPM-biblioteket för LUIS runtime
 
-Installera beroendena med följande kommando i programkatalogen:
+I program katalogen installerar du beroendena med följande kommando:
 
 ```console
 npm install @azure/cognitiveservices-luis-runtime @azure/ms-rest-js
 ```
 
-## <a name="object-model"></a>Objektmodell
+## <a name="object-model"></a>Objekt modell
 
-LUIS-redigeringsklienten (Language Understanding) är ett [LUISAuthoringClient-objekt](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/luisruntimeclient?view=azure-node-latest) som autentiserar till Azure, som innehåller din redigeringsnyckel.
+Redigerings klienten för Language Understanding (LUIS) är ett [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/luisruntimeclient?view=azure-node-latest) -objekt som autentiserar till Azure, som innehåller din redigerings nyckel.
 
-När klienten har skapats använder du den här klienten för att komma åt funktioner, inklusive:
+När klienten har skapats använder du den här klienten för att få åtkomst till funktioner, inklusive:
 
-* [Förutsägelse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-) `staging` av `production` eller kortplats
-* [Förutsägelse per version](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getversionprediction-string--string--predictionrequest--models-predictiongetversionpredictionoptionalparams-)
+* [Förutsägelse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-) efter `staging` eller `production` plats
+* [Förutsägelse efter version](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getversionprediction-string--string--predictionrequest--models-predictiongetversionpredictionoptionalparams-)
 
 ## <a name="code-examples"></a>Kodexempel
 
-Dessa kodavsnitt visar hur du gör följande med klientbiblioteket för förutsägelsekörning (Language Understanding) (LUIS):
+De här kodfragmenten visar hur du gör följande med klient biblioteket Language Understanding (LUIS) förutsägelse körning:
 
-* [Förutsägelse efter kortplats](#get-prediction-from-runtime)
+* [Förutsägelse per plats](#get-prediction-from-runtime)
 
 ## <a name="add-the-dependencies"></a>Lägg till beroenden
 
-Öppna `luis_prediction.js` filen i önskad redigerare eller IDE från projektkatalogen. Lägg till följande beroenden:
+Från projekt katalogen öppnar du `luis_prediction.js` filen i önskat redigerings program eller IDE. Lägg till följande beroenden:
 
 [!code-javascript [Dependencies](~/cognitive-services-quickstart-code/javascript/LUIS/luis_prediction.js?name=Dependencies)]
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-1. Skapa variabler för din egen nödvändiga LUIS-information:
+1. Skapa variabler för din egen obligatoriska LUIS-information:
 
-    Lägg till variabler för att hantera förutsägelsenyckeln som hämtats från en miljövariabel med namnet `LUIS_RUNTIME_KEY`. Om du har skapat miljövariabeln när programmet har startats måste redigeraren, IDE: t eller shell som kör den stängas och laddas om för att komma åt variabeln. Metoderna skapas senare.
+    Lägg till variabler för att hantera din förutsägelse nyckel som hämtas från en `LUIS_RUNTIME_KEY`miljö variabel med namnet. Om du har skapat miljövariabeln när programmet har startats måste redigeraren, IDE eller gränssnittet som kör den stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare.
 
-    Skapa en variabel för `LUIS_RUNTIME_ENDPOINT`att hålla ditt resursnamn .
+    Skapa en variabel för att lagra resurs namnet `LUIS_RUNTIME_ENDPOINT`.
 
     [!code-javascript [Azure resource variables](~/cognitive-services-quickstart-code/javascript/LUIS/luis_prediction.js?name=Variables)]
 
-1. Skapa en variabel för app-ID:t som en miljövariabel med namnet `LUIS_APP_ID`. Ange miljövariabeln till den offentliga **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** IoT-appen . Skapa en variabel `production` för att ange den publicerade platsen.
+1. Skapa en variabel för app-ID som en miljö variabel med `LUIS_APP_ID`namnet. Ange miljövariabeln till den offentliga IoT- **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** appen. Skapa en variabel för att ange `production` den publicerade platsen.
 
     [!code-javascript [LUIS app variables](~/cognitive-services-quickstart-code/javascript/LUIS/luis_prediction.js?name=OtherVariables)]
 
 
-1. Skapa ett msRest.ApiKeyCredentials-objekt med nyckeln och använd det med slutpunkten för att skapa en [LUIS. LUISRuntimeClient-objekt.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/luisruntimeclient?view=azure-node-latest)
+1. Skapa ett msRest. ApiKeyCredentials-objekt med din nyckel och Använd slut punkten för att skapa en [Luis. LUISRuntimeClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/luisruntimeclient?view=azure-node-latest) -objekt.
 
     [!code-javascript [LUIS Runtime client is required to access predictions for LUIS apps](~/cognitive-services-quickstart-code/javascript/LUIS/luis_prediction.js?name=AuthoringCreateClient)]
 
-## <a name="get-prediction-from-runtime"></a>Få förutsägelse från körning
+## <a name="get-prediction-from-runtime"></a>Hämta förutsägelse från körning
 
-Lägg till följande metod för att skapa begäran i förutsägelsekörningen.
+Lägg till följande metod för att skapa begäran till förutsägelse körning.
 
-Användaren yttrande är en del av [predictionRequest](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionrequest?view=azure-node-latest) objektet.
+Användaren uttryck är en del av [predictionRequest](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionrequest?view=azure-node-latest) -objektet.
 
-**[LuisRuntimeClient.prediction.getSlotPrediction-metoden](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-)** behöver flera parametrar, till exempel app-ID, platsnamnet och förutsägelsebegäran för att uppfylla begäran. De andra alternativen, till exempel utförlig, visa alla avsikter och logg är valfria.
+Metoden **[luisRuntimeClient. förutsägelse. getSlotPrediction](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-)** kräver flera parametrar, till exempel App-ID, plats namn och objektet förutsägelse begär Ande för att uppfylla begäran. De andra alternativen, till exempel verbose, Visa alla avsikter och loggen är valfria.
 
 [!code-javascript [LUIS prediction request and response in Node.js NPM SDK](~/cognitive-services-quickstart-code/javascript/LUIS/luis_prediction.js?name=predict)]
 
-## <a name="main-code-for-the-prediction"></a>Huvudkoden för förutsägelsen
+## <a name="main-code-for-the-prediction"></a>Huvud kod för förutsägelsen
 
-Använd följande huvudmetod för att binda variablerna och metoderna tillsammans för att få förutsägelsen.
+Använd följande huvudsakliga metod för att koppla ihop variablerna och metoderna för att hämta förutsägelsen.
 
 [!code-javascript [Main method and main call](~/cognitive-services-quickstart-code/javascript/LUIS/luis_prediction.js?name=Main)]
 
 ## <a name="run-the-application"></a>Köra appen
 
-Kör programmet med `node luis_prediction.js` kommandot från programkatalogen.
+Kör programmet med `node luis_prediction.js` kommandot från program katalogen.
 
 ```console
 node luis_prediction.js
 ```
 
-Förutsägelseresultatet returnerar ett JSON-objekt:
+Förutsägelse resultatet returnerar ett JSON-objekt:
 
 ```console
 {
@@ -160,4 +160,4 @@ Förutsägelseresultatet returnerar ett JSON-objekt:
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med dina förutsägelser rensar du arbetet från den här snabbstarten genom att ta bort filen och dess underkataloger.
+När du är klar med dina förutsägelser kan du rensa arbetet från den här snabb starten genom att ta bort filen och dess under kataloger.

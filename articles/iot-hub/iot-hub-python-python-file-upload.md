@@ -1,6 +1,6 @@
 ---
-title: Ladda upp filer från enheter till Azure IoT Hub med Python | Microsoft-dokument
-description: Så här laddar du upp filer från en enhet till molnet med Azure IoT-enheten SDK för Python. Överförda filer lagras i en Azure storage blob-behållare.
+title: Ladda upp filer från enheter till Azure IoT Hub med python | Microsoft Docs
+description: Ladda upp filer från en enhet till molnet med hjälp av Azure IoT-enhetens SDK för python. Överförda filer lagras i en BLOB-behållare för Azure Storage.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -10,27 +10,27 @@ ms.date: 03/31/2020
 ms.author: robinsh
 ms.custom: mqtt
 ms.openlocfilehash: 47fb7c615389e24322450ed1785aa7da9ec50db6
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759689"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Ladda upp filer från enheten till molnet med IoT Hub (Python)
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Ladda upp filer från enheten till molnet med IoT Hub (python)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Den här artikeln visar hur du använder [filöverföringsfunktionerna i IoT Hub](iot-hub-devguide-file-upload.md) för att ladda upp en fil till [Azure blob storage](../storage/index.yml). Självstudien visar hur du:
+Den här artikeln visar hur du använder [fil överförings funktionerna i IoT Hub](iot-hub-devguide-file-upload.md) för att ladda upp en fil till [Azure Blob Storage](../storage/index.yml). Självstudien visar hur du:
 
-* På ett säkert sätt tillhandahålla en lagringsbehållare för att ladda upp en fil.
+* Tillhandahålla en lagrings behållare på ett säkert sätt för att ladda upp en fil.
 
-* Använd Python-klienten för att ladda upp en fil via din IoT-hubb.
+* Använd python-klienten för att ladda upp en fil via din IoT Hub.
 
-[Snabbstarten Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-python.md) visar den grundläggande funktionen för ioT-hubben för enheter till molnet. I vissa fall kan du dock inte enkelt mappa de data som dina enheter skickar till de relativt små meddelanden från enhet till moln som IoT Hub accepterar. När du behöver upland-filer från en enhet kan du fortfarande använda säkerheten och tillförlitligheten hos IoT Hub.
+[Genom att skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-python.md) -snabb start demonstreras de grundläggande meddelande funktionerna från enhet till moln i IoT Hub. I vissa fall kan du dock inte enkelt mappa de data som enheterna skickar till de relativt små enhets-till-moln-meddelanden som IoT Hub accepterar. När du behöver använda filer från en enhet kan du fortfarande använda säkerhet och tillförlitlighet för IoT Hub.
 
-I slutet av den här självstudien kör du Python-konsolappen:
+I slutet av den här självstudien kör du python-konsol programmet:
 
-* **FileUpload.py**, som laddar upp en fil till lagring med Python Device SDK.
+* **FileUpload.py**, som laddar upp en fil till lagringen med python-enhets-SDK: n.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
@@ -38,31 +38,31 @@ I slutet av den här självstudien kör du Python-konsolappen:
 
 [!INCLUDE [iot-hub-include-python-v2-async-installation-notes](../../includes/iot-hub-include-python-v2-async-installation-notes.md)]
 
-* Kontrollera att port 8883 är öppen i brandväggen. Enhetsexemplet i den här artikeln använder MQTT-protokollet, som kommunicerar över port 8883. Den här porten kan vara blockerad i vissa företags- och utbildningsnätverksmiljöer. Mer information och sätt att lösa problemet finns i [Ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
-## <a name="upload-a-file-from-a-device-app"></a>Ladda upp en fil från en enhetsapp
+## <a name="upload-a-file-from-a-device-app"></a>Ladda upp en fil från en enhets app
 
-I det här avsnittet skapar du enhetsappen för att ladda upp en fil till IoT-hubben.
+I det här avsnittet skapar du Device-appen för att ladda upp en fil till IoT Hub.
 
-1. Kör följande kommando för att installera **azure-iot-device-paketet** i kommandotolken. Du använder det här paketet för att koordinera filöverföringen med din IoT-hubb.
+1. Kör följande kommando i kommando tolken för att installera paketet **Azure-IoT-Device** . Du använder det här paketet för att koordinera fil uppladdning med IoT Hub.
 
     ```cmd/sh
     pip install azure-iot-device
     ```
 
-1. Kör följande kommando för att installera [**azure.storage.blob-paketet**](https://pypi.org/project/azure-storage-blob/) i kommandotolken. Du använder det här paketet för att utföra filöverföringen.
+1. Kör följande kommando i kommando tolken för att installera [**Azure. Storage. blob**](https://pypi.org/project/azure-storage-blob/) -paketet. Du använder det här paketet för att utföra fil uppladdning.
 
     ```cmd/sh
     pip install azure.storage.blob
     ```
 
-1. Skapa en testfil som du överför till blob-lagring.
+1. Skapa en test fil som du överför till Blob Storage.
 
-1. Skapa en **FileUpload.py-fil** i arbetsmappen med hjälp av en textredigerare.
+1. Med hjälp av en text redigerare skapar du en **FileUpload.py** -fil i arbetsmappen.
 
-1. Lägg till `import` följande satser och variabler i början av **FileUpload.py** filen.
+1. Lägg till följande `import` -instruktioner och variabler i början av **FileUpload.py** -filen.
 
     ```python
     import os
@@ -75,9 +75,9 @@ I det här avsnittet skapar du enhetsappen för att ladda upp en fil till IoT-hu
     PATH_TO_FILE = r"[Full path to local file]"
     ```
 
-1. Ersätt `[Device Connection String]` med anslutningssträngen för IoT-hubbenheten i filen. Ersätt `[Full path to local file]` med sökvägen till testfilen som du skapade eller någon fil på enheten som du vill ladda upp.
+1. Ersätt `[Device Connection String]` med anslutnings strängen för din IoT Hub-enhet i filen. Ersätt `[Full path to local file]` med sökvägen till test filen som du skapade eller en fil på enheten som du vill ladda upp.
 
-1. Skapa en funktion för att överföra filen till blob storage:
+1. Skapa en funktion för att överföra filen till Blob Storage:
 
     ```python
     async def store_blob(blob_info, file_name):
@@ -107,7 +107,7 @@ I det här avsnittet skapar du enhetsappen för att ladda upp en fil till IoT-hu
             return (False, ex)
     ```
 
-    Den här funktionen tolkar *den blob_info* struktur som skickas in i den för att skapa en URL som används för att initiera en [azure.storage.blob.BlobClient](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python). Sedan överför filen till Azure blob storage med den här klienten.
+    Den här funktionen tolkar *blob_infos* strukturen som har skickats till den för att skapa en URL som används för att initiera en [Azure. Storage. blob. BlobClient](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python). Sedan laddar den upp din fil till Azure Blob Storage med hjälp av den här klienten.
 
 1. Lägg till följande kod för att ansluta klienten och ladda upp filen:
 
@@ -169,44 +169,44 @@ I det här avsnittet skapar du enhetsappen för att ladda upp en fil till IoT-hu
         #loop.close()
     ```
 
-    Den här koden skapar en asynkron **IoTHubDeviceClient** och använder följande API:er för att hantera filöverföringen med din IoT-hubb:
+    Den här koden skapar en asynkron **IoTHubDeviceClient** och använder följande API: er för att hantera fil uppladdning med IoT Hub:
 
-    * **get_storage_info_for_blob** får information från din IoT-hubb om det länkade lagringskonto som du skapade tidigare. Den här informationen omfattar värdnamn, behållarnamn, blobnamn och en SAS-token. Lagringsinformationen skickas till **store_blob** -funktionen (skapad i föregående steg), så **BlobClient** i den funktionen kan autentisera med Azure-lagring. Metoden **get_storage_info_for_blob** returnerar också en correlation_id som används i **notify_blob_upload_status** metoden. Den correlation_id är IoT Hub sätt att markera vilken blob du arbetar med.
+    * **get_storage_info_for_blob** hämtar information från din IoT-hubb om det länkade lagrings kontot som du skapade tidigare. Den här informationen inkluderar värdnamn, behållar namn, BLOB-namn och en SAS-token. Lagrings informationen skickas till **store_blob** funktion (som skapats i föregående steg), så att **BlobClient** i funktionen kan autentiseras med Azure Storage. Metoden **get_storage_info_for_blob** returnerar även en correlation_id som används i **notify_blob_upload_status** -metoden. Correlation_id är IoT Hub hur du markerar vilken blob som du arbetar med.
 
-    * **notify_blob_upload_status** meddelar IoT Hub om statusen för din blob-lagringsåtgärd. Du skickar det correlation_id som erhållits genom **get_storage_info_for_blob** metoden. Den används av IoT Hub för att meddela alla tjänster som kanske lyssnar efter ett meddelande om statusen för filöverföringsuppgiften.
+    * **notify_blob_upload_status** meddelar IoT Hub om status för din Blob Storage-åtgärd. Du skickar det correlation_id som erhålls av **get_storage_info_for_blob** -metoden. Den används av IoT Hub för att meddela alla tjänster som kan lyssna efter ett meddelande om statusen för fil överförings aktiviteten.
 
-1. Spara och **UploadFile.py** stäng UploadFile.py-filen.
+1. Spara och Stäng filen **UploadFile.py** .
 
 ## <a name="run-the-application"></a>Köra appen
 
 Nu är du redo att köra programmet.
 
-1. Kör följande kommando i en kommandotolk i arbetsmappen:
+1. Kör följande kommando i en kommando tolk i arbetsmappen:
 
     ```cmd/sh
     python FileUpload.py
     ```
 
-2. Följande skärmbild visar utdata från **FileUpload-appen:**
+2. Följande skärm bild visar utdata från **fileupload** -appen:
 
-    ![Utdata från appen simulerad enhet](./media/iot-hub-python-python-file-upload/run-device-app.png)
+    ![Utdata från den simulerade enhets appen](./media/iot-hub-python-python-file-upload/run-device-app.png)
 
-3. Du kan använda portalen för att visa den uppladdade filen i lagringsbehållaren som du konfigurerade:
+3. Du kan använda portalen för att visa den överförda filen i den lagrings behållare som du konfigurerade:
 
-    ![Laddad fil](./media/iot-hub-python-python-file-upload/view-blob.png)
+    ![Överförd fil](./media/iot-hub-python-python-file-upload/view-blob.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig hur du använder filöverföringsfunktionerna i IoT Hub för att förenkla filuppladdningar från enheter. Du kan fortsätta att utforska IoT-hubbfunktioner och -scenarier med följande artiklar:
+I den här självstudien har du lärt dig hur du använder fil överförings funktionerna i IoT Hub för att förenkla fil överföringar från enheter. Du kan fortsätta att utforska funktionerna och scenarierna i IoT Hub med följande artiklar:
 
-* [Skapa ett IoT-nav programmässigt](iot-hub-rm-template-powershell.md)
+* [Skapa en IoT Hub program mässigt](iot-hub-rm-template-powershell.md)
 
 * [Introduktion till C SDK](iot-hub-device-sdk-c-intro.md)
 
 * [SDK:er för Azure IoT](iot-hub-devguide-sdks.md)
 
-Läs mer om Azure Blob Storage med följande länkar:
+Lär dig mer om Azure Blob Storage med följande länkar:
 
-* [Azure Blob Storage-dokumentation](https://docs.microsoft.com/azure/storage/blobs/)
+* [Dokumentation om Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/)
 
-* [Azure Blob Storage för Python API-dokumentation](https://docs.microsoft.com/python/api/overview/azure/storage-blob-readme?view=azure-python)
+* [Dokumentation om Azure Blob Storage for python API](https://docs.microsoft.com/python/api/overview/azure/storage-blob-readme?view=azure-python)

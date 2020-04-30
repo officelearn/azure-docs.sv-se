@@ -1,5 +1,5 @@
 ---
-title: Skapa ett Azure Cosmos DB .NET Framework, Core-program med Gremlin-API:et
+title: 'Bygg en Azure Cosmos DB .NET Framework, kärn program med hjälp av Gremlin-API: et'
 description: Anger ett .NET Framework/Core-kodexempel som du kan använda för att ansluta till och fråga en Azure Cosmos DB
 author: luisbosquez
 ms.service: cosmos-db
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: lbosq
 ms.openlocfilehash: bf453587b354b5db3f3ef1a80f974bcb8f8f4e14
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81730020"
 ---
-# <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Snabbstart: Skapa ett .NET Framework- eller Core-program med Azure Cosmos DB Gremlin API-konto
+# <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Snabb start: bygga ett .NET Framework-eller kärn program med hjälp av Azure Cosmos DB Gremlin API-konto
 
 > [!div class="op_single_selector"]
 > * [Gremlin-konsol](create-graph-gremlin-console.md)
@@ -28,11 +28,11 @@ ms.locfileid: "81730020"
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-Den här snabbstarten visar hur du skapar ett Azure Cosmos DB [Gremlin API-konto,](graph-introduction.md) databas och diagram (behållare) med Hjälp av Azure-portalen. Sedan skapar och kör du en konsolapp med drivrutinen [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) (öppen källkod).  
+Den här snabb starten visar hur du skapar ett Azure Cosmos DB [GREMLIN API](graph-introduction.md) -konto, databas och Graf (behållare) med hjälp av Azure Portal. Sedan skapar och kör du en konsolapp med drivrutinen [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) (öppen källkod).  
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte redan har Installerat Visual Studio 2019 kan du ladda ned och använda den **kostnadsfria** [Visual Studio 2019 Community Edition.](https://www.visualstudio.com/downloads/) Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
+Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -83,19 +83,19 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 
 Följande kodfragment är alla hämtade från filen Program.cs.
 
-* Ange anslutningsparametrar baserat på kontot som skapats ovan: 
+* Ange anslutnings parametrar baserat på det konto som du skapade ovan: 
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="configureConnectivity":::
 
-* De Gremlin-kommandon som ska köras visas i en ordlista:
+* De Gremlin-kommandon som ska köras visas i en ord lista:
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="defineQueries":::
 
-* Skapa ett `GremlinServer` `GremlinClient` nytt objekt och anslutningsobjekt med hjälp av parametrarna ovan:
+* Skapa ett nytt `GremlinServer` och `GremlinClient` anslutnings objekt med de parametrar som anges ovan:
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="defineClientandServerObjects":::
 
-* Kör varje Gremlin-fråga med `GremlinClient` objektet med en asynkron uppgift. Du kan läsa Gremlin-frågorna från ordlistan som definierats i föregående steg och köra dem. Senare få resultatet och läsa värdena, som är formaterade `JsonSerializer` som en ordbok, med hjälp av klassen från Newtonsoft.Json paket:
+* Kör varje Gremlin-fråga med `GremlinClient` hjälp av objektet med en asynkron uppgift. Du kan läsa Gremlin-frågorna från ord listan som definierades i föregående steg och köra dem. Hämta sedan resultatet och Läs värdena, som är formaterade som en ord lista, med hjälp `JsonSerializer` av klassen från Newtonsoft. JSON-paketet:
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="executeQueries":::
 
@@ -105,24 +105,24 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 1. Öppna [Azure Portal](https://portal.azure.com/) och navigera till ditt Graph-databaskonto. På fliken **Översikt** ser du två slutpunkter: 
  
-   **.NET SDK URI** - Det här värdet används när du ansluter till grafkontot med hjälp av Microsoft.Azure.Graphs-biblioteket. 
+   **.NET SDK-URI** – det här värdet används när du ansluter till diagrammets konto med hjälp av Microsoft. Azure. graphs-biblioteket. 
 
    **Gremlin-slutpunkt** – Det här värdet används när du ansluter till Graph-kontot via biblioteket Gremlin.Net.
 
     ![Kopiera slutpunkten](./media/create-graph-dotnet/endpoint.png)
 
-   Om du vill köra det här exemplet kopierar du **gremlin-slutpunktsvärdet,** tar bort portnumret i slutet, det vill än uri blir `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. Slutpunktsvärdet ska se ut`testgraphacct.gremlin.cosmosdb.azure.com`
+   Om du vill köra det här exemplet kopierar du **slut punkt** svärdet för Gremlin, tar bort port numret i slutet, vilket är `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`URI: n blir. Slut punkt svärdet bör se ut så här`testgraphacct.gremlin.cosmosdb.azure.com`
 
-1. Gå sedan till fliken **Nycklar** och kopiera primary **key-värdet** från Azure-portalen. 
+1. Gå sedan till fliken **nycklar** och kopiera värdet för **primär nyckel** från Azure Portal. 
 
-1. När du har kopierat URI och PRIMÄRNYCKEL för ditt konto sparar du dem i en ny miljövariabel på den lokala datorn som kör programmet. Om du vill ange miljövariabeln öppnar du ett kommandotolksfönster och kör följande kommando. Se till att ersätta <Your_Azure_Cosmos_account_URI> och <Your_Azure_Cosmos_account_PRIMARY_KEY> värden.
+1. När du har kopierat URI: n och primär nyckeln för ditt konto sparar du dem i en ny miljö variabel på den lokala datorn som kör programmet. Ange miljövariabeln genom att öppna ett kommando tolks fönster och köra följande kommando. Se till att ersätta <Your_Azure_Cosmos_account_URI> och <Your_Azure_Cosmos_account_PRIMARY_KEY> värden.
 
    ```console
    setx EndpointUrl "<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com"
    setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
    ```
 
-1. Öppna *Program.cs* filen och uppdatera variablerna "databas och "behållare" med databas- och behållaren (som också är diagramnamnet) som skapats ovan.
+1. Öppna *program.cs* -filen och uppdatera variablerna "databas och container" med databasen och behållaren (som också är graf-namn) som skapats ovan.
 
     `private static string database = "your-database-name";` `private static string container = "your-container-or-graph-name";`
 

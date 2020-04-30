@@ -1,27 +1,27 @@
 ---
 title: Skapa en funktion i Azure som svarar på HTTP-begäranden
-description: Lär dig hur du skapar en funktion från kommandoraden och publicerar sedan det lokala projektet till serverlös värd i Azure Functions.
+description: Lär dig hur du skapar en funktion från kommando raden och sedan publicerar det lokala projektet till Server lös värd i Azure Functions.
 ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
 ms.openlocfilehash: 547acb42be6a0c89dbc315031c46192b5c9a4a0d
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81732812"
 ---
-# <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Snabbstart: Skapa en funktion i Azure som svarar på HTTP-begäranden
+# <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Snabb start: skapa en funktion i Azure som svarar på HTTP-begäranden
 
-I den här artikeln använder du kommandoradsverktyg för att skapa en funktion som svarar på HTTP-begäranden. När du har testat koden lokalt distribuerar du den till den serverlösa miljön i Azure Functions. Om du slutför den här snabbstarten medför en liten kostnad på några USD-cent eller mindre i ditt Azure-konto.
+I den här artikeln använder du kommando rads verktyg för att skapa en funktion som svarar på HTTP-begäranden. När du har testat koden lokalt distribuerar du den till den serverbaserade miljön för Azure Functions. Att slutföra den här snabb starten innebär en låg kostnad av några USD cent eller mindre i ditt Azure-konto.
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-Det finns också en [Visual Studio-kodbaserad version](functions-create-first-function-vs-code.md) av den här artikeln.
+Det finns också en [Visual Studio Code-baserad version](functions-create-first-function-vs-code.md) av den här artikeln.
 ::: zone-end  
 
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> Om Maven inte är din föredragna utvecklingsverktyg, kolla in våra liknande tutorials för Java-utvecklare som använder [Gradle](/azure/azure-functions/functions-create-first-java-gradle), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) och [VS Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
+> Om maven inte är ditt fördelaktiga utvecklingsverktyg kan du ta en titt på våra liknande själv studie kurser för Java-utvecklare med [Gradle](/azure/azure-functions/functions-create-first-java-gradle), [IntelliJ-idé](/azure/developer/java/toolkit-for-intellij/quickstart-functions) och vs- [kod](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-java).
 ::: zone-end  
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
@@ -30,12 +30,12 @@ Det finns också en [Visual Studio-kodbaserad version](functions-create-first-fu
 
 [!INCLUDE [functions-cli-create-venv](../../includes/functions-cli-create-venv.md)]
 
-## <a name="create-a-local-function-project"></a>Skapa ett lokalt funktionsprojekt
+## <a name="create-a-local-function-project"></a>Skapa ett lokalt funktions projekt
 
-I Azure Functions är ett funktionsprojekt en behållare för en eller flera enskilda funktioner som var och en svarar på en viss utlösare. Alla funktioner i ett projekt har samma lokala konfigurationer och värdkonfigurationer. I det här avsnittet skapar du ett funktionsprojekt som innehåller en enda funktion.
+I Azure Functions är ett funktions projekt en behållare för en eller flera enskilda funktioner som varje svarar på en viss utlösare. Alla funktioner i ett projekt delar samma lokala och värdbaserade konfigurationer. I det här avsnittet skapar du ett funktions projekt som innehåller en enda funktion.
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-Kör `func init` kommandot, enligt följande, för att skapa ett funktionsprojekt i en mapp med namnet *LocalFunctionProj* med den angivna körningen:  
+Kör `func init` kommandot enligt följande för att skapa ett Functions-projekt i en mapp med namnet *LocalFunctionProj* med den angivna körnings miljön:  
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 ```
@@ -65,7 +65,7 @@ func init LocalFunctionProj --powershell
 ::: zone pivot="programming-language-java"  
 Kör följande kommando i en tom mapp för att skapa ett funktionsprojekt utifrån en [Maven-arketyp](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
-# <a name="bash"></a>[Bash](#tab/bash)
+# <a name="bash"></a>[bash](#tab/bash)
 ```bash
 mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype 
 ```
@@ -79,17 +79,17 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 ```
 ---
 
-Maven ber dig om värden som behövs för att slutföra generera projektet på distributionen.   
-Ange följande värden när du uppmanas att göra det:
+Maven ber dig om värden som behövs för att slutföra genereringen av projektet vid distribution.   
+Ange följande värden när du uppmanas till det:
 
 | Uppmaning | Värde | Beskrivning |
 | ------ | ----- | ----------- |
-| **groupId** | `com.fabrikam` | Ett värde som unikt identifierar ditt projekt i alla projekt, enligt [paketnamngivningsreglerna](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) för Java. |
-| **artifactId (artefaktId)** | `fabrikam-functions` | Ett värde som är namnet på burken, utan versionsnummer. |
-| **Version** | `1.0-SNAPSHOT` | Välj standardvärdet. |
-| **Paket** | `com.fabrikam.functions` | Ett värde som är Java-paketet för den genererade funktionskoden. Använd standardvärdet. |
+| **groupId** | `com.fabrikam` | Ett värde som unikt identifierar ditt projekt i alla projekt, efter [paket namngivnings regler](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) för Java. |
+| **artifactId** | `fabrikam-functions` | Ett värde som är jar-namn, utan versions nummer. |
+| **version** | `1.0-SNAPSHOT` | Välj standardvärdet. |
+| **paketfilerna** | `com.fabrikam.functions` | Ett värde som är Java-paketet för den genererade funktions koden. Använd standardvärdet. |
 
-Skriv `Y` eller tryck på Retur för att bekräfta.
+Skriv `Y` eller tryck på RETUR för att bekräfta.
 
 Maven skapar projektfilerna i en ny mapp med namnet _artifactId_, som i det här exemplet är `fabrikam-functions`. 
 ::: zone-end  
@@ -105,92 +105,92 @@ cd LocalFunctionProj
 cd fabrikam-functions
 ```
 ::: zone-end  
-Den här mappen innehåller olika filer för projektet, inklusive konfigurationsfiler med namnet [local.settings.json](functions-run-local.md#local-settings-file) och [host.json](functions-host-json.md). Eftersom *local.settings.json* kan innehålla hemligheter som hämtats från Azure, är filen undantagen från källkontrollen som standard i *.gitignore-filen.*
+Den här mappen innehåller olika filer för projektet, inklusive konfigurationsfiler som heter [Local. Settings. JSON](functions-run-local.md#local-settings-file) och [Host. JSON](functions-host-json.md). Eftersom *Local. Settings. JSON* kan innehålla hemligheter som hämtats från Azure, undantas filen från käll kontroll som standard i *. gitignore* -filen.
 
 [!INCLUDE [functions-cli-add-function](../../includes/functions-cli-add-function.md)]
 
-### <a name="optional-examine-the-file-contents"></a>(Valfritt) Granska filinnehållet
+### <a name="optional-examine-the-file-contents"></a>Valfritt Granska fil innehållet
 
-Om du vill kan du hoppa till [Kör funktionen lokalt](#run-the-function-locally) och undersöka filinnehållet senare.
+Om du vill kan du hoppa över att [köra funktionen lokalt](#run-the-function-locally) och undersöka fil innehållet senare.
 
 ::: zone pivot="programming-language-csharp"
 #### <a name="httpexamplecs"></a>HttpExample.cs
 
-*HttpExample.cs* innehåller `Run` en metod som tar emot `req` begärandedata i variabeln är en [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) som är dekorerad med **HttpTriggerAttribute**, som definierar utlösarbeteendet. 
+*HttpExample.cs* innehåller en `Run` metod som tar emot begär ande data `req` i variabeln är en [HttpRequest](/dotnet/api/microsoft.aspnetcore.http.httprequest) som är dekorerad med **HttpTriggerAttribute**, vilket definierar utlösnings beteendet. 
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs":::
 
-Returobjektet är ett [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) som returnerar ett svarsmeddelande som antingen ett [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) eller ett [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400). Mer information finns i [Azure Functions HTTP-utlösare och bindningar](/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp).
+Returvärdet är en [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) som returnerar ett svarsmeddelande som antingen en [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) eller en [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400). Läs mer i [Azure Functions HTTP-utlösare och bindningar](/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp).
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-#### <a name="functionjava"></a>Funktion.java
-*Function.java* innehåller `run` en metod som tar `request` emot begärandedata i variabeln är en [HttpRequestMessage](/java/api/com.microsoft.azure.functions.httprequestmessage) som är dekorerad med [HttpTrigger-anteckningen,](/java/api/com.microsoft.azure.functions.annotation.httptrigger) som definierar utlösarbeteendet. 
+#### <a name="functionjava"></a>Function. java
+*Function. java* innehåller en `run` metod som tar emot begär ande data `request` i variabeln är en [HttpRequestMessage](/java/api/com.microsoft.azure.functions.httprequestmessage) som är dekorerad med [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger) -anteckningen, som definierar utlösnings beteendet. 
 
 :::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java":::
 
-Svarsmeddelandet genereras av [HTTPResponseMessage.Builder](/java/api/com.microsoft.azure.functions.httpresponsemessage.builder) API.
+Svarsmeddelandet genereras av [HttpResponseMessage. Builder](/java/api/com.microsoft.azure.functions.httpresponsemessage.builder) -API: et.
 
-#### <a name="pomxml"></a>pom.xml (på-i-till-samma
+#### <a name="pomxml"></a>Pom. XML
 
-Inställningar för Azure-resurser som skapats för att vara värd för din `com.microsoft.azure` app definieras i **konfigurationselementet** i plugin-programmet med en **groupId** i den genererade pom.xml-filen. Konfigurationselementet nedan instruerar till exempel en Maven-baserad distribution `java-functions-group` att skapa `westus` en funktionsapp i resursgruppen i regionen. Själva funktionsappen körs i `java-functions-app-service-plan` Windows som finns i planen, som som standard är en serverlös förbrukningsplan.    
+Inställningarna för de Azure-resurser som skapats som värd för din app definieras i **konfigurations** elementet i plugin-programmet med `com.microsoft.azure` ett konfigurations **exempel i den** genererade Pom. XML-filen. Konfigurations elementet nedan instruerar till exempel en maven-baserad distribution för att skapa en Function-app i `java-functions-group` resurs gruppen i `westus` regionen. Själva funktions programmet körs i Windows som finns i `java-functions-app-service-plan` planen, vilket som standard är en server lös förbruknings plan.    
 
 :::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="116-155":::
 
-Du kan ändra dessa inställningar för att styra hur `runtime.os` resurser `windows` `linux` skapas i Azure, till exempel genom att ändra från till före den första distributionen. En fullständig lista över inställningar som stöds av Maven-plugin-programmet finns i [konfigurationsinformationen](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
+Du kan ändra de här inställningarna för att styra hur resurser skapas i Azure, till exempel genom `runtime.os` att `windows` ändra `linux` från till före den första distributionen. En fullständig lista över inställningar som stöds av maven-plugin-programmet finns i [konfigurations informationen](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
 
-#### <a name="functiontestjava"></a>FunctionTest.java
+#### <a name="functiontestjava"></a>FunctionTest. java
 
-Arketypen genererar också ett enhetstest för din funktion. När du ändrar funktionen för att lägga till bindningar eller lägga till nya funktioner i projektet måste du också ändra testerna i filen *FunctionTest.java.*
+Archetype genererar också ett enhets test för din funktion. När du ändrar din funktion för att lägga till bindningar eller lägger till nya funktioner i projektet, måste du också ändra testerna i *FunctionTest. java* -filen.
 ::: zone-end  
 ::: zone pivot="programming-language-python"
-#### <a name="__init__py"></a>\_\_init\_\_.py
+#### <a name="__init__py"></a>\_\_init\_\_. py
 
-*\_\_init\_\_.py* innehåller `main()` en Python-funktion som utlöses enligt konfigurationen i *function.json*.
+*\_\_\_init\_. py* innehåller en `main()` python-funktion som utlöses enligt konfigurationen i *Function. JSON*.
 
 :::code language="python" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/__init__.py":::
 
-För en HTTP-utlösare tar funktionen `req` emot begärandedata i variabeln enligt definitionen i *function.json*. `req`är en instans av [klassen azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest). Returobjektet, definierat som `$return` i *function.json*, är en instans av klassen [azure.functions.HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Mer information finns i [Azure Functions HTTP-utlösare och bindningar](/azure/azure-functions/functions-bindings-http-webhook?tabs=python).
+För en HTTP-utlösare tar funktionen emot begär ande data `req` i variabeln enligt definitionen i *Function. JSON*. `req`är en instans av [klassen Azure. functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). Returvärdet, som definieras som `$return` i *Function. JSON*, är en instans av [klassen Azure. functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Läs mer i [Azure Functions HTTP-utlösare och bindningar](/azure/azure-functions/functions-bindings-http-webhook?tabs=python).
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-#### <a name="indexjs"></a>index.js
+#### <a name="indexjs"></a>index. js
 
-*index.js exporterar* en funktion som utlöses enligt konfigurationen i *function.json*.
+*index. js* exporterar en funktion som utlöses enligt konfigurationen i *Function. JSON*.
 
 :::code language="javascript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-JavaScript/index.js":::
 
-För en HTTP-utlösare tar funktionen `req` emot begärandedata i variabeln enligt definitionen i *function.json*. Returobjektet, definierat som `$return` i *function.json*, är svaret. Mer information finns i [Azure Functions HTTP-utlösare och bindningar](/azure/azure-functions/functions-bindings-http-webhook?tabs=javascript).
+För en HTTP-utlösare tar funktionen emot begär ande data `req` i variabeln enligt definitionen i *Function. JSON*. Returvärdet, som definieras som `$return` i *Function. JSON*, är svaret. Läs mer i [Azure Functions HTTP-utlösare och bindningar](/azure/azure-functions/functions-bindings-http-webhook?tabs=javascript).
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
-#### <a name="indexts"></a>index.ts
+#### <a name="indexts"></a>index. TS
 
-*index.ts exporterar* en funktion som utlöses enligt konfigurationen i *function.json*.
+*index. TS* exporterar en funktion som utlöses enligt konfigurationen i *Function. JSON*.
 
 :::code language="typescript" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-TypeScript/index.ts":::
 
-För en HTTP-utlösare tar funktionen `req` emot begärandedata i variabeln av typen **HttpRequest** enligt definitionen i *function.json*. Returobjektet, definierat som `$return` i *function.json*, är svaret. 
+För en HTTP-utlösare tar funktionen emot begär ande data `req` i variabeln av typen **HttpRequest** enligt definitionen i *Function. JSON*. Returvärdet, som definieras som `$return` i *Function. JSON*, är svaret. 
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
-#### <a name="runps1"></a>run.ps1
+#### <a name="runps1"></a>Kör. ps1
 
-*run.ps1* definierar ett funktionsskript som utlöses enligt konfigurationen i *function.json*.
+*Run. ps1* definierar ett funktions skript som utlöses enligt konfigurationen i *Function. JSON*.
 
 :::code language="powershell" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-PowerShell/run.ps1":::
 
-För en HTTP-utlösare tar funktionen `$Request` emot begärandedata som skickas till param som definierats i *function.json*. Returobjektet, definierat som `Response` i *function.json*, skickas till `Push-OutputBinding` cmdleten som svar. 
+För en HTTP-utlösare tar funktionen emot begär ande data `$Request` som skickas till den param som definierats i *Function. JSON*. Objektet Return, som definieras som `Response` i *Function. JSON*, skickas till `Push-OutputBinding` cmdleten som svar. 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 #### <a name="functionjson"></a>function.json
 
-*function.json* är en konfigurationsfil som `bindings` definierar indata och utdata för funktionen, inklusive utlösartypen. 
+*Function. JSON* är en konfigurations fil som definierar indata och `bindings` utdata för funktionen, inklusive utlösnings typen. 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-Du kan `scriptFile` ändra till att anropa en annan Python-fil om så önskas.
+Du kan ändra `scriptFile` för att anropa en annan python-fil om du vill.
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 ::: zone-end
@@ -204,7 +204,7 @@ Du kan `scriptFile` ändra till att anropa en annan Python-fil om så önskas.
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"  
-Varje bindning kräver en riktning, en typ och ett unikt namn. HTTP-utlösaren har en [`httpTrigger`](functions-bindings-http-webhook-trigger.md) indatabindning [`http`](functions-bindings-http-webhook-output.md)av typ och utdatabindning av typen .
+Varje bindning kräver en riktning, en typ och ett unikt namn. HTTP-utlösaren har en inkommande bindning [`httpTrigger`](functions-bindings-http-webhook-trigger.md) av typen och utgående bindningen av typen [`http`](functions-bindings-http-webhook-output.md).
 ::: zone-end  
 
 [!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
@@ -212,45 +212,45 @@ Varje bindning kräver en riktning, en typ och ett unikt namn. HTTP-utlösaren h
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp"    
 ## <a name="create-supporting-azure-resources-for-your-function"></a>Skapa stöd för Azure-resurser för din funktion
 
-Innan du kan distribuera funktionskoden till Azure måste du skapa tre resurser:
+Innan du kan distribuera funktions koden till Azure måste du skapa tre resurser:
 
-- En resursgrupp, som är en logisk behållare för relaterade resurser.
-- Ett lagringskonto som upprätthåller tillstånd och annan information om dina projekt.
-- En funktionsapp som tillhandahåller miljön för att köra din funktionskod. En funktionsapp mappas till ditt lokala funktionsprojekt och låter dig gruppera funktioner som en logisk enhet för enklare hantering, distribution och delning av resurser.
+- En resurs grupp, som är en logisk behållare för relaterade resurser.
+- Ett lagrings konto som upprätthåller tillstånd och annan information om dina projekt.
+- En Function-app som tillhandahåller miljön för att köra funktions koden. En Function-app mappar till ditt lokala Function-projekt och gör att du kan gruppera funktioner som en logisk enhet för enklare hantering, distribution och delning av resurser.
 
-Använd följande Azure CLI-kommandon för att skapa dessa objekt. Varje kommando ger JSON-utdata när det är klart.
+Använd följande Azure CLI-kommandon för att skapa dessa objekt. Varje kommando innehåller JSON-utdata när den har slutförts.
 
-Om du inte redan har gjort det loggar du in på Azure med kommandot [az login:](/cli/azure/reference-index#az-login)
+Om du inte redan har gjort det loggar du in på Azure med kommandot [AZ login](/cli/azure/reference-index#az-login) :
 
 ```azurecli
 az login
 ```
     
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). I följande exempel skapas `AzureFunctionsQuickstart-rg` en `westeurope` resursgrupp med namnet i regionen. (Du skapar vanligtvis resursgruppen och resurserna i en region nära `az account list-locations` dig med hjälp av en tillgänglig region från kommandot.)
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). I följande exempel skapas en resurs grupp med `AzureFunctionsQuickstart-rg` namnet i `westeurope` regionen. (Du skapar vanligt vis resurs gruppen och resurserna i en region nära dig, med hjälp av en tillgänglig region `az account list-locations` från kommandot.)
 
 ```azurecli
 az group create --name AzureFunctionsQuickstart-rg --location westeurope
 ```
 
 > [!NOTE]
-> Du kan inte vara värd för Linux- och Windows-appar i samma resursgrupp. Om du har en `AzureFunctionsQuickstart-rg` befintlig resursgrupp med namnet med en Windows-funktionsapp eller webbapp måste du använda en annan resursgrupp.
+> Du kan inte vara värd för Linux-och Windows-appar i samma resurs grupp. Om du har en befintlig resurs grupp med `AzureFunctionsQuickstart-rg` namnet med en Windows Function-app eller webbapp måste du använda en annan resurs grupp.
  
     
-Skapa ett allmänt lagringskonto i resursgruppen och regionen med kommandot [skapa az-lagringskonto.](/cli/azure/storage/account#az-storage-account-create) I följande exempel `<STORAGE_NAME>` ersätter du med ett globalt unikt namn som passar dig. Namnen får innehålla endast tre till 24 teckens siffror och gemener. `Standard_LRS`anger ett konto för allmänt ändamål som [stöds av Functions](storage-considerations.md#storage-account-requirements).
+Skapa ett allmänt lagrings konto i din resurs grupp och region med hjälp av kommandot [AZ Storage Account Create](/cli/azure/storage/account#az-storage-account-create) . I följande exempel ersätter `<STORAGE_NAME>` du med ett globalt unikt namn som passar dig. Namn måste innehålla mellan 3 och 24 tecken och endast små bokstäver. `Standard_LRS`anger ett allmänt-syfte-konto, som [stöds av Functions](storage-considerations.md#storage-account-requirements).
 
 ```azurecli
 az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
 ```
 
-Lagringskontot ådrar sig bara några cent (USD) för denna snabbstart.
+Lagrings kontot förväntar sig bara några cent (USD) för den här snabb starten.
     
-Skapa funktionsappen med kommandot [az functionapp create.](/cli/azure/functionapp#az-functionapp-create) I följande exempel `<STORAGE_NAME>` ersätter du med namnet på kontot som `<APP_NAME>` du använde i föregående steg och ersätter med ett globalt unikt namn som passar dig. `<APP_NAME>` är även DNS-standarddomänen för funktionsappen. 
+Skapa Function-appen med kommandot [AZ functionapp Create](/cli/azure/functionapp#az-functionapp-create) . I följande exempel ersätter `<STORAGE_NAME>` du med namnet på det konto som du använde i föregående steg och ersätter `<APP_NAME>` med ett globalt unikt namn som passar dig. `<APP_NAME>` är även DNS-standarddomänen för funktionsappen. 
 ::: zone-end  
 
 ::: zone pivot="programming-language-python"  
-Om du använder Python 3.8 `3.8` `--functions_version` ändrar du `--runtime-version` till och till `3`.
+Om du `--runtime-version` använder python 3,8 ändrar du till `3.8` och `--functions_version` till. `3`
 
-Om du använder Python 3.6 ändrar du `--runtime-version` till `3.6`.
+Om du använder python 3,6 ändrar `--runtime-version` du till. `3.6`
 
 ```azurecli
 az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Linux --consumption-plan-location westeurope --runtime python --runtime-version 3.7 --functions-version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
@@ -258,7 +258,7 @@ az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Lin
 ::: zone-end  
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-Om du använder Node.js 8, ändra `--runtime-version` också till `8`.
+Om du använder Node. js 8 ändras `--runtime-version` även till. `8`
 
 
 ```azurecli
@@ -279,15 +279,15 @@ az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption
 ::: zone-end  
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp"  
-Det här kommandot skapar en funktionsapp som körs i din angivna språkkörning under [Azure Functions Consumption Plan](functions-scale.md#consumption-plan), som är gratis för den mängd användning du ådrar dig här. Kommandot etablerar också en associerad Azure Application Insights-instans i samma resursgrupp, med vilken du kan övervaka din funktionsapp och visa loggar. Mer information finns i [Övervaka Azure-funktioner](functions-monitoring.md). Instansen medför inga kostnader förrän du aktiverar den.
+Det här kommandot skapar en Function-app som körs på den angivna språk körningen under [Azure Functions förbruknings plan](functions-scale.md#consumption-plan), vilket är kostnads fritt för den användnings mängd som du ådrar dig här. Kommandot etablerar även en associerad Azure Application insikts-instans i samma resurs grupp, som du kan använda för att övervaka din Function-app och Visa loggar. Mer information finns i [övervaka Azure Functions](functions-monitoring.md). Instansen debiteras inga kostnader förrän du aktiverar den.
     
-## <a name="deploy-the-function-project-to-azure"></a>Distribuera funktionsprojektet till Azure
+## <a name="deploy-the-function-project-to-azure"></a>Distribuera funktions projektet till Azure
 ::: zone-end  
 
 ::: zone pivot="programming-language-typescript"  
-Innan du använder Core Tools för att distribuera projektet till Azure skapar du en produktionsklar version av JavaScript-filer från TypeScript-källfilerna.
+Innan du använder kärn verktyg för att distribuera ditt projekt till Azure skapar du en produktions klar version av JavaScript-filer från källfilerna för TypeScript.
 
-Följande kommando förbereder Ditt TypeScript-projekt för distribution:
+Följande kommando förbereder ditt TypeScript-projekt för distribution:
 
 ```
 npm run build:production 
@@ -295,13 +295,13 @@ npm run build:production
 ::: zone-end  
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-csharp"  
-Med nödvändiga resurser på plats är du nu redo att distribuera ditt lokala funktionsprojekt till funktionsappen i Azure med hjälp av kommandot [func azure functionapp publish.](functions-run-local.md#project-file-deployment) Ersätt `<APP_NAME>` med namnet på appen i följande exempel.
+Med nödvändiga resurser på plats är du nu redo att distribuera ditt lokala Functions-projekt till Function-appen i Azure med hjälp av kommandot [FUNC Azure functionapp Publish](functions-run-local.md#project-file-deployment) . I följande exempel ersätter `<APP_NAME>` du med namnet på din app.
 
 ```
 func azure functionapp publish <APP_NAME>
 ```
 
-Om du ser felet "Det går inte att hitta app med namn ...", vänta några sekunder och försök `az functionapp create` igen, eftersom Azure kanske inte har initierat appen helt efter det föregående kommandot.
+Om du ser felet "det går inte att hitta appen med namnet..." väntar du några sekunder och försöker igen, eftersom Azure kanske inte har fullständigt initierat appen efter föregående `az functionapp create` kommando.
 
 Kommandot Publicera visar resultat som liknar följande utdata (trunkerade för enkelhetens skull):
 
@@ -324,20 +324,20 @@ Functions in msdocs-azurefunctions-qs:
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-## <a name="deploy-the-function-project-to-azure"></a>Distribuera funktionsprojektet till Azure
+## <a name="deploy-the-function-project-to-azure"></a>Distribuera funktions projektet till Azure
 
-En funktionsapp och relaterade resurser skapas i Azure när du först distribuerar ditt funktionsprojekt. Inställningarna för de Azure-resurser som skapats för att vara värd för din app definieras i [filen pom.xml](#pomxml). I den här artikeln accepterar du standardinställningarna.
+En Function-app och relaterade resurser skapas i Azure när du först distribuerar ditt Functions-projekt. Inställningarna för de Azure-resurser som skapats som värd för din app definieras i [filen Pom. XML](#pomxml). I den här artikeln godkänner du standardvärdena.
 
 > [!TIP]
-> Om du vill skapa en funktionsapp `runtime.os` som körs på Linux `windows` i `linux`stället för Windows ändrar du elementet i filen pom.xml från till . Köra Linux i en förbrukningsplan stöds i [dessa regioner](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions). Du kan inte ha appar som körs på Linux och appar som körs i Windows i samma resursgrupp.
+> Om du vill skapa en Function-app som körs i Linux i stället `runtime.os` för Windows, ändrar du elementet i filen `windows` Pom `linux`. XML från till. Att köra Linux i en förbruknings plan stöds i [dessa regioner](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions). Du kan inte ha appar som körs på Linux och appar som körs i Windows i samma resurs grupp.
 
-Innan du kan distribuera använder du azure [CLI-kommandot az login](/cli/azure/authenticate-azure-cli) för att logga in på din Azure-prenumeration. 
+Innan du kan distribuera använder du kommandot [AZ login](/cli/azure/authenticate-azure-cli) Azure CLI för att logga in på din Azure-prenumeration. 
 
 ```azurecli
 az login
 ```
 
-Använd följande kommando för att distribuera projektet till en ny funktionsapp. 
+Använd följande kommando för att distribuera projektet till en ny function-app. 
 
 ```
 mvn azure-functions:deploy
@@ -345,41 +345,41 @@ mvn azure-functions:deploy
 
 Detta skapar följande resurser i Azure:
 
-+ Resursgrupp. Namngiven som _java-funktioner-grupp_.
-+ Lagringskonto. Krävs av Functions. Namnet genereras slumpmässigt baserat på krav på lagringskontonamn.
-+ Värdplan. Serverlös hosting för din funktionsapp i _westus-regionen._ Namnet är _java-funktioner-app-service-plan_.
-+ Funktionsapp. En funktionsapp är distributions- och körningsenheten för dina funktioner. Namnet genereras slumpmässigt baserat på att du är din _artifactId,_ läggs till med ett slumpmässigt genererat nummer. 
++ Resurs grupp. Namngiven som _Java-Functions-grupp_.
++ Lagrings konto. Krävs av functions. Namnet genereras slumpmässigt baserat på lagrings kontots namn krav.
++ Värd plan. Server lös värd för din Function-app i regionen _väst_ . Namnet är _Java-Functions-App-Service-plan_.
++ Function-app. En Function-app är distributions-och körnings enheten för dina funktioner. Namnet genereras slumpmässigt utifrån du är din _artifactId_, som läggs till med ett slumpmässigt genererat nummer. 
 
-Distributionen paketerar projektfilerna och distribuerar dem till den nya funktionsappen med [zip-distribution](functions-deployment-technologies.md#zip-deploy). Koden körs från distributionspaketet i Azure.
+-Distributionen paketerar projektfilerna och distribuerar dem till den nya Function-appen med hjälp av [zip-distribution](functions-deployment-technologies.md#zip-deploy). Koden körs från distributions paketet i Azure.
 ::: zone-end
 
 ## <a name="invoke-the-function-on-azure"></a>Anropa funktionen på Azure
 
-Eftersom funktionen använder en HTTP-utlösare anropar du den genom att göra en HTTP-begäran till webbadressen i webbläsaren eller med ett verktyg som curl. I båda fallen `code` är URL-parametern din unika [funktionsnyckel](functions-bindings-http-webhook-trigger.md#authorization-keys) som tillåter anrop av funktionsslutpunkten.
+Eftersom din funktion använder en HTTP-utlösare anropar du den genom att göra en HTTP-begäran till dess URL i webbläsaren eller med ett verktyg som vändning. I båda instanserna är `code` URL-parametern din unika [funktions nyckel](functions-bindings-http-webhook-trigger.md#authorization-keys) som godkänner anropet av funktions slut punkten.
 
 # <a name="browser"></a>[Webbläsare](#tab/browser)
 
-Kopiera den fullständiga **anropa-URL:en** som visas i utdata från publiceringskommandot till ett webbläsaradressfält, vilket lägger till frågeparametern `&name=Functions`. Webbläsaren ska visa liknande utdata som när du körde funktionen lokalt.
+Kopiera den fullständiga **anrops-URL: en** som visas i utdata från kommandot Publicera till ett webbläsarens Adress fält, som `&name=Functions`lägger till Frågeparametern. Webbläsaren bör visa liknande utdata som när du körde funktionen lokalt.
 
-![Utdata för funktionen körs på Azure i en webbläsare](./media/functions-create-first-azure-function-azure-cli/function-test-cloud-browser.png)
+![Resultatet av funktionen körs på Azure i en webbläsare](./media/functions-create-first-azure-function-azure-cli/function-test-cloud-browser.png)
 
 
-# <a name="curl"></a>[Curl](#tab/curl)
+# <a name="curl"></a>[klammerparentes](#tab/curl)
 
-Kör [`curl`](https://curl.haxx.se/) med **url:en anropa**och `&name=Functions`lägga till parametern . Utdata för kommandot ska vara texten "Hej funktioner".
+Kör [`curl`](https://curl.haxx.se/) med **ANROPs-URL: en**och Lägg `&name=Functions`till parametern. Kommandots utdata ska vara texten, "Hello Functions".
 
-![Utdata för funktionen körs på Azure med curl](./media/functions-create-first-azure-function-azure-cli/function-test-cloud-curl.png)
+![Resultatet av funktionen körs på Azure med hjälp av sväng](./media/functions-create-first-azure-function-azure-cli/function-test-cloud-curl.png)
 
 ---
 
 > [!TIP]
-> Om du vill visa loggar i nära realtid för en publicerad funktionsapp använder du [Live Metrics Stream för Application Insights](functions-monitoring.md#streaming-logs).
+> Om du vill visa nära real tids loggar för en publicerad Function-app använder du [Application Insights Live Metrics Stream](functions-monitoring.md#streaming-logs).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du fortsätter till nästa steg, [Lägg till en Azure Storage-köutdatabindning,](functions-add-output-binding-storage-queue-cli.md)behåll alla dina resurser på plats när du bygger vidare på vad du redan har gjort.
+Om du fortsätter till nästa steg lägger du [till en Azure Storage utgående bindning för kö](functions-add-output-binding-storage-queue-cli.md), behåller alla resurser på samma sätt som du skapar på det du redan har gjort.
 
-Annars använder du följande kommando för att ta bort resursgruppen och alla dess inneslutna resurser för att undvika att ådra sig ytterligare kostnader.
+Annars kan du använda följande kommando för att ta bort resurs gruppen och alla resurser som finns i den för att undvika ytterligare kostnader.
 
 ```azurecli
 az group delete --name AzureFunctionsQuickstart-rg

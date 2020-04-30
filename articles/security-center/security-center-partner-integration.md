@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
 ms.openlocfilehash: 48869140ba8cd1a9598562b0057b0005d8fcd9c7
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81758020"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
@@ -26,60 +26,60 @@ Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är 
 ## <a name="integrated-azure-security-solutions"></a>Integrerade Azure-säkerhetslösningar
 Med Security Center är det enkelt att aktivera integrerade säkerhetslösningar i Azure. Fördelarna innefattar:
 
-- **Förenklad distribution**: Security Center erbjuder effektiviserad etablering av integrerade partnerlösningar. För lösningar som antimalware och sårbarhetsbedömning kan Security Center etablera agenten på dina virtuella datorer. För brandväggsenheter kan Security Center ta hand om en stor del av den nätverkskonfiguration som krävs.
-- **Integrerade identifieringar**: Säkerhetshändelser från partnerlösningar samlas in automatiskt, aggregeras och visas som en del av Säkerhetscenter-aviseringar och incidenter. Dessa händelser kombineras också med identifieringar från andra källor för att tillhandahålla funktioner för avancerad hotidentifiering.
+- **Förenklad distribution**: Security Center erbjuder effektiviserad etablering av integrerade partnerlösningar. För lösningar som program mot skadlig kod och sårbarhets bedömning kan Security Center etablera agenten på dina virtuella datorer. För brand Väggs apparater kan Security Center ta hand om en stor del av nätverks konfigurationen som krävs.
+- **Integrerade identifieringar**: säkerhets händelser från partner lösningar samlas in, aggregeras och visas automatiskt som en del av Security Center aviseringar och incidenter. Dessa händelser kombineras också med identifieringar från andra källor för att tillhandahålla funktioner för avancerad hotidentifiering.
 - **Enhetlig övervakning och hantering av hälsa**: Kunderna kan använda integrerade hälsohändelser för att snabbt övervaka alla partnerlösningar. Grundläggande hantering finns tillgängligt med enkel åtkomst till avancerad konfiguration med hjälp av partnerlösningen.
 
-För närvarande inkluderar integrerade säkerhetslösningar sårbarhetsbedömning av [Qualys](https://www.qualys.com/public-cloud/#azure) och [Rapid7](https://www.rapid7.com/products/insightvm/) och Microsoft Application Gateway Web Application Firewall.
+För närvarande omfattar integrerade säkerhetslösningar sårbarhets bedömning av [Qualys](https://www.qualys.com/public-cloud/#azure) och [Rapid7](https://www.rapid7.com/products/insightvm/) och Microsoft Application Gateway brand vägg för webbaserade program.
 
 > [!NOTE]
-> Security Center installerar inte Log Analytics-agenten på partnervirvliga enheter eftersom de flesta säkerhetsleverantörer förbjuder externa agenter som körs på sina enheter.
+> Security Center installerar inte Log Analytics-agenten på virtuella partner enheter eftersom de flesta säkerhets leverantörer förhindrar att externa agenter körs på sina enheter.
 
-Mer information om integrering av sårbarhetsskanningsverktyg från Qualys, inklusive en inbyggd skanner som är tillgänglig för standardnivåkunder, finns i: 
+Om du vill veta mer om integrering av verktyg för sårbarhets sökning från Qualys, inklusive en inbyggd skanner som är tillgänglig för kunder på standard nivå, se: 
 
-- [Integrerad sårbarhetsskanner för virtuella datorer](built-in-vulnerability-assessment.md).
-- [Distribuera en lösning för sårbarhetsskanning av partner](partner-vulnerability-assessment.md).
+- [Integrerad sårbarhets-skanner för virtuella datorer](built-in-vulnerability-assessment.md).
+- [Distribuera en lösning för genomsökning av partner problem](partner-vulnerability-assessment.md).
 
-Security Center erbjuder också sårbarhetsanalys för din:
+Security Center erbjuder även sårbarhets analys för din:
 
-* SQL-databaser – se [Utforska sårbarhetsbedömningsrapporter i instrumentpanelen för sårbarhetsbedömning](security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports)
-* Azure Container Registry avbildningar - se [Azure Container Registry integration med Security Center (Preview)](azure-container-registry-integration.md)
+* SQL-databaser – Se [utforska rapporter om sårbarhets bedömning på instrument panelen för sårbarhets bedömning](security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports)
+* Azure Container Registry avbildningar – se [Azure Container Registry integration med Security Center (förhands granskning)](azure-container-registry-integration.md)
 
 ## <a name="how-security-solutions-are-integrated"></a>Så här integreras säkerhetslösningar
-Azure-säkerhetslösningar som distribueras från Security Center ansluts automatiskt. Du kan också ansluta andra säkerhetsdatakällor, inklusive datorer som körs lokalt eller i andra moln.
+Azure-säkerhetslösningar som distribueras från Security Center ansluts automatiskt. Du kan också ansluta andra säkerhets data källor, inklusive datorer som körs lokalt eller i andra moln.
 
 [![Integrerings av partnerlösningar](./media/security-center-partner-integration/security-solutions-page.png)](./media/security-center-partner-integration/security-solutions-page.png#lightbox)
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Hantera integrerade Azure-säkerhetslösningar och andra datakällor
 
-1. Öppna **Security Center**från [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
+1. Öppna **Security Center**från [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 
-1. På Security Centers meny väljer du **Säkerhetslösningar**.
+1. Från Security Center menyn väljer du **säkerhetslösningar**.
 
-På sidan **Säkerhetslösningar** kan du se hälsotillståndet för integrerade Azure-säkerhetslösningar och köra grundläggande hanteringsuppgifter.
+På sidan **säkerhets lösningar** kan du se hälsan hos integrerade Azure-säkerhetslösningar och köra grundläggande hanterings uppgifter.
 
 ### <a name="connected-solutions"></a>Anslutna lösningar
 
-Avsnittet **Anslutna lösningar** innehåller säkerhetslösningar som för närvarande är anslutna till Security Center. Det visar också hälsostatus för varje lösning.  
+Avsnittet **anslutna lösningar** innehåller säkerhetslösningar som för närvarande är anslutna till Security Center. Den visar också hälso status för varje lösning.  
 
 ![Anslutna lösningar](./media/security-center-partner-integration/connected-solutions.png)
 
-Status för en partnerlösning kan vara:
+Status för en partner lösning kan vara:
 
-* **Friska** (gröna) - inga hälsofrågor.
-* **Ohälsosamma** (röda) - det finns en hälsofråga som kräver omedelbar uppmärksamhet.
-* **Stoppad rapportering** (orange) - lösningen har slutat rapportera sin hälsa.
-* **Inte rapporterats** (grå) - lösningen har inte rapporterat något ännu och inga hälsodata är tillgängliga. Statusen för en lösning kan inte rapporteras om den har anslutits nyligen och fortfarande distribueras.
+* **Felfritt** (grönt) – inga hälso problem.
+* Ej **felfri** (röd) – det finns ett hälso problem som kräver omedelbar uppmärksamhet.
+* **Stoppad rapportering** (orange) – lösningen har slutat rapportera dess hälsa.
+* **Inte rapporterat** (grått) – lösningen har inte rapporterat något än och inga hälso data är tillgängliga. Statusen för en lösning kan vara avrapporterad om den var ansluten nyligen och fortfarande distribueras.
 
 > [!NOTE]
-> Om hälsostatusdata inte är tillgängliga visar Security Center datum och tid för den senaste händelsen som togs emot för att ange om lösningen rapporterar eller inte. Om inga hälsodata är tillgängliga och inga aviseringar har tagits emot inom de senaste 14 dagarna anger Security Center att lösningen är fel eller inte rapporterar.
+> Om hälso status data inte är tillgängliga visar Security Center datum och tid för den senaste händelsen som togs emot för att indikera om lösningen är rapporterad eller inte. Om inga hälso data är tillgängliga och inga aviseringar togs emot under de senaste 14 dagarna, visar Security Center att lösningen inte är felfri eller rapporterar.
 >
 >
 
-Välj **VISA** för ytterligare information och alternativ, till exempel:
+Välj **Visa** för ytterligare information och alternativ, till exempel:
 
-   - **Lösningskonsol** - Öppnar hanteringsupplevelsen för den här lösningen.
-   - **Länka VM** - Öppnar sidan Länkprogram. Här kan du ansluta resurser till partnerlösningen.
+   - **Lösnings konsol** – öppnar hanterings upplevelsen för den här lösningen.
+   - **Länk VM** – öppnar sidan länka program. Här kan du ansluta resurser till partnerlösningen.
    - **Ta bort lösningen**
    - **Konfigurera**
 
@@ -88,13 +88,13 @@ Välj **VISA** för ytterligare information och alternativ, till exempel:
 
 ### <a name="discovered-solutions"></a>Identifierade lösningar
 
-Security Center identifierar automatiskt säkerhetslösningar som körs i Azure men inte är anslutna till Security Center och visar lösningarna i avsnittet **Identifierade lösningar.** Dessa lösningar omfattar Azure-lösningar, till exempel [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)och partnerlösningar.
+Security Center identifierar automatiskt säkerhetslösningar som körs i Azure men inte är anslutna till Security Center och visar lösningarna i avsnittet **identifierade lösningar** . Dessa lösningar omfattar Azure-lösningar som [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)och partner lösningar.
 
 > [!NOTE]
-> Standardnivån av Security Center krävs på prenumerationsnivån för funktionen identifierade lösningar. Se [Priser](security-center-pricing.md) om du vill veta mer om prisnivåerna.
+> Standardnivån av Security Center krävs på prenumerationsnivån för funktionen identifierade lösningar. Se [prissättning](security-center-pricing.md) för att lära dig mer om pris nivåerna.
 >
 
-Välj **CONNECT** under en lösning som kan integreras med Security Center och meddelas om säkerhetsvarningar.
+Välj **Anslut** under en lösning för att integrera med Security Center och bli informerad om säkerhets aviseringar.
 
 ### <a name="add-data-sources"></a>Lägg till datakällor
 
@@ -108,5 +108,5 @@ Avsnittet **Lägg till datakällor** innehåller andra tillgängliga datakällor
 
 Den här artikeln berättade om hur man integrerar partnerlösningar i Security Center. Relaterad information finns i följande artiklar:
 
-* [Exportera säkerhetsvarningar och rekommendationer](continuous-export.md). Lär dig hur du konfigurerar en integrering med Azure Sentinel eller någon annan SIEM.
+* [Exportera säkerhets aviseringar och rekommendationer](continuous-export.md). Lär dig hur du ställer in en integrering med Azure Sentinel eller någon annan SIEM.
 * [Övervakning av säkerhetshälsa i Security Center](security-center-monitoring.md). Lär dig att övervaka hälsotillståndet för dina Azure-resurser.

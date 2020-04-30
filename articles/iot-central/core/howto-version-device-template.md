@@ -1,6 +1,6 @@
 ---
-title: Så här fungerar versionshantering av enhetsmallar för dina Azure IoT Central-appar | Microsoft-dokument
-description: Iterera över enhetsmallarna genom att skapa nya versioner och utan att påverka dina live-anslutna enheter
+title: Förstå versions hantering av enhets mallar för dina Azure IoT Central-appar | Microsoft Docs
+description: Iterera över dina enhetsspecifika mallar genom att skapa nya versioner och utan att påverka dina Live-anslutna enheter
 author: sarahhubbard
 ms.author: sahubbar
 ms.date: 12/09/2019
@@ -9,76 +9,76 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: 37c7bc99881c8d1106c8464cfe18c9e63b8a1b02
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
-ms.translationtype: MT
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81756735"
 ---
-# <a name="create-a-new-device-template-version"></a>Skapa en ny enhetsmallversion
+# <a name="create-a-new-device-template-version"></a>Skapa en ny version av enhets mal len
 
-*Den här artikeln gäller lösningsbyggare och enhetsutvecklare.*
+*Den här artikeln gäller lösnings byggare och enhets utvecklare.*
 
-Azure IoT Central möjliggör snabb utveckling av IoT-program. Du kan snabbt iterera över enhetsmalldesignen genom att lägga till, redigera eller ta bort enhetsfunktioner, vyer och anpassningar. När du har publicerat enhetsmallen visas enhetsfunktionsmodellen som Publicerad med låsikoner **bredvid** modellen. För att kunna göra ändringar i enhetskapacitetsmodellen måste du skapa en ny version av enhetsmallen. Under tiden kan molnegenskaper, anpassningar och vyer redigeras när som helst utan att behöva version av enhetsmallen. När du har sparat någon av dessa ändringar kan du publicera enhetsmallen så att de senaste ändringarna är tillgängliga för operatören att visa i Enhetsutforskaren.
+Med Azure IoT Central kan du snabbt utveckla IoT-program. Du kan snabbt iterera över mallarnas design genom att lägga till, redigera eller ta bort enhets funktioner, vyer och anpassningar. När du har publicerat din enhets mall visas enhetens kapacitets modell som **publicerad** med lås ikoner bredvid modellen. För att kunna göra ändringar i enhets kapacitets modellen måste du skapa en ny version av enhets mal len. Samtidigt kan du när som helst redigera moln egenskaper, anpassningar och vyer, utan att behöva version av enhets mal len. När du har sparat någon av dessa ändringar kan du publicera enhets mal len för att göra de senaste ändringarna som är tillgängliga för operatören att visa i Device Explorer.
 
 > [!NOTE]
-> Mer information om hur du skapar en enhetsmall finns i [Konfigurera och hantera en enhetsmall](howto-set-up-template.md)
+> Mer information om hur du skapar en enhets mall finns i [Konfigurera och hantera en enhets mall](howto-set-up-template.md)
 
-## <a name="add-customizations-to-the-device-template-without-versioning"></a>Lägga till anpassningar i enhetsmallen utan versionshantering
+## <a name="add-customizations-to-the-device-template-without-versioning"></a>Lägg till anpassningar i enhets mal len utan versions hantering
 
-Vissa delar av enhetens funktioner kan redigeras utan att du behöver version av enhetsmallen och gränssnitten. Vissa av dessa fält innehåller till exempel visningsnamn, semantisk typ, lägsta värde, högsta värde, decimaler, färg, enhet, visningsenhet, kommentar och beskrivning. Så här lägger du till någon av dessa anpassningar:
+Vissa delar av enhetens funktioner kan redige ras utan att du behöver version av enhets mal len och gränssnitten. Till exempel innehåller vissa av dessa fält visnings namn, semantisk typ, minimalt värde, högsta värde, decimaler, färg, enhet, visnings enhet, kommentar och beskrivning. För att lägga till en av dessa anpassningar:
 
-1. Gå till sidan **Enhetsmallar.**
-1. Välj den enhetsmall som du vill anpassa.
-1. Välj fliken **Anpassa.**
-1. Alla funktioner som definieras i enhetskapacitetsmodellen visas här. Alla fält som du kan redigera här kan sparas och användas i hela programmet, utan att behöva göra en version av enhetsmallen. Om det finns fält som du vill redigera som är skrivskyddade måste du göra en version av enhetsmallen för att ändra dessa. Välj ett fält som du vill redigera och ange i nya värden.
-1. Klicka på **Spara**. Nu åsidosätter dessa värden allt som ursprungligen sparades i enhetsmallen och kommer att användas i hela programmet.
+1. Gå till **Device templates** -sidan.
+1. Välj den enhets mall som du vill anpassa.
+1. Välj fliken **Anpassa** .
+1. Alla funktioner som definieras i enhetens kapacitets modell visas här. Alla fält som du kan redigera här kan sparas och användas i hela programmet, utan att du behöver ha en version av din enhets mall. Om det finns fält som du vill redigera som är skrivskyddade måste du konfigurera enhets mal len för att ändra dessa. Välj ett fält som du vill redigera och ange i alla nya värden.
+1. Klicka på **Spara**. Dessa värden kommer nu att åsidosätta allting som ursprungligen sparades i din enhets mall och som kommer att användas i hela programmet.
 
-## <a name="versioning-a-device-template"></a>Versionsa en enhetsmall
+## <a name="versioning-a-device-template"></a>Versions hantering av enhets mal len
 
-Om du skapar en ny version av enhetsmallen skapas en utkastversion av mallen där enhetskapacitetsmodellen kan redigeras. Alla publicerade gränssnitt kommer att publiceras tills de är individuellt versionsversionerade. Om du vill ändra ett publicerat gränssnitt måste du först skapa en ny enhetsmallversion.
+Om du skapar en ny version av din enhets mall skapas en utkast version av mallen där enhetens kapacitets modell kan redige ras. Alla publicerade gränssnitt förblir publicerade tills de är individuellt versions bara. För att kunna ändra ett publicerat gränssnitt måste du först skapa en ny version av enhets mal len.
 
-Enhetsmallen bör endast versionsutnyttjas när du försöker redigera en del av enhetskapacitetsmodellen som du inte kan redigera i anpassningsavsnittet i enhetsmallen. 
+Enhets mal len ska bara vara versions hantering när du försöker redigera en del av enhetens kapacitets modell som du inte kan redigera i avsnittet anpassningar i enhets mal len. 
 
-För att kunna göra en enhetsmall:
+För att få en enhets mall version:
 
-1. Gå till sidan **Enhetsmallar.**
-1. Välj den enhetsmall som du försöker göra.
-1. Klicka på knappen **Version** högst upp på sidan och ge mallen ett nytt namn. Vi har föreslagit ett nytt namn för dig som kan redigeras.
+1. Gå till **Device templates** -sidan.
+1. Välj den enhets mall som du försöker att köra en version av.
+1. Klicka på knappen **version** överst på sidan och ge mallen ett nytt namn. Vi har föreslagit ett nytt namn som kan redige ras.
 1. Klicka på **Skapa**.
-1. Nu är enhetsmallen i utkastläge. Dina gränssnitt är fortfarande låsta och måste versionsversioneras individuellt för att kunna redigeras. 
+1. Nu är din enhets mall i utkast läge. Du ser att gränssnitten fortfarande är låsta och måste vara individuellt versions bara för att kunna redige ras. 
 
-### <a name="versioning-an-interface"></a>Versionshantering av ett gränssnitt
+### <a name="versioning-an-interface"></a>Versioner av ett gränssnitt
 
-Med versionshantering av ett gränssnitt kan du lägga till, uppdatera och ta bort funktionerna i gränssnittet som du redan har skapat. 
+Med versions hanterings gränssnittet kan du lägga till, uppdatera och ta bort funktionerna i gränssnittet som du redan har skapat. 
 
-För att kunna skapa ett gränssnitt:
+För att kunna version ett gränssnitt:
 
-1. Gå till sidan **Enhetsmallar.**
-1. Välj den enhetsmall du har i utkastläge.
-1. Välj det gränssnitt som är i publicerat läge som du vill version och redigera.
-1. Klicka på knappen **Version** högst upp på gränssnittssidan. 
+1. Gå till **Device templates** -sidan.
+1. Välj den enhets mall som du har i utkast läge.
+1. Välj det gränssnitt som är i publicerat läge som du vill använda som version och redigera.
+1. Klicka på knappen **version** överst på gränssnitts sidan. 
 1. Klicka på **Skapa**.
-1. Nu är gränssnittet i utkastläge. Du kan lägga till eller redigera funktioner i gränssnittet utan att bryta befintliga anpassningar och vyer. 
+1. Nu är ditt gränssnitt i utkast läge. Du kommer att kunna lägga till eller redigera funktioner i gränssnittet utan att behöva bryta befintliga anpassningar och vyer. 
 
 > [!NOTE]
-> Standardgränssnitt som publiceras av Azure IoT kan inte versionsutredas eller redigeras. Dessa standardgränssnitt används för enhetscertifiering.
+> Standard gränssnitt som publicerats av Azure IoT kan inte vara versioner eller redige ras. Dessa standard gränssnitt används för enhets certifiering.
 
 > [!NOTE]
-> När gränssnittet har publicerats, kan du inte ta bort någon av dess funktioner även i ett utkastläge. Funktioner kan bara redigeras eller läggas till i gränssnittet i utkastläge.
+> När gränssnittet har publicerats kan du inte ta bort någon av dess funktioner även i ett utkast läge. Funktioner kan bara redige ras eller läggas till i gränssnittet i utkast läge.
 
 
-## <a name="migrate-a-device-across-device-template-versions"></a>Migrera en enhet över enhetsmallversioner
+## <a name="migrate-a-device-across-device-template-versions"></a>Migrera en enhet över enhets mal len versioner
 
-Du kan skapa flera versioner av enhetsmallen. Med tiden har du flera anslutna enheter med hjälp av dessa enhetsmallar. Du kan migrera enheter från en version av enhetsmallen till en annan. I följande steg beskrivs hur du migrerar en enhet:
+Du kan skapa flera versioner av enhets mal len. Med tiden kommer du att ha flera anslutna enheter som använder dessa enhets mallar. Du kan migrera enheter från en version av din enhets mall till en annan. Följande steg beskriver hur du migrerar en enhet:
 
-1. Gå till sidan **Enhetsutforskaren.**
-1. Välj den enhet som du behöver för att migrera till en annan version.
-1. Välj **Migrera**.
-1. Markera enhetsmallen med det versionsnummer som du vill migrera enheten till och välj **Migrera**.
+1. Gå till sidan **Device Explorer** .
+1. Välj den enhet som du vill migrera till en annan version.
+1. Välj **migrera**.
+1. Välj enhets mal len med det versions nummer som du vill migrera enheten till och välj **migrera**.
 
 ![Så här migrerar du en enhet](media/howto-version-device-template/pick-version.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du är enhetsutvecklare är ett förslag på nästa steg att läsa om [Azure IoT Edge-enheter och Azure IoT Central](./concepts-iot-edge.md).
+Om du är en enhets utvecklare är ett förslag till nästa steg att läsa om [Azure IoT Edge enheter och Azure IoT Central](./concepts-iot-edge.md).

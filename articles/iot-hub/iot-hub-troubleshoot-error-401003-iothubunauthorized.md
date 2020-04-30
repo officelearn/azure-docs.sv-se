@@ -1,5 +1,5 @@
 ---
-title: Felsökning av Azure IoT Hub-fel 401003 IoTHubUnauthorized
+title: Fel sökning av Azure IoT Hub-fel 401003 IoTHubUnauthorized
 description: Förstå hur du åtgärdar fel 401003 IoTHubUnauthorized
 author: jlian
 manager: briz
@@ -12,43 +12,43 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: f46d41c8287d03cbe9582ed560244cbd85cdeeaa
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759594"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
-I den här artikeln beskrivs orsakerna och lösningarna för **401003 IoTHubUnauthorized-fel.**
+I den här artikeln beskrivs orsaker och lösningar för **401003 IoTHubUnauthorized** -fel.
 
 ## <a name="symptoms"></a>Symtom
 
 ### <a name="symptom-1"></a>Symptom 1
 
-I diagnostikloggar ser du ett mönster av enheter som kopplar från med **401003 IoTHubUnauthorized**, följt av **404104 DeviceConnectionClosedRemotely**och sedan framgångsrikt ansluta strax efter.
+I diagnostikloggar ser du ett mönster för enheter som kopplar från med **401003 IoTHubUnauthorized**, följt av **404104 DeviceConnectionClosedRemotely**och ansluter sedan strax efter.
 
 ### <a name="symptom-2"></a>Symptom 2
 
-Begäranden till IoT Hub misslyckas med något av följande felmeddelanden:
+Begär anden till IoT Hub fungerar inte med något av följande fel meddelanden:
 
-* Auktoriseringshuvud saknas
-* IotHub\*' ' innehåller inte den\*angivna enheten ' ' '
-* Auktoriseringsregel '\*'\*tillåter inte åtkomst för ' ' '
-* Autentiseringen misslyckades för den här enheten, förnyar token eller certifikat och återansluter
-* Tumavtryck matchar inte konfigurationen: Tumavtryck: SHA1Hash=\*, SHA2Hash=\*; Konfiguration: PrimaryThumbprint=\*, SecondaryThumbprint=\*
+* Authorization-huvudet saknas
+* \*IotHub innehåller inte den angivna enheten\*
+* \*Auktoriseringsregeln tillåter inte åtkomst för\*
+* Autentiseringen misslyckades för den här enheten, förnya token eller certifikat och återanslut
+* Tumavtrycket matchar inte konfigurationen: tumavtryck: SHA1Hash =\*, SHA2Hash =;\* Konfiguration: PrimaryThumbprint =\*, SecondaryThumbprint =\*
 
 ## <a name="cause"></a>Orsak
 
 ### <a name="cause-1"></a>Orsak 1
 
-För MQTT är vissa SDK:er beroende av IoT Hub för att utfärda frånkopplingen när SAS-token upphör att veta när den ska uppdateras. Så 
+Vissa SDK: er förlitar sig på IoT Hub att utfärda från koppling när SAS-token upphör att veta när de ska uppdateras. Så 
 
 1. SAS-token upphör att gälla
-1. IoT Hub märker utgångsdatumet och kopplar enheten från **401003 IoTHubUnauthorized**
-1. Enheten slutför frånkopplingen med **404104 DeviceConnectionClosedRemotely**
+1. IoT Hub meddelar förfallo datumet och kopplar från enheten med **401003 IoTHubUnauthorized**
+1. Enheten Slutför från koppling med **404104 DeviceConnectionClosedRemotely**
 1. IoT SDK genererar en ny SAS-token
-1. Enheten återansluter med IoT Hub framgångsrikt
+1. Enheten återansluter med IoT Hub
 
 ### <a name="cause-2"></a>Orsak 2
 
@@ -58,18 +58,18 @@ IoT Hub kunde inte autentisera auth-huvudet, regeln eller nyckeln.
 
 ### <a name="solution-1"></a>Lösning 1
 
-Ingen åtgärd behövs om du använder IoT SDK för anslutning med hjälp av enhetens anslutningssträng. IoT SDK återskapar den nya token för att återansluta på SAS token förfallodatum. 
+Ingen åtgärd krävs om du använder IoT SDK för anslutning med enhets anslutnings strängen. IoT SDK återskapar den nya token för att återansluta vid förfallo datum för SAS-token. 
 
-Om felvolymen är ett problem växlar du till C SDK, som förnyar SAS-token före förfallodatum. Dessutom kan SAS-token uppdateras för AMQP utan frånkoppling.
+Om det är ett problem med fel volymen växlar du till C SDK, som förnyar SAS-token innan det går ut. För AMQP kan SAS-token Dessutom uppdateras utan från koppling.
 
 ### <a name="solution-2"></a>Lösning 2
 
-I allmänhet bör felmeddelandet som presenteras förklara hur du åtgärdar felet. Om du av någon anledning inte har tillgång till felmeddelandets information kontrollerar du att:
+I allmänhet bör det fel meddelande visas som förklarar hur du åtgärdar felet. Om du av någon anledning inte har till gång till fel meddelande informationen, se till att:
 
-- SAS eller annan säkerhetstoken som du använder har inte upphört att gälla. 
-- Behörighetsautentiseringsuppgifterna är väl utformad för det protokoll som du använder. Mer information finns i [IoT Hub-åtkomstkontroll](iot-hub-devguide-security.md).
-- Den auktoriseringsregel som används har behörigheten för den begärda åtgärden.
+- SAS eller annan säkerhetstoken som du använder har inte gått ut. 
+- Autentiseringsuppgifterna för auktorisering är väl utformade för det protokoll som du använder. Läs mer i [IoT Hub åtkomst kontroll](iot-hub-devguide-security.md).
+- Den auktoriseringsregel som används har behörighet för den begärda åtgärden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att göra det enklare att autentisera till IoT Hub rekommenderar vi att du använder [Azure IoT SDK:er](iot-hub-devguide-sdks.md).
+Vi rekommenderar att du använder [Azure IoT SDK](iot-hub-devguide-sdks.md): er för att under lätta autentiseringen till IoT Hub enklare.

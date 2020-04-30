@@ -1,42 +1,42 @@
 ---
-title: Azure Application Insights .Net Agent API-referens
-description: Api-referens för Application Insights Agent. Övervaka webbplatsens prestanda utan att distribuera om webbplatsen. Fungerar med ASP.NET webbappar som finns lokalt, i virtuella datorer eller på Azure.
+title: Referens för Azure Application Insights .net Agent API
+description: Application Insights Agent-API-referens. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 02762c4b3af735eb0b4c19aaf450b2b3a416a2be
-ms.sourcegitcommit: ffc6e4f37233a82fcb14deca0c47f67a7d79ce5c
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81733679"
 ---
-# <a name="azure-monitor-application-insights-agent-api-reference"></a>API-referens för Azure Monitor Application Insights-agent
+# <a name="azure-monitor-application-insights-agent-api-reference"></a>Azure Monitor Application Insights Agent-API-referens
 
-I den här artikeln beskrivs en cmdlet som är medlem i [modulen Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Den här artikeln beskriver en cmdlet som är medlem i [PowerShell-modulen AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!NOTE] 
-> - För att komma igång behöver du en instrumenteringsnyckel. Mer information finns i [Skapa en resurs](create-new-resource.md#copy-the-instrumentation-key).
-> - Denna cmdlet kräver att du granskar och accepterar vår licens och sekretesspolicy.
+> - Du behöver en Instrumentation-nyckel för att komma igång. Mer information finns i [skapa en resurs](create-new-resource.md#copy-the-instrumentation-key).
+> - Denna cmdlet kräver att du granskar och godkänner vår licens-och sekretess policy.
 
 > [!IMPORTANT] 
-> Den här cmdleten kräver en PowerShell-session med administratörsbehörighet och en upphöjd körningsprincip. Mer information finns i [Kör PowerShell som administratör med en förhöjd körningsprincip](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy).
-> - Denna cmdlet kräver att du granskar och accepterar vår licens och sekretesspolicy.
-> - Instrumenteringsmotorn lägger till ytterligare omkostnader och är avstängd som standard.
+> Denna cmdlet kräver en PowerShell-session med administratörs behörighet och en förhöjd princip för körning. Mer information finns i [kör PowerShell som administratör med en förhöjd körnings princip](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy).
+> - Denna cmdlet kräver att du granskar och godkänner vår licens-och sekretess policy.
+> - Instrumentation-motorn lägger till ytterligare kostnader och är inaktive rad som standard.
 
 
-## <a name="enable-instrumentationengine"></a>Aktivera instrumenteringEngine
+## <a name="enable-instrumentationengine"></a>Aktivera – InstrumentationEngine
 
-Aktiverar instrumenteringsmotorn genom att ställa in några registernycklar.
+Aktiverar Instrumentation-motorn genom att ange vissa register nycklar.
 Starta om IIS för att ändringarna ska börja gälla.
 
-Instrumenteringsmotorn kan komplettera data som samlats in av .NET SDK:er.
-Den samlar in händelser och meddelanden som beskriver körningen av en hanterad process. Dessa händelser och meddelanden inkluderar beroenderesultatkoder, [HTTP-verb och SQL-kommandotext](asp-net-dependencies.md#advanced-sql-tracking-to-get-full-sql-query).
+Instrumentation-motorn kan komplettera data som samlas in av .NET SDK: er.
+Den samlar in händelser och meddelanden som beskriver körningen av en hanterad process. Dessa händelser och meddelanden innehåller beroende resultat koder, HTTP-verb och SQL- [kommando text](asp-net-dependencies.md#advanced-sql-tracking-to-get-full-sql-query).
 
-Aktivera instrumenteringsmotorn om
-- Du har redan aktiverat övervakning med cmdlet aktivera men inte aktiverat instrumenteringsmotorn.
-- Du har instrumenterat appen manuellt med .NET SDK:er och vill samla in ytterligare telemetri.
+Aktivera Instrumentation Engine om:
+- Du har redan aktiverat övervakning med cmdleten Enable men inte aktiverat Instrumentation-motorn.
+- Du har manuellt instrumenterat din app med .NET-SDK: er och vill samla in ytterligare telemetri.
 
 ### <a name="examples"></a>Exempel
 
@@ -46,50 +46,50 @@ PS C:\> Enable-InstrumentationEngine
 
 ### <a name="parameters"></a>Parametrar
 
-#### <a name="-acceptlicense"></a>-AccepteraLicens
-**Valfri.** Använd den här växeln för att acceptera licens- och sekretesspolicyn i huvudlösa installationer.
+#### <a name="-acceptlicense"></a>-AcceptLicense
+**Valfritt.** Använd den här växeln för att godkänna licens-och sekretess policyn i konsolbaserade installationer.
 
-#### <a name="-verbose"></a>-Utförlig
-**Gemensam parameter.** Använd den här växeln för att mata ut detaljerade loggar.
+#### <a name="-verbose"></a>– Utförlig
+**Gemensam parameter.** Använd den här växeln för att skriva ut detaljerade loggar.
 
 ### <a name="output"></a>Resultat
 
 
-##### <a name="example-output-from-successfully-enabling-the-instrumentation-engine"></a>Exempel på utdata från att framgångsrikt aktivera instrumenteringsmotorn
+##### <a name="example-output-from-successfully-enabling-the-instrumentation-engine"></a>Exempel på utdata från har aktiverat Instrumentation Engine
 
 ```
 Configuring IIS Environment for instrumentation engine...
 Configuring registry for instrumentation engine...
 ```
 
-## <a name="enable-applicationinsightsmonitoring"></a>Aktivera-ApplicationInsightsMonitoring
+## <a name="enable-applicationinsightsmonitoring"></a>Aktivera – ApplicationInsightsMonitoring
 
-Aktiverar kodlös bifoga övervakning av IIS-appar på en måldator.
+Möjliggör kod kopplings övervakning av IIS-appar på en måldator.
 
-Den här cmdleten kommer att ändra IIS applicationHost.config och ange några registernycklar.
-Det kommer också att skapa en applicationinsights.ikey.config-fil, som definierar instrumenteringsnyckeln som används av varje app.
-IIS kommer att läsa in RedfieldModule vid start, vilket kommer att injicera Application Insights SDK i program när programmen startar.
+Denna cmdlet ändrar IIS applicationHost. config och anger vissa register nycklar.
+Dessutom skapas en applicationinsights. iKey. config-fil som definierar Instrumentation-nyckeln som används av varje app.
+IIS läser in RedfieldModule vid start, som kommer att mata in Application Insights SDK i program när programmen startas.
 Starta om IIS för att ändringarna ska börja gälla.
 
-När du har aktiverat övervakning rekommenderar vi att du använder [Live Metrics](live-stream.md) för att snabbt kontrollera om din app skickar telemetri till oss.
+När du har aktiverat övervakning rekommenderar vi att du använder [Live-mått](live-stream.md) för att snabbt kontrol lera om din app skickar oss telemetri.
 
 ### <a name="examples"></a>Exempel
 
-#### <a name="example-with-a-single-instrumentation-key"></a>Exempel med en enda instrumenteringsnyckel
-I det här exemplet tilldelas alla appar på den aktuella datorn en enda instrumenteringsnyckel.
+#### <a name="example-with-a-single-instrumentation-key"></a>Exempel med en enda Instrumentation-nyckel
+I det här exemplet tilldelas alla appar på den aktuella datorn en enda Instrumentation-nyckel.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-#### <a name="example-with-an-instrumentation-key-map"></a>Exempel med en instrumenteringsnyckelkarta
+#### <a name="example-with-an-instrumentation-key-map"></a>Exempel med en instrumentande nyckel karta
 I det här exemplet:
-- `MachineFilter`matchar den aktuella `'.*'` datorn med jokertecknet.
-- `AppFilter='WebAppExclude'`ger `null` en instrumenteringsnyckel. Den angivna appen kommer inte att instrumenteras.
-- `AppFilter='WebAppOne'`tilldelar den angivna appen en unik instrumenteringsnyckel.
-- `AppFilter='WebAppTwo'`tilldelar den angivna appen en unik instrumenteringsnyckel.
-- Slutligen `AppFilter` använder du `'.*'` även jokertecknet för att matcha alla webbappar som inte matchas av de tidigare reglerna och tilldela en standardinstrumenteringsnyckel.
-- Blanksteg läggs till för läsbarhet.
+- `MachineFilter`matchar den aktuella datorn med `'.*'` jokertecken.
+- `AppFilter='WebAppExclude'`tillhandahåller en `null` Instrumentation-nyckel. Den angivna appen instrumenteras inte.
+- `AppFilter='WebAppOne'`tilldelar den angivna appen en unik Instrumentation-nyckel.
+- `AppFilter='WebAppTwo'`tilldelar den angivna appen en unik Instrumentation-nyckel.
+- `AppFilter` Slutligen använder `'.*'` jokertecken jokertecken för att matcha alla webbappar som inte matchar de tidigare reglerna och tilldelar en standard Instrumentation-nyckel.
+- Blank steg har lagts till för läsbarhet.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap 
@@ -103,48 +103,48 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 
 ### <a name="parameters"></a>Parametrar
 
-#### <a name="-instrumentationkey"></a>-InstrumentationKey
-**Krävs.** Använd den här parametern för att ange en enda instrumenteringsnyckel för användning av alla appar på måldatorn.
+#### <a name="-instrumentationkey"></a>– InstrumentationKey
+**Kunna.** Använd den här parametern för att ange en enskild Instrumentation-nyckel som kan användas av alla appar på mål datorn.
 
 #### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
-**Krävs.** Använd den här parametern för att ange flera instrumenteringsnycklar och en mappning av instrumenteringsnycklarna som används av varje app.
-Du kan skapa ett enda installationsskript `MachineFilter`för flera datorer genom att ange .
+**Kunna.** Använd den här parametern för att ange flera instrument nycklar och en mappning av de Instrumentation-nycklar som används av varje app.
+Du kan skapa ett enda installations skript för flera datorer genom att `MachineFilter`ange.
 
 > [!IMPORTANT]
-> Appar matchar reglerna i den ordning som reglerna tillhandahålls. Så du bör ange de mest specifika reglerna först och de mest allmänna reglerna sist.
+> Apparna kommer att matchas mot regler i den ordning som reglerna anges. Därför bör du ange de mest aktuella reglerna först och de mest allmänna reglerna sist.
 
 ##### <a name="schema"></a>Schema
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'}})`
 
-- **MachineFilter** är en obligatorisk C# regex för datorn eller VM-namnet.
-    - '.*' matchar alla
-    - "ComputerName" matchar bara datorer med det exakta angivna namnet.
-- **AppFilter** är en obligatorisk C# regex för IIS-platsnamnet. Du kan få en lista över webbplatser på din server genom att köra kommandot [get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite).
-    - '.*' matchar alla
-    - "SiteName" matchar endast IIS-webbplatsen med det exakta angivna namnet.
-- **InstrumentationKey** krävs för att möjliggöra övervakning av appar som matchar de två föregående filtren.
-    - Lämna det här värdet null om du vill definiera regler för att utesluta övervakning.
+- **MachineFilter** är ett obligatoriskt C#-regex av datorn eller namnet på den virtuella datorn.
+    - ". *" matchar alla
+    - ComputerName matchar bara datorer med det angivna namnet.
+- **AppFilter** är ett obligatoriskt C#-regex av IIS-webbplatsens namn. Du kan hämta en lista över platser på servern genom att köra kommandot [Get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite).
+    - ". *" matchar alla
+    - "Webbplats namn" kommer bara att matcha IIS-platsen med det angivna namnet.
+- **InstrumentationKey** krävs för att kunna övervaka appar som matchar de föregående två filtren.
+    - Lämna värdet null om du vill definiera regler för att undanta övervakning.
 
 
 #### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine
-**Valfri.** Använd den här växeln för att aktivera instrumenteringsmotorn för att samla in händelser och meddelanden om vad som händer under körningen av en hanterad process. Dessa händelser och meddelanden inkluderar beroenderesultatkoder, HTTP-verb och SQL-kommandotext.
+**Valfritt.** Använd den här växeln för att låta instrument motorn samla in händelser och meddelanden om vad som händer under körningen av en hanterad process. Dessa händelser och meddelanden innehåller beroende resultat koder, HTTP-verb och SQL-kommando text.
 
-Instrumenteringsmotorn lägger till omkostnader och är avstängd som standard.
+Instrumentation-motorn lägger till overhead och är inaktive rad som standard.
 
-#### <a name="-acceptlicense"></a>-AccepteraLicens
-**Valfri.** Använd den här växeln för att acceptera licens- och sekretesspolicyn i huvudlösa installationer.
+#### <a name="-acceptlicense"></a>-AcceptLicense
+**Valfritt.** Använd den här växeln för att godkänna licens-och sekretess policyn i konsolbaserade installationer.
 
 #### <a name="-ignoresharedconfig"></a>-IgnoreSharedConfig
-När du har ett kluster av webbservrar kanske du använder en [delad konfiguration](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
-HttpModule kan inte injiceras i den här delade konfigurationen.
-Det här skriptet misslyckas med meddelandet att extra installationssteg krävs.
-Använd den här växeln om du vill ignorera den här kontrollen och fortsätta installera förutsättningar. Mer information finns i [känd konflikt med-iis-delad konfiguration](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration)
+När du har ett kluster av webb servrar kan du använda en [delad konfiguration](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+Det går inte att mata in HttpModule i denna delade konfiguration.
+Det här skriptet kommer inte att fungera med meddelandet om att extra installations steg krävs.
+Använd den här växeln för att ignorera den här kontrollen och fortsätta installera nödvändiga komponenter. Mer information finns i [känd konflikt med-IIS-Shared-Configuration](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration)
 
-#### <a name="-verbose"></a>-Utförlig
+#### <a name="-verbose"></a>– Utförlig
 **Gemensam parameter.** Använd den här växeln för att visa detaljerade loggar.
 
 #### <a name="-whatif"></a>-WhatIf 
-**Gemensam parameter.** Använd den här växeln för att testa och validera indataparametrarna utan att aktivera övervakning.
+**Gemensam parameter.** Använd den här växeln för att testa och validera dina indataparametrar utan att aktivera övervakning.
 
 ### <a name="output"></a>Resultat
 
@@ -181,9 +181,9 @@ Updating app pool permissions...
 Successfully enabled Application Insights Status Monitor
 ```
 
-## <a name="disable-instrumentationengine"></a>Inaktivera instrumenteringsengine
+## <a name="disable-instrumentationengine"></a>Disable-InstrumentationEngine
 
-Inaktiverar instrumenteringsmotorn genom att ta bort några registernycklar.
+Inaktiverar Instrumentation-motorn genom att ta bort vissa register nycklar.
 Starta om IIS för att ändringarna ska börja gälla.
 
 ### <a name="examples"></a>Exempel
@@ -194,13 +194,13 @@ PS C:\> Disable-InstrumentationEngine
 
 ### <a name="parameters"></a>Parametrar 
 
-#### <a name="-verbose"></a>-Utförlig
-**Gemensam parameter.** Använd den här växeln för att mata ut detaljerade loggar.
+#### <a name="-verbose"></a>– Utförlig
+**Gemensam parameter.** Använd den här växeln för att skriva ut detaljerade loggar.
 
 ### <a name="output"></a>Resultat
 
 
-##### <a name="example-output-from-successfully-disabling-the-instrumentation-engine"></a>Exempel på utdata från att framgångsrikt inaktivera instrumenteringsmotorn
+##### <a name="example-output-from-successfully-disabling-the-instrumentation-engine"></a>Exempel på utdata från att inaktivera Instrumentation-motorn
 
 ```powershell
 Configuring IIS Environment for instrumentation engine...
@@ -210,10 +210,10 @@ Registry: removing 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WAS[Env
 Configuring registry for instrumentation engine...
 ```
 
-## <a name="disable-applicationinsightsmonitoring"></a>Inaktivera-ApplicationInsightsMonitoring
+## <a name="disable-applicationinsightsmonitoring"></a>Disable-ApplicationInsightsMonitoring
 
-Inaktiverar övervakning på måldatorn.
-Den här cmdleten tar bort redigeringar av IIS applicationHost.config och tar bort registernycklar.
+Inaktiverar övervakning på mål datorn.
+Denna cmdlet kommer att ta bort ändringar i IIS applicationHost. config och ta bort register nycklar.
 
 ### <a name="examples"></a>Exempel
 
@@ -223,7 +223,7 @@ PS C:\> Disable-ApplicationInsightsMonitoring
 
 ### <a name="parameters"></a>Parametrar 
 
-#### <a name="-verbose"></a>-Utförlig
+#### <a name="-verbose"></a>– Utförlig
 **Gemensam parameter.** Använd den här växeln för att visa detaljerade loggar.
 
 ### <a name="output"></a>Resultat
@@ -253,9 +253,9 @@ Successfully disabled Application Insights Status Monitor
 ```
 
 
-## <a name="get-applicationinsightsmonitoringconfig"></a>Hämta programInightsMonitoringConfig
+## <a name="get-applicationinsightsmonitoringconfig"></a>Get-ApplicationInsightsMonitoringConfig
 
-Hämtar konfigurationsfilen och skriver ut värdena till konsolen.
+Hämtar konfigurations filen och skriver ut värdena till-konsolen.
 
 ### <a name="examples"></a>Exempel
 
@@ -270,7 +270,7 @@ Inga parametrar krävs.
 ### <a name="output"></a>Resultat
 
 
-##### <a name="example-output-from-reading-the-config-file"></a>Exempel på utdata från att läsa konfigurationsfilen
+##### <a name="example-output-from-reading-the-config-file"></a>Exempel på utdata från att läsa konfigurations filen
 
 ```
 RedfieldConfiguration:
@@ -280,17 +280,17 @@ Filters:
 2)InstrumentationKey: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault AppFilter: .* MachineFilter: .*
 ```
 
-## <a name="get-applicationinsightsmonitoringstatus"></a>Hämta programInightsMonitoringStatus
+## <a name="get-applicationinsightsmonitoringstatus"></a>Get-ApplicationInsightsMonitoringStatus
 
-Den här cmdleten innehåller felsökningsinformation om statusövervakaren.
-Använd den här cmdleten för att undersöka övervakningsstatus, version av PowerShell-modulen och för att inspektera den pågående processen.
-Den här cmdleten rapporterar versionsinformation och information om nyckelfiler som krävs för övervakning.
+Denna cmdlet innehåller felsöknings information om Statusövervakare.
+Använd den här cmdleten för att undersöka övervaknings status, version av PowerShell-modulen och för att kontrol lera processen som körs.
+Denna cmdlet kommer att rapportera versions information och information om viktiga filer som krävs för övervakning.
 
 ### <a name="examples"></a>Exempel
 
-#### <a name="example-application-status"></a>Exempel: Programstatus
+#### <a name="example-application-status"></a>Exempel: program status
 
-Kör kommandot `Get-ApplicationInsightsMonitoringStatus` för att visa övervakningsstatus för webbplatser.
+Kör kommandot `Get-ApplicationInsightsMonitoringStatus` för att Visa övervaknings statusen för webbplatser.
 
 ```powershell
 
@@ -326,14 +326,14 @@ AppAlreadyInstrumented : true
 ```
 
 I det här exemplet;
-- **Maskinidentifierare** är ett anonymt ID som används för att unikt identifiera din server. Om du skapar en supportbegäran behöver vi det här ID:t för att hitta loggar för servern.
-- **Standardwebbplatsen** stoppas i IIS
-- **DemoWebApp111** har startats i IIS, men har inte fått några förfrågningar. Den här rapporten visar att det inte finns någon process som körs (ProcessId: hittades inte).
-- **DemoWebApp222** körs och övervakas (Instrumenterad: true). Baserat på användarkonfigurationen matchades Instrumentation Key xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123 för den här webbplatsen.
-- **DemoWebApp333** har instrumenterats manuellt med hjälp av Application Insights SDK. Statusövervakaren upptäckte SDK och övervakar inte den här platsen.
+- **Dator** -ID är ett anonymt ID som används för att identifiera servern unikt. Om du skapar en support förfrågan behöver vi detta ID för att hitta loggar för servern.
+- **Standard webbplatsen** stoppas i IIS
+- **DemoWebApp111** har startats i IIS, men har inte tagit emot några förfrågningar. Den här rapporten visar att det inte finns någon process som körs (ProcessId: hittades inte).
+- **DemoWebApp222** körs och övervakas (instrumenterat: sant). Baserat på användar konfigurationen matchades Instrumentation-nyckeln XXXXXXXX-XXXX-XXXX-XXXX-xxxxxxxxx123 för den här platsen.
+- **DemoWebApp333** har instrumenterats manuellt med hjälp av Application Insights SDK. Statusövervakare identifierade SDK och övervakar inte den här platsen.
 
 
-#### <a name="example-powershell-module-information"></a>Exempel: Information om PowerShell-modul
+#### <a name="example-powershell-module-information"></a>Exempel: information om PowerShell-modul
 
 Kör kommandot `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` för att visa information om den aktuella modulen:
 
@@ -388,11 +388,11 @@ ApplicationInsightsSdkPath (Exists: True)
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.dll
 ```
 
-#### <a name="example-runtime-status"></a>Exempel: Körningsstatus
+#### <a name="example-runtime-status"></a>Exempel: körnings status
 
-Du kan kontrollera processen på den instrumenterade datorn för att se om alla DLL-filer har lästs in. Om övervakningen fungerar ska minst 12 DLL-filer läsas in.
+Du kan kontrol lera processen på den instrumenterade datorn för att se om alla DLL-filer har lästs in. Om övervakningen fungerar bör minst 12 DLL-filer läsas in.
 
-Kör kommandot: `Get-ApplicationInsightsMonitoringStatus -InspectProcess`
+Kör kommandot `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
 
 
 ```
@@ -430,58 +430,58 @@ listdlls64.exe -accepteula w3wp
 
 #### <a name="no-parameters"></a>(Inga parametrar)
 
-Som standard kommer den här cmdleten att rapportera övervakningsstatus för webbprogram.
-Använd det här alternativet om du vill granska om programmet har instrumenterats.
-Du kan också granska vilken instrumenteringsnyckel som matchades till din webbplats.
+Som standard rapporterar denna cmdlet övervaknings statusen för webb program.
+Använd det här alternativet om du vill läsa om ditt program har instrumenterats.
+Du kan också granska vilken Instrumentation-nyckel som matchade din webbplats.
 
 
 #### <a name="-powershellmodule"></a>-PowerShellModule
-**Valfritt**. Använd den här växeln för att rapportera versionsnummer och sökvägar för DLL:er som krävs för övervakning.
-Använd det här alternativet om du behöver identifiera versionen av en DLL, inklusive Application Insights SDK.
+**Valfritt**. Använd den här växeln för att rapportera versions nummer och sökvägar för dll: er som krävs för övervakning.
+Använd det här alternativet om du behöver identifiera versionen av någon DLL, inklusive Application Insights SDK.
 
-#### <a name="-inspectprocess"></a>-InspekteraProcess
+#### <a name="-inspectprocess"></a>-InspectProcess
 
 **Valfritt**. Använd den här växeln för att rapportera om IIS körs.
-Det kommer också att hämta externa verktyg för att avgöra om de nödvändiga DLL-filer laddas i IIS-körningen.
+Du kan också hämta externa verktyg för att avgöra om de nödvändiga DLL-filerna har lästs in i IIS-körningen.
 
 
-Om den här processen misslyckas av någon anledning kan du köra dessa kommandon manuellt:
-- iisreset.exe /status
-- [handle64.exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp | findstr /I "InstrumentationEngine AI. ApplicationInsights"
-- [listdlls64.exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr /I "InstrumentationEngine AI ApplicationInsights"
+Om den här processen Miss lyckas av någon anledning kan du köra dessa kommandon manuellt:
+- iisreset. exe/status
+- [handle64. exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p W3wp | Findstr/I "InstrumentationEngine AI. ApplicationInsights
+- [listdlls64. exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) W3wp | Findstr/I "InstrumentationEngine AI ApplicationInsights"
 
 
 #### <a name="-force"></a>-Force
 
-**Valfritt**. Används endast med InspectProcess. Använd den här växeln för att hoppa över användarprompten som visas innan ytterligare verktyg hämtas.
+**Valfritt**. Används endast med InspectProcess. Använd den här växeln för att hoppa över den användar fråga som visas innan ytterligare verktyg laddas ned.
 
 
 ## <a name="set-applicationinsightsmonitoringconfig"></a>Set-ApplicationInsightsMonitoringConfig
 
-Ställer in config-filen utan att göra en fullständig ominstallation.
+Anger konfigurations filen utan att göra en fullständig ominstallation.
 Starta om IIS för att ändringarna ska börja gälla.
 
 > [!IMPORTANT] 
-> Den här cmdleten kräver en PowerShell-session med administratörsbehörighet.
+> Denna cmdlet kräver en PowerShell-session med administratörs behörighet.
 
 
 ### <a name="examples"></a>Exempel
 
-#### <a name="example-with-a-single-instrumentation-key"></a>Exempel med en enda instrumenteringsnyckel
-I det här exemplet tilldelas alla appar på den aktuella datorn en enda instrumenteringsnyckel.
+#### <a name="example-with-a-single-instrumentation-key"></a>Exempel med en enda Instrumentation-nyckel
+I det här exemplet kommer alla appar på den aktuella datorn att tilldelas en enda Instrumentation-nyckel.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-#### <a name="example-with-an-instrumentation-key-map"></a>Exempel med en instrumenteringsnyckelkarta
+#### <a name="example-with-an-instrumentation-key-map"></a>Exempel med en instrumentande nyckel karta
 I det här exemplet:
-- `MachineFilter`matchar den aktuella `'.*'` datorn med jokertecknet.
-- `AppFilter='WebAppExclude'`ger `null` en instrumenteringsnyckel. Den angivna appen kommer inte att instrumenteras.
-- `AppFilter='WebAppOne'`tilldelar den angivna appen en unik instrumenteringsnyckel.
-- `AppFilter='WebAppTwo'`tilldelar den angivna appen en unik instrumenteringsnyckel.
-- Slutligen `AppFilter` använder du `'.*'` även jokertecknet för att matcha alla webbappar som inte matchas av de tidigare reglerna och tilldela en standardinstrumenteringsnyckel.
-- Blanksteg läggs till för läsbarhet.
+- `MachineFilter`matchar den aktuella datorn med `'.*'` jokertecken.
+- `AppFilter='WebAppExclude'`tillhandahåller en `null` Instrumentation-nyckel. Den angivna appen instrumenteras inte.
+- `AppFilter='WebAppOne'`tilldelar den angivna appen en unik Instrumentation-nyckel.
+- `AppFilter='WebAppTwo'`tilldelar den angivna appen en unik Instrumentation-nyckel.
+- `AppFilter` Slutligen använder `'.*'` jokertecken jokertecken för att matcha alla webbappar som inte matchar de tidigare reglerna och tilldelar en standard Instrumentation-nyckel.
+- Blank steg har lagts till för läsbarhet.
 
 ```powershell
 Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
@@ -493,38 +493,38 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
 
 ### <a name="parameters"></a>Parametrar
 
-#### <a name="-instrumentationkey"></a>-InstrumentationKey
-**Krävs.** Använd den här parametern för att ange en enda instrumenteringsnyckel för användning av alla appar på måldatorn.
+#### <a name="-instrumentationkey"></a>– InstrumentationKey
+**Kunna.** Använd den här parametern för att ange en enskild Instrumentation-nyckel som kan användas av alla appar på mål datorn.
 
 #### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
-**Krävs.** Använd den här parametern för att ange flera instrumenteringsnycklar och en mappning av instrumenteringsnycklarna som används av varje app.
-Du kan skapa ett enda installationsskript `MachineFilter`för flera datorer genom att ange .
+**Kunna.** Använd den här parametern för att ange flera instrument nycklar och en mappning av de Instrumentation-nycklar som används av varje app.
+Du kan skapa ett enda installations skript för flera datorer genom att `MachineFilter`ange.
 
 > [!IMPORTANT]
-> Appar matchar reglerna i den ordning som reglerna tillhandahålls. Så du bör ange de mest specifika reglerna först och de mest allmänna reglerna sist.
+> Apparna kommer att matchas mot regler i den ordning som reglerna anges. Därför bör du ange de mest aktuella reglerna först och de mest allmänna reglerna sist.
 
 ##### <a name="schema"></a>Schema
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
-- **MachineFilter** är en obligatorisk C# regex för datorn eller VM-namnet.
-    - '.*' matchar alla
-    - "ComputerName" matchar bara datorer med det angivna namnet.
-- **AppFilter** är en obligatorisk C# regex för datorn eller VM-namnet.
-    - '.*' matchar alla
-    - ApplicationName matchar endast IIS-appar med det angivna namnet.
-- **InstrumentationKey** krävs för att möjliggöra övervakning av de appar som matchar de två föregående filtren.
-    - Lämna det här värdet null om du vill definiera regler för att utesluta övervakning.
+- **MachineFilter** är ett obligatoriskt C#-regex av datorn eller namnet på den virtuella datorn.
+    - ". *" matchar alla
+    - ComputerName kommer bara att matcha datorer med det angivna namnet.
+- **AppFilter** är ett obligatoriskt C#-regex av datorn eller namnet på den virtuella datorn.
+    - ". *" matchar alla
+    - ApplicationName kommer bara att matcha IIS-appar med det angivna namnet.
+- **InstrumentationKey** krävs för att aktivera övervakning av de appar som matchar de föregående två filtren.
+    - Lämna värdet null om du vill definiera regler för att undanta övervakning.
 
 
-#### <a name="-verbose"></a>-Utförlig
+#### <a name="-verbose"></a>– Utförlig
 **Gemensam parameter.** Använd den här växeln för att visa detaljerade loggar.
 
 
 ### <a name="output"></a>Resultat
 
-Som standard ingen utdata.
+Som standard visas inga utdata.
 
-##### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkey"></a>Exempel på utförliga utdata från inställningen av config-filen via -InstrumentationKey
+##### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkey"></a>Exempel på utförlig utdata från att ställa in konfigurations filen via-InstrumentationKey
 
 ```
 VERBOSE: Operation: InstallWithIkey
@@ -536,7 +536,7 @@ VERBOSE: Config File Path:
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applicationInsights.ikey.config
 ```
 
-##### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkeymap"></a>Exempel på utförliga utdata från inställningen av config-filen via -InstrumentationKeyMap
+##### <a name="example-verbose-output-from-setting-the-config-file-via--instrumentationkeymap"></a>Exempel på utförlig utdata från att ställa in konfigurations filen via-InstrumentationKeyMap
 
 ```
 VERBOSE: Operation: InstallWithIkeyMap
@@ -550,62 +550,62 @@ VERBOSE: Config File Path:
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applicationInsights.ikey.config
 ```
 
-## <a name="start-applicationinsightsmonitoringtrace"></a>Start-ProgramInsightsMonitoringTrace
+## <a name="start-applicationinsightsmonitoringtrace"></a>Start-ApplicationInsightsMonitoringTrace
 
-Samlar [in ETW-händelser](https://docs.microsoft.com/windows/desktop/etw/event-tracing-portal) från den kodlösa bifoga körningen. Den här cmdleten är ett alternativ till att köra [PerfView](https://github.com/microsoft/perfview).
+Samlar in [ETW-händelser](https://docs.microsoft.com/windows/desktop/etw/event-tracing-portal) från koden för kod bundna bilagor. Denna cmdlet är ett alternativ till att köra [PerfView](https://github.com/microsoft/perfview).
 
-Insamlade händelser skrivs ut till konsolen i realtid och sparas i en ETL-fil. Utdata ETL-filen kan öppnas av [PerfView](https://github.com/microsoft/perfview) för vidare undersökning.
+Insamlade händelser skrivs ut till konsolen i real tid och sparas i en ETL-fil. Den utgående ETL-filen kan öppnas av [PerfView](https://github.com/microsoft/perfview) för ytterligare undersökning.
 
-Den här cmdleten körs tills timeout-varaktigheten (standardtid 5`Ctrl + C`minuter) eller stoppas manuellt ( ).
+Denna cmdlet körs tills den når timeout-tiden (standard 5 minuter) eller stoppas manuellt (`Ctrl + C`).
 
 ### <a name="examples"></a>Exempel
 
-#### <a name="how-to-collect-events"></a>Så här samlar du in evenemang
+#### <a name="how-to-collect-events"></a>Samla in händelser
 
-Normalt ber vi dig att samla in händelser för att undersöka varför din ansökan inte instrumenteras.
+Normalt skulle vi be dig att samla in händelser för att undersöka varför ditt program inte instrumenteras.
 
-Den codeless bifoga körningen kommer att avge ETW händelser när IIS startar och när ditt program startar.
+Koden för kod bundna bilagor genererar ETW-händelser när IIS startas och när programmet startas.
 
-Så här samlar du in dessa händelser:
-1. I en cmd-konsol med `iisreset /stop` administratörsbehörighet kör du Så här inaktiverar du IIS och alla webbappar.
-2. Utför den här cmdleten
-3. Kör `iisreset /start` Så att du startar IIS i en cmd-konsol med administratörsbehörighet.
+Så här samlar du in följande händelser:
+1. I en cmd-konsol med administratörs behörighet `iisreset /stop` kör du för att stänga av IIS och alla webbappar.
+2. Kör denna cmdlet
+3. I en cmd-konsol med administratörs behörighet `iisreset /start` kör du för att starta IIS.
 4. Försök att bläddra till din app.
-5. När appen har lästs in kan du`Ctrl + C`manuellt stoppa den ( ) eller vänta på tidsgränsen.
+5. När din app har slutfört inläsningen kan du stoppa den`Ctrl + C`manuellt () eller vänta tills tids gränsen uppnåddes.
 
-#### <a name="what-events-to-collect"></a>Vilka händelser att samla in
+#### <a name="what-events-to-collect"></a>Vilka händelser som ska samlas in
 
-Du har tre alternativ när du samlar in evenemang:
-1. Använd växeln `-CollectSdkEvents` för att samla in händelser som skickas från Application Insights SDK.
-2. Använd växeln `-CollectRedfieldEvents` för att samla in händelser som avges av Status Monitor och Redfield Runtime. Dessa loggar är användbara när du diagnostiserar IIS och programstart.
-3. Använd båda växlarna för att samla in båda händelsetyperna.
-4. Som standard, om ingen växel anges kommer båda händelsetyperna att samlas in.
+Du har tre alternativ när du samlar in händelser:
+1. Använd växeln `-CollectSdkEvents` för att samla in händelser som har avsänts från Application Insights SDK.
+2. Använd växeln `-CollectRedfieldEvents` för att samla in händelser som har avsänts av statusövervakare och Redfield Runtime. Dessa loggar är användbara när du ska diagnostisera IIS och program start.
+3. Använd båda växlar för att samla in båda händelse typerna.
+4. Som standard, om ingen växel har angetts, kommer båda händelse typerna att samlas in.
 
 
 ### <a name="parameters"></a>Parametrar
 
 #### <a name="-maxdurationinminutes"></a>-MaxDurationInMinutes
-**Valfri.** Använd den här parametern för att ange hur länge skriptet ska samla in händelser. Standardvärdet är 5 minuter.
+**Valfritt.** Använd den här parametern för att ange hur länge det här skriptet ska samla in händelser. Standardvärdet är 5 minuter.
 
 #### <a name="-logdirectory"></a>-LogDirectory
-**Valfri.** Använd den här växeln för att ställa in utdatakatalogen för ETL-filen. Som standard skapas den här filen i powershellmodulkatalogen. Den fullständiga sökvägen visas under skriptkörningen.
+**Valfritt.** Använd den här växeln för att ange den resulterande katalogen för ETL-filen. Som standard skapas den här filen i katalogen PowerShell-moduler. Den fullständiga sökvägen visas när skript körningen körs.
 
 
 #### <a name="-collectsdkevents"></a>-CollectSdkEvents
-**Valfri.** Använd den här växeln för att samla in SDK-händelser för Application Insights.
+**Valfritt.** Använd den här växeln för att samla in Application Insights SDK-händelser.
 
 #### <a name="-collectredfieldevents"></a>-CollectRedfieldEvents
-**Valfri.** Använd den här växeln för att samla in händelser från Status Monitor och Redfield-körningen.
+**Valfritt.** Använd den här växeln om du vill samla in händelser från Statusövervakare och Redfield-körningsmiljön.
 
-#### <a name="-verbose"></a>-Utförlig
-**Gemensam parameter.** Använd den här växeln för att mata ut detaljerade loggar.
+#### <a name="-verbose"></a>– Utförlig
+**Gemensam parameter.** Använd den här växeln för att skriva ut detaljerade loggar.
 
 
 
 ### <a name="output"></a>Resultat
 
 
-#### <a name="example-of-application-startup-logs"></a>Exempel på startloggar för program
+#### <a name="example-of-application-startup-logs"></a>Exempel på program start loggar
 ```powershell
 PS C:\Windows\system32> Start-ApplicationInsightsMonitoringTrace -ColectRedfieldEvents
 Starting...
@@ -637,18 +637,18 @@ Timeout Reached. Stopping...
 ## <a name="next-steps"></a>Nästa steg
 
   Visa telemetrin:
- - [Utforska mätvärden](../../azure-monitor/app/metrics-explorer.md) för att övervaka prestanda och användning.
-- [Sök händelser och loggar](../../azure-monitor/app/diagnostic-search.md) för att diagnostisera problem.
-- Använd [analyser](../../azure-monitor/app/analytics.md) för mer avancerade frågor.
-- [Skapa instrumentpaneler](../../azure-monitor/app/overview-dashboard.md).
+ - [Utforska mått](../../azure-monitor/app/metrics-explorer.md) för att övervaka prestanda och användning.
+- [Sök efter händelser och loggar](../../azure-monitor/app/diagnostic-search.md) för att diagnostisera problem.
+- Använd [Analytics](../../azure-monitor/app/analytics.md) för mer avancerade frågor.
+- [Skapa instrument paneler](../../azure-monitor/app/overview-dashboard.md).
  
  Lägg till mer telemetri:
  - [Skapa webbtester](monitor-web-app-availability.md) så att du är säker på att webbplatsen är aktiv.
-- [Lägg till webbklienttelemetri](../../azure-monitor/app/javascript.md) för att se undantag från webbsidans kod och aktivera spårningsanrop.
-- [Lägg till SDK för programinsikter i koden](../../azure-monitor/app/asp-net.md) så att du kan infoga spårnings- och loggsamtal.
+- [Lägg till telemetri för webb klienter](../../azure-monitor/app/javascript.md) om du vill visa undantag från webb sidans kod och aktivera spårnings anrop.
+- [Lägg till Application Insights SDK till din kod](../../azure-monitor/app/asp-net.md) så att du kan infoga spårnings-och logg anrop.
  
- Gör mer med Application Insights Agent:
- - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) Application Insights Agent.
+ Gör mer med Application Insights agent:
+ - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) Application Insights-agenten.
 
 
 

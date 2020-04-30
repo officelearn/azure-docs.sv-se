@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 9334cd0fa54212eac937742215f9c2e704a8bd9c
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/21/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81688027"
 ---
 # <a name="about-azure-key-vault"></a>Om Azure Key Vault
@@ -24,8 +24,8 @@ Azure Key Vault kan hjälpa dig att lösa följande problem:
 
 - **Hantering av hemligheter** – Azure Key Vault kan användas för säker lagring av och kontrollerad åtkomst till token, lösenord, certifikat, API-nycklar och andra hemligheter
 - **Nyckelhantering** – Azure Key Vault kan även användas som nyckelhanteringslösning. Med Azure Key Vault är det enkelt att skapa och kontrollera de krypteringsnycklar som används för att kryptera dina data. 
-- **Certifikathantering** – Azure Key Vault är också en tjänst som gör att du enkelt kan etablera, hantera och distribuera TLS/SSL-certifikat (Public Transport Layer Security/Secure Sockets Layer) för användning med Azure och dina interna anslutna resurser. 
-- **Butikshemligheter som backas upp av maskinvarusäkerhetsmoduler** – Hemligheterna och nycklarna kan skyddas antingen av programvara eller FIPS 140-2 Nivå 2-validerade HSM-moduler
+- **Certifikat hantering** – Azure Key Vault är också en tjänst som gör att du enkelt kan etablera, hantera och distribuera offentliga och privata Transport Layer Security/Secure Sockets Layer-certifikat (TLS/SSL) för användning med Azure och dina interna anslutna resurser. 
+- **Lagra hemligheter som backas upp av säkerhetsmoduler för maskin vara** – hemligheterna och nycklarna kan skyddas av program vara eller FIPS 140-2 nivå 2, verifierade HSM: er
 
 ## <a name="why-use-azure-key-vault"></a>Därför ska du använda Azure Key Vault
 
@@ -43,7 +43,7 @@ För åtkomst till ett nyckelvalv krävs en korrekt autentisering och auktoriser
 
 Autentiseringen görs via Azure Active Directory. Auktoriseringen kan göras via rollbaserad åtkomstkontroll (RBAC) eller med åtkomstprinciper för Key Vault. RBAC används vid hanteringen av valv och åtkomstprinciper för nyckelvalv används vid försök att komma åt data som lagras i ett valv.
 
-Skyddet för Azure Key Vaults kan vara antingen program - eller maskinvarubaserat (HSM). I situationer där du vill öka säkerheten ytterligare kan du importera och generera nycklar i maskinvarubaserade säkerhetsmoduler (HSM:er) som aldrig lämnar HSM-gränsen. Microsoft använder säkerhetsmoduler för nCipher-maskinvara. Du kan använda nCipher-verktyg för att flytta en nyckel från din HSM till Azure Key Vault.
+Skyddet för Azure Key Vaults kan vara antingen program - eller maskinvarubaserat (HSM). I situationer där du vill öka säkerheten ytterligare kan du importera och generera nycklar i maskinvarubaserade säkerhetsmoduler (HSM:er) som aldrig lämnar HSM-gränsen. Microsoft använder hjälp programmet nCipher Hardware Security-moduler. Du kan använda hjälp programmet nCipher-verktyg för att flytta en nyckel från HSM till Azure Key Vault.
 
 Azure Key Vault är dessutom utformat så att Microsoft inte kan se eller extrahera dina data.
 
@@ -53,16 +53,16 @@ När du väl har skapat några nyckelvalv vill du förmodligen övervaka hur och
 
 - arkivera till ett lagringskonto
 - strömma till en händelsehubb
-- Skicka loggarna till Azure Monitor-loggar.
+- Skicka loggarna till Azure Monitor loggar.
 
 Du har kontroll över dina loggar, du kan skydda dem genom att begränsa åtkomsten och du kan ta bort loggar du inte längre behöver.
 
 ### <a name="simplified-administration-of-application-secrets"></a>Enklare administration av programhemligheter
 
-Det ingår ett flertal steg när du lagrar värdefulla data. Säkerhetsinformation måste säkras, den måste följa en livscykel och vara mycket tillgänglig. Azure Key Vault gör det enklare att uppfylla dessa krav genom att:
+Det ingår ett flertal steg när du lagrar värdefulla data. Säkerhets information måste skyddas, den måste följa en livs cykel och måste ha hög tillgänglighet. Azure Key Vault gör det enklare att uppfylla dessa krav genom att:
 
-- Ta bort behovet av intern kunskap om maskinvarusäkerhetsmoduler.
-- Skala upp med kort varsel för att uppfylla organisationens användningstoppar.
+- Ta bort behovet av interna kunskaper om säkerhetsmoduler för maskin vara.
+- Skala upp på kort varsel för att uppfylla din organisations användnings toppar.
 - Innehållet i dina nyckelvarv kan replikeras inom en region och till en sekundär region. Datareplikering säkerställer tillgängligheten och gör att administratören inte behöver utlösa redundansväxlingen manuellt.
 - Du har tillgång till vanliga administrationsalternativ för Azure via portalen, Azure CLI:t och PowerShell.
 - Vissa uppgifter kring certifikat som du köper från offentliga certifikatutfärdare automatiseras, som registrering och förnyelse.
@@ -74,7 +74,7 @@ Dessutom kan du särskilja programhemligheter i Azure Key Vaults. Program kan d�
 Som säker lagring i Azure har Key Vault använts för att förenkla scenarier som:
 -  [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md)
 -  De [alltid krypterade]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) funktionerna i SQL Server och Azure SQL Database
-- [Azure App-tjänst]( https://docs.microsoft.com/azure/app-service/configure-ssl-certificate). 
+- [Azure App Service]( https://docs.microsoft.com/azure/app-service/configure-ssl-certificate). 
 
 Själva Key Vault kan integreras med lagringskonton, händelsehubbar och Log Analytics.
 
@@ -82,5 +82,5 @@ Själva Key Vault kan integreras med lagringskonton, händelsehubbar och Log Ana
 
 - Läs mer om [nycklar, hemligheter och certifikat](about-keys-secrets-certificates.md)
 - [Snabbstart: Skapa ett nyckelvalv med hjälp av CLI](../secrets/quick-create-cli.md)
-- [Autentisering, begäranden och svar](../general/authentication-requests-and-responses.md)
+- [Autentisering, begär Anden och svar](../general/authentication-requests-and-responses.md)
 - [Utvecklarguide för Key Vault](../general/developers-guide.md)

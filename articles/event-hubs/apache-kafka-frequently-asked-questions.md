@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar - Azure Event Hubs för Apache Kafka
+title: Vanliga frågor och svar – Azure Event Hubs för Apache Kafka
 description: Den här artikeln visar hur konsumenter och producenter som använder olika protokoll (AMQP, Apache Kafka och HTTPS) kan utbyta händelser när de använder Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
@@ -13,42 +13,42 @@ ms.workload: na
 ms.date: 04/01/2020
 ms.author: shvija
 ms.openlocfilehash: 0186b90e1d75c5dba6e1ca26e4ba079a3456cea4
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81606748"
 ---
-# <a name="frequently-asked-questions---event-hubs-for-apache-kafka"></a>Vanliga frågor och svar - Event Hubs för Apache Kafka 
-Den här artikeln innehåller svar på några av de vanligaste frågorna om att migrera till Event Hubs för Apache Kafka.
+# <a name="frequently-asked-questions---event-hubs-for-apache-kafka"></a>Vanliga frågor och svar – Event Hubs för Apache Kafka 
+Den här artikeln innehåller svar på några vanliga frågor om att migrera till Event Hubs för Apache Kafka.
 
-## <a name="do-you-run-apache-kafka"></a>Driver du Apache Kafka?
+## <a name="do-you-run-apache-kafka"></a>Kör du Apache Kafka?
 
-Nej.  Vi kör Kafka API-åtgärder mot Event Hubs-infrastruktur.  Eftersom det finns ett snävt samband mellan Apache Kafka och Event Hubs AMQP-funktioner (det vill säga producera, ta emot, hantera, så vidare.), kan vi föra den kända tillförlitligheten hos Event Hubs till Kafka PaaS-utrymmet.
+Nej.  Vi kör Kafka API-åtgärder mot Event Hubs-infrastrukturen.  Eftersom det finns en nära korrelation mellan Apache Kafka och Event Hubs AMQP-funktioner (det vill säga, ta emot, hantera, så vidare), kan vi ta den kända tillförlitligheten för Event Hubs till Kafka PaaS-utrymmet.
 
-## <a name="event-hubs-consumer-group-vs-kafka-consumer-group"></a>Konsumentgrupp för Event Hubs jämfört med Kafka konsumentgrupp
-Vad är skillnaden mellan en Event Hub-konsumentgrupp och en Kafka-konsumentgrupp på Event Hubs? Kafka-konsumentgrupper på Event Hubs skiljer sig helt från vanliga konsumentgrupper för Event Hubs.
+## <a name="event-hubs-consumer-group-vs-kafka-consumer-group"></a>Event Hubs konsument grupp eller konsument grupp för Kafka
+Vad är skillnaden mellan en konsument grupp för Event Hub och en Kafka-konsument grupp på Event Hubs? Kafka konsument grupper på Event Hubs är helt skilda från standard Event Hubs konsument grupper.
 
-**Konsumentgrupper för eventhubbar**
+**Event Hubs konsument grupper**
 
-- De hanteras med mallar för att skapa, hämta, uppdatera och ta bort (CRUD) via mallar för portal, SDK eller Azure Resource Manager. Händelsehubbar konsumentgrupper kan inte skapas automatiskt.
-- De är underordnade entiteter i en händelsehubb. Det innebär att samma konsumentgruppsnamn kan återanvändas mellan händelsehubbar i samma namnområde eftersom de är separata entiteter.
-- De används inte för att lagra förskjutningar. Orkestrerad AMQP-förbrukning görs med extern förskjutningslagring, till exempel Azure Storage.
+- De hanteras med åtgärder för att skapa, Hämta, uppdatera och ta bort (CRUD) via portal, SDK eller Azure Resource Manager mallar. Event Hubs konsument grupper kan inte skapas autoskapade.
+- De är underordnade entiteter för en Event Hub. Det innebär att samma konsument grupp namn kan återanvändas mellan Event Hub i samma namnrymd eftersom de är separata entiteter.
+- De används inte för att lagra förskjutningar. Den dirigerade AMQP-förbrukningen görs med hjälp av extern offset Storage, till exempel Azure Storage.
 
-**Kafka konsumentgrupper**
+**Kafka konsument grupper**
 
-- De är autoskapade.  Kafka-grupper kan hanteras via Kafka konsumentgrupp API: er.
-- De kan lagra förskjutningar i tjänsten Event Hubs.
-- De används som nycklar i vad som i praktiken är en offset nyckel-värde butik. För ett unikt `group.id` `topic-partition`par och lagrar vi en förskjutning i Azure Storage (3x replication). Event Hubs-användare ådrar sig inte extra lagringskostnader från att lagra Kafka-förskjutningar. Förskjutningar kan hanteras via Kafka-konsumentgrupp-API:erna, men *motlagringskontona* är inte direkt synliga eller kan hanteras för Event Hub-användare.  
-- De sträcker sig över ett namnområde. Använda samma Kafka gruppnamn för flera program på flera ämnen innebär att alla program och deras Kafka klienter kommer att balanseras när endast ett enda program behöver ombalansering.  Välj dina gruppnamn klokt.
-- De skiljer sig helt från Event Hubs konsumentgrupper. Du behöver **inte** använda "$Default", inte heller behöver du oroa dig för Kafka-klienter som stör AMQP-arbetsbelastningar.
-- De kan inte visas i Azure-portalen. Konsumentgruppsinformation är tillgänglig via Kafka API:er.
+- De skapas Autoskapas.  Kafka-grupper kan hanteras via Kafka-konsument grupps-API: er.
+- De kan lagra förskjutningar i Event Hubss tjänsten.
+- De används som nycklar i vad som effektivt är ett förskjutnings nyckel värdes lager. För ett unikt par av `group.id` och `topic-partition`lagrar vi en förskjutning i Azure Storage (3x-replikering). Event Hubs användare debiteras inte extra lagrings kostnader för lagring av Kafka-förskjutningar. Förskjutningar är manipulable via Kafka konsument grupps-API: er, men de förskjutnings lagrings *kontona* är inte direkt synliga eller Manipulable för Event Hub-användare.  
+- De sträcker sig över ett namn område. Om du använder samma Kafka grupp namn för flera program i flera ämnen innebär det att alla program och deras Kafka-klienter kommer att ombalanseras när endast ett enda program behöver ombalansera.  Välj grupp namn med en bra idé.
+- De är helt åtskilda från Event Hubs konsument grupper. Du behöver **inte** använda "$default" eller behöver inte oroa dig om Kafka-klienter som stör AMQP-arbetsbelastningar.
+- De visas inte i Azure Portal. Konsument grupp information kan nås via Kafka-API: er.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om eventhubbar och händelsehubbar för Kafka finns i följande artiklar:  
+Mer information om Event Hubs och Event Hubs för Kafka finns i följande artiklar:  
 
-- [Utvecklarguide för Apache Kafka för Event Hubs](apache-kafka-developer-guide.md)
-- [Guiden Apache Kafka-migrering för eventhubbar](apache-kafka-migration-guide.md)
-- [Felsökningsguide för Apache Kafka för eventhubbar](apache-kafka-troubleshooting-guide.md)
+- [Apache Kafka Developer Guide för Event Hubs](apache-kafka-developer-guide.md)
+- [Apache Kafka migrations guide för Event Hubs](apache-kafka-migration-guide.md)
+- [Apache Kafka fel söknings guide för Event Hubs](apache-kafka-troubleshooting-guide.md)
 - [Rekommenderade konfigurationer](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
 

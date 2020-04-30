@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en Azure-brandvägg och IP-grupper – Resource Manager-mall'
+title: 'Snabb start: skapa en Azure-brandvägg och IP-grupper – Resource Manager-mall'
 description: Lär dig hur du använder en Resource Manager-mall för att skapa en Azure-brandvägg och IP-grupper.
 services: firewall
 author: vhorne
@@ -8,23 +8,23 @@ ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: victorh
 ms.openlocfilehash: 53e5bf4f770ce986af2f3572bd6c1ef4cd9e3c2b
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81605232"
 ---
-# <a name="quickstart-create-an-azure-firewall-and-ip-groups---resource-manager-template"></a>Snabbstart: Skapa en Azure-brandvägg och IP-grupper – Resource Manager-mall
+# <a name="quickstart-create-an-azure-firewall-and-ip-groups---resource-manager-template"></a>Snabb start: skapa en Azure-brandvägg och IP-grupper – Resource Manager-mall
 
-I den här snabbstarten använder du en Resource Manager-mall för att distribuera en Azure-brandvägg med exempel-IP-grupper som används i en nätverksregel och programregel.
+I den här snabb starten använder du en Resource Manager-mall för att distribuera en Azure-brandvägg med exempel på IP-grupper som används i en nätverks regel och en program regel.
 
-En IP-grupp är en resurs på den högsta nivån som gör att du kan definiera och gruppera IP-adresser, intervall och undernät till ett enda objekt. Detta är användbart för att hantera IP-adresser i Azure Firewall-regler. Du kan antingen ange IP-adresser manuellt eller importera dem från en fil.
+En IP-grupp är en resurs på den översta nivån där du kan definiera och gruppera IP-adresser, intervall och undernät i ett enda objekt. Detta är användbart för att hantera IP-adresser i Azure brand Väggs regler. Du kan antingen ange IP-adresser manuellt eller importera dem från en fil.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## <a name="prerequisites"></a>Krav
 
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto gratis](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-an-azure-firewall-and-ip-groups"></a>Skapa en Azure-brandvägg och IP-grupper
 
@@ -32,59 +32,59 @@ Den här mallen skapar en Azure-brandvägg och IP-grupper, tillsammans med nödv
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabbstarten kommer från [Azure Quickstart-mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json)
+Mallen som används i den här snabb starten är från [Azure snabb starts mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json" range="001-512" highlight="118-141":::
 
 Flera Azure-resurser definieras i mallen:
 
-- [**Microsoft.Network/ipGroups**](/azure/templates/microsoft.network/ipGroups)
-- [**Microsoft.Network/publicIPAdresser**](/azure/templates/microsoft.network/publicipaddresses)
-- [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
-- [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
-- [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
-- [**Microsoft.Network/routeTables**](/azure/templates/microsoft.network/routeTables)
+- [**Microsoft. Network/ipGroups**](/azure/templates/microsoft.network/ipGroups)
+- [**Microsoft. Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft. Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft. Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
+- [**Microsoft. Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft. Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
+- [**Microsoft. Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 
 Distribuera Resource Manager-mall till Azure:
 
-1. Välj **Distribuera till Azure** för att logga in på Azure och öppna mallen. Mallen skapar en Azure-brandvägg, nätverksinfrastrukturen och två virtuella datorer.
+1. Välj **distribuera till Azure** för att logga in på Azure och öppna mallen. Mallen skapar en Azure-brandvägg, nätverks infrastrukturen och två virtuella datorer.
 
    [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
 
-2. Skriv eller välj följande värden på sidan **Skapa en Azure-brandvägg med IpGroups** i portalen:
-   - Prenumeration: Välj bland befintliga prenumerationer 
-   - Resursgrupp: Välj från befintliga resursgrupper eller välj **Skapa ny**och välj **OK**.
+2. I portalen, på sidan **skapa en Azure-brandvägg med IpGroups** , skriver eller väljer du följande värden:
+   - Prenumeration: Välj från befintliga prenumerationer 
+   - Resurs grupp: Välj från befintliga resurs grupper eller Välj **Skapa ny**och välj **OK**.
    - Plats: Välj en plats
-   - Namn på virtuellt nätverk: Skriv ett namn på det nya virtuella nätverket (VNet) 
-   - IP-gruppnamn 1: Typnamn för IP-grupp 1 
-   - IP-gruppnamn 2: Typnamn för IP-grupp 2 
-   - Administratörsanvändarnamn: Skriv användarnamn för administratörsanvändarkontot 
-   - Autentisering: Välj sshPublicKey eller lösenord 
-   - Administratörslösenord: Ange ett administratörslösenord eller en nyckel
+   - Virtual Network namn: Ange ett namn för det nya virtuella nätverket (VNet) 
+   - IP-grupp namn 1: typ namn för IP-grupp 1 
+   - IP-grupp namn 2: typ namn för IP-grupp 2 
+   - Admin-användar namn: Ange användar namn för administratörs användar kontot 
+   - Autentisering: Välj sshPublicKey eller lösen ord 
+   - Administratörs lösen ord: Ange ett administratörs lösen ord eller en nyckel
 
-3. Välj **Jag godkänner de villkor som anges ovan** och välj sedan **Köp**. Distributionen kan ta 10 minuter eller längre att slutföra.
+3. Välj **Jag accepterar de villkor som anges ovan** och välj sedan **köp**. Distributionen kan ta 10 minuter eller längre att slutföra.
 
 ## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 
-I Azure-portalen granskar du de distribuerade resurserna, särskilt brandväggsreglerna som använder IP-grupper.
+I Azure Portal granskar du de distribuerade resurserna, särskilt de brand Väggs regler som använder IP-grupper.
 
 :::image type="content" source="media/quick-create-ipgroup-template/ipgroups.png" alt-text="IP-grupper.":::
 
-:::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Nätverksregler.":::
+:::image type="content" source="media/quick-create-ipgroup-template/network-rule.png" alt-text="Nätverks regler.":::
 
-Mer information om JSON-syntaxen och egenskaperna för en brandvägg i en mall finns i [Mallreferens för Microsoft.Network azureFirewalls](https://docs.microsoft.com/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
+Mer information om JSON-syntaxen och egenskaperna för en brand vägg i en mall finns i [Microsoft. Network azureFirewalls Template Reference](https://docs.microsoft.com/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behöver de resurser som du har skapat med brandväggen tar du bort resursgruppen. Detta tar bort brandväggen och alla relaterade resurser.
+När du inte längre behöver de resurser som du skapade med brand väggen tar du bort resurs gruppen. Detta tar bort brand väggen och alla relaterade resurser.
 
-Om du vill ta `Remove-AzResourceGroup` bort resursgruppen anropar du cmdlet:
+Anropa `Remove-AzResourceGroup` cmdleten om du vill ta bort resurs gruppen:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "<your resource group name>"
@@ -93,4 +93,4 @@ Remove-AzResourceGroup -Name "<your resource group name>"
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Distribuera och konfigurera Azure-brandväggen i ett hybridnätverk med Azure-portalen](tutorial-hybrid-portal.md)
+> [Självstudie: Distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med hjälp av Azure Portal](tutorial-hybrid-portal.md)

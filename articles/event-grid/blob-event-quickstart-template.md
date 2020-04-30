@@ -1,6 +1,6 @@
 ---
-title: Skicka Blob-lagringshändelser till webbslutpunkten - mall
-description: Använd Azure Event Grid och en Azure Resource Manager-mall för att skapa Blob-lagringskonto och prenumerera på dess händelser. Skicka händelserna till en Webhook."
+title: Skicka Blob Storage-händelser till webb slut punkt-mall
+description: Använd Azure Event Grid och en Azure Resource Manager mall för att skapa Blob Storage-konto och prenumerera på dess händelser. Skicka händelserna till en webhook.
 services: event-grid
 keywords: ''
 author: spelluru
@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: subject-armqs
 ms.openlocfilehash: 86dc7a4ed05ceae5c7a641ffef23bd75ec48ceea
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81605529"
 ---
-# <a name="route-blob-storage-events-to-web-endpoint-by-using-azure-resource-manager-template"></a>Dirigera Blob-lagringshändelser till webbslutpunkt med hjälp av Azure Resource Manager-mall
+# <a name="route-blob-storage-events-to-web-endpoint-by-using-azure-resource-manager-template"></a>Dirigera Blob Storage-händelser till webb slut punkt med hjälp av Azure Resource Manager mall
 
-Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du en **Azure Resource Manager-mall** för att skapa ett Blob-lagringskonto, prenumerera på händelser för blob-lagring och utlösa en händelse för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
+Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du en **Azure Resource Manager mall** för att skapa ett Blob Storage-konto, prenumerera på händelser för blob-lagringen och utlösa en händelse för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -39,18 +39,18 @@ Innan du prenumererar på händelserna för Blob Storage-kontot ska vi skapa slu
 
    ![Visa ny webbplats](./media/blob-event-quickstart-portal/view-site.png)
 
-## <a name="create-a-storage-account-with-an-event-grid-subscription"></a>Skapa ett lagringskonto med en Event Grid-prenumeration
+## <a name="create-a-storage-account-with-an-event-grid-subscription"></a>Skapa ett lagrings konto med en Event Grid-prenumeration
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabbstarten kommer från [Azure Quickstart-mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage).
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage).
 
 [!code-json[<Azure Resource Manager template create Blob storage Event Grid subscription>](~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json)]
 
 Två Azure-resurser definieras i mallen:
 
-* [**Microsoft.Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts): skapa ett Azure Storage-konto.
-* [**"Microsoft.Storage/storageAccounts/providers/eventSubscriptions**](/azure/templates/microsoft.eventgrid/eventsubscriptions): skapa en Azure Event Grid-prenumeration för lagringskontot.
+* [**Microsoft. Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts): skapa ett Azure Storage-konto.
+* [**"Microsoft. Storage/storageAccounts/providers/eventSubscriptions**](/azure/templates/microsoft.eventgrid/eventsubscriptions): skapa en Azure Event Grid-prenumeration för lagrings kontot.
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -58,13 +58,13 @@ Två Azure-resurser definieras i mallen:
 
     [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json)
 
-2. Ange **slutpunkten:** ange webbadressen till webbappen och lägg till `api/updates` webbadressen till startsidan.
-3. Välj **Inköp om** du vill distribuera mallen.
+2. Ange **slut punkten**: Ange webb adressen till webb programmet och Lägg till `api/updates` på Start sidans URL.
+3. Välj **köp** för att distribuera mallen.
 
-  Azure-portalen används här för att distribuera mallen. Du kan också använda Azure PowerShell, Azure CLI och REST API. Mer information om andra distributionsmetoder finns i [Distribuera mallar](../azure-resource-manager/templates/deploy-powershell.md).
+  Azure Portal används här för att distribuera mallen. Du kan också använda Azure PowerShell, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-powershell.md).
 
 > [!NOTE]
-> Du hittar fler azure Event Grid-mallexempel [här](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).
+> Du hittar fler Azure Event Grid mall-exempel [här](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
 
@@ -76,20 +76,20 @@ Nu ska vi utlösa en händelse och se hur Event Grid distribuerar meddelandet ti
 
 Du kan utlösa en händelse för Blob Storage-kontot genom att ladda upp en fil. Filen behöver inte innehålla något specifikt. Artiklarna förutsätter att du har en fil med namnet testfile.txt, men du kan använda vilken fil som helst.
 
-När du överför filen till Azure Blob-lagring skickar Event Grid ett meddelande till den slutpunkt som du konfigurerade när du prenumererade. Meddelandet är i JSON-format och det innehåller en matris med en eller flera händelser. I följande exempel innehåller JSON-meddelandet en matris med en händelse. Visa din webbapp och notera att en skapad blobhändelse tagits emot.
+När du överför filen till Azure Blob Storage skickar Event Grid ett meddelande till den slut punkt som du konfigurerade när du prenumererar. Meddelandet är i JSON-format och innehåller en matris med en eller flera händelser. I följande exempel innehåller JSON-meddelandet en matris med en händelse. Visa din webbapp och notera att en skapad blobhändelse tagits emot.
 
 ![Visa resultat](./media/blob-event-quickstart-portal/view-results.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När det inte längre behövs [tar du bort resursgruppen](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group
-).
+[Ta bort resurs gruppen när den](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group
+)inte längre behövs.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure Resource Manager-mallar finns i följande artiklar:
 
-* [Azure Resource Manager-dokumentation](/azure/azure-resource-manager)
-* [Definiera resurser i Azure Resource Manager-mallar](/azure/templates/)
-* [Snabbstartsmallar för Azure](https://azure.microsoft.com/resources/templates/)
-* [Azure Event Grid-mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).
+* [Azure Resource Manager dokumentation](/azure/azure-resource-manager)
+* [Definiera resurser i Azure Resource Manager mallar](/azure/templates/)
+* [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/)
+* [Azure Event Grid mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).

@@ -1,6 +1,6 @@
 ---
-title: Uttrycksverktyget vid mappning av dataflöde
-description: Skapa uttryck med hjälp av Expression Builder vid mappning av dataflöden i Azure Data Factory
+title: Uttrycks verktyg i data flöde för mappning
+description: Bygg uttryck genom att använda uttrycks verktyget i att mappa data flöden i Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -8,63 +8,63 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.openlocfilehash: dda2812b5e2cc79d53658d568ba0845d593f41d6
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81605380"
 ---
-# <a name="build-expressions-in-mapping-data-flow"></a>Skapa uttryck i mappning av dataflöde
+# <a name="build-expressions-in-mapping-data-flow"></a>Bygg uttryck i data flöde för mappning
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Vid mappning av dataflöde anges många omvandlingsegenskaper som uttryck. Dessa uttryck består av kolumnvärden, parametrar, funktioner, operatorer och litteraler som utvärderas till en Spark-datatyp vid körning.
+I mappnings data flödet anges många omvandlings egenskaper som uttryck. Dessa uttryck består av kolumn värden, parametrar, funktioner, operatorer och litteraler som utvärderar till data typen Spark vid körning.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tkur]
 
-## <a name="open-expression-builder"></a>Öppna uttrycksverktyget
+## <a name="open-expression-builder"></a>Öppna uttrycks verktyget
 
-Redigeringsgränssnittet för uttryck i användarupplevelsen i Azure Data Factory kallas Expression Builder. När du anger uttryckslogiken använder Data Factory [IntelliSense-kodkomplettering](https://docs.microsoft.com/visualstudio/ide/using-intellisense?view=vs-2019) för markering, syntaxkontroll och automatisk komplettering.
+Gränssnittet för att redigera uttryck i Azure Data Factory användar upplevelse kallas uttrycks verktyg. När du anger din uttrycks logik använder Data Factory [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense?view=vs-2019) -kod komplettering för markering, syntaxkontroll och autokomplettering.
 
-![Uttrycksverktyget](media/data-flow/xpb1.png "Uttrycksverktyget")
+![Uttrycks verktyg](media/data-flow/xpb1.png "Uttrycksverktyget")
 
-I omvandlingar som den härledda kolumnen och filtret, där uttryck är obligatoriska, öppnar Expression Builder genom att markera rutan för blått uttryck.
+I omvandlingar som till exempel härledd kolumn och filter, där uttryck är obligatoriska, öppnar du uttrycks verktyget genom att välja rutan blått uttryck.
 
-![Rutan Blått uttryck](media/data-flow/expressionbox.png "Uttrycksverktyget")
+![Rutan blå uttryck](media/data-flow/expressionbox.png "Uttrycksverktyget")
 
-När du refererar till kolumner i ett matchande eller grupp-för-villkor kan ett uttryck extrahera värden från kolumner. Om du vill skapa ett uttryck väljer du **Beräknad kolumn**.
+När du refererar till kolumner i en matchande eller Group by-villkor kan ett uttryck extrahera värden från kolumner. Om du vill skapa ett uttryck väljer du **beräknad kolumn**.
 
-![Alternativet Beräknad kolumn](media/data-flow/computedcolumn.png "Uttrycksverktyget")
+![Alternativ för beräknad kolumn](media/data-flow/computedcolumn.png "Uttrycksverktyget")
 
-Om ett uttryck eller ett litteralt värde är giltiga indata väljer du **Lägg till dynamiskt innehåll** för att skapa ett uttryck som utvärderas till ett litteralt värde.
+I de fall där ett uttryck eller ett tecken värde är giltiga indata, väljer du **Lägg till dynamiskt innehåll** för att skapa ett uttryck som utvärderas till ett exakt värde.
 
 ![Alternativet Lägg till dynamiskt innehåll](media/data-flow/add-dynamic-content.png "Uttrycksverktyget")
 
-## <a name="expression-language-reference"></a>Språkreferens för uttryck
+## <a name="expression-language-reference"></a>Uttrycks språk referens
 
-Kartläggning av dataflöden har inbyggda funktioner och operatorer som kan användas i uttryck. En lista över tillgängliga funktioner finns [i Uttrycksfunktioner i mappningsdataflödet](data-flow-expression-functions.md).
+Mappning av data flöden har inbyggda funktioner och operatorer som kan användas i uttryck. En lista över tillgängliga funktioner finns [i uttrycks funktioner i mappnings data flödet](data-flow-expression-functions.md).
 
-## <a name="column-names-with-special-characters"></a>Kolumnnamn med specialtecken
+## <a name="column-names-with-special-characters"></a>Kolumn namn med specialtecken
 
-När du har kolumnnamn som innehåller specialtecken eller blanksteg omger du namnet med klammerparenteser för att referera till dem i ett uttryck.
+Om du har kolumn namn som innehåller specialtecken eller mellanslag, omger du namnet med klammerparenteser för att referera dem i ett uttryck.
 
 ```{[dbo].this_is my complex name$$$}```
 
-## <a name="preview-expression-results"></a>Förhandsgranska uttrycksresultat
+## <a name="preview-expression-results"></a>Resultat för för hands versions uttryck
 
-Om [felsökningsläget](concepts-data-flow-debug-mode.md) är aktiverat kan du använda det aktiva Spark-klustret för att se en pågående förhandsgranskning av vad uttrycket utvärderas till. När du bygger din logik kan du felsöka ditt uttryck i realtid. 
+Om [fel söknings läge](concepts-data-flow-debug-mode.md) är aktiverat kan du använda Live Spark-klustret för att se en pågående förhands granskning av vad ditt uttryck utvärderar till. När du skapar din logik kan du felsöka ditt uttryck i real tid. 
 
-![Förhandsgranskning av pågående](media/data-flow/exp4b.png "Förhandsgranskning av uttrycksdata")
+![Pågående för hands version](media/data-flow/exp4b.png "För hands version av uttrycks data")
 
-Välj **Uppdatera** om du vill uppdatera resultatet av uttrycket mot ett direkturval av källan.
+Välj **Uppdatera** för att uppdatera resultatet av ditt uttryck mot ett Live-exempel på källan.
 
-![Knappen Uppdatera](media/data-flow/exp5.png "Förhandsgranskning av uttrycksdata")
+![Knappen Uppdatera](media/data-flow/exp5.png "För hands version av uttrycks data")
 
-## <a name="string-interpolation"></a>Interpolering av sträng
+## <a name="string-interpolation"></a>String-interpolation
 
-Använd citattecken för att omge bokstavlig strängtext tillsammans med uttryck. Du kan inkludera uttrycksfunktioner, kolumner och parametrar. Stränginterpolering är användbart för att undvika omfattande användning av strängsammanfogning när parametrar ingår i frågesträngar. Om du vill använda uttryckssyntax omsluter du den i klammerparenteser,
+Använd citat tecken för att omsluta textuella sträng text tillsammans med uttryck. Du kan inkludera uttrycks funktioner, kolumner och parametrar. String-interpolation är användbart för att undvika en omfattande användning av sträng sammanfogning när parametrar ingår i frågesträngar. Om du vill använda uttrycks syntax, omger du det med klammerparenteser,
 
-Några exempel på stränginterpolering:
+Några exempel på String-interpolation:
 
 * ```"My favorite movie is {iif(instr(title,', The')>0,"The {split(title,', The')[1]}",title)}"```
 
@@ -72,11 +72,11 @@ Några exempel på stränginterpolering:
 
 * ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
-## <a name="comment-expressions"></a>Kommentarsuttryck
+## <a name="comment-expressions"></a>Kommentars uttryck
 
-Lägg till kommentarer i dina uttryck med hjälp av enradiga och flerradiga kommentarssyntax.
+Lägg till kommentarer till dina uttryck med hjälp av enradig syntax med en rad och flera rader.
 
-![Syntax för enrads- och flerradskommentar](media/data-flow/comments.png "Kommentarer")
+![Syntax för enkel rad och flerradig kommentar](media/data-flow/comments.png "Kommentarer")
 
 Följande exempel är giltiga kommentarer:
 
@@ -87,15 +87,15 @@ Följande exempel är giltiga kommentarer:
    
 * ```// This is a single line comment```
 
-Om du placerar en kommentar högst upp i uttrycket visas den i textrutan omformning för att dokumentera dina omformningsuttryck.
+Om du lägger till en kommentar överst i uttrycket, visas den i text rutan omvandling för att dokumentera dina omvandlings uttryck.
 
-![Kommentar i textrutan omformning](media/data-flow/comments2.png "Kommentarer")
+![Kommentar i text rutan omvandling](media/data-flow/comments2.png "Kommentarer")
 
 ## <a name="regular-expressions"></a>Reguljära uttryck
 
-Många uttrycksspråkfunktioner använder syntax för reguljära uttryck. När du använder funktioner för reguljära uttryck försöker\\Expression Builder tolka ett omvänt snedstreck ( ) som en escape-teckensekvens. När du använder omvänt snedstreck i ditt reguljära uttryck, antingen omsluta\`hela regex i backticks ( ) eller använda en dubbel omvänt snedstreck.
+Många uttrycks språk funktioner använder syntaxen för reguljära uttryck. När du använder reguljära uttrycks funktioner försöker uttrycks verktyget tolka\\ett omvänt snedstreck () som en Escape-teckensekvens. När du använder omvända snedstreck i det reguljära uttrycket, omger du hela regexen i baktick (\`) eller använder ett dubbelt omvänt snedstreck.
 
-Ett exempel som använder backticks:
+Ett exempel som använder baktick:
 
 ```
 regex_replace('100 and 200', `(\d+)`, 'digits')
@@ -107,33 +107,33 @@ Ett exempel som använder dubbla snedstreck:
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```
 
-## <a name="address-array-indexes"></a>Index för adressmatris
+## <a name="address-array-indexes"></a>Adress mat ris index
 
-Med uttrycksfunktioner som returnerar matriser använder du parenteser ([]) för att adressera specifika index inuti de returmatrisobjekten. Matrisen är baserad på dem.
+Med uttrycks funktioner som returnerar matriser använder du hakparenteser ([]) för att adressera vissa index inuti dessa returnerade mat ris objekt. Matrisen är baserad på dem.
 
-![Matris för Uttrycksverktyget](media/data-flow/expb2.png "Förhandsgranskning av uttrycksdata")
+![Expression Builder-matris](media/data-flow/expb2.png "För hands version av uttrycks data")
 
 ## <a name="keyboard-shortcuts"></a>Kortkommandon
 
-* Ctrl+K Ctrl+C: Kommentera hela raden.
-* Ctrl+K Ctrl+U: Ta av dig en kommenta.
-* F1: Ge hjälpkommandon för redigeraren.
-* Alt+nedåtpilen: Flytta nedåt den aktuella linjen.
-* Alt+Upp piltangent: Flytta upp aktuell linje.
-* Ctrl+Blanksteg: Visa sammanhangshjälp.
+* CTRL + K CTRL + C: kommentera hela raden.
+* CTRL + K CTRL + U: ta bort kommentar.
+* F1: ge redigerings hjälp kommandon.
+* Alt + nedåtpil: Flytta ned den aktuella raden.
+* ALT + UPPIL tangent: flytta upp aktuell rad.
+* CTRL + blank steg: Visa Sammanhangs hjälp.
 
 ## <a name="convert-to-dates-or-timestamps"></a>Konvertera till datum eller tidsstämplar
 
-Om du vill inkludera stränglitteraler i tidsstämpelutdataringen sveper du in konverteringen i ```toString()```.
+Om du vill inkludera sträng litteraler i dina Tidsstämpelns utdata kan ```toString()```du figursätta konverteringen i.
 
 ```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
 
-Om du vill konvertera millisekunder från epok till `toTimestamp(<number of milliseconds>)`ett datum eller en tidsstämpel använder du . Om tiden kommer på några sekunder multiplicerar du med 1000.
+Använd `toTimestamp(<number of milliseconds>)`för att konvertera millisekunder från epok till datum eller tidsstämpel. Om tiden kommer i sekunder multiplicerar du med 1 000.
 
 ```toTimestamp(1574127407*1000l)```
 
-Den avslutande "l" i slutet av föregående uttryck betyder konvertering till en lång typ som infogad syntax.
+Efterföljande "l" i slutet av föregående uttryck avser omvandling till en lång typ som infogad syntax.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Börja skapa dataomvandlingsuttryck](data-flow-expression-functions.md)
+[Börja bygga data omvandlings uttryck](data-flow-expression-functions.md)

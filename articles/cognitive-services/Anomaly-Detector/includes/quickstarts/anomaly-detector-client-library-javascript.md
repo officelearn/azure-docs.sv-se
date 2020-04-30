@@ -1,5 +1,5 @@
 ---
-title: Snabbstart för JavaScript-klientbibliotek för avvikelsedetektor
+title: Snabb start för klient bibliotek för avvikelse detektor
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,116 +9,116 @@ ms.topic: include
 ms.date: 04/16/2020
 ms.author: aahi
 ms.openlocfilehash: dca07f37377880008160fa3521d66ed4f6afc084
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81759988"
 ---
-Kom igång med klientbiblioteket avvikelsedetektor för JavaScript. Följ dessa steg för att installera paketet och prova exempelkoden för grundläggande uppgifter. Med tjänsten Avvikelsedetektor kan du hitta avvikelser i dina tidsseriedata genom att automatiskt använda de bäst passande modellerna på den, oavsett bransch, scenario eller datavolym.
+Kom igång med klient biblioteket för avvikelse detektor för Java Script. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Med tjänsten avvikelse detektor kan du hitta avvikelser i dina Time Series-data genom att automatiskt använda de bästa passnings modellerna, oavsett bransch, scenario eller data volym.
 
-Använd klientbiblioteket avvikelsedetektor för JavaScript för att:
+Använd klient biblioteket för avvikelse detektor för Java Script för att:
 
-* Identifiera avvikelser i hela tidsseriedatauppsättningen, som en batchbegäran
-* Identifiera avvikelsestatus för den senaste datapunkten i tidsserien
+* Identifiera avvikelser i data uppsättningen för tids serier, som en batch-begäran
+* Identifiera avvikelse status för den senaste data punkten i din tids serie
 
-[Referensdokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [Biblioteks](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [källkodspaket (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [Hitta koden på GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
+[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [paket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [hitta koden på GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
 
 ## <a name="prerequisites"></a>Krav
 
-* Azure-prenumeration - [Skapa en gratis](https://azure.microsoft.com/free/)
-* Den aktuella versionen av [Node.js](https://nodejs.org/)
-* En avvikelsedetektornyckel och slutpunkt
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* Den aktuella versionen av [Node. js](https://nodejs.org/)
+* En avvikelse nyckel och slut punkt
 
-## <a name="setting-up"></a>Inrätta
+## <a name="setting-up"></a>Konfigurera
 
-### <a name="create-an-anomaly-detector-azure-resource"></a>Skapa en Azure-resurs för avvikelsedetektor
+### <a name="create-an-anomaly-detector-azure-resource"></a>Skapa en Azure-resurs med avvikelse detektor
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
 ### <a name="create-a-new-nodejs-application"></a>Skapa ett nytt Node.js-program
 
-Skapa en ny katalog för appen i ett konsolfönster (till exempel cmd, PowerShell eller Bash) och navigera till den. 
+I ett konsol fönster (till exempel cmd, PowerShell eller bash) skapar du en ny katalog för din app och navigerar till den. 
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Kör `npm init` kommandot för att skapa ett `package.json` nodprogram med en fil. 
+Kör `npm init` kommandot för att skapa ett Node-program med `package.json` en fil. 
 
 ```console
 npm init
 ```
 
-Skapa en `index.js` fil med namnet och importera följande bibliotek:
+Skapa en fil med `index.js` namnet och importera följande bibliotek:
 
 [!code-javascript[Import statements](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=imports)]
 
-Skapa variabler som resursens Azure-slutpunkt och -nyckel. Om du har skapat miljövariabeln efter att du har startat programmet måste du stänga och öppna redigeraren, IDE:t eller skalet som kör den för att komma åt variabeln. Skapa en annan variabel för exempeldatafilen som du hämtar i ett senare steg och en tom lista för datapunkterna. Skapa sedan `ApiKeyCredentials` ett objekt som innehåller nyckeln.
+Skapa variabler för resursens Azure-slutpunkt och nyckel. Om du har skapat miljövariabeln efter att du har startat programmet måste du stänga och öppna redigerings programmet, IDE eller gränssnittet som kör det för att få åtkomst till variabeln. Skapa en annan variabel för exempel data filen som du ska ladda ned i ett senare steg och en tom lista för data punkterna. Skapa sedan ett `ApiKeyCredentials` objekt som innehåller nyckeln.
 
 [!code-javascript[Initial endpoint and key variables](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=vars)]
 
-### <a name="install-the-client-library"></a>Installera klientbiblioteket
+### <a name="install-the-client-library"></a>Installera klient biblioteket
 
-Installera `ms-rest-azure` paketen och `azure-cognitiveservices-anomalydetector` NPM-paketen. Csv-parse-biblioteket används också i den här snabbstarten:
+Installera `ms-rest-azure` och `azure-cognitiveservices-anomalydetector` NPM-paketen. Det CSV-parsande biblioteket används också i den här snabb starten:
 
 ```console
 npm install  @azure/cognitiveservices-anomalydetector @azure/ms-rest-js csv-parse
 ```
 
-Appens `package.json` fil uppdateras med beroenden.
+Appens `package.json` fil kommer att uppdateras med beroenden.
 
-## <a name="object-model"></a>Objektmodell
+## <a name="object-model"></a>Objekt modell
 
-Anomaly Detector-klienten är ett [AnomalyDetectorClient-objekt](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) som autentiserar till Azure med hjälp av nyckeln. Klienten innehåller två metoder för avvikelseidentifiering: På en hel datauppsättning med [helaDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--servicecallback-entiredetectresponse--)och på den senaste datapunkten med [LastDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-). 
+Klienten för avvikelse detektor är ett [AnomalyDetectorClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) -objekt som autentiserar till Azure med hjälp av din nyckel. Klienten erbjuder två metoder för avvikelse identifiering: på en hel data uppsättning med hjälp av [entireDetect ()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--servicecallback-entiredetectresponse--)och den senaste data punkten med [LastDetect ()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-). 
 
-Tidsseriedata skickas som serie [punkter](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest) i ett [begärandeobjekt.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest) Objektet `Request` innehåller egenskaper för att beskriva data ([granularitet](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest#granularity) till exempel) och parametrar för avvikelseidentifiering. 
+Time Series-data skickas som en serie med [punkter](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest) i ett [Request](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest) -objekt. Objektet innehåller egenskaper för att beskriva data (till exempel granularitet) och parametrar för avvikelse identifiering.[Granularity](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/request?view=azure-node-latest#granularity) `Request` 
 
-Avvikelsedetektorsvaret är ett [LastDetectResponse-](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest) eller [EntireDetectResponse-objekt](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) beroende på vilken metod som används. 
+Avvikelse detektorns svar är ett [LastDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest) -eller [EntireDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) -objekt beroende på vilken metod som används. 
 
 ## <a name="code-examples"></a>Kodexempel 
 
-Dessa kodavsnitt visar hur du gör följande med klientbiblioteket Avvikelsedetektor för Node.js:
+Dessa kodfragment visar hur du gör följande med klient biblioteket för avvikelse detektor för Node. js:
 
 * [Autentisera klienten](#authenticate-the-client)
-* [Läsa in en tidsseriedatauppsättning från en fil](#load-time-series-data-from-a-file)
-* [Identifiera avvikelser i hela datauppsättningen](#detect-anomalies-in-the-entire-data-set) 
-* [Identifiera avvikelsestatus för den senaste datapunkten](#detect-the-anomaly-status-of-the-latest-data-point)
+* [Läs in en tids serie data uppsättning från en fil](#load-time-series-data-from-a-file)
+* [Identifiera avvikelser i hela data uppsättningen](#detect-anomalies-in-the-entire-data-set) 
+* [Identifiera avvikelse statusen för den senaste data punkten](#detect-the-anomaly-status-of-the-latest-data-point)
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-Instansiera ett [AnomalyDetectorClient-objekt](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) med slutpunkten och autentiseringsuppgifterna.
+Instansiera ett [AnomalyDetectorClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) -objekt med din slut punkt och dina autentiseringsuppgifter.
 
 [!code-javascript[Authentication](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=authentication)]
 
-## <a name="load-time-series-data-from-a-file"></a>Läsa in tidsseriedata från en fil
+## <a name="load-time-series-data-from-a-file"></a>Läsa in tids serie data från en fil
 
-Hämta exempeldata för den här snabbstarten från [GitHub:](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/AnomalyDetector/request-data.csv)
-1. Högerklicka på **Raw**i webbläsaren .
+Hämta exempel data för den här snabb starten från [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/AnomalyDetector/request-data.csv):
+1. Högerklicka på **RAW**i webbläsaren.
 2. Klicka på **Spara länk som**.
-3. Spara filen i programkatalogen som en CSV-fil.
+3. Spara filen i program katalogen som en CSV-fil.
 
-Den här tidsseriedata är formaterad som en CSV-fil och skickas till API:et för avvikelsedetektor.
+Denna tids serie data formateras som en. csv-fil och skickas till API: t för avvikelse identifiering.
 
-Läs din datafil med csv-parse-bibliotekets `readFileSync()` metod och tolka `parse()`filen med . För varje rad trycker du på ett [Point-objekt](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest) som innehåller tidsstämpeln och det numeriska värdet.
+Läs data filen med CSV-parsing-bibliotekets `readFileSync()` Metod och parsa filen med `parse()`. För varje rad push-överför du ett [punkt](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/point?view=azure-node-latest) objekt som innehåller tidsstämpeln och det numeriska värdet.
 
 [!code-javascript[Read the data file](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=readFile)]
 
-## <a name="detect-anomalies-in-the-entire-data-set"></a>Identifiera avvikelser i hela datauppsättningen 
+## <a name="detect-anomalies-in-the-entire-data-set"></a>Identifiera avvikelser i hela data uppsättningen 
 
-Anropa API:et för att identifiera avvikelser genom hela tidsserien som en batch med klientens [helaDetect()-metod.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--msrest-requestoptionsbase-) Lagra det returnerade [EntireDetectResponse-objektet.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) Iterera genom svarslistan `isAnomaly` och skriv ut `true` index för eventuella värden. Dessa värden motsvarar index för avvikande datapunkter, om några hittades.
+Anropa API: et för att identifiera avvikelser genom hela tids serien som en batch med klientens [entireDetect ()-](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--msrest-requestoptionsbase-) metod. Lagra det returnerade [EntireDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) -objektet. Upprepa i svars `isAnomaly` listan och skriv ut indexet för alla `true` värden. Dessa värden motsvarar indexet för avvikande data punkter, om sådana hittades.
 
 [!code-javascript[Batch detection function](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=batchCall)]
 
-## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Identifiera avvikelsestatus för den senaste datapunkten
+## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Identifiera avvikelse statusen för den senaste data punkten
 
-Anropa API:et för avvikelsedetektor för att avgöra om den senaste datapunkten är en avvikelse med klientens [metod lastDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-) och lagra det returnerade [LastDetectResponse-objektet.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest) Svarets `isAnomaly` värde är en boolesk som anger den punktens avvikelsestatus.  
+Anropa API: t för avvikelse detektor för att avgöra om den senaste data punkten är en avvikelse med klientens [lastDetect ()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#lastdetect-request--msrest-requestoptionsbase-) -Metod och lagra det returnerade [LastDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse?view=azure-node-latest) -objektet. Svarets `isAnomaly` värde är ett booleskt värde som anger den punktens avvikelse status.  
 
 [!code-javascript[Last point detection function](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=lastDetection)]
 
 ## <a name="run-the-application"></a>Köra appen
 
-Kör programmet med `node` kommandot på snabbstartsfilen.
+Kör programmet med `node` kommandot på snabb starts filen.
 
 ```console
 node index.js

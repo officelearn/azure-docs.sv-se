@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/04/2020
+ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8c77b3454026aa309d979bd938674e7c3ae7b6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 51a60d307ca7dac139db0097283fc08e9e41624c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "77026004"
+ms.locfileid: "82233541"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuera Azure AD Privileged Identity Management (PIM)
 
@@ -99,7 +99,7 @@ I följande avsnitt får du hjälp att identifiera alla intressenter som ingår 
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Intressenter: Privileged Identity Management för Azure AD-roller
 
-| Name | Roll | Åtgärd |
+| Name | Roll | Action |
 | --- | --- | --- |
 | Namn och e-postadress | **Identitets arkitekt eller Global Azure-administratör**<br/>En representant från identitets hanterings teamet som är ansvarig för att definiera hur den här ändringen justeras med infrastrukturen för kärn identitets hantering i din organisation. | SÅ/R/I |
 | Namn och e-postadress | **Tjänst ägare/rads hanterare**<br/>En representant från IT-ägare till en tjänst eller en grupp av tjänster. De är viktiga för att fatta beslut och hjälpa till att distribuera Privileged Identity Management för sitt team. | SÅ/R/I |
@@ -109,7 +109,7 @@ I följande avsnitt får du hjälp att identifiera alla intressenter som ingår 
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>Intressenter: Privileged Identity Management för Azures resurs roller
 
-| Name | Roll | Åtgärd |
+| Name | Roll | Action |
 | --- | --- | --- |
 | Namn och e-postadress | **Prenumeration/resurs ägare**<br/>En representant från IT-ägarna till varje prenumeration eller resurs som du vill distribuera Privileged Identity Management för | SÅ/R/I |
 | Namn och e-postadress | **Säkerhets ägare**<br/>En representant från säkerhets teamet som kan signera att planen uppfyller organisationens säkerhets krav. | SÅ/R |
@@ -240,26 +240,26 @@ Innan du implementerar din Privileged Identity Management-lösning är det bra a
 
 #### <a name="privileged-identity-management-settings-for-azure-ad-roles"></a>Privileged Identity Management inställningar för Azure AD-roller
 
-| Roll | Kräv MFA | Avisering | Incident biljett | Kräv godkännande | Approver | Varaktighet för aktivering | Permanent administratör |
+| Roll | Krav på MFA | Avisering | Incident biljett | Kräv godkännande | Approver | Varaktighet för aktivering | Permanent administratör |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Global administratör | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andra globala administratörer | 1 timme | Konton för nöd åtkomst |
-| Exchange-administratör | :heavy_check_mark: | :heavy_check_mark: | röntgen | röntgen | Ingen | 2 timme | Ingen |
-| Support administratör | röntgen | röntgen | :heavy_check_mark: | röntgen | Ingen | 8 timmar | Ingen |
+| Exchange-administratör | :heavy_check_mark: | :heavy_check_mark: | röntgen | röntgen | Inga | 2 timme | Inga |
+| Support administratör | röntgen | röntgen | :heavy_check_mark: | röntgen | Inga | 8 timmar | Inga |
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Privileged Identity Management inställningar för Azure-resurs roller
 
-| Roll | Kräv MFA | Avisering | Kräv godkännande | Approver | Varaktighet för aktivering | Aktiv administratör | Aktiv utgång | Giltig förfallo datum |
+| Roll | Krav på MFA | Avisering | Kräv godkännande | Approver | Varaktighet för aktivering | Aktiv administratör | Aktiv utgång | Giltig förfallo datum |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Ägare till kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andra ägare till prenumerationen | 1 timme | Ingen | Saknas | 3 månad |
-| Administratör för användar åtkomst för mindre kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | röntgen | Ingen | 1 timme | Ingen | Saknas | 3 månad |
-| Virtuell datordeltagare | röntgen | :heavy_check_mark: | röntgen | Ingen | 3 timmar | Ingen | Saknas | 6 månad |
+| Ägare till kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andra ägare till prenumerationen | 1 timme | Inga | saknas | 3 månad |
+| Administratör för användar åtkomst för mindre kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | röntgen | Inga | 1 timme | Inga | saknas | 3 månad |
+| Virtuell datordeltagare | röntgen | :heavy_check_mark: | röntgen | Inga | 3 timmar | Inga | saknas | 6 månad |
 
 I följande tabell beskrivs var och en av inställningarna.
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 | --- | --- |
 | Roll | Namnet på den roll som du definierar inställningarna för. |
-| Kräv MFA | Om den kvalificerade användaren behöver utföra MFA innan rollen aktive ras.<br/><br/> : heavy_check_mark: **Microsoft rekommenderar** att du tillämpar MFA för alla administratörs roller, särskilt om rollerna har gäst användare. |
+| Krav på MFA | Om den kvalificerade användaren behöver utföra MFA innan rollen aktive ras.<br/><br/> : heavy_check_mark: **Microsoft rekommenderar** att du tillämpar MFA för alla administratörs roller, särskilt om rollerna har gäst användare. |
 | Avisering | Om detta är inställt på Sant får du ett e-postmeddelande när en berättigad användare aktiverar rollen.<br/><br/>**Obs:** Vissa organisationer har ingen e-postadress knutna till sina administratörs konton, för att få dessa e-postaviseringar ska du ange en alternativ e-postadress så att administratörer får e-postmeddelandena. |
 | Incident biljett | Om den berättigade användaren behöver registrera ett incident biljett nummer när de aktiverar sin roll. Med den här inställningen kan en organisation identifiera varje aktivering med ett internt incident nummer för att minimera oönskade aktiveringar.<br/><br/> : heavy_check_mark: **Microsoft rekommenderar** att man drar nytta av incident nummer för att koppla Privileged Identity Management till ditt interna system. Detta är särskilt användbart för god kännare som behöver kontext för aktiveringen. |
 | Kräv godkännande | Om den kvalificerade användaren behöver få godkännande för att aktivera rollen.<br/><br/> : heavy_check_mark: **Microsoft rekommenderar** att du ställer in godkännande för roller med mest behörighet. Baserat på användnings mönster för alla Privileged Identity Management-kunder, global administratör, användar administratör, Exchange-administratör, säkerhets administratör och lösen ords administratör är de vanligaste rollerna med godkännande inställningar. |
@@ -325,7 +325,7 @@ Du bör använda det här steget för att kontrol lera om all konfiguration som 
 
 ### <a name="communicate-privileged-identity-management-to-affected-stakeholders"></a>Kommunicera Privileged Identity Management till berörda intressenter
 
-Distribution av Privileged Identity Management kommer att införa ytterligare steg för användare av privilegierade roller. Även om Privileged Identity Management avsevärt minskar säkerhets problem som är kopplade till privilegierade identiteter, måste ändringen kommuniceras effektivt före distributionen av hela klienten. Beroende på antalet påverkade administratörer väljer organisationer ofta att skapa ett internt dokument, en video eller ett e-postmeddelande om ändringen. Här ingår ofta bland dessa kommunikationer:
+Distribution av Privileged Identity Management kommer att införa ytterligare steg för användare av privilegierade roller. Även om Privileged Identity Management avsevärt minskar säkerhets problem som är kopplade till privilegierade identiteter, måste ändringen kommuniceras effektivt före distributionen av hela organisationen. Beroende på antalet påverkade administratörer väljer organisationer ofta att skapa ett internt dokument, en video eller ett e-postmeddelande om ändringen. Här ingår ofta bland dessa kommunikationer:
 
 - Vad är PIM
 - Vad är fördelarna med organisationen?
@@ -371,7 +371,7 @@ Att distribuera Privileged Identity Management i produktion är ett stort steg f
 
 ### <a name="use-privileged-identity-management-alerts-to-safeguard-your-privileged-access"></a>Använd Privileged Identity Management aviseringar för att skydda privilegie rad åtkomst
 
-Du bör använda Privileged Identity Management inbyggda aviserings funktioner för att bättre skydda din klient. Mer information finns i [säkerhets aviseringar](pim-how-to-configure-security-alerts.md#security-alerts). Dessa aviseringar är: administratörer som inte använder privilegierade roller, roller som tilldelas utanför Privileged Identity Management, roller aktive ras för ofta och mer. För att skydda din organisation fullständigt bör du regelbundet gå igenom listan över aviseringar och åtgärda problemen. Du kan visa och åtgärda aviseringar på följande sätt:
+Du bör använda Privileged Identity Management inbyggda aviserings funktioner för att bättre skydda din organisation. Mer information finns i [säkerhets aviseringar](pim-how-to-configure-security-alerts.md#security-alerts). Dessa aviseringar är: administratörer som inte använder privilegierade roller, roller som tilldelas utanför Privileged Identity Management, roller aktive ras för ofta och mer. För att skydda din organisation fullständigt bör du regelbundet gå igenom listan över aviseringar och åtgärda problemen. Du kan visa och åtgärda aviseringar på följande sätt:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Öppna **Azure AD Privileged Identity Management**.

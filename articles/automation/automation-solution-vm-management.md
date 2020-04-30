@@ -3,14 +3,14 @@ title: Starta/stoppa virtuella datorer vid låg belastnings lösning
 description: Den här lösningen för hantering av virtuella datorer startar och stoppar dina virtuella Azure-datorer enligt ett schema och proaktivt övervakar från Azure Monitor loggar.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/01/2020
+ms.date: 04/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 631c9b37cf1fec0d39c3c362c6bc303a576d6b7c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7e30fd0d53af7ee61d919b56e9ffcd1f1b6bd36
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187338"
+ms.locfileid: "82207606"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastnings lösning i Azure Automation
 
@@ -19,7 +19,7 @@ Lösningen **Starta/stoppa virtuella datorer vid låg belastnings tider** starta
 Den här lösningen använder cmdleten [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) för att starta virtuella datorer. Den använder [Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) för att stoppa virtuella datorer.
 
 > [!NOTE]
-> Lösningen **Starta/stoppa virtuella datorer vid låg belastning** har uppdaterats till att stödja de senaste versionerna av de Azure-moduler som är tillgängliga.
+> Lösningen **Starta/stoppa virtuella datorer vid låg belastning** har uppdaterats till att stödja de senaste versionerna av de Azure-moduler som är tillgängliga. Den uppdaterade versionen av den här lösningen, som är tillgänglig i Marketplace, stöder inte AzureRM-moduler eftersom vi har migrerat från AzureRM till AZ-moduler.
 
 Lösningen innehåller ett decentraliserat Automation-alternativ för användare som vill optimera sina VM-kostnader. Med den här lösningen kan du:
 
@@ -108,7 +108,7 @@ Alla överordnade Runbooks inkluderar `WhatIf` parametern. När värdet är true
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Anropas från den överordnade runbooken. Denna Runbook skapar aviseringar per resurs för det automatiska stopp scenariot.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: true eller false  | Skapar eller uppdaterar Azures aviserings regler på virtuella datorer i mål prenumerationen eller resurs grupperna. <br> `VMList`är en kommaavgränsad lista över virtuella datorer. Till exempel `vm1, vm2, vm3`.<br> `WhatIf`aktiverar validering av Runbook-logik utan att köra.|
-|AutoStop_Disable | Ingen | Inaktiverar automatiska stopp-aviseringar och standard schema.|
+|AutoStop_Disable | Inga | Inaktiverar automatiska stopp-aviseringar och standard schema.|
 |AutoStop_VM_Child | WebHookData | Anropas från den överordnade runbooken. Aviserings regler anropar denna Runbook för att stoppa en klassisk virtuell dator.|
 |AutoStop_VM_Child_ARM | WebHookData |Anropas från den överordnade runbooken. Aviserings regler anropar denna Runbook för att stoppa en virtuell dator.  |
 |ScheduledStartStop_Base_Classic | CloudServiceName<br> Åtgärd: starta eller stoppa<br> VMList  | Utför åtgärden starta eller stoppa i den klassiska VM-gruppen genom att Cloud Services. |
@@ -156,7 +156,7 @@ I följande tabell visas alla standard scheman som skapats i ditt Automation-kon
 
 Aktivera inte alla scheman, eftersom detta kan skapa överlappande schema åtgärder. Det är bäst att bestämma vilka optimeringar du vill göra och ändra dem på lämpligt sätt. I exempel scenarierna i översikts avsnittet finns ytterligare förklaring.
 
-|Schema namn | Frequency | Beskrivning|
+|Schema namn | Frekvens | Beskrivning|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Var 8:e timme | Kör **AutoStop_CreateAlert_Parent** Runbook var 8: e timme, vilket i sin tur stoppar de VM-baserade `External_Start_ResourceGroupNames`värdena `External_Stop_ResourceGroupNames`i variablerna, och `External_ExcludeVMNames` . Alternativt kan du ange en kommaavgränsad lista över virtuella datorer med hjälp av- `VMList` parametern.|
 |Scheduled_StopVM | Användardefinierad, daglig | Kör **ScheduledStopStart_Parent** Runbook med en parameter på `Stop` varje dag vid den angivna tiden.Stoppar automatiskt alla virtuella datorer som uppfyller reglerna som definierats av variabel till gångar.Aktivera det **schemalagda schemat för schemalagda StartVM**.|

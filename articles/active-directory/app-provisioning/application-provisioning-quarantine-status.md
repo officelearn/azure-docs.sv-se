@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 04/28/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563c049bf3d1606e87db54e3b003dac987594610
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0355bb1c4255e6de4ed17d55097b7b22d6b37db6
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154635"
+ms.locfileid: "82229909"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Program etablering i karantän status
 
@@ -33,7 +33,7 @@ I karantän sänks frekvensen för stegvisa cykler gradvis till en gång per dag
 
 Det finns tre sätt att kontrol lera om ett program finns i karantän:
   
-- I Azure Portal navigerar du till **Azure Active Directory** > *program namns*&gt; > **etablering** för**företags program** > &lt;och bläddrar till förlopps indikatorn längst ned.  
+- I Azure Portal navigerar du till **Azure Active Directory** > *program namns*&gt; > **etablering** för**företags program** > &lt;och granskar förlopps indikatorn för ett karantän meddelande.   
 
   ![Status fältet för etablering visar karantän status](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
@@ -51,7 +51,13 @@ Det finns tre sätt att kontrol lera om ett program finns i karantän:
 
 ## <a name="why-is-my-application-in-quarantine"></a>Varför är mitt program i karantän?
 
-En Microsoft Graph begäran om att hämta status för etablerings jobbet visar följande orsak för karantänen:
+|Beskrivning|Rekommenderad åtgärd|
+|---|---|
+|**Problem med scim-kompatibilitet:** Ett HTTP/404-svar som inte hittades returnerades i stället för det förväntade HTTP/200 OK-svaret. I det här fallet har Azure AD Provisioning-tjänsten gjort en begäran till mål programmet och fått ett oväntat svar.|Kontrol lera avsnittet admin credentials för att se om programmet kräver att klient webb adressen anges och att webb adressen är korrekt. Om du inte ser något problem kontaktar du programutvecklaren för att se till att deras tjänster är SCIM-kompatibla. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
+|**Ogiltiga autentiseringsuppgifter:** Vid försök att bevilja åtkomst till mål programmet fick vi ett svar från mål programmet som anger att de angivna autentiseringsuppgifterna är ogiltiga.|Gå till avsnittet admin credentials i etablerings konfigurationens gränssnitt och auktorisera åtkomsten igen med giltiga autentiseringsuppgifter. Om programmet finns i galleriet läser du själv studie kursen om program konfiguration för eventuella ytterligare steg som krävs.|
+|**Dubbla roller:** Roller som importeras från vissa program som Salesforce och Zendesk måste vara unika. |Navigera till applikations [manifestet](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) i Azure Portal och ta bort den duplicerade rollen.|
+
+ En Microsoft Graph begäran om att hämta status för etablerings jobbet visar följande orsak för karantänen:
 
 - `EncounteredQuarantineException`indikerar att ogiltiga autentiseringsuppgifter har angetts. Etablerings tjänsten kan inte upprätta en anslutning mellan käll systemet och mål systemet.
 

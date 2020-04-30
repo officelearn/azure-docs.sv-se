@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 58fd9225298b4322567f4feb02629e3ad4e0f00d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 2760033cd66e99a7a7f6d331e03c6f98c486d286
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127571"
+ms.locfileid: "82231976"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
@@ -56,7 +56,23 @@ Lär dig mer om [resurs kvoter](how-to-manage-quotas.md) som du kan stöta på n
         pip install azure-ml-datadrift
         pip install azureml-train-automl 
      ```
-     
+
+* **Panda-fel: visas vanligt vis under AutoML experiment:**
+   
+   När du manuellt konfigurerar din Environmnet med hjälp av pip kommer du att märka felkoder (särskilt från Pandas) på grund av att paket versioner som inte stöds installeras. För att förhindra sådana fel måste du [Installera AUTOML SDK med hjälp av automl_setup. cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md):
+   
+    1. Öppna en Anaconda-prompt och klona GitHub-lagringsplatsen för en uppsättning exempel antecknings böcker.
+
+    ```bash
+    git clone https://github.com/Azure/MachineLearningNotebooks.git
+    ```
+    
+    2. CD till mappen "How-to-use-azureml/automatisk-Machine-Learning där exempel antecknings böckerna extraherades och kör sedan:
+    
+    ```bash
+    automl_setup
+    ```
+  
 * **Fel meddelande: det går inte att avinstallera ' PyYAML '**
 
     Azure Machine Learning SDK för python: PyYAML är ett `distutils` installerat projekt. Därför kan vi inte korrekt avgöra vilka filer som tillhör den om det finns en delvis avinstallation. Om du vill fortsätta att installera SDK och ignorera det här felet använder du:

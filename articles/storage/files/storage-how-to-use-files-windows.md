@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4bd9c64e1b9219f6752172d9dc518af71ad67e70
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2694e0c1536064267faad10517ae58d0709ad1c8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79268150"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82231772"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan användas smidigt i Windows och Windows Server. Den här artikeln beskriver överväganden för att använda en Azure-filresurs med Windows och Windows Server.
@@ -27,27 +27,27 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 | Windows 10<sup>1</sup> | SMB 3.0 | Ja | Ja |
 | Windows Server, halvårskanal<sup>2</sup> | SMB 3.0 | Ja | Ja |
 | Windows Server 2016 | SMB 3.0 | Ja | Ja |
-| Windows 8.1 | SMB 3.0 | Ja | Ja |
+| Windows 8,1 | SMB 3.0 | Ja | Ja |
 | Windows Server 2012 R2 | SMB 3.0 | Ja | Ja |
 | Windows Server 2012 | SMB 3.0 | Ja | Ja |
-| Windows 7<sup>3</sup> | SMB 2.1 | Ja | Inga |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Ja | Inga |
+| Windows 7<sup>3</sup> | SMB 2.1 | Ja | Nej |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Ja | Nej |
 
-<sup>1.</sup> Windows 10, version 1507, 1607, 1709, 1803, 1809, 1903 och 1909.  
-<sup>2.</sup> Windows Server, version 1809, 1903 och 1909.  
-<sup>3.</sup> Det vanliga Microsoft-stödet för Windows 7 och Windows Server 2008 R2 har upphört. Det är möjligt att köpa ytterligare stöd för säkerhetsuppdateringar endast via [ESU-programmet (Extended Security Update).](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates) Vi rekommenderar starkt att du migrerar bort från dessa operativsystem.
+<sup>1</sup> Windows 10, version 1507, 1607, 1709, 1803, 1809, 1903 och 1909.  
+<sup>2</sup> Windows Server, version 1809, 1903 och 1909.  
+<sup>3</sup> Normalt Microsoft-Support för Windows 7 och Windows Server 2008 R2 har avslut ATS. Det går bara att köpa ytterligare stöd för säkerhets uppdateringar via [ESU-programmet (Extended Security Update)](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). Vi rekommenderar starkt att du migrerar dessa operativ system.
 
 > [!Note]  
 > Vi rekommenderar alltid den senaste uppdateringen för din version av Windows.
 
 ## <a name="prerequisites"></a>Krav 
-* **Namn på lagringskonto**: Om du vill montera en Azure-filresurs behöver du namnet på lagringskontot.
+* **Lagrings konto namn**: om du vill montera en Azure-filresurs behöver du namnet på lagrings kontot.
 
-* **Lagringskontonyckel:** För att montera en Azure-filresurs behöver du den primära (eller sekundära) lagringsnyckeln. SAS-nycklar stöds inte för montering.
+* **Lagrings konto nyckel**: om du vill montera en Azure-filresurs behöver du den primära (eller sekundära) lagrings nyckeln. SAS-nycklar stöds inte för montering.
 
-* **Se till att port 445 är öppen**: SMB-protokollet kräver att TCP-port 445 är öppen; anslutningar misslyckas om port 445 är blockerad. Du kan kontrollera om din brandvägg blockerar port 445 med `Test-NetConnection`-cmdleten. Du kan läsa om [olika sätt att lösa blockerad port 445 här](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
+* **Se till att port 445 är öppen**: SMB-protokollet kräver att TCP-port 445 är öppen; anslutningar misslyckas om port 445 är blockerad. Du kan kontrollera om din brandvägg blockerar port 445 med `Test-NetConnection`-cmdleten. Du kan lära dig om [olika sätt att lösa den blockerade port 445 här](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
-    Följande PowerShell-kod förutsätter att du har Azure PowerShell-modulen installerad, se [Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps) för mer information. Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resource-group-name>` med gällande namn för ditt lagringskonto.
+    Följande PowerShell-kod förutsätter att du har installerat Azure PowerShell-modulen. mer information finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps) . Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resource-group-name>` med gällande namn för ditt lagringskonto.
 
     ```powershell
     $resourceGroupName = "<your-resource-group-name>"
@@ -80,7 +80,7 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 ## <a name="using-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
 Om du vill använda en Azure-filresurs med Windows måste du antingen montera den, vilket innebär att tilldela den en enhetsbeteckning eller en sökväg för monteringspunkt, eller komma åt den via dess [UNC-sökväg](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
 
-Till skillnad från andra SMB-resurser som du kanske har använt, till exempel de som finns på en Windows Server, Linux Samba-server eller NAS-enhet, har Azure-filresurser för närvarande inte stöd för Kerberos-autentisering med Active Directory-identitet (AD) eller Azure Active Directory-identitet (AAD), men det är en funktion som vi [arbetar med](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles). I stället måste du komma åt din Azure-filresurs med lagringskontonyckeln för det lagringskonto som innehåller Azure-filresursen. En lagringskontonyckel är en administratörsnyckel för ett lagringskonto, inklusive administratörsbehörigheter för alla filer och mappar i filresursen du använder, och för alla filresurser och andra lagringsresurser (blobbar, köer, tabeller osv.) som finns i ditt lagringskonto. Om detta inte är tillräckligt för din arbetsbelastning kan [Azure File Sync](storage-sync-files-planning.md) åtgärda bristen på Kerberos-autentisering och ACL-stöd under tiden tills stöd för AAD-baserad Kerberos-autentisering och ACL blir tillgängliga offentligt.
+Till skillnad från andra SMB-resurser som du kanske har använt, till exempel de som finns på en Windows Server, Linux Samba-server eller NAS-enhet, har Azure-filresurser för närvarande inte stöd för Kerberos-autentisering med Active Directory-identitet (AD) eller Azure Active Directory-identitet (AAD), men det är en funktion som vi [arbetar med](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles). I stället måste du komma åt din Azure-filresurs med lagringskontonyckeln för det lagringskonto som innehåller Azure-filresursen. En lagrings konto nyckel är en administratörs nyckel för ett lagrings konto, inklusive administratörs behörighet till alla filer och mappar i fil resursen som du ansluter till, samt för alla fil resurser och andra lagrings resurser (blobbar, köer, tabeller osv.) som finns i ditt lagrings konto. Om detta inte är tillräckligt för din arbetsbelastning kan [Azure File Sync](storage-sync-files-planning.md) åtgärda bristen på Kerberos-autentisering och ACL-stöd under tiden tills stöd för AAD-baserad Kerberos-autentisering och ACL blir tillgängliga offentligt.
 
 Ett vanligt mönster för lyftning och skiftande av verksamhetsspecifika program som förväntar sig en SMB-filresurs till Azure är att använda en Azure-filresurs som ett alternativ till att köra en dedikerad Windows-filserver i en Azure-dator. En viktig aspekt för en lyckad migrering av ett verksamhetsspecifikt program till att använda en Azure-filresurs är att många verksamhetsspecifika program kör i kontexten för ett dedikerat tjänstkonto med begränsade systembehörigheter i stället för den virtuella datorns administratörskonto. Därför måste du se till att du monterar/sparar autentiseringsuppgifterna för Azure-filresursen från kontexten för tjänstkontot i stället för ditt administratörskonto.
 
@@ -126,7 +126,7 @@ Du bör nu kunna montera eller få åtkomst till resursen utan att behöva ange 
 #### <a name="advanced-cmdkey-scenarios"></a>Avancerade cmdkey-scenarier
 Det finns två ytterligare scenarier att överväga med cmdkey: lagra autentiseringsuppgifter för en annan användare på datorn, till exempel ett tjänstkonto, och lagra autentiseringsuppgifter på en fjärrdator med hjälp av PowerShell-fjärrkommunikation.
 
-Det är mycket enkelt att lagra autentiseringsuppgifterna för en annan användare på datorn: när du loggat in på ditt konto kör du följande PowerShell-kommando:
+Det är enkelt att lagra autentiseringsuppgifterna för en annan användare på datorn: när du är inloggad på ditt konto kör du bara följande PowerShell-kommando:
 
 ```powershell
 $password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
@@ -139,7 +139,7 @@ Då öppnas ett nytt PowerShell-fönster under användarkontexten för ditt tjä
 Däremot går det inte att lagra autentiseringsuppgifterna på en fjärrdator med hjälp av PowerShell-fjärrkommunikation, eftersom cmdkey inte tillåter åtkomst, även för tillägg, till dess autentiseringsuppgiftsarkiv när användaren är inloggad via PowerShell-fjärrkommunikation. Vi rekommenderar inloggning på datorn via [Fjärrskrivbord](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows).
 
 ### <a name="mount-the-azure-file-share-with-powershell"></a>Montera Azure-filresursen med PowerShell
-Kör följande kommandon från en vanlig (dvs. inte en förhöjd) PowerShell-session för att montera Azure-filresursen. Kom ihåg att ersätta `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` och `<desired-drive-letter>` med rätt information.
+Kör följande kommandon från en vanlig PowerShell-session (inte en upphöjd) för att montera Azure-filresursen. Kom ihåg att ersätta `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` och `<desired-drive-letter>` med rätt information.
 
 ```powershell
 $resourceGroupName = "<your-resource-group-name>"
@@ -182,30 +182,26 @@ Remove-PSDrive -Name <desired-drive-letter>
 
 1. Öppna Utforskaren. Du kan göra detta genom att öppna från startmenyn eller använda tangentbordsgenvägen Win+E.
 
-2. Navigera till objektet **Den här datorn** på vänster sida av fönstret. Detta ändrar menyerna i menyfliksområdet. Under menyn Dator väljer du **Anslut nätverksenhet**.
+1. Navigera till objektet **Den här datorn** på vänster sida av fönstret. Detta ändrar menyerna i menyfliksområdet. Under menyn Dator väljer du **Anslut nätverksenhet**.
     
     ![En skärmbild av den nedrullningsbara menyn "Anslut nätverksenhet"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. Kopiera UNC-sökvägen från **fönstret Anslut** i Azure-portalen. 
-
-    ![UNC-sökvägen från fönstret Anslut i Azure Files](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
-
-4. Välj enhetsbeteckningen och ange UNC-sökvägen. 
+1. Välj enhets bokstaven och ange UNC-sökvägen. UNC-sökvägarna är `<storageAccountName>.file.core.windows.net/<fileShareName>`. Till exempel: `anexampleaccountname.file.core.windows.net/example-share-name`.
     
     ![En skärmbild av dialogrutan "Anslut nätverksenhet"](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
-5. Använd det lagringskontonamn som börjar med `AZURE\` som användarnamn och en lagringskontonyckel som lösenord.
+1. Använd det lagringskontonamn som börjar med `AZURE\` som användarnamn och en lagringskontonyckel som lösenord.
     
     ![En skärmbild av dialogrutan med nätverksautentiseringsuppgifter](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
 
-6. Använd Azure-filresurser som du vill.
+1. Använd Azure-filresurser som du vill.
     
     ![Azure-filresursen är nu monterad](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
-7. När du är redo att demontera Azure-filresursen kan du göra det genom att högerklicka på posten för resursen under **Nätverksplatser** i Utforskaren och välja **Koppla från**.
+1. När du är redo att demontera Azure-filresursen kan du göra det genom att högerklicka på posten för resursen under **Nätverksplatser** i Utforskaren och välja **Koppla från**.
 
 ### <a name="accessing-share-snapshots-from-windows"></a>Komma åt ögonblicksbilder av resurser från Windows
-Om du har tagit en resursögonblicksbild, antingen manuellt eller automatiskt via ett skript eller en tjänst som Azure Backup, kan du visa tidigare versioner av en resurs, en katalog eller en viss fil från filresursen i Windows. Du kan ta en ögonblicksbild av resursen från [Azure-portalen,](storage-how-to-use-files-portal.md) [Azure PowerShell](storage-how-to-use-files-powershell.md)och [Azure CLI](storage-how-to-use-files-cli.md).
+Om du har tagit en resursögonblicksbild, antingen manuellt eller automatiskt via ett skript eller en tjänst som Azure Backup, kan du visa tidigare versioner av en resurs, en katalog eller en viss fil från filresursen i Windows. Du kan ta en ögonblicks bild av en resurs från [Azure Portal](storage-how-to-use-files-portal.md), [Azure POWERSHELL](storage-how-to-use-files-powershell.md)och [Azure CLI](storage-how-to-use-files-cli.md).
 
 #### <a name="list-previous-versions"></a>Lista över tidigare versioner
 Bläddra till det objekt eller överordnade objekt som behöver återställas. Dubbelklicka för att gå till den önskade katalogen. Högerklicka och välj **Egenskaper** på menyn.
@@ -222,6 +218,7 @@ Du kan välja **Öppna** om du vill öppna en viss ögonblicksbild.
 
 #### <a name="restore-from-a-previous-version"></a>Återställa från en tidigare version
 Välj **Återställ** för att rekursivt kopiera innehållet i hela katalogen vid tidpunkten då resursögonblicksbilden skapades till den ursprungliga platsen.
+
  ![Återställningsknapp i varningsmeddelande](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>Skydda Windows/Windows Server
@@ -237,13 +234,13 @@ I följande tabell finns detaljerad information om status för SMB 1 i varje ver
 | Windows Server 2016                       | Enabled              | Ta bort med Windows-funktionen |
 | Windows 10, versionerna 1507, 1607 och 1703 | Enabled              | Ta bort med Windows-funktionen |
 | Windows Server 2012 R2                    | Enabled              | Ta bort med Windows-funktionen | 
-| Windows 8.1                               | Enabled              | Ta bort med Windows-funktionen | 
+| Windows 8,1                               | Enabled              | Ta bort med Windows-funktionen | 
 | Windows Server 2012                       | Enabled              | Inaktivera med registret       | 
 | Windows Server 2008 R2                    | Enabled              | Inaktivera med registret       |
 | Windows 7                                 | Enabled              | Inaktivera med registret       | 
 
 ### <a name="auditing-smb-1-usage"></a>Granskning av SMB 1-användning
-> Gäller Windows Server 2019, Windows Server halvårskanal (version 1709 och 1803), Windows Server 2016, Windows 10 (version 1507, 1607, 1703, 1709 och 1803), Windows Server 2012 R2 och Windows 8.1
+> Gäller för Windows Server 2019, Windows Server halvårs kanal (version 1709 och 1803), Windows Server 2016, Windows 10 (version 1507, 1607, 1703, 1709 och 1803), Windows Server 2012 R2 och Windows 8,1
 
 Innan du tar bort SMB 1 i din miljö kan det vara bra att granska användning av SMB 1 för att se om några klienter kommer att störas av ändringen. Om alla begäranden görs mot SMB-resurser med SMB 1 loggas en granskningshändelse i händelseloggen i `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit`. 
 
@@ -257,7 +254,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
 ### <a name="removing-smb-1-from-windows-server"></a>Ta bort SMB 1 från Windows Server
-> Gäller Windows Server 2019, Windows Server halvårskanal (version 1709 och 1803), Windows Server 2016, Windows Server 2012 R2
+> Gäller för Windows Server 2019, halvårs kanal för Windows Server (version 1709 och 1803), Windows Server 2016, Windows Server 2012 R2
 
 Om du vill ta bort SMB 1 från en Windows Server-instans kör du följande cmdlet från en upphöjd PowerShell-session:
 
@@ -302,6 +299,6 @@ När du har skapat den här registernyckeln måste du starta om servern för att
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure Files finns på följande länkar:
-- [Planera för en Azure Files-distribution](storage-files-planning.md)
-- [Faq](../storage-files-faq.md)
+- [Planera för distribution av Azure Files](storage-files-planning.md)
+- [VANLIGA FRÅGOR OCH SVAR](../storage-files-faq.md)
 - [Felsökning i Windows](storage-troubleshoot-windows-file-connection-problems.md)      

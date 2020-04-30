@@ -1,22 +1,22 @@
 ---
-title: 'Gränser för resurser, SKU: er, regioner'
+title: 'Begränsningar för resurser, SKU: er, regioner'
 titleSuffix: Azure Kubernetes Service
-description: Lär dig mer om standardkvoter, begränsade nod VM SKU-storlekar och regiontillgänglighet för Azure Kubernetes Service (AKS).
+description: Lär dig mer om standard kvoter, begränsad VM SKU-storlekar och regions tillgänglighet för Azure Kubernetes service (AKS).
 services: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.openlocfilehash: 054d6ff4fc105d84192ac81feda97515f6cfae49
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: e3edbcf9603657ce0c747b01b3c59c2923bc0181
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886780"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208031"
 ---
-# <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Kvoter, storleksbegränsningar för virtuella datorer och regiontillgänglighet i Azure Kubernetes Service (AKS)
+# <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Kvoter, storleks begränsningar för virtuella datorer och regions tillgänglighet i Azure Kubernetes service (AKS)
 
-Alla Azure-tjänster anger standardgränser och kvoter för resurser och funktioner. Vissa virtuella datorer (VM) SKU:er är också begränsade för användning.
+Alla Azure-tjänster anger standard gränser och kvoter för resurser och funktioner. Vissa SKU: er för virtuell dator (VM) är också begränsade för användning.
 
-I den här artikeln beskrivs standardresursgränserna för AKS-resurser (Azure Kubernetes Service) och tillgängligheten för AKS i Azure-regioner.
+Den här artikeln beskriver standard resurs gränserna för Azure Kubernetes service-resurser (AKS) och tillgängligheten för AKS i Azure-regioner.
 
 ## <a name="service-quotas-and-limits"></a>Kvoter och begränsningar för tjänsten
 
@@ -24,14 +24,14 @@ I den här artikeln beskrivs standardresursgränserna för AKS-resurser (Azure K
 
 ## <a name="provisioned-infrastructure"></a>Etablerad infrastruktur
 
-Alla andra begränsningar för nätverk, beräkning och lagring gäller för den etablerade infrastrukturen. För relevanta gränser finns i [Azure-prenumerations- och tjänstgränser](../azure-resource-manager/management/azure-subscription-service-limits.md).
+Alla andra begränsningar för nätverk, beräkning och lagring gäller för den etablerade infrastrukturen. För relevanta gränser, se [prenumerations-och tjänst begränsningar i Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 > [!IMPORTANT]
-> När du uppgraderar ett AKS-kluster förbrukas ytterligare resurser tillfälligt. Dessa resurser inkluderar tillgängliga IP-adresser i ett virtuellt nätverksundernät eller virtuell dator vCPU kvot. Om du använder Windows Server-behållare (för närvarande i förhandsversion i AKS) är den enda metod som är godkänd för att tillämpa de senaste uppdateringarna på noderna att utföra en uppgraderingsåtgärd. En misslyckad klusteruppgraderingsprocess kan tyda på att du inte har det tillgängliga IP-adressutrymmet eller vCPU-kvoten för att hantera dessa tillfälliga resurser. Mer information om uppgraderingsprocessen för Windows Server-nod finns [i Uppgradera en nodpool i AKS][nodepool-upgrade].
+> När du uppgraderar ett AKS-kluster förbrukas ytterligare resurser tillfälligt. Dessa resurser innehåller tillgängliga IP-adresser i ett virtuellt nätverks under nät eller en vCPU kvot för virtuella datorer. Om du använder Windows Server-behållare är den enda godkända metoden för att tillämpa de senaste uppdateringarna på noderna att utföra en uppgraderings åtgärd. En misslyckad kluster uppgraderings process kan tyda på att du inte har det tillgängliga IP-adressutrymmet eller vCPU-kvoten för att hantera dessa temporära resurser. Mer information om uppgraderings processen för Windows Server Node finns [i uppgradera en Node-pool i AKS][nodepool-upgrade].
 
-## <a name="restricted-vm-sizes"></a>Begränsade vm-storlekar
+## <a name="restricted-vm-sizes"></a>Begränsade VM-storlekar
 
-Varje nod i ett AKS-kluster innehåller en fast mängd beräkningsresurser som vCPU och minne. Om en AKS-nod innehåller otillräckliga beräkningsresurser kan poddar misslyckas med att köras korrekt. Använd **inte följande virtuella sku:er i AKS**för att säkerställa att de *kube-system poddar* som krävs och dina program kan schemaläggas på ett tillförlitligt sätt:
+Varje nod i ett AKS-kluster innehåller en fast mängd beräknings resurser, till exempel vCPU och minne. Om en AKS-nod innehåller otillräckliga beräknings resurser kan poddar kanske inte köras korrekt. För att säkerställa att nödvändiga *Kube-* poddar och dina program kan schemaläggas på ett tillförlitligt sätt ska du **inte använda följande VM SKU: er i AKS**:
 
 - Standard_A0
 - Standard_A1
@@ -41,15 +41,15 @@ Varje nod i ett AKS-kluster innehåller en fast mängd beräkningsresurser som v
 - Standard_F1
 - Standard_F1s
 
-Mer information om vm-typer och deras [beräkningsresurser][vm-skus]finns i Storlekar för virtuella datorer i Azure .
+Mer information om VM-typer och deras beräknings resurser finns i [storlekar för virtuella datorer i Azure][vm-skus].
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Den senaste listan över var du kan distribuera och köra kluster finns i [AKS-regionens tillgänglighet][region-availability].
+Den senaste listan över var du kan distribuera och köra kluster finns i [AKS regions tillgänglighet][region-availability].
 
 ## <a name="next-steps"></a>Nästa steg
 
-Vissa standardgränser och kvoter kan ökas. Om din resurs stöder en ökning, begär ökningen via en [Azure-supportbegäran][azure-support] (för **ärendetyp**väljer du **Kvot**).
+Vissa standardgränser och kvoter kan ökas. Om din resurs har stöd för en ökning begär du en ökning via en [support förfrågan för Azure][azure-support] (för **typ av problem**, Välj **kvot**).
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

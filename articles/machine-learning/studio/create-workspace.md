@@ -1,7 +1,7 @@
 ---
 title: Skapa en arbetsyta
 titleSuffix: ML Studio (classic) - Azure
-description: Om du vill använda Azure Machine Learning Studio (klassisk) måste du ha en Machine Learning Studio -arbetsyta (klassisk). Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.
+description: Om du vill använda Azure Machine Learning Studio (klassisk) måste du ha en Machine Learning Studio (klassisk)-arbets yta. Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,48 +10,53 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 1a391a7a061d1382b5e07b45625c44fc0f5dec54
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7b01e7667392d475bcab70dcd3dfaad2c3956e8f
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204468"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208541"
 ---
-# <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Skapa och dela en arbetsyta i Azure Machine Learning Studio (klassiskt)
+# <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Skapa och dela en Azure Machine Learning Studio (klassisk)-arbets yta
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Om du vill använda Azure Machine Learning Studio (klassisk) måste du ha en Machine Learning Studio -arbetsyta (klassisk). Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.
+Om du vill använda Azure Machine Learning Studio (klassisk) måste du ha en Machine Learning Studio (klassisk)-arbets yta. Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.
 
-## <a name="create-a-studio-classic-workspace"></a>Skapa en studio -arbetsyta (klassisk)
+## <a name="create-a-studio-classic-workspace"></a>Skapa en Studio-arbetsyta (klassisk)
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/)
+Om du vill öppna en arbets yta i Machine Learning Studio (klassisk) måste du vara inloggad på det Microsoft-konto som du använde för att skapa arbets ytan, eller så måste du ta emot en inbjudan från ägaren för att ansluta till arbets ytan. Från Azure Portal kan du hantera arbets ytan, vilket inkluderar möjligheten att konfigurera åtkomst.
+
+1. Logga in på [Azure Portal](https://portal.azure.com/)
 
     > [!NOTE]
-    > Om du vill logga in och skapa en studioarbetsyta (klassisk) måste du vara administratör för Azure-prenumeration. 
+    > Du måste vara administratör för Azure-prenumeration för att kunna logga in och skapa en Studio-arbetsyta (klassisk). 
     >
     > 
 
-2. Klicka på **+Nytt**
+2. Klicka på **+ ny**
 
-3. Skriv Machine Learning **Studio (klassisk) Arbetsyta** i sökrutan och välj matchande objekt. Välj sedan **Klicka** sedan på Skapa längst ned på sidan.
+3. I rutan Sök skriver du **Machine Learning Studio (klassisk) arbets yta** och väljer det matchande objektet. Välj sedan klicka på **skapa** längst ned på sidan.
 
-4. Ange din information om arbetsytan:
+4. Ange arbets ytans information:
 
-   - *Arbetsytans namn* kan vara upp till 260 tecken, som inte slutar i ett blanksteg. Namnet får inte innehålla följande tecken:`< > * % & : \ ? + /`
-   - Den *webbtjänstplan* du väljer (eller skapar), tillsammans med den associerade *prisnivå* du väljer, används om du distribuerar webbtjänster från den här arbetsytan.
+   - *Arbets ytans namn* får innehålla högst 260 tecken, och får inte sluta med blank steg. Namnet får inte innehålla följande tecken:`< > * % & : \ ? + /`
+   - Den *webb tjänst plan* du väljer (eller skapar), tillsammans med den associerade *pris nivån* som du väljer, används om du distribuerar webb tjänster från den här arbets ytan.
 
-     ![Skapa en ny studioarbetsyta](./media/create-workspace/create-new-workspace.png)
+     ![Skapa en ny Studio-arbetsyta (klassisk)](./media/create-workspace/create-new-workspace.png)
 
 5. Klicka på **Skapa**.
 
+   Machine Learning är för närvarande tillgängligt i ett begränsat antal regioner. Om din prenumeration inte innehåller någon av dessa regioner kan du se fel meddelandet "du har inga prenumerationer i de tillåtna regionerna".  Om du vill begära att en region läggs till i din prenumeration skapar du en ny Microsoft-supportbegäran från Azure Portal, väljer **fakturering** som problem typ och följer anvisningarna för att skicka in din begäran.
+
+
 > [!NOTE]
-> Machine Learning Studio (klassisk) förlitar sig på ett Azure-lagringskonto som du tillhandahåller för att spara mellanliggande data när arbetsflödet körs. När arbetsytan har skapats, om lagringskontot tas bort, eller om åtkomstnycklarna ändras, slutar arbetsytan att fungera och alla experiment på arbetsytan misslyckas.
-Om du av misstag tar bort lagringskontot återskapar du lagringskontot med samma namn i samma region som det borttagna lagringskontot och synkroniserar om åtkomstnyckeln. Om du har ändrat åtkomstnycklarna för lagringskontot synkroniserar du om åtkomstnycklarna på arbetsytan med hjälp av Azure Portal.
+> Machine Learning Studio (klassisk) förlitar sig på ett Azure Storage-konto som du anger för att spara mellanliggande data när arbets flödet körs. Om lagrings kontot tas bort när arbets ytan har skapats, eller om åtkomst nycklarna ändras, slutar arbets ytan att fungera och alla experiment på arbets ytan kommer att Miss förväntas.
+Om du råkar ta bort lagrings kontot, återskapar du lagrings kontot med samma namn i samma region som det borttagna lagrings kontot och synkroniserar om åtkomst nyckeln. Om du har ändrat åtkomstnycklarna för lagringskontot synkroniserar du om åtkomstnycklarna på arbetsytan med hjälp av Azure Portal.
 
-När arbetsytan har distribuerats kan du öppna den i Machine Learning Studio (klassisk).
+När arbets ytan har distribuerats kan du öppna den i Machine Learning Studio (klassisk).
 
-1. Bläddra till Machine Learning Studio [https://studio.azureml.net/](https://studio.azureml.net/)(klassisk) på .
+1. Bläddra till Machine Learning Studio (klassisk) på [https://studio.azureml.net/](https://studio.azureml.net/).
 
 2. Välj din arbetsyta i det övre högra hörnet.
 
@@ -61,43 +66,70 @@ När arbetsytan har distribuerats kan du öppna den i Machine Learning Studio (k
 
     ![Öppna experiment](./media/create-workspace/my-experiments.png)
 
-Information om hur du hanterar din Studio-arbetsyta (klassisk) finns i [Hantera en klassisk arbetsyta (Azure Machine Learning Studio).](manage-workspace.md)
-Om du stöter på problem med att skapa arbetsytan läser du [Felsökningsguide: Skapa och ansluta till en machine learning studio -arbetsyta (klassisk)](troubleshooting-creating-ml-workspace.md).
+Information om hur du hanterar din Studio (klassisk) arbets yta finns i [hantera en Azure Machine Learning Studio (klassisk)-arbets yta](manage-workspace.md).
+Om du stöter på problem med att skapa din arbets yta, se [fel söknings guide: skapa och ansluta till en Machine Learning Studio (klassisk)-arbets yta](troubleshooting-creating-ml-workspace.md).
 
 
-## <a name="share-an-azure-machine-learning-studio-classic-workspace"></a>Dela en arbetsyta i Azure Machine Learning Studio (klassiskt)
-När en Machine Learning Studio (klassisk) arbetsyta har skapats kan du bjuda in användare till din arbetsyta för att dela åtkomst till din arbetsyta och alla dess experiment, datauppsättningar, anteckningsböcker, etc. Du kan lägga till användare i en av två roller:
+## <a name="share-an-azure-machine-learning-studio-classic-workspace"></a>Dela en Azure Machine Learning Studio (klassisk)-arbets yta
+När en Machine Learning Studio (klassisk)-arbets yta har skapats kan du bjuda in användare till din arbets yta att dela åtkomst till din arbets yta och alla experiment, data uppsättningar, antecknings böcker osv. Du kan lägga till användare i en av två roller:
 
-* **Användare** - En arbetsyteanvändare kan skapa, öppna, ändra och ta bort experiment, datauppsättningar etc. på arbetsytan.
-* **Ägare** - En ägare kan bjuda in och ta bort användare på arbetsytan, utöver vad en användare kan göra.
+* **Användare** – en arbets yta som användare kan skapa, öppna, ändra och ta bort experiment, data uppsättningar osv. i arbets ytan.
+* **Ägare** – en ägare kan bjuda in och ta bort användare på arbets ytan, förutom vad en användare kan göra.
 
 > [!NOTE]
-> Administratörskontot som skapar arbetsytan läggs automatiskt till på arbetsytan som arbetsytans ägare. Andra administratörer eller användare i den prenumerationen får dock inte automatiskt åtkomst till arbetsytan , du måste bjuda in dem uttryckligen.
+> Det administratörs konto som skapar arbets ytan läggs automatiskt till i arbets ytan som ägare av arbets ytan. Andra administratörer eller användare i den prenumerationen beviljas dock inte automatiskt åtkomst till arbets ytan – du måste bjuda in dem uttryckligen.
 > 
 > 
 
-### <a name="to-share-a-studio-classic-workspace"></a>Så här delar du en studioarbetsyta
+### <a name="to-share-a-studio-classic-workspace"></a>Dela en Studio-arbetsyta (klassisk)
 
-1. Logga in på Machine Learning Studio (klassiskt) på[https://studio.azureml.net/Home](https://studio.azureml.net/Home)
+1. Logga in på Machine Learning Studio (klassisk) på[https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
-2. Klicka på **INSTÄLLNINGAR** på den vänstra panelen
+2. Klicka på **Inställningar** i den vänstra panelen
 
-3. Klicka på fliken **ANVÄNDARE**
+3. Klicka på fliken **användare**
 
-4. Klicka på **BJUD IN FLER ANVÄNDARE** LÄNGST NED PÅ sidan
+4. Klicka på **Bjud in fler användare** längst ned på sidan
 
-    ![Studio-inställningar](./media/create-workspace/settings.png)
+    ![Inställningar för Studio](./media/create-workspace/settings.png)
 
-5. Ange en eller flera e-postadresser. Användarna behöver ett giltigt Microsoft-konto eller ett organisationskonto (från Azure Active Directory).
+5. Ange en eller flera e-postadresser. Användarna måste ha ett giltigt Microsoft-konto eller ett organisations konto (från Azure Active Directory).
 
 6. Välj om du vill lägga till användarna som ägare eller användare.
 
-7. Klicka på knappen **OK-** bock.
+7. Klicka på knappen **OK** .
 
-Varje användare som du lägger till får ett e-postmeddelande med instruktioner om hur du loggar in på den delade arbetsytan.
+Varje användare som du lägger till får ett e-postmeddelande med anvisningar om hur du loggar in på den delade arbets ytan.
 
 > [!NOTE]
-> För att användare ska kunna distribuera eller hantera webbtjänster på den här arbetsytan måste de vara en deltagare eller administratör i Azure-prenumerationen. 
+> För att användare ska kunna distribuera eller hantera webb tjänster på den här arbets ytan måste de vara deltagare eller administratör i Azure-prenumerationen. 
+
+## <a name="troubleshoot-storage-accounts"></a>Felsöka lagrings konton
 
 
+Den Machine Learning tjänsten behöver ett lagrings konto för att lagra data. Du kan använda ett befintligt lagrings konto, eller så kan du skapa ett nytt lagrings konto när du skapar den nya Machine Learning Studio-arbetsytan (om du har en kvot för att skapa ett nytt lagrings konto).
 
+När den nya Machine Learning Studio-arbetsytan (klassisk) har skapats kan du logga in på Machine Learning Studio (klassisk) med hjälp av Microsoft-konto som du använde för att skapa arbets ytan. Om du stöter på fel meddelandet "arbets ytan hittades inte" (liknar följande skärm bild) kan du använda följande steg för att ta bort dina cookies från webbläsaren.
+
+![Arbets ytan hittades inte](media/troubleshooting-creating-ml-workspace/screen3.png)
+
+**Ta bort cookies från webbläsare**
+
+1. Om du använder Internet Explorer klickar du på knappen **verktyg** i det övre högra hörnet och väljer **Internet alternativ**.  
+
+   ![Internetalternativ](media/troubleshooting-creating-ml-workspace/screen4.png)
+
+2. Klicka på ta bort under fliken **Allmänt** **...**
+
+   ![fliken Allmänt](media/troubleshooting-creating-ml-workspace/screen5.png)
+
+3. I dialog rutan **ta bort webb historik** kontrollerar du att **cookies och webbplats data** är markerade och klickar på **ta bort**.
+
+   ![Ta bort cookies](media/troubleshooting-creating-ml-workspace/screen6.png)
+
+När cookies har tagits bort startar du om webbläsaren och går sedan till sidan [Microsoft Azure Machine Learning Studio (klassisk)](https://studio.azureml.net) . När du uppmanas att ange ett användar namn och lösen ord anger du samma Microsoft-konto som du använde för att skapa arbets ytan.
+
+
+## <a name="next-steps"></a>Nästa steg
+
+Mer information om hur du hanterar en arbets yta finns i [hantera en Azure Machine Learning Studio (klassisk)-arbets yta](manage-workspace.md).

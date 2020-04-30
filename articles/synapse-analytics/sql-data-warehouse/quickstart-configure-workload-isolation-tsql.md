@@ -1,43 +1,39 @@
 ---
-title: 'Snabbstart: Konfigurera arbetsbelastningsisolering - T-SQL'
-description: Använd T-SQL för att konfigurera arbetsbelastningsisolering.
+title: 'Snabb start: Konfigurera arbets belastnings isolering-T-SQL'
+description: Använd T-SQL för att konfigurera arbets belastnings isolering.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: ''
-ms.date: 02/04/2020
+ms.date: 04/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: d3d1b9af0b26fa775beb78b313937890cb9287b3
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 99c64e703158c40c2cc110a18be7b8c8d3800ff0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80633760"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82207810"
 ---
-# <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Snabbstart: Konfigurera arbetsbelastningsisolering med T-SQL
+# <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Snabb start: Konfigurera arbets belastnings isolering med T-SQL
 
-I den här snabbstarten skapar du snabbt en arbetsbelastningsgrupp och klassificerare för att reservera resurser för datainläsning. Arbetsbelastningsgruppen allokerar 20 % av systemresurserna till en databelastning.  Arbetsbelastningsklassificeraren tilldelar begäranden till arbetsbelastningsgruppen för databelastningar.  Med 20 % isolering för databelastningar är de garanterade resurser för att träffa SLA:er.
+I den här snabb starten skapar du snabbt en arbets belastnings grupp och en klassificerare för att reservera resurser för data inläsning. Arbets belastnings gruppen kommer att allokera 20% av system resurserna till en data belastning.  Klassificeringen av arbets belastningen tilldelar förfrågningar till arbets belastnings gruppen för data inläsningar.  Med 20% isolering för data inläsningar är de garanterat resurser för att nå service avtal.
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 > [!NOTE]
-> Om du skapar en SQL Analytics-instans i Azure Synapse Analytics kan det leda till en ny fakturerbar tjänst.  Mer information finns i [Azure Synapse Analytics-priser](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Att skapa en SQL Analytics-instans i Azure Synapse Analytics kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 ## <a name="prerequisites"></a>Krav
 
-Den här snabbstarten förutsätter att du redan har en SQL Analytics-instans i Azure Synapse och att du har behörigheter för KONTROLLDATABAS. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
-
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
-
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Den här snabb starten förutsätter att du redan har en SQL Analytics-instans i Azure Synapse och att du har behörighet att kontrol lera databasen. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
 
 ## <a name="create-login-for-dataloads"></a>Skapa inloggning för DataLoads
 
-Skapa en SQL Server-autentiseringsinloggning i `master` databasen med CREATE [LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för "ELTLogin".
+Skapa en inloggning för SQL Server autentisering i `master` databasen med hjälp av [create login](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) for ' ELTLogin'.
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.sql_logins WHERE name = 'ELTLogin')
@@ -59,9 +55,9 @@ END
 ;
 ```
 
-## <a name="create-a-workload-group"></a>Skapa en arbetsbelastningsgrupp
+## <a name="create-a-workload-group"></a>Skapa en arbets belastnings grupp
 
-Skapa en [arbetsbelastningsgrupp](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för DataLoads med 20 % isolering.
+Skapa en [arbets belastnings grupp](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för DataLoads med 20% isolering.
 
 ```sql
 CREATE WORKLOAD GROUP DataLoads
@@ -71,9 +67,9 @@ WITH ( MIN_PERCENTAGE_RESOURCE = 20
 ;
 ```
 
-## <a name="create-a-workload-classifier"></a>Skapa en arbetsbelastningsklassificerare
+## <a name="create-a-workload-classifier"></a>Skapa en klassificering för arbets belastning
 
-Skapa en [arbetsbelastningsklassificerare](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att mappa ELTLogin till arbetsbelastningsgruppen DataLoads.
+Skapa en [arbets belastnings klassificerare](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att mappa ELTLogin till arbets belastnings gruppen DataLoads.
 
 ```sql
 CREATE WORKLOAD CLASSIFIER [wgcELTLogin]
@@ -82,7 +78,7 @@ WITH (WORKLOAD_GROUP = 'DataLoads'
 ;
 ```
 
-## <a name="view-existing-workload-groups-and-classifiers-and-run-time-values"></a>Visa befintliga arbetsbelastningsgrupper och klassificerare och körningsvärden
+## <a name="view-existing-workload-groups-and-classifiers-and-run-time-values"></a>Visa befintliga arbets belastnings grupper och klassificerare och kör tids värden
 
 ```sql
 --Workload groups
@@ -107,26 +103,12 @@ DROP USER [ELTLogin]
 ;
 ```
 
-Du debiteras för informationslagerenheter och data som lagras i ditt informationslager. Dessa beräknings- och lagringsresurser debiteras separat.
+Du debiteras för data lager enheter och data som lagras i ditt informations lager. Dessa beräknings- och lagringsresurser debiteras separat.
 
-- Om du vill behålla data i lagring kan du pausa beräkningen när du inte använder SQL-poolen. Genom att pausa beräkningen debiteras du bara för datalagring. När du är redo att arbeta med data återupptar du beräkningen.
+- Om du vill behålla data i lagrings utrymmet kan du pausa beräkningen när du inte använder SQL-poolen. Genom att pausa beräkning debiteras du bara för data lagring. När du är redo att arbeta med data återupptar du beräkningen.
 - Om du vill undvika framtida avgifter kan du ta bort informationslagret.
-
-Följ dessa steg för att rensa resurser.
-
-1. Logga in på [Azure-portalen](https://portal.azure.com)och välj på ditt informationslager.
-
-    ![Rensa resurser](./media/quickstart-configure-workload-isolation-tsql/clean-up-resources.png)
-
-2. Om du vill pausa beräkningen väljer du knappen **Pausa.** När informationslagret har pausats visas knappen **Starta**.  Om du vill återuppta beräkningen väljer du **Start**.
-
-3. Om du vill ta bort informationslagret så att du inte debiteras för beräkning eller lagring väljer du **Ta bort**.
-
-4. Om du vill ta bort den SQL-server som du skapade markerar du **mynewserver-20180430.database.windows.net** i föregående bild och väljer sedan **Ta bort**.  Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
-
-5. Om du vill ta bort resursgruppen markerar du **myResourceGroup**och väljer sedan **Ta bort resursgrupp**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Du har nu skapat en arbetsbelastningsgrupp. Kör några frågor som ELTLogin för att se hur de presterar. Se [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) om du vill visa frågor och den tilldelade arbetsbelastningsgruppen.
-- Mer information om Hantering av Synapse SQL-arbetsbelastning finns i [Arbetsbelastningshantering](sql-data-warehouse-workload-management.md) och [arbetsbelastningsisolering](sql-data-warehouse-workload-isolation.md).
+- Nu har du skapat en arbets belastnings grupp. Kör några frågor som ELTLogin för att se hur de fungerar. Se [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att visa frågor och arbets belastnings gruppen som tilldelats.
+- Mer information om Synapse SQL-arbetsbelastnings hantering finns i hantering av [arbets belastning](sql-data-warehouse-workload-management.md) och [arbets belastnings isolering](sql-data-warehouse-workload-isolation.md).

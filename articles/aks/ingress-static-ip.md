@@ -5,12 +5,12 @@ description: Lär dig hur du installerar och konfigurerar en NGINX ingress Contr
 services: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 27b80b1f0b6728b5ad69edae51f0d42bfac351d0
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
-ms.translationtype: MT
+ms.openlocfilehash: f0a8f1f1e1b724745e69aef30e2e6404ff6a5484
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82145504"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82207368"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Skapa en ingångs kontroll enhet med en statisk offentlig IP-adress i Azure Kubernetes service (AKS)
 
@@ -56,7 +56,7 @@ Du måste skicka två ytterligare parametrar till Helm-versionen så att ingång
 1. Lägg till `--set controller.service.loadBalancerIP` parametern. Ange din egen offentliga IP-adress som skapades i föregående steg.
 1. Lägg till `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` parametern. Ange en DNS-benämning som ska tillämpas på den offentliga IP-adressen som skapades i föregående steg.
 
-Ingresskontrollanten måste också schemaläggas på en Linux-nod. Windows Server-noder (för närvarande i för hands version i AKS) behöver inte köra ingångs styrenheten. En nodväljare anges med parametern `--set nodeSelector` för att instruera Kubernetes-schemaläggaren att köra NGINX-ingresskontrollanten på en Linux-baserad nod.
+Ingresskontrollanten måste också schemaläggas på en Linux-nod. Windows Server-noder bör inte köra ingresskontrollanten. En nodväljare anges med parametern `--set nodeSelector` för att instruera Kubernetes-schemaläggaren att köra NGINX-ingresskontrollanten på en Linux-baserad nod.
 
 > [!TIP]
 > I följande exempel skapas ett Kubernetes-namnområde för de ingress-resurser som heter *ingress-Basic*. Ange ett namn område för din egen miljö efter behov. Om ditt AKS-kluster inte är RBAC-aktiverat `--set rbac.create=false` lägger du till dem i Helm-kommandona.
@@ -285,7 +285,7 @@ certificate.cert-manager.io/tls-secret created
 
 ## <a name="test-the-ingress-configuration"></a>Testa ingress-konfigurationen
 
-Öppna en webbläsare till FQDN för din Kubernetes-ingångs kontroll, till exempel *https://demo-aks-ingress.eastus.cloudapp.azure.com*.
+Öppna en webbläsare till FQDN för din Kubernetes-ingångs kontroll, till exempel *`https://demo-aks-ingress.eastus.cloudapp.azure.com`*.
 
 Som de här exemplen använder `letsencrypt-staging`är det utfärdade TLS/SSL-certifikatet inte betrott av webbläsaren. Godkänn varningen om du vill fortsätta till ditt program. Certifikat informationen visar att det *mellanliggande x1* -certifikatet för falska användare utfärdas av vi krypterar. Detta falska certifikat indikerar `cert-manager` att begäran bearbetades korrekt och tagits emot från providern:
 
@@ -299,7 +299,7 @@ Demo programmet visas i webbläsaren:
 
 ![Exempel på program ett](media/ingress/app-one.png)
 
-Lägg nu till sökvägen till */Hello-World-Two* i FQDN, till exempel *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two*. Det andra demonstrations programmet med den anpassade rubriken visas:
+Lägg nu till sökvägen till */Hello-World-Two* i FQDN, till exempel *`https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two`*. Det andra demonstrations programmet med den anpassade rubriken visas:
 
 ![Program exempel två](media/ingress/app-two.png)
 

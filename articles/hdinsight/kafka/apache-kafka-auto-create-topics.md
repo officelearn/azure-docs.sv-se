@@ -1,23 +1,23 @@
 ---
 title: Aktivera automatisk generering av ämnen i Apache Kafka – Azure HDInsight
-description: Lär dig hur du konfigurerar Apache Kafka på HDInsight för att automatiskt skapa ämnen. Du kan konfigurera Kafka genom att ställa in Auto. Create. topics. Aktivera sant via Ambari eller skapa kluster via PowerShell eller Resource Manager-mallar.
+description: Lär dig hur du konfigurerar Apache Kafka på HDInsight för att automatiskt skapa ämnen. Du kan konfigurera Kafka genom att `auto.create.topics.enable` ställa in på Sant via Ambari. Eller när klustret skapas via PowerShell eller Resource Manager-mallar.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: 7ec7d15806927306b12624962facbafddf2ce08b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/28/2020
+ms.openlocfilehash: 88dc3e4d761f9b4df63dfa07a24298398f7b0187
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "73242356"
+ms.locfileid: "82231279"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Så här konfigurerar du Apache Kafka på HDInsight för att automatiskt skapa ämnen
 
-[Apache Kafka](https://kafka.apache.org/) i HDInsight aktiverar som standard inte automatisk generering av ämne. Du kan aktivera skapande av automatiskt ämne för befintliga kluster med [Apache Ambari](https://ambari.apache.org/). Du kan också aktivera skapande av automatiskt ämne när du skapar ett nytt Kafka-kluster med hjälp av en Azure Resource Manager-mall.
+Apache Kafka i HDInsight aktiverar som standard inte automatisk generering av ämne. Du kan aktivera skapande av automatiskt ämne för befintliga kluster med Apache Ambari. Du kan också aktivera skapande av automatiskt ämne när du skapar ett nytt Kafka-kluster med hjälp av en Azure Resource Manager-mall.
 
 ## <a name="apache-ambari-web-ui"></a>Apache Ambari-webbgränssnitt
 
@@ -29,7 +29,7 @@ Gör så här om du vill aktivera automatisk generering av ämnen i ett befintli
 
     ![Bild av portalen med valt kluster instrument panel](./media/apache-kafka-auto-create-topics/azure-portal-cluster-dashboard-ambari.png)
 
-    När du uppmanas autentiserar du med inloggnings uppgifterna (admin) för klustret. Alternativt kan du ansluta till Amabri direkt från `https://CLUSTERNAME.azurehdinsight.net/` där `CLUSTERNAME` är namnet på ditt Kafka-kluster.
+    När du uppmanas autentiserar du med inloggnings uppgifterna (admin) för klustret. I stället kan du ansluta till Amabri direkt från `https://CLUSTERNAME.azurehdinsight.net/` där `CLUSTERNAME` är namnet på ditt Kafka-kluster.
 
 1. Välj Kafka-tjänsten i listan till vänster på sidan.
 
@@ -43,7 +43,7 @@ Gör så här om du vill aktivera automatisk generering av ämnen i ett befintli
 
     ![Sök filter fält för Apache Ambari](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
 
-    Detta filtrerar listan över egenskaper och visar `auto.create.topics.enable` inställningen.
+    Den här inställningen filtrerar listan med egenskaper och visar `auto.create.topics.enable` inställningen.
 
 1. Ändra värdet för `auto.create.topics.enable` till `true`och välj sedan **Spara**. Lägg till en anteckning och välj sedan **Spara** igen.
 
@@ -51,7 +51,7 @@ Gör så här om du vill aktivera automatisk generering av ämnen i ett befintli
 
 1. Välj Kafka-tjänsten, Välj __starta om__och välj sedan __starta om alla berörda__. När du uppmanas väljer du __Bekräfta omstart av alla__.
 
-    ![Apache Ambari-omstart alla påverkade](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
+    !["Apache Ambari restart all berörs"](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 
 > [!NOTE]  
 > Du kan också ange Ambari-värden via Ambari-REST API. Detta är i allmänhet svårare eftersom du måste göra flera REST-anrop för att hämta den aktuella konfigurationen, ändra den osv. Mer information finns i [Hantera HDInsight-kluster med hjälp av Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md) Document.
@@ -75,7 +75,7 @@ När du skapar ett Kafka-kluster med hjälp av en Azure Resource Manager-mall `a
 }
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 I det här dokumentet har du lärt dig hur du aktiverar automatisk generering av ämnen för Apache Kafka i HDInsight. Mer information om hur du arbetar med Kafka finns i följande länkar:
 

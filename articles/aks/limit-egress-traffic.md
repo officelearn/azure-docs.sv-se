@@ -4,12 +4,12 @@ description: Ta reda på vilka portar och adresser som krävs för att styra utg
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: daf17ee4d6518de63dc642fd64acd6b4c5be7d2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d723f7b1e7331e65d17dca5873b891ec46d76c0e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183933"
+ms.locfileid: "82207181"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Styra utgående trafik för klusternoder i Azure Kubernetes service (AKS)
 
@@ -165,19 +165,15 @@ Följande FQDN/program-regler krävs för AKS-kluster som har Azure Policy aktiv
 | *. GK. \<location\>. azmk8s.io | HTTPS: 443    | Azure Policy tillägg som pratar med Gatekeeper audit-slutpunkten som körs på huvud servern för att hämta gransknings resultatet. |
 | dc.services.visualstudio.com | HTTPS: 443 | Azure Policy tillägg som skickar telemetridata till program insikter-slutpunkten. |
 
-## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Krävs av Windows Server-baserade noder (i offentlig för hands version) aktiverat
+## <a name="required-by-windows-server-based-nodes-enabled"></a>Krävs av Windows Server-baserade noder aktiverade
 
-> [!CAUTION]
-> Några av funktionerna nedan finns i för hands version.  Förslagen i den här artikeln kan komma att ändras när funktionen flyttas till den offentliga för hands versionen och framtida versions steg.
-
-Följande FQDN/program-regler krävs för Windows Server-baserade AKS-kluster:
+Följande FQDN/applikations regler krävs för att använda Windows Server-baserade Node-pooler:
 
 | FQDN                                    | Port      | Användning      |
 |-----------------------------------------|-----------|----------|
 | onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS: 443 | Installera Windows-relaterade binärfiler |
 | mp.microsoft.com, www<span></span>. msftconnecttest.com, ctldl.windowsupdate.com | HTTP: 80 | Installera Windows-relaterade binärfiler |
 | kms.core.windows.net | TCP: 1688 | Installera Windows-relaterade binärfiler |
-
 
 ## <a name="next-steps"></a>Nästa steg
 

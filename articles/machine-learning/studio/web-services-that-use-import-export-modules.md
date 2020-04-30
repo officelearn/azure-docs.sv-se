@@ -1,50 +1,49 @@
 ---
-title: Importera/exportera data i webbtjänster
+title: Importera/exportera data i webb tjänster
 titleSuffix: ML Studio (classic) - Azure
-description: Lär dig hur du använder modulerna Importera data och exportera data för att skicka och ta emot data från en webbtjänst.
+description: Lär dig hur du använder modulerna importera data och exportera data för att skicka och ta emot data från en webb tjänst.
 services: machine-learning
-author: xiaoharper
-ms.custom: seodec18
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 144a3bc0d9e0499a238e4033d37d5e4d3fa61e05
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3275a372e496b79da2c9f31258f557389c5b1ee1
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79204074"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209374"
 ---
-# <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Distribuera Azure Machine Learning Studio (klassiska) webbtjänster som använder moduler för dataimport och dataexport
+# <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Distribuera Azure Machine Learning Studio (klassiska) webb tjänster som använder moduler för data import och data export
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-När du skapar ett förutsägelseexperiment lägger du vanligtvis till en webbtjänstinmatning och utdata. När du distribuerar experimentet kan konsumenter skicka och ta emot data från webbtjänsten via indata och utdata. För vissa program kan en konsuments data vara tillgängliga från en datafeed eller redan finnas i en extern datakälla, till exempel Azure Blob-lagring. I dessa fall behöver de inte läsa och skriva data med hjälp av webbtjänstindata och utdata. De kan i stället använda BES (Batch Execution Service) för att läsa data från datakällan med hjälp av en importdatamodul och skriva bedömningsresultaten till en annan dataplats med hjälp av en exportdatamodul.
+När du skapar ett förutsägelse experiment lägger du vanligt vis till en webb tjänst indata och utdata. När du distribuerar experimentet kan konsumenter skicka och ta emot data från webb tjänsten via indata och utdata. För vissa program kan en konsument data vara tillgängliga från en datafeed eller finnas redan i en extern data källa, till exempel Azure Blob Storage. I dessa fall behöver de inte läsa och skriva data med hjälp av webb tjänst indata och utdata. De kan i stället använda BES (batch execution service) för att läsa data från data källan med hjälp av en modul för att importera data och skriva poängsättnings resultatet till en annan data plats med hjälp av en export data-modul.
 
-Datamodulerna Importera data och exporterar, kan läsa från och skriva till olika dataplatser, till exempel en webb-URL via HTTP, en Hive-fråga, en Azure SQL-databas, Azure Table storage, Azure Blob storage, a Data Feed provide eller en lokal SQL-databas.
+Modulerna importera data och exportera data kan läsa från och skriva till olika data platser, till exempel en webb-URL via HTTP, en Hive-fråga, en Azure SQL-databas, Azure Table Storage, Azure Blob Storage, en datafeed eller en lokal SQL-databas.
 
-I det här avsnittet används exemplet "Exempel 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" och antar att datauppsättningen redan har lästs in i en Azure SQL-tabell med namnet censusdata.
+I det här avsnittet används exemplet "exempel 5: träna, test, utvärdera för binär klassificering: vuxen data uppsättning" och förutsätter att data uppsättningen redan har lästs in i en Azure SQL-tabell med namnet censusdata.
 
-## <a name="create-the-training-experiment"></a>Skapa träningsexperimentet
-När du öppnar exemplet "Prov 5: Tåg, Test, Utvärdera för binär klassificering: Vuxen datauppsättning" använder det exempel adult census inkomst binär klassificering dataset. Och experimentet på arbetsytan kommer att se ut ungefär som följande bild:
+## <a name="create-the-training-experiment"></a>Skapa ett övnings experiment
+När du öppnar exemplet "exempel 5: träna, test", utvärdera för binär klassificering: vuxen data uppsättning "exempel på det använder sig av den binära data uppsättningen för insamlings inkomst i vuxen räkning. Och experimentet i arbets ytan ser ut ungefär som på följande bild:
 
 ![Inledande konfiguration av experimentet.](./media/web-services-that-use-import-export-modules/initial-look-of-experiment.png)
 
 Så här läser du data från Azure SQL-tabellen:
 
-1. Ta bort datauppsättningsmodulen.
-2. Skriv import i sökrutan komponenter.
-3. Lägg till en *importdatamodul* i experimentarbetsytan i resultatlistan.
-4. Anslut utdata från *modulen Importera data* indata från modulen *Rensa data som saknas.*
-5. I egenskapsfönstret väljer du **Azure SQL Database** i listrutan **Datakälla.**
-6. Ange lämplig information för databasen i fälten **Databasservernamn,** **Databasnamn** **,** användarnamn och **Lösenord.**
-7. Ange följande fråga i frågefältet Databas.
+1. Ta bort data uppsättnings modulen.
+2. I sökrutan komponenter skriver du importera.
+3. Lägg till en modul för att *Importera data* till arbets ytan för experimentet i resultat listan.
+4. Anslut utdata från modulen *Importera data* indata för modulen *Rensa data som saknas* .
+5. I fönstret Egenskaper väljer du **Azure SQL Database** i list rutan **data källa** .
+6. I fälten **databas server namn**, **databas namn**, **användar namn**och **lösen ord** anger du lämplig information för databasen.
+7. Ange följande fråga i fältet databas fråga.
 
-     välj [ålder],
+     Välj [ålder],
 
         [workclass],
         [fnlwgt],
@@ -60,53 +59,53 @@ Så här läser du data från Azure SQL-tabellen:
         [hours-per-week],
         [native-country],
         [income]
-     från dbo.censusdata;
-8. Klicka på **Kör**längst ned på experimentarbetsytan.
+     från dbo. censusdata;
+8. Klicka på **Kör**längst ned i experiment arbets ytan.
 
-## <a name="create-the-predictive-experiment"></a>Skapa förutsägelseexperimentet
-Därefter ställer du in det förutsägelseexperiment som du distribuerar webbtjänsten från.
+## <a name="create-the-predictive-experiment"></a>Skapa förutsägande experiment
+Härnäst ställer du in det förutsägelse experiment som du använder för att distribuera webb tjänsten.
 
-1. Längst ned på experimentarbetsytan klickar du på **Konfigurera webbtjänst** och väljer **Förutsägande webbtjänst [Rekommenderas]**.
-2. Ta bort *modulerna För inmatning* och *webbtjänstutdata* från förutsägelseexperimentet.
-3. Skriv export i sökrutan komponenter.
-4. Lägg till en *exportdatamodul* i experimentarbetsytan i resultatlistan.
-5. Anslut utdata från *poängmodellmodulen* indata från modulen *Exportera data.*
-6. I egenskapsfönstret väljer du **Azure SQL Database** i listrutan för datamål.
-7. Ange lämplig information för databasen i **databasservernamnet,** **databasnamn,** **serveranvändarkontonamn**och lösenord för **serveranvändarkonto.**
-8. Skriv Poängsatta etiketter i **listan Kommaavgränsad med kolumner som ska sparas.**
-9. Skriv dbo i **fältet Datatabellnamn.** GjordeLabels. Om tabellen inte finns skapas den när experimentet körs eller webbtjänsten anropas.
-10. Skriv ScoredLabels i **listan Kommaavgränsade med datatablekolumner.**
+1. Klicka på **Konfigurera webb tjänst** i slutet av experiment arbets ytan och välj **förutsägbar webb tjänst [Recommended]**.
+2. Ta bort modulerna för *indata för webb tjänsten* och *webb tjänstens utdata* från det förutsägande experimentet.
+3. I sökrutan komponenter skriver du exportera.
+4. Lägg till en modul för att *Exportera data* till experimentets arbets yta i resultat listan.
+5. Anslut utdata från modulen *Poäng modell* indata för modulen *Exportera data* .
+6. I fönstret Egenskaper väljer du **Azure SQL Database** i list rutan data mål.
+7. I fälten **databas server namn**, **databas namn**, **serverns användar konto namn**och **lösen ord för serverns användar konto** anger du lämplig information för databasen.
+8. Skriv betygs etiketter i den **kommaavgränsade listan över kolumner som ska sparas** .
+9. I **fältet data tabell namn**skriver du dbo. ScoredLabels. Om tabellen inte finns skapas den när experimentet körs eller så anropas webb tjänsten.
+10. I fältet **kommaavgränsad lista över DataTable-kolumner** skriver du ScoredLabels.
 
-När du skriver ett program som anropar den slutliga webbtjänsten kanske du vill ange en annan indatafråga eller måltabell vid körning. Om du vill konfigurera dessa in- och utdata använder du funktionen Parametrar för webbtjänst för att ange egenskapen *Importera datakälla* *och* egenskapen *Export Data* Mode data destination.  Mer information om parametrar för webbtjänst finns i [posten Azure Machine Learning Studio Web Service Parameters](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) på Cortana Intelligence and Machine Learning Blog.
+När du skriver ett program som anropar den slutliga webb tjänsten kanske du vill ange en annan indatamängds fråga eller mål tabell vid körning. Om du vill konfigurera dessa indata och utdata använder du funktionen för webb tjänst parametrar för att ange *data källans egenskap för data källa* i modulen *Importera data* och egenskapen *Exportera* Dataläge.  Mer information om parametrarna för webb tjänsten finns i [posten Azure Machine Learning Studio Web Service Parameters](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) på Cortana Intelligence och Machine Learning blogg.
 
-Så här konfigurerar du webbtjänstparametrarna för importfrågan och måltabellen:
+Konfigurera webb tjänst parametrarna för import frågan och mål tabellen:
 
-1. Klicka på ikonen längst upp till höger i **fältet Databasfråga** i egenskapsfönstret för modulen *Importera data* och välj Ange **som webbtjänstparameter**.
-2. Klicka på ikonen längst upp till höger i **fältet Datatabellnamn** i egenskapsfönstret för modulen *Exportera data* och välj Ange **som webbtjänstparameter**.
-3. Klicka på Databasfråga i avsnittet **Webbtjänstparametrar** längst ned i egenskapsfönstret *Exportdatamodul* och byt namn på den.
-4. Klicka på **Datatabellnamn** och byt namn på den **Tabell**.
+1. I rutan Egenskaper för modulen *Importera data* klickar du på ikonen längst upp till höger i fältet **databas fråga** och väljer **Ange som webb tjänst parameter**.
+2. I fönstret Egenskaper för modulen *Exportera data* klickar du på ikonen längst upp till höger i fältet **data tabell namn** och väljer **Ange som webb tjänst parameter**.
+3. Längst ned i fönstret Egenskaper för *Exportera* datamodul, i avsnittet **webb tjänst parametrar** , klickar du på databas fråga och byter namn på frågan.
+4. Klicka på **data tabell namn** och Byt namn på **tabellen**.
 
-När du är klar bör experimentet se ut ungefär som följande bild:
+När du är färdig bör experimentet se ut ungefär som på följande bild:
 
-![Sista utseendet på experimentet.](./media/web-services-that-use-import-export-modules/experiment-with-import-data-added.png)
+![Slutligt utseende på experimentet.](./media/web-services-that-use-import-export-modules/experiment-with-import-data-added.png)
 
-Nu kan du distribuera experimentet som en webbtjänst.
+Nu kan du distribuera experimentet som en webb tjänst.
 
 ## <a name="deploy-the-web-service"></a>Distribuera webbtjänsten
-Du kan distribuera till en klassisk eller ny webbtjänst.
+Du kan distribuera till antingen en klassisk eller en ny webb tjänst.
 
-### <a name="deploy-a-classic-web-service"></a>Distribuera en klassisk webbtjänst
-Så här distribuerar du som en klassisk webbtjänst och skapar ett program för att använda den:
+### <a name="deploy-a-classic-web-service"></a>Distribuera en klassisk webb tjänst
+Distribuera som en klassisk webb tjänst och skapa ett program för att använda det:
 
-1. Klicka på Kör längst ned på experimentarbetsytan.
-2. När körningen är klar klickar du på **Distribuera webbtjänst** och väljer **Distribuera webbtjänst [Klassisk]**.
-3. Leta reda på API-nyckeln på instrumentpanelen för webbtjänsten. Kopiera och spara den för att använda senare.
-4. Öppna **api-hjälpsidan** i tabellen **Standardslutpunkt.**
-5. Skapa ett C#-konsolprogram i Visual Studio: **New** > **Project** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework).**
-6. Leta reda på avsnittet **Exempelkod** längst ned på sidan på API-hjälpsidan.
-7. Kopiera och klistra in C#-exempelkoden i Program.cs filen och ta bort alla referenser till blob-lagringen.
-8. Uppdatera värdet för *apiKey-variabeln* med API-nyckeln som sparats tidigare.
-9. Leta reda på deklarationen för begäran och uppdatera värdena för webbtjänstparametrar som skickas till modulerna *Importera data* och *exportera data.* I det här fallet använder du den ursprungliga frågan, men definierar ett nytt tabellnamn.
+1. Klicka på Kör längst ned i experiment arbets ytan.
+2. När körningen har slutförts klickar du på **distribuera webb tjänst** och väljer **distribuera webb tjänst [klassisk]**.
+3. På instrument panelen för webb tjänster letar du upp din API-nyckel. Kopiera och spara den för att använda senare.
+4. I **standard slut punkts** tabellen klickar du på länken för **batch-körning** för att öppna API-hjälp sidan.
+5. I Visual Studio skapar du ett C#-konsol program: **nytt** > **projekt** > **Visual C#** > **Windows klassisk Desktop** > **console-app (.NET Framework)**.
+6. På sidan API-hjälp hittar du avsnittet **exempel kod** längst ned på sidan.
+7. Kopiera och klistra in C#-exempel koden i Program.cs-filen och ta bort alla referenser till blob-lagringen.
+8. Uppdatera värdet för variabeln *apiKey* med API-nyckeln Sparad tidigare.
+9. Leta upp deklarationen för begäran och uppdatera värdena för webb tjänst parametrar som skickas till modulerna *Importera data* och *Exportera data* . I det här fallet använder du den ursprungliga frågan, men definierar ett nytt tabell namn.
 
         var request = new BatchExecutionRequest()
         {
@@ -117,24 +116,24 @@ Så här distribuerar du som en klassisk webbtjänst och skapar ett program för
         };
 10. Kör appen.
 
-När körningen är klar läggs en ny tabell till i databasen som innehåller poängresultaten.
+När körningen har slutförts läggs en ny tabell till i databasen som innehåller resultat resultaten.
 
-### <a name="deploy-a-new-web-service"></a>Distribuera en ny webbtjänst
+### <a name="deploy-a-new-web-service"></a>Distribuera en ny webb tjänst
 
 > [!NOTE]
-> Om du vill distribuera en ny webbtjänst måste du ha tillräcklig behörighet i prenumerationen som du distribuerar webbtjänsten till. Mer information finns i [Hantera en webbtjänst med hjälp av Portalen för Azure Machine Learning Web Services](manage-new-webservice.md).
+> Om du vill distribuera en ny webb tjänst måste du ha tillräcklig behörighet i den prenumeration som du distribuerar webb tjänsten till. Mer information finns i [hantera en webb tjänst med hjälp av Azure Machine Learning Web Services-portalen](manage-new-webservice.md).
 
-Så här distribuerar du som en ny webbtjänst och skapar ett program för att använda den:
+Distribuera som en ny webb tjänst och skapa ett program för att använda den:
 
-1. Klicka på **Kör**längst ned på experimentarbetsytan.
-2. När körningen är klar klickar du på **Distribuera webbtjänst** och väljer **Distribuera webbtjänst [Ny]**.
-3. På sidan Distribuera experiment anger du ett namn på webbtjänsten och väljer en prisplan och klickar sedan på **Distribuera**.
-4. Klicka på **Förbruka**på sidan **Snabbstart.**
-5. Klicka på **Batch**i avsnittet **Exempelkod** .
-6. Skapa ett C#-konsolprogram i Visual Studio: **New** > **Project** > **Visual C#** > **Windows Classic Desktop** > **Console App (.NET Framework).**
-7. Kopiera och klistra in C#-exempelkoden i Program.cs-filen.
-8. Uppdatera värdet för *apiKey-variabeln* med **primärnyckeln** i avsnittet **Grundläggande förbrukningsinformation.**
-9. Leta reda på *scoreRequest-deklarationen* och uppdatera värdena för webbtjänstparametrar som skickas till modulerna *Importera data* och *exportera data.* I det här fallet använder du den ursprungliga frågan, men definierar ett nytt tabellnamn.
+1. Klicka på **Kör**längst ned i experiment arbets ytan.
+2. När körningen har slutförts klickar du på **distribuera webb tjänst** och väljer **distribuera webb tjänst [ny]**.
+3. På sidan distribuera experiment anger du ett namn för din webb tjänst och väljer en pris plan och klickar sedan på **distribuera**.
+4. Klicka på **förbruka**på sidan **snabb start** .
+5. I avsnittet **exempel kod** klickar du på **batch**.
+6. I Visual Studio skapar du ett C#-konsol program: **nytt** > **projekt** > **Visual C#** > **Windows klassisk Desktop** > **console-app (.NET Framework)**.
+7. Kopiera och klistra in C#-exempel koden i din Program.cs-fil.
+8. Uppdatera värdet för variabeln *apiKey* med **primär nyckeln** som finns i avsnittet **grundläggande förbruknings information** .
+9. Leta upp *ScoreRequest* -deklarationen och uppdatera värdena för webb tjänst parametrar som skickas till modulerna *Importera data* och *Exportera data* . I det här fallet använder du den ursprungliga frågan, men definierar ett nytt tabell namn.
 
         var scoreRequest = new
         {

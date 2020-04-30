@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0507989ec25db595a85b89f15d8ff7d056a970f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a54bc3cfa67330fb0056ccd1898d9ab3de2b0ab2
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80297683"
+ms.locfileid: "82229926"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure Active Directory (Azure AD)
 
@@ -810,7 +810,7 @@ Begär Anden från Azure Active Directory innehåller en OAuth 2,0 Bearer-token.
 
 I token identifieras utfärdaren av ett ISS-anspråk, t. ex `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`.. I det här exemplet är bas adressen för anspråk svärdet `https://sts.windows.net`, identifierar Azure Active Directory som utfärdare, medan det relativa adress segmentet _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_är en unik identifierare för den Azure Active Directory klient som token utfärdades för.
 
-Mål gruppen för token är programmets mall-ID för programmet i galleriet. varje program som registreras i en enskild klient kan få samma `iss` anspråk med scim-begäranden. Programmall-ID: t för varje program i galleriet varierar, [ProvisioningFeedback@microsoft.com](mailto:ProvisioningFeedback@microsoft.com) kontakta dig om du har frågor kring mall-ID: t för program mal len för ett galleri program. Programmets mall-ID för alla anpassade appar är _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_.
+Mål gruppen för token är programmets mall-ID för programmet i galleriet. varje program som registreras i en enskild klient kan få samma `iss` anspråk med scim-begäranden. Programmets mall-ID för alla anpassade appar är _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_. Den token som genereras av Azure AD Provisioning-tjänsten bör endast användas för testning. Den bör inte användas i produktions miljöer.
 
 I exempel koden autentiseras begär Anden med hjälp av paketet Microsoft. AspNetCore. Authentication. JwtBearer. Följande kod framtvingar att begär anden till någon av tjänstens slut punkter autentiseras med hjälp av Bearer-token som utfärdats av Azure Active Directory för en angiven klient organisation:
 

@@ -3,12 +3,12 @@ title: Övervaka Java-program som körs i valfri miljö – Azure Monitor Applic
 description: Övervakning av program prestanda för Java-program som körs på alla miljöer med fristående Java-agent utan att instrumentera appen. Distribuerad spårning och program karta.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 08a83fbc05276808b62a0391a5c4217cc09f6d00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 527f1eaf04be7b5e8c89c12912a06d2f5d50321f
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641880"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82508045"
 ---
 # <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Konfigurera JVM args Java standalone agent för Azure Monitor Application Insights
 
@@ -20,15 +20,25 @@ Konfigurera [app Services](https://docs.microsoft.com/azure/app-service/configur
 
 ## <a name="spring-boot"></a>Spring Boot
 
-Lägg till JVM- `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` arg någonstans `-jar <myapp.jar>`före, till exempel:
+Lägg till JVM- `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` arg någonstans `-jar`före, till exempel:
 
 ```
 java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -jar <myapp.jar>
 ```
 
-> [!NOTE]
-> Argument som placeras `-jar <myapp.jar>` efter skickas till appen som program argument.
+## <a name="spring-boot-via-docker-entry-point"></a>Våren Boot via Docker start punkt
 
+Om du använder formuläret *ledn* lägger du till parametern `"-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar"` i parameter listan någonstans före `"-jar"` parametern, till exempel:
+
+```
+ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar", "-jar", "<myapp.jar>"]
+```
+
+Om du använder *Shell* -formuläret lägger du till JVM-arg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` någonstans före `-jar`, till exempel:
+
+```
+ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -jar <myapp.jar>
+```
 
 ## <a name="tomcat-8-linux"></a>Tomcat 8 (Linux)
 

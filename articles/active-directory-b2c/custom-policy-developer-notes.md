@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 04/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 403ca480bcf0743d81e375c122c888db96bbf543
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 471c2d45e28e634adde78c2d96d407ec219be68c
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80408704"
+ms.locfileid: "82229671"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Developer-kommentarer för anpassade principer i Azure Active Directory B2C
 
@@ -62,7 +62,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="protocols-and-authorization-flows"></a>Protokoll och auktoriseringsarkiv
 
-| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Obs! |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OAuth2 auktoriseringskod](authorization-code-flow.md) |  |  | X |  |
 | OAuth2-auktoriseringskod med PKCE |  |  | X | Endast mobil program  |
@@ -75,18 +75,18 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="identify-providers-federation"></a>Identifiera Provider Federation 
 
-| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Obs! |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | Till exempel Google +.  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | Till exempel Facebook.  |
 | [OAuth1](oauth1-technical-profile.md) |  | X |  | Till exempel Twitter. |
-| [SAML2](saml-technical-profile.md) |  |   | X | Till exempel Salesforce, ADFS. |
+| [SAML2](saml-identity-provider-technical-profile.md) |  |   | X | Till exempel Salesforce, ADFS. |
 | WSFED| X |  |  |  |
 
 
 ### <a name="rest-api-integration"></a>REST API-integrering
 
-| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Obs! |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [REST API med Basic auth](secure-rest-api.md#http-basic-authentication) |  |  | X |  |
 | [REST API med klient certifikats-auth](secure-rest-api.md#https-client-certificate-authentication) |  |  | X |  |
@@ -94,7 +94,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="component-support"></a>Komponent stöd
 
-| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Obs! |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Autentisering av mobil faktor](phone-factor-technical-profile.md) |  |  | X |  |
 | [Azure MFA-autentisering](multi-factor-auth-technical-profile.md) |  | X |  |  |
@@ -109,7 +109,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="page-layout-versions"></a>Sidlayoutversioner
 
-| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Obs! |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [2.0.0](page-layout.md#200) |  | X |  |  |
 | [1.2.0](page-layout.md#120) |  | X |  |  |
@@ -119,7 +119,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="app-ief-integration"></a>App-IEF-integrering
 
-| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Obs! |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Frågesträngparametern`domain_hint` |  |  | X | Tillgängligt som anspråk kan skickas till IDP. |
 | Frågesträngparametern`login_hint` |  |  | X | Tillgängligt som anspråk kan skickas till IDP. |
@@ -129,16 +129,17 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="session-management"></a>Sessionshantering
 
-| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Obs! |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | [Standardprovider för SSO-session](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
 | [Provider för extern inloggningssession](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
 | [SAML SSO-sessionsbiljett](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
-
+| [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider)  |  | X |  |  |
+| [Enkel utloggning](session-overview.md#sign-out)  |  | X |  |  |
 
 ### <a name="security"></a>Säkerhet
 
-| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Obs! |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Princip nycklar – generera, manuell, uppladdning |  |  | X |  |
 | Princip nycklar – RSA/cert, hemligheter |  |  | X |  |
@@ -146,7 +147,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="developer-interface"></a>Gränssnittet för utvecklare
 
-| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Obs! |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Portal – IEF UX |  |  | X |  |
 | Princip uppladdning |  |  | X |  |

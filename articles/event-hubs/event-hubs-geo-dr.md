@@ -1,6 +1,6 @@
 ---
-title: Återställning av geokatastrofer – Azure-händelsehubbar| Microsoft-dokument
-description: Så här använder du geografiska regioner för att redundans och utföra haveriberedskap i Azure Event Hubs
+title: Geo-haveri beredskap – Azure Event Hubs | Microsoft Docs
+description: Använda geografiska regioner för att redundansväxla och utföra haveri beredskap i Azure Event Hubs
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -14,131 +14,131 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 40db6e9f429569bc19641aa5f0f371f287db7b18
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 61318fbccdf92c6502aa8b2236d8b234cec67668
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79281475"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82209153"
 ---
-# <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Återställning av geokatastrofer 
+# <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs-geo-haveri beredskap 
 
-När hela Azure-regioner eller datacenter (om inga [tillgänglighetszoner](../availability-zones/az-overview.md) används) upplever driftstopp är det viktigt för databearbetning att fortsätta att fungera i en annan region eller datacenter. *Geo-disaster recovery* och *Geo-replication* är därför viktiga funktioner för alla företag. Azure Event Hubs stöder både geo-haveriberedskap och geo-replikering, på namnområdesnivå. 
+När hela Azure-regioner eller data Center (om inga [tillgänglighets zoner](../availability-zones/az-overview.md) används) upplever drift stopp, är det viktigt att data bearbetningen fortsätter att fungera i en annan region eller data Center. Därför är *geo-haveri beredskap* och *geo-replikering* viktiga funktioner för alla företag. Azure Event Hubs stöder både geo-haveri återställning och geo-replikering på namn områdes nivå. 
 
 > [!NOTE]
-> Funktionen För återställning av geokatastrofer är endast tillgänglig för [standard- och dedikerade SKU:er](https://azure.microsoft.com/pricing/details/event-hubs/).  
+> Funktionen för geo-katastrof återställning är bara tillgänglig för [standard-och dedikerade SKU: er](https://azure.microsoft.com/pricing/details/event-hubs/).  
 
 ## <a name="outages-and-disasters"></a>Avbrott och katastrofer
 
-Det är viktigt att notera skillnaden mellan "avbrott" och "katastrofer". Ett *avbrott* är tillfällig otillgänglighet för Azure Event Hubs och kan påverka vissa komponenter i tjänsten, till exempel ett meddelandearkiv eller till och med hela datacentret. Men när problemet har åtgärdats blir Event Hubs tillgängligt igen. Vanligtvis orsakar ett avbrott inte förlust av meddelanden eller andra data. Ett exempel på ett sådant avbrott kan vara ett strömavbrott i datacentret. Vissa avbrott är bara korta anslutningsförluster på grund av tillfälliga problem eller nätverksproblem. 
+Det är viktigt att notera skillnaden mellan "avbrott" och "katastrofer". Ett *avbrott* är tillfälligt otillgängligt för Azure Event Hubs och kan påverka vissa komponenter i tjänsten, t. ex. ett meddelande arkiv eller till och med hela data centret. När problemet har åtgärd ATS blir Event Hubs dock tillgängligt igen. Normalt orsakar ett avbrott inte att meddelanden eller andra data går förlorade. Ett exempel på ett sådant avbrott kan vara ett strömavbrott i data centret. Vissa avbrott är bara korta anslutnings förluster på grund av tillfälliga eller nätverks problem. 
 
-En *katastrof* definieras som permanent eller långsiktig förlust av ett Event Hubs-kluster, Azure-region eller datacenter. Regionen eller datacentret kanske eller kanske inte blir tillgängliga igen eller kan vara nere i timmar eller dagar. Exempel på sådana katastrofer är brand, översvämningar eller jordbävning. En katastrof som blir permanent kan orsaka förlust av vissa meddelanden, händelser eller andra data. I de flesta fall bör det dock inte finnas någon dataförlust och meddelanden kan återställas när datacentret är säkerhetskopierat.
+En *katastrof* definieras som en permanent eller mer långsiktig förlust av ett Event Hubs-kluster, Azure-region eller data Center. Regionen eller data centret kan komma att bli otillgängliga igen, eller så kan det vara nere i timmar eller dagar. Exempel på sådana katastrofer är brand, översvämning eller jord bävning. En katastrof som blir permanent kan orsaka förlust av vissa meddelanden, händelser eller andra data. I de flesta fall bör det dock inte finnas någon data förlust och meddelanden kan återställas när data centret har säkerhetskopierats.
 
-Funktionen Geo-disaster recovery i Azure Event Hubs är en lösning för haveriberedskap. Begreppen och arbetsflödet som beskrivs i den här artikeln gäller katastrofscenarier och inte tillfälliga eller tillfälliga avbrott. En detaljerad diskussion om haveriberedskap i Microsoft Azure finns i [den här artikeln](/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Den geo-haverie återställnings funktionen i Azure Event Hubs är en katastrof återställnings lösning. Begreppen och arbets flödet som beskrivs i den här artikeln gäller katastrof scenarier och inte tillfälligt, eller tillfälliga avbrott. En detaljerad beskrivning av haveri beredskap i Microsoft Azure finns i [den här artikeln](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
-## <a name="basic-concepts-and-terms"></a>Grundläggande begrepp och termer
+## <a name="basic-concepts-and-terms"></a>Grundläggande begrepp och villkor
 
-Funktionen för haveriberedskap implementerar metadatakatastrofåterställning och är beroende av primära och sekundära namnområden för haveriberedskap. 
+Funktionen för haveri beredskap implementerar haveri beredskap för metadata och förlitar sig på de primära och sekundära återställnings namn områdena för haveri beredskap. 
 
-Funktionen För återställning av geokatastrofer är endast tillgänglig för [standard- och dedikerade SKU:er.](https://azure.microsoft.com/pricing/details/event-hubs/) Du behöver inte göra några ändringar i anslutningssträngen eftersom anslutningen görs via ett alias.
+Funktionen för geo-katastrof återställning är endast tillgänglig för [standard-och dedikerade SKU: er](https://azure.microsoft.com/pricing/details/event-hubs/) . Du behöver inte göra några ändringar i anslutnings strängen eftersom anslutningen görs via ett alias.
 
-Följande termer används i den här artikeln:
+Följande villkor används i den här artikeln:
 
--  *Alias*: Namnet på en konfiguration för haveriberedskap som du har konfigurerat. Aliaset innehåller en FQDN-anslutningssträng (Full Qualified Domain Name). Program använder den här aliasanslutningssträngen för att ansluta till ett namnområde. 
+-  *Alias*: namnet på en katastrof återställnings konfiguration som du ställer in. Aliaset innehåller en enda stabil fullständigt kvalificerad domän namns anslutnings sträng (FQDN). Program använder den här Ali Aset-anslutningssträngen för att ansluta till ett namn område. 
 
--  *Primärt/sekundärt namnområde*: De namnområden som motsvarar aliaset. Det primära namnområdet är "aktivt" och tar emot meddelanden (detta kan vara ett befintligt eller nytt namnområde). Det sekundära namnområdet är "passivt" och tar inte emot meddelanden. Metadata mellan båda är synkroniserade, så båda kan sömlöst acceptera meddelanden utan programkod eller ändringar av anslutningssträngen. Om du vill vara säkra på att endast det aktiva namnområdet tar emot meddelanden måste du använda aliaset. 
+-  *Primär/sekundär namnrymd*: de namn områden som motsvarar aliaset. Det primära namn området är "aktivt" och tar emot meddelanden (det kan vara ett befintligt eller nytt namn område). Det sekundära namn området är "passiv" och tar inte emot meddelanden. Metadata mellan båda är synkroniserade, så båda kan sömlöst acceptera meddelanden utan program kod eller anslutnings sträng ändringar. För att säkerställa att endast det aktiva namn området tar emot meddelanden måste du använda aliaset. 
 
--  *Metadata*: Entiteter som händelsehubbar och konsumentgrupper. och deras egenskaper för tjänsten som är associerade med namnområdet. Observera att endast entiteter och deras inställningar replikeras automatiskt. Meddelanden och händelser replikeras inte. 
+-  *Metadata*: entiteter som händelse hubbar och konsument grupper; och deras egenskaper för tjänsten som är associerad med namn området. Observera att endast entiteter och deras inställningar replikeras automatiskt. Meddelanden och händelser replikeras inte. 
 
--  *Redundans*: Processen att aktivera det sekundära namnområdet.
+-  *Redundans*: processen att aktivera det sekundära namn området.
 
-## <a name="supported-namespace-pairs"></a>Namnområdespar som stöds
-Följande kombinationer av primära och sekundära namnområden stöds:  
+## <a name="supported-namespace-pairs"></a>Namn rymds par som stöds
+Följande kombinationer av primära och sekundära namn rymder stöds:  
 
-| Primärt namnområde | Sekundärt namnområde | Stöds | 
+| Primär namnrymd | Sekundär namnrymd | Stöds | 
 | ----------------- | -------------------- | ---------- |
 | Standard | Standard | Ja | 
 | Standard | Dedikerad | Ja | 
 | Dedikerad | Dedikerad | Ja | 
-| Dedikerad | Standard | Inga | 
+| Dedikerad | Standard | Nej | 
 
 > [!NOTE]
-> Du kan inte para ihop namnområden som finns i samma dedikerade kluster. Du kan para ihop namnområden som finns i separata kluster. 
+> Det går inte att para ihop namn områden som finns i samma dedicerade kluster. Du kan para ihop namn områden som finns i separata kluster. 
 
-## <a name="setup-and-failover-flow"></a>Installations- och redundansflöde
+## <a name="setup-and-failover-flow"></a>Konfiguration och redundansväxla flöde
 
-Följande avsnitt är en översikt över redundansprocessen och förklarar hur du ställer in den första redundansen. 
+Följande avsnitt innehåller en översikt över redundansväxlingen och förklarar hur du ställer in den inledande redundansväxlingen. 
 
 ![1][]
 
 ### <a name="setup"></a>Installation
 
-Du skapar eller använder först ett befintligt primärt namnområde och ett nytt sekundärt namnområde och parar sedan ihop de två. Den här parkopplingen ger dig ett alias som du kan använda för att ansluta. Eftersom du använder ett alias behöver du inte ändra anslutningssträngar. Endast nya namnområden kan läggas till i redundanskopplingen. Slutligen bör du lägga till en del övervakning för att upptäcka om en redundans är nödvändig. I de flesta fall är tjänsten en del av ett stort ekosystem, vilket innebär att automatiska redundans sällan är möjliga, eftersom mycket ofta redundans måste utföras i synk med det återstående delsystemet eller infrastrukturen.
+Först skapar du eller använder ett befintligt primärt namn område och ett nytt sekundärt namn område och kopplar sedan samman de två. Den här ihopparningen ger dig ett alias som du kan använda för att ansluta. Eftersom du använder ett alias behöver du inte ändra anslutnings strängarna. Det går bara att lägga till nya namn områden i ihopparningen för redundans. Slutligen bör du lägga till viss övervakning för att upptäcka om det behövs en redundansväxling. I de flesta fall är tjänsten en del av ett stort eko system, vilket innebär att automatisk redundans inte är möjlig, så ofta måste redundansen utföras i synkronisering med återstående del system eller infrastruktur.
 
 ### <a name="example"></a>Exempel
 
-I ett exempel på det här scenariot bör du tänka på en kassalösning (POS) som avger meddelanden eller händelser. Event Hubs skickar dessa händelser till någon mappnings- eller omformateringslösning, som sedan vidarebefordrar mappade data till ett annat system för vidare bearbetning. Då kan alla dessa system finnas i samma Azure-region. Beslutet om när och vilken del som ska växlas över beror på dataflödet i infrastrukturen. 
+I ett exempel på det här scenariot bör du överväga en lösning för kassan (kassa) som avger antingen meddelanden eller händelser. Event Hubs skickar händelser till vissa mappnings-eller omformateras lösningar, som sedan vidarebefordrar mappade data till ett annat system för vidare bearbetning. Vid detta tillfälle kan alla dessa system finnas i samma Azure-region. Beslutet om när och vilken del som ska redundansväxla beror på data flödet i din infrastruktur. 
 
-Du kan automatisera redundans antingen med övervakningssystem eller med specialbyggda övervakningslösningar. Men sådan automatisering tar extra planering och arbete, vilket är utanför ramen för denna artikel.
+Du kan automatisera redundans antingen med övervaknings system eller med anpassade övervaknings lösningar. Sådan automatisering tar dock extra planering och arbete som ligger utanför den här artikelns räckvidd.
 
-### <a name="failover-flow"></a>Redundansflöde
+### <a name="failover-flow"></a>Flöde för växling vid fel
 
-Om du startar redundansen krävs två steg:
+Om du initierar redundansväxlingen krävs två steg:
 
-1. Om ett annat avbrott inträffar vill du kunna redundans igen. Ställ därför in ett annat passivt namnområde och uppdatera parkopplingen. 
+1. Om ett annat avbrott inträffar vill du kunna redundansväxla igen. Konfigurera därför ett annat passivt namn område och uppdatera ihopparningen. 
 
-2. Hämta meddelanden från det tidigare primära namnområdet när det är tillgängligt igen. Därefter använder du det namnområdet för vanliga meddelanden utanför konfigurationen för geoåterställning eller ta bort det gamla primära namnområdet.
+2. Hämta meddelanden från det tidigare primära namn området när det är tillgängligt igen. Efter det använder du det namn området för vanliga meddelanden utanför din geo-återställnings installation eller tar bort det gamla primära namn området.
 
 > [!NOTE]
-> Endast misslyckas framåt semantik stöds. I det här fallet växlar du över och parar sedan ihop med ett nytt namnområde. Det går inte att gå tillbaka. till exempel i ett SQL-kluster. 
+> Det finns bara stöd för att vidarebefordra semantik. I det här scenariot kan du växla över och sedan para ihop med ett nytt namn område. Det finns inte stöd för att återställa igen. till exempel i ett SQL-kluster. 
 
 ![2][]
 
 ## <a name="management"></a>Hantering
 
-Om du gjorde ett misstag; Till exempel parat ihop fel regioner under den första installationen, kan du bryta ihopkopplingen av de två namnområdena när som helst. Om du vill använda de parade namnområdena som vanliga namnområden tar du bort aliaset.
+Om du har gjort ett misstag, Du kan till exempel para ihop fel regioner under den första installationen. du kan när som helst avbryta länkningen av de två namn områdena. Om du vill använda de kopplade namn rymderna som vanliga namn områden, tar du bort aliaset.
 
 ## <a name="samples"></a>Exempel
 
-[Exemplet på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) visar hur du ställer in och initierar en redundans. Det här exemplet visar följande begrepp:
+[Exemplet på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) visar hur du konfigurerar och initierar en redundansväxling. Det här exemplet demonstrerar följande begrepp:
 
-- Inställningar som krävs i Azure Active Directory för att använda Azure Resource Manager med eventhubbar. 
-- Steg som krävs för att köra exempelkoden. 
-- Skicka och ta emot från det aktuella primära namnområdet. 
+- Inställningar som krävs i Azure Active Directory att använda Azure Resource Manager med Event Hubs. 
+- Steg som krävs för att köra exempel koden. 
+- Skicka och ta emot från aktuellt primärt namn område. 
 
 ## <a name="considerations"></a>Överväganden
 
-Observera följande överväganden att tänka på med den här versionen:
+Tänk på följande när du är i åtanke med den här versionen:
 
-1. Händelsehubbars geo-haveriberedskap replikerar inte data, och därför kan du inte återanvända det gamla förskjutningsvärdet för din primära händelsehubb på din sekundära händelsehubb. Vi rekommenderar att du startar om händelsemottagaren med något av följande:
+1. Enligt design replikeras Event Hubs geo-haveri beredskap inte replikerar data, och därför kan du inte återanvända det gamla förskjutning svärdet för din primära händelsehubben på den sekundära händelsehubben. Vi rekommenderar att du startar om din händelse mottagare med något av följande:
 
-- *EventPosition.FromStart()* - Om du vill läsa alla data på din sekundära händelsehubb.
-- *EventPosition.FromEnd()* - Om du vill läsa alla nya data från tidpunkten för anslutningen till din sekundära händelsehubb.
-- *EventPosition.FromEnqueuedTime(dateTime)* - Om du vill läsa alla data som tas emot i din sekundära händelsehubben från ett visst datum och en viss tid.
+- *EventPosition. FromStart ()* – om du vill läsa alla data på den sekundära händelsehubben.
+- *EventPosition. FromEnd ()* – om du vill läsa alla nya data från tiden för anslutningen till den sekundära händelsehubben.
+- *EventPosition. FromEnqueuedTime (datetime)* – om du vill läsa alla data som tas emot i den sekundära händelsehubben från ett visst datum och en specifik tidpunkt.
 
-2. I din redundansplanering bör du också överväga tidsfaktorn. Om du till exempel förlorar anslutningen i längre tid än 15 till 20 minuter kan du välja att initiera redundansen. 
+2. I planeringen av redundansväxling bör du även överväga tids faktorn. Om du till exempel förlorar anslutningen i mer än 15 till 20 minuter kan du välja att initiera redundansväxlingen. 
  
-3. Det faktum att inga data replikeras innebär att aktiva sessioner inte replikeras. Dessutom kanske dubblettidentifiering och schemalagda meddelanden inte fungerar. Nya sessioner, schemalagda meddelanden och nya dubbletter fungerar. 
+3. Det faktum att inga data replikeras innebär att aktuella aktiva sessioner inte replikeras. Dessutom kanske inte dubblettidentifiering och schemalagda meddelanden fungerar. Nya sessioner, schemalagda meddelanden och nya dubbletter kommer att fungera. 
 
-4. Om det inte går över en komplex [distribuerad](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) infrastruktur bör du repetera minst en gång. 
+4. Att redundansväxla en komplex distribuerad infrastruktur bör återställas [minst en](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) gång. 
 
-5. Synkroniseringsentiteter kan ta lite tid, cirka 50-100 entiteter per minut.
+5. Synkronisering av entiteter kan ta lite tid, ungefär 50-100 entiteter per minut.
 
 ## <a name="availability-zones"></a>Tillgänglighetszoner 
 
-Event Hubs Standard SKU stöder [tillgänglighetszoner](../availability-zones/az-overview.md)och tillhandahåller felosolerade platser i en Azure-region. 
+Event Hubs standard-SKU: n stöder [Tillgänglighetszoner](../availability-zones/az-overview.md), vilket ger felisolerade platser inom en Azure-region. 
 
 > [!NOTE]
-> Stöd för tillgänglighetszoner för Azure Event Hubs Standard är endast tillgängligt i [Azure-regioner](../availability-zones/az-overview.md#services-support-by-region) där tillgänglighetszoner finns.
+> Tillgänglighetszoner stöd för Azure Event Hubs standard är bara tillgängligt i [Azure-regioner](../availability-zones/az-region.md) där tillgänglighets zoner finns.
 
-Du kan aktivera tillgänglighetszoner endast på nya namnområden med hjälp av Azure-portalen. Event Hubs stöder inte migrering av befintliga namnområden. Du kan inte inaktivera zonredundans när du har aktiverat den på namnområdet.
+Du kan bara aktivera Tillgänglighetszoner på nya namn områden med hjälp av Azure Portal. Event Hubs stöder inte migrering av befintliga namn rymder. Du kan inte inaktivera zon redundans när du har aktiverat den i namn området.
 
 ![3][]
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Exemplet på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) går igenom ett enkelt arbetsflöde som skapar en geo-parkoppling och initierar en redundans för ett katastrofåterställningsscenario.
-* [REST API-referensen](/rest/api/eventhub/disasterrecoveryconfigs) beskriver API:er för att utföra konfigurationen för återställning av geokatastrofer.
+* [Exemplet på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) går igenom ett enkelt arbets flöde som skapar en geo-par och initierar en redundansväxling för ett haveri beredskaps scenario.
+* I [referensen REST API](/rest/api/eventhub/disasterrecoveryconfigs) beskrivs API: er för att utföra den geo-haveri återställnings konfigurationen.
 
 Besök följande länkar för mer utförlig information om Event Hubs:
 
@@ -146,7 +146,7 @@ Besök följande länkar för mer utförlig information om Event Hubs:
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [Javascript](get-started-java-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
 * [Exempelprogram som använder Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

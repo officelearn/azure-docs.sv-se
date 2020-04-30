@@ -1,6 +1,6 @@
 ---
-title: CLI exempel- Redundansgrupp - Elastisk Azure SQL Database-pool
-description: Azure CLI exempel skript för att skapa en Azure SQL Database elastisk pool, lägga till den i en redundansgrupp och testa redundans.
+title: CLI-exempel – failover-grupp-Azure SQL Database elastisk pool
+description: Exempel skript för Azure CLI för att skapa en Azure SQL Database elastisk pool, lägga till den i en grupp för redundans och testa redundans.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,15 +12,15 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
 ms.openlocfilehash: 2d6f18e373327b758e766dffba341c080622301f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80061941"
 ---
-# <a name="use-cli-to-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Använda CLI för att lägga till en elastisk Azure SQL Database-pool i en redundansgrupp
+# <a name="use-cli-to-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Använd CLI för att lägga till en Azure SQL Database elastisk pool i en failover-grupp
 
-Det här Azure CLI-skriptexempeln skapar en enskild databas, lägger till den i en elastisk pool, skapar en redundansgrupp och testar redundans.
+Det här skript exemplet för Azure CLI skapar en enda databas, lägger till den i en elastisk pool, skapar en failover-grupp och testar redundans.
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
@@ -42,23 +42,23 @@ az account set -s $subscription # ...or use 'az login'
 
 ### <a name="clean-up-deployment"></a>Rensa distribution
 
-Använd följande kommando för att ta bort resursgruppen och alla resurser som är associerade med den.
+Använd följande kommando för att ta bort resurs gruppen och alla resurser som är kopplade till den.
 
 ```azurecli-interactive
 az group delete --name $resource
 ```
 
-## <a name="sample-reference"></a>Exempelreferens
+## <a name="sample-reference"></a>Exempel referens
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | | |
 |---|---|
-| [az sql elastisk-pool](/cli/azure/sql/elastic-pool) | Elastiska poolkommandon. |
-| [az sql redundansgrupp](/cli/azure/sql/failover-group) | Kommandon i redundansgruppen. |
+| [AZ SQL Elastic-pool](/cli/azure/sql/elastic-pool) | Kommandon för elastisk pool. |
+| [AZ SQL-redundans – grupp](/cli/azure/sql/failover-group) | Kommandon för redundans grupp. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure/overview).
 
-Ytterligare SQL Database Azure CLI-skriptexempel finns i [Azure SQL Database Azure CLI-skript](../sql-database-cli-samples.md).
+Ytterligare SQL Database skript exempel för Azure CLI finns i [Azure SQL Database Azure CLI-skript](../sql-database-cli-samples.md).

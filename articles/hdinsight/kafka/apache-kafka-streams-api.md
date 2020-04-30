@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: Använda Apache Kafka Streams-API:er – Azure HDInsight '
-description: Självstudiekurs - Lär dig hur du använder Apache Kafka Streams API med Kafka på HDInsight. Detta API kan du utföra för att strömma bearbetningen mellan ämnen i Kafka.
+description: 'Självstudie – lär dig hur du använder API: erna Apache Kafka Stream med Kafka på HDInsight. Detta API kan du utföra för att strömma bearbetningen mellan ämnen i Kafka.'
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,23 +9,23 @@ ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 03/20/2020
 ms.openlocfilehash: 2885fccd95d09149ae496b80a658f34e5b697d0b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80064485"
 ---
-# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Självstudiekurs: Använd Apache Kafka streams API i Azure HDInsight
+# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Självstudie: använda Apache Kafka Streams-API i Azure HDInsight
 
 Lär dig hur du skapar ett program som använder Apache Kafka Streams-API:et och kör det med Kafka i HDInsight.
 
 Programmet som används i den här självstudien är en strömmande ordräkning. Den läser textdata från ett Kafka-ämne, extraherar enskilda ord och lagrar sedan ordet och antalet till ett annat Kafka-ämne.
 
-Kafka-strömningsbearbetning görs ofta med Apache Spark eller Apache Storm. Kafka version 1.1.0 (i HDInsight 3.5 och 3.6) introducerade Kafka Streams API. Med detta API kan du transformera dataströmmar mellan indata- och utdata-ämnen. I vissa fall kan detta vara ett alternativ till att skapa en strömmande Spark- eller Storm-lösning.
+Kafka-strömningsbearbetning görs ofta med Apache Spark eller Apache Storm. Kafka version 1.1.0 (i HDInsight 3,5 och 3,6) introducerade API: t för Kafka Streams. Med detta API kan du transformera dataströmmar mellan indata- och utdata-ämnen. I vissa fall kan detta vara ett alternativ till att skapa en strömmande Spark- eller Storm-lösning.
 
 Mer information om Kafka Streams finns i dokumentationen [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) (Introduktion till Streams) på Apache.org.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förstå koden
@@ -39,15 +39,15 @@ I den här självstudiekursen får du lära du dig att:
 
 * Utför stegen i dokumentet [Apache Kafka-konsument- och producent-API](apache-kafka-producer-consumer-api.md). Stegen i det här dokumentet använder exempelprogram och avsnitt som skapats i den här kursen.
 
-* [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks) eller motsvarande, till exempel OpenJDK.
+* [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks) eller motsvarande, till exempel openjdk.
 
-* [Apache Maven](https://maven.apache.org/download.cgi) korrekt [installerad](https://maven.apache.org/install.html) enligt Apache.  Maven är ett projektbyggsystem för Java-projekt.
+* [Apache maven](https://maven.apache.org/download.cgi) korrekt [installerat](https://maven.apache.org/install.html) enligt Apache.  Maven är ett projekt versions system för Java-projekt.
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-Exempelprogrammet finns på [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), `Streaming` i underkatalogen. Programmet består av två filer:
+Exempel programmet [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)finns i i `Streaming` under katalogen. Programmet består av två filer:
 
 * `pom.xml`: Den här filen definierar projektberoenden, Java-version och paketeringsmetoder.
 * `Stream.java`: Den här filen implementerar strömningslogiken.
@@ -72,7 +72,7 @@ Viktiga saker att förstå i `pom.xml`-filen är:
 * Plugin-program: Plugin-programmet Maven innehåller olika funktioner. I det här projektet används följande plugin-program:
 
     * `maven-compiler-plugin`: Används för att ange den Java-version som används av projektet till 8. Java 8 krävs av HDInsight 3.6.
-    * `maven-shade-plugin`: Används för att generera en uber-burk som innehåller det här programmet och eventuella beroenden. Det används också för att ställa in startpunkten för programmet, så att du direkt kan köra Jar-filen utan att behöva ange huvudklassen.
+    * `maven-shade-plugin`: Används för att generera en Uber-jar som innehåller det här programmet och eventuella beroenden. Den används också för att ange start punkten för programmet, så att du kan köra jar-filen direkt utan att behöva ange huvud klassen.
 
 ### <a name="streamjava"></a>Stream.java
 
@@ -131,7 +131,7 @@ public class Stream
 
 För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför du följande steg:
 
-1. Ange den aktuella katalogen `hdinsight-kafka-java-get-started-master\Streaming` till katalogens plats och använd sedan följande kommando för att skapa ett jar-paket:
+1. Ange den aktuella katalogen till platsen för `hdinsight-kafka-java-get-started-master\Streaming` katalogen och Använd sedan följande kommando för att skapa ett jar-paket:
 
     ```cmd
     mvn clean package
@@ -139,7 +139,7 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
 
     Det här kommandot skapar paketet på `target/kafka-streaming-1.0-SNAPSHOT.jar`.
 
-2. Ersätt `sshuser` med SSH-användare för klustret och ersätt `clustername` med namnet på klustret. Använd följande kommando för `kafka-streaming-1.0-SNAPSHOT.jar` att kopiera filen till HDInsight-klustret. Ange lösenordet för SSH-användarkontot om du uppmanas till det.
+2. Ersätt `sshuser` med SSH-användare för klustret och ersätt `clustername` med namnet på klustret. Använd följande kommando för att kopiera `kafka-streaming-1.0-SNAPSHOT.jar` filen till HDInsight-klustret. Ange lösenordet för SSH-användarkontot om du uppmanas till det.
 
     ```cmd
     scp ./target/kafka-streaming-1.0-SNAPSHOT.jar sshuser@clustername-ssh.azurehdinsight.net:kafka-streaming.jar
@@ -153,26 +153,26 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Installera [jq](https://stedolan.github.io/jq/), en kommandorads-JSON-processor. Från den öppna SSH-anslutningen anger `jq`du följande kommando för att installera:
+2. Installera [JQ](https://stedolan.github.io/jq/), en JSON-processor med kommando rad. I den öppna SSH-anslutningen anger du följande kommando för `jq`att installera:
 
     ```bash
     sudo apt -y install jq
     ```
 
-3. Ställ in lösenordsvariabel. Ersätt `PASSWORD` med lösenordet för klusterinloggning och ange sedan kommandot:
+3. Konfigurera lösen ords variabel. Ersätt `PASSWORD` med klustrets inloggnings lösen ord och ange sedan kommandot:
 
     ```bash
     export password='PASSWORD'
     ```
 
-4. Extrahera korrekt skiftade klusternamn. Den faktiska höljet för klusternamnet kan vara annorlunda än du förväntar dig, beroende på hur klustret skapades. Det här kommandot hämtar själva höljet och lagrar det sedan i en variabel. Ange följande kommando:
+4. Extrahera korrekt bokstäver-kluster namn. Det faktiska Skift läget i kluster namnet kan skilja sig från förväntat, beroende på hur klustret skapades. Det här kommandot kommer att hämta det faktiska Skift läget och sedan lagra det i en variabel. Ange följande kommando:
 
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
 
     > [!Note]  
-    > Om du gör den här processen utanför klustret finns det en annan procedur för att lagra klusternamnet. Hämta klusternamnet i gemener från Azure-portalen. Ersätt sedan klusternamnet `<clustername>` för i följande kommando `export clusterName='<clustername>'`och kör det: .  
+    > Om du utför den här processen utanför klustret finns det en annan procedur för att lagra kluster namnet. Hämta kluster namnet i gemener från Azure Portal. Ersätt sedan kluster namnet för `<clustername>` i följande kommando och kör det:. `export clusterName='<clustername>'`  
 
 5. Använd följande kommandon för att hämta värdar för Apache Kafka-meddelandeköer och Apache Zookeeper. När du blir ombedd anger du lösenordet till klusterinloggningskontot (admin).
 
@@ -183,7 +183,7 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
     ```
 
     > [!Note]  
-    > Dessa kommandon kräver Ambari-åtkomst. Om klustret ligger bakom en NSG kör du dessa kommandon från en dator som kan komma åt Ambari.
+    > De här kommandona kräver Ambari-åtkomst. Om klustret ligger bakom en NSG kör du dessa kommandon från en dator som har åtkomst till Ambari.
 
 6. Skapa ämnen som används av strömningen med följande kommandon:
 
@@ -249,7 +249,7 @@ För att skapa och distribuera projektet till Kafka p HDInsight-klustret utför 
 
 4. Använd __Ctrl + C__ om du vill avsluta producenten. Fortsätt att använda __Ctrl + C__ för att avsluta programmet och konsumenten.
 
-5. Om du vill ta bort de avsnitt som används av direktuppspelningsåtgärden använder du följande kommandon:
+5. Om du vill ta bort de ämnen som används av streaming-åtgärden använder du följande kommandon:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic test --zookeeper $KAFKAZKHOSTS
@@ -270,7 +270,7 @@ Ta bort en resursgrupp med Azure Portal:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I det här dokumentet har du lärt dig använda Apache Kafka Streams-API med Kafka i HDInsight. Använd följande om du vill veta mer om hur du arbetar med Kafka.
+I det här dokumentet har du lärt dig använda Apache Kafka Streams-API med Kafka i HDInsight. Använd följande för att lära dig mer om att arbeta med Kafka.
 
 > [!div class="nextstepaction"]
 > [Analysera Apache Kafka-loggar](apache-kafka-log-analytics-operations-management.md)

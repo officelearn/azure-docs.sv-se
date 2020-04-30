@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en server - Azure CLI - Azure Database för MariaDB'
+title: 'Snabb start: skapa en server – Azure CLI – Azure Database for MariaDB'
 description: Den här snabbstarten beskriver hur du använder Azure CLI för att skapa en Azure Database for MariaDB-server i en Azure-resursgrupp.
 author: ajlam
 ms.author: andrela
@@ -9,17 +9,17 @@ ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc
 ms.openlocfilehash: f83af794a179634b9b6b7adedd329ea6f4a7b8d0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79536470"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Skapa en Azure Database for MariaDB-server med hjälp av Azure CLI
 
 Du kan använda Azure CLI för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten beskriver hur du använder Azure CLI för att skapa en Azure Database for MariaDB-server i en Azure-resursgrupp på ungefär fem minuter.
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -45,19 +45,19 @@ az group create --name myresourcegroup --location westus
 
 Skapa en Azure Database for MariaDB-server med hjälp av kommandot [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create). En server kan hantera flera databaser. Normalt används en separat databas för varje projekt eller för varje användare.
 
-Inställning | Exempelvärde | Beskrivning
+Inställningen | Exempelvärde | Beskrivning
 ---|---|---
-namn | **mydemoserver** | Ange ett unikt namn för din Azure Database for MariaDB-server. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
-resource-group | **myresourcegroup myresourcegroup myresourcegroup myre** | Ange namnet på Azure-resursgruppen.
-sku-name | **GP_Gen5_2** | Namnet på SKU:n. Följer genereringen av beräkningsgenerering*compute generation*\_ *för kongressprisnivå*\_*i* stenografi. Mer information om parametern **sku-name** finns i avsnittet efter den här tabellen.
-backup-retention | **7** | Hur länge en säkerhetskopia ska behållas. Enheten är dagar. Intervall: 7 till 35. 
-geo-redundant-backup | **Disabled** | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern. Tillåtna värden: **Aktiverade**, **Inaktiverade**.
+name | **mydemoserver** | Ange ett unikt namn för din Azure Database for MariaDB-server. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
+resource-group | **myresourcegroup** | Ange namnet på Azure-resursgruppen.
+sku-name | **GP_Gen5_2** | Namnet på SKU:n. Efter *pris nivån*\_för konventions*beräknings generation*\_*virtuella kärnor* i korthet. Mer information om parametern **sku-name** finns i avsnittet efter den här tabellen.
+backup-retention | **3,7** | Hur länge en säkerhetskopia ska behållas. Enheten är dagar. Intervall: 7 till 35. 
+geo-redundant-backup | **Inaktiverats** | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern. Tillåtna värden: **aktiverade**, **inaktiverade**.
 location | **westus** | Azure-platsen för servern.
-ssl-enforcement | **Enabled** | Huruvida SSL ska aktiveras för den här servern. Tillåtna värden: **Aktiverade**, **Inaktiverade**.
+ssl-enforcement | **Aktiva** | Huruvida SSL ska aktiveras för den här servern. Tillåtna värden: **aktiverade**, **inaktiverade**.
 storage-size | **51200** | Serverns lagringskapacitet (enheten är megabyte). Giltiga lagringsstorlekar är 5 120 MB (minst) med ökningar i steg om 1 024 MB. Mer information om storleksgränser för lagring finns i [Prisnivåer](./concepts-pricing-tiers.md). 
-version | **10.2** | MariaDB-huvudmotorversionen.
+version | **10,2** | MariaDB-huvudmotorversionen.
 admin-user | **myadmin** | Användarnamnet för administratörsinloggningen. Parametern **admin-user** får inte bvara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.
-admin-password | *ditt lösenord* | Lösenordet för administratörsanvändaren. Lösenordet måste innehålla mellan 8 och 128 tecken. Det måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror och icke-alfanumeriska tecken.
+admin-password | *ditt lösen ord* | Lösenordet för administratörsanvändaren. Lösenordet måste innehålla mellan 8 och 128 tecken. Det måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror och icke-alfanumeriska tecken.
 
 Parametervärdet för sku-namn följer namngivningskonventionen {prisnivå}\_{compute-generering}\_{vCores} som i exemplen nedan:
 + `--sku-name B_Gen5_1` mappar till Basic, Gen 5 och 1 virtuell kärna. Det här alternativet är minsta tillgängliga SKU.
@@ -210,14 +210,14 @@ Så här ansluter du till servern med hjälp av mysql-kommandoradsverktyget:
 
    ![Skapa en ny anslutning](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
 
-   | Inställning | Föreslaget värde | Beskrivning |
+   | Inställningen | Föreslaget värde | Beskrivning |
    |---|---|---|
    | Anslutningsnamn | **Demoanslutning** | Ange ett namn på den här anslutningen (anslutningsnamnet kan vara vad som helst) |
    | Anslutningsmetod | **Standard (TCP/IP)** | Använda TCP/IP-protokollet för att ansluta till Azure Database for MariaDB |
    | Värdnamn | **mydemoserver.mariadb.database.azure.com** | Det servernamn som du antecknade tidigare. |
    | Port | **3306** | Standardporten för Azure Database for MariaDB. |
-   | Användarnamn | **myadmin\@mydemoserver** | Den serveradministratörsinloggning som du antecknade tidigare. |
-   | lösenord | *ditt lösenord* | Ange det lösenord som du konfigurerade tidigare. |
+   | Användarnamn | **mydemoserver för\@administratörer** | Den serveradministratörsinloggning som du antecknade tidigare. |
+   | lösenordsinställning | *ditt lösen ord* | Ange det lösenord som du konfigurerade tidigare. |
 
 3. För att kontrollera om alla parametrar har konfigurerats korrekt väljer du **Testa anslutning**.
 

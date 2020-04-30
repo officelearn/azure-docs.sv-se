@@ -1,5 +1,5 @@
 ---
-title: Introduktion till Azure Data Lake Storage Gen2
+title: Azure Data Lake Storage Gen2 introduktion
 description: Ger en översikt över Azure Data Lake Storage Gen2
 author: normesta
 ms.service: storage
@@ -9,76 +9,76 @@ ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 2f920e29fafdc55478e0e2c16d683bd1c3bc81d8
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78942916"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introduktion till Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 är en uppsättning funktioner som är avsedda för stordataanalys, byggd på [Azure Blob-lagring](storage-blobs-introduction.md). Data Lake Storage Gen2 är resultatet av konvergerande funktionerna i våra två befintliga lagringstjänster, Azure Blob storage och Azure Data Lake Storage Gen1. Funktioner från [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), till exempel filsystemssenmantik, katalog- och filnivåsäkerhet och skala kombineras med låg kostnad, nivåinställd lagring, hög tillgänglighet/katastrofåterställningsfunktioner från Azure [Blob-lagring](storage-blobs-introduction.md).
+Azure Data Lake Storage Gen2 är en uppsättning funktioner som är avsedda för stor data analys och bygger på [Azure Blob Storage](storage-blobs-introduction.md). Data Lake Storage Gen2 är resultatet av att konvergera funktionerna i våra två befintliga lagrings tjänster, Azure Blob Storage och Azure Data Lake Storage Gen1. Funktioner från [Azure Data Lake Storage gen1](https://docs.microsoft.com/azure/data-lake-store/index), till exempel semantiska fil system, katalog-och fil nivå säkerhet och skalning kombineras med låg kostnad, nivå lagring, hög tillgänglighet/haveri beredskap från [Azure Blob Storage](storage-blobs-introduction.md).
 
-## <a name="designed-for-enterprise-big-data-analytics"></a>Utformad för stordataanalys för företag
+## <a name="designed-for-enterprise-big-data-analytics"></a>Utformad för företags Big data Analytics
 
-Data Lake Storage Gen2 gör Azure Storage till grunden för att bygga företagsdatasjöar på Azure. Designad från början för att betjäna flera petabyte information samtidigt upprätthålla hundratals gigabits av dataflöde, datasjölagring Gen2 kan du enkelt hantera stora mängder data.
+Data Lake Storage Gen2 gör Azure Storage grunden för att skapa företags data sjöar på Azure. Data Lake Storage Gen2 är utformad från start-till-tjänst-flera petabyte med information medan hundratals Gigabit av data flödet används, så att du enkelt kan hantera enorma mängder data.
 
-En grundläggande del av Data Lake Storage Gen2 är tillägget av ett [hierarkiskt namnområde](data-lake-storage-namespace.md) till Blob-lagring. Det hierarkiska namnområdet ordnar objekt/filer i en hierarki av kataloger för effektiv dataåtkomst. En gemensam namngivningskonvention för objektarkiv använder snedstreck i namnet för att efterlikna en hierarkisk katalogstruktur. Denna struktur blir verklig med Data Lake Storage Gen2. Åtgärder som att byta namn på eller ta bort en katalog blir enstaka atomadataåtgärder i katalogen i stället för att räkna upp och bearbeta alla objekt som delar katalogens namnprefix.
+En grundläggande del av Data Lake Storage Gen2 är att lägga till ett [hierarkiskt namn område](data-lake-storage-namespace.md) till Blob Storage. Det hierarkiska namn området ordnar objekt/filer i en hierarki med kataloger för effektiv data åtkomst. En vanlig namngivnings konvention för objekt lagring använder snedstreck i namnet för att imitera en hierarkisk katalog struktur. Den här strukturen blir riktig med Data Lake Storage Gen2. Åtgärder som att byta namn på eller ta bort en katalog blir enkla atomiska metadata-åtgärder i katalogen i stället för att räkna upp och bearbeta alla objekt som delar namn prefixet för katalogen.
 
-DataSjölagring Gen2 bygger på Blob-lagring och förbättrar prestanda, hantering och säkerhet på följande sätt:
+Data Lake Storage Gen2 bygger på Blob Storage och förbättrar prestanda, hantering och säkerhet på följande sätt:
 
--   **Prestanda** optimeras eftersom du inte behöver kopiera eller omvandla data som en förutsättning för analys. Jämfört med det platta namnområdet för Blob-lagring förbättrar det hierarkiska namnområdet avsevärt prestanda för kataloghanteringsåtgärder, vilket förbättrar den övergripande jobbprestandan.
+-   **Prestanda** optimeras eftersom du inte behöver kopiera eller transformera data som ett krav för analys. Jämfört med det flata namn området på Blob Storage förbättrar det hierarkiska namn området prestandan för katalog hanterings åtgärder, vilket förbättrar jobbets övergripande prestanda.
 
--   **Hantering** är enklare eftersom du kan ordna och manipulera filer via kataloger och underkataloger.
+-   Det är enklare att **Hantera hantering** eftersom du kan organisera och manipulera filer via kataloger och under kataloger.
 
--   **Säkerhet** är verkställbart eftersom du kan definiera POSIX-behörigheter för kataloger eller enskilda filer.
+-   **Säkerhet** är tvingande eftersom du kan definiera POSIX-behörigheter för kataloger eller enskilda filer.
 
-Dessutom är Data Lake Storage Gen2 mycket kostnadseffektivt eftersom det är byggt ovanpå den billiga [Azure Blob-lagring](storage-blobs-introduction.md). De ytterligare funktionerna sänker ytterligare den totala ägandekostnaden för att köra stordataanalys på Azure.
+Data Lake Storage Gen2 är också mycket kostnads effektiv eftersom det bygger på [Azure Blob Storage](storage-blobs-introduction.md)med låg kostnad. De ytterligare funktionerna sänker längre den totala ägande kostnaden för att köra stor data analys på Azure.
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Viktiga funktioner i Data Lake Storage Gen2
 
--   **Hadoop kompatibel åtkomst:** Data Lake Storage Gen2 kan du hantera och komma åt data precis som du skulle med en [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Den nya [ABFS-drivrutinen](data-lake-storage-abfs-driver.md) är tillgänglig i alla Apache Hadoop-miljöer, inklusive [Azure HDInsight,](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index)och SQL Data [Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) för att komma åt data som lagras i Data Lake Storage Gen2.
+-   **Hadoop-kompatibel åtkomst**: data Lake Storage Gen2 gör att du kan hantera och komma åt data precis som med en [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Den nya [ABFS-drivrutinen](data-lake-storage-abfs-driver.md) är tillgänglig i alla Apache Hadoop miljöer, inklusive [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index)och [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) för att komma åt data som lagras i data Lake Storage Gen2.
 
--   **En superuppsättning av POSIX-behörigheter**: Säkerhetsmodellen för Data Lake Gen2 stöder ACL- och POSIX-behörigheter tillsammans med några extra granularitet som är specifika för Data Lake Storage Gen2. Inställningar kan konfigureras via Storage Explorer eller via ramverk som Hive och Spark.
+-   **En supermängd av POSIX-behörigheter**: säkerhets modellen för data Lake Gen2 stöder ACL-och POSIX-behörigheter tillsammans med viss extra detaljerad information som är speciell för data Lake Storage Gen2. Inställningarna kan konfigureras via Storage Explorer eller genom ramverk som Hive och Spark.
 
--   **Kostnadseffektivt:** Data Lake Storage Gen2 erbjuder billig lagringskapacitet och transaktioner. När data övergår genom hela livscykeln ändras faktureringskostnaderna så att kostnaderna hålls till ett minimum via inbyggda funktioner som [Azure Blob-lagringslivscykel](storage-lifecycle-management-concepts.md).
+-   **Kostnads effektiv**: data Lake Storage Gen2 erbjuder lagrings kapacitet och transaktioner med låg kostnad. Som data över gångar via hela livs cykeln, ändrar fakturerings taxan kostnaderna till ett minimum via inbyggda funktioner, till exempel [Azure Blob Storage livs cykel](storage-lifecycle-management-concepts.md).
 
--   **Optimerad drivrutin:** ABFS-drivrutinen är [optimerad speciellt](data-lake-storage-abfs-driver.md) för stordataanalys. Motsvarande REST-API:er visas genom `dfs.core.windows.net`ändpunkten .
+-   **Optimerad driv rutin**: ABFS-drivrutinen har [optimerats specifikt](data-lake-storage-abfs-driver.md) för stor data analys. Motsvarande REST-API: er visas genom slut punkten `dfs.core.windows.net`.
 
 ### <a name="scalability"></a>Skalbarhet
 
-Azure Storage är skalbart avsiktligt oavsett om du kommer åt via Data Lake Storage Gen2 eller Blob storage interfaces. Det kan lagra och tjäna *många exabyte data*. Den här mängden lagringsutrymme är tillgänglig med dataflöde mätt i gigabit per sekund (Gbps) vid höga nivåer av in-/utdataoperationer per sekund (IOPS). Utöver bara persistens körs bearbetningen på nästan konstanta svarstider per begäran som mäts på tjänst-, konto- och filnivåer.
+Azure Storage är skalbart genom att designa om du kommer åt via Data Lake Storage Gen2-eller Blob Storage-gränssnitt. Den kan lagra och betjäna *många exabyte data*. Den här mängden lagring är tillgänglig med data flöde mätt i gigabit per sekund (Gbit/s) vid höga nivåer av in-/utdata-åtgärder per sekund (IOPS). Efter beständighet utförs bearbetningen med nära konstant svars tid per begäran som mäts på tjänst-, konto-och fil nivåerna.
 
 ### <a name="cost-effectiveness"></a>Kostnadseffektivitet
 
-En av de många fördelarna med att bygga Data Lake Storage Gen2 ovanpå Azure Blob-lagring är den låga kostnaden för lagringskapacitet och transaktioner. Till skillnad från andra molnlagringstjänster behöver data som lagras i Data Lake Storage Gen2 inte flyttas eller omvandlas innan analys utförs. Mer information om priser finns i [Azure Storage-priser](https://azure.microsoft.com/pricing/details/storage).
+En av de många fördelarna med att skapa Data Lake Storage Gen2 ovanpå Azure Blob Storage är den låga kostnaden för lagrings kapacitet och transaktioner. Till skillnad från andra moln lagrings tjänster behöver inte data som lagrats i Data Lake Storage Gen2 flyttas eller omvandlas innan analysen kan utföras. Mer information om priser finns i [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage).
 
-Dessutom förbättrar funktioner som det [hierarkiska namnområdet](data-lake-storage-namespace.md) avsevärt prestanda för många analysjobb. Den här förbättringen av prestanda innebär att du behöver mindre beräkningskraft för att bearbeta samma mängd data, vilket resulterar i en lägre total ägandekostnad (TCO) för det end-to-end-analysjobbet.
+Dessutom förbättrar funktioner som det [hierarkiska namn området](data-lake-storage-namespace.md) avsevärt den övergripande prestandan för många analys jobb. Den här förbättringen av prestanda innebär att du behöver mindre beräknings kraft för att bearbeta samma data mängd, vilket resulterar i en lägre totalkostnad (TCO) för det slutliga analys jobbet.
 
 ### <a name="one-service-multiple-concepts"></a>En tjänst, flera koncept
 
-Data Lake Storage Gen2 är en ytterligare funktion för stordataanalys, byggd ovanpå Azure Blob-lagring. Även om det finns många fördelar med att utnyttja befintliga plattformskomponenter i Blobbar för att skapa och driva datasjöar för analys, leder det till flera begrepp som beskriver samma, delade saker.
+Data Lake Storage Gen2 är en ytterligare funktion för stor data analys som bygger på Azure Blob Storage. Även om det finns många fördelar med att dra nytta av befintliga plattforms komponenter i blobbar för att skapa och använda data sjöar för analys, leder det till flera koncept som beskriver samma delade saker.
 
-Följande är motsvarande entiteter, som beskrivs av olika begrepp. Om inte annat anges är dessa enheter direkt synonyma:
+Följande är motsvarande entiteter, enligt beskrivningen i olika koncept. Om inget annat anges är dessa entiteter direkt synonyma:
 
-| Begrepp                                | Organisation på högsta nivå | Organisation på lägre nivå                                            | Databehållare |
+| Begrepp                                | Organisation på högsta nivå | Organisation på lägre nivå                                            | Data behållare |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
-| Blobbar – Lagring av objekt för allmänt bruk | Container              | Virtuell katalog (endast SDK – ger inte atommanipulering) | Blob           |
+| Blobbar – lagring av generell användnings objekt | Container              | Virtuell katalog (endast SDK – ger inte atomiska modifieringar) | Blob           |
 | Azure Data Lake Storage Gen2 – Analytics Storage          | Container            | Katalog                                                           | Fil           |
 
-## <a name="supported-blob-storage-features"></a>Blob-lagringsfunktioner som stöds
+## <a name="supported-blob-storage-features"></a>Blob Storage-funktioner som stöds
 
-Blob lagringsfunktioner som [diagnostikloggning,](../common/storage-analytics-logging.md) [åtkomstnivåer](storage-blob-storage-tiers.md)och [Blob Storage livscykelhanteringsprinciper](storage-lifecycle-management-concepts.md) fungerar nu med konton som har ett hierarkiskt namnområde. Därför kan du aktivera hierarkiska namnområden på dina Blob-lagringskonton utan att förlora åtkomsten till dessa funktioner. 
+Blob Storage-funktioner som [diagnostisk loggning](../common/storage-analytics-logging.md), [åtkomst nivåer](storage-blob-storage-tiers.md)och [Blob Storage principer för livs cykel hantering](storage-lifecycle-management-concepts.md) fungerar nu med konton som har ett hierarkiskt namn område. Därför kan du aktivera hierarkiska namn rymder på Blob Storage-kontona utan att förlora åtkomsten till dessa funktioner. 
 
-En lista över Blob-lagringsfunktioner som stöds finns [i Blob Storage-funktioner som är tillgängliga i Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+En lista över stödda Blob Storage-funktioner finns i [Blob Storage funktioner som är tillgängliga i Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
 
-## <a name="supported-azure-service-integrations"></a>Integreringar av Azure-tjänster som stöds
+## <a name="supported-azure-service-integrations"></a>Azure Service-integration som stöds
 
-Gen2 för DataSjölagring stöder flera Azure-tjänster som du kan använda för att använda data, utföra analyser och skapa visuella representationer. En lista över Azure-tjänster som stöds finns i [Azure-tjänster som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+Data Lake Storage Gen2 stöder flera Azure-tjänster som du kan använda för att mata in data, utföra analyser och skapa visuella representationer. En lista över Azure-tjänster som stöds finns i [Azure-tjänster som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
-## <a name="supported-open-source-platforms"></a>Plattformar med öppen källkod som stöds
+## <a name="supported-open-source-platforms"></a>Plattformar för öppen källkod som stöds
 
-Flera plattformar med öppen källkod stöder Data Lake Storage Gen2. En fullständig lista finns i [Plattformar med öppen källkod som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
+Flera plattformar med öppen källkod har stöd för Data Lake Storage Gen2. En fullständig lista finns i [plattformar med öppen källkod som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
 
 ## <a name="see-also"></a>Se även
 

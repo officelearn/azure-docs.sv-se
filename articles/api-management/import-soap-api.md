@@ -10,18 +10,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 359b90cc434dad04fc0296c54fcc762f3a75062d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7b1fd34824bec9641edc94ce278fa21a1b57b2c0
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74107656"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202748"
 ---
 # <a name="import-soap-api"></a>Importera SOAP API
 
-Den här artikeln visar hur du importerar en standard XML-representation av ett SOAP API. Artikeln beskriver också hur du testar APIM-API.
+Den här artikeln visar hur du importerar en standard XML-representation av ett SOAP API. Artikeln visar också hur du testar API Management API.
 
 I den här artikeln kan du se hur du:
 
@@ -38,7 +38,7 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
 
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importera och publicera ett serverdels-API
 
-1. Välj **API: er** under **API-HANTERING**.
+1. Gå till din API Management-tjänst i Azure Portal och välj **API: er** på menyn.
 2. Välj **WSDL** från listan **Lägg till ett nytt API**.
 
     ![SOAP API](./media/import-soap-api/wsdl-api.png)
@@ -49,18 +49,19 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
 5. Tryck tabb.
 
     Följande fält fyllas i med informationen från SOAP API:t: visningsnamn, namn, beskrivning.
-6. Lägg till ett API URL-suffix. Suffixet är ett namn som identifierar det här specifika API:et i den här APIM-instansen. Det måste vara unikt i den här APIM-instansen.
-9. Du kan publicera API:et genom att associera det med en produkt. I det här fallet används den *obegränsade* produkten.  Om du vill att API:et ska publiceras och vara tillgänglig för utvecklare, lägger du till det till en produkt. Du kan göra det vid API-skapandet eller ställa in det senare.
+6. Lägg till ett API URL-suffix. Suffixet är ett namn som identifierar det här specifika API:et i den här API Management-instansen. Det måste vara unikt i den här API Management-instansen.
+7. Du kan publicera API:et genom att associera det med en produkt. I det här fallet används den *obegränsade* produkten.  Om du vill att API:et ska publiceras och vara tillgänglig för utvecklare, lägger du till det till en produkt. Du kan göra det vid API-skapandet eller ställa in det senare.
 
-    Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. Utvecklare måste först prenumerera på en produkt för att få åtkomst till API:n. När de prenumererar få de en prenumerationsnyckel som går att använda till alla API:er i produkten. Om du har skapat APIM-instansen är du redan administratör, så du prenumererar på alla produkter som standard.
+    Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. Utvecklare måste först prenumerera på en produkt för att få åtkomst till API:n. När de prenumererar få de en prenumerationsnyckel som går att använda till alla API:er i produkten. Om du har skapat API Management-instansen är du redan administratör, så du prenumererar på alla produkter som standard.
 
     Som standard medföljer två exempelprodukter varje API Management-instans:
 
     * **Starter**
-    * **Unlimited**   
-10. Välj **Skapa**.
+    * **Obegränsat**   
+8. Ange andra API-inställningar. Du kan ange värden när du skapar eller konfigurerar dem senare genom att gå till fliken **Inställningar** . Inställningarna beskrivs i själv studie kursen [Importera och publicera din första API](import-and-publish.md#-import-and-publish-a-backend-api) .
+9. Välj **Skapa**.
 
-### <a name="test-the-new-api-in-the-administrative-portal"></a>Testa det nya API:et i den administrativa portalen
+### <a name="test-the-new-api-in-the-administrative-portal"></a>Testa det nya API: et i administrations portalen
 
 Åtgärder kan anropas direkt från administratörsportalen, vilket ger ett bekvämt sätt att visa och testa åtgärderna för ett API.  
 
@@ -68,7 +69,7 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
 2. Tryck på fliken **Test**.
 3. Välj någon åtgärd.
 
-    Sidan visar fält för frågeparametrar och fält för sidhuvudena. Ett av huvudena är Ocp-Apim-prenumeration-Key, för prenumerationsnyckeln till den produkt som är associerad med det här API:et. Om du skapade APIM-instansen är du redan administratör, vilket innebär att nyckeln fylls i automatiskt. 
+    Sidan visar fält för frågeparametrar och fält för sidhuvudena. Ett av huvudena är Ocp-Apim-prenumeration-Key, för prenumerationsnyckeln till den produkt som är associerad med det här API:et. Om du skapade API Management-instansen är du redan administratör, vilket innebär att nyckeln fylls i automatiskt. 
 1. Tryck på **Skicka**.
 
     Serverdelen svarar med **200 OK** och några data.

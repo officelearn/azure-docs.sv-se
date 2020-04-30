@@ -1,38 +1,38 @@
 ---
-title: Resurser som stöds för Azure Red Hat OpenShift
-description: Förstå vilka Azure-regioner och storlekar för virtuella datorer som stöds av Microsoft Azure Red Hat OpenShift.
+title: Resurser som stöds för Azure Red Hat OpenShift 3,11
+description: Förstå vilka Azure-regioner och virtuella dator storlekar som stöds av Microsoft Azure Red Hat OpenShift.
 author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 1b794852390141d31a3218a1a434c21133db914c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 38203cede755d776ba9142ad16e1bea1fd1637a6
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79243671"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203683"
 ---
-# <a name="azure-red-hat-openshift-resources"></a>OpenShift-resurser för Azure Red Hat
+# <a name="azure-red-hat-openshift-resources"></a>Resurser för att OpenShift i Azure Red Hat
 
-I det här avsnittet visas azure-regioner och storlekar för virtuella datorer som stöds av Tjänsten Microsoft Azure Red Hat OpenShift.
+I det här avsnittet visas de Azure-regioner och storlekar för virtuella datorer som stöds av Microsoft Azure Red Hat OpenShift 3,11-tjänsten.
 
 ## <a name="azure-regions"></a>Azure-regioner
 
-Se [Produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all) för en aktuell lista över regioner där du kan distribuera Azure Red Hat OpenShift-kluster.
+Se [tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all) för en aktuell lista över regioner där du kan distribuera Azure Red Hat OpenShift-kluster.
 
 ## <a name="virtual-machine-sizes"></a>Storlekar för virtuella datorer
 
-Här är de storlekar som stöds för virtuella datorer som du kan ange för beräkningsnoderna i Azure Red Hat OpenShift-klustret.
+Här följer de storlekar för virtuella datorer som stöds som du kan ange för datornoderna i ditt Azure Red Hat OpenShift-kluster.
 
 > [!Important]
-> Varje virtuell dator har olika antal enheter som kan anslutas. Detta kanske inte är lika omedelbart klart som minne eller CPU-storlek.
-> Alla vm-storlekar är inte tillgängliga i alla regioner. Även om API:et stöder den storlek du anger kan du få ett felmeddelande om storleken inte är tillgänglig i den region som du anger.
-> Se [Aktuell lista över vm-storlekar per region som stöds](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) för mer information.
+> Varje virtuell dator har ett annat antal enheter som kan anslutas. Detta kan inte vara så långt klart som minne eller CPU-storlek.
+> Alla VM-storlekar är inte tillgängliga i alla regioner. Även om API: et stöder den storlek som du anger kan du få ett fel meddelande om storleken inte är tillgänglig i den region som du anger.
+> Se [aktuell lista över VM-storlekar som stöds per region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) för mer information.
 
-## <a name="compute-node-sizes"></a>Beräkna nodstorlekar
+## <a name="compute-node-sizes"></a>Compute Node-storlekar
 
-Följande beräkningsnodstorlekar stöds av Azure Red Hat OpenShift REST API:
+Följande storlekar på Compute-noder stöds av den här OpenShift-REST API i Azure Red Hat:
 
 |Storlek|Virtuell processor|RAM|
 |-|-|-|
@@ -46,13 +46,13 @@ Följande beräkningsnodstorlekar stöds av Azure Red Hat OpenShift REST API:
 |Standard E16s v3|16|128 GB|
 |Standard E32s v3|32|256 GB|
 |-|-|-|
-|Standard F8s v2|8|16 GB|
-|Standard F16s v2|16|32 GB|
+|Standard F8-enheter v2|8|16 GB|
+|Standard F16-enheter v2|16|32 GB|
 |Standard F32s v2|32|64 GB|
 
-## <a name="master-node-sizes"></a>Storlek på huvudnod
+## <a name="master-node-sizes"></a>Huvud Node-storlekar
 
-Följande huvud-/infrastrukturnodstorlekar stöds av AZURE Red Hat OpenShift REST API:
+Följande Node-och Infrastructure Node-storlekar stöds av Azure Red Hat OpenShift-REST API:
 
 |Storlek|Virtuell processor|RAM|
 |-|-|-|
@@ -63,4 +63,4 @@ Följande huvud-/infrastrukturnodstorlekar stöds av AZURE Red Hat OpenShift RES
 
 ## <a name="next-steps"></a>Nästa steg
 
-Prova självstudien [Skapa en Azure Red Hat OpenShift-kluster.](tutorial-create-cluster.md)
+Prova själv studie kursen [skapa en Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md) .

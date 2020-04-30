@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/23/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a816f2235fa5356f2300255ec9d2fb2b315acf7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 0fa43eae906c918cad940b8f5efafeea07020098
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190324"
+ms.locfileid: "82201643"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets dag för automatisk användar etablering
 
@@ -87,7 +87,7 @@ Innan du påbörjar din arbets dags integrering kontrollerar du kraven nedan och
 
 I det här avsnittet beskrivs följande aspekter av planeringen:
 
-* [Krav](#prerequisites)
+* [Förutsättningar](#prerequisites)
 * [Välja etablerings anslutnings program som ska distribueras](#selecting-provisioning-connector-apps-to-deploy)
 * [Planera distribution av Azure AD Connect etablerings agent](#planning-deployment-of-azure-ad-connect-provisioning-agent)
 * [Integrera med flera Active Directory domäner](#integrating-with-multiple-active-directory-domains)
@@ -458,11 +458,11 @@ I det här steget upprättar vi anslutningen till arbets dagar och Active Direct
 
    * **Lösen ord för arbets dag –** Ange lösen ordet för system kontot för Workday-integrering
 
-   * **URL för Workday webb tjänster-API –** Ange URL: en till slut punkten för webb tjänster för arbets dag för din klient. Det här värdet bör se ut https://wd3-impl-services1.workday.com/ccx/service/contoso4så här:, där *contoso4* ersätts med rätt klient namn och *WD3-implementering* ersätts med rätt miljö sträng.
+   * **URL för Workday webb tjänster-API –** Ange URL: en till slut punkten för webb tjänster för arbets dag för din klient. Det här värdet bör se ut `https://wd3-impl-services1.workday.com/ccx/service/contoso4`så här:, där *contoso4* ersätts med rätt klient namn och *WD3-implementering* ersätts med rätt miljö sträng.
 
      > [!NOTE]
      > Som standard använder appen Workday-webbtjänster (WWS) v 21.1 om ingen versions information anges i URL: en. Använd URL-formatet om du vill använda en viss WWS API-version:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > Exempel: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0 <br>
+     > Exempel: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0` <br>
      
      > [!NOTE]
      > Om du använder en WWS API v-30.0 och senare, innan du aktiverar etablerings jobbet, uppdaterar du **XPath API-uttryck** under **attribut mappning-> avancerade alternativ-> redigera attributlistan för arbets dagar** som refererar till avsnittet [Hantera din konfiguration och ditt](#managing-your-configuration) Workday- [attribut referens](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30).  
@@ -621,11 +621,11 @@ I följande avsnitt beskrivs hur du konfigurerar användar etablering från Work
 
    * **Lösen ord för arbets dag –** Ange lösen ordet för system kontot för Workday-integrering
 
-   * **URL för Workday webb tjänster-API –** Ange URL: en till slut punkten för webb tjänster för arbets dag för din klient. Det här värdet bör se ut https://wd3-impl-services1.workday.com/ccx/service/contoso4så här:, där *contoso4* ersätts med rätt klient namn och *WD3-implementering* ersätts med rätt miljö sträng. Om den här URL: en inte är känd kan du samar beta med din prenumerations partner eller support representant för din arbets plats för att fastställa rätt URL som ska användas.
+   * **URL för Workday webb tjänster-API –** Ange URL: en till slut punkten för webb tjänster för arbets dag för din klient. Det här värdet bör se ut `https://wd3-impl-services1.workday.com/ccx/service/contoso4`så här:, där *contoso4* ersätts med rätt klient namn och *WD3-implementering* ersätts med rätt miljö sträng. Om den här URL: en inte är känd kan du samar beta med din prenumerations partner eller support representant för din arbets plats för att fastställa rätt URL som ska användas.
 
      > [!NOTE]
      > Som standard använder appen Workday Web Services v-21.1 om ingen versions information anges i URL: en. Använd URL-formatet om du vill använda en viss API-version för Workday-webb tjänster:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
-     > Exempel: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0
+     > Exempel: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources/v31.0`
 
 
    * **E-postavisering –** Ange din e-postadress och markera kryss rutan "skicka e-post om fel inträffar".
@@ -723,7 +723,7 @@ Följ de här anvisningarna för att konfigurera tillbakaskrivning av användare
 
    * **Administratörs lösen ord –** Ange lösen ordet för system kontot för Workday-integrering
 
-   * **Klient-URL –** Ange URL: en till slut punkten för webb tjänster för arbets dag för din klient. Det här värdet bör se ut https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resourcesså här:, där *contoso4* ersätts med rätt klient namn och *WD3-implementering* ersätts med rätt miljö sträng (om det behövs).
+   * **Klient-URL –** Ange URL: en till slut punkten för webb tjänster för arbets dag för din klient. Det här värdet bör se ut `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`så här:, där *contoso4* ersätts med rätt klient namn och *WD3-implementering* ersätts med rätt miljö sträng (om det behövs).
 
    * **E-postavisering –** Ange din e-postadress och markera kryss rutan "skicka e-post om fel inträffar".
 

@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: bf4039b661ac7e0ee9630b86b9e15d1388991431
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e6195409a08498527ec40a2ddd2f909a092c9d19
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74108500"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202833"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importera en API-app som ett API
 
@@ -39,7 +39,7 @@ I den här artikeln kan du se hur du:
 
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importera och publicera ett serverdels-API
 
-1. Välj **API: er** under **API-HANTERING**.
+1. Gå till din API Management-tjänst i Azure Portal och välj **API: er** på menyn.
 2. Välj **API-app** från listan **Lägg till ett nytt API**.
 
     ![API-app](./media/import-api-app-as-api/api-app.png)
@@ -55,10 +55,11 @@ I den här artikeln kan du se hur du:
     Som standard medföljer två exempelprodukter varje API Management-instans:
 
     * **Starter**
-    * **Unlimited**   
-7. Välj **Skapa**.
+    * **Obegränsat**   
+7. Ange andra API-inställningar. Du kan ange värden när du skapar eller konfigurerar dem senare genom att gå till fliken **Inställningar** . Inställningarna beskrivs i själv studie kursen [Importera och publicera din första API](import-and-publish.md#-import-and-publish-a-backend-api) .
+8. Välj **Skapa**.
 
-## <a name="test-the-new-api-in-the-azure-portal"></a>Testa det nya API:et i Azure-portalen
+## <a name="test-the-new-api-in-the-azure-portal"></a>Testa det nya API: et i Azure Portal
 
 Du kan anropa åtgärder direkt från Azure Portal, vilket är ett enkelt sätt att visa och testa åtgärderna i ett API.  
 

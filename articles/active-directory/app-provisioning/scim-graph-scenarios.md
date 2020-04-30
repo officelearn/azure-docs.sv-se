@@ -1,31 +1,26 @@
 ---
-title: Använda SCIM, Microsoft Graph och Azure AD Provisioning-tjänsten för att etablera användare och förbättra ditt program med de data som krävs | Microsoft Docs
+title: Använd SCIM, Microsoft Graph och Azure AD för att etablera användare och utöka appar med data
 description: Använda SCIM och Microsoft Graph tillsammans för att tillhandahålla användare och förbättra ditt program med de data som krävs.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 04/26/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79ffe0474fcfeb28b49f5c2504ede86cd38459d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ceba22e9289e0a10211ee26a7758238a8b1f06c7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181842"
+ms.locfileid: "82201694"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Använda SCIM och Microsoft Graph tillsammans för att etablera användare och förbättra ditt program med de data som krävs
 
-**Mål grupp:** Det här dokumentet riktar sig mot utvecklare som skapar program som ska integreras med Azure AD. För andra som vill använda program som redan är integrerade med Azure AD, till exempel zoom, ServiceNow och DropBox, kan du hoppa över detta och granska programspecifika [själv studie kurser](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) eller granska [hur etablerings tjänsten fungerar](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works).
+**Mål grupp:** Den här artikeln är riktad mot utvecklare som skapar program som ska integreras med Azure Active Directory (Azure AD). Om du vill använda program som redan är integrerade med Azure AD, till exempel zoom, ServiceNow och DropBox, kan du hoppa över den här artikeln och granska programspecifika [själv studie kurser](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) eller granska [hur etablerings tjänsten fungerar](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works).
 
 **Vanliga scenarier**
 
@@ -46,7 +41,6 @@ I dag kan IT-administratörer etablera användare genom att manuellt skapa anvä
 **Rekommendation**: 
 * Om dina kunder använder olika IDP: er och du inte vill underhålla en Sync-motor för att integrera med var och en, stöder en SCIM-kompatibel [/Users](https://aka.ms/scimreferencecode) -slutpunkt. Kunderna kan enkelt använda slut punkten för att integrera med Azure AD Provisioning-tjänsten och automatiskt skapa användar konton när de behöver åtkomst. Du kan bygga slut punkten en gång och den är kompatibel med alla IDP: er. Kolla in exempel förfrågan nedan för hur en användare skulle skapas med SCIM.
 * Om du behöver användar data som finns på användarobjektet i Azure AD och andra data från Microsoft, kan du skapa en SCIM-slutpunkt för användar etablering och anropa den Microsoft Graph för att hämta resten av data. 
-
 
 ```json
 POST /Users

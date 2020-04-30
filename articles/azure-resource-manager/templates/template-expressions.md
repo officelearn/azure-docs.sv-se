@@ -1,20 +1,20 @@
 ---
-title: Mallsyntax och uttryck
-description: Beskriver den deklarativa JSON-syntaxen för Azure Resource Manager-mallar.
+title: Mallens syntax och uttryck
+description: Beskriver deklarativ JSON-syntax för Azure Resource Manager mallar.
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.openlocfilehash: 172838fa24709eb60fbcb6a68277f44bbd42f01e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: baddedae1b918502e579d2ed230e0779960f45e7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460117"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203836"
 ---
-# <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Syntax och uttryck i Azure Resource Manager-mallar
+# <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Syntax och uttryck i Azure Resource Manager mallar
 
-Den grundläggande syntaxen för mallen är JSON. Du kan dock använda uttryck för att utöka JSON-värdena som är tillgängliga i mallen.  Uttryck börjar och slutar med hakparenteser: `[` respektive `]`. Uttryckets värde utvärderas när mallen distribueras. Ett uttryck kan returnera en sträng, ett heltal, ett booleskt värde, en matris eller ett objekt.
+Den grundläggande syntaxen för mallen är JSON. Du kan dock använda uttryck för att utöka de JSON-värden som är tillgängliga i mallen.  Uttryck börjar och slutar med hakparenteser: `[` respektive `]`. Uttryckets värde utvärderas när mallen distribueras. Ett uttryck kan returnera en sträng, ett heltal, ett booleskt värde, en matris eller ett objekt.
 
-Ett malluttryck får inte överstiga 24 576 tecken.
+Ett mall uttryck får inte överstiga 24 576 tecken.
 
 ## <a name="use-functions"></a>Använda funktioner
 
@@ -29,41 +29,41 @@ Azure Resource Manager innehåller [funktioner](template-functions.md) som du ka
 },
 ```
 
-I uttrycket anropar syntaxen `resourceGroup()` en av de funktioner som Resource Manager tillhandahåller för användning i en mall. I det här fallet är det [resursgruppsfunktionen.](template-functions-resource.md#resourcegroup) Precis som i JavaScript formateras funktionsanrop som `functionName(arg1,arg2,arg3)`. Syntaxen `.location` hämtar en egenskap från objektet som returneras av den funktionen.
+I uttrycket anropar syntaxen `resourceGroup()` en av de funktioner som Resource Manager tillhandahåller för användning i en mall. I det här fallet är det [resourceGroup](template-functions-resource.md#resourcegroup) -funktionen. Precis som i Java Script är funktions anrop formaterade `functionName(arg1,arg2,arg3)`som. Syntaxen `.location` hämtar en egenskap från det objekt som returnerades av funktionen.
 
-Mallfunktioner och deras parametrar är skiftlägesokänsliga. Resource Manager matchar till exempel **variabler('var1')** och **VARIABLES('VAR1')** som samma. När funktionen utvärderas, om inte funktionen uttryckligen ändrar skiftläge (t.ex. toUpper eller toLower), bevarar funktionen ärendet. Vissa resurstyper kan ha ärendekrav som är åtskilda från hur funktioner utvärderas.
+Mallens funktioner och deras parametrar är Skift läges känsliga. Resource Manager matchar till exempel **variabler (' var1 ')** och **variabler (' var1 ')** som samma. När den utvärderas, om inte funktionen uttryckligen ändrar Skift läge (t. ex. toUpper eller toLower), bevarar funktionen det fallet. Vissa resurs typer kan ha fall krav som är skilda från hur funktionerna utvärderas.
 
-Om du vill skicka ett strängvärde som en parameter till en funktion använder du enstaka citattecken.
+Om du vill skicka ett sträng värde som en parameter till en funktion använder du enkla citat tecken.
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
 
-De flesta funktioner fungerar på samma sätt oavsett om de distribueras till en resursgrupp, prenumeration, hanteringsgrupp eller klient. Följande funktioner har begränsningar som baseras på omfattningen:
+De flesta funktioner fungerar på samma sätt som när de distribueras till en resurs grupp, prenumeration, hanterings grupp eller klient organisation. Följande funktioner har begränsningar baserat på omfånget:
 
-* [resourceGroup](template-functions-resource.md#resourcegroup) - kan endast användas i distributioner till en resursgrupp.
-* [resourceId](template-functions-resource.md#resourceid) - kan användas i alla scope, men de giltiga parametrarna ändras beroende på omfånget.
-* [prenumeration](template-functions-resource.md#subscription) - kan endast användas i distributioner till en resursgrupp eller prenumeration.
+* [resourceGroup](template-functions-resource.md#resourcegroup) -kan bara användas i distributioner till en resurs grupp.
+* [resourceId](template-functions-resource.md#resourceid) -kan användas i valfri omfattning, men giltiga parametrar ändras beroende på omfattningen.
+* [prenumeration](template-functions-resource.md#subscription) – kan bara användas i distributioner till en resurs grupp eller prenumeration.
 
-## <a name="escape-characters"></a>Escape tecken
+## <a name="escape-characters"></a>Escape-tecken
 
-Om du vill att en bokstavlig sträng ska börja med en vänster hakparentes `[` och sluta med en högerparentes `]`, men inte låta tolka den som ett uttryck, lägger du till en extra hakparentes för att starta strängen med `[[`. Till exempel variabeln:
+Om du vill att en litteral sträng ska börja med `[` en vänster hak paren tes `]`och sluta med en högerparentes, men inte ha den tolkas som ett uttryck, lägger du till en `[[`extra parentes för att starta strängen med. Till exempel variabeln:
 
 ```json
 "demoVar1": "[[test value]"
 ```
 
-Bestämmer `[test value]`till .
+Matchar `[test value]`.
 
-Men om den bokstavliga strängen inte slutar med en hakparentes ska du inte dra ut den första hakparentesen. Till exempel variabeln:
+Om den litterala strängen inte slutar med en hak paren tes, ska du inte undanta den första parentesen. Till exempel variabeln:
 
 ```json
 "demoVar2": "[test] value"
 ```
 
-Bestämmer `[test] value`till .
+Matchar `[test] value`.
 
-Om du vill undkomma dubbla citattecken i ett uttryck, till exempel lägga till ett JSON-objekt i mallen, använder du omvänt snedstreck.
+Om du vill undanta dubbla citat tecken i ett uttryck, till exempel lägga till ett JSON-objekt i mallen, använder du omvänt snedstreck.
 
 ```json
 "tags": {
@@ -71,7 +71,7 @@ Om du vill undkomma dubbla citattecken i ett uttryck, till exempel lägga till e
 },
 ```
 
-När parametervärden överförs beror användningen av escape-tecken på var parametervärdet anges. Om du anger ett standardvärde i mallen behöver du den extra vänstra hakparentesen.
+När du skickar parameter värden beror användningen av escape-tecken på var parametervärdet har angetts. Om du anger ett standardvärde i mallen behöver du den extra vänster hak paren tes.
 
 ```json
 {
@@ -93,9 +93,9 @@ När parametervärden överförs beror användningen av escape-tecken på var pa
 }
 ```
 
-Om du använder standardvärdet returneras `[test value]`mallen .
+Om du använder standardvärdet returneras `[test value]`mallen.
 
-Men om du skickar in ett parametervärde via kommandoraden tolkas tecknen bokstavligt. Distribuera den tidigare mallen med:
+Men om du skickar ett parameter värde via kommando raden tolkas tecknen bokstavligen. Distribuera den tidigare mallen med:
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azuredeploy.json -demoParam1 "[[test value]"
@@ -107,7 +107,7 @@ Returnerar `[[test value]`. Använd i stället:
 New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azuredeploy.json -demoParam1 "[test value]"
 ```
 
-Samma formatering gäller när värden passerar från en parameterfil. Karaktärerna tolkas bokstavligt. När följande parameterfil används med föregående `[test value]`mall returneras:
+Samma formatering gäller när du skickar värden i från en parameter fil. Tecknen tolkas bokstavligen. När den används med föregående mall returnerar `[test value]`följande parameter fil:
 
 ```json
 {
@@ -123,7 +123,7 @@ Samma formatering gäller när värden passerar från en parameterfil. Karaktär
 
 ## <a name="null-values"></a>Null-värden
 
-Om du vill ange att **null** en egenskap ska null ska vara null eller **[json('null')]**. [Json-funktionen](template-functions-array.md#json) returnerar ett tomt `null` objekt när du anger som parameter. I båda fallen behandlar Resource Manager-mallar det som om egenskapen inte finns.
+Om du vill ange en egenskap till null kan du använda **Null** eller **[JSON (null)]**. [JSON-funktionen](template-functions-object.md#json) returnerar ett tomt objekt när du anger `null` som parameter. I båda fallen behandlar Resource Manager-mallar den som om egenskapen inte finns.
 
 ```json
 "stringValue": null,
@@ -132,5 +132,5 @@ Om du vill ange att **null** en egenskap ska null ska vara null eller **[json('n
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Den fullständiga listan över mallfunktioner finns i [Mallfunktionerna](template-functions.md)i Azure Resource Manager .
-* Mer information om mallfiler finns [i Förstå strukturen och syntaxen för Azure Resource Manager-mallar](template-syntax.md).
+* En fullständig lista över mall funktioner finns i [Azure Resource Manager Template Functions](template-functions.md).
+* Mer information om mallfiler finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](template-syntax.md).

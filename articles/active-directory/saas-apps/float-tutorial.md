@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/23/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05526a82ed5fc53a5c25e4c87cab1fa56a814645
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: b057f817fb0c30e45c08f8d708441bd52122af7b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82172597"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82206756"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-float"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Float
 
@@ -83,28 +83,13 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, anger du värdena för följande fält:
 
-    a. Skriv någon av följande URL: er i text rutan **identifierare** :
+    a. Skriv följande URL i text rutan **identifierare** : `https://app.float.com/sso/metadata`.
 
-    | |
-    |--|
-    | `https://app.float.com/sso/metadata`|
-    | `https://app.develop.float.com/sso/metadata`|
-
-    b. I text rutan **svars-URL** skriver du en URL med något av följande mönster:
-
-    | |
-    |--|
-    | `https://<hostname>.float.com/sso/azuread`|
-    | `https://<hostname>.develop.float.com/sso/azuread`|
+    b. I text rutan **svars-URL** anger du en URL med hjälp `https://<hostname>.float.com/sso/azuread`av mönstret.
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    I text rutan **inloggnings-URL** skriver du en URL med något av följande mönster:
-
-    | |
-    |--|
-    | `https://<hostname>.float.com/login`|
-    | `https://<hostname>.develop.float.com/login`|
+    Skriv en URL i mönstret `https://<hostname>.float.com/login`i text rutan **inloggnings-URL** .
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [flytt ALS klient support teamet](mailto:support@float.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

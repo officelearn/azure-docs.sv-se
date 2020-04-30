@@ -1,11 +1,11 @@
 ---
-title: Massåterställning borttagna användare i Azure Active Directory-portalen | Microsoft-dokument
-description: Återställa borttagna användare i grupp i Azure AD-administrationscentret i Azure Active Directory
+title: Mass återställning av borttagna användare i Azure Active Directory Portal | Microsoft Docs
+description: Återställa borttagna användare i grupp i Azure AD administrations Center i Azure Active Directory
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/16/2020
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,50 +13,71 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f75fe224491c2853f819a45db678e87849dc72d1
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 11f35c7615135f5aa6c63d5d05898d139df61d0d
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532735"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203322"
 ---
-# <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Massåterställning borttagna användare i Azure Active Directory
+# <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Mass återställning av borttagna användare i Azure Active Directory
 
-Azure Active Directory (Azure AD) stöder massanvändare skapa och ta bort åtgärder, massinbjudan för gäster och stöder nedladdning av listor över användare, grupper och gruppmedlemmar.
+Azure Active Directory (Azure AD) stöder Mass återställnings åtgärder och stöder nedladdning av listor över användare, grupper och grupp medlemmar.
 
-## <a name="to-bulk-restore-users"></a>Till massåterställning användare
+## <a name="understand-the-csv-template"></a>Förstå CSV-mallen
 
-1. [Logga in på din Azure AD-organisation](https://aad.portal.azure.com) med ett konto som är användaradministratör i Azure AD-organisationen.
-1. I Azure AD väljer du **Användare** > **som har tagits bort**.
-1. På sidan **Borttagna användare** väljer du **Massåterställning** för att ladda upp en giltig CSV-fil med egenskaper för användarna som ska återställas.
+Hämta och fyll i CSV-mallen för att hjälpa dig att återställa Azure AD-användare i bulk. Den CSV-mall som du hämtar kan se ut som i det här exemplet:
 
-   ![Markera kommandot massåterställning på sidan Borttagna användare](./media/users-bulk-restore/bulk-restore.png)
+![Kalkyl blad för uppladdning och vidarekoppling förklarar syfte och värden för varje rad och kolumn](./media/users-bulk-restore/understand-template.png)
 
-1. Öppna CSV-filen och lägg till en rad för varje användare som du vill återställa. Det enda värde som krävs är **ObjectID**. Spara sedan filen.
+### <a name="csv-template-structure"></a>Struktur för CSV-mall
 
-   ![Välj en lokal CSV-fil där du listar de användare du vill lägga till](./media/users-bulk-restore/upload-button.png)
+Raderna i en Hämtad CSV-mall är följande:
 
-1. Bläddra till filen under **Ladda upp csv-filen**på sidan **Massåterställning.** När du markerar filen och klickar på **Skicka**startar valideringen av CSV-filen.
-1. När filinnehållet har **validerats visas Filen uppladdad**. Om det finns fel måste du åtgärda dem innan du kan skicka jobbet.
-1. När filen godkänns väljer du **Skicka** för att starta azure-massåtgärden som återställer användarna.
-1. När återställningen är klar visas ett meddelande om att massåtgärden lyckades.
+- **Versions nummer**: den första raden som innehåller versions numret måste inkluderas i överförings-CSV-filen.
+- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt*&gt;. Till exempel `Object ID [objectId] Required`. Vissa äldre versioner av mallen kan ha små variationer.
+- **Exempel rad**: vi har inkluderat i mallen en rad exempel på acceptabla värden för varje kolumn. Du måste ta bort exempel raden och ersätta den med dina egna poster.
 
-Om det finns fel kan du hämta och visa resultatfilen på sidan **Massåtgärdsresultat.** Filen innehåller orsaken till varje fel.
+### <a name="additional-guidance"></a>Mer information
+
+- De två första raderna i uppladdnings mal len får inte tas bort eller ändras, eller så går det inte att bearbeta överföringen.
+- De obligatoriska kolumnerna visas först.
+- Vi rekommenderar inte att du lägger till nya kolumner i mallen. Eventuella ytterligare kolumner som du lägger till ignoreras och bearbetas inte.
+- Vi rekommenderar att du laddar ned den senaste versionen av CSV-mallen så ofta som möjligt.
+
+## <a name="to-bulk-restore-users"></a>För Mass återställning av användare
+
+1. [Logga in på din Azure AD-organisation](https://aad.portal.azure.com) med ett konto som är en användar administratör i Azure AD-organisationen.
+1. I Azure AD väljer **du användare** > **borttagna**.
+1. På sidan **borttagna användare** väljer du **Mass återställning** för att ladda upp en giltig CSV-fil med egenskaper för de användare som ska återställas.
+
+   ![Välj kommandot Mass återställning på sidan borttagna användare](./media/users-bulk-restore/bulk-restore.png)
+
+1. Öppna CSV-mallen och Lägg till en rad för varje användare som du vill återställa. Det enda obligatoriska värdet är **ObjectID**. Spara sedan filen.
+
+   ![Välj en lokal CSV-fil där du visar de användare som du vill lägga till](./media/users-bulk-restore/upload-button.png)
+
+1. På sidan **Mass återställning** , under **överför din CSV-fil**, bläddrar du till filen. När du väljer filen och klickar på **Skicka**, startar verifieringen av CSV-filen.
+1. När fil innehållet verifieras visas **filen har laddats upp**. Om det finns fel måste du åtgärda dem innan du kan skicka jobbet.
+1. När du har verifierat filen väljer du **Skicka** för att starta den Azure Mass åtgärd som återställer användarna.
+1. När återställningen är klar visas ett meddelande om att Mass åtgärden lyckades.
+
+Om det finns fel kan du hämta och Visa resultat filen på resultat sidan för **Mass åtgärder** . Filen innehåller orsaken för varje fel.
 
 ## <a name="check-status"></a>Kontrollera status
 
-Du kan se status för alla väntande massbegäranden på sidan **Massåtgärdsresultat.**
+Du kan se statusen för alla väntande Mass förfrågningar på resultat sidan för **Mass åtgärder** .
 
 [![](media/users-bulk-restore/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-restore/bulk-center.png#lightbox)
 
-Därefter kan du kontrollera att de användare som du har återställt finns i Azure AD-organisationen antingen i Azure-portalen eller med PowerShell.
+Sedan kan du kontrol lera att de användare som du har återställt finns i Azure AD-organisationen antingen i Azure Portal eller genom att använda PowerShell.
 
-## <a name="view-restored-users-in-the-azure-portal"></a>Visa återställda användare i Azure-portalen
+## <a name="view-restored-users-in-the-azure-portal"></a>Visa återställda användare i Azure Portal
 
-1. [Logga in på Azure AD-administrationscentret](https://aad.portal.azure.com) med ett konto som är användaradministratör i organisationen.
-1. Välj Azure Active **Directory**i navigeringsfönstret .
+1. [Logga in på administrations centret för Azure AD](https://aad.portal.azure.com) med ett konto som är en användar administratör i organisationen.
+1. I navigerings fönstret väljer du **Azure Active Directory**.
 1. Under **Hantera** väljer du **Användare**.
-1. Under **Visa**väljer du **Alla användare** och kontrollerar att de användare som du har återställt visas.
+1. Under **Visa**, väljer du **alla användare** och kontrollerar att de användare som du har återställt visas.
 
 ### <a name="view-users-with-powershell"></a>Visa användare med PowerShell
 
@@ -70,6 +91,6 @@ Du bör se att de användare som du har återställt visas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Användare av massimport](users-bulk-add.md)
-- [Massborttagning användare](users-bulk-delete.md)
-- [Ladda ner lista över användare](users-bulk-download.md)
+- [Mass import av användare](users-bulk-add.md)
+- [Massborttag användare](users-bulk-delete.md)
+- [Hämta lista över användare](users-bulk-download.md)

@@ -1,0 +1,7 @@
+- name: Dokumentation om SRE (Site Reliability Engineering)
+  href: ../index.yml
+- name: Vanliga frågor och svar
+  expanded: true
+  items:
+    - name: SRE och DevOps
+      href: devops.md

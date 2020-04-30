@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 02/08/2020
+ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: dd44d9cb01ff072d89afeb4efc4a59071c621315
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: 97dfe175a609ab336206098948b4e3fcc401d8bc
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80758808"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203987"
 ---
 Denna Postmanbaserade snabbstart vägleder dig genom att hämta ett svar från en kunskapsbas.
 
@@ -23,35 +23,35 @@ Denna Postmanbaserade snabbstart vägleder dig genom att hämta ett svar från e
 
 * Senaste [**Postman**](https://www.getpostman.com/).
 * Du måste ha
-    * En [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md)
-    * En tränad och publicerad [kunskapsbas med frågor och svar](../Quickstarts/add-question-metadata-portal.md) byggda från snabbstarten är konfigurerad med metadata och Chit-chatt.
+    * En [QNA Maker tjänst](../How-To/set-up-qnamaker-service-azure.md)
+    * En utbildad och publicerad [kunskaps bas med frågor och svar](../Quickstarts/add-question-metadata-portal.md) som skapats från snabb starten har kon figurer ATS med metadata och en CHI2TEST-chatt.
 
 > [!NOTE]
-> När du är redo att skapa ett svar på en fråga från din kunskapsbas måste du [träna](../Quickstarts/create-publish-knowledge-base.md#save-and-train) och [publicera](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) din kunskapsbas. När din kunskapsbas publiceras visar sidan **publicera** inställningar för HTTP-begäran för att generera ett svar. På fliken **Brevbärare** visas de inställningar som krävs för att generera ett svar.
+> När du är redo att generera ett svar på en fråga från kunskaps basen måste du [träna](../Quickstarts/create-publish-knowledge-base.md#save-and-train) och [publicera](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) din kunskaps bas. När din kunskapsbas publiceras visar sidan **publicera** inställningar för HTTP-begäran för att generera ett svar. Fliken **Postman** visar de inställningar som krävs för att generera ett svar.
 
-## <a name="set-up-postman-for-requests"></a>Konfigurera Brevbärare för begäranden
+## <a name="set-up-postman-for-requests"></a>Konfigurera PostMan för förfrågningar
 
-Den här snabbstarten använder samma inställningar för Postman **POST-begäran** och konfigurerar sedan till POST-brödtexten JSON som skickas till tjänsten baserat på vad du försöker fråga efter.
+I den här snabb starten används samma inställningar för Postman **post** -begäran och konfigureras sedan för att publicera text-JSON som skickas till tjänsten baserat på vad du försöker fråga efter.
 
-Använd den här proceduren för att konfigurera Postman och sedan läsa varje efterföljande avsnitt för att konfigurera POST-brödtexten JSON.
+Använd den här proceduren för att konfigurera Postman och Läs sedan vart och ett av följande avsnitt för att konfigurera inlägget för inläggs texten JSON.
 
-1. På sidan Inställningar **i** kunskapsbasen väljer du fliken **Postman** för att se den konfiguration som används för att generera ett svar från kunskapsbasen. Kopiera följande information som ska användas i Postman.
+1. På sidan **Inställningar** för kunskaps basen väljer du fliken **Postman** för att se konfigurationen som används för att generera ett svar från kunskaps basen. Kopiera följande information som ska användas i Postman.
 
-    |Namn|Inställning|Syfte och värde|
+    |Name|Inställningen|Syfte och värde|
     |--|--|--|
-    |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Det här är HTTP-metoden och vägen för URL:en.|
-    |`Host`|`https://diberry-qna-s0-s.azurewebsites.net/qnamaker`|Det här är värden för webbadressen. Sammanfoga värdena Värd och Post för att få den fullständiga generateAnswer-URL:en.|
-    |`Authorization`|`EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|Huvudvärdet för att auktorisera din begäran till Azure. |
-    |`Content-type`|`application/json`|Rubrikvärdet för ditt innehåll.|
-    ||`{"question":"<Your question>"}`|Brödtexten för POST-begäran som ett JSON-objekt. Det här värdet ändras i varje avsnitt beroende på vad frågan är avsedd att göra.|
+    |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Detta är HTTP-metoden och-vägen för URL: en.|
+    |`Host`|`https://YOUR-RESOURCE_NAME.azurewebsites.net/qnamaker`|Detta är värd för URL: en. Sammanfoga värden och publicera värden för att hämta den fullständiga generateAnswer-URL: en.|
+    |`Authorization`|`EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|Huvud-värdet för för att ge din begäran till Azure. |
+    |`Content-type`|`application/json`|Rubrik svärdet för ditt innehåll.|
+    ||`{"question":"<Your question>"}`|Bröd texten i POST-begäran som ett JSON-objekt. Det här värdet kommer att ändras i följande avsnitt beroende på vad frågan är tänkt att göra.|
 
-1. Öppna Postman och skapa en ny grundläggande **POST-begäran** med dina publicerade kunskapsbasinställningar. I följande avsnitt ändrar du POST-brödtexten JSON för att ändra frågan till din kunskapsbas.
+1. Öppna Postman och skapa en ny grundläggande **post** -begäran med dina publicerade kunskaps bas inställningar. I följande avsnitt ändrar du JSON för INLÄGGs texten till att ändra frågan till din kunskaps bas.
 
-## <a name="use-metadata-to-filter-answer"></a>Använda metadata för att filtrera svar
+## <a name="use-metadata-to-filter-answer"></a>Använd metadata för att filtrera svar
 
-I en tidigare snabbstart lades metadata till i två QnA-par för att skilja mellan två olika frågor. Lägg till metadata i frågan för att begränsa filtret till bara det relevanta QnA-paret.
+I en tidigare snabb start lades metadata till i två QnA-par för att skilja mellan två olika frågor. Lägg till metadata i frågan för att begränsa filtret till bara det relevanta QnA-paret.
 
-1. I Postman ändrar du bara frågan `strictFilters` JSON genom att `service:qna_maker`lägga till egenskapen med namn/värdeparet i . Kroppen JSON bör vara:
+1. I Postman ändrar du bara frågans JSON genom att lägga `strictFilters` till egenskapen med namnet/värdet-paret `service:qna_maker`. Body-JSON ska vara:
 
     ```json
     {
@@ -64,9 +64,9 @@ I en tidigare snabbstart lades metadata till i två QnA-par för att skilja mell
     }
     ```
 
-    Frågan är bara ett `size`enda ord, som kan returnera någon av de två frågorna och svarsuppsättningarna. Matrisen `strictFilters` talar om för svaret `qna_maker` att minska till bara svaren.
+    Frågan är bara ett enda ord, `size`som kan returnera någon av de två frågorna och svars uppsättningarna. `strictFilters` Matrisen visar svaret för att minska till bara `qna_maker` svaren.
 
-1. Svaret innehåller bara svaret som uppfyller filtervillkoren.
+1. Svaret innehåller bara det svar som uppfyller filter kriterierna.
 
     Följande svar har formaterats för läsbarhet:
 
@@ -103,13 +103,13 @@ I en tidigare snabbstart lades metadata till i två QnA-par för att skilja mell
     }
     ```
 
-    Om det finns en fråge- och svarsuppsättning som inte uppfyllde söktermen men som uppfyllde filtret, skulle den inte returneras. I stället returneras det allmänna svaret. `No good match found in KB.`
+    Om det finns en fråga och en svars uppsättning som inte uppfyllde Sök termen men som uppfyller filtret, returneras den inte. I stället returneras det allmänna `No good match found in KB.` svaret.
 
-## <a name="use-debug-query-property"></a>Använd egenskapen felsökningsfråga
+## <a name="use-debug-query-property"></a>Använd egenskapen Felsök fråga
 
-Felsökningsinformation hjälper dig att förstå hur det returnerade svaret fastställdes. Även om det är till hjälp, är det inte nödvändigt. Om du vill skapa ett svar `debug` med felsökningsinformation lägger du till egenskapen:
+Felsöknings information hjälper dig att förstå hur det returnerade svaret har fastställts. Även om det är användbart är det inte nödvändigt. Om du vill generera ett svar med felsöknings `debug` information lägger du till egenskapen:
 
-1. I Postman, ändra endast kroppen JSON genom att lägga till fastigheten. `debug` JSON bör vara:
+1. I Postman ändrar du endast Body-JSON genom att lägga `debug` till egenskapen. JSON ska vara:
 
     ```json
     {
@@ -121,7 +121,7 @@ Felsökningsinformation hjälper dig att förstå hur det returnerade svaret fas
     }
     ```
 
-1. Svaret innehåller relevant information om svaret. I följande JSON-utdata har vissa felsökningsdetaljer ersatts med ellips.
+1. Svaret innehåller relevant information om svaret. I följande JSON-utdata har en del fel söknings information ersatts med tre punkter.
 
     ```console
     {
@@ -211,11 +211,11 @@ Felsökningsinformation hjälper dig att förstå hur det returnerade svaret fas
     }
     ```
 
-## <a name="use-test-knowledge-base"></a>Använd testkunskapsbas
+## <a name="use-test-knowledge-base"></a>Använd test kunskaps bas
 
-Om du vill få ett svar från testkunskapsbasen använder du kroppsegenskapen. `isTest`
+Om du vill få ett svar från test kunskaps basen använder du `isTest` egenskapen Body.
 
-I Postman, ändra endast kroppen JSON genom att lägga till fastigheten. `isTest` JSON bör vara:
+I Postman ändrar du endast Body-JSON genom att lägga `isTest` till egenskapen. JSON ska vara:
 
 ```json
 {
@@ -224,14 +224,14 @@ I Postman, ändra endast kroppen JSON genom att lägga till fastigheten. `isTest
 }
 ```
 
-JSON-svaret använder samma schema som den publicerade kunskapsbasfrågan.
+JSON-svaret använder samma schema som den publicerade kunskaps bas frågan.
 
 > [!NOTE]
-> Om testet och de publicerade kunskapsbaserna är exakt desamma kan det fortfarande finnas en liten variation eftersom testindexet delas mellan alla kunskapsbaser i resursen.
+> Om test-och publicerade kunskaps baser är identiska, kan det fortfarande finnas viss variation eftersom test indexet delas av alla kunskaps baser i resursen.
 
-## <a name="query-for-a-chit-chat-answer"></a>Fråga efter ett Chit-chat-svar
+## <a name="query-for-a-chit-chat-answer"></a>Fråga efter ett "Chi2test"-svar
 
-1. I Postman ändrar du bara brödtexten JSON till ett konversationsslututdrag från användaren. JSON bör vara:
+1. I Postman ändrar du endast Body JSON till ett konversations slut uttryck från användaren. JSON ska vara:
 
     ```json
     {
@@ -239,7 +239,7 @@ JSON-svaret använder samma schema som den publicerade kunskapsbasfrågan.
     }
     ```
 
-1. Svaret innehåller poäng och svar.
+1. Svaret innehåller Poäng och svar.
 
     ```json
     {
@@ -321,13 +321,13 @@ JSON-svaret använder samma schema som den publicerade kunskapsbasfrågan.
     }
     ```
 
-    Eftersom frågan `Thank you` exakt matchar en kommunikationsfråga är QnA Maker helt säker med poängen 100. QnA Maker returnerade också alla relaterade frågor, samt metadataegenskapen som innehåller information om metadatataggen Chit-chat.
+    Eftersom frågan `Thank you` exakt matchar en kommunikationsfråga är QnA Maker helt säker med poängen 100. QnA Maker också returnerade alla relaterade frågor, samt egenskapen metadata som innehåller information om metadata tag gen för Chi2test.
 
-## <a name="use-threshold-and-default-answer"></a>Använd tröskelvärde och standardsvar
+## <a name="use-threshold-and-default-answer"></a>Använd tröskel och standard svar
 
-Du kan begära ett lägsta tröskelvärde för svaret. Om tröskelvärdet inte uppfylls returneras standardsvaret.
+Du kan begära ett minimi tröskelvärde för svaret. Om tröskelvärdet inte uppfylls returneras standard svaret.
 
-1. I Postman ändrar du bara brödtexten JSON till ett konversationsslututdrag från användaren. JSON bör vara:
+1. I Postman ändrar du endast Body JSON till ett konversations slut uttryck från användaren. JSON ska vara:
 
     ```json
     {
@@ -336,7 +336,7 @@ Du kan begära ett lägsta tröskelvärde för svaret. Om tröskelvärdet inte u
     }
     ```
 
-    Kunskapsbasen bör inte hitta det svaret eftersom frågans poäng är 71 %, och i stället returnera det standardsvar du angav när du skapade kunskapsbasen.
+    Kunskaps basen bör inte hitta det svaret eftersom frågans Poäng är 71%. i stället returneras standard svaret som du angav när du skapade kunskaps basen.
 
     Det returnerade JSON-svaret, inklusive poängen och svaret är:
 
@@ -357,9 +357,9 @@ Du kan begära ett lägsta tröskelvärde för svaret. Om tröskelvärdet inte u
     }
     ```
 
-    QnA Maker returnerade `0`en poäng av , vilket innebär inget förtroende. Det returnerade också standardsvaret.
+    QnA Maker returnerade ett resultat `0`av, vilket innebär ingen exakthet. Den returnerade även standard svaret.
 
-1. Ändra tröskelvärdet till 60 % och begär frågan igen:
+1. Ändra tröskelvärdet till 60% och begär frågan igen:
 
     ```json
     {
@@ -368,7 +368,7 @@ Du kan begära ett lägsta tröskelvärde för svaret. Om tröskelvärdet inte u
     }
     ```
 
-    Den returnerade JSON hittade svaret.
+    Den returnerade JSON-filen hittade svaret.
 
     ```json
     {

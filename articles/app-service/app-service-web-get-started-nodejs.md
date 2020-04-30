@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.custom: mvc, devcenter, seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: ad1be88fa7152680551909d91ea4d9f7e79dc00f
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: f423880d1789b3486c89538a0af0c4c1fca4b13b
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159787"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82201167"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure 
 
@@ -45,7 +45,7 @@ Kom igång med Azure App Service genom att skapa en Node. js/Express-app lokalt 
     npm start
     ```
     
-1. Öppna webbläsaren och gå till [http://localhost:1337](http://localhost:1337). Webbläsaren ska Visa "Hello World!".
+1. Öppna webbläsaren och gå till `http://localhost:1337`. Webbläsaren ska Visa "Hello World!".
 
 1. Tryck på **CTRL**+**C** i terminalen för att stoppa servern.
 

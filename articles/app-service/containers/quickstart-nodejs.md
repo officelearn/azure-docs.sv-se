@@ -6,12 +6,12 @@ ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
 ms.devlang: javascript
-ms.openlocfilehash: c647564d685470d86b2aa54be5a86bb995d914bc
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 24b93e9722ff399330b6843f065f183a3b1f5181
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159736"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202567"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Skapa en Node. js-app i Azure
 
@@ -83,7 +83,7 @@ Se sedan till att programmet körs. Starta-programmet från terminalen med hjäl
 npm start
 ```
 
-Öppna din webbläsare och gå till [http://localhost:3000](http://localhost:3000), där du bör se något som liknar detta:
+Öppna din webbläsare och gå till `http://localhost:3000`, där du bör se något som liknar detta:
 
 ![Kör Express-program](./media/quickstart-nodejs/express.png)
 

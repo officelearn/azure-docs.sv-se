@@ -1,60 +1,60 @@
 ---
 title: Konfigurera Microsoft-autentisering
-description: Lär dig hur du konfigurerar Microsoft-kontoautentisering som identitetsleverantör för appen AppTjänst eller Azure Functions.
+description: Lär dig hur du konfigurerar autentisering av Microsoft-konto som en identitets leverantör för din App Service-eller Azure Functions-app.
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
 ms.date: 08/08/2019
 ms.custom:
 - seodec18
 - fasttrack-edit
-ms.openlocfilehash: a78208ba592f86400e9b06b15d8a76923dda736f
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 6fe0e39584cbaa001e11f712bb2f60b45dba6914
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80519884"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203496"
 ---
-# <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Konfigurera appen App Service eller Azure Functions så att den använder Microsoft Account-inloggning
+# <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Konfigurera din App Service-eller Azure Functions-app för att använda inloggning med Microsoft-konto
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Det här avsnittet visar hur du konfigurerar Azure App Service eller Azure Functions för att använda AAD för att stödja personliga Microsoft-kontoinloggningar.
+Det här avsnittet visar hur du konfigurerar Azure App Service eller Azure Functions att använda AAD för att stödja personliga Microsoft-konto inloggningar.
 
 > [!NOTE]
-> Både personliga Microsoft-konton och organisationskonton använder AAD-identitetsprovidern. För närvarande är det inte möjligt att konfigurera den här identitetsprovidern för att stödja båda typerna av inloggningar.
+> Både personliga Microsoft-konton och organisations konton använder AAD Identity Provider. För närvarande går det inte att konfigurera den här identitets leverantören som stöd för båda typerna av inloggnings program.
 
 ## <a name="register-your-app-with-microsoft-account"></a><a name="register-microsoft-account"> </a>Registrera din app med Microsoft-konto
 
-1. Gå till [**Appregistreringar**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure-portalen. Logga in med ditt Microsoft-konto om det behövs.
-1. Välj **Ny registrering**och ange sedan ett programnamn.
-1. Under **Kontotyper som stöds**väljer du Konton i valfri **organisationskatalog (Alla Azure AD-kataloger – Multitenant) och personliga Microsoft-konton (t.ex.**
-1. I **Omdirigera URI:er**väljer `https://<app-domain-name>/.auth/login/aad/callback`du **Webb**och anger sedan . Ersätt * \<app-domännamn>* med appens domännamn.  Till exempel `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Var noga med att använda HTTPS-schemat i URL:en.
+1. Gå till [**Appregistreringar**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure Portal. Om det behövs loggar du in med din Microsoft-konto.
+1. Välj **ny registrering**och ange sedan ett program namn.
+1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog (alla Azure AD Directory-flera klienter) och personliga Microsoft-konton (t. ex. Skype, Xbox)**
+1. I **omdirigerings-URI: er**väljer du `https://<app-domain-name>/.auth/login/aad/callback` **webb**och anger sedan. Ersätt * \<app-Domain-Name>* med domän namnet för din app.  Till exempel `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Se till att använda HTTPS-schemat i URL: en.
 
 1. Välj **Registrera**.
-1. Kopiera **programmets (klient)-ID**. Du behöver det senare.
-1. Välj Certifikat & **hemligheter** > **Ny klienthemlighet**i den vänstra rutan. Ange en beskrivning, välj giltighetstid och välj **Lägg till**.
-1. Kopiera värdet som visas på sidan **Certifikat & hemligheter.** När du har lämnat sidan visas den inte igen.
+1. Kopiera **program-ID: t (klient)**. Du behöver det senare.
+1. I den vänstra rutan väljer du **certifikat & hemligheter** > **ny klient hemlighet**. Ange en beskrivning, Välj giltighets tid och välj **Lägg till**.
+1. Kopiera värdet som visas på sidan **certifikat & hemligheter** . När du har lämnat sidan visas den inte igen.
 
     > [!IMPORTANT]
-    > Klientens hemliga värde (lösenord) är en viktig säkerhetsautentiseringsinformation. Dela inte lösenordet med någon eller distribuera det i ett klientprogram.
+    > Klientens hemliga värde (lösen ord) är en viktig säkerhets autentiseringsuppgift. Dela inte lösen ordet med någon eller distribuera det i ett klient program.
 
-## <a name="add-microsoft-account-information-to-your-app-service-application"></a><a name="secrets"> </a>Lägga till Microsoft-kontoinformation i apptjänstprogrammet
+## <a name="add-microsoft-account-information-to-your-app-service-application"></a><a name="secrets"> </a>Lägg till information om Microsoft-konto till ditt App Service program
 
-1. Gå till ditt program i [Azure-portalen].
-1. Välj **Inställningar** > **Autentisering /Auktorisering**och kontrollera att **apptjänstautentiseringen** är **på**.
-1. Under **Autentiseringsleverantörer**väljer du **Azure Active Directory**. Välj **Avancerat** under **Hanteringsläge**. Klistra in i program-ID:t och klienthemligheten som du fick tidigare. Används **https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0** för fältet **Utfärdare url.**
+1. Gå till ditt program i [Azure Portal].
+1. Välj **Inställningar** > **autentisering/auktorisering**och se till att **App Service autentisering** är **aktiverat**.
+1. Under **autentiseringsproviders**väljer du **Azure Active Directory**. Välj **Avancerat** under **hanterings läge**. Klistra in det program (klient)-ID och klient hemlighet som du fick tidigare. Används **`https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0`** för fältet **Issuer URL** .
 1. Välj **OK**.
 
-   AppTjänsten tillhandahåller autentisering, men begränsar inte den behöriga åtkomsten till webbplatsens innehåll och API:er. Du måste auktorisera användare i din appkod.
+   App Service tillhandahåller autentisering, men begränsar inte tillåten åtkomst till webbplatsens innehåll och API: er. Du måste auktorisera användare i din app-kod.
 
-1. (Valfritt) Om du vill begränsa åtkomsten till Microsoft-kontoanvändare anger du **Åtgärd som ska vidtas när begäran inte autentiseras** **logga in med Azure Active Directory**. När du ställer in den här funktionen kräver appen att alla begäranden ska autentiseras. Det omdirigerar också alla oautentiserade begäranden att använda AAD för autentisering. Observera att eftersom du har konfigurerat **utfärdarens url** för att använda Microsoft-kontoklientinnehavaren autentiseras endast personliga acccounts.
+1. Valfritt Om du vill begränsa åtkomsten till Microsoft-konto användare anger du **åtgärd som ska vidtas när begäran inte autentiseras** att **logga in med Azure Active Directory**. När du ställer in den här funktionen kräver appen att alla begär Anden ska autentiseras. Det omdirigerar också alla oautentiserade begär Anden om att använda AAD för autentisering. Observera att eftersom du har konfigurerat din **utfärdar-URL** till att använda Microsoft-kontots klient organisation, kommer endast personliga acccounts att autentisera sig.
 
    > [!CAUTION]
-   > Att begränsa åtkomsten på det här sättet gäller alla samtal till din app, vilket kanske inte är önskvärt för appar som har en allmänt tillgänglig startsida, som i många ensidiga program. För sådana program kan **tillåt anonyma begäranden (ingen åtgärd)** att föredra så att appen startar själva autentiseringen manuellt. Mer information finns i [Autentiseringsflöde](overview-authentication-authorization.md#authentication-flow).
+   > Att begränsa åtkomsten på det här sättet gäller alla anrop till appen, vilket kanske inte är önskvärt för appar som har en offentligt tillgänglig start sida, som i många program med en enda sida. För sådana program **tillåts anonyma begär Anden (ingen åtgärd)** , så att appen manuellt startar själva autentiseringen. Mer information finns i [Authentication Flow](overview-authentication-authorization.md#authentication-flow).
 
 1. Välj **Spara**.
 
-Du är nu redo att använda Microsoft-konto för autentisering i din app.
+Du är nu redo att använda Microsoft-kontot för autentisering i din app.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Nästa steg
 

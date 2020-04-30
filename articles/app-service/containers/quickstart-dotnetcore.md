@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Kör en Linux-ASP.NET Core-app'
+title: 'Snabb start: köra en Linux ASP.NET Core-app'
 description: Kom igång med Linux-appar på Azure App Service genom att distribuera din första ASP.NET Core-app till en Linux-behållare i App Service.
 keywords: azure app service, web app, dotnet, core, linux, oss
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
@@ -7,12 +7,12 @@ ms.tgt_pltfrm: linux
 ms.topic: quickstart
 ms.date: 04/22/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 349aa4652ae9f52641b5865e48dcd4c113ca7f9d
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 1eeb5bbd4b10ef660a50f40d6c1300b0ca214561
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086306"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82206686"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Skapa en ASP.NET Core-app i App Service på Linux
 
@@ -33,7 +33,7 @@ Du kan följa stegen i den här artikeln på en Mac-, Windows- eller Linux-dator
 För att slutföra den här snabbstarten behöver du:
 
 * <a href="https://git-scm.com/" target="_blank">Installera Git</a>
-* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Installera den senaste .NET Core SDK 3.1</a>
+* <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Installera den senaste .NET Core 3,1 SDK</a>
 
 ## <a name="create-the-app-locally"></a>Skapa appen lokalt
 
@@ -86,7 +86,7 @@ git commit -m "first commit"
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
-Bläddra till appen som precis skapades. Ersätt _ &lt;appnamn>_ med ditt appnamn.
+Bläddra till appen som precis skapades. Ersätt _ &lt;App-Name->_ med namnet på appen.
 
 ```bash
 https://<app-name>.azurewebsites.net
@@ -154,7 +154,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-När distributionen är klar växlar du tillbaka till webbläsarfönstret som öppnades i **steget Bläddra till appen** och uppdaterar.
+När distributionen är klar går du tillbaka till webbläsarfönstret som öppnades i **Bläddra till app** -steget och trycker på Uppdatera.
 
 ![Uppdaterad exempelapp som körs i Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
 
@@ -177,7 +177,7 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: ASP.NET Core-appen med SQL Database](tutorial-dotnetcore-sqldb-app.md)
+> [Självstudie: ASP.NET Core app med SQL Database](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
-> [Konfigurera ASP.NET Core-appen](configure-language-dotnetcore.md)
+> [Konfigurera ASP.NET Core app](configure-language-dotnetcore.md)

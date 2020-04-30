@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 167d682bb5ce1266ba6b677f6223c38dd34af9bb
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "65406956"
+ms.locfileid: "82202404"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrera Azure Active Directory med E-Remix för försäljnings chef
 
@@ -158,7 +158,7 @@ Aktivera enkel inloggning i Azure AD i Azure Portal och konfigurera enkel inlogg
     
     b. Välj **e-post**i list rutan i avsnittet **samarbets objekt** .
 
-    c. I rutan **samarbets objekt** klistrar du in det anspråk värde som du kopierade tidigare från Azure Portal (det vill **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**säga).
+    c. I rutan **samarbets objekt** klistrar du in det anspråk värde som du kopierade tidigare från Azure Portal (det vill **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** säga).
 
     d. I rutan **utfärdare (enhets-ID)** klistrar du in det ID-värde som du kopierade tidigare i avsnittet **E-Remix för Sales Manager-domänen och URL: erna** i Azure Portal.
 

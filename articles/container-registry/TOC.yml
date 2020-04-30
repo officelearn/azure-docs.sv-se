@@ -187,6 +187,8 @@
               href: container-registry-tasks-cross-registry-authentication.md
             - name: Extern autentisering med hjälp av ett nyckelvalv
               href: container-registry-tasks-authentication-key-vault.md
+        - name: Snabb körning av uppgift med Resource Manager-mall
+          href: container-registry-task-run-template.md
         - name: Skapa en avbildning med Buildpacks (förhandsversion)
           href: container-registry-tasks-pack-build.md
         - name: Visa aktivitetsloggar

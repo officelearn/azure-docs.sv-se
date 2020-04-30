@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89de1495dc6bb411d5d43986177f11abb016cf15
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "60244849"
+ms.locfileid: "82200895"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Förnya Federations certifikat för Office 365 och Azure Active Directory
 ## <a name="overview"></a>Översikt
@@ -96,11 +96,11 @@ Om tumavtrycken i båda utdata matchar dina certifikat synkroniseras med Azure A
 ### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Steg 3: kontrol lera om certifikatet håller på att gå ut
 I utdata från antingen get-MsolFederationProperty eller get-AdfsCertificate, söker du efter datumet under "inte efter". Om datumet är mindre än 30 dagar långt bör du vidta åtgärder.
 
-| AutoCertificateRollover | Certifikat som synkroniseras med Azure AD | Federationsmetadata är offentligt tillgängliga | Bestämma | Åtgärd |
+| AutoCertificateRollover | Certifikat som synkroniseras med Azure AD | Federationsmetadata är offentligt tillgängliga | Bestämma | Action |
 |:---:|:---:|:---:|:---:|:---:|
 | Ja |Ja |Ja |- |Det behövs ingen åtgärd. Se [förnya token signerings certifikat automatiskt](#autorenew). |
-| Ja |Inga |- |Mindre än 15 dagar |Förnya omedelbart. Se [förnya token signerings certifikat manuellt](#manualrenew). |
-| Inga |- |- |Mindre än 30 dagar |Förnya omedelbart. Se [förnya token signerings certifikat manuellt](#manualrenew). |
+| Ja |Nej |- |Mindre än 15 dagar |Förnya omedelbart. Se [förnya token signerings certifikat manuellt](#manualrenew). |
+| Nej |- |- |Mindre än 30 dagar |Förnya omedelbart. Se [förnya token signerings certifikat manuellt](#manualrenew). |
 
 \[-] Spelar ingen roll
 
@@ -120,7 +120,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.XML
 
 var `(your_FS_name)` ersätts med det värd namn för Federations tjänsten som organisationen använder, till exempel FS.contoso.com.  Om du kan kontrol lera att båda inställningarna har slutförts behöver du inte göra något annat.  
 
-Exempel: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
+Exempel: `https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml`
 ## <a name="renew-the-token-signing-certificate-manually"></a>Förnya token signerings certifikatet manuellt<a name="manualrenew"></a>
 Du kan välja att förnya token signerings certifikat manuellt. Följande scenarier kan till exempel fungera bättre för manuell förnyelse:
 

@@ -6,18 +6,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/14/2019
-ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 75100b47ddf8f36ed9a22ff3073c439f8ad9040b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020
+ms.date: 04/27/2020
+ms.openlocfilehash: 471d07f4aa5abe7552ff33e767e8783239dd1989
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "74083296"
+ms.locfileid: "82203887"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Skapa en Apache Storm-topologi i Java
 
-Lär dig hur du skapar en Java-baserad topologi för [Apache Storm](https://storm.apache.org/). Här skapar du en Storm-topologi som implementerar ett ord räknings program. Du använder [Apache maven](https://maven.apache.org/) för att bygga och paketera projektet. Sedan kan du lära dig hur du definierar topologin med hjälp av [Apache Storm flödes](https://storm.apache.org/releases/2.0.0/flux.html) ramverket.
+Lär dig hur du skapar en Java-baserad topologi för Apache Storm. Du skapar en Storm-topologi som implementerar ett ord räknings program. Du använder Apache Maven för att bygga och paketera projektet. Sedan kan du lära dig hur du definierar topologin med hjälp av Apache Storm flödes ramverket.
 
 När du har slutfört stegen i det här dokumentet kan du distribuera topologin till Apache Storm i HDInsight.
 
@@ -197,7 +197,7 @@ Det här avsnittet används för att lägga till plugin-program, resurser och an
 
 * **Apache maven compiler-plugin**
 
-    Ett annat användbart plugin-program är [Apache maven compiler-plugin-programmet](https://maven.apache.org/plugins/maven-compiler-plugin/)som används för att ändra Compilation-alternativ. Ändra den Java-version som maven använder för källan och målet för ditt program.
+    Ett annat användbart plugin-program är [`Apache Maven Compiler Plugin`](https://maven.apache.org/plugins/maven-compiler-plugin/), som används för att ändra Compilation-alternativ. Ändra den Java-version som maven använder för källan och målet för ditt program.
 
   * För HDInsight __3,4 eller tidigare__anger du käll-och mål-Java-versionen till __1,7__.
 
@@ -239,13 +239,13 @@ En Java-baserad Apache Storm-topologi består av tre komponenter som du måste r
 
 * **Kanaler**: läser data från externa källor och utvärderar data strömmar i topologin.
 
-* **Bultar**: utför bearbetning på strömmar som har avsänts av kanaler eller andra bultar och avger en eller flera strömmar.
+* **Bultar**: bearbetar data strömmar som har avsänts av kanaler eller andra bultar och avger en eller flera strömmar.
 
 * **Topologi**: definierar hur kanaler och bultarna är ordnade och tillhandahåller start punkten för topologin.
 
 ### <a name="create-the-spout"></a>Skapa kanalen
 
-För att minska kraven för att konfigurera externa data källor, avger följande kanalen bara slumpmässiga meningar. Det är en modifierad version av en kanalen som finns i [exemplen Storm-starter](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter).  Även om den här topologin bara använder en kanalen kan andra ha flera som matar in data från olika källor i topologin.
+För att minska kraven för att konfigurera externa data källor, avger följande kanalen bara slumpmässiga meningar. Det är en modifierad version av en kanalen som finns i [exemplen Storm-starter](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter).  Även om den här topologin använder en kanalen kan andra ha flera som matar in data från olika källor i topologin.`.`
 
 Ange kommandot nedan för att skapa och öppna en ny fil `RandomSentenceSpout.java`:
 
@@ -481,7 +481,7 @@ public class WordCount extends BaseBasicBolt {
 
 ### <a name="define-the-topology"></a>Definiera topologin
 
-Topologin kopplar ihop kanaler och bultarna i ett diagram, vilket definierar hur data flödar mellan komponenterna. Den innehåller också parallella tips som Storm använder när de skapar instanser av komponenterna i klustret.
+Topologin kopplar ihop kanaler och bultarna i ett diagram. Diagrammet definierar hur data flödar mellan komponenterna. Den innehåller också parallella tips som Storm använder när de skapar instanser av komponenterna i klustret.
 
 Följande bild är ett grundläggande diagram över komponenterna i den här topologin.
 
@@ -613,15 +613,15 @@ När den körs visar topologin start information. Följande text är ett exempel
     17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
     17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
 
-I den här exempel loggen visas att ordet och har genererats 113 gånger. Antalet fortsätter att gå så länge topologin körs eftersom kanalen kontinuerligt genererar samma meningar.
+I den här exempel loggen visas att ordet och har genererats 113 gånger. Antalet fortsätter att öka så länge topologin körs. Den här ökningen beror på att kanalen kontinuerligt avger samma meningar.
 
 Det finns ett intervall på 5 sekunder mellan utsläpp av ord och antal. **WORDCOUNT** -komponenten har kon figurer ATS för att endast generera information när en Ticket tas emot. Den begär att Ticket-tupler bara levereras var femte sekund.
 
 ## <a name="convert-the-topology-to-flux"></a>Konvertera topologin till flöde
 
-[Flöde](https://storm.apache.org/releases/2.0.0/flux.html) är ett nytt ramverk som är tillgängligt med storm 0.10.0 och högre, vilket gör att du kan skilja konfigurationen från implementeringen. Dina komponenter definieras fortfarande i Java, men topologin definieras med hjälp av en YAML-fil. Du kan paketera en standard definition av topologin med ditt projekt eller använda en fristående fil när du skickar topologin. När du skickar topologin till storm kan du använda miljövariabler eller konfigurationsfiler för att fylla i värdena i YAML-topologin.
+[Flöde](https://storm.apache.org/releases/2.0.0/flux.html) är ett nytt ramverk som är tillgängligt med storm 0.10.0 och högre. Med flöde kan du skilja konfigurationen från implementeringen. Dina komponenter definieras fortfarande i Java, men topologin definieras med hjälp av en YAML-fil. Du kan paketera en standard definition av topologin med ditt projekt eller använda en fristående fil när du skickar topologin. När du skickar topologin till storm använder du miljövariabler eller konfigurationsfiler för att fylla i YAML.
 
-YAML-filen definierar de komponenter som ska användas för topologin och data flödet mellan dem. Du kan inkludera en YAML-fil som en del av jar-filen eller så kan du använda en extern YAML-fil.
+YAML-filen definierar de komponenter som ska användas för topologin och data flödet mellan dem. Du kan inkludera en YAML-fil som en del av jar-filen. Du kan också använda en extern YAML-fil.
 
 Mer information om flöde finns i [flödes ramverkethttps://storm.apache.org/releases/current/flux.html)(](https://storm.apache.org/releases/current/flux.html).
 
@@ -818,18 +818,18 @@ Mer information om dessa och andra funktioner i flödes ramverket finns i [flöd
 
 ## <a name="trident"></a>Trident
 
-[Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) är en abstraktion på hög nivå som tillhandahålls av storm. Den stöder tillstånds känslig bearbetning. Den främsta fördelen med Trident är att det kan garantera att alla meddelanden som anges i topologin bara bearbetas en gång. Utan att använda Trident kan topologin bara garantera att meddelanden bearbetas minst en gång. Det finns även andra skillnader, till exempel inbyggda komponenter som kan användas i stället för att skapa bultar. I själva verket ersätts bultar av mindre generiska komponenter, till exempel filter, projektioner och funktioner.
+[Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) är en abstraktion på hög nivå som tillhandahålls av storm. Den stöder tillstånds känslig bearbetning. Den främsta fördelen med Trident är att det garanterar att alla meddelanden som anges i topologin bara bearbetas en gång. Utan att använda Trident kan topologin bara garantera att meddelanden bearbetas minst en gång. Det finns även andra skillnader, till exempel inbyggda komponenter som kan användas i stället för att skapa bultar. Bultar ersätts av mindre generiska komponenter, till exempel filter, projektioner och funktioner.
 
 Det går att skapa Trident-program med Maven-projekt. Du använder samma grundläggande steg som beskrivs tidigare i den här artikeln – endast koden är annorlunda. Det går inte heller att använda Trident (för närvarande) med flödes ramverket.
 
 Mer information om Trident finns i [Översikt över Trident API](https://storm.apache.org/releases/current/Trident-API-Overview.html).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Du har lärt dig hur du skapar en Apache Storm topologi med Java. Lär dig nu att:
 
 * [Distribuera och hantera Apache Storm-topologier i HDInsight](apache-storm-deploy-monitor-topology-linux.md)
 
-* [Utveckla C#-topologier för Apache Storm på HDInsight med Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
+* [Utveckla topologier med Python](apache-storm-develop-python-topology.md)
 
 Du kan hitta fler exempel Apache Storm topologier genom [att besöka exempel topologier för Apache storm i HDInsight](apache-storm-example-topology.md).

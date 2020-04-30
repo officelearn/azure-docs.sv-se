@@ -1,11 +1,11 @@
 ---
-title: Massimportöverföring för att lägga till medlemmar i en grupp – Azure Active Directory | Microsoft-dokument
-description: Lägg till gruppmedlemmar i gruppmedlemmar i gruppmedlem i Azure Active Directory admincenter.
+title: Mass uppladdning för att lägga till eller skapa medlemmar i en grupp-Azure Active Directory | Microsoft Docs
+description: Lägg till grupp medlemmar i grupp i Azure Active Directory administrations centret.
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/16/2020
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,50 +13,71 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15960caa55274f06159263c1af4a6c8280e83f4e
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 8902c3147bbe142fc58d4e2c3fa83601c8ccbba3
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81533500"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203544"
 ---
-# <a name="bulk-import-group-members-in-azure-active-directory"></a>Gruppmedlemmar för massimport i Azure Active Directory
+# <a name="bulk-import-group-members-in-azure-active-directory"></a>Grupp medlemmar i Mass import i Azure Active Directory
 
-Med Azure Active Directory(Azure AD) portal kan du lägga till ett stort antal medlemmar i en grupp med hjälp av en kommaavgränsad värden (CSV) fil till massimportgruppmedlemmar.
+Med hjälp av Azure Active Directory-portalen (Azure AD) kan du lägga till ett stort antal medlemmar i en grupp genom att använda en fil med kommaavgränsade värden (CSV) för grupp medlemmar i Mass import.
 
-## <a name="to-bulk-import-group-members"></a>Så här massimportgruppmedlemmar
+## <a name="understand-the-csv-template"></a>Förstå CSV-mallen
 
-1. Logga in [på Azure-portalen](https://portal.azure.com) med ett användarkonto för användaradministratörer i organisationen. Gruppägare kan också massimporta medlemmar i grupper som de äger.
-1. I Azure AD väljer du **Grupper alla** > **grupper**.
-1. Öppna gruppen som du lägger till medlemmar i och välj sedan **Medlemmar**.
-1. På sidan **Medlemmar** väljer du **Importera medlemmar**.
-1. På sidan **Massimportgruppmedlemmar** väljer du **Hämta** för att hämta CSV-filmallen med obligatoriska gruppmedlemsegenskaper.
+Ladda ned och fyll i mallen för Mass uppladdning av CSV för att lägga till Azure AD-gruppmedlemmar i grupp. Din CSV-mall kan se ut som i det här exemplet:
 
-    ![Kommandot Importera medlemmar finns på profilsidan för gruppen](./media/groups-bulk-import-members/import-panel.png)
+![Kalkyl blad för uppladdning och vidarekoppling förklarar syfte och värden för varje rad och kolumn](./media/groups-bulk-import-members/template-with-callouts.png)
 
-1. Öppna CSV-filen och lägg till en rad för varje gruppmedlem som du vill importera till gruppen (obligatoriska värden är antingen **Medlemsobjekt-ID** eller **Användarnamn).** Spara sedan filen.
+### <a name="csv-template-structure"></a>Struktur för CSV-mall
 
-   ![CSV-filen innehåller namn och ID:n för medlemmarna att importera](./media/groups-bulk-import-members/csv-file.png)
+Raderna i en Hämtad CSV-mall är följande:
 
-1. Bläddra till filen under **Ladda upp csv-filen**på sidan **Massimportgruppmedlemmar.** När du väljer filen startar valideringen av CSV-filen.
-1. När filinnehållet valideras visas Fil **som har överförts**. Om det finns fel måste du åtgärda dem innan du kan skicka jobbet.
-1. När filen godkänns väljer du **Skicka** för att starta azure-massåtgärden som importerar gruppmedlemmarna till gruppen.
-1. När importen är klar visas ett meddelande om att massåtgärden lyckades.
+- **Versions nummer**: den första raden som innehåller versions numret måste inkluderas i överförings-CSV-filen.
+- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt*&gt;. Till exempel `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Vissa äldre versioner av mallen kan ha små variationer. För ändringar i grupp medlemskap kan du välja vilken identifierare som ska användas: medlems objekt-ID eller User Principal Name.
+- **Exempel rad**: vi har inkluderat i mallen en rad exempel på acceptabla värden för varje kolumn. Du måste ta bort exempel raden och ersätta den med dina egna poster.
 
-## <a name="check-import-status"></a>Kontrollera importstatus
+### <a name="additional-guidance"></a>Mer information
 
-Du kan se status för alla väntande massbegäranden på sidan **Massåtgärdsresultat.**
+- De två första raderna i uppladdnings mal len får inte tas bort eller ändras, eller så går det inte att bearbeta överföringen.
+- De obligatoriska kolumnerna visas först.
+- Vi rekommenderar inte att du lägger till nya kolumner i mallen. Eventuella ytterligare kolumner som du lägger till ignoreras och bearbetas inte.
+- Vi rekommenderar att du laddar ned den senaste versionen av CSV-mallen så ofta som möjligt.
+
+## <a name="to-bulk-import-group-members"></a>Till Mass import av grupp medlemmar
+
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett användar administratörs konto i organisationen. Grupp ägare kan också Mass import medlemmar av grupper som de äger.
+1. I Azure AD väljer du **grupper** > **alla grupper**.
+1. Öppna den grupp som du vill lägga till medlemmar i och välj sedan **medlemmar**.
+1. På sidan **medlemmar** väljer du **Importera medlemmar**.
+1. På sidan **medlemmar grupp medlemmar** väljer du **Hämta** för att hämta CSV-filmallen med obligatoriska grupp medlems egenskaper.
+
+    ![Kommandot Importera medlemmar finns på profil sidan för gruppen](./media/groups-bulk-import-members/import-panel.png)
+
+1. Öppna CSV-filen och Lägg till en rad för varje grupp medlem som du vill importera till gruppen (obligatoriska värden är antingen **medlems objekt-ID** eller **användarens huvud namn**). Spara sedan filen.
+
+   ![CSV-filen innehåller namn och ID: n för de medlemmar som ska importeras](./media/groups-bulk-import-members/csv-file.png)
+
+1. På sidan **medlemmar i grupp medlemmar** , under **överför din CSV-fil**, bläddrar du till filen. När du väljer filen startar valideringen av CSV-filen.
+1. När fil innehållet är verifierat visar sidan Mass import att **filen har laddats upp**. Om det finns fel måste du åtgärda dem innan du kan skicka jobbet.
+1. När din fil klarar valideringen väljer du **Skicka** för att starta den Azure Mass åtgärd som importerar grupp medlemmarna till gruppen.
+1. När importen är klar visas ett meddelande om att Mass åtgärden lyckades.
+
+## <a name="check-import-status"></a>Kontrol lera import status
+
+Du kan se statusen för alla väntande Mass förfrågningar på resultat sidan för **Mass åtgärder** .
 
 [![](media/groups-bulk-import-members/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-import-members/bulk-center.png#lightbox)
 
-Om du vill ha information om varje radartikel i massåtgärden väljer du värdena under kolumnerna **# Lyckades,** **# Fel**eller Totalt **antal begäranden.** Om fel har inträffat visas orsakerna till felet.
+Om du vill ha mer information om varje rad objekt i Mass åtgärden väljer du värdena under kolumnerna **# lyckades**, **# Failure**eller **Totalt antal förfrågningar** . Om fel inträffar visas orsaken till felet.
 
-## <a name="bulk-import-service-limits"></a>Begränsningar för massimporttjänster
+## <a name="bulk-import-service-limits"></a>Begränsningar för Mass import av tjänster
 
-Varje massaktivitet för att importera en lista över gruppmedlemmar kan köras i upp till en timme. Detta möjliggör import av en lista med minst 40 000 medlemmar.
+Varje Mass aktivitet för att importera en lista över grupp medlemmar kan köras i upp till en timme. På så sätt kan du importera en lista med minst 40 000 medlemmar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Massborttagning av gruppmedlemmar](groups-bulk-remove-members.md)
+- [Mass borttagning av grupp medlemmar](groups-bulk-remove-members.md)
 - [Ladda ned medlemmar i en grupp](groups-bulk-download-members.md)
-- [Ladda ner en lista över alla grupper](groups-bulk-download.md)
+- [Hämta en lista över alla grupper](groups-bulk-download.md)

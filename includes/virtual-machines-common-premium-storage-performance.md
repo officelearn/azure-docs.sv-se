@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88b19257a6a7d335e6a928a9eaf7526fbfd5b02e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 1827d44f4d4ac812a33aee4791c2103a10328ba7
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "75942791"
+ms.locfileid: "82204548"
 ---
 ## <a name="application-performance-indicators"></a>Program prestanda indikatorer
 
@@ -232,7 +232,7 @@ Kom ihåg att Premium Storage diskar har högre prestanda funktioner jämfört m
 
 ## <a name="disk-caching"></a>Diskcachelagring
 
-Virtuella datorer med hög skalning som utnyttjar Azure Premium Storage har en teknik för cachelagring på flera nivåer som kallas BlobCache. BlobCache använder en kombination av den virtuella datorns RAM-minne och lokal SSD för cachelagring. Den här cachen är tillgänglig för Premium Storage beständiga diskar och lokala VM-diskar. Den här cache-inställningen är som standard inställd på läsa/skriva för OS-diskar och ReadOnly för data diskar som finns på Premium Storage. När diskcachelagring är aktiverat på Premium Storage diskar kan virtuella datorer med hög skala uppnå mycket höga prestanda nivåer som överstiger den underliggande disk prestandan.
+Virtuella datorer med hög skalning som utnyttjar Azure Premium Storage har en teknik för cachelagring på flera nivåer som kallas BlobCache. BlobCache använder en kombination av värd-RAM och lokal SSD för cachelagring. Den här cachen är tillgänglig för Premium Storage beständiga diskar och lokala VM-diskar. Den här cache-inställningen är som standard inställd på läsa/skriva för OS-diskar och ReadOnly för data diskar som finns på Premium Storage. När diskcachelagring är aktiverat på Premium Storage diskar kan virtuella datorer med hög skala uppnå mycket höga prestanda nivåer som överstiger den underliggande disk prestandan.
 
 > [!WARNING]
 > Diskcachelagring stöds inte för disk 4 TiB och större. Om flera diskar är anslutna till den virtuella datorn kommer varje disk som är mindre än 4 TiB att ha stöd för cachelagring.
@@ -252,7 +252,7 @@ Följande är de rekommenderade diskens cacheinställningar för data diskar,
 
 | **Inställning av diskcachelagring** | **rekommendation när du ska använda den här inställningen** |
 | --- | --- |
-| Ingen |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
+| Inga |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
 | ReadOnly |Konfigurera Host-cache som skrivskyddat för skrivskyddade och Läs-och skriv diskar. |
 | ReadWrite |Konfigurera Host-cache enbart som ReadWrite om ditt program hanterar skrivningen av cachelagrade data korrekt till beständiga diskar vid behov. |
 
@@ -265,7 +265,7 @@ Genom att konfigurera ReadOnly-cachelagring på Premium Storage data diskar kan 
 *ReadWrite*  
 Som standard har OS-diskar ReadWrite-cachelagring aktiverat. Vi har nyligen lagt till stöd för ReadWrite-cachelagring på data diskar även. Om du använder ReadWrite-cachelagring måste du ha ett korrekt sätt att skriva data från cache till beständiga diskar. SQL Server hanterar till exempel att skriva cachelagrade data till de beständiga lagrings diskarna. Att använda ReadWrite cache med ett program som inte hanterar beständiga data kan leda till data förlust, om den virtuella datorn kraschar.
 
-*Inget*  
+*Inga*  
 För närvarande stöds **ingen** på data diskar. Den stöds inte på OS-diskar. Om du anger **ingen** på en operativ system disk åsidosätts detta internt och anges som **skrivskyddad**.
 
 Du kan till exempel använda dessa rikt linjer för att SQL Server som körs på Premium Storage genom att göra följande:

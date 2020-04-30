@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Använd URL-verktyg för att få svar från kunskapsbasen - QnA Maker'
+title: 'Snabb start: Använd URL-verktyget för att få svar från kunskaps basen – QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Den här snabbstarten går igenom att få ett svar från din kunskapsbas med hjälp av ett URL-testverktyg som cURL eller Postman.
+description: Den här snabb starten vägleder dig genom att få svar från din kunskaps bas med ett URL-testverktyg som sväng eller Postman.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 zone_pivot_groups: URL-test-interface
 ms.topic: quickstart
-ms.date: 02/08/2020
+ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 09337ce599b0044ab38bb0ad0b0383ee90bfcbd8
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 1f19337aea8b39bbc8c7dc11fba683bee3c2955a
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77109631"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203985"
 ---
-# <a name="quickstart-get-an-answer-from-knowledge-base"></a>Snabbstart: Få svar från kunskapsbasen
+# <a name="quickstart-get-an-answer-from-knowledge-base"></a>Snabb start: få ett svar från kunskaps basen
 
 
 ::: zone pivot="url-test-tool-curl"
@@ -37,4 +37,4 @@ ms.locfileid: "77109631"
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Testa kunskapsbas med batchfil](batch-testing.md)
+> [Testa kunskaps bas med kommando fil](batch-testing.md)

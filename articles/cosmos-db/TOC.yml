@@ -136,10 +136,10 @@
         - name: Etablera dataflöde på containrar och databaser
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
-        - name: Etablera dataflöde – autopilotläge
-          href: provision-throughput-autopilot.md
-        - name: Vanliga frågor om AutoPilot
-          href: autopilot-faq.md
+        - name: Etablera dataflöde – autoskalningsläge
+          href: provision-throughput-autoscale.md
+        - name: Autoscale FAQ
+          href: autoscale-faq.md
     - name: SQL-fråga
       items:
         - name: Komma igång
@@ -518,6 +518,7 @@
         - name: Total ägandekostnad (TCO)
           href: total-cost-ownership.md
         - name: Förstå fakturan
+          displayName: free tier
           href: understand-your-bill.md
         - name: Optimera kostnader för etablerat dataflöde
           displayName: 'request units, RUs, RU'
@@ -531,6 +532,7 @@
         - name: Optimera kostnader för flera regioner
           href: optimize-cost-regions.md
         - name: Optimera kostnader för utveckling och testning
+          displayName: free tier
           href: optimize-dev-test.md
         - name: Optimera kostnader för reserverad kapacitet
           href: cosmos-db-reserved-capacity.md

@@ -3,12 +3,12 @@ title: Konfigurera Azure Red Hat OpenShift v3. x med Azure Monitor för behålla
 description: Den här artikeln beskriver hur du konfigurerar övervakning av ett Kubernetes-kluster med Azure Monitor som finns i Azure Red Hat OpenShift version 3 och senare.
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 98ac5752e047c4f5f6db63d228bec7c47271aa00
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
-ms.translationtype: HT
+ms.openlocfilehash: c39eda03fc5fb7521bcf08c52eaabc28d4cb1256
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166301"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204142"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Konfigurera Azure Red Hat OpenShift v3 med Azure Monitor för behållare
 
@@ -38,7 +38,7 @@ Azure Monitor for containers stöder övervakning av Azure Red Hat OpenShift enl
 
 ## <a name="enable-for-a-new-cluster-using-an-azure-resource-manager-template"></a>Aktivera för ett nytt kluster med en Azure Resource Manager mall
 
-Utför följande steg för att distribuera ett Azure Red Hat OpenShift-kluster med övervakning aktiverat. Innan du fortsätter bör du gå igenom självstudien [skapa ett Azure Red Hat OpenShift-kluster](../../openshift/tutorial-create-cluster.md#prerequisites) för att förstå de beroenden som du behöver konfigurera så att din miljö är korrekt konfigurerad.
+Utför följande steg för att distribuera ett Azure Red Hat OpenShift-kluster med övervakning aktiverat. Innan du fortsätter bör du gå igenom självstudien [skapa ett Azure Red Hat OpenShift-kluster](../../openshift/tutorial-create-cluster.md) för att förstå de beroenden som du behöver konfigurera så att din miljö är korrekt konfigurerad.
 
 Den här metoden inkluderar två JSON-mallar. En mall anger konfigurationen för att distribuera klustret med övervakning aktiverat, och det andra innehåller parameter värden som du konfigurerar för att ange följande:
 

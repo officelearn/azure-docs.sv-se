@@ -4,19 +4,19 @@ description: Lär dig hur du tar din Azure IoT Edge-lösning från utveckling ti
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/24/2020
+ms.date: 4/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 6ec196408c047682be527ee21735ce809f5916e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 173e663b66eeca676e8120dd46e8eca8b0126a17
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191846"
+ms.locfileid: "82204210"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Förbered för att distribuera din IoT Edge-lösning i produktion
 
@@ -174,12 +174,22 @@ Ett exempel på en tag-konvention finns i [uppdatera IoT Edge runtime](how-to-up
 
 Du vet om att lagra behållar avbildningar för anpassade kodmoduler i ditt privata Azure-register, men du kan också använda den för att lagra offentliga behållar avbildningar som för edgeAgent-och edgHub-modulerna. Det kan krävas om du har mycket tätt brand Väggs begränsningar eftersom dessa runtime-behållare lagras i Microsoft Container Registry (MCR).
 
-Hämta avbildningarna med kommandot Docker pull för att placera i registret. Tänk på att du måste uppdatera avbildningarna med varje ny version av IoT Edge Runtime.
+Hämta avbildningarna med kommandot Docker pull för att placera i det privata registret. Tänk på att du måste uppdatera avbildningarna med varje ny version av IoT Edge Runtime.
 
 | IoT Edge runtime-behållare | Docker pull-kommando |
 | --- | --- |
 | [Azure IoT Edge agent](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
 | [Azure IoT Edge hubb](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
+
+Se sedan till att uppdatera avbildnings referenserna i filen Deployment. template. JSON för systemmodulerna edgeAgent och edgeHub. Ersätt `mcr.microsoft.com` med ditt register namn och server för båda modulerna.
+
+* edgeAgent:
+
+    `"image": "<registry name and server>/azureiotedge-agent:1.0",`
+
+* edgeHub:
+
+    `"image": "<registry name and server>/azureiotedge-hub:1.0",`
 
 ## <a name="networking"></a>Nätverk
 
@@ -259,7 +269,7 @@ Du kan begränsa storleken på alla behållar logg fils loggar i behållar Motor
 
 Lägg till (eller Lägg till) den här informationen i `daemon.json` en fil med namnet och placera den rätt plats för din enhets plattform.
 
-| Plattform | Location |
+| Plattform | Plats |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |

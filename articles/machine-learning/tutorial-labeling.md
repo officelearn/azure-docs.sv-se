@@ -1,7 +1,7 @@
 ---
-title: 'Självstudiekurs: Skapa ett etikettprojekt för bildklassificering'
+title: 'Självstudie: skapa ett etikett projekt för bild klassificering'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du hanterar processen med att märka bilder så att de kan användas i flera klassens bildklassificeringsmodeller.
+description: Lär dig hur du hanterar processen för att märka bilder så att de kan användas i modell modeller med flera klasser.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,234 +9,192 @@ ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
-ms.date: 04/02/2020
-ms.openlocfilehash: fa33861d86ff8bee3e2a34fb3d93032ac6180880
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.date: 04/09/2020
+ms.openlocfilehash: d960c8225cbb22c221ecaec1b7c49b5bb20c1429
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879723"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203649"
 ---
-# <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Självstudiekurs: Skapa ett etikettprojekt för bildklassificering i flera klasser 
+# <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Självstudie: skapa ett etikett projekt för bild klassificering med flera klasser 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Den här självstudien visar hur du hanterar processen för att märka (kallas även taggning) bilder som ska användas som data för att skapa maskininlärningsmodeller. Dataetikmärkning i Azure Machine Learning är i offentlig förhandsversion.
+Den här självstudien visar hur du hanterar processen för etiketter (kallas även för taggning) som ska användas som data för att skapa maskin inlärnings modeller. Data etiketter i Azure Machine Learning finns i offentlig för hands version.
 
-Om du vill träna en maskininlärningsmodell för att klassificera bilder behöver du hundratals eller tusentals bilder som är korrekt märkta.  Azure Machine Learning hjälper dig att hantera förloppet för ditt privata team av domänexperter när de märker dina data.
+Om du vill träna en maskin inlärnings modell för att klassificera bilder, behöver du hundratals eller till och med tusentals bilder som är korrekt märkta.  Azure Machine Learning hjälper dig att hantera förloppet för ditt privata team av domän experter när de etiketterar dina data.
  
-I den här guiden kommer du att använda bilder av katter och hundar.  Eftersom varje bild är antingen en katt eller en hund, är detta en *multi-class* märkning projekt. Du lär dig följande:
+I den här självstudien använder du bilder av katter och hundar.  Eftersom varje avbildning är antingen en katt eller en hund, är detta ett projekt *med flera klass* etiketter. Du lär dig följande:
 
 > [!div class="checklist"]
 >
-> * Skapa ett Azure-lagringskonto och ladda upp avbildningar till kontot.
+> * Skapa ett Azure Storage-konto och ladda upp avbildningar till kontot.
 > * Skapa en Azure Machine Learning-arbetsyta.
-> * Skapa ett bildetikettprojekt i flera klasser.
-> * Märk dina data.  Antingen kan du eller dina etiketter utföra den här uppgiften.
+> * Skapa ett projekt med etikettering med flera klasser.
+> * Etikettera dina data.  Antingen du eller dina etiketter kan utföra den här uppgiften.
 > * Slutför projektet genom att granska och exportera data.
 
 ## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://aka.ms/AMLFree).
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree).
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
-En Azure Machine Learning-arbetsyta är en grundläggande resurs i molnet som du använder för att experimentera, träna och distribuera maskininlärningsmodeller. Det binder din Azure-prenumeration och resursgrupp till ett lätt förbrukat objekt i tjänsten.
+En Azure Machine Learning arbets yta är en grundläggande resurs i molnet som du använder för att experimentera, träna och distribuera maskin inlärnings modeller. Den binder din Azure-prenumeration och resurs grupp till ett enkelt förbrukat objekt i tjänsten.
 
-Du skapar en arbetsyta via Azure-portalen, en webbaserad konsol för hantering av dina Azure-resurser.
+Du skapar en arbets yta via Azure Portal, en webbaserad konsol för att hantera dina Azure-resurser.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
-## <a name="start-a-labeling-project"></a>Starta ett märkningsprojekt
+## <a name="start-a-labeling-project"></a>Starta ett etikettande projekt
 
-Därefter hanterar du datamärkningsprojektet i Azure Machine Learning studio, ett konsoliderat gränssnitt som innehåller verktygsinlärningsverktyg för att utföra datavetenskapliga scenarier för datavetenskapsutövare på alla färdighetsnivåer. Studion stöds inte i webbläsare i Internet Explorer.
+Härnäst ska du hantera projektet för data etiketter i Azure Machine Learning Studio, ett konsoliderat gränssnitt som innehåller maskin inlärnings verktyg för att utföra data vetenskaps scenarier för utbildnings nivåer för data vetenskap. Studio stöds inte i Internet Explorer-webbläsare.
 
-1. Logga in på [Azure Machine Learning studio](https://ml.azure.com).
+1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com).
 
-1. Välj din prenumeration och arbetsytan som du skapade.
+1. Välj din prenumeration och arbets ytan du skapade.
 
-### <a name="create-a-datastore"></a><a name="create-datastore"></a>Skapa ett datalager
+### <a name="create-a-datastore"></a><a name="create-datastore"></a>Skapa ett data lager
 
-Azure Machine Learning-datalager används för att lagra anslutningsinformation, till exempel ditt prenumerations-ID och tokenauktorisering. Här använder du ett datalager för att ansluta till lagringskontot som innehåller bilderna för den här självstudien.
+Azure Machine Learning data lager används för att lagra anslutnings information, t. ex. prenumerations-ID och token-auktorisering. Här använder du ett data lager för att ansluta till det lagrings konto som innehåller avbildningarna för den här självstudien.
 
-1. Välj **Datastores**till vänster på arbetsytan .
+1. På vänster sida av arbets ytan väljer du **data lager**.
 
-1. Välj **+ Nytt datalager**.
+1. Välj **+ nytt data lager**.
 
 1. Fyll i formuläret med följande inställningar:
 
     Field|Beskrivning 
     ---|---
-    Datastore namn | Ge databutiken ett namn.  Här använder vi **labeling_tutorial**.
-    Datalagertyp | Välj typ av lagring.  Här använder vi **Azure Blob Storage**, den föredragna lagringen för avbildningar.
-    Metod för kontoval | Välj **Ange manuellt**.
+    Data lager namn | Ge data lagret ett namn.  Här använder vi **labeling_tutorial**.
+    Data lager typ | Välj lagrings typ.  Här använder vi **Azure Blob Storage**, den önskade lagringen för avbildningar.
+    Val av konto | Välj **ange manuellt**.
     URL | `https://azureopendatastorage.blob.core.windows.net/openimagescontainer`
     Autentiseringstyp | Välj **SAS-token**.
     Kontonyckel | `?sv=2019-02-02&ss=bfqt&srt=sco&sp=rl&se=2025-03-25T04:51:17Z&st=2020-03-24T20:51:17Z&spr=https&sig=7D7SdkQidGT6pURQ9R4SUzWGxZ%2BHlNPCstoSRRVg8OY%3D`
 
-1. Välj **Skapa** om du vill skapa databutiken.
+1. Välj **skapa** för att skapa data lagret.
 
-### <a name="add-labelers-to-workspace"></a>Lägga till etiketter på arbetsytan
+### <a name="create-a-labeling-project"></a>Skapa ett etikett projekt
 
-Konfigurera arbetsytan så att den innehåller alla personer som ska märka data för något av dina projekt.  Senare lägger du till dessa etiketter i ditt specifika märkningsprojekt.
+Nu när du har en lista med etiketter och till gång till de data som du vill ha med etiketter, skapar du ett etikett projekt.
 
-1. Välj **Datamärkning**på vänster sida .
-
-1. Högst upp på sidan väljer du **Märkre.**
-
-1. Välj **Lägg till etikett om** du vill lägga till en etiketts e-postadress.
-
-1. Fortsätt att lägga till fler etiketter tills du är klar.
-
-### <a name="create-a-labeling-project"></a>Skapa ett etikettprojekt
-
-Nu när du har din lista över etiketter och tillgång till de data som du vill ha märkt, skapa din märkning projekt.
-
-1. Högst upp på sidan väljer du **Projekt**.
+1. Välj **projekt**längst upp på sidan.
 
 1. Välj **+ Lägg till projekt**.
 
     ![Skapa ett projekt](media/tutorial-labeling/create-project.png)
 
-### <a name="project-details"></a>Projektinformation
+### <a name="project-details"></a>Projekt information
 
-1. Använd följande indata för formuläret **Projektinformation:**
+1. Använd följande indata för formuläret **projekt information** :
 
     Field|Beskrivning 
     ---|---
-    Projektnamn | Ge projektet ett namn.  Här kommer vi att använda **handledning-katter-n-hundar**.
-    Märka uppgiftstyp | Välj **Bildklassificering Multi-klass**.  
+    Projektnamn | Ge ditt projekt ett namn.  Här kommer vi att använda **självstudie – katter-n-hundar**.
+    Etikettering av uppgifts typ | Välj **bild klassificering flera klasser**.  
     
-    Välj **Nästa** om du vill fortsätta att skapa projektet.
+    Välj **Nästa** för att fortsätta skapa projektet.
 
-### <a name="select-or-create-a-dataset"></a>Markera eller skapa en datauppsättning
+### <a name="select-or-create-a-dataset"></a>Välj eller skapa en data uppsättning
 
-1.   I formuläret **Välj eller skapa en datauppsättning** väljer du det andra alternativet, Skapa en **datauppsättning**och väljer sedan länken **Från datalager**.
+1.   I formuläret **Välj eller skapa en data uppsättning** väljer du det andra alternativet, **skapar en data uppsättning**och väljer sedan länken **från data lagret**.
 
-1. Använd följande indata för formuläret **Skapa datauppsättning från datalager:**
+1. Använd följande indata för formuläret **skapa data uppsättning från data lager** :
 
-    1. I formuläret **Grundläggande information** lägger du till ett namn, här använder vi bilder **för handledning**.  Lägg till en beskrivning om du vill.  Välj sedan **Nästa**.
-    1. I **formuläret Datastore-urval** använder du listrutan för att välja ditt **tidigare skapade datalager,** till exempel **tutorial_images (Azure Blob Storage)**
-    1. Därefter väljer du **Bläddra** i formuläret **För datalager** och väljer sedan **MultiClass - DogsCats**.  Välj **Spara** om du vill använda **/MultiClass - DogsCats** som sökväg.
-    1. Välj **Nästa** för att bekräfta information och sedan **Skapa** för att skapa datauppsättningen.
-    1. Markera cirkeln bredvid datauppsättningsnamnet i listan, till exempel **bilder-för-självstudiekurs**.
+    1. I formuläret **grundläggande information** lägger du till ett namn. här kommer vi att använda **bilder för självstudier**.  Lägg till en beskrivning om du vill.  Välj **Nästa**.
+    1. Använd List rutan i **urvals formuläret för data lager** för att välja ditt **tidigare skapade data lager**, till exempel **tutorial_images (Azure Blob Storage)**
+    1. Sedan väljer du **Bläddra** i formuläret lagrings **område** och väljer sedan **DogsCats**.  Välj **Spara** för att använda **/MultiClass-DogsCats** som sökväg.
+    1. Välj **Nästa** för att bekräfta informationen och **skapa** sedan för att skapa data uppsättningen.
+    1. Välj cirkeln bredvid data uppsättningens namn i listan, till exempel **bilder – självstudier**.
 
-1. Välj **Nästa** om du vill fortsätta att skapa projektet.
+1. Välj **Nästa** för att fortsätta skapa projektet.
 
-### <a name="label-classes"></a>Etikettklasser
+### <a name="label-classes"></a>Etikett klasser
 
-1. Skriv ett etikettnamn i formuläret **Etikettklasser** och välj sedan **+Lägg till etikett** för att skriva nästa etikett.  För det här projektet är etiketterna **Cat,** **Dog**och **Osäker .**
+1. I formuläret **etikett klasser** anger du ett etikett namn och väljer sedan **+ Lägg till etikett** för att skriva nästa etikett.  För det här projektet är etiketterna **katt**, **hund**och **osäkra**.
 
-1. Välj **Nästa** när alla etiketter har lagts till.
+1. Välj **Nästa** när du har lagt till alla etiketter.
 
-### <a name="labeling-instructions"></a>Märkningsinstruktioner
+### <a name="labeling-instructions"></a>Etiketter-instruktioner
 
-1. I formuläret **Märkningsinstruktioner** kan du tillhandahålla en länk till en webbplats som innehåller detaljerade instruktioner för dina etiketter.  Vi lämnar det tomt för den här guiden.
+1. I formuläret **etikett instruktioner** kan du ange en länk till en webbplats som innehåller detaljerade instruktioner för dina etiketter.  Vi lämnar det tomt för den här självstudien.
 
-1. Du kan också lägga till en kort beskrivning av uppgiften direkt i formuläret .  Typ **Märkning handledning - Katter & Hundar.**
+1. Du kan också lägga till en kort beskrivning av uppgiften direkt i formuläret.  Vägledning för typ **Etiketter – katter & hundar.**
 
 1. Välj **Nästa**.
 
-1. Lämna kryssrutan omarkerad i **ml-formuläret för assisterad etiketter.** ML assisterad märkning kräver mer data än du kommer att använda i den här självstudien.
+1. Lämna kryss rutan omarkerad på den **ml-märkta etiketten** . ML-etiketter kräver mer data än vad du kommer att använda i den här självstudien.
 
 1. Välj **Skapa projekt**.
 
-Den här sidan uppdateras inte automatiskt. Efter en paus uppdaterar du sidan manuellt tills projektets status ändras till **Skapad**.
+Den här sidan uppdateras inte automatiskt. Efter en paus uppdaterar du sidan manuellt tills projektets status ändras till **skapad**.
 
-### <a name="add-labelers-to-your-project"></a>Lägga till etiketter i projektet
+## <a name="start-labeling"></a>Starta märkning
 
-Lägg till några eller alla etiketter i det här projektet.
-
-1. Välj det projektnamn som ska öppnas för projektet.  
-
-1. Högst upp på sidan väljer du **Teams**.
-
-1. Välj länken **labeling_tutorial standardteam.**
-
-1. Använd nu **Tilldela etiketter** för att lägga till de etiketter som du vill delta i det här projektet. 
-
-1. Välj i listan över etiketter som du skapade tidigare.  När du har valt alla etiketter som du vill använda väljer du **Tilldela etiketter för** att lägga till dem i standardprojektgruppen.
-
-## <a name="start-labeling"></a>Börja etikettera
-
-Du har nu konfigurerat dina Azure-resurser och konfigurerat ett datamärkningsprojekt. Det är dags att lägga till etiketter i dina data.
-
-### <a name="notify-labelers"></a>Meddela etiketter
-
-Om du har massor av bilder att märka, förhoppningsvis har du också massor av labelers för att slutföra uppgiften.  Nu vill du skicka dem instruktioner så att de kan komma åt data och börja märka.
-
-1. I [Machine Learning Studio](https://ml.azure.com)väljer du **Datamärkning** till vänster för att hitta projektet.  
-
-1. Välj länken för projektets namn.
-
-1. Högst upp på sidan väljer du **Information**.  Du ser en sammanfattning av projektet.
-
-    ![Projektinformation](media/tutorial-labeling/project-details.png)
-
-1. Kopiera **url-länken för etikettportalen** som du vill skicka till dem.
-
-1. Välj nu **Team** högst upp för att hitta ditt märkningsteam.  
-
-1. Välj länken för teamets namn.
-
-1. Högst upp på sidan väljer du **E-postteam** för att starta din e-post.  Klistra in den url till etikettportalen som du just kopierade.  
-
-Varje gång en etikett går till portal-URL:en visas fler bilder att märka tills kön är tom.  
+Nu har du konfigurerat dina Azure-resurser och konfigurerat ett projekt med data etiketter. Det är dags att lägga till etiketter till dina data.
 
 ### <a name="tag-the-images"></a>Tagga bilderna
 
-I den här delen av självstudien ska du byta roller från *projektadministratören* till en *etikett.*  Använd webbadressen som du skickade till teamet.  Den här webbadressen tar dig till projektets etikettportal.  Om du hade lagt till instruktioner skulle du se dem här när du kommer till sidan.
+I den här delen av självstudien byter du roller från *projekt administratören* till en *Labeler*.  Alla som har deltagar åtkomst till din arbets yta kan bli en Labeler.
 
-1. Högst upp på sidan väljer du **Uppgifter som** ska börja märkas.
+1. I [Machine Learning Studio](https://ml.azure.com)väljer du **data etiketter** till vänster för att hitta ditt projekt.  
 
-1. Välj en miniatyrbild till höger för att visa hur många bilder du vill märka på en gång. Du måste märka alla dessa bilder innan du kan gå vidare. Växla bara layouter när du har en ny sida med omärkta data. Om du byter layout rensas sidans pågående taggningsarbete.
+1. Välj projekt namnet i listan.
 
-1. Markera en eller flera bilder och välj sedan en tagg som ska tillämpas på markeringen. Taggen visas under bilden.  Fortsätt att markera och tagga alla bilder på sidan.  Om du vill markera alla bilder som visas samtidigt väljer du **Markera alla**. Markera minst en bild om du vill använda en tagg.
+1. Under projekt namnet väljer du **etikett data**.
+
+1. Läs anvisningarna och välj sedan **uppgifter**.
+
+1. Välj en miniatyr bild till höger om du vill visa hur många bilder du vill etikettera i en go. Du måste märka alla de här bilderna innan du kan gå vidare. Växla bara layouter när du har en ny sida med omärkta data. När du växlar layouter rensas sidans pågående märknings arbete.
+
+1. Välj en eller flera avbildningar och välj sedan en tagg som ska användas för markeringen. Taggen visas under bilden.  Fortsätt att markera och tagga alla avbildningar på sidan.  Välj **Markera alla**för att välja alla bilder som visas samtidigt. Välj minst en bild för att tillämpa en tagg.
 
 
     > [!TIP]
-    > Du kan välja de första nio taggarna med hjälp av sifferknapparna på tangentbordet.
+    > Du kan välja de första nio taggarna med hjälp av siffer tangenterna på tangent bordet.
 
-1. När alla bilder på sidan har taggats väljer du **Skicka** för att skicka in dessa etiketter.
+1. När alla bilder på sidan är taggade väljer du **Skicka** för att skicka dessa etiketter.
 
     ![Tagga bilder](media/tutorial-labeling/catsndogs.gif)
 
-1. När du har skickat taggar för de ställda data uppdaterar Azure sidan med en ny uppsättning avbildningar från arbetskön.
+1. När du har skickat taggar för data till handen uppdaterar Azure sidan med en ny uppsättning avbildningar från arbets kön.
 
-## <a name="complete-the-project"></a>Slutföra projektet
+## <a name="complete-the-project"></a>Slutför projektet
 
-Nu ska du byta tillbaka roller till *projektadministratören* för märkningsprojektet.
+Nu ska du växla roller tillbaka till *projekt administratören* för att märka projektet.
 
-Som chef kanske du vill granska etikettns arbete.  
+Som chef kanske du vill granska arbetet i din Labeler.  
 
 ### <a name="review-labeled-data"></a>Granska märkta data
 
-1. I [Machine Learning Studio](https://ml.azure.com)väljer du **Datamärkning** till vänster för att hitta projektet.  
+1. I [Machine Learning Studio](https://ml.azure.com)väljer du **data etiketter** till vänster för att hitta ditt projekt.  
 
-1. Välj länken för projektets namn.
+1. Välj länken projekt namn.
 
-1. Instrumentpanelen visar projektets förlopp.
+1. På instrument panelen visas projektets förlopp.
 
-1. Högst upp på sidan väljer du **Data**.
+1. Välj **data**längst upp på sidan.
 
-1. På vänster sida väljer du **Märkta data** för att se dina taggade bilder.  
+1. På den vänstra sidan väljer du **märkta data** för att se dina taggade bilder.  
 
-1. När du inte håller med om en etikett markerar du bilden och väljer sedan **Avvisa** längst ned på sidan.  Taggarna tas bort och bilden sätts tillbaka i kön av omärkta bilder.
+1. När du inte samtycker med en etikett väljer du bilden och väljer sedan **avvisa** längst ned på sidan.  Taggarna tas bort och bilden placeras tillbaka i kön med omärkta bilder.
 
 ### <a name="export-labeled-data"></a>Exportera märkta data
 
-Du kan exportera etikettdata för Machine Learning-experiment när som helst. Användare exporterar ofta flera gånger och tränar olika modeller, i stället för att vänta på att alla bilder ska märkas.
+Du kan när som helst exportera etikett data för Machine Learning experimentering. Användare exporterar ofta flera gånger och tränar olika modeller, i stället för att vänta på att alla bilder får etiketter.
 
-Bildetiketter kan exporteras i [COCO-format](http://cocodataset.org/#format-data) eller som en Azure Machine Learning-datauppsättning. Datauppsättningsformatet gör det enkelt att använda för utbildning i Azure Machine Learning.  
+Bild etiketter kan exporteras i [Coco-format](http://cocodataset.org/#format-data) eller som en Azure Machine Learning data uppsättning. I data uppsättnings formatet är det enkelt att använda för utbildning i Azure Machine Learning.  
 
-1. I [Machine Learning Studio](https://ml.azure.com)väljer du **Datamärkning** till vänster för att hitta projektet.  
+1. I [Machine Learning Studio](https://ml.azure.com)väljer du **data etiketter** till vänster för att hitta ditt projekt.  
 
-1. Välj länken för projektets namn.
+1. Välj länken projekt namn.
 
-1. Välj **Exportera** och välj **Exportera som Azure ML-datauppsättning**. 
+1. Välj **Exportera** och välj **Exportera som Azure ml-datauppsättning**. 
 
-    Exportens status visas precis under **knappen Exportera.** 
+    Status för exporten visas strax under knappen **Exportera** . 
 
-1. När etiketterna har exporterats väljer du **Datauppsättningar** till vänster för att visa resultatet.
+1. När etiketterna har exporter ATS väljer du **data uppsättningar** på vänster sida för att visa resultatet.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -245,7 +203,7 @@ Bildetiketter kan exporteras i [COCO-format](http://cocodataset.org/#format-data
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du märkt bilder.  Använd nu dina märkta data:
+I den här självstudien får du etiketterade bilder.  Använd nu dina märkta data:
 
 > [!div class="nextstepaction"]
-> [Träna en modell för bildigenkänning av maskininlärning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/labeled-datasets/labeled-datasets.ipynb).
+> [Träna en modell för maskin inlärnings avbildnings igenkänning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/labeled-datasets/labeled-datasets.ipynb).

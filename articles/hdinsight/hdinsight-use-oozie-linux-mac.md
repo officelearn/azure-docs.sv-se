@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 04/23/2020
-ms.openlocfilehash: 93eddcd8ed0dae6ac6f010dce2e138fc018a06fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 04/27/2020
+ms.openlocfilehash: 48b322f32bd6e8f2a2da0c5be8eb7b7987881f83
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190664"
+ms.locfileid: "82204125"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Använda Apache Oozie med Apache Hadoop för att definiera och köra ett arbetsflöde på Azure HDInsight som körs på Linux
 
@@ -644,67 +644,6 @@ Du kan använda koordinatorn för att ange en start, en slut punkt och förekoms
 
     ![OOzie webb konsol jobb information fliken](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
-## <a name="troubleshooting"></a>Felsökning
-
-Med Oozie-ANVÄNDARGRÄNSSNITTET kan du Visa Oozie-loggar. Oozie-ANVÄNDARGRÄNSSNITTET innehåller också länkar till JobTracker-loggarna för de MapReduce-uppgifter som startades av arbets flödet. Mönstret för fel sökning bör vara:
-
-   1. Visa jobbet i Oozie-webbgränssnittet.
-
-   2. Om det uppstår ett fel eller fel för en speciell åtgärd väljer du åtgärden för att se om **fel meddelande** fältet innehåller mer information om felet.
-
-   3. Om det är tillgängligt använder du URL: en från åtgärden för att visa mer information, till exempel JobTracker-loggar, för åtgärden.
-
-Följande är de fel som du kan komma att komma åt och hur du kan lösa dem.
-
-### <a name="ja009-cant-initialize-cluster"></a>JA009: kan inte initiera kluster
-
-**Symptom**: jobbets status ändras till **pausad**. Information för jobbet visar `RunHiveScript` status som **START_MANUAL**. När du väljer åtgärden visas följande fel meddelande:
-
-    JA009: Cannot initialize Cluster. Please check your configuration for map
-
-**Orsak**: de Azure Blob Storage-adresser som används i **Job. XML-** filen innehåller inte lagrings containern eller lagrings konto namnet. Blob Storage-formatet måste vara `wasbs://containername@storageaccountname.blob.core.windows.net`.
-
-**Lösning**: ändra de Blob Storage-adresser som används av jobbet.
-
-### <a name="ja002-oozie-isnt-allowed-to-impersonate-ltusergt"></a>JA002: Oozie tillåts inte personifiera &lt;användare&gt;
-
-**Symptom**: jobbets status ändras till **pausad**. Information för jobbet visar `RunHiveScript` status som **START_MANUAL**. Om du väljer åtgärden visas följande fel meddelande:
-
-    JA002: User: oozie is not allowed to impersonate <USER>
-
-**Orsak**: de aktuella behörighets inställningarna tillåter inte att Oozie personifierar det angivna användar kontot.
-
-**Lösning**: Oozie kan personifiera användare i **`users`** gruppen. Använd `groups USERNAME` för att se de grupper som användar kontot är medlem i. Om användaren inte är medlem i **`users`** gruppen använder du följande kommando för att lägga till användaren i gruppen:
-
-    sudo adduser USERNAME users
-
-> [!NOTE]  
-> Det kan ta flera minuter innan HDInsight känner av att användaren har lagts till i gruppen.
-
-### <a name="launcher-error-sqoop"></a>Start fel (Sqoop)
-
-**Symptom**: jobbets status ändras till **avlivat**. Information för jobbet visar `RunSqoopExport` status som **fel**. Om du väljer åtgärden visas följande fel meddelande:
-
-    Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
-
-**Orsak**: Sqoop kan inte läsa in den databas driv rutin som krävs för att komma åt databasen.
-
-**Lösning**: när du använder Sqoop från ett Oozie-jobb måste du inkludera databas driv rutinen med de andra resurserna, t. ex. Workflow. XML, som används av jobbet. Referera också till arkivet som innehåller databas driv rutinen från `<sqoop>...</sqoop>` avsnittet i arbets flödes. xml.
-
-För jobbet i det här dokumentet kan du till exempel använda följande steg:
-
-1. Kopiera `mssql-jdbc-7.0.0.jre8.jar` filen till katalogen **/tutorials/useoozie** :
-
-    ```bash
-    hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc-7.0.0.jre8.jar /tutorials/useoozie/mssql-jdbc-7.0.0.jre8.jar
-    ```
-
-2. Ändra `workflow.xml` för att lägga till följande XML på en ny rad ovan `</sqoop>`:
-
-    ```xml
-    <archive>mssql-jdbc-7.0.0.jre8.jar</archive>
-    ```
-
 ## <a name="next-steps"></a>Nästa steg
 
 I den här artikeln har du lärt dig hur du definierar ett Oozie-arbetsflöde och hur du kör ett Oozie-jobb. Mer information om hur du arbetar med HDInsight finns i följande artiklar:
@@ -712,3 +651,4 @@ I den här artikeln har du lärt dig hur du definierar ett Oozie-arbetsflöde oc
 * [Ladda upp data för Apache Hadoop jobb i HDInsight](hdinsight-upload-data.md)
 * [Använda Apache Sqoop med Apache Hadoop i HDInsight](hadoop/apache-hadoop-use-sqoop-mac-linux.md)
 * [Använda Apache Hive med Apache Hadoop på HDInsight](hadoop/hdinsight-use-hive.md)
+* [Felsöka Apache Oozie](./troubleshoot-oozie.md)

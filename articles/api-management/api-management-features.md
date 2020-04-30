@@ -1,6 +1,6 @@
 ---
-title: Funktionsbaserad jämförelse av Azure API Management-nivåerna | Microsoft-dokument
-description: I den här artikeln jämförs API Management-nivåer baserat på de funktioner de erbjuder.
+title: Funktions-baserad jämförelse av Azure API Management-nivåerna | Microsoft Docs
+description: I den här artikeln jämförs API Management nivåer baserat på de funktioner som de erbjuder.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,39 +12,39 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 2e84138419986ef1033ab076b3745187812e91b7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c0cabab6f867df918c4ac86d035918c483e12da9
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335890"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203176"
 ---
-# <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Funktionsbaserad jämförelse av Azure API Management-nivåerna
+# <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Funktions-baserad jämförelse av Azure API Management-nivåer
 
-Varje [API Management-prisnivå](https://aka.ms/apimpricing) erbjuder en separat uppsättning funktioner och per [enhetskapacitet](api-management-capacity.md). I följande tabell sammanfattas de nyckelfunktioner som är tillgängliga på var och en av nivåerna. Vissa funktioner kan fungera annorlunda eller ha olika funktioner beroende på nivån. I sådana fall anges skillnaderna i dokumentationsartiklarna som beskriver dessa enskilda egenskaper.
+Varje API Management [pris nivå](https://aka.ms/apimpricing) erbjuder en distinkt uppsättning funktioner och per enhets [kapacitet](api-management-capacity.md). I följande tabell sammanfattas viktiga funktioner som är tillgängliga på varje nivå. Vissa funktioner kan fungera annorlunda eller ha olika funktioner beroende på nivån. I sådana fall kallas skillnaderna i dokumentations artiklarna som beskriver dessa enskilda funktioner.
 
 > [!IMPORTANT]
-> Observera att utvecklarnivån är för icke-produktionsanvändningsfall och utvärderingar. Det erbjuder inte SLA.
+> Observera att Developer-nivån är för användnings fall och utvärderings versioner som inte är i produktion. Den erbjuder inte service avtal.
 
 | Funktion                                                                                      | Förbrukning | Developer | Basic | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
-| Azure AD-integrering<sup>1</sup>                                                             | Inga          | Ja       | Inga    | Ja      | Ja     |
-| Stöd för Virtuellt nätverk (VNet)                                                               | Inga          | Ja       | Inga    | Inga       | Ja     |
-| Distribution i flera regioner                                                                      | Inga          | Inga        | Inga    | Inga       | Ja     |
-| Flera anpassade domännamn                                                                 | Inga          | Inga        | Inga    | Inga       | Ja     |
-| Utvecklarportal<sup>2</sup>                                                                 | Inga          | Ja       | Ja   | Ja      | Ja     |
-| Inbyggd cache                                                                               | Inga          | Ja       | Ja   | Ja      | Ja     |
-| Inbyggd analys                                                                           | Inga          | Ja       | Ja   | Ja      | Ja     |
-| [Självvärd gateway](self-hosted-gateway-overview.md)<sup>3</sup>                           | Inga          | Ja       | Inga    | Inga       | Ja     |
+| Azure AD-integrering<sup>1</sup>                                                             | Nej          | Ja       | Nej    | Ja      | Ja     |
+| Stöd för Virtual Network (VNet)                                                               | Nej          | Ja       | Nej    | Nej       | Ja     |
+| Distribution i flera regioner                                                                      | Nej          | Nej        | Nej    | Nej       | Ja     |
+| Flera anpassade domän namn                                                                 | Nej          | Nej        | Nej    | Nej       | Ja     |
+| Utvecklings Portal<sup>2</sup>                                                                 | Nej          | Ja       | Ja   | Ja      | Ja     |
+| Inbyggd cache                                                                               | Nej          | Ja       | Ja   | Ja      | Ja     |
+| Inbyggd analys                                                                           | Nej          | Ja       | Ja   | Ja      | Ja     |
+| [Egen värd-Gateway](self-hosted-gateway-overview.md)<sup>3</sup>                           | Nej          | Ja       | Nej    | Nej       | Ja     |
 | [TLS-inställningar](api-management-howto-manage-protocols-ciphers.md)                             | Ja         | Ja       | Ja   | Ja      | Ja     |
 | [Extern cache](https://aka.ms/apimbyoc)                                                    | Ja         | Ja       | Ja   | Ja      | Ja     |
-| [Autentisering av klientcertifikat](api-management-howto-mutual-certificates-for-clients.md) | Ja         | Ja       | Ja   | Ja      | Ja     |
-| [Säkerhetskopiera och återställa](api-management-howto-disaster-recovery-backup-restore.md)               | Inga          | Ja       | Ja   | Ja      | Ja     |
-| [Hantering över Git](api-management-configuration-repository-git.md)                        | Inga          | Ja       | Ja   | Ja      | Ja     |
-| API för direkt hantering                                                                        | Inga          | Ja       | Ja   | Ja      | Ja     |
-| Azure Monitor loggar och mått                                                               | Inga          | Ja       | Ja   | Ja      | Ja     |
-| Statisk IP                                                                                    | Inga          | Ja       | Ja   | Ja      | Ja     |
+| [Autentisering av klient certifikat](api-management-howto-mutual-certificates-for-clients.md) | Ja         | Ja       | Ja   | Ja      | Ja     |
+| [Säkerhetskopiering och återställning](api-management-howto-disaster-recovery-backup-restore.md)               | Nej          | Ja       | Ja   | Ja      | Ja     |
+| [Hantering över git](api-management-configuration-repository-git.md)                        | Nej          | Ja       | Ja   | Ja      | Ja     |
+| API för direkt hantering                                                                        | Nej          | Ja       | Ja   | Ja      | Ja     |
+| Azure Monitor loggar och mått                                                               | Nej          | Ja       | Ja   | Ja      | Ja     |
+| Statisk IP                                                                                    | Nej          | Ja       | Ja   | Ja      | Ja     |
 
-<sup>1</sup> Möjliggör användning av Azure AD (och Azure AD B2C) som identitetsprovider för användarloggning på utvecklarportalen.<br/>
-<sup>2</sup> Inklusive relaterade funktioner, t.ex.<br/>
-<sup>3</sup> Begränsad till en enda självvärd gateway-distribution med en enda gateway-nod.<br/>
+<sup>1</sup> gör det möjligt att använda Azure AD (och Azure AD B2C) som identitets leverantör för användare som loggar in på Developer-portalen.<br/>
+<sup>2</sup> inklusive relaterade funktioner, t. ex. användare, grupper, problem, program och e-postmallar och meddelanden.<br/>
+<sup>3</sup> i dina egen värdbaserade gatewayer för utvecklings nivån är begränsade till en enda Gateway-nod.<br/>

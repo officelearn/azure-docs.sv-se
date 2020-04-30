@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 5c71f37741de06b8633e7eafaae2f29823214f74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0f8d9d7d90e88b4e43721dac274833a3b0df275e
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "75442673"
+ms.locfileid: "82203156"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Så distribuerar du en Azure API Management-tjänstinstans till flera Azure-regioner
 
@@ -31,36 +31,23 @@ En ny Azure API Management-tjänst som ursprungligen bara innehåller en [enhet]
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="deploy-an-api-management-service-instance-to-a-new-region"></a><a name="add-region"> </a>Distribuera en API Management tjänst instans till en ny region
+## <a name="deploy-api-management-service-to-a-new-region"></a><a name="add-region"> </a>Distribuera API Management tjänst till en ny region
 
 > [!NOTE]
 > Om du ännu inte har skapat en API Management tjänst instans, se [skapa en API Management tjänst instans][create an api management service instance].
 
-I Azure Portal navigerar du till sidan för **skalning och prissättning** för din API Management-tjänstinstans.
+1. I Azure Portal navigerar du till API Management-tjänsten och klickar på posten **platser** på menyn.
+2. Klicka på **+ Lägg till** i det översta fältet.
+3. Välj plats i list rutan och ange antalet enheter med skjutreglaget.
+4. Klicka på knappen **Lägg till** för att bekräfta.
+5. Upprepa processen tills du har konfigurerat alla platser.
+6. Klicka på **Spara** i det översta fältet för att starta distributions processen.
 
-![Fliken skala][api-management-scale-service]
+## <a name="delete-an-api-management-service-location"></a><a name="remove-region"> </a>Ta bort en API Management tjänst plats
 
-Om du vill distribuera till en ny region klickar du på **+ Lägg till region** i verktygsfältet.
-
-![Lägg till region][api-management-add-region]
-
-Välj plats i list rutan och ange antalet enheter för med skjutreglaget.
-
-![Ange enheter][api-management-select-location-units]
-
-Klicka på **Lägg till** för att placera ditt val i tabellen platser.
-
-Upprepa processen tills du har konfigurerat alla platser och klicka på **Spara** i verktygsfältet för att starta distributions processen.
-
-## <a name="delete-an-api-management-service-instance-from-a-location"></a><a name="remove-region"> </a>Ta bort en API Management tjänst instans från en plats
-
-I Azure Portal navigerar du till sidan för **skalning och prissättning** för din API Management-tjänstinstans.
-
-![Fliken skala][api-management-scale-service]
-
-För den plats som du vill ta bort öppnar du snabb menyn med knappen **...** längst till höger i tabellen. Välj alternativet **ta bort** .
-
-Bekräfta borttagningen och klicka på **Spara** för att tillämpa ändringarna.
+1. I Azure Portal navigerar du till API Management-tjänsten och klickar på posten **platser** på menyn.
+2. För den plats som du vill ta bort öppnar du snabb menyn med knappen **...** längst till höger i tabellen. Välj alternativet **ta bort** .
+3. Bekräfta borttagningen och klicka på **Spara** för att tillämpa ändringarna.
 
 ## <a name="route-api-calls-to-regional-backend-services"></a><a name="route-backend"> </a>Dirigera API-anrop till regionala Server dels tjänster
 
@@ -119,11 +106,6 @@ API Management dirigerar begär anden till en regional _Gateway_ baserat på [de
 1. [Konfigurera API Management regionala status slut punkter i Traffic Manager](../traffic-manager/traffic-manager-monitoring.md). Slut punkterna för regional status följer URL-mönstret i `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`, till exempel `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
 1. Ange [routningsmetod](../traffic-manager/traffic-manager-routing-methods.md) för Traffic Manager.
 
-[api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
-[api-management-scale-service]: ./media/api-management-howto-deploy-multi-region/api-management-scale-service.png
-[api-management-add-region]: ./media/api-management-howto-deploy-multi-region/api-management-add-region.png
-[api-management-select-location-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-location-units.png
-[api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
 [create an api management service instance]: get-started-create-service-instance.md
 [get started with azure api management]: get-started-create-service-instance.md
 [deploy an api management service instance to a new region]: #add-region

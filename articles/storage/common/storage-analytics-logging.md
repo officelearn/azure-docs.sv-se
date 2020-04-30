@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 45224625cfc828227708247d082a1aab1aef8469
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 1e41eb02f4b02078dbf4d42c46cab574cf8d0701
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82142644"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204074"
 ---
 # <a name="azure-storage-analytics-logging"></a>Loggning med Azure-lagringsanalys
 
@@ -89,12 +89,12 @@ Information om hur du registrerar blobbar program mässigt finns i [räkna upp B
 |Attribut|Beskrivning|
 |---------------|-----------------|
 |`<service-name>`|Namnet på lagrings tjänsten. Till exempel: `blob`, `table`eller`queue`|
-|`YYYY`|Årtalet med fyra siffror för loggen. Exempel: `2011`|
-|`MM`|Den två siffrorna i månaden för loggen. Exempel: `07`|
-|`DD`|Den två siffriga dagen för loggen. Exempel: `31`|
-|`hh`|Den två siffriga timmen som anger start timmen för loggarna, i UTC-format i 24 timmar. Exempel: `18`|
+|`YYYY`|Årtalet med fyra siffror för loggen. Exempelvis: `2011`|
+|`MM`|Den två siffrorna i månaden för loggen. Exempelvis: `07`|
+|`DD`|Den två siffriga dagen för loggen. Exempelvis: `31`|
+|`hh`|Den två siffriga timmen som anger start timmen för loggarna, i UTC-format i 24 timmar. Exempelvis: `18`|
 |`mm`|Det två siffer numret som anger start minuten för loggarna. **Obs:**  Värdet stöds inte i den aktuella versionen av Lagringsanalys och värdet är alltid `00`.|
-|`<counter>`|En noll-baserad räknare med sex siffror som anger antalet logg-blobar som har genererats för lagrings tjänsten under en tids period. Räknaren startar vid `000000`. Exempel: `000001`|
+|`<counter>`|En noll-baserad räknare med sex siffror som anger antalet logg-blobar som har genererats för lagrings tjänsten under en tids period. Räknaren startar vid `000000`. Exempelvis: `000001`|
 
  Följande är ett fullständigt exempel på logg namn som kombinerar exemplen ovan:
 
@@ -113,8 +113,8 @@ Information om hur du registrerar blobbar program mässigt finns i [räkna upp B
 |Attribut|Beskrivning|
 |---------------|-----------------|
 |`LogType`|Beskriver om loggen innehåller information som rör Läs-, Skriv-eller borttagnings åtgärder. Det här värdet kan innehålla en typ eller en kombination av alla tre, avgränsade med kommatecken.<br /><br /> Exempel 1:`write`<br /><br /> Exempel 2:`read,write`<br /><br /> Exempel 3:`read,write,delete`|
-|`StartTime`|Den tidigaste tiden för en post i loggen i form av `YYYY-MM-DDThh:mm:ssZ`. Exempel: `2011-07-31T18:21:46Z`|
-|`EndTime`|Den senaste tiden för en post i loggen i form av `YYYY-MM-DDThh:mm:ssZ`. Exempel: `2011-07-31T18:22:09Z`|
+|`StartTime`|Den tidigaste tiden för en post i loggen i form av `YYYY-MM-DDThh:mm:ssZ`. Exempelvis: `2011-07-31T18:21:46Z`|
+|`EndTime`|Den senaste tiden för en post i loggen i form av `YYYY-MM-DDThh:mm:ssZ`. Exempelvis: `2011-07-31T18:22:09Z`|
 |`LogVersion`|Versionen av logg formatet.|
 
  I följande lista visas kompletta exempel-metadata med hjälp av ovanstående exempel:
@@ -160,7 +160,7 @@ Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations non
 
 # <a name="net-v12-sdk"></a>[\.NET V12-SDK](#tab/dotnet)
 
-:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/diagnostic-logs-classic.cs" id="snippet_EnableDiagnosticLogs":::
+:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
 
 # <a name="net-v11-sdk"></a>[\.NET V11-SDK](#tab/dotnet11)
 

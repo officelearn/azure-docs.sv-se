@@ -3,22 +3,98 @@ title: Mall-funktioner – jämförelse
 description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att jämföra värden.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a9b7b32475695e5222b87c8fe75e8982f34ebb21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 15afc4d721c6577de9fe3e78483fdbfae5b493c6
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192339"
+ms.locfileid: "82203785"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Jämförelse funktioner för ARM-mallar
 
 Resource Manager innehåller flera funktioner för att göra jämförelser i dina Azure Resource Manager-mallar (ARM).
 
+* [coalesce](#coalesce)
 * [lika med](#equals)
 * [större än](#greater)
 * [större än eller lika med](#greaterorequals)
 * [mindre än](#less)
 * [mindre än eller lika med](#lessorequals)
+
+## <a name="coalesce"></a>coalesce
+
+`coalesce(arg1, arg2, arg3, ...)`
+
+Returnerar det första värdet som inte är null från parametrarna. Tomma strängar, tomma matriser och tomma objekt är inte null.
+
+### <a name="parameters"></a>Parametrar
+
+| Parameter | Krävs | Typ | Beskrivning |
+|:--- |:--- |:--- |:--- |
+| arg1 |Ja |heltal, sträng, matris eller objekt |Det första värdet som ska testas för null. |
+| ytterligare argument |Nej |heltal, sträng, matris eller objekt |Ytterligare värden att testa för null. |
+
+### <a name="return-value"></a>Returvärde
+
+Värdet för de första icke-null-parametrarna, som kan vara en sträng, en heltals mat ris eller ett objekt. Null om alla parametrar är null.
+
+### <a name="example"></a>Exempel
+
+I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) visas utdata från olika användnings områden för sammanslagning.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {
+                "null1": null,
+                "null2": null,
+                "string": "default",
+                "int": 1,
+                "object": {"first": "default"},
+                "array": [1]
+            }
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "stringOutput": {
+            "type": "string",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
+        },
+        "intOutput": {
+            "type": "int",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
+        },
+        "objectOutput": {
+            "type": "object",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
+        },
+        "arrayOutput": {
+            "type": "array",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
+        },
+        "emptyOutput": {
+            "type": "bool",
+            "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
+        }
+    }
+}
+```
+
+Utdata från föregående exempel med standardvärdena är:
+
+| Name | Typ | Värde |
+| ---- | ---- | ----- |
+| stringOutput | Sträng | standard |
+| intOutput | Int | 1 |
+| objectOutput | Objekt | {"First": "standard"} |
+| arrayOutput | Matris | 81.1 |
+| emptyOutput | Bool | Sant |
 
 ## <a name="equals"></a>lika med
 
@@ -125,10 +201,10 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Name | Typ | Värde |
 | ---- | ---- | ----- |
-| Incheckningar | Bool | True |
-| checkStrings | Bool | True |
-| checkArrays | Bool | True |
-| checkObjects | Bool | True |
+| Incheckningar | Bool | Sant |
+| checkStrings | Bool | Sant |
+| checkArrays | Bool | Sant |
+| checkObjects | Bool | Sant |
 
 Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) använder [inte](template-functions-logical.md#not) **lika**med.
 
@@ -151,7 +227,7 @@ Utdata från föregående exempel är:
 
 | Name | Typ | Värde |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | True |
+| checkNotEquals | Bool | Sant |
 
 ## <a name="greater"></a>större än
 
@@ -215,8 +291,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Name | Typ | Värde |
 | ---- | ---- | ----- |
-| Incheckningar | Bool | False |
-| checkStrings | Bool | True |
+| Incheckningar | Bool | Falskt |
+| checkStrings | Bool | Sant |
 
 ## <a name="greaterorequals"></a>större än eller lika med
 
@@ -280,8 +356,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Name | Typ | Värde |
 | ---- | ---- | ----- |
-| Incheckningar | Bool | False |
-| checkStrings | Bool | True |
+| Incheckningar | Bool | Falskt |
+| checkStrings | Bool | Sant |
 
 ## <a name="less"></a>mindre än
 
@@ -345,8 +421,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Name | Typ | Värde |
 | ---- | ---- | ----- |
-| Incheckningar | Bool | True |
-| checkStrings | Bool | False |
+| Incheckningar | Bool | Sant |
+| checkStrings | Bool | Falskt |
 
 ## <a name="lessorequals"></a>mindre än eller lika med
 
@@ -410,8 +486,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Name | Typ | Värde |
 | ---- | ---- | ----- |
-| Incheckningar | Bool | True |
-| checkStrings | Bool | False |
+| Incheckningar | Bool | Sant |
+| checkStrings | Bool | Falskt |
 
 ## <a name="next-steps"></a>Nästa steg
 

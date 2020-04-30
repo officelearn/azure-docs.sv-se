@@ -16,12 +16,12 @@ ms.date: 03/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c38e1a61827da547bb39a699a0e92043e63466c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ddd8e1c64f4db8221937abc54e88d9a884acf3e
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128475"
+ms.locfileid: "82207252"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Felsöka hantering av Azure AD-berättigande
 
@@ -87,13 +87,19 @@ Den här artikeln beskriver några objekt som du bör kontrol lera för att hjä
 
     Om begäran har några leverans fel kommer status för begäran att **levereras eller** **levereras delvis**.
 
-    Om det finns några leverans fel i förfrågningens informations fönster, finns det ett antal leverans fel.
+    Om det finns några leverans fel visas antalet leverans fel i begärans informations fönster.
 
 1. Klicka på antalet för att se alla begärans leverans fel.
 
 ### <a name="reprocess-a-request"></a>Ombearbeta en begäran
 
-Om en begäran påträffar ett fel kan du bearbeta begäran igen för att försöka igen. Du kan bara ombearbeta en begäran som har statusen **levererad** eller **delvis levererad** och ett avslutat datum som är mindre än en vecka.
+Om ett fel uppfylls efter att en begäran om att bearbeta ett åtkomst paket har utlösts måste du vänta medan systemet ombearbeta begäran. Systemet försöker flera gånger att bearbeta igen under flera timmar, så du kan inte tvinga ombearbetning under den här tiden. 
+
+Du kan bara ombearbeta en begäran som har statusen **levererad** eller **delvis levererad** och ett avslutat datum som är mindre än en vecka.
+
+- Om felet har åtgärd ATS under utvärderings perioden ändras status för begäran till **leverera**. Begäran kommer att bearbetas igen utan ytterligare åtgärder från användaren.
+
+- Om felet **inte** löstes under utvärderings perioden kan status för begäran vara Inlevererat eller **delvis levererat**. Sedan kan du använda knappen för att **bearbeta** igen. Du har sju dagar på sig att bearbeta begäran igen.
 
 **Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 

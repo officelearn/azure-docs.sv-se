@@ -243,11 +243,13 @@
             - name: Fristående – valfri miljö
               items:
                 - name: Java (förhandsversion)
-                  href: app/java-in-process-agent.md
-                - name: Java JVM-konfiguration
-                  href: app/java-standalone-arguments.md
-                - name: Java-konfigurationsalternativ
-                  href: app/java-standalone-config.md
+                  items:
+                    - name: Översikt
+                      href: app/java-in-process-agent.md
+                    - name: Konfigurationsalternativ
+                      href: app/java-standalone-config.md
+                    - name: Konfiguration av JVM-argument
+                      href: app/java-standalone-arguments.md
             - name: Lokala servrar
               items:
                 - name: ASP.NET
@@ -690,8 +692,10 @@
                   href: insights/container-insights-enable-existing-clusters.md
                 - name: Aktivera för hybridkluster
                   href: insights/container-insights-hybrid-setup.md
-                - name: Aktivera för Azure Red Hat OpenShift
+                - name: Aktivera för Azure Red Hat OpenShift v3
                   href: insights/container-insights-azure-redhat-setup.md
+                - name: Aktivera för Azure Red Hat OpenShift v4
+                  href: insights/container-insights-azure-redhat4-setup.md
                 - name: Regionsmappningar
                   href: insights/container-insights-region-mapping.md
             - name: Övervaka prestanda
@@ -724,10 +728,16 @@
               href: insights/container-insights-update-metrics.md
             - name: Konfiguration av hälsoövervakning
               href: insights/container-insights-health-monitors-config.md
-            - name: Inaktivera övervakning av AKS
-              href: insights/container-insights-optout.md
-            - name: Inaktivera övervakning av Red Hat OpenShift
-              href: insights/container-insights-optout-openshift.md
+            - name: Inaktivera övervakning
+              items:
+                - name: Inaktivera övervakning av AKS
+                  href: insights/container-insights-optout.md
+                - name: Inaktivera övervakning av Red Hat OpenShift v3
+                  href: insights/container-insights-optout-openshift-v3.md
+                - name: Inaktivera övervakning av Red Hat OpenShift v4
+                  href: insights/container-insights-optout-openshift-v4.md
+                - name: Inaktivera övervakning av hybridkluster
+                  href: insights/container-insights-optout-hybrid.md
             - name: Felsökning
               href: insights/container-insights-troubleshoot.md
         - name: Övervakning av Docker- och Windows-containrar

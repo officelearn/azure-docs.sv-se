@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 04/28/2020
 ms.author: sstein
-ms.openlocfilehash: 27a62223970b0f697465ce9aa050f3fccbcae464
-ms.sourcegitcommit: 354a302d67a499c36c11cca99cce79a257fe44b0
+ms.openlocfilehash: c3dc5b26435f6d876e5eaea943e359055018913b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106431"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82201320"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL Database
 
@@ -49,7 +49,7 @@ Den här artikeln innehåller SQL Database funktioner som för närvarande finns
 | <a href="https://aka.ms/managed-instance-aadlogins">Azure AD server-huvudobjekt på instans nivå (inloggningar)</a> | Skapa inloggningar på server nivå med hjälp av instruktionen <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Skapa inloggning från extern provider</a> . |
 | [Transaktionell replikering](sql-database-managed-instance-transactional-replication.md) | Replikera ändringarna från dina tabeller till andra databaser som har placerats på hanterade instanser, enskilda databaser eller SQL Server instanser eller uppdatera tabeller när vissa rader ändras i andra hanterade instanser eller SQL Server instans. Mer information finns i [Konfigurera replikering i en Azure SQL Database Hanterad instans databas](replication-with-sql-database-managed-instance.md). |
 | Hotidentifiering |Mer information finns i [Konfigurera hot identifiering i Azure SQL Database Hanterad instans](sql-database-managed-instance-threat-detection.md).|
-| Långsiktig kvarhållning av säkerhetskopior | Mer information finns i [Konfigurera långsiktig säkerhets kopiering i Azure SQL Database Hanterad instans](sql-database-managed-instance-long-term-backup-retention-configure.md). | 
+| Långsiktig kvarhållning av säkerhetskopior | Mer information finns i [Konfigurera långsiktig säkerhets kopiering i Azure SQL Database Hanterad instans](sql-database-managed-instance-long-term-backup-retention-configure.md), som för närvarande finns i begränsad offentlig för hands version. | 
 
 ---
 
@@ -69,7 +69,7 @@ Följande funktioner är aktiverade i distributions modellen för hanterade inst
   - Stöd för <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 och SharePoint 2019 </a> och <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
   - Skapa instanser med <a href="https://aka.ms/managed-instance-collation">sortering på server nivå</a> och <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">tidszon</a> som du väljer.
   - Hanterade instanser skyddas nu med <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">inbyggd brand vägg</a>.
-  - Konfigurera instanser för att använda [offentliga slut punkter](sql-database-managed-instance-public-endpoint-configure.md), en [proxy-Åsidosätt](sql-database-connectivity-architecture.md#connection-policy) anslutning för att få bättre nätverks prestanda, <a href="https://aka.ms/four-cores-sql-mi-update">4 virtuella kärnor på Gen5-maskinvarukompatibilitet</a> eller <a href="https://aka.ms/managed-instance-configurable-backup-retention">Konfigurera kvarhållning av säkerhets kopior upp till 35 dagar</a> för återställning vid tidpunkter. Långsiktig kvarhållning av säkerhets kopior (upp till 10 år) är fortfarande inte aktiverat så att du kan använda kopierings <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">bara säkerhets kopior</a> som ett alternativ.
+  - Konfigurera instanser för att använda [offentliga slut punkter](sql-database-managed-instance-public-endpoint-configure.md), en [proxy-Åsidosätt](sql-database-connectivity-architecture.md#connection-policy) anslutning för att få bättre nätverks prestanda, <a href="https://aka.ms/four-cores-sql-mi-update">4 virtuella kärnor på Gen5-maskinvarukompatibilitet</a> eller <a href="https://aka.ms/managed-instance-configurable-backup-retention">Konfigurera kvarhållning av säkerhets kopior upp till 35 dagar</a> för återställning vid tidpunkter. [Långsiktig kvarhållning av säkerhets kopior](sql-database-long-term-retention.md#managed-instance-support) (upp till 10 år) är för närvarande en begränsad offentlig för hands version.  
   - Med nya funktioner kan du <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">geo-återställa databasen till ett annat data Center med hjälp av PowerShell</a>, [byta namn på databas](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [ta bort virtuellt kluster](sql-database-managed-instance-delete-virtual-cluster.md).
   - Den nya inbyggda [rollen instans deltagar roll](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) möjliggör separering av tull (SOD) efterlevnad av säkerhets principer och efterlevnad av företags standarder.
   - Hanterad instans är tillgänglig i följande Azure Government regioner till GA (US Gov, Texas, US Gov, Arizona) och i Kina, norra 2 och Kina, östra 2. Den är också tillgänglig i följande offentliga regioner: Australien, centrala, Australien, centrala, södra Frankrike, södra Förenade Arabemiraten Central, Förenade Arabemiraten Nord, Sydafrika, norra, södra Afrika, västra.
@@ -81,7 +81,7 @@ Följande funktioner är aktiverade i distributions modellen för hanterade inst
 |[Behörigheter för resurs gruppen har inte tillämpats på den hanterade instansen](#permissions-on-resource-group-not-applied-to-managed-instance)|Feb 2020|Har en lösning||
 |[Begränsning av manuell redundans via portalen för failover-grupper](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Har en lösning||
 |[SQL Agent-roller behöver explicit kör-behörighet för icke-sysadmin-inloggningar](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Har en lösning||
-|[SQL Agent-jobb kan avbrytas efter omstart av agent processen](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dec 2019|Ingen lösning|Mar 2020|
+|[SQL Agent-jobb kan avbrytas efter omstart av agent processen](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dec 2019|Matchat|Mar 2020|
 |[AAD-inloggningar och användare stöds inte i SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|Nov 2019|Ingen lösning||
 |[Minnes gränser för minnes intern OLTP tillämpas inte](#in-memory-oltp-memory-limits-are-not-applied)|Okt 2019|Har en lösning||
 |[Ett fel fel returnerades vid försök att ta bort en fil som inte är tom](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|Okt 2019|Har en lösning||
@@ -96,7 +96,7 @@ Följande funktioner är aktiverade i distributions modellen för hanterade inst
 |[Överskrida lagrings utrymme med små databasfiler](#exceeding-storage-space-with-small-database-files)||Har en lösning||
 |[GUID-värden som visas i stället för databas namn](#guid-values-shown-instead-of-database-names)||Har en lösning||
 |[Fel loggarna är inte beständiga](#error-logs-arent-persisted)||Ingen lösning||
-|[Transaktions omfånget på två databaser inom samma instans stöds inte](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Har en lösning|Mars 2020|
+|[Transaktions omfånget på två databaser inom samma instans stöds inte](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Har en lösning|Mar 2020|
 |[CLR-moduler och länkade servrar kan ibland inte referera till en lokal IP-adress](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Har en lösning||
 |Databasens konsekvens kontrol leras inte med DBCC CHECKDB efter återställningen av databasen från Azure Blob Storage.||Matchat|Nov 2019|
 |Det går inte att återställa punkt-i-tid från Affärskritisk nivå till Generell användning nivå om käll databasen innehåller minnesbaserade OLTP-objekt.||Matchat|Okt 2019|
@@ -133,7 +133,7 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 ### <a name="sql-agent-jobs-can-be-interrupted-by-agent-process-restart"></a>SQL Agent-jobb kan avbrytas efter omstart av agent processen
 
-SQL-agenten skapar en ny session varje gång jobbet startas, vilket gradvis ökar minnes användningen. För att undvika att den interna minnes gränsen uppnås, vilket skulle blockera körning av schemalagda jobb, startas agent processen om när minnes användningen når tröskelvärdet. Det kan leda till avbrott i körningen av jobb som körs vid tidpunkten för omstart.
+**(Löst i mars 2020)** SQL-agenten skapar en ny session varje gång jobbet startas, vilket gradvis ökar minnes användningen. För att undvika att den interna minnes gränsen uppnås, vilket skulle blockera körning av schemalagda jobb, startas agent processen om när minnes användningen når tröskelvärdet. Det kan leda till avbrott i körningen av jobb som körs vid tidpunkten för omstart.
 
 ### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>Minnes gränser för minnes intern OLTP tillämpas inte
 

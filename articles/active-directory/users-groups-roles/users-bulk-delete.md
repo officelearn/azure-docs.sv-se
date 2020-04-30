@@ -1,11 +1,11 @@
 ---
-title: Massborttagningsanvändare i Azure Active Directory-portalen | Microsoft-dokument
-description: Ta bort användare i grupp i Azure-administrationscentret i Azure Active Directory
+title: Mass borttagning av användare i Azure Active Directory Portal | Microsoft Docs
+description: Ta bort användare i grupp i Azure administrations centret i Azure Active Directory
 services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/16/2020
+ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,50 +13,71 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beb8b4f35dc5f02e59cced05a6bcfc235d42f996
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: ca30d5b050a34000fa7c6465356aba206aeaa8e4
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81532837"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82203373"
 ---
-# <a name="bulk-delete-users-in-azure-active-directory"></a>Massborttagningsanvändare i Azure Active Directory
+# <a name="bulk-delete-users-in-azure-active-directory"></a>Mass borttagning av användare i Azure Active Directory
 
-Med Azure Active Directory (Azure AD) portal kan du ta bort ett stort antal medlemmar till en grupp med hjälp av en kommaavgränsad värden (CSV) fil för att massborttagning användare.
+Med hjälp av Azure Active Directory (Azure AD)-portalen kan du ta bort ett stort antal medlemmar till en grupp med hjälp av en fil med kommaavgränsade värden (CSV) för Mass borttagning av användare.
 
-## <a name="to-bulk-delete-users"></a>Så här massborttagningar av användare
+## <a name="understand-the-csv-template"></a>Förstå CSV-mallen
 
-1. [Logga in på din Azure AD-organisation](https://aad.portal.azure.com) med ett konto som är användaradministratör i organisationen.
-1. I Azure AD väljer du **Användare** > **Massborttagning**.
-1. På **sidan Massborttagningsanvändar** väljer du **Hämta** för att ta emot en giltig CSV-fil med användaregenskaper.
+Hämta och fyll i CSV-mallen så att du kan ta bort Azure AD-användare i bulk. Den CSV-mall som du hämtar kan se ut som i det här exemplet:
 
-   ![Välj en lokal CSV-fil där du listar de användare som du vill ta bort](./media/users-bulk-delete/bulk-delete.png)
+![Kalkyl blad för uppladdning och vidarekoppling förklarar syfte och värden för varje rad och kolumn](./media/users-bulk-delete/understand-template.png)
 
-1. Öppna CSV-filen och lägg till en rad för varje användare som du vill ta bort. Det enda obligatoriska värdet är **Användarens huvudnamn**. Spara sedan filen.
+### <a name="csv-template-structure"></a>Struktur för CSV-mall
 
-   ![CSV-filen innehåller namn och ID:n för de användare som ska tas bort](./media/users-bulk-delete/delete-csv-file.png)
+Raderna i en Hämtad CSV-mall är följande:
 
-1. Bläddra till filen under **Ladda upp csv-filen**på **sidan Massborttagning.** När du markerar filen och klickar på Skicka startar valideringen av CSV-filen.
-1. När filinnehållet har **validerats visas Filen uppladdad**. Om det finns fel måste du åtgärda dem innan du kan skicka jobbet.
-1. När filen godkänns väljer du **Skicka** för att starta azure-massåtgärden som tar bort användarna.
-1. När borttagningen är klar visas ett meddelande om att massåtgärden lyckades.
+- **Versions nummer**: den första raden som innehåller versions numret måste inkluderas i överförings-CSV-filen.
+- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt*&gt;. Till exempel `User name [userPrincipalName] Required`. Vissa äldre versioner av mallen kan ha små variationer.
+- **Exempel rad**: vi har inkluderat i mallen en rad exempel på acceptabla värden för varje kolumn. Du måste ta bort exempel raden och ersätta den med dina egna poster.
 
-Om det finns fel kan du hämta och visa resultatfilen på sidan **Massåtgärdsresultat.** Filen innehåller orsaken till varje fel.
+### <a name="additional-guidance"></a>Mer information
+
+- De två första raderna i uppladdnings mal len får inte tas bort eller ändras, eller så går det inte att bearbeta överföringen.
+- De obligatoriska kolumnerna visas först.
+- Vi rekommenderar inte att du lägger till nya kolumner i mallen. Eventuella ytterligare kolumner som du lägger till ignoreras och bearbetas inte.
+- Vi rekommenderar att du laddar ned den senaste versionen av CSV-mallen så ofta som möjligt.
+
+## <a name="to-bulk-delete-users"></a>För Mass borttagning av användare
+
+1. [Logga in på din Azure AD-organisation](https://aad.portal.azure.com) med ett konto som är en användar administratör i organisationen.
+1. I Azure AD väljer **du användare** > **Mass borttagning**.
+1. På sidan **Mass borttagning av användare** väljer du **Hämta** för att ta emot en giltig CSV-fil med användar egenskaper.
+
+   ![Välj en lokal CSV-fil där du visar de användare som du vill ta bort](./media/users-bulk-delete/bulk-delete.png)
+
+1. Öppna CSV-filen och Lägg till en rad för varje användare som du vill ta bort. Det enda obligatoriska värdet är **användarens huvud namn**. Spara sedan filen.
+
+   ![CSV-filen innehåller namn och ID: n för de användare som ska tas bort](./media/users-bulk-delete/delete-csv-file.png)
+
+1. På sidan **Mass borttagning av användare** , under **överför din CSV-fil**, bläddrar du till filen. När du väljer filen och klickar på Skicka, startar verifieringen av CSV-filen.
+1. När fil innehållet verifieras visas **filen har laddats upp**. Om det finns fel måste du åtgärda dem innan du kan skicka jobbet.
+1. När din fil klarar valideringen väljer du **Skicka** för att starta den Azure Mass åtgärd som tar bort användarna.
+1. När borttagnings åtgärden har slutförts visas ett meddelande om att Mass åtgärden har slutförts.
+
+Om det finns fel kan du hämta och Visa resultat filen på resultat sidan för **Mass åtgärder** . Filen innehåller orsaken för varje fel.
 
 ## <a name="check-status"></a>Kontrollera status
 
-Du kan se status för alla väntande massbegäranden på sidan **Massåtgärdsresultat.**
+Du kan se statusen för alla väntande Mass förfrågningar på resultat sidan för **Mass åtgärder** .
 
    [![](media/users-bulk-delete/bulk-center.png "Check delete status in the Bulk Operations Results page")](media/users-bulk-delete/bulk-center.png#lightbox)
 
-Därefter kan du kontrollera att de användare som du har tagit bort finns i Azure AD-organisationen antingen i Azure-portalen eller med PowerShell.
+Sedan kan du kontrol lera att de användare som du har tagit bort finns i Azure AD-organisationen antingen i Azure Portal eller med hjälp av PowerShell.
 
-## <a name="verify-deleted-users-in-the-azure-portal"></a>Verifiera borttagna användare i Azure-portalen
+## <a name="verify-deleted-users-in-the-azure-portal"></a>Verifiera borttagna användare i Azure Portal
 
-1. Logga in på Azure-portalen med ett konto som är användaradministratör i organisationen.
-1. Välj Azure Active **Directory**i navigeringsfönstret .
+1. Logga in på Azure Portal med ett konto som är en användar administratör i organisationen.
+1. I navigerings fönstret väljer du **Azure Active Directory**.
 1. Under **Hantera** väljer du **Användare**.
-1. Under **Visa**väljer du **Endast Alla användare** och kontrollerar att de användare som du har tagit bort inte längre visas.
+1. Under **Visa**väljer du **alla användare** och kontrollerar att de användare som du har tagit bort inte längre visas.
 
 ### <a name="verify-deleted-users-with-powershell"></a>Verifiera borttagna användare med PowerShell
 
@@ -66,10 +87,10 @@ Kör följande kommando:
 Get-AzureADUser -Filter "UserType eq 'Member'"
 ```
 
-Kontrollera att de användare som du har tagit bort inte längre visas.
+Kontrol lera att de användare som du har tagit bort inte längre visas.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Masstillägg av användare](users-bulk-add.md)
-- [Ladda ner lista över användare](users-bulk-download.md)
-- [Användare av massåterställning](users-bulk-restore.md)
+- [Hämta lista över användare](users-bulk-download.md)
+- [Massåterställ användare](users-bulk-restore.md)

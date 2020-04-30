@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/22/2020
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: ca5ef9cebfddb002cd62a9fb0fbbfdf444e0e754
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: f397a3df7280b9277b2b7205368ef5788ed321aa
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82085971"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82206687"
 ---
-Skapa en [webbapp](../articles/app-service/containers/app-service-linux-intro.md) i `myAppServicePlan` App Service-planen. 
+Skapa en [webbapp](../articles/app-service/containers/app-service-linux-intro.md) i `myAppServicePlan` App Service plan. 
 
-I Cloud Shell kan du [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest) använda kommandot. Ersätt `<app-name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. Körningen är inställd `DOTNETCORE|LTS`på , som är .NET Core 3.1. Kör [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest)om du vill visa alla runtimes som stöds . 
+I Cloud Shell kan du använda [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest) kommandot. Ersätt `<app-name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. Körningen är inställd på `DOTNETCORE|LTS`, som är .net Core 3,1. Om du vill se alla körningar som [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest)stöds kör du. 
 
 ```azurecli-interactive
 # Bash
@@ -50,11 +50,11 @@ Du har skapat en tom webbapp i en Linux-container med git-distribution aktiverad
 > URL för fjärransluten Git visas i egenskapen `deploymentLocalGitUrl` med formatet `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Spara den här URL:en, eftersom du behöver den senare.
 >
 
-För närvarande måste du köra följande extra kommando för att `<app-name>` konfigurera .NET Core-versionen korrekt (ersätt med den från föregående steg):
+För närvarande måste du köra följande extra kommando för att konfigurera .NET Core-versionen på rätt sätt ( `<app-name>` Ersätt med det som visas i föregående steg):
 
 ```azurecli-interactive
 # Bash
-az webapp config set --resource-group myResourceGroup --name <app-name> --linux-fx-version "DOTNETCORE|3.1.0"
+az webapp config set --resource-group myResourceGroup --name <app-name> --linux-fx-version "DOTNETCORE|3.1"
 # PowerShell
-az --% webapp config set --resource-group myResourceGroup --name <app-name> --linux-fx-version "DOTNETCORE|3.1.0"
+az --% webapp config set --resource-group myResourceGroup --name <app-name> --linux-fx-version "DOTNETCORE|3.1"
 ```

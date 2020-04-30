@@ -1,35 +1,29 @@
 ---
-title: Skapa ett privat kluster med Azure Red Hat OpenShift 3.11 | Microsoft-dokument
-description: Skapa ett privat kluster med Azure Red Hat OpenShift 3.11
+title: Skapa ett privat kluster med Azure Red Hat OpenShift 3,11 | Microsoft Docs
+description: Skapa ett privat kluster med Azure Red Hat OpenShift 3,11
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/02/2020
-keywords: aro, openshift, privat kluster, röd hatt
-ms.openlocfilehash: b34b5d622527742447847102526eba9ee6ca220d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+keywords: Aro, OpenShift, privat kluster, Red Hat
+ms.openlocfilehash: f4ce6c79fa9fe6d05fdea4b877a8aa7faf404a9b
+ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78399424"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82204176"
 ---
-# <a name="create-a-private-cluster-with-azure-red-hat-openshift-311"></a>Skapa ett privat kluster med Azure Red Hat OpenShift 3.11
-
-> [!IMPORTANT]
-> Privata kluster (Azure Red Hat OpenShift) är för närvarande endast tillgängliga i privat förhandsversion i östra USA 2. Accepterar privat förhandsgranskning sker endast genom inbjudan. Var noga med att registrera din prenumeration innan du försöker aktivera den här funktionen.
+# <a name="create-a-private-cluster-with-azure-red-hat-openshift-311"></a>Skapa ett privat kluster med Azure Red Hat OpenShift 3,11
 
 Privata kluster ger följande fördelar:
 
-* Privata kluster exponerar inte klusterkontrollplankomponenter (till exempel API-servrar) på en offentlig IP-adress.
-* Det virtuella nätverket i ett privat kluster kan konfigureras av kunder, så att du kan konfigurera nätverk för att tillåta peering med andra virtuella nätverk, inklusive ExpressRoute-miljöer. Du kan också konfigurera anpassad DNS i det virtuella nätverket för att integrera med interna tjänster.
+* Privata kluster exponerar inte komponenter i kluster kontroll planet (till exempel API-servrar) på en offentlig IP-adress.
+* Det virtuella nätverket i ett privat kluster kan konfigureras av kunder, så att du kan konfigurera nätverk så att de tillåter peering med andra virtuella nätverk, inklusive ExpressRoute-miljöer. Du kan också konfigurera anpassad DNS på det virtuella nätverket för integrering med interna tjänster.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-> [!NOTE]
-> Den här funktionen kräver version 2019-10-27-förhandsvisning av ARO HTTP API. Det stöds ännu inte i Azure CLI.
-
-Fälten i följande konfigurationskodavsnitt är nya och måste inkluderas i klusterkonfigurationen. `managementSubnetCidr`måste finnas i klustrets virtuella nätverk och används av Azure för att hantera klustret.
+Fälten i följande konfigurations kods tycke är nya och måste ingå i kluster konfigurationen. `managementSubnetCidr`måste ligga inom klustrets virtuella nätverk och används av Azure för att hantera klustret.
 
 ```json
 properties:
@@ -40,22 +34,22 @@ properties:
      privateApiServer: true
 ```
 
-Ett privat kluster kan distribueras med hjälp av exempelskripten nedan. När klustret har `cluster get` distribuerats `properties.FQDN` kör du kommandot och visar egenskapen för att fastställa den privata IP-adressen för OpenShift API-servern.
+Ett privat kluster kan distribueras med hjälp av de exempel skript som anges nedan. När klustret har distribuerats kör du `cluster get` kommandot och visar `properties.FQDN` egenskapen för att fastställa den privata IP-adressen för OpenShift-API-servern.
 
-Det virtuella klustret har skapats med behörigheter så att du kan ändra det. Du kan sedan konfigurera nätverk för att komma åt det virtuella nätverket (ExpressRoute, VPN, virtuell nätverks peering) som krävs för dina behov.
+Klustrets virtuella nätverk kommer att ha skapats med behörigheter så att du kan ändra det. Du kan sedan konfigurera nätverk för att få åtkomst till det virtuella nätverket (ExpressRoute, VPN, virtuell nätverks-peering) som krävs för dina behov.
 
-Om du ändrar DNS-namnservrarna i klustrets virtuella nätverk måste du `properties.RefreshCluster` utfärda `true` en uppdatering i klustret med egenskapen inställd på så att de virtuella datorerna kan göras om. Den här uppdateringen gör det möjligt för dem att plocka upp de nya namnservrarna.
+Om du ändrar DNS-namnservrar på det virtuella kluster nätverket måste du utfärda en uppdatering på klustret med `properties.RefreshCluster` egenskapen inställd på `true` så att de virtuella datorerna kan avbildas. Den här uppdateringen gör att de kan hämta den nya namnservrar.
 
-## <a name="sample-configuration-scripts"></a>Exempel på konfigurationsskript
+## <a name="sample-configuration-scripts"></a>Exempel på konfigurations skript
 
-Använd exempelskripten i det här avsnittet för att konfigurera och distribuera ditt privata kluster.
+Använd exempel skripten i det här avsnittet för att konfigurera och distribuera ditt privata kluster.
 
 ### <a name="environment"></a>Miljö
 
-Fyll i miljövariablerna nedan som med dina egna värden.
+Fyll i miljövariablerna nedan när du använder dina egna värden.
 
 > [!NOTE]
-> Platsen måste anges `eastus2` till eftersom det för närvarande är den enda plats som stöds för privata kluster.
+> Platsen måste vara angiven `eastus2` som detta är den enda plats som stöds för privata kluster.
 
 ``` bash
 export CLUSTER_NAME=
@@ -68,9 +62,9 @@ export CLIENT_ID=
 export SECRET=
 ```
 
-### <a name="private-clusterjson"></a>privat-cluster.json
+### <a name="private-clusterjson"></a>privat-Cluster. JSON
 
-Med hjälp av de miljövariabler som definierats ovan är här en exempelklusterkonfiguration med privat kluster aktiverat.
+Med de miljövariabler som definierats ovan är här en exempel kluster konfiguration med privat kluster aktiverat.
 
 ```json
 {
@@ -135,7 +129,7 @@ Med hjälp av de miljövariabler som definierats ovan är här en exempelkluster
 
 ## <a name="deploy-a-private-cluster"></a>Distribuera ett privat kluster
 
-När du har konfigurerat ditt privata kluster med exempelskripten ovan kör du följande kommando för att distribuera ditt privata kluster.
+När du har konfigurerat ditt privata kluster med exempel skripten ovan kör du följande kommando för att distribuera ditt privata kluster.
 
 ``` bash
 az group create --name $CLUSTER_NAME --location $LOCATION
@@ -147,4 +141,4 @@ cat private-cluster.json | envsubst | curl -v -X PUT \
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du kommer åt OpenShift-konsolen finns i [Web Console Walkthrough](https://docs.openshift.com/container-platform/3.11/getting_started/developers_console.html).
+Information om hur du kommer åt OpenShift-konsolen finns i [genom gång av webb konsolen](https://docs.openshift.com/container-platform/3.11/getting_started/developers_console.html).

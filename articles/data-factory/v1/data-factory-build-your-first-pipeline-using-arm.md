@@ -1,5 +1,5 @@
 ---
-title: Skapa din första datafabrik (Resource Manager-mall)
+title: Bygg din första data fabrik (Resource Manager-mall)
 description: I de här självstudierna skapar du ett exempel på en Azure Data Factory-pipeline med hjälp av en Azure Resource Manager-mall.
 services: data-factory
 documentationcenter: ''
@@ -11,20 +11,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: db767a8d2f0452a9bedeaf8495152ef337255111
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e6a14cbb758426203a46ac508fe8e4bfdf3090cf
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75439028"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82203904"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Självstudie: Skapa din första Azure-datafabrik med hjälp av en Azure Resource Manager-mall
 > [!div class="op_single_selector"]
 > * [Översikt och förutsättningar](data-factory-build-your-first-pipeline.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-> * [Powershell](data-factory-build-your-first-pipeline-using-powershell.md)
+> * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager-mall](data-factory-build-your-first-pipeline-using-arm.md)
-> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST-API](data-factory-build-your-first-pipeline-using-rest-api.md)
 > 
  
 > [!NOTE]
@@ -76,7 +76,7 @@ Resource Manager-mallen på den högsta nivån för att definiera en datafabrik 
         {
             "name": "[parameters('dataFactoryName')]",
             "apiVersion": "[variables('apiVersion')]",
-            "type": "Microsoft.DataFactory/datafactories",
+            "type": "Microsoft.DataFactory/factories",
             "location": "westus",
             "resources": [
                 { ... },
@@ -116,7 +116,7 @@ Skapa en JSON-fil med namnet **ADFTutorialARM.json** i mappen **C:\ADFGetStarted
       {
         "name": "[variables('dataFactoryName')]",
         "apiVersion": "2015-10-01",
-        "type": "Microsoft.DataFactory/datafactories",
+        "type": "Microsoft.DataFactory/factories",
         "location": "West US",
         "resources": [
           {
@@ -338,16 +338,16 @@ Skapa en JSON-fil med namnet **ADFTutorialARM-Parameters.json** som innehåller 
 3. På bladet **Data Factory** för din datafabrik klickar du på **Diagram**.
 
      ![Ikonen Diagram](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
-4. I **diagramvyn**visas en översikt över de pipelines och datauppsättningar som används i den här självstudien.
+4. I **diagramvyn**visas en översikt över pipelines och data uppsättningar som används i den här självstudien.
    
    ![Diagramvy](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
-5. Dubbelklicka på datauppsättningen **AzureBlobOutput**i diagramvyn . Den sektor som för närvarande bearbetas visas.
+5. I diagramvyn dubbelklickar du på data uppsättningen **AzureBlobOutput**. Den sektor som för närvarande bearbetas visas.
    
     ![Datauppsättning](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-6. När bearbetningen är klar visas sektorn med statusen **Klar**. Att skapa ett HDInsight-kluster på begäran kan ta lite längre tid (cirka 20 minuter). Förvänta dig därför att pipelinen tar **cirka 30 minuter** att bearbeta segmentet.
+6. När bearbetningen är klar visas sektorn med statusen **Klar**. Att skapa ett HDInsight-kluster på begäran kan ta lite längre tid (cirka 20 minuter). Därför förväntar sig pipelinen att ta **cirka 30 minuter** att bearbeta sektorn.
    
     ![Datauppsättning](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)    
-7. När segmentet är i **klarläge** kontrollerar du mappen **partitionerade data** i **behållaren adfgetstarted** i blob-lagringen för utdata.  
+7. När sektorn har statusen **klar** , kontrollerar du mappen **partitioneddata** i behållaren **adfgetstarted** i Blob Storage för utdata.  
 
 Se [Övervaka datauppsättningar och pipeline](data-factory-monitor-manage-pipelines.md) för instruktioner om hur du använder Azures portalblad till att övervaka pipelinen och datauppsättningar som du har skapat i den här självstudien.
 
@@ -367,7 +367,7 @@ Du definierar en datafabrik i Resource Manager-mallen enligt följande exempel:
 {
     "name": "[variables('dataFactoryName')]",
     "apiVersion": "2015-10-01",
-    "type": "Microsoft.DataFactory/datafactories",
+    "type": "Microsoft.DataFactory/factories",
     "location": "West US"
 }
 ```
@@ -381,10 +381,10 @@ Det är en unik sträng som baseras på resursgruppens ID.
 ### <a name="defining-data-factory-entities"></a>Definiera Data Factory-entiteter
 Följande Data Factory-entiteter har definierats i JSON-mallen: 
 
-* [Azure Storage-länkad tjänst](#azure-storage-linked-service)
+* [Azure Storage länkad tjänst](#azure-storage-linked-service)
 * [HDInsight on-demand linked service (Länkad tjänst för HDInsight på begäran)](#hdinsight-on-demand-linked-service)
-* [Azure blob indatauppsättning](#azure-blob-input-dataset)
-* [Azure blob utdatauppsättning](#azure-blob-output-dataset)
+* [Data uppsättning för Azure Blob-indata](#azure-blob-input-dataset)
+* [Data uppsättning för Azure Blob-utdata](#azure-blob-output-dataset)
 * [Datapipeline med en kopieringsaktivitet](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Länkad Azure-lagringstjänst
@@ -407,7 +407,7 @@ Du anger namnet och nyckeln för Azure Storage-kontot i det här avsnittet. Se [
     }
 }
 ```
-**ConnectionString** använder parametrarna storageAccountName och storageAccountKey. Värdena för dessa parametrar skickades med hjälp av en konfigurationsfil. Definitionen använder också variablerna azureStorageLinkedService och dataFactoryName, som definieras i mallen. 
+**ConnectionString** använder parametrarna StorageAccountName och storageAccountKey. Värdena för dessa parametrar skickades med hjälp av en konfigurationsfil. Definitionen använder också variablerna azureStorageLinkedService och dataFactoryName, som definieras i mallen. 
 
 #### <a name="hdinsight-on-demand-linked-service"></a>HDInsight on-demand linked service (Länkad tjänst för HDInsight på begäran)
 Läs mer i artikeln [Beräkna länkade tjänster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) om JSON-egenskaper som används för att definiera en länkad tjänst för HDInsight på begäran.  
@@ -436,9 +436,9 @@ Observera följande punkter:
 
 * Data Factory skapar ett **Linux-baserat** HDInsight-kluster med ovanstående JSON. Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information. 
 * Du kan använda **ditt eget HDInsight-kluster** i stället för att använda ett HDInsight-kluster på begäran. Se [HDInsight-länkad tjänst](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) för mer information.
-* HDInsight-klustret skapar en **standardbehållare** i blob-lagring som du angav i JSON **(linkedServiceName**). HDInsight tar inte bort den här containern när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor behöver bearbetas, såvida det inte finns ett befintligt livekluster (**timeToLive**). Det raderas när bearbetningen är klar.
+* HDInsight-klustret skapar en **standard behållare** i blob-lagringen som du angav i JSON (**linkedServiceName**). HDInsight tar inte bort den här containern när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor behöver bearbetas, såvida det inte finns ett befintligt livekluster (**timeToLive**). Det raderas när bearbetningen är klar.
   
-    Allteftersom fler sektorer bearbetas kan du se många containrar i ditt Azure Blob Storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på dessa behållare följer ett mönster: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Använd verktyg som [Microsoft Lagringsutforskaren](https://storageexplorer.com/) till att ta bort containrar i din Azure bloblagring.
+    Allteftersom fler sektorer bearbetas kan du se många containrar i ditt Azure Blob Storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här behållarna följer ett mönster: "ADF**yourdatafactoryname**-**linkedservicename**-datumtidsstämpel". Använd verktyg som [Microsoft Lagringsutforskaren](https://storageexplorer.com/) till att ta bort containrar i din Azure bloblagring.
 
 Se [HDInsight-länkad tjänst på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) för mer information.
 
@@ -598,11 +598,11 @@ Här är ett exempel på en Resource Manager-mall för att skapa en logisk gatew
         {
             "name": "[variables('dataFactoryName')]",
             "apiVersion": "[variables('apiVersion')]",
-            "type": "Microsoft.DataFactory/datafactories",
+            "type": "Microsoft.DataFactory/factories",
             "location": "eastus",
             "resources": [
                 {
-                    "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]" ],
+                    "dependsOn": [ "[concat('Microsoft.DataFactory/factories/', variables('dataFactoryName'))]" ],
                     "type": "gateways",
                     "apiVersion": "[variables('apiVersion')]",
                     "name": "GatewayUsingARM",
@@ -619,10 +619,10 @@ Den här mallen skapar en datafabrik som heter GatewayUsingArmDF med en gateway 
 
 ## <a name="see-also"></a>Se även
 
-| Hjälpavsnitt | Beskrivning |
+| Ämne | Beskrivning |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för ditt scenario eller ditt företag. |
-| [Datamängder](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
+| [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Azure Data Factory. |
 | [Schemaläggning och körning](data-factory-scheduling-and-execution.md) |I den här artikeln beskrivs aspekter för schemaläggning och körning av Azure Data Factory-programmodellen. |
 | [Övervaka och hantera pipelines med övervakningsappen](data-factory-monitor-manage-app.md) |Den här artikeln beskriver hur du övervakar, hanterar och felsöker pipelines med övervaknings- och hanteringsappen. |
 

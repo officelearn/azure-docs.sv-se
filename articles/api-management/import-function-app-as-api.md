@@ -1,5 +1,5 @@
 ---
-title: Importera en Azure-funktionsapp som ett API i API Management
+title: Importera en Azure-Funktionsapp som ett API i API Management
 titleSuffix: Azure API Management
 description: Den här självstudien visar hur du importerar en Azure-funktionsapp till Azure API Management som API.
 services: api-management
@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/28/2019
+ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: c393ba081b480408373ed6867624ac6278c1674e
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 6f4626a8c42f3a50fa273c55099158750241bfee
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81260963"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202933"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importera en Azure-funktionsapp som API i Azure API Management | Microsoft Docs
 
@@ -46,7 +46,7 @@ Du lär dig att göra följande:
 
 Följ stegen nedan och skapa ett nytt API från en Azure-funktionsapp.
 
-1. I tjänsteinstansen **Azure API Management** väljer du **API:er** i menyn till vänster.
+1. Gå till din API Management-tjänst i Azure Portal och välj **API: er** på menyn.
 
 2. I listan **Lägg till ett nytt API** väljer du **Funktionsapp**.
 
@@ -71,10 +71,7 @@ Följ stegen nedan och skapa ett nytt API från en Azure-funktionsapp.
     > [!NOTE]
     > Du kan endast importera de funktioner som är baserade på HTTP-utlösare och som har auktoriseringsnivåinställningen *Anonym* eller *Funktion*.
 
-7. Växla till vyn **Fullständig** och tilldela **Produkten** till ditt nya API. Redigera de förifyllda fälten om det behövs.
-
-    ![Lägg till från funktionsapp](./media/import-function-app-as-api/add-06.png)
-
+7. Växla till vyn **Fullständig** och tilldela **Produkten** till ditt nya API. Vid behov kan du ange andra fält när du skapar eller konfigurerar dem senare genom att gå till fliken **Inställningar** . Inställningarna beskrivs i själv studie kursen [Importera och publicera din första API](import-and-publish.md#-import-and-publish-a-backend-api) .
 8. Klicka på **Skapa**.
 
 ## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a> Lägg till Azure-funktionsapp till befintligt API
@@ -111,14 +108,14 @@ Följ stegen nedan för att lägga till Azure-funktionsapp till befintligt API.
 
     ![Lägg till från funktionsapp](./media/import-function-app-as-api/append-04.png)
 
-## <a name="authorization"></a><a name="authorization"></a>Tillstånd
+## <a name="authorization"></a><a name="authorization"></a>Auktoriseringsregeln
 
 Import av en Azure-funktionsapp genererar automatiskt:
 
-* Värdnyckel i funktionsappen med namnet apim-{*ditt Azure API Management-tjänstinstansnamn*},
-* Namngivet värde i Azure API Management-instansen med namnet {*ditt Azure Function App-förekomstnamn*}-key, som innehåller den skapade värdnyckeln.
+* Värd nyckel i Funktionsapp med namnet APIM-{namnet på*din Azure API Management*-tjänstinstans},
+* Namngivet värde i Azure API Management-instansen med namnet {*ditt Azure Funktionsapp instance Name*}-Key, som innehåller den skapade värd nyckeln.
 
-För API:er som skapats efter den 4 april 2019 skickas värdnyckeln i HTTP-begäranden från API Management till funktionsappen i ett huvud. Äldre API:er skickar värdnyckeln som [en frågeparameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Detta kan ändras `PATCH Backend` via [REST API-anropet](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) på *serverdentiteten* som är associerad med funktionsappen.
+För API: er som skapats efter 4 april 2019, skickas värd nyckeln i HTTP-begäranden från API Management till Funktionsapp i en rubrik. Äldre API: er skickar värd nyckeln som [en frågeparameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Det här beteendet kan ändras via `PATCH Backend` [REST API-anropet](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) på den *Server dels* enhet som är associerad med Funktionsapp.
 
 > [!WARNING]
 > Om du tar bort eller ändrar värdet för antingen värdnyckeln för Azure-funktionsappen eller det namngivna Azure API Management-värdet bryts kommunikationen mellan tjänsterna. Värdena synkroniseras inte automatiskt.
@@ -143,7 +140,7 @@ För API:er som skapats efter den 4 april 2019 skickas värdnyckeln i HTTP-begä
 
 ![Lägg till från funktionsapp](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-the-new-api-in-the-azure-portal"></a><a name="test-in-azure-portal"></a>Testa det nya API:et i Azure-portalen
+## <a name="test-the-new-api-in-the-azure-portal"></a><a name="test-in-azure-portal"></a>Testa det nya API: et i Azure Portal
 
 Du kan anropa åtgärder direkt från Azure-portalen. Azure-portalen är ett praktiskt sätt att visa och testa åtgärderna i ett API.  
 
@@ -153,7 +150,7 @@ Du kan anropa åtgärder direkt från Azure-portalen. Azure-portalen är ett pra
 
 3. Välj en åtgärd.
 
-    Sidan visar fält för frågeparametrar och fält för sidhuvudena. Ett av rubrikerna är **Ocp-Apim-Subscription-Key**för prenumerationsnyckeln för produkten som är associerad med det här API:et. Om du skapade API Management-instansen är du redan administratör, vilket innebär att nyckeln fylls i automatiskt. 
+    Sidan visar fält för frågeparametrar och fält för sidhuvudena. En av rubrikerna är **OCP-APIM-Subscription-Key**för prenumerations nyckeln för den produkt som är associerad med detta API. Om du skapade API Management-instansen är du redan administratör, vilket innebär att nyckeln fylls i automatiskt. 
 
 4. Välj **Skicka**.
 

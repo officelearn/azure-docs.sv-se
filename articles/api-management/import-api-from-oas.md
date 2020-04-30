@@ -10,21 +10,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 57803ec9889cb6a19dae6d6d1070d8381577aff0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2e4dee74eb0c50e8e12d3f9ff0dccdd83271ea65
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77468396"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82202934"
 ---
 # <a name="import-an-openapi-specification"></a>Importera en OpenAPI-specifikation
 
 I den här artikeln visas hur du importerar en OpenAPI-specifikation för serverdels-API som finns på https://conferenceapi.azurewebsites.net?format=json. Detta serverdels-API tillhandahålls av Microsoft och finns i Azure. Artikeln beskriver också hur du testar APIM-API.
-
-> [!IMPORTANT]
-> Det här [dokumentet](https://azure.microsoft.com/blog/announcing-the-preview-of-openapi-specification-v3-support-in-azure-api-management/) innehåller viktig information och tips om OpenAPI-import.
 
 I den här artikeln kan du se hur du:
 
@@ -41,41 +38,15 @@ Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-start
 
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importera och publicera ett serverdels-API
 
-1. Välj **API: er** under **API-HANTERING**.
+1. Gå till din API Management-tjänst i Azure Portal och välj **API: er** på menyn.
 2. Välj **OpenAPI-specifikation** i listan **Lägg till ett nytt API**.
 
     ![OpenAPI-specifikation](./media/import-api-from-oas/oas-api.png)
-3. Ange lämpliga inställningar. Du kan ange alla API-värden när du skapar specifikationen. Du kan också ange en del värden senare på fliken **Inställningar**. <br/> Om du trycker på **Tabb** fylls några (eller alla) fält i med information från den angivna serverdelstjänsten.
-
-    ![Skapa ett API](./media/api-management-get-started/create-api.png)
-
-    |Inställning|Värde|Beskrivning|
-    |---|---|---|
-    |**OpenAPI-specifikation**|https://conferenceapi.azurewebsites.net?format=json|Refererar till tjänsten som implementerar API:et. API-hanteringen vidarebefordrar begäranden till den här adressen.|
-    |**Visningsnamn**|*Demokonferens-API*|Om du trycker på fliken när du har angett tjänstens URL fyller APIM i det här fältet baserat på vad som finns i JSON. <br/>Det här namnet visas i Developer-portalen.|
-    |**Namn**|*demo-conference-api*|Tillhandahåller ett unikt namn för API:et. <br/>Om du trycker på fliken när du har angett tjänstens URL fyller APIM i det här fältet baserat på vad som finns i JSON.|
-    |**Beskrivning**|Ange en valfri beskrivning av API: et.|Om du trycker på fliken när du har angett tjänstens URL fyller APIM i det här fältet baserat på vad som finns i JSON.|
-    |**API URL-suffix**|*konferens*|Suffixet läggs till i API-hanteringstjänstens bas-URL. API Management skiljer API:erna åt med hjälp av deras suffix, och suffixet måste därför vara unikt för alla API:er för en viss utgivare.|
-    |**URL-schema**|*HTTPS*|Fastställer vilka protokoll som kan användas för att få åtkomst till API:et. |
-    |**Produkter**|*Unlimited*| Du kan publicera API:et genom att associera det med en produkt. Om du vill lägga till det nya API:et till en produkt anger du produktnamnet. Det här steget kan du upprepa flera gånger för om du ska lägga till API:et till flera produkter.<br/>Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. Utvecklare måste först prenumerera på en produkt för att få åtkomst till API:n. När de prenumererar få de en prenumerationsnyckel som går att använda till alla API:er i produkten. Om du har skapat APIM-instansen är du redan administratör, så du prenumererar på alla produkter som standard.<br/> Som standard medföljer två exempelprodukter varje API Management-instans: **Starter** och **Unlimited**. |
-
+3. Ange API-inställningar. Du kan ange värden när du skapar eller konfigurerar dem senare genom att gå till fliken **Inställningar** . Inställningarna beskrivs i själv studie kursen [Importera och publicera din första API](import-and-publish.md#-import-and-publish-a-backend-api) .
 4. Välj **Skapa**.
 
 > [!NOTE]
-> Api-importbegränsningarna dokumenteras i [en annan artikel](api-management-api-import-restrictions.md).
-
-## <a name="test-the-new-api-in-the-azure-portal"></a>Testa det nya API:et i Azure-portalen
-
-![Testa API-karta](./media/api-management-get-started/01-import-first-api-01.png)
-
-Du kan anropa åtgärder direkt från Azure Portal, vilket är ett enkelt sätt att visa och testa åtgärderna i ett API.
-
-1. Välj det API som du skapade i föregående steg (från fliken **API:er**).
-2. Tryck på fliken **Test**.
-3. Klicka på **GetSpeakers**. På sidan visas fälten för frågeparametrar (inga i det här fallet) och huvuden. Ett av huvudena är Ocp-Apim-prenumeration-Key, för prenumerationsnyckeln till den produkt som är associerad med det här API:et. Nyckeln fylls i automatiskt.
-4. Tryck på **Skicka**.
-
-    Serverdelen svarar med **200 OK** och några data.
+> Begränsningar för API-import finns dokumenterade i [en annan artikel](api-management-api-import-restrictions.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

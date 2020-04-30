@@ -1,7 +1,7 @@
 ---
-title: Träna och driftsätta modeller från CLI
+title: Träna och distribuera modeller från CLI
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder maskininlärningstillägget för Azure CLI för att träna, registrera och distribuera en modell från kommandoraden.
+description: Lär dig hur du använder Machine Learning-tillägget för Azure CLI för att träna, registrera och distribuera en modell från kommando raden.
 ms.author: larryfr
 author: Blackmist
 services: machine-learning
@@ -10,84 +10,84 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: 1cafc311c842cd5bc17fefe34eacbdfc99b7147a
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "81617730"
 ---
-# <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Självstudiekurs: Träna och distribuera en modell från CLI
+# <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Självstudie: träna och distribuera en modell från CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här självstudien använder du maskininlärningstillägget för Azure CLI för att träna, registrera och distribuera en modell.
+I den här självstudien använder du Machine Learning-tillägget för Azure CLI för att träna, registrera och distribuera en modell.
 
-Python-utbildningsskripten i den här självstudien använder [scikit-learn](https://scikit-learn.org/) för att träna en grundläggande modell. Fokus för den här självstudien är inte på skripten eller modellen, utan processen att använda CLI för att arbeta med Azure Machine Learning.
+I den här självstudien för python [-utbildning används scikit – lär dig](https://scikit-learn.org/) att träna en grundläggande modell. Den här självstudien fokuserar inte på skripten eller modellen, men processen för att använda CLI för att arbeta med Azure Machine Learning.
 
 Läs hur du vidtar följande åtgärder:
 
 > [!div class="checklist"]
-> * Installera maskininlärningstillägget
+> * Installera Machine Learning-tillägget
 > * Skapa en Azure Machine Learning-arbetsyta
-> * Skapa beräkningsresursen som används för att träna modellen
-> * Definiera och registrera den datauppsättning som används för att träna modellen
-> * Starta en träningsrunda
-> * Registrera och ladda ner en modell
-> * Distribuera modellen som en webbtjänst
-> * Poängdata med hjälp av webbtjänsten
+> * Skapa den beräknings resurs som används för att träna modellen
+> * Definiera och registrera den data uppsättning som används för att träna modellen
+> * Starta en tränings körning
+> * Registrera och ladda ned en modell
+> * Distribuera modellen som en webb tjänst
+> * Poäng data med hjälp av webb tjänsten
 
 ## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * Om du vill använda CLI-kommandona i det här dokumentet från din **lokala miljö**behöver du [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-    Om du använder [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/)nås CLI via webbläsaren och finns i molnet.
+    Om du använder [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/)kan CLI nås via webbläsaren och finns i molnet.
 
-## <a name="download-the-example-project"></a>Ladda ner exempelprojektet
+## <a name="download-the-example-project"></a>Ladda ned exempel projektet
 
-Ladda ned projektet [https://github.com/microsoft/MLOps](https://github.com/microsoft/MLOps) för den här självstudien. Filerna i `examples/cli-train-deploy` katalogen används av stegen i den här självstudien.
+I den här självstudien [https://github.com/microsoft/MLOps](https://github.com/microsoft/MLOps) hämtar du projektet. Filerna i `examples/cli-train-deploy` katalogen används av stegen i den här självstudien.
 
-Om du vill hämta en lokal kopia av filerna hämtar du antingen [ett ZIP-arkiv](https://github.com/microsoft/MLOps/archive/master.zip)eller använder följande Git-kommando för att klona databasen:
+Hämta en lokal kopia av filerna genom att antingen [Hämta ett. zip-arkiv](https://github.com/microsoft/MLOps/archive/master.zip)eller använda följande git-kommando för att klona lagrings platsen:
 
 ```azurecli-interactive
 git clone https://github.com/microsoft/MLOps.git
 ```
 
-### <a name="training-files"></a>Utbildningsfiler
+### <a name="training-files"></a>Träna filer
 
-Katalogen `examples/cli-train-deploy` från projektet innehåller följande filer, som används när du tränar en modell:
+`examples/cli-train-deploy` Katalogen från projektet innehåller följande filer, som används när du tränar en modell:
 
-* `.azureml\mnist.runconfig`: En __körningskonfigurationsfil.__ Den här filen definierar den körningsmiljö som behövs för att träna modellen. I det här exemplet monteras också de data som används för att träna modellen i träningsmiljön.
-* `scripts\train.py`: Utbildningsmanuset. Den här filen tränar modellen.
-* `scripts\utils.py`: En hjälpfil som används av utbildningsskriptet.
-* `.azureml\conda_dependencies.yml`: Definierar de programvaruberoenden som behövs för att köra utbildningsskriptet.
-* `dataset.json`: Datauppsättningsdefinitionen. Används för att registrera MNIST-datauppsättningen på arbetsytan Azure Machine Learning.
+* `.azureml\mnist.runconfig`: En __körnings konfigurations__ fil. Den här filen definierar den körnings miljö som behövs för att träna modellen. I det här exemplet monteras även de data som används för att träna modellen i tränings miljön.
+* `scripts\train.py`: Övnings skriptet. Den här filen tränar modellen.
+* `scripts\utils.py`: En hjälp fil som används av övnings skriptet.
+* `.azureml\conda_dependencies.yml`: Definierar de program beroenden som krävs för att köra utbildnings skriptet.
+* `dataset.json`: Data uppsättnings definitionen. Används för att registrera MNIST-datauppsättningen på arbets ytan Azure Machine Learning.
 
-### <a name="deployment-files"></a>Distributionsfiler
+### <a name="deployment-files"></a>Distributions filer
 
-Databasen innehåller följande filer som används för att distribuera den tränade modellen som en webbtjänst:
+Databasen innehåller följande filer, som används för att distribuera den utbildade modellen som en webb tjänst:
 
-* `aciDeploymentConfig.yml`: En __distributionskonfigurationsfil.__ Den här filen definierar den värdmiljö som behövs för modellen.
-* `inferenceConfig.json`: En __slutledning konfigurationsfil.__ Den här filen definierar den programvarumiljö som används av tjänsten för att poängsätta data med modellen.
-* `score.py`: Ett pythonskript som accepterar inkommande data, gör poäng med hjälp av modellen och returnerar sedan ett svar.
-* `scoring-env.yml`: Conda-beroenden som behövs `score.py` för att köra modellen och skriptet.
-* `testdata.json`: En datafil som kan användas för att testa den distribuerade webbtjänsten.
+* `aciDeploymentConfig.yml`: En __distributions konfigurations__ fil. Den här filen definierar den värd miljö som behövs för modellen.
+* `inferenceConfig.json`: En __konfigurations__ fil för härledning. Den här filen definierar den program miljö som används av tjänsten för att räkna data med modellen.
+* `score.py`: Ett Python-skript som accepterar inkommande data, visar det med modellen och returnerar sedan ett svar.
+* `scoring-env.yml`: De Conda-beroenden som krävs för att `score.py` köra modellen och skriptet.
+* `testdata.json`: En datafil som kan användas för att testa den distribuerade webb tjänsten.
 
 ## <a name="connect-to-your-azure-subscription"></a>Ansluta till din Azure-prenumeration
 
-Det finns flera sätt som du kan autentisera till din Azure-prenumeration från CLI. Det mest grundläggande är att interaktivt autentisera med hjälp av en webbläsare. Om du vill autentisera interaktivt öppnar du en kommandorad eller terminal och använder följande kommando:
+Det finns flera sätt som du kan autentisera till din Azure-prenumeration från CLI. Den mest grundläggande är att interaktivt autentisera med hjälp av en webbläsare. För att autentisera interaktivt, öppna en kommando rad eller Terminal och Använd följande kommando:
 
 ```azurecli-interactive
 az login
 ```
 
-Om CLI kan öppna din standardwebbläsare så sker det och en inloggningssida läses in. Annars måste du öppna en webbläsare och följa instruktionerna på kommandoraden. Instruktionerna innebär att du [https://aka.ms/devicelogin](https://aka.ms/devicelogin) surfar på och anger en auktoriseringskod.
+Om CLI kan öppna din standardwebbläsare så sker det och en inloggningssida läses in. Annars måste du öppna en webbläsare och följa anvisningarna på kommando raden. Anvisningarna omfattar att bläddra till [https://aka.ms/devicelogin](https://aka.ms/devicelogin) och ange en auktoriseringskod.
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-## <a name="install-the-machine-learning-extension"></a>Installera maskininlärningstillägget
+## <a name="install-the-machine-learning-extension"></a>Installera Machine Learning-tillägget
 
-Så här installerar du maskininlärningstillägget:
+Om du vill installera Machine Learning-tillägget använder du följande kommando:
 
 ```azurecli-interactive
 az extension add -n azure-cli-ml
@@ -101,12 +101,12 @@ az extension update -n azure-cli-ml
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En resursgrupp är en grundläggande behållare med resurser på Azure-plattformen. När du arbetar med Azure Machine Learning innehåller resursgruppen din Azure Machine Learning-arbetsyta. Den innehåller även andra Azure-tjänster som används av arbetsytan. Om du till exempel tränar din modell med hjälp av en molnbaserad beräkningsresurs skapas resursen i resursgruppen.
+En resurs grupp är en grundläggande behållare för resurser på Azure-plattformen. När du arbetar med Azure Machine Learning kommer resurs gruppen att innehålla arbets ytan Azure Machine Learning. Den kommer också att innehålla andra Azure-tjänster som används av arbets ytan. Om du till exempel tränar din modell med en molnbaserad beräknings resurs skapas den resursen i resurs gruppen.
 
-Om du vill __skapa en ny resursgrupp__använder du följande kommando. Ersätt `<resource-group-name>` med namnet som ska användas för den här resursgruppen. Ersätt `<location>` med Azure-regionen som ska användas för den här resursgruppen:
+Använd följande kommando för att __skapa en ny resurs grupp__. Ersätt `<resource-group-name>` med det namn som ska användas för den här resurs gruppen. Ersätt `<location>` med den Azure-region som ska användas för den här resurs gruppen:
 
 > [!TIP]
-> Du bör välja en region där Azure Machine Learning är tillgängligt. Mer information finns i [Produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
+> Välj en region där Azure Machine Learning är tillgänglig. Mer information finns i [produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
 
 ```azurecli-interactive
 az group create --name <resource-group-name> --location <location>
@@ -128,17 +128,17 @@ Svaret från det här kommandot liknar följande JSON:
 }
 ```
 
-Mer information om hur du arbetar med resursgrupper finns i [az group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest).
+Mer information om hur du arbetar med resurs grupper finns i [AZ Group](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest).
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
-Om du vill skapa en ny arbetsyta använder du följande kommando. Ersätt `<workspace-name>` med det namn som du vill använda för den här arbetsytan. Ersätt `<resource-group-name>` med namnet på resursgruppen:
+Använd följande kommando för att skapa en ny arbets yta. Ersätt `<workspace-name>` med det namn som du vill använda för den här arbets ytan. Ersätt `<resource-group-name>` med namnet på resurs gruppen:
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
 
-Utdata för det här kommandot liknar följande JSON:
+Utdata från det här kommandot liknar följande JSON:
 
 ```json
 {
@@ -161,16 +161,16 @@ Utdata för det här kommandot liknar följande JSON:
 }
 ```
 
-## <a name="connect-local-project-to-workspace"></a>Ansluta lokalt projekt till arbetsytan
+## <a name="connect-local-project-to-workspace"></a>Anslut det lokala projektet till arbets ytan
 
-Från en terminal eller kommandotolk använder du följande `cli-train-deploy` kommandon som ändrar kataloger till katalogen och ansluter sedan till arbetsytan:
+Använd följande kommandon i en terminal-eller kommando tolk för att ändra kataloger till `cli-train-deploy` katalogen och Anslut sedan till din arbets yta:
 
 ```azurecli-interactive
 cd ~/MLOps/examples/cli-train-deploy
 az ml folder attach -w <workspace-name> -g <resource-group-name>
 ```
 
-Utdata för det här kommandot liknar följande JSON:
+Utdata från det här kommandot liknar följande JSON:
 
 ```json
 {
@@ -182,17 +182,17 @@ Utdata för det här kommandot liknar följande JSON:
 }
 ```
 
-Det här kommandot `.azureml/config.json` skapar en fil som innehåller information som behövs för att ansluta till arbetsytan. Resten av `az ml` kommandona som används i den här självstudien använder den här filen, så du behöver inte lägga till arbetsytan och resursgruppen i alla kommandon.
+Det här kommandot skapar `.azureml/config.json` en fil som innehåller information som behövs för att ansluta till din arbets yta. Resten av `az ml` kommandona som används i den här självstudien kommer att använda den här filen, så du behöver inte lägga till arbets ytan och resurs gruppen i alla kommandon.
 
-## <a name="create-the-compute-target-for-training"></a>Skapa beräkningsmålet för träning
+## <a name="create-the-compute-target-for-training"></a>Skapa Compute-målet för utbildning
 
-I det här exemplet används ett Azure Machine Learning Compute-kluster för att träna modellen. Om du vill skapa ett nytt beräkningskluster använder du följande kommando:
+I det här exemplet används ett Azure Machine Learning beräknings kluster för att träna modellen. Använd följande kommando för att skapa ett nytt beräknings kluster:
 
 ```azurecli-interactive
 az ml computetarget create amlcompute -n cpu-cluster --max-nodes 4 --vm-size Standard_D2_V2
 ```
 
-Utdata för det här kommandot liknar följande JSON:
+Utdata från det här kommandot liknar följande JSON:
 
 ```json
 {
@@ -203,22 +203,22 @@ Utdata för det här kommandot liknar följande JSON:
 }
 ```
 
-Det här kommandot skapar ett `cpu-cluster`nytt beräkningsmål med namnet , med högst fyra noder. Den valda VM-storleken ger en virtuell dator en GPU-resurs. Information om storleken på den virtuella datorn finns i [VM-typer och storlekar].
+Det här kommandot skapar ett nytt beräknings mål `cpu-cluster`med namnet, med högst fyra noder. Den VM-storlek som valts tillhandahåller en virtuell dator med en GPU-resurs. Information om storleken på den virtuella datorn finns i [VM-typer och storlekar].
 
 > [!IMPORTANT]
-> Namnet på beräkningsmålet`cpu-cluster` ( i det här fallet), är viktigt; Den refereras av `.azureml/mnist.runconfig` filen som används i nästa avsnitt.
+> Namnet på beräknings målet (`cpu-cluster` i det här fallet) är viktigt. den refereras till av den `.azureml/mnist.runconfig` fil som används i nästa avsnitt.
 
-## <a name="define-the-dataset"></a>Definiera datauppsättningen
+## <a name="define-the-dataset"></a>Definiera data uppsättningen
 
-Om du vill träna en modell kan du tillhandahålla träningsdata med hjälp av en datauppsättning. Om du vill skapa en datauppsättning från CLI måste du ange en datauppsättningsdefinitionsfil. Filen `dataset.json` som finns i repo skapar en ny datauppsättning med hjälp av MNIST-data. Den datauppsättning som skapas `mnist-dataset`heter .
+För att träna en modell kan du ange utbildnings data med hjälp av en data uppsättning. Om du vill skapa en data uppsättning från CLI måste du ange en definitions fil för data uppsättning. `dataset.json` Filen som anges i lagrings platsen skapar en ny data uppsättning med hjälp av MNIST-data. Den data uppsättning som skapas har `mnist-dataset`namnet.
 
-Om du vill registrera `dataset.json` datauppsättningen med hjälp av filen använder du följande kommando:
+Om du vill registrera data uppsättningen `dataset.json` med hjälp av filen använder du följande kommando:
 
 ```azurecli-interactive
 az ml dataset register -f dataset.json --skip-validation
 ```
 
-Utdata för det här kommandot liknar följande JSON:
+Utdata från det här kommandot liknar följande JSON:
 
 ```json
 {
@@ -245,17 +245,17 @@ Utdata för det här kommandot liknar följande JSON:
 ```
 
 > [!IMPORTANT]
-> Kopiera värdet för `id` transaktionen, som det används i nästa avsnitt.
+> Kopiera värdet för `id` posten, som det används i nästa avsnitt.
 
-Om du vill se en mer omfattande mall för en datauppsättning använder du följande kommando:
+Om du vill se en mer omfattande mall för en data uppsättning använder du följande kommando:
 
 ```azurecli-interactive
 az ml dataset register --show-template
 ```
 
-## <a name="reference-the-dataset"></a>Referera till datauppsättningen
+## <a name="reference-the-dataset"></a>Referera till data uppsättningen
 
-Om du vill göra datauppsättningen tillgänglig i träningsmiljön måste du referera till den från runconfig-filen. Filen `.azureml/mnist.runconfig` innehåller följande YAML-poster:
+Om du vill göra data uppsättningen tillgänglig i tränings miljön måste du referera till den från runconfig-filen. `.azureml/mnist.runconfig` Filen innehåller följande yaml-poster:
 
 ```yaml
 # The arguments to the script file.
@@ -288,46 +288,46 @@ data:
     overwrite: false
 ```
 
-Ändra värdet för `id` transaktionen så att det matchar det värde som returnerades när du registrerade datauppsättningen. Det här värdet används för att läsa in data i beräkningsmålet under träningen.
+Ändra värdet för `id` posten så att den matchar det värde som returneras när du registrerade data uppsättningen. Det här värdet används för att läsa in data till beräknings målet under träningen.
 
-Detta YAML resulterar i följande åtgärder under utbildningen:
+Den här YAML resulterar i följande åtgärder under utbildningen:
 
-* Monterar datauppsättningen (baserat på datauppsättningens ID) i träningsmiljön och lagrar sökvägen `mnist` till monteringspunkten i miljövariabeln.
-* Skickar platsen för data (monteringspunkt) i träningsmiljön `--data-folder` till skriptet med argumentet.
+* Monterar data uppsättningen (baserat på data uppsättningens ID) i tränings miljön och lagrar sökvägen till monterings punkten i `mnist` miljö variabeln.
+* Överför platsen för data (monterings punkten) i övnings miljön till skriptet med hjälp av `--data-folder` argumentet.
 
-Runconfig-filen innehåller också information som används för att konfigurera miljön som används av träningskörningen. Om du granskar den här filen ser du `cpu-compute` att den refererar till beräkningsmålet som du skapade tidigare. Den visar också antalet noder som`"nodeCount": "4"`ska användas vid `"condaDependencies"` utbildning ( ), och innehåller ett avsnitt som listar Python-paket som behövs för att köra utbildningsskriptet.
+Runconfig-filen innehåller också information som används för att konfigurera den miljö som används av tränings körningen. Om du inspekterar den här filen ser du att den refererar till `cpu-compute` det beräknings mål som du skapade tidigare. Det visar också antalet noder som ska användas när Training (`"nodeCount": "4"`), och innehåller ett `"condaDependencies"` avsnitt som visar de python-paket som krävs för att köra övnings skriptet.
 
 > [!TIP]
-> Det är möjligt att manuellt skapa en runconfig-fil, men `generate-runconfig.py` den i det här exemplet skapades med hjälp av filen som ingår i databasen. Den här filen hämtar en referens till den registrerade datauppsättningen, skapar en körning konfidiens programatiskt och beständig den sedan för att filen ska arkiveras.
+> Även om det är möjligt att skapa en runconfig-fil manuellt, skapades den i det här exemplet med `generate-runconfig.py` den fil som ingår i lagrings platsen. Den här filen hämtar en referens till den registrerade data uppsättningen, skapar en körnings konfigurations program mässigt och sparar den sedan i filen.
 
-Mer information om körningskonfigurationsfiler finns i [Konfigurera och använda beräkningsmål för modellutbildning](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). En komplett JSON-referens finns i [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
+Mer information om att köra konfigurationsfiler finns i [Konfigurera och använda Compute-mål för modell träning](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). En fullständig JSON-referens finns i [runconfigschema. JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
 
-## <a name="submit-the-training-run"></a>Skicka in utbildningskörningen
+## <a name="submit-the-training-run"></a>Skicka in utbildnings körningen
 
-Om du vill starta `cpu-cluster` en träningskörning på beräkningsmålet använder du följande kommando:
+Om du vill starta en utbildning som `cpu-cluster` körs på beräknings målet använder du följande kommando:
 
 ```azurecli-interactive
 az ml run submit-script -c mnist -e myexperiment --source-directory scripts -t runoutput.json
 ```
 
-Det här kommandot anger ett`myexperiment`namn för experimentet ( ). Experimentet lagrar information om den här körningen på arbetsytan.
+Det här kommandot anger ett namn på experimentet`myexperiment`(). Experimentet lagrar information om den här körningen på arbets ytan.
 
-Parametern `-c mnist` anger `.azureml/mnist.runconfig` filen.
+`-c mnist` Parametern anger `.azureml/mnist.runconfig` filen.
 
-Parametern `-t` lagrar en referens till den här körningen i en JSON-fil och kommer att användas i nästa steg för att registrera och hämta modellen.
+`-t` Parametern lagrar en referens till den här körningen i en JSON-fil och kommer att användas i nästa steg för att registrera och ladda ned modellen.
 
-När utbildningskörningen bearbetas strömmar den information från träningspasset på fjärrberäkningsresursen. En del av informationen liknar följande text:
+När inlärnings körnings processen strömmar den information från utbildningen på fjärrdatorns beräknings resurs. En del av informationen liknar följande text:
 
 ```output
 Predict the test set
 Accuracy is 0.9185
 ```
 
-Den här texten loggas från träningsskriptet och visar modellens noggrannhet. Andra modeller kommer att ha olika prestandamått.
+Den här texten loggas från övnings skriptet och visar modellens precision. Andra modeller kommer att ha olika prestanda mått.
 
-Om du inspekterar utbildningsskriptet kommer du att märka att det också `outputs/sklearn_mnist_model.pkl`använder alfavärdet när den lagrar den tränade modellen till .
+Om du inspekterar övnings skriptet ser du att det också använder alfa värdet när den tränade modellen lagras `outputs/sklearn_mnist_model.pkl`.
 
-Modellen sparades i `./outputs` katalogen på beräkningsmålet där den tränades. I det här fallet Azure Machine Learning Compute-instansen i Azure-molnet. Utbildningsprocessen överför automatiskt innehållet i `./outputs` katalogen från beräkningsmålet där utbildning sker på din Azure Machine Learning-arbetsyta. Den lagras som en del`myexperiment` av experimentet (i det här exemplet).
+Modellen sparades i `./outputs` katalogen på det Compute-mål där den tränades. I det här fallet är Azure Machine Learning beräknings instansen i Azure-molnet. Inlärnings processen laddar automatiskt upp innehållet i `./outputs` katalogen från beräknings målet där träning sker till din Azure Machine Learning-arbetsyta. Den lagras som en del av experimentet (`myexperiment` i det här exemplet).
 
 ## <a name="register-the-model"></a>Registrera modellen
 
@@ -337,9 +337,9 @@ Om du vill registrera modellen direkt från den lagrade versionen i experimentet
 az ml model register -n mymodel -f runoutput.json --asset-path "outputs/sklearn_mnist_model.pkl" -t registeredmodel.json
 ```
 
-Det här kommandot `outputs/sklearn_mnist_model.pkl` registrerar filen som skapats av `mymodel`utbildningskörningen som en ny modellregistrering med namnet . Referenserna `--assets-path` till en sökväg i ett experiment. I det här fallet läses experiment- `runoutput.json` och körningsinformationen in från filen som skapats av träningskommandot. Skapar `-t registeredmodel.json` en JSON-fil som refererar till den nya registrerade modellen som skapats av det här kommandot och som används av andra CLI-kommandon som fungerar med registrerade modeller.
+Det här kommandot registrerar `outputs/sklearn_mnist_model.pkl` filen som skapades av träningen och körs som en ny modell `mymodel`registrering med namnet. Refererar `--assets-path` till en sökväg i ett experiment. I det här fallet läses experiment-och körnings informationen in från `runoutput.json` den fil som skapats av övnings kommandot. `-t registeredmodel.json` Skapar en JSON-fil som refererar till den nya registrerade modellen som skapats av det här kommandot och används av andra CLI-kommandon som fungerar med registrerade modeller.
 
-Utdata för det här kommandot liknar följande JSON:
+Utdata från det här kommandot liknar följande JSON:
 
 ```json
 {
@@ -357,40 +357,40 @@ Utdata för det här kommandot liknar följande JSON:
 }
 ```
 
-### <a name="model-versioning"></a>Versionshantering av modell
+### <a name="model-versioning"></a>Modell version
 
-Observera att versionsnumret returneras för modellen. Versionen ökas varje gång du registrerar en ny modell med det här namnet. Du kan till exempel hämta modellen och registrera den från en lokal fil med hjälp av följande kommandon:
+Notera det versions nummer som returnerades för modellen. Versionen ökas varje gången du registrerar en ny modell med det här namnet. Du kan till exempel Ladda ned modellen och registrera den från en lokal fil med hjälp av följande kommandon:
 
 ```azurecli-interactive
 az ml model download -i "mymodel:1" -t .
 az ml model register -n mymodel -p "sklearn_mnist_model.pkl"
 ```
 
-Det första kommandot hämtar den registrerade modellen till den aktuella katalogen. Filnamnet är `sklearn_mnist_model.pkl`, vilket är den fil som refererades när du registrerade modellen. Det andra kommandot registrerar den`-p "sklearn_mnist_model.pkl"`lokala modellen ( ) med`mymodel`samma namn som den tidigare registreringen ( ). Den här gången visar JSON-data som returneras versionen som 2.
+Det första kommandot laddar ned den registrerade modellen till den aktuella katalogen. Fil namnet är `sklearn_mnist_model.pkl`, som är den fil som refereras när du registrerade modellen. Det andra kommandot registrerar den lokala modellen (`-p "sklearn_mnist_model.pkl"`) med samma namn som den tidigare registreringen (`mymodel`). Den här gången visar de JSON-data som returnerade versionen som 2.
 
 ## <a name="deploy-the-model"></a>Distribuera modellen
 
-Om du vill distribuera en modell använder du följande kommando:
+Använd följande kommando för att distribuera en modell:
 
 ```azurecli-interactive
 az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.json --dc aciDeploymentConfig.yml
 ```
 
 > [!NOTE]
-> Du kan få en varning om "Det gick inte att kontrollera LocalWebservice-förekomsten" eller "Det gick inte att skapa Docker-klienten". Du kan ignorera detta på ett säkert sätt eftersom du inte distribuerar en lokal webbtjänst.
+> Du kan få en varning om att "Det gick inte att kontrol lera LocalWebservice-existens" eller "Det gick inte att skapa Docker-klienten". Du kan ignorera detta på ett säkert sätt eftersom du inte distribuerar en lokal webb tjänst.
 
-Det här kommandot distribuerar `myservice`en ny tjänst med namnet , med version 1 av modellen som du registrerade tidigare.
+Det här kommandot distribuerar en ny tjänst med `myservice`namnet, med version 1 av den modell som du registrerade tidigare.
 
-Filen `inferenceConfig.yml` innehåller information om hur du använder modellen för inferens. Den refererar till exempel till`score.py`inmatningsskriptet ( ) och programvaruberoenden.
+`inferenceConfig.yml` Filen innehåller information om hur du använder modellen för härledning. Den refererar exempelvis till Start-skriptet (`score.py`) och program beroenden.
 
-Mer information om filens struktur finns [i konfigurationsschemat för inferens](reference-azure-machine-learning-cli.md#inference-configuration-schema). Mer information om inmatningsskript finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
+Mer information om strukturen för den här filen finns i schemat för [konfiguration av energischemat](reference-azure-machine-learning-cli.md#inference-configuration-schema). Mer information om Entry-skript finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
 
-Beskriver `aciDeploymentConfig.yml` distributionsmiljön som används för att vara värd för tjänsten. Distributionskonfigurationen är specifik för den beräkningstyp som du använder för distributionen. I det här fallet används en Azure Container-instans. Mer information finns i [konfigurationsschemat för distribution.](reference-azure-machine-learning-cli.md#deployment-configuration-schema)
+`aciDeploymentConfig.yml` Beskriver distributions miljön som används som värd för tjänsten. Distributions konfigurationen är speciell för den beräknings typ som du använder för distributionen. I det här fallet används en Azure Container instance. Mer information finns i [konfigurations schema för distribution](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
-Det tar flera minuter innan distributionsprocessen är klar.
+Det tar flera minuter innan distributions processen har slutförts.
 
 > [!TIP]
-> I det här exemplet används Azure Container Instances. Distributioner till ACI skapar automatiskt den nödvändiga ACI-resursen. Om du i stället skulle distribuera till Azure Kubernetes Service måste du skapa ett `az ml model deploy` AKS-kluster i förväg och ange det som en del av kommandot. Ett exempel på distribution till AKS finns i [Distribuera en modell till ett Azure Kubernetes Service-kluster](how-to-deploy-azure-kubernetes-service.md).
+> I det här exemplet används Azure Container Instances. Distributioner till ACI skapar automatiskt den nödvändiga ACI-resursen. Om du i stället vill distribuera till Azure Kubernetes-tjänsten måste du skapa ett AKS-kluster i förväg och ange det som en del av `az ml model deploy` kommandot. Ett exempel på hur du distribuerar till AKS finns i [distribuera en modell till ett Azure Kubernetes service-kluster](how-to-deploy-azure-kubernetes-service.md).
 
 Efter flera minuter returneras information som liknar följande JSON:
 
@@ -407,21 +407,21 @@ ACI service creation operation finished, operation "Succeeded"
 }
 ```
 
-### <a name="the-scoring-uri"></a>Poängsättningen URI
+### <a name="the-scoring-uri"></a>Bedömnings-URI
 
-Den `scoringUri` returnerade från distributionen är REST-slutpunkten för en modell som distribueras som en webbtjänst. Du kan också hämta den här URI:n med följande kommando:
+Den `scoringUri` returnerade från distributionen är den REST-slutpunkt för en modell som distribueras som en webb tjänst. Du kan också få denna URI genom att använda följande kommando:
 
 ```azurecli-interactive
 az ml service show -n myservice
 ```
 
-Det här kommandot returnerar samma `scoringUri`JSON-dokument, inklusive .
+Det här kommandot returnerar samma JSON-dokument, inklusive `scoringUri`.
 
-REST-slutpunkten kan användas för att skicka data till tjänsten. Information om hur du skapar ett klientprogram som skickar data till tjänsten finns i [Använda en Azure Machine Learning-modell som distribueras som en webbtjänst](how-to-consume-web-service.md)
+REST-slutpunkten kan användas för att skicka data till tjänsten. Information om hur du skapar ett klient program som skickar data till tjänsten finns i [använda en Azure Machine Learning modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
 
 ### <a name="send-data-to-the-service"></a>Skicka data till tjänsten
 
-Du kan skapa ett klientprogram för att anropa slutpunkten, men machine learning CLI tillhandahåller ett verktyg som kan fungera som en testklient. Använd följande kommando för att `testdata.json` skicka data i filen till tjänsten:
+Även om du kan skapa ett klient program för att anropa slut punkten, innehåller Machine Learning CLI ett verktyg som kan fungera som en test klient. Använd följande kommando för att skicka data i `testdata.json` filen till tjänsten:
 
 ```azurecli-interactive
 az ml service run -n myservice -d @testdata.json
@@ -443,7 +443,7 @@ Svaret från kommandot liknar `[ 3 ]`.
 
 ### <a name="delete-deployed-service"></a>Ta bort distribuerad tjänst
 
-Om du planerar att fortsätta använda arbetsytan Azure Machine Learning, men vill bli av med den distribuerade tjänsten för att minska kostnaderna, använder du följande kommando:
+Om du planerar att fortsätta använda Azure Machine Learning arbets ytan, men vill ta bort den distribuerade tjänsten för att minska kostnaderna, använder du följande kommando:
 
 ```azurecli-interactive
 az ml service delete -n myservice
@@ -451,21 +451,21 @@ az ml service delete -n myservice
 
 Det här kommandot returnerar ett JSON-dokument som innehåller namnet på den borttagna tjänsten. Det kan ta flera minuter innan tjänsten tas bort.
 
-### <a name="delete-the-training-compute"></a>Ta bort träningsberäkningen
+### <a name="delete-the-training-compute"></a>Ta bort inlärnings beräkningen
 
-Om du planerar att fortsätta använda arbetsytan Azure Machine Learning, `cpu-cluster` men vill bli av med beräkningsmålet som skapats för utbildning, använder du följande kommando:
+Om du planerar att fortsätta använda Azure Machine Learning arbets ytan, men vill ta bort `cpu-cluster` beräknings målet som skapats för utbildning, använder du följande kommando:
 
 ```azurecli-interactive
 az ml computetarget delete -n cpu-cluster
 ```
 
-Det här kommandot returnerar ett JSON-dokument som innehåller ID för det borttagna beräkningsmålet. Det kan ta flera minuter innan beräkningsmålet har tagits bort.
+Det här kommandot returnerar ett JSON-dokument som innehåller ID: t för det borttagna beräknings målet. Det kan ta flera minuter innan Compute-målet har tagits bort.
 
 ### <a name="delete-everything"></a>Ta bort allt
 
-Om du inte planerar att använda de resurser du har skapat tar du bort dem så att du inte medför ytterligare avgifter.
+Om du inte planerar att använda de resurser som du har skapat tar du bort dem så att du inte debiteras ytterligare avgifter.
 
-Om du vill ta bort resursgruppen och alla Azure-resurser som skapats i det här dokumentet använder du följande kommando. Ersätt `<resource-group-name>` med namnet på resursgruppen som du skapade tidigare:
+Om du vill ta bort resurs gruppen och alla Azure-resurser som skapats i det här dokumentet, använder du följande kommando. Ersätt `<resource-group-name>` med namnet på den resurs grupp som du skapade tidigare:
 
 ```azurecli-interactive
 az group delete -g <resource-group-name> -y
@@ -473,16 +473,16 @@ az group delete -g <resource-group-name> -y
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här Azure Machine Learning-självstudien använde du MACHINE LEARNING CLI för följande uppgifter:
+I den här Azure Machine Learning självstudien använde du Machine Learning CLI för följande uppgifter:
 
 > [!div class="checklist"]
-> * Installera maskininlärningstillägget
+> * Installera Machine Learning-tillägget
 > * Skapa en Azure Machine Learning-arbetsyta
-> * Skapa beräkningsresursen som används för att träna modellen
-> * Definiera och registrera den datauppsättning som används för att träna modellen
-> * Starta en träningsrunda
-> * Registrera och ladda ner en modell
-> * Distribuera modellen som en webbtjänst
-> * Poängdata med hjälp av webbtjänsten
+> * Skapa den beräknings resurs som används för att träna modellen
+> * Definiera och registrera den data uppsättning som används för att träna modellen
+> * Starta en tränings körning
+> * Registrera och ladda ned en modell
+> * Distribuera modellen som en webb tjänst
+> * Poäng data med hjälp av webb tjänsten
 
-Mer information om hur du använder CLI finns i [Använda CLI-tillägget för Azure Machine Learning](reference-azure-machine-learning-cli.md).
+Mer information om hur du använder CLI finns i [Använd CLI-tillägget för Azure Machine Learning](reference-azure-machine-learning-cli.md).

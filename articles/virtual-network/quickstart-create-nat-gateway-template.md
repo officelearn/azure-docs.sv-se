@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Skapa en NAT-gateway - Resource Manager-mall'
+title: 'Snabb start: skapa en NAT-gateway – Resource Manager-mall'
 titleSuffix: Azure Virtual Network NAT
-description: Den här snabbstarten visar hur du skapar en NAT-gateway med hjälp av Azure Resource Manager-mallen.
+description: Den här snabb starten visar hur du skapar en NAT-gateway med hjälp av Azure Resource Manager-mallen.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -16,33 +16,33 @@ ms.date: 03/09/2020
 ms.author: allensu
 ms.custom: subject-armqs
 ms.openlocfilehash: 3850f3f22e730e46f6d278b6cef0e17d357b126d
-ms.sourcegitcommit: eefb0f30426a138366a9d405dacdb61330df65e7
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/17/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81618054"
 ---
-# <a name="quickstart-create-a-nat-gateway---resource-manager-template"></a>Snabbstart: Skapa en NAT-gateway - Resource Manager-mall
+# <a name="quickstart-create-a-nat-gateway---resource-manager-template"></a>Snabb start: skapa en NAT-gateway – Resource Manager-mall
 
-Kom igång med NAT för virtuellt nätverk med hjälp av en Azure Resource Manager-mall.  Den här mallen distribuerar ett virtuellt nätverk, en VIRTUELL NAT-gatewayresurs och Ubuntu virtuell dator. Den virtuella Ubuntu-datorn distribueras till ett undernät som är associerat med NAT-gatewayresursen.
+Kom igång med Virtual Network NAT genom att använda en Azure Resource Manager-mall.  Den här mallen distribuerar ett virtuellt nätverk, en NAT-gateway-resurs och en virtuell Ubuntu-dator. Den virtuella Ubuntu-datorn distribueras till ett undernät som är associerat med NAT gateway-resursen.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-## <a name="create-a-nat-gateway-and-supporting-resources"></a>Skapa en NAT-gateway och stödresurser
+## <a name="create-a-nat-gateway-and-supporting-resources"></a>Skapa en NAT-gateway och stöd resurser
 
-Den här mallen är konfigurerad för att skapa en 
+Den här mallen har kon figurer ATS för att skapa en 
 
 * Virtuellt nätverk 
-* NAT-gatewayresurs
-* Ubuntu virtuell maskin
+* NAT-gateway-resurs
+* Ubuntu virtuell dator
 
-Ubuntu-datorn distribueras till ett undernät som är associerat med NAT-gatewayresursen.
+Den virtuella Ubuntu-datorn distribueras till ett undernät som är associerat med NAT gateway-resursen.
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabbstarten kommer från [Azure Quickstart-mallar](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-nat-gateway-1-vm/azuredeploy.json)
+Mallen som används i den här snabb starten är från [Azure snabb starts mallar](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-nat-gateway-1-vm/azuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json" range="1-335" highlight="256-282":::
 
@@ -50,25 +50,25 @@ Nio Azure-resurser definieras i mallen:
 
 **Microsoft.Network**
 
-* **[Microsoft.Network/natGateways](https://docs.microsoft.com/azure/templates/microsoft.network/natgateways)**: Skapar en NAT-gatewayresurs.
+* **[Microsoft. Network/natGateways](https://docs.microsoft.com/azure/templates/microsoft.network/natgateways)**: skapar en NAT-gateway-resurs.
 
-* **[Microsoft.Network/networkSecurityGroups](https://docs.microsoft.com/azure/templates/microsoft.network/networksecuritygroups)**: Skapar en nätverkssäkerhetsgrupp.
+* **[Microsoft. Network/networkSecurityGroups](https://docs.microsoft.com/azure/templates/microsoft.network/networksecuritygroups)**: skapar en nätverks säkerhets grupp.
 
-    * **[Microsoft.Network/networkSecurityGroups/securityRules](https://docs.microsoft.com/azure/templates/microsoft.network/networksecuritygroups/securityrules)**: Skapar en säkerhetsregel.
+    * **[Microsoft. Network/networkSecurityGroups/securityRules](https://docs.microsoft.com/azure/templates/microsoft.network/networksecuritygroups/securityrules)**: skapar en säkerhets regel.
 
-* **[Microsoft.Network/publicIPAdresser :](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)** Skapar en offentlig IP-adress.
+* **[Microsoft. Network/publicIPAddresses](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)**: skapar en offentlig IP-adress.
 
-* **[Microsoft.Network/publicIPPrefixes](https://docs.microsoft.com/azure/templates/microsoft.network/publicipprefixes)**: Skapar ett offentligt IP-prefix.
+* **[Microsoft. Network/publicIPPrefixes](https://docs.microsoft.com/azure/templates/microsoft.network/publicipprefixes)**: skapar ett offentligt IP-prefix.
 
-* **[Microsoft.Network/virtualNetworks](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)**: Skapar ett virtuellt nätverk.
+* **[Microsoft. Network/virtualNetworks](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)**: skapar ett virtuellt nätverk.
 
-    * **[Microsoft.Network/virtualNetworks/undernät](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks/subnets)**: Skapar ett virtuellt nätverksundernät.
+    * **[Microsoft. Network/virtualNetworks/subnets](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks/subnets)**: skapar ett undernät för virtuellt nätverk.
 
-* **[Microsoft.Network/networkinterfaces](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)**: Skapar ett nätverksgränssnitt.
+* **[Microsoft. Network/NetworkInterfaces](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)**: skapar ett nätverks gränssnitt.
 
 **Microsoft.Compute**
 
-* **[Microsoft.Compute/virtualMachines](https://docs.microsoft.com/azure/templates/Microsoft.Compute/virtualMachines)**: Skapar en virtuell dator.
+* **[Microsoft. Compute/virtualMachines](https://docs.microsoft.com/azure/templates/Microsoft.Compute/virtualMachines)**: skapar en virtuell dator.
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -108,19 +108,19 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Välj **Resursgrupper** i den vänstra rutan.
+2. Välj **resurs grupper** i det vänstra fönstret.
 
-3. Markera den resursgrupp som du skapade i föregående avsnitt. Standardnamn för resursgrupp är **myResourceGroupNAT**
+3. Välj den resurs grupp som du skapade i föregående avsnitt. Standard resurs grupps namnet är **myResourceGroupNAT**
 
-4. Kontrollera att följande resurser har skapats i resursgruppen:
+4. Kontrol lera att följande resurser har skapats i resurs gruppen:
 
-    ![NAT-resursgrupp för virtuellt nätverk](./media/quick-create-template/nat-gateway-template-rg.png)
+    ![Virtual Network NAT-resurs grupp](./media/quick-create-template/nat-gateway-template-rg.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 **Azure CLI**
 
-När det inte längre behövs kan du använda kommandot [az-gruppborttagning](/cli/azure/group#az-group-delete) för att ta bort resursgruppen och alla resurser som finns i.
+När de inte längre behövs kan du använda kommandot [AZ Group Delete](/cli/azure/group#az-group-delete) för att ta bort resurs gruppen och alla resurser som ingår i.
 
 ```azurecli-interactive 
   az group delete \
@@ -129,7 +129,7 @@ När det inte längre behövs kan du använda kommandot [az-gruppborttagning](/c
 
 **Azure PowerShell**
 
-När det inte längre behövs kan du använda kommandot [Ta bort AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=latest) för att ta bort resursgruppen och alla resurser som finns i.
+När de inte längre behövs kan du använda kommandot [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=latest) för att ta bort resurs gruppen och alla resurser som ingår i.
 
 ```azurepowershell-interactive 
 Remove-AzResourceGroup -Name myResourceGroupNAT
@@ -137,20 +137,20 @@ Remove-AzResourceGroup -Name myResourceGroupNAT
 
 **Azure Portal**
 
-När det inte längre behövs tar du bort resursgruppen, NAT-gatewayen och alla relaterade resurser. Markera resursgruppen **myResourceGroupNAT** som innehåller NAT-gatewayen och välj sedan **Ta bort**.
+Ta bort resurs gruppen, NAT-gatewayen och alla relaterade resurser när de inte längre behövs. Välj den resurs grupp **myResourceGroupNAT** som innehåller NAT-gatewayen och välj sedan **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du en:
+I den här snabb starten skapade du en:
 
-* NAT-gatewayresurs
+* NAT-gateway-resurs
 * Virtuellt nätverk
-* Ubuntu virtuell maskin
+* Ubuntu virtuell dator
 
-Den virtuella datorn distribueras till ett virtuellt nätverksundernät som är associerat med NAT-gatewayen. 
+Den virtuella datorn distribueras till ett virtuellt nätverks under nät som är associerat med NAT-gatewayen. 
 
-Om du vill veta mer om NAT och Azure Resource Manager fortsätter du till artiklarna nedan.
+Om du vill veta mer om Virtual Network NAT och Azure Resource Manager fortsätter du till artiklarna nedan.
 
-* Läs en [översikt över NAT för virtuellt nätverk](nat-overview.md)
-* Läs om [NAT Gateway-resursen](nat-gateway-resource.md)
+* Läs en [Översikt över Virtual Network NAT](nat-overview.md)
+* Läs om [NAT-gatewayens resurs](nat-gateway-resource.md)
 * Läs mer om [Azure Resource Manager](../azure-resource-manager/management/overview.md)

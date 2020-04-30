@@ -12,29 +12,29 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
 ms.openlocfilehash: b254621cc414fb9b2b76263957adc80da6e9c22d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79214011"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Azure Resource Manager-mallar för Azure SQL Database
 
 Med Azure Resource Manager-mallar kan du definiera din infrastruktur som kod och distribuera lösningar till Azure-molnet.
 
-## <a name="single-database--elastic-pool"></a>[En enda databas & elastisk pool](#tab/single-database)
+## <a name="single-database--elastic-pool"></a>[Enkel databas & elastisk pool](#tab/single-database)
 
 Följande tabell innehåller länkar till Azure Resource Manager-mallar för Azure SQL Database.
 
 | |  |
 |---|---|
-| [Enskild databas](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | Den här Azure Resource Manager-mallen skapar en enkel Azure SQL-databas med en logisk server och konfigurerar brandväggsregler. |
+| [Enkel databas](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | Den här Azure Resource Manager-mallen skapar en enkel Azure SQL-databas med en logisk server och konfigurerar brandväggsregler. |
 | [Logisk server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Den här Azure Resource Manager-mallen skapar en logisk server för Azure SQL Database. |
 | [Elastisk pool](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | Med den här mallen kan du distribuera en ny elastisk pool med dess nya tillhörande SQL Server och nya SQL-databaser som den ska tilldelas. |
 | [Redundansgrupper](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Den här mallen skapar två logiska Azure SQL-servrar, en SQL-databas och en redundansgrupp.|
-| [Identifiering av hot](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | Med den här mallen kan du distribuera en logisk Azure SQL-server och en uppsättning Azure SQL-databaser med Hotidentifiering aktiverat, med en e-postadress för aviseringar för varje databas. Hotidentifiering är en del av erbjudandet för SQL Advanced Threat Protection (ATP). Det tillhandahåller ett säkerhetslager som reagerar på potentiella hot över SQL-servrar och databaser.|
+| [Hot identifiering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | Med den här mallen kan du distribuera en logisk Azure SQL-server och en uppsättning Azure SQL-databaser med Hotidentifiering aktiverat, med en e-postadress för aviseringar för varje databas. Hotidentifiering är en del av erbjudandet för SQL Advanced Threat Protection (ATP). Det tillhandahåller ett säkerhetslager som reagerar på potentiella hot över SQL-servrar och databaser.|
 | [Granskning för Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | Med den här mallen kan du distribuera en logisk Azure SQL-server med granskning aktiverat för att skriva granskningsloggar till en bloblagring. Granskning för Azure SQL Database spårar databashändelser och skriver dem till en granskningslogg som kan placeras i ditt Azure Storage-konto, på din OMS-arbetsyta eller i Event Hubs.|
-| [Granskning till Azure-händelsehubb](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Med den här mallen kan du distribuera en Azure SQL-server med granskning aktiverat för att skriva granskningsloggar till en befintlig händelsehubb. För att skicka granskningshändelser till Event Hub `Enabled` `State` anger `IsAzureMonitorTargetEnabled` `true`du granskningsinställningar med och anger som . Konfigurera även diagnostikinställningar `SQLSecurityAuditEvents` med loggkategori i `master` databasen (för granskning på servernivå). Granskning för Azure SQL Database och SQL Data Warehouse spårar databashändelser och skriver dem till en granskningslogg som kan placeras i ditt Azure Storage-konto, på din OMS-arbetsyta eller i Event Hubs.|
+| [Granskning till Azure-händelsehubb](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Med den här mallen kan du distribuera en Azure SQL-server med granskning aktiverat för att skriva granskningsloggar till en befintlig händelsehubb. För att kunna skicka gransknings händelser till händelsehubben anger du gransknings inställningar med `Enabled` `State` och ange `IsAzureMonitorTargetEnabled` som `true`. Konfigurera också diagnostikinställningar med `SQLSecurityAuditEvents` logg kategori i `master` databasen (för granskning på betjänande nivå). Granskning för Azure SQL Database och SQL Data Warehouse spårar databashändelser och skriver dem till en granskningslogg som kan placeras i ditt Azure Storage-konto, på din OMS-arbetsyta eller i Event Hubs.|
 | [Azure-webbapp med SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database) | Det här exemplet skapar en kostnadsfri Azure-webbapp och en SQL-databas på tjänstnivån ”Basic” (Grundläggande).|
 | [Azure-webbapp och Redis Cache med SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) | Den här mallen skapar en webbapp, Redis Cache och SQL-databas i samma resursgrupp och skapar två anslutningssträngar i webbappen för SQL-databasen och Redis Cache.|
 | [Importera data från bloblagring med hjälp av ADF V2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-v2-blob-to-sql-copy) | Den här Azure Resource Manager-mallen skapar Azure Data Factory V2 som kopierar data från Azure Blob Storage till SQL Database.|
